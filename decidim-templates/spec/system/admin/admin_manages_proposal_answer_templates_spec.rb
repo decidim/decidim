@@ -193,7 +193,7 @@ describe "Admin manages proposal answer templates" do
       end
 
       it "hides the template selector in the proposal answer page" do
-        expect(page).not_to have_select(:proposal_answer_template_chooser)
+        expect(page).to have_no_select(:proposal_answer_template_chooser)
       end
     end
 
@@ -212,7 +212,7 @@ describe "Admin manages proposal answer templates" do
 
       it "hides templates scoped for other components" do
         expect(proposal.reload.internal_state).to eq("not_answered")
-        expect(page).not_to have_select(:proposal_answer_template_chooser, with_options: [translated(other_component_template.name)])
+        expect(page).to have_no_select(:proposal_answer_template_chooser, with_options: [translated(other_component_template.name)])
       end
     end
 

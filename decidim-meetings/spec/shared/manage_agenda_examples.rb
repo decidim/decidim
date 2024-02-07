@@ -28,8 +28,8 @@ shared_examples "manage agenda" do
 
       visit_agenda_form
 
-      expect(page).to have_selector("input[value='My edited agenda']")
-      expect(page).to have_selector("input[value='My edited agenda item']")
+      expect(page).to have_css("input[value='My edited agenda']")
+      expect(page).to have_css("input[value='My edited agenda item']")
     end
   end
 
@@ -55,7 +55,7 @@ shared_examples "manage agenda" do
 
         2.times { click_button "Add agenda item" }
 
-        expect(page).to have_selector(".meeting-agenda-item", count: 2)
+        expect(page).to have_css(".meeting-agenda-item", count: 2)
 
         page.all(".meeting-agenda-item").each_with_index do |agenda_item, idx|
           within agenda_item do
@@ -71,9 +71,9 @@ shared_examples "manage agenda" do
 
       visit_agenda_form
 
-      expect(page).to have_selector("input[value='My agenda']")
-      expect(page).to have_selector("input[value='This is the first agenda item']")
-      expect(page).to have_selector("input[value='This is the second agenda item']")
+      expect(page).to have_css("input[value='My agenda']")
+      expect(page).to have_css("input[value='This is the first agenda item']")
+      expect(page).to have_css("input[value='This is the second agenda item']")
     end
   end
 

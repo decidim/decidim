@@ -97,7 +97,7 @@ shared_examples "manage conference speakers examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#conference_speakers table" do
-        expect(page).not_to have_content(conference_speaker.full_name)
+        expect(page).to have_no_content(conference_speaker.full_name)
       end
     end
   end

@@ -18,7 +18,7 @@ describe "Assembly admin accesses admin sections" do
       expect(page).to have_content("Attachments")
       expect(page).to have_content("Members")
       expect(page).to have_content("Assembly admins")
-      expect(page).not_to have_content("Private users")
+      expect(page).to have_no_content("Private users")
       expect(page).to have_content("Moderations")
     end
   end

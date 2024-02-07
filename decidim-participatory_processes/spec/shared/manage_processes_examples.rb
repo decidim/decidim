@@ -19,7 +19,7 @@ shared_examples "manage processes examples" do
       filter_by_group(translated(process_group.title))
 
       expect(page).to have_content(translated(process_with_group.title))
-      expect(page).not_to have_content(translated(process_without_group.title))
+      expect(page).to have_no_content(translated(process_without_group.title))
     end
 
     describe "listing processes" do
@@ -115,7 +115,7 @@ shared_examples "manage processes examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "[data-content]" do
-        expect(page).to have_selector("input[value='My new title']")
+        expect(page).to have_css("input[value='My new title']")
         expect(page).to have_css("img[src*='#{image3_filename}']")
       end
     end
@@ -178,7 +178,7 @@ shared_examples "manage processes examples" do
 
     it "does not let the admin manage processes form other organizations" do
       within "table" do
-        expect(page).not_to have_content(external_participatory_process.title["en"])
+        expect(page).to have_no_content(external_participatory_process.title["en"])
       end
     end
   end
@@ -201,7 +201,7 @@ shared_examples "manage processes examples" do
 
       uncheck :participatory_process_scopes_enabled
 
-      expect(page).to have_selector("#participatory_process_scope_id[disabled]")
+      expect(page).to have_css("#participatory_process_scope_id[disabled]")
 
       within ".edit_participatory_process" do
         find("*[type=submit]").click

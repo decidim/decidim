@@ -77,7 +77,7 @@ shared_examples "manage assembly admins examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#assembly_admins table" do
-        expect(page).not_to have_content(other_user.email)
+        expect(page).to have_no_content(other_user.email)
       end
     end
 

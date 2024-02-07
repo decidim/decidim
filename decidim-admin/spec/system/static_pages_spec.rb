@@ -141,7 +141,7 @@ describe "Content pages" do
 
         expect(page).to have_admin_callout("successfully")
 
-        expect(page).not_to have_css(".table-scroll")
+        expect(page).to have_no_css(".table-scroll")
       end
     end
   end
@@ -249,7 +249,7 @@ describe "Content pages" do
         expect(page).to have_admin_callout("successfully")
 
         within "table" do
-          expect(page).not_to have_content(translated(decidim_page.title))
+          expect(page).to have_no_content(translated(decidim_page.title))
         end
       end
 

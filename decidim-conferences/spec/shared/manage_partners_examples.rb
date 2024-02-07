@@ -73,7 +73,7 @@ shared_examples "manage partners examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#partners table" do
-        expect(page).not_to have_content(conference_partner.name)
+        expect(page).to have_no_content(conference_partner.name)
       end
     end
   end

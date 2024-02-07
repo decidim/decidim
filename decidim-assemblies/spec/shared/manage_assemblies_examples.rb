@@ -39,7 +39,7 @@ shared_examples "manage assemblies" do
       expect(page).to have_admin_callout("successfully")
 
       within "[data-content]" do
-        expect(page).to have_selector("input[value='My new title']")
+        expect(page).to have_css("input[value='My new title']")
         expect(page).to have_css("img[src*='#{image3_filename}']")
         expect(page).to have_field(:assembly_creation_date_date, with: Date.yesterday.strftime("%d/%m/%Y").to_s)
         expect(page).to have_field(:assembly_included_at_date, with: Date.current.strftime("%d/%m/%Y").to_s)
@@ -157,7 +157,7 @@ shared_examples "manage assemblies" do
 
     it "does not let the admin manage assemblies form other organizations" do
       within "table" do
-        expect(page).not_to have_content(external_assembly.title["en"])
+        expect(page).to have_no_content(external_assembly.title["en"])
       end
     end
   end
@@ -174,7 +174,7 @@ shared_examples "manage assemblies" do
 
       uncheck :assembly_scopes_enabled
 
-      expect(page).to have_selector("select#assembly_scope_id[disabled]")
+      expect(page).to have_css("select#assembly_scope_id[disabled]")
 
       within ".edit_assembly" do
         find("*[type=submit]").click

@@ -30,7 +30,7 @@ describe "Sorting projects" do
     before do
       visit_budget
       within ".order-by" do
-        expect(page).to have_selector("div.order-by a", text: "Random order")
+        expect(page).to have_css("div.order-by a", text: "Random order")
         page.find("a", text: "Random order").click
         click_link(selected_option)
       end
@@ -38,12 +38,12 @@ describe "Sorting projects" do
 
     it "lists the projects ordered by selected option" do
       within "#projects div.collection-sort-controls" do
-        expect(page).not_to have_selector("a.underline.font-bold", text: "Random order")
-        expect(page).to have_selector("a.underline.font-bold", text: selected_option)
+        expect(page).to have_no_css("a.underline.font-bold", text: "Random order")
+        expect(page).to have_css("a.underline.font-bold", text: selected_option)
       end
 
-      expect(page).to have_selector("#projects .budget-list .project-item:first-child", text: translated(first_project.title))
-      expect(page).to have_selector("#projects .budget-list .project-item:last-child", text: translated(last_project.title))
+      expect(page).to have_css("#projects .budget-list .project-item:first-child", text: translated(first_project.title))
+      expect(page).to have_css("#projects .budget-list .project-item:last-child", text: translated(last_project.title))
     end
   end
 
@@ -86,11 +86,11 @@ describe "Sorting projects" do
         visit_budget
 
         within "#projects div.collection-sort-controls" do
-          expect(page).to have_selector("a.underline.font-bold", text: "Most voted")
+          expect(page).to have_css("a.underline.font-bold", text: "Most voted")
         end
 
-        expect(page).to have_selector("#projects .budget-list .project-item:first-child", text: translated(project2.title))
-        expect(page).to have_selector("#projects .budget-list .project-item:last-child", text: translated(project1.title))
+        expect(page).to have_css("#projects .budget-list .project-item:first-child", text: translated(project2.title))
+        expect(page).to have_css("#projects .budget-list .project-item:last-child", text: translated(project1.title))
       end
 
       it "automatically sorts by votes and respect the pagination" do
@@ -99,12 +99,12 @@ describe "Sorting projects" do
         visit_budget
 
         within "#projects div.order-by" do
-          expect(page).to have_selector("a.underline.font-bold", text: "Most voted")
+          expect(page).to have_css("a.underline.font-bold", text: "Most voted")
         end
 
         # project2 on first page
         expect(page).to have_content(translated(project2.title))
-        expect(page).not_to have_content(translated(project1.title))
+        expect(page).to have_no_content(translated(project1.title))
 
         within "#projects [data-pagination]" do
           expect(page).to have_content("2")
@@ -112,7 +112,7 @@ describe "Sorting projects" do
         end
 
         # project1 on second page
-        expect(page).not_to have_content(translated(project2.title))
+        expect(page).to have_no_content(translated(project2.title))
         expect(page).to have_content(translated(project1.title))
       end
     end

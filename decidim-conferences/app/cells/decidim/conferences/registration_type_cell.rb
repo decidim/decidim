@@ -18,7 +18,7 @@ module Decidim
       delegate :current_user, to: :controller, prefix: false
 
       def title
-        decidim_sanitize translated_attribute model.title
+        decidim_sanitize_translated(model.title)
       end
 
       def description

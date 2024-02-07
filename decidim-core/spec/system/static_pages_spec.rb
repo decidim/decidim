@@ -66,7 +66,7 @@ describe "Static pages" do
         it "disables iframe" do
           visit decidim.page_path(video_page)
           expect(page).to have_content("You need to enable all cookies in order to see this content")
-          expect(page).not_to have_selector("iframe")
+          expect(page).to have_no_selector("iframe")
         end
       end
 
@@ -80,7 +80,7 @@ describe "Static pages" do
 
         it "shows iframe" do
           visit decidim.page_path(video_page)
-          expect(page).not_to have_content("You need to enable all cookies in order to see this content")
+          expect(page).to have_no_content("You need to enable all cookies in order to see this content")
           expect(page).to have_selector("iframe", count: 1)
         end
       end

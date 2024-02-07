@@ -37,9 +37,9 @@ describe "Admin export initiatives' signature" do
 
       it "does not show these columns in the PDF" do
         within all(".initiatives-votes-table")[1] do
-          expect(page).not_to have_content "Name and surname"
-          expect(page).not_to have_content "Document number"
-          expect(page).not_to have_content "Date of birth"
+          expect(page).to have_no_content "Name and surname"
+          expect(page).to have_no_content "Document number"
+          expect(page).to have_no_content "Date of birth"
         end
       end
     end

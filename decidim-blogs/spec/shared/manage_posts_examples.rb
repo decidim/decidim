@@ -89,7 +89,7 @@ shared_examples "manage posts" do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).not_to have_content(translated(post1.title))
+        expect(page).to have_no_content(translated(post1.title))
         expect(page).to have_content(translated(post2.title))
       end
     end
