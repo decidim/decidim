@@ -48,7 +48,7 @@ describe "User edits a debate" do
       expect(page).to have_content("Add your comments on whether Decidim is useful for every organization.")
       expect(page).to have_content(translated(scope.name))
       expect(page).to have_content(translated(category.name))
-      expect(page).to have_selector("[data-author]", text: user.name)
+      expect(page).to have_css("[data-author]", text: user.name)
     end
 
     context "when editing as a user group" do
@@ -82,7 +82,7 @@ describe "User edits a debate" do
         expect(page).to have_content("Add your comment on whether Decidim is useful for every organization.")
         expect(page).to have_content(translated(scope.name))
         expect(page).to have_content(translated(category.name))
-        expect(page).to have_selector("[data-author]", text: user_group.name)
+        expect(page).to have_css("[data-author]", text: user_group.name)
       end
     end
   end

@@ -23,7 +23,7 @@ describe "User group verification status on account page" do
       end
 
       expect(page).to have_content(user_group.name)
-      expect(page).not_to have_css("div.profile__user-avatar-badge")
+      expect(page).to have_no_css("div.profile__user-avatar-badge")
     end
 
     describe "#verified?" do
@@ -44,7 +44,7 @@ describe "User group verification status on account page" do
       end
 
       expect(page).to have_content(user_group.name)
-      expect(page).not_to have_css("div.profile__user-avatar-badge")
+      expect(page).to have_no_css("div.profile__user-avatar-badge")
     end
   end
 

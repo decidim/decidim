@@ -31,8 +31,7 @@ RSpec.shared_examples "manage child results" do
       href = resource_locator(child_result).path
       target = "blank"
 
-      expect(page).to have_selector(
-        :xpath,
+      expect(page).to have_xpath(
         "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
       )
     end
@@ -67,7 +66,7 @@ RSpec.shared_examples "manage child results" do
 
     within "table" do
       expect(page).to have_content("My result")
-      expect(page).not_to have_selector(".action-icon--plus"), "results grandchildren creation is disallowed"
+      expect(page).not_to have_css(".action-icon--plus"), "results grandchildren creation is disallowed"
     end
   end
 
@@ -87,7 +86,7 @@ RSpec.shared_examples "manage child results" do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).not_to have_content(translated(child_result.title))
+        expect(page).to have_no_content(translated(child_result.title))
       end
     end
   end

@@ -19,7 +19,7 @@ describe "Admin checks logs" do
     expect(page).to have_content("Admin log")
 
     within ".logs.table" do
-      expect(page).to have_selector("div.logs__log", count: 3)
+      expect(page).to have_css("div.logs__log", count: 3)
     end
   end
 
@@ -62,7 +62,7 @@ describe "Admin checks logs" do
         end
 
         within ".logs.table" do
-          expect(page).to have_selector("div.logs__log", count: 1)
+          expect(page).to have_css("div.logs__log", count: 1)
         end
       end
     end
@@ -84,7 +84,7 @@ describe "Admin checks logs" do
         end
 
         within ".logs.table" do
-          expect(page).to have_selector("div.logs__log", count: 2)
+          expect(page).to have_css("div.logs__log", count: 2)
         end
       end
 
@@ -96,7 +96,7 @@ describe "Admin checks logs" do
         end
 
         within ".logs.table" do
-          expect(page).to have_selector("div.logs__log", count: 2)
+          expect(page).to have_css("div.logs__log", count: 2)
         end
       end
 
@@ -110,7 +110,7 @@ describe "Admin checks logs" do
         end
 
         within ".logs.table" do
-          expect(page).to have_selector("div.logs__log", count: 2)
+          expect(page).to have_css("div.logs__log", count: 2)
         end
       end
     end
@@ -134,7 +134,7 @@ describe "Admin checks logs" do
         end
 
         within ".logs.table" do
-          expect(page).to have_selector("div.logs__log", count: 1)
+          expect(page).to have_css("div.logs__log", count: 1)
         end
 
         within ".filters__section" do
@@ -143,7 +143,7 @@ describe "Admin checks logs" do
         end
 
         within ".logs.table" do
-          expect(page).to have_selector("div.logs__log", count: 1)
+          expect(page).to have_css("div.logs__log", count: 1)
         end
       end
 
@@ -154,7 +154,7 @@ describe "Admin checks logs" do
         end
 
         within ".logs.table" do
-          expect(page).to have_selector("div.logs__log", count: 1)
+          expect(page).to have_css("div.logs__log", count: 1)
         end
       end
 
@@ -165,7 +165,7 @@ describe "Admin checks logs" do
         end
 
         within ".logs.table" do
-          expect(page).to have_selector("div.logs__log", count: 1)
+          expect(page).to have_css("div.logs__log", count: 1)
         end
       end
     end

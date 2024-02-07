@@ -49,13 +49,13 @@ describe "Profile" do
     end
 
     it "shows user name in the header, its nickname and a contact link" do
-      expect(page).to have_selector("h1", text: user.name)
+      expect(page).to have_css("h1", text: user.name)
       expect(page).to have_content(user.nickname)
       expect(page).to have_link("Message")
     end
 
     it "does not show officialization stuff" do
-      expect(page).not_to have_content("This participant is publicly verified")
+      expect(page).to have_no_content("This participant is publicly verified")
     end
 
     context "and user officialized the standard way" do
@@ -116,11 +116,11 @@ describe "Profile" do
         visit decidim.profile_path(user.nickname)
         click_link "Follows"
 
-        expect(page).not_to have_content("Some of the resources followed are not public.")
+        expect(page).to have_no_content("Some of the resources followed are not public.")
         expect(page).to have_content(translated(other_user.name))
         expect(page).to have_content(translated(user_to_follow.name))
         expect(page).to have_content(translated(user_group.name))
-        expect(page).not_to have_content(translated(public_resource.title))
+        expect(page).to have_no_content(translated(public_resource.title))
         expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
       end
 
@@ -142,8 +142,8 @@ describe "Profile" do
           expect(page).to have_content(translated(other_user.name))
           expect(page).to have_content(translated(user_to_follow.name))
           expect(page).to have_content(translated(user_group.name))
-          expect(page).not_to have_content(translated(public_resource.title))
-          expect(page).not_to have_content(translated(non_public_resource.name))
+          expect(page).to have_no_content(translated(public_resource.title))
+          expect(page).to have_no_content(translated(non_public_resource.name))
         end
       end
 
@@ -162,7 +162,7 @@ describe "Profile" do
           expect(page).to have_content(translated(other_user.name))
           expect(page).to have_content(translated(user_to_follow.name))
           expect(page).to have_content(translated(user_group.name))
-          expect(page).not_to have_content(translated(public_resource.title))
+          expect(page).to have_no_content(translated(public_resource.title))
         end
       end
 
@@ -178,7 +178,7 @@ describe "Profile" do
 
           click_link "Followers"
           expect(page).to have_content(translated(other_user.name))
-          expect(page).not_to have_content(translated(blocked_user.name))
+          expect(page).to have_no_content(translated(blocked_user.name))
         end
       end
     end
@@ -203,7 +203,7 @@ describe "Profile" do
         end
 
         it "shows a badges tab" do
-          expect(page).not_to have_link("Badges")
+          expect(page).to have_no_link("Badges")
         end
       end
     end
@@ -221,7 +221,7 @@ describe "Profile" do
         click_link "Groups"
 
         expect(page).to have_content(accepted_user_group.name)
-        expect(page).not_to have_content(pending_user_group.name)
+        expect(page).to have_no_content(pending_user_group.name)
         expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
       end
 
@@ -229,7 +229,7 @@ describe "Profile" do
         let(:organization) { create(:organization, user_groups_enabled: false) }
         let(:user) { create(:user, :confirmed, organization:) }
 
-        it { is_expected.not_to have_content("Groups") }
+        it { is_expected.to have_no_content("Groups") }
       end
     end
   end

@@ -29,11 +29,11 @@ describe "User group profile" do
     end
 
     it "does not have a link to conversations" do
-      expect(page).not_to have_css("a.profile__tab-item", text: "Conversations")
+      expect(page).to have_no_css("a.profile__tab-item", text: "Conversations")
     end
 
     it "shows user group name in the header and its nickname" do
-      expect(page).to have_selector("h1", text: user_group.name)
+      expect(page).to have_css("h1", text: user_group.name)
       expect(page).to have_content(user_group.nickname)
     end
 
@@ -65,7 +65,7 @@ describe "User group profile" do
         click_link "Members"
 
         expect(page).to have_content(user.name)
-        expect(page).not_to have_content(pending_user.name)
+        expect(page).to have_no_content(pending_user.name)
       end
     end
   end

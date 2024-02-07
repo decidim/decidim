@@ -22,13 +22,13 @@ describe "Admin checks metrics" do
 
   it "lists metrics" do
     expect(page).to have_content("Metrics")
-    expect(page).to have_selector(".areachart", count: 9)
+    expect(page).to have_css(".areachart", count: 9)
   end
 
   it "allows checking more metrics" do
     click_link "See more metrics"
 
     expect(page).to have_content("Metrics")
-    expect(page).to have_selector(".areachart", count: metric_manifests.count)
+    expect(page).to have_css(".areachart", count: metric_manifests.count)
   end
 end

@@ -35,7 +35,7 @@ describe Decidim::Log::ResourcePresenter, type: :helper do
     end
 
     it "does not link to its public page" do
-      expect(subject).not_to have_link(title)
+      expect(subject).to have_no_link(title)
       expect(subject).to include(h(title))
     end
   end
@@ -44,7 +44,7 @@ describe Decidim::Log::ResourcePresenter, type: :helper do
     it "does not link to its public page" do
       allow(presenter).to receive(:resource_path).and_return(nil)
 
-      expect(subject).not_to have_link(title)
+      expect(subject).to have_no_link(title)
       expect(subject).to include(h(title))
     end
   end
