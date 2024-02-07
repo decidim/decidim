@@ -254,8 +254,8 @@ describe "Admin manages questionnaire templates" do
       end
 
       within ".item_show__header" do
-        expect(page).not_to have_button("Preview")
-        expect(page).not_to have_button("No answers yet")
+        expect(page).to have_no_button("Preview")
+        expect(page).to have_no_button("No answers yet")
       end
     end
   end

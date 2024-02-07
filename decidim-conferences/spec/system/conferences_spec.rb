@@ -35,7 +35,7 @@ describe "Conferences" do
       visit decidim.root_path
 
       within "#home__menu" do
-        expect(page).not_to have_content("Conferences")
+        expect(page).to have_no_content("Conferences")
       end
     end
   end
@@ -65,7 +65,7 @@ describe "Conferences" do
         visit decidim.root_path
 
         within "#home__menu" do
-          expect(page).not_to have_content("Conferences")
+          expect(page).to have_no_content("Conferences")
         end
       end
     end
@@ -116,7 +116,7 @@ describe "Conferences" do
         expect(page).to have_content(translated(promoted_conference.title, locale: :en))
         expect(page).to have_css("[id^='conference']", count: 2)
 
-        expect(page).not_to have_content(translated(unpublished_conference.title, locale: :en))
+        expect(page).to have_no_content(translated(unpublished_conference.title, locale: :en))
       end
     end
 
@@ -162,7 +162,7 @@ describe "Conferences" do
         let!(:meetings) { create_list(:meeting, 3, :published, component: meetings_component) }
 
         it "does not show the venues" do
-          expect(page).not_to have_content("Conference Venues")
+          expect(page).to have_no_content("Conference Venues")
         end
       end
 
@@ -181,7 +181,7 @@ describe "Conferences" do
           let!(:meetings) { create_list(:meeting, 3, :moderated, :published, component: meetings_component) }
 
           it "does not show the venues" do
-            expect(page).not_to have_content("Conference Venues")
+            expect(page).to have_no_content("Conference Venues")
           end
         end
 
@@ -189,7 +189,7 @@ describe "Conferences" do
           let!(:meetings) { create_list(:meeting, 3, published_at: nil, component: meetings_component) }
 
           it "does not show the venues" do
-            expect(page).not_to have_content("Conference Venues")
+            expect(page).to have_no_content("Conference Venues")
           end
         end
 
@@ -197,7 +197,7 @@ describe "Conferences" do
           let!(:meetings) { create_list(:meeting, 3, :published, private_meeting: true, transparent: false, component: meetings_component) }
 
           it "does not show the venues" do
-            expect(page).not_to have_content("Conference Venues")
+            expect(page).to have_no_content("Conference Venues")
           end
         end
 
@@ -229,7 +229,7 @@ describe "Conferences" do
       it "shows the components" do
         within ".conference__nav" do
           expect(page).to have_content(decidim_escape_translated(proposals_component.name))
-          expect(page).not_to have_content(decidim_escape_translated(meetings_component.name))
+          expect(page).to have_no_content(decidim_escape_translated(meetings_component.name))
         end
       end
 
@@ -237,8 +237,8 @@ describe "Conferences" do
         within "[data-statistic]" do
           expect(page).to have_css(".statistic__title", text: "Proposals")
           expect(page).to have_css(".statistic__number", text: "3")
-          expect(page).not_to have_css(".statistic__title", text: "Meetings")
-          expect(page).not_to have_css(".statistic__number", text: "0")
+          expect(page).to have_no_css(".statistic__title", text: "Meetings")
+          expect(page).to have_no_css(".statistic__number", text: "0")
         end
       end
 
@@ -246,8 +246,8 @@ describe "Conferences" do
         let(:show_statistics) { false }
 
         it "does not render the stats for those components that are not visible" do
-          expect(page).not_to have_css(".statistic__title", text: "Proposals")
-          expect(page).not_to have_css(".statistic__number", text: "3")
+          expect(page).to have_no_css(".statistic__title", text: "Proposals")
+          expect(page).to have_no_css(".statistic__number", text: "3")
         end
       end
 

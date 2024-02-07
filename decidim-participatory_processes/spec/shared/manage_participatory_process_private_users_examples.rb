@@ -65,7 +65,7 @@ shared_examples "manage participatory process private users examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#private_users table" do
-        expect(page).not_to have_content(other_user.email)
+        expect(page).to have_no_content(other_user.email)
       end
     end
 

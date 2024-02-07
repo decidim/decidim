@@ -68,7 +68,7 @@ describe "Private Assemblies" do
           it "does not show the privacy warning in attachments admin" do
             visit decidim_admin_assemblies.assembly_attachments_path(private_assembly)
             within "#attachments" do
-              expect(page).not_to have_content("Any participant could share this document to others")
+              expect(page).to have_no_content("Any participant could share this document to others")
             end
           end
         end
@@ -93,7 +93,7 @@ describe "Private Assemblies" do
             expect(page).to have_content(translated(assembly.title, locale: :en))
             expect(page).to have_css(".card__grid", count: 1)
 
-            expect(page).not_to have_content(translated(private_assembly.title, locale: :en))
+            expect(page).to have_no_content(translated(private_assembly.title, locale: :en))
           end
         end
       end
@@ -115,7 +115,7 @@ describe "Private Assemblies" do
               expect(page).to have_content(translated(assembly.title, locale: :en))
               expect(page).to have_css(".card__grid", count: 1)
 
-              expect(page).not_to have_content(translated(private_assembly.title, locale: :en))
+              expect(page).to have_no_content(translated(private_assembly.title, locale: :en))
             end
           end
         end

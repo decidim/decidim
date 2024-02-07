@@ -38,7 +38,7 @@ describe "Sorting projects" do
 
     it "lists the projects ordered by selected option" do
       within "#projects div.collection-sort-controls" do
-        expect(page).not_to have_css("a.underline.font-bold", text: "Random order")
+        expect(page).to have_no_css("a.underline.font-bold", text: "Random order")
         expect(page).to have_css("a.underline.font-bold", text: selected_option)
       end
 
@@ -104,7 +104,7 @@ describe "Sorting projects" do
 
         # project2 on first page
         expect(page).to have_content(translated(project2.title))
-        expect(page).not_to have_content(translated(project1.title))
+        expect(page).to have_no_content(translated(project1.title))
 
         within "#projects [data-pagination]" do
           expect(page).to have_content("2")
@@ -112,7 +112,7 @@ describe "Sorting projects" do
         end
 
         # project1 on second page
-        expect(page).not_to have_content(translated(project2.title))
+        expect(page).to have_no_content(translated(project2.title))
         expect(page).to have_content(translated(project1.title))
       end
     end

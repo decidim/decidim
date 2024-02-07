@@ -212,7 +212,7 @@ shared_examples "manage conferences" do
 
     it "does not let the admin manage conferences form other organizations" do
       within "table" do
-        expect(page).not_to have_content(external_conference.title["en"])
+        expect(page).to have_no_content(external_conference.title["en"])
       end
     end
   end

@@ -23,7 +23,7 @@ shared_examples "manage results" do
       end
 
       it "does not display the proposal picker" do
-        expect(page).not_to have_content "Choose proposals"
+        expect(page).to have_no_content "Choose proposals"
       end
     end
   end
@@ -120,7 +120,7 @@ shared_examples "manage results" do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).not_to have_content(translated(result2.title))
+        expect(page).to have_no_content(translated(result2.title))
       end
     end
   end

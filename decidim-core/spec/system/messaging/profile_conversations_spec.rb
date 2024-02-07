@@ -37,7 +37,7 @@ describe "ProfileConversations" do
     end
 
     it "does not have a contact link" do
-      expect(page).not_to have_link(title: "Contact", href: decidim.new_conversation_path(recipient_id: profile.id))
+      expect(page).to have_no_link(title: "Contact", href: decidim.new_conversation_path(recipient_id: profile.id))
     end
   end
 
@@ -53,7 +53,7 @@ describe "ProfileConversations" do
     it "allows sending an initial message", :slow do
       start_conversation("Is this a Ryanair style democracy?")
       within "div.user-activity" do
-        expect(page).to have_css(".conversation__item-snippet-message", text: "Is this a Ryanair style democracy?")
+        expect(page).to have_selector(".conversation__item-snippet-message", text: "Is this a Ryanair style democracy?")
       end
     end
 
@@ -61,7 +61,7 @@ describe "ProfileConversations" do
       start_conversation("Is this a Ryanair style democracy?")
 
       visit decidim.new_profile_conversation_path(nickname: profile.nickname, recipient_id: recipient.id)
-      expect(page).to have_css("#messages .conversation__message:last-child", text: "Is this a Ryanair style democracy?")
+      expect(page).to have_selector("#messages .conversation__message:last-child", text: "Is this a Ryanair style democracy?")
     end
   end
 
@@ -73,7 +73,7 @@ describe "ProfileConversations" do
     end
 
     it "shows an empty conversation page" do
-      expect(page).not_to have_css(".conversation__item")
+      expect(page).to have_no_selector(".conversation__item")
       expect(page).to have_current_path decidim.new_profile_conversation_path(nickname: profile.nickname, recipient_id: recipient.id)
     end
 
@@ -84,7 +84,7 @@ describe "ProfileConversations" do
 
       context "and recipient does not follow user" do
         it "redirects user with access error" do
-          expect(page).not_to have_current_path decidim.new_profile_conversation_path(nickname: profile.nickname, recipient_id: recipient.id)
+          expect(page).to have_no_current_path decidim.new_profile_conversation_path(nickname: profile.nickname, recipient_id: recipient.id)
           expect(page).to have_content("You are not authorized to perform this action")
         end
 
@@ -99,7 +99,7 @@ describe "ProfileConversations" do
 
           it "shows the existing conversation" do
             visit decidim.profile_conversation_path(nickname: profile.nickname, id: conversation.id)
-            expect(page).to have_css("#messages .conversation__message:last-child", text: "Is this a Ryanair style democracy?")
+            expect(page).to have_selector("#messages .conversation__message:last-child", text: "Is this a Ryanair style democracy?")
           end
         end
       end
@@ -133,9 +133,9 @@ describe "ProfileConversations" do
       end
 
       it "shows profile's conversation list" do
-        expect(page).to have_css(".conversation__item", text: /#{interlocutor.name}/i)
-        expect(page).to have_css(".conversation__item", text: "who wants apples?")
-        expect(page).to have_css(".conversation__item", text: "less than a minute")
+        expect(page).to have_selector(".conversation__item", text: /#{interlocutor.name}/i)
+        expect(page).to have_selector(".conversation__item", text: "who wants apples?")
+        expect(page).to have_selector(".conversation__item", text: "less than a minute")
       end
 
       it "allows entering a conversation" do
@@ -174,15 +174,15 @@ describe "ProfileConversations" do
       end
 
       it "shows the topbar button as active" do
-        expect(page).to have_css("li.profile__tab.is-active a", text: "Conversations")
+        expect(page).to have_selector("li.profile__tab.is-active a", text: "Conversations")
       end
 
       it "shows the topbar button the number of unread messages" do
-        expect(page).to have_css("li.profile__tab.is-active .conversation__item-unread", text: "2")
+        expect(page).to have_selector("li.profile__tab.is-active .conversation__item-unread", text: "2")
       end
 
       it "shows the number of unread messages per conversation" do
-        expect(page).to have_css(".conversation__item .conversation__item-unread", text: "2")
+        expect(page).to have_selector(".conversation__item .conversation__item-unread", text: "2")
       end
     end
 
@@ -202,7 +202,7 @@ describe "ProfileConversations" do
       end
 
       it "shows the topbar button the number of unread messages" do
-        expect(page).to have_css("li.profile__tab.is-active .conversation__item-unread", text: "3")
+        expect(page).to have_selector("li.profile__tab.is-active .conversation__item-unread", text: "3")
       end
     end
 
@@ -213,18 +213,18 @@ describe "ProfileConversations" do
       end
 
       it "does not show the topbar button the number of unread messages" do
-        expect(page).not_to have_css("li.profile__tab.is-active .conversation__item-unread")
+        expect(page).to have_no_selector("li.profile__tab.is-active .conversation__item-unread")
       end
 
       it "does not show an unread count" do
-        expect(page).to have_css(".conversation__item .conversation__item-unread")
+        expect(page).to have_selector(".conversation__item .conversation__item-unread")
         expect(page.find(".conversation__item .conversation__item-unread").text).to be_blank
       end
 
       it "conversation page does not show the number of unread messages" do
         visit_inbox
 
-        expect(page).not_to have_css(".user-groups .card--list__author .card--list__counter")
+        expect(page).to have_no_selector(".user-groups .card--list__author .card--list__counter")
       end
     end
 
@@ -239,19 +239,19 @@ describe "ProfileConversations" do
 
       it "appears as the last message", :slow do
         click_button "Send"
-        expect(page).to have_css("#messages .conversation__message:last-child", text: "Please reply!")
+        expect(page).to have_selector("#messages .conversation__message:last-child", text: "Please reply!")
       end
 
       context "and interlocutor sees it" do
         before do
           click_button "Send"
-          expect(page).to have_css("#messages .conversation__message:last-child", text: "Please reply!")
+          expect(page).to have_selector("#messages .conversation__message:last-child", text: "Please reply!")
           relogin_as interlocutor, scope: :user
           visit decidim.conversations_path
         end
 
         it "appears as unread", :slow do
-          expect(page).to have_css(".conversation__item-unread", text: "2")
+          expect(page).to have_selector(".conversation__item-unread", text: "2")
         end
 
         it "appears as read after it is seen", :slow do
@@ -259,7 +259,7 @@ describe "ProfileConversations" do
           expect(page).to have_content("Please reply!")
 
           visit decidim.conversations_path
-          expect(page).to have_css(".conversation__item .conversation__item-unread")
+          expect(page).to have_selector(".conversation__item .conversation__item-unread")
           expect(page.find(".conversation__item .conversation__item-unread").text).to be_blank
         end
       end
@@ -280,7 +280,7 @@ describe "ProfileConversations" do
         end
 
         it "does not show the sending form" do
-          expect(page).not_to have_css("textarea#message_body")
+          expect(page).to have_no_selector("textarea#message_body")
         end
       end
 
@@ -297,7 +297,7 @@ describe "ProfileConversations" do
 
         it "appears as the last message", :slow do
           click_button "Send"
-          expect(page).to have_css(".conversation__message:last-child", text: "Please reply!")
+          expect(page).to have_selector(".conversation__message:last-child", text: "Please reply!")
         end
       end
     end
@@ -311,7 +311,7 @@ describe "ProfileConversations" do
           expect(page).to have_content("New conversation")
           click_button "New conversation"
           find_by_id("add_conversation_users").fill_in with: "@#{interlocutor2.nickname}"
-          expect(page).to have_css("#autoComplete_list_1 li.disabled", wait: 2)
+          expect(page).to have_selector("#autoComplete_list_1 li.disabled", wait: 2)
         end
       end
 

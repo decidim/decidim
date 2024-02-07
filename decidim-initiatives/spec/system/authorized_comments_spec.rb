@@ -26,8 +26,8 @@ describe "Authorized comments" do
 
   shared_examples_for "allowed to comment" do
     it do
-      expect(page).not_to have_content("You need to be verified to comment at this moment")
-      expect(page).to have_css("form.new_comment")
+      expect(page).to have_no_content("You need to be verified to comment at this moment")
+      expect(page).to have_selector("form.new_comment")
     end
   end
 

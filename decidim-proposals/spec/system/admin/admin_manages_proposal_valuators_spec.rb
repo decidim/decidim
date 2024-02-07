@@ -49,7 +49,7 @@ describe "Admin manages proposals valuators" do
         expect(page).to have_content("Proposals assigned to a valuator successfully")
 
         within find("tr", text: translated(proposal.title)) do
-          expect(page).to have_css("td.valuators-count", text: 1)
+          expect(page).to have_selector("td.valuators-count", text: 1)
         end
       end
     end
@@ -76,7 +76,7 @@ describe "Admin manages proposals valuators" do
       end
 
       expect(page).to have_content(translated(assigned_proposal.title))
-      expect(page).not_to have_content(translated(unassigned_proposal.title))
+      expect(page).to have_no_content(translated(unassigned_proposal.title))
     end
   end
 
@@ -116,7 +116,7 @@ describe "Admin manages proposals valuators" do
         expect(page).to have_content("Valuator unassigned from proposals successfully")
 
         within find("tr", text: translated(proposal.title)) do
-          expect(page).to have_css("td.valuators-count", text: 0)
+          expect(page).to have_selector("td.valuators-count", text: 0)
         end
       end
     end
@@ -145,7 +145,7 @@ describe "Admin manages proposals valuators" do
 
       expect(page).to have_content("Valuator unassigned from proposals successfully")
 
-      expect(page).not_to have_css("#valuators")
+      expect(page).to have_no_selector("#valuators")
     end
   end
 end

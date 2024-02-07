@@ -56,7 +56,7 @@ describe Decidim::DiffCell, type: :cell, versioning: true do
 
     context "when rich text editor is NOT enabled on the frontend" do
       it "does NOT show the HTML view dropdown menu" do
-        expect(subject).not_to have_css("#diff-html")
+        expect(subject).to have_no_css("#diff-html")
       end
     end
 
@@ -71,7 +71,7 @@ describe Decidim::DiffCell, type: :cell, versioning: true do
 
       it "sanitizes potentially malicious HTML tags" do
         within "#diff-for-body" do
-          expect(subject).not_to have_css("script", visible: :all)
+          expect(subject).to have_no_css("script", visible: :all)
           expect(subject).to have_content("alert('SCRIPT')")
         end
       end
@@ -88,7 +88,7 @@ describe Decidim::DiffCell, type: :cell, versioning: true do
 
       it "sanitizes potentially malicious HTML tags" do
         within "#diff-for-body" do
-          expect(subject).not_to have_css("script", visible: :all)
+          expect(subject).to have_no_css("script", visible: :all)
           expect(subject).to have_content("alert('SCRIPT')")
         end
       end
@@ -105,7 +105,7 @@ describe Decidim::DiffCell, type: :cell, versioning: true do
 
       it "sanitizes potentially malicious HTML tags" do
         within "#diff-for-body" do
-          expect(subject).not_to have_css("script", visible: :all)
+          expect(subject).to have_no_css("script", visible: :all)
           expect(subject).to have_content("alert('SCRIPT')")
         end
       end
@@ -122,7 +122,7 @@ describe Decidim::DiffCell, type: :cell, versioning: true do
 
       it "sanitizes potentially malicious HTML tags" do
         within "#diff-for-body" do
-          expect(subject).not_to have_css("script", visible: :all)
+          expect(subject).to have_no_css("script", visible: :all)
           expect(subject).to have_content("alert('SCRIPT')")
         end
       end

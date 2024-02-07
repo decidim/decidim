@@ -55,7 +55,7 @@ describe "Explore Budgets", :slow do
         expect(page).to have_content(translated(budget.title))
         expect(page).to have_content(number_to_currency(budget.total_budget, unit: Decidim.currency_unit, precision: 0))
       end
-      expect(page).not_to have_content("Remove vote")
+      expect(page).to have_no_content("Remove vote")
       expect(page).to have_content("0 projects")
     end
 
@@ -95,7 +95,7 @@ describe "Explore Budgets", :slow do
         it "shows the projects count and it has no remove vote link" do
           visit_component
 
-          expect(page).not_to have_content("Remove vote")
+          expect(page).to have_no_content("Remove vote")
           expect(item).to have_content("3 projects")
         end
       end

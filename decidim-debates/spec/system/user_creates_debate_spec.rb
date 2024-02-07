@@ -105,7 +105,7 @@ describe "User creates debate" do
       context "when creation is not enabled" do
         it "does not show the creation button" do
           visit_component
-          expect(page).not_to have_link("New debate")
+          expect(page).to have_no_link("New debate")
         end
       end
     end

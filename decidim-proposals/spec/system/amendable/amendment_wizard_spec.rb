@@ -89,7 +89,7 @@ describe "Amendment Wizard" do
         end
 
         it "does not show the back button" do
-          expect(page).not_to have_link("Back")
+          expect(page).to have_no_link("Back")
         end
       end
 
@@ -278,7 +278,7 @@ describe "Amendment Wizard" do
 
         within "#amendment-list" do
           expect(page).to have_content(translated(emendation.title))
-          expect(page).not_to have_content(translated(emendation_draft.title))
+          expect(page).to have_no_content(translated(emendation_draft.title))
         end
       end
     end

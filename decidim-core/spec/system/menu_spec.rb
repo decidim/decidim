@@ -74,7 +74,7 @@ describe "Menu" do
     context "when the organization has a description" do
       it "shows the organization description" do
         within "#breadcrumb-main-dropdown-desktop" do
-          expect(page).not_to have_text("Let's build a more open, transparent and collaborative society.")
+          expect(page).to have_no_text("Let's build a more open, transparent and collaborative society.")
           expect(page).to have_text(strip_tags(translated(organization.description)))
         end
       end

@@ -95,7 +95,7 @@ shared_examples "manage diplomas" do
           click_link "Certificate of Attendance"
         end
 
-        expect(page).not_to have_css("#send-diplomas")
+        expect(page).to have_no_css("#send-diplomas")
         expect(page).to have_content("Certificate of Attendance")
       end
     end

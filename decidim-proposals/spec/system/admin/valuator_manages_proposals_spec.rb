@@ -31,7 +31,7 @@ describe "Valuator manages proposals" do
   context "when listing the proposals" do
     it "can only see the assigned proposals" do
       expect(page).to have_content(translated(assigned_proposal.title))
-      expect(page).not_to have_content(translated(unassigned_proposal.title))
+      expect(page).to have_no_content(translated(unassigned_proposal.title))
     end
   end
 
@@ -77,11 +77,11 @@ describe "Valuator manages proposals" do
         expect(page).to have_content(another_user.name)
 
         within find("li", text: another_user.name) do
-          expect(page).not_to have_css("a.red-icon")
+          expect(page).to have_no_selector("a.red-icon")
         end
 
         within find("li", text: user.name) do
-          expect(page).to have_css("a.red-icon")
+          expect(page).to have_selector("a.red-icon")
           accept_confirm do
             find("a.red-icon").click
           end

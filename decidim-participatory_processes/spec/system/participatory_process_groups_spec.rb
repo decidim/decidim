@@ -40,9 +40,9 @@ describe "Participatory Process Groups" do
     it "lists all the groups among the processes" do
       within "#processes-grid" do
         expect(page).to have_content(translated(participatory_process_group.title, locale: :en))
-        expect(page).to have_css("a.card__grid", count: 1)
+        expect(page).to have_selector("a.card__grid", count: 1)
 
-        expect(page).not_to have_content(translated(other_group.title, locale: :en))
+        expect(page).to have_no_content(translated(other_group.title, locale: :en))
       end
     end
 
@@ -155,7 +155,7 @@ describe "Participatory Process Groups" do
         let(:hero_settings) { nil }
 
         it "shows the block" do
-          expect(page).to have_css("[data-process-hero]")
+          expect(page).to have_selector("[data-process-hero]")
         end
       end
     end
@@ -182,8 +182,8 @@ describe "Participatory Process Groups" do
 
       it "shows cards of proposals from both processes" do
         within("#participatory-process-group-homepage-highlighted-proposals") do
-          expect(page).to have_css("#proposals__proposal_#{proposal1.id}")
-          expect(page).to have_css("#proposals__proposal_#{proposal2.id}")
+          expect(page).to have_selector("#proposals__proposal_#{proposal1.id}")
+          expect(page).to have_selector("#proposals__proposal_#{proposal2.id}")
 
           within("#proposals__proposal_#{proposal1.id}") do
             expect(page).to have_content "First awesome proposal!"
@@ -198,8 +198,8 @@ describe "Participatory Process Groups" do
       end
 
       it "does not show cards of proposals from process out of group" do
-        expect(page).not_to have_css("#proposals__proposal_#{independent_proposal.id}")
-        expect(page).not_to have_content "Independent proposal!"
+        expect(page).to have_no_selector("#proposals__proposal_#{independent_proposal.id}")
+        expect(page).to have_no_content "Independent proposal!"
         expect(page).not_to have_i18n_content(out_of_group_process.title, strip_tags: true)
       end
     end
@@ -226,8 +226,8 @@ describe "Participatory Process Groups" do
 
       it "shows cards of results from both processes" do
         within("#participatory-process-group-homepage-highlighted-results") do
-          expect(page).to have_css("#accountability__result_#{result1.id}")
-          expect(page).to have_css("#accountability__result_#{result2.id}")
+          expect(page).to have_selector("#accountability__result_#{result1.id}")
+          expect(page).to have_selector("#accountability__result_#{result2.id}")
 
           within("#accountability__result_#{result1.id}") do
             expect(page).to have_content "First awesome result!"
@@ -242,8 +242,8 @@ describe "Participatory Process Groups" do
       end
 
       it "does not show cards of results from process out of group" do
-        expect(page).not_to have_css("#accountability__result_#{independent_result.id}")
-        expect(page).not_to have_content "Independent result!"
+        expect(page).to have_no_selector("#accountability__result_#{independent_result.id}")
+        expect(page).to have_no_content "Independent result!"
         expect(page).not_to have_i18n_content out_of_group_process.title
       end
     end
@@ -269,7 +269,7 @@ describe "Participatory Process Groups" do
       end
 
       it "renders the content of content block" do
-        expect(page).to have_css("#testing-html")
+        expect(page).to have_selector("#testing-html")
         within("#testing-html") do
           expect(page).to have_content("HTML block")
         end
@@ -306,7 +306,7 @@ describe "Participatory Process Groups" do
     end
 
     it "does not show cards of meetings from process out of group" do
-      expect(page).not_to have_content "Independent meeting!"
+      expect(page).to have_no_content "Independent meeting!"
     end
   end
 
@@ -324,7 +324,7 @@ describe "Participatory Process Groups" do
     it "shows no statistics content block if there are no components or followers in depending participatory processes" do
       visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
 
-      expect(page).not_to have_css("section[data-statistics]")
+      expect(page).to have_no_css("section[data-statistics]")
     end
 
     context "when there are components and depending resources" do
@@ -469,7 +469,7 @@ describe "Participatory Process Groups" do
     shared_examples "not showing processes belonging to other group" do
       it "does not list process of other group" do
         within("#processes-grid") do
-          expect(page).not_to have_content(translated(other_group_process.title, locale: :en))
+          expect(page).to have_no_content(translated(other_group_process.title, locale: :en))
         end
       end
     end
@@ -497,14 +497,14 @@ describe "Participatory Process Groups" do
 
       it "does not list process of other group" do
         within "section.content-block" do
-          expect(page).not_to have_content(translated(other_group_process.title, locale: :en))
+          expect(page).to have_no_content(translated(other_group_process.title, locale: :en))
         end
       end
 
       it "does not list inactice processes" do
         within "section.content-block" do
-          expect(page).not_to have_content(translated(upcoming_process_with_area.title, locale: :en))
-          expect(page).not_to have_content(translated(past_process_with_scope.title, locale: :en))
+          expect(page).to have_no_content(translated(upcoming_process_with_area.title, locale: :en))
+          expect(page).to have_no_content(translated(past_process_with_scope.title, locale: :en))
         end
       end
 
@@ -541,14 +541,14 @@ describe "Participatory Process Groups" do
 
       it "does not list process of other group" do
         within "section.content-block" do
-          expect(page).not_to have_content(translated(other_group_process.title, locale: :en))
+          expect(page).to have_no_content(translated(other_group_process.title, locale: :en))
         end
       end
 
       it "shows count of all processes" do
         within "div.content-block__title" do
           expect(page).to have_content("Participatory processes")
-          expect(page).not_to have_content("Active")
+          expect(page).to have_no_content("Active")
           expect(page).to have_content("5")
         end
       end

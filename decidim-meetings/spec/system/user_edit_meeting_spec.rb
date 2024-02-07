@@ -100,12 +100,12 @@ describe "User edit meeting" do
         expect(page).to have_content "Edit Your Meeting"
 
         within "form.meetings_form" do
-          expect(page).not_to have_css("div.editor-input")
+          expect(page).to have_no_css("div.editor-input")
         end
 
         within "textarea#meeting_description" do
           expect(page).to have_content translated(meeting.description)
-          expect(page).not_to have_content '<div class="editor-input">'
+          expect(page).to have_no_content '<div class="editor-input">'
         end
       end
     end
@@ -120,7 +120,7 @@ describe "User edit meeting" do
       visit_component
 
       click_link translated(meeting.title)
-      expect(page).not_to have_content("Edit meeting")
+      expect(page).to have_no_content("Edit meeting")
       visit "#{current_path}/edit"
 
       expect(page).to have_content("not authorized")

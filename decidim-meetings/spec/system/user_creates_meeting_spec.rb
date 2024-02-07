@@ -118,7 +118,7 @@ describe "User creates meeting" do
           expect(page).to have_content(end_day)
           expect(page).to have_content(meeting_start_time)
           expect(page).to have_content(meeting_end_time)
-          expect(page).to have_css("[data-author]", text: user.name)
+          expect(page).to have_selector("[data-author]", text: user.name)
         end
 
         context "when using the front-end geocoder" do
@@ -187,8 +187,8 @@ describe "User creates meeting" do
             expect(page).to have_content(meeting_address)
             expect(page).to have_content(meeting_start_time)
             expect(page).to have_content(meeting_end_time)
-            expect(page).not_to have_css(".button", text: "Register")
-            expect(page).to have_css("[data-author]", text: user_group.name)
+            expect(page).to have_no_css(".button", text: "Register")
+            expect(page).to have_selector("[data-author]", text: user_group.name)
           end
 
           it "creates a new meeting with registrations on this platform", :slow do
@@ -228,7 +228,7 @@ describe "User creates meeting" do
             expect(page).to have_content(meeting_start_time)
             expect(page).to have_content(meeting_end_time)
             expect(page).to have_css(".button", text: "Register")
-            expect(page).to have_css("[data-author]", text: user_group.name)
+            expect(page).to have_selector("[data-author]", text: user_group.name)
           end
         end
 
@@ -248,7 +248,7 @@ describe "User creates meeting" do
           it "shows a modal dialog" do
             visit_component
             click_link "New meeting"
-            expect(page).to have_css("#authorizationModal")
+            expect(page).to have_selector("#authorizationModal")
             expect(page).to have_content("Authorization required")
           end
         end
@@ -260,18 +260,18 @@ describe "User creates meeting" do
 
           within ".new_meeting" do
             select "Registration disabled", from: :meeting_registration_type
-            expect(page).not_to have_field("Registration URL")
-            expect(page).not_to have_field("Available slots")
-            expect(page).not_to have_field("Registration terms")
+            expect(page).to have_no_field("Registration URL")
+            expect(page).to have_no_field("Available slots")
+            expect(page).to have_no_field("Registration terms")
 
             select "On a different platform", from: :meeting_registration_type
             expect(page).to have_field("Registration URL")
-            expect(page).not_to have_field("Available slots")
-            expect(page).not_to have_field("Registration terms")
+            expect(page).to have_no_field("Available slots")
+            expect(page).to have_no_field("Registration terms")
 
             select "On this platform", from: :meeting_registration_type
             expect(page).to have_field("Available slots")
-            expect(page).not_to have_field("Registration URL")
+            expect(page).to have_no_field("Registration URL")
             expect(page).to have_field("Registration terms")
           end
         end
@@ -285,11 +285,11 @@ describe "User creates meeting" do
             select "In person", from: :meeting_type_of_meeting
             expect(page).to have_field("Address")
             expect(page).to have_field(:meeting_location)
-            expect(page).not_to have_field("Online meeting URL")
+            expect(page).to have_no_field("Online meeting URL")
 
             select "Online", from: :meeting_type_of_meeting
-            expect(page).not_to have_field("Address")
-            expect(page).not_to have_field(:meeting_location)
+            expect(page).to have_no_field("Address")
+            expect(page).to have_no_field(:meeting_location)
             expect(page).to have_field("Online meeting URL")
 
             select "Hybrid", from: :meeting_type_of_meeting
@@ -303,7 +303,7 @@ describe "User creates meeting" do
       context "when creation is not enabled" do
         it "does not show the creation button" do
           visit_component
-          expect(page).not_to have_link("New meeting")
+          expect(page).to have_no_link("New meeting")
         end
       end
     end

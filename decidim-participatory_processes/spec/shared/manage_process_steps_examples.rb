@@ -103,7 +103,7 @@ shared_examples "manage process steps examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#steps table" do
-        expect(page).not_to have_content(translated(process_step2.title))
+        expect(page).to have_no_content(translated(process_step2.title))
       end
     end
   end
@@ -115,7 +115,7 @@ shared_examples "manage process steps examples" do
       end
 
       within find("tr", text: translated(process_step.title)) do
-        expect(page).not_to have_content("Activate")
+        expect(page).to have_no_content("Activate")
       end
     end
   end

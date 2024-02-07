@@ -67,7 +67,7 @@ describe "Authentication" do
           find("*[type=submit]").click
         end
 
-        expect(page).not_to have_content("confirmation link")
+        expect(page).to have_no_content("confirmation link")
       end
     end
 
@@ -244,12 +244,12 @@ describe "Authentication" do
 
       it "redirects to the sign in when accessing the sign up page" do
         visit decidim.new_user_registration_path
-        expect(page).not_to have_content("Sign Up")
+        expect(page).to have_no_content("Sign Up")
       end
 
       it "do not allow the user to sign up" do
         click_link("Log in", match: :first)
-        expect(page).not_to have_content("Create an account")
+        expect(page).to have_no_content("Create an account")
       end
     end
   end
@@ -418,7 +418,7 @@ describe "Authentication" do
         end
 
         expect(page).to have_content("Logged out successfully.")
-        expect(page).not_to have_content(user.name)
+        expect(page).to have_no_content(user.name)
       end
     end
 
@@ -565,7 +565,7 @@ describe "Authentication" do
 
         it "does not allow the user to sign up" do
           click_link("Log in", match: :first)
-          expect(page).not_to have_content("Sign Up")
+          expect(page).to have_no_content("Sign Up")
         end
       end
 
@@ -574,12 +574,12 @@ describe "Authentication" do
 
         it "does not allow the user to sign up" do
           click_link("Log in", match: :first)
-          expect(page).not_to have_content("Sign Up")
+          expect(page).to have_no_content("Sign Up")
         end
 
         it "does not allow the user to sign in as a regular user, only through external accounts" do
           click_link("Log in", match: :first)
-          expect(page).not_to have_content("Email")
+          expect(page).to have_no_content("Email")
           within("div.login__omniauth") do
             expect(page).to have_link("Facebook")
           end
@@ -695,7 +695,7 @@ describe "Authentication" do
 
         expect(page).to have_content("successfully")
         expect_current_user_to_be(user)
-        expect(page).not_to have_content("Wrong user")
+        expect(page).to have_no_content("Wrong user")
       end
     end
   end

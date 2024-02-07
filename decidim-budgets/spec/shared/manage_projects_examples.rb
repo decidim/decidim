@@ -73,7 +73,7 @@ shared_examples "manage projects" do
       end
 
       it "does not display the proposal picker" do
-        expect(page).not_to have_content "Choose proposals"
+        expect(page).to have_no_content "Choose proposals"
       end
     end
   end
@@ -189,7 +189,7 @@ shared_examples "manage projects" do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).not_to have_content(translated(project2.title))
+        expect(page).to have_no_content(translated(project2.title))
       end
     end
   end
