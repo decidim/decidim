@@ -476,6 +476,12 @@ es:
             update: Actualizar
           index:
             title: Estados
+          new:
+            create: Crear
+            title: Nuevo estado
+          update:
+            error: Se ha producido un error actualizando el estado
+            success: Estado actualizado correctamente
         proposals:
           answer:
             invalid: Ha habido un problema al responder a esta propuesta.
@@ -507,6 +513,7 @@ es:
             selected: seleccionado
             split: Dividir propuestas
             split_button: Dividir
+            statuses: Estados
             title: Propuestas
             unassign_from_valuator: Desasignar de evaluadora
             unassign_from_valuator_button: Desasignar
@@ -731,6 +738,9 @@ es:
             valuator: Evaluadora
             valuators: Evaluadoras
             votes: Apoyos
+        proposal_state:
+          css_class: Clase CSS
+          title: Estado
       new:
         limit_reached: No puedes crear nuevas propuestas porque has superado el límite.
       participatory_text_proposal:
