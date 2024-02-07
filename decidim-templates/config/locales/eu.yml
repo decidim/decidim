@@ -70,6 +70,8 @@ eu:
           index:
             component_constraint: Gehitu hertsapena.
             confirm_delete: Ziur zaude txantiloi hau ezabatu nahi duzula?
+            missing_state: Egoera desagertua
+            proposal_state_id: Barne egoera
             title: Proposamenen erantzunak
           new:
             title: Proposamenaren erantzun-txantilioi berria
