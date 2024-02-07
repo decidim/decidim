@@ -277,6 +277,7 @@ fi-pl:
             notification_title: Ehdotuksesi <a href="%{resource_path}">%{resource_title}</a> on hyväksytty.
           follower:
             email_intro: 'Ehdotus "%{resource_title}" on hyväksytty. Voit lukea vastauksen täältä:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{resource_title}". Voit lopettaa sen seuraamisen edellä esitetyn linkin kautta.
             email_subject: Seuraamasi ehdotus on hyväksytty
             notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on hyväksytty.
         proposal_evaluating:
@@ -287,6 +288,7 @@ fi-pl:
             notification_title: Ehdotuksesi <a href="%{resource_path}">%{resource_title}</a> arvioidaan.
           follower:
             email_intro: 'Ehdotusta "%{resource_title}" arvioidaan parhaillaan. Voit tarkistaa vastauksen tältä sivulla:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{resource_title}". Voit lopettaa sen seuraamisen edellä esitetyn linkin kautta.
             email_subject: Seuraamasi ehdotus on arvioitavana
             notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on arvioitavana.
         proposal_mentioned:
@@ -313,6 +315,7 @@ fi-pl:
             notification_title: Ehdotuksesi <a href="%{resource_path}">%{resource_title}</a> on hylätty.
           follower:
             email_intro: 'Ehdotus "%{resource_title}" on hylätty. Voit lukea vastauksen tällä sivulla:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{resource_title}". Voit lopettaa sen seuraamisen edellä esitetyn linkin kautta.
             email_subject: Seuraamasi ehdotus on hylätty
             notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on hylätty.
         proposal_update_category:
