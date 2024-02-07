@@ -166,8 +166,6 @@ gl:
           new:
             send: Solicitar verificación
             title: Carga o documento de identidade
-        dni: DNI
-        nie: NIE
         passport: Pasaporte
       postal_letter:
         admin:
