@@ -8,7 +8,7 @@ describe Decidim::AttachmentCreatedEvent do
   let(:event_name) { "decidim.events.attachments.attachment_created" }
   let(:resource) { create(:attachment) }
   let(:attached_to_url) { resource_locator(attached_to).url }
-  let(:resource_title) { attached_to.title["en"] }
+  let(:resource_title) { decidim_sanitize_translated(attached_to.title) }
   let(:resource_path) { resource.url }
   let(:attached_to) { resource.attached_to }
   let(:email_subject) { "An update to #{resource_title}" }

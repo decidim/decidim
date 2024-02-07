@@ -24,7 +24,8 @@ describe Decidim::ParticipatoryProcessStepActivatedEvent do
       )
   end
 
-  let(:email_subject) { "An update to #{participatory_space_title}" }
+  let(:resource_title) { decidim_sanitize_translated(resource.title) }
+  let(:email_subject) { "An update to #{decidim_sanitize_translated(participatory_space.title)}" }
   let(:email_intro) { "The #{resource_title} phase is now active for #{participatory_space_title}. You can see it from this page:" }
   let(:email_outro) { "You have received this notification because you are following #{participatory_space_title}. You can stop receiving notifications following the previous link." }
   let(:notification_title) { "The #{resource_title} phase is now active for <a href=\"#{resource_path}\">#{participatory_space_title}</a>" }

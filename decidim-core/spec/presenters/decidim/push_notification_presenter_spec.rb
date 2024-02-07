@@ -39,10 +39,12 @@ module Decidim
       let(:event_name) { "decidim.events.blogs.post_created" }
       let(:resource) { create(:post) }
       let(:notification) { create(:notification, event_class:, event_name:, resource:) }
+      let(:resource_title) { decidim_sanitize_translated(resource.title) }
+      let(:participatory_space_title) { decidim_sanitize_translated(resource.component.participatory_space.title) }
 
       describe "#body" do
         it "returns text without links and with HTML entities unescaped" do
-          expect(subject.body).to eq("The post #{translated(resource.title)} has been published in #{translated(resource.component.participatory_space.title)}")
+          expect(subject.body).to eq("The post #{resource_title} has been published in #{participatory_space_title}")
         end
       end
 
