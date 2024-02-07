@@ -167,6 +167,13 @@ fr:
     events:
       debates:
         create_debate_event:
+          space_followers:
+            email_intro: |-
+              Bonjour,
+              Un nouveau débat "%{resource_title}" a été créé dans l'espace participatif %{participatory_space_title} , nous vous invitons à le consulter et à y contribuer:
+            email_outro: Vous avez reçu cette notification car vous suivez l'espace participatif %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur le lien précédent.
+            email_subject: Nouveau débat "%{resource_title}" sur %{participatory_space_title}
+            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé sur <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
           user_followers:
             email_intro: |-
               Bonjour,
