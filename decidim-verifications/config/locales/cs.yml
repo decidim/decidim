@@ -235,8 +235,6 @@ cs:
           update:
             error: Při nahrávání Vašeho dokladu došlo k chybě.
             success: Dokument byl úspěšně znovu nahrán.
-        dni: Občanský průkaz
-        nie: Daňové identifikační číslo
         passport: Cestovní pas
       postal_letter:
         admin:
