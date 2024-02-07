@@ -285,6 +285,17 @@ fr:
           email_subject: Nouvelle proposition "%{resource_title}" ajoutée à %{participatory_space_title}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title} par %{author}.
           notification_title_official: La proposition officielle <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}.
+        proposal_state_changed:
+          affected_user:
+            email_intro: 'La proposition "%{resource_title}" est passée au statut "%{state}". Vous pouvez lire la réponse sur cette page :'
+            email_outro: Vous avez reçu cette notification parce que vous êtes un(e) auteur(e) de "%{resource_title}".
+            email_subject: Votre proposition a changé de statut (%{state})
+            notification_title: Le statut de votre proposition <a href="%{resource_path}">%{resource_title}</a> est passé à %{state}.
+          follower:
+            email_intro: 'La proposition "%{resource_title}" est passée à l''état "%{state}". Vous pouvez lire la réponse sur cette page :'
+            email_outro: Vous recevez cette notification car vous suivez « %{resource_title} ». Vous pouvez annuler ce suivi en allant sur le lien précédent.
+            email_subject: Une proposition que vous suivez a changé de statut (%{state})
+            notification_title: L'état de la proposition <a href="%{resource_path}">%{resource_title}</a> est passé à "%{state}".
         proposal_update_category:
           email_intro: 'Un administrateur a mis à jour la catégorie de votre proposition "%{resource_title}". Vous pouvez y accéder ici :'
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
