@@ -158,13 +158,6 @@ sv:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_intro: |-
-              Hej,
-              En ny debatt, "%{resource_title}", har skapats i deltagarutrymmet %{space_title}, ta en titt och bidra:
-            email_outro: Du har fått detta meddelande eftersom du följer deltagarutrymmet %{space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
-            email_subject: Ny debatt "%{resource_title}" i %{space_title}
-            notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> har skapats i <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Hej,
