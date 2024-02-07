@@ -30,6 +30,8 @@ ca:
         cost: Cost
         cost_report: Informe de cost
         execution_period: Període d'execució
+      proposal_state:
+        announcement_title: Encapçalament de la resposta
       proposals_copy:
         copy_proposals: Entenc que això importarà totes les propostes del component seleccionat a l'actual i que aquesta acció no es pot desfer.
         origin_component_id: Component des d'on importar les propostes
@@ -100,6 +102,8 @@ ca:
             values:
               'false': Propostes
               'true': Esmenes
+          proposal_state_id_eq:
+            label: Estat
           scope_id_eq:
             label: Àmbit
           state_eq:
@@ -281,6 +285,17 @@ ca:
           email_subject: Nova proposta "%{resource_title}" afegida a %{participatory_space_title}
           notification_title: '%{author} ha afegit la proposta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}.'
           notification_title_official: S'ha afegit la proposta oficial <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}.
+        proposal_state_changed:
+          affected_user:
+            email_intro: 'La proposta "%{resource_title}" ha canviat d''estat a "%{state}". Pots llegir la resposta en aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè ets autora de "%{resource_title}".
+            email_subject: La teva proposta ha canviat el seu estat (%{state})
+            notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a>ha canviat el seu estat a "%{state}".
+          follower:
+            email_intro: 'La proposta "%{resource_title}" ha canviat d''estat a "%{state}". Pots llegir la resposta en aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}". Pots deixar de seguir-ho des de l'enllaç anterior.
+            email_subject: Una proposta que segueixes ha canviat el seu estat (%{state})
+            notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a>ha canviat el seu estat a "%{state}".
         proposal_update_category:
           email_intro: 'Una administradora ha actualitzat la categoria de la teva proposta "%{resource_title}", fes-hi una ullada:'
           email_outro: Has rebut aquesta notificació perquè ets autora de la proposta.
@@ -355,9 +370,13 @@ ca:
     proposals:
       actions:
         answer_proposal: Respondre a la proposta
+        delete_proposal_state_confirm: Segur que vols esborrar aquest estat?
+        destroy: Esborrar estat
         edit_proposal: Edita la proposta
+        edit_proposal_state: Editar estat
         import: Importar des d'un altre component
         new: Nova proposta
+        new_proposal_state: Nou estat
         participatory_texts: Textos participatius
         show: Veure proposta
         title: Accions
@@ -446,6 +465,17 @@ ca:
             submit: Enviar
           leave_your_note: Deixa la teva nota
           title: Notes privades
+        proposal_states:
+          create:
+            error: Error en crear l'estat
+            success: Estat creat correctament
+          destroy:
+            success: Estat esborrat amb èxit
+          edit:
+            title: Editar estat
+            update: Actualizar
+          index:
+            title: Estats
         proposals:
           answer:
             invalid: Hi ha hagut un problema en respondre a aquesta proposta.
