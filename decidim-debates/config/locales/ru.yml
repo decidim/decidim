@@ -97,9 +97,6 @@ ru:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_outro: Вы получили это уведомление, потому что вы следите за пространством соучастия %{space_title}. Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
-            notification_title: В <a href="%{space_path}">%{space_title}</a> началось обсуждение <a href="%{resource_path}">%{resource_title}</a>.
           user_followers:
             email_outro: Вы получили это уведомление, потому что вы следите за «%{author_nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
         creation_disabled:
