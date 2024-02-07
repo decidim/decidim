@@ -122,14 +122,6 @@ Capybara.default_max_wait_time = 10
 RSpec.configure do |config|
   config.before :each, type: :system do
     driven_by(:headless_chrome)
-
-    # Workaround for flaky spec related to resolution change
-    #
-    # For some unknown reason, depending on the order run for these specs, the resolution is changed to
-    # 800x600, which breaks the drag and drop. This forces the resolution to be 1920x1080.
-    # One possible culprit for the screen resolution change is the alert error intercepting which messes with the window focus.
-    current_window.resize_to(1920, 1080)
-
     switch_to_default_host
     domain = (try(:organization) || try(:current_organization))&.host
     if domain
