@@ -159,13 +159,6 @@ hu:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_intro: |-
-              Szia,
-              Új vitát "%{resource_title}" hoztak létre a %{space_title} részvételi téren, nézd meg és járulj hozzá:
-            email_outro: 'Ezt az értesítést azért kaptad, mert ezt a részvételi helyet követed: "%{space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
-            email_subject: Új vita "%{resource_title}" indult itt %{space_title}
-            notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a>vita létrejött itt:<a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Szia,
