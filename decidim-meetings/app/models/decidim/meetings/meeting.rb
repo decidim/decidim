@@ -268,7 +268,7 @@ module Decidim
       #
       # Returns Boolean.
       def withdrawn?
-        state == "withdrawn"
+        withdrawn_at.present?
       end
 
       # Checks whether the user can withdraw the given meeting.

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddWithdrawnFieldsOnMeetings < ActiveRecord::Migration[6.1]
   class CustomMeeting < Decidim::Meetings::ApplicationRecord
     self.table_name = "decidim_meetings_meetings"
