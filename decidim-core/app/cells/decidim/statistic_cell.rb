@@ -3,8 +3,6 @@
 module Decidim
   # This cell renders a Statistic of a Resource
   class StatisticCell < Decidim::ViewModel
-    include ActionView::Helpers::NumberHelper
-
     private
 
     def stat_number

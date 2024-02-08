@@ -4,9 +4,6 @@ module Decidim
   module Meetings
     # This cell renders metadata for an instance of a Meeting
     class MeetingCardMetadataCell < Decidim::CardMetadataCell
-      include Decidim::LayoutHelper
-      include ActionView::Helpers::DateHelper
-
       alias meeting model
 
       delegate :type_of_meeting, :start_time, :end_time, :category, :withdrawn?, to: :meeting

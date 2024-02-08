@@ -1,4 +1,4 @@
-<div class="card card--action card--list">
+<div class="card card--action">
   <% resources.each do |sortition| %>
     <div class="card--list__item">
       <div class="card--list__text">
@@ -7,7 +7,7 @@
         <% end %>
         <div>
           <%= link_to resource_locator(sortition).path, class: "card__link" do %>
-            <h5 class="card--list__heading"><%= decidim_html_escape(translated_attribute(sortition.title)) %></h5>
+            <h5 class="card--list__heading"><%= decidim_escape_translated(sortition.title) %></h5>
           <% end %>
           <div class="author">
             <span class="author__avatar">
@@ -19,8 +19,8 @@
           </div>
         </div>
       </div>
-      <div class="card--list__data">
-        <span class="card--list__data__number">
+      <div>
+        <span>
           <%= sortition.selected_proposals.size %>
         </span> <%= t(".selected_proposals", count: proposal.selected_proposals.size) %>
       </div>

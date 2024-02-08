@@ -83,12 +83,12 @@ describe "Organization admins" do
           accept_confirm { click_link "Delete" }
         end
 
-        expect(page).not_to have_content(other_admin.name)
+        expect(page).to have_no_content(other_admin.name)
       end
 
       it "cannot remove admin rights from self" do
         within "tr[data-user-id=\"#{admin.id}\"]" do
-          expect(page).not_to have_link("Delete")
+          expect(page).to have_no_link("Delete")
         end
 
         within "tr[data-user-id=\"#{other_admin.id}\"]" do

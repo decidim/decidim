@@ -1,6 +1,6 @@
-<div class="reveal" id="messageErrorModal" data-reveal>
-  <div class="reveal__header">
-    <h2 class="reveal__title"><%= error %></h2>
+<div id="messageErrorModal" data-reveal>
+  <div>
+    <h2><%= error %></h2>
     <button class="close-button" data-close aria-label="<%= t(".close") %>"
       type="button">
       <span aria-hidden="true">&times;</span>
@@ -13,8 +13,8 @@
     </p>
     <p><%= t(".correct_errors") %></p>
   </div>
-  <div class="reveal__footer">
-    <div class="buttons button--double">
+  <div>
+    <div>
       <a class="button" role="button" href="#" data-close aria-label="<%= t(".ok") %>"><%= t(".ok") %></a>
     </div>
   </div>

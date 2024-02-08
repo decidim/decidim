@@ -35,17 +35,20 @@ shared_examples_for "resource endorsed event" do
   end
 
   describe "email_intro" do
+    let(:resource_title) { decidim_sanitize_translated(resource.title) }
     it "is generated correctly" do
       expect(subject.email_intro)
         .to eq("#{author.name} #{author_presenter.nickname}, who you are following, " \
-               "has just endorsed \"#{translated resource.title}\" and we think it may be interesting to you. Check it out and contribute:")
+               "has just endorsed \"#{resource_title}\" and we think it may be interesting to you. Check it out and contribute:")
     end
   end
 
   describe "notification_title" do
+    let(:resource_title) { decidim_sanitize_translated(resource.title) }
+
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include("The <a href=\"#{resource_path}\">#{translated resource.title}</a> #{resource_type} has been endorsed by ")
+        .to include("The <a href=\"#{resource_path}\">#{resource_title}</a> #{resource_type} has been endorsed by ")
 
       expect(subject.notification_title)
         .to include("<a href=\"/profiles/#{author.nickname}\">#{author.name} #{author_presenter.nickname}</a>.")

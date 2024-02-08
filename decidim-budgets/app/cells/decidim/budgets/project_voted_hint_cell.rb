@@ -4,8 +4,6 @@ module Decidim
   module Budgets
     # This cell renders a checkmark with a text.
     class ProjectVotedHintCell < BaseCell
-      include Decidim::IconHelper
-
       delegate :voted_for?, :current_order, to: :controller
 
       def show

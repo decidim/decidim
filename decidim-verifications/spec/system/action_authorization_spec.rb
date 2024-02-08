@@ -59,7 +59,7 @@ describe "Action Authorization" do
       it "redirects to authorization when modal clicked" do
         click_link "Authorize with \"Example authorization\""
 
-        expect(page).to have_selector("h1", text: "Verify with Example authorization")
+        expect(page).to have_css("h1", text: "Verify with Example authorization")
       end
     end
 
@@ -97,7 +97,7 @@ describe "Action Authorization" do
         click_link "New proposal"
         click_link "Authorize with \"Example authorization\""
 
-        expect(page).to have_selector("h1", text: "Verify with Example authorization")
+        expect(page).to have_css("h1", text: "Verify with Example authorization")
         expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
         expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}.")
       end
@@ -200,7 +200,7 @@ describe "Action Authorization" do
       end
 
       it "goes directly to action" do
-        expect(page).to have_selector("h1", text: "Create your proposal")
+        expect(page).to have_css("h1", text: "Create your proposal")
       end
     end
   end
@@ -287,7 +287,7 @@ describe "Action Authorization" do
       end
 
       it "goes directly to action" do
-        expect(page).to have_selector("h1", text: "Create your proposal")
+        expect(page).to have_css("h1", text: "Create your proposal")
       end
     end
   end

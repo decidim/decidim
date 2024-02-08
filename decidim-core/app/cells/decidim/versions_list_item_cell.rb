@@ -2,8 +2,6 @@
 
 module Decidim
   class VersionsListItemCell < Decidim::ViewModel
-    include Decidim::LayoutHelper
-
     def version
       model
     end
