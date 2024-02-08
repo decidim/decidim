@@ -32,12 +32,12 @@ module Decidim
       end
 
       context "when the organization does have a valid authorization handler" do
-        let!(:user) { create(:user, :confirmed, organization: , sign_in_count: 1) }
+        let!(:user) { create(:user, :confirmed, organization:, sign_in_count: 1) }
 
         context "when there are authorization handlers" do
           before do
             allow(user.organization).to receive(:available_authorizations)
-                                          .and_return(["dummy_authorization_handler"])
+              .and_return(["dummy_authorization_handler"])
             post :create
           end
 
@@ -55,7 +55,7 @@ module Decidim
           context "when the user has not confirmed their email" do
             before do
               allow(user.organization).to receive(:available_authorizations)
-                                            .and_return([])
+                .and_return([])
               user.confirmed_at = nil
               post :create
             end
