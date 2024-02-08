@@ -5,10 +5,10 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe PublishProposalEvent do
-      let(:resource) { create(:proposal, title: "A nice proposal") }
+      let(:resource) { create(:proposal) }
       let(:participatory_process) { create(:participatory_process, organization:) }
       let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
-      let(:resource_title) { translated(resource.title) }
+      let(:resource_title) { decidim_sanitize_translated(resource.title) }
       let(:event_name) { "decidim.events.proposals.proposal_published" }
 
       include_context "when a simple event"
@@ -23,7 +23,7 @@ module Decidim
 
       describe "email_subject" do
         context "when resource title contains apostrophes" do
-          let(:resource) { create(:proposal, title: "It is a 'nice' proposal") }
+          let(:resource) { create(:proposal) }
 
           it "is generated correctly" do
             expect(subject.email_subject).to eq("New proposal \"#{resource_title}\" by @#{author.nickname}")
@@ -60,7 +60,7 @@ module Decidim
       end
 
       context "when the proposal is official" do
-        let(:resource) { create(:proposal, :official, title: "A nice proposal") }
+        let(:resource) { create(:proposal, :official) }
         let(:extra) { { participatory_space: resource.participatory_space } }
 
         describe "notification_title" do
@@ -72,14 +72,15 @@ module Decidim
       end
 
       context "when the target are the participatory space followers" do
+        include_context "when a simple event"
+
         let(:event_name) { "decidim.events.proposals.proposal_published_for_space" }
-        let(:notification_title) { "The proposal <a href=\"#{resource_path}\">A nice proposal</a> has been added to #{participatory_space_title} by #{author.name} <a href=\"/profiles/#{author.nickname}\">@#{author.nickname}</a>." }
+        let(:notification_title) { "The proposal <a href=\"#{resource_path}\">#{resource_title}</a> has been added to #{participatory_space_title} by #{author.name} <a href=\"/profiles/#{author.nickname}\">@#{author.nickname}</a>." }
         let(:email_outro) { "You have received this notification because you are following \"#{participatory_space_title}\". You can stop receiving notifications following the previous link." }
-        let(:email_intro) { "The proposal \"A nice proposal\" has been added to \"#{participatory_space_title}\" that you are following." }
-        let(:email_subject) { "New proposal \"#{resource_title}\" added to #{decidim_sanitize_translated(participatory_space.title)}" }
+        let(:email_intro) { "The proposal \"#{resource_title}\" has been added to \"#{participatory_space_title}\" that you are following." }
+        let(:email_subject) { "New proposal \"#{resource_title}\" added to #{participatory_space_title}" }
         let(:extra) { { participatory_space: true } }
 
-        include_context "when a simple event"
         it_behaves_like "a simple event"
         it_behaves_like "a simple event email"
         it_behaves_like "a simple event notification"
