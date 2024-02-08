@@ -62,7 +62,7 @@ module Decidim
       scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }
       scope :withdrawn, -> { where(state: "withdrawn") }
       scope :withdrawn, -> { where.not(withdrawn_at: nil) }
-      scope :not_withdrawn, -> { where(withdrawn: nil) }
+      scope :not_withdrawn, -> { where(withdrawn_at: nil) }
       scope :with_availability, lambda { |state_key|
         case state_key
         when "withdrawn"
