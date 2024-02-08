@@ -3,7 +3,6 @@
 module Decidim
   class ParticipatorySpaceDropdownMetadataCell < Decidim::ViewModel
     include Decidim::TwitterSearchHelper
-    include Decidim::SanitizeHelper
 
     private
 

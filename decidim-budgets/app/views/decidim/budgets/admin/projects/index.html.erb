@@ -5,7 +5,7 @@
       <div>
         <%= link_to translated_attribute(budget.title), budgets_path %> &gt;
         <%= t(".title") %>
-        <span id="js-selected-resources-count" class="component-counter component-counter--inline" title="<%= t("decidim.budgets.admin.projects.index.selected") %>"></span>
+        <span id="js-selected-resources-count" class="component-counter" title="<%= t("decidim.budgets.admin.projects.index.selected") %>"></span>
       </div>
       <%= render partial: "bulk-actions" %>
     </h1>
@@ -25,7 +25,7 @@
           <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>
             <th><%= t("models.project.fields.map", scope: "decidim.budgets") %></th>
           <% end %>
-          <th class="actions"><%= t("actions.title", scope: "decidim.budgets") %></th>
+          <th><%= t("actions.title", scope: "decidim.budgets") %></th>
         </tr>
       </thead>
       <tbody>

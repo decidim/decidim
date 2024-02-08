@@ -3,7 +3,6 @@
 module Decidim
   class UserConversationCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
-    include Decidim::ApplicationHelper
     include Decidim::FormFactory
     include Decidim::Core::Engine.routes.url_helpers
 

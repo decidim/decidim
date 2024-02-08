@@ -39,7 +39,7 @@ shared_examples "manage impersonations examples" do
       let(:document_number) { "123456789Y" }
 
       it "shows the errors in the form" do
-        expect(page).to have_selector("label", text: "Document number*\nRequired field\nis invalid")
+        expect(page).to have_css("label", text: "Document number*\nRequired field\nis invalid")
       end
     end
 
@@ -322,7 +322,7 @@ shared_examples "manage impersonations examples" do
     end
 
     within "[data-content]" do
-      expect(page).to have_selector("*[type=submit]", count: 1)
+      expect(page).to have_css("*[type=submit]", count: 1)
 
       click_button "Impersonate"
     end
@@ -354,6 +354,6 @@ shared_examples "manage impersonations examples" do
       click_link "View logs"
     end
 
-    expect(page).to have_selector("tbody tr", count: 1)
+    expect(page).to have_css("tbody tr", count: 1)
   end
 end

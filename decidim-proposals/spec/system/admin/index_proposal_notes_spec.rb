@@ -35,7 +35,7 @@ describe "Index Proposal Notes" do
       expect(page).to have_content(proposal_note.author.name)
       expect(page).to have_content(proposal_note.body)
     end
-    expect(page).to have_selector("form")
+    expect(page).to have_css("form")
   end
 
   context "when the form has a text inside body" do

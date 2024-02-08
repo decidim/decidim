@@ -16,5 +16,3 @@ Capybara/RSpec:
   Enabled: false
   Include: *1
 
-Capybara/RSpec/HaveSelector:
-  Enabled: false

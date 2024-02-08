@@ -5,7 +5,6 @@ module Decidim
     # This cell renders the URL address of an online meeting.
     class MeetingUrlCell < Decidim::Meetings::OnlineMeetingCell
       include Cell::ViewModel::Partial
-      include LayoutHelper
 
       private
 

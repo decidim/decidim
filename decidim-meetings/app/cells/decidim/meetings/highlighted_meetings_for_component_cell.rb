@@ -11,7 +11,6 @@ module Decidim
       include Decidim::Meetings::ApplicationHelper
       include Decidim::ComponentPathHelper
       include Decidim::CardHelper
-      include Decidim::LayoutHelper
 
       delegate :snippets, to: :controller
 

@@ -3,9 +3,7 @@
 module Decidim::Amendable
   # This cell renders the list of amendments of a resource.
   class AmendmentsCell < Decidim::ViewModel
-    include Decidim::ApplicationHelper
     include Decidim::CardHelper
-    include Decidim::IconHelper
 
     delegate :amendable?, :visible_emendations_for, to: :model
 

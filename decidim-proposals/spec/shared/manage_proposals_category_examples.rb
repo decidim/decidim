@@ -69,7 +69,7 @@ shared_examples "when managing proposals category as an admin" do
         end
 
         it "changes to selected category" do
-          expect(page).to have_selector(".success")
+          expect(page).to have_css(".success")
         end
       end
     end

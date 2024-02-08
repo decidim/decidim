@@ -178,7 +178,7 @@ shared_examples "proposals wizards" do |options|
       end
 
       it "shows a modify proposal link" do
-        expect(page).to have_selector("a", text: "Modify the proposal")
+        expect(page).to have_css("a", text: "Modify the proposal")
       end
 
       it "does not show a geocoded address" do
@@ -329,7 +329,7 @@ shared_examples "proposals wizards" do |options|
       end
 
       it "shows a modify proposal link" do
-        expect(page).to have_selector("a", text: "Modify the proposal")
+        expect(page).to have_css("a", text: "Modify the proposal")
       end
 
       context "when the back button is clicked" do

@@ -40,7 +40,7 @@ describe "Explore projects", :slow do
     it "shows all resources for the given component" do
       visit_budget
       within "#projects" do
-        expect(page).to have_selector(".card__list", count: projects_count)
+        expect(page).to have_css(".card__list", count: projects_count)
       end
 
       projects.each do |project|
