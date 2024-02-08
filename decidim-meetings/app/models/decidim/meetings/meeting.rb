@@ -279,6 +279,11 @@ module Decidim
         user && !withdrawn? && !past? && authored_by?(user)
       end
 
+      def withdraw!
+        self.withdrawn_at = Time.zone.now
+        save
+      end
+
       # Overwrites method from Paddable to add custom rules in order to know
       # when to display a pad or not.
       def pad_is_visible?
