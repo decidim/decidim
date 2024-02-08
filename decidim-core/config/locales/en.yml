@@ -884,7 +884,7 @@ en:
       create:
         button: Follow
         error: There was a problem following this resource.
-        participatory_space: Following <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Following <span>%{resource_name}</span>
       destroy:
         button: Stop following
         error: There was a problem unfollowing this resource.

@@ -102,7 +102,7 @@ describe("CommentsComponent", () => {
     </div>
 
       <div class="form__wrapper gap-2">
-        <label class="show-for-sr" for="add-comment-${modelName}-${modelId}">
+        <label for="add-comment-${modelName}-${modelId}">
           Comment
         </label>
         <span class="emoji__container">
@@ -324,20 +324,20 @@ describe("CommentsComponent", () => {
             </div>
             <div class="add-comment">
               <div data-opinion-toggle class="button-group comment__opinion-container">
-                <span class="show-for-sr py-1.5">Your opinion about this topic</span>
+                <span class="py-1.5">Your opinion about this topic</span>
                 <button aria-pressed="false" class="button button__sm button__text-secondary" data-toggle-ok="true" data-selected-label="Your opinion about this topic is positive">
                   <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-thumb-up-line" tabindex="-1"></use></svg>
                   <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-thumb-up-fill" tabindex="-1"></use></svg>
-                  <span class="show-for-sr">Positive</span>
+                  <span>Positive</span>
                 </button>
                 <button aria-pressed="true" class="button button__sm button__text-secondary is-active" data-toggle-meh="true" data-selected-label="Your opinion about this topic is neutral">
-                  <span class="show-for-sr">Neutral
+                  <span>Neutral
                   </span>
                 </button>
                 <button aria-pressed="false" class="button button__sm button__text-secondary"  data-toggle-ko="true" data-selected-label="Your opinion about this topic is negative">
                   <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-thumb-down-line" tabindex="-1"></use></svg>
                   <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-thumb-down-fill" tabindex="-1"></use></svg>
-                  <span class="show-for-sr">Negative</span>
+                  <span>Negative</span>
                 </button>
                 <div role="alert" aria-live="assertive" aria-atomic="true" class="selected-state sr-only"></div>
               </div>
