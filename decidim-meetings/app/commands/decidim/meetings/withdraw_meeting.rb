@@ -33,7 +33,7 @@ module Decidim
       private
 
       def change_meeting_state_to_withdrawn
-        @meeting.update(withdrawn_at: Time.zone.now)
+        @meeting.withdraw!
       end
     end
   end
