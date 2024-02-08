@@ -72,7 +72,7 @@ shared_examples_for "has attachments tabs" do
     let!(:last_document) { create(:attachment, :with_pdf, attached_to:, weight: 2) }
     let!(:first_document) { create(:attachment, :with_pdf, attached_to:, weight: 1) }
     let!(:last_image) { create(:attachment, attached_to:, weight: 2) }
-    let!(:fist_image) { create(:attachment, attached_to:, weight: 1) }
+    let!(:first_image) { create(:attachment, attached_to:, weight: 1) }
 
     before do
       visit current_path
@@ -86,7 +86,7 @@ shared_examples_for "has attachments tabs" do
 
       find("li [data-controls='panel-images']").click
       within "#panel-images" do
-        expect(strip_tags(translated(fist_image.title, locale: :en))).to appear_before(strip_tags(translated(last_image.title, locale: :en)))
+        expect(strip_tags(translated(first_image.title, locale: :en))).to appear_before(strip_tags(translated(last_image.title, locale: :en)))
       end
     end
   end

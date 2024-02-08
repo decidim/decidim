@@ -37,12 +37,7 @@ module Decidim
       resource_title = resource.try(:resource_title) || resource.try(:title)
       return if resource_title.blank?
 
-      case resource_title
-      when String
-        resource_title
-      when Hash
-        translated_attribute(resource_title)
-      end
+      decidim_escape_translated(resource_title)
     end
 
     def title_icon

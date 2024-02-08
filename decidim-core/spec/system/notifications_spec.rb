@@ -92,7 +92,7 @@ describe "Notifications" do
       let(:notification_title) { "An event occured to #{translated resource.title}" }
 
       it "hides the notification from the page" do
-        expect(page).to have_content(translated(notification_title))
+        expect(page).to have_content(decidim_sanitize_translated(notification_title))
         find("[data-notification-read]").click
         expect(page).to have_no_content(translated(notification_title))
         expect(page).to have_content("No notifications yet")

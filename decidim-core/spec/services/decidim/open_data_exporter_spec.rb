@@ -66,7 +66,7 @@ describe Decidim::OpenDataExporter do
         end
 
         it "includes the results data" do
-          expect(csv_data).to include(result.title["en"])
+          expect(csv_data).to include(translated(result.title).gsub("\"", "\"\""))
         end
 
         context "with unpublished components" do
@@ -75,7 +75,7 @@ describe Decidim::OpenDataExporter do
           end
 
           it "includes the results data" do
-            expect(csv_data).not_to include(result.title["en"])
+            expect(csv_data).not_to include(translated(result.title).gsub("\"", "\"\""))
           end
         end
       end
