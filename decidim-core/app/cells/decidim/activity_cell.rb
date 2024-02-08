@@ -7,10 +7,6 @@ module Decidim
   # tweak the necessary methods (usually `title` is enough).
   class ActivityCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
-    include Decidim::IconHelper
-    include Decidim::ApplicationHelper
-    include Decidim::SanitizeHelper
-    include ActionView::Helpers::DateHelper
 
     def show
       return unless renderable?

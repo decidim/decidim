@@ -3,8 +3,6 @@
 module Decidim::Amendable
   # This cell renders the action buttons for coauthors to amend the given resource.
   class EmendationActionsCell < Decidim::ViewModel
-    include Decidim::LayoutHelper
-
     delegate :amendment, to: :model
 
     def current_component

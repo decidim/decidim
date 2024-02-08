@@ -5,7 +5,6 @@ module Decidim
     # This cell renders a collection of linked Participatory Space of current conference.
     # `model` is the current conference
     class LinkedParticipatorySpacesCell < Decidim::ViewModel
-      include Decidim::ApplicationHelper
       include Decidim::CardHelper
 
       def show

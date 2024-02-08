@@ -15,8 +15,6 @@ module Decidim
   #
   #    cell("decidim/footer_pages", :topics)
   class FooterPagesCell < Decidim::ViewModel
-    include ApplicationHelper
-
     OPTIONS = [:topics, :pages].freeze
 
     def show

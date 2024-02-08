@@ -5,7 +5,6 @@ require "cell/partial"
 module Decidim
   module NewsletterTemplates
     class BaseCell < Decidim::ViewModel
-      include Decidim::SanitizeHelper
       include Cell::ViewModel::Partial
       include Decidim::NewslettersHelper
 
