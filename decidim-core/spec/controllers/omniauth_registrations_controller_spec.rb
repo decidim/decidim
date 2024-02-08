@@ -31,6 +31,49 @@ module Decidim
         }
       end
 
+      context "when the organization does have a valid authorization handler" do
+        let!(:user) { create(:user, :confirmed, organization: , sign_in_count: 1) }
+
+        context "when there are authorization handlers" do
+          before do
+            allow(user.organization).to receive(:available_authorizations)
+                                          .and_return(["dummy_authorization_handler"])
+            post :create
+          end
+
+          it { expect(controller).to redirect_to("/authorizations") }
+
+          context "when there is a pending redirection" do
+            before do
+              controller.store_location_for(user, account_path)
+              post :create
+            end
+
+            it { expect(controller).to redirect_to(account_path) }
+          end
+
+          context "when the user has not confirmed their email" do
+            before do
+              allow(user.organization).to receive(:available_authorizations)
+                                            .and_return([])
+              user.confirmed_at = nil
+              post :create
+            end
+
+            it { expect(controller).to redirect_to(root_path) }
+          end
+        end
+
+        context "and otherwise", with_authorization_workflows: [] do
+          before do
+            allow(user.organization).to receive(:available_authorizations).and_return([])
+            post :create
+          end
+
+          it { expect(controller).to redirect_to(root_path) }
+        end
+      end
+
       context "when the user has the account blocked" do
         let!(:user) { create(:user, organization:, email:, blocked: true) }
 
