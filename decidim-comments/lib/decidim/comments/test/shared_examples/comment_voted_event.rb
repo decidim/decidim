@@ -12,7 +12,7 @@ shared_examples_for "a comment voted event" do
   let(:comment_vote_author) { comment_vote.author }
 
   let(:extra) { { comment_id: comment.id, author_id: comment_vote_author.id, weight:, downvotes: 100, upvotes: 999 } }
-  let(:resource_title) { decidim_escape_translated(resource.title) }
+  let(:resource_title) { decidim_sanitize_translated(resource.title) }
   let(:resource_text) { subject.resource_text }
 
   let(:verb) { weight.positive? ? "upvoted" : "downvoted" }
