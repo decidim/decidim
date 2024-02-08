@@ -56,7 +56,7 @@ describe "Meeting registrations" do
         visit questionnaire_public_path
 
         expect(page).to have_i18n_content(questionnaire.title)
-        expect(page).to have_i18n_content(questionnaire.description)
+        expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
 
         expect(page).to have_no_i18n_content(question.body)
 
@@ -91,7 +91,7 @@ describe "Meeting registrations" do
           visit questionnaire_public_path
 
           expect(page).to have_i18n_content(questionnaire.title)
-          expect(page).to have_i18n_content(questionnaire.description)
+          expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
 
           expect(page).to have_no_i18n_content(question.body)
 
@@ -140,7 +140,7 @@ describe "Meeting registrations" do
             visit questionnaire_public_path
 
             expect(page).to have_i18n_content(questionnaire.title)
-            expect(page).to have_i18n_content(questionnaire.description)
+            expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
 
             expect(page).to have_no_css(".form.answer-questionnaire")
 
@@ -453,7 +453,7 @@ describe "Meeting registrations" do
           visit questionnaire_public_path
 
           expect(page).to have_i18n_content(questionnaire.title)
-          expect(page).to have_i18n_content(questionnaire.description)
+          expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
 
           expect(page).to have_no_i18n_content(question.body)
 
