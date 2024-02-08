@@ -7,13 +7,19 @@ require "decidim/participatory_processes/test/factories"
 
 FactoryBot.define do
   factory :surveys_component, parent: :component do
-    name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :surveys).i18n_name }
+    transient do
+      skip_injection { false }
+    end
+    name { generate_component_name(participatory_space.organization.available_locales, :surveys, skip_injection:) }
     manifest_name { :surveys }
-    participatory_space { create(:participatory_process, :with_steps) }
+    participatory_space { create(:participatory_process, :with_steps, skip_injection:) }
   end
 
   factory :survey, class: "Decidim::Surveys::Survey" do
-    questionnaire { build(:questionnaire, :with_questions) }
-    component { build(:surveys_component) }
+    transient do
+      skip_injection { false }
+    end
+    questionnaire { build(:questionnaire, :with_questions, skip_injection:) }
+    component { build(:surveys_component, skip_injection:) }
   end
 end
