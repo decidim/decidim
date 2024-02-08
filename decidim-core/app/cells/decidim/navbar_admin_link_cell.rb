@@ -8,8 +8,6 @@ module Decidim
   #   <%= cell("decidim/navbar_admin_link", { link_url: link_url, link_options: link_options }) %>
   #
   class NavbarAdminLinkCell < Decidim::ViewModel
-    include Decidim::IconHelper
-
     def show
       render if link_url
     end

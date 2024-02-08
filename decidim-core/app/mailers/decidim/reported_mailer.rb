@@ -38,6 +38,10 @@ module Decidim
       @organization
     end
 
+    def current_user
+      @user
+    end
+
     private
 
     def reported_content_url

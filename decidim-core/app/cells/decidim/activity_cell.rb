@@ -7,10 +7,6 @@ module Decidim
   # tweak the necessary methods (usually `title` is enough).
   class ActivityCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
-    include Decidim::IconHelper
-    include Decidim::ApplicationHelper
-    include Decidim::SanitizeHelper
-    include ActionView::Helpers::DateHelper
 
     def show
       return unless renderable?
@@ -77,7 +73,7 @@ module Decidim
 
     # The text to show as the link to the resource.
     def resource_link_text
-      decidim_html_escape(translated_attribute(resource.title))
+      decidim_escape_translated(resource.title)
     end
 
     def created_at
@@ -159,7 +155,7 @@ module Decidim
 
     def participatory_space_link
       link_to(
-        decidim_html_escape(translated_attribute(participatory_space.title)),
+        decidim_escape_translated(participatory_space.title),
         resource_locator(participatory_space).path
       )
     end

@@ -61,7 +61,7 @@ describe "Proposals" do
             visit complete_proposal_path(component, proposal_draft)
 
             within "form.edit_proposal" do
-              expect(page).not_to have_content("Scope")
+              expect(page).to have_no_content("Scope")
             end
           end
         end
@@ -78,8 +78,8 @@ describe "Proposals" do
             find("*[type=submit]").click
           end
 
-          expect(page).not_to have_css(".address__info")
-          expect(page).not_to have_css(".address__map")
+          expect(page).to have_no_css(".address__info")
+          expect(page).to have_no_css(".address__map")
 
           click_button "Publish"
 
@@ -187,7 +187,7 @@ describe "Proposals" do
             expect(page).to have_content("#AutoHashtag1")
             expect(page).to have_content("#AutoHashtag2")
             expect(page).to have_content("#SuggestedHashtag1")
-            expect(page).not_to have_content("#SuggestedHashtag2")
+            expect(page).to have_no_content("#SuggestedHashtag2")
           end
         end
 
@@ -314,7 +314,7 @@ describe "Proposals" do
             expect(page).to have_content("successfully")
 
             within "#panel-images" do
-              expect(page).to have_selector("img[src*=\"city.jpeg\"]", count: 1)
+              expect(page).to have_css("img[src*=\"city.jpeg\"]", count: 1)
             end
           end
 
@@ -377,7 +377,7 @@ describe "Proposals" do
               click_link "Modify the proposal"
 
               within "[data-active-uploads]" do
-                expect(page).not_to have_content("city.jpeg")
+                expect(page).to have_no_content("city.jpeg")
                 expect(page).to have_content("city2.jpeg")
                 expect(page).to have_content("city3.jpeg")
               end
@@ -389,7 +389,7 @@ describe "Proposals" do
       context "when creation is not enabled" do
         it "does not show the creation button" do
           visit_component
-          expect(page).not_to have_link("New proposal")
+          expect(page).to have_no_link("New proposal")
         end
       end
 
@@ -417,7 +417,7 @@ describe "Proposals" do
             find("*[type=submit]").click
           end
 
-          expect(page).not_to have_content("successfully")
+          expect(page).to have_no_content("successfully")
           expect(page).to have_css("[data-alert-box].alert", text: "limit")
         end
       end

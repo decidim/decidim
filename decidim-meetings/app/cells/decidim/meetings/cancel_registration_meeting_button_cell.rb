@@ -4,7 +4,6 @@ module Decidim
   module Meetings
     # This cell renders the button to cancel a meeting registation.
     class CancelRegistrationMeetingButtonCell < Decidim::ViewModel
-      include Decidim::IconHelper
       include MeetingCellsHelper
 
       def show

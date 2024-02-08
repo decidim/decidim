@@ -34,7 +34,7 @@ describe Decidim::Forms::QuestionReadonlyCell, type: :cell do
     end
 
     it "does not render the element with the answer idx attribute" do
-      expect(subject.call).not_to have_css("[data-answer-idx]")
+      expect(subject.call).to have_no_css("[data-answer-idx]")
     end
   end
 

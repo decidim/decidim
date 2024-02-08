@@ -14,7 +14,7 @@ describe "Conference partners" do
   context "when there are no partners" do
     it "the menu link is not shown" do
       visit decidim_conferences.conference_path(conference)
-      expect(page).not_to have_content("Partners")
+      expect(page).to have_no_content("Partners")
     end
   end
 
@@ -36,7 +36,7 @@ describe "Conference partners" do
 
       within "#conference-partners-main_promotor" do
         expect(page).to have_content("Organizers")
-        expect(page).to have_selector(".conference__grid-item", count: 2)
+        expect(page).to have_css(".conference__grid-item", count: 2)
 
         main_promotors.each do |collaborator|
           expect(page).to have_content(collaborator.name)
@@ -45,7 +45,7 @@ describe "Conference partners" do
 
       within "#conference-partners-collaborator" do
         expect(page).to have_content("Partners")
-        expect(page).to have_selector(".conference__grid-item", count: 2)
+        expect(page).to have_css(".conference__grid-item", count: 2)
 
         collaborators.each do |collaborator|
           expect(page).to have_content(collaborator.name)

@@ -53,24 +53,24 @@ describe "Admin manages moderated users" do
         search_by_text(first_user.nickname)
 
         expect(page).to have_content(first_user.name)
-        expect(page).not_to have_content(second_user.name)
-        expect(page).not_to have_content(third_user.name)
+        expect(page).to have_no_content(second_user.name)
+        expect(page).to have_no_content(third_user.name)
       end
 
       it "can be searched by email" do
         search_by_text(first_user.email)
 
         expect(page).to have_content(first_user.name)
-        expect(page).not_to have_content(second_user.name)
-        expect(page).not_to have_content(third_user.name)
+        expect(page).to have_no_content(second_user.name)
+        expect(page).to have_no_content(third_user.name)
       end
 
       it "can be searched by name" do
         search_by_text(first_user.name)
 
         expect(page).to have_content(first_user.name)
-        expect(page).not_to have_content(second_user.name)
-        expect(page).not_to have_content(third_user.name)
+        expect(page).to have_no_content(second_user.name)
+        expect(page).to have_no_content(third_user.name)
       end
     end
 
@@ -111,7 +111,7 @@ describe "Admin manages moderated users" do
     end
 
     it "user cannot unreport them" do
-      expect(page).not_to have_css(".action-icon--unreport")
+      expect(page).to have_no_css(".action-icon--unreport")
     end
 
     context "when filtering by report reason" do
