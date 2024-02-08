@@ -61,15 +61,6 @@ module Decidim
           }
         ]
       end
-
-      def activities_table(*table_rows, **_opts)
-        table_rows.map do |table_cell|
-          row = []
-          row << table_cell[:name]
-          row << link_to(table_cell[:url].split("/").last, table_cell[:url], target: "_blank", class: "text-secondary underline", rel: "noopener")
-          row
-        end
-      end
     end
   end
 end

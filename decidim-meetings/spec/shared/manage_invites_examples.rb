@@ -58,7 +58,7 @@ shared_examples "manage invites" do
         expect(page).to have_content("registrations are disabled")
 
         within "form.new_meeting_registration_invite" do
-          expect(page).to have_selector("button[disabled]", text: "Invite")
+          expect(page).to have_css("button[disabled]", text: "Invite")
         end
       end
     end
@@ -179,7 +179,7 @@ shared_examples "manage invites" do
         within "#meeting-invites table tbody" do
           expect(page).to have_css("tr", count: 1)
           expect(page).to have_content(invites.first.user.name)
-          expect(page).not_to have_content(invites.last.user.name)
+          expect(page).to have_no_content(invites.last.user.name)
         end
       end
 
@@ -194,7 +194,7 @@ shared_examples "manage invites" do
         within "#meeting-invites table tbody" do
           expect(page).to have_css("tr", count: 1)
           expect(page).to have_content(accepted_invite.user.name)
-          expect(page).not_to have_content(rejected_invite.user.name)
+          expect(page).to have_no_content(rejected_invite.user.name)
         end
 
         remove_applied_filter("Accepted")
@@ -203,7 +203,7 @@ shared_examples "manage invites" do
         within "#meeting-invites table tbody" do
           expect(page).to have_css("tr", count: 1)
           expect(page).to have_content(rejected_invite.user.name)
-          expect(page).not_to have_content(accepted_invite.user.name)
+          expect(page).to have_no_content(accepted_invite.user.name)
         end
       end
     end

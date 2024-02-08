@@ -14,7 +14,7 @@ describe Decidim::ContentBlocks::SubHeroCell, type: :cell do
     let(:description) { {} }
 
     it "displays nothing" do
-      expect(subject).not_to have_css(".subhero")
+      expect(subject).to have_no_css(".subhero")
     end
   end
 

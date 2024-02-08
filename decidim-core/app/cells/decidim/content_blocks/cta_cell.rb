@@ -3,8 +3,6 @@
 module Decidim
   module ContentBlocks
     class CtaCell < Decidim::ViewModel
-      include Decidim::SanitizeHelper
-
       def show
         return if button_url.blank?
 

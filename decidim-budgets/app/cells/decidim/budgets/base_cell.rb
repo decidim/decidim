@@ -4,8 +4,6 @@ module Decidim
   module Budgets
     # This cell has the commons for the budgets cells
     class BaseCell < Decidim::ViewModel
-      include Decidim::LayoutHelper
-      include Decidim::SanitizeHelper
       include Decidim::ComponentPathHelper
       include Decidim::Budgets::Engine.routes.url_helpers
 

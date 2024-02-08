@@ -4,8 +4,6 @@ module Decidim
   module ParticipatoryProcesses
     module ContentBlocks
       class HighlightedProcessesCell < Decidim::ContentBlocks::HighlightedParticipatorySpacesCell
-        delegate :current_user, to: :controller
-
         def highlighted_spaces
           @highlighted_spaces ||= promoted_groups + highlighted_processes
         end

@@ -1,0 +1,18 @@
+require: rubocop-capybara
+
+Capybara:
+  Enabled: true
+  DocumentationBaseURL: https://docs.rubocop.org/rubocop-capybara
+  Include: &1
+    - "**/*/spec/**/*.rb"
+
+Capybara/ClickLinkOrButtonStyle:
+  Enabled: false
+
+Capybara/RedundantWithinFind:
+  Enabled: false
+
+Capybara/RSpec:
+  Enabled: false
+  Include: *1
+

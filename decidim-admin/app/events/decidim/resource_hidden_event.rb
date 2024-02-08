@@ -2,6 +2,8 @@
 
 module Decidim
   class ResourceHiddenEvent < Decidim::Events::SimpleEvent
+    include Decidim::ApplicationHelper
+
     i18n_attributes :resource_path, :report_reasons, :resource_type, :resource_content
 
     def resource_path
@@ -23,7 +25,9 @@ module Decidim
     end
 
     def resource_content
-      translated_attribute(@resource[@resource.reported_attributes.first]).truncate(100, separator: " ")
+      text = translated_attribute(@resource[@resource.reported_attributes.first])
+
+      decidim_sanitize(html_truncate(text, length: 100), strip_tags: true)
     end
 
     def resource_text

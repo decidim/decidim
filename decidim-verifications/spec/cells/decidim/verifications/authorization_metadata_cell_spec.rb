@@ -36,7 +36,7 @@ describe Decidim::Verifications::AuthorizationMetadataCell, type: :cell do
       end
 
       it "ignores the content of the 'extras' key" do
-        expect(subject).not_to have_content("gender")
+        expect(subject).to have_no_content("gender")
       end
     end
   end

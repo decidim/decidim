@@ -37,7 +37,7 @@ describe "Session timeout" do
       switch_to_window(win1)
       expect(page).to have_content("If you continue being inactive", wait: 4)
       find_by_id("continueSession").click
-      expect(page).not_to have_content("You were inactive for too long")
+      expect(page).to have_no_content("You were inactive for too long")
     end
 
     it "does not timeout user who wants to be remembered" do
@@ -46,7 +46,7 @@ describe "Session timeout" do
       visit decidim.root_path
       travel 1.minute
       sleep 1
-      expect(page).not_to have_content("You were inactive for too long")
+      expect(page).to have_no_content("You were inactive for too long")
     end
   end
 end
