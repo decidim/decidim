@@ -122,7 +122,7 @@ module Decidim
     def hashtaggable_text_field(type, name, locale, options = {})
       options[:hashtaggable] = true if type.to_sym == :editor
 
-      content_tag(:div, class: "hashtags__container") do
+      content_tag(:div) do
         if options[:value]
           send(type, name_with_locale(name, locale), options.merge(label: options[:label], value: options[:value][locale]))
         else
@@ -202,7 +202,7 @@ module Decidim
 
       content_tag(
         :div,
-        class: "editor #{"hashtags__container" if editor_options[:editor]["class"].include?("js-hashtags")}",
+        class: "editor",
         id: "#{sanitize_for_dom_selector(@object_name)}_#{sanitize_for_dom_selector(name)}"
       ) do
         template = ""

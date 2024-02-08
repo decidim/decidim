@@ -12,10 +12,10 @@
           autocomplete="off"
           placeholder="<%= t("add_users_placeholder", scope: "decidim.messaging.conversations.add_conversation_users") %>"
           data-noresults="<%= t("no_results", scope: "decidim.messaging.conversations.add_conversation_users") %>"
-          data-selected="multiple-mentions-selected"
+          data-selected="conversation__modal-results"
           contenteditable="true"
           data-direct-messages-disabled="<%= t("participant_with_disabled_message_reception", scope: "decidim.messaging.conversations.add_conversation_users") %>">
     </div>
-    <ul class="conversation__modal-results multiple-mentions-selected"></ul>
+    <ul class="conversation__modal-results"></ul>
   </div>
 </div>
