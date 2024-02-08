@@ -18,7 +18,7 @@ describe UploaderContentTypeValidator do
   let(:uploader) do
     Class.new(Decidim::ApplicationUploader) do
       def content_type_allowlist
-        %w(image/jpeg image/png)
+        %w(image/jpeg image/png image/webp)
       end
     end
   end
@@ -58,7 +58,7 @@ describe UploaderContentTypeValidator do
     it "adds the content type error" do
       expect(subject.count).to eq(1)
       expect(subject[:file]).to eq(
-        ["only files with the following extensions are allowed: jpeg, jpg, png"]
+        ["only files with the following extensions are allowed: jpeg, jpg, png, webp"]
       )
     end
 
@@ -74,7 +74,7 @@ describe UploaderContentTypeValidator do
       it "adds the correct content type error with the allowed extensions" do
         expect(subject.count).to eq(1)
         expect(subject[:file]).to eq(
-          ["only files with the following extensions are allowed: jpeg, jpg, png"]
+          ["only files with the following extensions are allowed: jpeg, jpg, png, webp"]
         )
       end
     end
@@ -108,7 +108,7 @@ describe UploaderContentTypeValidator do
       it "adds the recognized extensions and content type to the error in correct order" do
         expect(subject.count).to eq(1)
         expect(subject[:file]).to eq(
-          ["only files with the following extensions are allowed: jpeg, jpg, png, foobar/*"]
+          ["only files with the following extensions are allowed: jpeg, jpg, png, webp, foobar/*"]
         )
       end
     end
