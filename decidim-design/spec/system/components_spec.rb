@@ -16,6 +16,12 @@ describe "Components" do
   end
 
   context "when on activities page" do
+    let(:participatory_space) { create(:participatory_process, :published, organization:) }
+    let(:component) { create(:component, :published, participatory_space:) }
+    let!(:action_log) do
+      create(:action_log, created_at: 1.day.ago, action: "publish", visibility: "public-only", resource: participatory_space, organization:, component:, participatory_space: nil)
+    end
+
     it_behaves_like "showing the design page", "Activities", "LastActivity"
   end
 
