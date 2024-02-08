@@ -231,6 +231,7 @@ eu:
           update:
             error: Arazo bat egon da zure dokumentua berriro igotzean.
             success: Dokumentua ondo igota berriro.
+        identification_number: Identifikazio zenbakia
         passport: pasaportea
       postal_letter:
         admin:
