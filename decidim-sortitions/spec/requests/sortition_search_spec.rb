@@ -32,22 +32,22 @@ RSpec.describe "Sortition search" do
   it_behaves_like "a resource search with categories", :sortition, :single
 
   it "displays all non-cancelled sortitions without any filters" do
-    expect(subject).to include(translated(sortition1.title))
-    expect(subject).to include(translated(sortition2.title))
-    expect(subject).to include(translated(sortition3.title))
-    expect(subject).to include(translated(sortition4.title))
-    expect(subject).not_to include(translated(sortition5.title))
+    expect(subject).to include(decidim_escape_translated(sortition1.title))
+    expect(subject).to include(decidim_escape_translated(sortition2.title))
+    expect(subject).to include(decidim_escape_translated(sortition3.title))
+    expect(subject).to include(decidim_escape_translated(sortition4.title))
+    expect(subject).not_to include(decidim_escape_translated(sortition5.title))
   end
 
   context "when searching by text" do
     let(:filter_params) { { search_text_cont: "doggo" } }
 
     it "displays only the sortitions containing the search_text" do
-      expect(subject).to include(translated(sortition1.title))
-      expect(subject).to include(translated(sortition2.title))
-      expect(subject).to include(translated(sortition3.title))
-      expect(subject).not_to include(translated(sortition4.title))
-      expect(subject).not_to include(translated(sortition5.title))
+      expect(subject).to include(decidim_escape_translated(sortition1.title))
+      expect(subject).to include(decidim_escape_translated(sortition2.title))
+      expect(subject).to include(decidim_escape_translated(sortition3.title))
+      expect(subject).not_to include(decidim_escape_translated(sortition4.title))
+      expect(subject).not_to include(decidim_escape_translated(sortition5.title))
     end
   end
 
@@ -58,11 +58,11 @@ RSpec.describe "Sortition search" do
       let(:state) { "active" }
 
       it "displays the active sortitions" do
-        expect(subject).to include(translated(sortition1.title))
-        expect(subject).to include(translated(sortition2.title))
-        expect(subject).to include(translated(sortition3.title))
-        expect(subject).to include(translated(sortition4.title))
-        expect(subject).not_to include(translated(sortition5.title))
+        expect(subject).to include(decidim_escape_translated(sortition1.title))
+        expect(subject).to include(decidim_escape_translated(sortition2.title))
+        expect(subject).to include(decidim_escape_translated(sortition3.title))
+        expect(subject).to include(decidim_escape_translated(sortition4.title))
+        expect(subject).not_to include(decidim_escape_translated(sortition5.title))
       end
     end
 
@@ -70,11 +70,11 @@ RSpec.describe "Sortition search" do
       let(:state) { "cancelled" }
 
       it "displays only the cancelled sortition" do
-        expect(subject).not_to include(translated(sortition1.title))
-        expect(subject).not_to include(translated(sortition2.title))
-        expect(subject).not_to include(translated(sortition3.title))
-        expect(subject).not_to include(translated(sortition4.title))
-        expect(subject).to include(translated(sortition5.title))
+        expect(subject).not_to include(decidim_escape_translated(sortition1.title))
+        expect(subject).not_to include(decidim_escape_translated(sortition2.title))
+        expect(subject).not_to include(decidim_escape_translated(sortition3.title))
+        expect(subject).not_to include(decidim_escape_translated(sortition4.title))
+        expect(subject).to include(decidim_escape_translated(sortition5.title))
       end
     end
 
@@ -82,11 +82,11 @@ RSpec.describe "Sortition search" do
       let(:state) { "all" }
 
       it "displays all the sortitions" do
-        expect(subject).to include(translated(sortition1.title))
-        expect(subject).to include(translated(sortition2.title))
-        expect(subject).to include(translated(sortition3.title))
-        expect(subject).to include(translated(sortition4.title))
-        expect(subject).to include(translated(sortition5.title))
+        expect(subject).to include(decidim_escape_translated(sortition1.title))
+        expect(subject).to include(decidim_escape_translated(sortition2.title))
+        expect(subject).to include(decidim_escape_translated(sortition3.title))
+        expect(subject).to include(decidim_escape_translated(sortition4.title))
+        expect(subject).to include(decidim_escape_translated(sortition5.title))
       end
     end
   end
