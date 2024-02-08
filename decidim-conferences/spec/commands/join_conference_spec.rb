@@ -52,7 +52,7 @@ module Decidim::Conferences
         email = last_email
 
         expect(email.subject).to include("pending")
-        expect(email.body.encoded).to include(translated(registration_type.title))
+        expect(email.text_part.body.to_s).to include(translated(registration_type.title).first(60))
       end
 
       it "sends a notification to the user with the pending validation" do
