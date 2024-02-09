@@ -55,7 +55,7 @@ module Decidim
         @embeddable_services ||= Meetings.embeddable_services
       end
 
-      # Youtube transformation consists on:
+      # YouTube transformation consists on:
       # 1. extract the video id from the parameter v
       # 2. Create a new URL using the domain youtube-nocookie.com, converting it to an embed
       #    and appending the video id
