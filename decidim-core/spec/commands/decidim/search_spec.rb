@@ -141,7 +141,7 @@ describe Decidim::Search do
       let(:datetime1) { 10.seconds.from_now }
       let(:datetime2) { 20.seconds.from_now }
 
-      it "returns matches sorted by date descendently" do
+      it "returns matches sorted by date descendingly" do
         described_class.call(term, current_organization) do
           on(:ok) do |results_by_type|
             results = results_by_type["Decidim::Dev::DummyResource"]
@@ -156,7 +156,7 @@ describe Decidim::Search do
       let(:datetime1) { 1.day.ago }
       let(:datetime2) { 2.days.ago }
 
-      it "returns matches sorted by date descendently" do
+      it "returns matches sorted by date descendingly" do
         described_class.call(term, current_organization) do
           on(:ok) do |results_by_type|
             results = results_by_type["Decidim::Dev::DummyResource"]
@@ -171,7 +171,7 @@ describe Decidim::Search do
       let(:datetime1) { 1.day.from_now }
       let(:datetime2) { 1.day.ago }
 
-      it "returns matches sorted by date descendently" do
+      it "returns matches sorted by date descendingly" do
         described_class.call(term, current_organization) do
           on(:ok) do |results_by_type|
             results = results_by_type["Decidim::Dev::DummyResource"]
