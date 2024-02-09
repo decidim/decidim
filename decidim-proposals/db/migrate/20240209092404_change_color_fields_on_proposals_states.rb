@@ -8,11 +8,11 @@ class ChangeColorFieldsOnProposalsStates < ActiveRecord::Migration[6.1]
 
     Decidim::Proposals::ProposalState.reset_column_information
 
-    #rubocop:disable Rails/SkipsModelValidations
+    # rubocop:disable Rails/SkipsModelValidations
     Decidim::Proposals::ProposalState.where(token: :accepted).update_all(bg_color: "#c4ecd0", text_color: "#16592e")
     Decidim::Proposals::ProposalState.where(token: :evaluating).update_all(bg_color: "#ffeebd", text_color: "#ad4910")
     Decidim::Proposals::ProposalState.where(token: :rejected).update_all(bg_color: "#ffdee3", text_color: "#b9081b")
-    #rubocop:enable Rails/SkipsModelValidations
+    # rubocop:enable Rails/SkipsModelValidations
   end
 
   def down
