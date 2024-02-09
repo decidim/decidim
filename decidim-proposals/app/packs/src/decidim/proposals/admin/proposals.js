@@ -59,7 +59,7 @@ $(() => {
     $(".js-bulk-action-form").addClass("hide");
   }
 
-  // Expose functions to make them avaialble in .js.erb templates
+  // Expose functions to make them available in .js.erb templates
   window.selectedProposalsCount = selectedProposalsCount;
   window.selectedProposalsNotPublishedAnswerCount = selectedProposalsNotPublishedAnswerCount;
   window.selectedProposalsCountUpdate = selectedProposalsCountUpdate;

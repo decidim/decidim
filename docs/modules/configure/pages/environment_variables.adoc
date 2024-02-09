@@ -409,7 +409,7 @@ Also some more refined configurations:
 |DECIDIM_DEFAULT_LOCALE
 |The default locale to be used as a fallback (note that, in practice, this value must always be defined in the System configuration for each organization anyway).
 
-*Note that `DECIDIM_AVALABLE_LOCALES` must include this value*
+*Note that `DECIDIM_AVAILABLE_LOCALES` must include this value*
 |en
 |*Partially*, Only when creating a new organization
 
