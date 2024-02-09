@@ -2,7 +2,7 @@
 
 module Decidim
   # A command with all the business logic to demote an admin. This means
-  # removing their admin righta dn converting them to a basic member. It is the
+  # removing their admin right and converting them to a basic member. It is the
   # counterpart of `PromoteMembership`.
   class DemoteMembership < Decidim::Command
     # Public: Initializes the command.
