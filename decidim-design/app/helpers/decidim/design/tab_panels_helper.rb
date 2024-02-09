@@ -12,7 +12,7 @@ module Decidim
                 type: :text,
                 values: [
                   "This tab-panel component gathers all the related contents or another resources of the main element displayed,
-                    in order to save vertical space. Clicking on the tab will activate the reated panel to show the content.",
+                    in order to save vertical space. Clicking on the tab will activate the created panel to show the content.",
                   "Mainly is used within the <i>layout_item</i> or the <i>layout_center</i>, after the main content of the resource."
                 ]
               }
