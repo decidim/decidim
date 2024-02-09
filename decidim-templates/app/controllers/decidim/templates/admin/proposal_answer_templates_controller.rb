@@ -157,21 +157,21 @@ module Decidim
         def availability_option_as_text(template)
           return unless template.templatable_type
 
-          avaliablity_options.select { |a| a.last == template.templatable_id }.flatten.first || t("templates.missing_resource", scope: "decidim.admin")
+          availability_options.select { |a| a.last == template.templatable_id }.flatten.first || t("templates.missing_resource", scope: "decidim.admin")
         end
 
         def availability_options_for_select
-          avaliablity_options
+          availability_options
         end
 
-        def avaliablity_options
-          @avaliablity_options = []
+        def availability_options
+          @availability_options = []
           Decidim::Component.includes(:participatory_space).where(manifest_name: [:proposals])
                             .select { |a| a.participatory_space.decidim_organization_id == current_organization.id }.each do |component|
-            @avaliablity_options.push [formatted_name(component), component.id]
+            @availability_options.push [formatted_name(component), component.id]
           end
 
-          @avaliablity_options
+          @availability_options
         end
 
         def formatted_name(component)
