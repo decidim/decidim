@@ -2,15 +2,23 @@
   <div class="card pt-4">
     <div class="card-section">
       <div class="row column">
-        <%= form.translated :text_field, :title, aria: { label: :title } %>
+        <%= form.translated :text_field, :title, aria: { label: :title }, data: { "text-copy" => true, target: "strong[data-label-preview]" } %>
       </div>
       <div class="row column">
         <%= form.translated :text_area, :announcement_title, aria: { label: :announcement_title } %>
       </div>
 
-      <div class="organization-colors">
-        <%= form.color_field :text_color %>
-        <%= form.color_field :bg_color %>
+      <div class="row column">
+        <div class="organization-colors">
+          <%= form.color_field :text_color, data: { "label-preview" => true,  target: "strong[data-label-preview]", updates: "color" } %>
+          <%= form.color_field :bg_color, data: { "label-preview" => true,  target: "strong[data-label-preview]", updates: "backgroundColor" } %>
+
+          <div class="mt-8">
+            <strong class="label" style="<%= proposal_state.css_style %>" data-label-preview>
+              Preview
+            </strong>
+          </div>
+        </div>
       </div>
 
     </div>

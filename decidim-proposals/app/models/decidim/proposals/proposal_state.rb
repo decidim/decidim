@@ -31,11 +31,6 @@ module Decidim
         "background-color: #{bg_color}; color: #{text_color};"
       end
 
-      def css_class
-        raise "foo bar"
-        "bg-[#{bg_color}] text-[#{text_color}]"
-      end
-
       protected
 
       def generate_token
