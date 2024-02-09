@@ -4,7 +4,7 @@ require "cell/partial"
 
 module Decidim
   module Meetings
-    # This cell renders the list of public participanting
+    # This cell renders the list of public participating
     # organizations of a meeting.
     #
     # Example:
