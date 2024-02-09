@@ -14,7 +14,7 @@ describe Decidim::Debates::Admin::CloseDebateForm do
     }
   end
   let(:debate) { create(:debate, :official, component: current_component) }
-  let(:conclusions) { Decidim::Faker::Localized.localized { "We found a conlcusion." } }
+  let(:conclusions) { Decidim::Faker::Localized.localized { "We found a conclusion." } }
   let(:attributes) do
     {
       id: debate.id,

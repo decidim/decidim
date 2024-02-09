@@ -15,7 +15,7 @@ describe Decidim::Debates::CloseDebateForm do
     }
   end
   let(:debate) { create(:debate, :participant_author, component: current_component, author: user) }
-  let(:conclusions) { "We found a conlcusion." }
+  let(:conclusions) { "We found a conclusion." }
   let(:attributes) do
     {
       id: debate.id,
