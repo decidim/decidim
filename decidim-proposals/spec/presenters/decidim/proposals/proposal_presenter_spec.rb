@@ -12,11 +12,11 @@ module Decidim
       describe "when content contains urls" do
         let(:content) { <<~EOCONTENT }
           Content with <a href="http://urls.net" onmouseover="alert('hello')">URLs</a> of anchor type and text urls like https://decidim.org.
-          And a malicous <a href="javascript:document.cookies">click me</a>
+          And a malicious <a href="javascript:document.cookies">click me</a>
         EOCONTENT
         let(:result) { <<~EORESULT }
           Content with URLs of anchor type and text urls like <a href="https://decidim.org" target="_blank" rel="nofollow noopener noreferrer ugc">https://decidim.org</a>.
-          And a malicous click me
+          And a malicious click me
         EORESULT
 
         it "converts all URLs to links and strips attributes in anchors" do
