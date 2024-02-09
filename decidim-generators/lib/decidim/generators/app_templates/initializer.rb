@@ -320,7 +320,7 @@ Decidim.configure do |config|
   # to interact with third party service to translate the user content.
   #
   # If you still want to use "Decidim::Dev::DummyTranslator" as translator placeholder,
-  # add the follwing line at the beginning of this file:
+  # add the following line at the beginning of this file:
   # require "decidim/dev/dummy_translator"
   #
   # An example class would be something like:
