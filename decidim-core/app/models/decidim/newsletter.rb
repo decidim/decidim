@@ -46,7 +46,7 @@ module Decidim
       extended_data["send_to_participants"]
     end
 
-    def sended_to_partipatory_spaces
+    def sended_to_participatory_spaces
       extended_data["participatory_space_types"]
     end
 

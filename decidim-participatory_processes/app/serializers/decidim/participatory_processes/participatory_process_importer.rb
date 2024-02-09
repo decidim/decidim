@@ -14,8 +14,8 @@ module Decidim
       # attributes  - The Hash of attributes to create the ParticipatoryProcess with.
       # user        - The user that performs the action.
       # opts        - The options MUST contain:
-      #   - title: The +title+ for the new PartidicpatoryProcess
-      #   - slug: The +slug+ for the new PartidicpatoryProcess
+      #   - title: The +title+ for the new ParticipatoryProcess
+      #   - slug: The +slug+ for the new ParticipatoryProcess
       #
       # Returns a ParticipatoryProcess.
       def import(attributes, _user, opts)

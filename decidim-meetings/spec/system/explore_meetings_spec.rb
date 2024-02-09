@@ -40,7 +40,7 @@ describe "Explore meetings", :slow do
         visit_component
       end
 
-      context "when meetings mounted under paraticipatory process" do
+      context "when meetings mounted under participatory process" do
         let(:participatory_space) { create(:participatory_process, organization:) }
 
         it "properly saves the shortened link" do

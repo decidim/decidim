@@ -65,7 +65,7 @@ module Decidim
 
       def sent_to_spaces(newsletter)
         html = "<p style='margin-bottom:0;'> "
-        newsletter.sended_to_partipatory_spaces.try(:each) do |type|
+        newsletter.sended_to_participatory_spaces.try(:each) do |type|
           next if type["ids"].blank?
 
           html += t("index.segmented_to", scope: "decidim.admin.newsletters", subject: t("activerecord.models.decidim/#{type["manifest_name"].singularize}.other"))
