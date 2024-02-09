@@ -100,7 +100,7 @@ describe "Assemblies" do
       let(:manifest_name) { :assemblies }
     end
 
-    context "and requesting the asseblies path" do
+    context "and requesting the assemblies path" do
       before do
         visit decidim_assemblies.assemblies_path
       end

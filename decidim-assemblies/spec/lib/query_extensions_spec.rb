@@ -51,7 +51,7 @@ module Decidim
 
         let(:query) { %({ assemblies { id }}) }
 
-        it "returns all the assemblyes" do
+        it "returns all the assemblies" do
           expect(response["assemblies"]).to include("id" => assembly1.id.to_s)
           expect(response["assemblies"]).to include("id" => assembly2.id.to_s)
           expect(response["assemblies"]).not_to include("id" => assembly3.id.to_s)
