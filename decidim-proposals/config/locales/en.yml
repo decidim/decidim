@@ -477,6 +477,8 @@ en:
           edit:
             title: Edit status
             update: Update
+          form:
+            preview: Preview
           index:
             title: Statuses
           new:
