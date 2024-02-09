@@ -28,7 +28,7 @@ $(() => {
   // - amendment_promotion_enabled
 
   // (1) Hides target fields if amendments_enabled component setting is NOT checked.
-  // (2) Toggles visibilty of target fields when amendments_enabled component setting is clicked.
+  // (2) Toggles visibility of target fields when amendments_enabled component setting is clicked.
   const $amendmentsEnabled = $("input#component_settings_amendments_enabled");
 
   if ($amendmentsEnabled.length > 0) {

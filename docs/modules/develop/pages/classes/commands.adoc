@@ -39,7 +39,7 @@ module Decidim
       # Tell the parent what is the ActiveRecord class needed
       def resource_class = Decidim::MyModule::MyResource
 
-      # This method allows you to customize the log visbility
+      # This method allows you to customize the log visibility
       def extra_params = { visibility: "all" }
 
       # The command has a before hook that you can use:
@@ -99,7 +99,7 @@ module Decidim
       # Tell the parent what is the ActiveRecord class needed
       def resource_class = Decidim::MyModule::MyResource
 
-      # This method allows you to customize the log visbility
+      # This method allows you to customize the log visibility
       def extra_params = { visibility: "all" }
 
       # The command has a before hook that you can use:
@@ -152,7 +152,7 @@ module Decidim
 
       private
 
-      # This method allows you to customize the log visbility
+      # This method allows you to customize the log visibility
       def extra_params = { visibility: "all" }
 
       # The command has a before hook that you can use:
