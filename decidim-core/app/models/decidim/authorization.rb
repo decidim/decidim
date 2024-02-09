@@ -101,7 +101,7 @@ module Decidim
       @workflow_manifest ||= Decidim::Verifications.find_workflow_manifest(name)
     end
 
-    # Calculates when this authorization can be reseted, if desired.
+    # Calculates when this authorization can be reset, if desired.
     #
     # **time_between_renewals** is defined in `workflow_manifest.time_between_renewals`
     # defaults to 1 day
