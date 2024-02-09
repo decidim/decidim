@@ -40,7 +40,7 @@ Decidim.register_component(:dummy) do |component|
   component.register_resource(:dummy_resource) do |resource|
     resource.name = :dummy
     resource.model_class_name = "Decidim::Dev::DummyResource"
-    resource.template = "decidim/dummy_resource/linked_dummys"
+    resource.template = "decidim/dummy_resource/linked_dummies"
     resource.actions = %w(foo)
     resource.searchable = true
   end
@@ -53,7 +53,7 @@ Decidim.register_component(:dummy) do |component|
   component.register_resource(:coauthorable_dummy_resource) do |resource|
     resource.name = :coauthorable_dummy
     resource.model_class_name = "Decidim::Dev::CoauthorableDummyResource"
-    resource.template = "decidim/coauthorabledummy_resource/linked_dummys"
+    resource.template = "decidim/coauthorabledummy_resource/linked_dummies"
     resource.actions = %w(foo-coauthorable)
     resource.searchable = false
   end
