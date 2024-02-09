@@ -3,7 +3,7 @@
 module Decidim
   module Core
     module NeedsApiFilterAndOrder
-      # Converts the result of a GraphQL::Schema::InputObject into ActiverRecord where argument
+      # Converts the result of a GraphQL::Schema::InputObject into ActiveRecord where argument
       # Each value InputObject can return 4 types of values:
       # 1. A Scalar, will filter by a simple match (==) with the default field name
       # 2. A Hash, then the field name will be ignored and the key from the hash used for filtering
@@ -28,7 +28,7 @@ module Decidim
         end
       end
 
-      # Converts the result of a GraphQL::Schema::InputObject into ActiverRecord order argument
+      # Converts the result of a GraphQL::Schema::InputObject into ActiveRecord order argument
       # Each value of InputObject can return 3 types of values:
       # 1. A Scalar, will order using the default field name
       # 2. A Hash, the the field name will be ignored and the key from the hash used for ordering
