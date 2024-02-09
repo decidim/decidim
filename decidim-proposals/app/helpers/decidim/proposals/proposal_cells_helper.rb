@@ -14,7 +14,7 @@ module Decidim
       include Decidim::TranslatableAttributes
       include Decidim::CardHelper
 
-      delegate :title, :state, :published_state?, :withdrawn?, :amendable?, :emendation?, to: :model
+      delegate :title, :proposal_state, :state, :published_state?, :withdrawn?, :amendable?, :emendation?, to: :model
 
       def has_actions?
         return context[:has_actions] if context[:has_actions].present?
@@ -60,6 +60,8 @@ module Decidim
 
       def state_classes
         return ["alert"] if withdrawn?
+        return [proposal_state&.css_class] unless emendation?
+
 
         case state
         when "accepted"

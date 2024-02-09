@@ -7,9 +7,12 @@
       <div class="row column">
         <%= form.translated :text_area, :announcement_title, aria: { label: :announcement_title } %>
       </div>
-      <div class="row column">
-        <%= form.text_field :css_class %>
+
+      <div class="organization-colors">
+        <%= form.color_field :text_color %>
+        <%= form.color_field :bg_color %>
       </div>
+
     </div>
   </div>
 </div>

@@ -6,7 +6,7 @@ module Decidim
       class UpdateProposalState < Decidim::Commands::UpdateResource
         include TranslatableAttributes
 
-        fetch_form_attributes :title, :css_class, :announcement_title, :component
+        fetch_form_attributes :title, :text_color, :bg_color, :announcement_title, :component
       end
     end
   end
