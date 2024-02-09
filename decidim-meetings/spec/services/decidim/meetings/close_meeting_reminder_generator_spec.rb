@@ -28,7 +28,7 @@ module Decidim::Meetings
     end
 
     describe "#generate" do
-      context "when there is a past meeting without a report in the the last 3 days" do
+      context "when there is a past meeting without a report in the last 3 days" do
         let(:start_time) { 4.days.ago }
         let(:end_time) { 3.days.ago }
 
@@ -51,7 +51,7 @@ module Decidim::Meetings
         end
       end
 
-      context "when there is a past meeting without a report in the the last 7 days" do
+      context "when there is a past meeting without a report in the last 7 days" do
         let(:start_time) { 8.days.ago }
         let(:end_time) { 7.days.ago }
 

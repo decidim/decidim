@@ -544,7 +544,7 @@ describe "Editor" do
     context "when managing an ordered list" do
       let(:editor_content) { "<ol><li><p>Item</p></li></ol>" }
 
-      it "allows changing the the list type with ALT+SHIFT+DOWN" do
+      it "allows changing the list type with ALT+SHIFT+DOWN" do
         %w(a A i I).each do |type|
           prosemirror.native.send_keys [:alt, :shift, :down]
           expect_value(%(<ol type="#{type}" data-type="#{type}"><li><p>Item</p></li></ol>))
@@ -554,7 +554,7 @@ describe "Editor" do
         expect_value(editor_content)
       end
 
-      it "allows changing the the list type with ALT+SHIFT+UP" do
+      it "allows changing the list type with ALT+SHIFT+UP" do
         %w(I i A a).each do |type|
           prosemirror.native.send_keys [:alt, :shift, :up]
           expect_value(%(<ol type="#{type}" data-type="#{type}"><li><p>Item</p></li></ol>))
@@ -1360,7 +1360,7 @@ describe "Editor" do
         end
       end
 
-      it "removes the link from the the remove button" do
+      it "removes the link from the remove button" do
         within ".editor [data-bubble-menu] [data-linkbubble]" do
           click_button "Remove"
         end

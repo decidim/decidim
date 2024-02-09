@@ -38,7 +38,7 @@ module Decidim::Admin
           expect(action_log.version.object_changes).to include "tos_version"
         end
 
-        it "updates the the organization's terms-of-service version setting" do
+        it "updates the organization's terms-of-service version setting" do
           command.call
           organization.reload
           page.reload

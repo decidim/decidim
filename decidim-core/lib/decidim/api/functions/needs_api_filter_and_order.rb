@@ -31,7 +31,7 @@ module Decidim
       # Converts the result of a GraphQL::Schema::InputObject into ActiveRecord order argument
       # Each value of InputObject can return 3 types of values:
       # 1. A Scalar, will order using the default field name
-      # 2. A Hash, the the field name will be ignored and the key from the hash used for ordering
+      # 2. A Hash, the field name will be ignored and the key from the hash used for ordering
       # 3. A Proc, the input can use it to construct queries using Arel
       #            The Proc will receive the locale as argument
       def add_order_keys(order_input)
