@@ -94,7 +94,7 @@ module Decidim
             allow(paddable).to receive(:salt).and_return("")
           end
 
-          it "retuns unsecure hash" do
+          it "returns unsecure hash" do
             expect(paddable.send(:pad_id)).to eq("REF-#{unsecure_hash(12_345)}")
           end
         end
@@ -104,7 +104,7 @@ module Decidim
             allow(paddable).to receive(:salt).and_return(salt)
           end
 
-          it "retuns secure hash" do
+          it "returns secure hash" do
             expect("REF-#{secure_hash(12_345)}").to include(paddable.send(:pad_id))
           end
         end

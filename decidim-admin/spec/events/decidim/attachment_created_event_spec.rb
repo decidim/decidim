@@ -30,13 +30,13 @@ describe Decidim::AttachmentCreatedEvent do
     let(:text) { "This is my text!" }
 
     context "when attached_to has a description" do
-      it "resturns the description" do
+      it "returns the description" do
         expect(subject.resource_text).to eq translated(attached_to.description)
       end
     end
 
     context "when attached_to has a body" do
-      it "resturns the description" do
+      it "returns the description" do
         allow(attached_to).to receive(:description).and_return(nil)
         allow(attached_to).to receive(:body).and_return(text)
         expect(subject.resource_text).to eq attached_to.body
