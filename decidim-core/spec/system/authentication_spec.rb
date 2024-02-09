@@ -435,7 +435,7 @@ describe "Authentication" do
             (maximum_attempts - 2).times do
               within ".new_user" do
                 fill_in :session_user_email, with: user.email
-                fill_in :session_user_password, with: "not-the-pasword"
+                fill_in :session_user_password, with: "not-the-password"
                 find("*[type=submit]").click
               end
             end
@@ -444,7 +444,7 @@ describe "Authentication" do
           it "does not show the last attempt warning before locking the account" do
             within ".new_user" do
               fill_in :session_user_email, with: user.email
-              fill_in :session_user_password, with: "not-the-pasword"
+              fill_in :session_user_password, with: "not-the-password"
               find("*[type=submit]").click
             end
 
@@ -460,7 +460,7 @@ describe "Authentication" do
             (maximum_attempts - 1).times do
               within ".new_user" do
                 fill_in :session_user_email, with: user.email
-                fill_in :session_user_password, with: "not-the-pasword"
+                fill_in :session_user_password, with: "not-the-password"
                 find("*[type=submit]").click
               end
             end
@@ -469,7 +469,7 @@ describe "Authentication" do
           it "when reached maximum failed attempts" do
             within ".new_user" do
               fill_in :session_user_email, with: user.email
-              fill_in :session_user_password, with: "not-the-pasword"
+              fill_in :session_user_password, with: "not-the-password"
               perform_enqueued_jobs { find("*[type=submit]").click }
             end
 
