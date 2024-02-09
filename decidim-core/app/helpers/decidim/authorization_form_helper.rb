@@ -6,7 +6,7 @@ module Decidim
     # Creates a ew authorization form in a view, accepts the same arguments as
     # `form_for`.
     #
-    # record  - The record to use in the form, it shoulde be a descendant of
+    # record  - The record to use in the form, it should be a descendant of
     # AuthorizationHandler.
     # options - An optional hash with options to pass wo the form builder.
     # block   - A block with the content of the form.
