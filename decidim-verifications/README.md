@@ -190,7 +190,7 @@ For example, you can require authorization for supporting proposals in a partici
 process, and also restrict it to users with postal codes 12345 and 12346. The
 [example authorization handler](https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/dummy_authorization_handler.rb)
 included in this module allows to do that. As an admin user, you should visit
-the proposals componenent permissions screen, choose the `Example authorization`
+the proposals component permissions screen, choose the `Example authorization`
 as the authorization handler name for the `vote` action and enter "12345, 12346"
 in the `Allowed postal codes` field placed below.
 

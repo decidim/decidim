@@ -43,7 +43,7 @@ Decidim.register_component(:my_component) do |component|
 
   # Component hooks get called whenever relevant lifecycle events happen, like
   # adding a new component o destroying it. You always get passed the instance
-  # so you can act on it. Creating or destroying a comoponent is transactional
+  # so you can act on it. Creating or destroying a component is transactional
   # along with its hooks, so you can decide to halt the transaction by raising
   # an exception.
   #
