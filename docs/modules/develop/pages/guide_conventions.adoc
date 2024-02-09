@@ -25,7 +25,7 @@ Please note that Decidim does not use the `master` branch.
 
 == Naming branches
 
-We would like to have all branches following this namings:
+We would like to have all branches following this naming convention:
 
 |===
 | Branch prefix | Comment
