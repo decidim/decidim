@@ -303,14 +303,14 @@ module Decidim
           end
         end
 
-        context "when commentors belong to the given resources" do
+        context "when commenters belong to the given resources" do
           it "returns the authors of the resources' comments" do
             ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::Dev::DummyResource.where(component: commentable.component))
             expect(ids).to contain_exactly(author.id)
           end
         end
 
-        context "when commentors do not belong to the given resources" do
+        context "when commenters do not belong to the given resources" do
           let(:other_component) { create(:dummy_component) }
           let!(:other_commentable) { create(:dummy_resource, component: other_component) }
 
