@@ -17,8 +17,12 @@ module Decidim
     include Decidim::MarkupHelper
     include Decidim::LayoutHelper
     include Decidim::SanitizeHelper
+    include Decidim::ApplicationHelper
+    include Decidim::IconHelper
 
+    delegate :helper_method, to: :controller
     delegate :current_organization, to: :controller
+    delegate_missing_to :view_context
 
     cache :show, if: :perform_caching?, expires_in: :cache_expiry_time do
       cache_hash

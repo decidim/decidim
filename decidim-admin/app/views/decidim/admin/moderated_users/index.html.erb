@@ -21,7 +21,7 @@
       <th><%= t(".reason") %></th>
       <th><%= sort_link(query, :created_at, t("models.moderation.fields.created_at", scope: "decidim.moderations")) %></th>
       <th><%= sort_link(query, :report_count, t(".reports"), default_order: :desc) %></th>
-      <th class="actions"><%= t(".actions.title") %></th>
+      <th><%= t(".actions.title") %></th>
     </tr>
     </thead>
     <tbody>
@@ -45,7 +45,7 @@
           <%= moderation.report_count %>
         </td>
 
-        <td class="actions">
+        <td>
           <% if !moderation.user.blocked? && allowed_to?(:unreport, :moderate_users) %>
             <%= icon_link_to "arrow-go-back-line", ignore_moderated_user_path(id: moderation), t(".actions.unreport"), class: "action-icon--unreport", method: :put %>
           <% end %>

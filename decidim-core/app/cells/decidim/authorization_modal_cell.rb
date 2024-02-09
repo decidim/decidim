@@ -2,8 +2,6 @@
 
 module Decidim
   class AuthorizationModalCell < Decidim::ViewModel
-    include LayoutHelper
-
     delegate :authorize_action_path, to: :controller
 
     alias authorizations model
