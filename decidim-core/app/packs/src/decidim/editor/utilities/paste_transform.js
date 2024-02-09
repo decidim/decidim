@@ -40,7 +40,7 @@ const getMsoListStyle = (type, level, styleDefs) => {
   return Object.assign(typeStyle, levelStyle);
 };
 
-const converMsoListStyleToHtml = (listStyle) => {
+const convertMsoListStyleToHtml = (listStyle) => {
   let tag = "ol",
       type = null;
   switch (listStyle["mso-level-number-format"]) {
@@ -108,7 +108,7 @@ export const transformMsDesktop = (html) => {
   elements.forEach((paragraph) => {
     const { type: msoType, level } = detectMsoList(paragraph);
     const listStyle = getMsoListStyle(msoType, level, listStyles);
-    const { tag, type } = converMsoListStyleToHtml(listStyle);
+    const { tag, type } = convertMsoListStyleToHtml(listStyle);
 
     const li = document.createElement("li");
     const pa = document.createElement("p");
