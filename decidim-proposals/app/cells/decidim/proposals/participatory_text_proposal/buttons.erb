@@ -1,4 +1,4 @@
-<% if amendmendment_creation_enabled? || visible_emendations.any? %>
+<% if amendment_creation_enabled? || visible_emendations.any? %>
   <%= action_authorized_link_to :amend, amend_resource_path, resource: model, disabled: amend_button_disabled?, class: "proposal-participatory__button" do %>
     <%= icon "chat-1-line" %>
     <span><%= t("amend", scope: "decidim.proposals.participatory_text_proposal.buttons") %></span>
