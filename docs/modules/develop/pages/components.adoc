@@ -6,7 +6,7 @@ Components are the core contract between external xref:develop:modules.adoc[modu
 
 If you want to create a new component, you can use https://github.com/decidim/decidim/tree/develop/decidim-generators[decidim-generators] to
 automatically generate a decidim component skeleton, or copy the basic structure
-of an existing mantained plugin.
+of an existing maintained plugin.
 
 [source,console]
 ----
