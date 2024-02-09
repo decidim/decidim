@@ -123,7 +123,7 @@ For configuring these you can do so with the Environment Variable `VERIFICATIONS
 VERIFICATIONS_DOCUMENT_TYPES="dni,nie,passport"
 ```
 
-You need to also add the following keys in your i18n files (i.e. `config/locales/en.yml`). By default in the verifications, `indentification_number` is currently being used as a universal example. Below are examples of adding `dni`, `nie` and `passport` locally used in Spain.
+You need to also add the following keys in your i18n files (i.e. `config/locales/en.yml`). By default in the verifications, `identification_number` is currently being used as a universal example. Below are examples of adding `dni`, `nie` and `passport` locally used in Spain.
 
 ```yaml
 en:
