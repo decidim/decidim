@@ -11,7 +11,7 @@ services:
       - ETHERPAD_ADMIN_PASSWORD=CHANGE_ME_ADMIN_PASSWORD
       # If the admin password is set, this defaults to "admin". Otherwise the user can set it to another username.
       - ETHERPAD_ADMIN_USER=CHANGE_ME_ADMIN_USER
-      # Type of databse to use. Defaults to mysql.
+      # Type of database to use. Defaults to mysql.
       - ETHERPAD_DB_TYPE=mysql
       # Hostname of the database to use. Defaults to mysql.
       - ETHERPAD_DB_HOST=mysql
