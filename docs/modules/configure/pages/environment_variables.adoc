@@ -614,7 +614,7 @@ Additional context: This has been revealed as an issue during a security audit o
 |No
 
 |*DECIDIM_SERVICE_WORKER_ENABLED*
-|Enable/Disable the service worker. This is used to enable offline support and to deliver push notifications. In development it is recommended to be disabled because its aggresive cache configuration might cause some issues when submitting forms.
+|Enable/Disable the service worker. This is used to enable offline support and to deliver push notifications. In development it is recommended to be disabled because its aggressive cache configuration might cause some issues when submitting forms.
 |false
 |No
 
