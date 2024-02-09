@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This cell renders the endrosement button and the endorsements count.
+  # This cell renders the endorsement button and the endorsements count.
   # It only supports one row of buttons per page due to current tag ids used by javascript.
   class EndorsementButtonsCell < Decidim::ViewModel
     include CellsHelper
