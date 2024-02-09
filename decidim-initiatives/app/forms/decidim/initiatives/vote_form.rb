@@ -94,7 +94,7 @@ module Decidim
       # valid authorization.
       #
       # If the initiative is set with a global scope (meaning the scope is nil),
-      # all the scopes in the organizaton are valid.
+      # all the scopes in the organization are valid.
       #
       # Returns an array of Decidim::Scopes.
       def authorized_scope_candidates

@@ -69,7 +69,7 @@ class PassthruValidator < ActiveModel::EachValidator
   def validation_record_context(dummy, record)
     if dummy.is_a?(Decidim::Form)
       dummy.with_context(
-        current_organization: record.try(:current_organization) || record.try(:ganization),
+        current_organization: record.try(:current_organization) || record.try(:organization),
         current_participatory_space: record.try(:current_participatory_space) || record.try(:participatory_space),
         current_component: record.try(:current_component) || record.try(:component)
       )
