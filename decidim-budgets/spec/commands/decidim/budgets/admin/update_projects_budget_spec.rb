@@ -36,7 +36,7 @@ module Decidim::Budgets
       let!(:alien_budgets_component) { create(:budgets_component, participatory_space: participatory_process) }
       let(:alien_budget) { create(:budget, component: alien_budgets_component) }
 
-      it "broacast update with errored" do
+      it "broadcast update with errored" do
         errored = projects.map { |p| translated(p.title) }
         expect { subject.call }.to broadcast(:update_projects_budget, hash_including(selection_name: "", successful: [], errored:, failed_ids: array_including(project_ids)))
       end
