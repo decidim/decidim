@@ -178,8 +178,8 @@ module Decidim
       # }
       #
       # `conditions` must be a Hash that only accepts a boolean or a Proc that will be evaluated on runtime and returns a boolean for the following keys:
-      # - index_on_create: Whether to index, or not, the current searchabe when it is created. Defaults to true.
-      # - index_on_update: Whether to index, or not, the current searchabe when it is updated. Defaults to true.
+      # - index_on_create: Whether to index, or not, the current searchable when it is created. Defaults to true.
+      # - index_on_update: Whether to index, or not, the current searchable when it is updated. Defaults to true.
       #
       def searchable_fields(declared_fields, conditions = {})
         @search_resource_indexable_fields = SearchResourceFieldsMapper.new(declared_fields)
