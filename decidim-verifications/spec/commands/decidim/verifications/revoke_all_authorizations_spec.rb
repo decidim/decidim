@@ -83,14 +83,14 @@ module Decidim::Verifications
         end
 
         context "with authorization transfers attached to some of the authorizations" do
-          let!(:authorization_trasfer1) { create(:authorization_transfer, organization:, authorization: authorization1) }
-          let!(:authorization_trasfer2) { create(:authorization_transfer, organization:, authorization: authorization1) }
-          let!(:authorization_trasfer3) { create(:authorization_transfer, organization:, authorization: authorization2) }
+          let!(:authorization_transfer1) { create(:authorization_transfer, organization:, authorization: authorization1) }
+          let!(:authorization_transfer2) { create(:authorization_transfer, organization:, authorization: authorization1) }
+          let!(:authorization_transfer3) { create(:authorization_transfer, organization:, authorization: authorization2) }
 
           before do
-            create_list(:authorization_transfer_record, 2, transfer: authorization_trasfer1)
-            create_list(:authorization_transfer_record, 2, transfer: authorization_trasfer2)
-            create(:authorization_transfer_record, transfer: authorization_trasfer3)
+            create_list(:authorization_transfer_record, 2, transfer: authorization_transfer1)
+            create_list(:authorization_transfer_record, 2, transfer: authorization_transfer2)
+            create(:authorization_transfer_record, transfer: authorization_transfer3)
           end
 
           it "destroy all granted auths" do
