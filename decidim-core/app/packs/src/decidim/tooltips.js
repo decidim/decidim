@@ -19,7 +19,7 @@ const getAbsolutePosition = (node, relativeParent) => {
   let [pageX, pageY] = [window.pageXOffset, window.pageYOffset]
   if (relativeParent) {
     // in order to calculate the relative parent position, we reuse this function,
-    // using the parent regarding the window and substracting the topLeft corner (its relative position [0,0])
+    // using the parent regarding the window and subtracting the topLeft corner (its relative position [0,0])
     const { topLeft: [parentX, parentY] } = getAbsolutePosition(relativeParent);
     [pageX, pageY] = [pageX - parentX, pageY - parentY]
   }
