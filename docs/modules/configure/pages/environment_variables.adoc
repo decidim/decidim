@@ -790,7 +790,7 @@ Note that this only applies to production environments.
 |No
 
 |RAILS_ASSET_HOST
-|If you use a CDN or another type of assets management, you can specify the host (and path) for it so, instead of Rails serving your assets (CSS, Javascript, Images) will use your custom system. For instance `https://assets.example.org`
+|If you use a CDN or another type of assets management, you can specify the host (and path) for it so, instead of Rails serving your assets (CSS, JavaScript, Images) will use your custom system. For instance `https://assets.example.org`
 |
 |No
 

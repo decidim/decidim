@@ -151,7 +151,7 @@ RSpec.configure do |config|
     switch_to_default_host
     domain = (try(:organization) || try(:current_organization))&.host
     if domain
-      # Javascript sets the cookie also for all subdomains but localhost is a
+      # JavaScript sets the cookie also for all subdomains but localhost is a
       # special case.
       domain = ".#{domain}" unless domain == "localhost"
       page.driver.browser.execute_cdp(

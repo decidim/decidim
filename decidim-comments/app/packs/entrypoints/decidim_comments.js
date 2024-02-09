@@ -1,5 +1,5 @@
 // CSS
 import "stylesheets/comments.scss"
 
-// Javacript
+// JavaScript
 import "src/decidim/comments/comments"

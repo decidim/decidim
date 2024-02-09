@@ -94,7 +94,7 @@ These numbers are depend on your machine, the configuration was:
 
 == Jest
 
-We use Jest for testing our Javascript code.
+We use Jest for testing our JavaScript code.
 
 === Running a specific test file
 

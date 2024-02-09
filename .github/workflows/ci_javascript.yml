@@ -1,4 +1,4 @@
-name: "[CI] Javascript"
+name: "[CI] JavaScript"
 on:
   push:
     branches:
