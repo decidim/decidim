@@ -28,7 +28,7 @@ module Decidim
           false
         end
 
-        # Public: Whether the object's comments can have have votes or not. It enables the
+        # Public: Whether the object's comments can have votes or not. It enables the
         # upvote and downvote buttons for comments.
         def comments_have_votes?
           false
