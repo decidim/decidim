@@ -46,7 +46,7 @@ describe Decidim::Search do
     let!(:lice_ca) { create(:searchable_resource, organization: current_organization, locale: :ca, content_a: "Erradicació de polls a l'escola") }
     let!(:lice_en) { create(:searchable_resource, organization: current_organization, locale: :en, content_a: "Eradication of lice in school") }
     let!(:ci_ca) { create(:searchable_resource, organization: current_organization, locale: :ca, content_a: "Millora continua mitjançant enquestes periòdiques") }
-    let!(:ci_en) { create(:searchable_resource, organization: current_organization, locale: :en, content_a: "Continous improvement with periodic polls") }
+    let!(:ci_en) { create(:searchable_resource, organization: current_organization, locale: :en, content_a: "Continuous improvement with periodic polls") }
 
     context "when term has matches in many languages" do
       let(:term) { "polls" }

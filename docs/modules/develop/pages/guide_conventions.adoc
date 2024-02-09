@@ -34,7 +34,7 @@ We would like to have all branches following this namings:
 | Internal work. For instance, automatisms, etc. No production code change.
 
 | ci/
-| For continous integration related tasks. No production code change.
+| For continuous integration related tasks. No production code change.
 
 | deps/
 | For dependency management tasks.
