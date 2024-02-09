@@ -23,7 +23,6 @@ module Decidim
         return broadcast(:invalid) unless @meeting.authored_by?(@current_user)
 
         transaction do
-          @meeting.withdraw!
           change_meeting_state_to_withdrawn
         end
 
