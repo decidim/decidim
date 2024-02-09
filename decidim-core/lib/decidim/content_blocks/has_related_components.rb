@@ -6,7 +6,7 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        # This method allows us to detect the components related whith a
+        # This method allows us to detect the components related with a
         # content block. The content block can have different components
         # associated depending on the scope_name. The scope names and their
         # associated models are configured in Decidim::ContentBlocks::BaseCell
