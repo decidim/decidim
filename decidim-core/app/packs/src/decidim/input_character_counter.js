@@ -232,7 +232,7 @@ export default class InputCharacterCounter {
       } else if (this.maxCharacters - srLength === this.announceThreshold) {
         return this.announcedAt || currentLength;
       // The third branch checks that when deleting characters, we should
-      // announce the next threshold to get accurate annoucement. E.g. when we
+      // announce the next threshold to get accurate announcement. E.g. when we
       // have 750 characters left and the user deletes 100 characters at once,
       // we should announce "700 characters left" after that deletion.
       } else if (srLength < currentLength) {
