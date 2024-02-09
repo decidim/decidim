@@ -52,7 +52,7 @@ module Decidim
         # do something
       end
 
-      # Addtionally, you can override the `attributes` method
+      # Additionally, you can override the `attributes` method
       # to add more attributes to the resource
       def attributes
         super.merge({
@@ -112,7 +112,7 @@ module Decidim
         # do something
       end
 
-      # Addtionally, you can override the `attributes` method
+      # Additionally, you can override the `attributes` method
       # to add more attributes to the resource
       def attributes
         super.merge({
