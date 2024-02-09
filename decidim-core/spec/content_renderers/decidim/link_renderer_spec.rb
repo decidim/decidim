@@ -57,11 +57,11 @@ module Decidim
       end
 
       describe "single punctuation after link" do
-        let(:punctuations) { %w(, . ; - ] [ } { ( )) }
+        let(:punctuation_marks) { %w(, . ; - ] [ } { ( )) }
 
         it "renders punctuation after the link" do
           urls.each do |url|
-            punctuations.each do |punctuation|
+            punctuation_marks.each do |punctuation|
               rendered = described_class.new("#{url}#{punctuation}").render
               expect(rendered).to eq("<a href=\"#{link_href(url)}\" target=\"_blank\" rel=\"nofollow noopener noreferrer ugc\">#{url}</a>#{punctuation}")
             end
