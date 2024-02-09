@@ -40,7 +40,7 @@ module Decidim
     # Public: Returns a number returned by executing the corresponding block.
     #
     # name - The name of the stat
-    # context - An arbritrary context object to compute the result.
+    # context - An arbitrary context object to compute the result.
     # start_at - A date to filter resources created after it
     # end_at - A date to filter resources created before it.
     #
@@ -54,7 +54,7 @@ module Decidim
 
     # Public: Resolves every stat with the given context and return an enumerator
     #
-    # context - An arbritrary context object to compute the result.
+    # context - An arbitrary context object to compute the result.
     # start_at - A date to filter resources created after it
     # end_at - A date to filter resources created before it
     #
