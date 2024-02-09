@@ -39,7 +39,7 @@ module Decidim
           members = []
           committee_members_count.times do
             members << double(
-              "committe_member",
+              "committee_member",
               user: create(:user, organization:)
             )
           end
