@@ -53,7 +53,7 @@ module Decidim
         end
 
         context "with query" do
-          let(:conditions) { "dummt condition" }
+          let(:conditions) { "dummy condition" }
 
           it "creates link for selection and all" do
             expect(subject).to have_css("#export-dropdown")
