@@ -4,7 +4,7 @@ namespace :decidim do
   namespace :lighthouse do
     desc "Prepares seeds for Lighthouse report"
     task prepare_urls: :environment do
-      # Lighhouse report is executed in CI and should check:
+      # Lighthouse report is executed in CI and should check:
       # - homepage
       # - a participatory process page
       # - a meeting page
