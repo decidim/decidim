@@ -181,7 +181,7 @@ for an action or not.
 
 Custom action authorizers are an advanced component that can be used in both types of
 authorization methods to customize some parts of the authorization process.
-These are particulary useful when used within verification options, which are
+These are particularly useful when used within verification options, which are
 set in the admin zone related to a component action. As a result, a verification
 method will be allowed to change the authorization logic and the appearance based
 on the context where the authorization is being performed.
