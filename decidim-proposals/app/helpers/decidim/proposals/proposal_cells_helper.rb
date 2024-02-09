@@ -62,7 +62,6 @@ module Decidim
         return ["alert"] if withdrawn?
         return [proposal_state&.css_class] unless emendation?
 
-
         case state
         when "accepted"
           ["success"]

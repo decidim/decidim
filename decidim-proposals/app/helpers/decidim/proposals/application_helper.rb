@@ -28,9 +28,9 @@ module Decidim
         I18n.t(state, scope: "decidim.proposals.answers", default: :not_answered)
       end
 
-
       def proposal_state_css_style(proposal)
         return "" if proposal.emendation?
+
         proposal.proposal_state&.css_style
       end
 

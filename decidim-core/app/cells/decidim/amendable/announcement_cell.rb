@@ -51,7 +51,6 @@ module Decidim::Amendable
     def state_classes
       return "muted" if model.state.blank?
       return "alert" if model.withdrawn?
-
     end
 
     def state_styles
