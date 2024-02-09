@@ -80,7 +80,7 @@ gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-dev", DECIDIM_VERSION
 ----
 
-== Compatiblity versions matrix
+== Compatibility versions matrix
 
 There are different versions of Decidim that are compatible with different versions of Ruby and Node. You can check the following table to see which versions are compatible with each other:
 
