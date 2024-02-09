@@ -34,7 +34,7 @@ window.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("input[data-text-copy=true]").forEach((element) => {
     element.addEventListener("change", (event) => {
       const target = document.querySelector(event.target.dataset.target);
-      target.innerHTML = event.target.value;
+      target.innerText = event.target.value;
     })
   });
 });
