@@ -255,7 +255,8 @@ FactoryBot.define do
     token { :not_answered }
     title { generate_state_title(:not_answered) }
     component { build(:proposal_component) }
-    css_class { "" }
+    bg_color { Faker::Color.hex_color(:light) }
+    text_color { Faker::Color.hex_color(:dark) }
 
     trait :evaluating do
       title { generate_state_title(:evaluating) }

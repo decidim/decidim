@@ -60,7 +60,7 @@ module Decidim
 
       def state_classes
         return ["alert"] if withdrawn?
-        return [proposal_state&.css_class] unless emendation?
+        return [proposal_state.css_class] unless emendation?
 
         case state
         when "accepted"
