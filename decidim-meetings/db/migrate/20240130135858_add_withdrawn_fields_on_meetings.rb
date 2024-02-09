@@ -15,10 +15,7 @@ class AddWithdrawnFieldsOnMeetings < ActiveRecord::Migration[6.1]
   end
 
   def down
-    CustomMeeting.where.not(withdrawn_at: null).find_each do |meeting|
-      meeting.state = :withdrawn
-      meeting.save!
-    end
+    CustomMeeting.where.not(withdrawn_at: null).update_all(state: :withdrawn)
 
     remove_column :decidim_meetings_meetings, :withdrawn_at
   end
