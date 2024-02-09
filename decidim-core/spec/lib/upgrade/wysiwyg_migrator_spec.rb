@@ -443,7 +443,7 @@ module Decidim
         allow(Decidim).to receive(:component_manifests).and_return([component.manifest])
       end
 
-      it "updates the component settings for all defined manifets" do
+      it "updates the component settings for all defined manifest" do
         expect { |b| described_class.update_component_settings(&b) }.to yield_with_args(:dummy, 1..1)
 
         component.reload
