@@ -205,7 +205,7 @@ describe Decidim::Search do
         end
       end
 
-      context "when resource_type is setted" do
+      context "when resource_type is set" do
         it "only return resources of the given type" do
           described_class.call(term, current_organization, "with_resource_type" => resource_type) do
             on(:ok) do |results_by_type|

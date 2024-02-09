@@ -74,7 +74,7 @@ module Decidim
       after_destroy do |searchable|
         remove_from_index(searchable) if self.class.search_resource_fields_mapper
       end
-      # after_create and after_update callbacks are dynamically setted in `searchable_fields` method.
+      # after_create and after_update callbacks are dynamically set in `searchable_fields` method.
 
       # Public: after_create callback to index the model as a SearchableResource, if configured so.
       #
