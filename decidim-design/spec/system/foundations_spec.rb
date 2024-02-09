@@ -24,7 +24,7 @@ describe "Foundations" do
     it_behaves_like "showing the design page", "Iconography", "Remixicon"
   end
 
-  context "when on typoography page" do
+  context "when on typography page" do
     it_behaves_like "showing the design page", "Typography", "Source Sans Pro"
   end
 end
