@@ -22,7 +22,7 @@ module Decidim
       class MeetingToEvent
         include ActionView::Helpers::SanitizeHelper
 
-        # Initializes the converteer for the given meeting.
+        # Initializes the converter for the given meeting.
         #
         # meeting - the Meeting to convert
         def initialize(meeting)
