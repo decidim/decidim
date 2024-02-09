@@ -24,7 +24,7 @@ module Decidim
 
       # Private: Caches the object that will be responsible of presenting the static page.
       # Overwrites the method so that we can use a custom presenter to show the correct
-      # path for ther page.
+      # path for their page.
       #
       # Returns an object that responds to `present`.
       def resource_presenter
