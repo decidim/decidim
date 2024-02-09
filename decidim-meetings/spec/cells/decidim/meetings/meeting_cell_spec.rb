@@ -27,7 +27,7 @@ module Decidim::Meetings
         meeting.reload
       end
 
-      it "escapes them correclty" do
+      it "escapes them correctly" do
         # as the `cell` test helper wraps content in a Capybara artifact that already converts html entities
         # we should compare with the expected visual result, as we were checking the DOM instead of the html
         expect(cell_html).to have_content("#{@original_title} &'<")
