@@ -27,6 +27,10 @@ module Decidim
         Decidim::Proposals::AdminLog::ProposalStatePresenter
       end
 
+      def css_style
+        "background-color: #{bg_color}; color: #{text_color};"
+      end
+
       def css_class
         raise "foo bar"
         "bg-[#{bg_color}] text-[#{text_color}]"

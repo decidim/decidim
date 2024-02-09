@@ -4,7 +4,7 @@ module Decidim::Amendable
   # This cell renders the callout with information about the state of the emendation
   class AnnouncementCell < Decidim::ViewModel
     def show
-      cell "decidim/announcement", announcement, callout_class: state_classes
+      cell "decidim/announcement", announcement, callout_class: state_classes, callout_styles: state_styles
     end
 
     private
@@ -52,7 +52,12 @@ module Decidim::Amendable
       return "muted" if model.state.blank?
       return "alert" if model.withdrawn?
 
-      model.proposal_state&.css_class
+    end
+
+    def state_styles
+      return if model.state.blank? || model.withdrawn?
+
+      model.proposal_state&.css_style
     end
   end
 end

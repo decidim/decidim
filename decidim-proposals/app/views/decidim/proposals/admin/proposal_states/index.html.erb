@@ -26,8 +26,8 @@
               <%= translated_attribute(state.title) %>
             </td>
             <td>
-              <strong class="label <%= state.css_class %>">
-                <%= state.css_class %>
+              <strong class="label" style="<%= state.css_style %>">
+                <%= decidim_sanitize_translated(state.token) %>
               </strong>
             </td>
             <td>
