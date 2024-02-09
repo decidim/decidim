@@ -263,7 +263,7 @@ Also some more refined configurations:
 
 
 |MAPS_PROVIDER
-|For a simple geolocation and tile maps service configuration define this value to one of the supported providers, currently `here` for https://HERE.com[HERE Maps] or `osm` for https://www.openstreetmap.org[OpenStreatMap]. See xref:services:maps.adoc[Maps].
+|For a simple geolocation and tile maps service configuration define this value to one of the supported providers, currently `here` for https://HERE.com[HERE Maps] or `osm` for https://www.openstreetmap.org[OpenStreetMap]. See xref:services:maps.adoc[Maps].
 |
 |No
 
