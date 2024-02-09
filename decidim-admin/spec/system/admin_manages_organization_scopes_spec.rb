@@ -78,7 +78,7 @@ describe "Organization scopes" do
         end
       end
 
-      it "can create a new subcope" do
+      it "can create a new subscope" do
         within "tr", text: translated(scope.name) do
           page.find("td:first-child a").click
         end
