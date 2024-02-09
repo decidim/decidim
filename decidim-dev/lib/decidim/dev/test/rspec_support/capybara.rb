@@ -156,6 +156,17 @@ RSpec.configure do |config|
     warn page.driver.browser.logs.get(:browser) unless example.metadata[:driver].eql?(:rack_test)
   end
 
+  config.after(type: :system) do |example|
+    errors = page.driver.browser.logs.get(:browser)
+    if errors.present? && !example.metadata[:driver].eql?(:rack_test)
+      aggregate_failures "javascript errors" do
+        errors.each do |error|
+          expect(error.message).not_to include("Content Security Policy"), error.message if error.level == "SEVERE"
+        end
+      end
+    end
+  end
+
   config.include Decidim::CapybaraTestHelpers, type: :system
   config.include Devise::Test::IntegrationHelpers, type: :system
 end
