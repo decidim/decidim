@@ -228,7 +228,7 @@ if (config_path = Decidim::Webpacker.configuration.configuration_file)
   )
 end
 
-# Remove the yarn install prerequisity from assets:precompile
+# Remove the yarn install prerequisite from assets:precompile
 Rake::Task["assets:precompile"].prerequisites.delete("shakapacker:yarn_install")
 
 # Add gem overrides path to the beginning in order to override rake tasks
