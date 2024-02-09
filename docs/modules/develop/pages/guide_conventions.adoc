@@ -2,7 +2,7 @@
 
 == GitFlow Branching model
 
-The Decidim respository follows the GitFlow branching model. There are good documentations on it at:
+The Decidim repository follows the GitFlow branching model. There are good documentations on it at:
 
 * https://nvie.com/posts/a-successful-git-branching-model/[the original post]
 * https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow[Atlassian tutorial]
