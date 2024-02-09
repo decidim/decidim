@@ -181,7 +181,7 @@ module Decidim
               ]
             end
 
-            it "creates multiple atachments for the proposal" do
+            it "creates multiple attachments for the proposal" do
               expect { command.call }.to change(Decidim::Attachment, :count).by(1)
               last_attachment = Decidim::Attachment.last
               expect(last_attachment.attached_to).to eq(proposal)
@@ -206,7 +206,7 @@ module Decidim
               ]
             end
 
-            it "does not create atachments for the proposal" do
+            it "does not create attachments for the proposal" do
               expect { command.call }.not_to change(Decidim::Attachment, :count)
             end
 

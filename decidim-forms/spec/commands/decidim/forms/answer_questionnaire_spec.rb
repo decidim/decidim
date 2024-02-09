@@ -152,7 +152,7 @@ module Decidim
           end
 
           context "when attachments are allowed" do
-            it "creates multiple atachments for the proposal" do
+            it "creates multiple attachments for the proposal" do
               expect { command.call }.to change(Decidim::Attachment, :count).by(2)
               last_attachment = Decidim::Attachment.last
               expect(last_attachment.attached_to).to be_a(Decidim::Forms::Answer)
@@ -173,7 +173,7 @@ module Decidim
               ]
             end
 
-            it "does not create atachments for the proposal" do
+            it "does not create attachments for the proposal" do
               expect { command.call }.not_to change(Decidim::Attachment, :count)
             end
 

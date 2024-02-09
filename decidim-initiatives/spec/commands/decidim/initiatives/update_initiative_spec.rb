@@ -131,7 +131,7 @@ module Decidim
               ]
             end
 
-            it "creates multiple atachments for the initiative" do
+            it "creates multiple attachments for the initiative" do
               expect { command.call }.to change(Decidim::Attachment, :count).by(2)
               initiative.reload
               last_attachment = Decidim::Attachment.last
@@ -169,7 +169,7 @@ module Decidim
               ]
             end
 
-            it "does not create atachments for the initiative" do
+            it "does not create attachments for the initiative" do
               expect { command.call }.not_to change(Decidim::Attachment, :count)
             end
 
