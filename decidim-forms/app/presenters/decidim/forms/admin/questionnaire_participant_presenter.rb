@@ -34,26 +34,26 @@ module Decidim
         end
 
         def answers
-          sibilings.map { |answer| QuestionnaireAnswerPresenter.new(answer:) }
+          siblings.map { |answer| QuestionnaireAnswerPresenter.new(answer:) }
         end
 
         def first_short_answer
-          short = sibilings.where(decidim_forms_questions: { question_type: %w(short_answer) })
+          short = siblings.where(decidim_forms_questions: { question_type: %w(short_answer) })
           short.first
         end
 
         def completion
-          with_body = sibilings.where(decidim_forms_questions: { question_type: %w(short_answer long_answer) })
-                               .where.not(body: "").count
-          with_choices = sibilings.where.not("decidim_forms_questions.question_type in (?)", %w(short_answer long_answer))
-                                  .where("decidim_forms_answers.id IN (SELECT decidim_answer_id FROM decidim_forms_answer_choices)").count
+          with_body = siblings.where(decidim_forms_questions: { question_type: %w(short_answer long_answer) })
+                              .where.not(body: "").count
+          with_choices = siblings.where.not("decidim_forms_questions.question_type in (?)", %w(short_answer long_answer))
+                                 .where("decidim_forms_answers.id IN (SELECT decidim_answer_id FROM decidim_forms_answer_choices)").count
 
           (with_body + with_choices).to_f / questionnaire.questions.not_separator.not_title_and_description.count * 100
         end
 
         private
 
-        def sibilings
+        def siblings
           Answer.not_separator
                 .not_title_and_description
                 .where(questionnaire:, session_token: participant.session_token)
