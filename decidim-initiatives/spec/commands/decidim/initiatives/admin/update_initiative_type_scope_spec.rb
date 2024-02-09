@@ -8,7 +8,7 @@ module Decidim
       describe UpdateInitiativeTypeScope do
         let(:form_klass) { InitiativeTypeScopeForm }
 
-        context "when successfull update" do
+        context "when successful update" do
           it_behaves_like "update an initiative type scope"
         end
       end
