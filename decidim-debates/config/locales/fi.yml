@@ -167,6 +167,13 @@ fi:
     events:
       debates:
         create_debate_event:
+          space_followers:
+            email_intro: |-
+              Hei,
+              osallistumistilaan %{participatory_space_title} on luotu uusi keskustelu "%{resource_title}", tutustu siihen ja osallistu:
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+            email_subject: Uusi keskustelu "%{resource_title}" osallistumistilassa %{participatory_space_title}
+            notification_title: Keskustelu nimeltä <a href="%{resource_path}">%{resource_title}</a> luotiin osallistumistilaan <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
           user_followers:
             email_intro: |-
               Hei,
