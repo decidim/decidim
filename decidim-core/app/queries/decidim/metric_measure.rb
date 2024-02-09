@@ -4,7 +4,7 @@ module Decidim
   # This class executes some measures related to Metrics, and return its results
   #
   #  - day: Date object
-  #  - resource: Object used to make measurements. Object class is dependant within each measure
+  #  - resource: Object used to make measurements. Object class is dependent within each measure
   class MetricMeasure
     def initialize(day, resource)
       @day = day.try(:to_date) || Time.zone.yesterday
