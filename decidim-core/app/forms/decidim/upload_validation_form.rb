@@ -73,7 +73,7 @@ module Decidim
     # This class provides ability to interpret the attachment context based on
     # the details available within the context of this class. Normally the
     # attachment context would be defined by the record to which the attachment
-    # are added to, e.g. proposals (participant contenxt) or participatory
+    # are added to, e.g. proposals (participant context) or participatory
     # processes (admin context). Unfortunately this information is not available
     # when the parameters are passed to the upload validation.
     class AttachmentContextProxy
