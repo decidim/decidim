@@ -3,7 +3,7 @@
 module Decidim
   # This cell renders the card of the given instance of a Component
   # delegated to the components' cell if specified in the manifest
-  # otherwise a primary cell wil be shown.
+  # otherwise a primary cell will be shown.
   class CardCell < Decidim::ViewModel
     ICONS_MAPPING = {
       published_at: "calendar-line",
