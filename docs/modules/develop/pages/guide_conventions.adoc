@@ -105,5 +105,5 @@ For more information, refer to the xref:develop:guide_accessibility.adoc[Decidim
 
 == JavaScript
 
-* Do not use CSS classes to bind JavaScript selectors or Ruby specs. Try to use an `id` (with the `js-` preffix) or a `data-attribute` as selector, in order to shrink the coupling between changing technologies.
+* Do not use CSS classes to bind JavaScript selectors or Ruby specs. Try to use an `id` (with the `js-` prefix) or a `data-attribute` as selector, in order to shrink the coupling between changing technologies.
 * Do not use jQuery if you can do it with vanilla JavaScript. Specially try to not introduce new code with jQuery, and if you are working with a legacy file take consider migrating it to vanilla JS.
