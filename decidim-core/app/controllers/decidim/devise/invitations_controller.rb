@@ -2,7 +2,7 @@
 
 module Decidim
   module Devise
-    # This controller customizes the behaviour of Devise::Invitiable.
+    # This controller customizes the behaviour of Devise::Invitable.
     class InvitationsController < ::Devise::InvitationsController
       include Decidim::DeviseControllers
       include NeedsTosAccepted
