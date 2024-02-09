@@ -20,7 +20,7 @@ module Decidim
     class DiffChangesetCalculator
       # original_changeset - a `changeset` from a PaperTrail::Version instance
       # fields_mapping - a Hash mapping attribute names and a type to render them
-      # i18n_labels_scope - a String representing the I18n scope where the attribtue
+      # i18n_labels_scope - a String representing the I18n scope where the attribute
       #   labels can be found
       def initialize(original_changeset, fields_mapping, i18n_labels_scope)
         @original_changeset = original_changeset
