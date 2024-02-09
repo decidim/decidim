@@ -51,19 +51,22 @@ module Decidim
       default_states = {
         evaluating: {
           token: :evaluating,
-          css_class: "warning",
+          bg_color: "#ffeebd",
+          text_color: "#ad4910",
           announcement_title: { locale => I18n.with_locale(locale) { I18n.t("proposal_in_evaluation_reason", scope: "decidim.proposals.proposals.show") } },
           title: { locale => I18n.with_locale(locale) { I18n.t(:evaluating, scope: "decidim.proposals.answers") } }
         },
         accepted: {
           token: :accepted,
-          css_class: "success",
+          bg_color: "#c4ecd0",
+          text_color: "#16592e",
           announcement_title: { locale => I18n.with_locale(locale) { I18n.t("proposal_accepted_reason", scope: "decidim.proposals.proposals.show") } },
           title: { locale => I18n.with_locale(locale) { I18n.t(:accepted, scope: "decidim.proposals.answers") } }
         },
         rejected: {
           token: :rejected,
-          css_class: "alert",
+          bg_color: "#ffdee3",
+          text_color: "#b9081b",
           announcement_title: { locale => I18n.with_locale(locale) { I18n.t("proposal_rejected_reason", scope: "decidim.proposals.proposals.show") } },
           title: { locale => I18n.with_locale(locale) { I18n.t(:rejected, scope: "decidim.proposals.answers") } }
         }
