@@ -487,7 +487,7 @@ describe "Participatory Process Groups" do
     end
 
     shared_examples "shows active processes" do
-      it "lists active processes ordered by weigtht" do
+      it "lists active processes ordered by weight" do
         within "section.content-block" do
           expect(titles[0].text).to eq(translated(active_process_with_area.title, locale: :en))
           expect(titles[1].text).to eq(translated(active_process.title, locale: :en))
@@ -529,7 +529,7 @@ describe "Participatory Process Groups" do
     context "when the block filter settings configures all processes" do
       let(:participatory_processes_content_block_settings) { { default_filter: "all" } }
 
-      it "lists all processes ordered by weigtht" do
+      it "lists all processes ordered by weight" do
         within "section.content-block" do
           expect(titles[0].text).to eq(translated(upcoming_process_with_area.title, locale: :en))
           expect(titles[1].text).to eq(translated(active_process_with_area.title, locale: :en))
