@@ -11,7 +11,7 @@ title System Component diagram for Decidim Applications (https://decidim.org)
 
 ContainerDb(rel_db, "Relational Database", "PostgreSQL 9.5.x", "Stores users, participatory processes, assemblies, initiatives, proposals, meetings, etc.")
 Container(filesystem, "File System", "Local or remote", "Stores uploads (images, documents, etc.)")
-Container(worker, "Worker", "Ruby on Rails 5.2", "ActiveJob queues for non syncronuos jobs. Works for open data requests, sending emails, etc.")
+Container(worker, "Worker", "Ruby on Rails 5.2", "ActiveJob queues for non synchronous jobs. Works for open data requests, sending emails, etc.")
 
 Container_Boundary(web_app, "Web Application") {
 
