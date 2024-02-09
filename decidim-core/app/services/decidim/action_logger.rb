@@ -14,7 +14,7 @@ module Decidim
     #
     # action - a String representing the name of the action
     # user - the Decidim::User that performed the action
-    # resource - the resource onn which the action was performed
+    # resource - the resource on which the action was performed
     # version_id - the ID of the `PaperTrail::Version` that was created on that action
     # resource_extra - a Hash with resource_extra info to be recorded
     #
@@ -27,7 +27,7 @@ module Decidim
     #
     # action - a String representing the name of the action
     # user - the Decidim::User that performed the action
-    # resource - the resource onn which the action was performed
+    # resource - the resource on which the action was performed
     # version_id - the ID of the `PaperTrail::Version` that was created on that action
     # resource_extra - a Hash with resource_extra info to be recorded
     def initialize(action, user, resource, version_id = nil, resource_extra = {})
