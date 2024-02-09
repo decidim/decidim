@@ -11,7 +11,7 @@ or even `Meetings` component in an easy way with the `embeddable` option that of
 
 == How to
 
-All that you have to do, is to enter into whathever space/component you want to share info to, and look for down right part of the page to find embeddable share option.
+All that you have to do, is to enter into whatever space/component you want to share info to, and look for down right part of the page to find embeddable share option.
 
 If it is embeddable, you will see `embed <\>` option there.
 

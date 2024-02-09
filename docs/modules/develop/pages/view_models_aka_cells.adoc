@@ -25,7 +25,7 @@ The `label` option accepts this arguments:
 
 * `false` or `"false"` will not render the label from the locales `t(model.class.model_name.i18n_key, scope: "activerecord.models", count: 1)`
 * `true` or `"true"` will render the translation from
-* `"whathever string"` will render it as String
+* `"whatever string"` will render it as String
 
 == Introducing a Card Cell to a `component`
 
