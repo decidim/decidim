@@ -36,7 +36,7 @@ module Decidim
       end
 
       private
-      # Tell the parent what is the AcitveRecord class needed
+      # Tell the parent what is the ActiveRecord class needed
       def resource_class = Decidim::MyModule::MyResource
 
       # This method allows you to customize the log visbility
@@ -96,7 +96,7 @@ module Decidim
       end
 
       private
-      # Tell the parent what is the AcitveRecord class needed
+      # Tell the parent what is the ActiveRecord class needed
       def resource_class = Decidim::MyModule::MyResource
 
       # This method allows you to customize the log visbility

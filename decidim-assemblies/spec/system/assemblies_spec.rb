@@ -277,7 +277,7 @@ describe "Assemblies" do
         end
       end
 
-      context "and the process statistics are not enable with stats block actived" do
+      context "and the process statistics are not enable with stats block active" do
         let(:show_statistics) { false }
         let(:blocks_manifests) { [:stats] }
 
