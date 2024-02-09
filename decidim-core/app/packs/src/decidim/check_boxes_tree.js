@@ -22,7 +22,7 @@ export default class CheckBoxesTree {
   /**
    * Set checkboxes as checked if included in given values
    * @public
-   * @param {Array} checkboxes - array of checkboxs to check
+   * @param {Array} checkboxes - array of checkboxes to check
    * @param {Array} values - values of checkboxes that should be checked
    * @returns {Void} - Returns nothing.
    */
