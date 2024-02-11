@@ -10,6 +10,7 @@ module Decidim
 
       app_host = (host ? "#{protocol}://#{host}" : nil)
       Capybara.app_host = app_host
+      Rails.application.config.action_controller.asset_host = host
     end
 
     def switch_to_default_host

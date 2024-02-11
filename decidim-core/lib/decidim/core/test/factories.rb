@@ -149,7 +149,18 @@ FactoryBot.define do
     end
     file_upload_settings { Decidim::OrganizationSettings.default(:upload) }
     enable_participatory_space_filters { true }
-    content_security_policy { {} }
+    content_security_policy do
+      {
+        "default-src" => "localhost:* #{host}:*",
+        "script-src" => "localhost:* #{host}:*",
+        "style-src" => "localhost:* #{host}:*",
+        "img-src" => "localhost:* #{host}:*",
+        "font-src" => "localhost:* #{host}:*",
+        "connect-src" => "localhost:* #{host}:*",
+        "frame-src" => "localhost:* #{host}:* www.example.org",
+        "media-src" => "localhost:* #{host}:*"
+      }
+    end
     colors do
       {
         primary: "#e02d2d",

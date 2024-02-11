@@ -28,18 +28,18 @@ module Decidim
       it { expect(subject.append_csp_directive("default-src", "https://example.org")).to include("https://example.org") }
 
       context "when policies as passed as hash" do
-        let(:additional_content_security_policies) { { "img-src": %w('self') } } # rubocop:disable Lint/PercentStringArray
+        let(:additional_content_security_policies) { { "img-src": ["'self'"] } }
 
         it "does not raise any errors" do
-          expect { subject.output_policy }.not_to raise_error(RuntimeError)
+          expect { subject.output_policy }.not_to raise_error
         end
       end
 
       context "when policies as passed as string" do
-        let(:additional_content_security_policies) { { "img-src" => %w('self') } } # rubocop:disable Lint/PercentStringArray
+        let(:additional_content_security_policies) { { "img-src" => ["'self'"] } }
 
         it "does not raise any errors" do
-          expect { subject.output_policy }.not_to raise_error(RuntimeError)
+          expect { subject.output_policy }.not_to raise_error
         end
       end
 
