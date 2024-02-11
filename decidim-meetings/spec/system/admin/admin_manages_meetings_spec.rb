@@ -34,23 +34,23 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     it "allows to publish/unpublish meetings" do
       visit current_path
 
-      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+      within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         accept_confirm { click_link "Unpublish" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
-      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+      within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         expect(page).to have_css(".action-icon--publish")
       end
 
-      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+      within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         click_link "Publish"
       end
 
       expect(page).to have_admin_callout("successfully")
 
-      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+      within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         expect(page).to have_css(".action-icon--unpublish")
       end
     end
@@ -144,14 +144,14 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
   it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='meeting-description-tabs']", "full" do
     before do
-      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+      within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         click_link "Edit"
       end
     end
   end
 
   it "updates a meeting", :serves_geocoding_autocomplete do
-    within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+    within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
       click_link "Edit"
     end
 
@@ -176,7 +176,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   end
 
   it "sets registration enabled to true when registration type is on this platform" do
-    within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+    within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
       click_link "Edit"
     end
 
@@ -191,7 +191,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   end
 
   it "sets registration enabled to false when registration type is not on this platform" do
-    within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+    within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
       click_link "Edit"
     end
 
@@ -206,7 +206,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   end
 
   it "adds a few services to the meeting", :serves_geocoding_autocomplete do
-    within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+    within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
       click_link "Edit"
     end
 
@@ -221,7 +221,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
     expect(page).to have_admin_callout("successfully")
 
-    within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+    within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
       click_link "Edit"
     end
 
@@ -232,7 +232,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   it "allows the user to preview a published meeting" do
     meeting_path = resource_locator(meeting).path
 
-    within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+    within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
       klass = "action-icon--preview"
 
       expect(page).to have_xpath(
@@ -252,7 +252,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
     meeting_path = resource_locator(unpublished_meeting).path
 
-    within find("tr", text: Decidim::Meetings::MeetingPresenter.new(unpublished_meeting).title) do
+    within "tr", text: Decidim::Meetings::MeetingPresenter.new(unpublished_meeting).title do
       klass = "action-icon--preview"
 
       expect(page).to have_xpath(
@@ -425,7 +425,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     end
 
     it "deletes a meeting" do
-      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting2).title) do
+      within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting2).title do
         accept_confirm { click_link "Delete" }
       end
 
@@ -448,7 +448,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     end
 
     it "updates a meeting" do
-      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+      within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         click_link "Edit"
       end
 
@@ -544,7 +544,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     let!(:proposals) { create_list(:proposal, 3, component: proposal_component) }
 
     it "closes a meeting with a report" do
-      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+      within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         page.click_link "Close"
       end
 
@@ -569,7 +569,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
       expect(page).to have_admin_callout("Meeting successfully closed")
 
-      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+      within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         expect(page).to have_content("Yes")
       end
     end
@@ -578,7 +578,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       let!(:meeting) { create(:meeting, :closed, component: current_component) }
 
       it "can update the information" do
-        within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+        within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
           page.click_link "Close"
         end
 
@@ -597,7 +597,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       end
 
       it "does not display the proposal picker" do
-        within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+        within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
           page.click_link "Close"
         end
 

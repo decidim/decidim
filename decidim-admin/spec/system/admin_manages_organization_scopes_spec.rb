@@ -48,7 +48,7 @@ describe "Organization scopes" do
       end
 
       it "can edit them" do
-        within find("tr", text: translated(scope.name)) do
+        within "tr", text: translated(scope.name) do
           click_link "Edit"
         end
 
@@ -67,7 +67,7 @@ describe "Organization scopes" do
       end
 
       it "can delete them" do
-        within find("tr", text: translated(scope.name)) do
+        within "tr", text: translated(scope.name) do
           accept_confirm { click_link "Delete" }
         end
 
@@ -79,7 +79,7 @@ describe "Organization scopes" do
       end
 
       it "can create a new subcope" do
-        within find("tr", text: translated(scope.name)) do
+        within "tr", text: translated(scope.name) do
           page.find("td:first-child a").click
         end
 

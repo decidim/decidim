@@ -168,7 +168,7 @@ describe "Participatory Processes" do
         it "links to the active step" do
           visit decidim_participatory_processes.participatory_processes_path
 
-          within find("#processes-grid .card__grid", text: translated(participatory_process.title)) do
+          within "#processes-grid .card__grid", text: translated(participatory_process.title) do
             within ".card__grid-metadata" do
               expect(page).to have_content("Active step")
             end

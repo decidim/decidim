@@ -51,7 +51,7 @@ shared_examples "manage conference admins examples" do
 
     it "updates a conference admin" do
       within "#conference_admins" do
-        within find("#conference_admins tr", text: other_user.email) do
+        within "#conference_admins tr", text: other_user.email do
           click_link "Edit"
         end
       end
@@ -70,7 +70,7 @@ shared_examples "manage conference admins examples" do
     end
 
     it "deletes a conference_user_role" do
-      within find("#conference_admins tr", text: other_user.email) do
+      within "#conference_admins tr", text: other_user.email do
         accept_confirm { click_link "Delete" }
       end
 
@@ -101,7 +101,7 @@ shared_examples "manage conference admins examples" do
       end
 
       it "resends the invitation to the user" do
-        within find("#conference_admins tr", text: "test@example.org") do
+        within "#conference_admins tr", text: "test@example.org" do
           click_link "Resend invitation"
         end
 

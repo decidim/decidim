@@ -79,7 +79,7 @@ describe "Admin manages assemblies with parent selector" do
     let!(:child_assembly) { create(:assembly, organization:, parent: assembly) }
 
     before do
-      within find("tr", text: translated(assembly.title)) do
+      within "tr", text: translated(assembly.title) do
         click_link "Assemblies"
       end
       click_link "New assembly"
