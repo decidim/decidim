@@ -30,6 +30,8 @@ es-PY:
         cost: Coste
         cost_report: Informe de coste
         execution_period: Período de ejecución
+      proposal_state:
+        announcement_title: Encabezado de la respuesta
       proposals_copy:
         copy_proposals: Entiendo que esto importará todas las propuestas del componente seleccionado al actual y que esta acción no se puede deshacer.
         origin_component_id: Componente para copiar las propuestas de
@@ -100,6 +102,8 @@ es-PY:
             values:
               'false': Propuestas
               'true': Enmiendas
+          proposal_state_id_eq:
+            label: Estado
           scope_id_eq:
             label: Ámbito
           state_eq:
@@ -281,6 +285,17 @@ es-PY:
           email_subject: Nueva propuesta "%{resource_title}" añadida a %{participatory_space_title}
           notification_title: '%{author} ha añadido la propuesta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}.'
           notification_title_official: Se ha añadido la propuesta oficial <a href="%{resource_path}">%{resource_title}</a> en %{participatory_space_title}.
+        proposal_state_changed:
+          affected_user:
+            email_intro: 'La propuesta "%{resource_title}" ha cambiado su estado a "%{state}". Puedes leer la respuesta en esta página:'
+            email_outro: Has recibido esta notificación porque eres autora de "%{resource_title}".
+            email_subject: Tu propuesta ha cambiado su estado (%{state})
+            notification_title: Tu propuesta <a href="%{resource_path}">%{resource_title}</a> ha cambiado su estado a "%{state}".
+          follower:
+            email_intro: 'La propuesta "%{resource_title}" ha cambiado su estado a "%{state}". Puedes leer la respuesta en esta página:'
+            email_outro: Has recibido esta notificación porque estás siguiendo "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+            email_subject: Una propuesta que sigues ha cambiado su estado (%{state})
+            notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha cambiado su estado a "%{state}".
         proposal_update_category:
           email_intro: 'Un/a administrador/a ha actualizado la categoría de tu propuesta "%{resource_title}", compruébalo:'
           email_outro: Recibiste esta notificación porque eres autor/a de la propuesta.
@@ -355,9 +370,13 @@ es-PY:
     proposals:
       actions:
         answer_proposal: Responder a la propuesta
+        delete_proposal_state_confirm: '¿Seguro que quieres borrar este estado?'
+        destroy: Borrar estado
         edit_proposal: Editar propuesta
+        edit_proposal_state: Editar estado
         import: Importar desde otro componente
         new: Nueva propuesta
+        new_proposal_state: Nuevo estado
         participatory_texts: Textos participativos
         show: Ver propuesta
         title: Acciones
@@ -446,6 +465,23 @@ es-PY:
             submit: Enviar
           leave_your_note: Deja tu nota
           title: Notas privadas
+        proposal_states:
+          create:
+            error: Error al crear el estado
+            success: Estado creado correctamente
+          destroy:
+            success: Estado borrado con éxito
+          edit:
+            title: Editar estado
+            update: Actualizar
+          index:
+            title: Estados
+          new:
+            create: Crear
+            title: Nuevo estado
+          update:
+            error: Se ha producido un error actualizando el estado
+            success: Estado actualizado correctamente
         proposals:
           answer:
             invalid: Ha habido un problema al responder a esta propuesta.
@@ -477,6 +513,7 @@ es-PY:
             selected: seleccionado
             split: Propuestas divididas
             split_button: División
+            statuses: Estados
             title: Propuestas
             unassign_from_valuator: Desasignar de evaluadora
             unassign_from_valuator_button: Desasignar
@@ -701,6 +738,9 @@ es-PY:
             valuator: Evaluadora
             valuators: Evaluadoras
             votes: Votos
+        proposal_state:
+          css_class: Clase CSS
+          title: Estado
       new:
         limit_reached: No puedes crear nuevas propuestas porque has superado el límite.
       participatory_text_proposal:
