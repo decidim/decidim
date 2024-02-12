@@ -1412,7 +1412,7 @@ pt-BR:
         title: Denunciar usuário inapropriado
       floating_help:
         close: Fechar Ajuda
-        help: Socorro
+        help: Ajuda
       follow_button:
         sign_in_before_follow: Faça login antes de executar esta ação
       login_modal:
