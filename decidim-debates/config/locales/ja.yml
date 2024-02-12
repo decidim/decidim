@@ -165,6 +165,13 @@ ja:
     events:
       debates:
         create_debate_event:
+          space_followers:
+            email_intro: |-
+              こんにちは、
+              %{resource_title} 参加型スペースに新しいディベート「 %{participatory_space_title} 」が作成されました。ぜひともご参加ください：
+            email_outro: 参加型スペース %{participatory_space_title} をフォローしているため、この通知を受信しました。通知が不要な場合、上記リンクより停止できます。
+            email_subject: '"%{participatory_space_title}" での新しいディベート %{resource_title}'
+            notification_title: ディベート <a href="%{resource_path}">%{resource_title}</a> が、 <a href="%{participatory_space_url}">%{participatory_space_title}</a> に作成されました。
           user_followers:
             email_intro: |-
               こんにちは、
