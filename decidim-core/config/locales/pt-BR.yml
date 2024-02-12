@@ -1300,7 +1300,7 @@ pt-BR:
         spam: Contém clickbait, publicidade, fraudes ou scripts bots.
         title: Denunciar usuário inapropriado
       floating_help:
-        help: Socorro
+        help: Ajuda
       login_modal:
         sign_up: Cadastrar-se
       mentions_modal:
