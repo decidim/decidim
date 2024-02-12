@@ -293,6 +293,9 @@ cs:
           email_subject: Nový návrh "%{resource_title}" byl přidán k %{participatory_space_title}
           notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl přidán do %{participatory_space_title} uživatelem %{author}.
           notification_title_official: Oficiální návrh <a href="%{resource_path}">%{resource_title}</a> byl přidán do %{participatory_space_title}.
+        proposal_state_changed:
+          affected_user:
+            email_intro: 'Návrh "%{resource_title}" změnil svůj stav na "%{state}". Odpověď si můžete přečíst na této stránce:'
         proposal_update_category:
           email_intro: 'Správce aktualizoval kategorii vašeho návrhu "%{resource_title}", podívejte se na něj:'
           email_outro: Toto oznámení jste obdrželi, protože jste autorem návrhu.
