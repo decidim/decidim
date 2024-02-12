@@ -74,11 +74,11 @@ module Decidim
 
             it "calls the geocoding API correctly" do
               find_by_id("test_address").set("item")
-              expect(page).to have_selector(
+              expect(page).to have_css(
                 ".autoComplete_wrapper",
                 text: "first item\nsecond item\nthird item"
               )
-              expect(page).to have_selector(
+              expect(page).to have_css(
                 "#ajax_request",
                 text: {
                   method: "GET",
@@ -93,7 +93,7 @@ module Decidim
               )
 
               find(".autoComplete_wrapper ul#autoComplete_list_1 li", match: :first).click
-              expect(page).to have_selector(
+              expect(page).to have_css(
                 "#ajax_request",
                 text: {
                   method: "GET",
@@ -105,7 +105,7 @@ module Decidim
                   dataType: "json"
                 }.to_json
               )
-              expect(page).to have_selector(
+              expect(page).to have_css(
                 "#geocoder_suggested",
                 text: {
                   key: "first item",
@@ -113,7 +113,7 @@ module Decidim
                   locationId: "location1"
                 }.to_json
               )
-              expect(page).to have_selector(
+              expect(page).to have_css(
                 "#geocoder_coordinates",
                 text: "1.123,2.234"
               )

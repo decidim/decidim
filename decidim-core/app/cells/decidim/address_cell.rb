@@ -4,8 +4,6 @@ module Decidim
   # This cell renders the address of a meeting.
   class AddressCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
-    include LayoutHelper
-    include Decidim::SanitizeHelper
 
     def show
       return render :online if options[:online]
@@ -22,15 +20,15 @@ module Decidim
     end
 
     def location_hints
-      decidim_sanitize(translated_attribute(model.location_hints))
+      decidim_sanitize_translated(model.location_hints)
     end
 
     def location
-      decidim_sanitize(translated_attribute(model.location))
+      decidim_sanitize_translated(model.location)
     end
 
     def address
-      decidim_sanitize(translated_attribute(model.address))
+      decidim_sanitize_translated(model.address)
     end
   end
 end

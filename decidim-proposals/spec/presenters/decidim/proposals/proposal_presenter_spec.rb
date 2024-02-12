@@ -140,7 +140,8 @@ module Decidim
 
         context "when proposal has an answer that was not published yet" do
           before do
-            proposal.update!(answer: "an answer", state: "accepted", answered_at: Time.current)
+            proposal.assign_state("accepted")
+            proposal.update!(answer: "an answer", answered_at: Time.current)
           end
 
           it "only consider the first version" do
@@ -156,7 +157,8 @@ module Decidim
           let(:proposal) { create(:proposal) }
 
           before do
-            proposal.update!(answer: "an answer", state: "accepted", answered_at: Time.current)
+            proposal.assign_state("accepted")
+            proposal.update!(answer: "an answer", answered_at: Time.current)
             proposal.update!(state_published_at: Time.current)
           end
 
@@ -165,11 +167,11 @@ module Decidim
           end
 
           it "does not include state on the first version" do
-            expect(subject.first.changeset.keys).not_to include("state")
+            expect(subject.first.changeset.keys).not_to include("decidim_proposals_proposal_state_id")
           end
 
           it "includes the state and the state_published_at fields in the last version" do
-            expect(subject.last.changeset.keys).to include("state", "state_published_at")
+            expect(subject.last.changeset.keys).to include("decidim_proposals_proposal_state_id", "state_published_at")
           end
         end
       end

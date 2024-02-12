@@ -16,12 +16,6 @@ FactoryBot.define do
       target { :user_block }
     end
 
-    trait :proposal_answer do
-      templatable { organization }
-      target { :proposal_answer }
-      field_values { { internal_state: :accepted } }
-    end
-
     ## Questionnaire templates
     factory :questionnaire_template do
       target { "questionnaire" }

@@ -4,9 +4,7 @@ module Decidim
   # This cell renders a notification from a notifications collection
 
   class NotificationCell < Decidim::ViewModel
-    include Decidim::IconHelper
     include Decidim::Core::Engine.routes.url_helpers
-    include Decidim::SanitizeHelper
 
     def show
       render :show
@@ -23,7 +21,7 @@ module Decidim
 
       participatory_space = notification.resource.participatory_space
       link_to(
-        decidim_html_escape(translated_attribute(participatory_space.title)),
+        decidim_escape_translated(participatory_space.title),
         resource_locator(participatory_space).path
       )
     end

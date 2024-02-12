@@ -16,7 +16,7 @@ describe "Admin manages projects" do
     login_as user, scope: :user
     visit_component_admin
 
-    within find("tr", text: translated(budget.title)) do
+    within "tr", text: translated(budget.title) do
       page.find(".action-icon--edit-projects").click
     end
   end
@@ -111,8 +111,8 @@ describe "Admin manages projects" do
         within_flash_messages do
           expect(page).to have_content("Projects successfully updated to the budget: #{translated(project.title)} and #{translated(project2.title)}")
         end
-        expect(page).not_to have_css("tr[data-id='#{project.id}']")
-        expect(page).not_to have_css("tr[data-id='#{project2.id}']")
+        expect(page).to have_no_css("tr[data-id='#{project.id}']")
+        expect(page).to have_no_css("tr[data-id='#{project2.id}']")
 
         expect(project.reload.budget).to eq(destination_budget)
         expect(project2.reload.budget).to eq(destination_budget)

@@ -45,7 +45,7 @@ describe("CommentsComponent", () => {
   const spyOnAddComment = (methodToSpy) => {
     addComment.each((i) => {
       addComment[i].$ = $(addComment[i]);
-      addComment[i].opinionToggles = $(".opinion-toggle button", addComment[i].$);
+      addComment[i].opinionToggles = $("[data-opinion-toggle] button", addComment[i].$);
       addComment[i].commentForm = $("form", addComment[i].$);
       addComment[i].commentTextarea = $("textarea", addComment[i].commentForm);
 
@@ -66,7 +66,7 @@ describe("CommentsComponent", () => {
         return orderLinks;
       } else if (jqSelector === ".add-comment" && parent.is(subject.$element)) {
         return addComment;
-      } else if (jqSelector === ".add-comment .opinion-toggle button" && parent.is(subject.$element)) {
+      } else if (jqSelector === ".add-comment [data-opinion-toggle] button" && parent.is(subject.$element)) {
         return allToggles;
       } else if (jqSelector === ".add-comment textarea" && parent.is(subject.$element)) {
         return allTextareas;
@@ -75,7 +75,7 @@ describe("CommentsComponent", () => {
       }
       const addCommentsArray = addComment.toArray();
       for (let i = 0; i < addCommentsArray.length; i += 1) {
-        if (jqSelector === ".opinion-toggle button" && parent.is(addCommentsArray[i].$)) {
+        if (jqSelector === "[data-opinion-toggle] button" && parent.is(addCommentsArray[i].$)) {
           return addCommentsArray[i].opinionToggles;
         } else if (jqSelector === "form" && parent.is(addCommentsArray[i].$)) {
           return addCommentsArray[i].commentForm;
@@ -233,7 +233,7 @@ describe("CommentsComponent", () => {
         <div class="comment__content">
           <div><p>${content}</p></div>
         </div>
-        <div class="comment__footer" data-component="accordion" role="presentation">
+        <div data-comment-footer data-component="accordion" role="presentation">
           <div class="comment__footer-grid">
             <div class="comment__actions">
               <button class="button button__sm button__text-secondary" data-controls="panel-comment${commentId}-reply" role="button" tabindex="0" aria-controls="panel-comment${commentId}-reply" aria-expanded="false" aria-disabled="false">
@@ -323,18 +323,18 @@ describe("CommentsComponent", () => {
               ${secondThread}
             </div>
             <div class="add-comment">
-              <div class="opinion-toggle button-group comment__opinion-container">
+              <div data-opinion-toggle class="button-group comment__opinion-container">
                 <span class="show-for-sr py-1.5">Your opinion about this topic</span>
-                <button aria-pressed="false" class="button button__sm button__text-secondary opinion-toggle--ok" data-selected-label="Your opinion about this topic is positive">
+                <button aria-pressed="false" class="button button__sm button__text-secondary" data-toggle-ok="true" data-selected-label="Your opinion about this topic is positive">
                   <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-thumb-up-line" tabindex="-1"></use></svg>
                   <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-thumb-up-fill" tabindex="-1"></use></svg>
                   <span class="show-for-sr">Positive</span>
                 </button>
-                <button aria-pressed="true" class="button button__sm button__text-secondary opinion-toggle--meh is-active" data-selected-label="Your opinion about this topic is neutral">
+                <button aria-pressed="true" class="button button__sm button__text-secondary is-active" data-toggle-meh="true" data-selected-label="Your opinion about this topic is neutral">
                   <span class="show-for-sr">Neutral
                   </span>
                 </button>
-                <button aria-pressed="false" class="button button__sm button__text-secondary opinion-toggle--ko" data-selected-label="Your opinion about this topic is negative">
+                <button aria-pressed="false" class="button button__sm button__text-secondary"  data-toggle-ko="true" data-selected-label="Your opinion about this topic is negative">
                   <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-thumb-down-line" tabindex="-1"></use></svg>
                   <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-thumb-down-fill" tabindex="-1"></use></svg>
                   <span class="show-for-sr">Negative</span>
@@ -371,7 +371,7 @@ describe("CommentsComponent", () => {
     addComment = $(".add-comment", subject.$element);
     orderLinks = $(".comment-order-by a.comment-order-by__item", subject.$element);
 
-    allToggles = $(".add-comment .opinion-toggle .button", subject.$element);
+    allToggles = $(".add-comment [data-opinion-toggle] .button", subject.$element);
     allTextareas = $(".add-comment textarea", subject.$element);
     allForms = $(".add-comment form", subject.$element);
   });

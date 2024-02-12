@@ -73,13 +73,13 @@ shared_examples "manage projects" do
       end
 
       it "does not display the proposal picker" do
-        expect(page).not_to have_content "Choose proposals"
+        expect(page).to have_no_content "Choose proposals"
       end
     end
   end
 
   it "updates a project" do
-    within find("tr", text: translated(project.title)) do
+    within "tr", text: translated(project.title) do
       click_link "Edit"
     end
 
@@ -104,13 +104,12 @@ shared_examples "manage projects" do
 
   context "when previewing projects" do
     it "allows the user to preview the project" do
-      within find("tr", text: translated(project.title)) do
+      within "tr", text: translated(project.title) do
         klass = "action-icon--preview"
         href = resource_locator([project.budget, project]).path
         target = "blank"
 
-        expect(page).to have_selector(
-          :xpath,
+        expect(page).to have_xpath(
           "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
         )
       end
@@ -183,14 +182,14 @@ shared_examples "manage projects" do
     end
 
     it "deletes a project" do
-      within find("tr", text: translated(project2.title)) do
+      within "tr", text: translated(project2.title) do
         accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).not_to have_content(translated(project2.title))
+        expect(page).to have_no_content(translated(project2.title))
       end
     end
   end
@@ -200,7 +199,7 @@ shared_examples "manage projects" do
     let!(:proposals) { create_list(:proposal, 5, component: proposal_component) }
 
     it "updates a project" do
-      within find("tr", text: translated(project.title)) do
+      within "tr", text: translated(project.title) do
         click_link "Edit"
       end
 
@@ -230,7 +229,7 @@ shared_examples "manage projects" do
       not_removed_projects_title = project.linked_resources(:proposals, "included_proposals").first.title
       expect(project.linked_resources(:proposals, "included_proposals").count).to eq(5)
 
-      within find("tr", text: translated(project.title)) do
+      within "tr", text: translated(project.title) do
         click_link "Edit"
       end
 

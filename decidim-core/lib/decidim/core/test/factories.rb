@@ -149,7 +149,18 @@ FactoryBot.define do
     end
     file_upload_settings { Decidim::OrganizationSettings.default(:upload) }
     enable_participatory_space_filters { true }
-    content_security_policy { {} }
+    content_security_policy do
+      {
+        "default-src" => "localhost:* #{host}:*",
+        "script-src" => "localhost:* #{host}:*",
+        "style-src" => "localhost:* #{host}:*",
+        "img-src" => "localhost:* #{host}:*",
+        "font-src" => "localhost:* #{host}:*",
+        "connect-src" => "localhost:* #{host}:*",
+        "frame-src" => "localhost:* #{host}:* www.example.org",
+        "media-src" => "localhost:* #{host}:*"
+      }
+    end
     colors do
       {
         primary: "#e02d2d",
@@ -441,7 +452,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     title { generate_localized_title(:attachment_title, skip_injection:) }
-    description { generate_localized_description(:attachment_description, skip_injection:) }
+    description { generate_localized_title(:attachment_description, skip_injection:) }
     weight { Faker::Number.number(digits: 1) }
     attached_to { build(:participatory_process, skip_injection:) }
     content_type { "image/jpeg" }

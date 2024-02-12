@@ -6,6 +6,7 @@ module Decidim
     class OmniauthRegistrationsController < ::Devise::OmniauthCallbacksController
       include FormFactory
       include Decidim::DeviseControllers
+      include Decidim::DeviseAuthenticationMethods
 
       def new
         @form = form(OmniauthRegistrationForm).from_params(params[:user])
@@ -43,28 +44,6 @@ module Decidim
             render :new
           end
         end
-      end
-
-      def after_sign_in_path_for(user)
-        if user.present? && user.blocked?
-          check_user_block_status(user)
-        elsif !pending_redirect?(user) && first_login_and_not_authorized?(user)
-          decidim_verifications.authorizations_path
-        else
-          super
-        end
-      end
-
-      # Calling the `stored_location_for` method removes the key, so in order
-      # to check if there is any pending redirect after login I need to call
-      # this method and use the value to set a pending redirect. This is the
-      # only way to do this without checking the session directly.
-      def pending_redirect?(user)
-        store_location_for(user, stored_location_for(user))
-      end
-
-      def first_login_and_not_authorized?(user)
-        user.is_a?(User) && user.sign_in_count == 1 && Decidim::Verifications.workflows.any? && user.verifiable?
       end
 
       def action_missing(action_name)

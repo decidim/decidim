@@ -119,7 +119,7 @@ describe "Edit collaborative_drafts" do
         end
         click_button "Send"
 
-        expect(page).to have_selector("input[value='A title with a #hashtag']")
+        expect(page).to have_css("input[value='A title with a #hashtag']")
         expect(page).to have_content("ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL")
       end
     end
@@ -135,7 +135,7 @@ describe "Edit collaborative_drafts" do
 
       click_link "Access collaborative drafts"
       click_link collaborative_draft.title
-      expect(page).not_to have_content("Edit collaborative draft")
+      expect(page).to have_no_content("Edit collaborative draft")
       visit "#{current_path}/edit"
 
       expect(page).to have_content("not authorized")
@@ -154,7 +154,7 @@ describe "Edit collaborative_drafts" do
 
       click_link "Access collaborative drafts"
       click_link collaborative_draft.title
-      expect(page).not_to have_content("Edit collaborative draft")
+      expect(page).to have_no_content("Edit collaborative draft")
       visit "#{current_path}/edit"
 
       expect(page).to have_content("not authorized")

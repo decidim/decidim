@@ -4,8 +4,6 @@ module Decidim
   module Comments
     # A cell to display a form for adding a new comment.
     class CommentFormCell < Decidim::ViewModel
-      delegate :current_user, :user_signed_in?, to: :controller
-
       def comment_as_for(form)
         return if verified_user_groups.blank?
 

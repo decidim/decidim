@@ -77,7 +77,7 @@ describe "Authorizations revocation flow" do
 
       it "does not allow the user to see No Granted Authorizations info message" do
         within "[data-content]" do
-          expect(page).not_to have_content(t("decidim.admin.menu.authorization_revocation.no_data"))
+          expect(page).to have_no_content(t("decidim.admin.menu.authorization_revocation.no_data"))
         end
       end
     end
@@ -97,9 +97,9 @@ describe "Authorizations revocation flow" do
 
       it "does not allow the user to see Authorization's revocation options" do
         within "[data-content]" do
-          expect(page).not_to have_content(t("decidim.admin.menu.authorization_revocation.button"))
-          expect(page).not_to have_content(t("decidim.admin.menu.authorization_revocation.before_date_info"))
-          expect(page).not_to have_content(t("decidim.admin.menu.authorization_revocation.button_before"))
+          expect(page).to have_no_content(t("decidim.admin.menu.authorization_revocation.button"))
+          expect(page).to have_no_content(t("decidim.admin.menu.authorization_revocation.before_date_info"))
+          expect(page).to have_no_content(t("decidim.admin.menu.authorization_revocation.button_before"))
         end
       end
     end
@@ -153,7 +153,7 @@ describe "Authorizations revocation flow" do
         click_link(t("decidim.admin.menu.authorization_revocation.button"))
       end
       expect(page).to have_content(t("authorization_revocation.destroy_ok", scope: "decidim.admin.menu"))
-      expect(page).not_to have_content(t("authorization_revocation.destroy_nok", scope: "decidim.admin.menu"))
+      expect(page).to have_no_content(t("authorization_revocation.destroy_nok", scope: "decidim.admin.menu"))
     end
   end
 
@@ -164,7 +164,7 @@ describe "Authorizations revocation flow" do
       end
 
       expect(page).to have_content(t("authorization_revocation.destroy_ok", scope: "decidim.admin.menu"))
-      expect(page).not_to have_content(t("authorization_revocation.destroy_nok", scope: "decidim.admin.menu"))
+      expect(page).to have_no_content(t("authorization_revocation.destroy_nok", scope: "decidim.admin.menu"))
     end
   end
 end

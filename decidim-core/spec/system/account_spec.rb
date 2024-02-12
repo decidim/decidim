@@ -100,8 +100,8 @@ describe "Account" do
           expect(page).to have_field("user[password]", with: "", type: "password")
           expect(page).to have_field("user[old_password]", with: "", type: "password")
           click_button "Change password"
-          expect(page).not_to have_field("user[password]", with: "", type: "password")
-          expect(page).not_to have_field("user[old_password]", with: "", type: "password")
+          expect(page).to have_no_field("user[password]", with: "", type: "password")
+          expect(page).to have_no_field("user[old_password]", with: "", type: "password")
         end
       end
 
@@ -125,8 +125,8 @@ describe "Account" do
           expect(page).to have_content("successfully")
         end
         expect(user.reload.encrypted_password).not_to eq(encrypted_password)
-        expect(page).not_to have_field("user[password]", with: "", type: "password")
-        expect(page).not_to have_field("user[old_password]", with: "", type: "password")
+        expect(page).to have_no_field("user[password]", with: "", type: "password")
+        expect(page).to have_no_field("user[old_password]", with: "", type: "password")
       end
     end
 
@@ -145,7 +145,7 @@ describe "Account" do
           expect(page).to have_content("In order to confirm the changes to your account, please provide your current password.")
           expect(find_by_id("user_old_password")).to be_visible
           expect(page).to have_content "Current password"
-          expect(page).not_to have_content "Password"
+          expect(page).to have_no_content "Password"
         end
 
         it "renders the old password with error" do
@@ -209,7 +209,7 @@ describe "Account" do
           end
 
           expect(page).to have_content("Email change cancelled successfully")
-          expect(page).not_to have_content("Email change verification")
+          expect(page).to have_no_content("Email change verification")
           expect(Decidim::User.find(user.id).unconfirmed_email).to be_nil
         end
       end
@@ -299,7 +299,7 @@ describe "Account" do
       end
 
       it "does not display the authorizations message by default" do
-        expect(page).not_to have_content("Some data bound to your authorization will be saved for security.")
+        expect(page).to have_no_content("Some data bound to your authorization will be saved for security.")
       end
 
       it "the user can delete their account" do
@@ -321,8 +321,8 @@ describe "Account" do
           find("*[type=submit]").click
         end
 
-        expect(page).not_to have_content("Signed in successfully")
-        expect(page).not_to have_content(user.name)
+        expect(page).to have_no_content("Signed in successfully")
+        expect(page).to have_no_content(user.name)
       end
 
       context "when the user has an authorization" do
@@ -374,7 +374,7 @@ describe "Account" do
             expect(page).to have_content("successfully")
           end
 
-          find(:css, "#allow_push_notifications", visible: false).execute_script("this.checked = true")
+          find_by_id("allow_push_notifications", visible: false).execute_script("this.checked = true")
         end
       end
     end
@@ -389,7 +389,7 @@ describe "Account" do
       end
 
       it "does not show the push notifications switch" do
-        expect(page).not_to have_selector(".push-notifications")
+        expect(page).to have_no_selector(".push-notifications")
       end
     end
 
@@ -403,7 +403,7 @@ describe "Account" do
       end
 
       it "does not show the push notifications switch" do
-        expect(page).not_to have_selector(".push-notifications")
+        expect(page).to have_no_selector(".push-notifications")
       end
     end
   end

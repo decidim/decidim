@@ -22,7 +22,7 @@ describe Decidim::ProfileCell, type: :cell do
       let(:user) { create(:user, :managed, organization:, blocked: true, admin: true) }
 
       it "shows the user profile" do
-        expect(subject).not_to have_text("This profile is inaccessible due to terms of service violation!")
+        expect(subject).to have_no_text("This profile is inaccessible due to terms of service violation!")
       end
     end
 

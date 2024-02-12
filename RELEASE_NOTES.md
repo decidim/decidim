@@ -43,7 +43,53 @@ rm config/initializers/carrierwave.rb
 
 You can read more about this change on PR [\#12200](https://github.com/decidim/decidim/pull/12200).
 
-### 3.2. esbuild migration
+### 3.2. Verifications documents configurations
+
+Until now we have hard-coded the document types for verifications with types from Spain legislation ("DNI, NIE and passport"). We have change it to "Identification number and passport", and allow installations to adapt them to their own needs.
+
+If you want to go back to the old setting, you need to follow these steps:
+
+#### 3.2.1. Add to your config/secrets.yml the `decidim.verifications.document_types` key
+
+```erb
+decidim_default: &decidim_default
+  application_name: <%%= Decidim::Env.new("DECIDIM_APPLICATION_NAME", "My Application Name").to_json %>
+  (...)
+  verifications:
+    document_types: <%%= Decidim::Env.new("VERIFICATIONS_DOCUMENT_TYPES", %w(identification_number passport)).to_array %>
+```
+
+#### 3.2.2. Add to your `config/initializers/decidim.rb` the following snippet in the bottom of the file
+
+```ruby
+if Decidim.module_installed? :verifications
+  Decidim::Verifications.configure do |config|
+    config.document_types = Rails.application.secrets.dig(:verifications, :document_types).presence || %w(identification_number passport)
+  end
+end
+```
+
+#### 3.2.3. Add the values that you want to define using the environmnet variable `VERIFICATIONS_DOCUMENT_TYPES`
+
+```env
+VERIFICATIONS_DOCUMENT_TYPES="dni,nie,passport"
+```
+
+#### 3.2.4. Add the translation of these values to your i18n files (i.e. `config/locales/en.yml`)
+
+```yaml
+en:
+  decidim:
+    verifications:
+        id_documents:
+          dni: DNI
+          nie: NIE
+          passport: Passport
+```
+
+You can read more about this change on PR [\#12306](https://github.com/decidim/decidim/pull/12306)
+
+### 3.3. esbuild migration
 
 In order to speed up the asset compilation, we have migrated from babel to esbuild.
 
@@ -60,7 +106,7 @@ In case you have modifications in your application's webpack configuration, adap
 
 You can read more about this change on PR [\#12238](https://github.com/decidim/decidim/pull/12238).
 
-### 3.3. [[TITLE OF THE ACTION]]
+### 3.4. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -96,3 +142,19 @@ You need to change it to:
 # Explain the usage of the API as it is in the new version
 result = 1 + 1 if after
 ```
+
+### 5.8 Migration of Proposal states in own table
+
+As of [\#12052](https://github.com/decidim/decidim/pull/12052) all the proposals states are kept in a separate database table, enabling end users to customize the states of the proposals. By default we will create for any proposal component that is being installed in the project 5 default states that cannot be disabled nor deleted. These states are:
+
+- Not Answered ( default state for any new created proposal )
+- Evaluating
+- Accepted
+- Rejected
+- Withdrawn ( special states for proposals that have been withdrawn by the author )
+
+For any of the above states you can customize the name, description, css class used by labels. You can also decide which states the user can receive a notification or an answer.
+
+You do not need to run any task to migrate the existing states, as we will automatically migrate the existing states to the new table.
+
+You can see more details about this change on PR [\#12052](https://github.com/decidim/decidim/pull/12052)
