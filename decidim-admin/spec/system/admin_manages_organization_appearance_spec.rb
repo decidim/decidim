@@ -32,7 +32,7 @@ describe "Admin manages organization" do
       it "does not show the HTML header snippet form field" do
         visit decidim_admin.edit_organization_appearance_path
 
-        expect(page).not_to have_field(:organization_header_snippets)
+        expect(page).to have_no_field(:organization_header_snippets)
       end
     end
 

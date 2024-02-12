@@ -27,7 +27,7 @@ module Decidim
         Decidim::Meetings::Meeting
           .published
           .not_hidden
-          .except_withdrawn
+          .not_withdrawn
           .where(
             "decidim_component_id = ? AND end_time >= ? AND end_time <= ? AND closed_at IS NULL",
             component_id,

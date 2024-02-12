@@ -16,7 +16,7 @@ describe "Menu" do
     end
 
     it "switches the active option" do
-      expect(page).to have_selector(".menu-bar__breadcrumb-desktop__dropdown-trigger", text: "Help")
+      expect(page).to have_css(".menu-bar__breadcrumb-desktop__dropdown-trigger", text: "Help")
     end
 
     context "and clicking on a subpage of that entry" do
@@ -29,7 +29,7 @@ describe "Menu" do
       end
 
       it "preserves the active option" do
-        expect(page).to have_selector(".menu-bar__breadcrumb-desktop__dropdown-trigger", text: "Help")
+        expect(page).to have_css(".menu-bar__breadcrumb-desktop__dropdown-trigger", text: "Help")
       end
     end
   end
@@ -46,7 +46,7 @@ describe "Menu" do
     end
 
     it "renders the component name correctly" do
-      expect(page).to have_selector(".menu-bar__breadcrumb-desktop__dropdown-wrapper", text: component_name)
+      expect(page).to have_css(".menu-bar__breadcrumb-desktop__dropdown-wrapper", text: component_name)
     end
   end
 
@@ -74,7 +74,7 @@ describe "Menu" do
     context "when the organization has a description" do
       it "shows the organization description" do
         within "#breadcrumb-main-dropdown-desktop" do
-          expect(page).not_to have_text("Let's build a more open, transparent and collaborative society.")
+          expect(page).to have_no_text("Let's build a more open, transparent and collaborative society.")
           expect(page).to have_text(strip_tags(translated(organization.description)))
         end
       end

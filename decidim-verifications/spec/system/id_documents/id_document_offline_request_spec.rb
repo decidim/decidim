@@ -27,7 +27,7 @@ describe "Identity document offline request" do
 
   it "allows the user fill in their identity document" do
     submit_upload_form(
-      doc_type: "DNI",
+      doc_type: "Identification number",
       doc_number: "XXXXXXXX"
     )
 

@@ -60,7 +60,7 @@ shared_examples "copy assemblies" do
 
       expect(page).to have_content("successfully")
 
-      within find("tr", text: "Copy assembly") do
+      within "tr", text: "Copy assembly" do
         click_on "Configure"
       end
       within_admin_sidebar_menu do
@@ -80,7 +80,7 @@ shared_examples "copy assemblies" do
 
       expect(page).to have_content("successfully")
 
-      within find("tr", text: "Copy assembly") do
+      within "tr", text: "Copy assembly" do
         click_on "Configure"
       end
       within_admin_sidebar_menu do

@@ -36,7 +36,7 @@ describe "Space admin manages global moderations" do
 
     it "has the main navigation empty" do
       within ".layout-nav" do
-        expect(page).not_to have_selector("li a")
+        expect(page).to have_no_css("li a")
       end
     end
 
@@ -92,7 +92,7 @@ describe "Space admin manages global moderations" do
       within "[data-content]" do
         expect(page).to have_content("Reported content")
 
-        expect(page).not_to have_selector("table.table-list tbody tr")
+        expect(page).to have_no_css("table.table-list tbody tr")
       end
     end
   end

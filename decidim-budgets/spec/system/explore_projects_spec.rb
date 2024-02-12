@@ -40,7 +40,7 @@ describe "Explore projects", :slow do
     it "shows all resources for the given component" do
       visit_budget
       within "#projects" do
-        expect(page).to have_selector(".card__list", count: projects_count)
+        expect(page).to have_css(".card__list", count: projects_count)
       end
 
       projects.each do |project|
@@ -77,7 +77,7 @@ describe "Explore projects", :slow do
           end
         end
 
-        expect(page).not_to have_content("Another project")
+        expect(page).to have_no_content("Another project")
         expect(page).to have_content("Foobar project")
 
         filter_params = CGI.parse(URI.parse(page.current_url).query)

@@ -110,7 +110,7 @@ shared_examples "manage assembly members examples" do
     end
 
     it "updates an assembly member" do
-      within find("#assembly_members tr", text: assembly_member.full_name) do
+      within "#assembly_members tr", text: assembly_member.full_name do
         click_on "Edit"
       end
 
@@ -132,14 +132,14 @@ shared_examples "manage assembly members examples" do
     end
 
     it "deletes the assembly member" do
-      within find("#assembly_members tr", text: assembly_member.full_name) do
+      within "#assembly_members tr", text: assembly_member.full_name do
         accept_confirm { find("a.action-icon--remove").click }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "#assembly_members table" do
-        expect(page).not_to have_content(assembly_member.full_name)
+        expect(page).to have_no_content(assembly_member.full_name)
       end
     end
   end
@@ -157,7 +157,7 @@ shared_examples "manage assembly members examples" do
       expect(page).to have_css(resource_selector, count: 15)
       expect(page).to have_css("[data-pages] [data-page]", count: 2)
       click_on "Next"
-      expect(page).to have_selector("[data-pages] [data-page][aria-current='page']", text: "2")
+      expect(page).to have_css("[data-pages] [data-page][aria-current='page']", text: "2")
       expect(page).to have_css(resource_selector, count: 5)
     end
   end

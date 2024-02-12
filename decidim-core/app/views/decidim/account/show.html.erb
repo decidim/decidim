@@ -4,7 +4,7 @@
 <%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
   <% if current_user.unconfirmed_email.present? %>
     <%# NOTE: announcement cell clean_body method will purge the button %>
-    <div id="email-change-pending" class="flash secondary" data-announcement>
+    <div id="email-change-pending" class="flash warning" data-announcement>
       <span class="flash__message flex-none block leading-relaxed">
         <p>
           <strong><%= t("decidim.account.email_change.title") %></strong>

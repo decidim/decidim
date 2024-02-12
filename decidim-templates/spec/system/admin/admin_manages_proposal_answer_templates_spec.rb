@@ -133,7 +133,7 @@ describe "Admin manages proposal answer templates" do
     end
 
     it "copies the template" do
-      within find("tr", text: translated(template.name)) do
+      within "tr", text: translated(template.name) do
         click_on "Duplicate"
       end
 
@@ -148,7 +148,7 @@ describe "Admin manages proposal answer templates" do
     end
 
     it "destroys the template" do
-      within find("tr", text: translated(template.name)) do
+      within "tr", text: translated(template.name) do
         accept_confirm { click_on "Delete" }
       end
 
@@ -179,7 +179,7 @@ describe "Admin manages proposal answer templates" do
 
       expect(page).to have_admin_callout("Proposal successfully answered")
 
-      within find("tr", text: proposal.title["en"]) do
+      within "tr", text: proposal.title["en"] do
         expect(page).to have_content("Rejected")
       end
       expect(proposal.reload.internal_state).to eq("rejected")
@@ -193,7 +193,7 @@ describe "Admin manages proposal answer templates" do
       end
 
       it "hides the template selector in the proposal answer page" do
-        expect(page).not_to have_select(:proposal_answer_template_chooser)
+        expect(page).to have_no_select(:proposal_answer_template_chooser)
       end
     end
 
@@ -212,7 +212,7 @@ describe "Admin manages proposal answer templates" do
 
       it "hides templates scoped for other components" do
         expect(proposal.reload.internal_state).to eq("not_answered")
-        expect(page).not_to have_select(:proposal_answer_template_chooser, with_options: [translated(other_component_template.name)])
+        expect(page).to have_no_select(:proposal_answer_template_chooser, with_options: [translated(other_component_template.name)])
       end
     end
 
@@ -236,7 +236,7 @@ describe "Admin manages proposal answer templates" do
 
         expect(page).to have_admin_callout("Proposal successfully answered")
 
-        within find("tr", text: translated(proposal.title)) do
+        within "tr", text: translated(proposal.title) do
           expect(page).to have_content("Evaluating")
         end
         expect(proposal.reload.internal_state).to eq("evaluating")

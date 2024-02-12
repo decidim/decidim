@@ -32,9 +32,9 @@ describe "sortitions" do
       it "lists the sortitions ordered randomly" do
         page.visit "#{main_component_path(component)}?order=random"
 
-        expect(page).to have_selector(".card__list", count: 2)
-        expect(page).to have_selector(".card__list", text: lucky_sortition.title[:en])
-        expect(page).to have_selector(".card__list", text: unlucky_sortition.title[:en])
+        expect(page).to have_css(".card__list", count: 2)
+        expect(page).to have_css(".card__list", text: lucky_sortition.title[:en])
+        expect(page).to have_css(".card__list", text: unlucky_sortition.title[:en])
       end
     end
 
@@ -45,8 +45,8 @@ describe "sortitions" do
 
         visit_component
 
-        expect(page).to have_selector(".order-by .button:first-child", text: recent.title[:en])
-        expect(page).to have_selector(".order-by .button:last-child", text: older.title[:en])
+        expect(page).to have_css(".order-by .button:first-child", text: recent.title[:en])
+        expect(page).to have_css(".order-by .button:last-child", text: older.title[:en])
       end
     end
 
@@ -72,7 +72,7 @@ describe "sortitions" do
           end
         end
 
-        expect(page).not_to have_content("Another sortition")
+        expect(page).to have_no_content("Another sortition")
         expect(page).to have_content("Foobar sortition")
 
         filter_params = CGI.parse(URI.parse(page.current_url).query)

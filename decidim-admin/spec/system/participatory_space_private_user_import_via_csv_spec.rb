@@ -35,7 +35,7 @@ describe "Admin manages participatory space private users via csv import" do
     end
 
     it "propose to delete" do
-      expect(page).to have_selector(".alert")
+      expect(page).to have_css(".alert")
     end
 
     it "ask you for confirmation and delete existing users" do

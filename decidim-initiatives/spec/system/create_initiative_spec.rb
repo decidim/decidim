@@ -459,8 +459,8 @@ describe "Initiative" do
 
         it "do not show initiative types without related scopes" do
           within "[data-content]" do
-            expect(page).not_to have_content(translated(third_initiative_type.title, locale: :en))
-            expect(page).not_to have_content(ActionView::Base.full_sanitizer.sanitize(translated(third_initiative_type.description, locale: :en), tags: []))
+            expect(page).to have_no_content(translated(third_initiative_type.title, locale: :en))
+            expect(page).to have_no_content(ActionView::Base.full_sanitizer.sanitize(translated(third_initiative_type.description, locale: :en), tags: []))
           end
         end
       end
@@ -471,7 +471,7 @@ describe "Initiative" do
         end
 
         it "does not show the select input for initiative_type" do
-          expect(page).not_to have_content("Type")
+          expect(page).to have_no_content("Type")
           expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
         end
 
@@ -481,7 +481,7 @@ describe "Initiative" do
         end
 
         it "does not have status field" do
-          expect(page).not_to have_xpath("//select[@id='initiative_state']")
+          expect(page).to have_no_xpath("//select[@id='initiative_state']")
         end
 
         it "offers contextual help" do
@@ -496,12 +496,12 @@ describe "Initiative" do
         let!(:other_initiative_type_scope) { nil }
 
         it "does not displays initiative types" do
-          expect(page).not_to have_current_path(decidim_initiatives.create_initiative_path(id: :select_initiative_type))
+          expect(page).to have_no_current_path(decidim_initiatives.create_initiative_path(id: :select_initiative_type))
         end
 
         it "does not display the 'choose' step" do
           within ".wizard-steps" do
-            expect(page).not_to have_content("Choose")
+            expect(page).to have_no_content("Choose")
           end
         end
 
@@ -516,7 +516,7 @@ describe "Initiative" do
         end
 
         it "does not have status field" do
-          expect(page).not_to have_xpath("//select[@id='initiative_state']")
+          expect(page).to have_no_xpath("//select[@id='initiative_state']")
         end
 
         it "offers contextual help" do
@@ -537,8 +537,8 @@ describe "Initiative" do
           let(:initiative_type) { create(:initiatives_type, organization:, minimum_committee_members: initiative_type_minimum_committee_members, signature_type:) }
 
           it "hides and automatically selects the values" do
-            expect(page).not_to have_content("Signature collection type")
-            expect(page).not_to have_content("Scope")
+            expect(page).to have_no_content("Signature collection type")
+            expect(page).to have_no_content("Scope")
             expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
             expect(find(:xpath, "//input[@id='initiative_signature_type']", visible: :all).value).to eq("offline")
           end
@@ -555,8 +555,8 @@ describe "Initiative" do
           end
 
           it "does not show select input for initiative_type" do
-            expect(page).not_to have_content("Initiative type")
-            expect(page).not_to have_css("#initiative_type_id")
+            expect(page).to have_no_content("Initiative type")
+            expect(page).to have_no_css("#initiative_type_id")
           end
 
           it "has a hidden field with the selected initiative type" do
@@ -583,7 +583,7 @@ describe "Initiative" do
           end
 
           it "does not show the select input for initiative_type" do
-            expect(page).not_to have_content("Type")
+            expect(page).to have_no_content("Type")
             expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
           end
 
@@ -602,8 +602,8 @@ describe "Initiative" do
             let(:initiative_type) { create(:initiatives_type, organization:, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
 
             it "hides and automatically selects the values" do
-              expect(page).not_to have_content("Signature collection type")
-              expect(page).not_to have_content("Scope")
+              expect(page).to have_no_content("Signature collection type")
+              expect(page).to have_no_content("Scope")
               expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
               expect(find(:xpath, "//input[@id='initiative_signature_type']", visible: :all).value).to eq("offline")
             end
@@ -620,7 +620,7 @@ describe "Initiative" do
 
           context "when the initiative type does not enable custom signature end date" do
             it "does not show the signature end date" do
-              expect(page).not_to have_content("End of signature collection period")
+              expect(page).to have_no_content("End of signature collection period")
             end
           end
 
@@ -635,7 +635,7 @@ describe "Initiative" do
 
           context "when the initiative type does not enable area" do
             it "does not show the area" do
-              expect(page).not_to have_content("Area")
+              expect(page).to have_no_content("Area")
             end
           end
 
@@ -697,7 +697,7 @@ describe "Initiative" do
 
           it "skips to next step" do
             within("#wizard-steps [data-active]") do
-              expect(page).not_to have_content("Promoter committee")
+              expect(page).to have_no_content("Promoter committee")
               expect(page).to have_content("Finish")
             end
           end
@@ -707,7 +707,7 @@ describe "Initiative" do
           let(:initiative_type) { create(:initiatives_type, organization:, promoting_committee_enabled: false, signature_type:) }
 
           it "skips the promoting committee settings" do
-            expect(page).not_to have_content("Promoter committee")
+            expect(page).to have_no_content("Promoter committee")
             expect(page).to have_content("Finish")
           end
         end
@@ -813,7 +813,7 @@ describe "Initiative" do
 
         it "displays a send to technical validation link" do
           expect(page).to have_link("Send my initiative to technical validation")
-          expect(page).to have_selector "a[data-confirm='#{expected_message}']"
+          expect(page).to have_css "a[data-confirm='#{expected_message}']"
         end
 
         it_behaves_like "initiatives path redirection"
@@ -837,7 +837,7 @@ describe "Initiative" do
 
         it "displays a send to technical validation link" do
           expect(page).to have_link("Send my initiative to technical validation")
-          expect(page).to have_selector "a[data-confirm='#{expected_message}']"
+          expect(page).to have_css "a[data-confirm='#{expected_message}']"
         end
 
         it_behaves_like "initiatives path redirection"

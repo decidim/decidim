@@ -33,7 +33,7 @@ window.DragEvent = class DragEvent extends Event {};
 
 const defaultEditorConfig = {
   contentTypes: {
-    image: ["image/jpeg", "image/png"]
+    image: ["image/jpeg", "image/png", "image/webp"]
   },
   uploadImagesPath: "/editor_images",
   dragAndDropHelpText: "Add images by dragging & dropping or pasting them.",

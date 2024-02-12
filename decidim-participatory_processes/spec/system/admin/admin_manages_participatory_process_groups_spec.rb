@@ -85,7 +85,7 @@ describe "Admin manages participatory process groups" do
     end
 
     it "can edit them" do
-      within find("tr", text: participatory_process_group.title["en"]) do
+      within "tr", text: participatory_process_group.title["en"] do
         click_on "Edit"
       end
 
@@ -133,7 +133,7 @@ describe "Admin manages participatory process groups" do
     end
 
     it "validates the group attributes" do
-      within find("tr", text: participatory_process_group.title["en"]) do
+      within "tr", text: participatory_process_group.title["en"] do
         click_on "Edit"
       end
 
@@ -153,7 +153,7 @@ describe "Admin manages participatory process groups" do
     end
 
     it "can remove its image" do
-      within find("tr", text: participatory_process_group.title["en"]) do
+      within "tr", text: participatory_process_group.title["en"] do
         click_on "Edit"
       end
 
@@ -166,23 +166,23 @@ describe "Admin manages participatory process groups" do
 
       click_on "Update"
 
-      expect(page).not_to have_css("img")
+      expect(page).to have_no_css("img")
     end
 
     it "can delete them" do
-      within find("tr", text: participatory_process_group.title["en"]) do
+      within "tr", text: participatory_process_group.title["en"] do
         accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).not_to have_content(participatory_process_group.title["en"])
+        expect(page).to have_no_content(participatory_process_group.title["en"])
       end
     end
 
     it "has a link to the landing page" do
-      within find("tr", text: participatory_process_group.title["en"]) do
+      within "tr", text: participatory_process_group.title["en"] do
         click_on "Edit"
       end
 

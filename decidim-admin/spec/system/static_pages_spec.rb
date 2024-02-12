@@ -135,13 +135,13 @@ describe "Content pages" do
       end
 
       it "can delete them" do
-        within find("tr", text: translated(topic.title)) do
+        within "tr", text: translated(topic.title) do
           accept_confirm { click_on "Delete" }
         end
 
         expect(page).to have_admin_callout("successfully")
 
-        expect(page).not_to have_css(".table-scroll")
+        expect(page).to have_no_css(".table-scroll")
       end
     end
   end
@@ -191,7 +191,7 @@ describe "Content pages" do
 
       expect(page).to have_admin_callout("successfully")
 
-      within find(".card", text: topic.title[I18n.locale.to_s]) do
+      within ".card", text: topic.title[I18n.locale.to_s] do
         expect(page).to have_css("tr", text: "Welcome to Decidim")
       end
     end
@@ -206,7 +206,7 @@ describe "Content pages" do
 
       context "when displaying the page form" do
         before do
-          within find("tr", text: translated(decidim_page.title)) do
+          within "tr", text: translated(decidim_page.title) do
             click_on "Edit"
           end
         end
@@ -215,7 +215,7 @@ describe "Content pages" do
       end
 
       it "can edit them" do
-        within find("tr", text: translated(decidim_page.title)) do
+        within "tr", text: translated(decidim_page.title) do
           click_on "Edit"
         end
 
@@ -236,26 +236,26 @@ describe "Content pages" do
 
         expect(page).to have_admin_callout("successfully")
 
-        within find(".card", text: topic.title[I18n.locale.to_s]) do
+        within ".card", text: topic.title[I18n.locale.to_s] do
           expect(page).to have_css("tr", text: "Not welcomed anymore")
         end
       end
 
       it "can delete them" do
-        within find("tr", text: translated(decidim_page.title)) do
+        within "tr", text: translated(decidim_page.title) do
           accept_confirm { click_on "Delete" }
         end
 
         expect(page).to have_admin_callout("successfully")
 
         within "table" do
-          expect(page).not_to have_content(translated(decidim_page.title))
+          expect(page).to have_no_content(translated(decidim_page.title))
         end
       end
 
       it "can visit them" do
         new_window = window_opened_by do
-          within find("tr", text: translated(decidim_page.title)) do
+          within "tr", text: translated(decidim_page.title) do
             click_on "View public page"
           end
         end

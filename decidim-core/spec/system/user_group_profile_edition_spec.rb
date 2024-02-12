@@ -20,7 +20,7 @@ describe "User group profile edition" do
     end
 
     it "does not show the link to edit" do
-      expect(page).not_to have_content("Edit group profile")
+      expect(page).to have_no_content("Edit group profile")
     end
 
     it "rejects the user that accesses manually" do

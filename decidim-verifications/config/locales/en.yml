@@ -232,8 +232,7 @@ en:
           update:
             error: There was a problem reuploading your document.
             success: Document successfully reuploaded.
-        dni: DNI
-        nie: NIE
+        identification_number: Identification number
         passport: Passport
       postal_letter:
         admin:

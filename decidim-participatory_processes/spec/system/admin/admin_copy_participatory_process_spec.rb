@@ -64,7 +64,7 @@ describe "Admin copies participatory process" do
 
       expect(page).to have_content("successfully")
 
-      within find("tr", text: "Copy participatory process") do
+      within "tr", text: "Copy participatory process" do
         click_on "Copy participatory process"
       end
 
@@ -85,7 +85,7 @@ describe "Admin copies participatory process" do
 
       expect(page).to have_content("successfully")
 
-      within find("tr", text: "Copy participatory process") do
+      within "tr", text: "Copy participatory process" do
         click_on "Copy participatory process"
       end
 
@@ -106,7 +106,7 @@ describe "Admin copies participatory process" do
 
       expect(page).to have_content("successfully")
 
-      within find("tr", text: "Copy participatory process") do
+      within "tr", text: "Copy participatory process" do
         click_on "Copy participatory process"
       end
 

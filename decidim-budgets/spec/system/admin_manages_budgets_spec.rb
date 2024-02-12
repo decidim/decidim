@@ -54,7 +54,7 @@ describe "Admin manages budgets" do
 
   describe "updating a budget" do
     it "updates a budget" do
-      within find("tr", text: translated(budget.title)) do
+      within "tr", text: translated(budget.title) do
         page.find(".action-icon--edit").click
       end
 
@@ -87,7 +87,7 @@ describe "Admin manages budgets" do
 
   describe "deleting a budget" do
     it "deletes a budget" do
-      within find("tr", text: translated(budget.title)) do
+      within "tr", text: translated(budget.title) do
         accept_confirm do
           page.find(".action-icon--remove").click
         end
@@ -96,7 +96,7 @@ describe "Admin manages budgets" do
       expect(page).to have_admin_callout("Budget successfully deleted.")
 
       within "table" do
-        expect(page).not_to have_content(translated(budget.title))
+        expect(page).to have_no_content(translated(budget.title))
       end
     end
 
@@ -104,8 +104,8 @@ describe "Admin manages budgets" do
       let!(:budget) { create(:budget, :with_projects, component: current_component) }
 
       it "cannot delete the budget" do
-        within find("tr", text: translated(budget.title)) do
-          expect(page).not_to have_selector(".action-icon--remove")
+        within "tr", text: translated(budget.title) do
+          expect(page).to have_no_css(".action-icon--remove")
         end
       end
     end

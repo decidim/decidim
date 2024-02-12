@@ -22,7 +22,7 @@ describe "Assembly members" do
       it "the menu nav is not shown" do
         visit decidim_assemblies.assembly_path(assembly)
 
-        expect(page).not_to have_css(".participatory-space__nav-container")
+        expect(page).to have_no_css(".participatory-space__nav-container")
       end
     end
 
@@ -32,7 +32,7 @@ describe "Assembly members" do
       it "the menu link is not shown" do
         visit decidim_assemblies.assembly_path(assembly)
 
-        expect(page).not_to have_content("Members")
+        expect(page).to have_no_content("Members")
       end
     end
   end
@@ -60,7 +60,7 @@ describe "Assembly members" do
         it "the menu nav is not shown" do
           visit decidim_assemblies.assembly_path(assembly)
 
-          expect(page).not_to have_css(".participatory-space__nav-container")
+          expect(page).to have_no_css(".participatory-space__nav-container")
         end
       end
 
@@ -70,7 +70,7 @@ describe "Assembly members" do
         it "the menu link is not shown" do
           visit decidim_assemblies.assembly_path(assembly)
 
-          expect(page).not_to have_content("Members")
+          expect(page).to have_no_content("Members")
         end
       end
     end
@@ -89,7 +89,7 @@ describe "Assembly members" do
         it "the menu nav is not shown" do
           visit decidim_assemblies.assembly_path(assembly)
 
-          expect(page).not_to have_css(".participatory-space__nav-container")
+          expect(page).to have_no_css(".participatory-space__nav-container")
         end
       end
 
@@ -110,9 +110,9 @@ describe "Assembly members" do
 
       it "lists all the non ceased assembly members" do
         within "#assembly_members-grid" do
-          expect(page).to have_selector(".profile__user", count: 2)
+          expect(page).to have_css(".profile__user", count: 2)
 
-          expect(page).not_to have_content(Decidim::AssemblyMemberPresenter.new(ceased_assembly_member).name)
+          expect(page).to have_no_content(Decidim::AssemblyMemberPresenter.new(ceased_assembly_member).name)
         end
       end
     end

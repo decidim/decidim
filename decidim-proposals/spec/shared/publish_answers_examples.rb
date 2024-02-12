@@ -40,7 +40,7 @@ shared_examples "publish answers" do
       page.all("[data-published-state=false] .js-proposal-list-check").each { |c| c.set(false) }
 
       click_on "Actions"
-      expect(page).not_to have_content("Publish answers")
+      expect(page).to have_no_content("Publish answers")
     end
   end
 end

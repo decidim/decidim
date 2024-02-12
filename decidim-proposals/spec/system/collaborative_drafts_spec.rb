@@ -145,7 +145,7 @@ describe "Explore Collaborative Drafts", versioning: true do
         end
 
         it "does not show any tag" do
-          expect(page).not_to have_selector("ul.tags")
+          expect(page).to have_no_selector("ul.tags")
         end
       end
 
@@ -258,7 +258,7 @@ describe "Explore Collaborative Drafts", versioning: true do
           end
 
           it "removes the announcement to collaborate" do
-            expect(page).not_to have_css("[data-alert-box].secondary")
+            expect(page).to have_no_css("[data-alert-box].secondary")
           end
 
           it "shows that access has been requested" do
@@ -304,13 +304,13 @@ describe "Explore Collaborative Drafts", versioning: true do
               end
 
               it "removes the announcement to collaborate" do
-                expect(page).not_to have_css("#new_accept_access_to_collaborative_draft_")
-                expect(page).not_to have_css("#new_reject_access_to_collaborative_draft_")
+                expect(page).to have_no_css("#new_accept_access_to_collaborative_draft_")
+                expect(page).to have_no_css("#new_reject_access_to_collaborative_draft_")
               end
 
               it "does not show the buttons to publish or withdraw" do
-                expect(page).not_to have_button("Publish")
-                expect(page).not_to have_button("withdraw the draft")
+                expect(page).to have_no_button("Publish")
+                expect(page).to have_no_button("withdraw the draft")
               end
 
               it "shows a button to edit" do
@@ -321,7 +321,7 @@ describe "Explore Collaborative Drafts", versioning: true do
                 request_access_from_other_user.call
                 visit current_path
 
-                expect(page).not_to have_content("Collaboration requests")
+                expect(page).to have_no_content("Collaboration requests")
               end
             end
           end
@@ -341,7 +341,7 @@ describe "Explore Collaborative Drafts", versioning: true do
         end
 
         it "removes the announcement to collaborate" do
-          expect(page).not_to have_css("callout")
+          expect(page).to have_no_css("callout")
         end
 
         it "shows the buttons to publish or withdraw" do
@@ -364,7 +364,7 @@ describe "Explore Collaborative Drafts", versioning: true do
     end
 
     it "does not show the Collaborative drafts access button" do
-      expect(page).not_to have_content("Access collaborative drafts")
+      expect(page).to have_no_content("Access collaborative drafts")
     end
   end
 end

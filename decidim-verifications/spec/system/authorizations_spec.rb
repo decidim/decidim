@@ -75,7 +75,7 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
 
           click_on "Send"
           expect(page).to have_content("You have been successfully authorized.")
-          expect(page).not_to have_content("We have recovered the following participation data based on your authorization:")
+          expect(page).to have_no_content("We have recovered the following participation data based on your authorization:")
         end
 
         context "and the deleted user for the duplicate authorization had transferrable data" do
@@ -159,7 +159,7 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
 
         within ".authorizations-list" do
           expect(page).to have_content("Example authorization")
-          expect(page).not_to have_link(text: /Example authorization/)
+          expect(page).to have_no_link(text: /Example authorization/)
         end
       end
 
@@ -201,8 +201,8 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
             visit_authorizations
 
             within ".authorizations-list" do
-              expect(page).not_to have_link(text: /Example authorization/)
-              expect(page).not_to have_css(".authorization-renewable")
+              expect(page).to have_no_link(text: /Example authorization/)
+              expect(page).to have_no_css(".authorization-renewable")
             end
           end
         end
@@ -256,7 +256,7 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
           visit_authorizations
 
           within ".authorizations-list" do
-            expect(page).not_to have_link(text: /Example authorization/)
+            expect(page).to have_no_link(text: /Example authorization/)
             expect(page).to have_content(I18n.l(authorization.granted_at, format: :long_with_particles))
           end
         end
@@ -292,7 +292,7 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
 
       it "does not list authorizations" do
         visit decidim_verifications.authorizations_path
-        expect(page).not_to have_link("Authorizations")
+        expect(page).to have_no_link("Authorizations")
       end
     end
   end

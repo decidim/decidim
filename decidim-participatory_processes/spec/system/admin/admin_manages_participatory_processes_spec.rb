@@ -40,7 +40,7 @@ describe "Admin manages participatory processes", versioning: true do
 
       it "shows the private user menu entry" do
         within_admin_sidebar_menu do
-          expect(page).not_to have_content("Private participants")
+          expect(page).to have_no_content("Private participants")
         end
       end
     end
@@ -128,7 +128,7 @@ describe "Admin manages participatory processes", versioning: true do
     end
 
     it "update a participatory process without images does not delete them" do
-      within find("tr", text: translated(participatory_process3.title)) do
+      within "tr", text: translated(participatory_process3.title) do
         click_on translated(participatory_process3.title)
       end
 

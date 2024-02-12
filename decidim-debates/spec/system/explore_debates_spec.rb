@@ -153,7 +153,7 @@ describe "Explore debates" do
             end
           end
 
-          expect(page).not_to have_content("Another debate")
+          expect(page).to have_no_content("Another debate")
           expect(page).to have_content("Foobar debate")
 
           filter_params = CGI.parse(URI.parse(page.current_url).query)
@@ -243,7 +243,7 @@ describe "Explore debates" do
 
       it "does not list the hidden debates" do
         expect(page).to have_selector("a.card__list", count: debates_count - 1)
-        expect(page).not_to have_content(translated(debate.title))
+        expect(page).to have_no_content(translated(debate.title))
       end
     end
 
@@ -305,7 +305,7 @@ describe "Explore debates" do
 
     context "without category or scope" do
       it "does not show any tag" do
-        expect(page).not_to have_selector("[data-tags]")
+        expect(page).to have_no_selector("[data-tags]")
       end
     end
 

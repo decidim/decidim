@@ -21,7 +21,7 @@ describe "Invite process administrator" do
         expect(page).to have_content("Categories")
         expect(page).to have_content("Attachments")
         expect(page).to have_content("Process admins")
-        expect(page).not_to have_content("Private participants")
+        expect(page).to have_no_content("Private participants")
         expect(page).to have_content("Moderations")
       end
     end
@@ -68,7 +68,7 @@ describe "Invite process administrator" do
 
       within "div.table-scroll" do
         expect(page).to have_i18n_content(participatory_process.title)
-        within find("tr", text: translated(participatory_process.title)) do
+        within "tr", text: translated(participatory_process.title) do
           click_on translated(participatory_process.title)
         end
       end
@@ -97,7 +97,7 @@ describe "Invite process administrator" do
 
         within "div.table-scroll" do
           expect(page).to have_i18n_content(participatory_process.title)
-          within find("tr", text: translated(participatory_process.title)) do
+          within "tr", text: translated(participatory_process.title) do
             click_on translated(participatory_process.title)
           end
         end
@@ -136,7 +136,7 @@ describe "Invite process administrator" do
       within "div.table-scroll" do
         expect(page).to have_i18n_content(participatory_process.title)
         expect(page).to have_i18n_content(participatory_process.title)
-        within find("tr", text: translated(participatory_process.title)) do
+        within "tr", text: translated(participatory_process.title) do
           click_on translated(participatory_process.title)
         end
       end
@@ -154,7 +154,7 @@ describe "Invite process administrator" do
         within "div.table-scroll" do
           expect(page).to have_i18n_content(participatory_process.title)
           expect(page).to have_i18n_content(participatory_process.title)
-          within find("tr", text: translated(participatory_process.title)) do
+          within "tr", text: translated(participatory_process.title) do
             click_on translated(participatory_process.title)
           end
         end

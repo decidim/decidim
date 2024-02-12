@@ -123,7 +123,7 @@ describe "Admin manages user block templates" do
     end
 
     it "copies the template" do
-      within find("tr", text: translated(template.name)) do
+      within "tr", text: translated(template.name) do
         click_on "Duplicate"
       end
 
@@ -140,7 +140,7 @@ describe "Admin manages user block templates" do
     end
 
     it "destroys the template" do
-      within find("tr", text: translated(template.name)) do
+      within "tr", text: translated(template.name) do
         accept_confirm { click_on "Delete" }
       end
 

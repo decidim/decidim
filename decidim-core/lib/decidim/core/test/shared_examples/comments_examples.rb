@@ -91,7 +91,7 @@ shared_examples "comments" do
       expect(page).not_to have_content(translated(deleted_comment.body))
       within "#comment_#{deleted_comment.id}" do
         expect(page).to have_content("Comment deleted on")
-        expect(page).not_to have_selector("comment__footer")
+        expect(page).not_to have_selector(".comment__header")
       end
     end
 
@@ -647,7 +647,7 @@ shared_examples "comments" do
           within "#comment_#{comment.id}" do
             expect(page).to have_content("Comment deleted on")
             expect(page).not_to have_content comment_author.name
-            expect(page).not_to have_selector("comment__footer")
+            expect(page).not_to have_selector(".comment__header")
           end
           expect(page).to have_selector("span.comments-count", text: "3 comments")
 
@@ -767,11 +767,11 @@ shared_examples "comments" do
 
         it "works according to the setting in the commentable" do
           if commentable.comments_have_alignment?
-            page.find(".opinion-toggle--ok").click
-            expect(page.find(".opinion-toggle--ok")["aria-pressed"]).to eq("true")
-            expect(page.find(".opinion-toggle--meh")["aria-pressed"]).to eq("false")
-            expect(page.find(".opinion-toggle--ko")["aria-pressed"]).to eq("false")
-            expect(page.find(".opinion-toggle .selected-state", visible: false)).to have_content("Your opinion about this topic is positive")
+            page.find("[data-toggle-ok=true]").click
+            expect(page.find("[data-toggle-ok=true]")["aria-pressed"]).to eq("true")
+            expect(page.find("[data-toggle-meh=true]")["aria-pressed"]).to eq("false")
+            expect(page.find("[data-toggle-ko=true]")["aria-pressed"]).to eq("false")
+            expect(page.find("div[data-opinion-toggle] .selected-state", visible: false)).to have_content("Your opinion about this topic is positive")
 
             within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
               field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
@@ -784,7 +784,7 @@ shared_examples "comments" do
               expect(page).to have_selector "span.success.label", text: "In favor", wait: 20
             end
           else
-            expect(page).not_to have_selector(".opinion-toggle--ok")
+            expect(page).not_to have_selector("[data-toggle-ok=true]")
           end
         end
       end
@@ -815,10 +815,10 @@ shared_examples "comments" do
             skip "Commentable comments has no votes" unless commentable.comments_have_votes?
 
             visit current_path
-            expect(page).to have_selector("#comment_#{comments[0].id} > .comment__footer > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
-            page.find("#comment_#{comments[0].id} > .comment__footer > .comment__footer-grid .comment__votes .js-comment__votes--up").click
-            expect(page).to have_selector("#comment_#{comments[0].id} > .comment__footer > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /1/)
-            expect(page).to have_selector("#comment_#{comment_on_comment.id} > .comment__footer > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
+            expect(page).to have_selector("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
+            page.find("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up").click
+            expect(page).to have_selector("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /1/)
+            expect(page).to have_selector("#comment_#{comment_on_comment.id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
           end
         end
       end

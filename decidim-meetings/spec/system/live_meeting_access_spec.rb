@@ -54,12 +54,12 @@ describe "Meeting live event access" do
           it "does not show the meeting link embedded" do
             visit_meeting
 
-            expect(page).not_to have_content("This meeting is happening right now")
+            expect(page).to have_no_content("This meeting is happening right now")
             case embedding_type
             when :embedded
-              expect(page).not_to have_css("iframe")
+              expect(page).to have_no_css("iframe")
             else
-              expect(page).not_to have_content("Join meeting")
+              expect(page).to have_no_content("Join meeting")
             end
           end
         end
@@ -91,7 +91,7 @@ describe "Meeting live event access" do
               case embedding_type
               when :embedded
                 expect(page).to have_content("You need to enable all cookies in order to see this content")
-                expect(page).not_to have_css("iframe")
+                expect(page).to have_no_css("iframe")
               else
                 expect(page).to have_content("Join meeting")
               end
@@ -112,12 +112,12 @@ describe "Meeting live event access" do
           it "does not show the meeting link embedded" do
             visit_meeting
 
-            expect(page).not_to have_content("This meeting is happening right now")
+            expect(page).to have_no_content("This meeting is happening right now")
             case embedding_type
             when :embedded
-              expect(page).not_to have_css("iframe")
+              expect(page).to have_no_css("iframe")
             else
-              expect(page).not_to have_content("Join meeting")
+              expect(page).to have_no_content("Join meeting")
             end
           end
         end
@@ -130,12 +130,12 @@ describe "Meeting live event access" do
           it "does not show the meeting link embedded" do
             visit_meeting
 
-            expect(page).not_to have_content("This meeting is happening right now")
+            expect(page).to have_no_content("This meeting is happening right now")
             case embedding_type
             when :embedded
-              expect(page).not_to have_css("iframe")
+              expect(page).to have_no_css("iframe")
             else
-              expect(page).not_to have_content("Join meeting")
+              expect(page).to have_no_content("Join meeting")
             end
           end
         end
@@ -171,7 +171,7 @@ describe "Meeting live event access" do
         it "does not show the meeting link embedded" do
           visit_meeting
 
-          expect(page).not_to have_content("This meeting is happening right now")
+          expect(page).to have_no_content("This meeting is happening right now")
         end
       end
 
@@ -183,7 +183,7 @@ describe "Meeting live event access" do
         it "does not show the meeting link embedded" do
           visit_meeting
 
-          expect(page).not_to have_content("This meeting is happening right now")
+          expect(page).to have_no_content("This meeting is happening right now")
         end
       end
 
@@ -218,7 +218,7 @@ describe "Meeting live event access" do
       it "does not show the link to the live meeting streaming" do
         visit_meeting
 
-        expect(page).not_to have_content("This meeting is happening right now")
+        expect(page).to have_no_content("This meeting is happening right now")
       end
     end
 
@@ -301,7 +301,7 @@ describe "Meeting live event access" do
     it "does not show the link to the live meeting streaming" do
       visit_meeting
 
-      expect(page).not_to have_content("This meeting is happening right now")
+      expect(page).to have_no_content("This meeting is happening right now")
     end
   end
 
@@ -311,7 +311,7 @@ describe "Meeting live event access" do
     it "does not show the meeting link embedded" do
       visit_meeting
 
-      expect(page).not_to have_css("iframe")
+      expect(page).to have_no_css("iframe")
     end
   end
 
@@ -329,7 +329,7 @@ describe "Meeting live event access" do
       let(:current_time) { start_time - 20.minutes }
 
       it "is not live" do
-        expect(page).not_to have_content("This meeting is happening right now")
+        expect(page).to have_no_content("This meeting is happening right now")
       end
     end
 
@@ -353,7 +353,7 @@ describe "Meeting live event access" do
       let(:current_time) { end_time + 5.minutes }
 
       it "is not live" do
-        expect(page).not_to have_content("This meeting is happening right now")
+        expect(page).to have_no_content("This meeting is happening right now")
       end
     end
   end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 def visit_edit_registrations_page
-  within find("tr", text: translated(meeting.title)) do
+  within "tr", text: translated(meeting.title) do
     page.click_on "Registrations"
   end
 end

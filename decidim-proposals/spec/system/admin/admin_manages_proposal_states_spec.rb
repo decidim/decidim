@@ -96,7 +96,7 @@ describe "Admin manages proposals states" do
     end
 
     it "updates a proposal state" do
-      within find("tr", text: translated(state.title)) do
+      within "tr", text: translated(state.title) do
         click_on "Edit"
       end
 
@@ -151,7 +151,7 @@ describe "Admin manages proposals states" do
     end
 
     it "deletes the proposal state" do
-      within find("tr", text: translated(state.title)) do
+      within "tr", text: translated(state.title) do
         accept_confirm { click_on "Delete" }
       end
       expect(page).to have_admin_callout("successfully")
@@ -167,8 +167,8 @@ describe "Admin manages proposals states" do
       visit current_path
       expect(state.reload.proposals).to include(proposal)
       expect(state.proposals_count).to eq(1)
-      within find("tr", text: translated(state.title)) do
-        expect(page).not_to have_link("Delete")
+      within "tr", text: translated(state.title) do
+        expect(page).to have_no_link("Delete")
       end
     end
   end

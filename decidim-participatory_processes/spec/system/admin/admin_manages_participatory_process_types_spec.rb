@@ -51,7 +51,7 @@ describe "Admin manages participatory process types" do
       end
 
       it "can edit them" do
-        within find("tr", text: translated(participatory_process_type.title)) do
+        within "tr", text: translated(participatory_process_type.title) do
           click_on "Edit"
         end
 
@@ -78,7 +78,7 @@ describe "Admin manages participatory process types" do
 
         expect(page).to have_admin_callout("successfully")
 
-        expect(page).not_to have_content(translated(participatory_process_type.title))
+        expect(page).to have_no_content(translated(participatory_process_type.title))
       end
     end
   end
@@ -86,7 +86,7 @@ describe "Admin manages participatory process types" do
   private
 
   def click_delete_participatory_process_type
-    within find("tr", text: translated(participatory_process_type.title)) do
+    within "tr", text: translated(participatory_process_type.title) do
       accept_confirm { click_on "Delete" }
     end
   end

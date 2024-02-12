@@ -18,7 +18,7 @@ describe "User group invite to join" do
     end
 
     it "does not show the link to edit" do
-      expect(page).not_to have_content("Invite participant")
+      expect(page).to have_no_content("Invite participant")
     end
 
     it "rejects the user that accesses manually" do

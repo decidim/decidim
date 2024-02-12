@@ -62,7 +62,7 @@ describe "Invite process moderator" do
 
       within "div.table-scroll" do
         expect(page).to have_i18n_content(participatory_process.title)
-        within find("tr", text: translated(participatory_process.title)) do
+        within "tr", text: translated(participatory_process.title) do
           click_on "Moderate"
         end
       end

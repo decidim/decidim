@@ -6,15 +6,6 @@ Capybara:
   Include: &1
     - "**/spec/**/*.rb"
 
-Capybara/NegationMatcher:
-  Enabled: false
-
-Capybara/RedundantWithinFind:
-  Enabled: false
-
 Capybara/RSpec:
   Enabled: false
   Include: *1
-
-Capybara/RSpec/HaveSelector:
-  Enabled: false

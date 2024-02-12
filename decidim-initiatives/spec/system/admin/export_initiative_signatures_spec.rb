@@ -15,7 +15,7 @@ describe "Admin export initiatives' signature" do
   it "downloads the PDF file", :download do
     visit decidim_admin_initiatives.initiatives_path
 
-    within find("tr", text: translated(initiative.title)) do
+    within "tr", text: translated(initiative.title) do
       page.find(".action-icon--edit").click
     end
 
@@ -37,9 +37,9 @@ describe "Admin export initiatives' signature" do
 
       it "does not show these columns in the PDF" do
         within all(".initiatives-votes-table")[1] do
-          expect(page).not_to have_content "Name and surname"
-          expect(page).not_to have_content "Document number"
-          expect(page).not_to have_content "Date of birth"
+          expect(page).to have_no_content "Name and surname"
+          expect(page).to have_no_content "Document number"
+          expect(page).to have_no_content "Date of birth"
         end
       end
     end

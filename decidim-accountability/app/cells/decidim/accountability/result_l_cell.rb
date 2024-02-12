@@ -7,8 +7,7 @@ module Decidim
     # This cell renders the List (:l) result card
     # for an instance of a Result
     class ResultLCell < Decidim::CardLCell
-      include ApplicationHelper
-      include ActiveSupport::NumberHelper
+      include Decidim::Accountability::ApplicationHelper
 
       alias result model
 

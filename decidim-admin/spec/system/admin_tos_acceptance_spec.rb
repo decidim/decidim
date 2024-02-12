@@ -27,7 +27,7 @@ describe "AdminTosAcceptance" do
 
       it "has the main navigation empty" do
         within ".layout-nav" do
-          expect(page).not_to have_selector("li a")
+          expect(page).to have_no_css("li a")
         end
       end
     end

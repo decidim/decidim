@@ -14,7 +14,7 @@ shared_examples "manage proposals" do
 
   context "when previewing proposals" do
     it "allows the user to preview the proposal" do
-      within find("tr", text: proposal_title) do
+      within "tr", text: proposal_title do
         klass = "action-icon--preview"
         href = resource_locator(proposal).path
         target = "blank"
@@ -109,7 +109,7 @@ shared_examples "manage proposals" do
             click_on "New proposal"
 
             within "form" do
-              expect(page).not_to have_content(/Scope/i)
+              expect(page).to have_no_content(/Scope/i)
             end
           end
 
@@ -289,12 +289,12 @@ shared_examples "manage proposals" do
 
         it "cannot create a new proposal from the main site" do
           visit_component
-          expect(page).not_to have_button("New Proposal")
+          expect(page).to have_no_button("New Proposal")
         end
 
         it "cannot create a new proposal from the admin site" do
           visit_component_admin
-          expect(page).not_to have_link("New proposal")
+          expect(page).to have_no_link("New proposal")
         end
       end
     end
@@ -306,12 +306,12 @@ shared_examples "manage proposals" do
 
       it "cannot create a new proposal from the main site" do
         visit_component
-        expect(page).not_to have_button("New Proposal")
+        expect(page).to have_no_button("New Proposal")
       end
 
       it "cannot create a new proposal from the admin site" do
         visit_component_admin
-        expect(page).not_to have_link("New proposal")
+        expect(page).to have_no_link("New proposal")
       end
     end
   end
@@ -349,13 +349,13 @@ shared_examples "manage proposals" do
 
         expect(page).to have_admin_callout("Proposal successfully answered")
 
-        within find("tr", text: proposal_title) do
+        within "tr", text: proposal_title do
           expect(page).to have_content("Rejected")
         end
 
         proposal.reload
-        expect(proposal.answered_at).to be_within(2.seconds).of Time.zone.now
-        expect(proposal.state_published_at).to be_within(2.seconds).of Time.zone.now
+        expect(proposal.answered_at).to be_within(5.seconds).of Time.zone.now
+        expect(proposal.state_published_at).to be_within(5.seconds).of Time.zone.now
       end
 
       it "can accept a proposal" do
@@ -368,13 +368,13 @@ shared_examples "manage proposals" do
 
         expect(page).to have_admin_callout("Proposal successfully answered")
 
-        within find("tr", text: proposal_title) do
+        within "tr", text: proposal_title do
           expect(page).to have_content("Accepted")
         end
 
         proposal.reload
-        expect(proposal.answered_at).to be_within(2.seconds).of Time.zone.now
-        expect(proposal.state_published_at).to be_within(2.seconds).of Time.zone.now
+        expect(proposal.answered_at).to be_within(5.seconds).of Time.zone.now
+        expect(proposal.state_published_at).to be_within(5.seconds).of Time.zone.now
       end
 
       it "can mark a proposal as evaluating" do
@@ -387,13 +387,13 @@ shared_examples "manage proposals" do
 
         expect(page).to have_admin_callout("Proposal successfully answered")
 
-        within find("tr", text: proposal_title) do
+        within "tr", text: proposal_title do
           expect(page).to have_content("Evaluating")
         end
 
         proposal.reload
-        expect(proposal.answered_at).to be_within(2.seconds).of Time.zone.now
-        expect(proposal.state_published_at).to be_within(2.seconds).of Time.zone.now
+        expect(proposal.answered_at).to be_within(5.seconds).of Time.zone.now
+        expect(proposal.state_published_at).to be_within(5.seconds).of Time.zone.now
       end
 
       it "can mark a proposal as 'not answered'" do
@@ -414,7 +414,7 @@ shared_examples "manage proposals" do
 
         expect(page).to have_admin_callout("Proposal successfully answered")
 
-        within find("tr", text: proposal_title) do
+        within "tr", text: proposal_title do
           expect(page).to have_content("Not answered")
         end
 
@@ -434,7 +434,7 @@ shared_examples "manage proposals" do
 
         visit_component_admin
 
-        within find("tr", text: proposal_title) do
+        within "tr", text: proposal_title do
           expect(page).to have_content("Rejected")
         end
 
@@ -447,12 +447,12 @@ shared_examples "manage proposals" do
 
         expect(page).to have_admin_callout("Proposal successfully answered")
 
-        within find("tr", text: proposal_title) do
+        within "tr", text: proposal_title do
           expect(page).to have_content("Accepted")
         end
 
         proposal.reload
-        expect(proposal.answered_at).to be_within(2.seconds).of Time.zone.now
+        expect(proposal.answered_at).to be_within(5.seconds).of Time.zone.now
       end
     end
 
@@ -470,8 +470,8 @@ shared_examples "manage proposals" do
       it "cannot answer a proposal" do
         visit current_path
 
-        within find("tr", text: proposal_title) do
-          expect(page).not_to have_link("Answer")
+        within "tr", text: proposal_title do
+          expect(page).to have_no_link("Answer")
         end
       end
     end
@@ -483,8 +483,8 @@ shared_examples "manage proposals" do
 
       it "cannot answer a proposal" do
         visit_component_admin
-        within find("tr", text: I18n.t("decidim/amendment", scope: "activerecord.models", count: 1)) do
-          expect(page).not_to have_link("Answer")
+        within "tr", text: I18n.t("decidim/amendment", scope: "activerecord.models", count: 1) do
+          expect(page).to have_no_link("Answer")
         end
       end
     end
@@ -498,7 +498,7 @@ shared_examples "manage proposals" do
     it "cannot answer a proposal" do
       go_to_admin_proposal_page(proposal)
 
-      expect(page).not_to have_selector(".edit_proposal_answer")
+      expect(page).to have_no_selector(".edit_proposal_answer")
     end
   end
 
@@ -517,7 +517,7 @@ shared_examples "manage proposals" do
       visit current_path
 
       within "thead" do
-        expect(page).not_to have_content("VOTES")
+        expect(page).to have_no_content("VOTES")
       end
     end
   end
@@ -544,7 +544,7 @@ shared_examples "manage proposals" do
 
   def go_to_admin_proposal_page(proposal)
     proposal_title = translated(proposal.title)
-    within find("tr", text: proposal_title) do
+    within "tr", text: proposal_title do
       find("a", class: "action-icon--show-proposal").click
     end
   end

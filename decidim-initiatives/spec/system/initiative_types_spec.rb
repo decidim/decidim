@@ -19,7 +19,7 @@ describe "Initiatives" do
       visit decidim.root_path
 
       within "#home__menu" do
-        expect(page).not_to have_content("Initiatives")
+        expect(page).to have_no_content("Initiatives")
       end
     end
 
@@ -89,7 +89,7 @@ describe "Initiatives" do
           within "#initiatives" do
             expect(page).to have_content("1")
             expect(page).to have_content(translated(initiative.title, locale: :en))
-            expect(page).not_to have_content(translated(unpublished_initiative.title, locale: :en))
+            expect(page).to have_no_content(translated(unpublished_initiative.title, locale: :en))
           end
         end
 
@@ -109,7 +109,7 @@ describe "Initiatives" do
 
           it "does not display the initiative type filter" do
             within ".new_filter[action$='/initiatives']" do
-              expect(page).not_to have_content(/Type/i)
+              expect(page).to have_no_content(/Type/i)
             end
           end
         end
@@ -150,7 +150,7 @@ describe "Initiatives" do
           within "#initiatives" do
             expect(page).to have_content("1")
             expect(page).to have_content(translated(initiative.title, locale: :en))
-            expect(page).not_to have_content(translated(unpublished_initiative.title, locale: :en))
+            expect(page).to have_no_content(translated(unpublished_initiative.title, locale: :en))
           end
         end
       end
@@ -167,7 +167,7 @@ describe "Initiatives" do
 
         it "shows the card image" do
           within "#initiative_#{initiative.id}" do
-            expect(page).to have_selector(".card__grid-img")
+            expect(page).to have_css(".card__grid-img")
           end
         end
       end

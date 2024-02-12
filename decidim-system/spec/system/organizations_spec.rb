@@ -8,9 +8,9 @@ describe "Organizations" do
   shared_examples "form hiding advanced settings" do
     it "hides advanced settings" do
       expect(page).to have_content "Show advanced settings"
-      expect(page).not_to have_content "SMTP settings"
-      expect(page).not_to have_content "Omniauth settings"
-      expect(page).not_to have_content "File upload settings"
+      expect(page).to have_no_content "SMTP settings"
+      expect(page).to have_no_content "Omniauth settings"
+      expect(page).to have_no_content "File upload settings"
     end
   end
 
@@ -85,7 +85,7 @@ describe "Organizations" do
         it "does not show the button" do
           visit decidim_system.root_path
           expect(organization_admin).not_to be_invitation_pending
-          expect(page).not_to have_content("Resend invitation")
+          expect(page).to have_no_content("Resend invitation")
         end
       end
 

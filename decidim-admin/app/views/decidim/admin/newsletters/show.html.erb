@@ -15,7 +15,7 @@
           <dd><%= selective_newsletter_to newsletter %></dd>
         </dl>
 
-        <iframe src="<%= preview_newsletter_path(@newsletter) %>" class="email-preview w-full">
+        <iframe src="<%= preview_newsletter_path(@newsletter) %>" class="w-full" data-email-preview>
         </iframe>
       </div>
     </div>

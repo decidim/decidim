@@ -97,10 +97,10 @@ describe "Editor" do
       # Necessary ActiveStorage routes for the image uploads and displaying user
       # avatars through the API
       scope ActiveStorage.routes_prefix do
-        get "/blobs/redirect/:signed_id/*filename" => "active_storage/blobs/redirect#show", as: :rails_service_blob
-        get "/representations/redirect/:signed_blob_id/:variation_key/*filename" => "active_storage/representations/redirect#show", as: :rails_blob_representation
-        get "/disk/:encoded_key/*filename" => "active_storage/disk#show", as: :rails_disk_service
-        post "/direct_uploads" => "active_storage/direct_uploads#create", as: :rails_direct_uploads
+        get "/blobs/redirect/:signed_id/*filename" => "active_storage/blobs/redirect#show", :as => :rails_service_blob
+        get "/representations/redirect/:signed_blob_id/:variation_key/*filename" => "active_storage/representations/redirect#show", :as => :rails_blob_representation
+        get "/disk/:encoded_key/*filename" => "active_storage/disk#show", :as => :rails_disk_service
+        post "/direct_uploads" => "active_storage/direct_uploads#create", :as => :rails_direct_uploads
       end
       direct :rails_representation do |representation, options|
         signed_blob_id = representation.blob.signed_id
@@ -1368,7 +1368,7 @@ describe "Editor" do
         expect_value(%(<p>Hello, world!</p>))
 
         within ".editor" do
-          expect(page).not_to have_selector("[data-bubble-menu] [data-linkbubble]")
+          expect(page).to have_no_selector("[data-bubble-menu] [data-linkbubble]")
         end
       end
     end

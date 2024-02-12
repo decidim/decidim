@@ -54,7 +54,7 @@ describe "Organization Areas" do
       end
 
       it "can edit them" do
-        within find("tr", text: translated(area.name)) do
+        within "tr", text: translated(area.name) do
           click_on "Edit"
         end
 
@@ -78,7 +78,7 @@ describe "Organization Areas" do
         expect(page).to have_admin_callout("successfully")
 
         within "#areas" do
-          expect(page).not_to have_content(translated(area.name))
+          expect(page).to have_no_content(translated(area.name))
         end
       end
 
@@ -97,7 +97,7 @@ describe "Organization Areas" do
   private
 
   def click_delete_area
-    within find("tr", text: translated(area.name)) do
+    within "tr", text: translated(area.name) do
       accept_confirm { click_on "Delete" }
     end
   end

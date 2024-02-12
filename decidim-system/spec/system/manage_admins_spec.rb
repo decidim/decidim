@@ -54,7 +54,7 @@ describe "Manage admins" do
   describe "when updating an admin" do
     context "with a valid password" do
       it "is updated" do
-        within find("tr", text: admin.email) do
+        within "tr", text: admin.email do
           click_on "Edit"
         end
 
@@ -76,7 +76,7 @@ describe "Manage admins" do
 
     context "with an invalid password" do
       it "gives an error" do
-        within find("tr", text: admin.email) do
+        within "tr", text: admin.email do
           click_on "Edit"
         end
 
@@ -93,7 +93,7 @@ describe "Manage admins" do
   end
 
   it "deletes an admin" do
-    within find("tr", text: admin2.email) do
+    within "tr", text: admin2.email do
       accept_confirm { click_on "Delete" }
     end
 
@@ -102,13 +102,13 @@ describe "Manage admins" do
     end
 
     within "table" do
-      expect(page).not_to have_content(admin2.email)
+      expect(page).to have_no_content(admin2.email)
     end
   end
 
   it "cannot delete admin rights from self" do
-    within find("tr", text: admin.email) do
-      expect(page).not_to have_link("Delete", visible: :hidden)
+    within "tr", text: admin.email do
+      expect(page).to have_no_link("Delete", visible: :hidden)
     end
   end
 end

@@ -106,9 +106,9 @@ describe "Explore results", :versioning do
         it "does not show progress" do
           visit path
 
-          expect(page).not_to have_content("Global execution status")
+          expect(page).to have_no_content("Global execution status")
           within("aside") do
-            expect(page).not_to have_css(".accountability__status-value")
+            expect(page).to have_no_css(".accountability__status-value")
           end
         end
       end
@@ -166,7 +166,7 @@ describe "Explore results", :versioning do
             expect(page).to have_content(translated(matching_result2.title))
 
             results.each do |result|
-              expect(page).not_to have_content(translated(result.title))
+              expect(page).to have_no_content(translated(result.title))
             end
           end
         end
@@ -238,7 +238,7 @@ describe "Explore results", :versioning do
         end
 
         it "does not show version data" do
-          expect(page).not_to have_content("Version number")
+          expect(page).to have_no_content("Version number")
         end
       end
 
@@ -250,7 +250,7 @@ describe "Explore results", :versioning do
 
       context "without category or scope" do
         it "does not show any tag" do
-          expect(page).not_to have_css("[data-tags]")
+          expect(page).to have_no_css("[data-tags]")
         end
       end
 
@@ -417,7 +417,7 @@ describe "Explore results", :versioning do
           end
 
           it "disables filtering by scope" do
-            expect(page).not_to have_css("[data-scope-filters]")
+            expect(page).to have_no_css("[data-scope-filters]")
           end
         end
 

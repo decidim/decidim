@@ -62,7 +62,7 @@ describe "Admin manages initiative components" do
 
     context "and then edit it" do
       before do
-        within find("tr", text: "My component") do
+        within "tr", text: "My component" do
           page.find(".action-icon--configure").click
         end
       end
@@ -130,7 +130,7 @@ describe "Admin manages initiative components" do
       expect(page).to have_admin_callout("The component was updated successfully.")
       expect(page).to have_content("My updated component")
 
-      within find("tr", text: "My updated component") do
+      within "tr", text: "My updated component" do
         page.find(".action-icon--configure").click
       end
 
@@ -166,7 +166,7 @@ describe "Admin manages initiative components" do
         page.find(".action-icon--remove").click
       end
 
-      expect(page).not_to have_content("My component")
+      expect(page).to have_no_content("My component")
     end
   end
 

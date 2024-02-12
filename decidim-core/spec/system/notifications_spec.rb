@@ -26,7 +26,7 @@ describe "Notifications" do
       end
 
       expect(page).to have_current_path decidim.notifications_path
-      expect(page).not_to have_content("No notifications yet")
+      expect(page).to have_no_content("No notifications yet")
       expect(page).to have_content("An event occured")
     end
 
@@ -52,7 +52,7 @@ describe "Notifications" do
 
       it "the button is not shown as active" do
         within ".main-bar" do
-          expect(page).not_to have_selector("[data-unread-items]")
+          expect(page).to have_no_selector("[data-unread-items]")
         end
       end
     end
@@ -74,7 +74,7 @@ describe "Notifications" do
     end
 
     it "does not show any notification" do
-      expect(page).not_to have_content("Mark all as read")
+      expect(page).to have_no_content("Mark all as read")
       expect(page).to have_content("No notifications yet")
     end
   end
@@ -94,7 +94,7 @@ describe "Notifications" do
       it "hides the notification from the page" do
         expect(page).to have_content(translated(notification_title))
         find("[data-notification-read]").click
-        expect(page).not_to have_content(translated(notification_title))
+        expect(page).to have_no_content(translated(notification_title))
         expect(page).to have_content("No notifications yet")
       end
     end
@@ -102,12 +102,12 @@ describe "Notifications" do
     context "when setting all notifications as read" do
       it "hides all notifications from the page" do
         click_on "Mark all as read"
-        expect(page).not_to have_selector("[data-notification]")
-        expect(page).not_to have_content("Mark all as read")
+        expect(page).to have_no_selector("[data-notification]")
+        expect(page).to have_no_content("Mark all as read")
         expect(page).to have_content("No notifications yet")
 
         within ".main-bar" do
-          expect(page).not_to have_selector("[data-unread-items]")
+          expect(page).to have_no_selector("[data-unread-items]")
         end
       end
     end

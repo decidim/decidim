@@ -21,7 +21,7 @@ describe "Admin manages proposals valuators" do
     before do
       visit current_path
 
-      within find("tr", text: translated(proposal.title)) do
+      within "tr", text: translated(proposal.title) do
         page.first(".js-proposal-list-check").set(true)
       end
 
@@ -48,7 +48,7 @@ describe "Admin manages proposals valuators" do
       it "assigns the proposals to the valuator" do
         expect(page).to have_content("Proposals assigned to a valuator successfully")
 
-        within find("tr", text: translated(proposal.title)) do
+        within "tr", text: translated(proposal.title) do
           expect(page).to have_selector("td.valuators-count", text: 1)
         end
       end
@@ -76,7 +76,7 @@ describe "Admin manages proposals valuators" do
       end
 
       expect(page).to have_content(translated(assigned_proposal.title))
-      expect(page).not_to have_content(translated(unassigned_proposal.title))
+      expect(page).to have_no_content(translated(unassigned_proposal.title))
     end
   end
 
@@ -88,7 +88,7 @@ describe "Admin manages proposals valuators" do
 
       visit current_path
 
-      within find("tr", text: translated(proposal.title)) do
+      within "tr", text: translated(proposal.title) do
         page.first(".js-proposal-list-check").set(true)
       end
 
@@ -115,7 +115,7 @@ describe "Admin manages proposals valuators" do
       it "unassigns the proposals to the valuator" do
         expect(page).to have_content("Valuator unassigned from proposals successfully")
 
-        within find("tr", text: translated(proposal.title)) do
+        within "tr", text: translated(proposal.title) do
           expect(page).to have_selector("td.valuators-count", text: 0)
         end
       end
@@ -129,7 +129,7 @@ describe "Admin manages proposals valuators" do
       create(:valuation_assignment, proposal:, valuator_role:)
 
       visit current_path
-      within find("tr", text: translated(proposal.title)) do
+      within "tr", text: translated(proposal.title) do
         click_on "Answer proposal"
       end
     end
@@ -145,7 +145,7 @@ describe "Admin manages proposals valuators" do
 
       expect(page).to have_content("Valuator unassigned from proposals successfully")
 
-      expect(page).not_to have_selector("#valuators")
+      expect(page).to have_no_selector("#valuators")
     end
   end
 end

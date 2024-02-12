@@ -36,7 +36,7 @@ describe "Meeting", download: true do
       visit_meeting
 
       within "[data-content]" do
-        expect(page).to have_selector(".meeting__aside-block", count: meeting.services.size)
+        expect(page).to have_css(".meeting__aside-block", count: meeting.services.size)
 
         services_titles = meeting.services.map { |service| service.title["en"] }
         services_present_in_pages = current_scope.all(".meeting__aside-block__title").map(&:text)
@@ -64,7 +64,7 @@ describe "Meeting", download: true do
       it "hides the map section" do
         visit_meeting
 
-        expect(page).not_to have_css("div.meeting__calendar-container .static-map")
+        expect(page).to have_no_css("div.meeting__calendar-container .static-map")
       end
     end
 
@@ -106,7 +106,7 @@ describe "Meeting", download: true do
       it "hides the map section" do
         visit_meeting
 
-        expect(page).not_to have_css("div.meeting__calendar-container .static-map")
+        expect(page).to have_no_css("div.meeting__calendar-container .static-map")
       end
     end
 
@@ -116,7 +116,7 @@ describe "Meeting", download: true do
       it "hides the map section" do
         visit_meeting
 
-        expect(page).not_to have_css("div.meeting__calendar-container .static-map")
+        expect(page).to have_no_css("div.meeting__calendar-container .static-map")
       end
     end
   end
@@ -128,7 +128,7 @@ describe "Meeting", download: true do
       visit_meeting
 
       within ".meeting__calendar-container .meeting__calendar" do
-        expect(page).not_to have_content(meeting.start_time.year)
+        expect(page).to have_no_content(meeting.start_time.year)
       end
     end
   end
@@ -146,8 +146,8 @@ describe "Meeting", download: true do
       it "does not timeout user" do
         visit_meeting
         travel 1.minute
-        expect(page).not_to have_content("If you continue being inactive", wait: 4)
-        expect(page).not_to have_content("You were inactive for too long")
+        expect(page).to have_no_content("If you continue being inactive", wait: 4)
+        expect(page).to have_no_content("You were inactive for too long")
       end
     end
 

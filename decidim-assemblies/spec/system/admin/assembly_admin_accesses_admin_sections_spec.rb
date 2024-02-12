@@ -18,7 +18,7 @@ describe "Assembly admin accesses admin sections" do
       expect(page).to have_content("Attachments")
       expect(page).to have_content("Members")
       expect(page).to have_content("Assembly admins")
-      expect(page).not_to have_content("Private users")
+      expect(page).to have_no_content("Private users")
       expect(page).to have_content("Moderations")
     end
   end
@@ -58,7 +58,7 @@ describe "Assembly admin accesses admin sections" do
 
     before do
       visit decidim_admin_assemblies.assemblies_path
-      within find("tr", text: translated(assembly.title)) do
+      within "tr", text: translated(assembly.title) do
         click_on "Assemblies"
       end
 

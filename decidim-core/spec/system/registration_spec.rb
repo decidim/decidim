@@ -130,7 +130,7 @@ describe "Registration" do
       let(:password) { "decidim123456789" }
 
       it "does not require password change straight away" do
-        expect(page).not_to have_content("Password change")
+        expect(page).to have_no_content("Password change")
       end
     end
   end

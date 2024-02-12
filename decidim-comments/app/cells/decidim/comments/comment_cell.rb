@@ -4,8 +4,6 @@ module Decidim
   module Comments
     # A cell to display a single comment.
     class CommentCell < Decidim::ViewModel
-      include ActionView::Helpers::DateHelper
-      include Decidim::IconHelper
       include Decidim::ResourceHelper
       include Cell::ViewModel::Partial
 

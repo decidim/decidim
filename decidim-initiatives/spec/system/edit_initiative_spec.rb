@@ -48,12 +48,12 @@ describe "Edit initiative" do
       visit initiative_path
 
       within ".main-bar" do
-        expect(page).not_to have_link("Edit")
+        expect(page).to have_no_link("Edit")
       end
     end
 
     it "does not have status field" do
-      expect(page).not_to have_xpath("//select[@id='initiative_state']")
+      expect(page).to have_no_xpath("//select[@id='initiative_state']")
     end
 
     it "allows adding attachments" do
@@ -83,7 +83,7 @@ describe "Edit initiative" do
       it "cannot be updated" do
         visit decidim_initiatives.initiative_path(initiative)
 
-        expect(page).not_to have_content "Edit initiative"
+        expect(page).to have_no_content "Edit initiative"
 
         visit edit_initiative_path
 
@@ -115,7 +115,7 @@ describe "Edit initiative" do
     it "renders an error" do
       visit decidim_initiatives.initiative_path(initiative)
 
-      expect(page).not_to have_content("Edit initiative")
+      expect(page).to have_no_content("Edit initiative")
 
       visit edit_initiative_path
 

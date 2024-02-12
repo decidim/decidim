@@ -8,17 +8,17 @@ describe Decidim::Proposals::Import::ProposalCreator do
   let!(:moment) { Time.current }
   let(:data) do
     {
-      id: 1337,
+      :id => 1337,
       "id" => "101",
-      category:,
-      scope:,
+      :category => category,
+      :scope => scope,
       :"title/en" => Faker::Lorem.sentence,
       :"body/en" => Faker::Lorem.paragraph(sentence_count: 3),
-      address: "#{Faker::Address.street_name}, #{Faker::Address.city}",
-      latitude: Faker::Address.latitude,
-      longitude: Faker::Address.longitude,
-      component:,
-      published_at: moment
+      :address => "#{Faker::Address.street_name}, #{Faker::Address.city}",
+      :latitude => Faker::Address.latitude,
+      :longitude => Faker::Address.longitude,
+      :component => component,
+      :published_at => moment
     }
   end
   let(:organization) { create(:organization, available_locales: [:en]) }

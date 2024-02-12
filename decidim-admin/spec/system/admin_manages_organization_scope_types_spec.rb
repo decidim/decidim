@@ -61,7 +61,7 @@ describe "Admin manages scope types" do
     end
 
     it "can edit them" do
-      within find("tr", text: translated(scope_type.name)) do
+      within "tr", text: translated(scope_type.name) do
         click_on "Edit"
       end
 
@@ -88,14 +88,14 @@ describe "Admin manages scope types" do
     end
 
     it "can delete them" do
-      within find("tr", text: translated(scope_type.name)) do
+      within "tr", text: translated(scope_type.name) do
         accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).not_to have_content(translated(scope_type.name))
+        expect(page).to have_no_content(translated(scope_type.name))
       end
     end
   end

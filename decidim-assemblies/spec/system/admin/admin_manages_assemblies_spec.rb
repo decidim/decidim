@@ -33,7 +33,7 @@ describe "Admin manages assemblies" do
 
       it "shows the private user menu entry" do
         within_admin_sidebar_menu do
-          expect(page).not_to have_content("Private users")
+          expect(page).to have_no_content("Private users")
         end
       end
     end
@@ -168,7 +168,7 @@ describe "Admin manages assemblies" do
       switch_to_host(organization.host)
       login_as user, scope: :user
       visit decidim_admin_assemblies.assemblies_path
-      within find("tr", text: translated(parent_assembly.title)) do
+      within "tr", text: translated(parent_assembly.title) do
         click_on "Assemblies"
       end
     end

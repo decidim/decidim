@@ -34,7 +34,7 @@ describe "User manages group invitations" do
 
       expect(page).to have_content("Invitation successfully rejected")
 
-      expect(page).not_to have_content(membership.user_group.name)
+      expect(page).to have_no_content(membership.user_group.name)
     end
   end
 end

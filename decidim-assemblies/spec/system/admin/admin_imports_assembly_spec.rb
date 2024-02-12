@@ -54,7 +54,7 @@ describe "Admin imports assembly" do
       expect(page).to have_content("Import assembly")
       expect(page).to have_content("Unpublished")
 
-      within find("tr", text: "Import assembly") do
+      within "tr", text: "Import assembly" do
         click_on "Configure"
       end
 

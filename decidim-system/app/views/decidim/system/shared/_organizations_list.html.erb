@@ -3,7 +3,7 @@
     <tr>
       <th><%= t("models.organization.fields.name", scope: "decidim.system") %></th>
       <th><%= t("models.organization.fields.created_at", scope: "decidim.system") %></th>
-      <th class="actions"><%= t("actions.title", scope: "decidim.system") %></th>
+      <th><%= t("actions.title", scope: "decidim.system") %></th>
     </tr>
   </thead>
   <tbody>
@@ -16,7 +16,7 @@
         <td>
           <%= l organization.created_at, format: :short %>
         </td>
-        <td class="actions">
+        <td>
           <% if organization.users.first&.invitation_pending? %>
             <%= link_to t(".resend_invitation"),
                         resend_invitation_organization_path(organization),

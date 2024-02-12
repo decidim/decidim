@@ -51,7 +51,7 @@ shared_examples "manage assembly admins examples" do
 
     it "updates an assembly admin" do
       within "#assembly_admins" do
-        within find("#assembly_admins tr", text: other_user.email) do
+        within "#assembly_admins tr", text: other_user.email do
           click_on "Edit"
         end
       end
@@ -70,14 +70,14 @@ shared_examples "manage assembly admins examples" do
     end
 
     it "deletes an assembly_user_role" do
-      within find("#assembly_admins tr", text: other_user.email) do
+      within "#assembly_admins tr", text: other_user.email do
         accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "#assembly_admins table" do
-        expect(page).not_to have_content(other_user.email)
+        expect(page).to have_no_content(other_user.email)
       end
     end
 
@@ -98,7 +98,7 @@ shared_examples "manage assembly admins examples" do
       end
 
       it "resends the invitation to the user" do
-        within find("#assembly_admins tr", text: "test@example.org") do
+        within "#assembly_admins tr", text: "test@example.org" do
           click_on "Resend invitation"
         end
 

@@ -57,7 +57,7 @@ shared_examples "manage media links examples" do
     end
 
     it "updates a conference media links" do
-      within find("#media_links tr", text: translated(media_link.title)) do
+      within "#media_links tr", text: translated(media_link.title) do
         click_on "Edit"
       end
 
@@ -86,14 +86,14 @@ shared_examples "manage media links examples" do
     end
 
     it "deletes the conference media link" do
-      within find("#media_links tr", text: translated(media_link.title)) do
+      within "#media_links tr", text: translated(media_link.title) do
         accept_confirm { find("a.action-icon--remove").click }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "#media_links table" do
-        expect(page).not_to have_content(translated(media_link.title))
+        expect(page).to have_no_content(translated(media_link.title))
       end
     end
   end
@@ -111,7 +111,7 @@ shared_examples "manage media links examples" do
       expect(page).to have_css(resource_selector, count: 10)
       expect(page).to have_css("[data-pages] [data-page]", count: 2)
       click_on "Next"
-      expect(page).to have_selector("[data-pages] [data-page][aria-current='page']", text: "2")
+      expect(page).to have_css("[data-pages] [data-page][aria-current='page']", text: "2")
       expect(page).to have_css(resource_selector, count: 5)
     end
   end

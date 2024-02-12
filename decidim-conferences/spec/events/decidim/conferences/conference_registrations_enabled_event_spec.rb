@@ -3,9 +3,11 @@
 require "spec_helper"
 
 describe Decidim::Conferences::ConferenceRegistrationsEnabledEvent do
-  let(:resource) { create(:conference) }
+  include_context "when a simple event"
+
+  let(:resource) { create(:conference, title: generate_localized_title(:conference_title)) }
+  let(:participatory_space) { resource }
   let(:event_name) { "decidim.events.conferences.registrations_enabled" }
 
-  include_context "when a simple event"
   it_behaves_like "a simple event"
 end
