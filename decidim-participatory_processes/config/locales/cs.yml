@@ -226,6 +226,8 @@ cs:
             last_step: Nelze odstranit poslední fázi procesu.
           success: Úspěšný krok procesu byl úspěšně smazán.
         edit:
+          cta_deprecated:
+            title: Zastaralá CTA
           title: Úprava kroku procesu participace
           update: Aktualizace
         index:
