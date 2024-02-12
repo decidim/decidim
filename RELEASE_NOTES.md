@@ -43,60 +43,20 @@ rm config/initializers/carrierwave.rb
 
 You can read more about this change on PR [\#12200](https://github.com/decidim/decidim/pull/12200).
 
-### 3.2. Esbuild migration
+### 3.2. esbuild migration
 
 In order to speed up the asset compilation, we have migrated from babel to esbuild.
 
 There are some small changes that needs to be performed in your application code.
 
 - Remove `babel.config.js`
-- Patch `config/webpack/custom.js`
+- Replace `config/webpack/custom.js` with the new version.
 
-```javascript
-// Replace
-const TerserPlugin = require("terser-webpack-plugin");
-
-// with
-const { EsbuildPlugin } = require("esbuild-loader");
+```console
+wget https://raw.githubusercontent.com/decidim/decidim/develop/decidim-core/lib/decidim/webpacker/webpack/custom.js -O config/webpack/custom.js
 ```
 
-and also:
-
-```javascript
-// replace
-    minimizer: [
-      new TerserPlugin({
-        parallel: Number.parseInt(process.env.SHAKAPACKER_PARALLEL, 10) || true,
-        terserOptions: {
-          parse: {
-            // Let terser parse ecma 8 code but always output
-            // ES5 compliant code for older browsers
-            ecma: 8
-          },
-          compress: {
-            ecma: 5,
-            warnings: false,
-            comparisons: false
-          },
-          mangle: {safari10: true},
-          output: {
-            ecma: 5,
-            comments: false,
-            ascii_only: true
-          }
-        }
-      }),
-    ].filter(Boolean)
-
-// With
-
-  minimizer: [
-    new EsbuildPlugin({
-      target: "es2015",
-      css: true
-    })
-  ]
-```
+In case you have modifications in your application's webpack configuration, adapt it by [checking out the diff of the changes](https://github.com/decidim/decidim/pull/12238/files#diff-0e64008beaded63d6fbb9696d091751b4a81cd29432cc608e9381c4fb054c980).
 
 You can read more about this change on PR [\#12238](https://github.com/decidim/decidim/pull/12238).
 
