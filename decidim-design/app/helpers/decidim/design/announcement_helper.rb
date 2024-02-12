@@ -23,7 +23,7 @@ module Decidim
                 ),
                 cell_snippet: {
                   cell: "decidim/announcement",
-                  args: ["I am an annoucement"]
+                  args: ["I am an announcement"]
                 }
               }
             ]
