@@ -548,6 +548,8 @@ cs:
         name: Zápatí pod hlavním pruhem
       global_menu:
         name: Globální menu
+      hero:
+        name: Obrázek hrdiny a CTA
       hero_settings_form:
         background_image: Obrázek pozadí
         welcome_text: Uvítací text
@@ -708,6 +710,7 @@ cs:
       files:
         file_cannot_be_processed: Soubor nelze zpracovat
         file_resolution_too_large: Rozlišení souboru je příliš velké
+        not_inside_organization: Soubor není připojen k žádné organizaci
       internal_server_error:
         copied: Text zkopírován!
         copy_error_message_clarification: Kopírovat chybovou zprávu do schránky
