@@ -125,7 +125,7 @@ shared_examples "manage moderations" do
       search = moderation.reportable.id
       within ".filters__section" do
         fill_in("Search Moderation by reportable id or content.", with: search)
-        click_on(type: "submit")
+        within(".input-group-button") { click_on(class: "text-secondary") }
       end
       expect(page).to have_selector("tbody tr", count: 1)
     end

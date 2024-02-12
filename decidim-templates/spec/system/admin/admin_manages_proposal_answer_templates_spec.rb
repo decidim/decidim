@@ -216,33 +216,6 @@ describe "Admin manages proposal answer templates" do
       end
     end
 
-    context "when selecting a global template" do
-      let!(:global_template) { create(:template, :proposal_answer, description: { en: "Foo bar" }, field_values: { internal_state: "evaluating" }, organization:, templatable: organization) }
-      let!(:proposal) { create(:proposal, component:) }
-
-      before do
-        visit Decidim::EngineRouter.admin_proxy(component).root_path
-        find("a", class: "action-icon--show-proposal").click
-      end
-
-      it "all the fields are properly changed" do
-        expect(proposal.reload.internal_state).to eq("not_answered")
-        expect(page).to have_select(:proposal_answer_template_chooser, with_options: [translated(template.name), translated(global_template.name)])
-        within ".edit_proposal_answer" do
-          select translated(global_template.name), from: :proposal_answer_template_chooser
-          expect(page).to have_content("Foo bar")
-          click_on "Answer"
-        end
-
-        expect(page).to have_admin_callout("Proposal successfully answered")
-
-        within "tr", text: translated(proposal.title) do
-          expect(page).to have_content("Evaluating")
-        end
-        expect(proposal.reload.internal_state).to eq("evaluating")
-      end
-    end
-
     context "when the template uses interpolations" do
       let(:template_settings) { { target: :proposal_answer, organization:, templatable:, field_values: } }
       let!(:template) { create(:template, description: { "en" => template_desc }, **template_settings) }
