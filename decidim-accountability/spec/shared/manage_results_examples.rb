@@ -33,7 +33,7 @@ shared_examples "manage results" do
     let!(:proposals) { create_list(:proposal, 5, component: proposal_component) }
 
     it "updates a result" do
-      within find("tr", text: translated(result.title)) do
+      within "tr", text: translated(result.title) do
         click_link "Edit"
       end
 
@@ -94,13 +94,12 @@ shared_examples "manage results" do
   end
 
   it "allows the user to preview the result" do
-    within find("tr", text: translated(result.title)) do
+    within "tr", text: translated(result.title) do
       klass = "action-icon--preview"
       href = resource_locator(result).path
       target = "blank"
 
-      expect(page).to have_selector(
-        :xpath,
+      expect(page).to have_xpath(
         "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
       )
     end
@@ -114,7 +113,7 @@ shared_examples "manage results" do
     end
 
     it "deletes a result" do
-      within find("tr", text: translated(result2.title)) do
+      within "tr", text: translated(result2.title) do
         accept_confirm { click_link "Delete" }
       end
 

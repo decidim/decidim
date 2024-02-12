@@ -41,7 +41,7 @@ describe "Admin imports participatory process" do
       expect(page).to have_content("Import participatory process")
       expect(page).to have_content("Unpublished")
 
-      within find("tr", text: "Import participatory process") do
+      within "tr", text: "Import participatory process" do
         click_link "Import participatory process"
       end
 

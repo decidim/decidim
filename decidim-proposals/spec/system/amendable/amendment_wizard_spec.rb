@@ -221,7 +221,7 @@ describe "Amendment Wizard" do
         expect(page).to have_content(user.name)
         expect(page).to have_content(body)
         expect(page).to have_button(text: "Publish")
-        expect(page).to have_selector("a", text: "Modify")
+        expect(page).to have_css("a", text: "Modify")
       end
 
       context "when the Publish button is clicked", versioning: true do

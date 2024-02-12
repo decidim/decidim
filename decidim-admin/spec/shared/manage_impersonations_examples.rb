@@ -39,7 +39,7 @@ shared_examples "manage impersonations examples" do
       let(:document_number) { "123456789Y" }
 
       it "shows the errors in the form" do
-        expect(page).to have_selector("label", text: "Document number*\nRequired field\nis invalid")
+        expect(page).to have_css("label", text: "Document number*\nRequired field\nis invalid")
       end
     end
 
@@ -237,7 +237,7 @@ shared_examples "manage impersonations examples" do
     it "can promote users inviting them to the application" do
       navigate_to_impersonations_page
 
-      within find("tr", text: managed_user.name) do
+      within "tr", text: managed_user.name do
         click_link "Promote"
       end
 
@@ -271,7 +271,7 @@ shared_examples "manage impersonations examples" do
 
       navigate_to_impersonations_page
 
-      within find("tr", text: managed_user.name) do
+      within "tr", text: managed_user.name do
         expect(page).to have_no_link("Promote")
       end
     end
@@ -322,7 +322,7 @@ shared_examples "manage impersonations examples" do
     end
 
     within "[data-content]" do
-      expect(page).to have_selector("*[type=submit]", count: 1)
+      expect(page).to have_css("*[type=submit]", count: 1)
 
       click_button "Impersonate"
     end
@@ -331,7 +331,7 @@ shared_examples "manage impersonations examples" do
   def impersonate(user, reason: nil)
     navigate_to_impersonations_page
 
-    within find("tr", text: user.name) do
+    within "tr", text: user.name do
       click_link "Impersonate"
     end
 
@@ -350,10 +350,10 @@ shared_examples "manage impersonations examples" do
   end
 
   def check_impersonation_logs
-    within find("tr", text: impersonated_user.name) do
+    within "tr", text: impersonated_user.name do
       click_link "View logs"
     end
 
-    expect(page).to have_selector("tbody tr", count: 1)
+    expect(page).to have_css("tbody tr", count: 1)
   end
 end

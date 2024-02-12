@@ -184,7 +184,7 @@ describe "Admin manages questionnaire templates" do
     end
 
     it "copies the template" do
-      within find("tr", text: translated(template.name)) do
+      within "tr", text: translated(template.name) do
         click_link "Duplicate"
       end
 
@@ -268,7 +268,7 @@ describe "Admin manages questionnaire templates" do
     end
 
     it "destroys the template" do
-      within find("tr", text: translated(template.name)) do
+      within "tr", text: translated(template.name) do
         accept_confirm { click_link "Delete" }
       end
 
@@ -291,7 +291,7 @@ describe "Admin manages questionnaire templates" do
         expect(page).to have_i18n_content(questionnaire.title)
         expect(page).to have_i18n_content(questionnaire.questions.first.body)
         expect(page).to have_field(id: "questionnaire_responses_0")
-        expect(page).to have_selector("button[type=submit][disabled]")
+        expect(page).to have_css("button[type=submit][disabled]")
       end
     end
   end

@@ -68,7 +68,7 @@ shared_examples "manage conference speakers examples" do
     end
 
     it "updates a conference speaker" do
-      within find("#conference_speakers tr", text: conference_speaker.full_name) do
+      within "#conference_speakers tr", text: conference_speaker.full_name do
         click_link "Edit"
       end
 
@@ -90,7 +90,7 @@ shared_examples "manage conference speakers examples" do
     end
 
     it "deletes the conference speaker" do
-      within find("#conference_speakers tr", text: conference_speaker.full_name) do
+      within "#conference_speakers tr", text: conference_speaker.full_name do
         accept_confirm { find("a.action-icon--remove").click }
       end
 

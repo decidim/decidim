@@ -7,7 +7,6 @@ module Decidim
     # This cell renders the List (:l) project card
     # for an instance of a Project
     class ProjectLCell < Decidim::CardLCell
-      include ActiveSupport::NumberHelper
       include Decidim::Budgets::ProjectsHelper
 
       alias project model

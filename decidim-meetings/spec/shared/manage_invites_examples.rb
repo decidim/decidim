@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 def visit_meeting_invites_page
-  within find("tr", text: translated(meeting.title)) do
+  within "tr", text: translated(meeting.title) do
     page.click_link "Registrations"
   end
 
@@ -58,7 +58,7 @@ shared_examples "manage invites" do
         expect(page).to have_content("registrations are disabled")
 
         within "form.new_meeting_registration_invite" do
-          expect(page).to have_selector("button[disabled]", text: "Invite")
+          expect(page).to have_css("button[disabled]", text: "Invite")
         end
       end
     end

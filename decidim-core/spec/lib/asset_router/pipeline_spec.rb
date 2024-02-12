@@ -12,6 +12,10 @@ module Decidim::AssetRouter
 
     let(:correct_asset_path) { ActionController::Base.helpers.asset_pack_path(asset) }
 
+    before do
+      Rails.application.config.action_controller.asset_host = nil
+    end
+
     describe "#url" do
       subject { router.url }
 

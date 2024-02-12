@@ -6,7 +6,13 @@ module Decidim
   module Debates
     describe CloseDebateEvent do
       describe "notification digest mail" do
-        let!(:component) { create(:debates_component, organization:, participatory_space:) }
+        let!(:component) do
+          create(:debates_component,
+                 organization:,
+                 participatory_space:,
+                 name: generate_component_name(participatory_space.organization.available_locales, :debates))
+        end
+
         let(:admin) { create(:user, :admin, organization:) }
         let!(:follow) { create(:follow, followable: record, user:) }
         let(:params) do
@@ -20,9 +26,9 @@ module Decidim
           create(
             :debate,
             component:,
-            title: { en: "Event notifier" },
-            description: { en: "This debate is for testing purposes" },
-            instructions: { en: "Use this debate for testing" }
+            title: generate_localized_title(:debate_title),
+            description: generate_localized_description(:debate_description),
+            instructions: generate_localized_description(:debate_instructions)
           )
         end
 

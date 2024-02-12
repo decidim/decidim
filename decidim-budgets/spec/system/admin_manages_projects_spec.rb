@@ -16,7 +16,7 @@ describe "Admin manages projects" do
     login_as user, scope: :user
     visit_component_admin
 
-    within find("tr", text: translated(budget.title)) do
+    within "tr", text: translated(budget.title) do
       page.find(".action-icon--edit-projects").click
     end
   end

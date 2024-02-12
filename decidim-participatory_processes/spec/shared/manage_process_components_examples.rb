@@ -44,7 +44,7 @@ shared_examples "manage process components" do
             all("input[type=checkbox]").last.click
           end
 
-          within ".step-settings" do
+          within "#panel-step_settings" do
             fill_in_i18n_editor(
               "component_step_settings_#{step_id}_dummy_step_translatable_text",
               "#step-#{step_id}-settings-dummy_step_translatable_text-tabs",
@@ -64,7 +64,7 @@ shared_examples "manage process components" do
 
       context "and then edit it" do
         before do
-          within find("tr", text: "My component") do
+          within "tr", text: "My component" do
             click_link "Configure"
           end
         end
@@ -74,7 +74,7 @@ shared_examples "manage process components" do
             expect(all("input[type=checkbox]").last).to be_checked
           end
 
-          within ".step-settings" do
+          within "#panel-step_settings" do
             expect(all("input[type=checkbox]").first).to be_checked
           end
         end
@@ -137,7 +137,7 @@ shared_examples "manage process components" do
 
       context "and then edit it" do
         before do
-          within find("tr", text: "My component") do
+          within "tr", text: "My component" do
             click_link "Configure"
           end
         end
@@ -203,7 +203,7 @@ shared_examples "manage process components" do
           all("input[type=checkbox]").last.click
         end
 
-        within ".step-settings" do
+        within "#panel-step_settings" do
           all("input[type=checkbox]").first.click
         end
 
@@ -213,7 +213,7 @@ shared_examples "manage process components" do
       expect(page).to have_admin_callout("successfully")
       expect(page).to have_content("My updated component")
 
-      within find("tr", text: "My updated component") do
+      within "tr", text: "My updated component" do
         click_link "Configure"
       end
 
@@ -221,7 +221,7 @@ shared_examples "manage process components" do
         expect(all("input[type=checkbox]").last).to be_checked
       end
 
-      within ".step-settings" do
+      within "#panel-step_settings" do
         expect(all("input[type=checkbox]").first).to be_checked
       end
     end
@@ -244,7 +244,7 @@ shared_examples "manage process components" do
 
         expect(page).to have_admin_callout("successfully")
 
-        within find("tr", text: "My component") do
+        within "tr", text: "My component" do
           click_link "Configure"
         end
 

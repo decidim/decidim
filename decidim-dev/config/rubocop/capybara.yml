@@ -9,12 +9,6 @@ Capybara:
 Capybara/ClickLinkOrButtonStyle:
   Enabled: false
 
-Capybara/RedundantWithinFind:
-  Enabled: false
-
 Capybara/RSpec:
   Enabled: false
   Include: *1
-
-Capybara/RSpec/HaveSelector:
-  Enabled: false

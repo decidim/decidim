@@ -77,7 +77,7 @@ shared_examples "manage conferences" do
     let(:image3_path) { Decidim::Dev.asset(image3_filename) }
 
     before do
-      within find("tr", text: translated(conference.title)) do
+      within "tr", text: translated(conference.title) do
         click_link "Configure"
       end
     end
@@ -99,7 +99,7 @@ shared_examples "manage conferences" do
       expect(page).to have_admin_callout("successfully")
 
       within "[data-content]" do
-        expect(page).to have_selector("input[value='My new title']")
+        expect(page).to have_css("input[value='My new title']")
         expect(page).to have_css("img[src*='#{image3_filename}']")
       end
     end
@@ -107,7 +107,7 @@ shared_examples "manage conferences" do
 
   describe "updating a conference without images" do
     before do
-      within find("tr", text: translated(conference.title)) do
+      within "tr", text: translated(conference.title) do
         click_link "Configure"
       end
     end
@@ -135,7 +135,7 @@ shared_examples "manage conferences" do
       let!(:conference) { create(:conference, :unpublished, organization:) }
 
       it "allows the user to preview the unpublished conference" do
-        within find("tr", text: translated(conference.title)) do
+        within "tr", text: translated(conference.title) do
           click_link "Preview"
         end
 
@@ -148,7 +148,7 @@ shared_examples "manage conferences" do
 
       it "allows the user to preview the unpublished conference" do
         new_window = window_opened_by do
-          within find("tr", text: translated(conference.title)) do
+          within "tr", text: translated(conference.title) do
             click_link "Preview"
           end
         end
@@ -171,7 +171,7 @@ shared_examples "manage conferences" do
     let!(:conference) { create(:conference, :unpublished, organization:) }
 
     before do
-      within find("tr", text: translated(conference.title)) do
+      within "tr", text: translated(conference.title) do
         click_link "Configure"
       end
     end
@@ -191,7 +191,7 @@ shared_examples "manage conferences" do
     let!(:conference) { create(:conference, organization:) }
 
     before do
-      within find("tr", text: translated(conference.title)) do
+      within "tr", text: translated(conference.title) do
         click_link "Configure"
       end
     end
@@ -225,13 +225,13 @@ shared_examples "manage conferences" do
     end
 
     it "disables the scope for the conference" do
-      within find("tr", text: translated(conference.title)) do
+      within "tr", text: translated(conference.title) do
         click_link "Configure"
       end
 
       uncheck :conference_scopes_enabled
 
-      expect(page).to have_selector("select#conference_scope_id[disabled]")
+      expect(page).to have_css("select#conference_scope_id[disabled]")
 
       within ".edit_conference" do
         find("*[type=submit]").click

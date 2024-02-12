@@ -74,7 +74,7 @@ describe "Admin manages organization" do
         end
 
         it "renders the editor" do
-          expect(page).to have_selector(
+          expect(page).to have_css(
             "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror",
             text: ""
           )

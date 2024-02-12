@@ -6,7 +6,6 @@ module Decidim
     include CellsPaginateHelper
     include Decidim::Core::Engine.routes.url_helpers
     include ActionView::Helpers::DateHelper
-    include Decidim::ApplicationHelper
 
     delegate :nickname, to: :user
 

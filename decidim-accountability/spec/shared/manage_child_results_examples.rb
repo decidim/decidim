@@ -2,7 +2,7 @@
 
 RSpec.shared_examples "manage child results" do
   it "updates a result" do
-    within find("tr", text: translated(child_result.title)) do
+    within "tr", text: translated(child_result.title) do
       click_link "Edit"
     end
 
@@ -26,13 +26,12 @@ RSpec.shared_examples "manage child results" do
   end
 
   it "allows the user to preview the result" do
-    within find("tr", text: translated(child_result.title)) do
+    within "tr", text: translated(child_result.title) do
       klass = "action-icon--preview"
       href = resource_locator(child_result).path
       target = "blank"
 
-      expect(page).to have_selector(
-        :xpath,
+      expect(page).to have_xpath(
         "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
       )
     end
@@ -67,7 +66,7 @@ RSpec.shared_examples "manage child results" do
 
     within "table" do
       expect(page).to have_content("My result")
-      expect(page).not_to have_selector(".action-icon--plus"), "results grandchildren creation is disallowed"
+      expect(page).not_to have_css(".action-icon--plus"), "results grandchildren creation is disallowed"
     end
   end
 
@@ -80,7 +79,7 @@ RSpec.shared_examples "manage child results" do
     end
 
     it "deletes a result" do
-      within find("tr", text: translated(child_result.title)) do
+      within "tr", text: translated(child_result.title) do
         accept_confirm { click_link "Delete" }
       end
 
