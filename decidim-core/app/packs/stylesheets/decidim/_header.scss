@@ -235,10 +235,10 @@ header {
       }
 
       &__dropdown-content {
-        @apply absolute z-20 top-full left-8 cursor-auto;
+        @apply absolute z-20 top-full cursor-auto;
 
         &-secondary {
-          @apply absolute z-20 top-[calc(100%+12px)] left-0;
+          @apply absolute z-20 top-[calc(100%+12px)];
         }
       }
 
