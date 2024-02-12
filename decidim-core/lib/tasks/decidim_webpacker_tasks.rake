@@ -12,15 +12,13 @@ namespace :decidim do
       remove_file_from_application "bin/yarn"
       remove_file_from_application "yarn.lock"
       remove_file_from_application "node_modules/.yarn-integrity"
-      # Babel config
-      # copy_file_to_application "babel.config.json"
       # PostCSS configuration
       copy_file_to_application "decidim-core/lib/decidim/webpacker/postcss.config.js", "postcss.config.js"
 
       copy_file_to_application "decidim-core/lib/decidim/webpacker/esbuild.config.js", "config/esbuild.config.js"
       copy_file_to_application "decidim-core/lib/decidim/webpacker/tsconfig.json", "tsconfig.json"
 
-      # Remnove the Webpacker config and deploy shakacpacker
+      # Remove the Webpacker config and deploy shakapacker
       migrate_shakapacker
 
       # Install JS dependencies

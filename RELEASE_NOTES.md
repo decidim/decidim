@@ -49,7 +49,7 @@ In order to speed up the asset compilation, we have migrated from babel to esbui
 
 There are some small changes that needs to be performed in your application code.
 
-- Replace `babel.config.js`
+- Remove `babel.config.js`
 - Patch `config/webpack/custom.js`
 
 ```javascript
