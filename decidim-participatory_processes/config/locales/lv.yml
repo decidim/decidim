@@ -315,7 +315,6 @@ lv:
             select_an_area: Izvēlieties jomu
             select_process_group: Atlasiet procesa grupu
             title: Vispārēja informācija
-            visbility: Redzamība
       content_blocks:
         highlighted_processes:
           name: Izceltie procesi
