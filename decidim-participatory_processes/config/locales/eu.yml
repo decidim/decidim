@@ -387,6 +387,9 @@ eu:
           name: Jarduera
         title:
           meta_scope: Esparrua
+          participatory_processes:
+            one: Prozesu bat
+            other: "%{count} prozesu"
       show:
         title: Prozesu parte-hartzaileen taldeak
     participatory_process_steps:
@@ -434,6 +437,7 @@ eu:
             select_process_group: Hautatu prozesu-talde bat
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
             title: Informazio orokorra
+            visibility: Ikusgarritasuna
       content_blocks:
         extra_data:
           name: Fasea eta iraupena
