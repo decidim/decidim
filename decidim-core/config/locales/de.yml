@@ -1220,7 +1220,6 @@ de:
         token_error: Der Link ist abgelaufen.
         unsubscribe: Abmelden
     newsletters_opt_in:
-      unathorized: Entschuldigung, dieser Link ist nicht mehr verfügbar.
       update:
         error: Beim Speichern der Newslettereinstellungen ist ein Problem aufgetreten.
         success: Newslettereinstellungen wurden erfolgreich aktualisiert.
