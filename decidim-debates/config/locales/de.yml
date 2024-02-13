@@ -167,6 +167,13 @@ de:
     events:
       debates:
         create_debate_event:
+          space_followers:
+            email_intro: |-
+              Guten Tag,
+              Eine neue Debatte "%{resource_title}" wurde auf %{participatory_space_title} eröffnet. Jetzt anschauen und mitdiskutieren unter:
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+            email_subject: Neue Debatte "%{resource_title}" in %{participatory_space_title}
+            notification_title: Die Debatte <a href="%{resource_path}">%{resource_title}</a> wurde auf <a href="%{participatory_space_url}">%{participatory_space_title}</a> erstellt.
           user_followers:
             email_intro: |-
               Hallo,
