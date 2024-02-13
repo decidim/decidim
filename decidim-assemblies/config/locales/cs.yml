@@ -303,7 +303,6 @@ cs:
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
             social_handlers: Sociální
             title: Obecná informace
-            visbility: Viditelnost
         assemblies_types:
           form:
             title: Titul
