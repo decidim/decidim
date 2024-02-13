@@ -293,7 +293,6 @@ ro:
             select_parent_assembly: Selectați grupul de lucru părinte
             social_handlers: Rețele de socializare
             title: Informaţii generale
-            visbility: Vizibilitate
         assemblies_settings:
           edit:
             update: Actualizează
