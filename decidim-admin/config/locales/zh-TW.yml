@@ -356,8 +356,6 @@ zh-TW:
         user_name: 使用者
       dashboard:
         pending_moderations:
-          anouncement:
-            other: 有 %{count} 個操作等待中
           goto_moderation: 前往全域管理
           title: 等待的操作
         show:
