@@ -155,8 +155,6 @@ tr:
           new:
             send: Doğrulama isteğinde bulun
             title: Kimlik belgenizi yükleyin
-        dni: DNI
-        nie: NIE
         passport: Pasaport
       postal_letter:
         admin:
