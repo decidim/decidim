@@ -127,6 +127,12 @@ eu:
       x_minutes:
         one: Minutu 1
         other: "Minutu %{count}"
+      x_months:
+        one: 1 hilabete
+        other: "%{count} hilabete"
+      x_seconds:
+        one: Segundo bat
+        other: "%{count} segundo"
   decidim:
     accessibility:
       external_link: Kanpoko lotura
@@ -1199,6 +1205,7 @@ eu:
         token_error: Lotura iraungi da.
         unsubscribe: Baja eman
     newsletters_opt_in:
+      unauthorized: Sentitzen dut, esteka hau ez dago eskuragarri.
       update:
         error: Arazo bat egon da buletinaren konfigurazioak gordetzean.
         success: Buletinaren ezarpenak zuzen eguneratuak.
