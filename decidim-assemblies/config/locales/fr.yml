@@ -296,6 +296,7 @@ fr:
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
             social_handlers: Réseaux sociaux
             title: Informations générales
+            visibility: Visibilité
         assemblies_types:
           form:
             title: Modifier le type d'assemblée
