@@ -303,7 +303,6 @@ ar:
             select_parent_assembly: حدد الجمعية الأصلية
             social_handlers: التواصل الاجتماعي
             title: معلومات عامة
-            visbility: الرؤية
         assemblies_settings:
           edit:
             update: تحديث
