@@ -25,14 +25,6 @@ module Decidim
           }
         ]
       end
-
-      def share_table(*table_rows, **_opts)
-        table_rows.each_with_index.map do
-          row = []
-          row << { method: :cell, args: ["decidim/share_button", nil] }
-          row
-        end
-      end
     end
   end
 end
