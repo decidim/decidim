@@ -436,7 +436,6 @@ fi-pl:
             select_process_group: Valitse prosessiryhmä
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
             title: Yleistä tietoa
-            visbility: näkyvyys
       content_blocks:
         extra_data:
           name: Vaihe ja kesto
