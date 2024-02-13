@@ -47,6 +47,12 @@ $(() => {
     }
   }
 
+  const resetForms = function() {
+    $("#js-bulk-actions-dropdown button").each(function() {
+      $(`#js-form-${$(this).data("action")}`)[0].reset();
+    })
+  }
+
   const showOtherActionsButtons = function() {
     $("#js-other-actions-wrapper").removeClass("hide");
   }
@@ -68,6 +74,7 @@ $(() => {
   window.showOtherActionsButtons = showOtherActionsButtons;
   window.hideOtherActionsButtons = hideOtherActionsButtons;
   window.hideBulkActionForms = hideBulkActionForms;
+  window.resetForms = resetForms;
 
   if ($(".js-bulk-action-form").length) {
     hideBulkActionForms();
