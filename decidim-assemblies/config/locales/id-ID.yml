@@ -219,7 +219,6 @@ id:
             select_parent_assembly: Pilih perakitan induk
             social_handlers: Sosial
             title: Informasi Umum
-            visbility: Visibilitas
         assemblies_types:
           form:
             title: Judul
