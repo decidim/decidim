@@ -328,7 +328,6 @@ gl:
             select_an_area: Seleccione unha área
             select_process_group: Seleccione un grupo de procesos
             title: Información xeral
-            visbility: Visibilidade
       content_blocks:
         highlighted_processes:
           name: Procesos destacados
