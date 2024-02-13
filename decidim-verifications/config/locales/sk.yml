@@ -154,8 +154,6 @@ sk:
           new:
             send: Požiadajte o overenie
             title: Nahrajte svoj doklad totožnosti
-        dni: IČO
-        nie: DIČ
         passport: Cestovný pas
       postal_letter:
         admin:
