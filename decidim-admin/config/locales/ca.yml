@@ -378,9 +378,6 @@ ca:
           update: Actualitzar
       dashboard:
         pending_moderations:
-          anouncement:
-            one: Hi ha %{count} moderació pendent
-            other: Hi ha %{count} moderacions pendents
           goto_moderation: Anar a moderacions globals
           title: Moderacions pendents
         show:
