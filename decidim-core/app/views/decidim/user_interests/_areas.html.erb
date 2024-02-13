@@ -1,6 +1,6 @@
 <ul>
   <% areas.each do |area| %>
-    <li class="tiny">
+    <li>
       <%= f.fields_for "areas[]", area do |form| %>
         <%= form.label "checked" do %>
           <%= form.check_box "checked", label: false, class: "switch-input" %>
