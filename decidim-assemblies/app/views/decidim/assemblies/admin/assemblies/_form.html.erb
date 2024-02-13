@@ -181,17 +181,17 @@
     </div>
   </div>
 
-  <div class="card" data-component="accordion" id="accordion-visbility">
+  <div class="card" data-component="accordion" id="accordion-visibility">
     <div class="card-divider">
-      <button class="card-divider-button" data-open="true" data-controls="panel-visbility" type="button">
+      <button class="card-divider-button" data-open="true" data-controls="panel-visibility" type="button">
         <%= icon "arrow-right-s-line" %>
-        <h2 class="card-title" id="visbility">
-          <%= t("visbility", scope: "decidim.assemblies.admin.assemblies.form") %>
+        <h2 class="card-title" id="visibility">
+          <%= t("visibility", scope: "decidim.assemblies.admin.assemblies.form") %>
         </h2>
       </button>
     </div>
 
-    <div id="panel-visbility" class="card-section">
+    <div id="panel-visibility" class="card-section">
       <% if params[:parent_id].present? %>
         <%= form.hidden_field :parent_id, value: @form.parent_id %>
       <% else %>

@@ -20,7 +20,7 @@ For performance, an endorsable has a counter cache of endorsements.
 |   ((Proposal,...))   |                                   +-------------+
 +----------------------+  0..N +--------------------+   +--+Decidim::User|
 |-has_many endorsements|-------+Decidim::Endorsement|   |  +-------------+
-|#counter cahce column |       +--------------------+   |
+|#counter cache column |       +--------------------+   |
 |-endorsements_counter |       |-author: may be a   |<--+
 +----------------------+       |         user or a  |   |
                                |         user_group |   |  +------------------+

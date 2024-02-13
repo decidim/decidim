@@ -137,7 +137,7 @@ module Decidim
 
       # Wrapps a text build by the block with some other text.
       #
-      # before - The String text to inject at the begining of each value.
+      # before - The String text to inject at the beginning of each value.
       # after  - The String text to inject at the end of each value.
       # block  - A Block that generates a Hash with a text for each locale.
       #

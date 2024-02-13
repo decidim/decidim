@@ -44,7 +44,7 @@ module Decidim
                 options: { headings: %w(Cell Code) },
                 items: activities_table(
                   { name: "Activities", url: "https://github.com/decidim/decidim/blob/develop/decidim-core/app/cells/decidim/activities_cell.rb" },
-                  { name: "Activitiy", url: "https://github.com/decidim/decidim/blob/develop/decidim-core/app/cells/decidim/activity_cell.rb" }
+                  { name: "Activity", url: "https://github.com/decidim/decidim/blob/develop/decidim-core/app/cells/decidim/activity_cell.rb" }
                 )
               }
             ]

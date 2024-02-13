@@ -544,7 +544,7 @@ describe "Filter Proposals", :slow do
       end
 
       context "when amendments_enabled component setting is enabled" do
-        context "and amendments_visbility component step_setting is set to 'participants'" do
+        context "and amendments_visibility component step_setting is set to 'participants'" do
           context "when the user is logged in" do
             before do
               visit decidim.root_path
@@ -620,7 +620,7 @@ describe "Filter Proposals", :slow do
           component.update!(settings: { amendments_enabled: false })
         end
 
-        context "and amendments_visbility component step_setting is set to 'participants'" do
+        context "and amendments_visibility component step_setting is set to 'participants'" do
           before do
             component.update!(
               step_settings: {

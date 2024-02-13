@@ -100,7 +100,7 @@ describe "Assemblies" do
       let(:manifest_name) { :assemblies }
     end
 
-    context "and requesting the asseblies path" do
+    context "and requesting the assemblies path" do
       before do
         visit decidim_assemblies.assemblies_path
       end
@@ -277,7 +277,7 @@ describe "Assemblies" do
         end
       end
 
-      context "and the process statistics are not enable with stats block actived" do
+      context "and the process statistics are not enable with stats block active" do
         let(:show_statistics) { false }
         let(:blocks_manifests) { [:stats] }
 
