@@ -17,6 +17,7 @@ Mark `develop` as the reference to the next release:
 . Turn develop into the `dev` branch for the next release:
  .. Update `.decidim-version` to the new `dev` development version: `x.y.z.dev`, where `x.y.z` is the new semver number for the next version
  .. Run `bin/rake update_versions`, this will update all references to the new version.
+ .. Run `bin/rake patch_generators`, this will update the Gemfile for the generators to the new version.
  .. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
  .. Run `bin/rake webpack`, this will update the JavaScript bundle.
 . Update `SECURITY.md` and change the supported version to the new version.
@@ -193,6 +194,7 @@ If this is a *Release Candidate version* release, the steps to follow are:
 . Checkout the release stable branch `git checkout release/x.y-stable`.
 . Update `.decidim-version` to the new version `x.y.z.rc1`
 . Run `bin/rake update_versions`, this will update all references to the new version.
+. Run `bin/rake patch_generators`, this will update the Gemfile for the generators to the new version.
 . Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
 . Run `bin/rake webpack`, this will update the JavaScript bundle.
 . Run `bin/rspec`, this will check things like if all the officially supported languages translations are OK.
@@ -216,6 +218,7 @@ Release Candidates will be tested in a production server (usually Metadecidim) d
 . Checkout the release stable branch `git checkout release/x.y-stable`.
 . Update `.decidim-version` by removing the `.rcN` suffix, leaving a clean version number like `x.y.z`
 . Run `bin/rake update_versions`, this will update all references to the new version.
+. Run `bin/rake patch_generators`, this will update the Gemfile for the generators to the new version.
 . Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
 . Run `bin/rake webpack`, this will update the JavaScript bundle.
 . Update the `CHANGELOG.md`.
@@ -277,6 +280,7 @@ The process is very similar from releasing a new Decidim version:
 . Checkout the branch you want to release: `git checkout -b release/x.y-stable`
 . Update `.decidim-version` to the new version number.
 . Run `bin/rake update_versions`, this will update all references to the new version.
+. Run `bin/rake patch_generators`, this will update the Gemfile for the generators to the new version.
 . Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
 . Run `bin/rake webpack`, this will update the JavaScript bundle.
 . Update the `CHANGELOG.md`.
