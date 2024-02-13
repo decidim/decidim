@@ -378,9 +378,6 @@ de:
           update: Aktualisieren
       dashboard:
         pending_moderations:
-          anouncement:
-            one: Es gibt %{count} ausstehende Moderation
-            other: Es gibt %{count} ausstehende Moderationen
           goto_moderation: Gehe zur globalen Moderation
           title: Offene Moderationen
         show:
