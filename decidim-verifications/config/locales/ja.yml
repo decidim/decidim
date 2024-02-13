@@ -230,8 +230,7 @@ ja:
           update:
             error: ドキュメントの再アップロード中に問題が発生しました。
             success: ドキュメントを再アップロードしました。
-        dni: 免許証
-        nie: マイナンバーカード
+        identification_number: 識別番号
         passport: パスポート
       postal_letter:
         admin:
