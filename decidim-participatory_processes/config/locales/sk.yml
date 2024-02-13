@@ -337,7 +337,6 @@ sk:
             select_an_area: Vyberte rozsah
             select_process_group: Vyberte skupinu procesov
             title: Všeobecná informácia
-            visbility: Viditeľnosť
       content_blocks:
         highlighted_processes:
           name: Zvýraznené procesy
