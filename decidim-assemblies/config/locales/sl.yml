@@ -164,7 +164,6 @@ sl:
             other: Drugo
             select_an_assembly_type: Izberi vrsto združbe
             select_parent_assembly: Izberi matično združbo
-            visbility: Vidljivost
         assemblies_types:
           form:
             title: Naziv
