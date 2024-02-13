@@ -378,9 +378,6 @@ fi-pl:
           update: Päivitä
       dashboard:
         pending_moderations:
-          anouncement:
-            one: Yksi moderointi odottaa käsittelyä
-            other: '%{count} moderointia odottavat käsittelyä'
           goto_moderation: Siirry yleisiin moderointeihin
           title: Odottavat moderoinnit
         show:
