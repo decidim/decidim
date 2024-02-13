@@ -47,7 +47,7 @@ describe "Admin manages initiatives types" do
 
   context "when updating an initiative type" do
     it "updates the initiative type" do
-      within find("tr", text: translated(initiatives_type.title)) do
+      within "tr", text: translated(initiatives_type.title) do
         page.find(".action-icon--edit").click
       end
 
@@ -72,7 +72,7 @@ describe "Admin manages initiatives types" do
 
   context "when deleting an initiative type" do
     it "deletes the initiative type" do
-      within find("tr", text: translated(initiatives_type.title)) do
+      within "tr", text: translated(initiatives_type.title) do
         accept_confirm do
           page.find(".action-icon--remove").click
         end

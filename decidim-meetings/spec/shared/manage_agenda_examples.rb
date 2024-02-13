@@ -90,7 +90,7 @@ shared_examples "manage agenda" do
   def visit_agenda_form
     visit_component_admin
 
-    within find("tr", text: translated(meeting.title)) do
+    within "tr", text: translated(meeting.title) do
       page.click_link "Agenda"
     end
   end

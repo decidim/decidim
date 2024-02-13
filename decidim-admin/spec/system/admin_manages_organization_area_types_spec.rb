@@ -61,7 +61,7 @@ describe "Admin manages area types" do
     end
 
     it "can edit them" do
-      within find("tr", text: translated(area_type.name)) do
+      within "tr", text: translated(area_type.name) do
         click_link "Edit"
       end
 
@@ -88,7 +88,7 @@ describe "Admin manages area types" do
     end
 
     it "can delete them" do
-      within find("tr", text: translated(area_type.name)) do
+      within "tr", text: translated(area_type.name) do
         accept_confirm { click_link "Delete" }
       end
 

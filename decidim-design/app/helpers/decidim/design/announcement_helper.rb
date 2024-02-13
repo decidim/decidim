@@ -24,13 +24,13 @@ module Decidim
                 ),
                 cell_snippet: {
                   cell: "decidim/announcement",
-                  args: ["I am an annoucement", { callout_class: "success" }],
+                  args: ["I am an announcement", { callout_class: "success" }],
                   call_string: [
-                    'cell("decidim/announcement", "I am an annoucement", callout_class: "success")',
-                    'cell("decidim/announcement", "I am an annoucement", callout_class: "warning")',
-                    'cell("decidim/announcement", "I am an annoucement", callout_class: "alert")',
-                    'cell("decidim/announcement", "I am an annoucement", callout_class: "secondary")',
-                    'cell("decidim/announcement", "I am an annoucement")'
+                    'cell("decidim/announcement", "I am an announcement", callout_class: "success")',
+                    'cell("decidim/announcement", "I am an announcement", callout_class: "warning")',
+                    'cell("decidim/announcement", "I am an announcement", callout_class: "alert")',
+                    'cell("decidim/announcement", "I am an announcement", callout_class: "secondary")',
+                    'cell("decidim/announcement", "I am an announcement")'
                   ]
                 }
               }

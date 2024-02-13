@@ -30,7 +30,7 @@ module Decidim
 
       def base_relation
         @base_relation ||= Decidim::Meetings::Meeting.where(component: model)
-                                                     .except_withdrawn
+                                                     .not_withdrawn
                                                      .published
                                                      .not_hidden
                                                      .visible_for(current_user)

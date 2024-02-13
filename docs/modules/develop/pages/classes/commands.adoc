@@ -36,7 +36,7 @@ module Decidim
       end
 
       private
-      # Tell the parent what is the AcitveRecord class needed
+      # Tell the parent what is the ActiveRecord class needed
       def resource_class = Decidim::MyModule::MyResource
 
       # This method allows you to customize the log visbility
@@ -52,7 +52,7 @@ module Decidim
         # do something
       end
 
-      # Addtionally, you can override the `attributes` method
+      # Additionally, you can override the `attributes` method
       # to add more attributes to the resource
       def attributes
         super.merge({
@@ -96,7 +96,7 @@ module Decidim
       end
 
       private
-      # Tell the parent what is the AcitveRecord class needed
+      # Tell the parent what is the ActiveRecord class needed
       def resource_class = Decidim::MyModule::MyResource
 
       # This method allows you to customize the log visbility
@@ -112,7 +112,7 @@ module Decidim
         # do something
       end
 
-      # Addtionally, you can override the `attributes` method
+      # Additionally, you can override the `attributes` method
       # to add more attributes to the resource
       def attributes
         super.merge({

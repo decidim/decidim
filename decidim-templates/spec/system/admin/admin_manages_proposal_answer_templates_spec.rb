@@ -133,7 +133,7 @@ describe "Admin manages proposal answer templates" do
     end
 
     it "copies the template" do
-      within find("tr", text: translated(template.name)) do
+      within "tr", text: translated(template.name) do
         click_link "Duplicate"
       end
 
@@ -148,7 +148,7 @@ describe "Admin manages proposal answer templates" do
     end
 
     it "destroys the template" do
-      within find("tr", text: translated(template.name)) do
+      within "tr", text: translated(template.name) do
         accept_confirm { click_link "Delete" }
       end
 
@@ -179,7 +179,7 @@ describe "Admin manages proposal answer templates" do
 
       expect(page).to have_admin_callout("Proposal successfully answered")
 
-      within find("tr", text: proposal.title["en"]) do
+      within "tr", text: proposal.title["en"] do
         expect(page).to have_content("Rejected")
       end
       expect(proposal.reload.internal_state).to eq("rejected")

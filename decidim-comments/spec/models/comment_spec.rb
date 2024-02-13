@@ -297,14 +297,14 @@ module Decidim
 
       describe "#user_commentators_ids_in" do
         context "when passing a non-commentable resource" do
-          it "returns the autors of the resources' comments" do
+          it "returns the authors of the resources' comments" do
             ids = Decidim::Comments::Comment.user_commentators_ids_in([commentable.component.participatory_space])
             expect(ids).to be_empty
           end
         end
 
         context "when commentors belong to the given resources" do
-          it "returns the autors of the resources' comments" do
+          it "returns the authors of the resources' comments" do
             ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::Dev::DummyResource.where(component: commentable.component))
             expect(ids).to contain_exactly(author.id)
           end

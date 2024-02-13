@@ -2,7 +2,7 @@
 
 RSpec.shared_examples "manage child results" do
   it "updates a result" do
-    within find("tr", text: translated(child_result.title)) do
+    within "tr", text: translated(child_result.title) do
       click_link "Edit"
     end
 
@@ -26,7 +26,7 @@ RSpec.shared_examples "manage child results" do
   end
 
   it "allows the user to preview the result" do
-    within find("tr", text: translated(child_result.title)) do
+    within "tr", text: translated(child_result.title) do
       klass = "action-icon--preview"
       href = resource_locator(child_result).path
       target = "blank"
@@ -79,7 +79,7 @@ RSpec.shared_examples "manage child results" do
     end
 
     it "deletes a result" do
-      within find("tr", text: translated(child_result.title)) do
+      within "tr", text: translated(child_result.title) do
         accept_confirm { click_link "Delete" }
       end
 

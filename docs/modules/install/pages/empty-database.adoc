@@ -1,6 +1,6 @@
 = Empty database installation
 
-You may want to setup your Decidim installation with an empty database to take full control of all aspects of the Decidim organization. Please follow the steps bellow to start with an empty database:
+You may want to setup your Decidim installation with an empty database to take full control of all aspects of the Decidim organization. Please follow the steps below to start with an empty database:
 
 . Follow steps 1 through 5 of the xref:install:manual.adoc[Manual installation tutorial].
 

@@ -3,7 +3,7 @@
 module Decidim
   module Accountability
     # The data store for a Status in the Decidim::Accountability component. It stores a
-    # key, a localized name, a localized description and and associated progress number.
+    # key, a localized name, a localized description and associated progress number.
     class Status < Accountability::ApplicationRecord
       include Decidim::HasComponent
       include Decidim::TranslatableResource

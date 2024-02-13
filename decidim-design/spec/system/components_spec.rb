@@ -25,7 +25,7 @@ describe "Components" do
     it_behaves_like "showing the design page", "Activities", "LastActivity"
   end
 
-  context "when on adddress page" do
+  context "when on address page" do
     it_behaves_like "showing the design page", "Address", "geolocalizable"
   end
 

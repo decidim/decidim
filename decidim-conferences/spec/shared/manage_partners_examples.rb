@@ -24,7 +24,7 @@ shared_examples "manage partners examples" do
     end
 
     it "updates a conference partners" do
-      within find("#partners tr", text: conference_partner.name) do
+      within "#partners tr", text: conference_partner.name do
         click_link "Edit"
       end
 
@@ -66,7 +66,7 @@ shared_examples "manage partners examples" do
     end
 
     it "deletes the conference partner" do
-      within find("#partners tr", text: conference_partner.name) do
+      within "#partners tr", text: conference_partner.name do
         accept_confirm { find("a.action-icon--remove").click }
       end
 

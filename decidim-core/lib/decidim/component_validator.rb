@@ -4,7 +4,7 @@
 #
 # Adds a presence validation and checks that the manifest is the correct one.
 class ComponentValidator < ActiveModel::EachValidator
-  # Validates the arguiments passed to the validator.
+  # Validates the arguments passed to the validator.
   def check_validity!
     raise ArgumentError, "You must include a `manifest` option with the name of the manifest to validate when validating a component" if options[:manifest].blank?
   end

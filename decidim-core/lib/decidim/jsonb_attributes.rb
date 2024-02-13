@@ -4,7 +4,7 @@ require "active_support/concern"
 
 module Decidim
   # A set of convenient methods to generate dynamic jsonb objects in a way is
-  # compatible with AttirubteObject and ActiveModel thus making it easy to
+  # compatible with AttributeObject and ActiveModel thus making it easy to
   # integrate into Rails forms and similar workflows.
   module JsonbAttributes
     extend ActiveSupport::Concern
