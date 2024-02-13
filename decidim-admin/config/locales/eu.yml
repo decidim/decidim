@@ -377,9 +377,6 @@ eu:
           update: Eguneratu
       dashboard:
         pending_moderations:
-          anouncement:
-            one: '%{count} moderazio daude zain'
-            other: '%{count} moderazo zain'
           goto_moderation: Joan moderazio globaletara
           title: Zain dauden moderazioak
         show:
