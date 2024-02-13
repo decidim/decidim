@@ -259,7 +259,6 @@
             select_parent_assembly: Velg foreldre-forsamling
             social_handlers: Sosial
             title: Generell Informasjon
-            visbility: Synlighet
         assemblies_types:
           form:
             title: Tittel
