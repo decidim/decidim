@@ -284,7 +284,6 @@ el:
             select_parent_assembly: Επιλέξτε «Γονική συνέλευση»
             social_handlers: Μέσα κοινωνικής δικτύωσης
             title: Γενικές πληροφορίες
-            visbility: Ορατότητα
         assemblies_settings:
           edit:
             update: Ενημέρωση
