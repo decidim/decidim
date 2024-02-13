@@ -232,8 +232,7 @@ fi:
           update:
             error: Asiakirjan uudelleenlataaminen epäonnistui.
             success: Asiakirjan uudelleenlataaminen onnistui.
-        dni: Henkilökortti
-        nie: HETU
+        identification_number: Henkilötunnus
         passport: Passi
       postal_letter:
         admin:
