@@ -361,7 +361,6 @@
             select_participatory_process_type: Velg en type prosess
             select_process_group: Velg en prosessgruppe
             title: Generell informasjon
-            visbility: Synlighet
       content_blocks:
         highlighted_processes:
           name: Fremhevede prosesser
