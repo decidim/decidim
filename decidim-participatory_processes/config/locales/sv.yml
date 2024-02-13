@@ -372,7 +372,6 @@ sv:
             select_an_area: Välj ett område
             select_process_group: Välj en dialoggrupp
             title: Allmän information
-            visbility: Synlighet
       content_blocks:
         highlighted_processes:
           name: Viktiga dialoger just nu
