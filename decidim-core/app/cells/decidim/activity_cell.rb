@@ -39,7 +39,7 @@ module Decidim
       when String
         decidim_html_escape(resource_title)
       when Hash
-        decidim_html_escape(translated_attribute(resource_title))
+        decidim_escape_translated(resource_title)
       end
     end
 
