@@ -173,7 +173,7 @@ shared_examples "manage invites" do
 
         within ".filters__section" do
           fill_in :q_user_name_or_user_email_cont, with: invites.first.user.email
-          click_on(type: "submit")
+          click_on(class: "text-secondary")
         end
 
         within "#meeting-invites table tbody" do

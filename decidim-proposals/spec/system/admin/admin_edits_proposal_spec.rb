@@ -83,7 +83,7 @@ describe "Admin edits proposals" do
         find("a.action-icon--edit-proposal").click
         find("input#proposal_attachment_delete_file").set(true)
         within ".item__edit-form" do
-          click_on "Update", type: "submit"
+          click_on "Update"
         end
 
         expect(page).to have_content("Proposal successfully updated.")

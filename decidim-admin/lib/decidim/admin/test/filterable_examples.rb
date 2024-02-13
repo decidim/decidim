@@ -11,7 +11,9 @@ shared_context "with filterable context" do
     within(".filters__section") do
       find_link("Filter").hover
       find_link(options).hover
-      click_on(filter)
+      within ".submenu > .is-active > .submenu" do
+        click_on(filter)
+      end
     end
   end
 

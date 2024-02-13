@@ -58,7 +58,7 @@ describe "Admin manages participatory texts" do
   def move_some_sections; end
 
   def publish_participatory_text
-    click_on(name: "commit")
+    click_on("Publish document")
     expect(page).to have_content "All proposals have been published"
   end
 
