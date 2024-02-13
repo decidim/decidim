@@ -347,7 +347,6 @@ pt:
             select_an_area: Selecione uma Área
             select_process_group: Selecione um grupo do processo
             title: Informação geral
-            visbility: Visibilidade
       content_blocks:
         highlighted_processes:
           name: Processos realçados
