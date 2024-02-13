@@ -436,7 +436,6 @@ fr:
             select_process_group: Sélectionnez un groupe de concertations
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
             title: Informations générales
-            visbility: Visibilité
       content_blocks:
         extra_data:
           name: Phase & durée
