@@ -1200,6 +1200,7 @@ pl:
         token_error: Link wygasł.
         unsubscribe: Anuluj subskrypcję
     newsletters_opt_in:
+      unauthorized: Przepraszamy, ten link nie jest już dostępny.
       update:
         error: Przy zapisywaniu ustawień newslettera pojawił się problem.
         success: Ustawienia newslettera zostały pomyślnie zaktualizowane.
