@@ -272,7 +272,6 @@
             select_parent_assembly: Velg foreldre-forsamling
             social_handlers: Sosial
             title: Generell Informasjon
-            visbility: Synlighet
         assemblies_settings:
           edit:
             update: Oppdater
