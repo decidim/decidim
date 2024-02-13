@@ -167,8 +167,6 @@ nl:
           new:
             send: Verzoek om verificatie
             title: Upload uw identiteitsdocument
-        dni: DNI
-        nie: NIE
         passport: Paspoort
       postal_letter:
         admin:
