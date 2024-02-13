@@ -1097,7 +1097,6 @@ zh-TW:
         token_error: 該連結已過期。
         unsubscribe: 取消訂閱
     newsletters_opt_in:
-      unathorized: 抱歉，此連結已不再可用。
       update:
         error: 儲存通訊設定時出現問題。
         success: 成功更新電子報設定.
