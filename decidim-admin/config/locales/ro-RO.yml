@@ -355,10 +355,6 @@ ro:
         user_name: Utilizator
       dashboard:
         pending_moderations:
-          anouncement:
-            one: Există 1 moderare în așteptare
-            few: Există %{count} moderări în așteptare
-            other: Există %{count} moderări în așteptare
           goto_moderation: Moderare globală
           title: Moderări în așteptare
         show:
