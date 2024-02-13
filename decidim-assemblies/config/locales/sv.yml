@@ -279,7 +279,6 @@ sv:
             select_parent_assembly: Välj överordnad gruppen
             social_handlers: Socialt
             title: Allmän information
-            visbility: Synlighet
         assemblies_settings:
           edit:
             update: Uppdatera
