@@ -92,8 +92,12 @@ module Decidim
         ).presenter
       end
 
+      class AuthoredItem
+        attr_accessor :published_at
+      end
+      
       def authored_item
-        OpenStruct.new(
+        AuthoredItem.new(
           published_at: 1.day.ago
         )
       end
