@@ -405,7 +405,6 @@ ro:
             select_participatory_process_type: Selectați un tip de proces
             select_process_group: Selectează un grup de proces
             title: Informaţii generale
-            visbility: Vizibilitate
       content_blocks:
         highlighted_processes:
           name: Procese evidențiate
