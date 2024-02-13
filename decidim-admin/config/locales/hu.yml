@@ -357,9 +357,6 @@ hu:
         user_name: Felhasználó
       dashboard:
         pending_moderations:
-          anouncement:
-            one: Van %{count} várakozó moderálás
-            other: '%{count} függőben lévő moderálni való'
           goto_moderation: Menj a globális moderációkhoz
           title: Függő moderációk
         show:
