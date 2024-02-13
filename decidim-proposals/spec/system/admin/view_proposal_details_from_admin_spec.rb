@@ -69,7 +69,7 @@ describe "Admin views proposal details from admin" do
         go_to_admin_proposal_page(proposal)
 
         within ".component__show_nav-author-title" do
-          expect(page).not_to have_selector("a", text: "Official proposal")
+          expect(page).to have_no_selector("a", text: "Official proposal")
           expect(page).to have_content("Official proposal")
         end
       end
@@ -117,7 +117,7 @@ describe "Admin views proposal details from admin" do
       it "does not show the title" do
         go_to_admin_proposal_page(proposal)
 
-        expect(page).not_to have_content "Endorsers"
+        expect(page).to have_no_content "Endorsers"
       end
     end
 
@@ -208,7 +208,7 @@ describe "Admin views proposal details from admin" do
       it "does not show the title" do
         go_to_admin_proposal_page(proposal)
 
-        expect(page).not_to have_content "Related meetings"
+        expect(page).to have_no_content "Related meetings"
       end
     end
 
@@ -233,7 +233,7 @@ describe "Admin views proposal details from admin" do
 
         go_to_admin_proposal_page(proposal)
 
-        expect(page).not_to have_content "Related meetings"
+        expect(page).to have_no_content "Related meetings"
       end
     end
   end
@@ -263,7 +263,7 @@ describe "Admin views proposal details from admin" do
   end
 
   def go_to_admin_proposal_page(proposal)
-    within find("tr", text: translated(proposal.title)) do
+    within "tr", text: translated(proposal.title) do
       find("a", class: "action-icon--show-proposal").click
     end
   end

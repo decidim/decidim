@@ -79,11 +79,11 @@ module Decidim
 
       class_option :storage, type: :string,
                              default: "local",
-                             desc: "Setup the Gemfile with the appropiate gem to handle a storage provider. Supported options are: local (default), s3, gcs, azure"
+                             desc: "Setup the Gemfile with the appropriate gem to handle a storage provider. Supported options are: local (default), s3, gcs, azure"
 
       class_option :queue, type: :string,
                            default: "",
-                           desc: "Setup the Gemfile with the appropiate gem to handle a queue adapter provider. Supported options are: (empty, does nothing) and sidekiq"
+                           desc: "Setup the Gemfile with the appropriate gem to handle a queue adapter provider. Supported options are: (empty, does nothing) and sidekiq"
 
       class_option :skip_webpack_install, type: :boolean,
                                           default: true,
@@ -335,6 +335,11 @@ module Decidim
             end
           end
         CONFIG
+
+        if ENV.fetch("RAILS_BOOST_PERFORMANCE", false).to_s == "true"
+          gsub_file "Gemfile", /gem "spring".*/, "# gem \"spring\""
+          gsub_file "Gemfile", /gem "spring-watcher-listen".*/, "# gem \"spring-watcher-listen\""
+        end
       end
 
       def authorization_handler

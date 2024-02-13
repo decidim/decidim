@@ -98,7 +98,7 @@ describe "Data consent scripts" do
 
       it "does not run scripts" do
         expect(page).to have_content("Hello cookies")
-        expect(page).not_to have_content("cookies accepted")
+        expect(page).to have_no_content("cookies accepted")
       end
 
       context "when accept all cookies" do
@@ -117,9 +117,9 @@ describe "Data consent scripts" do
 
         it "runs scripts" do
           expect(page).to have_content(essential_cookies_accepted)
-          expect(page).not_to have_content(preferences_cookies_accepted)
-          expect(page).not_to have_content(analytics_cookies_accepted)
-          expect(page).not_to have_content(marketing_cookies_accepted)
+          expect(page).to have_no_content(preferences_cookies_accepted)
+          expect(page).to have_no_content(analytics_cookies_accepted)
+          expect(page).to have_no_content(marketing_cookies_accepted)
         end
       end
 
@@ -128,9 +128,9 @@ describe "Data consent scripts" do
 
         it "runs analytics scripts" do
           expect(page).to have_content(essential_cookies_accepted)
-          expect(page).not_to have_content(preferences_cookies_accepted)
+          expect(page).to have_no_content(preferences_cookies_accepted)
           expect(page).to have_content(analytics_cookies_accepted)
-          expect(page).not_to have_content(marketing_cookies_accepted)
+          expect(page).to have_no_content(marketing_cookies_accepted)
         end
       end
     end

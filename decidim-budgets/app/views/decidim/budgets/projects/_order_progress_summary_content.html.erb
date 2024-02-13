@@ -20,11 +20,11 @@
       <% end %>
     <% end %>
     <div class="budget-summary__progressbar">
-      <div class="progress budget-progress" role="progressbar" aria-label="<%= t("budget", scope: "decidim.budgets.projects.order_progress") %>" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %> %" aria-valuemin="0" aria-valuemax="100">
-        <div class="progress-meter budget-summary__progressbar--minimum" style="width: <%= current_order_budget_percent_minimum %>%">
+      <div class="budget-progress" role="progressbar" aria-label="<%= t("budget", scope: "decidim.budgets.projects.order_progress") %>" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %> %" aria-valuemin="0" aria-valuemax="100">
+        <div class="budget-summary__progressbar--minimum" style="width: <%= current_order_budget_percent_minimum %>%">
           <span class="progress-meter--minimum-mark"></span>
         </div>
-        <div class="progress-meter budget-summary__progressbar--meter" style="width: <%= current_order_budget_percent %>%"> </div>
+        <div class="budget-summary__progressbar--meter" style="width: <%= current_order_budget_percent %>%"> </div>
       </div>
       <div class="budget-summary__progressbar-marks">
         <span class="budget-summary__progressbar-legend" style="width: <%= current_order_budget_percent_minimum %>%;">
@@ -67,11 +67,11 @@
   <div class="w-screen max-w-screen progressbox-fixed-wrapper" data-progressbox-fixed>
     <div class="gap-0 layout-item py-4 items-center budget-summary__progressbar">
       <div class="budget-summary__progressbox layout-item__main">
-        <div class="progress budget-progress relative" role="progressbar" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %>%" aria-valuemin="0" aria-valuemax="100">
-          <div class="progress-meter budget-summary__progressbar--minimum" style="width: <%= current_order_budget_percent_minimum %>%">
+        <div class="budget-progress relative" role="progressbar" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %>%" aria-valuemin="0" aria-valuemax="100">
+          <div class="budget-summary__progressbar--minimum" style="width: <%= current_order_budget_percent_minimum %>%">
             <span class="progress-meter--minimum-mark"></span>
           </div>
-          <div class="progress-meter budget-summary__progressbar--meter" style="width: <%= current_order_budget_percent %>%">
+          <div class="budget-summary__progressbar--meter" style="width: <%= current_order_budget_percent %>%">
           </div>
         </div>
         <div class="budget-summary__progressbar-marks">

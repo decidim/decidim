@@ -45,7 +45,7 @@ describe "Manage OAuth applications" do
     end
 
     it "can edit them" do
-      within find("tr", text: application.name) do
+      within "tr", text: application.name do
         click_link "Edit"
       end
 
@@ -62,14 +62,14 @@ describe "Manage OAuth applications" do
     end
 
     it "can delete them" do
-      within find("tr", text: application.name) do
+      within "tr", text: application.name do
         accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_content("successfully")
 
       within "table" do
-        expect(page).not_to have_content(application.name)
+        expect(page).to have_no_content(application.name)
       end
     end
 

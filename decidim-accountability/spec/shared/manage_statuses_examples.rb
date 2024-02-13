@@ -2,7 +2,7 @@
 
 RSpec.shared_examples "manage statuses" do
   it "updates a status" do
-    within find("tr", text: status.key) do
+    within "tr", text: status.key do
       click_link "Edit"
     end
 
@@ -68,14 +68,14 @@ RSpec.shared_examples "manage statuses" do
     end
 
     it "deletes a status" do
-      within find("tr", text: status2.key) do
+      within "tr", text: status2.key do
         accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).not_to have_content(status2.key)
+        expect(page).to have_no_content(status2.key)
       end
     end
   end

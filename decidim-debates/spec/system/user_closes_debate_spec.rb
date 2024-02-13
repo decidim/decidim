@@ -46,7 +46,7 @@ describe "User closes a debate" do
     end
 
     it "cannot be edited" do
-      expect(page).not_to have_content("Edit debate")
+      expect(page).to have_no_content("Edit debate")
     end
 
     it "is allowed to change the conclusions" do

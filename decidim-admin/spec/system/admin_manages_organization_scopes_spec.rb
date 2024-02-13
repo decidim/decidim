@@ -48,7 +48,7 @@ describe "Organization scopes" do
       end
 
       it "can edit them" do
-        within find("tr", text: translated(scope.name)) do
+        within "tr", text: translated(scope.name) do
           click_link "Edit"
         end
 
@@ -67,19 +67,19 @@ describe "Organization scopes" do
       end
 
       it "can delete them" do
-        within find("tr", text: translated(scope.name)) do
+        within "tr", text: translated(scope.name) do
           accept_confirm { click_link "Delete" }
         end
 
         expect(page).to have_admin_callout("successfully")
 
         within "[data-content]" do
-          expect(page).not_to have_content(translated(scope.name))
+          expect(page).to have_no_content(translated(scope.name))
         end
       end
 
       it "can create a new subcope" do
-        within find("tr", text: translated(scope.name)) do
+        within "tr", text: translated(scope.name) do
           page.find("td:first-child a").click
         end
 

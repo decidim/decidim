@@ -1223,7 +1223,7 @@ en:
         token_error: The link has expired.
         unsubscribe: Unsubscribe
     newsletters_opt_in:
-      unathorized: Sorry, this link is no longer available.
+      unauthorized: Sorry, this link is no longer available.
       update:
         error: There was a problem saving the newsletter settings.
         success: Newsletter settings successfully updated.

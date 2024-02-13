@@ -8,7 +8,7 @@
       <% else %>
         <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list:), resource: proposal, class: "column button light button--sc", data: { disable: true, "redirect-url": proposal_path(proposal) } do %>
           <%= t("decidim.proposals.proposals.vote_button.vote") %>
-          <span class="show-for-sr"><%= decidim_html_escape(present(proposal).title) %></span>
+          <span><%= decidim_html_escape(present(proposal).title) %></span>
         <% end %>
       <% end %>
     <% else %>
@@ -30,7 +30,7 @@
         ) do %>
           <%= icon("check-line", class: "icon--small", role: "img", "aria-hidden": true) %>
           <%= t("decidim.proposals.proposals.vote_button.already_voted") %>
-          <span class="show-for-sr"><%= decidim_html_escape(present(proposal).title) %></span>
+          <span><%= decidim_html_escape(present(proposal).title) %></span>
         <% end %>
       <% else %>
         <% if proposal.maximum_votes_reached? && !proposal.can_accumulate_supports_beyond_threshold && current_component.participatory_space.can_participate?(current_user) %>
@@ -43,7 +43,7 @@
           <% else %>
             <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list:), resource: proposal, remote: true, data: { disable: true, "redirect-url": proposal_path(proposal) }, class: "column button light button--sc" do %>
               <%= t("decidim.proposals.proposals.vote_button.vote") %>
-              <span class="show-for-sr"><%= decidim_html_escape(present(proposal).title) %></span>
+              <span><%= decidim_html_escape(present(proposal).title) %></span>
             <% end %>
           <% end %>
         <% end %>

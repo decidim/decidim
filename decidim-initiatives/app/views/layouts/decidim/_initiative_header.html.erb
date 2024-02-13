@@ -1,10 +1,10 @@
 <div class="process-header">
-  <div class="process-header__inner">
-    <div class="row column process-header__main"
+  <div>
+    <div class="row column"
         style="background-image:url('<%= current_participatory_space.type.attached_uploader(:banner_image).path %>');">
     </div>
-    <div class="process-header__container row collapse column">
-      <div class="columns mediumlarge-8 process-header__info">
+    <div class="row collapse column">
+      <div class="columns">
         <div>
           <h1>
             <%= participatory_space_helpers.translated_attribute(current_participatory_space.title) %>
@@ -13,7 +13,7 @@
         <div>
           <p>
             <% if current_participatory_space.hashtag.present? %>
-              <span class="process-header__hashtag">
+              <span>
                 <%= link_to "##{current_participatory_space.hashtag}", twitter_hashtag_url(current_participatory_space.hashtag), target: "_blank" %>
               </span>
             <% end %>

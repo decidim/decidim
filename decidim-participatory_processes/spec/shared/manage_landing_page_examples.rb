@@ -80,7 +80,7 @@ shared_examples "manage landing page examples" do
 
       click_button "Update"
       visit edit_content_block_path(resource, content_block)
-      expect(page).to have_selector("input[value='Custom button text!']")
+      expect(page).to have_css("input[value='Custom button text!']")
 
       content_block.reload
 

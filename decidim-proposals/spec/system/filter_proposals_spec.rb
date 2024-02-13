@@ -44,7 +44,7 @@ describe "Filter Proposals", :slow do
         end
       end
 
-      expect(page).not_to have_content("Another proposal")
+      expect(page).to have_no_content("Another proposal")
       expect(page).to have_content("Foobar proposal")
 
       filter_params = CGI.parse(URI.parse(page.current_url).query)
@@ -106,7 +106,7 @@ describe "Filter Proposals", :slow do
         visit_component
 
         within "form.new_filter" do
-          expect(page).not_to have_content(/Official/i)
+          expect(page).to have_no_content(/Official/i)
         end
       end
     end
@@ -164,14 +164,14 @@ describe "Filter Proposals", :slow do
         end
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
-        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: translated(first_proposal.title))
+        expect(page).to have_css("[id^='proposals__proposal']:first-child", text: translated(first_proposal.title))
 
         within "#dropdown-menu-order" do
           click_link "Most followed"
         end
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
-        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: translated(last_proposal.title))
+        expect(page).to have_css("[id^='proposals__proposal']:first-child", text: translated(last_proposal.title))
       end
     end
 
@@ -207,7 +207,7 @@ describe "Filter Proposals", :slow do
         visit_component
 
         within "form.new_filter" do
-          expect(page).not_to have_content(/Scope/i)
+          expect(page).to have_no_content(/Scope/i)
         end
       end
 
@@ -318,7 +318,7 @@ describe "Filter Proposals", :slow do
 
             within "[id^='proposals__proposal']" do
               expect(page).to have_content(translated(proposal.title))
-              expect(page).not_to have_content("Accepted")
+              expect(page).to have_no_content("Accepted")
             end
           end
         end
@@ -339,7 +339,7 @@ describe "Filter Proposals", :slow do
           visit_component
 
           within "form.new_filter" do
-            expect(page).not_to have_content(/Status/i)
+            expect(page).to have_no_content(/Status/i)
           end
         end
       end
@@ -354,7 +354,7 @@ describe "Filter Proposals", :slow do
         visit_component
 
         within "form.new_filter" do
-          expect(page).not_to have_content(/Status/i)
+          expect(page).to have_no_content(/Status/i)
         end
       end
     end
@@ -413,14 +413,14 @@ describe "Filter Proposals", :slow do
         end
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
-        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: translated(proposal1.title))
+        expect(page).to have_css("[id^='proposals__proposal']:first-child", text: translated(proposal1.title))
 
         within "#dropdown-menu-order" do
           click_link "Most followed"
         end
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
-        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: translated(proposal4.title))
+        expect(page).to have_css("[id^='proposals__proposal']:first-child", text: translated(proposal4.title))
       end
     end
   end
@@ -486,7 +486,7 @@ describe "Filter Proposals", :slow do
 
         it "cannot be filtered by supported" do
           within "form.new_filter" do
-            expect(page).not_to have_content(/Supported/i)
+            expect(page).to have_no_content(/Supported/i)
           end
         end
       end
@@ -496,7 +496,7 @@ describe "Filter Proposals", :slow do
       it "cannot be filtered by activity" do
         visit_component
         within "form.new_filter" do
-          expect(page).not_to have_content(/Activity/i)
+          expect(page).to have_no_content(/Activity/i)
         end
       end
     end
@@ -544,7 +544,7 @@ describe "Filter Proposals", :slow do
       end
 
       context "when amendments_enabled component setting is enabled" do
-        context "and amendments_visbility component step_setting is set to 'participants'" do
+        context "and amendments_visibility component step_setting is set to 'participants'" do
           context "when the user is logged in" do
             before do
               visit decidim.root_path
@@ -579,14 +579,14 @@ describe "Filter Proposals", :slow do
                 expect(page).to have_css("[id^='proposals__proposal']", count: 1)
                 expect(page).to have_content("Amendment", count: 2)
                 expect(page).to have_content(translated(new_emendation.title))
-                expect(page).not_to have_content(translated(emendation.title))
+                expect(page).to have_no_content(translated(emendation.title))
               end
             end
 
             context "and has NOT amended a proposal" do
               it "cannot be filtered by type" do
                 within "form.new_filter" do
-                  expect(page).not_to have_content(/Type/i)
+                  expect(page).to have_no_content(/Type/i)
                 end
               end
             end
@@ -608,7 +608,7 @@ describe "Filter Proposals", :slow do
 
             it "cannot be filtered by type" do
               within "form.new_filter" do
-                expect(page).not_to have_content(/Type/i)
+                expect(page).to have_no_content(/Type/i)
               end
             end
           end
@@ -620,7 +620,7 @@ describe "Filter Proposals", :slow do
           component.update!(settings: { amendments_enabled: false })
         end
 
-        context "and amendments_visbility component step_setting is set to 'participants'" do
+        context "and amendments_visibility component step_setting is set to 'participants'" do
           before do
             component.update!(
               step_settings: {
