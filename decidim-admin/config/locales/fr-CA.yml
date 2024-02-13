@@ -378,9 +378,6 @@ fr-CA:
           update: Mettre à jour
       dashboard:
         pending_moderations:
-          anouncement:
-            one: Il y a %{count} modération en attente
-            other: Il y a %{count} modérations en attente
           goto_moderation: Aller au panneau de modération global
           title: Modérations en attente
         show:
