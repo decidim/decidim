@@ -451,6 +451,11 @@ eu:
       conference_speaker_cell:
         personal_url:
           personal_website: Webgune pertsonala
+      conference_speakers:
+        index:
+          speakers:
+            one: Hizlaria
+            other: Hizlariak
       conferences:
         partners:
           collaborators: Kideak
