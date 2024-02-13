@@ -1215,7 +1215,6 @@ fr:
         token_error: Le lien a expiré.
         unsubscribe: Se désabonner
     newsletters_opt_in:
-      unathorized: Désolé, ce lien n'est plus disponible.
       update:
         error: Un problème est survenu lors de l'enregistrement des paramètres de la newsletter.
         success: Les paramètres de la newsletter ont été mis à jour avec succès.
