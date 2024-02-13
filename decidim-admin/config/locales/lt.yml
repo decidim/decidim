@@ -358,11 +358,6 @@ lt:
         user_name: Naudotojas
       dashboard:
         pending_moderations:
-          anouncement:
-            one: Yra %{count} laukiantis moderavimo
-            few: Yra %{count} laukiantys moderavimo
-            many: Yra %{count} laukiantys moderavimo
-            other: Yra %{count} laukiantys moderavimo
           goto_moderation: Eikite į globalius moderavimus
           title: Laukiantys Moderavimai
         show:
