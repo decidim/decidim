@@ -113,9 +113,11 @@ describe "Registration" do
 
       # Sign in
       click_on "Log in", match: :first
-      fill_in :session_user_email, with: user.email
-      fill_in :session_user_password, with: password
-      click_on "Log in"
+      within "form.new_user" do
+        fill_in :session_user_email, with: user.email
+        fill_in :session_user_password, with: password
+        click_on "Log in"
+      end
     end
 
     context "with a weak password" do

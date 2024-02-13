@@ -54,10 +54,11 @@ describe "Locales" do
         click_on "Català"
       end
 
-      fill_in "session_user_email", with: "toto@example.org"
-      fill_in "session_user_password", with: "toto"
-
-      click_on "Entra"
+      within ".new_user" do
+        fill_in "session_user_email", with: "toto@example.org"
+        fill_in "session_user_password", with: "toto"
+        click_on "Entra"
+      end
 
       expect(page).to have_content("Email o la contrasenya no són vàlids.")
     end

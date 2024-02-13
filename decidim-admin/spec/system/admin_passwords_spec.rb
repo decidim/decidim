@@ -82,8 +82,10 @@ describe "Admin passwords" do
 
   def manual_login(email, password)
     click_on "Log in", match: :first
-    fill_in :session_user_email, with: email
-    fill_in :session_user_password, with: password
-    click_on "Log in"
+    within ".new_user" do
+      fill_in :session_user_email, with: email
+      fill_in :session_user_password, with: password
+      click_on "Log in"
+    end
   end
 end

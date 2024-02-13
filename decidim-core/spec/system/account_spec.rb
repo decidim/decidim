@@ -303,9 +303,10 @@ describe "Account" do
       end
 
       it "the user can delete their account" do
-        fill_in :delete_user_delete_account_delete_reason, with: "I just want to delete my account"
-
-        click_on "Delete my account"
+        within ".delete-account" do
+          fill_in :delete_user_delete_account_delete_reason, with: "I just want to delete my account"
+          click_on "Delete my account"
+        end
 
         click_on "Yes, I want to delete my account"
 
