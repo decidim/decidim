@@ -1211,7 +1211,6 @@ fi-pl:
         token_error: Linkki on vanhentunut.
         unsubscribe: Peruuta tilaus
     newsletters_opt_in:
-      unathorized: Valitettavasti tämä linkki ei ole enää käytettävissä.
       update:
         error: Uutiskirjeasetusten päivitys epäonnistui.
         success: Uutiskirjeasetusten päivitys onnistui.
