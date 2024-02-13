@@ -171,8 +171,7 @@ pl:
           new:
             send: Poproś o weryfikację
             title: Prześlij swój dokument tożsamości
-        dni: Dowód osobisty
-        nie: NIP
+        identification_number: Numer identyfikacyjny
         passport: Paszport
       postal_letter:
         admin:
