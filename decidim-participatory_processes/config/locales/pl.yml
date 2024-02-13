@@ -409,6 +409,7 @@ pl:
             select_process_group: Wybierz grupę procesów
             slug_help_html: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do tego procesu. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
             title: Informacje ogólne
+            visibility: Widoczność
       content_blocks:
         extra_data:
           name: Etap i czas trwania
