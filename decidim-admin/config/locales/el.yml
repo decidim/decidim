@@ -356,9 +356,6 @@ el:
         user_name: Χρήστης
       dashboard:
         pending_moderations:
-          anouncement:
-            one: Υπάρχουν %{count} έγκριση σε εκκρεμότητα
-            other: Υπάρχουν %{count} εγκρίσεις σε εκκρεμότητα
           goto_moderation: Πηγαίνετε στις καθολικές εγκρίσεις
           title: Εκκρεμείς εγκρίσεις
         show:
