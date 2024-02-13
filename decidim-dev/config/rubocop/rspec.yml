@@ -9,10 +9,6 @@ RSpec/FilePath:
   CustomTransform:
     OAuthApplicationPresenter: oauth_application_presenter
 
-RSpec/SpecFilePathFormat:
-  CustomTransform:
-    OAuthApplicationPresenter: oauth_application_presenter
-
 RSpec/BeforeAfterAll:
   Enabled: true
 
