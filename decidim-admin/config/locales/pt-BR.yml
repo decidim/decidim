@@ -377,9 +377,6 @@ pt-BR:
           update: Atualizar
       dashboard:
         pending_moderations:
-          anouncement:
-            one: Existem %{count} pendentes de moderação
-            other: Existem %{count} moderações pendentes
           goto_moderation: Ir para moderações globais
           title: Moderações pendentes
         show:
