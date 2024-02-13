@@ -424,7 +424,6 @@ lt:
             select_participatory_process_type: Pasirinkti proceso tipą
             select_process_group: Pasirinkti procesų grupę
             title: Bendroji informacija
-            visbility: Matomumas
       content_blocks:
         extra_data:
           name: Fazė ir trukmė
