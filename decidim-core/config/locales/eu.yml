@@ -1195,7 +1195,6 @@ eu:
         token_error: Lotura iraungi da.
         unsubscribe: Baja eman
     newsletters_opt_in:
-      unathorized: Sentitzen dugu, lotura hau ez dago eskuragarri.
       update:
         error: Arazo bat egon da buletinaren konfigurazioak gordetzean.
         success: Buletinaren ezarpenak zuzen eguneratuak.
