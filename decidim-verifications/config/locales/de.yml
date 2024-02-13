@@ -231,6 +231,7 @@ de:
           update:
             error: Beim erneuten Hochladen Ihres Dokuments ist ein Problem aufgetreten.
             success: Das Dokument wurde erfolgreich erneut hochgeladen.
+        identification_number: Identifikationsnummer
         passport: Reisepass
       postal_letter:
         admin:
