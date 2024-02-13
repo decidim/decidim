@@ -345,7 +345,6 @@ nl:
             select_an_area: Selecteer een onderwerp
             select_process_group: Selecteer een procesgroep
             title: Algemene informatie
-            visbility: Zichtbaarheid
       content_blocks:
         highlighted_processes:
           name: Uitgelichte processen
