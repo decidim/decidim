@@ -296,6 +296,7 @@ eu:
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: % {url}'
             social_handlers: Soziala
             title: Informazio orokorra
+            visibility: Ikusgarritasuna
         assemblies_types:
           form:
             title: Editatu batzar mota
@@ -451,6 +452,10 @@ eu:
           take_part: Parte hartu
         index:
           promoted_assemblies: Batzar nabarmenduak
+        metadata:
+          children_item:
+            one: "%{count} batzarra"
+            other: "%{count} batzar"
         order_by_assemblies:
           assemblies:
             one: "%{count} batzarrak"
