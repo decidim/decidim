@@ -388,6 +388,9 @@ eu:
           name: Jarduera
         title:
           meta_scope: Esparrua
+          participatory_processes:
+            one: Prozesu bat
+            other: "%{count} prozesu"
       show:
         title: Prozesu parte-hartzaileen taldeak
     participatory_process_steps:
