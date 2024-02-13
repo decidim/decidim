@@ -307,7 +307,6 @@ ar:
             select_an_area: اختر منطقة
             select_process_group: حدد مجموعة عملية
             title: معلومات عامة
-            visbility: رؤية
       content_blocks:
         highlighted_processes:
           name: عمليات مميزة
