@@ -1211,6 +1211,7 @@ ca:
         token_error: L'enllaç ha caducat.
         unsubscribe: Anul·la la subscripció
     newsletters_opt_in:
+      unathorized: Ho sentim, aquest enllaç ja no està disponible.
       update:
         error: S'ha produït un error en desar la configuració del butlletí de notícies.
         success: La configuració del butlletí de notícies s'ha actualitzat correctament.
