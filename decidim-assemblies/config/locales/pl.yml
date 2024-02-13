@@ -302,7 +302,6 @@ pl:
             slug_help_html: 'Slugi URL służą do generowania adresów URL kierujących bezpośrednio do tego zgromadzenia. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             social_handlers: Profile społecznościowe
             title: Informacje ogólne
-            visbility: Widoczność
         assemblies_types:
           form:
             title: Tytuł
