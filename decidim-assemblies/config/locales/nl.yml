@@ -276,7 +276,6 @@ nl:
             select_parent_assembly: Selecteer de hoofdgroep
             social_handlers: sociaal
             title: Algemene informatie
-            visbility: Zichtbaarheid
         assemblies_settings:
           edit:
             update: Bijwerken
