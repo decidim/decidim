@@ -393,7 +393,6 @@ pt-BR:
             select_process_group: Selecione um grupo de processos
             slug_help_html: 'Os slugs de URL são usados para gerar os URLs que apontam para este processo. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
             title: Informação geral
-            visbility: Visibilidade
       content_blocks:
         highlighted_processes:
           name: Processos em destaque
