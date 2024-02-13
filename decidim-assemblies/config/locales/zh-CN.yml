@@ -247,7 +247,6 @@ zh-CN:
             select_parent_assembly: 选择父程序集
             social_handlers: 社交活动
             title: 一般信息
-            visbility: 可见性
         assemblies_types:
           form:
             title: 标题
