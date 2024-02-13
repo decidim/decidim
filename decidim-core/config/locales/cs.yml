@@ -1254,7 +1254,6 @@ cs:
         token_error: Platnost odkazu vypršela.
         unsubscribe: Odhlásit odběr
     newsletters_opt_in:
-      unathorized: Je nám líto, tento odkaz již není k dispozici.
       update:
         error: Při ukládání nastavení zpravodaje došlo k chybě.
         success: Nastavení Zpravodaje bylo úspěšně aktualizováno.
