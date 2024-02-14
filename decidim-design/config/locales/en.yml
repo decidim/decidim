@@ -3,5 +3,7 @@ en:
   decidim:
     design:
       home:
-        index: 
+        index:
+          decidim_guide: The guide to design all things Decidim
+          github_source: Source code on GitHub
           home_header: Decidim Design Guide
