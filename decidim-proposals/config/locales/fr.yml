@@ -103,7 +103,7 @@ fr:
               'false': Propositions
               'true': Amendements
           proposal_state_id_eq:
-            label: Statut
+            label: État
           scope_id_eq:
             label: Secteur
           state_eq:
@@ -287,14 +287,14 @@ fr:
           notification_title_official: La proposition officielle <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}.
         proposal_state_changed:
           affected_user:
-            email_intro: 'La proposition "%{resource_title}" est passée au statut "%{state}". Vous pouvez lire la réponse sur cette page :'
+            email_intro: 'La proposition "%{resource_title}" est passée à l''état "%{state}". Vous pouvez lire la réponse sur cette page :'
             email_outro: Vous avez reçu cette notification parce que vous êtes un(e) auteur(e) de "%{resource_title}".
-            email_subject: Votre proposition a changé de statut (%{state})
-            notification_title: Le statut de votre proposition <a href="%{resource_path}">%{resource_title}</a> est passé à %{state}.
+            email_subject: Votre proposition a changé d'état (%{state})
+            notification_title: L'état de votre proposition <a href="%{resource_path}">%{resource_title}</a> est passé à %{state}.
           follower:
             email_intro: 'La proposition "%{resource_title}" est passée à l''état "%{state}". Vous pouvez lire la réponse sur cette page :'
             email_outro: Vous recevez cette notification car vous suivez « %{resource_title} ». Vous pouvez annuler ce suivi en allant sur le lien précédent.
-            email_subject: Une proposition que vous suivez a changé de statut (%{state})
+            email_subject: Une proposition que vous suivez a changé d'état (%{state})
             notification_title: L'état de la proposition <a href="%{resource_path}">%{resource_title}</a> est passé à "%{state}".
         proposal_update_category:
           email_intro: 'Un administrateur a mis à jour la catégorie de votre proposition "%{resource_title}". Vous pouvez y accéder ici :'
@@ -371,12 +371,12 @@ fr:
       actions:
         answer_proposal: Répondre à la proposition
         delete_proposal_state_confirm: Etes-vous sûr(e) de vouloir supprimer cet état?
-        destroy: Supprimer le statut
+        destroy: Supprimer l'état
         edit_proposal: Modifier la proposition
-        edit_proposal_state: Modifier le statut
+        edit_proposal_state: Modifier l'état
         import: Importer depuis une autre fonctionnalité
         new: Nouvelle proposition
-        new_proposal_state: Nouveau statut
+        new_proposal_state: Nouvel état
         participatory_texts: Textes participatifs
         show: Afficher la proposition
         title: Actions
@@ -467,7 +467,7 @@ fr:
           title: Notes privées
         proposal_states:
           create:
-            error: Erreur lors de la création du statut
+            error: Erreur lors de la création de l'état
             success: Etat créé avec succès
           destroy:
             success: Etat supprimé avec succès
@@ -475,13 +475,13 @@ fr:
             title: Modifier l'état
             update: Mettre à jour
           index:
-            title: Statuts
+            title: États
           new:
             create: Créer
             title: Nouvel état
           update:
             error: Erreur lors de la mise à jour de l'état
-            success: Statut mis à jour avec succès
+            success: Etat mis à jour avec succès
         proposals:
           answer:
             invalid: Il y a eu un problème lors de la réponse à cette proposition.
