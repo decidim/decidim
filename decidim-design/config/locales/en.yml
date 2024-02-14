@@ -1,5 +1,7 @@
 ---
 en:
   decidim:
-    home:
-      home_header: Decidim Design Guide
+    design:
+      home:
+        index: 
+          home_header: Decidim Design Guide
