@@ -1,7 +1,7 @@
 <div class="item_show__header">
-  <h2 class="item_show__header-title">
+  <h1 class="item_show__header-title">
     <%= t "decidim.admin.menu.help_sections" %>
-  </h2>
+  </h1>
 </div>
 
 <div class="item__edit-form">
@@ -13,9 +13,9 @@
             <div class="card-divider">
               <button class="card-divider-button" data-open="true" data-controls="panel-<%= translated_attribute section.name %>" type="button">
                 <%= icon "arrow-right-s-line" %>
-                <h2 class="card-title" id="<%= translated_attribute section.name %>">
+                <h1 class="card-title" id="<%= translated_attribute section.name %>">
                   <%= translated_attribute section.name %>
-                </h2>
+                </h1>
               </button>
             </div>
             <div id="panel-<%= translated_attribute section.name %>" class="card-section">

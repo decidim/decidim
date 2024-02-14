@@ -1,10 +1,10 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="card">
   <div class="item_show__header">
-    <h2 class="item_show__header-title">
+    <h1 class="item_show__header-title">
       <%= t ".title" %>
       <%= link_to t("actions.newsletter.new", scope: "decidim.admin"), [:newsletter_templates], class: "button button__sm button__secondary expanded small new" %>
-    </h2>
+    </h1>
   </div>
 
   <div class="card-section">
@@ -15,13 +15,13 @@
           </iframe>
 
           <div class="card-footer">
-            <h2 class="card-title flex items-center">
+            <h1 class="card-title flex items-center">
               <%= t newsletter_template.public_name_key %>
               <div class="ml-auto">
                 <%= link_to(t(".preview_template"), newsletter_template_path(newsletter_template.name), class: "button button__sm button__secondary") %>
                 <%= link_to(t(".use_template"), new_newsletter_template_newsletter_path(newsletter_template.name), class: "button button__sm button__secondary") %>
               </div>
-            </h2>
+            </h1>
           </div>
         </div>
       <% end %>
