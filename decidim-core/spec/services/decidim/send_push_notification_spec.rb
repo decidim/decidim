@@ -5,14 +5,9 @@ require "spec_helper"
 describe Decidim::SendPushNotification do
   subject { described_class.new }
 
-  let(:subscription) { { "auth_key_1" => { "auth" => "auth_key_1", "p256dh" => "p256dh_1", "endpoint" => "endpoint_1" } } }
-  let(:subscriptions) do
-    {
-      "auth_key_1" => { "auth" => "auth_key_1", "p256dh" => "p256dh_1", "endpoint" => "endpoint_1" },
-      "auth_key_2" => { "auth" => "auth_key_2", "p256dh" => "p256dh_2", "endpoint" => "endpoint_2" },
-      "auth_key_3" => { "auth" => "auth_key_3", "p256dh" => "p256dh_3", "endpoint" => "endpoint_3" }
-    }
-  end
+  let(:subscriptions) { {} }
+  let(:user) { create(:user, notification_settings: { subscriptions: }) }
+  let(:notification) { create(:notification, user:) }
 
   before do
     Rails.application.secrets[:vapid] = { enabled: true, public_key: "public_key", private_key: "private_key" }
@@ -24,9 +19,6 @@ describe Decidim::SendPushNotification do
     end
 
     describe "#perform" do
-      let(:user) { create(:user) }
-      let(:notification) { create(:notification, user:) }
-
       it "returns false" do
         expect(subject.perform(notification)).to be_falsy
       end
@@ -39,9 +31,6 @@ describe Decidim::SendPushNotification do
     end
 
     describe "#perform" do
-      let(:user) { create(:user) }
-      let(:notification) { create(:notification, user:) }
-
       it "returns false" do
         expect(subject.perform(notification)).to be_falsy
       end
@@ -49,10 +38,9 @@ describe Decidim::SendPushNotification do
   end
 
   context "without any subscription" do
-    describe "#perform" do
-      let(:user) { create(:user, notification_settings: { subscriptions: {} }) }
-      let(:notification) { create(:notification, user:) }
+    let(:subscriptions) { {} }
 
+    describe "#perform" do
       it "returns empty array" do
         expect(subject.perform(notification)).to be_empty
       end
@@ -60,12 +48,17 @@ describe Decidim::SendPushNotification do
   end
 
   context "with subscriptions" do
-    let(:user) { create(:user, notification_settings: { subscriptions: }) }
-    let(:notification) { create(:notification, user:) }
+    let(:presented_notification) { Decidim::PushNotificationPresenter.new(notification) }
+    let(:subscriptions) do
+      {
+        "auth_key_1" => { "auth" => "auth_key_1", "p256dh" => "p256dh_1", "endpoint" => "endpoint_1" },
+        "auth_key_2" => { "auth" => "auth_key_2", "p256dh" => "p256dh_2", "endpoint" => "endpoint_2" },
+        "auth_key_3" => { "auth" => "auth_key_3", "p256dh" => "p256dh_3", "endpoint" => "endpoint_3" }
+      }
+    end
 
     describe "#perform" do
       it "returns 201 and created if the message is sent ok" do
-        presented_notification = Decidim::PushNotificationPresenter.new(notification)
         message = JSON.generate({
                                   title: presented_notification.title,
                                   body: presented_notification.body,
@@ -116,12 +109,11 @@ describe Decidim::SendPushNotification do
   end
 
   context "with subscription" do
-    let(:user) { create(:user, notification_settings: { subscriptions: subscription }) }
-    let(:notification) { create(:notification, user:) }
+    let(:presented_notification) { Decidim::PushNotificationPresenter.new(notification) }
+    let(:subscriptions) { { "auth_key_1" => { "auth" => "auth_key_1", "p256dh" => "p256dh_1", "endpoint" => "endpoint_1" } } }
 
     describe "#perform" do
       it "returns 201 and created if the message is sent ok" do
-        presented_notification = Decidim::PushNotificationPresenter.new(notification)
         notification_payload = {
           message: JSON.generate({
                                    title: presented_notification.title,
@@ -151,7 +143,6 @@ describe Decidim::SendPushNotification do
         user.update(locale: alternative_locale)
 
         I18n.with_locale(user.locale) do
-          presented_notification = Decidim::PushNotificationPresenter.new(notification)
           message = JSON.generate({
                                     title: presented_notification.title,
                                     body: presented_notification.body,
