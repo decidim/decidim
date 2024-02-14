@@ -292,6 +292,7 @@ de:
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             social_handlers: Sozial
             title: Allgemeine Information
+            visbility: Sichtbarkeit
         assemblies_settings:
           edit:
             update: Aktualisieren
