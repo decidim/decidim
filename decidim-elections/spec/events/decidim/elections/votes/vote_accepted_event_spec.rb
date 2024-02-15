@@ -12,33 +12,12 @@ describe Decidim::Elections::Votes::VoteAcceptedEvent do
   let(:encrypted_vote_hash) { vote.encrypted_vote_hash }
   let(:resource_name) { resource.title["en"] }
   let(:verify_url) { Decidim::EngineRouter.main_proxy(resource.component).election_vote_verify_url(resource, vote_id: encrypted_vote_hash) }
+  let(:email_subject) { "Your vote for #{resource_name} was accepted." }
+  let(:email_intro) { "Your vote was accepted! Using your voting token: #{encrypted_vote_hash}, you can verify your vote <a href=\"#{verify_url}\">here</a>." }
+  let(:email_outro) { "You have received this notification because you have voted for the #{resource_name} election." }
+  let(:notification_title) { "Your vote was accepted. Verify your vote <a href=\"#{verify_url}\">here</a> using your vote token: #{encrypted_vote_hash}" }
 
   it_behaves_like "a simple event"
-
-  describe "email_subject" do
-    it "is generated correctly" do
-      expect(subject.email_subject).to eq("Your vote for #{resource_name} was accepted.")
-    end
-  end
-
-  describe "email_intro" do
-    it "is generated correctly" do
-      expect(subject.email_intro)
-        .to eq("Your vote was accepted! Using your voting token: #{encrypted_vote_hash}, you can verify your vote <a href=\"#{verify_url}\">here</a>.")
-    end
-  end
-
-  describe "email_outro" do
-    it "is generated correctly" do
-      expect(subject.email_outro)
-        .to eq("You have received this notification because you have voted for the #{resource_name} election.")
-    end
-  end
-
-  describe "notification_title" do
-    it "is generated correctly" do
-      expect(subject.notification_title)
-        .to eq("Your vote was accepted. Verify your vote <a href=\"#{verify_url}\">here</a> using your vote token: #{encrypted_vote_hash}")
-    end
-  end
+  it_behaves_like "a simple event email"
+  it_behaves_like "a simple event notification"
 end
