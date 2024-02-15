@@ -21,7 +21,7 @@ describe "Edit initiative" do
     it "can be updated" do
       visit initiative_path
 
-      click_on("Edit", href: edit_initiative_path)
+      click_on("Edit")
 
       expect(page).to have_content "Edit Initiative"
 
@@ -59,7 +59,7 @@ describe "Edit initiative" do
     it "allows adding attachments" do
       visit initiative_path
 
-      click_on("Edit", href: edit_initiative_path)
+      click_on("Edit")
 
       expect(page).to have_content "Edit Initiative"
 
@@ -130,7 +130,7 @@ describe "Edit initiative" do
     before do
       visit initiative_path
 
-      click_on("Edit", href: edit_initiative_path)
+      click_on("Edit")
 
       expect(page).to have_content "Edit Initiative"
     end
