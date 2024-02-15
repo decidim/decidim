@@ -33,6 +33,7 @@ end
   port = rand(5000..6999)
   begin
     Socket.tcp("127.0.0.1", port, connect_timeout: 5).close
+    warn "Port #{port} is already in use, trying another one."
   rescue Errno::ECONNREFUSED
     # When connection is refused, the port is available for use.
     Capybara.server_port = port
