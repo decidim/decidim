@@ -35,7 +35,7 @@ module Decidim
         allow(Decidim).to receive(:component_manifests).and_return([manifest])
       end
 
-      it "renders a collection of stats including users and proceses" do
+      it "renders a collection of stats including users and processes" do
         expect(subject.collection).to include({ stat_number: 10, stat_title: :foo })
       end
     end

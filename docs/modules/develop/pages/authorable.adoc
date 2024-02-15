@@ -1,6 +1,6 @@
 = Authorship
 
-Regarging authorship of Decidim resources/entities, there are three concerns
+Regarding authorship of Decidim resources/entities, there are three concerns
 involved directly:
 
 * `Decidim::ActsAsAuthor`: which defines how an author should behave.

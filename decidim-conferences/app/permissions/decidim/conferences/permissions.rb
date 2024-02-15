@@ -160,7 +160,7 @@ module Decidim
       end
 
       # All users with a relation to a conference and organization admins can enter
-      # the space area. The sapce area is considered to be the conferences zone,
+      # the space area. The space area is considered to be the conferences zone,
       # not the conference groups one.
       def user_can_enter_space_area?
         return unless permission_action.action == :enter &&

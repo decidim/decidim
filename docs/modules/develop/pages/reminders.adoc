@@ -42,7 +42,7 @@ The ReminderRecord object holds a "state" attribute which tells whether the reco
 
 == Defining a reminder
 
-Reminders can be defined through initializers by defining calling the `registed` method on the reminders registry object at the Decidim main module as follows:
+Reminders can be defined through initializers by defining calling the `registered` method on the reminders registry object at the Decidim main module as follows:
 
 [source,ruby]
 ----
