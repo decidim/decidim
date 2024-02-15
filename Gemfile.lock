@@ -61,7 +61,7 @@ PATH
       acts_as_list (~> 0.9)
       batch-loader (~> 1.2)
       browser (~> 2.7)
-      carrierwave (~> 2.2.1)
+      carrierwave (~> 2.2.5, >= 2.2.5)
       cells-erb (~> 0.1.0)
       cells-rails (~> 0.1.3)
       charlock_holmes (~> 0.7)
@@ -263,8 +263,8 @@ GEM
       zeitwerk (~> 2.3)
     acts_as_list (0.9.19)
       activerecord (>= 3.0)
-    addressable (2.8.0)
-      public_suffix (>= 2.0.2, < 5.0)
+    addressable (2.8.6)
+      public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     axe-core-api (4.8.0)
       dumb_delegator
@@ -303,7 +303,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    carrierwave (2.2.4)
+    carrierwave (2.2.5)
       activemodel (>= 5.0.0)
       activesupport (>= 5.0.0)
       addressable (~> 2.6)
@@ -337,7 +337,7 @@ GEM
     coffee-script-source (1.12.2)
     colorize (0.8.1)
     commonmarker (0.23.10)
-    concurrent-ruby (1.2.2)
+    concurrent-ruby (1.2.3)
     crack (0.4.5)
       rexml
     crass (1.0.6)
@@ -430,7 +430,7 @@ GEM
     faraday-retry (1.0.3)
     faraday_middleware (1.2.0)
       faraday (~> 1.0)
-    ffi (1.15.5)
+    ffi (1.16.3)
     file_validators (3.0.0)
       activemodel (>= 3.2)
       mime-types (>= 1.0)
@@ -550,7 +550,7 @@ GEM
     mini_magick (4.12.0)
     mini_mime (1.1.5)
     mini_portile2 (2.8.5)
-    minitest (5.20.0)
+    minitest (5.22.2)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.27)
       tomlrb
@@ -632,7 +632,7 @@ GEM
       actionmailer (>= 3)
       net-smtp
       premailer (~> 1.7, >= 1.7.9)
-    public_suffix (4.0.7)
+    public_suffix (5.0.4)
     puma (5.6.4)
       nio4r (~> 2.0)
     racc (1.7.3)
@@ -859,7 +859,7 @@ GEM
     wkhtmltopdf-binary (0.12.6.6)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.12)
+    zeitwerk (2.6.13)
 
 PLATFORMS
   ruby
