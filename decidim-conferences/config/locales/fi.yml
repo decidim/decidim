@@ -99,7 +99,7 @@ fi:
         send_diplomas: Lähetä läsnäolotodistukset
       conference_copies:
         new:
-          copy: Kopio
+          copy: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
           title: Kopioi konferenssi
       conference_publications:
