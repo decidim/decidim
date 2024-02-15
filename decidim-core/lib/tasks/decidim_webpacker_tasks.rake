@@ -12,12 +12,13 @@ namespace :decidim do
       remove_file_from_application "bin/yarn"
       remove_file_from_application "yarn.lock"
       remove_file_from_application "node_modules/.yarn-integrity"
-      # Babel config
-      copy_file_to_application "babel.config.json"
       # PostCSS configuration
       copy_file_to_application "decidim-core/lib/decidim/webpacker/postcss.config.js", "postcss.config.js"
 
-      # Remnove the Webpacker config and deploy shakacpacker
+      copy_file_to_application "decidim-core/lib/decidim/webpacker/esbuild.config.js", "config/esbuild.config.js"
+      copy_file_to_application "decidim-core/lib/decidim/webpacker/tsconfig.json", "tsconfig.json"
+
+      # Remove the Webpacker config and deploy shakapacker
       migrate_shakapacker
 
       # Install JS dependencies
@@ -55,6 +56,15 @@ namespace :decidim do
       raise "Decidim gem is not installed" if decidim_path.nil?
 
       remove_file_from_application "bin/yarn"
+
+      unless File.exist?(rails_app_path.join("config/esbuild.config.js"))
+        copy_file_to_application "decidim-core/lib/decidim/webpacker/esbuild.config.js",
+                                 "config/esbuild.config.js"
+      end
+      unless File.exist?(rails_app_path.join("tsconfig.json"))
+        copy_file_to_application "decidim-core/lib/decidim/webpacker/tsconfig.json",
+                                 "tsconfig.json"
+      end
 
       # Remnove the Webpacker config and deploy shakacpacker
       migrate_shakapacker
