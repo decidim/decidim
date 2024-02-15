@@ -240,6 +240,10 @@ describe "Amend Proposal", versioning: true do
 
           context "when the form is filled incorrectly" do
             before do
+              login_as user, scope: :user
+              visit proposal_path
+              expect(page).to have_content(proposal_title)
+              click_on "Amend"
               within ".new_amendment" do
                 fill_in "amendment[emendation_params][title]", with: "INVALID TITLE"
               end
