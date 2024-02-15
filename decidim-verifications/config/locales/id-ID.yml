@@ -162,11 +162,6 @@ id:
           new:
             send: Meminta verifikasi
             title: Unggah dokumen identitas Anda
-          update:
-            error: Terjadi masalah saat memuat ulang dokumen Anda
-            success: Dokumen berhasil diunggah ulang
-        dni: DNI
-        nie: NIE
         passport: Paspor
       postal_letter:
         admin:
