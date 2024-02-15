@@ -12,6 +12,8 @@ fr:
         state: État
         title: Titre
         user_group_id: Créez un brouillon collaboratif comme
+      import_participatory_text:
+        document: Document du texte participatif
       proposal:
         address: Adresse
         answer: Répondre
