@@ -3,10 +3,10 @@
 <%= cell("decidim/announcement", t("explanation_callout", scope: "decidim.votings.admin.ballot_styles.index"), callout_class: "warning" ) %>
 <div class="card" id="ballot_styles">
   <div class="item_show__header">
-    <h2 class="item_show__header-title">
+    <h1 class="item_show__header-title">
       <%= t(".title") %>
       <%= link_to t("actions.new", scope: "decidim.votings.admin.ballot_styles.index"), new_voting_ballot_style_path(current_voting), class: "button button__sm button__secondary" if allowed_to? :create, :ballot_style, voting: current_voting %>
-    </h2>
+    </h1>
   </div>
   <div class="table-scroll">
     <table class="table-list">
