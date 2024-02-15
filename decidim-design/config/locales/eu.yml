@@ -1,1 +1,12 @@
+---
 eu:
+  decidim:
+    design:
+      home:
+        index:
+          by_sharing_principles: Diseinu-erabakien printzipioak, filosofia eta oinarriak partekatzean, komunitatea koherentziaz lagundu dezan gaitu nahi dugu, parte-hartzaileentzako esperientziarik onena lor dezagun.
+          decidim_guide: 'Decidim: gauza guztiak diseinatzeko gida'
+          different_ui_components: Aldi berean, erabiltzen diren IUko osagai ezberdinak eta ereduak dokumentatzen ditugu, berrerabili edo zabaldu beharko liratekeenak.
+          github_source: Iturburu-kodea GitHub-en
+          home_header: Decidim Diseinuaren Gida
+          welcome_sentence: Ongi etorri Decidim Design Guy-ra (DDG). Gida hau baliabidea da diseinatzaile eta garatzaileentzat, modulu berriak pertsonalizatu, garatu eta funtzio berriak integratu behar dituztenentzat.
