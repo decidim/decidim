@@ -1218,6 +1218,7 @@ es-PY:
         token_error: El enlace ha expirado.
         unsubscribe: Darse de baja
     newsletters_opt_in:
+      unauthorized: Lo sentimos, este enlace ya no está disponible.
       update:
         error: Se ha producido un error al guardar la configuración del boletín de noticias.
         success: La configuración del boletín de noticias se ha actualizado correctamente.
