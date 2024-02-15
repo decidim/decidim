@@ -2,7 +2,7 @@
 /* eslint max-lines: ["error", {"max": 350, "skipBlankLines": true}] */
 
 /**
- * A plain Javascript component that handles the form filter.
+ * A plain JavaScript component that handles the form filter.
  * @class
  * @augments Component
  */

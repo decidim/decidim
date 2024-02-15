@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A heper to expose an easy way to add authorization forms in a view.
+  # A helper to expose an easy way to add authorization forms in a view.
   module AuthorizationFormHelper
     # Creates a ew authorization form in a view, accepts the same arguments as
     # `form_for`.

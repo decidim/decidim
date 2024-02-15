@@ -4,7 +4,7 @@ import createOptionAttachedInputs from "src/decidim/forms/option_attached_inputs
 import createMaxChoicesAlertComponent from "src/decidim/forms/max_choices_alert.component"
 
 /**
- * A plain Javascript component that handles questions from polls in meetings:
+ * A plain JavaScript component that handles questions from polls in meetings:
  *   - fetches them via Ajax
  *   - enables a polling to automatically update them
  *

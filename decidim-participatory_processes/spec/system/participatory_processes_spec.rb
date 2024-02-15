@@ -186,7 +186,7 @@ describe "Participatory Processes" do
           visit decidim_participatory_processes.participatory_processes_path
         end
 
-        it "shows a highligted processes section" do
+        it "shows a highlighted processes section" do
           expect(page).to have_content("Highlighted processes")
         end
 

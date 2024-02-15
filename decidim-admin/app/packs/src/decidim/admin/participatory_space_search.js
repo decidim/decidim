@@ -25,7 +25,7 @@ const apiRequest = (query) => {
 /**
  * Resolves the different root fields for listing different participatory spaces
  * available in the instance. Returns all LIST kind root fields that list
- * records implemeting the ParticipatorySpaceInterface.
+ * records implementing the ParticipatorySpaceInterface.
  *
  * @returns {Promise} A promise resolving the root fields for querying different
  *   participatory spaces.

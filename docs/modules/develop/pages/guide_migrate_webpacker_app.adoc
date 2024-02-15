@@ -43,7 +43,7 @@ This task do a few steps to allow the Rails instance to have a webpacker instanc
 
 This task is automatically performed every time decidim is updated, to get the latest Webpack configuration. This happens when you run the `decidim:upgrade` task.
 
-=== Copy Decidim custom CSS and Javascript
+=== Copy Decidim custom CSS and JavaScript
 
 `webpacker:install` task should have created to you the following dirs structure:
 
@@ -104,7 +104,7 @@ If any of the CSS is re-defining CSS vars add them to `_decidim-settings.scss`.
 
 === Migrate javascripts
 
-Existing javascripts should be moved from `app/assets/javascsripts` to `app/packs/src` and imported with `import` into `decidim_application.js`. Take into account that you might need to adjust a bit the paths of the `import` to adjust them to the new locations.
+Existing javascripts should be moved from `app/assets/javascripts` to `app/packs/src` and imported with `import` into `decidim_application.js`. Take into account that you might need to adjust a bit the paths of the `import` to adjust them to the new locations.
 
 If that JS file is replacing a Decidim file, there is no need to add it to `decidim_application.js`
 

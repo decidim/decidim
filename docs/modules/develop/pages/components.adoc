@@ -167,7 +167,7 @@ This sections explains how to add dummy content to a development application.
 === Tips and Tricks
 
 * Take advantage of the Faker gem, already in decidim.
-* If you need content for i18n fields, you can use https://github.com/decidim/decidim/blob/develop/decidim-core/lib/decidim/faker/localized.rb[Localizaed], which uses `Faker` internally.
+* If you need content for i18n fields, you can use https://github.com/decidim/decidim/blob/develop/decidim-core/lib/decidim/faker/localized.rb[Localized], which uses `Faker` internally.
 
 == Assets
 
