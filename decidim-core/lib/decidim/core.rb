@@ -121,6 +121,7 @@ module Decidim
   autoload :ModerationTools, "decidim/moderation_tools"
   autoload :ContentSecurityPolicy, "decidim/content_security_policy"
   autoload :IconRegistry, "decidim/icon_registry"
+  autoload :HasConversations, "decidim/has_conversations"
 
   module Commands
     autoload :CreateResource, "decidim/commands/create_resource"
