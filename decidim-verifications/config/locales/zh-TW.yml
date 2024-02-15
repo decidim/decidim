@@ -218,10 +218,8 @@ zh-TW:
             send: 申請驗證
             title: 上傳您的身份證件
           update:
-            error: 重新上傳您的文件時發生問題
-            success: 文件已成功重新上傳
-        dni: DNI
-        nie: NIE
+            error: 重新上傳您的文件時發生問題.
+            success: 文件已成功重新上傳.
         passport: 護照
       postal_letter:
         admin:
