@@ -206,11 +206,6 @@
           new:
             send: Be om verifikasjon
             title: Last opp dine identitetsdokumentet
-          update:
-            error: Det oppstod et problem med å laste opp dokumentet ditt på nytt
-            success: Dokumentet ble lastet opp på nytt
-        dni: DNI
-        nie: NIE
         passport: Pass
       postal_letter:
         admin:
