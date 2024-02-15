@@ -80,10 +80,6 @@ is:
           new:
             send: Beiðni um staðfestingu
             title: Hladdu upp skjalið þitt
-          update:
-            error: Vandamál kom upp við að endurheimta skjalið þitt
-        dni: DNI
-        nie: NIE
         passport: Vegabréf
       postal_letter:
         admin:
