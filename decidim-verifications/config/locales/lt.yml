@@ -228,10 +228,8 @@ lt:
             send: Užklausos tikrinimas
             title: Įkelkite savo tapatybės dokumentą
           update:
-            error: Iš naujo įkeliant jūsų dokumentą iškilo problema
-            success: Dokumentas iš naujo įkeltas
-        dni: Asmens tapatybės dokumentas
-        nie: NIE
+            error: Iš naujo įkeliant jūsų dokumentą iškilo problema.
+            success: Dokumentas įkeltas iš naujo.
         passport: Pasas
       postal_letter:
         admin:
