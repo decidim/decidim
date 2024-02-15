@@ -33,6 +33,7 @@ end
   port = rand(5000..6999)
   begin
     Socket.tcp("127.0.0.1", port, connect_timeout: 5).close
+    warn "Port #{port} is already in use, trying another one."
   rescue Errno::ECONNREFUSED
     # When connection is refused, the port is available for use.
     Capybara.server_port = port
@@ -44,6 +45,8 @@ Capybara.register_driver :headless_chrome do |app|
   options = Selenium::WebDriver::Chrome::Options.new
   options.args << "--explicitly-allowed-ports=#{Capybara.server_port}"
   options.args << "--headless=new"
+  # Do not limit browser resources
+  options.args << "--disable-dev-shm-usage"
   options.args << "--no-sandbox"
   options.args << if ENV["BIG_SCREEN_SIZE"].present?
                     "--window-size=1920,3000"
@@ -94,6 +97,8 @@ Capybara.register_driver :iphone do |app|
   options = Selenium::WebDriver::Chrome::Options.new
   options.args << "--headless=new"
   options.args << "--no-sandbox"
+  # Do not limit browser resources
+  options.args << "--disable-dev-shm-usage"
   options.add_emulation(device_name: "iPhone 6")
 
   Capybara::Selenium::Driver.new(
