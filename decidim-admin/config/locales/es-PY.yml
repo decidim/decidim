@@ -377,6 +377,9 @@ es-PY:
           update: Actualizar
       dashboard:
         pending_moderations:
+          announcement:
+            one: Hay %{count} moderación pendiente
+            other: Hay %{count} moderaciones pendientes
           goto_moderation: Ir a moderaciones globales
           title: Moderaciones pendientes
         show:
