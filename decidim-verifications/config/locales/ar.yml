@@ -167,11 +167,6 @@ ar:
           new:
             send: طلب التحقق
             title: قم بتحميل مستند هويتك
-          update:
-            error: حدثت مشكلة أثناء إعادة تحميل المستند
-            success: تم إعادة تحميل المستند بنجاح
-        dni: DNI
-        nie: NIE
         passport: جواز سفر
       postal_letter:
         admin:
