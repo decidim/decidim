@@ -228,10 +228,8 @@ cs:
             send: Požádejte o ověření
             title: Nahrajte svůj doklad totožnosti
           update:
-            error: Při načítání dokumentu došlo k problému
-            success: Dokument byl úspěšně obnoven
-        dni: Občanský průkaz
-        nie: Daňové identifikační číslo
+            error: Při nahrávání Vašeho dokladu došlo k chybě.
+            success: Dokument byl úspěšně znovu nahrán.
         passport: Cestovní pas
       postal_letter:
         admin:
