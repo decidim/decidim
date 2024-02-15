@@ -173,7 +173,7 @@ fi:
             invitation_sent_at: Kutsu on
       participatory_process_copies:
         new:
-          copy: Kopio
+          copy: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
           title: Kopioi osallistumisprosessi
       participatory_process_groups:
@@ -436,6 +436,7 @@ fi:
             select_process_group: Valitse prosessiryhmä
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
             title: Yleistä tietoa
+            visibility: Näkyvyys
       content_blocks:
         extra_data:
           name: Vaihe ja kesto
