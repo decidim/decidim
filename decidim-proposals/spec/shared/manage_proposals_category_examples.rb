@@ -77,11 +77,11 @@ shared_examples "when managing proposals category as an admin" do
     context "when updating multiple proposals consecutively" do
       before do
         find("tr[data-id=\"#{proposal_first.id}\"] input").set(true)
-        click_button "Actions"
-        click_button "Change category"
+        click_on "Actions"
+        click_on "Change category"
         within "#js-form-recategorize-proposals" do
           select translated(category.name), from: :category_id
-          click_button(id: "js-submit-edit-category")
+          click_on(id: "js-submit-edit-category")
         end
 
         expect(page).to have_selector(".success")
@@ -89,11 +89,11 @@ shared_examples "when managing proposals category as an admin" do
 
       it "updates both correctly" do
         find("tr[data-id=\"#{proposal_last.id}\"] input").set(true)
-        click_button "Actions"
-        click_button "Change category"
+        click_on "Actions"
+        click_on "Change category"
         within "#js-form-recategorize-proposals" do
           select translated(parent_category.name), from: :category_id
-          click_button(id: "js-submit-edit-category")
+          click_on(id: "js-submit-edit-category")
         end
 
         within "tr[data-id=\"#{proposal_first.id}\"]" do

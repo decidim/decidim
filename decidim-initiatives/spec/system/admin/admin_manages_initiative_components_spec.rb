@@ -51,7 +51,7 @@ describe "Admin manages initiative components" do
             all("input[type=checkbox]").first.click
           end
         end
-        click_on "Add component", type: "submit"
+        click_on "Add component"
       end
     end
 
