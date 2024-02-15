@@ -1,1 +1,12 @@
+---
 es:
+  decidim:
+    design:
+      home:
+        index:
+          by_sharing_principles: Compartiendo los principios, filosofía y razonamientos detrás de las decisiones de diseño queremos empoderar a la comunidad para que contribuya con consistencia para llegar a la mejor experiencia para las participantes.
+          decidim_guide: La guía para diseñar todas tipo de cosas para Decidim
+          different_ui_components: Al mismo tiempo, documentamos las interfaces de usuaria de los diferentes componentes y patrones en uso, que deben ser reutilizados o ampliados.
+          github_source: Código fuente en GitHub
+          home_header: Guía de diseño de Decidim
+          welcome_sentence: Bienvenida a la Guía de Diseño de Decidim (GDD). Esta guía es el recurso para diseñadoras y desarrolladoras que necesitan personalizar, desarrollar nuevos módulos e integrar nuevas características.
