@@ -14,7 +14,7 @@ import Rails from "@rails/ujs"
 import svg4everybody from "svg4everybody"
 import morphdom from "morphdom"
 
-// vendor customizated scripts (bad practice: these ones should be removed eventually)
+// vendor customized scripts (bad practice: these ones should be removed eventually)
 import "src/decidim/vendor/modernizr"
 
 /**

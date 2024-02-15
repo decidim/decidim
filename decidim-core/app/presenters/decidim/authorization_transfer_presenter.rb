@@ -37,7 +37,7 @@ module Decidim
     # Returns an array of the translated record counts containing only the
     # texts to be displayed for the user.
     #
-    # @return [Array<String>] The translated records names with their coutns.
+    # @return [Array<String>] The translated records names with their counts.
     def translated_record_texts
       translated_record_counts.values
     end

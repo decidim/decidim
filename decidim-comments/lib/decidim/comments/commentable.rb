@@ -58,7 +58,7 @@ module Decidim
         end
 
         # Public: Updates the comments counter cache. We have to do it these
-        # way in order to properly calculate the coutner with hidden
+        # way in order to properly calculate the counter with hidden
         # comments.
         #
         # rubocop:disable Rails/SkipsModelValidations

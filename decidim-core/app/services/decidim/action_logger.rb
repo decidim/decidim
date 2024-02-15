@@ -2,7 +2,7 @@
 
 module Decidim
   # Use this class to log actions by any user. You probably should not
-  # use this class dfirectly, but rather use `Decidim.traceability` instead.
+  # use this class directly, but rather use `Decidim.traceability` instead.
   # Check the docs on `Decidim::Traceability` for more info.
   #
   # Usage:

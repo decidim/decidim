@@ -151,7 +151,7 @@ describe "Initiative signing" do
         end
       end
 
-      context "when the personal daata is not filled" do
+      context "when the personal data is not filled" do
         it "does not allow voting" do
           visit decidim_initiatives.initiative_path(initiative)
 

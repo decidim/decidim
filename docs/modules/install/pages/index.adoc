@@ -172,7 +172,7 @@ There are several things you need to check before making your putting your appli
 
 == Contributing
 
-We always welcome new contributors of all levels to the project. If you are not confident enough with Ruby or web development you can look for https://github.com/decidim/decidim/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22[issues labeled `good first issue`] to start contibuting and learning the internals of the project by doing easy jobs.
+We always welcome new contributors of all levels to the project. If you are not confident enough with Ruby or web development you can look for https://github.com/decidim/decidim/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22[issues labeled `good first issue`] to start contributing and learning the internals of the project by doing easy jobs.
 
 We also have a xref:develop:guide.adoc[developer's reference] that will help you getting started with your environment and our daily commands, routines, etc.
 
