@@ -7,3 +7,6 @@ en:
           decidim_guide: The guide to design all things Decidim
           github_source: Source code on GitHub
           home_header: Decidim Design Guide
+          welcome_sentence: Welcome to the Decidim Design Guide (DDG). This guide is the resource for designers and developers who need to customize, develop new modules, and integrate new features.
+          by_sharing_princples: By sharing the principles, philosophy, and rationale behind design decisions we want to empower the community to contribute with consistency so we reach the best participant experience.
+          different_ui_components: At the same time, we document the different UI components and patterns in use, that should be reused or extended.
