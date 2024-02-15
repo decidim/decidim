@@ -17,7 +17,7 @@ module Decidim
           budgets.one?
         end
 
-        # Public: Return the lonenly budget resource of the component
+        # Public: Return the single budget resource of the component
         #
         # Returns an ActiveRecord.
         def single
