@@ -190,11 +190,6 @@ zh-CN:
           new:
             send: 请求验证
             title: 上传您的身份文档
-          update:
-            error: 重新上传您的文档时出现问题
-            success: 文档已成功重新上传
-        dni: DNI
-        nie: NIE
         passport: 护照：
       postal_letter:
         admin:
