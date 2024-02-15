@@ -206,11 +206,6 @@ it:
           new:
             send: Richiedi la verifica
             title: Carica il tuo documento di identità
-          update:
-            error: Si è verificato un problema durante il caricamento del documento
-            success: Documento ricaricato con successo
-        dni: DNI
-        nie: NIE
         passport: Passaporto
       postal_letter:
         admin:
