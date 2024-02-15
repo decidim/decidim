@@ -220,10 +220,8 @@ hu:
             send: Ellenőrzés kérelem
             title: Személyi igazolvány feltöltése
           update:
-            error: Probléma volt a dokumentum újbóli feltöltésekor
-            success: Dokumentum újbóli feltöltése sikeres
-        dni: Sz.ig.
-        nie: Lakcím kártya
+            error: Probléma adódott a dokumentum újratöltésével.
+            success: Dokumentum sikeresen újratöltve.
         passport: Útlevél
       postal_letter:
         admin:
