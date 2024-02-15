@@ -19,7 +19,7 @@
 
   <%= static_map %>
 
-  <% if online? %>
+  <% if meeting.online? && meeting.iframe_access_level_allowed_for_user?(current_user) %>
     <%= cell("decidim/address", meeting, online: true) %>
   <% end %>
 </div>
