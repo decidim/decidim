@@ -19,7 +19,7 @@ describe "Admin reports user" do
       expect(page).to have_css(".profile__actions-secondary")
 
       within ".profile__actions-secondary", match: :first do
-        find("button").click
+        click_on "Report"
       end
 
       expect(page).to have_css(".flag-modal", visible: :visible)
@@ -42,7 +42,7 @@ describe "Admin reports user" do
       expect(page).to have_css(".profile__actions-secondary")
 
       within ".profile__actions-secondary", match: :first do
-        find("button").click
+        click_on "Report"
       end
 
       expect(page).to have_css(".flag-modal", visible: :visible)
