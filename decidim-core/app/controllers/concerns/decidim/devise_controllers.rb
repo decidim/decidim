@@ -16,6 +16,7 @@ module Decidim
       include Decidim::NeedsOrganization
       include Decidim::LocaleSwitcher
       include ImpersonateUsers
+      include NeedsRtlDirection
       include NeedsPermission
       include Decidim::SafeRedirect
       include NeedsSnippets

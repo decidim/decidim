@@ -297,7 +297,7 @@ en:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             social_handlers: Social
             title: General Information
-            visbility: Visibility
+            visibility: Visibility
         assemblies_types:
           form:
             title: Edit assembly type

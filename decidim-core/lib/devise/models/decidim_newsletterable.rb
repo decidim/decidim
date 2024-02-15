@@ -2,7 +2,7 @@
 
 module Devise
   module Models
-    # Newsletterable adds all needed validations to acomplish GDPR standards
+    # Newsletterable adds all needed validations to accomplish GDPR standards
     # in newsletter notification mailing
     #
     # Validates that all users with notifications activated have Opt-in in

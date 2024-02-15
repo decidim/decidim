@@ -23,6 +23,8 @@ module Decidim
 
     # The resource linked to the activity.
     def resource
+      return if model.blank?
+
       model.resource_lazy
     end
 
@@ -35,9 +37,9 @@ module Decidim
 
       case resource_title
       when String
-        resource_title
+        decidim_html_escape(resource_title)
       when Hash
-        translated_attribute(resource_title)
+        decidim_escape_translated(resource_title)
       end
     end
 
@@ -102,7 +104,7 @@ module Decidim
       hash << id_prefix
       hash << I18n.locale.to_s
       hash << model.class.name.underscore
-      hash << model.cache_key_with_version
+      hash << model.cache_key_with_version if model.respond_to?(:cache_key_with_version)
       if (author_cell = author)
         hash.push(Digest::MD5.hexdigest(author_cell.send(:cache_hash)))
       end

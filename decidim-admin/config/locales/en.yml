@@ -378,7 +378,7 @@ en:
           update: Update
       dashboard:
         pending_moderations:
-          anouncement:
+          announcement:
             one: There are %{count} pending moderation
             other: There are %{count} pending moderations
           goto_moderation: Go to global moderations

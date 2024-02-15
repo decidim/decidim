@@ -5,8 +5,8 @@
     <% end %>
   </thead>
   <tbody>
-    <% items.each do |row| %>
-      <tr><%= render_row(row) %></tr>
-    <% end %>
+    <tr>
+      <%= render_cell(method: "cell", args: [cell_snippet[:cell], *cell_snippet[:args]]) %>
+    </tr>
   </tbody>
 <% end %>

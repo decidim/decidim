@@ -6,6 +6,7 @@ module Decidim
     include Browser::ActionController
 
     include NeedsOrganization
+    include NeedsRtlDirection
     include LocaleSwitcher
     include UseOrganizationTimeZone
     include NeedsPermission

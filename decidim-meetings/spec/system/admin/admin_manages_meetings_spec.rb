@@ -574,7 +574,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       end
     end
 
-    context "when a meeting has alredy been closed" do
+    context "when a meeting has already been closed" do
       let!(:meeting) { create(:meeting, :closed, component: current_component) }
 
       it "can update the information" do
