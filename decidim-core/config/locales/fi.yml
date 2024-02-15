@@ -1215,6 +1215,7 @@ fi:
         token_error: Linkki on vanhentunut.
         unsubscribe: Peruuta tilaus
     newsletters_opt_in:
+      unauthorized: Valitettavasti tämä linkki ei ole enää käytettävissä.
       update:
         error: Uutiskirjeasetusten päivitys epäonnistui.
         success: Uutiskirjeasetusten päivitys onnistui.
@@ -1511,7 +1512,7 @@ fi:
         label: 'Tulosten määrä sivulla:'
         title: Valitse tulosten määrä sivua kohti
       share_modal:
-        copy_share_link: Kopio
+        copy_share_link: Kopioi
         copy_share_link_clarification: Kopioi jakolinkki leikepöydälle
         copy_share_link_copied: Kopioitu!
         copy_share_link_message: Linkin kopiointi leikepöydälle onnistui.
