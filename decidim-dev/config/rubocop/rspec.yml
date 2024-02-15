@@ -5,6 +5,10 @@ require: rubocop-rspec
 #      - "(?:^|/)spec/"
 #      - "(?:^|/)test/"
 
+RSpec/FilePath:
+  CustomTransform:
+    OAuthApplicationPresenter: oauth_application_presenter
+
 RSpec/BeforeAfterAll:
   Enabled: true
 
