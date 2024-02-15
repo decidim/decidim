@@ -3,7 +3,7 @@
 module Decidim
   # Helper that provides a single method to create datalist select.
   module DatalistSelectHelper
-    # Public: Creates HTML for datalist select so that you can use seperate ids and labels.
+    # Public: Creates HTML for datalist select so that you can use separate ids and labels.
     #
     # items - Items in datalist, item should have id and name.
     # options - a Hash with options

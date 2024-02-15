@@ -54,7 +54,7 @@ module Decidim
         it { is_expected.to be_invalid }
       end
 
-      context "when the body exceeds the permited length" do
+      context "when the body exceeds the permitted length" do
         let(:component) { create(:proposal_component, :with_proposal_length, participatory_space:, proposal_length: allowed_length) }
         let(:allowed_length) { 15 }
         let(:body) { "A body longer than the permitted" }

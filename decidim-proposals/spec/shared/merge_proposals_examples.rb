@@ -50,7 +50,7 @@ shared_examples "merge proposals" do
         expect(page).to have_button(id: "js-submit-merge-proposals", count: 1)
       end
 
-      context "when submiting the form" do
+      context "when submitting the form" do
         before do
           within "#js-form-merge-proposals" do
             select translated(target_component.name), from: :target_component_id_

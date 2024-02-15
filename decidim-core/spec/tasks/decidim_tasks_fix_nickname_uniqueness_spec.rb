@@ -35,7 +35,7 @@ describe "rake decidim:upgrade:fix_nickname_uniqueness", type: :task do
     end
   end
 
-  context "when users come from differents organizations" do
+  context "when users come from different organizations" do
     let(:organization1) { create(:organization) }
     let(:organization2) { create(:organization) }
     let!(:user1) { create(:user, :confirmed, nickname: "toto", organization: organization1) }

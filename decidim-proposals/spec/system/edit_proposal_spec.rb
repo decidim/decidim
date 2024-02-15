@@ -158,7 +158,7 @@ describe "Edit proposals" do
 
       context "with multiple images", :slow do
         it "can add many images many times" do
-          skip "REDESIGN_PENDING - Flaky test: upload modal fails on GitHub with multiple fileshttps://github.com/decidim/decidim/issues/10961"
+          skip "REDESIGN_PENDING - Flaky test: upload modal fails on GitHub with multiple files https://github.com/decidim/decidim/issues/10961"
 
           click_on "Edit proposal"
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"))

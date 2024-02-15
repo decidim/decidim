@@ -75,7 +75,7 @@ module Decidim
         context "when having multiple admins" do
           let!(:another_admin) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-          it "calls twice the report job in order to send the emails and ingore the admin_no_moderation_mail" do
+          it "calls twice the report job in order to send the emails and ignore the admin_no_moderation_mail" do
             expect(UserReportJob).to receive(:perform_later).twice.with(a_kind_of(Decidim::User), a_kind_of(Decidim::UserReport))
 
             command.call

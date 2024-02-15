@@ -75,7 +75,7 @@ describe "Admin manages area types" do
         fill_in_i18n(
           :area_type_plural,
           "#area_type-plural-tabs",
-          en: "This is the new pluarl"
+          en: "This is the new plural"
         )
         find("*[type=submit]").click
       end

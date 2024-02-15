@@ -32,7 +32,7 @@ module Decidim
         @state = state
       end
 
-      # List the User groups by the diferents filters.
+      # List the User groups by the different filters.
       def query
         users = scope
         users = filter_by_search(users)

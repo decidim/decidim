@@ -51,7 +51,7 @@ describe "Admin manages proposals states" do
         fill_in_i18n(
           :proposal_state_announcement_title,
           "#proposal_state-announcement_title-tabs",
-          en: "A longer anouncement",
+          en: "A longer announcement",
           es: "Anuncio más larga",
           ca: "Anunci més llarga"
         )
@@ -71,7 +71,7 @@ describe "Admin manages proposals states" do
       state = Decidim::Proposals::ProposalState.find_by(token: "custom_state")
       expect(state).to be_present
       expect(translated(state.title)).to eq("Custom state")
-      expect(translated(state.announcement_title)).to eq("A longer anouncement")
+      expect(translated(state.announcement_title)).to eq("A longer announcement")
       expect(state.css_class).to eq("csscustom")
     end
   end
@@ -112,7 +112,7 @@ describe "Admin manages proposals states" do
         fill_in_i18n(
           :proposal_state_announcement_title,
           "#proposal_state-announcement_title-tabs",
-          en: "A longer anouncement",
+          en: "A longer announcement",
           es: "Anuncio más larga",
           ca: "Anunci més llarga"
         )
@@ -130,7 +130,7 @@ describe "Admin manages proposals states" do
       state = Decidim::Proposals::ProposalState.find_by(token: "editable_state")
 
       expect(translated(state.title)).to eq("Custom state")
-      expect(translated(state.announcement_title)).to eq("A longer anouncement")
+      expect(translated(state.announcement_title)).to eq("A longer announcement")
       expect(state.css_class).to eq("csscustom")
     end
   end

@@ -377,7 +377,7 @@ describe "Admin manages organization" do
           )["innerHTML"]).to eq(terms_content.to_s.gsub("\n", ""))
         end
 
-        it "keeps right curson position when using the backspace" do
+        it "keeps right cursor position when using the backspace" do
           find('div[contenteditable="true"].ProseMirror').native.send_keys [:enter, "bc", :left, :left]
           find('div[contenteditable="true"].ProseMirror').native.send_keys [:enter, :backspace, :backspace, "a"]
           expect(find(

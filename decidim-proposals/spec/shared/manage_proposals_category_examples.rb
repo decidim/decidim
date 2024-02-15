@@ -58,7 +58,7 @@ shared_examples "when managing proposals category as an admin" do
         end
       end
 
-      context "when submiting form" do
+      context "when submitting form" do
         before do
           click_on "Actions"
           click_on "Change category"
@@ -70,6 +70,38 @@ shared_examples "when managing proposals category as an admin" do
 
         it "changes to selected category" do
           expect(page).to have_css(".success")
+        end
+      end
+    end
+
+    context "when updating multiple proposals consecutively" do
+      before do
+        find("tr[data-id=\"#{proposal_first.id}\"] input").set(true)
+        click_button "Actions"
+        click_button "Change category"
+        within "#js-form-recategorize-proposals" do
+          select translated(category.name), from: :category_id
+          click_button(id: "js-submit-edit-category")
+        end
+
+        expect(page).to have_selector(".success")
+      end
+
+      it "updates both correctly" do
+        find("tr[data-id=\"#{proposal_last.id}\"] input").set(true)
+        click_button "Actions"
+        click_button "Change category"
+        within "#js-form-recategorize-proposals" do
+          select translated(parent_category.name), from: :category_id
+          click_button(id: "js-submit-edit-category")
+        end
+
+        within "tr[data-id=\"#{proposal_first.id}\"]" do
+          expect(page).to have_content(translated(category.name))
+        end
+
+        within "tr[data-id=\"#{proposal_last.id}\"]" do
+          expect(page).to have_content(translated(parent_category.name))
         end
       end
     end

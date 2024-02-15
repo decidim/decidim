@@ -5,11 +5,11 @@ require "spec_helper"
 shared_context "with resources to be endorsed or not" do
   include_context "with a component"
 
-  # Should be overriden and create one main resource
+  # Should be overridden and create one main resource
   let!(:resource) { nil }
   # the name of the resource to be clicked from the component view
   let(:resource_name) { nil }
-  # Should be overriden and create 3 extra resources in the current component
+  # Should be overridden and create 3 extra resources in the current component
   let!(:resources) { nil }
 end
 

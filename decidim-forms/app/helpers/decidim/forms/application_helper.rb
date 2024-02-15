@@ -8,11 +8,11 @@ module Decidim
       def show_represent_user_group?
         model_name = questionnaire_for.model_name.element
 
-        permited_models.include?(model_name)
+        permitted_models.include?(model_name)
       end
       alias show_public_participation? show_represent_user_group?
 
-      def permited_models
+      def permitted_models
         %(meeting)
       end
     end

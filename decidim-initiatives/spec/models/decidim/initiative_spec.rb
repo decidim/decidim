@@ -159,7 +159,7 @@ module Decidim
         expect(initiative).to have_authorship(initiative.author)
       end
 
-      it "returns true for aproved promotal committee members" do
+      it "returns true for approved promotal committee members" do
         expect(initiative).not_to have_authorship(pending_committee_member.user)
         expect(initiative).not_to have_authorship(rejected_committee_member.user)
 

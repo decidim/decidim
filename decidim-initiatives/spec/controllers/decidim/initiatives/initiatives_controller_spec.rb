@@ -65,7 +65,7 @@ describe Decidim::Initiatives::InitiativesController do
       let(:commented_initiative) { create(:initiative, organization:) }
       let!(:comment) { create(:comment, commentable: commented_initiative) }
 
-      it "most commented appears fisrt" do
+      it "most commented appears first" do
         get :index, params: { order: "most_commented" }
         expect(subject.helpers.initiatives.first).to eq(commented_initiative)
       end

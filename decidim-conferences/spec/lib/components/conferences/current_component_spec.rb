@@ -59,7 +59,7 @@ module Decidim
         end
       end
 
-      context "when the params contain a non existing conference id" do
+      context "when the params contain a nonexistent conference id" do
         before do
           params["conference_slug"] = "99999999"
         end

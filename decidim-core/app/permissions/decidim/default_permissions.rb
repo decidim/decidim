@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 module Decidim
-  # Default permissions class for all components and spaces. It disauthorizes all
+  # Default permissions class for all components and spaces. It deauthorizes all
   # actions by any kind of user. Also works as a default implementation so other
-  # components can inherit from it and get some cenvenience methods.
+  # components can inherit from it and get some convenience methods.
   class DefaultPermissions
     def initialize(user, permission_action, context = {})
       @user = user
