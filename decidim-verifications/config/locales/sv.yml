@@ -194,11 +194,6 @@ sv:
           new:
             send: Begär verifiering
             title: Skicka in din identitetshandling
-          update:
-            error: Det gick inte att skicka in ID-handlingen igen
-            success: Dokumentet har skickats in igen
-        dni: ID-kort
-        nie: Personnummer
         passport: Pass
       postal_letter:
         admin:
