@@ -116,7 +116,7 @@ describe "User activity" do
       end
     end
 
-    context "when accessing a non existing profile" do
+    context "when accessing a nonexistent profile" do
       before do
         allow(page.config).to receive(:raise_server_errors).and_return(false)
         visit decidim.profile_activity_path(nickname: "invalid_nickname")

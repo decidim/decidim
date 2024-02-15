@@ -46,7 +46,7 @@ module Decidim
 
         context "when decidim_condition_question_id is not present" do
           let!(:decidim_condition_question_id) { nil }
-          let!(:decidim_answer_option_id) { nil } # otherwise it will try to use condition_question overriden in previous line
+          let!(:decidim_answer_option_id) { nil } # otherwise it will try to use condition_question overridden in previous line
 
           it { is_expected.not_to be_valid }
         end

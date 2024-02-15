@@ -732,14 +732,14 @@ shared_examples_for "an application with configurable env vars" do
       expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env:ON (#{value})"
     end
 
-    # Test onto the initializer when ENV vars are set to OpenstreetMap configuration
+    # Test onto the initializer when ENV vars are set to OpenStreetMap configuration
     json_on = initializer_config_for(test_app, env_maps_osm)
     initializer_maps_osm.each do |key, value|
       current = json_on[key]
       expect(current).to eq(value), "Initializer (#{key}) = (#{current}) expected to match Env:Maps OSM (#{value})"
     end
 
-    # Test onto the initializer when ENV vars are set to OpenstreetMap-HERE mix configuration
+    # Test onto the initializer when ENV vars are set to OpenStreetMap-HERE mix configuration
     json_on = initializer_config_for(test_app, env_maps_mix)
     initializer_maps_mix.each do |key, value|
       current = json_on[key]

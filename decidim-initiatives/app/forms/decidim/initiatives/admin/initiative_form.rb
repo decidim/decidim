@@ -41,7 +41,7 @@ module Decidim
         def map_model(model)
           self.type_id = model.type.id
           self.decidim_scope_id = model.scope&.id
-          self.offline_votes = offline_votes.empty? ? zero_offine_votes_with_scopes_names(model) : offline_votes_with_scopes_names(model)
+          self.offline_votes = offline_votes.empty? ? zero_offline_votes_with_scopes_names(model) : offline_votes_with_scopes_names(model)
         end
 
         def signature_type_updatable?
@@ -72,7 +72,7 @@ module Decidim
         private
 
         # Private: set the in-person signatures to zero for every scope
-        def zero_offine_votes_with_scopes_names(model)
+        def zero_offline_votes_with_scopes_names(model)
           model.votable_initiative_type_scopes.each_with_object({}) do |initiative_scope_type, all_votes|
             all_votes[initiative_scope_type.decidim_scopes_id || "global"] = [0, initiative_scope_type.scope_name]
           end

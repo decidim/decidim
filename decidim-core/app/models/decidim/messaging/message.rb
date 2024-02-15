@@ -64,7 +64,7 @@ module Decidim
 
       private
 
-      # returns all posible recipients from a list of users or groups
+      # returns all possible recipients from a list of users or groups
       def all_recipients(recipients)
         users = recipients.flat_map do |recipient|
           recipient.is_a?(UserGroup) ? recipient.managers : recipient

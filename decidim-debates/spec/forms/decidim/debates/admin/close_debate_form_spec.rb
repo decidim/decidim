@@ -22,7 +22,7 @@ describe Decidim::Debates::Admin::CloseDebateForm do
     }
   end
 
-  context "when the conclusions exceeds the permited length" do
+  context "when the conclusions exceeds the permitted length" do
     let(:conclusions) { Decidim::Faker::Localized.localized { "c" * 10_001 } }
 
     it { is_expected.to be_invalid }

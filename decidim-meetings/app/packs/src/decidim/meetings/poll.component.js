@@ -66,7 +66,7 @@ export default class PollComponent {
    * @returns {Void} - Returns nothing
    */
   _fetchQuestions() {
-    // Store current questions state (open / closed) before overwritting them with the Ajax call
+    // Store current questions state (open / closed) before overwriting them with the Ajax call
     // response.
     this._storeQuestionState(this.$element);
 

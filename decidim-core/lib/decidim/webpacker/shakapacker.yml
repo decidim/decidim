@@ -27,7 +27,7 @@ default: &default
   # Set to true to enable check for matching versions of shakapacker gem and NPM package - will raise an error if there is a mismatch or wildcard versioning is used
   ensure_consistent_versioning: true
 
-  # Select whether the compiler will use SHA digest ('digest' option) or most most recent modified timestamp ('mtime') to determine freshness
+  # Select whether the compiler will use SHA digest ('digest' option) or most recent modified timestamp ('mtime') to determine freshness
   compiler_strategy: digest
 
   # Select whether the compiler will always use a content hash and not just in production

@@ -21,7 +21,7 @@ module Decidim
     # locales.
     #
     # collection - an Array of Strings. By default it uses all the available
-    #   locales in Decidim, but you can passa nother collection of locales (for
+    #   locales in Decidim, but you can pass another collection of locales (for
     #   example, the available locales for an organization)
     def localized_locales(collection = Decidim.available_locales)
       klass = Class.new do
