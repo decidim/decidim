@@ -4,6 +4,52 @@
 
 ### Upgrade notes
 
+#### Verifications documents configurations
+
+Until now we have hard-coded the document types for verifications with types from Spain legislation ("DNI, NIE and passport"). We have change it to "Identification number and passport", and allow installations to adapt them to their own needs.
+
+If you want to go back to the old setting, you need to follow these steps:
+
+##### Add to your config/secrets.yml the `decidim.verifications.document_types` key
+
+```erb
+decidim_default: &decidim_default
+  application_name: <%%= Decidim::Env.new("DECIDIM_APPLICATION_NAME", "My Application Name").to_json %>
+  (...)
+  verifications:
+    document_types: <%%= Decidim::Env.new("VERIFICATIONS_DOCUMENT_TYPES", %w(identification_number passport)).to_array %>
+```
+
+##### Add to your `config/initializers/decidim.rb` the following snippet in the bottom of the file
+
+```ruby
+if Decidim.module_installed? :verifications
+  Decidim::Verifications.configure do |config|
+    config.document_types = Rails.application.secrets.dig(:verifications, :document_types).presence || %w(identification_number passport)
+  end
+end
+```
+
+##### Add the values that you want to define using the environmnet variable `VERIFICATIONS_DOCUMENT_TYPES`
+
+```env
+VERIFICATIONS_DOCUMENT_TYPES="dni,nie,passport"
+```
+
+##### Add the translation of these values to your i18n files (i.e. `config/locales/en.yml`)
+
+```yaml
+en:
+  decidim:
+    verifications:
+        id_documents:
+          dni: DNI
+          nie: NIE
+          passport: Passport
+```
+
+You can read more about this change on PR [\#12306](https://github.com/decidim/decidim/pull/12306)
+
 ### Added
 
 Nothing.
