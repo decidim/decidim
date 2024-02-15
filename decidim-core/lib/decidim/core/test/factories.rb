@@ -758,6 +758,21 @@ FactoryBot.define do
     end
   end
 
+  factory :push_notification_message, class: "Decidim::PushNotificationMessage" do
+    transient do
+      skip_injection { false }
+    end
+
+    sender { build(:user, skip_injection:) }
+    recipient { build(:user, skip_injection:) }
+    conversation { create(:conversation, skip_injection:) }
+    message { generate_localized_description(:push_notification_message_message, skip_injection:) }
+    third_party { build(:user_group, skip_injection:) }
+    action { "new_message" }
+
+    initialize_with { new(sender:, recipient:, conversation:, message:, third_party:, action:) }
+  end
+
   factory :action_log, class: "Decidim::ActionLog" do
     transient do
       skip_injection { false }
