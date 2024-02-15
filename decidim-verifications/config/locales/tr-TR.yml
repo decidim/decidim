@@ -194,11 +194,6 @@ tr:
           new:
             send: Doğrulama isteğinde bulun
             title: Kimlik belgenizi yükleyin
-          update:
-            error: Belgenizi yeniden yüklerken bir sorun oluştu
-            success: Belge başarıyla yeniden yüklendi
-        dni: DNI
-        nie: NIE
         passport: Pasaport
       postal_letter:
         admin:
