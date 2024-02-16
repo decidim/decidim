@@ -245,8 +245,8 @@ module Decidim
       def iframe_access_level_allowed_for_user?(user)
         case iframe_access_level
         when "all"
-          false
-        when "signed_in" && "registered"
+          true
+        when "signed_in"
           user.present?
         else
           has_registration_for?(user)
