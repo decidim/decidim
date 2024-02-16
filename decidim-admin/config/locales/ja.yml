@@ -377,6 +377,8 @@ ja:
           update: 更新
       dashboard:
         pending_moderations:
+          announcement:
+            other: 保留中のモデレーションが%{count} 件あります
           goto_moderation: グローバルモデレーションへ移動
           title: 保留中のモデレーション
         show:
