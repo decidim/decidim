@@ -54,11 +54,13 @@ module Decidim
               notify(manager) do
                 ConversationMailer.new_group_message(sender, manager, conversation, message, recipient).deliver_later
               end
+              Decidim::PushNotificationMessageSender.new.new_group_message(sender, manager, conversation, message, recipient).deliver
             end
           else
             notify(recipient) do
               ConversationMailer.new_message(sender, recipient, conversation, message).deliver_later
             end
+            Decidim::PushNotificationMessageSender.new.new_message(sender, recipient, conversation, message).deliver
           end
         end
       end
@@ -68,6 +70,7 @@ module Decidim
           notify(recipient) do
             ConversationMailer.comanagers_new_message(sender, recipient, conversation, message, form.context.current_user).deliver_later
           end
+          Decidim::PushNotificationMessageSender.new.comanagers_new_message(sender, recipient, conversation, message, form.context.current_user).deliver
         end
       end
 
