@@ -34,7 +34,7 @@ FactoryBot.define do
           q = create(:questionnaire_question,
                      question_type: text_question_type,
                      position:,
-                     questionnaire: ,
+                     questionnaire:,
                      skip_injection: evaluator.skip_injection)
           position += 1
           questionnaire.questions << q
@@ -44,7 +44,7 @@ FactoryBot.define do
           q = create(:questionnaire_question, :with_answer_options,
                      question_type: option_question_type,
                      position:,
-                     questionnaire: ,
+                     questionnaire:,
                      skip_injection: evaluator.skip_injection)
           q.display_conditions.build(
             condition_question: questionnaire.questions[q.position - 1],
@@ -61,7 +61,7 @@ FactoryBot.define do
                     question_type: matrix_question_type,
                     position:,
                     body: generate_localized_title,
-                    questionnaire: ,
+                    questionnaire:,
                     skip_injection: evaluator.skip_injection)
           q.display_conditions.build(
             condition_question: questionnaire.questions[q.position - 1],
