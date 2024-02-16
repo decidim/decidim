@@ -10,3 +10,7 @@ en:
           github_source: Source code on GitHub
           home_header: Decidim Design Guide
           welcome_sentence: Welcome to the Decidim Design Guide (DDG). This guide is the resource for designers and developers who need to customize, develop new modules, and integrate new features.
+      foundations:
+        color:
+          color_header: Color
+          description_p1: We provide a Base palette with few colors so simple customizations are easy. You can modify the Base palette either in the Administration area or in the Tailwind configuration file if you need more advanced customization.
