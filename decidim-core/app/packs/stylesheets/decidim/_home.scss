@@ -37,7 +37,7 @@
     @apply mb-6 md:mb-8 flex flex-col md:flex-row gap-y-6 md:gap-y-0 gap-x-1 items-start md:items-center;
 
     .button {
-      @apply md:ml-auto;
+      @apply ltr:md:ml-auto rtl:md:mr-auto;
     }
   }
 

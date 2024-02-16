@@ -1,0 +1,5 @@
+<% if call_string.is_a?(Array) %>
+  <code><textarea spellcheck="false" rows="<%= 3 * call_string.compact_blank.count %>"><%= call_string.compact_blank.map { |item| "<%= #{item.strip} %\>" }.join("\n") %></textarea></code>
+<% else %>
+  <code><textarea spellcheck="false" rows="5"><<%= "%= " %><%= call_string.presence&.strip || "cell(\"#{cell}\", #{args_texts.join(", ")})" %><%= " %" %>></textarea></code>
+<% end %>

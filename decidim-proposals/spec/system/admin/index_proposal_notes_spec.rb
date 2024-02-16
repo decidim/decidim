@@ -24,7 +24,7 @@ describe "Index Proposal Notes" do
   include_context "when managing a component as an admin"
 
   before do
-    within find("tr", text: translated(proposal.title)) do
+    within "tr", text: translated(proposal.title) do
       click_link "Answer proposal"
     end
     click_button "Private notes"

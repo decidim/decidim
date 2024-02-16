@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-# users of this test should delare the `subject` variable.
+# users of this test should declare the `subject` variable.
 shared_examples "acts as author" do
   describe "presenter" do
     it "returns an instance of the presenter for this author" do

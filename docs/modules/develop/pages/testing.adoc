@@ -82,7 +82,7 @@ cd decidim-participatory_processes
 bundle exec rake parallel:spec[spec/system/]
 ----
 
-This same commmand without the parallelization (`cd decidim-participatory_processes && bundle exec rspec spec/system/`)
+This same command without the parallelization (`cd decidim-participatory_processes && bundle exec rspec spec/system/`)
 took 26 minutes 21 seconds. With parallel_specs, this runs in 10 minutes 27 seconds.
 
 [NOTE]
@@ -94,7 +94,7 @@ These numbers are depend on your machine, the configuration was:
 
 == Jest
 
-We use Jest for testing our Javascript code.
+We use Jest for testing our JavaScript code.
 
 === Running a specific test file
 

@@ -23,7 +23,7 @@ describe "Static pages" do
     it "lists all the standalone pages" do
       visit decidim.pages_path
 
-      within find(pages_selector, text: "Pages") do
+      within pages_selector, text: "Pages" do
         expect(page).to have_content translated(page3.title)
       end
     end
@@ -96,7 +96,7 @@ describe "Static pages" do
         # where "paramxx" is the parameter name and "aaa" is the value. The
         # total length of each parameter is therefore 6 + 2 + 100 characters
         # = 108 bytes. Cookie overflow should therefore happen at latest
-        # around 38 of these parameters concenated together.
+        # around 38 of these parameters concatenated together.
         50.times.map do |i|
           "param#{i.to_s.rjust(2, "0")}=#{SecureRandom.alphanumeric(100)}"
         end.join("&")

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This cell renders the reuslts of the global search page.
+  # This cell renders the results of the global search page.
   class SearchResultsCell < Decidim::ViewModel
     include Decidim::SearchesHelper
     include Decidim::CardHelper

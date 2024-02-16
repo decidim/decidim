@@ -236,7 +236,7 @@ Decidim.configure do |config|
   #
   # Provide a class to generate a timestamp for a document. The instances of
   # this class are initialized with a hash containing the :document key with
-  # the document to be timestamped as value. The istances respond to a
+  # the document to be timestamped as value. The instances respond to a
   # timestamp public method with the timestamp
   #
   # An example class would be something like:
@@ -320,7 +320,7 @@ Decidim.configure do |config|
   # to interact with third party service to translate the user content.
   #
   # If you still want to use "Decidim::Dev::DummyTranslator" as translator placeholder,
-  # add the follwing line at the beginning of this file:
+  # add the following line at the beginning of this file:
   # require "decidim/dev/dummy_translator"
   #
   # An example class would be something like:

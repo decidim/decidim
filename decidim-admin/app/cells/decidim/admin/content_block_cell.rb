@@ -3,7 +3,6 @@
 module Decidim
   module Admin
     class ContentBlockCell < Decidim::ViewModel
-      include Decidim::IconHelper
       include Decidim::ContentBlocks::HasRelatedComponents
 
       delegate :public_name_key, :has_settings?, :component_manifest_name, to: :model

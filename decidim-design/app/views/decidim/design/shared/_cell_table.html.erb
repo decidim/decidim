@@ -1,0 +1,12 @@
+<%= content_tag :table, local_assigns.slice(:style).merge(class: "design__table") do %>
+  <thead>
+    <% headings.each do |heading| %>
+      <th><%= heading %></th>
+    <% end %>
+  </thead>
+  <tbody>
+    <tr>
+      <%= render_cell(method: "cell", args: [cell_snippet[:cell], *cell_snippet[:args]]) %>
+    </tr>
+  </tbody>
+<% end %>

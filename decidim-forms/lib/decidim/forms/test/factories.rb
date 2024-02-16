@@ -28,31 +28,31 @@ FactoryBot.define do
     end
 
     trait :with_all_questions do
-      after(:build) do |questionaire, evaluator|
+      after(:build) do |questionnaire, evaluator|
         position = 0
         %w(short_answer long_answer).collect do |text_question_type|
           q = create(:questionnaire_question,
                      question_type: text_question_type,
                      position:,
-                     questionnaire: questionaire,
+                     questionnaire: ,
                      skip_injection: evaluator.skip_injection)
           position += 1
-          questionaire.questions << q
+          questionnaire.questions << q
         end
 
         %w(single_option multiple_option).each do |option_question_type|
           q = create(:questionnaire_question, :with_answer_options,
                      question_type: option_question_type,
                      position:,
-                     questionnaire: questionaire,
+                     questionnaire: ,
                      skip_injection: evaluator.skip_injection)
           q.display_conditions.build(
-            condition_question: questionaire.questions[q.position - 1],
+            condition_question: questionnaire.questions[q.position - 1],
             question: q,
             condition_type: :answered,
             mandatory: true
           )
-          questionaire.questions << q
+          questionnaire.questions << q
           position += 1
         end
 
@@ -61,15 +61,15 @@ FactoryBot.define do
                     question_type: matrix_question_type,
                     position:,
                     body: generate_localized_title,
-                    questionnaire: questionaire,
+                    questionnaire: ,
                     skip_injection: evaluator.skip_injection)
           q.display_conditions.build(
-            condition_question: questionaire.questions[q.position - 1],
+            condition_question: questionnaire.questions[q.position - 1],
             question: q,
             condition_type: :answered,
             mandatory: true
           )
-          questionaire.questions << q
+          questionnaire.questions << q
           position += 1
         end
       end

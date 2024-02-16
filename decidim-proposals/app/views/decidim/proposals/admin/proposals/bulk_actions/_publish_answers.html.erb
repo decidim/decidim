@@ -1,6 +1,6 @@
 <div id="js-publish-answers-actions" class="hide js-bulk-action-form">
   <%= form_tag(publish_answers_proposals_path, method: :post, remote: true, id: "js-form-publish-answers", class: "flex align-middle text-center gap-x-4 ml-auto") do %>
-    <div class="checkboxes hide">
+    <div class="hide">
       <% proposals.each do |proposal| %>
         <%= check_box_tag "proposal_ids[]", proposal.id, false, class: "js-check-all-proposal js-proposal-id-#{proposal.id}" %>
       <% end %>
@@ -9,6 +9,6 @@
 
     <%= submit_tag(t("decidim.proposals.admin.proposals.index.publish"), id: "js-submit-publish-answers", class: "button button__sm button__secondary small button--simple float-left") %>
 
-    <button id="js-cancel-publish-answers" class="button button__sm button__secondary button__sm button__secondary clear compact js-cancel-bulk-action" type="button"><%= t("decidim.proposals.admin.proposals.index.cancel") %></button>
+    <button id="js-cancel-publish-answers" class="button button__sm button__secondary button__sm button__secondary js-cancel-bulk-action" type="button"><%= t("decidim.proposals.admin.proposals.index.cancel") %></button>
   <% end %>
 </div>

@@ -105,7 +105,7 @@ describe "Authorizations revocation flow" do
     end
   end
 
-  context "when clicking revocating authorizations. Prompts" do
+  context "when clicking revoking authorizations. Prompts" do
     context "when clicking Revoke All authorizations option" do
       it "appears revoke all confirmation dialog" do
         within "[data-content]" do

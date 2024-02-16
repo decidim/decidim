@@ -6,12 +6,7 @@ module Decidim
   module Accountability
     # This cell renders a project
     class ProjectCell < Decidim::ViewModel
-      include ApplicationHelper
-      include Decidim::ResourceHelper
-      include Decidim::TranslationsHelper
-      include Decidim::AttachmentsHelper
-
-      delegate :current_component, :component_settings, to: :controller
+      include Decidim::Accountability::ApplicationHelper
       delegate :children, :timeline_entries, to: :model
 
       alias result model

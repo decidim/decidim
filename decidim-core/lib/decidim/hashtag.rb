@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A hasthag is used to categorize components
+  # A hashtag is used to categorize components
   class Hashtag < ApplicationRecord
     self.table_name = "decidim_hashtags"
 

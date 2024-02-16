@@ -2,7 +2,7 @@
 /* eslint max-lines: ["error", {"max": 350, "skipBlankLines": true}] */
 
 /**
- * A plain Javascript component that handles the form filter.
+ * A plain JavaScript component that handles the form filter.
  * @class
  * @augments Component
  */
@@ -24,9 +24,9 @@ export default class FormFilterComponent {
     this._onPopState = this._onPopState.bind(this);
 
     if (window.Decidim.PopStateHandler) {
-      this.popStateSubmiter = false;
+      this.popStateSubmitter = false;
     } else {
-      this.popStateSubmiter = true;
+      this.popStateSubmitter = true;
       window.Decidim.PopStateHandler = this.id;
     }
   }
@@ -239,7 +239,7 @@ export default class FormFilterComponent {
     }
 
     // Only one instance should submit the form on browser history navigation
-    if (this.popStateSubmiter) {
+    if (this.popStateSubmitter) {
       Rails.fire(this.$form[0], "submit");
     }
 

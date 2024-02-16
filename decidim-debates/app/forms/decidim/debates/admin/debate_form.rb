@@ -43,7 +43,7 @@ module Decidim
           @category ||= current_component.categories.find_by(id: decidim_category_id)
         end
 
-        # Finds the Scope from the given decidim_scope_id, uses the compoenent scope if missing.
+        # Finds the Scope from the given decidim_scope_id, uses the component scope if missing.
         #
         # Returns a Decidim::Scope
         def scope

@@ -5,17 +5,13 @@ module Decidim
     # This cell renders the media link card for an instance of a RegistrationType
     class RegistrationTypeCell < Decidim::ViewModel
       include ActionView::Helpers::NumberHelper
-      include Decidim::SanitizeHelper
       include Decidim::Conferences::Engine.routes.url_helpers
-      include Decidim::LayoutHelper
 
       def show
         render
       end
 
       private
-
-      delegate :current_user, to: :controller, prefix: false
 
       def title
         decidim_sanitize_translated(model.title)

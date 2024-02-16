@@ -4,13 +4,7 @@ module Decidim
   module Accountability
     # This cell renders metadata for an instance of a Result
     class ResultMetadataCell < Decidim::CardMetadataCell
-      include Decidim::SanitizeHelper
-      include Decidim::TranslationsHelper
-      include ActiveSupport::NumberHelper
-      include Decidim::ResourceReferenceHelper
-      include Decidim::ResourceVersionsHelper
       include Decidim::Accountability::Engine.routes.url_helpers
-      include Decidim::LayoutHelper
 
       delegate :start_date, :end_date, :status, :category, :parent, :reference, to: :model
 

@@ -57,7 +57,7 @@ shared_examples "manage media links examples" do
     end
 
     it "updates a conference media links" do
-      within find("#media_links tr", text: translated(media_link.title)) do
+      within "#media_links tr", text: translated(media_link.title) do
         click_link "Edit"
       end
 
@@ -86,7 +86,7 @@ shared_examples "manage media links examples" do
     end
 
     it "deletes the conference media link" do
-      within find("#media_links tr", text: translated(media_link.title)) do
+      within "#media_links tr", text: translated(media_link.title) do
         accept_confirm { find("a.action-icon--remove").click }
       end
 

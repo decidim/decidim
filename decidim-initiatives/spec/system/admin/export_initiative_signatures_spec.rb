@@ -15,7 +15,7 @@ describe "Admin export initiatives' signature" do
   it "downloads the PDF file", :download do
     visit decidim_admin_initiatives.initiatives_path
 
-    within find("tr", text: translated(initiative.title)) do
+    within "tr", text: translated(initiative.title) do
       page.find(".action-icon--edit").click
     end
 
@@ -27,7 +27,7 @@ describe "Admin export initiatives' signature" do
     expect(File.basename(download_path)).to include("votes_#{initiative.id}.pdf")
   end
 
-  describe "`collect_user_extra_fields` settting" do
+  describe "`collect_user_extra_fields` setting" do
     before do
       visit decidim_admin_initiatives.export_pdf_signatures_initiative_path(initiative)
     end

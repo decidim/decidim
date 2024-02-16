@@ -124,7 +124,7 @@ module Decidim
         # Initiate the transfer
         before { subject }
 
-        it "performs the transfer correctly and calls the registerd handlers" do
+        it "performs the transfer correctly and calls the registered handlers" do
           expect(subject.records.count).to eq(8)
           expect(Decidim::Dev::DummyResource.where(decidim_author_id: user.id).order(:id)).to eq(
             dummy_resources.sort_by!(&:id)

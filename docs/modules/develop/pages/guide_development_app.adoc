@@ -3,7 +3,7 @@
 In order to start developing you will need what is called a `development_app`. This is nearly the same as a new Decidim
 app (that you can create with `decidim app_name`) but with a Gemfile pre-configured for local development and some other small config modifications.
 
-We recommend that you first have a xref:install:manual.adoc[working Decidim app] so that you have fullfilled all the necessary
+We recommend that you first have a xref:install:manual.adoc[working Decidim app] so that you have fulfilled all the necessary
 system and services requirements, like having a working Ruby installation, PostgreSQL, Node.JS, etc.
 
 You will need to configure the PostgreSQL database before anything. For this,

@@ -9,7 +9,7 @@ module Decidim
       let(:expected_metadatas) { "the data that is expected to be published." }
 
       describe "#publish" do
-        it "boradcasts comment created" do
+        it "broadcasts comment created" do
           expect(ActiveSupport::Notifications)
             .to receive(:publish)
             .with(

@@ -19,7 +19,7 @@
     </div>
     <% end %>
 
-    <div class="active-uploads upload-modal__files" data-active-uploads="<%= modal_id %>">
+    <div class="upload-modal__files" data-active-uploads="<%= modal_id %>">
       <% attachments.each do |attachment| %>
         <% next if [Array, Hash].any? { |klass| attachment.is_a? klass } %>
 

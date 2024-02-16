@@ -31,7 +31,7 @@ module Decidim
         #
         # Returns a collection of Meetings filtered based on provided params.
         def filtered_meetings
-          meetings.not_hidden.published.except_withdrawn.ransack(@filters).result
+          meetings.not_hidden.published.not_withdrawn.ransack(@filters).result
         end
       end
     end

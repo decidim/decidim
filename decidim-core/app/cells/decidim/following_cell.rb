@@ -3,7 +3,6 @@
 module Decidim
   class FollowingCell < Decidim::ViewModel
     include Decidim::CellsPaginateHelper
-    include Decidim::ApplicationHelper
     include Decidim::Core::Engine.routes.url_helpers
     include Decidim::CardHelper
 

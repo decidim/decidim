@@ -86,7 +86,7 @@ module Decidim
       File.exist?(path)
     end
 
-    # Checks if the module for the gem speficiation has been loaded through
+    # Checks if the module for the gem specification has been loaded through
     # `require "decidim/foo"`.
     #
     # @param spec [Bundler::LazySpecification, Gem::Specification, String] The

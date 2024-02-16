@@ -6,7 +6,7 @@ module Decidim
       # This class is responsible for creating the imported proposal answers
       # and must be included in proposals component's import manifest.
       class ProposalAnswerCreator < Decidim::Admin::Import::Creator
-        # Retuns the resource class to be created with the provided data.
+        # Returns the resource class to be created with the provided data.
         def self.resource_klass
           Decidim::Proposals::Proposal
         end

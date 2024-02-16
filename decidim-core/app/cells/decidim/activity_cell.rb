@@ -7,10 +7,6 @@ module Decidim
   # tweak the necessary methods (usually `title` is enough).
   class ActivityCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
-    include Decidim::IconHelper
-    include Decidim::ApplicationHelper
-    include Decidim::SanitizeHelper
-    include ActionView::Helpers::DateHelper
 
     def show
       return unless renderable?
@@ -27,6 +23,8 @@ module Decidim
 
     # The resource linked to the activity.
     def resource
+      return if model.blank?
+
       model.resource_lazy
     end
 
@@ -37,7 +35,12 @@ module Decidim
       resource_title = resource.try(:resource_title) || resource.try(:title)
       return if resource_title.blank?
 
-      decidim_escape_translated(resource_title)
+      case resource_title
+      when String
+        decidim_html_escape(resource_title)
+      when Hash
+        decidim_escape_translated(resource_title)
+      end
     end
 
     def title_icon
@@ -101,7 +104,7 @@ module Decidim
       hash << id_prefix
       hash << I18n.locale.to_s
       hash << model.class.name.underscore
-      hash << model.cache_key_with_version
+      hash << model.cache_key_with_version if model.respond_to?(:cache_key_with_version)
       if (author_cell = author)
         hash.push(Digest::MD5.hexdigest(author_cell.send(:cache_hash)))
       end

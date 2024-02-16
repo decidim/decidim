@@ -36,7 +36,7 @@ module Decidim
               end
             end
 
-            context "when the scope is diferent from the proposal's scope" do
+            context "when the scope is different from the proposal's scope" do
               before do
                 proposals.each { |p| p.update!(scope: scope_one) }
               end
