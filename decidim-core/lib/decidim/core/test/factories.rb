@@ -137,7 +137,7 @@ FactoryBot.define do
     admin_terms_of_service_body { generate_localized_description(:admin_terms_of_service_body, skip_injection:) }
     force_users_to_authenticate_before_access_organization { false }
     machine_translation_display_priority { "original" }
-    external_domain_allowlist { ["example.org", "twitter.com", "facebook.com", "youtube.com", "github.com", "mytesturl.me"] }
+    external_domain_whitelist { ["example.org", "twitter.com", "facebook.com", "youtube.com", "github.com", "mytesturl.me"] }
     smtp_settings do
       {
         "from" => "test@example.org",
@@ -441,7 +441,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     title { generate_localized_title(:attachment_title, skip_injection:) }
-    description { generate_localized_title(:attachment_description, skip_injection:) }
+    description { generate_localized_description(:attachment_description, skip_injection:) }
     weight { Faker::Number.number(digits: 1) }
     attached_to { build(:participatory_process, skip_injection:) }
     content_type { "image/jpeg" }
