@@ -228,7 +228,7 @@ describe "Amend Proposal", versioning: true do
               login_as user, scope: :user
               visit proposal_path
               expect(page).to have_content(proposal_title)
-              click_link "Amend"
+              click_on "Amend"
               within ".new_amendment" do
                 fill_in "amendment[emendation_params][title]", with: "More sidewalks and less roads"
                 fill_in "amendment[emendation_params][body]", with: "Cities need more people, not more cars"
