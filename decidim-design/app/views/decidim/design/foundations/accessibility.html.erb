@@ -3,19 +3,19 @@
 <% end %>
 
 <% content_for :description do %>
-  <p>Decidim follows the <u>Web Content Accessibility Guidelines (WCAG) 2.1</u>.</p>
+  <p><%= t(".decidim_follows") %><u><%= t(".web_content") %></u>.</p>
 <% end %>
 
 <% content_for :toc do %>
-  <a href="#heading-order">Illogical heading order</a>
-  <a href="#unique-h1">Unique H1</a>
-  <a href="#one-heading">Heading on important sections</a>
-  <a href="#color-contrast">Color contrast</a>
-  <a href="#links-buttons">Links and buttons</a>
-  <a href="#a11y-labels">Accessibility labels</a>
-  <a href="#adjacent-links">Adjacent links</a>
-  <a href="#aria">Use ARIA</a>
-  <a href="#elements-hidden">Elements hidden</a>
+  <a href="#heading-order"><%= t(".illogical_heading_order") %></a>
+  <a href="#unique-h1"><%= t(".unique_h1") %></a>
+  <a href="#one-heading"><%= t(".heading_on") %></a>
+  <a href="#color-contrast"><%= t(".color_contrast") %></a>
+  <a href="#links-buttons"><%= t(".links_and_buttons") %></a>
+  <a href="#a11y-labels"><%= t(".accessibility_labels") %></a>
+  <a href="#adjacent-links"><%= t(".adjacent_links") %></a>
+  <a href="#aria"><%= t(".use_aria") %></a>
+  <a href="#elements-hidden"><%= t(".elements_hidden") %></a>
 <% end %>
 
 <section id="heading-order" class="design__section">

@@ -13,3 +13,14 @@ en:
       foundations:
         accessibility:
           accessibility_title: Accessibility
+          decidim_follows: Decidim follows the
+          web_content: Web Content Accessibility Guidelines (WCAG) 2.1
+          illogical_heading_order: Illogical heading order
+          unique_h1: Unique H1
+          heading_on: Heading on important sections
+          color_contrast: Color contrast
+          links_and_buttons: Links and Buttons
+          accessibility_labels: Accessibility labels
+          adjacent_links: Adjacent links
+          use_aria: Use ARIA
+          elements_hidden: Elements hidden
