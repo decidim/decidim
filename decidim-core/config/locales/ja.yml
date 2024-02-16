@@ -1193,6 +1193,7 @@ ja:
         token_error: リンクの有効期限が切れました。
         unsubscribe: 購読解除
     newsletters_opt_in:
+      unathorized: 申し訳ありませんが、このリンクは使用できなくなりました。
       update:
         error: ニュースレター設定の保存中に問題が発生しました。
         success: ニュースレター設定を更新しました。
