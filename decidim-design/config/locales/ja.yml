@@ -1,1 +1,12 @@
+---
 ja:
+  decidim:
+    design:
+      home:
+        index:
+          by_sharing_principles: 設計上の決定を行うための原理、哲学、根拠を共有することにより、コミュニティが一貫性のある貢献を行えるようになり、最高の参加体験が得られることを目指します。
+          decidim_guide: Decidim に関するすべてを設計するためのガイド
+          different_ui_components: 同時に、使い方の異なるUIコンポーネントとパターンを文書化し、再利用または拡張が行えるようにします。
+          github_source: ソースコード（GitHub）
+          home_header: Decidim デザインガイド
+          welcome_sentence: Decidim デザインガイド (DDG) へようこそ。 このガイドは、カスタマイズ、新規モジュール開発、新機能統合を行うデザイナーや開発者のためのリソースです。
