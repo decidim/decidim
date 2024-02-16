@@ -26,3 +26,18 @@ en:
           elements_hidden: Elements hidden
           see_further_info: See further info
           here_link: here
+          illogical_heading_paragraph: Every page should have a logical heading order when using the &#60;h1&#62;, &#60;h2&#62;, &#60;h3&#62;, &#60;h4&#62;, &#60;h5&#62; and &#60;h6&#62; heading elements.
+          unique_h1_paragraph: Every page should have a unique H1 heading on it
+          important_sections_heading: Heading on important sections
+          important_sections_paragraph: It is highly important that each important section of the page has a heading to make it easier to understand what important sections are on the page just by browsing through its headings.
+          color_contrast_paragraph: When creating user interfaces or modifying the colors, always make sure that you are not breaking accessibility with your changes. You can use the Color contrast checker to ensure that your colors have enough contrast against the background color where they are displayed at.
+          links_and_buttons_paragraph: The anchor elements (i.e. links) are meant to link to different pages or to anchor positions within the page. If the element is supposed to e.g. open some hidden item on that page, you should use the &#60;button&#62; element instead.
+          accessibility_labels_paragraph: When defining elements, always make sure they make sense for screen reader users.
+          adjacent_links_header: Adjacent links for the same resource
+          adjacent_links_paragraph: If the same resource has multiple adjacent links pointing to it, it makes it difficult for such users to glance through the page because they might need to go through multiple links to get to the next resource.
+          dynamic_changes_header: Dynamic functionality changes the page context unintuitively
+          dynamic_changes_paragraph: Changes in the form inputs should not change the context of the page automatically.
+          use_aria_header: Use ARIA attributes where possible
+          use_aria_paragraph: Many elements that provide interactive functionality on the website require ARIA attributes on them to make them accessible.
+          elements_hidden_header: Elements hidden from the accessibility API
+          elements_hidden_paragraph: To hide an element from assistive technologies, use the aria-hidden="true" attribute on it.
