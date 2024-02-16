@@ -14,9 +14,9 @@ describe Decidim::ComponentPublishedEvent do
   let(:email_subject) { "An update to #{participatory_space_title}" }
   let(:resource_title) { decidim_sanitize_translated(resource.name) }
   let(:participatory_space_title) { decidim_sanitize_translated(participatory_space.title) }
-  let(:email_intro) { "The #{resource_title} component is now active for #{participatory_space_title}. You can see it from this page:" }
+  let(:email_intro) { "The #{decidim_escape_translated(resource.name)} component is now active for #{participatory_space_title}. You can see it from this page:" }
   let(:email_outro) { "You have received this notification because you are following #{participatory_space_title}. You can stop receiving notifications following the previous link." }
-  let(:notification_title) { "The #{resource_title} component is now active for <a href=\"#{resource_path}\">#{participatory_space_title}</a>" }
+  let(:notification_title) { "The #{decidim_escape_translated(resource.name)} component is now active for <a href=\"#{resource_path}\">#{participatory_space_title}</a>" }
 
   it_behaves_like "a simple event"
   it_behaves_like "a simple event email"
