@@ -10,3 +10,6 @@ en:
           github_source: Source code on GitHub
           home_header: Decidim Design Guide
           welcome_sentence: Welcome to the Decidim Design Guide (DDG). This guide is the resource for designers and developers who need to customize, develop new modules, and integrate new features.
+      foundations:
+        accessibility:
+          accessibility_title: Accessibility
