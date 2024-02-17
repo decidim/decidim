@@ -1,1 +1,8 @@
+---
 cs:
+  decidim:
+    design:
+      home:
+        index:
+          decidim_guide: Průvodce navrhováním všech věcí Decidim
+          github_source: Zdrojový kód na GitHubu
