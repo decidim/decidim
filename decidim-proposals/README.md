@@ -49,7 +49,7 @@ Participatory texts persist each section of the document in a Proposal.
 
 When importing participatory texts all formats are first transformed into Markdown and is the markdown that is parsed and processed to generate the corresponding Proposals.
 
-When processing participatory text documents three kinds of secions are taken into account.
+When processing participatory text documents three kinds of sections are taken into account.
 
 - Section: each "Title 1" in the document becomes a section.
 - Subsection: the rest of the titles become subsections.

@@ -14,7 +14,7 @@ import Rails from "@rails/ujs"
 import svg4everybody from "svg4everybody"
 import morphdom from "morphdom"
 
-// vendor customizated scripts (bad practice: these ones should be removed eventually)
+// vendor customized scripts (bad practice: these ones should be removed eventually)
 import "src/decidim/vendor/modernizr"
 
 /**
@@ -75,7 +75,7 @@ import {
 import changeReportFormBehavior from "src/decidim/change_report_form_behavior"
 
 // bad practice: window namespace should avoid be populated as much as possible
-// rails-translations could be referrenced through a single Decidim.I18n object
+// rails-translations could be referenced through a single Decidim.I18n object
 window.Decidim = window.Decidim || {
   config: new Configuration(),
   ExternalLink,

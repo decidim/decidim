@@ -21,7 +21,7 @@ describe "Admin manages newsletters" do
     it "shows the number of users subscribed to the newsletter" do
       visit decidim_admin.newsletters_path
 
-      within ".subscribed_count" do
+      within "span[data-subscribed-count]" do
         expect(page).to have_content(recipients_count)
       end
     end
@@ -106,7 +106,7 @@ describe "Admin manages newsletters" do
       visit decidim_admin.newsletter_path(newsletter)
 
       expect(page).to have_content("A fancy newsletter for Sarah Kerrigan")
-      expect(page).to have_css("iframe.email-preview[src=\"#{decidim_admin.preview_newsletter_path(newsletter)}\"]")
+      expect(page).to have_css("iframe[data-email-preview][src=\"#{decidim_admin.preview_newsletter_path(newsletter)}\"]")
 
       visit decidim_admin.preview_newsletter_path(newsletter)
       expect(page).to have_content("Hello Sarah Kerrigan! Relevant content.")
@@ -345,7 +345,7 @@ describe "Admin manages newsletters" do
       end
 
       expect(page).to have_content("successfully")
-      expect(page).not_to have_css("tr[data-newsletter-id=\"#{newsletter.id}\"]")
+      expect(page).to have_no_css("tr[data-newsletter-id=\"#{newsletter.id}\"]")
     end
   end
 end

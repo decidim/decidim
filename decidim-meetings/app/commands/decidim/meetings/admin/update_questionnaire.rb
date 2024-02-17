@@ -24,7 +24,7 @@ module Decidim
           Decidim.traceability.perform_action!("update", Decidim::Meetings::Questionnaire, @form.current_user, { meeting: @questionnaire.questionnaire_for.try(:meeting) }) do
             Decidim::Meetings::Questionnaire.transaction do
               create_questionnaire_for
-              create_questionaire
+              create_questionnaire
               if @questionnaire.questions_editable?
                 update_questionnaire_questions
                 delete_answers
@@ -42,7 +42,7 @@ module Decidim
           @questionnaire.questionnaire_for.save! if @questionnaire.questionnaire_for.new_record?
         end
 
-        def create_questionaire
+        def create_questionnaire
           @questionnaire.save! if @questionnaire.new_record?
         end
 

@@ -7,7 +7,7 @@ module Decidim
   # In order to group the relations between resources you need to specify a name.
   #
   # Some examples could be: proposals that have been created in a meeting or
-  # projects that are a result of merging diffrent proposals.
+  # projects that are a result of merging different proposals.
   class ResourceLink < ApplicationRecord
     belongs_to :from, polymorphic: true
     belongs_to :to, polymorphic: true

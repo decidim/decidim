@@ -5,10 +5,6 @@ module Decidim
   # delegated to the components' cell if specified in the manifest
   # otherwise a primary cell wil be shown.
   class CardCell < Decidim::ViewModel
-    include Decidim::ApplicationHelper
-    include Decidim::IconHelper
-    include ActionView::Helpers::NumberHelper
-
     ICONS_MAPPING = {
       published_at: "calendar-line",
       votings_count: "check-double-line",

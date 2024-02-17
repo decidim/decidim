@@ -45,7 +45,7 @@ module Decidim
     end
 
     #  Accumulates the given `title` so that they can be chained. Since Rails views
-    # are rendered inside-out, `title` is appended to an array. This way the beggining of
+    # are rendered inside-out, `title` is appended to an array. This way the beginning of
     # the title will be the most specific one. Use the `decidim_page_title` method to
     # render the title whenever you need to (most surely, in the `<title>` tag in the HTML
     # head and in some `title` metatags).
@@ -55,7 +55,7 @@ module Decidim
     #   add_decidim_page_title("My Organization")
     #   decidim_page_title # => "My Process - My Organization"
     #
-    # @param [Sring] title - A String to be added to the title
+    # @param [String] title - A String to be added to the title
     #
     # @return [Array<String>]
     def add_decidim_page_title(title)

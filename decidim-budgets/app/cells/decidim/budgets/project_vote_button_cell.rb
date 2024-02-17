@@ -5,7 +5,6 @@ module Decidim
     # This cell renders an authorized_action button
     # to vote a given instance of a Project in a budget list
     class ProjectVoteButtonCell < Decidim::ViewModel
-      include Decidim::ActionAuthorizationHelper
       include Decidim::Budgets::ProjectsHelper
       include Decidim::Budgets::Engine.routes.url_helpers
 

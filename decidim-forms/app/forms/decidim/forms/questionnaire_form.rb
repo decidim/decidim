@@ -33,7 +33,7 @@ module Decidim
         context.responses = attributes[:responses]
       end
 
-      # Public: Splits reponses by step, keeping the separator.
+      # Public: Splits responses by step, keeping the separator.
       #
       # Returns an array of steps. Each step is a list of the questions in that
       # step, including the separator.

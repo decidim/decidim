@@ -24,7 +24,7 @@ describe "Data consent within organization" do
 
   it "discards the data consent" do
     click_button(id: "dc-dialog-accept")
-    expect(page).not_to have_content("Information about the cookies used on the website")
+    expect(page).to have_no_content("Information about the cookies used on the website")
   end
 
   it "sets the correct expiration for the cookie" do

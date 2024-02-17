@@ -15,7 +15,7 @@ shared_context "when sends the notification digest" do
 end
 
 shared_examples_for "notification digest mail" do
-  context "when a notificable event takes place" do
+  context "when a notifiable event takes place" do
     let!(:organization) { create(:organization) }
     let!(:participatory_space) { create(:participatory_process, organization:) }
 

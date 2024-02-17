@@ -54,7 +54,7 @@ describe "Admin manages surveys" do
         visit questionnaire_edit_path
         click_button "Expand all"
         expect(page).to have_selector("#questionnaire_questions_#{question.id}_body_en")
-        expect(page).not_to have_selector("#questionnaire_questions_#{question.id}_body_en[disabled]")
+        expect(page).to have_no_selector("#questionnaire_questions_#{question.id}_body_en[disabled]")
       end
 
       it "deletes answers after editing" do

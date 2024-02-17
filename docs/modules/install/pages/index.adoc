@@ -81,7 +81,7 @@ This will also create some example data through the seeds so that you can start 
 
 |===
 
-This data will not be created in production environments. If you insist on adding it in production, run: `$ SEED=true rails db:setup`. We recomend that you first login as a system user and edit the hostname for the organization. Set it as your production environment's domain, without the protocol and the port (so if your domain/hostname is `+https://example.org:3000+`, you need to write `example.org` in the organization's host field).
+This data will not be created in production environments. If you insist on adding it in production, run: `$ SEED=true rails db:setup`. We recommend that you first login as a system user and edit the hostname for the organization. Set it as your production environment's domain, without the protocol and the port (so if your domain/hostname is `+https://example.org:3000+`, you need to write `example.org` in the organization's host field).
 
 You can now start your server!
 
@@ -142,7 +142,7 @@ We also have other guides on how to configure some extra mandatory components:
 
 == Deploy
 
-Once you have successfully deployed your applicaton to your favorite platform, you will need to create your `System` user. You can do this using the following command in your terminal:
+Once you have successfully deployed your application to your favorite platform, you will need to create your `System` user. You can do this using the following command in your terminal:
 
 [source,console]
 ----
@@ -172,7 +172,7 @@ There are several things you need to check before making your putting your appli
 
 == Contributing
 
-We always welcome new contributors of all levels to the project. If you are not confident enough with Ruby or web development you can look for https://github.com/decidim/decidim/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22[issues labeled `good first issue`] to start contibuting and learning the internals of the project by doing easy jobs.
+We always welcome new contributors of all levels to the project. If you are not confident enough with Ruby or web development you can look for https://github.com/decidim/decidim/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22[issues labeled `good first issue`] to start contributing and learning the internals of the project by doing easy jobs.
 
 We also have a xref:develop:guide.adoc[developer's reference] that will help you getting started with your environment and our daily commands, routines, etc.
 

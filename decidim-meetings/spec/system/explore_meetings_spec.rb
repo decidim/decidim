@@ -77,7 +77,7 @@ describe "Explore meetings", :slow do
       it "does not show past meetings" do
         visit_component
         within "#meetings" do
-          expect(page).not_to have_content(translated(past_meeting.title))
+          expect(page).to have_no_content(translated(past_meeting.title))
         end
       end
     end
@@ -128,7 +128,7 @@ describe "Explore meetings", :slow do
 
         expect(page).to have_selector(meetings_selector, count: meetings_count - 1)
 
-        expect(page).not_to have_content(translated(meeting.title))
+        expect(page).to have_no_content(translated(meeting.title))
       end
     end
 
@@ -160,7 +160,7 @@ describe "Explore meetings", :slow do
             end
           end
 
-          expect(page).not_to have_content("Another meeting")
+          expect(page).to have_no_content("Another meeting")
           expect(page).to have_content("Foobar meeting")
 
           filter_params = CGI.parse(URI.parse(page.current_url).query)
@@ -252,14 +252,14 @@ describe "Explore meetings", :slow do
 
           expect(page).to have_css(meetings_selector, count: 3)
           expect(page).to have_content(translated(past_meeting1.title))
-          expect(page).not_to have_content(translated(upcoming_meeting1.title))
+          expect(page).to have_no_content(translated(upcoming_meeting1.title))
 
           within "#panel-dropdown-menu-date" do
             click_filter_item "Upcoming"
           end
 
           expect(page).to have_content(translated(upcoming_meeting1.title))
-          expect(page).not_to have_content(translated(past_meeting1.title))
+          expect(page).to have_no_content(translated(past_meeting1.title))
 
           expect(page).to have_css(meetings_selector, count: 8)
 
@@ -420,7 +420,7 @@ describe "Explore meetings", :slow do
       it "hides map" do
         visit_component
 
-        expect(page).not_to have_css("div.map__help")
+        expect(page).to have_no_css("div.map__help")
       end
     end
   end
@@ -457,7 +457,7 @@ describe "Explore meetings", :slow do
 
     context "without category or scope" do
       it "does not show any tag" do
-        expect(page).not_to have_selector("[data-tags]")
+        expect(page).to have_no_selector("[data-tags]")
       end
     end
 
@@ -565,7 +565,7 @@ describe "Explore meetings", :slow do
 
       it "does not show contributions count" do
         within "[data-content]" do
-          expect(page).not_to have_css(".meeting__aside-block", text: "Contributions count\n0")
+          expect(page).to have_no_css(".meeting__aside-block", text: "Contributions count\n0")
         end
       end
     end

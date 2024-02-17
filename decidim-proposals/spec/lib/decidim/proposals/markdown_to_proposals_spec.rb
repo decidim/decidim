@@ -147,7 +147,7 @@ module Decidim
             - _single underscores_
             - **double asterisks**
             - __double underscores__
-            Will produce this oputput:
+            Will produce this output:
             - <em>single asterisks</em>
             - <u>single underscores</u>
             - <strong>double asterisks</strong>
@@ -173,7 +173,7 @@ module Decidim
             - <u>single underscores</u>
             - <strong>double asterisks</strong>
             - <strong>double underscores</strong>
-            Will produce this oputput:
+            Will produce this output:
             - <em>single asterisks</em>
             - <u>single underscores</u>
             - <strong>double asterisks</strong>

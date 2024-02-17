@@ -94,7 +94,7 @@ describe "Admin manages participatory process group landing page" do
 
       click_button "Update"
       visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(resource, content_block)
-      expect(page).to have_selector("input[value='Custom button text!']")
+      expect(page).to have_css("input[value='Custom button text!']")
 
       content_block.reload
 
@@ -104,7 +104,7 @@ describe "Admin manages participatory process group landing page" do
     it "shows settings of the hero" do
       visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(resource, hero_content_block)
       hero_settings.values.each do |value|
-        expect(page).to have_selector("input[value='#{value}']")
+        expect(page).to have_css("input[value='#{value}']")
       end
     end
   end

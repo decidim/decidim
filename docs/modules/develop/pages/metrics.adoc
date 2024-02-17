@@ -76,7 +76,7 @@ Only available for `ParticipatorySpaces` (restricted to `ParticipatoryProcesses`
 
 == Persistence
 
-The metrics module percomutes calculations and persists them into
+The metrics module precomputes calculations and persists them into
 `decidim_metrics` database table. So this module only uses one single table to
 persist metrics from all times and types.
 

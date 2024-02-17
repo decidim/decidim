@@ -26,7 +26,7 @@ NOTE: Script type should be "text/plain". Without that, user's data consent sett
 
 == Adding data consent category and related documentation
 
-You are able to modify data consent categories via the `consent_gategories` configuration option.
+You are able to modify data consent categories via the `consent_categories` configuration option.
 
 For example if you want to add a "statistics" category you need to add following code to your app's initializer:
 

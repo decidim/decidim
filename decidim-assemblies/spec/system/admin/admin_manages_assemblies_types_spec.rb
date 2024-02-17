@@ -50,7 +50,7 @@ describe "Admin manages assemblies" do
       end
 
       it "can edit them" do
-        within find("tr", text: translated(assembly_type.title)) do
+        within "tr", text: translated(assembly_type.title) do
           click_link "Edit"
         end
 
@@ -74,7 +74,7 @@ describe "Admin manages assemblies" do
         expect(page).to have_admin_callout("successfully")
 
         within "#assembly-types" do
-          expect(page).not_to have_content(translated(assembly_type.title))
+          expect(page).to have_no_content(translated(assembly_type.title))
         end
       end
     end
@@ -83,7 +83,7 @@ describe "Admin manages assemblies" do
   private
 
   def click_delete_assembly_type
-    within find("tr", text: translated(assembly_type.title)) do
+    within "tr", text: translated(assembly_type.title) do
       accept_confirm { click_link "Delete" }
     end
   end

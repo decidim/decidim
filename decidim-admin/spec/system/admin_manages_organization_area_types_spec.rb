@@ -61,7 +61,7 @@ describe "Admin manages area types" do
     end
 
     it "can edit them" do
-      within find("tr", text: translated(area_type.name)) do
+      within "tr", text: translated(area_type.name) do
         click_link "Edit"
       end
 
@@ -75,7 +75,7 @@ describe "Admin manages area types" do
         fill_in_i18n(
           :area_type_plural,
           "#area_type-plural-tabs",
-          en: "This is the new pluarl"
+          en: "This is the new plural"
         )
         find("*[type=submit]").click
       end
@@ -88,14 +88,14 @@ describe "Admin manages area types" do
     end
 
     it "can delete them" do
-      within find("tr", text: translated(area_type.name)) do
+      within "tr", text: translated(area_type.name) do
         accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).not_to have_content(translated(area_type.name))
+        expect(page).to have_no_content(translated(area_type.name))
       end
     end
   end

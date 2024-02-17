@@ -26,10 +26,10 @@ describe "Admin manages posts" do
 
   it "sets publish time correctly" do
     within "table" do
-      within find("tr", text: translated(post1.title)) do
+      within "tr", text: translated(post1.title) do
         expect(page).to have_content(two_days_ago)
       end
-      within find("tr", text: translated(post2.title)) do
+      within "tr", text: translated(post2.title) do
         expect(page).to have_content(two_days_from_now)
         expect(find("td:nth-child(4) span")).to have_css("[aria-label='Not published yet.']")
       end

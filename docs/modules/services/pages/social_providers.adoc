@@ -42,14 +42,14 @@ twitter:
 == Google
 
 . Navigate to https://console.developers.google.com[Google Developers Page]
-. Follow the 'Create projecte' link.
+. Follow the 'Create project' link.
 . Fill in the name of your app.
-. Navigate to the projecte dashboard and click on "Enable API"
+. Navigate to the project dashboard and click on "Enable API"
 . Click on `Google+ API` and then "Enable"
 . Navigate to the project credentials page and click on `OAuth consent screen`.
 . Fill in the `Product name` field
 . Click on `Credentials` tab and click on "Create credentials" button. Select `OAuth client ID`.
-. Select `Web applications`. Fill in the `Authorized Javascript origins` with your url. Then fill in the `Authorized redirect URIs` with your url and append the path `/users/auth/google_oauth2/callback`.
+. Select `Web applications`. Fill in the `Authorized JavaScript origins` with your url. Then fill in the `Authorized redirect URIs` with your url and append the path `/users/auth/google_oauth2/callback`.
 . Copy the CLIENT_ID AND CLIENT_SECRET
 . Paste credentials in `config/secrets.yml` or in the organization configuration. Ensure the `enabled` attribute is `true`.
 

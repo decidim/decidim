@@ -92,7 +92,7 @@ FactoryBot.define do
     end
 
     trait :withdrawn do
-      state { "withdrawn" }
+      withdrawn_at { Time.current }
     end
 
     trait :in_person do
@@ -269,7 +269,7 @@ FactoryBot.define do
         if skip_injection
           Decidim::Faker::Localized.localized { generate(:title) }
         else
-          Decidim::Faker::Localized.localized { "<script>alert(\"Meetings agenda item descrition\");</script> #{generate(:title)}" }
+          Decidim::Faker::Localized.localized { "<script>alert(\"Meetings agenda item description\");</script> #{generate(:title)}" }
         end
       end
     end

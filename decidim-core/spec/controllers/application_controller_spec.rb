@@ -112,7 +112,7 @@ module Decidim
 
         it_behaves_like "handling parameter values for stored location correctly"
 
-        it "sets the appropiate headers" do
+        it "sets the appropriate headers" do
           get :show
 
           expect(response.headers["Cache-Control"]).to eq("no-cache, no-store")
@@ -150,7 +150,7 @@ module Decidim
       context "when not authenticated" do
         it_behaves_like "handling parameter values for stored location correctly"
 
-        it "sets the appropiate headers" do
+        it "sets the appropriate headers" do
           get :show
 
           expect(response.headers["Cache-Control"]).to be_nil
@@ -190,7 +190,7 @@ module Decidim
             sign_in user
           end
 
-          it "sets the appropiate headers" do
+          it "sets the appropriate headers" do
             get :show
 
             expect(response.headers["Cache-Control"]).to eq("no-cache, no-store")

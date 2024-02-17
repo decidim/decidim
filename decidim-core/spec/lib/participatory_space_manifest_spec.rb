@@ -56,7 +56,7 @@ module Decidim
         subject.invoke_on_destroy_account(user)
       end
 
-      it "can be setted and invoked" do
+      it "can be set and invoked" do
         expected_name = "on account destroyed was invoked"
         subject.register_on_destroy_account do |user|
           user.name = expected_name

@@ -87,15 +87,15 @@ describe "Translations" do
       it "shows the original English text" do
         # Dummy resource, original in English
         expect(page).to have_content(english_title)
-        expect(page).not_to have_content(spanish_title)
+        expect(page).to have_no_content(spanish_title)
 
         # First comment, original in English
         expect(page).to have_content(english_comment)
-        expect(page).not_to have_content(spanish_comment)
+        expect(page).to have_no_content(spanish_comment)
 
         # Last comment, original in Spanish
         expect(page).to have_content(spanish_comment2)
-        expect(page).not_to have_content(english_comment2)
+        expect(page).to have_no_content(english_comment2)
       end
 
       context "when toggling translations" do
@@ -105,16 +105,16 @@ describe "Translations" do
 
         it "shows the translated title" do
           # Dummy resource, original in English
-          expect(page).not_to have_content(english_title)
+          expect(page).to have_no_content(english_title)
           expect(page).to have_content(spanish_title)
 
           # First comment, original in English
-          expect(page).not_to have_content(english_comment)
+          expect(page).to have_no_content(english_comment)
           expect(page).to have_content(spanish_comment)
 
           # Last comment, original in Spanish
           expect(page).to have_content(spanish_comment2)
-          expect(page).not_to have_content(english_comment2)
+          expect(page).to have_no_content(english_comment2)
         end
       end
     end
@@ -132,16 +132,16 @@ describe "Translations" do
 
       it "shows the Spanish texts" do
         # Dummy resource, original in English
-        expect(page).not_to have_content(english_title)
+        expect(page).to have_no_content(english_title)
         expect(page).to have_content(spanish_title)
 
         # First comment, original in English
-        expect(page).not_to have_content(english_comment)
+        expect(page).to have_no_content(english_comment)
         expect(page).to have_content(spanish_comment)
 
         # Last comment, original in Spanish
         expect(page).to have_content(spanish_comment2)
-        expect(page).not_to have_content(english_comment2)
+        expect(page).to have_no_content(english_comment2)
       end
 
       context "when toggling translations" do
@@ -152,15 +152,15 @@ describe "Translations" do
         it "shows the original values" do
           # Dummy resource, original in English
           expect(page).to have_content(english_title)
-          expect(page).not_to have_content(spanish_title)
+          expect(page).to have_no_content(spanish_title)
 
           # First comment, original in English
           expect(page).to have_content(english_comment)
-          expect(page).not_to have_content(spanish_comment)
+          expect(page).to have_no_content(spanish_comment)
 
           # Last comment, original in Spanish
           expect(page).to have_content(spanish_comment2)
-          expect(page).not_to have_content(english_comment2)
+          expect(page).to have_no_content(english_comment2)
         end
       end
     end

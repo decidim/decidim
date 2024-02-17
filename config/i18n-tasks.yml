@@ -25,7 +25,7 @@ data:
     - 'decidim-core/config/locales/%{locale}.yml'
 
   ## Specify the router (see Readme for details). Valid values: conservative_router, pattern_router, or a custom class.
-  # router: convervative_router
+  # router: conservative_router
 
   yaml:
     write:
@@ -172,7 +172,7 @@ ignore_unused:
   - decidim.resource_links.*
   - decidim.system.default_pages.placeholders.*
   - decidim.system.organizations.omniauth_settings.*
-  - decidim.verifications.id_documents.{dni,nie,passport}
+  - decidim.verifications.id_documents.{identification_number,passport}
   - decidim.verifications.dummy_authorization.extra_explanation.user_postal_codes.{one,other}
   - decidim.verifications.dummy_authorization.extra_explanation.user_scope
   - errors.messages.*

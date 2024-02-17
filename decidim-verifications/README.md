@@ -113,6 +113,28 @@ Decidim implements two type of authorization methods:
   end
   ```
 
+### Identification numbers
+
+For the verification of the participants' data in Verifications, you can configure which type of documents a participant can have. By default these documents are `identification_number` and `passport`, but in some countries you may need to adapt these to your region or governmental specific needs. For instance, in Spain there are `dni`, `nie` and `passport`.
+
+For configuring these you can do so with the Environment Variable `VERIFICATIONS_DOCUMENT_TYPES`.
+
+```env
+VERIFICATIONS_DOCUMENT_TYPES="dni,nie,passport"
+```
+
+You need to also add the following keys in your i18n files (i.e. `config/locales/en.yml`). By default in the verifications, `identification_number` is currently being used as a universal example. Below are examples of adding `dni`, `nie` and `passport` locally used in Spain.
+
+```yaml
+en:
+  decidim:
+    verifications:
+        id_documents:
+          dni: DNI
+          nie: NIE
+          passport: Passport
+```
+
 ### SMS verification
 
 Decidim comes with a verification workflow designed to verify users by sending
@@ -159,7 +181,7 @@ for an action or not.
 
 Custom action authorizers are an advanced component that can be used in both types of
 authorization methods to customize some parts of the authorization process.
-These are particulary useful when used within verification options, which are
+These are particularly useful when used within verification options, which are
 set in the admin zone related to a component action. As a result, a verification
 method will be allowed to change the authorization logic and the appearance based
 on the context where the authorization is being performed.
@@ -168,7 +190,7 @@ For example, you can require authorization for supporting proposals in a partici
 process, and also restrict it to users with postal codes 12345 and 12346. The
 [example authorization handler](https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/dummy_authorization_handler.rb)
 included in this module allows to do that. As an admin user, you should visit
-the proposals componenent permissions screen, choose the `Example authorization`
+the proposals component permissions screen, choose the `Example authorization`
 as the authorization handler name for the `vote` action and enter "12345, 12346"
 in the `Allowed postal codes` field placed below.
 

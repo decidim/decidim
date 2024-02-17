@@ -433,7 +433,7 @@ module Decidim
     ";"
   end
 
-  # Exposes a configuration option: HTTP_X_FORWADED_HOST header follow-up.
+  # Exposes a configuration option: HTTP_X_FORWARDED_HOST header follow-up.
   # If a caching system is in place, it can also allow cache and log poisoning attacks,
   # allowing attackers to control the contents of caches and logs that could be used for other attacks.
   config_accessor :follow_http_x_forwarded_host do

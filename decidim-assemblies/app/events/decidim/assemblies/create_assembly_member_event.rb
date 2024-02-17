@@ -6,7 +6,7 @@ module Decidim
       i18n_attributes :resource_name
 
       def resource_name
-        @resource_name ||= translated_attribute(assembly.title)
+        @resource_name ||= decidim_sanitize_translated(assembly.title)
       end
 
       def assembly

@@ -36,7 +36,7 @@ module Decidim
         component_settings.threshold_per_proposal
       end
 
-      # Public: Checks if can accumulate more than maxium is enabled
+      # Public: Checks if can accumulate more than maximum is enabled
       #
       # Returns true if enabled, false otherwise.
       def can_accumulate_supports_beyond_threshold?

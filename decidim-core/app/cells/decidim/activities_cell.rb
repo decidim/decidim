@@ -5,7 +5,6 @@ module Decidim
   # each one.
   class ActivitiesCell < Decidim::ViewModel
     include Decidim::CardHelper
-    include Decidim::IconHelper
     include Decidim::Core::Engine.routes.url_helpers
 
     # Since we are rendering each activity separatedly we need to trigger

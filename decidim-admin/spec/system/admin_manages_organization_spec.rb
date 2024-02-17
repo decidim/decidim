@@ -44,7 +44,7 @@ describe "Admin manages organization" do
       visit decidim_admin.edit_organization_path
       expect(find_by_id("organization_comments_max_length")[:required]).to eq("true")
 
-      expect(page).not_to have_content("There is an error in this field.")
+      expect(page).to have_no_content("There is an error in this field.")
       fill_in :organization_comments_max_length, with: ""
       expect(page).to have_content("There is an error in this field.")
     end
@@ -74,7 +74,7 @@ describe "Admin manages organization" do
         end
 
         it "renders the editor" do
-          expect(page).to have_selector(
+          expect(page).to have_css(
             "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror",
             text: ""
           )
@@ -377,7 +377,7 @@ describe "Admin manages organization" do
           )["innerHTML"]).to eq(terms_content.to_s.gsub("\n", ""))
         end
 
-        it "keeps right curson position when using the backspace" do
+        it "keeps right cursor position when using the backspace" do
           find('div[contenteditable="true"].ProseMirror').native.send_keys [:enter, "bc", :left, :left]
           find('div[contenteditable="true"].ProseMirror').native.send_keys [:enter, :backspace, :backspace, "a"]
           expect(find(
@@ -526,7 +526,7 @@ describe "Admin manages organization" do
       it "does not show the customization fields" do
         visit decidim_admin.edit_organization_path
         check "Send welcome notification"
-        expect(page).not_to have_content("Welcome notification subject")
+        expect(page).to have_no_content("Welcome notification subject")
         click_button "Update"
         expect(page).to have_content("updated successfully")
 

@@ -125,7 +125,7 @@ describe "Filter Participatory Processes" do
 
       it "lists all processes belonging to that scope" do
         expect(page).to have_content(translated(process_with_scope.title))
-        expect(page).not_to have_content(translated(process_without_scope.title))
+        expect(page).to have_no_content(translated(process_without_scope.title))
       end
     end
   end
@@ -149,7 +149,7 @@ describe "Filter Participatory Processes" do
 
       it "lists all processes belonging to that area" do
         expect(page).to have_content(translated(process_with_area.title))
-        expect(page).not_to have_content(translated(process_without_area.title))
+        expect(page).to have_no_content(translated(process_without_area.title))
       end
     end
 
@@ -163,8 +163,8 @@ describe "Filter Participatory Processes" do
       end
 
       it "does not show filters" do
-        expect(page).not_to have_css(".with_area_areas_select_filter")
-        expect(page).not_to have_css(".with_scope_scopes_picker_filter")
+        expect(page).to have_no_css(".with_area_areas_select_filter")
+        expect(page).to have_no_css(".with_scope_scopes_picker_filter")
       end
     end
   end
@@ -179,7 +179,7 @@ describe "Filter Participatory Processes" do
         end
 
         it "does not show the participatory process types filter" do
-          expect(page).not_to have_css("#process-type-filter")
+          expect(page).to have_no_css("#process-type-filter")
         end
       end
     end
@@ -266,10 +266,10 @@ describe "Filter Participatory Processes" do
               expect(page).to have_content("3 active processes")
             end
 
-            expect(page).not_to have_content("NW Rocks!")
-            expect(page).not_to have_content("SE Rocks!")
+            expect(page).to have_no_content("NW Rocks!")
+            expect(page).to have_no_content("SE Rocks!")
             group_1_process_type.processes.groupless.each do |group|
-              expect(page).not_to have_content(translated(group.title))
+              expect(page).to have_no_content(translated(group.title))
             end
             group_2_process_type.processes.groupless.each do |group|
               expect(page).to have_content(translated(group.title))
@@ -291,8 +291,8 @@ describe "Filter Participatory Processes" do
               expect(page).to have_content("6 active processes")
             end
 
-            expect(page).not_to have_content("NW Rocks!")
-            expect(page).not_to have_content("SE Rocks!")
+            expect(page).to have_no_content("NW Rocks!")
+            expect(page).to have_no_content("SE Rocks!")
             group_1_process_type.processes.groupless.each do |group|
               expect(page).to have_content(translated(group.title))
             end

@@ -37,7 +37,7 @@ bin/rails decidim:upgrade
 bin/rails db:migrate
 ----
 
-In theory, that would be all. However, you need to be careful in certain situations, specially if your copy of Decidim has many code modifications. We'd recommend to always test the upgrade following Ruby on Rails best practices: working with development mode in localhost, deploying to a staging/preproduction server to test it manually (specially your modifications) and finally deploying to production. As an alternative you can test the upgrade in a separate machine with the same configuration (If using Digitalocean you can create an snapshot of the server, tested the update, and then remove it, similar process on other providers).
+In theory, that would be all. However, you need to be careful in certain situations, specially if your copy of Decidim has many code modifications. We'd recommend to always test the upgrade following Ruby on Rails best practices: working with development mode in localhost, deploying to a staging/preproduction server to test it manually (specially your modifications) and finally deploying to production. As an alternative you can test the upgrade in a separate machine with the same configuration (If using DigitalOcean you can create an snapshot of the server, tested the update, and then remove it, similar process on other providers).
 
 == From git repositories
 
@@ -80,7 +80,7 @@ gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-dev", DECIDIM_VERSION
 ----
 
-== Compatiblity versions matrix
+== Compatibility versions matrix
 
 There are different versions of Decidim that are compatible with different versions of Ruby and Node. You can check the following table to see which versions are compatible with each other:
 

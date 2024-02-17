@@ -3,14 +3,14 @@
 shared_examples "manage posts" do
   it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='post-body-tabs']", "full" do
     before do
-      within find("tr", text: translated(post1.title)) do
+      within "tr", text: translated(post1.title) do
         click_link "Edit"
       end
     end
   end
 
   it "updates a post" do
-    within find("tr", text: translated(post1.title)) do
+    within "tr", text: translated(post1.title) do
       click_link "Edit"
     end
 
@@ -82,14 +82,14 @@ shared_examples "manage posts" do
     end
 
     it "deletes a post" do
-      within find("tr", text: translated(post1.title)) do
+      within "tr", text: translated(post1.title) do
         accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).not_to have_content(translated(post1.title))
+        expect(page).to have_no_content(translated(post1.title))
         expect(page).to have_content(translated(post2.title))
       end
     end
@@ -135,7 +135,7 @@ shared_examples "manage posts" do
     end
 
     it "can update the user group as the post author" do
-      within find("tr", text: translated(post1.title)) do
+      within "tr", text: translated(post1.title) do
         click_link "Edit"
       end
 
@@ -146,7 +146,7 @@ shared_examples "manage posts" do
 
       expect(page).to have_admin_callout("successfully")
 
-      within find("tr", text: translated(post1.title)) do
+      within "tr", text: translated(post1.title) do
         expect(page).to have_content(user_group.name)
       end
     end
@@ -191,7 +191,7 @@ shared_examples "manage posts" do
     end
 
     it "can update the blog as the organization" do
-      within find("tr", text: translated(post1.title)) do
+      within "tr", text: translated(post1.title) do
         click_link "Edit"
       end
 
@@ -202,7 +202,7 @@ shared_examples "manage posts" do
 
       expect(page).to have_admin_callout("successfully")
 
-      within find("tr", text: translated(post1.title)) do
+      within "tr", text: translated(post1.title) do
         expect(page).to have_content(author.name)
       end
     end
@@ -247,7 +247,7 @@ shared_examples "manage posts" do
     end
 
     it "can update the blog as the user" do
-      within find("tr", text: translated(post1.title)) do
+      within "tr", text: translated(post1.title) do
         click_link "Edit"
       end
 
@@ -258,13 +258,13 @@ shared_examples "manage posts" do
 
       expect(page).to have_admin_callout("successfully")
 
-      within find("tr", text: translated(post1.title)) do
+      within "tr", text: translated(post1.title) do
         expect(page).to have_content(author.name)
       end
     end
 
     it "changes the publish time" do
-      within find("tr", text: translated(post1.title)) do
+      within "tr", text: translated(post1.title) do
         click_link "Edit"
       end
       within ".edit_post" do

@@ -2,8 +2,6 @@
 
 module Decidim
   class BadgesCell < Decidim::ViewModel
-    include Decidim::ApplicationHelper
-    include Decidim::LayoutHelper
     include Decidim::Core::Engine.routes.url_helpers
 
     def available_badges
