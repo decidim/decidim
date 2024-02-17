@@ -19,6 +19,7 @@ describe "Admin manages impersonatable users list" do
     let!(:not_managed) { create(:user, organization:) }
 
     let!(:deleted) { create(:user, :confirmed, :deleted, organization:) }
+    let!(:blocked) { create(:user, :confirmed, :blocked, organization:) }
     let!(:another_admin) { create(:user, :admin, organization:) }
     let!(:user_manager) { create(:user, :user_manager, organization:) }
     let!(:external_not_managed) { create(:user) }
@@ -39,6 +40,7 @@ describe "Admin manages impersonatable users list" do
 
       expect(page).to have_no_css("tr[data-user-id=\"#{admin.id}\"]", text: admin.name)
       expect(page).to have_no_css("tr[data-user-id=\"#{deleted.id}\"]", text: deleted.name)
+      expect(page).to have_no_css("tr[data-user-id=\"#{blocked.id}\"]", text: blocked.name)
       expect(page).to have_no_css("tr[data-user-id=\"#{another_admin.id}\"]", text: another_admin.name)
       expect(page).to have_no_css("tr[data-user-id=\"#{user_manager.id}\"]", text: user_manager.name)
       expect(page).to have_no_css("tr[data-user-id=\"#{external_not_managed.id}\"]", text: external_not_managed.name)
