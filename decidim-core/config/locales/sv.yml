@@ -1469,13 +1469,16 @@ sv:
       data_consent:
         details:
           columns:
+            description: Beskrivning
             name: Namn
             service: Tjänst
             type: Typ
           items:
             _session_id:
+              description: Tillåter webbplatser att komma ihåg användare på en webbplats när de flyttar mellan webbsidor.
               service: Denna webbplats
             decidim-consent:
+              description: Lagrar information om de cookies som tillåts av användaren på denna webbplats.
               service: Denna webbplats
             pwaInstallPromptSeen:
               service: Denna webbplats
@@ -1484,20 +1487,38 @@ sv:
             local_storage: Lokal lagring
         dialog:
           accept_all: Acceptera alla
+          accept_only_essential: Acceptera endast nödvändig
+          description: Vi använder cookies på vår webbplats för att förbättra webbplatsens prestanda och innehåll. Med hjälp av cookies kan vi erbjuda en mer individuell användarupplevelse och sociala mediekanaler.
           settings: Inställningar
+          title: Information om de cookies som används på webbplatsen
         modal:
           accept_all: Acceptera alla
+          accept_only_essential: Acceptera endast nödvändig
+          analytics:
+            description: Dessa cookies används för att mäta och analysera webbplatsens publik för att förbättra webbplatsen.
+            title: Analys och statistik
+          description: Vi använder cookies för att säkerställa grundläggande funktioner på webbplatsen och för att förbättra din upplevelse online. Du kan när som helst konfigurera och acceptera användningen av cookies och ändra dina samtyckesalternativ.
           essential:
+            description: Dessa cookies möjliggör viktiga funktioner på webbplatsen och hjälper till att hålla sina användare säkrade. De sparas automatiskt i webbläsaren och kan inte inaktiveras.
             title: Nödvändigt
           marketing:
+            description: Dessa cookies samlar in information om hur du använder webbplatsen och de kan användas för att ge dig mer personlig marknadsföring på de olika webbplatser du använder.
             title: Marknadsföring
+          preferences:
+            description: Dessa cookies gör det möjligt för webbplatsen att komma ihåg de val du gjort tidigare på denna webbplats för att ge en mer personlig upplevelse för webbplatsens användare.
+            title: Preferenser
           save_settings: Spara inställningar
+          title: Cookie-inställningar
+          toggle: Växla %{consent_category}
         warning:
+          all_categories: alla cookies
+          change_settings: Ändra cookie-inställningar
           consent_required: Du måste aktivera %{categories} för att kunna se innehållet.
       edit_link:
         edit: Redigera
       footer:
         cc_by_license: Creative Commons licens
+        data_consent_settings: Cookie-inställningar
         decidim_logo: Decidim logotyp
         decidim_title: Decidim
         download_open_data: Hämta öppna datafiler
@@ -1615,6 +1636,7 @@ sv:
       option_split: Sida vid sida
       option_unescaped: Orymt
       option_unified: Sammanslagen
+      toggle: Växla vy
   views:
     pagination:
       next: Nästa
