@@ -8,7 +8,7 @@ If you only want to change colors and anything more, the most easy and fast way 
 
 image::organization-colors.png[Organization colors]
 
-This works for any Organization inside of a Muiltitenant.
+This works for any Organization inside of a Multitenant.
 
 == Head extra file
 

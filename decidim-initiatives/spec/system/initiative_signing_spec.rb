@@ -20,7 +20,7 @@ describe "Initiative signing" do
 
   context "when the user has not signed the initiative" do
     context "when online signatures are enabled for site" do
-      context "when initative type only allows In-person signatures" do
+      context "when initiative type only allows In-person signatures" do
         let(:initiative) { create(:initiative, :published, organization:, signature_type: "offline") }
 
         it "voting disabled message is shown" do
@@ -151,7 +151,7 @@ describe "Initiative signing" do
         end
       end
 
-      context "when the personal daata is not filled" do
+      context "when the personal data is not filled" do
         it "does not allow voting" do
           visit decidim_initiatives.initiative_path(initiative)
 

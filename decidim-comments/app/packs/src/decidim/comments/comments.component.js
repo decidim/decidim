@@ -2,7 +2,7 @@
 /* eslint max-lines: ["error", {"max": 350, "skipBlankLines": true}] */
 
 /**
- * A plain Javascript component that handles the comments.
+ * A plain JavaScript component that handles the comments.
  *
  * @class
  * @augments Component

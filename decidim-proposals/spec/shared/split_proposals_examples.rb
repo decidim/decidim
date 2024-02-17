@@ -38,7 +38,7 @@ shared_examples "split proposals" do
         expect(page).to have_button(id: "js-submit-split-proposals", count: 1)
       end
 
-      context "when submiting the form" do
+      context "when submitting the form" do
         before do
           within "#js-form-split-proposals" do
             select translated(target_component.name), from: :target_component_id_

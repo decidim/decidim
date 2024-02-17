@@ -58,7 +58,7 @@ shared_examples "when managing proposals category as an admin" do
         end
       end
 
-      context "when submiting form" do
+      context "when submitting form" do
         before do
           click_button "Actions"
           click_button "Change category"

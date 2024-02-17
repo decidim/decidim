@@ -12,7 +12,7 @@ describe "commented debates badge" do
     let!(:other_comment) { create(:comment, author: user2, commentable: debate, root_commentable: debate) }
 
     context "when creating the first comment" do
-      it "increses a user's score" do
+      it "increases a user's score" do
         comment = create(:comment, author: user, commentable: debate, root_commentable: debate)
         Decidim::Comments::CommentCreation.publish(comment, {})
         expect(Decidim::Gamification.status_for(user, :commented_debates).score).to eq(1)
@@ -20,7 +20,7 @@ describe "commented debates badge" do
     end
 
     context "when other comments by the same author already exist" do
-      it "increses a user's score when a debate is commented" do
+      it "increases a user's score when a debate is commented" do
         comment = create(:comment, author: user, commentable: debate, root_commentable: debate)
         create(:comment, author: user, commentable: debate, root_commentable: debate)
         Decidim::Comments::CommentCreation.publish(comment, {})

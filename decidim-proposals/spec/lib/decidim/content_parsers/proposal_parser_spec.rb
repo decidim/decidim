@@ -50,7 +50,7 @@ module Decidim
           end
         end
 
-        context "when conent has no links" do
+        context "when content has no links" do
           let(:content) { "whatever content with @mentions and #hashes but no links." }
 
           it { is_expected.to eq(content) }

@@ -75,7 +75,7 @@ describe "Admin manages scope types" do
         fill_in_i18n(
           :scope_type_plural,
           "#scope_type-plural-tabs",
-          en: "This is the new pluarl"
+          en: "This is the new plural"
         )
         find("*[type=submit]").click
       end

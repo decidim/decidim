@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples_for "a translated event" do
-  context "when it is not machine machine translated" do
+  context "when it is not machine translated" do
     let(:organization) { create(:organization, enable_machine_translations: false, machine_translation_display_priority: "original") }
 
     it "does not perform translation" do
@@ -25,7 +25,7 @@ shared_examples_for "a translated event" do
     end
   end
 
-  context "when is machine machine translated" do
+  context "when is machine translated" do
     let(:user) { create :user, organization:, locale: "ca" }
 
     around do |example|

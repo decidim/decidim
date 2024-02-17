@@ -8,9 +8,8 @@ import { NetworkFirst, NetworkOnly } from "workbox-strategies";
 import { CacheableResponsePlugin } from "workbox-cacheable-response";
 import { ExpirationPlugin } from "workbox-expiration";
 
-
 // https://developers.google.com/web/tools/workbox/guides/troubleshoot-and-debug#debugging_workbox
-self.__WB_DISABLE_DEV_LOGS = true
+self.__WB_DISABLE_DEV_LOGS = true;
 
 /**
  * This is a workaround to bypass a webpack compilation error
@@ -35,10 +34,12 @@ self.addEventListener("notificationclick", (event) => {
   // Get all the Window clients
   event.waitUntil(
     self.clients.matchAll({ type: "window" }).then((clientsArr) => {
-      const windowToFocus = clientsArr.find((windowClient) => windowClient.url === event.notification.data.url);
+      const windowToFocus = clientsArr.find(
+        (windowClient) => windowClient.url === event.notification.data.url
+      );
       if (windowToFocus) {
         // If a Window tab matching the targeted URL already exists, focus that
-        windowToFocus.focus()
+        windowToFocus.focus();
       } else {
         // Otherwise, open a new tab to the applicable URL and focus it
         self.clients.
@@ -51,7 +52,8 @@ self.addEventListener("notificationclick", (event) => {
 
 // avoid caching admin or users paths
 registerRoute(
-  ({ url }) => ["/admin/", "/users/"].some((path) => url.pathname.startsWith(path)),
+  ({ url }) =>
+    ["/admin/", "/users/"].some((path) => url.pathname.startsWith(path)),
   new NetworkOnly()
 );
 
@@ -69,7 +71,7 @@ registerRoute(
         maxAgeSeconds: 60 * 60
       })
     ]
-  }),
+  })
 );
 
 // common recipes

@@ -347,7 +347,7 @@ describe "Proposals" do
       end
     end
 
-    context "when the proposals'a author account has been deleted" do
+    context "when the proposal's author account has been deleted" do
       let(:proposal) { proposals.first }
 
       before do

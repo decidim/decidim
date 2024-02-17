@@ -83,7 +83,7 @@ describe "Meeting live event" do
       context "and ends soon" do
         let(:end_time) { 15.seconds.from_now }
 
-        it "logouts user" do
+        it "logs user out" do
           travel 1.minute
           expect(page).to have_content("If you continue being inactive", wait: 30)
           allow(Time).to receive(:current).and_return(1.minute.from_now)
