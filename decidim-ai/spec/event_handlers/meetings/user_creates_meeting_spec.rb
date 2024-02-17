@@ -20,6 +20,7 @@ describe "User creates meeting", type: :system do
       user_group_id: nil,
       current_user: author,
       current_component: component,
+      component:, 
       current_organization: organization,
       registration_type: "on_this_platform",
       available_slots: 0,
