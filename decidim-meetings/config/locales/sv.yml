@@ -39,6 +39,7 @@ sv:
         title: Titel
         visible: Synlig
       meeting_agenda_items:
+        description: Beskrivning
         duration: Varaktighet
         title: Titel
       meeting_registration_invite:
