@@ -858,7 +858,6 @@ ja:
       create:
         button: フォロー
         error: このリソースの後に問題がありました。
-        participatory_space: <span class="show-for-sr">%{resource_name}</span>をフォロー中
       destroy:
         button: フォローを停止
         error: リソースのフォローを解除する際に問題が発生しました。
