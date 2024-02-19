@@ -607,7 +607,6 @@ it:
       create:
         button: Segui
         error: C'è stato un errore seguendo questa risorsa.
-        participatory_space: Stai seguendo <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Smetti di seguire
         error: Si è verificato un errore ad smettere questa risorsa.
