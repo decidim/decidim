@@ -5,25 +5,13 @@ module Decidim
   class PushNotificationMessage
     class InvalidActionError < StandardError; end
 
-    def initialize(sender:, recipient:, conversation:, message:, third_party:, action:) # rubocop:disable Metrics/ParameterLists
-      @sender = sender
+    def initialize(recipient:, conversation:, message:)
       @recipient = recipient
       @conversation = conversation
       @message = message
-      @third_party = third_party
-      @action = validate_action(action)
     end
 
-    ACTIONS = %w(
-      comanagers_new_conversation
-      comanagers_new_message
-      new_conversation
-      new_group_conversation
-      new_group_message
-      new_message
-    ).freeze
-
-    attr_reader :sender, :recipient, :conversation, :message, :action, :third_party
+    attr_reader :recipient, :conversation, :message
 
     include SanitizeHelper
 
@@ -31,29 +19,17 @@ module Decidim
       decidim_escape_translated(message)
     end
 
-    def event_class
-      "Decidim::Messaging::Message"
-    end
-
     def user
       recipient
     end
 
-    # TODO: add icon
+    # TODO: check if icon is correct
     def icon
       "fi-question-answer-line"
     end
 
     def url
-      EngineRouter.new("decidim", {}).public_send(:conversation_path, host: @sender.organization.host, id: @conversation)
-    end
-
-    private
-
-    def validate_action(action)
-      raise InvalidActionError unless ACTIONS.include?(action)
-
-      action
+      EngineRouter.new("decidim", {}).public_send(:conversation_path, host: @recipient.organization.host, id: @conversation)
     end
   end
 end

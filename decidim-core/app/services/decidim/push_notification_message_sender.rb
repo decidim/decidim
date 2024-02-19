@@ -13,22 +13,21 @@ module Decidim
     private
 
     # rubocop:disable Metrics/ParameterLists
+    # rubocop:disable Lint/UnusedMethodArgument
     def send_notification(from:, to:, conversation:, action:, message: nil, third_party: nil)
       @action = action
       @sender = to
       @third_party = third_party
 
       @notification = PushNotificationMessage.new(
-        sender: from,
         recipient: to,
         conversation:,
-        message:,
-        third_party:,
-        action:
+        message:
       )
 
       self
     end
+    # rubocop:enable Lint/UnusedMethodArgument
     # rubocop:enable Metrics/ParameterLists
 
     def title
