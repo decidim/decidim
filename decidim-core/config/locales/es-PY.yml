@@ -879,7 +879,6 @@ es-PY:
       create:
         button: Seguir
         error: Ha habido un error siguiendo este recurso.
-        participatory_space: Siguiendo <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Dejar de seguir
         error: Ha habido un error dejando de seguir este recurso.
