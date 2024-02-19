@@ -9,6 +9,8 @@ module Decidim
   #   <%= cell("decidim/category", model.category, context: {resource: model}) %>
   #
   class TagsCell < Decidim::ViewModel
+    include Decidim::SanitizeHelper
+
     def show
       render if category? || scope?
     end
@@ -51,7 +53,7 @@ module Decidim
     end
 
     def category_name
-      model.category.translated_name
+      decidim_html_escape model.category.translated_name
     end
 
     def category_path

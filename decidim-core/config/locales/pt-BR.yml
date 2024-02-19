@@ -30,6 +30,7 @@ pt-BR:
         password_confirmation: Confirme sua senha
         personal_url: URL pessoal
         remove_avatar: Excluir avatar
+        tos_agreement: Termos e condições de uso deste contrato
     models:
       decidim/attachment_created_event: Anexo
       decidim/component_published_event: Componente ativo
@@ -144,6 +145,7 @@ pt-BR:
         cancel_error: Não foi possível cancelar a alteração do email.
         cancel_successfully: Alteração de e-mail cancelada com sucesso.
         resend_error: Não foi possível reenviar o e-mail de confirmação.
+        resend_successfully: E-mail de confirmação reenviado com sucesso para %{unconfirmed_email}
         send_again: Enviar novamente
         title: Verificação de mudança de e-mail
       show:
@@ -824,12 +826,14 @@ pt-BR:
           message_2: O tamanho recomendado para esta imagem é 512x512.
         image:
           explanation: 'Orientação da imagem:'
-          message_1: Preferencialmente, uma imagem de paisagem que não tem nenhum texto.
-          message_2: O serviço cultiva a imagem.
+          message_1: Preferencialmente, uma imagem de paisagem que não tenha nenhum texto.
+          message_2: O serviço recorta a imagem.
       file_validation:
         allowed_file_extensions: 'Extensões de arquivo permitidas: %{extensions}'
         max_file_dimension: 'Dimensões máximas de arquivo: %{resolution} pixels'
         max_file_size: 'Tamanho máximo de arquivo: %{megabytes}MB'
+      files:
+        extension_allowlist: 'Formatos aceitos: %{extensions}'
       upload:
         labels:
           add_attachment: Adicionar anexo
@@ -839,8 +843,10 @@ pt-BR:
           edit_image: Editar imagem
           error: Erro!
           file_size_too_large: 'O tamanho do arquivo é grande demais! Tamanho maximo de arquivo: %{megabytes}MB'
+          remove: Remover
           replace: Substituir
           save: Salvar
+          title: Título
           title_required: Título é obrigatório!
           uploaded: Carregado
           validating: Validando...
@@ -862,11 +868,11 @@ pt-BR:
           unearned_another: Este usuário ainda não possui seguidores.
           unearned_own: Você ainda não tem seguidores.
         index:
-          badge_title: "%{name} selo"
+          badge_title: "Selo \"%{name}\""
           how: Como você pode ganhar
-          page_description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes. Aqui está a lista de crachás e algumas maneiras de ganhá-los.
-          title: Distintivos
-      description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes.
+          page_description: Os selos são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará selos diferentes. Aqui está a lista de selos e algumas maneiras de ganhá-los.
+          title: Selos
+      description: Os selos são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará selos diferentes.
       level: Nível %{level}
       reached_top: Você atingiu o nível superior para este selo.
     group_admins:
@@ -1190,6 +1196,7 @@ pt-BR:
           weekly: Semanalmente
         notifications_sending_frequency: Com que frequência deseja receber o e-mail de notificações?
         own_activity: Minha atividade, como quando alguém comenta minha proposta ou me menciona
+        push_notifications_reminder: Para receber notificações da plataforma, primeiro você precisará autorizá-las nas configurações do seu navegador.
         receive_notifications_about: Quero receber notificações sobre
         update_notifications_settings: Guardar alterações
       update:
@@ -1277,7 +1284,7 @@ pt-BR:
       default_officialization_text_for_users: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
       show:
         activity: Atividade
-        badges: Distintivos
+        badges: Selos
         conversations: Conversas
         followers: Seguidores
         following: Segue
@@ -1290,7 +1297,7 @@ pt-BR:
       sidebar:
         badges:
           info: Os crachás são obtidos através da realização de atividades específicas na plataforma.
-          title: Distintivos
+          title: Selos
       user:
         confirmation_instructions_sent: Instruções de confirmação por e-mail enviadas
         create_user_group: Criar Grupo
@@ -1377,7 +1384,7 @@ pt-BR:
       embed_modal:
         close_window: Fechar janela
         embed: Cole este código na sua página
-        embed_link: Embutir
+        embed_link: Incorporar
       extended_navigation_bar:
         more: Mais
         unfold: Desdobrar
@@ -1411,7 +1418,7 @@ pt-BR:
       login_modal:
         close_modal: Fechar modal
         please_sign_in: Por favor, inicie a sessão
-        sign_up: Inscrever-se
+        sign_up: Cadastrar-se
       mentions_modal:
         remove_recipient: Remover destinatário %{name}
       participatory_space_filters:
@@ -1643,7 +1650,7 @@ pt-BR:
     registrations:
       destroyed: Tchau! Sua conta foi cancelada com sucesso. Esperamos te ver novamente em breve.
       new:
-        sign_up: inscrever-se
+        sign_up: Cadastrar-se
       signed_up: Bem vinda! Você se inscreveu com sucesso.
       signed_up_but_inactive: Você se inscreveu com sucesso. No entanto, não poderíamos fazer o seu login porque sua conta ainda não está ativada.
       signed_up_but_locked: Você se inscreveu com sucesso. No entanto, não poderíamos fazer login porque sua conta está bloqueada.
@@ -1664,7 +1671,7 @@ pt-BR:
         forgot_your_password: Esqueceu sua senha?
         sign_in: Iniciar sessão
         sign_in_with_provider: Entrar com %{provider}
-        sign_up: inscrever-se
+        sign_up: Cadastrar-se
       minimum_password_length:
         one: "(Mínimo de%{count} caracteres)"
         other: "(%{count} caracteres no mínimo)"
@@ -1735,7 +1742,7 @@ pt-BR:
           accept_all: Aceitar todas
           accept_only_essential: Aceitar apenas o essencial
           description: Utilizamos cookies neste site para amelhorar o desempenho da página. As cookies nos permitem oferecer uma experiência mais personalizada ao usuário e aos canais de redes sociais.
-          title: Informações sobre as cookies utilizadas no site
+          title: Informações sobre os cookies utilizados no site
         modal:
           accept_all:
           accept_only_essential: Aceitar apenas o essencial
@@ -1772,7 +1779,7 @@ pt-BR:
         main_menu: Menu principal
         navigation: Navegação
         sign_in: Entrar
-        sign_up: Inscrever-se
+        sign_up: Cadastrar-se
         user_menu: Menu de usuários
       impersonation_warning:
         close_session: Fechar sessão

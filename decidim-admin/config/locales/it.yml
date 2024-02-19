@@ -333,8 +333,6 @@ it:
         show:
           view_more_logs: Visualizza più registri
       domain_whitelist:
-        form:
-          domain_too_short: Dominio troppo corto
         update:
           error: Impossibile aggiornare la whitelist dei domini
           success: Whitelist dei domini aggiornata con successo
@@ -480,7 +478,6 @@ it:
         areas: Ambiti territoriali
         configuration: Configurazione
         dashboard: Cruscotto (Dashboard)
-        external_domain_whitelist: Consenti l'uso di domini esterni
         help_sections: Sezioni di Aiuto
         homepage: Homepage
         impersonations: Impersonificazioni
@@ -747,11 +744,6 @@ it:
       organization_external_domain_whitelist:
         edit:
           update: Aggiorna
-        external_domain:
-          down: Giù
-          external_domain: Dominio esterno
-          remove: Rimuovi
-          up: Su
         form:
           add: Aggiungi alla whitelist
           title: Whitelist di domini esterni

@@ -539,7 +539,7 @@ eu:
         areas: Arloak
         configuration: Konfigurazioa
         dashboard: Kontrol-panela
-        external_domain_whitelist: Kanpoko domeinuak baimenduta
+        external_domain_whitelist: Baimendutako kanpoko domeinuak
         help_sections: Laguntza atalak
         homepage: Orrialde nagusia
         impersonations: Inpertsonazioak
@@ -818,7 +818,7 @@ eu:
         external_domain:
           down: Jaitsi
           external_domain: Kanpoko domeinua
-          remove: Kendu
+          remove: Ezabatu
           up: Igo
         form:
           add: Gehitu zerrenda zurian

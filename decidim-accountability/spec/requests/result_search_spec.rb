@@ -4,6 +4,7 @@ require "spec_helper"
 
 RSpec.describe "Result search", type: :request do
   include Decidim::ComponentPathHelper
+  include Decidim::SanitizeHelper
 
   let(:component) { create :accountability_component }
   let(:participatory_space) { component.participatory_space }
@@ -59,8 +60,8 @@ RSpec.describe "Result search", type: :request do
     subject { response.body }
 
     it "displays all categories that have top-level results" do
-      expect(subject).to include(translated(result1.category.name))
-      expect(subject).to include(translated(result4.category.name))
+      expect(subject).to include(decidim_html_escape(translated(result1.category.name)))
+      expect(subject).to include(decidim_html_escape(translated(result4.category.name)))
     end
 
     it "does not display the categories that only have sub-results" do

@@ -482,6 +482,7 @@ hu:
           address_help: 'Cím: Geocoder használata a helymeghatározáshoz'
           available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan
           create_as: Ülés létrehozása mint
+          disclaimer: 'Jogi nyilatkozat: Egy külső regisztrációs rendszer használatával Ön tudatában van annak, hogy a %{organization} szervezői nem felelősek a felhasználók által a külső szolgáltatásnak megadott adatokért.'
         meeting_minutes:
           related_information: Kapcsolódó információ
         meetings:

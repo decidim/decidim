@@ -398,6 +398,7 @@ pt-BR:
               one: resposta na proposta
               other: respostas na proposta
           title:
+            answers: Importar respostas das propostas
             proposals: Importar propostas
         models:
           proposal:

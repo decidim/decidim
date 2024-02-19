@@ -89,6 +89,63 @@ describe "Participatory texts", type: :system do
     end
   end
 
+  shared_examples "the Amend button is protected under authorization" do
+    shared_context "when clicking on the amend button" do
+      before do
+        visit_component
+        find("#proposals div.hover-section", text: translated(proposal.title)).hover
+        within all("#proposals div.hover-section").first, visible: :visible do
+          click_link "Amend"
+        end
+      end
+    end
+
+    let(:proposal) { proposals.first }
+    let(:user) { create(:user, :confirmed, organization: organization) }
+
+    before do
+      proposal.create_resource_permission(
+        permissions: {
+          "amend" => {
+            "authorization_handlers" => {
+              "dummy_authorization_handler" => { "options" => {} }
+            }
+          }
+        }
+      )
+    end
+
+    context "when the user is not logged in" do
+      include_context "when clicking on the amend button"
+
+      it "needs to login" do
+        expect(page).to have_content("Please sign in")
+      end
+    end
+
+    context "when the user is logged in" do
+      before { login_as user, scope: :user }
+
+      context "when the user is not authorized" do
+        include_context "when clicking on the amend button"
+
+        it "cannot perform the action" do
+          expect(page).to have_content("Authorization required")
+        end
+      end
+
+      context "when the user is authorized" do
+        let!(:authorization) { create(:authorization, name: "dummy_authorization_handler", user: user) }
+
+        include_context "when clicking on the amend button"
+
+        it "can perform the action" do
+          expect(page).to have_content("CREATE AMENDMENT DRAFT")
+        end
+      end
+    end
+  end
+
   context "when listing proposals in a participatory process as participatory texts" do
     context "when admin has not yet published a participatory text" do
       let!(:component) do
@@ -133,6 +190,8 @@ describe "Participatory texts", type: :system do
             let(:amendments_count) { 0 }
             let(:disabled_value) { false }
           end
+
+          it_behaves_like "the Amend button is protected under authorization"
         end
 
         context "when amendment CREATION is disabled" do
@@ -191,6 +250,8 @@ describe "Participatory texts", type: :system do
               end
             end
           end
+
+          it_behaves_like "the Amend button is protected under authorization"
         end
 
         context "when amendment CREATION is disabled" do

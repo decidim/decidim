@@ -648,6 +648,9 @@ tr:
             layout_appearance_title: Düzen görünümünü düzenle
             preview: Önizleme
           omnipresent_banner_appearance_title: Her yerde bulunan banner'ı düzenle
+      organization_external_domain_whitelist:
+        edit:
+          update: Güncelleştirme
       organization_homepage_content_blocks:
         edit:
           update: Güncelleştirme

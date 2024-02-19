@@ -1282,7 +1282,6 @@ pt:
           hybrid: Híbrido
           in_person: Presencial
           online: On-line
-        voting_types_label: Tipo de votação
   layouts:
     decidim:
       election_votes_header:

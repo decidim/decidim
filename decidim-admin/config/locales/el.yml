@@ -360,8 +360,6 @@ el:
           view_more_logs: Προβολή περισσότερων αρχείων καταγραφής
           welcome: Καλώς ήλθατε στον Πίνακα Διαχειριστή.
       domain_whitelist:
-        form:
-          domain_too_short: Πολύ σύντομος τομέας
         update:
           error: Απέτυχε η ενημέρωση των επιτρεπόμενων (λευκής λίστας) τομέων
           success: Ενημέρωση των επιτρεπόμενων (λευκής λίστας) τομέων με επιτυχία
@@ -541,7 +539,6 @@ el:
         areas: Τομείς
         configuration: Διαμόρφωση
         dashboard: Πίνακας εργαλείων
-        external_domain_whitelist: Επιτρεπόμενοι εξωτερικοί τομείς
         help_sections: Ενότητες βοήθειας
         homepage: Αρχική σελίδα
         impersonations: Αναπαραστάσεις
@@ -811,11 +808,6 @@ el:
       organization_external_domain_whitelist:
         edit:
           update: Ενημέρωση
-        external_domain:
-          down: Κάτω
-          external_domain: Εξωτερικός τομέας
-          remove: Αφαίρεση
-          up: Πάνω
         form:
           add: Προσθήκη στη λευκή λίστα
           title: Εξωτερική λευκή λίστα τομέων

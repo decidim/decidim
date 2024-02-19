@@ -362,8 +362,6 @@ sv:
           view_more_logs: Visa fler loggar
           welcome: Välkommen till Adminpanelen.
       domain_whitelist:
-        form:
-          domain_too_short: Domänen är för kort
         update:
           error: Vitlistans uppdatering misslyckades
           success: Domäns vitlista har uppdaterats
@@ -544,7 +542,6 @@ sv:
         areas: Områden
         configuration: Konfiguration
         dashboard: Adminpanel
-        external_domain_whitelist: Tillåtna externa domäner
         help_sections: Hjälpavsnitt
         homepage: Hemsida
         impersonations: Uppträd som
@@ -812,11 +809,6 @@ sv:
       organization_external_domain_whitelist:
         edit:
           update: Uppdatera
-        external_domain:
-          down: Ner
-          external_domain: Externt domän
-          remove: Ta bort
-          up: Upp
         form:
           add: Lägg till i vitlistan
           title: Vitlista för externa domäner

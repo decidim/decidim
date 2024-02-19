@@ -448,6 +448,7 @@ tr:
         home:
           highlighted_conferences:
             active_conferences: Aktif konferanslar
+            conferences_button_title: Tüm konferansları görüntüleyen Konferanslar sayfasına bağlantı
             see_all_conferences: Tüm Konferanslar
       photo:
         image:

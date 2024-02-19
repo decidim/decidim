@@ -478,6 +478,9 @@ id:
           images:
             layout_appearance_title: Edit tampilan tata letak
           omnipresent_banner_appearance_title: Edit spanduk yang ada di mana-mana
+      organization_external_domain_whitelist:
+        edit:
+          update: Memperbarui
       organization_homepage_content_blocks:
         edit:
           update: Memperbarui

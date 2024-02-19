@@ -25,4 +25,11 @@ module Decidim
   def self.authorization_handlers
     Decidim::Verifications.workflows.select(&:form)
   end
+
+  module Verifications
+    include ActiveSupport::Configurable
+    config_accessor :document_types do
+      %w(identification_number passport)
+    end
+  end
 end

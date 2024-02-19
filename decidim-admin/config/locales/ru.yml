@@ -490,6 +490,9 @@ ru:
           images:
             layout_appearance_title: Редактировать внешний вид макета
           omnipresent_banner_appearance_title: Редактировать вездесущий баннер
+      organization_external_domain_whitelist:
+        edit:
+          update: Обновить
       organization_homepage_content_blocks:
         edit:
           update: Обновить

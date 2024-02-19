@@ -578,6 +578,9 @@ zh-CN:
             layout_appearance_title: 编辑布局外观
             preview: 预览
           omnipresent_banner_appearance_title: Edit omnipresent banner
+      organization_external_domain_whitelist:
+        edit:
+          update: 更新
       organization_homepage_content_blocks:
         edit:
           update: 更新

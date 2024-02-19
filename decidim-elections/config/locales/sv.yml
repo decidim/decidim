@@ -809,7 +809,6 @@ sv:
           hybrid: Hybrid
           in_person: Fysisk
           online: Online
-        voting_types_label: Rösttyp
   layouts:
     decidim:
       election_votes_header:

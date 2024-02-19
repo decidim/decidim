@@ -11,6 +11,7 @@ pt-BR:
         end_time: Termina em
         information_updates: Atualizações de informações
         instructions: Instruções para participar
+        scope_id: Escopo
         start_time: Começa em
         title: Título
         user_group_id: Criar debate como
@@ -28,6 +29,7 @@ pt-BR:
     components:
       debates:
         actions:
+          comment: Comentário
           create: Criar
           endorse: Endossar
         name: Debates
@@ -124,6 +126,7 @@ pt-BR:
           my_debates: Meus debates
           official: Oficial
           origin: Origem
+          participants: Participantes
           scope: Escopo
           search: Procurar
           state: Status

@@ -34,6 +34,15 @@ runs:
     - uses: nanasess/setup-chromedriver@v2
       with:
         chromedriver-version: 119.0.6045.105
+    - name: List Chrome
+      shell: "bash"
+      run: apt list --installed | grep chrome
+    - name: Remove Chrome
+      shell: "bash"
+      run: sudo apt remove google-chrome-stable
+    - uses: browser-actions/setup-chrome@v1
+      with:
+        chrome-version: 119.0.6045.105
     - uses: actions/setup-node@v3
       with:
         node-version: ${{ inputs.node_version }}
