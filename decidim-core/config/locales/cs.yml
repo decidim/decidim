@@ -919,7 +919,6 @@ cs:
       create:
         button: Sledovat
         error: Při sledování tohoto zdroje došlo k chybě.
-        participatory_space: Sleduje <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Ukončit sledování
         error: Při sledování tohoto zdroje došlo k chybě.
