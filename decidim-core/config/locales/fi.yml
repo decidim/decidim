@@ -876,6 +876,7 @@ fi:
       create:
         button: Seuraa
         error: Tämän kohteen seuraaminen epäonnistui.
+        participatory_space: Seuraat kohdetta <span>%{resource_name}</span>
       destroy:
         button: Lopeta seuranta
         error: Tämän kohteen seuraamisen lopettaminen epäonnistui.
