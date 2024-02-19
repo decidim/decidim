@@ -33,13 +33,13 @@ describe "User group invite to join" do
     before do
       login_as creator, scope: :user
       visit decidim.profile_path(user_group.nickname)
-      click_button "Manage group"
-      click_link "Invite participant"
+      click_on "Manage group"
+      click_on "Invite participant"
     end
 
     it "allows inviting a user" do
       fill_in "Nickname", with: invited_user.nickname
-      click_button "Invite"
+      click_on "Invite"
 
       expect(page).to have_content("Participant successfully invited")
     end

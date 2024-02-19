@@ -55,7 +55,7 @@ module Decidim
     #   add_decidim_page_title("My Organization")
     #   decidim_page_title # => "My Process - My Organization"
     #
-    # @param [Sring] title - A String to be added to the title
+    # @param [String] title - A String to be added to the title
     #
     # @return [Array<String>]
     def add_decidim_page_title(title)

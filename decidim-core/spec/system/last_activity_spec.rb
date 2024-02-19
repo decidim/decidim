@@ -83,7 +83,7 @@ describe "Last activity" do
     context "when viewing all activities" do
       before do
         within "#last_activity" do
-          click_link "View all"
+          click_on "View all"
         end
       end
 

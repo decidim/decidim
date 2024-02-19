@@ -76,7 +76,7 @@ describe "Filter Initiatives", :slow do
         end
 
         within "#dropdown-menu-order" do
-          click_link "Most commented"
+          click_on "Most commented"
         end
 
         expect(page).to have_css(".card__grid[id^='initiative']", count: 2)
@@ -144,7 +144,7 @@ describe "Filter Initiatives", :slow do
         within "#panel-dropdown-menu-state" do
           click_filter_item "Open"
           within "label", text: "Closed" do
-            click_button
+            click_on
           end
           click_filter_item "Enough signatures"
         end
@@ -159,7 +159,7 @@ describe "Filter Initiatives", :slow do
         within "#panel-dropdown-menu-state" do
           click_filter_item "Open"
           within "label", text: "Closed" do
-            click_button
+            click_on
           end
           click_filter_item "Not enough signatures"
         end
@@ -274,10 +274,10 @@ describe "Filter Initiatives", :slow do
       it "lists the filtered initiatives", :slow do
         within "#panel-dropdown-menu-area" do
           within "label", text: area_type1.name[I18n.locale.to_s] do
-            click_button
+            click_on
           end
           within "label", text: area_type2.name[I18n.locale.to_s] do
-            click_button
+            click_on
           end
           click_filter_item area1.name[I18n.locale.to_s]
         end

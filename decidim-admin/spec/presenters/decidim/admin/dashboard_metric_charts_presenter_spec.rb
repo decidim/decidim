@@ -32,13 +32,13 @@ describe Decidim::Admin::DashboardMetricChartsPresenter do
     let(:summary) { true }
 
     describe "#highlighted_metrics" do
-      it "restrticts highlighted metrics" do
+      it "restricts highlighted metrics" do
         expect(subject.highlighted_metrics.map(&:metric_name)).to eq(summary_highlighted_metrics)
       end
     end
 
     describe "#not_highlighted_metrics" do
-      it "restrticts not highlighted metrics" do
+      it "restricts not highlighted metrics" do
         expect(subject.not_highlighted_metrics.map(&:metric_name)).to eq(summary_not_highlighted_metrics)
       end
     end

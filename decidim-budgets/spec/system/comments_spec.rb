@@ -27,7 +27,7 @@ describe "Comments" do
       another_window = window_opened_by do
         within(".comment", match: :first) do
           page.find("[id^='dropdown-trigger']").click
-          click_link "Get link"
+          click_on "Get link"
         end
       end
 

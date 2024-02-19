@@ -112,7 +112,7 @@ describe "Assemblies" do
           visit decidim.root_path
 
           within "#home__menu" do
-            click_link "Assemblies"
+            click_on "Assemblies"
           end
 
           expect(page).to have_current_path decidim_assemblies.assemblies_path

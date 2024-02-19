@@ -232,7 +232,7 @@ The result objects need to contain the following keys:
 * `key` - The key which will be matched against the user entered input
 * `value` - The value which will be added to the address input if the user decides to select this value
 
-Optionally, you can also include a `coordinates` key in the result object which contains an array of two cordinates (latitude and longitude respectively).
+Optionally, you can also include a `coordinates` key in the result object which contains an array of two coordinates (latitude and longitude respectively).
 You can also include any other data you might need in the front-end for these results but it will be not used by Decidim.
 
 The final code would look something like follows:

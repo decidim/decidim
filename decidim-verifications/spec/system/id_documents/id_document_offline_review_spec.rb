@@ -35,7 +35,7 @@ describe "Identity document offline review" do
     switch_to_host(organization.host)
     login_as admin, scope: :user
     visit decidim_admin_id_documents.root_path
-    click_link "Offline verification"
+    click_on "Offline verification"
   end
 
   it "allows the user to verify an identity document" do
@@ -65,6 +65,6 @@ describe "Identity document offline review" do
     select doc_type, from: "Type of the document"
     fill_in "Document number (with letter)", with: doc_number
 
-    click_button "Verify"
+    click_on "Verify"
   end
 end

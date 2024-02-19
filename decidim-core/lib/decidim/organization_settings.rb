@@ -182,7 +182,7 @@ module Decidim
 
     private
 
-    # Generates a final settigns configuration struct from the given settings
+    # Generates a final settings configuration struct from the given settings
     # hash. Combines the given defaults with the settings hash.
     #
     # @param hash [Hash] The configurations hash.

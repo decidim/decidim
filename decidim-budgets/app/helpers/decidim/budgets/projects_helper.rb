@@ -46,7 +46,7 @@ module Decidim
 
       # Returns false if the current order does not have a rule for minimum budget
       # Returns false if the current order has not reached the minimum budget
-      # Otherwhise returns true
+      # Otherwise returns true
       def current_order_minimum_reached?
         return false if current_order.minimum_budget.zero?
 

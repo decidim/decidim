@@ -38,7 +38,7 @@ describe "Content pages" do
         page_title = decidim_page.title[I18n.locale.to_s]
 
         within(".page__accordion", text: topic_title) do
-          click_button
+          find("button[role=button]").click
 
           expect(page).to have_css(
             "a[href=\"#{decidim.page_path(decidim_page)}\"]",
@@ -54,12 +54,12 @@ describe "Content pages" do
       before do
         login_as admin, scope: :user
         visit decidim_admin.root_path
-        click_link "Pages"
-        click_link "Topics"
+        click_on "Pages"
+        click_on "Topics"
       end
 
       it "can create topics" do
-        click_link "Create topic"
+        click_on "Create topic"
 
         within ".new_static_page_topic" do
           fill_in_i18n(
@@ -92,12 +92,12 @@ describe "Content pages" do
       before do
         login_as admin, scope: :user
         visit decidim_admin.root_path
-        click_link "Pages"
-        click_link "Topics"
+        click_on "Pages"
+        click_on "Topics"
       end
 
       it "can create page groups" do
-        click_link translated(topic.title)
+        click_on translated(topic.title)
 
         within ".edit_static_page_topic" do
           fill_in_i18n(
@@ -130,13 +130,13 @@ describe "Content pages" do
       before do
         login_as admin, scope: :user
         visit decidim_admin.root_path
-        click_link "Pages"
-        click_link "Topics"
+        click_on "Pages"
+        click_on "Topics"
       end
 
       it "can delete them" do
         within "tr", text: translated(topic.title) do
-          accept_confirm { click_link "Delete" }
+          accept_confirm { click_on "Delete" }
         end
 
         expect(page).to have_admin_callout("successfully")
@@ -152,19 +152,19 @@ describe "Content pages" do
     before do
       login_as admin, scope: :user
       visit decidim_admin.root_path
-      click_link "Pages"
+      click_on "Pages"
     end
 
     context "when displaying the page form" do
       before do
-        click_link "Create page"
+        click_on "Create page"
       end
 
       it_behaves_like "having a rich text editor", "new_static_page", "full"
     end
 
     it "can create new pages" do
-      click_link "Create page"
+      click_on "Create page"
 
       within ".new_static_page" do
         fill_in :static_page_slug, with: "welcome"
@@ -207,7 +207,7 @@ describe "Content pages" do
       context "when displaying the page form" do
         before do
           within "tr", text: translated(decidim_page.title) do
-            click_link "Edit"
+            click_on "Edit"
           end
         end
 
@@ -216,7 +216,7 @@ describe "Content pages" do
 
       it "can edit them" do
         within "tr", text: translated(decidim_page.title) do
-          click_link "Edit"
+          click_on "Edit"
         end
 
         within ".edit_static_page" do
@@ -243,7 +243,7 @@ describe "Content pages" do
 
       it "can delete them" do
         within "tr", text: translated(decidim_page.title) do
-          accept_confirm { click_link "Delete" }
+          accept_confirm { click_on "Delete" }
         end
 
         expect(page).to have_admin_callout("successfully")
@@ -256,7 +256,7 @@ describe "Content pages" do
       it "can visit them" do
         new_window = window_opened_by do
           within "tr", text: translated(decidim_page.title) do
-            click_link "View public page"
+            click_on "View public page"
           end
         end
 

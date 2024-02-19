@@ -692,7 +692,7 @@ shared_examples_for "has questionnaire" do
         expect(third_choice).to eq([question.answer_options.first.id, question.matrix_rows.last.id])
       end
 
-      context "when the question hax max_choices defined" do
+      context "when the question has max_choices defined" do
         let!(:max_choices) { 2 }
 
         it "respects the max number of choices" do

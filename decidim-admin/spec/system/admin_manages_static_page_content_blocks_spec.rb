@@ -19,7 +19,7 @@ describe "Admin manages static page content blocks" do
       expect(Decidim::ContentBlock.count).to eq 0
 
       within ".edit_content_blocks" do
-        click_button "Add content block"
+        click_on "Add content block"
         within ".add-components" do
           find("a", text: "Summary").click
         end
@@ -37,7 +37,7 @@ describe "Admin manages static page content blocks" do
       expect do
         number_of_content_blocks.times do
           within ".edit_content_blocks" do
-            click_button "Add content block"
+            click_on "Add content block"
             within ".add-components" do
               find("a", text: "Section").click
             end
@@ -90,7 +90,7 @@ describe "Admin manages static page content blocks" do
                           "#content_block-settings--summary-tabs",
                           en: "<p>Custom privacy policy summary text!</p>"
 
-      click_button "Update"
+      click_on "Update"
       visit decidim.page_path(tos_page)
       expect(page).to have_content("Custom privacy policy summary text!")
 

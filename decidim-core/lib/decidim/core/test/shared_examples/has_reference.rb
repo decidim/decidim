@@ -28,7 +28,7 @@ shared_examples_for "has reference" do
       subject[:reference] = "ARBITRARYREF"
     end
 
-    it "keeps the pre-existing reference" do
+    it "keeps the preexisting reference" do
       expect(subject.reference).to eq("ARBITRARYREF")
     end
   end

@@ -18,7 +18,7 @@ shared_examples "copy conferences" do
 
   context "without any context" do
     it "copies the conference with the basic fields" do
-      click_link "Duplicate", match: :first
+      click_on "Duplicate", match: :first
 
       within ".copy_conference" do
         fill_in_i18n(
@@ -29,7 +29,7 @@ shared_examples "copy conferences" do
           ca: "Còpia del procés participatiu"
         )
         fill_in :conference_slug, with: "pp-copy"
-        click_button "Copy"
+        click_on "Copy"
       end
 
       expect(page).to have_content("successfully")
@@ -40,7 +40,7 @@ shared_examples "copy conferences" do
 
   context "with context" do
     before do
-      click_link "Duplicate", match: :first
+      click_on "Duplicate", match: :first
 
       within ".copy_conference" do
         fill_in_i18n(
@@ -56,15 +56,15 @@ shared_examples "copy conferences" do
 
     it "copies the conference with categories" do
       page.check("conference[copy_categories]")
-      click_button "Copy"
+      click_on "Copy"
 
       expect(page).to have_content("successfully")
 
       within "tr", text: "Copy conference" do
-        click_link "Configure"
+        click_on "Configure"
       end
       within_admin_sidebar_menu do
-        click_link "Categories"
+        click_on "Categories"
       end
 
       within ".table-list" do
@@ -76,15 +76,15 @@ shared_examples "copy conferences" do
 
     it "copies the conference with components" do
       page.check("conference[copy_components]")
-      click_button "Copy"
+      click_on "Copy"
 
       expect(page).to have_content("successfully")
 
       within "tr", text: "Copy conference" do
-        click_link "Configure"
+        click_on "Configure"
       end
       within_admin_sidebar_menu do
-        click_link "Components"
+        click_on "Components"
       end
 
       within ".table-list" do

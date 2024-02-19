@@ -2,49 +2,30 @@
 
 module Decidim
   module Initiatives
-    class CreateInitiativeEvent < Decidim::Events::BaseEvent
-      include Decidim::Events::EmailEvent
-      include Decidim::Events::NotificationEvent
+    class CreateInitiativeEvent < Decidim::Events::SimpleEvent
+      def i18n_scope = "decidim.initiatives.events.create_initiative_event"
 
-      def email_subject
-        I18n.t(
-          "decidim.initiatives.events.create_initiative_event.email_subject",
-          resource_title:,
-          author_nickname: author.nickname,
-          author_name: author.name
-        )
-      end
-
-      def email_intro
-        I18n.t(
-          "decidim.initiatives.events.create_initiative_event.email_intro",
-          resource_title:,
-          author_nickname: author.nickname,
-          author_name: author.name
-        )
-      end
-
-      def email_outro
-        I18n.t(
-          "decidim.initiatives.events.create_initiative_event.email_outro",
-          resource_title:,
-          author_nickname: author.nickname,
-          author_name: author.name
-        )
-      end
-
-      def notification_title
-        I18n.t(
-          "decidim.initiatives.events.create_initiative_event.notification_title",
-          resource_title:,
+      def i18n_options
+        {
+          author_name:,
+          author_nickname:,
+          author_path:,
+          participatory_space_title:,
+          participatory_space_url:,
           resource_path:,
-          author_nickname: author.nickname,
-          author_name: author.name,
-          author_path: author.profile_path
-        ).html_safe
+          resource_title:,
+          resource_url:,
+          scope: i18n_scope
+        }
       end
 
       private
+
+      def author_nickname = author.nickname
+
+      def author_name = author.name
+
+      def author_path = author.profile_path
 
       def author
         @author ||= Decidim::UserPresenter.new(resource.author)

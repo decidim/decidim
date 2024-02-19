@@ -12,7 +12,7 @@ module Decidim
       # own creator or this default will be used.
       class Creator
         class << self
-          # Retuns the resource class to be created with the provided data.
+          # Returns the resource class to be created with the provided data.
           def resource_klass
             raise NotImplementedError, "#{self.class.name} does not define resource class"
           end

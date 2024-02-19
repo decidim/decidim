@@ -14,7 +14,7 @@ describe "Manage OAuth applications" do
   end
 
   it "can create new applications" do
-    click_link "New"
+    click_on "New"
 
     within ".new_oauth_application" do
       fill_in :oauth_application_name, with: "Meta Decidim"
@@ -46,7 +46,7 @@ describe "Manage OAuth applications" do
 
     it "can edit them" do
       within "tr", text: application.name do
-        click_link "Edit"
+        click_on "Edit"
       end
 
       within ".edit_oauth_application" do
@@ -63,7 +63,7 @@ describe "Manage OAuth applications" do
 
     it "can delete them" do
       within "tr", text: application.name do
-        accept_confirm { click_link "Delete" }
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_content("successfully")
@@ -74,7 +74,7 @@ describe "Manage OAuth applications" do
     end
 
     it "view their data" do
-      click_link application.name
+      click_on application.name
 
       expect(page).to have_content(application.uid)
       expect(page).to have_content(application.secret)

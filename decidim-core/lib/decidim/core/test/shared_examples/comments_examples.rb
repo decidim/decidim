@@ -38,7 +38,7 @@ shared_examples "comments" do
     expect(page).to have_css(".comment", minimum: 1)
 
     within ".comment-order-by" do
-      click_link "Best rated"
+      click_on "Best rated"
     end
 
     expect(page).to have_css(".comments > div:nth-child(2)", text: "Most Rated Comment")
@@ -134,13 +134,13 @@ shared_examples "comments" do
     describe "when using emojis" do
       before do
         within_language_menu do
-          click_link "Castellano"
+          click_on "Castellano"
         end
       end
       shared_examples_for "allowing to select emojis" do
         it "allows selecting emojis" do
           within_language_menu do
-            click_link locale
+            click_on locale
           end
 
           within ".add-comment form" do
@@ -464,7 +464,7 @@ shared_examples "comments" do
           field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
           field.set " "
           field.native.send_keys content
-          click_button "Publish comment"
+          click_on "Publish comment"
         end
       end
 
@@ -483,7 +483,7 @@ shared_examples "comments" do
           field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
           field.set " "
           field.native.send_keys content
-          click_button "Publish comment"
+          click_on "Publish comment"
         end
       end
 
@@ -534,7 +534,7 @@ shared_examples "comments" do
         it "displays the show button" do
           visit current_path
           within "#comment_#{thread.id}" do
-            click_button "Hide replies"
+            click_on "Hide replies"
             expect(page).to have_content("Show reply")
             expect(page).not_to have_content(new_reply_body)
           end
@@ -546,7 +546,7 @@ shared_examples "comments" do
           it "displays the show button" do
             visit current_path
             within "#comment_#{thread.id}" do
-              click_button "Hide replies"
+              click_on "Hide replies"
               expect(page).to have_content("Show 3 replies")
               expect(page).not_to have_content(new_reply_body)
             end
@@ -597,7 +597,7 @@ shared_examples "comments" do
           field.set " "
           field.native.send_keys content
           select user_group.name, from: "Comment as"
-          click_button "Publish comment"
+          click_on "Publish comment"
         end
 
         expect(page).to have_comment_from(user_group, content, wait: 20)
@@ -638,7 +638,7 @@ shared_examples "comments" do
 
           within "#comment_#{comment.id}" do
             page.find("[id^='dropdown-trigger']").click
-            click_link "Delete"
+            click_on "Delete"
           end
 
           accept_confirm
@@ -692,10 +692,10 @@ shared_examples "comments" do
             within "#comment_#{comment.id}" do
               # Toolbar
               page.find("[id^='dropdown-trigger']").click
-              click_button "Edit"
+              click_on "Edit"
             end
             fill_in "edit_comment_#{comment.id}", with: " This comment has been fixed"
-            click_button "Send"
+            click_on "Send"
           end
 
           it "the comment body changes" do
@@ -723,7 +723,7 @@ shared_examples "comments" do
         visit resource_path
 
         within "#comments #comment_#{comment.id}" do
-          click_button "Reply"
+          click_on "Reply"
         end
 
         expect(page).to have_selector("#comment_#{comment.id} .add-comment")
@@ -732,7 +732,7 @@ shared_examples "comments" do
           field = find("#add-comment-#{comment.commentable_type.demodulize}-#{comment.id}")
           field.set " "
           field.native.send_keys content
-          click_button "Publish reply"
+          click_on "Publish reply"
         end
 
         expect(page).to have_reply_to(comment, content)
@@ -777,7 +777,7 @@ shared_examples "comments" do
               field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
               field.set " "
               field.native.send_keys "I am in favor about this!"
-              click_button "Publish comment"
+              click_on "Publish comment"
             end
 
             within "#comments" do
@@ -895,7 +895,7 @@ shared_examples "comments" do
           field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
           field.set " "
           field.native.send_keys content
-          click_button "Publish comment"
+          click_on "Publish comment"
         end
       end
 
@@ -940,7 +940,7 @@ shared_examples "comments" do
           field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
           field.set " "
           field.native.send_keys content
-          click_button "Publish comment"
+          click_on "Publish comment"
         end
       end
 

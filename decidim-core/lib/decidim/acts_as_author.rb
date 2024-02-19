@@ -14,7 +14,7 @@ module Decidim
       #
       # Return: The presenter for the current author.
       def presenter
-        raise NotImlementedError, "Authors must return an instance of its Presenter via this method."
+        raise NotImplementedError, "Authors must return an instance of its Presenter via this method."
       end
     end
   end

@@ -15,7 +15,7 @@ Read more about https://asciidoctor.org/docs/asciidoc-vs-markdown/[Markdown vs A
 
 If you want to convert from Markdown to AsciiDoc:
 
-. online pandoc conversor or
+. online pandoc converter or
 . using kramdoc:
 
 [source,bash]

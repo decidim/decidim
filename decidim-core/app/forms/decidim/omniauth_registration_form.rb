@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A form object used to fisnish signup from omniauth data
+  # A form object used to finish signup from omniauth data
   class OmniauthRegistrationForm < Form
     mimic :user
 

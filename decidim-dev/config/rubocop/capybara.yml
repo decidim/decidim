@@ -4,10 +4,7 @@ Capybara:
   Enabled: true
   DocumentationBaseURL: https://docs.rubocop.org/rubocop-capybara
   Include: &1
-    - "**/*/spec/**/*.rb"
-
-Capybara/ClickLinkOrButtonStyle:
-  Enabled: false
+    - "**/spec/**/*.rb"
 
 Capybara/RSpec:
   Enabled: false

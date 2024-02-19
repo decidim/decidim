@@ -225,13 +225,6 @@ module Decidim
         it_behaves_like "existing module"
       end
 
-      # Dependency for decidim-core
-      context "with decidim-api" do
-        let(:gem) { "decidim-api" }
-
-        it_behaves_like "existing module"
-      end
-
       # Dependency for decidim-budgets
       context "with decidim-comments" do
         let(:gem) { "decidim-comments" }

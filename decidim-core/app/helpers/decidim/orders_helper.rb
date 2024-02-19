@@ -7,7 +7,7 @@ module Decidim
     # (Note) This method requires the javascript 'decidim/orders' to be
     # present in the page.
     #
-    # orders - An array of order criterias
+    # orders - An array of order criteria
     # options - An optional hash of options
     #         * i18n_scope - The scope of the i18n translations
     def order_selector(orders, options = {})

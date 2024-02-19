@@ -255,7 +255,7 @@ describe "Meeting live event access" do
       it "shows the link to the live meeting streaming" do
         visit_meeting
 
-        new_window = window_opened_by { click_link "Join meeting" }
+        new_window = window_opened_by { click_on "Join meeting" }
 
         within_window new_window do
           expect(page).to have_current_path(meeting_live_event_path)

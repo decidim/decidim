@@ -93,7 +93,7 @@ describe "Homepage" do
 
           it "uses the custom values for the CTA button text" do
             within ".hero" do
-              click_link "Sign up"
+              click_on "Sign up"
             end
 
             expect(page).to have_current_path decidim.new_user_registration_path
@@ -105,7 +105,7 @@ describe "Homepage" do
 
           it "uses the custom values for the CTA button" do
             within ".hero" do
-              click_link "Participate"
+              click_on "Participate"
             end
 
             expect(page).to have_current_path decidim.new_user_session_path
@@ -119,7 +119,7 @@ describe "Homepage" do
             visit decidim.root_path
 
             within ".hero" do
-              click_link "Participate"
+              click_on "Participate"
             end
 
             expect(page).to have_current_path decidim_participatory_processes.participatory_processes_path
@@ -169,7 +169,7 @@ describe "Homepage" do
             expect(page).to have_no_content(static_page3.title["en"])
           end
 
-          click_link static_page1.title["en"]
+          click_on static_page1.title["en"]
           expect(page).to have_i18n_content(static_page1.title)
 
           expect(page).to have_i18n_content(static_page1.content, strip_tags: true)
@@ -478,7 +478,7 @@ describe "Homepage" do
         end
 
         it "lets the users download open data files" do
-          click_link "Download Open Data files"
+          click_on "Download Open Data files"
           expect(File.basename(download_path)).to include("open-data.zip")
           Zip::File.open(download_path) do |zipfile|
             expect(zipfile.glob("*open-data-proposals.csv").length).to eq(1)

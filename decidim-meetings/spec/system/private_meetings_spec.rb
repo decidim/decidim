@@ -47,7 +47,7 @@ describe "Private meetings" do
           end
 
           it "links to the individual meeting page" do
-            click_link(translated(private_meeting.title, locale: :en))
+            click_on(translated(private_meeting.title, locale: :en))
 
             expect(page).to have_current_path resource_locator(private_meeting).path
             expect(page).to have_content "Private"
@@ -109,7 +109,7 @@ describe "Private meetings" do
           end
 
           it "links to the individual meeting page" do
-            click_link(translated(private_meeting.title, locale: :en))
+            click_on(translated(private_meeting.title, locale: :en))
 
             expect(page).to have_current_path resource_locator(private_meeting).path
             expect(page).to have_content "Private"

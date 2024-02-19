@@ -231,10 +231,10 @@ NOTE: When you bump the version, the generator tests will fail because the gems 
  .. Re-run the failed generators tests at the release branch.
  .. Create a new release at this repository, just go to the https://github.com/decidim/decidim/releases[releases page] and create a new one.
 . Update Decidim's Docker repository as explained in the Docker images section below.
-. Update Crowdin synchronization configuration with Github:
+. Update Crowdin synchronization configuration with GitHub:
  .. Add the new `release/x.y-stable` branch.
  .. Remove from Crowdin branches that are not officially supported anymore.
-That way they do not synchronize with Github.
+That way they do not synchronize with GitHub.
 . Update the version in the documentation system that we use, Antora. For the https://github.com/decidim/decididm[decidim repository] this is done automatically when bumping the versions. For the https://github.com/decidim/documentation[documentation repository]:
 ... Create and push the branch in that repository: `git checkout release/0.XX-stable && git push origin release/x.y-stable`
 ... Add the new version on the https://github.com/decidim/documentation/blob/develop/antora-playbook.yml[antora-playbook.yml] `branches` key, for the both sources (decidim and documentation repository). Do not forget to also remove the oldest and change the new default in the `start_page` key. For instance for v0.28 this is how it'd look like:

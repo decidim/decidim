@@ -12,7 +12,7 @@ describe "Menu" do
 
   context "when clicking on a menu entry" do
     before do
-      click_link("Help", match: :first)
+      click_on("Help", match: :first)
     end
 
     it "switches the active option" do
@@ -25,7 +25,7 @@ describe "Menu" do
 
         visit current_path
 
-        click_link page.title["en"]
+        click_on page.title["en"]
       end
 
       it "preserves the active option" do

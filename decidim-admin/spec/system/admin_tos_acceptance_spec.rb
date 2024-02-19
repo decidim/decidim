@@ -52,7 +52,7 @@ describe "AdminTosAcceptance" do
       end
 
       it "allows accepting and redirects to the previous page" do
-        click_button "I agree with the terms"
+        click_on "I agree with the terms"
         expect(page).to have_content("New process")
         within_admin_menu do
           expect(page).to have_content("Process types")
@@ -68,7 +68,7 @@ describe "AdminTosAcceptance" do
           # where "paramxx" is the parameter name and "aaa" is the value. The
           # total length of each parameter is therefore 6 + 2 + 100 characters
           # = 108 bytes. Cookie overflow should therefore happen at latest
-          # around 38 of these parameters concenated together.
+          # around 38 of these parameters concatenated together.
           50.times.map do |i|
             "param#{i.to_s.rjust(2, "0")}=#{SecureRandom.alphanumeric(100)}"
           end.join("&")
@@ -80,7 +80,7 @@ describe "AdminTosAcceptance" do
           # ActionDispatch::Cookies::CookieOverflow exception
           visit "#{decidim_admin_participatory_processes.participatory_processes_path}?#{long_parameters}"
           expect(page).to have_content(review_message)
-          click_button "I agree with the terms"
+          click_on "I agree with the terms"
           expect(page).to have_content("New process")
           within_admin_menu do
             expect(page).to have_content("Process types")
@@ -100,7 +100,7 @@ describe "AdminTosAcceptance" do
       end
 
       it "allows accepting the terms" do
-        click_button "I agree with the terms"
+        click_on "I agree with the terms"
         expect(page).to have_content("Activity")
         expect(page).to have_content("Metrics")
 

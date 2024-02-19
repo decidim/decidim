@@ -261,7 +261,7 @@ module Decidim
     end
 
     # Public: Finds the specific data importer class from its name, using the
-    # `specific_data_importerer_class_name` attribute. If the class does not exist,
+    # `specific_data_importer_class_name` attribute. If the class does not exist,
     # it raises an exception. If the class name is not set, it returns nil.
     #
     # Returns a Decidim::Importers::Importer subclass or nil.
