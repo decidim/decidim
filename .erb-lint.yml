@@ -170,6 +170,7 @@ linters:
           - budget-list__item
           - budget-list__item-cell
           - budget-list__number
+          - budget-list__number-show-for-medium
           - budget-list__text
           - budget-list__title
           - budget-progress--fixed
@@ -1585,9 +1586,10 @@ linters:
           - show-8
           - show-9
           - show-comment-replies
-          - show-for-dark-mode
           - show-for-ie
+          - show-for-dark-mode
           - show-for-landscape
+          - show-for-large
           - show-for-large-only
           - show-for-medium
           - show-for-medium-only
@@ -1892,6 +1894,7 @@ linters:
           - timeline__phase
           - timeline__phase__number
           - timeline__title
+          - tiny
           - title-action
           - title-action__action
           - title-action__title
