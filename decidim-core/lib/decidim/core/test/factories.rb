@@ -770,6 +770,7 @@ FactoryBot.define do
     third_party { build(:user_group, skip_injection:) }
     action { "new_message" }
 
+    skip_create
     initialize_with { new(sender:, recipient:, conversation:, message:, third_party:, action:) }
   end
 
