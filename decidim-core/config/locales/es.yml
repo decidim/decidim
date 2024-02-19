@@ -876,7 +876,6 @@ es:
       create:
         button: Seguir
         error: Se ha producido un error al seguir este recurso.
-        participatory_space: Siguiendo <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Dejar de seguir
         error: Se ha producido un error al dejar de seguir este recurso.
