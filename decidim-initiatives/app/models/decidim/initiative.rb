@@ -269,7 +269,7 @@ module Decidim
       update(published_at: nil, state: "discarded")
     end
 
-    # Public: Returns wether the signature interval is already defined or not.
+    # Public: Returns whether the signature interval is already defined or not.
     def has_signature_interval_defined?
       signature_end_date.present? && signature_start_date.present?
     end

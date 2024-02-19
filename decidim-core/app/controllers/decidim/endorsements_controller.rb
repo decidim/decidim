@@ -48,7 +48,7 @@ module Decidim
       render :identities, layout: false
     end
 
-    # should be pubic in order to be visibe in NeedsPermission#permissions_context
+    # should be pubic in order to be visible in NeedsPermission#permissions_context
     def current_component
       resource.component
     end

@@ -20,7 +20,7 @@ module Decidim
       #   jsonb_attribute(:settings, [[:custom_setting, String], [:another_setting, Boolean])
       #   # This will generate `custom_setting`, `custom_setting=` and
       #   # `another_setting`, `another_setting=` and will keep them
-      #   # syncronized with a hash in `settings`:
+      #   # synchronized with a hash in `settings`:
       #   # settings = { "custom_setting" => "demo", "another_setting" => "demo"}
       #
       # Returns nothing.

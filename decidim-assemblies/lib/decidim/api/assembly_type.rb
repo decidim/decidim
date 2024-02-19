@@ -54,7 +54,7 @@ module Decidim
       field :twitter_handler, String, "Twitter handler", null: true
       field :instagram_handler, String, "Instagram handler", null: true
       field :facebook_handler, String, "Facebook handler", null: true
-      field :youtube_handler, String, "Youtube handler", null: true
+      field :youtube_handler, String, "YouTube handler", null: true
       field :github_handler, String, "GitHub handler", null: true
       field :announcement, Decidim::Core::TranslatedFieldType, "Highlighted announcement for this assembly", null: true
 
