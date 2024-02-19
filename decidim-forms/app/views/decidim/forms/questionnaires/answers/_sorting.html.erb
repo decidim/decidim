@@ -1,6 +1,6 @@
-<ul class="draggable-list js-connect">
+<ul class="draggable-list js-connect"role="listbox">
   <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
-    <li draggable="true" class="list-none mt-4 answer-questionnaire__sorting">
+    <li draggable="true" class="list-none mt-4 answer-questionnaire__sorting" role="option" tabindex="<%= idx.positive? ? "-1" : "0" %>" aria-describedby="operation">
       <div class="draggable-content">
         <% choice = answer.selected_choices.find { |choice| choice.answer_option_id == answer_option.id } %>
         <%= translated_attribute(answer_option.body) %>

@@ -6,7 +6,6 @@
  * therefore the styles must be imported from the original library.
  */
 import createSortList from "src/decidim/sort_list.component"
-import "dragula/dist/dragula.css";
 
 import createOptionAttachedInputs from "src/decidim/forms/option_attached_inputs.component"
 import createDisplayConditions from "src/decidim/forms/display_conditions.component"
