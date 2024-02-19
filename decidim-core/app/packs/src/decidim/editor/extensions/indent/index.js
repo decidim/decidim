@@ -13,7 +13,7 @@ const allowedNodeTypes = ["heading", "paragraph"];
 const allowedNodeActive = (editor) => allowedNodeTypes.some((type) => editor.isActive(type));
 
 /**
- * Finds the closest allowed type node from the given position. Traversese the
+ * Finds the closest allowed type node from the given position. Traverses the
  * document depth upwards to search through all the node parents.
  *
  * @param {Object} position The position where to look for
