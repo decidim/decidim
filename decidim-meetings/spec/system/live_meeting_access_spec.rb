@@ -315,6 +315,40 @@ describe "Meeting live event access" do
     end
   end
 
+  describe "when a meeting link is avaliable" do
+    let!(:meeting) {create(:meeting, :published, :signed_in_iframe_access_level, :online, component:)}
+
+    context "when user is signed in or registered" do
+      before do
+        login_as user, scope: :user
+      end
+
+      it "only shown to signed in users" do
+        visit_meeting
+
+        expect(page).to have_css(".address__hints")
+      end
+    end
+  end
+
+  describe "when a meeting link is avaliable" do
+    let!(:meeting) {create(:meeting, :published, :registered_iframe_access_level, :online, component:)}
+    let!(:registered_user) { create(:user, :confirmed, organization:) }
+    let!(:registration) { create(:registration, meeting:, user: registered_user) }
+
+    context "when user is registered" do
+      before do
+        login_as registered_user, scope: :user
+      end
+
+      it "only shown to signed in or registered users" do
+        visit_meeting
+
+        expect(page).to have_css(".address__hints")
+      end
+    end
+  end
+
   describe "live meeting access" do
     let(:meeting) { create(:meeting, :published, :online, :embed_in_meeting_page_iframe_embed_type, component:) }
     let(:start_time) { meeting.start_time }
