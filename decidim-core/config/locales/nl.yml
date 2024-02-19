@@ -603,7 +603,6 @@ nl:
       create:
         button: Volgen
         error: Er is een fout opgetreden na deze bron.
-        participatory_space: <span class="show-for-sr">%{resource_name}</span> aan het volgen
       destroy:
         button: Stop met volgen
         error: Er is een fout opgetreden bij het stoppen met volgen van deze bron.
