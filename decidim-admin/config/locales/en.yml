@@ -355,7 +355,7 @@ en:
         title: Verification conflicts
         transfer:
           email: Email
-          error: There was a problem transfering the current participant to managed participant.
+          error: There was a problem transferring the current participant to managed participant.
           name: Name
           reason: Reason
           success: The current transfer has been successfully completed.
