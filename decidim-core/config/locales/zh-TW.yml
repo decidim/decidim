@@ -775,7 +775,6 @@ zh-TW:
       create:
         button: 關注
         error: 追蹤此資源時發生問題。
-        participatory_space: 追蹤中 <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: 取消追蹤
         error: 取消追蹤此資源時發生問題。
