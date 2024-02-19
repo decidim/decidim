@@ -7,7 +7,7 @@
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
   <section class="layout-main__section">
-    <h2 class="h4"><%= category.present? ? translated_attribute(category.name) : t("decidim.accountability.results.home_header.global_status") %></h2>
+    <h2 class="h4"><%= category.present? ? decidim_escape_translated(category.name) : t("decidim.accountability.results.home_header.global_status") %></h2>
   </section>
 
   <section id="results" class="layout-main__section">

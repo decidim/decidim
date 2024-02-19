@@ -9,7 +9,10 @@ FactoryBot.define do
   end
 
   factory :assemblies_type, class: "Decidim::AssembliesType" do
-    title { generate_localized_title }
+    transient do
+      skip_injection { false }
+    end
+    title { generate_localized_title(:assemblies_type_title, skip_injection:) }
     organization
   end
 
@@ -17,45 +20,45 @@ FactoryBot.define do
     transient do
       skip_injection { false }
     end
-    title { generate_localized_title }
+    title { generate_localized_title(:assembly_title, skip_injection:) }
     slug { generate(:assembly_slug) }
-    subtitle { generate_localized_title }
-    short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    subtitle { generate_localized_title(:assembly_subtitle, skip_injection:) }
+    short_description { generate_localized_description(:assembly_short_description, skip_injection:) }
+    description { generate_localized_description(:assembly_description, skip_injection:) }
     organization
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after organization
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") } # Keep after organization
     published_at { Time.current }
-    meta_scope { Decidim::Faker::Localized.word }
-    developer_group { generate_localized_title }
-    local_area { generate_localized_title }
-    target { generate_localized_title }
-    participatory_scope { generate_localized_title }
-    participatory_structure { generate_localized_title }
+    meta_scope { generate_localized_word(:assembly_meta_scope, skip_injection:) }
+    developer_group { generate_localized_title(:assembly_developer_group, skip_injection:) }
+    local_area { generate_localized_title(:assembly_local_area, skip_injection:) }
+    target { generate_localized_title(:assembly_target, skip_injection:) }
+    participatory_scope { generate_localized_title(:assembly_participatory_scope, skip_injection:) }
+    participatory_structure { generate_localized_title(:assembly_participatory_structure, skip_injection:) }
     show_statistics { true }
     private_space { false }
-    purpose_of_action { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    composition { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    purpose_of_action { generate_localized_description(:assembly_purpose_of_action, skip_injection:) }
+    composition { generate_localized_description(:assembly_composition, skip_injection:) }
     creation_date { 1.month.ago }
     created_by { "others" }
-    created_by_other { Decidim::Faker::Localized.word }
+    created_by_other { generate_localized_word(:assembly_created_by_other, skip_injection:) }
     duration { 2.months.from_now.at_midnight }
     included_at { 1.month.ago }
     closing_date { 2.months.from_now.at_midnight }
-    closing_date_reason { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    internal_organisation { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    closing_date_reason { generate_localized_description(:assembly_closing_date_reason, skip_injection:) }
+    internal_organisation { generate_localized_description(:assembly_internal_organisation, skip_injection:) }
     is_transparent { true }
-    special_features { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    special_features { generate_localized_description(:assembly_special_features, skip_injection:) }
     twitter_handler { "others" }
     facebook_handler { "others" }
     instagram_handler { "others" }
     youtube_handler { "others" }
     github_handler { "others" }
     weight { 1 }
-    announcement { generate_localized_title }
+    announcement { generate_localized_title(:assembly_announcement, skip_injection:) }
 
     trait :with_type do
-      assembly_type { create :assemblies_type, organization: }
+      assembly_type { create :assemblies_type, organization:, skip_injection: }
     end
 
     trait :promoted do
@@ -71,7 +74,7 @@ FactoryBot.define do
     end
 
     trait :with_parent do
-      parent { create :assembly, organization: }
+      parent { create :assembly, organization:, skip_injection: }
     end
 
     trait :public do
@@ -100,6 +103,7 @@ FactoryBot.define do
             organization: assembly.organization,
             scope_name: :assembly_homepage,
             manifest_name:,
+            skip_injection: evaluator.skip_injection,
             scoped_resource_id: assembly.id
           )
         end
@@ -108,13 +112,17 @@ FactoryBot.define do
   end
 
   factory :assembly_user_role, class: "Decidim::AssemblyUserRole" do
+    transient do
+      skip_injection { false }
+    end
     user
-    assembly { create :assembly, organization: user.organization }
+    assembly { create :assembly, organization: user.organization, skip_injection: }
     role { "admin" }
   end
 
   factory :assembly_admin, parent: :user, class: "Decidim::User" do
     transient do
+      skip_injection { false }
       assembly { create(:assembly) }
     end
 
@@ -125,12 +133,14 @@ FactoryBot.define do
       create :assembly_user_role,
              user:,
              assembly: evaluator.assembly,
+             skip_injection: evaluator.skip_injection,
              role: :admin
     end
   end
 
   factory :assembly_moderator, parent: :user, class: "Decidim::User" do
     transient do
+      skip_injection { false }
       assembly { create(:assembly) }
     end
 
@@ -141,12 +151,14 @@ FactoryBot.define do
       create :assembly_user_role,
              user:,
              assembly: evaluator.assembly,
-             role: :moderator
+             role: :moderator,
+             skip_injection: evaluator.skip_injection
     end
   end
 
   factory :assembly_collaborator, parent: :user, class: "Decidim::User" do
     transient do
+      skip_injection { false }
       assembly { create(:assembly) }
     end
 
@@ -157,12 +169,14 @@ FactoryBot.define do
       create :assembly_user_role,
              user:,
              assembly: evaluator.assembly,
-             role: :collaborator
+             role: :collaborator,
+             skip_injection: evaluator.skip_injection
     end
   end
 
   factory :assembly_valuator, parent: :user, class: "Decidim::User" do
     transient do
+      skip_injection { false }
       assembly { create(:assembly) }
     end
 
@@ -173,12 +187,16 @@ FactoryBot.define do
       create :assembly_user_role,
              user:,
              assembly: evaluator.assembly,
-             role: :valuator
+             role: :valuator,
+             skip_injection: evaluator.skip_injection
     end
   end
 
   factory :assembly_member, class: "Decidim::AssemblyMember" do
-    assembly { create(:assembly) }
+    transient do
+      skip_injection { false }
+    end
+    assembly { create(:assembly, skip_injection:) }
 
     full_name { Faker::Name.name }
     gender { Faker::Lorem.word }
@@ -192,7 +210,7 @@ FactoryBot.define do
     end
 
     trait :with_user do
-      user { create(:user, organization: assembly.organization) }
+      user { create(:user, organization: assembly.organization, skip_injection:) }
     end
   end
 end
