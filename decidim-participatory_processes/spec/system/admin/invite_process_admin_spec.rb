@@ -64,12 +64,12 @@ describe "Invite process administrator" do
 
       find_button("I agree with the terms").click
 
-      click_link "Processes"
+      click_on "Processes"
 
       within "div.table-scroll" do
         expect(page).to have_i18n_content(participatory_process.title)
         within "tr", text: translated(participatory_process.title) do
-          click_link translated(participatory_process.title)
+          click_on translated(participatory_process.title)
         end
       end
     end
@@ -93,12 +93,12 @@ describe "Invite process administrator" do
 
         find_button("I agree with the terms").click
 
-        click_link "Processes"
+        click_on "Processes"
 
         within "div.table-scroll" do
           expect(page).to have_i18n_content(participatory_process.title)
           within "tr", text: translated(participatory_process.title) do
-            click_link translated(participatory_process.title)
+            click_on translated(participatory_process.title)
           end
         end
       end
@@ -131,13 +131,13 @@ describe "Invite process administrator" do
 
       visit decidim_admin.root_path
 
-      click_link "Processes"
+      click_on "Processes"
 
       within "div.table-scroll" do
         expect(page).to have_i18n_content(participatory_process.title)
         expect(page).to have_i18n_content(participatory_process.title)
         within "tr", text: translated(participatory_process.title) do
-          click_link translated(participatory_process.title)
+          click_on translated(participatory_process.title)
         end
       end
     end
@@ -149,13 +149,13 @@ describe "Invite process administrator" do
 
         visit decidim_admin.root_path
 
-        click_link "Processes"
+        click_on "Processes"
 
         within "div.table-scroll" do
           expect(page).to have_i18n_content(participatory_process.title)
           expect(page).to have_i18n_content(participatory_process.title)
           within "tr", text: translated(participatory_process.title) do
-            click_link translated(participatory_process.title)
+            click_on translated(participatory_process.title)
           end
         end
       end

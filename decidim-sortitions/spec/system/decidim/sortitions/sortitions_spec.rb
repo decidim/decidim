@@ -68,7 +68,7 @@ describe "sortitions" do
         within "form.new_filter" do
           fill_in("filter[search_text_cont]", with: "foobar")
           within "div.filter-search" do
-            click_button
+            click_on
           end
         end
 

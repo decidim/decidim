@@ -18,7 +18,7 @@ describe "User manages group invitations" do
         expect(page).to have_content(membership.user_group.name)
       end
 
-      click_link "Accept"
+      click_on "Accept"
 
       expect(page).to have_content("Invitation successfully accepted")
 
@@ -30,7 +30,7 @@ describe "User manages group invitations" do
         expect(page).to have_content(membership.user_group.name)
       end
 
-      click_link "Reject"
+      click_on "Reject"
 
       expect(page).to have_content("Invitation successfully rejected")
 

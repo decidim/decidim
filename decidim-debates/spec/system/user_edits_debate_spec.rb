@@ -31,8 +31,8 @@ describe "User edits a debate" do
     it "allows editing my debate", :slow do
       visit_component
 
-      click_link debate.title.values.first
-      click_link "Edit debate"
+      click_on debate.title.values.first
+      click_on "Edit debate"
 
       within ".edit_debate" do
         fill_in :debate_title, with: "Should every organization use Decidim?"
@@ -65,8 +65,8 @@ describe "User edits a debate" do
 
       it "edits their debate", :slow do
         visit_component
-        click_link debate.title.values.first
-        click_link "Edit debate"
+        click_on debate.title.values.first
+        click_on "Edit debate"
 
         within ".edit_debate" do
           fill_in :debate_title, with: "Should every organization use Decidim?"

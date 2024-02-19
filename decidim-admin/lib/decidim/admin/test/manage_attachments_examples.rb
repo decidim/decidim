@@ -19,7 +19,7 @@ shared_examples "manage attachments examples" do
 
     it "can view an attachment details" do
       within "#attachments table" do
-        click_link "Edit"
+        click_on "Edit"
       end
 
       expect(page).to have_selector("input#attachment_title_en[value='#{translated(attachment.title, locale: :en)}']")
@@ -30,7 +30,7 @@ shared_examples "manage attachments examples" do
     end
 
     it "can add attachments without a collection to a process" do
-      click_link "New attachment"
+      click_on "New attachment"
 
       within ".new_attachment" do
         fill_in_i18n(
@@ -64,7 +64,7 @@ shared_examples "manage attachments examples" do
     end
 
     it "can add attachments within a collection to a process" do
-      click_link "New attachment"
+      click_on "New attachment"
 
       within ".new_attachment" do
         fill_in_i18n(
@@ -104,7 +104,7 @@ shared_examples "manage attachments examples" do
       within "#attachments" do
         within find("tr", text: translated(attachment.title)) do
           expect(page).to have_text(translated(attachment_collection.name, locale: :en))
-          click_link "Edit"
+          click_on "Edit"
         end
       end
 
@@ -123,7 +123,7 @@ shared_examples "manage attachments examples" do
 
     it "can delete an attachment from a process" do
       within find("tr", text: translated(attachment.title)) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -134,7 +134,7 @@ shared_examples "manage attachments examples" do
     it "can update an attachment" do
       within "#attachments" do
         within find("tr", text: translated(attachment.title)) do
-          click_link "Edit"
+          click_on "Edit"
         end
       end
 

@@ -92,7 +92,7 @@ describe "Conferences" do
         visit decidim.root_path
 
         within "#home__menu" do
-          click_link "Conferences"
+          click_on "Conferences"
         end
 
         expect(page).to have_current_path decidim_conferences.conferences_path

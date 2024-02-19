@@ -21,8 +21,8 @@ shared_examples "duplicate meetings" do
 
   it "duplicates a meeting" do
     visit meetings_path
-    click_link "Duplicate"
-    click_button "Copy"
+    click_on "Duplicate"
+    click_on "Copy"
 
     expect(page).to have_content("Meeting successfully duplicated.")
   end
@@ -32,7 +32,7 @@ shared_examples "duplicate meetings" do
     visit edit_duplicated_meeting_registrations_form_path
     fill_in :questionnaire_title_en, with: "Title"
     fill_in_i18n_editor(:questionnaire_tos, "#questionnaire-tos-tabs", en: "ToS", ca: "ToS", es: "ToS")
-    click_button "Save"
+    click_on "Save"
 
     expect(page).to have_content("Form successfully saved.")
   end

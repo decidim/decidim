@@ -52,7 +52,7 @@ describe "show" do
       proposal = sortition.proposals.last
 
       within "#proposals" do
-        click_link translated(proposal.title)
+        click_on translated(proposal.title)
       end
 
       expect(page).to have_content("Included in #{translated(sortition.title)}")

@@ -69,7 +69,7 @@ describe "Translations" do
       visit resource_path
 
       within_language_menu do
-        click_link "Castellano"
+        click_on "Castellano"
       end
     end
 
@@ -100,7 +100,7 @@ describe "Translations" do
 
       context "when toggling translations" do
         before do
-          click_link "Mostrar el texto traducido automáticamente"
+          click_on "Mostrar el texto traducido automáticamente"
         end
 
         it "shows the translated title" do
@@ -146,7 +146,7 @@ describe "Translations" do
 
       context "when toggling translations" do
         before do
-          click_link "Mostrar el texto original"
+          click_on "Mostrar el texto original"
         end
 
         it "shows the original values" do

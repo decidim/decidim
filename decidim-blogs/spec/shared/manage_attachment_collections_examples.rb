@@ -5,7 +5,7 @@ shared_examples "manage posts attachment collections" do
 
   before do
     within "tr", text: translated(post.title) do
-      click_link "Folders"
+      click_on "Folders"
     end
   end
 

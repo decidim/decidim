@@ -13,7 +13,7 @@ describe "Locales" do
 
     it "changes the locale to the chosen one" do
       within_language_menu do
-        click_link "Català"
+        click_on "Català"
       end
 
       expect(page).to have_content("Inici")
@@ -29,17 +29,17 @@ describe "Locales" do
 
     it "keeps the locale between pages" do
       within_language_menu do
-        click_link "Català"
+        click_on "Català"
       end
 
-      click_link "Inici", match: :first
+      click_on "Inici", match: :first
 
       expect(page).to have_content("Inici")
     end
 
     it "displays devise messages with the right locale when not authenticated" do
       within_language_menu do
-        click_link "Català"
+        click_on "Català"
       end
 
       visit decidim_admin.root_path
@@ -48,16 +48,17 @@ describe "Locales" do
     end
 
     it "displays devise messages with the right locale when authentication fails" do
-      click_link "Log in", match: :first
+      click_on "Log in", match: :first
 
       within_language_menu do
-        click_link "Català"
+        click_on "Català"
       end
 
-      fill_in "session_user_email", with: "toto@example.org"
-      fill_in "session_user_password", with: "toto"
-
-      click_button "Entra"
+      within ".new_user" do
+        fill_in "session_user_email", with: "toto@example.org"
+        fill_in "session_user_password", with: "toto"
+        click_on "Entra"
+      end
 
       expect(page).to have_content("Email o la contrasenya no són vàlids.")
     end

@@ -231,7 +231,7 @@ describe "Initiative" do
 
       it "allows visiting the components" do
         within ".participatory-space__nav-container" do
-          click_link translated(meetings_component.name, locale: :en)
+          click_on translated(meetings_component.name, locale: :en)
         end
 
         expect(page).to have_css('[id^="meetings__meeting"]', count: 3)

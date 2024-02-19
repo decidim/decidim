@@ -23,7 +23,7 @@ shared_examples "Managing component permissions" do
   context "when setting permissions" do
     before do
       within ".component-#{component.id}" do
-        click_link "Permissions"
+        click_on "Permissions"
       end
     end
 
@@ -54,7 +54,7 @@ shared_examples "Managing component permissions" do
     before do
       allow_any_instance_of(Decidim::Admin::PermissionsForm).to receive(:valid?).and_return(false)
       within ".component-#{component.id}" do
-        click_link "Permissions"
+        click_on "Permissions"
       end
       within "#components form" do
         within ".foo-permission" do
@@ -85,7 +85,7 @@ shared_examples "Managing component permissions" do
       )
 
       within ".component-#{component.id}" do
-        click_link "Permissions"
+        click_on "Permissions"
       end
     end
 
@@ -120,7 +120,7 @@ shared_examples "Managing component permissions" do
       )
 
       within ".component-#{component.id}" do
-        click_link "Permissions"
+        click_on "Permissions"
       end
     end
 

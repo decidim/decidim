@@ -15,7 +15,7 @@ shared_examples "manage conference admins examples" do
     login_as user, scope: :user
     visit decidim_admin_conferences.edit_conference_path(conference)
     within_admin_sidebar_menu do
-      click_link "Conference admins"
+      click_on "Conference admins"
     end
   end
 
@@ -26,7 +26,7 @@ shared_examples "manage conference admins examples" do
   end
 
   it "creates a new conference admin" do
-    click_link "New conference admin"
+    click_on "New conference admin"
 
     within ".new_conference_user_role" do
       fill_in :conference_user_role_email, with: other_user.email
@@ -52,7 +52,7 @@ shared_examples "manage conference admins examples" do
     it "updates a conference admin" do
       within "#conference_admins" do
         within "#conference_admins tr", text: other_user.email do
-          click_link "Edit"
+          click_on "Edit"
         end
       end
 
@@ -71,7 +71,7 @@ shared_examples "manage conference admins examples" do
 
     it "deletes a conference_user_role" do
       within "#conference_admins tr", text: other_user.email do
-        accept_confirm { click_link "Delete" }
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -102,7 +102,7 @@ shared_examples "manage conference admins examples" do
 
       it "resends the invitation to the user" do
         within "#conference_admins tr", text: "test@example.org" do
-          click_link "Resend invitation"
+          click_on "Resend invitation"
         end
 
         expect(page).to have_admin_callout("successfully")

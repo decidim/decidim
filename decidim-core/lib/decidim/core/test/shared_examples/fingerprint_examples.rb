@@ -5,7 +5,7 @@ shared_examples "fingerprint" do
 
   it "shows a fingerprint" do
     visit(resource_locator(fingerprintable).path)
-    click_button("Check fingerprint")
+    click_on("Check fingerprint")
 
     within ".fingerprint-modal" do
       expect(page).to(have_content(fingerprintable.fingerprint.value))

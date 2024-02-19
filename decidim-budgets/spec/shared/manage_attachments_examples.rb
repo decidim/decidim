@@ -8,11 +8,11 @@ shared_examples "manage project attachments" do
 
   before do
     within "tr", text: translated(budget.title) do
-      click_link "Manage projects"
+      click_on "Manage projects"
     end
 
     within "tr", text: translated(project.title) do
-      click_link "Attachments"
+      click_on "Attachments"
     end
   end
 

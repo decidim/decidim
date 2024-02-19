@@ -71,7 +71,7 @@ describe "Answer a survey" do
 
       check "questionnaire_tos_agreement"
 
-      accept_confirm { click_button "Submit" }
+      accept_confirm { click_on "Submit" }
 
       within ".success.flash" do
         expect(page).to have_content("successfully")

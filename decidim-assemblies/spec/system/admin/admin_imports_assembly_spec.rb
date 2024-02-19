@@ -31,7 +31,7 @@ describe "Admin imports assembly" do
       )
 
       within_admin_menu do
-        click_link "Import"
+        click_on "Import"
       end
 
       within ".import_assembly" do
@@ -46,7 +46,7 @@ describe "Admin imports assembly" do
       end
 
       dynamically_attach_file(:assembly_document, Decidim::Dev.asset("assemblies.json"))
-      click_button "Import"
+      click_on "Import"
     end
 
     it "imports the json document" do
@@ -55,11 +55,11 @@ describe "Admin imports assembly" do
       expect(page).to have_content("Unpublished")
 
       within "tr", text: "Import assembly" do
-        click_link "Configure"
+        click_on "Configure"
       end
 
       within_admin_sidebar_menu do
-        click_link "Categories"
+        click_on "Categories"
       end
       within ".table-list" do
         expect(page).to have_content(translated("Veritatis provident nobis reprehenderit tenetur."))
@@ -67,7 +67,7 @@ describe "Admin imports assembly" do
       end
 
       within_admin_sidebar_menu do
-        click_link "Components"
+        click_on "Components"
       end
       expect(Decidim::Assembly.last.components.size).to eq(9)
       within ".table-list" do
@@ -77,7 +77,7 @@ describe "Admin imports assembly" do
       end
 
       within_admin_sidebar_menu do
-        click_link "Attachments"
+        click_on "Attachments"
       end
       if Decidim::Assembly.last.attachments.any?
         within ".table-list" do

@@ -32,7 +32,7 @@ describe "Profile" do
 
     it "adds a link to edit the profile" do
       within "[data-content]" do
-        click_link "Edit profile"
+        click_on "Edit profile"
       end
 
       expect(page).to have_current_path(decidim.account_path)
@@ -72,12 +72,12 @@ describe "Profile" do
       end
 
       it "shows officialization status" do
-        click_link "Badges"
+        click_on "Badges"
         expect(page).to have_content("Major of Barcelona")
       end
 
       it "is not indexable by crawlers" do
-        click_link "Badges"
+        click_on "Badges"
         expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
       end
     end
@@ -106,7 +106,7 @@ describe "Profile" do
 
       it "lists the followers" do
         visit decidim.profile_path(user.nickname)
-        click_link "Followers"
+        click_on "Followers"
 
         expect(page).to have_content(other_user.name)
         expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
@@ -114,7 +114,7 @@ describe "Profile" do
 
       it "lists the followings" do
         visit decidim.profile_path(user.nickname)
-        click_link "Follows"
+        click_on "Follows"
 
         expect(page).to have_no_content("Some of the resources followed are not public.")
         expect(page).to have_content(translated(other_user.name))
@@ -137,7 +137,7 @@ describe "Profile" do
             expect(page).to have_content("4 follows")
           end
 
-          click_link "Follows"
+          click_on "Follows"
           expect(page).to have_content("Some of the resources followed are not public.")
           expect(page).to have_content(translated(other_user.name))
           expect(page).to have_content(translated(user_to_follow.name))
@@ -157,7 +157,7 @@ describe "Profile" do
         it "lists only the unblocked followings" do
           visit decidim.profile_path(user.nickname)
 
-          click_link "Follows"
+          click_on "Follows"
           expect(page).to have_content("Some of the resources followed are not public.")
           expect(page).to have_content(translated(other_user.name))
           expect(page).to have_content(translated(user_to_follow.name))
@@ -176,7 +176,7 @@ describe "Profile" do
         it "lists only the unblocked followers" do
           visit decidim.profile_path(user.nickname)
 
-          click_link "Followers"
+          click_on "Followers"
           expect(page).to have_content(translated(other_user.name))
           expect(page).to have_no_content(translated(blocked_user.name))
         end
@@ -218,7 +218,7 @@ describe "Profile" do
       end
 
       it "lists the user groups" do
-        click_link "Groups"
+        click_on "Groups"
 
         expect(page).to have_content(accepted_user_group.name)
         expect(page).to have_no_content(pending_user_group.name)

@@ -53,7 +53,7 @@ shared_examples "manage process components" do
             all("input[type=checkbox]").first.click
           end
 
-          click_button "Add component"
+          click_on "Add component"
         end
       end
 
@@ -65,7 +65,7 @@ shared_examples "manage process components" do
       context "and then edit it" do
         before do
           within "tr", text: "My component" do
-            click_link "Configure"
+            click_on "Configure"
           end
         end
 
@@ -80,7 +80,7 @@ shared_examples "manage process components" do
         end
 
         it "successfully edits it" do
-          click_button "Update"
+          click_on "Update"
 
           expect(page).to have_admin_callout("successfully")
         end
@@ -126,7 +126,7 @@ shared_examples "manage process components" do
             all("input[type=checkbox]").first.click
           end
 
-          click_button "Add component"
+          click_on "Add component"
         end
       end
 
@@ -138,7 +138,7 @@ shared_examples "manage process components" do
       context "and then edit it" do
         before do
           within "tr", text: "My component" do
-            click_link "Configure"
+            click_on "Configure"
           end
         end
 
@@ -153,7 +153,7 @@ shared_examples "manage process components" do
         end
 
         it "successfully edits it" do
-          click_button "Update"
+          click_on "Update"
 
           expect(page).to have_admin_callout("successfully")
         end
@@ -187,7 +187,7 @@ shared_examples "manage process components" do
 
     it "updates the component" do
       within ".component-#{component.id}" do
-        click_link "Configure"
+        click_on "Configure"
       end
 
       within ".edit_component" do
@@ -207,14 +207,14 @@ shared_examples "manage process components" do
           all("input[type=checkbox]").first.click
         end
 
-        click_button "Update"
+        click_on "Update"
       end
 
       expect(page).to have_admin_callout("successfully")
       expect(page).to have_content("My updated component")
 
       within "tr", text: "My updated component" do
-        click_link "Configure"
+        click_on "Configure"
       end
 
       within ".global-settings" do
@@ -231,7 +231,7 @@ shared_examples "manage process components" do
 
       it "updates the default step settings" do
         within ".component-#{component.id}" do
-          click_link "Configure"
+          click_on "Configure"
         end
 
         within ".edit_component" do
@@ -239,13 +239,13 @@ shared_examples "manage process components" do
             all("input[type=checkbox]").first.click
           end
 
-          click_button "Update"
+          click_on "Update"
         end
 
         expect(page).to have_admin_callout("successfully")
 
         within "tr", text: "My component" do
-          click_link "Configure"
+          click_on "Configure"
         end
 
         within ".default-step-settings" do
@@ -274,7 +274,7 @@ shared_examples "manage process components" do
 
     it "removes the component" do
       within ".component-#{component.id}" do
-        click_link "Delete"
+        click_on "Delete"
       end
 
       expect(page).to have_no_content("My component")
@@ -295,7 +295,7 @@ shared_examples "manage process components" do
     context "when the component is unpublished" do
       it "shows the share tokens section" do
         within ".component-#{component.id}" do
-          click_link "Configure"
+          click_on "Configure"
         end
 
         expect(page).to have_content("Share tokens")
@@ -303,7 +303,7 @@ shared_examples "manage process components" do
 
       it "publishes the component" do
         within ".component-#{component.id}" do
-          click_link "Publish"
+          click_on "Publish"
         end
 
         within ".component-#{component.id}" do
@@ -316,7 +316,7 @@ shared_examples "manage process components" do
         create(:follow, followable: participatory_process, user: follower)
 
         within ".component-#{component.id}" do
-          click_link "Publish"
+          click_on "Publish"
         end
 
         expect(enqueued_jobs.last[:args]).to include("decidim.events.components.component_published")
@@ -330,7 +330,7 @@ shared_examples "manage process components" do
 
       it "does not show the share tokens section" do
         within ".component-#{component.id}" do
-          click_link "Configure"
+          click_on "Configure"
         end
 
         expect(page).to have_no_content("Share tokens")
@@ -338,7 +338,7 @@ shared_examples "manage process components" do
 
       it "unpublishes the component" do
         within ".component-#{component.id}" do
-          click_link "Unpublish"
+          click_on "Unpublish"
         end
 
         within ".component-#{component.id}" do

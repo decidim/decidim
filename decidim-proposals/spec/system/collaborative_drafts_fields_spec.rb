@@ -108,7 +108,7 @@ describe "Collaborative drafts" do
           end
 
           it "allows returning to the index" do
-            click_link "Back to collaborative drafts"
+            click_on "Back to collaborative drafts"
 
             expect(page).to have_content("There are no collaborative drafts yet")
           end
@@ -298,8 +298,8 @@ describe "Collaborative drafts" do
 
           it "shows a modal dialog" do
             visit_component
-            click_link "Access collaborative drafts"
-            click_link "New collaborative draft"
+            click_on "Access collaborative drafts"
+            click_on "New collaborative draft"
             expect(page).to have_content("Authorization required")
           end
         end
@@ -346,7 +346,7 @@ describe "Collaborative drafts" do
 
         it "does not show the creation button" do
           visit_component
-          click_link "Access collaborative drafts"
+          click_on "Access collaborative drafts"
           expect(page).to have_no_link("New collaborative draft")
         end
       end

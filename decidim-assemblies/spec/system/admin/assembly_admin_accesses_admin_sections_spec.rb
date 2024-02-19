@@ -39,7 +39,7 @@ describe "Assembly admin accesses admin sections" do
   context "when is a mother assembly" do
     before do
       visit decidim_admin_assemblies.assemblies_path
-      click_link "Configure"
+      click_on "Configure"
     end
 
     context "when is a public assembly" do
@@ -59,10 +59,10 @@ describe "Assembly admin accesses admin sections" do
     before do
       visit decidim_admin_assemblies.assemblies_path
       within "tr", text: translated(assembly.title) do
-        click_link "Assemblies"
+        click_on "Assemblies"
       end
 
-      click_link "Configure"
+      click_on "Configure"
     end
 
     context "when is a public assembly" do

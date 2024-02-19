@@ -78,7 +78,7 @@ describe "Initiatives" do
             find_by_id("main-dropdown-summary").hover
             within ".menu-bar__main-dropdown__menu" do
               expect(page).to have_content("Initiatives")
-              click_link "Initiatives"
+              click_on "Initiatives"
             end
 
             expect(page).to have_current_path(decidim_initiatives.initiatives_path)
@@ -94,7 +94,7 @@ describe "Initiatives" do
         end
 
         it "links to the individual initiative page" do
-          click_link(translated(initiative.title, locale: :en))
+          click_on(translated(initiative.title, locale: :en))
           expect(page).to have_current_path(decidim_initiatives.initiative_path(initiative))
         end
 

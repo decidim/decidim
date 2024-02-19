@@ -34,7 +34,7 @@ describe "Admin manages newsletters" do
       find(".button.new").click
 
       within "#image_text_cta" do
-        click_link "Use this template"
+        click_on "Use this template"
       end
 
       within ".new_newsletter" do
@@ -116,7 +116,7 @@ describe "Admin manages newsletters" do
       it "sends a test email" do
         visit decidim_admin.newsletter_path(newsletter)
         perform_enqueued_jobs do
-          click_link "Send me a test email"
+          click_on "Send me a test email"
         end
         expect(page).to have_content("Newsletter has been sent")
         expect(last_email.subject).to include("A fancy newsletter for")
@@ -127,7 +127,7 @@ describe "Admin manages newsletters" do
       it "sends a test email" do
         visit decidim_admin.newsletters_path
         perform_enqueued_jobs do
-          click_link "Send me a test email"
+          click_on "Send me a test email"
         end
         expect(page).to have_content("Newsletter has been sent")
         expect(last_email.subject).to include("A fancy newsletter for")
@@ -141,7 +141,7 @@ describe "Admin manages newsletters" do
     it "allows a newsletter to be updated" do
       visit decidim_admin.newsletters_path
       within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
-        click_link "Edit"
+        click_on "Edit"
       end
 
       within ".edit_newsletter" do
@@ -341,7 +341,7 @@ describe "Admin manages newsletters" do
       visit decidim_admin.newsletters_path
 
       within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
-        accept_confirm { click_link "Delete" }
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_content("successfully")

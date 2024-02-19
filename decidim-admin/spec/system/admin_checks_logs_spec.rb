@@ -12,7 +12,7 @@ describe "Admin checks logs" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin.root_path
-    click_link "Admin activity log"
+    click_on "Admin activity log"
   end
 
   it "lists all recent logs" do

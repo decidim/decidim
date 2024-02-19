@@ -18,7 +18,7 @@ describe "Admin manages assemblies with parent selector" do
 
   context "when selecting a parent_assembly in the form" do
     before do
-      click_link "New assembly"
+      click_on "New assembly"
     end
 
     it "creates a new assembly" do
@@ -80,9 +80,9 @@ describe "Admin manages assemblies with parent selector" do
 
     before do
       within "tr", text: translated(assembly.title) do
-        click_link "Assemblies"
+        click_on "Assemblies"
       end
-      click_link "New assembly"
+      click_on "New assembly"
     end
 
     it "creates a new assembly" do

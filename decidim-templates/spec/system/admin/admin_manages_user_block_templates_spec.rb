@@ -33,7 +33,7 @@ describe "Admin manages user block templates" do
   describe "creating a user block template" do
     before do
       within ".layout-content" do
-        click_link("New template")
+        click_on("New template")
       end
     end
 
@@ -65,7 +65,7 @@ describe "Admin manages user block templates" do
 
     before do
       visit decidim_admin_templates.block_user_templates_path
-      click_link translated(template.name)
+      click_on translated(template.name)
     end
 
     it "updates a template" do
@@ -95,7 +95,7 @@ describe "Admin manages user block templates" do
 
     before do
       visit decidim_admin_templates.block_user_templates_path
-      click_link translated(template.name)
+      click_on translated(template.name)
     end
 
     it "does not update the template" do
@@ -124,7 +124,7 @@ describe "Admin manages user block templates" do
 
     it "copies the template" do
       within "tr", text: translated(template.name) do
-        click_link "Duplicate"
+        click_on "Duplicate"
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -141,7 +141,7 @@ describe "Admin manages user block templates" do
 
     it "destroys the template" do
       within "tr", text: translated(template.name) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

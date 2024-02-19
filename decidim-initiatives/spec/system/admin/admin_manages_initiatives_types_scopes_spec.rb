@@ -16,18 +16,18 @@ describe "Admin manages initiatives types scopes" do
 
   context "when creating a new initiative type scope" do
     it "Creates a new initiative type scope" do
-      click_link "New initiative type scope"
+      click_on "New initiative type scope"
       select translated(scope.name), from: :initiatives_type_scope_decidim_scopes_id
       fill_in :initiatives_type_scope_supports_required, with: 1000
-      click_button "Create"
+      click_on "Create"
 
       expect(page).to have_admin_callout("A new scope for the given initiative type has been created")
     end
 
     it "allows creating initiative type scopes with a Global scope" do
-      click_link "New initiative type scope"
+      click_on "New initiative type scope"
       fill_in :initiatives_type_scope_supports_required, with: 10
-      click_button "Create"
+      click_on "Create"
 
       expect(page).to have_admin_callout("A new scope for the given initiative type has been created")
 
@@ -45,8 +45,8 @@ describe "Admin manages initiatives types scopes" do
     end
 
     it "updates the initiative type scope" do
-      click_link "Configure"
-      click_button "Update"
+      click_on "Configure"
+      click_on "Update"
 
       expect(page).to have_admin_callout("The scope has been successfully updated")
     end

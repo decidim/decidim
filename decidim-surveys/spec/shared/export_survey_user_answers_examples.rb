@@ -13,7 +13,7 @@ shared_examples "export survey user answers" do
     visit_component_admin
 
     find(".exports").click
-    perform_enqueued_jobs { click_link "CSV" }
+    perform_enqueued_jobs { click_on "CSV" }
 
     expect(page).to have_admin_callout("Your export is currently in progress. You will receive an email when it is complete.")
     expect(last_email.subject).to include("survey_user_answers", "csv")
@@ -25,7 +25,7 @@ shared_examples "export survey user answers" do
     visit_component_admin
 
     find(".exports").click
-    perform_enqueued_jobs { click_link "JSON" }
+    perform_enqueued_jobs { click_on "JSON" }
 
     expect(page).to have_admin_callout("Your export is currently in progress. You will receive an email when it is complete.")
     expect(last_email.subject).to include("survey_user_answers", "json")
@@ -37,7 +37,7 @@ shared_examples "export survey user answers" do
     visit_component_admin
 
     find(".exports").click
-    perform_enqueued_jobs { click_link "PDF" }
+    perform_enqueued_jobs { click_on "PDF" }
 
     expect(page).to have_admin_callout("Your export is currently in progress. You will receive an email when it is complete.")
     expect(last_email.subject).to include("survey_user_answers", "pdf")

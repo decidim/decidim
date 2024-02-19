@@ -32,7 +32,7 @@ describe "Sorting projects" do
       within ".order-by" do
         expect(page).to have_css("div.order-by a", text: "Random order")
         page.find("a", text: "Random order").click
-        click_link(selected_option)
+        click_on(selected_option)
       end
     end
 

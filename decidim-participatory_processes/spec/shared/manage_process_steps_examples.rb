@@ -15,16 +15,16 @@ shared_examples "manage process steps examples" do
     login_as user, scope: :user
     visit decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
     within_admin_sidebar_menu do
-      click_link "Phases"
+      click_on "Phases"
     end
   end
 
   it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='participatory_process_step-description-tabs']", "full" do
-    before { click_link "New phase" }
+    before { click_on "New phase" }
   end
 
   it "creates a new participatory_process" do
-    click_link "New phase"
+    click_on "New phase"
 
     fill_in_i18n(
       :participatory_process_step_title,
@@ -49,7 +49,7 @@ shared_examples "manage process steps examples" do
     fill_in_timepicker :participatory_process_step_end_date_time, with: (Time.new.utc + 4.hours).strftime("%H:%M")
 
     within ".new_participatory_process_step" do
-      click_button "Create"
+      click_on "Create"
     end
 
     expect(page).to have_admin_callout("successfully")
@@ -64,7 +64,7 @@ shared_examples "manage process steps examples" do
   it "updates a participatory_process_step" do
     within "#steps" do
       within "tr", text: translated(process_step.title) do
-        click_link "Edit"
+        click_on "Edit"
       end
     end
 
@@ -84,7 +84,7 @@ shared_examples "manage process steps examples" do
 
     within "#steps table" do
       expect(page).to have_content("My new title")
-      click_link("My new title")
+      click_on("My new title")
     end
   end
 
@@ -97,7 +97,7 @@ shared_examples "manage process steps examples" do
 
     it "deletes a participatory_process_step" do
       within "tr", text: translated(process_step2.title) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -111,7 +111,7 @@ shared_examples "manage process steps examples" do
   context "when activating a step" do
     it "activates a step" do
       within "tr", text: translated(process_step.title) do
-        click_link "Activate"
+        click_on "Activate"
       end
 
       within "tr", text: translated(process_step.title) do
