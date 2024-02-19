@@ -51,8 +51,6 @@ module Decidim
     end
 
     def filter_categories_values
-      organization = current_participatory_space.organization
-
       sorted_main_categories = current_participatory_space.categories.first_class.includes(:subcategories).sort_by do |category|
         [category.weight, decidim_escape_translated(category.name)]
       end
