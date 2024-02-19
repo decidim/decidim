@@ -23,7 +23,7 @@
 
   <p><%= t(".illogical_heading_paragraph") %></p>
 
-  <p><%= t(".see_further_info") %> <a href="https://docs.decidim.org/en/develop/develop/guide_accessibility.html#_illogical_heading_order" target="_blank" rel="noopener noreferrer"><%= t(".here_link") %></a></p>
+  <p><%= t(".see_further_info", link: link_to(t(".here_link"), "https://docs.decidim.org/en/develop/develop/guide_accessibility.html#_illogical_heading_order", target: "_blank", rel: "noopener noreferrer")) %></p>
 </section>
 
 <section id="unique-h1" class="design__section">
