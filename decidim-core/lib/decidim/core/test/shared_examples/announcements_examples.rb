@@ -12,7 +12,7 @@ shared_examples "manage announcements" do
       ca: "Un avís molt important"
     )
 
-    click_button "Update"
+    click_on "Update"
 
     visit main_component_path(current_component)
 
@@ -46,7 +46,7 @@ shared_examples "manage announcements" do
         ca: "Un avís per a aquesta fase"
       )
 
-      click_button "Update"
+      click_on "Update"
 
       visit main_component_path(current_component)
 

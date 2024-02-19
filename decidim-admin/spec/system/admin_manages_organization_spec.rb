@@ -21,7 +21,7 @@ describe "Admin manages organization" do
 
       %w(X Facebook Instagram YouTube GitHub).each do |network|
         within "#organization_social_handlers" do
-          click_link network
+          click_on network
         end
 
         field_name = "organization_#{network.downcase}_handler"
@@ -36,7 +36,7 @@ describe "Admin manages organization" do
                           en: "<p>Respect the privacy of others.</p>",
                           es: "<p>Spanish - Respect the privacy of others.</p>"
 
-      click_button "Update"
+      click_on "Update"
       expect(page).to have_content("updated successfully")
     end
 
@@ -258,7 +258,7 @@ describe "Admin manages organization" do
 
         it "is still editable" do
           find('div[contenteditable="true"].ProseMirror').native.send_keys(Array.new(15) { :backspace }, "bar baz")
-          click_button "Update"
+          click_on "Update"
           expect(page).to have_content("Organization updated successfully")
           expect(find(
             "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
@@ -377,7 +377,7 @@ describe "Admin manages organization" do
           )["innerHTML"]).to eq(terms_content.to_s.gsub("\n", ""))
         end
 
-        it "keeps right curson position when using the backspace" do
+        it "keeps right cursor position when using the backspace" do
           find('div[contenteditable="true"].ProseMirror').native.send_keys [:enter, "bc", :left, :left]
           find('div[contenteditable="true"].ProseMirror').native.send_keys [:enter, :backspace, :backspace, "a"]
           expect(find(
@@ -510,7 +510,7 @@ describe "Admin manages organization" do
             find("button[data-action='save']").click
           end
 
-          click_button "Update"
+          click_on "Update"
 
           organization.reload
           expect(translated(organization.admin_terms_of_service_body)).to eq(
@@ -527,7 +527,7 @@ describe "Admin manages organization" do
         visit decidim_admin.edit_organization_path
         check "Send welcome notification"
         expect(page).to have_no_content("Welcome notification subject")
-        click_button "Update"
+        click_on "Update"
         expect(page).to have_content("updated successfully")
 
         organization.reload
@@ -548,7 +548,7 @@ describe "Admin manages organization" do
         fill_in_i18n_editor :organization_welcome_notification_body, "#organization-welcome_notification_body-tabs",
                             en: "<p>Body</p>"
 
-        click_button "Update"
+        click_on "Update"
         expect(page).to have_content("updated successfully")
 
         organization.reload
@@ -565,13 +565,13 @@ describe "Admin manages organization" do
         fill_in_i18n :organization_welcome_notification_subject, "#organization-welcome_notification_subject-tabs",
                      en: ""
 
-        click_button "Update"
+        click_on "Update"
         expect(page).to have_content("There was a problem updating this organization.")
 
         fill_in_i18n :organization_welcome_notification_subject, "#organization-welcome_notification_subject-tabs",
                      en: "Well hello!"
 
-        click_button "Update"
+        click_on "Update"
         expect(page).to have_content("updated successfully")
 
         organization.reload

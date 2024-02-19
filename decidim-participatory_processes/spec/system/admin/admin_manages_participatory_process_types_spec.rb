@@ -17,7 +17,7 @@ describe "Admin manages participatory process types" do
     end
 
     it "can create new participatory process types" do
-      click_link "New process type"
+      click_on "New process type"
 
       within ".new_participatory_process_type" do
         fill_in_i18n(
@@ -52,7 +52,7 @@ describe "Admin manages participatory process types" do
 
       it "can edit them" do
         within "tr", text: translated(participatory_process_type.title) do
-          click_link "Edit"
+          click_on "Edit"
         end
 
         within ".edit_participatory_process_type" do
@@ -87,7 +87,7 @@ describe "Admin manages participatory process types" do
 
   def click_delete_participatory_process_type
     within "tr", text: translated(participatory_process_type.title) do
-      accept_confirm { click_link "Delete" }
+      accept_confirm { click_on "Delete" }
     end
   end
 end

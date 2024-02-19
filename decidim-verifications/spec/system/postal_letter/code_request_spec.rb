@@ -27,7 +27,7 @@ describe "Postal letter code request" do
   context "when requesting a code by postal letter" do
     before do
       fill_in "Full address", with: "C/ Milhouse, 3, 00000, Springfield (Monaco)"
-      click_button "Send me a letter"
+      click_on "Send me a letter"
     end
 
     it "allows the user to request a code by postal letter to get verified" do

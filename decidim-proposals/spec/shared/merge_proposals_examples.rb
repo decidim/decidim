@@ -17,7 +17,7 @@ shared_examples "merge proposals" do
 
     context "when click the bulk action button" do
       it "shows the change action option" do
-        click_button "Actions"
+        click_on "Actions"
 
         expect(page).to have_selector(:link_or_button, "Merge into a new one")
       end
@@ -29,7 +29,7 @@ shared_examples "merge proposals" do
         end
 
         it "does not show the merge action option" do
-          click_button "Actions"
+          click_on "Actions"
 
           expect(page).to have_no_selector(:link_or_button, "Merge into a new one")
         end
@@ -38,8 +38,8 @@ shared_examples "merge proposals" do
 
     context "when merge into a new one is selected from the actions dropdown" do
       before do
-        click_button "Actions"
-        click_button "Merge into a new one"
+        click_on "Actions"
+        click_on "Merge into a new one"
       end
 
       it "shows the component select" do
@@ -50,11 +50,11 @@ shared_examples "merge proposals" do
         expect(page).to have_button(id: "js-submit-merge-proposals", count: 1)
       end
 
-      context "when submiting the form" do
+      context "when submitting the form" do
         before do
           within "#js-form-merge-proposals" do
             select translated(target_component.name), from: :target_component_id_
-            click_button(id: "js-submit-merge-proposals")
+            click_on(id: "js-submit-merge-proposals")
           end
         end
 

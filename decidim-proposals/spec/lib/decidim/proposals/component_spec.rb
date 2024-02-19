@@ -185,7 +185,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
         it "changes the setting value after updating" do
           expect do # rubocop:disable Lint/AmbiguousBlockAssociation
             check "Participatory texts enabled"
-            click_button "Update"
+            click_on "Update"
           end.to change { component.reload.settings.participatory_texts_enabled }
         end
       end
@@ -204,7 +204,7 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
 
         it "does not change the setting value after updating" do
           expect do # rubocop:disable Lint/AmbiguousBlockAssociation
-            click_button "Update"
+            click_on "Update"
           end.not_to change { component.reload.settings.participatory_texts_enabled }
         end
       end

@@ -501,7 +501,7 @@ describe "Participatory Process Groups" do
         end
       end
 
-      it "does not list inactice processes" do
+      it "does not list inactive processes" do
         within "section.content-block" do
           expect(page).to have_no_content(translated(upcoming_process_with_area.title, locale: :en))
           expect(page).to have_no_content(translated(past_process_with_scope.title, locale: :en))

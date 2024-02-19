@@ -21,7 +21,7 @@ describe "Admin manages budgets" do
   end
 
   it "creates a new budget" do
-    click_link "New budget"
+    click_on "New budget"
 
     within ".new_budget" do
       fill_in_i18n(
@@ -43,7 +43,7 @@ describe "Admin manages budgets" do
       select translated(scope.name), from: :budget_decidim_scope_id
     end
 
-    click_button "Create budget"
+    click_on "Create budget"
 
     expect(page).to have_admin_callout("Budget successfully created.")
 
@@ -68,7 +68,7 @@ describe "Admin manages budgets" do
         )
       end
 
-      click_button "Update budget"
+      click_on "Update budget"
 
       expect(page).to have_admin_callout("Budget successfully updated.")
 

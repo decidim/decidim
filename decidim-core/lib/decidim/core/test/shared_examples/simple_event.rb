@@ -29,7 +29,7 @@ shared_context "when a simple event" do
   let(:resource_path) { resource_locator(resource).path }
   let(:resource_url) { resource_locator(resource).url }
   let(:resource_title) { decidim_sanitize_translated(resource.title) }
-  # to be used when resource is a component resource, not a participatory space, in which case should be overriden
+  # to be used when resource is a component resource, not a participatory space, in which case should be overridden
   let(:participatory_space) { resource.participatory_space }
   let(:participatory_space_title) { decidim_sanitize_translated(participatory_space.title) }
   let(:participatory_space_path) { Decidim::ResourceLocatorPresenter.new(participatory_space).path }

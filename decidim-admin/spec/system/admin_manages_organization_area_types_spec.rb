@@ -10,9 +10,9 @@ describe "Admin manages area types" do
     switch_to_host(organization.host)
     login_as admin, scope: :user
     visit decidim_admin.root_path
-    click_link "Settings"
-    click_link "Areas"
-    click_link "Area types"
+    click_on "Settings"
+    click_on "Areas"
+    click_on "Area types"
   end
 
   it "can create new area types" do
@@ -62,7 +62,7 @@ describe "Admin manages area types" do
 
     it "can edit them" do
       within "tr", text: translated(area_type.name) do
-        click_link "Edit"
+        click_on "Edit"
       end
 
       within ".edit_area_type" do
@@ -75,7 +75,7 @@ describe "Admin manages area types" do
         fill_in_i18n(
           :area_type_plural,
           "#area_type-plural-tabs",
-          en: "This is the new pluarl"
+          en: "This is the new plural"
         )
         find("*[type=submit]").click
       end
@@ -89,7 +89,7 @@ describe "Admin manages area types" do
 
     it "can delete them" do
       within "tr", text: translated(area_type.name) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

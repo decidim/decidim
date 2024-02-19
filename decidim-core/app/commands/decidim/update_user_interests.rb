@@ -3,7 +3,7 @@
 module Decidim
   # This command updates the user's interests.
   class UpdateUserInterests < Decidim::Command
-    # Updates a user's intersts.
+    # Updates a user's interests.
     #
     # user - The user to be updated.
     # form - The form with the data.

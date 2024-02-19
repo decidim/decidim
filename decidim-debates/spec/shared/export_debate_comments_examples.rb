@@ -5,7 +5,7 @@ shared_examples "export debates comments" do
 
   it "exports a CSV" do
     find(".exports").click
-    perform_enqueued_jobs { click_link "Comments as CSV" }
+    perform_enqueued_jobs { click_on "Comments as CSV" }
 
     expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
     expect(last_email.subject).to include("comments", "csv")
@@ -15,7 +15,7 @@ shared_examples "export debates comments" do
 
   it "exports a JSON" do
     find(".exports").click
-    perform_enqueued_jobs { click_link "Comments as JSON" }
+    perform_enqueued_jobs { click_on "Comments as JSON" }
 
     expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
     expect(last_email.subject).to include("comments", "json")

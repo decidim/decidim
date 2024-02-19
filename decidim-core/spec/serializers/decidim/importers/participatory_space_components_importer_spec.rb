@@ -76,7 +76,7 @@ module Decidim::Importers
         end
 
         # Find the Decidim::Component created during importation that corresponds
-        # to the +component+ used to generate the impoted json.
+        # to the +component+ used to generate the imported json.
         def imported_from(component)
           imported = Decidim::Component.where.not(id: component.id)
                                        .find_by(manifest_name: component.manifest_name, weight: component.weight)

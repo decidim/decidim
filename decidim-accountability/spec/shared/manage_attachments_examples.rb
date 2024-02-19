@@ -8,7 +8,7 @@ shared_examples "manage accountability attachments" do
 
   before do
     within "tr", text: translated(result.title) do
-      click_link "Attachments"
+      click_on "Attachments"
     end
   end
 

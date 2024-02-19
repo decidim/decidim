@@ -14,7 +14,7 @@ describe "Organizations" do
 
     describe "current organizations section" do
       it "has a link for creating a new organization" do
-        click_link "New organization"
+        click_on "New organization"
         expect(page).to have_content("New organization")
         expect(page).to have_button("Create organization & invite admin")
       end
@@ -26,7 +26,7 @@ describe "Organizations" do
 
     describe "admins section" do
       it "has a link for creating a new admin" do
-        click_link "New admin"
+        click_on "New admin"
         expect(page).to have_content("New admin")
         expect(page).to have_button("Create")
       end

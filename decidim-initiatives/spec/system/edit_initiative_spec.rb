@@ -21,13 +21,13 @@ describe "Edit initiative" do
     it "can be updated" do
       visit initiative_path
 
-      click_link("Edit", href: edit_initiative_path)
+      click_on("Edit")
 
       expect(page).to have_content "Edit Initiative"
 
       within "form.edit_initiative" do
         fill_in :initiative_title, with: new_title
-        click_button "Update"
+        click_on "Update"
       end
 
       expect(page).to have_content(new_title)
@@ -59,7 +59,7 @@ describe "Edit initiative" do
     it "allows adding attachments" do
       visit initiative_path
 
-      click_link("Edit", href: edit_initiative_path)
+      click_on("Edit")
 
       expect(page).to have_content "Edit Initiative"
 
@@ -69,7 +69,7 @@ describe "Edit initiative" do
       dynamically_attach_file(:initiative_photos, Decidim::Dev.asset("avatar.jpg"))
 
       within "form.edit_initiative" do
-        click_button "Update"
+        click_on "Update"
       end
 
       expect(initiative.reload.documents.count).to eq(1)
@@ -130,7 +130,7 @@ describe "Edit initiative" do
     before do
       visit initiative_path
 
-      click_link("Edit", href: edit_initiative_path)
+      click_on("Edit")
 
       expect(page).to have_content "Edit Initiative"
     end

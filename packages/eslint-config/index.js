@@ -1,92 +1,80 @@
-module.exports = { // eslint-disable-line
-  "env": {
-    "browser": true,
-    "es6": true
+module.exports = {
+  // eslint-disable-line
+  env: {
+    browser: true,
+    es6: true,
+    es2021: true
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
-  "parser": "@babel/eslint-parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "jsx": true
+  extends: ["eslint:recommended", "plugin:react/recommended", "prettier"],
+  parserOptions: {
+    ecmaFeatures: {
+      experimentalObjectRestSpread: true,
+      jsx: true
     },
-    "sourceType": "module"
+    sourceType: "module"
   },
-  "plugins": [
-    "react",
+  plugins: ["react",
     "no-relative-import-paths"
   ],
-  "globals": {
-    "$": false,
-    "jQuery": false,
-    "React": false,
-    "ReactDOM": false,
-    "describe": false,
-    "it": false,
-    "expect": false,
-    "beforeEach": false,
-    "afterEach": false,
-    "sinon": false,
-    "GraphQLDocs": false,
-    "SVGInjector": false,
-    "require": false,
-    "DecidimAdmin": false,
-    "L": false,
-    "decidimBulletinBoard": false,
-    "Rails": false
+  globals: {
+    $: false,
+    jQuery: false,
+    React: false,
+    ReactDOM: false,
+    describe: false,
+    it: false,
+    expect: false,
+    beforeEach: false,
+    afterEach: false,
+    sinon: false,
+    GraphQLDocs: false,
+    SVGInjector: false,
+    require: false,
+    DecidimAdmin: false,
+    L: false,
+    decidimBulletinBoard: false,
+    Rails: false
   },
-  "rules": {
+  rules: {
     "accessor-pairs": "error",
     "array-bracket-spacing": "error",
     "array-callback-return": "error",
     "arrow-body-style": "off",
-    "arrow-parens": [
-      "error",
-      "always"
-    ],
+    "arrow-parens": ["error", "always"],
     "arrow-spacing": [
       "error",
       {
-        "after": true,
-        "before": true
+        after: true,
+        before: true
       }
     ],
     "block-scoped-var": "error",
     "block-spacing": "off",
     "callback-return": "error",
-    "camelcase": "error",
+    camelcase: "error",
     "class-methods-use-this": "off",
     "comma-dangle": ["error", "never"],
     "comma-spacing": [
       "error",
       {
-        "after": true,
-        "before": false
+        after: true,
+        before: false
       }
     ],
-    "comma-style": [
-      "error",
-      "last"
-    ],
-    "complexity": "error",
-    "computed-property-spacing": [
-      "error",
-      "never"
-    ],
+    "comma-style": ["error", "last"],
+    complexity: "error",
+    "computed-property-spacing": ["error", "never"],
     "consistent-return": "error",
     "consistent-this": "error",
-    "curly": "error",
+    curly: "error",
     "default-case": "error",
     "dot-location": "error",
     "dot-notation": "error",
     "eol-last": "error",
-    "eqeqeq": "error",
+    eqeqeq: "error",
     "func-call-spacing": "error",
     "func-name-matching": "error",
-    "func-names": [
-      "error",
-      "never"
-    ],
+    "func-names": ["error", "never"],
     "func-style": "error",
     "generator-star-spacing": "error",
     "global-require": "error",
@@ -95,22 +83,19 @@ module.exports = { // eslint-disable-line
     "id-blacklist": "error",
     "id-length": "error",
     "id-match": "error",
-    "indent": ["error", 2, { "VariableDeclarator": 2 }],
+    indent: ["error", 2, { VariableDeclarator: 2 }],
     "init-declarations": "error",
     "jsx-quotes": "error",
     "key-spacing": "error",
     "keyword-spacing": [
       "error",
       {
-        "after": true,
-        "before": true
+        after: true,
+        before: true
       }
     ],
     "line-comment-position": "error",
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
+    "linebreak-style": ["error", "unix"],
     "lines-around-comment": "error",
     "lines-around-directive": "error",
     "max-depth": "error",
@@ -221,7 +206,7 @@ module.exports = { // eslint-disable-line
     "object-property-newline": [
       "error",
       {
-        "allowMultiplePropertiesPerLine": true
+        allowMultiplePropertiesPerLine: true
       }
     ],
     "object-shorthand": "off",
@@ -238,40 +223,31 @@ module.exports = { // eslint-disable-line
     "prefer-spread": "error",
     "prefer-template": "error",
     "quote-props": "off",
-    "quotes": ["error", "double", { "avoidEscape": true }],
-    "radix": "error",
+    quotes: ["error", "double", { avoidEscape: true }],
+    radix: "error",
     "require-jsdoc": "error",
     "rest-spread-spacing": "error",
-    "semi": "off",
+    semi: "off",
     "semi-spacing": "error",
     "sort-imports": "off",
     "sort-keys": "off",
     "sort-vars": "error",
     "space-before-blocks": "error",
     "space-before-function-paren": "off",
-    "space-in-parens": [
-      "error",
-      "never"
-    ],
+    "space-in-parens": ["error", "never"],
     "space-infix-ops": "error",
     "space-unary-ops": "error",
-    "spaced-comment": [
-      "error",
-      "always"
-    ],
-    "strict": "error",
+    "spaced-comment": ["error", "always"],
+    strict: "error",
     "symbol-description": "error",
     "template-curly-spacing": "error",
-    "unicode-bom": [
-      "error",
-      "never"
-    ],
+    "unicode-bom": ["error", "never"],
     "valid-jsdoc": "error",
     "vars-on-top": "error",
     "wrap-iife": "error",
     "wrap-regex": "error",
     "yield-star-spacing": "error",
-    "yoda": "error",
+    yoda: "error",
     "import/no-named-as-default": "off",
     "import/no-extraneous-dependencies": "off",
     "react/prefer-stateless-function": "off",
@@ -279,4 +255,4 @@ module.exports = { // eslint-disable-line
     "react/no-multi-comp": "off",
     "react/sort-comp": "off"
   }
-}
+};

@@ -3,39 +3,19 @@
 module Decidim
   module Initiatives
     class ApproveMembershipRequestEvent < Decidim::Events::SimpleEvent
-      def email_subject
-        I18n.t(
-          "decidim.initiatives.events.approve_membership_request.email_subject",
-          author_nickname:
-        )
-      end
+      def i18n_scope = "decidim.initiatives.events.approve_membership_request"
 
-      def email_intro
-        I18n.t(
-          "decidim.initiatives.events.approve_membership_request.email_intro",
+      def i18n_options
+        {
+          author_nickname:,
+          author_profile_url:,
+          participatory_space_title:,
+          participatory_space_url:,
+          resource_path:,
           resource_title:,
           resource_url:,
-          author_profile_url:,
-          author_nickname:
-        )
-      end
-
-      def email_outro
-        I18n.t(
-          "decidim.initiatives.events.approve_membership_request.email_outro",
-          resource_title:,
-          resource_url:
-        )
-      end
-
-      def notification_title
-        I18n.t(
-          "decidim.initiatives.events.approve_membership_request.notification_title",
-          resource_title:,
-          resource_url:,
-          author_profile_url:,
-          author_nickname:
-        ).html_safe
+          scope: i18n_scope
+        }
       end
 
       private

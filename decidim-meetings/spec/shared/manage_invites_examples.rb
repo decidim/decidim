@@ -2,10 +2,10 @@
 
 def visit_meeting_invites_page
   within "tr", text: translated(meeting.title) do
-    page.click_link "Registrations"
+    page.click_on "Registrations"
   end
 
-  page.click_link "Invitations"
+  page.click_on "Invitations"
 end
 
 def invite_unregistered_user(name:, email:)
@@ -17,7 +17,7 @@ def invite_unregistered_user(name:, email:)
     fill_in :meeting_registration_invite_email, with: email
 
     perform_enqueued_jobs do
-      click_button "Invite"
+      click_on "Invite"
     end
   end
 
@@ -37,7 +37,7 @@ def invite_existing_user(user)
     autocomplete_select "#{user.name} (@#{user.nickname})", from: :user_id
 
     perform_enqueued_jobs do
-      click_button "Invite"
+      click_on "Invite"
     end
   end
 
@@ -173,7 +173,7 @@ shared_examples "manage invites" do
 
         within ".filters__section" do
           fill_in :q_user_name_or_user_email_cont, with: invites.first.user.email
-          click_button(type: "submit")
+          click_on(class: "text-secondary")
         end
 
         within "#meeting-invites table tbody" do

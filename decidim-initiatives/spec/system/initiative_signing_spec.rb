@@ -20,7 +20,7 @@ describe "Initiative signing" do
 
   context "when the user has not signed the initiative" do
     context "when online signatures are enabled for site" do
-      context "when initative type only allows In-person signatures" do
+      context "when initiative type only allows In-person signatures" do
         let(:initiative) { create(:initiative, :published, organization:, signature_type: "offline") }
 
         it "voting disabled message is shown" do
@@ -52,7 +52,7 @@ describe "Initiative signing" do
         within ".initiative__aside" do
           expect(page).to have_content(signature_text(1))
           expect(page).to have_button("Already signed", disabled: true)
-          click_button("Already signed", disabled: true)
+          click_on("Already signed", disabled: true)
           expect(page).to have_content(signature_text(1))
         end
       end
@@ -63,7 +63,7 @@ describe "Initiative signing" do
 
       within ".initiative__aside" do
         expect(page).to have_content(signature_text(1))
-        click_button("Already signed")
+        click_on("Already signed")
         expect(page).to have_content(signature_text(0))
       end
     end
@@ -91,7 +91,7 @@ describe "Initiative signing" do
           within ".initiative__aside" do
             expect(page).to have_content("Verify your account to sign the initiative")
           end
-          click_button "Verify your account to sign the initiative"
+          click_on "Verify your account to sign the initiative"
           expect(page).to have_content("Authorization required")
         end
       end
@@ -120,7 +120,7 @@ describe "Initiative signing" do
           within ".initiative__aside" do
             expect(page).to have_content(signature_text(1))
             expect(page).to have_button("Already signed", disabled: true)
-            click_button("Already signed", disabled: true)
+            click_on("Already signed", disabled: true)
             expect(page).to have_content(signature_text(1))
           end
         end
@@ -151,7 +151,7 @@ describe "Initiative signing" do
         end
       end
 
-      context "when the personal daata is not filled" do
+      context "when the personal data is not filled" do
         it "does not allow voting" do
           visit decidim_initiatives.initiative_path(initiative)
 
@@ -159,7 +159,7 @@ describe "Initiative signing" do
             expect(page).to have_content(signature_text(0))
             click_on "Sign"
           end
-          click_button "Continue"
+          click_on "Continue"
 
           expect(page).to have_content "error"
 
@@ -188,7 +188,7 @@ describe "Initiative signing" do
       fill_in_datepicker :initiatives_vote_date_of_birth_date, with: 30.years.ago.strftime("01/01/%Y")
       fill_in :initiatives_vote_postal_code, with: "01234"
 
-      click_button "Continue"
+      click_on "Continue"
 
       expect(page).to have_content("initiative has been successfully signed")
       click_on "Back to initiative"

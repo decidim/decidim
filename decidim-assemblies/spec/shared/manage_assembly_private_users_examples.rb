@@ -10,7 +10,7 @@ shared_examples "manage assembly private users examples" do
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
     within_admin_sidebar_menu do
-      click_link "Private users"
+      click_on "Private users"
     end
   end
 
@@ -21,7 +21,7 @@ shared_examples "manage assembly private users examples" do
   end
 
   it "creates a new assembly private users" do
-    click_link "New participatory space private user"
+    click_on "New participatory space private user"
 
     within ".new_participatory_space_private_user" do
       fill_in :participatory_space_private_user_name, with: "John Doe"
@@ -39,13 +39,13 @@ shared_examples "manage assembly private users examples" do
 
   describe "when import a batch of private users from csv" do
     it "import a batch of participatory space private users" do
-      click_link "Import via CSV"
+      click_on "Import via CSV"
 
       # The CSV has no headers
       expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("john.doe@example.org", "John Doe", assembly, user)
       expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("jane.doe@example.org", "Jane Doe", assembly, user)
       dynamically_attach_file(:participatory_space_private_user_csv_import_file, Decidim::Dev.asset("import_participatory_space_private_users.csv"))
-      perform_enqueued_jobs { click_button "Upload" }
+      perform_enqueued_jobs { click_on "Upload" }
 
       expect(page).to have_content("CSV file uploaded successfully")
     end
@@ -59,7 +59,7 @@ shared_examples "manage assembly private users examples" do
 
     it "deletes an assembly_private_user" do
       within "#private_users tr", text: other_user.email do
-        accept_confirm { click_link "Delete" }
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -87,7 +87,7 @@ shared_examples "manage assembly private users examples" do
 
       it "resends the invitation to the user" do
         within "#private_users tr", text: "test@example.org" do
-          click_link "Resend invitation"
+          click_on "Resend invitation"
         end
 
         expect(page).to have_admin_callout("successfully")

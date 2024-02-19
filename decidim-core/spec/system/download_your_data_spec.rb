@@ -27,7 +27,7 @@ describe "DownloadYourData" do
 
     describe "Export data" do
       it "exports a 7z with all user information" do
-        perform_enqueued_jobs { click_button "Request data" }
+        perform_enqueued_jobs { click_on "Request data" }
 
         within_flash_messages do
           expect(page).to have_content("data is currently in progress")

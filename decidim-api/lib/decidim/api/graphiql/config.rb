@@ -7,7 +7,7 @@ module Decidim
         # @example Adding a header to the request
         #    config.headers["My-Header"] = -> (view_context) { "My-Value" }
         #
-        # @return [Hash<String => Proc>] Keys are headers to include in GraphQL requests, values are `->(view_context) { ... }` procs to determin values
+        # @return [Hash<String => Proc>] Keys are headers to include in GraphQL requests, values are `->(view_context) { ... }` procs to determine values
         attr_accessor :headers
 
         attr_accessor :query_params, :initial_query, :csrf, :title, :logo

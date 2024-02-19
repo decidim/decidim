@@ -7,7 +7,7 @@ shared_examples "comments_reports" do
 
       # Open toolbar
       page.find("[id^='dropdown-trigger']").click
-      click_button "Report"
+      click_on "Report"
 
       expect(page).to have_css("#loginModal", visible: :visible)
     end
@@ -24,12 +24,12 @@ shared_examples "comments_reports" do
 
         # Open toolbar
         page.find("[id^='dropdown-trigger']").click
-        click_button "Report"
+        click_on "Report"
 
         expect(page).to have_css(".flag-modal", visible: :visible)
 
         within ".flag-modal" do
-          click_button "Report"
+          click_on "Report"
         end
 
         expect(page).to have_content "report has been created"
@@ -47,7 +47,7 @@ shared_examples "comments_reports" do
 
         # Open toolbar
         page.find("[id^='dropdown-trigger']").click
-        click_button "Report"
+        click_on "Report"
 
         expect(page).to have_css(".flag-modal", visible: :visible)
 

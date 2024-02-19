@@ -49,7 +49,7 @@ shared_examples "manage processes examples" do
       let!(:participatory_process) { create(:participatory_process, :unpublished, organization:) }
 
       it "allows the user to preview the unpublished process" do
-        new_window = window_opened_by { page.find("tr", text: translated(participatory_process.title)).click_link("Preview") }
+        new_window = window_opened_by { page.find("tr", text: translated(participatory_process.title)).click_on("Preview") }
 
         page.within_window(new_window) do
           expect(page).to have_css(".participatory-space__container")
@@ -63,10 +63,10 @@ shared_examples "manage processes examples" do
 
       it "allows the user to preview the published process" do
         within "tr", text: translated(participatory_process.title) do
-          click_link "Preview"
+          click_on "Preview"
         end
 
-        new_window = window_opened_by { page.find("tr", text: translated(participatory_process.title)).click_link("Preview") }
+        new_window = window_opened_by { page.find("tr", text: translated(participatory_process.title)).click_on("Preview") }
 
         page.within_window(new_window) do
           expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process)
@@ -88,11 +88,11 @@ shared_examples "manage processes examples" do
 
     before do
       within "tr", text: translated(participatory_process.title) do
-        click_link translated(participatory_process.title)
+        click_on translated(participatory_process.title)
       end
 
       within_admin_sidebar_menu do
-        click_link "About this process"
+        click_on "About this process"
       end
     end
 
@@ -126,16 +126,16 @@ shared_examples "manage processes examples" do
 
     before do
       within "tr", text: translated(participatory_process.title) do
-        click_link translated(participatory_process.title)
+        click_on translated(participatory_process.title)
       end
 
       within_admin_sidebar_menu do
-        click_link "About this process"
+        click_on "About this process"
       end
     end
 
     it "publishes the process" do
-      click_link "Publish"
+      click_on "Publish"
       expect(page).to have_content("successfully published")
       expect(page).to have_content("Unpublish")
       expect(page).to have_current_path decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
@@ -150,16 +150,16 @@ shared_examples "manage processes examples" do
 
     before do
       within "tr", text: translated(participatory_process.title) do
-        click_link translated(participatory_process.title)
+        click_on translated(participatory_process.title)
       end
 
       within_admin_sidebar_menu do
-        click_link "About this process"
+        click_on "About this process"
       end
     end
 
     it "unpublishes the process" do
-      click_link "Unpublish"
+      click_on "Unpublish"
       expect(page).to have_content("successfully unpublished")
       expect(page).to have_content("Publish")
       expect(page).to have_current_path decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
@@ -192,11 +192,11 @@ shared_examples "manage processes examples" do
 
     it "disables the scope for a participatory process" do
       within "tr", text: translated(participatory_process.title) do
-        click_link translated(participatory_process.title)
+        click_on translated(participatory_process.title)
       end
 
       within_admin_sidebar_menu do
-        click_link "About this process"
+        click_on "About this process"
       end
 
       uncheck :participatory_process_scopes_enabled

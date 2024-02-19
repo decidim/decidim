@@ -12,7 +12,7 @@ module Decidim
         @manifest = manifest
       end
 
-      # lazy instantation of the class
+      # lazy instantiation of the class
       def model_class
         @model_class ||= manifest.model_class_name.constantize
       end

@@ -1333,7 +1333,7 @@ describe "Editor" do
 
       it "opens the link editing dialog from the edit button" do
         within ".editor [data-bubble-menu] [data-linkbubble]" do
-          click_button "Edit"
+          click_on "Edit"
         end
         within "[data-dialog][aria-hidden='false']" do
           fill_in "Link URL", with: "https://docs.decidim.org"
@@ -1350,7 +1350,7 @@ describe "Editor" do
 
       it "opens the bubble menu in case the link editing dialog is cancelled" do
         within ".editor [data-bubble-menu] [data-linkbubble]" do
-          click_button "Edit"
+          click_on "Edit"
         end
         within "[data-dialog][aria-hidden='false']" do
           find("button[data-action='cancel']").click
@@ -1362,7 +1362,7 @@ describe "Editor" do
 
       it "removes the link from the the remove button" do
         within ".editor [data-bubble-menu] [data-linkbubble]" do
-          click_button "Remove"
+          click_on "Remove"
         end
 
         expect_value(%(<p>Hello, world!</p>))

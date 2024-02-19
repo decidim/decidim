@@ -43,7 +43,7 @@ describe "Conference speakers" do
 
         within ".conference__nav-container" do
           expect(page).to have_content("Speakers")
-          click_link "Speakers"
+          click_on "Speakers"
         end
 
         expect(page).to have_current_path decidim_conferences.conference_conference_speakers_path(conference)

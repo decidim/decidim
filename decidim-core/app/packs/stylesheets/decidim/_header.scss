@@ -43,7 +43,7 @@ header {
       }
 
       button[type="submit"] {
-        @apply absolute right-2 inset-y-2 text-secondary;
+        @apply absolute ltr:right-2 rtl:left-2 inset-y-2 text-secondary;
       }
     }
 
@@ -235,10 +235,10 @@ header {
       }
 
       &__dropdown-content {
-        @apply absolute z-20 top-full left-8 cursor-auto;
+        @apply absolute z-20 top-full cursor-auto;
 
         &-secondary {
-          @apply absolute z-20 top-[calc(100%+12px)] left-0;
+          @apply absolute z-20 top-[calc(100%+12px)];
         }
       }
 

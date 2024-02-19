@@ -42,7 +42,7 @@ module Decidim
     end
 
     describe "#highlighted" do
-      it "renders a collection of high priority stats including users and proceses" do
+      it "renders a collection of high priority stats including users and processes" do
         stats =
           [{ stat_number: 1, stat_title: :users_count },
            { stat_number: 1, stat_title: :processes_count },

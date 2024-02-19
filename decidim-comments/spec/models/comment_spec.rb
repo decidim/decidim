@@ -232,10 +232,10 @@ module Decidim
           before { allow(Decidim).to receive(:content_processors).and_return([:link]) }
 
           let(:body) do
-            %(Content with <a href="http://urls.net" onmouseover="alert('hello')">URLs</a> of anchor type and text urls like https://decidim.org. And a malicous <a href="javascript:document.cookies">click me</a>)
+            %(Content with <a href="http://urls.net" onmouseover="alert('hello')">URLs</a> of anchor type and text urls like https://decidim.org. And a malicious <a href="javascript:document.cookies">click me</a>)
           end
           let(:result) do
-            %(<div><p>Content with URLs of anchor type and text urls like <a href="https://decidim.org" target="_blank" rel="nofollow noopener noreferrer ugc">https://decidim.org</a>. And a malicous click me</p></div>)
+            %(<div><p>Content with URLs of anchor type and text urls like <a href="https://decidim.org" target="_blank" rel="nofollow noopener noreferrer ugc">https://decidim.org</a>. And a malicious click me</p></div>)
           end
 
           it "converts all URLs to links and strips attributes in anchors" do
@@ -303,14 +303,14 @@ module Decidim
           end
         end
 
-        context "when commentors belong to the given resources" do
+        context "when commenters belong to the given resources" do
           it "returns the authors of the resources' comments" do
             ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::Dev::DummyResource.where(component: commentable.component))
             expect(ids).to contain_exactly(author.id)
           end
         end
 
-        context "when commentors do not belong to the given resources" do
+        context "when commenters do not belong to the given resources" do
           let(:other_component) { create(:dummy_component) }
           let!(:other_commentable) { create(:dummy_resource, component: other_component) }
 

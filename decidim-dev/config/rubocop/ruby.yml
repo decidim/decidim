@@ -807,7 +807,7 @@ Naming/PredicateName:
   # should still be accepted
   AllowedMethods:
     - is_a?
-  # Exclude Rspec specs because there is a strong convetion to write spec
+  # Exclude Rspec specs because there is a strong convention to write spec
   # helpers in the form of `have_something` or `be_something`.
   Exclude:
     - "**/spec/**/*"

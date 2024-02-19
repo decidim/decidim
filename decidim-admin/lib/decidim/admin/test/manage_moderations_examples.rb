@@ -15,16 +15,16 @@ shared_examples "sorted moderations" do
   before do
     visit participatory_space_path
     if moderations_link_in_admin_menu
-      within_admin_sidebar_menu { click_link(moderations_link_text) }
+      within_admin_sidebar_menu { click_on(moderations_link_text) }
     else
-      within("div.layout-nav") { click_link(moderations_link_text) }
+      within("div.layout-nav") { click_on(moderations_link_text) }
     end
   end
 
   it "sorts the most recent first" do
     link_text = find("ul[data-pages]").text.split("\n")[-2]
     within "ul[data-pages]" do
-      click_link link_text
+      click_on link_text
     end
     all("tbody tr").each_with_index do |row, _index|
       expect(row.find("td:first-child")).to have_content(reportables.first.id)
@@ -54,9 +54,9 @@ shared_examples "manage moderations" do
   before do
     visit participatory_space_path
     if moderations_link_in_admin_menu
-      within_admin_sidebar_menu { click_link(moderations_link_text) }
+      within_admin_sidebar_menu { click_on(moderations_link_text) }
     else
-      within("div.layout-nav") { click_link(moderations_link_text) }
+      within("div.layout-nav") { click_on(moderations_link_text) }
     end
   end
 
@@ -82,7 +82,7 @@ shared_examples "manage moderations" do
 
     it "user can un-report a resource" do
       within "tr[data-id=\"#{moderation.id}\"]" do
-        click_link "Unreport"
+        click_on "Unreport"
       end
 
       expect(page).to have_admin_callout("Resource successfully unreported")
@@ -90,7 +90,7 @@ shared_examples "manage moderations" do
 
     it "user can hide a resource" do
       within "tr[data-id=\"#{moderation.id}\"]" do
-        click_link "Hide"
+        click_on "Hide"
       end
 
       expect(page).to have_admin_callout("Resource successfully hidden")
@@ -102,7 +102,7 @@ shared_examples "manage moderations" do
       moderations_ordered_by_report_count_asc = moderations.sort_by(&:report_count)
 
       within "table" do
-        click_link "Reports count"
+        click_on "Reports count"
 
         all("tbody tr").each_with_index do |row, index|
           reportable_id = moderations_ordered_by_report_count_asc[index].reportable.id
@@ -116,7 +116,7 @@ shared_examples "manage moderations" do
       within ".filters__section" do
         find(:xpath, "//a[contains(text(), 'Filter')]").hover
         find(:xpath, "//a[contains(text(), 'Type')]").hover
-        click_link reportable_type
+        click_on reportable_type
       end
       expect(page).to have_selector("tbody tr", count: moderations.length)
     end
@@ -125,14 +125,14 @@ shared_examples "manage moderations" do
       search = moderation.reportable.id
       within ".filters__section" do
         fill_in("Search Moderation by reportable id or content.", with: search)
-        click_button(type: "submit")
+        within(".input-group-button") { click_on(class: "text-secondary") }
       end
       expect(page).to have_selector("tbody tr", count: 1)
     end
 
     it "user can see moderation details" do
       within "tr[data-id=\"#{moderation.id}\"]" do
-        click_link "Expand"
+        click_on "Expand"
       end
 
       reported_content_slice = moderation.reportable.reported_searchable_content_text.split("\n").first
@@ -170,7 +170,7 @@ shared_examples "manage moderations" do
         )
 
         within_language_menu(admin: true) do
-          click_link "Català"
+          click_on "Català"
         end
       end
 
@@ -184,7 +184,7 @@ shared_examples "manage moderations" do
 
   context "when listing hidden resources" do
     before do
-      click_link "Hidden"
+      click_on "Hidden"
     end
 
     it "user cannot unreport them" do
@@ -231,7 +231,7 @@ shared_examples "manage moderations" do
     it "user can hide them" do
       moderation_id = moderations.first.id
       within "tr[data-id=\"#{moderation_id}\"]" do
-        click_link "Hide"
+        click_on "Hide"
       end
 
       expect(page).to have_admin_callout("Resource successfully hidden")

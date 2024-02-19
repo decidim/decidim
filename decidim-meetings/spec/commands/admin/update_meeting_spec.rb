@@ -214,7 +214,7 @@ module Decidim::Meetings
             subject.call
           end
 
-          it_behaves_like "emits an upcoming notificaton" do
+          it_behaves_like "emits an upcoming notification" do
             let(:future_start_date) { 1.day.from_now + Decidim::Meetings.upcoming_meeting_notification }
             let(:past_start_date) { 1.day.ago }
           end

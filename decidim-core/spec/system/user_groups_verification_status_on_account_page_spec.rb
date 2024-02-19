@@ -19,7 +19,7 @@ describe "User group verification status on account page" do
       visit decidim.own_user_groups_path
 
       within "#dropdown-menu-profile" do
-        click_link "Groups"
+        click_on "Groups"
       end
 
       expect(page).to have_content(user_group.name)
@@ -40,7 +40,7 @@ describe "User group verification status on account page" do
       visit decidim.own_user_groups_path
 
       within "#dropdown-menu-profile" do
-        click_link "Groups"
+        click_on "Groups"
       end
 
       expect(page).to have_content(user_group.name)
@@ -55,7 +55,7 @@ describe "User group verification status on account page" do
       visit decidim.own_user_groups_path
 
       within "#dropdown-menu-profile" do
-        click_link "Groups"
+        click_on "Groups"
       end
 
       expect(page).to have_content(user_group.name)

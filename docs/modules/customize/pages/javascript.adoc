@@ -1,6 +1,6 @@
-= Javascript
+= JavaScript
 
-You can add Javascript code by multiple ways in Decidim:
+You can add JavaScript code by multiple ways in Decidim:
 
 == Webpacker
 

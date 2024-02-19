@@ -21,14 +21,14 @@ describe "Admin manages participatory process groups" do
   it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='participatory_process_group-description-tabs']", "full" do
     before do
       within "div.process-title" do
-        click_link "New process group"
+        click_on "New process group"
       end
     end
   end
 
   it "creates a new participatory process group" do
     within "div.process-title" do
-      click_link "New process group"
+      click_on "New process group"
     end
 
     within ".new_participatory_process_group" do
@@ -86,7 +86,7 @@ describe "Admin manages participatory process groups" do
 
     it "can edit them" do
       within "tr", text: participatory_process_group.title["en"] do
-        click_link "Edit"
+        click_on "Edit"
       end
 
       within ".edit_participatory_process_group" do
@@ -134,7 +134,7 @@ describe "Admin manages participatory process groups" do
 
     it "validates the group attributes" do
       within "tr", text: participatory_process_group.title["en"] do
-        click_link "Edit"
+        click_on "Edit"
       end
 
       within ".edit_participatory_process_group" do
@@ -154,24 +154,24 @@ describe "Admin manages participatory process groups" do
 
     it "can remove its image" do
       within "tr", text: participatory_process_group.title["en"] do
-        click_link "Edit"
+        click_on "Edit"
       end
 
       within ".upload-container-for-hero_image" do
         find_by_id("participatory_process_group_hero_image_button").click
       end
 
-      click_button "Remove"
-      click_button "Next"
+      click_on "Remove"
+      click_on "Next"
 
-      click_button "Update"
+      click_on "Update"
 
       expect(page).to have_no_css("img")
     end
 
     it "can delete them" do
       within "tr", text: participatory_process_group.title["en"] do
-        accept_confirm { click_link "Delete" }
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -183,11 +183,11 @@ describe "Admin manages participatory process groups" do
 
     it "has a link to the landing page" do
       within "tr", text: participatory_process_group.title["en"] do
-        click_link "Edit"
+        click_on "Edit"
       end
 
-      click_button "Manage"
-      click_link "Landing page"
+      click_on "Manage"
+      click_on "Landing page"
 
       expect(page).to have_content "Active content blocks"
     end

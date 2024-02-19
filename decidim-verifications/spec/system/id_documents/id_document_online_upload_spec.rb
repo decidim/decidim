@@ -48,6 +48,6 @@ describe "Identity document online upload" do
     fill_in "Document number (with letter)", with: doc_number
     dynamically_attach_file(:id_document_upload_verification_attachment, Decidim::Dev.asset(file_name), keep_modal_open:) if file_name
 
-    click_button "Request verification" unless keep_modal_open
+    click_on "Request verification" unless keep_modal_open
   end
 end

@@ -38,7 +38,7 @@ module Decidim
       end
 
       def search_collection
-        raise NotImplementedError, "A search class is neeeded to filter resources"
+        raise NotImplementedError, "A search class is needed to filter resources"
       end
 
       def filter

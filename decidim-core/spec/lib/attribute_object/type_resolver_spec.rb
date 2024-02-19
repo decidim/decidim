@@ -100,7 +100,7 @@ module Decidim
         context "with custom default option" do
           let(:options) { { default: { "a" => OpenStruct.new } } }
 
-          it "returns a :hash type with correct value_type and defautl options" do
+          it "returns a :hash type with correct value_type and default options" do
             expect(subject).to eq(type: :hash, options: { key_type: String, value_type: OpenStruct, default: options[:default] })
           end
         end
@@ -116,7 +116,7 @@ module Decidim
         context "with custom default option" do
           let(:options) { { default: [OpenStruct.new] } }
 
-          it "returns a :hash type with correct value_type and defautl options" do
+          it "returns a :hash type with correct value_type and default options" do
             expect(subject).to eq(type: :array, options: { value_type: OpenStruct, default: options[:default] })
           end
         end

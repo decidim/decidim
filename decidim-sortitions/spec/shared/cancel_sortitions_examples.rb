@@ -6,7 +6,7 @@ shared_examples "cancel sortitions" do
 
     before do
       visit_component_admin
-      click_link "Cancel the sortition"
+      click_on "Cancel the sortition"
     end
 
     it "requires cancellation reason" do

@@ -73,7 +73,7 @@ describe "Admin manages organization" do
       end
       dynamically_attach_file(:organization_official_img_footer, Decidim::Dev.asset("city3.jpeg"), remove_before: true)
 
-      click_button "Update"
+      click_on "Update"
 
       expect(page).to have_content("updated successfully")
 

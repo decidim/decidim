@@ -34,7 +34,7 @@ shared_examples "manage results" do
 
     it "updates a result" do
       within "tr", text: translated(result.title) do
-        click_link "Edit"
+        click_on "Edit"
       end
 
       within ".edit_result" do
@@ -59,7 +59,7 @@ shared_examples "manage results" do
     end
 
     it "creates a new result", :slow do
-      click_link "New result", match: :first
+      click_on "New result", match: :first
 
       within ".new_result" do
         fill_in_i18n(
@@ -114,7 +114,7 @@ shared_examples "manage results" do
 
     it "deletes a result" do
       within "tr", text: translated(result2.title) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

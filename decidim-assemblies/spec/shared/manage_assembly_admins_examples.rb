@@ -15,7 +15,7 @@ shared_examples "manage assembly admins examples" do
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
     within_admin_sidebar_menu do
-      click_link "Assembly admins"
+      click_on "Assembly admins"
     end
   end
 
@@ -26,7 +26,7 @@ shared_examples "manage assembly admins examples" do
   end
 
   it "creates a new assembly admin" do
-    click_link "New assembly admin"
+    click_on "New assembly admin"
 
     within ".new_assembly_user_role" do
       fill_in :assembly_user_role_email, with: other_user.email
@@ -52,7 +52,7 @@ shared_examples "manage assembly admins examples" do
     it "updates an assembly admin" do
       within "#assembly_admins" do
         within "#assembly_admins tr", text: other_user.email do
-          click_link "Edit"
+          click_on "Edit"
         end
       end
 
@@ -71,7 +71,7 @@ shared_examples "manage assembly admins examples" do
 
     it "deletes an assembly_user_role" do
       within "#assembly_admins tr", text: other_user.email do
-        accept_confirm { click_link "Delete" }
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -99,7 +99,7 @@ shared_examples "manage assembly admins examples" do
 
       it "resends the invitation to the user" do
         within "#assembly_admins tr", text: "test@example.org" do
-          click_link "Resend invitation"
+          click_on "Resend invitation"
         end
 
         expect(page).to have_admin_callout("successfully")

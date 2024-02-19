@@ -15,7 +15,7 @@ describe "Admin manages assemblies" do
       switch_to_host(organization.host)
       login_as user, scope: :user
       visit decidim_admin_assemblies.assemblies_path
-      click_link translated(my_space.title)
+      click_on translated(my_space.title)
     end
 
     context "when the participatory space is private" do
@@ -47,7 +47,7 @@ describe "Admin manages assemblies" do
     let(:image2_path) { Decidim::Dev.asset(image2_filename) }
 
     before do
-      click_link "New assembly"
+      click_on "New assembly"
     end
 
     %w(purpose_of_action composition description short_description announcement internal_organisation).each do |field|
@@ -169,7 +169,7 @@ describe "Admin manages assemblies" do
       login_as user, scope: :user
       visit decidim_admin_assemblies.assemblies_path
       within "tr", text: translated(parent_assembly.title) do
-        click_link "Assemblies"
+        click_on "Assemblies"
       end
     end
 

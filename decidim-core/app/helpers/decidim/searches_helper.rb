@@ -7,7 +7,7 @@ module Decidim
     #
     # klass_name - a String representing the class name of the resource to render
     # count - (optional) the number of resources so that the I18n backend
-    #         can decide to translate into singluar or plural form.
+    #         can decide to translate into singular or plural form.
     def searchable_resource_human_name(resource, count: 5)
       resource = if resource.is_a?(String)
                    resource.constantize

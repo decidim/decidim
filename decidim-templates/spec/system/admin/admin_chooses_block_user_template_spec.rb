@@ -22,7 +22,7 @@ describe "Admin chooses user block templates when blocking user" do
   context "when on reported users path" do
     before do
       visit decidim_admin.moderated_users_path
-      click_link "Block User"
+      click_on "Block User"
     end
 
     after do

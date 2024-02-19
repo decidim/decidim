@@ -27,7 +27,7 @@ describe "Admin manages project permissions" do
     within "fieldset", text: "Vote" do
       page.check("Example authorization (Direct)")
     end
-    click_button "Submit"
+    click_on "Submit"
     expect(page).to have_content("Permissions updated successfully")
     within "tr", text: translated(budget.title) do
       page.find(".action-icon--edit-projects").click

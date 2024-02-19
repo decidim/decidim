@@ -4,14 +4,14 @@ shared_examples "manage posts" do
   it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='post-body-tabs']", "full" do
     before do
       within "tr", text: translated(post1.title) do
-        click_link "Edit"
+        click_on "Edit"
       end
     end
   end
 
   it "updates a post" do
     within "tr", text: translated(post1.title) do
-      click_link "Edit"
+      click_on "Edit"
     end
 
     within ".edit_post" do
@@ -45,7 +45,7 @@ shared_examples "manage posts" do
   end
 
   it "creates a new post" do
-    click_link "New post"
+    click_on "New post"
 
     fill_in_i18n(
       :post_title,
@@ -83,7 +83,7 @@ shared_examples "manage posts" do
 
     it "deletes a post" do
       within "tr", text: translated(post1.title) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -100,7 +100,7 @@ shared_examples "manage posts" do
     let!(:membership) { create(:user_group_membership, user:, user_group:) }
 
     it "can set user group as posts author" do
-      click_link "New post"
+      click_on "New post"
 
       select user_group.name, from: "post_decidim_author_id"
 
@@ -136,7 +136,7 @@ shared_examples "manage posts" do
 
     it "can update the user group as the post author" do
       within "tr", text: translated(post1.title) do
-        click_link "Edit"
+        click_on "Edit"
       end
 
       within ".edit_post" do
@@ -156,7 +156,7 @@ shared_examples "manage posts" do
     let(:author) { organization }
 
     it "can set organization as posts author" do
-      click_link "New post"
+      click_on "New post"
 
       select organization.name, from: "post_decidim_author_id"
 
@@ -192,7 +192,7 @@ shared_examples "manage posts" do
 
     it "can update the blog as the organization" do
       within "tr", text: translated(post1.title) do
-        click_link "Edit"
+        click_on "Edit"
       end
 
       within ".edit_post" do
@@ -212,7 +212,7 @@ shared_examples "manage posts" do
     let(:author) { user }
 
     it "can set current_user as posts author" do
-      click_link "New post"
+      click_on "New post"
 
       select user.name, from: "post_decidim_author_id"
 
@@ -248,7 +248,7 @@ shared_examples "manage posts" do
 
     it "can update the blog as the user" do
       within "tr", text: translated(post1.title) do
-        click_link "Edit"
+        click_on "Edit"
       end
 
       within ".edit_post" do
@@ -265,7 +265,7 @@ shared_examples "manage posts" do
 
     it "changes the publish time" do
       within "tr", text: translated(post1.title) do
-        click_link "Edit"
+        click_on "Edit"
       end
       within ".edit_post" do
         fill_in :post_published_at_date, with: nil, fill_options: { clear: :backspace }
