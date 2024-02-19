@@ -3,6 +3,8 @@
 module Decidim
   # This helper include some methods for rendering a checkboxes tree input.
   module CheckBoxesTreeHelper
+    include SanitizeHelper
+
     # This method returns a hash with the options for the checkbox and its label
     # used in filters that uses checkboxes trees
     def check_boxes_tree_options(value, label, **options)
