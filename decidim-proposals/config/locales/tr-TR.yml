@@ -216,15 +216,15 @@ tr:
           email_subject: Yeni teklif "%{resource_title}" %{participatory_space_title} eklendi
         proposal_state_changed:
           affected_user:
-            email_intro: '"%{resource_title}" teklifinin durumu "%{state}" olarak değiştirildi. Cevabı bu sayfada okuyabilirsiniz:'
-            email_outro: Bu bildirimi "%{resource title}" kaynağının yazarı olduğunuz için aldınız.
-            email_subject: Teklifinizin durumu (%{state}) olarak değişti
+            email_intro: '"%{resource_title}" teklifinin durumu "%{state}" olarak değiştirildi. Yanıtı bu sayfada okuyabilirsiniz:'
+            email_outro: Bu bildirimi %{resource_title} yazarı olduğunuz için aldınız".
+            email_subject: Teklifinizin durumu (%{state}) olarak değiştirilmiştir.
             notification_title: <a href="%{resource_path}">%{resource_title</a> teklifinizin durumu "%{state}" olarak değiştirildi.
           follower:
             email_intro: '"%{resource_title}" teklifinin durumu "%{state}" olarak değiştirildi. Cevabı bu sayfada okuyabilirsiniz:'
             email_outro: Bu bildirimi "%{resource_title}" adresini takip ettiğiniz için aldınız. Önceki bağlantıdan takibi bırakabilirsiniz.
-            email_subject: Takip ettiğiniz bir teklifin durumu (%{state}) olarak değişti
-            notification_title: Takip ettiğiniz bir teklifin durumu (%{state}) olarak değişti
+            email_subject: Takip ettiğiniz bir teklifin durumu (%{state}) olarak değiştirilmiştir.
+            notification_title: Takip ettiğiniz bir teklifin durumu (%{state}) olarak değiştirimiştir.
         proposal_update_category:
           email_intro: 'Bir yönetici "%{resource_title}" teklifinizin kategorisini güncelledi, bu sayfada kontrol edin:'
           email_outro: Bu bildirimi, teklifin yazarı olduğunuz için aldınız.
