@@ -27,7 +27,7 @@ describe "Notifications" do
 
       expect(page).to have_current_path decidim.notifications_path
       expect(page).to have_no_content("No notifications yet")
-      expect(page).to have_content("An event occured")
+      expect(page).to have_content("An event occurred")
     end
 
     context "when the resource has been deleted" do
@@ -89,7 +89,7 @@ describe "Notifications" do
     end
 
     context "when setting a single notification as read" do
-      let(:notification_title) { "An event occured to #{translated resource.title}" }
+      let(:notification_title) { "An event occurred to #{translated resource.title}" }
 
       it "hides the notification from the page" do
         expect(page).to have_content(decidim_sanitize_translated(notification_title))
