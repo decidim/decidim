@@ -720,7 +720,6 @@ sv:
       create:
         button: Följ
         error: Det gick inte att följa resursen.
-        participatory_space: Följer <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Sluta följa
         error: Det gick inte att sluta följa den här resursen.
