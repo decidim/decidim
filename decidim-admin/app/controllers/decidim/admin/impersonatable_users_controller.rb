@@ -24,7 +24,7 @@ module Decidim
       private
 
       def collection
-        @collection ||= current_organization.users.where(admin: false, roles: [])
+        @collection ||= current_organization.users.not_deleted.not_blocked.where(admin: false, roles: [])
       end
 
       def new_managed_user
