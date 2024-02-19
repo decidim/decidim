@@ -601,7 +601,6 @@ lb:
       create:
         button: Nogoen
         error: Et gouf e Problem beim Followen vun dëser Ressource.
-        participatory_space: Du gees der <span class="show-for-sr">%{resource_name}</span>no
       destroy:
         button: Net méi nogoen
         error: Et gouf e Problem beim Un-Followen vun dëser Ressource.
