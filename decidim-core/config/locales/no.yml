@@ -615,7 +615,6 @@
       create:
         button: Følg
         error: Det oppstod et problem med å følge denne ressursen.
-        participatory_space: Følger <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Stopp å følge
         error: Det oppstod et problem med å slutte å følge denne ressursen.
