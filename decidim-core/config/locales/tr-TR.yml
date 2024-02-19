@@ -612,6 +612,7 @@ tr:
       create:
         button: Takip et
         error: Bu kaynağı takip eden bir hata oluştu.
+        participatory_space: <span>%{resource_name</span> Takip edilen
       destroy:
         button: Takibi bırak
         error: Bu kaynağı takip etmekten bir hata oluştu.
