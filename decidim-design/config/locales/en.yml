@@ -12,7 +12,7 @@ en:
           adjacent_links_paragraph: If the same resource has multiple adjacent links pointing to it, it makes it difficult for such users to glance through the page because they might need to go through multiple links to get to the next resource.
           color_contrast: Color contrast
           color_contrast_paragraph: When creating user interfaces or modifying the colors, always make sure that you are not breaking accessibility with your changes. You can use the Color contrast checker to ensure that your colors have enough contrast against the background color where they are displayed at.
-          decidim_follows: Decidim follows the
+          decidim_follows_html: "Decidim follows the <u>Web Content Accessibility Guidelines (WCAG) 2.1</u>"
           dynamic_changes_header: Dynamic functionality changes the page context unintuitively
           dynamic_changes_paragraph: Changes in the form inputs should not change the context of the page automatically.
           elements_hidden: Elements hidden
