@@ -37,7 +37,7 @@ describe "Import proposals" do
       expect(Decidim::Proposals::Proposal.count).to eq(0)
     end
 
-    it "creates proposals after succesfully import" do
+    it "creates proposals after successfully import" do
       dynamically_attach_file(:proposals_file_import_file, Decidim::Dev.asset("import_proposals.csv"))
       click_on "Import"
       expect(page).to have_content("3 proposals successfully imported")

@@ -269,7 +269,7 @@ en:
             error: There was a problem with your request.
             success: Thanks! We have sent an SMS to your phone.
           destroy:
-            success: Verification code sucessfully reset. Please re-enter your phone number.
+            success: Verification code successfully reset. Please re-enter your phone number.
           edit:
             confirm_destroy: Are you sure you want to reset the verification code?
             destroy: Reset verification code
