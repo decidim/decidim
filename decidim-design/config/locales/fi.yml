@@ -1,1 +1,12 @@
+---
 fi:
+  decidim:
+    design:
+      home:
+        index:
+          by_sharing_principles: Jakamalla suunnittelupäätösten taustalla olevat periaatteet, filosofia ja perustelut, haluamme mahdollistaa yhteisöllemme tavan osallistua kehittämiseen yhdenmukaisesti, jotta voimme saavuttaa parhaan mahdollisen osallistujakokemuksen alustan käyttäjille.
+          decidim_guide: Opas asioiden suunnitteluun Decidimissä
+          different_ui_components: Tämä opas dokumentoi käyttöliittymäkomponentit ja käyttöliittymän rakenteen, jotta käyttöliittymän kehittäminen sekä komponenttien uudelleenkäyttäminen ja laajentaminen olisi helpompaa kehittäjille.
+          github_source: Lähdekoodi GitHub-palvelussa
+          home_header: Decidimin suunnitteluopas
+          welcome_sentence: Tervetuloa Decidimin suunnitteluoppaaseen (DDG, Decidim Design Guide). Tämän oppaan tarkoitus on toimia lähdemateriaalina suunnittelijoille ja kehittäjille, jotka haluavat muokata alustan käyttöliittymää, kehittää uusia moduuleita tai lisätä uusia ominaisuuksia alustaan.
