@@ -22,10 +22,10 @@ describe Decidim::Comments::UserMentionedEvent do
   let(:author) { create(:user, organization:) }
   let!(:comment) { create(:comment, body:, author:, commentable:) }
   let(:user) { create(:user, organization:, locale: "ca") }
-  let(:notification_title) { "You have been mentioned in <a href=\"#{resource_path}?commentId=#{comment.id}#comment_#{comment.id}\">#{translated resource.title}</a> by <a href=\"/profiles/#{author.nickname}\">#{author.name} @#{author.nickname}</a>" }
-  let(:email_subject) { "You have been mentioned in #{translated resource.title}" }
+  let(:notification_title) { "You have been mentioned in <a href=\"#{resource_path}?commentId=#{comment.id}#comment_#{comment.id}\">#{resource_title}</a> by <a href=\"/profiles/#{author.nickname}\">#{author.name} @#{author.nickname}</a>" }
+  let(:email_subject) { "You have been mentioned in #{resource_title}" }
   let(:email_intro) { "You have been mentioned" }
-  let(:email_outro) { "You have received this notification because you have been mentioned in #{translated resource.title}." }
+  let(:email_outro) { "You have received this notification because you have been mentioned in #{resource_title}." }
 
   it_behaves_like "a comment event"
   it_behaves_like "a simple event email"
