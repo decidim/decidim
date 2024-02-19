@@ -152,6 +152,13 @@ tr:
     events:
       debates:
         create_debate_event:
+          space_followers:
+            email_intro: |-
+              Merhaba 
+              %{participatory_space_title} katılımcı alanında yeni bir "%{resource_title}" tartışma başlığı oluşturuldu. İnceleyerek katkıda bulunabilirsiniz. 
+            email_outro: Bu bildirimi %{participatory_space_title} katılımcılık Başlıklı alanını takip ettiğiniz için aldınız. Bildirim almayı önceki bağlantı linkini izleyerek durdurabilirsiniz.
+            email_subject: '%{participatory_space_title} başlıpı ile ilgili yeni tartışma "%{resource_title}"'
+            notification_title: <a href="%{resource_path}">%{resource_title</a> tartışması <a href="%{participatory_space_url}">%{participatory_space_title</a> tarihinde oluşturuldu.
           user_followers:
             email_intro: |-
               Merhaba,
