@@ -7,7 +7,7 @@ import AutoSelectOptionsFromUrl from "src/decidim/forms/admin/auto_select_option
 import createLiveTextUpdateComponent from "src/decidim/forms/admin/live_text_update.component"
 import AutoButtonsByPositionComponent from "src/decidim/admin/auto_buttons_by_position.component"
 import AutoLabelByPositionComponent from "src/decidim/admin/auto_label_by_position.component"
-import createSortList from "src/decidim/admin/sort_list.component"
+import createSortList from "src/decidim/sort_list.component"
 import createDynamicFields from "src/decidim/admin/dynamic_fields.component"
 import createFieldDependentInputs from "src/decidim/admin/field_dependent_inputs.component"
 import initLanguageChangeSelect from "src/decidim/admin/choose_language"

@@ -1,6 +1,6 @@
 import AutoButtonsByPositionComponent from "src/decidim/admin/auto_buttons_by_position.component"
 import AutoLabelByPositionComponent from "src/decidim/admin/auto_label_by_position.component"
-import createSortList from "src/decidim/admin/sort_list.component"
+import createSortList from "src/decidim/sort_list.component"
 import createDynamicFields from "src/decidim/admin/dynamic_fields.component"
 
 const wrapperSelector = ".meeting-agenda-items";

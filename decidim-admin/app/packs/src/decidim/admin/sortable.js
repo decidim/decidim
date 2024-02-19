@@ -1,4 +1,4 @@
-import createSortList from "src/decidim/admin/sort_list.component"
+import createSortList from "src/decidim/sort_list.component"
 
 // Once in DOM
 $(() => {

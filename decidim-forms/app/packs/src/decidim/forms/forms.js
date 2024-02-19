@@ -5,7 +5,7 @@
  * its core is actually using the ["dragula"](https://github.com/bevacqua/dragula) resource,
  * therefore the styles must be imported from the original library.
  */
-import DragonDrop from "drag-on-drop";
+import createSortList from "src/decidim/sort_list.component"
 import "dragula/dist/dragula.css";
 
 import createOptionAttachedInputs from "src/decidim/forms/option_attached_inputs.component"
@@ -34,10 +34,13 @@ $(() => {
     }
   });
 
-  document.querySelectorAll(".js-sortable-check-box-collection").forEach((el) => new DragonDrop(el, {
-    handle: false,
-    item: ".js-collection-input"
-  }));
+  document.querySelectorAll(".js-connect").forEach((el) => {
+    return createSortList(el, {
+      handle: "li",
+      forcePlaceholderSize: true,
+      acceptFrom: ".js-connect"
+    })
+  })
 
   $(".answer-questionnaire .question[data-conditioned='true']").each((idx, el) => {
     createDisplayConditions({

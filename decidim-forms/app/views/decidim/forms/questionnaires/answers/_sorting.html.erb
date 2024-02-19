@@ -1,20 +1,16 @@
-<div class="answer-questionnaire__sorting-container js-sortable-check-box-collection">
+<ul class="draggable-list js-connect">
   <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
-    <% choice = answer.selected_choices.find { |choice| choice.answer_option_id == answer_option.id } %>
+    <li draggable="true" class="list-none mt-4 answer-questionnaire__sorting">
+      <div class="draggable-content">
+        <% choice = answer.selected_choices.find { |choice| choice.answer_option_id == answer_option.id } %>
+        <%= translated_attribute(answer_option.body) %>
 
-    <div class="answer-questionnaire__sorting js-collection-input" role="button">
 
-      <%#= check_box_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][body]",
-                          translated_attribute(answer_option.body),
-                          choice.present?, disabled: disabled %>
-
-      <%= translated_attribute(answer_option.body) %>
-
+        <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][position]", choice.try(:position) %>
+        <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][body]", translated_attribute(answer_option.body) %>
+        <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
+      </div>
       <%= icon "drag-move-2-line" %>
-
-      <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][position]", choice.try(:position) %>
-      <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][body]", translated_attribute(answer_option.body) %>
-      <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
-    </div>
+    </li>
   <% end %>
-</div>
+</ul>
