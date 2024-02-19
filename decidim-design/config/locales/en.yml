@@ -32,7 +32,6 @@ en:
           use_aria: Use ARIA
           use_aria_header: Use ARIA attributes where possible
           use_aria_paragraph: Many elements that provide interactive functionality on the website require ARIA attributes on them to make them accessible.
-          web_content: Web Content Accessibility Guidelines (WCAG) 2.1
       home:
         index:
           by_sharing_principles: By sharing the principles, philosophy, and rationale behind design decisions we want to empower the community to contribute with consistency so we reach the best participant experience.
