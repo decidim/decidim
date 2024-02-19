@@ -9,7 +9,7 @@ module Decidim
     let(:uploader) do
       Class.new(Decidim::ApplicationUploader) do
         def extension_allowlist
-          %w(jpeg jpg png)
+          %w(jpeg jpg png webp)
         end
       end
     end
@@ -22,7 +22,7 @@ module Decidim
       Class.new(ApplicationRecord) do
         include Decidim::HasUploadValidations
 
-        self.table_name = "decidim_dummy_resources_dummy_resources"
+        self.table_name = "decidim_dev_dummy_resources"
 
         def self.model_name
           ActiveModel::Name.new(self, nil, "Validatable")
@@ -49,7 +49,7 @@ module Decidim
         expect(subject.messages).to eq(
           [
             "Maximum file size: 10MB",
-            "Allowed file extensions: jpeg jpg png"
+            "Allowed file extensions: jpeg jpg png webp"
           ]
         )
       end
@@ -71,7 +71,7 @@ module Decidim
 
     describe "#extension_allowlist" do
       it "returns the correct extensions" do
-        expect(subject.extension_allowlist).to eq(%w(jpeg jpg png))
+        expect(subject.extension_allowlist).to eq(%w(jpeg jpg png webp))
       end
     end
   end

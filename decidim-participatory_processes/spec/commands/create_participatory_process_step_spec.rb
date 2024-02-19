@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::ParticipatoryProcesses
   describe Admin::CreateParticipatoryProcessStep do
-    subject { described_class.new(form, participatory_process) }
+    subject { described_class.new(form) }
 
     let(:user) { create(:user, :admin) }
     let(:participatory_process) { create(:participatory_process) }
@@ -16,6 +16,7 @@ module Decidim::ParticipatoryProcesses
         description: { en: "description" },
         start_date: Date.current,
         end_date: Date.current + 1.week,
+        current_participatory_space: participatory_process,
         invalid?: invalid
       )
     end

@@ -12,9 +12,10 @@
               <%= t(".social_handlers") %>
             </label>
             <ul class="tabs tabs--lang" data-tabs id="organization_social_handlers">
+              <% first_handler = Decidim::Organization::SOCIAL_HANDLERS.first %>
               <% Decidim::Organization::SOCIAL_HANDLERS.each do |handler| %>
-                <li class="tabs-title <% if handler == Decidim::Organization::SOCIAL_HANDLERS.first %> is-active <% end %>">
-                  <a href="#<%= handler %>" <% if handler == Decidim::Organization::SOCIAL_HANDLERS.first %> aria-selected="true" <% end %>>
+                <li class="tabs-title <%= " is-active" if handler == first_handler %>">
+                  <a href="#<%= handler %>" <% if handler == first_handler %> aria-selected="true" <% end %>>
                     <%= t(".#{handler}") %>
                   </a>
                 </li>
@@ -23,7 +24,8 @@
           </div>
           <div class="tabs-content" data-tabs-content="organization_social_handlers">
             <% Decidim::Organization::SOCIAL_HANDLERS.each do |handler| %>
-              <div class="tabs-panel <% if handler == Decidim::Organization::SOCIAL_HANDLERS.first %> is-active <% end %>" id="<%= handler %>">
+              <div class="tabs-panel <%= " is-active" if handler == first_handler %>" id="<%= handler %>"
+                aria-hidden="<% if handler == first_handler %>false<% else %>true<% end %>">
                 <%= form.text_field "#{handler}_handler", label: false %>
               </div>
             <% end %>

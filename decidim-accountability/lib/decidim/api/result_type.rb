@@ -23,7 +23,7 @@ module Decidim
       field :weight, GraphQL::Types::Int, "The order of this result", null: false
       field :external_id, GraphQL::Types::String, "The external ID for this result", null: true
 
-      field :children, [Decidim::Accountability::ResultType, { null: true }], "The childrens results", null: true
+      field :children, [Decidim::Accountability::ResultType, { null: true }], "The children's results", null: true
       field :parent, Decidim::Accountability::ResultType, "The parent result", null: true
       field :status, Decidim::Accountability::StatusType, "The status for this result", null: true
       field :timeline_entries, [Decidim::Accountability::TimelineEntryType, { null: true }], "The timeline entries for this result", null: true

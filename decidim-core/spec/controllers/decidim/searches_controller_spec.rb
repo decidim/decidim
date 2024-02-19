@@ -26,14 +26,14 @@ module Decidim
         end
 
         before do
-          create(:searchable_resource, organization:, content_a: "I do not like groomming my dog.")
+          create(:searchable_resource, organization:, content_a: "I do not like grooming my dog.")
         end
 
         it "returns results with 'Great' in their content" do
           get :index, params: { term: "Great" }
 
-          expect(assigns(:sections)).to have_key("Decidim::DummyResources::DummyResource")
-          dummy_section = assigns(:sections)["Decidim::DummyResources::DummyResource"]
+          expect(assigns(:sections)).to have_key("Decidim::Dev::DummyResource")
+          dummy_section = assigns(:sections)["Decidim::Dev::DummyResource"]
           expect(dummy_section[:count]).to eq 2
           expect(dummy_section[:results]).to match_array(results.map(&:resource))
           expect(assigns(:results_count)).to eq 2
@@ -50,7 +50,7 @@ module Decidim
       it "takes the resource_type filter into account" do
         expect(Decidim::Search).to receive(:call).with(any_args, hash_including(with_resource_type: resource_type), a_kind_of(Hash))
 
-        get :index, params: { term: "Blues", "filter[with_resource_type]" => resource_type }
+        get :index, params: { :term => "Blues", "filter[with_resource_type]" => resource_type }
       end
     end
 
@@ -63,7 +63,7 @@ module Decidim
       it "takes the space filter into account" do
         expect(Decidim::Search).to receive(:call).with(any_args, hash_including(with_space_state: space_state), a_kind_of(Hash))
 
-        get :index, params: { term: "Blues", "filter[with_space_state]" => space_state }
+        get :index, params: { :term => "Blues", "filter[with_space_state]" => space_state }
       end
     end
   end

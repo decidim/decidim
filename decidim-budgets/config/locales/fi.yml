@@ -104,6 +104,9 @@ fi:
             pending_orders: Odottavat äänet
             select_for_implementation: Valittu toteutukseen
             selected: Valittu
+            selected_options:
+              'no': 'Ei'
+              'yes': 'Kyllä'
             title: Hankkeet
             update: Päivitä
             update_budget_button: Päivitä hankkeen budjetti
@@ -202,6 +205,7 @@ fi:
           fields:
             category: Aihepiiri
             id: ID
+            map: Kartta
             title: Otsikko
       order_summary_mailer:
         order_summary:

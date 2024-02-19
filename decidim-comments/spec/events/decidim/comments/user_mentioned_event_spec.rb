@@ -22,37 +22,14 @@ describe Decidim::Comments::UserMentionedEvent do
   let(:author) { create(:user, organization:) }
   let!(:comment) { create(:comment, body:, author:, commentable:) }
   let(:user) { create(:user, organization:, locale: "ca") }
+  let(:notification_title) { "You have been mentioned in <a href=\"#{resource_path}?commentId=#{comment.id}#comment_#{comment.id}\">#{resource_title}</a> by <a href=\"/profiles/#{author.nickname}\">#{author.name} @#{author.nickname}</a>" }
+  let(:email_subject) { "You have been mentioned in #{resource_title}" }
+  let(:email_intro) { "You have been mentioned" }
+  let(:email_outro) { "You have received this notification because you have been mentioned in #{resource_title}." }
 
   it_behaves_like "a comment event"
-
-  describe "email_subject" do
-    it "is generated correctly" do
-      expect(subject.email_subject).to eq("You have been mentioned in #{translated resource.title}")
-    end
-  end
-
-  describe "email_intro" do
-    it "is generated correctly" do
-      expect(subject.email_intro).to eq("You have been mentioned")
-    end
-  end
-
-  describe "email_outro" do
-    it "is generated correctly" do
-      expect(subject.email_outro)
-        .to eq("You have received this notification because you have been mentioned in #{translated resource.title}.")
-    end
-  end
-
-  describe "notification_title" do
-    it "is generated correctly" do
-      expect(subject.notification_title)
-        .to include("You have been mentioned in <a href=\"#{resource_path}?commentId=#{comment.id}#comment_#{comment.id}\">#{translated resource.title}</a>")
-
-      expect(subject.notification_title)
-        .to include(" by <a href=\"/profiles/#{author.nickname}\">#{author.name} @#{author.nickname}</a>")
-    end
-  end
+  it_behaves_like "a simple event email"
+  it_behaves_like "a simple event notification"
 
   describe "resource_text" do
     it "correctly renders comments with mentions" do

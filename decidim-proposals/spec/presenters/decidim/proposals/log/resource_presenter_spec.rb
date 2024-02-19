@@ -33,7 +33,7 @@ describe Decidim::Proposals::Log::ResourcePresenter, type: :helper do
     end
 
     it "does not link to its public page but renders its name" do
-      expect(presenter.present).not_to have_link("My title")
+      expect(presenter.present).to have_no_link("My title")
     end
   end
 end

@@ -7,7 +7,7 @@ shared_examples "manage sortitions" do
     end
 
     before do
-      click_link "New sortition"
+      click_on "New sortition"
     end
 
     it "Requires a title" do

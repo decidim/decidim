@@ -44,6 +44,7 @@ module Decidim::Meetings
         user_group_id:,
         current_user:,
         current_component:,
+        component: current_component,
         current_organization: organization,
         registration_type:,
         available_slots:,

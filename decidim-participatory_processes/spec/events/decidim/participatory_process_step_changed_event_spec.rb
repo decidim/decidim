@@ -24,32 +24,12 @@ describe Decidim::ParticipatoryProcessStepChangedEvent do
       )
   end
 
+  let(:email_subject) { "An update to #{participatory_space_title}" }
+  let(:email_intro) { "The dates for the #{resource_title} phase at #{participatory_space_title} have been updated. You can see it from this page:" }
+  let(:email_outro) { "You have received this notification because you are following #{participatory_space_title}. You can stop receiving notifications following the previous link." }
+  let(:notification_title) { "The dates for the <a href=\"#{resource_path}\">#{resource_title}</a> phase at <a href=\"#{participatory_space_url}\">#{participatory_space_title}</a> have been updated." }
+
   it_behaves_like "a simple event"
-
-  describe "email_subject" do
-    it "is generated correctly" do
-      expect(subject.email_subject).to eq("An update to #{participatory_space_title}")
-    end
-  end
-
-  describe "email_intro" do
-    it "is generated correctly" do
-      expect(subject.email_intro)
-        .to eq("The dates for the #{resource_title} phase at #{participatory_space_title} have been updated. You can see it from this page:")
-    end
-  end
-
-  describe "email_outro" do
-    it "is generated correctly" do
-      expect(subject.email_outro)
-        .to include("You have received this notification because you are following #{participatory_space_title}")
-    end
-  end
-
-  describe "notification_title" do
-    it "is generated correctly" do
-      expect(subject.notification_title)
-        .to eq("The dates for the <a href=\"#{resource_path}\">#{resource_title}</a> phase at <a href=\"#{participatory_space_url}\">#{participatory_space_title}</a> have been updated.")
-    end
-  end
+  it_behaves_like "a simple event email"
+  it_behaves_like "a simple event notification"
 end

@@ -162,6 +162,7 @@ en:
             sign_up_description: Create a participant account to take the survey
             title: Answer the form
           current_step: Step %{step}
+          empty: No questions configured for this form yet.
           of_total_steps: of %{total_steps}
           questionnaire_answered:
             body: You have already answered this form.

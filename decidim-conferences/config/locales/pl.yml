@@ -27,19 +27,23 @@ pl:
         show_statistics: Pokaż statystyki
         sign_date: Data podpisania
         signature: Podpis
+        signature_name: Nazwa podpisu
         slogan: Slogan
         slug: URL slug
         start_date: Data rozpoczęcia
         title: Tytuł
+        weight: Kolejność
       conference_media_link:
         date: Data
         link: Link
         title: Tytuł
+        weight: Kolejność
       conference_partner:
         link: Link
         logo: Logo
         name: Imię
         partner_type: Typ partnera
+        weight: Kolejność
       conference_registration_invite:
         email: Adres e-mail
         name: Imię
@@ -49,17 +53,27 @@ pl:
         description: Opis
         price: Cena
         title: Tytuł
+        weight: Kolejność
       conference_speaker:
         affiliation: Przynależność
         avatar: Awatar
         conference_meeting_ids: Powiązane spotkania
         full_name: Pełne imię i nazwisko
+        personal_url: Prywatny adres URL
         position: Pozycja
+        short_bio: Notka biograficzna
+        twitter_handle: Uchwyt X
         user_id: Użytkownik
       conference_user_role:
         email: E-mail
         name: Imię
         role: Rola
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Ten e-mail został już zaproszony.
   activerecord:
     models:
       decidim/conference:
@@ -81,6 +95,12 @@ pl:
     admin:
       actions:
         confirm: Potwierdź
+        new_conference: Nowa konferencja
+        new_conference_user_role: Nowy administrator konferencji
+        new_media_link: Nowy link do mediów
+        new_partner: Nowy partner
+        new_registration_type: Nowy typ rejestracji
+        new_speaker: Nowy mówca
         send_diplomas: Wyślij certyfikaty uczestnictwa
       conference_copies:
         new:
@@ -124,6 +144,8 @@ pl:
         edit:
           title: Zaktualizuj administratora konferencji.
           update: Aktualizuj
+        index:
+          conference_admins_title: Administratorzy konferencji
         new:
           create: Utwórz
           title: Nowy administrator konferencji.
@@ -142,6 +164,7 @@ pl:
           title: Informacje ogólne
         index:
           published: Opublikowane
+          unpublished: Nieopublikowane
         new:
           create: Utwórz
           title: Konferencja
@@ -181,11 +204,13 @@ pl:
           conference_invites: Zaprasza
           conference_speakers: Prelegenci
           diploma: Certyfikat uczestnictwa
+          info: O tej konferencji
           media_links: Linki do multimediów
           moderations: Moderacje
           partners: Partnerzy
           registration_types: Typ rejestracji
           registrations: Rejestracje
+          see_conference: Zobacz konferencję
           user_registrations: Rejestracje użytkowników
       models:
         conference:
@@ -298,6 +323,7 @@ pl:
           update: "%{user_name} zaktualizował(a) partnera %{resource_name} w konferencji %{space_name}"
         registration_type:
           create: "%{user_name} utworzył(a) typ rejestracji %{resource_name} w konferencji %{space_name}"
+          delete: "Użytkownik %{user_name} usunął typ rejestracji %{resource_name} z konferencji %{space_name}"
           publish: "%{user_name} opublikował(a) typ rejestracji %{resource_name} w konferencji %{space_name}"
           unpublish: "%{user_name} cofnął/cofnęła publikację typu rejestracji %{resource_name} w konferencji %{space_name}"
           update: "%{user_name} zaktualizował(a) typ rejestracji %{resource_name} w konferencji %{space_name}"
@@ -313,6 +339,9 @@ pl:
         title: Prelegenci
     conferences:
       admin:
+        conference_copies:
+          form:
+            slug_help_html: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do tej konferencji. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
         conference_invites:
           create:
             error: Podczas zapraszania użytkownika do udziału w konferencji wystąpił błąd.
@@ -324,15 +353,10 @@ pl:
             non_user: Nieistniejący użytkownik
             select_user: Wybierz użytkownika
           index:
-            filter:
-              accepted: Przyjęto
-              all: Wszystko
-              rejected: Odrzucono
-              sent: Wysłano
             invite_attendee: Zaproś użytkownika
             invites: Zaproszeni
-            search: Szukaj
           new:
+            explanation: Użytkownik zostanie zaproszony do udziału w konferencji. Jeśli e-mail nie został wcześniej zarejestrowany, zostanie również zaproszony do organizacji.
             invite: Zaproś
             new_invite: Zaproś użytkownika
         conference_registrations:
@@ -354,6 +378,10 @@ pl:
               few: Było %{count} rejestracji.
               many: Było %{count} rejestracji.
               other: Było %{count} rejestracji.
+            slug_help_html: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do tej konferencji. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
+        content_blocks:
+          highlighted_conferences:
+            max_results: Maksymalna ilość elementów do wyświetlenia
         diplomas:
           edit:
             save: Zapisz
@@ -362,6 +390,7 @@ pl:
           invite:
             decline: Odrzuć zaproszenie "%{conference_title}"
             invited_existing_user_to_join_a_conference: "%{invited_by} zaprosił(a) Cię do udziału w konferencji %{application}. Możesz odrzucić lub zaakceptować zaproszenie korzystając z poniższych linków."
+            invited_user_to_join_a_conference: "Użytkownik %{invited_by} zaprosił Cię do udziału w konferencji w %{application}. Możesz to zaakceptować za pomocą poniższego linku."
             registration: Rejestracja na "%{conference_title}"
         partners:
           index:
@@ -405,13 +434,16 @@ pl:
         create:
           invalid: Podczas dołączania do tej konferencji wystąpił błąd.
           success: Dołączyłeś pomyślnie do konferencji.
+          unauthorized: Musisz się zalogować przed rejestracją na konferencję.
         decline_invitation:
           invalid: Wystąpił błąd z odrzuceniem zaproszenia.
           success: Odrzuciłeś zaproszenie.
+          unauthorized: Musisz się zalogować przed odrzuceniem zaproszenia.
         destroy:
           invalid: Podczas opuszczania tej konferencji wystąpił błąd.
           success: Opuszczono konferencję.
       conference_speaker:
+        go_to_twitter: Przejdź do X
         more_info: więcej informacji
         personal_website: Osobista strona internetowa
         show:
@@ -425,14 +457,25 @@ pl:
           collaborators: Partnerzy
           main_promotors: Organizatorzy
         show:
+          already_have_an_account?: Posiadasz już konto?
+          are_you_new?: Nowy uczestnik?
           login_as: Jesteś zalogowany jako %{name} <%{email}>
+          make_conference_registration: Zarejestruj się na konferencję
+          manage_registration: Zarządzaj rejestracją
           register: Zarejestruj się
+          sign_in_description: Zaloguj się, aby zarejestrować się na konferencję
+          sign_up_description: Utwórz konto, aby zarejestrować się na konferencję
       content_blocks:
         highlighted_conferences:
           name: Wyróżnione konferencje
       index:
         title: Konferencje
       mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: Twoja rejestracja na konferencję została potwierdzona.
+          pending_validation:
+            subject: Twoja rejestracja na konferencję oczekuje na potwierdzenie.
         invite_join_conference_mailer:
           invite:
             subject: Zaproszenie do udziału w konferencji
@@ -464,6 +507,7 @@ pl:
         home:
           highlighted_conferences:
             active_spaces: Aktualne konferencje
+            see_all_spaces: Zobacz wszystkie konferencje
       registration_types:
         index:
           choose_an_option: 'Wybierz opcję rejestracji:'
@@ -513,6 +557,10 @@ pl:
           contextual: "<p> <strong>Konferencja</strong> jest zbiorem spotkań zorganizowanych wedle ułożonego programu, z udziałem osób zaproszonych jako prelegenci, oraz innymi polami informacyjnymi typowymi dla dużych kongresów lub wydarzeń społecznościowych (rejestracja, wykaz organizacji wspierających lub sponsorujących wydarzenie itp.).</p> <p>Przykłady: konferencja może być istotnym wydarzeniem dla organizacji i jej członków, może odbywać się w ramach procesu partycypacyjnego lub być wynikiem konsultacji.</p>\n"
           page: "<p> <strong>Konferencja</strong> jest zbiorem spotkań zorganizowanych wedle ułożonego programu, z udziałem osób zaproszonych jako prelegenci, oraz innymi polami informacyjnymi typowymi dla dużych kongresów lub wydarzeń społecznościowych (rejestracja, wykaz organizacji wspierających lub sponsorujących wydarzenie itp.).</p> <p>Przykłady: konferencja może być istotnym wydarzeniem dla organizacji i jej członków, może odbywać się w ramach procesu partycypacyjnego lub być wynikiem konsultacji.</p>\n"
           title: Czym są konferencje?
+    log:
+      value_types:
+        conference_presenter:
+          not_found: 'Konferencji nie znaleziono w bazie danych (ID: %{id}).'
     media:
       index:
         description: Linki do tej konferencji
@@ -528,6 +576,7 @@ pl:
   layouts:
     decidim:
       conference_hero:
+        manage_registration: Zarządzaj rejestracją
         register: Zarejestruj się
       conferences:
         conference:

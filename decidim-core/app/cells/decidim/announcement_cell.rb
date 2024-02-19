@@ -19,8 +19,6 @@ module Decidim
   #   - `callout_class`: The Css class to apply
   #
   class AnnouncementCell < Decidim::ViewModel
-    include Decidim::SanitizeHelper
-
     def show
       return if blank_content?
 

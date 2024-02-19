@@ -18,10 +18,10 @@ module Decidim
       described_class.from_params(params)
     end
 
-    let(:resource_class) { "Decidim::DummyResources::DummyResource" }
+    let(:resource_class) { "Decidim::Dev::DummyResource" }
     let(:property) { "avatar" }
     let(:blob) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
-    let(:form_class) { "Decidim::DummyResources::DummyForm" }
+    let(:form_class) { "Decidim::Dev::DummyForm" }
 
     let(:passthru_validator) do
       double(
@@ -54,7 +54,7 @@ module Decidim
       end
     end
 
-    context "when resouce class is missing" do
+    context "when resource class is missing" do
       let(:resource_class) { nil }
 
       it "is invalid" do

@@ -5,66 +5,40 @@ module Decidim
     module Admin
       # This command is executed when the user changes a Project from the admin
       # panel.
-      class UpdateProject < Decidim::Command
+      class UpdateProject < Decidim::Commands::UpdateResource
         include ::Decidim::GalleryMethods
+        fetch_form_attributes :scope, :category, :title, :description, :budget_amount, :address, :latitude, :longitude
 
-        # Initializes an UpdateProject Command.
-        #
-        # form - The form from which to get the data.
-        # project - The current instance of the project to be updated.
         def initialize(form, project)
-          @form = form
-          @project = project
+          super(form, project)
           @attached_to = project
-        end
-
-        # Updates the project if valid.
-        #
-        # Broadcasts :ok if successful, :invalid otherwise.
-        def call
-          return broadcast(:invalid) if form.invalid?
-
-          if process_gallery?
-            build_gallery
-            return broadcast(:invalid) if gallery_invalid?
-          end
-
-          transaction do
-            update_project
-            link_proposals
-            create_gallery if process_gallery?
-            photo_cleanup!
-          end
-
-          broadcast(:ok)
         end
 
         private
 
-        attr_reader :project, :form, :gallery
+        def run_after_hooks
+          link_proposals
+          create_gallery if process_gallery?
+          photo_cleanup!
+        end
 
-        def update_project
-          Decidim.traceability.update!(
-            project,
-            form.current_user,
-            scope: form.scope,
-            category: form.category,
-            title: form.title,
-            description: form.description,
-            budget_amount: form.budget_amount,
-            selected_at:,
-            address: form.address,
-            latitude: form.latitude,
-            longitude: form.longitude
-          )
+        def run_before_hooks
+          return unless process_gallery?
+
+          build_gallery
+          raise Decidim::Commands::HookError if gallery_invalid?
+        end
+
+        def attributes
+          super.merge({ selected_at: })
         end
 
         def proposals
-          @proposals ||= project.sibling_scope(:proposals).where(id: form.proposal_ids)
+          @proposals ||= resource.sibling_scope(:proposals).where(id: form.proposal_ids)
         end
 
         def link_proposals
-          project.link_resources(proposals, "included_proposals")
+          resource.link_resources(proposals, "included_proposals")
         end
 
         def selected_at

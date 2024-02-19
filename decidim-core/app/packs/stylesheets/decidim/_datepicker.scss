@@ -1,0 +1,193 @@
+.sc-wc-datepicker-h {
+  @apply absolute w-80 h-96 left-0;
+}
+
+.wc-datepicker {
+  @apply absolute w-80 h-96 z-20 text-sm;
+
+  &__header {
+    @apply px-0 py-0 pb-0 gap-0 h-14;
+  }
+
+  &__month-select,
+  &__year-select {
+    @apply h-10 mb-4 leading-normal;
+  }
+
+  &__month-select {
+    @apply pr-3;
+  }
+
+  &__year-select {
+    @apply max-w-fit;
+  }
+
+  &__previous-month-button,
+  &__next-month-button,
+  &__previous-year-button,
+  &__next-year-button {
+    @apply h-10 text-secondary bg-transparent;
+  }
+
+  &__date:focus > * {
+    @apply outline-1 outline-gray;
+  }
+
+  &__date--selected > * {
+    @apply bg-secondary border-solid border-2 border-gray;
+  }
+
+  &__date--selected:hover > * {
+    @apply bg-secondary;
+  }
+}
+
+.datepicker {
+  &__container {
+    @apply absolute w-80 h-96;
+  }
+
+  &__datepicker-row {
+    @apply flex gap-4;
+  }
+
+  &__time-row {
+    @apply flex top-6 absolute w-full;
+  }
+
+  &__date-column,
+  &__time-column {
+    @apply flex-1 w-1/2 relative;
+
+    > input {
+      @apply h-9;
+    }
+  }
+
+  &__hour-column,
+  &__minute-column {
+    @apply flex-1 h-20 relative my-2 mx-8 rounded border border-solid border-gray;
+  }
+
+  &__period-column {
+    @apply w-28 h-8 top-1 right-10 my-2 mx-1 absolute;
+  }
+
+  &__calendar-button {
+    @apply h-8 rounded absolute top-4 mt-0.5 fill-gray-2 leading-3 right-2;
+  }
+
+  &__clock-button {
+    @apply h-8 rounded absolute top-4 mt-0.5 fill-gray-2 leading-3 right-2;
+  }
+
+  &__time-frame {
+    @apply w-52 max-w-lg h-40 bg-white absolute border border-solid border-[#f2f3f5] z-20;
+  }
+
+  &__hour-picker,
+  &__minute-picker {
+    @apply w-1/2 left-2.5 h-8 text-center text-sm absolute top-6;
+
+    &:hover {
+      @apply cursor-default;
+    }
+
+    &:focus-visible {
+      @apply outline-0;
+    }
+  }
+
+  &__close-calendar {
+    @apply absolute z-30 bottom-2 right-1;
+  }
+
+  &__pick-calendar {
+    @apply absolute z-30 bottom-2 right-16 mr-1;
+
+    &:disabled {
+      @apply bg-gray;
+    }
+  }
+
+  &__close-clock {
+    @apply absolute z-30 bottom-2 right-1;
+  }
+
+  &__reset-clock {
+    @apply absolute z-30 bottom-2 left-2;
+  }
+
+  &__select-clock {
+    @apply absolute z-30 bottom-2 right-16 mr-1;
+  }
+
+  &__hour-up {
+    @apply absolute rounded-t w-full h-6;
+
+    &:hover {
+      @apply bg-gray-3;
+    }
+  }
+
+  &__hour-down {
+    @apply absolute rounded-b w-full h-6 bottom-0;
+
+    &:hover {
+      @apply bg-gray-3;
+    }
+  }
+
+  &__minute-up {
+    @apply absolute rounded-t w-full h-6;
+
+    &:hover {
+      @apply bg-gray-3;
+    }
+  }
+
+  &__minute-down {
+    @apply absolute rounded-b w-full h-6 bottom-0;
+
+    &:hover {
+      @apply bg-gray-3;
+    }
+  }
+
+  &__period-am {
+    @apply ml-1 accent-secondary bg-secondary;
+  }
+
+  &__period-pm {
+    @apply ml-1;
+  }
+
+  &__label-row {
+    @apply absolute flex top-2 w-full text-sm font-semibold;
+  }
+
+  &__hour-label-container {
+    @apply flex-1 text-center;
+  }
+
+  &__minute-label-container {
+    @apply flex-1 text-center;
+  }
+
+  &__help-text-container {
+    @apply w-full h-10 relative;
+  }
+
+  &__help-date {
+    @apply w-1/2 relative inline-block;
+  }
+
+  &__help-time {
+    @apply w-1/2 relative inline-block left-2;
+  }
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}

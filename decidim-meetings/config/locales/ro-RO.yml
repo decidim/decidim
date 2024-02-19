@@ -264,14 +264,8 @@ ro:
             non_user: Participant neexistent
             select_user: Selecteză un participant
           index:
-            filter:
-              accepted: Acceptat
-              all: Toate
-              rejected: Respins
-              sent: Trimis
             invite_attendee: Invită participantul
             invites: Invitații
-            search: Caută
         meeting_closes:
           edit:
             close: Închide

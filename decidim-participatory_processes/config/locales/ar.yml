@@ -84,8 +84,6 @@ ar:
         destroy: حذف
         duplicate: مكرر
         edit: تعديل
-        filter:
-          all_processes: عرض جميع العمليات
         import_process: استيراد
         new_process: عملية جديدة
         new_process_group: مجموعة عملية جديدة

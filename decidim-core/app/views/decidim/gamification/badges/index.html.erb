@@ -1,27 +1,25 @@
 <div class="wrapper">
-  <div class="row column mb-m">
+  <div class="row column">
     <h1><%= t ".title" %></h1>
     <p>
       <%= t ".page_description" %>
     </p>
   </div>
   <% @badges.each do |badge| %>
-    <div class="row column mb-m">
-      <div class="column medium-2">
-        <div class="card card--badge absolutes">
-          <div class="card__content">
-            <div class="card__header">
-              <div class="badge-container">
-                <%= image_tag badge.image %>
-              </div>
+    <div class="row column">
+      <div class="column">
+        <div class="card card--badge">
+          <div>
+            <div>
+              <%= image_tag badge.image %>
             </div>
-            <div class="card__text text-center">
+            <div class="text-center">
               <strong><%= badge.translated_name %></strong>
             </div>
           </div>
         </div>
       </div>
-      <div class="column medium-10">
+      <div class="column">
         <h6>
           <strong><%= t ".badge_title", name: badge.translated_name %></strong>
         </h6>

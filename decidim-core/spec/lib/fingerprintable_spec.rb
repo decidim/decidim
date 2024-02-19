@@ -26,7 +26,7 @@ module Decidim
       end
 
       describe "#fingerprint" do
-        it "returns a fingerprint calculator with the appropiate data" do
+        it "returns a fingerprint calculator with the appropriate data" do
           fingerprint = subject.fingerprint
           expect(fingerprint.value.length).to be_positive
           expect(fingerprint.source).to eq("{\"body\":{\"ca\":\"Cos\",\"en\":\"Body\"},\"title\":\"A title\"}")
@@ -42,7 +42,7 @@ module Decidim
       end
 
       describe "#fingerprint" do
-        it "returns a fingerprint calculator with the appropiate data" do
+        it "returns a fingerprint calculator with the appropriate data" do
           fingerprint = subject.fingerprint
           expect(fingerprint.value.length).to be_positive
           expect(fingerprint.source).to eq("{\"body\":\"Body\",\"title\":\"A title\"}")

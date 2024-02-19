@@ -60,7 +60,7 @@ module Decidim
             process_id: current_participatory_process.id
           )
 
-          UpdateParticipatoryProcess.call(current_participatory_process, @form) do
+          UpdateParticipatoryProcess.call(@form, current_participatory_process) do
             on(:ok) do |participatory_process|
               flash[:notice] = I18n.t("participatory_processes.update.success", scope: "decidim.admin")
               redirect_to edit_participatory_process_path(participatory_process)

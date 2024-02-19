@@ -4,36 +4,11 @@ module Decidim
   module Admin
     # A command with all the business logic to destroy a category in the
     # system.
-    class DestroyCategory < Decidim::Command
-      # Public: Initializes the command.
-      #
-      # category - A Category that will be destroyed
-      def initialize(category, user)
-        @category = category
-        @user = user
-      end
-
-      # Executes the command. Broadcasts these events:
-      #
-      # - :ok when everything is valid.
-      # - :invalid if the data was not valid and we could not proceed.
-      #
-      # Returns nothing.
-      def call
-        return broadcast(:invalid) if category.nil? || category.subcategories.any?
-
-        destroy_category
-        broadcast(:ok)
-      end
-
+    class DestroyCategory < Decidim::Commands::DestroyResource
       private
 
-      attr_reader :category
-
-      def destroy_category
-        Decidim.traceability.perform_action!(:delete, category, @user) do
-          category.destroy!
-        end
+      def invalid?
+        resource.nil? || resource.subcategories.any?
       end
     end
   end

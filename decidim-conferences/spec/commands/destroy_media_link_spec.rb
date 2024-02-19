@@ -30,7 +30,7 @@ module Decidim::Conferences
       it "traces the action" do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-          .with("delete", media_link, current_user, log_info)
+          .with(:delete, media_link, current_user, log_info)
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

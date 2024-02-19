@@ -54,7 +54,7 @@ Just use the following line:
 Decidim::Initiatives.do_not_require_authorization = true
 ```
 
-All the settings and their default values which can be overriden can be found in the file [`lib/decidim/initiatives.rb`](https://github.com/decidim/decidim/blob/develop/decidim-initiatives/lib/decidim/initiatives.rb).
+All the settings and their default values which can be overridden can be found in the file [`lib/decidim/initiatives.rb`](https://github.com/decidim/decidim/blob/develop/decidim-initiatives/lib/decidim/initiatives.rb).
 
 For example, you can also change the minimum number of required committee members to 1 (default is 2) by adding this line:
 
@@ -125,7 +125,7 @@ In order to populate the database with example data proceed as usual in rails:
 bundle exec rails db:seed
 ```
 
-## Aditional considerations
+## Additional considerations
 
 ### Cookies
 

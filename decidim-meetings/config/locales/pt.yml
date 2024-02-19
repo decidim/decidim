@@ -228,14 +228,8 @@ pt:
             non_user: Participante inexistente
             select_user: Selecione o participante
           index:
-            filter:
-              accepted: Aceite
-              all: Todos
-              rejected: Rejeitados
-              sent: Enviados
             invite_attendee: Convidar participante
             invites: Convites
-            search: Pesquisar
         meeting_closes:
           edit:
             close: Fechar

@@ -23,7 +23,7 @@ module Decidim
         return broadcast(:has_supports) if @proposal.votes.any?
 
         transaction do
-          change_proposal_state_to_withdrawn
+          @proposal.withdraw!
           reject_emendations_if_any
         end
 
@@ -31,10 +31,6 @@ module Decidim
       end
 
       private
-
-      def change_proposal_state_to_withdrawn
-        @proposal.update state: "withdrawn"
-      end
 
       def reject_emendations_if_any
         return if @proposal.emendations.empty?

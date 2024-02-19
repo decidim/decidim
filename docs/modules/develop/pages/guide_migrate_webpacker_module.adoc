@@ -109,7 +109,7 @@ What you should do instead is to follow the asset compilation migration guide ab
 
 base_path = File.expand_path("..", __dir__)
 
-# Register the additonal path for Webpacker in order to make the module's
+# Register the additional path for Webpacker in order to make the module's
 # stylesheets available for inclusion.
 Decidim::Webpacker.register_path("#{base_path}/app/packs")
 

@@ -1,0 +1,35 @@
+<div class="form__wrapper">
+  <div class="card">
+    <div class="card-section">
+      <% if form.send(:error?, :external_domains) %>
+        <div>
+          <div>&nbsp;</div>
+          <%= form.send(:error_and_help_text, :external_domains) %>
+        </div>
+      <% end %>
+
+      <div class="external-domains">
+        <%= fields_for "external_domains[#{blank_external_domain.to_param}]", blank_external_domain do |external_domain_form| %>
+          <script type="text/template" class="decidim-template">
+            <%= render "external_domain",
+                       form: external_domain_form,
+                       id: blank_external_domain.to_param %>
+          </script>
+        <% end %>
+
+        <div class="external-domains-list">
+          <% @form.external_domains.each do |external_domain| %>
+            <%= fields_for "external_domains[]", external_domain do |external_domain_form| %>
+              <%= render "external_domain",
+                         form: external_domain_form,
+                         id: external_domain.to_param %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="row column">
+          <button class="button button__sm button__secondary small add-external-domain"><%= t(".add") %></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

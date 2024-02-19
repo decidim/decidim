@@ -161,6 +161,7 @@ ja:
             sign_up_description: アンケートに答えるために参加者アカウントを作成します
             title: フォームに回答
           current_step: ステップ %{step}
+          empty: このフォームに設定された質問はまだありません。
           of_total_steps: / %{total_steps}
           questionnaire_answered:
             body: このフォームには既に回答済みです。

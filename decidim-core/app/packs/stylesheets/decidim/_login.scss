@@ -41,7 +41,7 @@
 
   &__modal {
     &-links {
-      @apply flex flex-col md:flex-row justify-between items-start md:items-center [&>a]:text-secondary;
+      @apply flex flex-col md:flex-row gap-4 justify-between items-start md:items-center [&>a]:text-secondary;
     }
 
     [data-announcement] {

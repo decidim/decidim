@@ -2,21 +2,34 @@
 
 require "decidim/dev/railtie"
 
-# The next 4 uncommented lines are used to register the Decidim::DummyResources namespace to the autoloader
-# We cannot rely on Rails autoloading because some of the classes that are required within that namespace
-# are needed before Rails is being available (e.g. FactoryBot)
-# After 1 day of various attempts, this is the only way I found to make it work.
-app_paths = %w(commands controllers events forms jobs mailers models presenters serializers)
-app_paths.each do |path|
-  ActiveSupport::Dependencies.autoload_paths += [File.absolute_path("#{__dir__}/../../app/#{path}")]
-end
+require "decidim/dev/admin"
+require "decidim/dev/engine"
+require "decidim/dev/admin_engine"
+# We shall not load the component here, as it will complain there is no method register_component
+# for Decidim module. To fix that we need to require 'decidim/core', which will cause a major
+# performance setback, as this file is usually the first request in "spec_helpers".
+# We load dev component by requiring it later in the stack within lib/decidim/dev/test/base_spec_helper,
+# right after decidim/core is required
+# This comment and the below line is added to preserve consistency across all modules supplied.
+# Also, to avoid further headaches :)
+# require "decidim/dev/component"
 
 module Decidim
   # Decidim::Dev holds all the convenience logic and libraries to be able to
   # create external libraries that create test apps and test themselves against
   # them.
   module Dev
+    include ActiveSupport::Configurable
     autoload :DummyTranslator, "decidim/dev/dummy_translator"
+
+    # Settings needed to compare emendations in Decidim::SimilarEmendations
+    config_accessor :similarity_threshold do
+      0.25
+    end
+
+    config_accessor :similarity_limit do
+      10
+    end
 
     # Public: Finds an asset.
     #

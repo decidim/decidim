@@ -19,8 +19,8 @@ module Decidim
       #
       # @return [String] the content with the valid mentions replaced by a global id.
       def rewrite
-        rewrited_content = parse_for_urls(content)
-        parse_for_ids(rewrited_content)
+        rewritten_content = parse_for_urls(content)
+        parse_for_ids(rewritten_content)
       end
 
       private

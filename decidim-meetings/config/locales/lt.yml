@@ -286,15 +286,9 @@ lt:
             non_user: Neegzistuojantis dalyvis
             select_user: Pasirinkti dalyvį
           index:
-            filter:
-              accepted: Priimtas
-              all: Visi
-              rejected: Atmestas
-              sent: Išsiųstas
             invite_attendee: Kviesti dalyvį
             invites: Pakvietimai
             registrations_disabled: Negalite kviesti dalyvio, nes registracija išjungta.
-            search: Ieškoti
         meeting_closes:
           edit:
             close: Uždaryti

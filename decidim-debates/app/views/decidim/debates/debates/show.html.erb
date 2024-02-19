@@ -30,7 +30,7 @@ edit_link(
     <div class="layout-author">
       <%= cell "decidim/author", debate_presenter.author, skip_profile_link: true %>
       <% if debate.closed? %>
-        <span class="success label proposal-status">
+        <span class="success label">
           <%= t("debate_closed", scope: "decidim.debates.debates.show") %>
         </span>
       <% end %>

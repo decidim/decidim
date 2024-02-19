@@ -4,12 +4,12 @@ shared_examples "manage projects attachment collections" do
   let(:collection_for) { project }
 
   before do
-    within find("tr", text: translated(budget.title)) do
-      click_link "Manage projects"
+    within "tr", text: translated(budget.title) do
+      click_on "Manage projects"
     end
 
-    within find("tr", text: translated(project.title)) do
-      click_link "Folders"
+    within "tr", text: translated(project.title) do
+      click_on "Folders"
     end
   end
 

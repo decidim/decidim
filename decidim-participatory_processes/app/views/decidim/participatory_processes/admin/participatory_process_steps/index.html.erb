@@ -1,12 +1,12 @@
 <% add_decidim_page_title(t("participatory_process_steps.index.steps_title", scope: "decidim.admin")) %>
 <div class="card" id="steps">
   <div class="item_show__header">
-    <h2 class="item_show__header-title">
+    <h1 class="item_show__header-title">
       <%= t("participatory_process_steps.index.steps_title", scope: "decidim.admin") %>
       <% if allowed_to? :create, :process_step %>
         <%= link_to t("actions.new_process_step", scope: "decidim.admin"), new_participatory_process_step_path(current_participatory_process), class: "button button__sm button__secondary ml-auto" %>
       <% end %>
-    </h2>
+    </h1>
   </div>
   <% if current_participatory_process.steps.any? %>
     <div class="table-scroll">
@@ -16,7 +16,7 @@
             <th><%= t("models.participatory_process_step.fields.title", scope: "decidim.admin") %></th>
             <th><%= t("models.participatory_process_step.fields.start_date", scope: "decidim.admin") %></th>
             <th><%= t("models.participatory_process_step.fields.end_date", scope: "decidim.admin") %></th>
-            <th class="actions"></th>
+            <th></th>
           </tr>
         </thead>
         <tbody class="sortable" data-sort-url="<%= ordering_participatory_process_steps_path(current_participatory_process) %>">

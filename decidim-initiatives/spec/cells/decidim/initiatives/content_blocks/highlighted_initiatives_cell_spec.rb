@@ -19,7 +19,7 @@ describe Decidim::Initiatives::ContentBlocks::HighlightedInitiativesCell, type: 
 
   context "when the content block has no settings" do
     it "shows 4 initiatives" do
-      expect(subject).to have_selector("a.card__grid", count: 4)
+      expect(subject).to have_css("a.card__grid", count: 4)
     end
 
     it "shows up initiatives ordered by default" do
@@ -35,7 +35,7 @@ describe Decidim::Initiatives::ContentBlocks::HighlightedInitiativesCell, type: 
     end
 
     it "shows up to 8 initiatives" do
-      expect(subject).to have_selector("a.card__grid", count: 6)
+      expect(subject).to have_css("a.card__grid", count: 6)
     end
   end
 

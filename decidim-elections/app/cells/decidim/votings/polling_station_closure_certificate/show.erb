@@ -1,7 +1,0 @@
-<% if has_images? %>
-  <% model.photos.each do |image| %>
-    <a href="<%= image.url %>" target="_blank">
-      <img class="thumbnail" src="<%= image.thumbnail_url %>" alt="<%= translated_attribute(image.title) %>">
-    </a>
-  <% end %>
-<% end %>

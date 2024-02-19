@@ -276,14 +276,8 @@ id:
             non_user: Pengguna tidak ada
             select_user: Pilih pengguna
           index:
-            filter:
-              accepted: Diterima
-              all: Semua
-              rejected: Ditolak
-              sent: Terkirim
             invite_attendee: Undang Peserta
             invites: Undangan
-            search: Pencarian
           new:
             invite: Undang
             new_invite: Undang pengguna

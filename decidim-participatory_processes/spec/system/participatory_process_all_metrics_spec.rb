@@ -86,15 +86,15 @@ describe "Participatory Processes", download: true do
     it "does not render any metric chart" do
       # BIG CHART
       Decidim.metrics_registry.filtered(scope: "participatory_process", block: "big").each do |metric_manifest|
-        expect(page).not_to have_css(%(##{metric_manifest.metric_name}_chart))
+        expect(page).to have_no_css(%(##{metric_manifest.metric_name}_chart))
       end
       # MEDIUM CHARTS
       Decidim.metrics_registry.filtered(scope: "participatory_process", block: "medium").each do |metric_manifest|
-        expect(page).not_to have_css(%(##{metric_manifest.metric_name}_chart))
+        expect(page).to have_no_css(%(##{metric_manifest.metric_name}_chart))
       end
       # LITTLE CHARTS
       Decidim.metrics_registry.filtered(scope: "participatory_process", block: "small").each do |metric_manifest|
-        expect(page).not_to have_css(%(##{metric_manifest.metric_name}_chart))
+        expect(page).to have_no_css(%(##{metric_manifest.metric_name}_chart))
       end
     end
   end

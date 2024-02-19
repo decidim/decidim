@@ -1,4 +1,4 @@
-import PasswordToggler from "./password_toggler";
+import PasswordToggler from "src/decidim/password_toggler";
 
 $(() => {
   const $userRegistrationForm = $("#register-form");

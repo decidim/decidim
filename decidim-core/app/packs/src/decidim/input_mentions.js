@@ -42,7 +42,7 @@ const mentionsInitializer = () => {
         cb([])
       }).always(() => {
       // This function runs Tribute every single time you type something
-      // So we must evalute DOM properties after each
+      // So we must evaluate DOM properties after each
         const $parent = $(tribute.current.element).parent();
         $parent.addClass("is-active");
 

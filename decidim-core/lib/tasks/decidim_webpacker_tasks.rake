@@ -12,12 +12,13 @@ namespace :decidim do
       remove_file_from_application "bin/yarn"
       remove_file_from_application "yarn.lock"
       remove_file_from_application "node_modules/.yarn-integrity"
-      # Babel config
-      copy_file_to_application "babel.config.json"
       # PostCSS configuration
       copy_file_to_application "decidim-core/lib/decidim/webpacker/postcss.config.js", "postcss.config.js"
 
-      # Remnove the Webpacker config and deploy shakacpacker
+      copy_file_to_application "decidim-core/lib/decidim/webpacker/esbuild.config.js", "config/esbuild.config.js"
+      copy_file_to_application "decidim-core/lib/decidim/webpacker/tsconfig.json", "tsconfig.json"
+
+      # Remove the Webpacker config and deploy shakapacker
       migrate_shakapacker
 
       # Install JS dependencies
@@ -56,7 +57,16 @@ namespace :decidim do
 
       remove_file_from_application "bin/yarn"
 
-      # Remnove the Webpacker config and deploy shakacpacker
+      unless File.exist?(rails_app_path.join("config/esbuild.config.js"))
+        copy_file_to_application "decidim-core/lib/decidim/webpacker/esbuild.config.js",
+                                 "config/esbuild.config.js"
+      end
+      unless File.exist?(rails_app_path.join("tsconfig.json"))
+        copy_file_to_application "decidim-core/lib/decidim/webpacker/tsconfig.json",
+                                 "tsconfig.json"
+      end
+
+      # Remove the Webpacker config and deploy shakapacker
       migrate_shakapacker
 
       # Update JS dependencies
@@ -218,7 +228,7 @@ if (config_path = Decidim::Webpacker.configuration.configuration_file)
   )
 end
 
-# Remove the yarn install prerequisity from assets:precompile
+# Remove the yarn install prerequisite from assets:precompile
 Rake::Task["assets:precompile"].prerequisites.delete("shakapacker:yarn_install")
 
 # Add gem overrides path to the beginning in order to override rake tasks

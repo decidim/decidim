@@ -43,7 +43,7 @@ shared_examples "manage assembly components" do
           all("input[type=checkbox]").first.click
         end
 
-        click_button "Add component"
+        click_on "Add component"
       end
     end
 
@@ -54,8 +54,8 @@ shared_examples "manage assembly components" do
 
     context "and then edit it" do
       before do
-        within find("tr", text: "My component") do
-          click_link "Configure"
+        within "tr", text: "My component" do
+          click_on "Configure"
         end
       end
 
@@ -70,7 +70,7 @@ shared_examples "manage assembly components" do
       end
 
       it "successfully edits it" do
-        click_button "Update"
+        click_on "Update"
 
         expect(page).to have_admin_callout("successfully")
       end
@@ -96,7 +96,7 @@ shared_examples "manage assembly components" do
 
     it "updates the component" do
       within ".component-#{component.id}" do
-        click_link "Configure"
+        click_on "Configure"
       end
 
       within ".edit_component" do
@@ -116,14 +116,14 @@ shared_examples "manage assembly components" do
           all("input[type=checkbox]").first.click
         end
 
-        click_button "Update"
+        click_on "Update"
       end
 
       expect(page).to have_admin_callout("successfully")
       expect(page).to have_content("My updated component")
 
-      within find("tr", text: "My updated component") do
-        click_link "Configure"
+      within "tr", text: "My updated component" do
+        click_on "Configure"
       end
 
       within ".global-settings" do
@@ -155,10 +155,10 @@ shared_examples "manage assembly components" do
 
     it "removes the component" do
       within ".component-#{component.id}" do
-        click_link "Delete"
+        click_on "Delete"
       end
 
-      expect(page).not_to have_content("My component")
+      expect(page).to have_no_content("My component")
     end
   end
 
@@ -176,7 +176,7 @@ shared_examples "manage assembly components" do
     context "when the component is unpublished" do
       it "publishes the component" do
         within ".component-#{component.id}" do
-          click_link "Publish"
+          click_on "Publish"
         end
 
         within ".component-#{component.id}" do
@@ -189,7 +189,7 @@ shared_examples "manage assembly components" do
         create(:follow, followable: assembly, user: follower)
 
         within ".component-#{component.id}" do
-          click_link "Publish"
+          click_on "Publish"
         end
 
         expect(enqueued_jobs.last[:args]).to include("decidim.events.components.component_published")
@@ -203,7 +203,7 @@ shared_examples "manage assembly components" do
 
       it "unpublishes the component" do
         within ".component-#{component.id}" do
-          click_link "Unpublish"
+          click_on "Unpublish"
         end
 
         within ".component-#{component.id}" do

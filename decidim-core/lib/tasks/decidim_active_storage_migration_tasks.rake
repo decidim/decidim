@@ -2,42 +2,6 @@
 
 namespace :decidim do
   namespace :active_storage_migrations do
-    desc "Migrates attachments from Carrierwave to ActiveStorage"
-    task migrate_from_carrierwave_to_active_storage: :environment do
-      # Setup a new logger, using the timestamp to identify each migration
-      logger = ActiveSupport::TaggedLogging.new(Logger.new("log/#{Time.current.strftime("%Y%m%d%H%M")}_activestorage_migration.log"))
-      routes_mappings = []
-
-      Decidim::CarrierWaveMigratorService::MIGRATION_ATTRIBUTES.each do |(klass, cw_attribute, cw_uploader, as_attribute)|
-        Decidim::CarrierWaveMigratorService.migrate_attachment!({
-                                                                  klass:, cw_attribute:,
-                                                                  cw_uploader:, as_attribute:,
-                                                                  logger:,
-                                                                  routes_mappings:
-                                                                })
-      end
-      Decidim::CarrierWaveMigratorService.migrate_content_blocks_attachments!(logger:, routes_mappings:)
-
-      path = Rails.root.join("tmp/attachment_mappings.csv")
-      dirname = File.dirname(path)
-      FileUtils.mkdir_p(dirname) unless File.directory?(dirname)
-      File.binwrite(path, Decidim::Exporters::CSV.new(routes_mappings).export.read)
-    end
-
-    desc "Checks attachments migrated from Carrierwave to ActiveStorage"
-    task check_migration_from_carrierwave_to_active_storage: :environment do
-      # Setup a new logger, using the timestamp to identify each migration
-      logger = ActiveSupport::TaggedLogging.new(Logger.new("log/#{Time.current.strftime("%Y%m%d%H%M")}_activestorage_migration_check.log"))
-      Decidim::CarrierWaveMigratorService::MIGRATION_ATTRIBUTES.each do |(klass, cw_attribute, cw_uploader, as_attribute)|
-        Decidim::CarrierWaveMigratorService.check_migration({
-                                                              klass:, cw_attribute:,
-                                                              cw_uploader:, as_attribute:,
-                                                              logger:
-                                                            })
-      end
-      Decidim::CarrierWaveMigratorService.check_content_blocks_attachments(logger:)
-    end
-
     desc "Migrates inline images to ActiveStorage editor_image attachments"
     task :migrate_inline_images_to_active_storage, [:admin_email] => :environment do |_t, args|
       user = Decidim::User.find_by(email: args[:admin_email])

@@ -13,7 +13,6 @@ require "devise-i18n"
 require "devise_invitable"
 require "foundation_rails_helper"
 require "active_link_to"
-require "carrierwave"
 require "rails-i18n"
 require "date_validator"
 require "file_validators"
@@ -282,7 +281,7 @@ module Decidim
         Ransack.configure do |config|
           # Avoid turning parameter values such as user_id[]=1&user_id[]=2 into
           # { user_id: [true, "2"] }. This option allows us to handle the type
-          # convertions manually instead for each case.
+          # conversions manually instead for each case.
           # See: https://github.com/activerecord-hackery/ransack/issues/593
           # See: https://github.com/activerecord-hackery/ransack/pull/742
           config.sanitize_custom_scope_booleans = false
@@ -379,9 +378,6 @@ module Decidim
 
       initializer "decidim_core.menu" do
         Decidim::Core::Menu.register_menu!
-      end
-
-      initializer "decidim_core.user_menu" do
         Decidim::Core::Menu.register_user_menu!
       end
 

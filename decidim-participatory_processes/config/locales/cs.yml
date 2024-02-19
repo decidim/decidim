@@ -104,9 +104,6 @@ cs:
         destroy: Odstranit
         duplicate: Duplikát
         edit: Upravit
-        filter:
-          all_processes: Zobrazit všechny procesy
-          process_groups: Filtrovat procesy ve skupinách
         import_process: Importovat
         moderate: Moderovat
         new_process: Nový proces
@@ -119,6 +116,9 @@ cs:
         resend_invitation: Znovu poslat pozvánku
         see_process: Zobrazit proces
         unpublish: Zrušit publikování
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Podle skupiny procesů
       menu:
         participatory_process_groups: Skupiny procesů
         participatory_process_groups_submenu:

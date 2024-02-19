@@ -22,7 +22,7 @@ describe "Conversations" do
 
     it "shows the topbar button as inactive" do
       within "#trigger-dropdown-account" do
-        expect(page).not_to have_selector("span[data-unread-items]")
+        expect(page).to have_no_selector("span[data-unread-items]")
       end
     end
 
@@ -32,7 +32,7 @@ describe "Conversations" do
       it "only shows one match even if the keyword matches both name and nickname" do
         visit decidim.conversations_path
 
-        click_button "New conversation"
+        click_on "New conversation"
 
         fill_in "add_conversation_users", with: "example"
 
@@ -71,7 +71,7 @@ describe "Conversations" do
     it_behaves_like "accessible page"
 
     it "shows an empty conversation page" do
-      expect(page).not_to have_selector(".card--list__item")
+      expect(page).to have_no_selector(".card--list__item")
       expect(page).to have_current_path decidim.new_conversation_path(recipient_id: recipient.id)
     end
 
@@ -84,7 +84,7 @@ describe "Conversations" do
 
       context "and recipient does not follow user" do
         it "redirects user with access error" do
-          expect(page).not_to have_current_path decidim.new_conversation_path(recipient_id: recipient.id)
+          expect(page).to have_no_current_path decidim.new_conversation_path(recipient_id: recipient.id)
           expect(page).to have_content("You are not authorized to perform this action")
         end
 
@@ -140,7 +140,7 @@ describe "Conversations" do
 
     it "allows entering a conversation" do
       visit_inbox
-      click_link "conversation-#{conversation.id}"
+      click_on "conversation-#{conversation.id}"
 
       expect(page).to have_content("Conversation with\n#{interlocutor.name}")
       expect(page).to have_content("who wants apples?")
@@ -169,7 +169,7 @@ describe "Conversations" do
 
       it "shows the topbar button as inactive" do
         within "#trigger-dropdown-account" do
-          expect(page).not_to have_selector("span[data-unread-items]")
+          expect(page).to have_no_selector("span[data-unread-items]")
         end
       end
 
@@ -183,20 +183,20 @@ describe "Conversations" do
 
       before do
         visit_inbox
-        click_link "conversation-#{conversation.id}"
+        click_on "conversation-#{conversation.id}"
         expect(page).to have_content("Send")
         field = find_field("message_body")
         field.native.send_keys message_body
       end
 
       it "appears as the last message", :slow do
-        click_button "Send"
+        click_on "Send"
         expect(page).to have_selector(".conversation__message:last-child", text: message_body)
       end
 
       context "and interlocutor sees it" do
         before do
-          click_button "Send"
+          click_on "Send"
           expect(page).to have_selector(".conversation__message:last-child", text: message_body)
           relogin_as interlocutor, scope: :user
           visit_inbox
@@ -207,7 +207,7 @@ describe "Conversations" do
         end
 
         it "appears as read after it is seen", :slow do
-          click_link "conversation-#{conversation.id}"
+          click_on "conversation-#{conversation.id}"
           expect(page).to have_content("Please reply!")
 
           visit_inbox
@@ -224,14 +224,14 @@ describe "Conversations" do
 
       it "shows the error message modal", :slow do
         visit_inbox
-        click_link "conversation-#{conversation.id}"
+        click_on "conversation-#{conversation.id}"
         expect(page).to have_content("Send")
         field = find_field("message_body")
         field.native.send_keys message_body
         expect(page).to have_content("0 characters left")
-        click_button "Send"
+        click_on "Send"
         expect(page).to have_content(message)
-        expect(page).not_to have_content(overflow)
+        expect(page).to have_no_content(overflow)
       end
     end
 
@@ -241,7 +241,7 @@ describe "Conversations" do
       context "and interlocutor does not follow user" do
         before do
           visit_inbox
-          click_link "conversation-#{conversation.id}"
+          click_on "conversation-#{conversation.id}"
         end
 
         it "allows user to see old messages" do
@@ -250,7 +250,7 @@ describe "Conversations" do
         end
 
         it "does not show the sending form" do
-          expect(page).not_to have_selector("textarea#message_body")
+          expect(page).to have_no_selector("textarea#message_body")
         end
       end
 
@@ -259,7 +259,7 @@ describe "Conversations" do
 
         before do
           visit_inbox
-          click_link "conversation-#{conversation.id}"
+          click_on "conversation-#{conversation.id}"
         end
 
         it "show the sending form" do
@@ -271,7 +271,7 @@ describe "Conversations" do
           field.native.send_keys "Please reply!"
 
           expect(page).to have_content("Send")
-          click_button "Send"
+          click_on "Send"
 
           expect(page).to have_selector(".conversation__message:last-child", text: "Please reply!")
         end
@@ -293,7 +293,7 @@ describe "Conversations" do
         let(:recipient) { create(:user, :confirmed, direct_message_types: "followed-only", organization:) }
 
         it "has contact muted" do
-          expect(page).not_to have_link(href: decidim.new_conversation_path(recipient_id: recipient.id))
+          expect(page).to have_no_link(href: decidim.new_conversation_path(recipient_id: recipient.id))
         end
       end
     end
@@ -305,7 +305,7 @@ describe "Conversations" do
         it "cannot be selected on the mentioned list", :slow do
           visit_inbox
           expect(page).to have_content("New conversation")
-          click_button "New conversation"
+          click_on "New conversation"
           expect(page).to have_selector("#add_conversation_users")
           field = find_by_id("add_conversation_users")
           field.set ""
@@ -335,7 +335,7 @@ describe "Conversations" do
         it "shows only the other participant name" do
           within ".conversation__participants" do
             expect(page).to have_content(user1.name)
-            expect(page).not_to have_content(user.name)
+            expect(page).to have_no_content(user.name)
           end
         end
       end
@@ -360,7 +360,7 @@ describe "Conversations" do
         it "shows only the other participant name" do
           within "[data-interlocutors-list]" do
             expect(page).to have_content(user1.name)
-            expect(page).not_to have_content(user.name)
+            expect(page).to have_no_content(user.name)
           end
         end
       end
@@ -390,7 +390,7 @@ describe "Conversations" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
-            expect(page).not_to have_content(user.name)
+            expect(page).to have_no_content(user.name)
           end
         end
       end
@@ -405,7 +405,7 @@ describe "Conversations" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
-            expect(page).not_to have_content(user.name)
+            expect(page).to have_no_content(user.name)
           end
         end
       end
@@ -420,7 +420,7 @@ describe "Conversations" do
             expect(page).to have_css("img[alt='Avatar: #{user1.name}']")
             expect(page).to have_css("img[alt='Avatar: #{user2.name}']")
             expect(page).to have_css("img[alt='Avatar: #{user3.name}']")
-            expect(page).not_to have_css("img[alt='Avatar: #{user.name}']")
+            expect(page).to have_no_css("img[alt='Avatar: #{user.name}']")
           end
         end
       end
@@ -466,7 +466,7 @@ describe "Conversations" do
             expect(page).to have_content(user7.name)
             expect(page).to have_content(user8.name)
             expect(page).to have_content(user9.name)
-            expect(page).not_to have_content(user.name)
+            expect(page).to have_no_content(user.name)
           end
         end
       end
@@ -487,7 +487,7 @@ describe "Conversations" do
             expect(page).to have_content(user7.name)
             expect(page).to have_content(user8.name)
             expect(page).to have_content(user9.name)
-            expect(page).not_to have_content(user.name)
+            expect(page).to have_no_content(user.name)
           end
         end
       end
@@ -519,7 +519,7 @@ describe "Conversations" do
 
     it "allows entering a conversation" do
       visit_inbox
-      click_link "conversation-#{conversation.id}"
+      click_on "conversation-#{conversation.id}"
 
       expect(page).to have_content("Conversation with\nDeleted participant")
       expect(page).to have_content("who wants apples?")
@@ -532,7 +532,7 @@ describe "Conversations" do
     field = find_field("conversation_body")
     field.native.send_keys message
 
-    click_button "Send"
+    click_on "Send"
   end
 
   def visit_inbox
@@ -540,7 +540,7 @@ describe "Conversations" do
 
     find_by_id("trigger-dropdown-account").click
     within "#dropdown-menu-account" do
-      click_link("Conversations")
+      click_on("Conversations")
     end
   end
 end

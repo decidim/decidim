@@ -25,7 +25,7 @@ module Decidim::Admin
       expect(Decidim.traceability)
         .to receive(:perform_action!)
         .with(
-          "delete",
+          :delete,
           scope,
           user,
           extra: hash_including(:parent_name, :scope_type_name)

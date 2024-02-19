@@ -98,7 +98,7 @@ describe Decidim::Verifications::ConfirmUserAuthorization do
 
     context "when there is a problem with the SMS service" do
       before do
-        expect(authorization).to receive(:grant!).and_raise(StandardError, "Somewthing went wrong")
+        expect(authorization).to receive(:grant!).and_raise(StandardError, "Something went wrong")
       end
 
       it "is not valid" do

@@ -4,7 +4,6 @@ module Decidim
   module ContentBlocks
     class HeroCell < Decidim::ViewModel
       include Decidim::CtaButtonHelper
-      include Decidim::SanitizeHelper
 
       # Needed so that the `CtaButtonHelper` can work.
       def decidim_participatory_processes

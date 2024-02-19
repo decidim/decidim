@@ -318,7 +318,7 @@
 
   &__deleted,
   &__moderated {
-    @apply font-bold;
+    @apply text-gray;
   }
 
   .comment__content > * {

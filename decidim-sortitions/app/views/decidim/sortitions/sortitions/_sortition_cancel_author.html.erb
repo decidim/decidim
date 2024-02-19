@@ -1,11 +1,11 @@
-<div class="author-data__main">
-  <div class="author author--inline">
-    <span class="author__avatar author__avatar--small">
+<div>
+  <div class="author">
+    <span class="author__avatar">
       <%= image_tag present(sortition.cancelled_by_user).avatar_url %>
     </span>
     <span class="author__name">
       <% if sortition.cancelled_by_user&.deleted? %>
-        <span class="label label--small label--basic">
+        <span class="label">
           <%= t(".deleted") %>
         </span>
       <% else %>

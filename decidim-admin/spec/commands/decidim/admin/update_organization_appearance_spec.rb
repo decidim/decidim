@@ -28,7 +28,7 @@ module Decidim::Admin
       let(:form) do
         OrganizationAppearanceForm.from_params(params).with_context(context)
       end
-      let(:command) { described_class.new(organization, form) }
+      let(:command) { described_class.new(form, organization) }
 
       describe "when the form is not valid" do
         before do

@@ -4,11 +4,7 @@ module Decidim
   # This cell is used to display metadata inside a list card
   # so other cells only have to customize a few methods or overwrite views.
   class CardMetadataCell < Decidim::ViewModel
-    include Decidim::IconHelper
-    include Decidim::ApplicationHelper
-    include Decidim::SanitizeHelper
     include Decidim::DateRangeHelper
-    include ActionView::Helpers::DateHelper
     include Cell::ViewModel::Partial
     include Decidim::ViewHooksHelper
 
@@ -33,7 +29,7 @@ module Decidim
       return unless show_space?
 
       {
-        text: decidim_html_escape(translated_attribute(participatory_space.title)),
+        text: decidim_escape_translated(participatory_space.title),
         icon: resource_type_icon_key(participatory_space.class),
         url: Decidim::ResourceLocatorPresenter.new(participatory_space).path
       }
@@ -75,7 +71,7 @@ module Decidim
 
       {
         cell: "decidim/coauthorships",
-        args: [resource, { stack: true }]
+        args: [resource, { stack: true, context_actions: [] }]
       }
     end
 

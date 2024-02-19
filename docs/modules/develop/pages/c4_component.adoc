@@ -11,7 +11,7 @@ title System Component diagram for Decidim Applications (https://decidim.org)
 
 ContainerDb(rel_db, "Relational Database", "PostgreSQL 9.5.x", "Stores users, participatory processes, assemblies, initiatives, proposals, meetings, etc.")
 Container(filesystem, "File System", "Local or remote", "Stores uploads (images, documents, etc.)")
-Container(worker, "Worker", "Ruby on Rails 5.2", "ActiveJob queues for non syncronuos jobs. Works for open data requests, sending emails, etc.")
+Container(worker, "Worker", "Ruby on Rails 5.2", "ActiveJob queues for non synchronous jobs. Works for open data requests, sending emails, etc.")
 
 Container_Boundary(web_app, "Web Application") {
 
@@ -25,7 +25,7 @@ Container_Boundary(web_app, "Web Application") {
     Component(system, "System module", "Ruby On Rails Engine", "Multitenant configuration, mounted in /system. Can create and manage all the instances of an installation.")
     Component(verifications, "Verifications module", "Ruby On Rails Engine", " Offers several methods for allowing participants to get authorization to perform certain privileged actions.")
 
-    Component(assemblies, "Assemblies module", "Ruby On Rails Engine (Space)", "A permament Space, mounted in /assemblies.")
+    Component(assemblies, "Assemblies module", "Ruby On Rails Engine (Space)", "A permanent Space, mounted in /assemblies.")
     Component(conferences, "Conferences module", "Ruby On Rails Engine (Space)", "A temporal Space, mounted in /conferences.")
     Component(initiatives, "Initiatives module", "Ruby On Rails Engine (Space)", "A bottom-up Space, mounted in /initiatives. A participant can collect signatures to bring an issue to the organization.")
     Component(participatory_processes, "Participatory Processes module (Space)", "Ruby On Rails Engine", "A temporal Space, mounted in /processes.")
@@ -34,7 +34,6 @@ Container_Boundary(web_app, "Web Application") {
     Component(budgets, "Budgets module", "Ruby On Rails Engine", "Component. Adds a participatory budgets system to any participatory space.")
     Component(blogs, "Blogs module", "Ruby On Rails Engine", "Component. Makes possible to add posts ordered by publication time to spaces.")
     Component(debates, "Debates module", "Ruby On Rails Engine", "Component. Adds a CRUD engine to the admin and public view scoped inside the participatory process.")
-    Component(elections, "Elections module", "Ruby On Rails Engine", "Components. Adds voting with cryptographic capabilities.")
     Component(meetings, "Meetings module", "Ruby On Rails Engine", "Component. Adds a CRUD engine to the admin and public view scoped inside the participatory process.")
     Component(pages, "Pages module", "Ruby On Rails Engine", "Component. adds static page capabilities to any participatory space. It basically provides an interface to include arbitrary HTML content to any step.")
     Component(proposals, "Proposals module", "Ruby On Rails Engine", "Component. Adds one of the main components of Decidim: allows users to contribute to a participatory space by creating proposals.")
@@ -43,7 +42,6 @@ Container_Boundary(web_app, "Web Application") {
 
     Rel(surveys, forms, "Consumes")
     Rel(meetings, forms, "Consumes")
-    Rel_Back(forms, elections, "Consumes")
 
     ' Rel(proposals, assemblies, "Mounts in")
     ' Rel(proposals, participatory_processes, "Mounts in")
@@ -67,17 +65,14 @@ Container_Boundary(web_app, "Web Application") {
     ' Rel(debates, admin, "Managed in")
     ' Rel(proposals, admin, "Managed in")
     ' Rel(blogs, admin, "Managed in")
-    ' Rel(elections, admin, "Managed in")
 
 }
 
-System_Ext(decidim_bulletin_board_system, "Decidim Bulletin Board", "Allows participants to cast end-to-end verifiable secret votes.")
 System_Ext(mail_system, "SMTP system (e-mail)", "Sends mails to users, like confirmations, reminders, notifications, etc.")
 System_Ext(etherpad_system, "Etherpad-Lite system", "Optional. Allows real-time text edition in Meetings.")
 System_Ext(geocoding_system, "Geocoding system", "Optional. An Open Street Maps provider, allows geographical localization of Proposals and Meetings..")
 System_Ext(oauth_system, "OAUTH2 System", "Optional. Third party sign on systems. Could be Twitter, Facebook, Google or any other OAUTH2 providers.")
 
-Rel_Back_Neighbor(decidim_bulletin_board_system, elections, "Uses")
 Rel_Neighbor(worker, mail_system, "Sends e-mails", "SMTP")
 Rel(web_app, rel_db, "Uses")
 Rel(web_app, filesystem, "Uses")

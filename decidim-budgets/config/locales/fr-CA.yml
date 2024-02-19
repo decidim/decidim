@@ -20,6 +20,9 @@ fr-CA:
         scope_id: Périmètre d'application
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Budget
+        other: Budgets
       decidim/budgets/project:
         one: Projet
         other: Projets
@@ -101,6 +104,9 @@ fr-CA:
             pending_orders: Votes en cours
             select_for_implementation: Sélectionné pour implémentation
             selected: Sélectionné
+            selected_options:
+              'no': 'Non'
+              'yes': 'Oui'
             title: Projets
             update: Mettre à jour
             update_budget_button: Mettre à jour le budget du projet
@@ -199,6 +205,7 @@ fr-CA:
           fields:
             category: Catégorie
             id: ID
+            map: Carte
             title: Titre
       order_summary_mailer:
         order_summary:

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Debates::UpdateDebate do
-  subject { described_class.new(form) }
+  subject { described_class.new(form, debate) }
 
   let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }
   let(:participatory_process) { create(:participatory_process, organization:) }

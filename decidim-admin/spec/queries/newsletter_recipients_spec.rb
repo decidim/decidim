@@ -104,10 +104,7 @@ module Decidim::Admin
               "ids" => [] },
             { "id" => nil,
               "manifest_name" => "initiatives",
-              "ids" => [] },
-            { "id" => nil,
-              "manifest_name" => "votings",
-              "ids" => [component.participatory_space.id.to_s] }
+              "ids" => [] }
           ]
         end
 

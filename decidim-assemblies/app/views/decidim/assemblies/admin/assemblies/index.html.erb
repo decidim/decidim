@@ -3,14 +3,14 @@
 
   <% if parent_assembly && parent_assembly.self_and_ancestors.length %>
     <div class="item_show__header">
-      <h2 class="item_show__header-title">
+      <h1 class="item_show__header-title">
         <% parent_assembly.self_and_ancestors.each_with_index do |assembly, ix| %>
           <%= translated_attribute(assembly.title) %>
           <% unless ix == parent_assembly.self_and_ancestors.length - 1 %>
             &gt;
           <% end %>
         <% end if parent_assembly %>
-      </h2>
+      </h1>
     </div>
   <% end %>
 

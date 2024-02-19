@@ -13,6 +13,11 @@ Decidim.register_component(:proposals) do |component|
     raise "Cannot destroy this component when there are proposals" if Decidim::Proposals::Proposal.where(component: instance).any?
   end
 
+  component.on(:create) do |instance|
+    admin_user = GlobalID::Locator.locate(instance.versions.first.whodunnit)
+    Decidim::Proposals.create_default_states!(instance, admin_user)
+  end
+
   component.data_portable_entities = ["Decidim::Proposals::Proposal"]
 
   component.newsletter_participant_entities = ["Decidim::Proposals::Proposal"]
@@ -101,7 +106,7 @@ Decidim.register_component(:proposals) do |component|
   end
 
   component.register_stat :proposals_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
-    Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.except_withdrawn.not_hidden.count
+    Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_withdrawn.not_hidden.count
   end
 
   component.register_stat :proposals_accepted, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|

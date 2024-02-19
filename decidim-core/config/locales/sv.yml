@@ -70,11 +70,6 @@ sv:
   booleans:
     'false': 'Nej'
     'true': 'Ja'
-  carrierwave:
-    errors:
-      file_resolution_too_large: Filupplösningen är för stor
-      file_size_too_large: Filen är för stor
-      not_inside_organization: Den här filen är inte bifogad till någon organisation
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -426,8 +421,6 @@ sv:
         name: Sidfot sub hero banner
       global_menu:
         name: Global meny
-      hero:
-        name: Hjältebild
       hero_settings_form:
         background_image: Bakgrundsbild
         welcome_text: Välkomsttext
@@ -1059,8 +1052,6 @@ sv:
         metrics:
           headline: Metrik
           link: Visa alla metrik
-    participatory_space_private_users:
-      not_allowed: Du har inte rätt att se det här innehållet
     profile:
       deleted: Raderad deltagare
     profiles:
@@ -1428,17 +1419,10 @@ sv:
   emojis:
     button: Lägg till emoji
     categories:
-      activities: Aktiviteter
       custom: Anpassad
       flags: Flaggor
-      food-drink: Mat & Dryck
       objects: Objekt
-      people-body: Personer & kropp
-      recents: Nyligen använd
       symbols: Symboler
-    retry: Försök igen
-    search:
-      clear: Rensa sök
   errors:
     messages:
       confirmation_period_expired: behöver bekräftas inom %{period}, be om en ny

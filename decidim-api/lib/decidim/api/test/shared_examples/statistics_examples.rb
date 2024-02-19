@@ -16,8 +16,7 @@ shared_examples "implements stats type" do
           { "name" => "results_count", "value" => 0 },
           { "name" => "debates_count", "value" => 0 },
           { "name" => "sortitions_count", "value" => 0 },
-          { "name" => "posts_count", "value" => 0 },
-          { "name" => "elections_count", "value" => 0 }
+          { "name" => "posts_count", "value" => 0 }
         ]
       }
     end

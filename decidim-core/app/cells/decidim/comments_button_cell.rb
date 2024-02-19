@@ -2,8 +2,6 @@
 
 module Decidim
   class CommentsButtonCell < ButtonCell
-    delegate :current_settings, :component_settings, to: :controller
-
     def show
       if options.has_key?(:display)
         return render if options[:display]

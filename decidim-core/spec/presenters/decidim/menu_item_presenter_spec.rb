@@ -46,7 +46,7 @@ module Decidim
       let(:menu_item) { MenuItem.new("Foo", "#", :foo) }
 
       it "adds a span instead of a link" do
-        expect(subject.render).not_to have_link("Foo", href: "#")
+        expect(subject.render).to have_no_link("Foo", href: "#")
         expect(subject.render).to have_css("span.sidebar-menu__item-disabled")
       end
     end

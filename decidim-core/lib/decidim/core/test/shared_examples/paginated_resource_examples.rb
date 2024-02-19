@@ -17,7 +17,7 @@ shared_examples "a paginated resource" do
 
     within "[data-pagination]" do
       page.find("summary", text: "10").click
-      click_link "50"
+      click_on "50"
     end
 
     sleep 2

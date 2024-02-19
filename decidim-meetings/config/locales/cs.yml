@@ -96,6 +96,11 @@ cs:
   decidim:
     admin:
       filters:
+        accepted_at_not_null:
+          label: Přijato
+          values:
+            'false': Nepřijato
+            'true': Přijato
         meetings:
           category_id_eq:
             label: Kategorie
@@ -123,6 +128,18 @@ cs:
               hybrid: Hybridní
               in_person: Osobně
               online: Online
+        rejected_at_not_null:
+          label: Odmítnuto
+          values:
+            'false': Neodmítnuto
+            'true': Odmítnuto
+        search_placeholder:
+          user_name_or_user_email_cont: Hledat podle jména nebo e-mailu
+        sent_at_not_null:
+          label: Odesláno
+          values:
+            'false': Neodesláno
+            'true': Odesláno
       meeting_copies:
         create:
           error: Bylo zde chyba, že se tato schůzka zdvojnásobila.
@@ -289,15 +306,9 @@ cs:
             non_user: Neexistující uživatel
             select_user: Vyberte uživatele
           index:
-            filter:
-              accepted: Přijato
-              all: Vše
-              rejected: Odmítnuto
-              sent: Odeslaná
             invite_attendee: Pozvat účastníka
             invites: Pozvánky
             registrations_disabled: Nemůžete pozvat účastníka, protože registrace jsou blokovány.
-            search: Vyhledávání
         meeting_closes:
           edit:
             close: Zavřít

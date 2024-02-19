@@ -711,7 +711,6 @@ tr:
         areas: alanlar
         authorization_workflows: Doğrulama yöntemleri
         dashboard: Pano
-        edit_external_domains: Harici Güvenli Alan
         edit_landing_page: Sayfa İçeriği
         edit_organization_appearance: Ana Sayfayı Düzenleme
         impersonatable_users: Yönetilebilir kullanıcılar

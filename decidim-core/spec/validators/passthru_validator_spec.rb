@@ -10,7 +10,7 @@ describe PassthruValidator do
   let(:uploader) do
     Class.new(Decidim::ApplicationUploader) do
       def content_type_allowlist
-        %w(image/jpeg image/png)
+        %w(image/jpeg image/png image/webp)
       end
     end
   end
@@ -20,7 +20,7 @@ describe PassthruValidator do
     Class.new(ApplicationRecord) do
       include Decidim::HasUploadValidations
 
-      self.table_name = "decidim_dummy_resources_dummy_resources"
+      self.table_name = "decidim_dev_dummy_resources"
 
       def self.model_name
         ActiveModel::Name.new(self, nil, "Passthrough")
@@ -64,7 +64,7 @@ describe PassthruValidator do
       it "adds the passthrough record's validation errors on the field" do
         expect(subject).to be_invalid
         expect(subject.errors[:file]).to eq(
-          ["only files with the following extensions are allowed: jpeg, jpg, png"]
+          ["only files with the following extensions are allowed: jpeg, jpg, png, webp"]
         )
       end
     end

@@ -233,14 +233,8 @@ hu:
             non_user: Nemlétező felhasználó
             select_user: Felhasználó kiválasztása
           index:
-            filter:
-              accepted: Elfogadva
-              all: Összes
-              rejected: Elutasítva
-              sent: Elküldve
             invite_attendee: Résztvevő meghívása
             invites: Meghívottak
-            search: Keresés
         meeting_closes:
           edit:
             close: Bezárás

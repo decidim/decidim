@@ -73,12 +73,6 @@ ja:
   booleans:
     'false': 'いいえ'
     'true': 'はい'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: ファイルを処理できません
-      file_resolution_too_large: ファイルの解像度の値が大きすぎます
-      file_size_too_large: ファイルサイズが大きすぎます
-      not_inside_organization: ファイルはどの組織にも添付されていません
   date:
     formats:
       decidim_short: "%Y/%m/%d"
@@ -497,7 +491,7 @@ ja:
       global_menu:
         name: グローバルメニュー
       hero:
-        name: ヒーロー画像
+        name: ヒーローイメージと CTA
       hero_settings_form:
         background_image: 背景画像
         welcome_text: ウェルカムテキスト
@@ -651,6 +645,10 @@ ja:
     endorsers_list:
       endorsed_by: オススメ
     errors:
+      files:
+        file_cannot_be_processed: ファイルを処理できません
+        file_resolution_too_large: ファイルの解像度が大きすぎます
+        not_inside_organization: ファイルがどの組織にも属していません
       internal_server_error:
         copied: テキストをコピーしました
         copy_error_message_clarification: エラーメッセージをクリップボードにコピー
@@ -1255,7 +1253,8 @@ ja:
     offline:
       name: オフライン
       show:
-        message: 現在オフラインのようです。後ほど改めてお試しください。
+        message_1: 現在オフラインのようです。
+        message_2: しばらくたってから改めてやり直してください。
         retry: 再試行
     open_data:
       not_available_yet: オープンデータファイルはまだ利用できません。数分後にもう一度お試しください。
@@ -1275,6 +1274,7 @@ ja:
           proposals: 提案
           proposals_explanation: 提案を行い、既存のものをサポートし、見たい変更を促進します。
         footer_sub_hero:
+          footer_sub_hero_body_html: より開かれた透明性のあるコラボレーティブな社会を構築しましょう。<br /> 一緒に参加し、決定しましょう。
           footer_sub_hero_headline: '%{organization} 参加型プラットフォームへようこそ。'
           register: 登録
         hero:
@@ -1312,8 +1312,6 @@ ja:
           alert: 利用規約を更新しました。ご確認ください。
           body: 利用規約の更新内容を確認してください。確認しない場合、プラットフォームを使用することはできません。
           title: '必須: 利用規約の更新を確認する'
-    participatory_space_private_users:
-      not_allowed: このコンテンツを表示する権限がありません
     passwords:
       update:
         error: パスワードの更新中に問題が発生しました。
@@ -1549,7 +1547,13 @@ ja:
         subject: '%{organization_name} で新しいユーザーが報告されました'
     user_update_mailer:
       notify:
+        body_1: アカウントのアップデートについてお知らせするために、このメッセージを送信しています。
+        body_2: ご自身でこのような更新を行っていない場合は、アカウントにログインしてパスワードを変更してください。 ログインできない場合は、プラットフォームサポートにお問い合わせください。
+        greetings: こんにちは、<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: こんにちは、 %{user} さん
+        main_body: '以下の詳細が変更されました: %{updates}.'
+        update_fields: "%{updates} と %{last_update}"
+      subject: アカウントを更新しました
     version:
       show:
         back_to_resource: 戻る
@@ -1661,6 +1665,9 @@ ja:
         change_my_password: パスワードを変更する
         confirm_new_password: 新しいパスワードを確認
         new_password: 新しいパスワード
+        old_password_help: アカウントの変更を確認するには、現在のパスワードを入力してください。
+        password_help: "半角英数字%{minimum_characters}文字以上で入力してください。単純すぎる文字列ではいけません（例：123456）。ニックネームやメールアドレスと異なる必要があります。"
+        password_help_admin: "半角英数字%{minimum_characters}文字以上で入力してください。単純すぎる文字列ではいけません（例：123456）。ニックネームやメールアドレス、以前のパスワードと異なる必要があります。"
         title: パスワードの変更
       new:
         forgot_your_password: パスワードをお忘れですか？
@@ -1764,30 +1771,32 @@ ja:
     upload:
       uploadedFile: アップロードされたファイル
   emojis:
+    add_custom: カスタム絵文字を追加
     button: 絵文字を追加
     categories:
-      activities: アクティビティ
-      animals-nature: 動物・自然
+      activity: アクティビティ
       custom: ユーザー定義
       flags: 国旗
-      food-drink: フード・ドリンク
+      foods: 食べ物・飲み物
+      frequent: よく使う絵文字
+      nature: 動物・自然
       objects: 物
-      people-body: 人・体
-      recents: 最近使用したもの
-      smileys-emotion: スマイリー・エモティコン
+      people: 表情・人物
+      places: 旅行・場所
+      search: 検索結果
       symbols: シンボル
-      travel-places: 旅行・場所
-    error:
-      load: 絵文字の読み込みに失敗しました
-    recents:
-      clear: 最近の絵文字を消去
-      none: 絵文字がまだ選択されていません。
-    retry: やり直す
-    search:
-      _: 絵文字を検索...
-      clear: 検索をクリア
-      error: 絵文字の検索に失敗しました
-      not_found: 検索結果がありません
+    pick: 絵文字の選択
+    search: 検索
+    search_no_results_1: おっと！
+    search_no_results_2: 絵文字が見つかりませんでした
+    skins:
+      '1': デフォルト
+      '2': 明るめ
+      '3': やや明るめ
+      '4': 中間
+      '5': やや暗め
+      '6': 暗め
+      choose: デフォルトのスキンのトーンを選択
   errors:
     messages:
       allowed_file_content_types: '次の拡張子を持つファイルのみが許可されています: %{types}'

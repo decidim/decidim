@@ -20,9 +20,9 @@ describe "TOS" do
       end
     end
 
-    it "show tos checkbox separaterly from other input elements" do
+    it "show tos checkbox separately from other input elements" do
       within("div#card__tos") do
-        expect(page).not_to have_css("input:not(#registration_user_tos_agreement)")
+        expect(page).to have_no_css("input:not(#registration_user_tos_agreement)")
       end
     end
   end

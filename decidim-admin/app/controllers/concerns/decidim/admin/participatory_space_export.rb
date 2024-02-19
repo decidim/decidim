@@ -33,7 +33,7 @@ module Decidim
         end
 
         # Public: Returns a String or Object that will be passed to `redirect_to` after
-        # exporing a space. By default it redirects to the root_path.
+        # exploring a space. By default it redirects to the root_path.
         #
         # It can be redefined at controller level if you need to redirect elsewhere.
         def after_export_path

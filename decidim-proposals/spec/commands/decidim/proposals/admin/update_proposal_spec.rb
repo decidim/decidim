@@ -128,7 +128,7 @@ describe Decidim::Proposals::Admin::UpdateProposal do
           }
         end
 
-        it "creates an atachment for the proposal" do
+        it "creates an attachment for the proposal" do
           expect { command.call }.to change(Decidim::Attachment, :count).by(1)
           last_proposal = Decidim::Proposals::Proposal.last
           last_attachment = Decidim::Attachment.last

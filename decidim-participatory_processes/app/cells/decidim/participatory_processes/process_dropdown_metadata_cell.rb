@@ -26,7 +26,7 @@ module Decidim
       end
 
       def step_title
-        translated_attribute process.active_step&.title
+        decidim_html_escape translated_attribute(process.active_step&.title)
       end
 
       def display_steps?

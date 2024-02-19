@@ -15,7 +15,7 @@ module Decidim
 
         let(:query) { %({ conferences { id }}) }
 
-        it "returns all the conferencees" do
+        it "returns all the conferences" do
           expect(response["conferences"]).to include("id" => conference1.id.to_s)
           expect(response["conferences"]).to include("id" => conference2.id.to_s)
           expect(response["conferences"]).not_to include("id" => conference3.id.to_s)

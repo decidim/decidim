@@ -16,38 +16,39 @@ module Decidim::Importers
       let!(:component2) { create(:component, :with_one_step, :unpublished, :with_permissions, participatory_space:, weight: 2) }
 
       let(:json_as_text) do
-        <<~EOJSON
-          [{
-            "manifest_name": "#{component1.manifest_name}",
-            "id": #{component1.id},
-            "name": {
-              "ca": "#{component1.name["ca"]}",
-              "en": "#{component1.name["en"]}",
-              "es": "#{component1.name["es"]}"
+        json = [
+          {
+            manifest_name: component1.manifest_name,
+            id: component1.id,
+            name: {
+              ca: component1.name["ca"],
+              en: component1.name["en"],
+              es: component1.name["es"]
             },
-            "participatory_space_id": #{previous_participatory_space.id},
-            "participatory_space_type": "#{component1.participatory_space.class.name}",
-            "settings": #{component1.attributes["settings"].to_json},
-            "weight": #{component1.weight},
-            "permissions": #{component1.permissions.to_json},
-            "published_at": "#{component1.published_at&.iso8601 || "null"}"
+            participatory_space_id: previous_participatory_space.id,
+            participatory_space_type: component1.participatory_space.class.name,
+            settings: component1.attributes["settings"],
+            weight: component1.weight,
+            permissions: component1.permissions,
+            published_at: component1.published_at&.iso8601
           }, {
-            "manifest_name": "#{component2.manifest_name}",
-            "id": #{component2.id},
-            "name": {
-              "ca": "#{component2.name["ca"]}",
-              "en": "#{component2.name["en"]}",
-              "es": "#{component2.name["es"]}"
+            manifest_name: component2.manifest_name,
+            id: component2.id,
+            name: {
+              ca: component2.name["ca"],
+              en: component2.name["en"],
+              es: component2.name["es"]
             },
-            "participatory_space_id": #{previous_participatory_space.id},
-            "participatory_space_type": "#{component2.participatory_space.class.name}",
-            "settings": #{component2.attributes["settings"].to_json},
-            "weight": #{component2.weight},
-            "permissions": #{component2.permissions.to_json},
-            "published_at": "#{component2.published_at&.iso8601 || "null"}"
+            participatory_space_id: previous_participatory_space.id,
+            participatory_space_type: component2.participatory_space.class.name,
+            settings: component2.attributes["settings"],
+            weight: component2.weight,
+            permissions: component2.permissions,
+            published_at: component2.published_at&.iso8601
           }
-          ]
-        EOJSON
+        ]
+
+        JSON.generate(json)
       end
 
       describe "#import" do
@@ -75,7 +76,7 @@ module Decidim::Importers
         end
 
         # Find the Decidim::Component created during importation that corresponds
-        # to the +component+ used to generate the impoted json.
+        # to the +component+ used to generate the imported json.
         def imported_from(component)
           imported = Decidim::Component.where.not(id: component.id)
                                        .find_by(manifest_name: component.manifest_name, weight: component.weight)

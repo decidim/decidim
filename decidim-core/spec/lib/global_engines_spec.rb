@@ -7,7 +7,7 @@ describe "global engines", type: :system do
   let(:mount_at) { nil }
 
   around do |example|
-    Decidim.register_global_engine(:global_engine, Decidim::DummyResources::DummyEngine, at: mount_at)
+    Decidim.register_global_engine(:global_engine, Decidim::Dev::Engine, at: mount_at)
     Rails.application.reload_routes!
     switch_to_host(organization.host)
     example.run

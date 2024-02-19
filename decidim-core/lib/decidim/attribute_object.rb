@@ -17,8 +17,8 @@ module Decidim
       @types ||= TypeResolver.new
     end
 
-    def self.type(type, **options)
-      typedef = types.resolve(type, **options)
+    def self.type(type, **)
+      typedef = types.resolve(type, **)
 
       ActiveModel::Type.lookup(typedef[:type], **typedef[:options])
     end

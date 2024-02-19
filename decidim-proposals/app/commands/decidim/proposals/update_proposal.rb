@@ -133,11 +133,11 @@ module Decidim
       end
 
       def current_user_proposals
-        Proposal.from_author(current_user).where(component: form.current_component).published.where.not(id: proposal.id).except_withdrawn
+        Proposal.from_author(current_user).where(component: form.current_component).published.where.not(id: proposal.id).not_withdrawn
       end
 
       def user_group_proposals
-        Proposal.from_user_group(user_group).where(component: form.current_component).published.where.not(id: proposal.id).except_withdrawn
+        Proposal.from_user_group(user_group).where(component: form.current_component).published.where.not(id: proposal.id).not_withdrawn
       end
     end
   end
