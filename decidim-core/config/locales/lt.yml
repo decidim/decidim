@@ -888,7 +888,6 @@ lt:
       create:
         button: Sekti
         error: Sekant šį išteklių iškilo problema.
-        participatory_space: Sekate <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Nebesekti
         error: Nutraukiant šio ištekliaus sekimą iškilo problema.
