@@ -702,7 +702,6 @@ ro:
       create:
         button: Urmărește
         error: A apărut o problemă la urmărirea acestei resurse.
-        participatory_space: Urmăriți<span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Nu doresc să mai urmăresc
         error: A apărut o problemă la anularea urmăririi acestei resurse.
