@@ -11,7 +11,7 @@ module Decidim
           transformer = DocToMarkdown.new(file, DocToMarkdown::ODT_MIME_TYPE)
 
           expected = File.read(Decidim::Dev.asset("participatory_text.md"))
-          # remove the HTML commnets
+          # remove the HTML comments
           expected.gsub!(/<!--.*-->/, "")
           # doc2text does not support ordered lists use - instead
           expected.gsub!(/^\d\. /, "- ")
