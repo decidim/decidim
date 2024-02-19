@@ -766,7 +766,6 @@ ar:
       create:
         button: إتبع
         error: حدثت مشكلة بعد هذا المورد.
-        participatory_space: متابعة <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: إيقاف المتابَعة
         error: حدثت مشكلة في إلغاء متابعة هذا المورد.
