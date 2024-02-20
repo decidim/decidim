@@ -733,8 +733,8 @@ FactoryBot.define do
       skip_injection { false }
     end
 
-    originator { build(:user) }
-    interlocutors { [build(:user)] }
+    originator { build(:user, skip_injection: ) }
+    interlocutors { [build(:user, skip_injection: )] }
     body { Faker::Lorem.sentence }
     user
 
