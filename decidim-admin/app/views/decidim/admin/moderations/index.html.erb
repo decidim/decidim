@@ -27,7 +27,7 @@
         <% if params[:hidden] %>
           <th><%= t("models.moderation.fields.hidden_at", scope: "decidim.moderations") %></th>
         <% end %>
-        <th class="actions"><%= t("actions.title", scope: "decidim.moderations") %></th>
+        <th><%= t("actions.title", scope: "decidim.moderations") %></th>
       </tr>
     </thead>
     <tbody>
@@ -69,7 +69,7 @@
               <%= l(moderation.hidden_at, format: :long) if moderation.hidden_at.present? %>
             </td>
           <% end %>
-          <td class="actions">
+          <td>
             <%= icon_link_to "fullscreen-line",
                              moderation_reports_path(moderation_id: moderation),
                              t("actions.expand", scope: "decidim.moderations"),

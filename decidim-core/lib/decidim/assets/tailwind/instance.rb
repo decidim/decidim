@@ -21,7 +21,7 @@ module Decidim
           decidim_gems = Bundler.load.specs.select { |spec| spec.name =~ /^decidim-/ }.map(&:full_gem_path)
           content_directories = decidim_gems.push(".")
 
-          # The variable expected by tailwind is a Javascript array of strings
+          # The variable expected by tailwind is a JavaScript array of strings
           # The directory globbing with the star is done in Ruby because it was causing an infinite loop
           # when processed by Tailwind
           content_directories_as_array_of_strings = content_directories.map { |content_directory| "'#{content_directory}'" }.join(",")

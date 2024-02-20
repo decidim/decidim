@@ -8,7 +8,7 @@ shared_examples_for "has questionnaire" do
       visit questionnaire_public_path
 
       expect(page).to have_i18n_content(questionnaire.title)
-      expect(page).to have_i18n_content(questionnaire.description)
+      expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
 
       expect(page).not_to have_css(".form.answer-questionnaire")
 
@@ -39,7 +39,7 @@ shared_examples_for "has questionnaire" do
       visit questionnaire_public_path
 
       expect(page).to have_i18n_content(questionnaire.title)
-      expect(page).to have_i18n_content(questionnaire.description)
+      expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
 
       fill_in question.body["en"], with: "My first answer"
 
@@ -536,14 +536,6 @@ shared_examples_for "has questionnaire" do
         )
       end
 
-      before do
-        # Workaround for flaky spec related to resolution change
-        #
-        # For some unknown reason, depending on the order run for these specs, the resolution is changed to
-        # 800x600, which breaks the drag and drop. This forces the resolution to be 1920x1080
-        current_window.resize_to(1920, 1080)
-      end
-
       it "renders the question answers as a collection of divs sortable on drag and drop" do
         visit questionnaire_public_path
 
@@ -700,7 +692,7 @@ shared_examples_for "has questionnaire" do
         expect(third_choice).to eq([question.answer_options.first.id, question.matrix_rows.last.id])
       end
 
-      context "when the question hax max_choices defined" do
+      context "when the question has max_choices defined" do
         let!(:max_choices) { 2 }
 
         it "respects the max number of choices" do

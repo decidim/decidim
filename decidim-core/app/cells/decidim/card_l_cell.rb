@@ -5,9 +5,7 @@ module Decidim
   # so other cells only have to customize a few methods or overwrite views.
   class CardLCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
-    include Decidim::ApplicationHelper
     include Decidim::TooltipHelper
-    include Decidim::SanitizeHelper
     include Decidim::CardHelper
     include Decidim::LayoutHelper
     include Decidim::SearchesHelper

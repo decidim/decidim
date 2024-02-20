@@ -83,12 +83,12 @@ describe "Explore meetings", :slow do
     end
 
     context "when checking withdrawn meetings" do
-      context "when there are no withrawn meetings" do
+      context "when there are no withdrawn meetings" do
         let!(:meeting) { create_list(:meeting, 3, :published, component:) }
 
         before do
           visit_component
-          click_link "See all withdrawn meetings"
+          click_on "See all withdrawn meetings"
         end
 
         it "shows an empty page with a message" do
@@ -99,12 +99,12 @@ describe "Explore meetings", :slow do
         end
       end
 
-      context "when there are withrawn meetings" do
+      context "when there are withdrawn meetings" do
         let!(:withdrawn_meetings) { create_list(:meeting, 3, :withdrawn, :published, component:) }
 
         before do
           visit_component
-          click_link "See all withdrawn meetings"
+          click_on "See all withdrawn meetings"
         end
 
         it "shows all the withdrawn meetings" do
@@ -156,7 +156,7 @@ describe "Explore meetings", :slow do
           within "form.new_filter" do
             fill_in("filter[search_text_cont]", with: "foobar")
             within "div.filter-search" do
-              click_button
+              click_on
             end
           end
 
@@ -227,7 +227,7 @@ describe "Explore meetings", :slow do
         within "form.new_filter" do
           fill_in("filter[search_text_cont]", with: translated(meetings.first.title))
           within "div.filter-search" do
-            click_button
+            click_on
           end
         end
 
@@ -335,7 +335,7 @@ describe "Explore meetings", :slow do
         filter_params = CGI.parse(URI.parse(page.current_url).query)
         base_url = "http://#{organization.host}:#{Capybara.server_port}"
 
-        click_button "Export calendar"
+        click_on "Export calendar"
         expect(page).to have_css("#calendarShare", visible: :visible)
         within("#calendarShare") do
           expect(page).to have_content("Calendar URL")
@@ -513,7 +513,7 @@ describe "Explore meetings", :slow do
 
       it "shows related proposals" do
         visit_component
-        click_link translated(meeting.title)
+        click_on translated(meeting.title)
         proposals.each do |proposal|
           expect(page).to have_content(translated(proposal.title))
           expect(page).to have_content(proposal.creator_author.name)
@@ -534,7 +534,7 @@ describe "Explore meetings", :slow do
 
       it "shows related resources" do
         visit_component
-        click_link translated(meeting.title)
+        click_on translated(meeting.title)
         results.each do |result|
           expect(page).to have_i18n_content(result.title)
         end
@@ -548,7 +548,7 @@ describe "Explore meetings", :slow do
     shared_examples_for "a closing report page" do
       it "shows the closing report" do
         visit_component
-        click_link translated(meeting.title)
+        click_on translated(meeting.title)
         expect(page).to have_i18n_content(meeting.closing_report, strip_tags: true)
 
         within "[data-content]" do

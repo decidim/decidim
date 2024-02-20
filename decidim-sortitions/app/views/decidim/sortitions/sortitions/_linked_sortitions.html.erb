@@ -1,4 +1,4 @@
-<div class="card card--action card--list">
+<div class="card card--action">
   <% resources.each do |sortition| %>
     <div class="card--list__item">
       <div class="card--list__text">
@@ -19,8 +19,8 @@
           </div>
         </div>
       </div>
-      <div class="card--list__data">
-        <span class="card--list__data__number">
+      <div>
+        <span>
           <%= sortition.selected_proposals.size %>
         </span> <%= t(".selected_proposals", count: proposal.selected_proposals.size) %>
       </div>

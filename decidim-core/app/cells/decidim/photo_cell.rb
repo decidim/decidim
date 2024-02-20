@@ -3,10 +3,6 @@
 module Decidim
   # This cell renders the media link card for an instance of a MediaLink
   class PhotoCell < Decidim::ViewModel
-    include Decidim::ApplicationHelper
-    include Decidim::LayoutHelper
-    include Decidim::SanitizeHelper
-
     def show
       render
     end

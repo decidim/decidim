@@ -22,7 +22,7 @@ describe "Filter Proposals", :slow do
       end
 
       within_language_menu do
-        click_link "Català"
+        click_on "Català"
       end
 
       within "form.new_filter" do
@@ -160,18 +160,18 @@ describe "Filter Proposals", :slow do
         end
 
         within "#dropdown-menu-order" do
-          click_link "Most commented"
+          click_on "Most commented"
         end
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
-        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: translated(first_proposal.title))
+        expect(page).to have_css("[id^='proposals__proposal']:first-child", text: translated(first_proposal.title))
 
         within "#dropdown-menu-order" do
-          click_link "Most followed"
+          click_on "Most followed"
         end
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
-        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: translated(last_proposal.title))
+        expect(page).to have_css("[id^='proposals__proposal']:first-child", text: translated(last_proposal.title))
       end
     end
 
@@ -409,18 +409,18 @@ describe "Filter Proposals", :slow do
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
 
         within "#dropdown-menu-order" do
-          click_link "Most commented"
+          click_on "Most commented"
         end
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
-        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: translated(proposal1.title))
+        expect(page).to have_css("[id^='proposals__proposal']:first-child", text: translated(proposal1.title))
 
         within "#dropdown-menu-order" do
-          click_link "Most followed"
+          click_on "Most followed"
         end
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
-        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: translated(proposal4.title))
+        expect(page).to have_css("[id^='proposals__proposal']:first-child", text: translated(proposal4.title))
       end
     end
   end
@@ -544,7 +544,7 @@ describe "Filter Proposals", :slow do
       end
 
       context "when amendments_enabled component setting is enabled" do
-        context "and amendments_visbility component step_setting is set to 'participants'" do
+        context "and amendments_visibility component step_setting is set to 'participants'" do
           context "when the user is logged in" do
             before do
               visit decidim.root_path
@@ -620,7 +620,7 @@ describe "Filter Proposals", :slow do
           component.update!(settings: { amendments_enabled: false })
         end
 
-        context "and amendments_visbility component step_setting is set to 'participants'" do
+        context "and amendments_visibility component step_setting is set to 'participants'" do
           before do
             component.update!(
               step_settings: {

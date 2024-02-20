@@ -23,7 +23,7 @@ module Decidim
       end
     end
 
-    # The private "split" method SplitDiff needs to be overriden to take into
+    # The private "split" method SplitDiff needs to be overridden to take into
     # account the new :unescaped_html format, and the fact that the tags
     # <ins> <del> are not there anymore
     Diffy::SplitDiff.module_eval do

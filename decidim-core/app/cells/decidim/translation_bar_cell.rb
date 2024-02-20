@@ -4,8 +4,6 @@ module Decidim
   # This cell is used to render a button to toggle machine translations. It will
   # only render if the translations are enabled.
   class TranslationBarCell < Decidim::ViewModel
-    include Decidim::TranslatableAttributes
-
     def show
       return unless renderable?
 

@@ -6,13 +6,13 @@ shared_examples "manage media links examples" do
     login_as user, scope: :user
     visit decidim_admin_conferences.edit_conference_path(conference)
     within_admin_sidebar_menu do
-      click_link "Media Links"
+      click_on "Media Links"
     end
   end
 
   describe "creating media link" do
     before do
-      click_link "New media link"
+      click_on "New media link"
     end
 
     it "creates a new media link" do
@@ -57,8 +57,8 @@ shared_examples "manage media links examples" do
     end
 
     it "updates a conference media links" do
-      within find("#media_links tr", text: translated(media_link.title)) do
-        click_link "Edit"
+      within "#media_links tr", text: translated(media_link.title) do
+        click_on "Edit"
       end
 
       within ".edit_media_link" do
@@ -86,7 +86,7 @@ shared_examples "manage media links examples" do
     end
 
     it "deletes the conference media link" do
-      within find("#media_links tr", text: translated(media_link.title)) do
+      within "#media_links tr", text: translated(media_link.title) do
         accept_confirm { find("a.action-icon--remove").click }
       end
 
@@ -110,8 +110,8 @@ shared_examples "manage media links examples" do
     it "lists 10 media links per page by default" do
       expect(page).to have_css(resource_selector, count: 10)
       expect(page).to have_css("[data-pages] [data-page]", count: 2)
-      click_link "Next"
-      expect(page).to have_selector("[data-pages] [data-page][aria-current='page']", text: "2")
+      click_on "Next"
+      expect(page).to have_css("[data-pages] [data-page][aria-current='page']", text: "2")
       expect(page).to have_css(resource_selector, count: 5)
     end
   end

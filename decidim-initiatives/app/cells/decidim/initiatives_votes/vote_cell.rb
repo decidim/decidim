@@ -3,8 +3,6 @@
 module Decidim
   module InitiativesVotes
     class VoteCell < Decidim::ViewModel
-      include Decidim::SanitizeHelper
-
       delegate :timestamp, :hash_id, to: :model
 
       def show

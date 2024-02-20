@@ -3,8 +3,6 @@
 module Decidim::Amendable
   # This cell renders the callout with information about the state of the emendation
   class AnnouncementCell < Decidim::ViewModel
-    include Decidim::ApplicationHelper
-
     def show
       cell "decidim/announcement", announcement, callout_class: state_classes
     end

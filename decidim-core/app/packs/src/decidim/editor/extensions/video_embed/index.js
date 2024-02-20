@@ -9,7 +9,7 @@ const YOUTUBE_REGEX_GLOBAL = /^(https?:\/\/)?(www\.|music\.)?(youtube\.com|youtu
 const VIMEO_REGEX = /^(https?:\/\/)?(www\.|player\.)?(vimeo\.com)(.+)?$/;
 const VIMEO_REGEX_GLOBAL = /^(https?:\/\/)?(www\.|player\.)?(vimeo\.com)(.+)?$/g;
 
-const isValidYoutubeUrl = (url) => {
+const isValidYouTubeUrl = (url) => {
   return url.match(YOUTUBE_REGEX);
 }
 
@@ -17,7 +17,7 @@ const isValidVimeoUrl = (url) => {
   return url.match(VIMEO_REGEX);
 };
 
-const getEmbedUrlFromYoutubeUrl = (options) => {
+const getEmbedUrlFromYouTubeUrl = (options) => {
   const embedUrl = "https://www.youtube-nocookie.com/embed/";
 
   const { url } = options;
@@ -74,8 +74,8 @@ const getEmbedUrlFromVimeoUrl = (options) => {
 const getEmbedUrlFromVideoUrl = (options) => {
   const { url } = options;
 
-  if (isValidYoutubeUrl(url)) {
-    return getEmbedUrlFromYoutubeUrl(options);
+  if (isValidYouTubeUrl(url)) {
+    return getEmbedUrlFromYouTubeUrl(options);
   } else if (isValidVimeoUrl(url)) {
     return getEmbedUrlFromVimeoUrl(options);
   }

@@ -111,7 +111,7 @@ describe "Admin manages global moderations" do
 
     it "can be filtered by id" do
       search_by_text(hidden_moderation.reportable.id)
-      expect(page).to have_selector("tbody tr", count: 1)
+      expect(page).to have_css("tbody tr", count: 1)
     end
   end
 end

@@ -12,7 +12,7 @@ describe "Search" do
   end
 
   it "has a topbar search form" do
-    expect(page).to have_selector(".main-bar__search")
+    expect(page).to have_css(".main-bar__search")
   end
 
   context "when searching from the top bar" do
@@ -30,7 +30,7 @@ describe "Search" do
     it "displays the results page" do
       expect(page).to have_current_path decidim.search_path, ignore_query: true
       expect(page).to have_content(/results for the search: "#{term}"/i)
-      expect(page).to have_selector(".filter-search.filter-container")
+      expect(page).to have_css(".filter-search.filter-container")
     end
 
     it "has all the resources to search" do
@@ -59,8 +59,8 @@ describe "Search" do
       switch_to_host(organization.host)
       visit decidim.root_path
 
-      click_button(id: "dc-dialog-accept")
-      click_button(id: "dropdown-trigger-links-mobile-search")
+      click_on(id: "dc-dialog-accept")
+      click_on(id: "dropdown-trigger-links-mobile-search")
     end
 
     it "shows the mobile version of the search form" do

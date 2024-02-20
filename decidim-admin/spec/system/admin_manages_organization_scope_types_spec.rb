@@ -10,9 +10,9 @@ describe "Admin manages scope types" do
     switch_to_host(organization.host)
     login_as admin, scope: :user
     visit decidim_admin.root_path
-    click_link "Settings"
-    click_link "Scopes"
-    click_link "Scope types"
+    click_on "Settings"
+    click_on "Scopes"
+    click_on "Scope types"
   end
 
   it "can create new scope types" do
@@ -61,8 +61,8 @@ describe "Admin manages scope types" do
     end
 
     it "can edit them" do
-      within find("tr", text: translated(scope_type.name)) do
-        click_link "Edit"
+      within "tr", text: translated(scope_type.name) do
+        click_on "Edit"
       end
 
       within ".item__edit-form" do
@@ -75,7 +75,7 @@ describe "Admin manages scope types" do
         fill_in_i18n(
           :scope_type_plural,
           "#scope_type-plural-tabs",
-          en: "This is the new pluarl"
+          en: "This is the new plural"
         )
         find("*[type=submit]").click
       end
@@ -88,8 +88,8 @@ describe "Admin manages scope types" do
     end
 
     it "can delete them" do
-      within find("tr", text: translated(scope_type.name)) do
-        accept_confirm { click_link "Delete" }
+      within "tr", text: translated(scope_type.name) do
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

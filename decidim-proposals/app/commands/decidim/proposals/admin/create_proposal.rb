@@ -39,7 +39,7 @@ module Decidim
             create_proposal
             create_gallery if process_gallery?
             create_attachment(weight: first_attachment_weight) if process_attachments?
-            link_author_meeeting if form.created_in_meeting?
+            link_author_meeting if form.created_in_meeting?
           end
 
           send_notification
@@ -77,7 +77,7 @@ module Decidim
           }
         end
 
-        def link_author_meeeting
+        def link_author_meeting
           proposal.link_resources(form.author, "proposals_from_meeting")
         end
 

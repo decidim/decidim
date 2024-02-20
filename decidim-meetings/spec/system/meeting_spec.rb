@@ -15,18 +15,18 @@ describe "Meeting", download: true do
 
   it "has a link to download the meeting in ICS format" do
     visit_meeting
-    click_link "Add to calendar"
+    click_on "Add to calendar"
 
     expect(page).to have_link("Add to Outlook calendar")
 
-    click_link("Add to Outlook calendar")
+    click_on("Add to Outlook calendar")
 
     expect(File.basename(download_path)).to include(".ics")
   end
 
   it "has a link to add to google calendar" do
     visit_meeting
-    click_link "Add to calendar"
+    click_on "Add to calendar"
 
     expect(page).to have_link("Add to Google calendar", href: /calendar\.google\.com/)
   end
@@ -36,7 +36,7 @@ describe "Meeting", download: true do
       visit_meeting
 
       within "[data-content]" do
-        expect(page).to have_selector(".meeting__aside-block", count: meeting.services.size)
+        expect(page).to have_css(".meeting__aside-block", count: meeting.services.size)
 
         services_titles = meeting.services.map { |service| service.title["en"] }
         services_present_in_pages = current_scope.all(".meeting__aside-block__title").map(&:text)

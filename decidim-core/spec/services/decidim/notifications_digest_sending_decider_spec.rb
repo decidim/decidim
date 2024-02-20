@@ -51,7 +51,7 @@ describe Decidim::NotificationsDigestSendingDecider do
     # This particular case should not happen on daily runs but in case sending
     # takes a long time, those users should be also included who were notified
     # a bit later than the exact time when the scheduled task was run as we
-    # cannot know precicely on which second the scheduled task was run exactly
+    # cannot know precisely on which second the scheduled task was run exactly
     # and if it is always run at the same second.
     context "with a user who has received a notification digest mail the previous day but less than a day ago" do
       let(:current_time) { Time.now.utc }
@@ -91,7 +91,7 @@ describe Decidim::NotificationsDigestSendingDecider do
     # This particular case should not happen on weekly runs but in case sending
     # takes a long time, those users should be also included who were notified
     # a bit later than the exact time when the scheduled task was run as we
-    # cannot know precicely on which second the scheduled task was run exactly
+    # cannot know precisely on which second the scheduled task was run exactly
     # and if it is always run at the same second.
     context "with a user who has received a notifications the previous week but less than a exactly 7 days ago from yesterday" do
       let(:current_time) { Time.now.utc }

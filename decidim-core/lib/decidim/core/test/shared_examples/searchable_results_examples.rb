@@ -73,7 +73,7 @@ shared_examples "searchable results" do
     end
 
     context "when participatory space is not visible" do
-      shared_examples_for "no searchs found" do
+      shared_examples_for "no searches found" do
         it "not contains these searchables" do
           expect(searchables).not_to be_empty
           expect(term).not_to be_empty
@@ -106,7 +106,7 @@ shared_examples "searchable results" do
           perform_enqueued_jobs { participatory_space.update!(published_at: nil) }
         end
 
-        it_behaves_like "no searchs found"
+        it_behaves_like "no searches found"
       end
 
       context "when participatory space is private" do
@@ -114,7 +114,7 @@ shared_examples "searchable results" do
           perform_enqueued_jobs { participatory_space.update!(private_space: true) }
         end
 
-        it_behaves_like "no searchs found"
+        it_behaves_like "no searches found"
       end
     end
   end

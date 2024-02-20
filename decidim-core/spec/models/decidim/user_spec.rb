@@ -480,7 +480,7 @@ module Decidim
         end
       end
 
-      context "when searching with scopes no one is intereted in" do
+      context "when searching with scopes no one is interested in" do
         let(:scopes) { [scope4.id, scope5.id] }
 
         before { create_users_and_scopes }

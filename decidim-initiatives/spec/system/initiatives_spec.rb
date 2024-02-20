@@ -80,7 +80,7 @@ describe "Initiatives" do
         end
 
         it "links to the individual initiative page" do
-          click_link(translated(initiative.title, locale: :en))
+          click_on(translated(initiative.title, locale: :en))
           expect(page).to have_current_path(decidim_initiatives.initiative_path(initiative))
         end
 
@@ -153,7 +153,7 @@ describe "Initiatives" do
 
         it "shows the card image" do
           within "#initiative_#{initiative.id}" do
-            expect(page).to have_selector(".card__grid-img")
+            expect(page).to have_css(".card__grid-img")
           end
         end
       end

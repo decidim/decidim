@@ -22,7 +22,7 @@ describe "User group joining" do
 
   context "when the user does not belong to the group" do
     it "allows the user to join" do
-      click_link "Request to join group"
+      click_on "Request to join group"
 
       expect(page).to have_content("Join request successfully created")
       expect(page).to have_no_content("Request to join group")

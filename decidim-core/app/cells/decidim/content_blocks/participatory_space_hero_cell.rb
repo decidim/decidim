@@ -3,8 +3,6 @@
 module Decidim
   module ContentBlocks
     class ParticipatorySpaceHeroCell < Decidim::ContentBlocks::BaseCell
-      include Decidim::SanitizeHelper
-      include Decidim::TranslationsHelper
       include Decidim::TwitterSearchHelper
 
       delegate :title, :hashtag, :attached_uploader, to: :resource

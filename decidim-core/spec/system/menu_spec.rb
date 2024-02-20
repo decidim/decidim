@@ -12,11 +12,11 @@ describe "Menu" do
 
   context "when clicking on a menu entry" do
     before do
-      click_link("Help", match: :first)
+      click_on("Help", match: :first)
     end
 
     it "switches the active option" do
-      expect(page).to have_selector(".menu-bar__breadcrumb-desktop__dropdown-trigger", text: "Help")
+      expect(page).to have_css(".menu-bar__breadcrumb-desktop__dropdown-trigger", text: "Help")
     end
 
     context "and clicking on a subpage of that entry" do
@@ -25,11 +25,11 @@ describe "Menu" do
 
         visit current_path
 
-        click_link page.title["en"]
+        click_on page.title["en"]
       end
 
       it "preserves the active option" do
-        expect(page).to have_selector(".menu-bar__breadcrumb-desktop__dropdown-trigger", text: "Help")
+        expect(page).to have_css(".menu-bar__breadcrumb-desktop__dropdown-trigger", text: "Help")
       end
     end
   end
@@ -46,7 +46,7 @@ describe "Menu" do
     end
 
     it "renders the component name correctly" do
-      expect(page).to have_selector(".menu-bar__breadcrumb-desktop__dropdown-wrapper", text: component_name)
+      expect(page).to have_css(".menu-bar__breadcrumb-desktop__dropdown-wrapper", text: component_name)
     end
   end
 

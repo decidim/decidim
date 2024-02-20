@@ -1,16 +1,16 @@
 <div class="form__wrapper">
   <div class="card pt-4">
     <div class="card-section">
-      <div class="row column hashtags__container pb-4">
+      <div class="row column pb-4">
         <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :title } %>
       </div>
-      <div class="row column hashtags__container">
+      <div class="row column">
         <%= form.translated :editor, :body, hashtaggable: true, aria: { label: :body } %>
       </div>
       <% if @form.component_automatic_hashtags.any? %>
-        <div class="field">
+        <div>
           <%= form.label :automatic_hashtags %>
-          <div class="checkboxes hashtags">
+          <div class="hashtags">
             <% @form.component_automatic_hashtags.each do |hashtag| %>
               <label>
                 <%= check_box_tag "", "", { checked: true }, { disabled: true } %>#<%= hashtag %>
@@ -20,9 +20,9 @@
         </div>
       <% end %>
       <% if @form.component_suggested_hashtags.any? %>
-        <div class="field">
+        <div>
           <%= form.label :suggested_hashtags %>
-          <div class="checkboxes hashtags">
+          <div class="hashtags">
             <%= form.collection_check_boxes :suggested_hashtags, @form.component_suggested_hashtags.map { |hashtag| [hashtag.downcase, "##{hashtag}"] }, :first, :last do |option|
                 option.label { option.check_box(checked: @form.suggested_hashtag_checked?(option.value)) + option.text }
               end %>

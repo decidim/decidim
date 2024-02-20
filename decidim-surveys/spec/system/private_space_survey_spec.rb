@@ -80,7 +80,7 @@ describe "Private Space Answer a survey" do
 
           check "questionnaire_tos_agreement"
 
-          accept_confirm { click_button "Submit" }
+          accept_confirm { click_on "Submit" }
 
           within ".success.flash" do
             expect(page).to have_content("successfully")
@@ -104,7 +104,7 @@ describe "Private Space Answer a survey" do
           expect(page).to have_content "The form is available only for private users"
           expect(page).to have_content "Form closed"
 
-          expect(page).to have_selector(".button[disabled]")
+          expect(page).to have_css(".button[disabled]")
         end
       end
     end
@@ -141,7 +141,7 @@ describe "Private Space Answer a survey" do
 
           check "questionnaire_tos_agreement"
 
-          accept_confirm { click_button "Submit" }
+          accept_confirm { click_on "Submit" }
 
           within ".success.flash" do
             expect(page).to have_content("successfully")

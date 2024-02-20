@@ -19,7 +19,7 @@ describe "Explore projects", :slow do
 
     before do
       visit_budget
-      click_link translated(project.title)
+      click_on translated(project.title)
     end
 
     it_behaves_like "has embedded video in description", :description
@@ -40,7 +40,7 @@ describe "Explore projects", :slow do
     it "shows all resources for the given component" do
       visit_budget
       within "#projects" do
-        expect(page).to have_selector(".card__list", count: projects_count)
+        expect(page).to have_css(".card__list", count: projects_count)
       end
 
       projects.each do |project|
@@ -55,7 +55,7 @@ describe "Explore projects", :slow do
           fill_in "filter[search_text_cont]", with: translated(project.title)
 
           within "div.filter-search" do
-            click_button
+            click_on
           end
         end
 
@@ -73,7 +73,7 @@ describe "Explore projects", :slow do
         within "aside form.new_filter" do
           fill_in("filter[search_text_cont]", with: "foobar")
           within "div.filter-search" do
-            click_button
+            click_on
           end
         end
 

@@ -36,10 +36,10 @@ module Decidim
       end
 
       private
-      # Tell the parent what is the AcitveRecord class needed
+      # Tell the parent what is the ActiveRecord class needed
       def resource_class = Decidim::MyModule::MyResource
 
-      # This method allows you to customize the log visbility
+      # This method allows you to customize the log visibility
       def extra_params = { visibility: "all" }
 
       # The command has a before hook that you can use:
@@ -52,7 +52,7 @@ module Decidim
         # do something
       end
 
-      # Addtionally, you can override the `attributes` method
+      # Additionally, you can override the `attributes` method
       # to add more attributes to the resource
       def attributes
         super.merge({
@@ -96,10 +96,10 @@ module Decidim
       end
 
       private
-      # Tell the parent what is the AcitveRecord class needed
+      # Tell the parent what is the ActiveRecord class needed
       def resource_class = Decidim::MyModule::MyResource
 
-      # This method allows you to customize the log visbility
+      # This method allows you to customize the log visibility
       def extra_params = { visibility: "all" }
 
       # The command has a before hook that you can use:
@@ -112,7 +112,7 @@ module Decidim
         # do something
       end
 
-      # Addtionally, you can override the `attributes` method
+      # Additionally, you can override the `attributes` method
       # to add more attributes to the resource
       def attributes
         super.merge({
@@ -143,7 +143,7 @@ If you still want to customize the command, you can do it like this:
 # app/commands/decidim/my_module/destroy_my_resource.rb
 module Decidim
   module MyModule
-    class DestoryMyResource < Decidim::Commands::DestroyResource
+    class DestroyMyResource < Decidim::Commands::DestroyResource
       # This is the class initializer, that can be safely ignored if you do not perform additional actions
       def initialize(resource, current_user)
         @resource = resource
@@ -152,7 +152,7 @@ module Decidim
 
       private
 
-      # This method allows you to customize the log visbility
+      # This method allows you to customize the log visibility
       def extra_params = { visibility: "all" }
 
       # The command has a before hook that you can use:
@@ -194,7 +194,7 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        transation do
+        transaction do
           create_resource
           dispatch_event
           process_jobs

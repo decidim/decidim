@@ -12,7 +12,7 @@
     <div id="panel-attendee" class="card-section">
 
       <div class="row column">
-        <fieldset class="check-radio-collection">
+        <fieldset>
           <%= form.collection_radio_buttons(:existing_user, [[t(".non_user"), false], [t(".existing_user"), true]], :last, :first) %>
         </fieldset>
       </div>
@@ -22,14 +22,14 @@
       </div>
 
       <div class="row column">
-        <div class="auto cell attendee-fields--new-user">
+        <div class="cell attendee-fields--new-user">
           <%= form.text_field :name, disabled: %>
         </div>
-        <div class="auto cell attendee-fields--new-user">
+        <div class="cell attendee-fields--new-user">
           <%= form.text_field :email, disabled: %>
         </div>
 
-        <div class="auto cell attendee-fields--user-picker">
+        <div class="cell attendee-fields--user-picker">
           <% prompt_options = { url: decidim_admin.users_organization_url, placeholder: t(".select_user") } %>
           <%= form.autocomplete_select(:user_id, form.object.user.presence, { multiple: false, class: "autocomplete-field--results-inline" }, prompt_options) do |user|
             { value: user.id, label: "#{user.name} (@#{user.nickname})" }

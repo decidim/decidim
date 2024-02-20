@@ -27,7 +27,7 @@
     <li>
       <a target="_blank" data-external-link="false" rel="noopener noreferrer" href="https://www.youtube.com/<%= current_organization.youtube_handler %>">
         <span class="sr-only"><%= t("layouts.decidim.social_media_links.youtube", organization: translated_attribute(current_organization.name)) %></span>
-        <%= icon "youtube-line", class: "w-8 h-8 fill-current", "aria-label": "Youtube" %>
+        <%= icon "youtube-line", class: "w-8 h-8 fill-current", "aria-label": "YouTube" %>
       </a>
     </li>
   <% end %>
@@ -35,7 +35,7 @@
     <li>
       <a target="_blank" data-external-link="false" rel="noopener noreferrer" href="https://www.github.com/<%= current_organization.github_handler %>">
         <span class="sr-only"><%= t("layouts.decidim.social_media_links.github", organization: translated_attribute(current_organization.name)) %></span>
-        <%= icon "github-fill", class: "w-8 h-8 fill-current", "aria-label": "Github" %>
+        <%= icon "github-fill", class: "w-8 h-8 fill-current", "aria-label": "GitHub" %>
       </a>
     </li>
   <% end %>

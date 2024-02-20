@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "strict": true,                                      /* Enable all strict type-checking options. */
+    "removeComments": true,                              /* Disable emitting comments. */
+    "allowJs": true,                                     /* Allow JavaScript files to be a part of your program. Use the `checkJS` option to get errors from these files. */
+    "module": "commonjs",                                /* Specify what module code is generated. */
+    "incremental": true,                                 /* Enable incremental compilation */
+    "target": "es6",                                     /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "skipLibCheck": true,                                /* Skip type checking all .d.ts files. */
+  }
+}

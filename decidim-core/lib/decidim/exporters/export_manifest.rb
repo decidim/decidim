@@ -32,7 +32,7 @@ module Decidim
       end
 
       # Public: Sets the +collection block+ when a block is given, or returns
-      # the previously setted +collection block+ if no block is provided.
+      # the previously set +collection block+ if no block is provided.
       #
       # The +collection block+ knows how to obtain the collection of elements
       # to be serialized by the +Serializer+.

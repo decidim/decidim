@@ -8,7 +8,7 @@ shared_examples "manage assemblies" do
     let(:assembly_parent_id_options) { page.find_by_id("assembly_parent_id").find_all("option").map(&:value) }
 
     before do
-      click_link "Configure"
+      click_on "Configure"
     end
 
     it "updates an assembly" do
@@ -39,7 +39,7 @@ shared_examples "manage assemblies" do
       expect(page).to have_admin_callout("successfully")
 
       within "[data-content]" do
-        expect(page).to have_selector("input[value='My new title']")
+        expect(page).to have_css("input[value='My new title']")
         expect(page).to have_css("img[src*='#{image3_filename}']")
         expect(page).to have_field(:assembly_creation_date_date, with: Date.yesterday.strftime("%d/%m/%Y").to_s)
         expect(page).to have_field(:assembly_included_at_date, with: Date.current.strftime("%d/%m/%Y").to_s)
@@ -51,16 +51,16 @@ shared_examples "manage assemblies" do
 
   describe "updating an assembly without images" do
     before do
-      within find("tr", text: translated(assembly.title)) do
-        click_link "Configure"
+      within "tr", text: translated(assembly.title) do
+        click_on "Configure"
       end
     end
 
     it "update an assembly without images does not delete them" do
       within_admin_sidebar_menu do
-        click_link "About this assembly"
+        click_on "About this assembly"
       end
-      click_button "Update"
+      click_on "Update"
 
       expect(page).to have_admin_callout("successfully")
 
@@ -75,8 +75,8 @@ shared_examples "manage assemblies" do
 
       it "allows the user to preview the unpublished assembly" do
         new_window = window_opened_by do
-          within find("tr", text: translated(assembly.title)) do
-            click_link "Preview"
+          within "tr", text: translated(assembly.title) do
+            click_on "Preview"
           end
         end
 
@@ -93,8 +93,8 @@ shared_examples "manage assemblies" do
 
       it "allows the user to preview the unpublished assembly" do
         new_window = window_opened_by do
-          within find("tr", text: translated(assembly.title)) do
-            click_link "Preview"
+          within "tr", text: translated(assembly.title) do
+            click_on "Preview"
           end
         end
 
@@ -116,13 +116,13 @@ shared_examples "manage assemblies" do
     let!(:assembly) { create(:assembly, :unpublished, organization:, parent: parent_assembly) }
 
     before do
-      within find("tr", text: translated(assembly.title)) do
-        click_link "Configure"
+      within "tr", text: translated(assembly.title) do
+        click_on "Configure"
       end
     end
 
     it "publishes the assembly" do
-      click_link "Publish"
+      click_on "Publish"
       expect(page).to have_content("successfully published")
       expect(page).to have_content("Unpublish")
       expect(page).to have_current_path decidim_admin_assemblies.edit_assembly_path(assembly)
@@ -136,13 +136,13 @@ shared_examples "manage assemblies" do
     let!(:assembly) { create(:assembly, organization:, parent: parent_assembly) }
 
     before do
-      within find("tr", text: translated(assembly.title)) do
-        click_link "Configure"
+      within "tr", text: translated(assembly.title) do
+        click_on "Configure"
       end
     end
 
     it "unpublishes the assembly" do
-      click_link "Unpublish"
+      click_on "Unpublish"
       expect(page).to have_content("successfully unpublished")
       expect(page).to have_content("Publish")
       expect(page).to have_current_path decidim_admin_assemblies.edit_assembly_path(assembly)
@@ -170,11 +170,11 @@ shared_examples "manage assemblies" do
     end
 
     it "disables the scope for the assembly" do
-      click_link "Configure"
+      click_on "Configure"
 
       uncheck :assembly_scopes_enabled
 
-      expect(page).to have_selector("select#assembly_scope_id[disabled]")
+      expect(page).to have_css("select#assembly_scope_id[disabled]")
 
       within ".edit_assembly" do
         find("*[type=submit]").click

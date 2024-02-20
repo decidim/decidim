@@ -2,8 +2,6 @@
 
 module Decidim
   class VersionsListCell < Decidim::ViewModel
-    include Decidim::SanitizeHelper
-
     def versioned_resource
       model
     end

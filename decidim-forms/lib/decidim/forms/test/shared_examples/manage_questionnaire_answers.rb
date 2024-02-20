@@ -41,7 +41,7 @@ shared_examples_for "manage questionnaire answers" do
         click_link "Show responses"
       end
 
-      it "shows the anwers page" do
+      it "shows the answers page" do
         expect(page).to have_content(answer1.body)
         expect(page).to have_content(answer1.question.body["en"])
         expect(page).to have_content(answer2.body)

@@ -61,7 +61,7 @@ describe "Autocomplete multiselect" do
             <label for="trustees_participatory_space_user_id">
             User
             <span title="Required field" data-tooltip="true" data-disable-hover="false" data-keep-on-hover="true" class="label-required">
-            <span aria-hidden="true">*</span><span class="show-for-sr">Required field</span></span></label>
+            <span aria-hidden="true">*</span><span>Required field</span></span></label>
             #{body_extra}
             <div class="foo"></div>
           </body>
@@ -119,10 +119,10 @@ describe "Autocomplete multiselect" do
         it "selects and removes item" do
           autocomplete_select participant.name, from: :user_id
           expect(page).to have_content(participant.name)
-          expect(page).to have_selector(%(input[value="#{participant.id}"]), visible: :hidden)
+          expect(page).to have_css(%(input[value="#{participant.id}"]), visible: :hidden)
           find(".clear-multi-selection").click
           expect(page).to have_no_content(participant.name)
-          expect(page).to have_no_selector(%(input[value="#{participant.id}"]), visible: :hidden)
+          expect(page).to have_no_css(%(input[value="#{participant.id}"]), visible: :hidden)
         end
       end
 
@@ -133,9 +133,9 @@ describe "Autocomplete multiselect" do
           expect(page).to have_content(participant.name)
           expect(page).to have_content(participant2.name)
           expect(page).to have_no_content(participant3.name)
-          expect(page).to have_selector(%(input[value="#{participant.id}"]), visible: :hidden)
-          expect(page).to have_selector(%(input[value="#{participant2.id}"]), visible: :hidden)
-          expect(page).to have_no_selector(%(input[value="#{participant3.id}"]), visible: :hidden)
+          expect(page).to have_css(%(input[value="#{participant.id}"]), visible: :hidden)
+          expect(page).to have_css(%(input[value="#{participant2.id}"]), visible: :hidden)
+          expect(page).to have_no_css(%(input[value="#{participant3.id}"]), visible: :hidden)
         end
       end
 
@@ -146,9 +146,9 @@ describe "Autocomplete multiselect" do
           expect(page).to have_no_content(participant.name)
           expect(page).to have_content(participant2.name)
           expect(page).to have_content(participant3.name)
-          expect(page).to have_no_selector(%(input[value="#{participant.id}"]), visible: :hidden)
-          expect(page).to have_selector(%(input[value="#{participant2.id}"]), visible: :hidden)
-          expect(page).to have_selector(%(input[value="#{participant3.id}"]), visible: :hidden)
+          expect(page).to have_no_css(%(input[value="#{participant.id}"]), visible: :hidden)
+          expect(page).to have_css(%(input[value="#{participant2.id}"]), visible: :hidden)
+          expect(page).to have_css(%(input[value="#{participant3.id}"]), visible: :hidden)
         end
       end
     end

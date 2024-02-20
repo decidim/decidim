@@ -87,7 +87,7 @@ module Decidim
     # Internal class to encapsulate each view registered on a view hook.
     class ViewHook
       # priority - a Number (Integer|Float) to sort the block.
-      # block - a block that will bbe rendered in a view context.
+      # block - a block that will be rendered in a view context.
       def initialize(priority, block)
         @priority = priority
         @block = block

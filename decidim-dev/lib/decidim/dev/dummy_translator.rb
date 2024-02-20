@@ -2,7 +2,7 @@
 
 module Decidim
   module Dev
-    # This Dummy translator recieves the field value
+    # This Dummy translator receives the field value
     # and the locale of the field which has to be
     # translated. It returns the appended value for both.
     # This is for testing only.

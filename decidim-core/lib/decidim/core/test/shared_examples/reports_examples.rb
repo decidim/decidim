@@ -15,7 +15,7 @@ shared_examples "logged in user reports content" do
         expect(page).to have_css(".flag-modal", visible: :visible)
 
         within ".flag-modal" do
-          click_button "Report"
+          click_on "Report"
         end
 
         expect(page).to have_content "report has been created"
@@ -50,7 +50,7 @@ shared_examples "higher user role hides" do
 
       within ".flag-modal" do
         find(:css, "input[name='report[hide]']").set(true)
-        click_button "Hide"
+        click_on "Hide"
       end
 
       expect(reportable.reload).to be_hidden
@@ -62,13 +62,6 @@ shared_examples "higher user role does not have hide" do
   context "and the admin reports" do
     before do
       login_as user, scope: :user
-
-      # Workaround for flaky spec related to resolution change
-      #
-      # For some unknown reason, depending on the order run for these specs, the resolution is changed to
-      # 800x600, which breaks the drag and drop. This forces the resolution to be 1920x1080.
-      # One possible culprit for the screen resolution change is the alert error intercepting which messes with the window focus.
-      current_window.resize_to(1920, 1080)
     end
 
     it "reports the resource" do
@@ -87,21 +80,12 @@ end
 
 shared_examples "reports" do
   context "when the user is not logged in" do
-    before do
-      # Workaround for flaky spec related to resolution change
-      #
-      # For some unknown reason, depending on the order run for these specs, the resolution is changed to
-      # 800x600, which breaks the drag and drop. This forces the resolution to be 1920x1080.
-      # One possible culprit for the screen resolution change is the alert error intercepting which messes with the window focus.
-      current_window.resize_to(1920, 1080)
-    end
-
     it "gives the option to sign in" do
       visit reportable_path
 
       expect(page).not_to have_css("html.is-disabled")
 
-      click_button "Report"
+      click_on "Report"
 
       expect(page).to have_css("html.is-disabled")
     end

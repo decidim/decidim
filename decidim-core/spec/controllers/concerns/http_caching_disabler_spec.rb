@@ -21,7 +21,7 @@ module Decidim
         routes.draw { get "show" => "anonymous#show" }
       end
 
-      it "sets the appropiate headers" do
+      it "sets the appropriate headers" do
         get :show
         expect(response.headers["Cache-Control"]).to eq("no-cache, no-store")
         expect(response.headers["Pragma"]).to eq("no-cache")

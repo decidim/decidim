@@ -9,7 +9,7 @@ const dropzoneLocales = {
   uploaded: "Uploaded",
   validating: "Validating...",
   "title_required": "Title is required!",
-  "file_size_too_large": "File size is too large! Maximun file size: 10MB",
+  "file_size_too_large": "File size is too large! Maximum file size: 10MB",
   "validation_error": "Validation error!"
 };
 

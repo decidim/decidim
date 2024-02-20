@@ -68,7 +68,7 @@ describe "Space moderator manages global moderations" do
       within "[data-content]" do
         expect(page).to have_content("Reported content")
 
-        expect(page).to have_no_selector("table.table-list tbody tr")
+        expect(page).to have_no_css("table.table-list tbody tr")
       end
     end
   end

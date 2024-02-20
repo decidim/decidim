@@ -1,5 +1,5 @@
 <% if current_user_impersonated? %>
-  <div class="impersonation-warning flash warning my-0 flex justify-center text-center" data-session-ends-at="<%= impersonation_session_ends_at.iso8601 %>">
+  <div data-impersonation-warning class="flash warning my-0 flex justify-center text-center" data-session-ends-at="<%= impersonation_session_ends_at.iso8601 %>">
     <div class="flash__message">
       <%= t(".description_html", user_name: current_user.name) %>
       <%= t(".expire_time_html", minutes: impersonation_session_remaining_duration_in_minutes) %>

@@ -24,8 +24,7 @@ describe Decidim::ParticipatoryProcessStepChangedEvent do
       )
   end
 
-  let(:resource_title) { decidim_escape_translated(resource.title) }
-  let(:email_subject) { "An update to #{decidim_sanitize_translated(participatory_space.title)}" }
+  let(:email_subject) { "An update to #{participatory_space_title}" }
   let(:email_intro) { "The dates for the #{resource_title} phase at #{participatory_space_title} have been updated. You can see it from this page:" }
   let(:email_outro) { "You have received this notification because you are following #{participatory_space_title}. You can stop receiving notifications following the previous link." }
   let(:notification_title) { "The dates for the <a href=\"#{resource_path}\">#{resource_title}</a> phase at <a href=\"#{participatory_space_url}\">#{participatory_space_title}</a> have been updated." }

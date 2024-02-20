@@ -247,7 +247,7 @@ module Decidim
         proposal_state&.token || "not_answered"
       end
 
-      # This is only used to define the setter, as the getter will be overriden below.
+      # This is only used to define the setter, as the getter will be overridden below.
       alias_attribute :internal_state, :state
 
       # Public: Returns the internal state of the proposal.
@@ -352,7 +352,7 @@ module Decidim
         votes.count >= maximum_votes
       end
 
-      # Public: Can accumulate more votres than maximum for this proposal.
+      # Public: Can accumulate more votes than maximum for this proposal.
       #
       # Returns true if can accumulate, false otherwise
       def can_accumulate_supports_beyond_threshold

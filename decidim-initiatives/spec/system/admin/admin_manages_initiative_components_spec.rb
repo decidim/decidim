@@ -51,7 +51,7 @@ describe "Admin manages initiative components" do
             all("input[type=checkbox]").first.click
           end
         end
-        click_button "Add component", type: "submit"
+        click_on "Add component"
       end
     end
 
@@ -62,7 +62,7 @@ describe "Admin manages initiative components" do
 
     context "and then edit it" do
       before do
-        within find("tr", text: "My component") do
+        within "tr", text: "My component" do
           page.find(".action-icon--configure").click
         end
       end
@@ -78,7 +78,7 @@ describe "Admin manages initiative components" do
       end
 
       it "successfully edits it" do
-        click_button "Update"
+        click_on "Update"
 
         expect(page).to have_admin_callout("The component was updated successfully.")
       end
@@ -124,13 +124,13 @@ describe "Admin manages initiative components" do
           all("input[type=checkbox]").first.click
         end
 
-        click_button "Update"
+        click_on "Update"
       end
 
       expect(page).to have_admin_callout("The component was updated successfully.")
       expect(page).to have_content("My updated component")
 
-      within find("tr", text: "My updated component") do
+      within "tr", text: "My updated component" do
         page.find(".action-icon--configure").click
       end
 

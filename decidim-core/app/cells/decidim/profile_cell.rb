@@ -2,11 +2,9 @@
 
 module Decidim
   class ProfileCell < Decidim::ViewModel
-    include Decidim::ApplicationHelper
     include Decidim::Core::Engine.routes.url_helpers
     include Decidim::UserProfileHelper
     include Decidim::AriaSelectedLinkToHelper
-    include Decidim::LayoutHelper
     include Decidim::ViewHooksHelper
     include ActiveLinkTo
 
