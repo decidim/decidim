@@ -15,7 +15,7 @@ module Decidim
 
     attr_reader :recipient, :conversation, :message
 
-    alias_method :user, :recipient
+    alias user recipient
 
     def body
       decidim_escape_translated(message)
