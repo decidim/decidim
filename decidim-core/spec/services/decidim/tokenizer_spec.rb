@@ -10,7 +10,7 @@ describe Decidim::Tokenizer do
   let(:string) { "Poems everybody!" }
 
   describe "digest" do
-    it "returns the salt initilzed" do
+    it "returns the salt initialized" do
       expect(subject.salt).to eq(secret)
     end
 

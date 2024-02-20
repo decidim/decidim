@@ -646,8 +646,8 @@ describe "Orders" do
     end
 
     it "shows the component" do
-      expect(page).to have_i18n_content(project.title)
-      expect(page).to have_i18n_content(project.description)
+      expect(page).to have_i18n_content(project.title, strip_tags: true)
+      expect(page).to have_i18n_content(project.description, strip_tags: true)
     end
 
     context "with linked proposals" do

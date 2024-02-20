@@ -75,7 +75,7 @@ describe("ConsentManager", () => {
             <div class="dc-switch">
               <input class="switch-input" checked="checked" id="dc-essential" type="checkbox" name="essential" disabled="">
               <label class="switch-paddle" for="dc-essential">
-                <span class="show-for-sr">Toggle Essential</span>
+                <span>Toggle Essential</span>
               </label>
             </div>
           </div>
@@ -119,7 +119,7 @@ describe("ConsentManager", () => {
             <div class="dc-switch">
               <input class="switch-input" id="dc-preferences" type="checkbox" name="preferences">
               <label class="switch-paddle" for="dc-preferences">
-                <span class="show-for-sr">Toggle Preferences</span>
+                <span>Toggle Preferences</span>
               </label>
             </div>
           </div>
@@ -139,7 +139,7 @@ describe("ConsentManager", () => {
             <div class="dc-switch">
               <input class="switch-input" id="dc-analytics" type="checkbox" name="analytics">
               <label class="switch-paddle" for="dc-analytics">
-                <span class="show-for-sr">Toggle Analytics and statistics</span>
+                <span>Toggle Analytics and statistics</span>
               </label>
             </div>
           </div>
@@ -159,7 +159,7 @@ describe("ConsentManager", () => {
             <div class="dc-switch">
               <input class="switch-input" id="dc-marketing" type="checkbox" name="marketing">
               <label class="switch-paddle" for="dc-marketing">
-                <span class="show-for-sr">Toggle Marketing</span>
+                <span>Toggle Marketing</span>
               </label>
             </div>
           </div>

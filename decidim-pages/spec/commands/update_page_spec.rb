@@ -51,7 +51,7 @@ module Decidim
             command.call
           end
 
-          it "traces tyhe action", versioning: true do
+          it "traces the action", versioning: true do
             expect(Decidim.traceability)
               .to receive(:update!)
               .with(page, user, body: form.body)
