@@ -380,7 +380,7 @@ describe "Filter Proposals", :slow do
 
         within "#dropdown-menu-filters div.filter-container", text: "Category" do
           uncheck "All"
-          check category.name[I18n.locale.to_s]
+          check decidim_escape_translated(category.name)
         end
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
@@ -391,8 +391,8 @@ describe "Filter Proposals", :slow do
 
         within "#dropdown-menu-filters div.filter-container", text: "Category" do
           uncheck "All"
-          check category.name[I18n.locale.to_s]
-          check category2.name[I18n.locale.to_s]
+          check decidim_escape_translated(category.name)
+          check decidim_escape_translated(category2.name)
         end
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 3)
@@ -403,7 +403,7 @@ describe "Filter Proposals", :slow do
 
         within "#dropdown-menu-filters div.filter-container", text: "Category" do
           uncheck "All"
-          check category.name[I18n.locale.to_s]
+          check decidim_escape_translated(category.name)
         end
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
