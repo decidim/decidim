@@ -52,7 +52,7 @@ module Decidim
 
     def notification_params(notification, title = nil)
       {
-        title: title.nil? ? notification.title : title,
+        title: title.presence || notification.title,
         body: notification.body,
         icon: notification.icon,
         data: { url: notification.url }
