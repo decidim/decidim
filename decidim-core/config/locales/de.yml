@@ -881,6 +881,7 @@ de:
       create:
         button: Folgen
         error: Beim Folgen dieser Ressource ist ein Fehler aufgetreten.
+        participatory_space: Folgen Sie <span>%{resource_name}</span>
       destroy:
         button: Entfolgen
         error: Beim Entfolgen dieser Ressource ist ein Fehler aufgetreten.
