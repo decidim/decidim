@@ -6,6 +6,7 @@ describe Decidim::ParticipatoryProcessRoleAssignedEvent do
   include_context "when a simple event"
 
   let(:resource) { create(:participatory_process) }
+  let(:participatory_space) { resource }
   let(:event_name) { "decidim.events.participatory_process.role_assigned" }
   let(:role) { create(:participatory_process_user_role, user:, participatory_process: resource, role: :admin) }
   let(:extra) { { role: } }

@@ -441,7 +441,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     title { generate_localized_title(:attachment_title, skip_injection:) }
-    description { generate_localized_description(:attachment_description, skip_injection:) }
+    description { generate_localized_title(:attachment_description, skip_injection:) }
     weight { Faker::Number.number(digits: 1) }
     attached_to { build(:participatory_process, skip_injection:) }
     content_type { "image/jpeg" }

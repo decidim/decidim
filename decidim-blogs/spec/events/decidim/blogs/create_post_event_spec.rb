@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Blogs::CreatePostEvent do
-  let(:resource) { create(:post) }
+  let(:resource) { create(:post, title: generate_localized_title(:blog_title)) }
   let(:event_name) { "decidim.events.blogs.post_created" }
   let(:email_intro) { "The post \"#{resource_title}\" has been published in \"#{participatory_space_title}\" that you are following." }
   let(:email_outro) { "You have received this notification because you are following \"#{participatory_space_title}\". You can unfollow it from the previous link." }
