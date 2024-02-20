@@ -7,7 +7,7 @@ module Decidim
     # that we want to display or hide based on some conditions, and :condition_question
     # is the question the answers of which are checked against the conditions.
     # Conditions can be whether the question is answered ("answered") or it is not ("not_answered"),
-    # if the selected answer option is ("equal") or is not ("not_equal") a given one, or whethe
+    # if the selected answer option is ("equal") or is not ("not_equal") a given one, or whether
     # the text value of the answer matches a string ("match").
     class DisplayCondition < Forms::ApplicationRecord
       enum condition_type: [:answered, :not_answered, :equal, :not_equal, :match], _prefix: true

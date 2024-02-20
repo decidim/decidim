@@ -29,7 +29,7 @@ module Decidim
         query_scope.find_by(@query)
       end
 
-      # By default, any model in its defaul scope
+      # By default, any model in its default scope
       # Particular implementations may restrict this by adding
       # additional constrains
       def query_scope

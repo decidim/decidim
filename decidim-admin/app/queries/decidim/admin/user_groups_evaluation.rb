@@ -24,7 +24,7 @@ module Decidim
         @state = state
       end
 
-      # List the User groups by the diferent filters.
+      # List the User groups by the different filters.
       def query
         @user_groups = filter_by_search(@user_groups)
         @user_groups = filter_by_state(@user_groups)

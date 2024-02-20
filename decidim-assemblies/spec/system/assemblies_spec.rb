@@ -100,7 +100,7 @@ describe "Assemblies" do
       let(:manifest_name) { :assemblies }
     end
 
-    context "and requesting the asseblies path" do
+    context "and requesting the assemblies path" do
       before do
         visit decidim_assemblies.assemblies_path
       end
@@ -112,7 +112,7 @@ describe "Assemblies" do
           visit decidim.root_path
 
           within "#home__menu" do
-            click_link "Assemblies"
+            click_on "Assemblies"
           end
 
           expect(page).to have_current_path decidim_assemblies.assemblies_path
@@ -277,7 +277,7 @@ describe "Assemblies" do
         end
       end
 
-      context "and the process statistics are not enable with stats block actived" do
+      context "and the process statistics are not enable with stats block active" do
         let(:show_statistics) { false }
         let(:blocks_manifests) { [:stats] }
 
@@ -305,7 +305,7 @@ describe "Assemblies" do
           end
         end
 
-        it "shows the children assemblies by weigth" do
+        it "shows the children assemblies by weight" do
           expect(titles.first.text).to eq translated(child_assembly.title)
           expect(titles.last.text).to eq translated(second_child_assembly.title)
         end

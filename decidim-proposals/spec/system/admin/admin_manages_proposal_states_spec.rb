@@ -15,7 +15,7 @@ describe "Admin manages proposals states" do
 
   context "when listing proposal states page" do
     before do
-      click_link "Statuses"
+      click_on "Statuses"
     end
 
     it "lists the default proposal states" do
@@ -33,8 +33,8 @@ describe "Admin manages proposals states" do
 
   context "when creating a proposal state" do
     before do
-      click_link "Statuses"
-      click_link "New status"
+      click_on "Statuses"
+      click_on "New status"
     end
 
     it "creates a new proposal state" do
@@ -51,7 +51,7 @@ describe "Admin manages proposals states" do
         fill_in_i18n(
           :proposal_state_announcement_title,
           "#proposal_state-announcement_title-tabs",
-          en: "A longer anouncement",
+          en: "A longer announcement",
           es: "Anuncio más larga",
           ca: "Anunci més llarga"
         )
@@ -71,7 +71,7 @@ describe "Admin manages proposals states" do
       state = Decidim::Proposals::ProposalState.find_by(token: "custom_state")
       expect(state).to be_present
       expect(translated(state.title)).to eq("Custom state")
-      expect(translated(state.announcement_title)).to eq("A longer anouncement")
+      expect(translated(state.announcement_title)).to eq("A longer announcement")
       expect(state.css_class).to eq("csscustom")
     end
   end
@@ -88,7 +88,7 @@ describe "Admin manages proposals states" do
     let!(:state) { create(:proposal_state, component: current_component, **state_params) }
 
     before do
-      click_link "Statuses"
+      click_on "Statuses"
     end
 
     it "displays the proposal state" do
@@ -97,7 +97,7 @@ describe "Admin manages proposals states" do
 
     it "updates a proposal state" do
       within "tr", text: translated(state.title) do
-        click_link "Edit"
+        click_on "Edit"
       end
 
       within ".edit_proposal_state" do
@@ -112,7 +112,7 @@ describe "Admin manages proposals states" do
         fill_in_i18n(
           :proposal_state_announcement_title,
           "#proposal_state-announcement_title-tabs",
-          en: "A longer anouncement",
+          en: "A longer announcement",
           es: "Anuncio más larga",
           ca: "Anunci més llarga"
         )
@@ -130,7 +130,7 @@ describe "Admin manages proposals states" do
       state = Decidim::Proposals::ProposalState.find_by(token: "editable_state")
 
       expect(translated(state.title)).to eq("Custom state")
-      expect(translated(state.announcement_title)).to eq("A longer anouncement")
+      expect(translated(state.announcement_title)).to eq("A longer announcement")
       expect(state.css_class).to eq("csscustom")
     end
   end
@@ -147,12 +147,12 @@ describe "Admin manages proposals states" do
     let!(:state) { create(:proposal_state, component: current_component, **state_params) }
 
     before do
-      click_link "Statuses"
+      click_on "Statuses"
     end
 
     it "deletes the proposal state" do
       within "tr", text: translated(state.title) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm { click_on "Delete" }
       end
       expect(page).to have_admin_callout("successfully")
 

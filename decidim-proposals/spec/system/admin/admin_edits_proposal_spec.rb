@@ -33,7 +33,7 @@ describe "Admin edits proposals" do
 
       fill_in_i18n :proposal_title, "#proposal-title-tabs", en: new_title
       fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: new_body
-      click_button "Update"
+      click_on "Update"
 
       preview_window = window_opened_by { find("a.action-icon--preview").click }
 
@@ -83,7 +83,7 @@ describe "Admin edits proposals" do
         find("a.action-icon--edit-proposal").click
         find("input#proposal_attachment_delete_file").set(true)
         within ".item__edit-form" do
-          click_button "Update", type: "submit"
+          click_on "Update"
         end
 
         expect(page).to have_content("Proposal successfully updated.")
@@ -99,12 +99,12 @@ describe "Admin edits proposals" do
         fill_in :proposal_attachment_title, with: "FOO BAR"
 
         find("input#proposal_attachment_delete_file").set(true)
-        click_button("Replace")
-        click_button("Remove")
-        click_button("Next")
+        click_on("Replace")
+        click_on("Remove")
+        click_on("Next")
         dynamically_attach_file(:proposal_attachment_file, Decidim::Dev.asset("city.jpeg"))
 
-        click_button("Update")
+        click_on("Update")
         find("a.action-icon--edit-proposal").click
 
         expect(page).to have_content("city.jpeg")

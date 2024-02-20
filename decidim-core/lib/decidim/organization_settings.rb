@@ -79,7 +79,7 @@ module Decidim
       #   Decidim.organization_settings(org).target_config_accessor
       #   #=> returns the organization specific setting
       #
-      #   Decidim.organization_settings(model_beloging_to_org).target_config_accessor
+      #   Decidim.organization_settings(model_belonging_to_org).target_config_accessor
       #   #=> returns the organization specific setting for model's organization
       #
       #   Decidim.organization_settings(nil).target_config_accessor
@@ -182,7 +182,7 @@ module Decidim
 
     private
 
-    # Generates a final settigns configuration struct from the given settings
+    # Generates a final settings configuration struct from the given settings
     # hash. Combines the given defaults with the settings hash.
     #
     # @param hash [Hash] The configurations hash.

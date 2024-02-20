@@ -34,7 +34,7 @@ describe "Meeting live event" do
   it "shows a close button" do
     expect(page).to have_content("close")
 
-    click_link "close"
+    click_on "close"
     expect(page).to have_current_path meeting_path
   end
 
@@ -52,8 +52,8 @@ describe "Meeting live event" do
 
     it "can enable all cookies" do
       visit meeting_live_event_path
-      click_link "Change cookie settings"
-      click_button "Accept all"
+      click_on "Change cookie settings"
+      click_on "Accept all"
       expect(page).to have_selector("iframe")
     end
   end
@@ -83,7 +83,7 @@ describe "Meeting live event" do
       context "and ends soon" do
         let(:end_time) { 15.seconds.from_now }
 
-        it "logouts user" do
+        it "logs user out" do
           travel 1.minute
           expect(page).to have_content("If you continue being inactive", wait: 30)
           allow(Time).to receive(:current).and_return(1.minute.from_now)

@@ -22,8 +22,8 @@ describe "Organizations" do
 
     describe "creating an organization" do
       before do
-        click_link "Organizations"
-        click_link "New"
+        click_on "Organizations"
+        click_on "New"
       end
 
       it_behaves_like "form hiding advanced settings"
@@ -51,7 +51,7 @@ describe "Organizations" do
         choose "organization_default_locale_en"
         choose "Allow participants to register and login"
         check "Example authorization (Direct)"
-        click_button "Create organization & invite admin"
+        click_on "Create organization & invite admin"
 
         within ".flash__message" do
           expect(page).to have_content("Organization successfully created.")
@@ -65,7 +65,7 @@ describe "Organizations" do
       context "with invalid data" do
         it "does not create an organization" do
           fill_in "Name", with: "Bad"
-          click_button "Create organization & invite admin"
+          click_on "Create organization & invite admin"
 
           expect(page).to have_content("There is an error in this field")
         end
@@ -96,9 +96,9 @@ describe "Organizations" do
           visit decidim_system.root_path
           expect(organization_admin).to be_invitation_pending
           expect(page).to have_content("Resend invitation")
-          click_link "Resend invitation"
+          click_on "Resend invitation"
           within "#confirm-modal-content" do
-            click_button "OK"
+            click_on "OK"
           end
           within_flash_messages do
             expect(page).to have_content "Invitation successfully sent"
@@ -113,9 +113,9 @@ describe "Organizations" do
       let!(:organization) { create(:organization, name: "Citizen Corp") }
 
       before do
-        click_link "Organizations"
+        click_on "Organizations"
         within "table tbody" do
-          first("tr").click_link "Edit"
+          first("tr").click_on "Edit"
         end
       end
 
@@ -128,12 +128,12 @@ describe "Organizations" do
         choose "Do not allow participants to register, but allow existing participants to login"
         check "Example authorization (Direct)"
 
-        click_button "Show advanced settings"
+        click_on "Show advanced settings"
         check "organization_omniauth_settings_facebook_enabled"
         fill_in "organization_omniauth_settings_facebook_app_id", with: "facebook-app-id"
         fill_in "organization_omniauth_settings_facebook_app_secret", with: "facebook-app-secret"
 
-        click_button "Save"
+        click_on "Save"
 
         expect(page).to have_css("div.flash.success")
         expect(page).to have_content("Citizens Rule!")
@@ -177,12 +177,12 @@ describe "Organizations" do
         Decidim::System.send(:remove_const, :UpdateOrganizationForm)
         load "#{Decidim::System::Engine.root}/app/forms/decidim/system/update_organization_form.rb"
 
-        click_link "Organizations"
+        click_on "Organizations"
         within "table tbody" do
-          first("tr").click_link "Edit"
+          first("tr").click_on "Edit"
         end
 
-        click_button "Show advanced settings"
+        click_on "Show advanced settings"
       end
 
       after do

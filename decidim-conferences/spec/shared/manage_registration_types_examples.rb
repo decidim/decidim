@@ -8,7 +8,7 @@ shared_examples "manage registration types examples" do
     login_as user, scope: :user
     visit decidim_admin_conferences.edit_conference_path(conference)
     within_admin_sidebar_menu do
-      click_link "Registration Types"
+      click_on "Registration Types"
     end
   end
 
@@ -25,7 +25,7 @@ shared_examples "manage registration types examples" do
 
     it "updates a conference registration types" do
       within "#registration_types tr", text: translated(registration_type.title) do
-        click_link "Edit"
+        click_on "Edit"
       end
 
       within ".edit_registration_type" do

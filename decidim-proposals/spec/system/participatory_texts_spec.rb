@@ -93,7 +93,7 @@ describe "Participatory texts" do
       before do
         visit_component
         within "#proposals section[id='proposal_#{proposal.id}']" do
-          click_link "Amend"
+          click_on "Amend"
         end
       end
     end

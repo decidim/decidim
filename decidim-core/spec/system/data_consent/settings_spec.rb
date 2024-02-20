@@ -22,7 +22,7 @@ describe "Data consent" do
       expect(page).to have_content(cookies_description)
 
       within "#dc-dialog-wrapper" do
-        click_button "Accept all"
+        click_on "Accept all"
       end
 
       expect(page).to have_no_content(cookies_description)
@@ -35,7 +35,7 @@ describe "Data consent" do
       expect(page).to have_content(cookies_description)
 
       within "#dc-dialog-wrapper" do
-        click_button "Accept only essential"
+        click_on "Accept only essential"
       end
 
       expect(page).to have_no_content(cookies_description)
@@ -48,7 +48,7 @@ describe "Data consent" do
   context "when cookie modal is open" do
     before do
       within "#dc-dialog-wrapper" do
-        click_button "Settings"
+        click_on "Settings"
       end
     end
 
@@ -64,10 +64,10 @@ describe "Data consent" do
       within "[data-id='analytics']" do
         find("label").click
       end
-      click_button "Save settings"
+      click_on "Save settings"
 
       within "footer" do
-        click_link "Cookie settings"
+        click_on "Cookie settings"
       end
 
       within "[data-id='analytics']" do

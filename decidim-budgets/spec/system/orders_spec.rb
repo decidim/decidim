@@ -309,7 +309,7 @@ describe "Orders" do
 
         expect(page).to have_content "You have not yet voted"
 
-        click_button "Return to voting"
+        click_on "Return to voting"
 
         expect(page).to have_no_content("You have not yet voted")
         expect(page).to have_current_path budget_projects_path
@@ -319,7 +319,7 @@ describe "Orders" do
         visit_budget
 
         within_user_menu do
-          click_link("Log out")
+          click_on("Log out")
         end
 
         expect(page).to have_content "You have not yet voted"
@@ -349,7 +349,7 @@ describe "Orders" do
           page.visit Decidim::EngineRouter.main_proxy(component).budget_project_path(budget, expensive_project)
 
           within "#project-#{expensive_project.id}-budget-button" do
-            click_button
+            click_on
           end
 
           expect(page).to have_css("#budget-excess", visible: :visible)
@@ -428,7 +428,7 @@ describe "Orders" do
 
             before do
               find("[data-dialog-open='budget-confirm']", match: :first).click
-              click_button "Confirm"
+              click_on "Confirm"
               expect(page).to have_css(".flash.success")
             end
 
@@ -646,8 +646,8 @@ describe "Orders" do
     end
 
     it "shows the component" do
-      expect(page).to have_i18n_content(project.title)
-      expect(page).to have_i18n_content(project.description)
+      expect(page).to have_i18n_content(project.title, strip_tags: true)
+      expect(page).to have_i18n_content(project.description, strip_tags: true)
     end
 
     context "with linked proposals" do
@@ -662,7 +662,7 @@ describe "Orders" do
 
       it "shows related proposals" do
         visit_budget
-        click_link translated(project.title)
+        click_on translated(project.title)
 
         proposals.each do |proposal|
           expect(page).to have_content(translated(proposal.title))
@@ -680,7 +680,7 @@ describe "Orders" do
 
         it "does not show the amount of supports" do
           visit_budget
-          click_link translated(project.title)
+          click_on translated(project.title)
 
           expect(page).to have_no_css(".card__list-metadata", text: "5")
         end

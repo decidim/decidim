@@ -32,7 +32,7 @@ module Decidim
 
     context "when there is not a partial to render the form" do
       before do
-        allow(handler).to receive(:to_partial_path).and_return("inexisting_partial")
+        allow(handler).to receive(:to_partial_path).and_return("nonexistent_partial")
       end
 
       it "renders the form without the partial" do

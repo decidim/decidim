@@ -2,7 +2,7 @@
 
 module Decidim
   # A custom mailer for Decidim so we can notify users to verify
-  # their own newsletter notifications settings. GDPR releated
+  # their own newsletter notifications settings. GDPR related
   class NewslettersOptInMailer < ApplicationMailer
     def notify(user, token)
       with_user(user) do

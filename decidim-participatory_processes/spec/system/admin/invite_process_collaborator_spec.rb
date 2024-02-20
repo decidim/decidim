@@ -30,7 +30,7 @@ describe "Invite process collaborator" do
       visit decidim_admin.admin_terms_show_path
       find_button("I agree with the terms").click
 
-      click_link "Processes"
+      click_on "Processes"
 
       within "div.table-scroll" do
         expect(page).to have_i18n_content(participatory_process.title)
@@ -54,7 +54,7 @@ describe "Invite process collaborator" do
 
       visit decidim_admin.root_path
 
-      click_link "Processes"
+      click_on "Processes"
 
       within "div.table-scroll" do
         expect(page).to have_i18n_content(participatory_process.title)

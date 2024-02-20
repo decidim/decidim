@@ -59,7 +59,7 @@ module Decidim
         it { is_expected.to eq(age - 1) }
       end
 
-      context "when birtday is not present" do
+      context "when birthday is not present" do
         let(:birthday) { nil }
 
         it { is_expected.to be_nil }

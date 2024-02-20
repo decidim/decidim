@@ -16,12 +16,12 @@ describe "Organization scopes" do
     before do
       login_as admin, scope: :user
       visit decidim_admin.root_path
-      click_link "Settings"
-      click_link "Scopes"
+      click_on "Settings"
+      click_on "Scopes"
     end
 
     it "can create new scopes" do
-      click_link "Add"
+      click_on "Add"
 
       within ".new_scope" do
         fill_in_i18n :scope_name, "#scope-name-tabs", en: "My nice district",
@@ -49,7 +49,7 @@ describe "Organization scopes" do
 
       it "can edit them" do
         within "tr", text: translated(scope.name) do
-          click_link "Edit"
+          click_on "Edit"
         end
 
         within ".edit_scope" do
@@ -68,7 +68,7 @@ describe "Organization scopes" do
 
       it "can delete them" do
         within "tr", text: translated(scope.name) do
-          accept_confirm { click_link "Delete" }
+          accept_confirm { click_on "Delete" }
         end
 
         expect(page).to have_admin_callout("successfully")
@@ -78,12 +78,12 @@ describe "Organization scopes" do
         end
       end
 
-      it "can create a new subcope" do
+      it "can create a new subscope" do
         within "tr", text: translated(scope.name) do
           page.find("td:first-child a").click
         end
 
-        click_link "Add"
+        click_on "Add"
 
         within ".new_scope" do
           fill_in_i18n :scope_name, "#scope-name-tabs", en: "My nice subdistrict",

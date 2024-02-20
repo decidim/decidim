@@ -25,9 +25,9 @@ describe "Index Proposal Notes" do
 
   before do
     within "tr", text: translated(proposal.title) do
-      click_link "Answer proposal"
+      click_on "Answer proposal"
     end
-    click_button "Private notes"
+    click_on "Private notes"
   end
 
   it "shows proposal notes for the current proposal" do
@@ -48,7 +48,7 @@ describe "Index Proposal Notes" do
 
       expect(page).to have_admin_callout("successfully")
 
-      click_button "Private notes"
+      click_on "Private notes"
       within ".component__show_notes-grid .comment:last-child" do
         expect(page).to have_content("New awesome body")
       end

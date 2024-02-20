@@ -2,7 +2,7 @@
  * Changes "Back to list" links to the one saved in sessionStorage API
  * To apply this to a link, at least one element must have the class "js-back-to-list".
  * For this to work it needs the filteredParams in SessionStorage, that is saved on FormFilterComponent.
- * @param {NodeList} links - Hyperlinks elements that point to the filters page that will use the fitererd params
+ * @param {NodeList} links - Hyperlinks elements that point to the filters page that will use the filtered params
  * @returns {void}
  */
 export default function backToListLink(links) {

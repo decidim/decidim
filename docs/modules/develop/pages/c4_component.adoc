@@ -11,7 +11,7 @@ title System Component diagram for Decidim Applications (https://decidim.org)
 
 ContainerDb(rel_db, "Relational Database", "PostgreSQL 9.5.x", "Stores users, participatory processes, assemblies, initiatives, proposals, meetings, etc.")
 Container(filesystem, "File System", "Local or remote", "Stores uploads (images, documents, etc.)")
-Container(worker, "Worker", "Ruby on Rails 5.2", "ActiveJob queues for non syncronuos jobs. Works for open data requests, sending emails, etc.")
+Container(worker, "Worker", "Ruby on Rails 5.2", "ActiveJob queues for non synchronous jobs. Works for open data requests, sending emails, etc.")
 
 Container_Boundary(web_app, "Web Application") {
 
@@ -25,7 +25,7 @@ Container_Boundary(web_app, "Web Application") {
     Component(system, "System module", "Ruby On Rails Engine", "Multitenant configuration, mounted in /system. Can create and manage all the instances of an installation.")
     Component(verifications, "Verifications module", "Ruby On Rails Engine", " Offers several methods for allowing participants to get authorization to perform certain privileged actions.")
 
-    Component(assemblies, "Assemblies module", "Ruby On Rails Engine (Space)", "A permament Space, mounted in /assemblies.")
+    Component(assemblies, "Assemblies module", "Ruby On Rails Engine (Space)", "A permanent Space, mounted in /assemblies.")
     Component(conferences, "Conferences module", "Ruby On Rails Engine (Space)", "A temporal Space, mounted in /conferences.")
     Component(initiatives, "Initiatives module", "Ruby On Rails Engine (Space)", "A bottom-up Space, mounted in /initiatives. A participant can collect signatures to bring an issue to the organization.")
     Component(participatory_processes, "Participatory Processes module (Space)", "Ruby On Rails Engine", "A temporal Space, mounted in /processes.")

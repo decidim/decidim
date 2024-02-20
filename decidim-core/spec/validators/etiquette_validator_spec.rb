@@ -70,7 +70,7 @@ describe EtiquetteValidator do
 
   context "when the text is written starting in downcase" do
     context "with a single line body" do
-      let(:body) { "i no care about grammer" }
+      let(:body) { "i no care about grammar" }
 
       it { is_expected.to be_invalid }
     end

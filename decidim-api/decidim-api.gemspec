@@ -32,11 +32,12 @@ Gem::Specification.new do |s|
     end
   end
 
+  s.add_dependency "decidim-core", Decidim::Api.version
   s.add_dependency "graphql", "~> 2.2.6"
   s.add_dependency "graphql-docs", "~> 4.0"
   s.add_dependency "rack-cors", "~> 1.0"
+
   s.add_development_dependency "decidim-comments", Decidim::Api.version
-  s.add_development_dependency "decidim-core", Decidim::Api.version
   s.add_development_dependency "decidim-dev", Decidim::Api.version
   s.add_development_dependency "decidim-participatory_processes", Decidim::Api.version
 end

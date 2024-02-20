@@ -8,7 +8,7 @@ shared_examples "manage posts attachments" do
 
   before do
     within "tr", text: translated(post.title) do
-      click_link "Attachments"
+      click_on "Attachments"
     end
   end
 

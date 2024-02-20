@@ -7,7 +7,7 @@ describe Decidim::Initiatives::ApproveMembershipRequestEvent do
 
   let(:user_role) { :affected_user }
   let(:extra) { { author: } }
-  let(:event_name) { "decidim.events.initiatives.approve_membership_request" }
+  let(:event_name) { "decidim.initiatives.events.approve_membership_request" }
   let!(:resource) { create(:initiative, :created) }
   let(:participatory_space) { resource }
 

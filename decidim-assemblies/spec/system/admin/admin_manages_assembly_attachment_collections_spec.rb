@@ -12,9 +12,9 @@ describe "Admin manages assembly attachment collections examples" do
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
     within_admin_sidebar_menu do
-      click_link "Attachments"
+      click_on "Attachments"
     end
-    click_link "Folders"
+    click_on "Folders"
   end
 
   it_behaves_like "manage attachment collections examples"

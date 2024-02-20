@@ -2,7 +2,7 @@
 
 module Decidim
   module Sortitions
-    # Model that encapsulates the parameters of a sortion
+    # Model that encapsulates the parameters of a sortition
     class Sortition < ApplicationRecord
       include Decidim::Resourceable
       include Decidim::HasCategory

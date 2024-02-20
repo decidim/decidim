@@ -37,7 +37,7 @@ AllCops:
   StyleGuideCopsOnly: false
   # All cops except the ones in disabled.yml are enabled by default. Change
   # this behavior by overriding DisabledByDefault. When DisabledByDefault is
-  # true, all cops in the default configuration are disabled, and and only cops
+  # true, all cops in the default configuration are disabled, and only cops
   # in user configuration are enabled. This makes cops opt-in instead of
   # opt-out. Note that when DisabledByDefault is true, cops in user
   # configuration will be enabled even if they do not set the Enabled parameter.
@@ -807,7 +807,7 @@ Naming/PredicateName:
   # should still be accepted
   AllowedMethods:
     - is_a?
-  # Exclude Rspec specs because there is a strong convetion to write spec
+  # Exclude Rspec specs because there is a strong convention to write spec
   # helpers in the form of `have_something` or `be_something`.
   Exclude:
     - "**/spec/**/*"

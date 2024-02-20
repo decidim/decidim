@@ -16,14 +16,22 @@ module Decidim
                 type: :table,
                 options: { headings: ["Announcement", "Callout class"] },
                 items: announcement_table(
-                  { text: "I am an announcement", callout_class: nil },
-                  { text: "I am an announcement", callout_class: "alert" },
+                  { text: "I am an announcement", callout_class: "success" },
                   { text: "I am an announcement", callout_class: "warning" },
-                  { text: "I am an announcement", callout_class: "success" }
+                  { text: "I am an announcement", callout_class: "alert" },
+                  { text: "I am an announcement", callout_class: "secondary" },
+                  { text: "I am an announcement", callout_class: nil }
                 ),
                 cell_snippet: {
                   cell: "decidim/announcement",
-                  args: ["I am an annoucement"]
+                  args: ["I am an announcement", { callout_class: "success" }],
+                  call_string: [
+                    'cell("decidim/announcement", "I am an announcement", callout_class: "success")',
+                    'cell("decidim/announcement", "I am an announcement", callout_class: "warning")',
+                    'cell("decidim/announcement", "I am an announcement", callout_class: "alert")',
+                    'cell("decidim/announcement", "I am an announcement", callout_class: "secondary")',
+                    'cell("decidim/announcement", "I am an announcement")'
+                  ]
                 }
               }
             ]
@@ -39,19 +47,29 @@ module Decidim
                 type: :table,
                 options: { headings: ["Announcement", "Callout class", "Argument"] },
                 items: announcement_table(
-                  { text: "I am just plain text", callout_class: "secondary", argument: '"I am just plain text"' },
-                  { text: { title: "This is the title", body: "This is the body" }, callout_class: "secondary",
-                    argument: '{ title: "This is the title", body: "This is the body" }' },
-                  { text: { title: "This is the title", body: "This is the body" }, callout_class: "warning",
-                    argument: '{ text: { title: "This is the title", body: "This is the body" }, callout_class: "warning" }' },
-                  { text: { title: "This is the title", body: "This is the body" }, callout_class: "alert",
-                    argument: '{ text: { title: "This is the title", body: "This is the body" }, callout_class: "alert" }' },
                   { text: { title: "This is the title", body: "This is the body" }, callout_class: "success",
-                    argument: '{ text: { title: "This is the title", body: "This is the body" }, callout_class: "success" }' }
+                    argument: '{ title: "This is the title", body: "This is the body" }, callout_class: "success"' },
+                  { text: { title: "This is the title", body: "This is the body" }, callout_class: "warning",
+                    argument: '{ title: "This is the title", body: "This is the body" }, callout_class: "warning"' },
+                  { text: { title: "This is the title", body: "This is the body" }, callout_class: "alert",
+                    argument: '{ title: "This is the title", body: "This is the body" }, callout_class: "alert"' },
+                  { text: { title: "This is the title", body: "This is the body" }, callout_class: "secondary",
+                    argument: '{ title: "This is the title", body: "This is the body" }, callout_class: "secondary"' },
+                  { text: { title: "This is the title", body: "This is the body" }, callout_class: nil,
+                    argument: '{ title: "This is the title", body: "This is the body" }' },
+                  { text: "I am just plain text", callout_class: nil, argument: '"I am just plain text"' }
                 ),
                 cell_snippet: {
                   cell: "decidim/announcement",
-                  args: [{ title: "This is the title", body: "This is the body" }]
+                  args: [{ title: "This is the title", body: "This is the body" }, { callout_class: "success" }],
+                  call_string: [
+                    'cell("decidim/announcement", { title: "This is the title", body: "This is the body" }, callout_class: "success")',
+                    'cell("decidim/announcement", { title: "This is the title", body: "This is the body" }, callout_class: "warning")',
+                    'cell("decidim/announcement", { title: "This is the title", body: "This is the body" }, callout_class: "alert")',
+                    'cell("decidim/announcement", { title: "This is the title", body: "This is the body" }, callout_class: "secondary")',
+                    'cell("decidim/announcement", { title: "This is the title", body: "This is the body" })',
+                    'cell("decidim/announcement", "I am just plain text")'
+                  ]
                 }
               }
             ]
@@ -63,7 +81,7 @@ module Decidim
         table_rows.each_with_index.map do |table_cell, _ix|
           row = []
           row << { method: :cell, args: ["decidim/announcement", table_cell[:text], { callout_class: table_cell[:callout_class] }] }
-          row << table_cell[:callout_class] if table_cell[:callout_class].present?
+          row << table_cell[:callout_class]
           row << table_cell[:argument] if table_cell[:argument].present?
           row
         end

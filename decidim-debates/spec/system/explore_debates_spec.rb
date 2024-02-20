@@ -79,7 +79,7 @@ describe "Explore debates" do
 
         expect(page).to have_css("a.card__list", count: Decidim::Paginable::OPTIONS.first)
 
-        click_link "Next"
+        click_on "Next"
 
         expect(page).to have_selector("[data-pages] [data-page][aria-current='page']", text: "2")
 
@@ -149,7 +149,7 @@ describe "Explore debates" do
           within "form.new_filter" do
             fill_in("filter[search_text_cont]", with: "foobar")
             within "div.filter-search" do
-              click_button
+              click_on
             end
           end
 
@@ -343,7 +343,7 @@ describe "Explore debates" do
 
       it "links to the filter for this scope" do
         within "[data-tags]" do
-          click_link translated(debate.scope.name)
+          click_on translated(debate.scope.name)
         end
 
         within "#dropdown-menu-filters" do

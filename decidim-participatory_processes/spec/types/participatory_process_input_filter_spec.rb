@@ -15,7 +15,7 @@ module Decidim
         include_examples "collection has before/since input filter", "participatoryProcesses", "published"
       end
 
-      context "when filtered by hastag" do
+      context "when filtered by hashtag" do
         include_examples "collection has hashtag input filter", "participatoryProcesses"
       end
     end

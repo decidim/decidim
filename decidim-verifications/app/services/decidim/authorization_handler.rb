@@ -108,7 +108,7 @@ module Decidim
     #
     # Any data to be injected in the `verification_metadata` field of an
     # authorization when it is created. This data will be used for multi-step
-    # verificaton workflows in order to confirm the authorization.
+    # verification workflows in order to confirm the authorization.
     #
     # Returns a Hash.
     def verification_metadata

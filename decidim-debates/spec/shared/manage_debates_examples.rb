@@ -75,7 +75,7 @@ RSpec.shared_examples "manage debates" do
   end
 
   it "creates a new finite debate" do
-    click_link "New debate"
+    click_on "New debate"
 
     within ".new_debate" do
       fill_in_i18n(
@@ -122,7 +122,7 @@ RSpec.shared_examples "manage debates" do
   end
 
   it "creates a new open debate" do
-    click_link "New debate"
+    click_on "New debate"
 
     within ".new_debate" do
       fill_in_i18n(

@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
 
   s.name = "decidim-sortitions"
   s.summary = "Decidim sortitions module"
-  s.description = "This module makes possible to select amont a set of proposal by sortition"
+  s.description = "This module makes possible to select amount a set of proposal by sortition"
 
   s.files = Dir.chdir(__dir__) do
     `git ls-files -z`.split("\x0").select do |f|
