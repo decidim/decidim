@@ -5,6 +5,8 @@ module Decidim
   class PushNotificationMessage
     class InvalidActionError < StandardError; end
 
+    include SanitizeHelper
+
     def initialize(recipient:, conversation:, message:)
       @recipient = recipient
       @conversation = conversation
@@ -13,7 +15,6 @@ module Decidim
 
     attr_reader :recipient, :conversation, :message
 
-    include SanitizeHelper
 
     def body
       decidim_escape_translated(message)
