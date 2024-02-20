@@ -32,8 +32,8 @@ Gem::Specification.new do |s|
     end
   end
 
-  s.add_dependency "decidim-core", Decidim::Api.version
   s.add_dependency "commonmarker", "~> 0.23.0", ">= 0.23.9"
+  s.add_dependency "decidim-core", Decidim::Api.version
   # Graphql version 2.1 breaks graphql-client compatibility See https://github.com/github/graphql-client/pull/310
   s.add_dependency "graphql", "~> 2.0.0"
   s.add_dependency "graphql-docs", "~> 3.0.1"
