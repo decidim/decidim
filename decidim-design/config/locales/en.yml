@@ -12,7 +12,7 @@ en:
           adjacent_links_paragraph: If the same resource has multiple adjacent links pointing to it, it makes it difficult for such users to glance through the page because they might need to go through multiple links to get to the next resource.
           color_contrast: Color contrast
           color_contrast_paragraph: When creating user interfaces or modifying the colors, always make sure that you are not breaking accessibility with your changes. You can use the Color contrast checker to ensure that your colors have enough contrast against the background color where they are displayed at.
-          decidim_follows_html: "Decidim follows the <u>Web Content Accessibility Guidelines (WCAG) 2.1</u>"
+          decidim_follows_html: Decidim follows the <u>Web Content Accessibility Guidelines (WCAG) 2.1</u>
           dynamic_changes_header: Dynamic functionality changes the page context unintuitively
           dynamic_changes_paragraph: Changes in the form inputs should not change the context of the page automatically.
           elements_hidden: Elements hidden
@@ -27,6 +27,7 @@ en:
           links_and_buttons: Links and Buttons
           links_and_buttons_paragraph: The anchor elements (i.e. links) are meant to link to different pages or to anchor positions within the page. If the element is supposed to e.g. open some hidden item on that page, you should use the &#60;button&#62; element instead.
           see_further_info: See further info
+          see_further_info_html: See further info %{link}
           unique_h1: Unique H1
           unique_h1_paragraph: Every page should have a unique H1 heading on it
           use_aria: Use ARIA
@@ -34,7 +35,7 @@ en:
           use_aria_paragraph: Many elements that provide interactive functionality on the website require ARIA attributes on them to make them accessible.
       home:
         index:
-          by_sharing_principles: By sharing the principles, philosophy, and rationale behind design decisions we want to empower the community to contribute with consistency so we reach the best participant experience.
+          by_sharing_principles: By sharing the principles, philsophy, and rationale behind design decisions we want to empower the community to contribute with consistency so we reach the best participant experience.
           decidim_guide: The guide to design all things Decidim
           different_ui_components: At the same time, we document the different UI components and patterns in use, that should be reused or extended.
           github_source: Source code on GitHub
