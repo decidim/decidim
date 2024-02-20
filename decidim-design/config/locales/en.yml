@@ -3,24 +3,6 @@ en:
   decidim:
     design:
       foundations:
-        color:
-          color_header: Color
-          description_p1: We provide a Base palette with few colors so simple customizations are easy. You can modify the Base palette either in the Administration area or in the Tailwind configuration file if you need more advanced customization.
-          description_p2_html: When customizing your colors, have in mind the %{link}. You can check the contrast of your choosing with %{link}  or other similar tools.
-          wcag_compliant_rations: WCAG 2.1 AA compliant contrast ratio
-          wcag_contrast_checker: WebAIM Contrast Checker
-      helpers:
-        background: Background and borders
-        base: Base
-        form_elements: Form elements
-        hex_code: Hex code
-        main_colors: Main Colors
-        rgba_code: RGBA code
-        state: State
-        tailwind: Tailwind name
-        typography_texts: Typography and texts
-        usage: Usage
-        value: Value
         accessibility:
           accessibility_labels: Accessibility labels
           accessibility_labels_paragraph: When defining elements, always make sure they make sense for screen reader users.
@@ -50,6 +32,24 @@ en:
           use_aria: Use ARIA
           use_aria_header: Use ARIA attributes where possible
           use_aria_paragraph: Many elements that provide interactive functionality on the website require ARIA attributes on them to make them accessible.
+        color:
+          color_header: Color
+          description_p1: We provide a Base palette with few colors so simple customizations are easy. You can modify the Base palette either in the Administration area or in the Tailwind configuration file if you need more advanced customization.
+          description_p2_html: When customizing your colors, have in mind the %{link}. You can check the contrast of your choosing with %{link}  or other similar tools.
+          wcag_compliant_rations: WCAG 2.1 AA compliant contrast ratio
+          wcag_contrast_checker: WebAIM Contrast Checker
+      helpers:
+        background: Background and borders
+        base: Base
+        form_elements: Form elements
+        hex_code: Hex code
+        main_colors: Main Colors
+        rgba_code: RGBA code
+        state: State
+        tailwind: Tailwind name
+        typography_texts: Typography and texts
+        usage: Usage
+        value: Value
       home:
         index:
           by_sharing_principles: By sharing the principles, philsophy, and rationale behind design decisions we want to empower the community to contribute with consistency so we reach the best participant experience.
