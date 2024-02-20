@@ -10,7 +10,7 @@ module Decidim
             contents: [
               {
                 type: :table,
-                options: { headings: ["Value", "Tailwind name", "Usage"] },
+                options: { headings: [t("decidim.design.helpers.value"), t("decidim.design.helpers.tailwind"), t("decidim.design.helpers.usage")] },
                 items: colors_table(
                   { value: "var(--primary)", name: "primary", usage: "Main nav component background\nNav menus in homepage and space home" },
                   { value: "var(--secondary)", name: "secondary", usage: "Main color for links and buttons" },
@@ -24,7 +24,7 @@ module Decidim
             contents: [
               {
                 type: :table,
-                options: { headings: ["Value", "Tailwind name", "Hex code", "RGBA code", "Usage"] },
+                options: { headings: [t("decidim.design.helpers.value"), t("decidim.design.helpers.tailwind"), "Hex code", "RGBA code", t("decidim.design.helpers.usage")] },
                 items: colors_table(
                   { value: "#28A745", name: "success", rgba: "rgba(40,167,69,1)", usage: "Success notice border\nAlert notice icon fill\nButton background on success message" },
                   { value: "#FFB703", name: "warning", rgba: "rgba(255,183,3,1)", usage: "Warning notice border" },
@@ -41,7 +41,7 @@ module Decidim
               },
               {
                 type: :table,
-                options: { headings: ["Value", "Tailwind name", "Hex code", "RGBA code", "Usage"] },
+                options: { headings: [t("decidim.design.helpers.value"), t("decidim.design.helpers.tailwind"), "Hex code", "RGBA code", t("decidim.design.helpers.usage")] },
                 items: colors_table(
                   { value: "#020203", name: "black", rgba: "rgba(2,2,3,1)", usage: "Headings and section titles" },
                   { value: "#3E4C5C", name: "gray-2", rgba: "rgba(62,76,92,1)", usage: "Inline text" },
@@ -54,7 +54,7 @@ module Decidim
               },
               {
                 type: :table,
-                options: { headings: ["Value", "Tailwind name", "Hex code", "RGBA code", "Usage"] },
+                options: { headings: [t("decidim.design.helpers.value"), t("decidim.design.helpers.tailwind"), "Hex code", "RGBA code", t("decidim.design.helpers.usage")] },
                 items: colors_table(
                   { value: "#F3F4F7", name: "background", rgba: "rgba(243,244,247,1)", usage: "Aside background" },
                   { value: "#E4EEFF99", name: "background-4", rgba: "rgba(228,238,255,0.8)", usage: "Selected sidebar filter background" },
@@ -69,7 +69,7 @@ module Decidim
               },
               {
                 type: :table,
-                options: { headings: ["Value", "Tailwind name", "Hex code", "RGBA code", "Usage"] },
+                options: { headings: [t("decidim.design.helpers.value"), t("decidim.design.helpers.tailwind"), "Hex code", "RGBA code", t("decidim.design.helpers.usage")] },
                 items: colors_table(
                   { value: "#FAFBFC", name: "background-2", rgba: "rgba(250,251,252,1)", usage: "Input elements default background" },
                   { value: "#EFEFEF", name: "background-3", rgba: "rgba(239,239,239,1))", usage: "Input elements disabled state background" }
