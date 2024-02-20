@@ -14,14 +14,19 @@ module Decidim
     # Send the push notification. Returns `nil` if the user did not allowed push notifications
     # or if the subscription to push notifications does not exist
     #
-    # Returns the result of the dispatch or nil if user or subscription are empty
-    def perform(notification)
+    # @param notification [Decidim::Notification, Decidim::PushNotificationMessage] the notification to be sent
+    # @param title [String] the title of the notification. Optional.
+    #
+    # @return [Array<Net::HTTPCreated>, nil] the result of the dispatch or nil if user or subscription are empty
+    def perform(notification, title = nil)
       return unless Rails.application.secrets.dig(:vapid, :enabled)
+      raise ArgumentError, "Need to provide a title if the notification is a PushNotificationMessage" if notification.is_a?(Decidim::PushNotificationMessage) && title.nil?
 
-      I18n.with_locale(notification.user.locale || notification.user.organization.default_locale) do
-        notification.user.notifications_subscriptions.values.map do |subscription|
-          message_params = notification_params(Decidim::PushNotificationPresenter.new(notification))
-          payload = build_payload(message_params, subscription)
+      user = notification.user
+
+      I18n.with_locale(user.locale || user.organization.default_locale) do
+        user.notifications_subscriptions.values.map do |subscription|
+          payload = build_payload(message_params(notification, title), subscription)
           # Capture webpush exceptions in order to avoid this call to be repeated by the background job runner
           # Webpush::Error class is the parent class of all defined errors
           begin
@@ -36,9 +41,18 @@ module Decidim
 
     private
 
-    def notification_params(notification)
+    def message_params(notification, title = nil)
+      case notification
+      when Decidim::PushNotificationMessage
+        notification_params(notification, title)
+      else # when Decidim::Notification
+        notification_params(Decidim::PushNotificationPresenter.new(notification))
+      end
+    end
+
+    def notification_params(notification, title = nil)
       {
-        title: notification.title,
+        title: title.presence || notification.title,
         body: notification.body,
         icon: notification.icon,
         data: { url: notification.url }
