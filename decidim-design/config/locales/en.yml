@@ -21,7 +21,7 @@ en:
           heading_on: Heading on important sections
           here_link: here
           illogical_heading_order: Illogical heading order
-          illogical_heading_paragraph: Every page should have a logical heading order when using the &#60;h1&#62;, &#60;h2&#62;, &#60;h3&#62;, &#60;h4&#62;, &#60;h5&#62; and &#60;h6&#62; heading elements.
+          illogical_heading_paragraph: "Every page should have a logical heading order when using the <h1>, <h2>, <h3>, <h4>, <h5> and <h6> heading elements."
           important_sections_heading: Heading on important sections
           important_sections_paragraph: It is highly important that each important section of the page has a heading to make it easier to understand what important sections are on the page just by browsing through its headings.
           links_and_buttons: Links and Buttons
