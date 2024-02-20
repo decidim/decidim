@@ -14,6 +14,9 @@ module Decidim
 
     # rubocop:disable Metrics/ParameterLists
     # rubocop:disable Lint/UnusedMethodArgument
+    #
+    # There are some parameters thar are not used in the method, but they are needed to
+    # keep the same contract as the Decidim::Messaging::ConversationMailer
     def send_notification(from:, to:, conversation:, action:, message: nil, third_party: nil)
       @action = action
       @sender = to
