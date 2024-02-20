@@ -17,7 +17,7 @@ module Decidim
     # @param notification [Decidim::Notification, Decidim::PushNotificationMessage] the notification to be sent
     # @param title [String] the title of the notification. Optional.
     #
-    # @return [TBD, nil] the result of the dispatch or nil if user or subscription are empty
+    # @return [Array<Net::HTTPCreated>, nil] the result of the dispatch or nil if user or subscription are empty
     def perform(notification, title = nil)
       return unless Rails.application.secrets.dig(:vapid, :enabled)
       raise ArgumentError, "Need to provide a title if the notification is a PushNotificationMessage" if notification.is_a?(Decidim::PushNotificationMessage) && title.nil?
