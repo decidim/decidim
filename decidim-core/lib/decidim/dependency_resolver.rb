@@ -179,8 +179,8 @@ module Decidim
       # @yield [dependency] Yields each dependency to be processed to the
       #   provided block to check if that dependency needs to be processed or
       #   not.
-      # @yieldparam [Gem::Dependency] The runtime dependency being processed.
-      # @yieldreturn [Boolean] A boolean indicating whether this dependency
+      # @yield param [Gem::Dependency] The runtime dependency being processed.
+      # @yield return [Boolean] A boolean indicating whether this dependency
       #   needs to be processed or not. True indicates it needs to be processed
       #   and false indicates processing is not needed.
       # @return [Bundler::LazySpecification, nil] The specification for the gem

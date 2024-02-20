@@ -74,7 +74,7 @@ module Decidim::Admin
           expect(action_log.action).to eq "update"
         end
 
-        it "updates the the organization's terms-of-service updated at setting" do
+        it "updates the organization's terms-of-service updated at setting" do
           command.call
           tos_page.reload
           organization.reload

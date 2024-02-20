@@ -125,7 +125,7 @@ Each attribute defined can be described through properties:
 * `text` and `string` attributes can be `translated`, which will allow admin users to enter values for every language.
 * `text` attributes can use an `editor` to edit them as HTML code
 * `enum` attributes should have a `choices` attributes that list all the possible values. This could be a lambda function.
-* they can be `readonly` in some cases, throught a lambda function that received the current component within the `context`.
+* they can be `readonly` in some cases, through a lambda function that received the current component within the `context`.
 
 [source,ruby]
 ----

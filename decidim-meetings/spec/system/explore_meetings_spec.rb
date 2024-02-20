@@ -83,7 +83,7 @@ describe "Explore meetings", :slow do
     end
 
     context "when checking withdrawn meetings" do
-      context "when there are no withrawn meetings" do
+      context "when there are no withdrawn meetings" do
         let!(:meeting) { create_list(:meeting, 3, :published, component:) }
 
         before do
@@ -99,7 +99,7 @@ describe "Explore meetings", :slow do
         end
       end
 
-      context "when there are withrawn meetings" do
+      context "when there are withdrawn meetings" do
         let!(:withdrawn_meetings) { create_list(:meeting, 3, :withdrawn, :published, component:) }
 
         before do

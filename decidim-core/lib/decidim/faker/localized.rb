@@ -135,7 +135,7 @@ module Decidim
         end.with_indifferent_access
       end
 
-      # Wrapps a text build by the block with some other text.
+      # Wraps a text build by the block with some other text.
       #
       # before - The String text to inject at the beginning of each value.
       # after  - The String text to inject at the end of each value.
