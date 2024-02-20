@@ -23,13 +23,18 @@ module Decidim
       recipient
     end
 
-    # TODO: check if icon is correct
     def icon
-      "fi-question-answer-line"
+      organization.attached_uploader(:favicon).variant_url(:big, host: organization.host)
     end
 
     def url
-      EngineRouter.new("decidim", {}).public_send(:conversation_path, host: @recipient.organization.host, id: @conversation)
+      EngineRouter.new("decidim", {}).public_send(:conversation_path, host: organization.host, id: @conversation)
+    end
+
+    private
+
+    def organization
+      @organization ||= recipient.organization
     end
   end
 end
