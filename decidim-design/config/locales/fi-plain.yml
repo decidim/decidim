@@ -2,6 +2,36 @@
 fi-pl:
   decidim:
     design:
+      foundations:
+        accessibility:
+          accessibility_labels: Saavutettavat nimilaput
+          accessibility_labels_paragraph: Määritellessäsi elementtejä, varmista, että ne ovat ymmärrettäviä näytönlukijaohjelmistojen käyttäjille.
+          accessibility_title: Saavutettavuus
+          adjacent_links: Vierekkäiset linkit
+          adjacent_links_header: Vierekkäiset linkit samaan kohteeseen
+          adjacent_links_paragraph: Jos samaan kohteeseen on useita vierekkäisiä linkkejä, se hankaloittaa sivun ymmärtämistä avustavien teknologioiden käyttäjille, koska kyseisten käyttäjien tulee siirtää kohdistusta useaan otteeseen päästäkseen seuraavaan kohteeseen.
+          color_contrast: Värien kontrasti
+          color_contrast_paragraph: Luodessasi käyttöliittymiä tai muuttaessasi värimäärityksiä, varmista, että et riko sivun saavutettavuutta näillä muutoksilla. Voit käyttää värien kontrastiarvon tarkastustyökalua varmistaaksesi, että väreillä on tarpeeksi kontrastia niiden taustaväriin verrattuna.
+          decidim_follows_html: Desidim noudattaa <u>Verkkosisällön saavutettavuusohjeita (WCAG) 2.1</u>
+          dynamic_changes_header: Sivujen dynaamiset toiminnot muuttavat sivun kontekstia epäjohdonmukaisesti
+          dynamic_changes_paragraph: Lomakekenttien muutosten ei tulisi muuttaa sivun kontekstia automaattisesti.
+          elements_hidden: Piilotetut elementit
+          elements_hidden_header: Avustavilta teknologioilta piilotetut elementit
+          elements_hidden_paragraph: Käytä aria-hidden="true" -attribuuttia piilottaaksesi elementin avustavilta teknologioilta.
+          heading_on: Tärkeiden osioiden otsikointi
+          here_link: täältä
+          illogical_heading_order: Epäjohdonmukainen otsikointijärjestys
+          illogical_heading_paragraph: Jokaisen sivun on noudatettava johdonmukaista otsikoiden järjestystä käytettäessä <h1>, <h2>, <h3>, <h4>, <h5> ja <h6> otsikkoelementtejä.
+          important_sections_heading: Tärkeiden osioiden otsikointi
+          important_sections_paragraph: On erityisen tärkeää, että jokaisella sivun tärkeällä osiolla on otsikko, jotta sivun rakenne on helppo ymmärtää selaamalla pelkästään sivun otsikot.
+          links_and_buttons: Linkit ja painikkeet
+          links_and_buttons_paragraph: Ankkurielementit (eli linkit) on tarkoitettu linkittämään eri sivuille tai saman sivun eri osioihin. Mikäli elementin on tarkoitus avata esimerkiksi piilotettua sisältöä samalla sivulla muuttamatta sivun kontekstia, toteutuksessa tulisi käyttää <button>-elementtiä ankkurin sijaan.
+          see_further_info_html: Löydät lisätietoja %{link}
+          unique_h1: Yksilölliset H1-tason otsikot
+          unique_h1_paragraph: Jokaisella sivulla on oltava yksilöllinen H1-otsikko
+          use_aria: Hyödynnä ARIA-attribuutteja
+          use_aria_header: Hyödynnä ARIA-attribuutteja mahdollisuuksien mukaan
+          use_aria_paragraph: Monet dynaamisia toimintoja tarjoavat elementit tarvitsevat ARIA-attribuuttimäärityksiä toimiakseen saavutettavasti ja ollakseen yhteensopivia avustavien teknologioiden kanssa.
       home:
         index:
           by_sharing_principles: Jakamalla suunnittelupäätösten taustalla olevat periaatteet, filosofia ja perustelut, haluamme mahdollistaa yhteisöllemme tavan osallistua kehittämiseen yhdenmukaisesti, jotta voimme saavuttaa parhaan mahdollisen osallistujakokemuksen alustan käyttäjille.
