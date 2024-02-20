@@ -2,6 +2,15 @@
 de:
   decidim:
     design:
+      foundations:
+        accessibility:
+          accessibility_title: Barrierefreiheit
+          color_contrast: Farbkontrast
+          elements_hidden: Elemente versteckt
+          here_link: hier
+          unique_h1: Eindeutige H1
+          use_aria: Benutze ARIA
+          use_aria_header: ARIA-Attribute verwenden, wenn möglich
       home:
         index:
           github_source: Quellcode auf GitHub
