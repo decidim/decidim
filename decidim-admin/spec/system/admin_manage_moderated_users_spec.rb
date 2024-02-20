@@ -77,7 +77,7 @@ describe "Admin manages moderated users" do
     context "when sorting" do
       context "with report count" do
         it "sorts reported users by report count" do
-          click_link "Reports count"
+          click_on "Reports count"
 
           all("tbody").last do
             expect(all("tr").first.text).to include(first_user.name)
@@ -154,7 +154,7 @@ describe "Admin manages moderated users" do
     context "when sorting" do
       context "with report count" do
         it "sorts reported users by report count" do
-          click_link "Reports count"
+          click_on "Reports count"
 
           all("tbody").last do
             expect(all("tr").first.text).to include(first_user.nickname)

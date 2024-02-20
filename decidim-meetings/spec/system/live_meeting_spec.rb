@@ -34,7 +34,7 @@ describe "Meeting live event" do
   it "shows a close button" do
     expect(page).to have_content("close")
 
-    click_link "close"
+    click_on "close"
     expect(page).to have_current_path meeting_path
   end
 
@@ -52,8 +52,8 @@ describe "Meeting live event" do
 
     it "can enable all cookies" do
       visit meeting_live_event_path
-      click_link "Change cookie settings"
-      click_button "Accept all"
+      click_on "Change cookie settings"
+      click_on "Accept all"
       expect(page).to have_selector("iframe")
     end
   end

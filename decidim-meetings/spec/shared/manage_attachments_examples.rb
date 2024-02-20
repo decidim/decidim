@@ -8,7 +8,7 @@ shared_examples "manage meetings attachments" do
 
   before do
     within "tr", text: translated(meeting.title) do
-      click_link "Attachments"
+      click_on "Attachments"
     end
   end
 

@@ -125,7 +125,7 @@ In order to populate the database with example data proceed as usual in rails:
 bundle exec rails db:seed
 ```
 
-## Aditional considerations
+## Additional considerations
 
 ### Cookies
 

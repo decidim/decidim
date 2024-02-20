@@ -31,7 +31,7 @@ describe "Identity document online review" do
     switch_to_host(organization.host)
     login_as admin, scope: :user
     visit decidim_admin_id_documents.root_path
-    click_link "Verification #1"
+    click_on "Verification #1"
   end
 
   it "allows the user to verify an identity document" do
@@ -49,7 +49,7 @@ describe "Identity document online review" do
   end
 
   context "when rejected" do
-    before { click_link "Reject" }
+    before { click_on "Reject" }
 
     it "dismisses the verification from the list" do
       expect(page).to have_content("Verification rejected. Participant will be prompted to amend their documents")
@@ -60,7 +60,7 @@ describe "Identity document online review" do
       before do
         relogin_as user, scope: :user
         visit decidim_verifications.authorizations_path
-        click_link "Identity documents"
+        click_on "Identity documents"
       end
 
       it "allows the user to change the uploaded documents" do
@@ -77,7 +77,7 @@ describe "Identity document online review" do
 
         relogin_as admin, scope: :user
         visit decidim_admin_id_documents.root_path
-        click_link "Verification #1"
+        click_on "Verification #1"
         expect(page).to have_css("img[src*='dni.jpg']")
         submit_verification_form(doc_type: "Identification number", doc_number: "XXXXXXXY")
         expect(page).to have_content("Participant successfully verified")
@@ -97,7 +97,7 @@ describe "Identity document online review" do
     select doc_type, from: "Type of the document"
     fill_in "Document number (with letter)", with: doc_number
 
-    click_button "Verify"
+    click_on "Verify"
   end
 
   def submit_reupload_form(doc_type:, doc_number:, file_name:)
@@ -105,6 +105,6 @@ describe "Identity document online review" do
     fill_in "Document number (with letter)", with: doc_number
     dynamically_attach_file(:id_document_upload_verification_attachment, Decidim::Dev.asset(file_name))
 
-    click_button "Request verification again"
+    click_on "Request verification again"
   end
 end

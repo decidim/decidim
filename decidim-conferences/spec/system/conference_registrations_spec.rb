@@ -113,12 +113,12 @@ describe "Conference registrations" do
         visit_conference_registration_types
 
         within "#registration-type-#{registration_type.id}" do
-          click_button "Registration"
+          click_on "Registration"
         end
 
         within "#conference-registration-confirm-#{registration_type.id}" do
           expect(page).to have_content "A legal text"
-          click_button "Confirm"
+          click_on "Confirm"
         end
 
         expect(page).to have_content("successfully")
@@ -155,7 +155,7 @@ describe "Conference registrations" do
       visit_conference_registration_types
 
       within "#registration-type-#{registration_type.id}" do
-        click_button "Attending"
+        click_on "Attending"
       end
 
       expect(page).to have_content("successfully")

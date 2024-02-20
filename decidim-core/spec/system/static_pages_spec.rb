@@ -57,8 +57,8 @@ describe "Static pages" do
 
       context "when cookies are rejected" do
         before do
-          click_link "Cookie settings"
-          click_button "Accept only essential"
+          click_on "Cookie settings"
+          click_on "Accept only essential"
         end
 
         it_behaves_like "accessible page"
@@ -72,8 +72,8 @@ describe "Static pages" do
 
       context "when cookies are accepted" do
         before do
-          click_link "Cookie settings"
-          click_button "Accept all"
+          click_on "Cookie settings"
+          click_on "Accept all"
         end
 
         it_behaves_like "accessible page"

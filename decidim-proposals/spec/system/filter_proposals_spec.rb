@@ -22,7 +22,7 @@ describe "Filter Proposals", :slow do
       end
 
       within_language_menu do
-        click_link "Català"
+        click_on "Català"
       end
 
       within "form.new_filter" do
@@ -160,14 +160,14 @@ describe "Filter Proposals", :slow do
         end
 
         within "#dropdown-menu-order" do
-          click_link "Most commented"
+          click_on "Most commented"
         end
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
         expect(page).to have_css("[id^='proposals__proposal']:first-child", text: translated(first_proposal.title))
 
         within "#dropdown-menu-order" do
-          click_link "Most followed"
+          click_on "Most followed"
         end
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
@@ -409,14 +409,14 @@ describe "Filter Proposals", :slow do
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
 
         within "#dropdown-menu-order" do
-          click_link "Most commented"
+          click_on "Most commented"
         end
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
         expect(page).to have_css("[id^='proposals__proposal']:first-child", text: translated(proposal1.title))
 
         within "#dropdown-menu-order" do
-          click_link "Most followed"
+          click_on "Most followed"
         end
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)

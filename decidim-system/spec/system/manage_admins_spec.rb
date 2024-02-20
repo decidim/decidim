@@ -14,7 +14,7 @@ describe "Manage admins" do
   describe "when creating a new admin" do
     context "with a valid password" do
       it "is created" do
-        click_link "New"
+        click_on "New"
 
         within ".new_admin" do
           fill_in :admin_email, with: "admin@foo.bar"
@@ -36,7 +36,7 @@ describe "Manage admins" do
 
     context "with an invalid password" do
       it "gives an error" do
-        click_link "New"
+        click_on "New"
 
         within ".new_admin" do
           fill_in :admin_email, with: "admin@foo.bar"
@@ -55,7 +55,7 @@ describe "Manage admins" do
     context "with a valid password" do
       it "is updated" do
         within "tr", text: admin.email do
-          click_link "Edit"
+          click_on "Edit"
         end
 
         within ".edit_admin" do
@@ -77,7 +77,7 @@ describe "Manage admins" do
     context "with an invalid password" do
       it "gives an error" do
         within "tr", text: admin.email do
-          click_link "Edit"
+          click_on "Edit"
         end
 
         within ".edit_admin" do
@@ -94,7 +94,7 @@ describe "Manage admins" do
 
   it "deletes an admin" do
     within "tr", text: admin2.email do
-      accept_confirm { click_link "Delete" }
+      accept_confirm { click_on "Delete" }
     end
 
     within ".success.flash" do

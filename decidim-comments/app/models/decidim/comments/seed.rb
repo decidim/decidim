@@ -9,7 +9,7 @@ module Decidim
       class << self
         # Adds a random amount of comments for a given resource.
         #
-        # @param resource [Object] - the Decidim resource to add the coments to.
+        # @param resource [Object] - the Decidim resource to add the comments to.
         #                            examples: Decidim::Proposals::CollaborativeDraft, Decidim::Proposals::Proposal,
         #
         # @return nil

@@ -16,12 +16,12 @@ describe "Organization Areas" do
     before do
       login_as admin, scope: :user
       visit decidim_admin.root_path
-      click_link "Settings"
-      click_link "Areas"
+      click_on "Settings"
+      click_on "Areas"
     end
 
     it "can create new areas" do
-      click_link "Add"
+      click_on "Add"
 
       within ".item__edit-form" do
         fill_in_i18n :area_name, "#area-name-tabs", en: "My area",
@@ -55,7 +55,7 @@ describe "Organization Areas" do
 
       it "can edit them" do
         within "tr", text: translated(area.name) do
-          click_link "Edit"
+          click_on "Edit"
         end
 
         within ".item__edit-form" do
@@ -98,7 +98,7 @@ describe "Organization Areas" do
 
   def click_delete_area
     within "tr", text: translated(area.name) do
-      accept_confirm { click_link "Delete" }
+      accept_confirm { click_on "Delete" }
     end
   end
 end

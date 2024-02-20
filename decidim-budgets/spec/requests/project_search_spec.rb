@@ -59,11 +59,11 @@ RSpec.describe "Project search" do
   it_behaves_like "a resource search with categories", :project
 
   it "displays all projects within the budget without any filters" do
-    expect(subject).to include(translated(project1.title))
-    expect(subject).to include(translated(project2.title))
-    expect(subject).to include(translated(project3.title))
-    expect(subject).not_to include(translated(project4.title))
-    expect(subject).not_to include(translated(project5.title))
+    expect(subject).to include(decidim_escape_translated(project1.title))
+    expect(subject).to include(decidim_escape_translated(project2.title))
+    expect(subject).to include(decidim_escape_translated(project3.title))
+    expect(subject).not_to include(decidim_escape_translated(project4.title))
+    expect(subject).not_to include(decidim_escape_translated(project5.title))
   end
 
   context "when searching by status" do
@@ -73,9 +73,9 @@ RSpec.describe "Project search" do
       let(:status) { ["all"] }
 
       it "displays all projects" do
-        expect(subject).to include(translated(project1.title))
-        expect(subject).to include(translated(project2.title))
-        expect(subject).to include(translated(project3.title))
+        expect(subject).to include(decidim_escape_translated(project1.title))
+        expect(subject).to include(decidim_escape_translated(project2.title))
+        expect(subject).to include(decidim_escape_translated(project3.title))
       end
     end
 
@@ -83,9 +83,9 @@ RSpec.describe "Project search" do
       let(:status) { ["selected"] }
 
       it "displays the selected projects" do
-        expect(subject).to include(translated(project1.title))
-        expect(subject).to include(translated(project2.title))
-        expect(subject).not_to include(translated(project3.title))
+        expect(subject).to include(decidim_escape_translated(project1.title))
+        expect(subject).to include(decidim_escape_translated(project2.title))
+        expect(subject).not_to include(decidim_escape_translated(project3.title))
       end
     end
 
@@ -93,9 +93,9 @@ RSpec.describe "Project search" do
       let(:status) { ["not_selected"] }
 
       it "displays the selected projects" do
-        expect(subject).not_to include(translated(project1.title))
-        expect(subject).not_to include(translated(project2.title))
-        expect(subject).to include(translated(project3.title))
+        expect(subject).not_to include(decidim_escape_translated(project1.title))
+        expect(subject).not_to include(decidim_escape_translated(project2.title))
+        expect(subject).to include(decidim_escape_translated(project3.title))
       end
     end
   end

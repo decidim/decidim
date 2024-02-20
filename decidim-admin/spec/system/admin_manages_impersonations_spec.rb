@@ -7,9 +7,9 @@ describe "Admin manages impersonations" do
 
   def navigate_to_impersonations_page
     visit decidim_admin.root_path
-    click_link "Participants"
+    click_on "Participants"
     within_admin_sidebar_menu do
-      click_link "Impersonations"
+      click_on "Impersonations"
     end
   end
 

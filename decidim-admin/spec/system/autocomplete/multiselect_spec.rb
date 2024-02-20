@@ -61,7 +61,7 @@ describe "Autocomplete multiselect" do
             <label for="trustees_participatory_space_user_id">
             User
             <span title="Required field" data-tooltip="true" data-disable-hover="false" data-keep-on-hover="true" class="label-required">
-            <span aria-hidden="true">*</span><span class="show-for-sr">Required field</span></span></label>
+            <span aria-hidden="true">*</span><span>Required field</span></span></label>
             #{body_extra}
             <div class="foo"></div>
           </body>

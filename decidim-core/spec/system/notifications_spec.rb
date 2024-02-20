@@ -22,7 +22,7 @@ describe "Notifications" do
     it "has a button on the topbar nav that links to the notifications page" do
       find_by_id("trigger-dropdown-account").click
       within "#dropdown-menu-account" do
-        click_link("Notifications")
+        click_on("Notifications")
       end
 
       expect(page).to have_current_path decidim.notifications_path
@@ -39,7 +39,7 @@ describe "Notifications" do
       it "displays nothing" do
         find_by_id("trigger-dropdown-account").click
         within "#dropdown-menu-account" do
-          click_link("Notifications")
+          click_on("Notifications")
         end
 
         expect(page).to have_current_path decidim.notifications_path
@@ -92,7 +92,7 @@ describe "Notifications" do
       let(:notification_title) { "An event occured to #{translated resource.title}" }
 
       it "hides the notification from the page" do
-        expect(page).to have_content(translated(notification_title))
+        expect(page).to have_content(decidim_sanitize_translated(notification_title))
         find("[data-notification-read]").click
         expect(page).to have_no_content(translated(notification_title))
         expect(page).to have_content("No notifications yet")
@@ -101,7 +101,7 @@ describe "Notifications" do
 
     context "when setting all notifications as read" do
       it "hides all notifications from the page" do
-        click_link "Mark all as read"
+        click_on "Mark all as read"
         expect(page).to have_no_selector("[data-notification]")
         expect(page).to have_no_content("Mark all as read")
         expect(page).to have_content("No notifications yet")
