@@ -1,1 +1,8 @@
+---
 de:
+  decidim:
+    design:
+      home:
+        index:
+          github_source: Quellcode auf GitHub
+          home_header: Decidim-Design-Leitfaden
