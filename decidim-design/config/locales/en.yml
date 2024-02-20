@@ -14,3 +14,6 @@ en:
         color:
           color_header: Color
           description_p1: We provide a Base palette with few colors so simple customizations are easy. You can modify the Base palette either in the Administration area or in the Tailwind configuration file if you need more advanced customization.
+          description_p2_html: "When customizing your colors, have in mind the %{link}. You can check the contrast of your choosing with %{link}  or other similar tools."
+          wcag_compliant_rations: WCAG 2.1 AA compliant contrast ratio
+          wcag_contrast_checker: WebAIM Contrast Checker
