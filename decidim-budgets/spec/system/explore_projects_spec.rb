@@ -109,7 +109,7 @@ describe "Explore projects", :slow do
         visit_budget
 
         within "#panel-dropdown-menu-category" do
-          click_filter_item translated(category.name)
+          click_filter_item decidim_escape_translated(category.name)
         end
 
         within "#projects" do

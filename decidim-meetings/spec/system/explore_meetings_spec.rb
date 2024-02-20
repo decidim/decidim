@@ -478,10 +478,10 @@ describe "Explore meetings", :slow do
 
       it "links to the filter for this category" do
         within "[data-tags]" do
-          click_link translated(meeting.category.name)
+          click_link decidim_escape_translated(meeting.category.name)
         end
 
-        expect(page).to have_checked_field(translated(meeting.category.name))
+        expect(page).to have_checked_field(decidim_escape_translated(meeting.category.name))
       end
     end
 
