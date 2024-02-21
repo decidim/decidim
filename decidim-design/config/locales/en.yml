@@ -50,6 +50,24 @@ en:
         typography_texts: Typography and texts
         usage: Usage
         value: Value
+        usage_base_1: Main nav component background\nNav menus in homepage and space home
+        usage_base_2: Main color for links and buttons
+        usage_base_3: Graphic ornaments and accent color\nCards and list items hover state border
+        usage_state_1: Success notice border\nAlert notice icon fill\nButton background on success message
+        usage_state_2: Warning notice border
+        usage_state_3: Alert notice border\nAlert notice icon fill
+        usage_typography_1: Headings and section titles
+        usage_typography_2: Inline text
+        usage_typography_3: Text over dark background
+        usage_typography_4: Links and buttons
+        usage_background_1: Aside background
+        usage_background_2: Selected sidebar filter background
+        usage_background_3: Default icon color
+        usage_background_4: Lines and separators
+        usage_background_5: Footer background
+        usage_background_6: Admin layout background
+        usage_formelements_1: Input elements default background
+        usage_formelements_2: Input elements disabled state background
       home:
         index:
           by_sharing_principles: By sharing the principles, philsophy, and rationale behind design decisions we want to empower the community to contribute with consistency so we reach the best participant experience.
