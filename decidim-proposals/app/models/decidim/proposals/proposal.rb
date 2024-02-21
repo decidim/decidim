@@ -352,7 +352,7 @@ module Decidim
         votes.count >= maximum_votes
       end
 
-      # Public: Can accumulate more votres than maximum for this proposal.
+      # Public: Can accumulate more votes than maximum for this proposal.
       #
       # Returns true if can accumulate, false otherwise
       def can_accumulate_supports_beyond_threshold

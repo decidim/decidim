@@ -18,11 +18,11 @@ module Decidim
       private
 
       def title
-        translated_attribute result.title
+        decidim_escape_translated result.title
       end
 
       def description
-        translated_attribute(result.description).html_safe
+        decidim_sanitize_admin translated_attribute(result.description)
       end
 
       def scope

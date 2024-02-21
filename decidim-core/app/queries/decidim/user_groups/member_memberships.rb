@@ -2,7 +2,7 @@
 
 module Decidim
   module UserGroups
-    # Use this class to find the the members of the given user group with the
+    # Use this class to find the members of the given user group with the
     # "member" role. It returns memberships.
     class MemberMemberships < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.

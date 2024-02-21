@@ -22,7 +22,7 @@ module Decidim
           {
             title: t("assembly_type", scope: "decidim.assemblies.show"),
             icon: "group-2-line",
-            text: assembly_type
+            text: decidim_sanitize_translated(assembly_type)
           }
         end
 

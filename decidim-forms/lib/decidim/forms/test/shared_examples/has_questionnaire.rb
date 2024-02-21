@@ -8,7 +8,7 @@ shared_examples_for "has questionnaire" do
       visit questionnaire_public_path
 
       expect(page).to have_i18n_content(questionnaire.title)
-      expect(page).to have_i18n_content(questionnaire.description)
+      expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
 
       expect(page).not_to have_css(".form.answer-questionnaire")
 
@@ -39,7 +39,7 @@ shared_examples_for "has questionnaire" do
       visit questionnaire_public_path
 
       expect(page).to have_i18n_content(questionnaire.title)
-      expect(page).to have_i18n_content(questionnaire.description)
+      expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
 
       fill_in question.body["en"], with: "My first answer"
 
