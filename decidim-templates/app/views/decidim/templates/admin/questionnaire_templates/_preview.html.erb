@@ -6,7 +6,7 @@
 </div>
 
 <div class="row columns">
-  <%= decidim_form_for(@preview_form, url: "", method: :post, html: { class: "form form-defaults answer-questionnaire" }, data: { "safe-path" => "" }) do |form| %>
+  <%= decidim_form_for(@preview_form, url: "", method: :post, authenticity_token: !defined?(skip_authenticity_token), html: { class: "form form-defaults answer-questionnaire" }, data: { "safe-path" => "" }) do |form| %>
     <%= invisible_captcha %>
     <% answer_idx = 0 %>
     <% cleaned_answer_idx = 0 %>
