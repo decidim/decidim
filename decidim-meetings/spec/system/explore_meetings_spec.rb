@@ -481,7 +481,7 @@ describe "Explore meetings", :slow do
           click_on translated(meeting.category.name)
         end
 
-        expect(page).to have_checked_field(translated(meeting.category.name))
+        expect(page).to have_checked_field(decidim_escape_translated(meeting.category.name))
       end
     end
 
