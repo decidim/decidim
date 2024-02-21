@@ -252,7 +252,6 @@ FactoryBot.define do
       # user_groups correspondence to users is by sorting order
       user_groups { [] }
       skip_injection { false }
-      state { :not_answered }
     end
 
     title { generate_localized_title(:proposal_title, skip_injection:) }

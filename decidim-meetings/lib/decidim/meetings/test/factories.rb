@@ -57,7 +57,7 @@ FactoryBot.define do
     end
 
     trait :withdrawn do
-      withdrawn_at { Time.current }
+      state { "withdrawn" }
     end
 
     trait :in_person do
