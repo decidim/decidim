@@ -106,12 +106,12 @@ In case you have modifications in your application's webpack configuration, adap
 
 You can read more about this change on PR [\#12238](https://github.com/decidim/decidim/pull/12238).
 
-### 3.4. Remove orphan categorizations
+### 3.4. Allow removal of orphan categories
 
-In order to ensure that the database is consistent, we have removed the orphan categorizations. This is a one time action that needs to be done after the code is updated in the production database.
+A bug was identified that prevented the deletion of categories lacking associated resources. This action is a one-time task that must be performed directly in the production database.
 
 ```console
-bin/rails decidim:upgrade:remobe_orphan_categorizations
+bin/rails decidim:upgrade:fix_orphan_categorizations
 ```
 
 You can read more about this change on PR [\#12143](https://github.com/decidim/decidim/pull/12143).

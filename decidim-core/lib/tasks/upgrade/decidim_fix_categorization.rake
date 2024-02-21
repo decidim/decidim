@@ -3,7 +3,7 @@
 namespace :decidim do
   namespace :upgrade do
     desc "Remove orphan categorizations"
-    task remobe_orphan_categorizations: :environment do
+    task fix_orphan_categorizations: :environment do
       logger = Logger.new($stdout)
       logger.info("Removing orphan categorizations...")
 
