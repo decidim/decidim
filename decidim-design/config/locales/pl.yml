@@ -2,6 +2,22 @@
 pl:
   decidim:
     design:
+      foundations:
+        color:
+          color_header: Kolor
+          description_p1: Zapewniamy podstawową paletę kolorów, która umożliwia dokonywanie prostych modyfikacji. Możesz zmienić paletę podstawową w obszarze administracyjnym lub w pliku konfiguracyjnym Tailwind, jeśli potrzebujesz bardziej zaawansowanych modyfikacji.
+          description_p2_html: Podczas dostosowywania kolorów pamiętaj o %{contrast_link}. Możesz sprawdzić wybrany kontrast za pomocą %{checker_link} lub innych podobnych narzędzi.
+          wcag_compliant_rations: Współczynnik kontrastu zgodny z WCAG 2.1 AA
+          wcag_contrast_checker: Sprawdzanie kontrastu WebAIM
+      helpers:
+        background: Tło i obramowanie
+        base: Baza
+        form_elements: Elementy formularza
+        hex_code: Kod szesnastkowy
+        main_colors: Kolory główne
+        rgba_code: Kod RGBA
+        state: Stan
+        tailwind: Nazwa Tailwind
       home:
         index:
           decidim_guide: Przewodnik projektowania wszystkich elementów Decidim
