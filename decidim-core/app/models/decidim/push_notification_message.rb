@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A messsage from a conversation that will be sent as a push notification
+  # A message from a conversation that will be sent as a push notification
   class PushNotificationMessage
     class InvalidActionError < StandardError; end
 
