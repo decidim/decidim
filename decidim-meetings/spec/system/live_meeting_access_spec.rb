@@ -318,6 +318,14 @@ describe "Meeting live event access" do
   describe "when a meeting link is avaliable signed in" do
     let!(:meeting) { create(:meeting, :published, :signed_in_iframe_access_level, :online, component:) }
 
+    context "when user is not signed in" do
+      it "not shown to not signed in users" do
+        visit_meeting
+
+        expect(page).not_to have_css(".address__hints")
+      end
+    end
+
     context "when user is signed in" do
       before do
         login_as user, scope: :user
