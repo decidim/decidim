@@ -24,8 +24,8 @@ module Decidim
 
       @notification = PushNotificationMessage.new(
         recipient: to,
-        conversation:,
-        message:
+        conversation: conversation,
+        message: message
       )
 
       self

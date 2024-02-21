@@ -634,8 +634,8 @@ FactoryBot.define do
       skip_injection { false }
     end
 
-    originator { build(:user, skip_injection:) }
-    interlocutors { [build(:user, skip_injection:)] }
+    originator { build(:user) }
+    interlocutors { [build(:user)] }
     body { Faker::Lorem.sentence }
     user
 
@@ -643,7 +643,7 @@ FactoryBot.define do
       object.participants ||= [originator + interlocutors].flatten
     end
 
-    initialize_with { Decidim::Messaging::Conversation.start(originator:, interlocutors:, body:, user:) }
+    initialize_with { Decidim::Messaging::Conversation.start(originator: originator, interlocutors: interlocutors, body: body, user: user) }
   end
 
   factory :message, class: "Decidim::Messaging::Message" do
@@ -651,7 +651,7 @@ FactoryBot.define do
       skip_injection { false }
     end
 
-    body { generate_localized_description(:message_body, skip_injection:) }
+    body { generate_localized_description(:message_body) }
     conversation
 
     before(:create) do |object|
@@ -664,12 +664,12 @@ FactoryBot.define do
       skip_injection { false }
     end
 
-    recipient { build(:user, skip_injection:) }
-    conversation { create(:conversation, skip_injection:) }
-    message { generate_localized_description(:push_notification_message_message, skip_injection:) }
+    recipient { build(:user) }
+    conversation { create(:conversation) }
+    message { generate_localized_description(:push_notification_message_message) }
 
     skip_create
-    initialize_with { new(recipient:, conversation:, message:) }
+    initialize_with { new(recipient: recipient, conversation: conversation, message: message) }
   end
 
   factory :action_log, class: "Decidim::ActionLog" do

@@ -7,12 +7,12 @@ module Decidim
     describe ConversationMailer do
       let(:organization) { create(:organization) }
       let(:conversation) { create(:conversation) }
-      let(:group) { create(:user_group, organization:, users: [manager]) }
-      let(:manager) { create(:user, organization:) }
+      let(:group) { create(:user_group, organization: organization, users: [manager]) }
+      let(:manager) { create(:user, organization: organization) }
       let(:message) { create(:message) }
-      let(:originator) { create(:user, organization:) }
-      let(:sender) { create(:user, organization:) }
-      let(:user) { create(:user, organization:) }
+      let(:originator) { create(:user, organization: organization) }
+      let(:sender) { create(:user, organization: organization) }
+      let(:user) { create(:user, organization: organization) }
       let(:router) { Decidim::Core::Engine.routes.url_helpers }
 
       shared_examples "conversation mail" do

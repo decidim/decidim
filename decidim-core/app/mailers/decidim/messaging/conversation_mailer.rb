@@ -19,7 +19,7 @@ module Decidim
           @third_party = third_party
           @message = message
           @host = @organization.host
-          subject = get_subject(action:, sender: @sender, third_party: @third_party)
+          subject = get_subject(action: action, sender: @sender, third_party: @third_party)
 
           mail(to: to.email, subject: subject)
         end

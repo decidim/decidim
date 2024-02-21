@@ -6,11 +6,11 @@ module Decidim
   describe PushNotificationMessage do
     subject { push_notification_message }
 
-    let(:organization) { build(:organization, favicon:) }
+    let(:organization) { build(:organization, favicon: favicon) }
     let(:conversation) { create(:conversation) }
-    let(:recipient) { build(:user, organization:) }
+    let(:recipient) { build(:user, organization: organization) }
     let(:favicon) { nil }
-    let(:push_notification_message) { build(:push_notification_message, recipient:, conversation:) }
+    let(:push_notification_message) { build(:push_notification_message, recipient: recipient, conversation: conversation) }
 
     describe "#body" do
       it "returns the message body" do

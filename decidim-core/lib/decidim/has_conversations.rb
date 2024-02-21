@@ -11,7 +11,7 @@ module Decidim
         send_notification(
           from: originator,
           to: user,
-          conversation:,
+          conversation: conversation,
           message: conversation.messages.first.body,
           action: "new_conversation"
         )
@@ -21,7 +21,7 @@ module Decidim
         send_notification(
           from: originator,
           to: manager,
-          conversation:,
+          conversation: conversation,
           message: conversation.messages.first.body,
           action: "new_group_conversation",
           third_party: group
@@ -32,7 +32,7 @@ module Decidim
         send_notification(
           from: group,
           to: user,
-          conversation:,
+          conversation: conversation,
           message: conversation.messages.first.body,
           action: "comanagers_new_conversation",
           third_party: manager
@@ -43,7 +43,7 @@ module Decidim
         send_notification(
           from: sender,
           to: user,
-          conversation:,
+          conversation: conversation,
           message: message.body,
           action: "new_message"
         )
@@ -53,7 +53,7 @@ module Decidim
         send_notification(
           from: sender,
           to: user,
-          conversation:,
+          conversation: conversation,
           message: message.body,
           action: "new_group_message",
           third_party: group
@@ -64,7 +64,7 @@ module Decidim
         send_notification(
           from: sender,
           to: user,
-          conversation:,
+          conversation: conversation,
           message: message.body,
           action: "comanagers_new_message",
           third_party: manager

@@ -6,7 +6,7 @@ describe Decidim::SendPushNotification do
   subject { described_class.new }
 
   let(:subscriptions) { {} }
-  let(:user) { create(:user, notification_settings: { subscriptions: }) }
+  let(:user) { create(:user, notification_settings: { subscriptions: subscriptions }) }
 
   before do
     Rails.application.secrets[:vapid] = { enabled: true, public_key: "public_key", private_key: "private_key" }
@@ -59,7 +59,7 @@ describe Decidim::SendPushNotification do
       describe "#perform" do
         it "returns 201 and created if the message is sent ok" do
           first_notification_payload = {
-          message: message,
+            message: message,
             endpoint: subscriptions["auth_key_1"]["endpoint"],
             p256dh: subscriptions["auth_key_1"]["p256dh"],
             auth: subscriptions["auth_key_1"]["auth"],
@@ -69,7 +69,7 @@ describe Decidim::SendPushNotification do
             )
           }
           second_notification_payload = {
-          message: message,
+            message: message,
             endpoint: subscriptions["auth_key_2"]["endpoint"],
             p256dh: subscriptions["auth_key_2"]["p256dh"],
             auth: subscriptions["auth_key_2"]["auth"],
@@ -79,7 +79,7 @@ describe Decidim::SendPushNotification do
             )
           }
           third_notification_payload = {
-          message: message,
+            message: message,
             endpoint: subscriptions["auth_key_3"]["endpoint"],
             p256dh: subscriptions["auth_key_3"]["p256dh"],
             auth: subscriptions["auth_key_3"]["auth"],
@@ -106,7 +106,7 @@ describe Decidim::SendPushNotification do
       describe "#perform" do
         it "returns 201 and created if the message is sent ok" do
           notification_payload = {
-            message:,
+            message: message,
             endpoint: subscriptions["auth_key_1"]["endpoint"],
             p256dh: subscriptions["auth_key_1"]["p256dh"],
             auth: subscriptions["auth_key_1"]["auth"],
@@ -129,7 +129,7 @@ describe Decidim::SendPushNotification do
           user.update(locale: alternative_locale)
 
           I18n.with_locale(user.locale) do
-            notification_payload = a_hash_including(message:)
+            notification_payload = a_hash_including(message: message)
             expect(WebPush).to receive(:payload_send).with(notification_payload).ordered.and_return(double("result", message: "Created", code: "201"))
           end
 
@@ -142,7 +142,7 @@ describe Decidim::SendPushNotification do
   end
 
   context "with a Decidim::Notification" do
-    let(:notification) { create(:notification, user:) }
+    let(:notification) { create(:notification, user: user) }
     let(:presented_notification) { Decidim::PushNotificationPresenter.new(notification) }
     let(:message) do
       JSON.generate({
@@ -161,7 +161,7 @@ describe Decidim::SendPushNotification do
     let(:notification) { build(:push_notification_message, recipient: user) }
     let(:message) do
       JSON.generate({
-                      title:,
+                      title: title,
                       body: notification.body,
                       icon: notification.icon,
                       data: { url: notification.url }
