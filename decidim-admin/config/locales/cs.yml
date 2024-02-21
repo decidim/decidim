@@ -288,7 +288,6 @@ cs:
       block_user:
         new:
           action: Blokovat účet a odeslat odůvodnění
-          already_reported_html: Pokračováním v této akci také skryjete veškerý obsah účastníků. <a href="%{link}">Blokujte účet</a>.
           description: Blokováním uživatele bude jejich účet nepoužitelný. Ve svém zdůvodnění můžete uvést veškerá pravidla pro způsob, jakým byste uvažovali o odblokování uživatele.
           justification: Odůvodnění
           title: Blokovat uživatele %{name}
