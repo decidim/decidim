@@ -4,7 +4,11 @@ de:
     design:
       foundations:
         accessibility:
+          accessibility_labels: Barrierefreiheitsbezeichnungen
+          accessibility_labels_paragraph: Wenn Sie Elemente definieren, stellen Sie sicher, dass sie für Benutzer des Screenreaders sinnvoll sind.
           accessibility_title: Barrierefreiheit
+          adjacent_links: Angrenzende Links
+          adjacent_links_header: Angrenzende Links für die gleiche Ressource
           color_contrast: Farbkontrast
           elements_hidden: Elemente versteckt
           here_link: hier
