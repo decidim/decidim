@@ -4,7 +4,10 @@
 
 <% content_for :description do %>
   <p><%= t(".description_p1") %></p>
-  <p><%= t(".description_p2_html", link: link_to(t(".wcag_compliant_rations"), "https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html", target: "_blank", rel: "noopener noreferrer"), link: link_to(t(".wcag_contrast_checker"))) %></p>
+  <p><%= t(".description_p2_html",
+           contrast_link: link_to(t(".wcag_compliant_rations"), "https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html", target: "_blank", rel: "noopener noreferrer"),
+           checker_link: link_to(t(".wcag_contrast_checker"), "https://webaim.org/resources/contrastchecker", target: "_blank", rel: "noopener noreferrer")
+         ) %></p>
 <% end %>
 
 <% content_for :toc do %>
