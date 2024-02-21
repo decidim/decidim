@@ -2,6 +2,24 @@
 ja:
   decidim:
     design:
+      foundations:
+        accessibility:
+          color_contrast: 色のコントラスト
+          color_contrast_paragraph: ユーザーインターフェイスを作成したり、色を変更したりするときは、変更によってアクセシビリティが損なわれていないことを常に確認してください。カラーコントラストチェッカーを使うと、表示色が背景色に対して十分なコントラストがあることを確認できます。
+          decidim_follows_html: Decidim は <u>Web Content Accessibility Guidelines (WCAG) 2.1</u> に準拠しています。
+          heading_on: 重要なセクションの見出し
+          here_link: こちら
+          illogical_heading_order: 非論理的な見出しの順序
+          illogical_heading_paragraph: <h1>, <h2>, <h3>, <h4>, <h5>, <h6> の見出し要素を使用する場合、すべてのページは論理的な見出し順序を持つ必要があります。
+          important_sections_heading: 重要なセクションの見出し
+          important_sections_paragraph: ページの重要なセクションごとに見出しがあることが非常に重要です。これにより、見出しを流し読みするだけでページ内にどのような重要なセクションがあるのかが分かりやすくなります。
+          links_and_buttons: リンクとボタン
+          links_and_buttons_paragraph: アンカー要素（つまりリンク）は、異なるページへのリンクやページ内の特定の位置へのアンカーとして機能します。例えばその要素がページ上で何か隠された項目を表示するような場合は、<button>要素を使用するべきです。
+          see_further_info_html: 詳しい情報は %{link} を参照してください
+          unique_h1: ただ一つのH1
+          unique_h1_paragraph: すべてのページには、H1見出しが一つだけ書かれるべきです。
+          use_aria: ARIA を使用する
+          use_aria_header: 可能な場合はARIA属性を使用する
       home:
         index:
           decidim_guide: Decidim に関するすべてを設計するためのガイド
