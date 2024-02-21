@@ -322,7 +322,7 @@ describe "Meeting live event access" do
       it "not shown to not signed in users" do
         visit_meeting
 
-        expect(page).not_to have_css(".address__hints")
+        expect(page).to have_no_css(".address__hints")
       end
     end
 
@@ -343,6 +343,14 @@ describe "Meeting live event access" do
     let!(:meeting) { create(:meeting, :published, :registered_iframe_access_level, :online, component:) }
     let!(:registered_user) { create(:user, :confirmed, organization:) }
     let!(:registration) { create(:registration, meeting:, user: registered_user) }
+
+    context "when user is not registered" do
+      it "not shown to regsistered users" do
+        visit_meeting
+
+        expect(page).to have_no_css(".address__hints")
+      end
+    end
 
     context "when user is registered" do
       before do
