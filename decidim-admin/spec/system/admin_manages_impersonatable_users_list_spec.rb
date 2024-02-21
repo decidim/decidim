@@ -15,8 +15,6 @@ describe "Admin manages impersonatable users list", type: :system do
   end
 
   describe "listing impersonatable users" do
-    let!(:managed) { create(:user, :managed, organization: organization) }
-
     let!(:not_managed) { create(:user, organization: organization) }
     let!(:external_not_managed) { create(:user) }
     let!(:managed) { create(:user, :managed, organization: organization) }
@@ -25,7 +23,6 @@ describe "Admin manages impersonatable users list", type: :system do
     let!(:blocked) { create(:user, :confirmed, :blocked, organization: organization) }
     let!(:another_admin) { create(:user, :admin, organization: organization) }
     let!(:user_manager) { create(:user, :user_manager, organization: organization) }
-    let!(:external_not_managed) { create(:user) }
     let!(:external_admin) { create(:user, :admin) }
     let!(:external_user_manager) { create(:user, :user_manager) }
 
