@@ -2,6 +2,7 @@
 
 shared_examples_for "has category" do
   let(:participatory_space) { subject.participatory_space }
+  
   context "when the category is from another organization" do
     before do
       subject.category = create(:category)
