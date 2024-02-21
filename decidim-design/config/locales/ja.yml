@@ -4,9 +4,20 @@ ja:
     design:
       foundations:
         accessibility:
+          accessibility_labels: アクセシビリティラベル
+          accessibility_labels_paragraph: 要素を定義する場合は、スクリーンリーダーのユーザーにとって意味のあるものであることを必ず確認してください。
+          accessibility_title: アクセシビリティ
+          adjacent_links: 隣接するリンク
+          adjacent_links_header: 同じリソースの隣接するリンク
+          adjacent_links_paragraph: 同じリソースに複数の隣接するリンクが指している場合、ユーザーがページを素早く確認するのが困難になることがあります。なぜなら、次のリソースに進むために複数のリンクをたどる必要があるかもしれないためです。
           color_contrast: 色のコントラスト
           color_contrast_paragraph: ユーザーインターフェイスを作成したり、色を変更したりするときは、変更によってアクセシビリティが損なわれていないことを常に確認してください。カラーコントラストチェッカーを使うと、表示色が背景色に対して十分なコントラストがあることを確認できます。
           decidim_follows_html: Decidim は <u>Web Content Accessibility Guidelines (WCAG) 2.1</u> に準拠しています。
+          dynamic_changes_header: 動的な機能は直感に反してページのコンテキストを変更します。
+          dynamic_changes_paragraph: フォーム入力の変更は、ページのコンテキストを自動的に変更してはなりません。
+          elements_hidden: 要素の非表示
+          elements_hidden_header: アクセシビリティAPIから隠す要素
+          elements_hidden_paragraph: 支援技術に要素を見せないようにするには、 aria-hidden="true" 属性を使用します。
           heading_on: 重要なセクションの見出し
           here_link: こちら
           illogical_heading_order: 非論理的な見出しの順序
@@ -20,6 +31,7 @@ ja:
           unique_h1_paragraph: すべてのページには、H1見出しが一つだけ書かれるべきです。
           use_aria: ARIA を使用する
           use_aria_header: 可能な場合はARIA属性を使用する
+          use_aria_paragraph: ウェブサイト上でインタラクティブ機能を提供する多くの要素には、それらにアクセシブルにするために ARIA 属性が必要です。
       home:
         index:
           decidim_guide: Decidim に関するすべてを設計するためのガイド
