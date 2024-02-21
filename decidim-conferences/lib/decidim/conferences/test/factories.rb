@@ -29,7 +29,6 @@ FactoryBot.define do
     start_date { 1.month.ago }
     end_date { 1.month.ago + 3.days }
     registration_terms { generate_localized_title(:conference_registration_terms, skip_injection:) }
-    registrations_enabled { true }
 
     trait :promoted do
       promoted { true }
