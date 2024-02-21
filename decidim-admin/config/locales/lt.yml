@@ -283,7 +283,6 @@ lt:
       block_user:
         new:
           action: Užblokuoti paskyrą ir išsiųsti paaiškinimą
-          already_reported_html: Tęsdami šį veiksmą taip pat paslėpsite visus dalyvių turinius. <a href="%{link}">Užblokuoti paskyrą</a>.
           description: Naudotojo užblokavimas pavers paskyrą nenaudojama. Rekomenduojame paaiškinime pasidalinti būdais kaip naudotojas gali būti atblokuotas.
           justification: Paaiškinimas
           title: Blokuoti naudotoją %{name}
