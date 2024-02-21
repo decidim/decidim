@@ -283,7 +283,6 @@ hu:
       block_user:
         new:
           action: Fiók blokkolása és igazolás küldése
-          already_reported_html: Ezt a műveletet folytatva elrejti a résztvevők összes tartalmát is. <a href="%{link}">Blokkolja a fiókot</a>.
           description: Egy felhasználó letiltása használhatatlanná teszi a fiókját. Az indoklásban megadhat bármilyen iránymutatást arra vonatkozóan, hogy miként lehetne feloldani a felhasználó blokkolását.
           justification: Indoklás
           title: '%{name} felhasználó blokkolása'
