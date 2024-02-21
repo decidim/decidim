@@ -7,12 +7,12 @@ shared_examples "manage project attachments" do
   let(:attachment_collection) { create(:attachment_collection, collection_for: project) }
 
   before do
-    within find("tr", text: translated(budget.title)) do
-      click_link "Manage projects"
+    within "tr", text: translated(budget.title) do
+      click_on "Manage projects"
     end
 
-    within find("tr", text: translated(project.title)) do
-      click_link "Attachments"
+    within "tr", text: translated(project.title) do
+      click_on "Attachments"
     end
   end
 

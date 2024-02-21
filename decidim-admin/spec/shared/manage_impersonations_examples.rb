@@ -26,7 +26,7 @@ shared_examples "manage impersonations examples" do
     before do
       navigate_to_impersonations_page
 
-      click_link "Manage new participant"
+      click_on "Manage new participant"
 
       fill_in_the_impersonation_form(document_number, name: "Rigoberto")
     end
@@ -39,7 +39,7 @@ shared_examples "manage impersonations examples" do
       let(:document_number) { "123456789Y" }
 
       it "shows the errors in the form" do
-        expect(page).to have_selector("label", text: "Document number*\nRequired field\nis invalid")
+        expect(page).to have_css("label", text: "Document number*\nRequired field\nis invalid")
       end
     end
 
@@ -81,7 +81,7 @@ shared_examples "manage impersonations examples" do
 
       before do
         visit resource_locator(dummy_resource).path
-        click_link "Foo"
+        click_on "Foo"
       end
 
       context "and the action allowed by the handler used to impersonate" do
@@ -104,7 +104,7 @@ shared_examples "manage impersonations examples" do
     end
 
     it "closes the current session and check the logs" do
-      click_button "Close session"
+      click_on "Close session"
 
       expect(page).to have_content("successfully")
 
@@ -145,9 +145,9 @@ shared_examples "manage impersonations examples" do
 
     it "does not offer authorization handler selection" do
       navigate_to_impersonations_page
-      click_link "Manage new participant"
+      click_on "Manage new participant"
 
-      expect(page).not_to have_select("Authorization method")
+      expect(page).to have_no_select("Authorization method")
     end
   end
 
@@ -161,7 +161,7 @@ shared_examples "manage impersonations examples" do
     it "allows selecting the preferred authorization handler" do
       navigate_to_impersonations_page
 
-      click_link "Manage new participant"
+      click_on "Manage new participant"
       expect(page).to have_select("Authorization method")
       expect(page).to have_field("Document number").and have_no_field("Passport number")
 
@@ -217,7 +217,7 @@ shared_examples "manage impersonations examples" do
           it_behaves_like "impersonating a user"
 
           it "saves the reason in the impersonation logs" do
-            click_button "Close session"
+            click_on "Close session"
             expect(page).to have_content("successfully")
 
             check_impersonation_logs
@@ -237,15 +237,15 @@ shared_examples "manage impersonations examples" do
     it "can promote users inviting them to the application" do
       navigate_to_impersonations_page
 
-      within find("tr", text: managed_user.name) do
-        click_link "Promote"
+      within "tr", text: managed_user.name do
+        click_on "Promote"
       end
 
       within ".item__edit form" do
         fill_in :managed_user_promotion_email, with: "foo@example.org"
       end
 
-      perform_enqueued_jobs { click_button "Promote" }
+      perform_enqueued_jobs { click_on "Promote" }
 
       expect(page).to have_content("successfully")
       expect(page).to have_content(managed_user.name)
@@ -262,7 +262,7 @@ shared_examples "manage impersonations examples" do
 
       expect(page).to have_content("successfully")
       within_user_menu do
-        click_link "My public profile"
+        click_on "My public profile"
       end
 
       expect(page).to have_content(managed_user.name)
@@ -271,8 +271,8 @@ shared_examples "manage impersonations examples" do
 
       navigate_to_impersonations_page
 
-      within find("tr", text: managed_user.name) do
-        expect(page).not_to have_link("Promote")
+      within "tr", text: managed_user.name do
+        expect(page).to have_no_link("Promote")
       end
     end
   end
@@ -286,7 +286,7 @@ shared_examples "manage impersonations examples" do
       it "show only verifications of current organization" do
         navigate_to_impersonations_page
         within_admin_sidebar_menu do
-          click_link "Verification conflicts"
+          click_on "Verification conflicts"
         end
 
         expect(page).to have_content("Rigoberto")
@@ -302,10 +302,10 @@ shared_examples "manage impersonations examples" do
       it "show only verifications of current organization" do
         navigate_to_impersonations_page
         within_admin_sidebar_menu do
-          click_link "Verification conflicts"
+          click_on "Verification conflicts"
         end
 
-        expect(page).not_to have_content("Rigoberto")
+        expect(page).to have_no_content("Rigoberto")
       end
     end
   end
@@ -318,21 +318,21 @@ shared_examples "manage impersonations examples" do
       fill_in(:impersonate_user_reason, with: reason) if reason
       fill_in :impersonate_user_authorization_document_number, with: document_number
       fill_in :impersonate_user_authorization_postal_code, with: "08224"
-      fill_in :impersonate_user_authorization_birthday, with: Time.current.change(day: 12)
+      fill_in_datepicker :impersonate_user_authorization_birthday_date, with: Time.new.utc.strftime("%d/%m/%Y")
     end
 
     within "[data-content]" do
-      expect(page).to have_selector("*[type=submit]", count: 1)
+      expect(page).to have_css("*[type=submit]", count: 1)
 
-      click_button "Impersonate"
+      click_on "Impersonate"
     end
   end
 
   def impersonate(user, reason: nil)
     navigate_to_impersonations_page
 
-    within find("tr", text: user.name) do
-      click_link "Impersonate"
+    within "tr", text: user.name do
+      click_on "Impersonate"
     end
 
     fill_in_the_impersonation_form("123456789X", reason:)
@@ -350,10 +350,10 @@ shared_examples "manage impersonations examples" do
   end
 
   def check_impersonation_logs
-    within find("tr", text: impersonated_user.name) do
-      click_link "View logs"
+    within "tr", text: impersonated_user.name do
+      click_on "View logs"
     end
 
-    expect(page).to have_selector("tbody tr", count: 1)
+    expect(page).to have_css("tbody tr", count: 1)
   end
 end

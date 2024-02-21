@@ -219,6 +219,13 @@ eu:
             last_step: Ezin da ezabatu prozesuaren azken fasea.
           success: Prozesu parte-hartzailearen fasea ondo ezabatua.
         edit:
+          cta_deprecated:
+            body_html: |-
+              CTAren konfigurazioa, partaidetza-prozesuaren fasearen bidez, zaharkituta dago diseinu berriarekin.
+              Orain, <b>Hasierako orrian</b> egiten da hori, <b>Irudi nagusia</b> eduki-blokea eta ekintza-botoia erabilita.
+              Hemen utzi dugu behar dituzun CTAak egin ditzazun. <i>Ekintzaren ibilbidea</i> eta
+              <i>Ekintza botoiaren</i> testuak hurrengo bertsioan ezabatuko dira.
+            title: CTA zaharkituta
           title: Editatu prozesu parte-hartzailearen fasea
           update: Eguneratu
         index:

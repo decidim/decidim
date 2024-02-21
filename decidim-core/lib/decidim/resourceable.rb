@@ -111,7 +111,7 @@ module Decidim
       end
 
       # Check only the resource visibility not its hierarchy.
-      # This method is intended to be overriden by classes that include this module and have the
+      # This method is intended to be overridden by classes that include this module and have the
       # need to impose its own visibility rules.
       #
       # @return If the resource is also Publicable checks if the resource is published, otherwise returns true by default.

@@ -1,6 +1,6 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="item_show__header">
-  <h2 class="item_show__header-title">
+  <h1 class="item_show__header-title">
     <%= t(".title") %>
 
     <div class="card__filter">
@@ -8,7 +8,7 @@
       |
       <%= link_to t("actions.hidden", scope: "decidim.moderations"), moderations_path(hidden: true) %>
     </div>
-  </h2>
+  </h1>
 </div>
 <%= admin_filter_selector(:moderations) %>
 <div class="table-scroll">
@@ -27,7 +27,7 @@
         <% if params[:hidden] %>
           <th><%= t("models.moderation.fields.hidden_at", scope: "decidim.moderations") %></th>
         <% end %>
-        <th class="actions"><%= t("actions.title", scope: "decidim.moderations") %></th>
+        <th><%= t("actions.title", scope: "decidim.moderations") %></th>
       </tr>
     </thead>
     <tbody>
@@ -69,7 +69,7 @@
               <%= l(moderation.hidden_at, format: :long) if moderation.hidden_at.present? %>
             </td>
           <% end %>
-          <td class="actions">
+          <td>
             <%= icon_link_to "fullscreen-line",
                              moderation_reports_path(moderation_id: moderation),
                              t("actions.expand", scope: "decidim.moderations"),

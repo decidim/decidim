@@ -363,12 +363,6 @@ ro:
           title: Moderări în așteptare
         show:
           view_more_logs: Afișează mai multe înregistrări
-      domain_whitelist:
-        form:
-          domain_too_short: Domeniul e prea scurt
-        update:
-          error: Actualizarea domeniilor permise a eșuat.
-          success: Lista domeniilor permise actualizată cu succes.
       exports:
         export_as: "%{name} drept %{export_format}"
         formats:
@@ -553,7 +547,6 @@ ro:
         areas: Zone
         configuration: Configurare
         content: Conținut raportat
-        external_domain_whitelist: Domenii externe permise
         help_sections: Secțiuni de ajutor
         homepage: Pagina principală
         impersonations: Impersonări
@@ -820,17 +813,6 @@ ro:
             layout_appearance_title: Editează aspectul aranjării în pagină
             preview: Previzualizează
           omnipresent_banner_appearance_title: Editează banner-ul omniprezent
-      organization_external_domain_whitelist:
-        edit:
-          update: Actualizează
-        external_domain:
-          down: Jos
-          external_domain: Domeniu extern
-          remove: Elimină
-          up: Sus
-        form:
-          add: Adaugă la lista albă
-          title: Lista albă pentru domenii externe
       participatory_space_private_users:
         create:
           error: A apărut o problemă la adăugarea unui participant privat pentru acest spațiu participativ.

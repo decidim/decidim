@@ -37,28 +37,29 @@ module Decidim
             ]
           },
           {
-            id: "sourcecode",
+            id: "source_code",
             contents: [
               {
-                type: :table,
-                options: { headings: %w(Cell Code) },
-                items: activities_table(
-                  { name: "Activities", url: "https://github.com/decidim/decidim/blob/develop/decidim-core/app/cells/decidim/activities_cell.rb" },
-                  { name: "Activitiy", url: "https://github.com/decidim/decidim/blob/develop/decidim-core/app/cells/decidim/activity_cell.rb" }
-                )
+                type: :cell_table,
+                options: { headings: ["Activities"] },
+                cell_snippet: {
+                  cell: "decidim/activities",
+                  args: [Decidim::ActionLog.where(resource_type: "Decidim::ParticipatoryProcess", organization: current_organization).first(5)],
+                  call_string: 'cell("decidim/activities", _ACTION_LOG_ITEMS_LIST)'
+                }
+              },
+              {
+                type: :cell_table,
+                options: { headings: ["Activity"] },
+                cell_snippet: {
+                  cell: "decidim/activity",
+                  args: [Decidim::ActionLog.where(resource_type: "Decidim::ParticipatoryProcess", organization: current_organization).last],
+                  call_string: 'cell("decidim/activity", _ACTION_LOG_ITEM_)'
+                }
               }
             ]
           }
         ]
-      end
-
-      def activities_table(*table_rows, **_opts)
-        table_rows.map do |table_cell|
-          row = []
-          row << table_cell[:name]
-          row << link_to(table_cell[:url].split("/").last, table_cell[:url], target: "_blank", class: "text-secondary underline", rel: "noopener")
-          row
-        end
       end
     end
   end

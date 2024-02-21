@@ -10,6 +10,7 @@ pt-BR:
         end_time: Termina em
         information_updates: Atualizações de informações
         instructions: Instruções para participar
+        scope_id: Escopo
         start_time: Começa em
         title: Título
         user_group_id: Criar debate como
@@ -27,6 +28,7 @@ pt-BR:
     components:
       debates:
         actions:
+          comment: Comentário
           create: Criar
           endorse: Endossar
         name: Debates
@@ -49,6 +51,7 @@ pt-BR:
         confirm_destroy: Você tem certeza?
         destroy: Excluir
         edit: Editar
+        new: Novo debate
         title: Ações
       admin:
         debate_closes:
@@ -116,11 +119,13 @@ pt-BR:
           my_debates: Meus debates
           official: Oficial
           origin: Origem
+          participants: Participantes
           search: Procurar
           state: Status
           state_values:
             closed: Fechado
             open: Aberto
+          user_group: Grupos
         form:
           select_a_category: Selecione uma categoria
         index:
@@ -147,9 +152,13 @@ pt-BR:
         update:
           invalid: Ocorreu um problema ao atualizar esse debate.
           success: Debate atualizado com sucesso.
+      last_activity:
+        debate_updated: 'Debate atualizado:'
+        new_debate: 'Novo debate:'
       models:
         debate:
           fields:
+            end: Fim
             end_time: Data final
             official_debate: Debate oficial
             start: Iniciar
@@ -181,6 +190,7 @@ pt-BR:
           email_intro: 'Agora você pode iniciar novos debates em %{participatory_space_title}! Comece a participar nesta página:'
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: Debates agora disponíveis em %{participatory_space_title}
+          notification_title: Agora você pode começar <a href="%{resource_path}">novos debates</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         debate_closed:
           affected_user:
             email_intro: 'O debate "%{resource_title}" foi encerrado. Você pode ler as conclusões em sua página:'
@@ -203,6 +213,7 @@ pt-BR:
           name: Debates
           next_level_in: Participe em mais %{score} debates para alcançar o próximo nível!
           unearned_another: Este usuário ainda não participou de nenhum debate.
+          unearned_own: Você ainda não participou de nenhum debate ainda.
     metrics:
       debates:
         description: Número de debates criados

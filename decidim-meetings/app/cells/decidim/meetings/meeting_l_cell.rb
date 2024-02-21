@@ -7,8 +7,6 @@ module Decidim
     # This cell renders the List (:l) meeting card
     # for an instance of a Meeting
     class MeetingLCell < Decidim::CardLCell
-      delegate :component_settings, to: :controller
-
       alias meeting model
 
       def has_image?

@@ -7,8 +7,8 @@ shared_examples "manage meetings attachments" do
   let(:attachment_collection) { create(:attachment_collection, collection_for: meeting) }
 
   before do
-    within find("tr", text: translated(meeting.title)) do
-      click_link "Attachments"
+    within "tr", text: translated(meeting.title) do
+      click_on "Attachments"
     end
   end
 

@@ -6,9 +6,6 @@ module Decidim
   module Proposals
     # This cell renders the cost report for a proposal.
     class CostReportCell < Decidim::ViewModel
-      include ActionView::Helpers::NumberHelper
-      include Decidim::SanitizeHelper
-      include Decidim::LayoutHelper
       include ProposalCellsHelper
 
       private

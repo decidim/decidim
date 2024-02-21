@@ -322,8 +322,6 @@ sk:
     content_blocks:
       footer_sub_hero:
         name: Päta pod hlavným pruhom
-      hero:
-        name: Hlavný obrázok
       hero_settings_form:
         background_image: Obrázok pozadia
         welcome_text: Úvodný text

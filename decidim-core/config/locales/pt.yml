@@ -64,9 +64,6 @@ pt:
   booleans:
     'false': 'Não'
     'true': 'Sim'
-  carrierwave:
-    errors:
-      not_inside_organization: O ficheiro não está anexado a nenhuma organização
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -355,8 +352,6 @@ pt:
         description: Descrição
       footer_sub_hero:
         name: Faixa sub hero do rodapé
-      hero:
-        name: Imagem do hero
       hero_settings_form:
         background_image: Imagem de fundo
         welcome_text: Texto de boas-vindas

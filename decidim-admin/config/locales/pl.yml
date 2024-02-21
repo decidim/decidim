@@ -382,12 +382,12 @@ pl:
         show:
           dropdown: Lista rozwijana
           view_more_logs: Zobacz więcej logów
-      domain_whitelist:
+      domain_allowlist:
         form:
-          domain_too_short: Domena jest zbyt krótka
+          domain_too_short: Domena jest za krótka
         update:
-          error: Nie udało się zaktualizować białej listy domen.
-          success: Biała lista domen pomyślnie zaktualizowana.
+          error: Nie udało się zaktualizować listy dozwolonych domen zewnętrznych
+          success: Lista dozwolonych domen zewnętrznych została pomyślnie zaktualizowana.
       exports:
         export_as: "%{name} jako %{export_format}"
         formats:
@@ -576,7 +576,7 @@ pl:
         areas: Kategorie
         configuration: Konfiguracja
         content: Zgłoszona zawartość
-        external_domain_whitelist: Dozwolone domeny zewnętrzne
+        external_domain_allowlist: Dozwolone domeny zewnętrzne
         help_sections: Sekcje pomocy
         homepage: Strona główna
         impersonations: Podszywanie się pod inne osoby
@@ -860,17 +860,17 @@ pl:
             layout_appearance_title: Edytuj wygląd layoutu
             preview: Podgląd
           omnipresent_banner_appearance_title: Edytuj stały baner
-      organization_external_domain_whitelist:
+      organization_external_domain_allowlist:
         edit:
           update: Aktualizuj
         external_domain:
-          down: W dół
+          down: Na dół
           external_domain: Domena zewnętrzna
           remove: Usuń
-          up: W górę
+          up: Do góry
         form:
-          add: Dodaj do białej listy
-          title: Biała lista domen zewnętrznych
+          add: Dodaj do listy dozwolonych
+          title: Dozwolone domeny zewnętrzne
       participatory_space_private_users:
         create:
           error: Wystąpił błąd podczas dodawania użytkownika prywatnego do tej przestrzeni partycypacyjnej.
@@ -1020,7 +1020,7 @@ pl:
         areas: Kategorie
         authorization_workflows: Metody weryfikacji
         dashboard: Panel
-        edit_external_domains: Biała lista domen zewnętrznych
+        edit_external_domains: Dozwolone domeny zewnętrzne
         edit_landing_page: Zawartość strony
         edit_organization_appearance: Edytuj wygląd strony głównej
         impersonatable_users: Zarządzaj użytkownikami

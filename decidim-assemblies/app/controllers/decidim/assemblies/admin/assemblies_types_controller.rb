@@ -5,8 +5,8 @@ module Decidim
     module Admin
       # Controller used to manage the available assemblies types for the current
       # organization.
-      # As this substitues former i18n simple hash we need to keep these i18n keys for migrations
-      # and rollbakcs. So let i18n-tasks know about:
+      # As this substitutes former i18n simple hash we need to keep these i18n keys for migrations
+      # and rollbacks. So let i18n-tasks know about:
       # i18n-tasks-use t('decidim.assemblies.assembly_types.government')
       # i18n-tasks-use t('decidim.assemblies.assembly_types.commission')
       # i18n-tasks-use t('decidim.assemblies.assembly_types.consultative_advisory')

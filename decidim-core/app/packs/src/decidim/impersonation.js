@@ -1,7 +1,7 @@
 import dayjs from "dayjs"
 
 $(() => {
-  const $impersonationWarning = $(".impersonation-warning");
+  const $impersonationWarning = $("[data-impersonation-warning]");
   if ($impersonationWarning.length) {
     const endsAt = dayjs($impersonationWarning.data("session-ends-at"));
     const exitInterval = setInterval(() => {

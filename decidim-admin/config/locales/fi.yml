@@ -385,12 +385,12 @@ fi:
         show:
           dropdown: Alasvetovalikko
           view_more_logs: Näytä lisää lokitietoja
-      domain_whitelist:
+      domain_allowlist:
         form:
           domain_too_short: Verkkotunnus on liian lyhyt
         update:
-          error: Sallittujen verkkotunnusten listan päivitys epäonnistui.
-          success: Sallittujen verkkotunnusten listan päivitys onnistui.
+          error: Sallittujen ulkoisten verkkotunnusten luettelon päivittäminen epäonnistui
+          success: Sallittujen ulkoisten verkkotunnusten luettelon päivittäminen onnistui.
       exports:
         export_as: "%{name} muodossa %{export_format}"
         formats:
@@ -571,7 +571,7 @@ fi:
         areas: Alueet
         configuration: Asetukset
         content: Ilmoitettu sisältö
-        external_domain_whitelist: Sallitut ulkoiset verkko-osoitteet
+        external_domain_allowlist: Sallitut ulkoiset verkko-osoitteet
         help_sections: Ohjeosiot
         homepage: Kotisivu
         impersonations: Esiintymiset toisena käyttäjänä
@@ -855,7 +855,7 @@ fi:
             layout_appearance_title: Muokkaa sivupohjan ulkoasua
             preview: Esikatsele
           omnipresent_banner_appearance_title: Muokkaa kaikkialla näkyvää banneria
-      organization_external_domain_whitelist:
+      organization_external_domain_allowlist:
         edit:
           update: Päivitä
         external_domain:
@@ -865,7 +865,7 @@ fi:
           up: Ylös
         form:
           add: Lisää sallittujen listalle
-          title: Sallittujen ulkoisten verkkotunnusten lista
+          title: Sallitut ulkoiset verkko-osoitteet
       participatory_space_private_users:
         create:
           error: Yksityisen käyttäjän lisääminen tähän osallistumistilaan epäonnistui.
@@ -1013,7 +1013,7 @@ fi:
         areas: Alueet
         authorization_workflows: Vahvistustavat
         dashboard: Hallintapaneeli
-        edit_external_domains: Sallittujen ulkoisten verkkotunnusten lista
+        edit_external_domains: Sallitut ulkoiset verkko-osoitteet
         edit_landing_page: Sivun sisältö
         edit_organization_appearance: Muokkaa kotisivun ulkoasua
         impersonatable_users: Hallittavat käyttäjät

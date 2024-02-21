@@ -361,12 +361,6 @@ zh-TW:
           title: 等待的操作
         show:
           view_more_logs: 檢視更多記錄
-      domain_whitelist:
-        form:
-          domain_too_short: 網址太短
-        update:
-          error: 網址白名單更新失敗
-          success: 網址白名單更新成功.
       exports:
         export_as: "%{name} 成為 %{export_format}"
         formats:
@@ -543,7 +537,6 @@ zh-TW:
         areas: 區域
         configuration: 配置
         content: 被檢舉的內容
-        external_domain_whitelist: 允許的外部域名
         help_sections: 幫助部分
         homepage: 首頁
         impersonations: 模擬登錄
@@ -810,17 +803,6 @@ zh-TW:
             layout_appearance_title: 編輯版面外觀
             preview: 預覽
           omnipresent_banner_appearance_title: 編輯無處不在的橫幅
-      organization_external_domain_whitelist:
-        edit:
-          update: 更新
-        external_domain:
-          down: 向下
-          external_domain: 外部網域
-          remove: 移除
-          up: 往上
-        form:
-          add: 新增到白名單
-          title: 外部域名白名單
       participatory_space_private_users:
         create:
           error: 在此參與空間中添加私人參與者時出現問題。

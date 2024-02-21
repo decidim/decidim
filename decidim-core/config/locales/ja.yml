@@ -73,12 +73,6 @@ ja:
   booleans:
     'false': 'いいえ'
     'true': 'はい'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: ファイルを処理できません
-      file_resolution_too_large: ファイルの解像度の値が大きすぎます
-      file_size_too_large: ファイルサイズが大きすぎます
-      not_inside_organization: ファイルはどの組織にも添付されていません
   date:
     formats:
       decidim_short: "%Y/%m/%d"
@@ -497,7 +491,7 @@ ja:
       global_menu:
         name: グローバルメニュー
       hero:
-        name: ヒーロー画像
+        name: ヒーローイメージと CTA
       hero_settings_form:
         background_image: 背景画像
         welcome_text: ウェルカムテキスト
@@ -651,6 +645,10 @@ ja:
     endorsers_list:
       endorsed_by: オススメ
     errors:
+      files:
+        file_cannot_be_processed: ファイルを処理できません
+        file_resolution_too_large: ファイルの解像度が大きすぎます
+        not_inside_organization: ファイルがどの組織にも属していません
       internal_server_error:
         copied: テキストをコピーしました
         copy_error_message_clarification: エラーメッセージをクリップボードにコピー
@@ -1255,7 +1253,8 @@ ja:
     offline:
       name: オフライン
       show:
-        message: 現在オフラインのようです。後ほど改めてお試しください。
+        message_1: 現在オフラインのようです。
+        message_2: しばらくたってから改めてやり直してください。
         retry: 再試行
     open_data:
       not_available_yet: オープンデータファイルはまだ利用できません。数分後にもう一度お試しください。
@@ -1772,12 +1771,32 @@ ja:
     upload:
       uploadedFile: アップロードされたファイル
   emojis:
+    add_custom: カスタム絵文字を追加
     button: 絵文字を追加
     categories:
+      activity: アクティビティ
       custom: ユーザー定義
       flags: 国旗
+      foods: 食べ物・飲み物
+      frequent: よく使う絵文字
+      nature: 動物・自然
       objects: 物
+      people: 表情・人物
+      places: 旅行・場所
+      search: 検索結果
       symbols: シンボル
+    pick: 絵文字の選択
+    search: 検索
+    search_no_results_1: おっと！
+    search_no_results_2: 絵文字が見つかりませんでした
+    skins:
+      '1': デフォルト
+      '2': 明るめ
+      '3': やや明るめ
+      '4': 中間
+      '5': やや暗め
+      '6': 暗め
+      choose: デフォルトのスキンのトーンを選択
   errors:
     messages:
       allowed_file_content_types: '次の拡張子を持つファイルのみが許可されています: %{types}'

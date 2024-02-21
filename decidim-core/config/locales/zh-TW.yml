@@ -71,12 +71,6 @@ zh-TW:
   booleans:
     'false': '否'
     'true': '是'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: 無法處理檔案
-      file_resolution_too_large: 檔案解析度過大
-      file_size_too_large: 檔案太大。
-      not_inside_organization: 該文件未附加到任何組織
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -463,8 +457,6 @@ zh-TW:
         description: 說明
       footer_sub_hero:
         name: 頁尾子英雄橫幅
-      hero:
-        name: 英雄圖像
       hero_settings_form:
         background_image: 背景圖片
         welcome_text: 歡迎文字
@@ -1167,7 +1159,6 @@ zh-TW:
         success: 您的通知設定已成功更新。
     offline:
       show:
-        message: 看起來您目前處於離線狀態，請稍後再試。
         retry: 重試
     open_data:
       not_available_yet: 開放數據檔案尚未可用，請稍後再試。

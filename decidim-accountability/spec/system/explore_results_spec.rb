@@ -23,7 +23,7 @@ describe "Explore results", :versioning do
       context "when filtering by scope" do
         it "shows an empty page with a message" do
           within "div.filter-container" do
-            click_link translated(scope.name)
+            click_on translated(scope.name)
           end
 
           within "main" do
@@ -106,9 +106,9 @@ describe "Explore results", :versioning do
         it "does not show progress" do
           visit path
 
-          expect(page).not_to have_content("Global execution status")
+          expect(page).to have_no_content("Global execution status")
           within("aside") do
-            expect(page).not_to have_css(".accountability__status-value")
+            expect(page).to have_no_css(".accountability__status-value")
           end
         end
       end
@@ -116,7 +116,7 @@ describe "Explore results", :versioning do
       context "with a scope" do
         before do
           within "div.filter-container" do
-            click_link translated(scope.name)
+            click_on translated(scope.name)
           end
         end
 
@@ -166,7 +166,7 @@ describe "Explore results", :versioning do
             expect(page).to have_content(translated(matching_result2.title))
 
             results.each do |result|
-              expect(page).not_to have_content(translated(result.title))
+              expect(page).to have_no_content(translated(result.title))
             end
           end
         end
@@ -210,7 +210,7 @@ describe "Explore results", :versioning do
         end
 
         it "maintains scope filter" do
-          click_link translated(category.name)
+          click_on translated(category.name)
 
           within "div.filter-container a.is-active" do
             expect(page).to have_content(translated(scope.name))
@@ -226,7 +226,7 @@ describe "Explore results", :versioning do
 
       it "shows all result info" do
         expect(page).to have_i18n_content(result.title)
-        expect(page).to have_i18n_content(result.description)
+        expect(page).to have_i18n_content(result.description, strip_tags: true)
         expect(page).to have_content(result.reference)
         expect(page).to have_content("#{result.progress.to_i}%")
       end
@@ -238,7 +238,7 @@ describe "Explore results", :versioning do
         end
 
         it "does not show version data" do
-          expect(page).not_to have_content("Version number")
+          expect(page).to have_no_content("Version number")
         end
       end
 
@@ -250,7 +250,7 @@ describe "Explore results", :versioning do
 
       context "without category or scope" do
         it "does not show any tag" do
-          expect(page).not_to have_css("[data-tags]")
+          expect(page).to have_no_css("[data-tags]")
         end
       end
 
@@ -331,12 +331,12 @@ describe "Explore results", :versioning do
         end
 
         it "the result is mentioned in the proposal page" do
-          click_link translated(proposal.title)
+          click_on translated(proposal.title)
           expect(page).to have_i18n_content(result.title)
         end
 
         it "a banner links back to the result" do
-          click_link translated(proposal.title)
+          click_on translated(proposal.title)
           expect(page).to have_content("Included in #{translated(result.title)}")
         end
       end
@@ -365,7 +365,7 @@ describe "Explore results", :versioning do
         end
 
         it "the result is mentioned in the project page" do
-          click_link translated(project.title)
+          click_on translated(project.title)
           expect(page).to have_i18n_content(result.title)
         end
       end
@@ -393,12 +393,12 @@ describe "Explore results", :versioning do
         end
 
         it "the result is mentioned in the meeting page" do
-          click_link translated(meeting.title)
+          click_on translated(meeting.title)
           expect(page).to have_i18n_content(result.title)
         end
 
         it "a banner links back to the result" do
-          click_link translated(meeting.title)
+          click_on translated(meeting.title)
           expect(page).to have_content("Included in #{translated(result.title)}")
         end
       end
@@ -417,7 +417,7 @@ describe "Explore results", :versioning do
           end
 
           it "disables filtering by scope" do
-            expect(page).not_to have_css("[data-scope-filters]")
+            expect(page).to have_no_css("[data-scope-filters]")
           end
         end
 

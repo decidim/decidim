@@ -1,5 +1,5 @@
-<% if amendmendment_creation_enabled? || visible_emendations.any? %>
-  <%= link_to amend_resource_path, disabled: amend_button_disabled?, class: "proposal-participatory__button" do %>
+<% if amendment_creation_enabled? || visible_emendations.any? %>
+  <%= action_authorized_link_to :amend, amend_resource_path, resource: model, disabled: amend_button_disabled?, class: "proposal-participatory__button" do %>
     <%= icon "chat-1-line" %>
     <span><%= t("amend", scope: "decidim.proposals.participatory_text_proposal.buttons") %></span>
     <div class="label"><%= visible_emendations.count %></div>
@@ -14,7 +14,7 @@
       <div class="label"><%= model.comments_count %></div>
     <% end %>
   <% else %>
-    <%= link_to resource_comments_path, class: "proposal-participatory__button" do %>
+    <%= action_authorized_link_to :comment, resource_comments_path, resource: model, class: "proposal-participatory__button" do %>
       <%= icon "chat-1-line" %>
       <span><%= t("comment", scope: "decidim.proposals.participatory_text_proposal.buttons") %></span>
       <div class="label"><%= model.comments_count %></div>

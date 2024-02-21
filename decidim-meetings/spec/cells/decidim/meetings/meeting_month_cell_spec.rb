@@ -26,7 +26,7 @@ module Decidim
         let(:start_date) { Time.zone.local(2021, 4, 1) }
 
         it "does not render any meeting" do
-          expect(subject).not_to have_css(".is-past-event")
+          expect(subject).to have_no_css(".is-past-event")
         end
 
         it "does not render the month" do

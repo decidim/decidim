@@ -12,7 +12,7 @@ module Decidim
 
       private
 
-      def add_addtional_csp_directives
+      def add_additional_csp_directives
         return unless respond_to?(:meeting) || meeting.present?
 
         embedded = MeetingIframeEmbedder.new(meeting.online_meeting_url).embed_transformed_url(request.host)

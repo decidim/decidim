@@ -219,6 +219,12 @@ fi-pl:
             last_step: Prosessin viimeistä vaihetta ei voi poistaa.
           success: Osallisuusprosessin vaihe poistettiin onnistuneesti.
         edit:
+          cta_deprecated:
+            body_html: |-
+              Osallistumisprosessin toimintopainike (call to action) on poistettu käytöstä uuden ulkoasun myötä.
+              Voit muuttaa tätä asetusta <b>Laskeutumssivun asetusten kautta</b> käyttämällä sisältölohkoa nimeltä <b>Pääkuva</b>.
+              Asetus on jätetty tähän paikkaan muuttaaksesi toimintopainikkeet (call to action) sellaiseksi kuin haluat. Kentät <i>toimintopainikkeen (call to action) polulle</i> ja <i>toimintopainikkeen (call to action) tekstille</i> poistetaan seuraavassa versiossa.
+            title: Käytöstä poistettu CTA (call to action)
           title: Muokkaa osallisuusprosessin vaihetta
           update: Päivitä
         index:

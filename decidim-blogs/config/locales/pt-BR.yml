@@ -63,6 +63,9 @@ pt-BR:
             title: Título
       posts:
         index:
+          count:
+            one: "%{count} publicação"
+            other: "%{count} publicações"
           empty: Não existem publicações ainda.
     components:
       blogs:
@@ -71,6 +74,7 @@ pt-BR:
           create: Criar
           destroy: Excluir
           endorse: Endossar
+          update: Atualizar
         name: Blog
         settings:
           global:

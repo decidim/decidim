@@ -15,7 +15,7 @@ shared_examples "logged in user reports content" do
         expect(page).to have_css(".flag-modal", visible: :visible)
 
         within ".flag-modal" do
-          click_button "Report"
+          click_on "Report"
         end
 
         expect(page).to have_content "report has been created"
@@ -50,7 +50,7 @@ shared_examples "higher user role hides" do
 
       within ".flag-modal" do
         find(:css, "input[name='report[hide]']").set(true)
-        click_button "Hide"
+        click_on "Hide"
       end
 
       expect(reportable.reload).to be_hidden
@@ -85,7 +85,7 @@ shared_examples "reports" do
 
       expect(page).not_to have_css("html.is-disabled")
 
-      click_button "Report"
+      click_on "Report"
 
       expect(page).to have_css("html.is-disabled")
     end

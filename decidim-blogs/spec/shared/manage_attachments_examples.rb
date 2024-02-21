@@ -7,8 +7,8 @@ shared_examples "manage posts attachments" do
   let(:attachment_collection) { create(:attachment_collection, collection_for: post) }
 
   before do
-    within find("tr", text: translated(post.title)) do
-      click_link "Attachments"
+    within "tr", text: translated(post.title) do
+      click_on "Attachments"
     end
   end
 

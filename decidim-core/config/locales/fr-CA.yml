@@ -77,12 +77,6 @@ fr-CA:
   booleans:
     'false': 'Non'
     'true': 'Oui'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: Le fichier n'a pas pu être traité
-      file_resolution_too_large: La résolution du fichier est trop grande
-      file_size_too_large: Le fichier est trop volumineux
-      not_inside_organization: Le fichier n'est relié à aucune organisation
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -514,7 +508,7 @@ fr-CA:
       global_menu:
         name: Menu global
       hero:
-        name: Image principale (hero)
+        name: Image principale et bouton d'action
       hero_settings_form:
         background_image: Image d'arrière-plan
         welcome_text: Texte de bienvenue
@@ -671,6 +665,10 @@ fr-CA:
     endorsers_list:
       endorsed_by: Soutenu par …
     errors:
+      files:
+        file_cannot_be_processed: Le fichier ne peut pas être traité
+        file_resolution_too_large: La résolution du fichier est trop grande
+        not_inside_organization: Le fichier n'est attaché à aucune organisation
       internal_server_error:
         copied: Texte copié !
         copy_error_message_clarification: Copier le message d'erreur dans le presse-papiers
@@ -1277,7 +1275,8 @@ fr-CA:
     offline:
       name: Hors ligne
       show:
-        message: Il semble que vous êtes actuellement hors ligne. Veuillez réessayer plus tard.
+        message_1: On dirait que vous êtes actuellement hors ligne.
+        message_2: Veuillez réessayer plus tard.
         retry: Réessayer
     open_data:
       not_available_yet: Les fichiers Open Data ne sont pas encore disponibles. Veuillez réessayer dans quelques minutes.

@@ -83,12 +83,6 @@ lt:
   booleans:
     'false': 'Ne'
     'true': 'Taip'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: Rinkmena negali būti apdorota
-      file_resolution_too_large: Dokumento rezoliucija per aukšta
-      file_size_too_large: Dokumento dydis per didelis
-      not_inside_organization: Dokumentas nepririštas prie jokios organizacijos
   date:
     formats:
       decidim_short: "%Y/%m/%d"
@@ -542,8 +536,6 @@ lt:
         name: Apatinės dalies reklamjuostė
       global_menu:
         name: Globalus meniu
-      hero:
-        name: Pagrindinis vaizdas
       hero_settings_form:
         background_image: Foninis paveikslėlis
         welcome_text: Pasveikinimo tekstas
@@ -1292,7 +1284,6 @@ lt:
     offline:
       name: Neprisijungę
       show:
-        message: Panašu, kad šiuo metu esate neprisijungę. Pabandykite dar kartą vėliau.
         retry: Bandykite dar kartą
     open_data:
       not_available_yet: Atvirųjų duomenų rinkmenomis dabar negalima naudotis. Bandykite dar kartą po kelių minučių.

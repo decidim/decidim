@@ -80,7 +80,7 @@ describe "User activity" do
           expect(page).to have_content(translated(resource.title))
           expect(page).to have_content(translated(comment.commentable.title))
           expect(page).to have_content(translated(resource3.title))
-          expect(page).not_to have_content(translated(resource2.title))
+          expect(page).to have_no_content(translated(resource2.title))
         end
       end
     end
@@ -97,8 +97,8 @@ describe "User activity" do
 
         expect(page).to have_content(translated(resource.title))
         expect(page).to have_content(translated(comment.commentable.title))
-        expect(page).not_to have_content(translated(resource2.title))
-        expect(page).not_to have_content(translated(resource3.title))
+        expect(page).to have_no_content(translated(resource2.title))
+        expect(page).to have_no_content(translated(resource3.title))
       end
     end
 
@@ -116,7 +116,7 @@ describe "User activity" do
       end
     end
 
-    context "when accessing a non existing profile" do
+    context "when accessing a nonexistent profile" do
       before do
         allow(page.config).to receive(:raise_server_errors).and_return(false)
         visit decidim.profile_activity_path(nickname: "invalid_nickname")

@@ -10,7 +10,9 @@ module Decidim
         translatable_attribute :name, String
         translatable_attribute :description, String
 
-        validates :name, translatable_presence: true
+        validates :name, translatable_presence: true, unless: :skip_name_validation
+
+        def skip_name_validation = false
       end
     end
   end

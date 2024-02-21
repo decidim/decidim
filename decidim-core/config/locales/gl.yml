@@ -255,8 +255,6 @@ gl:
     content_blocks:
       footer_sub_hero:
         name: Banner de sub-heroes de pés
-      hero:
-        name: Imaxe de heroe
       highlighted_content_banner:
         name: Banner de contido destacado
       how_to_participate:

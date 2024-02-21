@@ -2,7 +2,7 @@
 
 If you want to verify your users by sending a verification code via SMS you need to provide a SMS gateway service class through the xref:configure:initializer.adoc[initializer].
 
-This service can also be used by some spaces (such as xref:admin:spaces/votings.adoc[Votings]), and external modules could use it too.
+This service can also be used by some spaces, and external modules could use it too.
 
 An example class would be something like:
 

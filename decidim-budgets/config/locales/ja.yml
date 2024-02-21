@@ -102,6 +102,9 @@ ja:
             pending_orders: 保留中の投票
             select_for_implementation: 実装のために選択
             selected: 選択済
+            selected_options:
+              'no': 'いいえ'
+              'yes': 'はい'
             title: プロジェクト
             update: 更新
             update_budget_button: プロジェクトの予算を更新
@@ -198,6 +201,7 @@ ja:
           fields:
             category: カテゴリ
             id: ID
+            map: 地図
             title: タイトル
       order_summary_mailer:
         order_summary:

@@ -2,10 +2,10 @@
 
 <div class="card" id="conference-invites">
   <div class="item_show__header">
-    <h2 class="item_show__header-title">
+    <h1 class="item_show__header-title">
       <%= t(".invites") %>
       <%= link_to t(".invite_attendee"), conference.registrations_enabled ? new_conference_conference_invite_path(conference) : "#", class: "button button__sm button__secondary #{"disabled" unless conference.registrations_enabled && allowed_to?(:invite_attendee, :conference, conference:)}" %>
-    </h2>
+    </h1>
   </div>
 
   <%= admin_filter_selector %>

@@ -385,12 +385,12 @@ fr-CA:
         show:
           dropdown: Liste déroulante
           view_more_logs: Afficher plus
-      domain_whitelist:
+      domain_allowlist:
         form:
           domain_too_short: Le nom de domaine est trop court
         update:
-          error: Échec lors de la mise à jour de la liste des domaines externes autorisés.
-          success: Liste des domaines externes autorisés mise à jour avec succès.
+          error: Impossible de mettre à jour la liste des domaines externes autorisés
+          success: La liste des domaines externes autorisés a été mise à jour avec succès.
       exports:
         export_as: "%{name} en format %{export_format}"
         formats:
@@ -571,7 +571,7 @@ fr-CA:
         areas: Zones d'application
         configuration: Configuration
         content: Contenu signalé
-        external_domain_whitelist: Domaines externes autorisés
+        external_domain_allowlist: Domaines externes autorisés
         help_sections: Sections d'aide
         homepage: Page d'accueil
         impersonations: Utilisateurs représentés
@@ -855,17 +855,17 @@ fr-CA:
             layout_appearance_title: Modifier l’aspect de la mise en page
             preview: Aperçu
           omnipresent_banner_appearance_title: Modifier la bannière permanente
-      organization_external_domain_whitelist:
+      organization_external_domain_allowlist:
         edit:
           update: Mettre à jour
         external_domain:
           down: Descendre
           external_domain: Domaine externe
-          remove: Supprimer
+          remove: Retirer
           up: Monter
         form:
-          add: Ajouter à la liste blanche
-          title: Liste blanche du domaine externe
+          add: Ajouter à la liste autorisée
+          title: Liste des domaines externes autorisés
       participatory_space_private_users:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.

@@ -4,7 +4,6 @@ module Decidim
   module Comments
     # A cell to display a form for editing a comment.
     class EditCommentModalFormCell < Decidim::ViewModel
-      delegate :current_user, :user_signed_in?, to: :controller
       alias comment model
 
       private

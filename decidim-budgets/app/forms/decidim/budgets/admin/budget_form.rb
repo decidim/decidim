@@ -21,7 +21,7 @@ module Decidim
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
 
-        # Finds the Scope from the given decidim_scope_id, uses the compoenent scope if missing.
+        # Finds the Scope from the given decidim_scope_id, uses the component scope if missing.
         #
         # Returns a Decidim::Scope
         def scope

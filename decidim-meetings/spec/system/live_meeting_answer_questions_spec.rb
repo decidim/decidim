@@ -56,7 +56,7 @@ describe "Meeting live event poll answer" do
     end
 
     it "does not list any question" do
-      click_button "Questions (0)"
+      click_on "Questions (0)"
       expect(page.all(".meeting-polls__question--admin").size).to eq(0)
     end
   end
@@ -70,17 +70,17 @@ describe "Meeting live event poll answer" do
     end
 
     it "allows to reply a question" do
-      click_button "Questions (2)"
+      click_on "Questions (2)"
       open_first_question
 
       check question_multiple_option.answer_options.first.body["en"]
-      click_button "Reply question"
+      click_on "Reply question"
 
       expect(page).to have_content("Question replied")
     end
 
     it "does not allow selecting two single options" do
-      click_button "Questions (2)"
+      click_on "Questions (2)"
       find("details[data-question='#{question_single_option.id}']").click
 
       choose question_single_option.answer_options.first.body["en"]
@@ -93,7 +93,7 @@ describe "Meeting live event poll answer" do
     end
 
     it "does not allow selecting more than the maximum choices for multiple options" do
-      click_button "Questions (2)"
+      click_on "Questions (2)"
       open_first_question
 
       check question_multiple_option.answer_options.first.body["en"]
@@ -114,7 +114,7 @@ describe "Meeting live event poll answer" do
     end
 
     it "shows the responses" do
-      click_button "Questions (1)"
+      click_on "Questions (1)"
       open_first_question
 
       expect(page).to have_content("0%")

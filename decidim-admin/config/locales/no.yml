@@ -304,9 +304,6 @@
       dashboard:
         show:
           view_more_logs: Vis flere logger
-      domain_whitelist:
-        form:
-          domain_too_short: Domene er for kort
       exports:
         export_as: "%{name} som %{export_format}"
         formats:
@@ -472,7 +469,6 @@
         area_types: Områdetyper
         areas: Områder
         configuration: Konfigurasjon
-        external_domain_whitelist: Tillatte eksterne domener
         help_sections: Hjelpeseksjoner
         homepage: Hjemmeside
         impersonations: Etterligninger
@@ -721,17 +717,6 @@
             layout_appearance_title: Rediger layout utseende
             preview: Forhåndsvis
           omnipresent_banner_appearance_title: Endre enerådende banner
-      organization_external_domain_whitelist:
-        edit:
-          update: Oppdater
-        external_domain:
-          down: Ned
-          external_domain: Eksternt domene
-          remove: Fjern
-          up: Opp
-        form:
-          add: Legg til i hviteliste
-          title: Hviteliste for eksterne domener
       participatory_space_private_users:
         create:
           error: Det oppstod et problem med å legge til en privat deltaker for dette deltakerområdet.

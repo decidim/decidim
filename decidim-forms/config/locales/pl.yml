@@ -45,6 +45,7 @@ pl:
               back: Powrót do odpowiedzi
               export: Eksportuj
               next: Następne &rsaquo;
+              previous: "&lsaquo; Poprzedni"
               show: Pokaż odpowiedzi
             empty: Brak odpowiedzi
             export:
@@ -122,11 +123,17 @@ pl:
           update:
             invalid: Podczas zapisywania formularza wystąpił błąd.
             success: Formularz został zapisany.
+      admin_log:
+        questionnaire:
+          update: "%{user_name} zaktualizował(a) kwestionariusz %{resource_name}"
       errors:
         answer:
           body: Treść nie może być pusta
       images:
         dimensions: "%{width} × %{height} px"
+        processors:
+          resize_and_pad: Rozmiar obrazu zostanie zmieniony i dopasowany do wymiarów %{dimensions}.
+          resize_to_fit: Rozmiar obrazu zostanie zmieniony i dopasowany do wymiarów %{dimensions}.
       question_types:
         files: Pliki
         long_answer: Długa odpowiedź

@@ -55,9 +55,6 @@ zh-CN:
   booleans:
     'false': '否'
     'true': '否'
-  carrierwave:
-    errors:
-      not_inside_organization: 该文件没有附加到任何组织
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -307,8 +304,6 @@ zh-CN:
     content_blocks:
       footer_sub_hero:
         name: 页脚子英雄横幅：
-      hero:
-        name: 英雄图像
       hero_settings_form:
         background_image: 背景图像
         welcome_text: 欢迎文本

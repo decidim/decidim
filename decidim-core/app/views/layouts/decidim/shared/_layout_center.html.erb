@@ -2,7 +2,7 @@
 main_enabled = true unless local_assigns.has_key?(:main_enabled)
 main_tag = main_enabled ? :main : :div
 columns ||= 6
-# Class names need to be complete, not metaprogarmmed, because of Tailwind class purge
+# Class names need to be complete, not metaprogrammed, because of Tailwind class purge
 css_class = case columns
             when 10 then "cols-10"
             when 8 then "cols-8"

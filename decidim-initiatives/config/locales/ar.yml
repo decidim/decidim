@@ -62,7 +62,11 @@ ar:
         components: المكونات
         information: معلومات
         initiatives: المبادرات
+        initiatives_settings: الإعدادات
+        initiatives_submenu:
+          info: عن هذه المبادرة
         initiatives_types: أنواع المبادرة
+        moderations: الإشراف
       models:
         initiatives:
           fields:
@@ -167,6 +171,7 @@ ar:
             send_to_technical_validation: إرسال إلى التحقق الفني
             update: تحديث
           form:
+            settings: الإعدادات
             title: معلومات عامة
           index:
             actions_title: عمل

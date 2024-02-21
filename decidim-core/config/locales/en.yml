@@ -79,6 +79,9 @@ en:
     'false': 'No'
     'true': 'Yes'
   date:
+    buttons:
+      close: Close
+      select: Select
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d-%m-%Y"
@@ -86,6 +89,10 @@ en:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Format: dd/mm/yyyy'
+      order: d-m-y
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -877,7 +884,7 @@ en:
       create:
         button: Follow
         error: There was a problem following this resource.
-        participatory_space: Following <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Following <span>%{resource_name}</span>
       destroy:
         button: Stop following
         error: There was a problem unfollowing this resource.
@@ -1216,7 +1223,7 @@ en:
         token_error: The link has expired.
         unsubscribe: Unsubscribe
     newsletters_opt_in:
-      unathorized: Sorry, this link is no longer available.
+      unauthorized: Sorry, this link is no longer available.
       update:
         error: There was a problem saving the newsletter settings.
         success: Newsletter settings successfully updated.
@@ -2026,6 +2033,10 @@ en:
     x: X
     xing: Xing
   time:
+    buttons:
+      close: Close
+      reset: Reset
+      select: Select
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2040,6 +2051,8 @@ en:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      help:
+        time_format: 'Format: hh:mm'
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
       long_with_particles: "%B %d, %Y at %H:%M"

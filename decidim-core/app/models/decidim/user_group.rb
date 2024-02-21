@@ -202,13 +202,13 @@ module Decidim
       document_number.present?
     end
 
-    # Overwites method in `Decidim::Validatable`, as user groups do not have a
+    # Overrides method in `Decidim::Validatable`, as user groups do not have a
     # password.
     def password_required?
       false
     end
 
-    # Overwites method in `Decidim::Validatable`, as user groups do not have a
+    # Overrides method in `Decidim::Validatable`, as user groups do not have a
     # password.
     def password
       nil

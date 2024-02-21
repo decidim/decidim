@@ -3,9 +3,6 @@
 module Decidim
   # This cell renders a generic button.
   class ButtonCell < Decidim::ViewModel
-    include LayoutHelper
-    include IconHelper
-    include Decidim::SanitizeHelper
     include Decidim::ResourceHelper
 
     DEFAULT_ATTRIBUTES = {

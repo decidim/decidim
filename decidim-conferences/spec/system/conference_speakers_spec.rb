@@ -20,7 +20,7 @@ describe "Conference speakers" do
     it "the menu link is not shown" do
       visit decidim_conferences.conference_path(conference)
 
-      expect(page).not_to have_content("SPEAKERS")
+      expect(page).to have_no_content("SPEAKERS")
     end
   end
 
@@ -43,7 +43,7 @@ describe "Conference speakers" do
 
         within ".conference__nav-container" do
           expect(page).to have_content("Speakers")
-          click_link "Speakers"
+          click_on "Speakers"
         end
 
         expect(page).to have_current_path decidim_conferences.conference_conference_speakers_path(conference)
@@ -52,7 +52,7 @@ describe "Conference speakers" do
 
     it "lists all conference speakers" do
       within "#conference_speakers-grid" do
-        expect(page).to have_selector("[data-conference-speaker]", count: 2)
+        expect(page).to have_css("[data-conference-speaker]", count: 2)
 
         conference_speakers.each do |conference_speaker|
           expect(page).to have_content(Decidim::ConferenceSpeakerPresenter.new(conference_speaker).name)

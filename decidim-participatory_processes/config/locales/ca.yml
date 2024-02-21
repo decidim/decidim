@@ -219,6 +219,12 @@ ca:
             last_step: No es pot eliminar l'última fase d'un procés.
           success: La fase del procés participatiu s'ha eliminat correctament.
         edit:
+          cta_deprecated:
+            body_html: |-
+              La configuració del CTA a través de la Fase del procés participatiu està obsoleta amb el nou disseny.
+              Ara això es fa a la <b>Página d'inici</b>, fent servir el bloc de contingut <b>Imatges principal i botó d'acció</b>.
+              L'hem deixar aquí per a que migris els CTAs que necessitis. Els camps <i>Ruta del botó d'acció</i> i <i>Text del botó d'acció</i> s'eliminaran a la propera versió.
+            title: CTA obsolet
           title: Edita fase de procés participatiu
           update: Actualitza
         index:

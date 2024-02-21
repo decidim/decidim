@@ -59,7 +59,7 @@ describe "Decidim::Initiatives::CommitteeRequestController" do
 
       context "when requesting membership" do
         it "an authentication modal is opened" do
-          click_link "Continue"
+          click_on "Continue"
           expect(page).to have_content("Please log in")
         end
       end

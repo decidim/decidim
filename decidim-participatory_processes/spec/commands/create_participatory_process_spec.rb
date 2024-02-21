@@ -39,6 +39,7 @@ module Decidim::ParticipatoryProcesses
         short_description: { en: "short_description" },
         current_user:,
         current_organization: organization,
+        organization:,
         scopes_enabled: true,
         private_space: false,
         scope:,
@@ -98,17 +99,15 @@ module Decidim::ParticipatoryProcesses
         expect { subject.call }.to change(Decidim::ParticipatoryProcess, :count).by(1)
       end
 
-      it "traces the creation", versioning: true do
-        expect(Decidim::ActionLogger)
-          .to receive(:log)
-          .with("create", current_user, a_kind_of(Decidim::ParticipatoryProcess), a_kind_of(Integer))
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:create)
+          .with(Decidim::ParticipatoryProcess, current_user, kind_of(Hash))
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
-
         action_log = Decidim::ActionLog.last
         expect(action_log.version).to be_present
-        expect(action_log.version.event).to eq "create"
       end
 
       it "broadcasts ok" do

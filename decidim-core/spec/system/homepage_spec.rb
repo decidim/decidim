@@ -93,7 +93,7 @@ describe "Homepage" do
 
           it "uses the custom values for the CTA button text" do
             within ".hero" do
-              click_link "Sign up"
+              click_on "Sign up"
             end
 
             expect(page).to have_current_path decidim.new_user_registration_path
@@ -105,7 +105,7 @@ describe "Homepage" do
 
           it "uses the custom values for the CTA button" do
             within ".hero" do
-              click_link "Participate"
+              click_on "Participate"
             end
 
             expect(page).to have_current_path decidim.new_user_session_path
@@ -119,7 +119,7 @@ describe "Homepage" do
             visit decidim.root_path
 
             within ".hero" do
-              click_link "Participate"
+              click_on "Participate"
             end
 
             expect(page).to have_current_path decidim_participatory_processes.participatory_processes_path
@@ -132,7 +132,7 @@ describe "Homepage" do
         let(:organization) { create(:organization, official_url:, header_snippets: snippet) }
 
         it "does not include the header snippets" do
-          expect(page).not_to have_selector("meta[data-hello]", visible: :all)
+          expect(page).to have_no_selector("meta[data-hello]", visible: :all)
         end
 
         context "when header snippets are enabled" do
@@ -166,10 +166,10 @@ describe "Homepage" do
               expect(page).to have_content(static_page.title["en"])
             end
 
-            expect(page).not_to have_content(static_page3.title["en"])
+            expect(page).to have_no_content(static_page3.title["en"])
           end
 
-          click_link static_page1.title["en"]
+          click_on static_page1.title["en"]
           expect(page).to have_i18n_content(static_page1.title)
 
           expect(page).to have_i18n_content(static_page1.content, strip_tags: true)
@@ -230,19 +230,19 @@ describe "Homepage" do
           it "displays only publicly accessible pages and topics with pages configured to be shown in the footer" do
             within "footer" do
               expect(page).to have_content(static_page1.title["en"])
-              expect(page).not_to have_content(static_page2.title["en"])
-              expect(page).not_to have_content(static_page3.title["en"])
+              expect(page).to have_no_content(static_page2.title["en"])
+              expect(page).to have_no_content(static_page3.title["en"])
               expect(page).to have_content(static_page_topic1.title["en"])
-              expect(page).not_to have_content(static_page_topic1_page1.title["en"])
+              expect(page).to have_no_content(static_page_topic1_page1.title["en"])
               expect(page).to have_content(static_page_topic1_page2.title["en"])
-              expect(page).not_to have_content(static_page_topic2.title["en"])
-              expect(page).not_to have_content(static_page_topic3.title["en"])
+              expect(page).to have_no_content(static_page_topic2.title["en"])
+              expect(page).to have_no_content(static_page_topic3.title["en"])
 
               expect(page).to have_link(
                 static_page_topic1_page2.title["en"],
                 href: "/pages/#{static_page_topic1_page2.slug}"
               )
-              expect(page).not_to have_link(
+              expect(page).to have_no_link(
                 static_page_topic1_page1.title["en"],
                 href: "/pages/#{static_page_topic1_page1.slug}"
               )
@@ -257,14 +257,14 @@ describe "Homepage" do
             it "displays all pages and topics with pages in footer that are configured to display in footer" do
               expect(page).to have_content(static_page1.title["en"])
               expect(page).to have_content(static_page2.title["en"])
-              expect(page).not_to have_content(static_page3.title["en"])
+              expect(page).to have_no_content(static_page3.title["en"])
               expect(page).to have_content(static_page_topic1.title["en"])
               expect(page).to have_content(static_page_topic1_page1.title["en"])
               expect(page).to have_content(static_page_topic1_page2.title["en"])
               expect(page).to have_content(static_page_topic2.title["en"])
               expect(page).to have_content(static_page_topic2_page1.title["en"])
-              expect(page).not_to have_content(static_page_topic2_page2.title["en"])
-              expect(page).not_to have_content(static_page_topic3.title["en"])
+              expect(page).to have_no_content(static_page_topic2_page2.title["en"])
+              expect(page).to have_no_content(static_page_topic3.title["en"])
 
               expect(page).to have_link(
                 static_page_topic1_page2.title["en"],
@@ -278,7 +278,7 @@ describe "Homepage" do
                 static_page_topic2_page1.title["en"],
                 href: "/pages/#{static_page_topic2_page1.slug}"
               )
-              expect(page).not_to have_link(
+              expect(page).to have_no_link(
                 static_page_topic2_page2.title["en"],
                 href: "/pages/#{static_page_topic2_page2.slug}"
               )
@@ -304,7 +304,7 @@ describe "Homepage" do
           let(:organization) { create(:organization) }
 
           it "does not show the statistics block" do
-            expect(page).not_to have_content("Current state of #{organization.name}")
+            expect(page).to have_no_content("Current state of #{organization.name}")
           end
         end
 
@@ -341,7 +341,7 @@ describe "Homepage" do
           let(:organization) { create(:organization) }
 
           it "does not show the statistics block" do
-            expect(page).not_to have_content("Participation in figures")
+            expect(page).to have_no_content("Participation in figures")
           end
         end
 
@@ -383,10 +383,10 @@ describe "Homepage" do
               within "[data-metrics]" do
                 expect(page).to have_content("Metrics")
                 Decidim.metrics_registry.highlighted.each do |metric_registry|
-                  expect(page).not_to have_css("##{metric_registry.metric_name}_chart")
+                  expect(page).to have_no_css("##{metric_registry.metric_name}_chart")
                 end
                 Decidim.metrics_registry.not_highlighted.each do |metric_registry|
-                  expect(page).not_to have_css("##{metric_registry.metric_name}_chart")
+                  expect(page).to have_no_css("##{metric_registry.metric_name}_chart")
                 end
               end
             end
@@ -478,14 +478,12 @@ describe "Homepage" do
         end
 
         it "lets the users download open data files" do
-          click_link "Download Open Data files"
+          click_on "Download Open Data files"
           expect(File.basename(download_path)).to include("open-data.zip")
           Zip::File.open(download_path) do |zipfile|
             expect(zipfile.glob("*open-data-proposals.csv").length).to eq(1)
             expect(zipfile.glob("*open-data-results.csv").length).to eq(1)
             expect(zipfile.glob("*open-data-meetings.csv").length).to eq(1)
-            expect(zipfile.glob("*open-data-elections.csv").length).to eq(1)
-            expect(zipfile.glob("*open-data-votings.csv").length).to eq(1)
           end
         end
       end
@@ -504,7 +502,7 @@ describe "Homepage" do
         context "when the organization has a description" do
           it "shows the organization description" do
             within "footer" do
-              expect(page).not_to have_text("Let's build a more open, transparent and collaborative society.")
+              expect(page).to have_no_text("Let's build a more open, transparent and collaborative society.")
               expect(page).to have_text(strip_tags(translated(organization.description)))
             end
           end

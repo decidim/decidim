@@ -265,7 +265,7 @@ module Decidim
       context "when there is type" do
         let(:model) { create(:assembly, :with_type) }
 
-        describe "assemblyeType" do
+        describe "assemblyType" do
           let(:query) { "{ assemblyType { id } }" }
 
           it "returns the assemblyType field" do

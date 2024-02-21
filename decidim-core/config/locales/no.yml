@@ -64,9 +64,6 @@
   booleans:
     'false': 'Nei'
     'true': 'Ja'
-  carrierwave:
-    errors:
-      not_inside_organization: Filen er ikke tilknyttet noen organisasjon
   date:
     formats:
       decidim_short: "%d.%m-%Y"
@@ -362,8 +359,6 @@
         description: Beskrivelse
       footer_sub_hero:
         name: Footer sub hero banner
-      hero:
-        name: Heltebilde
       hero_settings_form:
         background_image: Bakgrunnsbilde
         welcome_text: Velkomsttekst

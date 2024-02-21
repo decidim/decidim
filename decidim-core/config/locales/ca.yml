@@ -77,12 +77,6 @@ ca:
   booleans:
     'false': 'No'
     'true': 'Sí'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: No s'ha pogut llegir el fitxer
-      file_resolution_too_large: La resolució de l'arxiu és massa gran
-      file_size_too_large: La mida del fitxer és massa gran
-      not_inside_organization: L'arxiu no està relacionat amb cap organització
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -511,7 +505,7 @@ ca:
       global_menu:
         name: Menú global
       hero:
-        name: Imatge del hero
+        name: Imatge principal i botó d'acció
       hero_settings_form:
         background_image: Imatge de fons
         welcome_text: Text de benvinguda
@@ -667,6 +661,10 @@ ca:
     endorsers_list:
       endorsed_by: Li agrada a…
     errors:
+      files:
+        file_cannot_be_processed: No s'ha pogut processar el fitxer
+        file_resolution_too_large: La resolució de l'arxiu és massa gran
+        not_inside_organization: L'arxiu no està relacionat amb cap organització
       internal_server_error:
         copied: Text copiat!
         copy_error_message_clarification: Missatge d'error copiat amb el porta-retalls
@@ -1273,7 +1271,8 @@ ca:
     offline:
       name: Sense connexió
       show:
-        message: Sembla que estàs desconnectada. Si us plau, torna a intentar-ho més tard.
+        message_1: Sembla que no tens connexió a Internet.
+        message_2: Si us plau, torneu-ho a provar més tard.
         retry: Torna-ho a provar
     open_data:
       not_available_yet: Els fitxers Open Data encara no estan disponibles, torna-ho a provar d'aquí a uns minuts.
@@ -1798,8 +1797,25 @@ ca:
       custom: Personalitzat
       flags: Banderes
       foods: Aliments i begudes
+      frequent: Usats freqüentment
+      nature: Animals i natura
       objects: Objectes
+      people: Cares i Gent
+      places: Viatges i llocs
+      search: Resultats de la cerca
       symbols: Símbols
+    pick: Tria una emoticona…
+    search: Cercar
+    search_no_results_1: Oh, no!
+    search_no_results_2: No s'ha trobat aquesta emoticona
+    skins:
+      '1': Per defecte
+      '2': Clara
+      '3': Mig clara
+      '4': Mitja
+      '5': Mig fosca
+      '6': Fosca
+      choose: Tria un to de pell predeterminat
   errors:
     messages:
       allowed_file_content_types: 'només s''accepten arxius amb les següents extensions: %{types}'

@@ -77,12 +77,6 @@ es:
   booleans:
     'false': 'No'
     'true': 'Sí'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: No se ha podido leer el archivo
-      file_resolution_too_large: La resolución del archivo es demasiado grande
-      file_size_too_large: El tamaño del archivo es demasiado grande
-      not_inside_organization: El archivo no está relacionado con ninguna organización
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -511,7 +505,7 @@ es:
       global_menu:
         name: Menú global
       hero:
-        name: Imagen del hero
+        name: Imagen principal y botón de acción
       hero_settings_form:
         background_image: Imagen de fondo
         welcome_text: Texto de bienvenida
@@ -667,6 +661,10 @@ es:
     endorsers_list:
       endorsed_by: Le gusta a…
     errors:
+      files:
+        file_cannot_be_processed: No se ha podido procesar el archivo
+        file_resolution_too_large: La resolución del archivo es demasiado grande
+        not_inside_organization: El archivo no está relacionado con ninguna organización
       internal_server_error:
         copied: '¡Texto copiado!'
         copy_error_message_clarification: Mensaje de error copiado al portapapeles
@@ -1273,7 +1271,8 @@ es:
     offline:
       name: Sin conexión
       show:
-        message: Parece que estás desconectada. Por favor, inténtalo de nuevo más tarde.
+        message_1: Parece que no tienes conexión a Internet.
+        message_2: Por favor, inténtalo de nuevo más tarde.
         retry: Reintentar
     open_data:
       not_available_yet: Los ficheros Open Data aún no están disponibles, inténtalo de nuevo en unos minutos.
@@ -1798,8 +1797,25 @@ es:
       custom: Personalizado
       flags: Banderas
       foods: Alimentos y bebidas
+      frequent: Usados frecuentemente
+      nature: Animales y naturaleza
       objects: Objetos
+      people: Caras y Personas
+      places: Viajes y lugares
+      search: Resultados de búsqueda
       symbols: Símbolos
+    pick: Elige un emoji…
+    search: Buscar
+    search_no_results_1: '¡Oh no!'
+    search_no_results_2: No se pudo encontrar ese emoticono
+    skins:
+      '1': Por defecto
+      '2': Clara
+      '3': Medio clara
+      '4': Media
+      '5': Medio oscura
+      '6': Oscura
+      choose: Elige un tono de piel predeterminado
   errors:
     messages:
       allowed_file_content_types: 'solo se permiten archivos con las siguientes extensiones: %{types}'

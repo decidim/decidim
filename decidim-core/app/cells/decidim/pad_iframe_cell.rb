@@ -4,7 +4,6 @@ module Decidim
   # This cell is used to render an iframe to embed an Etherpad from a
   # Paddable model.
   class PadIframeCell < Decidim::ViewModel
-    include Decidim::ApplicationHelper
     include Decidim::Core::Engine.routes.url_helpers
 
     def show

@@ -15,7 +15,7 @@ module Decidim
     end
 
     def current_component
-      from_context.component
+      context[:controller].try(:current_component) || from_context.component
     end
 
     def withdrawable?

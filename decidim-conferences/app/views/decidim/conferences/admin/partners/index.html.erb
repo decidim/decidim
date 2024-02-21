@@ -1,12 +1,12 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="card" id="partners">
   <div class="item_show__header">
-    <h2 class="item_show__header-title">
+    <h1 class="item_show__header-title">
       <%= t(".title") %>
       <% if allowed_to? :create, :partner %>
          <%= link_to t("actions.new_partner", scope: "decidim.admin"), new_conference_partner_path(current_conference), class: "button button__sm button__secondary new" %>
       <% end %>
-    </h2>
+    </h1>
   </div>
   <div class="table-scroll">
     <table class="table-list">
@@ -17,7 +17,7 @@
           <th><%= t("models.partner.fields.link", scope: "decidim.admin") %></th>
           <th><%= t("models.partner.fields.logo", scope: "decidim.admin") %></th>
 
-          <th class="actions"></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>

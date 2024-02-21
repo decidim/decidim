@@ -14,7 +14,7 @@ shared_examples "manage proposals" do
 
   context "when previewing proposals" do
     it "allows the user to preview the proposal" do
-      within find("tr", text: proposal_title) do
+      within "tr", text: proposal_title do
         klass = "action-icon--preview"
         href = resource_locator(proposal).path
         target = "blank"
@@ -67,7 +67,7 @@ shared_examples "manage proposals" do
 
         context "when process is not related to any scope" do
           it "can be related to a scope" do
-            click_link "New proposal"
+            click_on "New proposal"
 
             within "form" do
               expect(page).to have_content(/Scope/i)
@@ -75,7 +75,7 @@ shared_examples "manage proposals" do
           end
 
           it "creates a new proposal", :slow do
-            click_link "New proposal"
+            click_on "New proposal"
 
             within ".new_proposal" do
               fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
@@ -106,15 +106,15 @@ shared_examples "manage proposals" do
           let(:participatory_process_scope) { scope }
 
           it "cannot be related to a scope, because it has no children" do
-            click_link "New proposal"
+            click_on "New proposal"
 
             within "form" do
-              expect(page).not_to have_content(/Scope/i)
+              expect(page).to have_no_content(/Scope/i)
             end
           end
 
           it "creates a new proposal related to the process scope" do
-            click_link "New proposal"
+            click_on "New proposal"
 
             within ".new_proposal" do
               fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
@@ -139,7 +139,7 @@ shared_examples "manage proposals" do
             let!(:child_scope) { create(:scope, parent: scope) }
 
             it "can be related to a scope" do
-              click_link "New proposal"
+              click_on "New proposal"
 
               within "form" do
                 expect(page).to have_content(/Scope/i)
@@ -147,7 +147,7 @@ shared_examples "manage proposals" do
             end
 
             it "creates a new proposal related to a process scope child" do
-              click_link "New proposal"
+              click_on "New proposal"
 
               within ".new_proposal" do
                 fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
@@ -176,7 +176,7 @@ shared_examples "manage proposals" do
             end
 
             it "creates a new proposal related to the process scope" do
-              click_link "New proposal"
+              click_on "New proposal"
 
               within ".new_proposal" do
                 fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
@@ -208,7 +208,7 @@ shared_examples "manage proposals" do
               let(:geocoded_address_coordinates) { [latitude, longitude] }
 
               before do
-                click_link "New proposal"
+                click_on "New proposal"
 
                 within ".new_proposal" do
                   fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
@@ -225,7 +225,7 @@ shared_examples "manage proposals" do
           end
 
           it "creates a new proposal with attachments" do
-            click_link "New proposal"
+            click_on "New proposal"
 
             within ".new_proposal" do
               fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Proposal with attachments"
@@ -251,13 +251,13 @@ shared_examples "manage proposals" do
           let!(:meetings) { create_list(:meeting, 3, :published, component: meeting_component) }
 
           it "creates a new proposal with meeting as author" do
-            click_link "New proposal"
+            click_on "New proposal"
 
             within ".new_proposal" do
               fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Proposal with meeting as author"
               fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "Proposal body of meeting as author"
               execute_script("$('#proposal_created_in_meeting').change()")
-              find(:css, "#proposal_created_in_meeting").set(true)
+              find_by_id("proposal_created_in_meeting").set(true)
               select translated(meetings.first.title), from: :proposal_meeting_id
               select category.name["en"], from: :proposal_category_id
               find("*[type=submit]").click
@@ -289,12 +289,12 @@ shared_examples "manage proposals" do
 
         it "cannot create a new proposal from the main site" do
           visit_component
-          expect(page).not_to have_button("New Proposal")
+          expect(page).to have_no_button("New Proposal")
         end
 
         it "cannot create a new proposal from the admin site" do
           visit_component_admin
-          expect(page).not_to have_link("New proposal")
+          expect(page).to have_no_link("New proposal")
         end
       end
     end
@@ -306,12 +306,12 @@ shared_examples "manage proposals" do
 
       it "cannot create a new proposal from the main site" do
         visit_component
-        expect(page).not_to have_button("New Proposal")
+        expect(page).to have_no_button("New Proposal")
       end
 
       it "cannot create a new proposal from the admin site" do
         visit_component_admin
-        expect(page).not_to have_link("New proposal")
+        expect(page).to have_no_link("New proposal")
       end
     end
   end
@@ -344,18 +344,18 @@ shared_examples "manage proposals" do
             ca: "La proposta no te sentit"
           )
           choose "Rejected"
-          click_button "Answer"
+          click_on "Answer"
         end
 
         expect(page).to have_admin_callout("Proposal successfully answered")
 
-        within find("tr", text: proposal_title) do
+        within "tr", text: proposal_title do
           expect(page).to have_content("Rejected")
         end
 
         proposal.reload
-        expect(proposal.answered_at).to be_within(2.seconds).of Time.zone.now
-        expect(proposal.state_published_at).to be_within(2.seconds).of Time.zone.now
+        expect(proposal.answered_at).to be_within(5.seconds).of Time.zone.now
+        expect(proposal.state_published_at).to be_within(5.seconds).of Time.zone.now
       end
 
       it "can accept a proposal" do
@@ -363,18 +363,18 @@ shared_examples "manage proposals" do
 
         within ".edit_proposal_answer" do
           choose "Accepted"
-          click_button "Answer"
+          click_on "Answer"
         end
 
         expect(page).to have_admin_callout("Proposal successfully answered")
 
-        within find("tr", text: proposal_title) do
+        within "tr", text: proposal_title do
           expect(page).to have_content("Accepted")
         end
 
         proposal.reload
-        expect(proposal.answered_at).to be_within(2.seconds).of Time.zone.now
-        expect(proposal.state_published_at).to be_within(2.seconds).of Time.zone.now
+        expect(proposal.answered_at).to be_within(5.seconds).of Time.zone.now
+        expect(proposal.state_published_at).to be_within(5.seconds).of Time.zone.now
       end
 
       it "can mark a proposal as evaluating" do
@@ -382,23 +382,23 @@ shared_examples "manage proposals" do
 
         within ".edit_proposal_answer" do
           choose "Evaluating"
-          click_button "Answer"
+          click_on "Answer"
         end
 
         expect(page).to have_admin_callout("Proposal successfully answered")
 
-        within find("tr", text: proposal_title) do
+        within "tr", text: proposal_title do
           expect(page).to have_content("Evaluating")
         end
 
         proposal.reload
-        expect(proposal.answered_at).to be_within(2.seconds).of Time.zone.now
-        expect(proposal.state_published_at).to be_within(2.seconds).of Time.zone.now
+        expect(proposal.answered_at).to be_within(5.seconds).of Time.zone.now
+        expect(proposal.state_published_at).to be_within(5.seconds).of Time.zone.now
       end
 
       it "can mark a proposal as 'not answered'" do
+        proposal.assign_state("rejected")
         proposal.update!(
-          state: "rejected",
           answer: {
             "en" => "I do not like it"
           },
@@ -409,12 +409,12 @@ shared_examples "manage proposals" do
 
         within ".edit_proposal_answer" do
           choose "Not answered"
-          click_button "Answer"
+          click_on "Answer"
         end
 
         expect(page).to have_admin_callout("Proposal successfully answered")
 
-        within find("tr", text: proposal_title) do
+        within "tr", text: proposal_title do
           expect(page).to have_content("Not answered")
         end
 
@@ -424,8 +424,8 @@ shared_examples "manage proposals" do
       end
 
       it "can edit a proposal answer" do
+        proposal.assign_state("rejected")
         proposal.update!(
-          state: "rejected",
           answer: {
             "en" => "I do not like it"
           },
@@ -434,7 +434,7 @@ shared_examples "manage proposals" do
 
         visit_component_admin
 
-        within find("tr", text: proposal_title) do
+        within "tr", text: proposal_title do
           expect(page).to have_content("Rejected")
         end
 
@@ -442,17 +442,17 @@ shared_examples "manage proposals" do
 
         within ".edit_proposal_answer" do
           choose "Accepted"
-          click_button "Answer"
+          click_on "Answer"
         end
 
         expect(page).to have_admin_callout("Proposal successfully answered")
 
-        within find("tr", text: proposal_title) do
+        within "tr", text: proposal_title do
           expect(page).to have_content("Accepted")
         end
 
         proposal.reload
-        expect(proposal.answered_at).to be_within(2.seconds).of Time.zone.now
+        expect(proposal.answered_at).to be_within(5.seconds).of Time.zone.now
       end
     end
 
@@ -470,8 +470,8 @@ shared_examples "manage proposals" do
       it "cannot answer a proposal" do
         visit current_path
 
-        within find("tr", text: proposal_title) do
-          expect(page).not_to have_link("Answer")
+        within "tr", text: proposal_title do
+          expect(page).to have_no_link("Answer")
         end
       end
     end
@@ -483,8 +483,8 @@ shared_examples "manage proposals" do
 
       it "cannot answer a proposal" do
         visit_component_admin
-        within find("tr", text: I18n.t("decidim/amendment", scope: "activerecord.models", count: 1)) do
-          expect(page).not_to have_link("Answer")
+        within "tr", text: I18n.t("decidim/amendment", scope: "activerecord.models", count: 1) do
+          expect(page).to have_no_link("Answer")
         end
       end
     end
@@ -498,7 +498,7 @@ shared_examples "manage proposals" do
     it "cannot answer a proposal" do
       go_to_admin_proposal_page(proposal)
 
-      expect(page).not_to have_selector(".edit_proposal_answer")
+      expect(page).to have_no_selector(".edit_proposal_answer")
     end
   end
 
@@ -517,7 +517,7 @@ shared_examples "manage proposals" do
       visit current_path
 
       within "thead" do
-        expect(page).not_to have_content("VOTES")
+        expect(page).to have_no_content("VOTES")
       end
     end
   end
@@ -544,7 +544,7 @@ shared_examples "manage proposals" do
 
   def go_to_admin_proposal_page(proposal)
     proposal_title = translated(proposal.title)
-    within find("tr", text: proposal_title) do
+    within "tr", text: proposal_title do
       find("a", class: "action-icon--show-proposal").click
     end
   end

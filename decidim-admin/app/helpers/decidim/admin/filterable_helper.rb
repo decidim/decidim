@@ -32,7 +32,7 @@ module Decidim
         links.index_with { nil }
       end
 
-      # To be overriden. Useful for adding links that do not match with the filter.
+      # To be overridden. Useful for adding links that do not match with the filter.
       # Must return an Array.
       def extra_dropdown_submenu_options_items(_filter, _i18n_scope)
         []

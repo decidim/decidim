@@ -1,6 +1,6 @@
 <% add_decidim_meta_tags({
                            description: decidim_sanitize_editor(translated_attribute(sortition.additional_info)),
-                           title: decidim_html_escape(translated_attribute(sortition.title)),
+                           title: decidim_escape_translated(sortition.title),
                            url: sortition_url(sortition.to_param)
                          }) %>
 
@@ -21,7 +21,7 @@ edit_link(
 
   <section class="layout-main__section layout-main__heading">
     <h1 class="h1 decorator mb-4">
-      <%= decidim_html_escape(translated_attribute(sortition.title)) %>
+      <%= decidim_escape_translated(sortition.title) %>
     </h1>
     <div class="layout-author">
       <%= cell "decidim/author", present(sortition.author), context_actions: [:date], from: sortition, layout: :compact %>

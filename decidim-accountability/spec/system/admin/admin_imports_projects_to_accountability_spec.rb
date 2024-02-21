@@ -40,7 +40,7 @@ describe "Admin imports projects to accountability" do
     it "link exists only in main list" do
       expect(page).to have_content("Import projects from another component")
       page.find(".table-list tr:nth-child(1) td:nth-child(2)").click
-      expect(page).not_to have_content(t("decidim.accountability.actions.import"))
+      expect(page).to have_no_content(t("decidim.accountability.actions.import"))
     end
   end
 

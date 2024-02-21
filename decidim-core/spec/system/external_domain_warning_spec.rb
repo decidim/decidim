@@ -11,7 +11,7 @@ describe "ExternalDomainWarning" do
   before do
     switch_to_host(organization.host)
     visit decidim.root_path
-    click_link static_page.title["en"]
+    click_on static_page.title["en"]
   end
 
   after do
@@ -19,7 +19,7 @@ describe "ExternalDomainWarning" do
   end
 
   it "reveals warning when clicking link with an external href" do
-    click_link "Very nice link"
+    click_on "Very nice link"
     expect(page).to have_css("#external-domain-warning")
     expect(page).to have_content("Open external link")
   end
@@ -34,7 +34,7 @@ describe "ExternalDomainWarning" do
 
     it "does not show invalid url alert" do
       visit url
-      expect(page).not_to have_content("Invalid URL")
+      expect(page).to have_no_content("Invalid URL")
       expect(page).to have_content("b%C3%A0r")
     end
   end
@@ -63,7 +63,7 @@ describe "ExternalDomainWarning" do
 
     it "shows invalid url alert" do
       visit invalid_url
-      expect(page).not_to have_content("Invalid URL")
+      expect(page).to have_no_content("Invalid URL")
       expect(page).to have_content(destination)
       expect(page).to have_link("Proceed", href: destination)
     end

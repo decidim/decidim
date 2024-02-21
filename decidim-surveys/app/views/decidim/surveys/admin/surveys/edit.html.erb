@@ -5,7 +5,7 @@
 <% else %>
 
   <div class="item_show__header">
-    <h2 class="item_show__header-title">
+    <h1 class="item_show__header-title">
       <%= edit_questionnaire_title %>
 
       <% if allowed_to? :preview, :questionnaire %>
@@ -21,7 +21,7 @@
       <% end %>
       <%= render partial: "decidim/admin/components/resource_action" %>
 
-    </h2>
+    </h1>
   </div>
 
   <div class="item__edit item__edit-1col">

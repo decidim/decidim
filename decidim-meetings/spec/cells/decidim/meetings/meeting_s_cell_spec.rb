@@ -5,7 +5,6 @@ require "spec_helper"
 module Decidim::Meetings
   describe MeetingSCell, type: :cell do
     controller Decidim::Meetings::MeetingsController
-    include Decidim::SanitizeHelper
 
     subject { my_cell.call }
 

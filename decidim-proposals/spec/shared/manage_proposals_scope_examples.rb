@@ -25,7 +25,7 @@ shared_examples "when managing proposals scope as an admin" do
 
       context "when click the bulk action button" do
         before do
-          click_button "Actions"
+          click_on "Actions"
         end
 
         it "shows the bulk actions dropdown" do
@@ -39,8 +39,8 @@ shared_examples "when managing proposals scope as an admin" do
 
       context "when change scope is selected from actions dropdown" do
         before do
-          click_button "Actions"
-          click_button "Change scope"
+          click_on "Actions"
+          click_on "Change scope"
         end
 
         it "shows the scope select" do

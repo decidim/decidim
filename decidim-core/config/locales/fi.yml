@@ -77,12 +77,6 @@ fi:
   booleans:
     'false': 'Ei'
     'true': 'Kyllä'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: Tiedostoa ei voida käsitellä
-      file_resolution_too_large: Tiedoston resoluutio on liian suuri
-      file_size_too_large: Tiedoston koko on liian suuri
-      not_inside_organization: Tiedostoa ei ole liitetty mihinkään organisaatioon
   date:
     formats:
       decidim_short: "%d.%m.%Y"
@@ -514,7 +508,7 @@ fi:
       global_menu:
         name: Päänavigaatio
       hero:
-        name: Pääkuva
+        name: Pääkuva ja CTA-painike (call to action)
       hero_settings_form:
         background_image: Taustakuva
         welcome_text: Tervetuloa-teksti
@@ -668,6 +662,10 @@ fi:
     endorsers_list:
       endorsed_by: He tykkäävät tästä…
     errors:
+      files:
+        file_cannot_be_processed: Tiedostoa ei voida käsitellä
+        file_resolution_too_large: Tiedoston resoluutio on liian suuri
+        not_inside_organization: Tiedostoa ei ole liitetty mihinkään organisaatioon
       internal_server_error:
         copied: Teksti kopioitu!
         copy_error_message_clarification: Kopioi virheviesti leikepöydälle
@@ -1273,7 +1271,8 @@ fi:
     offline:
       name: Offline
       show:
-        message: Näyttää, että olet tällä hetkellä offline-tilassa. Yritä myöhemmin uudestaan.
+        message_1: Verkkoyhteytesi näyttää olevan poissa käytöstä tällä hetkellä.
+        message_2: Yritä myöhemmin uudelleen.
         retry: Yritä uudestaan
     open_data:
       not_available_yet: Avoimet datatiedostot eivät ole vielä käytettävissä, yritä uudelleen muutaman minuutin kuluttua.
@@ -1792,12 +1791,32 @@ fi:
     upload:
       uploadedFile: Ladattu tiedosto
   emojis:
+    add_custom: Lisää uusi mukautettu emoji
     button: Lisää emoji
     categories:
+      activity: Toiminta
       custom: Mukautettu
       flags: Liput
+      foods: Ruoka ja juoma
+      frequent: Usein käytetyt
+      nature: Eläimet ja luonto
       objects: Esineet
+      people: Hymiöt ja ihmiset
+      places: Matkailu ja paikat
+      search: Hakutulokset
       symbols: Symbolit
+    pick: Valitse emoji…
+    search: Hae
+    search_no_results_1: Voi ei!
+    search_no_results_2: Tätä emojia ei löytynyt
+    skins:
+      '1': Oletus
+      '2': Vaalea
+      '3': Keskivaalea
+      '4': Keskitasoinen
+      '5': Keskitumma
+      '6': Tumma
+      choose: Valitse oletusulkoasun värimääritys
   errors:
     messages:
       allowed_file_content_types: 'ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'

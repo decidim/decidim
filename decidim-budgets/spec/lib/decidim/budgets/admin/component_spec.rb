@@ -202,15 +202,15 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
         end
 
         it "is hidden the percent input" do
-          expect(page).not_to have_content("Vote threshold percent")
-          expect(page).not_to have_field(id: "component_settings_vote_threshold_percent")
+          expect(page).to have_no_content("Vote threshold percent")
+          expect(page).to have_no_field(id: "component_settings_vote_threshold_percent")
         end
 
         it "is hidden the project rule inputs" do
-          expect(page).not_to have_content("Minimum amount of projects to be selected")
-          expect(page).not_to have_content("Maximum amount of projects to be selected")
-          expect(page).not_to have_field(id: "component_settings_vote_selected_projects_minimum")
-          expect(page).not_to have_field(id: "component_settings_vote_selected_projects_maximum")
+          expect(page).to have_no_content("Minimum amount of projects to be selected")
+          expect(page).to have_no_content("Maximum amount of projects to be selected")
+          expect(page).to have_no_field(id: "component_settings_vote_selected_projects_minimum")
+          expect(page).to have_no_field(id: "component_settings_vote_selected_projects_maximum")
         end
       end
 
@@ -227,13 +227,13 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
         end
 
         it "is hidden the percent input" do
-          expect(page).not_to have_content("Vote threshold percent")
-          expect(page).not_to have_field(id: "component_settings_vote_threshold_percent")
+          expect(page).to have_no_content("Vote threshold percent")
+          expect(page).to have_no_field(id: "component_settings_vote_threshold_percent")
         end
 
         it "is hidden the number input" do
-          expect(page).not_to have_content("Minimum number of projects to vote")
-          expect(page).not_to have_field(id: "component_settings_vote_minimum_budget_projects_number")
+          expect(page).to have_no_content("Minimum number of projects to vote")
+          expect(page).to have_no_field(id: "component_settings_vote_minimum_budget_projects_number")
         end
       end
 
@@ -248,15 +248,15 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
         end
 
         it "is hidden the number input" do
-          expect(page).not_to have_content("Minimum number of projects to vote")
-          expect(page).not_to have_field(id: "component_settings_vote_minimum_budget_projects_number")
+          expect(page).to have_no_content("Minimum number of projects to vote")
+          expect(page).to have_no_field(id: "component_settings_vote_minimum_budget_projects_number")
         end
 
         it "is hidden the project rule inputs" do
-          expect(page).not_to have_content("Minimum amount of projects to be selected")
-          expect(page).not_to have_content("Maximum amount of projects to be selected")
-          expect(page).not_to have_field(id: "component_settings_vote_selected_projects_minimum")
-          expect(page).not_to have_field(id: "component_settings_vote_selected_projects_maximum")
+          expect(page).to have_no_content("Minimum amount of projects to be selected")
+          expect(page).to have_no_content("Maximum amount of projects to be selected")
+          expect(page).to have_no_field(id: "component_settings_vote_selected_projects_minimum")
+          expect(page).to have_no_field(id: "component_settings_vote_selected_projects_maximum")
         end
       end
     end

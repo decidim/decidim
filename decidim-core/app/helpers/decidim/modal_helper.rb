@@ -8,7 +8,7 @@ module Decidim
   # you also can add your custom close button through data-dialog-close="<seed>"
   #
   # Options available:
-  #  - id: String. Unique identificator for the dialog, if the page has distinct modal windows (default: "")
+  #  - id: String. Unique identifier for the dialog, if the page has distinct modal windows (default: "")
   #  - class: String. CSS classes for the modal content.
   #  - closable: Boolean. Whether the modal can be closed or not (default: true)
   module ModalHelper

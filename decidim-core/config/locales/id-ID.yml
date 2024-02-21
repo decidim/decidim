@@ -238,8 +238,6 @@ id:
     content_blocks:
       footer_sub_hero:
         name: Footer sub hero banner
-      hero:
-        name: Citra pahlawan
       highlighted_content_banner:
         name: Spanduk konten yang disorot
       how_to_participate:

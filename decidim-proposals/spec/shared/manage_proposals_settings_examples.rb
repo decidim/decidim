@@ -5,9 +5,9 @@ shared_examples "manage settings" do
   let(:organization) { create(:organization, rich_text_editor_in_public_views: rich_text_editor_enabled) }
   before do
     within "#admin-sidebar-menu-settings" do
-      click_link "Components"
+      click_on "Components"
     end
-    click_link "Configure"
+    click_on "Configure"
   end
 
   context "when rich text editor is enabled" do
@@ -26,7 +26,7 @@ shared_examples "manage settings" do
 
     it "does not show the rich text editor in the body template setting" do
       within ".new_proposal_body_template_container" do
-        expect(page).not_to have_css(".editor-toolbar")
+        expect(page).to have_no_css(".editor-toolbar")
       end
     end
   end

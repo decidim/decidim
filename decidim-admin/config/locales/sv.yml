@@ -323,9 +323,6 @@ sv:
       dashboard:
         show:
           view_more_logs: Visa fler loggar
-      domain_whitelist:
-        form:
-          domain_too_short: Domänen är för kort
       exports:
         export_as: "%{name} som %{export_format}"
         formats:
@@ -499,7 +496,6 @@ sv:
         area_types: Typer av område
         areas: Områden
         configuration: Konfiguration
-        external_domain_whitelist: Tillåtna externa domäner
         help_sections: Hjälpavsnitt
         homepage: Hemsida
         impersonations: Uppträd som
@@ -750,17 +746,6 @@ sv:
             layout_appearance_title: Redigera layoutens utseende
             preview: Förhandsgranska
           omnipresent_banner_appearance_title: Redigera banner på alla sidor
-      organization_external_domain_whitelist:
-        edit:
-          update: Uppdatera
-        external_domain:
-          down: Ner
-          external_domain: Externt domän
-          remove: Ta bort
-          up: Upp
-        form:
-          add: Lägg till i vitlistan
-          title: Vitlista för externa domäner
       participatory_space_private_users:
         create:
           error: Det gick inte att lägga till en privat deltagare i deltagarutrymmet.

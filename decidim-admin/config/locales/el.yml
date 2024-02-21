@@ -363,12 +363,6 @@ el:
           title: Εκκρεμείς εγκρίσεις
         show:
           view_more_logs: Προβολή περισσότερων αρχείων καταγραφής
-      domain_whitelist:
-        form:
-          domain_too_short: Πολύ σύντομος τομέας
-        update:
-          error: Απέτυχε η ενημέρωση της λίστας επιτρεπόμενων τομέων.
-          success: Η λίστα επιτρεπόμενων τομέων ενημερώθηκε με επιτυχία.
       exports:
         export_as: "Όνομα %{name} ως μορφή %{export_format}"
         formats:
@@ -549,7 +543,6 @@ el:
         areas: Τομείς
         configuration: Διαμόρφωση
         content: Περιεχόμενο που αναφέρθηκε
-        external_domain_whitelist: Επιτρεπόμενοι εξωτερικοί τομείς
         help_sections: Ενότητες βοήθειας
         homepage: Αρχική σελίδα
         impersonations: Αναπαραστάσεις
@@ -822,17 +815,6 @@ el:
             layout_appearance_title: Επεξεργασία εμφάνισης διάταξης
             preview: Προεπισκόπηση
           omnipresent_banner_appearance_title: Επεξεργασία διαφημιστικού πλαισίου omnipresent
-      organization_external_domain_whitelist:
-        edit:
-          update: Ενημέρωση
-        external_domain:
-          down: Κάτω
-          external_domain: Εξωτερικός τομέας
-          remove: Αφαίρεση
-          up: Πάνω
-        form:
-          add: Προσθήκη στη λευκή λίστα
-          title: Εξωτερική λευκή λίστα τομέων
       participatory_space_private_users:
         create:
           error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός ιδιωτικού συμμετέχοντα για αυτόν τον χώρο συμμετοχής.

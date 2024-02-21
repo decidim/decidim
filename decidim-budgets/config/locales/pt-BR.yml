@@ -20,6 +20,9 @@ pt-BR:
         scope_id: Escopo
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Orçamento
+        other: Orçamentos
       decidim/budgets/project:
         one: Projeto
         other: Projetos
@@ -45,6 +48,8 @@ pt-BR:
         edit: Editar
         edit_projects: Gerenciar projetos
         import: Importar propostas para os projetos
+        new_budget: Novo orçamento
+        new_project: Novo projeto
         preview: Pré-visualização
         send_voting_reminders: Enviar lembretes de votação
         title: Ações
@@ -90,6 +95,7 @@ pt-BR:
           index:
             actions: Ações
             cancel: Cancelar
+            change_budget: Alterar orçamento
             change_category: Mudar categoria
             change_scope: Mudar escopo
             change_selected: Alterar estado selecionado
@@ -98,12 +104,21 @@ pt-BR:
             pending_orders: Votações pendentes
             select_for_implementation: Selecionado para implementação
             selected: Selecionado
+            selected_options:
+              'no': 'Não'
+              'yes': 'Sim'
             title: Projetos
+            update: Atualizar
+            update_budget_button: Atualizar orçamento do projeto
             update_scope_button: Atualizar escopo
           new:
             create: Criar
             title: Novo projeto
+          update:
+            invalid: Houve um problema ao atualizar este projeto.
+            success: Projeto atualizado com sucesso.
           update_budget:
+            invalid: 'Esses projetos já estão no mesmo orçamento ou seus orçamentos são mais que o máximo permitido: %{projects}.'
             select_a_project: Por favor, selecione um projeto.
           update_category:
             invalid: 'Estes projetos já tinham a categoria %{subject_name}: %{projects}.'

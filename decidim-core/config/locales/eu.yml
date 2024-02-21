@@ -77,12 +77,6 @@ eu:
   booleans:
     'false': 'Ez'
     'true': 'Bai'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: Fitxategia ezin izan da prozesatu
-      file_resolution_too_large: Fitxategiaren erresoluzioa handiegia da
-      file_size_too_large: Fitxategiaren taimaina handiegia da
-      not_inside_organization: Artxiboa ez dago antolatzaile batekin erlazionatuta
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -498,7 +492,7 @@ eu:
       global_menu:
         name: Menu globala
       hero:
-        name: Heroi irudia
+        name: Irudi nagusia eta ekintza botoia
       hero_settings_form:
         background_image: Atzeko planoko irudia
         welcome_text: Ongietorri-testua
@@ -654,6 +648,10 @@ eu:
     endorsers_list:
       endorsed_by: Gustuko du…
     errors:
+      files:
+        file_cannot_be_processed: Fitxategia ezin izan da prozesatu
+        file_resolution_too_large: Fitxategiaren erresoluzioa handiegia da
+        not_inside_organization: Artxiboa ez dago erakunde batekin erlazionatuta
       internal_server_error:
         copied: Testua kopiatuta!
         copy_error_message_clarification: Errore-mezua arbelean kopiatuta
@@ -1257,7 +1255,8 @@ eu:
     offline:
       name: Konexiorik gabe
       show:
-        message: Badirudi lineaz kanpo zaudela. Mesedez, saiatu berriro geroago.
+        message_1: Badirudi ez duzula Interneterako konexiorik.
+        message_2: Mesedez, saiatu berriro geroago.
         retry: Saiatu berriro
     open_data:
       not_available_yet: Open Data fitxategiak oraindik ez daude erabilgarri, saiatu berriro minutu gutxi barru.
@@ -1956,7 +1955,7 @@ eu:
         title: Parte-hartzailearen ezarpenak
         user_groups: Taldeak
   locale:
-    name: Ingelesa
+    name: Euskera
     name_with_error: Euskera (akatsa!)
   password_validator:
     denied: ukatu egin da

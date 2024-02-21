@@ -37,7 +37,7 @@ describe "ProfileConversations" do
     end
 
     it "does not have a contact link" do
-      expect(page).not_to have_link(title: "Contact", href: decidim.new_conversation_path(recipient_id: profile.id))
+      expect(page).to have_no_link(title: "Contact", href: decidim.new_conversation_path(recipient_id: profile.id))
     end
   end
 
@@ -52,9 +52,7 @@ describe "ProfileConversations" do
   shared_examples "create new conversation" do
     it "allows sending an initial message", :slow do
       start_conversation("Is this a Ryanair style democracy?")
-      within "div.user-activity" do
-        expect(page).to have_selector(".conversation__item-snippet-message", text: "Is this a Ryanair style democracy?")
-      end
+      expect(page).to have_selector(".conversation__item-snippet-message", text: "Is this a Ryanair style democracy?")
     end
 
     it "redirects to an existing conversation if it exists already", :slow do
@@ -73,7 +71,7 @@ describe "ProfileConversations" do
     end
 
     it "shows an empty conversation page" do
-      expect(page).not_to have_selector(".conversation__item")
+      expect(page).to have_no_selector(".conversation__item")
       expect(page).to have_current_path decidim.new_profile_conversation_path(nickname: profile.nickname, recipient_id: recipient.id)
     end
 
@@ -84,7 +82,7 @@ describe "ProfileConversations" do
 
       context "and recipient does not follow user" do
         it "redirects user with access error" do
-          expect(page).not_to have_current_path decidim.new_profile_conversation_path(nickname: profile.nickname, recipient_id: recipient.id)
+          expect(page).to have_no_current_path decidim.new_profile_conversation_path(nickname: profile.nickname, recipient_id: recipient.id)
           expect(page).to have_content("You are not authorized to perform this action")
         end
 
@@ -140,7 +138,7 @@ describe "ProfileConversations" do
 
       it "allows entering a conversation" do
         visit_profile_inbox
-        click_link "conversation-#{conversation.id}"
+        click_on "conversation-#{conversation.id}"
 
         expect(page).to have_content("Conversation with\n#{interlocutor.name}")
         expect(page).to have_content("who wants apples?")
@@ -158,7 +156,7 @@ describe "ProfileConversations" do
 
           it "can reply to conversation" do
             fill_in "message_body", with: reply_message
-            click_button "Send"
+            click_on "Send"
             expect(page).to have_content(start_message)
             expect(page).to have_content(reply_message)
           end
@@ -213,7 +211,7 @@ describe "ProfileConversations" do
       end
 
       it "does not show the topbar button the number of unread messages" do
-        expect(page).not_to have_selector("li.profile__tab.is-active .conversation__item-unread")
+        expect(page).to have_no_selector("li.profile__tab.is-active .conversation__item-unread")
       end
 
       it "does not show an unread count" do
@@ -224,27 +222,27 @@ describe "ProfileConversations" do
       it "conversation page does not show the number of unread messages" do
         visit_inbox
 
-        expect(page).not_to have_selector(".user-groups .card--list__author .card--list__counter")
+        expect(page).to have_no_selector(".user-groups .card--list__author .card--list__counter")
       end
     end
 
     context "when a message is sent" do
       before do
         visit_profile_inbox
-        click_link "conversation-#{conversation.id}"
+        click_on "conversation-#{conversation.id}"
         expect(page).to have_content("Send")
         fill_in "message_body", with: "Please reply!"
-        click_button "Send"
+        click_on "Send"
       end
 
       it "appears as the last message", :slow do
-        click_button "Send"
+        click_on "Send"
         expect(page).to have_selector("#messages .conversation__message:last-child", text: "Please reply!")
       end
 
       context "and interlocutor sees it" do
         before do
-          click_button "Send"
+          click_on "Send"
           expect(page).to have_selector("#messages .conversation__message:last-child", text: "Please reply!")
           relogin_as interlocutor, scope: :user
           visit decidim.conversations_path
@@ -255,7 +253,7 @@ describe "ProfileConversations" do
         end
 
         it "appears as read after it is seen", :slow do
-          click_link "conversation-#{conversation.id}"
+          click_on "conversation-#{conversation.id}"
           expect(page).to have_content("Please reply!")
 
           visit decidim.conversations_path
@@ -271,7 +269,7 @@ describe "ProfileConversations" do
       context "and interlocutor does not follow profile" do
         before do
           visit_profile_inbox
-          click_link "conversation-#{conversation.id}"
+          click_on "conversation-#{conversation.id}"
         end
 
         it "allows profile to see old messages" do
@@ -280,7 +278,7 @@ describe "ProfileConversations" do
         end
 
         it "does not show the sending form" do
-          expect(page).not_to have_selector("textarea#message_body")
+          expect(page).to have_no_selector("textarea#message_body")
         end
       end
 
@@ -289,14 +287,14 @@ describe "ProfileConversations" do
 
         before do
           visit_profile_inbox
-          click_link "conversation-#{conversation.id}"
+          click_on "conversation-#{conversation.id}"
           expect(page).to have_content("Send")
           fill_in "message_body", with: "Please reply!"
-          click_button "Send"
+          click_on "Send"
         end
 
         it "appears as the last message", :slow do
-          click_button "Send"
+          click_on "Send"
           expect(page).to have_selector(".conversation__message:last-child", text: "Please reply!")
         end
       end
@@ -309,7 +307,7 @@ describe "ProfileConversations" do
         it "cannot be selected on the mentioned list", :slow do
           visit_profile_inbox
           expect(page).to have_content("New conversation")
-          click_button "New conversation"
+          click_on "New conversation"
           find_by_id("add_conversation_users").fill_in with: "@#{interlocutor2.nickname}"
           expect(page).to have_selector("#autoComplete_list_1 li.disabled", wait: 2)
         end
@@ -318,7 +316,7 @@ describe "ProfileConversations" do
       context "when starting a new conversation" do
         before do
           visit_profile_inbox
-          click_button "New conversation"
+          click_on "New conversation"
         end
 
         it "has disabled submit button" do
@@ -338,13 +336,13 @@ describe "ProfileConversations" do
 
   def start_conversation(message)
     fill_in "conversation_body", with: message
-    click_button "Send"
+    click_on "Send"
   end
 
   def visit_profile_inbox
     visit decidim.profile_path(nickname: profile.nickname)
 
-    click_link "Conversations", class: "profile__tab-item"
+    click_on "Conversations", class: "profile__tab-item"
   end
 
   def visit_inbox
@@ -352,7 +350,7 @@ describe "ProfileConversations" do
 
     find_by_id("trigger-dropdown-account").click
     within "#dropdown-menu-account" do
-      click_link("Conversations")
+      click_on("Conversations")
     end
   end
 end

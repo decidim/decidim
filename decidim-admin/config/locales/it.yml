@@ -300,9 +300,6 @@ it:
       dashboard:
         show:
           view_more_logs: Visualizza più registri
-      domain_whitelist:
-        form:
-          domain_too_short: Dominio troppo corto
       exports:
         export_as: "%{name} esporta come %{export_format}"
         formats:
@@ -434,7 +431,6 @@ it:
         area_types: Tipi di ambito territoriale
         areas: Ambiti territoriali
         configuration: Configurazione
-        external_domain_whitelist: Consenti l'uso di domini esterni
         help_sections: Sezioni di Aiuto
         homepage: Homepage
         impersonations: Impersonificazioni
@@ -683,17 +679,6 @@ it:
             layout_appearance_title: Modifica aspetto del layout
             preview: Anteprima
           omnipresent_banner_appearance_title: Modifica banner onnipresente
-      organization_external_domain_whitelist:
-        edit:
-          update: Aggiorna
-        external_domain:
-          down: Giù
-          external_domain: Dominio esterno
-          remove: Rimuovi
-          up: Su
-        form:
-          add: Aggiungi alla whitelist
-          title: Whitelist di domini esterni
       participatory_space_private_users:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente privato per questo spazio partecipativo.

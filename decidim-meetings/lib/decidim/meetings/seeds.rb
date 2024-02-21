@@ -146,7 +146,7 @@ module Decidim
             user_group:
           )
         else
-          params # oficial
+          params # official
         end
       end
 

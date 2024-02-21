@@ -59,9 +59,6 @@ tr:
   booleans:
     'false': 'Hayır'
     'true': 'Evet'
-  carrierwave:
-    errors:
-      not_inside_organization: Dosya herhangi bir kuruluşa eklenmemiş
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -348,8 +345,6 @@ tr:
         description: Açıklama
       footer_sub_hero:
         name: Dipnot alt afişi
-      hero:
-        name: Ana resim
       hero_settings_form:
         background_image: Arka plan resmi
         welcome_text: Hoşgeldin Mesajı

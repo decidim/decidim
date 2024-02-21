@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 def visit_edit_registrations_page
-  within find("tr", text: translated(meeting.title)) do
-    page.click_link "Registrations"
+  within "tr", text: translated(meeting.title) do
+    page.click_on "Registrations"
   end
 end
 
@@ -20,7 +20,7 @@ shared_examples "manage registrations" do
         es: "Un texto legal",
         ca: "Un text legal"
       )
-      click_button "Save"
+      click_on "Save"
     end
 
     expect(page).to have_admin_callout("Meeting registrations settings successfully saved")
@@ -46,7 +46,7 @@ shared_examples "manage registrations" do
 
       find(".exports").click
 
-      click_link "Registrations as CSV"
+      click_on "Registrations as CSV"
 
       expect(page.response_headers["Content-Type"]).to eq("text/csv")
       expect(page.response_headers["Content-Disposition"]).to match(/attachment; filename=.*\.csv/)
@@ -57,7 +57,7 @@ shared_examples "manage registrations" do
 
       find(".exports").click
 
-      click_link "Registrations as JSON"
+      click_on "Registrations as JSON"
 
       expect(page.response_headers["Content-Type"]).to eq("text/json")
       expect(page.response_headers["Content-Disposition"]).to match(/attachment; filename=.*\.json/)
@@ -76,7 +76,7 @@ shared_examples "manage registrations" do
 
       within ".validate_meeting_registration_code" do
         fill_in :validate_registration_code_code, with: "QW12ER34"
-        click_button "Validate"
+        click_on "Validate"
       end
 
       expect(page).to have_admin_callout("Registration code successfully validated")
@@ -87,7 +87,7 @@ shared_examples "manage registrations" do
 
       within ".validate_meeting_registration_code" do
         fill_in :validate_registration_code_code, with: "NOT-GOOD"
-        click_button "Validate"
+        click_on "Validate"
       end
 
       expect(page).to have_admin_callout("This registration code is invalid")
