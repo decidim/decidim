@@ -5,17 +5,6 @@ require "decidim/core/test/factories"
 require "decidim/participatory_processes/test/factories"
 require "decidim/meetings/test/factories"
 
-def generate_state_title(token, skip_injection: false)
-  value = I18n.t(token, scope: "decidim.proposals.answers")
-  Decidim::Faker::Localized.localized do
-    if skip_injection
-      value
-    else
-      "<script>alert(\"proposal_state_title\");</script> #{value}"
-    end
-  end
-end
-
 FactoryBot.define do
   factory :proposal_component, parent: :component do
     transient do
@@ -24,10 +13,6 @@ FactoryBot.define do
     name { generate_component_name(participatory_space.organization.available_locales, :proposals) }
     manifest_name { :proposals }
     participatory_space { create(:participatory_process, :with_steps, organization:, skip_injection:) }
-
-    after :create do |proposal_component|
-      Decidim::Proposals.create_default_states!(proposal_component, nil, with_traceability: false)
-    end
 
     trait :with_endorsements_enabled do
       step_settings do
@@ -261,36 +246,6 @@ FactoryBot.define do
     end
   end
 
-  factory :proposal_state, class: "Decidim::Proposals::ProposalState" do
-    transient do
-      skip_injection { false }
-    end
-    token { :not_answered }
-    title { generate_state_title(:not_answered, skip_injection:) }
-    component { build(:proposal_component) }
-    css_class { "" }
-
-    trait :evaluating do
-      title { generate_state_title(:evaluating, skip_injection:) }
-      token { :evaluating }
-    end
-
-    trait :accepted do
-      title { generate_state_title(:accepted, skip_injection:) }
-      token { :accepted }
-    end
-
-    trait :rejected do
-      title { generate_state_title(:rejected, skip_injection:) }
-      token { :rejected }
-    end
-
-    trait :withdrawn do
-      title { generate_state_title(:withdrawn, skip_injection:) }
-      token { :withdrawn }
-    end
-  end
-
   factory :proposal, class: "Decidim::Proposals::Proposal" do
     transient do
       users { nil }
@@ -312,14 +267,6 @@ FactoryBot.define do
     execution_period { generate_localized_title(:proposal_execution_period, skip_injection:) }
 
     after(:build) do |proposal, evaluator|
-      if proposal.component
-        existing_states = Decidim::Proposals::ProposalState.where(component: proposal.component)
-
-        Decidim::Proposals.create_default_states!(proposal.component, nil, with_traceability: false) unless existing_states.any?
-      end
-
-      proposal.assign_state(evaluator.state)
-
       proposal.title = if evaluator.title.is_a?(String)
                          { proposal.try(:organization).try(:default_locale) || "en" => evaluator.title }
                        else
@@ -384,36 +331,36 @@ FactoryBot.define do
     end
 
     trait :evaluating do
-      state { :evaluating }
+      state { "evaluating" }
       answered_at { Time.current }
       state_published_at { Time.current }
     end
 
     trait :accepted do
-      state { :accepted }
+      state { "accepted" }
       answered_at { Time.current }
       state_published_at { Time.current }
     end
 
     trait :rejected do
-      state { :rejected }
+      state { "rejected" }
       answered_at { Time.current }
       state_published_at { Time.current }
     end
 
     trait :withdrawn do
-      withdrawn_at { Time.current }
+      state { "withdrawn" }
     end
 
     trait :accepted_not_published do
-      state { :accepted }
+      state { "accepted" }
       answered_at { Time.current }
       state_published_at { nil }
       answer { generate_localized_title }
     end
 
     trait :with_answer do
-      state { :accepted }
+      state { "accepted" }
       answer { generate_localized_title }
       answered_at { Time.current }
       state_published_at { Time.current }

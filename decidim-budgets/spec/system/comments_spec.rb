@@ -34,7 +34,7 @@ describe "Comments" do
       within_window(another_window) do
         expect(page).to have_content(decidim_sanitize_translated(commentable.title))
         expect(page).to have_content(decidim_sanitize_translated(comments.first.body))
-        expect(page).to have_no_content(decidim_sanitize_translated(comments.second.body))
+        expect(page).not_to have_content(decidim_sanitize_translated(comments.second.body))
       end
     end
   end
