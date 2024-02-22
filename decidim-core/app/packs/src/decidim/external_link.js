@@ -4,6 +4,7 @@ const DEFAULT_MESSAGES = {
   externalLink: "External link",
   opensInNewTab: "Opens in new tab"
 };
+let MESSAGES = DEFAULT_MESSAGES;
 
 /**
  * Appends an icon to distinguish those links pointing out of decidim.
@@ -14,7 +15,7 @@ const DEFAULT_MESSAGES = {
  */
 export default class ExternalLink {
   static configureMessages(messages) {
-    this.MESSAGES = { ...DEFAULT_MESSAGES, ...messages };
+    MESSAGES = { ...DEFAULT_MESSAGES, ...messages };
   }
 
   constructor(node) {
@@ -53,9 +54,9 @@ export default class ExternalLink {
   }
 
   generateScreenReaderLabel(node) {
-    let text = ExternalLink.MESSAGES.opensInNewTab;
+    let text = MESSAGES.opensInNewTab;
     if (this._isExternalLink(node)) {
-      text = ExternalLink.MESSAGES.externalLink;
+      text = MESSAGES.externalLink;
     }
 
     return `<span class="sr-only">(${text})</span>`;
