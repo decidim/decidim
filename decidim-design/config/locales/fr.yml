@@ -1,1 +1,14 @@
+---
 fr:
+  decidim:
+    design:
+      helpers:
+        usage_background_3: Couleur de l'icône par défaut
+        usage_background_4: Lignes et séparateurs
+        usage_background_5: Arrière-plan du pied de page
+        usage_base_2: Couleur principale des liens et des boutons
+        usage_formelements_1: Arrière-plan par défaut des champs de formulaire avec saisie
+        usage_formelements_2: Arrière-plan par défaut des champs de formulaire avec saisie désactivés
+        usage_typography_1: En-têtes et titres de section
+        usage_typography_4: Liens et boutons
+        value: Valeur
