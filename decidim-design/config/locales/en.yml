@@ -53,7 +53,7 @@ en:
           layout_list_3: 'Individual item (proposal, blog post): centered, optionally with a right aside'
           left_aside: Left aside
           mobile: Mobile
-          no_required: No required
+          not_required: Not required
           properties: Properties
           right_aside: Right Aside
           section_p_breakpoints: 'To manage the responsive max-width of elements we rely on the default `container` Tailwind class, which states the following breakpoints:'
