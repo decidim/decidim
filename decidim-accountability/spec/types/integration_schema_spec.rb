@@ -71,7 +71,7 @@ describe "Decidim::Api::QueryType" do
     {
       "__typename" => "Accountability",
       "id" => current_component.id.to_s,
-      "name" => { "translation" => "Accountability" },
+      "name" => { "translation" => translated(current_component.name) },
       "results" => {
         "edges" => [
           {

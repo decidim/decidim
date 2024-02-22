@@ -66,7 +66,7 @@ namespace :decidim do
                                  "tsconfig.json"
       end
 
-      # Remnove the Webpacker config and deploy shakacpacker
+      # Remove the Webpacker config and deploy shakapacker
       migrate_shakapacker
 
       # Update JS dependencies

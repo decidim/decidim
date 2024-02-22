@@ -16,6 +16,8 @@ Typically (although some particular installations may change that) you will find
 
 The GraphQL format is a JSON formatted text that is specified in a query. Response is a JSON object as well. For details about specification check the official [GraphQL site](https://graphql.org/learn/).
 
+Exercise caution when utilizing the output of this API, as it may include HTML that has not been escaped. Take particular care in handling this data, specially if you intend to render it on a webpage.
+
 For instance, you can check the version of a Decidim installation by using `curl` in the terminal:
 
 ```bash

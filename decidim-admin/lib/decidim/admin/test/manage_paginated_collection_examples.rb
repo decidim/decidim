@@ -3,7 +3,7 @@
 shared_examples "a paginated collection" do |options|
   before do
     # Current path strips out the request parameters, use current_url when needed
-    # Be aware that current_utl can lead to flaky, use with caution
+    # Be aware that current_url can lead to flaky, use with caution
     if options&.dig(:url)
       visit current_url
     else

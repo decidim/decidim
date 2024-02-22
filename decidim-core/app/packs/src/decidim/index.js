@@ -9,6 +9,9 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 import "jquery"
 
+// REDESIGN_PENDING: deprecated
+import "foundation-sites";
+
 // external deps that require initialization
 import Rails from "@rails/ujs"
 import svg4everybody from "svg4everybody"

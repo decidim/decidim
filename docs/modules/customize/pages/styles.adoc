@@ -62,7 +62,7 @@ We use http://sass-lang.com/guide[SASS, with SCSS syntax] as CSS preprocessor.
 
 == Tailwind CSS
 
-Decidim uses Taiwind CSS as a CSS framework, which has a default configuration that is being handled by `tailwind.config.js` in the root of your project.
+Decidim uses Tailwind CSS as a CSS framework, which has a default configuration that is being handled by `tailwind.config.js` in the root of your project.
 
 Since this file is being managed by Decidim, it will be impossible to customize it.
 
