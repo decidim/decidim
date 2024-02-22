@@ -20,7 +20,7 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if category.nil? || category.subcategories.any?
+        return broadcast(:invalid) if resource.nil? || resource.subcategories.any? || !resource.unused?
 
         destroy_category
         broadcast(:ok)
