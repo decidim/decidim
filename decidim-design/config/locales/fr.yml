@@ -3,6 +3,15 @@ fr:
   decidim:
     design:
       helpers:
+        base: Base
+        form_elements: Éléments de formulaire
+        hex_code: Code hexadécimal
+        main_colors: Couleurs principales
+        rgba_code:
+        state: État
+        typography_texts: Typographie et textes
+        usage: Usage
+        usage_background_1: Arrière-plan de la zone latérale
         usage_background_3: Couleur de l'icône par défaut
         usage_background_4: Lignes et séparateurs
         usage_background_5: Arrière-plan du pied de page
