@@ -1,16 +1,16 @@
 <% content_for :heading do %>
-  Layout
+  <%= t("decidim.design.foundations.layout.title") %>
 <% end %>
 
 <% content_for :description do %>
-  <p>For desktop, Decidim uses a 12 column grid with limited number of templates (grid configurations) for different types of content. The objective is that a given type of content (homepage, list of elements, individual item) has a distinctive layout, so users can understand in which kind of content they are just by the general look of the page.</p>
+  <p><%= t("decidim.design.foundations.layout.description_layout_p1") %></p>
 
-  <p>These simple rules should be followed when creating new modules or customizing existing ones, so a Decidim site can maintain its consistency.</p>
+  <p><%= t("decidim.design.foundations.layout.description_layout_p2") %></p>
 
   <ul class="list-disc pl-4">
-    <li>Homepage (of the site, of an space): full width</li>
-    <li>List of elements (of spaces, of items inside a space, etc): left aside</li>
-    <li>Individual item (proposal, blog post): centered, optionally with a right aside</li>
+    <li><%= t("decidim.design.foundations.layout.layout_list_1") %></li>
+    <li><%= t("decidim.design.foundations.layout.layout_list_2") %></li>
+    <li><%= t("decidim.design.foundations.layout.layout_list_3") %></li>
   </ul>
 <% end %>
 
