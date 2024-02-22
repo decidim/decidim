@@ -287,6 +287,7 @@ eu:
       block_user:
         new:
           action: Blokeatu kontua eta bidali justifikazioa
+          already_reported_html: Ekintza honekin jarraituz, parte-hartzailearen eduki guztiak ere ezkutatuko dituzu.
           description: Erabiltzaile baten blokeoak kontu erabilezina utziko du. Zure justifikazioan zein irizpideren arabera desblokeatuko zenukeen azaldu dezakezu.
           justification: Justifikazioa
           title: Blokeatu erabiltzaile hau %{name}
