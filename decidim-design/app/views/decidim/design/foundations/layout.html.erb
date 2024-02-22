@@ -25,7 +25,7 @@
 <section id="desktop" class="design__section">
   <h2><%= t("decidim.design.foundations.layout.desktop") %> <span class="label">lg</span></h2>
 
-  <p>Desktop grid system is composed of 12 flexible columns with a gutter between columns of 16px and left and right margins of 48px</p>
+  <p><%= t("decidim.design.foundations.layout.section_p_desktop") %></p>
 
   <div class="grid grid-cols-12 gap-4">
     <% 12.times do %>
@@ -37,7 +37,7 @@
 <section id="tablet" class="design__section">
   <h2><%= t("decidim.design.foundations.layout.tablet") %><span class="label">md</span></h2>
 
-  <p>Tablet grid system is composed of 8 flexible columns with a gutter between columns of 16px and left and right margins of 24px</p>
+  <p><%= t("decidim.design.foundations.layout.section_p_tablet") %></p>
 
   <div class="grid grid-cols-6 gap-4">
     <% 6.times do %>
@@ -49,7 +49,7 @@
 <section id="mobile" class="design__section">
   <h2><%= t("decidim.design.foundations.layout.mobile") %> <span class="label">sm</span></h2>
 
-  <p>Mobile grid system is composed of 4 flexible columns with a gutter between columns of 16px and left and right margins of 16px. For sizes below 320px this margins are set to 8px</p>
+  <p><%= t("decidim.design.foundations.layout.section_p_mobile") %></p>
 
   <div class="grid grid-cols-4 gap-4">
     <% 4.times do %>
@@ -61,15 +61,15 @@
 <section id="code" class="design__section">
   <h2><%= t("decidim.design.foundations.layout.code") %></h2>
 
-  <p>When implementing new modules you have some helpers that automatically provides you with the code needed to setup the HTML structure. You should use these helpers instead of directly using div elements with classes, so you maintain consistency.</p>
+  <p><%= t("decidim.design.foundations.layout.section_p_code") %></p>
 
-  <p>You can find the basic layouts in <a href="https://github.com/decidim/decidim/tree/develop/decidim-core/app/views/layouts/decidim/shared" target="_blank" rel="noopener noreferrer" class="text-secondary underline">https://github.com/decidim/decidim/tree/develop/decidim-core/app/views/layouts/decidim/shared</a></p>
+  <p><%= t("decidim.design.foundations.layout.section_p_code_html", link_section_code: link_to("https://github.com/decidim/decidim/tree/develop/decidim-core/app/views/layouts/decidim/shared", target: "_blank", rel: "noopener noreferrer", class: "text-secondary underline")) %></p>
 
-  <h3 class="text-xl">Full width</h3>
+  <h3 class="text-xl"><%= t("decidim.design.foundations.layout.full_width") %></h3>
 
-  <p>No required</p>
+  <p><%= t("decidim.design.foundations.layout.no_required") %></p>
 
-  <h3 class="text-xl">Left aside</h3>
+  <h3 class="text-xl"><%= t("decidim.design.foundations.layout.left_aside") %></h3>
 
   <code class="p-4 rounded block bg-background">
     &lt;%= render layout: "layouts/decidim/shared/layout_two_col" do %&gt;
@@ -77,7 +77,7 @@
     &lt;% end %&gt;
   </code>
 
-  <h3 class="text-xl">Right aside</h3>
+  <h3 class="text-xl"><%= t("decidim.design.foundations.layout.right_aside") %></h3>
 
   <code class="p-4 rounded block bg-background">
     &lt;%= render layout: "layouts/decidim/shared/layout_two_col", locals: { reverse: true } do %&gt;
@@ -85,7 +85,7 @@
     &lt;% end %&gt;
   </code>
 
-  <h3 class="text-xl">Centered</h3>
+  <h3 class="text-xl"><%= t("decidim.design.foundations.layout.centered") %></h3>
 
   <code class="p-4 rounded block bg-background">
     &lt;%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 10 } do %&gt;
@@ -93,19 +93,19 @@
     &lt;% end %&gt;
   </code>
 
-  <p>Being the number of columns 10, 8 or 6.</p>
+  <p><%= t("decidim.design.foundations.layout.columns") %></p>
 
 </section>
 
 <section id="breakpoints" class="design__section">
   <h2><%= t("decidim.design.foundations.layout.breakpoints") %></h2>
 
-  <p>To manage the responsive max-width of elements we rely on the default `container` Tailwind class, which states the following breakpoints:</p>
+  <p><%= t("decidim.design.foundations.layout.section_p_breakpoints") %></p>
 
   <table class="design__table">
     <thead>
-      <th>Breakpoint</th>
-      <th>Properties</th>
+      <th><%= t("decidim.design.foundations.layout.breakpoint") %></th>
+      <th><%= t("decidim.design.foundations.layout.properties") %></th>
     </thead>
     <tbody>
       <%
