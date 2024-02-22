@@ -2,6 +2,16 @@
 eu:
   decidim:
     design:
+      foundations:
+        accessibility:
+          accessibility_labels: Irisgarritasun-etiketak
+          accessibility_labels_paragraph: Elementuak definitzerakoan, ziurtatu beti zentzua dutela pantaila-irakurgailuen erabiltzaileentzat.
+          accessibility_title: Irisgarritasuna
+          adjacent_links: Ondoko loturak
+          adjacent_links_header: Ondoko estekak baliabide bererako
+          adjacent_links_paragraph: Baliabide berak ondoko lotura bat baino gehiago baditu, horrek zaildu egiten du erabiltzaile horiek orrialdera begiratzea, hurrengo baliabidera iristeko esteka bat baino gehiago erabili behar dituztelako.
+          color_contrast: Kolore-kontrastea
+          color_contrast_paragraph: Erabiltzaile-interfazeak sortzean edo koloreak aldatzean, ziurtatu beti zure aldaketen ondorioz ez zarela irisgarritasuna hausten ari. Kolore-kontrastearen zuzentzailea erabil dezakezu zure koloreek kontraste nahikoa izan dezaten erakusten diren atzealdeko kolorearen aldean, non ageri baitira.
       home:
         index:
           decidim_guide: 'Decidim: gauza guztiak diseinatzeko gida'
