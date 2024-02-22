@@ -866,6 +866,7 @@ eu:
       create:
         button: Jarraitu
         error: Arazo bat egon da baliabide hau jarraitzean.
+        participatory_space: Jarraitzen <span>%{resource_name}</span>
       destroy:
         button: Utzi jarraitzeari
         error: Arazo bat egon da baliabide hau jarraitzeari uztean.
