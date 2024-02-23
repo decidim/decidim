@@ -17,8 +17,51 @@ eu:
           elements_hidden: Elementu ezkutuak
           elements_hidden_header: Elementu ezkutuak irisgarritasuneko APIan
           elements_hidden_paragraph: Elementu bat laguntza-teknologietatik ezkutatzeko, erabili "egia" atributua.
-          heading_on: Sail garrantzitsuen buruan doa
+          heading_on: Sail garrantzitsuen goiburuan doa
           here_link: hemen
+          illogical_heading_order: Goiburuaren ordena ilogikoa
+          illogical_heading_paragraph: Orrialde bakoitzak goiburuko ordena logiko bat izan behar du <h1>, <h2>, <h3>, <h4>, <h5> eta <h6> elementuak erabiltzean.
+          important_sections_heading: Sail garrantzitsuen goiburuan doa
+          important_sections_paragraph: Oso garrantzitsua da orrialdeko atal garrantzitsu bakoitzak sarrera bat izatea, errazago ulertzeko zer atal garrantzitsu dauden orrian bere sarreretan nabigatuz.
+          links_and_buttons: Loturak eta Botoiak
+          links_and_buttons_paragraph: Ainguraketa-elementuak (hau da, estekak) orrialde desberdinei lotzeko edo orrialdearen barruan posizioak ainguratzeko erabiltzen dira. Elementuak orri horretan ezkutatutako elementuren bat ireki behar duela uste bada, <button> elementua erabili behar du haren ordez.
+          see_further_info_html: Ikusi informazio gehiago %{link}
+          unique_h1: H1 bakarra
+          unique_h1_paragraph: Orrialde bakoitzak H1 bakarra izan beharko luke
+          use_aria: Erabili ARIA
+          use_aria_header: Erabili ARIA atributuak ahal denean
+          use_aria_paragraph: Web orrian funtzionaltasun interaktiboa ematen duten elementu askok ARIA atributuak behar dituzte irisgarriak izan daitezen.
+        color:
+          color_header: Kolorea
+          description_p1: Base paleta bat eskaintzen dugu kolore gutxirekin, pertsonalizazio sinpleak errazak izan daitezen. Oinarrizko paleta alda dezakezu Administrazioaren eremuan edo Tailwind konfigurazio fitxategian, pertsonalizazio aurreratuagoa behar baduzu.
+          description_p2_html: Zure koloreak pertsonalizatzean, eduki gogoan % {contrast_link}. Zure aukeraren kontrastea egiazta dezakezu % {checker_link} edo antzeko tresnen bitartez.
+          wcag_compliant_rations: WCAG 2.1 AA adostasun-kontraste erlazioa
+          wcag_contrast_checker: WebAIM Kontraste-egiaztatzailea
+      helpers:
+        background: Aurrekariak eta mugak
+        base: Oinarria
+        form_elements: Forma elementuak
+        hex_code: Hex kodea
+        main_colors: Kolore nagusiak
+        rgba_code: RGBA kodea
+        state: Egoera
+        typography_texts: Tipografia eta testuak
+        usage: Erabilera
+        usage_background_1: Atzealdea alde batera utzita
+        usage_background_2: Albo-iragazkiaren hondoa hautatua
+        usage_background_3: Lehenetsi ikono kolorea
+        usage_background_4: Lerroak eta bereizgailuak
+        usage_background_5: Oin-azpia
+        usage_background_6: Admin Layout hondoa
+        usage_base_1: Nav osagaien fondo nagusia\nNav menuak hasierako orrian eta espazioko etxean
+        usage_base_2: Kolore nagusia esteka eta botoietarako
+        usage_base_3: Apaingarri grafikoak eta azentu-kolorea\nKartak eta zerrenda-elementuak mugako estatuan
+        usage_formelements_1: Sarrerako elementuek ez dute aurrekaririk
+        usage_formelements_2: Egoerako hondoko elementu desgaituak
+        usage_state_1: Arrakasta-abisuaren muga\nAlerta abisuaren ikonoa bete\nBotoia hondoa arrakasta-mezuan
+        usage_state_2: Muga-abisua
+        usage_state_3: Alerta-abisuaren muga\nAlerta-abisuaren ikonoa bete
+        usage_typography_1: Idazpuruak eta atalaren izenburuak
       home:
         index:
           decidim_guide: 'Decidim: gauza guztiak diseinatzeko gida'
