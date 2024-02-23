@@ -3,6 +3,21 @@ cs:
   decidim:
     design:
       foundations:
+        accessibility:
+          accessibility_labels: Štítky přístupnosti
+          accessibility_title: Přístupnost
+          color_contrast: Barevný kontrast
+          elements_hidden: Skryté prvky
+          heading_on: Záhlaví na důležitých oddílech
+          here_link: zde
+          illogical_heading_order: Nelogické pořadí záhlaví
+          important_sections_paragraph: Je velmi důležité, aby každá důležitá část stránky měla nadpis, který usnadní pochopení důležitých částí na stránce jen prohlížením jejích záhlaví.
+          links_and_buttons: Odkazy a tlačítka
+          see_further_info_html: Zobrazit další informace %{link}
+          unique_h1: Unikátní H1
+          unique_h1_paragraph: Každá stránka by měla mít jedinečný nadpis H1
+          use_aria: Použití ARIA
+          use_aria_header: Používejte atributy ARIA tam, kde je to možné
         color:
           color_header: Barva
           description_p1: Poskytujeme základní paletu s několika barvami, takže jednoduché úpravy jsou snadné. Pokud potřebujete pokročilejší nastavení, můžete změnit základní paletu buď v administrativní oblasti nebo v konfiguračním souboru Tailwind.
@@ -19,7 +34,22 @@ cs:
         state: Stav
         tailwind: Tailwind název
         typography_texts: Typografie a texty
+        usage: Použití
+        usage_background_1: Vedle pozadí
+        usage_background_3: Výchozí barva ikony
+        usage_background_4: Linky a oddělovače
+        usage_background_5: Pozadí zápatí
+        usage_background_6: Pozadí admin rozložení
+        usage_base_1: Hlavní nav komponenta pozadí\nNav menu domovské stránky a prostoru Úvodní strana
+        usage_base_2: Hlavní barva odkazů a tlačítek
+        usage_formelements_1: Výchozí pozadí vstupních prvků
+        usage_state_2: Okraj výstražného upozornění
+        usage_typography_3: Text na tmavém pozadí
+        usage_typography_4: Odkazy a tlačítka
+        value: Hodnota
       home:
         index:
           decidim_guide: Průvodce navrhováním všech věcí Decidim
           github_source: Zdrojový kód na GitHubu
+          home_header: Decidim Design Guide
+          welcome_sentence: Vítejte v průvodci Decidim Design Guide (DDG). Tento průvodce je zdrojem pro designéry a vývojáře, kteří potřebují přizpůsobit, vyvinout nové moduly a integrovat nové funkce.
