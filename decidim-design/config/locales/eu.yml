@@ -12,6 +12,13 @@ eu:
           adjacent_links_paragraph: Baliabide berak ondoko lotura bat baino gehiago baditu, horrek zaildu egiten du erabiltzaile horiek orrialdera begiratzea, hurrengo baliabidera iristeko esteka bat baino gehiago erabili behar dituztelako.
           color_contrast: Kolore-kontrastea
           color_contrast_paragraph: Erabiltzaile-interfazeak sortzean edo koloreak aldatzean, ziurtatu beti zure aldaketen ondorioz ez zarela irisgarritasuna hausten ari. Kolore-kontrastearen zuzentzailea erabil dezakezu zure koloreek kontraste nahikoa izan dezaten erakusten diren atzealdeko kolorearen aldean, non ageri baitira.
+          dynamic_changes_header: Funtzionalitate dinamikoak orrialdearen testuingurua aldatzen du intuiziorik gabe
+          dynamic_changes_paragraph: Inprimakien sarreretan gertatzen diren aldaketek ez dute orrialdearen testuingurua automatikoki aldatu behar.
+          elements_hidden: Elementu ezkutuak
+          elements_hidden_header: Elementu ezkutuak irisgarritasuneko APIan
+          elements_hidden_paragraph: Elementu bat laguntza-teknologietatik ezkutatzeko, erabili "egia" atributua.
+          heading_on: Sail garrantzitsuen buruan doa
+          here_link: hemen
       home:
         index:
           decidim_guide: 'Decidim: gauza guztiak diseinatzeko gida'
