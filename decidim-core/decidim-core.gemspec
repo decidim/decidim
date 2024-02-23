@@ -56,6 +56,7 @@ Gem::Specification.new do |s|
   s.add_dependency "mime-types", ">= 1.16", "< 4.0"
   s.add_dependency "mini_magick", "~> 4.9"
   s.add_dependency "net-smtp", "~> 0.3.1"
+  s.add_dependency "nokogiri", "~> 1.16", ">= 1.16.2"
   s.add_dependency "omniauth", "~> 2.0"
   s.add_dependency "omniauth-facebook", "~> 5.0"
   s.add_dependency "omniauth-google-oauth2", "~> 1.0"
