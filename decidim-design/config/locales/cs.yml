@@ -2,6 +2,23 @@
 cs:
   decidim:
     design:
+      foundations:
+        color:
+          color_header: Barva
+          description_p1: Poskytujeme základní paletu s několika barvami, takže jednoduché úpravy jsou snadné. Pokud potřebujete pokročilejší nastavení, můžete změnit základní paletu buď v administrativní oblasti nebo v konfiguračním souboru Tailwind.
+          description_p2_html: Při přizpůsobování barev mějte na paměti %{contrast_link}. Můžete zkontrolovat kontrast dle vašeho výběru s %{checker_link} nebo jinými podobnými nástroji.
+          wcag_compliant_rations: WCAG 2.1 kontrastní poměr vyhovující požadavkům AA
+          wcag_contrast_checker: Kontrola kontrastu WebAIM
+      helpers:
+        background: Pozadí a okraje
+        base: Podklad
+        form_elements: Prvky formuláře
+        hex_code: Hex kód
+        main_colors: Hlavní barvy
+        rgba_code: RGBA kód
+        state: Stav
+        tailwind: Tailwind název
+        typography_texts: Typografie a texty
       home:
         index:
           decidim_guide: Průvodce navrhováním všech věcí Decidim
