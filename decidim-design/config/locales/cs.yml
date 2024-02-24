@@ -11,13 +11,17 @@ cs:
           heading_on: Záhlaví na důležitých oddílech
           here_link: zde
           illogical_heading_order: Nelogické pořadí záhlaví
+          illogical_heading_paragraph: Každá stránka by měla mít logické pořadí nadpisů při použití prvků <h1>, <h2>, <h3>, <h4>, <h5> a <h6>.
+          important_sections_heading: Záhlaví na důležitých oddílech
           important_sections_paragraph: Je velmi důležité, aby každá důležitá část stránky měla nadpis, který usnadní pochopení důležitých částí na stránce jen prohlížením jejích záhlaví.
           links_and_buttons: Odkazy a tlačítka
+          links_and_buttons_paragraph: Kotevní prvky (tj. odkazy) mají odkazovat na různé stránky nebo ukotvit umístění na stránce. Pokud má prvek například otevřít na této stránce skrytou položku, měli byste místo toho použít prvek <button>.
           see_further_info_html: Zobrazit další informace %{link}
           unique_h1: Unikátní H1
           unique_h1_paragraph: Každá stránka by měla mít jedinečný nadpis H1
           use_aria: Použití ARIA
           use_aria_header: Používejte atributy ARIA tam, kde je to možné
+          use_aria_paragraph: Mnoho prvků, které poskytují interaktivní funkce na webových stránkách, vyžaduje atributy ARIA, aby byly přístupné.
         color:
           color_header: Barva
           description_p1: Poskytujeme základní paletu s několika barvami, takže jednoduché úpravy jsou snadné. Pokud potřebujete pokročilejší nastavení, můžete změnit základní paletu buď v administrativní oblasti nebo v konfiguračním souboru Tailwind.
@@ -49,6 +53,7 @@ cs:
         value: Hodnota
       home:
         index:
+          by_sharing_principles: Sdílením zásad, filosofie a zdůvodnění rozhodnutí týkajících se designu chceme komunitě umožnit, aby přispívala důsledně a dosáhla co nejlepší zkušenosti účastníků.
           decidim_guide: Průvodce navrhováním všech věcí Decidim
           github_source: Zdrojový kód na GitHubu
           home_header: Decidim Design Guide
