@@ -226,7 +226,7 @@ describe "Explore results", :versioning do
 
       it "shows all result info" do
         expect(page).to have_i18n_content(result.title)
-        expect(page).to have_i18n_content(result.description)
+        expect(page).to have_i18n_content(result.description, strip_tags: true)
         expect(page).to have_content(result.reference)
         expect(page).to have_content("#{result.progress.to_i}%")
       end

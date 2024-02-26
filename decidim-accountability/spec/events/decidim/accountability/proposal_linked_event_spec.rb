@@ -10,7 +10,7 @@ describe Decidim::Accountability::ProposalLinkedEvent do
   let(:proposal_component) do
     create(:component, manifest_name: "proposals", participatory_space: resource.component.participatory_space)
   end
-  let(:proposal) { create(:proposal, component: proposal_component, title: generate_localized_title(:proposal_title)) }
+  let(:proposal) { create(:proposal, component: proposal_component) }
   let(:extra) { { proposal_id: proposal.id } }
   let(:proposal_path) { resource_locator(proposal).path }
   let(:proposal_title) { decidim_sanitize_translated(proposal.title) }
