@@ -6,8 +6,9 @@ module Decidim
     class InvalidActionError < StandardError; end
 
     include SanitizeHelper
+    include Decidim::TranslatableAttributes
 
-    def initialize(recipient:, conversation:, message:)
+    def initialize(recipient, conversation, message)
       @recipient = recipient
       @conversation = conversation
       @message = message
@@ -18,7 +19,7 @@ module Decidim
     alias user recipient
 
     def body
-      decidim_escape_translated(message)
+      decidim_html_escape(translated_attribute(message))
     end
 
     def icon

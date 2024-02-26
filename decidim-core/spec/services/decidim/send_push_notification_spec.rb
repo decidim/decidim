@@ -130,7 +130,7 @@ describe Decidim::SendPushNotification do
 
           I18n.with_locale(user.locale) do
             notification_payload = a_hash_including(message: message)
-            expect(WebPush).to receive(:payload_send).with(notification_payload).ordered.and_return(double("result", message: "Created", code: "201"))
+            expect(Webpush).to receive(:payload_send).with(notification_payload).ordered.and_return(double("result", message: "Created", code: "201"))
           end
 
           responses = subject.perform(notification, title)

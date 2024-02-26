@@ -5,6 +5,8 @@ require "spec_helper"
 module Decidim
   module Messaging
     describe ConversationMailer do
+      include Decidim::TranslatableAttributes
+      include Decidim::SanitizeHelper
       let(:organization) { create(:organization) }
       let(:conversation) { create(:conversation) }
       let(:group) { create(:user_group, organization: organization, users: [manager]) }
@@ -67,7 +69,7 @@ module Decidim
       describe ".new_message" do
         subject { described_class.new_message(sender, user, conversation, message) }
         let(:mail_subject) { "You have new messages from #{sender.name}" }
-        let(:mail_message_body) { decidim_escape_translated(message.body) }
+        let(:mail_message_body) { decidim_html_escape(translated_attribute(message.body)) }
         let(:recipient) { [user.email] }
 
         it_behaves_like "conversation mail"
@@ -76,7 +78,7 @@ module Decidim
       describe ".new_group_message" do
         subject { described_class.new_group_message(sender, user, conversation, message, group) }
         let(:mail_subject) { "#{group.name} have new messages from #{sender.name}" }
-        let(:mail_message_body) { decidim_escape_translated(message.body) }
+        let(:mail_message_body) { decidim_html_escape(translated_attribute(message.body)) }
         let(:recipient) { [user.email] }
 
         it_behaves_like "conversation mail"
@@ -85,7 +87,7 @@ module Decidim
       describe ".comanagers_new_message" do
         subject { described_class.comanagers_new_message(sender, user, conversation, message, manager) }
         let(:mail_subject) { "#{manager.name} has send new messages as a #{manager.name}" }
-        let(:mail_message_body) { decidim_escape_translated(message.body) }
+        let(:mail_message_body) {  decidim_html_escape(translated_attribute(message.body)) }
         let(:recipient) { [user.email] }
 
         it_behaves_like "conversation mail"

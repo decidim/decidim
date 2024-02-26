@@ -700,7 +700,7 @@ FactoryBot.define do
     message { generate_localized_description(:push_notification_message_message) }
 
     skip_create
-    initialize_with { new(recipient: recipient, conversation: conversation, message: message) }
+    initialize_with { new(recipient, conversation, message) }
   end
 
   factory :action_log, class: "Decidim::ActionLog" do

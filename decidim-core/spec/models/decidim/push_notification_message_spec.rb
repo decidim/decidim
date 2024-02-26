@@ -5,6 +5,8 @@ require "spec_helper"
 module Decidim
   describe PushNotificationMessage do
     subject { push_notification_message }
+    include Decidim::TranslatableAttributes
+    include Decidim::SanitizeHelper
 
     let(:organization) { build(:organization, favicon: favicon) }
     let(:conversation) { create(:conversation) }
@@ -14,7 +16,7 @@ module Decidim
 
     describe "#body" do
       it "returns the message body" do
-        expect(subject.body).to eq(decidim_escape_translated(subject.message))
+        expect(subject.body).to eq(decidim_html_escape(translated_attribute(subject.message)))
       end
     end
 
