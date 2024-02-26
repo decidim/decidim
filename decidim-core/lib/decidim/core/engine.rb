@@ -382,12 +382,7 @@ module Decidim
       end
 
       initializer "decidim_core.notifications" do
-        if Rails.version > "6.0" && Rails.autoloaders.zeitwerk_enabled?
-          config.to_prepare do
-            Decidim::EventsManager.subscribe(/^decidim\.duplicate\.events/) do |_event_name, _data|
-              pp "aaa"
-            end
-          end
+        if Rails.autoloaders.zeitwerk_enabled?
           config.after_initialize do
             Decidim::EventsManager.subscribe_events!
           end
