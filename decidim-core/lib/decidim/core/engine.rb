@@ -246,9 +246,13 @@ module Decidim
       end
 
       initializer "decidim.notifications" do
-        config.to_prepare do
-          Decidim::EventsManager.subscribe(/^decidim\.events\./) do |event_name, data|
-            EventPublisherJob.perform_later(event_name, data)
+        if Rails.autoloaders.zeitwerk_enabled?
+          config.after_initialize do
+            Decidim::EventsManager.subscribe_events!
+          end
+        else
+          config.to_prepare do
+            Decidim::EventsManager.subscribe_events!
           end
         end
       end
