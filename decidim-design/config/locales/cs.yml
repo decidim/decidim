@@ -53,7 +53,6 @@ cs:
         value: Hodnota
       home:
         index:
-          by_sharing_principles: Sdílením zásad, filosofie a zdůvodnění rozhodnutí týkajících se designu chceme komunitě umožnit, aby přispívala důsledně a dosáhla co nejlepší zkušenosti účastníků.
           decidim_guide: Průvodce navrhováním všech věcí Decidim
           github_source: Zdrojový kód na GitHubu
           home_header: Decidim Design Guide
