@@ -5,6 +5,60 @@ ca:
       foundations:
         accessibility:
           accessibility_labels: Etiquetes d'accessibilitat
+          accessibility_labels_paragraph: En definir els elements, assegura't sempre que tenen sentit pels lectors de pantalla.
+          accessibility_title: Accessibilitat
+          adjacent_links: Enllaços adjacents
+          adjacent_links_header: Enllaços adjacents pel mateix recurs
+          adjacent_links_paragraph: Si el mateix recurs té múltiples enllaços adjacents apuntant-hi, això dificulta que les usuàries puguin mirar a través de la pàgina perquè és possible que les hi calgui passar per diversos enllaços per arribar al següent recurs.
+          color_contrast: Contrast de color
+          color_contrast_paragraph: En crear interfícies d'usuària o modificar els colors, assegura't que no està trencant-se l'accessibilitat amb els teus canvis. Pots fer servir el comprovador de contrast de color per assegurar-se que aquests colors tenen suficients contrasts el color de fons sobre el que es mostren.
+          decidim_follows_html: Decidim segueix les directrius <u>d'Accessibilitat al Contingut Web (WCAG) 2.1</u>
+          dynamic_changes_header: 'Funció dinàmica: canvia el context de la pàgina de forma poc intuïtiva'
+          dynamic_changes_paragraph: Els canvis a les entrades del formulari no haurien de modificar el context de la pàgina automàticament.
+          elements_hidden: Elements amagats
+          elements_hidden_header: Elements amagats de l'API d'accessibilitat
+          elements_hidden_paragraph: Per amagar un element de la tecnologia d'assistència, fes servir l'atribut aria-hidden="true" en aquest.
+          heading_on: Encapçalament a seccions importants
+          illogical_heading_order: Ordre d'encapçalament il·lògica
+          illogical_heading_paragraph: Totes les pàgines han de tenir un ordre lògic de capçaleres quan facis servir els elements d'encapçalament <h1>, <h2>, <h3>, <h4>, <h5>, i <h6>.
+          important_sections_heading: Encapçalament a seccions importants
+          important_sections_paragraph: És molt important que cada secció de la pàgina tingui un títol per a facilitar la comprensió de les seccions importants de la pàgina simplement navegant pels seus encapçalaments.
+          links_and_buttons: Enllaços i botons
+          links_and_buttons_paragraph: Els punts d'ancoratge (per exemple enllaços) estan pensant per enllaçar a diferents pàgines o a posicions d'ancoratge dins de la pàgina. Si volem que aquest punt obri, per exemple, algun element amagar en aquella pàgina, hauries de fer servir l'element <button> en el seu lloc.
+          see_further_info_html: Veure més informació %{link}
+          unique_h1: H1 únic
+          unique_h1_paragraph: Cada pàgina ha de tenir un únic encapçalament H1
+          use_aria: Fes servir ARIA
+          use_aria_header: Fes servir els atributs ARIA quan sigui possible
+          use_aria_paragraph: Molts elements que proporcionen funcionalitat interactiva al lloc web requereixen atributs ARIA per fer-los accessibles.
+        color:
+          color_header: Color
+          description_p1: Facilitem una paleta base amb pocs colors de manera que és fàcil fer personalitzacions simples. Pots modificar la paleta base, tant des del Taulell d'Administració com des de l'arxiu de configuració Tailwind si necessites una personalització més avançada.
+          description_p2_html: Quan personalitzis els teus colors, has de tenir en compte %{contrast_link}. Pots revisar el contrast de la teva elecció amb %{checker_link} o qualsevol eina similar.
+          wcag_compliant_rations: Relació de contrast compatible amb WCAG 2.1 AA
+          wcag_contrast_checker: Verificador de contrastos WebAIM
+      helpers:
+        background: Vores i fons
+        base: Base
+        form_elements: Elements de formulari
+        hex_code: Codi hexadecimal
+        main_colors: Colors principals
+        rgba_code: Codi RGBA
+        state: Estat
+        typography_texts: Textos i tipografia
+        usage: Ús
+        usage_background_1: Fons lateral
+        usage_background_2: Fons de filtre de barra lateral seleccionat
+        usage_background_3: Color d'icona predeterminat
+        usage_background_4: Línies i separadors
+        usage_background_5: Fons del peu de pàgina
+        usage_background_6: Fons del taulell d'administració
+        usage_base_1: Fons del component de navegació principal\nNav menús a la pàgina d'inici de la plataforma i a la pàgina d'inici de l'espai de participació
+        usage_base_2: Color principal per a enllaços i botons
+        usage_formelements_1: Fons per defecte dels elements d'entrada
+        usage_state_2: Vora de la nota d'avís
+        usage_state_3: Vora de la nota de avís\nFons de la icona de la nota
+        usage_typography_1: Encapçalaments i títols de secció
       home:
         index:
           by_sharing_principles: Compartint els principis, filosofia i els raonaments darrere de les decisions de disseny volem empoderar a la comunitat perquè contribueixin amb consistència per arribar a la millor experiència per a les participants.
