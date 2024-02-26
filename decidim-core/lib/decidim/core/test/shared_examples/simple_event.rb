@@ -152,3 +152,40 @@ shared_examples_for "a simple event" do |skip_space_checks|
     end
   end
 end
+
+shared_examples_for "a simple event email" do
+  describe "email_subject" do
+    it "is generated correctly" do
+      expect(subject.email_subject).to eq(email_subject)
+    end
+
+    it "is html safe" do
+      expect(subject.email_subject).not_to include("script")
+    end
+  end
+
+  describe "email_intro" do
+    it "is generated correctly" do
+      expect(subject.email_intro).to eq(email_intro)
+    end
+  end
+
+  describe "email_outro" do
+    it "is generated correctly" do
+      expect(subject.email_outro).to eq(email_outro)
+    end
+  end
+end
+
+shared_examples_for "a simple event notification" do
+  describe "notification_title" do
+    it "is generated correctly" do
+      expect(subject.notification_title)
+        .to eq(notification_title)
+    end
+
+    it "is html safe" do
+      expect(subject.notification_title).not_to include("script")
+    end
+  end
+end
