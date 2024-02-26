@@ -32,9 +32,45 @@ en:
           use_aria: Use ARIA
           use_aria_header: Use ARIA attributes where possible
           use_aria_paragraph: Many elements that provide interactive functionality on the website require ARIA attributes on them to make them accessible.
+        color:
+          color_header: Color
+          description_p1: We provide a Base palette with few colors so simple customizations are easy. You can modify the Base palette either in the Administration area or in the Tailwind configuration file if you need more advanced customization.
+          description_p2_html: When customizing your colors, have in mind the %{contrast_link}. You can check the contrast of your choosing with %{checker_link} or other similar tools.
+          wcag_compliant_rations: WCAG 2.1 AA compliant contrast ratio
+          wcag_contrast_checker: WebAIM Contrast Checker
+      helpers:
+        background: Background and borders
+        base: Base
+        form_elements: Form elements
+        hex_code: Hex code
+        main_colors: Main Colors
+        rgba_code: RGBA code
+        state: State
+        tailwind: Tailwind name
+        typography_texts: Typography and texts
+        usage: Usage
+        usage_background_1: Aside background
+        usage_background_2: Selected sidebar filter background
+        usage_background_3: Default icon color
+        usage_background_4: Lines and separators
+        usage_background_5: Footer background
+        usage_background_6: Admin layout background
+        usage_base_1: Main nav component background\nNav menus in homepage and space home
+        usage_base_2: Main color for links and buttons
+        usage_base_3: Graphic ornaments and accent color\nCards and list items hover state border
+        usage_formelements_1: Input elements default background
+        usage_formelements_2: Input elements disabled state background
+        usage_state_1: Success notice border\nAlert notice icon fill\nButton background on success message
+        usage_state_2: Warning notice border
+        usage_state_3: Alert notice border\nAlert notice icon fill
+        usage_typography_1: Headings and section titles
+        usage_typography_2: Inline text
+        usage_typography_3: Text over dark background
+        usage_typography_4: Links and buttons
+        value: Value
       home:
         index:
-          by_sharing_principles: By sharing the principles, philsophy, and rationale behind design decisions we want to empower the community to contribute with consistency so we reach the best participant experience.
+          by_sharing_principles: By sharing the principles, philosophy, and rationale behind design decisions we want to empower the community to contribute with consistency so we reach the best participant experience.
           decidim_guide: The guide to design all things Decidim
           different_ui_components: At the same time, we document the different UI components and patterns in use, that should be reused or extended.
           github_source: Source code on GitHub

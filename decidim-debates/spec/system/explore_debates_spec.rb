@@ -59,7 +59,7 @@ describe "Explore debates" do
           visit_component
 
           within "#panel-dropdown-menu-category" do
-            check category.name[I18n.locale.to_s]
+            check decidim_escape_translated(category.name)
           end
 
           within "main.layout-2col__main" do
@@ -225,7 +225,7 @@ describe "Explore debates" do
         it "can be filtered by category" do
           within "#panel-dropdown-menu-category" do
             uncheck "All"
-            check category.name[I18n.locale.to_s]
+            check decidim_escape_translated(category.name)
           end
 
           expect(page).to have_css("a.card__list", count: 1)

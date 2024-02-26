@@ -75,7 +75,7 @@ describe "Explore Collaborative Drafts", versioning: true do
         within "[data-filters]" do
           expect(page).to have_field("All")
           [category, category2, category3].each do |cat|
-            expect(page).to have_field(cat.name[I18n.locale.to_s])
+            expect(page).to have_field(decidim_escape_translated(cat.name))
           end
         end
       end
