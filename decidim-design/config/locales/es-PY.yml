@@ -5,6 +5,63 @@ es-PY:
       foundations:
         accessibility:
           accessibility_labels: Etiquetas de accesibilidad
+          accessibility_labels_paragraph: Al definir los elementos, siempre asegúrese de que tienen sentido para los lectores de pantalla.
+          accessibility_title: Accesibilidad
+          adjacent_links: Enlaces adyacentes
+          adjacent_links_header: Enlaces adyacentes para el mismo recurso
+          adjacent_links_paragraph: Si el mismo recurso tiene múltiples enlaces adyacentes apuntando a él, hace difícil que las usuarias puedan mirar a través de la página porque tal vez necesiten pasar por varios enlaces para llegar al siguiente recurso.
+          color_contrast: Contraste de color
+          color_contrast_paragraph: Al crear interfaces de usuaria o modificar los colores, asegúrate siempre que no se está rompiendo la accesibilidad con estos cambios. Puede utilizar el comprobador de contraste de color para asegurarse estos colores tienen suficiente contraste contra el color de fondo en el que se muestran.
+          decidim_follows_html: Decidim sigue las directrices <u>de Accesibilidad al Contenido Web (WCAG) 2.1</u>
+          dynamic_changes_header: 'Función dinámica: cambia el contexto de la página de forma poco intuitiva'
+          dynamic_changes_paragraph: Los cambios en las entradas del formulario no deberían cambiar el contexto de la página automáticamente.
+          elements_hidden: Elementos escondidos
+          elements_hidden_header: Elementos escondidos de la API de accesibilidad
+          elements_hidden_paragraph: Para ocultar un elemento de las tecnologías de asistencia, utiliza el atributo aria-hidden="true" en él.
+          heading_on: Encabezado en secciones importantes
+          illogical_heading_order: Orden de encabezado ilógica
+          illogical_heading_paragraph: Cada página debe tener un orden de encabezado lógico cuando utilices los elementos de encabezamiento <h1>, <h2>, <h3>, <h4>, <h5> y <h6>.
+          important_sections_heading: Encabezado en secciones importantes
+          important_sections_paragraph: Es muy importante que cada sección importante de la página tenga un título para facilitar la comprensión de las secciones importantes de la página simplemente navegando por sus encabezados.
+          links_and_buttons: Enlaces y botones
+          links_and_buttons_paragraph: Los elementos de anclaje (es decir, enlaces) están destinados a enlazar a diferentes páginas o a posiciones de anclaje dentro de la página. Si queremos que el elemento abra, por ejemplo, algún elemento oculto en esa página, deberías utilizar el elemento <button> en su lugar.
+          see_further_info_html: Ver más información %{link}
+          unique_h1: H1 único
+          unique_h1_paragraph: Cada página debe tener un único encabezado H1
+          use_aria: Utiliza ARIA
+          use_aria_header: Utiliza los atributos ARIA cuando sea posible
+          use_aria_paragraph: Muchos elementos que proporcionan funcionalidad interactiva en el sitio web requieren atributos ARIA para hacerlos accesibles.
+        color:
+          color_header: Color
+          description_p1: Proporcionamos una paleta base con pocos colores para facilitar personalizaciones simples. Puedes modificar la paleta Base ya sea en el área de Administración o en el archivo de configuración Tailwind si necesitas una personalización más avanzada.
+          description_p2_html: Cuando personalices tus colores, ten en cuenta el %{contrast_link}. Puedes comprobar el contraste de tu elección con %{checker_link} u otras herramientas similares.
+          wcag_compliant_rations: Relación de contraste compatible con WCAG 2.1 AA
+          wcag_contrast_checker: Verificador de contrastes WebAIM
+      helpers:
+        background: Bordes y fondo
+        base: Base
+        form_elements: Elementos del formulario
+        hex_code: Código hexadecimal
+        main_colors: Colores principales
+        rgba_code: Código RGBA
+        state: Estado
+        typography_texts: Textos y tipografía
+        usage: Uso
+        usage_background_1: Fondo lateral
+        usage_background_2:
+        usage_background_3: Colo de icono predeterminado
+        usage_background_4: Líneas y separadores
+        usage_background_5: Fondo del pie de página
+        usage_background_6: Fondo del tablero de administración
+        usage_base_1: Fondo del componente de navegación principal\nNav menús en la página de inicio de la plataforma y en la página de inicio del espacio de participación
+        usage_base_2: Color principal para enlaces y botones
+        usage_formelements_1: Fondo por defecto de los elementos de entrada
+        usage_state_2: Borde de la nota de aviso
+        usage_state_3: Borde de la nota de aviso\nFondo del icono de la nota
+        usage_typography_1: Encabezados y títulos de sección
+        usage_typography_3: Texto sobre fondo oscuro
+        usage_typography_4: Enlaces y botones
+        value: Valor
       home:
         index:
           by_sharing_principles: Compartiendo los principios, filosofía y razonamientos detrás de las decisiones de diseño queremos empoderar a la comunidad para que contribuya con consistencia para llegar a la mejor experiencia para las participantes.
