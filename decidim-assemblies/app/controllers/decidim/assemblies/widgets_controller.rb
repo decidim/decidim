@@ -5,6 +5,12 @@ module Decidim
     class WidgetsController < Decidim::WidgetsController
       helper Decidim::SanitizeHelper
 
+      def show
+        enforce_permission_to :read, :participatory_space, current_participatory_space: model if model
+
+        super
+      end
+
       private
 
       def model
@@ -17,6 +23,10 @@ module Decidim
 
       def iframe_url
         @iframe_url ||= assembly_widget_url(model)
+      end
+
+      def permission_class_chain
+        ::Decidim.permissions_registry.chain_for(::Decidim::Assemblies::ApplicationController)
       end
     end
   end
