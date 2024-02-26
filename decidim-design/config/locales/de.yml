@@ -34,6 +34,9 @@ de:
         usage_background_3: Standard-Symbolfarbe
         usage_background_4: Zeilen und Trennzeichen
         usage_background_5: Hintergrund der Fußzeile
+        usage_typography_1: Überschriften und Titel der Abschnitte
+        usage_typography_2: Inline-Text
+        usage_typography_3: Text über dunklem Hintergrund
         value: Wert
       home:
         index:
