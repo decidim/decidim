@@ -32,6 +32,42 @@ fi-pl:
           use_aria: Hyödynnä ARIA-attribuutteja
           use_aria_header: Hyödynnä ARIA-attribuutteja mahdollisuuksien mukaan
           use_aria_paragraph: Monet dynaamisia toimintoja tarjoavat elementit tarvitsevat ARIA-attribuuttimäärityksiä toimiakseen saavutettavasti ja ollakseen yhteensopivia avustavien teknologioiden kanssa.
+        color:
+          color_header: Värit
+          description_p1: Tarjoamme oletusväripaletin muutamilla esimääritetyillä väreillä, jotta värimaailman muuttaminen olisi helppoa. Voit muokata väripalettia joko hallintapaneelista tai muuttamalla Tailwind-asetustiedostoa, mikäli haluat muokata useampia asioita.
+          description_p2_html: Mikäli muutat värejä, ota huomioon %{contrast_link}. Voit tarkastaa valitsemiesi värien kontrastin käyttämällä %{checker_link} tai vastaavia työkaluja.
+          wcag_compliant_rations: WCAG 2.1 AA-tason yhteensopiva kontrasti
+          wcag_contrast_checker: WebAIM:n tarjoamaa kontrastin tarkastustyökalua
+      helpers:
+        background: Taustat ja reunat
+        base: Perusvärit
+        form_elements: Lomake-elementit
+        hex_code: Heksadesimaalivärikoodi
+        main_colors: Pääasialliset värit
+        rgba_code: RGBA-värikoodi
+        state: Tilaa kuvaavat värit
+        tailwind: Tailwind-nimike
+        typography_texts: Typografia ja tekstit
+        usage: Käyttötapaukset
+        usage_background_1: Sivupalkin taustaväri
+        usage_background_2: Valitun suodatusvalinnan taustaväri sivupalkissa
+        usage_background_3: Kuvakkeiden oletusväri
+        usage_background_4: Viivat ja erottimet
+        usage_background_5: Alatunnisteen taustaväri
+        usage_background_6: Hallintapaneelin ulkoasun taustaväri
+        usage_base_1: Päänavigaation taustaväri\nNavigaatiovalikot etusivulla ja osallistumistilan etusivulla
+        usage_base_2: Linkkien ja painikkeiden pääväri
+        usage_base_3: "Graafiset koristeet ja korostusväri\nKorttien ja luettelomerkintöjen reunaväri väri kohdistimen ollessa niiden päällä\n\n\nkohteita leijuvat valtion raja"
+        usage_formelements_1: Syöte-elementtien oletustaustaväri
+        usage_formelements_2: Käytöstä poistettujen syöte-elementtien oletustaustaväri
+        usage_state_1: Onnistumisilmoituksen reunaväri\nIlmoitusten ikonin täyteväri\nPainikkeiden taustaväri onnistumisviesteissä
+        usage_state_2: Varoitusilmoituksen reunaväri
+        usage_state_3: Hälytysilmoituksen reunaväri\nHälytysilmoituksen kuvakkeen täyteväri
+        usage_typography_1: Otsikot ja osioiden otsakkeet
+        usage_typography_2: Leipäteksti
+        usage_typography_3: Tumman taustan päällä näytettävän tekstin väri
+        usage_typography_4: Linkit ja painikkeet
+        value: Arvo
       home:
         index:
           by_sharing_principles: Jakamalla suunnittelupäätösten taustalla olevat periaatteet, filosofia ja perustelut, haluamme mahdollistaa yhteisöllemme tavan osallistua kehittämiseen yhdenmukaisesti, jotta voimme saavuttaa parhaan mahdollisen osallistujakokemuksen alustan käyttäjille.
