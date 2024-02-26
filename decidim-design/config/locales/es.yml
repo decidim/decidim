@@ -59,6 +59,9 @@ es:
         usage_state_2: Borde de la nota de aviso
         usage_state_3: Borde de la nota de aviso\nFondo del icono de la nota
         usage_typography_1: Encabezados y títulos de sección
+        usage_typography_3: Texto sobre fondo oscuro
+        usage_typography_4: Enlaces y botones
+        value: Valor
       home:
         index:
           by_sharing_principles: Compartiendo los principios, filosofía y razonamientos detrás de las decisiones de diseño queremos empoderar a la comunidad para que contribuya con consistencia para llegar a la mejor experiencia para las participantes.
