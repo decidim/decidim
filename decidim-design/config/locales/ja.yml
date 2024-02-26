@@ -32,6 +32,38 @@ ja:
           use_aria: ARIA を使用する
           use_aria_header: 可能な場合はARIA属性を使用する
           use_aria_paragraph: ウェブサイト上でインタラクティブ機能を提供する多くの要素には、それらにアクセシブルにするために ARIA 属性が必要です。
+        color:
+          color_header: 色
+          wcag_compliant_rations: WCAG 2.1 AA 準拠のコントラスト比
+          wcag_contrast_checker: WebAIM コントラストチェッカー
+      helpers:
+        background: 背景とボーダー
+        base: 基本
+        form_elements: フォーム要素
+        hex_code: 16進コード
+        main_colors: メインカラー
+        rgba_code: RGBA コード
+        state: 状態
+        tailwind: Tailwindでの名称
+        typography_texts: タイポグラフィとテキスト
+        usage: 使い方
+        usage_background_1: asideの背景
+        usage_background_2: 選択されたサイドバーフィルタの背景
+        usage_background_3: 標準のアイコンカラー
+        usage_background_4: 線と区切り
+        usage_background_5: フッターの背景
+        usage_background_6: 管理画面用レイアウトの背景
+        usage_base_1: メインナビコンポーネントの背景\nホームページとスペースホームのナビメニュー
+        usage_base_2: リンクとボタンのメインカラー
+        usage_base_3: グラフィックオーナメントとアクセントカラー\nカードとリストアイテムのホバーの境界線を表示する
+        usage_formelements_1: 入力要素の標準の背景
+        usage_formelements_2: 入力を無効にした入力要素の背景
+        usage_state_2: 警告のボーダー
+        usage_typography_1: 見出しとセクションのタイトル
+        usage_typography_2: インラインテキスト
+        usage_typography_3: ダーク背景上のテキスト
+        usage_typography_4: リンクとボタン
+        value: 値
       home:
         index:
           decidim_guide: Decidim に関するすべてを設計するためのガイド
