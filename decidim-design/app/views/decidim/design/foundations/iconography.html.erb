@@ -1,10 +1,11 @@
 <% content_for :heading do %>
-  <%= t("decidim.design.foundations.iconography.title") %>
+  <%= t(".title") %>
 <% end %>
 
 <% content_for :description do %>
-  <p><%= t("decidim.design.foundations.iconography.description_iconography") %></p>
-  <p><%= t("decidim.design.foundations.iconography.description_iconography_html", iconography_link: link_to("https://remixicon.com", target: "_blank", rel: "noopener noreferrer")) %></p>
+<p><%= t(".description_iconography") %></p>
+ <% iconography_link_url = "https://remixicon.com" %>
+<p><%= t(".description_iconography_html", iconography_link: link_to(iconography_link_url, iconography_link_url, target: "_blank", rel: "noopener noreferrer")) %></p>
 <% end %>
 
 <% content_for :toc do %>
