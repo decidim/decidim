@@ -361,6 +361,7 @@ describe "Meeting live event access" do
         visit_meeting
 
         expect(page).to have_css(".address__hints")
+        expect(page).to have_content(meeting.online_meeting_url)
       end
     end
   end
