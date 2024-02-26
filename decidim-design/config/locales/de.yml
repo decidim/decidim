@@ -37,6 +37,7 @@ de:
         value: Wert
       home:
         index:
+          by_sharing_principles: Durch die gemeinsame Nutzung der Prinzipien, Philosophie, und der Logik hinter Designentscheidungen wollen wir die Community dazu befähigen, konsequent beizutragen, so dass wir die beste Erfahrung für die Teilnehmenden erreichen.
           github_source: Quellcode auf GitHub
           home_header: Decidim-Design-Leitfaden
           welcome_sentence: Willkommen zur Decidim Design Guide (DDG). Dieser Leitfaden ist die Ressource für Designer und Entwickler, die die Plattform anpassen, neue Module entwickeln und neue Funktionen integrieren.
