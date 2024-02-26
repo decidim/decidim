@@ -20,6 +20,7 @@ pl:
         tailwind: Nazwa Tailwind
       home:
         index:
+          by_sharing_principles: Dzieląc się zasadami, filozofią, i przesłaniem, które stoją za decyzjami dotyczącymi projektowania, chcemy zainspirować społeczność do konsekwentnego zaangażowania, abyśmy mogli zapewnić uczestnikom jak najlepsze doświadczenia.
           decidim_guide: Przewodnik projektowania wszystkich elementów Decidim
           different_ui_components: Jednocześnie dokumentujemy różne komponenty i wzorce interfejsu użytkowania, które należy ponownie wykorzystać lub rozszerzyć.
           github_source: Kod źródłowy na GitHub
