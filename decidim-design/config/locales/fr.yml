@@ -2,6 +2,11 @@
 fr:
   decidim:
     design:
+      foundations:
+        iconography:
+          description_iconography: Nous utilisons des icônes pour renforcer la signification des actions, des titres, etc
+          description_iconography_html: 'Nous utilisons la bibliothèque open source Remixicon : %{iconography_link}'
+          title: Iconographie
       helpers:
         base: Base
         form_elements: Éléments de formulaire
