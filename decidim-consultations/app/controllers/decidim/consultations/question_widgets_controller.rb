@@ -11,7 +11,7 @@ module Decidim
       private
 
       def model
-        @model ||= current_question
+        @model ||= current_question if current_question.published?
       end
 
       def current_participatory_space

@@ -11,10 +11,21 @@ shared_examples_for "an embed resource" do |options|
     include_context "with a component"
   end
 
+  unless options.is_a?(Hash) && options[:skip_unpublish_checks]
+    context "when the resource is not published" do
+      before do
+        resource.unpublish!
+      end
+
+      it_behaves_like "a 404 page" do
+        let(:target_path) { widget_path }
+      end
+    end
+  end
+
   context "when visiting the embed page for a resource" do
     before do
-      visit resource_locator(resource).path
-      visit "#{current_path}/embed"
+      visit widget_path
     end
 
     it "renders the page correctly" do

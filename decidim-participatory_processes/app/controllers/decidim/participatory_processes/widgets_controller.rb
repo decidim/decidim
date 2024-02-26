@@ -10,8 +10,8 @@ module Decidim
       def model
         return unless params[:participatory_process_slug]
 
-        @model ||= ParticipatoryProcess.where(slug: params[:participatory_process_slug]).or(
-          ParticipatoryProcess.where(id: params[:participatory_process_slug])
+        @model ||= ParticipatoryProcess.published.where(slug: params[:participatory_process_slug]).or(
+          ParticipatoryProcess.published.where(id: params[:participatory_process_slug])
         ).first!
       end
 

@@ -11,6 +11,8 @@ module Decidim
     helper_method :model, :iframe_url, :current_participatory_space
 
     def show
+      raise ActionController::RoutingError, "Not Found" if model.nil?
+
       respond_to do |format|
         format.js { render "decidim/widgets/show" }
         format.html
