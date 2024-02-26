@@ -12,6 +12,7 @@ eu:
           adjacent_links_paragraph: Baliabide berak ondoko lotura bat baino gehiago baditu, horrek zaildu egiten du erabiltzaile horiek orrialdera begiratzea, hurrengo baliabidera iristeko esteka bat baino gehiago erabili behar dituztelako.
           color_contrast: Kolore-kontrastea
           color_contrast_paragraph: Erabiltzaile-interfazeak sortzean edo koloreak aldatzean, ziurtatu beti zure aldaketen ondorioz ez zarela irisgarritasuna hausten ari. Kolore-kontrastearen zuzentzailea erabil dezakezu zure koloreek kontraste nahikoa izan dezaten erakusten diren atzealdeko kolorearen aldean, non ageri baitira.
+          decidim_follows_html: 'Decidimek jarraitzen du: <u>Web Content Accessibility Guidelines (WCAG) 2.1</u>'
           dynamic_changes_header: Funtzionalitate dinamikoak orrialdearen testuingurua aldatzen du intuiziorik gabe
           dynamic_changes_paragraph: Inprimakien sarreretan gertatzen diren aldaketek ez dute orrialdearen testuingurua automatikoki aldatu behar.
           elements_hidden: Elementu ezkutuak
@@ -45,6 +46,7 @@ eu:
         main_colors: Kolore nagusiak
         rgba_code: RGBA kodea
         state: Egoera
+        tailwind: Tailwind izena
         typography_texts: Tipografia eta testuak
         usage: Erabilera
         usage_background_1: Atzealdea alde batera utzita
@@ -62,8 +64,13 @@ eu:
         usage_state_2: Muga-abisua
         usage_state_3: Alerta-abisuaren muga\nAlerta-abisuaren ikonoa bete
         usage_typography_1: Idazpuruak eta atalaren izenburuak
+        usage_typography_2: Lineako proba
+        usage_typography_3: Hondo ilunaren gaineko testua
+        usage_typography_4: Loturak eta botoiak
+        value: Balioa
       home:
         index:
+          by_sharing_principles: Diseinu-erabakien printzipioak, filosofia eta oinarriak partekatzean, komunitatea koherentziaz lagundu dezan gaitu nahi dugu, parte-hartzaileentzako esperientziarik onena lor dezagun.
           decidim_guide: 'Decidim: gauza guztiak diseinatzeko gida'
           different_ui_components: Aldi berean, erabiltzen diren IUko osagai ezberdinak eta ereduak dokumentatzen ditugu, berrerabili edo zabaldu beharko liratekeenak.
           github_source: Iturburu-kodea GitHub-en
