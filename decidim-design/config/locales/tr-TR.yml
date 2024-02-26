@@ -2,6 +2,11 @@
 tr:
   decidim:
     design:
+      foundations:
+        iconography:
+          description_iconography: Eylemlerin, başlıkların vb. anlamlarını güçlendirmek için simgeler kullanırız
+          description_iconography_html: 'Remixicon %{iconography_link} açık kaynak kitaplığını kullanıyoruz:'
+          title: İkonografi
       home:
         index:
           by_sharing_principles: Tasarım kararlarının ardındaki ilkeleri, felsefeyi ve mantığı paylaşarak, topluluğun tutarlı bir şekilde katkıda bulunmasını sağlamak ve böylece en iyi katılımcı deneyimine ulaşmak istiyoruz.
