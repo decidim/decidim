@@ -59,6 +59,9 @@ ca:
         usage_state_2: Vora de la nota d'avís
         usage_state_3: Vora de la nota de avís\nFons de la icona de la nota
         usage_typography_1: Encapçalaments i títols de secció
+        usage_typography_3: Text sobre fons fosc
+        usage_typography_4: Enllaços i botons
+        value:
       home:
         index:
           by_sharing_principles: Compartint els principis, filosofia i els raonaments darrere de les decisions de disseny volem empoderar a la comunitat perquè contribueixin amb consistència per arribar a la millor experiència per a les participants.
