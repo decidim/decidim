@@ -617,14 +617,11 @@ FactoryBot.define do
   factory :coauthorable_dummy_resource, class: "Decidim::DummyResources::CoauthorableDummyResource" do
     transient do
       skip_injection { false }
+
+      authors_list { [create(:user, organization: component.organization, skip_injection: skip_injection)] }
     end
     title { generate(:name) }
     component { create(:component, manifest_name: "dummy", skip_injection: skip_injection) }
-
-    transient do
-      skip_injection { false }
-      authors_list { [create(:user, organization: component.organization)] }
-    end
 
     after :build do |resource, evaluator|
       evaluator.authors_list.each do |coauthor|
