@@ -9,5 +9,5 @@ describe "Proposal embeds", type: :system do
   let(:resource) { create(:proposal, component: component) }
   let(:widget_path) { Decidim::EngineRouter.main_proxy(component).proposal_widget_path(resource) }
 
-  it_behaves_like "an embed resource", skip_unpublish_checks: true
+  it_behaves_like "an embed resource", skip_publication_checks: true
 end

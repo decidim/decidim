@@ -29,7 +29,7 @@ shared_examples_for "an embed resource" do |options|
     include_context "with a component"
   end
 
-  unless options.is_a?(Hash) && options[:skip_unpublish_checks]
+  unless options.is_a?(Hash) && options[:skip_publication_checks]
     context "when the resource is not published" do
       before do
         resource.unpublish!
