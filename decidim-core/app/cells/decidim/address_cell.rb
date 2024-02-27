@@ -30,5 +30,12 @@ module Decidim
     def address
       decidim_sanitize_translated(model.address)
     end
+
+    def display_online_meeting_url?
+      return true unless model.respond_to?(:online?)
+      return true unless model.respond_to?(:iframe_access_level_allowed_for_user?)
+
+      model.online? && model.iframe_access_level_allowed_for_user?(current_user)
+    end
   end
 end
