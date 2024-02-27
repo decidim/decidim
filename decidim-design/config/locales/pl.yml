@@ -9,6 +9,32 @@ pl:
           description_p2_html: Podczas dostosowywania kolorów pamiętaj o %{contrast_link}. Możesz sprawdzić wybrany kontrast za pomocą %{checker_link} lub innych podobnych narzędzi.
           wcag_compliant_rations: Współczynnik kontrastu zgodny z WCAG 2.1 AA
           wcag_contrast_checker: Sprawdzanie kontrastu WebAIM
+        layout:
+          breakpoint: Punkt przerwania
+          breakpoints: Punkty przerwania
+          centered: Wyśrodkowany
+          code: Kod
+          columns: Liczba kolumn 10, 8, lub 6.
+          description_layout_p1: W przypadku wersji na pulpit Decidim wykorzystuje 12-kolumnową siatkę z ograniczoną liczbą szablonów ( konfiguracja siatki) dla różnych typów treści. Założeniem jest, aby dany rodzaj treści (strona główna, lista elementów, pojedynczy element) miał charakterystyczny układ. Dzięki temu użytkownicy mogą zrozumieć z jakim rodzajem treści mają do czynienia po ogólnym wyglądzie strony.
+          description_layout_p2: Te proste zasady powinny być przestrzegane podczas tworzenia nowych modułów albo modyfikowania istniejących, aby witryna Decidim mogła zachować spójność.
+          desktop: Pulpit
+          full_width: Pełna szerokość
+          layout_list_1: 'Strona główna (witryny, obszaru): pełna szerokość'
+          layout_list_2: 'Lista elementów (obszaru, elementów wewnątrz obszaru itp.): lewa strona'
+          layout_list_3: 'Pojedynczy element (wniosek, wpis na blogu): wyśrodkowany, opcjonalnie wyrównany w prawo'
+          left_aside: Lewa strona
+          mobile: Mobilny
+          not_required: Niewymagane
+          properties: Właściwości
+          right_aside: Prawa strona
+          section_p_breakpoints: 'Aby zarządzać responsywną maksymalną szerokością elementów, polegamy na domyślnej klasie "container" Tailwind, która określa następujące punkty przerwania:'
+          section_p_code: Podczas wdrażania nowych modułów masz do dyspozycji kilka narzędzi pomocniczych, które automatycznie zapewniają kod potrzebny do skonfigurowania struktury HTML. Powinieneś używać tych pomocników zamiast bezpośredniego używania elementów div z klasami, aby zachować spójność.
+          section_p_code_html: Możesz znaleźć podstawowe układy w %{link_section_code}
+          section_p_desktop: System siatki w wersji na pulpit składa się z 12 elastycznych kolumn z odstępem między kolumnami wynoszącym 16 pikseli oraz lewym i prawym marginesem wynoszącym 48 pikseli
+          section_p_mobile: System siatki w wersji mobilnej składa się z 4 elastycznych kolumn z odstępem pomiędzy kolumnami wynoszącym 16 pikseli oraz lewym i prawym marginesem wynoszącym 16 pikseli. Dla rozmiarów poniżej 320 pikseli marginesy te są ustawione na 8 pikseli
+          section_p_tablet: System siatki w wersji na tablet składa się z 8 elastycznych kolumn z odstępem między kolumnami wynoszącym 16 pikseli oraz lewym i prawym marginesem wynoszącym 24 pikseli
+          tablet: Tablet
+          title: Układ
       helpers:
         background: Tło i obramowanie
         base: Baza
