@@ -37,6 +37,32 @@ ca:
           description_p2_html: Quan personalitzis els teus colors, has de tenir en compte %{contrast_link}. Pots revisar el contrast de la teva elecció amb %{checker_link} o qualsevol eina similar.
           wcag_compliant_rations: Relació de contrast compatible amb WCAG 2.1 AA
           wcag_contrast_checker: Verificador de contrastos WebAIM
+        iconography:
+          description_iconography: Fem servir icones per reforçar el significat de les accions, dels títols, etc.
+          description_iconography_html: 'Fem servir la llibreria de codi obert Remixicon: %{iconography_link}'
+          title: Iconografia
+        layout:
+          breakpoint: Punt d'interrupció
+          breakpoints: Punts d'interrupció
+          centered: Centrat
+          code: Codi
+          columns: Essent el número de columnes 10, 8 o 6.
+          description_layout_p1: Per l'escriptori, Decidim fa servir una graella de 12 columnes amb un nombre limitat de plantilles (configuració de la graella) per diferents tipus de contingut. L'objectiu és que un tipus determinat de contingut (pàgina d'inici, llistat de trobades, element individual) tingui un disseny definit, per a que les usuàries puguin entendre a quin tipus de contingut es troben tan sols per l'aspecte general de la pàgina.
+          description_layout_p2: Aquestes simples regles han de seguir-se en crear nous mòduls o personalitzar els existents, de manera que una instància de Decidim pugui mantenir la seva consistència.
+          desktop: Ordinador d'escriptori
+          full_width: Amplada completa
+          layout_list_1: 'Pàgina d''inici (de la instància, d''un espai de participació): amplada completa'
+          layout_list_2: 'Llista d''elements (d''espais de participació, d''elements dins d''un espai de participació, etc.): al costat esquerre'
+          layout_list_3: 'Element individual (proposta, entrada al blog): centrat, opcionalment al costat dret'
+          left_aside: Al costat esquerre
+          mobile: Mòbil
+          not_required: No és requisit
+          properties: Propietats
+          right_aside: Al costat dret
+          section_p_breakpoints: 'Per gestionar l''ample màxim dels elements al disseny web adaptatiu depenem de la classe Tailwind predeterminada ''container'', que indica els punts d''interrupció següents:'
+          section_p_code: A l'hora d'implementar nous mòduls, disposes d'alguns ajudants que et proporcionen automàticament el codi necessari per a configurar l'estructura HTML. Hauries de fer servir aquests ajudants, en lloc de fer servir directament elements com <div> amb <class>, mantenint així la consistència.
+          section_p_code_html: Pots trobar els dissenys bàsics a %{link_section_code}
+          section_p_desktop: El sistema de graella per als ordinadors d'escirptori, es composen de 12 columnes flexibles amb un espaiat entre columnes de 16px i un marge esquerre i dret de 18px
       helpers:
         background: Vores i fons
         base: Base
