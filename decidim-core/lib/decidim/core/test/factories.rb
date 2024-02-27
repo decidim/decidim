@@ -8,8 +8,39 @@ require "decidim/participatory_processes/test/factories"
 require "decidim/assemblies/test/factories"
 require "decidim/comments/test/factories"
 
-def generate_localized_title
-  Decidim::Faker::Localized.localized { generate(:title) }
+def generate_component_name(locales, manifest_name, skip_injection: false)
+  prepend = skip_injection ? "" : "<script>alert(\"#{manifest_name}\");</script>"
+
+  Decidim::Components::Namer.new(locales, manifest_name).i18n_name.transform_values { |v| [prepend, v].compact_blank.join(" ") }
+end
+
+def generate_localized_description(field = nil, skip_injection: false, before: "<p>", after: "</p>")
+  Decidim::Faker::Localized.wrapped(before, after) do
+    generate_localized_title(field, skip_injection: skip_injection)
+  end
+end
+
+def generate_localized_word(field = nil, skip_injection: false)
+  skip_injection = true if field.nil?
+  Decidim::Faker::Localized.localized do
+    if skip_injection
+      Faker::Lorem.word
+    else
+      "<script>alert(\"#{field}\");</script> #{Faker::Lorem.word}"
+    end
+  end
+end
+
+def generate_localized_title(field = nil, skip_injection: false)
+  skip_injection = true if field.nil?
+
+  Decidim::Faker::Localized.localized do
+    if skip_injection
+      generate(:title)
+    else
+      "<script>alert(\"#{field}\");</script> #{generate(:title)}"
+    end
+  end
 end
 
 FactoryBot.define do
@@ -627,6 +658,49 @@ FactoryBot.define do
         some_extra_data: "1"
       }
     end
+  end
+
+  factory :conversation, class: "Decidim::Messaging::Conversation" do
+    transient do
+      skip_injection { false }
+    end
+
+    originator { build(:user) }
+    interlocutors { [build(:user)] }
+    body { Faker::Lorem.sentence }
+    user
+
+    after(:create) do |object|
+      object.participants ||= [originator + interlocutors].flatten
+    end
+
+    initialize_with { Decidim::Messaging::Conversation.start(originator: originator, interlocutors: interlocutors, body: body, user: user) }
+  end
+
+  factory :message, class: "Decidim::Messaging::Message" do
+    transient do
+      skip_injection { false }
+    end
+
+    body { generate_localized_description(:message_body) }
+    conversation
+
+    before(:create) do |object|
+      object.sender ||= object.conversation.participants.take
+    end
+  end
+
+  factory :push_notification_message, class: "Decidim::PushNotificationMessage" do
+    transient do
+      skip_injection { false }
+    end
+
+    recipient { build(:user) }
+    conversation { create(:conversation) }
+    message { generate_localized_description(:push_notification_message_message) }
+
+    skip_create
+    initialize_with { Decidim::PushNotificationMessage.new(recipient: recipient, conversation: conversation, message: message) }
   end
 
   factory :action_log, class: "Decidim::ActionLog" do
