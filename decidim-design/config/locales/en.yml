@@ -42,6 +42,9 @@ en:
           description_iconography: We use icons to reinforce the meaning of actions, titles, etc
           description_iconography_html: 'We use the Remixicon open source library: %{iconography_link}'
           title: Iconography
+        typography:
+          description_typography: These guidelines summarize how use typography at Decidim, and serve as guardrails for designers to design freely with best typographic practices in mind.
+          typography: Typography
       helpers:
         background: Background and borders
         base: Base
