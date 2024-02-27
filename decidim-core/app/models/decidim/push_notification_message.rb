@@ -8,7 +8,7 @@ module Decidim
     include SanitizeHelper
     include Decidim::TranslatableAttributes
 
-    def initialize(recipient, conversation, message)
+    def initialize(recipient:, conversation:, message:)
       @recipient = recipient
       @conversation = conversation
       @message = message

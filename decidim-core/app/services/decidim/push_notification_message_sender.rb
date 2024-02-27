@@ -22,7 +22,7 @@ module Decidim
       @sender = to
       @third_party = third_party
 
-      @notification = PushNotificationMessage.new(to, conversation, message)
+      @notification = PushNotificationMessage.new(recipient: to, conversation: conversation, message: message)
 
       self
     end
