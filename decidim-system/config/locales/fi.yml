@@ -183,8 +183,8 @@ fi:
           google_oauth2:
             client_id: Asiakkaan tunniste (Client ID)
             client_secret: Asiakkaan salausavain (Client secret)
-          icon: Ikoni
-          icon_path: Ikonin polku
+          icon: Kuvake
+          icon_path: Kuvakkeen polku
           twitter:
             api_key: API-avain
             api_secret: API-salausavain
