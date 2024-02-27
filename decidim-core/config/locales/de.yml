@@ -1641,7 +1641,7 @@ de:
       updated_not_active: Ihr Passwort wurde erfolgreich vergeben.
     mailer:
       confirmation_instructions:
-        action: Bestätige mein Konto
+        action: Konto bestätigen
         greeting: Willkommen %{recipient}!
         instruction: 'Sie können Ihre Konto-E-Mail über den folgenden Link bestätigen:'
         subject: Bestätigungsanweisungen
