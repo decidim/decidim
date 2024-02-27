@@ -38,6 +38,10 @@ eu:
           description_p2_html: Zure koloreak pertsonalizatzean, eduki gogoan % {contrast_link}. Zure aukeraren kontrastea egiazta dezakezu % {checker_link} edo antzeko tresnen bitartez.
           wcag_compliant_rations: WCAG 2.1 AA adostasun-kontraste erlazioa
           wcag_contrast_checker: WebAIM Kontraste-egiaztatzailea
+        iconography:
+          description_iconography: Ikonoak erabiltzen ditugu ekintzen, tituluen... esanahia indartzeko
+          description_iconography_html: 'Remixicon kode irekiko liburutegia erabiltzen dugu: %{iconography_link}'
+          title: Ikonografia
       helpers:
         background: Aurrekariak eta mugak
         base: Oinarria
