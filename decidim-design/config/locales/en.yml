@@ -42,9 +42,6 @@ en:
           description_iconography: We use icons to reinforce the meaning of actions, titles, etc
           description_iconography_html: 'We use the Remixicon open source library: %{iconography_link}'
           title: Iconography
-        typography:
-          description_typography: These guidelines summarize how use typography at Decidim, and serve as guardrails for designers to design freely with best typographic practices in mind.
-          typography: Typography
         layout:
           breakpoint: Breakpoint
           breakpoints: Breakpoints
@@ -71,6 +68,9 @@ en:
           section_p_tablet: Tablet grid system is composed of 8 flexible columns with a gutter between columns of 16px and left and right margins of 24px
           tablet: Tablet
           title: Layout
+        typography:
+          description_typography: These guidelines summarize how use typography at Decidim, and serve as guardrails for designers to design freely with best typographic practices in mind.
+          typography: Typography
       helpers:
         background: Background and borders
         base: Base
