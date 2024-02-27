@@ -470,7 +470,7 @@ describe "Explore meetings", :slow do
       end
 
       it "shows tags for category" do
-        expect(page).to have_selector("[data-tags]")
+        expect(page).to have_css("[data-tags]")
         within "[data-tags]" do
           expect(page).to have_content(translated(meeting.category.name))
         end
@@ -494,7 +494,7 @@ describe "Explore meetings", :slow do
       end
 
       it "shows tags for scope" do
-        expect(page).to have_selector("[data-tags]")
+        expect(page).to have_css("[data-tags]")
         within "[data-tags]" do
           expect(page).to have_content(translated(meeting.scope.name))
         end

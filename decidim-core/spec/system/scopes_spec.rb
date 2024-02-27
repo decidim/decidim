@@ -26,7 +26,7 @@ describe "Scopes picker" do
       let(:params) { { title:, required: true } }
 
       it "does not allow to choose current scope (none)" do
-        expect(page).to have_selector("[data-scope-picker].picker-footer a.button[disabled='true']")
+        expect(page).to have_css("[data-scope-picker].picker-footer a.button[disabled='true']")
       end
 
       it "shows organization top scopes in content" do

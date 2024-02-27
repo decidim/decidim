@@ -67,13 +67,13 @@ describe "Accessibility tool" do
 
   RSpec::Matchers.define :have_accessibility_violation_node do |violation_id, node_selector|
     match do |container|
-      expect(container).to have_selector(
+      expect(container).to have_css(
         ".decidim-accessibility-report-item[data-accessibility-violation-id='#{violation_id}']"
       )
 
       within ".decidim-accessibility-report-item[data-accessibility-violation-id='#{violation_id}']" do
         within ".decidim-accessibility-report-item-nodes ul" do
-          expect(page).to have_selector("li", text: node_selector)
+          expect(page).to have_css("li", text: node_selector)
         end
       end
     end
@@ -84,17 +84,17 @@ describe "Accessibility tool" do
   end
 
   it "runs the accessibility tool and reports violations" do
-    expect(page).to have_selector(".decidim-accessibility-badge")
+    expect(page).to have_css(".decidim-accessibility-badge")
     within ".decidim-accessibility-badge .decidim-accessibility-info" do
       expect(page).to have_content("4")
     end
     expect(page).to have_no_selector(".decidim-accessibility-report")
 
     find(".decidim-accessibility-badge").click
-    expect(page).to have_selector(".decidim-accessibility-report")
+    expect(page).to have_css(".decidim-accessibility-report")
 
     within ".decidim-accessibility-report" do
-      expect(page).to have_selector(".decidim-accessibility-report-item", count: 4)
+      expect(page).to have_css(".decidim-accessibility-report-item", count: 4)
 
       expect(page).to have_accessibility_violation_node("color-contrast", "#color_contrast")
       expect(page).to have_accessibility_violation_node("landmark-one-main", "html")
@@ -117,14 +117,14 @@ describe "Accessibility tool" do
     end
 
     it "runs the accessibility tool and reports violations" do
-      expect(page).to have_selector(".decidim-accessibility-badge")
+      expect(page).to have_css(".decidim-accessibility-badge")
       within ".decidim-accessibility-badge .decidim-accessibility-info" do
-        expect(page).to have_selector("svg use[href$='#ri-check-fill']")
+        expect(page).to have_css("svg use[href$='#ri-check-fill']")
       end
       expect(page).to have_no_selector(".decidim-accessibility-report")
 
       find(".decidim-accessibility-badge").click
-      expect(page).to have_selector(".decidim-accessibility-report")
+      expect(page).to have_css(".decidim-accessibility-report")
 
       within ".decidim-accessibility-report" do
         expect(page).to have_content("No accessibility violations found")

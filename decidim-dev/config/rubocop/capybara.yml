@@ -3,9 +3,10 @@ require: rubocop-capybara
 Capybara:
   Enabled: true
   DocumentationBaseURL: https://docs.rubocop.org/rubocop-capybara
-  Include: &1
+  Include:
     - "**/spec/**/*.rb"
 
 Capybara/RSpec:
-  Enabled: false
-  Include: *1
+  Enabled: true
+  Include:
+    - "**/spec/**/*.rb"
