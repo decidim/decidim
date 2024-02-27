@@ -45,6 +45,32 @@ en:
         typography:
           description_typography: These guidelines summarize how use typography at Decidim, and serve as guardrails for designers to design freely with best typographic practices in mind.
           typography: Typography
+        layout:
+          breakpoint: Breakpoint
+          breakpoints: Breakpoints
+          centered: Centered
+          code: Code
+          columns: Being the number of columns 10, 8 or 6.
+          description_layout_p1: For desktop, Decidim uses a 12 column grid with limited number of templates (grid configurations) for different types of content. The objective is that a given type of content (homepage, list of elements, individual item) has a distinctive layout, so users can understand in which kind of content they are just by the general look of the page.
+          description_layout_p2: These simple rules should be followed when creating new modules or customizing existing ones, so a Decidim site can maintain its consistency.
+          desktop: Desktop
+          full_width: Full width
+          layout_list_1: 'Homepage (of the site, of an space): full width'
+          layout_list_2: 'List of elements (of spaces, of items inside a space, etc): left aside'
+          layout_list_3: 'Individual item (proposal, blog post): centered, optionally with a right aside'
+          left_aside: Left aside
+          mobile: Mobile
+          not_required: Not required
+          properties: Properties
+          right_aside: Right Aside
+          section_p_breakpoints: 'To manage the responsive max-width of elements we rely on the default `container` Tailwind class, which states the following breakpoints:'
+          section_p_code: When implementing new modules you have some helpers that automatically provides you with the code needed to setup the HTML structure. You should use these helpers instead of directly using div elements with classes, so you maintain consistency.
+          section_p_code_html: You can find the basic layouts in %{link_section_code}
+          section_p_desktop: Desktop grid system is composed of 12 flexible columns with a gutter between columns of 16px and left and right margins of 48px
+          section_p_mobile: Mobile grid system is composed of 4 flexible columns with a gutter between columns of 16px and left and right margins of 16px. For sizes below 320px this margins are set to 8px
+          section_p_tablet: Tablet grid system is composed of 8 flexible columns with a gutter between columns of 16px and left and right margins of 24px
+          tablet: Tablet
+          title: Layout
       helpers:
         background: Background and borders
         base: Base
