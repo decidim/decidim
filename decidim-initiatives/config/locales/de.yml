@@ -218,7 +218,7 @@ de:
           info_initiative:
             created_at: Erstellt am
             description: Beschreibung
-            initiative_votes_count: Stimmen zählen
+            initiative_votes_count: Anzahl Stimmen
             initiatives: Initiativen
             state: Zustand
         committee_requests:
