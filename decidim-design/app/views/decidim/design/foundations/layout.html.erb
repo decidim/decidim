@@ -5,27 +5,27 @@
 <% content_for :description do %>
   <p><%= t(".description_layout_p1") %></p>
 
-  <p><%= t("decidim.design.foundations.layout.description_layout_p2") %></p>
+  <p><%= t(".description_layout_p2") %></p>
 
   <ul class="list-disc pl-4">
-    <li><%= t("decidim.design.foundations.layout.layout_list_1") %></li>
-    <li><%= t("decidim.design.foundations.layout.layout_list_2") %></li>
-    <li><%= t("decidim.design.foundations.layout.layout_list_3") %></li>
+    <li><%= t(".layout_list_1") %></li>
+    <li><%= t(".layout_list_2") %></li>
+    <li><%= t(".layout_list_3") %></li>
   </ul>
 <% end %>
 
 <% content_for :toc do %>
-  <a href="#desktop"><%= t("decidim.design.foundations.layout.desktop") %></a>
-  <a href="#tablet"><%= t("decidim.design.foundations.layout.tablet") %></a>
-  <a href="#mobile"><%= t("decidim.design.foundations.layout.mobile") %></a>
-  <a href="#code"><%= t("decidim.design.foundations.layout.code") %></a>
-  <a href="#breakpoints"><%= t("decidim.design.foundations.layout.breakpoints") %></a>
+  <a href="#desktop"><%= t(".desktop") %></a>
+  <a href="#tablet"><%= t(".tablet") %></a>
+  <a href="#mobile"><%= t(".mobile") %></a>
+  <a href="#code"><%= t(".code") %></a>
+  <a href="#breakpoints"><%= t(".breakpoints") %></a>
 <% end %>
 
 <section id="desktop" class="design__section">
-  <h2><%= t("decidim.design.foundations.layout.desktop") %> <span class="label">lg</span></h2>
+  <h2><%= t(".desktop") %> <span class="label">lg</span></h2>
 
-  <p><%= t("decidim.design.foundations.layout.section_p_desktop") %></p>
+  <p><%= t(".section_p_desktop") %></p>
 
   <div class="grid grid-cols-12 gap-4">
     <% 12.times do %>
@@ -35,9 +35,9 @@
 </section>
 
 <section id="tablet" class="design__section">
-  <h2><%= t("decidim.design.foundations.layout.tablet") %><span class="label">md</span></h2>
+  <h2><%= t(".tablet") %><span class="label">md</span></h2>
 
-  <p><%= t("decidim.design.foundations.layout.section_p_tablet") %></p>
+  <p><%= t(".section_p_tablet") %></p>
 
   <div class="grid grid-cols-6 gap-4">
     <% 6.times do %>
@@ -47,9 +47,9 @@
 </section>
 
 <section id="mobile" class="design__section">
-  <h2><%= t("decidim.design.foundations.layout.mobile") %> <span class="label">sm</span></h2>
+  <h2><%= t(".mobile") %> <span class="label">sm</span></h2>
 
-  <p><%= t("decidim.design.foundations.layout.section_p_mobile") %></p>
+  <p><%= t(".section_p_mobile") %></p>
 
   <div class="grid grid-cols-4 gap-4">
     <% 4.times do %>
@@ -59,18 +59,18 @@
 </section>
 
 <section id="code" class="design__section">
-  <h2><%= t("decidim.design.foundations.layout.code") %></h2>
+  <h2><%= t(".code") %></h2>
 
-  <p><%= t("decidim.design.foundations.layout.section_p_code") %></p>
+  <p><%= t(".section_p_code") %></p>
 
   <% link_section_url = "https://github.com/decidim/decidim/tree/develop/decidim-core/app/views/layouts/decidim/shared" %>
   <p><%= t(".section_p_code_html", link_section_code: link_to(link_section_url, link_section_url, target: "_blank", rel: "noopener noreferrer", class: "text-secondary underline")) %></p>
 
-  <h3 class="text-xl"><%= t("decidim.design.foundations.layout.full_width") %></h3>
+  <h3 class="text-xl"><%= t(".full_width") %></h3>
 
-  <p><%= t("decidim.design.foundations.layout.not_required") %></p>
+  <p><%= t(".not_required") %></p>
 
-  <h3 class="text-xl"><%= t("decidim.design.foundations.layout.left_aside") %></h3>
+  <h3 class="text-xl"><%= t(".left_aside") %></h3>
 
   <code class="p-4 rounded block bg-background">
     &lt;%= render layout: "layouts/decidim/shared/layout_two_col" do %&gt;
@@ -78,7 +78,7 @@
     &lt;% end %&gt;
   </code>
 
-  <h3 class="text-xl"><%= t("decidim.design.foundations.layout.right_aside") %></h3>
+  <h3 class="text-xl"><%= t(".right_aside") %></h3>
 
   <code class="p-4 rounded block bg-background">
     &lt;%= render layout: "layouts/decidim/shared/layout_two_col", locals: { reverse: true } do %&gt;
@@ -86,7 +86,7 @@
     &lt;% end %&gt;
   </code>
 
-  <h3 class="text-xl"><%= t("decidim.design.foundations.layout.centered") %></h3>
+  <h3 class="text-xl"><%= t(".centered") %></h3>
 
   <code class="p-4 rounded block bg-background">
     &lt;%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 10 } do %&gt;
@@ -94,19 +94,19 @@
     &lt;% end %&gt;
   </code>
 
-  <p><%= t("decidim.design.foundations.layout.columns") %></p>
+  <p><%= t(".columns") %></p>
 
 </section>
 
 <section id="breakpoints" class="design__section">
-  <h2><%= t("decidim.design.foundations.layout.breakpoints") %></h2>
+  <h2><%= t(".breakpoints") %></h2>
 
-  <p><%= t("decidim.design.foundations.layout.section_p_breakpoints") %></p>
+  <p><%= t(".section_p_breakpoints") %></p>
 
   <table class="design__table">
     <thead>
-      <th><%= t("decidim.design.foundations.layout.breakpoint") %></th>
-      <th><%= t("decidim.design.foundations.layout.properties") %></th>
+      <th><%= t(".breakpoint") %></th>
+      <th><%= t(".properties") %></th>
     </thead>
     <tbody>
       <%

@@ -38,6 +38,10 @@ en:
           description_p2_html: When customizing your colors, have in mind the %{contrast_link}. You can check the contrast of your choosing with %{checker_link} or other similar tools.
           wcag_compliant_rations: WCAG 2.1 AA compliant contrast ratio
           wcag_contrast_checker: WebAIM Contrast Checker
+        iconography:
+          description_iconography: We use icons to reinforce the meaning of actions, titles, etc
+          description_iconography_html: 'We use the Remixicon open source library: %{iconography_link}'
+          title: Iconography
         layout:
           breakpoint: Breakpoint
           breakpoints: Breakpoints
@@ -64,10 +68,6 @@ en:
           section_p_tablet: Tablet grid system is composed of 8 flexible columns with a gutter between columns of 16px and left and right margins of 24px
           tablet: Tablet
           title: Layout
-        iconography:
-          description_iconography: We use icons to reinforce the meaning of actions, titles, etc
-          description_iconography_html: 'We use the Remixicon open source library: %{iconography_link}'
-          title: Iconography
       helpers:
         background: Background and borders
         base: Base
