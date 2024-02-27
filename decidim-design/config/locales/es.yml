@@ -62,6 +62,11 @@ es:
           section_p_breakpoints: 'Para gestionar el ancho máximo de los elementos al diseño web adaptativo dependemos de la clase Tailwind predeterminada ''container'', que indica los siguientes puntos de interrupción:'
           section_p_code: Al implementar nuevos módulos, tienes algunos ayudantes que te proporcionan automáticamente el código necesario para configurar la estructura HTML. Deberías usar estos ayudantes en lugar de usar directamente elementos <div> con <class>, manteniendo así la consistencia.
           section_p_code_html: Puedes encontrar los diseños básicos en %{link_section_code}
+          section_p_desktop: El sistema de cuadrícula para los ordenadores de escritorio se compone de 12 columnas flexibles con un espaciado (canal) entre columnas de 16px y margen izquierdo y derecho de 48px
+          section_p_mobile: El sistema de cuadrícula para el móvil se compone de 4 columnas flexibles con un espaciado (canal) entre columnas de 16px y de margen izquierdo y derecho de 16px. Para tamaños inferiores a 320px estos márgenes se establecen a 8px.
+          section_p_tablet: El sistema de cuadrícula para tabletas se compone de 8 columnas flexibles con un espaciado (canal) entre columnas de 16px y margen izquierdo y derecho de 24px
+          tablet: Tableta
+          title: Diseño (maqueta distribución)
       helpers:
         background: Bordes y fondo
         base: Base
