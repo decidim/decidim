@@ -1,6 +1,10 @@
-<div data-dialog-container>
-  <%= icon "lock-line" %>
-  <h2 id="dialog-title-authorizationModal" tabindex="-1" data-dialog-title><%= title %></h2>
+<% add_decidim_page_title(title) %>
+
+<main data-dialog-container class="text-center mt-8">
+  <div class="flex justify-center">
+    <%= icon "lock-line", class: "w-20 h-20" %>
+  </div>
+  <h1 tabindex="-1" class="h1" data-dialog-title><%= title %></h1>
   <div>
     <div class="authorization-modal__verification-container">
       <% verifications.each do |verification| %>
@@ -25,4 +29,4 @@
       <% end %>
     </div>
   </div>
-</div>
+</main>

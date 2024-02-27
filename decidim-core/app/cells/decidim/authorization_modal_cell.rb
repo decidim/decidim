@@ -3,6 +3,7 @@
 module Decidim
   class AuthorizationModalCell < Decidim::ViewModel
     include LayoutHelper
+    include Decidim::MetaTagsHelper
 
     delegate :authorize_action_path, to: :controller
 
