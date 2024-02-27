@@ -62,7 +62,9 @@ describe "Answer a survey" do
       visit_component
     end
 
-    it "shows a modal dialog" do
+    it_behaves_like "accessible page"
+
+    it "shows a page" do
       expect(page).to have_content("Authorization required")
     end
   end

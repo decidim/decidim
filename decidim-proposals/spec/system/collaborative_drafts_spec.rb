@@ -75,7 +75,7 @@ describe "Explore Collaborative Drafts", versioning: true do
         within "[data-filters]" do
           expect(page).to have_field("All")
           [category, category2, category3].each do |cat|
-            expect(page).to have_field(cat.name[I18n.locale.to_s])
+            expect(page).to have_field(decidim_escape_translated(cat.name))
           end
         end
       end
@@ -87,7 +87,7 @@ describe "Explore Collaborative Drafts", versioning: true do
       end
 
       let(:html_body) { strip_tags(collaborative_draft.body).gsub(/\n/, " ").strip }
-      let(:stripped_body) { %(alert("BODY"); #{html_body}) }
+      let(:stripped_body) { %(alert("collaborative_draft_body"); #{html_body}) }
 
       it "shows the title" do
         expect(page).to have_content(collaborative_draft.title)
