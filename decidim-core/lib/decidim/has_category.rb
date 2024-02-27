@@ -8,7 +8,7 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      has_one :categorization, as: :categorizable
+      has_one :categorization, as: :categorizable, class_name: "Decidim::Categorization", dependent: :destroy
       has_one :category, through: :categorization
 
       scope :with_category, lambda { |category|
