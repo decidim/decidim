@@ -137,7 +137,7 @@ de:
         new:
           copy: Kopieren
           select: Wählen Sie die Daten aus, die Sie duplizieren möchten
-          title: Doppelte Montage
+          title: Dupliziertes Gremium
       assembly_imports:
         create:
           error: Beim Importieren dieses Gremiums ist ein Fehler aufgetreten.
