@@ -63,7 +63,8 @@
 
   <p><%= t("decidim.design.foundations.layout.section_p_code") %></p>
 
-  <p><%= t("decidim.design.foundations.layout.section_p_code_html", link_section_code: link_to("https://github.com/decidim/decidim/tree/develop/decidim-core/app/views/layouts/decidim/shared", target: "_blank", rel: "noopener noreferrer", class: "text-secondary underline")) %></p>
+  <% link_section_url = "https://github.com/decidim/decidim/tree/develop/decidim-core/app/views/layouts/decidim/shared" %>
+  <p><%= t(".section_p_code_html", link_section_code: link_to(link_section_url, link_section_url, target: "_blank", rel: "noopener noreferrer", class: "text-secondary underline")) %></p>
 
   <h3 class="text-xl"><%= t("decidim.design.foundations.layout.full_width") %></h3>
 
