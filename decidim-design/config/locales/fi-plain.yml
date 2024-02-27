@@ -38,6 +38,10 @@ fi-pl:
           description_p2_html: Mikäli muutat värejä, ota huomioon %{contrast_link}. Voit tarkastaa valitsemiesi värien kontrastin käyttämällä %{checker_link} tai vastaavia työkaluja.
           wcag_compliant_rations: WCAG 2.1 AA-tason yhteensopiva kontrasti
           wcag_contrast_checker: WebAIM:n tarjoamaa kontrastin tarkastustyökalua
+        iconography:
+          description_iconography: Käytämme kuvakkeita korostaaksemme mm. toimintojen ja otsikoiden merkitystä
+          description_iconography_html: 'Käytämme Remixicon-nimistä avoimen lähdekoodin kuvakekirjastoa: %{iconography_link}'
+          title: Kuvakkeet
       helpers:
         background: Taustat ja reunat
         base: Perusvärit
@@ -60,7 +64,7 @@ fi-pl:
         usage_base_3: "Graafiset koristeet ja korostusväri\nKorttien ja luettelomerkintöjen reunaväri väri kohdistimen ollessa niiden päällä\n\n\nkohteita leijuvat valtion raja"
         usage_formelements_1: Syöte-elementtien oletustaustaväri
         usage_formelements_2: Käytöstä poistettujen syöte-elementtien oletustaustaväri
-        usage_state_1: Onnistumisilmoituksen reunaväri\nIlmoitusten ikonin täyteväri\nPainikkeiden taustaväri onnistumisviesteissä
+        usage_state_1: Onnistumisilmoituksen reunaväri\nIlmoitusten kuvakkeen täyteväri\nPainikkeiden taustaväri onnistumisviesteissä
         usage_state_2: Varoitusilmoituksen reunaväri
         usage_state_3: Hälytysilmoituksen reunaväri\nHälytysilmoituksen kuvakkeen täyteväri
         usage_typography_1: Otsikot ja osioiden otsakkeet
