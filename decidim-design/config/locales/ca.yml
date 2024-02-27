@@ -62,7 +62,11 @@ ca:
           section_p_breakpoints: 'Per gestionar l''ample màxim dels elements al disseny web adaptatiu depenem de la classe Tailwind predeterminada ''container'', que indica els punts d''interrupció següents:'
           section_p_code: A l'hora d'implementar nous mòduls, disposes d'alguns ajudants que et proporcionen automàticament el codi necessari per a configurar l'estructura HTML. Hauries de fer servir aquests ajudants, en lloc de fer servir directament elements com <div> amb <class>, mantenint així la consistència.
           section_p_code_html: Pots trobar els dissenys bàsics a %{link_section_code}
-          section_p_desktop: El sistema de graella per als ordinadors d'escirptori, es composen de 12 columnes flexibles amb un espaiat entre columnes de 16px i un marge esquerre i dret de 18px
+          section_p_desktop: El sistema de graella per als ordinadors d'escriptori, es compon de 12 columnes flexibles amb un espaiat (canal) entre columnes de 16px i un marge esquerre i dret de 48px
+          section_p_mobile: El sistema de graella pel mòbil es compon de 4 columnes flexibles amb un espaiat (canal) entre columnes de 16px i de marge esquerre i dret de 16px. Per a mides inferiors a 320px aquests marges s'estableixen en 8px.
+          section_p_tablet: El sistema de graella per tauletes tàctils, es compon de 8 columnes flexibles amb un espaiat (canal) entre columnes de 16px i un marge esquerre i dret de 24px
+          tablet: Tauleta tàctil
+          title: Disseny (maqueta distribució)
       helpers:
         background: Vores i fons
         base: Base
