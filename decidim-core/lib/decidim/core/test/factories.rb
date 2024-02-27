@@ -737,6 +737,49 @@ FactoryBot.define do
     end
   end
 
+  factory :conversation, class: "Decidim::Messaging::Conversation" do
+    transient do
+      skip_injection { false }
+    end
+
+    originator { build(:user) }
+    interlocutors { [build(:user)] }
+    body { Faker::Lorem.sentence }
+    user
+
+    after(:create) do |object|
+      object.participants ||= [originator + interlocutors].flatten
+    end
+
+    initialize_with { Decidim::Messaging::Conversation.start(originator: originator, interlocutors: interlocutors, body: body, user: user) }
+  end
+
+  factory :message, class: "Decidim::Messaging::Message" do
+    transient do
+      skip_injection { false }
+    end
+
+    body { generate_localized_description(:message_body) }
+    conversation
+
+    before(:create) do |object|
+      object.sender ||= object.conversation.participants.take
+    end
+  end
+
+  factory :push_notification_message, class: "Decidim::PushNotificationMessage" do
+    transient do
+      skip_injection { false }
+    end
+
+    recipient { build(:user) }
+    conversation { create(:conversation) }
+    message { generate_localized_description(:push_notification_message_message) }
+
+    skip_create
+    initialize_with { Decidim::PushNotificationMessage.new(recipient: recipient, conversation: conversation, message: message) }
+  end
+
   factory :action_log, class: "Decidim::ActionLog" do
     transient do
       skip_injection { false }
