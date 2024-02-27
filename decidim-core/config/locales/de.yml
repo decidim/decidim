@@ -1308,7 +1308,7 @@ de:
           participate_title: Beteiligen Sie sich an den Prozessen auf dieser Plattform
           welcome: Willkommen bei %{organization}!
         statistics:
-          headline: Aktueller Zustand von %{organization}
+          headline: Aktueller Status von %{organization}
         sub_hero:
           register: Registrieren
           register_title: Registrieren Sie sich um ein Konto anzulegen
