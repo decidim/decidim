@@ -107,7 +107,7 @@ de:
           scope_id_eq:
             label: Umfang
           state_eq:
-            label: Zustand
+            label: Status
             values:
               accepted: Angenommen
               evaluating: In Bearbeitung
@@ -733,7 +733,7 @@ de:
             published_answer: Veröffentlichte Antwort
             published_at: Veröffentlicht am
             scope: Umfang
-            state: Zustand
+            state: Status
             title: Titel
             valuator: Schätzer
             valuators: Schätzer
@@ -785,7 +785,7 @@ de:
           related_to: Bezüglich
           scope: Umfang
           search: Suche
-          state: Zustand
+          state: Status
           type: Art
           voted: Gewählt
         index:
