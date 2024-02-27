@@ -5,6 +5,12 @@ module Decidim
     class ConferenceWidgetsController < Decidim::WidgetsController
       helper Decidim::SanitizeHelper
 
+      def show
+        enforce_permission_to :embed, :question, question: model if model
+
+        super
+      end
+
       private
 
       def model
@@ -17,6 +23,10 @@ module Decidim
 
       def iframe_url
         @iframe_url ||= conference_conference_widget_url(model)
+      end
+
+      def permission_class_chain
+        ::Decidim.permissions_registry.chain_for(::Decidim::Conferences::ApplicationController)
       end
     end
   end

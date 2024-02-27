@@ -5,6 +5,12 @@ module Decidim
     class WidgetsController < Decidim::WidgetsController
       helper Debates::ApplicationHelper
 
+      def show
+        enforce_permission_to :embed, :debate, debate: model if model
+
+        super
+      end
+
       private
 
       def model
@@ -13,6 +19,10 @@ module Decidim
 
       def iframe_url
         @iframe_url ||= debate_widget_url(model)
+      end
+
+      def permission_class_chain
+        [Decidim::Debates::Permissions]
       end
     end
   end

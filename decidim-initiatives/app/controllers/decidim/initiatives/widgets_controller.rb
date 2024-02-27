@@ -12,6 +12,12 @@ module Decidim
 
       include NeedsInitiative
 
+      def show
+        enforce_permission_to :embed, :participatory_space, current_participatory_space: model if model
+
+        super
+      end
+
       private
 
       def model
@@ -24,6 +30,10 @@ module Decidim
 
       def iframe_url
         @iframe_url ||= initiative_widget_url(model)
+      end
+
+      def permission_class_chain
+        ::Decidim.permissions_registry.chain_for(::Decidim::Initiatives::ApplicationController)
       end
     end
   end

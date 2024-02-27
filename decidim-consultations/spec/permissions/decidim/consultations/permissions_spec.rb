@@ -78,6 +78,33 @@ describe Decidim::Consultations::Permissions do
       end
     end
 
+    context "when embedding a question" do
+      let(:action_name) { :embed }
+      let(:action_subject) { :question }
+
+      context "when the question is published" do
+        let(:question) { create :question, :published, consultation: consultation }
+
+        it { is_expected.to be true }
+      end
+
+      context "when the question is not published" do
+        let(:question) { create :question, :unpublished, consultation: consultation }
+
+        context "when the user is not an admin" do
+          let(:user) { nil }
+
+          it { is_expected.to be false }
+        end
+
+        context "when the user is an admin" do
+          let(:user) { create :user, :admin, organization: organization }
+
+          it { is_expected.to be false }
+        end
+      end
+    end
+
     context "when voting a question" do
       let(:action_subject) { :question }
       let(:action_name) { :vote }
