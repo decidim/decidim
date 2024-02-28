@@ -10,7 +10,6 @@ en:
   decidim:
     admin:
       menu:
-        manage: Manage
         templates: Templates
       templates:
         actions:
