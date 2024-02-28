@@ -72,7 +72,7 @@ shared_examples "higher user role does not have hide" do
       expect(page).to have_css(".flag-modal", visible: :visible)
 
       within ".flag-modal" do
-        expect(page).not_to have_field(name: "report[hide]")
+        expect(page).to have_no_field(name: "report[hide]")
       end
     end
   end
@@ -83,7 +83,7 @@ shared_examples "reports" do
     it "gives the option to sign in" do
       visit reportable_path
 
-      expect(page).not_to have_css("html.is-disabled")
+      expect(page).to have_no_css("html.is-disabled")
 
       click_on "Report"
 
