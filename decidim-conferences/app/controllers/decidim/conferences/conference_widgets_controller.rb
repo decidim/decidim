@@ -14,7 +14,7 @@ module Decidim
       private
 
       def model
-        @model ||= Conference.published.find_by(slug: params[:conference_slug])
+        @model ||= Conference.where(organization: current_organization).published.find_by(slug: params[:conference_slug])
       end
 
       def current_participatory_space

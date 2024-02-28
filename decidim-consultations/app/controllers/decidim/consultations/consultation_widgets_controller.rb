@@ -17,7 +17,7 @@ module Decidim
       private
 
       def model
-        @model ||= Consultation.published.find_by(slug: params[:consultation_slug])
+        @model ||= Consultation.where(organization: current_organization).published.find_by(slug: params[:consultation_slug])
       end
 
       def current_participatory_space
