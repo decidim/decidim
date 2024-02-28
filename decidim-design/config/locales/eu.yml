@@ -42,6 +42,12 @@ eu:
           description_iconography: Ikonoak erabiltzen ditugu ekintzen, tituluen... esanahia indartzeko
           description_iconography_html: 'Remixicon kode irekiko liburutegia erabiltzen dugu: %{iconography_link}'
           title: Ikonografia
+        layout:
+          breakpoint: Eten-puntua
+          breakpoints: Eten-puntuak
+          centered: Zentratuta
+          code: Kodea
+          columns: Zutabe kopurua 10, 8 edo 6 izanik.
       helpers:
         background: Aurrekariak eta mugak
         base: Oinarria
