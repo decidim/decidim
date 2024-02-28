@@ -48,7 +48,7 @@ describe "Conferences", type: :system do
     it "shows them" do
       within "div.wrapper .conference-media" do
         expect(page).to have_content("MEDIA AND LINKS")
-        expect(page).to have_content(/#{translated(media_link.title, locale: :en)}/i)
+        expect(page).to have_content(translated(media_link.title))
         expect(page).to have_css(".media-links a")
       end
     end
