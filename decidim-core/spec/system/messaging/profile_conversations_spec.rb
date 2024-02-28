@@ -52,14 +52,14 @@ describe "ProfileConversations" do
   shared_examples "create new conversation" do
     it "allows sending an initial message", :slow do
       start_conversation("Is this a Ryanair style democracy?")
-      expect(page).to have_selector(".conversation__item-snippet-message", text: "Is this a Ryanair style democracy?")
+      expect(page).to have_css(".conversation__item-snippet-message", text: "Is this a Ryanair style democracy?")
     end
 
     it "redirects to an existing conversation if it exists already", :slow do
       start_conversation("Is this a Ryanair style democracy?")
 
       visit decidim.new_profile_conversation_path(nickname: profile.nickname, recipient_id: recipient.id)
-      expect(page).to have_selector("#messages .conversation__message:last-child", text: "Is this a Ryanair style democracy?")
+      expect(page).to have_css("#messages .conversation__message:last-child", text: "Is this a Ryanair style democracy?")
     end
   end
 
@@ -97,7 +97,7 @@ describe "ProfileConversations" do
 
           it "shows the existing conversation" do
             visit decidim.profile_conversation_path(nickname: profile.nickname, id: conversation.id)
-            expect(page).to have_selector("#messages .conversation__message:last-child", text: "Is this a Ryanair style democracy?")
+            expect(page).to have_css("#messages .conversation__message:last-child", text: "Is this a Ryanair style democracy?")
           end
         end
       end
@@ -131,9 +131,9 @@ describe "ProfileConversations" do
       end
 
       it "shows profile's conversation list" do
-        expect(page).to have_selector(".conversation__item", text: /#{interlocutor.name}/i)
-        expect(page).to have_selector(".conversation__item", text: "who wants apples?")
-        expect(page).to have_selector(".conversation__item", text: "less than a minute")
+        expect(page).to have_css(".conversation__item", text: /#{interlocutor.name}/i)
+        expect(page).to have_css(".conversation__item", text: "who wants apples?")
+        expect(page).to have_css(".conversation__item", text: "less than a minute")
       end
 
       it "allows entering a conversation" do
@@ -172,15 +172,15 @@ describe "ProfileConversations" do
       end
 
       it "shows the topbar button as active" do
-        expect(page).to have_selector("li.profile__tab.is-active a", text: "Conversations")
+        expect(page).to have_css("li.profile__tab.is-active a", text: "Conversations")
       end
 
       it "shows the topbar button the number of unread messages" do
-        expect(page).to have_selector("li.profile__tab.is-active .conversation__item-unread", text: "2")
+        expect(page).to have_css("li.profile__tab.is-active .conversation__item-unread", text: "2")
       end
 
       it "shows the number of unread messages per conversation" do
-        expect(page).to have_selector(".conversation__item .conversation__item-unread", text: "2")
+        expect(page).to have_css(".conversation__item .conversation__item-unread", text: "2")
       end
     end
 
@@ -200,7 +200,7 @@ describe "ProfileConversations" do
       end
 
       it "shows the topbar button the number of unread messages" do
-        expect(page).to have_selector("li.profile__tab.is-active .conversation__item-unread", text: "3")
+        expect(page).to have_css("li.profile__tab.is-active .conversation__item-unread", text: "3")
       end
     end
 
@@ -215,7 +215,7 @@ describe "ProfileConversations" do
       end
 
       it "does not show an unread count" do
-        expect(page).to have_selector(".conversation__item .conversation__item-unread")
+        expect(page).to have_css(".conversation__item .conversation__item-unread")
         expect(page.find(".conversation__item .conversation__item-unread").text).to be_blank
       end
 
@@ -237,19 +237,19 @@ describe "ProfileConversations" do
 
       it "appears as the last message", :slow do
         click_on "Send"
-        expect(page).to have_selector("#messages .conversation__message:last-child", text: "Please reply!")
+        expect(page).to have_css("#messages .conversation__message:last-child", text: "Please reply!")
       end
 
       context "and interlocutor sees it" do
         before do
           click_on "Send"
-          expect(page).to have_selector("#messages .conversation__message:last-child", text: "Please reply!")
+          expect(page).to have_css("#messages .conversation__message:last-child", text: "Please reply!")
           relogin_as interlocutor, scope: :user
           visit decidim.conversations_path
         end
 
         it "appears as unread", :slow do
-          expect(page).to have_selector(".conversation__item-unread", text: "2")
+          expect(page).to have_css(".conversation__item-unread", text: "2")
         end
 
         it "appears as read after it is seen", :slow do
@@ -257,7 +257,7 @@ describe "ProfileConversations" do
           expect(page).to have_content("Please reply!")
 
           visit decidim.conversations_path
-          expect(page).to have_selector(".conversation__item .conversation__item-unread")
+          expect(page).to have_css(".conversation__item .conversation__item-unread")
           expect(page.find(".conversation__item .conversation__item-unread").text).to be_blank
         end
       end
@@ -295,7 +295,7 @@ describe "ProfileConversations" do
 
         it "appears as the last message", :slow do
           click_on "Send"
-          expect(page).to have_selector(".conversation__message:last-child", text: "Please reply!")
+          expect(page).to have_css(".conversation__message:last-child", text: "Please reply!")
         end
       end
     end
@@ -309,7 +309,7 @@ describe "ProfileConversations" do
           expect(page).to have_content("New conversation")
           click_on "New conversation"
           find_by_id("add_conversation_users").fill_in with: "@#{interlocutor2.nickname}"
-          expect(page).to have_selector("#autoComplete_list_1 li.disabled", wait: 2)
+          expect(page).to have_css("#autoComplete_list_1 li.disabled", wait: 2)
         end
       end
 

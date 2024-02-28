@@ -18,9 +18,9 @@ shared_examples "manage attachment collections examples" do
       click_on "Edit"
     end
 
-    expect(page).to have_selector("input#attachment_collection_name_en[value='#{translated(attachment_collection.name, locale: :en)}']")
-    expect(page).to have_selector("input#attachment_collection_weight[value='#{attachment_collection.weight}']")
-    expect(page).to have_selector("input#attachment_collection_description_en[value='#{translated(attachment_collection.description, locale: :en)}']")
+    expect(page).to have_css("input#attachment_collection_name_en[value='#{translated(attachment_collection.name, locale: :en)}']")
+    expect(page).to have_css("input#attachment_collection_weight[value='#{attachment_collection.weight}']")
+    expect(page).to have_css("input#attachment_collection_description_en[value='#{translated(attachment_collection.description, locale: :en)}']")
   end
 
   it "can add attachment collections to a process" do
@@ -55,7 +55,7 @@ shared_examples "manage attachment collections examples" do
 
   it "can update an attachment collection" do
     within "#attachment_collections" do
-      within find("tr", text: translated(attachment_collection.name)) do
+      within "tr", text: translated(attachment_collection.name) do
         click_on "Edit"
       end
     end
@@ -88,14 +88,14 @@ shared_examples "manage attachment collections examples" do
       end
 
       it "can delete the attachment collection" do
-        within find("tr", text: translated(attachment_collection2.name)) do
+        within "tr", text: translated(attachment_collection2.name) do
           accept_confirm { click_on "Delete" }
         end
 
         expect(page).to have_admin_callout("successfully")
 
         within "#attachment_collections table" do
-          expect(page).not_to have_content(translated(attachment_collection2.name))
+          expect(page).to have_no_content(translated(attachment_collection2.name))
         end
       end
     end
@@ -108,8 +108,8 @@ shared_examples "manage attachment collections examples" do
       end
 
       it "cannot delete it" do
-        within find("tr", text: translated(attachment_collection.name)) do
-          expect(page).not_to have_selector("a.action-icon--remove")
+        within "tr", text: translated(attachment_collection.name) do
+          expect(page).to have_no_css("a.action-icon--remove")
         end
       end
     end
