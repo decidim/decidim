@@ -77,6 +77,7 @@ module Decidim
           @debates ||= Debate.where(component: current_component).not_hidden
         end
 
+
         def debate
           @debate ||= debates.find(params[:id])
         end
