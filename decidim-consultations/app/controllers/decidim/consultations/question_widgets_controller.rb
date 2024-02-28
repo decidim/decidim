@@ -9,7 +9,7 @@ module Decidim
       helper Decidim::SanitizeHelper
 
       def show
-        enforce_permission_to :embed, :participatory_space, current_participatory_space: model if model
+        enforce_permission_to :embed, :question, question: model if model
 
         super
       end

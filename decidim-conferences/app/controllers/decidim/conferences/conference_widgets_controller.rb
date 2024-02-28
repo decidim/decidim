@@ -6,7 +6,7 @@ module Decidim
       helper Decidim::SanitizeHelper
 
       def show
-        enforce_permission_to :embed, :question, question: model if model
+        enforce_permission_to :embed, :conference, conference: model if model
 
         super
       end
