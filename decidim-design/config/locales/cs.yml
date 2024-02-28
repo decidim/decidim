@@ -5,6 +5,7 @@ cs:
       foundations:
         accessibility:
           accessibility_labels: Štítky přístupnosti
+          accessibility_labels_paragraph: Při definování prvků se vždy ujistěte, že mají smysl pro čtenáře obrazovky.
           accessibility_title: Přístupnost
           color_contrast: Barevný kontrast
           elements_hidden: Skryté prvky
@@ -28,6 +29,19 @@ cs:
           description_p2_html: Při přizpůsobování barev mějte na paměti %{contrast_link}. Můžete zkontrolovat kontrast dle vašeho výběru s %{checker_link} nebo jinými podobnými nástroji.
           wcag_compliant_rations: WCAG 2.1 kontrastní poměr vyhovující požadavkům AA
           wcag_contrast_checker: Kontrola kontrastu WebAIM
+        iconography:
+          description_iconography: Používáme ikony k posílení významu akcí, titulků atd
+          description_iconography_html: 'Používáme open source knihovnu Remixikon: %{iconography_link}'
+          title: Ikonografie
+        layout:
+          breakpoint: Zarážka
+          breakpoints: Zarážky
+          centered: Na střed
+          code: Kód
+          desktop: Počítač
+          full_width: Plná šířka
+          mobile: Mobilní zařízení
+          not_required: Nevyžadováno
       helpers:
         background: Pozadí a okraje
         base: Podklad
