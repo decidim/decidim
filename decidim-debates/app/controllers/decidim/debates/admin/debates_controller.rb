@@ -7,7 +7,7 @@ module Decidim
       class DebatesController < Decidim::Debates::Admin::ApplicationController
         helper Decidim::ApplicationHelper
 
-        helper_method :debates, :debate
+        helper_method :debates
 
         def index
           enforce_permission_to :read, :debate
@@ -74,7 +74,7 @@ module Decidim
         private
 
         def debates
-          @debates ||= Debate.where(component: current_component).not_hidden
+          @debates ||= Debate.where(component: current_component)
         end
 
         def debate
