@@ -60,9 +60,10 @@ describe "User creates meeting" do
         let(:start_month) { base_date.strftime("%b") }
         let(:start_day) { base_date.day }
         let(:meeting_start_time) { base_date.strftime("%H:%M") }
-        let(:meeting_end_date) { ((base_date + 2.days) + 1.month).strftime("%d/%m/%Y") }
-        let(:end_month) { (base_date + 1.month).strftime("%b") }
-        let(:end_day) { ((base_date + 2.days) + 1.month).day }
+        let(:end_date) { (base_date + 2.days) + 1.month }
+        let(:meeting_end_date) { end_date.strftime("%d/%m/%Y") }
+        let(:end_month) { end_date.strftime("%b") }
+        let(:end_day) { end_date.day }
         let(:meeting_end_time) { (base_date + 4.hours).strftime("%H:%M") }
         let(:meeting_available_slots) { 30 }
         let(:meeting_registration_terms) { "These are the registration terms for this meeting" }
