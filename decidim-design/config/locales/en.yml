@@ -2,6 +2,9 @@
 en:
   decidim:
     design:
+      components:
+        accordions:
+          title: Accordions
       foundations:
         accessibility:
           accessibility_labels: Accessibility labels
