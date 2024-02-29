@@ -119,7 +119,7 @@ module Decidim
                       process
 
         return disallow! unless process.published?
-        return disallow! unless can_view_private_space?
+        return disallow! if process.private_space
 
         allow!
       end

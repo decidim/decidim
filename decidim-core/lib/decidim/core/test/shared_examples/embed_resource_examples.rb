@@ -115,7 +115,11 @@ shared_examples_for "a private embed resource" do
         sign_in user, scope: :user
       end
 
-      it_behaves_like "rendering the page correctly"
+      it "shows the unauthorized message" do
+        visit widget_path
+
+        expect(page).to have_content "You are not authorized to perform this action"
+      end
     end
   end
 end

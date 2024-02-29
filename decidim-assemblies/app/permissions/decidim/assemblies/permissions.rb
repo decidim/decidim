@@ -143,7 +143,7 @@ module Decidim
                       assembly
 
         return disallow! unless assembly.published?
-        return disallow! unless can_view_private_space?
+        return disallow! if assembly.private_space && !assembly.is_transparent?
 
         allow!
       end
