@@ -307,7 +307,6 @@ ja:
           form:
             existing_user: 既存の参加者
             explanation: '画像のガイダンス:'
-            image_guide: テキストを持たない人物の画像を使用する必要があります。
             non_user: 参加者がいません
             non_user_avatar_help: メンバーとして公開する前に同意を得る必要があります。
             select_a_position: ポジションを選択
