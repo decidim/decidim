@@ -290,7 +290,6 @@ lt:
           form:
             existing_user: Egzistuojantis dalyvis
             explanation: 'Paveikslėliui skirtos gairės:'
-            image_guide: Pageidautina, kad tai būtų vertikalaus formato paveikslėlis be teksto.
             non_user: Neturintis dalyvio statuso subjektas
             non_user_avatar_help: Turite gauti naudotojų sutikimą prieš publikuodami juos kaip narius.
             select_a_position: Pasirinkti poziciją
