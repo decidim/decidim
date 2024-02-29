@@ -5,12 +5,14 @@ en:
       components:
         accordions:
           content_panel: Content of the panel
+          decidim_core_path: decidim-core/app/packs/src/decidim/a11y.js
           demo: Demo
           demo_description: Throughout the application the accordions are used, mainly, to show/hide content in tabs or fold/unfold visible texts.
           description_accordions_html: Accordions are a javascript feature available thanks to an external library called %{link_code} a11y-accordion-component.
+          github_source_html: Source code on GitHub %{github_link}
+          panel: Panel
           title: Accordions
           trigger: Trigger
-          panel: Panel
           usage: Usage
           usage_p: An accordion requires at least three elements
           usage_p_1_html: 1. A wrapper <code>div</code>, with the data-attribute <code>data-component="accordion"</code>, over all the available triggers and panels.

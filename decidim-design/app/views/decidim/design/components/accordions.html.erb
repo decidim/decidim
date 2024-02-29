@@ -48,7 +48,8 @@
   <p><%= t(".usage_p_3_html") %></p>
 
   <div class="design__section-snippet" style="margin-top: inherit;">
-    <p>Source code on GitHub: <%= link_to("decidim-core/app/packs/src/decidim/a11y.js", "https://github.com/decidim/decidim/blob/develop/decidim-core/app/packs/src/decidim/a11y.js", target: "_blank", rel: "noopener noreferrer") %></p>
+    <% github_link = "https://github.com/decidim/decidim/blob/develop/decidim-core/app/packs/src/decidim/a11y.js" %>
+    <p><%= t(".github_source_html", github_link: link_to("decidim-core/app/packs/src/decidim/a11y.js", github_link, target: "_blank", rel: "noopener noreferrer")) %></p>
 
     <code>
       <textarea spellcheck="false" rows="8">
