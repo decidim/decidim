@@ -186,8 +186,6 @@ nl:
             title: Vraag uw verificatiecode aan
       sms:
         authorizations:
-          destroy:
-            success: Verificatiecode succesvol gereset. Voer uw telefoonnummer opnieuw in.
           edit:
             confirm_destroy: Weet je zeker dat je de verificatiecode opnieuw wilt instellen?
             destroy: Verificatiecode opnieuw instellen
