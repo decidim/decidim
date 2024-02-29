@@ -5,8 +5,11 @@ require "decidim/dev"
 
 FactoryBot.define do
   factory :initiatives_type, class: "Decidim::InitiativesType" do
-    title { generate_localized_title }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    transient do
+      skip_injection { false }
+    end
+    title { generate_localized_title(:initiatives_type_title, skip_injection: skip_injection) }
+    description { generate_localized_description(:initiatives_type_description, skip_injection: skip_injection) }
     organization
     # Keep banner_image after organization
     banner_image do
@@ -82,7 +85,7 @@ FactoryBot.define do
 
     trait :with_user_extra_fields_collection do
       collect_user_extra_fields { true }
-      extra_fields_legal_information { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+      extra_fields_legal_information { generate_localized_description(:initiatives_type_extra_fields_legal_information, skip_injection: skip_injection) }
       document_number_authorization_handler { "dummy_authorization_handler" }
     end
 
@@ -100,20 +103,26 @@ FactoryBot.define do
   end
 
   factory :initiatives_type_scope, class: "Decidim::InitiativesTypeScope" do
-    type { create(:initiatives_type) }
-    scope { create(:scope, organization: type.organization) }
+    transient do
+      skip_injection { false }
+    end
+    type { create(:initiatives_type, skip_injection: skip_injection) }
+    scope { create(:scope, organization: type.organization, skip_injection: skip_injection) }
     supports_required { 1000 }
 
     trait :with_user_extra_fields_collection do
-      type { create(:initiatives_type, :with_user_extra_fields_collection) }
+      type { create(:initiatives_type, :with_user_extra_fields_collection, skip_injection: skip_injection) }
     end
   end
 
   factory :initiative, class: "Decidim::Initiative" do
-    title { generate_localized_title }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    transient do
+      skip_injection { false }
+    end
+    title { generate_localized_title(:initiative_title, skip_injection: skip_injection) }
+    description { generate_localized_description(:initiative_description, skip_injection: skip_injection) }
     organization
-    author { create(:user, :confirmed, organization: organization) }
+    author { create(:user, :confirmed, organization: organization, skip_injection: skip_injection) }
     published_at { Time.current }
     state { "published" }
     signature_type { "online" }
@@ -121,15 +130,15 @@ FactoryBot.define do
     signature_end_date { Date.current + 120.days }
 
     scoped_type do
-      create(:initiatives_type_scope,
-             type: create(:initiatives_type, organization: organization, signature_type: signature_type))
+      create(:initiatives_type_scope, skip_injection: skip_injection,
+                                      type: create(:initiatives_type, organization: organization, signature_type: signature_type, skip_injection: skip_injection))
     end
 
-    after(:create) do |initiative|
+    after(:create) do |initiative, evaluator|
       if initiative.author.is_a?(Decidim::User) && Decidim::Authorization.where(user: initiative.author).where.not(granted_at: nil).none?
-        create(:authorization, user: initiative.author, granted_at: Time.now.utc)
+        create(:authorization, user: initiative.author, granted_at: Time.now.utc, skip_injection: evaluator.skip_injection)
       end
-      create_list(:initiatives_committee_member, 3, initiative: initiative)
+      create_list(:initiatives_committee_member, 3, initiative: initiative, skip_injection: evaluator.skip_injection)
     end
 
     trait :created do
@@ -198,13 +207,13 @@ FactoryBot.define do
 
     trait :with_user_extra_fields_collection do
       scoped_type do
-        create(:initiatives_type_scope,
-               type: create(:initiatives_type, :with_user_extra_fields_collection, organization: organization))
+        create(:initiatives_type_scope, skip_injection: skip_injection,
+                                        type: create(:initiatives_type, :with_user_extra_fields_collection, organization: organization, skip_injection: skip_injection))
       end
     end
 
     trait :with_area do
-      area { create(:area, organization: organization) }
+      area { create(:area, organization: organization, skip_injection: skip_injection) }
     end
 
     trait :with_documents do
@@ -217,7 +226,8 @@ FactoryBot.define do
           initiative.attachments << create(
             :attachment,
             :with_pdf,
-            attached_to: initiative
+            attached_to: initiative,
+            skip_injection: evaluator.skip_injection
           )
         end
       end
@@ -233,7 +243,8 @@ FactoryBot.define do
           initiative.attachments << create(
             :attachment,
             :with_image,
-            attached_to: initiative
+            attached_to: initiative,
+            skip_injection: evaluator.skip_injection
           )
         end
       end
@@ -241,8 +252,11 @@ FactoryBot.define do
   end
 
   factory :initiative_user_vote, class: "Decidim::InitiativesVote" do
-    initiative { create(:initiative) }
-    author { create(:user, :confirmed, organization: initiative.organization) }
+    transient do
+      skip_injection { false }
+    end
+    initiative { create(:initiative, skip_injection: skip_injection) }
+    author { create(:user, :confirmed, organization: initiative.organization, skip_injection: skip_injection) }
     hash_id { SecureRandom.uuid }
     scope { initiative.scope }
     after(:create) do |vote|
@@ -251,17 +265,23 @@ FactoryBot.define do
   end
 
   factory :organization_user_vote, class: "Decidim::InitiativesVote" do
-    initiative { create(:initiative) }
-    author { create(:user, :confirmed, organization: initiative.organization) }
-    decidim_user_group_id { create(:user_group).id }
-    after(:create) do |support|
-      create(:user_group_membership, user: support.author, user_group: Decidim::UserGroup.find(support.decidim_user_group_id))
+    transient do
+      skip_injection { false }
+    end
+    initiative { create(:initiative, skip_injection: skip_injection) }
+    author { create(:user, :confirmed, organization: initiative.organization, skip_injection: skip_injection) }
+    decidim_user_group_id { create(:user_group, skip_injection: skip_injection).id }
+    after(:create) do |support, evaluator|
+      create(:user_group_membership, user: support.author, user_group: Decidim::UserGroup.find(support.decidim_user_group_id), skip_injection: evaluator.skip_injection)
     end
   end
 
   factory :initiatives_committee_member, class: "Decidim::InitiativesCommitteeMember" do
-    initiative { create(:initiative) }
-    user { create(:user, :confirmed, organization: initiative.organization) }
+    transient do
+      skip_injection { false }
+    end
+    initiative { create(:initiative, skip_injection: skip_injection) }
+    user { create(:user, :confirmed, organization: initiative.organization, skip_injection: skip_injection) }
     state { "accepted" }
 
     trait :accepted do
@@ -278,6 +298,9 @@ FactoryBot.define do
   end
 
   factory :initiatives_settings, class: "Decidim::InitiativesSettings" do
+    transient do
+      skip_injection { false }
+    end
     initiatives_order { "random" }
     organization
 
