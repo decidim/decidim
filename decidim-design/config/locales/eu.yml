@@ -48,6 +48,26 @@ eu:
           centered: Zentratuta
           code: Kodea
           columns: Zutabe kopurua 10, 8 edo 6 izanik.
+          description_layout_p1: Mahaigainerako, Decidimek 12 zutabeko lauki bat erabiltzen du, txantiloi kopuru mugatuarekin (sare-konfigurazioak) eduki mota desberdinetarako. Helburua da eduki mota jakin batek (hasierako orria, elementuen zerrenda, elementu indibiduala) maketazio bereizgarria izatea, erabiltzaileek uler dezaten zein eduki motatan dauden orrialdearen begirada orokorraren bidez.
+          description_layout_p2: Arau sinple horiek jarraitu behar dira modulu berriak sortzean edo daudenak pertsonalizatzean, Decidim gune batek bere koherentzia mantendu dezan.
+          desktop: Mahaigaina
+          full_width: Zabalera osoa
+          layout_list_1: 'Hasierako orria (eskaerarena, parte hartzeko gune batena): zabalera osoa'
+          layout_list_2: 'Elementuen zerrenda (parte hartzeko espazioena, espazio baten barruko elementuena...): ezkerreko aldean'
+          layout_list_3: 'Objektu indibiduala (proposamena, blogeko sarrera): zentratua, aukeran eskuineko aldean'
+          left_aside: Ezker aldean
+          mobile: Mugikorra
+          not_required: Ez da beharrezkoa
+          properties: Ezaugarriak
+          right_aside: Eskuin aldean
+          section_p_breakpoints: 'Web diseinu egokitzailerako elementuen gehieneko zabalera kudeatzeko, aurrez zehaztutako Tailwind ''container'' klasearen mende gaude. Horrek honako eten-puntu hauek adierazten ditu:'
+          section_p_code: Modulu berriak inplementatzean, HTML egitura konfiguratzeko beharrezkoa den kodea automatikoki ematen dizuten laguntzaile batzuk dituzu. Laguntzaile horiek erabili beharko zenituzke, <div> <class> elementuak zuzenean erabili beharrean, horrela sendotasuna mantenduz.
+          section_p_code_html: 'Oinarrizko diseinuak hemen aurki ditzakezu: %{link_section_code}'
+          section_p_desktop: Mahaigaineko ordenagailuentzako lauki-sistema 12 zutabe malguk osatzen dute, eta 16px-ko zutabeen eta ezkerreko eta eskuineko marjinen arteko tartea (kanala) 48px-koa da
+          section_p_mobile: Mugikorrerako lauki-sistemak 4 zutabe malgu ditu, eta 16px-ko zutabeen arteko tartea (kanala) eta ezkerreko eta eskuineko ertzak 16px-koak dira. 320px baino gutxiagoko tamainetarako, marjina horiek 8px dira
+          section_p_tablet: Tabletetarako lauki-sistemak 8 zutabe malgu ditu, eta 16px-ko zutabeen eta ezkerreko eta eskuineko ertzen arteko tartea (kanala) 24px-koa da
+          tablet: Tableta
+          title: Diseinua
       helpers:
         background: Aurrekariak eta mugak
         base: Oinarria
