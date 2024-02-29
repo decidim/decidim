@@ -287,7 +287,6 @@ ro:
           form:
             existing_user: Participant existent
             explanation: 'Îndrumare pentru imagine:'
-            image_guide: Este de preferat o imagine pe format orizontal care să nu conțină text deloc.
             non_user: Non participant
             non_user_avatar_help: Ar trebui să obţii consimţământul persoanelor înainte de a îi publica drept membri.
             select_a_position: Selectaţi o poziţie
