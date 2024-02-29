@@ -107,7 +107,6 @@ cs:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Hledat %{collection} podle názvu, popisu, ID nebo jména autora.
       initiatives_settings:
         update:
-          error: Došlo k chybě.
           success: Nastavení iniciativ bylo úspěšně aktualizováno.
       menu:
         attachments: Přílohy
