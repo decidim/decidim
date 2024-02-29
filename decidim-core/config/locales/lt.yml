@@ -815,10 +815,6 @@ lt:
           email_outro: Šį pranešimą gavote dėl to, kad esate platformos administratorius.
           email_subject: Naudotojų grupė atnaujino savo profilį
           notification_title: Naudotojų grupė pavadinimu %{user_group_name} atnaujino savo profilį, bet jo nepatvirtino. Galite jį patvirtinti <a href="%{groups_admin_path}">administratoriaus srityje</a>.
-      nickname_event:
-        notification_body: Pataisėme slapyvardžių naudojimo būdą, kad nebūtų dublikatų, todėl pašalinome didžiųjų ir mažųjų raidžių skyrimo taisyklę. <br/> Jūsų slapyvardis buvo sukurtas po kitu tokiu pačiu pavadinimu, todėl jį automatiškai pervardijome. Jį galite pakeisti <a href="%{link_to_account_settings}">savo paskyros nustatymuose</a>.
-      notification_event:
-        notification_title: Kažkas įvyko <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: Administratorius pašalino jūsų %{resource_type}, nes buvo pranešta apie tai kaip %{report_reasons}.
@@ -901,14 +897,12 @@ lt:
         file:
           explanation: 'Rinkmenai skirtos gairės:'
           message_1: Turi būti paveikslėlis arba dokumentas.
-          message_2: Paveikslėliams geriau naudokite horizontalųjį formatą, programa apkarpys paveikslėlį.
         icon:
           explanation: 'Piktogramai skirtos gairės:'
           message_1: Paveikslėlis turi būti kvadrato formos.
           message_2: Rekomenduojamas paveikslėlio dydis yra 512x512.
         image:
           explanation: 'Paveikslėliui skirtos gairės:'
-          message_1: Pageidautinas horizontalaus formato paveikslėlis be teksto.
           message_2: Programa apkarpo paveikslėlį.
       file_validation:
         allowed_file_extensions: 'Leidžiami rinkmenų plėtiniai: %{extensions}'
