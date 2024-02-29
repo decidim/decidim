@@ -6,6 +6,8 @@ en:
         accordions:
           title: Accordions
           description_accordions_html: Accordions are a javascript feature available thanks to an external library called %{link_code} a11y-accordion-component.
+          demo: Demo
+          usage: Usage
       foundations:
         accessibility:
           accessibility_labels: Accessibility labels

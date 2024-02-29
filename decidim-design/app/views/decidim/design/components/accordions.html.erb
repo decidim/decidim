@@ -8,12 +8,12 @@
 <% end %>
 
 <% content_for :toc do %>
-  <a href="#example">Demo</a>
-  <a href="#usage">Usage</a>
+  <a href="#example"><%= t(".demo") %></a>
+  <a href="#usage"><%= t(".usage") %></a>
 <% end %>
 
 <section id="demo" class="design__section">
-  <h2>Demo</h2>
+  <h2><%= t(".demo") %></h2>
 
   <p>Throughout the application the accordions are used, mainly, to show/hide content in tabs or fold/unfold visible texts.</p>
 
@@ -37,7 +37,7 @@
 </section>
 
 <section id="usage" class="design__section">
-  <h2>Usage</h2>
+  <h2><%= t(".usage") %></h2>
 
   <p>An accordion requires at least three elements:</p>
 
