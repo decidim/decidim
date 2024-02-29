@@ -204,3 +204,21 @@ shared_examples_for "a moderated embed resource" do
     end
   end
 end
+
+shared_examples_for "a withdrawn embed resource" do
+  include_context "with a component"
+
+  context "when the resource is withdrawn" do
+    before do
+      resource.update!(state: "withdrawn")
+    end
+
+    it_behaves_like "not rendering the embed link in the resource page"
+
+    it "shows the unauthorized message" do
+      visit widget_path
+
+      expect(page).to have_content "You are not authorized to perform this action"
+    end
+  end
+end

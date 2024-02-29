@@ -11,4 +11,5 @@ describe "Meeting embeds", type: :system do
 
   it_behaves_like "an embed resource"
   it_behaves_like "a moderated embed resource"
+  it_behaves_like "a withdrawn embed resource"
 end

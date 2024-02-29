@@ -61,6 +61,7 @@ module Decidim
       # As this is a public action, we need to run this before other checks
       def allow_embed_meeting?
         return unless permission_action.action == :embed && permission_action.subject == :meeting && meeting
+        return disallow! if meeting.withdrawn?
         return allow! if meeting.published?
 
         disallow!
