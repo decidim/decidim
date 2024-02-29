@@ -347,7 +347,7 @@ describe "Meeting live event access" do
     let!(:registration) { create(:registration, meeting:, user: registered_user) }
 
     context "when user is not registered" do
-      it "not shown to regsistered users" do
+      it "not shown to registered users" do
         visit_meeting
 
         expect(page).to have_no_css(".address__hints")
