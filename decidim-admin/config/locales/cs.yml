@@ -353,7 +353,6 @@ cs:
         title: Konflikty ověření
         transfer:
           email: E-mail
-          error: Při převodu aktuálního účastníka na spravovaného účastníka došlo k chybě.
           name: Jméno
           reason: Důvod
           success: Aktuální převod byl úspěšně dokončen.
