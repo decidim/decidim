@@ -15,7 +15,7 @@ module Decidim
       private
 
       def model
-        @model ||= Meeting.published.where(component: current_component).find(params[:meeting_id])
+        @model ||= Meeting.published.not_hidden.where(component: current_component).find(params[:meeting_id])
       end
 
       def iframe_url

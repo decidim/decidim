@@ -14,7 +14,7 @@ module Decidim
       private
 
       def model
-        @model ||= Debate.where(component: current_component).find(params[:debate_id])
+        @model ||= Debate.not_hidden.where(component: current_component).find(params[:debate_id])
       end
 
       def iframe_url

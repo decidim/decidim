@@ -162,3 +162,15 @@ shared_examples_for "a transparent private embed resource" do
     end
   end
 end
+
+shared_examples_for "a moderated embed resource" do
+  include_context "with a component"
+
+  context "when the resource is moderated" do
+    let!(:moderation) { create(:moderation, reportable: resource, hidden_at: 2.days.ago) }
+
+    it_behaves_like "a 404 page" do
+      let(:target_path) { widget_path }
+    end
+  end
+end
