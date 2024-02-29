@@ -151,8 +151,6 @@ id:
             title: Minta kode verifikasi Anda
       sms:
         authorizations:
-          destroy:
-            success: Kode verifikasi berhasil diset ulang. Harap masukkan kembali nomor telepon Anda.
           edit:
             confirm_destroy: Anda yakin ingin mengatur ulang kode verifikasi?
             destroy: Setel ulang kode verifikasi
