@@ -170,8 +170,6 @@ zh-CN:
             title: 请求您的验证码
       sms:
         authorizations:
-          destroy:
-            success: 验证码已成功重置。请重新输入您的电话号码。
           edit:
             confirm_destroy: 您确定要重置验证码吗？
             destroy: 重置验证码
