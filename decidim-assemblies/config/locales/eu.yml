@@ -310,7 +310,6 @@ eu:
           form:
             existing_user: Parte-hartzailea existitzen da
             explanation: 'Jarraibideak irudirako:'
-            image_guide: Ahal izanez gero, irudi bertikal bat testurik gabe.
             non_user: Erabiltzailea ez
             non_user_avatar_help: Pertsonen baimena lortu beharko zenuke, kide gisa argitaratu baino lehen.
             select_a_position: Hautatu posizio bat
