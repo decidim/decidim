@@ -84,10 +84,8 @@ zh-TW:
     events:
       verifications:
         verify_with_managed_user:
-          email_intro: 該參與者<a href="%{resource_url}">%{resource_title}</a>嘗試使用另一個參與者(<a href="%{managed_user_url}">%{managed_user_name}</a>) 的資料進行驗證。
           email_outro: 請檢查<a href="%{conflicts_url}">驗證衝突清單</a>，並聯繫參與者驗證其詳細資料以解決問題。
           email_subject: 對其他參與者的驗證嘗試失敗
-          notification_title: 該參與者<a href="%{resource_path}">%{resource_title}</a>嘗試使用另一個參與者(<a href="%{managed_user_path}">%{managed_user_name}</a>) 的資料進行驗證。
     verifications:
       authorizations:
         authorization_metadata:
@@ -260,8 +258,6 @@ zh-TW:
           create:
             error: 您的請求發生問題.
             success: 感謝您！我們已經發送了一個SMS簡訊到您的手機。
-          destroy:
-            success: 驗證碼已成功重設。請重新輸入您的電話號碼。
           edit:
             confirm_destroy: 您確定要重置驗證碼嗎？
             destroy: 重置驗證代碼
