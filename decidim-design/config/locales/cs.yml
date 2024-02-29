@@ -40,8 +40,11 @@ cs:
           code: Kód
           desktop: Počítač
           full_width: Plná šířka
+          left_aside: Nalevo
           mobile: Mobilní zařízení
           not_required: Nevyžadováno
+          properties: Vlastnosti
+          right_aside: Vpravo
       helpers:
         background: Pozadí a okraje
         base: Podklad
