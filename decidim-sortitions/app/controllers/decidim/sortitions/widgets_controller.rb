@@ -15,7 +15,7 @@ module Decidim
       private
 
       def model
-        @model ||= Sortition.where(organization: current_organization).where(component: params[:component_id]).find(params[:sortition_id])
+        @model ||= Sortition.where(component: current_component).find(params[:sortition_id])
       end
 
       def iframe_url

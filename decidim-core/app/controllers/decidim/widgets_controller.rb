@@ -21,6 +21,10 @@ module Decidim
 
     private
 
+    def current_component
+      @current_component ||= request.env["decidim.current_component"]
+    end
+
     def current_participatory_space
       @current_participatory_space ||= model.component.participatory_space
     end
