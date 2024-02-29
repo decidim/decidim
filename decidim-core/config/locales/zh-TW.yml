@@ -711,10 +711,6 @@ zh-TW:
           email_outro: 你收到了這個通知是因為你是該平台的管理員。
           email_subject: 一個使用者群組已更新其個人檔案。
           notification_title: '%{user_group_name} 使用者群組已更新其個人資料，讓它未經驗證。您現在可以在<a href="%{groups_admin_path}">管理面板</a>中進行驗證。'
-      nickname_event:
-        notification_body: 我們已更正暱稱使用的方式，以避免重複，所以我們已經移除了大小寫敏感的規則。<br/>你的暱稱是在已有同名暱稱之後創建的，因此我們已經自動重新命名。你可以從<a href="%{link_to_account_settings}">帳戶設置</a>更改它。
-      notification_event:
-        notification_title: 發生了一個事件於<a href="%{resource_path}">%{resource_title}</a>。
       reports:
         resource_hidden:
           email_intro: 一位管理員因為您的%{resource_type} 已被檢舉為%{report_reasons} 而將其移除。
@@ -788,14 +784,12 @@ zh-TW:
         file:
           explanation: '檔案指南：'
           message_1: 必須是圖片或文件。
-          message_2: 對於圖像，最好使用橫向圖像，服務將對圖像進行裁剪。
         icon:
           explanation: '圖示指南：'
           message_1: 必須為正方形影像。
           message_2: 此圖像的建議尺寸為 512x512。
         image:
           explanation: '圖像的指導'
-          message_1: 最好選擇一張不含文字的橫向圖像。
           message_2: 該服務裁剪圖像。
       file_validation:
         allowed_file_extensions: '允許的檔案擴展名： %{extensions}'
