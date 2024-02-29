@@ -354,7 +354,6 @@ de:
         title: Überprüfungskonflikte
         transfer:
           email: E-Mail
-          error: Es gab ein Problem bei der Übertragung des aktuellen Teilnehmers zu den verwalteten Teilnehmern.
           name: Name
           reason: Grund
           success: Übertragung erfolgreich.
