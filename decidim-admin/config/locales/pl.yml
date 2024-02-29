@@ -353,7 +353,6 @@ pl:
         title: Konflikty weryfikacji
         transfer:
           email: Adres e-mail
-          error: Podczas transferu bieżącego użytkownika do zarządzanego użytkownika wystąpił błąd.
           name: Imię
           reason: Powód
           success: Bieżący transfer został pomyślnie zakończony.
