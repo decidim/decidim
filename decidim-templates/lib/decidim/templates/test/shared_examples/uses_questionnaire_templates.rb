@@ -15,7 +15,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
       end
 
       it "does not show the template selection screen" do
-        expect(page).not_to have_content("Choose template")
+        expect(page).to have_no_content("Choose template")
       end
     end
 
@@ -33,7 +33,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
         end
 
         it "does not show the template selection screen" do
-          expect(page).not_to have_content("Choose template")
+          expect(page).to have_no_content("Choose template")
         end
       end
 
@@ -57,7 +57,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
           page.find("input[name='select-template']").click
 
           within "#template-list", visible: :hidden do
-            expect(page).to have_selector("option", visible: :hidden, count: 6)
+            expect(page).to have_css("option", visible: :hidden, count: 6)
           end
         end
 
@@ -95,12 +95,12 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
         expect(page).to have_content(template.templatable.title["en"])
       end
 
-      click_button "Create from template"
+      click_on "Create from template"
     end
 
     it "copies the template data to the questionnaire on submit" do
       within "form.edit_questionnaire" do
-        click_button "Expand all"
+        click_on "Expand all"
         expect(page.find_by_id("questionnaire_title_en").value).to eq(template.templatable.title["en"])
         expect(page.find("#questionnaire_questions_#{questionnaire_question.id}_body_en").value).to eq(question.body["en"])
       end

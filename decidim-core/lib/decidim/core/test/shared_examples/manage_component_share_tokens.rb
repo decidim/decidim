@@ -9,7 +9,7 @@ RSpec.shared_examples "manage component share tokens" do
     end
 
     it "has a share button that opens the share url for the component" do
-      share_window = window_opened_by { click_link "Share", wait: 2 }
+      share_window = window_opened_by { click_on "Share", wait: 2 }
 
       within_window share_window do
         expect(current_url).to include(component.share_tokens.reload.last.url)
@@ -25,14 +25,14 @@ RSpec.shared_examples "manage component share tokens" do
       before do
         visit components_path
 
-        within find("tr", text: component.name["en"]) do
-          click_link "Configure"
+        within "tr", text: component.name["en"] do
+          click_on "Configure"
         end
       end
 
       it "displays all tokens" do
         within ".share_tokens" do
-          expect(page).to have_selector("tbody tr", count: 3)
+          expect(page).to have_css("tbody tr", count: 3)
         end
       end
 
@@ -48,7 +48,7 @@ RSpec.shared_examples "manage component share tokens" do
       it "has a share link for each token" do
         urls = share_tokens.map(&:url).map { |url| url.split("?").first }
         within ".share_tokens tbody tr:first-child" do
-          share_window = window_opened_by { click_link "Share" }
+          share_window = window_opened_by { click_on "Share" }
 
           within_window share_window do
             expect(urls).to include(page.current_path)
@@ -58,11 +58,11 @@ RSpec.shared_examples "manage component share tokens" do
 
       it "has a link to delete tokens" do
         within ".share_tokens tbody tr:first-child" do
-          accept_confirm { click_link "Delete" }
+          accept_confirm { click_on "Delete" }
         end
 
         expect(page).to have_admin_callout("successfully")
-        expect(page).to have_selector("tbody tr", count: 2)
+        expect(page).to have_css("tbody tr", count: 2)
       end
     end
 
@@ -70,8 +70,8 @@ RSpec.shared_examples "manage component share tokens" do
       before do
         visit components_path
 
-        within find("tr", text: component.name["en"]) do
-          click_link "Configure"
+        within "tr", text: component.name["en"] do
+          click_on "Configure"
         end
       end
 

@@ -60,7 +60,7 @@ describe "Notifications" do
     context "when there are some notifications" do
       it "the button is shown as active" do
         within ".main-bar" do
-          expect(page).to have_selector("[data-unread-items]")
+          expect(page).to have_css("[data-unread-items]")
         end
       end
     end
@@ -85,7 +85,7 @@ describe "Notifications" do
     end
 
     it "shows the notifications" do
-      expect(page).to have_selector(".notification")
+      expect(page).to have_css(".notification")
     end
 
     context "when setting a single notification as read" do

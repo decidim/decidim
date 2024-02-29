@@ -206,7 +206,7 @@ shared_examples "Managing component permissions" do
       let(:component_settings) { { resources_permissions_enabled: false } }
 
       it "does not show the resource permissions settings" do
-        expect(page).not_to have_content(resource.title)
+        expect(page).to have_no_content(resource.title)
       end
     end
 
