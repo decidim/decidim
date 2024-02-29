@@ -354,7 +354,6 @@ es:
         title: Conflictos de verificación
         transfer:
           email: Correo electrónico
-          error: Hubo un problema al transferir el participante actual a un participante gestionado.
           name: Nombre
           reason: Motivo
           success: La transferencia actual se ha completado correctamente.
