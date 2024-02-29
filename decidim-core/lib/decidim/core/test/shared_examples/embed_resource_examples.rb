@@ -18,6 +18,23 @@ shared_examples "rendering the page correctly" do
   end
 end
 
+shared_examples "rendering the embed link in the resource page" do
+  before do
+    visit resource_locator(resource).path
+  end
+
+  it "has the embed link" do
+    expect(page).to have_button("Embed")
+  end
+end
+
+shared_examples "showing the unauthorized message" do
+  it do
+    visit widget_path
+    expect(page).to have_content "You are not authorized to perform this action"
+  end
+end
+
 shared_examples "not rendering the embed link in the resource page" do
   before do
     visit resource_locator(resource).path
@@ -53,15 +70,7 @@ shared_examples_for "an embed resource" do |options|
     end
   end
 
-  context "when visting the resource page" do
-    before do
-      visit resource_locator(resource).path
-    end
-
-    it "has the embed link" do
-      expect(page).to have_button("Embed")
-    end
-  end
+  it_behaves_like "rendering the embed link in the resource page"
 
   context "when visiting the embed page for a resource" do
     before do
@@ -110,12 +119,7 @@ shared_examples_for "a private embed resource" do
       let(:user) { nil }
 
       it_behaves_like "not rendering the embed link in the resource page"
-
-      it "shows the unauthorized message" do
-        visit widget_path
-
-        expect(page).to have_content "You are not authorized to perform this action"
-      end
+      it_behaves_like "showing the unauthorized message in the widget_path"
     end
 
     context "and user is a registered user" do
@@ -126,12 +130,7 @@ shared_examples_for "a private embed resource" do
       end
 
       it_behaves_like "not rendering the embed link in the resource page"
-
-      it "shows the unauthorized message" do
-        visit widget_path
-
-        expect(page).to have_content "You are not authorized to perform this action"
-      end
+      it_behaves_like "showing the unauthorized message"
     end
 
     context "and user is a private user" do
@@ -141,11 +140,7 @@ shared_examples_for "a private embed resource" do
         sign_in user, scope: :user
       end
 
-      it "shows the unauthorized message" do
-        visit widget_path
-
-        expect(page).to have_content "You are not authorized to perform this action"
-      end
+      it_behaves_like "showing the unauthorized message"
     end
   end
 end
@@ -214,11 +209,6 @@ shared_examples_for "a withdrawn embed resource" do
     end
 
     it_behaves_like "not rendering the embed link in the resource page"
-
-    it "shows the unauthorized message" do
-      visit widget_path
-
-      expect(page).to have_content "You are not authorized to perform this action"
-    end
+    it_behaves_like "showing the unauthorized message"
   end
 end
