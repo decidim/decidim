@@ -354,7 +354,6 @@ ja:
         title: 確認の競合
         transfer:
           email: Eメールアドレス
-          error: 参加者から管理対象参加者への移行中に問題が発生しました。
           name: 名前
           reason: 理由
           success: 現在の移転が正常に完了しました。
