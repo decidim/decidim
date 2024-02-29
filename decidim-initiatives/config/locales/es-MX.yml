@@ -101,7 +101,6 @@ es-MX:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Buscar %{collection} por título, descripción, ID o autoría.
       initiatives_settings:
         update:
-          error: Se ha producido un error.
           success: La configuración de las iniciativas se ha actualizado correctamente.
       menu:
         attachments: Adjuntos
