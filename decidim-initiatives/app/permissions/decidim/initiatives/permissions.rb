@@ -62,6 +62,8 @@ module Decidim
         return unless [:initiative, :participatory_space].include?(permission_action.subject) &&
                       permission_action.action == :embed
 
+        return disallow! if initiative.created? || initiative.validating? || initiative.discarded?
+
         allow!
       end
 
