@@ -191,8 +191,6 @@ pl:
             title: Poproś o kod weryfikacyjny
       sms:
         authorizations:
-          destroy:
-            success: Kod weryfikacyjny został pomyślnie zresetowany. Wprowadź ponownie swój numer telefonu.
           edit:
             confirm_destroy: Czy na pewno chcesz zresetować kod weryfikacyjny?
             destroy: Zresetuj kod weryfikacyjny
