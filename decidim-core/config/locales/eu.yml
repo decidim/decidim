@@ -801,10 +801,6 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu plataformaren administratzaileetako bat zarelako.
           email_subject: Talde batek bere profila eguneratu du
           notification_title: '%{user_group_name} taldeak bere profila eguneratu du egiaztapena galduz. Berriro egiaztatu ahal duzu honen bidez <a href="%{groups_admin_path}">panel de administración</a>.'
-      nickname_event:
-        notification_body: Zuzendu dugu nola erabiltzen diren ezizenak bikoizketarik egon ez dadin, eta hori egiteko jada ez dira bereizten letra larriak eta xeheak. < br/>Tu alias beste berdin baten ondoren sortu zen, beraz, automatikoki berrizendatu dugu. < a href = " % {link_to_account_settings}" >zure kontuaren konfiguraziotik alda dezakezu.
-      notification_event:
-        notification_title: 'Gertaera bat jazo da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
       reports:
         resource_hidden:
           email_intro: Administratzaile batek bere %{resource_type} ezabatu du erreportatua izan delako arrazoi honengatik %{report_reasons}.
@@ -880,14 +876,12 @@ eu:
         file:
           explanation: 'Jarraibideak artxiborako:'
           message_1: Irudi bat edo dokumentu bat izan behar da.
-          message_2: Irudietarako, ahal dela, erabili irudi etzanak, zerbitzuak irudia mozten baitu.
         icon:
           explanation: 'Jarraibideak irudirako:'
           message_1: Irudi karratua izan behar da.
           message_2: Irudi honetarako gomendatzen den tamaina da 512x512.
         image:
           explanation: 'Jarraibideak irudirako:'
-          message_1: Ahal izanez gero, irudi etzana eta testurik gabekoa.
           message_2: Zerbitzuak irudia moztu egiten du.
       file_validation:
         allowed_file_extensions: 'Onartutako artxiboen formatua: %{extensions}'
