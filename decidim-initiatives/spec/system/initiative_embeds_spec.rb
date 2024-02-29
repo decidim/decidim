@@ -21,42 +21,42 @@ describe "Initiative embeds", type: :system do
       let(:state) { :created }
 
       it_behaves_like "not rendering the embed link in the resource page"
-      it_behaves_like "shows the unauthorized message"
+      it_behaves_like "showing the unauthorized message in the widget_path"
     end
 
     context "when the state is validating" do
       let(:state) { :validating }
 
       it_behaves_like "not rendering the embed link in the resource page"
-      it_behaves_like "shows the unauthorized message"
+      it_behaves_like "showing the unauthorized message in the widget_path"
     end
 
     context "when the state is discarded" do
       let(:state) { :discarded }
 
       # A discarded initiative is not available anymore to authors
-      it_behaves_like "shows the unauthorized message"
+      it_behaves_like "showing the unauthorized message in the widget_path"
     end
 
     context "when the state is published" do
       let(:state) { :published }
 
       it_behaves_like "rendering the embed link in the resource page"
-      it_behaves_like "rendering the page correctly"
+      it_behaves_like "rendering the embed page correctly"
     end
 
     context "when the state is rejected" do
       let(:state) { :rejected }
 
       it_behaves_like "rendering the embed link in the resource page"
-      it_behaves_like "rendering the page correctly"
+      it_behaves_like "rendering the embed page correctly"
     end
 
     context "when the state is accepted" do
       let(:state) { :accepted }
 
       it_behaves_like "rendering the embed link in the resource page"
-      it_behaves_like "rendering the page correctly"
+      it_behaves_like "rendering the embed page correctly"
     end
   end
 end

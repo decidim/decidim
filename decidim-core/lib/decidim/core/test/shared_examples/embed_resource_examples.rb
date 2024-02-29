@@ -2,7 +2,7 @@
 
 require "decidim/admin/test/admin_participatory_space_access_examples"
 
-shared_examples "rendering the page correctly" do
+shared_examples "rendering the embed page correctly" do
   before do
     visit widget_path
   end
@@ -28,7 +28,7 @@ shared_examples "rendering the embed link in the resource page" do
   end
 end
 
-shared_examples "showing the unauthorized message" do
+shared_examples "showing the unauthorized message in the widget_path" do
   it do
     visit widget_path
     expect(page).to have_content "You are not authorized to perform this action"
@@ -77,7 +77,7 @@ shared_examples_for "an embed resource" do |options|
       visit widget_path
     end
 
-    it_behaves_like "rendering the page correctly"
+    it_behaves_like "rendering the embed page correctly"
 
     unless options.is_a?(Hash) && options[:skip_space_checks]
       context "when the participatory_space is a process" do
@@ -130,7 +130,7 @@ shared_examples_for "a private embed resource" do
       end
 
       it_behaves_like "not rendering the embed link in the resource page"
-      it_behaves_like "showing the unauthorized message"
+      it_behaves_like "showing the unauthorized message in the widget_path"
     end
 
     context "and user is a private user" do
@@ -140,7 +140,7 @@ shared_examples_for "a private embed resource" do
         sign_in user, scope: :user
       end
 
-      it_behaves_like "showing the unauthorized message"
+      it_behaves_like "showing the unauthorized message in the widget_path"
     end
   end
 end
@@ -163,7 +163,7 @@ shared_examples_for "a transparent private embed resource" do
     context "and user is a visitor" do
       let(:user) { nil }
 
-      it_behaves_like "rendering the page correctly"
+      it_behaves_like "rendering the embed page correctly"
     end
 
     context "and user is a registered user" do
@@ -173,7 +173,7 @@ shared_examples_for "a transparent private embed resource" do
         sign_in user, scope: :user
       end
 
-      it_behaves_like "rendering the page correctly"
+      it_behaves_like "rendering the embed page correctly"
     end
 
     context "and user is a private user" do
@@ -183,7 +183,7 @@ shared_examples_for "a transparent private embed resource" do
         sign_in user, scope: :user
       end
 
-      it_behaves_like "rendering the page correctly"
+      it_behaves_like "rendering the embed page correctly"
     end
   end
 end
@@ -209,6 +209,6 @@ shared_examples_for "a withdrawn embed resource" do
     end
 
     it_behaves_like "not rendering the embed link in the resource page"
-    it_behaves_like "showing the unauthorized message"
+    it_behaves_like "showing the unauthorized message in the widget_path"
   end
 end
