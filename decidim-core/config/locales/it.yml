@@ -554,8 +554,6 @@ it:
           email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
           email_subject: Un gruppo di utenti ha aggiornato il suo profilo
           notification_title: Il gruppo utenti %{user_group_name} ha aggiornato il suo profilo, lasciandolo non verificato. Ora puoi verificarlo nel <a href="%{groups_admin_path}">pannello di amministratore</a>.
-      notification_event:
-        notification_title: Si è verificato un evento di <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: Un amministratore ha rimosso il tuo %{resource_type} perché è stato segnalato come %{report_reasons}.
@@ -621,7 +619,6 @@ it:
           message_1: Deve essere un'immagine o un documento.
         image:
           explanation: 'Orientamenti per il file:'
-          message_1: Preferibilmente un'immagine orizzontale che non ha alcun testo.
           message_2: Il servizio ritaglia l'immagine.
       file_validation:
         allowed_file_extensions: 'Estensioni file consentite: %{extensions}'
