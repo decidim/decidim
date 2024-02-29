@@ -4,13 +4,13 @@ en:
     design:
       components:
         accordions:
-          title: Accordions
-          description_accordions_html: Accordions are a javascript feature available thanks to an external library called %{link_code} a11y-accordion-component.
-          demo: Demo
-          usage: Usage
-          demo_description: Throughout the application the accordions are used, mainly, to show/hide content in tabs or fold/unfold visible texts.
-          trigger: Trigger
           content_panel: Content of the panel
+          demo: Demo
+          demo_description: Throughout the application the accordions are used, mainly, to show/hide content in tabs or fold/unfold visible texts.
+          description_accordions_html: Accordions are a javascript feature available thanks to an external library called %{link_code} a11y-accordion-component.
+          title: Accordions
+          trigger: Trigger
+          usage: Usage
           usage_p: An accordion requires at least three elements
           usage_p_1_html: 1. A wrapper <code>div</code>, with the data-attribute <code>data-component="accordion"</code>, over all the available triggers and panels.
           usage_p_2_html: 2. A trigger element, user actionable (as a button), pointing to the collapsable element through <code>data-controls="panel"</code>, where <i>panel</i> is the <code>id</code> of the panel.
