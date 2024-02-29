@@ -284,7 +284,6 @@ hu:
           form:
             existing_user: Meglévő résztvevő
             explanation: 'Útmutató a képhez:'
-            image_guide: Olyan fekvő képek használata ajánlott, amelyek nem tartalmaznak szöveget.
             non_user: Nem résztvevő
             non_user_avatar_help: A tagként való szerepléshez hozzájárulást kell szerezni a személyektől.
             select_a_position: Válassz pozíciót
