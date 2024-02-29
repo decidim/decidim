@@ -706,10 +706,6 @@ hu:
           email_outro: Ezt az értesítést kaptad, mert te vagy a platform adminja.
           email_subject: Egy felhasználói csoport frissítette a profilját
           notification_title: A(z) %{user_group_name} felhasználói csoport frissítette a profilját, így az ellenőrizetlen maradt. Jóváhagyhatja az <a href="%{groups_admin_path}">adminisztrációs panelen</a>.
-      nickname_event:
-        notification_body: Javítottunk a becenevek használatán, hogy elkerüljük a duplikációkat, és ezért megszüntettük a nagy- és kisbetűkre vonatkozó szabályt. <br/> A beceneve egy másik, azonos nevű becenév után jött létre, ezért automatikusan át lett nevezve. Megváltoztathatja itt <a href="%{link_to_account_settings}">a Fiókbeállítások menüpontban</a>.
-      notification_event:
-        notification_title: 'Új esemény itt: <a href="%{resource_path}">%{resource_title}</a>.'
       reports:
         resource_hidden:
           email_intro: Egy adminisztrátor eltávolította a %{resource_type} -ját mert %{report_reasons}-ként jelentették.
@@ -771,7 +767,6 @@ hu:
       file_help:
         file:
           message_1: Képnek vagy dokumentumnak kell lennie.
-          message_2: Képeknél a fekvő elrendezés ajánlott, a kép szélei automatikusan levágásra kerülnek.
         icon:
           explanation: 'Útmutató:'
           message_1: A képnek négyzet alakúnak kell lennie.
