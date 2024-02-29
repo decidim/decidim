@@ -280,7 +280,6 @@ zh-TW:
           form:
             existing_user: 現有參與者
             explanation: '圖像的指導'
-            image_guide: 最好是沒有任何文字的肖像圖像
             non_user: 非參與者
             non_user_avatar_help: 在發佈他們為會員之前，您應該徵得他們的同意
             select_a_position: 選擇一個位置
