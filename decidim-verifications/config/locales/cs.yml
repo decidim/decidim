@@ -269,6 +269,8 @@ cs:
           create:
             error: U vašeho požadavku došlo k problému.
             success: Děkujeme! Poslali jsme SMS na váš telefon.
+          destroy:
+            success: Ověřovací kód byl úspěšně obnoven. Zadejte prosím své telefonní číslo.
           edit:
             confirm_destroy: Opravdu chcete obnovit ověřovací kód?
             destroy: Obnovit ověřovací kód
