@@ -3,7 +3,8 @@
 <% end %>
 
 <% content_for :description do %>
-  Accordions are a javascript feature available thanks to an external library called <a href="https://github.com/jonathanlevaillant/a11y-accordion-component" target="_blank" rel="noopener noreferrer">a11y-accordion-component</a>.
+<% accordions_description_link = "https://github.com/jonathanlevaillant/a11y-accordion-component" %>
+  <%= t(".description_accordions_html", link_code: link_to(accordions_description_link, accordions_description_link, target: "_blank", rel: "noopener noreferrer")) %>
 <% end %>
 
 <% content_for :toc do %>
