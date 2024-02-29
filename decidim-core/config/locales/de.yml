@@ -813,10 +813,6 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Plattform sind.
           email_subject: Eine Benutzergruppe hat ihr Profil aktualisiert
           notification_title: Die Benutzergruppe %{user_group_name} hat ihr Profil aktualisiert, wodurch diese erneut verifiziert werden muss. Sie können sie über das <a href="%{groups_admin_path}">Admin-Panel</a> verifizieren.
-      nickname_event:
-        notification_body: Wir haben die Verwendung von Spitznamen so korrigiert, dass es keine Duplikate gibt, und deshalb haben wir die Gross-/Kleinschreibungsregeln entfernt. <br/> Ihr Spitzname wurde nach einem anderen mit dem gleichen Namen erstellt, weshalb wir ihn automatisch umbenannt haben. Sie können ihn in <a href="%{link_to_account_settings}">Ihren Kontoeinstellungen</a> ändern.
-      notification_event:
-        notification_title: Ein Ereignis trat auf <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: Ein Administrator hat Ihr/e/n %{resource_type} entfernt, weil diese/r/s als %{report_reasons} gemeldet wurde.
@@ -895,14 +891,12 @@ de:
         file:
           explanation: 'Anleitung für Datei:'
           message_1: Muss ein Bild oder ein Dokument sein.
-          message_2: Verwenden Sie für Bilder vorzugsweise das Querformat, der Dienst beschneidet das Bild.
         icon:
           explanation: 'Hinweise für das Bild:'
           message_1: Muss ein quadratisches Bild sein.
           message_2: Die empfohlene Größe für dieses Bild ist 512x512 Pixel.
         image:
           explanation: 'Anleitung für Bild:'
-          message_1: Vorzugsweise ein Querformat ohne Text.
           message_2: Der Dienst schneidet die Datei zu.
       file_validation:
         allowed_file_extensions: 'Erlaubte Dateiformate: %{extensions}'
