@@ -186,8 +186,6 @@ it:
             title: Richiedi il tuo codice di verifica
       sms:
         authorizations:
-          destroy:
-            success: Codice di verifica ripristinato correttamente. Per favore reinserisci il tuo numero di telefono.
           edit:
             confirm_destroy: Sei sicuro di voler resettare il codice di verifica?
             destroy: Reimposta il codice di verifica
