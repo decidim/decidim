@@ -15,14 +15,14 @@
 <section id="demo" class="design__section">
   <h2><%= t(".demo") %></h2>
 
-  <p>Throughout the application the accordions are used, mainly, to show/hide content in tabs or fold/unfold visible texts.</p>
+  <p><%= t(".demo_description") %></p>
 
   <div data-component="accordion" data-multiselectable="false" id="example-accordion-1">
     <ul class="tab-x-container">
       <% 3.times do |tab| %>
         <li>
           <button id="trigger-1-<%= tab %>" class="tab-x" data-controls="panel-1-<%= tab %>" <%= "data-open=true" if tab.zero? %>>
-            Trigger <%= tab %>
+            <%= t(".trigger") %> <%= tab %>
           </button>
         </li>
       <% end %>
@@ -30,7 +30,7 @@
 
     <% 3.times do |panel| %>
       <div id="panel-1-<%= panel %>" class="py-8 text-sm font-italic">
-        Content of the panel <%= panel %>
+        <%= t(".content_panel") %> <%= panel %>
       </div>
     <% end %>
   </div>
@@ -39,13 +39,13 @@
 <section id="usage" class="design__section">
   <h2><%= t(".usage") %></h2>
 
-  <p>An accordion requires at least three elements:</p>
+  <p><%= t(".usage_p") %></p>
 
-  <p>1. A wrapper <code>div</code>, with the data-attribute <code>data-component="accordion"</code>, over all the available triggers and panels.</p>
+  <p><%= t(".usage_p_1_html") %></p>
 
-  <p>2. A trigger element, user actionable (as a button), pointing to the collapsable element through <code>data-controls="panel"</code>, where <i>panel</i> is the <code>id</code> of the panel.</p>
+  <p><%= t(".usage_p_2_html") %></p>
 
-  <p>3. A hideable element, whose <code>id</code> matches the data-controls value the trigger refers to.</p>
+  <p><%= t(".usage_p_3_html") %></p>
 
   <div class="design__section-snippet" style="margin-top: inherit;">
     <p>Source code on GitHub: <%= link_to("decidim-core/app/packs/src/decidim/a11y.js", "https://github.com/decidim/decidim/blob/develop/decidim-core/app/packs/src/decidim/a11y.js", target: "_blank", rel: "noopener noreferrer") %></p>
