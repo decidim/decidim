@@ -37,6 +37,36 @@ es-MX:
           description_p2_html: Cuando personalices tus colores, ten en cuenta el %{contrast_link}. Puedes comprobar el contraste de tu elección con %{checker_link} u otras herramientas similares.
           wcag_compliant_rations: Relación de contraste compatible con WCAG 2.1 AA
           wcag_contrast_checker: Verificador de contrastes WebAIM
+        iconography:
+          description_iconography: Utilizamos iconos para reforzar el significado de acciones, títulos, etc.
+          description_iconography_html: 'Utilizamos la biblioteca de código abierto Remixicon: %{iconography_link}'
+          title: Iconografía
+        layout:
+          breakpoint: Punto de interrupción
+          breakpoints: Puntos de interrupción
+          centered: Centrado
+          code: Código
+          columns: Siendo el número de columnas 10, 8 o 6.
+          description_layout_p1: Para el escritorio, Decidim utiliza una cuadrícula de 12 columnas con un número limitado de plantillas (configuraciones de cuadrícula) para diferentes tipos de contenido. El objetivo es que un tipo determinado de contenido (página de inicio, lista de elementos, elemento individual) tenga un diseño distintivo, para que los usuarios puedan entender en qué tipo de contenido son sólo por el aspecto general de la página.
+          description_layout_p2: Estas simples reglas deben seguirse al crear nuevos módulos o personalizar los existentes, de modo que una instancia de Decidim pueda mantener su consistencia.
+          desktop: Equipo de escritorio
+          full_width: Anchura completa
+          layout_list_1: 'Página de inicio (de la instancia, de un espacio de participación): ancho completo'
+          layout_list_2: 'Lista de elementos (de espacios de participación, de elementos dentro de un espacio, etc.): en el lado izquierdo'
+          layout_list_3: 'Objeto individual (propuesta, entrada de blog): centrado, opcionalmente con en el lado derecho'
+          left_aside: En el lado izquierdo
+          mobile: Móvil
+          not_required: No es requisito
+          properties: Propiedades
+          right_aside: En el lado derecho
+          section_p_breakpoints: 'Para gestionar el ancho máximo de los elementos al diseño web adaptativo dependemos de la clase Tailwind predeterminada ''container'', que indica los siguientes puntos de interrupción:'
+          section_p_code: Al implementar nuevos módulos, tienes algunos ayudantes que te proporcionan automáticamente el código necesario para configurar la estructura HTML. Deberías usar estos ayudantes en lugar de usar directamente elementos <div> con <class>, manteniendo así la consistencia.
+          section_p_code_html: Puedes encontrar los diseños básicos en %{link_section_code}
+          section_p_desktop: El sistema de cuadrícula para los ordenadores de escritorio se compone de 12 columnas flexibles con un espaciado (canal) entre columnas de 16px y margen izquierdo y derecho de 48px
+          section_p_mobile: El sistema de cuadrícula para el móvil se compone de 4 columnas flexibles con un espaciado (canal) entre columnas de 16px y de margen izquierdo y derecho de 16px. Para tamaños inferiores a 320px estos márgenes se establecen a 8px.
+          section_p_tablet: El sistema de cuadrícula para tabletas se compone de 8 columnas flexibles con un espaciado (canal) entre columnas de 16px y margen izquierdo y derecho de 24px
+          tablet: Tableta
+          title: Diseño (maqueta distribución)
       helpers:
         background: Bordes y fondo
         base: Base
