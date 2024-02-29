@@ -10,6 +10,7 @@ en:
           description_accordions_html: Accordions are a javascript feature available thanks to an external library called %{link_code} a11y-accordion-component.
           title: Accordions
           trigger: Trigger
+          panel: Panel
           usage: Usage
           usage_p: An accordion requires at least three elements
           usage_p_1_html: 1. A wrapper <code>div</code>, with the data-attribute <code>data-component="accordion"</code>, over all the available triggers and panels.
