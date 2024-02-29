@@ -192,8 +192,6 @@ ro:
             title: Cere codul tău de verificare
       sms:
         authorizations:
-          destroy:
-            success: Codul de verificare a fost resetat. Te rugăm să reintroduci numărul tău de telefon.
           edit:
             confirm_destroy: Sigur dorești să resetezi codul de verificare?
             destroy: Resetează codul de verificare
