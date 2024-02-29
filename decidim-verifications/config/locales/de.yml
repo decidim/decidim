@@ -88,10 +88,8 @@ de:
     events:
       verifications:
         verify_with_managed_user:
-          email_intro: Der Teilnehmer <a href="%{resource_url}">%{resource_title}</a> hat versucht, sich mit den Daten eines anderen Teilnehmers (<a href="%{managed_user_url}">%{managed_user_name}</a>) zu verifizieren.
           email_outro: Prüfen Sie die <a href="%{conflicts_url}">Konfliktliste der Verifizierungsmethode</a> und wenden Sie sich an den Teilnehmer, um dessen Details zu überprüfen und das Problem zu lösen.
           email_subject: Verifizierungsversuch gegenüber eines anderen Teilnehmers fehlgeschlagen
-          notification_title: Der Teilnehmer <a href="%{resource_path}">%{resource_title}</a> hat versucht, sich mit den Daten eines anderen Teilnehmers (<a href="%{managed_user_path}">%{managed_user_name}</a>) zu verifizieren.
     verifications:
       authorizations:
         authorization_metadata:
@@ -267,8 +265,6 @@ de:
           create:
             error: Es gab ein Problem mit Ihrer Anfrage.
             success: Vielen Dank! Wir haben eine SMS an Ihr Telefon gesendet.
-          destroy:
-            success: Der Bestätigungscode wurde erfolgreich zurückgesetzt. Bitte geben Sie Ihre Telefonnummer erneut ein.
           edit:
             confirm_destroy: Möchten Sie den Bestätigungscode wirklich zurücksetzen?
             destroy: Bestätigungscode zurücksetzen
