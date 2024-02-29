@@ -347,7 +347,6 @@ hu:
         title: Ellenőrzési konfliktusok
         transfer:
           email: Email
-          error: Hiba történt a jelenlegi résztvevő kezelt résztvevővé transzferálása során.
           name: Név
           reason: Ok
           success: Az átvitel sikeresen befejezve.
