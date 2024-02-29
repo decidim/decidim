@@ -94,7 +94,7 @@ describe "Edit proposals" do
             click_on "Edit documents"
             within ".upload-modal" do
               expect(page).to have_content("Has to be an image or a document")
-              expect(page).to have_content("For images, use preferrably landscape images, the service crops the image")
+              expect(page).to have_content("For images, use preferably landscape images, the service crops the image")
               within "[data-filename='city.jpeg']" do
                 find("input[type='text']").set(attachment_image_title)
               end
