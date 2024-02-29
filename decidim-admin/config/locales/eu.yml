@@ -354,7 +354,6 @@ eu:
         title: Egiaztapen-arazoak
         transfer:
           email: Helbide elektronikoa
-          error: Arazo bat egon da oraingo parte-hartzailea kudeatutako parte-hartzaile batera.
           name: Izena
           reason: Arrazoia
           success: Egungo transferentzia zuzen egina.
