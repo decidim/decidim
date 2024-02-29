@@ -18,6 +18,16 @@ shared_examples "rendering the page correctly" do
   end
 end
 
+shared_examples "not rendering the embed link in the resource page" do
+  before do
+    visit resource_locator(resource).path
+  end
+
+  it "does not have the embed link" do
+    expect(page).to have_no_button("Embed")
+  end
+end
+
 shared_examples_for "an embed resource" do |options|
   if options.is_a?(Hash) && options[:skip_space_checks]
     let(:organization) { resource.organization }
@@ -35,9 +45,21 @@ shared_examples_for "an embed resource" do |options|
         resource.unpublish!
       end
 
+      it_behaves_like "not rendering the embed link in the resource page"
+
       it_behaves_like "a 404 page" do
         let(:target_path) { widget_path }
       end
+    end
+  end
+
+  context "when visting the resource page" do
+    before do
+      visit resource_locator(resource).path
+    end
+
+    it "has the embed link" do
+      expect(page).to have_button("Embed")
     end
   end
 
@@ -87,6 +109,8 @@ shared_examples_for "a private embed resource" do
     context "and user is a visitor" do
       let(:user) { nil }
 
+      it_behaves_like "not rendering the embed link in the resource page"
+
       it "shows the unauthorized message" do
         visit widget_path
 
@@ -100,6 +124,8 @@ shared_examples_for "a private embed resource" do
       before do
         sign_in user, scope: :user
       end
+
+      it_behaves_like "not rendering the embed link in the resource page"
 
       it "shows the unauthorized message" do
         visit widget_path
