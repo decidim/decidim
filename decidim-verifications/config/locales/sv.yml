@@ -176,8 +176,6 @@ sv:
             title: Begär din verifieringskod
       sms:
         authorizations:
-          destroy:
-            success: Verifieringskoden har återställts. Ange ditt telefonnummer igen.
           edit:
             confirm_destroy: Är du säker på att du vill återställa verifieringskoden?
             destroy: Nollställ verifieringskod
