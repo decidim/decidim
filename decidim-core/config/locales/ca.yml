@@ -808,10 +808,6 @@ ca:
           email_outro: Has rebut aquesta notificació perquè ets una de les administradores de la plataforma.
           email_subject: Un grup d'usuàries ha actualitzat el seu perfil
           notification_title: El grup d'usuàries %{user_group_name} ha actualitzat el seu perfil perdent-ne la verificació. Pots tornar a verificar-lo a través del <a href="%{groups_admin_path}"> taulell d'administració</a>.
-      nickname_event:
-        notification_body: S'ha corregit la manera en que es fan servir els àlies per a que no n'hi hagi de duplicats, per fer-ho ja no es distingueix entre majúscules i minúscules.<br/>El teu àlies es va crear més tard que un altre d'igual, així que se t'ha renombrat automàticament. Pots modificar el teu àlies des de la <a href="%{link_to_account_settings}">configuració del teu compte</a>.
-      notification_event:
-        notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: Una administradora ha eliminat el teu %{resource_type} degut a que has estat reportada com a %{report_reasons}.
@@ -890,14 +886,12 @@ ca:
         file:
           explanation: 'Instruccions per a l''arxiu:'
           message_1: Ha de ser una imatge o un document.
-          message_2: Per a les imatges, fes servir imatges apaïsades preferiblement, el servei retalla la imatge.
         icon:
           explanation: 'Instruccions per a la icona:'
           message_1: Ha de ser una imatge quadrada.
           message_2: La mida recomanada per a aquesta imatge és 512x512.
         image:
           explanation: 'Instruccions per a la imatge:'
-          message_1: Preferiblement una imatge apaïsada que no tingui cap text.
           message_2: El servei retalla la imatge.
       file_validation:
         allowed_file_extensions: 'Tipus de fitxers admesos: %{extensions}'
