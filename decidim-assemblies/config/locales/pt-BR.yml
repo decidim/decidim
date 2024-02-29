@@ -309,7 +309,6 @@ pt-BR:
           form:
             existing_user: Participante existente
             explanation: 'Orientação para a imagem:'
-            image_guide: De preferência, uma imagem em formato paisagem que não tenha nenhum texto.
             non_user: Não-participante
             non_user_avatar_help: Você deve receber o consentimento das pessoas antes de publicá-las como membro.
             select_a_position: Selecione uma posição
