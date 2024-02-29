@@ -266,7 +266,6 @@ it:
           form:
             existing_user: Utente esistente
             explanation: 'Guida per l''immagine:'
-            image_guide: È preferibile un'immagine verticale priva di testo.
             non_user: Non utente
             non_user_avatar_help: Si dovrebbe ottenere il consenso delle persone prima di renderle pubbliche come membri dell'assemblea.
             select_a_position: Seleziona una posizione
