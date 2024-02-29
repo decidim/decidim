@@ -310,6 +310,7 @@ fr:
           form:
             existing_user: Utilisateur existant
             explanation: 'Instruction concernant l’image :'
+            image_guide: De préférence une image au format portrait ne contenant pas de texte.
             non_user: Utilisateur inconnu
             non_user_avatar_help: Vous devriez obtenir le consentement de l'utilisateur avant d'ajouter une image à son profil.
             select_a_position: Sélectionnez un statut
