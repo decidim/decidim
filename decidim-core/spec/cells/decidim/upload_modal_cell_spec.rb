@@ -122,7 +122,7 @@ describe Decidim::UploadModalCell, type: :cell do
         expect(subject).to have_selector("[data-filename='#{filename}']")
 
         details = subject.find(".attachment-details")
-        expect(details).to have_content("#{attachments[0].title["en"]} (#{filename})")
+        expect(details).to have_content("#{decidim_sanitize_translated(attachments[0].title)} (#{filename})")
       end
     end
 

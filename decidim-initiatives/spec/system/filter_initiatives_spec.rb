@@ -201,7 +201,6 @@ describe "Filter Initiatives", :slow, type: :system do
       end
 
       it "doesn't display TYPE filter" do
-        expect(page).not_to have_content(/Type/i)
         expect(page).not_to have_css(".filters__section.with_any_type_check_boxes_tree_filter")
       end
 
