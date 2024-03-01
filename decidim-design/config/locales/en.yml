@@ -6,6 +6,7 @@ en:
         activities:
           title: Activities
           demo: Demo
+          text: Test
       foundations:
         accessibility:
           accessibility_labels: Accessibility labels
