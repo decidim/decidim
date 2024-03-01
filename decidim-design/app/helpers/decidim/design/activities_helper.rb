@@ -6,7 +6,7 @@ module Decidim
       def activities_sections
         [
           {
-            id: "demo",
+            id: t(".demo"),
             contents: [
               {
                 type: :text,

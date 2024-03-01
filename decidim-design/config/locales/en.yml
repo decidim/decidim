@@ -5,6 +5,7 @@ en:
       components:
         activities:
           title: Activities
+          demo: Demo
       foundations:
         accessibility:
           accessibility_labels: Accessibility labels
