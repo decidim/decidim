@@ -83,7 +83,7 @@ describe "Participatory Process Groups", type: :system do
       end
 
       it "shows the description" do
-        expect(page).to have_i18n_content(participatory_process_group.description)
+        expect(page).to have_i18n_content(participatory_process_group.description, strip_tags: true)
       end
 
       it "shows the meta scope name" do
