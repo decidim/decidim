@@ -101,6 +101,7 @@ ca:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cercar %{collection} per títol, descripció, ID o autoria.
       initiatives_settings:
         update:
+          error: S'ha produït un error.
           success: La configuració de les iniciatives s'ha actualitzat correctament.
       menu:
         attachments: Adjunts
