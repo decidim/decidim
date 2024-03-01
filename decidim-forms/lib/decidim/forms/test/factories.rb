@@ -70,7 +70,6 @@ FactoryBot.define do
             question: q,
             condition_type: :answered,
             mandatory: true,
-            skip_injection: evaluator.skip_injection
           )
           questionaire.questions << q
           position += 1
@@ -104,7 +103,7 @@ FactoryBot.define do
         evaluator.options.each do |option|
           question.answer_options.build(
             body: option["body"],
-            free_text: option["free_text"], skip_injection: evaluator.skip_injection
+            free_text: option["free_text"]
           )
         end
       end
@@ -113,7 +112,7 @@ FactoryBot.define do
         evaluator.rows.each_with_index do |row, idx|
           question.matrix_rows.build(
             body: row["body"],
-            position: idx, skip_injection: evaluator.skip_injection
+            position: idx
           )
         end
       end

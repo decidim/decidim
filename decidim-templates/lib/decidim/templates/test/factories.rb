@@ -11,7 +11,6 @@ FactoryBot.define do
     organization
     name { generate_localized_title(:template_name, skip_injection: skip_injection) }
     description { generate_localized_title(:template_description, skip_injection: skip_injection) }
-    name { Decidim::Faker::Localized.sentence }
 
     ## Questionnaire templates
     factory :questionnaire_template do
