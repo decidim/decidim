@@ -7,7 +7,7 @@ module Decidim
       class DebatesController < Decidim::Debates::Admin::ApplicationController
         helper Decidim::ApplicationHelper
 
-        helper_method :debates, :debate
+        helper_method :debates
 
         def index
           enforce_permission_to :read, :debate
