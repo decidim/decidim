@@ -75,6 +75,7 @@ ca:
         main_colors: Colors principals
         rgba_code: Codi RGBA
         state: Estat
+        tailwind: Nom del Tailwind
         typography_texts: Textos i tipografia
         usage: Ús
         usage_background_1: Fons lateral
@@ -85,10 +86,14 @@ ca:
         usage_background_6: Fons del taulell d'administració
         usage_base_1: Fons del component de navegació principal\nNav menús a la pàgina d'inici de la plataforma i a la pàgina d'inici de l'espai de participació
         usage_base_2: Color principal per a enllaços i botons
+        usage_base_3: Ornament gràfics i color d'accent\nAlteració de l'aspexte de targetes i llistes d'elements en pasar el ratolí sobre aquest, encara que no s'hagi seleccionat
         usage_formelements_1: Fons per defecte dels elements d'entrada
+        usage_formelements_2: Fons dels elements d'entrada deshabilitats
+        usage_state_1: Vora de la notificació d'èxit\nFarcit de la icona de la notificació d'alerta\nFos del botó a la notificació d'èxit
         usage_state_2: Vora de la nota d'avís
         usage_state_3: Vora de la nota de avís\nFons de la icona de la nota
         usage_typography_1: Encapçalaments i títols de secció
+        usage_typography_2: Text en línia
         usage_typography_3: Text sobre fons fosc
         usage_typography_4: Enllaços i botons
         value:
