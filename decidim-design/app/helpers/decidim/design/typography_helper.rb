@@ -11,8 +11,8 @@ module Decidim
               {
                 type: :text,
                 values: [
-                  "Decidim uses Source Sans Pro as primary typeface. This typeface supports 310 languages",
-                  "This fonts are licensed under the Open Font License"
+                  t(".typefaces_description_1"),
+                  t(".typefaces_description_2")
                 ]
               },
               {
