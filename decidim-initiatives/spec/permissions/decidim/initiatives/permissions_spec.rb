@@ -150,7 +150,7 @@ describe Decidim::Initiatives::Permissions do
   end
 
   context "when emeding an initiative" do
-    let(:initiative) { create(:initiative, :discarded, organization: organization) }
+    let(:initiative) { create(:initiative, :accepted, organization: organization) }
     let(:action) do
       { scope: :public, action: :embed, subject: :initiative }
     end
