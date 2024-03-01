@@ -4,9 +4,9 @@ en:
     design:
       components:
         activities:
-          title: Activities
           demo: Demo
-          text: Test
+          demo_text: 'This cell receives a model of LastActivity items and displays the following elements:'
+          title: Activities
       foundations:
         accessibility:
           accessibility_labels: Accessibility labels

@@ -10,7 +10,7 @@ module Decidim
             contents: [
               {
                 type: :text,
-                values: ["This cell receives a model of LastActivity items and displays the following elements:"]
+                values: [t(".demo_text")]
               },
               {
                 type: :partial,
