@@ -70,9 +70,7 @@ shared_examples_for "an embed resource" do |options|
     end
   end
 
-  unless options.is_a?(Hash) && options[:skip_link_checks]
-    it_behaves_like "rendering the embed link in the resource page"
-  end
+  it_behaves_like "rendering the embed link in the resource page" unless options.is_a?(Hash) && options[:skip_link_checks]
 
   context "when visiting the embed page for a resource" do
     before do
