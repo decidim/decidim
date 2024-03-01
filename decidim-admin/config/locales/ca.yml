@@ -354,6 +354,7 @@ ca:
         title: Conflictes de verificació
         transfer:
           email: Correu electrònic
+          error: Hi ha hagut un problema transferint la participant actual a una participant gestionada.
           name: Nom
           reason: Raó
           success: La transferència s'ha completat correctament.
