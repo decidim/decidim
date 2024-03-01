@@ -13,7 +13,7 @@ describe Decidim::Accountability::ProposalLinkedEvent do
   let(:proposal) { create :proposal, component: proposal_component }
   let(:extra) { { proposal_id: proposal.id } }
   let(:proposal_path) { resource_locator(proposal).path }
-  let(:proposal_title) { translated(proposal.title) }
+  let(:proposal_title) { decidim_sanitize_translated(proposal.title) }
   let(:notification_title) { "The proposal <a href=\"#{proposal_path}\">#{proposal_title}</a> has been included in the <a href=\"#{resource_path}\">#{resource_title}</a> result." }
   let(:email_subject) { "An update to #{proposal_title}" }
   let(:email_outro) { "You have received this notification because you are following \"#{proposal_title}\". You can stop receiving notifications following the previous link." }
