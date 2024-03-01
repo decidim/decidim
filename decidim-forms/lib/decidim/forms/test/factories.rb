@@ -69,7 +69,7 @@ FactoryBot.define do
             condition_question: questionaire.questions[q.position - 1],
             question: q,
             condition_type: :answered,
-            mandatory: true,
+            mandatory: true
           )
           questionaire.questions << q
           position += 1

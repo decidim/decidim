@@ -115,7 +115,6 @@ module Decidim
         Decidim::ContentProcessor.render_without_format(title, links: false).html_safe
       end
 
-
       private
 
       def event_interpolations
