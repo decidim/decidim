@@ -65,7 +65,7 @@ module Decidim
             contents: [
               {
                 type: :table,
-                options: { headings: ["Size", "Layout cols", "~ Characters per line"] },
+                options: { headings: [t(".readability_description_1"), t(".readability_description_2"), t(".readability_description_3")] },
                 items: typography_table(
                   { type: "readability", size: "text-xl", layout: 6, chars: 81 },
                   { type: "readability", size: "text-lg", layout: 6, chars: 90 },
