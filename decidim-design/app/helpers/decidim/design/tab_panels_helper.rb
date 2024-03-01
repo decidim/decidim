@@ -61,7 +61,7 @@ module Decidim
           text: "Announcement",
           icon: resource_type_icon_key("documents"),
           method: :cell,
-          args: ["decidim/announcement", "I am an annoucement"]
+          args: ["decidim/announcement", "I am an announcement"]
         }
       ]
     )
