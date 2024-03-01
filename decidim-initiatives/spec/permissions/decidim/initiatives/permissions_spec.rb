@@ -158,6 +158,24 @@ describe Decidim::Initiatives::Permissions do
       { initiative: initiative }
     end
 
+    context "when initiative is created" do
+      let(:initiative) { create(:initiative, :created, organization: organization) }
+
+      it { is_expected.to be false }
+    end
+
+    context "when initiative is validating" do
+      let(:initiative) { create(:initiative, :validating, organization: organization) }
+
+      it { is_expected.to be false }
+    end
+
+    context "when initiative is discarded" do
+      let(:initiative) { create(:initiative, :discarded, organization: organization) }
+
+      it { is_expected.to be false }
+    end
+
     context "when initiative is published" do
       let(:initiative) { create(:initiative, :published, organization: organization) }
 
