@@ -51,8 +51,7 @@ FactoryBot.define do
             condition_question: questionaire.questions[q.position - 1],
             question: q,
             condition_type: :answered,
-            mandatory: true,
-            skip_injection: evaluator.skip_injection
+            mandatory: true
           )
           questionaire.questions << q
           position += 1

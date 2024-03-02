@@ -29,7 +29,7 @@ module Decidim
       end
 
       def space_title
-        space.title.is_a?(Hash) ? space.title[I18n.locale.to_s] : space.title
+        space.title.is_a?(Hash) ? decidim_sanitize_translated(space.title) : space.title
       end
 
       def i18n_scope
