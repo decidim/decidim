@@ -299,7 +299,7 @@ FactoryBot.define do
       after :build do |proposal, evaluator|
         proposal.coauthorships.clear
         user = build(:user, organization: proposal.component.participatory_space.organization, skip_injection: evaluator.skip_injection)
-        proposal.coauthorships.build(author: user, skip_injection: evaluator.skip_injection)
+        proposal.coauthorships.build(author: user)
       end
     end
 
@@ -308,7 +308,7 @@ FactoryBot.define do
         proposal.coauthorships.clear
         user = create(:user, organization: proposal.component.participatory_space.organization, skip_injection: evaluator.skip_injection)
         user_group = create(:user_group, :verified, organization: user.organization, users: [user], skip_injection: evaluator.skip_injection)
-        proposal.coauthorships.build(author: user, user_group: user_group, skip_injection: evaluator.skip_injection)
+        proposal.coauthorships.build(author: user, user_group: user_group)
       end
     end
 
@@ -457,7 +457,7 @@ FactoryBot.define do
         users = evaluator.users || [create(:user, organization: collaborative_draft.component.participatory_space.organization, skip_injection: evaluator.skip_injection)]
         users.each_with_index do |user, idx|
           user_group = evaluator.user_groups[idx]
-          collaborative_draft.coauthorships.build(author: user, user_group: user_group, skip_injection: evaluator.skip_injection)
+          collaborative_draft.coauthorships.build(author: user, user_group: user_group)
         end
       end
     end
