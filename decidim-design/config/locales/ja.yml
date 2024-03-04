@@ -34,8 +34,40 @@ ja:
           use_aria_paragraph: ウェブサイト上でインタラクティブ機能を提供する多くの要素には、それらにアクセシブルにするために ARIA 属性が必要です。
         color:
           color_header: 色
+          description_p1: シンプルなカスタマイズが簡単にできるように、少数の色で構成される基本パレットを提供しています。より高度なカスタマイズが必要な場合は、管理画面のエリアまたはTailwindの設定ファイルのいずれかで基本パレットを変更することができます。
+          description_p2_html: 色をカスタマイズする際は、 %{contrast_link} を念頭に置いてください。 %{checker_link} やその他のツールで選択した配色のコントラストを確認できます。
           wcag_compliant_rations: WCAG 2.1 AA 準拠のコントラスト比
           wcag_contrast_checker: WebAIM コントラストチェッカー
+        iconography:
+          description_iconography: アクション、タイトルなどの意味を強調するためにアイコンを使用します
+          description_iconography_html: 'Remixicon オープンソースライブラリを使用しています: %{iconography_link}'
+          title: アイコン画像
+        layout:
+          breakpoint: ブレークポイント
+          breakpoints: ブレークポイント
+          centered: 中央揃え
+          code: コード
+          columns: カラム数は10、8または6とする。
+          description_layout_p1: デスクトップの場合、Decidimは異なる種類のコンテンツに対して、12カラムのグリッドによる限られた数のテンプレート(グリッド構成) を使用します。 その目的は、特定の種類のコンテンツ(ホームページ、要素一覧、個々の項目) に特徴的なレイアウトを持たせることで、ユーザーがページの一般的な見た目だけでどの種類のコンテンツにいるのかを理解できるようにすることです。
+          description_layout_p2: 新しいモジュールを作成したり既存のものをカスタマイズしたりする際には、これらのシンプルなルールに従うべきです。そうすることでDecidimサイトがその一貫性を維持できるようになります。
+          desktop: デスクトップ
+          full_width: 横最大幅
+          layout_list_1: 'ホームページ(サイト、スペース): 幅全体'
+          layout_list_2: '要素のリスト（スペース、スペース内のアイテムなど）: 左側'
+          layout_list_3: '個々の項目（提案、ブログ記事）: 中央、オプションで右側に'
+          left_aside: 左サイド
+          mobile: モバイル
+          not_required: 任意
+          properties: プロパティ
+          right_aside: 右サイド
+          section_p_breakpoints: '要素のレスポンシブなmax-widthを管理するために、デフォルトの`container` Tailwind クラスに依存しています。このクラスは以下のブレークポイントを定めています:'
+          section_p_code: 新しいモジュールを実装する際、HTML構造を設定するために必要なコードを自動的に提供するヘルパーがいくつかあります。一貫性を保つために、クラス属性付きのdiv要素を直接使用するのではなく、これらのヘルパーを使用すべきです。
+          section_p_code_html: 基本的なレイアウトは %{link_section_code} で確認できます
+          section_p_desktop: デスクトップグリッドシステムは、列間に16pxの隙間と、左右に48pxのマージンを持つ12の柔軟な列で構成されています。
+          section_p_mobile: モバイルグリッドシステムは、列間に16pxの隙間と、左右に16pxのマージンを持つ4つの柔軟な列で構成されています。サイズが320px以下の場合、このマージンは8pxに設定されます。
+          section_p_tablet: タブレットグリッドシステムは、列間に16pxの隙間と、左右に24pxのマージンを持つ8つの柔軟な列で構成されています。
+          tablet: タブレット
+          title: レイアウト
       helpers:
         background: 背景とボーダー
         base: 基本
@@ -58,6 +90,7 @@ ja:
         usage_base_3: グラフィックオーナメントとアクセントカラー\nカードとリストアイテムのホバーの境界線を表示する
         usage_formelements_1: 入力要素の標準の背景
         usage_formelements_2: 入力を無効にした入力要素の背景
+        usage_state_1: 成功通知のボーダー\nアラート通知のアイコン\n成功メッセージのボタン背景
         usage_state_2: 警告のボーダー
         usage_state_3: アラート通知のボーダー\nアラート通知のアイコンの色
         usage_typography_1: 見出しとセクションのタイトル
