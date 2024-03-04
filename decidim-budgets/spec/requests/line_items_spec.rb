@@ -45,20 +45,9 @@ RSpec.describe "Project search" do
     context "with concurrent requests" do
       include_context "with concurrency"
 
-      let(:warden_authenticate) { ->(proxy) { proxy.set_user(user, event: :authentication, scope: :user) } }
-
       before do
-        # Note that we cannot use login_as as that would be cleared due to the
-        # concurrency and the other requests than the first one would not have
-        # the user logged in.
-        Warden::Manager.on_request(&warden_authenticate)
-      end
-
-      after do
-        # Clear the custom on_request block so that it does not stick for other
-        # tests.
-        item = Warden::Manager._on_request.find { |defn| defn[0] == warden_authenticate }
-        Warden::Manager._on_request.delete(item)
+        # Persist the session cookie before the concurrent requests.
+        get(Decidim::Core::Engine.routes.url_helpers.root_path, headers:)
       end
 
       it "only creates a single order" do
