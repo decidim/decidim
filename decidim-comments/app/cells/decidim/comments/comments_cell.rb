@@ -27,7 +27,7 @@ module Decidim
 
       def blocked_comments_warning
         return unless comments_blocked?
-        return unless user_comments_blocked?
+        return if user_comments_blocked?
 
         render :blocked_comments_warning
       end

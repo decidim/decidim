@@ -119,6 +119,20 @@ shared_examples "comments" do
       visit resource_path
       expect(page).to have_no_css(".add-comment form")
     end
+
+    context "when comments are blocked" do
+      let(:active_step_id) { component.participatory_space.active_step.id }
+
+      before do
+        component.update!(step_settings: { active_step_id => { comments_blocked: true } })
+      end
+
+      it "shows a message indicating that comments are disabled" do
+        visit resource_path
+        expect(page).to have_content("Comments are disabled at this time")
+        expect(page).to have_no_content("You need to be verified to comment at this moment")
+      end
+    end
   end
 
   context "when authenticated" do
@@ -129,6 +143,20 @@ shared_examples "comments" do
 
     it "shows form to add comments to user" do
       expect(page).to have_css(".add-comment form")
+    end
+
+    context "when comments are blocked" do
+      let(:active_step_id) { component.participatory_space.active_step.id }
+
+      before do
+        component.update!(step_settings: { active_step_id => { comments_blocked: true } })
+      end
+
+      it "shows a message indicating that comments are disabled" do
+        visit resource_path
+        expect(page).to have_content("Comments are disabled at this time")
+        expect(page).to have_no_content("You need to be verified to comment at this moment")
+      end
     end
 
     describe "when using emojis" do
