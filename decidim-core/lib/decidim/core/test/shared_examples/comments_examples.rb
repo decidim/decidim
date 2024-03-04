@@ -160,6 +160,32 @@ shared_examples "comments" do
       end
     end
 
+    context "when user is not authorized to comment" do
+      let(:permissions) do
+        {
+          comment: {
+            authorization_handlers: {
+              "dummy_authorization_handler" => { "options" => {} }
+            }
+          }
+        }
+      end
+
+      before do
+        organization.available_authorizations = ["dummy_authorization_handler"]
+        organization.save!
+        commentable.create_resource_permission(permissions:)
+        allow(commentable).to receive(:user_allowed_to_comment?).with(user).and_return(false)
+        allow(commentable).to receive(:user_authorized_to_comment?).with(user).and_return(true)
+      end
+
+      it "shows a message indicating that comments are restricted" do
+        visit resource_path
+        expect(page).to have_no_content("Comments are disabled at this time")
+        expect(page).to have_content("You need to be verified to comment at this moment")
+      end
+    end
+
     describe "when using emojis" do
       before do
         within_language_menu do
