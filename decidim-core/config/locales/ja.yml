@@ -792,6 +792,10 @@ ja:
           email_outro: あなたはプラットフォームの管理者であるため、この通知を受け取りました。
           email_subject: ユーザーグループがプロファイルを更新しました
           notification_title: '%{user_group_name} ユーザーグループがプロファイルを更新し、未検証のままにしました。 <a href="%{groups_admin_path}">管理画面</a> で確認できるようになりました。'
+      nickname_event:
+        notification_body: ニックネームの使用方法を修正し、重複をなくすために大文字小文字を区別しないようにしました。<br/> あなたのニックネームは他の同じ名前の方の後に登録されたため、自動的にリネームされました。<a href="%{link_to_account_settings}">アカウント設定</a>から変更することができます。
+      notification_event:
+        notification_title: <a href="%{resource_path}">%{resource_title}</a> にイベントが発生しました。
       reports:
         resource_hidden:
           email_intro: '%{report_reasons} として報告されたため、管理者が %{resource_type} を削除しました。'
@@ -854,6 +858,7 @@ ja:
       create:
         button: フォロー
         error: このリソースの後に問題がありました。
+        participatory_space: <span>%{resource_name}</span> をフォロー中
       destroy:
         button: フォローを停止
         error: リソースのフォローを解除する際に問題が発生しました。
@@ -867,12 +872,14 @@ ja:
         file:
           explanation: 'ファイルのガイダンス:'
           message_1: 画像またはドキュメントである必要があります。
+          message_2: 画像の場合、横長の画像が適しています。システムが画像を切り抜きます。
         icon:
           explanation: 'アイコンのガイド:'
           message_1: 正方形の画像でなければなりません。
           message_2: この画像の推奨サイズは512x512です。
         image:
           explanation: '画像のガイダンス:'
+          message_1: テキストを含まない横長の画像をお勧めします。
           message_2: システムが画像を切り抜きます。
       file_validation:
         allowed_file_extensions: 'アップロード可能なファイル形式: %{extensions}'
