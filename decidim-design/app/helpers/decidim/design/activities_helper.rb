@@ -14,21 +14,20 @@ module Decidim
               },
               {
                 type: :partial,
-                template: "decidim/design/components/activities/static-activities"
+                template: "decidim/design/components/activities/static-activity"
               },
               {
                 type: :text,
-                values: ["Used by the last activity page, in a content block and within the dropdowns."]
+                values: [t(".demo_text_2")]
               }
             ]
           },
           {
-            id: "variations",
+            id: t(".variations"),
             contents: [
               {
                 type: :text,
-                values: ["Regarding the type of activity, the cell could show different content, reporting the distinct resources,
-                          whether belong to a participatory space or not, has an author or not."]
+                values: [t(".variations_text")]
               },
               {
                 type: :partial,
@@ -37,11 +36,11 @@ module Decidim
             ]
           },
           {
-            id: "source_code",
+            id: t(".source_code"),
             contents: [
               {
                 type: :cell_table,
-                options: { headings: ["Activities"] },
+                options: { headings: [t(".activities")] },
                 cell_snippet: {
                   cell: "decidim/activities",
                   args: [Decidim::ActionLog.where(resource_type: "Decidim::ParticipatoryProcess", organization: current_organization).first(5)],
@@ -50,7 +49,7 @@ module Decidim
               },
               {
                 type: :cell_table,
-                options: { headings: ["Activity"] },
+                options: { headings: [t(".activity")] },
                 cell_snippet: {
                   cell: "decidim/activity",
                   args: [Decidim::ActionLog.where(resource_type: "Decidim::ParticipatoryProcess", organization: current_organization).last],

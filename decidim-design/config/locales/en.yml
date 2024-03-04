@@ -7,6 +7,12 @@ en:
           demo: Demo
           demo_text: 'This cell receives a model of LastActivity items and displays the following elements:'
           title: Activities
+          demo_text_2: Used by the last activity page, in a content block and within the dropdowns.
+          variations: Variations
+          variations_text: Regarding the type of activity, the cell could show different content, reporting the distinct resources, whether belong to a participatory space or not, has an author or not.
+          source_code: Source Code
+          activities: Activities
+          activity: Activity
       foundations:
         accessibility:
           accessibility_labels: Accessibility labels
