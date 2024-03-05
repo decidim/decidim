@@ -40,7 +40,7 @@ module Decidim
             contents: [
               {
                 type: :cell_table,
-                options: { headings: [t(".activities")] },
+                options: { headings: [t("decidim.design.components.activities.activities")] },
                 cell_snippet: {
                   cell: "decidim/activities",
                   args: [Decidim::ActionLog.where(resource_type: "Decidim::ParticipatoryProcess", organization: current_organization).first(5)],
