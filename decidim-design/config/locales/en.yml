@@ -2,6 +2,9 @@
 en:
   decidim:
     design:
+      components:
+        address:
+          title: Address
       foundations:
         accessibility:
           accessibility_labels: Accessibility labels
