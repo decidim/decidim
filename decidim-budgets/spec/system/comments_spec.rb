@@ -10,6 +10,13 @@ describe "Comments" do
 
   include_examples "comments"
 
+  context "with comments blocked" do
+    let!(:component) { create(:budgets_component, participatory_space:, organization:) }
+    let(:participatory_space) { create(:participatory_process, :with_steps, organization:) }
+
+    include_examples "comments blocked"
+  end
+
   context "when requesting the comments index with a non-XHR request" do
     it "redirects the user to the correct commentable path" do
       visit decidim_comments.comments_path(commentable_gid: commentable.to_signed_global_id.to_s)
