@@ -310,6 +310,7 @@ es-MX:
           form:
             existing_user: Usuario existente
             explanation: 'Instrucciones para la imagen:'
+            image_guide: Preferiblemente una imagen apaisada que no tenga ningún texto.
             non_user: No usuario
             non_user_avatar_help: Debes obtener el consentimiento de las personas antes de publicarles como miembros.
             select_a_position: Selecciona una posición
