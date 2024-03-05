@@ -265,6 +265,8 @@ fr-CA:
           create:
             error: Il y avait un problème avec votre demande.
             success: Merci ! Nous avons envoyé un SMS sur votre téléphone.
+          destroy:
+            success: Le code de vérification a été réinitialisé avec succès. Veuillez saisir de nouveau votre numéro de téléphone.
           edit:
             confirm_destroy: Êtes-vous sûr de vouloir réinitialiser le code de vérification?
             destroy: Réinitialiser le code de vérification
