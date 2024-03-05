@@ -75,6 +75,7 @@ es-MX:
         main_colors: Colores principales
         rgba_code: Código RGBA
         state: Estado
+        tailwind: Nombre del Tailwind
         typography_texts: Textos y tipografía
         usage: Uso
         usage_background_1: Fondo lateral
@@ -85,10 +86,14 @@ es-MX:
         usage_background_6: Fondo del tablero de administración
         usage_base_1: Fondo del componente de navegación principal\nNav menús en la página de inicio de la plataforma y en la página de inicio del espacio de participación
         usage_base_2: Color principal para enlaces y botones
+        usage_base_3: Ornamentos gráficos y color de acento\nAlteración del aspecto de targetas y listas de elementos cuando el ratón se posa sobre él, aunque no haya sido seleccionado
         usage_formelements_1: Fondo por defecto de los elementos de entrada
+        usage_formelements_2: Fondo de los elementos de entrada deshabilitados
+        usage_state_1: Borde de la notificación de éxito\nRelleno del icono de la notificación de alerta\nFondo del botón en la notificación de éxito
         usage_state_2: Borde de la nota de aviso
         usage_state_3: Borde de la nota de aviso\nFondo del icono de la nota
         usage_typography_1: Encabezados y títulos de sección
+        usage_typography_2: Texto en línea
         usage_typography_3: Texto sobre fondo oscuro
         usage_typography_4: Enlaces y botones
         value: Valor
