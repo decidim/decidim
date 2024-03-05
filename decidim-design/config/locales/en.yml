@@ -2,6 +2,9 @@
 en:
   decidim:
     design:
+      components:
+        activities:
+          activities: Activities
       foundations:
         accessibility:
           accessibility_labels: Accessibility labels
@@ -69,12 +72,17 @@ en:
           tablet: Tablet
           title: Layout
       helpers:
+        activity: Activity
         background: Background and borders
         base: Base
+        demo: Demo
+        demo_text: 'This cell receives a model of LastActivity items and displays the following elements:'
+        demo_text_2: Used by the last activity page, in a content block and within the dropdowns.
         form_elements: Form elements
         hex_code: Hex code
         main_colors: Main Colors
         rgba_code: RGBA code
+        source_code: Source Code
         state: State
         tailwind: Tailwind name
         typography_texts: Typography and texts
@@ -98,6 +106,8 @@ en:
         usage_typography_3: Text over dark background
         usage_typography_4: Links and buttons
         value: Value
+        variations: Variations
+        variations_text: Regarding the type of activity, the cell could show different content, reporting the distinct resources, whether belong to a participatory space or not, has an author or not.
       home:
         index:
           by_sharing_principles: By sharing the principles, philosophy, and rationale behind design decisions we want to empower the community to contribute with consistency so we reach the best participant experience.
