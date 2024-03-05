@@ -24,7 +24,7 @@ shared_examples_for "has embedded video in description" do |description_attribut
 
     it "disables iframe" do
       expect(page).to have_content(cookie_warning)
-      expect(page).not_to have_selector("iframe")
+      expect(page).to have_no_css("iframe")
     end
   end
 
@@ -35,8 +35,8 @@ shared_examples_for "has embedded video in description" do |description_attribut
     end
 
     it "shows iframe" do
-      expect(page).not_to have_content(cookie_warning)
-      expect(page).to have_selector("iframe", count:)
+      expect(page).to have_no_content(cookie_warning)
+      expect(page).to have_css("iframe", count:)
     end
   end
 end

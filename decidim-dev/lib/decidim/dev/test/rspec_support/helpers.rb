@@ -5,7 +5,7 @@ module Decidim
   module ComponentTestHelpers
     def click_submenu_link(text)
       within ".secondary-nav--subnav" do
-        click_link text
+        click_on text
       end
     end
 
@@ -26,7 +26,7 @@ module Decidim
     end
 
     def within_admin_menu
-      click_button "Manage"
+      click_on "Manage"
       within("[id*='dropdown-menu-settings']") do
         yield
       end

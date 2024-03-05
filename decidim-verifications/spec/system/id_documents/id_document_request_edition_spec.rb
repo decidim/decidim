@@ -38,7 +38,7 @@ describe "Identity document request edition" do
 
   context "when the organization only has online method active" do
     it "allows the user to change the data" do
-      expect(page).to have_selector("form", text: "Request verification again")
+      expect(page).to have_css("form", text: "Request verification again")
 
       submit_upload_form(
         doc_type: "Identification number",
@@ -65,7 +65,7 @@ describe "Identity document request edition" do
     let(:verification_method) { :offline }
 
     it "allows the user to change the data" do
-      expect(page).to have_selector("form", text: "Request verification again")
+      expect(page).to have_css("form", text: "Request verification again")
       expect(page).to have_no_content("Scanned copy of your document")
       expect(page).to have_content("This is my explanation text")
 
@@ -94,7 +94,7 @@ describe "Identity document request edition" do
       let(:verification_method) { :offline }
 
       it "allows the user to change the verification method" do
-        expect(page).to have_selector("form", text: "Request verification again")
+        expect(page).to have_css("form", text: "Request verification again")
         expect(page).to have_no_content("Scanned copy of your document")
         click_on "Use online verification"
 
@@ -117,7 +117,7 @@ describe "Identity document request edition" do
       let(:verification_method) { :online }
 
       it "allows the user to change the verification method" do
-        expect(page).to have_selector("form", text: "Request verification again")
+        expect(page).to have_css("form", text: "Request verification again")
         click_on "Use offline verification"
         expect(page).to have_no_content("Scanned copy of your document")
 

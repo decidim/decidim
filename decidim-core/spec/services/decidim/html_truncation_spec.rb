@@ -56,7 +56,7 @@ describe Decidim::HtmlTruncation do
   describe "count tail" do
     let(:count_tail) { true }
 
-    it "countas tail" do
+    it "counts tail" do
       expect(subject).to eq(text.truncate(max_length, omission: options[:tail]).to_s)
     end
   end

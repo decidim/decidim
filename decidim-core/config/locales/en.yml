@@ -817,9 +817,9 @@ en:
           email_subject: A user group has updated its profile
           notification_title: The %{user_group_name} user group has updated its profile, leaving it unverified. You can now verify it in the <a href="%{groups_admin_path}">admin panel</a>.
       nickname_event:
-        notification_body: We have corrected the way nicknames are used so that there are no duplicates, and that is why we have removed the case sensitive rule. <br/> Your nickname was created after another one with the same name, so we have automatically renamed it. You can change it from <a href="%{link_to_account_settings}">your account settings</a>.
+        notification_body: We have corrected the way nicknames are used so that there are no duplicates, and that is why we have removed the case-sensitive rule. <br/> Your nickname was created after another one with the same name, so we have automatically renamed it. You can change it from <a href="%{link_to_account_settings}">your account settings</a>.
       notification_event:
-        notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: An event occurred to <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: An administrator removed your %{resource_type} because it has been reported as %{report_reasons}.
@@ -898,14 +898,14 @@ en:
         file:
           explanation: 'Guidance for file:'
           message_1: Has to be an image or a document.
-          message_2: For images, use preferrably landscape images, the service crops the image.
+          message_2: For images, use preferably landscape images, the service crops the image.
         icon:
           explanation: 'Guidance for icon:'
           message_1: Has to be a square image.
           message_2: The recommended size for this image is 512x512.
         image:
           explanation: 'Guidance for image:'
-          message_1: Preferrably a landscape image that does not have any text.
+          message_1: Preferably a landscape image that does not have any text.
           message_2: The service crops the image.
       file_validation:
         allowed_file_extensions: 'Allowed file extensions: %{extensions}'

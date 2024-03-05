@@ -42,7 +42,7 @@ module Decidim
       # Block-level calls ######################
 
       # Recarpet callback to process headers.
-      # Creates Paricipatory Text Proposals at Section and Subsection levels.
+      # Creates Participatory Text Proposals at Section and Subsection levels.
       def header(title, level)
         participatory_text_level = if level > 1
                                      Decidim::Proposals::ParticipatoryTextSection::LEVELS[:sub_section]
@@ -57,7 +57,7 @@ module Decidim
       end
 
       # Recarpet callback to process paragraphs.
-      # Creates Paricipatory Text Proposals at Article level.
+      # Creates Participatory Text Proposals at Article level.
       def paragraph(text)
         return if text.blank?
 
