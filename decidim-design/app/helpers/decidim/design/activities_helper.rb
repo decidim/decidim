@@ -6,11 +6,11 @@ module Decidim
       def activities_sections
         [
           {
-            id: t(".demo"),
+            id: t("decidim.design.helpers.demo"),
             contents: [
               {
                 type: :text,
-                values: [t(".demo_text")]
+                values: [t("decidim.design.helpers.demo_text")]
               },
               {
                 type: :partial,
@@ -18,16 +18,16 @@ module Decidim
               },
               {
                 type: :text,
-                values: [t(".demo_text_2")]
+                values: [t("decidim.design.helpers.demo_text_2")]
               }
             ]
           },
           {
-            id: t(".variations"),
+            id: t("decidim.design.helpers.variations"),
             contents: [
               {
                 type: :text,
-                values: [t(".variations_text")]
+                values: [t("decidim.design.helpers.variations_text")]
               },
               {
                 type: :partial,
@@ -36,7 +36,7 @@ module Decidim
             ]
           },
           {
-            id: t(".source_code"),
+            id: t("decidim.design.helpers.source_code"),
             contents: [
               {
                 type: :cell_table,
@@ -49,7 +49,7 @@ module Decidim
               },
               {
                 type: :cell_table,
-                options: { headings: [t(".activity")] },
+                options: { headings: [t("decidim.design.helpers.activity")] },
                 cell_snippet: {
                   cell: "decidim/activity",
                   args: [Decidim::ActionLog.where(resource_type: "Decidim::ParticipatoryProcess", organization: current_organization).last],
