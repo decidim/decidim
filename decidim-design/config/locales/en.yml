@@ -19,6 +19,8 @@ en:
           usage_p_3_html: 3. A hideable element, whose <code>id</code> matches the data-controls value the trigger refers to.
         activities:
           activities: Activities
+        announcement:
+          title: Accouncement
       foundations:
         accessibility:
           accessibility_labels: Accessibility labels
