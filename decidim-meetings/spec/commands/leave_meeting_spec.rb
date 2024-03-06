@@ -35,7 +35,7 @@ module Decidim::Meetings
           meeting.questionnaire.destroy
         end
 
-        it "allows the user to leave successully" do
+        it "allows the user to leave successfully" do
           expect { subject.call }.to broadcast(:ok)
         end
       end

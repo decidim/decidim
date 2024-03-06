@@ -21,7 +21,7 @@ shared_examples "searchable results" do
 
       expect(page).to have_current_path decidim.search_path, ignore_query: true
       expect(page).to have_content(%(Results for the search: "#{term}"))
-      expect(page).to have_selector(".filter-search.filter-container")
+      expect(page).to have_css(".filter-search.filter-container")
       expect(page.find("#search-count h1").text.to_i).to be_positive
     end
 
@@ -48,7 +48,7 @@ shared_examples "searchable results" do
 
         expect(page).to have_current_path decidim.search_path, ignore_query: true
         expect(page).to have_content(%(Results for the search: "#{term}"))
-        expect(page).to have_selector(".filter-search.filter-container")
+        expect(page).to have_css(".filter-search.filter-container")
         expect(page.find("#search-count h1").text.to_i).to be_positive
 
         searchables.each do |searchable|
@@ -67,7 +67,7 @@ shared_examples "searchable results" do
 
         expect(page).to have_current_path decidim.search_path, ignore_query: true
         expect(page).to have_content(%(Results for the search: "#{term}"))
-        expect(page).to have_selector(".filter-search.filter-container")
+        expect(page).to have_css(".filter-search.filter-container")
         expect(page.find("#search-count h1").text.to_i).not_to be_positive
       end
     end
@@ -83,7 +83,7 @@ shared_examples "searchable results" do
 
           expect(page).to have_current_path decidim.search_path, ignore_query: true
           expect(page).to have_content(%(Results for the search: "#{term}"))
-          expect(page).to have_selector(".filter-search.filter-container")
+          expect(page).to have_css(".filter-search.filter-container")
           expect(page.find("#search-count h1").text.to_i).not_to be_positive
         end
 
@@ -95,7 +95,7 @@ shared_examples "searchable results" do
             expect(page.find("#search-count h1").text.to_i).not_to be_positive
 
             within "#results" do
-              expect(page).not_to have_content(hashtag)
+              expect(page).to have_no_content(hashtag)
             end
           end
         end

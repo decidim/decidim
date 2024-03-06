@@ -2,6 +2,23 @@
 en:
   decidim:
     design:
+      components:
+        accordions:
+          content_panel: Content of the panel
+          demo: Demo
+          demo_description: Throughout the application the accordions are used, mainly, to show/hide content in tabs or fold/unfold visible texts.
+          description_accordions_html: Accordions are a javascript feature available thanks to an external library called %{link_code} a11y-accordion-component.
+          github_source_html: Source code on GitHub %{github_link}
+          panel: Panel
+          title: Accordions
+          trigger: Trigger
+          usage: Usage
+          usage_p: An accordion requires at least three elements
+          usage_p_1_html: 1. A wrapper <code>div</code>, with the data-attribute <code>data-component="accordion"</code>, over all the available triggers and panels.
+          usage_p_2_html: 2. A trigger element, user actionable (as a button), pointing to the collapsable element through <code>data-controls="panel"</code>, where <i>panel</i> is the <code>id</code> of the panel.
+          usage_p_3_html: 3. A hideable element, whose <code>id</code> matches the data-controls value the trigger refers to.
+        activities:
+          activities: Activities
       foundations:
         accessibility:
           accessibility_labels: Accessibility labels
@@ -77,12 +94,17 @@ en:
           typefaces_description_2: This fonts are licensed under the Open Font License
           title: Typography
       helpers:
+        activity: Activity
         background: Background and borders
         base: Base
+        demo: Demo
+        demo_text: 'This cell receives a model of LastActivity items and displays the following elements:'
+        demo_text_2: Used by the last activity page, in a content block and within the dropdowns.
         form_elements: Form elements
         hex_code: Hex code
         main_colors: Main Colors
         rgba_code: RGBA code
+        source_code: Source Code
         state: State
         tailwind: Tailwind name
         typography_texts: Typography and texts
@@ -106,6 +128,8 @@ en:
         usage_typography_3: Text over dark background
         usage_typography_4: Links and buttons
         value: Value
+        variations: Variations
+        variations_text: Regarding the type of activity, the cell could show different content, reporting the distinct resources, whether belong to a participatory space or not, has an author or not.
       home:
         index:
           by_sharing_principles: By sharing the principles, philosophy, and rationale behind design decisions we want to empower the community to contribute with consistency so we reach the best participant experience.

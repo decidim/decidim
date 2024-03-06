@@ -27,7 +27,7 @@ describe "Notifications" do
 
       expect(page).to have_current_path decidim.notifications_path
       expect(page).to have_no_content("No notifications yet")
-      expect(page).to have_content("An event occured")
+      expect(page).to have_content("An event occurred")
     end
 
     context "when the resource has been deleted" do
@@ -60,7 +60,7 @@ describe "Notifications" do
     context "when there are some notifications" do
       it "the button is shown as active" do
         within ".main-bar" do
-          expect(page).to have_selector("[data-unread-items]")
+          expect(page).to have_css("[data-unread-items]")
         end
       end
     end
@@ -85,11 +85,11 @@ describe "Notifications" do
     end
 
     it "shows the notifications" do
-      expect(page).to have_selector(".notification")
+      expect(page).to have_css(".notification")
     end
 
     context "when setting a single notification as read" do
-      let(:notification_title) { "An event occured to #{translated resource.title}" }
+      let(:notification_title) { "An event occurred to #{translated resource.title}" }
 
       it "hides the notification from the page" do
         expect(page).to have_content(decidim_sanitize_translated(notification_title))

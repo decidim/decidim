@@ -22,7 +22,7 @@ shared_examples "a paginated collection" do |options|
         click_on "50"
       end
 
-      expect(page).to have_selector(".table-list tbody tr", count: 50)
+      expect(page).to have_css(".table-list tbody tr", count: 50)
     end
   end
 end

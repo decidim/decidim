@@ -40,7 +40,7 @@ describe "Explore meetings", :slow do
         visit_component
       end
 
-      context "when meetings mounted under paraticipatory process" do
+      context "when meetings mounted under participatory process" do
         let(:participatory_space) { create(:participatory_process, organization:) }
 
         it "properly saves the shortened link" do
@@ -470,7 +470,7 @@ describe "Explore meetings", :slow do
       end
 
       it "shows tags for category" do
-        expect(page).to have_selector("[data-tags]")
+        expect(page).to have_css("[data-tags]")
         within "[data-tags]" do
           expect(page).to have_content(translated(meeting.category.name))
         end
@@ -494,7 +494,7 @@ describe "Explore meetings", :slow do
       end
 
       it "shows tags for scope" do
-        expect(page).to have_selector("[data-tags]")
+        expect(page).to have_css("[data-tags]")
         within "[data-tags]" do
           expect(page).to have_content(translated(meeting.scope.name))
         end

@@ -52,7 +52,7 @@ shared_context "with filterable context" do
     before { apply_filter(options, filter) }
 
     it { expect(page).to have_content(in_filter) }
-    it { expect(page).not_to have_content(not_in_filter) }
+    it { expect(page).to have_no_content(not_in_filter) }
 
     it_behaves_like "searching by text" do
       let(:text) { in_filter }
