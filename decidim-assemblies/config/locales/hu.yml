@@ -56,6 +56,7 @@ hu:
         subtitle: Felirat
         target: Ki vesz részt
         title: Cím
+        twitter: X
         weight: Pozíció sorrend
         youtube: Youtube
       assembly_member:
@@ -95,6 +96,7 @@ hu:
       actions:
         import_assembly: Importálás
         new_assembly: Új gyűlés
+        new_assembly_member: Új gyűlés tag
         new_assembly_type: Új Gyűlés típus
         new_assembly_user_role: Új gyűlés admin
       assemblies:
@@ -107,6 +109,7 @@ hu:
           private: Privát
           public: Nyilvános
           published: Közzétéve
+          unpublished: Nem publikált
         new:
           create: Létrehozás
           title: Új gyűlés
@@ -149,11 +152,13 @@ hu:
         destroy:
           success: A tag eltávolítása a gyűlésből sikeres volt.
         edit:
+          title: Gyűlés tagjának frissítése
           update: Frissítés
         index:
           assembly_members_title: Gyűlés tagjai
         new:
           create: Létrehozás
+          title: Új gyűlés tag
         update:
           error: Hiba történt a gyűlés tagjának frissítése során.
           success: Gyűlés tagjának frissítése sikeres.
@@ -182,6 +187,8 @@ hu:
           error: Hiba történt a gyűlés adminjának frissítése során.
           success: Gyűlés adminjának frissítése sikeres.
       filters:
+        ceased_date_not_null:
+          label: Megszűnt
         decidim_assemblies_type_id_eq:
           label: Gyűlés típusa
       menu:
