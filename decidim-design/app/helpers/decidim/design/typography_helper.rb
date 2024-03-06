@@ -65,7 +65,8 @@ module Decidim
             contents: [
               {
                 type: :table,
-                options: { headings: [t("decidim.design.foundations.typography.readability_description_1"), t("decidim.design.foundations.typography.readability_description_2"), t("decidim.design.foundations.typography.readability_description_3")] },
+                options: { headings: [t("decidim.design.foundations.typography.readability_description_1"), t("decidim.design.foundations.typography.readability_description_2"),
+                                      t("decidim.design.foundations.typography.readability_description_3")] },
                 items: typography_table(
                   { type: "readability", size: "text-xl", layout: 6, chars: 81 },
                   { type: "readability", size: "text-lg", layout: 6, chars: 90 },
