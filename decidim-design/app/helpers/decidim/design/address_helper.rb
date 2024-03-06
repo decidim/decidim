@@ -29,7 +29,7 @@ module Decidim
             ]
           },
           {
-            id:  t("decidim.design.helpers.source_code"),
+            id: t("decidim.design.helpers.source_code"),
             contents: [
               {
                 type: :text,
