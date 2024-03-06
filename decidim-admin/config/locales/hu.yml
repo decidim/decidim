@@ -355,6 +355,9 @@ hu:
           title: Átvezetés
         'true': 'Igen'
         user_name: Felhasználó
+      content_blocks:
+        create:
+          success: A tartalmi blokk sikeresen létrehozva.
       dashboard:
         pending_moderations:
           goto_moderation: Menj a globális moderációkhoz
