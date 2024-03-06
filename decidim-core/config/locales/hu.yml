@@ -998,6 +998,8 @@ hu:
           add_users_placeholder: Keres...
           modal_title: Új beszélgetés
           no_results: Nincs eredmény
+        create:
+          error: A beszélgetés nem kezdődött el. Próbáld újra később.
         error_modal:
           close: Ablak bezárás
           correct_errors: Kérjük javítsa a hibákat és próbálja újra.
@@ -1137,6 +1139,7 @@ hu:
           headline: A %{organization} jelenlegi állapota
         sub_hero:
           register: Regisztráció
+          register_title: A fiók létrehozásához regisztráljon
       index:
         standalone_pages: Oldalak
         subheading: Navigáljon a %{name} súgó oldalán
@@ -1154,6 +1157,7 @@ hu:
     profile:
       deleted: Törölt résztvevő
     profiles:
+      default_officialization_text_for_users: Ez a résztvevő nyilvánosan ellenőrzött, nevét vagy szerepét igazolták, így az megfelel valódi nevének és szerepének.
       show:
         activity: Tevékenység
         badges: Jelvények
@@ -1168,6 +1172,7 @@ hu:
           title: Kitűzők
       user:
         actions:
+          create_user_group: Csoport létrehozása
           invite_user: Résztvevő meghívása
           join_user_group: Csatlakozás kérése a csoporthoz
           manage_user_group_admins: Adminisztrátorok kezelése
@@ -1328,6 +1333,8 @@ hu:
     user_contact_disabled: Ez a résztvevő nem fogad el közvetlen üzeneteket.
     user_conversations:
       create:
+        error: Az üzenet létrehozása sikertelen. Próbálkozzon újra később.
+        existing_error: Az üzenet létrehozása sikertelen. A beszélgetés már létezik, kérjük, próbálkozzon újra most.
         success: A beszélgetés sikeresen elindult!
       index:
         conversations_info: A beszélgetések privátak. Senki más nem láthatja őket. Bármelyik, a platformon regisztrált résztvevővel vagy csoporttal beszélgetést kezdeményezhet.
@@ -1420,6 +1427,9 @@ hu:
         accept_until: 'Ez a meghívás eddig érvényes: %{due_date}.'
         decline: Meghívó visszautasítása
         hello: Helló %{email}!
+        ignore: |-
+          Ha nem szeretné elfogadni a meghívást, hagyja figyelmen kívül ezt az e-mailt.<br />
+          Fiókját addig nem hozzuk létre, amíg nem használja a fenti hivatkozást, és nem adja meg becenevét és jelszavát.
         invited_you_as_admin: "%{invited_by} meghívott, mint admint, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken."
         invited_you_as_private_user: "%{invited_by} meghívott, mint privát felhasználót, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken."
         someone_invited_you: 'Valaki meghívott, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken.'
@@ -1433,6 +1443,7 @@ hu:
         action: A jelszó megváltoztatása
         greeting: Hello %{recipient}!
         instruction: Valaki felkért egy linket a jelszó megváltoztatására, és ezt az alábbi linken keresztül teheti meg.
+        instruction_3: A jelszó nem változik meg, amíg nem hoz létre újat a fenti hivatkozás segítségével.
         subject: Jelszó-visszaállító utasítások visszaállítása
       unlock_instructions:
         action: Fiókom feloldása
