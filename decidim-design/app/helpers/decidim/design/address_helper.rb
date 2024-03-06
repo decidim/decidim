@@ -11,7 +11,7 @@ module Decidim
               {
                 type: :text,
                 values: [
-                  t("decidim.design.helpers.address_description_1")
+                  t("decidim.design.helpers.address_description")
                 ]
               },
               {
@@ -20,7 +20,7 @@ module Decidim
               {
                 type: :text,
                 values: [
-                  t(".decidim.design.helpers.address_description_2")
+                  t("decidim.design.helpers.address_description_2")
                 ]
               },
               {
@@ -29,7 +29,7 @@ module Decidim
             ]
           },
           {
-            id:  t(".decidim.design.helpers.source_code"),
+            id:  t("decidim.design.helpers.source_code"),
             contents: [
               {
                 type: :text,
