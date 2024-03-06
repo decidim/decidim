@@ -39,6 +39,11 @@ hu:
         confirm_destroy: 'Biztosan törölni szeretnéd ezt: %{name}?'
         destroy: Törlés
         edit: Szerkesztés
+        import: Elemek importálása egy másik komponensből
+        import_csv: Eredmények importálása CSV-fájlból
+        new_result: Új eredmény
+        new_status: Új állapot
+        new_timeline_entry: Új idővonal bejegyzés
         preview: Előnézet
         timeline_entries: Projekt alakulása
         title: Műveletek
@@ -71,6 +76,7 @@ hu:
                 </ul>
               </li>
               </ol>
+            title: Eredmények importálása CSV-fájlból
         imports:
           create:
             invalid: Probléma adódott az eredmények importálásával.
@@ -95,6 +101,7 @@ hu:
             success:
               one: 1 projekt várakozik importálásra. A befejezés után e-mailben értesítjük Önt.
               other: "%{count} importálásra váró projektek. A befejezés után e-mailben értesítjük Önt."
+            title: Projektek importálása egy másik komponensből
         results:
           create:
             invalid: Volt egy probléma az eredmény létrehozásával.
@@ -215,11 +222,14 @@ hu:
           all: Összes
         home:
           categories_label: Kategóriák
+          empty: Nincs még eredmény.
+          empty_filters: Nincsenek eredmények erre a feltételre.
           subcategories_label: Alkategóriák
         home_header:
           global_status: Globális alkalmazás állapota
         nav_breadcrumb:
           global: Globális alkalmazás
+        no_results: Nincsenek projektek
         search:
           search: Műveletek keresése
         show:
