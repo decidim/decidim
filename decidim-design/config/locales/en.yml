@@ -90,9 +90,9 @@ en:
           readability_description_1: Size, Layout cols, Characters per line
           readability_description_2: Layout cols
           readability_description_3: Characters per line
+          title: Typography
           typefaces_description_1: Decidim uses Source Sans Pro as primary typeface. This typeface supports 310 languages
           typefaces_description_2: This fonts are licensed under the Open Font License
-          title: Typography
       helpers:
         activity: Activity
         background: Background and borders
