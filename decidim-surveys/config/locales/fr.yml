@@ -54,6 +54,9 @@ fr:
       answers_count: Réponses
     surveys:
       admin:
+        component:
+          actions:
+            answers_alert: Si vous publiez la fonctionnalité, toutes les réponses existantes seront supprimées.
         exports:
           survey_user_answers: Réponses des participants à l'enquête
         surveys:

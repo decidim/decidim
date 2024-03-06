@@ -282,10 +282,10 @@ ca:
             select_user: Selecciona la participant
           index:
             filter:
-              accepted: Acceptat
+              accepted: Acceptada
               all: Totes
-              rejected: Rebutjades
-              sent: Enviades
+              rejected: Rebutjada
+              sent: Enviat
             filter_by: Filtra per
             invite_attendee: Convidar assistent
             invites: Invitacions
@@ -401,6 +401,9 @@ ca:
           all: Totes
         filter_scope_values:
           all: Totes
+      calendar:
+        meeting_to_event:
+          read_more: Llegir més sobre aquesta trobada
       calendar_modal:
         calendar_url: URL del calendari
         close_window: Tanca la finestra
@@ -547,7 +550,6 @@ ca:
           date: Data
           edit_close_meeting: Editar l'informe de la trobada
           edit_meeting: Editar la trobada
-          going: T'has inscrit en aquesta trobada
           join: Unir-se a la trobada
           leave: Cancel·la la teva inscripció
           leave_confirmation: Segur que vols cancel·lar la teva inscripció a aquesta trobada?

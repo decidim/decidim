@@ -148,6 +148,11 @@ ga:
     follows:
       create:
         button: Lean
+    forms:
+      upload:
+        labels:
+          cancel: Cealaigh
+          save: Sábháil
     gamification:
       badges:
         index:

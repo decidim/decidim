@@ -218,9 +218,15 @@ bg:
           email_outro: Получавате това известие, защото следвате "%{participatory_space_title}". Може да прекратите известията чрез предната връзка.
     proposals:
       admin:
+        imports:
+          title:
+            proposals: Копиране на предложения
         proposals:
           show:
             proposals: Предложения
+        proposals_imports:
+          new:
+            title: Копиране на предложения
       content_blocks:
         highlighted_proposals:
           proposals: Предложения

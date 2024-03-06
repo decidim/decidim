@@ -96,7 +96,7 @@ tr:
           close: Kapat
           description: Bu tartışmanın özeti veya sonucu nedir?
           send: Tartışmayı kapat
-        closed: Kapat
+        closed: Kapalı
         count:
           debates_count:
             one: "%{count} tartışma"

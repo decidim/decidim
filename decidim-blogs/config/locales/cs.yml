@@ -62,6 +62,8 @@ cs:
             official_blog_post: Oficiální příspěvek
             title: Název
       posts:
+        index:
+          empty: Zatím nejsou žádné příspěvky.
         show:
           back: Zpět na seznam
           comments: Komentáře

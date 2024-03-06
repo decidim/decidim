@@ -55,6 +55,8 @@ sv:
         new:
           create: Skapa
           title: Ny administratör
+        show:
+          edit: Redigera
         update:
           error: Det gick inte att uppdatera administratören.
           success: Administratören har uppdaterats
@@ -134,8 +136,6 @@ sv:
         index:
           title: Organisationer
         new:
-          reference_prefix_hint: Referensprefixet används för att unikt identifiera resurser i alla organisationer
-          secondary_hosts_hint: Ange var och en av dem på en ny rad
           title: Ny organisation
         omniauth_settings:
           decidim:

@@ -262,9 +262,7 @@ hu:
             select_user: Felhasználó kiválasztása
           index:
             filter:
-              accepted: Elfogadva
               all: Összes
-              rejected: Elutasítva
               sent: Elküldve
             filter_by: 'Szűrés ez alapján:'
             invite_attendee: Résztvevő meghívása
@@ -301,7 +299,6 @@ hu:
             select_a_meeting_type: Válassza ki a találkozó típusát
             select_a_registration_type: Kérjük, válassza ki a regisztráció típusát
             select_an_iframe_access_level: Kérjük, válassz iframe hozzáférési szintet
-            show_embedded_iframe_help: 'Csak néhány szolgáltatás engedélyezi a beágyazást megbeszélésekbe vagy élő eseményekbe a következő domainekről: %{domains}'
           index:
             title: Találkozók
           new:
@@ -485,6 +482,7 @@ hu:
           address_help: 'Cím: Geocoder használata a helymeghatározáshoz'
           available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan
           create_as: Ülés létrehozása mint
+          disclaimer: 'Jogi nyilatkozat: Egy külső regisztrációs rendszer használatával Ön tudatában van annak, hogy a %{organization} szervezői nem felelősek a felhasználók által a külső szolgáltatásnak megadott adatokért.'
         meeting_minutes:
           related_information: Kapcsolódó információ
         meetings:
@@ -498,6 +496,7 @@ hu:
           back: Vissza a listához
           close_meeting: Ttalálkozó lezárása
           contributions: Hozzájárulások száma
+          date: Dátum
           edit_meeting: Találkozó szerkesztése
           meeting_minutes: Találkozó jegyzőkönyve
           no_slots_available: Nincs szabad hely

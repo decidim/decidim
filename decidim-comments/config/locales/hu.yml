@@ -27,6 +27,8 @@ hu:
       comments:
         create:
           error: Hiba történt a hozzászólás létrehozása során.
+        delete:
+          error: A hozzászólás nem törölhető.
         update:
           error: Hiba történt a hozzászólás frissítése során.
       comments_count: Hozzászólások száma

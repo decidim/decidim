@@ -59,7 +59,6 @@ hu:
         subtitle: Felirat
         target: Ki vesz részt
         title: Cím
-        twitter: Twitter
         weight: Pozíció sorrend
         youtube: Youtube
       assembly_member:
@@ -316,8 +315,6 @@ hu:
           index:
             filter:
               all: Összes
-              ceased: Megszűnt
-              not_ceased: Nem szűnt meg
             filter_by: 'Szűrés ez alapján:'
             search: Keresés
         content_blocks:

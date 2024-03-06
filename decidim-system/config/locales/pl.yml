@@ -55,6 +55,8 @@ pl:
         new:
           create: Utwórz
           title: Nowy administrator
+        show:
+          edit: Edytuj
         update:
           error: Podczas aktualizowania tego administratora wystąpił błąd.
           success: Administrator został zaktualizowany
@@ -139,8 +141,6 @@ pl:
         index:
           title: Organizacje
         new:
-          reference_prefix_hint: Prefiks referencyjny służy do jednoznacznego identyfikowania zasobów we wszystkich organizacjach
-          secondary_hosts_hint: Wpisz każdy z nich w nowej linii
           title: Nowa organizacja
         omniauth_settings:
           decidim:

@@ -72,6 +72,7 @@ hu:
             title: Új költségvetés
           update:
             invalid: Hiba történt a költségvetés frissítése során
+            success: A költségvetés frissítése sikeres
         exports:
           projects: Projektek
         models:
@@ -159,18 +160,25 @@ hu:
         close_modal: Ablak bezárás
         continue: Folytatás
         more_information: További információk
+      budget_list_item:
+        voting_finished: Ebben a költségvetésben már szavazott
+        voting_started: Megkezdted a szavazást ebben a költségvetésben
       budgets_list:
         cancel_order:
           more_than_one: törölje a(z) %{name} kérdésében leadott szavazatát, és kezdje újra
           only_one: törölje a szavazatát és kezdje újra.
+        finished_message: Befejezte a szavazási folyamatot. Köszönjük a részvételt!
         highlighted_cta: Szavazzon a(z) %{name} kérdésében
+        if_change_opinion: 'Ha meggondolta magát, a következőket teheti:'
         my_budgets: Költségvetéseim
         progress: Szavazás befejezése
         show: Összes projekt megtekintése
         vote: Szavazás
+        voted_on: 'Szavazott a következő kérdésében: %{links}'
       last_activity:
         new_vote_at_html: "<span>Új költségvetési szavazás itt %{link}</span>"
       limit_announcement:
+        cant_vote: Nem szavazhat a költségvetésre. <a href="%{landing_path}">Próbálkozzon egy másik költségvetéssel</a>.
         limit_reached: 'Aktív szavazásokkal rendelkezik: %{links}. A költségvetésről történő szavazáshoz <a href="%{landing_path}">törölnie kell a szavazatát, és újra kell kezdenie</a>.'
       models:
         budget:
@@ -182,7 +190,7 @@ hu:
           fields:
             category: Kategória
             id: Azonosító
-            scope: Hatókör
+            scope: Hatáskör
             title: Cím
       order_summary_mailer:
         order_summary:
@@ -273,6 +281,8 @@ hu:
           random: Véletlen sorrend
           selected: Kiválasztva
         project:
+          add: Adja hozzá a(z) %{resource_name} projektet a szavazatához
+          remove: Távolítsa el a(z) %{resource_name} projektet a szavazásból
           selected: Kiválasztva
           view: Nézet
           you_voted: Erre szavazott
@@ -280,6 +290,7 @@ hu:
           add: Adja hozzá a szavazatához
           add_descriptive: Adja hozzá a(z) %{resource_name} projektet a szavazatához
           added: Hozzáadva a szavazatához
+          added_descriptive: A(z) %{resource_name} projekt hozzádásra került a szavazatához
         projects_for: '%{name} projektek'
         show:
           budget: Költségvetés

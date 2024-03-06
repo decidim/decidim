@@ -189,7 +189,7 @@ pl:
               verification_number: 'Weryfikacja # %{n}'
           rejections:
             create:
-              success: Weryfikacja odrzucona. Użytkownik zostanie poproszony o poprawienie swoich dokumentów
+              success: Weryfikacja odrzucona. Użytkownik zostanie poproszony o wniesienie poprawek do swoich dokumentów
         authorizations:
           choose:
             choose_a_type: 'Wybierz sposób weryfikacji:'

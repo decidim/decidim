@@ -478,7 +478,6 @@ nl:
                 invalid_key: De identificatiesleutels in het geüploade bestand kunnen niet worden geladen.
             not_supported_browser_description: Het lijkt erop dat je een webbrowser gebruikt die niet kan gebruikt worden als Trustee. Zorg ervoor dat je de meest recente versie van je browser gebruikt, of probeer een van de populairste browsers te gebruiken om je Trustee taken te voltooien.
             not_supported_browser_title: Upgrade de browser om als Trustee te fungeren
-            trustee_role_description: Je bent aangeduid om als Trustee te fungeren in enkele verkiezingen op dit platform.
           update:
             success: Jouw publieke identificatiesleutel werd succesvol opgeslagen.
       votes:
@@ -768,7 +767,7 @@ nl:
             role_president: voorzitter
           polling_officers_picker:
             choose_polling_officers: Kies de stembeambtes
-            close: Sluit
+            close: Afsluiten
             more_polling_officers: Er zijn nog %{number} meer stembeambtes. Verfijn uw zoekopdracht om ze te vinden.
             no_polling_officers: Geen stembeambtes komen overeen met uw zoekcriteria of er zijn geen stembeambtes.
         polling_stations:
@@ -934,7 +933,6 @@ nl:
           certify:
             add_images: Afbeeldingen toevoegen
             error: Er is een fout opgetreden tijdens het toevoegen van het certificaat, probeer het opnieuw.
-            form_legend: Upload een foto van het Stemmensluitingscertificaat
             heading: Stem hertelling - Upload certificaat
             info_text: Upload een foto van het Stemmensluitingscertificaat.
             submit: Certificaat uploaden
@@ -1135,7 +1133,6 @@ nl:
           hybrid: Hybride
           in_person: In persoon
           online: Online
-        voting_types_label: Soort stemronde
   layouts:
     decidim:
       election_votes_header:

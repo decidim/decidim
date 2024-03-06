@@ -314,6 +314,9 @@ lv:
           preview: Priekšskatīt
         exports:
           proposals: Priekšlikumi
+        imports:
+          title:
+            proposals: Importēt priekšlikumus
         models:
           proposal:
             name: Priekšlikums
@@ -450,6 +453,7 @@ lv:
             no_components: Šajā līdzdalības telpā nav citu priekšlikumu komentāru, no kuriem importēt priekšlikumus.
             select_component: Lūdzu, izvēlieties komponentu
             select_states: Pārbaudiet importējamo priekšlikumu statusu
+            title: Importēt priekšlikumus
         proposals_merges:
           create:
             success: Visi priekšlikumi ir veiksmīgi apvienoti vienā jaunā priekšlikumā.

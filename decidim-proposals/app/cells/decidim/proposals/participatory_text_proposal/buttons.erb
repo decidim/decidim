@@ -6,7 +6,7 @@
         <%= link_to resource_amendments_path, class: "column medium-4 button light secondary" do %>
           <%= visible_emendations.count %>
         <% end %>
-        <%= link_to amend_resource_path, class: "column button hollow secondary button--sc", disabled: amend_button_disabled? do %>
+        <%= action_authorized_link_to :amend, amend_resource_path, resource: model, data: { "redirect_url" => amend_resource_path }, class: "column button hollow secondary button--sc", disabled: amend_button_disabled? do %>
           <%= t("amend", scope: "decidim.proposals.participatory_text_proposal.buttons") %>
         <% end %>
       </div>
@@ -23,7 +23,7 @@
           <%= link_to resource_comments_path, class: "column medium-4 button light secondary" do %>
             <%= icon "comment-square", class: "icon--small", aria_label: t("comments", scope: "decidim.proposals.participatory_text_proposal.buttons"), role: "img" %> <%= model.comments_count %>
           <% end %>
-          <%= link_to resource_comments_path, class: "column button hollow secondary button--sc" do %>
+          <%= action_authorized_link_to :comment, resource_comments_path, resource: model, class: "column button hollow secondary button--sc" do %>
             <%= t("comment", scope: "decidim.proposals.participatory_text_proposal.buttons") %>
           <% end %>
         <% end %>

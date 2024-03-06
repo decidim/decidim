@@ -1,6 +1,12 @@
 ---
 pl:
   activemodel:
+    attributes:
+      post:
+        body: Treść posta
+        decidim_author_id: Autor
+        published_at: Czas publikacji posta
+        title: Tytuł posta
     models:
       decidim/blogs/create_post_event: Nowy wpis na blogu
   activerecord:
@@ -40,6 +46,11 @@ pl:
           update:
             invalid: Podczas zapisywania wpisu wystąpiły błędy.
             success: Wpis został pomyślnie zapisany
+      admin_log:
+        post:
+          create: "%{user_name} utworzył/a %{resource_name} post na blogu w %{space_name}"
+          delete: "%{user_name} usunął/usunęła %{resource_name} post na blogu z %{space_name}"
+          update: "%{user_name} zaktualizował/a %{resource_name} post na blogu w %{space_name}"
       last_activity:
         new_post_at_html: "<span>Nowy wpis na %{link}</span>"
       models:
@@ -48,7 +59,11 @@ pl:
             author: Autor
             body: Treść
             created_at: Utworzono
+            official_blog_post: Oficjalny post
+            title: Tytuł posta
       posts:
+        index:
+          empty: Nie ma tu jeszcze żadnych wpisów.
         show:
           back: Powrót do listy
           comments: Komentarze
@@ -59,6 +74,12 @@ pl:
       read_more: Czytaj więcej
     components:
       blogs:
+        actions:
+          comment: Skomentuj
+          create: Utwórz
+          destroy: Usuń
+          endorse: Rekomenduj
+          update: Aktualizuj
         name: Blog
         settings:
           global:

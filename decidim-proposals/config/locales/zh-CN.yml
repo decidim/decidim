@@ -325,6 +325,9 @@ zh-CN:
           preview: 预览
         exports:
           proposals: 建议
+        imports:
+          title:
+            proposals: 导入提议
         models:
           proposal:
             name: 建议
@@ -460,6 +463,7 @@ zh-CN:
             no_components: 在这个参与性空间中，没有其他提案组成部分可以从中导入。
             select_component: 请选择一个组件
             select_states: 检查要导入的建议的状态
+            title: 导入提议
         proposals_merges:
           create:
             success: 成功地将提案合并为一个新提案。

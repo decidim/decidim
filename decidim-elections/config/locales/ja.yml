@@ -44,7 +44,7 @@ ja:
         show_check_census: '「センサスの確認」ページを表示'
         start_time: 投票開始
         title: タイトル
-        voting_type: 投票方式
+        voting_type: 投票タイプ
     errors:
       models:
         answer:
@@ -632,7 +632,7 @@ ja:
               upload_legend: サーバーには公開鍵がありますが、ブラウザにはまだ公開鍵がありません。 公開鍵を作成後、作成したバックアップから、公開鍵を使用したファイルをコンピュータにインポートする必要があります。
             not_supported_browser_description: 受託者としての活動に使用できないWebブラウザを使用しているようです。最新バージョンのブラウザを使用するか、または一般的なブラウザを使用して、受託者のタスクを完了できるようにしてください。
             not_supported_browser_title: ブラウザをアップグレードして受託者として行動する
-            trustee_role_description: あなたは、このプラットフォームで行われる選挙のいくつかで受託者を務めることになっています。
+            trustee_role_description: あなたは、このプラットフォームで行われる選挙のいくつかで受託者として行動するようにアサインされています。
           update:
             success: 公開識別キーを保存しました。
       votes:
@@ -723,7 +723,7 @@ ja:
           continue: 次へ
       warnings:
         no_elections_warning: 検索条件に一致する選挙がないか、または予定されている選挙がありません。
-        no_scheduled_elections_warning: 現在、予定された選挙はありませんが、ここでは記載されているすべての過去の選挙を見つけることができます。
+        no_scheduled_elections_warning: 現在、予定された選挙はありませんが、過去のすべての選挙を検索できます。
     events:
       elections:
         election_published:
@@ -829,6 +829,7 @@ ja:
             timeline:
               name: 投票のタイムライン
         index:
+          not_published: 未公開
           published: 公開済み
         landing_page:
           content_blocks:
@@ -1407,7 +1408,7 @@ ja:
           hybrid: ハイブリッド
           in_person: 対面
           online: オンライン
-        voting_types_label: 投票方式
+        voting_types_label: 投票タイプ
   layouts:
     decidim:
       election_votes_header:

@@ -8,7 +8,7 @@ pt-BR:
         banner_image: Imagem da bandeira
         copy_categories: Copiar categorias
         copy_components: Copiar componentes
-        copy_steps: Copie etapas
+        copy_steps: Copiar etapas
         decidim_area_id: Área
         description: Descrição
         developer_group: Grupo promotor
@@ -16,6 +16,8 @@ pt-BR:
         end_date: Data final
         hashtag: Hashtag
         hero_image: Imagem inicial
+        import_categories: Importar categorias
+        import_steps: Importar etapas
         local_area: Área da organização
         meta_scope: Metadados do âmbito
         participatory_process_group_id: Grupo de processos
@@ -61,6 +63,12 @@ pt-BR:
         email: O email
         name: Nome
         role: Cargo
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              allowed_file_content_types: 'Tipo de documento inválido. Apenas arquivos com as seguintes extensões são permitidos: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Passo ativado
       decidim/participatory_process_step_changed_event: Passo alterado
@@ -91,6 +99,7 @@ pt-BR:
         new_process: Novo processo
         new_process_group: Novo grupo de processos
         new_process_step: Novo passo
+        new_process_type: Novo tipo de processo
         new_process_user_role: Novo usuário do processo
         preview: Visualização
         publish: Publicar
@@ -101,6 +110,7 @@ pt-BR:
         participatory_process_groups_submenu:
           info: Informações
           landing_page: Página principal
+        participatory_process_types: Tipo de processo
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Pastas
@@ -215,8 +225,19 @@ pt-BR:
           error: Ocorreu um erro ao atualizar esta etapa do processo participativo.
           success: Passo do processo participativo atualizado com sucesso.
       participatory_process_types:
+        create:
+          error: Ocorreu um erro ao criar um novo tipo de processo participativo.
+          success: Tipo de processo criado com sucesso.
+        destroy:
+          success: Tipo de processo excluído com sucesso.
+        edit:
+          title: Editar tipo de processo
+          update: Atualizar
         form:
           title: Título
+        update:
+          error: Ocorreu um erro ao atualizar este tipo de processo.
+          success: Tipo de processo atualizado com sucesso.
       participatory_process_user_roles:
         create:
           error: Ocorreu um erro ao adicionar um usuário para esse processo participativo.
@@ -269,6 +290,9 @@ pt-BR:
     admin_log:
       participatory_process:
         create: "%{user_name} criou o %{resource_name} processo participativo"
+        duplicate: "%{user_name} duplicou o processo participativo %{resource_name}"
+        export: "%{user_name} exportou o processo participativo %{resource_name}"
+        import: "%{user_name} importou o processo participativo %{resource_name}"
         publish: "%{user_name} publicou o %{resource_name} processo participativo"
         unpublish: "%{user_name} não publicado o %{resource_name} processo participativo"
         update: "%{user_name} atualizou o processo participativo %{resource_name}"
@@ -280,6 +304,10 @@ pt-BR:
         create: "%{user_name} criou o passo %{resource_name} no processo participativo %{space_name}"
         delete: "%{user_name} excluiu o passo %{resource_name} no processo participativo %{space_name}"
         update: "%{user_name} atualizou o passo %{resource_name} no processo participativo %{space_name}"
+      participatory_process_type:
+        create: "%{user_name} criou o tipo de processo participativo %{resource_name}"
+        delete: "%{user_name} criou o tipo de processo participativo %{resource_name}"
+        update: "%{user_name} atualizou o tipo de processo participativo %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} convidou o usuário %{resource_name} para o %{space_name} processo participativo"
         delete: "%{user_name} removeu o usuário %{resource_name} do %{space_name} processo participativo"
@@ -330,6 +358,7 @@ pt-BR:
         html_3:
           name: Terceiro bloco HTML
         metadata:
+          developer_group: Promovido por
           name: Metadados
           participatory_scope: O que é decidido
           participatory_structure: Como é decidido
@@ -358,6 +387,9 @@ pt-BR:
         new_import:
           accepted_types:
             json: JSON
+        participatory_process_copies:
+          form:
+            slug_help: 'Os slugs de URL são usados para gerar os URLs que apontam para este processo. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadados
@@ -366,8 +398,10 @@ pt-BR:
         participatory_process_imports:
           form:
             document_legend: Adicionar um documento
+            slug_help: 'Os slugs de URL são usados para gerar os URLs que apontam para este processo. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
         participatory_process_steps:
           form:
+            cta_path_help: 'Use caminhos parciais, não URLs completas aqui. Aceita letras, números, traços e barras e deve começar com uma letra. Se não for definido, o botão não será mostrado. Exemplo: %{url}'
             cta_text_help: Se não estiver definido, o botão não será mostrado.
         participatory_processes:
           form:
@@ -380,7 +414,9 @@ pt-BR:
             related_processes: Processos relacionados
             scope_type_max_depth_help: Restringir a profundidade do filtro de escopo; O filtro será mostrado de modo geral ao tipo de escopo selecionado.
             select_an_area: Selecione uma área
+            select_participatory_process_type: Selecione um tipo de processo
             select_process_group: Selecione um grupo de processos
+            slug_help: 'Os slugs de URL são usados para gerar os URLs que apontam para este processo. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
             title: Informação geral
             visbility: Visibilidade
       content_blocks:
@@ -393,16 +429,19 @@ pt-BR:
       pages:
         home:
           highlighted_processes:
+            active_processes: Processos ativos
             active_step: Passo ativo
             more_information: Mais Informações
             participate: Participar
             participate_in: Participe do processo %{resource_name}
             processes_button_title: Link para a página de processos exibindo todos os processos
+            see_all_processes: Ver todos os processos
       participatory_process_steps:
         index:
           back_to_process: Voltar à página do processo
       participatory_processes:
         filters:
+          all_types: Todos os tipos
           counters:
             active:
               one: 1 processo ativo
@@ -428,6 +467,8 @@ pt-BR:
           see: Ver
         index:
           loading: Carregando os resultados ...
+        show:
+          title: Sobre este processo
       show:
         area: Área
         belongs_to_group: Este processo pertence a

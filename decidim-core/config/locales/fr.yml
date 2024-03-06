@@ -75,10 +75,10 @@ fr:
     'true': 'Oui'
   carrierwave:
     errors:
-      file_cannot_be_processed: Le fichier n'a pas pu être traité
+      file_cannot_be_processed: Le fichier ne peut pas être traité
       file_resolution_too_large: La résolution du fichier est trop grande
       file_size_too_large: Le fichier est trop volumineux
-      not_inside_organization: Le fichier n'est relié à aucune organisation
+      not_inside_organization: Le fichier n'est attaché à aucune organisation
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -534,6 +534,8 @@ fr:
           subtitle: Remplissez le formulaire suivant pour créer votre compte
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       registrations:
+        create:
+          error: Il y a eu un problème pour créer votre compte.
         new:
           already_have_an_account?: Vous avez déjà un compte ?
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
@@ -1699,6 +1701,7 @@ fr:
       not_saved:
         one: 'Une erreur est survenue pendant le traitement de votre requête.'
         other: 'Plusieurs erreurs sont survenues pendant le traitement de votre requête.'
+      password_confirmation_message: '"Confirmer votre mot de passe" ne correspond pas au mot de passe'
       too_many_marks: utilise trop de signes de ponctuation consécutifs (par exemple! et?)
       too_much_caps: utilise trop de lettres majuscules (plus de 25% du texte)
       too_short: est trop court (le minimum est de %{count} caractères)
@@ -1795,7 +1798,7 @@ fr:
         facebook: "%{organization} sur Facebook"
         github: "%{organization} sur GitHub"
         instagram: "%{organization} sur Instagram"
-        twitter: "%{organization} sur Twitter"
+        x: "%{organization} sur X"
         youtube: "%{organization} sur YouTube"
       timeout_modal:
         body: Vous avez été inactif pendant %{minutes} minutes. Si vous continuez à être inactif, vous serez automatiquement déconnecté de la plateforme pour des raisons de sécurité.
@@ -1803,7 +1806,7 @@ fr:
         sign_out: Se déconnecter
         title: Voulez-vous poursuivre votre session ?
       upload_modal:
-        close_modal: Fermer la fenêtre
+        close_modal: Fermer la fenêtre de dialogue
       user_menu:
         account: 'Compte utilisateur: %{name}'
         admin_dashboard: Tableau de bord des administrateurs
@@ -1862,6 +1865,7 @@ fr:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:

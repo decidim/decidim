@@ -23,6 +23,9 @@ hu:
         new:
           create: Létrehozás
           title: Új admin
+        show:
+          destroy: Töröl
+          edit: Szerkesztés
         update:
           error: Hiba történt az admin frissítése során.
           success: Admin sikeresen frissítve
@@ -30,6 +33,21 @@ hu:
         placeholders:
           content: Adj hozzá értelmes tartalmat az admin irányítópult %{page} statikus oldalához.
           title: 'Alapértelmezett cím: %{page}'
+      devise:
+        passwords:
+          edit:
+            change_your_password: Változtasd meg a jelszavadat
+            minimum_characters: "(Legalább%{minimum} karakter)"
+          new:
+            forgot_your_password: Elfelejtett jelszó
+            send_me_reset_password_instructions: A jelszóviasszállítási instrukciók elküldését kérem
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Nem kapta meg a megerősítő instrukciókat?
+            did_not_receive_unlock_instructions?: Nem kapta meg a feloldáshoz szükséges instrukciókat?
+            forgot_your_password?: Elfelejtett jelszó?
+            log_in: Belépés
+            sign_up: Regisztráció
       menu:
         admins: Adminok
         dashboard: Irányítópult
@@ -42,6 +60,8 @@ hu:
           name: Admin
           validations:
             email_uniqueness: egy másik admin már használja ezt az email címet
+        oauth_application:
+          name: OAuth alkalmazás
         organization:
           actions:
             save_and_invite: Szervezet létrehozása & admin meghívása
@@ -59,8 +79,9 @@ hu:
         index:
           title: Szervezetek
         new:
-          reference_prefix_hint: A hivatkozási előtag az erőforrások azonosítására szolgál a szervezetek esetében
-          secondary_hosts_hint: Mindegyiket új sorba írd be
+          default: Alapértelmezett?
+          enabled: Engedélyezve
+          locale: Helyi nyelv
           title: Új szervezet
         omniauth_settings:
           decidim:
@@ -79,6 +100,9 @@ hu:
           twitter:
             api_key: API-kulcs
             api_secret: API Titkos
+        smtp_settings:
+          instructions:
+            from_label: 'Az e-mail feladója a következő lesz: "szervezeti-neve<aszervezete@pelda.org>". Hagyja üresen a(z) ''from_email'' címke használatához'
         update:
           error: Hiba történt a szervezet frissítése során.
           success: Szervezet sikeresen frissítve.
@@ -92,3 +116,4 @@ hu:
           our_getting_started_guide: első lépések útmutatója
       titles:
         dashboard: Irányítópult
+        decidim: Decidim

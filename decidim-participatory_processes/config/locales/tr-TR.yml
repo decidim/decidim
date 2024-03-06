@@ -157,7 +157,7 @@ tr:
           inactive_content_blocks: Aktif olmayan içerik blokları
       participatory_process_group_landing_page_content_blocks:
         edit:
-          update: Güncelle
+          update: Güncelleştirme
       participatory_process_groups:
         destroy:
           error: Katılımcı süreç grubu yok edilirken bir hata oluştu.
@@ -392,6 +392,7 @@ tr:
             more_information: Daha fazla bilgi
             participate: Katıl
             participate_in: '%{resource_name} sürecine katılın'
+            processes_button_title: Tüm süreçleri gösteren Süreçler sayfasına bağlantı
       participatory_process_steps:
         index:
           back_to_process: Süreç sayfasına geri dön

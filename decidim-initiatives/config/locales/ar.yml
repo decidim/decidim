@@ -63,7 +63,9 @@ ar:
         components: المكونات
         information: معلومات
         initiatives: المبادرات
+        initiatives_settings: الإعدادات
         initiatives_types: أنواع المبادرة
+        moderations: الإشراف
       models:
         initiatives:
           fields:
@@ -173,6 +175,7 @@ ar:
             success: تم إرسال المبادرة إلى التحقق الفني
             update: تحديث
           form:
+            settings: الإعدادات
             title: معلومات عامة
           index:
             actions_title: عمل
@@ -337,6 +340,7 @@ ar:
             many: و %{count} المزيد من الناس
             other: و %{count} المزيد من الناس
         committee_members:
+          confirm_revoke: هل أنت واثق؟
           revoke: سحب
         count:
           title:

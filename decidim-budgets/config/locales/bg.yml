@@ -5,3 +5,9 @@ bg:
       project:
         decidim_category_id: Категория
         decidim_scope_id: Сфера
+  decidim:
+    budgets:
+      models:
+        project:
+          fields:
+            scope: Сфера

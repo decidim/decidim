@@ -93,7 +93,6 @@ sv:
         success_color: Färdigt
         time_zone: Tidszon
         tos_version: Version på användarvillkor
-        twitter_handler: Twitter-hanterare
         user_groups_enabled: Aktivera grupper
         users_registration_mode: Registreringsmode
         warning_color: Varning
@@ -363,8 +362,6 @@ sv:
           view_more_logs: Visa fler loggar
           welcome: Välkommen till Adminpanelen.
       domain_whitelist:
-        form:
-          domain_too_short: Domänen är för kort
         update:
           error: Vitlistans uppdatering misslyckades
           success: Domäns vitlista har uppdaterats
@@ -545,7 +542,6 @@ sv:
         areas: Områden
         configuration: Konfiguration
         dashboard: Adminpanel
-        external_domain_whitelist: Tillåtna externa domäner
         help_sections: Hjälpavsnitt
         homepage: Hemsida
         impersonations: Uppträd som
@@ -790,7 +786,6 @@ sv:
           instagram: Instagram
           rich_text_editor_in_public_views_help: I vissa textfält kan deltagare använda vissa HTML-taggar med hjälp av den rika textredigeraren.
           social_handlers: Sociala
-          twitter: Twitter
           url: URL
           youtube: Youtube
         update:
@@ -814,18 +809,9 @@ sv:
       organization_external_domain_whitelist:
         edit:
           update: Uppdatera
-        external_domain:
-          down: Ner
-          external_domain: Externt domän
-          remove: Ta bort
-          up: Upp
         form:
           add: Lägg till i vitlistan
           title: Vitlista för externa domäner
-      organization_homepage:
-        edit:
-          active_content_blocks: Block med aktivt innehåll
-          inactive_content_blocks: Block med inaktivt innehåll
       organization_homepage_content_blocks:
         edit:
           update: Uppdatera

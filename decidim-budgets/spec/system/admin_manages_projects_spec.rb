@@ -62,17 +62,24 @@ describe "Admin manages projects", type: :system do
     end
 
     it "selects projects to implementation" do
-      find("#projects_bulk").set(true)
-      find("#js-bulk-actions-button").click
+      within "tr[data-id='#{project.id}']" do
+        expect(page).to have_content("No")
+      end
+      within "tr[data-id='#{project2.id}']" do
+        expect(page).to have_content("No")
+      end
+
+      find_by_id("projects_bulk").set(true)
+      find_by_id("js-bulk-actions-button").click
       click_button "Change selected"
       select "Select", from: "selected_value"
       click_button "Update"
       expect(page).to have_css(".callout.success")
       within "tr[data-id='#{project.id}']" do
-        expect(page).to have_content("Selected")
+        expect(page).to have_content("Yes")
       end
       within "tr[data-id='#{project2.id}']" do
-        expect(page).to have_content("Selected")
+        expect(page).to have_content("Yes")
       end
       expect(::Decidim::Budgets::Project.find(project.id).selected_at).to eq(Time.zone.today)
       expect(::Decidim::Budgets::Project.find(project2.id).selected_at).to eq(Time.zone.today)

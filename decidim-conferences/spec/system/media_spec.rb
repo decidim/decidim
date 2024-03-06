@@ -48,7 +48,7 @@ describe "Conferences", type: :system do
     it "shows them" do
       within "div.wrapper .conference-media" do
         expect(page).to have_content("MEDIA AND LINKS")
-        expect(page).to have_content(/#{translated(media_link.title, locale: :en)}/i)
+        expect(page).to have_content(translated(media_link.title))
         expect(page).to have_css(".media-links a")
       end
     end
@@ -65,7 +65,7 @@ describe "Conferences", type: :system do
 
     it "shows them" do
       within "div.wrapper .documents" do
-        expect(page).to have_content(/#{translated(document.title, locale: :en)}/i)
+        expect(page).to have_content(translated(document.title))
       end
 
       within "div.wrapper .images" do
@@ -86,7 +86,7 @@ describe "Conferences", type: :system do
 
     it "shows them ordered" do
       within "div.wrapper .documents" do
-        expect(translated(first_document.title, locale: :en)).to appear_before(translated(last_document.title, locale: :en))
+        expect(decidim_escape_translated(first_document.title).gsub("&quot;", "\"")).to appear_before(decidim_escape_translated(last_document.title).gsub("&quot;", "\""))
       end
 
       within "div.wrapper .images" do

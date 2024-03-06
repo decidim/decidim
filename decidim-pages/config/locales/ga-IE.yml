@@ -12,3 +12,6 @@ ga:
         pages:
           edit:
             save: Nuashonraigh
+      home:
+        sub_hero:
+          register_title: Cláraigh le cuntas a chruthú

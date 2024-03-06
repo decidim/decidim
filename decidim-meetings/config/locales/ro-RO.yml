@@ -284,9 +284,7 @@ ro:
             select_user: Selecteză un participant
           index:
             filter:
-              accepted: Acceptat
               all: Toate
-              rejected: Respins
               sent: Trimis
             filter_by: Filtrare după
             invite_attendee: Invită participantul
@@ -541,7 +539,6 @@ ro:
           contributions: Număr de contribuții
           date: Data
           edit_meeting: Editați ședința
-          going: Te-ai înregistrat pentru această întâlnire
           leave: Anulează înregistrarea
           leave_confirmation: Sigur dorești să anulezi înregistrarea la această întâlnire?
           link_available_soon: Link disponibil în curând

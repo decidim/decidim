@@ -52,7 +52,6 @@ nl:
         subtitle: Ondertiteling
         target: Wie neemt deel
         title: Titel
-        twitter: Twitter
         weight: Bestelpositie
         youtube: YouTube
       assembly_member:
@@ -302,8 +301,6 @@ nl:
           index:
             filter:
               all: Alle
-              ceased: Gestopt
-              not_ceased: Niet gestopt
             filter_by: Filteren op
             search: Zoeken
         content_blocks:

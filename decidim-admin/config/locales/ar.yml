@@ -89,7 +89,6 @@ ar:
         success_color: نجاح
         time_zone: المنطقة الزمنية
         tos_version: شروط وأحكام الخدمة
-        twitter_handler: مُعرّف حساب تويتر
         user_groups_enabled: تمكين المجموعات
         warning_color: تحذير
         welcome_notification_body: محتوى إشعار الترحيب
@@ -320,8 +319,6 @@ ar:
           view_more_logs: عرض المزيد من السجلات
           welcome: أهلا بك على اللوح الإداري.
       domain_whitelist:
-        form:
-          domain_too_short: نطاق الدومين قصير جداً
         update:
           error: فشل تحديث القائمة النطاقات المسموحة
           success: تم تحديث النطاقات المسموحة بنجاح
@@ -697,7 +694,7 @@ ar:
           github: غِت‌ هَب
           instagram: إينستاجرام
           social_handlers: التواصل الاجتماعي
-          twitter: تويتر
+          twitter: X
           url: عنوان الرابط
           youtube: يوتيوب
         update:
@@ -720,14 +717,8 @@ ar:
       organization_external_domain_whitelist:
         edit:
           update: تحديث
-        external_domain:
-          down: أسفل
-          remove: إزالة
-          up: أعلى
-      organization_homepage:
-        edit:
-          active_content_blocks: كتل المحتوى النشط
-          inactive_content_blocks: كتل المحتوى غير النشطة
+        form:
+          add: إضافة إلى القائمة البيضاء
       organization_homepage_content_blocks:
         edit:
           update: تحديث
@@ -753,7 +744,7 @@ ar:
             empty: ليس لديك أي مشاركين خاصين.
             explanation: لديك %{count} مشاركين خاصين.
             title: حذف جميع المشاركين الخاصين
-          title: حمّل ملف CSV الخاص بك
+          title: قم بتحميل ملف CSV الخاص بك
           upload: حمّل
       reminders:
         new:
@@ -856,8 +847,10 @@ ar:
         areas: المناطق
         authorization_workflows: طرق التحقق
         dashboard: لوحة القيادة
+        edit_organization_appearance: تعديل مظهر الصفحة الرئيسية
         impersonatable_users: المشاركون في الإدارة
         impersonations: إدارة المشاركين
+        pages: الصفحات
         panel: مدير
         participants: المشاركين
         scope_types: أنواع النطاق

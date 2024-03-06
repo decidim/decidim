@@ -289,9 +289,7 @@ id:
             select_user: Pilih pengguna
           index:
             filter:
-              accepted: Diterima
               all: Semua
-              rejected: Ditolak
               sent: Terkirim
             filter_by: Filter berdasarkan
             invite_attendee: Undang Peserta
@@ -381,7 +379,6 @@ id:
           invalid: Ada masalah saat meninggalkan konferensi ini.
           success: Anda telah meninggalkan konferensi dengan sukses.
       conference_speaker:
-        go_to_twitter: Pergi ke Twitter
         more_info: Info lebih lanjut
         personal_website: Situs web pribadi
         show:

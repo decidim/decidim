@@ -3,8 +3,8 @@ eu:
   activemodel:
     attributes:
       dummy_resource:
-        created_at: Sortutako at
-        decidim_scope_id: Eremua
+        created_at: Sortua
+        decidim_scope_id: Esparrua
         field: Nire eremua
         start_date: Hasiera data
         title: Izenburua
@@ -15,8 +15,14 @@ eu:
       dummy:
         settings:
           global:
+            guided: Input gidatua
+            guided_help: Laguntza-testua
+            guided_readonly: Input desgaitua
+            guided_rich: Input gidatu aberastua
+            guided_rich_help_html: HTML<strong>ayuda</strong> testua
+            guided_rich_readonly_html: HTML<strong>laguntza</strong>testua input desgaiturako
             readonly_attribute: Soilik irakurtzeko atributua
-            test: Test bat
+            test: Proba bat
             test_choices:
               a: A aukera
               b: B aukera
@@ -36,22 +42,22 @@ eu:
     dummy:
       admin:
         exports:
-          dummies: Manikiak
+          dummies: Probak
     gamification:
       badges:
         test:
           conditions:
             - Erabili probako ingurunea erabakitzeko.
-          description: Erabiltzaileek plaka hau lortzen dute probak sortzeko.
+          description: Parte-hartzaileek garaikur hau lortzen dute probak sortzeagatik.
           description_another: Erabiltzaile honek %{score} proba egin ditu.
           description_own: '%{score} proba sortu dituzu.'
-          name: probak
+          name: Probak
           next_level_in: Sortu %{score} proba gehiago hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek ez du proba oraindik sortu.
-          unearned_own: Oraindik ez duzu probak sortu.
+          unearned_another: Erabiltzaile honek ez du probarik sortu oraindik.
+          unearned_own: Oraindik ez duzu probarik sortu.
     resource_links:
       test_link:
-        dummy_resource_dummy: ' Honi buruzko adibidea '
+        dummy_resource_dummy: ' Honi lotutakoa'
     statistics:
       bar: Bar
       dummies_count_high: Dummies altua

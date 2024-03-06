@@ -57,7 +57,6 @@
         conference_meeting_ids: Relaterte møter
         full_name: Fullt navn
         position: Stilling
-        twitter_handle: Brukernavn Twitter
         user_id: Bruker
       conference_user_role:
         email: Epost
@@ -426,7 +425,6 @@
           invalid: Det oppstod et problem med å forlate denne konferansen.
           success: Du har forlatt konferansen.
       conference_speaker:
-        go_to_twitter: Gå til Twitter
         more_info: mer info
         personal_website: Personlig nettside
         show:

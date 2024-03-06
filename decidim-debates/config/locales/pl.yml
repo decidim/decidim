@@ -114,6 +114,9 @@ pl:
           success: Debatę utworzono pomyślnie.
         debate:
           participate: Dołącz
+        debates:
+          empty: Nie ma jeszcze żadnych debat.
+          empty_filters: Nie ma debat z tymi kryteriami.
         edit:
           back: Wróć
           save: Zapisz zmiany

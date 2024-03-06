@@ -9,7 +9,7 @@ de:
         closing_report: Protokoll
         closing_visible: Ist sichtbar
         contributions_count: Anzahl der Beiträge
-        proposal_ids: An der Sitzung entstandene Vorschläge
+        proposal_ids: Vorschläge aus der Veranstaltung
         video_url: Video-URL
       meeting:
         address: Adresse
@@ -282,7 +282,7 @@ de:
             select_user: Nutzer wählen
           index:
             filter:
-              accepted: Akzeptiert
+              accepted: Angenommen
               all: Alle
               rejected: Abgelehnt
               sent: Geschickt
@@ -321,7 +321,7 @@ de:
             select_a_meeting_type: Bitte eine Meeting-Typ auswählen
             select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
             select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
-            show_embedded_iframe_help: 'Nur wenige Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
+            show_embedded_iframe_help: 'Folgende Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
           index:
             title: Meetings
           new:
@@ -401,6 +401,9 @@ de:
           all: Alle
         filter_scope_values:
           all: Alle
+      calendar:
+        meeting_to_event:
+          read_more: Mehr über diese Veranstaltung erfahren
       calendar_modal:
         calendar_url: Kalender-URL
         close_window: Fenster schließen
@@ -520,7 +523,7 @@ de:
           select_a_meeting_type: Bitte eine Meeting-Art auswählen
           select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
           select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
-          show_embedded_iframe_help: 'Nur wenige Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
+          show_embedded_iframe_help: 'Folgende Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
         index:
           click_here: Alle Treffen anzeigen
           new_meeting: Neue Besprechung
@@ -547,7 +550,6 @@ de:
           date: Datum
           edit_close_meeting: Veranstaltungsbericht bearbeiten
           edit_meeting: Meeting bearbeiten
-          going: Sie haben sich für diese Sitzung angemeldet
           join: Veranstaltung beitreten
           leave: Registrierung stornieren
           leave_confirmation: Sind Sie sicher dass Sie Ihre Registrierung für diese Sitzung stornieren möchten?

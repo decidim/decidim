@@ -131,6 +131,9 @@ uk:
           copy: Скопіювати
           select: Оберіть відомості, копію яких ви хотіли б створити
           title: Створити копію руху співучасті
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Оновити
       participatory_process_groups:
         destroy:
           success: Сукупність рухів співучасті успішно видалено.

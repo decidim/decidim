@@ -135,6 +135,7 @@ it:
             total_budget: Budget totale
         project:
           fields:
+            scope: Ambito tematico
             title: Titolo
       order_summary_mailer:
         order_summary:

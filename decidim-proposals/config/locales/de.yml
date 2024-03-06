@@ -737,7 +737,7 @@ de:
         error: Es gab Fehler beim Löschen des Vorschlagsentwurfs.
         success: Der Vorschlagsentwurf wurde erfolgreich gelöscht.
       last_activity:
-        new_proposal_at_html: "<span>Neuer Vorschlag bei %{link}</span>"
+        new_proposal_at_html: "<span>Neuer Vorschlag auf %{link}</span>"
         proposal_updated_at_html: "<span>Vorschlag aktualisiert unter %{link}</span>"
       models:
         collaborative_draft:
@@ -753,7 +753,7 @@ de:
             notes: Anmerkungen
             official_proposal: Offizieller Vorschlag
             published_answer: Veröffentlichte Antwort
-            published_at: Veröffentlicht unter
+            published_at: Veröffentlicht am
             scope: Umfang
             state: Zustand
             title: Titel
@@ -785,7 +785,7 @@ de:
             other: "%{count} Vorschläge"
         dynamic_map_instructions:
           description: Die Koordinaten werden aktualisiert, wenn Sie auf "Vorschau" klicken. Die angegebene Adresse wird sich jedoch nicht ändern.
-          instructions: Sie können den Marker auf der Karte verschieben.
+          instructions: Sie können den Punkt auf der Karte verschieben.
         edit:
           add_documents: Dokumente hinzufügen
           add_image: Bild hinzufügen
@@ -915,7 +915,7 @@ de:
             description: Jeder Vorschlag kann mehr als %{limit} Unterstützungen sammeln
           minimum_votes_per_user:
             description: Sie müssen mindestens %{votes} Stimmen auf verschiedene Vorschläge verteilen.
-            given_enough_votes: Du hast genug Unterstützung gegeben.
+            given_enough_votes: Sie haben ausreichend Stimmen abgegeben.
             supports_remaining: Sie müssen %{remaining_votes} weitere Vorschläge abgeben, damit Ihre Stimmen berücksichtigt werden.
           proposal_limit:
             description: Sie können bis zu %{limit} Vorschläge erstellen.

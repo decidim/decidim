@@ -240,6 +240,13 @@ ga:
         filters_small_view:
           filter: Scag
           unfold: Oscail
+        linked_proposals:
+          proposal_votes:
+            one: tacaíocht
+            two: tacaíochtaí
+            few: tacaíochtaí
+            many: tacaíochtaí
+            other: tacaíochtaí
         new:
           send: Lean ar aghaidh
         orders:

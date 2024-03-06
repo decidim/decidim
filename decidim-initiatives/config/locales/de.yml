@@ -114,7 +114,7 @@ de:
       models:
         initiatives:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             id: ID
             published_at: Veröffentlicht am
             state: Zustand
@@ -127,7 +127,7 @@ de:
           name: Typ der Initiative
         initiatives_types:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             title: Arten von Initiativen
           name: Art der Initiative
         initiatives_votes:
@@ -190,7 +190,7 @@ de:
             - Befolgen Sie die Schritte, um eine neue Initiative zu erstellen
           description: Dieses Abzeichen wird gewährt, wenn Sie neue Initiativen starten und mit anderen zusammenarbeiten, um sie durchzuführen.
           description_another: Dieser Benutzer hat %{score} Initiativen veröffentlicht.
-          description_own: Du hast %{score} Initiativen veröffentlicht.
+          description_own: Sie haben %{score} Initiativen veröffentlicht.
           name: Veröffentlichte Initiativen
           next_level_in: Holen Sie sich %{score} weitere Initiativen veröffentlicht, um das nächste Level zu erreichen!
           unearned_another: Dieser Benutzer hat noch keine Initiativen veröffentlicht.
@@ -210,7 +210,7 @@ de:
             answer: Antworten
             title: Antwort für %{title}
           info_initiative:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             description: Beschreibung
             initiative_votes_count: Stimmen zählen
             initiatives: Initiativen
@@ -218,7 +218,7 @@ de:
         committee_requests:
           index:
             approve: Genehmigen
-            confirm_revoke: Bist du sicher?
+            confirm_revoke: Sind Sie sicher?
             invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
             no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
             revoke: Widerrufen
@@ -235,8 +235,8 @@ de:
         initiatives:
           edit:
             accept: Initiative akzeptieren
-            confirm: Bist du sicher?
-            confirm_send_to_technical_validation: Sind Sie sicher?
+            confirm: Sind Sie sich sicher?
+            confirm_send_to_technical_validation: Sind Sie sich sicher?
             discard: Verwerfen Sie die Initiative
             export_pdf_signatures: Exportieren von PDF-Signaturen
             export_votes: Export unterstützt
@@ -278,7 +278,7 @@ de:
             success: Der Bereich wurde erfolgreich entfernt
           edit:
             back: Zurück
-            confirm_destroy: Bist du sicher?
+            confirm_destroy: Sind Sie sicher?
             destroy: Löschen
             title: Initiativentyp bearbeiten
             update: Aktualisieren
@@ -296,12 +296,12 @@ de:
           destroy:
             success: Der Initiativentyp wurde erfolgreich entfernt
           edit:
-            confirm_destroy: Bist du sicher?
+            confirm_destroy: Sind Sie sicher?
             destroy: Löschen
             update: Aktualisieren
           form:
             authorizations: Autorisierungseinstellungen
-            child_scope_threshold_enabled_help: 'Diese Einstellung unterstützt keine Offline-Abstimmungen. Es aktiviert Unter-Themenbereiche und arbeitet mit einem Autorisierungs-Handler zusammen, der dem Teilnehmenden einen Themenbereich zuordnet. Stellen Sie sicher, dass Sie diese Autorisierung unten in den Autorisierungseinstellungen auswählen. Hierfür müssen die Themenbereiche auf hierarchische Weise konfiguriert werden: 1 Überthema - N Unterthemen. Weitere Informationen wie diese Konfiguration funktioniert, finden Sie unter diesem <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">Link</a>.'
+            child_scope_threshold_enabled_help: 'Diese Einstellung unterstützt keine Offline-Abstimmungen. Es aktiviert Unter-Themenbereiche und arbeitet mit einem Autorisierungs-Handler zusammen, der dem Teilnehmenden einen Themenbereich zuordnet. Stellen Sie sicher, dass Sie diese Autorisierung unten in den Autorisierungseinstellungen auswählen. Hierfür müssen die Themenbereiche auf hierarchische Weise konfiguriert werden: 1 Überthema - N Unterthemen. Weitere Informationen zur Konfiguration finden Sie auf der <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">Dokumentationsseite für Admins von Initiativen.</a>.'
             only_global_scope_enabled_help: Aktivieren Sie diese Einstellung, wenn Sie "Unterthemen-Signaturen" aktiviert haben und den globalen Themenbereich als Ihren Elternbereich konfiguriert haben. Dadurch wird die Auswahl des Initialtyps im Assistenten zur Erstellung der Initiative übersprungen. Weitere Informationen darüber, wie diese Konfiguration funktioniert, finden Sie <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">hier</a>.
             options: Optionen
             title: Allgemeine Information
@@ -406,7 +406,7 @@ de:
       edit:
         accept: Initiative akzeptieren
         back: Zurück
-        confirm: Bist du dir sicher?
+        confirm: Sind Sie sich sicher?
         discard: Initiative verwerfen
         export_pdf_signatures: PDF der Unterschriften exportieren
         export_votes: Unterschriften exportieren
@@ -482,7 +482,7 @@ de:
             other: und %{count} weitere Leute
         committee_members:
           approve: Genehmigen
-          confirm_revoke: Bist du dir sicher?
+          confirm_revoke: Sind Sie sicher?
           invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
           no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
           revoke: Widerrufen

@@ -6,7 +6,6 @@ kaa:
         facebook: Facebook
         github: GitHub
         instagram: Instagram
-        twitter: Twitter
   decidim:
     admin:
       actions:

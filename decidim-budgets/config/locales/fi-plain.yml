@@ -21,6 +21,9 @@ fi-pl:
         scope_id: Teema
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Budjetti
+        other: Budjetit
       decidim/budgets/project:
         one: Suunnitelma
         other: Suunnitelmat
@@ -100,6 +103,9 @@ fi-pl:
             pending_orders: Odottavat äänet
             select_for_implementation: Valittu toteutukseen
             selected: Valittu
+            selected_options:
+              'no': 'Ei'
+              'yes': 'Kyllä'
             title: Suunnitelmat
             update: Päivitä
             update_scope_button: Muuta teema

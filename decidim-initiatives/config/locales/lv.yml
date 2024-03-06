@@ -363,6 +363,7 @@ lv:
             one: un vēl 1 persona
             other: un vēl %{count} personas
         committee_members:
+          confirm_revoke: Vai esat pārliecināts?
           revoke: Atsaukt
         count:
           title:

@@ -180,7 +180,7 @@ ca:
           inactive_content_blocks: Blocs de contingut inactius
       participatory_process_group_landing_page_content_blocks:
         edit:
-          update: Actualitzar
+          update: Actualitza
       participatory_process_groups:
         destroy:
           error: Hi ha hagut un error eliminant aquest grup de processos participatius.

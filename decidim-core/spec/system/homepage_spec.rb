@@ -180,7 +180,7 @@ describe "Homepage", type: :system do
           click_link static_page1.title["en"]
           expect(page).to have_i18n_content(static_page1.title)
 
-          expect(page).to have_i18n_content(static_page1.content)
+          expect(page).to have_i18n_content(static_page1.content, strip_tags: true)
         end
 
         it "includes the footer sub_hero with the current organization name" do

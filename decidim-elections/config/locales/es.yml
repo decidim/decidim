@@ -644,7 +644,7 @@ es:
               upload_legend: El servidor tiene sus claves públicas de identificación, pero su navegador todavía no las tiene. Necesitas importar el archivo con tus claves de identificación a tu ordenador desde la copia de seguridad que creaste después de generarlas.
             not_supported_browser_description: Parece que estás usando un navegador que no puede ser utilizado para actuar como garante. Asegúrate de que estás usando la versión más reciente de tu navegador, o intenta usar cualquiera de los navegadores más populares para poder completar tus tareas como garante.
             not_supported_browser_title: Actualiza el navegador para actuar como garante
-            trustee_role_description: Se le ha asignado como garante en algunas de las elecciones celebradas en esta plataforma.
+            trustee_role_description: Has sido asignada como garante en algunas de las elecciones celebradas en esta plataforma.
           update:
             success: Tu clave pública de identificación fue guardada con éxito.
       votes:
@@ -735,7 +735,7 @@ es:
           continue: Siguiente
       warnings:
         no_elections_warning: No hay ninguna votación que coincida con tu búsqueda o no hay ninguna programada.
-        no_scheduled_elections_warning: Actualmente no hay votaciones programadas, pero puedes ver las anteriores.
+        no_scheduled_elections_warning: Actualmente no hay elecciones programadas, pero puedes ver un listado de las anteriores.
     events:
       elections:
         election_published:
@@ -1186,7 +1186,7 @@ es:
           certify:
             add_images: Añadir imágenes
             error: Se ha producido un error al adjuntar el certificado, por favor inténtalo de nuevo.
-            form_legend: Sube una foto del certificado de cierre electoral
+            form_legend: Sube una foto del Certificado de Cierre Electoral
             heading: Recuento de votos - Subir certificado
             info_text: Por favor, sube una foto del certificado de cierre electoral.
             submit: Subir el certificado

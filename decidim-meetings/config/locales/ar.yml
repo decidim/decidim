@@ -296,9 +296,7 @@ ar:
             select_user: اختر المشارك
           index:
             filter:
-              accepted: وافقت
               all: الكل
-              rejected: مرفوض
               sent: أرسلت
             filter_by: مصنف بواسطة
             invite_attendee: دعوة الحضور
@@ -339,7 +337,6 @@ ar:
             select_a_meeting_type: الرجاء تحديد نوع الاجتماع
             select_a_registration_type: الرجاء تحديد نوع التسجيل
             select_an_iframe_access_level: الرجاء تحديد مستوى الوصول إلى iframe
-            show_embedded_iframe_help: 'يسمح عدد قليل فقط من الخدمات بتضمين الاجتماع أو الحدث المباشر من المجالات التالية: %{domains}'
           index:
             title: اجتماعات
           new:
@@ -544,7 +541,6 @@ ar:
           select_a_meeting_type: الرجاء تحديد نوع الاجتماع
           select_a_registration_type: الرجاء تحديد نوع التسجيل
           select_an_iframe_access_level: الرجاء تحديد مستوى الوصول إلى iframe
-          show_embedded_iframe_help: 'يسمح عدد قليل فقط من الخدمات بتضمين الاجتماع أو الحدث المباشر من المجالات التالية: %{domains}'
         index:
           click_here: عرض كافة الاجتماعات
           new_meeting: اجتماع جديد
@@ -570,7 +566,6 @@ ar:
           contributions: عدد المساهمات
           date: تاريخ
           edit_meeting: تعديل الاجتماعات
-          going: لقد قمت بالتسجيل لهذا الاجتماع
           leave: إلغاء التسجيل الخاص بك
           leave_confirmation: هل أنت متأكد من أنك تريد إلغاء تسجيلك لهذا الاجتماع؟
           link_available_soon: سيكون الرابط متوفر قريباً

@@ -627,6 +627,10 @@ sk:
           password: Heslo je príliš krátke.
           password_confirmation: Potvrdenie hesla sa musí zhodovať s vaším heslom.
         error: V tomto poli je chyba.
+      upload:
+        labels:
+          cancel: Zrušiť
+          save: Uložiť
     gamification:
       all_badges_link: Zobraziť všetky dostupné odznaky.
       badges:
@@ -799,11 +803,13 @@ sk:
           title: Konverzace
         reply:
           send: Poslat
+          title: Odpověď
         show:
           chat_with: Konverzácia s
           title: Konverzace s číslem %{usernames}
         start:
           send: Poslat
+          title: Spusťte konverzaci
     metrics:
       followers:
         description: Počet účastníkov, ktorí sledujú tento participatívny priestor
@@ -899,7 +905,6 @@ sk:
           proposals: Návrhy
           proposals_explanation: Urobiť návrhy, podporiť existujúce a podporovať zmeny, ktoré chcete vidieť.
         footer_sub_hero:
-          footer_sub_hero_body: vybudujte otvorenejšia, transparentnejšia a spolupracujúca spoločnosť. <br /> Prihláste sa, zúčastnite sa a rozhodnite sa.
           footer_sub_hero_headline: Vitajte na%{organization} participatívnej platforme.
           register: Registrovať
         hero:

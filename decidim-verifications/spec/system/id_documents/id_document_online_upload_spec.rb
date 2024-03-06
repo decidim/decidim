@@ -21,7 +21,7 @@ describe "Identity document online upload", type: :system do
 
   it "allows the user to upload their identity document" do
     submit_upload_form(
-      doc_type: "DNI",
+      doc_type: "Identification number",
       doc_number: "XXXXXXXX",
       file_name: "id.jpg"
     )
@@ -31,7 +31,7 @@ describe "Identity document online upload", type: :system do
 
   it "shows an error when upload failed" do
     submit_upload_form(
-      doc_type: "DNI",
+      doc_type: "Identification number",
       doc_number: "XXXXXXXX",
       file_name: "Exampledocument.pdf"
     )

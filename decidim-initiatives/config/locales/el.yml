@@ -362,6 +362,7 @@ el:
             one: και 1 ακόμη άτομο
             other: και %{count} ακόμη άτομα
         committee_members:
+          confirm_revoke: Είστε βέβαιοι;
           revoke: Ανάκληση
         count:
           title:

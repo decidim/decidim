@@ -169,6 +169,11 @@ lb:
         update:
           error: Beim Aktualisieren dieser partizipativen Prozessgruppe ist ein Fehler aufgetreten.
           success: Partizipative Prozessgruppe wurde erfolgreich aktualisiert.
+      participatory_process_steps:
+        destroy:
+          error:
+            active_step: Der aktive Schritt kann nicht gelöscht werden.
+            last_step: Der letzte Schritt eines Beteiligungsprozesses kann nicht gelöscht werden.
       participatory_process_types:
         form:
           title: Titel
@@ -252,6 +257,20 @@ lb:
       show:
         title: Prozessgruppen
     participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            active_step: Aktiv Etapp
+            more_information: weider Informatiounen
+            participate: Matmaachen
+            participate_in: Am Prozess %{resource_name} teilnehmen
+      participatory_processes:
+        filters:
+          explanations:
+            no_active: Keine aktiven Prozesse
+            no_active_nor_upcoming: Keine aktiven oder zukünftigen Beteiligungsprozesse
+        index:
+          loading: Ergebnisse werden geladen...
       show:
         area: Bereich
         belongs_to_group: Dieser Prozess gehört zu

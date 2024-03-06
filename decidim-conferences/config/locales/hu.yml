@@ -62,7 +62,6 @@ hu:
         personal_url: Személyes URL-cím
         position: Pozíció
         short_bio: Rövid önéletrajz
-        twitter_handle: Twitter oldal
         user_id: Felhasználó
       conference_user_role:
         email: Email
@@ -437,7 +436,6 @@ hu:
           invalid: Probléma merült fel a konferencián.
           success: A konferencia sikeres volt.
       conference_speaker:
-        go_to_twitter: Menjen a Twitterre
         more_info: több információ
         personal_website: Személyes weboldal
         show:

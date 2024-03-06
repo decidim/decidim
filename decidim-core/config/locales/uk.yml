@@ -335,6 +335,9 @@ uk:
       default_image: Зображення за замовчуванням
       errors:
         error: У цьому полі є помилка.
+      upload:
+        labels:
+          save: Зберегти
     log:
       base_presenter:
         create: "%{user_name} створив %{resource_name}"
@@ -374,11 +377,14 @@ uk:
         create:
           error: Бесіда не розпочата. Спробуйте ще раз пізніше
         index:
+          from: Від
           no_conversations: У вас ще немає бесід
         reply:
           send: Надіслати
+          title: Відповісти
         start:
           send: Надіслати
+          title: Почати бесіду
     newsletter_mailer:
       newsletter:
         note: Ви отримали цього електронного листа, оскільки ви підписалися на новини щодо %{organization_name}. Ви можете змінити свої налаштування на <a href="%{link}">сторінці сповіщень</a>.
@@ -430,7 +436,6 @@ uk:
           proposals: Пропозиції
           proposals_explanation: Вносьте нові пропозиції, підтримуйте існуючі та сприяйте змінам, які ви хочете бачити.
         footer_sub_hero:
-          footer_sub_hero_body: Створімо більш відкрите, прозоре та співпрацююче суспільство.<br /> Долучайтесь, беріть участь та приймайте рішення.
           footer_sub_hero_headline: Ласкаво просимо до майданчику співучасті %{organization}!
           register: Зареєструватися
         hero:

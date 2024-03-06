@@ -55,6 +55,8 @@ zh-TW:
         new:
           create: 建立
           title: 新增管理員
+        show:
+          edit: 編輯
         update:
           error: 更新此管理員時發生問題。
           success: 管理員已成功更新
@@ -145,8 +147,8 @@ zh-TW:
         index:
           title: 組織
         new:
-          reference_prefix_hint: 參考前綴用於唯一標識所有組織中的資源
-          secondary_hosts_hint: 請在新的一行輸入每一個
+          reference_prefix_hint: 參考前綴用於唯一標識所有組織中的資源.
+          secondary_hosts_hint: 請在新的一行輸入每一個.
           title: 新增組織
         omniauth_settings:
           decidim:

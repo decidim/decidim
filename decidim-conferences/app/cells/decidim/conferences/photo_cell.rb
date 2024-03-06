@@ -26,7 +26,7 @@ module Decidim
       end
 
       def title
-        translated_attribute model.title
+        decidim_escape_translated model.title
       end
 
       def short_description

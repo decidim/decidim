@@ -273,9 +273,7 @@ el:
             select_user: Επιλέξτε συμμετέχοντα
           index:
             filter:
-              accepted: Έγινε αποδοχή
               all: Όλα
-              rejected: Απορρίφθηκε
               sent: Στάλθηκε
             filter_by: Φιλτράρισμα κατά
             invite_attendee: Πρόσκληση συμμετέχοντα
@@ -307,7 +305,6 @@ el:
             select_a_meeting_type: Παρακαλώ επιλέξτε έναν τύπο συνάντησης
             select_a_registration_type: Παρακαλώ επιλέξτε έναν τύπο εγγραφής
             select_an_iframe_access_level: Παρακαλώ επιλέξτε ένα επίπεδο πρόσβασης iframe
-            show_embedded_iframe_help: 'Μόνο λίγες υπηρεσίες επιτρέπουν την ενσωμάτωση σε συνάντηση ή live εκδήλωση από τους ακόλουθους τομείς: %{domains}'
           index:
             title: Συσκέψεις
           new:
@@ -493,7 +490,6 @@ el:
           select_a_meeting_type: Παρακαλώ επιλέξτε έναν τύπο συνάντησης
           select_a_registration_type: Παρακαλώ επιλέξτε έναν τύπο εγγραφής
           select_an_iframe_access_level: Παρακαλώ επιλέξτε ένα επίπεδο πρόσβασης iframe
-          show_embedded_iframe_help: 'Μόνο λίγες υπηρεσίες επιτρέπουν την ενσωμάτωση σε συνάντηση ή live εκδήλωση από τους ακόλουθους τομείς: %{domains}'
         index:
           click_here: Δείτε όλες τις συναντήσεις
           new_meeting: Νέα συνάντηση
@@ -519,7 +515,6 @@ el:
           contributions: Πλήθος συνεισφορών
           date: Ημερομηνία
           edit_meeting: Επεξεργασία συνάντησης
-          going: Έχετε εγγραφεί για αυτή τη συνάντηση
           leave: Ακύρωση εγγραφής
           leave_confirmation: Είστε σίγουροι ότι θέλετε να ακυρώσετε την εγγραφή σας για αυτή τη συνάντηση;
           link_available_soon: Σύνδεσμος διαθέσιμος σύντομα

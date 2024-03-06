@@ -59,7 +59,7 @@ cs:
         subtitle: Podtitul
         target: Kdo se účastní
         title: Titul
-        twitter: Twitter
+        twitter: X
         weight: Pozice v řazení
         youtube: Youtube
       assembly_member:
@@ -301,7 +301,7 @@ cs:
             visbility: Viditelnost
         assemblies_settings:
           edit:
-            update: Aktualizovat
+            update: Aktualizace
           form:
             title: Nastavení pro Shromáždění
         assemblies_types:
@@ -327,8 +327,8 @@ cs:
           index:
             filter:
               all: Vše
-              ceased: Ukončit
-              not_ceased: Nekončí
+              ceased: Ukončeno
+              not_ceased: Neukončeno
             filter_by: Filtrovat podle
             search: Vyhledávání
         content_blocks:

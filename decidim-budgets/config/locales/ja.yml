@@ -21,6 +21,8 @@ ja:
         scope_id: スコープ
   activerecord:
     models:
+      decidim/budgets/budget:
+        other: 予算
       decidim/budgets/project:
         other: プロジェクト
   decidim:
@@ -99,6 +101,9 @@ ja:
             pending_orders: 保留中の投票
             select_for_implementation: 実装のために選択
             selected: 選択済
+            selected_options:
+              'no': 'いいえ'
+              'yes': 'はい'
             title: プロジェクト
             update: 更新
             update_scope_button: スコープを更新

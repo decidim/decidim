@@ -1766,3 +1766,6 @@ Faker/DeprecatedArguments:
         - number
         - supplemental
 
+RSpec/FilePath:
+  CustomTransform:
+    OAuthApplicationPresenter: oauth_application_presenter

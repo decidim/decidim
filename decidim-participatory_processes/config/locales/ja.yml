@@ -8,7 +8,7 @@ ja:
         banner_image: バナー画像
         copy_categories: カテゴリをコピー
         copy_components: コンポーネントをコピー
-        copy_steps: ステップをコピー
+        copy_steps: フェーズをコピー
         decidim_area_id: エリア
         description: 説明
         developer_group: プロモーターグループ
@@ -20,7 +20,7 @@ ja:
         import_attachments: 添付ファイルをインポート
         import_categories: カテゴリをインポート
         import_components: コンポーネントをインポート
-        import_steps: ステップをインポート
+        import_steps: フェーズをインポート
         local_area: 組織エリア
         meta_scope: スコープメタデータ
         participatory_process_group_id: 参加型プロセスグループ

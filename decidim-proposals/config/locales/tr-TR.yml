@@ -340,6 +340,9 @@ tr:
         exports:
           proposal_comments: Yorumlar
           proposals: Teklifler
+        imports:
+          title:
+            proposals: Teklifleri içe aktar
         models:
           proposal:
             name: Teklif

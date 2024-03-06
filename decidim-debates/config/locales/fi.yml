@@ -110,6 +110,9 @@ fi:
           success: Keskustelun luonti onnistui.
         debate:
           participate: Osallistu
+        debates:
+          empty: Ei yhtään keskustelua.
+          empty_filters: Keskusteluja ei löytynyt annetuilla hakuehdoilla.
         edit:
           back: Takaisin
           save: Tallenna muutokset

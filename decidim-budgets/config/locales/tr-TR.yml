@@ -124,6 +124,7 @@ tr:
             total_budget: Toplam bütçe
         project:
           fields:
+            scope: Kapsam
             title: Başlık
       order_summary_mailer:
         order_summary:

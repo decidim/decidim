@@ -64,6 +64,7 @@ sk:
       models:
         project:
           fields:
+            scope: Rozsah
             title: Názov
       order_summary_mailer:
         order_summary:

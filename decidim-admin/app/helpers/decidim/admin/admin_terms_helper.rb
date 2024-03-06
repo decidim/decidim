@@ -5,7 +5,7 @@ module Decidim
     # This module includes helpers to show Admin Terms of Use
     module AdminTermsHelper
       def admin_terms_of_use_body
-        current_organization.admin_terms_of_use_body.symbolize_keys[I18n.locale].html_safe
+        decidim_sanitize_admin(translated_attribute(current_organization.admin_terms_of_use_body)).html_safe
       end
 
       def announcement_body

@@ -59,7 +59,6 @@ tr:
         subtitle: Alt Başlık
         target: Katılanlar
         title: Başlık
-        twitter: Twitter
         weight: Sipariş pozisyonu
         youtube: YouTube
       assembly_member:
@@ -309,8 +308,6 @@ tr:
           index:
             filter:
               all: Tümü
-              ceased: Durduruldu
-              not_ceased: Durdurulmadı
             filter_by: Şuna göre filtrele
             search: Arama
         content_blocks:

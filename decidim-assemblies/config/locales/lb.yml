@@ -52,7 +52,6 @@ lb:
         subtitle: Untertitel
         target: Wer nimmt teil?
         title: Titel
-        twitter: Twitter
         weight: Bestellposition
         youtube: Youtube
       assembly_member:
@@ -222,6 +221,9 @@ lb:
             name: Name
     assemblies:
       admin:
+        assemblies_settings:
+          edit:
+            update: Aktualisieren
         assemblies_types:
           form:
             title: Titel
@@ -238,8 +240,6 @@ lb:
           index:
             filter:
               all: Alle
-              ceased: Aufgegeben
-              not_ceased: Nicht aufgehört
             filter_by: Filtern nach
             search: Suche
         content_blocks:

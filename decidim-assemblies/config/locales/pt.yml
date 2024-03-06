@@ -52,7 +52,6 @@ pt:
         subtitle: Subtítulo
         target: Quem participa
         title: Título
-        twitter: Twitter
         weight: Posição de ordenamento
         youtube: Youtube
       assembly_member:
@@ -298,8 +297,6 @@ pt:
           index:
             filter:
               all: Todos
-              ceased: Cessado
-              not_ceased: Não cessado
             filter_by: Filtrar por
             search: Pesquisar
         content_blocks:

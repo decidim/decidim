@@ -49,7 +49,6 @@ uk:
         subtitle: Підзаголовок
         target: Хто бере участь
         title: Назва
-        twitter: Твіттер
         youtube: ЮТуб
       assembly_member:
         birthday: День народження
@@ -228,6 +227,9 @@ uk:
             select_an_assembly_type: Оберіть різновид зборів
             social_handlers: Соціальні мережі
             title: Загальні відомості
+        assemblies_settings:
+          edit:
+            update: Оновити
         assemblies_types:
           form:
             title: Назва
@@ -241,8 +243,6 @@ uk:
           index:
             filter:
               all: Усі
-              ceased: Повноваження припинені
-              not_ceased: Повноваження не припинені
             filter_by: 'Відібрати за ознакою:'
             search: Шукати
       assembly_members:

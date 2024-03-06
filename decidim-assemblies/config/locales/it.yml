@@ -52,7 +52,6 @@ it:
         subtitle: Sottotitolo
         target: A chi è destinato il processo
         title: Titolo
-        twitter: Twitter
         weight: Ordine di posizionamento
         youtube: Youtube
       assembly_member:
@@ -298,8 +297,6 @@ it:
           index:
             filter:
               all: Tutti
-              ceased: Cessato
-              not_ceased: Non è cessato
             filter_by: Filtra per
             search: Ricerca
         content_blocks:

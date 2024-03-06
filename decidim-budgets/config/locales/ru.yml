@@ -65,6 +65,7 @@ ru:
       models:
         project:
           fields:
+            scope: Охват
             title: Название
       projects:
         budget_confirm:
