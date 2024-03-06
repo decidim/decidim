@@ -75,7 +75,7 @@ en:
           readability_description_3: Characters per line
           typefaces_description_1: Decidim uses Source Sans Pro as primary typeface. This typeface supports 310 languages
           typefaces_description_2: This fonts are licensed under the Open Font License
-          typography: Typography
+          title: Typography
       helpers:
         background: Background and borders
         base: Base
