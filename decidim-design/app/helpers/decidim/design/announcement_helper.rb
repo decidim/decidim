@@ -6,15 +6,15 @@ module Decidim
       def announcement_sections
         [
           {
-            id: "callout_class",
+            id: t("decidim.design.helpers.callout_class"),
             contents: [
               {
                 type: :text,
-                values: ["This attribute applies an status to the announcement. By default, it uses secondary color."]
+                values: [t("decidim.design.helpers.callout_description")]
               },
               {
                 type: :table,
-                options: { headings: ["Announcement", "Callout class"] },
+                options: { headings: [t(".title"), "Callout class"] },
                 items: announcement_table(
                   { text: "I am an announcement", callout_class: "success" },
                   { text: "I am an announcement", callout_class: "warning" },

@@ -88,6 +88,8 @@ en:
           tablet: Tablet
           title: Layout
       helpers:
+        callout_class: Callout Class
+        callout_description: This attribute applies an status to the announcement. By default, it uses secondary color.
         activity: Activity
         background: Background and borders
         base: Base
