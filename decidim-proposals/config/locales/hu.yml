@@ -283,8 +283,8 @@ hu:
         title: Elfogadott javaslatok
       endorsements:
         description: A javaslatokhoz kapcsolódó jóváhagyások száma
-        object: elismerések
-        title: Elismerések
+        object: jóváhagyások
+        title: Jóváhagyások
       proposals:
         description: A létrehozott javaslatok száma
         object: javaslatok
