@@ -88,6 +88,7 @@ hu:
     admin:
       actions:
         confirm: Megerősít
+        new_conference_user_role: Új konferencia admin
         send_diplomas: Küldési igazolások küldése
       conference_copies:
         new:
