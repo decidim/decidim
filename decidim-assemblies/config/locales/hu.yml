@@ -97,6 +97,7 @@ hu:
         import_assembly: Importálás
         new_assembly: Új gyűlés
         new_assembly_type: Új Gyűlés típus
+        new_assembly_user_role: Új gyűlés admin
       assemblies:
         create:
           error: Hiba történt az új gyűlés létrehozása során.
@@ -171,11 +172,13 @@ hu:
         destroy:
           success: Admin eltávolítása a gyűlésből sikeres.
         edit:
+          title: Gyűlés adminjának frissítése
           update: Frissítés
         index:
           assembly_admins_title: Gyűlés adminjai
         new:
           create: Létrehozás
+          title: Új gyűlés admin
         update:
           error: Hiba történt a gyűlés adminjának frissítése során.
           success: Gyűlés adminjának frissítése sikeres.
