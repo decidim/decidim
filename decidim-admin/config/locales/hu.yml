@@ -37,6 +37,9 @@ hu:
         user_group_id: Az importáltak létrehozása mint
       newsletter:
         body: Szöveg
+        send_to_all_users: Küldés az összes felhasználónak
+        send_to_followers: Küldés a követőknek
+        send_to_participants: Küldés a résztvevőknek
         subject: Tárgy
       organization:
         admin_terms_of_service_body: Az adminisztrátori szolgáltatási feltételek szövegtörzse
@@ -92,6 +95,7 @@ hu:
         tertiary_color: Harmadlagos
         time_zone: Időzóna
         tos_version: Használati feltételek
+        twitter_handler: X kezelő
         user_groups_enabled: Csoportok engedélyezése
         users_registration_mode: Felhasználói regisztrációs mód
         warning_color: Figyelmeztetés
@@ -126,6 +130,7 @@ hu:
         weight: Pozíció sorrend
       static_page_topic:
         description: Leírás
+        name: Téma neve
         show_in_footer: Mutassa a láblécben
         title: Cím
         weight: Pozíció sorrend
@@ -282,6 +287,7 @@ hu:
       block_user:
         new:
           action: Fiók blokkolása és igazolás küldése
+          already_reported_html: Ezt a műveletet folytatva elrejti a résztvevők összes tartalmát is.
           description: Egy felhasználó letiltása használhatatlanná teszi a fiókját. Az indoklásban megadhat bármilyen iránymutatást arra vonatkozóan, hogy miként lehetne feloldani a felhasználó blokkolását.
           justification: Indoklás
           title: '%{name} felhasználó blokkolása'
@@ -347,6 +353,7 @@ hu:
         title: Ellenőrzési konfliktusok
         transfer:
           email: Email
+          error: Hiba történt a jelenlegi résztvevő kezelt résztvevővé átminősítése során.
           name: Név
           reason: Ok
           success: Az átvitel sikeresen befejezve.
@@ -355,7 +362,18 @@ hu:
         user_name: Felhasználó
       content_blocks:
         create:
+          error: Hiba történt a tartalom blokk létrehozásakor.
           success: A tartalmi blokk sikeresen létrehozva.
+        destroy:
+          error: Probléma merült fel a tartalmi blokk törlésével kapcsolatban.
+          success: A tartalomblokk sikeresen törlésre került.
+        edit:
+          active_content_blocks: Aktív tartalom blokkok
+          add: Tartalmi blokk hozzáadása
+          destroy_confirmation: Biztos, hogy törölni szeretné ezt a tartalmi blokkot?
+          inactive_content_blocks: Inaktív tartalmi blokkok
+          title: Oldal tartalom
+          update: Frissítés
       dashboard:
         pending_moderations:
           goto_moderation: Menj a globális moderációkhoz
@@ -561,6 +579,7 @@ hu:
         scopes: Hatáskörök
         see_site: Oldal megtekintése
         settings: Beállítások
+        static_page_topics: Témák
         static_pages: Oldalak
         user_groups: Felhasználói csoportok
         users: Résztvevők
@@ -629,6 +648,7 @@ hu:
           fields:
             created_at: Létrehozás dátuma
             email: Email
+            last_sign_in_at: Utolsó bejelentkezés ideje
             name: Név
             role: Szerepkör
             roles:
@@ -801,6 +821,7 @@ hu:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Néhány szövegmezőbe, a résztvevők HTML tag-eket tudnak majd beilleszteni a szövegszerkesztő segítségével.
           social_handlers: Social
+          twitter: X
           url: URL
           youtube: Youtube
         update:
@@ -819,6 +840,7 @@ hu:
             saturation: Telítettség
             title: Színválasztó
             update_suggested_colors: A javasolt színekre frissítés
+          cta_button_path_help_html: 'Felülírhatod, hogy a kezdőlap felhívás gombja link hova mutasson. Részleges, ne pedig teljes URL címeket használj. A megengedett karakterek: betű, szám, kötőjel vagy perjel, de mindig betűvel kell kezdődnie. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon. Példa: %{url}'
           cta_button_text_help: A felhívás gomb szövegét a szervezethez tartozó minden egyes nyelven megjelenítheted. Amennyiben nincs beállítva, akkor akkor az alapértelmezett értéket fogja használni. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon.
           homepage_appearance_title: Honlap megjelenésének szerkesztése
           homepage_highlighted_content_banner_title: Kiemelt banner
@@ -855,6 +877,8 @@ hu:
           invalid: Probléma adódott a CSV fájl beolvasásával. Kérjük, győződjön meg róla, hogy követte az utasításokat.
           success: A CSV fájl sikeresen feltöltődött, meghívó e-mailt küldünk a résztvevőknek. Ez eltarthat egy ideig.
         new:
+          csv_upload:
+            title: Töltse fel a CSV fájlját
           destroy:
             button: Az összes privát felhasználó törlése
             confirm: Biztos, hogy törölni szeretné az összes privát résztvevőt? Ezt a műveletet nem lehet visszacsinálni, nem tudja majd visszaállítani őket.
@@ -980,9 +1004,14 @@ hu:
         authorization_workflows: Ellenőrzési módszerek
         dashboard: Vezérlőpult
         edit_external_domains: Engedélyezett külső domainek listája
+        edit_landing_page: Az oldal tartalma
+        edit_organization_appearance: Honlap megjelenésének szerkesztése
         impersonatable_users: Kezelhető résztvevők
         impersonations: Résztvevők kezelése
+        menu: Menü
         metrics: Mérőszámok
+        page_topics: Témák
+        pages: Oldalak
         panel: Admin
         participants: Résztvevők
         scope_types: Hatáskör típusok
