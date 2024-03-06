@@ -87,9 +87,10 @@ en:
           title: Layout
         typography:
           description: These guidelines summarize how use typography at Decidim, and serve as guardrails for designers to design freely with best typographic practices in mind.
-          readability_description_1: Size, Layout cols, Characters per line
-          readability_description_2: Layout cols
-          readability_description_3: Characters per line
+          headings:
+            characters: Characters per line
+            layout: Layout cols
+            size: Size
           title: Typography
           typefaces_description_1: Decidim uses Source Sans Pro as primary typeface. This typeface supports 310 languages
           typefaces_description_2: This fonts are licensed under the Open Font License
