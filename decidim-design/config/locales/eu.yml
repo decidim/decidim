@@ -6,13 +6,12 @@ eu:
         accordions:
           content_panel: Panelaren edukia
           demo: Demoa
-          demo_description: Aplikazioan zehar, akordeoiak erabiltzen dira, batez ere, edukiak erlaitzetan erakusteko/ezkutatzeko edo ageriko testuak tolesteko/zabaltzeko.
-          description_accordions_html: Akordeoiak javascript funtzio bat dira, % {link_code} izeneko kanpoko liburutegi bati esker.
           github_source_html: 'Iturburu-kodea hemen: GitHub % {github_link}}'
           panel: Panela
-          title: Akordeoiak
           trigger: Eragin
           usage: Erabilera
+        activities:
+          activities: Jarduerak
       foundations:
         accessibility:
           accessibility_labels: Irisgarritasun-etiketak
@@ -80,12 +79,17 @@ eu:
           tablet: Tableta
           title: Diseinua
       helpers:
+        activity: Jarduera
         background: Aurrekariak eta mugak
         base: Oinarria
+        demo: Demoa
+        demo_text: 'Zelula honek LastActivity itemen eredu bat jasotzen du eta elementu hauek erakusten ditu:'
+        demo_text_2: Azken jarduera-orriak erabiltzen du, eduki-bloke batean eta dropdown-en barruan.
         form_elements: Forma elementuak
         hex_code: Hex kodea
         main_colors: Kolore nagusiak
         rgba_code: RGBA kodea
+        source_code: Iturburu Kodea
         state: Egoera
         tailwind: Tailwind izena
         typography_texts: Tipografia eta testuak
@@ -109,6 +113,8 @@ eu:
         usage_typography_3: Hondo ilunaren gaineko testua
         usage_typography_4: Loturak eta botoiak
         value: Balioa
+        variations: Aldakuntzak
+        variations_text: Jarduera motari dagokionez, zelulak eduki ezberdinak erakuts ditzake, baliabide ezberdinen berri emanez, espazio parte-hartzaile batekoak izan ala ez, autore bat duena ala ez.
       home:
         index:
           by_sharing_principles: Diseinu-erabakien printzipioak, filosofia eta oinarriak partekatzean, komunitatea koherentziaz lagundu dezan gaitu nahi dugu, parte-hartzaileentzako esperientziarik onena lor dezagun.
