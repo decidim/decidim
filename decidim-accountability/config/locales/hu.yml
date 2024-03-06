@@ -74,6 +74,7 @@ hu:
               </ol>
         imports:
           create:
+            invalid: Probléma adódott az eredmények importálásával.
             success: A fájl importálása megkezdődött. A következő néhány percben kapni fog egy e-mailt az importálás eredményéről.
         models:
           result:
