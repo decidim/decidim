@@ -67,7 +67,7 @@ hu:
           comment: Hozzászólás
           create: Létrehozás
           destroy: Törlés
-          endorse: Helyesel/Jóváhagy
+          endorse: Jóváhagy
           update: Frissítés
         name: Blog
         settings:
