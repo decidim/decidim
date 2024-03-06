@@ -375,6 +375,11 @@ hu:
             submit: Küldés
           leave_your_note: Jegyzet elhagyása
           title: Privát jegyzetek
+        proposal_states:
+          create:
+            success: Állapot frissítése sikeresen
+          new:
+            create: Létrehoz
         proposals:
           answer:
             invalid: Probléma merült fel a javaslat megválaszolásakor.
