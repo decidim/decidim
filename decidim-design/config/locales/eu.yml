@@ -2,6 +2,17 @@
 eu:
   decidim:
     design:
+      components:
+        accordions:
+          content_panel: Panelaren edukia
+          demo: Demoa
+          demo_description: Aplikazioan zehar, akordeoiak erabiltzen dira, batez ere, edukiak erlaitzetan erakusteko/ezkutatzeko edo ageriko testuak tolesteko/zabaltzeko.
+          description_accordions_html: Akordeoiak javascript funtzio bat dira, % {link_code} izeneko kanpoko liburutegi bati esker.
+          github_source_html: 'Iturburu-kodea hemen: GitHub % {github_link}}'
+          panel: Panela
+          title: Akordeoiak
+          trigger: Eragin
+          usage: Erabilera
       foundations:
         accessibility:
           accessibility_labels: Irisgarritasun-etiketak
