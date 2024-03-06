@@ -75,6 +75,15 @@ module Decidim
         it "returns the decrypted value" do
           expect(described_class.decrypt(value)).to eq("Decidim")
         end
+
+        it "runs in a performant way when called multiple times concecutively" do
+          start = Time.current
+          1000.times { described_class.decrypt(value) }
+
+          # This actually takes a lot less time but the idea of the spec is to
+          # check that this runs in a performant way.
+          expect(Time.current - start).to be < 1
+        end
       end
     end
   end
