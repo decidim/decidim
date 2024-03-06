@@ -144,12 +144,6 @@ module Decidim
     end
 
     describe "#metadata" do
-      # metadata: {
-      #   date_of_birth: "1972-02-29",
-      #   municipality: "091",
-      #   postal_code: "00200",
-      #   gender: "f"
-      # }
       let!(:authorization) { create(:authorization, :granted, metadata: authorization_metadata) }
       let(:authorization_metadata) do
         {
