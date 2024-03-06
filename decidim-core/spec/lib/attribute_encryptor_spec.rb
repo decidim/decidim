@@ -4,10 +4,12 @@ require "spec_helper"
 
 module Decidim
   describe AttributeEncryptor do
-    after do
+    around do |example|
       # Clear the cached cryptor instance because the specs are testing the
       # utility under different configurations which can affect the
       # `ActiveSupport::MessageEncryptor` instance.
+      described_class.remove_instance_variable(:@cryptor) if described_class.instance_variable_defined?(:@cryptor)
+      example.run
       described_class.remove_instance_variable(:@cryptor) if described_class.instance_variable_defined?(:@cryptor)
     end
 
