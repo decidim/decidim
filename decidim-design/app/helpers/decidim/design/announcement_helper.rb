@@ -37,11 +37,11 @@ module Decidim
             ]
           },
           {
-            id: "plain_text_vs_hash",
+            id: t("decidim.design.helpers.plain_text"),
             contents: [
               {
                 type: :text,
-                values: ["You can provide as first argument both a plain text and a hash object"]
+                values: [t("decidim.design.helpers.plain_text_description")]
               },
               {
                 type: :table,
