@@ -16,15 +16,15 @@ module Decidim
                 type: :table,
                 options: { headings: [t(".title"), t("decidim.design.helpers.callout_class")] },
                 items: announcement_table(
-                  { text: t("decidim.design.helpers.iam_annoucement"), callout_class: "Success" },
-                  { text: t("decidim.design.helpers.iam_annoucement"), callout_class: "Warning" },
-                  { text: t("decidim.design.helpers.iam_annoucement"), callout_class: "Alert" },
-                  { text: t("decidim.design.helpers.iam_annoucement"), callout_class: "Secondary" },
-                  { text: t("decidim.design.helpers.iam_annoucement"), callout_class: nil }
+                  { text: "I am an announcement", callout_class: "Success" },
+                  { text: "I am an announcement", callout_class: "Warning" },
+                  { text: "I am an announcement", callout_class: "Alert" },
+                  { text: "I am an announcement", callout_class: "Secondary" },
+                  { text: "I am an announcement", callout_class: nil }
                 ),
                 cell_snippet: {
                   cell: "decidim/announcement",
-                  args: [t("decidim.design.helpers.iam_annoucement"), { callout_class: "Success" }],
+                  args: ["I am an announcement", { callout_class: "Success" }],
                   call_string: [
                     'cell("decidim/announcement", "I am an announcement", callout_class: "success")',
                     'cell("decidim/announcement", "I am an announcement", callout_class: "warning")',
