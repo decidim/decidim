@@ -14,17 +14,17 @@ module Decidim
               },
               {
                 type: :table,
-                options: { headings: [t(".title"), "Callout class"] },
+                options: { headings: [t(".title"), t("decidim.design.helpers.callout_class")] },
                 items: announcement_table(
-                  { text: "I am an announcement", callout_class: "success" },
-                  { text: "I am an announcement", callout_class: "warning" },
-                  { text: "I am an announcement", callout_class: "alert" },
-                  { text: "I am an announcement", callout_class: "secondary" },
-                  { text: "I am an announcement", callout_class: nil }
+                  { text: t("decidim.design.helpers.iam_annoucement"), callout_class: t("decidim.design.helpers.success") },
+                  { text: t("decidim.design.helpers.iam_annoucement"), callout_class:t("decidim.design.helpers.warning") },
+                  { text: t("decidim.design.helpers.iam_annoucement"), callout_class: t("decidim.design.helpers.alert") },
+                  { text: t("decidim.design.helpers.iam_annoucement"), callout_class: t("decidim.design.helpers.secondary") },
+                  { text: t("decidim.design.helpers.iam_annoucement"), callout_class: nil }
                 ),
                 cell_snippet: {
                   cell: "decidim/announcement",
-                  args: ["I am an announcement", { callout_class: "success" }],
+                  args: [t("decidim.design.helpers.iam_annoucement"), { callout_class: t("decidim.design.helpers.success") }],
                   call_string: [
                     'cell("decidim/announcement", "I am an announcement", callout_class: "success")',
                     'cell("decidim/announcement", "I am an announcement", callout_class: "warning")',
@@ -45,7 +45,7 @@ module Decidim
               },
               {
                 type: :table,
-                options: { headings: ["Announcement", "Callout class", "Argument"] },
+                options: { headings: [t(".title"), t("decidim.design.helpers.callout_class"), "Argument"] },
                 items: announcement_table(
                   { text: { title: "This is the title", body: "This is the body" }, callout_class: "success",
                     argument: '{ title: "This is the title", body: "This is the body" }, callout_class: "success"' },
