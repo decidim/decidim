@@ -31,6 +31,43 @@ module Decidim
         "background-color: #{bg_color}; color: #{text_color};"
       end
 
+      def self.colors
+        {
+          gray: {
+            foreground: "#4B5058",
+            background: "#F6F8FA"
+          },
+          blue: {
+            foreground: "#0851A6",
+            background: "#EBF9FF"
+          },
+          green: {
+            foreground: "#15602C",
+            background: "#E3FCE9"
+          },
+          yellow: {
+            foreground: "#9A6700",
+            background: "#FFFCE5"
+          },
+          orange: {
+            foreground: "#BC4C00",
+            background: "#FFF1E5"
+          },
+          red: {
+            foreground: "#D1242F",
+            background: "#FFEBE9"
+          },
+          pink: {
+            foreground: "#BF3989",
+            background: "#FFEFF7"
+          },
+          purple: {
+            foreground: "#8250DF",
+            background: "#FBEFFF"
+          }
+        }
+      end
+
       protected
 
       def generate_token

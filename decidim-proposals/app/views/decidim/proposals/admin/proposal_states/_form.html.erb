@@ -9,15 +9,19 @@
       </div>
 
       <div class="row column">
-        <div class="organization-colors">
-          <%= form.color_field :text_color, data: { "label-preview" => true, "target" => "strong[data-label-preview]", "updates" => "color" } %>
-          <%= form.color_field :bg_color, data: { "label-preview" => true, "target" => "strong[data-label-preview]", "updates" => "backgroundColor" } %>
+        <% proposal_state.class.colors.each do |color_name, color_values| %>
+          <%= form.radio_button :bg_color, color_name,
+            label: false,
+            class: "!mr-4",
+            style: "box-shadow: 0 0 0 6px #{color_values[:foreground]}; accent-color: #{color_values[:foreground]};",
+            data: { "label-preview" => true, "target" => "strong[data-label-preview]", "updates" => "backgroundColor" }
+          %>
+        <% end %>
 
-          <div class="mt-8">
-            <strong class="label" style="<%= "background-color: #{form.object.bg_color}; color: #{form.object.text_color};" %>" data-label-preview>
-              <%= decidim_escape_translated(form.object.title).presence || t(".preview") %>
-            </strong>
-          </div>
+        <div class="mt-8">
+          <strong class="label" style="<%= "background-color: #{form.object.bg_color}; color: #{form.object.text_color};" %>" data-label-preview>
+            <%= decidim_escape_translated(form.object.title).presence || t(".preview") %>
+          </strong>
         </div>
       </div>
 
