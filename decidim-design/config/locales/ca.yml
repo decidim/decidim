@@ -2,6 +2,9 @@
 ca:
   decidim:
     design:
+      components:
+        activities:
+          activities: Activitats
       foundations:
         accessibility:
           accessibility_labels: Etiquetes d'accessibilitat
@@ -68,12 +71,17 @@ ca:
           tablet: Tauleta tàctil
           title: Disseny (maqueta distribució)
       helpers:
+        activity: Activitat
         background: Vores i fons
         base: Base
+        demo: Demo
+        demo_text: 'Aquesta cel·la rep un model d''elements de Darrera Activitat i mostra els següents elements:'
+        demo_text_2: Es fa servir a la darrera pàgina d'activitat, en un bloc de contingut i dins dels desplegables.
         form_elements: Elements de formulari
         hex_code: Codi hexadecimal
         main_colors: Colors principals
         rgba_code: Codi RGBA
+        source_code: Codi font
         state: Estat
         tailwind: Nom del Tailwind
         typography_texts: Textos i tipografia
