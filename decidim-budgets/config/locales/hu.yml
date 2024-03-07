@@ -46,6 +46,8 @@ hu:
         edit: Szerkesztés
         edit_projects: Projektek kezelése
         import: Javaslatok importálása projektekhez
+        new_budget: Új költségvetés
+        new_project: Új projekt
         preview: Előnézet
         send_voting_reminders: Szavazási emlékeztetők kiküldése
         title: Műveletek
@@ -91,6 +93,7 @@ hu:
           index:
             actions: Műveletek
             cancel: Mégsem
+            change_budget: Költségvetés megváltoztatása
             change_category: Kategória módosítása
             change_scope: Hatáskör megváltoztatása
             change_selected: Kijelölés módosítása
@@ -99,8 +102,11 @@ hu:
             pending_orders: Függőben lévő szavazások
             select_for_implementation: Kijelölés megvalósításra
             selected: Kiválasztva
+            selected_options:
+              'yes': 'Igen'
             title: Projektek
             update: Frissítés
+            update_budget_button: A projekt költségvetésének frissítése
             update_scope_button: Hatáskör frissítése
           new:
             create: Létrehozás
@@ -108,6 +114,9 @@ hu:
           update:
             invalid: Probléma történt a projekt frissítése során.
             success: Projekt frissítése sikeres.
+          update_budget:
+            select_a_project: Kérem, válasszon projektet.
+            success: 'A projektek sikeresen frissültek a(z) %{subject_name} költségvetésre: %{projects}.'
           update_category:
             invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} kategóriája: %{projects}.'
             select_a_category: Kérlek, válassz kategóriát.
@@ -136,6 +145,7 @@ hu:
             no_components: Ebben a részvételi térben nincs más javaslat-összetevő a javaslatok projektekbe való importálásához.
             origin_component_id: A komponens származása
             select_component: Válassz ki egy elemet
+            title: Javaslatok importálása projektekhez
         reminders:
           orders:
             description: A felhasználók egy e-mailt kapnak, amely linkeket tartalmaz a költségvetésekre, ahol függőben lévő sorrendjük van.
@@ -219,6 +229,7 @@ hu:
           projects_count:
             one: 1 projekt
             other: "%{count} projektek"
+        empty: Még nincsenek projektek
         exit_modal:
           cancel: Vissza a szavazáshoz
           exit: Kilépés a szavazásból
@@ -273,6 +284,7 @@ hu:
         select_projects: Projektek kiválasztása
         show:
           budget: Költségvetés
+      prompt: Költségvetés választása
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Nem fejezte be a szavazat leadását itt:'
