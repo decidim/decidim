@@ -3,6 +3,20 @@ ca:
   decidim:
     design:
       components:
+        accordions:
+          content_panel: Contingut del panell
+          demo: Demo
+          demo_description: Al llarg de tota l'aplicació els acordions es fan servir, principalment, per mostrar/amagar contingut a les pestanyes o per replegar/desplegar textos visibles.
+          description_accordions_html: Els acordions són una característica JavaScript disponible gràcies a una biblioteca externa anomenada %{link_code} a11y-accordion-component.
+          github_source_html: Codi font a GitHub %{github_link}
+          panel: Panell
+          title: Acordions
+          trigger: Activador
+          usage: Ús
+          usage_p: Un acordió necessita com a mínim tres elements
+          usage_p_1_html: '1. Un embolcall <code>div</code>, amb l''atribut "data": <code>data-component="accordion"</code>, sobre tots els activadors i panells disponibles.'
+          usage_p_2_html: 2. Un element activador, usuària accionable (com un botó), apuntant a l'element plegable a través de <code>data-controls="panel"</code>, on <i>panel</i> és el <code>id</code> del panell.
+          usage_p_3_html: 3. Un element ocult, on <code>id</code> coincideix amb el valor dels controls de dades al que es refereix l'activador.
         activities:
           activities: Activitats
       foundations:
@@ -105,6 +119,8 @@ ca:
         usage_typography_3: Text sobre fons fosc
         usage_typography_4: Enllaços i botons
         value:
+        variations: Variacions
+        variations_text: Pel que fa al tipus d'activitat, la cel·la podria mostrar diferents continguts, informant dels diferents recursos, pertanyin o no a un espai participatiu, tinguin autoria o no.
       home:
         index:
           by_sharing_principles: Compartint els principis, filosofia i els raonaments darrere de les decisions de disseny volem empoderar a la comunitat perquè contribueixin amb consistència per arribar a la millor experiència per a les participants.
