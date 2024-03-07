@@ -3,6 +3,20 @@ es:
   decidim:
     design:
       components:
+        accordions:
+          content_panel: Contenido del panel
+          demo: Demo
+          demo_description: A lo largo de la aplicación los acordeones se utilizan, principalmente, para mostrar/ocultar contenido en pestañas o plegar/desplegar textos visibles.
+          description_accordions_html: Los accordiones son una característica de JavaScript disponible gracias a una biblioteca externa llamada %{link_code} a11y-accordion-component.
+          github_source_html: Código fuente en GitHub %{github_link}
+          panel: Panel
+          title: Acordeones
+          trigger: Activador
+          usage: Uso
+          usage_p: Un acordeón requiere al menos tres elementos
+          usage_p_1_html: '1. Un envoltorio <code>div</code>, con el atributo "data": <code>data-component="accordion"</code>, sobre todos los activadores y paneles disponibles.'
+          usage_p_2_html: 2. Un elemento activador, usuaria accionable (como un botón), apuntando al elemento plegable a través de <code>data-controls="panel"</code>, donde <i>panel</i> es la <code>id</code> del panel.
+          usage_p_3_html: 3. Un elemento oculto, cuyo <code>id</code> coincide con el valor de los controles de datos al que se refiere el activador.
         activities:
           activities: Actividades
       foundations:
@@ -105,6 +119,8 @@ es:
         usage_typography_3: Texto sobre fondo oscuro
         usage_typography_4: Enlaces y botones
         value: Valor
+        variations: Variaciones
+        variations_text: En cuanto al tipo de actividad, la celda podría mostrar diferentes contenidos, informando de los distintos recursos, pertenezcan o no a un espacio participativo, tengan o no autoría.
       home:
         index:
           by_sharing_principles: Compartiendo los principios, filosofía y razonamientos detrás de las decisiones de diseño queremos empoderar a la comunidad para que contribuya con consistencia para llegar a la mejor experiencia para las participantes.
