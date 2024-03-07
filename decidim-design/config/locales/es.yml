@@ -19,6 +19,8 @@ es:
           usage_p_3_html: 3. Un elemento oculto, cuyo <code>id</code> coincide con el valor de los controles de datos al que se refiere el activador.
         activities:
           activities: Actividades
+        address:
+          title: Dirección
       foundations:
         accessibility:
           accessibility_labels: Etiquetas de accesibilidad
@@ -84,8 +86,18 @@ es:
           section_p_tablet: El sistema de cuadrícula para tabletas se compone de 8 columnas flexibles con un espaciado (canal) entre columnas de 16px y margen izquierdo y derecho de 24px
           tablet: Tableta
           title: Diseño (maqueta distribución)
+        typography:
+          description: Estas directrices resumen cómo utilizar la tipografía en Decidim, y sirven como pauta para que las diseñadoras puedan diseñen libremente con las mejores prácticas tipográficas en mente.
+          headings:
+            characters: Caracteres por línea
+            size:
+          title: Tipografía
+          typefaces_description_1: Decidim utiliza Source Sans Pro como tipo de letra primario. Este tipo de letra está disponible de todas las variantes de caracteres en 310 lenguas
+          typefaces_description_2: Estas tipografías están bajo la licencia Open Font
       helpers:
         activity: Actividad
+        address_description: La celda de dirección recibe un recurso y busca los atributos geolocalizables para representar un marcado específico.
+        address_description_2: Dependiendo del tipo de contenido, la dirección puede ser una dirección web. Para estos casos, la información mostrada es bastante igual, pero está moldeada para adecuarla.
         background: Bordes y fondo
         base: Base
         demo: Demo
