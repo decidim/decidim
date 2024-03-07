@@ -102,6 +102,7 @@ en:
         activity: Activity
         address_description: Address cell receives a resource, and searches the geolocalizable attributes to render an specific markup.
         address_description_2: Depending of the type of the content, the address could be an online url. For such cases, the displayed information is quite the same but shaped to fit.
+        argument: Argument
         background: Background and borders
         base: Base
         callout_class: Callout Class

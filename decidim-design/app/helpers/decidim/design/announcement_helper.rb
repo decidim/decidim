@@ -45,7 +45,7 @@ module Decidim
               },
               {
                 type: :table,
-                options: { headings: [t("decidim.design.components.announcement.title"), t("decidim.design.helpers.callout_class"), "Argument"] },
+                options: { headings: [t("decidim.design.components.announcement.title"), t("decidim.design.helpers.callout_class"), t("decidim.design.helpers.argument")] },
                 items: announcement_table(
                   { text: { title: "This is the title", body: "This is the body" }, callout_class: "success",
                     argument: '{ title: "This is the title", body: "This is the body" }, callout_class: "success"' },
