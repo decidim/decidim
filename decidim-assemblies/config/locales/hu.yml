@@ -291,6 +291,7 @@ hu:
             select_parent_assembly: Szülői összeállítás kiválasztása
             social_handlers: Social
             title: Általános információ
+            visbility: Láthatóság
         assemblies_settings:
           edit:
             update: Frissítés
