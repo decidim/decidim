@@ -14,10 +14,6 @@ module Decidim
 
       private
 
-      def title
-        decidim_html_escape(super)
-      end
-
       def has_image?
         true
       end
