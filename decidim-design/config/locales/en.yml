@@ -3,6 +3,8 @@ en:
   decidim:
     design:
       components:
+        author:
+          title: Author
         accordions:
           content_panel: Content of the panel
           demo: Demo
