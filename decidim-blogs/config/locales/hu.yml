@@ -60,6 +60,8 @@ hu:
             official_blog_post: Hivatalos bejegyzés
             title: Cím
       posts:
+        index:
+          empty: Még nincsenek bejegyzések.
         show:
           back: Vissza a listához
           comments: Hozzászólások
@@ -85,8 +87,8 @@ hu:
           step:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
-            endorsements_blocked: Jóváhagyások letiltva
-            endorsements_enabled: Jóváhagyások engedélyezve
+            endorsements_blocked: Támogatások letiltva
+            endorsements_enabled: Támogatások engedélyezve
     events:
       blogs:
         post_created:
