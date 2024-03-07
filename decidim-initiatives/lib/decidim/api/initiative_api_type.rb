@@ -23,7 +23,7 @@ module Decidim
       field :initiatives, [Decidim::Initiatives::InitiativeType, { null: true }], "The initiatives that have this type", null: false
 
       def banner_image
-        object.attached_uploader(:banner_image).path
+        object.attached_uploader(:banner_image).url
       end
     end
   end

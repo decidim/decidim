@@ -32,9 +32,9 @@ module Decidim
       # If it is called from the landing page content block, use the background image defined there
       # Else, use the banner image defined in the space (for assemblies)
       def image_path
-        return model.images_container.attached_uploader(:background_image).path if model.respond_to?(:images_container)
+        return model.images_container.attached_uploader(:background_image).url if model.respond_to?(:images_container)
 
-        attached_uploader(:banner_image).path
+        attached_uploader(:banner_image).url
       end
 
       def has_hashtag?

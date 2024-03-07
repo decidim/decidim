@@ -35,8 +35,8 @@
               <% end %>
             </td>
             <td>
-              <% if partner.attached_uploader(:logo).path %>
-                <%= image_tag(partner.attached_uploader(:logo).path(variant: :thumb)) %>
+              <% if partner.logo.attached? %>
+                <%= image_tag(partner.attached_uploader(:logo).variant_url(:thumb)) %>
               <% end %>
             </td>
             <td class="table-list__actions">

@@ -52,12 +52,15 @@ module Decidim
       @id_base_name ||= resource.class.name.gsub(/\ADecidim::/, "").underscore.split("/").join("__")
     end
 
-    def resource_image_path
+    def resource_image_url
+      # Backwards compatibility.
+      return resource_image_path if respond_to?(:resource_image_path)
+
       nil
     end
 
     def has_image?
-      resource_image_path.present?
+      resource_image_url.present?
     end
 
     def show_description?

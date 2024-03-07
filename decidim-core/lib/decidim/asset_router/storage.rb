@@ -19,13 +19,13 @@ module Decidim
       #
       # @param options The options for the URL that are the normal route options
       #   Rails route helpers accept
-      def url(**options)
+      def url(**)
         if asset.is_a? ActiveStorage::Attached
-          routes.rails_blob_url(asset.blob, **default_options.merge(options))
+          blob_url(asset.blob, **)
         elsif asset.is_a? ActiveStorage::Blob
-          routes.rails_blob_url(asset, **default_options.merge(options))
+          blob_url(asset, **)
         else
-          representation_url(**options)
+          representation_url(**)
         end
       end
 
@@ -80,12 +80,32 @@ module Decidim
         }.compact
       end
 
+      def blob_url(blob, **options)
+        if options[:only_path] || remote?
+          routes.rails_blob_url(blob, **default_options.merge(options))
+        else
+          blob.url(**options)
+        end
+      end
+
       # Converts the variation URLs last part to the correct file extension in
       # case the variation has a different format than the original image.
       #
       # @return [String] The converted representation URL
       def representation_url(**options)
-        representation_url = routes.rails_representation_url(asset, **default_options.merge(options))
+        representation_url =
+          if options[:only_path] || remote?
+            routes.rails_representation_url(asset, **default_options.merge(options))
+          else
+            asset.url(**options)
+          end
+
+        # In case the representation hasn't been processed yet, it may not have
+        # a representation URL yet and it therefore needs to be served through
+        # the local representation URL for the first time (or until it has been
+        # processed).
+        return representation_url(**options.merge(only_path: true)) if representation_url.blank?
+
         variation = asset.try(:variation)
         return representation_url unless variation
 

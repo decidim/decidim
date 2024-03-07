@@ -119,7 +119,7 @@ module Decidim
         let(:user) { build(:user, name: "Julia G.", nickname: "julia_g") }
         let(:assembly_member) { build(:assembly_member, full_name: "Full name", user:) }
 
-        it { is_expected.to eq user.attached_uploader(:avatar).path }
+        it { is_expected.to eq user.attached_uploader(:avatar).url }
       end
 
       context "when no user is present" do

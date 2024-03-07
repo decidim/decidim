@@ -16,7 +16,7 @@ module Decidim
       field :updated_at, Decidim::Core::DateTimeType, "The time this partner was updated", null: true
 
       def logo
-        object.attached_uploader(:logo).path
+        object.attached_uploader(:logo).url
       end
     end
   end

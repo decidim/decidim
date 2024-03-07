@@ -25,7 +25,7 @@ module Decidim
         "decidim/blogs/post_metadata"
       end
 
-      def resource_image_path
+      def resource_image_url
         return if photo.blank?
 
         photo.url

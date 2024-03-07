@@ -66,12 +66,12 @@ module Decidim
       "#{class_base_name}__#{class_name}"
     end
 
-    def resource_image_path
+    def resource_image_url
       nil
     end
 
     def has_image?
-      resource_image_path.present?
+      resource_image_url.present?
     end
 
     def has_link_to_resource?
