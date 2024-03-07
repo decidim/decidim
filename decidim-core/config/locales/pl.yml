@@ -86,6 +86,8 @@ pl:
     'false': 'Nie'
     'true': 'Tak'
   date:
+    buttons:
+      close: Zamknij
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d.%m.%Y"
@@ -1256,6 +1258,7 @@ pl:
     offline:
       name: W trybie offline
       show:
+        message_2: Spróbuj ponownie później.
         retry: Powtórz
     open_data:
       not_available_yet: Pliki Open Data nie są jeszcze dostępne. Spróbuj ponownie za kilka minut.
@@ -1776,6 +1779,8 @@ pl:
     button: Dodaj emotikonę
   errors:
     messages:
+      blank: nie może być puste
+      cannot_be_blank: nie może być puste
       confirmation_period_expired: musi być potwierdzone w ciągu %{period}, proszę poprosić o nowy
       content_type_allowlist_error: typ pliku jest nieprawidłowy
       expired: wygasł, proszę poprosić o nowy
