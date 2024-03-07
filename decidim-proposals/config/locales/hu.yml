@@ -122,6 +122,8 @@ hu:
             comments_enabled: Megjegyzések engedélyezve
             default_sort_order: Alapértelmezett javaslat rendezés
             default_sort_order_help: Az alapértelmezett azt jelenti, hogy ha a támogatások engedélyezettek, a javaslatok véletlenszerűség szerint rendezve fog megjelenni, és ha a támogatások blokkolva vannak, akkor a leginkább támogatottak szerint lesznek rendezve.
+            default_sort_order_options:
+              most_endorsed: Legtámogatottabb
             geocoding_enabled: Geokódolás engedélyezve
             minimum_votes_per_user: Minimális támogatás felhasználónként
             new_proposal_body_template: Új javaslat szövegtörzse
@@ -165,6 +167,8 @@ hu:
             creation_enabled_readonly: Ez a beállítás le van tiltva, ha aktiválja a Részvételi Szövegek funkciót. A javaslatok részvételi szövegekként való feltöltéséhez kattintson a Részvételi Szövegek gombra és kövesse az utasításokat.
             default_sort_order: Alapértelmezett javaslat rendezés
             default_sort_order_help: Az alapértelmezett azt jelenti, hogy ha a támogatások engedélyezettek, a javaslatok véletlenszerűség szerint rendezve fog megjelenni, és ha a támogatások blokkolva vannak, akkor a leginkább támogatottak szerint lesznek rendezve.
+            default_sort_order_options:
+              most_endorsed: Legtámogatottabb
             endorsements_blocked: Jóváhagyások letiltva
             endorsements_enabled: Jóváhagyások engedélyezve
             proposal_answering_enabled: Javaslat válasz engedélyezve
@@ -282,9 +286,9 @@ hu:
         object: javaslatok
         title: Elfogadott javaslatok
       endorsements:
-        description: A javaslatokhoz kapcsolódó jóváhagyások száma
-        object: jóváhagyások
-        title: Jóváhagyások
+        description: A javaslatokhoz kapcsolódó támogatások száma
+        object: támogatások
+        title: Támogatások
       proposals:
         description: A létrehozott javaslatok száma
         object: javaslatok
@@ -426,7 +430,7 @@ hu:
             body: Szöveg
             comments_count: Hozzászólások száma
             documents: Dokumentumok
-            endorsements_count: Jóváhagyások száma
+            endorsements_count: Támogatások száma
             endorsers: Támogatók
             n_more_endorsers:
               one: és még egy
