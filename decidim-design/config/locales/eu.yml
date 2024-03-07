@@ -19,6 +19,8 @@ eu:
           usage_p_3_html: 3. Elementu ezkutagarria, zeinaren <code>id</code> datu-kontrolek bat egiten duten eragileari dagokion balioarekin.
         activities:
           activities: Jarduerak
+        address:
+          title: Helbidea
       foundations:
         accessibility:
           accessibility_labels: Irisgarritasun-etiketak
@@ -96,6 +98,8 @@ eu:
           typefaces_description_2: Iturri hauek Open Font lizentziapean daude
       helpers:
         activity: Jarduera
+        address_description: Helbide-gelaxkak baliabide bat jasotzen du eta atributu geolokalizagarriak bilatzen ditu markaketa zehatz bat egiteko.
+        address_description_2: Eduki motaren arabera, helbidea online url bat izan daiteke. Kasu horietarako, erakutsitako informazioa berdina da, baina egokitzeko modukoa.
         background: Aurrekariak eta mugak
         base: Oinarria
         demo: Demoa
