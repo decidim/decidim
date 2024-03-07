@@ -6,10 +6,17 @@ eu:
         accordions:
           content_panel: Panelaren edukia
           demo: Demoa
+          demo_description: Aplikazioan zehar akordeoiak erabiltzen dira, batez ere edukiak erlaitzetan erakusteko/ezkutatzeko edo testu ikusgarriak tolesteko/ez tolesteko.
+          description_accordions_html: Akordeoiak javascript funtzioak dira, erabilgarri daudenak %{link_code} izeneko kanpoko liburutegi bati esker.
           github_source_html: 'Iturburu-kodea hemen: GitHub % {github_link}}'
           panel: Panela
+          title: Akordeoiak
           trigger: Eragin
           usage: Erabilera
+          usage_p: Akordeoiak gutxienez hiru elementu behar ditu
+          usage_p_1_html: 1. <code>div</code> bilgarri bat, <code>data-component="accordion"</code>, data-atributuarekin, eskuragarri dauden trigger eta panel guztien gainean.
+          usage_p_2_html: 2. Elementu aktibatzaile bat, erabiltzaile jardugarria (botoi gisa), elementu kolapsagarria adierazten duena <code>data-controls="panel"</code>, where <i>panel</i> is the <code>id</code> panelaren identifikatzailea.
+          usage_p_3_html: 3. Elementu ezkutagarria, zeinaren <code>id</code> datu-kontrolek bat egiten duten eragileari dagokion balioarekin.
         activities:
           activities: Jarduerak
       foundations:
@@ -78,6 +85,15 @@ eu:
           section_p_tablet: Tabletetarako lauki-sistemak 8 zutabe malgu ditu, eta 16px-ko zutabeen eta ezkerreko eta eskuineko ertzen arteko tartea (kanala) 24px-koa da
           tablet: Tableta
           title: Diseinua
+        typography:
+          description: Jarraibide hauek Decidim-en tipografia nola erabiltzen den laburbiltzen dute, eta diseinatzaileentzat zaindari gisa balio dute praktika tipografiko onenak erabiliz modu librean diseinatzeko.
+          headings:
+            characters: Karaktereak lerroka
+            layout: Maketazioa
+            size: Neurria
+          title: Tipografia
+          typefaces_description_1: Decidimek Source Sans Pro erabiltzen du tipografia primario gisa. Letra mota honek 310 hizkuntza onartzen ditu
+          typefaces_description_2: Iturri hauek Open Font lizentziapean daude
       helpers:
         activity: Jarduera
         background: Aurrekariak eta mugak
