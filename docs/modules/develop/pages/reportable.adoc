@@ -20,7 +20,7 @@ A `Reportable` is expected to implement:
 
 === The ReportedContentCell
 
-The reccomended way to render the content of a `Reportable` is with a `decidim/reported_content` cell.
+The recommended way to render the content of a `Reportable` is with a `decidim/reported_content` cell.
 
 [source,ruby]
 ----

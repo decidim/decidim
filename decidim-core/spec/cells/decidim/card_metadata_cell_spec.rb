@@ -18,7 +18,7 @@ describe Decidim::CardMetadataCell, type: :cell do
 
   context "when show space is disabled" do
     it "does not render the space the model belongs to" do
-      expect(cell_html).to have_no_content(translated(model.component.participatory_space.title, locale: :en))
+      expect(cell_html).to have_no_content(decidim_escape_translated(model.component.participatory_space.title))
     end
   end
 

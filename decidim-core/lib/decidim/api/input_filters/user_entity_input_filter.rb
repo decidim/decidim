@@ -38,7 +38,7 @@ module Decidim
                         }
       argument :name,
                type: String,
-               description: "Filters by name of the user entity. Searches (case insensitive) any fragment of the provided string",
+               description: "Filters by name of the user entity. Searches (case-insensitive) any fragment of the provided string",
                required: false,
                prepare: lambda { |value, _ctx|
                  [
@@ -49,7 +49,7 @@ module Decidim
                }
       argument :nickname,
                type: String,
-               description: "Filters by nickname of the user entity. Searches (case insensitive) any fragment of the provided string",
+               description: "Filters by nickname of the user entity. Searches (case-insensitive) any fragment of the provided string",
                required: false,
                prepare: lambda { |value, _ctx|
                           value = value[1..-1] if value.starts_with? "@"
@@ -61,7 +61,7 @@ module Decidim
                         }
       argument :wildcard,
                type: String,
-               description: "Filters by nickname or name of the user entity. Searches (case insensitive) any fragment of the provided string",
+               description: "Filters by nickname or name of the user entity. Searches (case-insensitive) any fragment of the provided string",
                required: false,
                prepare: lambda { |value, _ctx|
                           value = value[1..-1] if value.starts_with? "@"

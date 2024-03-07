@@ -33,7 +33,7 @@ module Decidim
           local_area: assembly.local_area,
           target: assembly.target,
           decidim_scope_id: assembly.decidim_scope_id,
-          paticipatory_scope: assembly.participatory_scope,
+          paticipatory_scope: assembly.participatory_scope, # intentionally misspelled
           participatory_structure: assembly.participatory_structure,
           show_statistics: assembly.show_statistics,
           scopes_enabled: assembly.scopes_enabled,

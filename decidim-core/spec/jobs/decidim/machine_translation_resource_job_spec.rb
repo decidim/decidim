@@ -96,7 +96,7 @@ module Decidim
         clear_enqueued_jobs
       end
 
-      it "enqueus the machine translation fields job" do
+      it "enqueues the machine translation fields job" do
         Decidim::MachineTranslationResourceJob.perform_now(
           process,
           process.translatable_previous_changes,

@@ -281,7 +281,7 @@ module Decidim
         Ransack.configure do |config|
           # Avoid turning parameter values such as user_id[]=1&user_id[]=2 into
           # { user_id: [true, "2"] }. This option allows us to handle the type
-          # convertions manually instead for each case.
+          # conversions manually instead for each case.
           # See: https://github.com/activerecord-hackery/ransack/issues/593
           # See: https://github.com/activerecord-hackery/ransack/pull/742
           config.sanitize_custom_scope_booleans = false
@@ -382,9 +382,13 @@ module Decidim
       end
 
       initializer "decidim_core.notifications" do
-        config.to_prepare do
-          Decidim::EventsManager.subscribe(/^decidim\.events\./) do |event_name, data|
-            EventPublisherJob.perform_later(event_name, data)
+        if Rails.autoloaders.zeitwerk_enabled?
+          config.after_initialize do
+            Decidim::EventsManager.subscribe_events!
+          end
+        else
+          config.to_prepare do
+            Decidim::EventsManager.subscribe_events!
           end
         end
       end

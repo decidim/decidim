@@ -56,7 +56,7 @@ describe "Meeting registrations" do
         visit questionnaire_public_path
 
         expect(page).to have_i18n_content(questionnaire.title)
-        expect(page).to have_i18n_content(questionnaire.description)
+        expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
 
         expect(page).to have_no_i18n_content(question.body)
 
@@ -91,7 +91,7 @@ describe "Meeting registrations" do
           visit questionnaire_public_path
 
           expect(page).to have_i18n_content(questionnaire.title)
-          expect(page).to have_i18n_content(questionnaire.description)
+          expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
 
           expect(page).to have_no_i18n_content(question.body)
 
@@ -105,7 +105,7 @@ describe "Meeting registrations" do
         it "they have the option to sign in" do
           visit_meeting
 
-          click_button "Register"
+          click_on "Register"
 
           expect(page).to have_css("#loginModal", visible: :visible)
         end
@@ -114,7 +114,7 @@ describe "Meeting registrations" do
           it "they have the option to sign in with different languages" do
             visit_meeting
 
-            click_button "Register"
+            click_on "Register"
 
             within "#loginModal" do
               expect(page).to have_content("Forgot your password?")
@@ -122,10 +122,10 @@ describe "Meeting registrations" do
             end
 
             within_language_menu do
-              click_link "Català"
+              click_on "Català"
             end
 
-            click_button "Unir-se a la trobada"
+            click_on "Unir-se a la trobada"
 
             within "#loginModal" do
               expect(page).to have_content("Has oblidat la teva contrasenya?")
@@ -140,7 +140,7 @@ describe "Meeting registrations" do
             visit questionnaire_public_path
 
             expect(page).to have_i18n_content(questionnaire.title)
-            expect(page).to have_i18n_content(questionnaire.description)
+            expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
 
             expect(page).to have_no_css(".form.answer-questionnaire")
 
@@ -160,13 +160,13 @@ describe "Meeting registrations" do
           it "they can join the meeting and automatically follow it" do
             visit_meeting
 
-            click_button "Register"
+            click_on "Register"
 
             within "#meeting-registration-confirm-#{meeting.id}" do
               expect(page).to have_content "A legal text"
               expect(page).to have_content "Show my attendance publicly"
               expect(page).to have_field("public_participation", checked: false)
-              click_button "Confirm"
+              click_on "Confirm"
             end
 
             within_flash_messages do
@@ -183,13 +183,13 @@ describe "Meeting registrations" do
           it "they can join the meeting and configure their participation to be shown publicly" do
             visit_meeting
 
-            click_button "Register"
+            click_on "Register"
 
             within "#meeting-registration-confirm-#{meeting.id}" do
               expect(page).to have_content "Show my attendance publicly"
               expect(page).to have_field("public_participation", checked: false)
               page.find("input#public_participation").click
-              click_button "Confirm"
+              click_on "Confirm"
             end
 
             expect(page).to have_content("successfully")
@@ -207,13 +207,13 @@ describe "Meeting registrations" do
 
             visit_meeting
 
-            click_button "Register"
+            click_on "Register"
 
             within "#meeting-registration-confirm-#{meeting.id}" do
               expect(page).to have_content "A legal text"
               expect(page).to have_content "Show my attendance publicly"
               expect(page).to have_field("public_participation", checked: false)
-              click_button "Confirm"
+              click_on "Confirm"
             end
 
             within_flash_messages do
@@ -232,7 +232,7 @@ describe "Meeting registrations" do
           it "they can join the meeting representing a group and appear in the attending organizations list" do
             visit_meeting
 
-            click_button "Register"
+            click_on "Register"
 
             within "#meeting-registration-confirm-#{meeting.id}" do
               expect(page).to have_content "I represent a group"
@@ -242,7 +242,7 @@ describe "Meeting registrations" do
               page.find("input#user_group").click
               select user_group.name, from: :join_meeting_user_group_id
               page.find("input#public_participation").click
-              click_button "Confirm"
+              click_on "Confirm"
             end
 
             within_flash_messages do
@@ -305,7 +305,7 @@ describe "Meeting registrations" do
 
           expect(page).to have_field("public_participation", checked: false)
           find_by_id("questionnaire_tos_agreement").set(true)
-          accept_confirm { click_button "Submit" }
+          accept_confirm { click_on "Submit" }
 
           expect(page).to have_content("Needs to be reattached")
         end
@@ -343,7 +343,7 @@ describe "Meeting registrations" do
       it "shows the confirmation modal when leaving the meeting" do
         visit_meeting
 
-        click_button "Cancel your registration"
+        click_on "Cancel your registration"
 
         within ".meeting__cancelation-modal" do
           expect(page).to have_content("Are you sure you want to cancel your registration for this meeting?")
@@ -353,9 +353,9 @@ describe "Meeting registrations" do
       it "they can leave the meeting" do
         visit_meeting
 
-        click_button "Cancel your registration"
+        click_on "Cancel your registration"
         within ".meeting__cancelation-modal" do
-          click_button "Cancel your registration"
+          click_on "Cancel your registration"
         end
 
         within_flash_messages do
@@ -453,7 +453,7 @@ describe "Meeting registrations" do
           visit questionnaire_public_path
 
           expect(page).to have_i18n_content(questionnaire.title)
-          expect(page).to have_i18n_content(questionnaire.description)
+          expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
 
           expect(page).to have_no_i18n_content(question.body)
 

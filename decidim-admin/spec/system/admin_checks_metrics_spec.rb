@@ -26,7 +26,7 @@ describe "Admin checks metrics" do
   end
 
   it "allows checking more metrics" do
-    click_link "See more metrics"
+    click_on "See more metrics"
 
     expect(page).to have_content("Metrics")
     expect(page).to have_css(".areachart", count: metric_manifests.count)

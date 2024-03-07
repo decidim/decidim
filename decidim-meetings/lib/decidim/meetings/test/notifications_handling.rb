@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples_for "emits an upcoming notificaton" do
+shared_examples_for "emits an upcoming notification" do
   context "when it is a future meeting" do
     let(:future_start_date) { 3.days.from_now }
 

@@ -43,7 +43,7 @@ describe "Admin manages participatory texts" do
       es: "La descripción de algún texto participativo"
     )
     dynamically_attach_file(:import_participatory_text_document, Decidim::Dev.asset("participatory_text.md"))
-    click_button "Upload document"
+    click_on "Upload document"
     expect(page).to have_content "The following sections have been converted to proposals. Now you can review and adjust them before publishing."
     expect(page).to have_content "Preview participatory text"
     validate_proposals
@@ -58,7 +58,7 @@ describe "Admin manages participatory texts" do
   def move_some_sections; end
 
   def publish_participatory_text
-    click_button(name: "commit")
+    click_on("Publish document")
     expect(page).to have_content "All proposals have been published"
   end
 
@@ -100,14 +100,14 @@ describe "Admin manages participatory texts" do
   end
 
   def save_participatory_text_drafts
-    click_button "Save draft"
+    click_on "Save draft"
     expect(page).to have_content "Participatory text successfully updated."
     expect(page).to have_content "Preview participatory text"
   end
 
   def discard_participatory_text_drafts
     accept_confirm "Are you sure to discard the whole participatory text draft?" do
-      click_link "Discard all"
+      click_on "Discard all"
     end
     expect(page).to have_content "All participatory text drafts have been discarded."
     expect(page).to have_content "Preview participatory text"

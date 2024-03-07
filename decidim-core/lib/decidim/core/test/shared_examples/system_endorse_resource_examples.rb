@@ -5,23 +5,23 @@ require "spec_helper"
 shared_context "with resources to be endorsed or not" do
   include_context "with a component"
 
-  # Should be overriden and create one main resource
+  # Should be overridden and create one main resource
   let!(:resource) { nil }
   # the name of the resource to be clicked from the component view
   let(:resource_name) { nil }
-  # Should be overriden and create 3 extra resources in the current component
+  # Should be overridden and create 3 extra resources in the current component
   let!(:resources) { nil }
 end
 
 shared_examples "Endorse resource system specs" do
   def expect_page_not_to_include_endorsements
-    expect(page).not_to have_button("Like")
-    expect(page).not_to have_css("#resource-#{resource.id}-endorsements-count")
+    expect(page).to have_no_button("Like")
+    expect(page).to have_no_css("#resource-#{resource.id}-endorsements-count")
   end
 
   def visit_resource
     visit_component
-    click_link resource_name
+    click_on resource_name
   end
 
   context "when endorsements are not enabled" do
@@ -62,7 +62,7 @@ shared_examples "Endorse resource system specs" do
       it "is given the option to sign in" do
         visit_resource
         within "[data-buttons]", match: :first do
-          click_button "Like"
+          click_on "Like"
         end
 
         expect(page).to have_css("#loginModal", visible: :visible)
@@ -78,7 +78,7 @@ shared_examples "Endorse resource system specs" do
         it "is able to endorse the resource" do
           visit_resource
           within "[data-buttons]" do
-            click_button "Like"
+            click_on "Like"
             expect(page).to have_button("Dislike")
           end
         end
@@ -91,14 +91,14 @@ shared_examples "Endorse resource system specs" do
           visit_resource
           within "[data-buttons]" do
             expect(page).to have_button("Dislike")
-            expect(page).not_to have_button("Like")
+            expect(page).to have_no_button("Like")
           end
         end
 
         it "is able to undo the endorsement" do
           visit_resource
           within "[data-buttons]" do
-            click_button "Dislike"
+            click_on "Dislike"
             expect(page).to have_button("Like")
           end
         end
@@ -125,7 +125,7 @@ shared_examples "Endorse resource system specs" do
           it "is NOT able to endorse" do
             visit_resource
             within "[data-buttons]", match: :first do
-              click_button "Like"
+              click_on "Like"
             end
             expect(page).to have_css("#authorizationModal", visible: :visible)
           end
@@ -143,7 +143,7 @@ shared_examples "Endorse resource system specs" do
           it "IS able to endorse", :slow do
             visit_resource
             within "[data-buttons]", match: :first do
-              click_button "Like"
+              click_on "Like"
             end
             expect(page).to have_button("Dislike")
           end

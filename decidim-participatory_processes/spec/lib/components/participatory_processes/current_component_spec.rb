@@ -65,7 +65,7 @@ module Decidim
         end
       end
 
-      context "when the params contain a non existing participatory process id" do
+      context "when the params contain a nonexistent participatory process id" do
         before do
           params["participatory_process_slug"] = "99999999"
         end

@@ -27,7 +27,7 @@ describe "Conference partners" do
 
       within "aside .conference__nav-container" do
         expect(page).to have_content("Partners")
-        click_link "Partners"
+        click_on "Partners"
       end
     end
 

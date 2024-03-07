@@ -127,7 +127,7 @@ describe "Explore Budgets", :slow do
 
           expect(item).to have_content("delete your vote")
           within item do
-            accept_confirm { click_link "delete your vote" }
+            accept_confirm { click_on "delete your vote" }
             expect(Decidim::Budgets::Order.where(budget:)).to be_blank
           end
         end

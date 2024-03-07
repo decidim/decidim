@@ -23,7 +23,7 @@ end
 shared_examples "export as CSV" do
   it "exports a CSV" do
     find("span.exports", text: export_type).click
-    perform_enqueued_jobs { click_link "Projects as CSV" }
+    perform_enqueued_jobs { click_on "Projects as CSV" }
 
     expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
     expect(last_email.subject).to include("projects", "csv")
@@ -35,7 +35,7 @@ end
 shared_examples "export as JSON" do
   it "exports a JSON" do
     find("span.exports", text: export_type).click
-    perform_enqueued_jobs { click_link "Projects as JSON" }
+    perform_enqueued_jobs { click_on "Projects as JSON" }
 
     expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
     expect(last_email.subject).to include("projects", "json")

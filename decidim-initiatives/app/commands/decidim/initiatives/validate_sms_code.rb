@@ -15,7 +15,7 @@ module Decidim
 
       # Executes the command. Broadcasts these events:
       #
-      # - :ok when everithing is valid.
+      # - :ok when everything is valid.
       # - :invalid if verification_metadata is not present or the form code is
       #            invalid.
       #

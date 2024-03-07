@@ -7,7 +7,7 @@ module Decidim
     #
     # "user" - The event is being sent to the followers of the debate
     #          author
-    # "participatory_space" - The event is being sento to the followers
+    # "participatory_space" - The event is being sent to the followers
     #                         of the event's participatory space.
     class CreateDebateEvent < Decidim::Events::SimpleEvent
       include Decidim::Events::AuthorEvent

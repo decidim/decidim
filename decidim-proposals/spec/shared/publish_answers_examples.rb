@@ -12,14 +12,14 @@ shared_examples "publish answers" do
       page.find_by_id("proposals_bulk", class: "js-check-all").set(true)
       page.first("[data-published-state=false] .js-proposal-list-check").set(false)
 
-      click_button "Actions"
-      click_button "Publish answers"
+      click_on "Actions"
+      click_on "Publish answers"
 
       within "#js-publish-answers-actions" do
         expect(page).to have_content("Answers for 2 proposal's will be published?")
       end
 
-      click_button(id: "js-submit-publish-answers")
+      click_on(id: "js-submit-publish-answers")
       20.times do # wait for the ajax call to finish
         sleep(1)
         expect(page).to have_content(I18n.t("proposals.publish_answers.success", scope: "decidim"))
@@ -39,7 +39,7 @@ shared_examples "publish answers" do
       page.find_by_id("proposals_bulk", class: "js-check-all").set(true)
       page.all("[data-published-state=false] .js-proposal-list-check").each { |c| c.set(false) }
 
-      click_button "Actions"
+      click_on "Actions"
       expect(page).to have_no_content("Publish answers")
     end
   end

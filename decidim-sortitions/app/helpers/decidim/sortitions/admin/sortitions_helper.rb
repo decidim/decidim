@@ -7,7 +7,7 @@ module Decidim
         include Decidim::TranslationsHelper
         include Decidim::PaginateHelper
 
-        # Converst a list of components into a list of selectable options
+        # Converts a list of components into a list of selectable options
         def components_options(components)
           components.map do |f|
             [translated_attribute(f.name), f.id]

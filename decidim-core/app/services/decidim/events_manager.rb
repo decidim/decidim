@@ -46,5 +46,11 @@ module Decidim
     def self.subscribe(event, &)
       ActiveSupport::Notifications.subscribe(event, &)
     end
+
+    def self.subscribe_events!
+      subscribe(/^decidim\.events\./) do |event_name, data|
+        EventPublisherJob.perform_later(event_name, data)
+      end
+    end
   end
 end

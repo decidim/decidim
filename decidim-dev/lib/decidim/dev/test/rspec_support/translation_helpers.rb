@@ -42,7 +42,7 @@ module TranslationHelpers
   # field - the name of the field that should be filled, without the
   #   locale-related part (e.g. `:participatory_process_title`)
   # tab_selector - a String representing the ID of the HTML element that holds
-  #   the tabs for this input. It ususally is `"#<attribute_name>-tabs" (e.g.
+  #   the tabs for this input. It usually is `"#<attribute_name>-tabs" (e.g.
   #   "#title-tabs")
   # localized_values - a Hash where the keys are the locales IDs and the values
   #   are the values that will be entered in the form field.
@@ -57,7 +57,7 @@ module TranslationHelpers
   # field - the name of the field that should be filled, without the
   #   locale-related part (e.g. `:participatory_process_title`)
   # tab_selector - a String representing the ID of the HTML element that holds
-  #   the tabs for this input. It ususally is `"#<attribute_name>-tabs" (e.g.
+  #   the tabs for this input. It usually is `"#<attribute_name>-tabs" (e.g.
   #   "#title-tabs")
   # localized_values - a Hash where the keys are the locales IDs and the values
   #   are the values that will be entered in the form field.
@@ -72,7 +72,7 @@ module TranslationHelpers
   # field - the name of the field that should be cleared, without the
   #   locale-related part (e.g. `:participatory_process_title`)
   # tab_selector - a String representing the ID of the HTML element that holds
-  #   the tabs for this input. It ususally is `"#<attribute_name>-tabs" (e.g.
+  #   the tabs for this input. It usually is `"#<attribute_name>-tabs" (e.g.
   #   "#title-tabs")
   # locales - an Array with the locales IDs.
   def clear_i18n_editor(field, tab_selector, locales)
@@ -113,7 +113,7 @@ module TranslationHelpers
     scroll_to(find(tab_selector))
     localized_values.each do |locale, value|
       within tab_selector do
-        click_link I18n.with_locale(locale) { t("name", scope: "locale") }
+        click_on I18n.with_locale(locale) { t("name", scope: "locale") }
       end
       yield "#{field}_#{locale}", value
     end
@@ -125,7 +125,7 @@ module TranslationHelpers
     scroll_to(find(tab_selector))
     locales.each do |locale|
       within tab_selector do
-        click_link I18n.with_locale(locale) { t("name", scope: "locale") }
+        click_on I18n.with_locale(locale) { t("name", scope: "locale") }
       end
       yield "#{field}_#{locale}"
     end

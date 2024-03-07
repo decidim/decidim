@@ -8,9 +8,9 @@ shared_examples_for "has questionnaire" do
       visit questionnaire_public_path
 
       expect(page).to have_i18n_content(questionnaire.title)
-      expect(page).to have_i18n_content(questionnaire.description)
+      expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
 
-      expect(page).not_to have_css(".form.answer-questionnaire")
+      expect(page).to have_no_css(".form.answer-questionnaire")
 
       within "[data-question-readonly]" do
         expect(page).to have_i18n_content(question.body)
@@ -39,14 +39,14 @@ shared_examples_for "has questionnaire" do
       visit questionnaire_public_path
 
       expect(page).to have_i18n_content(questionnaire.title)
-      expect(page).to have_i18n_content(questionnaire.description)
+      expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
 
       fill_in question.body["en"], with: "My first answer"
 
       check "questionnaire_tos_agreement"
 
       accept_confirm do
-        click_button "Submit"
+        click_on "Submit"
       end
 
       expect(page).to have_admin_callout(callout_success)
@@ -69,18 +69,18 @@ shared_examples_for "has questionnaire" do
         expect(page).to have_content("Step 1 of 2")
 
         within ".answer-questionnaire__submit", match: :first do
-          expect(page).not_to have_content("Back")
+          expect(page).to have_no_content("Back")
         end
 
         answer_first_questionnaire
 
-        expect(page).not_to have_selector(".success.flash")
+        expect(page).to have_no_css(".success.flash")
       end
 
       it "allows revisiting previously-answered questionnaires with my answers" do
         answer_first_questionnaire
 
-        click_button "Back"
+        click_on "Back"
 
         expect(page).to have_content("Step 1 of 2")
         expect(page).to have_field("questionnaire_responses_0", with: "My first answer")
@@ -90,7 +90,7 @@ shared_examples_for "has questionnaire" do
         answer_first_questionnaire
 
         check "questionnaire_tos_agreement"
-        accept_confirm { click_button "Submit" }
+        accept_confirm { click_on "Submit" }
 
         expect(page).to have_admin_callout(callout_success)
 
@@ -101,10 +101,10 @@ shared_examples_for "has questionnaire" do
 
       def answer_first_questionnaire
         within "#step-0" do
-          expect(page).not_to have_selector("#questionnaire_tos_agreement")
+          expect(page).to have_no_css("#questionnaire_tos_agreement")
 
           fill_in question.body["en"], with: "My first answer"
-          click_button "Continue"
+          click_on "Continue"
         end
         expect(page).to have_content("Step 2 of 2")
       end
@@ -148,7 +148,7 @@ shared_examples_for "has questionnaire" do
       it "does not leak defaults from other answers" do
         visit questionnaire_public_path
 
-        expect(page).not_to have_field(type: "radio", checked: true)
+        expect(page).to have_no_field(type: "radio", checked: true)
       end
     end
 
@@ -179,7 +179,7 @@ shared_examples_for "has questionnaire" do
 
       before do
         visit questionnaire_public_path
-        accept_confirm { click_button "Submit" }
+        accept_confirm { click_on "Submit" }
       end
 
       it_behaves_like "a correctly ordered questionnaire"
@@ -220,7 +220,7 @@ shared_examples_for "has questionnaire" do
         it "does not show message indicating number of characters left" do
           visit questionnaire_public_path
 
-          expect(page).not_to have_content("characters left")
+          expect(page).to have_no_content("characters left")
         end
       end
     end
@@ -229,7 +229,7 @@ shared_examples_for "has questionnaire" do
       include_context "when a non multiple choice question is mandatory"
 
       before do
-        click_button "Submit"
+        click_on "Submit"
       end
 
       it "submits the form and shows errors" do
@@ -242,14 +242,14 @@ shared_examples_for "has questionnaire" do
       include_context "when a non multiple choice question is mandatory"
 
       before do
-        accept_confirm { click_button "Submit" }
+        accept_confirm { click_on "Submit" }
       end
 
       it "shows errors without submitting the form" do
-        expect(page).not_to have_selector ".alert.flash"
+        expect(page).to have_no_css ".alert.flash"
         different_error = I18n.t("decidim.forms.questionnaires.answer.max_choices_alert")
         expect(different_error).to eq("There are too many choices selected")
-        expect(page).not_to have_content(different_error)
+        expect(page).to have_no_content(different_error)
 
         expect(page).to have_content("cannot be blank")
       end
@@ -275,7 +275,7 @@ shared_examples_for "has questionnaire" do
 
         check "questionnaire_tos_agreement"
 
-        accept_confirm { click_button "Submit" }
+        accept_confirm { click_on "Submit" }
       end
 
       it "submits the form and shows errors" do
@@ -290,7 +290,7 @@ shared_examples_for "has questionnaire" do
       it "properly interprets HTML descriptions" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector("b", text: "This question is important")
+        expect(page).to have_css("b", text: "This question is important")
       end
     end
 
@@ -335,7 +335,7 @@ shared_examples_for "has questionnaire" do
         let(:question_type) { "single_option" }
 
         it "renders them as radio buttons with attached text fields disabled by default" do
-          expect(page).to have_selector(".js-radio-button-collection input[type=radio]", count: 3)
+          expect(page).to have_css(".js-radio-button-collection input[type=radio]", count: 3)
 
           expect(page).to have_field("questionnaire_responses_0_choices_2_custom_body", disabled: true, count: 1)
 
@@ -349,7 +349,7 @@ shared_examples_for "has questionnaire" do
           fill_in "questionnaire_responses_0_choices_2_custom_body", with: "Cacatua"
 
           check "questionnaire_tos_agreement"
-          accept_confirm { click_button "Submit" }
+          accept_confirm { click_on "Submit" }
 
           expect(page).to have_admin_callout(callout_success)
           expect(Decidim::Forms::Answer.first.choices.first.custom_body).to eq("Cacatua")
@@ -364,7 +364,7 @@ shared_examples_for "has questionnaire" do
           fill_in "questionnaire_responses_0_choices_2_custom_body", with: "Cacatua"
 
           check "questionnaire_tos_agreement"
-          accept_confirm { click_button "Submit" }
+          accept_confirm { click_on "Submit" }
 
           expect(page).to have_admin_callout("There was a problem answering")
           expect(page).to have_field("questionnaire_responses_0_choices_2_custom_body", with: "Cacatua")
@@ -391,7 +391,7 @@ shared_examples_for "has questionnaire" do
           fill_in "questionnaire_responses_0_choices_2_custom_body", with: "Cacatua"
 
           check "questionnaire_tos_agreement"
-          accept_confirm { click_button "Submit" }
+          accept_confirm { click_on "Submit" }
 
           expect(page).to have_admin_callout(callout_success)
           expect(Decidim::Forms::Answer.first.choices.first.custom_body).to eq("Cacatua")
@@ -406,7 +406,7 @@ shared_examples_for "has questionnaire" do
           fill_in "questionnaire_responses_0_choices_2_custom_body", with: "Cacatua"
 
           check "questionnaire_tos_agreement"
-          accept_confirm { click_button "Submit" }
+          accept_confirm { click_on "Submit" }
 
           expect(page).to have_admin_callout("There was a problem answering")
           expect(page).to have_field("questionnaire_responses_0_choices_2_custom_body", with: "Cacatua")
@@ -423,7 +423,7 @@ shared_examples_for "has questionnaire" do
       it "renders the answer as a textarea" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector("textarea#questionnaire_responses_0")
+        expect(page).to have_css("textarea#questionnaire_responses_0")
       end
 
       it_behaves_like "question has a character limit"
@@ -449,13 +449,13 @@ shared_examples_for "has questionnaire" do
       it "renders answers as a collection of radio buttons" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector(".js-radio-button-collection input[type=radio]", count: 2)
+        expect(page).to have_css(".js-radio-button-collection input[type=radio]", count: 2)
 
         choose answer_options[0]["body"][:en]
 
         check "questionnaire_tos_agreement"
 
-        accept_confirm { click_button "Submit" }
+        accept_confirm { click_on "Submit" }
 
         expect(page).to have_admin_callout(callout_success)
 
@@ -473,16 +473,16 @@ shared_examples_for "has questionnaire" do
       it "renders answers as a collection of radio buttons" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector(".js-check-box-collection input[type=checkbox]", count: 3)
+        expect(page).to have_css(".js-check-box-collection input[type=checkbox]", count: 3)
 
-        expect(page).not_to have_content("Max choices:")
+        expect(page).to have_no_content("Max choices:")
 
         check answer_options[0]["body"][:en]
         check answer_options[1]["body"][:en]
 
         check "questionnaire_tos_agreement"
 
-        accept_confirm { click_button "Submit" }
+        accept_confirm { click_on "Submit" }
 
         expect(page).to have_admin_callout(callout_success)
 
@@ -507,14 +507,14 @@ shared_examples_for "has questionnaire" do
 
         check "questionnaire_tos_agreement"
 
-        accept_confirm { click_button "Submit" }
+        accept_confirm { click_on "Submit" }
 
         expect(page).to have_admin_callout("There was a problem answering")
         expect(page).to have_content("are too many")
 
         uncheck answer_options[2]["body"][:en]
 
-        accept_confirm { click_button "Submit" }
+        accept_confirm { click_on "Submit" }
 
         expect(page).to have_admin_callout(callout_success)
       end
@@ -539,7 +539,7 @@ shared_examples_for "has questionnaire" do
       it "renders the question answers as a collection of divs sortable on drag and drop" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector("div.answer-questionnaire__sorting.js-collection-input", count: 5)
+        expect(page).to have_css("div.answer-questionnaire__sorting.js-collection-input", count: 5)
 
         %w(We all like dark chocolate).each do |term|
           expect(page).to have_content(term)
@@ -555,7 +555,7 @@ shared_examples_for "has questionnaire" do
 
         check "questionnaire_tos_agreement"
 
-        accept_confirm { click_button "Submit" }
+        accept_confirm { click_on "Submit" }
 
         expect(page).to have_admin_callout(callout_success)
         expect(Decidim::Forms::Answer.first.choices.pluck(:position, :body)).to eq(
@@ -583,7 +583,7 @@ shared_examples_for "has questionnaire" do
       it "renders the question answers as a collection of radio buttons" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector(".js-radio-button-collection input[type=radio]", count: 4)
+        expect(page).to have_css(".js-radio-button-collection input[type=radio]", count: 4)
 
         expect(page).to have_content(matrix_rows.map { |row| row["body"]["en"] }.join("\n"))
         expect(page).to have_content(answer_options.map { |option| option["body"]["en"] }.join(" "))
@@ -595,7 +595,7 @@ shared_examples_for "has questionnaire" do
 
         check "questionnaire_tos_agreement"
 
-        accept_confirm { click_button "Submit" }
+        accept_confirm { click_on "Submit" }
 
         expect(page).to have_admin_callout(callout_success)
 
@@ -616,7 +616,7 @@ shared_examples_for "has questionnaire" do
         radio_buttons = page.all(".js-radio-button-collection input[type=radio]")
         choose radio_buttons[1][:id]
 
-        accept_confirm { click_button "Submit" }
+        accept_confirm { click_on "Submit" }
 
         expect(page).to have_admin_callout("There was a problem answering")
 
@@ -634,7 +634,7 @@ shared_examples_for "has questionnaire" do
           choose radio_buttons[0][:id]
 
           check "questionnaire_tos_agreement"
-          accept_confirm { click_button "Submit" }
+          accept_confirm { click_on "Submit" }
 
           expect(page).to have_admin_callout("There was a problem answering")
           expect(page).to have_content("Choices are not complete")
@@ -663,7 +663,7 @@ shared_examples_for "has questionnaire" do
       it "renders the question answers as a collection of check boxes" do
         visit questionnaire_public_path
 
-        expect(page).to have_selector(".js-check-box-collection input[type=checkbox]", count: 6)
+        expect(page).to have_css(".js-check-box-collection input[type=checkbox]", count: 6)
 
         expect(page).to have_content(matrix_rows.map { |row| row["body"]["en"] }.join("\n"))
         expect(page).to have_content(answer_options.map { |option| option["body"]["en"] }.join(" "))
@@ -676,7 +676,7 @@ shared_examples_for "has questionnaire" do
 
         check "questionnaire_tos_agreement"
 
-        accept_confirm { click_button "Submit" }
+        accept_confirm { click_on "Submit" }
 
         expect(page).to have_admin_callout(callout_success)
 
@@ -692,7 +692,7 @@ shared_examples_for "has questionnaire" do
         expect(third_choice).to eq([question.answer_options.first.id, question.matrix_rows.last.id])
       end
 
-      context "when the question hax max_choices defined" do
+      context "when the question has max_choices defined" do
         let!(:max_choices) { 2 }
 
         it "respects the max number of choices" do
@@ -721,7 +721,7 @@ shared_examples_for "has questionnaire" do
 
           check "questionnaire_tos_agreement"
 
-          accept_confirm { click_button "Submit" }
+          accept_confirm { click_on "Submit" }
 
           expect(page).to have_admin_callout("There was a problem answering")
           expect(page).to have_content("are too many")
@@ -730,7 +730,7 @@ shared_examples_for "has questionnaire" do
 
           uncheck checkboxes[5][:id]
 
-          accept_confirm { click_button "Submit" }
+          accept_confirm { click_on "Submit" }
 
           expect(page).to have_admin_callout(callout_success)
         end
@@ -746,7 +746,7 @@ shared_examples_for "has questionnaire" do
           check checkboxes[0][:id]
 
           check "questionnaire_tos_agreement"
-          accept_confirm { click_button "Submit" }
+          accept_confirm { click_on "Submit" }
 
           expect(page).to have_admin_callout("There was a problem answering")
           expect(page).to have_content("Choices are not complete")
@@ -766,7 +766,7 @@ shared_examples_for "has questionnaire" do
           check checkboxes[5][:id]
 
           check "questionnaire_tos_agreement"
-          accept_confirm { click_button "Submit" }
+          accept_confirm { click_on "Submit" }
 
           expect(page).to have_admin_callout("There was a problem answering")
 
@@ -1306,7 +1306,7 @@ shared_examples_for "has questionnaire" do
 
             check "questionnaire_tos_agreement"
 
-            accept_confirm { click_button "Submit" }
+            accept_confirm { click_on "Submit" }
 
             expect(page).to have_admin_callout(callout_success)
           end

@@ -17,7 +17,7 @@ describe "User group profile" do
     end
 
     it "adds a link to conversations" do
-      click_link "Conversations", class: "profile__tab-item"
+      click_on "Conversations", class: "profile__tab-item"
 
       expect(page).to have_current_path(decidim.profile_conversations_path(nickname: user_group.nickname))
     end
@@ -50,7 +50,7 @@ describe "User group profile" do
       end
 
       it "lists the followers" do
-        click_link "Followers"
+        click_on "Followers"
 
         expect(page).to have_content(other_user.name)
       end
@@ -62,7 +62,7 @@ describe "User group profile" do
 
       it "lists the members" do
         expect(page).to have_css("div.profile__user-grid", count: 1)
-        click_link "Members"
+        click_on "Members"
 
         expect(page).to have_content(user.name)
         expect(page).to have_no_content(pending_user.name)

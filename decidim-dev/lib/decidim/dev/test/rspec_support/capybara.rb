@@ -10,6 +10,7 @@ module Decidim
 
       app_host = (host ? "#{protocol}://#{host}" : nil)
       Capybara.app_host = app_host
+      Rails.application.config.action_controller.asset_host = host
     end
 
     def switch_to_default_host
@@ -32,6 +33,7 @@ end
   port = rand(5000..6999)
   begin
     Socket.tcp("127.0.0.1", port, connect_timeout: 5).close
+    warn "Port #{port} is already in use, trying another one."
   rescue Errno::ECONNREFUSED
     # When connection is refused, the port is available for use.
     Capybara.server_port = port
@@ -43,6 +45,8 @@ Capybara.register_driver :headless_chrome do |app|
   options = Selenium::WebDriver::Chrome::Options.new
   options.args << "--explicitly-allowed-ports=#{Capybara.server_port}"
   options.args << "--headless=new"
+  # Do not limit browser resources
+  options.args << "--disable-dev-shm-usage"
   options.args << "--no-sandbox"
   options.args << if ENV["BIG_SCREEN_SIZE"].present?
                     "--window-size=1920,3000"
@@ -63,7 +67,7 @@ Capybara.register_driver :pwa_chrome do |app|
   options = Selenium::WebDriver::Chrome::Options.new
   options.args << "--explicitly-allowed-ports=#{Capybara.server_port}"
   # If we have a headless browser things like the offline navigation feature stop working,
-  # so we need to have have a headful/recapitated (aka not headless) browser for these specs
+  # so we need to have a headful/recapitated (aka not headless) browser for these specs
   # options.args << "--headless"
   options.args << "--no-sandbox"
   # Do not limit browser resources
@@ -93,6 +97,8 @@ Capybara.register_driver :iphone do |app|
   options = Selenium::WebDriver::Chrome::Options.new
   options.args << "--headless=new"
   options.args << "--no-sandbox"
+  # Do not limit browser resources
+  options.args << "--disable-dev-shm-usage"
   options.add_emulation(device_name: "iPhone 6")
 
   Capybara::Selenium::Driver.new(
@@ -150,7 +156,7 @@ RSpec.configure do |config|
     switch_to_default_host
     domain = (try(:organization) || try(:current_organization))&.host
     if domain
-      # Javascript sets the cookie also for all subdomains but localhost is a
+      # JavaScript sets the cookie also for all subdomains but localhost is a
       # special case.
       domain = ".#{domain}" unless domain == "localhost"
       page.driver.browser.execute_cdp(

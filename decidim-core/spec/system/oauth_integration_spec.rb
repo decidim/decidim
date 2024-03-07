@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Authorzing with OAUth applications" do
+describe "Authorizing with OAUth applications" do
   let(:user) { create(:user, :confirmed) }
   let(:organization) { user.organization }
   let(:application) { create(:oauth_application, organization:) }
@@ -24,7 +24,7 @@ describe "Authorzing with OAUth applications" do
 
   describe "authorize the application" do
     it "redirects to the redirect uri with a code" do
-      click_button "Authorize application"
+      click_on "Authorize application"
 
       expect(current_url).to start_with("#{application.redirect_uri}?code=")
     end
@@ -32,7 +32,7 @@ describe "Authorzing with OAUth applications" do
 
   describe "cancel the request" do
     it "redirects to the redirect uri with an error" do
-      click_button "Cancel"
+      click_on "Cancel"
 
       expect(current_url).to start_with("#{application.redirect_uri}?error=access_denied&error_description=")
     end

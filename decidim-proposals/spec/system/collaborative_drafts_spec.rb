@@ -44,7 +44,7 @@ describe "Explore Collaborative Drafts", versioning: true do
   context "with collaborative drafts enabled" do
     before do
       visit main_component_path(component)
-      click_link "Access collaborative drafts"
+      click_on "Access collaborative drafts"
     end
 
     describe "Renders collaborative drafts index" do
@@ -75,7 +75,7 @@ describe "Explore Collaborative Drafts", versioning: true do
         within "[data-filters]" do
           expect(page).to have_field("All")
           [category, category2, category3].each do |cat|
-            expect(page).to have_field(cat.name[I18n.locale.to_s])
+            expect(page).to have_field(decidim_escape_translated(cat.name))
           end
         end
       end
@@ -83,11 +83,11 @@ describe "Explore Collaborative Drafts", versioning: true do
 
     describe "renders collaborative draft details" do
       before do
-        click_link "proposals__collaborative_draft_#{collaborative_draft.id}"
+        click_on "proposals__collaborative_draft_#{collaborative_draft.id}"
       end
 
       let(:html_body) { strip_tags(collaborative_draft.body).gsub(/\n/, " ").strip }
-      let(:stripped_body) { %(alert("BODY"); #{html_body}) }
+      let(:stripped_body) { %(alert("collaborative_draft_body"); #{html_body}) }
 
       it "shows the title" do
         expect(page).to have_content(collaborative_draft.title)
@@ -140,8 +140,8 @@ describe "Explore Collaborative Drafts", versioning: true do
       context "without category or scope" do
         before do
           visit_component
-          click_link "Access collaborative drafts"
-          click_link "proposals__collaborative_draft_#{collaborative_draft_no_tags.id}"
+          click_on "Access collaborative drafts"
+          click_on "proposals__collaborative_draft_#{collaborative_draft_no_tags.id}"
         end
 
         it "does not show any tag" do
@@ -151,7 +151,7 @@ describe "Explore Collaborative Drafts", versioning: true do
 
       context "with a category" do
         it "shows tags for category" do
-          expect(page).to have_selector("ul.tag-container")
+          expect(page).to have_css("ul.tag-container")
           within "ul.tag-container" do
             expect(page).to have_content(translated(collaborative_draft.category.name))
           end
@@ -160,7 +160,7 @@ describe "Explore Collaborative Drafts", versioning: true do
 
       context "with a scope" do
         it "shows tags for scope" do
-          expect(page).to have_selector("ul.tag-container")
+          expect(page).to have_css("ul.tag-container")
           within "ul.tag-container" do
             expect(page).to have_content(translated(collaborative_draft.scope.name))
           end
@@ -200,7 +200,7 @@ describe "Explore Collaborative Drafts", versioning: true do
 
         context "when the publish button is clicked" do
           before do
-            click_button "Publish"
+            click_on "Publish"
           end
 
           it "shows the a modal" do
@@ -208,7 +208,7 @@ describe "Explore Collaborative Drafts", versioning: true do
               expect(page).to have_css("h3", text: "The following action is irreversible")
               expect(page).to have_button(text: "Publish as a Proposal")
             end
-            click_button "Publish as a Proposal"
+            click_on "Publish as a Proposal"
             expect(page).to have_content("Collaborative draft published successfully as a proposal.")
           end
         end
@@ -246,7 +246,7 @@ describe "Explore Collaborative Drafts", versioning: true do
 
         context "when the user requests access" do
           before do
-            click_button "Request access"
+            click_on "Request access"
             expect(page).to have_button("Access requested", disabled: true)
           end
 
@@ -292,7 +292,7 @@ describe "Explore Collaborative Drafts", versioning: true do
 
             context "when the request is accepted and the contributor visits the draft" do
               before do
-                click_button "Accept"
+                click_on "Accept"
                 expect(page).to have_content("@#{user.nickname} has been accepted as a collaborator successfully")
                 relogin_as user, scope: :user
                 visit current_path

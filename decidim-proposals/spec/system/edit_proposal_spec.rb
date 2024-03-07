@@ -26,8 +26,8 @@ describe "Edit proposals" do
     it "can be updated" do
       visit_component
 
-      click_link proposal_title
-      click_link "Edit proposal"
+      click_on proposal_title
+      click_on "Edit proposal"
 
       expect(page).to have_content "Edit proposal"
       expect(page).to have_no_content("You can move the point on the map.")
@@ -35,7 +35,7 @@ describe "Edit proposals" do
       within "form.edit_proposal" do
         fill_in :proposal_title, with: new_title
         fill_in :proposal_body, with: new_body
-        click_button "Send"
+        click_on "Send"
       end
 
       expect(page).to have_content(new_title)
@@ -47,11 +47,11 @@ describe "Edit proposals" do
 
       before do
         visit_component
-        click_link translated(proposal.title)
+        click_on translated(proposal.title)
       end
 
       it "shows validation error when format is not accepted" do
-        click_link "Edit proposal"
+        click_on "Edit proposal"
         dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("participatory_text.md"), keep_modal_open: true) do
           expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions_image.join(", ")}")
         end
@@ -66,20 +66,20 @@ describe "Edit proposals" do
           visit current_path
 
           expect(page).to have_content("Documents")
-          click_link "Edit proposal"
+          click_on "Edit proposal"
 
-          click_button "Edit documents"
+          click_on "Edit documents"
           within ".upload-modal" do
             within "[data-filename='city.jpeg']" do
-              click_button("Remove")
+              click_on("Remove")
             end
             within "[data-filename='Exampledocument.pdf']" do
-              click_button("Remove")
+              click_on("Remove")
             end
-            click_button "Next"
+            click_on "Next"
           end
 
-          click_button "Send"
+          click_on "Send"
 
           expect(page).to have_no_content("Documents")
           expect(page).to have_no_content("Images")
@@ -90,21 +90,21 @@ describe "Edit proposals" do
           let(:attachment_image_title) { Faker::Lorem.sentence }
 
           it "can change attachment titles" do
-            click_link "Edit proposal"
-            click_button "Edit documents"
+            click_on "Edit proposal"
+            click_on "Edit documents"
             within ".upload-modal" do
               expect(page).to have_content("Has to be an image or a document")
-              expect(page).to have_content("For images, use preferrably landscape images, the service crops the image")
+              expect(page).to have_content("For images, use preferably landscape images, the service crops the image")
               within "[data-filename='city.jpeg']" do
                 find("input[type='text']").set(attachment_image_title)
               end
               within "[data-filename='Exampledocument.pdf']" do
                 find("input[type='text']").set(attachment_file_title)
               end
-              click_button "Next"
+              click_on "Next"
             end
-            click_button "Send"
-            expect(page).to have_selector("[data-alert-box].success")
+            click_on "Send"
+            expect(page).to have_css("[data-alert-box].success")
             expect(Decidim::Attachment.count).to eq(2)
             expect(translated(Decidim::Attachment.find_by(attached_to_id: proposal.id, content_type: "image/jpeg").title)).to eq(attachment_image_title)
             expect(translated(Decidim::Attachment.find_by(attached_to_id: proposal.id, content_type: "application/pdf").title)).to eq(attachment_file_title)
@@ -122,13 +122,13 @@ describe "Edit proposals" do
 
           it "displays them correctly on the edit form" do
             # With problematic code, should raise Selenium::WebDriver::Error::UnexpectedAlertOpenError
-            click_link "Edit proposal"
+            click_on "Edit proposal"
             expect(page).to have_content("Required fields are marked with an asterisk")
-            click_button("Edit documents")
+            click_on("Edit documents")
             within "[data-dialog]" do
-              click_button("Next")
+              click_on("Next")
             end
-            click_button("Send")
+            click_on("Send")
             expect(page).to have_content("Proposal successfully updated.")
           end
         end
@@ -144,13 +144,13 @@ describe "Edit proposals" do
 
           it "displays them correctly on the edit form" do
             # With problematic code, should raise Selenium::WebDriver::Error::UnexpectedAlertOpenError
-            click_link "Edit proposal"
+            click_on "Edit proposal"
             expect(page).to have_content("Required fields are marked with an asterisk")
-            click_button("Edit documents")
+            click_on("Edit documents")
             within "[data-dialog]" do
-              click_button("Next")
+              click_on("Next")
             end
-            click_button("Send")
+            click_on("Send")
             expect(page).to have_content("Proposal successfully updated.")
           end
         end
@@ -158,14 +158,14 @@ describe "Edit proposals" do
 
       context "with multiple images", :slow do
         it "can add many images many times" do
-          skip "REDESIGN_PENDING - Flaky test: upload modal fails on GitHub with multiple fileshttps://github.com/decidim/decidim/issues/10961"
+          skip "REDESIGN_PENDING - Flaky test: upload modal fails on GitHub with multiple files https://github.com/decidim/decidim/issues/10961"
 
-          click_link "Edit proposal"
+          click_on "Edit proposal"
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"))
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("icon.png"))
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("avatar.jpg"))
-          click_button "Send"
-          click_link "Edit proposal"
+          click_on "Send"
+          click_on "Edit proposal"
           expect(page).to have_content("city.jpeg")
           expect(page).to have_content("icon.png")
           expect(page).to have_content("avatar.jpg")
@@ -175,13 +175,13 @@ describe "Edit proposals" do
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
           expect(page).to have_content("city2.jpeg")
           expect(page).to have_content("city3.jpeg")
-          click_button "Send"
-          expect(page).to have_selector("[data-alert-box].success")
-          expect(page).to have_selector("img.object-cover[alt='city.jpeg']")
-          expect(page).to have_selector("img.object-cover[alt='icon.png']")
-          expect(page).to have_selector("img.object-cover[alt='avatar.jpg']")
-          expect(page).to have_selector("img.object-cover[alt='city2.jpeg']")
-          expect(page).to have_selector("img.object-cover[alt='city3.jpeg']")
+          click_on "Send"
+          expect(page).to have_css("[data-alert-box].success")
+          expect(page).to have_css("img.object-cover[alt='city.jpeg']")
+          expect(page).to have_css("img.object-cover[alt='icon.png']")
+          expect(page).to have_css("img.object-cover[alt='avatar.jpg']")
+          expect(page).to have_css("img.object-cover[alt='city2.jpeg']")
+          expect(page).to have_css("img.object-cover[alt='city3.jpeg']")
         end
       end
     end
@@ -201,11 +201,11 @@ describe "Edit proposals" do
       it "can be updated with address", :serves_geocoding_autocomplete do
         visit_component
 
-        click_link translated(proposal.title)
-        click_link "Edit proposal"
+        click_on translated(proposal.title)
+        click_on "Edit proposal"
 
         expect(page).to have_field("Title", with: translated(proposal.title))
-        expect(page).to have_field("Body", with: translated(proposal.body))
+        expect(page).to have_field("Body", with: strip_tags(translated(proposal.body)))
         expect(page).to have_field("Address", with: proposal.address)
         expect(page).to have_css("[data-decidim-map]")
 
@@ -213,7 +213,7 @@ describe "Edit proposals" do
         fill_in_geocoding :proposal_address, with: new_address
         expect(page).to have_content("You can move the point on the map.")
 
-        click_button "Send"
+        click_on "Send"
         expect(page).to have_content(new_address)
       end
 
@@ -229,11 +229,11 @@ describe "Edit proposals" do
         it "allows filling an empty address" do
           visit_component
 
-          click_link translated(proposal.title)
-          click_link "Edit proposal"
+          click_on translated(proposal.title)
+          click_on "Edit proposal"
 
           expect(page).to have_field("Title", with: translated(proposal.title))
-          expect(page).to have_field("Body", with: translated(proposal.body))
+          expect(page).to have_field("Body", with: strip_tags(translated(proposal.body)))
           expect(page).to have_field("Address", with: proposal.address)
 
           within "form.edit_proposal" do
@@ -242,7 +242,7 @@ describe "Edit proposals" do
             fill_in :proposal_address, with: ""
           end
 
-          click_button "Send"
+          click_on "Send"
 
           expect(page).to have_content(new_title)
           expect(page).to have_content(new_body)
@@ -257,14 +257,14 @@ describe "Edit proposals" do
       it "returns an error message" do
         visit_component
 
-        click_link proposal_title
-        click_link "Edit proposal"
+        click_on proposal_title
+        click_on "Edit proposal"
 
         expect(page).to have_content "Edit proposal"
 
         within "form.edit_proposal" do
           fill_in :proposal_body, with: "A"
-          click_button "Send"
+          click_on "Send"
         end
 
         # The character counters are doubled because there is a separate screen reader character counter.
@@ -272,7 +272,7 @@ describe "Edit proposals" do
 
         within "form.edit_proposal" do
           fill_in :proposal_body, with: "WE DO NOT WANT TO SHOUT IN THE PROPOSAL BODY TEXT!"
-          click_button "Send"
+          click_on "Send"
         end
 
         expect(page).to have_content("is using too many capital letters (over 25% of the text)")
@@ -281,8 +281,8 @@ describe "Edit proposals" do
       it "keeps the submitted values" do
         visit_component
 
-        click_link proposal_title
-        click_link "Edit proposal"
+        click_on proposal_title
+        click_on "Edit proposal"
 
         expect(page).to have_content "Edit proposal"
 
@@ -290,9 +290,9 @@ describe "Edit proposals" do
           fill_in :proposal_title, with: "A title with a #hashtag"
           fill_in :proposal_body, with: "ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL"
         end
-        click_button "Send"
+        click_on "Send"
 
-        expect(page).to have_selector("input[value='A title with a #hashtag']")
+        expect(page).to have_css("input[value='A title with a #hashtag']")
         expect(page).to have_content("ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL")
       end
     end
@@ -313,8 +313,8 @@ describe "Edit proposals" do
           body["en"] = body_en
           proposal.update!(body:)
           visit_component
-          click_link proposal_title
-          click_link "Edit proposal"
+          click_on proposal_title
+          click_on "Edit proposal"
         end
 
         it_behaves_like "having a rich text editor", "edit_proposal", "basic"
@@ -325,7 +325,7 @@ describe "Edit proposals" do
 
         it "does not add external link container inside the editor" do
           editor = page.find(".editor-container")
-          expect(editor).to have_selector("a[href='#{link}']")
+          expect(editor).to have_css("a[href='#{link}']")
           expect(editor).to have_no_selector("a.external-link-container")
         end
       end
@@ -340,7 +340,7 @@ describe "Edit proposals" do
     it "renders an error" do
       visit_component
 
-      click_link proposal_title
+      click_on proposal_title
       expect(page).to have_no_content("Edit proposal")
       visit "#{current_path}/edit"
 
@@ -358,7 +358,7 @@ describe "Edit proposals" do
     it "renders an error" do
       visit_component
 
-      click_link proposal_title
+      click_on proposal_title
       expect(page).to have_no_content("Edit proposal")
       visit "#{current_path}/edit"
 

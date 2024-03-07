@@ -46,7 +46,7 @@ describe "Account" do
         find_by_id("user_avatar_button").click
 
         within ".upload-modal" do
-          click_button "Remove"
+          click_on "Remove"
           input_element = find("input[type='file']", visible: :all)
           input_element.attach_file(Decidim::Dev.asset("5000x5000.png"))
 
@@ -91,7 +91,7 @@ describe "Account" do
       let(:new_password) { "decidim1234567890" }
 
       before do
-        click_button "Change password"
+        click_on "Change password"
       end
 
       it "toggles old and new password fields" do
@@ -99,7 +99,7 @@ describe "Account" do
           expect(page).to have_content("must not be too common (e.g. 123456) and must be different from your nickname and your email.")
           expect(page).to have_field("user[password]", with: "", type: "password")
           expect(page).to have_field("user[old_password]", with: "", type: "password")
-          click_button "Change password"
+          click_on "Change password"
           expect(page).to have_no_field("user[password]", with: "", type: "password")
           expect(page).to have_no_field("user[old_password]", with: "", type: "password")
         end
@@ -184,13 +184,13 @@ describe "Account" do
 
         it "tells user to confirm new email" do
           expect(page).to have_content("Email change verification")
-          expect(page).to have_selector("#user_email[disabled='disabled']")
+          expect(page).to have_css("#user_email[disabled='disabled']")
           expect(page).to have_content("We have sent an email to #{pending_email} to verify your new email address")
         end
 
         it "resend confirmation" do
           within "#email-change-pending" do
-            click_link "Send again"
+            click_on "Send again"
           end
           expect(page).to have_content("Confirmation email resent successfully to #{pending_email}")
           perform_enqueued_jobs
@@ -205,7 +205,7 @@ describe "Account" do
         it "cancels the email change" do
           expect(Decidim::User.find(user.id).unconfirmed_email).to eq(pending_email)
           within "#email-change-pending" do
-            click_link "cancel"
+            click_on "cancel"
           end
 
           expect(page).to have_content("Email change cancelled successfully")
@@ -284,7 +284,7 @@ describe "Account" do
           label_field = "label[for='user_scopes_#{scopes.first.id}_checked']"
           expect(page).to have_content("My interests")
           find(label_field).click
-          click_button "Update my interests"
+          click_on "Update my interests"
 
           within_flash_messages do
             expect(page).to have_content("Your interests have been successfully updated.")
@@ -303,17 +303,18 @@ describe "Account" do
       end
 
       it "the user can delete their account" do
-        fill_in :delete_user_delete_account_delete_reason, with: "I just want to delete my account"
+        within ".delete-account" do
+          fill_in :delete_user_delete_account_delete_reason, with: "I just want to delete my account"
+          click_on "Delete my account"
+        end
 
-        click_button "Delete my account"
-
-        click_button "Yes, I want to delete my account"
+        click_on "Yes, I want to delete my account"
 
         within_flash_messages do
           expect(page).to have_content("successfully")
         end
 
-        click_link("Log in", match: :first)
+        click_on("Log in", match: :first)
 
         within ".new_user" do
           fill_in :session_user_email, with: user.email

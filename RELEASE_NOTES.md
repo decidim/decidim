@@ -69,7 +69,7 @@ if Decidim.module_installed? :verifications
 end
 ```
 
-#### 3.2.3. Add the values that you want to define using the environmnet variable `VERIFICATIONS_DOCUMENT_TYPES`
+#### 3.2.3. Add the values that you want to define using the environment variable `VERIFICATIONS_DOCUMENT_TYPES`
 
 ```env
 VERIFICATIONS_DOCUMENT_TYPES="dni,nie,passport"
@@ -89,7 +89,34 @@ en:
 
 You can read more about this change on PR [\#12306](https://github.com/decidim/decidim/pull/12306)
 
-### 3.3. [[TITLE OF THE ACTION]]
+### 3.3. esbuild migration
+
+In order to speed up the asset compilation, we have migrated from babel to esbuild.
+
+There are some small changes that needs to be performed in your application code.
+
+- Remove `babel.config.js`
+- Replace `config/webpack/custom.js` with the new version.
+
+```console
+wget https://raw.githubusercontent.com/decidim/decidim/develop/decidim-core/lib/decidim/webpacker/webpack/custom.js -O config/webpack/custom.js
+```
+
+In case you have modifications in your application's webpack configuration, adapt it by [checking out the diff of the changes](https://github.com/decidim/decidim/pull/12238/files#diff-0e64008beaded63d6fbb9696d091751b4a81cd29432cc608e9381c4fb054c980).
+
+You can read more about this change on PR [\#12238](https://github.com/decidim/decidim/pull/12238).
+
+### 3.4. Allow removal of orphan categories
+
+A bug was identified that prevented the deletion of categories lacking associated resources. This action is a one-time task that must be performed directly in the production database.
+
+```console
+bin/rails decidim:upgrade:fix_orphan_categorizations
+```
+
+You can read more about this change on PR [\#12143](https://github.com/decidim/decidim/pull/12143).
+
+### 3.5. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

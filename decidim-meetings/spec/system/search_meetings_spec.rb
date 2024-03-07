@@ -45,7 +45,7 @@ describe "Search meetings" do
       it "does not contain these searchables" do
         within "#form-search_topbar" do
           fill_in "term", with: term
-          click_button
+          click_on
         end
 
         expect(page).to have_current_path decidim.search_path, ignore_query: true

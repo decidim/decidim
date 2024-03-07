@@ -108,7 +108,7 @@ describe "Participatory Processes" do
           visit decidim.root_path
 
           within "#home__menu" do
-            click_link "Processes"
+            click_on "Processes"
           end
 
           expect(page).to have_current_path decidim_participatory_processes.participatory_processes_path
@@ -168,7 +168,7 @@ describe "Participatory Processes" do
         it "links to the active step" do
           visit decidim_participatory_processes.participatory_processes_path
 
-          within find("#processes-grid .card__grid", text: translated(participatory_process.title)) do
+          within "#processes-grid .card__grid", text: translated(participatory_process.title) do
             within ".card__grid-metadata" do
               expect(page).to have_content("Active step")
             end
@@ -186,7 +186,7 @@ describe "Participatory Processes" do
           visit decidim_participatory_processes.participatory_processes_path
         end
 
-        it "shows a highligted processes section" do
+        it "shows a highlighted processes section" do
           expect(page).to have_content("Highlighted processes")
         end
 
@@ -355,7 +355,7 @@ describe "Participatory Processes" do
             end
 
             it "click link" do
-              click_link("Show all")
+              click_on("Show all")
               have_current_path(decidim_participatory_processes.all_metrics_participatory_process_path(participatory_process))
             end
           end

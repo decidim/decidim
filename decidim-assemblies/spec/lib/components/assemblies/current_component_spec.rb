@@ -59,7 +59,7 @@ module Decidim
         end
       end
 
-      context "when the params contain a non existing assembly id" do
+      context "when the params contain a nonexistent assembly id" do
         before do
           params["assembly_slug"] = "99999999"
         end

@@ -33,7 +33,7 @@ describe "Report Proposal" do
       expect(page).to have_css(".flag-modal", visible: :visible)
 
       within ".flag-modal" do
-        click_button "Report"
+        click_on "Report"
       end
 
       expect(page).to have_content "report has been created"

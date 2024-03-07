@@ -33,8 +33,8 @@ shared_examples "manage results" do
     let!(:proposals) { create_list(:proposal, 5, component: proposal_component) }
 
     it "updates a result" do
-      within find("tr", text: translated(result.title)) do
-        click_link "Edit"
+      within "tr", text: translated(result.title) do
+        click_on "Edit"
       end
 
       within ".edit_result" do
@@ -59,7 +59,7 @@ shared_examples "manage results" do
     end
 
     it "creates a new result", :slow do
-      click_link "New result", match: :first
+      click_on "New result", match: :first
 
       within ".new_result" do
         fill_in_i18n(
@@ -94,7 +94,7 @@ shared_examples "manage results" do
   end
 
   it "allows the user to preview the result" do
-    within find("tr", text: translated(result.title)) do
+    within "tr", text: translated(result.title) do
       klass = "action-icon--preview"
       href = resource_locator(result).path
       target = "blank"
@@ -113,8 +113,8 @@ shared_examples "manage results" do
     end
 
     it "deletes a result" do
-      within find("tr", text: translated(result2.title)) do
-        accept_confirm { click_link "Delete" }
+      within "tr", text: translated(result2.title) do
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

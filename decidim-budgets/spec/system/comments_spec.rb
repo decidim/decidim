@@ -27,14 +27,14 @@ describe "Comments" do
       another_window = window_opened_by do
         within(".comment", match: :first) do
           page.find("[id^='dropdown-trigger']").click
-          click_link "Get link"
+          click_on "Get link"
         end
       end
 
       within_window(another_window) do
-        expect(page).to have_content(commentable.title["en"])
-        expect(page).to have_content(comments.first.body["en"])
-        expect(page).to have_no_content(comments.second.body["en"])
+        expect(page).to have_content(decidim_sanitize_translated(commentable.title))
+        expect(page).to have_content(decidim_sanitize_translated(comments.first.body))
+        expect(page).to have_no_content(decidim_sanitize_translated(comments.second.body))
       end
     end
   end

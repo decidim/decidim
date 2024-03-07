@@ -19,7 +19,7 @@ describe "Amendment Wizard" do
     before do
       login_as user, scope: :user
       visit proposal_path
-      click_link "Amend"
+      click_on "Amend"
     end
 
     context "and in step_1: Create your amendment" do
@@ -43,7 +43,7 @@ describe "Amendment Wizard" do
 
       context "when the back button is clicked" do
         before do
-          click_link "Back"
+          click_on "Back"
         end
 
         it "redirects to the proposal page" do
@@ -147,7 +147,7 @@ describe "Amendment Wizard" do
       context "when the 'Discard this draft' link is clicked" do
         before do
           within ".edit_amendment" do
-            click_link "Discard this draft"
+            click_on "Discard this draft"
           end
         end
 
@@ -166,7 +166,7 @@ describe "Amendment Wizard" do
           let!(:amendment) { create(:amendment, amendable: proposal, emendation:) }
 
           before do
-            click_link "Back"
+            click_on "Back"
           end
 
           it "shows similar emendations" do
@@ -176,7 +176,7 @@ describe "Amendment Wizard" do
 
         context "without similar results" do
           before do
-            click_link "Back"
+            click_on "Back"
           end
 
           it "redirects to step_3: Complete your amendment" do
@@ -226,7 +226,7 @@ describe "Amendment Wizard" do
 
       context "when the Publish button is clicked", versioning: true do
         before do
-          click_button "Publish"
+          click_on "Publish"
         end
 
         it "publishes the amendment" do
@@ -240,7 +240,7 @@ describe "Amendment Wizard" do
 
       context "when the Modify link is clicked" do
         before do
-          click_link "Modify"
+          click_on "Modify"
         end
 
         it "redirects to step_3: Complete your amendment" do
@@ -250,7 +250,7 @@ describe "Amendment Wizard" do
 
       context "when the back button is clicked" do
         before do
-          click_link "Back"
+          click_on "Back"
         end
 
         it "redirects to step_3: Complete your amendment" do

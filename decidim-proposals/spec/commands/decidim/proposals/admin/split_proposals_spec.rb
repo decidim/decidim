@@ -77,7 +77,7 @@ module Decidim
               expect(new_proposal.reference).not_to eq(proposal.reference)
             end
 
-            context "when spliting to the same component" do
+            context "when splitting to the same component" do
               let(:same_component) { true }
               let!(:target_component) { current_component }
               let!(:proposals) { create_list(:proposal, 2, component: current_component) }
