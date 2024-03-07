@@ -27,7 +27,12 @@ window.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("input[data-label-preview=true]").forEach((element) => {
     element.addEventListener("change", (event) => {
       const label = document.querySelector(event.target.dataset.target);
-      label.style[event.target.dataset.updates] = event.target.value
+      const properties = event.target.dataset.updates.split(";");
+
+      properties.forEach((property) => {
+        const [key, value] = property.split(":");
+        label.style[key.trim()] = value.trim();
+      });
     })
   })
 

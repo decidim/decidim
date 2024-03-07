@@ -10,11 +10,15 @@
 
       <div class="row column">
         <% proposal_state.class.colors.each do |color_name, color_values| %>
-          <%= form.radio_button :bg_color, color_name,
+          <%= form.radio_button :text_color, color_name,
             label: false,
             class: "!mr-4",
             style: "box-shadow: 0 0 0 6px #{color_values[:foreground]}; accent-color: #{color_values[:foreground]};",
-            data: { "label-preview" => true, "target" => "strong[data-label-preview]", "updates" => "backgroundColor" }
+            data: {
+              "label-preview" => true,
+              "target" => "strong[data-label-preview]",
+              "updates" => "color:#{color_values[:foreground]}; backgroundColor:#{color_values[:background]}"
+            }
           %>
         <% end %>
 
