@@ -6,12 +6,12 @@ module Decidim
       def address_sections
         [
           {
-            id: "demo",
+            id: t("decidim.design.helpers.demo"),
             contents: [
               {
                 type: :text,
                 values: [
-                  "Address cell receives a resource, and searches the geolocalizable attributes to render an specific markup."
+                  t("decidim.design.helpers.address_description")
                 ]
               },
               {
@@ -20,8 +20,7 @@ module Decidim
               {
                 type: :text,
                 values: [
-                  "Depending of the type of the content, the address could be an online url.
-                    For such cases, the displayed information is quite the same but shaped to fit."
+                  t("decidim.design.helpers.address_description_2")
                 ]
               },
               {
@@ -30,7 +29,7 @@ module Decidim
             ]
           },
           {
-            id: "source_code",
+            id: t("decidim.design.helpers.source_code"),
             contents: [
               {
                 type: :text,
