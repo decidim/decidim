@@ -363,9 +363,6 @@
             proposals:
               one: forslag
               other: forslag
-          title:
-            answers: Importer svar på forslag
-            proposals: Importer forslag
         models:
           proposal:
             name: Forslag
@@ -449,7 +446,6 @@
             documents: Dokumenter
             endorsements_count: Påtegnelser teller
             endorsers: Påtegnelser
-            link: Lenke
             n_more_endorsers:
               one: og 1 til
               other: og %{count} til

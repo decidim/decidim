@@ -83,12 +83,6 @@ lt:
   booleans:
     'false': 'Ne'
     'true': 'Taip'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: Rinkmena negali būti apdorota
-      file_resolution_too_large: Dokumento rezoliucija per aukšta
-      file_size_too_large: Dokumento dydis per didelis
-      not_inside_organization: Dokumentas nepririštas prie jokios organizacijos
   date:
     formats:
       decidim_short: "%Y/%m/%d"
@@ -311,11 +305,9 @@ lt:
       amendable:
         button: Pakeisti %{model_name}
         error: Keičiant šį išteklių įvyko klaida.
-        help_text: Patobulinkite šį %{model_name} pakeisdami jo %{amendable_fields}.
         promote_button: Pakelti iki %{model_name}
         promote_confirm_text: Ar tikrai norite palaikyti šią pataisą?
         promote_help_text: Galite paremti šią pataisą ir ją paskelbti kaip nepriklausomą %{model_name}.
-        section_heading: Pakeitimai (%{count})
       amendments:
         title:
           one: "%{count} pataisa"
@@ -488,7 +480,6 @@ lt:
         many: ir %{count} daugiau
         other: ir %{count} daugiau
       see_less: "(žr. mažiau)"
-      see_more: "(žr. daugiau)"
     components:
       component_order_selector:
         no_content: Mes negalėjome rasti jokio turinio pagal šiuos kriterijus.
@@ -545,8 +536,6 @@ lt:
         name: Apatinės dalies reklamjuostė
       global_menu:
         name: Globalus meniu
-      hero:
-        name: Pagrindinis vaizdas
       hero_settings_form:
         background_image: Foninis paveikslėlis
         welcome_text: Pasveikinimo tekstas
@@ -933,14 +922,12 @@ lt:
           add_attachment: Prisegti priedą
           add_file: Pridėti failą
           add_image: Pridėti paveikslėlį
-          cancel: Atšaukti
           edit_image: Redaguoti atvaizdą
           error: Klaida!
           file_size_too_large: 'Per didelė rinkemena! Didžiausias leistinas rinkemos dydis: %{megabytes} MB'
           filename: Rinkmenos pavadinimas
           remove: Pašalinti
           replace: Pakeisti
-          save: Išsaugoti
           title: Pavadinimas
           title_required: Reikalingas pavadinimas!
           uploaded: Įkelta
@@ -1297,7 +1284,6 @@ lt:
     offline:
       name: Neprisijungę
       show:
-        message: Panašu, kad šiuo metu esate neprisijungę. Pabandykite dar kartą vėliau.
         retry: Bandykite dar kartą
     open_data:
       not_available_yet: Atvirųjų duomenų rinkmenomis dabar negalima naudotis. Bandykite dar kartą po kelių minučių.
@@ -1317,7 +1303,6 @@ lt:
           proposals: Pasiūlymai
           proposals_explanation: Teikite pasiūlymus, remkite esamus ir skatinkite pakeitimus, kuriuos norite matyti.
         footer_sub_hero:
-          footer_sub_hero_body: Sukurkime atviresnę, skaidresnę ir bendradarbiavimu grindžiamą visuomenę. <br /> Prisijunkite, dalyvaukite ir priimkite sprendimus.
           footer_sub_hero_headline: Sveiki atvykę į %{organization} dalyvavimo platformą.
           register: Registruotis
         hero:
@@ -1355,8 +1340,6 @@ lt:
           alert: Mes atnaujinote savo sąlygas, peržiūrėkite jas.
           body: Prašytume peržiūrėti mūsų atnaujintas sąlygas. Priešingu atveju šia platforma naudotis negalėsite.
           title: 'Būtina: Peržiūrėkite naudojimo sąlygų atnaujinimus'
-    participatory_space_private_users:
-      not_allowed: Jūs negalite peržiūrėti šio turinio
     passwords:
       update:
         error: Atnaujinant slaptažodį iškilo problema.
@@ -1694,8 +1677,6 @@ lt:
         change_my_password: Keisti slaptažodį
         confirm_new_password: Patvirtinkite naują slaptažodį
         new_password: Naujas slaptažodis
-        password_help: "%{minimun_characters} minimalus rašmenų skaičius, rašmenys neturi būti pernelyg įprasti (pvz., 123456) ir turi skirtis nuo jūsų naudotojo vardo ir e. pašto adreso."
-        password_help_admin: "%{minimun_characters} minimalus rašmenų skaičius, rašmenys neturi būti pernelyg įprasti (pvz., 123456) ir turi skirtis nuo jūsų naudotojo vardo ir el. pašto adreso bei turi skirtis nuo senųjų slaptažodžių."
         title: Slaptažodžio keitimas
       new:
         forgot_your_password: Pamiršote savo slaptažodį?
@@ -1795,28 +1776,10 @@ lt:
   emojis:
     button: Pridėti jaustuką
     categories:
-      activities: Veiklos
-      animals-nature: Gyvūnai ir gamta
       custom: Individualizuoti
       flags: Vėliavos
-      food-drink: Maistas ir Gėrimai
       objects: Objektai
-      people-body: Žmonės ir Kūnai
-      recents: Neseniai naudota
-      smileys-emotion: Šypsenos ir Emocijos
       symbols: Simboliai
-      travel-places: Kelionės ir Vietos
-    error:
-      load: Nepavyko užkrauti jaustukų
-    recents:
-      clear: Pašalinti nesenai naudotus jaustukus
-      none: Nepasirinkote jaustukų.
-    retry: Bandykite dar kartą
-    search:
-      _: Ieškoti jaustukų...
-      clear: Išvalyti paiešką
-      error: Nepavyko ieškoti jaustukų
-      not_found: Rezultatų nerasta
   errors:
     messages:
       allowed_file_content_types: 'leidžiamos tik rinkmenos su šiomis galūnėmis: %{types}'
@@ -1945,8 +1908,6 @@ lt:
         body: Nebuvote aktyvus(-i) %{minutes} minučių. Jei nenorite grįžti į platformą, dėl Jūsų saugumo paprašysime Jūsų prisijungti iš naujo.
         continue_session: Tęsti seansą
         title: Ar norite tęsti seansą?
-      upload_modal:
-        close_modal: Uždaryti modalinį langą
       user_menu:
         account: 'Naudotojo paskyra: %{name}'
         admin_dashboard: Administratoriaus skydelis

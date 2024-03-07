@@ -17,7 +17,7 @@ module Decidim
     end
 
     let(:manager_class) do
-      "DummyResources::DummyResource"
+      "Dev::DummyResource"
     end
 
     let(:metric_operation) do

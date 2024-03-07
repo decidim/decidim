@@ -37,6 +37,7 @@ ja:
         actions:
           destroy: 並べ替えをキャンセル
           edit: 編集
+          new_sortition: 新しいソート順
           show: 並べ替えの詳細
         models:
           sortition:
@@ -93,6 +94,8 @@ ja:
           cancelled: キャンセルしました
           category: カテゴリ
           state: ステータス
+        index:
+          empty: まだ並べ替えがありません。
         linked_sortitions:
           selected_proposals: 選択された提案
         orders:

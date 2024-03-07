@@ -98,9 +98,6 @@ ca:
         destroy: Suprimeix
         duplicate: Duplicar
         edit: Editar
-        filter:
-          all_processes: Mostra tots els processos
-          process_groups: Grups de processos
         import_process: Importar
         moderate: Moderar
         new_process: Nou procés
@@ -113,6 +110,9 @@ ca:
         resend_invitation: Reenviar la invitació
         see_process: Veure el procés
         unpublish: Despublicar
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Per grup de processos
       menu:
         participatory_process_groups: Grups de processos
         participatory_process_groups_submenu:
@@ -176,22 +176,6 @@ ca:
           copy: Còpia
           select: Selecciona quines dades vols duplicar
           title: Duplica procés participatiu
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Blocs de contingut actius
-          add: Afegir bloc de contingut
-          destroy_confirmation: Segur que vols esborrar aquest bloc de contingut?
-          inactive_content_blocks: Blocs de contingut inactius
-          title: Continguts de la pàgina
-      participatory_process_group_landing_page_content_blocks:
-        create:
-          error: S'ha produït un error en intentar crear aquest bloc de contingut.
-          success: El bloc de contingut s'ha creat correctament.
-        destroy:
-          error: S'ha produït un error en intentar eliminar aquest bloc de contingut.
-          success: Bloc de contingut eliminat correctament.
-        edit:
-          update: Actualitzar
       participatory_process_groups:
         destroy:
           error: Hi ha hagut un error eliminant aquest grup de processos participatius.
@@ -235,6 +219,12 @@ ca:
             last_step: No es pot eliminar l'última fase d'un procés.
           success: La fase del procés participatiu s'ha eliminat correctament.
         edit:
+          cta_deprecated:
+            body_html: |-
+              La configuració del CTA a través de la Fase del procés participatiu està obsoleta amb el nou disseny.
+              Ara això es fa a la <b>Página d'inici</b>, fent servir el bloc de contingut <b>Imatges principal i botó d'acció</b>.
+              L'hem deixar aquí per a que migris els CTAs que necessitis. Els camps <i>Ruta del botó d'acció</i> i <i>Text del botó d'acció</i> s'eliminaran a la propera versió.
+            title: CTA obsolet
           title: Edita fase de procés participatiu
           update: Actualitza
         index:

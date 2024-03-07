@@ -19,7 +19,7 @@ module Decidim
 
     let(:name) { :dummy_resource }
     let(:route_name) { :dummy }
-    let(:model_class) { "DummyResources::DummyResource" }
+    let(:model_class) { "Dev::DummyResource" }
 
     context "when no name is set" do
       let(:name) { nil }

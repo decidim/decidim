@@ -1,3 +1,4 @@
+<% add_decidim_page_title component_name %>
 <%= append_javascript_pack_tag "decidim_accountability" %>
 <%= append_stylesheet_pack_tag "decidim_accountability" %>
 
@@ -20,10 +21,16 @@
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
 
   <section class="layout-main__section">
-    <div class="editor-content"><%== translated_attribute component_settings.intro %></div>
+    <div class="editor-content"><%= decidim_sanitize_admin translated_attribute(component_settings.intro) %></div>
   </section>
 
   <section class="layout-main__section">
+    <% if first_class_categories.empty? %>
+      <%= cell("decidim/announcement",
+               params[:filter].present? ?
+               t("empty_filters", scope: "decidim.accountability.results.home") :
+               t("empty", scope: "decidim.accountability.results.home")) %>
+    <% end %>
     <%= render partial: "home_categories" %>
   </section>
 

@@ -3,56 +3,15 @@
 module Decidim
   module Admin
     # A command with all the business logic when creating a static page.
-    class CreateStaticPage < Decidim::Command
-      # Public: Initializes the command.
-      #
-      # form - A form object with the params.
-      def initialize(form)
-        @form = form
-        @page = nil
-      end
+    class CreateStaticPage < Decidim::Commands::CreateResource
+      fetch_form_attributes :organization, :title, :slug, :show_in_footer, :weight, :topic, :content, :allow_public_access
 
-      # Executes the command. Broadcasts these events:
-      #
-      # - :ok when everything is valid.
-      # - :invalid if the form was not valid and we could not proceed.
-      #
-      # Returns nothing.
-      def call
-        return broadcast(:invalid) if form.invalid?
+      protected
 
-        create_page
-        update_organization_tos_version
-        broadcast(:ok)
-      end
+      def resource_class = Decidim::StaticPage
 
-      private
-
-      attr_reader :form
-
-      def create_page
-        @page = Decidim.traceability.create!(
-          StaticPage,
-          form.current_user,
-          attributes
-        )
-      end
-
-      def attributes
-        {
-          organization: form.organization,
-          title: form.title,
-          slug: form.slug,
-          show_in_footer: form.show_in_footer,
-          weight: form.weight,
-          topic: form.topic,
-          content: form.content,
-          allow_public_access: form.allow_public_access
-        }
-      end
-
-      def update_organization_tos_version
-        UpdateOrganizationTosVersion.call(@form.organization, @page, @form)
+      def run_after_hooks
+        UpdateOrganizationTosVersion.call(form.organization, resource, form)
       end
     end
   end

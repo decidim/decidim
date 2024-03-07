@@ -14,7 +14,7 @@ module Decidim
 
       def mounted_params
         {
-          host: organization.host,
+          :host => organization.host,
           "#{underscored_name}_slug".to_sym => slug
         }
       end

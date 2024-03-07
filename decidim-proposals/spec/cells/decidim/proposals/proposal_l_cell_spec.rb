@@ -36,7 +36,7 @@ module Decidim::Proposals
 
       context "and is a proposal" do
         it "renders the proposal state (nil by default)" do
-          expect(subject).not_to have_css("span.label")
+          expect(subject).to have_no_css("span.label")
         end
       end
 

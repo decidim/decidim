@@ -15,7 +15,7 @@
 <%
   text_types = [
                 "date",
-                # "datetime-local",
+                "datetime-local",
                 # "email",
                 # "month",
                 "number",
@@ -40,7 +40,7 @@
     <% text_types.each do |element| %>
       <label>
         input type="<%= element %>"
-        <input type="<%= element %>">
+        <input type="<%= element %>" <% if %w(datetime-local date).include?(element) %> hide_help="true" <% end %>>
       </label>
     <% end %>
 

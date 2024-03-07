@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "decidim/accountability/seeds"
-
 Decidim.register_component(:accountability) do |component|
   component.engine = Decidim::Accountability::Engine
   component.admin_engine = Decidim::Accountability::AdminEngine
@@ -72,6 +70,8 @@ Decidim.register_component(:accountability) do |component|
   end
 
   component.seeds do |participatory_space|
+    require "decidim/accountability/seeds"
+
     Decidim::Accountability::Seeds.new(participatory_space:).call
   end
 end

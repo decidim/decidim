@@ -47,6 +47,8 @@ module Decidim
     #
     # Returns a String.
     def icon(name, options = {})
+      name = Decidim.icons.find(name)["icon"] unless options[:ignore_missing]
+
       default_html_properties = {
         "width" => "1em",
         "height" => "1em",
@@ -60,7 +62,7 @@ module Decidim
       href = Decidim.cors_enabled ? "" : asset_pack_path("media/images/remixicon.symbol.svg")
 
       content_tag :svg, html_properties do
-        content_tag :use, nil, "href" => "#{href}#ri-#{name}", tabindex: -1
+        content_tag :use, nil, "href" => "#{href}#ri-#{name}"
       end
     end
 

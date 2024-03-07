@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin
   describe UpdateScope do
-    subject { described_class.new(scope, form) }
+    subject { described_class.new(form, scope) }
 
     let(:organization) { create(:organization) }
     let(:parent_scope) { create(:scope, organization:) }

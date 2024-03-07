@@ -22,7 +22,7 @@ shared_examples "manage proposals help texts" do
       ca: "Crea una proposta seguint la nostra guia d'estil."
     )
 
-    click_button "Update"
+    click_on "Update"
 
     visit new_proposal_path(current_component)
 

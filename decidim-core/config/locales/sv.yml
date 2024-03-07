@@ -70,11 +70,6 @@ sv:
   booleans:
     'false': 'Nej'
     'true': 'Ja'
-  carrierwave:
-    errors:
-      file_resolution_too_large: Filupplösningen är för stor
-      file_size_too_large: Filen är för stor
-      not_inside_organization: Den här filen är inte bifogad till någon organisation
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -230,7 +225,6 @@ sv:
         error: Det gick inte att ändra resursen.
         promote_button: Gör till %{model_name}
         promote_confirm_text: Vill du stötta detta ändringsförslag?
-        section_heading: Ändringar (%{count})
       compare_draft:
         continue: Fortsätt
         no_similars_found: Hittade inga liknande ändringsförslag.
@@ -374,7 +368,6 @@ sv:
         one: och %{count} fler
         other: och %{count} fler
       see_less: "(se mindre)"
-      see_more: "(se mer)"
     components:
       component_order_selector:
         order:
@@ -428,8 +421,6 @@ sv:
         name: Sidfot sub hero banner
       global_menu:
         name: Global meny
-      hero:
-        name: Hjältebild
       hero_settings_form:
         background_image: Bakgrundsbild
         welcome_text: Välkomsttext
@@ -756,13 +747,11 @@ sv:
           add_attachment: Lägg till bilaga
           add_file: Lägg till fil
           add_image: Lägg till bild
-          cancel: Avbryta
           edit_image: Redigera bild
           error: Fel!
           filename: Filnamn
           remove: Ta bort
           replace: Ersätt
-          save: Spara
           title: Titel
           title_required: Titel krävs!
           uploaded: Uppladdad
@@ -1045,7 +1034,6 @@ sv:
           proposals: Förslag
           proposals_explanation: Lämna förslag, stötta befintliga förslag och stöd de förändringar som du vill se.
         footer_sub_hero:
-          footer_sub_hero_body: Låt oss bygga ett öppet, transparent och samarbetande samhälle.<br /> Gå med, delta och fatta beslut.
           footer_sub_hero_headline: Välkommen till %{organization} deltagarplattform.
           register: Registrera dig
         hero:
@@ -1064,8 +1052,6 @@ sv:
         metrics:
           headline: Metrik
           link: Visa alla metrik
-    participatory_space_private_users:
-      not_allowed: Du har inte rätt att se det här innehållet
     profile:
       deleted: Raderad deltagare
     profiles:
@@ -1358,7 +1344,6 @@ sv:
         change_my_password: Ändra mitt lösenord
         confirm_new_password: Bekräfta nytt lösenord
         new_password: Nytt lösenord
-        password_help: "Minst %{minimun_characters} tecken, får inte vara för vanligt (som 123456) och måste vara skilt från ditt användarnamn och din e-postadress."
         title: Lösenordsändring
       new:
         forgot_your_password: Glömt ditt lösenord?
@@ -1434,17 +1419,10 @@ sv:
   emojis:
     button: Lägg till emoji
     categories:
-      activities: Aktiviteter
       custom: Anpassad
       flags: Flaggor
-      food-drink: Mat & Dryck
       objects: Objekt
-      people-body: Personer & kropp
-      recents: Nyligen använd
       symbols: Symboler
-    retry: Försök igen
-    search:
-      clear: Rensa sök
   errors:
     messages:
       confirmation_period_expired: behöver bekräftas inom %{period}, be om en ny
@@ -1535,8 +1513,6 @@ sv:
         body: Du har varit inaktiv i %{minutes} minuter. Om du fortsätter att vara inaktiv kommer du automatiskt att loggas ut för din egen säkerhet.
         continue_session: Förtsätt med din session
         title: Vill du fortsätta med din session?
-      upload_modal:
-        close_modal: Stäng fönstret
       user_menu:
         account: 'Användarkonto: %{name}'
         admin_dashboard: Adminpanel

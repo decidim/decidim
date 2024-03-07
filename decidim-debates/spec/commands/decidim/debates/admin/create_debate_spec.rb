@@ -24,6 +24,7 @@ describe Decidim::Debates::Admin::CreateDebate do
       category:,
       current_user: user,
       current_component:,
+      component: current_component,
       current_organization: organization,
       finite:,
       comments_enabled: true

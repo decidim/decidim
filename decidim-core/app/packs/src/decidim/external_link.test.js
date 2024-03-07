@@ -1,6 +1,6 @@
 import $ from "jquery"; // eslint-disable-line id-length
 
-import ExternalLink from "./external_link";
+import ExternalLink from "src/decidim/external_link";
 
 describe("ExternalLink", () => {
   const content = `

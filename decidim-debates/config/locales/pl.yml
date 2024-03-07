@@ -53,6 +53,7 @@ pl:
         confirm_destroy: Jesteś pewny?
         destroy: Usuń
         edit: Edytuj
+        new: Nowa debata
         title: Działania
       admin:
         debate_closes:
@@ -97,7 +98,6 @@ pl:
           cancel: Anuluj
           description: Jakie jest podsumowanie lub wnioski z tej debaty?
           send: Zamknij debatę
-        closed: Zamknięta
         count:
           debates_count:
             one: "%{count} debata"
@@ -107,8 +107,9 @@ pl:
         create:
           invalid: Podczas tworzenia debaty wystąpił błąd.
           success: Debatę utworzono pomyślnie.
-        debate:
-          participate: Dołącz
+        debates:
+          empty: Nie ma jeszcze żadnych debat.
+          empty_filters: Nie ma debat z tymi kryteriami.
         edit:
           back: Wróć
           save: Zapisz zmiany
@@ -145,7 +146,6 @@ pl:
           updated: Ostatnio aktualizowane
         show:
           close_debate: Zamknij debatę
-          date: Data
           debate_closed: Zamknięta
           debate_conclusions_are: 'Debata została zamknięta %{date} z następującymi wnioskami:'
           edit_conclusions: Edytuj wnioski

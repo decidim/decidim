@@ -67,7 +67,6 @@ tr:
             create: Teklifleri projelere aktarın
             no_components: Bu katılımcı alanda teklifleri projelere aktarmak için başka bir teklif bileşeni yoktur.
             select_component: Lütfen bir bileşen seçin
-            title: Teklifleri içe aktar
       admin_log:
         budget:
           create: "%{user_name}, %{space_name} alanında %{resource_name} bütçesini oluşturdu"
@@ -77,8 +76,6 @@ tr:
           create: "%{user_name}, %{space_name} alanında %{resource_name} proje yarattı"
           delete: "%{user_name}, %{space_name} alanında %{resource_name} projeyi sildi"
           update: "%{user_name}, %{space_name} alanında %{resource_name} projesini güncellendi"
-      budget:
-        view: Tüm bütçe projelerini görüntüleyin
       budget_information_modal:
         back_to: '%{component_name} öğesine geri dön'
         close_modal: Pencereyi kapat
@@ -146,7 +143,6 @@ tr:
           selected: Seçili
         project:
           selected: Seçili
-          view: Görünüm
           votes:
             one: oy
             other: oylar

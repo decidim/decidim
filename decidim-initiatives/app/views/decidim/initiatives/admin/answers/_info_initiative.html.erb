@@ -3,7 +3,7 @@
     <div class="card-divider">
       <h2 class="card-title">
         <%= link_to "#{t ".initiatives"} > ", initiatives_path %>
-        <%= decidim_sanitize translated_attribute(initiative.title) %>
+        <%= decidim_sanitize_translated(initiative.title) %>
       </h2>
     </div>
 

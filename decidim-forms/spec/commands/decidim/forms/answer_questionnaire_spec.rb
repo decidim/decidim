@@ -152,7 +152,7 @@ module Decidim
           end
 
           context "when attachments are allowed" do
-            it "creates multiple atachments for the proposal" do
+            it "creates multiple attachments for the proposal" do
               expect { command.call }.to change(Decidim::Attachment, :count).by(2)
               last_attachment = Decidim::Attachment.last
               expect(last_attachment.attached_to).to be_a(Decidim::Forms::Answer)
@@ -173,7 +173,7 @@ module Decidim
               ]
             end
 
-            it "does not create atachments for the proposal" do
+            it "does not create attachments for the proposal" do
               expect { command.call }.not_to change(Decidim::Attachment, :count)
             end
 
@@ -196,19 +196,19 @@ module Decidim
         end
 
         context "when display_conditions are not mandatory on the same question but are fulfilled" do
-          let(:questionnaire_conditionned) { create(:questionnaire, questionnaire_for: participatory_process) }
+          let(:questionnaire_conditioned) { create(:questionnaire, questionnaire_for: participatory_process) }
           let!(:option1) { create(:answer_option, question: condition_question) }
           let!(:option2) { create(:answer_option, question: condition_question) }
           let!(:option3) { create(:answer_option, question: condition_question) }
           let!(:condition_question) do
             create(
               :questionnaire_question,
-              questionnaire: questionnaire_conditionned,
+              questionnaire: questionnaire_conditioned,
               mandatory: false,
               question_type: "single_option"
             )
           end
-          let!(:question) { create(:questionnaire_question, questionnaire: questionnaire_conditionned, question_type: "short_answer") }
+          let!(:question) { create(:questionnaire_question, questionnaire: questionnaire_conditioned, question_type: "short_answer") }
           let!(:display_condition) { create(:display_condition, question:, condition_question:, condition_type: :equal, answer_option: option1, mandatory: false) }
           let!(:display_condition2) { create(:display_condition, question:, condition_question:, condition_type: :equal, answer_option: option3, mandatory: false) }
           let(:form_params) do
@@ -228,7 +228,7 @@ module Decidim
               "tos_agreement" => "1"
             }
           end
-          let(:command) { described_class.new(form, current_user, questionnaire_conditionned) }
+          let(:command) { described_class.new(form, current_user, questionnaire_conditioned) }
 
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
@@ -238,7 +238,7 @@ module Decidim
             expect do
               command.call
             end.to change(Answer, :count).by(2)
-            expect(Answer.all.map(&:questionnaire)).to eq([questionnaire_conditionned, questionnaire_conditionned])
+            expect(Answer.all.map(&:questionnaire)).to eq([questionnaire_conditioned, questionnaire_conditioned])
           end
 
           it "creates answers with the correct information" do

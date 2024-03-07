@@ -71,12 +71,6 @@ zh-TW:
   booleans:
     'false': '否'
     'true': '是'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: 無法處理檔案
-      file_resolution_too_large: 檔案解析度過大
-      file_size_too_large: 檔案太大。
-      not_inside_organization: 該文件未附加到任何組織
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -254,11 +248,9 @@ zh-TW:
       amendable:
         button: 修正 %{model_name}
         error: 在修改此資源時發生錯誤。
-        help_text: 透過修改 %{amendable_fields}，來改善這個 %{model_name}.
         promote_button: 晉升為 %{model_name}
         promote_confirm_text: 您確定要晉升此修正嗎？
         promote_help_text: 您可以提升此修正，並將其發布為獨立的 %{model_name}.
-        section_heading: 修正案（%{count}）
       compare_draft:
         continue: 繼續
         no_similars_found: 找不到相似的修正案。
@@ -413,7 +405,6 @@ zh-TW:
       hidden_elements_count:
         other: "one\n和 %{count} 個\n\nOther\n和 %{count} 個"
       see_less: "(查看較少)"
-      see_more: "(查看更多)"
     components:
       component_order_selector:
         no_content: 我們找不到符合這個條件的任何內容.
@@ -466,8 +457,6 @@ zh-TW:
         description: 說明
       footer_sub_hero:
         name: 頁尾子英雄橫幅
-      hero:
-        name: 英雄圖像
       hero_settings_form:
         background_image: 背景圖片
         welcome_text: 歡迎文字
@@ -820,14 +809,12 @@ zh-TW:
           add_attachment: 新增附件
           add_file: 添加檔案
           add_image: 新增圖片
-          cancel: 取消
           edit_image: 編輯圖片
           error: 錯誤！
           file_size_too_large: '檔案大小過大！最大檔案大小：%{megabytes}MB'
           filename: 檔案名稱
           remove: 移除
           replace: 替換
-          save: 儲存
           title: 標題
           title_required: 標題為必填欄位！
           uploaded: 已上傳
@@ -1172,7 +1159,6 @@ zh-TW:
         success: 您的通知設定已成功更新。
     offline:
       show:
-        message: 看起來您目前處於離線狀態，請稍後再試。
         retry: 重試
     open_data:
       not_available_yet: 開放數據檔案尚未可用，請稍後再試。
@@ -1192,7 +1178,6 @@ zh-TW:
           proposals: 提案
           proposals_explanation: 提出建議、支持現有建議並推動您希望看到的變化。
         footer_sub_hero:
-          footer_sub_hero_body: 一起建立更加開放、透明和協作的社會。<br /> 加入、參與和做出決策。
           footer_sub_hero_headline: 歡迎來到 %{organization} 的參與平台。
           register: 註冊
         hero:
@@ -1228,8 +1213,6 @@ zh-TW:
           alert: 我們已更新我們的服務條款，請您查閱。
           body: 請花一點時間檢閱我們的服務條款更新，否則您將無法使用平台。
           title: '必須：檢閱我們的服務條款更新'
-    participatory_space_private_users:
-      not_allowed: 您無權查看此內容
     passwords:
       update:
         error: 密碼更新時發生問題.
@@ -1556,8 +1539,6 @@ zh-TW:
         change_my_password: 變更我的密碼
         confirm_new_password: 確認新密碼
         new_password: 新密碼
-        password_help: "最少 %{minimun_characters} 個字符，不能太常見（例如 123456），且必須與您的暱稱和電子郵件不同。"
-        password_help_admin: "最少 %{minimun_characters} 個字符，不能太常見（例如 123456），必須與您的暱稱和電子郵件不同，並且必須與您的舊密碼不同。"
         title: 密碼變更
       new:
         forgot_your_password: 忘記密碼了嗎？
@@ -1597,28 +1578,10 @@ zh-TW:
   emojis:
     button: 新增Emoji
     categories:
-      activities: 活躍狀態
-      animals-nature: 動物與自然
       custom: 自訂
       flags: 旗幟
-      food-drink: 食物 & 飲料
       objects: 目標
-      people-body: 人與身體
-      recents: 最近使用的
-      smileys-emotion: 表情符號和情感
       symbols: 符號
-      travel-places: 旅遊與地點
-    error:
-      load: 無法載入表情符號
-    recents:
-      clear: 清除最近的表情符號
-      none: 您尚未選擇任何表情符號。
-    retry: 再試一次
-    search:
-      _: 搜尋表情符號…
-      clear: 清除搜尋
-      error: 搜尋表情符號失敗。
-      not_found: 找不到結果
   errors:
     messages:
       allowed_file_content_types: '只允許使用以下擴展名的檔案： %{types}'
@@ -1735,8 +1698,6 @@ zh-TW:
         body: 您已經閒置了 %{minutes} 分鐘。如果您繼續閒置，為了您的安全，您將被自動登出。
         continue_session: 繼續會話
         title: 您是否想要繼續進行本次對話？
-      upload_modal:
-        close_modal: 關閉視窗
       user_menu:
         account: '使用者帳戶： %{name}'
         admin_dashboard: 管理員儀表板

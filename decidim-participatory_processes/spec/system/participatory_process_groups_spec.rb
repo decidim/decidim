@@ -18,11 +18,11 @@ describe "Participatory Process Groups" do
   let(:group_processes) { participatory_process_group.participatory_processes }
   let(:process) { group_processes.first }
   let(:other_process) { group_processes.last }
-  let(:cta_settings) do
+  let(:out_of_group_process) { create(:participatory_process, :active, organization:) }
+  let(:hero_settings) do
     {
-      button_url: "https://example.org/action",
-      button_text_en: "cta text",
-      description_en: "cta description"
+      button_url_en: "https://example.org/action",
+      button_text_en: "hero text"
     }
   end
 
@@ -40,9 +40,9 @@ describe "Participatory Process Groups" do
     it "lists all the groups among the processes" do
       within "#processes-grid" do
         expect(page).to have_content(translated(participatory_process_group.title, locale: :en))
-        expect(page).to have_selector("a.card__grid", count: 1)
+        expect(page).to have_css("a.card__grid", count: 1)
 
-        expect(page).not_to have_content(translated(other_group.title, locale: :en))
+        expect(page).to have_no_content(translated(other_group.title, locale: :en))
       end
     end
 
@@ -87,7 +87,7 @@ describe "Participatory Process Groups" do
       end
 
       it "shows the description" do
-        expect(page).to have_i18n_content(participatory_process_group.description)
+        expect(page).to have_i18n_content(participatory_process_group.description, strip_tags: true)
       end
 
       it "shows the meta scope name" do
@@ -124,44 +124,38 @@ describe "Participatory Process Groups" do
 
       it "shows metadata attributes" do
         within "#participatory_process_group-extra_data" do
-          expect(page).to have_i18n_content(participatory_process_group.developer_group)
-          expect(page).to have_i18n_content(participatory_process_group.target)
-          expect(page).to have_i18n_content(participatory_process_group.participatory_scope)
-          expect(page).to have_i18n_content(participatory_process_group.participatory_structure)
+          expect(page).to have_i18n_content(participatory_process_group.developer_group, strip_tags: true)
+          expect(page).to have_i18n_content(participatory_process_group.target, strip_tags: true)
+          expect(page).to have_i18n_content(participatory_process_group.participatory_scope, strip_tags: true)
+          expect(page).to have_i18n_content(participatory_process_group.participatory_structure, strip_tags: true)
         end
       end
     end
 
-    context "when the cta content block is enabled" do
+    context "when the hero content block is enabled" do
       before do
         create(
           :content_block,
           organization:,
           scope_name: :participatory_process_group_homepage,
           scoped_resource_id: participatory_process_group.id,
-          manifest_name: :cta,
-          settings: cta_settings
+          manifest_name: :hero,
+          settings: hero_settings
         )
         visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
       end
 
-      it "shows the description" do
+      it "shows the action button" do
         within("[data-process-hero]") do
-          expect(page).to have_content(cta_settings[:description_en])
-        end
-      end
-
-      it "Shows the action button" do
-        within("[data-process-hero]") do
-          expect(page).to have_link(cta_settings[:button_text_en], href: cta_settings[:button_url])
+          expect(page).to have_link(hero_settings[:button_text_en], href: hero_settings[:button_url_en])
         end
       end
 
       context "when url is not configured" do
-        let(:cta_settings) { nil }
+        let(:hero_settings) { nil }
 
-        it "does not show the block" do
-          expect(page).not_to have_selector("[data-process-hero]")
+        it "shows the block" do
+          expect(page).to have_css("[data-process-hero]")
         end
       end
     end
@@ -169,8 +163,10 @@ describe "Participatory Process Groups" do
     context "when the proposals block is enabled" do
       let!(:proposals_component) { create(:component, :published, participatory_space: process, manifest_name: :proposals) }
       let!(:other_process_proposals_component) { create(:component, :published, participatory_space: other_process, manifest_name: :proposals) }
+      let!(:out_of_group_process_proposals_component) { create(:component, :published, participatory_space: out_of_group_process, manifest_name: :proposals) }
       let!(:proposal1) { create(:proposal, component: proposals_component, title: { en: "First awesome proposal!" }) }
       let!(:proposal2) { create(:proposal, component: other_process_proposals_component, title: { en: "Second fabulous proposal!" }) }
+      let!(:independent_proposal) { create(:proposal, component: out_of_group_process_proposals_component, title: { en: "Independent proposal!" }) }
 
       before do
         create(
@@ -186,27 +182,35 @@ describe "Participatory Process Groups" do
 
       it "shows cards of proposals from both processes" do
         within("#participatory-process-group-homepage-highlighted-proposals") do
-          expect(page).to have_selector("#proposals__proposal_#{proposal1.id}")
-          expect(page).to have_selector("#proposals__proposal_#{proposal2.id}")
+          expect(page).to have_css("#proposals__proposal_#{proposal1.id}")
+          expect(page).to have_css("#proposals__proposal_#{proposal2.id}")
 
           within("#proposals__proposal_#{proposal1.id}") do
             expect(page).to have_content "First awesome proposal!"
-            expect(page).to have_i18n_content process.title
+            expect(page).to have_i18n_content(process.title, strip_tags: true)
           end
 
           within("#proposals__proposal_#{proposal2.id}") do
             expect(page).to have_content "Second fabulous proposal!"
-            expect(page).to have_i18n_content other_process.title
+            expect(page).to have_i18n_content(other_process.title, strip_tags: true)
           end
         end
+      end
+
+      it "does not show cards of proposals from process out of group" do
+        expect(page).to have_no_selector("#proposals__proposal_#{independent_proposal.id}")
+        expect(page).to have_no_content "Independent proposal!"
+        expect(page).not_to have_i18n_content(out_of_group_process.title, strip_tags: true)
       end
     end
 
     context "when the results block is enabled" do
       let!(:accountability_component) { create(:component, :published, participatory_space: process, manifest_name: :accountability) }
       let!(:other_process_accountability_component) { create(:component, :published, participatory_space: other_process, manifest_name: :accountability) }
+      let!(:out_of_group_process_accountability_component) { create(:component, :published, participatory_space: out_of_group_process, manifest_name: :accountability) }
       let!(:result1) { create(:result, component: accountability_component, title: { en: "First awesome result!" }) }
       let!(:result2) { create(:result, component: other_process_accountability_component, title: { en: "Second fabulous result!" }) }
+      let!(:independent_result) { create(:result, component: out_of_group_process_accountability_component, title: { en: "Independent result!" }) }
 
       before do
         create(
@@ -222,19 +226,25 @@ describe "Participatory Process Groups" do
 
       it "shows cards of results from both processes" do
         within("#participatory-process-group-homepage-highlighted-results") do
-          expect(page).to have_selector("#accountability__result_#{result1.id}")
-          expect(page).to have_selector("#accountability__result_#{result2.id}")
+          expect(page).to have_css("#accountability__result_#{result1.id}")
+          expect(page).to have_css("#accountability__result_#{result2.id}")
 
           within("#accountability__result_#{result1.id}") do
             expect(page).to have_content "First awesome result!"
-            expect(page).to have_i18n_content process.title
+            expect(page).to have_i18n_content(process.title, strip_tags: true)
           end
 
           within("#accountability__result_#{result2.id}") do
             expect(page).to have_content "Second fabulous result!"
-            expect(page).to have_i18n_content other_process.title
+            expect(page).to have_i18n_content(other_process.title, strip_tags: true)
           end
         end
+      end
+
+      it "does not show cards of results from process out of group" do
+        expect(page).to have_no_selector("#accountability__result_#{independent_result.id}")
+        expect(page).to have_no_content "Independent result!"
+        expect(page).not_to have_i18n_content out_of_group_process.title
       end
     end
 
@@ -259,7 +269,7 @@ describe "Participatory Process Groups" do
       end
 
       it "renders the content of content block" do
-        expect(page).to have_selector("#testing-html")
+        expect(page).to have_css("#testing-html")
         within("#testing-html") do
           expect(page).to have_content("HTML block")
         end
@@ -270,8 +280,10 @@ describe "Participatory Process Groups" do
   context "when the meetings block is enabled" do
     let!(:meetings_component) { create(:component, :published, participatory_space: process, manifest_name: :meetings) }
     let!(:other_process_meetings_component) { create(:component, :published, participatory_space: other_process, manifest_name: :meetings) }
+    let!(:out_of_group_process_meetings_component) { create(:component, :published, participatory_space: out_of_group_process, manifest_name: :meetings) }
     let!(:meeting1) { create(:meeting, :published, component: meetings_component, title: { en: "First awesome meeting!" }) }
     let!(:meeting2) { create(:meeting, :published, component: other_process_meetings_component, title: { en: "Second fabulous meeting!" }) }
+    let!(:independent_meeting) { create(:meeting, :published, component: out_of_group_process_meetings_component, title: { en: "Independent meeting!" }) }
 
     before do
       create(
@@ -292,6 +304,10 @@ describe "Participatory Process Groups" do
         expect(page).to have_content "Second fabulous meeting!"
       end
     end
+
+    it "does not show cards of meetings from process out of group" do
+      expect(page).to have_no_content "Independent meeting!"
+    end
   end
 
   context "when the stats content block is enabled" do
@@ -308,7 +324,7 @@ describe "Participatory Process Groups" do
     it "shows no statistics content block if there are no components or followers in depending participatory processes" do
       visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
 
-      expect(page).not_to have_css("section[data-statistics]")
+      expect(page).to have_no_css("section[data-statistics]")
     end
 
     context "when there are components and depending resources" do
@@ -318,11 +334,15 @@ describe "Participatory Process Groups" do
       let!(:other_process_proposals_component) { create(:component, :published, participatory_space: other_process, manifest_name: :proposals) }
       let!(:other_process_meetings_component) { create(:component, :published, participatory_space: other_process, manifest_name: :meetings) }
       let!(:user) { create(:user, organization:) }
+      let!(:out_of_group_process_proposals_component) { create(:component, :published, participatory_space: out_of_group_process, manifest_name: :proposals) }
+      let!(:out_of_group_process_meetings_component) { create(:component, :published, participatory_space: out_of_group_process, manifest_name: :meetings) }
 
       before do
         create_list(:proposal, 3, component: proposals_component)
         create_list(:proposal, 7, component: other_process_proposals_component)
         create_list(:meeting, 4, :published, component: other_process_meetings_component)
+        create_list(:proposal, 50, component: out_of_group_process_proposals_component)
+        create_list(:meeting, 50, component: out_of_group_process_meetings_component)
 
         # Set same coauthorships for all proposals
         Decidim::Proposals::Proposal.where(component: [proposals_component, other_process_proposals_component]).each do |proposal|
@@ -449,7 +469,7 @@ describe "Participatory Process Groups" do
     shared_examples "not showing processes belonging to other group" do
       it "does not list process of other group" do
         within("#processes-grid") do
-          expect(page).not_to have_content(translated(other_group_process.title, locale: :en))
+          expect(page).to have_no_content(translated(other_group_process.title, locale: :en))
         end
       end
     end
@@ -467,7 +487,7 @@ describe "Participatory Process Groups" do
     end
 
     shared_examples "shows active processes" do
-      it "lists active processes ordered by weigtht" do
+      it "lists active processes ordered by weight" do
         within "section.content-block" do
           expect(titles[0].text).to eq(translated(active_process_with_area.title, locale: :en))
           expect(titles[1].text).to eq(translated(active_process.title, locale: :en))
@@ -477,14 +497,14 @@ describe "Participatory Process Groups" do
 
       it "does not list process of other group" do
         within "section.content-block" do
-          expect(page).not_to have_content(translated(other_group_process.title, locale: :en))
+          expect(page).to have_no_content(translated(other_group_process.title, locale: :en))
         end
       end
 
-      it "does not list inactice processes" do
+      it "does not list inactive processes" do
         within "section.content-block" do
-          expect(page).not_to have_content(translated(upcoming_process_with_area.title, locale: :en))
-          expect(page).not_to have_content(translated(past_process_with_scope.title, locale: :en))
+          expect(page).to have_no_content(translated(upcoming_process_with_area.title, locale: :en))
+          expect(page).to have_no_content(translated(past_process_with_scope.title, locale: :en))
         end
       end
 
@@ -509,7 +529,7 @@ describe "Participatory Process Groups" do
     context "when the block filter settings configures all processes" do
       let(:participatory_processes_content_block_settings) { { default_filter: "all" } }
 
-      it "lists all processes ordered by weigtht" do
+      it "lists all processes ordered by weight" do
         within "section.content-block" do
           expect(titles[0].text).to eq(translated(upcoming_process_with_area.title, locale: :en))
           expect(titles[1].text).to eq(translated(active_process_with_area.title, locale: :en))
@@ -521,14 +541,14 @@ describe "Participatory Process Groups" do
 
       it "does not list process of other group" do
         within "section.content-block" do
-          expect(page).not_to have_content(translated(other_group_process.title, locale: :en))
+          expect(page).to have_no_content(translated(other_group_process.title, locale: :en))
         end
       end
 
       it "shows count of all processes" do
         within "div.content-block__title" do
           expect(page).to have_content("Participatory processes")
-          expect(page).not_to have_content("Active")
+          expect(page).to have_no_content("Active")
           expect(page).to have_content("5")
         end
       end

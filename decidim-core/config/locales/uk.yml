@@ -157,7 +157,6 @@ uk:
           title: Недостатньо прав через відсутність підтвердження особи
     collapsible_list:
       see_less: "(читати менше)"
-      see_more: "(читати далі)"
     components:
       dummy:
         actions:
@@ -178,8 +177,6 @@ uk:
     content_blocks:
       footer_sub_hero:
         name: Нижній колонтитул під-багатирського банера
-      hero:
-        name: Багатирський банер
       highlighted_content_banner:
         name: Банер висвітленого вмісту
       how_to_participate:
@@ -372,7 +369,6 @@ uk:
           proposals: Пропозиції
           proposals_explanation: Вносьте нові пропозиції, підтримуйте існуючі та сприяйте змінам, які ви хочете бачити.
         footer_sub_hero:
-          footer_sub_hero_body: Створімо більш відкрите, прозоре та співпрацююче суспільство.<br /> Долучайтесь, беріть участь та приймайте рішення.
           footer_sub_hero_headline: Ласкаво просимо до майданчику співучасті %{organization}!
           register: Зареєструватися
         hero:
@@ -382,8 +378,6 @@ uk:
           headline: Поточний стан %{organization}
         sub_hero:
           register: Зареєструватися
-    participatory_space_private_users:
-      not_allowed: У вас нема прав на перегляд цього вмісту
     profile:
       deleted: Видалений учасник
     profiles:
@@ -418,6 +412,8 @@ uk:
       results_found_for_term: '%{count} Висліди пошуку: "%{term}"'
       term_input_placeholder: Шукати
     searches:
+      filters:
+        search: Шукати
       filters_small_view:
         filter: Відібрати
         filter_by: 'Відібрати за ознакою:'

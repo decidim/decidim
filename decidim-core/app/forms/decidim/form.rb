@@ -11,5 +11,9 @@ module Decidim
              to: :context, prefix: false, allow_nil: true
 
     delegate :available_locales, to: :current_organization, allow_nil: true
+
+    alias organization current_organization
+    alias component current_component
+    alias participatory_space current_participatory_space
   end
 end

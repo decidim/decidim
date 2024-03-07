@@ -8,7 +8,7 @@ module Decidim
       describe CreateInitiativeType do
         let(:form_klass) { InitiativeTypeForm }
 
-        describe "successfull creation" do
+        describe "successful creation" do
           it_behaves_like "create an initiative type", true
         end
 
@@ -16,19 +16,14 @@ module Decidim
           let(:organization) { create(:organization) }
           let(:user) { create(:user, organization:) }
           let!(:initiative_type) do
-            build(:initiatives_type, organization:)
+            build(:initiatives_type, banner_image: nil, organization:)
           end
           let(:form) do
             form_klass
               .from_model(initiative_type)
-              .with_context(current_organization: organization)
+              .with_context(current_organization: organization, current_user: user)
           end
-
-          let(:errors) do
-            ActiveModel::Errors.new(initiative_type)
-                               .tap { |e| e.add(:banner_image, "upload error") }
-          end
-          let(:command) { described_class.new(form, user) }
+          let(:command) { described_class.new(form) }
 
           it "broadcasts invalid" do
             expect(InitiativesType).to receive(:new).at_least(:once).and_return(initiative_type)

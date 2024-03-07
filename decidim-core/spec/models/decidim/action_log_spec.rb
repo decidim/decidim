@@ -81,7 +81,7 @@ describe Decidim::ActionLog do
     let!(:publish_logs) { create_list(:action_log, 2, action: "publish") }
     let!(:create_logs) { create_list(:action_log, 5) }
 
-    let(:public_types) { %w(Decidim::DummyResources::DummyResource) }
+    let(:public_types) { %w(Decidim::Dev::DummyResource) }
     let(:publicable_types) { public_types }
 
     before do
@@ -104,8 +104,8 @@ describe Decidim::ActionLog do
     end
 
     context "with non-public and non-publicable resource types" do
-      let(:public_types) { %w(Decidim::DummyResources::DummyResource Decidim::Comments::Comment) }
-      let(:publicable_types) { %w(Decidim::DummyResources::DummyResource) }
+      let(:public_types) { %w(Decidim::Dev::DummyResource Decidim::Comments::Comment) }
+      let(:publicable_types) { %w(Decidim::Dev::DummyResource) }
 
       let(:type_key) { "Decidim::UnexistingResource" }
       let!(:create_logs) { create_list(:action_log, 5, resource: create(:comment)) }
@@ -126,7 +126,7 @@ describe Decidim::ActionLog do
     let!(:publish_logs) { create_list(:action_log, 2, action: "publish") }
     let!(:create_logs) { create_list(:action_log, 5) }
 
-    let(:public_types) { %w(Decidim::DummyResources::DummyResource) }
+    let(:public_types) { %w(Decidim::Dev::DummyResource) }
     let(:publicable_types) { public_types }
 
     before do
@@ -149,8 +149,8 @@ describe Decidim::ActionLog do
     end
 
     context "with non-public and non-publicable resource types" do
-      let(:public_types) { %w(Decidim::DummyResources::DummyResource Decidim::Comments::Comment) }
-      let(:publicable_types) { %w(Decidim::DummyResources::DummyResource) }
+      let(:public_types) { %w(Decidim::Dev::DummyResource Decidim::Comments::Comment) }
+      let(:publicable_types) { %w(Decidim::Dev::DummyResource) }
 
       let(:type_key) { "Decidim::UnexistingResource" }
       let!(:create_logs) { create_list(:action_log, 5, resource: create(:comment)) }
@@ -190,7 +190,7 @@ describe Decidim::ActionLog do
       it { is_expected.to be_falsey }
     end
 
-    context "when there is no particiaptory space" do
+    context "when there is no participatory space" do
       before do
         action_log.participatory_space.delete
       end

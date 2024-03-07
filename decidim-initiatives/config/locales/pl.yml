@@ -249,18 +249,29 @@ pl:
             update: Aktualizuj
           form:
             authorizations: Ustawienia autoryzacji
+            child_scope_threshold_enabled_help_html: 'Ta flaga konfiguracja nie wspiera głosowania offline. Zezwala ona na pod-zakresy i działa z uchwytem autoryzacji, który łączy zakres z użytkownikiem. Upewnij się, że wybrałeś(aś) taką autoryzację w sekcji autoryzacji poniżej. Zakresy muszą być konfigurowane w hierarchii: 1 Rodzic - N element podrzędny. Więcej informacji o działaniu tej konfiguracji znajdziesz pod tą <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">stroną dokumentacji administracji inicjatywami</a>.'
+            only_global_scope_enabled_help_html: Zaznacz tę flagę, jeśli włączyłeś(aś) opcję "Podpisy zakresu podrzędnego" i skonfigurowałeś(aś) globalny zakres jako zakres nadrzędny. Umożliwiając to działanie, wybór typu inicjatywy zostanie pominięty w kreatorze tworzenia inicjatyw. Aby uzyskać więcej informacji na temat funkcjonowania tej konfiguracji, zobacz ten <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
             options: Ustawienia
           initiative_type_scopes:
             title: Zakresy dla rodzaju inicjatywy
           new:
             create: Utwórz
             title: Nowy typ inicjatywy
+          update:
+            error: Wystąpił błąd.
+            success: Typ inicjatywy został zaktualizowany.
       admin_log:
         initiative:
           publish: "%{user_name} opublikował(a) inicjatywę %{resource_name}"
           send_to_technical_validation: "%{user_name} wysłał(a) inicjatywę %{resource_name} do weryfikacji technicznej"
           unpublish: "%{user_name} odrzucił(a) inicjatywę %{resource_name}"
           update: "%{user_name} zaktualizował(a) inicjatywę %{resource_name}"
+        initiatives_settings:
+          update: "%{user_name} zaktualizował(a) ustawienia inicjatyw"
+        initiatives_type:
+          create: "%{user_name} utworzył(a) typ inicjatywy %{resource_name}"
+          delete: "Użytkownik %{user_name} usunął typ inicjatywy %{resource_name}"
+          update: "%{user_name} zaktualizował(a) typ inicjatyw %{resource_name}"
       admin_states:
         accepted: Wystarczająca liczba podpisów
         created: Utworzono
@@ -283,6 +294,7 @@ pl:
           success: Żądanie zostało zaakceptowane.
         new:
           continue: Dalej
+          help_text: Zamierzasz poprosić o członkostwo w komitecie promocyjnym tej inicjatywy.
         revoke:
           success: Żądanie zostało cofniete.
         spawn:
@@ -319,8 +331,10 @@ pl:
           back: Wróć
           choose_html: Chcę utworzyć <strong>%{title}</strong>
           more_information: (Więcej informacji)
+          new: Utwórz nową inicjatywę
           select: Chcę utworzyć inicjatywę tego typu
           select_initiative_type_help: Inicjatywy są środkiem, za pomocą którego uczestnicy mogą interweniować tak, aby organizacja mogła podejmować działania w obronie interesu ogólnego. Którą inicjatywę chcesz uruchomić?
+          verification_required: Zweryfikuj swoje konto, aby promować tę inicjatywę
         share_committee_link:
           invite_to_committee_help: Link do zaproszenia osób, które będą częścią komitetu organizacyjnego
       edit:
@@ -359,9 +373,19 @@ pl:
           email_outro: 'Otrzymałeś to powiadomienie, ponieważ jesteś autorem inicjatywy %{resource_title}'
           email_subject: "%{applicant_nickname} chce dołączyć do Twojej inicjatywy"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> złożył wniosek na członka komitetu organizacyjnego Twojej inicjatywy <a href="%{resource_url}">%{resource_title}</a>. Aby zaakceptować lub odrzucić kliknij <a href="%{resource_url}/edit">tutaj</a>.
+      form:
+        add_documents: Dodaj dokumenty
+        add_image: Dodaj obraz
+        attachment_legend: "(Opcjonalnie) Dodaj załącznik"
+        edit_documents: Edytuj dokumenty
+        edit_image: Edytuj obraz
+        image_legend: "(Opcjonalnie) Dodaj obraz"
+      index:
+        uninitialized: Inicjatywy nie są jeszcze skonfigurowane przez administratora.
       initiative_signatures:
         fill_personal_data:
           continue: Dalej
+          help: Wypełnij następujące pola swoimi danymi osobowymi, aby podpisać inicjatywę.
         finish:
           back_to_initiative: Wróć do inicjatywy
         sms_code:
@@ -369,11 +393,16 @@ pl:
           help: Sprawdź SMS, który wysłaliśmy na Twój numer telefonu
         sms_phone_number:
           continue: Wyślij mi SMS-a
+          help: Wpisz w formularzu swój zweryfikowany numer telefonu, aby otrzymać kod weryfikacyjny.
       initiative_votes:
         create:
           error: Podczas podpisywania inicjatywy wystąpiły błędy.
+          invalid: Dane dostarczone do poparcia inicjatywy nie są ważne.
+          success_html: Gratulacje! Inicjatywa <strong> %{title}</strong> została poparta.
         personal_data:
           invalid: Dane osobowe nie są zgodne z danymi przekazanymi do autoryzacji.
+        sms_code:
+          invalid: Kod weryfikacyjny nie odpowiada naszemu kodowi. Prosimy o ponowne sprawdzenie wiadomości SMS.
         sms_phone:
           invalid: Numer telefonu jest nieprawidłowy lub oczekuje na autoryzację. Sprawdź swoje autoryzacje.
       initiatives:
@@ -385,7 +414,12 @@ pl:
             other: i jeszcze %{count} osób
         committee_members:
           approve: Zatwierdź
-          confirm_revoke: Jesteś pewny?
+          confirm_approve: Czy na pewno chcesz zaakceptować tego członka?
+          confirm_revoke: Czy na pewno chcesz unieważnić tego członka?
+          invite_to_committee_help: Udostępnij ten link, aby zaprosić innych użytkowników do komitetu promocyjnego.
+          link: Link
+          no_members_yet: W komitecie promocyjnym nie ma członków.
+          revoke: Unieważnij
           title: Członkowie komitetu
         count:
           title:
@@ -399,7 +433,6 @@ pl:
           author: Autor
           myself: Moje inicjatywy
           scope: Zakres
-          search: Szukaj
           state: Stan
           type: Typ
         index_header:
@@ -435,6 +468,7 @@ pl:
             title: 'Tytuł:'
             type: Typ inicjatywy
           legal_text: Zgromadzone dane osobowe zostaną dołączone do zasobów i traktowane w sposób poufny przez organizację zgodnie z obowiązującymi przepisami.
+          members_header: Członkowie komitetu promocyjnego inicjatywy
           phone_number: Numer telefonu
           place_date: Miejsce, data
           postal_code: Kod pocztowy
@@ -443,11 +477,20 @@ pl:
           section: 'Na wniosek organizacji proszę wydrukować i wypełnić niniejszy formularz w celu przesłania, jeśli jest to wskazane:'
           signature: Podpis
         result:
+          answer_title: Odpowiedziano na tę inicjatywę.
           initiative_rejected_reason: Ta inicjatywa została odrzucona ze względu na brak podpisów.
         show:
+          area: Obszar
+          before_send_to_technical_validation_announcement: 'Przed wysłaniem swojej inicjatywy do zatwierdzenia technicznego, musisz dodać %{count} więcej członków do komitetu promocyjnego.<br/><br/>Podziel się tym linkiem z ludźmi, którzy mają zostać członkami komitetu: %{href}'
           confirm: Zamierzasz wysłać inicjatywę administratorowi, aby ją przejrzał i opublikował. Po opublikowaniu nie będziesz mógł jej edytować. Czy jesteś pewien?
           edit: Edytuj
+          initiative_data: Dane inicjatywy
+          scope: Zakres
           send_to_technical_validation: Wyślij do weryfikacji technicznej
+          send_to_technical_validation_announcement: Jeśli wszystko wygląda w porządku, kliknij "Wyślij do technicznej walidacji", aby administrator mógł przejrzeć i opublikować Twoją inicjatywę
+          signature_collection: Zbiórka podpisów
+          state: Stan
+          type: Typ
         signatures_count:
           one: " podpis"
           few: " podpisy"
@@ -476,11 +519,18 @@ pl:
         promotal_committee_help: Pamiętaj, że musisz zaprosić co najmniej %{member_count} osób do komitetu organizacyjnego. Prześlij poniższy link, aby zaprosić ludzi do komitetu
         status_change_body_for: 'Inicjatywa %{title} zmieniła swój status na: %{state}'
         status_change_for: Inicjatywa %{title} zmieniła swój status
+      last_activity:
+        new_initiative: 'Nowa inicjatywa:'
       modal:
         not_authorized:
           authorizations_page: Zobacz autoryzacje
           explanation: Musisz zostać zweryfikowany/-a, aby stworzyć nową inicjatywę.
           title: Wymagana autoryzacja
+      pages:
+        home:
+          highlighted_initiatives:
+            active_spaces: Aktualne inicjatywy
+            see_all_spaces: Zobacz wszystkie inicjatywy
       show:
         badge_name:
           accepted: Wystarczająca liczba podpisów
@@ -493,6 +543,9 @@ pl:
         accepted: Przyjęto
         expired: Przedawnione
       unavailable_scope: Niedostępny zakres
+      update:
+        error: Wystąpił błąd.
+        success: Inicjatywa została zaktualizowana.
     menu:
       initiatives: Inicjatywy
     resources:
@@ -501,6 +554,7 @@ pl:
           comment: Skomentuj
       initiatives_type:
         actions:
+          create: Utwórz
           title: Działania
           vote: Wspieranie
   layouts:
@@ -517,8 +571,5 @@ pl:
         sms_phone_number: Numer telefonu komórkowego
         title: Podpisz %{initiative_title}
       initiatives:
-        initiative:
-          check: Sprawdź to
-          check_and_support: Sprawdź to i podpisz
         no_initiatives_yet:
           no_initiatives_yet: Nie ma jeszcze inicjatyw!

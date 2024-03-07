@@ -79,6 +79,36 @@ module Decidim
       end
     end
 
+    describe "#filter_categories_values" do
+      let(:root) { helper.filter_categories_values }
+      let(:leaf) { helper.filter_categories_values.leaf }
+      let(:nodes) { helper.filter_categories_values.node }
+
+      context "when the participatory space does not have categories" do
+        it "does not return any category" do
+          expect(leaf.value).to eq("")
+          expect(nodes.count).to eq(0)
+          expect(nodes.first).to be_nil
+        end
+      end
+
+      context "when the participatory space has a category with subcategories" do
+        let(:participatory_space) { create(:participatory_process, organization:) }
+        let(:category) { create(:category, participatory_space:) }
+        let!(:subcategories) { create_list(:subcategory, 5, parent: category, participatory_space:) }
+
+        it "returns all the subcategories" do
+          expect(leaf.value).to eq("")
+          expect(root).to be_a(Decidim::CheckBoxesTreeHelper::TreeNode)
+          expect(root.node.first.node.count).to eq(5)
+        end
+
+        it "sanitizes the labels" do
+          expect(root.node.first.first.label).to start_with("&lt;script&gt;alert(&quot;category_name&quot;);&lt;/script&gt;")
+        end
+      end
+    end
+
     describe "#filter_scopes_values" do
       let(:root) { helper.filter_scopes_values }
       let(:leaf) { helper.filter_scopes_values.leaf }

@@ -1,11 +1,11 @@
-<div class="card__icondata">
-  <ul class="card-data">
-    <li class="card-data__item">
+<div>
+  <ul>
+    <li>
       <%= resource_icon %>
     </li>
-    <li class="card-data__item">
+    <li>
       <div class="text-left">
-        <div class="card__icondata--address">
+        <div>
           <% if future? %>
             <span><%= t("link_available_soon", scope: "decidim.meetings.meetings.show") %></span>
           <% elsif live? %>

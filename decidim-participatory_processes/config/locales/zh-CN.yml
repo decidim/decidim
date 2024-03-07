@@ -70,8 +70,6 @@ zh-CN:
         destroy: 删除
         duplicate: Duplicate
         edit: 编辑
-        filter:
-          all_processes: 显示所有进程
         import_process: 导入
         new_process: 新建进程
         new_process_group: 新建流程组

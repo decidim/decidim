@@ -140,7 +140,7 @@ RSpec.describe "Collaborative draft search" do
     end
 
     context "and related to is set to resources" do
-      let(:related_to) { "Decidim::DummyResources::DummyResource".underscore }
+      let(:related_to) { "Decidim::Dev::DummyResource".underscore }
 
       it "displays only proposals related to resources" do
         expect(subject).not_to have_escaped_html(translated(collaborative_draft1.title))

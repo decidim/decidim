@@ -106,7 +106,6 @@ pl:
       organizations:
         create:
           error: Podczas tworzenia nowej organizacji wystąpił błąd.
-          success: Organizacja została utworzona.
         edit:
           secondary_hosts_hint: Wpisz każdy z nich w nowej linii
         file_upload_settings:

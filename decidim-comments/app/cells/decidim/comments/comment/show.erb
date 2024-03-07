@@ -61,13 +61,13 @@
       </div>
     </div>
 
-    <div class="comment__footer" data-component="accordion" id="accordion-<%= model.id %>">
+    <div data-comment-footer data-component="accordion" id="accordion-<%= model.id %>">
       <div class="comment__footer-grid">
         <%= render :actions %>
         <%= votes %>
       </div>
       <% if can_reply? %>
-        <div id="panel-<%= reply_id %>" class="add-comment comment__additionalreply">
+        <div id="panel-<%= reply_id %>" class="add-comment" data-additional-reply>
           <%== cell("decidim/comments/comment_form", model, root_depth:, order:) %>
         </div>
       <% end %>

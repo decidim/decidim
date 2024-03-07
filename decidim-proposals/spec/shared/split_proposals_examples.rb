@@ -8,12 +8,12 @@ shared_examples "split proposals" do
   context "when selecting proposals" do
     before do
       visit current_path
-      page.find("#proposals_bulk.js-check-all").set(true)
+      page.find_by_id("proposals_bulk", class: "js-check-all").set(true)
     end
 
     context "when click the bulk action button" do
       before do
-        click_button "Actions"
+        click_on "Actions"
       end
 
       it "shows the change action option" do
@@ -23,11 +23,11 @@ shared_examples "split proposals" do
 
     context "when split into a new one is selected from the actions dropdown" do
       before do
-        page.find("#proposals_bulk.js-check-all").set(false)
+        page.find_by_id("proposals_bulk", class: "js-check-all").set(false)
         page.find(".js-proposal-id-#{proposals.first.id}").set(true)
 
-        click_button "Actions"
-        click_button "Split proposals"
+        click_on "Actions"
+        click_on "Split proposals"
       end
 
       it "shows the component select" do
@@ -38,11 +38,11 @@ shared_examples "split proposals" do
         expect(page).to have_button(id: "js-submit-split-proposals", count: 1)
       end
 
-      context "when submiting the form" do
+      context "when submitting the form" do
         before do
           within "#js-form-split-proposals" do
             select translated(target_component.name), from: :target_component_id_
-            click_button(id: "js-submit-split-proposals")
+            click_on(id: "js-submit-split-proposals")
           end
         end
 

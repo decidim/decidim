@@ -5,7 +5,6 @@ module Decidim
   # Lists the invitations to user groups the given user has.
   class UserGroupPendingInvitationsListCell < Decidim::ViewModel
     include Decidim::CellsPaginateHelper
-    include Decidim::ApplicationHelper
     include Decidim::Core::Engine.routes.url_helpers
     include Decidim::CardHelper
 

@@ -3,7 +3,7 @@
 shared_examples "admin manages proposal answer imports" do
   before do
     page.find(".imports").click
-    click_link "Import answers from a file"
+    click_on "Import answers from a file"
   end
 
   describe "import answers from a file" do
@@ -12,21 +12,21 @@ shared_examples "admin manages proposal answer imports" do
     end
 
     it "returns error without a file" do
-      click_button "Import"
+      click_on "Import"
       expect(page).to have_content("There is an error in this field")
     end
 
-    it "adds proposal answers after succesfully import" do
+    it "adds proposal answers after successfully import" do
       File.write(json_file, JSON.pretty_generate(answers))
       dynamically_attach_file(:import_file, json_file)
 
       expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).exactly(amount).times
 
-      click_button "Import"
+      click_on "Import"
       expect(page).to have_content("#{amount} proposal #{amount == 1 ? "answer" : "answers"} successfully imported")
       answers.each do |answer|
         proposal = Decidim::Proposals::Proposal.find(answer[:id])
-        expect(proposal[:state]).to eq(answer[:state])
+        expect(proposal.state).to eq(answer[:state])
         expect(proposal.answer["en"]).to eq(answer[:"answer/en"])
         expect(proposal.answer["ca"]).to eq(answer[:"answer/ca"])
         expect(proposal.answer["es"]).to eq(answer[:"answer/es"])
@@ -36,7 +36,7 @@ shared_examples "admin manages proposal answer imports" do
     it "does not accept file without required headers" do
       File.write(json_file, JSON.pretty_generate(missing_answers))
       dynamically_attach_file(:import_file, json_file)
-      click_button "Import"
+      click_on "Import"
       expect(page).to have_content("Missing column answer/en. Please check that the file contains required columns.")
     end
 
@@ -55,17 +55,17 @@ shared_examples "admin manages proposal answer imports" do
         end
       end
 
-      it "adds proposal answers after succesfully import" do
+      it "adds proposal answers after successfully import" do
         File.write(json_file, JSON.pretty_generate(answers))
         dynamically_attach_file(:import_file, json_file)
 
         expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).exactly(amount).times
 
-        click_button "Import"
+        click_on "Import"
         expect(page).to have_content("#{amount} proposal #{amount == 1 ? "answer" : "answers"} successfully imported")
         answers.each do |answer|
           proposal = Decidim::Proposals::Proposal.find(answer[:id])
-          expect(proposal[:state]).to eq(answer[:state])
+          expect(proposal.state).to eq(answer[:state])
           expect(proposal.answer["en"]).to eq(answer[:answer][:en])
           expect(proposal.answer["ca"]).to eq(answer[:answer][:ca])
           expect(proposal.answer["es"]).to eq(answer[:answer][:es])
@@ -90,7 +90,7 @@ shared_examples "admin manages proposal answer imports" do
       end
 
       it "downloads a correct CSV example" do
-        click_link "Example as CSV"
+        click_on "Example as CSV"
 
         expect(File.basename(download_path)).to eq("proposals-answers-example.csv")
         expect(File.read(download_path)).to eq(
@@ -104,7 +104,7 @@ shared_examples "admin manages proposal answer imports" do
       end
 
       it "downloads a correct JSON example" do
-        click_link "Example as JSON"
+        click_on "Example as JSON"
 
         expect(File.basename(download_path)).to eq("proposals-answers-example.json")
         expect(File.read(download_path)).to eq(
@@ -143,7 +143,7 @@ shared_examples "admin manages proposal answer imports" do
       end
 
       it "downloads a correct XLSX example" do
-        click_link "Example as Excel (.xlsx)"
+        click_on "Example as Excel (.xlsx)"
 
         expect(File.basename(download_path)).to eq("proposals-answers-example.xlsx")
 

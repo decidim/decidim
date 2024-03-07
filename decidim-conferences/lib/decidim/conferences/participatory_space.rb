@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "decidim/conferences/seeds"
-
 Decidim.register_participatory_space(:conferences) do |participatory_space|
   participatory_space.icon = "media/images/decidim_conferences.svg"
   participatory_space.model_class_name = "Decidim::Conference"
@@ -44,6 +42,8 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
   end
 
   participatory_space.seeds do
+    require "decidim/conferences/seeds"
+
     Decidim::Conferences::Seeds.new.call
   end
 end

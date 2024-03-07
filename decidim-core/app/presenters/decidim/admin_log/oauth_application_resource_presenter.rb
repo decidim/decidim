@@ -11,7 +11,7 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def resource_path
-        @resource_path ||= h.decidim_admin.oauth_application_path(resource)
+        @resource_path ||= h.decidim_system.oauth_application_path(resource)
       end
     end
   end

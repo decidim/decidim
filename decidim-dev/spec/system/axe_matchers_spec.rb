@@ -22,11 +22,14 @@ describe AxeMatchers do
   end
 
   before do
+    # Create a favicon so it does not fail when trying to fetch it
+    favicon = ""
     # Create a temporary route to display the generated HTML in a correct site
     # context.
     final_html = html_document
     Rails.application.routes.draw do
       get "accessibility_matchers", to: ->(_) { [200, {}, [final_html]] }
+      get "/favicon.ico", to: ->(_) { [200, {}, [favicon]] }
     end
 
     switch_to_host(organization.host)

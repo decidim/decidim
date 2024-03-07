@@ -1,8 +1,8 @@
 pl:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Włącz wykres dla organizacji
+      assemblies_type:
+        title: Tytuł
       assembly:
         announcement: Powiadomienie
         area_id: Kategoria
@@ -23,12 +23,16 @@ pl:
         decidim_scope_id: Zakres
         description: Opis
         developer_group: Grupa inicjatorów
+        document: Dokument
         domain: Domena
         duration: Czas trwania
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Obraz główny
+        import_attachments: Importuj załączniki
+        import_categories: Importuj kategorie
+        import_components: Importuj komponenty
         included_at: Dołączono
         instagram: Instagram
         internal_organisation: Organizacja wewnętrzna
@@ -52,6 +56,7 @@ pl:
         subtitle: Podtytuł
         target: Do kogo kierowane
         title: Tytuł
+        twitter: X
         weight: Kolejność na stronie
         youtube: YouTube
       assembly_member:
@@ -64,10 +69,17 @@ pl:
         non_user_avatar: Awatar
         position: Pozycja
         user_id: Użytkownik
+        weight: Kolejność
       assembly_user_role:
         email: E-mail
         name: Imię
         role: Rola
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Nieprawidłowy typ dokumentu. Dozwolone są tylko pliki z następującymi rozszerzeniami: %{types}.'
   activerecord:
     models:
       decidim/assembly:
@@ -90,7 +102,9 @@ pl:
       actions:
         import_assembly: Importuj
         new_assembly: Nowy zespół
+        new_assembly_member: Nowy członek zgromadzenia
         new_assembly_type: Nowy typ zespołu
+        new_assembly_user_role: Nowy administrator zgromadzenia
       assemblies:
         create:
           error: Podczas tworzenia nowego zespołu wystąpił błąd.
@@ -101,6 +115,7 @@ pl:
           private: Prywatny
           public: Publiczny
           published: Opublikowany
+          unpublished: Nieopublikowane
         new:
           create: Utwórz
           title: Nowy zespół
@@ -111,10 +126,6 @@ pl:
         create:
           error: Podczas duplikowania tego zespołu wystąpił błąd.
           success: Zespół został zduplikowany.
-      assemblies_settings:
-        update:
-          error: Podczas aktualizowania ustawień wystąpił błąd.
-          success: Pomyślnie zaktualizowano ustawienia.
       assemblies_types:
         create:
           error: Podczas tworzenia nowego typu zespołu wystąpił błąd.
@@ -147,13 +158,13 @@ pl:
         destroy:
           success: Członek usunięty pomyślnie z tego zespołu.
         edit:
-          title: Aktualizuj członka zespołu.
+          title: Aktualizuj członka zgromadzenia
           update: Aktualizuj
         index:
           assembly_members_title: Członkowie zespołu
         new:
           create: Utwórz
-          title: Nowy członek zespołu.
+          title: Nowy członek zgromadzenia
         update:
           error: Wystąpił błąd podczas aktualizowania członka tego zespołu.
           success: Członek zespołu zaktualizowany pomyślnie.
@@ -171,22 +182,28 @@ pl:
         destroy:
           success: Administrator został usunięty pomyślnie z tego zespołu.
         edit:
-          title: Zaktualizuj administratora zespołu.
+          title: Aktualizuj administratora zgromadzenia
           update: Aktualizuj
         index:
           assembly_admins_title: Administratorzy zespołu
         new:
           create: Utwórz
-          title: Nowy administrator zespołu.
+          title: Nowy administrator zgromadzenia
         update:
           error: Wystąpił błąd podczas aktualizacji administratora tego zespołu.
           success: Administrator zespołu został zaktualizowany pomyślnie.
       filters:
+        ceased_date_not_null:
+          label: Zaprzestane
+          values:
+            'false': Niezaprzestane
+            'true': Zaprzestane
         decidim_assemblies_type_id_eq:
           label: Typ zespołu
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: Szukaj według nazwy lub pseudonimu
       menu:
         assemblies: Zespoły
-        assemblies_settings: Ustawienia
         assemblies_submenu:
           assembly_admins: Administratorzy zespołu
           assembly_members: Członkowie
@@ -195,8 +212,11 @@ pl:
           attachments: Załączniki
           categories: Kategorie
           components: Komponenty
+          info: O tym zgromadzeniu
+          landing_page: Strona startowa
           moderations: Moderacje
           private_users: Prywatni użytkownicy
+          see_assembly: Zobacz zgromadzenie
         assemblies_types: Typy zespołów
       models:
         assemblies_types:
@@ -205,6 +225,7 @@ pl:
             title: Tytuł
         assembly:
           fields:
+            actions: Działania
             created_at: Utworzono
             private: Prywatny
             promoted: Wyróżniony
@@ -271,43 +292,65 @@ pl:
             duration_help: Jeśli czas trwania tego zespołu jest ograniczony, wybierz datę końcową. W przeciwnym razie pojawi się jako nieokreślony.
             filters: Filtry
             images: Obrazy
+            included_at_help: Wybierz datę dodania tego zgromadzenia do platformy Decidim. Nie musi być ona tożsama z datą utworzenia.
             metadata: Metadane
             other: Inny
             select_a_created_by: Wybierz utworzony przez
             select_an_area: Wybierz kategorię
             select_an_assembly_type: Wybierz typ zespołu
             select_parent_assembly: Wybierz zespół nadrzędny
+            slug_help_html: 'Slugi URL służą do generowania adresów URL kierujących bezpośrednio do tego zgromadzenia. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             social_handlers: Profile społecznościowe
             title: Informacje ogólne
             visbility: Widoczność
-        assemblies_settings:
-          edit:
-            update: Aktualizuj
-          form:
-            title: Ustawienia zespołów
         assemblies_types:
           form:
             title: Tytuł
+        assembly_copies:
+          form:
+            slug_help_html: 'Slugi URL służą do generowania adresów URL kierujących bezpośrednio do tego zgromadzenia. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
+        assembly_imports:
+          form:
+            slug_help_html: 'Slugi URL służą do generowania adresów URL kierujących bezpośrednio do tego zgromadzenia. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         assembly_members:
           form:
             existing_user: Istniejący użytkownik
+            explanation: 'Wskazówka dotycząca obrazu:'
+            image_guide: Najlepiej obraz pionowy (portretowy), który nie ma żadnego tekstu.
             non_user: Brak użytkownika
             non_user_avatar_help: Powinieneś uzyskać zgodę osób przed opublikowaniem ich jako członka.
             select_a_position: Wybierz pozycję
             select_user: Wybierz użytkownika
             user_type: Rodzaj użytkownika
-          index:
-            filter:
-              all: Wszystko
-              ceased: Byli
-              not_ceased: Aktualni
-            search: Szukaj
         content_blocks:
           highlighted_assemblies:
             max_results: Maksymalna ilość elementów do pokazania
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        description:
+          area_name: Obszar
+          closing_date: Data zamknięcia
+          created_by: Utworzone przez
+          creation_date: Data utworzenia
+          data: Dane zgromadzenia
+          developer_group: Grupa promująca
+          duration: Czas trwania
+          included_at: Załączono
+          indefinite_duration: Nieokreślony
+          local_area: Obszar Organizacji
+          meta_scope: Zakres
+          participatory_scope: Czego dotyczy decyzja
+          participatory_structure: Jak podejmowana jest decyzja
+          target: Kto uczestniczy
+          title: O tym zgromadzeniu
+        filters:
+          names:
+            all: Wszystko
+          type: Typ
+        show:
+          title: O tym zgromadzeniu
       assembly_members:
         index:
           members: Członkowie
@@ -320,8 +363,16 @@ pl:
         participatory: Uczestniczące
         working_group: Grupa robocza
       content_blocks:
+        children_assemblies:
+          name: Zgromadzenia
+        dates_metadata:
+          name: Metadane dat
+        extra_data:
+          name: Typ i czas trwania
         highlighted_assemblies:
           name: Wyróżnione zespoły
+        related_assemblies:
+          name: Powiązane zespoły
       created_by:
         city_council: Rada Miejska
         others: Inni
@@ -338,7 +389,13 @@ pl:
         working_group: Grupa robocza
       index:
         title: Zespoły
+      last_activity:
+        new_assembly: 'Nowy zespół:'
       pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Aktywne zespoły
+            see_all_spaces: Zobacz wszystkie zespoły
         user_profile:
           member_of:
             member_of: Członek
@@ -350,6 +407,7 @@ pl:
           'true': transparentny
         private_space: To jest prywatny zespół
         related_participatory_processes: Powiązane procesy partycypacyjne
+        social_networks_title: Odwiedź zespół na
     assembly_members:
       assembly_member:
         designated_on: Wyznaczony na
@@ -359,6 +417,7 @@ pl:
       assemblies:
         create_assembly_member:
           email_intro: Administrator zespołu <a href="%{resource_url}">%{resource_name}</a> ustanowił Cię jego członkiem.
+          email_outro: Otrzymujesz to powiadomienie, ponieważ zaproszono Cię do zespołu. Sprawdź <a href="%{resource_url}">stronę zespołu</a>, aby dołączyć!
           email_subject: Zaproszono Cię do grona członków zespołu %{resource_name}!
           notification_title: Zarejestrowano Cię jako członka Zespołu <a href="%{resource_path}">%{resource_name}</a>. Sprawdź <a href="%{resource_path}">stronę zespołu</a>, aby wnieść swój wkład!
       assembly:

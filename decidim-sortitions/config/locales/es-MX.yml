@@ -96,6 +96,8 @@ es-MX:
           cancelled: Cancelado
           category: Categoría
           state: Estado
+        index:
+          empty: Aún no hay ningún sorteo.
         linked_sortitions:
           selected_proposals: Propuestas seleccionadas
         orders:

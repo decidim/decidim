@@ -36,6 +36,9 @@ pt-BR:
         block_user_templates:
           form:
             save: Salvar
+        proposal_answer_templates:
+          form:
+            save: Salvar
         questionnaire_templates:
           choose:
             create_from_template: Criar a partir de modelo
@@ -55,5 +58,11 @@ pt-BR:
             current_step: Passo %{step}
             of_total_steps: de %{total_steps}
             tos_agreement: Ao participar você aceita os Termos de Serviço
+      admin_log:
+        template:
+          create: "O %{user_name} criou o modelo de questionário %{resource_name}"
+          delete: "%{user_name} excluiu o modelo de questionário %{resource_name}"
+          duplicate: "%{user_name} duplicou o modelo de questionário %{resource_name}"
+          update: "%{user_name} atualizou o modelo de questionário %{resource_name}"
       template_types:
         questionnaires: Questionários

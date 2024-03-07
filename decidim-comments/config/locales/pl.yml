@@ -34,7 +34,6 @@ pl:
           error: Komentarz nie może zostać usunięty.
         update:
           error: Wystąpił błąd podczas aktualizowania komentarza.
-      comments_count: Liczba komentarzy
       comments_title: Komentarz
       last_activity:
         new_comment: 'Nowy komentarz:'
@@ -76,6 +75,7 @@ pl:
         edit: Edytuj
         edited: Edytowany
         hide_replies: Ukryj odpowiedzi
+        moderated_at: Komentarz moderowany dnia %{date}
         reply: Odpowiedz
         report:
           action: Zgłoś
@@ -84,6 +84,7 @@ pl:
           description: Czy ta treść jest nieodpowiednia?
           details: Dodatkowe komentarze
           reasons:
+            does_not_belong: Zawiera nielegalną działalność, groźby samobójstwa, dane osobowe lub inne informacje, które są niestosowne w %{organization_name}.
             offensive: Promuje rasizm, seksizm, nienawiść, ataki osobiste, groźby śmierci, groźby samobójcze jakąkolwiek formę mowy nienawiści.
             spam: Zawiera clickbaity, reklamy, oszustwa lub skrypty botów.
           title: Zgłoś niewłaściwą treść

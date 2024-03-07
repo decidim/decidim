@@ -7,8 +7,6 @@ module Decidim
   #
   #    cell("decidim/coauthorships", @proposal)
   class CoauthorshipsCell < Decidim::ViewModel
-    include Decidim::ApplicationHelper
-
     def show
       if authorable?
         cell "decidim/author", presenter_for_author(model), has_actions: has_actions?, from: model
@@ -16,7 +14,7 @@ module Decidim
         cell(
           "decidim/collapsible_authors",
           presenters_for_identities(model),
-          options
+          options.merge(from: model)
         )
       end
     end

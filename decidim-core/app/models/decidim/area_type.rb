@@ -2,7 +2,7 @@
 
 module Decidim
   # Area types allows to use different types of areas in participatory space
-  # (terriotrial, sectorial, etc.)
+  # (territorial, sectorial, etc.)
   class AreaType < ApplicationRecord
     include Decidim::TranslatableResource
     include Decidim::Traceable

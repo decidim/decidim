@@ -7,6 +7,8 @@ module Decidim
         include Decidim::TranslatableAttributes
         include Decidim::Paginable
 
+        add_breadcrumb_item_from_menu :admin_template_types_menu
+
         def fetch
           enforce_permission_to(:read, :template, template:)
 

@@ -59,8 +59,6 @@ ga:
           status: Stádas
           status_values:
             all: Uile
-        project:
-          view: Amharc
         show:
           budget: Buiséad
     components:

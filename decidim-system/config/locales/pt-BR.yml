@@ -59,6 +59,21 @@ pt-BR:
         placeholders:
           content: Adicione conteúdo significativo à página estática %{page} no painel do administrador.
           title: Título padrão para %{page}
+      devise:
+        passwords:
+          edit:
+            change_your_password: Mude sua senha
+            minimum_characters: "(%{minimum} caracteres no mínimo)"
+          new:
+            forgot_your_password: Esqueceu sua senha
+            send_me_reset_password_instructions: Envie-me as instruções de redefinição de senha
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Não recebeu instruções de confirmação?
+            did_not_receive_unlock_instructions?: Não recebeu instruções de desbloqueio?
+            forgot_your_password?: Esqueceu sua senha?
+            log_in: Iniciar sessão
+            sign_up: Cadastrar-se
       menu:
         admins: Administradores
         dashboard: painel de controle
@@ -112,7 +127,6 @@ pt-BR:
           show: Exibir configurações avançadas
         create:
           error: Ocorreu um erro ao criar uma nova organização.
-          success: Organização criada com sucesso.
         edit:
           secondary_hosts_hint: Insira cada um deles em uma nova linha
         file_upload_settings:
@@ -136,6 +150,11 @@ pt-BR:
         index:
           title: Organizações
         new:
+          default: Padrão?
+          enabled: Habilitado
+          locale: Local
+          reference_prefix_hint: O prefixo de referência é usado para identificar exclusivamente recursos em todas as organizações.
+          secondary_hosts_hint: Insira cada um deles em uma nova linha.
           title: Nova organização
         omniauth_settings:
           decidim:
@@ -173,3 +192,8 @@ pt-BR:
           our_getting_started_guide: nosso guia inicial
       titles:
         dashboard: painel de controle
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Sair

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "decidim/initiatives/seeds"
-
 Decidim.register_participatory_space(:initiatives) do |participatory_space|
   participatory_space.icon = "media/images/decidim_initiatives.svg"
   participatory_space.stylesheet = "decidim/initiatives/initiatives"
@@ -49,6 +47,8 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
   end
 
   participatory_space.seeds do
+    require "decidim/initiatives/seeds"
+
     Decidim::Initiatives::Seeds.new.call
   end
 end

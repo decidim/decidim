@@ -79,7 +79,7 @@ module Decidim
       tabs_content = content_tag(:div, class: "tabs-content", data: { tabs_content: tabs_id }) do
         locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
           tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
-          string + content_tag(:div, class: tab_element_class_for("panel", index), id: tab_content_id) do
+          string + content_tag(:div, class: tab_element_class_for("panel", index), id: tab_content_id, "aria-hidden": tab_attr_aria_hidden_for(index)) do
             if hashtaggable
               hashtaggable_text_field(type, name, locale, options.merge(label: false))
             elsif type.to_sym == :editor
@@ -122,7 +122,7 @@ module Decidim
     def hashtaggable_text_field(type, name, locale, options = {})
       options[:hashtaggable] = true if type.to_sym == :editor
 
-      content_tag(:div, class: "hashtags__container") do
+      content_tag(:div) do
         if options[:value]
           send(type, name_with_locale(name, locale), options.merge(label: options[:label], value: options[:value][locale]))
         else
@@ -164,7 +164,7 @@ module Decidim
       tabs_content = content_tag(:div, class: "tabs-content", data: { tabs_content: tabs_id }) do
         handlers.each_with_index.inject("".html_safe) do |string, (handler, index)|
           tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
-          string + content_tag(:div, class: tab_element_class_for("panel", index), id: tab_content_id) do
+          string + content_tag(:div, class: tab_element_class_for("panel", index), id: tab_content_id, "aria-hidden": tab_attr_aria_hidden_for(index)) do
             send(type, "#{handler}_handler", options.merge(label: false))
           end
         end
@@ -202,7 +202,7 @@ module Decidim
 
       content_tag(
         :div,
-        class: "editor #{"hashtags__container" if editor_options[:editor]["class"].include?("js-hashtags")}",
+        class: "editor",
         id: "#{sanitize_for_dom_selector(@object_name)}_#{sanitize_for_dom_selector(name)}"
       ) do
         template = ""
@@ -416,9 +416,9 @@ module Decidim
     # options      - A Hash with options to build the field.
     #              * max_file_size: Maximum size for the file (If you really want to change max
     #                 file size you should probably change it in validator).
-    #              * resouce_name: Name of the resource (e.g. user)
+    #              * resource_name: Name of the resource (e.g. user)
     #              * resource_class: Attribute's resource class (e.g. Decidim::User)
-    #              * resouce_class: Class of the resource (e.g. user)
+    #              * resource_class: Class of the resource (e.g. user)
     #              * required: Whether the file is required or not (false by default).
     #              * titled: Whether the file can have title or not.
     #              * show_current: Whether the current file is displayed next to the button.
@@ -744,6 +744,12 @@ module Decidim
       element_class = "tabs-#{type}"
       element_class += " is-active" if index.zero?
       element_class
+    end
+
+    def tab_attr_aria_hidden_for(index)
+      return "false" if index.zero?
+
+      "true"
     end
 
     def locales

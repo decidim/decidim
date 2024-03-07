@@ -1,8 +1,8 @@
 <% add_decidim_page_title("#{translated_attribute(budget.title)} - #{t(".title")}") %>
 <div class="item_show__header">
-  <h2 class="item_show__header-title">
-    <%= "#{translated_attribute(budget.title)} &gt; #{t(".title")}".html_safe %>
-  </h2>
+  <h1 class="item_show__header-title">
+    <%= "#{decidim_escape_translated(budget.title)} &gt; #{t(".title")}".html_safe %>
+  </h1>
 </div>
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">

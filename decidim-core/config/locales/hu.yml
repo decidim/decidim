@@ -75,12 +75,6 @@ hu:
   booleans:
     'false': 'Nem'
     'true': 'Igen'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: A fájl nem nyitható meg
-      file_resolution_too_large: A fájl felbontása túl nagy
-      file_size_too_large: Túl nagy a fájl mérete
-      not_inside_organization: A fájl nincs csatolva egyetlen szervezethez sem
   date:
     formats:
       decidim_short: "%Y.%m.%d"
@@ -252,11 +246,9 @@ hu:
       amendable:
         button: 'Módosítás: %{model_name}'
         error: Hiba történt az erőforrás módosításakor.
-        help_text: Javítsd ezt a %{model_name} a %{amendable_fields} módosításával.
         promote_button: Kezdeményezze a %{model_name}
         promote_confirm_text: Biztos benne, hogy támogatni kívánja ezt a helyreigazítást?
         promote_help_text: Támogathatja ezt a helyesbítést, valamint közzéteheti azt független %{model_name} elemként.
-        section_heading: Módosítások (%{count})
       compare_draft:
         continue: Tovább
         no_similars_found: Nem találtunk hasonló szövegjavítást.
@@ -416,7 +408,6 @@ hu:
         one: és még %{count}
         other: és még %{count}
       see_less: "(kevesebb)"
-      see_more: "(tovább)"
     components:
       component_order_selector:
         no_content: Nem találtunk a feltételeknek megfelelő tartalmat.
@@ -469,8 +460,6 @@ hu:
         description: Leírás
       footer_sub_hero:
         name: Lábléc sub hero banner
-      hero:
-        name: Hero kép
       hero_settings_form:
         background_image: Háttérkép
         welcome_text: Üdvözlő szöveg
@@ -792,14 +781,12 @@ hu:
           add_attachment: Melléklet hozzáadása
           add_file: Fájl hozzáadása
           add_image: Képek hozzáadása
-          cancel: Mégse
           edit_image: Kép szerkesztése
           error: Hiba!
           file_size_too_large: 'A fájl túl nagy! Maximális méret: %{megabytes}MB'
           filename: Fájlnév
           remove: Eltávolítás
           replace: Csere
-          save: Mentés
           title: Cím
           title_required: A cím megadása kötelező!
           uploaded: Feltöltve
@@ -1137,7 +1124,6 @@ hu:
           proposals: Javaslatok
           proposals_explanation: Tegyél javaslatot, támogasd a már meglévőket, legyél Te a változás motorja.
         footer_sub_hero:
-          footer_sub_hero_body: Egy nyitottabb, átláthatóbb és együttműködőbb társadalomért.<br /> Csatlakozz, szervezz és dönts.
           footer_sub_hero_headline: Üdvözöljük a %{organization} részvételi platformján.
           register: Regisztráció
         hero:
@@ -1159,8 +1145,6 @@ hu:
       terms_of_service:
         refuse:
           modal_btn_continue: Feltételek elfogadása és folytatás
-    participatory_space_private_users:
-      not_allowed: Nincs jogosultságod a tartalom megtekintésére
     profile:
       deleted: Törölt résztvevő
     profiles:
@@ -1239,6 +1223,7 @@ hu:
     searches:
       filters:
         jump_to: 'Ugorj:'
+        search: Keresés
         state:
           active: Aktív
           all: Minden
@@ -1456,8 +1441,6 @@ hu:
         change_my_password: A jelszó megváltoztatása
         confirm_new_password: Erősítse meg az új jelszót
         new_password: Új jelszó
-        password_help: "%{minimun_characters} karakter a minimum, nem lehet túl gyakori (pl. 123456), és különböznie kell a becenevétől és az e-mail címétől."
-        password_help_admin: "%{minimun_characters} karakter a minimum, nem lehet túl gyakori (pl. 123456), és különböznie kell a becenevétől és az e-mail címétől és a régi jelszavaitól."
         title: Jelszó módosítása
       new:
         forgot_your_password: Elfelejtette a jelszavát?
@@ -1603,8 +1586,6 @@ hu:
         body: Ön %{minutes} percig inaktív volt. Ha továbbra is inaktív marad, a saját biztonsága érdekében automatikusan kijelentkeztetjük.
         continue_session: Munkamenet folytatása
         title: Folytatod a munkameneted?
-      upload_modal:
-        close_modal: Ablak bezárás
       user_menu:
         account: 'Felhasználói fiók: %{name}'
         admin_dashboard: Admin vezérlőpult

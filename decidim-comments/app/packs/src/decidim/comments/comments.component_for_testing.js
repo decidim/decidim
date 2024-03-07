@@ -1,4 +1,5 @@
 /* eslint no-undef: 0 */
+/* eslint-disable no-relative-import-paths/no-relative-import-paths */
 
 import CommentsComponent from "./comments.component"
 

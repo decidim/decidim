@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Assemblies
   describe Admin::CreateAssemblyMember do
-    subject { described_class.new(form, current_user, assembly) }
+    subject { described_class.new(form, assembly) }
 
     let(:assembly) { create(:assembly) }
     let(:user_entity) { nil }

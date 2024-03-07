@@ -67,7 +67,6 @@ it:
         machine_translation_display_priority_translation: Prima il testo tradotto
         name: Nome
         official_img_footer: Logo ufficiale nel footer
-        official_img_header: Intestazione logo ufficiale
         official_url: URL ufficiale dell'organizzazione
         omnipresent_banner_short_description: Breve descrizione
         omnipresent_banner_title: Titolo
@@ -124,8 +123,6 @@ it:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: File immagine non valido
-            official_img_header:
               allowed_file_content_types: File immagine non valido
   activerecord:
     attributes:
@@ -303,9 +300,6 @@ it:
       dashboard:
         show:
           view_more_logs: Visualizza più registri
-      domain_whitelist:
-        form:
-          domain_too_short: Dominio troppo corto
       exports:
         export_as: "%{name} esporta come %{export_format}"
         formats:
@@ -363,7 +357,6 @@ it:
           name_or_nickname_or_email_cont: Cerca %{collection} per email, nome o pseudonimo.
           reported_id_string_or_reported_content_cont: Cerca %{collection} per id o contenuto segnalabile.
           title_cont: Cerca %{collection} per titolo.
-          user_name_or_user_email_cont: Cerca %{collection} per nome o email.
         state_eq:
           label: Stato
           values:
@@ -438,7 +431,6 @@ it:
         area_types: Tipi di ambito territoriale
         areas: Ambiti territoriali
         configuration: Configurazione
-        external_domain_whitelist: Consenti l'uso di domini esterni
         help_sections: Sezioni di Aiuto
         homepage: Homepage
         impersonations: Impersonificazioni
@@ -687,21 +679,6 @@ it:
             layout_appearance_title: Modifica aspetto del layout
             preview: Anteprima
           omnipresent_banner_appearance_title: Modifica banner onnipresente
-      organization_external_domain_whitelist:
-        edit:
-          update: Aggiorna
-        external_domain:
-          down: Giù
-          external_domain: Dominio esterno
-          remove: Rimuovi
-          up: Su
-        form:
-          add: Aggiungi alla whitelist
-          title: Whitelist di domini esterni
-      organization_homepage:
-        edit:
-          active_content_blocks: Blocchi di contenuto attivo
-          inactive_content_blocks: Blocchi di contenuto inattivo
       participatory_space_private_users:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente privato per questo spazio partecipativo.
@@ -717,7 +694,6 @@ it:
           title: Nuovo utente privato dello spazio partecipativo.
       participatory_space_private_users_csv_imports:
         new:
-          title: Carica il tuo file CSV
           upload: Carica File
       reminders:
         create:
@@ -777,7 +753,6 @@ it:
       shared:
         gallery:
           add_images: Aggiungi immagini
-          delete_image: Cancella immagine
           gallery_legend: Aggiungi una galleria di immagini (opzionale)
       static_page_topics:
         create:
@@ -805,12 +780,12 @@ it:
           update: Aggiorna
         form:
           none: Nessuna
+        index:
+          last_notable_change: Ultimo cambiamento significativo
         new:
           create: Crea pagina
           title: Nuova pagina
         topic:
-          destroy: Rimuovi argomento
-          edit: Modifica argomento
           without_topic: Pagine senza argomento
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa pagina.

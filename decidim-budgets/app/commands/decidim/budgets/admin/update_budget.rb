@@ -5,43 +5,12 @@ module Decidim
     module Admin
       # This command is executed when the user updates a Budget
       # from the admin panel.
-      class UpdateBudget < Decidim::Command
-        def initialize(form, budget)
-          @form = form
-          @budget = budget
-        end
+      class UpdateBudget < Decidim::Commands::UpdateResource
+        fetch_form_attributes :scope, :title, :weight, :description, :total_budget
 
-        # Updates the budget if valid.
-        #
-        # Broadcasts :ok if successful, :invalid otherwise.
-        def call
-          return broadcast(:invalid) if form.invalid?
+        protected
 
-          update_budget!
-
-          broadcast(:ok, budget)
-        end
-
-        private
-
-        attr_reader :form, :budget
-
-        def update_budget!
-          attributes = {
-            scope: form.scope,
-            title: form.title,
-            weight: form.weight,
-            description: form.description,
-            total_budget: form.total_budget
-          }
-
-          Decidim.traceability.update!(
-            budget,
-            form.current_user,
-            attributes,
-            visibility: "all"
-          )
-        end
+        def extra_params = { visibility: "all" }
       end
     end
   end

@@ -6,10 +6,9 @@ import OrderedList from "@tiptap/extension-ordered-list";
 import ListItem from "@tiptap/extension-list-item";
 import Text from "@tiptap/extension-text";
 
-import Bold from "../../extensions/bold";
-// import OrderedList from "../../extensions/ordered_list";
+import Bold from "src/decidim/editor/extensions/bold";
 
-import { updateContent } from "../helpers";
+import { updateContent } from "src/decidim/editor/test/helpers";
 
 const createBasicEditor = () => {
   const element = document.createElement("div");

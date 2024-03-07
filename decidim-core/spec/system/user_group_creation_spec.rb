@@ -13,7 +13,7 @@ describe "User group creation" do
   end
 
   it "creates a user group for the current user" do
-    click_link "Create group"
+    click_on "Create group"
 
     fill_in "Name", with: "My super user group"
     fill_in "Nickname", with: "my_usergroup"
@@ -24,13 +24,13 @@ describe "User group creation" do
 
     dynamically_attach_file(:group_avatar, Decidim::Dev.asset("avatar.jpg"))
 
-    click_button "Create group"
+    click_on "Create group"
 
     expect(page).to have_content("My super user group")
     expect(page).to have_content("@my_usergroup")
     expect(page).to have_content("This is us.")
 
-    click_link "Members"
+    click_on "Members"
 
     within "a.profile__user" do
       expect(page).to have_content(user.name)

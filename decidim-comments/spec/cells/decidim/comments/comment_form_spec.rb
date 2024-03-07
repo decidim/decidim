@@ -36,7 +36,7 @@ module Decidim::Comments
         expect(subject).to have_field(name: "comment[commentable_gid]", type: :hidden)
         expect(subject).to have_button(text: "Publish comment", disabled: true)
 
-        expect(subject).not_to have_css("#add-comment-DummyResource-#{commentable.id}-user-group-id")
+        expect(subject).to have_no_css("#add-comment-DummyResource-#{commentable.id}-user-group-id")
       end
 
       context "with user belonging to groups" do
@@ -82,7 +82,7 @@ module Decidim::Comments
           end
 
           it "does not render the comment as input" do
-            expect(subject).not_to have_css("#add-comment-DummyResource-#{commentable.id}-user-group-id")
+            expect(subject).to have_no_css("#add-comment-DummyResource-#{commentable.id}-user-group-id")
           end
         end
       end

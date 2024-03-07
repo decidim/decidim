@@ -33,6 +33,8 @@ module Decidim
             html += content_tag(:p, value.html_safe, class: content[:class])
           end
           html.html_safe
+        when :cell_table
+          render partial: "decidim/design/shared/cell_table", locals: content.slice(:cell_snippet).merge(content[:options] || {})
         when :table
           render partial: "decidim/design/shared/table", locals: content.slice(:items).merge(content[:options] || {})
         when :partial
@@ -63,17 +65,34 @@ module Decidim
       def render_cell_snippet(content)
         return "" if content[:cell_snippet].blank?
 
-        render partial: "decidim/design/shared/cell_snippet", locals: cell_snippet_locals(content[:cell_snippet][:cell], content[:cell_snippet][:args])
+        render partial: "decidim/design/shared/cell_snippet", locals: cell_snippet_locals(content[:cell_snippet])
       end
 
-      def cell_snippet_locals(cell, args)
-        path = args.delete(:path) || File.join("decidim-core/app/cells/", cell)
-        {
-          text: path,
-          url: "https://github.com/decidim/decidim/blob/#{RELEASE_ID}/#{path}_cell.rb",
-          cell:,
-          args:
-        }
+      def render_cell_call_textarea(cell_data)
+        render partial: "decidim/design/shared/cell_call_textarea", locals: cell_snippet_locals(cell_data)
+      end
+
+      def cell_snippet_locals(args)
+        path = args.delete(:path) || File.join("decidim-core/app/cells/", args[:cell])
+        url = "https://github.com/decidim/decidim/blob/#{RELEASE_ID}/#{path}_cell.rb"
+        call_string = args.delete(:call_string) || ""
+        args_texts = call_string.present? ? [] : inspect_args(args[:args])
+
+        args.merge(text: path, url:, call_string:, args_texts:)
+      end
+
+      def inspect_args(args = [])
+        return ["nil"] if args.blank?
+
+        args.map do |arg|
+          next arg.inspect if arg.is_a?(String)
+          next arg.except(:context).inspect if arg.is_a?(Hash)
+
+          class_name = arg.class.name
+          next "#{class_name}.take" if arg.is_a?(Decidim::ApplicationRecord)
+
+          class_name
+        end
       end
 
       def render_row(row)

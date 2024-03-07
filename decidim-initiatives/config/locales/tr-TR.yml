@@ -346,7 +346,6 @@ tr:
             other: ve %{count} kişi daha
         committee_members:
           approve: Onayla
-          confirm_revoke: Emin misin?
           title: Komite üyeleri
         count:
           title:
@@ -358,7 +357,6 @@ tr:
           author: Yazar
           myself: Benim girişimlerim
           scope: Kapsam
-          search: Arama
           state: Statü
           type: Tür
         index_header:
@@ -469,8 +467,5 @@ tr:
         sms_phone_number: Cep telefonu numarası
         title: İşaret %{initiative_title}
       initiatives:
-        initiative:
-          check: Bunu kontrol et
-          check_and_support: Kontrol et ve imzala
         no_initiatives_yet:
           no_initiatives_yet: Henüz girişim yok!

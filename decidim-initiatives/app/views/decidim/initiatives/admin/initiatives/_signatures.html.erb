@@ -1,0 +1,87 @@
+<% cell_small_width = collect_user_extra_fields ? "9.4%" : "15.6%" %>
+<% style_initiative_title = "border: 1pt solid black; margin: 15pt 0; font-size: 12pt; font-weight: bold; text-transform: uppercase; text-align: center;" %>
+<% style_initiatives_votes_table = "width: 100%; display: block; border: 1pt solid black;" %>
+<% style_initiatives_votes_table_header = "background-color: lightgray; display: inline-block; width: 100%; font-size: 12pt; font-weight: bold; border-bottom: 1pt solid black;" %>
+<% style_initiatives_votes_table_row = "width: 100%; display: inline-block; min-height: 33pt;" %>
+<% style_initiatives_votes_table_cell = "width: 19%; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;" %>
+<% style_initiatives_votes_table_cell_small = "width: #{cell_small_width}; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;" %>
+<div class="initiative-title" style="<%= style_initiative_title %>">
+  <%= translated_attribute(initiative.title) %>
+</div>
+<div class="initiatives-votes-table" style="<%= style_initiatives_votes_table %>">
+  <div class="initiatives-votes-table-header" style="<%= style_initiatives_votes_table_header %>">
+    <div class="initiatives-votes-table-cell w20" style="<%= style_initiatives_votes_table_cell %>">
+      <%= t("models.initiatives_votes.fields.initiative_id", scope: "decidim.admin") %>
+    </div>
+    <div class="initiatives-votes-table-cell w20" style="<%= style_initiatives_votes_table_cell %>">
+      <%= t("models.initiatives_votes.fields.initiative_title", scope: "decidim.admin") %>
+    </div>
+    <div class="initiatives-votes-table-cell w20" style="<%= style_initiatives_votes_table_cell %>">
+      <%= t("models.initiatives_votes.fields.initiative_start_date", scope: "decidim.admin") %>
+    </div>
+    <div class="initiatives-votes-table-cell w20" style="<%= style_initiatives_votes_table_cell %>">
+      <%= t("models.initiatives_votes.fields.initiative_end_date", scope: "decidim.admin") %>
+    </div>
+    <div class="initiatives-votes-table-cell w20" style="<%= style_initiatives_votes_table_cell %>">
+      <%= t("models.initiatives_votes.fields.initiative_signatures_count", scope: "decidim.admin") %>
+    </div>
+  </div>
+  <div class="initiatives-votes-table-row" style="<%= style_initiatives_votes_table_row %>">
+    <div class="initiatives-votes-table-cell w20" style="<%= style_initiatives_votes_table_cell %>">
+      <%= initiative.reference %>
+    </div>
+    <div class="initiatives-votes-table-cell w20" style="<%= style_initiatives_votes_table_cell %>">
+      <%= translated_attribute(initiative.title) %>
+    </div>
+    <div class="initiatives-votes-table-cell w20" style="<%= style_initiatives_votes_table_cell %>">
+      <%= initiative.signature_start_date %>
+    </div>
+    <div class="initiatives-votes-table-cell w20" style="<%= style_initiatives_votes_table_cell %>">
+      <%= initiative.signature_end_date %>
+    </div>
+    <div class="initiatives-votes-table-cell w20" style="<%= style_initiatives_votes_table_cell %>">
+      <%= votes.count %>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<div class="initiatives-votes-table" style="<%= style_initiatives_votes_table %>">
+  <div class="initiatives-votes-table-header" style="<%= style_initiatives_votes_table_header %>">
+    <div class="initiatives-votes-table-cell w11" style="<%= style_initiatives_votes_table_cell_small %>">
+      <%= t("models.initiatives_votes.fields.initiative_id", scope: "decidim.admin") %>
+    </div>
+    <div class="initiatives-votes-table-cell w11" style="<%= style_initiatives_votes_table_cell_small %>">
+      <%= t("models.initiatives_votes.fields.initiative_title", scope: "decidim.admin") %>
+    </div>
+    <% if collect_user_extra_fields %>
+      <div class="initiatives-votes-table-cell w11" style="<%= style_initiatives_votes_table_cell_small %>">
+        <%= t("models.initiatives_votes.fields.name_and_surname", scope: "decidim.admin") %>
+      </div>
+      <div class="initiatives-votes-table-cell w11" style="<%= style_initiatives_votes_table_cell_small %>">
+        <%= t("models.initiatives_votes.fields.document_number", scope: "decidim.admin") %>
+      </div>
+      <div class="initiatives-votes-table-cell w11" style="<%= style_initiatives_votes_table_cell_small %>">
+        <%= t("models.initiatives_votes.fields.date_of_birth", scope: "decidim.admin") %>
+      </div>
+      <div class="initiatives-votes-table-cell w11" style="<%= style_initiatives_votes_table_cell_small %>">
+        <%= t("models.initiatives_votes.fields.postal_code", scope: "decidim.admin") %>
+      </div>
+    <% end %>
+    <div class="initiatives-votes-table-cell w11" style="<%= style_initiatives_votes_table_cell_small %>">
+      <%= t("models.initiatives_votes.fields.time_and_date", scope: "decidim.admin") %>
+    </div>
+    <div class="initiatives-votes-table-cell w11" style="<%= style_initiatives_votes_table_cell_small %>">
+      <%= t("models.initiatives_votes.fields.timestamp", scope: "decidim.admin") %>
+    </div>
+    <div class="initiatives-votes-table-cell w11" style="<%= style_initiatives_votes_table_cell_small %>">
+      <%= t("models.initiatives_votes.fields.hash", scope: "decidim.admin") %>
+    </div>
+    <div class="initiatives-votes-table-cell w11" style="<%= style_initiatives_votes_table_cell_small %>">
+      <%= t("models.initiatives_votes.fields.scope", scope: "decidim.admin") %>
+    </div>
+  </div>
+  <% votes.each do |vote| %>
+    <%= cell "decidim/initiatives_votes/vote", vote %>
+  <% end %>
+</div>

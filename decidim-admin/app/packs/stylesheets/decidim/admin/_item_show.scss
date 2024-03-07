@@ -10,7 +10,7 @@
   }
 
   &-title {
-    @apply text-xl font-bold inline-block flex items-center justify-between gap-4 w-full first-letter:capitalize first:[&>div]:ml-0 first:[&>*]:ml-auto;
+    @apply text-xl font-bold block sm:flex items-center justify-between gap-4 w-full first-letter:capitalize first:[&>div]:ml-0 first:[&>*]:ml-auto;
 
     .dropdown-pane {
       @apply font-normal;

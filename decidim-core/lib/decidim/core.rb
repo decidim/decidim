@@ -102,7 +102,6 @@ module Decidim
   autoload :ShareableWithToken, "decidim/shareable_with_token"
   autoload :RecordEncryptor, "decidim/record_encryptor"
   autoload :AttachmentAttributes, "decidim/attachment_attributes"
-  autoload :CarrierWaveMigratorService, "decidim/carrier_wave_migrator_service"
   autoload :ReminderRegistry, "decidim/reminder_registry"
   autoload :ReminderManifest, "decidim/reminder_manifest"
   autoload :ManifestMessages, "decidim/manifest_messages"
@@ -121,6 +120,16 @@ module Decidim
   autoload :ParticipatorySpaceUser, "decidim/participatory_space_user"
   autoload :ModerationTools, "decidim/moderation_tools"
   autoload :ContentSecurityPolicy, "decidim/content_security_policy"
+  autoload :IconRegistry, "decidim/icon_registry"
+  autoload :HasConversations, "decidim/has_conversations"
+
+  module Commands
+    autoload :CreateResource, "decidim/commands/create_resource"
+    autoload :UpdateResource, "decidim/commands/update_resource"
+    autoload :DestroyResource, "decidim/commands/destroy_resource"
+    autoload :ResourceHandler, "decidim/commands/resource_handler"
+    autoload :HookError, "decidim/commands/hook_error"
+  end
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -145,19 +154,31 @@ module Decidim
     participatory_space_manifests.each do |manifest|
       manifest.seed!
 
-      Organization.all.each do |organization|
-        ContextualHelpSection.set_content(
-          organization,
-          manifest.name,
-          Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.sentence(word_count: 15)
-          end
-        )
-      end
+      seed_contextual_help_sections!(manifest)
     end
 
+    seed_gamification_badges!
+
+    seed_endorsements!
+
+    I18n.available_locales = original_locale
+  end
+
+  def self.seed_contextual_help_sections!(manifest)
+    Organization.all.each do |organization|
+      ContextualHelpSection.set_content(
+        organization,
+        manifest.name,
+        Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.sentence(word_count: 15)
+        end
+      )
+    end
+  end
+
+  def self.seed_gamification_badges!
     Gamification.badges.each do |badge|
-      puts "Setting random values for the \"#{badge.name}\" badge..."
+      puts "Setting random values for the \"#{badge.name}\" badge..." # rubocop:disable Rails/Output
       User.all.find_each do |user|
         Gamification::BadgeScore.find_or_create_by!(
           user:,
@@ -166,8 +187,24 @@ module Decidim
         )
       end
     end
+  end
 
-    I18n.available_locales = original_locale
+  def self.seed_endorsements!
+    resources_types = Decidim.resource_manifests
+                             .map { |resource| resource.attributes[:model_class_name] }
+                             .select { |resource| resource.constantize.include? Decidim::Endorsable }
+
+    resources_types.each do |resource_type|
+      resource_type.constantize.find_each do |resource|
+        # exclude the users that already endorsed
+        users = resource.endorsements.map(&:author)
+        rand(50).times do
+          user = (Decidim::User.all - users).sample
+          Decidim::Endorsement.create!(resource:, author: user)
+          users << user
+        end
+      end
+    end
   end
 
   # Finds all currently loaded Decidim ActiveRecord classes and resets their
@@ -270,7 +307,7 @@ module Decidim
     end
   end
 
-  # Exposes a configuration option: the whitelist ips
+  # Exposes a configuration option: the IPs that are allowed to access the system
   config_accessor :system_accesslist_ips do
     []
   end
@@ -397,7 +434,7 @@ module Decidim
     ";"
   end
 
-  # Exposes a configuration option: HTTP_X_FORWADED_HOST header follow-up.
+  # Exposes a configuration option: HTTP_X_FORWARDED_HOST header follow-up.
   # If a caching system is in place, it can also allow cache and log poisoning attacks,
   # allowing attackers to control the contents of caches and logs that could be used for other attacks.
   config_accessor :follow_http_x_forwarded_host do
@@ -718,6 +755,10 @@ module Decidim
     MenuRegistry.register(name.to_sym, &)
   end
 
+  def self.icons
+    @icons ||= Decidim::IconRegistry.new
+  end
+
   # Public: Stores an instance of ViewHooks
   def self.view_hooks
     @view_hooks ||= ViewHooks.new
@@ -786,7 +827,7 @@ module Decidim
   end
 
   # Checks if a particular decidim gem is installed and needed by this
-  # particular instance. Preferrably this happens through bundler by inspecting
+  # particular instance. Preferably this happens through bundler by inspecting
   # the Gemfile of the instance but when Decidim is used without bundler, this
   # will check:
   # 1. If the gem is globally available or not in the loaded specs, i.e. the

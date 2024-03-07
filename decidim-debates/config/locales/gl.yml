@@ -70,8 +70,6 @@ gl:
         create:
           invalid: Produciuse un problema ao crear o debate.
           success: Debate creouse con éxito.
-        debate:
-          participate: Participar
         filters:
           all: Todo
           category: Categoría

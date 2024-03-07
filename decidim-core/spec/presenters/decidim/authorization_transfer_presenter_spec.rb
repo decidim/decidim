@@ -37,7 +37,7 @@ module Decidim
 
       it "returns the record types with their translated messages" do
         expect(subject).to eq(
-          "Decidim::DummyResources::DummyResource" => "Dummy resource: 5"
+          "Decidim::Dev::DummyResource" => "Dummy resource: 5"
         )
       end
 

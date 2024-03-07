@@ -25,8 +25,6 @@
       <%= add_comment %>
       <%= user_comments_blocked_warning %>
     </div>
-    <div class="callout primary loading-comments hidden">
-      <p><%= t("decidim.components.comments.loading") %></p>
-    </div>
+    <%= cell("decidim/announcement", t("decidim.components.comments.loading"), callout_class: "primary loading-comments hidden") %>
   </div>
 <% end %>

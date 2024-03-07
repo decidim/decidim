@@ -70,6 +70,7 @@ cs:
             few: "%{count} příspěvky"
             many: "%{count} příspěvků"
             other: "%{count} příspěvků"
+          empty: Zatím nejsou žádné příspěvky.
     components:
       blogs:
         actions:

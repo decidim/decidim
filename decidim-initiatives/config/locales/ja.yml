@@ -78,6 +78,7 @@ ja:
       actions:
         manage: 管理
         new_initiative_type: 新しいイニシアチブ種別
+        new_initiative_type_scope: 新しいイニシアチブ種別のスコープ
       filters:
         initiatives:
           decidim_area_id_eq:
@@ -106,6 +107,8 @@ ja:
         information: 情報
         initiative_type_scopes: イニシアチブ種別のスコープ
         initiatives: イニシアチブ
+        initiatives_menu:
+          see_initiative: イニシアチブを見る
         initiatives_settings: 設定
         initiatives_submenu:
           info: このイニシアチブについて
@@ -294,8 +297,8 @@ ja:
             update: 更新
           form:
             authorizations: 認証設定
-            child_scope_threshold_enabled_help: 'この設定フラグはオフライン投票をサポートしておらず、サブスコープを有効にし、スコープをユーザに関連付ける認証ハンドラで動作します。 認証の設定が間違っていないことを確認してください。正しく動作させるためには、スコープを 親1つにつき子N個が対応する階層構造で構成する必要があります。 この設定の仕組みについての詳細は、<a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">イニシアチブの管理者ドキュメント</a> を参照してください。'
-            only_global_scope_enabled_help: '「下層スコープ署名」を有効にし、グローバルスコープを親スコープとして設定する場合、このフラグをチェックします。これを有効にすると、イニシアチブ作成ウィザードでイニシアチブ種別の選択がスキップされます。この設定の仕組みについての詳細は、<a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">このリンク</a> を参照してください。'
+            child_scope_threshold_enabled_help_html: 'この設定フラグはオフライン投票に対応していません。サブスコープを有効にし、ユーザーにスコープを関連付ける権限ハンドラと連携します。認証設定の下部で、その認証を選択することを確認してください。これを動作させるためには、スコープを階層的に設定する必要があります：1つの親 - N個の子。この設定がどのように機能するかの詳細は、 <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">イニシアチブの管理者向けドキュメントページ</a> を参照してください。'
+            only_global_scope_enabled_help_html: '「子スコープ署名」を有効にし、グローバルスコープを親スコープとして設定した場合、このフラグをチェックします。これを有効にすると、イニシアチブ作成ウィザードでのイニシアチブタイプの選択がスキップされます。この仕組みについての詳細は、こちらの <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">リンク</a> を参照してください。'
             options: オプション
           initiative_type_scopes:
             title: イニシアチブ種別のスコープ
@@ -352,7 +355,6 @@ ja:
           back: 戻る
           continue: 続ける
           fill_data_help: "<ul> <li>イニシアチブの内容を確認しましょう。タイトルはわかりやすいでしょうか? イニシアチブの目的は明確でしょうか? </li> <li>署名の種別を選択する必要があります。対面署名、オンライン署名、または両方の組み合わせのいずれかです。</li> <li>イニシアチブの地理的範囲はどうなりますか?</li></ul>"
-          initiative_type: イニシアチブ種別
           more_information: "(詳細)"
           select_area: エリアを選択
           select_scope: スコープを選択
@@ -457,10 +459,12 @@ ja:
             other: '%{count} 人以上'
         committee_members:
           approve: 承認
-          confirm_revoke: 本当によろしいですか？
+          confirm_approve: このメンバーを承認してもよろしいですか？
+          confirm_revoke: このメンバーを取り消してもよろしいですか？
           invite_to_committee_help: 他の参加者を推進委員会に招待するために、このリンクを共有してください。
           link: リンク
           no_members_yet: 推進委員会にはメンバーがいません。
+          revoke: 取り消し
           title: 委員会メンバー
         count:
           title:
@@ -471,7 +475,6 @@ ja:
           author: 作成者
           myself: 私のイニシアチブ
           scope: スコープ
-          search: 検索
           state: ステータス
           type: タイプ
         index_header:
@@ -601,8 +604,5 @@ ja:
         sms_phone_number: 携帯電話番号
         title: '%{initiative_title} に署名'
       initiatives:
-        initiative:
-          check: ご確認ください
-          check_and_support: ログアウトしてください
         no_initiatives_yet:
           no_initiatives_yet: まだイニシアチブがありません！

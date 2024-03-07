@@ -10,7 +10,7 @@ module Decidim
 
         components.map do |component|
           {
-            name: translated_attribute(component.name),
+            name: decidim_escape_translated(component.name),
             url: main_component_path(component),
             active: is_active_link?(main_component_path(component), :inclusive)
           }
@@ -19,7 +19,7 @@ module Decidim
 
       private
 
-      # Creates a unique namespace for a filter form to prevent dupliacte IDs in
+      # Creates a unique namespace for a filter form to prevent duplicate IDs in
       # the DOM when multiple filter forms are rendered with the same fields (e.g.
       # for desktop and mobile).
       def filter_form_namespace

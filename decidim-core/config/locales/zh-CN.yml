@@ -55,9 +55,6 @@ zh-CN:
   booleans:
     'false': '否'
     'true': '否'
-  carrierwave:
-    errors:
-      not_inside_organization: 该文件没有附加到任何组织
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -149,7 +146,6 @@ zh-CN:
         error: 修改此资源时出错。
         promote_button: 提升至 %{model_name}
         promote_confirm_text: 您确定要推广此修饰吗？
-        section_heading: 修饰(%{count})
       compare_draft:
         continue: 继续
         no_similars_found: 未找到类似的修改。
@@ -265,7 +261,6 @@ zh-CN:
       hidden_elements_count:
         other: 和 %{count} 更多
       see_less: "（见减少）"
-      see_more: "(详见)"
     components:
       component_order_selector:
         order:
@@ -309,8 +304,6 @@ zh-CN:
     content_blocks:
       footer_sub_hero:
         name: 页脚子英雄横幅：
-      hero:
-        name: 英雄图像
       hero_settings_form:
         background_image: 背景图像
         welcome_text: 欢迎文本
@@ -801,7 +794,6 @@ zh-CN:
           proposals: 建议
           proposals_explanation: 提出建议、支持现有建议并促进你想要看到的更改。
         footer_sub_hero:
-          footer_sub_hero_body: 让我们建设一个更加开放、透明和协作的社会。<br /> 加入、参与和决定。
           footer_sub_hero_headline: 欢迎使用 %{organization} 参与式平台。
           register: 注册
         hero:
@@ -820,8 +812,6 @@ zh-CN:
         metrics:
           headline: 指标
           link: 显示所有指标
-    participatory_space_private_users:
-      not_allowed: 您无权查看此内容
     profile:
       deleted: 删除参与者
     profiles:
@@ -1065,7 +1055,6 @@ zh-CN:
         change_my_password: 更改我的密码
         confirm_new_password: 确认新密码
         new_password: 新密码
-        password_help: "%{minimun_characters} 个字符，必须不要太常见(例如，123456)，并且必须不同于您的昵称和电子邮件。"
       new:
         forgot_your_password: 忘记密码？
         send_me_reset_password_instructions: 给我发送重置密码说明

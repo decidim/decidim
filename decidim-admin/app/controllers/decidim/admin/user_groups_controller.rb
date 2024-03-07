@@ -12,6 +12,8 @@ module Decidim
 
       layout "decidim/admin/users"
 
+      add_breadcrumb_item_from_menu :admin_user_menu
+
       def index
         enforce_permission_to :index, :user_group
 

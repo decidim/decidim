@@ -3,7 +3,7 @@
 require "active_support/concern"
 
 module Decidim
-  # A controller concern to enable withawing the controller resources. Only
+  # A controller concern to enable withdrawing the controller resources. Only
   # affects the UI, so the actual logic to withdraw the resource will still need
   # to be implemented.
   module Withdrawable

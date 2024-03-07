@@ -16,13 +16,14 @@ describe "Admin manages projects" do
     login_as user, scope: :user
     visit_component_admin
 
-    within find("tr", text: translated(budget.title)) do
+    within "tr", text: translated(budget.title) do
       page.find(".action-icon--edit-projects").click
     end
   end
 
   it_behaves_like "manage projects"
   it_behaves_like "import proposals to projects"
+  it_behaves_like "export projects"
 
   describe "bulk actions" do
     let!(:project2) { create(:project, budget:) }
@@ -35,10 +36,10 @@ describe "Admin manages projects" do
 
     it "changes projects category" do
       find(".js-resource-id-#{project.id}").set(true)
-      find("#js-bulk-actions-button").click
-      click_button "Change category"
+      find_by_id("js-bulk-actions-button").click
+      click_on "Change category"
       select translated(category.name), from: "category_id"
-      click_button "Update"
+      click_on "Update"
 
       expect(page).to have_admin_callout "Projects successfully updated to the category"
       within "tr[data-id='#{project.id}']" do
@@ -50,10 +51,10 @@ describe "Admin manages projects" do
 
     it "changes projects scope" do
       find(".js-resource-id-#{project.id}").set(true)
-      find("#js-bulk-actions-button").click
-      click_button "Change scope"
+      find_by_id("js-bulk-actions-button").click
+      click_on "Change scope"
       select translated(scope.name), from: :scope_id
-      click_button "Update"
+      click_on "Update"
 
       expect(page).to have_admin_callout "Projects successfully updated to the scope"
       within "tr[data-id='#{project.id}']" do
@@ -64,18 +65,25 @@ describe "Admin manages projects" do
     end
 
     it "selects projects to implementation" do
-      find("#projects_bulk").set(true)
-      find("#js-bulk-actions-button").click
-      click_button "Change selected"
+      within "tr[data-id='#{project.id}']" do
+        expect(page).to have_content("No")
+      end
+      within "tr[data-id='#{project2.id}']" do
+        expect(page).to have_content("No")
+      end
+
+      find_by_id("projects_bulk").set(true)
+      find_by_id("js-bulk-actions-button").click
+      click_on "Change selected"
       select "Select", from: "selected_value"
-      click_button "Update"
+      click_on "Update"
 
       expect(page).to have_admin_callout "These projects were successfully selected for implementation"
       within "tr[data-id='#{project.id}']" do
-        expect(page).to have_content("Selected")
+        expect(page).to have_content("Yes")
       end
       within "tr[data-id='#{project2.id}']" do
-        expect(page).to have_content("Selected")
+        expect(page).to have_content("Yes")
       end
       expect(Decidim::Budgets::Project.find(project.id).selected_at).to eq(Time.zone.today)
       expect(Decidim::Budgets::Project.find(project2.id).selected_at).to eq(Time.zone.today)
@@ -87,24 +95,24 @@ describe "Admin manages projects" do
 
       it "shows all of the budgets within the participatory_space" do
         visit current_path
-        find("#projects_bulk").set(true)
-        find("#js-bulk-actions-button").click
-        click_button "Change budget"
+        find_by_id("projects_bulk").set(true)
+        find_by_id("js-bulk-actions-button").click
+        click_on "Change budget"
         options = ["Select budget", format_title(destination_budget), format_title(budget), format_title(another_budget)]
         expect(page).to have_select("reference_id", options:)
       end
 
       it "changes project budget" do
-        find("#projects_bulk").set(true)
-        find("#js-bulk-actions-button").click
-        click_button "Change budget"
+        find_by_id("projects_bulk").set(true)
+        find_by_id("js-bulk-actions-button").click
+        click_on "Change budget"
         select translated(destination_budget.title), from: "reference_id"
-        click_button "Update project's budget"
+        click_on "Update project's budget"
         within_flash_messages do
           expect(page).to have_content("Projects successfully updated to the budget: #{translated(project.title)} and #{translated(project2.title)}")
         end
-        expect(page).not_to have_css("tr[data-id='#{project.id}']")
-        expect(page).not_to have_css("tr[data-id='#{project2.id}']")
+        expect(page).to have_no_css("tr[data-id='#{project.id}']")
+        expect(page).to have_no_css("tr[data-id='#{project2.id}']")
 
         expect(project.reload.budget).to eq(destination_budget)
         expect(project2.reload.budget).to eq(destination_budget)

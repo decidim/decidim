@@ -16,8 +16,8 @@ module Decidim
       #
       # Useful for testing.
       #
-      def reset_workflows(*manifests)
-        registry.reset_workflows(*manifests)
+      def reset_workflows(*)
+        registry.reset_workflows(*)
       end
 
       #

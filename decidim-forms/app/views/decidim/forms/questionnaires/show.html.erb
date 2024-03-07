@@ -34,7 +34,11 @@
         <% if visitor_already_answered? %>
           <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_answered.title"), body: t("decidim.forms.questionnaires.show.questionnaire_answered.body") }) %>
         <% else %>
-          <%= render partial: "decidim/forms/questionnaires/questionnaire" %>
+          <% if @form.responses_by_step.flatten.empty? %>
+            <%= cell("decidim/announcement", t("decidim.forms.questionnaires.show.empty")) %>
+          <% else %>
+            <%= render partial: "decidim/forms/questionnaires/questionnaire" %>
+          <% end %>
         <% end %>
       <% else %>
         <%= render partial: "decidim/forms/questionnaires/questionnaire_readonly" %>

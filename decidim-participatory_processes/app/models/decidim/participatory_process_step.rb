@@ -38,7 +38,7 @@ module Decidim
     # set to the last step's position + 1.
     #
     # Note: This allows manual positioning, but there is a validation that
-    # forbids two steps from the same proccess to have the same position. Take
+    # forbids two steps from the same process to have the same position. Take
     # that into account. It would be best if you did not use manual
     # positioning.
     def set_position

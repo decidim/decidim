@@ -21,7 +21,7 @@ shared_examples "searchable results" do
 
       expect(page).to have_current_path decidim.search_path, ignore_query: true
       expect(page).to have_content(%(Results for the search: "#{term}"))
-      expect(page).to have_selector(".filter-search.filter-container")
+      expect(page).to have_css(".filter-search.filter-container")
       expect(page.find("#search-count h1").text.to_i).to be_positive
     end
 
@@ -48,7 +48,7 @@ shared_examples "searchable results" do
 
         expect(page).to have_current_path decidim.search_path, ignore_query: true
         expect(page).to have_content(%(Results for the search: "#{term}"))
-        expect(page).to have_selector(".filter-search.filter-container")
+        expect(page).to have_css(".filter-search.filter-container")
         expect(page.find("#search-count h1").text.to_i).to be_positive
 
         searchables.each do |searchable|
@@ -67,13 +67,13 @@ shared_examples "searchable results" do
 
         expect(page).to have_current_path decidim.search_path, ignore_query: true
         expect(page).to have_content(%(Results for the search: "#{term}"))
-        expect(page).to have_selector(".filter-search.filter-container")
+        expect(page).to have_css(".filter-search.filter-container")
         expect(page.find("#search-count h1").text.to_i).not_to be_positive
       end
     end
 
     context "when participatory space is not visible" do
-      shared_examples_for "no searchs found" do
+      shared_examples_for "no searches found" do
         it "not contains these searchables" do
           expect(searchables).not_to be_empty
           expect(term).not_to be_empty
@@ -83,7 +83,7 @@ shared_examples "searchable results" do
 
           expect(page).to have_current_path decidim.search_path, ignore_query: true
           expect(page).to have_content(%(Results for the search: "#{term}"))
-          expect(page).to have_selector(".filter-search.filter-container")
+          expect(page).to have_css(".filter-search.filter-container")
           expect(page.find("#search-count h1").text.to_i).not_to be_positive
         end
 
@@ -95,7 +95,7 @@ shared_examples "searchable results" do
             expect(page.find("#search-count h1").text.to_i).not_to be_positive
 
             within "#results" do
-              expect(page).not_to have_content(hashtag)
+              expect(page).to have_no_content(hashtag)
             end
           end
         end
@@ -106,7 +106,7 @@ shared_examples "searchable results" do
           perform_enqueued_jobs { participatory_space.update!(published_at: nil) }
         end
 
-        it_behaves_like "no searchs found"
+        it_behaves_like "no searches found"
       end
 
       context "when participatory space is private" do
@@ -114,7 +114,7 @@ shared_examples "searchable results" do
           perform_enqueued_jobs { participatory_space.update!(private_space: true) }
         end
 
-        it_behaves_like "no searchs found"
+        it_behaves_like "no searches found"
       end
     end
   end

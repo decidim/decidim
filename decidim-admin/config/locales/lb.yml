@@ -67,7 +67,6 @@ lb:
         machine_translation_display_priority_translation: Übersetzter Text zuerst
         name: Name
         official_img_footer: Offizielles Logo Fußzeile
-        official_img_header: Offizieller Logo-Header
         official_url: Offizielle Organisations-URL
         omnipresent_banner_short_description: Kurze Beschreibung
         omnipresent_banner_title: Titel
@@ -124,8 +123,6 @@ lb:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Ungültige Bilddatei
-            official_img_header:
               allowed_file_content_types: Ungültige Bilddatei
   activerecord:
     attributes:
@@ -303,9 +300,6 @@ lb:
       dashboard:
         show:
           view_more_logs: Weitere Protokolle anzeigen
-      domain_whitelist:
-        form:
-          domain_too_short: Domain zu kurz
       exports:
         export_as: "%{name} als %{export_format}"
         formats:
@@ -363,7 +357,6 @@ lb:
           name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Benutzername.
           reported_id_string_or_reported_content_cont: Suche %{collection} nach meldbarer Id oder Inhalt.
           title_cont: In %{collection} nach Titel suchen.
-          user_name_or_user_email_cont: In %{collection} nach Name oder E-Mail suchen.
         state_eq:
           label: Bundesland
           values:
@@ -436,7 +429,6 @@ lb:
         area_types: Bereichstypen
         areas: Bereiche
         configuration: Aufbau
-        external_domain_whitelist: Erlaabt extern Domainen
         help_sections: Hilfeabschnitte
         homepage: Startseite
         impersonations: Identitätswechsel
@@ -684,21 +676,6 @@ lb:
             layout_appearance_title: Layout-Layout bearbeiten
             preview: Vorschau
           omnipresent_banner_appearance_title: Bearbeiten Sie das allgegenwärtige Banner
-      organization_external_domain_whitelist:
-        edit:
-          update: Aktualiséieren
-        external_domain:
-          down: Runter
-          external_domain: Externe Domäne
-          remove: Löschen
-          up: Hoch
-        form:
-          add: Zur Whitelist hinzufügen
-          title: Whitelist für externe Domains
-      organization_homepage:
-        edit:
-          active_content_blocks: Aktive Inhaltsblöcke
-          inactive_content_blocks: Inaktive Inhaltsblöcke
       participatory_space_private_users:
         create:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
@@ -714,7 +691,6 @@ lb:
           title: Neuer privater Benutzer des Participatory Space.
       participatory_space_private_users_csv_imports:
         new:
-          title: CSV-Datei hochladen
           upload: Hochladen
       resource_permissions:
         edit:
@@ -769,7 +745,6 @@ lb:
       shared:
         gallery:
           add_images: Bilder hinzufügen
-          delete_image: Bild löschen
           gallery_legend: Bildergalerie hinzufügen (Optional)
       static_page_topics:
         create:
@@ -797,12 +772,12 @@ lb:
           update: Aktualisieren
         form:
           none: Keiner
+        index:
+          last_notable_change: Letzte bemerkenswerte Änderung
         new:
           create: Seite erstellen
           title: Neue Seite
         topic:
-          destroy: Thema entfernen
-          edit: Thema bearbeiten
           without_topic: Seiten ohne Thema
         update:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.

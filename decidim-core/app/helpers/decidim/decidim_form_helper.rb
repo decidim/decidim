@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A heper to expose an easy way to add authorization forms in a view.
+  # A helper to expose an easy way to add authorization forms in a view.
   module DecidimFormHelper
     # A custom form for that injects client side validations with Abide.
     #
@@ -12,7 +12,7 @@ module Decidim
     # Returns a String.
     def decidim_form_for(record, options = {}, &)
       options[:data] ||= {}
-      options[:data].update(abide: true, "live-validate" => true, "validate-on-blur" => true)
+      options[:data].update(:abide => true, "live-validate" => true, "validate-on-blur" => true)
 
       options[:html] ||= {}
       options[:html].update(novalidate: true) unless options[:html].has_key?(:novalidate)
@@ -210,7 +210,7 @@ module Decidim
       return unless record.respond_to?(:errors)
       return unless record.errors[:base].any?
 
-      alert_box(record.errors.full_messages_for(:base).join(","), "alert", false)
+      alert_box(record.errors.full_messages_for(:base).join(","), :alert, false)
     end
 
     # Handle which collection to pass to Decidim::FilterFormBuilder.areas_select

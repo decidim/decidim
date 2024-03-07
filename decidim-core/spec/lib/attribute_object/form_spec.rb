@@ -106,10 +106,10 @@ module Decidim
       end
 
       context "with a constant" do
-        let(:mimicked_name) { Decidim::DummyResources::DummyResource }
+        let(:mimicked_name) { Decidim::Dev::DummyResource }
 
         it "converts the mimicked model name correctly" do
-          expect(subject.mimicked_model_name).to be(:"decidim/dummy_resources/dummy_resource")
+          expect(subject.mimicked_model_name).to be(:"decidim/dev/dummy_resource")
         end
       end
     end
@@ -203,7 +203,7 @@ module Decidim
       context "when Active Record objects are provided as nested attribute values" do
         let(:drink_class) do
           Class.new(ApplicationRecord) do
-            self.table_name = :decidim_dummy_resources_dummy_resources
+            self.table_name = :decidim_dev_dummy_resources
 
             def custom_sauce
               "foobar"
@@ -222,7 +222,7 @@ module Decidim
       end
 
       context "when Active Record Relation is provided as nested attribute value for a non-array type attribute" do
-        let(:attachables) { Decidim::DummyResources::DummyResource.where(id: dummy_resources.map(&:id)) }
+        let(:attachables) { Decidim::Dev::DummyResource.where(id: dummy_resources.map(&:id)) }
         let(:component) { create(:component) }
         let(:dummy_resources) { create_list(:dummy_resource, 4, component:) }
 
@@ -299,7 +299,7 @@ module Decidim
     describe ".hash_from" do
       subject { described_class.hash_from(value) }
 
-      let(:hash) { { foo: "bar", "baz" => "biz" } }
+      let(:hash) { { :foo => "bar", "baz" => "biz" } }
 
       shared_examples "a valid hash" do
         it "returns the hash with indifferent access" do

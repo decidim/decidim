@@ -79,7 +79,6 @@ en:
         machine_translation_display_priority_translation: Translated text first
         name: Name
         official_img_footer: Official logo footer
-        official_img_header: Official logo header
         official_url: Official organization URL
         omnipresent_banner_short_description: Short description
         omnipresent_banner_title: Title
@@ -147,8 +146,6 @@ en:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Invalid image file
-            official_img_header:
               allowed_file_content_types: Invalid image file
         participatory_space_private_user_csv_import:
           attributes:
@@ -291,7 +288,7 @@ en:
       block_user:
         new:
           action: Block account and send justification
-          already_reported_html: Continuing with this action you will also hide all the participants contents. <a href="%{link}">Block the account</a>.
+          already_reported_html: Continuing with this action you will also hide all the participants contents.
           description: Blocking a user will render their account unusable. You may provide in your justification any guidelines on ways you would consider unblocking the user.
           justification: Justification
           title: Block User %{name}
@@ -358,7 +355,7 @@ en:
         title: Verification conflicts
         transfer:
           email: Email
-          error: There was a problem transfering the current participant to managed participant.
+          error: There was a problem transferring the current participant to managed participant.
           name: Name
           reason: Reason
           success: The current transfer has been successfully completed.
@@ -381,7 +378,7 @@ en:
           update: Update
       dashboard:
         pending_moderations:
-          anouncement:
+          announcement:
             one: There are %{count} pending moderation
             other: There are %{count} pending moderations
           goto_moderation: Go to global moderations
@@ -389,12 +386,12 @@ en:
         show:
           dropdown: Dropdown
           view_more_logs: View more logs
-      domain_whitelist:
+      domain_allowlist:
         form:
           domain_too_short: Domain too short
         update:
-          error: Failed to update domain whitelist.
-          success: Domain whitelist updated successfully.
+          error: Failed to update list of allowed external domains
+          success: The list of allowed external domain successfully updated.
       exports:
         export_as: "%{name} as %{export_format}"
         formats:
@@ -461,7 +458,6 @@ en:
           report_count_eq: Report count eq
           reported_id_string_or_reported_content_cont: Search %{collection} by reportable id or content.
           title_cont: Search %{collection} by title.
-          user_name_or_user_email_cont: Search %{collection} by name or email.
           user_name_or_user_nickname_or_user_email_cont: Search %{collection} by email, name or nickname.
         state_eq:
           label: State
@@ -576,7 +572,7 @@ en:
         areas: Areas
         configuration: Configuration
         content: Reported content
-        external_domain_whitelist: Allowed external domains
+        external_domain_allowlist: Allowed external domains
         help_sections: Help sections
         homepage: Homepage
         impersonations: Impersonations
@@ -860,7 +856,7 @@ en:
             layout_appearance_title: Edit layout appearance
             preview: Preview
           omnipresent_banner_appearance_title: Edit omnipresent banner
-      organization_external_domain_whitelist:
+      organization_external_domain_allowlist:
         edit:
           update: Update
         external_domain:
@@ -869,8 +865,8 @@ en:
           remove: Remove
           up: Up
         form:
-          add: Add to whitelist
-          title: External domain whitelist
+          add: Add to allowed list
+          title: Allowed list of external domains
       participatory_space_private_users:
         create:
           error: There was a problem adding a private participant for this participatory space.
@@ -1018,11 +1014,12 @@ en:
         areas: Areas
         authorization_workflows: Verification methods
         dashboard: Dashboard
-        edit_external_domains: External domain whitelist
+        edit_external_domains: Allowed list of external domains
         edit_landing_page: Page contents
         edit_organization_appearance: Edit homepage appearance
         impersonatable_users: Manageable participants
         impersonations: Participants management
+        menu: Menu
         metrics: Metrics
         page_topics: Topics
         pages: Pages

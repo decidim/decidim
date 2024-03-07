@@ -105,6 +105,9 @@ en:
             pending_orders: Pending votes
             select_for_implementation: Select for implementation
             selected: Selected
+            selected_options:
+              'no': 'No'
+              'yes': 'Yes'
             title: Projects
             update: Update
             update_budget_button: Update project's budget
@@ -149,7 +152,7 @@ en:
             no_components: There are no other proposal components in this participatory space to import the proposals into projects.
             origin_component_id: Origin component
             select_component: Please select a component
-            title: Import proposals
+            title: Import proposals to projects
         reminders:
           orders:
             description: Users will receive an email with links to the budgets where they have pending order.
@@ -178,6 +181,7 @@ en:
         count:
           one: "%{count} budget"
           other: "%{count} budgets"
+        empty: There are no budgets yet
         finished_message: You have finished the voting process. Thanks for participating!
         highlighted_cta: Vote on %{name}
         if_change_opinion: If you have changed your mind, you can
@@ -202,6 +206,7 @@ en:
           fields:
             category: Category
             id: ID
+            map: Map
             title: Title
       order_summary_mailer:
         order_summary:
@@ -236,6 +241,7 @@ en:
           projects_count:
             one: 1 project
             other: "%{count} projects"
+        empty: There are no projects yet
         exit_modal:
           cancel: Return to voting
           exit: Exit voting

@@ -1,6 +1,6 @@
-import { createBasicEditor, updateContent } from "../helpers";
+import { createBasicEditor, updateContent } from "src/decidim/editor/test/helpers";
 
-import CharacterCount from "../../extensions/character_count";
+import CharacterCount from "src/decidim/editor/extensions/character_count";
 
 describe("CharacterCount", () => {
   let editor = null;

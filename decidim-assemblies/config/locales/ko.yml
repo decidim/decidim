@@ -1,1 +1,94 @@
 ko:
+  activemodel:
+    attributes:
+      assembly:
+        document: 문서
+        domain: 도메인
+        duration: 지속 기간
+        facebook: 페이스북
+        github: 깃허브
+        hashtag: 해시태그
+        hero_image: 홈 이미지
+        import_attachments: '첨부 파일 가져오기:'
+        import_categories: 카테고리 가져오기
+        import_components: 구성요소 가져오기
+        instagram: 인스타그램
+        local_area: 조직 영역
+        private_space: 비공개 공간
+        scope_id: 범위
+        scopes_enabled: 범위 활성화됨
+        twitter: X
+        youtube: 유튜브
+      assembly_member:
+        birthday: 생일
+        birthplace: 출생지
+        full_name: 전체 이름
+        gender: 성별
+        non_user_avatar: 아바타
+        user_id: 사용자 또는 그룹
+      assembly_user_role:
+        email: 이메일
+        name: 이름
+        role: 역할
+  decidim:
+    admin:
+      assembly_copies:
+        new:
+          copy: 복사
+      assembly_imports:
+        new:
+          import: 가져오기
+      assembly_members:
+        edit:
+          update: 업데이트
+        new:
+          create: 생성하기
+      assembly_user_roles:
+        edit:
+          update: 업데이트
+        new:
+          create: 생성하기
+      menu:
+        assemblies_submenu:
+          assembly_members: 구성원들
+          attachment_collections: 폴더
+          attachment_files: 파일
+          attachments: 첨부 파일
+          categories: 카테고리
+          components: 구성요소
+      models:
+        assembly_member:
+          fields:
+            designation_date: 지정된 날짜
+            full_name: 이름
+          name: 멤버
+        assembly_user_role:
+          fields:
+            email: 이메일
+            name: 이름
+            role: 역할
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            metadata: 메타데이터
+            select_an_area: 영역 선택
+        new_import:
+          accepted_types:
+            json: JSON
+      assemblies:
+        description:
+          area_name: 영역
+          duration: 지속 기간
+        filters:
+          type: 유형
+      assembly_members:
+        index:
+          members: 멤버
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          more_info: 추가 정보
+      assembly_navigation:
+        assembly_member_menu_item: 멤버

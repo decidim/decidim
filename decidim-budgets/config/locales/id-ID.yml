@@ -73,8 +73,6 @@ id:
           category: Kategori
           scope: Cakupan
           search: Pencarian
-        project:
-          view: Melihat
         show:
           budget: Anggaran
     components:

@@ -106,7 +106,7 @@ module Decidim::Meetings
 
       include_context "with editor content containing hashtags and mentions"
 
-      it "converts the hastags and mentions to WYSIWYG editor ready elements" do
+      it "converts the hashtags and mentions to WYSIWYG editor ready elements" do
         expect(presented_meeting.editor_description(all_locales: true)).to eq("en" => editor_html, "es" => editor_html)
       end
     end

@@ -31,8 +31,8 @@ shared_examples "admin imports controller" do
       expect(response).to have_http_status(:found)
       expect(flash[:notice]).not_to be_empty
 
-      expect(Decidim::DummyResources::DummyResource.count).to eq(3)
-      Decidim::DummyResources::DummyResource.find_each do |dummy|
+      expect(Decidim::Dev::DummyResource.count).to eq(3)
+      Decidim::Dev::DummyResource.find_each do |dummy|
         expect(dummy.title).to eq("en" => "Dummy")
         expect(dummy.author).to eq(user)
         expect(dummy.component).to eq(component)

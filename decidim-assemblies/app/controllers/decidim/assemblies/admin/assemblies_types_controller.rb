@@ -5,8 +5,8 @@ module Decidim
     module Admin
       # Controller used to manage the available assemblies types for the current
       # organization.
-      # As this substitues former i18n simple hash we need to keep these i18n keys for migrations
-      # and rollbakcs. So let i18n-tasks know about:
+      # As this substitutes former i18n simple hash we need to keep these i18n keys for migrations
+      # and rollbacks. So let i18n-tasks know about:
       # i18n-tasks-use t('decidim.assemblies.assembly_types.government')
       # i18n-tasks-use t('decidim.assemblies.assembly_types.commission')
       # i18n-tasks-use t('decidim.assemblies.assembly_types.consultative_advisory')
@@ -63,7 +63,7 @@ module Decidim
           @form = assembly_type_form
                   .from_params(params, assembly_type: current_assembly_type)
 
-          UpdateAssembliesType.call(current_assembly_type, @form) do
+          UpdateAssembliesType.call(@form, current_assembly_type) do
             on(:ok) do
               flash[:notice] = I18n.t("assemblies_types.update.success", scope: "decidim.admin")
               redirect_to assemblies_types_path
@@ -80,7 +80,7 @@ module Decidim
         def destroy
           enforce_permission_to :destroy, :assembly_type, assembly_type: current_assembly_type
 
-          DestroyAssembliesType.call(current_assembly_type, current_user) do
+          Decidim::Commands::DestroyResource.call(current_assembly_type, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("assemblies_types.destroy.success", scope: "decidim.admin")
               redirect_to assemblies_types_path

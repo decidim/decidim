@@ -44,7 +44,6 @@ uk:
       organizations:
         create:
           error: При спробі додати нову організацію сталася помилка.
-          success: Організацію успішно додано.
         edit:
           secondary_hosts_hint: Введіть кожен з них в новому рядку
         index:

@@ -11,10 +11,10 @@ describe "User passwords" do
   end
 
   it "can toggle the password field" do
-    click_link "Log in", match: :first
+    click_on "Log in", match: :first
     fill_in :session_user_password, with: "hello world"
-    expect(find("#session_user_password")["type"]).to eq "password"
+    expect(find_by_id("session_user_password")["type"]).to eq "password"
     find("button[aria-controls=session_user_password]").click
-    expect(find("#session_user_password")["type"]).to eq "text"
+    expect(find_by_id("session_user_password")["type"]).to eq "text"
   end
 end

@@ -22,9 +22,11 @@ fi:
       user:
         about: Profiilikuvaus
         email: Sähköpostiosoitteesi
+        encrypted_password: Salasana
         locale: Kieli
         name: Nimesi
         nickname: Nimimerkki
+        old_password: Nykyinen salasana
         password: Salasana
         password_confirmation: Vahvista salasanasi
         personal_url: Henkilökohtainen URL-osoite
@@ -75,12 +77,6 @@ fi:
   booleans:
     'false': 'Ei'
     'true': 'Kyllä'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: Tiedostoa ei voida käsitellä
-      file_resolution_too_large: Tiedoston resoluutio on liian suuri
-      file_size_too_large: Tiedoston koko on liian suuri
-      not_inside_organization: Tiedostoa ei ole liitetty mihinkään organisaatioon
   date:
     formats:
       decidim_short: "%d.%m.%Y"
@@ -285,11 +281,9 @@ fi:
       amendable:
         button: Muuta %{model_name}
         error: Tämän resurssin muutoksen tallennus epäonnistui.
-        help_text: Paranna kohdetta %{model_name} muuttamalla sen kenttiä %{amendable_fields}.
         promote_button: Korosta kohteeksi %{model_name}
         promote_confirm_text: Haluatko varmasti korostaa tätä muutosta?
         promote_help_text: Voit korostaa tämän muutoksen ja julkaista sen itsenäisenä kohteena %{model_name}.
-        section_heading: Muutokset (%{count})
       amendments:
         title:
           one: "%{count} muutos"
@@ -457,7 +451,6 @@ fi:
         one: ja %{count} lisää
         other: ja %{count} lisää
       see_less: "(näytä vähemmän)"
-      see_more: "(näytä enemmän)"
     components:
       component_order_selector:
         no_content: Sisältöä ei löytynyt annetuilla hakuehdoilla.
@@ -515,7 +508,7 @@ fi:
       global_menu:
         name: Päänavigaatio
       hero:
-        name: Pääkuva
+        name: Pääkuva ja CTA-painike (call to action)
       hero_settings_form:
         background_image: Taustakuva
         welcome_text: Tervetuloa-teksti
@@ -589,6 +582,8 @@ fi:
           subtitle: Täytä seuraava lomake viimeistelläksesi rekisteröitymisesi
           username_help: Julkinen nimi, joka näkyy viesteissäsi. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
       registrations:
+        create:
+          error: Käyttäjätilin luonti epäonnistui.
         new:
           already_have_an_account?: Onko sinulla jo käyttäjätili?
           log_in: Kirjaudu sisään
@@ -667,6 +662,10 @@ fi:
     endorsers_list:
       endorsed_by: He tykkäävät tästä…
     errors:
+      files:
+        file_cannot_be_processed: Tiedostoa ei voida käsitellä
+        file_resolution_too_large: Tiedoston resoluutio on liian suuri
+        not_inside_organization: Tiedostoa ei ole liitetty mihinkään organisaatioon
       internal_server_error:
         copied: Teksti kopioitu!
         copy_error_message_clarification: Kopioi virheviesti leikepöydälle
@@ -904,14 +903,12 @@ fi:
           add_attachment: Lisää liite
           add_file: Lisää tiedosto
           add_image: Lisää kuva
-          cancel: Peruuta
           edit_image: Muokkaa kuvaa
           error: Virhe!
           file_size_too_large: 'Tiedoston koko on liian suuri! Suurin tiedostokoko: %{megabytes}MB'
           filename: Tiedoston nimi
           remove: Poista
           replace: Korvaa
-          save: Tallenna
           title: Tiedosto-otsikko
           title_required: Tiedosto-otsikko tarvitaan!
           uploaded: Ladattu
@@ -1274,7 +1271,8 @@ fi:
     offline:
       name: Offline
       show:
-        message: Näyttää, että olet tällä hetkellä offline-tilassa. Yritä myöhemmin uudestaan.
+        message_1: Verkkoyhteytesi näyttää olevan poissa käytöstä tällä hetkellä.
+        message_2: Yritä myöhemmin uudelleen.
         retry: Yritä uudestaan
     open_data:
       not_available_yet: Avoimet datatiedostot eivät ole vielä käytettävissä, yritä uudelleen muutaman minuutin kuluttua.
@@ -1294,7 +1292,7 @@ fi:
           proposals: Ehdotukset
           proposals_explanation: Tee ehdotuksia, tue muiden tekemiä ehdotuksia ja edistä muutoksia, joita haluat nähdä.
         footer_sub_hero:
-          footer_sub_hero_body: Rakennetaan avoimempi, läpinäkyvämpi ja yhteisöllisempi yhteiskunta.<br /> Liity, osallistu ja päätä.
+          footer_sub_hero_body_html: Rakennetaan entistä avoimempi, läpinäkyvämpi ja yhteistyökykyisempi yhteiskunta.<br /> Liity, osallistu ja päätä.
           footer_sub_hero_headline: Tervetuloa yhteisölliseen osallistumispalveluun %{organization}.
           register: Rekisteröidy
         hero:
@@ -1332,8 +1330,6 @@ fi:
           alert: Olemme päivittäneet käyttöehtojamme. Ole hyvä ja tutustu päivitettyihin ehtoihin.
           body: Ole hyvä ja tutustu päivitetyihin käyttöehtoihimme. Jatkaaksesi palvelun käyttöä sinun on tutustuttava päivitettyihin ehtoihin.
           title: 'Pakollinen: Tarkista päivitetyt käyttöehtomme'
-    participatory_space_private_users:
-      not_allowed: Et voi katsoa tätä sisältöä
     passwords:
       update:
         error: Salasanan päivitys epäonnistui.
@@ -1350,6 +1346,8 @@ fi:
         conversations: Keskustelut
         followers: Seuraajat
         following: Seurattavat
+        group_admins: Hallinnoi hallintakäyttäjiä
+        group_members: Hallinnoi jäseniä
         groups: Ryhmät
         members: Jäsenet
         officialized: Virallinen osallistuja
@@ -1565,6 +1563,15 @@ fi:
         greetings: Terveisin,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hei %{admin},
         subject: Uusi käyttäjä on ilmoitettu palvelussa %{organization_name}
+    user_update_mailer:
+      notify:
+        body_1: Tämä viesti on lähetetty sinulle ilmoittamaan käyttäjätiliäsi koskevista muutoksista.
+        body_2: Jos et ole päivittänyt tietojasi itse, kirjaudu sisään tilillsesi ja vaihda salasanasi. Jos et voi kirjautua sisään, ota yhteyttä alustan tukeen.
+        greetings: Terveisin,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hei %{user}
+        main_body: 'Seuraavia tietoja on muutettu: %{updates}.'
+        update_fields: "%{updates} ja %{last_update}"
+      subject: Käyttäjätilisi tietoja on päivitetty
     version:
       show:
         back_to_resource: Siirry takaisin
@@ -1677,8 +1684,9 @@ fi:
         change_my_password: Vaihda salasanani
         confirm_new_password: Vahvista uusi salasana
         new_password: Uusi salasana
-        password_help: "Tulee sisältää vähintään %{minimun_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi."
-        password_help_admin: "Tulee sisältää vähintään %{minimun_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi. On myös oltava eri salasana kuin edelliset salasanasi."
+        old_password_help: Vahvistaaksesi muutokset käyttäjätiliisi, anna nykyinen salasanasi.
+        password_help: "Tulee sisältää vähintään %{minimum_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi."
+        password_help_admin: "Tulee sisältää vähintään %{minimum_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi. On myös oltava eri salasana kuin edelliset salasanasi."
         title: Salasanan vaihto
       new:
         forgot_your_password: Unohditko salasanasi?
@@ -1783,30 +1791,32 @@ fi:
     upload:
       uploadedFile: Ladattu tiedosto
   emojis:
+    add_custom: Lisää uusi mukautettu emoji
     button: Lisää emoji
     categories:
-      activities: Toiminta
-      animals-nature: Eläimet ja luonto
+      activity: Toiminta
       custom: Mukautettu
       flags: Liput
-      food-drink: Ruoka ja juoma
+      foods: Ruoka ja juoma
+      frequent: Usein käytetyt
+      nature: Eläimet ja luonto
       objects: Esineet
-      people-body: Ihmiset ja keho
-      recents: Viimeksi käytetyt
-      smileys-emotion: Hymiöt ja tunneilmaisut
+      people: Hymiöt ja ihmiset
+      places: Matkailu ja paikat
+      search: Hakutulokset
       symbols: Symbolit
-      travel-places: Matkailu ja paikat
-    error:
-      load: Emojien lataus epäonnistui
-    recents:
-      clear: Tyhjennä viimeksi käytetyt emojit
-      none: Et ole vielä valinnut yhtään emojia.
-    retry: Yritä uudestaan
-    search:
-      _: Etsi emojia...
-      clear: Tyhjennä haku
-      error: Emojien haku epäonnistui
-      not_found: Tuloksia ei löytynyt
+    pick: Valitse emoji…
+    search: Hae
+    search_no_results_1: Voi ei!
+    search_no_results_2: Tätä emojia ei löytynyt
+    skins:
+      '1': Oletus
+      '2': Vaalea
+      '3': Keskivaalea
+      '4': Keskitasoinen
+      '5': Keskitumma
+      '6': Tumma
+      choose: Valitse oletusulkoasun värimääritys
   errors:
     messages:
       allowed_file_content_types: 'ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'
@@ -1941,8 +1951,6 @@ fi:
         continue_session: Jatka palvelun käyttöä
         log_out: Kirjaudu ulos
         title: Haluatko jatkaa palvelun käyttöä?
-      upload_modal:
-        close_modal: Sulje ikkuna
       user_menu:
         account: 'Käyttäjätili: %{name}'
         admin_dashboard: Hallintapaneeli

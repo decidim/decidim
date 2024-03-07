@@ -4,9 +4,9 @@ module Decidim
   module Conferences
     class ConferenceProgramController < Decidim::Conferences::ApplicationController
       include ParticipatorySpaceContext
+
       helper Decidim::SanitizeHelper
       helper Decidim::Conferences::ConferenceProgramHelper
-      participatory_space_layout only: :show
 
       helper_method :collection, :conference, :meeting_days, :meeting_component
 
@@ -14,7 +14,6 @@ module Decidim
         raise ActionController::RoutingError, "No meetings for this conference " if meetings.blank?
 
         enforce_permission_to :list, :program
-        redirect_to decidim_conferences.conference_path(current_participatory_space) unless current_user_can_visit_space?
       end
 
       private

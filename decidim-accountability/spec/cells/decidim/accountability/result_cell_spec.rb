@@ -33,7 +33,7 @@ module Decidim::Accountability
         let(:display_progress) { false }
 
         it "does not render the progress" do
-          expect(html).not_to have_css("div.accountability__progress")
+          expect(html).to have_no_css("div.accountability__progress")
         end
       end
     end

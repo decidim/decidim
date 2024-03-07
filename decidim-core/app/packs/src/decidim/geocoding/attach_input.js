@@ -1,5 +1,5 @@
 /* eslint-disable require-jsdoc */
-import getCoordinateInputName from "./coordinate_input"
+import getCoordinateInputName from "src/decidim/geocoding/coordinate_input"
 
 /**
  * You can use this method to "attach" front-end geocoding to any forms in the

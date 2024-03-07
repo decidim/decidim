@@ -117,7 +117,6 @@ module Decidim
       decidim-core
       decidim-debates
       decidim-design
-      decidim-elections
       decidim-forms
       decidim-generators
       decidim-initiatives
@@ -222,13 +221,6 @@ module Decidim
 
       context "with decidim-budgets" do
         let(:gem) { "decidim-budgets" }
-
-        it_behaves_like "existing module"
-      end
-
-      # Dependency for decidim-core
-      context "with decidim-api" do
-        let(:gem) { "decidim-api" }
 
         it_behaves_like "existing module"
       end

@@ -34,7 +34,7 @@ module Decidim
 
       #
       # Associates receipts for this message for each of the given users,
-      # including also a receipt for the remitent (sender) of the message.
+      # including also a receipt for the remittant (sender) of the message.
       # Receipts are unread by default, except for the sender's receipt.
       #
       # If the sender is a UserGroup then receipts will be created for its managers
@@ -64,7 +64,7 @@ module Decidim
 
       private
 
-      # returns all posible recipients from a list of users or groups
+      # returns all possible recipients from a list of users or groups
       def all_recipients(recipients)
         users = recipients.flat_map do |recipient|
           recipient.is_a?(UserGroup) ? recipient.managers : recipient

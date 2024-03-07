@@ -52,7 +52,7 @@ module Decidim
             conference_id: current_conference.id
           )
 
-          UpdateConference.call(current_conference, @form) do
+          UpdateConference.call(@form, current_conference) do
             on(:ok) do |conference|
               flash[:notice] = I18n.t("conferences.update.success", scope: "decidim.admin")
               redirect_to edit_conference_path(conference)

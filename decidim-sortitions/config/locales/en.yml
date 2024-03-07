@@ -97,6 +97,8 @@ en:
           cancelled: Cancelled
           category: Category
           state: Status
+        index:
+          empty: There are no sortitions yet.
         linked_sortitions:
           selected_proposals: Selected proposals
         orders:

@@ -91,7 +91,6 @@ tr:
         close_debate_modal:
           description: Bu tartışmanın özeti veya sonucu nedir?
           send: Tartışmayı kapat
-        closed: Kapat
         count:
           debates_count:
             one: "%{count} tartışma"
@@ -99,8 +98,6 @@ tr:
         create:
           invalid: Tartışmayı oluştururken bir sorun oluştu.
           success: Tartışma başarıyla oluşturuldu.
-        debate:
-          participate: Katıl
         edit:
           back: Geri
           save: Değişiklikleri kaydet
@@ -135,7 +132,6 @@ tr:
           updated: Yeni güncellenmiş
         show:
           close_debate: Tartışmayı kapat
-          date: Tarih
           debate_closed: Kapalı
           debate_conclusions_are: 'Tartışma bu sonuçlarla %{date} tarihinde kapatıldı:'
           edit_conclusions: Sonuçları düzenleyin

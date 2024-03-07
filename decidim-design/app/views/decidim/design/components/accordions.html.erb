@@ -1,27 +1,28 @@
 <% content_for :heading do %>
-  Accordions
+  <%= t(".title") %>
 <% end %>
 
 <% content_for :description do %>
-  Accordions are a javascript feature available thanks to an external library called <a href="https://github.com/jonathanlevaillant/a11y-accordion-component" target="_blank" rel="noopener noreferrer">a11y-accordion-component</a>.
+  <% accordions_description_link = "https://github.com/jonathanlevaillant/a11y-accordion-component" %>
+  <%= t(".description_accordions_html", link_code: link_to(accordions_description_link, accordions_description_link, target: "_blank", rel: "noopener noreferrer")) %>
 <% end %>
 
 <% content_for :toc do %>
-  <a href="#example">Demo</a>
-  <a href="#usage">Usage</a>
+  <a href="#example"><%= t(".demo") %></a>
+  <a href="#usage"><%= t(".usage") %></a>
 <% end %>
 
 <section id="demo" class="design__section">
-  <h2>Demo</h2>
+  <h2><%= t(".demo") %></h2>
 
-  <p>Throughout the application the accordions are used, mainly, to show/hide content in tabs or fold/unfold visible texts.</p>
+  <p><%= t(".demo_description") %></p>
 
   <div data-component="accordion" data-multiselectable="false" id="example-accordion-1">
     <ul class="tab-x-container">
       <% 3.times do |tab| %>
         <li>
           <button id="trigger-1-<%= tab %>" class="tab-x" data-controls="panel-1-<%= tab %>" <%= "data-open=true" if tab.zero? %>>
-            Trigger <%= tab %>
+            <%= t(".trigger") %> <%= tab %>
           </button>
         </li>
       <% end %>
@@ -29,35 +30,36 @@
 
     <% 3.times do |panel| %>
       <div id="panel-1-<%= panel %>" class="py-8 text-sm font-italic">
-        Content of the panel <%= panel %>
+        <%= t(".content_panel") %> <%= panel %>
       </div>
     <% end %>
   </div>
 </section>
 
 <section id="usage" class="design__section">
-  <h2>Usage</h2>
+  <h2><%= t(".usage") %></h2>
 
-  <p>An accordion requires at least three elements:</p>
+  <p><%= t(".usage_p") %></p>
 
-  <p>1. A wrapper <code>div</code>, with the data-attribute <code>data-component="accordion"</code>, over all the available triggers and panels.</p>
+  <p><%= t(".usage_p_1_html") %></p>
 
-  <p>2. A trigger element, user actionable (as a button), pointing to the collapsable element through <code>data-controls="panel"</code>, where <i>panel</i> is the <code>id</code> of the panel.</p>
+  <p><%= t(".usage_p_2_html") %></p>
 
-  <p>3. A hideable element, whose <code>id</code> matches the data-controls value the trigger refers to.</p>
+  <p><%= t(".usage_p_3_html") %></p>
 
   <div class="design__section-snippet" style="margin-top: inherit;">
-    <p>Source code on GitHub: <%= link_to("decidim-core/app/packs/src/decidim/a11y.js", "https://github.com/decidim/decidim/blob/develop/decidim-core/app/packs/src/decidim/a11y.js", target: "_blank", rel: "noopener noreferrer") %></p>
+    <% github_link = "https://github.com/decidim/decidim/blob/develop/decidim-core/app/packs/src/decidim/a11y.js" %>
+    <p><%= t(".github_source_html", github_link: link_to("decidim-core/app/packs/src/decidim/a11y.js", github_link, target: "_blank", rel: "noopener noreferrer")) %></p>
 
     <code>
-      <textarea rows="8">
+      <textarea spellcheck="false" rows="8">
 <div data-component="accordion" id="example-accordion">
   <button id="trigger" data-controls="panel">
-    Trigger
+    <%= t(".trigger") %>
   </button>
 
   <div id="panel" aria-hidden="true">
-    Panel
+    <%= t(".panel") %>
   </div>
 </div>
       </textarea>

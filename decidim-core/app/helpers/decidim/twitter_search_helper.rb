@@ -4,7 +4,7 @@ module Decidim
   module TwitterSearchHelper
     # Builds the URL for Twitter's hashtag search.
     #
-    # @param hashtag [String] The hasthag to search
+    # @param hashtag [String] The hashtag to search
     #
     # @return [String]
     def twitter_hashtag_url(hashtag)

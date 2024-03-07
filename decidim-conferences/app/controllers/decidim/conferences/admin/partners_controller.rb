@@ -24,7 +24,7 @@ module Decidim
           enforce_permission_to :create, :partner
           @form = form(Decidim::Conferences::Admin::PartnerForm).from_params(params)
 
-          CreatePartner.call(@form, current_user, current_conference) do
+          CreatePartner.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("partners.create.success", scope: "decidim.admin")
               redirect_to conference_partners_path(current_conference)

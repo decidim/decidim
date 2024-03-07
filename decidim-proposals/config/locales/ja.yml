@@ -146,13 +146,13 @@ ja:
             default_sort_order_help: デフォルトは、サポートが有効な場合、提案がランダムでソートされることを意味します。サポートがブロックされている場合は、最もサポートされている順にソートされます。
             default_sort_order_options:
               default: デフォルト
-              most_commented: コメントが多い順
-              most_endorsed: 最もオススメされた順
-              most_followed: 最もフォローされている順
-              most_voted: サポートされている順
+              most_commented: コメントの多い順
+              most_endorsed: オススメの多い順
+              most_followed: フォローの多い順
+              most_voted: サポートの多い順
               random: ランダム
-              recent: 最近のもの
-              with_more_authors: より多くの著者と一緒に
+              recent: 新しい順
+              with_more_authors: 起案者の多い順
             geocoding_enabled: ジオコーディングが有効
             minimum_votes_per_user: 参加者一人あたりの最低サポート数
             new_proposal_body_template: 新しい提案本文テンプレート
@@ -200,13 +200,13 @@ ja:
             default_sort_order_help: デフォルトは、サポートが有効な場合、提案がランダムでソートされることを意味します。サポートがブロックされている場合は、最もサポートされている順にソートされます。
             default_sort_order_options:
               default: デフォルト
-              most_commented: コメントが多い順
-              most_endorsed: 最もオススメされた順
-              most_followed: フォローが多い順
-              most_voted: サポートされている順
+              most_commented: コメントの多い順
+              most_endorsed: オススメの多い順
+              most_followed: フォローの多い順
+              most_voted: サポートの多い順
               random: ランダム
-              recent: 最新順
-              with_more_authors: 著者の多い順
+              recent: 新しい順
+              with_more_authors: 起案者の多い順
             endorsements_blocked: オススメをブロック
             endorsements_enabled: オススメを有効にする
             proposal_answering_enabled: 提案への回答を有効にする
@@ -425,8 +425,8 @@ ja:
             proposals:
               other: 提案
           title:
-            answers: 提案の回答をインポート
-            proposals: 提案をインポート
+            answers: ファイルから提案の回答をインポート
+            proposals: ファイルから提案をインポート
         models:
           proposal:
             name: 提案
@@ -520,7 +520,7 @@ ja:
             create: 作成
             title: 提案を作成
           publish_answers:
-            number_of_proposals: '%{number} の提案の回答が公開されます。'
+            number_of_proposals: '%{number} 件の提案に対する回答が公開されますか？'
             select_a_proposal: 提案を選択してください。
           show:
             amendments_count: 修正数
@@ -530,7 +530,7 @@ ja:
             documents: ドキュメント
             endorsements_count: オススメ数
             endorsers: オススメしている人
-            link: リンク
+            link: 提案を見る
             n_more_endorsers:
               other: 他 %{count} 名
             photos: 写真
@@ -559,7 +559,7 @@ ja:
             no_components: この参加スペースには他の提案コンポーネントはありません。
             select_component: コンポーネントを選択してください
             select_states: インポートする提案のステータスを確認してください
-            title: 提案をインポート
+            title: 別のコンポーネントから提案をインポート
         proposals_merges:
           create:
             invalid: '選択した提案をマージする際に問題が発生しました:'

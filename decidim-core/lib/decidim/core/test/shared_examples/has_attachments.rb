@@ -14,7 +14,7 @@ shared_examples_for "has attachments content blocks" do
 
     it "shows them" do
       within "[data-content] .documents__container" do
-        expect(page).to have_content(/#{translated(document.title, locale: :en)}/i)
+        expect(page).to have_content(translated(document.title))
       end
 
       within "[data-content] [data-gallery]" do
@@ -27,7 +27,7 @@ shared_examples_for "has attachments content blocks" do
     let!(:last_document) { create(:attachment, :with_pdf, attached_to:, weight: 2) }
     let!(:first_document) { create(:attachment, :with_pdf, attached_to:, weight: 1) }
     let!(:last_image) { create(:attachment, attached_to:, weight: 2) }
-    let!(:fist_image) { create(:attachment, attached_to:, weight: 1) }
+    let!(:first_image) { create(:attachment, attached_to:, weight: 1) }
 
     before do
       visit current_path
@@ -35,11 +35,11 @@ shared_examples_for "has attachments content blocks" do
 
     it "shows them ordered" do
       within "[data-content] .documents__container" do
-        expect(translated(first_document.title, locale: :en)).to appear_before(translated(last_document.title, locale: :en))
+        expect(decidim_escape_translated(first_document.title).gsub("&quot;", "\"")).to appear_before(decidim_escape_translated(last_document.title).gsub("&quot;", "\""))
       end
 
       within "[data-content] [data-gallery]" do
-        expect(strip_tags(translated(fist_image.title, locale: :en))).to appear_before(strip_tags(translated(last_image.title, locale: :en)))
+        expect(strip_tags(translated(first_image.title, locale: :en))).to appear_before(strip_tags(translated(last_image.title, locale: :en)))
       end
     end
   end
@@ -58,7 +58,7 @@ shared_examples_for "has attachments tabs" do
     it "shows them" do
       find("li [data-controls='panel-documents']").click
       within "#panel-documents" do
-        expect(page).to have_content(/#{translated(document.title, locale: :en)}/i)
+        expect(page).to have_content(translated(document.title))
       end
 
       find("li [data-controls='panel-images']").click
@@ -72,7 +72,7 @@ shared_examples_for "has attachments tabs" do
     let!(:last_document) { create(:attachment, :with_pdf, attached_to:, weight: 2) }
     let!(:first_document) { create(:attachment, :with_pdf, attached_to:, weight: 1) }
     let!(:last_image) { create(:attachment, attached_to:, weight: 2) }
-    let!(:fist_image) { create(:attachment, attached_to:, weight: 1) }
+    let!(:first_image) { create(:attachment, attached_to:, weight: 1) }
 
     before do
       visit current_path
@@ -81,12 +81,12 @@ shared_examples_for "has attachments tabs" do
     it "shows them ordered" do
       find("li [data-controls='panel-documents']").click
       within "#panel-documents" do
-        expect(translated(first_document.title, locale: :en)).to appear_before(translated(last_document.title, locale: :en))
+        expect(decidim_escape_translated(first_document.title).gsub("&quot;", "\"")).to appear_before(decidim_escape_translated(last_document.title).gsub("&quot;", "\""))
       end
 
       find("li [data-controls='panel-images']").click
       within "#panel-images" do
-        expect(strip_tags(translated(fist_image.title, locale: :en))).to appear_before(strip_tags(translated(last_image.title, locale: :en)))
+        expect(strip_tags(translated(first_image.title, locale: :en))).to appear_before(strip_tags(translated(last_image.title, locale: :en)))
       end
     end
   end

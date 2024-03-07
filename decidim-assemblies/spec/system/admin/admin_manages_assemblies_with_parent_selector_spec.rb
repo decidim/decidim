@@ -18,7 +18,7 @@ describe "Admin manages assemblies with parent selector" do
 
   context "when selecting a parent_assembly in the form" do
     before do
-      click_link "New assembly"
+      click_on "New assembly"
     end
 
     it "creates a new assembly" do
@@ -79,10 +79,10 @@ describe "Admin manages assemblies with parent selector" do
     let!(:child_assembly) { create(:assembly, organization:, parent: assembly) }
 
     before do
-      within find("tr", text: translated(assembly.title)) do
-        click_link "Assemblies"
+      within "tr", text: translated(assembly.title) do
+        click_on "Assemblies"
       end
-      click_link "New assembly"
+      click_on "New assembly"
     end
 
     it "creates a new assembly" do

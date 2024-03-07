@@ -23,7 +23,7 @@ shared_examples_for "update display conditions" do
     end
 
     it "the related form appears" do
-      expect(page).to have_selector(".questionnaire-question-display-condition")
+      expect(page).to have_css(".questionnaire-question-display-condition")
     end
 
     it "loads condition_question in select" do
@@ -54,19 +54,19 @@ shared_examples_for "update display conditions" do
 
     it "can be removed" do
       within ".questionnaire-question-display-condition:last-of-type" do
-        click_button "Remove"
+        click_on "Remove"
       end
 
-      click_button "Save"
+      click_on "Save"
 
       visit_questionnaire_edit_path_and_expand_all
 
-      expect(page).to have_selector(".questionnaire-question-display-condition", count: 0)
+      expect(page).to have_css(".questionnaire-question-display-condition", count: 0)
     end
 
     it "still removes the question even if previous editions rendered the conditions invalid" do
       within "form.edit_questionnaire" do
-        expect(page).to have_selector(".questionnaire-question", count: 2)
+        expect(page).to have_css(".questionnaire-question", count: 2)
 
         within ".questionnaire-question-display-condition:first-of-type" do
           select condition_question.body["en"], from: "Question"
@@ -75,10 +75,10 @@ shared_examples_for "update display conditions" do
         end
 
         within ".questionnaire-question:last-of-type" do
-          click_button "Remove", match: :first
+          click_on "Remove", match: :first
         end
 
-        click_button "Save"
+        click_on "Save"
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -86,7 +86,7 @@ shared_examples_for "update display conditions" do
       visit_questionnaire_edit_path_and_expand_all
 
       within "form.edit_questionnaire" do
-        expect(page).to have_selector(".questionnaire-question", count: 1)
+        expect(page).to have_css(".questionnaire-question", count: 1)
       end
     end
   end

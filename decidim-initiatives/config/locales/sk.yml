@@ -256,7 +256,6 @@ sk:
           any: Akýkoľvek
           author: Autor
           myself: Moje iniciatívy
-          search: Vyhľadávanie
           state: Štát
           type: Typ
         index_header:
@@ -331,8 +330,5 @@ sk:
         sms_phone_number: Číslo mobilného telefónu
         title: Podpísať%{initiative_title}
       initiatives:
-        initiative:
-          check: Pozri na to
-          check_and_support: Pozrieť sa na to a podpísať
         no_initiatives_yet:
           no_initiatives_yet: Zatiaľ žiadne iniciatívy!

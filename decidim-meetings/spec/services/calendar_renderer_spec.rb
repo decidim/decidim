@@ -17,7 +17,7 @@ module Decidim::Meetings
       end
     end
 
-    describe "when the resource is aan organization" do
+    describe "when the resource is an organization" do
       it "calls the OrganizationCalendar" do
         expect(Calendar::OrganizationCalendar).to receive(:for)
         subject.for(organization)

@@ -29,6 +29,11 @@ pl:
         block_user_templates:
           form:
             save: Zapisz
+          index:
+            title: Blokuj wiadomości użytkownika
+        proposal_answer_templates:
+          form:
+            save: Zapisz
         questionnaire_templates:
           choose:
             create_from_template: Utwórz z szablonu

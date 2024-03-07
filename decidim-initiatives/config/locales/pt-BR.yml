@@ -24,6 +24,7 @@ pt-BR:
         banner_image: Imagem de banner
         child_scope_threshold_enabled: Ativar assinaturas de escopo filho
         collect_user_extra_fields: Colete dados pessoais do usuário na assinatura
+        comments_enabled: Permitir comentários
         custom_signature_end_date_enabled: Permitir aos autores escolher o fim do período de coleta de assinaturas
         description: Descrição
         document_number_authorization_handler: Autorização para verificar o número do documento nos votos
@@ -35,6 +36,8 @@ pt-BR:
         title: Título
         undo_online_signatures_enabled: Permitir que os usuários desfizessem suas assinaturas on-line
         validate_sms_code_on_votes: Adicionar etapa de validação do código SMS ao processo de assinatura
+      initiatives_type_scope:
+        supports_required: Apoios requeridos
       initiatives_vote:
         date_of_birth: Data de nascimento
         document_number: Número do documento
@@ -53,6 +56,9 @@ pt-BR:
               needs_to_be_reattached: Precisa ser reanexado
   activerecord:
     models:
+      decidim/initiative:
+        one: Iniciativa
+        other: Iniciativas
       decidim/initiative_comittee:
         one: Comissão
         other: Comissões
@@ -80,6 +86,10 @@ pt-BR:
             label: Tipo
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Pesquisar %{collection} por título, descrição, ID ou nome do autor.
+      initiatives_settings:
+        update:
+          error: Ocorreu um erro.
+          success: As configurações de iniciativas foram atualizadas com sucesso.
       menu:
         attachments: Anexos
         committee_members: Membros do Comitê
@@ -173,8 +183,8 @@ pt-BR:
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Uma iniciativa é uma proposta que pode ser promovida por qualquer pessoa por sua própria iniciativa (independentemente de outros canais ou espaços de participação) através da coleta de assinaturas (digitais) para a organização realizar uma ação específica (modificar um regulamento, iniciar um projeto , mude o nome de um departamento ou de uma rua, etc.).</p> <p>Os promotores de uma iniciativa podem definir seus objetivos, reunir apoio, debater, divulgá-la e definir pontos de encontro onde as assinaturas podem ser coletadas dos participantes ou debates abertos a outros participantes.</p> <p>Exemplos: Uma iniciativa pode coletar assinaturas para convocar uma consulta entre todas as pessoas de uma organização, ou para criar ou convocar uma assembléia, ou para iniciar um processo de aumento de orçamento para um território ou área da organização. Durante o processo de coleta de assinaturas, mais pessoas podem aumentar essa demanda e levá-la adiante na organização.</p>\n"
-          page: "<p>Uma iniciativa é uma proposta que pode ser promovida por qualquer pessoa por sua própria iniciativa (independentemente de outros canais ou espaços de participação) através da coleta de assinaturas (digitais) para a organização realizar uma ação específica (modificar um regulamento, iniciar um projeto , mude o nome de um departamento ou de uma rua, etc.).</p> <p>Os promotores de uma iniciativa podem definir seus objetivos, reunir apoio, debater, divulgá-la e definir pontos de encontro onde as assinaturas podem ser coletadas dos participantes ou debates abertos a outros participantes.</p> <p>Exemplos: Uma iniciativa pode coletar assinaturas para convocar uma consulta entre todas as pessoas de uma organização, ou para criar ou convocar uma assembléia, ou para iniciar um processo de aumento de orçamento para um território ou área da organização. Durante o processo de coleta de assinaturas, mais pessoas podem aumentar essa demanda e levá-la adiante na organização.</p>\n"
+          contextual: "<p>Uma <strong>iniciativa</strong> é uma proposta que pode ser promovida por qualquer pessoa por sua própria iniciativa (independentemente de outros canais ou espaços de participação) através da coleta de assinaturas (digitais) para a organização realizar uma ação específica (modificar um regulamento, iniciar um projeto, mudar o nome de um departamento ou de uma rua, etc.).</p> <p>Os promotores de uma iniciativa podem definir seus objetivos, reunir apoio, debater, divulgá-la e definir pontos de encontro onde as assinaturas podem ser coletadas dos participantes ou debates abertos a outros participantes.</p> <p>Exemplos: Uma iniciativa pode coletar assinaturas para convocar uma consulta entre todas as pessoas de uma organização, ou para criar ou convocar uma assembleia, ou para iniciar um processo de aumento de orçamento para um território ou área da organização. Durante o processo de coleta de assinaturas, mais pessoas podem aumentar essa demanda e levá-la adiante na organização.</p>\n"
+          page: "<p>Uma <strong>iniciativa</strong> é uma proposta que pode ser promovida por qualquer pessoa por sua própria iniciativa (independentemente de outros canais ou espaços de participação) através da coleta de assinaturas (digitais) para a organização realizar uma ação específica (modificar um regulamento, iniciar um projeto, mudar o nome de um departamento ou de uma rua, etc.).</p> <p>Os promotores de uma iniciativa podem definir seus objetivos, reunir apoio, debater, divulgá-la e definir pontos de encontro onde as assinaturas podem ser coletadas dos participantes ou debates abertos a outros participantes.</p> <p>Exemplos: Uma iniciativa pode coletar assinaturas para convocar uma consulta entre todas as pessoas de uma organização, ou para criar ou convocar uma assembleia, ou para iniciar um processo de aumento de orçamento para um território ou área da organização. Durante o processo de coleta de assinaturas, mais pessoas podem aumentar essa demanda e levá-la adiante na organização.</p>\n"
           title: O que são iniciativas?
     initiatives:
       actions:
@@ -228,6 +238,14 @@ pt-BR:
             edit: Editar
             new: Novo
             photos: Fotos
+        initiatives_settings:
+          form:
+            comments: Mais comentado
+            date: Mais recente
+            publication_date: Mais recentemente publicado
+            random: Aleatório
+            signatures: Mais assinadas
+            title: Configurações de iniciativas
         initiatives_type_scopes:
           edit:
             title: Editar o âmbito do tipo de iniciativa
@@ -240,6 +258,8 @@ pt-BR:
             update: Atualizar
           form:
             authorizations: Opções de autorização
+            child_scope_threshold_enabled_help_html: 'Esse parâmetro de configuração não suporta votos off-line, permite subescopos e funciona com um manipulador de autorização que associa o escopo ao usuário, certifique-se de selecionar a autorização, nas configurações de autorização. Para que funcione, os escopos precisam ser configurados de forma hierárquica: 1 Pai - N Filhos. Para mais informações sobre como essa configuração funciona, consulte este <a href="https://docs.decidim.org/en/admin/spaces/initiatives" target="_blank">link</a>.'
+            only_global_scope_enabled_help_html: Marque este sinalizador se você habilitou "Assinatura de escopo Filho" e configurou o escopo global como seu escopo pai. Habilitando esta possibilidade, a selecção do tipo de iniciativa será ignorada no assistente de criação de iniciativa. Para mais informações sobre como essa configuração funciona, consulte este <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
             options: Opções
           initiative_type_scopes:
             title: Escopos para o tipo de iniciativa
@@ -252,6 +272,12 @@ pt-BR:
           send_to_technical_validation: "%{user_name} enviou a iniciativa %{resource_name} para validação técnica"
           unpublish: "%{user_name} descartou a iniciativa %{resource_name}"
           update: "%{user_name} atualizou a iniciativa %{resource_name}"
+        initiatives_settings:
+          update: "%{user_name} atualizou as configurações das iniciativas"
+        initiatives_type:
+          create: "%{user_name} criou o tipo de iniciativas %{resource_name}"
+          delete: "%{user_name} excluiu o tipo de iniciativas %{resource_name}"
+          update: "%{user_name} atualizou o tipo de iniciativas %{resource_name}"
       admin_states:
         accepted: Assinaturas suficientes
         created: Criada
@@ -286,7 +312,6 @@ pt-BR:
           back: Costas
           continue: Continuar
           fill_data_help: "<ul> <li>Revise o conteúdo de sua iniciativa. Seu título é fácil de entender? O objetivo da sua iniciativa é claro?</li> <li>Você tem que escolher o tipo de assinatura. Pessoalmente, online ou uma combinação de ambos</li> <li>Qual é o âmbito geográfico da iniciativa?</li> </ul>"
-          initiative_type: Tipo de iniciativa
           more_information: "(Mais Informações)"
           select_area: Selecione uma área
           select_scope: Selecione um âmbito
@@ -355,9 +380,12 @@ pt-BR:
       form:
         add_documents: Adicionar Documentos
         add_image: Adicionar imagem
+        attachment_legend: "(Opcional) Adicionar um anexo"
         edit_documents: Editar documentos
         edit_image: Editar imagem
         image_legend: "(Opcional) Adicionar um anexo"
+      index:
+        uninitialized: As iniciativas ainda não estão configuradas por um administrador.
       initiative_signatures:
         fill_personal_data:
           continue: Continuar
@@ -382,7 +410,6 @@ pt-BR:
             other: e mais %{count} pessoas
         committee_members:
           approve: Aprovar
-          confirm_revoke: Você tem certeza?
           link: Link
           title: Membros do Comitê
         count:
@@ -395,7 +422,6 @@ pt-BR:
           author: Autor
           myself: Minhas iniciativas
           scope: Escopo
-          search: Pesquisa
           state: Estado
           type: Tipo
         index_header:
@@ -429,6 +455,7 @@ pt-BR:
             title: 'Título:'
             type: Tipo de iniciativa
           legal_text: Os dados pessoais recolhidos serão incorporados e tratados confidencialmente pela organização, de acordo com a legislação em vigor.
+          members_header: Membros do comitê de promotor da iniciativa
           phone_number: Número de telefone
           place_date: Local, data
           postal_code: CEP/CEP
@@ -515,8 +542,5 @@ pt-BR:
         sms_phone_number: número de celular
         title: Assinar %{initiative_title}
       initiatives:
-        initiative:
-          check: Confira
-          check_and_support: Confira e assine
         no_initiatives_yet:
           no_initiatives_yet: Nenhuma iniciativa ainda!

@@ -104,6 +104,9 @@ en:
         create:
           invalid: There was a problem creating the debate.
           success: Debate successfully created.
+        debates:
+          empty: There are no debates yet.
+          empty_filters: There are no debates with this criteria.
         edit:
           back: Back
           save: Save changes
@@ -168,10 +171,10 @@ en:
           space_followers:
             email_intro: |-
               Hi,
-              A new debate "%{resource_title}" has been created on the %{space_title} participatory space, check it out and contribute:
-            email_outro: You have received this notification because you are following the %{space_title} participatory space. You can stop receiving notifications following the previous link.
-            email_subject: New debate "%{resource_title}" on %{space_title}
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> debate was created on <a href="%{space_path}">%{space_title}</a>.
+              A new debate "%{resource_title}" has been created on the %{participatory_space_title} participatory space, check it out and contribute:
+            email_outro: You have received this notification because you are following the %{participatory_space_title} participatory space. You can stop receiving notifications following the previous link.
+            email_subject: New debate "%{resource_title}" on %{participatory_space_title}
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> debate was created on <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
           user_followers:
             email_intro: |-
               Hi,

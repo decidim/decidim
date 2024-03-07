@@ -15,10 +15,10 @@ module Decidim
       }
     end
 
-    let(:resource_class) { "Decidim::DummyResources::DummyResource" }
+    let(:resource_class) { "Decidim::Dev::DummyResource" }
     let(:property) { "avatar" }
     let(:blob) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
-    let(:form_class) { "Decidim::DummyResources::DummyForm" }
+    let(:form_class) { "Decidim::Dev::DummyForm" }
 
     let(:parsed_response) { JSON.parse(response.body) }
 

@@ -7,7 +7,7 @@ module Decidim
       class CommitteeRequestsController < Decidim::Initiatives::Admin::ApplicationController
         include InitiativeAdmin
 
-        add_breadcrumb_item_from_menu :admin_initiative_actions_menu
+        add_breadcrumb_item_from_menu :admin_initiative_menu
 
         # GET /admin/initiatives/:initiative_id/committee_requests
         def index

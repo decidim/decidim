@@ -5,7 +5,7 @@ module Decidim
   module ComponentTestHelpers
     def click_submenu_link(text)
       within ".secondary-nav--subnav" do
-        click_link text
+        click_on text
       end
     end
 
@@ -13,7 +13,7 @@ module Decidim
       main_bar_selector = ".main-bar"
 
       within main_bar_selector do
-        find("#trigger-dropdown-account").click
+        find_by_id("trigger-dropdown-account").click
 
         yield
       end
@@ -26,14 +26,14 @@ module Decidim
     end
 
     def within_admin_menu
-      click_button "Manage"
+      click_on "Manage"
       within("[id*='dropdown-menu-settings']") do
         yield
       end
     end
 
     def within_language_menu(options = {})
-      within(options[:admin] ? ".topbar__dropmenu.language-choose" : "footer") do
+      within(options[:admin] ? ".language-choose" : "footer") do
         find(options[:admin] ? "#admin-menu-trigger" : "#trigger-dropdown-language-chooser").click
         yield
       end

@@ -17,10 +17,10 @@ describe "Admin manages sortitions" do
     it "is added" do
       visit current_path
       within_admin_sidebar_menu do
-        click_link "Components"
+        click_on "Components"
       end
-      click_button "Add component"
-      click_link "Sortitions"
+      click_on "Add component"
+      click_on "Sortitions"
 
       fill_in_i18n(
         :component_name,
@@ -28,7 +28,7 @@ describe "Admin manages sortitions" do
         en: name
       )
 
-      click_button "Add component"
+      click_on "Add component"
 
       expect(page).to have_content("Component created successfully")
       expect(page).to have_content(name)

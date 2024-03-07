@@ -93,7 +93,6 @@ sv:
           cancel: Avbryta
           description: Vad är sammanfattningen för denna debatt?
           send: Stäng debatt
-        closed: Stängd
         count:
           debates_count:
             one: "%{count} debatt"
@@ -101,8 +100,6 @@ sv:
         create:
           invalid: Det gick inte att skapa debatten.
           success: Debatten har skapats.
-        debate:
-          participate: Delta
         edit:
           back: Tillbaka
           save: Spara ändringar
@@ -139,7 +136,6 @@ sv:
           updated: Senast uppdaterade
         show:
           close_debate: Stäng debatt
-          date: Datum
           debate_closed: Stängd
           debate_conclusions_are: 'Debatten stängdes den %{date} med dessa slutsatser:'
           edit_conclusions: Redigera slutsatser

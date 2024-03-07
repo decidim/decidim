@@ -70,7 +70,6 @@ ar:
         machine_translation_display_priority_translation: النص المترجم أولاً
         name: اسم
         official_img_footer: تذييل الشعار الرسمي
-        official_img_header: رأس الشعار الرسمي
         official_url: عنوان URL الرسمي للمنظمة
         omnipresent_banner_short_description: وصف قصير
         omnipresent_banner_title: العنوان
@@ -126,8 +125,6 @@ ar:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: ملف صورة غير صالح
-            official_img_header:
               allowed_file_content_types: ملف صورة غير صالح
   activerecord:
     attributes:
@@ -300,9 +297,6 @@ ar:
       dashboard:
         show:
           view_more_logs: عرض المزيد من السجلات
-      domain_whitelist:
-        form:
-          domain_too_short: نطاق الدومين قصير جداً
       exports:
         export_as: "%{name} ك %{export_format}"
         formats:
@@ -368,7 +362,6 @@ ar:
           report_count_eq: عدد التقارير يساوى
           reported_id_string_or_reported_content_cont: البحث عن %{collection} بواسطة رقم-مُعرف أو بالمحتوى.
           title_cont: البحث عن %{collection} بحسب العنوان.
-          user_name_or_user_email_cont: البحث عن %{collection} حسب الاسم أو البريد الإلكتروني.
           user_name_or_user_nickname_or_user_email_cont: البحث عن %{collection} بحسب عنوان البريد الإكتروني أو الإسم أو الإسم المستعار.
         state_eq:
           label: الحالة
@@ -460,6 +453,7 @@ ar:
         scope_types: أنواع المجال
         scopes: مجالات
         settings: الإعدادات
+        static_page_topics: المواضيع
         static_pages: صفحات
         user_groups: المجموعات
         users: المشاركون
@@ -653,6 +647,7 @@ ar:
           github: غِت‌ هَب
           instagram: إينستاجرام
           social_handlers: التواصل الاجتماعي
+          twitter: X
           url: عنوان الرابط
           youtube: يوتيوب
         update:
@@ -671,17 +666,6 @@ ar:
             layout_appearance_title: تحرير مظهر التخطيط
             preview: معاينة
           omnipresent_banner_appearance_title: تحرير لافتة في كل مكان
-      organization_external_domain_whitelist:
-        edit:
-          update: تحديث
-        external_domain:
-          down: أسفل
-          remove: إزالة
-          up: أعلى
-      organization_homepage:
-        edit:
-          active_content_blocks: كتل المحتوى النشط
-          inactive_content_blocks: كتل المحتوى غير النشطة
       participatory_space_private_users:
         create:
           error: حدثت مشكلة أثناء إضافة مشارك خاص لهذه المساحة التشاركية.
@@ -701,7 +685,6 @@ ar:
             empty: ليس لديك أي مشاركين خاصين.
             explanation: لديك %{count} مشاركين خاصين.
             title: حذف جميع المشاركين الخاصين
-          title: حمّل ملف CSV الخاص بك
           upload: حمّل
       reminders:
         new:
@@ -752,7 +735,6 @@ ar:
       shared:
         gallery:
           add_images: إضافة صور
-          delete_image: احذف الصورة
           edit_images: تعديل الصورة
       static_page_topics:
         create:
@@ -770,8 +752,6 @@ ar:
       static_pages:
         actions:
           view: عرض الصفحة العامة
-        content_blocks:
-          title: محتوى الصفحة
         create:
           error: كانت هناك مشكلة في إنشاء صفحة جديدة.
           success: تم إنشاء الصفحة بنجاح.
@@ -782,12 +762,12 @@ ar:
           update: تحديث
         form:
           none: لا شيء
+        index:
+          last_notable_change: آخر تغيير ملحوظ
         new:
           create: إنشاء صفحة
           title: صفحة جديدة
         topic:
-          destroy: إزالة الموضوع
-          edit: تحرير الموضوع
           without_topic: صفحات بدون موضوع
         update:
           error: حدثت مشكلة أثناء تحديث هذه الصفحة.
@@ -797,8 +777,11 @@ ar:
         areas: المناطق
         authorization_workflows: طرق التحقق
         dashboard: لوحة القيادة
+        edit_organization_appearance: تعديل مظهر الصفحة الرئيسية
         impersonatable_users: المشاركون في الإدارة
         impersonations: إدارة المشاركين
+        menu: القائمة الرئيسية
+        pages: الصفحات
         panel: مدير
         participants: المشاركين
         scope_types: أنواع النطاق
@@ -881,6 +864,7 @@ ar:
             participatory_space: الفضاء التشاركي
             reportable_type: النوع
             reported_content_url: تم الإبلاغ عن عنوان URL للمحتوى
+            reports: السبب
             visit_url: زيارة العنوان الشبكي
         report:
           fields:

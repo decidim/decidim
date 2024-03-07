@@ -69,7 +69,7 @@ module Decidim
     end
 
     def category_name
-      model.category.translated_name
+      decidim_html_escape model.category.translated_name
     end
 
     def category_path

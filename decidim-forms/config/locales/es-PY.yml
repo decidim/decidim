@@ -161,6 +161,7 @@ es-PY:
             sign_up_description: Crea una cuenta de participante para realizar la encuesta
             title: Responde al cuestionario
           current_step: Paso %{step}
+          empty: Aún no hay preguntas configuradas para este formulario.
           of_total_steps: de %{total_steps}
           questionnaire_answered:
             body: Ya has respondido este cuestionario.

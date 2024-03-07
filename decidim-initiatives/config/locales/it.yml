@@ -374,7 +374,6 @@ it:
             other: e altre %{count} persone
         committee_members:
           approve: Approva
-          confirm_revoke: Sei sicuro?
           title: Membri del comitato
         count:
           title:
@@ -386,7 +385,6 @@ it:
           author: Autore
           myself: Le mie iniziative
           scope: Scopo
-          search: Ricerca
           state: Stato
           type: genere
         index_header:
@@ -498,8 +496,5 @@ it:
         sms_phone_number: Numero di cellulare
         title: Firma %{initiative_title}
       initiatives:
-        initiative:
-          check: Controlla
-          check_and_support: Guardalo e firmalo
         no_initiatives_yet:
           no_initiatives_yet: Nessuna iniziativa ancora!

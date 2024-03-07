@@ -18,7 +18,7 @@ shared_examples "copy assemblies" do
 
   context "without any context" do
     it "copies the assembly with the basic fields" do
-      click_link "Duplicate", match: :first
+      click_on "Duplicate", match: :first
 
       within ".copy_assembly" do
         fill_in_i18n(
@@ -29,7 +29,7 @@ shared_examples "copy assemblies" do
           ca: "Còpia del procés participatiu"
         )
         fill_in :assembly_slug, with: "pp-copy"
-        click_button "Copy"
+        click_on "Copy"
       end
 
       expect(page).to have_content("successfully")
@@ -40,7 +40,7 @@ shared_examples "copy assemblies" do
 
   context "with context" do
     before do
-      click_link "Duplicate", match: :first
+      click_on "Duplicate", match: :first
 
       within ".copy_assembly" do
         fill_in_i18n(
@@ -56,15 +56,15 @@ shared_examples "copy assemblies" do
 
     it "copies the assembly with categories" do
       page.check("assembly[copy_categories]")
-      click_button "Copy"
+      click_on "Copy"
 
       expect(page).to have_content("successfully")
 
-      within find("tr", text: "Copy assembly") do
-        click_link "Configure"
+      within "tr", text: "Copy assembly" do
+        click_on "Configure"
       end
       within_admin_sidebar_menu do
-        click_link "Categories"
+        click_on "Categories"
       end
 
       within ".table-list" do
@@ -76,15 +76,15 @@ shared_examples "copy assemblies" do
 
     it "copies the assembly with components" do
       page.check("assembly[copy_components]")
-      click_button "Copy"
+      click_on "Copy"
 
       expect(page).to have_content("successfully")
 
-      within find("tr", text: "Copy assembly") do
-        click_link "Configure"
+      within "tr", text: "Copy assembly" do
+        click_on "Configure"
       end
       within_admin_sidebar_menu do
-        click_link "Components"
+        click_on "Components"
       end
 
       within ".table-list" do
@@ -100,9 +100,9 @@ shared_examples "copy assemblies" do
     let!(:assembly) { create(:assembly, parent: assembly_parent, organization:) }
 
     it "copies the child assembly with the basic fields" do
-      click_link "Assemblies", match: :first
+      click_on "Assemblies", match: :first
 
-      click_link "Duplicate", match: :first
+      click_on "Duplicate", match: :first
 
       within ".copy_assembly" do
         fill_in_i18n(
@@ -113,7 +113,7 @@ shared_examples "copy assemblies" do
           ca: "Còpia del procés participatiu"
         )
         fill_in :assembly_slug, with: "pp-copy"
-        click_button "Copy"
+        click_on "Copy"
       end
 
       expect(page).to have_content("successfully")

@@ -2,7 +2,7 @@
 
 module Decidim
   module Sortitions
-    # This is the engine that runs on the administration interface of `decidim_sorititions`.
+    # This is the engine that runs on the administration interface of `decidim_sortitions`.
     # It mostly handles rendering the created projects associated to a participatory
     # process.
     class AdminEngine < ::Rails::Engine

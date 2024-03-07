@@ -243,7 +243,7 @@ module Decidim
 
     describe ".update_records_batches" do
       let!(:data) { create_list(:dummy_resource, 149, component:) }
-      let(:klass) { Decidim::DummyResources::DummyResource }
+      let(:klass) { Decidim::Dev::DummyResource }
       let(:value_converter) do
         lambda do |_v, column|
           if column == :title
@@ -273,7 +273,7 @@ module Decidim
 
     describe ".convert_model_data" do
       let!(:data) { create_list(:dummy_resource, 12, component:) }
-      let(:query) { Decidim::DummyResources::DummyResource.where(component:).order(:id) }
+      let(:query) { Decidim::Dev::DummyResource.where(component:).order(:id) }
       let(:converted_title) { { "en" => "Foobar", "machine_translations" => { "es" => "Foobar ES" } } }
       let(:converted_body) { "Baz" }
 
@@ -324,7 +324,7 @@ module Decidim
 
     describe ".update_models" do
       let!(:data) { create_list(:dummy_resource, 149, title: { en: content }, component:) }
-      let(:klass) { Decidim::DummyResources::DummyResource }
+      let(:klass) { Decidim::Dev::DummyResource }
 
       before do
         described_class.register_model(klass, [:title])
@@ -443,7 +443,7 @@ module Decidim
         allow(Decidim).to receive(:component_manifests).and_return([component.manifest])
       end
 
-      it "updates the component settings for all defined manifets" do
+      it "updates the component settings for all defined manifest" do
         expect { |b| described_class.update_component_settings(&b) }.to yield_with_args(:dummy, 1..1)
 
         component.reload

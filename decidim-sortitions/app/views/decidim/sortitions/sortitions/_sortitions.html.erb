@@ -1,9 +1,13 @@
-<h2 class="h5 md:h3 decorator"><%= t("count", scope: "decidim.sortitions.sortitions.sortitions_count", count: @sortitions.total_count) %></h2>
+<% if @sortitions.any? %>
+  <h2 class="h5 md:h3 decorator"><%= t("count", scope: "decidim.sortitions.sortitions.sortitions_count", count: @sortitions.total_count) %></h2>
 
-<%= order_selector available_orders, i18n_scope: "decidim.sortitions.sortitions.orders" %>
+  <%= order_selector available_orders, i18n_scope: "decidim.sortitions.sortitions.orders" %>
 
-<div class="card__list-list">
-  <%= render @sortitions %>
-</div>
+  <div class="card__list-list">
+    <%= render @sortitions %>
+  </div>
 
-<%= decidim_paginate @sortitions %>
+  <%= decidim_paginate @sortitions %>
+<% else %>
+  <%= cell "decidim/announcement", t("empty", scope: "decidim.sortitions.sortitions.index") %>
+<% end %>

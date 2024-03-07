@@ -27,10 +27,10 @@ module Decidim::Comments
         expect(subject).to have_content("less than a minute")
         expect(subject).to have_content(comment.author.name)
 
-        expect(subject).not_to have_css(".add-comment")
-        expect(subject).not_to have_css(".comment-reply")
-        expect(subject).not_to have_css("#flagModalComment#{comment.id}")
-        expect(subject).not_to have_css(".label.alignment")
+        expect(subject).to have_no_css(".add-comment")
+        expect(subject).to have_no_css(".comment-reply")
+        expect(subject).to have_no_css("#flagModalComment#{comment.id}")
+        expect(subject).to have_no_css(".label.alignment")
       end
 
       context "when deleted" do
@@ -39,16 +39,16 @@ module Decidim::Comments
         it "renders the card with a deletion message and replies" do
           expect(subject).to have_css("#comment_#{comment.id}")
           expect(subject).to have_css(".comment__deleted")
-          expect(subject).not_to have_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']")
-          expect(subject).not_to have_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
-          expect(subject).not_to have_content(comment.body.values.first)
-          expect(subject).not_to have_content("less than a minute")
+          expect(subject).to have_no_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']")
+          expect(subject).to have_no_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
+          expect(subject).to have_no_content(comment.body.values.first)
+          expect(subject).to have_no_content("less than a minute")
           expect(subject).to have_content(I18n.l(comment.deleted_at, format: :decidim_short))
-          expect(subject).not_to have_content(comment.author.name)
+          expect(subject).to have_no_content(comment.author.name)
 
-          expect(subject).not_to have_css(".add-comment")
-          expect(subject).not_to have_css(".comment-reply")
-          expect(subject).not_to have_css("#flagModalComment#{comment.id}")
+          expect(subject).to have_no_css(".add-comment")
+          expect(subject).to have_no_css(".comment-reply")
+          expect(subject).to have_no_css("#flagModalComment#{comment.id}")
         end
       end
 
@@ -59,16 +59,16 @@ module Decidim::Comments
         it "renders the card with a moderation message and replies" do
           expect(subject).to have_css("#comment_#{comment.id}")
           expect(subject).to have_css(".comment__moderated")
-          expect(subject).not_to have_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']")
-          expect(subject).not_to have_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
-          expect(subject).not_to have_content(comment.body.values.first)
-          expect(subject).not_to have_content("less than a minute")
+          expect(subject).to have_no_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']")
+          expect(subject).to have_no_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
+          expect(subject).to have_no_content(comment.body.values.first)
+          expect(subject).to have_no_content("less than a minute")
           expect(subject).to have_content(I18n.l(moderation.hidden_at, format: :decidim_short))
-          expect(subject).not_to have_content(comment.author.name)
+          expect(subject).to have_no_content(comment.author.name)
 
-          expect(subject).not_to have_css(".add-comment")
-          expect(subject).not_to have_css(".comment-reply")
-          expect(subject).not_to have_css("#flagModalComment#{comment.id}")
+          expect(subject).to have_no_css(".add-comment")
+          expect(subject).to have_no_css(".comment-reply")
+          expect(subject).to have_no_css("#flagModalComment#{comment.id}")
         end
       end
 
@@ -88,9 +88,9 @@ module Decidim::Comments
           expect(subject).to have_content("less than a minute")
           expect(subject).to have_content(comment.author.name)
 
-          expect(subject).not_to have_css(".add-comment")
-          expect(subject).not_to have_css(".comment-reply")
-          expect(subject).not_to have_css(".label.alignment")
+          expect(subject).to have_no_css(".add-comment")
+          expect(subject).to have_no_css(".comment-reply")
+          expect(subject).to have_no_css(".label.alignment")
         end
       end
 
@@ -186,7 +186,7 @@ module Decidim::Comments
             end
 
             it "renders the opposite vote button disabled" do
-              expect(subject).not_to have_css(".js-comment__votes--up[disabled='disabled']")
+              expect(subject).to have_no_css(".js-comment__votes--up[disabled='disabled']")
               expect(subject).to have_css(".js-comment__votes--down[disabled='disabled']")
             end
           end
@@ -223,7 +223,7 @@ module Decidim::Comments
 
       context "when commentable has no permissions set for the vote_comment action" do
         it "renders a plain button" do
-          expect(subject).not_to have_css("[data-dialog-open=\"authorizationModal\"]")
+          expect(subject).to have_no_css("[data-dialog-open=\"authorizationModal\"]")
         end
       end
     end

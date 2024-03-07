@@ -64,9 +64,6 @@ pt:
   booleans:
     'false': 'Não'
     'true': 'Sim'
-  carrierwave:
-    errors:
-      not_inside_organization: O ficheiro não está anexado a nenhuma organização
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -169,7 +166,6 @@ pt:
         error: Ocorreu um erro ao modificar este recurso.
         promote_button: Promover a %{model_name}
         promote_confirm_text: Tem a certeza de que deseja promover esta retificação?
-        section_heading: Modificações (%{count})
       compare_draft:
         continue: Continuar
         no_similars_found: Não foram encontradas retificações semelhantes.
@@ -306,7 +302,6 @@ pt:
         one: e mais %{count}
         other: e mais %{count}
       see_less: "(ver menos)"
-      see_more: "(ver mais)"
     components:
       component_order_selector:
         order:
@@ -357,8 +352,6 @@ pt:
         description: Descrição
       footer_sub_hero:
         name: Faixa sub hero do rodapé
-      hero:
-        name: Imagem do hero
       hero_settings_form:
         background_image: Imagem de fundo
         welcome_text: Texto de boas-vindas
@@ -880,7 +873,6 @@ pt:
           proposals: Propostas
           proposals_explanation: Faça propostas, suporte as existentes e promova as mudanças que deseja ver.
         footer_sub_hero:
-          footer_sub_hero_body: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Adira, participe e decida.
           footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
           register: Registar
         hero:
@@ -899,8 +891,6 @@ pt:
         metrics:
           headline: Métricas
           link: Mostrar todas as métricas
-    participatory_space_private_users:
-      not_allowed: Não tem permissão para visualizar este conteúdo
     profile:
       deleted: Participante eliminado
     profiles:
@@ -1177,7 +1167,6 @@ pt:
         change_my_password: Modificar a minha palavra-passe
         confirm_new_password: Confirme a nova palavra-passe
         new_password: Nova palavra-passe
-        password_help: "%{minimun_characters} de caracteres no mínimo, não deverá ser muito comum (por ex. 123456) e deverá ser diferente da sua alcunha e do seu e-mail."
       new:
         forgot_your_password: Esqueceu a sua palavra-passe?
         send_me_reset_password_instructions: Envie-me as instruções de reposição da palavra-passe

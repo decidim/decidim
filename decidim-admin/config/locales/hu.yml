@@ -75,7 +75,6 @@ hu:
         machine_translation_display_priority_translation: Először a lefordított szöveg
         name: Név
         official_img_footer: Hivatalos logó lábléc
-        official_img_header: Hivatalos logó fejléc
         official_url: Szervezet hivatalos URL-je
         omnipresent_banner_short_description: Rövid leírás
         omnipresent_banner_title: Cím
@@ -141,8 +140,6 @@ hu:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Érvénytelen képfájl
-            official_img_header:
               allowed_file_content_types: Érvénytelen képfájl
         participatory_space_private_user_csv_import:
           attributes:
@@ -368,12 +365,12 @@ hu:
         show:
           dropdown: Legördülő lista
           view_more_logs: További naplók megtekintése
-      domain_whitelist:
+      domain_allowlist:
         form:
-          domain_too_short: Túl rövid domain
+          domain_too_short: Túl rövid domain név
         update:
-          error: Nem sikerült frissíteni a domain fehérlistát.
-          success: A domain fehérlista sikeresen frissült.
+          error: Nem sikerült frissíteni az engedélyezett külső tartományok listáját
+          success: Az engedélyezett külső tartományok listája sikeresen frissült.
       exports:
         export_as: "%{name} mint %{export_format}"
         formats:
@@ -440,7 +437,6 @@ hu:
           report_count_eq: Jelentések száma
           reported_id_string_or_reported_content_cont: Keresés %{gyűjtemény} a jelentendő azonosító vagy tartalom alapján.
           title_cont: Keresés %{collection} cím alapján.
-          user_name_or_user_email_cont: Keresés itt %{collection} néva vagy emailcím alapján.
           user_name_or_user_nickname_or_user_email_cont: Keresés %{collection} email, név vagy becenév alapján.
         state_eq:
           label: Állapot
@@ -555,7 +551,7 @@ hu:
         areas: Területek
         configuration: Beállítások
         content: Jelentett tartalom
-        external_domain_whitelist: Engedélyezett külső domainek
+        external_domain_allowlist: Engedélyezett külső domainek
         help_sections: Súgó szakaszok
         homepage: Homepage
         impersonations: Felhatalmazások
@@ -832,7 +828,7 @@ hu:
             layout_appearance_title: Elrendezés szerkesztése
             preview: Előnézet
           omnipresent_banner_appearance_title: Mindenhol megjelenő banner szerkesztése
-      organization_external_domain_whitelist:
+      organization_external_domain_allowlist:
         edit:
           update: Frissítés
         external_domain:
@@ -841,24 +837,8 @@ hu:
           remove: Eltávolítás
           up: Fel
         form:
-          add: Hozzáadás a kivétellistához
-          title: Külső domain kivétellista
-      organization_homepage:
-        content_blocks:
-          create:
-            error: Probléma merült fel a tartalmi blokk létrehozásakor.
-            success: A tartalmi blokk sikeresen létrehozva.
-          destroy:
-            error: Probléma merült fel a tartalmi blokk törlésével kapcsolatban.
-            success: A tartalomblokk sikeresen törlődött.
-          edit:
-            update: Frissítés
-        edit:
-          active_content_blocks: Aktív tartalomblokkok
-          add: Tartalmi blokk hozzáadása
-          destroy_confirmation: Biztos, hogy törölni szeretné ezt a tartalmi blokkot?
-          inactive_content_blocks: Inaktív tartalomblokkok
-          title: Az oldal tartalma
+          add: Hozzáadás az engedélyezett listához
+          title: Engedélyezett külső domainek listája
       participatory_space_private_users:
         create:
           error: Hiba történt egy privát felhasználó hozzáadása során a részvételi helyhez.
@@ -888,7 +868,6 @@ hu:
           explanation_example: |
             ohn.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Töltse fel a CSV fájlod
           upload: Feltölt
       reminders:
         create:
@@ -954,7 +933,6 @@ hu:
       shared:
         gallery:
           add_images: Képek hozzáadása
-          delete_image: Kép törlése
           edit_images: Kép szerkesztése
           gallery_legend: Képgaléria hozzáadása (opcionális)
       static_page_topics:
@@ -975,20 +953,6 @@ hu:
       static_pages:
         actions:
           view: Nyilvános oldal megtekintése
-        content_blocks:
-          active_content_blocks: Aktív tartalmi blokkok
-          add: Tartalmi blokk hozzáadása
-          create:
-            error: Probléma merült fel a tartalmi blokk létrehozásakor.
-            success: A tartalmi blokk sikeresen létrehozva.
-          destroy:
-            error: Probléma merült fel a tartalmi blokk törlésével kapcsolatban.
-            success: A tartalomblokk sikeresen törlődött.
-          destroy_confirmation: Biztos, hogy törölni szeretné ezt a tartalmi blokkot?
-          edit:
-            update: Frissítés
-          inactive_content_blocks: Inaktív tartalmi blokkok
-          title: Az oldal tartalma
         create:
           error: Hiba történt az új oldal létrehozásakor.
           success: Oldal létrehozása sikeres.
@@ -1000,12 +964,12 @@ hu:
           update: Frissítés
         form:
           none: Egyik sem
+        index:
+          last_notable_change: Utolsó jelentős változás
         new:
           create: Oldal létrehozása
           title: Új oldal
         topic:
-          destroy: Téma eltávolítása
-          edit: Téma szerkesztése
           empty: Ebben a témakörben nincsenek oldalak.
           without_topic: Téma nélküli oldalak
         update:
@@ -1017,6 +981,7 @@ hu:
         areas: Területek
         authorization_workflows: Ellenőrzési módszerek
         dashboard: Vezérlőpult
+        edit_external_domains: Engedélyezett külső domainek listája
         impersonatable_users: Kezelhető résztvevők
         impersonations: Résztvevők kezelése
         metrics: Mérőszámok

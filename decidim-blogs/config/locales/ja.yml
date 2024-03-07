@@ -64,6 +64,7 @@ ja:
         index:
           count:
             other: "%{count} 件の投稿"
+          empty: 投稿はまだありません。
     components:
       blogs:
         actions:

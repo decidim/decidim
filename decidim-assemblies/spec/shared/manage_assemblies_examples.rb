@@ -5,10 +5,10 @@ shared_examples "manage assemblies" do
     let(:image3_filename) { "city3.jpeg" }
     let(:image3_path) { Decidim::Dev.asset(image3_filename) }
 
-    let(:assembly_parent_id_options) { page.find("#assembly_parent_id").find_all("option").map(&:value) }
+    let(:assembly_parent_id_options) { page.find_by_id("assembly_parent_id").find_all("option").map(&:value) }
 
     before do
-      click_link "Configure"
+      click_on "Configure"
     end
 
     it "updates an assembly" do
@@ -24,37 +24,43 @@ shared_examples "manage assemblies" do
 
       within ".edit_assembly" do
         expect(assembly_parent_id_options).not_to include(assembly.id)
-        fill_in "assembly[creation_date]", with: Date.yesterday
-        fill_in "assembly[included_at]", with: Date.current
-        fill_in "assembly[duration]", with: Date.tomorrow
-        fill_in "assembly[closing_date]", with: Date.tomorrow
+
+        fill_in :assembly_creation_date_date, with: nil, fill_options: { clear: :backspace }
+        fill_in :assembly_included_at_date, with: nil, fill_options: { clear: :backspace }
+        fill_in :assembly_duration_date, with: nil, fill_options: { clear: :backspace }
+        fill_in :assembly_closing_date_date, with: nil, fill_options: { clear: :backspace }
+        fill_in_datepicker :assembly_creation_date_date, with: Date.yesterday.strftime("%d/%m/%Y")
+        fill_in_datepicker :assembly_included_at_date, with: Date.current.strftime("%d/%m/%Y")
+        fill_in_datepicker :assembly_duration_date, with: Date.tomorrow.strftime("%d/%m/%Y")
+        fill_in_datepicker :assembly_closing_date_date, with: Date.tomorrow.strftime("%d/%m/%Y")
         find("*[type=submit]").click
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "[data-content]" do
-        expect(page).to have_selector("input[value='My new title']")
+        expect(page).to have_css("input[value='My new title']")
         expect(page).to have_css("img[src*='#{image3_filename}']")
-        expect(page).to have_css("input[value='#{Date.yesterday}']")
-        expect(page).to have_css("input[value='#{Date.current}']")
-        expect(page).to have_css("input[value='#{Date.tomorrow}']", count: 2)
+        expect(page).to have_field(:assembly_creation_date_date, with: Date.yesterday.strftime("%d/%m/%Y").to_s)
+        expect(page).to have_field(:assembly_included_at_date, with: Date.current.strftime("%d/%m/%Y").to_s)
+        expect(page).to have_field(:assembly_duration_date, with: Date.tomorrow.strftime("%d/%m/%Y").to_s)
+        expect(page).to have_field(:assembly_closing_date_date, with: Date.tomorrow.strftime("%d/%m/%Y").to_s)
       end
     end
   end
 
   describe "updating an assembly without images" do
     before do
-      within find("tr", text: translated(assembly.title)) do
-        click_link "Configure"
+      within "tr", text: translated(assembly.title) do
+        click_on "Configure"
       end
     end
 
     it "update an assembly without images does not delete them" do
       within_admin_sidebar_menu do
-        click_link "About this assembly"
+        click_on "About this assembly"
       end
-      click_button "Update"
+      click_on "Update"
 
       expect(page).to have_admin_callout("successfully")
 
@@ -69,8 +75,8 @@ shared_examples "manage assemblies" do
 
       it "allows the user to preview the unpublished assembly" do
         new_window = window_opened_by do
-          within find("tr", text: translated(assembly.title)) do
-            click_link "Preview"
+          within "tr", text: translated(assembly.title) do
+            click_on "Preview"
           end
         end
 
@@ -87,8 +93,8 @@ shared_examples "manage assemblies" do
 
       it "allows the user to preview the unpublished assembly" do
         new_window = window_opened_by do
-          within find("tr", text: translated(assembly.title)) do
-            click_link "Preview"
+          within "tr", text: translated(assembly.title) do
+            click_on "Preview"
           end
         end
 
@@ -110,13 +116,13 @@ shared_examples "manage assemblies" do
     let!(:assembly) { create(:assembly, :unpublished, organization:, parent: parent_assembly) }
 
     before do
-      within find("tr", text: translated(assembly.title)) do
-        click_link "Configure"
+      within "tr", text: translated(assembly.title) do
+        click_on "Configure"
       end
     end
 
     it "publishes the assembly" do
-      click_link "Publish"
+      click_on "Publish"
       expect(page).to have_content("successfully published")
       expect(page).to have_content("Unpublish")
       expect(page).to have_current_path decidim_admin_assemblies.edit_assembly_path(assembly)
@@ -130,13 +136,13 @@ shared_examples "manage assemblies" do
     let!(:assembly) { create(:assembly, organization:, parent: parent_assembly) }
 
     before do
-      within find("tr", text: translated(assembly.title)) do
-        click_link "Configure"
+      within "tr", text: translated(assembly.title) do
+        click_on "Configure"
       end
     end
 
     it "unpublishes the assembly" do
-      click_link "Unpublish"
+      click_on "Unpublish"
       expect(page).to have_content("successfully unpublished")
       expect(page).to have_content("Publish")
       expect(page).to have_current_path decidim_admin_assemblies.edit_assembly_path(assembly)
@@ -151,7 +157,7 @@ shared_examples "manage assemblies" do
 
     it "does not let the admin manage assemblies form other organizations" do
       within "table" do
-        expect(page).not_to have_content(external_assembly.title["en"])
+        expect(page).to have_no_content(external_assembly.title["en"])
       end
     end
   end
@@ -164,11 +170,11 @@ shared_examples "manage assemblies" do
     end
 
     it "disables the scope for the assembly" do
-      click_link "Configure"
+      click_on "Configure"
 
       uncheck :assembly_scopes_enabled
 
-      expect(page).to have_selector("select#assembly_scope_id[disabled]")
+      expect(page).to have_css("select#assembly_scope_id[disabled]")
 
       within ".edit_assembly" do
         find("*[type=submit]").click

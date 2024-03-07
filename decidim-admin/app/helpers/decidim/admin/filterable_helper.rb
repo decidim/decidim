@@ -32,7 +32,7 @@ module Decidim
         links.index_with { nil }
       end
 
-      # To be overriden. Useful for adding links that do not match with the filter.
+      # To be overridden. Useful for adding links that do not match with the filter.
       # Must return an Array.
       def extra_dropdown_submenu_options_items(_filter, _i18n_scope)
         []
@@ -53,7 +53,7 @@ module Decidim
       # Produces the html for the dropdown submenu from the options tree.
       # Returns a ActiveSupport::SafeBuffer.
       def dropdown_submenu(options)
-        content_tag(:ul, class: "vertical menu") do
+        content_tag(:ul, class: "vertical menu", "aria-hidden": true) do
           options.map do |key, value|
             if value.nil?
               content_tag(:li, key)

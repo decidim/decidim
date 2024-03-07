@@ -3,56 +3,15 @@
 module Decidim
   module Admin
     # A command with all the business logic when updating a static page.
-    class UpdateStaticPage < Decidim::Command
-      # Public: Initializes the command.
-      #
-      # page - The StaticPage to update
-      # form - A form object with the params.
-      def initialize(page, form)
-        @page = page
-        @form = form
-      end
-
-      # Executes the command. Broadcasts these events:
-      #
-      # - :ok when everything is valid.
-      # - :invalid if the form was not valid and we could not proceed.
-      #
-      # Returns nothing.
-      def call
-        return broadcast(:invalid) if form.invalid?
-
-        update_page
-        update_organization_tos_version if form.changed_notably
-        broadcast(:ok)
-      end
+    class UpdateStaticPage < Decidim::Commands::UpdateResource
+      fetch_form_attributes :title, :slug, :show_in_footer, :weight, :topic, :content, :allow_public_access
 
       private
 
-      attr_reader :form
+      def run_after_hooks
+        return unless form.changed_notably
 
-      def update_page
-        Decidim.traceability.update!(
-          @page,
-          form.current_user,
-          attributes
-        )
-      end
-
-      def attributes
-        {
-          title: form.title,
-          slug: form.slug,
-          show_in_footer: form.show_in_footer,
-          weight: form.weight,
-          topic: form.topic,
-          content: form.content,
-          allow_public_access: form.allow_public_access
-        }
-      end
-
-      def update_organization_tos_version
-        UpdateOrganizationTosVersion.call(@form.organization, @page, @form)
+        UpdateOrganizationTosVersion.call(form.organization, resource, form)
       end
     end
   end

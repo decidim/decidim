@@ -99,6 +99,8 @@ shared_context "with frontend map elements" do
   let(:html_body) { "" }
 
   before do
+    # Create a favicon so it does not fail when trying to fetch it
+    favicon = ""
     # Create a temporary route to display the generated HTML in a correct site
     # context.
     final_html = html_document
@@ -106,13 +108,14 @@ shared_context "with frontend map elements" do
       get "maptiles/:z/:x/:y.png", to: ->(_) { [200, {}, [final_html]] }
       get "test_dynamic_map", to: ->(_) { [200, {}, [final_html]] }
       get "offline", to: ->(_) { [200, {}, [""]] }
+      get "/favicon.ico", to: ->(_) { [200, {}, [favicon]] }
     end
 
     visit "/test_dynamic_map"
   end
 
   after do
-    expect(page).to have_selector("#ready_indicator", text: "Document ready")
+    expect(page).to have_css("#ready_indicator", text: "Document ready")
 
     expect_no_js_errors
 
@@ -145,10 +148,10 @@ shared_examples "a page with dynamic map" do
   it_behaves_like "accessible page"
 
   it "displays the maps" do
-    expect(page).to have_selector("#map1", visible: :all)
-    expect(page).to have_selector("#map1_inner", visible: :all)
-    expect(page).to have_selector("#map2", visible: :all)
-    expect(page).to have_selector("#map2_inner", visible: :all)
+    expect(page).to have_css("#map1", visible: :all)
+    expect(page).to have_css("#map1_inner", visible: :all)
+    expect(page).to have_css("#map2", visible: :all)
+    expect(page).to have_css("#map2_inner", visible: :all)
   end
 end
 

@@ -67,7 +67,7 @@ module Decidim
 
         def extra_info = { resource: { title: user.name } }
 
-        def role_params = { role: form.role.to_sym, user:, role_class.new.target_space_association => participatory_space }
+        def role_params = { :role => form.role.to_sym, :user => user, role_class.new.target_space_association => participatory_space }
 
         def send_notification(user)
           Decidim::EventsManager.publish(

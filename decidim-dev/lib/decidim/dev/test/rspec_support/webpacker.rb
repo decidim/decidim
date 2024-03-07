@@ -7,4 +7,7 @@ RSpec.configure do |config|
   config.before(:all, type: :mailer) do
     Dir.chdir(Rails.root) { Webpacker.compile }
   end
+  config.before(:all, type: :cell) do
+    Dir.chdir(Rails.root) { Webpacker.compile }
+  end
 end

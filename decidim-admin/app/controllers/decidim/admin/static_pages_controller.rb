@@ -77,7 +77,7 @@ module Decidim
         enforce_permission_to :update, :static_page, static_page: page
         @form = form(StaticPageForm).from_params(form_params)
 
-        UpdateStaticPage.call(page, @form) do
+        UpdateStaticPage.call(@form, page) do
           on(:ok) do
             flash[:notice] = I18n.t("static_pages.update.success", scope: "decidim.admin")
             redirect_to static_pages_path
@@ -93,7 +93,7 @@ module Decidim
       def destroy
         enforce_permission_to :destroy, :static_page, static_page: page
 
-        DestroyStaticPage.call(page, current_user) do
+        Decidim::Commands::DestroyResource.call(page, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("static_pages.destroy.success", scope: "decidim.admin")
             redirect_to static_pages_path

@@ -5,15 +5,12 @@ module Decidim
     class RegistrationTypesController < Decidim::Conferences::ApplicationController
       include ParticipatorySpaceContext
 
-      participatory_space_layout only: :index
-
       helper_method :collection, :conference
 
       def index
         raise ActionController::RoutingError, "No registration types for this conference " if registration_types.empty? && current_participatory_space.registrations_enabled.empty?
 
         enforce_permission_to :list, :registration_types
-        redirect_to decidim_conferences.conference_path(current_participatory_space) unless current_user_can_visit_space?
       end
 
       private
