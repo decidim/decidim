@@ -16,15 +16,15 @@ module Decidim
                 type: :table,
                 options: { headings: [t(".title"), t("decidim.design.helpers.callout_class")] },
                 items: announcement_table(
-                  { text: t("decidim.design.helpers.iam_annoucement"), callout_class: t("decidim.design.helpers.success") },
-                  { text: t("decidim.design.helpers.iam_annoucement"), callout_class:t("decidim.design.helpers.warning") },
-                  { text: t("decidim.design.helpers.iam_annoucement"), callout_class: t("decidim.design.helpers.alert") },
-                  { text: t("decidim.design.helpers.iam_annoucement"), callout_class: t("decidim.design.helpers.secondary") },
+                  { text: t("decidim.design.helpers.iam_annoucement"), callout_class: "Success" },
+                  { text: t("decidim.design.helpers.iam_annoucement"), callout_class: "Warning" },
+                  { text: t("decidim.design.helpers.iam_annoucement"), callout_class: "Alert" },
+                  { text: t("decidim.design.helpers.iam_annoucement"), callout_class: "Secondary" },
                   { text: t("decidim.design.helpers.iam_annoucement"), callout_class: nil }
                 ),
                 cell_snippet: {
                   cell: "decidim/announcement",
-                  args: [t("decidim.design.helpers.iam_annoucement"), { callout_class: t("decidim.design.helpers.success") }],
+                  args: [t("decidim.design.helpers.iam_annoucement"), { callout_class: "Success" }],
                   call_string: [
                     'cell("decidim/announcement", "I am an announcement", callout_class: "success")',
                     'cell("decidim/announcement", "I am an announcement", callout_class: "warning")',
