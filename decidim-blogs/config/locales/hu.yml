@@ -61,6 +61,9 @@ hu:
             official_blog_post: Hivatalos bejegyzés
             published_at: Közzététel időpontja
             title: Cím
+      posts:
+        index:
+          empty: Még nincsenek bejegyzések.
     components:
       blogs:
         actions:
@@ -78,8 +81,8 @@ hu:
           step:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
-            endorsements_blocked: Jóváhagyások letiltva
-            endorsements_enabled: Jóváhagyások engedélyezve
+            endorsements_blocked: Támogatások letiltva
+            endorsements_enabled: Támogatások engedélyezve
     events:
       blogs:
         post_created:
