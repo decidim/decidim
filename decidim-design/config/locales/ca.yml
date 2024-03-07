@@ -19,6 +19,8 @@ ca:
           usage_p_3_html: 3. Un element ocult, on <code>id</code> coincideix amb el valor dels controls de dades al que es refereix l'activador.
         activities:
           activities: Activitats
+        address:
+          title: Adreça
       foundations:
         accessibility:
           accessibility_labels: Etiquetes d'accessibilitat
@@ -84,8 +86,18 @@ ca:
           section_p_tablet: El sistema de graella per tauletes tàctils, es compon de 8 columnes flexibles amb un espaiat (canal) entre columnes de 16px i un marge esquerre i dret de 24px
           tablet: Tauleta tàctil
           title: Disseny (maqueta distribució)
+        typography:
+          description: Aquestes directrius resumeixen com fer servir la tipografia a Decidim, i serveixen com a pauta perquè les dissenyadores puguin dissenyar lliurement amb les millors pràctiques tipogràfiques en ment.
+          headings:
+            characters: Caràcters per línia
+            size: Mida
+          title: Tipografia
+          typefaces_description_1: Decidim fa servir Source Sants Pro com a tipus de lletra primària. Aquest tipus de lletra disposa de totes les variants de caràcters en 310 llengües
+          typefaces_description_2: Aquestes tipografies es troben sota la llicència Open Font
       helpers:
         activity: Activitat
+        address_description: La cel·la d'adreça rep un recurs i cerca els atributs geolocalitzables per representar un marcatge específic.
+        address_description_2: Depenent del tipus de contingut, l'adreça pot ser una adreça web. Per a aquests casos, la informació mostrada és força igual, però està modelada per adequar-la.
         background: Vores i fons
         base: Base
         demo: Demo
