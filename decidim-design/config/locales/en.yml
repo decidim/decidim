@@ -85,6 +85,15 @@ en:
           section_p_tablet: Tablet grid system is composed of 8 flexible columns with a gutter between columns of 16px and left and right margins of 24px
           tablet: Tablet
           title: Layout
+        typography:
+          description: These guidelines summarize how use typography at Decidim, and serve as guardrails for designers to design freely with best typographic practices in mind.
+          headings:
+            characters: Characters per line
+            layout: Layout cols
+            size: Size
+          title: Typography
+          typefaces_description_1: Decidim uses Source Sans Pro as primary typeface. This typeface supports 310 languages
+          typefaces_description_2: This fonts are licensed under the Open Font License
       helpers:
         activity: Activity
         background: Background and borders
