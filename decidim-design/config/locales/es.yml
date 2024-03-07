@@ -2,6 +2,9 @@
 es:
   decidim:
     design:
+      components:
+        activities:
+          activities: Actividades
       foundations:
         accessibility:
           accessibility_labels: Etiquetas de accesibilidad
@@ -68,12 +71,17 @@ es:
           tablet: Tableta
           title: Diseño (maqueta distribución)
       helpers:
+        activity: Actividad
         background: Bordes y fondo
         base: Base
+        demo: Demo
+        demo_text: 'Esta celda recibe un modelo de elementos de Última Actividad y muestra los siguientes elementos:'
+        demo_text_2: Utilizado por la última página de actividad, en un bloque de contenido y dentro de los desplegables.
         form_elements: Elementos del formulario
         hex_code: Código hexadecimal
         main_colors: Colores principales
         rgba_code: Código RGBA
+        source_code: Código Fuente
         state: Estado
         tailwind: Nombre del Tailwind
         typography_texts: Textos y tipografía
