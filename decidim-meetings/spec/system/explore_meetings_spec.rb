@@ -594,7 +594,7 @@ describe "Explore meetings", :slow, type: :system do
       it "shows the closing report" do
         visit_component
         click_link translated(meeting.title)
-        expect(page).to have_i18n_content(meeting.closing_report)
+        expect(page).to have_i18n_content(meeting.closing_report, strip_tags: true)
 
         within ".definition-data" do
           expect(page).to have_content("ATTENDEES COUNT\n#{meeting.attendees_count}")
