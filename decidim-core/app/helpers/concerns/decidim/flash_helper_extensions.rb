@@ -43,7 +43,7 @@ module Decidim
       #
       # @param value [String] - The flash message.
       # @param alert_class [String] - The foundation class of the alert message.
-      # @param closable [Boolean] - Wether the close icon is added.
+      # @param closable [Boolean] - Whether the close icon is added.
       #
       # @return [String] the HTML with the alert box
       def alert_box(value, alert_class, closable, opts = {})

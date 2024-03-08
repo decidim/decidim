@@ -4,7 +4,7 @@ module Decidim
   module Verifications
     module CsvCensus
       module Admin
-        # A form to temporaly upload csv census data
+        # A form to temporarily upload csv census data
         class CensusDataForm < Form
           mimic :census_data
 

@@ -22,7 +22,7 @@ describe "SMS code request" do
   context "when requesting a code by sms" do
     before do
       fill_in "Mobile phone number", with: "600102030"
-      click_button "Send me an SMS"
+      click_on "Send me an SMS"
     end
 
     it "allows the user to request a code by sms to get verified" do

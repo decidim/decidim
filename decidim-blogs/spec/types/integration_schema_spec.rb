@@ -50,7 +50,7 @@ describe "Decidim::Api::QueryType" do
     {
       "__typename" => "Blogs",
       "id" => current_component.id.to_s,
-      "name" => { "translation" => "Blog" },
+      "name" => { "translation" => translated(current_component.name) },
       "posts" => {
         "edges" => [
           {
@@ -135,7 +135,7 @@ describe "Decidim::Api::QueryType" do
     end
 
     context "when unfiltered" do
-      it "executes sucessfully" do
+      it "executes successfully" do
         expect { response }.not_to raise_error
       end
 
@@ -306,7 +306,7 @@ describe "Decidim::Api::QueryType" do
     )
     end
 
-    it "executes sucessfully" do
+    it "executes successfully" do
       expect { response }.not_to raise_error
     end
 

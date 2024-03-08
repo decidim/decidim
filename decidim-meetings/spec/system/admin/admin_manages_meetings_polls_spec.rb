@@ -22,7 +22,7 @@ describe "Admin manages meetings polls" do
     it "shows manage poll action" do
       visit current_path
       within "tr", text: translated(meeting.title) do
-        page.click_link "Manage poll"
+        page.click_on "Manage poll"
       end
 
       expect(page).to have_content("Edit poll questionnaire for #{Decidim::Meetings::MeetingPresenter.new(meeting).title}")
@@ -52,8 +52,8 @@ describe "Admin manages meetings polls" do
       ]
 
       within "form.edit_questionnaire" do
-        click_button "Add question"
-        click_button "Add question"
+        click_on "Add question"
+        click_on "Add question"
         expand_all_questions
 
         page.all(".questionnaire-question").each_with_index do |question, idx|
@@ -65,7 +65,7 @@ describe "Admin manages meetings polls" do
         page.all(".questionnaire-question").each do |question|
           within question do
             select "Single option", from: "Type"
-            click_button "Add answer option"
+            click_on "Add answer option"
           end
         end
 
@@ -77,42 +77,42 @@ describe "Admin manages meetings polls" do
           end
         end
 
-        click_button "Save"
+        click_on "Save"
       end
 
       expect(page).to have_admin_callout("successfully")
 
       visit_questionnaire_edit_path_and_expand_all
 
-      expect(page).to have_selector("input[value='This is the first question']")
-      expect(page).to have_selector("input[value='This is the Q1 first option']")
-      expect(page).to have_selector("input[value='This is the Q1 second option']")
-      expect(page).to have_selector("input[value='This is the Q1 third option']")
-      expect(page).to have_selector("input[value='This is the second question']")
-      expect(page).to have_selector("input[value='This is the Q2 first option']")
-      expect(page).to have_selector("input[value='This is the Q2 second option']")
-      expect(page).to have_selector("input[value='This is the Q2 third option']")
+      expect(page).to have_css("input[value='This is the first question']")
+      expect(page).to have_css("input[value='This is the Q1 first option']")
+      expect(page).to have_css("input[value='This is the Q1 second option']")
+      expect(page).to have_css("input[value='This is the Q1 third option']")
+      expect(page).to have_css("input[value='This is the second question']")
+      expect(page).to have_css("input[value='This is the Q2 first option']")
+      expect(page).to have_css("input[value='This is the Q2 second option']")
+      expect(page).to have_css("input[value='This is the Q2 third option']")
     end
 
     it "adds a sane number of options for each attribute type" do
-      click_button "Add question"
+      click_on "Add question"
       expand_all_questions
 
       select "Single option", from: "Type"
-      expect(page).to have_selector(".questionnaire-question-answer-option", count: 2)
+      expect(page).to have_css(".questionnaire-question-answer-option", count: 2)
       expect(page).to have_no_selector(".questionnaire-question-matrix-row")
 
       select "Multiple option", from: "Type"
-      expect(page).to have_selector(".questionnaire-question-answer-option", count: 2)
+      expect(page).to have_css(".questionnaire-question-answer-option", count: 2)
       expect(page).to have_no_selector(".questionnaire-question-matrix-row")
     end
 
     it "does not incorrectly reorder when clicking answer options" do
-      click_button "Add question"
+      click_on "Add question"
       expand_all_questions
 
       select "Single option", from: "Type"
-      2.times { click_button "Add answer option" }
+      2.times { click_on "Add answer option" }
 
       within ".questionnaire-question-answer-option:first-of-type" do
         fill_in find_nested_form_field_locator("body_en"), with: "Something"
@@ -138,18 +138,18 @@ describe "Admin manages meetings polls" do
     end
 
     it "preserves question form across submission failures" do
-      click_button "Add question"
+      click_on "Add question"
       expand_all_questions
 
       select "Single option", from: "Type"
-      click_button "Save"
+      click_on "Save"
 
       expand_all_questions
       expect(page).to have_select("Type", selected: "Single option")
     end
 
     it "preserves answer options form across submission failures" do
-      click_button "Add question"
+      click_on "Add question"
       expand_all_questions
 
       select "Multiple option", from: "Type"
@@ -158,7 +158,7 @@ describe "Admin manages meetings polls" do
         fill_in find_nested_form_field_locator("body_en"), with: "Something"
       end
 
-      click_button "Add answer option"
+      click_on "Add answer option"
 
       within ".questionnaire-question-answer-option:last-of-type" do
         fill_in find_nested_form_field_locator("body_en"), with: "Else"
@@ -166,7 +166,7 @@ describe "Admin manages meetings polls" do
 
       select "3", from: "Maximum number of choices"
 
-      click_button "Save"
+      click_on "Save"
       expand_all_questions
 
       within ".questionnaire-question-answer-option:first-of-type" do
@@ -185,7 +185,7 @@ describe "Admin manages meetings polls" do
         visit questionnaire_edit_path
 
         within "form.edit_questionnaire" do
-          click_button "Add question"
+          click_on "Add question"
 
           expand_all_questions
 
@@ -201,7 +201,7 @@ describe "Admin manages meetings polls" do
         expect(page).to have_no_selector("[id$=max_choices]")
 
         select "Multiple option", from: "Type"
-        expect(page).to have_selector("[id$=max_choices]")
+        expect(page).to have_css("[id$=max_choices]")
 
         select "Single option", from: "Type"
         expect(page).to have_no_selector("[id$=max_choices]")
@@ -213,19 +213,19 @@ describe "Admin manages meetings polls" do
         select "Multiple option", from: "Type"
         expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
 
-        click_button "Add answer option"
+        click_on "Add answer option"
         expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3))
 
-        click_button "Add answer option"
+        click_on "Add answer option"
         expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3 4))
 
-        within(".questionnaire-question-answer-option:last-of-type") { click_button "Remove" }
+        within(".questionnaire-question-answer-option:last-of-type") { click_on "Remove" }
         expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3))
 
-        within(".questionnaire-question-answer-option:last-of-type") { click_button "Remove" }
+        within(".questionnaire-question-answer-option:last-of-type") { click_on "Remove" }
         expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
 
-        click_button "Add question"
+        click_on "Add question"
         expand_all_questions
 
         within(".questionnaire-question:last-of-type") do
@@ -274,7 +274,7 @@ describe "Admin manages meetings polls" do
   end
 
   def expand_all_questions
-    click_button "Expand all questions"
+    click_on "Expand all questions"
   end
 
   def visit_questionnaire_edit_path_and_expand_all

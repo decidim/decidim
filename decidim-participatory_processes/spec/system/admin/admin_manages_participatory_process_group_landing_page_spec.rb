@@ -31,7 +31,7 @@ describe "Admin manages participatory process group landing page" do
 
       expect do
         within ".edit_content_blocks" do
-          click_button "Add content block"
+          click_on "Add content block"
           within ".add-components" do
             find("a", text: "Hero image").click
           end
@@ -44,13 +44,13 @@ describe "Admin manages participatory process group landing page" do
 
       expect do
         within ".edit_content_blocks" do
-          click_button "Add content block"
+          click_on "Add content block"
           within ".add-components" do
             find("a", text: "Hero image").click
           end
         end
 
-        first("ul.js-list-availables li").drag_to(find("ul.js-list-actives"))
+        first("ul.js-list-available li").drag_to(find("ul.js-list-actives"))
         sleep(2)
       end.to change(active_content_blocks, :count).by(1)
     end
@@ -92,7 +92,7 @@ describe "Admin manages participatory process group landing page" do
         with: "Custom button text!"
       )
 
-      click_button "Update"
+      click_on "Update"
       visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(resource, content_block)
       expect(page).to have_css("input[value='Custom button text!']")
 

@@ -15,7 +15,7 @@ describe "Admin manages assemblies" do
 
     it "can create new assemblies types" do
       within "[data-content]" do
-        click_link "New assembly type"
+        click_on "New assembly type"
 
         within ".new_assembly_type" do
           fill_in_i18n(
@@ -51,7 +51,7 @@ describe "Admin manages assemblies" do
 
       it "can edit them" do
         within "tr", text: translated(assembly_type.title) do
-          click_link "Edit"
+          click_on "Edit"
         end
 
         within ".edit_assembly_type" do
@@ -84,7 +84,7 @@ describe "Admin manages assemblies" do
 
   def click_delete_assembly_type
     within "tr", text: translated(assembly_type.title) do
-      accept_confirm { click_link "Delete" }
+      accept_confirm { click_on "Delete" }
     end
   end
 end

@@ -121,6 +121,7 @@ module Decidim
   autoload :ModerationTools, "decidim/moderation_tools"
   autoload :ContentSecurityPolicy, "decidim/content_security_policy"
   autoload :IconRegistry, "decidim/icon_registry"
+  autoload :HasConversations, "decidim/has_conversations"
 
   module Commands
     autoload :CreateResource, "decidim/commands/create_resource"
@@ -826,7 +827,7 @@ module Decidim
   end
 
   # Checks if a particular decidim gem is installed and needed by this
-  # particular instance. Preferrably this happens through bundler by inspecting
+  # particular instance. Preferably this happens through bundler by inspecting
   # the Gemfile of the instance but when Decidim is used without bundler, this
   # will check:
   # 1. If the gem is globally available or not in the loaded specs, i.e. the

@@ -13,20 +13,20 @@ shared_examples "shows contextual help" do
     visit index_path
 
     within "#floating-helper-tip" do
-      click_button
+      click_on
     end
 
     within "#floating-helper-block" do
       expect(page).to have_content("Some relevant help")
-      click_button
+      click_on
     end
 
     visit current_path
 
-    expect(page).not_to have_content("Some relevant help")
+    expect(page).to have_no_content("Some relevant help")
 
     within "#floating-helper-tip" do
-      click_button
+      click_on
     end
 
     within "#floating-helper-block" do

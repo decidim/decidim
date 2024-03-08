@@ -6,14 +6,14 @@ describe "show" do
   include_context "with a component"
   let(:manifest_name) { "debates" }
 
-  let(:description) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
-  let(:information_updates) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
-  let(:instructions) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
+  let(:description) { generate_localized_description(:debate_description) }
+  let(:information_updates) { generate_localized_description(:information_updates) }
+  let(:instructions) { generate_localized_description(:instructions) }
   let!(:debate) { create(:debate, component:, description:, information_updates:, instructions:) }
 
   before do
     visit_component
-    click_link debate.title[I18n.locale.to_s], class: "card__list"
+    click_on debate.title[I18n.locale.to_s], class: "card__list"
   end
 
   context "when is created from the admin panel" do

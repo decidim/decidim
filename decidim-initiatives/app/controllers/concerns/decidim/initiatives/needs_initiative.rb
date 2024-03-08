@@ -35,7 +35,7 @@ module Decidim
 
         alias_method :current_participatory_space, :current_initiative
 
-        # Public: Wether the current initiative belongs to an initiative type
+        # Public: Whether the current initiative belongs to an initiative type
         # which requires one or more step before creating a signature
         #
         # Returns nil if there is no current_initiative, true or false

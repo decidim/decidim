@@ -59,8 +59,8 @@ describe "Search" do
       switch_to_host(organization.host)
       visit decidim.root_path
 
-      click_button(id: "dc-dialog-accept")
-      click_button(id: "dropdown-trigger-links-mobile-search")
+      click_on(id: "dc-dialog-accept")
+      click_on(id: "dropdown-trigger-links-mobile-search")
     end
 
     it "shows the mobile version of the search form" do

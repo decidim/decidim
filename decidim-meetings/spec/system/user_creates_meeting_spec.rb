@@ -60,9 +60,10 @@ describe "User creates meeting" do
         let(:start_month) { base_date.strftime("%b") }
         let(:start_day) { base_date.day }
         let(:meeting_start_time) { base_date.strftime("%H:%M") }
-        let(:meeting_end_date) { ((base_date + 2.days) + 1.month).strftime("%d/%m/%Y") }
-        let(:end_month) { (base_date + 1.month).strftime("%b") }
-        let(:end_day) { ((base_date + 2.days) + 1.month).day }
+        let(:end_date) { (base_date + 2.days) + 1.month }
+        let(:meeting_end_date) { end_date.strftime("%d/%m/%Y") }
+        let(:end_month) { end_date.strftime("%b") }
+        let(:end_day) { end_date.day }
         let(:meeting_end_time) { (base_date + 4.hours).strftime("%H:%M") }
         let(:meeting_available_slots) { 30 }
         let(:meeting_registration_terms) { "These are the registration terms for this meeting" }
@@ -77,7 +78,7 @@ describe "User creates meeting" do
           before do
             organization.update(rich_text_editor_in_public_views: true)
             visit_component
-            click_link "New meeting"
+            click_on "New meeting"
           end
 
           it_behaves_like "having a rich text editor", "new_meeting", "basic"
@@ -87,7 +88,7 @@ describe "User creates meeting" do
           stub_geocoding(meeting_address, [latitude, longitude])
           visit_component
 
-          click_link "New meeting"
+          click_on "New meeting"
 
           within ".new_meeting" do
             fill_in :meeting_title, with: meeting_title
@@ -118,7 +119,7 @@ describe "User creates meeting" do
           expect(page).to have_content(end_day)
           expect(page).to have_content(meeting_start_time)
           expect(page).to have_content(meeting_end_time)
-          expect(page).to have_selector("[data-author]", text: user.name)
+          expect(page).to have_css("[data-author]", text: user.name)
         end
 
         context "when using the front-end geocoder" do
@@ -132,7 +133,7 @@ describe "User creates meeting" do
               # Prepare the view for submission (other than the address field)
               visit_component
 
-              click_link "New meeting"
+              click_on "New meeting"
 
               within ".new_meeting" do
                 fill_in :meeting_title, with: meeting_title
@@ -158,7 +159,7 @@ describe "User creates meeting" do
 
             visit_component
 
-            click_link "New meeting"
+            click_on "New meeting"
 
             within ".new_meeting" do
               fill_in :meeting_title, with: meeting_title
@@ -188,7 +189,7 @@ describe "User creates meeting" do
             expect(page).to have_content(meeting_start_time)
             expect(page).to have_content(meeting_end_time)
             expect(page).to have_no_css(".button", text: "Register")
-            expect(page).to have_selector("[data-author]", text: user_group.name)
+            expect(page).to have_css("[data-author]", text: user_group.name)
           end
 
           it "creates a new meeting with registrations on this platform", :slow do
@@ -196,7 +197,7 @@ describe "User creates meeting" do
 
             visit_component
 
-            click_link "New meeting"
+            click_on "New meeting"
 
             within ".new_meeting" do
               fill_in :meeting_title, with: meeting_title
@@ -228,7 +229,7 @@ describe "User creates meeting" do
             expect(page).to have_content(meeting_start_time)
             expect(page).to have_content(meeting_end_time)
             expect(page).to have_css(".button", text: "Register")
-            expect(page).to have_selector("[data-author]", text: user_group.name)
+            expect(page).to have_css("[data-author]", text: user_group.name)
           end
         end
 
@@ -247,8 +248,8 @@ describe "User creates meeting" do
 
           it "shows a modal dialog" do
             visit_component
-            click_link "New meeting"
-            expect(page).to have_selector("#authorizationModal")
+            click_on "New meeting"
+            expect(page).to have_css("#authorizationModal")
             expect(page).to have_content("Authorization required")
           end
         end
@@ -256,7 +257,7 @@ describe "User creates meeting" do
         it "lets the user choose the registrations type" do
           visit_component
 
-          click_link "New meeting"
+          click_on "New meeting"
 
           within ".new_meeting" do
             select "Registration disabled", from: :meeting_registration_type
@@ -279,7 +280,7 @@ describe "User creates meeting" do
         it "lets the user choose the meeting type" do
           visit_component
 
-          click_link "New meeting"
+          click_on "New meeting"
 
           within ".new_meeting" do
             select "In person", from: :meeting_type_of_meeting

@@ -57,8 +57,8 @@ describe "Static pages" do
 
       context "when cookies are rejected" do
         before do
-          click_link "Cookie settings"
-          click_button "Accept only essential"
+          click_on "Cookie settings"
+          click_on "Accept only essential"
         end
 
         it_behaves_like "accessible page"
@@ -72,8 +72,8 @@ describe "Static pages" do
 
       context "when cookies are accepted" do
         before do
-          click_link "Cookie settings"
-          click_button "Accept all"
+          click_on "Cookie settings"
+          click_on "Accept all"
         end
 
         it_behaves_like "accessible page"
@@ -81,7 +81,7 @@ describe "Static pages" do
         it "shows iframe" do
           visit decidim.page_path(video_page)
           expect(page).to have_no_content("You need to enable all cookies in order to see this content")
-          expect(page).to have_selector("iframe", count: 1)
+          expect(page).to have_css("iframe", count: 1)
         end
       end
     end

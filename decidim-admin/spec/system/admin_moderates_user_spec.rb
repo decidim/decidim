@@ -19,7 +19,7 @@ describe "Admin reports user" do
       expect(page).to have_css(".profile__actions-secondary")
 
       within ".profile__actions-secondary", match: :first do
-        click_button
+        click_on "Report"
       end
 
       expect(page).to have_css(".flag-modal", visible: :visible)
@@ -28,7 +28,7 @@ describe "Admin reports user" do
         find(:css, "input[name='report[block]']").set(true)
         expect(page).to have_field(name: "report[block]", visible: :visible)
         expect(page).to have_field(name: "report[hide]", visible: :visible)
-        click_button I18n.t("decidim.shared.flag_user_modal.block")
+        click_on I18n.t("decidim.shared.flag_user_modal.block")
       end
 
       expect(page).to have_current_path(decidim_admin.new_user_block_path(user_id: reportable.id), ignore_query: true)
@@ -42,7 +42,7 @@ describe "Admin reports user" do
       expect(page).to have_css(".profile__actions-secondary")
 
       within ".profile__actions-secondary", match: :first do
-        click_button
+        click_on "Report"
       end
 
       expect(page).to have_css(".flag-modal", visible: :visible)
@@ -52,7 +52,7 @@ describe "Admin reports user" do
         find(:css, "input[name='report[hide]']").set(true)
         expect(page).to have_field(name: "report[block]", visible: :visible)
         expect(page).to have_field(name: "report[hide]", visible: :visible)
-        click_button I18n.t("decidim.shared.flag_user_modal.block")
+        click_on I18n.t("decidim.shared.flag_user_modal.block")
       end
 
       expect(page).to have_current_path(decidim_admin.new_user_block_path(user_id: reportable.id), ignore_query: true)

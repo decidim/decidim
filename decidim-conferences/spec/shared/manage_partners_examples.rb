@@ -8,7 +8,7 @@ shared_examples "manage partners examples" do
     login_as user, scope: :user
     visit decidim_admin_conferences.edit_conference_path(conference)
     within_admin_sidebar_menu do
-      click_link "Partners"
+      click_on "Partners"
     end
   end
 
@@ -25,7 +25,7 @@ shared_examples "manage partners examples" do
 
     it "updates a conference partners" do
       within "#partners tr", text: conference_partner.name do
-        click_link "Edit"
+        click_on "Edit"
       end
 
       within ".edit_partner" do

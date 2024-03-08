@@ -13,9 +13,9 @@ describe "Admin manages participatory space private users via csv import" do
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
     within_admin_sidebar_menu do
-      click_link "Private users"
+      click_on "Private users"
     end
-    click_link "Import via CSV"
+    click_on "Import via CSV"
   end
 
   it "show the form to add some private users via csv" do
@@ -43,7 +43,7 @@ describe "Admin manages participatory space private users via csv import" do
 
       expect(page).to have_content("Are you sure you want to delete all private participants?")
 
-      click_button("OK")
+      click_on("OK")
 
       expect(page).to have_content("You have no private participants")
     end

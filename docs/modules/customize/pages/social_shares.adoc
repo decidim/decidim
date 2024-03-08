@@ -28,7 +28,7 @@ The format of this variable is as follows
 DECIDIM_SOCIAL_SHARE_SERVICES="Facebook, X"
 ----
 
-NOTE: Services names are case sensitive.
+NOTE: Services names are case-sensitive.
 
 == Default services
 

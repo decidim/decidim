@@ -56,7 +56,7 @@ module Decidim
           members = []
           2.times do
             members << double(
-              "committe_member",
+              "committee_member",
               user: create(:user, organization:)
             )
           end
@@ -78,7 +78,7 @@ module Decidim
           members = []
           2.times do
             members << double(
-              "committe_member",
+              "committee_member",
               user: create(:user, organization:)
             )
           end
@@ -100,7 +100,7 @@ module Decidim
           members = []
           2.times do
             members << double(
-              "committe_member",
+              "committee_member",
               user: create(:user, organization:)
             )
           end
@@ -125,7 +125,7 @@ module Decidim
           members = []
           2.times do
             members << double(
-              "committe_member",
+              "committee_member",
               user: create(:user, organization:)
             )
           end

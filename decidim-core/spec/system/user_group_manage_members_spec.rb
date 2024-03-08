@@ -37,8 +37,8 @@ describe "User group manage members" do
       login_as creator, scope: :user
       visit decidim.profile_path(user_group.nickname)
 
-      click_button "Manage group"
-      click_link "Manage members"
+      click_on "Manage group"
+      click_on "Manage members"
     end
 
     it "allows managing the group members" do
@@ -47,13 +47,13 @@ describe "User group manage members" do
     end
 
     it "allows removing a user from the group" do
-      accept_confirm { click_link "Remove participant" }
+      accept_confirm { click_on "Remove participant" }
       expect(page).to have_content("Participant successfully removed from the group")
       expect(page).to have_no_content(member.name)
     end
 
     it "allows promoting a user" do
-      accept_confirm { click_link "Make admin" }
+      accept_confirm { click_on "Make admin" }
       expect(page).to have_content("Participant promoted successfully")
       expect(page).to have_no_content(member.name)
     end
@@ -69,7 +69,7 @@ describe "User group manage members" do
       it "allows accepting a join request" do
         within "#list-request" do
           expect(page).to have_content(requested_user.name)
-          click_link "Accept"
+          click_on "Accept"
         end
 
         expect(page).to have_no_css("#list-request")
@@ -81,7 +81,7 @@ describe "User group manage members" do
       it "allows rejecting a join request" do
         within "#list-request" do
           expect(page).to have_content(requested_user.name)
-          click_link "Reject"
+          click_on "Reject"
         end
 
         expect(page).to have_no_css("#list-request")

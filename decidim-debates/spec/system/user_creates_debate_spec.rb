@@ -30,7 +30,7 @@ describe "User creates debate" do
           before do
             organization.update(rich_text_editor_in_public_views: true)
             visit_component
-            click_link "New debate"
+            click_on "New debate"
           end
 
           it_behaves_like "having a rich text editor", "new_debate", "basic"
@@ -39,7 +39,7 @@ describe "User creates debate" do
         it "creates a new debate", :slow do
           visit_component
 
-          click_link "New debate"
+          click_on "New debate"
 
           within ".new_debate" do
             fill_in :debate_title, with: "Should every organization use Decidim?"
@@ -62,7 +62,7 @@ describe "User creates debate" do
           it "creates a new debate", :slow do
             visit_component
 
-            click_link "New debate"
+            click_on "New debate"
 
             within ".new_debate" do
               fill_in :debate_title, with: "Should every organization use Decidim?"
@@ -96,7 +96,7 @@ describe "User creates debate" do
 
           it "shows a modal dialog" do
             visit_component
-            click_link "New debate"
+            click_on "New debate"
             expect(page).to have_content("Authorization required")
           end
         end

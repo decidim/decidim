@@ -152,7 +152,8 @@ describe "Datepicker" do
           context "when choosing a date" do
             it "enables the select button" do
               find(".datepicker__calendar-button").click
-              find("td > span", text: "20", match: :first).click
+              yesterday = Date.yesterday.strftime("%-d")
+              find("td > span", text: yesterday, match: :first).click
               expect(page).to have_button("Select", disabled: false)
             end
           end
@@ -330,10 +331,10 @@ describe "Datepicker" do
             find(".datepicker__minute-up").click
             hour = find("input.datepicker__hour-picker")
             minute = find("input.datepicker__minute-picker")
-            click_button "Select"
+            click_on "Select"
             expect(page).to have_field("example_input_time", with: "23:01")
             find(".datepicker__clock-button").click
-            click_button "Reset"
+            click_on "Reset"
             expect(hour.value).to eq("00")
             expect(minute.value).to eq("00")
             expect(page).to have_field("example_input_time", with: "")
@@ -640,10 +641,10 @@ describe "Datepicker" do
             find(".datepicker__minute-up").click
             hour = find("input.datepicker__hour-picker")
             minute = find("input.datepicker__minute-picker")
-            click_button "Select"
+            click_on "Select"
             expect(page).to have_field("example_input_time", with: "12:01")
             find(".datepicker__clock-button").click
-            click_button "Reset"
+            click_on "Reset"
             expect(hour.value).to eq("01")
             expect(minute.value).to eq("00")
             expect(page).to have_field("example_input_time", with: "")

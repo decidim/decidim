@@ -90,7 +90,7 @@ describe "Private Space Proposal" do
         it "allows create a proposal" do
           visit_component
 
-          click_link "New proposal"
+          click_on "New proposal"
 
           within ".new_proposal" do
             fill_in :proposal_title, with: "Creating my proposal"

@@ -52,21 +52,21 @@ describe "Admin manages surveys" do
 
       it "allows editing questions" do
         visit questionnaire_edit_path
-        click_button "Expand all"
-        expect(page).to have_selector("#questionnaire_questions_#{question.id}_body_en")
+        click_on "Expand all"
+        expect(page).to have_css("#questionnaire_questions_#{question.id}_body_en")
         expect(page).to have_no_selector("#questionnaire_questions_#{question.id}_body_en[disabled]")
       end
 
       it "deletes answers after editing" do
         visit questionnaire_edit_path
 
-        click_button "Expand all"
+        click_on "Expand all"
 
         within "form.edit_questionnaire" do
           within "#accordion-questionnaire_question_#{question.id}-field" do
             find_nested_form_field("body_en").fill_in with: "Have you been writing specs today?"
           end
-          click_button "Save"
+          click_on "Save"
         end
 
         expect(page).to have_admin_callout "Survey successfully saved"

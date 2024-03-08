@@ -51,7 +51,7 @@ describe "Admin manages initiative components" do
             all("input[type=checkbox]").first.click
           end
         end
-        click_button "Add component", type: "submit"
+        click_on "Add component"
       end
     end
 
@@ -67,7 +67,7 @@ describe "Admin manages initiative components" do
         end
       end
 
-      it "sucessfully displays initial values in the form" do
+      it "successfully displays initial values in the form" do
         within ".global-settings" do
           expect(all("input[type=checkbox]").last).to be_checked
         end
@@ -78,7 +78,7 @@ describe "Admin manages initiative components" do
       end
 
       it "successfully edits it" do
-        click_button "Update"
+        click_on "Update"
 
         expect(page).to have_admin_callout("The component was updated successfully.")
       end
@@ -124,7 +124,7 @@ describe "Admin manages initiative components" do
           all("input[type=checkbox]").first.click
         end
 
-        click_button "Update"
+        click_on "Update"
       end
 
       expect(page).to have_admin_callout("The component was updated successfully.")

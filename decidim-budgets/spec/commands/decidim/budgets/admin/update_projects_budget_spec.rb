@@ -43,7 +43,7 @@ module Decidim::Budgets
     end
 
     context "when everything is ok" do
-      it "broadcasts update with successfull flashes" do
+      it "broadcasts update with successful flashes" do
         successful = projects.map { |p| translated(p.title) }
         expect(budget.projects.count).to eq(4)
         expect(destination_budget.projects.count).to eq(0)

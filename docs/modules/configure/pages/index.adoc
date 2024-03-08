@@ -33,7 +33,7 @@ For instance, if you are planing to use some external cloud storage service (suc
 decidim --storage s3 my_decidim_application
 ----
 
-It is also recommended to use a proper Job Queue processor such as `sidekiq` or `delayed_job`. The `--queue` modifier allows you to generate a Decidim Application with a proper Sidekiq configuration (DelayedJob is not supported yet, PR wellcomed, but you can easily just follow the https://github.com/collectiveidea/delayed_job[official instructions]):
+It is also recommended to use a proper Job Queue processor such as `sidekiq` or `delayed_job`. The `--queue` modifier allows you to generate a Decidim Application with a proper Sidekiq configuration (DelayedJob is not supported yet, PR welcomed, but you can easily just follow the https://github.com/collectiveidea/delayed_job[official instructions]):
 
 [source,console]
 ----

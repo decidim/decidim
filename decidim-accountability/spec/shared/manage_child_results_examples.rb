@@ -3,7 +3,7 @@
 RSpec.shared_examples "manage child results" do
   it "updates a result" do
     within "tr", text: translated(child_result.title) do
-      click_link "Edit"
+      click_on "Edit"
     end
 
     within ".edit_result" do
@@ -38,7 +38,7 @@ RSpec.shared_examples "manage child results" do
   end
 
   it "creates a new child result" do
-    click_link "New result", match: :first
+    click_on "New result", match: :first
 
     within ".new_result" do
       fill_in_i18n(
@@ -74,13 +74,13 @@ RSpec.shared_examples "manage child results" do
     before do
       visit current_path
       within ".table-list__actions" do
-        click_link "New result"
+        click_on "New result"
       end
     end
 
     it "deletes a result" do
       within "tr", text: translated(child_result.title) do
-        accept_confirm { click_link "Delete" }
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

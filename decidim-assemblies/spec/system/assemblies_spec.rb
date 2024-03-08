@@ -112,7 +112,7 @@ describe "Assemblies" do
           visit decidim.root_path
 
           within "#home__menu" do
-            click_link "Assemblies"
+            click_on "Assemblies"
           end
 
           expect(page).to have_current_path decidim_assemblies.assemblies_path
@@ -305,7 +305,7 @@ describe "Assemblies" do
           end
         end
 
-        it "shows the children assemblies by weigth" do
+        it "shows the children assemblies by weight" do
           expect(titles.first.text).to eq translated(child_assembly.title)
           expect(titles.last.text).to eq translated(second_child_assembly.title)
         end

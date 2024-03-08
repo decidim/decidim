@@ -41,14 +41,14 @@ describe "Valuator manages proposals" do
         page.first(".js-proposal-list-check").set(true)
       end
 
-      click_button "Actions"
-      click_button "Unassign from valuator"
+      click_on "Actions"
+      click_on "Unassign from valuator"
     end
 
     it "can unassign themselves" do
       within "#js-form-unassign-proposals-from-valuator" do
         select user.name, from: :valuator_role_id
-        click_button(id: "js-submit-unassign-proposals-from-valuator")
+        click_on(id: "js-submit-unassign-proposals-from-valuator")
       end
 
       expect(page).to have_content("Valuator unassigned from proposals successfully")
@@ -57,7 +57,7 @@ describe "Valuator manages proposals" do
     it "cannot unassign others" do
       within "#js-form-unassign-proposals-from-valuator" do
         select another_user.name, from: :valuator_role_id
-        click_button(id: "js-submit-unassign-proposals-from-valuator")
+        click_on(id: "js-submit-unassign-proposals-from-valuator")
       end
 
       expect(page).to have_content("You are not authorized to perform this action")
@@ -67,7 +67,7 @@ describe "Valuator manages proposals" do
   context "when in the proposal page" do
     before do
       within "tr", text: translated(assigned_proposal.title) do
-        click_link "Answer proposal"
+        click_on "Answer proposal"
       end
     end
 
@@ -81,7 +81,7 @@ describe "Valuator manages proposals" do
         end
 
         within "li", text: user.name do
-          expect(page).to have_selector("a.red-icon")
+          expect(page).to have_css("a.red-icon")
           accept_confirm do
             find("a.red-icon").click
           end
@@ -93,14 +93,14 @@ describe "Valuator manages proposals" do
 
     it "can leave proposal notes" do
       expect(page).to have_content("Private notes")
-      click_button "Private notes"
+      click_on "Private notes"
 
       within ".new_proposal_note" do
         fill_in "Note", with: " This is my note"
-        click_button "Submit"
+        click_on "Submit"
       end
 
-      click_button "Private notes"
+      click_on "Private notes"
       within ".component__show_notes-grid .comment:last-child" do
         expect(page).to have_content("This is my note")
       end
@@ -116,7 +116,7 @@ describe "Valuator manages proposals" do
               "#proposal_answer-answer-tabs",
               en: "This is my answer"
             )
-            click_button "Answer"
+            click_on "Answer"
           end
           expect(page).to have_content("successfully")
         end

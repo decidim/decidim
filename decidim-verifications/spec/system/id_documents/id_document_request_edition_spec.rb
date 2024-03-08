@@ -33,12 +33,12 @@ describe "Identity document request edition" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_verifications.authorizations_path
-    click_link "Identity documents"
+    click_on "Identity documents"
   end
 
   context "when the organization only has online method active" do
     it "allows the user to change the data" do
-      expect(page).to have_selector("form", text: "Request verification again")
+      expect(page).to have_css("form", text: "Request verification again")
 
       submit_upload_form(
         doc_type: "Identification number",
@@ -65,7 +65,7 @@ describe "Identity document request edition" do
     let(:verification_method) { :offline }
 
     it "allows the user to change the data" do
-      expect(page).to have_selector("form", text: "Request verification again")
+      expect(page).to have_css("form", text: "Request verification again")
       expect(page).to have_no_content("Scanned copy of your document")
       expect(page).to have_content("This is my explanation text")
 
@@ -94,9 +94,9 @@ describe "Identity document request edition" do
       let(:verification_method) { :offline }
 
       it "allows the user to change the verification method" do
-        expect(page).to have_selector("form", text: "Request verification again")
+        expect(page).to have_css("form", text: "Request verification again")
         expect(page).to have_no_content("Scanned copy of your document")
-        click_link "Use online verification"
+        click_on "Use online verification"
 
         submit_upload_form(
           doc_type: "Identification number",
@@ -117,8 +117,8 @@ describe "Identity document request edition" do
       let(:verification_method) { :online }
 
       it "allows the user to change the verification method" do
-        expect(page).to have_selector("form", text: "Request verification again")
-        click_link "Use offline verification"
+        expect(page).to have_css("form", text: "Request verification again")
+        click_on "Use offline verification"
         expect(page).to have_no_content("Scanned copy of your document")
 
         submit_upload_form(
@@ -143,6 +143,6 @@ describe "Identity document request edition" do
     options = { remove_before: }
     dynamically_attach_file(:id_document_upload_verification_attachment, Decidim::Dev.asset(file_name), options) if file_name
 
-    click_button "Request verification again"
+    click_on "Request verification again"
   end
 end

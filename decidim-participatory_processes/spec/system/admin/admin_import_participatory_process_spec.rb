@@ -14,7 +14,7 @@ describe "Admin imports participatory process" do
   context "with context" do
     before "Imports the process with the basic fields" do
       within_admin_menu do
-        click_link "Import"
+        click_on "Import"
       end
 
       within ".import_participatory_process" do
@@ -33,7 +33,7 @@ describe "Admin imports participatory process" do
 
       dynamically_attach_file(:participatory_process_document, Decidim::Dev.asset("participatory_processes.json"))
 
-      click_button "Import"
+      click_on "Import"
     end
 
     it "imports the json document" do
@@ -42,11 +42,11 @@ describe "Admin imports participatory process" do
       expect(page).to have_content("Unpublished")
 
       within "tr", text: "Import participatory process" do
-        click_link "Import participatory process"
+        click_on "Import participatory process"
       end
 
       within_admin_sidebar_menu do
-        click_link "Phases"
+        click_on "Phases"
       end
 
       within ".table-list" do
@@ -54,7 +54,7 @@ describe "Admin imports participatory process" do
       end
 
       within_admin_sidebar_menu do
-        click_link "Categories"
+        click_on "Categories"
       end
 
       within ".table-list" do
@@ -63,7 +63,7 @@ describe "Admin imports participatory process" do
       end
 
       within_admin_sidebar_menu do
-        click_link "Components"
+        click_on "Components"
       end
 
       expect(Decidim::ParticipatoryProcess.last.components.size).to eq(3)
@@ -74,7 +74,7 @@ describe "Admin imports participatory process" do
       end
 
       within_admin_sidebar_menu do
-        click_link "Attachments"
+        click_on "Attachments"
       end
 
       if Decidim::ParticipatoryProcess.last.attachments.any?

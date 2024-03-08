@@ -6,7 +6,7 @@ If you want to create your own provider integration, you will need to find a ser
 
 * https://en.wikipedia.org/wiki/Geocoding[A geocoding server] in order to turn user entered addresses into https://en.wikipedia.org/wiki/Geographic_coordinate_system[geocoordinates].
 * https://en.wikipedia.org/wiki/Autocomplete[A geocoding autocompletion server] in order to suggest and predict addresses based on the user input and turning these suggested addresses into https://en.wikipedia.org/wiki/Geographic_coordinate_system[geocoordinates].
-* https://en.wikipedia.org/wiki/Tile_Map_Service[A map tile server] for the dynamic maps, preferrably one that is compatible with the default https://leafletjs.com/[Leaflet] map library.
+* https://en.wikipedia.org/wiki/Tile_Map_Service[A map tile server] for the dynamic maps, preferably one that is compatible with the default https://leafletjs.com/[Leaflet] map library.
 * https://wiki.openstreetmap.org/wiki/Static_map_images[A static map image server] for the static map images e.g.
 on the proposal pages.
 This service is optional as Decidim will use the dynamic map tiles to generate a similar map element if the static map image cannot be provided.
@@ -118,7 +118,7 @@ Please refer to the Geocoder gem's https://github.com/alexreisner/geocoder/blob/
 
 === Defining the geocoding autocompletion maps utility
 
-For the geocoding autocompletion map functionality, you should preferrably use a service provider that is compatible with https://github.com/komoot/photon[Photon] which is already integrated with Decidim.
+For the geocoding autocompletion map functionality, you should preferably use a service provider that is compatible with https://github.com/komoot/photon[Photon] which is already integrated with Decidim.
 
 If this is not possible, you can also create a custom geocoding autocompletion maps utility for your own service provider by defining the following empty class to start with:
 
@@ -404,7 +404,7 @@ L.tileLayer(
 
 === Defining the static maps utility
 
-For the static map functionality, you should preferrably use a service provider that is compatible with https://github.com/jperelli/osm-static-maps[osm-static-maps] which is already integrated with Decidim.
+For the static map functionality, you should preferably use a service provider that is compatible with https://github.com/jperelli/osm-static-maps[osm-static-maps] which is already integrated with Decidim.
 
 If this is not possible, you can also create a custom static maps utility for your own service provider by defining the following empty class to start with:
 

@@ -3,7 +3,7 @@
   <div class="item_show__header">
     <h1 class="item_show__header-title">
       <div>
-        <%= link_to translated_attribute(budget.title), budgets_path %> &gt;
+        <%= link_to decidim_escape_translated(budget.title), budgets_path %> &gt;
         <%= t(".title") %>
         <span id="js-selected-resources-count" class="component-counter" title="<%= t("decidim.budgets.admin.projects.index.selected") %>"></span>
       </div>

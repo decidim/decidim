@@ -21,7 +21,7 @@ shared_examples "manage agenda" do
           fill_in find_nested_form_field_locator("title_en"), with: "My edited agenda item"
         end
 
-        click_button "Update"
+        click_on "Update"
       end
 
       expect(page).to have_admin_callout("Agenda successfully updated")
@@ -53,7 +53,7 @@ shared_examples "manage agenda" do
           ca: "La meva agenda"
         )
 
-        2.times { click_button "Add agenda item" }
+        2.times { click_on "Add agenda item" }
 
         expect(page).to have_css(".meeting-agenda-item", count: 2)
 
@@ -64,7 +64,7 @@ shared_examples "manage agenda" do
           end
         end
 
-        click_button "Create"
+        click_on "Create"
       end
 
       expect(page).to have_admin_callout("Agenda successfully created")
@@ -91,7 +91,7 @@ shared_examples "manage agenda" do
     visit_component_admin
 
     within "tr", text: translated(meeting.title) do
-      page.click_link "Agenda"
+      page.click_on "Agenda"
     end
   end
 end
