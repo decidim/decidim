@@ -478,9 +478,9 @@ describe "Explore meetings", :slow, type: :system do
 
     it "shows all meeting info" do
       expect(page).to have_i18n_content(meeting.title)
-      expect(page).to have_i18n_content(meeting.description)
-      expect(page).to have_i18n_content(meeting.location)
-      expect(page).to have_i18n_content(meeting.location_hints)
+      expect(page).to have_i18n_content(meeting.description, strip_tags: true)
+      expect(page).to have_i18n_content(meeting.location, strip_tags: true)
+      expect(page).to have_i18n_content(meeting.location_hints, strip_tags: true)
       expect(page).to have_content(meeting.address)
       expect(page).to have_content(meeting.reference)
 
