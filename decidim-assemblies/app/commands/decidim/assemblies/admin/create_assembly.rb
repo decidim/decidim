@@ -48,11 +48,11 @@ module Decidim
         def add_admins_as_followers(assembly)
           assembly.organization.admins.each do |admin|
             form = Decidim::FollowForm
-                     .from_params(followable_gid: assembly.to_signed_global_id.to_s)
-                     .with_context(
-                       current_organization: assembly.organization,
-                       current_user: admin
-                     )
+                   .from_params(followable_gid: assembly.to_signed_global_id.to_s)
+                   .with_context(
+                     current_organization: assembly.organization,
+                     current_user: admin
+                   )
 
             Decidim::CreateFollow.new(form, admin).call
           end

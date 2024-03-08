@@ -11,7 +11,6 @@ module Decidim
         fetch_form_attributes :full_name, :gender, :birthday, :birthplace, :ceased_date, :designation_date,
                               :position, :position_other, :user, :participatory_space
 
-
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid.
