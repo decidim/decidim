@@ -9,16 +9,8 @@ module Decidim
         include ::Decidim::AttachmentAttributesMethods
 
         fetch_form_attributes :full_name, :gender, :birthday, :birthplace, :ceased_date, :designation_date,
-                              :position, :position_other, :user
+                              :position, :position_other, :user, :participatory_space
 
-        # Public: Initializes the command.
-        #
-        # form - A form object with the params.
-        # assembly - The Assembly that will hold the member
-        def initialize(form, assembly)
-          super(form)
-          @assembly = assembly
-        end
 
         # Executes the command. Broadcasts these events:
         #
@@ -50,7 +42,7 @@ module Decidim
         attr_reader :assembly
 
         def attributes
-          super.merge(assembly:).merge(attachment_attributes(:non_user_avatar))
+          super.merge(attachment_attributes(:non_user_avatar))
         end
 
         def assembly_member_with_attributes
@@ -65,7 +57,7 @@ module Decidim
               title: form.full_name
             },
             participatory_space: {
-              title: assembly.title
+              title: form.participatory_space.title
             }
           }
         end
@@ -78,7 +70,7 @@ module Decidim
           data = {
             event: "decidim.events.assemblies.create_assembly_member",
             event_class: Decidim::Assemblies::CreateAssemblyMemberEvent,
-            resource: assembly,
+            resource: form.participatory_space,
             followers:
           }
           Decidim::EventsManager.publish(**data)
