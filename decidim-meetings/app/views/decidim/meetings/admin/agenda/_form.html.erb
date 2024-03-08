@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <div class="flex--sbc">
         <div class="grid-x align-middle">
-          <u> <%= present(@meeting).title %> </u> &nbsp;<%= icon "arrow-right" %>&nbsp;<%= title %>
+          <u> <%= decidim_escape_translated(meeting.title).html_safe %> </u> &nbsp;<%= icon "arrow-right" %>&nbsp;<%= title %>
         </div>
       </div>
     </h2>
