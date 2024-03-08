@@ -38,7 +38,7 @@ describe "Decidim::Api::QueryType" do
         "id" => initiative.type.id.to_s,
         "initiatives" => initiative.type.initiatives.map { |i| { "id" => i.id.to_s } },
         "minimumCommitteeMembers" => initiative.type.minimum_committee_members,
-        "promotingComitteeEnabled" => initiative.type.promoting_committee_enabled,
+        "promotingCommitteeEnabled" => initiative.type.promoting_committee_enabled,
         "signatureType" => initiative.type.signature_type,
         "title" => { "translation" => initiative.type.title[locale] },
         "undoOnlineSignaturesEnabled" => initiative.type.undo_online_signatures_enabled,
@@ -98,7 +98,7 @@ describe "Decidim::Api::QueryType" do
           id
           initiatives{id}
           minimumCommitteeMembers
-          promotingComitteeEnabled
+          promotingCommitteeEnabled
           signatureType
           title {
                   translation(locale: "#{locale}")
@@ -138,7 +138,7 @@ describe "Decidim::Api::QueryType" do
   end
 
   describe "valid query" do
-    it "executes sucessfully" do
+    it "executes successfully" do
       expect { response }.not_to raise_error
     end
 
@@ -198,7 +198,7 @@ describe "Decidim::Api::QueryType" do
           id
           initiatives{id}
           minimumCommitteeMembers
-          promotingComitteeEnabled
+          promotingCommitteeEnabled
           signatureType
           title {
                   translation(locale: "en")
@@ -229,7 +229,7 @@ describe "Decidim::Api::QueryType" do
     )
     end
 
-    it "executes sucessfully" do
+    it "executes successfully" do
       expect { response }.not_to raise_error
     end
 

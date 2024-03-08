@@ -31,8 +31,8 @@ module Decidim
       end
 
       class_methods do
-        def attribute(name, type = ActiveModel::Type::Value.new, **options)
-          typedef = AttributeObject.types.resolve(type, **options)
+        def attribute(name, type = ActiveModel::Type::Value.new, **)
+          typedef = AttributeObject.types.resolve(type, **)
 
           super(name, typedef[:type], **typedef[:options])
 

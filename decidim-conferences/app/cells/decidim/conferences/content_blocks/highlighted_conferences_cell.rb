@@ -4,8 +4,6 @@ module Decidim
   module Conferences
     module ContentBlocks
       class HighlightedConferencesCell < Decidim::ContentBlocks::HighlightedParticipatorySpacesCell
-        delegate :current_user, to: :controller
-
         def highlighted_spaces
           @highlighted_spaces ||= OrganizationPrioritizedConferences
                                   .new(current_organization, current_user)

@@ -5,9 +5,6 @@ module Decidim
     # This cell renders the button to join a meeting.
     class JoinMeetingButtonCell < Decidim::ViewModel
       include MeetingCellsHelper
-      include Decidim::SanitizeHelper
-      include ActionView::Helpers::FormTagHelper
-      include ActionView::Helpers::FormOptionsHelper
 
       def show
         return unless model.can_be_joined_by?(current_user) || model.on_different_platform?

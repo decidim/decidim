@@ -5,50 +5,18 @@ module Decidim
     module Admin
       # A command with all the business logic when destroying a conference
       # speaker in the system.
-      class DestroyConferenceSpeaker < Decidim::Command
-        # Public: Initializes the command.
-        #
-        # conference_speaker - the ConferenceSpeaker to destroy
-        # current_user - the user performing this action
-        def initialize(conference_speaker, current_user)
-          @conference_speaker = conference_speaker
-          @current_user = current_user
-        end
+      class DestroyConferenceSpeaker < Decidim::Commands::DestroyResource
+        protected
 
-        # Executes the command. Broadcasts these events:
-        #
-        # - :ok when everything is valid.
-        # - :invalid if the form was not valid and we could not proceed.
-        #
-        # Returns nothing.
-        def call
-          destroy_speaker!
-          broadcast(:ok)
-        end
-
-        private
-
-        attr_reader :conference_speaker, :current_user
-
-        def destroy_speaker!
-          log_info = {
+        def extra_params
+          {
             resource: {
-              title: conference_speaker.full_name
+              title: resource.full_name
             },
             participatory_space: {
-              title: conference_speaker.conference.title
+              title: resource.conference.title
             }
           }
-
-          Decidim.traceability.perform_action!(
-            "delete",
-            conference_speaker,
-            current_user,
-            log_info
-          ) do
-            conference_speaker.destroy!
-            conference_speaker
-          end
         end
       end
     end

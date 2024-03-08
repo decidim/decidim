@@ -11,9 +11,9 @@ module Decidim
     let(:default_settings) do
       {
         "allowed_file_extensions" => {
-          "default" => %w(jpg jpeg png pdf rtf txt),
-          "admin" => %w(jpg jpeg png pdf doc docx xls xlsx ppt pptx ppx rtf txt odt ott odf otg ods ots),
-          "image" => %w(jpg jpeg png)
+          "default" => %w(jpg jpeg png webp pdf rtf txt),
+          "admin" => %w(jpg jpeg png webp pdf doc docx xls xlsx ppt pptx ppx rtf txt odt ott odf otg ods ots),
+          "image" => %w(jpg jpeg png webp)
         },
         "allowed_content_types" => {
           "default" => %w(
@@ -70,9 +70,9 @@ module Decidim
       let(:updated_settings) do
         {
           "allowed_file_extensions" => {
-            "default" => %w(jpg jpeg pdf),
-            "admin" => %w(jpg jpeg pdf docx),
-            "image" => %w(jpg jpeg)
+            "default" => %w(jpg jpeg webp pdf),
+            "admin" => %w(jpg jpeg webp pdf docx),
+            "image" => %w(jpg jpeg webp)
           },
           "allowed_content_types" => {
             "default" => %w(

@@ -17,7 +17,7 @@ module Decidim
       # type - The attribute's type
       # options - Options to send to the form class when defining the attribute.
       # block - An optional block to be called for each attribute name and
-      # locale. The block will receive two arguments, one with the attriubte
+      # locale. The block will receive two arguments, one with the attribute
       # name and another with the locale.
       #
       #
@@ -34,12 +34,12 @@ module Decidim
       #   end
       #
       # Returns nothing.
-      def translatable_attribute(name, type, **options)
+      def translatable_attribute(name, type, **)
         attribute(name, { String => Object }, default: {})
 
         locales.each do |locale|
           attribute_name = "#{name}_#{locale}".gsub("-", "__")
-          attribute attribute_name, type, **options
+          attribute(attribute_name, type, **)
 
           define_method attribute_name do
             field = public_send(name) || {}

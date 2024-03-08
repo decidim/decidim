@@ -6,7 +6,7 @@ Components are the core contract between external xref:develop:modules.adoc[modu
 
 If you want to create a new component, you can use https://github.com/decidim/decidim/tree/develop/decidim-generators[decidim-generators] to
 automatically generate a decidim component skeleton, or copy the basic structure
-of an existing mantained plugin.
+of an existing maintained plugin.
 
 [source,console]
 ----
@@ -43,7 +43,7 @@ Decidim.register_component(:my_component) do |component|
 
   # Component hooks get called whenever relevant lifecycle events happen, like
   # adding a new component o destroying it. You always get passed the instance
-  # so you can act on it. Creating or destroying a comoponent is transactional
+  # so you can act on it. Creating or destroying a component is transactional
   # along with its hooks, so you can decide to halt the transaction by raising
   # an exception.
   #
@@ -125,7 +125,7 @@ Each attribute defined can be described through properties:
 * `text` and `string` attributes can be `translated`, which will allow admin users to enter values for every language.
 * `text` attributes can use an `editor` to edit them as HTML code
 * `enum` attributes should have a `choices` attributes that list all the possible values. This could be a lambda function.
-* they can be `readonly` in some cases, throught a lambda function that received the current component within the `context`.
+* they can be `readonly` in some cases, through a lambda function that received the current component within the `context`.
 
 [source,ruby]
 ----
@@ -167,7 +167,7 @@ This sections explains how to add dummy content to a development application.
 === Tips and Tricks
 
 * Take advantage of the Faker gem, already in decidim.
-* If you need content for i18n fields, you can use https://github.com/decidim/decidim/blob/develop/decidim-core/lib/decidim/faker/localized.rb[Localizaed], which uses `Faker` internally.
+* If you need content for i18n fields, you can use https://github.com/decidim/decidim/blob/develop/decidim-core/lib/decidim/faker/localized.rb[Localized], which uses `Faker` internally.
 
 == Assets
 
@@ -187,7 +187,7 @@ While the component is being developed, it will be simpler and faster to update 
 
 Also, components might have one or many entrypoints (for CSSs and javascripts) and images. These entrypoints need to be manually added to `config/webpack/custom.js`. **Any change in both files** requires to restart `webpack-dev-server` process.
 
-Take into account that generating a new development application **overwrites** Webpacker configuration so these changes might be overwriten. That is why it is necessary, once the changes are stable enough, to update the generators files.
+Take into account that generating a new development application **overwrites** Webpacker configuration so these changes might be overwritten. That is why it is necessary, once the changes are stable enough, to update the generators files.
 
 === Updating Webpacker configuration for the generators
 

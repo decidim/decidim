@@ -12,6 +12,8 @@ module Decidim
 
         helper_method :conference
 
+        add_breadcrumb_item_from_menu :conferences_admin_registrations_menu
+
         alias conference current_participatory_space
 
         def index

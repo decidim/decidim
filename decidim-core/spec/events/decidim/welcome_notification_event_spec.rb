@@ -13,17 +13,38 @@ describe Decidim::WelcomeNotificationEvent do
     )
   end
   let(:event_name) { "decidim.events.core.welcome_notification" }
-  let(:user) { create(:user) }
+  let(:user) { create(:user, organization:) }
+  let(:organization) { create(:organization, name: organization_name) }
 
-  describe "#email_subject" do
-    subject { event_instance.email_subject }
+  context "with a normal organization name" do
+    let(:organization_name) { "My Organization" }
 
-    it { is_expected.to eq("Thanks for joining #{user.organization.name}!") }
+    describe "#email_subject" do
+      subject { event_instance.email_subject }
+
+      it { is_expected.to eq("Thanks for joining My Organization!") }
+    end
+
+    describe "#email_intro" do
+      subject { event_instance.email_intro }
+
+      it { is_expected.to match(%r{^<p>Hi #{CGI.escapeHTML(user.name)}, thanks for joining My Organization and welcome!</p>}) }
+    end
   end
 
-  describe "#email_intro" do
-    subject { event_instance.email_intro }
+  context "with an organization with an apostrophe" do
+    let(:organization_name) { "My ol'Organization" }
 
-    it { is_expected.to match(%r{^<p>Hi #{CGI.escapeHTML(user.name)}, thanks for joining #{CGI.escapeHTML(user.organization.name)} and welcome!</p>}) }
+    describe "#email_subject" do
+      subject { event_instance.email_subject }
+
+      it { is_expected.to eq("Thanks for joining My ol'Organization!") }
+    end
+
+    describe "#email_intro" do
+      subject { event_instance.email_intro }
+
+      it { is_expected.to match(%r{^<p>Hi #{CGI.escapeHTML(user.name)}, thanks for joining My ol'Organization and welcome!</p>}) }
+    end
   end
 end

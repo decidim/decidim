@@ -44,7 +44,7 @@ module Decidim::Meetings
       it "broadcasts invalid and proposals count" do
         expect do
           subject.call
-        end.to broadcast(:invalid, meeting_proposals.size)
+        end.to broadcast(:invalid)
       end
 
       it "cannot destroy the meeting" do

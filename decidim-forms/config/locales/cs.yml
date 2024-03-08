@@ -161,6 +161,7 @@ cs:
             sign_up_description: Vytvořit uživatelský účet k provedení průzkumu
             title: Odpovězte na dotazník
           current_step: Krok %{step}
+          empty: Pro tento formulář zatím nejsou nakonfigurovány žádné otázky.
           of_total_steps: z %{total_steps}
           questionnaire_answered:
             body: Již jste odpověděli na tento dotazník.

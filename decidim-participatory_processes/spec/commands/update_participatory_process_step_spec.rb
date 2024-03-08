@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::ParticipatoryProcesses
   describe Admin::UpdateParticipatoryProcessStep do
-    subject { described_class.new(step, form) }
+    subject { described_class.new(form, step) }
 
     let(:step) { create(:participatory_process_step) }
     let(:user) { create(:user, :admin, :confirmed) }

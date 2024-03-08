@@ -136,7 +136,7 @@ const createDialog = (component) => {
     enableAutoFocus: false,
     onOpen: (params, trigger) => {
       setFocusOnTitle(params);
-      window.focusGuard.trap(trigger);
+      window.focusGuard.trap(params, trigger);
       params.dispatchEvent(new CustomEvent("open.dialog"));
     },
     onClose: (params) => {

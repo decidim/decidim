@@ -56,6 +56,7 @@ ar:
         conference_meeting_ids: الاجتماعات ذات الصلة
         full_name: الاسم الكامل
         position: المنصب
+        twitter_handle: معرّف X
         user_id: المستخدم
       conference_user_role:
         email: البريد الإلكتروني
@@ -88,6 +89,8 @@ ar:
     admin:
       actions:
         confirm: تؤكد
+        new_conference: مؤتمر جديد
+        new_partner: شريك جديد
         send_diplomas: إرسال شهادات الحضور
       conference_copies:
         new:
@@ -188,6 +191,7 @@ ar:
           conference_invites: تدعو
           conference_speakers: مكبرات الصوت
           diploma: شهادة حضور
+          info: عن هذا المؤتمر
           media_links: روابط الوسائط
           moderations: الإعتدال
           partners: شركاء
@@ -331,14 +335,8 @@ ar:
             non_user: مشارك غير موجود
             select_user: اختر المشارك
           index:
-            filter:
-              accepted: وافقت
-              all: الكل
-              rejected: مرفوض
-              sent: أرسلت
             invite_attendee: دعوة مشارك
             invites: تدعو
-            search: بحث
           new:
             invite: دعا
             new_invite: دعوة مشارك
@@ -421,6 +419,7 @@ ar:
           invalid: حدثت مشكلة أثناء مغادرة هذا المؤتمر.
           success: لقد تركت المؤتمر بنجاح.
       conference_speaker:
+        go_to_twitter: الذهاب إلى X
         more_info: مزيد من المعلومات
         personal_website: موقع الويب الشخصي
         show:

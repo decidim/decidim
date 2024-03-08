@@ -1,9 +1,9 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="card" id="committee_members">
   <div class="item_show__header">
-    <h2 class="item_show__header-title">
+    <h1 class="item_show__header-title">
       <%= t ".title" %>
-    </h2>
+    </h1>
   </div>
 
   <div class="card-section p-4">
@@ -12,7 +12,7 @@
     </div>
 
     <div class="row column">
-      <div class="committee_link" id="committee_link">
+      <div data-committee_link>
         <%= decidim_initiatives.new_initiative_committee_request_url(current_initiative) %>
         <%= icon_link_to "clipboard-line", "#", t(".invite_to_committee_help"), class: "card--list__data__icon invite-users-link" %>
       </div>

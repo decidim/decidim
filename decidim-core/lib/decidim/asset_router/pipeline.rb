@@ -26,8 +26,8 @@ module Decidim
       #   options Rails route helpers accept
       # @return [String] The full URL to the asset or when host cannot be
       #   resolved, the asset path.
-      def url(**options)
-        path = ActionController::Base.helpers.asset_pack_path(asset, **options)
+      def url(**)
+        path = ActionController::Base.helpers.asset_pack_path(asset, **)
         return path if path.match?(%r{\A(https?:)?//})
 
         "#{asset_host}#{path}"

@@ -90,6 +90,11 @@ eu:
   decidim:
     admin:
       filters:
+        accepted_at_not_null:
+          label: Onartua
+          values:
+            'false': Ez onartua
+            'true': Onartua
         meetings:
           category_id_eq:
             label: Kategoria
@@ -117,6 +122,18 @@ eu:
               hybrid: Hibridoa
               in_person: Aurrez aurre
               online: Lineakoa
+        rejected_at_not_null:
+          label: Baztertua
+          values:
+            'false': Ez baztertua
+            'true': Baztertua
+        search_placeholder:
+          user_name_or_user_email_cont: Izenaren edo helbide elektronikoaren araberako bilaketa
+        sent_at_not_null:
+          label: Bidalia
+          values:
+            'false': Ez bidalita
+            'true': Bidalia
       meeting_copies:
         create:
           error: Arazo bat izan da topaketa hau eguneratzean.
@@ -281,15 +298,9 @@ eu:
             non_user: Erabiltzailea ez dago
             select_user: Hautatu parte-hartzailea
           index:
-            filter:
-              accepted: Onartuta
-              all: Guztiak
-              rejected: Baztertuta
-              sent: Bidalita
             invite_attendee: Gonbidatu
             invites: Gonbidapenak
             registrations_disabled: Ezin duzu inor gonbidatu izen-emateak desgaituta daudelako.
-            search: Bilatu
         meeting_closes:
           edit:
             close: Itxi

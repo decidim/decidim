@@ -49,7 +49,7 @@ describe "Amend Proposal", versioning: true do
         end
 
         it "is NOT shown a link to Amend it" do
-          expect(page).not_to have_css("#amend-button")
+          expect(page).to have_no_css("#amend-button")
         end
       end
     end
@@ -68,8 +68,8 @@ describe "Amend Proposal", versioning: true do
         end
 
         it "is NOT shown the accept and reject button" do
-          expect(page).not_to have_css(".success", text: "ACCEPT")
-          expect(page).not_to have_css(".alert", text: "REJECT")
+          expect(page).to have_no_css(".success", text: "ACCEPT")
+          expect(page).to have_no_css(".alert", text: "REJECT")
         end
       end
     end
@@ -89,8 +89,8 @@ describe "Amend Proposal", versioning: true do
         end
 
         it "is NOT shown the promote button" do
-          expect(page).not_to have_content("PROMOTE TO PROPOSAL")
-          expect(page).not_to have_content("You can promote this emendation and publish it as an independent proposal")
+          expect(page).to have_no_content("PROMOTE TO PROPOSAL")
+          expect(page).to have_no_content("You can promote this emendation and publish it as an independent proposal")
         end
       end
     end
@@ -163,7 +163,7 @@ describe "Amend Proposal", versioning: true do
         end
 
         it "is NOT shown a link to Amend it" do
-          expect(page).not_to have_css("#amend-button")
+          expect(page).to have_no_css("#amend-button")
         end
 
         context "when a private user is logged in" do
@@ -193,7 +193,7 @@ describe "Amend Proposal", versioning: true do
 
         context "when the user is not logged in and clicks" do
           before do
-            click_link "Amend"
+            click_on "Amend"
           end
 
           it "is shown the login modal" do
@@ -209,7 +209,7 @@ describe "Amend Proposal", versioning: true do
             login_as user, scope: :user
             visit proposal_path
             expect(page).to have_content(proposal_title)
-            click_link "Amend"
+            click_on "Amend"
           end
 
           it "is shown the amendment create form" do
@@ -225,12 +225,16 @@ describe "Amend Proposal", versioning: true do
 
           context "when the form is filled correctly" do
             before do
+              login_as user, scope: :user
+              visit proposal_path
+              expect(page).to have_content(proposal_title)
+              click_on "Amend"
               within ".new_amendment" do
                 fill_in "amendment[emendation_params][title]", with: "More sidewalks and less roads"
                 fill_in "amendment[emendation_params][body]", with: "Cities need more people, not more cars"
                 select user_group.name, from: :amendment_user_group_id # Optional
               end
-              click_button "Create"
+              click_on "Create"
             end
 
             it "is shown the Success Flash" do
@@ -240,10 +244,14 @@ describe "Amend Proposal", versioning: true do
 
           context "when the form is filled incorrectly" do
             before do
+              login_as user, scope: :user
+              visit proposal_path
+              expect(page).to have_content(proposal_title)
+              click_on "Amend"
               within ".new_amendment" do
                 fill_in "amendment[emendation_params][title]", with: "INVALID TITLE"
               end
-              click_button "Create"
+              click_on "Create"
             end
 
             it "is shown the Error Flash" do
@@ -269,7 +277,7 @@ describe "Amend Proposal", versioning: true do
         end
 
         it "is NOT shown a link to Amend it" do
-          expect(page).not_to have_css("#amend-button")
+          expect(page).to have_no_css("#amend-button")
         end
       end
     end
@@ -294,7 +302,7 @@ describe "Amend Proposal", versioning: true do
 
         context "when the user clicks on the accept button" do
           before do
-            click_link "Accept"
+            click_on "Accept"
           end
 
           it "is shown the amendment review form" do
@@ -308,7 +316,7 @@ describe "Amend Proposal", versioning: true do
           context "and the emendation is accepted" do
             before do
               within ".edit_amendment" do
-                click_button "Accept amendment"
+                click_on "Accept amendment"
               end
             end
 
@@ -324,7 +332,7 @@ describe "Amend Proposal", versioning: true do
 
         context "when the user clicks on the reject button" do
           before do
-            click_link "Reject"
+            click_on "Reject"
           end
 
           it "is shown the Success Flash" do
@@ -352,8 +360,8 @@ describe "Amend Proposal", versioning: true do
         end
 
         it "is NOT shown the accept and reject button" do
-          expect(page).not_to have_css(".success", text: "ACCEPT")
-          expect(page).not_to have_css(".alert", text: "REJECT")
+          expect(page).to have_no_css(".success", text: "ACCEPT")
+          expect(page).to have_no_css(".alert", text: "REJECT")
         end
       end
     end
@@ -380,7 +388,7 @@ describe "Amend Proposal", versioning: true do
 
         context "when the user clicks on the promote button" do
           before do
-            click_link "Promote"
+            click_on "Promote"
           end
 
           it "is shown the alert text" do
@@ -399,8 +407,8 @@ describe "Amend Proposal", versioning: true do
             end
 
             it "is NOT shown the promote button" do
-              expect(page).not_to have_content("PROMOTE TO PROPOSAL")
-              expect(page).not_to have_content("You can promote this emendation and publish it as an independent proposal")
+              expect(page).to have_no_content("PROMOTE TO PROPOSAL")
+              expect(page).to have_no_content("You can promote this emendation and publish it as an independent proposal")
             end
           end
         end
@@ -422,8 +430,8 @@ describe "Amend Proposal", versioning: true do
         end
 
         it "is NOT shown the promote button" do
-          expect(page).not_to have_content("PROMOTE TO PROPOSAL")
-          expect(page).not_to have_content("You can promote this emendation and publish it as an independent proposal")
+          expect(page).to have_no_content("PROMOTE TO PROPOSAL")
+          expect(page).to have_no_content("You can promote this emendation and publish it as an independent proposal")
         end
       end
     end
@@ -453,7 +461,7 @@ describe "Amend Proposal", versioning: true do
           let!(:user) { create(:user, :confirmed, organization: component.organization) }
 
           it "is NOT shown the amendments list" do
-            expect(page).not_to have_css("#amendment-list")
+            expect(page).to have_no_css("#amendment-list")
           end
         end
       end
@@ -465,7 +473,7 @@ describe "Amend Proposal", versioning: true do
 
         context "and visit an amendable proposal" do
           it "is NOT shown the amendments list" do
-            expect(page).not_to have_css("#amendment-list")
+            expect(page).to have_no_css("#amendment-list")
           end
         end
       end

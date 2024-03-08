@@ -1,10 +1,10 @@
 /* global jest, global */
 
-import { createBasicEditor, updateContent, sleep, pasteFixtureFile, dropFixtureFile } from "../helpers";
+import { createBasicEditor, updateContent, sleep, pasteFixtureFile, dropFixtureFile } from "src/decidim/editor/test/helpers";
 
-import Dialog from "../../extensions/dialog";
-import Image from "../../extensions/image";
-import uploadTemplates from "../fixtures/upload_templates";
+import Dialog from "src/decidim/editor/extensions/dialog";
+import Image from "src/decidim/editor/extensions/image";
+import uploadTemplates from "src/decidim/editor/test/fixtures/upload_templates";
 
 class DummyDialog {
   constructor(element) { this.element = element; }

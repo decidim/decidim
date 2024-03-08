@@ -127,7 +127,7 @@ module Decidim
     #
     # @return [String] sanitized content.
     def self.sanitize(text, options = {})
-      Rails::Html::WhiteListSanitizer.new.sanitize(
+      Rails::Html::SafeListSanitizer.new.sanitize(
         text,
         { scrubber: Decidim::UserInputScrubber.new }.merge(options)
       ).try(:html_safe)

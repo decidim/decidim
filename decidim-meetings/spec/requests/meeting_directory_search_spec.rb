@@ -4,7 +4,6 @@ require "spec_helper"
 
 RSpec.describe "Meeting directory search" do
   include Decidim::ComponentPathHelper
-  include Decidim::SanitizeHelper
 
   subject { response.body }
 
@@ -21,11 +20,11 @@ RSpec.describe "Meeting directory search" do
   let(:meeting3) { create(:meeting, :published, component: components.first, category: category2) }
   let(:meeting4) { create(:meeting, :published, component: components.first, category: child_category) }
   let(:meeting5) { create(:meeting, :published, component: components.third) }
-  let!(:meeting1_title) { decidim_html_escape(translated(meeting1.title)) }
-  let!(:meeting2_title) { decidim_html_escape(translated(meeting2.title)) }
-  let!(:meeting3_title) { decidim_html_escape(translated(meeting3.title)) }
-  let!(:meeting4_title) { decidim_html_escape(translated(meeting4.title)) }
-  let!(:meeting5_title) { decidim_html_escape(translated(meeting5.title)) }
+  let!(:meeting1_title) { decidim_escape_translated(meeting1.title) }
+  let!(:meeting2_title) { decidim_escape_translated(meeting2.title) }
+  let!(:meeting3_title) { decidim_escape_translated(meeting3.title) }
+  let!(:meeting4_title) { decidim_escape_translated(meeting4.title) }
+  let!(:meeting5_title) { decidim_escape_translated(meeting5.title) }
 
   let(:filter_params) { {} }
   let(:request_path) { engine_routes.meetings_path }

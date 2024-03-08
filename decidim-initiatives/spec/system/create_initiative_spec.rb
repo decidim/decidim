@@ -28,7 +28,7 @@ describe "Initiative" do
   shared_examples "initiatives path redirection" do
     it "redirects to initiatives path" do
       accept_confirm do
-        click_link("Send my initiative to technical validation")
+        click_on("Send my initiative to technical validation")
       end
 
       expect(page).to have_current_path("/initiatives")
@@ -126,7 +126,7 @@ describe "Initiative" do
       context "when the user is logged in" do
         context "and they do not need to be verified" do
           it "they are taken to the initiative form" do
-            click_link "New initiative"
+            click_on "New initiative"
             expect(page).to have_content("Create a new initiative")
           end
         end
@@ -139,7 +139,7 @@ describe "Initiative" do
 
           context "and they are verified" do
             it "they are taken to the initiative form" do
-              click_link "New initiative"
+              click_on "New initiative"
               expect(page).to have_content("Create a new initiative")
             end
           end
@@ -148,16 +148,16 @@ describe "Initiative" do
             let(:authorization) { nil }
 
             it "they need to verify" do
-              click_button "New initiative"
+              click_on "New initiative"
               expect(page).to have_content("Authorization required")
             end
 
             it "they are redirected to the initiative form after verifying" do
-              click_button "New initiative"
-              click_link "View authorizations"
-              click_link(text: /Example authorization/)
+              click_on "New initiative"
+              click_on "View authorizations"
+              click_on(text: /Example authorization/)
               fill_in "Document number", with: "123456789X"
-              click_button "Send"
+              click_on "Send"
               expect(page).to have_content("Review the content of your initiative.")
             end
           end
@@ -180,16 +180,16 @@ describe "Initiative" do
           let(:authorization) { nil }
 
           it "they need to verify" do
-            click_button "New initiative"
+            click_on "New initiative"
             expect(page).to have_content("Authorization required")
           end
 
           it "they are authorized to create after verifying" do
-            click_button "New initiative"
-            click_link 'Authorize with "Example authorization"'
+            click_on "New initiative"
+            click_on 'Authorize with "Example authorization"'
             fill_in "Document number", with: "123456789X"
-            click_button "Send"
-            click_link "New initiative"
+            click_on "Send"
+            click_on "New initiative"
             expect(page).to have_content("Review the content of your initiative. ")
           end
         end
@@ -199,16 +199,18 @@ describe "Initiative" do
         let(:login) { false }
 
         it "they need to login in" do
-          click_button "New initiative"
+          click_on "New initiative"
           expect(page).to have_content("Please log in")
         end
 
         context "when they do not need to be verified" do
           it "they are redirected to the initiative form after log in" do
-            click_button "New initiative"
-            fill_in "Email", with: authorized_user.email
-            fill_in "Password", with: "decidim123456789"
-            click_button "Log in"
+            click_on "New initiative"
+            within "#loginModal" do
+              fill_in "Email", with: authorized_user.email
+              fill_in "Password", with: "decidim123456789"
+              click_on "Log in"
+            end
 
             expect(page).to have_content("Create a new initiative")
           end
@@ -221,10 +223,12 @@ describe "Initiative" do
 
           context "and they are verified" do
             it "they are redirected to the initiative form after log in" do
-              click_button "New initiative"
-              fill_in "Email", with: authorized_user.email
-              fill_in "Password", with: "decidim123456789"
-              click_button "Log in"
+              click_on "New initiative"
+              within "#loginModal" do
+                fill_in "Email", with: authorized_user.email
+                fill_in "Password", with: "decidim123456789"
+                click_on "Log in"
+              end
 
               expect(page).to have_content("Create a new initiative")
             end
@@ -234,10 +238,12 @@ describe "Initiative" do
             let(:authorization) { nil }
 
             it "they are shown an error" do
-              click_button "New initiative"
-              fill_in "Email", with: authorized_user.email
-              fill_in "Password", with: "decidim123456789"
-              click_button "Log in"
+              click_on "New initiative"
+              within "#loginModal" do
+                fill_in "Email", with: authorized_user.email
+                fill_in "Password", with: "decidim123456789"
+                click_on "Log in"
+              end
 
               expect(page).to have_content("You are not authorized to perform this action")
             end
@@ -261,10 +267,12 @@ describe "Initiative" do
           let(:authorization) { nil }
 
           it "they are shown an error" do
-            click_button "New initiative"
-            fill_in "Email", with: authorized_user.email
-            fill_in "Password", with: "decidim123456789"
-            click_button "Log in"
+            click_on "New initiative"
+            within "#loginModal" do
+              fill_in "Email", with: authorized_user.email
+              fill_in "Password", with: "decidim123456789"
+              click_on "Log in"
+            end
 
             expect(page).to have_content("You are not authorized to perform this action")
           end
@@ -276,7 +284,7 @@ describe "Initiative" do
       context "when the user is logged in" do
         context "and they do not need to be verified" do
           it "they are taken to the initiative form" do
-            click_link "New initiative"
+            click_on "New initiative"
             expect(page).to have_content("Which initiative do you want to launch")
           end
         end
@@ -288,7 +296,7 @@ describe "Initiative" do
 
           context "and they are verified" do
             it "they are taken to the initiative form" do
-              click_link "New initiative"
+              click_on "New initiative"
               expect(page).to have_content("Which initiative do you want to launch")
             end
           end
@@ -297,17 +305,17 @@ describe "Initiative" do
             let(:authorization) { nil }
 
             it "they need to verify" do
-              click_link "New initiative"
+              click_on "New initiative"
               expect(page).to have_css("button[data-dialog-open=not-authorized-modal]", visible: :all, count: 2)
             end
 
             it "they are redirected to the initiative form after verifying" do
-              click_link "New initiative"
+              click_on "New initiative"
               click_on "Verify your account to promote this initiative", match: :first
-              click_link "View authorizations"
-              click_link(text: /Example authorization/)
+              click_on "View authorizations"
+              click_on(text: /Example authorization/)
               fill_in "Document number", with: "123456789X"
-              click_button "Send"
+              click_on "Send"
               expect(page).to have_content("Which initiative do you want to launch")
             end
           end
@@ -330,17 +338,17 @@ describe "Initiative" do
           let(:authorization) { nil }
 
           it "they need to verify" do
-            click_link "New initiative"
+            click_on "New initiative"
             click_on "Verify your account to promote this initiative", match: :first
             expect(page).to have_content("Authorization required")
           end
 
           it "they are authorized to create after verifying" do
-            click_link "New initiative"
+            click_on "New initiative"
             click_on "Verify your account to promote this initiative", match: :first
-            click_link 'Authorize with "Example authorization"'
+            click_on 'Authorize with "Example authorization"'
             fill_in "Document number", with: "123456789X"
-            click_button "Send"
+            click_on "Send"
             click_on(class: "card__highlight", text: translated(initiative_type.title))
             expect(page).to have_content("Review the content of your initiative.")
           end
@@ -351,16 +359,18 @@ describe "Initiative" do
         let(:login) { false }
 
         it "they need to login in" do
-          click_button "New initiative"
+          click_on "New initiative"
           expect(page).to have_content("Please log in")
         end
 
         context "when they do not need to be verified" do
           it "they are redirected to the initiative form after log in" do
-            click_button "New initiative"
-            fill_in "Email", with: authorized_user.email
-            fill_in "Password", with: "decidim123456789"
-            click_button "Log in"
+            click_on "New initiative"
+            within "#loginModal" do
+              fill_in "Email", with: authorized_user.email
+              fill_in "Password", with: "decidim123456789"
+              click_on "Log in"
+            end
 
             expect(page).to have_content("Which initiative do you want to launch")
           end
@@ -373,10 +383,12 @@ describe "Initiative" do
 
           context "and they are verified" do
             it "they are redirected to the initiative form after log in" do
-              click_button "New initiative"
-              fill_in "Email", with: authorized_user.email
-              fill_in "Password", with: "decidim123456789"
-              click_button "Log in"
+              click_on "New initiative"
+              within "#loginModal" do
+                fill_in "Email", with: authorized_user.email
+                fill_in "Password", with: "decidim123456789"
+                click_on "Log in"
+              end
 
               expect(page).to have_content("Which initiative do you want to launch")
             end
@@ -386,10 +398,12 @@ describe "Initiative" do
             let(:authorization) { nil }
 
             it "they are shown an error" do
-              click_button "New initiative"
-              fill_in "Email", with: authorized_user.email
-              fill_in "Password", with: "decidim123456789"
-              click_button "Log in"
+              click_on "New initiative"
+              within "#loginModal" do
+                fill_in "Email", with: authorized_user.email
+                fill_in "Password", with: "decidim123456789"
+                click_on "Log in"
+              end
 
               expect(page).to have_css("button[data-dialog-open=not-authorized-modal]", visible: :all, count: 2)
             end
@@ -413,10 +427,12 @@ describe "Initiative" do
           let(:authorization) { nil }
 
           it "they are redirected to the initiative form after log in but need to verify" do
-            click_button "New initiative"
-            fill_in "Email", with: authorized_user.email
-            fill_in "Password", with: "decidim123456789"
-            click_button "Log in"
+            click_on "New initiative"
+            within "#loginModal" do
+              fill_in "Email", with: authorized_user.email
+              fill_in "Password", with: "decidim123456789"
+              click_on "Log in"
+            end
 
             expect(page).to have_content("Create a new initiative")
             click_on "Verify your account to promote this initiative", match: :first
@@ -430,7 +446,7 @@ describe "Initiative" do
   context "when rich text editor is enabled for participants" do
     before do
       organization.update(rich_text_editor_in_public_views: true)
-      click_link "New initiative"
+      click_on "New initiative"
       first("button.card__highlight").click
     end
 
@@ -440,7 +456,7 @@ describe "Initiative" do
   describe "creating an initiative" do
     context "without validation" do
       before do
-        click_link "New initiative"
+        click_on "New initiative"
       end
 
       context "and select initiative type" do
@@ -459,8 +475,8 @@ describe "Initiative" do
 
         it "do not show initiative types without related scopes" do
           within "[data-content]" do
-            expect(page).not_to have_content(translated(third_initiative_type.title, locale: :en))
-            expect(page).not_to have_content(ActionView::Base.full_sanitizer.sanitize(translated(third_initiative_type.description, locale: :en), tags: []))
+            expect(page).to have_no_content(translated(third_initiative_type.title, locale: :en))
+            expect(page).to have_no_content(ActionView::Base.full_sanitizer.sanitize(translated(third_initiative_type.description, locale: :en), tags: []))
           end
         end
       end
@@ -471,7 +487,7 @@ describe "Initiative" do
         end
 
         it "does not show the select input for initiative_type" do
-          expect(page).not_to have_content("Type")
+          expect(page).to have_no_content("Type")
           expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
         end
 
@@ -481,7 +497,7 @@ describe "Initiative" do
         end
 
         it "does not have status field" do
-          expect(page).not_to have_xpath("//select[@id='initiative_state']")
+          expect(page).to have_no_xpath("//select[@id='initiative_state']")
         end
 
         it "offers contextual help" do
@@ -496,12 +512,12 @@ describe "Initiative" do
         let!(:other_initiative_type_scope) { nil }
 
         it "does not displays initiative types" do
-          expect(page).not_to have_current_path(decidim_initiatives.create_initiative_path(id: :select_initiative_type))
+          expect(page).to have_no_current_path(decidim_initiatives.create_initiative_path(id: :select_initiative_type))
         end
 
         it "does not display the 'choose' step" do
           within ".wizard-steps" do
-            expect(page).not_to have_content("Choose")
+            expect(page).to have_no_content("Choose")
           end
         end
 
@@ -516,7 +532,7 @@ describe "Initiative" do
         end
 
         it "does not have status field" do
-          expect(page).not_to have_xpath("//select[@id='initiative_state']")
+          expect(page).to have_no_xpath("//select[@id='initiative_state']")
         end
 
         it "offers contextual help" do
@@ -537,8 +553,8 @@ describe "Initiative" do
           let(:initiative_type) { create(:initiatives_type, organization:, minimum_committee_members: initiative_type_minimum_committee_members, signature_type:) }
 
           it "hides and automatically selects the values" do
-            expect(page).not_to have_content("Signature collection type")
-            expect(page).not_to have_content("Scope")
+            expect(page).to have_no_content("Signature collection type")
+            expect(page).to have_no_content("Scope")
             expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
             expect(find(:xpath, "//input[@id='initiative_signature_type']", visible: :all).value).to eq("offline")
           end
@@ -555,8 +571,8 @@ describe "Initiative" do
           end
 
           it "does not show select input for initiative_type" do
-            expect(page).not_to have_content("Initiative type")
-            expect(page).not_to have_css("#initiative_type_id")
+            expect(page).to have_no_content("Initiative type")
+            expect(page).to have_no_css("#initiative_type_id")
           end
 
           it "has a hidden field with the selected initiative type" do
@@ -583,7 +599,7 @@ describe "Initiative" do
           end
 
           it "does not show the select input for initiative_type" do
-            expect(page).not_to have_content("Type")
+            expect(page).to have_no_content("Type")
             expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
           end
 
@@ -602,8 +618,8 @@ describe "Initiative" do
             let(:initiative_type) { create(:initiatives_type, organization:, minimum_committee_members: initiative_type_minimum_committee_members, signature_type: "offline") }
 
             it "hides and automatically selects the values" do
-              expect(page).not_to have_content("Signature collection type")
-              expect(page).not_to have_content("Scope")
+              expect(page).to have_no_content("Signature collection type")
+              expect(page).to have_no_content("Scope")
               expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
               expect(find(:xpath, "//input[@id='initiative_signature_type']", visible: :all).value).to eq("offline")
             end
@@ -620,7 +636,7 @@ describe "Initiative" do
 
           context "when the initiative type does not enable custom signature end date" do
             it "does not show the signature end date" do
-              expect(page).not_to have_content("End of signature collection period")
+              expect(page).to have_no_content("End of signature collection period")
             end
           end
 
@@ -635,7 +651,7 @@ describe "Initiative" do
 
           context "when the initiative type does not enable area" do
             it "does not show the area" do
-              expect(page).not_to have_content("Area")
+              expect(page).to have_no_content("Area")
             end
           end
 
@@ -697,7 +713,7 @@ describe "Initiative" do
 
           it "skips to next step" do
             within("#wizard-steps [data-active]") do
-              expect(page).not_to have_content("Promoter committee")
+              expect(page).to have_no_content("Promoter committee")
               expect(page).to have_content("Finish")
             end
           end
@@ -707,7 +723,7 @@ describe "Initiative" do
           let(:initiative_type) { create(:initiatives_type, organization:, promoting_committee_enabled: false, signature_type:) }
 
           it "skips the promoting committee settings" do
-            expect(page).not_to have_content("Promoter committee")
+            expect(page).to have_no_content("Promoter committee")
             expect(page).to have_content("Finish")
           end
         end
@@ -813,7 +829,7 @@ describe "Initiative" do
 
         it "displays a send to technical validation link" do
           expect(page).to have_link("Send my initiative to technical validation")
-          expect(page).to have_selector "a[data-confirm='#{expected_message}']"
+          expect(page).to have_css "a[data-confirm='#{expected_message}']"
         end
 
         it_behaves_like "initiatives path redirection"
@@ -837,7 +853,7 @@ describe "Initiative" do
 
         it "displays a send to technical validation link" do
           expect(page).to have_link("Send my initiative to technical validation")
-          expect(page).to have_selector "a[data-confirm='#{expected_message}']"
+          expect(page).to have_css "a[data-confirm='#{expected_message}']"
         end
 
         it_behaves_like "initiatives path redirection"

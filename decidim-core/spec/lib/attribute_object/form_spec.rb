@@ -299,7 +299,7 @@ module Decidim
     describe ".hash_from" do
       subject { described_class.hash_from(value) }
 
-      let(:hash) { { foo: "bar", "baz" => "biz" } }
+      let(:hash) { { :foo => "bar", "baz" => "biz" } }
 
       shared_examples "a valid hash" do
         it "returns the hash with indifferent access" do

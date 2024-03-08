@@ -5,7 +5,7 @@ module Decidim
     # This module includes helpers to show admin terms of service
     module AdminTermsHelper
       def admin_terms_of_service_body
-        current_organization.admin_terms_of_service_body.symbolize_keys[I18n.locale].html_safe
+        decidim_sanitize_admin(translated_attribute(current_organization.admin_terms_of_service_body)).html_safe
       end
 
       def announcement_body

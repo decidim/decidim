@@ -15,7 +15,7 @@ module Decidim
 
       # Executes the command. Broadcasts these events:
       #
-      # - :ok when the unofficialization suceeds.
+      # - :ok when the unofficialization succeeds.
       # - :invalid when the form is invalid.
       #
       # Returns nothing.

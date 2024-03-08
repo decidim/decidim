@@ -2,14 +2,14 @@
 
 module Decidim
   module Admin
-    # Controller that allows managing areatypes to group areas
+    # Controller that allows managing area types to group areas
 
     class AreaTypesController < Decidim::Admin::ApplicationController
       include Decidim::Admin::Concerns::HasTabbedMenu
 
       layout "decidim/admin/settings"
 
-      add_breadcrumb_item_from_menu :admin_settings_menu
+      add_breadcrumb_item_from_menu :admin_areas_menu
 
       helper_method :area_types
 

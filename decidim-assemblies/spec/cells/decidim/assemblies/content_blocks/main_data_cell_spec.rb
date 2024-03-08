@@ -51,7 +51,7 @@ describe Decidim::Assemblies::ContentBlocks::MainDataCell, type: :cell do
 
   shared_examples_for "without extra attribute" do
     it "does not show it" do
-      expect(subject).not_to have_content(attribute_title)
+      expect(subject).to have_no_content(attribute_title)
     end
   end
 
@@ -69,7 +69,7 @@ describe Decidim::Assemblies::ContentBlocks::MainDataCell, type: :cell do
       it_behaves_like "without extra attribute"
     end
 
-    context "when the extra attribute is an empty WYSWYG editor textarea" do
+    context "when the extra attribute is an empty WYSIWYG editor textarea" do
       let(:purpose_of_action) { "<p></p>" }
 
       it_behaves_like "without extra attribute"

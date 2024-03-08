@@ -41,6 +41,11 @@ pt-BR:
           update:
             invalid: Falha ao salvar o post.
             success: Post salvo com sucesso.
+      admin_log:
+        post:
+          create: "%{user_name} criou a publicação no blog %{resource_name} do %{space_name}"
+          delete: "O %{user_name} excluiu a publicação no blog %{resource_name} do %{space_name}"
+          update: "%{user_name} atualizou a publicação no blog %{resource_name} do %{space_name}"
       content_blocks:
         highlighted_posts:
           last_published: Último publicado
@@ -56,12 +61,20 @@ pt-BR:
             official_blog_post: Publicação oficial
             published_at: Horário da publicação
             title: Título
+      posts:
+        index:
+          count:
+            one: "%{count} publicação"
+            other: "%{count} publicações"
+          empty: Não existem publicações ainda.
     components:
       blogs:
         actions:
           comment: Comentário
           create: Criar
           destroy: Excluir
+          endorse: Endossar
+          update: Atualizar
         name: Blog
         settings:
           global:

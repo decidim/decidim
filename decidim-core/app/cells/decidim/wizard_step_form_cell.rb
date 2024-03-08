@@ -5,8 +5,6 @@ module Decidim
   # Is designed to be used by different models and so it does not try to compute
   # the information likely to change. Expects a Hash with all necessary data.
   class WizardStepFormCell < Decidim::ViewModel
-    include Decidim::LayoutHelper
-
     def show
       render view
     end

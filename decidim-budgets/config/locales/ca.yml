@@ -104,6 +104,9 @@ ca:
             pending_orders: Vots en procés
             select_for_implementation: Seleccionat per implementar
             selected: Seleccionat
+            selected_options:
+              'no': 'No'
+              'yes': 'Sí'
             title: Projectes
             update: Actualitzar
             update_budget_button: Actualitzar el pressupost del projecte
@@ -202,6 +205,7 @@ ca:
           fields:
             category: Categoria
             id: ID
+            map: Mapa
             title: Títol
       order_summary_mailer:
         order_summary:

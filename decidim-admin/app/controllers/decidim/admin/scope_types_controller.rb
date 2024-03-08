@@ -9,7 +9,7 @@ module Decidim
 
       layout "decidim/admin/settings"
 
-      add_breadcrumb_item_from_menu :admin_settings_menu
+      add_breadcrumb_item_from_menu :admin_scopes_menu
 
       helper_method :scope_types
 

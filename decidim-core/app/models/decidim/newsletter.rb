@@ -46,7 +46,7 @@ module Decidim
       extended_data["send_to_participants"]
     end
 
-    def sended_to_partipatory_spaces
+    def sent_to_participatory_spaces
       extended_data["participatory_space_types"]
     end
 
@@ -56,16 +56,16 @@ module Decidim
                     .find_by(scoped_resource_id: id)
     end
 
-    def url(**kwargs)
-      proxy_url(:newsletter_url, id:, **kwargs)
+    def url(**)
+      proxy_url(:newsletter_url, id:, **)
     end
 
-    def notifications_settings_url(**kwargs)
-      proxy_url(__method__, **kwargs)
+    def notifications_settings_url(**)
+      proxy_url(__method__, **)
     end
 
-    def unsubscribe_newsletters_url(**kwargs)
-      proxy_url(__method__, **kwargs)
+    def unsubscribe_newsletters_url(**)
+      proxy_url(__method__, **)
     end
 
     def organization_official_url
@@ -82,10 +82,10 @@ module Decidim
       errors.add(:author, :invalid) unless author.organization == organization
     end
 
-    def proxy_url(method, **kwargs)
+    def proxy_url(method, **)
       return "#" unless sent?
 
-      router.public_send(method, host: organization.host, **kwargs)
+      router.public_send(method, host: organization.host, **)
     end
 
     def router

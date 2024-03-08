@@ -126,7 +126,7 @@ describe "Orders" do
             page.find(".budget-list__action").click
           end
 
-          expect(page).to have_selector ".budget-list__data--added", count: 1
+          expect(page).to have_css ".budget-list__data--added", count: 1
 
           within ".budget-summary__progressbar-marks", match: :first do
             expect(page).to have_content(/Assigned\s€25,000,000/)
@@ -136,7 +136,7 @@ describe "Orders" do
           end
 
           within "#order-progress .budget-summary__content", match: :first do
-            expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 25%"
+            expect(page).to have_css ".budget-summary__progressbar--meter", style: "width: 25%"
             expect(page).to have_button(disabled: true, text: "Vote budget")
           end
         end
@@ -159,7 +159,7 @@ describe "Orders" do
             page.find(".budget-list__action").click
           end
 
-          expect(page).to have_selector ".budget-list__data--added", count: 1
+          expect(page).to have_css ".budget-list__data--added", count: 1
 
           within ".budget-summary__progressbar-marks", match: :first do
             expect(page).to have_content(/Assigned\s€25,000,000/)
@@ -169,7 +169,7 @@ describe "Orders" do
           end
 
           within "#order-progress .budget-summary__content", match: :first do
-            expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 25%"
+            expect(page).to have_css ".budget-summary__progressbar--meter", style: "width: 25%"
             expect(page).to have_button(disabled: true, text: "Vote budget")
           end
         end
@@ -193,7 +193,7 @@ describe "Orders" do
             page.find(".budget-list__action").click
           end
 
-          expect(page).to have_selector ".budget-list__data--added", count: 1
+          expect(page).to have_css ".budget-list__data--added", count: 1
 
           within ".budget-summary__progressbar-marks", match: :first do
             expect(page).to have_content "1 / 6"
@@ -203,7 +203,7 @@ describe "Orders" do
           end
 
           within "#order-progress .budget-summary__content", match: :first do
-            expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 16%"
+            expect(page).to have_css ".budget-summary__progressbar--meter", style: "width: 16%"
             expect(page).to have_button(text: "Vote budget")
           end
         end
@@ -226,7 +226,7 @@ describe "Orders" do
             page.find(".budget-list__action").click
           end
 
-          expect(page).to have_selector ".budget-list__data--added", count: 1
+          expect(page).to have_css ".budget-list__data--added", count: 1
           within ".budget-summary__progressbar-marks", match: :first do
             expect(page).to have_content "1 / 6"
           end
@@ -235,7 +235,7 @@ describe "Orders" do
           end
 
           within "#order-progress .budget-summary__content", match: :first do
-            expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 16%"
+            expect(page).to have_css ".budget-summary__progressbar--meter", style: "width: 16%"
             expect(page).to have_button(disabled: true, text: "Vote budget")
           end
         end
@@ -294,8 +294,8 @@ describe "Orders" do
         within ".budget__list--header" do
           expect(page).to have_content(/Added\s0/)
         end
-        expect(page).to have_selector ".budget-summary__progressbar--meter", style: "width: 0%"
-        expect(page).not_to have_selector ".budget-list__data--added"
+        expect(page).to have_css ".budget-summary__progressbar--meter", style: "width: 0%"
+        expect(page).to have_no_css ".budget-list__data--added"
       end
 
       it "is alerted when trying to leave the component before completing" do
@@ -309,9 +309,9 @@ describe "Orders" do
 
         expect(page).to have_content "You have not yet voted"
 
-        click_button "Return to voting"
+        click_on "Return to voting"
 
-        expect(page).not_to have_content("You have not yet voted")
+        expect(page).to have_no_content("You have not yet voted")
         expect(page).to have_current_path budget_projects_path
       end
 
@@ -319,7 +319,7 @@ describe "Orders" do
         visit_budget
 
         within_user_menu do
-          click_link("Log out")
+          click_on("Log out")
         end
 
         expect(page).to have_content "You have not yet voted"
@@ -349,7 +349,7 @@ describe "Orders" do
           page.visit Decidim::EngineRouter.main_proxy(component).budget_project_path(budget, expensive_project)
 
           within "#project-#{expensive_project.id}-budget-button" do
-            click_button
+            click_on
           end
 
           expect(page).to have_css("#budget-excess", visible: :visible)
@@ -366,7 +366,7 @@ describe "Orders" do
             page.find(".budget-list__action").click
           end
 
-          expect(page).to have_selector ".budget-list__data--added", count: 2
+          expect(page).to have_css ".budget-list__data--added", count: 2
 
           within "#order-progress .budget-summary__content", match: :first do
             page.find(".button", match: :first).click
@@ -381,7 +381,7 @@ describe "Orders" do
           expect(page).to have_content("successfully")
 
           within "#order-progress .budget-summary__content", match: :first do
-            expect(page).to have_selector(".button", text: "delete your vote")
+            expect(page).to have_css(".button", text: "delete your vote")
           end
         end
       end
@@ -428,7 +428,7 @@ describe "Orders" do
 
             before do
               find("[data-dialog-open='budget-confirm']", match: :first).click
-              click_button "Confirm"
+              click_on "Confirm"
               expect(page).to have_css(".flash.success")
             end
 
@@ -443,8 +443,8 @@ describe "Orders" do
               page.visit decidim.profile_activity_path(nickname: user.nickname)
               expect(page).to have_content(user.name)
               expect(page).to have_current_path "/profiles/#{user.nickname}/activity"
-              expect(page).not_to have_content("New budgeting vote at")
-              expect(page).not_to have_link(translated(budget.title))
+              expect(page).to have_no_content("New budgeting vote at")
+              expect(page).to have_no_link(translated(budget.title))
             end
           end
         end
@@ -522,7 +522,7 @@ describe "Orders" do
         end
 
         within ".budget-summary__content", match: :first do
-          expect(page).not_to have_selector(".button", text: "delete your vote")
+          expect(page).to have_no_css(".button", text: "delete your vote")
         end
       end
 
@@ -548,7 +548,7 @@ describe "Orders" do
       it "cannot create new orders" do
         visit_budget
 
-        expect(page).not_to have_button(class: "budget-list__action")
+        expect(page).to have_no_button(class: "budget-list__action")
       end
     end
 
@@ -572,7 +572,7 @@ describe "Orders" do
         visit_budget
 
         within "#project-#{project.id}-item .card__list" do
-          expect(page).to have_selector(".project-votes", text: "1 vote")
+          expect(page).to have_css(".project-votes", text: "1 vote")
         end
       end
     end
@@ -589,14 +589,14 @@ describe "Orders" do
       it "renders selected projects" do
         visit_budget
 
-        expect(page).to have_selector(".card__list-metadata .success", count: 2)
+        expect(page).to have_css(".card__list-metadata .success", count: 2)
       end
 
       it "does not show a filter to select added projects" do
         visit_budget
 
         within(".budget__list--header") do
-          expect(page).not_to have_text("Added")
+          expect(page).to have_no_text("Added")
         end
       end
     end
@@ -610,7 +610,7 @@ describe "Orders" do
 
       visit_budget
 
-      expect(page).to have_selector("div[id^=project-]", count: 1)
+      expect(page).to have_css("div[id^=project-]", count: 1)
     end
 
     it "respects the projects_per_page setting when it matches total projects" do
@@ -620,7 +620,7 @@ describe "Orders" do
 
       visit_budget
 
-      expect(page).to have_selector("div[id^=project-]", count: 2)
+      expect(page).to have_css("div[id^=project-]", count: 2)
     end
 
     it "respects the projects_per_page setting when over total projects" do
@@ -630,7 +630,7 @@ describe "Orders" do
 
       visit_budget
 
-      expect(page).to have_selector("div[id^=project-]", count: 2)
+      expect(page).to have_css("div[id^=project-]", count: 2)
     end
   end
 
@@ -646,8 +646,8 @@ describe "Orders" do
     end
 
     it "shows the component" do
-      expect(page).to have_i18n_content(project.title)
-      expect(page).to have_i18n_content(project.description)
+      expect(page).to have_i18n_content(project.title, strip_tags: true)
+      expect(page).to have_i18n_content(project.description, strip_tags: true)
     end
 
     context "with linked proposals" do
@@ -662,7 +662,7 @@ describe "Orders" do
 
       it "shows related proposals" do
         visit_budget
-        click_link translated(project.title)
+        click_on translated(project.title)
 
         proposals.each do |proposal|
           expect(page).to have_content(translated(proposal.title))
@@ -680,9 +680,9 @@ describe "Orders" do
 
         it "does not show the amount of supports" do
           visit_budget
-          click_link translated(project.title)
+          click_on translated(project.title)
 
-          expect(page).not_to have_css(".card__list-metadata", text: "5")
+          expect(page).to have_no_css(".card__list-metadata", text: "5")
         end
       end
     end

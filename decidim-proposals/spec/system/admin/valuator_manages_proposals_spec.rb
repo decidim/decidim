@@ -31,24 +31,24 @@ describe "Valuator manages proposals" do
   context "when listing the proposals" do
     it "can only see the assigned proposals" do
       expect(page).to have_content(translated(assigned_proposal.title))
-      expect(page).not_to have_content(translated(unassigned_proposal.title))
+      expect(page).to have_no_content(translated(unassigned_proposal.title))
     end
   end
 
   context "when bulk unassigning valuators" do
     before do
-      within find("tr", text: translated(assigned_proposal.title)) do
+      within "tr", text: translated(assigned_proposal.title) do
         page.first(".js-proposal-list-check").set(true)
       end
 
-      click_button "Actions"
-      click_button "Unassign from valuator"
+      click_on "Actions"
+      click_on "Unassign from valuator"
     end
 
     it "can unassign themselves" do
       within "#js-form-unassign-proposals-from-valuator" do
         select user.name, from: :valuator_role_id
-        click_button(id: "js-submit-unassign-proposals-from-valuator")
+        click_on(id: "js-submit-unassign-proposals-from-valuator")
       end
 
       expect(page).to have_content("Valuator unassigned from proposals successfully")
@@ -57,7 +57,7 @@ describe "Valuator manages proposals" do
     it "cannot unassign others" do
       within "#js-form-unassign-proposals-from-valuator" do
         select another_user.name, from: :valuator_role_id
-        click_button(id: "js-submit-unassign-proposals-from-valuator")
+        click_on(id: "js-submit-unassign-proposals-from-valuator")
       end
 
       expect(page).to have_content("You are not authorized to perform this action")
@@ -66,8 +66,8 @@ describe "Valuator manages proposals" do
 
   context "when in the proposal page" do
     before do
-      within find("tr", text: translated(assigned_proposal.title)) do
-        click_link "Answer proposal"
+      within "tr", text: translated(assigned_proposal.title) do
+        click_on "Answer proposal"
       end
     end
 
@@ -76,12 +76,12 @@ describe "Valuator manages proposals" do
         expect(page).to have_content(user.name)
         expect(page).to have_content(another_user.name)
 
-        within find("li", text: another_user.name) do
-          expect(page).not_to have_selector("a.red-icon")
+        within "li", text: another_user.name do
+          expect(page).to have_no_selector("a.red-icon")
         end
 
-        within find("li", text: user.name) do
-          expect(page).to have_selector("a.red-icon")
+        within "li", text: user.name do
+          expect(page).to have_css("a.red-icon")
           accept_confirm do
             find("a.red-icon").click
           end
@@ -93,30 +93,57 @@ describe "Valuator manages proposals" do
 
     it "can leave proposal notes" do
       expect(page).to have_content("Private notes")
-      click_button "Private notes"
+      click_on "Private notes"
 
       within ".new_proposal_note" do
         fill_in "Note", with: " This is my note"
-        click_button "Submit"
+        click_on "Submit"
       end
 
-      click_button "Private notes"
+      click_on "Private notes"
       within ".component__show_notes-grid .comment:last-child" do
         expect(page).to have_content("This is my note")
       end
     end
 
-    it "can answer proposals" do
-      within "form.edit_proposal_answer" do
-        choose "Accepted"
-        fill_in_i18n_editor(
-          :proposal_answer_answer,
-          "#proposal_answer-answer-tabs",
-          en: "This is my answer"
-        )
-        click_button "Answer"
+    context "when answering a proposal" do
+      shared_examples "can change state" do |state|
+        it "can answer proposals" do
+          within "form.edit_proposal_answer" do
+            choose state
+            fill_in_i18n_editor(
+              :proposal_answer_answer,
+              "#proposal_answer-answer-tabs",
+              en: "This is my answer"
+            )
+            click_on "Answer"
+          end
+          expect(page).to have_content("successfully")
+        end
       end
-      expect(page).to have_content("successfully")
+
+      include_examples "can change state", "Accepted"
+
+      context "when there are custom states involved" do
+        let(:state_params) do
+          {
+            title: { en: "Custom state" },
+            token: "custom_state",
+            css_class: "custom-state"
+          }
+        end
+        let!(:custom_state) { create(:proposal_state, **state_params, component: current_component) }
+
+        before do
+          visit current_path
+        end
+
+        it "successfully displays the new state" do
+          expect(page).to have_content("Custom state")
+        end
+
+        include_examples "can change state", "Custom state"
+      end
     end
   end
 end

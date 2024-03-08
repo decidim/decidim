@@ -102,7 +102,6 @@ module Decidim
   autoload :ShareableWithToken, "decidim/shareable_with_token"
   autoload :RecordEncryptor, "decidim/record_encryptor"
   autoload :AttachmentAttributes, "decidim/attachment_attributes"
-  autoload :CarrierWaveMigratorService, "decidim/carrier_wave_migrator_service"
   autoload :ReminderRegistry, "decidim/reminder_registry"
   autoload :ReminderManifest, "decidim/reminder_manifest"
   autoload :ManifestMessages, "decidim/manifest_messages"
@@ -122,6 +121,7 @@ module Decidim
   autoload :ModerationTools, "decidim/moderation_tools"
   autoload :ContentSecurityPolicy, "decidim/content_security_policy"
   autoload :IconRegistry, "decidim/icon_registry"
+  autoload :HasConversations, "decidim/has_conversations"
 
   module Commands
     autoload :CreateResource, "decidim/commands/create_resource"
@@ -307,7 +307,7 @@ module Decidim
     end
   end
 
-  # Exposes a configuration option: the whitelist ips
+  # Exposes a configuration option: the IPs that are allowed to access the system
   config_accessor :system_accesslist_ips do
     []
   end
@@ -434,7 +434,7 @@ module Decidim
     ";"
   end
 
-  # Exposes a configuration option: HTTP_X_FORWADED_HOST header follow-up.
+  # Exposes a configuration option: HTTP_X_FORWARDED_HOST header follow-up.
   # If a caching system is in place, it can also allow cache and log poisoning attacks,
   # allowing attackers to control the contents of caches and logs that could be used for other attacks.
   config_accessor :follow_http_x_forwarded_host do
@@ -827,7 +827,7 @@ module Decidim
   end
 
   # Checks if a particular decidim gem is installed and needed by this
-  # particular instance. Preferrably this happens through bundler by inspecting
+  # particular instance. Preferably this happens through bundler by inspecting
   # the Gemfile of the instance but when Decidim is used without bundler, this
   # will check:
   # 1. If the gem is globally available or not in the loaded specs, i.e. the

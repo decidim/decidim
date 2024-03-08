@@ -1,11 +1,11 @@
 <% add_decidim_page_title(import_manifest.message(:title, self)) %>
 <div class="item_show__header">
-  <h2 class="item_show__header-title">
+  <h1 class="item_show__header-title">
     <%= import_manifest.message(:title, self) %>
 
     <div id="js-other-actions-wrapper">
       <% if import_manifest.has_example? %>
-        <span class="imports-example tiny button button__sm button__secondary button--simple mr-2" data-toggle="example-dropdown">
+        <span class="imports-example button button__sm button__secondary mr-2" data-toggle="example-dropdown">
           <%= t(".download_example") %>
           <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
         </span>
@@ -21,9 +21,9 @@
         </div>
       <% end %>
 
-      <%= link_to t(".actions.back"), manage_component_path(@current_component), class: "button button__sm button__secondary hollow tiny button--simple" %>
+      <%= link_to t(".actions.back"), manage_component_path(@current_component), class: "button button__sm button__secondary hollow button--simple" %>
     </div>
-  </h2>
+  </h1>
 </div>
 
 <div class="item__edit item__edit-1col">

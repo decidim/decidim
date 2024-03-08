@@ -2,7 +2,7 @@
 
 shared_examples "manage assemblies announcements" do
   it "can customize a general announcement for the assembly" do
-    click_link "Configure"
+    click_on "Configure"
 
     fill_in_i18n_editor(
       :assembly_announcement,
@@ -20,14 +20,14 @@ shared_examples "manage assemblies announcements" do
     visit decidim_admin_assemblies.assemblies_path
 
     if defined?(parent_assembly) && !parent_assembly.nil?
-      within find("tr", text: translated(parent_assembly.title)) do
-        click_link "Assemblies"
+      within "tr", text: translated(parent_assembly.title) do
+        click_on "Assemblies"
       end
     end
 
     new_window = window_opened_by do
       within "tr", text: translated(assembly.title) do
-        click_link "Preview"
+        click_on "Preview"
       end
     end
 

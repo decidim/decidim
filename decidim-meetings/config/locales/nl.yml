@@ -233,14 +233,8 @@ nl:
             non_user: Niet-bestaande gebruiker
             select_user: Selecteer gebruiker
           index:
-            filter:
-              accepted: Aanvaard
-              all: Alle
-              rejected: Afgewezen
-              sent: Verzonden
             invite_attendee: Nodig een deelnemer uit
             invites: Uitnodigingen
-            search: Zoeken
         meeting_closes:
           edit:
             close: Sluiten

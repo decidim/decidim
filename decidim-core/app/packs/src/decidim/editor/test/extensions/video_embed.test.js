@@ -1,9 +1,9 @@
 /* global jest */
 
-import { createBasicEditor, updateContent, sleep, pasteContent } from "../helpers";
+import { createBasicEditor, updateContent, sleep, pasteContent } from "src/decidim/editor/test/helpers";
 
-import Dialog from "../../extensions/dialog";
-import VideoEmbed from "../../extensions/video_embed";
+import Dialog from "src/decidim/editor/extensions/dialog";
+import VideoEmbed from "src/decidim/editor/extensions/video_embed";
 
 describe("VideoEmbed", () => {
   let editor = null;

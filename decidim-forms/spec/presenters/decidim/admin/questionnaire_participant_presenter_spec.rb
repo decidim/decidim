@@ -66,7 +66,7 @@ module Decidim
       end
     end
 
-    describe "commpletion of just one questionnaire" do
+    describe "completion of just one questionnaire" do
       it "returns the participant's completion percentage" do
         expect(subject.completion).to eq(100)
       end

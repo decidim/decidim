@@ -59,8 +59,7 @@ em {
   bottom: 0;
   width: 250px;
   padding: 0;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: hidden scroll;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
   border-right: 1px solid #eee;

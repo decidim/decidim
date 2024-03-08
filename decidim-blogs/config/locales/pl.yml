@@ -1,5 +1,11 @@
 pl:
   activemodel:
+    attributes:
+      post:
+        body: Treść posta
+        decidim_author_id: Autor
+        published_at: Czas publikacji posta
+        title: Tytuł posta
     models:
       decidim/blogs/create_post_event: Nowy wpis na blogu
   activerecord:
@@ -20,23 +26,54 @@ pl:
         title: Działania
       admin:
         posts:
+          create:
+            invalid: Podczas tworzenia tego posta wystąpił błąd.
+            success: Post został utworzony.
+          destroy:
+            success: Post został usunięty.
           edit:
             save: Aktualizuj
             title: Edytuj wpis
           index:
+            not_published_yet: Jeszcze nie opublikowano.
             title: Wpisy
           new:
             create: Utwórz
             title: Utwórz wpis
           update:
             invalid: Podczas zapisywania wpisu wystąpiły błędy.
+            success: Zapisanie posta powiodło się.
+      admin_log:
+        post:
+          create: "%{user_name} utworzył/a %{resource_name} post na blogu w %{space_name}"
+          delete: "%{user_name} usunął/usunęła %{resource_name} post na blogu z %{space_name}"
+          update: "%{user_name} zaktualizował/a %{resource_name} post na blogu w %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Ostatnio opublikowane
+          name: Posty
+          see_all: Zobacz wszystkie posty
+      last_activity:
+        new_post: 'Nowy post:'
       models:
         post:
           fields:
             author: Autor
             body: Treść
+            official_blog_post: Oficjalny post
+            published_at: Czas publikacji posta
+            title: Tytuł posta
+      posts:
+        index:
+          empty: Nie ma tu jeszcze żadnych wpisów.
     components:
       blogs:
+        actions:
+          comment: Skomentuj
+          create: Utwórz
+          destroy: Usuń
+          endorse: Rekomenduj
+          update: Aktualizuj
         name: Blog
         settings:
           global:

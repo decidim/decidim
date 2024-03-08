@@ -1,12 +1,12 @@
 <% add_decidim_page_title(t(".attachments_title")) %>
 <div class="card" id="attachments">
   <div class="item_show__header">
-    <h2 class="item_show__header-title">
+    <h1 class="item_show__header-title">
       <%= t(".attachments_title") %>
       <% if allowed_to? :create, :attachment %>
         <%= link_to t("actions.attachment.new", scope: "decidim.admin"), url_for(action: :new), class: "button button__sm button__secondary new" %>
       <% end %>
-    </h2>
+    </h1>
   </div>
   <%= cell("decidim/admin/attachments_privacy_warning", attached_to.attachments) %>
   <% if attached_to.attachments.any? %>
@@ -18,7 +18,7 @@
             <th><%= t("models.attachment.fields.collection", scope: "decidim.admin") %></th>
             <th><%= t("models.attachment.fields.content_type", scope: "decidim.admin") %></th>
             <th><%= t("models.attachment.fields.file_size", scope: "decidim.admin") %></th>
-            <th class="actions"></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>

@@ -5,8 +5,6 @@ module Decidim
     # This cell renders the vote count.
     # Two possible layouts: One or two lines
     class ProjectVotesCountCell < Decidim::ViewModel
-      include Decidim::IconHelper
-
       def show
         return unless show_votes_count?
 

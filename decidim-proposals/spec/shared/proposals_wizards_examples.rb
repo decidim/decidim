@@ -44,7 +44,7 @@ shared_examples "proposals wizards" do |options|
 
       context "when the back button is clicked" do
         before do
-          click_link "Back"
+          click_on "Back"
         end
 
         it "redirects to proposals_path" do
@@ -60,7 +60,7 @@ shared_examples "proposals wizards" do |options|
           create(:proposal, title: "More sidewalks and less roads", body: "Cities need more people, not more cars", component:)
           create(:proposal, title: "More sidewalks and less roadways", body: "Green is always better", component:)
           visit_component
-          click_link "New proposal"
+          click_on "New proposal"
           within ".new_proposal" do
             fill_in :proposal_title, with: proposal_title
             fill_in :proposal_body, with: proposal_body
@@ -87,14 +87,14 @@ shared_examples "proposals wizards" do |options|
         end
 
         it "does not show the back button" do
-          expect(page).not_to have_link("Back")
+          expect(page).to have_no_link("Back")
         end
       end
 
       context "without similar results" do
         before do
           visit_component
-          click_link "New proposal"
+          click_on "New proposal"
           within ".new_proposal" do
             fill_in :proposal_title, with: proposal_title
             fill_in :proposal_body, with: proposal_body
@@ -119,7 +119,7 @@ shared_examples "proposals wizards" do |options|
     context "when in step_3: Complete" do
       before do
         visit_component
-        click_link "New proposal"
+        click_on "New proposal"
         within ".new_proposal" do
           fill_in :proposal_title, with: proposal_title
           fill_in :proposal_body, with: proposal_body
@@ -144,7 +144,7 @@ shared_examples "proposals wizards" do |options|
       context "when the back button is clicked" do
         before do
           create(:proposal, title: proposal_title, component:)
-          click_link "Back"
+          click_on "Back"
         end
 
         it "redirects to step_3: complete" do
@@ -178,17 +178,17 @@ shared_examples "proposals wizards" do |options|
       end
 
       it "shows a modify proposal link" do
-        expect(page).to have_selector("a", text: "Modify the proposal")
+        expect(page).to have_css("a", text: "Modify the proposal")
       end
 
       it "does not show a geocoded address" do
-        expect(page).not_to have_content("ADDRESS")
-        expect(page).not_to have_css(".card__content.address")
+        expect(page).to have_no_content("ADDRESS")
+        expect(page).to have_no_css(".card__content.address")
       end
 
       context "when the back button is clicked" do
         before do
-          click_link "Modify the proposal"
+          click_on "Modify the proposal"
         end
 
         it "redirects to edit the proposal draft" do
@@ -220,7 +220,7 @@ shared_examples "proposals wizards" do |options|
             expect(find("img")["alt"]).to eq(".jpg")
           end
 
-          click_button("trigger-documents")
+          click_on("trigger-documents")
           within "#panel-documents" do
             expect(find("a.card__list-title")["innerHTML"]).to include("&lt;svg onload=alert('ALERT')&gt;.pdf")
           end
@@ -248,7 +248,7 @@ shared_examples "proposals wizards" do |options|
 
         it "can discard the draft" do
           expect(page).to have_link("Discard this draft")
-          click_link "Discard this draft"
+          click_on "Discard this draft"
 
           accept_confirm
 
@@ -289,13 +289,13 @@ shared_examples "proposals wizards" do |options|
         within "form.edit_proposal" do
           fill_in :proposal_address, with: ""
         end
-        click_button "Preview"
+        click_on "Preview"
 
         expect(page).to have_content(proposal_title)
         expect(page).to have_content(proposal_body)
-        expect(page).not_to have_field("proposal_address")
-        expect(page).not_to have_field("proposal_longitude")
-        expect(page).not_to have_field("proposal_latitude")
+        expect(page).to have_no_field("proposal_address")
+        expect(page).to have_no_field("proposal_longitude")
+        expect(page).to have_no_field("proposal_latitude")
       end
     end
 
@@ -329,12 +329,12 @@ shared_examples "proposals wizards" do |options|
       end
 
       it "shows a modify proposal link" do
-        expect(page).to have_selector("a", text: "Modify the proposal")
+        expect(page).to have_css("a", text: "Modify the proposal")
       end
 
       context "when the back button is clicked" do
         before do
-          click_link "Modify the proposal"
+          click_on "Modify the proposal"
         end
 
         it "redirects to edit the proposal draft" do
@@ -350,7 +350,7 @@ shared_examples "proposals wizards" do |options|
           expect(page).to have_content(user.name)
           expect(page).to have_content(proposal_body)
 
-          expect(page).not_to have_css(".card__content.address")
+          expect(page).to have_no_css(".card__content.address")
         end
       end
     end
@@ -360,7 +360,7 @@ shared_examples "proposals wizards" do |options|
     before do
       login_as user, scope: :user
       visit_component
-      click_link "New proposal"
+      click_on "New proposal"
     end
 
     it_behaves_like "with address" if options[:with_address]

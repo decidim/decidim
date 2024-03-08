@@ -10,7 +10,7 @@ module Decidim
 
         options = {
           data: {
-            abide: true,
+            :abide => true,
             "live-validate" => true,
             "validate-on-blur" => true
           },

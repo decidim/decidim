@@ -13,7 +13,8 @@ module Decidim
         let(:component_constraint) { 0 }
         let(:name) { { "en" => "name" } }
         let(:description) { { "en" => "description" } }
-        let(:internal_state) { "accepted" }
+        let!(:proposal_state_id) { rand(1..10) }
+        let(:select_component) { false }
 
         let(:form) do
           instance_double(
@@ -22,9 +23,10 @@ module Decidim
             valid?: !invalid,
             current_user: user,
             current_organization: organization,
+            select_component:,
             name:,
             description:,
-            internal_state:,
+            proposal_state_id:,
             component_constraint:
           )
         end
@@ -36,6 +38,14 @@ module Decidim
 
           it "is not valid" do
             expect { subject.call }.to broadcast(:invalid)
+          end
+        end
+
+        context "when selecting target component" do
+          let(:select_component) { true }
+
+          it "is not valid" do
+            expect { subject.call }.to broadcast(:component_selected)
           end
         end
 
@@ -65,53 +75,14 @@ module Decidim
             expect(Decidim::Templates::Template.where(target: :proposal_answer).count).to eq(1)
           end
 
-          context "when changing the internal state" do
-            context "with rejected" do
-              let(:internal_state) { "rejected" }
-
-              it "saves the internal state" do
-                subject.call
-                expect(Decidim::Templates::Template.where(target: :proposal_answer).last.field_values["internal_state"]).to eq(internal_state)
-              end
-            end
-
-            context "with accepted" do
-              let(:internal_state) { "accepted" }
-
-              it "saves the internal state" do
-                subject.call
-                expect(Decidim::Templates::Template.where(target: :proposal_answer).last.field_values["internal_state"]).to eq(internal_state)
-              end
-            end
-
-            context "with evaluating" do
-              let(:internal_state) { "evaluating" }
-
-              it "saves the internal state" do
-                subject.call
-                expect(Decidim::Templates::Template.where(target: :proposal_answer).last.field_values["internal_state"]).to eq(internal_state)
-              end
-            end
-
-            context "with not_answered" do
-              let(:internal_state) { "not_answered" }
-
-              it "saves the internal state" do
-                subject.call
-                expect(Decidim::Templates::Template.where(target: :proposal_answer).last.field_values["internal_state"]).to eq(internal_state)
-              end
+          context "when changing the proposal_state_id" do
+            it "saves the internal state" do
+              subject.call
+              expect(Decidim::Templates::Template.where(target: :proposal_answer).last.field_values["proposal_state_id"]).to eq(proposal_state_id)
             end
           end
 
           context "when the form has a component constraint" do
-            context "and templatable is Organization" do
-              it "creates the second resource" do
-                expect(Decidim::Templates::Template.where(target: :proposal_answer).count).to eq(0)
-                expect { subject.call }.to broadcast(:ok)
-                expect(Decidim::Templates::Template.where(target: :proposal_answer).last.templatable).to eq(organization)
-              end
-            end
-
             context "and templatable is Proposal Component" do
               let(:component) { create(:proposal_component, organization:) }
               let(:component_constraint) { component.id }

@@ -57,39 +57,15 @@ module Decidim
         Mime::Type.register Decidim::Admin::Import::Readers::XLSX::MIME_TYPE, :xlsx
       end
 
-      initializer "decidim_admin.global_moderation_menu" do
-        Decidim::Admin::Menu.register_admin_global_moderation_menu!
-      end
-
-      initializer "decidim_admin.workflows_menu" do
-        Decidim::Admin::Menu.register_workflows_menu!
-      end
-
-      initializer "decidim_admin.impersonate_menu" do
-        Decidim::Admin::Menu.register_impersonate_menu!
-      end
-
-      initializer "decidim_admin.static_pages_menu" do
-        Decidim::Admin::Menu.register_admin_static_pages_menu!
-      end
-
-      initializer "decidim_admin.user_menu" do
-        Decidim::Admin::Menu.register_admin_user_menu!
-      end
-
-      initializer "decidim_admin.scopes_menu" do
-        Decidim::Admin::Menu.register_admin_scopes_menu!
-      end
-
-      initializer "decidim_admin.areas_menu" do
-        Decidim::Admin::Menu.register_admin_areas_menu!
-      end
-
-      initializer "decidim_admin.settings_menu" do
-        Decidim::Admin::Menu.register_admin_settings_menu!
-      end
-
       initializer "decidim_admin.menu" do
+        Decidim::Admin::Menu.register_admin_global_moderation_menu!
+        Decidim::Admin::Menu.register_workflows_menu!
+        Decidim::Admin::Menu.register_impersonate_menu!
+        Decidim::Admin::Menu.register_admin_static_pages_menu!
+        Decidim::Admin::Menu.register_admin_user_menu!
+        Decidim::Admin::Menu.register_admin_scopes_menu!
+        Decidim::Admin::Menu.register_admin_areas_menu!
+        Decidim::Admin::Menu.register_admin_settings_menu!
         Decidim::Admin::Menu.register_admin_menu!
       end
 

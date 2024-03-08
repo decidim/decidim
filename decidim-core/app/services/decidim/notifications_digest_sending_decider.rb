@@ -3,7 +3,7 @@
 module Decidim
   class NotificationsDigestSendingDecider
     class << self
-      def must_notify?(user, time: Time.now.utc)
+      def must_notify?(user, time = Time.now.utc)
         return true if user.digest_sent_at.blank?
 
         # Note that we are checking whether the notifications were sent at any

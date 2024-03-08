@@ -337,14 +337,8 @@ ro:
             non_user: Participant neexistent
             select_user: Selectați un participant
           index:
-            filter:
-              accepted: Acceptat
-              all: Toate
-              rejected: Respins
-              sent: Trimis
             invite_attendee: Invite participant
             invites: Invitații
-            search: Caută
           new:
             explanation: Participantul va fi invitat să participe la o conferință. În cazul în care e-mailul său nu este înregistrat, ea va fi de asemenea invitată la organizație.
             invite: Invită

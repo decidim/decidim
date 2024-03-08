@@ -9,7 +9,7 @@ module Decidim
     Option = Struct.new(:id, :name)
 
     # Checks if the resource should show its scope or not.
-    # resource - the resource to analize
+    # resource - the resource to analyze
     #
     # Returns boolean.
     def has_visible_scopes?(resource)

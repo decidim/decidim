@@ -1,4 +1,5 @@
 <% add_decidim_meta_tags(title: t("registration_types.index.title", scope: "decidim.conferences")) %>
+<% add_decidim_page_title(translated_attribute(current_participatory_space.title)) %>
 
 <%
 edit_link(
@@ -15,7 +16,7 @@ edit_link(
 <%# NOTE: this page does not use a regular layout %>
 <main class="container">
 
-  <section class="section">
+  <section>
     <h1 class="title-decorator my-12">
       <span class="not-sr-only"><%= t("registration_types.index.register", scope: "decidim.conferences") %></span>
       <span class="sr-only"><%= t("registration_types.index.register", scope: "decidim.conferences") %> (<%= translated_attribute current_participatory_space.title %>)</span>

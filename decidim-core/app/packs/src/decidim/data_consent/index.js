@@ -1,4 +1,4 @@
-import ConsentManager from "./consent_manager";
+import ConsentManager from "src/decidim/data_consent/consent_manager";
 
 const initDialog = (manager) => {
   if (Object.keys(manager.state).length > 0) {
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modal: modal,
     categories: categories,
     cookieName: window.Decidim.config.get("consent_cookie_name"),
-    warningElement: document.querySelector(".dataconsent-warning")
+    warningElement: document.querySelector("[data-dataconsent-warning]")
   });
 
   initDisabledIframes(manager);

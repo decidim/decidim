@@ -5,14 +5,14 @@ module Decidim
     module Moderations
       # This controller allows admins to manage reports in a moderation.
       class ReportsController < Decidim::Admin::ApplicationController
-        helper_method :moderation, :reports, :permission_resource
+        helper_method :moderation, :reports, :authorization_scope
 
         def index
-          enforce_permission_to :read, permission_resource
+          enforce_permission_to :read, authorization_scope
         end
 
         def show
-          enforce_permission_to :read, permission_resource
+          enforce_permission_to :read, authorization_scope
           @report = reports.find(params[:id])
         end
 
@@ -30,7 +30,7 @@ module Decidim
           @participatory_space_moderations ||= Decidim::Moderation.where(participatory_space: current_participatory_space)
         end
 
-        def permission_resource
+        def authorization_scope
           :moderation
         end
       end

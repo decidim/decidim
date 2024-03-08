@@ -133,6 +133,7 @@ sv:
           fields:
             category: Kategori
             id: ID
+            map: Karta
             title: Titel
       order_summary_mailer:
         order_summary:

@@ -1,35 +1,35 @@
-<div class="field hashtags__container">
+<div>
   <%= form.text_field :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
 </div>
 
-<div class="field hashtags__container">
+<div>
   <%= text_editor_for(form, :description, hashtaggable: true) %>
 </div>
 
-<div class="field">
+<div>
   <%= form.select :type_of_meeting,
                   @form.type_of_meeting_select,
                   { include_blank: t(".select_a_meeting_type") },
                   { multiple: false } %>
 </div>
 
-<div class="field" data-meeting-type="in_person">
+<div data-meeting-type="in_person">
   <%= form.geocoding_field :address, input_html: { required: false }, help_text: t(".address_help") %>
 </div>
 
-<div class="field" data-meeting-type="in_person">
+<div data-meeting-type="in_person">
   <%= form.text_area :location, help_text: t(".location_help") %>
 </div>
 
-<div class="field">
+<div>
   <%= form.text_area :location_hints, help_text: t(".location_hints_help") %>
 </div>
 
-<div class="field" data-meeting-type="online">
+<div data-meeting-type="online">
   <%= form.text_field :online_meeting_url, help_text: t(".online_meeting_url_help") %>
 </div>
 
-<div class="field" data-meeting-type="online">
+<div data-meeting-type="online">
   <%= form.select :iframe_embed_type,
                   @form.iframe_embed_type_select,
                   {
@@ -38,28 +38,28 @@
                   } %>
 </div>
 
-<div class="field iframe-fields--access-level" id="meeting_iframe_embed_type" data-meeting-type="online-access-level">
+<div class="iframe-fields--access-level" id="meeting_iframe_embed_type" data-meeting-type="online-access-level">
   <%= form.select :iframe_access_level,
                   @form.iframe_access_level_select,
                   { include_blank: t(".select_an_iframe_access_level") },
                   { multiple: false } %>
 </div>
 
-<div class="field">
+<div>
   <%= form.datetime_field :start_time %>
 </div>
 
-<div class="field">
+<div>
   <%= form.datetime_field :end_time %>
 </div>
 
 <% if current_participatory_space.has_subscopes? %>
-  <div class="field">
+  <div>
     <%= scopes_select_field form, :decidim_scope_id %>
   </div>
 <% end %>
 
-<div class="field">
+<div>
   <%= form.categories_select :decidim_category_id, current_participatory_space.categories, prompt: t(".select_a_category"), disable_parents: false %>
 </div>
 
@@ -74,16 +74,16 @@
   <%= form.number_field :available_slots, help_text: t(".available_slots_help") %>
 </div>
 
-<div class="field" id="meeting_registration_terms">
+<div id="meeting_registration_terms">
   <%= text_editor_for(form, :registration_terms) %>
 </div>
 
-<div class="field" id="meeting_registration_url">
+<div id="meeting_registration_url">
   <%= form.text_field :registration_url, help_text: t(".registration_url_help") %>
   <label><%= t(".disclaimer", organization: current_component.organization.name) %></label><br>
 </div>
 
-<div class="field">
+<div>
   <%= form.select(
     :user_group_id,
     Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map { |g| [g.name, g.id] },

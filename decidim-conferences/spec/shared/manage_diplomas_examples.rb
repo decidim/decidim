@@ -9,22 +9,22 @@ shared_examples "manage diplomas" do
 
   context "when diploma configuration not exists" do
     it "configure the diploma settings" do
-      within find("tr", text: translated(conference.title)) do
-        click_link "Configure"
+      within "tr", text: translated(conference.title) do
+        click_on "Configure"
       end
 
       within_admin_sidebar_menu do
-        click_link "Certificate of Attendance"
+        click_on "Certificate of Attendance"
       end
 
       dynamically_attach_file(:conference_main_logo, main_logo_path)
       dynamically_attach_file(:conference_signature, signature_path)
 
       within ".edit_conference_diploma" do
-        fill_in :conference_sign_date, with: 5.days.from_now
+        fill_in_datepicker :conference_sign_date_date, with: 5.days.from_now.strftime("%d/%m/%Y")
         fill_in :conference_signature_name, with: "Signature name"
 
-        click_button "Save"
+        click_on "Save"
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -39,22 +39,22 @@ shared_examples "manage diplomas" do
 
       context "and diplomas has not been sent" do
         before do
-          within find("tr", text: translated(conference.title)) do
-            click_link "Configure"
+          within "tr", text: translated(conference.title) do
+            click_on "Configure"
           end
 
           within_admin_sidebar_menu do
-            click_link "Certificate of Attendance"
+            click_on "Certificate of Attendance"
           end
         end
 
         it "can send the diplomas" do
-          expect(page).to have_selector("#send-diplomas")
+          expect(page).to have_css("#send-diplomas")
           expect(page).to have_content("Send certificates of attendance")
         end
 
         it "is successfully created" do
-          click_link "Send certificates of attendance"
+          click_on "Send certificates of attendance"
           expect(page).to have_admin_callout("successfully")
         end
       end
@@ -69,15 +69,15 @@ shared_examples "manage diplomas" do
         end
 
         it "cannot send the diplomas" do
-          within find("tr", text: translated(conference.title)) do
-            click_link "Configure"
+          within "tr", text: translated(conference.title) do
+            click_on "Configure"
           end
 
           within_admin_sidebar_menu do
-            click_link "Certificate of Attendance"
+            click_on "Certificate of Attendance"
           end
 
-          expect(page).to have_selector("#send-diplomas.disabled")
+          expect(page).to have_css("#send-diplomas.disabled")
           expect(page).to have_content("Send certificates of attendance")
         end
       end
@@ -87,15 +87,15 @@ shared_examples "manage diplomas" do
       let!(:conference_registrations) { create_list(:conference_registration, 10, :unconfirmed, conference:) }
 
       it "cannot send the diplomas" do
-        within find("tr", text: translated(conference.title)) do
-          click_link "Configure"
+        within "tr", text: translated(conference.title) do
+          click_on "Configure"
         end
 
         within_admin_sidebar_menu do
-          click_link "Certificate of Attendance"
+          click_on "Certificate of Attendance"
         end
 
-        expect(page).not_to have_selector("#send-diplomas")
+        expect(page).to have_no_css("#send-diplomas")
         expect(page).to have_content("Certificate of Attendance")
       end
     end

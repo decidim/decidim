@@ -1,13 +1,13 @@
 <% add_decidim_page_title(t("decidim.admin.titles.initiatives")) %>
 <div class="card" id="initiatives">
   <div class="item_show__header">
-    <h2 class="item_show__header-title">
+    <h1 class="item_show__header-title">
       <%= t("decidim.admin.titles.initiatives") %>
 
       <% if allowed_to? :export, :initiatives %>
         <%= export_dropdowns(query) %>
       <% end %>
-    </h2>
+    </h1>
   </div>
   <%= admin_filter_selector(:initiatives) %>
   <div class="table-scroll">
@@ -15,19 +15,19 @@
       <thead>
       <tr>
         <th><%= t("models.initiatives.fields.id", scope: "decidim.admin") %></th>
-        <th class="table-list__left"><%= t("models.initiatives.fields.title", scope: "decidim.admin") %></th>
+        <th class="!text-left"><%= t("models.initiatives.fields.title", scope: "decidim.admin") %></th>
         <th><%= t("models.initiatives.fields.state", scope: "decidim.admin") %></th>
         <th><%= sort_link(query, :supports_count, t("models.initiatives.fields.supports_count", scope: "decidim.admin"), default_order: :desc) %></th>
         <th><%= sort_link(query, :created_at, t("models.initiatives.fields.created_at", scope: "decidim.admin"), default_order: :desc) %></th>
         <th><%= sort_link(query, :published_at, t("models.initiatives.fields.published_at", scope: "decidim.admin"), default_order: :desc) %></th>
-        <th class="actions"><%= t ".actions_title" %></th>
+        <th><%= t ".actions_title" %></th>
       </tr>
       </thead>
       <tbody>
       <% @initiatives.each do |initiative| %>
         <tr>
           <td><%= initiative.id %></td>
-          <td class="table-list__left">
+          <td class="!text-left">
             <% if allowed_to? :edit, :initiative, initiative: initiative %>
               <%= link_to translated_attribute(initiative.title),
                           decidim_admin_initiatives.edit_initiative_path(initiative.to_param) %>

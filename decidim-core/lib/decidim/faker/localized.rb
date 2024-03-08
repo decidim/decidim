@@ -135,9 +135,9 @@ module Decidim
         end.with_indifferent_access
       end
 
-      # Wrapps a text build by the block with some other text.
+      # Wraps a text build by the block with some other text.
       #
-      # before - The String text to inject at the begining of each value.
+      # before - The String text to inject at the beginning of each value.
       # after  - The String text to inject at the end of each value.
       # block  - A Block that generates a Hash with a text for each locale.
       #
@@ -164,7 +164,7 @@ module Decidim
       end
 
       # Runs the given block for each of the available locales in Decidim,
-      # momentarilly setting the locale to the current one.
+      # momentarily setting the locale to the current one.
       #
       # Returns a Hash with a value for each locale.
       def self.localized

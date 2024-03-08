@@ -1,5 +1,5 @@
 <% if current_organization.user_groups_enabled? && form.object.user_groups.any? %>
-  <div class="field">
+  <div>
     <%= form.select(
         :user_group_id,
         form.object.user_groups.map { |g| [g.name, g.id] },

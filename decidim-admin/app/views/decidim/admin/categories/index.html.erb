@@ -1,12 +1,12 @@
 <% add_decidim_page_title(t("categories.index.categories_title", scope: "decidim.admin")) %>
 <div class="card" id="categories">
   <div class="item_show__header">
-    <h2 class="item_show__header-title">
+    <h1 class="item_show__header-title">
       <%= t("categories.index.categories_title", scope: "decidim.admin") %>
       <% if allowed_to? :create, :category %>
         <%= link_to t("actions.category.new", scope: "decidim.admin"), new_category_path(current_participatory_space), class: "button button__sm button__secondary new ml-auto" %>
       <% end %>
-    </h2>
+    </h1>
   </div>
    <% if current_participatory_space.categories.any? %>
     <div class="table-scroll">
@@ -14,7 +14,7 @@
         <thead>
           <tr>
             <th><%= t("activemodel.attributes.category.name") %></th>
-            <th class="actions"></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -38,7 +38,7 @@
               </td>
             </tr>
             <% category.subcategories.each do |subcategory| %>
-              <tr class="extra__table-list__subcategory">
+              <tr>
                 <td>
                   <%= link_to translated_attribute(subcategory.name), edit_category_path(current_participatory_space, subcategory) %><br>
                 </td>
@@ -48,7 +48,11 @@
                 <% end %>
 
                 <% if allowed_to? :destroy, :category, category: subcategory %>
-                  <%= icon_link_to "delete-bin-line", category_path(current_participatory_space, subcategory), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                  <% if subcategory.unused? %>
+                    <%= icon_link_to "delete-bin-line", category_path(current_participatory_space, subcategory), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                  <% else %>
+                    <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", "aria-hidden": true %>
+                  <% end %>
                 <% end %>
                 </td>
               </tr>

@@ -24,7 +24,7 @@ module Decidim
         let(:component) { create(:component, manifest_name: "dummy") }
         let(:scope) { create(:scope, organization: component.organization) }
 
-        context "when searchable_fields are correctly setted" do
+        context "when searchable_fields are correctly set" do
           it "maps default fields" do
             mapped_fields = subject.class.search_resource_fields_mapper.mapped(subject)
 
@@ -115,7 +115,7 @@ module Decidim
             end
           end
 
-          context "and scope is not setted" do
+          context "and scope is not set" do
             it "correctly resolves fields" do
               resource.scope = nil
               expected_fields = { decidim_scope_id: nil }
@@ -161,12 +161,12 @@ module Decidim
       end
 
       context "when setting a boolean" do
-        it "DOES index the resource if true is setted" do
+        it "DOES index the resource if true is set" do
           subject.set_index_condition(:create, true)
           expect(subject).to be_index_on_create(nil)
         end
 
-        it "does NOT index the resource if false is setted" do
+        it "does NOT index the resource if false is set" do
           subject.set_index_condition(:create, false)
           expect(subject).not_to be_index_on_create(nil)
         end
@@ -183,12 +183,12 @@ module Decidim
       end
 
       context "when setting a boolean" do
-        it "DOES index the resource if true is setted" do
+        it "DOES index the resource if true is set" do
           subject.set_index_condition(:update, true)
           expect(subject).to be_index_on_update(nil)
         end
 
-        it "does NOT index the resource if false is setted" do
+        it "does NOT index the resource if false is set" do
           subject.set_index_condition(:update, false)
           expect(subject).not_to be_index_on_update(nil)
         end

@@ -5,8 +5,6 @@ require "spec_helper"
 describe Decidim::InitiativesVotes::VoteCell, type: :cell do
   subject { cell("decidim/initiatives_votes/vote", vote).call }
 
-  include Decidim::SanitizeHelper
-
   controller Decidim::PagesController
 
   context "when there are no user extra fields" do
@@ -15,7 +13,7 @@ describe Decidim::InitiativesVotes::VoteCell, type: :cell do
     context "when rendering" do
       it "shows title and reference of initiative" do
         expect(subject.to_s).to include(vote.initiative.reference)
-        expect(subject.to_s).to include(decidim_sanitize(translated(vote.initiative.title)))
+        expect(subject.to_s).to include(decidim_sanitize_translated(vote.initiative.title))
       end
 
       it "does not have personal data" do

@@ -23,7 +23,7 @@ module Decidim
 
     def check_current_user_with_token
       unless current_user.newsletter_token == params[:token]
-        flash[:alert] = t("newsletters_opt_in.unathorized", scope: "decidim")
+        flash[:alert] = t("newsletters_opt_in.unauthorized", scope: "decidim")
         redirect_to decidim.root_path(host: current_organization)
       end
     end

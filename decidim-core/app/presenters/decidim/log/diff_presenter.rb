@@ -42,7 +42,7 @@ module Decidim
       def present_diff
         return "".html_safe if changeset.blank?
 
-        h.content_tag(:div, class: "logs__log__diff", id: "panel-#{h.dom_id(action_log)}") do
+        h.content_tag(:div, class: "logs__log__diff", id: "panel-#{h.dom_id(action_log)}", "aria-hidden": true) do
           changeset.each do |attribute|
             h.concat(present_new_value(attribute[:label], attribute[:new_value], attribute[:type]))
             h.concat(present_previous_value(attribute[:previous_value], attribute[:type])) if options[:show_previous_value?]

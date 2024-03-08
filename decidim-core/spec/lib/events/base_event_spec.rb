@@ -50,8 +50,8 @@ module Decidim
         let(:resource_text) do
           {
             en: "My string",
-            "machine_translations" => {
-              "es" => "Spanish - My string"
+            machine_translations: {
+              es: "Spanish - My string"
             }
           }
         end

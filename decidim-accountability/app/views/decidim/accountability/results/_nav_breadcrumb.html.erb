@@ -1,35 +1,35 @@
-<div class="lines-breadcrumb">
+<div>
   <%= link_to t(".global"), root_path %>
   <% if component_settings.display_progress_enabled? %>
-    <span class="percentage"><%= display_percentage progress_calculator(current_scope, nil) %></span>
+    <span><%= display_percentage progress_calculator(current_scope, nil) %></span>
   <% end %>
 
   <% if category.present? && category.parent.present? %>
-    <span class="breadcrumb--separator">></span>
+    <span>&gt;</span>
     <div>
       <%= link_to translated_attribute(category.parent.name), results_path(filter: { with_category: category.parent_id, with_scope: current_scope }) %>
       <% if component_settings.display_progress_enabled? %>
-        <span class="percentage"><%= display_percentage progress_calculator(current_scope, category.parent_id) %></span>
+        <span><%= display_percentage progress_calculator(current_scope, category.parent_id) %></span>
       <% end %>
     </div>
   <% end %>
 
   <% if category.present? %>
-    <span class="breadcrumb--separator">></span>
+    <span>&gt;</span>
     <div>
       <%= link_to translated_attribute(category.name), results_path(filter: { with_category: category.id, with_scope: current_scope }) %>
       <% if component_settings.display_progress_enabled? %>
-        <span class="percentage"><%= display_percentage progress_calculator(current_scope, category.id) %></span>
+        <span><%= display_percentage progress_calculator(current_scope, category.id) %></span>
       <% end %>
     </div>
   <% end %>
 
   <% if result && result.parent.present? %>
-    <span class="breadcrumb--separator">></span>
+    <span>&gt;</span>
     <div>
       <%= link_to translated_attribute(result.parent.title), result_path(result.parent, filter: { with_category: current_scope }) %>
       <% if component_settings.display_progress_enabled? %>
-        <span class="percentage"><%= display_percentage result.parent.progress %></span>
+        <span><%= display_percentage result.parent.progress %></span>
       <% end %>
     </div>
   <% end %>

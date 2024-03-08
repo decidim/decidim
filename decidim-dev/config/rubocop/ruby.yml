@@ -37,7 +37,7 @@ AllCops:
   StyleGuideCopsOnly: false
   # All cops except the ones in disabled.yml are enabled by default. Change
   # this behavior by overriding DisabledByDefault. When DisabledByDefault is
-  # true, all cops in the default configuration are disabled, and and only cops
+  # true, all cops in the default configuration are disabled, and only cops
   # in user configuration are enabled. This makes cops opt-in instead of
   # opt-out. Note that when DisabledByDefault is true, cops in user
   # configuration will be enabled even if they do not set the Enabled parameter.
@@ -66,7 +66,7 @@ AllCops:
   # If a value is specified for TargetRubyVersion then it is used.
   # Else if .ruby-version exists and it contains an MRI version it is used.
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
-  TargetRubyVersion: 3.1
+  TargetRubyVersion: 3.2
 
 # Indent private/protected/public as deep as method definitions
 Layout/AccessModifierIndentation:
@@ -530,7 +530,7 @@ Style/GuardClause:
   MinBodyLength: 6
 
 Style/HashSyntax:
-  EnforcedStyle: ruby19
+  EnforcedStyle: no_mixed_keys
   SupportedStyles:
     # checks for 1.9 syntax (e.g. {a: 1}) for all symbol keys
     - ruby19
@@ -803,11 +803,11 @@ Naming/PredicateName:
   ForbiddenPrefixes:
     - is_
     - have_
-  # Predicate names which, despite having a blacklisted prefix, or no ?,
+  # Predicate names which, despite having a denylisted prefix, or no ?,
   # should still be accepted
   AllowedMethods:
     - is_a?
-  # Exclude Rspec specs because there is a strong convetion to write spec
+  # Exclude Rspec specs because there is a strong convention to write spec
   # helpers in the form of `have_something` or `be_something`.
   Exclude:
     - "**/spec/**/*"

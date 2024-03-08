@@ -2,9 +2,9 @@
 
 <section id="components">
   <div class="item_show__header">
-    <h2 class="item_show__header-title">
+    <h1 class="item_show__header-title">
       <%= t(".title") %>
-    </h2>
+    </h1>
   </div>
 
   <%= form_for @permissions_form, url: url_for(action: :update, **resource_params), html: { class: "form form-defaults" }, method: "put" do |permissions_form| %>

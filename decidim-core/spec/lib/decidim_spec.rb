@@ -124,7 +124,6 @@ describe Decidim do
         templates
         verifications
         conferences
-        elections
         initiatives
         templates
       ).each do |decidim_gem|

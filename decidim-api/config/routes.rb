@@ -5,5 +5,5 @@ Decidim::Api::Engine.routes.draw do
   get "/docs", to: "documentation#show", as: :documentation
   get "/docs/*path", to: "documentation#show"
   get "/", to: redirect("/api/docs")
-  post "/" => "queries#create", as: :root
+  post "/" => "queries#create", :as => :root
 end

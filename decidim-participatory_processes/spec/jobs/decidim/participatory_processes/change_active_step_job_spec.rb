@@ -54,7 +54,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
       end
     end
 
-    context "with two overlaping steps" do
+    context "with two overlapping steps" do
       let!(:step_one) do
         create(
           :participatory_process_step,
@@ -136,7 +136,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
         end
       end
 
-      context "and two was active and three was overlaping but now two has finished and three continues" do
+      context "and two was active and three was overlapping but now two has finished and three continues" do
         let!(:step_one) do
           create(
             :participatory_process_step,

@@ -3,23 +3,37 @@
 module Decidim
   module ContentBlocks
     class ParticipatorySpaceHeroCell < Decidim::ContentBlocks::BaseCell
-      include Decidim::SanitizeHelper
-      include Decidim::TranslationsHelper
       include Decidim::TwitterSearchHelper
 
-      attr_reader :cta_text, :cta_path
+      delegate :title, :hashtag, :attached_uploader, to: :resource
 
-      delegate :title, :subtitle, :attached_uploader, :hashtag, to: :resource
+      def cta_text
+        return unless model
+
+        @cta_text ||= translated_attribute(model.settings.button_text).presence
+      end
+
+      def cta_path
+        return unless model
+
+        @cta_path ||= translated_attribute(model.settings.button_url).presence
+      end
 
       def title_text
-        translated_attribute(title)
+        decidim_escape_translated(title)
       end
 
       def subtitle_text
-        translated_attribute(subtitle)
+        return unless resource.respond_to?(:subtitle)
+
+        decidim_escape_translated(resource.subtitle)
       end
 
+      # If it is called from the landing page content block, use the background image defined there
+      # Else, use the banner image defined in the space (for assemblies)
       def image_path
+        return model.images_container.attached_uploader(:background_image).path if model.respond_to?(:images_container)
+
         attached_uploader(:banner_image).path
       end
 

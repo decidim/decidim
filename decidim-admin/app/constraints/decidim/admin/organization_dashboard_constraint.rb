@@ -5,7 +5,7 @@ module Decidim
     # A Rails routes constraint to only allow access to an Organization admin to
     # the organization dashboard.
     class OrganizationDashboardConstraint
-      # Initializes the contraint.
+      # Initializes the constraint.
       #
       # request [Rack::Request]
       def initialize(request)

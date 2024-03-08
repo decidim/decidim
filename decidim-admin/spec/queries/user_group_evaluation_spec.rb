@@ -74,7 +74,7 @@ module Decidim::Admin
         end
       end
 
-      context "and receives a search and a filter aram" do
+      context "and receives a search and a filter param" do
         let(:rejected_user_groups) do
           %w(Lorem Ipsum Dolor).map do |name|
             create(:user_group, :rejected, name:,

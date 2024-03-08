@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::ParticipatoryProcesses
   describe Admin::UpdateParticipatoryProcessGroup do
-    subject { described_class.new(participatory_process_group, form) }
+    subject { described_class.new(form, participatory_process_group) }
 
     let(:organization) { create(:organization) }
     let(:participatory_process_group) { create(:participatory_process_group, organization:) }
@@ -88,11 +88,7 @@ module Decidim::ParticipatoryProcesses
       it "traces the creation", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-          .with(
-            "update",
-            Decidim::ParticipatoryProcessGroup,
-            current_user
-          ).and_call_original
+          .with(:update, Decidim::ParticipatoryProcessGroup, current_user, {}).and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
 

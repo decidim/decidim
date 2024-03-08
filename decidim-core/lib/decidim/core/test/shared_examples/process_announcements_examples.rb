@@ -4,12 +4,12 @@ shared_examples "manage processes announcements" do
   let!(:participatory_process) { create(:participatory_process, :with_content_blocks, organization:, blocks_manifests: [:announcement]) }
 
   it "can customize a general announcement for the process" do
-    within find("tr", text: translated(participatory_process.title)) do
-      click_link translated(participatory_process.title)
+    within "tr", text: translated(participatory_process.title) do
+      click_on translated(participatory_process.title)
     end
 
     within_admin_sidebar_menu do
-      click_link "About this process"
+      click_on "About this process"
     end
 
     fill_in_i18n_editor(
@@ -28,7 +28,7 @@ shared_examples "manage processes announcements" do
 
     visit decidim_admin_participatory_processes.participatory_processes_path
 
-    new_window = window_opened_by { page.find("tr", text: translated(participatory_process.title)).click_link("Preview") }
+    new_window = window_opened_by { page.find("tr", text: translated(participatory_process.title)).click_on("Preview") }
 
     page.within_window(new_window) do
       expect(page).to have_content("An important announcement")

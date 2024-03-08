@@ -4,21 +4,20 @@ require "spec_helper"
 
 module Decidim::Conferences
   describe Admin::CreateMediaLink do
-    subject { described_class.new(form, current_user, conference) }
+    subject { described_class.new(form) }
 
     let(:conference) { create(:conference) }
     let!(:current_user) { create(:user, :confirmed, organization: conference.organization) }
     let(:form) do
       double(
-        Admin::ConferenceSpeakerForm,
+        Admin::MediaLinkForm,
         invalid?: invalid,
+        current_user:,
+        current_participatory_space: conference,
         title: { en: "title" },
-        attributes: {
-          "title" => { en: "title" },
-          "weight" => Faker::Number.between(from: 1, to: 10),
-          "link" => Faker::Internet.url,
-          "date" => 5.days.from_now
-        }
+        weight: Faker::Number.between(from: 1, to: 10),
+        link: Faker::Internet.url,
+        date: 5.days.from_now
       )
     end
 

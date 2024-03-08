@@ -238,8 +238,6 @@ id:
     content_blocks:
       footer_sub_hero:
         name: Footer sub hero banner
-      hero:
-        name: Citra pahlawan
       highlighted_content_banner:
         name: Spanduk konten yang disorot
       how_to_participate:
@@ -648,8 +646,6 @@ id:
         metrics:
           headline: Partisipasi dalam angka
           link: Tampilkan semua statistik
-    participatory_space_private_users:
-      not_allowed: Anda tidak diizinkan untuk melihat konten ini
     profile:
       deleted: Pengguna yang dihapus
     profiles:

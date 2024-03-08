@@ -1,8 +1,8 @@
 /* global jest, global */
 
-import { createBasicEditor, updateContent } from "../helpers";
+import { createBasicEditor, updateContent } from "src/decidim/editor/test/helpers";
 
-import Hashtag from "../../extensions/hashtag";
+import Hashtag from "src/decidim/editor/extensions/hashtag";
 
 const hashtagsResponse = [
   { name: "apples" },

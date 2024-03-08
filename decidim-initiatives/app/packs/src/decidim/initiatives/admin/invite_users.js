@@ -5,7 +5,7 @@ $(() => {
 
   if (inviteUsersButton !== null) {
     inviteUsersButton.addEventListener("click", function (event) {
-      let link = document.querySelector("#committee_link"),
+      let link = document.querySelector("div[data-committee_link]"),
           range = document.createRange();
 
       event.preventDefault();
