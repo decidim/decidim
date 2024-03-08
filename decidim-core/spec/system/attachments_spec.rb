@@ -16,7 +16,7 @@ describe "Attachment spec" do
   end
 
   it "Enqueues the cleanup job" do
-    find("#user_avatar_button").click
+    find_by_id("user_avatar_button").click
 
     within ".upload-modal" do
       click_remove(true)
