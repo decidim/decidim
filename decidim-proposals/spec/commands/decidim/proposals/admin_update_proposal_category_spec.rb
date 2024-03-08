@@ -38,7 +38,7 @@ module Decidim
               end
             end
 
-            context "when the category is diferent from the proposal's category" do
+            context "when the category is different from the proposal's category" do
               before do
                 proposals.each { |p| p.update!(category: category_one) }
               end

@@ -1,17 +1,17 @@
 <% resources = @sections.select { |type, _results| types.include?(type) } %>
-<div class="card card--secondary">
-  <div class="filters">
+<div class="card">
+  <div>
     <% resources.each do |type, results| %>
     <div class="filters__section--general<%= " no-results" if results[:count].zero? %>">
       <% if results[:count].positive? %>
         <%= link_to search_path_by_resource_type(type) do %>
-          <strong class="section-title"><%= searchable_resource_human_name(type) %></strong>
-          <span class="muted">&nbsp;<%= results[:count] %></span>
+          <strong><%= searchable_resource_human_name(type) %></strong>
+          <span>&nbsp;<%= results[:count] %></span>
         <% end %>
       <% else %>
         <div>
-          <strong class="section-title"><%= searchable_resource_human_name(type) %></strong>
-          <span class="muted">&nbsp;<%= results[:count] %></span>
+          <strong><%= searchable_resource_human_name(type) %></strong>
+          <span>&nbsp;<%= results[:count] %></span>
         </div>
       <% end %>
     </div>

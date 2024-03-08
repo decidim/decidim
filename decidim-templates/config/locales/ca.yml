@@ -26,6 +26,7 @@ ca:
         destroy:
           success: La plantilla s'ha eliminat correctament.
         empty: Encara no hi ha plantilles.
+        missing_resource: "(recurs absent)"
         update:
           error: S'ha produït un error en actualitzar aquesta plantilla.
           success: La plantilla s'ha actualitzat correctament.
@@ -54,6 +55,26 @@ ca:
             title: Bloquejar els missatges de la usuària
           new:
             title: Nova plantilla del missatge de bloqueig del compte d'usuària
+          template_chooser:
+            select_template: Selecciona una plantilla de resposta
+        proposal_answer_templates:
+          edit:
+            title: Editar la plantilla de resposta a la proposta
+          form:
+            component_constraint_help: Tingues en compte que només es llistaran els espais de participació que tinguin habilitat algun component de "propostes".
+            hint1_html: "<strong>%{organization}</strong> es reemplaçarà pel nom de l'organització"
+            hint2_html: "<strong>%{name}</strong> es reemplaçarà pel nom de l'autora"
+            hint3_html: "<strong>%{admin}</strong> serà reemplaçat pel nom de l'administradora (la que està responent a la proposta)"
+            hint_html: "<strong>Suggeriment:</strong> Pots fer servir aquestes variables a qualsevol lloc a la plantilla de resposta i seran substituïdes pels valors en actiu quan es faci servir la plantilla"
+            save: Desar
+          index:
+            component_constraint: Afegir restricció
+            confirm_delete: Segur que vols eliminar aquesta plantilla?
+            global_scope: Global (disponible a tot arreu)
+            internal_state: Estat intern
+            title: Respostes a la proposta
+          new:
+            title: Nova plantilla de resposta a proposta
           template_chooser:
             select_template: Selecciona una plantilla de resposta
         questionnaire_templates:
@@ -87,4 +108,5 @@ ca:
           update: "%{user_name} ha actualitzat la plantilla del qüestionari %{resource_name}"
       template_types:
         block_user: Bloquejar els missatges de la usuària
+        proposal_answer_templates: Respostes a propostes
         questionnaires: Qüestionari

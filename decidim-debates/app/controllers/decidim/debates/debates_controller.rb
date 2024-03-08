@@ -53,7 +53,7 @@ module Decidim
 
         @form = form(DebateForm).from_params(params)
 
-        UpdateDebate.call(@form) do
+        UpdateDebate.call(@form, debate) do
           on(:ok) do |debate|
             flash[:notice] = I18n.t("debates.update.success", scope: "decidim.debates")
             redirect_to Decidim::ResourceLocatorPresenter.new(debate).path
@@ -113,10 +113,10 @@ module Decidim
       def default_filter_params
         {
           search_text_cont: "",
-          with_any_origin: %w(official participants user_group),
-          activity: "all",
-          with_any_category: default_filter_category_params,
-          with_any_scope: default_filter_scope_params,
+          with_any_origin: nil,
+          activity: %w(all),
+          with_any_category: nil,
+          with_any_scope: nil,
           with_any_state: %w(open closed)
         }
       end

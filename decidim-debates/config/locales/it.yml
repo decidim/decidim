@@ -93,7 +93,6 @@ it:
         close_debate_modal:
           description: Qual è la sintesi o la conclusione di questo dibattito?
           send: Chiudi dibattito
-        closed: Chiuso
         count:
           debates_count:
             one: "%{count} dibattito"
@@ -101,8 +100,6 @@ it:
         create:
           invalid: C'è stato un problema durante la creazione del dibattito.
           success: Dibattito creato con successo.
-        debate:
-          participate: Partecipa
         edit:
           back: Indietro
           save: Salva le modifiche
@@ -138,7 +135,6 @@ it:
           updated: Aggiornato di recente
         show:
           close_debate: Chiudi dibattito
-          date: Data
           debate_closed: Chiuso
           debate_conclusions_are: 'Il dibattito si è concluso il %{date} con queste conclusioni:'
           edit_conclusions: Modifica conclusioni

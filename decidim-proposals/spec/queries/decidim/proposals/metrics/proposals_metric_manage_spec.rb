@@ -43,7 +43,7 @@ describe Decidim::Proposals::Metrics::ProposalsMetricManage do
       it "filters the data correctly" do
         proposals[0].moderation.update!(hidden_at: Time.current)
         proposals[1].update!(published_at: nil)
-        proposals[2].update!(state: "withdrawn")
+        proposals[2].withdraw!
 
         registry = generate_metric_registry
 

@@ -35,7 +35,6 @@ da:
         confirm_destroy: Er du sikker på, at du vil slette dette %{name}?
         destroy: Slet
         edit: Rediger
-        import_csv: Importér CSV
         preview: Eksempelvisning
         timeline_entries: Projektudvikling
         title: Handlinger
@@ -45,7 +44,6 @@ da:
         import_results:
           new:
             import: Import
-            title: Importresultater fra CSV
         models:
           result:
             name: Resultat

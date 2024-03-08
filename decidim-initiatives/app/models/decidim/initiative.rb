@@ -101,12 +101,7 @@ module Decidim
     scope :order_by_most_recent, -> { order(created_at: :desc) }
     scope :order_by_supports, -> { order(Arel.sql("(coalesce((online_votes->>'total')::int,0) + coalesce((offline_votes->>'total')::int,0)) DESC")) }
     scope :order_by_most_recently_published, -> { order(published_at: :desc) }
-    scope :order_by_most_commented, lambda {
-      select("decidim_initiatives.*")
-        .left_joins(:comments)
-        .group("decidim_initiatives.id")
-        .order(Arel.sql("count(decidim_comments_comments.id) desc"))
-    }
+    scope :order_by_most_commented, -> { order(comments_count: :desc) }
     scope :future_spaces, -> { none }
     scope :past_spaces, -> { closed }
 
@@ -274,7 +269,7 @@ module Decidim
       update(published_at: nil, state: "discarded")
     end
 
-    # Public: Returns wether the signature interval is already defined or not.
+    # Public: Returns whether the signature interval is already defined or not.
     def has_signature_interval_defined?
       signature_end_date.present? && signature_start_date.present?
     end

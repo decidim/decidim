@@ -1,8 +1,8 @@
 <% add_decidim_page_title(t(".title", name: user.name)) %>
 <div class="item_show__header">
-  <h2 class="item_show__header-title">
+  <h1 class="item_show__header-title">
     <%= t(".title", name: user.name) %>
-  </h2>
+  </h1>
 </div>
 
 <div class="item__edit item__edit-1col">
@@ -16,8 +16,7 @@
             </div>
 
             <% if @form.hide %>
-              <% announcement_message = t(".already_reported_html", link: new_user_block_path(user_id: user.id)) %>
-              <%= cell("decidim/announcement", announcement_message, callout_class: "alert" ) %>
+              <%= cell("decidim/announcement", t(".already_reported_html"), callout_class: "alert" ) %>
             <% end %>
 
             <% if defined?(Decidim::Templates) %>

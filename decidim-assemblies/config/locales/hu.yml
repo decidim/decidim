@@ -1,8 +1,6 @@
 hu:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Szervezeti ábra engedélyezése
       assemblies_type:
         title: Cím
       assembly:
@@ -118,10 +116,6 @@ hu:
         create:
           error: Hiba történt a gyűlés duplikációja során.
           success: Gyűlés duplikációja sikeres.
-      assemblies_settings:
-        update:
-          error: Probléma történt a beállítások frissítése során.
-          success: Beállítások sikeresen frissítve.
       assemblies_types:
         create:
           error: Hiba történt az új gyűlés létrehozása során.
@@ -154,13 +148,11 @@ hu:
         destroy:
           success: A tag eltávolítása a gyűlésből sikeres volt.
         edit:
-          title: Gyűlés tagjának frissítése.
           update: Frissítés
         index:
           assembly_members_title: Gyűlés tagjai
         new:
           create: Létrehozás
-          title: Új gyűlés tag.
         update:
           error: Hiba történt a gyűlés tagjának frissítése során.
           success: Gyűlés tagjának frissítése sikeres.
@@ -178,13 +170,11 @@ hu:
         destroy:
           success: Admin eltávolítása a gyűlésből sikeres.
         edit:
-          title: Gyűlés adminjának frissítése.
           update: Frissítés
         index:
           assembly_admins_title: Gyűlés adminjai
         new:
           create: Létrehozás
-          title: Új gyűlés admin.
         update:
           error: Hiba történt a gyűlés adminjának frissítése során.
           success: Gyűlés adminjának frissítése sikeres.
@@ -193,7 +183,6 @@ hu:
           label: Gyűlés típusa
       menu:
         assemblies: Gyűlések
-        assemblies_settings: Beállítások
         assemblies_submenu:
           assembly_admins: Gyűlés adminjai
           assembly_members: Tagok
@@ -289,11 +278,6 @@ hu:
             social_handlers: Social
             title: Általános információ
             visbility: Láthatóság
-        assemblies_settings:
-          edit:
-            update: Frissítés
-          form:
-            title: Gyűlések beállításai
         assemblies_types:
           form:
             title: Cím
@@ -307,12 +291,6 @@ hu:
             select_a_position: Válassz pozíciót
             select_user: Válasszon ki egy résztvevőt
             user_type: Résztvevő típusa
-          index:
-            filter:
-              all: Összes
-              ceased: Megszűnt
-              not_ceased: Nem szűnt meg
-            search: Keresés
         content_blocks:
           highlighted_assemblies:
             max_results: A megjelenítendő elemek maximális száma

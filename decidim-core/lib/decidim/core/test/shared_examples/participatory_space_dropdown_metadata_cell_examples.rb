@@ -23,10 +23,10 @@ shared_examples_for "participatory space dropdown metadata cell" do
 
     before do
       allow(Decidim::ActionLog).to receive(:public_resource_types).and_return(
-        %w(Decidim::DummyResources::DummyResource)
+        %w(Decidim::Dev::DummyResource)
       )
       allow(Decidim::ActionLog).to receive(:publicable_public_resource_types).and_return(
-        %w(Decidim::DummyResources::DummyResource)
+        %w(Decidim::Dev::DummyResource)
       )
     end
 
@@ -38,7 +38,7 @@ shared_examples_for "participatory space dropdown metadata cell" do
 
     context "when there are no activities" do
       it "does not render an activities block" do
-        expect(subject).not_to have_css("div.activity__container")
+        expect(subject).to have_no_css("div.activity__container")
       end
     end
 
@@ -64,7 +64,7 @@ shared_examples_for "participatory space dropdown metadata cell" do
       end
 
       it "does not render an activities block" do
-        expect(subject).not_to have_css("div.activity__container")
+        expect(subject).to have_no_css("div.activity__container")
       end
     end
 
@@ -85,7 +85,7 @@ shared_examples_for "participatory space dropdown metadata cell hashtag" do
     let(:hashtag) { nil }
 
     it "does not render the hashtag symbol" do
-      expect(subject).not_to have_content("#")
+      expect(subject).to have_no_content("#")
     end
   end
 

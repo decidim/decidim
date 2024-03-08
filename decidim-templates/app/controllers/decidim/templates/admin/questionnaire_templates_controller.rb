@@ -10,6 +10,8 @@ module Decidim
 
         helper_method :template
 
+        add_breadcrumb_item_from_menu :admin_template_types_menu
+
         def index
           enforce_permission_to :index, :templates
           @templates = collection

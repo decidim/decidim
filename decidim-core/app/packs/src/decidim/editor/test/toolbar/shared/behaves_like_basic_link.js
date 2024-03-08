@@ -1,6 +1,6 @@
-import { sleep, selectRange } from "../../helpers";
+import { sleep, selectRange } from "src/decidim/editor/test/helpers";
 
-import contextHelpers from "./context";
+import contextHelpers from "src/decidim/editor/test/toolbar/shared/context";
 
 export default (ctx) => {
   const { getControl, setContent } = contextHelpers(ctx);
@@ -19,14 +19,7 @@ export default (ctx) => {
       dialog.querySelector("[data-input='href'] input").value = "https://decidim.org";
       dialog.querySelector("[data-input='target'] select").value = "_blank";
 
-      // Consider legacy or new design by checking elements containing the
-      // `data-reveal` attribute.
-      if (dialog.querySelector("[data-reveal]")) {
-        dialog.querySelector("button[data-action='save']").click();
-        $(dialog.querySelector("[data-reveal]")).trigger("closed.zf.reveal");
-      } else {
-        dialog.querySelector("[data-dialog-actions] button[data-action='save']").click();
-      }
+      dialog.querySelector("[data-dialog-actions] button[data-action='save']").click();
 
       // Wait for the next event loop as this is when the dialog closing is
       // handled

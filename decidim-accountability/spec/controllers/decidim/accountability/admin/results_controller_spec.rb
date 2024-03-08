@@ -7,7 +7,6 @@ module Decidim
     module Admin
       describe Admin::ResultsController do
         include Decidim::ApplicationHelper
-        include Decidim::SanitizeHelper
 
         routes { Decidim::Accountability::AdminEngine.routes }
 

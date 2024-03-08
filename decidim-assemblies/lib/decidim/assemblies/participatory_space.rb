@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "decidim/assemblies/seeds"
-
 Decidim.register_participatory_space(:assemblies) do |participatory_space|
   participatory_space.icon = "media/images/decidim_assemblies.svg"
   participatory_space.model_class_name = "Decidim::Assembly"
@@ -47,6 +45,8 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
   end
 
   participatory_space.seeds do
+    require "decidim/assemblies/seeds"
+
     Decidim::Assemblies::Seeds.new.call
   end
 end

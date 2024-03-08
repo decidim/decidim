@@ -19,7 +19,7 @@ module Decidim
         enforce_permission_to :update, :organization, organization: current_organization
         @form = form(OrganizationAppearanceForm).from_params(params)
 
-        UpdateOrganizationAppearance.call(current_organization, @form) do
+        UpdateOrganizationAppearance.call(@form, current_organization) do
           on(:ok) do
             flash[:notice] = I18n.t("organization.update.success", scope: "decidim.admin")
             redirect_to edit_organization_appearance_path

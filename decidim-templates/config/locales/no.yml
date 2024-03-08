@@ -36,6 +36,9 @@
         block_user_templates:
           form:
             save: Lagre
+        proposal_answer_templates:
+          form:
+            save: Lagre
         questionnaire_templates:
           choose:
             create_from_template: Opprett fra mal

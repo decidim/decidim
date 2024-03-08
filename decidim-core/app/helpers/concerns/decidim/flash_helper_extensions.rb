@@ -43,7 +43,7 @@ module Decidim
       #
       # @param value [String] - The flash message.
       # @param alert_class [String] - The foundation class of the alert message.
-      # @param closable [Boolean] - Wether the close icon is added.
+      # @param closable [Boolean] - Whether the close icon is added.
       #
       # @return [String] the HTML with the alert box
       def alert_box(value, alert_class, closable, opts = {})
@@ -74,7 +74,11 @@ module Decidim
           secondary: "information-line",
           alert: "alert-line",
           warning: "alert-line",
-          success: "checkbox-circle-line"
+          success: "checkbox-circle-line",
+          info: "information-line",
+          notice: "checkbox-circle-line",
+          primary: "checkbox-circle-line",
+          error: "alert-line"
         }
 
         content_tag(:div, class: "flash__icon") do
@@ -102,7 +106,7 @@ module Decidim
       end
 
       def message(value)
-        return content_tag(:span, value, class: "flash__message") unless value.is_a?(Hash)
+        return content_tag(:span, value, class: "flash__message flex items-center") unless value.is_a?(Hash)
 
         content_tag(:span, class: "flash__message") do
           concat value[:title]

@@ -6,7 +6,6 @@ module Decidim
     # to their favorite calendar app
     class CalendarsController < Decidim::Meetings::ApplicationController
       include FilterResource
-      include Filterable
       include ComponentFilterable
 
       layout false

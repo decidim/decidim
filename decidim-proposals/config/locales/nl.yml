@@ -358,9 +358,6 @@ nl:
             proposals:
               one: voorstel
               other: voorstellen
-          title:
-            answers: Importeer antwoorden op voorstellen
-            proposals: Importeer voorstellen
         models:
           proposal:
             name: Voorstel
@@ -439,8 +436,6 @@ nl:
           new:
             create: Creëren
             title: Maak een voorstel
-          publish_answers:
-            number_of_proposals: Antwoorden voor %{number} voorstellen worden gepubliceerd.
           show:
             amendments_count: Aantal amendementen
             assigned_valuators: Toegewezen beoordelaars
@@ -449,7 +444,6 @@ nl:
             documents: Documenten
             endorsements_count: Aantal suggesties
             endorsers: Aanbevelers
-            link: Koppeling
             n_more_endorsers:
               one: en nog 1
               other: en %{count} meer

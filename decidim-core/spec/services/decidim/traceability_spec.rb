@@ -7,7 +7,7 @@ describe Decidim::Traceability, versioning: true do
 
   let!(:organization) { dummy_resource.organization }
   let!(:user) { create(:user, organization:) }
-  let(:klass) { Decidim::DummyResources::DummyResource }
+  let(:klass) { Decidim::Dev::DummyResource }
   let(:params) { attributes_for(:dummy_resource, scope: nil) }
   let(:dummy_resource) { create(:dummy_resource) }
 

@@ -50,7 +50,6 @@ id:
         logo: Logo
         name: Nama
         official_img_footer: Footer logo resmi
-        official_img_header: Tajuk logo resmi
         official_url: URL organisasi resmi
         omnipresent_banner_short_description: Deskripsi Singkat
         omnipresent_banner_title: Judul
@@ -92,8 +91,6 @@ id:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: File gambar tidak valid
-            official_img_header:
               allowed_file_content_types: File gambar tidak valid
   activerecord:
     attributes:
@@ -452,10 +449,6 @@ id:
           images:
             layout_appearance_title: Edit tampilan tata letak
           omnipresent_banner_appearance_title: Edit spanduk yang ada di mana-mana
-      organization_homepage:
-        edit:
-          active_content_blocks: Blok konten aktif
-          inactive_content_blocks: Blok konten tidak aktif
       participatory_space_private_users:
         create:
           error: Terjadi kesalahan saat menambahkan pengguna pribadi untuk ruang partisipatif ini.
@@ -529,12 +522,12 @@ id:
           update: Memperbarui
         form:
           none: Tidak ada
+        index:
+          last_notable_change: Perubahan penting terakhir
         new:
           create: Membuat halaman
           title: Halaman baru
         topic:
-          destroy: Hapus topik
-          edit: Edit topik
           without_topic: Halaman tanpa topik
         update:
           error: Terjadi kesalahan saat memperbarui halaman ini.

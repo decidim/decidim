@@ -23,7 +23,7 @@ describe Decidim::Search do
     it "returns resources only from current_organization" do
       described_class.call(term, current_organization) do
         on(:ok) do |results_by_type|
-          results = results_by_type["Decidim::DummyResources::DummyResource"]
+          results = results_by_type["Decidim::Dev::DummyResource"]
           expect(results[:count]).to eq(1)
           expect(results[:results].first).to eq(result.resource)
         end
@@ -46,7 +46,7 @@ describe Decidim::Search do
     let!(:lice_ca) { create(:searchable_resource, organization: current_organization, locale: :ca, content_a: "Erradicació de polls a l'escola") }
     let!(:lice_en) { create(:searchable_resource, organization: current_organization, locale: :en, content_a: "Eradication of lice in school") }
     let!(:ci_ca) { create(:searchable_resource, organization: current_organization, locale: :ca, content_a: "Millora continua mitjançant enquestes periòdiques") }
-    let!(:ci_en) { create(:searchable_resource, organization: current_organization, locale: :en, content_a: "Continous improvement with periodic polls") }
+    let!(:ci_en) { create(:searchable_resource, organization: current_organization, locale: :en, content_a: "Continuous improvement with periodic polls") }
 
     context "when term has matches in many languages" do
       let(:term) { "polls" }
@@ -56,7 +56,7 @@ describe Decidim::Search do
         I18n.with_locale(:ca) do
           described_class.call(term, current_organization) do
             on(:ok) do |results_by_type|
-              results = results_by_type["Decidim::DummyResources::DummyResource"]
+              results = results_by_type["Decidim::Dev::DummyResource"]
               expect(results[:results]).to eq([lice_ca.resource])
             end
             on(:invalid) { raise("Should not happen") }
@@ -72,7 +72,7 @@ describe Decidim::Search do
     it "returns an empty list" do
       described_class.call(term, current_organization) do
         on(:ok) do |results_by_type|
-          results = results_by_type["Decidim::DummyResources::DummyResource"]
+          results = results_by_type["Decidim::Dev::DummyResource"]
           expect(results[:results]).to be_empty
         end
         on(:invalid) { raise("Should not happen") }
@@ -90,7 +90,7 @@ describe Decidim::Search do
     it "returns some random results" do
       described_class.call(term, current_organization) do
         on(:ok) do |results_by_type|
-          results = results_by_type["Decidim::DummyResources::DummyResource"]
+          results = results_by_type["Decidim::Dev::DummyResource"]
           expect(results[:results]).not_to be_empty
         end
         on(:invalid) { raise("Should not happen") }
@@ -109,7 +109,7 @@ describe Decidim::Search do
       it "returns all matches ignoring accents" do
         described_class.call(term, current_organization) do
           on(:ok) do |results_by_type|
-            results = results_by_type["Decidim::DummyResources::DummyResource"]
+            results = results_by_type["Decidim::Dev::DummyResource"]
             expect(results[:count]).to eq(2)
           end
           on(:invalid) { raise("Should not happen") }
@@ -123,7 +123,7 @@ describe Decidim::Search do
       it "returns all matches ignoring letter case" do
         described_class.call(term, current_organization) do
           on(:ok) do |results_by_type|
-            results = results_by_type["Decidim::DummyResources::DummyResource"]
+            results = results_by_type["Decidim::Dev::DummyResource"]
             expect(results[:count]).to eq(2)
           end
           on(:invalid) { raise("Should not happen") }
@@ -141,10 +141,10 @@ describe Decidim::Search do
       let(:datetime1) { 10.seconds.from_now }
       let(:datetime2) { 20.seconds.from_now }
 
-      it "returns matches sorted by date descendently" do
+      it "returns matches sorted by date descendingly" do
         described_class.call(term, current_organization) do
           on(:ok) do |results_by_type|
-            results = results_by_type["Decidim::DummyResources::DummyResource"]
+            results = results_by_type["Decidim::Dev::DummyResource"]
             expect(results[:results]).to eq [searchable2.resource, searchable1.resource]
           end
           on(:invalid) { raise("Should not happen") }
@@ -156,10 +156,10 @@ describe Decidim::Search do
       let(:datetime1) { 1.day.ago }
       let(:datetime2) { 2.days.ago }
 
-      it "returns matches sorted by date descendently" do
+      it "returns matches sorted by date descendingly" do
         described_class.call(term, current_organization) do
           on(:ok) do |results_by_type|
-            results = results_by_type["Decidim::DummyResources::DummyResource"]
+            results = results_by_type["Decidim::Dev::DummyResource"]
             expect(results[:results]).to eq [searchable1.resource, searchable2.resource]
           end
           on(:invalid) { raise("Should not happen") }
@@ -171,10 +171,10 @@ describe Decidim::Search do
       let(:datetime1) { 1.day.from_now }
       let(:datetime2) { 1.day.ago }
 
-      it "returns matches sorted by date descendently" do
+      it "returns matches sorted by date descendingly" do
         described_class.call(term, current_organization) do
           on(:ok) do |results_by_type|
-            results = results_by_type["Decidim::DummyResources::DummyResource"]
+            results = results_by_type["Decidim::Dev::DummyResource"]
             expect(results[:results]).to eq [searchable1.resource, searchable2.resource]
           end
           on(:invalid) { raise("Should not happen") }
@@ -188,7 +188,7 @@ describe Decidim::Search do
     let(:scope) { create(:scope, organization: current_organization) }
 
     context "with resource type" do
-      let(:resource_type) { "Decidim::DummyResources::DummyResource" }
+      let(:resource_type) { "Decidim::Dev::DummyResource" }
 
       before do
         create_list(:searchable_resource, 5, organization: current_organization, resource_type:, content_a: "Where is your crown king nothing?")
@@ -205,11 +205,11 @@ describe Decidim::Search do
         end
       end
 
-      context "when resource_type is setted" do
+      context "when resource_type is set" do
         it "only return resources of the given type" do
           described_class.call(term, current_organization, "with_resource_type" => resource_type) do
             on(:ok) do |results_by_type|
-              results = results_by_type["Decidim::DummyResources::DummyResource"]
+              results = results_by_type["Decidim::Dev::DummyResource"]
               expect(results[:results].count).to eq 5
               expect(results[:count]).to eq 5
 
@@ -224,7 +224,7 @@ describe Decidim::Search do
         it "can paginate the resources" do
           described_class.call(term, current_organization, { "with_resource_type" => resource_type }, per_page: 2) do
             on(:ok) do |results_by_type|
-              results = results_by_type["Decidim::DummyResources::DummyResource"]
+              results = results_by_type["Decidim::Dev::DummyResource"]
               expect(results[:results].count).to eq 2
               expect(results[:count]).to eq 5
 
@@ -241,7 +241,7 @@ describe Decidim::Search do
         it "only returns up to 4 resources of each type" do
           described_class.call(term, current_organization, "with_resource_type" => "") do
             on(:ok) do |results_by_type|
-              results = results_by_type["Decidim::DummyResources::DummyResource"]
+              results = results_by_type["Decidim::Dev::DummyResource"]
               expect(results[:results].count).to eq 4
               expect(results[:count]).to eq 5
 
@@ -256,49 +256,13 @@ describe Decidim::Search do
         it "ignores pagination" do
           described_class.call(term, current_organization, { "with_resource_type" => "" }, per_page: 2) do
             on(:ok) do |results_by_type|
-              results = results_by_type["Decidim::DummyResources::DummyResource"]
+              results = results_by_type["Decidim::Dev::DummyResource"]
               expect(results[:results].count).to eq 4
               expect(results[:count]).to eq 5
 
               results = results_by_type["Decidim::User"]
               expect(results[:results].count).to eq 3
               expect(results[:count]).to eq 3
-            end
-            on(:invalid) { raise("Should not happen") }
-          end
-        end
-      end
-    end
-
-    context "with scope" do
-      let!(:scoped_resource) do
-        create(:searchable_resource, organization: current_organization, scope:, content_a: "Where is your crown king nothing?")
-      end
-
-      before do
-        create(:searchable_resource, organization: current_organization, content_a: "Where is your crown king nothing?")
-      end
-
-      context "when scope is setted" do
-        it "only return resources in the given scope" do
-          described_class.call(term, current_organization, "decidim_scope_id_eq" => scope.id.to_s) do
-            on(:ok) do |results_by_type|
-              results = results_by_type["Decidim::DummyResources::DummyResource"]
-              expect(results[:count]).to eq 1
-              expect(results[:results]).to eq [scoped_resource.resource]
-            end
-            on(:invalid) { raise("Should not happen") }
-          end
-        end
-      end
-
-      context "when scope is blank" do
-        it "does not apply scope filter" do
-          described_class.call(term, current_organization, "decidim_scope_id_eq" => "") do
-            on(:ok) do |results_by_type|
-              results = results_by_type["Decidim::DummyResources::DummyResource"]
-              expect(results[:results]).not_to be_empty
-              expect(results[:count]).to eq 2
             end
             on(:invalid) { raise("Should not happen") }
           end
@@ -336,7 +300,7 @@ describe Decidim::Search do
         it "returns data from active spaces" do
           described_class.call(term, current_organization, "with_space_state" => "active") do
             on(:ok) do |results_by_type|
-              results = results_by_type["Decidim::DummyResources::DummyResource"]
+              results = results_by_type["Decidim::Dev::DummyResource"]
               expect(results[:count]).to eq 1
               expect(results[:results]).to eq [active.resource]
             end
@@ -349,7 +313,7 @@ describe Decidim::Search do
         it "returns data from future spaces" do
           described_class.call(term, current_organization, "with_space_state" => "future") do
             on(:ok) do |results_by_type|
-              results = results_by_type["Decidim::DummyResources::DummyResource"]
+              results = results_by_type["Decidim::Dev::DummyResource"]
               expect(results[:count]).to eq 1
               expect(results[:results]).to eq [future.resource]
             end
@@ -362,7 +326,7 @@ describe Decidim::Search do
         it "returns data from past spaces" do
           described_class.call(term, current_organization, "with_space_state" => "past") do
             on(:ok) do |results_by_type|
-              results = results_by_type["Decidim::DummyResources::DummyResource"]
+              results = results_by_type["Decidim::Dev::DummyResource"]
               expect(results[:count]).to eq 1
               expect(results[:results]).to eq [past.resource]
             end
@@ -375,7 +339,7 @@ describe Decidim::Search do
         it "returns data from all spaces" do
           described_class.call(term, current_organization, "with_space_state" => "") do
             on(:ok) do |results_by_type|
-              results = results_by_type["Decidim::DummyResources::DummyResource"]
+              results = results_by_type["Decidim::Dev::DummyResource"]
               expect(results[:count]).to eq 3
               expect(results[:results]).to contain_exactly(active.resource, past.resource, future.resource)
             end

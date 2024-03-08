@@ -67,7 +67,6 @@
         machine_translation_display_priority_translation: Oversatt tekst først
         name: Navn
         official_img_footer: Offisiell logo footer
-        official_img_header: Offisiell logo header
         official_url: Offisiell organisasjons URL
         omnipresent_banner_short_description: Kort beskrivelse
         omnipresent_banner_title: Tittel
@@ -124,8 +123,6 @@
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Ugyldig bildefil
-            official_img_header:
               allowed_file_content_types: Ugyldig bildefil
   activerecord:
     attributes:
@@ -307,9 +304,6 @@
       dashboard:
         show:
           view_more_logs: Vis flere logger
-      domain_whitelist:
-        form:
-          domain_too_short: Domene er for kort
       exports:
         export_as: "%{name} som %{export_format}"
         formats:
@@ -375,7 +369,6 @@
           report_count_eq: Antall rapporter
           reported_id_string_or_reported_content_cont: Søk %{collection} av rapporterbar id eller innhold.
           title_cont: Søk %{collection} etter tittel.
-          user_name_or_user_email_cont: Søk %{collection} etter navn eller e-post.
           user_name_or_user_nickname_or_user_email_cont: Søk %{collection} via e-post, navn eller kallenavn.
         state_eq:
           label: Tilstand
@@ -476,7 +469,6 @@
         area_types: Områdetyper
         areas: Områder
         configuration: Konfigurasjon
-        external_domain_whitelist: Tillatte eksterne domener
         help_sections: Hjelpeseksjoner
         homepage: Hjemmeside
         impersonations: Etterligninger
@@ -725,21 +717,6 @@
             layout_appearance_title: Rediger layout utseende
             preview: Forhåndsvis
           omnipresent_banner_appearance_title: Endre enerådende banner
-      organization_external_domain_whitelist:
-        edit:
-          update: Oppdater
-        external_domain:
-          down: Ned
-          external_domain: Eksternt domene
-          remove: Fjern
-          up: Opp
-        form:
-          add: Legg til i hviteliste
-          title: Hviteliste for eksterne domener
-      organization_homepage:
-        edit:
-          active_content_blocks: Aktive innholdsblokkerer
-          inactive_content_blocks: Inaktivt innholdsblokkerer
       participatory_space_private_users:
         create:
           error: Det oppstod et problem med å legge til en privat deltaker for dette deltakerområdet.
@@ -760,7 +737,6 @@
             empty: Du har ingen private deltakere.
             explanation: Du har %{count} private deltakere.
             title: Slett private deltakere
-          title: Last opp din CSV fil
           upload: Last opp
       reminders:
         create:
@@ -823,7 +799,6 @@
       shared:
         gallery:
           add_images: Legg til bilder
-          delete_image: Slett bilde
           edit_images: Rediger bilder
           gallery_legend: Legg til et bildegalleri (valgfritt)
       static_page_topics:
@@ -852,12 +827,12 @@
           update: Oppdater
         form:
           none: Ingen
+        index:
+          last_notable_change: Siste merkbare endring
         new:
           create: Opprett side
           title: Ny side
         topic:
-          destroy: Fjern emne
-          edit: Rediger emne
           without_topic: Sider uten emne
         update:
           error: Det oppstod et problem med å oppdatere denne siden.

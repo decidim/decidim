@@ -15,7 +15,7 @@ module Decidim::Assemblies
         invalid?: invalid,
         title:,
         current_user: user,
-        current_organization: organization
+        organization:
       )
     end
     let(:invalid) { false }

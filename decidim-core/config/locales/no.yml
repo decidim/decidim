@@ -64,9 +64,6 @@
   booleans:
     'false': 'Nei'
     'true': 'Ja'
-  carrierwave:
-    errors:
-      not_inside_organization: Filen er ikke tilknyttet noen organisasjon
   date:
     formats:
       decidim_short: "%d.%m-%Y"
@@ -178,7 +175,6 @@
         error: Det oppsto feil under endringen av denne resurssen.
         promote_button: Promoter til %{model_name}
         promote_confirm_text: Er du sikker på at du vil forfremme denne emendasjonen?
-        section_heading: Endringer (%{count})
       compare_draft:
         continue: Fortsett
         no_similars_found: Ingen like emendasjoner funnet.
@@ -313,7 +309,6 @@
         one: å %{count} mer
         other: å %{count} mere
       see_less: "(Se mindre)"
-      see_more: "(se mer)"
     components:
       component_order_selector:
         order:
@@ -364,8 +359,6 @@
         description: Beskrivelse
       footer_sub_hero:
         name: Footer sub hero banner
-      hero:
-        name: Heltebilde
       hero_settings_form:
         background_image: Bakgrunnsbilde
         welcome_text: Velkomsttekst
@@ -900,7 +893,6 @@
           proposals: Forslag
           proposals_explanation: Lag forslag, støtt eksisterende og promoter endringene du ønsker å se.
         footer_sub_hero:
-          footer_sub_hero_body: La oss sammen utvikle et mer bærekraftig samfunn.<br /> Bli med og påvirk utviklingen gjennom å si din mening.
           footer_sub_hero_headline: Velkommen til %{organization} deltaker plattform.
           register: Registrer deg
         hero:
@@ -919,8 +911,6 @@
         metrics:
           headline: Deltakelse i tall
           link: Vis all statistikk
-    participatory_space_private_users:
-      not_allowed: Du er ikke tillatt å se dette innholdet
     profile:
       deleted: Slettet deltaker
     profiles:
@@ -1197,7 +1187,6 @@
         change_my_password: Endre passordet mitt
         confirm_new_password: Bekreft nytt passord
         new_password: New password
-        password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."
       new:
         forgot_your_password: Glemt ditt passord?
         send_me_reset_password_instructions: Send meg instruksjoner for tilbakestilling av passord

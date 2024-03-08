@@ -1,6 +1,6 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="item_show__header">
-  <h2 class="item_show__header-title">
+  <h1 class="item_show__header-title">
     <%= t(".title") %>
 
     <div class="card__filter">
@@ -8,7 +8,7 @@
       |
       <%= link_to t("actions.hidden", scope: "decidim.moderations"), moderations_path(hidden: true) %>
     </div>
-  </h2>
+  </h1>
 </div>
 <%= admin_filter_selector(:moderations) %>
 <div class="table-scroll">
@@ -27,7 +27,7 @@
         <% if params[:hidden] %>
           <th><%= t("models.moderation.fields.hidden_at", scope: "decidim.moderations") %></th>
         <% end %>
-        <th class="actions"><%= t("actions.title", scope: "decidim.moderations") %></th>
+        <th><%= t("actions.title", scope: "decidim.moderations") %></th>
       </tr>
     </thead>
     <tbody>
@@ -69,22 +69,22 @@
               <%= l(moderation.hidden_at, format: :long) if moderation.hidden_at.present? %>
             </td>
           <% end %>
-          <td class="actions">
+          <td>
             <%= icon_link_to "fullscreen-line",
                              moderation_reports_path(moderation_id: moderation),
                              t("actions.expand", scope: "decidim.moderations"),
                              class: "action-icon--expand" %>
-            <% if !moderation.reportable.hidden? && allowed_to?(:unreport, permission_resource) %>
+            <% if !moderation.reportable.hidden? && allowed_to?(:unreport, authorization_scope) %>
               <%= icon_link_to "arrow-go-back-line",
                                unreport_moderation_path(id: moderation),
                                t("actions.unreport", scope: "decidim.moderations"),
                                class: "action-icon--unreport",
                                method: :put %>
             <% end %>
-            <% if !moderation.reportable.hidden? && allowed_to?(:hide, permission_resource) %>
+            <% if !moderation.reportable.hidden? && allowed_to?(:hide, authorization_scope) %>
               <%= icon_link_to "eye-line", hide_moderation_path(id: moderation), t("actions.hide", scope: "decidim.moderations"), class: "action-icon--hide", method: :put %>
             <% end %>
-            <% if moderation.reportable.hidden? && allowed_to?(:unhide, permission_resource) %>
+            <% if moderation.reportable.hidden? && allowed_to?(:unhide, authorization_scope) %>
               <%= icon_link_to "eye-line", unhide_moderation_path(id: moderation), t("actions.unhide", scope: "decidim.moderations"), method: :put %>
             <% end %>
           </td>

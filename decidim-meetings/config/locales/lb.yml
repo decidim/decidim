@@ -173,14 +173,8 @@ lb:
             non_user: Nicht existierender Benutzer
             select_user: Nutzer wählen
           index:
-            filter:
-              accepted: Akzeptiert
-              all: Alle
-              rejected: Abgelehnt
-              sent: Geschickt
             invite_attendee: Teilnehmer einladen
             invites: Lädt ein
-            search: Suche
         meeting_closes:
           edit:
             close: Schließen
@@ -293,7 +287,6 @@ lb:
         show:
           attendees: Teilnehmer zählen
           contributions: Beiträge zählen
-          date: Datum
           join: Tritt dem Treffen bei
           leave: Registrierung stornieren
           leave_confirmation: Sind Sie sicher dass Sie Ihre Registrierung für diese Sitzung stornieren möchten?
@@ -304,7 +297,6 @@ lb:
           registration_state:
             validated: GÜLTIG
             validation_pending: Validierung ausstehend
-          view: Uweisen
         update:
           invalid: Beim Aktualisieren der Besprechung ist ein Fehler aufgetreten.
           success: Sie haben die Sitzung erfolgreich aktualisiert.

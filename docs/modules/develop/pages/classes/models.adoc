@@ -39,7 +39,7 @@ The concerns are used to share code between models. They are located in `app/mod
 
 Most commonly used concerns are:
 
-- xref:`Decidim::ActsAsAuthor`
+- `Decidim::ActsAsAuthor`
 - `Decidim::ActsAsTree`
 - `Decidim::Amendable`
 - `xref:develop:authorable.adoc[Decidim::Authorable]`

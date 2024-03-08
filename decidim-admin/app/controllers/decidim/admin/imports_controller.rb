@@ -88,11 +88,19 @@ module Decidim
         @current_component ||= current_participatory_space.components.find(params[:component_id])
       end
 
+      def parent_path
+        @parent_path ||= ::Decidim::EngineRouter.admin_proxy(current_participatory_space).components_path
+      end
+
       def set_import_breadcrumb_item
-        url = try(:new_import_path) || request.path
         context_breadcrumb_items << {
-          label: t("import", scope: "decidim.admin.actions"),
-          url:,
+          label: t("components", scope: "decidim.admin.menu"),
+          url: parent_path,
+          active: false
+        }
+        context_breadcrumb_items << {
+          label: translated_attribute(current_component.name),
+          url: ::Decidim::EngineRouter.admin_proxy(current_component).root_path,
           active: true
         }
       end

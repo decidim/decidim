@@ -19,7 +19,7 @@ shared_examples "update an initiative type scope" do
     end
 
     let(:command) do
-      described_class.new(initiatives_type_scope, form)
+      described_class.new(form, initiatives_type_scope)
     end
 
     describe "when the form is not valid" do

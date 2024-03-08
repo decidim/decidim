@@ -3,6 +3,7 @@ pt-BR:
     models:
       decidim/comments/comment_by_followed_user_event: Comente
       decidim/comments/comment_created_event: Comentário
+      decidim/comments/comment_upvoted_event: Comentário valorizado positivamente
       decidim/comments/reply_created_event: Resposta
       decidim/comments/user_group_mentioned_event: Mencionar
       decidim/comments/user_mentioned_event: Mencionar
@@ -21,7 +22,6 @@ pt-BR:
           error: Houveram erros ao criar o comentário.
         update:
           error: Houve um erro ao atualizar o comentário.
-      comments_count: Contagem de Comentários
       votes:
         create:
           error: Houve erros ao votar o comentário.
@@ -55,6 +55,7 @@ pt-BR:
         edit: Editar
         edited: Editado
         hide_replies: Ocultar respostas
+        moderated_at: Comentário moderado em %{date}
         reply: Resposta
         report:
           action: Relatório

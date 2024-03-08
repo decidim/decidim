@@ -8,7 +8,7 @@ class OrganizationPresentValidator < ActiveModel::Validations::FileContentTypeVa
     return if record.is_a?(Decidim::Organization)
     return if record.respond_to?(:organization) && record.organization.is_a?(Decidim::Organization)
 
-    record.errors.add attribute, I18n.t("carrierwave.errors.not_inside_organization")
+    record.errors.add attribute, I18n.t("decidim.errors.files.not_inside_organization")
   end
 
   def check_validity!; end

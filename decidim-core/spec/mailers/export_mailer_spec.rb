@@ -38,7 +38,7 @@ module Decidim
     end
 
     describe "download your data export" do
-      object = "Decidim::DummyResources::DummyResource"
+      object = "Decidim::Dev::DummyResource"
       klass = Object.const_get(object)
       let(:export_data) { [[klass.model_name.name.parameterize.pluralize, Decidim::Exporters.find_exporter("CSV").new(klass.user_collection(user), klass.export_serializer).export]] }
       let(:images) { [] }

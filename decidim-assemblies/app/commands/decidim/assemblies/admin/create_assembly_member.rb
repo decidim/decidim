@@ -5,16 +5,18 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new assembly
       # member in the system.
-      class CreateAssemblyMember < Decidim::Command
+      class CreateAssemblyMember < Decidim::Commands::CreateResource
         include ::Decidim::AttachmentAttributesMethods
+
+        fetch_form_attributes :full_name, :gender, :birthday, :birthplace, :ceased_date, :designation_date,
+                              :position, :position_other, :user
 
         # Public: Initializes the command.
         #
         # form - A form object with the params.
         # assembly - The Assembly that will hold the member
-        def initialize(form, current_user, assembly)
-          @form = form
-          @current_user = current_user
+        def initialize(form, assembly)
+          super(form)
           @assembly = assembly
         end
 
@@ -28,7 +30,7 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           if assembly_member_with_attributes.valid?
-            create_assembly_member!
+            create_resource
             notify_assembly_member_about_new_membership
 
             broadcast(:ok)
@@ -45,33 +47,20 @@ module Decidim
 
         private
 
-        attr_reader :form, :assembly, :current_user
+        attr_reader :assembly
+
+        def attributes
+          super.merge(assembly:).merge(attachment_attributes(:non_user_avatar))
+        end
 
         def assembly_member_with_attributes
-          @assembly_member_with_attributes ||= Decidim::AssemblyMember.new(assembly_member_attributes)
+          @assembly_member_with_attributes ||= Decidim::AssemblyMember.new(**attributes)
         end
 
-        def assembly_member_attributes
-          form.attributes.slice(
-            "full_name",
-            "gender",
-            "birthday",
-            "birthplace",
-            "ceased_date",
-            "designation_date",
-            "position",
-            "position_other",
-            "weight"
-          ).symbolize_keys.merge(
-            assembly:,
-            user: form.user
-          ).merge(
-            attachment_attributes(:non_user_avatar)
-          )
-        end
+        def resource_class = Decidim::AssemblyMember
 
-        def create_assembly_member!
-          log_info = {
+        def extra_params
+          {
             resource: {
               title: form.full_name
             },
@@ -79,13 +68,6 @@ module Decidim
               title: assembly.title
             }
           }
-
-          @assembly_member = Decidim.traceability.create!(
-            Decidim::AssemblyMember,
-            current_user,
-            assembly_member_attributes,
-            log_info
-          )
         end
 
         def followers

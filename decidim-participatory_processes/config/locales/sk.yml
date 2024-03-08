@@ -79,8 +79,6 @@ sk:
         destroy: Odstrániť
         duplicate: Duplikát
         edit: Upraviť
-        filter:
-          all_processes: Zobraziť všetky procesy
         import_process: Importovať
         new_process: Nový proces
         new_process_group: Nová skupina procesov

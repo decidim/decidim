@@ -32,7 +32,7 @@ module Decidim
           enforce_permission_to :create, :initiative_type
           @form = initiative_type_form.from_params(params)
 
-          CreateInitiativeType.call(@form, current_user) do
+          CreateInitiativeType.call(@form) do
             on(:ok) do |initiative_type|
               flash[:notice] = I18n.t("decidim.initiatives.admin.initiatives_types.create.success")
               redirect_to edit_initiatives_type_path(initiative_type)
@@ -60,7 +60,7 @@ module Decidim
           @form = initiative_type_form
                   .from_params(params, initiative_type: current_initiative_type)
 
-          UpdateInitiativeType.call(current_initiative_type, @form, current_user) do
+          UpdateInitiativeType.call(@form, current_initiative_type) do
             on(:ok) do
               flash[:notice] = I18n.t("decidim.initiatives.admin.initiatives_types.update.success")
               redirect_to edit_initiatives_type_path(current_initiative_type)

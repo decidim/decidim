@@ -30,7 +30,6 @@ ca:
           error: El comentari no s'ha pogut eliminar.
         update:
           error: S'ha produït un error en actualitzar el comentari.
-      comments_count: Número de comentaris
       comments_title: Comentari
       last_activity:
         new_comment: 'Nou comentari:'

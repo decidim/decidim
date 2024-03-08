@@ -9,7 +9,8 @@ shared_examples "create an initiative type" do
       form_params
     ).with_context(
       current_organization: organization,
-      current_component: nil
+      current_component: nil,
+      current_user: user
     )
   end
 
@@ -34,7 +35,7 @@ shared_examples "create an initiative type" do
       }
     end
 
-    let(:command) { described_class.new(form, user) }
+    let(:command) { described_class.new(form) }
 
     describe "when the form is not valid" do
       before do

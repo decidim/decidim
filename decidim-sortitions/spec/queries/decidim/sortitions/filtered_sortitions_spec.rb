@@ -14,7 +14,7 @@ module Decidim
         expect(described_class.for(component)).to include(*sortitions)
       end
 
-      it "Do not includes sortitios from other components" do
+      it "Do not includes sortitions from other components" do
         expect(described_class.for(other_component)).not_to include(*sortitions)
       end
     end

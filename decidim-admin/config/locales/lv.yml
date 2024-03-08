@@ -50,7 +50,6 @@ lv:
         logo: Logotips
         name: Nosaukums
         official_img_footer: Oficiālā logotipa kājene
-        official_img_header: Oficiālā logotipa galvene
         official_url: Oficiālais organizācijas URL
         omnipresent_banner_short_description: Īss apraksts
         omnipresent_banner_title: Nosaukums
@@ -96,8 +95,6 @@ lv:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Nederīgs attēla fails
-            official_img_header:
               allowed_file_content_types: Nederīgs attēla fails
   activerecord:
     attributes:
@@ -509,10 +506,6 @@ lv:
             layout_appearance_title: Rediģēt izkārtojuma izskatu
             preview: Priekšskatīt
           omnipresent_banner_appearance_title: Rediģēt visuresošo reklāmkarogu
-      organization_homepage:
-        edit:
-          active_content_blocks: Aktīvie satura bloki
-          inactive_content_blocks: Neaktīvie satura bloki
       participatory_space_private_users:
         create:
           error: Pievienojot privāto dalībnieku šai līdzdalības telpai, radās problēma.
@@ -527,7 +520,6 @@ lv:
           title: Jauns līdzdalības telpas privāts dalībnieks
       participatory_space_private_users_csv_imports:
         new:
-          title: Augšupielādējiet savu CSV failu
           upload: Augšupielādēt
       resource_permissions:
         edit:
@@ -567,7 +559,6 @@ lv:
       shared:
         gallery:
           add_images: Pievienot attēlus
-          delete_image: Dzēst attēlu
           gallery_legend: Pievienojiet attēlu galeriju (pēc izvēles)
       static_page_topics:
         create:
@@ -595,12 +586,12 @@ lv:
           update: Atjaunināt
         form:
           none: Nav
+        index:
+          last_notable_change: Pēdējās nozīmīgās izmaiņas
         new:
           create: Izveidot lapu
           title: Jauna lapa
         topic:
-          destroy: Noņemt tēmu
-          edit: Rediģēt tēmu
           without_topic: Lapas bez tēmas
         update:
           error: Šīs lapas atjaunināšanas laikā radās problēma.

@@ -1,10 +1,10 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="card">
   <div class="item_show__header">
-    <h2 class="item_show__header-title">
+    <h1 class="item_show__header-title">
       <%= t(".title") %>
       <%= link_to t("actions.new_status", scope: "decidim.accountability"), new_status_path, class: "button button__sm button__secondary" if allowed_to? :create, :status %>
-    </h2>
+    </h1>
   </div>
   <div class="table-scroll">
     <table class="table-list">
@@ -14,7 +14,7 @@
           <th><%= t("models.status.fields.name", scope: "decidim.accountability") %></th>
           <th><%= t("models.status.fields.description", scope: "decidim.accountability") %></th>
           <th><%= t("models.status.fields.progress", scope: "decidim.accountability") %></th>
-          <th class="actions"><%= t("actions.title", scope: "decidim.accountability") %></th>
+          <th><%= t("actions.title", scope: "decidim.accountability") %></th>
         </tr>
       </thead>
       <tbody>
@@ -22,7 +22,7 @@
           <tr data-id="<%= status.id %>">
             <td><%= status.key %><br></td>
             <td><%= translated_attribute(status.name) %></td>
-            <td><%= truncate translated_attribute(status.description), lenght: 50 %></td>
+            <td><%= truncate translated_attribute(status.description), length: 50 %></td>
             <td><%= status.progress %></td>
             <td class="table-list__actions">
               <% if allowed_to? :update, :status, status: status %>

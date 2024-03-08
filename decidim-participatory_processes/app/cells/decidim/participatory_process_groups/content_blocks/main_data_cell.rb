@@ -16,7 +16,7 @@ module Decidim
         end
 
         def title_text
-          translated_attribute(title)
+          decidim_escape_translated(title)
         end
 
         def description_text

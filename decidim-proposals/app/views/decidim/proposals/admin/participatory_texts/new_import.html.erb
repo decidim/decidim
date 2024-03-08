@@ -1,8 +1,8 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="item_show__header">
-  <h2 class="item_show__header-title">
+  <h1 class="item_show__header-title">
     <%= t(".title") %>
-  </h2>
+  </h1>
 </div>
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
@@ -19,7 +19,7 @@
             </div>
 
             <div class="row column">
-              <%= form.upload :document, label: t(".document_legend", valid_mime_types: mime_types_with_document_examples).html_safe, button_class: "button button__sm button__transparent-secondary" %>
+              <%= form.upload :document, help_text: t(".document_legend", valid_mime_types: mime_types_with_document_examples).html_safe, button_class: "button button__sm button__transparent-secondary" %>
             </div>
           </div>
         </div>

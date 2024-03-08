@@ -1,9 +1,9 @@
 <%= cell("decidim/announcement", announcement_body, callout_class: current_user.admin_terms_accepted? ? "success" : "warning" ) %>
 
 <div class="item_show__header">
-  <h2 class="item_show__header-title">
+  <h1 class="item_show__header-title">
     <%= t("title", scope: "decidim.admin.admin_terms_of_service") %>
-  </h2>
+  </h1>
 </div>
 
 <article class="card">

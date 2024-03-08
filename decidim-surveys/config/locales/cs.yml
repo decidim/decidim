@@ -57,6 +57,9 @@ cs:
       answers_count: Odpovědi
     surveys:
       admin:
+        component:
+          actions:
+            answers_alert: Pokud publikujete komponentu, všechny výsledky budou odstraněny.
         exports:
           survey_user_answers: Odpovědi účastníka na průzkum
         surveys:
@@ -65,6 +68,11 @@ cs:
             success: Průzkum byl úspěšně uložen.
       last_activity:
         new_survey: 'Nový průzkum:'
+      survey_confirmation_mailer:
+        confirmation:
+          body: Úspěšně jste odpověděli na anketu %{questionnaire_title} v rámci %{participatory_space}
+          subject: Potvrzení odpovědi na dotazník %{questionnaire_title}
+        export_name: Odpovědi na dotazník
       surveys:
         answer:
           invalid: Při odpovědi na průzkum došlo k chybám.

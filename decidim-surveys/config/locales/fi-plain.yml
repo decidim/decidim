@@ -53,6 +53,9 @@ fi-pl:
       answers_count: Vastausta
     surveys:
       admin:
+        component:
+          actions:
+            answers_alert: Julkaistessasi komponentin, kaikki aikaisemmat vastaukset poistetaan.
         exports:
           survey_user_answers: Kyselyn vastaukset
         surveys:
@@ -61,6 +64,11 @@ fi-pl:
             success: Kysely tallennettu onnistuneesti.
       last_activity:
         new_survey: 'Uusi kysely:'
+      survey_confirmation_mailer:
+        confirmation:
+          body: Vastauksesi kyselyyn "%{questionnaire_title}" onnistui osallistumistilassa "%{participatory_space}"
+          subject: Kyselyn "%{questionnaire_title}" vastaamisen vahvistus
+        export_name: Kyselyn vastaukset
       surveys:
         answer:
           invalid: Kyselyyn vastaaminen epäonnistui.

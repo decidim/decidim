@@ -51,6 +51,7 @@ fi-pl:
         confirm_destroy: Oletko varma?
         destroy: Poista
         edit: Muokkaa
+        new: Uusi keskustelu
         title: Toiminnot
       admin:
         debate_closes:
@@ -95,7 +96,6 @@ fi-pl:
           cancel: Peruuta
           description: Mitkä olivat keskustelussa syntyneet johtopäätökset lyhyesti kerrottuna?
           send: Sulje keskustelu
-        closed: Suljettu
         count:
           debates_count:
             one: "%{count} keskustelu"
@@ -103,8 +103,9 @@ fi-pl:
         create:
           invalid: Luotaessa keskustelua tapahtui virhe.
           success: Keskustelu luotu onnistuneesti.
-        debate:
-          participate: Osallistu
+        debates:
+          empty: Ei yhtään keskustelua.
+          empty_filters: Keskusteluja ei löytynyt annetuilla hakuehdoilla.
         edit:
           back: Takaisin
           save: Tallenna muutokset
@@ -141,7 +142,6 @@ fi-pl:
           updated: Viimeksi päivitetyt
         show:
           close_debate: Sulje keskustelu
-          date: Päivämäärä
           debate_closed: Suljettu
           debate_conclusions_are: 'Keskustelu on suljettu %{date} seuraavin johtopäätöksin:'
           edit_conclusions: Muokkaa johtopäätöksiä

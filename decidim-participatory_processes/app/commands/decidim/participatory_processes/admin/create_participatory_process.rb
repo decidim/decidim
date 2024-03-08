@@ -5,13 +5,13 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new participatory
       # process in the system.
-      class CreateParticipatoryProcess < Decidim::Command
-        # Public: Initializes the command.
-        #
-        # form - A form object with the params.
-        def initialize(form)
-          @form = form
-        end
+      class CreateParticipatoryProcess < Decidim::Commands::CreateResource
+        fetch_form_attributes :organization, :title, :subtitle, :weight, :slug, :hashtag, :description,
+                              :short_description, :hero_image, :banner_image, :promoted, :scopes_enabled, :scope,
+                              :scope_type_max_depth, :private_space, :developer_group, :local_area, :area, :target,
+                              :participatory_scope, :participatory_structure, :meta_scope, :start_date, :end_date,
+                              :participatory_process_group, :participatory_process_type, :show_metrics,
+                              :show_statistics, :announcement
 
         # Executes the command. Broadcasts these events:
         #
@@ -22,9 +22,8 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          create_participatory_process
-
           if process.persisted?
+            create_steps
             add_admins_as_followers(process)
             link_related_processes
             Decidim::ContentBlocksCreator.new(process).create_default!
@@ -37,73 +36,21 @@ module Decidim
           end
         end
 
-        private
+        protected
 
-        attr_reader :form, :process
+        def resource_class = Decidim::ParticipatoryProcess
 
-        def create_participatory_process
-          @process = ParticipatoryProcess.new
-          @process.assign_attributes(attributes)
-
-          return process unless process.valid?
-
-          transaction do
-            process.save!
-
-            log_process_creation(process)
-
-            process.steps.create!(
-              title: TranslationsHelper.multi_translation(
-                "decidim.admin.participatory_process_steps.default_title",
-                form.current_organization.available_locales
-              ),
-              active: true
-            )
-
-            process
-          end
+        def process
+          @process ||= create_resource(soft: true)
         end
 
-        def attributes
-          {
-            organization: form.current_organization,
-            title: form.title,
-            subtitle: form.subtitle,
-            weight: form.weight,
-            slug: form.slug,
-            hashtag: form.hashtag,
-            description: form.description,
-            short_description: form.short_description,
-            hero_image: form.hero_image,
-            banner_image: form.banner_image,
-            promoted: form.promoted,
-            scopes_enabled: form.scopes_enabled,
-            scope: form.scope,
-            scope_type_max_depth: form.scope_type_max_depth,
-            private_space: form.private_space,
-            developer_group: form.developer_group,
-            local_area: form.local_area,
-            area: form.area,
-            target: form.target,
-            participatory_scope: form.participatory_scope,
-            participatory_structure: form.participatory_structure,
-            meta_scope: form.meta_scope,
-            start_date: form.start_date,
-            end_date: form.end_date,
-            participatory_process_group: form.participatory_process_group,
-            participatory_process_type: form.participatory_process_type,
-            show_metrics: form.show_metrics,
-            show_statistics: form.show_statistics,
-            announcement: form.announcement
-          }
-        end
-
-        def log_process_creation(process)
-          Decidim::ActionLogger.log(
-            "create",
-            form.current_user,
-            process,
-            process.versions.last.id
+        def create_steps
+          process.steps.create!(
+            title: TranslationsHelper.multi_translation(
+              "decidim.admin.participatory_process_steps.default_title",
+              form.current_organization.available_locales
+            ),
+            active: true
           )
         end
 

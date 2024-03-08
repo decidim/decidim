@@ -4,10 +4,12 @@ module Decidim
   module Conferences
     module ContentBlocks
       class HighlightedConferencesCell < Decidim::ContentBlocks::HighlightedParticipatorySpacesCell
-        delegate :current_user, to: :controller
-
         def highlighted_spaces
-          OrganizationPrioritizedConferences.new(current_organization, current_user)
+          @highlighted_spaces ||= OrganizationPrioritizedConferences
+                                  .new(current_organization, current_user)
+                                  .query
+                                  .with_attached_hero_image
+                                  .includes([:organization])
         end
 
         def i18n_scope
@@ -16,6 +18,10 @@ module Decidim
 
         def all_path
           Decidim::Conferences::Engine.routes.url_helpers.conferences_path
+        end
+
+        def max_results
+          model.settings.max_results
         end
 
         private

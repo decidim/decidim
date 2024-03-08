@@ -2,7 +2,7 @@
 /* eslint max-lines: ["error", {"max": 350, "skipBlankLines": true}] */
 
 /**
- * A plain Javascript component that handles the comments.
+ * A plain JavaScript component that handles the comments.
  *
  * @class
  * @augments Component
@@ -56,7 +56,7 @@ export default class CommentsComponent {
       this.mounted = false;
       this._stopPolling();
 
-      $(".add-comment .opinion-toggle button", this.$element).off("click.decidim-comments");
+      $(".add-comment [data-opinion-toggle] button", this.$element).off("click.decidim-comments");
       $(".add-comment textarea", this.$element).off("input.decidim-comments");
       $(".add-comment form", this.$element).off("submit.decidim-comments");
       $(".add-comment textarea", this.$element).each((_i, el) => el.removeEventListener("emoji.added", this._onTextInput));
@@ -117,7 +117,7 @@ export default class CommentsComponent {
     $(".add-comment", $parent).each((_i, el) => {
       const $add = $(el);
       const $form = $("form", $add);
-      const $opinionButtons = $(".opinion-toggle button", $add);
+      const $opinionButtons = $("[data-opinion-toggle] button", $add);
       const $text = $("textarea", $form);
 
       $opinionButtons.on("click.decidim-comments", this._onToggleOpinion);
@@ -280,18 +280,18 @@ export default class CommentsComponent {
 
     const $add = $btn.closest(".add-comment");
     const $form = $("form", $add);
-    const $opinionButtons = $(".opinion-toggle button", $add);
-    const $selectedState = $(".opinion-toggle .selected-state", $add);
+    const $opinionButtons = $("[data-opinion-toggle] button", $add);
+    const $selectedState = $("[data-opinion-toggle] .selected-state", $add);
     const $alignment = $(".alignment-input", $form);
 
     $opinionButtons.removeClass("is-active").attr("aria-pressed", "false");
     $btn.addClass("is-active").attr("aria-pressed", "true");
 
-    if ($btn.is(".opinion-toggle--ok")) {
+    if ($btn.data("toggleOk")) {
       $alignment.val(1);
-    } else if ($btn.is(".opinion-toggle--meh")) {
+    } else if ($btn.data("toggleMeh")) {
       $alignment.val(0);
-    } else if ($btn.is(".opinion-toggle--ko")) {
+    } else if ($btn.data("toggleKo")) {
       $alignment.val(-1);
     }
 

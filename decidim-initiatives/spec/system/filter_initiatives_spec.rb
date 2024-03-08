@@ -21,8 +21,11 @@ describe "Filter Initiatives", :slow do
   end
 
   context "when filtering initiatives by SCOPE" do
+    let!(:initiatives) { create_list(:initiative, 2, organization:, scoped_type: scoped_type1) }
+    let(:first_initiative) { initiatives.first }
+    let!(:proposal_comment) { create(:comment, commentable: first_initiative) }
+
     before do
-      create_list(:initiative, 2, organization:, scoped_type: scoped_type1)
       create(:initiative, organization:, scoped_type: scoped_type2)
       create(:initiative, organization:, scoped_type: scoped_type3)
 
@@ -49,7 +52,6 @@ describe "Filter Initiatives", :slow do
     context "when selecting the global scope" do
       it "lists the filtered initiatives", :slow do
         within "#panel-dropdown-menu-scope" do
-          click_filter_item "All"
           click_filter_item "Global"
         end
 
@@ -61,12 +63,24 @@ describe "Filter Initiatives", :slow do
     context "when selecting one scope" do
       it "lists the filtered initiatives", :slow do
         within "#panel-dropdown-menu-scope" do
-          click_filter_item "All"
           click_filter_item scoped_type1.scope_name[I18n.locale.to_s]
         end
 
         expect(page).to have_css(".card__grid", count: 2)
         expect(page).to have_content("2 initiatives")
+      end
+
+      it "can be ordered by most commented after filtering" do
+        within "#panel-dropdown-menu-scope" do
+          click_filter_item scoped_type1.scope_name[I18n.locale.to_s]
+        end
+
+        within "#dropdown-menu-order" do
+          click_on "Most commented"
+        end
+
+        expect(page).to have_css(".card__grid[id^='initiative']", count: 2)
+        expect(page).to have_css(".card__grid[id^='initiative']:first-child", text: translated(first_initiative.title))
       end
     end
   end
@@ -130,7 +144,7 @@ describe "Filter Initiatives", :slow do
         within "#panel-dropdown-menu-state" do
           click_filter_item "Open"
           within "label", text: "Closed" do
-            click_button
+            click_on
           end
           click_filter_item "Enough signatures"
         end
@@ -145,7 +159,7 @@ describe "Filter Initiatives", :slow do
         within "#panel-dropdown-menu-state" do
           click_filter_item "Open"
           within "label", text: "Closed" do
-            click_button
+            click_on
           end
           click_filter_item "Not enough signatures"
         end
@@ -182,8 +196,7 @@ describe "Filter Initiatives", :slow do
       end
 
       it "does not display TYPE filter" do
-        expect(page).not_to have_content(/Type/i)
-        expect(page).not_to have_css("#panel-dropdown-menu-type")
+        expect(page).to have_no_css("#panel-dropdown-menu-type")
       end
 
       it "lists all initiatives", :slow do
@@ -192,7 +205,7 @@ describe "Filter Initiatives", :slow do
       end
     end
 
-    context "when there is more than on initiative_type" do
+    context "when there is more than one initiative_type" do
       before do
         create_list(:initiative, 2, organization:, scoped_type: scoped_type1)
         create(:initiative, organization:, scoped_type: scoped_type2)
@@ -220,7 +233,6 @@ describe "Filter Initiatives", :slow do
       context "when selecting one type" do
         it "lists the filtered initiatives", :slow do
           within "#panel-dropdown-menu-type" do
-            click_filter_item "All"
             click_filter_item type1.title[I18n.locale.to_s]
           end
 
@@ -261,12 +273,11 @@ describe "Filter Initiatives", :slow do
     context "when selecting one area" do
       it "lists the filtered initiatives", :slow do
         within "#panel-dropdown-menu-area" do
-          click_filter_item "All"
           within "label", text: area_type1.name[I18n.locale.to_s] do
-            click_button
+            click_on
           end
           within "label", text: area_type2.name[I18n.locale.to_s] do
-            click_button
+            click_on
           end
           click_filter_item area1.name[I18n.locale.to_s]
         end
@@ -279,7 +290,6 @@ describe "Filter Initiatives", :slow do
     context "when selecting one area type" do
       it "lists the filtered initiatives", :slow do
         within "#panel-dropdown-menu-area" do
-          click_filter_item "All"
           click_filter_item area_type1.name[I18n.locale.to_s]
         end
 
@@ -297,7 +307,7 @@ describe "Filter Initiatives", :slow do
 
       it "cannot be filtered by author" do
         within "form.new_filter" do
-          expect(page).not_to have_content(/Author/i)
+          expect(page).to have_no_content(/Author/i)
         end
       end
     end

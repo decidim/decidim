@@ -12,34 +12,34 @@ shared_examples "merge proposals" do
   context "when selecting proposals" do
     before do
       visit current_path
-      page.find("#proposals_bulk.js-check-all").set(true)
+      page.find_by_id("proposals_bulk", class: "js-check-all").set(true)
     end
 
     context "when click the bulk action button" do
       it "shows the change action option" do
-        click_button "Actions"
+        click_on "Actions"
 
         expect(page).to have_selector(:link_or_button, "Merge into a new one")
       end
 
       context "when only one proposal is checked" do
         before do
-          page.find("#proposals_bulk.js-check-all").set(false)
+          page.find_by_id("proposals_bulk", class: "js-check-all").set(false)
           page.first(".js-proposal-list-check").set(true)
         end
 
         it "does not show the merge action option" do
-          click_button "Actions"
+          click_on "Actions"
 
-          expect(page).not_to have_selector(:link_or_button, "Merge into a new one")
+          expect(page).to have_no_selector(:link_or_button, "Merge into a new one")
         end
       end
     end
 
     context "when merge into a new one is selected from the actions dropdown" do
       before do
-        click_button "Actions"
-        click_button "Merge into a new one"
+        click_on "Actions"
+        click_on "Merge into a new one"
       end
 
       it "shows the component select" do
@@ -50,11 +50,11 @@ shared_examples "merge proposals" do
         expect(page).to have_button(id: "js-submit-merge-proposals", count: 1)
       end
 
-      context "when submiting the form" do
+      context "when submitting the form" do
         before do
           within "#js-form-merge-proposals" do
             select translated(target_component.name), from: :target_component_id_
-            click_button(id: "js-submit-merge-proposals")
+            click_on(id: "js-submit-merge-proposals")
           end
         end
 
@@ -85,7 +85,7 @@ shared_examples "merge proposals" do
             expect(page).to have_current_path(manage_component_path(current_component))
 
             proposal_ids.each do |id|
-              expect(page).not_to have_xpath("//tr[@data-id='#{id}']")
+              expect(page).to have_no_xpath("//tr[@data-id='#{id}']")
             end
           end
         end

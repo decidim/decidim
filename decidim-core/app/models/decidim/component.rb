@@ -56,8 +56,8 @@ module Decidim
     # Public: The hash of contextual params when the component is mounted.
     def mounted_params
       {
-        host: organization.host,
-        component_id: id,
+        :host => organization.host,
+        :component_id => id,
         "#{participatory_space.underscored_name}_slug".to_sym => participatory_space.slug
       }
     end

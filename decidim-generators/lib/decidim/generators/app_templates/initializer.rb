@@ -236,7 +236,7 @@ Decidim.configure do |config|
   #
   # Provide a class to generate a timestamp for a document. The instances of
   # this class are initialized with a hash containing the :document key with
-  # the document to be timestamped as value. The istances respond to a
+  # the document to be timestamped as value. The instances respond to a
   # timestamp public method with the timestamp
   #
   # An example class would be something like:
@@ -320,7 +320,7 @@ Decidim.configure do |config|
   # to interact with third party service to translate the user content.
   #
   # If you still want to use "Decidim::Dev::DummyTranslator" as translator placeholder,
-  # add the follwing line at the beginning of this file:
+  # add the following line at the beginning of this file:
   # require "decidim/dev/dummy_translator"
   #
   # An example class would be something like:
@@ -468,23 +468,6 @@ if Decidim.module_installed? :initiatives
       config.print_enabled = Rails.application.secrets.dig(:decidim, :initiatives, :print_enabled).present?
     end
     config.do_not_require_authorization = Rails.application.secrets.dig(:decidim, :initiatives, :do_not_require_authorization).present?
-  end
-end
-
-if Decidim.module_installed? :elections
-  Decidim::Elections.configure do |config|
-    config.setup_minimum_hours_before_start = Rails.application.secrets.dig(:elections, :setup_minimum_hours_before_start).presence || 1
-    config.start_vote_maximum_hours_before_start = Rails.application.secrets.dig(:elections, :start_vote_maximum_hours_before_start).presence || 6
-    config.voter_token_expiration_minutes = Rails.application.secrets.dig(:elections, :voter_token_expiration_minutes).presence || 120
-  end
-
-  Decidim::Votings.configure do |config|
-    config.check_census_max_requests = Rails.application.secrets.dig(:elections, :votings, :check_census_max_requests).presence || 5
-    config.throttling_period = Rails.application.secrets.dig(:elections, :votings, :throttling_period).to_i.minutes
-  end
-
-  Decidim::Votings::Census.configure do |config|
-    config.census_access_codes_export_expiry_time = Rails.application.secrets.dig(:elections, :votings, :census, :access_codes_export_expiry_time).to_i.days
   end
 end
 

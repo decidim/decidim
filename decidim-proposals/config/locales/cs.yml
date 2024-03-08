@@ -443,8 +443,8 @@ cs:
               many: návrhů
               other: návrhy
           title:
-            answers: Importovat odpovědi návrhu
-            proposals: Importovat návrhy
+            answers: Importovat odpovědi návrhu ze souboru
+            proposals: Importovat návrhy ze souboru
         models:
           proposal:
             name: Návrh
@@ -538,7 +538,7 @@ cs:
             create: Vytvořit
             title: Vytvořte návrh
           publish_answers:
-            number_of_proposals: Odpovědi na %{number} návrhů budou publikovány.
+            number_of_proposals: Odpovědi na %{number} návrhů budou zveřejněny?
             select_a_proposal: Vyberte návrh.
           show:
             amendments_count: Počet pozměňovacích návrhů
@@ -548,7 +548,7 @@ cs:
             documents: Dokumenty
             endorsements_count: Počet schvalování
             endorsers: Schvalující
-            link: Odkaz
+            link: Zobrazit návrh
             n_more_endorsers:
               one: a další 1
               few: a %{count} dalších
@@ -580,7 +580,7 @@ cs:
             no_components: V tomto účastnickém prostoru neexistují žádné jiné komponenty návrhu, které by mohly importovat návrhy.
             select_component: Vyberte součást
             select_states: Zkontrolujte stav návrhů, které chcete importovat
-            title: Importovat návrhy
+            title: Importovat návrhy z jiné komponenty
         proposals_merges:
           create:
             invalid: 'Při slučování vybraných návrhů došlo k chybě, protože některé z nich:'

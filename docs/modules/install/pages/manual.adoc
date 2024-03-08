@@ -4,15 +4,19 @@ In order to develop on decidim, you will need:
 
 * *Git* 2.34+
 * *PostgreSQL* 14.5+
-* *Ruby* 3.0.2
+* *Ruby* 3.1.1
 * *NodeJS* 18.17.x
 * *Npm* 9.6.x
 * *ImageMagick*
 * *Chrome* browser and https://sites.google.com/a/chromium.org/chromedriver/[chromedriver].
 
-We are starting with an Ubuntu 22.04.1 LTS. This is an opinionated guide, so you are free to use the technology that you are most comfortable. If you have any doubts and you are blocked you can go and ask on https://matrix.to/#/#decidimdevs:matrix.org[our Matrix.org chat room for developers].
+The compatibility between the different versions of the components is the following:
 
-We recommend to have at least some basic proficiency in Ruby on Rails (a good starting point is http://guides.rubyonrails.org/getting_started.html[Getting Started with Ruby on Rails]) and have some knowledge on how gems work.
+include::install:partial$version_matrix.adoc[]
+
+We are starting with an Ubuntu 22.04.3 LTS. This is an opinionated guide, so you are free to use the technology that you are most comfortable. If you have any doubts and you are blocked you can go and ask on https://matrix.to/#/#decidimdevs:matrix.org[our Matrix.org chat room for developers].
+
+We recommend to have at least some basic proficiency in GNU/Linux (i.e. how to use the command-line, packages, etc), networking knowledge, server administration, development in general, and some basic knowledge about software package managers. It would be great to have Ruby on Rails development basics (a good starting point is http://guides.rubyonrails.org/getting_started.html[Getting Started with Ruby on Rails]) and have some knowledge on how package libraries are working (we use `bundler` for handling ruby packages, and `npm`/`yarn` for handling javascript).
 
 In this guide, we will see how to install rbenv, PostgreSQL, Node.js and, Decidim, and how to configure everything together for a development environment. Mind that if you want to make a production deployment with real users this guide is not enough, you should configure a web server (like nginx), backups, monitoring, etc. This is out of the scope of this guide, but you can follow the https://platoniq.github.io/decidim-install/[Platoniq guide].
 
@@ -29,8 +33,8 @@ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 source ~/.bashrc
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-rbenv install 3.0.2
-rbenv global 3.0.2
+rbenv install 3.1.1
+rbenv global 3.1.1
 ----
 
 == 2. Installing PostgreSQL
@@ -51,8 +55,10 @@ An important component for Decidim is Node.js and Yarn. With this commands you w
 
 [source,bash]
 ----
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -y nodejs
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+sudo apt-get update && sudo apt-get install -y nodejs
 curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
 echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get update && sudo apt-get install -y yarn
@@ -111,6 +117,11 @@ EOF
 
 Be careful where you put the `.rbenv-vars` file, as if you put it in the same folder of your decidim generated application, and if you use a version control system (like `git`, which we strongly recommend), then you should ignore this file (ie with the `.gitignore` file).
 
+[source,bash]
+----
+echo -e "\n\n# Ignore environment variables\n.rbenv-vars" >> .gitignore
+----
+
 == 6. Initializing your app for local development
 
 [NOTE]
@@ -133,7 +144,7 @@ You can now start your server!
 
 [source,bash]
 ----
-bin/rails s
+bin/dev
 ----
 
 Visit http://localhost:3000 to see your app running. 🎉 🎉

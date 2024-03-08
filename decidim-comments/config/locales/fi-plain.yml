@@ -30,7 +30,6 @@ fi-pl:
           error: Kommenttia ei voitu poistaa.
         update:
           error: Kommentin päivittäminen epäonnistui.
-      comments_count: Kommenttien määrä
       comments_title: Kommentti
       last_activity:
         new_comment: 'Uusi kommentti:'

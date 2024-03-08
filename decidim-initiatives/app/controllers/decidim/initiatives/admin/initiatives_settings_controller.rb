@@ -23,7 +23,7 @@ module Decidim
           @form = initiatives_settings_form
                   .from_params(params, initiatives_settings: current_initiatives_settings)
 
-          UpdateInitiativesSettings.call(current_initiatives_settings, @form) do
+          UpdateInitiativesSettings.call(@form, current_initiatives_settings) do
             on(:ok) do
               flash[:notice] = I18n.t("initiatives_settings.update.success", scope: "decidim.admin")
               redirect_to edit_initiatives_setting_path

@@ -98,9 +98,6 @@ fr:
         destroy: Supprimer
         duplicate: Dupliquer
         edit: Modifier
-        filter:
-          all_processes: Afficher tous les processus
-          process_groups: Filtrer les concertations par groupe
         import_process: Importer
         moderate: Modérer
         new_process: Nouvelle concertation
@@ -113,6 +110,9 @@ fr:
         resend_invitation: Renvoyer l'invitation
         see_process: Voir la concertation
         unpublish: Dépublier
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Par groupe de concertations
       menu:
         participatory_process_groups: Groupes de concertations
         participatory_process_groups_submenu:
@@ -176,22 +176,6 @@ fr:
           copy: Copier
           select: Sélectionnez les données que vous souhaitez dupliquer
           title: Dupliquer la concertation
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Blocs de contenu actifs
-          add: Ajouter un bloc de contenu
-          destroy_confirmation: Êtes-vous sûr(e) de vouloir supprimer ce bloc de contenu ?
-          inactive_content_blocks: Blocs de contenu inactifs
-          title: Contenus de la page
-      participatory_process_group_landing_page_content_blocks:
-        create:
-          error: Un problème est survenu lors de la création de ce bloc de contenu.
-          success: Le bloc de contenu a été créé avec succès.
-        destroy:
-          error: Un problème est survenu lors de la suppression de ce bloc de contenu.
-          success: Bloc de contenu supprimé avec succès.
-        edit:
-          update: Mettre à jour
       participatory_process_groups:
         destroy:
           error: Une erreur s'est produite lors de la suppression du groupe de concertations.
@@ -235,6 +219,12 @@ fr:
             last_step: Vous ne pouvez pas supprimer la dernière étape d'une concertation.
           success: L'étape de la concertation a été supprimée avec succès.
         edit:
+          cta_deprecated:
+            body_html: |-
+              Configurer le bouton d'action depuis l'étape de concertation ne fonctionne plus dans le nouveau design.
+              Cela est maintenant fait via la <b>page d'accueil</b> de la concertation, en utilisant le bloc de contenu<b>Hero et image</b>.
+              Nous l'avons laissé ici pour migrer les boutons d'actions dont vous avez besoin. Les champs <i>Chemin d'appel à l'action</i> et <i>Texte d'appel à l'action</i> seront supprimés dans une prochaine version.
+            title: Bouton d'action obsolète
           title: Modifier l'étape de la concertation
           update: Mettre à jour
         index:

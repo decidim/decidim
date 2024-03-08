@@ -115,7 +115,7 @@ module Decidim
 
       before do
         registry.register(:dummy) do |tr|
-          tr.move_records(Decidim::DummyResources::DummyResource, :decidim_author_id)
+          tr.move_records(Decidim::Dev::DummyResource, :decidim_author_id)
           tr.move_records(Decidim::Coauthorship, :decidim_author_id)
         end
       end
@@ -124,15 +124,15 @@ module Decidim
         # Initiate the transfer
         before { subject }
 
-        it "performs the transfer correctly and calls the registerd handlers" do
+        it "performs the transfer correctly and calls the registered handlers" do
           expect(subject.records.count).to eq(8)
-          expect(Decidim::DummyResources::DummyResource.where(decidim_author_id: user.id).order(:id)).to eq(
+          expect(Decidim::Dev::DummyResource.where(decidim_author_id: user.id).order(:id)).to eq(
             dummy_resources.sort_by!(&:id)
           )
           expect(Decidim::Coauthorship.where(decidim_author_id: user.id).order(:id)).to eq(
             coauthorable_dummy_resources.map(&:coauthorships).reduce([], :+).sort_by!(&:id)
           )
-          expect(Decidim::DummyResources::DummyResource.where(decidim_author_id: source_user.id).count).to be(0)
+          expect(Decidim::Dev::DummyResource.where(decidim_author_id: source_user.id).count).to be(0)
           expect(Decidim::Coauthorship.where(decidim_author_id: source_user.id).count).to be(0)
 
           # Check that authorization is correctly transferred and metadata is
@@ -245,12 +245,12 @@ module Decidim
 
       it "returns information about the transferred records" do
         expect(subject).to eq(
-          "Decidim::DummyResources::DummyResource" => {
-            class: Decidim::DummyResources::DummyResource,
+          "Decidim::Dev::DummyResource" => {
+            class: Decidim::Dev::DummyResource,
             count: dummy_resources.count + amendments.count
           },
-          "Decidim::DummyResources::CoauthorableDummyResource" => {
-            class: Decidim::DummyResources::CoauthorableDummyResource,
+          "Decidim::Dev::CoauthorableDummyResource" => {
+            class: Decidim::Dev::CoauthorableDummyResource,
             count: coauthorable_dummy_resources.count
           },
           "Decidim::Endorsement" => {
@@ -262,7 +262,7 @@ module Decidim
     end
 
     describe "#move_records" do
-      subject { transfer.move_records(Decidim::DummyResources::DummyResource, :decidim_author_id) }
+      subject { transfer.move_records(Decidim::Dev::DummyResource, :decidim_author_id) }
 
       let(:component) { create(:component, manifest_name: "dummy", organization:) }
       let!(:dummy_resources) { create_list(:dummy_resource, 3, author: source_user, component:) }
@@ -277,7 +277,7 @@ module Decidim
 
       it "updates the provided user column with the new user" do
         expect(subject.map(&:resource).sort_by!(&:id)).to eq(dummy_resources.sort_by!(&:id))
-        expect(Decidim::DummyResources::DummyResource.where(decidim_author_id: user.id).count).to be(3)
+        expect(Decidim::Dev::DummyResource.where(decidim_author_id: user.id).count).to be(3)
       end
     end
   end

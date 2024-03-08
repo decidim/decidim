@@ -26,7 +26,7 @@ module Decidim
     end
 
     it "has an associated resource" do
-      expect(endorsement.resource).to be_a(Decidim::DummyResources::DummyResource)
+      expect(endorsement.resource).to be_a(Decidim::Dev::DummyResource)
     end
 
     it "validates uniqueness for author and user_group and resource combination" do

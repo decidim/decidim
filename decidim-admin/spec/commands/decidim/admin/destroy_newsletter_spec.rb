@@ -18,7 +18,7 @@ module Decidim::Admin
       end
 
       it "broadcasts :already_sent" do
-        expect { subject.call }.to broadcast(:already_sent)
+        expect { subject.call }.to broadcast(:invalid)
       end
     end
 
@@ -35,7 +35,7 @@ module Decidim::Admin
       it "logs the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-          .with("delete", newsletter, user)
+          .with(:delete, newsletter, user)
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

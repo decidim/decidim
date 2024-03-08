@@ -228,14 +228,8 @@ it:
             non_user: Utente non esistente
             select_user: Seleziona utente
           index:
-            filter:
-              accepted: Accettato
-              all: Tutti
-              rejected: Respinto
-              sent: Inviato
             invite_attendee: Invita il partecipante
             invites: Inviti
-            search: Ricerca
         meeting_closes:
           edit:
             close: Chiudi
@@ -400,7 +394,6 @@ it:
         show:
           attendees: Conteggio dei partecipanti
           contributions: Conteggio dei contributi
-          date: Data
           join: Partecipa alla riunione
           leave: Annulla la tua registrazione
           leave_confirmation: Sei sicuro di voler annullare la tua registrazione per questa riunione?
@@ -418,7 +411,6 @@ it:
           remaining_slots:
             one: "%{count} slot rimanenti"
             other: "%{count} slot rimanenti"
-          view: Visualizza
           visit_finished: Visualizza la riunione passata
         update:
           invalid: Si è verificato un errore durante l'aggiornamento della riunione.

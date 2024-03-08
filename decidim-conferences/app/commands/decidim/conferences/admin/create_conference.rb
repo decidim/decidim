@@ -5,13 +5,11 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new
       # conference in the system.
-      class CreateConference < Decidim::Command
-        # Public: Initializes the command.
-        #
-        # form - A form object with the params.
-        def initialize(form)
-          @form = form
-        end
+      class CreateConference < Decidim::Commands::CreateResource
+        fetch_form_attributes :organization, :title, :slogan, :slug, :weight, :hashtag, :description,
+                              :short_description, :objectives, :location, :scopes_enabled, :scope, :start_date, :end_date,
+                              :hero_image, :banner_image, :promoted, :show_statistics, :registrations_enabled, :available_slots,
+                              :registration_terms
 
         # Executes the command. Broadcasts these events:
         #
@@ -37,34 +35,10 @@ module Decidim
 
         private
 
-        attr_reader :form
+        def resource_class = Decidim::Conference
 
         def conference
-          @conference ||= Decidim.traceability.create(
-            Conference,
-            form.current_user,
-            organization: form.current_organization,
-            title: form.title,
-            slogan: form.slogan,
-            slug: form.slug,
-            weight: form.weight,
-            hashtag: form.hashtag,
-            description: form.description,
-            short_description: form.short_description,
-            objectives: form.objectives,
-            location: form.location,
-            scopes_enabled: form.scopes_enabled,
-            scope: form.scope,
-            start_date: form.start_date,
-            end_date: form.end_date,
-            hero_image: form.hero_image,
-            banner_image: form.banner_image,
-            promoted: form.promoted,
-            show_statistics: form.show_statistics,
-            registrations_enabled: form.registrations_enabled,
-            available_slots: form.available_slots || 0,
-            registration_terms: form.registration_terms
-          )
+          @conference ||= create_resource(soft: true)
         end
 
         def add_admins_as_followers(conference)

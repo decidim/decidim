@@ -22,9 +22,11 @@ de:
       user:
         about: Über
         email: Ihre E-Mail
+        encrypted_password: Passwort
         locale: Spracheinstellung
         name: Ihr Name
         nickname: Spitzname
+        old_password: Aktuelles Passwort
         password: Passwort
         password_confirmation: Bestätigen Sie Ihr Passwort
         personal_url: Persönliche URL
@@ -35,7 +37,7 @@ de:
       decidim/component_published_event: Aktive Komponente
       decidim/demoted_membership: Kein Gruppenadministrator mehr
       decidim/gamification/badge_earned_event: Abzeichen verdient
-      decidim/gamification/level_up_event: Du hast dein Level erhöht
+      decidim/gamification/level_up_event: Sie sind um eine Stufe aufgestiegen
       decidim/invited_to_group_event: Zur Gruppe eingeladen
       decidim/join_request_accepted_event: Beitrittsanfrage akzeptiert
       decidim/join_request_rejected_event: Beitrittsanfrage abgelehnt
@@ -75,12 +77,6 @@ de:
   booleans:
     'false': 'Nein'
     'true': 'Ja'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: Datei konnte nicht verarbeitet werden
-      file_resolution_too_large: Die Datei-Auflösung ist zu groß
-      file_size_too_large: Datei ist zu groß
-      not_inside_organization: Die Datei ist keiner Organisation hinzugefügt
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -285,11 +281,9 @@ de:
       amendable:
         button: '%{model_name} ändern'
         error: Bei der Änderung dieser Ressource ist ein Fehler aufgetreten.
-        help_text: Verbessern Sie diese %{model_name} indem Sie ihre %{amendable_fields} ändern.
         promote_button: Zu %{model_name} befördern
         promote_confirm_text: Möchten Sie diese Erweiterung wirklich fördern?
         promote_help_text: Sie können diese Änderung fördern und als unabhängige %{model_name} veröffentlichen.
-        section_heading: Änderungen (%{count})
       amendments:
         title:
           one: "%{count} Anpassung"
@@ -457,7 +451,6 @@ de:
         one: und %{count} mehr
         other: und %{count} mehr
       see_less: "(Weniger anzeigen)"
-      see_more: "(Mehr anzeigen)"
     components:
       component_order_selector:
         no_content: Wir konnten keine Inhalte mit diesen Kriterien finden.
@@ -514,8 +507,6 @@ de:
         name: Fußzeile sub hero Banner
       global_menu:
         name: Globales Menü
-      hero:
-        name: Hauptbild
       hero_settings_form:
         background_image: Hintergrundbild
         welcome_text: Willkommenstext
@@ -589,6 +580,8 @@ de:
           subtitle: Bitte füllen Sie das folgende Formular aus, um die Anmeldung abzuschließen
           username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
       registrations:
+        create:
+          error: Es gab ein Problem bei der Erstellung Ihres Kontos.
         new:
           already_have_an_account?: Haben Sie bereits ein Konto?
           log_in: Anmelden
@@ -643,7 +636,7 @@ de:
           publish_content: Inhalte für Sie veröffentlichen
           see_email: Ihre E-Mail anzeigen
           see_name: Ihren Namen anzeigen
-          see_username: Ihren Benutzernamen anzeigen
+          see_username: Kontonamen anzeigen
           this_application_will_be_able_to: 'Diese Anwendung wird in der Lage sein:'
           this_application_will_not_be_able_to: 'Diese Anwendung kann nicht:'
           update_profile: Profil aktualisieren
@@ -899,7 +892,7 @@ de:
           message_1: Vorzugsweise ein Querformat ohne Text.
           message_2: Der Dienst schneidet die Datei zu.
       file_validation:
-        allowed_file_extensions: 'Erlaubte Dateiendungen: %{extensions}'
+        allowed_file_extensions: 'Erlaubte Dateiformate: %{extensions}'
         max_file_dimension: 'Maximale Dateigröße: %{resolution} Pixel'
         max_file_size: 'Maximale Dateigröße: %{megabytes}MB'
       files:
@@ -909,14 +902,12 @@ de:
           add_attachment: Anhang hinzufügen
           add_file: Datei hinzufügen
           add_image: Bild hinzufügen
-          cancel: Abbrechen
           edit_image: Bild bearbeiten
           error: Fehler!
           file_size_too_large: 'Datei ist zu groß! Maximale Dateigröße: %{megabytes}MB'
           filename: Dateiname
           remove: Entfernen
           replace: Ersetzen
-          save: Speichern
           title: Titel
           title_required: Titel ist erforderlich!
           uploaded: Hochgeladen
@@ -980,8 +971,8 @@ de:
         error: Bei der Annahme dieser Beitrittsanfrage ist ein Fehler aufgetreten.
         success: Beitrittsanfrage erfolgreich angenommen.
       actions:
-        are_you_sure: Sind Sie sicher?
-        promote_to_admin: Machen Admin
+        are_you_sure: Sind Sie sich sicher?
+        promote_to_admin: Zum Admin ernennen
         remove_from_group: Benutzer entfernen
       index:
         current_members_without_admins: 'Aktuelle Mitglieder (ohne Admins):'
@@ -997,7 +988,7 @@ de:
         success: Teilnehmer erfolgreich aus der Gruppe entfernt.
     groups:
       actions:
-        are_you_sure: Sind Sie sicher?
+        are_you_sure: Sind Sie sich sicher?
       create:
         error: Beim Erstellen der Gruppe ist ein Problem aufgetreten.
         success: Gruppe erfolgreich erstellt.
@@ -1009,7 +1000,7 @@ de:
         email_help: E-Mail Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw.
         fill_in_for_verification: 'Füllen Sie diese Felder aus, wenn Ihre Gruppe überprüft werden soll:'
         name_help: Name Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw.
-        nickname_help: Benutzername Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw. Verwenden Sie keine Leerzeichen oder Akzente.
+        nickname_help: Kontonamen Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw. Verwenden Sie keine Leerzeichen oder Akzente.
         phone_help: Verwenden Sie keine Bindestriche oder Leerzeichen.
       join:
         error: Beim Beitritt zur Gruppe ist ein Problem aufgetreten.
@@ -1279,7 +1270,6 @@ de:
     offline:
       name: Offline
       show:
-        message: Es sieht so aus, als ob Sie momentan offline sind. Bitte versuchen Sie es später erneut.
         retry: Wiederholen
     open_data:
       not_available_yet: Die Open Data-Dateien sind noch nicht verfügbar. Bitte versuchen Sie es in einigen Minuten erneut.
@@ -1299,7 +1289,7 @@ de:
           proposals: Vorschläge
           proposals_explanation: Machen Sie Vorschläge, unterstützen Sie bestehende und fördern Sie die Änderungen, die Sie sehen möchten.
         footer_sub_hero:
-          footer_sub_hero_body: Lasst uns eine offenere, transparentere und kollaborativere Gesellschaft aufbauen.<br /> Beitreten, teilnehmen und entscheiden.
+          footer_sub_hero_body_html: Lasst uns eine offenere, transparentere und kollaborativere Gesellschaft aufbauen.<br /> Beitreten, teilnehmen und entscheiden.
           footer_sub_hero_headline: Willkommen auf der Beteiligungsplattform %{organization}.
           register: Registrieren
         hero:
@@ -1337,8 +1327,6 @@ de:
           alert: Wir haben unsere Nutzungsbedingungen aktualisiert. Bitte überprüfen Sie sie.
           body: Bitte nehmen Sie sich einen Moment Zeit, um sich über die Aktualisierungen unserer Nutzungsbedingungen zu informieren. Andernfalls können Sie die Plattform nicht nutzen.
           title: 'Erforderlich: Überprüfen Sie die Aktualisierungen unserer Nutzungsbedingungen'
-    participatory_space_private_users:
-      not_allowed: Sie dürfen diesen Inhalt nicht sehen
     passwords:
       update:
         error: Es gab ein Problem bei der Aktualisierung des Passwortes.
@@ -1355,6 +1343,8 @@ de:
         conversations: Unterhaltungen
         followers: Follower
         following: Folgt
+        group_admins: Admins verwalten
+        group_members: Mitglieder verwalten
         groups: Gruppen
         members: Mitglieder
         officialized: Offizieller Teilnehmer
@@ -1465,15 +1455,15 @@ de:
       flag_modal:
         already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
         close: Schließen
-        description: Ist dieser Inhalt unangemessen?
+        description: Wieso ist dieser Inhalt problematisch / unangemessen?
         does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
         hide: Verbergen
         hide_content: Diesen Inhalt verbergen
         offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder jede Form von Hassreden.
         reason: Begründung
-        report: Bericht
+        report: Meldung erfassen
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
-        title: Ein Problem melden
+        title: Unangemessenen Inhalt melden
       flag_user_modal:
         already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
         block: Diesen Teilnehmer blockieren
@@ -1558,7 +1548,7 @@ de:
         my_interests: Meine Interessen
         no_scopes: Dieser Organisation ist noch kein Thema zugewiesen!
         select_your_interests: Wählen Sie die Themen aus, an denen Sie interessiert sind, um dazu Benachrichtigungen auf der Registerkarte "Zeitleiste" Ihres Profils zu erhalten.
-        update_my_interests: Aktualisieren Sie meine Interessen
+        update_my_interests: Meine Interessen aktualisieren
       update:
         error: Beim Aktualisieren Ihrer Interessen ist ein Fehler aufgetreten.
         success: Ihre Interessen wurden erfolgreich aktualisiert.
@@ -1570,6 +1560,15 @@ de:
         greetings: Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallo %{admin},
         subject: Ein neuer Benutzer wurde in %{organization_name} gemeldet
+    user_update_mailer:
+      notify:
+        body_1: Wir senden Ihnen diese Nachricht, um Sie über eine Aktualisierung Ihres Kontos zu informieren.
+        body_2: Falls Sie selbst keine solche Aktualisierung durchgeführt haben, melden Sie sich bitte bei Ihrem Konto an, um Ihr Passwort zu ändern. Falls Sie sich nicht einloggen können, wenden Sie sich bitte an den Plattform-Support.
+        greetings: Freundliche Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hallo %{user}
+        main_body: 'Die folgenden Details wurden geändert: %{updates}.'
+        update_fields: "%{updates} und %{last_update}"
+      subject: Ihr Konto wurde aktualisiert
     version:
       show:
         back_to_resource: Zurück
@@ -1615,7 +1614,7 @@ de:
         header: Beenden Sie die Erstellung Ihres Kontos
         nickname_help: Ihr Pseudonym auf %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
         submit_button: Speichern
-        subtitle: Wenn Sie die Einladung annehmen, geben Sie bitte Ihren Benutzernamen und Ihr Passwort ein.
+        subtitle: Wenn Sie die Einladung annehmen, geben Sie bitte Ihren Kontonamen und Ihr Passwort ein.
       invitation_removed: Ihre Einladung wurde entfernt.
       invitation_token_invalid: Das angegebene Einladungstoken ist nicht gültig!
       new:
@@ -1642,12 +1641,12 @@ de:
         hello: Hallo %{email},
         ignore: |-
           Wenn Sie die Einladung nicht annehmen möchten, ignorieren Sie diese E-Mail.<br />
-          Ihr Konto wird erst erstellt, wenn Sie auf den obigen Link zugreifen und Ihren Benutzernamen und Ihr Passwort festlegen.
-        invited_you_as_admin: "%{invited_by} hat dich als Admin von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
-        invited_you_as_private_user: "%{invited_by} hat dich als privaten Benutzer von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
-        someone_invited_you: Jemand hat dich zu %{application}eingeladen. Sie können es über den folgenden Link akzeptieren.
-        someone_invited_you_as_admin: Jemand hat dich als Admin von %{application}eingeladen, du kannst es über den untenstehenden Link akzeptieren.
-        someone_invited_you_as_private_user: Jemand hat dich als private_user von %{application}eingeladen, du kannst es über den folgenden Link akzeptieren.
+          Ihr Konto wird erst erstellt, wenn Sie auf den obigen Link zugreifen und Ihren Kontonamen und Ihr Passwort festlegen.
+        invited_you_as_admin: "%{invited_by} hat Sie als Admin von %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren."
+        invited_you_as_private_user: "%{invited_by} hat Sie als privaten Nutzenden zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren."
+        someone_invited_you: Jemand hat Sie zu %{application} eingeladen. Sie können die EInladung über den folgenden Link akzeptieren.
+        someone_invited_you_as_admin: Jemand hat Sie als Admin zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren.
+        someone_invited_you_as_private_user: Jemand hat Sie als privater Teilnehmende zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren.
         subject: Anweisungen zur Einladung
       invite_admin:
         subject: Sie wurden eingeladen %{organization} zu verwalten
@@ -1682,8 +1681,9 @@ de:
         change_my_password: Ändere mein Passwort
         confirm_new_password: Bestätige neues Passwort
         new_password: Neues Passwort
-        password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu gewöhnlich (z. B. 123456) und darf nicht Ihr Benutzername oder Ihre E-Mail-Adresse sein."
-        password_help_admin: "Das Passwort muss mindestens aus %{minimun_characters} Zeichen bestehen, nicht zu gewöhnlich (z. B. 123456) sein und es darf nicht Ihr Pseudonym oder Ihre E-Mail-Adresse enthalten."
+        old_password_help: Um die Änderungen an Ihrem Konto zu bestätigen, geben Sie bitte Ihr aktuelles Passwort ein.
+        password_help: "Das Passwort muss aus mindestens %{minimum_characters} Zeichen bestehen, darf nicht zu gewöhnlich sein (z. B. 123456) oder Ihren Kontonamen bzw. Ihre E-Mail-Adresse enthalten."
+        password_help_admin: "Das Passwort muss aus mindestens %{minimum_characters} Zeichen bestehen, darf nicht zu gewöhnlich sein (z. B. 123456) oder Ihren Kontonamen oder Ihre E-Mail-Adresse enthalten und muss sich von Ihren alten Passwörtern unterscheiden."
         title: Passwort ändern
       new:
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
@@ -1790,28 +1790,11 @@ de:
   emojis:
     button: Emoji hinzufügen
     categories:
-      activities: Aktivitäten
-      animals-nature: Tiere & Natur
+      activity: Aktivität
       custom: Benutzerdefiniert
       flags: Flaggen
-      food-drink: Essen & Trinken
       objects: Objekte
-      people-body: Personen & Körper
-      recents: Kürzlich verwendet
-      smileys-emotion: Smileys & Emotion
       symbols: Symbole
-      travel-places: Reisen & Orte
-    error:
-      load: Fehler beim Laden von Emojis
-    recents:
-      clear: Zuletzt benutzte Emoji entfernen
-      none: Sie haben noch keine Emojis ausgewählt.
-    retry: Erneut versuchen
-    search:
-      _: Emojis suchen...
-      clear: Suche löschen
-      error: Fehler beim Suchen von Emojis
-      not_found: Keine Ergebnisse gefunden
   errors:
     messages:
       allowed_file_content_types: 'nur Dateien mit den folgenden Typen sind erlaubt: %types%'
@@ -1946,8 +1929,6 @@ de:
         continue_session: Sitzung fortsetzen
         log_out: Abmelden
         title: Möchten Sie ihre Sitzung fortsetzen?
-      upload_modal:
-        close_modal: Fenster schließen
       user_menu:
         account: 'Benutzerkonto: %{name}'
         admin_dashboard: Admin-Dashboard

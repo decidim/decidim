@@ -2,7 +2,10 @@
 
 module Decidim
   module Conferences
-    # The main admin application controller for conferences
+    # The main application controller for conferences
+    #
+    # This controller is the abstract class from which all other controllers of
+    # this engine inherit.
     class ApplicationController < Decidim::ApplicationController
       helper Decidim::ApplicationHelper
       helper Decidim::ResourceHelper

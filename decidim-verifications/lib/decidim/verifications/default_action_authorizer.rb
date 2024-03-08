@@ -9,7 +9,7 @@ module Decidim
       # authorization - The existing authorization record to be evaluated. Can be nil.
       # options       - A hash with options related only to the current authorization process.
       # component     - The component where the authorization is taking place.
-      # resouce       - The resource where the authorization is taking place. Can be nil.
+      # resource      - The resource where the authorization is taking place. Can be nil.
       #
       def initialize(authorization, options, component, resource)
         @authorization = authorization

@@ -1,6 +1,6 @@
-import { createBasicEditor, updateContent, selectRange } from "../helpers";
+import { createBasicEditor, updateContent, selectRange } from "src/decidim/editor/test/helpers";
 
-import Indent from "../../extensions/indent";
+import Indent from "src/decidim/editor/extensions/indent";
 
 describe("Indent", () => {
   let editor = null;
@@ -141,7 +141,7 @@ describe("Indent", () => {
       expect(editor.getHTML()).toEqual("<p>Hello, world!</p>");
     });
 
-    it("does not oudent the content if the selection is not at the beginning of the line", async () => {
+    it("does not outdent the content if the selection is not at the beginning of the line", async () => {
       await updateContent(editorElement, '<p class="editor-indent-2">Hello, world!</p>');
 
       editorElement.focus();

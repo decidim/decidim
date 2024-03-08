@@ -4,9 +4,6 @@ module Decidim
   module Budgets
     # This cell renders the budget item list in the budgets list
     class BudgetListItemCell < BaseCell
-      include Decidim::SanitizeHelper
-      include Decidim::ApplicationHelper
-      include ActiveSupport::NumberHelper
       include Decidim::Budgets::ProjectsHelper
 
       delegate :highlighted, to: :current_workflow

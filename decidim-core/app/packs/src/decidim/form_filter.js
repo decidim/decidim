@@ -2,14 +2,14 @@
 /* eslint max-lines: ["error", {"max": 350, "skipBlankLines": true}] */
 
 /**
- * A plain Javascript component that handles the form filter.
+ * A plain JavaScript component that handles the form filter.
  * @class
  * @augments Component
  */
 
-import delayed from "./delayed"
-import CheckBoxesTree from "./check_boxes_tree"
-import { registerCallback, unregisterCallback, pushState, replaceState, state } from "./history"
+import delayed from "src/decidim/delayed"
+import CheckBoxesTree from "src/decidim/check_boxes_tree"
+import { registerCallback, unregisterCallback, pushState, replaceState, state } from "src/decidim/history"
 
 export default class FormFilterComponent {
   constructor($form) {
@@ -24,9 +24,9 @@ export default class FormFilterComponent {
     this._onPopState = this._onPopState.bind(this);
 
     if (window.Decidim.PopStateHandler) {
-      this.popStateSubmiter = false;
+      this.popStateSubmitter = false;
     } else {
-      this.popStateSubmiter = true;
+      this.popStateSubmitter = true;
       window.Decidim.PopStateHandler = this.id;
     }
   }
@@ -239,7 +239,7 @@ export default class FormFilterComponent {
     }
 
     // Only one instance should submit the form on browser history navigation
-    if (this.popStateSubmiter) {
+    if (this.popStateSubmitter) {
       Rails.fire(this.$form[0], "submit");
     }
 
@@ -295,7 +295,7 @@ export default class FormFilterComponent {
    * @returns {String} - Returns a unique identifier
    */
   _getUID() {
-    return `filter-form-${new Date().setUTCMilliseconds()}-${Math.floor(Math.random() * 10000000)}`;
+    return `filter-form-${new Date().getUTCMilliseconds()}-${Math.floor(Math.random() * 10000000)}`;
   }
 
   /**

@@ -194,7 +194,7 @@ module Decidim
     # as a regular object.
     def participatory_space_lazy(cache: true)
       return if participatory_space_id.blank? || participatory_space_type.blank?
-      return resouce_lazy if participatory_space_id == resource_id && participatory_space_type == resource_type
+      return resource_lazy if participatory_space_id == resource_id && participatory_space_type == resource_type
 
       self.class.lazy_relation(participatory_space_id, participatory_space_type, cache)
     end

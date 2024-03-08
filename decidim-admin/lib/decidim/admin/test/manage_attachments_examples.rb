@@ -19,18 +19,18 @@ shared_examples "manage attachments examples" do
 
     it "can view an attachment details" do
       within "#attachments table" do
-        click_link "Edit"
+        click_on "Edit"
       end
 
-      expect(page).to have_selector("input#attachment_title_en[value='#{translated(attachment.title, locale: :en)}']")
-      expect(page).to have_selector("input#attachment_description_en[value='#{translated(attachment.description, locale: :en)}']")
-      expect(page).to have_selector("input#attachment_weight[value='#{attachment.weight}']")
+      expect(page).to have_css("input#attachment_title_en[value='#{translated(attachment.title, locale: :en)}']")
+      expect(page).to have_css("input#attachment_description_en[value='#{translated(attachment.description, locale: :en)}']")
+      expect(page).to have_css("input#attachment_weight[value='#{attachment.weight}']")
       expect(page).to have_select("attachment_attachment_collection_id", selected: translated(attachment_collection.name, locale: :en))
       expect(page).to have_css("img[src~='#{attachment.url}']")
     end
 
     it "can add attachments without a collection to a process" do
-      click_link "New attachment"
+      click_on "New attachment"
 
       within ".new_attachment" do
         fill_in_i18n(
@@ -64,7 +64,7 @@ shared_examples "manage attachments examples" do
     end
 
     it "can add attachments within a collection to a process" do
-      click_link "New attachment"
+      click_on "New attachment"
 
       within ".new_attachment" do
         fill_in_i18n(
@@ -102,9 +102,9 @@ shared_examples "manage attachments examples" do
 
     it "can remove an attachment from a collection" do
       within "#attachments" do
-        within find("tr", text: translated(attachment.title)) do
+        within "tr", text: translated(attachment.title) do
           expect(page).to have_text(translated(attachment_collection.name, locale: :en))
-          click_link "Edit"
+          click_on "Edit"
         end
       end
 
@@ -115,26 +115,26 @@ shared_examples "manage attachments examples" do
       end
 
       within "#attachments" do
-        within find("tr", text: translated(attachment.title)) do
-          expect(page).not_to have_text(translated(attachment_collection.name, locale: :en))
+        within "tr", text: translated(attachment.title) do
+          expect(page).to have_no_text(translated(attachment_collection.name, locale: :en))
         end
       end
     end
 
     it "can delete an attachment from a process" do
-      within find("tr", text: translated(attachment.title)) do
-        accept_confirm { click_link "Delete" }
+      within "tr", text: translated(attachment.title) do
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
-      expect(page).not_to have_content(translated(attachment.title, locale: :en))
+      expect(page).to have_no_content(translated(attachment.title, locale: :en))
     end
 
     it "can update an attachment" do
       within "#attachments" do
-        within find("tr", text: translated(attachment.title)) do
-          click_link "Edit"
+        within "tr", text: translated(attachment.title) do
+          click_on "Edit"
         end
       end
 

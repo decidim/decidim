@@ -28,3 +28,5 @@ es:
           update:
             invalid: Se ha producido un error al guardar la página.
             success: Página guardada correctamente.
+      show:
+        empty: Todavía no hay ningún contenido en esta página.

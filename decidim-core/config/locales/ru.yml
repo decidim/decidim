@@ -210,7 +210,6 @@ ru:
         many: и еще %{count}
         other: и еще %{count}
       see_less: "(читать меньше)"
-      see_more: "(читать подробнее)"
     components:
       dummy:
         actions:
@@ -231,8 +230,6 @@ ru:
     content_blocks:
       footer_sub_hero:
         name: Нижний колонтитул под-богатырского баннера
-      hero:
-        name: Богатырское изображение
       highlighted_content_banner:
         name: Баннер рекомендуемого содержимого
       how_to_participate:
@@ -482,7 +479,6 @@ ru:
           proposals: Предложения
           proposals_explanation: Вносите новые предложения, поддерживайте уже внесенные и способствуйте изменениям, которые вы хотите видеть.
         footer_sub_hero:
-          footer_sub_hero_body: Давайте построим более открытое, прозрачное и сотрудничающее общество.<br /> Присоединяйтесь, участвуйте и принимайте решения.
           footer_sub_hero_headline: Добро пожаловать на площадку соучастия %{organization}!
           register: Зарегистрироваться
         hero:
@@ -492,8 +488,6 @@ ru:
           headline: Текущее состояние %{organization}
         sub_hero:
           register: Зарегистрироваться
-    participatory_space_private_users:
-      not_allowed: У вас нет прав на просмотр этого содержимого
     profile:
       deleted: Удаленный участник
     profiles:
@@ -535,6 +529,8 @@ ru:
       results_found_for_term: '%{count} Результаты поиска: "%{term}"'
       term_input_placeholder: Поиск
     searches:
+      filters:
+        search: Поиск
       filters_small_view:
         filter: Отобрать
         filter_by: 'Отобрать по признаку:'

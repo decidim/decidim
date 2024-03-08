@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "decidim/meetings/seeds"
-
 Decidim.register_component(:meetings) do |component|
   component.engine = Decidim::Meetings::Engine
   component.admin_engine = Decidim::Meetings::AdminEngine
@@ -26,7 +24,7 @@ Decidim.register_component(:meetings) do |component|
   end
 
   component.register_stat :meetings_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
-    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).except_withdrawn
+    meetings = Decidim::Meetings::FilteredMeetings.for(components, start_at, end_at).not_withdrawn
     meetings.count
   end
 
@@ -98,6 +96,8 @@ Decidim.register_component(:meetings) do |component|
   end
 
   component.seeds do |participatory_space|
+    require "decidim/meetings/seeds"
+
     Decidim::Meetings::Seeds.new(participatory_space:).call
   end
 end

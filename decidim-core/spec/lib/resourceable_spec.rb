@@ -33,7 +33,7 @@ module Decidim
         end
 
         it "sends an event to notify the linking happened" do
-          payload = { from_type: "Decidim::DummyResources::DummyResource", from_id: resource.id, to_type: "Decidim::DummyResources::DummyResource", to_id: target_resource.id }
+          payload = { from_type: "Decidim::Dev::DummyResource", from_id: resource.id, to_type: "Decidim::Dev::DummyResource", to_id: target_resource.id }
           expect(received_on_create[:this]).to eq(payload)
         end
       end

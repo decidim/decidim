@@ -12,7 +12,7 @@ describe "Search" do
   end
 
   it "has a topbar search form" do
-    expect(page).to have_selector(".main-bar__search")
+    expect(page).to have_css(".main-bar__search")
   end
 
   context "when searching from the top bar" do
@@ -30,26 +30,25 @@ describe "Search" do
     it "displays the results page" do
       expect(page).to have_current_path decidim.search_path, ignore_query: true
       expect(page).to have_content(/results for the search: "#{term}"/i)
-      expect(page).to have_selector(".filter-search.filter-container")
+      expect(page).to have_css(".filter-search.filter-container")
     end
 
     it "has all the resources to search" do
       within ".search__filter" do
-        expect(page).to have_content("All")
-        expect(page).to have_content("Participants")
-        expect(page).to have_content("Groups")
-        expect(page).to have_content("Participatory processes")
-        expect(page).to have_content("Assemblies")
-        expect(page).to have_content("Conferences")
-        expect(page).to have_content("Votings")
-        expect(page).to have_content("Initiatives")
-        expect(page).to have_content("Meetings")
-        expect(page).to have_content("Proposals")
-        expect(page).to have_content("Budget")
-        expect(page).to have_content("Projects")
-        expect(page).to have_content("Debates")
-        expect(page).to have_content("Posts")
-        expect(page).to have_content("Comments")
+        expect(page).to have_content("All").once
+        expect(page).to have_content("Participants").once
+        expect(page).to have_content("Groups").once
+        expect(page).to have_content("Participatory processes").once
+        expect(page).to have_content("Assemblies").once
+        expect(page).to have_content("Conferences").once
+        expect(page).to have_content("Initiatives").once
+        expect(page).to have_content("Meetings").once
+        expect(page).to have_content("Proposals").once
+        expect(page).to have_content("Budgets").once
+        expect(page).to have_content("Projects").once
+        expect(page).to have_content("Debates").once
+        expect(page).to have_content("Posts").once
+        expect(page).to have_content("Comments").once
       end
     end
   end
@@ -60,8 +59,8 @@ describe "Search" do
       switch_to_host(organization.host)
       visit decidim.root_path
 
-      click_button(id: "dc-dialog-accept")
-      click_button(id: "dropdown-trigger-links-mobile-search")
+      click_on(id: "dc-dialog-accept")
+      click_on(id: "dropdown-trigger-links-mobile-search")
     end
 
     it "shows the mobile version of the search form" do

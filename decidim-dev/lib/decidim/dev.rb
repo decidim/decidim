@@ -2,12 +2,34 @@
 
 require "decidim/dev/railtie"
 
+require "decidim/dev/admin"
+require "decidim/dev/engine"
+require "decidim/dev/admin_engine"
+# We shall not load the component here, as it will complain there is no method register_component
+# for Decidim module. To fix that we need to require 'decidim/core', which will cause a major
+# performance setback, as this file is usually the first request in "spec_helpers".
+# We load dev component by requiring it later in the stack within lib/decidim/dev/test/base_spec_helper,
+# right after decidim/core is required
+# This comment and the below line is added to preserve consistency across all modules supplied.
+# Also, to avoid further headaches :)
+# require "decidim/dev/component"
+
 module Decidim
   # Decidim::Dev holds all the convenience logic and libraries to be able to
   # create external libraries that create test apps and test themselves against
   # them.
   module Dev
+    include ActiveSupport::Configurable
     autoload :DummyTranslator, "decidim/dev/dummy_translator"
+
+    # Settings needed to compare emendations in Decidim::SimilarEmendations
+    config_accessor :similarity_threshold do
+      0.25
+    end
+
+    config_accessor :similarity_limit do
+      10
+    end
 
     # Public: Finds an asset.
     #

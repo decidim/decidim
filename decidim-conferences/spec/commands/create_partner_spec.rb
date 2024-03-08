@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Conferences
   describe Admin::CreatePartner do
-    subject { described_class.new(form, current_user, conference) }
+    subject { described_class.new(form) }
 
     let(:conference) { create(:conference) }
     let(:user) { nil }
@@ -36,6 +36,7 @@ module Decidim::Conferences
         form_params
       ).with_context(
         current_user:,
+        current_participatory_space: conference,
         current_organization: conference.organization
       )
     end

@@ -74,7 +74,7 @@ module Decidim
           let(:resource) { build(:user) }
 
           it "renders a person icon" do
-            expect(result).to include("svg#ri-person")
+            expect(result).to include("svg#ri-user-line")
           end
         end
 
@@ -86,7 +86,7 @@ module Decidim
           end
 
           it "renders a generic icon" do
-            expect(result).to include("svg#ri-bell")
+            expect(result).to include("svg#ri-notification-3-line")
           end
         end
 
@@ -106,7 +106,7 @@ module Decidim
           let(:resource) { "Something" }
 
           it "renders a generic icon" do
-            expect(result).to include("svg#ri-bell")
+            expect(result).to include("svg#ri-notification-3-line")
           end
         end
       end

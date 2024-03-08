@@ -140,7 +140,6 @@ is-IS:
           any: Einhver
           author: Höfundur
           myself: Verkefni mín
-          search: Leita
           type: Gerð
         index_header:
           new_initiative: Nýtt frumkvæði
@@ -174,8 +173,5 @@ is-IS:
         finish: Klára
         select_initiative_type: Veldu
       initiatives:
-        initiative:
-          check: Skoðaðu þetta
-          check_and_support: Skoðaðu það og skráðu þig inn
         no_initiatives_yet:
           no_initiatives_yet: Engar aðgerðir ennþá!

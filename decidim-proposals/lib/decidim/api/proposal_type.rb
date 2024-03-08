@@ -41,6 +41,9 @@ module Decidim
       field :created_in_meeting, GraphQL::Types::Boolean, "Whether this proposal comes from a meeting or not", method: :official_meeting?, null: true
       field :meeting, Decidim::Meetings::MeetingType, description: "If the proposal comes from a meeting, the related meeting", null: true
 
+      field :withdrawn_at, Decidim::Core::DateTimeType, description: "The date and time this proposal was withdrawn", null: true
+      field :withdrawn, GraphQL::Types::Boolean, "Whether this proposal has been withdrawn or not", method: :withdrawn?, null: true
+
       def meeting
         object.authors.first if object.official_meeting?
       end

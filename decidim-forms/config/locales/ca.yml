@@ -161,6 +161,7 @@ ca:
             sign_up_description: Crea un compte de participant per a respondre l'enquesta
             title: Respon el formulari
           current_step: Pas %{step}
+          empty: No s'ha configurat cap pregunta encara en aquest formulari.
           of_total_steps: de %{total_steps}
           questionnaire_answered:
             body: Ja has respost a aquest formulari.

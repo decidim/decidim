@@ -46,7 +46,7 @@ module Decidim
 
       # Returns false if the current order does not have a rule for minimum budget
       # Returns false if the current order has not reached the minimum budget
-      # Otherwhise returns true
+      # Otherwise returns true
       def current_order_minimum_reached?
         return false if current_order.minimum_budget.zero?
 
@@ -114,7 +114,7 @@ module Decidim
         project
           .slice(:latitude, :longitude, :address)
           .merge(
-            title: decidim_html_escape(translated_attribute(project.title)),
+            title: decidim_escape_translated(project.title),
             link: ::Decidim::ResourceLocatorPresenter.new([project.budget, project]).path,
             items: cell("decidim/budgets/project_metadata", project).send(:project_items_for_map).to_json
           )
@@ -148,6 +148,22 @@ module Decidim
         end
 
         items.reject { |item| item[:collection].blank? }
+      end
+
+      def budgets_select_tag(name, options: {})
+        select_tag(
+          name,
+          options_for_select(reference_budgets_for_select),
+          options.merge(include_blank: I18n.t("decidim.budgets.prompt"))
+        )
+      end
+
+      def reference_budgets_for_select
+        references = Budget.joins(:component)
+                           .where(component: { participatory_space: current_participatory_space }).order(weight: :asc)
+        references.map do |budget|
+          ["#{"&nbsp;" * 4} #{decidim_escape_translated(budget.title)}".html_safe, budget.id]
+        end
       end
     end
   end

@@ -333,14 +333,8 @@ hu:
             non_user: Nem létező felhasználó
             select_user: Felhasználó kiválasztása
           index:
-            filter:
-              accepted: Elfogadott
-              all: Minden
-              rejected: Elutasítva
-              sent: Küldött
             invite_attendee: Hívja meg a résztvevőt
             invites: Meghívottak
-            search: Keresés
           new:
             explanation: A résztvevő meghívást kap egy konferenciára. Ha az e-mail cím nincs regisztrálva, akkor a szervezethez is meghívást kap.
             invite: Meghívás

@@ -263,7 +263,7 @@ Also some more refined configurations:
 
 
 |MAPS_PROVIDER
-|For a simple geolocation and tile maps service configuration define this value to one of the supported providers, currently `here` for https://HERE.com[HERE Maps] or `osm` for https://www.openstreetmap.org[OpenStreatMap]. See xref:services:maps.adoc[Maps].
+|For a simple geolocation and tile maps service configuration define this value to one of the supported providers, currently `here` for https://HERE.com[HERE Maps] or `osm` for https://www.openstreetmap.org[OpenStreetMap]. See xref:services:maps.adoc[Maps].
 |
 |No
 
@@ -382,76 +382,6 @@ Also some more refined configurations:
 |
 |*Yes*
 
-|BULLETIN_BOARD_SERVER
-|The full URL to identify a https://github.com/decidim/decidim-bulletin-board[Bulletin Board Server]. *It must point to the Graphql API* (ie: https://bulletinboard.example.org/api) See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
-|
-|No
-
-|BULLETIN_BOARD_PUBLIC_KEY
-|The public RSA key used to verify the Bulletin Board Server. See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
-|
-|No
-
-|BULLETIN_BOARD_API_KEY
-|An additional API key to add additional security with the communications with the Elections Bulletin Board Server. See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
-|
-|No
-
-|AUTHORITY_NAME
-|The name of the Authority registered in the Bulletin Board Server corresponding to this Decidim instance. See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
-|
-|No
-
-|AUTHORITY_PRIVATE_KEY
-|The private RSA key of this Decidim instance corresponding to the Authority public key registered in the Bulletin Board Server. See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
-|
-|No
-
-|ELECTIONS_SCHEME_NAME
-|The type of strategy used in the Bulletin Board Server used for encrypting the Election. *Currently only `electionguard` is available for production* See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
-|electionguard
-|No
-
-|ELECTIONS_NUMBER_OF_TRUSTEES
-|Number of trustees for `electionguard` election scheme, minimum number is 2. See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
-|
-|No
-
-|ELECTIONS_QUORUM
-|Number of trustees required to be present in order to decrypt an election in case of the `electionguard` scheme. Minimum is 2, maximum the number of trustees. See xref:services:elections_bulletin_board.adoc[Elections Bulletin Board].
-|
-|No
-
-|ELECTIONS_SETUP_MINIMUM_HOURS_BEFORE_START
-|Public Setting that defines how many hours should the setup be run before the election starts
-|3
-|No
-
-|ELECTIONS_START_VOTE_MAXIMUM_HOURS_BEFORE_START
-|Public Setting that defines how many hours the ballot box can be opened before the election starts
-|6
-|No
-
-|ELECTIONS_VOTER_TOKEN_EXPIRATION_MINUTES
-|How long any time of message sent to the bulletin board will be valid for any kind of processing.
-|120
-|No
-
-|VOTINGS_CHECK_CENSUS_MAX_REQUESTS
-|Max requests in a time period to check the census. Only applied in production and test.
-|5
-|No
-
-|VOTINGS_THROTTLING_PERIOD
-|Time window in which the VOTINGS_CHECK_CENSUS_MAX_REQUESTS throttling is applied (in minutes).
-|1
-|No
-
-|VOTINGS_CENSUS_ACCESS_CODES_EXPORT_EXPIRY_TIME
-|How long the census access codes export file will are available in the server (in days)
-|2
-|No
-
 |VAPID_PUBLIC_KEY
 |VAPID public key that will be used to sign the Push API requests. It can be generated running the task: `rails decidim:pwa:generate_vapid_keys`
 |
@@ -479,7 +409,7 @@ Also some more refined configurations:
 |DECIDIM_DEFAULT_LOCALE
 |The default locale to be used as a fallback (note that, in practice, this value must always be defined in the System configuration for each organization anyway).
 
-*Note that `DECIDIM_AVALABLE_LOCALES` must include this value*
+*Note that `DECIDIM_AVAILABLE_LOCALES` must include this value*
 |en
 |*Partially*, Only when creating a new organization
 
@@ -618,7 +548,7 @@ Notice that expire_session_after will not take effect when the user wants to be 
 |No
 
 |DECIDIM_FOLLOW_HTTP_X_FORWARDED_HOST
-|Exposes a configuration option: `HTTP_X_FORWADED_HOST` header follow-up.
+|Exposes a configuration option: `HTTP_X_FORWARDED_HOST` header follow-up.
 
 If a caching system is in place, it can also allow cache and log poisoning attacks, allowing attackers to control the contents of caches and logs that could be used for other attacks.
 |false
@@ -684,7 +614,7 @@ Additional context: This has been revealed as an issue during a security audit o
 |No
 
 |*DECIDIM_SERVICE_WORKER_ENABLED*
-|Enable/Disable the service worker. This is used to enable offline support and to deliver push notifications. In development it is recommended to be disabled because its aggresive cache configuration might cause some issues when submitting forms.
+|Enable/Disable the service worker. This is used to enable offline support and to deliver push notifications. In development it is recommended to be disabled because its aggressive cache configuration might cause some issues when submitting forms.
 |false
 |No
 
@@ -860,7 +790,7 @@ Note that this only applies to production environments.
 |No
 
 |RAILS_ASSET_HOST
-|If you use a CDN or another type of assets management, you can specify the host (and path) for it so, instead of Rails serving your assets (CSS, Javascript, Images) will use your custom system. For instance `https://assets.example.org`
+|If you use a CDN or another type of assets management, you can specify the host (and path) for it so, instead of Rails serving your assets (CSS, JavaScript, Images) will use your custom system. For instance `https://assets.example.org`
 |
 |No
 

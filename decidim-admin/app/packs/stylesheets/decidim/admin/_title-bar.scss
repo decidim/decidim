@@ -6,7 +6,7 @@
   }
 
   .layout-content__container {
-    @apply pt-2.5 pb-2 px-2 md:px-8 flex items-center;
+    @apply pt-2.5 pb-2 px-2 md:px-8 block sm:flex items-center;
   }
 }
 

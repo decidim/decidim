@@ -22,9 +22,11 @@ fr-CA:
       user:
         about: A propos de moi
         email: Votre email
+        encrypted_password: Mot de passe
         locale: Langue
         name: Votre nom
         nickname: Surnom
+        old_password: Mot de passe actuel
         password: Mot de passe
         password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
@@ -75,12 +77,6 @@ fr-CA:
   booleans:
     'false': 'Non'
     'true': 'Oui'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: Le fichier n'a pas pu être traité
-      file_resolution_too_large: La résolution du fichier est trop grande
-      file_size_too_large: Le fichier est trop volumineux
-      not_inside_organization: Le fichier n'est relié à aucune organisation
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -285,11 +281,9 @@ fr-CA:
       amendable:
         button: Modifier %{model_name}
         error: Une erreur s'est produite lors de la modification de cette ressource.
-        help_text: Améliorer ce %{model_name} en modifiant ses %{amendable_fields}.
         promote_button: Promouvoir à %{model_name}
         promote_confirm_text: Êtes-vous sûr de vouloir promouvoir cette modification?
         promote_help_text: Vous pouvez promouvoir cette correction et la publier indépendamment de %{model_name}.
-        section_heading: Amendements (%{count})
       amendments:
         title:
           one: "%{count} amendement"
@@ -457,7 +451,6 @@ fr-CA:
         one: et %{count} plus
         other: et %{count} plus
       see_less: "(voir moins)"
-      see_more: "(voir plus)"
     components:
       component_order_selector:
         no_content: Nous n'avons trouvé aucun contenu avec ces critères.
@@ -515,7 +508,7 @@ fr-CA:
       global_menu:
         name: Menu global
       hero:
-        name: Image principale (hero)
+        name: Image principale et bouton d'action
       hero_settings_form:
         background_image: Image d'arrière-plan
         welcome_text: Texte de bienvenue
@@ -589,6 +582,8 @@ fr-CA:
           subtitle: Remplissez le formulaire suivant pour compléter l'inscription
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       registrations:
+        create:
+          error: Il y a eu un problème pour créer votre compte.
         new:
           already_have_an_account?: Vous avez déjà un compte ?
           log_in: Se connecter
@@ -670,6 +665,10 @@ fr-CA:
     endorsers_list:
       endorsed_by: Soutenu par …
     errors:
+      files:
+        file_cannot_be_processed: Le fichier ne peut pas être traité
+        file_resolution_too_large: La résolution du fichier est trop grande
+        not_inside_organization: Le fichier n'est attaché à aucune organisation
       internal_server_error:
         copied: Texte copié !
         copy_error_message_clarification: Copier le message d'erreur dans le presse-papiers
@@ -908,14 +907,12 @@ fr-CA:
           add_attachment: Ajouter une pièce jointe
           add_file: Ajouter un fichier
           add_image: Ajouter une image
-          cancel: Annuler
           edit_image: Modifier l'Image
           error: Erreur !
           file_size_too_large: 'Le fichier est trop volumineux ! Poids de fichier maximum : %{megabytes}Mo'
           filename: Nom du fichier
           remove: Supprimer
           replace: Remplacer
-          save: Sauvegarder
           title: Titre
           title_required: Le titre est requis !
           uploaded: Téléchargé
@@ -1278,7 +1275,8 @@ fr-CA:
     offline:
       name: Hors ligne
       show:
-        message: Il semble que vous êtes actuellement hors ligne. Veuillez réessayer plus tard.
+        message_1: On dirait que vous êtes actuellement hors ligne.
+        message_2: Veuillez réessayer plus tard.
         retry: Réessayer
     open_data:
       not_available_yet: Les fichiers Open Data ne sont pas encore disponibles. Veuillez réessayer dans quelques minutes.
@@ -1298,7 +1296,7 @@ fr-CA:
           proposals: Propositions
           proposals_explanation: Faites des propositions, appuyez les projets existants et soutenez les idées que vous souhaitez voir advenir.
         footer_sub_hero:
-          footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez et décidez, ensemble.
+          footer_sub_hero_body_html: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez et décidez, ensemble.
           footer_sub_hero_headline: Bienvenue sur la plate-forme participative de %{organization}.
           register: S'inscrire
         hero:
@@ -1336,8 +1334,6 @@ fr-CA:
           alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
           body: Veuillez prendre le temps de consulter nos conditions d'utilisation mises à jour. Dans le cas contraire, vous ne serrez pas en mesure d'utiliser la plateforme.
           title: 'Requis : veuillez consulter la mise à jour des conditions d''utilisation.'
-    participatory_space_private_users:
-      not_allowed: Vous n'êtes pas autorisé à voir ce contenu
     passwords:
       update:
         error: Il y a eu un problème lors de la mise à jour de votre mot de passe.
@@ -1571,6 +1567,15 @@ fr-CA:
         greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Bonjour %{admin},
         subject: Un nouvel utilisateur a été signalé dans %{organization_name}
+    user_update_mailer:
+      notify:
+        body_1: Nous vous envoyons ce message pour vous informer de la mise à jour de votre compte.
+        body_2: Si vous n'avez pas effectué cette mise à jour vous-même, veuillez vous connecter à votre compte pour changer votre mot de passe. Si vous ne pouvez pas vous connecter, veuillez contacter le support de la plateforme.
+        greetings: Cordialement, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Bonjour %{user}
+        main_body: 'Les détails suivants ont été modifiés : %{updates}.'
+        update_fields: "%{updates} et %{last_update}"
+      subject: Votre compte a été mis à jour
     version:
       show:
         back_to_resource: Revenir en arrière
@@ -1682,8 +1687,9 @@ fr-CA:
         change_my_password: Changer mon mot de passe
         confirm_new_password: Confirmer le nouveau mot de passe
         new_password: Nouveau mot de passe
-        password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
-        password_help_admin: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email, ainsi que de vos précédents mots de passe."
+        old_password_help: Afin de confirmer les modifications apportées à votre compte, veuillez saisir votre mot de passe actuel.
+        password_help: "%{minimum_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
+        password_help_admin: "%{minimum_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email, ainsi que de vos précédents mots de passe."
         title: Changement de mot de passe
       new:
         forgot_your_password: Mot de passe oublié?
@@ -1788,30 +1794,32 @@ fr-CA:
     upload:
       uploadedFile: Fichier déposé
   emojis:
+    add_custom: Ajouter un émoji personnalisé
     button: Ajouter un émoji
     categories:
-      activities: Activités
-      animals-nature: Animaux & nature
+      activity: Activité
       custom: Personnalisé
       flags: Drapeaux
-      food-drink: Nourriture et boissons
+      foods: Nourriture et Boissons
+      frequent: Fréquemment utilisés
+      nature: Animaux & Nature
       objects: Objets
-      people-body: Personnes & Corps
-      recents: Utilisés récemment
-      smileys-emotion: Smileys & Émotion
+      people: Smileys et Personnes
+      places: Voyages et Lieux
+      search: Résultats de recherche
       symbols: Symboles
-      travel-places: Lieux et voyages
-    error:
-      load: Impossible de charger la liste des émojis
-    recents:
-      clear: Effacer les émojis récents
-      none: Vous n'avez pas encore sélectionné d'emojis.
-    retry: Réessayez
-    search:
-      _: Rechercher des émojis...
-      clear: Effacer la recherche
-      error: La recherche d'émojis a échoué
-      not_found: Aucun résultat trouvé
+    pick: Choisissez un emoji…
+    search: Rechercher
+    search_no_results_1: Oh non!
+    search_no_results_2: Cet émoji n'a pas pu être trouvé
+    skins:
+      '1': Par défaut
+      '2': Clair
+      '3': Moyennement clair
+      '4': Moyen
+      '5': Moyennement sombre
+      '6': Sombre
+      choose: Choisissez le teint de peau par défaut
   errors:
     messages:
       allowed_file_content_types: 'seuls les fichiers avec les extensions suivantes sont autorisés : %{types}'
@@ -1946,8 +1954,6 @@ fr-CA:
         continue_session: Continuer la session
         log_out: Se déconnecter
         title: Voulez-vous poursuivre votre session ?
-      upload_modal:
-        close_modal: Fermer la fenêtre
       user_menu:
         account: 'Compte utilisateur: %{name}'
         admin_dashboard: Tableau de bord des administrateurs

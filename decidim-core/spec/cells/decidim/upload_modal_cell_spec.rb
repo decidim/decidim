@@ -75,7 +75,7 @@ describe Decidim::UploadModalCell, type: :cell do
 
     it "renders the attachments" do
       expect(subject).to have_css(".attachment-details")
-      expect(subject).to have_selector("[data-filename='#{filename}']")
+      expect(subject).to have_css("[data-filename='#{filename}']")
     end
 
     context "when attachment is image" do
@@ -99,10 +99,10 @@ describe Decidim::UploadModalCell, type: :cell do
 
       it "renders the attachments" do
         expect(subject).to have_css(".attachment-details")
-        expect(subject).to have_selector("[data-filename='#{filename}']")
+        expect(subject).to have_css("[data-filename='#{filename}']")
 
         details = subject.find(".attachment-details")
-        expect(details).to have_content("#{attachments[0].title["en"]} (#{filename})")
+        expect(details).to have_content("#{decidim_sanitize_translated(attachments[0].title)} (#{filename})")
       end
     end
 
@@ -132,8 +132,8 @@ describe Decidim::UploadModalCell, type: :cell do
 
     it "renders the attachments" do
       expect(subject).to have_css(".attachment-details", count: 2)
-      expect(subject).to have_selector("[data-filename='Exampledocument.pdf']")
-      expect(subject).to have_selector("[data-filename='city.jpeg']")
+      expect(subject).to have_css("[data-filename='Exampledocument.pdf']")
+      expect(subject).to have_css("[data-filename='city.jpeg']")
       expect(subject).to have_css("img")
       expect(subject.find("img")["src"]).to match(%r{/city.jpeg$})
     end
@@ -162,10 +162,10 @@ describe Decidim::UploadModalCell, type: :cell do
 
       it "renders the attachments" do
         expect(subject).to have_css(".attachment-details", count: 2)
-        expect(subject).to have_selector("[data-filename='#{filename1}']")
+        expect(subject).to have_css("[data-filename='#{filename1}']")
 
         details = subject.find(".attachment-details", match: :first)
-        expect(details).to have_content("#{attachments[0].title["en"]} (#{filename1})")
+        expect(details).to have_content("#{decidim_sanitize_translated(attachments[0].title)} (#{filename1})")
       end
     end
 

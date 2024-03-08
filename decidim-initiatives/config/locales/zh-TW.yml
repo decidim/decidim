@@ -290,8 +290,6 @@ zh-TW:
             update: 更新
           form:
             authorizations: 權限設置
-            child_scope_threshold_enabled_help: '此配置標誌不支援離線投票。它啟用子範圍並並且需要一個授權處理程序配合使用，將範圍與使用者相關聯起來。請確認您在授權設置下方選擇了該授權。為使其正常運作，必須以階層方式配置範圍：1 父級 - N 子級。如需有關此配置的更多信息，請參閱<a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">倡議的管理員文件頁面</a>。'
-            only_global_scope_enabled_help: 若您已啟用「子範圍籤章」並將全域範圍配置為父範圍，請勾選此標誌。啟用後，建立倡議的精靈中將跳過倡議類型選擇。如需有關此配置如何運作的詳細信息，請參閱此<a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">鏈接</a>。
             options: 選項
           initiative_type_scopes:
             title: 倡議類型範圍
@@ -446,7 +444,6 @@ zh-TW:
             other: "one\n以及其他 %{count} 個人\n\nOther\n以及其他 %{count} 個人"
         committee_members:
           approve: 核准
-          confirm_revoke: 您確定嗎？
           invite_to_committee_help: 透過分享此連結，邀請其他參與者加入推廣委員會。
           no_members_yet: 推廣委員會中沒有成員.
           title: 委員會成員
@@ -459,7 +456,6 @@ zh-TW:
           author: 作者
           myself: 我的倡議
           scope: 範圍
-          search: 搜尋
           state: 狀態
           type: 類別
         index_header:
@@ -576,8 +572,5 @@ zh-TW:
         sms_phone_number: 行動電話號碼
         title: 簽名 %{initiative_title}
       initiatives:
-        initiative:
-          check: 查看
-          check_and_support: 查看並簽署
         no_initiatives_yet:
           no_initiatives_yet: 尚無倡議！

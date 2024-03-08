@@ -7,10 +7,6 @@ module Decidim
   # tweak the necessary methods (usually `title` is enough).
   class ActivityCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
-    include Decidim::IconHelper
-    include Decidim::ApplicationHelper
-    include Decidim::SanitizeHelper
-    include ActionView::Helpers::DateHelper
 
     def show
       return unless renderable?
@@ -27,6 +23,8 @@ module Decidim
 
     # The resource linked to the activity.
     def resource
+      return if model.blank?
+
       model.resource_lazy
     end
 
@@ -39,9 +37,9 @@ module Decidim
 
       case resource_title
       when String
-        resource_title
+        decidim_html_escape(resource_title)
       when Hash
-        translated_attribute(resource_title)
+        decidim_escape_translated(resource_title)
       end
     end
 
@@ -75,7 +73,7 @@ module Decidim
 
     # The text to show as the link to the resource.
     def resource_link_text
-      decidim_html_escape(translated_attribute(resource.title))
+      decidim_escape_translated(resource.title)
     end
 
     def created_at
@@ -106,7 +104,7 @@ module Decidim
       hash << id_prefix
       hash << I18n.locale.to_s
       hash << model.class.name.underscore
-      hash << model.cache_key_with_version
+      hash << model.cache_key_with_version if model.respond_to?(:cache_key_with_version)
       if (author_cell = author)
         hash.push(Digest::MD5.hexdigest(author_cell.send(:cache_hash)))
       end
@@ -157,7 +155,7 @@ module Decidim
 
     def participatory_space_link
       link_to(
-        decidim_html_escape(translated_attribute(participatory_space.title)),
+        decidim_escape_translated(participatory_space.title),
         resource_locator(participatory_space).path
       )
     end

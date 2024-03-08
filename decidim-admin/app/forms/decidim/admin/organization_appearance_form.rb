@@ -15,8 +15,6 @@ module Decidim
       attribute :remove_logo, Boolean, default: false
       attribute :favicon
       attribute :remove_favicon, Boolean, default: false
-      attribute :official_img_header
-      attribute :remove_official_img_header, Boolean, default: false
       attribute :official_img_footer
       attribute :remove_official_img_footer, Boolean, default: false
       attribute :official_url
@@ -46,8 +44,7 @@ module Decidim
       translatable_attribute :omnipresent_banner_short_description, String
 
       validates :cta_button_path, format: { with: %r{\A[a-zA-Z]+[a-zA-Z0-9\-_/]+\z} }, allow_blank: true
-      validates :official_img_header,
-                :official_img_footer,
+      validates :official_img_footer,
                 :logo,
                 passthru: { to: Decidim::Organization }
 

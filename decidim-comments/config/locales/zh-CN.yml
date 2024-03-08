@@ -14,7 +14,6 @@ zh-CN:
         other: 所得票数
   decidim:
     comments:
-      comments_count: 评论计数
       votes:
         create:
           error: 在表决该评论时出现问题。

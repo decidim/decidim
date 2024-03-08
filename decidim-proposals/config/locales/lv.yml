@@ -373,8 +373,6 @@ lv:
           new:
             create: Izveidot
             title: Izveidot priekšlikumu
-          publish_answers:
-            number_of_proposals: Tiks publicētas atbildes uz %{number} priekšlikumiem.
           show:
             amendments_count: Grozījumu skaits
             assigned_valuators: Piešķirtie vērtētāji
@@ -383,7 +381,6 @@ lv:
             documents: Dokumenti
             endorsements_count: Atbalstu skaits
             endorsers: Atbalstītāji
-            link: Saite
             n_more_endorsers:
               zero: un %{count} vēl
               one: un vēl viens

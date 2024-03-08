@@ -64,9 +64,6 @@ it:
   booleans:
     'false': 'No'
     'true': 'Si'
-  carrierwave:
-    errors:
-      not_inside_organization: Il file non è collegato a nessuna organizzazione
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -169,7 +166,6 @@ it:
         error: Si è verificato un errore durante la modifica di questa risorsa.
         promote_button: Promuovi a %{model_name}
         promote_confirm_text: Sei sicuro di voler promuovere questa emendazione?
-        section_heading: Modifiche (%{count})
       compare_draft:
         continue: Prosegui
         no_similars_found: Nessun emendamento simile trovato.
@@ -307,7 +303,6 @@ it:
         one: e altri %{count}
         other: e altri %{count}
       see_less: "(vedi meno)"
-      see_more: "(Vedi altro)"
     components:
       component_order_selector:
         order:
@@ -358,8 +353,6 @@ it:
         description: Descrisione
       footer_sub_hero:
         name: Banner di sub eroe di piè di pagina
-      hero:
-        name: Immagine in evidenza
       hero_settings_form:
         background_image: Immagine di sfondo
         welcome_text: Testo di benvenuto
@@ -889,7 +882,6 @@ it:
           proposals: proposte
           proposals_explanation: Fare proposte, sostenere quelle esistenti e promuovere le modifiche che vuoi vedere.
         footer_sub_hero:
-          footer_sub_hero_body: Costruiamo una società più aperta, trasparente e collaborativa.<br /> Unisciti, participa e decidi.
           footer_sub_hero_headline: Benvenuto sulla piattaforma partecipativa di %{organization}.
           register: Registrati
         hero:
@@ -908,8 +900,6 @@ it:
         metrics:
           headline: Partecipazione in cifre
           link: Mostra tutte le statistiche
-    participatory_space_private_users:
-      not_allowed: Non sei autorizzato a visualizzare questo contenuto
     profile:
       deleted: Utente eliminato
     profiles:
@@ -1186,7 +1176,6 @@ it:
         change_my_password: Cambia la mia password
         confirm_new_password: Conferma la nuova password
         new_password: Nuova password
-        password_help: "%{minimun_characters} caratteri minimi, non deve essere troppo comune (ad esempio 123456) e deve essere diverso dal tuo nickname e dalla tua email."
       new:
         forgot_your_password: Hai dimenticato la password?
         send_me_reset_password_instructions: Inviami le istruzioni per reimpostare la password

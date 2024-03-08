@@ -39,8 +39,11 @@ fi-pl:
         confirm_destroy: Oletko varma, että haluat poistaa tämän tuloksen?
         destroy: Poista
         edit: Muokkaa
-        import: Tuo hankkeita tuloksiin
-        import_csv: Tuo CSV
+        import: Tuo hankkeita toisesta komponentista
+        import_csv: Tuo tulokset CSV-tiedostosta
+        new_result: Uusi tulos
+        new_status: Uusi tila
+        new_timeline_entry: Uusi aikajanan merkintä
         preview: Esikatsele
         timeline_entries: Projektin edistyminen
         title: Toiminnot
@@ -98,7 +101,7 @@ fi-pl:
             success:
               one: 1 hanke on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu.
               other: "%{count} hanketta on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu."
-            title: Tuo hankkeita vastuullisuuskomponenttiin
+            title: Tuo hankkeita toisesta komponentista
         results:
           create:
             invalid: Tuloksen luonti epäonnistui.
@@ -171,9 +174,7 @@ fi-pl:
             not_found: 'Pääelementtiä ei löytynyt tietokannasta (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Päivämäärät
           results: Tulokset
-          unspecified: Ei määritelty
       import_mailer:
         import:
           errors: Virheet
@@ -212,9 +213,6 @@ fi-pl:
           fields:
             entry_date: Päivämäärä
             title: Otsikko
-      result_m:
-        executed: Valmistunut
-        view: Näytä
       results:
         count:
           results_count:
@@ -224,6 +222,8 @@ fi-pl:
           all: Kaikki
         home:
           categories_label: Aihepiirit
+          empty: Ei yhtään tulosta.
+          empty_filters: Tuloksia ei löytynyt annetuilla hakuehdoilla.
           subcategories_label: Ala-aihepiiri
         home_header:
           global_status: Yleisen toteutuksen tila

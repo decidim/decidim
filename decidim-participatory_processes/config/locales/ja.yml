@@ -7,7 +7,7 @@ ja:
         banner_image: バナー画像
         copy_categories: カテゴリをコピー
         copy_components: コンポーネントをコピー
-        copy_steps: ステップをコピー
+        copy_steps: フェーズをコピー
         decidim_area_id: エリア
         description: 説明
         developer_group: プロモーターグループ
@@ -19,7 +19,7 @@ ja:
         import_attachments: 添付ファイルをインポート
         import_categories: カテゴリをインポート
         import_components: コンポーネントをインポート
-        import_steps: ステップをインポート
+        import_steps: フェーズをインポート
         local_area: 組織エリア
         meta_scope: スコープメタデータ
         participatory_process_group_id: 参加型プロセスグループ
@@ -95,9 +95,6 @@ ja:
         destroy: 削除
         duplicate: 複製
         edit: 編集
-        filter:
-          all_processes: すべての参加型プロセスを表示
-          process_groups: グループ内のプロセスをフィルター
         import_process: インポート
         moderate: モデレート
         new_process: 新規参加型プロセス
@@ -110,6 +107,9 @@ ja:
         resend_invitation: 招待を再送信する
         see_process: プロセスを見る
         unpublish: 公開しない
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: プロセスグループ別
       menu:
         participatory_process_groups: 参加型プロセスグループ
         participatory_process_groups_submenu:
@@ -173,22 +173,6 @@ ja:
           copy: コピー
           select: 複製したいデータを選択してください
           title: 重複した参加型プロセス
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: アクティブコンテンツブロック
-          add: コンテンツブロックを追加
-          destroy_confirmation: このコンテンツブロックを削除してもよろしいですか？
-          inactive_content_blocks: 非アクティブコンテンツブロック
-          title: ページコンテンツ
-      participatory_process_group_landing_page_content_blocks:
-        create:
-          error: コンテンツブロックの作成中に問題が発生しました。
-          success: コンテンツブロックを作成しました。
-        destroy:
-          error: コンテンツブロックの削除中に問題が発生しました。
-          success: コンテンツブロックを削除しました。
-        edit:
-          update: 更新
       participatory_process_groups:
         destroy:
           error: 参加型プロセスグループの削除中にエラーが発生しました。
@@ -232,6 +216,12 @@ ja:
             last_step: プロセスの最後のフェーズを削除できません。
           success: 参加型プロセスのフェーズが正常に削除されました。
         edit:
+          cta_deprecated:
+            body_html: |-
+              参加プロセスのフェーズを通じてCTAを設定することは、新しいデザインでは非推奨となりました。
+              これは現在、<b>ランディングページ</b>にて、<b>ヒーローと画像</b>のコンテンツブロックを使用して行えます。
+              この機能を残しているのは必要なCTAを移行するためです。<i>コール・トゥ・アクションのパス</i>フィールドと<i>コール・トゥ・アクションのテキスト</i>フィールドは次のバージョンで削除されます。
+            title: CTAは非推奨です
           title: 参加型プロセスのフェーズを編集
           update: 更新
         index:

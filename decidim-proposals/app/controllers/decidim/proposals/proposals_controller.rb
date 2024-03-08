@@ -225,21 +225,21 @@ module Decidim
       def default_filter_params
         {
           search_text_cont: "",
-          with_any_origin: default_filter_origin_params,
+          with_any_origin: nil,
           activity: "all",
-          with_any_category: default_filter_category_params,
-          with_any_state: %w(accepted evaluating state_not_published),
-          with_any_scope: default_filter_scope_params,
+          with_any_category: nil,
+          with_any_state: default_states,
+          with_any_scope: nil,
           related_to: "",
           type: "all"
         }
       end
 
-      def default_filter_origin_params
-        filter_origin_params = %w(participants meeting)
-        filter_origin_params << "official" if component_settings.official_proposals_enabled
-        filter_origin_params << "user_group" if current_organization.user_groups_enabled?
-        filter_origin_params
+      def default_states
+        [
+          Decidim::Proposals::ProposalState.where(component: current_component).pluck(:token).map(&:to_s),
+          %w(state_not_published)
+        ].flatten - ["rejected"]
       end
 
       def proposal_draft

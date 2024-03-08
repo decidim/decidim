@@ -59,9 +59,6 @@ tr:
   booleans:
     'false': 'Hayır'
     'true': 'Evet'
-  carrierwave:
-    errors:
-      not_inside_organization: Dosya herhangi bir kuruluşa eklenmemiş
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -164,7 +161,6 @@ tr:
         error: Bu kaynağı değiştiren bir hata oluştu.
         promote_button: '%{model_name} olarak yükselt'
         promote_confirm_text: Bu değişikliği tanıtmak istediğinizden emin misiniz?
-        section_heading: Değişiklikler (%{count})
       compare_draft:
         continue: Devam et
         no_similars_found: Hiç benzer düzeltme bulunamadı.
@@ -299,7 +295,6 @@ tr:
         one: ve %{count} daha
         other: ve %{count} daha
       see_less: "(daha az görün)"
-      see_more: "(daha fazla gör)"
     components:
       component_order_selector:
         order:
@@ -350,8 +345,6 @@ tr:
         description: Açıklama
       footer_sub_hero:
         name: Dipnot alt afişi
-      hero:
-        name: Ana resim
       hero_settings_form:
         background_image: Arka plan resmi
         welcome_text: Hoşgeldin Mesajı
@@ -878,7 +871,6 @@ tr:
           proposals: Teklifler
           proposals_explanation: Öneriler yapın, mevcut olanları destekleyin ve görmek istediğiniz değişiklikleri tanıtın.
         footer_sub_hero:
-          footer_sub_hero_body: Daha açık, şeffaf ve işbirliğine dayalı bir toplum oluşturalım. <br /> Katılın, katılımcı olun ve karar verin.
           footer_sub_hero_headline: '%{organization} katılımcı platformuna hoş geldiniz.'
           register: Kayıt Ol
         hero:
@@ -897,8 +889,6 @@ tr:
         metrics:
           headline: Metrikler
           link: Bütün istatistikleri göster
-    participatory_space_private_users:
-      not_allowed: Bu içeriği görüntüleme izniniz bulunmuyor
     profile:
       deleted: Silinmiş kullanıcı
     profiles:
@@ -1166,7 +1156,6 @@ tr:
         change_my_password: Şifremi Değiştir
         confirm_new_password: Yeni şifreyi onayla
         new_password: Yeni Şifre
-        password_help: "Asgari %{minimun_characters} karakter, çok yaygın olmamalı (örnek: 123456) ve takma adınızdan ve eposta adresinizden farklı olmalıdır."
       new:
         forgot_your_password: Parolanızı mı unuttunuz?
         send_me_reset_password_instructions: Bana şifre sıfırlama talimatlarını gönder

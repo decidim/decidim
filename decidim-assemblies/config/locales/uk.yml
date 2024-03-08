@@ -117,13 +117,11 @@ uk:
         destroy:
           success: Успішно видалено члена президії цих зборів.
         edit:
-          title: Оновити члена президії зборів.
           update: Оновити
         index:
           assembly_members_title: Члени президії зборів
         new:
           create: Додати
-          title: Додати члена президії зборів.
         update:
           error: При спробі оновити члена президії цих зборів сталася помилка.
           success: Члена президії цих зборів успішно оновлено.
@@ -141,13 +139,11 @@ uk:
         destroy:
           success: Учасника цих зборів успішно видалено.
         edit:
-          title: Оновити учасника зборів.
           update: Оновити
         index:
           assembly_admins_title: Учасники зборів
         new:
           create: Створити
-          title: Додати учасника зборів.
         update:
           error: При спробі оновити учасника цих зборів сталася помилка.
           success: Учасника цих зборів успішно оновлено.
@@ -234,12 +230,10 @@ uk:
             select_a_position: Оберіть посаду
             select_user: Оберіть учасника
             user_type: Різновид учасника
-          index:
-            filter:
-              all: Усі
-              ceased: Повноваження припинені
-              not_ceased: Повноваження не припинені
-            search: Шукати
+      assemblies:
+        filters:
+          names:
+            all: Усі
       assembly_members:
         index:
           members: Члени президії

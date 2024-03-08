@@ -47,9 +47,6 @@ si:
         statuses:
           edit:
             title: තත්වය සංස්කරණය
-      content_blocks:
-        highlighted_results:
-          dates: දින
       import_mailer:
         import:
           errors: දෝෂ

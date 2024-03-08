@@ -97,10 +97,10 @@ describe "Editor" do
       # Necessary ActiveStorage routes for the image uploads and displaying user
       # avatars through the API
       scope ActiveStorage.routes_prefix do
-        get "/blobs/redirect/:signed_id/*filename" => "active_storage/blobs/redirect#show", as: :rails_service_blob
-        get "/representations/redirect/:signed_blob_id/:variation_key/*filename" => "active_storage/representations/redirect#show", as: :rails_blob_representation
-        get "/disk/:encoded_key/*filename" => "active_storage/disk#show", as: :rails_disk_service
-        post "/direct_uploads" => "active_storage/direct_uploads#create", as: :rails_direct_uploads
+        get "/blobs/redirect/:signed_id/*filename" => "active_storage/blobs/redirect#show", :as => :rails_service_blob
+        get "/representations/redirect/:signed_blob_id/:variation_key/*filename" => "active_storage/representations/redirect#show", :as => :rails_blob_representation
+        get "/disk/:encoded_key/*filename" => "active_storage/disk#show", :as => :rails_disk_service
+        post "/direct_uploads" => "active_storage/direct_uploads#create", :as => :rails_direct_uploads
       end
       direct :rails_representation do |representation, options|
         signed_blob_id = representation.blob.signed_id
@@ -544,7 +544,7 @@ describe "Editor" do
     context "when managing an ordered list" do
       let(:editor_content) { "<ol><li><p>Item</p></li></ol>" }
 
-      it "allows changing the the list type with ALT+SHIFT+DOWN" do
+      it "allows changing the list type with ALT+SHIFT+DOWN" do
         %w(a A i I).each do |type|
           prosemirror.native.send_keys [:alt, :shift, :down]
           expect_value(%(<ol type="#{type}" data-type="#{type}"><li><p>Item</p></li></ol>))
@@ -554,7 +554,7 @@ describe "Editor" do
         expect_value(editor_content)
       end
 
-      it "allows changing the the list type with ALT+SHIFT+UP" do
+      it "allows changing the list type with ALT+SHIFT+UP" do
         %w(I i A a).each do |type|
           prosemirror.native.send_keys [:alt, :shift, :up]
           expect_value(%(<ol type="#{type}" data-type="#{type}"><li><p>Item</p></li></ol>))
@@ -1143,12 +1143,12 @@ describe "Editor" do
             width = dimensions[0]
             height = dimensions[1]
 
-            expect(page).to have_selector("[data-image-resizer-dimension-value='#{width}']", visible: :all)
-            expect(page).to have_selector("[data-image-resizer-dimension-value='#{height}']", visible: :all)
+            expect(page).to have_css("[data-image-resizer-dimension-value='#{width}']", visible: :all)
+            expect(page).to have_css("[data-image-resizer-dimension-value='#{height}']", visible: :all)
 
             drag("[data-image-resizer-control='top-right']", mode:, direction: "left", amount: 100)
-            expect(page).to have_selector("[data-image-resizer-dimension-value='#{width - 100}']", visible: :all)
-            expect(page).to have_selector("[data-image-resizer-dimension-value='#{height - 67}']", visible: :all)
+            expect(page).to have_css("[data-image-resizer-dimension-value='#{width - 100}']", visible: :all)
+            expect(page).to have_css("[data-image-resizer-dimension-value='#{height - 67}']", visible: :all)
           end
         end
 
@@ -1242,9 +1242,9 @@ describe "Editor" do
     it "allows selecting hashtags" do
       prosemirror.native.send_keys "#na"
 
-      expect(page).to have_selector(".editor-suggestions-item", text: "nature")
-      expect(page).to have_selector(".editor-suggestions-item", text: "nation")
-      expect(page).to have_selector(".editor-suggestions-item", text: "native")
+      expect(page).to have_css(".editor-suggestions-item", text: "nature")
+      expect(page).to have_css(".editor-suggestions-item", text: "nation")
+      expect(page).to have_css(".editor-suggestions-item", text: "native")
 
       find(".editor-suggestions-item", text: "nature").click
 
@@ -1254,9 +1254,9 @@ describe "Editor" do
     it "allows selecting mentions" do
       prosemirror.native.send_keys "@doe"
 
-      expect(page).to have_selector(".editor-suggestions-item", text: "@doe_john (John Doe)")
-      expect(page).to have_selector(".editor-suggestions-item", text: "@doe_jon (Jon Doe)")
-      expect(page).to have_selector(".editor-suggestions-item", text: "@doe_jane (Jane Doe)")
+      expect(page).to have_css(".editor-suggestions-item", text: "@doe_john (John Doe)")
+      expect(page).to have_css(".editor-suggestions-item", text: "@doe_jon (Jon Doe)")
+      expect(page).to have_css(".editor-suggestions-item", text: "@doe_jane (Jane Doe)")
 
       find(".editor-suggestions-item", text: "@doe_john (John Doe)").click
 
@@ -1265,16 +1265,22 @@ describe "Editor" do
 
     it "allows selecting emojis" do
       within ".editor-container .editor-input" do
-        expect(page).to have_selector(".emoji__container")
-        expect(page).to have_selector(".emoji__trigger .emoji__button")
+        expect(page).to have_css(".emoji__container")
+        expect(page).to have_css(".emoji__trigger .emoji__button")
         find(".emoji__trigger .emoji__button").click
       end
 
-      within ".picmo__popupContainer .picmo__picker .picmo__content" do
-        categories = page.all(".picmo__emojiCategory")
-        within categories[1] do
-          click_button "😀"
-        end
+      within ".emoji__decidim" do
+        # Since emoji-mart is a React component, we need to use JS to click on an emoji icon
+        # as the emoji picker is a shadow DOM element.
+        # The script below is trying to find the first emoji in the "Smileys & People" category and simulate
+        # a click from the user on it.
+        script = <<~JS
+          var emoji_picker = document.getElementsByTagName("em-emoji-picker")[0];
+          var category = emoji_picker.shadowRoot.querySelectorAll("div.category")[1]
+          category.querySelectorAll("button")[0].click();
+        JS
+        execute_script(script)
       end
 
       expect_value("<p> 😀 </p>")
@@ -1315,7 +1321,7 @@ describe "Editor" do
 
       it "shows the bubble menu" do
         within ".editor" do
-          expect(page).to have_selector("[data-bubble-menu] [data-linkbubble]")
+          expect(page).to have_css("[data-bubble-menu] [data-linkbubble]")
 
           within "[data-bubble-menu] [data-linkbubble]" do
             expect(page).to have_content("URL:\nhttps://decidim.org")
@@ -1327,7 +1333,7 @@ describe "Editor" do
 
       it "opens the link editing dialog from the edit button" do
         within ".editor [data-bubble-menu] [data-linkbubble]" do
-          click_button "Edit"
+          click_on "Edit"
         end
         within "[data-dialog][aria-hidden='false']" do
           fill_in "Link URL", with: "https://docs.decidim.org"
@@ -1338,31 +1344,31 @@ describe "Editor" do
 
         # Should show the bubble menu after the link is closed
         within ".editor" do
-          expect(page).to have_selector("[data-bubble-menu] [data-linkbubble]")
+          expect(page).to have_css("[data-bubble-menu] [data-linkbubble]")
         end
       end
 
       it "opens the bubble menu in case the link editing dialog is cancelled" do
         within ".editor [data-bubble-menu] [data-linkbubble]" do
-          click_button "Edit"
+          click_on "Edit"
         end
         within "[data-dialog][aria-hidden='false']" do
           find("button[data-action='cancel']").click
         end
         within ".editor" do
-          expect(page).to have_selector("[data-bubble-menu] [data-linkbubble]")
+          expect(page).to have_css("[data-bubble-menu] [data-linkbubble]")
         end
       end
 
-      it "removes the link from the the remove button" do
+      it "removes the link from the remove button" do
         within ".editor [data-bubble-menu] [data-linkbubble]" do
-          click_button "Remove"
+          click_on "Remove"
         end
 
         expect_value(%(<p>Hello, world!</p>))
 
         within ".editor" do
-          expect(page).not_to have_selector("[data-bubble-menu] [data-linkbubble]")
+          expect(page).to have_no_selector("[data-bubble-menu] [data-linkbubble]")
         end
       end
     end

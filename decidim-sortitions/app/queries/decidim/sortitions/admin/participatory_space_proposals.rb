@@ -18,30 +18,23 @@ module Decidim
           @request_timestamp = sortition.request_timestamp
         end
 
-        # Given a particpiatory process retrieves its proposals
+        # Given a participatory process retrieves its proposals
         #
         # Returns an ActiveRecord::Relation.
         def query
-          if category.nil?
-            return Decidim::Proposals::Proposal
-                   .except_withdrawn
-                   .published
-                   .except_rejected
-                   .not_hidden
-                   .where("decidim_proposals_proposals.created_at < ?", request_timestamp)
-                   .where(component: sortition.decidim_proposals_component)
-                   .order(id: :asc)
-          end
+          proposals = Decidim::Proposals::Proposal
+                      .not_withdrawn
+                      .published
+                      .not_hidden
+                      .where("decidim_proposals_proposals.created_at < ?", request_timestamp)
+                      .where(component: sortition.decidim_proposals_component)
+          proposals = proposals.where.not(id: proposals.only_status(:rejected))
+
+          return proposals.order(id: :asc) if category.nil?
 
           # categorization -> category
-          Decidim::Proposals::Proposal
+          proposals
             .joins(:categorization)
-            .except_withdrawn
-            .published
-            .except_rejected
-            .not_hidden
-            .where(component: sortition.decidim_proposals_component)
-            .where("decidim_proposals_proposals.created_at < ?", request_timestamp)
             .where(decidim_categorizations: { decidim_category_id: category.id })
             .order(id: :asc)
         end

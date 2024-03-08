@@ -75,7 +75,6 @@ el:
         machine_translation_display_priority_translation: Μεταφρασμένο κείμενο πρώτα
         name: Όνομα
         official_img_footer: Επίσημο υποσέλιδο λογότυπου
-        official_img_header: Επίσημη κεφαλίδα λογότυπου
         official_url: Επίσημη διεύθυνση URL οργανισμού
         omnipresent_banner_short_description: Σύντομη περιγραφή
         omnipresent_banner_title: Τίτλος
@@ -141,8 +140,6 @@ el:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Μη έγκυρο αρχείο εικόνας
-            official_img_header:
               allowed_file_content_types: Μη έγκυρο αρχείο εικόνας
         participatory_space_private_user_csv_import:
           attributes:
@@ -366,12 +363,6 @@ el:
           title: Εκκρεμείς εγκρίσεις
         show:
           view_more_logs: Προβολή περισσότερων αρχείων καταγραφής
-      domain_whitelist:
-        form:
-          domain_too_short: Πολύ σύντομος τομέας
-        update:
-          error: Απέτυχε η ενημέρωση της λίστας επιτρεπόμενων τομέων.
-          success: Η λίστα επιτρεπόμενων τομέων ενημερώθηκε με επιτυχία.
       exports:
         export_as: "Όνομα %{name} ως μορφή %{export_format}"
         formats:
@@ -438,7 +429,6 @@ el:
           report_count_eq: Αναφορά μετρητή eq
           reported_id_string_or_reported_content_cont: Αναζήτηση %{collection} με αναγνωριστικό ή περιεχόμενο προς αναφορά.
           title_cont: Αναζήτηση συλλογής %{collection} με βάση τον τίτλο.
-          user_name_or_user_email_cont: Αναζήτηση %{collection} με βάση το όνομα ή το email.
           user_name_or_user_nickname_or_user_email_cont: Αναζήτηση %{collection} με email, όνομα ή ψευδώνυμο.
         state_eq:
           label: Κατάσταση
@@ -553,7 +543,6 @@ el:
         areas: Τομείς
         configuration: Διαμόρφωση
         content: Περιεχόμενο που αναφέρθηκε
-        external_domain_whitelist: Επιτρεπόμενοι εξωτερικοί τομείς
         help_sections: Ενότητες βοήθειας
         homepage: Αρχική σελίδα
         impersonations: Αναπαραστάσεις
@@ -826,33 +815,6 @@ el:
             layout_appearance_title: Επεξεργασία εμφάνισης διάταξης
             preview: Προεπισκόπηση
           omnipresent_banner_appearance_title: Επεξεργασία διαφημιστικού πλαισίου omnipresent
-      organization_external_domain_whitelist:
-        edit:
-          update: Ενημέρωση
-        external_domain:
-          down: Κάτω
-          external_domain: Εξωτερικός τομέας
-          remove: Αφαίρεση
-          up: Πάνω
-        form:
-          add: Προσθήκη στη λευκή λίστα
-          title: Εξωτερική λευκή λίστα τομέων
-      organization_homepage:
-        content_blocks:
-          create:
-            error: Παρουσιάστηκε ένα πρόβλημα κατά την προσπάθεια δημιουργίας αυτού του μπλοκ περιεχομένου.
-            success: Το μπλοκ περιεχομένου δημιουργήθηκε επιτυχώς.
-          destroy:
-            error: Παρουσιάστηκε ένα πρόβλημα κατά την προσπάθεια διαγραφής αυτού του μπλοκ περιεχομένου.
-            success: Το μπλοκ περιεχομένου διαγράφτηκε επιτυχώς.
-          edit:
-            update: Ενημέρωση
-        edit:
-          active_content_blocks: Ενεργά μπλοκ περιεχομένου
-          add: Προσθήκη μπλοκ περιεχομένου
-          destroy_confirmation: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το μπλοκ περιεχομένου;
-          inactive_content_blocks: Ανενεργά μπλοκ περιεχομένου
-          title: Περιεχόμενα σελίδας
       participatory_space_private_users:
         create:
           error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός ιδιωτικού συμμετέχοντα για αυτόν τον χώρο συμμετοχής.
@@ -871,7 +833,6 @@ el:
           success: Το αρχείο CSV μεταφορτώθηκε με επιτυχία. Στέλνουμε πρόσκληση στους συμμετέχοντες μέσω email. Αυτή η διαδικασία μπορεί να χρειαστεί λίγη ώρα.
         new:
           example_file: 'Παράδειγμα αρχείου:'
-          title: Αποστολή του CSV αρχείου σας
           upload: Αποστολή
       reminders:
         new:
@@ -932,7 +893,6 @@ el:
       shared:
         gallery:
           add_images: Προσθήκη εικόνων
-          delete_image: Διαγραφή εικόνας
           edit_images: Επεξεργασία εικόνας
           gallery_legend: Προσθήκη συλλογής εικόνων (προαιρετικά)
       static_page_topics:
@@ -953,20 +913,6 @@ el:
       static_pages:
         actions:
           view: Προβολή δημόσιας σελίδας
-        content_blocks:
-          active_content_blocks: Ενεργά μπλοκ περιεχομένου
-          add: Προσθήκη μπλοκ περιεχομένου
-          create:
-            error: Παρουσιάστηκε ένα πρόβλημα κατά την προσπάθεια δημιουργίας αυτού του μπλοκ περιεχομένου.
-            success: Το μπλοκ περιεχομένου δημιουργήθηκε επιτυχώς.
-          destroy:
-            error: Παρουσιάστηκε ένα πρόβλημα κατά την προσπάθεια διαγραφής αυτού του μπλοκ περιεχομένου.
-            success: Το μπλοκ περιεχομένου διαγράφτηκε επιτυχώς.
-          destroy_confirmation: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το μπλοκ περιεχομένου;
-          edit:
-            update: Ενημέρωση
-          inactive_content_blocks: Μπλοκ ανενεργού περιεχομένου
-          title: Περιεχόμενα σελίδας
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία μιας νέας σελίδας.
           success: Η σελίδα δημιουργήθηκε με επιτυχία.
@@ -978,12 +924,12 @@ el:
           update: Ενημέρωση
         form:
           none: Κανένας
+        index:
+          last_notable_change: Τελευταία σημαντική αλλαγή
         new:
           create: Δημιουργία σελίδας
           title: Νέα σελίδα
         topic:
-          destroy: Κατάργηση θέματος
-          edit: Επεξεργασία θέματος
           empty: Δεν υπάρχουν σελίδες κάτω από αυτό το θέμα.
           without_topic: Σελίδες χωρίς θέμα
         update:

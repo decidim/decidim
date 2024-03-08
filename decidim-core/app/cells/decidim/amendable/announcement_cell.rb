@@ -3,8 +3,6 @@
 module Decidim::Amendable
   # This cell renders the callout with information about the state of the emendation
   class AnnouncementCell < Decidim::ViewModel
-    include Decidim::ApplicationHelper
-
     def show
       cell "decidim/announcement", announcement, callout_class: state_classes
     end
@@ -51,16 +49,10 @@ module Decidim::Amendable
     end
 
     def state_classes
-      case model.state
-      when "accepted"
-        "success"
-      when "rejected", "withdrawn"
-        "alert"
-      when "evaluating"
-        "warning"
-      else
-        "muted"
-      end
+      return "muted" if model.state.blank?
+      return "alert" if model.withdrawn?
+
+      model.proposal_state&.css_class
     end
   end
 end

@@ -22,9 +22,11 @@ es:
       user:
         about: Acerca de
         email: Tu correo electrónico
+        encrypted_password: Contraseña
         locale: Configuración regional
         name: Tu nombre
         nickname: Alias
+        old_password: Contraseña actual
         password: Contraseña
         password_confirmation: Confirma tu contraseña
         personal_url: URL personal
@@ -75,12 +77,6 @@ es:
   booleans:
     'false': 'No'
     'true': 'Sí'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: No se ha podido leer el archivo
-      file_resolution_too_large: La resolución del archivo es demasiado grande
-      file_size_too_large: El tamaño del archivo es demasiado grande
-      not_inside_organization: El archivo no está relacionado con ninguna organización
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -285,11 +281,9 @@ es:
       amendable:
         button: Enmendar %{model_name}
         error: Se ha producido un error al modificar este recurso.
-        help_text: Mejora este %{model_name} modificando su %{amendable_fields}.
         promote_button: Promocionar a %{model_name}
         promote_confirm_text: '¿Seguro que quieres promocionar esta enmienda?'
         promote_help_text: Puedes promocionar esta enmienda y publicarla como una %{model_name} independiente.
-        section_heading: Enmiendas (%{count})
       amendments:
         title:
           one: "%{count} enmienda"
@@ -454,7 +448,6 @@ es:
         one: y %{count} más
         other: y %{count} más
       see_less: "(ver menos)"
-      see_more: "(ver más)"
     components:
       component_order_selector:
         no_content: No hemos podido encontrar ningún contenido con este criterio.
@@ -512,7 +505,7 @@ es:
       global_menu:
         name: Menú global
       hero:
-        name: Imagen del hero
+        name: Imagen principal y botón de acción
       hero_settings_form:
         background_image: Imagen de fondo
         welcome_text: Texto de bienvenida
@@ -586,6 +579,8 @@ es:
           subtitle: Por favor, rellena el siguiente formulario para completar la inscripción
           username_help: Nombre público que aparece en tus aportaciones. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
+        create:
+          error: Hubo un problema al crear tu cuenta.
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           log_in: Entra
@@ -666,6 +661,10 @@ es:
     endorsers_list:
       endorsed_by: Le gusta a…
     errors:
+      files:
+        file_cannot_be_processed: No se ha podido procesar el archivo
+        file_resolution_too_large: La resolución del archivo es demasiado grande
+        not_inside_organization: El archivo no está relacionado con ninguna organización
       internal_server_error:
         copied: '¡Texto copiado!'
         copy_error_message_clarification: Mensaje de error copiado al portapapeles
@@ -904,14 +903,12 @@ es:
           add_attachment: Añadir adjunto
           add_file: Añadir archivo
           add_image: Añadir imagen
-          cancel: Cancelar
           edit_image: Editar imagen
           error: '¡Error!'
           file_size_too_large: '¡El archivo es demasiado grande! Peso de archivo máximo: %{megabytes}MB'
           filename: Nombre del archivo
           remove: Eliminar
           replace: Reemplazar
-          save: Guardar
           title: Título
           title_required: '¡Se requiere un título!'
           uploaded: Subido
@@ -1274,7 +1271,8 @@ es:
     offline:
       name: Sin conexión
       show:
-        message: Parece que estás desconectada. Por favor, inténtalo de nuevo más tarde.
+        message_1: Parece que no tienes conexión a Internet.
+        message_2: Por favor, inténtalo de nuevo más tarde.
         retry: Reintentar
     open_data:
       not_available_yet: Los ficheros Open Data aún no están disponibles, inténtalo de nuevo en unos minutos.
@@ -1294,7 +1292,7 @@ es:
           proposals: Propuestas
           proposals_explanation: Haz propuestas, apoya las existentes y promueve los cambios que deseas ver.
         footer_sub_hero:
-          footer_sub_hero_body: Construyamos una sociedad más abierta, transparente y colaborativa. <br /> Únete, participa y decide.
+          footer_sub_hero_body_html: Construyamos una sociedad más abierta, transparente y colaborativa. <br /> Únete, participa y decide.
           footer_sub_hero_headline: Bienvenida a la plataforma participativa %{organization}.
           register: Regístrate
         hero:
@@ -1332,8 +1330,6 @@ es:
           alert: Hemos actualizado nuestros Términos y Condiciones, por favor, revísalos.
           body: Por favor, dedica un momento a revisar la actualización de nuestros Términos y Condiciones de uso. De lo contrario, no podrás participar en la plataforma.
           title: 'Requerido: Revisa las actualizaciones en nuestros términos y condiciones de uso'
-    participatory_space_private_users:
-      not_allowed: No tienes permiso para visualizar este contenido
     passwords:
       update:
         error: Ha habido un problema al actualizar la contraseña.
@@ -1567,6 +1563,15 @@ es:
         greetings: Saludos,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola %{admin},
         subject: Una nueva usuaria ha sido reportada en %{organization_name}
+    user_update_mailer:
+      notify:
+        body_1: Recibes este mensaje para informarte de una actualización de tu cuenta.
+        body_2: En caso de que no hayas sido tú quien ha realizado esta actualización, por favor, inicia tu sesión y modifica la contraseña. Si no pudieras iniciar tu sesión, ponte en contacto con el servicio de soporte de la plataforma.
+        greetings: Hola,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hola %{user}
+        main_body: 'Se han modificado los siguientes detalles: %{updates}.'
+        update_fields: "%{updates} y %{last_update}"
+      subject: Se ha actualizado tu cuenta
     version:
       show:
         back_to_resource: Volver atrás
@@ -1580,7 +1585,7 @@ es:
         version: Versión %{number}
     versions_list_item:
       show:
-        version_index: Versión %{index}
+        version_index: Versión %{index} de %{total}
     welcome_notification:
       default_body: <p>¡Hola {{name}}, gracias por unirte a {{organization}} te damos la bienvenida!</p><ul><li>Si quieres hacerte una idea rápida de que puedes hacer, echa un vistazo a la <a href="{{help_url}}">Sección de ayuda</a>.</li><li>Una vez la hayas leído recibirás tu primera insignia. Aquí encontrarás un <a href="{{badges_url}}">listado de todas las insignias</a>que puedes conseguir participando en {{organization}}</li><li>. Para terminar, pero no por ello menos importante, únete a otras personas, comparte con ellas de estar comprometida y de participar en {{organization}}. Haz propuestas, comentarios, debate, piensa en cómo contribuir a un bien común, aporta argumentos para tratar de convencer, escucha y lee para convencerte, expresa tus ideas de manera concreta y directa, responde con paciencia y decisión, defiende tus ideas y permanece abierta de mente para colaborar y unirte a las ideas de otra gente.</li></ul>
       default_subject: Gracias por unirte a {{organization}}!
@@ -1678,8 +1683,9 @@ es:
         change_my_password: Cambiar mi contraseña
         confirm_new_password: Confirmar la nueva contraseña
         new_password: Nueva contraseña
-        password_help: "%{minimum_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
-        password_help_admin: "%{minimum_characters} caracteres como mínimo, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu alias, correo electrónico y antiguas contraseñas."
+        old_password_help: Para confirmar los cambios en tu cuenta, por favor proporciónanos tu contraseña actual.
+        password_help: "%{minimum_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu alias y tu correo electrónico."
+        password_help_admin: "%{minimum_characters} caracteres como mínimo, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu alias, tu correo electrónico y de tus antiguas contraseñas."
         title: Cambio de contraseña
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'
@@ -1784,30 +1790,32 @@ es:
     upload:
       uploadedFile: Archivo subido
   emojis:
+    add_custom: Agregar emoji personalizado
     button: Añadir emoji
     categories:
-      activities: Actividades
-      animals-nature: Animales y naturaleza
+      activity: Actividad
       custom: Personalizado
       flags: Banderas
-      food-drink: Alimentos y bebidas
+      foods: Alimentos y bebidas
+      frequent: Usados frecuentemente
+      nature: Animales y naturaleza
       objects: Objetos
-      people-body: Personas y cuerpo
-      recents: Usados recientemente
-      smileys-emotion: Sonrisas y emociones
+      people: Caras y Personas
+      places: Viajes y lugares
+      search: Resultados de búsqueda
       symbols: Símbolos
-      travel-places: Viajes y lugares
-    error:
-      load: No se ha producido un error al cargar la lista de emojis
-    recents:
-      clear: Borra los emojis recientes
-      none: Aún no has seleccionado ningún emoji.
-    retry: Inténtalo de nuevo
-    search:
-      _: Buscar emojis...
-      clear: Limpiar búsqueda
-      error: Error al buscar emojis
-      not_found: No se han encontrado resultados
+    pick: Elige un emoji…
+    search: Buscar
+    search_no_results_1: '¡Oh no!'
+    search_no_results_2: No se pudo encontrar ese emoticono
+    skins:
+      '1': Por defecto
+      '2': Clara
+      '3': Medio clara
+      '4': Media
+      '5': Medio oscura
+      '6': Oscura
+      choose: Elige un tono de piel predeterminado
   errors:
     messages:
       allowed_file_content_types: 'solo se permiten archivos con las siguientes extensiones: %{types}'
@@ -1942,8 +1950,6 @@ es:
         continue_session: Continuar sesión
         log_out: Salir
         title: '¿Quieres continuar con la sesión?'
-      upload_modal:
-        close_modal: Cerrar ventana
       user_menu:
         account: 'Cuenta de usuario: %{name}'
         admin_dashboard: Tablero de administración
@@ -2008,7 +2014,7 @@ es:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
-    x:
+    x: X
     xing: Xing
   time:
     formats:

@@ -72,8 +72,6 @@ sk:
         create:
           invalid: Pri vytváraní debaty sa vyskytol problém.
           success: Debata úspešne vytvorená.
-        debate:
-          participate: Zúčastniť sa
         filters:
           all: Všetko
           category: Kategória

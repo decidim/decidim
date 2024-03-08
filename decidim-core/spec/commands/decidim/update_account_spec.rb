@@ -101,10 +101,10 @@ module Decidim
             expect do
               perform_enqueued_jobs { command.call }
             end.to broadcast(:ok, true)
-            recepients = emails.map(&:to)
-            expect(recepients).to include(["new@example.com"])
+            recipients = emails.map(&:to)
+            expect(recipients).to include(["new@example.com"])
             # check account update email has been sent
-            expect(recepients).to include([data[:email]])
+            expect(recipients).to include([data[:email]])
           end
         end
 
@@ -241,7 +241,7 @@ module Decidim
           it "sends email with notification about updates" do
             perform_enqueued_jobs { command.call }
             expect(last_email.to).to include(user.email)
-            expect(last_email_body).to include("The following details have been changed:")
+            expect(last_email_body).to include("Se han modificado los siguientes detalles:")
           end
         end
       end

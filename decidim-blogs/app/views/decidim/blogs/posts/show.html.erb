@@ -20,27 +20,33 @@
 
 <%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 8 } do %>
 
-  <div class="flex justify-center">
-    <h1 class="title-decorator my-12"><%= translated_attribute post.title %></h1>
-  </div>
-
-  <% if post.photo.present? %>
-    <div class="blog__image grow">
-      <%= image_tag post.photo.big_url, alt: post.photo.description || post.photo.title || t("alt", scope: "decidim.application.photo") %>
+  <section class="layout-main__section layout-main__heading">
+    <div class="flex justify-center">
+      <h1 class="title-decorator my-12"><%= translated_attribute post.title %></h1>
     </div>
-  <% end %>
 
-  <div class="blog__container">
-    <%= cell "decidim/author", post_presenter.author, from: post, context_actions: [:date], layout: :compact %>
+    <% if post.photo.present? %>
+      <div class="blog__image grow">
+        <%= image_tag post.photo.big_url, alt: post.photo.description || post.photo.title || t("alt", scope: "decidim.application.photo") %>
+      </div>
+    <% end %>
 
+    <div class="layout-author">
+      <%= cell "decidim/author", post_presenter.author, from: post, context_actions: [:date], layout: :compact %>
+    </div>
+  </section>
+
+  <section class="layout-main__section">
     <div class="editor-content">
       <%= decidim_sanitize_editor_admin translated_attribute post.body %>
     </div>
 
-    <%= render partial: "actions" %>
-
     <%= attachments_for post %>
-  </div>
 
-  <%= comments_for post %>
+    <%= render partial: "actions" %>
+  </section>
+
+  <section class="layout-main__section">
+    <%= comments_for post %>
+  </section>
 <% end %>

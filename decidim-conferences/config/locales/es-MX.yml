@@ -347,14 +347,8 @@ es-MX:
             non_user: Usuario no existente
             select_user: Seleccionar usuario
           index:
-            filter:
-              accepted: Aceptada
-              all: Todas
-              rejected: Rechazada
-              sent: Enviada
             invite_attendee: Invitar a un asistente
             invites: Invitaciones
-            search: Buscar
           new:
             explanation: La participante será invitada a unirse a la jornada. Si su correo electrónico no está registrado, también será invitada a unirse a la organización.
             invite: Invitar
@@ -377,6 +371,9 @@ es-MX:
               one: Ha habido 1 inscripción.
               other: Ha habido %{count} inscripciones.
             slug_help_html: 'Las URL amigables se utilizan para generar las URL que apuntan a esta conferencia. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+        content_blocks:
+          highlighted_conferences:
+            max_results: Cantidad máxima de elementos a mostrar
         diplomas:
           edit:
             save: Guardar

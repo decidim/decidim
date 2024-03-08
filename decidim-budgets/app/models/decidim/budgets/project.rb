@@ -28,6 +28,7 @@ module Decidim
       has_many :orders, through: :line_items, foreign_key: "decidim_project_id", class_name: "Decidim::Budgets::Order"
 
       delegate :organization, :participatory_space, :can_participate_in_space?, to: :component
+      delegate :visible?, to: :budget
 
       alias can_participate? can_participate_in_space?
 
@@ -45,13 +46,15 @@ module Decidim
 
       scope_search_multi :with_any_status, [:selected, :not_selected]
 
-      searchable_fields(
-        scope_id: :decidim_scope_id,
-        participatory_space: { component: :participatory_space },
-        A: :title,
-        D: :description,
-        datetime: :created_at
-      )
+      searchable_fields({
+                          scope_id: :decidim_scope_id,
+                          participatory_space: { component: :participatory_space },
+                          A: :title,
+                          D: :description,
+                          datetime: :created_at
+                        },
+                        index_on_create: ->(project) { project.visible? },
+                        index_on_update: ->(project) { project.visible? })
 
       def self.ordered_ids(ids)
         # Make sure each ID in the matching text has a "," character as their

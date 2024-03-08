@@ -98,9 +98,6 @@ es-PY:
         destroy: Borrar
         duplicate: Duplicar
         edit: Editar
-        filter:
-          all_processes: Mostrar todos los procesos
-          process_groups: Grupos de procesos
         import_process: Importar
         moderate: Moderar
         new_process: Nuevo proceso
@@ -113,6 +110,9 @@ es-PY:
         resend_invitation: Reenviar invitación
         see_process: Ver el proceso
         unpublish: Despublicar
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Por grupo de procesos
       menu:
         participatory_process_groups: Grupos de procesos
         participatory_process_groups_submenu:
@@ -176,22 +176,6 @@ es-PY:
           copy: Copiar
           select: Seleccione los datos que desea duplicar
           title: Duplicar proceso participativo
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Bloques de contenido activos
-          add: Añadir bloque de contenido
-          destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
-          inactive_content_blocks: Bloques de contenido inactivos
-          title: Contenidos de la página
-      participatory_process_group_landing_page_content_blocks:
-        create:
-          error: Se ha producido un error al intentar crear este bloque de contenido.
-          success: El bloque de contenido se ha creado correctamente.
-        destroy:
-          error: Se ha producido un error al intentar eliminar este bloque de contenido.
-          success: Bloque de contenido eliminado correctamente.
-        edit:
-          update: Actualizar
       participatory_process_groups:
         destroy:
           error: Se ha producido un error al eliminar el grupo de procesos participativos.
@@ -235,6 +219,13 @@ es-PY:
             last_step: No se puede eliminar la última fase de un proceso.
           success: Fase de proceso participativo eliminada con éxito.
         edit:
+          cta_deprecated:
+            body_html: |-
+              La configuración del CTA a través de la Fase del proceso participativo está obsoleta con el nuevo diseño.
+              Ahora esto se hace en la <b>Página de Inicio</b>, usando el bloque de contenido <b>Imagen principal y botón de acción</b> .
+              Lo hemos dejado aquí para que migres las CTAs que necesites. Los campos <i>Ruta del acción</i> y
+              <i>Texto del botón de acción</i> se eliminaran en la próxima versión.
+            title: CTA obsoleto
           title: Editar fase de proceso participativo
           update: Actualizar
         index:

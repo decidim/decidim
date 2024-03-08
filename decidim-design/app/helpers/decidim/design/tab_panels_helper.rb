@@ -12,7 +12,7 @@ module Decidim
                 type: :text,
                 values: [
                   "This tab-panel component gathers all the related contents or another resources of the main element displayed,
-                    in order to save vertical space. Clicking on the tab will activate the reated panel to show the content.",
+                    in order to save vertical space. Clicking on the tab will activate the created panel to show the content.",
                   "Mainly is used within the <i>layout_item</i> or the <i>layout_center</i>, after the main content of the resource."
                 ]
               }
@@ -42,7 +42,50 @@ module Decidim
                 ),
                 cell_snippet: {
                   cell: "decidim/tab_panels",
-                  args: [tab_panels_items]
+                  args: [tab_panels_items],
+                  call_string: [<<-TEXT1, <<-TEXT2]
+  cell(
+      "decidim/tab_panels",
+      [
+        {
+          enabled: true,
+          id: "button",
+          text: "Button",
+          icon: resource_type_icon_key("images"),
+          method: :cell,
+          args: ["decidim/button", { text: "Send" }]
+        },
+        {
+          enabled: true,
+          id: "announce",
+          text: "Announcement",
+          icon: resource_type_icon_key("documents"),
+          method: :cell,
+          args: ["decidim/announcement", "I am an announcement"]
+        }
+      ]
+    )
+                  TEXT1
+  cell(
+      "decidim/tab_panels",
+      [
+        {
+          enabled: true,
+          id: "icon",
+          text: "Icon",
+          method: :icon,
+          args: ["question-line", { class: "w-4 h-4" }]
+        },
+        {
+          enabled: true,
+          id: "text",
+          text: "Plain",
+          method: :content_tag,
+          args: ["p", "plain text", { class: "text-left" }]
+        }
+      ]
+    )
+                  TEXT2
                 }
               }
             ]
@@ -75,7 +118,7 @@ module Decidim
             text: "Announcement",
             icon: resource_type_icon_key("documents"),
             method: :cell,
-            args: ["decidim/announcement", "I am an annoucement"]
+            args: ["decidim/announcement", "I am an announcement"]
           }
         ]
       end

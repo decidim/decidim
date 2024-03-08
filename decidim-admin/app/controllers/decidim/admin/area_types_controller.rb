@@ -2,14 +2,14 @@
 
 module Decidim
   module Admin
-    # Controller that allows managing areatypes to group areas
+    # Controller that allows managing area types to group areas
 
     class AreaTypesController < Decidim::Admin::ApplicationController
       include Decidim::Admin::Concerns::HasTabbedMenu
 
       layout "decidim/admin/settings"
 
-      add_breadcrumb_item_from_menu :admin_settings_menu
+      add_breadcrumb_item_from_menu :admin_areas_menu
 
       helper_method :area_types
 
@@ -26,7 +26,7 @@ module Decidim
         enforce_permission_to :create, :area_type
         @form = form(AreaTypeForm).from_params(params)
 
-        CreateAreaType.call(@form, current_user) do
+        CreateAreaType.call(@form) do
           on(:ok) do
             flash[:notice] = I18n.t("area_types.create.success", scope: "decidim.admin")
             redirect_to area_types_path
@@ -48,7 +48,7 @@ module Decidim
         enforce_permission_to(:update, :area_type, area_type:)
         @form = form(AreaTypeForm).from_params(params)
 
-        UpdateAreaType.call(area_type, @form, current_user) do
+        UpdateAreaType.call(@form, area_type) do
           on(:ok) do
             flash[:notice] = I18n.t("area_types.update.success", scope: "decidim.admin")
             redirect_to area_types_path
@@ -64,13 +64,12 @@ module Decidim
       def destroy
         enforce_permission_to(:destroy, :area_type, area_type:)
 
-        Decidim.traceability.perform_action!("delete", area_type, current_user) do
-          area_type.destroy!
+        Decidim::Commands::DestroyResource.call(area_type, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("area_types.destroy.success", scope: "decidim.admin")
+            redirect_to area_types_path
+          end
         end
-
-        flash[:notice] = I18n.t("area_types.destroy.success", scope: "decidim.admin")
-
-        redirect_to area_types_path
       end
 
       private

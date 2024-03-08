@@ -87,7 +87,7 @@ module Decidim
         context "when the user only has a valid authorization" do
           before { authorization.update!(user:, granted_at: 1.minute.ago) }
 
-          context "when only one authorzation matches options" do
+          context "when only one authorization matches options" do
             it "returns an authorization status not ok" do
               expect(response).not_to be_ok
               expect(response.statuses.count).to eq(2)

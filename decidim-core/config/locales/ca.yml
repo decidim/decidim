@@ -22,9 +22,11 @@ ca:
       user:
         about: Quant a
         email: El teu correu electrònic
+        encrypted_password: Contrasenya
         locale: Configuració regional
         name: El teu nom
         nickname: Àlies
+        old_password: Contrasenya actual
         password: Contrasenya
         password_confirmation: Confirma la teva contrasenya
         personal_url: URL personal
@@ -75,12 +77,6 @@ ca:
   booleans:
     'false': 'No'
     'true': 'Sí'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: No s'ha pogut llegir el fitxer
-      file_resolution_too_large: La resolució de l'arxiu és massa gran
-      file_size_too_large: La mida del fitxer és massa gran
-      not_inside_organization: L'arxiu no està relacionat amb cap organització
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -275,7 +271,7 @@ ca:
       user_moderation:
         unreport: "%{user_name} ha desfet el report %{resource_type} - %{unreported_user_name}"
     admin_terms_of_service:
-      default_body: "<h2>TERMES I CONDICIONS D'ÚS DEL SERVEI D'ADMINISTRACIÓ</h2><p>Donem per fet que has rebut l'habitual explicació per part del Servei d'Administració general de la plataforma. En general es redueix a aquestes tres coses:</p><ol><li>Respecta la privadesa d'altri.</li><li>Pensa abans de fer clic.</li><li>A un gran poder l'hi correspon gran responsabilitat.</li></ol>"
+      default_body: "<h2>TERMES I CONDICIONS D'ÚS DEL SERVEI D'ADMINISTRACIÓ</h2><p>Donem per fet que has rebut l'habitual explicació per part del Servei d'Administració general de la plataforma. En general es redueix a aquestes tres coses:</p><ol><li>Respecta la privadesa d'altri.</li><li>Pensa abans de fer clic.</li><li>A un gran poder li correspon gran responsabilitat.</li></ol>"
     alert:
       dismiss: Descartar notificació
     amendments:
@@ -285,11 +281,9 @@ ca:
       amendable:
         button: Esmenar %{model_name}
         error: S'ha produït un error en modificar aquest recurs.
-        help_text: Millora aquest %{model_name} modificant la seva %{amendable_fields}.
         promote_button: Promocionar a %{model_name}
         promote_confirm_text: Segur que vols promoure aquesta esmena?
         promote_help_text: Pots promocionar aquesta esmena com a una %{model_name} independent.
-        section_heading: Esmenes (%{count})
       amendments:
         title:
           one: "%{count} esmena"
@@ -454,7 +448,6 @@ ca:
         one: i %{count} més
         other: i %{count} més
       see_less: "(veure menys)"
-      see_more: "(veure més)"
     components:
       component_order_selector:
         no_content: No hem pogut trobar cap contingut amb aquest criteri.
@@ -512,7 +505,7 @@ ca:
       global_menu:
         name: Menú global
       hero:
-        name: Imatge del hero
+        name: Imatge principal i botó d'acció
       hero_settings_form:
         background_image: Imatge de fons
         welcome_text: Text de benvinguda
@@ -586,6 +579,8 @@ ca:
           subtitle: Si us plau, omple el següent formulari per tal de completar la teva inscripció
           username_help: Nom públic que apareix als teus missatges. Amb l'objectiu de garantir l'anonimat, pot ser qualsevol nom.
       registrations:
+        create:
+          error: S'ha produït un error en crear el teu compte.
         new:
           already_have_an_account?: Ja tens un compte?
           log_in: Entra
@@ -666,6 +661,10 @@ ca:
     endorsers_list:
       endorsed_by: Li agrada a…
     errors:
+      files:
+        file_cannot_be_processed: No s'ha pogut processar el fitxer
+        file_resolution_too_large: La resolució de l'arxiu és massa gran
+        not_inside_organization: L'arxiu no està relacionat amb cap organització
       internal_server_error:
         copied: Text copiat!
         copy_error_message_clarification: Missatge d'error copiat amb el porta-retalls
@@ -904,14 +903,12 @@ ca:
           add_attachment: Afegir adjunt
           add_file: Afegir fitxer
           add_image: Afegir imatge
-          cancel: Cancel·lar
           edit_image: Editar imatge
           error: Error!
           file_size_too_large: 'L''arxiu és massa gran! Pes d''arxiu màxim: %{megabytes}MB'
           filename: Nom del fitxer
           remove: Eliminar
           replace: Reemplaçar
-          save: Desar
           title: Títol
           title_required: Un títol és necessari!
           uploaded: Pujat
@@ -1274,7 +1271,8 @@ ca:
     offline:
       name: Sense connexió
       show:
-        message: Sembla que estàs desconnectada. Si us plau, torna a intentar-ho més tard.
+        message_1: Sembla que no tens connexió a Internet.
+        message_2: Si us plau, torneu-ho a provar més tard.
         retry: Torna-ho a provar
     open_data:
       not_available_yet: Els fitxers Open Data encara no estan disponibles, torna-ho a provar d'aquí a uns minuts.
@@ -1294,7 +1292,7 @@ ca:
           proposals: Propostes
           proposals_explanation: Realitza propostes, dóna suport a les ja existents i promociona els canvis que vols veure.
         footer_sub_hero:
-          footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa.<br />Uneix-te, participa i decideix.
+          footer_sub_hero_body_html: Construïm una societat més oberta, transparent i col·laborativa.<br /> Uneix-te, participa i decideix.
           footer_sub_hero_headline: Benvinguda a la plataforma participativa %{organization}.
           register: Registra't
         hero:
@@ -1332,8 +1330,6 @@ ca:
           alert: Hem actualitzat els nostres Termes i Condicions d'ús, si us plau, revisa'ls.
           body: Si us plau, dedica un moment a revisar l'actualització dels nostres Termes i Condicions d'ús. En cas contrari, no podràs participar en la plataforma.
           title: 'Obligatori: revisa les actualitzacions als nostres termes i condicions d''ús'
-    participatory_space_private_users:
-      not_allowed: No tens permís per visualitzar aquest contingut
     passwords:
       update:
         error: Hi ha hagut un problema en actualitzar la contrasenya.
@@ -1567,6 +1563,15 @@ ca:
         greetings: Salutacions,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola %{admin},
         subject: Una nova usuària ha estat reportada a %{organization_name}
+    user_update_mailer:
+      notify:
+        body_1: Reps aquest missatge per informar-te d'una actualització del teu compte.
+        body_2: En el cas que no hagis estat tu qui ha realitzat aquesta actualització, si us plau, inicia la teva sessió i modifica la teva contrasenya. Si no poguessis iniciar la teva sessió, si ús pla, contacte amb el servei de suport a la plataforma.
+        greetings: Hola,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hola %{user}
+        main_body: 'S''han modificat els següents detalls: %{updates}.'
+        update_fields: "%{updates} i %{last_update}"
+      subject: S'ha actualitzat el teu compte
     version:
       show:
         back_to_resource: Torna enrere
@@ -1580,7 +1585,7 @@ ca:
         version: Versió %{number}
     versions_list_item:
       show:
-        version_index: Versió %{index}
+        version_index: Versió %{index} de %{total}
     welcome_notification:
       default_body: <p>Hola {{name}}, gràcies per unir-te a {{organization}} et donem la benvinguda!</p><ul><li>Si vole fer-te una idea ràpida de que pots fer-hi, fes una ullada a la <a href="{{help_url}}">Secció d'ajuda</a>.</li><li>Una vegada l'hagis llegit rebràs la teva primera ensenya. Aquí trobaràs un <a href="{{badges_url}}">llistat de totes les ensenyes</a>que pots aconsegui participant a {{organization}}</li><li>. Per acabar, però no per això menys important, uneix-te a d'altres persones, comparteix amb elles d'estar compromesa i de participar a {{organization}}. Fes propostes, comentaris, debat, pensa en com contribuir a un bé comú, aporta arguments per mirar de convèncer, escolta i llegeix per convèncer-te, expressa les teves idees de manera concreta i directa, respon amb paciència i decisió, defensa les teves idees i resta oberta de ment per a col·laborar i unir-te a les idees d'altra gent.</li></ul>
       default_subject: Gràcies per unir-te a {{organization}}!
@@ -1678,8 +1683,9 @@ ca:
         change_my_password: Canvia la meva contrasenya
         confirm_new_password: Confirmar la nova contrasenya
         new_password: Nova contrasenya
-        password_help: "%{minimum_characters} caràcters mínim, no ha de ser massa comú (per exemple 123456) i ha de ser diferent del teu nom d'usuari i la teva adreça de correu electrònic."
-        password_help_admin: "%{minimum_characters} caràcters mínim, no ha de ser massa comú (per exemple 123456) i ha de ser diferent del teu àlies, de la teva adreça de correu electrònic i de les teves antigues contrasenyes."
+        old_password_help: Per tal de confirmar els canvis al teu compte, si us plau, proporciona'ns la teva contrasenya actual.
+        password_help: "%{minimum_characters} caràcters mínim, no ha de ser massa comú (per exemple 123456) i ha de ser diferent del teu àlies i la teva adreça de correu electrònic."
+        password_help_admin: "%{minimum_characters} caràcters mínim, no ha de ser massa comú (per exemple 123456) i ha de ser diferent del teu àlies, del teu correu electrònic i de les teves antigues contrasenyes."
         title: Canvi de contrasenya
       new:
         forgot_your_password: Has oblidat la teva contrasenya?
@@ -1784,30 +1790,32 @@ ca:
     upload:
       uploadedFile: Fitxer carregat
   emojis:
+    add_custom: Afegir emoji personalitzat
     button: Afegir emoji
     categories:
-      activities: Activitats
-      animals-nature: Animals i natura
+      activity: Activitat
       custom: Personalitzat
       flags: Banderes
-      food-drink: Aliments i begudes
+      foods: Aliments i begudes
+      frequent: Usats freqüentment
+      nature: Animals i natura
       objects: Objectes
-      people-body: Persones i cos
-      recents: Utilitzats recentment
-      smileys-emotion: Somriures i emocions
+      people: Cares i Gent
+      places: Viatges i llocs
+      search: Resultats de la cerca
       symbols: Símbols
-      travel-places: Viatges i llocs
-    error:
-      load: No s'ha pogut carregar la llista d'emojis
-    recents:
-      clear: Esborrar els emojis recents
-      none: Encara no has seleccionat cap emoji.
-    retry: Prova-ho de nou
-    search:
-      _: Cercar emojis...
-      clear: Neteja la cerca
-      error: Error en cercar emojis
-      not_found: No s'han trobat resultats
+    pick: Tria una emoticona…
+    search: Cercar
+    search_no_results_1: Oh, no!
+    search_no_results_2: No s'ha trobat aquesta emoticona
+    skins:
+      '1': Per defecte
+      '2': Clara
+      '3': Mig clara
+      '4': Mitja
+      '5': Mig fosca
+      '6': Fosca
+      choose: Tria un to de pell predeterminat
   errors:
     messages:
       allowed_file_content_types: 'només s''accepten arxius amb les següents extensions: %{types}'
@@ -1942,8 +1950,6 @@ ca:
         continue_session: Continuar la sessió
         log_out: Surt
         title: Vols continuar amb la sessió?
-      upload_modal:
-        close_modal: Tancar finestra
       user_menu:
         account: 'Compte d''usuària: %{name}'
         admin_dashboard: Tauler d'administració

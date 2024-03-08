@@ -95,7 +95,6 @@ ro:
         close_debate_modal:
           description: Care este rezumatul sau concluzia acestei dezbateri?
           send: Închide dezbaterea
-        closed: Închisă
         count:
           debates_count:
             one: "%{count} dezbatere"
@@ -104,8 +103,6 @@ ro:
         create:
           invalid: A existat o problemă la crearea dezbaterii.
           success: Dezbatere creată cu succes.
-        debate:
-          participate: Participă
         edit:
           back: Înapoi
           save: Salvează modificările
@@ -141,7 +138,6 @@ ro:
           updated: Actualizate recent
         show:
           close_debate: Închide dezbaterea
-          date: Data
           debate_closed: Închisă
           debate_conclusions_are: 'Dezbaterea s-a încheiat la %{date} cu următoarele concluzii:'
           edit_conclusions: Editează concluziile

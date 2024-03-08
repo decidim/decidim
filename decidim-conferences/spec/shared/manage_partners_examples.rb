@@ -8,7 +8,7 @@ shared_examples "manage partners examples" do
     login_as user, scope: :user
     visit decidim_admin_conferences.edit_conference_path(conference)
     within_admin_sidebar_menu do
-      click_link "Partners"
+      click_on "Partners"
     end
   end
 
@@ -24,8 +24,8 @@ shared_examples "manage partners examples" do
     end
 
     it "updates a conference partners" do
-      within find("#partners tr", text: conference_partner.name) do
-        click_link "Edit"
+      within "#partners tr", text: conference_partner.name do
+        click_on "Edit"
       end
 
       within ".edit_partner" do
@@ -66,14 +66,14 @@ shared_examples "manage partners examples" do
     end
 
     it "deletes the conference partner" do
-      within find("#partners tr", text: conference_partner.name) do
+      within "#partners tr", text: conference_partner.name do
         accept_confirm { find("a.action-icon--remove").click }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "#partners table" do
-        expect(page).not_to have_content(conference_partner.name)
+        expect(page).to have_no_content(conference_partner.name)
       end
     end
   end

@@ -10,7 +10,7 @@ shared_examples "manage participatory process private users examples" do
     login_as user, scope: :user
     visit decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
     within_admin_sidebar_menu do
-      click_link "Private participants"
+      click_on "Private participants"
     end
   end
 
@@ -21,7 +21,7 @@ shared_examples "manage participatory process private users examples" do
   end
 
   it "creates a new participatory process private users" do
-    click_link "New participatory space private user"
+    click_on "New participatory space private user"
 
     within ".new_participatory_space_private_user" do
       fill_in :participatory_space_private_user_name, with: "John Doe"
@@ -39,13 +39,13 @@ shared_examples "manage participatory process private users examples" do
 
   describe "when import a batch of private users from csv" do
     it "import a batch of participatory space private users" do
-      click_link "Import via CSV"
+      click_on "Import via CSV"
 
       # The CSV has no headers
       expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("john.doe@example.org", "John Doe", participatory_process, user)
       expect(Decidim::Admin::ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).once.ordered.with("jane.doe@example.org", "Jane Doe", participatory_process, user)
       dynamically_attach_file(:participatory_space_private_user_csv_import_file, Decidim::Dev.asset("import_participatory_space_private_users.csv"))
-      perform_enqueued_jobs { click_button "Upload" }
+      perform_enqueued_jobs { click_on "Upload" }
 
       expect(page).to have_content("CSV file uploaded successfully")
     end
@@ -58,14 +58,14 @@ shared_examples "manage participatory process private users examples" do
     end
 
     it "deletes an assembly_private_user" do
-      within find("#private_users tr", text: other_user.email) do
-        accept_confirm { click_link "Delete" }
+      within "#private_users tr", text: other_user.email do
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "#private_users table" do
-        expect(page).not_to have_content(other_user.email)
+        expect(page).to have_no_content(other_user.email)
       end
     end
 
@@ -86,8 +86,8 @@ shared_examples "manage participatory process private users examples" do
       end
 
       it "resends the invitation to the user" do
-        within find("#private_users tr", text: "test@example.org") do
-          click_link "Resend invitation"
+        within "#private_users tr", text: "test@example.org" do
+          click_on "Resend invitation"
         end
 
         expect(page).to have_admin_callout("successfully")

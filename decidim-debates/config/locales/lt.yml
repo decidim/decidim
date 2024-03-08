@@ -97,7 +97,6 @@ lt:
           cancel: Atšaukti
           description: Kokia šios diskusijos santrauka ar išvada?
           send: Uždaryti diskusiją
-        closed: Uždaryta
         count:
           debates_count:
             one: "%{count} diskusija"
@@ -107,8 +106,6 @@ lt:
         create:
           invalid: Kuriant šią diskusiją iškilo problema.
           success: Diskusija sukurta sėkmingai.
-        debate:
-          participate: Dalyvauti
         edit:
           back: Atgal
           save: Išsaugoti pakeitimus
@@ -145,7 +142,6 @@ lt:
           updated: Neseniai atnaujinta
         show:
           close_debate: Uždaryti diskusiją
-          date: Data
           debate_closed: Uždaryta
           debate_conclusions_are: 'Diskusija uždaryta %{date} ir padarytos šios išvados:'
           edit_conclusions: Keisti išvadas

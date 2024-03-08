@@ -51,7 +51,6 @@ ru:
         logo: Логотип
         name: Имя
         official_img_footer: Нижний колонтитул официального логотипа
-        official_img_header: Заголовок официального логотипа
         official_url: Официальный веб-адрес организации
         omnipresent_banner_short_description: Краткое описание
         omnipresent_banner_title: Заголовок
@@ -96,8 +95,6 @@ ru:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Недопустимый файл изображения
-            official_img_header:
               allowed_file_content_types: Недопустимый файл изображения
   activerecord:
     attributes:
@@ -465,10 +462,6 @@ ru:
           images:
             layout_appearance_title: Редактировать внешний вид макета
           omnipresent_banner_appearance_title: Редактировать вездесущий баннер
-      organization_homepage:
-        edit:
-          active_content_blocks: Блоки действующего содержимого
-          inactive_content_blocks: Блоки недействующего содержимого
       participatory_space_private_users:
         create:
           error: При попытке добавить частного участника в это пространство соучастия произошла ошибка.
@@ -523,6 +516,8 @@ ru:
         edit:
           title: Отредактировать страницу
           update: Обновить
+        index:
+          last_notable_change: Последнее заметное изменение
         new:
           title: Создать страницу
         update:

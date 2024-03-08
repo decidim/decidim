@@ -37,7 +37,6 @@ lb:
         confirm_destroy: Sidd Dir sécher datt Dir dësen %{name} läsche wëllt?
         destroy: Läschen
         edit: Editéieren
-        import_csv: CSV importéieren
         preview: Preview
         timeline_entries: Projektentwécklung
         title: Aktiounen
@@ -48,7 +47,6 @@ lb:
         import_results:
           new:
             import: Import
-            title: Resultater aus engem CSV-Fichier importéieren
         models:
           result:
             name: Resultat
@@ -94,9 +92,7 @@ lb:
             not_found: 'Das übergeordnete Objekt wurde nicht in der Datenbank gefunden (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Daten
           results: Ergebnisse
-          unspecified: Keine Angabe
       import_mailer:
         import:
           errors: Fehler
@@ -124,9 +120,6 @@ lb:
         timeline_entry:
           fields:
             entry_date: Datum
-      result_m:
-        executed: Ausgeführt
-        view: Ansicht
       results:
         count:
           results_count:

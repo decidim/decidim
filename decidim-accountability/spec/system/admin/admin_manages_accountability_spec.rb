@@ -21,7 +21,7 @@ describe "Admin manages accountability" do
   describe "child results" do
     before do
       within ".table-list__actions" do
-        click_link "New result"
+        click_on "New result"
       end
     end
 
@@ -30,7 +30,7 @@ describe "Admin manages accountability" do
 
   describe "statuses" do
     before do
-      click_link "Statuses"
+      click_on "Statuses"
     end
 
     it_behaves_like "manage statuses"

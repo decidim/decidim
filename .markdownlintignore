@@ -4,3 +4,5 @@ decidim_dummy_app/
 dev/assets/iso-8859-15.md
 vendor/bundle
 development_app/
+decidim-dev/lib/decidim/dev/assets/participatory_text.md
+decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.md

@@ -17,13 +17,18 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = ">= 3.1"
+  s.required_ruby_version = "~> 3.2.0"
 
   s.name = "decidim-sortitions"
   s.summary = "Decidim sortitions module"
-  s.description = "This module makes possible to select amont a set of proposal by sortition"
+  s.description = "This module makes possible to select amount a set of proposal by sortition"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
+  s.files = Dir.chdir(__dir__) do
+    `git ls-files -z`.split("\x0").select do |f|
+      (File.expand_path(f) == __FILE__) ||
+        f.start_with?(*%w(app/ config/ db/ lib/ Rakefile README.md))
+    end
+  end
 
   s.add_dependency "decidim-admin", Decidim::Sortitions.version
   s.add_dependency "decidim-comments", Decidim::Sortitions.version

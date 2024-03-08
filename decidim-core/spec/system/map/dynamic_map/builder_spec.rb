@@ -35,11 +35,11 @@ module Decidim
         end
 
         it "sets up the tile layer" do
-          expect(page).to have_selector(
+          expect(page).to have_css(
             "#tile_layer_url1",
             text: options[:tile_layer][:url]
           )
-          expect(page).to have_selector(
+          expect(page).to have_css(
             "#tile_layer_config1",
             text: options[:tile_layer][:options].to_json
           )

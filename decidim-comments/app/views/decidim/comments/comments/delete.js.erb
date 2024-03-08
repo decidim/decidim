@@ -5,11 +5,14 @@ $(() => {
   const $comment = $(`#comment_${commentId}`);
   const $commentReply = $(`#comment${commentId}-reply`);
   const $content = $("> .comment__content", $comment);
-  const sectionsToDelete = ["header", "footer-grid", "reply", "additionalreply"];
+  const sectionsToDelete = ["footer-grid", "reply"];
 
   sectionsToDelete.forEach((section) => {
-    $(`> .comment__${section}`, $comment).remove();
+    $(`#comment_${commentId} > [data-comment-footer] > .comment__${section}`).remove();
   });
+  $(`#comment_${commentId} > .comment__header`).remove();
+  $(`#comment_${commentId} > [data-additional-reply]`).remove();
+
   $commentReply.remove();
   $content.replaceWith(deleteDataHtml);
   Rails.fire(document, "comments:loaded", {

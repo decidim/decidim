@@ -5,6 +5,14 @@ require: rubocop-rspec
 #      - "(?:^|/)spec/"
 #      - "(?:^|/)test/"
 
+RSpec/FilePath:
+  CustomTransform:
+    OAuthApplicationPresenter: oauth_application_presenter
+
+RSpec/SpecFilePathFormat:
+  CustomTransform:
+    OAuthApplicationPresenter: oauth_application_presenter
+
 RSpec/BeforeAfterAll:
   Enabled: true
 
@@ -66,4 +74,7 @@ RSpec/LeakyConstantDeclaration:
   Enabled: false
 
 RSpec/DescribedClass:
+  Enabled: false
+
+RSpec/IndexedLet:
   Enabled: false

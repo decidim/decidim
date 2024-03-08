@@ -24,7 +24,7 @@ module Decidim
       end
 
       it "has an associated templatable" do
-        expect(subject.templatable).to be_a(Decidim::DummyResources::DummyResource)
+        expect(subject.templatable).to be_a(Decidim::Dev::DummyResource)
       end
 
       describe "#resource_name" do

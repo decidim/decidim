@@ -3,40 +3,12 @@
 module Decidim
   module Admin
     # A command with all the business logic when creating an area
-    class CreateArea < Decidim::Command
-      # Public: Initializes the command.
-      #
-      # form - A form object with the params.
-      def initialize(form)
-        @form = form
-      end
+    class CreateArea < Decidim::Commands::CreateResource
+      fetch_form_attributes :name, :organization, :area_type
 
-      # Executes the command. Broadcasts these events:
-      #
-      # - :ok when everything is valid.
-      # - :invalid if the form was not valid and we could not proceed.
-      #
-      # Returns nothing.
-      def call
-        return broadcast(:invalid) if form.invalid?
+      protected
 
-        create_area
-        broadcast(:ok)
-      end
-
-      private
-
-      attr_reader :form
-
-      def create_area
-        Decidim.traceability.create!(
-          Area,
-          form.current_user,
-          name: form.name,
-          organization: form.organization,
-          area_type: form.area_type
-        )
-      end
+      def resource_class = Decidim::Area
     end
   end
 end

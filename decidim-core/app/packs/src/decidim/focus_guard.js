@@ -1,5 +1,3 @@
-import { Keyboard } from "foundation-sites"
-
 const focusGuardClass = "focusguard";
 const focusableNodes = ["A", "IFRAME", "OBJECT", "EMBED"];
 const focusableDisableableNodes = ["BUTTON", "INPUT", "TEXTAREA", "SELECT"];
@@ -8,21 +6,13 @@ export default class FocusGuard {
   constructor(container) {
     this.container = container;
     this.guardedElement = null;
+    this.triggerElement = null;
   }
 
-  trap(element) {
-    if (this.guardedElement) {
-      Keyboard.releaseFocus($(this.guardedElement));
-    }
-
+  trap(element, trigger) {
     this.enable();
     this.guardedElement = element;
-
-    // Call the release focus first so that we do not accidentally add the
-    // keyboard trap twice. Note that the Foundation methods expect the elements
-    // to be jQuery elements which is why we pass them through jQuery.
-    Keyboard.releaseFocus($(element));
-    Keyboard.trapFocus($(element));
+    this.triggerElement = trigger;
   }
 
   enable() {
@@ -58,12 +48,11 @@ export default class FocusGuard {
     const guards = this.container.querySelectorAll(`:scope > .${focusGuardClass}`);
     guards.forEach((guard) => guard.remove());
 
-    if (this.guardedElement) {
-      // Note that the Foundation methods expect the elements to be jQuery
-      // elements which is why we pass them through jQuery.
-      Keyboard.releaseFocus($(this.guardedElement));
-      this.guardedElement.focus();
-      this.guardedElement = null;
+    this.guardedElement = null;
+
+    if (this.triggerElement) {
+      this.triggerElement.focus();
+      this.triggerElement = null;
     }
   }
 
@@ -89,7 +78,6 @@ export default class FocusGuard {
 
     let target = null;
     if (guard.dataset.position === "start") {
-
       // Focus at the start guard, so focus the first focusable element after that
       for (let ind = 0; ind < visibleNodes.length; ind += 1) {
         if (!this.isFocusGuard(visibleNodes[ind]) && this.isFocusable(visibleNodes[ind])) {

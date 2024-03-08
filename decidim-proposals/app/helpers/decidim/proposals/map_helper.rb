@@ -32,7 +32,7 @@ module Decidim
             :longitude,
             :address
           ).merge(
-            icon: icon("proposals", width: 40, height: 70, remove_icon_class: true)
+            icon: icon("chat-new-line", width: 40, height: 70, remove_icon_class: true)
           )
         }
       end

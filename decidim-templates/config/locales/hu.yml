@@ -36,6 +36,9 @@ hu:
         block_user_templates:
           form:
             save: Mentés
+        proposal_answer_templates:
+          form:
+            save: Mentés
         questionnaire_templates:
           choose:
             create_from_template: Létrehozás sablonból

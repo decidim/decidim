@@ -7,6 +7,8 @@ module Decidim
 
       layout "decidim/admin/global_moderations"
 
+      before_action :set_moderation_breadcrumb_item
+
       def index
         enforce_permission_to :read, :moderate_users
 
@@ -45,6 +47,14 @@ module Decidim
                         else
                           base_query_finder.unblocked
                         end
+      end
+
+      def set_moderation_breadcrumb_item
+        controller_breadcrumb_items << {
+          label: I18n.t("menu.reported_users", scope: "decidim.admin"),
+          url: decidim_admin.moderated_users_path,
+          active: true
+        }
       end
     end
   end

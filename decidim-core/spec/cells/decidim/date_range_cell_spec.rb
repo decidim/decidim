@@ -23,7 +23,7 @@ describe Decidim::DateRangeCell, type: :cell do
     let(:end_time) { end_time_same_date }
 
     it "renders a Date card" do
-      expect(subject).to have_css(".extra__date-container")
+      expect(subject).to have_css("[data-date-container]")
     end
   end
 
@@ -70,14 +70,14 @@ describe Decidim::DateRangeCell, type: :cell do
   end
 
   def has_time(count)
-    expect(subject).to have_css(".extra__time", count:)
+    expect(subject).to have_css("[data-time]", count:)
   end
 
   def has_date(count)
-    expect(subject).to have_css(".extra__date", count:)
+    expect(subject).to have_css("[data-date]", count:)
   end
 
   def has_month(count)
-    expect(subject).to have_css(".extra__month", count:)
+    expect(subject).to have_css("[data-month]", count:)
   end
 end

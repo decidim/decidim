@@ -12,6 +12,8 @@ module Decidim
 
       helper_method :new_managed_user
 
+      add_breadcrumb_item_from_menu :admin_user_menu
+
       def index
         enforce_permission_to :index, :impersonatable_user
 
@@ -26,7 +28,7 @@ module Decidim
       private
 
       def collection
-        @collection ||= current_organization.users.where(admin: false, roles: []).order(created_at: :desc)
+        @collection ||= current_organization.users.not_deleted.not_blocked.where(admin: false, roles: []).order(created_at: :desc)
       end
 
       def new_managed_user

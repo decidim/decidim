@@ -134,7 +134,7 @@ module Decidim
       images_container.save
     end
 
-    # On instance reloading we need to remove the `images_cointainer` cached
+    # On instance reloading we need to remove the `images_container` cached
     # class so it gets regenerated with the new values.
     def reload_images
       @images_container = nil

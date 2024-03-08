@@ -72,8 +72,6 @@ uk:
         create:
           invalid: При спробі започаткувати обговорення сталася помилка.
           success: Обговорення успішно започатковано.
-        debate:
-          participate: Взяти участь
         filters:
           all: Усі
           category: Категорія

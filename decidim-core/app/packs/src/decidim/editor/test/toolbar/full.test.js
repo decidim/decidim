@@ -2,9 +2,9 @@
 
 import Dialog from "a11y-dialog-component";
 
-import { createEditorContainer, sleep, updateContent, selectContent, dropFixtureFile } from "../helpers";
-import contextHelpers from "./shared/context";
-import itBehavesLikeContentToolbar from "./shared/behaves_like_content";
+import { createEditorContainer, sleep, updateContent, selectContent, dropFixtureFile } from "src/decidim/editor/test/helpers";
+import contextHelpers from "src/decidim/editor/test/toolbar/shared/context";
+import itBehavesLikeContentToolbar from "src/decidim/editor/test/toolbar/shared/behaves_like_content";
 
 describe("full toolbar", () => {
   const ctx = {

@@ -21,10 +21,10 @@ import OrderedList from "@tiptap/extension-ordered-list";
 import ListItem from "@tiptap/extension-list-item";
 import Text from "@tiptap/extension-text";
 
-import createEditor from "../index";
+import createEditor from "src/decidim/editor/index";
 
-import editorMessages from "./fixtures/editor_messages";
-import uploadTemplates from "./fixtures/upload_templates";
+import editorMessages from "src/decidim/editor/test/fixtures/editor_messages";
+import uploadTemplates from "src/decidim/editor/test/fixtures/upload_templates";
 
 const config = { messages: { editor: editorMessages } };
 window.Decidim = { config: { get: (key) => config[key] } };
@@ -33,25 +33,12 @@ window.DragEvent = class DragEvent extends Event {};
 
 const defaultEditorConfig = {
   contentTypes: {
-    image: ["image/jpeg", "image/png"]
+    image: ["image/jpeg", "image/png", "image/webp"]
   },
   uploadImagesPath: "/editor_images",
   dragAndDropHelpText: "Add images by dragging & dropping or pasting them.",
   uploadDialogSelector: "#upload_dialog"
 };
-
-// Mock picmo as it is distributed as an ES6 module that is not fully compatible
-// with Jest without configuration changes.
-jest.mock("@picmo/popup-picker",
-  () => ({
-    createPopup: () => {
-      return {
-        addEventListener: () => {},
-        closeButton: {}
-      }
-    }
-  })
-);
 
 // Mock the SVG icons import because jest tests are not running through webpack
 jest.mock("images/decidim/remixicon.symbol.svg", () => "test/url.svg");

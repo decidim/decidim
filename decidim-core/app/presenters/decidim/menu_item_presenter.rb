@@ -27,7 +27,11 @@ module Decidim
 
     def render
       content_tag :li, class: link_wrapper_classes do
-        output = [link_to(composed_label, url, link_options)]
+        output = if url == "#"
+                   [content_tag(:span, composed_label, class: "sidebar-menu__item-disabled")]
+                 else
+                   [link_to(composed_label, url, link_options)]
+                 end
         output.push(@view.send(:simple_menu, **@menu_item.submenu).render) if @menu_item.submenu
 
         safe_join(output)

@@ -48,7 +48,7 @@ module Decidim
         enforce_permission_to(:update, :area, area:)
         @form = form(AreaForm).from_params(params)
 
-        UpdateArea.call(area, @form) do
+        UpdateArea.call(@form, area) do
           on(:ok) do
             flash[:notice] = I18n.t("areas.update.success", scope: "decidim.admin")
             redirect_to areas_path

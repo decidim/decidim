@@ -430,8 +430,8 @@ fi:
               one: ehdotus
               other: ehdotusta
           title:
-            answers: Tuo ehdotusten vastaukset
-            proposals: Tuo ehdotuksia
+            answers: Tuo ehdotusten vastaukset tiedostosta
+            proposals: Tuo ehdotuksia tiedostosta
         models:
           proposal:
             name: Ehdotus
@@ -525,7 +525,7 @@ fi:
             create: Luo
             title: Luo ehdotus
           publish_answers:
-            number_of_proposals: Julkaistaan %{number} vastausta ehdotuksille.
+            number_of_proposals: Haluatko varmasti julkaista %{number} ehdotusten vastausta?
             select_a_proposal: Valitse ehdotus.
           show:
             amendments_count: Muutosten lukumäärä
@@ -535,7 +535,7 @@ fi:
             documents: Asiakirjat
             endorsements_count: Suositusten lukumäärä
             endorsers: Suosittelijat
-            link: Linkki
+            link: Näytä ehdotus
             n_more_endorsers:
               one: ja 1 muu
               other: ja %{count} muuta
@@ -565,7 +565,7 @@ fi:
             no_components: Tässä osallistumistilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
             select_component: Valitse komponentti
             select_states: Tarkista tuotavien ehdotusten tilat
-            title: Tuo ehdotuksia
+            title: Tuo ehdotuksia toisesta komponentista
         proposals_merges:
           create:
             invalid: 'Valittujen ehdotusten yhdistäminen epäonnistui, koska:'

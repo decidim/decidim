@@ -1,4 +1,4 @@
-import PasswordToggler from "./password_toggler";
+import PasswordToggler from "src/decidim/password_toggler";
 
 const initializeAccountForm = () => {
   const newPasswordPanel = document.getElementById("panel-password");

@@ -22,6 +22,9 @@ sv:
         block_user_templates:
           form:
             save: Spara
+        proposal_answer_templates:
+          form:
+            save: Spara
         questionnaire_templates:
           choose:
             label: Välj mall
