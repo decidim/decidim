@@ -142,5 +142,33 @@ module Decidim
         end
       end
     end
+
+    describe "#metadata" do
+      let!(:authorization) { create(:authorization, :granted, metadata: authorization_metadata) }
+      let(:authorization_metadata) do
+        {
+          uid: SecureRandom.hex(256),
+          foo: "bar",
+          baz: "biz",
+          dob: "2016-09-16",
+          postal_code: "00000",
+          municipality: "Babylon"
+        }
+      end
+
+      it "runs the decryption in a timely manner" do
+        start = Time.current
+        100.times { Decidim::Authorization.find(authorization.id).metadata }
+
+        # This should actually take ~0.05 seconds during normal performance but
+        # the idea of this test is to check that there is no unnecessary delay
+        # when running the decryption multiple times.
+        #
+        # There used to be a performance problem at the
+        # `Decidim::AttributeEncryptor` class which caused unnecessary delay
+        # when called multiple times.
+        expect(Time.current - start).to be < 1
+      end
+    end
   end
 end
