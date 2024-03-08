@@ -2,6 +2,25 @@
 ja:
   decidim:
     design:
+      components:
+        accordions:
+          content_panel: パネルの内容
+          demo: デモ
+          demo_description: アプリケーション全体を通して、アコーディオンは主にタブ内のコンテンツの表示/非表示、または表示テキストの折りたたみ/展開に使用します。
+          description_accordions_html: アコーディオンは、 %{link_code} a11y-accordion-componentと呼ばれる外部ライブラリによって利用できるjavascriptの機能です。
+          github_source_html: GitHub上のソースコード %{github_link}
+          panel: パネル
+          title: アコーディオン
+          trigger: トリガー
+          usage: 使い方
+          usage_p: アコーディオンには少なくとも3つの要素が必要です
+          usage_p_1_html: 1. すべての使用可能なトリガーとパネルを覆う、data-属性<code>data-component="accordion"</code>を持つラッパー<code>div</code>。
+          usage_p_2_html: <code>data-controls="panel"</code>によって折りたたみ可能となる要素を指定する、（ボタンとして）ユーザー操作可能なトリガー要素。ここで指定されている<i>panel</i>は対象となるパネルの<code>id</code>を指す。
+          usage_p_3_html: 3. トリガーが指定するdata-controlsの値と一致する<code>id</code> を持つ非表示要素。
+        activities:
+          activities: アクティビティ
+        address:
+          title: アドレス
       foundations:
         accessibility:
           accessibility_labels: アクセシビリティラベル
@@ -68,13 +87,29 @@ ja:
           section_p_tablet: タブレットグリッドシステムは、列間に16pxの隙間と、左右に24pxのマージンを持つ8つの柔軟な列で構成されています。
           tablet: タブレット
           title: レイアウト
+        typography:
+          description: このガイドラインは、Decidimにおけるタイポグラフィの用例をまとめ、デザイナーがタイポグラフィの最適な実践を理解し、自由にデザインするためのガイドレールとして提供されます。
+          headings:
+            characters: 1行あたりの文字数
+            layout: レイアウトカラム数
+            size: サイズ
+          title: タイポグラフィ
+          typefaces_description_1: DecidimはSource Sans Proをプライマリ・フォントとして使用しています。この書体は310の言語に対応しています。
+          typefaces_description_2: このフォントはOpen Font Licenseの下でライセンスされています。
       helpers:
+        activity: アクティビティ
+        address_description: アドレスセルはリソースを受け取り、geolocalizable属性を検索して特定のマークアップを出力します。
+        address_description_2: コンテンツの種類によっては、アドレスがオンラインURLになる場合があります。 そのような場合、表示される情報はまったく同じですが、適合するように形作られています。
         background: 背景とボーダー
         base: 基本
+        demo: デモ
+        demo_text: 'このセルは LastActivity アイテムのモデルを受け取り、以下の要素を表示します。'
+        demo_text_2: 最近のアクティビティページ、コンテンツブロック、ドロップダウン内で使用されます。
         form_elements: フォーム要素
         hex_code: 16進コード
         main_colors: メインカラー
         rgba_code: RGBA コード
+        source_code: ソースコード
         state: 状態
         tailwind: Tailwindでの名称
         typography_texts: タイポグラフィとテキスト
@@ -98,6 +133,7 @@ ja:
         usage_typography_3: ダーク背景上のテキスト
         usage_typography_4: リンクとボタン
         value: 値
+        variations: バリエーション
       home:
         index:
           by_sharing_principles: 設計上の決定を行うための原理、哲学、根拠を共有することにより、コミュニティが一貫性のある貢献を行えるようになり、最高の参加体験が得られることを目指します。
