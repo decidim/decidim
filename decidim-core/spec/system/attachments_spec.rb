@@ -12,7 +12,6 @@ describe "Attachment spec" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim.account_path
-    ActiveJob::Base.queue_adapter.enqueued_jobs.clear
   end
 
   it "Enqueues the cleanup job" do
@@ -20,6 +19,8 @@ describe "Attachment spec" do
 
     within ".upload-modal" do
       click_remove(true)
+
+      ActiveJob::Base.queue_adapter.enqueued_jobs.clear
       input_element = find("input[type='file']", visible: :all)
       input_element.attach_file(file_location)
       within "[data-filename='#{filename}']" do

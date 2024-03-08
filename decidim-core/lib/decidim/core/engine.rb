@@ -394,7 +394,7 @@ module Decidim
       end
 
       initializer "decidim_core.clean_attachments" do
-        config.to_prepare do
+        config.after_initialize do
           ActiveSupport::Notifications.subscribe("service_upload.active_storage") do |_, _, _, _, payload|
             Decidim::CleanUnattachedBlobJob.set(wait: 10.minutes).perform_later(payload[:key])
           end
