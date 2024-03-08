@@ -31,7 +31,7 @@ module Decidim::Assemblies
         expect(serialized).to include(local_area: resource.local_area)
         expect(serialized).to include(target: resource.target)
         expect(serialized).to include(decidim_scope_id: resource.decidim_scope_id)
-        expect(serialized).to include(paticipatory_scope: resource.participatory_scope)
+        expect(serialized).to include(participatory_scope: resource.participatory_scope)
         expect(serialized).to include(participatory_structure: resource.participatory_structure)
         expect(serialized).to include(show_statistics: resource.show_statistics)
         expect(serialized).to include(scopes_enabled: resource.scopes_enabled)

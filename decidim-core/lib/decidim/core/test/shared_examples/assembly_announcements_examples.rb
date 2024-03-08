@@ -20,7 +20,7 @@ shared_examples "manage assemblies announcements" do
     visit decidim_admin_assemblies.assemblies_path
 
     if defined?(parent_assembly) && !parent_assembly.nil?
-      within find("tr", text: translated(parent_assembly.title)) do
+      within "tr", text: translated(parent_assembly.title) do
         click_on "Assemblies"
       end
     end

@@ -11,8 +11,8 @@ module Decidim
               {
                 type: :text,
                 values: [
-                  "Decidim uses Source Sans Pro as primary typeface. This typeface supports 310 languages",
-                  "This fonts are licensed under the Open Font License"
+                  t("decidim.design.foundations.typography.typefaces_description_1"),
+                  t("decidim.design.foundations.typography.typefaces_description_2")
                 ]
               },
               {
@@ -65,7 +65,8 @@ module Decidim
             contents: [
               {
                 type: :table,
-                options: { headings: ["Size", "Layout cols", "~ Characters per line"] },
+                options: { headings: [t("decidim.design.foundations.typography.headings.size"), t("decidim.design.foundations.typography.headings.layout"),
+                                      t("decidim.design.foundations.typography.headings.characters")] },
                 items: typography_table(
                   { type: "readability", size: "text-xl", layout: 6, chars: 81 },
                   { type: "readability", size: "text-lg", layout: 6, chars: 90 },

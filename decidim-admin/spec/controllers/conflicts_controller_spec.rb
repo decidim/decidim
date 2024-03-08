@@ -69,7 +69,7 @@ module Decidim
             }
           }
 
-          expect(flash[:alert]).to eq("There was a problem transfering the current participant to managed participant.")
+          expect(flash[:alert]).to eq("There was a problem transferring the current participant to managed participant.")
         end
       end
     end

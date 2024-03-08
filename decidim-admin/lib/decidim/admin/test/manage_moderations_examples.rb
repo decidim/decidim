@@ -68,7 +68,7 @@ shared_examples "manage moderations" do
 
       visit current_path
 
-      expect(page).not_to have_selector("tr[data-id=\"#{external_moderation.id}\"]")
+      expect(page).to have_no_css("tr[data-id=\"#{external_moderation.id}\"]")
     end
 
     it "user can review them" do
@@ -94,7 +94,7 @@ shared_examples "manage moderations" do
       end
 
       expect(page).to have_admin_callout("Resource successfully hidden")
-      expect(page).not_to have_content(moderation.reportable.reported_content_url)
+      expect(page).to have_no_content(moderation.reportable.reported_content_url)
     end
 
     it "user can sort by report count" do
@@ -118,7 +118,7 @@ shared_examples "manage moderations" do
         find(:xpath, "//a[contains(text(), 'Type')]").hover
         click_on reportable_type
       end
-      expect(page).to have_selector("tbody tr", count: moderations.length)
+      expect(page).to have_css("tbody tr", count: moderations.length)
     end
 
     it "user can filter by reported content" do
@@ -127,7 +127,7 @@ shared_examples "manage moderations" do
         fill_in("Search Moderation by reportable id or content.", with: search)
         within(".input-group-button") { click_on(class: "text-secondary") }
       end
-      expect(page).to have_selector("tbody tr", count: 1)
+      expect(page).to have_css("tbody tr", count: 1)
     end
 
     it "user can see moderation details" do
@@ -144,7 +144,7 @@ shared_examples "manage moderations" do
         moderation.reportable.destroy
         visit current_path
 
-        expect(page).not_to have_selector("tr[data-id=\"#{moderation.id}\"]")
+        expect(page).to have_no_css("tr[data-id=\"#{moderation.id}\"]")
       end
     end
 
@@ -188,7 +188,7 @@ shared_examples "manage moderations" do
     end
 
     it "user cannot unreport them" do
-      expect(page).not_to have_css(".action-icon--unreport")
+      expect(page).to have_no_css(".action-icon--unreport")
     end
 
     it "user can review them" do
@@ -235,7 +235,7 @@ shared_examples "manage moderations" do
       end
 
       expect(page).to have_admin_callout("Resource successfully hidden")
-      expect(page).not_to have_selector("tr[data-id=\"#{moderation_id}\"]")
+      expect(page).to have_no_css("tr[data-id=\"#{moderation_id}\"]")
     end
   end
 end

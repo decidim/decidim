@@ -15,7 +15,7 @@ describe Decidim::NotificationCell, type: :cell do
 
   context "when resource exists" do
     it "Resource title is present" do
-      expect(my_cell.notification_title).to include("An event occured")
+      expect(my_cell.notification_title).to include("An event occurred")
     end
   end
 

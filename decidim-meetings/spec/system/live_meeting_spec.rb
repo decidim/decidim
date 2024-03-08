@@ -54,7 +54,7 @@ describe "Meeting live event" do
       visit meeting_live_event_path
       click_on "Change cookie settings"
       click_on "Accept all"
-      expect(page).to have_selector("iframe")
+      expect(page).to have_css("iframe")
     end
   end
 
@@ -75,7 +75,7 @@ describe "Meeting live event" do
 
       it "does not timeout user" do
         travel 5.minutes
-        expect(page).to have_selector("[aria-label='User account: #{user.name}']")
+        expect(page).to have_css("[aria-label='User account: #{user.name}']")
         expect(page).to have_no_content("If you continue being inactive", wait: 4)
         expect(page).to have_no_content("You were inactive for too long")
       end
