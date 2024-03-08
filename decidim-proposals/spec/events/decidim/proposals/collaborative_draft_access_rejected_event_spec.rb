@@ -6,9 +6,8 @@ describe Decidim::Proposals::CollaborativeDraftAccessRejectedEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.proposals.collaborative_draft_access_rejected" }
-  let(:resource) { create :collaborative_draft, title: "It's my collaborative draft" }
+  let(:resource) { create :collaborative_draft }
   let(:resource_path) { Decidim::ResourceLocatorPresenter.new(resource).path }
-  let(:resource_title) { decidim_html_escape(resource.title) }
   let(:author) { resource.authors.first }
   let(:author_id) { author.id }
   let(:author_presenter) { Decidim::UserPresenter.new(author) }
@@ -24,7 +23,7 @@ describe Decidim::Proposals::CollaborativeDraftAccessRejectedEvent do
   let(:extra) { { requester_id: requester_id } }
 
   context "when the notification is for coauthor users" do
-    let(:email_subject) { "#{requester_name} has been rejected to access as a contributor of the #{translated(resource.title)} collaborative draft." }
+    let(:email_subject) { "#{requester_name} has been rejected to access as a contributor of the #{resource_title} collaborative draft." }
     let(:email_intro) { %(#{requester_name} has been rejected to access as a contributor of the <a href="#{resource_url}">#{resource_title}</a> collaborative draft.) }
     let(:email_outro) { %(You have received this notification because you are a collaborator of <a href="#{resource_url}">#{resource_title}</a>.) }
     let(:notification_title) { %(<a href="#{requester_path}">#{requester_name} #{requester_nickname}</a> has been <strong>rejected to access as a contributor</strong> of the <a href="#{resource_path}">#{resource_title}</a> collaborative draft.) }
@@ -36,7 +35,7 @@ describe Decidim::Proposals::CollaborativeDraftAccessRejectedEvent do
 
   context "when the notification is for the requester" do
     let(:event_name) { "decidim.events.proposals.collaborative_draft_access_requester_rejected" }
-    let(:email_subject) { "You have been rejected as a contributor of #{translated(resource.title)}." }
+    let(:email_subject) { "You have been rejected as a contributor of #{resource_title}." }
     let(:email_intro) { %(You have been rejected to access as a contributor of the <a href="#{resource_url}">#{resource_title}</a> collaborative draft.) }
     let(:email_outro) { %(You have received this notification because you requested to become a collaborator of <a href="#{resource_url}">#{resource_title}</a>.) }
     let(:notification_title) { %(You have been <strong>rejected to access as a contributor</strong> of the <a href="#{resource_path}">#{resource_title}</a> collaborative draft.) }
