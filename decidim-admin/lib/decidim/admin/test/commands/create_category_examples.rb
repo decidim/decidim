@@ -27,7 +27,7 @@ module Decidim
             current_user: user
           )
         end
-        let(:command) { described_class.new(form, participatory_space) }
+        let(:command) { described_class.new(form) }
 
         describe "when the form is not valid" do
           before do
