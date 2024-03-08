@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Assemblies
   describe Admin::CreateAssemblyMember do
-    subject { described_class.new(form) }
+    subject { described_class.new(form, assembly) }
 
     let(:assembly) { create(:assembly) }
     let(:user_entity) { nil }
@@ -41,7 +41,6 @@ module Decidim::Assemblies
         form_params
       ).with_context(
         current_user:,
-        current_participatory_space: assembly,
         current_organization: assembly.organization
       )
     end
@@ -89,8 +88,8 @@ module Decidim::Assemblies
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-          .with(:create, Decidim::AssemblyMember, current_user, hash_including(resource: hash_including(:title)))
-          .and_call_original
+                .with(:create, Decidim::AssemblyMember, current_user, hash_including(resource: hash_including(:title)))
+                .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
@@ -109,13 +108,13 @@ module Decidim::Assemblies
         it "notifies the user" do
           expect(Decidim::EventsManager)
             .to receive(:publish)
-            .once
-            .with(
-              event: "decidim.events.assemblies.create_assembly_member",
-              event_class: Decidim::Assemblies::CreateAssemblyMemberEvent,
-              resource: assembly,
-              followers: a_collection_containing_exactly(user_entity)
-            )
+                  .once
+                  .with(
+                    event: "decidim.events.assemblies.create_assembly_member",
+                    event_class: Decidim::Assemblies::CreateAssemblyMemberEvent,
+                    resource: assembly,
+                    followers: a_collection_containing_exactly(user_entity)
+                  )
 
           subject.call
           expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.on_queue("mailers")
@@ -136,13 +135,13 @@ module Decidim::Assemblies
         it "notifies the group members" do
           expect(Decidim::EventsManager)
             .to receive(:publish)
-            .once
-            .with(
-              event: "decidim.events.assemblies.create_assembly_member",
-              event_class: Decidim::Assemblies::CreateAssemblyMemberEvent,
-              resource: assembly,
-              followers: a_collection_containing_exactly(member1, member2)
-            )
+                  .once
+                  .with(
+                    event: "decidim.events.assemblies.create_assembly_member",
+                    event_class: Decidim::Assemblies::CreateAssemblyMemberEvent,
+                    resource: assembly,
+                    followers: a_collection_containing_exactly(member1, member2)
+                  )
 
           subject.call
           expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.twice.on_queue("mailers")
