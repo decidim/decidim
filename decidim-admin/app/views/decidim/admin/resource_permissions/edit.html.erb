@@ -6,9 +6,9 @@
         <% if resource %>
           -
           <% if resource.is_a?(Decidim::Resourceable) %>
-            <%= link_to(resource_title(resource), resource_locator(resource).path) %>
+            <%= link_to(decidim_escape_translated(resource.title).html_safe, resource_locator(resource).path) %>
           <% else %>
-            <%= strip_tags resource_title(resource) %>
+            <%= decidim_escape_translated(resource.title).html_safe %>
           <% end %>
         <% end %>
       </h3>

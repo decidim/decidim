@@ -56,7 +56,7 @@ module Decidim
       def filter_types_values
         types_values = Decidim::InitiativesType.where(organization: current_organization).map do |type|
           TreeNode.new(
-            TreePoint.new(type.id.to_s, type.title[I18n.locale.to_s])
+            TreePoint.new(type.id.to_s, decidim_escape_translated(type.title))
           )
         end
 

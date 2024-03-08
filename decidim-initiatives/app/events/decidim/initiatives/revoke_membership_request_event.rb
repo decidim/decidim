@@ -5,6 +5,7 @@ module Decidim
     class RevokeMembershipRequestEvent < Decidim::Events::BaseEvent
       include Decidim::Events::EmailEvent
       include Decidim::Events::NotificationEvent
+      include Decidim::SanitizeHelper
 
       def email_subject
         I18n.t(
@@ -42,6 +43,14 @@ module Decidim
       end
 
       private
+
+      def resource_title
+        return unless resource
+
+        title = decidim_sanitize_translated(resource.title)
+
+        Decidim::ContentProcessor.render_without_format(title, links: false).html_safe
+      end
 
       def author_nickname
         author.nickname
