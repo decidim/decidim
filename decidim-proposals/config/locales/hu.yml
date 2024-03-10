@@ -11,6 +11,8 @@ hu:
         state: Állapot
         title: Cím
         user_group_id: Közösen szerkesztett vázlat
+      import_participatory_text:
+        document: Közösen szerkesztendő szöveg
       proposal:
         address: Cím
         answer: Válasz
