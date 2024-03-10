@@ -2,6 +2,15 @@
 cs:
   decidim:
     design:
+      components:
+        accordions:
+          demo: Demo
+          panel: Panel
+          usage: Použití
+        activities:
+          activities: Aktivity
+        address:
+          title: Adresa
       foundations:
         accessibility:
           accessibility_labels: Štítky přístupnosti
