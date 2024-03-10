@@ -13,7 +13,6 @@ module Decidim::Conferences
       create(:component, manifest_name: :meetings, participatory_space: conference)
     end
 
-
     let(:meetings) do
       create_list(
         :meeting,
