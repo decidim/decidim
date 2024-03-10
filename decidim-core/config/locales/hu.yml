@@ -808,6 +808,7 @@ hu:
       create:
         button: Követés
         error: Hiba történt az erőforrás követése során.
+        participatory_space: ' <span class="show-for-sr">%{resource_name}</span> követése'
       destroy:
         button: Követés törlése
         error: Hiba történt az erőforrás követésének visszavonásakor.
@@ -824,6 +825,8 @@ hu:
           explanation: 'Útmutató:'
           message_1: A képnek négyzet alakúnak kell lennie.
           message_2: A javasolt képméret 512x512 px.
+        image:
+          message_1: Olyan fekvő kép használata ajánlott, amely nem tartalmaz szöveget.
       file_validation:
         max_file_size: 'Maximális fájlméret: %{megabytes} MB'
       upload:
