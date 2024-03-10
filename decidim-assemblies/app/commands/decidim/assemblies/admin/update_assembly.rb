@@ -19,7 +19,7 @@ module Decidim
         private
 
         def run_after_hooks
-          link_participatory_processes(resource)
+          link_participatory_processes
           update_children_count
         end
 
@@ -27,12 +27,12 @@ module Decidim
           @parent ||= Assembly.find_by(id: resource.parent)
         end
 
-        def participatory_processes(assembly)
-          @participatory_processes ||= assembly.participatory_space_sibling_scope(:participatory_processes).where(id: form.participatory_processes_ids)
+        def participatory_processes
+          @participatory_processes ||= resource.participatory_space_sibling_scope(:participatory_processes).where(id: form.participatory_processes_ids)
         end
 
-        def link_participatory_processes(assembly)
-          assembly.link_participatory_space_resources(participatory_processes(assembly), "included_participatory_processes")
+        def link_participatory_processes
+          resource.link_participatory_space_resources(participatory_processes, "included_participatory_processes")
         end
 
         # Resets the children counter cache to its correct value using an SQL count query.
