@@ -12,6 +12,7 @@ module Decidim
                               :position, :position_other, :user
 
         protected
+
         def run_after_hooks
           notify_assembly_member_about_new_membership
         end

@@ -22,7 +22,7 @@ module Decidim
 
         perform!
         broadcast(:ok, resource)
-      rescue ActiveRecord::RecordInvalid => e
+      rescue ActiveRecord::RecordInvalid
         add_file_attribute_errors!
         broadcast(:invalid)
       rescue Decidim::Commands::HookError
