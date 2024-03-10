@@ -6,7 +6,10 @@ cs:
         accordions:
           demo: Demo
           panel: Panel
+          trigger: Spouštěč
           usage: Použití
+          usage_p_1_html: 1. wrapper <code>div</code>, s atributem dat <code>data-component="accordion"</code>, přes všechny dostupné spouštěče a panely.
+          usage_p_2_html: 2. spouštěcí prvek, uživatelsky proveditelný (jako tlačítko), ukazující na sbalitelný prvek prostřednictvím <code>data-controls="panel"</code>, kde <i>panel</i> je <code>id</code> panelu.
         activities:
           activities: Aktivity
         address:
@@ -16,8 +19,12 @@ cs:
           accessibility_labels: Štítky přístupnosti
           accessibility_labels_paragraph: Při definování prvků se vždy ujistěte, že mají smysl pro čtenáře obrazovky.
           accessibility_title: Přístupnost
+          adjacent_links: Přidat odkazy
+          adjacent_links_header: Přidejte odkazy pro stejný zdroj
           color_contrast: Barevný kontrast
+          decidim_follows_html: Decidim se řídí <u>Pokyny pro přístupnost webového obsahu (WCAG) 2.1</u>
           elements_hidden: Skryté prvky
+          elements_hidden_paragraph: Pro skrytí prvku před asistenčními technologiemi použijte atribut aria-hidden="true".
           heading_on: Záhlaví na důležitých oddílech
           here_link: zde
           illogical_heading_order: Nelogické pořadí záhlaví
@@ -47,6 +54,8 @@ cs:
           breakpoints: Zarážky
           centered: Na střed
           code: Kód
+          columns: Počet sloupců 10, 8 nebo 6.
+          description_layout_p2: Tato jednoduchá pravidla by měla být dodržována při vytváření nových modulů nebo přizpůsobování stávajících, takže stránky Decidim mohou zachovat svou konzistenci.
           desktop: Počítač
           full_width: Plná šířka
           left_aside: Nalevo
@@ -54,13 +63,28 @@ cs:
           not_required: Nevyžadováno
           properties: Vlastnosti
           right_aside: Vpravo
+          tablet: Tablet
+          title: Rozložení
+        typography:
+          headings:
+            characters: Znaků na řádek
+            layout: Sloupce rozložení
+            size: Velikost
+          title: Typografie
+          typefaces_description_1: Decidim používá Source Sans Pro jako primární typ. Tento typ podporuje 310 jazyků
+          typefaces_description_2: Tato písma jsou licencována pod Open Font License
       helpers:
+        activity: Aktivita
         background: Pozadí a okraje
         base: Podklad
+        demo: Demo
+        demo_text: 'Tato buňka přijímá model LastActivity položek a zobrazuje následující prvky:'
+        demo_text_2: Používá se poslední stránka aktivity v bloku obsahu a v rozevíracích seznamech.
         form_elements: Prvky formuláře
         hex_code: Hex kód
         main_colors: Hlavní barvy
         rgba_code: RGBA kód
+        source_code: Zdrojový kód
         state: Stav
         tailwind: Tailwind název
         typography_texts: Typografie a texty
@@ -74,9 +98,11 @@ cs:
         usage_base_2: Hlavní barva odkazů a tlačítek
         usage_formelements_1: Výchozí pozadí vstupních prvků
         usage_state_2: Okraj výstražného upozornění
+        usage_typography_2: Vložený text
         usage_typography_3: Text na tmavém pozadí
         usage_typography_4: Odkazy a tlačítka
         value: Hodnota
+        variations: Variace
       home:
         index:
           decidim_guide: Průvodce navrhováním všech věcí Decidim
