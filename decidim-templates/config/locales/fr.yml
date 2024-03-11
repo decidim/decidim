@@ -9,7 +9,6 @@ fr:
   decidim:
     admin:
       menu:
-        manage: Gérer
         templates: Modèles de questionnaire
       templates:
         actions:
