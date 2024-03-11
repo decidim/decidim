@@ -8,10 +8,10 @@
         <%= form.translated :text_area, :announcement_title, aria: { label: :announcement_title }, data: {"text-copy" => true, "target" => "div[data-announcement-preview] .flash__title" } %>
       </div>
 
-      <div class="row column">
+      <div class="row column proposal-status__color">
         <% proposal_state.class.colors.each do |color_name, color_values| %>
-          <%= form.radio_button :text_color, color_name,
-            label: false,
+          <%= form.radio_button :text_color, color_values[:foreground],
+            label: color_values[:name],
             class: "!mr-4",
             style: "box-shadow: 0 0 0 6px #{color_values[:foreground]}; accent-color: #{color_values[:foreground]};",
             data: {

@@ -34,36 +34,44 @@ module Decidim
       def self.colors
         {
           gray: {
+            background: "#F6F8FA",
             foreground: "#4B5058",
-            background: "#F6F8FA"
+            name: I18n.t("gray", scope: "activemodel.attributes.proposal_state.colors")
           },
           blue: {
+            background: "#EBF9FF",
             foreground: "#0851A6",
-            background: "#EBF9FF"
+            name: I18n.t("blue", scope: "activemodel.attributes.proposal_state.colors")
           },
           green: {
+            background: "#E3FCE9",
             foreground: "#15602C",
-            background: "#E3FCE9"
+            name: I18n.t("green", scope: "activemodel.attributes.proposal_state.colors")
           },
           yellow: {
+            background: "#FFFCE5",
             foreground: "#9A6700",
-            background: "#FFFCE5"
+            name: I18n.t("yellow", scope: "activemodel.attributes.proposal_state.colors")
           },
           orange: {
+            background: "#FFF1E5",
             foreground: "#BC4C00",
-            background: "#FFF1E5"
+            name: I18n.t("orange", scope: "activemodel.attributes.proposal_state.colors")
           },
           red: {
+            background: "#FFEBE9",
             foreground: "#D1242F",
-            background: "#FFEBE9"
+            name: I18n.t("red", scope: "activemodel.attributes.proposal_state.colors")
           },
           pink: {
+            background: "#FFEFF7",
             foreground: "#BF3989",
-            background: "#FFEFF7"
+            name: I18n.t("pink", scope: "activemodel.attributes.proposal_state.colors")
           },
           purple: {
+            background: "#FBEFFF",
             foreground: "#8250DF",
-            background: "#FBEFFF"
+            name: I18n.t("purple", scope: "activemodel.attributes.proposal_state.colors")
           }
         }
       end
