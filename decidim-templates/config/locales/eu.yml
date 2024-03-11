@@ -9,7 +9,6 @@ eu:
   decidim:
     admin:
       menu:
-        manage: Kudeatu
         templates: Txantiloiak
       templates:
         actions:
