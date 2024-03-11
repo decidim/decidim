@@ -9,7 +9,6 @@ fr-CA:
   decidim:
     admin:
       menu:
-        manage: Gérer
         templates: Modèles 
       templates:
         actions:
