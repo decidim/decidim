@@ -24,14 +24,14 @@ import "entrypoints/decidim_admin.scss";
 window.addEventListener("DOMContentLoaded", () => {
   initLanguageChangeSelect(document.querySelectorAll("select.language-change"));
 
-  document.querySelectorAll("input[data-label-preview=true]").forEach((element) => {
+  document.querySelectorAll("input[data-css-preview=true]").forEach((element) => {
     element.addEventListener("change", (event) => {
       // All the update rules are separated by a semicolon, so we split them
       // selector:property:value; selector:property:value;
       //
       // for example:
       //   strong[data-label-preview]:color:#0000ff; strong[data-label-preview]:backgroundColor:#eeeeee;
-      const updateRules = event.target.dataset.updates.split(";");
+      const updateRules = event.target.dataset.cssPreviewUpdates.split(";");
 
       updateRules.forEach((rule) => {
         const [target, property, value] = rule.split(":");
