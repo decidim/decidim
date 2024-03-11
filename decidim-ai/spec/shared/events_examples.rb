@@ -56,7 +56,7 @@ shared_examples "initiatives spam analysis" do
     end
   end
 
-  context "when regular content content is added" do
+  context "when regular content is added" do
     let(:description) { "Very nice idea that is not going to be blocked by engine" }
     let(:title) { "This is the debate title" }
 
@@ -88,7 +88,7 @@ shared_examples "debates spam analysis" do
     end
   end
 
-  context "when regular content content is added" do
+  context "when regular content is added" do
     let(:description) { "Very nice idea that is not going to be blocked by engine" }
     let(:title) { "This is the debate title" }
 
@@ -117,7 +117,7 @@ shared_examples "comments spam analysis" do
     end
   end
 
-  context "when regular content content is added" do
+  context "when regular content is added" do
     let(:body) { "Very nice idea that is not going to be blocked by engine" }
 
     include_examples "content submitted to spam analysis" do
@@ -146,7 +146,7 @@ shared_examples "meetings spam analysis" do
     end
   end
 
-  context "when regular content content is added" do
+  context "when regular content is added" do
     let(:description) { "Very nice idea that is not going to be blocked by engine" }
     let(:title) { "This is the collaborative draft title" }
 
@@ -175,7 +175,7 @@ shared_examples "proposal spam analysis" do
     end
   end
 
-  context "when regular content content is added" do
+  context "when regular content is added" do
     let(:body) { "Very nice idea that is not going to be blocked by engine" }
     let(:title) { "This is the collaborative draft title" }
 
@@ -204,7 +204,7 @@ shared_examples "Collaborative draft spam analysis" do
     end
   end
 
-  context "when regular content content is added" do
+  context "when regular content is added" do
     let(:body) { "Very nice idea that is not going to be blocked by engine" }
     let(:title) { "This is the collaborative draft title" }
 

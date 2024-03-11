@@ -73,7 +73,7 @@ describe "User changes own data", type: :system do
     end
   end
 
-  context "when regular content content is added" do
+  context "when regular content is added" do
     let(:about) { "Very nice idea that is not going to be blocked" }
 
     include_examples "user content submitted to spam analysis" do
