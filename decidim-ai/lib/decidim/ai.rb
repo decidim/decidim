@@ -37,11 +37,11 @@ module Decidim
 
     include ActiveSupport::Configurable
 
-    # You can configure the spam treshold for the spam detection service.
-    # The treshold is a float value between 0 and 1.
+    # You can configure the spam threshold for the spam detection service.
+    # The threshold is a float value between 0 and 1.
     # The default value is 0.5
-    # Any value below the treshold will be considered spam.
-    config_accessor :spam_treshold do
+    # Any value below the threshold will be considered spam.
+    config_accessor :spam_threshold do
       0.75
     end
     # Registered analyzers.

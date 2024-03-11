@@ -19,7 +19,7 @@ module Decidim
         expect(subject).to be_a(Decidim::Ai::LanguageDetection::Service)
       end
 
-      it "returns the corect language code" do
+      it "returns the correct language code" do
         expect(subject.language_code).to eq("en")
       end
     end

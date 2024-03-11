@@ -16,7 +16,7 @@ module Decidim
 
         overall_score = overall_score.inject(0.0, :+) / overall_score.size
 
-        return unless overall_score >= Decidim::Ai.spam_treshold
+        return unless overall_score >= Decidim::Ai.spam_threshold
 
         Decidim::CreateReport.call(form, reportable, reporting_user)
       end

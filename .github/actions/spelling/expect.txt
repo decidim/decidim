@@ -5,6 +5,7 @@ abcd
 abcert
 abcloktpes
 accesslist
+Aceasta
 acentos
 acro
 activejob
@@ -21,9 +22,12 @@ admins
 adoc
 AFFERO
 AGPL
+aitools
 Ajuntament
 Ajuntamentde
 alabs
+alecslupu
+Alexandru
 amendables
 AMR
 andreslucena
@@ -63,6 +67,7 @@ backticks
 barcat
 Basecontroller
 Batchloader
+bayes
 bbb
 Bbbb
 BCN
@@ -120,6 +125,7 @@ childs
 chromedriver
 cht
 cityhall
+cld
 clickable
 clickbait
 cmax
@@ -275,6 +281,7 @@ ERVz
 Esa
 espa
 estat
+este
 etherpad
 evanfuture
 evt
@@ -489,6 +496,7 @@ lsclusters
 lte
 lteq
 LTREE
+Lupu
 lvh
 lvml
 magick
@@ -701,6 +709,7 @@ promotal
 promotors
 proposta
 Propostes
+propozitie
 Propuesta
 prosemirror
 protonmail
@@ -931,6 +940,7 @@ unresolveable
 unsigning
 unsigns
 unsubscribes
+untrains
 unvotes
 upcomingfoobar
 UPDREF

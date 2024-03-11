@@ -16,7 +16,7 @@ module Decidim
         if self.for(name).present?
           raise(
             StrategyAlreadyRegistered,
-            "There is a stategy already registered with the name `:#{name}`"
+            "There is a strategy already registered with the name `:#{name}`"
           )
         end
 

@@ -8,7 +8,7 @@ module Decidim
 
         classifier.classify(reportable.about)
 
-        return unless classifier.score >= Decidim::Ai.spam_treshold
+        return unless classifier.score >= Decidim::Ai.spam_threshold
 
         Decidim::CreateUserReport.call(form, reportable, reporting_user)
       end

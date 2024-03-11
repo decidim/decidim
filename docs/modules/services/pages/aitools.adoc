@@ -40,7 +40,7 @@ In order to get control of your AI installation, you may need to create an initi
 You can do it by creating a file in `config/initializers/decidim_ai.rb` with the following content:
 
 ```ruby
-Decidim::Ai.spam_treshold = 0.75 # default
+Decidim::Ai.spam_threshold = 0.75 # default
 # The entry must be a hash with the following keys:
 # - name: the name of the analyzer
 # - strategy: the class of the strategy to use
