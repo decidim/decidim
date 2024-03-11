@@ -232,6 +232,7 @@ dtgteq
 dtlt
 dtlteq
 dtstart
+dvh
 dximagetransform
 editlabel
 editorlabel
