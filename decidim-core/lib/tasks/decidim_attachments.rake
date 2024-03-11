@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 namespace :decidim do
-  namespace :attachmens do
+  namespace :attachments do
     desc "Cleanup the orphaned blobs attachments"
     task cleanup: :environment do
       ActiveStorage::Blob.unattached.find_each(&:purge_later)
