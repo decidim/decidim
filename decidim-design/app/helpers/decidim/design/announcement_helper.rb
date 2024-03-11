@@ -16,10 +16,10 @@ module Decidim
                 type: :table,
                 options: { headings: [t("decidim.design.components.announcement.title"), t("decidim.design.helpers.callout_class")] },
                 items: announcement_table(
-                  { text: "I am an announcement", callout_class: "Success" },
-                  { text: "I am an announcement", callout_class: "Warning" },
-                  { text: "I am an announcement", callout_class: "Alert" },
-                  { text: "I am an announcement", callout_class: "Secondary" },
+                  { text: "I am an announcement", callout_class: "success" },
+                  { text: "I am an announcement", callout_class: "warning" },
+                  { text: "I am an announcement", callout_class: "alert" },
+                  { text: "I am an announcement", callout_class: "secondary" },
                   { text: "I am an announcement", callout_class: nil }
                 ),
                 cell_snippet: {
