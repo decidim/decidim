@@ -16,9 +16,17 @@
             style: "box-shadow: 0 0 0 6px #{color_values[:foreground]}; accent-color: #{color_values[:foreground]};",
             data: {
               "label-preview" => true,
-              "target" => "strong[data-label-preview]",
-              "updates" => "color:#{color_values[:foreground]}; backgroundColor:#{color_values[:background]}"
+              "updates" =>
+                "strong[data-label-preview]:color:#{color_values[:foreground]}; " +
+                "strong[data-label-preview]:backgroundColor:#{color_values[:background]}; " +
+                "div[data-announcement-preview]:color:#{color_values[:foreground]}; " +
+                "div[data-announcement-preview]:backgroundColor:#{color_values[:background]}; " +
+                "div[data-announcement-preview]:borderColor:#{color_values[:foreground]}/var(--tw-border-opacity)"
             }
+          %>
+
+          <%= form.radio_button :bg_color, color_values[:background],
+            label: color_values[:name]
           %>
         <% end %>
 
@@ -28,7 +36,7 @@
           </strong>
         </div>
 
-        <div class="flash flex-col " data-announcement-preview>
+        <div class="flash flex-col " style="<%= "background-color: #{form.object.bg_color}; color: #{form.object.text_color}; border-color: #{form.object.text_color} / var(--tw-border-opacity);" %>" data-announcement-preview>
           <div class="flash__title">
             <%= decidim_escape_translated(form.object.announcement_title).presence || t(".preview") %>
           </div>

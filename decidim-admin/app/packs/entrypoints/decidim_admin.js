@@ -26,12 +26,16 @@ window.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll("input[data-label-preview=true]").forEach((element) => {
     element.addEventListener("change", (event) => {
-      const label = document.querySelector(event.target.dataset.target);
-      const properties = event.target.dataset.updates.split(";");
+      // All the update rules are separated by a semicolon, so we split them
+      // selector:property:value; selector:property:value;
+      //
+      // for example:
+      //   strong[data-label-preview]:color:#0000ff; strong[data-label-preview]:backgroundColor:#eeeeee;
+      const updateRules = event.target.dataset.updates.split(";");
 
-      properties.forEach((property) => {
-        const [key, value] = property.split(":");
-        label.style[key.trim()] = value.trim();
+      updateRules.forEach((rule) => {
+        const [target, property, value] = rule.split(":");
+        document.querySelector(target).style[property.trim()] = value.trim();
       });
     })
   })
