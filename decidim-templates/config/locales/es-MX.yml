@@ -9,7 +9,6 @@ es-MX:
   decidim:
     admin:
       menu:
-        manage: Gestionar
         templates: Plantillas
       templates:
         actions:
