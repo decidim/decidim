@@ -24,7 +24,7 @@ module Decidim
                 ),
                 cell_snippet: {
                   cell: "decidim/announcement",
-                  args: ["I am an announcement", { callout_class: "Success" }],
+                  args: ["I am an announcement", { callout_class: "success" }],
                   call_string: [
                     'cell("decidim/announcement", "I am an announcement", callout_class: "success")',
                     'cell("decidim/announcement", "I am an announcement", callout_class: "warning")',
