@@ -42,10 +42,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll("input[data-sync-radio-buttons=true]").forEach((element) => {
     element.addEventListener("change", (event) => {
-      const target = event.target.dataset.syncRadioButtonsTarget;
       const value = event.target.dataset.syncRadioButtonsValue;
+      const radio = document.querySelector(`input[data-sync-radio-buttons-value-target=${value}]`);
 
-      document.querySelector(`${target}[data-sync-radio-buttons-value=${value}]`).checked = true;
+      radio.checked = true;
+      radio.dispatchEvent(new Event("change"));
     })
   })
 

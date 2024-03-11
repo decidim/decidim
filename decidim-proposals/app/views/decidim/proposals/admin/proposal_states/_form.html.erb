@@ -16,14 +16,11 @@
             style: "box-shadow: 0 0 0 6px #{color_values[:foreground]}; accent-color: #{color_values[:foreground]};",
             data: {
               "sync-radio-buttons" => true,
-              "sync-radio-buttons-target" => "input[name='proposal_state[bg_color]']",
               "sync-radio-buttons-value" => color_key,
               "css-preview" => true,
               "css-preview-updates" =>
                 "strong[data-label-preview]:color:#{color_values[:foreground]}; " +
-                "strong[data-label-preview]:backgroundColor:#{color_values[:background]}; " +
                 "div[data-announcement-preview]:color:#{color_values[:foreground]}; " +
-                "div[data-announcement-preview]:backgroundColor:#{color_values[:background]}; " +
                 "div[data-announcement-preview]:borderColor:#{color_values[:foreground]}/var(--tw-border-opacity)"
             }
           %>
@@ -32,7 +29,11 @@
             label: color_values[:name],
             style: "display: none;",
             data: {
-              "sync-radio-buttons-value" => color_key,
+              "sync-radio-buttons-value-target" => color_key,
+              "css-preview" => true,
+              "css-preview-updates" =>
+                "strong[data-label-preview]:backgroundColor:#{color_values[:background]}; " +
+                "div[data-announcement-preview]:backgroundColor:#{color_values[:background]};"
             }
           %>
         <% end %>
