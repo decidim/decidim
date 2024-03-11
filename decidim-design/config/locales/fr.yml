@@ -2,17 +2,34 @@
 fr:
   decidim:
     design:
+      components:
+        activities:
+          activities: Activités
+        address:
+          title: Adresse
       foundations:
         iconography:
           description_iconography: Nous utilisons des icônes pour renforcer la signification des actions, des titres, etc
           description_iconography_html: 'Nous utilisons la bibliothèque open source Remixicon : %{iconography_link}'
           title: Iconographie
+        typography:
+          description: Ces directives résument l'utilisation de la typographie dans Decidim, et servent de garde-fous aux concepteurs pour concevoir librement tout en gardant à l'esprit les meilleures pratiques typographiques.
+          headings:
+            characters: Caractères par ligne
+            layout: Colonnes de mise en page
+            size: Taille
+          title: Typographie
+          typefaces_description_1: Decidim utilise Source Sans Pro comme police primaire. Cette police prend en charge 310 langues
+          typefaces_description_2: Ces polices sont sous licence Open Font License
       helpers:
+        activity: Activité
         base: Base
+        demo: Démo
         form_elements: Éléments de formulaire
         hex_code: Code hexadécimal
         main_colors: Couleurs principales
         rgba_code:
+        source_code: Code source
         state: État
         typography_texts: Typographie et textes
         usage: Usage
