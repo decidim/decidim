@@ -40,6 +40,15 @@ window.addEventListener("DOMContentLoaded", () => {
     })
   })
 
+  document.querySelectorAll("input[data-sync-radio-buttons=true]").forEach((element) => {
+    element.addEventListener("change", (event) => {
+      const target = event.target.dataset.syncRadioButtonsTarget;
+      const value = event.target.dataset.syncRadioButtonsValue;
+
+      document.querySelector(`${target}[data-sync-radio-buttons-value=${value}]`).checked = true;
+    })
+  })
+
   document.querySelectorAll("input[data-text-copy=true], textarea[data-text-copy=true]").forEach((element) => {
     element.addEventListener("change", (event) => {
       const target = document.querySelector(event.target.dataset.target);

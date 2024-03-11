@@ -9,12 +9,15 @@
       </div>
 
       <div class="row column proposal-status__color">
-        <% proposal_state.class.colors.each do |color_name, color_values| %>
+        <% proposal_state.class.colors.each do |color_key, color_values| %>
           <%= form.radio_button :text_color, color_values[:foreground],
             label: color_values[:name],
             class: "!mr-4",
             style: "box-shadow: 0 0 0 6px #{color_values[:foreground]}; accent-color: #{color_values[:foreground]};",
             data: {
+              "sync-radio-buttons" => true,
+              "sync-radio-buttons-target" => "input[name='proposal_state[bg_color]']",
+              "sync-radio-buttons-value" => color_key,
               "css-preview" => true,
               "css-preview-updates" =>
                 "strong[data-label-preview]:color:#{color_values[:foreground]}; " +
@@ -26,7 +29,11 @@
           %>
 
           <%= form.radio_button :bg_color, color_values[:background],
-            label: color_values[:name]
+            label: color_values[:name],
+            style: "display: none;",
+            data: {
+              "sync-radio-buttons-value" => color_key,
+            }
           %>
         <% end %>
 
