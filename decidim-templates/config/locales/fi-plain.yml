@@ -9,7 +9,6 @@ fi-pl:
   decidim:
     admin:
       menu:
-        manage: Hallinnoi
         templates: Mallipohjat
       templates:
         actions:
