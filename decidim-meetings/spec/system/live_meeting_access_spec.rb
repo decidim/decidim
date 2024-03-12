@@ -315,7 +315,7 @@ describe "Meeting live event access" do
     end
   end
 
-  describe "when a meeting link is avaliable signed in" do
+  describe "when a meeting link is available signed in" do
     let!(:meeting) { create(:meeting, :published, :signed_in_iframe_access_level, :online, component:) }
 
     context "when user is not signed in" do
@@ -341,13 +341,13 @@ describe "Meeting live event access" do
     end
   end
 
-  describe "when a meeting link is avaliable as a registered user" do
+  describe "when a meeting link is available as a registered user" do
     let!(:meeting) { create(:meeting, :published, :registered_iframe_access_level, :online, component:) }
     let!(:registered_user) { create(:user, :confirmed, organization:) }
     let!(:registration) { create(:registration, meeting:, user: registered_user) }
 
     context "when user is not registered" do
-      it "not shown to regsistered users" do
+      it "not shown to registered users" do
         visit_meeting
 
         expect(page).to have_no_css(".address__hints")
