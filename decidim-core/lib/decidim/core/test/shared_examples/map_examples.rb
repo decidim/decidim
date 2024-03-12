@@ -115,7 +115,7 @@ shared_context "with frontend map elements" do
   end
 
   after do
-    expect(page).to have_selector("#ready_indicator", text: "Document ready")
+    expect(page).to have_css("#ready_indicator", text: "Document ready")
 
     expect_no_js_errors
 
@@ -148,10 +148,10 @@ shared_examples "a page with dynamic map" do
   it_behaves_like "accessible page"
 
   it "displays the maps" do
-    expect(page).to have_selector("#map1", visible: :all)
-    expect(page).to have_selector("#map1_inner", visible: :all)
-    expect(page).to have_selector("#map2", visible: :all)
-    expect(page).to have_selector("#map2_inner", visible: :all)
+    expect(page).to have_css("#map1", visible: :all)
+    expect(page).to have_css("#map1_inner", visible: :all)
+    expect(page).to have_css("#map2", visible: :all)
+    expect(page).to have_css("#map2_inner", visible: :all)
   end
 end
 

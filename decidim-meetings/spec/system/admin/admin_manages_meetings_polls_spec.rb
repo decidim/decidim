@@ -84,14 +84,14 @@ describe "Admin manages meetings polls" do
 
       visit_questionnaire_edit_path_and_expand_all
 
-      expect(page).to have_selector("input[value='This is the first question']")
-      expect(page).to have_selector("input[value='This is the Q1 first option']")
-      expect(page).to have_selector("input[value='This is the Q1 second option']")
-      expect(page).to have_selector("input[value='This is the Q1 third option']")
-      expect(page).to have_selector("input[value='This is the second question']")
-      expect(page).to have_selector("input[value='This is the Q2 first option']")
-      expect(page).to have_selector("input[value='This is the Q2 second option']")
-      expect(page).to have_selector("input[value='This is the Q2 third option']")
+      expect(page).to have_css("input[value='This is the first question']")
+      expect(page).to have_css("input[value='This is the Q1 first option']")
+      expect(page).to have_css("input[value='This is the Q1 second option']")
+      expect(page).to have_css("input[value='This is the Q1 third option']")
+      expect(page).to have_css("input[value='This is the second question']")
+      expect(page).to have_css("input[value='This is the Q2 first option']")
+      expect(page).to have_css("input[value='This is the Q2 second option']")
+      expect(page).to have_css("input[value='This is the Q2 third option']")
     end
 
     it "adds a sane number of options for each attribute type" do
@@ -99,11 +99,11 @@ describe "Admin manages meetings polls" do
       expand_all_questions
 
       select "Single option", from: "Type"
-      expect(page).to have_selector(".questionnaire-question-answer-option", count: 2)
+      expect(page).to have_css(".questionnaire-question-answer-option", count: 2)
       expect(page).to have_no_selector(".questionnaire-question-matrix-row")
 
       select "Multiple option", from: "Type"
-      expect(page).to have_selector(".questionnaire-question-answer-option", count: 2)
+      expect(page).to have_css(".questionnaire-question-answer-option", count: 2)
       expect(page).to have_no_selector(".questionnaire-question-matrix-row")
     end
 
@@ -201,7 +201,7 @@ describe "Admin manages meetings polls" do
         expect(page).to have_no_selector("[id$=max_choices]")
 
         select "Multiple option", from: "Type"
-        expect(page).to have_selector("[id$=max_choices]")
+        expect(page).to have_css("[id$=max_choices]")
 
         select "Single option", from: "Type"
         expect(page).to have_no_selector("[id$=max_choices]")

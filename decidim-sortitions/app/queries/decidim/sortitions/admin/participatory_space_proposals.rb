@@ -18,7 +18,7 @@ module Decidim
           @request_timestamp = sortition.request_timestamp
         end
 
-        # Given a particpiatory process retrieves its proposals
+        # Given a participatory process retrieves its proposals
         #
         # Returns an ActiveRecord::Relation.
         def query

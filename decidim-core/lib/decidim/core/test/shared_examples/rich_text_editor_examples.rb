@@ -3,7 +3,7 @@
 shared_examples "having a rich text editor for field" do |selector, toolbar|
   it "has a rich text editor" do
     within selector do
-      expect(page).to have_selector("div.editor-container[data-toolbar='#{toolbar}']", visible: :all)
+      expect(page).to have_css("div.editor-container[data-toolbar='#{toolbar}']", visible: :all)
     end
   end
 end
@@ -26,15 +26,15 @@ shared_examples "rendering safe content" do |css|
 
   it "renders potentially safe HTML tags unescaped" do
     within css do
-      expect(page).to have_selector("em", text: "em")
-      expect(page).to have_selector("u", text: "u")
-      expect(page).to have_selector("strong", text: "strong")
+      expect(page).to have_css("em", text: "em")
+      expect(page).to have_css("u", text: "u")
+      expect(page).to have_css("strong", text: "strong")
     end
   end
 
   it "sanitizes potentially malicious HTML tags" do
     within css do
-      expect(page).not_to have_selector("script", visible: :all)
+      expect(page).to have_no_css("script", visible: :all)
       expect(page).to have_content("alert('SCRIPT')")
     end
   end
@@ -45,19 +45,19 @@ shared_examples "rendering unsafe content" do |css|
 
   it "sanitizes potentially safe HTML tags" do
     within css do
-      expect(page).not_to have_selector("em")
+      expect(page).to have_no_css("em")
       expect(page).to have_content("em")
-      expect(page).not_to have_selector("u")
+      expect(page).to have_no_css("u")
       expect(page).to have_content("u")
-      expect(page).not_to have_selector("strong")
+      expect(page).to have_no_css("strong")
       expect(page).to have_content("strong")
     end
   end
 
   it "strips potentially malicious HTML tags" do
     within css do
-      expect(page).not_to have_selector("script", visible: :all)
-      expect(page).not_to have_content("alert('SCRIPT')")
+      expect(page).to have_no_css("script", visible: :all)
+      expect(page).to have_no_content("alert('SCRIPT')")
     end
   end
 end

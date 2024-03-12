@@ -140,7 +140,7 @@ module Decidim
           root to: "authorizations#new"
         end
 
-        # This is a Dedicim::Verifications specific initializer
+        # This is a Decidim::Verifications specific initializer
         initializer "decidim_verifications_my_verifier.verification_workflow" do |_app|
           Decidim::Verifications.register_workflow(:my_verifier) do |workflow|
             workflow.engine = Decidim::Verifications::MyVerifier::Engine
