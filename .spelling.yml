@@ -5,6 +5,8 @@ exclude_paths:
   - decidim-core/lib/decidim/db/common-passwords.txt
   - decidim-initiatives/spec/types/initiative_type_spec.rb
   - decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.md
+  - decidim-ai/data/(.*).csv
+  - decidim-ai/spec/support/test.csv
 
 forbidden:
   arent: are not

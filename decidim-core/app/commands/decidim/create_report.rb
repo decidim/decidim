@@ -53,7 +53,7 @@ module Decidim
     end
 
     def participatory_space_moderators
-      @participatory_space_moderators ||= participatory_space.moderators
+      @participatory_space_moderators ||= participatory_space.respond_to?(:moderators) ? participatory_space.moderators : []
     end
 
     def send_report_notification_to_moderators
@@ -83,10 +83,6 @@ module Decidim
 
         ReportedMailer.hide(moderator, @report).deliver_later
       end
-    end
-
-    def participatory_space
-      @participatory_space ||= @reportable.component&.participatory_space || @reportable.try(:participatory_space)
     end
   end
 end

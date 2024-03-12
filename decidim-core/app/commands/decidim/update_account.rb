@@ -20,10 +20,12 @@ module Decidim
       update_password
 
       if @user.valid?
-        changes = @user.changed
-        @user.save!
+        with_events do
+          changes = @user.changed
+          @user.save!
+          send_update_summary!(changes)
+        end
         notify_followers
-        send_update_summary!(changes)
         broadcast(:ok, @user.unconfirmed_email.present?)
       else
         [:avatar, :password].each do |key|
@@ -31,6 +33,12 @@ module Decidim
         end
         broadcast(:invalid, @form.password)
       end
+    end
+
+    protected
+
+    def event_arguments
+      { resource: @user }
     end
 
     private

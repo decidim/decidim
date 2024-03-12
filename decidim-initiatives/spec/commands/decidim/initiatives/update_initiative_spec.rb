@@ -59,6 +59,9 @@ module Decidim
         end
 
         describe "when the form is valid" do
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.initiatives.update_initiative:before"
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.initiatives.update_initiative:after"
+
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
           end
