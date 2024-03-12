@@ -50,7 +50,7 @@ extra_admin_link(
         <%= cell "decidim/coauthorships", @proposal, context_actions: [:date] %>
 
         <% if not ["section","subsection"].include? @proposal.participatory_text_level %>
-          <%== cell("decidim/proposals/proposal_metadata", @proposal).state_item&.dig(:text)&.html_safe %>
+          <%= cell("decidim/proposals/proposal_metadata", @proposal).state_item&.dig(:text) %>
         <% end %>
       </div>
     <% end %>
