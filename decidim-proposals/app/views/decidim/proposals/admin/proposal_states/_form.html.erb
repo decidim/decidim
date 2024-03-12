@@ -13,7 +13,7 @@
           <%= form.radio_button :text_color, color_values[:foreground],
             label: color_values[:name],
             class: "!mr-4",
-            style: "box-shadow: 0 0 0 6px #{color_values[:foreground]}; accent-color: #{color_values[:foreground]};",
+            style: "box-shadow: 0 0 0 6px #{color_values[:background]}; accent-color: #{color_values[:foreground]};",
             data: {
               "sync-radio-buttons" => true,
               "sync-radio-buttons-value" => color_key,
