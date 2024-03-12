@@ -83,8 +83,8 @@ describe Decidim::UserActivityCell, type: :cell do
     end
 
     within ".pagination" do
-      expect(page).to have_selector("li.page.current", text: "1")
-      expect(page).to have_selector("li.page a", text: "2")
+      expect(page).to have_css("li.page.current", text: "1")
+      expect(page).to have_css("li.page a", text: "2")
       expect(page).to have_no_selector("li.page a", text: "3")
     end
   end
@@ -102,8 +102,8 @@ describe Decidim::UserActivityCell, type: :cell do
       end
 
       within ".pagination" do
-        expect(page).to have_selector("li.page a", text: "1")
-        expect(page).to have_selector("li.page.current", text: "2")
+        expect(page).to have_css("li.page a", text: "1")
+        expect(page).to have_css("li.page.current", text: "2")
       end
     end
   end

@@ -14,7 +14,7 @@ shared_examples "sortable participatory space user roles" do
       let(:sort_by) { "name asc" }
 
       it "displays the result" do
-        expect(page).not_to have_content(user.name)
+        expect(page).to have_no_content(user.name)
       end
     end
   end
@@ -32,7 +32,7 @@ shared_examples "sortable participatory space user roles" do
       let(:sort_by) { "email asc" }
 
       it "displays the result" do
-        expect(page).not_to have_content(user.name)
+        expect(page).to have_no_content(user.name)
       end
     end
   end
@@ -50,7 +50,7 @@ shared_examples "sortable participatory space user roles" do
       let(:sort_by) { "last_sign_in_at asc" }
 
       it "displays the result" do
-        expect(page).not_to have_content(user.name)
+        expect(page).to have_no_content(user.name)
       end
     end
   end
@@ -68,7 +68,7 @@ shared_examples "sortable participatory space user roles" do
       let(:sort_by) { "invitation_accepted_at asc" }
 
       it "displays the result" do
-        expect(page).not_to have_content(user.name)
+        expect(page).to have_no_content(user.name)
       end
     end
   end
@@ -86,7 +86,7 @@ shared_examples "sortable participatory space user roles" do
       let(:sort_by) { "role asc" }
 
       it "displays the result" do
-        expect(page).not_to have_content(user.name)
+        expect(page).to have_no_content(user.name)
       end
     end
   end
