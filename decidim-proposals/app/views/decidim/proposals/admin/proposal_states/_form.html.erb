@@ -9,7 +9,7 @@
       </div>
 
       <div class="row column proposal-status__color">
-        <% proposal_state.class.colors.each do |color_key, color_values| %>
+        <% Decidim::Proposals::ProposalState.colors.each do |color_key, color_values| %>
           <%= form.radio_button :text_color, color_values[:foreground],
             label: color_values[:name],
             class: "!mr-4",

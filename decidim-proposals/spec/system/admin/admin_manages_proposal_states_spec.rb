@@ -56,8 +56,9 @@ describe "Admin manages proposals states" do
           ca: "Anunci més llarga"
         )
 
-        fill_in :proposal_state_bg_color, with: "#ffeebd"
-        fill_in :proposal_state_text_color, with: "#ad4910"
+        within ".proposal-status__color" do
+          find_by_id("proposal_state_text_color_9a6700").click
+        end
 
         find("*[type=submit]").click
       end
@@ -65,7 +66,7 @@ describe "Admin manages proposals states" do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_css(".label", style: "background-color: #ffeebd; color: #ad4910;")
+        expect(page).to have_css(".label", style: "background-color: #FFFCE5; color: #9A6700;")
         expect(page).to have_content("Custom state")
       end
 
@@ -73,7 +74,7 @@ describe "Admin manages proposals states" do
       expect(state).to be_present
       expect(translated(state.title)).to eq("Custom state")
       expect(translated(state.announcement_title)).to eq("A longer announcement")
-      expect(state.css_style).to eq("background-color: #ffeebd; color: #ad4910;")
+      expect(state.css_style).to eq("background-color: #FFFCE5; color: #9A6700;")
     end
   end
 
@@ -83,8 +84,8 @@ describe "Admin manages proposals states" do
         title: { "en" => "Editable state" },
         announcement_title: { "en" => "Editable announcement title" },
         token: "editable",
-        bg_color: "#ffeebd",
-        text_color: "#ad4910"
+        bg_color: "#EBF9FF",
+        text_color: "#0851A6"
       }
     end
     let!(:state) { create(:proposal_state, component: current_component, **state_params) }
@@ -119,14 +120,15 @@ describe "Admin manages proposals states" do
           ca: "Anunci més llarga"
         )
 
-        fill_in :proposal_state_bg_color, with: "#ffeebd"
-        fill_in :proposal_state_text_color, with: "#ad4910"
+        within ".proposal-status__color" do
+          find_by_id("proposal_state_text_color_9a6700").click
+        end
 
         find("*[type=submit]").click
       end
 
       within "table" do
-        expect(page).to have_css(".label", style: "background-color: #ffeebd; color: #ad4910;")
+        expect(page).to have_css(".label", style: "background-color: #FFFCE5; color: #9A6700;")
         expect(page).to have_content("Custom state")
       end
 
@@ -134,7 +136,7 @@ describe "Admin manages proposals states" do
 
       expect(translated(state.title)).to eq("Custom state")
       expect(translated(state.announcement_title)).to eq("A longer announcement")
-      expect(state.css_style).to eq("background-color: #ffeebd; color: #ad4910;")
+      expect(state.css_style).to eq("background-color: #FFFCE5; color: #9A6700;")
     end
   end
 
@@ -144,8 +146,8 @@ describe "Admin manages proposals states" do
         title: { "en" => "Editable state" },
         announcement_title: { "en" => "Editable announcement title" },
         token: "editable",
-        bg_color: "#ffeebd",
-        text_color: "#ad4910"
+        bg_color: "#EBF9FF",
+        text_color: "#0851A6"
       }
     end
     let!(:state) { create(:proposal_state, component: current_component, **state_params) }
