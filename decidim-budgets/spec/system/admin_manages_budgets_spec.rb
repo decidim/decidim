@@ -115,7 +115,7 @@ describe "Admin manages budgets" do
     let!(:budget) { create(:budget, component: current_component) }
     let!(:scope) { create(:scope, organization: current_component.organization) }
 
-    it "doesnt display subscopes" do
+    it "does not display subscopes" do
       expect(page).to have_no_content(scope.name)
     end
   end
