@@ -10,10 +10,20 @@
 
       <div class="row column proposal-status__color">
         <% Decidim::Proposals::ProposalState.colors.each do |color_key, color_values| %>
+          <% state_id = "proposal_state_text_color_#{color_values[:foreground].delete('#').downcase}" %>
+          <style>
+            <%= "##{state_id}" %> {
+              box-shadow: 0 0 0 6px <%= color_values[:background] %>;
+              accent-color: <%= color_values[:foreground] %>;
+            }
+
+            <%= "##{state_id}" %>:checked  {
+              box-shadow: 0 0 0 6px <%= color_values[:foreground] %>;
+            }
+          </style>
           <%= form.radio_button :text_color, color_values[:foreground],
             label: color_values[:name],
             class: "!mr-4",
-            style: "box-shadow: 0 0 0 6px #{color_values[:background]}; accent-color: #{color_values[:foreground]};",
             data: {
               "sync-radio-buttons" => true,
               "sync-radio-buttons-value" => color_key,
