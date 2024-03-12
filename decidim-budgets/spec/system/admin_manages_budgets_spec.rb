@@ -111,6 +111,15 @@ describe "Admin manages budgets" do
     end
   end
 
+  describe "when managing a budget with scopes" do
+    let!(:budget) { create(:budget, component: current_component) }
+    let!(:scope) { create(:scope, organization: current_component.organization) }
+
+    it "doesnt display subscopes" do
+      expect(page).to have_no_content(scope.name)
+    end
+  end
+
   describe "component page shows finished and pending orders of all budgets" do
     context "when component has many budgets with orders" do
       let(:budget2) { create(:budget, :with_projects, component: current_component) }
