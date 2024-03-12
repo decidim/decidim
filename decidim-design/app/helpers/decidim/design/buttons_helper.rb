@@ -6,7 +6,7 @@ module Decidim
       def buttons_sections
         [
           {
-            id: "sizes",
+            id: t("decidim.design.helpers.sizes"),
             contents: [
               {
                 type: :table,
@@ -31,7 +31,7 @@ module Decidim
             ]
           },
           {
-            id: "colors",
+            id: t("decidim.design.helpers.colors"),
             contents: [
               {
                 type: :table,
@@ -54,7 +54,7 @@ module Decidim
             ]
           },
           {
-            id: "transparent",
+            id: t("decidim.design.helpers.transparent"),
             contents: [
               {
                 type: :table,
@@ -76,7 +76,7 @@ module Decidim
               },
               {
                 type: :text,
-                values: ["In case of a darker background:"]
+                values: [t("decidim.design.helpers.transparent_description")]
               },
               {
                 type: :table,
@@ -94,7 +94,7 @@ module Decidim
             ]
           },
           {
-            id: "text",
+            id: t("decidim.design.helpers.text"),
             contents: [
               {
                 type: :table,
@@ -119,7 +119,7 @@ module Decidim
             ]
           },
           {
-            id: "icons",
+            id: t("decidim.design.helpers.icons"),
             contents: [
               {
                 type: :table,
@@ -140,7 +140,7 @@ module Decidim
             ]
           },
           {
-            id: "disabled",
+            id: t("decidim.design.helpers.disabled"),
             contents: [
               {
                 type: :table,
