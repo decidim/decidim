@@ -66,7 +66,7 @@ describe "Admin manages proposals states" do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_css(".label", style: "background-color: #FFFCE5; color: #9A6700;")
+        expect(page).to have_css(".label", style: "background-color: #FFFCE5; color: #9A6700; border-color: #9A6700;")
         expect(page).to have_content("Custom state")
       end
 
@@ -74,7 +74,7 @@ describe "Admin manages proposals states" do
       expect(state).to be_present
       expect(translated(state.title)).to eq("Custom state")
       expect(translated(state.announcement_title)).to eq("A longer announcement")
-      expect(state.css_style).to eq("background-color: #FFFCE5; color: #9A6700;")
+      expect(state.css_style).to eq("background-color: #FFFCE5; color: #9A6700; border-color: #9A6700;")
     end
   end
 
@@ -128,7 +128,7 @@ describe "Admin manages proposals states" do
       end
 
       within "table" do
-        expect(page).to have_css(".label", style: "background-color: #FFFCE5; color: #9A6700;")
+        expect(page).to have_css(".label", style: "background-color: #FFFCE5; color: #9A6700; border-color: #9A6700;")
         expect(page).to have_content("Custom state")
       end
 
