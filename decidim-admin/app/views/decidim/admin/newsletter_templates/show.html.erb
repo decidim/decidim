@@ -1,15 +1,19 @@
 <% add_decidim_page_title(t(".preview", template_name: t(template_manifest.public_name_key))) %>
-<div class="card">
-  <div class="item_show__header">
-    <h1 class="item_show__header-title">
-      <%= t ".preview", template_name: t(template_manifest.public_name_key) %>
-    </h1>
-  </div>
-  <div class="card-section p-4">
-    <iframe src="<%= preview_newsletter_template_path(template_manifest.name) %>" class="newsletter-template-preview w-full h-96" data-email-preview>
-    </iframe>
-  </div>
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t ".preview", template_name: t(template_manifest.public_name_key) %>
+  </h1>
 </div>
-<div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-  <%= link_to(t(".use_template"), new_newsletter_template_newsletter_path(template_manifest.name), class: "button button__sm button__secondary") %>
+<div class="item__edit-form">
+  <div class="card">
+    <div class="card-section">
+      <iframe src="<%= preview_newsletter_template_path(template_manifest.name) %>" class="w-full h-[60dvh]" data-email-preview>
+      </iframe>
+    </div>
+  </div>
+  <div class="item__edit-sticky">
+    <div class="item__edit-sticky-container">
+      <%= link_to(t(".use_template"), new_newsletter_template_newsletter_path(template_manifest.name), class: "button button__sm button__secondary") %>
+    </div>
+  </div>
 </div>
