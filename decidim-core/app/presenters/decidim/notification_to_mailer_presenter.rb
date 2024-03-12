@@ -7,11 +7,16 @@ module Decidim
   class NotificationToMailerPresenter < SimpleDelegator
     include Decidim::TranslatableAttributes
 
+    EXTENDED_NOTIFICATIONS_CLASSES = [
+      "Decidim::Comments::CommentCreatedEvent"
+    ].freeze
+
     delegate :url_helpers, to: "Decidim::Core::Engine.routes"
     delegate :resource_title, to: :event
     delegate :resource_url, to: :event
     delegate :email_intro, to: :event
     delegate :resource_path, to: :event
+    delegate :safe_resource_text, to: :event
 
     def date_time
       if frequency == :daily
@@ -19,6 +24,10 @@ module Decidim
       else
         I18n.l(created_at, format: :decidim_short)
       end
+    end
+
+    def show_extended_information?
+      EXTENDED_NOTIFICATIONS_CLASSES.include?(event_class)
     end
 
     private
