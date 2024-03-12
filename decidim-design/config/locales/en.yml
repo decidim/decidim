@@ -3,6 +3,9 @@ en:
   decidim:
     design:
       components:
+        buttons:
+          title: Buttons
+          description_html: "Buttons are built using different combinations of CSS classes: the <code>button</code> class, a size and a color."
         accordions:
           content_panel: Content of the panel
           demo: Demo
