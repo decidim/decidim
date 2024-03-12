@@ -11,9 +11,8 @@ module Decidim
               {
                 type: :text,
                 values: [
-                  "This cell display some information about a user. It a visual help to identify the resource/content creator.
-                    Hovering with the mouse displays a tooltip with further info and links to its profile",
-                  "For resources, this cell appears beneath the main heading. For other contents, it appears next to the content itself."
+                  t("decidim.design.helpers.context_description"),
+                  t("decidim.design.helpers.context_description_2")
                 ]
               }
             ]
@@ -23,37 +22,37 @@ module Decidim
             contents: [
               {
                 type: :text,
-                values: ["There are three different versions of this cell. Each one fits better regarding the context it is being displayed."]
+                values: [t("decidim.design.helpers.variations_description")]
               },
               {
-                values: section_subtitle(title: "Default")
+                values: section_subtitle(title: t("decidim.design.helpers.default"))
               },
               {
                 values: cell("decidim/author", user_item)
               },
               {
                 type: :text,
-                values: ["Calling the cell with no extra arguments, but the user itself."]
+                values: [t("decidim.design.helpers.default_description")]
               },
               {
-                values: section_subtitle(title: "Compact")
+                values: section_subtitle(title: t("decidim.design.helpers.compact"))
               },
               {
                 values: cell("decidim/author", user_item, from: authored_item, context_actions: [:date], layout: :compact)
               },
               {
                 type: :text,
-                values: ["This author version is the common way to identify the resource creator."]
+                values: [t("decidim.design.helpers.compact_description")]
               },
               {
-                values: section_subtitle(title: "Avatar")
+                values: section_subtitle(title: t("decidim.design.helpers.avatar"))
               },
               {
                 values: cell("decidim/author", user_item, layout: :avatar)
               },
               {
                 type: :text,
-                values: ["It is used when there are narrow spaces, where the author is a secondary information."]
+                values: [t("decidim.design.helpers.avatar_description")]
               }
             ]
           },
