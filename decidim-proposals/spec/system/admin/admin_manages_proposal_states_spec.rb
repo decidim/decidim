@@ -136,7 +136,7 @@ describe "Admin manages proposals states" do
 
       expect(translated(state.title)).to eq("Custom state")
       expect(translated(state.announcement_title)).to eq("A longer announcement")
-      expect(state.css_style).to eq("background-color: #FFFCE5; color: #9A6700;")
+      expect(state.css_style).to eq("background-color: #FFFCE5; color: #9A6700; border-color: #9A6700;")
     end
   end
 
