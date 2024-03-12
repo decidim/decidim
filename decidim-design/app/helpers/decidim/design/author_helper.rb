@@ -6,7 +6,7 @@ module Decidim
       def author_sections
         [
           {
-            id: "context",
+            id: t("decidim.design.helpers.context"),
             contents: [
               {
                 type: :text,
@@ -19,7 +19,7 @@ module Decidim
             ]
           },
           {
-            id: "variations",
+            id: t("decidim.design.helpers.variations"),
             contents: [
               {
                 type: :text,
@@ -58,7 +58,7 @@ module Decidim
             ]
           },
           {
-            id: "source_code",
+            id: t("decidim.design.helpers.source_code"),
             contents: [
               {
                 type: :text,
