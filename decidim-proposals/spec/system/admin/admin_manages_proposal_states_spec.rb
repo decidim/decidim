@@ -76,6 +76,41 @@ describe "Admin manages proposals states" do
       expect(translated(state.announcement_title)).to eq("A longer announcement")
       expect(state.css_style).to eq("background-color: #FFFCE5; color: #9A6700; border-color: #9A6700;")
     end
+
+    it "updates the label and announcement previews" do
+      expect(Decidim::Proposals::ProposalState.find_by(token: "custom")).to be_nil
+      within ".new_proposal_state" do
+        fill_in_i18n(
+          :proposal_state_title,
+          "#proposal_state-title-tabs",
+          en: "Custom state",
+          es: "Estado personalizado",
+          ca: "Estat personalitzat"
+        )
+
+        fill_in_i18n(
+          :proposal_state_announcement_title,
+          "#proposal_state-announcement_title-tabs",
+          en: "A longer announcement",
+          es: "Anuncio más largo",
+          ca: "Anunci més llarg"
+        )
+
+        within ".proposal-status__color" do
+          find_by_id("proposal_state_text_color_9a6700").click
+        end
+
+        expect(page).to have_css("[data-label-preview]", style: "background-color: rgb(255, 252, 229); color: rgb(154, 103, 0);")
+        within "[data-label-preview]" do
+          expect(page).to have_content("Estat personalitzat")
+        end
+
+        expect(page).to have_css("[data-announcement-preview]", style: "background-color: rgb(255, 252, 229); color: rgb(154, 103, 0); border-color: #9A6700/var(--tw-border-opacity);")
+        within "[data-announcement-preview]" do
+          expect(page).to have_content("Anunci més llarg")
+        end
+      end
+    end
   end
 
   context "when editing a proposal state" do
@@ -137,6 +172,44 @@ describe "Admin manages proposals states" do
       expect(translated(state.title)).to eq("Custom state")
       expect(translated(state.announcement_title)).to eq("A longer announcement")
       expect(state.css_style).to eq("background-color: #FFFCE5; color: #9A6700; border-color: #9A6700;")
+    end
+
+    it "updates the label and announcement previews" do
+      within "tr", text: translated(state.title) do
+        click_on "Edit"
+      end
+
+      within ".edit_proposal_state" do
+        fill_in_i18n(
+          :proposal_state_title,
+          "#proposal_state-title-tabs",
+          en: "Custom state",
+          es: "Estado personalizado",
+          ca: "Estat personalitzat"
+        )
+
+        fill_in_i18n(
+          :proposal_state_announcement_title,
+          "#proposal_state-announcement_title-tabs",
+          en: "A longer announcement",
+          es: "Anuncio más largo",
+          ca: "Anunci més llarg"
+        )
+
+        within ".proposal-status__color" do
+          find_by_id("proposal_state_text_color_9a6700").click
+        end
+
+        expect(page).to have_css("[data-label-preview]", style: "background-color: rgb(255, 252, 229); color: rgb(154, 103, 0);")
+        within "[data-label-preview]" do
+          expect(page).to have_content("Estat personalitzat")
+        end
+
+        expect(page).to have_css("[data-announcement-preview]", style: "background-color: rgb(255, 252, 229); color: rgb(154, 103, 0); border-color: #9A6700/var(--tw-border-opacity);")
+        within "[data-announcement-preview]" do
+          expect(page).to have_content("Anunci més llarg")
+        end
+      end
     end
   end
 
