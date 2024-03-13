@@ -7,13 +7,13 @@ describe "Admin manages proposals states" do
     let!(:component) { create(:proposal_component, participatory_space:) }
   end
 
-  context "when visiting the component admin page" do
+  describe "visiting the component admin page" do
     it "lists the proposal states button" do
       expect(page).to have_content("Statuses")
     end
   end
 
-  context "when listing proposal states page" do
+  describe "listing proposal states page" do
     before do
       click_on "Statuses"
     end
@@ -31,7 +31,7 @@ describe "Admin manages proposals states" do
     end
   end
 
-  context "when creating a proposal state" do
+  describe "creating a proposal state" do
     before do
       click_on "Statuses"
       click_on "New status"
@@ -113,7 +113,7 @@ describe "Admin manages proposals states" do
     end
   end
 
-  context "when editing a proposal state" do
+  describe "editing a proposal state" do
     let(:state_params) do
       {
         title: { "en" => "Editable state" },
@@ -213,7 +213,7 @@ describe "Admin manages proposals states" do
     end
   end
 
-  context "when deleting a proposal state" do
+  describe "deleting a proposal state" do
     let(:state_params) do
       {
         title: { "en" => "Editable state" },
