@@ -52,8 +52,8 @@ describe "Admin manages proposals states" do
           :proposal_state_announcement_title,
           "#proposal_state-announcement_title-tabs",
           en: "A longer announcement",
-          es: "Anuncio más larga",
-          ca: "Anunci més llarga"
+          es: "Anuncio más largo",
+          ca: "Anunci més llarg"
         )
 
         within ".proposal-status__color" do
@@ -116,8 +116,8 @@ describe "Admin manages proposals states" do
           :proposal_state_announcement_title,
           "#proposal_state-announcement_title-tabs",
           en: "A longer announcement",
-          es: "Anuncio más larga",
-          ca: "Anunci més llarga"
+          es: "Anuncio más largo",
+          ca: "Anunci més llarg"
         )
 
         within ".proposal-status__color" do
