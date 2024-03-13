@@ -19,17 +19,11 @@ import "src/decidim/admin/triadic_color_picker"
 import "src/decidim/admin/participatory_space_search"
 import "src/decidim/admin/css_preview"
 import "src/decidim/admin/sync_radio_buttons"
+import "src/decidim/admin/text_copy"
 
 // CSS
 import "entrypoints/decidim_admin.scss";
 
 window.addEventListener("DOMContentLoaded", () => {
   initLanguageChangeSelect(document.querySelectorAll("select.language-change"));
-
-  document.querySelectorAll("input[data-text-copy=true], textarea[data-text-copy=true]").forEach((element) => {
-    element.addEventListener("change", (event) => {
-      const target = document.querySelector(event.target.dataset.target);
-      target.innerText = event.target.value;
-    })
-  });
 });
