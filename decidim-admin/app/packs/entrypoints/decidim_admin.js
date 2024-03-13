@@ -18,22 +18,13 @@ import "src/decidim/admin/admin_autocomplete"
 import "src/decidim/admin/triadic_color_picker"
 import "src/decidim/admin/participatory_space_search"
 import "src/decidim/admin/css_preview"
+import "src/decidim/admin/sync_radio_buttons"
 
 // CSS
 import "entrypoints/decidim_admin.scss";
 
 window.addEventListener("DOMContentLoaded", () => {
   initLanguageChangeSelect(document.querySelectorAll("select.language-change"));
-
-  document.querySelectorAll("input[data-sync-radio-buttons=true]").forEach((element) => {
-    element.addEventListener("change", (event) => {
-      const value = event.target.dataset.syncRadioButtonsValue;
-      const radio = document.querySelector(`input[data-sync-radio-buttons-value-target=${value}]`);
-
-      radio.checked = true;
-      radio.dispatchEvent(new Event("change"));
-    })
-  })
 
   document.querySelectorAll("input[data-text-copy=true], textarea[data-text-copy=true]").forEach((element) => {
     element.addEventListener("change", (event) => {
