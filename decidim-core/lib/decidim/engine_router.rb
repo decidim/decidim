@@ -47,16 +47,7 @@ module Decidim
 
       filter_slug_params!(method_name)
 
-      path = send(engine).send(method_name, *)
-
-      raise "Wrong url generated - #{method_name} - #{path}" if [
-        path.include?("initiative_slug"),
-        path.include?("assembly_slug"),
-        path.include?("conference_slug"),
-        path.include?("participatory_process_slug")
-      ].any?
-
-      path
+      send(engine).send(method_name, *)
     end
 
     private
