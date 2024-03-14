@@ -115,6 +115,7 @@ en:
         icons: Icons
         main_colors: Main Colors
         rgba_code: RGBA code
+        send: Send
         sizes: Sizes
         source_code: Source Code
         state: State
