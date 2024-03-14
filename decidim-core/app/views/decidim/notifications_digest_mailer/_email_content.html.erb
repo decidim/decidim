@@ -8,4 +8,11 @@
       <%= link_to decidim_sanitize(notification.resource_title, strip_tags: true), notification.resource_url %>
     </p>
   <% end %>
+  <% if notification.show_extended_information? %>
+    <blockquote>
+      <p>
+      <%= notification.safe_resource_text %>
+      </p>
+    </blockquote>
+  <% end %>
 </div>
