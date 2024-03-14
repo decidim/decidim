@@ -231,9 +231,9 @@ ca:
           name: Membre
           positions:
             other: Altre
-            president: Presidenta
-            secretary: Secretària
-            vice_president: Vicepresidenta
+            president: Presidència
+            secretary: Secretaria
+            vice_president: Vicepresidència
         assembly_user_role:
           fields:
             email: Correu electrònic
