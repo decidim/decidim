@@ -14,7 +14,7 @@ module Decidim
               },
               {
                 type: :table,
-                options: { headings: [t(".title"), t("decidim.design.helpers.callout_class")] },
+                options: { headings: [t("decidim.design.components.announcement.title"), t("decidim.design.helpers.callout_class")] },
                 items: announcement_table(
                   { text: t("decidim.design.components.announcement.iam_an_announcement"), callout_class: "success" },
                   { text: t("decidim.design.components.announcement.iam_an_announcement"), callout_class: "warning" },
@@ -45,7 +45,7 @@ module Decidim
               },
               {
                 type: :table,
-                options: { headings: [t(".title"), t("decidim.design.helpers.callout_class"), t("decidim.design.helpers.argument")] },
+                options: { headings: [t("decidim.design.components.announcement.title"), t("decidim.design.helpers.callout_class"), t("decidim.design.helpers.argument")] },
                 items: announcement_table(
                   { text: { title: t("decidim.design.components.announcement.this_is_the_title"), body: t("decidim.design.components.announcement.this_is_the_body") },
                     callout_class: "success",
