@@ -46,7 +46,12 @@ module Decidim
 
       path = send(engine).send(method_name, *)
 
-      raise "Wrong url generated" if path.include?(target.slug_param_name.to_s)
+      raise "Wrong url generated" if [
+        path.include?("initiative_slug"),
+        path.include?("assembly_slug"),
+        path.include?("conference_slug"),
+        path.include?("participatory_process_slug")
+      ].any?
 
       path
     end
@@ -61,7 +66,7 @@ module Decidim
       return unless target.respond_to?(:mounted_params)
 
       @default_url_options = target.mounted_params.reverse_merge(configured_default_url_options)
-      skip_space_slug = target.respond_to?(:skip_space_slug?) && target.skip_space_slug?(method_name)
+      skip_space_slug = target.respond_to?(:slug_param_name) && target.respond_to?(:skip_space_slug?) && target.skip_space_slug?(method_name)
       @default_url_options.except!(target.slug_param_name) if skip_space_slug == true
     end
 
