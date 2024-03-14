@@ -31,7 +31,7 @@ module Decidim
           before do
             allow(ActionMailer::Base)
               .to receive(:default_url_options)
-                    .and_return(port: 3000)
+              .and_return(port: 3000)
           end
 
           it { is_expected.to eq("http://1.lvh.me:3000/#{route_fragment}/f/1/dummy_resources/1") }
@@ -71,7 +71,7 @@ module Decidim
           before do
             allow(ActionMailer::Base)
               .to receive(:default_url_options)
-                    .and_return(port: 3000)
+              .and_return(port: 3000)
           end
 
           it { is_expected.to eq("http://1.lvh.me:3000/#{route_fragment}/f/1/dummy_resources/1/nested_dummy_resources/1") }
@@ -119,7 +119,7 @@ module Decidim
           before do
             allow(ActionMailer::Base)
               .to receive(:default_url_options)
-                    .and_return(port: 3000)
+              .and_return(port: 3000)
           end
 
           it { is_expected.to eq("http://1.lvh.me:3000/#{route_fragment}") }

@@ -42,16 +42,23 @@ module Decidim
     def method_missing(method_name, *)
       return super unless route_helper?(method_name)
 
-      @default_url_options = @target.mounted_params.reverse_merge(configured_default_url_options)
-
-      if @target.class.respond_to?(:skip_space_slug?) && @target.class.skip_space_slug?(method_name)
-        @default_url_options.except!(@target.class.slug_param_name)
-      end
-
-      send(@engine).send(method_name, *)
+      filter_slug_params!(method_name)
+      send(engine).send(method_name, *)
     end
 
     private
+
+    attr_reader :engine, :target
+
+    def filter_slug_params!(method_name)
+      @default_url_options = configured_default_url_options
+
+      return unless target.respond_to?(:mounted_params)
+
+      @default_url_options = target.mounted_params.reverse_merge(configured_default_url_options)
+      skip_space_slug = target.respond_to?(:skip_space_slug?) && target.skip_space_slug?(method_name)
+      @default_url_options.except!(target.slug_param_name) if skip_space_slug == true
+    end
 
     def route_helper?(method_name)
       method_name.to_s.match?(/_(url|path)$/)
