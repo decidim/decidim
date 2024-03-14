@@ -10,7 +10,6 @@ de:
   decidim:
     admin:
       menu:
-        manage: Verwalten
         templates: Vorlagen
       templates:
         actions:
