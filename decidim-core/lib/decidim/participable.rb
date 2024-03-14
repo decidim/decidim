@@ -64,6 +64,22 @@ module Decidim
     end
 
     class_methods do
+
+      def skip_space_slug?(method_name)
+        [
+          "edit_#{underscored_name}_path".to_sym,
+          "edit_#{underscored_name}_url".to_sym,
+          "#{underscored_name}_path".to_sym,
+          "#{underscored_name}_url".to_sym,
+          "new_#{underscored_name}_path".to_sym,
+          "new_#{underscored_name}_url".to_sym,
+        ].include?(method_name)
+      end
+
+      def slug_param_name
+        "#{underscored_name}_slug".to_sym
+      end
+
       def demodulized_name
         @demodulized_name ||= name.demodulize
       end

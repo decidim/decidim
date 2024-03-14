@@ -16,7 +16,7 @@ module Decidim
     #
     # @return [EngineRouter] The new engine router
     def self.main_proxy(target)
-      new(target.mounted_engine, target.mounted_params)
+      new(target.mounted_engine, target)
     end
 
     # Instantiates a router to the backend engine for an object.
@@ -25,17 +25,15 @@ module Decidim
     #
     # @return [EngineRouter] The new engine router
     def self.admin_proxy(target)
-      new(target.mounted_admin_engine, target.mounted_params)
+      new(target.mounted_admin_engine, target)
     end
 
-    def initialize(engine, default_url_options)
+    def initialize(engine, target)
       @engine = engine
-      @default_url_options = default_url_options
+      @target = target
     end
 
-    def default_url_options
-      @default_url_options.reverse_merge(configured_default_url_options)
-    end
+    attr_reader :default_url_options
 
     def respond_to_missing?(method_name, include_private = false)
       route_helper?(method_name) || super
@@ -43,6 +41,12 @@ module Decidim
 
     def method_missing(method_name, *)
       return super unless route_helper?(method_name)
+
+      @default_url_options = @target.mounted_params.reverse_merge(configured_default_url_options)
+
+      if @target.class.respond_to?(:skip_space_slug?) && @target.class.skip_space_slug?(method_name)
+        @default_url_options.except!(@target.class.slug_param_name)
+      end
 
       send(@engine).send(method_name, *)
     end
