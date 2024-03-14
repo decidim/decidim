@@ -3,7 +3,7 @@
 module Decidim
   module Assemblies
     module Admin
-      # A command with all the business logic when creating a new resource
+      # A command with all the business logic when creating a new assembly
       # in the system.
       class CreateAssembly < Decidim::Commands::CreateResource
         fetch_file_attributes :hero_image, :banner_image
