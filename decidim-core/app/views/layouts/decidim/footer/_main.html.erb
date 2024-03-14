@@ -7,25 +7,9 @@
       <%= render partial: "layouts/decidim/footer/main_links" %>
     </div>
     <%= cell("decidim/footer_pages", :topics) %>
+    <%= cell("decidim/footer_pages", :pages) %>
   </div>
   <div class="main-footer__down">
-  <nav class="flex flex-col md:flex-row gap-10 text-sm text-white [&_a]:underline">
-    <ul>
-      <% organization_pages = current_organization.static_pages_accessible_for(current_user) %>
-      <% if organization_pages.any? %>
-        <% current_organization.static_page_topics.where(show_in_footer: true).each do |page_topic| %>
-          <% topic_pages = page_topic.accessible_pages_for(current_user) %>
-          <% if topic_pages.any? %>
-            <li><%= link_to translated_attribute(page_topic.title), decidim.page_path(topic_pages.first) %></li>
-          <% end %>
-        <% end %>
-
-        <% organization_pages.where(show_in_footer: true).each do |page| %>
-          <li><%= link_to translated_attribute(page.title), decidim.page_path(page) %></li>
-        <% end %>
-      <% end %>
-    </ul>
-  </nav>
     <nav class="md:w-1/2 lg:w-auto" role="navigation" aria-label="Legal">
       <%= render partial: "layouts/decidim/footer/main_legal" %>
     </nav>
