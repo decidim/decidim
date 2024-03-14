@@ -6,7 +6,7 @@ module Decidim
       def announcement_sections
         [
           {
-            id: t("decidim.design.helpers.callout_class"),
+            title: t("decidim.design.helpers.callout_class"),
             contents: [
               {
                 type: :text,
@@ -47,21 +47,27 @@ module Decidim
                 type: :table,
                 options: { headings: [t(".title"), t("decidim.design.helpers.callout_class"), t("decidim.design.helpers.argument")] },
                 items: announcement_table(
-                  { text: { title: t("decidim.design.components.announcement.this_is_the_title"), body: t("decidim.design.components.announcement.this_is_the_body") }, callout_class: "success",
+                  { text: { title: t("decidim.design.components.announcement.this_is_the_title"), body: t("decidim.design.components.announcement.this_is_the_body") },
+                    callout_class: "success",
                     argument: '{ title: "This is the title", body: "This is the body" }, callout_class: "success"' },
-                  { text: { title: t("decidim.design.components.announcement.this_is_the_title"), body: t("decidim.design.components.announcement.this_is_the_body") }, callout_class: "warning",
+                  { text: { title: t("decidim.design.components.announcement.this_is_the_title"), body: t("decidim.design.components.announcement.this_is_the_body") },
+                    callout_class: "warning",
                     argument: '{ title: "This is the title", body: "This is the body" }, callout_class: "warning"' },
-                  { text: { title: t("decidim.design.components.announcement.this_is_the_title"), body: t("decidim.design.components.announcement.this_is_the_body") }, callout_class: "alert",
+                  { text: { title: t("decidim.design.components.announcement.this_is_the_title"), body: t("decidim.design.components.announcement.this_is_the_body") },
+                    callout_class: "alert",
                     argument: '{ title: "This is the title", body: "This is the body" }, callout_class: "alert"' },
-                  { text: { title: t("decidim.design.components.announcement.this_is_the_title"), body: t("decidim.design.components.announcement.this_is_the_body") }, callout_class: "secondary",
+                  { text: { title: t("decidim.design.components.announcement.this_is_the_title"), body: t("decidim.design.components.announcement.this_is_the_body") },
+                    callout_class: "secondary",
                     argument: '{ title: "This is the title", body: "This is the body" }, callout_class: "secondary"' },
-                  { text: { title: t("decidim.design.components.announcement.this_is_the_title"), body: t("decidim.design.components.announcement.this_is_the_body") }, callout_class: nil,
+                  { text: { title: t("decidim.design.components.announcement.this_is_the_title"), body: t("decidim.design.components.announcement.this_is_the_body") },
+                    callout_class: nil,
                     argument: '{ title: "This is the title", body: "This is the body" }' },
                   { text: "I am just plain text", callout_class: nil, argument: '"I am just plain text"' }
                 ),
                 cell_snippet: {
                   cell: "decidim/announcement",
-                  args: [{ title: t("decidim.design.components.announcement.this_is_the_title"), body: t("decidim.design.components.announcement.this_is_the_body") }, { callout_class: "success" }],
+                  args: [{ title: t("decidim.design.components.announcement.this_is_the_title"), body: t("decidim.design.components.announcement.this_is_the_body") },
+                         { callout_class: "success" }],
                   call_string: [
                     'cell("decidim/announcement", { title: "This is the title", body: "This is the body" }, callout_class: "success")',
                     'cell("decidim/announcement", { title: "This is the title", body: "This is the body" }, callout_class: "warning")',
