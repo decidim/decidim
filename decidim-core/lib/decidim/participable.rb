@@ -19,7 +19,9 @@ module Decidim
           "#{underscored_name}_path".to_sym,
           "#{underscored_name}_url".to_sym,
           "new_#{underscored_name}_path".to_sym,
-          "new_#{underscored_name}_url".to_sym
+          "new_#{underscored_name}_url".to_sym,
+          "#{underscored_name.pluralize}_path".to_sym,
+          "#{underscored_name.pluralize}_url".to_sym,
         ].include?(method_name)
       end
 

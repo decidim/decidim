@@ -49,7 +49,7 @@ module Decidim
 
       path = send(engine).send(method_name, *)
 
-      raise "Wrong url generated" if [
+      raise "Wrong url generated - #{method_name} - #{path}" if [
         path.include?("initiative_slug"),
         path.include?("assembly_slug"),
         path.include?("conference_slug"),
