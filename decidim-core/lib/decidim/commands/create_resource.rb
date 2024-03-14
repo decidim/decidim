@@ -28,13 +28,9 @@ module Decidim
 
       protected
 
-      # @param soft [Boolean] whether to soft-create the resource or not.
       # @usage
-      #  create_resource(soft: true) - Will soft-create the resource, returning any validation errors.
       #  create_resource - Will create the resource, raising any validation errors.
-      def create_resource(soft: false)
-        raise "Removing soft" if soft
-
+      def create_resource
         @resource = Decidim.traceability.send(create_method, resource_class, current_user, attributes, **extra_params)
         @resource.persisted? ? resource : raise(ActiveRecord::RecordInvalid, resource)
       end
