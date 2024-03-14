@@ -10,7 +10,6 @@ ca:
   decidim:
     admin:
       menu:
-        manage: Gestionar
         templates: Plantilles
       templates:
         actions:
