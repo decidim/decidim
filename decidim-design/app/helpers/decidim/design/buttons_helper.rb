@@ -6,7 +6,8 @@ module Decidim
       def buttons_sections
         [
           {
-            id: t("decidim.design.helpers.sizes"),
+            id: "sizes", 
+            title: t("decidim.design.helpers.sizes"),
             contents: [
               {
                 type: :table,
