@@ -176,7 +176,6 @@ PATH
     decidim-surveys (0.29.0.dev)
       decidim-core (= 0.29.0.dev)
       decidim-forms (= 0.29.0.dev)
-      decidim-templates (= 0.29.0.dev)
     decidim-system (0.29.0.dev)
       active_link_to (~> 1.0)
       decidim-core (= 0.29.0.dev)
