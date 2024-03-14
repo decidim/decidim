@@ -43,7 +43,12 @@ module Decidim
       return super unless route_helper?(method_name)
 
       filter_slug_params!(method_name)
-      send(engine).send(method_name, *)
+
+      path = send(engine).send(method_name, *)
+
+      raise "Wrong url generated" if path.include?(target.slug_param_name.to_s)
+
+      path
     end
 
     private
