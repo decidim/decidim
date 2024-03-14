@@ -577,6 +577,7 @@ fi-pl:
         help_sections: Ohjeosiot
         homepage: Kotisivu
         impersonations: Esiintymiset toisena käyttäjänä
+        manage: Hallitse
         moderation: Yleiset moderoinnit
         newsletters: Uutiskirjeet
         participants: Osallistujat
