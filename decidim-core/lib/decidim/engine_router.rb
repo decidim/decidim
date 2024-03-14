@@ -16,7 +16,7 @@ module Decidim
     #
     # @return [EngineRouter] The new engine router
     def self.main_proxy(target)
-      new(target.mounted_engine, target)
+      new(target.mounted_engine, target.mounted_params, target)
     end
 
     # Instantiates a router to the backend engine for an object.
@@ -25,15 +25,18 @@ module Decidim
     #
     # @return [EngineRouter] The new engine router
     def self.admin_proxy(target)
-      new(target.mounted_admin_engine, target)
+      new(target.mounted_admin_engine, target.mounted_params, target)
     end
 
-    def initialize(engine, target)
+    def initialize(engine, default_url_options, target = nil)
       @engine = engine
+      @default_url_options = default_url_options
       @target = target
     end
 
-    attr_reader :default_url_options
+    def default_url_options
+      @default_url_options.reverse_merge(configured_default_url_options)
+    end
 
     def respond_to_missing?(method_name, include_private = false)
       route_helper?(method_name) || super
@@ -61,11 +64,9 @@ module Decidim
     attr_reader :engine, :target
 
     def filter_slug_params!(method_name)
-      @default_url_options = configured_default_url_options
-
+      return if target.nil?
       return unless target.respond_to?(:mounted_params)
 
-      @default_url_options = target.mounted_params.reverse_merge(configured_default_url_options)
       skip_space_slug = target.respond_to?(:slug_param_name) && target.respond_to?(:skip_space_slug?) && target.skip_space_slug?(method_name)
       @default_url_options.except!(target.slug_param_name) if skip_space_slug == true
     end
