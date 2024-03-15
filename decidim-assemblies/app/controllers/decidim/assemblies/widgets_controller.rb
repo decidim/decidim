@@ -14,7 +14,7 @@ module Decidim
       private
 
       def model
-        @model ||= Assembly.where(organization: current_organization).published.find_by(slug: params[:assembly_slug])
+        @model ||= Assembly.where(organization: current_organization).public_spaces.find_by(slug: params[:assembly_slug])
       end
 
       def current_participatory_space

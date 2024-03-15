@@ -16,8 +16,8 @@ module Decidim
       def model
         return unless params[:participatory_process_slug]
 
-        @model ||= ParticipatoryProcess.where(organization: current_organization).published.where(slug: params[:participatory_process_slug]).or(
-          ParticipatoryProcess.where(organization: current_organization).published.where(id: params[:participatory_process_slug])
+        @model ||= ParticipatoryProcess.where(organization: current_organization).public_spaces.where(slug: params[:participatory_process_slug]).or(
+          ParticipatoryProcess.where(organization: current_organization).public_spaces.where(id: params[:participatory_process_slug])
         ).first!
       end
 
