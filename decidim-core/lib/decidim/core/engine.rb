@@ -38,6 +38,7 @@ require "diffy"
 require "ransack"
 require "wisper"
 require "shakapacker"
+require "sprockets/railtie"
 
 # Needed for the assets:precompile task, for configuring webpacker instance
 require "decidim/webpacker"
