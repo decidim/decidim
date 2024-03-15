@@ -32,6 +32,7 @@ module Decidim
             ]
           },
           {
+            id: "colors",
             title: t("decidim.design.helpers.colors"),
             contents: [
               {
