@@ -297,8 +297,8 @@ module Decidim
         end
       end
 
-      initializer "decidim_core.i18n_exceptions" do
-        ActionView::Base.raise_on_missing_translations = true unless Rails.env.production?
+      initializer "decidim_core.i18n_exceptions" do |app|
+        app.config.i18n.raise_on_missing_translations = true unless Rails.env.production?
       end
 
       initializer "decidim_core.geocoding", after: :load_config_initializers do
