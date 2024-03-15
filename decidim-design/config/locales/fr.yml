@@ -7,6 +7,13 @@ fr:
           activities: Activités
         address:
           title: Adresse
+        announcement:
+          iam_an_announcement: Je suis un message d'annonce
+          this_is_the_body: Ceci est le corps de texte
+          this_is_the_title: Ceci est le titre
+          title: Message d'annonce
+        author:
+          title: Auteur
       foundations:
         iconography:
           description_iconography: Nous utilisons des icônes pour renforcer la signification des actions, des titres, etc
@@ -23,11 +30,16 @@ fr:
           typefaces_description_2: Ces polices sont sous licence Open Font License
       helpers:
         activity: Activité
+        avatar: Avatar
         base: Base
+        compact: Compact
+        context: Contexte
+        default: Par défaut
         demo: Démo
         form_elements: Éléments de formulaire
         hex_code: Code hexadécimal
         main_colors: Couleurs principales
+        plain_text: Je ne suis que du texte brut
         rgba_code:
         source_code: Code source
         state: État
