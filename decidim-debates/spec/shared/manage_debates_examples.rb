@@ -16,7 +16,7 @@ RSpec.shared_examples "manage debates" do
 
       it "does not list the hidden debates" do
         visit current_path
-        expect(page).to have_no_content(translated(my_other_debate.title))
+        expect(page).not_to have_content(translated(my_other_debate.title))
       end
     end
 
