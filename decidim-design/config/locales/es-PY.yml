@@ -21,6 +21,8 @@ es-PY:
           activities: Actividades
         address:
           title: Dirección
+        author:
+          title: Autoría
       foundations:
         accessibility:
           accessibility_labels: Etiquetas de accesibilidad
@@ -98,8 +100,17 @@ es-PY:
         activity: Actividad
         address_description: La celda de dirección recibe un recurso y busca los atributos geolocalizables para representar un marcado específico.
         address_description_2: Dependiendo del tipo de contenido, la dirección puede ser una dirección web. Para estos casos, la información mostrada es bastante igual, pero está moldeada para adecuarla.
+        avatar: Imagen de perfil
+        avatar_description: Se utiliza cuando hay espacios estrechos, donde la autoría es una información secundaria.
         background: Bordes y fondo
         base: Base
+        compact:
+        compact_description: Esta versión de la autoría es la manera común de identificar a la creadora del recurso.
+        context: Contexto
+        context_description: Esta celda muestra información acerca de un usuario. Es una ayuda visual para identificar la creadora del recurso/contenido. Al pasar por encima el cursor, se muestra una descripción con más información y enlaces a su perfil.
+        context_description_2: Para los recursos, esta célula aparece debajo del encabezado principal. Para otros contenidos, aparece al lado del contenido mismo.
+        default: Por defecto
+        default_description: Llamar a la celda sin argumentos adicionales, sino a la propia usuaria.
         demo: Demo
         demo_text: 'Esta celda recibe un modelo de elementos de Última Actividad y muestra los siguientes elementos:'
         demo_text_2: Utilizado por la última página de actividad, en un bloque de contenido y dentro de los desplegables.
@@ -132,6 +143,7 @@ es-PY:
         usage_typography_4: Enlaces y botones
         value: Valor
         variations: Variaciones
+        variations_description: Hay tres versiones diferentes de esta celda. Cada una encaja mejor con el contexto en el que se muestra.
         variations_text: En cuanto al tipo de actividad, la celda podría mostrar diferentes contenidos, informando de los distintos recursos, pertenezcan o no a un espacio participativo, tengan o no autoría.
       home:
         index:
