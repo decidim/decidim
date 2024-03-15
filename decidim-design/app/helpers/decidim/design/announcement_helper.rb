@@ -62,7 +62,7 @@ module Decidim
                   { text: { title: t("decidim.design.components.announcement.this_is_the_title"), body: t("decidim.design.components.announcement.this_is_the_body") },
                     callout_class: nil,
                     argument: '{ title: "This is the title", body: "This is the body" }' },
-                  { text: "I am just plain text", callout_class: nil, argument: '"I am just plain text"' }
+                  { text: t("decidim.design.helpers.plain_text"), callout_class: nil, argument: '"I am just plain text"' }
                 ),
                 cell_snippet: {
                   cell: "decidim/announcement",

@@ -116,6 +116,7 @@ en:
         form_elements: Form elements
         hex_code: Hex code
         main_colors: Main Colors
+        plain_text: I am just plain text
         plain_text_description: You can provide as first argument both a plain text and a hash object
         plain_text_vs_hash: Plain Text Vs Hash
         rgba_code: RGBA code
