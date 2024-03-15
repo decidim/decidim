@@ -185,7 +185,6 @@ PATH
     decidim-surveys (0.26.9)
       decidim-core (= 0.26.9)
       decidim-forms (= 0.26.9)
-      decidim-templates (= 0.26.9)
     decidim-system (0.26.9)
       active_link_to (~> 1.0)
       decidim-core (= 0.26.9)
