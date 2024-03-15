@@ -21,21 +21,30 @@ describe "Initiative embeds", type: :system do
       let(:state) { :created }
 
       it_behaves_like "not rendering the embed link in the resource page"
-      it_behaves_like "showing the unauthorized message in the widget_path"
+
+      it_behaves_like "a 404 page" do
+        let(:target_path) { widget_path }
+      end
     end
 
     context "when the state is validating" do
       let(:state) { :validating }
 
       it_behaves_like "not rendering the embed link in the resource page"
-      it_behaves_like "showing the unauthorized message in the widget_path"
+
+      it_behaves_like "a 404 page" do
+        let(:target_path) { widget_path }
+      end
     end
 
     context "when the state is discarded" do
       let(:state) { :discarded }
 
       # A discarded initiative is not available anymore to authors
-      it_behaves_like "showing the unauthorized message in the widget_path"
+
+      it_behaves_like "a 404 page" do
+        let(:target_path) { widget_path }
+      end
     end
 
     context "when the state is published" do

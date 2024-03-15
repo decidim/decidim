@@ -21,7 +21,11 @@ module Decidim
       private
 
       def model
-        @model ||= current_initiative
+        @model ||= if current_initiative.created? || current_initiative.validating? || current_initiative.discarded?
+                     nil
+                   else
+                     current_initiative
+                   end
       end
 
       def current_participatory_space
