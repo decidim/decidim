@@ -109,6 +109,7 @@ en:
           typefaces_description_1: Decidim uses Source Sans Pro as primary typeface. This typeface supports 310 languages
           typefaces_description_2: This fonts are licensed under the Open Font License
       helpers:
+        accountability_cards_html: Used by <i>Accountability projects</i> cards. This card requires the module assets to display properly, i.e. <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
         activity: Activity
         address_description: Address cell receives a resource, and searches the geolocalizable attributes to render an specific markup.
         address_description_2: Depending of the type of the content, the address could be an online url. For such cases, the displayed information is quite the same but shaped to fit.
@@ -117,6 +118,9 @@ en:
         avatar_description: It is used when there are narrow spaces, where the author is a secondary information.
         background: Background and borders
         base: Base
+        block_text: Use the extra_data block
+        blog_cards_html: Used by <i>Blogs</i> cards
+        budget_card_html: Used by <i>Budget projects</i> cards. This card requires the module assets to display properly, i.e. <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>
         callout_class: Callout Class
         callout_description: This attribute applies an status to the announcement. By default, it uses secondary color.
         card_g: Card G
@@ -128,18 +132,27 @@ en:
         context: Context
         context_description: This cell display some information about a user. It a visual help to identify the resource/content creator. Hovering with the mouse displays a tooltip with further info and links to its profile.
         context_description_2: For resources, this cell appears beneath the main heading. For other contents, it appears next to the content itself.
+        debates_cards_html: Used by <i>Debates</i> cards
+        debates_cards_text: Use different template for the image block
         default: Default
         default_description: Calling the cell with no extra arguments, but the user itself.
         demo: Demo
         demo_text: 'This cell receives a model of LastActivity items and displays the following elements:'
         demo_text_2: Used by the last activity page, in a content block and within the dropdowns.
+        description: Description
         disabled: Disabled
         form_elements: Form elements
         grid: Grid
         hex_code: Hex code
+        highlight: Highlight
+        highlight_description: Used by resources who allow to highlight
         icons: Icons
+        image_and_description: Image and Description
         list: List
         main_colors: Main Colors
+        meetings_html: Used by <i>Meetings</i> cards
+        metadata_items: Metadata items
+        metadata_text: Each resource define its own metadata items
         plain_text: I am just plain text
         plain_text_description: You can provide as first argument both a plain text and a hash object
         plain_text_vs_hash: Plain Text Vs Hash
@@ -176,6 +189,7 @@ en:
         usage_typography_4: Links and buttons
         value: Value
         variations: Variations
+        variations_cards_description: Each card will look like different regarding the properties of the resource displayed. You can override such behaviour in the specific cell.
         variations_description: There are three different versions of this cell. Each one fits better regarding the context it is being displayed.
         variations_text: Regarding the type of activity, the cell could show different content, reporting the distinct resources, whether belong to a participatory space or not, has an author or not.
       home:

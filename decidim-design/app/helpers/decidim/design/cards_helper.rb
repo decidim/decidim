@@ -58,14 +58,14 @@ module Decidim
             ]
           },
           {
-            id: "variations",
+            title: t("decidim.design.helpers.variations"),
             contents: [
               {
                 type: :text,
-                values: ["Each card will look like different regarding the properties of the resource displayed. You can override such behaviour in the specific cell."]
+                values: [t("decidim.design.helpers.variations_cards_description")]
               },
               {
-                values: section_subtitle(title: "Metadata items")
+                values: section_subtitle(title: t("decidim.design.helpers.metadata_items"))
               },
               {
                 type: :partial,
@@ -74,10 +74,10 @@ module Decidim
               },
               {
                 type: :text,
-                values: ["Each resource define its own metadata items"]
+                values: [t("decidim.design.helpers.metadata_text")]
               },
               {
-                values: section_subtitle(title: "Highlight")
+                values: section_subtitle(title: t("decidim.design.helpers.highlight"))
               },
               {
                 type: :partial,
@@ -85,10 +85,10 @@ module Decidim
               },
               {
                 type: :text,
-                values: ["Used by resources who allow to highlight"]
+                values: [t("decidim.design.helpers.highlight_description")]
               },
               {
-                values: section_subtitle(title: "Image and description")
+                values: section_subtitle(title: t("decidim.design.helpers.image_and_description"))
               },
               {
                 type: :partial,
@@ -96,10 +96,10 @@ module Decidim
               },
               {
                 type: :text,
-                values: ["Used by <i>Blogs</i> cards"]
+                values: [t("decidim.design.helpers.blog_cards_html")]
               },
               {
-                values: section_subtitle(title: "Description")
+                values: section_subtitle(title: t("decidim.design.helpers.description"))
               },
               {
                 type: :partial,
@@ -107,10 +107,10 @@ module Decidim
               },
               {
                 type: :text,
-                values: ["Used by <i>Debates</i> cards"]
+                values: [t("decidim.design.helpers.debates_cards_html")]
               },
               {
-                values: section_subtitle(title: "Use different template for the image block")
+                values: section_subtitle(title: t("decidim.design.helpers.debates_cards_text"))
               },
               {
                 type: :partial,
@@ -118,10 +118,10 @@ module Decidim
               },
               {
                 type: :text,
-                values: ["Used by <i>Meetings</i> cards"]
+                values: [t("decidim.design.helpers.meetings_html")]
               },
               {
-                values: section_subtitle(title: "Use the extra_data block")
+                values: section_subtitle(title: t("decidim.design.helpers.block_text"))
               },
               {
                 type: :partial,
@@ -129,7 +129,7 @@ module Decidim
               },
               {
                 type: :text,
-                values: ["Used by <i>Accountability projects</i> cards. This card requires the module assets to display properly, i.e. <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>"]
+                values: [t("decidim.design.helpers.accountability_cards_html")]
               },
               {
                 type: :partial,
@@ -137,7 +137,7 @@ module Decidim
               },
               {
                 type: :text,
-                values: ["Used by <i>Budget projects</i> cards. This card requires the module assets to display properly, i.e. <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>"]
+                values: [t("decidim.design.helpers.budget_card_html")]
               }
             ]
           },
