@@ -97,6 +97,7 @@ module Decidim
             ]
           },
           {
+            id: "text",
             title: t("decidim.design.helpers.text"),
             contents: [
               {
