@@ -2,6 +2,28 @@
 de:
   decidim:
     design:
+      components:
+        accordions:
+          content_panel: Inhalt des Panels
+          demo: Demo
+          demo_description: Während der gesamten Anwendung werden die Akkordeons hauptsächlich verwendet, um Inhalte in Tabs anzuzeigen/zu verbergen oder um sichtbare Texte zu falten/zu entfalten.
+          description_accordions_html: Akkordeons sind eine Javascript-Funktion, die dank einer externen Bibliothek namens %{link_code} a11y-accordion-Komponente verfügbar ist.
+          github_source_html: Quellcode auf GitHub %{github_link}
+          title: Akkordeons
+          usage: Nutzung
+          usage_p: Ein Akkordeon benötigt mindestens drei Elemente
+          usage_p_1_html: 1. Ein Wrapper <code>div</code>, mit dem Data-Attribut <code>data-component="accordion"</code>, über alle verfügbaren Trigger und Panels.
+          usage_p_3_html: 3. Ein versteckbares Element, dessen <code>id</code> mit dem Wert der Datensteuerung übereinstimmt, auf den sich der Trigger bezieht.
+        activities:
+          activities: Aktivitäten
+        address:
+          title: Adresse
+        announcement:
+          iam_an_announcement: Ich bin eine Ankündigung
+          this_is_the_title: Das ist der Titel
+          title: Ankündigung
+        author:
+          title: Autor*in
       foundations:
         accessibility:
           accessibility_labels: Barrierefreiheitsbezeichnungen
