@@ -31,18 +31,34 @@ de:
           accessibility_title: Barrierefreiheit
           adjacent_links: Angrenzende Links
           adjacent_links_header: Angrenzende Links für die gleiche Ressource
+          adjacent_links_paragraph: Wenn die selbe Ressource mehrere angrenzende Links hat, die auf sie verweisen, erschwert das den Benutzer*innen, die Seite durchzusehen, da sie unter Umständen mehrere Links durchlaufen müssen, um zur nächsten Ressource zu gelangen.
           color_contrast: Farbkontrast
+          color_contrast_paragraph: Wenn Sie die Benutzeroberfläche erstellen oder die Farben ändern, stellen Sie immer sicher, dass Sie mit Ihren Änderungen nicht die Barrierefreiheit verletzen. Sie können mit der Farbkontrastprüfung sicherstellen, dass Ihre Textfarben ausreichend Kontrast zur Hintergrundfarbe haben, auf der sie angezeigt werden.
+          decidim_follows_html: Decidim folgt bei Barrierefreiheit den Richtlinien für <u>Web Content Accessibility Guidelines (WCAG) 2.1</u>
+          dynamic_changes_paragraph: Änderungen in den Formulareingaben sollten den Kontext der Seite nicht automatisch ändern.
           elements_hidden: Elemente versteckt
+          elements_hidden_paragraph: Um ein Element vor unterstützenden Technologien zu verstecken, verwenden Sie das Attribut aria-hidden="true".
+          heading_on: Überschrift zu wichtigen Abschnitten
           here_link: hier
+          illogical_heading_order: Unlogische Überschriftenreihenfolge
+          illogical_heading_paragraph: Jede Seite sollte eine logische Überschriftenreihenfolge haben, wenn die Überschriften <h1>, <h2>, <h3>, <h4>, <h5> und <h6> verwendet werden.
           important_sections_heading: Überschrift zu wichtigen Abschnitten
+          important_sections_paragraph: Es ist sehr wichtig, dass jeder wichtige Abschnitt der Seite eine Überschrift hat. Damit wird es einfacher zu verstehen, welche Abschnitte auf der Seite wichtig sind, wenn man die Überschriften auf der Seite überfliegt.
+          links_and_buttons: Links und Buttons
+          links_and_buttons_paragraph: Die Ankerelemente (z.B. Links) sollen auf andere Seiten verlinken oder Positionen innerhalb der Seite verankert werden. Wenn das Element z.B. ein verstecktes Element auf dieser Seite öffnen soll, sollten Sie stattdessen das Element <button> verwenden.
+          see_further_info_html: Siehe weitere Informationen
           unique_h1: Eindeutige H1
           unique_h1_paragraph: Jede Seite sollte eine eindeutige H1-Überschrift haben
           use_aria: Benutze ARIA
           use_aria_header: ARIA-Attribute verwenden, wenn möglich
+          use_aria_paragraph: Viele Elemente, die interaktive Funktionalität auf der Website bieten, erfordern ARIA-Attribute auf ihnen, um sie barrierefrei zugänglich zu machen.
         color:
           color_header: Farbe
+          description_p2_html: Wenn Sie die Farben anpassen, denken Sie an den %{contrast_link}. Sie können den Kontrast Ihrer Auswahl mit %{checker_link} oder anderen ähnlichen Tools überprüfen.
           wcag_compliant_rations: WCAG 2.1 AA konformes Kontrastverhältnis
           wcag_contrast_checker: WebAIM-Kontrastprüfung
+        iconography:
+          description_iconography_html: 'Wir verwenden die Open-Source-Bibliothek Remixicon: %{iconography_link}'
       helpers:
         background: Hintergrund und Ränder
         base: Basis
