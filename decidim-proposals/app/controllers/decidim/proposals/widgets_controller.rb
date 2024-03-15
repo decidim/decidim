@@ -14,7 +14,7 @@ module Decidim
       private
 
       def model
-        @model ||= Proposal.not_hidden.where(component: current_component).find(params[:proposal_id])
+        @model ||= Proposal.not_hidden.except_withdrawn.where(component: current_component).find(params[:proposal_id])
       end
 
       def iframe_url
