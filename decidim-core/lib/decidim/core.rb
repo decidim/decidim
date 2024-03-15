@@ -828,7 +828,7 @@ module Decidim
   end
 
   def self.register_assets_path(path)
-    Rails.autoloaders.main.ignore(path) if Rails.configuration.autoloader == :zeitwerk
+    Rails.autoloaders.main.ignore(path)
   end
 
   # Checks if a particular decidim gem is installed and needed by this
