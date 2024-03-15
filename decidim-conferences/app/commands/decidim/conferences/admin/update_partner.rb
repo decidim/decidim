@@ -6,7 +6,7 @@ module Decidim
       # A command with all the business logic when updating a conference
       # partner in the system.
       class UpdatePartner < Decidim::Commands::UpdateResource
-        include ::Decidim::AttachmentAttributesMethods
+        fetch_file_attributes :logo
 
         fetch_form_attributes :name, :weight, :partner_type, :link
 
@@ -26,16 +26,6 @@ module Decidim
             }
           }
         end
-
-        def update_resource
-          super
-        rescue ActiveRecord::RecordInvalid => e
-          form.errors.add(:logo, resource.errors[:logo]) if resource.errors.include? :logo
-
-          raise Decidim::Commands::HookError, e
-        end
-
-        def attributes = super.merge(attachment_attributes(:logo))
       end
     end
   end

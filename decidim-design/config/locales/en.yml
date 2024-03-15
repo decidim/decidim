@@ -21,6 +21,8 @@ en:
           activities: Activities
         address:
           title: Address
+        author:
+          title: Author
       foundations:
         accessibility:
           accessibility_labels: Accessibility labels
@@ -100,8 +102,17 @@ en:
         activity: Activity
         address_description: Address cell receives a resource, and searches the geolocalizable attributes to render an specific markup.
         address_description_2: Depending of the type of the content, the address could be an online url. For such cases, the displayed information is quite the same but shaped to fit.
+        avatar: Avatar
+        avatar_description: It is used when there are narrow spaces, where the author is a secondary information.
         background: Background and borders
         base: Base
+        compact: Compact
+        compact_description: This author version is the common way to identify the resource creator.
+        context: Context
+        context_description: This cell display some information about a user. It a visual help to identify the resource/content creator. Hovering with the mouse displays a tooltip with further info and links to its profile.
+        context_description_2: For resources, this cell appears beneath the main heading. For other contents, it appears next to the content itself.
+        default: Default
+        default_description: Calling the cell with no extra arguments, but the user itself.
         demo: Demo
         demo_text: 'This cell receives a model of LastActivity items and displays the following elements:'
         demo_text_2: Used by the last activity page, in a content block and within the dropdowns.
@@ -134,6 +145,7 @@ en:
         usage_typography_4: Links and buttons
         value: Value
         variations: Variations
+        variations_description: There are three different versions of this cell. Each one fits better regarding the context it is being displayed.
         variations_text: Regarding the type of activity, the cell could show different content, reporting the distinct resources, whether belong to a participatory space or not, has an author or not.
       home:
         index:
