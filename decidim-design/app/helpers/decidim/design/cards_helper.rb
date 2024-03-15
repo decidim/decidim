@@ -23,10 +23,10 @@ module Decidim
       def cards_sections
         [
           {
-            id: "types",
+            title: t("decidim.design.helpers.types"),
             contents: [
               {
-                values: section_subtitle(title: "Card L", label: "list")
+                values: section_subtitle(title: t("decidim.design.helpers.card_l"), label: t("decidim.design.helpers.list"))
               },
               {
                 type: :partial,
@@ -37,7 +37,7 @@ module Decidim
                 template: "decidim/design/components/cards/static-card-l"
               },
               {
-                values: section_subtitle(title: "Card G", label: "grid")
+                values: section_subtitle(title: t("decidim.design.helpers.card_g"), label: t("decidim.design.helpers.grid"))
               },
               {
                 type: :partial,
@@ -45,7 +45,7 @@ module Decidim
                 template: ["decidim/design/components/cards/static-card-g", "decidim/design/components/cards/static-card-g"]
               },
               {
-                values: section_subtitle(title: "Card S", label: "search")
+                values: section_subtitle(title: t("decidim.design.helpers.card_s"), label: t("decidim.design.helpers.search"))
               },
               {
                 type: :partial,
