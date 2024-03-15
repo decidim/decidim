@@ -63,7 +63,7 @@ module Decidim
                   cell: "decidim/announcement",
                   args: [{ title: "This is the title", body: "This is the body" }, { callout_class: "success" }],
                   call_string: [
-                    %{cell("decidim/announcement", { title: "#{t("decidim.design.helpers.send")}", body: "This is the body" }, callout_class: "success")},
+                    %{cell("decidim/announcement", { title: "This is the title", body: "This is the body" }, callout_class: "success")},
                     'cell("decidim/announcement", { title: "This is the title", body: "This is the body" }, callout_class: "warning")',
                     'cell("decidim/announcement", { title: "This is the title", body: "This is the body" }, callout_class: "alert")',
                     'cell("decidim/announcement", { title: "This is the title", body: "This is the body" }, callout_class: "secondary")',
