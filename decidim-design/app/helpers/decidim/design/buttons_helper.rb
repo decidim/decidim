@@ -122,6 +122,7 @@ module Decidim
             ]
           },
           {
+            id: "icons",
             title: t("decidim.design.helpers.icons"),
             contents: [
               {
