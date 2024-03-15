@@ -322,8 +322,8 @@ describe "Meeting live event access" do
       it "not shown to not signed in users" do
         visit_meeting
 
-        expect(page).to have_no_css(".address__hints")
-        expect(page).to have_no_content(meeting.online_meeting_url)
+        expect(page).not_to have_css(".address__hints")
+        expect(page).not_to have_content(meeting.online_meeting_url)
       end
     end
 
@@ -350,8 +350,8 @@ describe "Meeting live event access" do
       it "not shown to regsistered users" do
         visit_meeting
 
-        expect(page).to have_no_css(".address__hints")
-        expect(page).to have_no_content(meeting.online_meeting_url)
+        expect(page).not_to have_css(".address__hints")
+        expect(page).not_to have_content(meeting.online_meeting_url)
       end
     end
 
