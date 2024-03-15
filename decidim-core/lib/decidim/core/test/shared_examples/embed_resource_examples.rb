@@ -119,7 +119,10 @@ shared_examples_for "a private embed resource" do
       let(:user) { nil }
 
       it_behaves_like "not rendering the embed link in the resource page"
-      it_behaves_like "showing the unauthorized message in the widget_path"
+
+      it_behaves_like "a 404 page" do
+        let(:target_path) { widget_path }
+      end
     end
 
     context "and user is a registered user" do
@@ -130,7 +133,10 @@ shared_examples_for "a private embed resource" do
       end
 
       it_behaves_like "not rendering the embed link in the resource page"
-      it_behaves_like "showing the unauthorized message in the widget_path"
+
+      it_behaves_like "a 404 page" do
+        let(:target_path) { widget_path }
+      end
     end
 
     context "and user is a private user" do
@@ -140,7 +146,9 @@ shared_examples_for "a private embed resource" do
         sign_in user, scope: :user
       end
 
-      it_behaves_like "showing the unauthorized message in the widget_path"
+      it_behaves_like "a 404 page" do
+        let(:target_path) { widget_path }
+      end
     end
   end
 end
@@ -209,6 +217,9 @@ shared_examples_for "a withdrawn embed resource" do
     end
 
     it_behaves_like "not rendering the embed link in the resource page"
-    it_behaves_like "showing the unauthorized message in the widget_path"
+
+    it_behaves_like "a 404 page" do
+      let(:target_path) { widget_path }
+    end
   end
 end
