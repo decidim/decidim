@@ -141,7 +141,10 @@ en:
         demo_text_2: Used by the last activity page, in a content block and within the dropdowns.
         description: Description
         disabled: Disabled
+        dummy_description: Dummy resource description
+        dummy_title: Dummy resource title
         form_elements: Form elements
+        generic_cards: Generic cards
         grid: Grid
         hex_code: Hex code
         highlight: Highlight

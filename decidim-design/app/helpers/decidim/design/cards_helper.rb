@@ -142,7 +142,7 @@ module Decidim
             ]
           },
           {
-            id: "source_code",
+            title: t("decidim.design.helpers.source_code"),
             contents: source_contents
           }
         ]
@@ -153,12 +153,12 @@ module Decidim
         dummy_resource = DummyClass.new(
           id: 1000,
           organization: current_organization,
-          title: "Dummy resource title",
-          description: "Dummy resource description"
+          title: t("decidim.design.helpers.dummy_title"),
+          description: t("decidim.design.helpers.dummy_description")
         )
 
         contents = [
-          { values: section_subtitle(title: "Generic cards") },
+          { values: section_subtitle(title: t("decidim.design.helpers.generic_cards")) },
           cell_table_item("Card L", { cell: "decidim/card_l", args: [dummy_resource], call_string: 'cell("decidim/card_l", _RESOURCE_)' }),
           cell_table_item("Card G", { cell: "decidim/card_l", args: [dummy_resource], call_string: 'cell("decidim/card_g", _RESOURCE_)' }),
           cell_table_item("Card S", { cell: "decidim/card_l", args: [dummy_resource], call_string: 'cell("decidim/card_s", _RESOURCE_)' })
