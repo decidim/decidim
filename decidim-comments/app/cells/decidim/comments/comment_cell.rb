@@ -159,11 +159,11 @@ module Decidim
       end
 
       def voted_up?
-        model.up_voted_by?(current_user)
+        @up_voted ||= model.up_voted_by?(current_user)
       end
 
       def voted_down?
-        model.down_voted_by?(current_user)
+        @down_voted ||= model.down_voted_by?(current_user)
       end
 
       def nested?
