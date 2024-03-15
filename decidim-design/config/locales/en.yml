@@ -28,6 +28,9 @@ en:
           title: Announcement
         author:
           title: Author
+        buttons:
+          description_html: 'Buttons are built using different combinations of CSS classes: the <code>button</code> class, a size and a color.'
+          title: Buttons
       foundations:
         accessibility:
           accessibility_labels: Accessibility labels
@@ -114,6 +117,7 @@ en:
         base: Base
         callout_class: Callout Class
         callout_description: This attribute applies an status to the announcement. By default, it uses secondary color.
+        colors: Colors
         compact: Compact
         compact_description: This author version is the common way to identify the resource creator.
         context: Context
@@ -124,16 +128,23 @@ en:
         demo: Demo
         demo_text: 'This cell receives a model of LastActivity items and displays the following elements:'
         demo_text_2: Used by the last activity page, in a content block and within the dropdowns.
+        disabled: Disabled
         form_elements: Form elements
         hex_code: Hex code
+        icons: Icons
         main_colors: Main Colors
         plain_text: I am just plain text
         plain_text_description: You can provide as first argument both a plain text and a hash object
         plain_text_vs_hash: Plain Text Vs Hash
         rgba_code: RGBA code
+        send: Send
+        sizes: Sizes
         source_code: Source Code
         state: State
         tailwind: Tailwind name
+        text: Text
+        transparent: Transparent
+        transparent_description: 'In case of a darker background:'
         typography_texts: Typography and texts
         usage: Usage
         usage_background_1: Aside background
