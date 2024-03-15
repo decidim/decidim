@@ -29,7 +29,6 @@ module Decidim
       helper Decidim::LanguageChooserHelper
       helper Decidim::ComponentPathHelper
       helper Decidim::SanitizeHelper
-      helper Decidim::BreadcrumbHelper
       helper Decidim::Templates::Admin::ApplicationHelper if Decidim.module_installed?(:templates) && defined?(Decidim::Templates::Admin::ApplicationHelper)
 
       default_form_builder Decidim::Admin::FormBuilder
