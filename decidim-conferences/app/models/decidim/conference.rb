@@ -60,7 +60,7 @@ module Decidim
     validates_upload :hero_image, uploader: Decidim::HeroImageUploader
 
     has_one_attached :banner_image
-    validates_upload :banner_image, uploader: Decidim::HomepageImageUploader
+    validates_upload :banner_image, uploader: Decidim::BannerImageUploader
 
     has_one_attached :main_logo
     validates_upload :main_logo, uploader: Decidim::Conferences::DiplomaUploader

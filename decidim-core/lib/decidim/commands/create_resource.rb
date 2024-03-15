@@ -17,40 +17,47 @@ module Decidim
       def call
         return broadcast(:invalid) if invalid?
 
-        transaction do
-          run_before_hooks
-          create_resource
-          run_after_hooks
-        end
-
+        perform!
         broadcast(:ok, resource)
+      rescue ActiveRecord::RecordInvalid
+        add_file_attribute_errors!
+        broadcast(:invalid)
       rescue Decidim::Commands::HookError
         broadcast(:invalid)
       end
 
       protected
 
-      # @param soft [Boolean] whether to soft-create the resource or not.
       # @usage
-      #  create_resource(soft: true) - Will soft-create the resource, returning any validation errors.
       #  create_resource - Will create the resource, raising any validation errors.
-      def create_resource(soft: false)
-        @resource = Decidim.traceability.send(soft ? :create : :create!,
-                                              resource_class,
-                                              current_user,
-                                              attributes,
-                                              **extra_params)
+      def create_resource
+        @resource = Decidim.traceability.send(create_method, resource_class, current_user, attributes, **extra_params)
+        @resource.persisted? ? resource : raise(ActiveRecord::RecordInvalid, resource)
       end
 
       attr_reader :form, :resource
 
       delegate :current_user, to: :form
 
+      def create_method
+        has_file_attributes? ? :create : :create!
+      end
+
       # Useful for running any code that you may want to execute before creating the resource.
       def run_before_hooks; end
 
       # Useful for running any code that you may want to execute after creating the resource.
       def run_after_hooks; end
+
+      private
+
+      def perform!
+        transaction do
+          run_before_hooks
+          create_resource
+          run_after_hooks
+        end
+      end
     end
   end
 end
