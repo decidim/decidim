@@ -56,6 +56,7 @@ module Decidim
             ]
           },
           {
+            id: "transparent",
             title: t("decidim.design.helpers.transparent"),
             contents: [
               {
