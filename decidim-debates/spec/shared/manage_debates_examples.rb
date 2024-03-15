@@ -6,6 +6,20 @@ RSpec.shared_examples "manage debates" do
   before { visit_component_admin }
 
   describe "listing" do
+    context "with hidden debates" do
+      let!(:my_other_debate) { create(:debate, category:, component: current_component) }
+
+      before do
+        my_other_debate.update!(title: { en: "Debate <strong>title</strong>" })
+        create(:moderation, :hidden, reportable: my_other_debate)
+      end
+
+      it "does not list the hidden debates" do
+        visit current_path
+        expect(page).not_to have_content(translated(my_other_debate.title))
+      end
+    end
+
     context "with enriched content" do
       before do
         debate.update!(title: { en: "Debate <strong>title</strong>" })
