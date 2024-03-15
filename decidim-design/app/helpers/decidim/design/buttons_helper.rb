@@ -144,6 +144,7 @@ module Decidim
             ]
           },
           {
+            id: "disabled",
             title: t("decidim.design.helpers.disabled"),
             contents: [
               {
