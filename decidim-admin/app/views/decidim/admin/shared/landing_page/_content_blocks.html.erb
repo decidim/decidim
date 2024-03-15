@@ -21,7 +21,7 @@
   </div>
 
   <div class="card-section-draggable-list">
-    <div class="grid-container full">
+    <div class="full">
       <div class="grid-x grid-margin-x card-grid">
         <div class="cell">
           <div class="card">
@@ -40,7 +40,7 @@
             <div class="card-section">
               <h5 class="draggable-list-title"><%= inactive_content_blocks_title %></h5>
 
-              <ul class="draggable-list js-connect js-list-availables">
+              <ul class="draggable-list js-connect js-list-available">
                 <% inactive_blocks.each do |content_block_or_manifest| %>
                   <%= cell resource_content_block_cell, content_block_or_manifest %>
                 <% end %>

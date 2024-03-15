@@ -19,7 +19,7 @@ module Decidim
 
       private
 
-      # Creates a unique namespace for a filter form to prevent dupliacte IDs in
+      # Creates a unique namespace for a filter form to prevent duplicate IDs in
       # the DOM when multiple filter forms are rendered with the same fields (e.g.
       # for desktop and mobile).
       def filter_form_namespace

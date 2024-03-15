@@ -46,7 +46,7 @@ describe Decidim::Search do
     let!(:lice_ca) { create(:searchable_resource, organization: current_organization, locale: :ca, content_a: "Erradicació de polls a l'escola") }
     let!(:lice_en) { create(:searchable_resource, organization: current_organization, locale: :en, content_a: "Eradication of lice in school") }
     let!(:ci_ca) { create(:searchable_resource, organization: current_organization, locale: :ca, content_a: "Millora continua mitjançant enquestes periòdiques") }
-    let!(:ci_en) { create(:searchable_resource, organization: current_organization, locale: :en, content_a: "Continous improvement with periodic polls") }
+    let!(:ci_en) { create(:searchable_resource, organization: current_organization, locale: :en, content_a: "Continuous improvement with periodic polls") }
 
     context "when term has matches in many languages" do
       let(:term) { "polls" }
@@ -141,7 +141,7 @@ describe Decidim::Search do
       let(:datetime1) { 10.seconds.from_now }
       let(:datetime2) { 20.seconds.from_now }
 
-      it "returns matches sorted by date descendently" do
+      it "returns matches sorted by date descendingly" do
         described_class.call(term, current_organization) do
           on(:ok) do |results_by_type|
             results = results_by_type["Decidim::Dev::DummyResource"]
@@ -156,7 +156,7 @@ describe Decidim::Search do
       let(:datetime1) { 1.day.ago }
       let(:datetime2) { 2.days.ago }
 
-      it "returns matches sorted by date descendently" do
+      it "returns matches sorted by date descendingly" do
         described_class.call(term, current_organization) do
           on(:ok) do |results_by_type|
             results = results_by_type["Decidim::Dev::DummyResource"]
@@ -171,7 +171,7 @@ describe Decidim::Search do
       let(:datetime1) { 1.day.from_now }
       let(:datetime2) { 1.day.ago }
 
-      it "returns matches sorted by date descendently" do
+      it "returns matches sorted by date descendingly" do
         described_class.call(term, current_organization) do
           on(:ok) do |results_by_type|
             results = results_by_type["Decidim::Dev::DummyResource"]
@@ -205,7 +205,7 @@ describe Decidim::Search do
         end
       end
 
-      context "when resource_type is setted" do
+      context "when resource_type is set" do
         it "only return resources of the given type" do
           described_class.call(term, current_organization, "with_resource_type" => resource_type) do
             on(:ok) do |results_by_type|

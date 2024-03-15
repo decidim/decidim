@@ -56,7 +56,7 @@ module Decidim
       end
 
       # Public: There are two ways to update parent's progress:
-      #   - using weights, in which case each progress is multiplied by the weigth and them summed
+      #   - using weights, in which case each progress is multiplied by the weight and them summed
       #   - not using weights, and using the average of progress of each children
       def update_progress!
         self.progress = if children_use_weighted_progress?

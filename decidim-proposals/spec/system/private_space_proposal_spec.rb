@@ -3,9 +3,6 @@
 require "spec_helper"
 
 describe "Private Space Proposal" do
-  let(:manifest_name) { "proposals" }
-  let(:manifest) { Decidim.find_component_manifest(manifest_name) }
-
   let!(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization:) }
   let!(:other_user) { create(:user, :confirmed, organization:) }
@@ -14,7 +11,7 @@ describe "Private Space Proposal" do
 
   let!(:participatory_space) { participatory_space_private }
 
-  let!(:component) { create(:component, manifest:, participatory_space:) }
+  let!(:component) { create(:proposal_component, participatory_space:) }
 
   before do
     switch_to_host(organization.host)
@@ -33,7 +30,7 @@ describe "Private Space Proposal" do
         visit_component
 
         within "aside" do
-          expect(page).not_to have_link("New proposal")
+          expect(page).to have_no_link("New proposal")
         end
       end
     end
@@ -62,7 +59,7 @@ describe "Private Space Proposal" do
           visit_component
 
           within "aside" do
-            expect(page).not_to have_link("New proposal")
+            expect(page).to have_no_link("New proposal")
           end
         end
       end
@@ -93,7 +90,7 @@ describe "Private Space Proposal" do
         it "allows create a proposal" do
           visit_component
 
-          click_link "New proposal"
+          click_on "New proposal"
 
           within ".new_proposal" do
             fill_in :proposal_title, with: "Creating my proposal"

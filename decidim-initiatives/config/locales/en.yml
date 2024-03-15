@@ -102,7 +102,7 @@ en:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Search %{collection} by title, description, ID or author name.
       initiatives_settings:
         update:
-          error: An error has occured.
+          error: An error has occurred.
           success: The initiatives settings have been successfully updated.
       menu:
         attachments: Attachments

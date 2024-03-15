@@ -15,7 +15,7 @@
 <section id="demo" class="design__section">
   <h2>Demo</h2>
 
-  <p>The dialogs, or modal components, are implemented thorugh the rails helper <code>decidim_modal</code>. </p>
+  <p>The dialogs, or modal components, are implemented through the rails helper <code>decidim_modal</code>. </p>
 
   <button data-dialog-open="example" class="button button__lg button__secondary">
     Show modal
@@ -39,7 +39,7 @@
     <p>Source code on GitHub: <%= link_to("decidim-core/app/packs/src/decidim/a11y.js", "https://github.com/decidim/decidim/blob/develop/decidim-core/app/packs/src/decidim/a11y.js", target: "_blank", rel: "noopener noreferrer") %></p>
 
     <code>
-      <textarea rows="7">
+      <textarea spellcheck="false" rows="7">
 &lt;button data-dialog-open=&quot;example&quot; class=&quot;button button__lg button__secondary&quot;&gt;
   Show modal
 &lt;/button&gt;
@@ -61,10 +61,10 @@
 
   <div class="design__section-snippet" style="margin-top: inherit;">
     <code>
-      <textarea rows="20">
+      <textarea spellcheck="false" rows="20">
 &#60;%= decidim_modal id: "example" do %&#62;
   <div data-dialog-container>
-    &#60;%= icon "icon_identificator" %&#62; // ... pick a desired icon
+    &#60;%= icon "icon_identifier" %&#62; // ... pick a desired icon
     <h3 id="dialog-title-example" tabindex="-1" data-dialog-title>
       Modal title
     </h3>

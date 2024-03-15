@@ -3,7 +3,6 @@
 module Decidim
   # This cell is used to display scopes picker in a form
   class ScopesPickerCell < Decidim::ViewModel
-    include Decidim::ApplicationHelper
     include Decidim::Core::Engine.routes.url_helpers
     include ActionView::Helpers::FormOptionsHelper
     include Decidim::FiltersHelper

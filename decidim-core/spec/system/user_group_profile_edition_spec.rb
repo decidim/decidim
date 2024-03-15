@@ -20,7 +20,7 @@ describe "User group profile edition" do
     end
 
     it "does not show the link to edit" do
-      expect(page).not_to have_content("Edit group profile")
+      expect(page).to have_no_content("Edit group profile")
     end
 
     it "rejects the user that accesses manually" do
@@ -36,15 +36,15 @@ describe "User group profile edition" do
     end
 
     it "allows editing the profile" do
-      click_button "Manage group"
+      click_on "Manage group"
       expect(page).to have_content("Edit group profile")
-      click_link "Edit group profile"
+      click_on "Edit group profile"
 
       fill_in "Name", with: "My super duper group"
       fill_in "About", with: "We are awesome"
       dynamically_attach_file(:group_avatar, Decidim::Dev.asset("city.jpeg"), remove_before: true)
 
-      click_button "Update group"
+      click_on "Update group"
 
       expect(page).to have_content("Group successfully updated")
       expect(page).to have_content("My super duper group")

@@ -5,7 +5,12 @@
 # For further details, see:
 # https://github.com/rubocop/rubocop/issues/4154#issuecomment-316004878
 
+require:
+  - rubocop-rubycw
+  - rubocop-capybara
+
 inherit_from:
+  - config/rubocop/performance.yml
   - config/rubocop/ruby.yml
   - config/rubocop/rails.yml
   - config/rubocop/rspec.yml

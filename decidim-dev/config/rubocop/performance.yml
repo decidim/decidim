@@ -1,0 +1,154 @@
+require: rubocop-performance
+
+Performance:
+  Enabled: false
+
+Performance/AncestorsInclude:
+  Enabled: false
+
+Performance/ArraySemiInfiniteRangeSlice:
+  Enabled: false
+
+Performance/BigDecimalWithNumericArgument:
+  Enabled: false
+
+Performance/BindCall:
+  Enabled: false
+
+Performance/BlockGivenWithExplicitBlock:
+  Enabled: false
+
+Performance/Caller:
+  Enabled: false
+
+Performance/CaseWhenSplat:
+  Enabled: false
+
+Performance/Casecmp:
+  Enabled: false
+
+Performance/ChainArrayAllocation:
+  Enabled: false
+
+Performance/CollectionLiteralInLoop:
+  Enabled: false
+
+Performance/CompareWithBlock:
+  Enabled: false
+
+Performance/ConcurrentMonotonicTime:
+  Enabled: false
+
+Performance/ConstantRegexp:
+  Enabled: false
+
+Performance/Count:
+  Enabled: false
+
+Performance/DeletePrefix:
+  Enabled: false
+
+Performance/DeleteSuffix:
+  Enabled: false
+
+Performance/Detect:
+  Enabled: false
+
+Performance/DoubleStartEndWith:
+  Enabled: false
+
+Performance/EndWith:
+  Enabled: false
+
+Performance/FixedSize:
+  Enabled: false
+
+Performance/FlatMap:
+  Enabled: false
+
+Performance/InefficientHashSearch:
+  Enabled: false
+
+Performance/IoReadlines:
+  Enabled: false
+
+Performance/MapCompact:
+  Enabled: false
+
+Performance/MapMethodChain:
+  Enabled: false
+
+Performance/MethodObjectAsBlock:
+  Enabled: false
+
+Performance/OpenStruct:
+  Enabled: false
+
+Performance/RangeInclude:
+  Enabled: false
+
+Performance/RedundantBlockCall:
+  Enabled: false
+
+Performance/RedundantEqualityComparisonBlock:
+  Enabled: false
+
+Performance/RedundantMatch:
+  Enabled: false
+
+Performance/RedundantMerge:
+  Enabled: false
+
+Performance/RedundantSortBlock:
+  Enabled: false
+
+Performance/RedundantSplitRegexpArgument:
+  Enabled: false
+
+Performance/RedundantStringChars:
+  Enabled: false
+
+Performance/RegexpMatch:
+  Enabled: false
+
+Performance/ReverseEach:
+  Enabled: false
+
+Performance/ReverseFirst:
+  Enabled: false
+
+Performance/SelectMap:
+  Enabled: false
+
+Performance/Size:
+  Enabled: false
+
+Performance/SortReverse:
+  Enabled: false
+
+Performance/Squeeze:
+  Enabled: false
+
+Performance/StartWith:
+  Enabled: false
+
+Performance/StringIdentifierArgument:
+  Enabled: false
+
+Performance/StringInclude:
+  Enabled: false
+
+Performance/StringReplacement:
+  Enabled: false
+
+Performance/Sum:
+  Enabled: false
+
+Performance/TimesMap:
+  Enabled: false
+
+Performance/UnfreezeString:
+  Enabled: false
+
+Performance/UriDefaultParser:
+  Enabled: false

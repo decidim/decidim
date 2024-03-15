@@ -26,7 +26,7 @@ describe "Conferences" do
     end
 
     it "the menu link is not shown" do
-      expect(page).not_to have_content("MEDIA")
+      expect(page).to have_no_content("MEDIA")
     end
   end
 

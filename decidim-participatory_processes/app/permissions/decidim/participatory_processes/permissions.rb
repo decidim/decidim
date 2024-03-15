@@ -217,7 +217,7 @@ module Decidim
         allow! if permission_action.action == :export && permission_action.subject == :component_data
       end
 
-      # Process admins can eprform everything *inside* that process. They cannot
+      # Process admins can perform everything *inside* that process. They cannot
       # create a process or perform actions on process groups or other
       # processes.
       def process_admin_action?

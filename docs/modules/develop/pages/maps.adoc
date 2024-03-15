@@ -6,7 +6,7 @@ If you want to create your own provider integration, you will need to find a ser
 
 * https://en.wikipedia.org/wiki/Geocoding[A geocoding server] in order to turn user entered addresses into https://en.wikipedia.org/wiki/Geographic_coordinate_system[geocoordinates].
 * https://en.wikipedia.org/wiki/Autocomplete[A geocoding autocompletion server] in order to suggest and predict addresses based on the user input and turning these suggested addresses into https://en.wikipedia.org/wiki/Geographic_coordinate_system[geocoordinates].
-* https://en.wikipedia.org/wiki/Tile_Map_Service[A map tile server] for the dynamic maps, preferrably one that is compatible with the default https://leafletjs.com/[Leaflet] map library.
+* https://en.wikipedia.org/wiki/Tile_Map_Service[A map tile server] for the dynamic maps, preferably one that is compatible with the default https://leafletjs.com/[Leaflet] map library.
 * https://wiki.openstreetmap.org/wiki/Static_map_images[A static map image server] for the static map images e.g.
 on the proposal pages.
 This service is optional as Decidim will use the dynamic map tiles to generate a similar map element if the static map image cannot be provided.
@@ -118,7 +118,7 @@ Please refer to the Geocoder gem's https://github.com/alexreisner/geocoder/blob/
 
 === Defining the geocoding autocompletion maps utility
 
-For the geocoding autocompletion map functionality, you should preferrably use a service provider that is compatible with https://github.com/komoot/photon[Photon] which is already integrated with Decidim.
+For the geocoding autocompletion map functionality, you should preferably use a service provider that is compatible with https://github.com/komoot/photon[Photon] which is already integrated with Decidim.
 
 If this is not possible, you can also create a custom geocoding autocompletion maps utility for your own service provider by defining the following empty class to start with:
 
@@ -145,7 +145,7 @@ See below for further notes about the builder class.
 * `builder_options` - A method that prepares the options for the builder instance that is used to create the maps in the front-end.
 By default, this is an empty hash that needs to be configured for each provider.
 
-To see an example how to customize the static map utility, take a look at the link:/decidim-core/lib/decidim/map/provider/autocomplete/here.rb[HERE Maps geocoding autocomletion utility].
+To see an example how to customize the static map utility, take a look at the link:/decidim-core/lib/decidim/map/provider/autocomplete/here.rb[HERE Maps geocoding autocompletion utility].
 
 In order to provide configuration options for the geocoding autocompletion, you can pass them directly through the maps configuration with the following syntax:
 
@@ -232,7 +232,7 @@ The result objects need to contain the following keys:
 * `key` - The key which will be matched against the user entered input
 * `value` - The value which will be added to the address input if the user decides to select this value
 
-Optionally, you can also include a `coordinates` key in the result object which contains an array of two cordinates (latitude and longitude respectively).
+Optionally, you can also include a `coordinates` key in the result object which contains an array of two coordinates (latitude and longitude respectively).
 You can also include any other data you might need in the front-end for these results but it will be not used by Decidim.
 
 The final code would look something like follows:
@@ -404,7 +404,7 @@ L.tileLayer(
 
 === Defining the static maps utility
 
-For the static map functionality, you should preferrably use a service provider that is compatible with https://github.com/jperelli/osm-static-maps[osm-static-maps] which is already integrated with Decidim.
+For the static map functionality, you should preferably use a service provider that is compatible with https://github.com/jperelli/osm-static-maps[osm-static-maps] which is already integrated with Decidim.
 
 If this is not possible, you can also create a custom static maps utility for your own service provider by defining the following empty class to start with:
 

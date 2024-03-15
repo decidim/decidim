@@ -558,7 +558,7 @@ describe Decidim::Assemblies::Permissions do
         it { is_expected.to be(true) }
       end
 
-      context "when the assembly has one sucessor" do
+      context "when the assembly has one successor" do
         before do
           create(:assembly_user_role, user:, assembly: assembly.parent)
         end

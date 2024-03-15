@@ -297,7 +297,7 @@ en:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             social_handlers: Social
             title: General Information
-            visbility: Visibility
+            visibility: Visibility
         assemblies_types:
           form:
             title: Edit assembly type
@@ -311,7 +311,7 @@ en:
           form:
             existing_user: Existing participant
             explanation: 'Guidance for image:'
-            image_guide: Preferrably a portrait image that does not have any text.
+            image_guide: Preferably a portrait image that does not have any text.
             non_user: Non participant
             non_user_avatar_help: You should get the consent of the persons before publishing them as a member.
             select_a_position: Select a position

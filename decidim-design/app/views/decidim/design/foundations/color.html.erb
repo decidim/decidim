@@ -1,10 +1,13 @@
 <% content_for :heading do %>
-  Color
+  <%= t(".color_header") %>
 <% end %>
 
 <% content_for :description do %>
-  <p>We provide a Base palette with few colors so simple customizations are easy. You can modify the Base palette either in the Administration area or in the Tailwind configuration file if you need more advanced customization.</p>
-  <p>When customizing your colors, have in mind the <%= link_to "WCAG 2.1 AA compliant contrast ratios", "https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html" %>. You can check the contrast of your choosing with <%= link_to "WebAIM Contrast Checker", "https://webaim.org/resources/contrastchecker" %> or other similar tools.</p>
+  <p><%= t(".description_p1") %></p>
+  <p><%= t(".description_p2_html",
+           contrast_link: link_to(t(".wcag_compliant_rations"), "https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html", target: "_blank", rel: "noopener noreferrer"),
+           checker_link: link_to(t(".wcag_contrast_checker"), "https://webaim.org/resources/contrastchecker", target: "_blank", rel: "noopener noreferrer")
+         ) %></p>
 <% end %>
 
 <% content_for :toc do %>

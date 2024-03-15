@@ -11,7 +11,6 @@ module Decidim
       include Decidim::Events::EmailEvent
       include Decidim::Events::NotificationEvent
       include Decidim::ComponentPathHelper
-      include Decidim::SanitizeHelper
 
       delegate :created_at, to: :resource
 
@@ -34,14 +33,7 @@ module Decidim
       end
 
       def email_subject
-        I18n.t("email_subject", **email_subject_i18n_options).html_safe
-      end
-
-      def email_subject_i18n_options
-        sanitized_values = { resource_title: decidim_sanitize(resource_title) }
-        sanitized_values[:mentioned_proposal_title] = decidim_sanitize(mentioned_proposal_title) if i18n_options.has_key?(:mentioned_proposal_title)
-        sanitized_values[:participatory_space_title] = decidim_sanitize(participatory_space_title) if i18n_options.has_key?(:participatory_space_title)
-        i18n_options.merge(sanitized_values)
+        I18n.t("email_subject", **i18n_options).html_safe
       end
 
       def email_intro
@@ -77,13 +69,7 @@ module Decidim
 
       # Public: The Hash of options to pass to the I18.t method.
       def i18n_options
-        default_i18n_options.merge(event_interpolations).transform_values do |value|
-          if value.is_a?(String)
-            decidim_html_escape(value)
-          else
-            value
-          end
-        end
+        default_i18n_options.merge(event_interpolations)
       end
 
       # Caches the path for the given resource when it is a Decidim::Component.
@@ -136,7 +122,7 @@ module Decidim
       end
 
       def participatory_space_title
-        translated_attribute(participatory_space.try(:title))
+        decidim_sanitize_translated(participatory_space.try(:title))
       end
     end
   end

@@ -20,7 +20,7 @@ Inside of your application you can customize it in different ways:
 * xref:customize:data_consent.adoc[Data consent]
 * xref:customize:gemfile.adoc[Gemfile]
 * xref:customize:images.adoc[Images]
-* xref:customize:javascript.adoc[Javascript]
+* xref:customize:javascript.adoc[JavaScript]
 * xref:customize:logic.adoc[Logic]
 * xref:customize:menu.adoc[Menu]
 * xref:customize:oauth.adoc[OAuth]

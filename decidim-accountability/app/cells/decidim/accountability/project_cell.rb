@@ -6,12 +6,7 @@ module Decidim
   module Accountability
     # This cell renders a project
     class ProjectCell < Decidim::ViewModel
-      include ApplicationHelper
-      include Decidim::ResourceHelper
-      include Decidim::TranslationsHelper
-      include Decidim::AttachmentsHelper
-
-      delegate :current_component, :component_settings, to: :controller
+      include Decidim::Accountability::ApplicationHelper
       delegate :children, :timeline_entries, to: :model
 
       alias result model
@@ -23,11 +18,11 @@ module Decidim
       private
 
       def title
-        translated_attribute result.title
+        decidim_escape_translated result.title
       end
 
       def description
-        translated_attribute(result.description).html_safe
+        decidim_sanitize_admin translated_attribute(result.description)
       end
 
       def scope

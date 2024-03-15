@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  class WelcomeNotificationEvent < Decidim::Events::BaseEvent
-    include Decidim::Events::EmailEvent
-    include Decidim::Events::NotificationEvent
+  class WelcomeNotificationEvent < Decidim::Events::SimpleEvent
     include TranslationsHelper
 
     delegate :organization, to: :user, prefix: false

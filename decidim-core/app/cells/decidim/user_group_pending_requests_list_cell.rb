@@ -5,7 +5,6 @@ module Decidim
   # Lists the pending join requests of the given user group.
   class UserGroupPendingRequestsListCell < Decidim::ViewModel
     include Decidim::CellsPaginateHelper
-    include Decidim::ApplicationHelper
     include Decidim::Core::Engine.routes.url_helpers
     include Decidim::CardHelper
 

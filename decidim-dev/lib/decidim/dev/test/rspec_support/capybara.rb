@@ -10,6 +10,7 @@ module Decidim
 
       app_host = (host ? "#{protocol}://#{host}" : nil)
       Capybara.app_host = app_host
+      Rails.application.config.action_controller.asset_host = host
     end
 
     def switch_to_default_host
@@ -32,6 +33,7 @@ end
   port = rand(5000..6999)
   begin
     Socket.tcp("127.0.0.1", port, connect_timeout: 5).close
+    warn "Port #{port} is already in use, trying another one."
   rescue Errno::ECONNREFUSED
     # When connection is refused, the port is available for use.
     Capybara.server_port = port
@@ -42,7 +44,9 @@ end
 Capybara.register_driver :headless_chrome do |app|
   options = Selenium::WebDriver::Chrome::Options.new
   options.args << "--explicitly-allowed-ports=#{Capybara.server_port}"
-  options.args << "--headless"
+  options.args << "--headless=new"
+  # Do not limit browser resources
+  options.args << "--disable-dev-shm-usage"
   options.args << "--no-sandbox"
   options.args << if ENV["BIG_SCREEN_SIZE"].present?
                     "--window-size=1920,3000"
@@ -63,7 +67,7 @@ Capybara.register_driver :pwa_chrome do |app|
   options = Selenium::WebDriver::Chrome::Options.new
   options.args << "--explicitly-allowed-ports=#{Capybara.server_port}"
   # If we have a headless browser things like the offline navigation feature stop working,
-  # so we need to have have a headful/recapitated (aka not headless) browser for these specs
+  # so we need to have a headful/recapitated (aka not headless) browser for these specs
   # options.args << "--headless"
   options.args << "--no-sandbox"
   # Do not limit browser resources
@@ -91,8 +95,10 @@ end
 
 Capybara.register_driver :iphone do |app|
   options = Selenium::WebDriver::Chrome::Options.new
-  options.args << "--headless"
+  options.args << "--headless=new"
   options.args << "--no-sandbox"
+  # Do not limit browser resources
+  options.args << "--disable-dev-shm-usage"
   options.add_emulation(device_name: "iPhone 6")
 
   Capybara::Selenium::Driver.new(
@@ -120,12 +126,37 @@ Capybara.server_errors = [SyntaxError, StandardError]
 Capybara.default_max_wait_time = 10
 
 RSpec.configure do |config|
+  config.before :all, type: :system do
+    if ENV["BIG_SCREEN_SIZE"].present?
+      warn "[DECIDIM] ChromeDriver Workaround is being active: Setting window size to 1920x3000."
+    else
+      warn "[DECIDIM] ChromeDriver Workaround is being active: Setting window size to 1920x1080."
+    end
+  end
+
   config.before :each, type: :system do
     driven_by(:headless_chrome)
+
+    # Workaround for flaky spec related to resolution change
+    #
+    # For some unknown reason, depending on the order run for these specs, the resolution is changed to
+    # 800x600, which breaks the drag and drop. This forces the resolution to be 1920x1080.
+    # One possible culprit for the screen resolution change is the alert error intercepting which messes with the window focus.
+    # This has been reported to SeleniumHQ, https://github.com/SeleniumHQ/selenium/issues/13553
+    # and to the chromedriver project, https://bugs.chromium.org/p/chromedriver/issues/detail?id=4709
+    #
+    # Note to future maintainers: If you remove this workaround, please make sure to check if the issue has been fixed.
+    # If that is the case, please remove this comment, workaround, and the above warning that starts with "[DECIDIM] ChromeDriver Workaround".
+    if ENV["BIG_SCREEN_SIZE"].present?
+      current_window.resize_to(1920, 3000)
+    else
+      current_window.resize_to(1920, 1080)
+    end
+
     switch_to_default_host
     domain = (try(:organization) || try(:current_organization))&.host
     if domain
-      # Javascript sets the cookie also for all subdomains but localhost is a
+      # JavaScript sets the cookie also for all subdomains but localhost is a
       # special case.
       domain = ".#{domain}" unless domain == "localhost"
       page.driver.browser.execute_cdp(

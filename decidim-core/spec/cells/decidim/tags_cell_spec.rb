@@ -38,12 +38,12 @@ describe Decidim::TagsCell, type: :cell do
   context "when a resource has no tags" do
     it "does not render the tags of a proposal" do
       html = cell("decidim/tags", proposal_no_tags, context: { extra_classes: ["tags--proposal"] }).call
-      expect(html).not_to have_css(".tag-container.tags--proposal")
+      expect(html).to have_no_css(".tag-container.tags--proposal")
     end
 
     it "does not render the tags of a meeting" do
       html = cell("decidim/tags", meeting_no_tags, context: { extra_classes: ["tags--meeting"] }).call
-      expect(html).not_to have_css(".tag-container.tags--meeting")
+      expect(html).to have_no_css(".tag-container.tags--meeting")
     end
   end
 

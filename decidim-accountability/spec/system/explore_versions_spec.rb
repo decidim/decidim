@@ -33,7 +33,7 @@ describe "Explore versions", versioning: true do
 
   context "when visiting versions index" do
     before do
-      click_link "see other versions"
+      click_on "see other versions"
     end
 
     it "lists all versions" do
@@ -44,8 +44,8 @@ describe "Explore versions", versioning: true do
 
   context "when showing version" do
     before do
-      click_link "see other versions"
-      click_link "Version 2 of 2"
+      click_on "see other versions"
+      click_on "Version 2 of 2"
     end
 
     it "shows the version author and creation date" do

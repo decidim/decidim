@@ -56,6 +56,7 @@ Gem::Specification.new do |s|
   s.add_dependency "mime-types", ">= 1.16", "< 4.0"
   s.add_dependency "mini_magick", "~> 4.9"
   s.add_dependency "net-smtp", "~> 0.3.1"
+  s.add_dependency "nokogiri", "~> 1.16", ">= 1.16.2"
   s.add_dependency "omniauth", "~> 2.0"
   s.add_dependency "omniauth-facebook", "~> 5.0"
   s.add_dependency "omniauth-google-oauth2", "~> 1.0"
@@ -70,9 +71,9 @@ Gem::Specification.new do |s|
   # Also note that we need Rails 6.1.5+,
   # see https://gist.github.com/yahonda/2776d8d7b6ea7045359f38c10449937b
   s.add_dependency "psych", "~> 4.0"
-  s.add_dependency "rack", "~> 2.2", ">= 2.2.6.4"
+  s.add_dependency "rack", "~> 2.2", ">= 2.2.8.1"
   s.add_dependency "rack-attack", "~> 6.0"
-  s.add_dependency "rails", "~> 6.1.7", ">=6.1.7.4"
+  s.add_dependency "rails", "~> 6.1.7", ">=6.1.7.7"
   s.add_dependency "rails-i18n", "~> 6.0"
   s.add_dependency "ransack", "~> 3.2.1"
   s.add_dependency "redis", "~> 4.1"
@@ -85,7 +86,6 @@ Gem::Specification.new do |s|
   s.add_dependency "web-push", "~> 3.0"
   s.add_dependency "wisper", "~> 2.0"
 
-  s.add_dependency "decidim-api", Decidim::Core.version
-
+  s.add_development_dependency "decidim-api", Decidim::Core.version
   s.add_development_dependency "decidim-dev", Decidim::Core.version
 end

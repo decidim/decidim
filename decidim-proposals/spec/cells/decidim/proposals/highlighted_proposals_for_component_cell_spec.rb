@@ -22,9 +22,9 @@ describe Decidim::Proposals::HighlightedProposalsForComponentCell, type: :cell d
     let!(:proposal) { nil }
 
     it "renders nothing" do
-      expect(subject).not_to have_content("A nice title")
-      expect(subject).not_to have_content("Last proposals")
-      expect(subject).not_to have_css(".card__list-title", count: 1)
+      expect(subject).to have_no_content("A nice title")
+      expect(subject).to have_no_content("Last proposals")
+      expect(subject).to have_no_css(".card__list-title", count: 1)
     end
   end
 

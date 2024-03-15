@@ -288,7 +288,7 @@ en:
       block_user:
         new:
           action: Block account and send justification
-          already_reported_html: Continuing with this action you will also hide all the participants contents. <a href="%{link}">Block the account</a>.
+          already_reported_html: Continuing with this action you will also hide all the participants contents.
           description: Blocking a user will render their account unusable. You may provide in your justification any guidelines on ways you would consider unblocking the user.
           justification: Justification
           title: Block User %{name}
@@ -355,7 +355,7 @@ en:
         title: Verification conflicts
         transfer:
           email: Email
-          error: There was a problem transfering the current participant to managed participant.
+          error: There was a problem transferring the current participant to managed participant.
           name: Name
           reason: Reason
           success: The current transfer has been successfully completed.
@@ -378,7 +378,7 @@ en:
           update: Update
       dashboard:
         pending_moderations:
-          anouncement:
+          announcement:
             one: There are %{count} pending moderation
             other: There are %{count} pending moderations
           goto_moderation: Go to global moderations
@@ -576,6 +576,7 @@ en:
         help_sections: Help sections
         homepage: Homepage
         impersonations: Impersonations
+        manage: Manage
         moderation: Global moderations
         newsletters: Newsletters
         participants: Participants

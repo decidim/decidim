@@ -74,7 +74,6 @@ Style/RedundantArrayConstructor:
 # This cop supports unsafe autocorrection (--autocorrect-all).
 Style/RedundantFilterChain:
   Exclude:
-    - 'decidim-elections/lib/decidim/elections/menu.rb'
     - 'decidim-participatory_processes/app/models/decidim/participatory_process_step.rb'
 
 # Offense count: 11

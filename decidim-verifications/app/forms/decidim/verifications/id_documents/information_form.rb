@@ -7,14 +7,12 @@ module Decidim
       class InformationForm < AuthorizationHandler
         mimic :id_document_information
 
-        DOCUMENT_TYPES = %w(DNI NIE passport).freeze
-
         attribute :document_number, String
         attribute :document_type, String
         attribute :verification_type, String
 
         validates :document_type,
-                  inclusion: { in: DOCUMENT_TYPES },
+                  inclusion: { in: :document_types },
                   presence: true
 
         validates :document_number,
@@ -44,7 +42,7 @@ module Decidim
         end
 
         def document_types_for_select
-          DOCUMENT_TYPES.map do |type|
+          document_types.map do |type|
             [
               I18n.t(type.downcase, scope: "decidim.verifications.id_documents"),
               type
@@ -54,6 +52,12 @@ module Decidim
 
         def uses_online_method?
           verification_type == "online"
+        end
+
+        private
+
+        def document_types
+          Decidim::Verifications.document_types
         end
       end
     end

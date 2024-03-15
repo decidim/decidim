@@ -15,16 +15,16 @@ shared_examples "manage process steps examples" do
     login_as user, scope: :user
     visit decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
     within_admin_sidebar_menu do
-      click_link "Phases"
+      click_on "Phases"
     end
   end
 
   it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='participatory_process_step-description-tabs']", "full" do
-    before { click_link "New phase" }
+    before { click_on "New phase" }
   end
 
   it "creates a new participatory_process" do
-    click_link "New phase"
+    click_on "New phase"
 
     fill_in_i18n(
       :participatory_process_step_title,
@@ -41,26 +41,30 @@ shared_examples "manage process steps examples" do
       ca: "Descripció més llarga"
     )
 
-    fill_in :participatory_process_step_start_date, with: Time.current.change(day: 12)
-    fill_in :participatory_process_step_end_date, with: Time.current.change(day: 22)
+    find_by_id("participatory_process_step_start_date_date").click
+
+    fill_in_datepicker :participatory_process_step_start_date_date, with: Time.new.utc.strftime("%d/%m/%Y")
+    fill_in_timepicker :participatory_process_step_start_date_time, with: Time.new.utc.strftime("%H:%M")
+    fill_in_datepicker :participatory_process_step_end_date_date, with: (Time.new.utc + 2.days).strftime("%d/%m/%Y")
+    fill_in_timepicker :participatory_process_step_end_date_time, with: (Time.new.utc + 4.hours).strftime("%H:%M")
 
     within ".new_participatory_process_step" do
-      click_button "Create"
+      click_on "Create"
     end
 
     expect(page).to have_admin_callout("successfully")
 
     within "#steps table" do
       expect(page).to have_content("My participatory process step")
-      expect(page).to have_content("12,")
-      expect(page).to have_content("22,")
+      expect(page).to have_content("#{Time.new.utc.day},")
+      expect(page).to have_content("#{(Time.new.utc + 2.days).day},")
     end
   end
 
   it "updates a participatory_process_step" do
     within "#steps" do
-      within find("tr", text: translated(process_step.title)) do
-        click_link "Edit"
+      within "tr", text: translated(process_step.title) do
+        click_on "Edit"
       end
     end
 
@@ -80,7 +84,7 @@ shared_examples "manage process steps examples" do
 
     within "#steps table" do
       expect(page).to have_content("My new title")
-      click_link("My new title")
+      click_on("My new title")
     end
   end
 
@@ -92,26 +96,26 @@ shared_examples "manage process steps examples" do
     end
 
     it "deletes a participatory_process_step" do
-      within find("tr", text: translated(process_step2.title)) do
-        accept_confirm { click_link "Delete" }
+      within "tr", text: translated(process_step2.title) do
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "#steps table" do
-        expect(page).not_to have_content(translated(process_step2.title))
+        expect(page).to have_no_content(translated(process_step2.title))
       end
     end
   end
 
   context "when activating a step" do
     it "activates a step" do
-      within find("tr", text: translated(process_step.title)) do
-        click_link "Activate"
+      within "tr", text: translated(process_step.title) do
+        click_on "Activate"
       end
 
-      within find("tr", text: translated(process_step.title)) do
-        expect(page).not_to have_content("Activate")
+      within "tr", text: translated(process_step.title) do
+        expect(page).to have_no_content("Activate")
       end
     end
   end

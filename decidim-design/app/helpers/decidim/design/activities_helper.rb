@@ -6,29 +6,28 @@ module Decidim
       def activities_sections
         [
           {
-            id: "demo",
+            id: t("decidim.design.helpers.demo"),
             contents: [
               {
                 type: :text,
-                values: ["This cell receives a model of LastActivity items and displays the following elements:"]
+                values: [t("decidim.design.helpers.demo_text")]
               },
               {
                 type: :partial,
-                template: "decidim/design/components/activities/static-activities"
+                template: "decidim/design/components/activities/static-activity"
               },
               {
                 type: :text,
-                values: ["Used by the last activity page, in a content block and within the dropdowns."]
+                values: [t("decidim.design.helpers.demo_text_2")]
               }
             ]
           },
           {
-            id: "variations",
+            id: t("decidim.design.helpers.variations"),
             contents: [
               {
                 type: :text,
-                values: ["Regarding the type of activity, the cell could show different content, reporting the distinct resources,
-                          whether belong to a participatory space or not, has an author or not."]
+                values: [t("decidim.design.helpers.variations_text")]
               },
               {
                 type: :partial,
@@ -37,28 +36,29 @@ module Decidim
             ]
           },
           {
-            id: "sourcecode",
+            id: t("decidim.design.helpers.source_code"),
             contents: [
               {
-                type: :table,
-                options: { headings: %w(Cell Code) },
-                items: activities_table(
-                  { name: "Activities", url: "https://github.com/decidim/decidim/blob/develop/decidim-core/app/cells/decidim/activities_cell.rb" },
-                  { name: "Activitiy", url: "https://github.com/decidim/decidim/blob/develop/decidim-core/app/cells/decidim/activity_cell.rb" }
-                )
+                type: :cell_table,
+                options: { headings: [t("decidim.design.components.activities.activities")] },
+                cell_snippet: {
+                  cell: "decidim/activities",
+                  args: [Decidim::ActionLog.where(resource_type: "Decidim::ParticipatoryProcess", organization: current_organization).first(5)],
+                  call_string: 'cell("decidim/activities", _ACTION_LOG_ITEMS_LIST)'
+                }
+              },
+              {
+                type: :cell_table,
+                options: { headings: [t("decidim.design.helpers.activity")] },
+                cell_snippet: {
+                  cell: "decidim/activity",
+                  args: [Decidim::ActionLog.where(resource_type: "Decidim::ParticipatoryProcess", organization: current_organization).last],
+                  call_string: 'cell("decidim/activity", _ACTION_LOG_ITEM_)'
+                }
               }
             ]
           }
         ]
-      end
-
-      def activities_table(*table_rows, **_opts)
-        table_rows.map do |table_cell|
-          row = []
-          row << table_cell[:name]
-          row << link_to(table_cell[:url].split("/").last, table_cell[:url], target: "_blank", class: "text-secondary underline", rel: "noopener")
-          row
-        end
       end
     end
   end

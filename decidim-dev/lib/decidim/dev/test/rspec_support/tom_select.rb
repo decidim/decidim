@@ -3,7 +3,7 @@
 # https://github.com/orchidjs/tom-select/discussions/71#discussioncomment-641757
 module Capybara
   module TomSelect
-    # A helper for Capyabara tests that need to set values from a tom-select.js input.
+    # A helper for Capybara tests that need to set values from a tom-select.js input.
     #
     # This is a really hacky approach using execute_javascript, but it works. Not sure if there is
     # a better way, we could try actually interacting with the on-screen tom-select-provided UI,

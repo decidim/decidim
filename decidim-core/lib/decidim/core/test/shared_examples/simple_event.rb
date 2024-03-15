@@ -28,10 +28,10 @@ shared_context "when a simple event" do
   let(:extra) { {} }
   let(:resource_path) { resource_locator(resource).path }
   let(:resource_url) { resource_locator(resource).url }
-  let(:resource_title) { resource.title["en"] }
-  # to be used when resource is a component resource, not a participatory space, in which case should be overriden
+  let(:resource_title) { decidim_sanitize_translated(resource.title) }
+  # to be used when resource is a component resource, not a participatory space, in which case should be overridden
   let(:participatory_space) { resource.participatory_space }
-  let(:participatory_space_title) { participatory_space.title["en"] }
+  let(:participatory_space_title) { decidim_sanitize_translated(participatory_space.title) }
   let(:participatory_space_path) { Decidim::ResourceLocatorPresenter.new(participatory_space).path }
   let(:participatory_space_url) { Decidim::ResourceLocatorPresenter.new(participatory_space).url }
   let(:author) do
@@ -65,6 +65,7 @@ shared_examples_for "a simple event" do |skip_space_checks|
     it "is generated correctly" do
       expect(subject.email_subject).to be_kind_of(String)
       expect(subject.email_subject).not_to include("translation missing")
+      expect(subject.email_subject).not_to include("script")
     end
   end
 
@@ -100,6 +101,7 @@ shared_examples_for "a simple event" do |skip_space_checks|
     it "is generated correctly" do
       expect(subject.notification_title).to be_kind_of(String)
       expect(subject.notification_title).not_to include("translation missing")
+      expect(subject.notification_title).not_to include("script")
     end
   end
 
@@ -127,6 +129,12 @@ shared_examples_for "a simple event" do |skip_space_checks|
       it "is generated correctly" do
         expect(subject.participatory_space_url).to be_kind_of(String)
         expect(subject.participatory_space_url).to start_with("http")
+      end
+    end
+
+    describe "participatory_space_title" do
+      it "is generated correctly" do
+        expect(translated(participatory_space.title)).to include("script")
       end
     end
   end
@@ -158,6 +166,10 @@ shared_examples_for "a simple event email" do
     it "is generated correctly" do
       expect(subject.email_subject).to eq(email_subject)
     end
+
+    it "is html safe" do
+      expect(subject.email_subject).not_to include("script")
+    end
   end
 
   describe "email_intro" do
@@ -178,6 +190,10 @@ shared_examples_for "a simple event notification" do
     it "is generated correctly" do
       expect(subject.notification_title)
         .to eq(notification_title)
+    end
+
+    it "is html safe" do
+      expect(subject.notification_title).not_to include("script")
     end
   end
 end
