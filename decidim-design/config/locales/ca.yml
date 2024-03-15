@@ -21,6 +21,8 @@ ca:
           activities: Activitats
         address:
           title: Adreça
+        author:
+          title: Autoria
       foundations:
         accessibility:
           accessibility_labels: Etiquetes d'accessibilitat
@@ -98,8 +100,17 @@ ca:
         activity: Activitat
         address_description: La cel·la d'adreça rep un recurs i cerca els atributs geolocalitzables per representar un marcatge específic.
         address_description_2: Depenent del tipus de contingut, l'adreça pot ser una adreça web. Per a aquests casos, la informació mostrada és força igual, però està modelada per adequar-la.
+        avatar: Imatge de perfil
+        avatar_description: Es fa servir quan hi ha espais estrets, on l'autoria és una informació secundària.
         background: Vores i fons
         base: Base
+        compact:
+        compact_description: Aquesta versió de l'autoria és la forma més comuna d'identificar a la creadora del recurs.
+        context: Context
+        context_description: Aquesta cel·la mostra informació al voltant d'una usuària. És una ajuda visual per a identificar la creadora d'un recurs/contingut. En passar per sobre el cursor, es mostra una descripció amb més informació i enllaços al seu perfil.
+        context_description_2: Pels recursos, aquesta cel·la apareix sota l'encapçalament principal. Per altres continguts, apareix al costat del mateix contingut.
+        default: Per defecte
+        default_description: Crida a la cel·la sense arguments addicionals, sinó a la proposta usuària.
         demo: Demo
         demo_text: 'Aquesta cel·la rep un model d''elements de Darrera Activitat i mostra els següents elements:'
         demo_text_2: Es fa servir a la darrera pàgina d'activitat, en un bloc de contingut i dins dels desplegables.
@@ -132,6 +143,7 @@ ca:
         usage_typography_4: Enllaços i botons
         value:
         variations: Variacions
+        variations_description: Hi ha tres versions diferents d'aquesta cel·la. Cadascuna encaixa millor en el context en què es mostra.
         variations_text: Pel que fa al tipus d'activitat, la cel·la podria mostrar diferents continguts, informant dels diferents recursos, pertanyin o no a un espai participatiu, tinguin autoria o no.
       home:
         index:
