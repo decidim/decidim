@@ -19,7 +19,6 @@ module Decidim
         end
       end
 
-      # rubocop:disable Layout/LineLength
       def cards_sections
         [
           {
@@ -146,8 +145,7 @@ module Decidim
             contents: source_contents
           }
         ]
-      end
-      # rubocop:enable Layout/LineLength
+end
 
       def source_contents
         dummy_resource = DummyClass.new(
@@ -177,7 +175,7 @@ module Decidim
         contents += participatory_processes_items
 
         contents
-      end
+end
 
       private
 
