@@ -554,6 +554,11 @@ module Decidim
     %w(terms-of-service)
   end
 
+  # The default max last activity users to be shown
+  config_accessor :default_max_last_activity_users do
+    6
+  end
+
   # List of additional content security policies to be appended to the default ones
   # This is useful for adding custom CSPs for external services like Here Maps, YouTube, etc.
   # Read more: https://docs.decidim.org/en/develop/configure/initializer#_content_security_policy
