@@ -21,6 +21,13 @@ ja:
           activities: アクティビティ
         address:
           title: アドレス
+        announcement:
+          iam_an_announcement: これはAnnouncementです
+          this_is_the_body: これが本文です
+          this_is_the_title: これがタイトルです
+          title: Announcement
+        author:
+          title: Author
       foundations:
         accessibility:
           accessibility_labels: アクセシビリティラベル
