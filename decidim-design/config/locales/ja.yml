@@ -25,9 +25,12 @@ ja:
           iam_an_announcement: これはAnnouncementです
           this_is_the_body: これが本文です
           this_is_the_title: これがタイトルです
-          title: Announcement
+          title: アナウンスメント
         author:
-          title: Author
+          title: 筆者
+        buttons:
+          description_html: 'ボタンは、 <code>ボタン</code> クラス、サイズ、色など、さまざまなCSSクラスの組み合わせで構築されます。'
+          title: ボタン
       foundations:
         accessibility:
           accessibility_labels: アクセシビリティラベル
@@ -107,18 +110,41 @@ ja:
         activity: アクティビティ
         address_description: アドレスセルはリソースを受け取り、geolocalizable属性を検索して特定のマークアップを出力します。
         address_description_2: コンテンツの種類によっては、アドレスがオンラインURLになる場合があります。 そのような場合、表示される情報はまったく同じですが、適合するように形作られています。
+        argument: 引数
+        avatar: アバター
+        avatar_description: 著者が二次的な情報であり、スペースが狭い場合に使用されます。
         background: 背景とボーダー
         base: 基本
+        callout_class: 吹き出しクラス
+        callout_description: この属性は、アナウンスにステータスを適用します。デフォルトでは、セカンダリカラーを使用します。
+        colors: 色
+        compact: コンパクト
+        compact_description: この著者の形式はリソース作成者を指定する一般的な方法です。
+        context: コンテキスト
+        context_description: このセルは、ユーザーに関する情報を表示します。これは、リソース/コンテンツクリエーターを識別するための視覚的なサポートです。マウスをホバーすると、さらに詳しい情報とそのプロファイルへのリンクが含まれたツールチップが表示されます。
+        context_description_2: リソースの場合、このセルはメインヘッダーの下に表示されます。その他のコンテンツの場合、コンテンツ自体の隣に表示されます。
+        default: デフォルト
+        default_description: 追加の引数なしで、そのユーザー自身を指定してセルを呼び出します。
         demo: デモ
         demo_text: 'このセルは LastActivity アイテムのモデルを受け取り、以下の要素を表示します。'
         demo_text_2: 最近のアクティビティページ、コンテンツブロック、ドロップダウン内で使用されます。
+        disabled: 無効
         form_elements: フォーム要素
         hex_code: 16進コード
+        icons: アイコン
         main_colors: メインカラー
+        plain_text: これはプレーンテキストです
+        plain_text_description: 最初の引数として、プレーンテキストとハッシュオブジェクトの両方を指定することができます。
+        plain_text_vs_hash: プレーンテキストとハッシュ
         rgba_code: RGBA コード
+        send: 送信
+        sizes: サイズ
         source_code: ソースコード
         state: 状態
         tailwind: Tailwindでの名称
+        text: テキスト
+        transparent: 透過
+        transparent_description: '暗い背景の場合:'
         typography_texts: タイポグラフィとテキスト
         usage: 使い方
         usage_background_1: asideの背景
@@ -141,6 +167,7 @@ ja:
         usage_typography_4: リンクとボタン
         value: 値
         variations: バリエーション
+        variations_description: このセルには3つの異なるバージョンがあります。それぞれが表示されているコンテキストに合わせて使い分けます。
         variations_text: 活動の種類に関して、参加型スペースに属するかどうか、著者がいるかどうかなどによって、セルは異なるコンテンツを表示したり、異なるリソースを報告することができます。
       home:
         index:
