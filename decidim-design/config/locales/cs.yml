@@ -4,7 +4,9 @@ cs:
     design:
       components:
         accordions:
+          content_panel: Obsah panelu
           demo: Demo
+          github_source_html: Zdrojový kód na GitHub %{github_link}
           panel: Panel
           trigger: Spouštěč
           usage: Použití
@@ -14,6 +16,16 @@ cs:
           activities: Aktivity
         address:
           title: Adresa
+        announcement:
+          iam_an_announcement: Jsem oznámení
+          this_is_the_body: Toto je tělo
+          this_is_the_title: Toto je titulek
+          title: Oznámení
+        author:
+          title: Autor
+        buttons:
+          description_html: 'Tlačítka jsou sestavena pomocí různých kombinací CSS tříd: třída <code>button</code>, size a color.'
+          title: Tlačítka
       foundations:
         accessibility:
           accessibility_labels: Štítky přístupnosti
@@ -21,6 +33,7 @@ cs:
           accessibility_title: Přístupnost
           adjacent_links: Přidat odkazy
           adjacent_links_header: Přidejte odkazy pro stejný zdroj
+          adjacent_links_paragraph: Pokud má tentýž zdroj více sousedících odkazů, které na něj ukazují, pro tyto uživatele je obtížné podívat se na stránku, protože možná budou muset procházet více odkazů, aby se dostali k dalšímu zdroji.
           color_contrast: Barevný kontrast
           decidim_follows_html: Decidim se řídí <u>Pokyny pro přístupnost webového obsahu (WCAG) 2.1</u>
           elements_hidden: Skryté prvky
@@ -55,6 +68,7 @@ cs:
           centered: Na střed
           code: Kód
           columns: Počet sloupců 10, 8 nebo 6.
+          description_layout_p1: Pro stolní počítače používá Decidim mřížku 12 sloupců s omezeným počtem šablon (konfigurace mřížky) pro různé typy obsahu. Cílem je, aby daný typ obsahu (domovská stránka, seznam prvků, jednotlivé položky) měl charakteristický vzhled, aby uživatelé pochopili, v jakém druhu obsahu jsou jen podle obecného vzhledu stránky.
           description_layout_p2: Tato jednoduchá pravidla by měla být dodržována při vytváření nových modulů nebo přizpůsobování stávajících, takže stránky Decidim mohou zachovat svou konzistenci.
           desktop: Počítač
           full_width: Plná šířka
@@ -77,16 +91,24 @@ cs:
         activity: Aktivita
         background: Pozadí a okraje
         base: Podklad
+        colors: Barvy
         demo: Demo
         demo_text: 'Tato buňka přijímá model LastActivity položek a zobrazuje následující prvky:'
         demo_text_2: Používá se poslední stránka aktivity v bloku obsahu a v rozevíracích seznamech.
+        disabled: Deaktivován
         form_elements: Prvky formuláře
         hex_code: Hex kód
+        icons: Ikony
         main_colors: Hlavní barvy
         rgba_code: RGBA kód
+        send: Odeslat
+        sizes: Velikosti
         source_code: Zdrojový kód
         state: Stav
         tailwind: Tailwind název
+        text: Text
+        transparent: Průhledný
+        transparent_description: 'V případě tmavšího pozadí:'
         typography_texts: Typografie a texty
         usage: Použití
         usage_background_1: Vedle pozadí
