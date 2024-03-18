@@ -32,7 +32,7 @@
 # various cache keys leading to cache invalidation.
 # Rails.application.config.active_support.hash_digest_class = OpenSSL::Digest::SHA256
 
-# Don't override ActiveSupport::TimeWithZone.name and use the default Ruby
+# Do not override ActiveSupport::TimeWithZone.name and use the default Ruby
 # implementation.
 # Rails.application.config.active_support.remove_deprecated_time_with_zone_name = true
 
@@ -69,11 +69,11 @@
 # Changing this default means updating all places in your code that
 # generate variants to use image processing macros and ruby-vips
 # operations. See the upgrading guide for detail on the changes required.
-# The `:mini_magick` option is not deprecated; it's fine to keep using it.
+# The `:mini_magick` option is not deprecated; it is fine to keep using it.
 # Rails.application.config.active_storage.variant_processor = :vips
 
 # Enable parameter wrapping for JSON.
-# Previously this was set in an initializer. It's fine to keep using that initializer if you've customized it.
+# Previously this was set in an initializer. It is fine to keep using that initializer if you have customized it.
 # To disable parameter wrapping entirely, set this config to `false`.
 # Rails.application.config.action_controller.wrap_parameters_by_default = true
 
@@ -100,12 +100,12 @@
 # will have a different format that is not supported by Rails 6.1 applications.
 # Only change this value after your application is fully deployed to Rails 7.0
 # and you have no plans to rollback.
-# When you're ready to change format, add this to `config/application.rb` (NOT this file):
+# When you are ready to change format, add this to `config/application.rb` (NOT this file):
 #  config.active_support.cache_format_version = 7.0
 
 # Cookie serializer: 2 options
 #
-# If you're upgrading and haven't set `cookies_serializer` previously, your cookie serializer
+# If you are upgrading and have not set `cookies_serializer` previously, your cookie serializer
 # is `:marshal`. The default for new apps is `:json`.
 #
 # Rails.application.config.action_dispatch.cookies_serializer = :json
@@ -116,14 +116,14 @@
 # Rails transparently deserializes existing (Marshal-serialized) cookies on read and
 # re-writes them in the JSON format.
 #
-# It is fine to use `:hybrid` long term; you should do that until you're confident *all* your cookies
+# It is fine to use `:hybrid` long term; you should do that until you are confident *all* your cookies
 # have been converted to JSON. To keep using `:hybrid` long term, move this config to its own
 # initializer or to `config/application.rb`.
 #
 # Rails.application.config.action_dispatch.cookies_serializer = :hybrid
 #
 #
-# If your cookies can't yet be serialized to JSON, keep using `:marshal` for backward-compatibility.
+# If your cookies cannot yet be serialized to JSON, keep using `:marshal` for backward-compatibility.
 #
 # If you have configured the serializer elsewhere, you can remove this section of the file.
 #
