@@ -145,7 +145,7 @@ module Decidim
             contents: source_contents
           }
         ]
-end
+      end
 
       def source_contents
         dummy_resource = DummyClass.new(
@@ -175,7 +175,7 @@ end
         contents += participatory_processes_items
 
         contents
-end
+      end
 
       private
 
