@@ -33,6 +33,8 @@ en:
           title: Buttons
         cards:
           title: Cards
+        follow:
+          title: Follow
       foundations:
         accessibility:
           accessibility_labels: Accessibility labels
@@ -156,6 +158,8 @@ en:
         disabled: Disabled
         dummy_description: Dummy resource description
         dummy_title: Dummy resource title
+        follow_button: Follow Button
+        follower_description_html: Make sure the partial <code>decidim/shared/login_modal</code> is present in the DOM. This partial is placed in the application layout when the user is logged in.
         form_elements: Form elements
         generic_cards: Generic cards
         grid: Grid
