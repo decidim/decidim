@@ -32,11 +32,19 @@ en:
           description_html: 'Buttons are built using different combinations of CSS classes: the <code>button</code> class, a size and a color.'
           title: Buttons
         dialogs:
+          close_modal: Close modal
           dialog_demo_description_html: The dialogs, or modal components, are implemented through the rails helper <code>decidim_modal</code>.
           dialogs_description_html: Dialogs are a javascript feature available thanks to an external library called <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a>.
           iam_a_modal: I am a modal
+          modal_description: Modal description (optional)
+          modal_title: Modal title
           show_modal: Show modal
+          tips_description: 'In order to display a complex modal, matching up the styles, do the following markup:'
+          tips_description_html: Pay attention to the <i>data-attributes</i> and the <i>ids</i>. For instance, the <code>[data-dialog-title]</code>'s id starts with <i>dialog-title</i> plus the <i>modal id</i>.
           title: Dialogs
+          usage_description: An dialog requires two elements
+          usage_description_2_html: 2. A modal element, whose <code>id</code> matches the data-target value the trigger refers to.
+          usage_description_html: 1. A user actionable element, with the data-attribute <code>data-dialog-open="example"</code>, where example is the <code>id</code> of the modal.
       foundations:
         accessibility:
           accessibility_labels: Accessibility labels
