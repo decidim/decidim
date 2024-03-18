@@ -251,9 +251,9 @@ end
         return [] unless Decidim.module_installed?(:budgets) && (resource = Decidim::Budgets::Project.last).present?
 
         [
-          { values: section_subtitle(title: "Budgets") },
+          { values: section_subtitle(title: t("decidim.design.helpers.budgets")) },
           cell_table_item(
-            "Project L",
+            t("decidim.design.helpers.project_l"),
             {
               cell: "decidim/budgets/project_l",
               args: [resource],
@@ -267,7 +267,7 @@ end
             }
           ),
           cell_table_item(
-            "Project S",
+            t("decidim.design.helpers.project_s"),
             {
               cell: "decidim/budgets/project_s",
               args: [resource],
@@ -287,7 +287,7 @@ end
         [
           { values: section_subtitle(title: "Debates") },
           cell_table_item(
-            "Debate L",
+            t("decidim.design.helpers.debate_l"),
             {
               cell: "decidim/debates/debate_l",
               args: [resource],
@@ -301,7 +301,7 @@ end
             }
           ),
           cell_table_item(
-            "Debate S",
+            t("decidim.design.helpers.debate_s"),
             {
               cell: "decidim/debates/debate_s",
               args: [resource],
@@ -319,9 +319,9 @@ end
         return [] unless Decidim.module_installed?(:meetings) && (resource = Decidim::Meetings::Meeting.last).present?
 
         [
-          { values: section_subtitle(title: "Meetings") },
+          { values: section_subtitle(title: t("decidim.design.helpers.meetings")) },
           cell_table_item(
-            "Meeting L",
+            t("decidim.design.helpers.meeting_l"),
             {
               cell: "decidim/meetings/meeting_l",
               args: [resource],
@@ -335,7 +335,7 @@ end
             }
           ),
           cell_table_item(
-            "Meeting S",
+            t("decidim.design.helpers.meeting_s"),
             {
               cell: "decidim/meetings/meeting_s",
               args: [resource],
@@ -356,12 +356,12 @@ end
         proposal_resource = Decidim::Proposals::Proposal.last
         collaborative_draft_resource = Decidim::Proposals::CollaborativeDraft.last
 
-        items << { values: section_subtitle(title: "Proposals") } if [proposal_resource, collaborative_draft_resource].any?(&:present?)
+        items << { values: section_subtitle(title: t("decidim.design.helpers.proposals")) } if [proposal_resource, collaborative_draft_resource].any?(&:present?)
 
         if (resource = proposal_resource).present?
           items += [
             cell_table_item(
-              "Proposal L",
+              t("decidim.design.helpers.proposal_l"),
               {
                 cell: "decidim/proposals/proposal_l",
                 args: [resource],
@@ -375,7 +375,7 @@ end
               }
             ),
             cell_table_item(
-              "Proposal S",
+              t("decidim.design.helpers.proposal_s"),
               {
                 cell: "decidim/proposals/proposal_s",
                 args: [resource],
@@ -392,7 +392,7 @@ end
         if (resource = collaborative_draft_resource).present?
           items += [
             cell_table_item(
-              "Collaborative Draft L",
+              t("decidim.design.helpers.collaborative_draft_l"),
               {
                 cell: "decidim/proposals/collaborative_draft_l",
                 args: [resource],
@@ -413,9 +413,9 @@ end
         return [] unless Decidim.module_installed?(:sortitions) && (resource = Decidim::Sortitions::Sortition.last).present?
 
         [
-          { values: section_subtitle(title: "Sortitions") },
+          { values: section_subtitle(title: t("decidim.design.helpers.sortitions")) },
           cell_table_item(
-            "Sortition L",
+            t("decidim.design.helpers.collaborative_sortition_l"),
             {
               cell: "decidim/sortitions/sortition_l",
               args: [resource],
@@ -433,9 +433,9 @@ end
         return [] unless Decidim.module_installed?(:assemblies) && (resource = Decidim::Assembly.last).present?
 
         [
-          { values: section_subtitle(title: "Assemblies") },
+          { values: section_subtitle(title: t("decidim.design.helpers.assemblies")) },
           cell_table_item(
-            "Assembly G",
+            t("decidim.design.helpers.assembly_g"),
             {
               cell: "decidim/assemblies/assembly_g",
               args: [resource],
@@ -449,7 +449,7 @@ end
             }
           ),
           cell_table_item(
-            "Assembly S",
+            t("decidim.design.helpers.assembly_s"),
             {
               cell: "decidim/assemblies/assembly_s",
               args: [resource],
@@ -467,9 +467,9 @@ end
         return [] unless Decidim.module_installed?(:conferences) && (resource = Decidim::Conference.last).present?
 
         [
-          { values: section_subtitle(title: "Conferences") },
+          { values: section_subtitle(title: t("decidim.design.helpers.conferences")) },
           cell_table_item(
-            "Conference G",
+            t("decidim.design.helpers.conference_g"),
             {
               cell: "decidim/conferences/conference_g",
               args: [resource],
@@ -483,7 +483,7 @@ end
             }
           ),
           cell_table_item(
-            "Conference S",
+            t("decidim.design.helpers.conference_s"),
             {
               cell: "decidim/conferences/conference_s",
               args: [resource],
