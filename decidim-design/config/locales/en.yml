@@ -31,6 +31,8 @@ en:
         buttons:
           description_html: 'Buttons are built using different combinations of CSS classes: the <code>button</code> class, a size and a color.'
           title: Buttons
+        report:
+          title: Report
       foundations:
         accessibility:
           accessibility_labels: Accessibility labels
@@ -136,6 +138,8 @@ en:
         plain_text: I am just plain text
         plain_text_description: You can provide as first argument both a plain text and a hash object
         plain_text_vs_hash: Plain Text Vs Hash
+        report_button: Report button
+        report_usage_description: Report button launches a modal window to flag the current resource.
         rgba_code: RGBA code
         send: Send
         sizes: Sizes

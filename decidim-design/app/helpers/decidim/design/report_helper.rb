@@ -6,15 +6,15 @@ module Decidim
       def report_sections
         [
           {
-            id: "usage",
+            title: t("decidim.design.helpers.usage"),
             contents: [
               {
                 type: :text,
-                values: ["Report button launches a modal window to flag the current resource."]
+                values: [t("decidim.design.helpers.report_usage_description")]
               },
               {
                 type: :cell_table,
-                options: { headings: ["Report Button"] },
+                options: { headings: [t("decidim.design.helpers.report_button")] },
                 cell_snippet: {
                   cell: "decidim/report_button",
                   args: [Decidim::User.first],
