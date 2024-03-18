@@ -73,6 +73,12 @@ module Decidim
         end
       end
 
+      def skip_gemfile_if_defined
+        return unless options[:skip_gemfile]
+
+        remove_file "Gemfile"
+      end
+
       def install_decidim_webpacker
         # Copy CSS file
         copy_file "decidim_application.scss", "app/packs/stylesheets/decidim/decidim_application.scss"
