@@ -21,6 +21,16 @@ eu:
           activities: Jarduerak
         address:
           title: Helbidea
+        announcement:
+          iam_an_announcement: Ni iragarpena naiz
+          this_is_the_body: Hau gorputza da
+          this_is_the_title: Hau izenburua da
+          title: Iragarpena
+        author:
+          title: Egilea
+        buttons:
+          description_html: 'Botoiak CSS klaseen konbinazio desberdinak erabiliz eraiki dira: <code>botoia</code> klasea, tamaina bat eta kolore bat.'
+          title: Botoiak
       foundations:
         accessibility:
           accessibility_labels: Irisgarritasun-etiketak
@@ -100,13 +110,27 @@ eu:
         activity: Jarduera
         address_description: Helbide-gelaxkak baliabide bat jasotzen du eta atributu geolokalizagarriak bilatzen ditu markaketa zehatz bat egiteko.
         address_description_2: Eduki motaren arabera, helbidea online url bat izan daiteke. Kasu horietarako, erakutsitako informazioa berdina da, baina egokitzeko modukoa.
+        argument: Argumentua
+        avatar: Abatarra
+        avatar_description: Erabiltzen da espezio estuak daudenean, egilea nor den bigarren mailako informazioa denean.
         background: Aurrekariak eta mugak
         base: Oinarria
+        callout_description: Honek estatus bat aplikatzen dio iragarpenari. Besterik ezean, bigarren mailako kolorea erabiltzen du.
+        colors: Koloreak
+        compact: Trinkoa
+        compact_description: Egilearen bertsio hau baliabide sortzailea identifikatzeko modu arrunta da.
+        context: Testuingurua
+        context_description: Gelaxka honek erabiltzaile bati buruzko informazioa erakusten du. Baliabidearen/edukiaren sortzailea identifikatzeko laguntza bisuala da. Kursoreaz gainetik pasatzean, informazio gehiago eta bere profilerako estekak dituen deskribapena agertzen da.
+        context_description_2: Baliabideetarako, gelaxka hau sarrera nagusiaren azpian agertzen da. Beste eduki batzuetarako, edukiaren ondoan agertzen da.
+        default: Lehenetsia
+        default_description: Deitu gelaxka argudio gehigarririk gabe, erabiltzailea bera.
         demo: Demoa
         demo_text: 'Zelula honek LastActivity itemen eredu bat jasotzen du eta elementu hauek erakusten ditu:'
         demo_text_2: Azken jarduera-orriak erabiltzen du, eduki-bloke batean eta dropdown-en barruan.
+        disabled: Desgaitua
         form_elements: Forma elementuak
         hex_code: Hex kodea
+        icons: Ikonoak
         main_colors: Kolore nagusiak
         rgba_code: RGBA kodea
         source_code: Iturburu Kodea
