@@ -21,8 +21,16 @@ es:
           activities: Actividades
         address:
           title: Dirección
+        announcement:
+          iam_an_announcement: Soy un anuncio
+          this_is_the_body: Esto es el cuerpo/descripción
+          this_is_the_title: Esto es el título
+          title: Anuncio/Aviso
         author:
           title: Autoría
+        buttons:
+          description_html: 'Los botones se construyen utilizando diferentes combinaciones de clases CSS: la clase <code>botón</code>, un tamaño y un color.'
+          title: Botones
       foundations:
         accessibility:
           accessibility_labels: Etiquetas de accesibilidad
@@ -104,6 +112,8 @@ es:
         avatar_description: Se utiliza cuando hay espacios estrechos, donde la autoría es una información secundaria.
         background: Bordes y fondo
         base: Base
+        callout_description: Este atributo aplica un estado al anuncio/avís. Por defecto, utiliza color secundario.
+        colors: Colores
         compact:
         compact_description: Esta versión de la autoría es la manera común de identificar a la creadora del recurso.
         context: Contexto
@@ -114,13 +124,23 @@ es:
         demo: Demo
         demo_text: 'Esta celda recibe un modelo de elementos de Última Actividad y muestra los siguientes elementos:'
         demo_text_2: Utilizado por la última página de actividad, en un bloque de contenido y dentro de los desplegables.
+        disabled: Deshabilitado
         form_elements: Elementos del formulario
         hex_code: Código hexadecimal
+        icons: Iconos
         main_colors: Colores principales
+        plain_text: Soy un texto pla/simple
+        plain_text_description: Puede proporcionar como primer argumento tanto un texto plano como un objeto hash
+        plain_text_vs_hash: Texto simple vs Hash
         rgba_code: Código RGBA
+        send: Enviar
+        sizes: Tamaños
         source_code: Código Fuente
         state: Estado
         tailwind: Nombre del Tailwind
+        text: Texto
+        transparent: Transparente
+        transparent_description: 'En caso de un fondo más oscuro:'
         typography_texts: Textos y tipografía
         usage: Uso
         usage_background_1: Fondo lateral
