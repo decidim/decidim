@@ -31,6 +31,8 @@ en:
         buttons:
           description_html: 'Buttons are built using different combinations of CSS classes: the <code>button</code> class, a size and a color.'
           title: Buttons
+        share:
+          title: Share
       foundations:
         accessibility:
           accessibility_labels: Accessibility labels
@@ -138,6 +140,8 @@ en:
         plain_text_vs_hash: Plain Text Vs Hash
         rgba_code: RGBA code
         send: Send
+        share_button: Share Button
+        share_usage_description_html: Make sure the partial <code>decidim/shared/share_modal</code> is present in the DOM. This partial is placed in the application layout.
         sizes: Sizes
         source_code: Source Code
         state: State

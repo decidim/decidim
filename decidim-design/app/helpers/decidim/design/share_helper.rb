@@ -6,15 +6,15 @@ module Decidim
       def share_sections
         [
           {
-            id: "usage",
+            title: t("decidim.design.helpers.usage"),
             contents: [
               {
                 type: :text,
-                values: ["Make sure the partial <code>decidim/shared/share_modal</code> is present in the DOM. This partial is placed in the application layout."]
+                values: [t("decidim.design.helpers.share_usage_description_html")]
               },
               {
                 type: :cell_table,
-                options: { headings: ["Share Button"] },
+                options: { headings: [t("decidim.design.helpers.share_button")] },
                 cell_snippet: {
                   cell: "decidim/share_button",
                   args: [],
