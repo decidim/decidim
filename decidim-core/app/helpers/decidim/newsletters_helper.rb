@@ -80,7 +80,7 @@ module Decidim
       return content if host.blank?
 
       content.scan(/src\s*=\s*"([^"]*)"/).each do |src|
-        root_url = decidim.root_url(host:)[0..-2]
+        root_url = decidim.root_url(host: host)[0..-2]
         src_replaced = "#{root_url}#{src.first}"
         content = content.gsub(/src\s*=\s*"([^"]*#{src.first})"/, %(src="#{src_replaced}"))
       end

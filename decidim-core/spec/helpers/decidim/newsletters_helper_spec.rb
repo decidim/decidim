@@ -7,7 +7,7 @@ require "spec_helper"
 #
 module Decidim
   describe NewslettersHelper do
-    let(:user) { create(:user, name: "Jane Doe", organization:) }
+    let(:user) { create(:user, name: "Jane Doe", organization: organization) }
     let(:organization) { create(:organization, host: "localhost") }
     let(:newsletter) { create(:newsletter) }
     let(:text) do
