@@ -119,7 +119,6 @@ en:
         assembly_g: Assembly G
         assembly_s: Assembly S
         avatar: Avatar
-        debates: Debates
         avatar_description: It is used when there are narrow spaces, where the author is a secondary information.
         background: Background and borders
         base: Base
@@ -145,6 +144,7 @@ en:
         context_description_2: For resources, this cell appears beneath the main heading. For other contents, it appears next to the content itself.
         debate_l: Debate L
         debate_s: Debate S
+        debates: Debates
         debates_cards_html: Used by <i>Debates</i> cards
         debates_cards_text: Use different template for the image block
         default: Default
