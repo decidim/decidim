@@ -10,7 +10,7 @@ shared_examples "follows" do
       it "makes the user follow the followable" do
         visit followable_path
         expect do
-          click_link "Follow"
+          click_on "Follow"
           expect(page).to have_content "Stop following"
         end.to change(Decidim::Follow, :count).by(1)
       end
@@ -26,7 +26,7 @@ shared_examples "follows" do
       it "makes the user follow the followable" do
         visit followable_path
         expect do
-          click_link "Stop following"
+          click_on "Stop following"
           expect(page).to have_content "Follow"
         end.to change(Decidim::Follow, :count).by(-1)
       end
@@ -47,7 +47,7 @@ shared_examples "follows with a component" do
       it "makes the user follow the followable" do
         visit followable_path
         expect do
-          click_link "Follow"
+          click_on "Follow"
           expect(page).to have_content "Stop following"
         end.to change(Decidim::Follow, :count).by(1)
       end

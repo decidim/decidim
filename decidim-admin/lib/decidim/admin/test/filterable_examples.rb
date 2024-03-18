@@ -11,13 +11,15 @@ shared_context "with filterable context" do
     within(".filters__section") do
       find_link("Filter").hover
       find_link(options).hover
-      click_link(filter, href: /q/)
+      within ".submenu > .is-active > .submenu" do
+        click_on(filter)
+      end
     end
   end
 
   def remove_applied_filter(filter)
     within("[data-applied-filters-tags] .label", text: /#{filter}/i) do
-      click_link("Cancel")
+      click_on("Cancel")
     end
   end
 
@@ -50,7 +52,7 @@ shared_context "with filterable context" do
     before { apply_filter(options, filter) }
 
     it { expect(page).to have_content(in_filter) }
-    it { expect(page).not_to have_content(not_in_filter) }
+    it { expect(page).to have_no_content(not_in_filter) }
 
     it_behaves_like "searching by text" do
       let(:text) { in_filter }

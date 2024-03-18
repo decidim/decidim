@@ -13,8 +13,8 @@ module Decidim
     #
     # @param declared_fields: A Hash with the mappings between a SearchableResource attributes and
     #    any given model. Mapped fields are:
-    # - scope_id: The field where the scope is setted in the model, if any.
-    # - participatory_space: The field where the ParticipatorySpace is setted in the model.
+    # - scope_id: The field where the scope is set in the model, if any.
+    # - participatory_space: The field where the ParticipatorySpace is set in the model.
     # - datetime: The field that describes where in time the model is placed.
     # - A, B, C, D: Weighted text fields.
     #

@@ -91,7 +91,7 @@ module Decidim
 
         let(:query) { "{ comments { id } }" }
 
-        it "return comment's comments comments data" do
+        it "return comment's comments data" do
           replies.each do |reply|
             expect(response["comments"]).to include("id" => reply.id.to_s)
           end

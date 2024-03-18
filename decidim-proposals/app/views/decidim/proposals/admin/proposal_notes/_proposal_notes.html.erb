@@ -10,9 +10,9 @@
       <% proposal.notes.each do |note| %>
         <div class="comment">
           <div class="comment__header">
-            <div class="author-data">
-              <div class="author-data__main">
-                <div class="author author--inline">
+            <div>
+              <div>
+                <div class="author">
                   <strong><span class="author__name"><%= note.author.name %></span></strong>
                   <span><%= l note.created_at, format: :decidim_short %></span>
                 </div>

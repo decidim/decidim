@@ -19,7 +19,7 @@ shared_examples "manage processes examples" do
       filter_by_group(translated(process_group.title))
 
       expect(page).to have_content(translated(process_with_group.title))
-      expect(page).not_to have_content(translated(process_without_group.title))
+      expect(page).to have_no_content(translated(process_without_group.title))
     end
 
     describe "listing processes" do
@@ -49,7 +49,7 @@ shared_examples "manage processes examples" do
       let!(:participatory_process) { create(:participatory_process, :unpublished, organization:) }
 
       it "allows the user to preview the unpublished process" do
-        new_window = window_opened_by { page.find("tr", text: translated(participatory_process.title)).click_link("Preview") }
+        new_window = window_opened_by { page.find("tr", text: translated(participatory_process.title)).click_on("Preview") }
 
         page.within_window(new_window) do
           expect(page).to have_css(".participatory-space__container")
@@ -62,11 +62,11 @@ shared_examples "manage processes examples" do
       let!(:participatory_process) { create(:participatory_process, organization:) }
 
       it "allows the user to preview the published process" do
-        within find("tr", text: translated(participatory_process.title)) do
-          click_link "Preview"
+        within "tr", text: translated(participatory_process.title) do
+          click_on "Preview"
         end
 
-        new_window = window_opened_by { page.find("tr", text: translated(participatory_process.title)).click_link("Preview") }
+        new_window = window_opened_by { page.find("tr", text: translated(participatory_process.title)).click_on("Preview") }
 
         page.within_window(new_window) do
           expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process)
@@ -87,12 +87,12 @@ shared_examples "manage processes examples" do
     let(:image3_path) { Decidim::Dev.asset(image3_filename) }
 
     before do
-      within find("tr", text: translated(participatory_process.title)) do
-        click_link translated(participatory_process.title)
+      within "tr", text: translated(participatory_process.title) do
+        click_on translated(participatory_process.title)
       end
 
       within_admin_sidebar_menu do
-        click_link "About this process"
+        click_on "About this process"
       end
     end
 
@@ -106,7 +106,7 @@ shared_examples "manage processes examples" do
       )
       dynamically_attach_file(:participatory_process_banner_image, image3_path, remove_before: true)
 
-      fill_in :participatory_process_end_date, with: Time.current.change(day: 22)
+      fill_in_datepicker :participatory_process_end_date_date, with: Time.new.utc.strftime("%d/%m/%Y")
 
       within ".edit_participatory_process" do
         find("*[type=submit]").click
@@ -115,7 +115,7 @@ shared_examples "manage processes examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "[data-content]" do
-        expect(page).to have_selector("input[value='My new title']")
+        expect(page).to have_css("input[value='My new title']")
         expect(page).to have_css("img[src*='#{image3_filename}']")
       end
     end
@@ -125,17 +125,17 @@ shared_examples "manage processes examples" do
     let!(:participatory_process) { create(:participatory_process, :unpublished, organization:) }
 
     before do
-      within find("tr", text: translated(participatory_process.title)) do
-        click_link translated(participatory_process.title)
+      within "tr", text: translated(participatory_process.title) do
+        click_on translated(participatory_process.title)
       end
 
       within_admin_sidebar_menu do
-        click_link "About this process"
+        click_on "About this process"
       end
     end
 
     it "publishes the process" do
-      click_link "Publish"
+      click_on "Publish"
       expect(page).to have_content("successfully published")
       expect(page).to have_content("Unpublish")
       expect(page).to have_current_path decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
@@ -149,17 +149,17 @@ shared_examples "manage processes examples" do
     let!(:participatory_process) { create(:participatory_process, organization:) }
 
     before do
-      within find("tr", text: translated(participatory_process.title)) do
-        click_link translated(participatory_process.title)
+      within "tr", text: translated(participatory_process.title) do
+        click_on translated(participatory_process.title)
       end
 
       within_admin_sidebar_menu do
-        click_link "About this process"
+        click_on "About this process"
       end
     end
 
     it "unpublishes the process" do
-      click_link "Unpublish"
+      click_on "Unpublish"
       expect(page).to have_content("successfully unpublished")
       expect(page).to have_content("Publish")
       expect(page).to have_current_path decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
@@ -178,7 +178,7 @@ shared_examples "manage processes examples" do
 
     it "does not let the admin manage processes form other organizations" do
       within "table" do
-        expect(page).not_to have_content(external_participatory_process.title["en"])
+        expect(page).to have_no_content(external_participatory_process.title["en"])
       end
     end
   end
@@ -191,17 +191,17 @@ shared_examples "manage processes examples" do
     end
 
     it "disables the scope for a participatory process" do
-      within find("tr", text: translated(participatory_process.title)) do
-        click_link translated(participatory_process.title)
+      within "tr", text: translated(participatory_process.title) do
+        click_on translated(participatory_process.title)
       end
 
       within_admin_sidebar_menu do
-        click_link "About this process"
+        click_on "About this process"
       end
 
       uncheck :participatory_process_scopes_enabled
 
-      expect(page).to have_selector("#participatory_process_scope_id[disabled]")
+      expect(page).to have_css("#participatory_process_scope_id[disabled]")
 
       within ".edit_participatory_process" do
         find("*[type=submit]").click

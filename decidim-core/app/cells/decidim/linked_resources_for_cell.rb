@@ -23,9 +23,6 @@ module Decidim
   #   )
   class LinkedResourcesForCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
-    include Decidim::ApplicationHelper
-
-    delegate :current_settings, to: :controller
 
     alias resource model
 

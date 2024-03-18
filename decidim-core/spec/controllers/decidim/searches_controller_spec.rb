@@ -26,7 +26,7 @@ module Decidim
         end
 
         before do
-          create(:searchable_resource, organization:, content_a: "I do not like groomming my dog.")
+          create(:searchable_resource, organization:, content_a: "I do not like grooming my dog.")
         end
 
         it "returns results with 'Great' in their content" do
@@ -50,7 +50,7 @@ module Decidim
       it "takes the resource_type filter into account" do
         expect(Decidim::Search).to receive(:call).with(any_args, hash_including(with_resource_type: resource_type), a_kind_of(Hash))
 
-        get :index, params: { term: "Blues", "filter[with_resource_type]" => resource_type }
+        get :index, params: { :term => "Blues", "filter[with_resource_type]" => resource_type }
       end
     end
 
@@ -63,7 +63,7 @@ module Decidim
       it "takes the space filter into account" do
         expect(Decidim::Search).to receive(:call).with(any_args, hash_including(with_space_state: space_state), a_kind_of(Hash))
 
-        get :index, params: { term: "Blues", "filter[with_space_state]" => space_state }
+        get :index, params: { :term => "Blues", "filter[with_space_state]" => space_state }
       end
     end
   end

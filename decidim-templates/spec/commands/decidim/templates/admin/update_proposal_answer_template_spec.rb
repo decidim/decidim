@@ -10,11 +10,12 @@ module Decidim
 
         let(:organization) { create(:organization) }
         let(:user) { create(:user, :admin, :confirmed, organization:) }
-        let!(:template) { create(:template, :proposal_answer, organization:) }
+        let!(:template) { create(:template, target: :proposal_answer, organization:) }
         let!(:component_constraint) { 0 }
         let(:name) { { "en" => "name" } }
         let(:description) { { "en" => "description" } }
-        let(:internal_state) { "accepted" }
+
+        let!(:proposal_state_id) { rand(1..10) }
 
         let(:form) do
           instance_double(
@@ -25,7 +26,7 @@ module Decidim
             current_organization: organization,
             name:,
             description:,
-            internal_state:,
+            proposal_state_id:,
             component_constraint:
           )
         end
@@ -62,58 +63,17 @@ module Decidim
             expect(action_log.version).to be_present
           end
 
-          context "when changing the internal state" do
-            context "with rejected" do
-              let(:internal_state) { "rejected" }
-
-              it "saves the internal state" do
-                subject.call
-                expect(template.reload.field_values["internal_state"]).to eq(internal_state)
-              end
-            end
-
-            context "with accepted" do
-              let(:internal_state) { "accepted" }
-
-              it "saves the internal state" do
-                subject.call
-                expect(template.reload.field_values["internal_state"]).to eq(internal_state)
-              end
-            end
-
-            context "with evaluating" do
-              let(:internal_state) { "evaluating" }
-
-              it "saves the internal state" do
-                subject.call
-                expect(template.reload.field_values["internal_state"]).to eq(internal_state)
-              end
-            end
-
-            context "with not_answered" do
-              let(:internal_state) { "not_answered" }
-
-              it "saves the internal state" do
-                subject.call
-                expect(template.reload.field_values["internal_state"]).to eq(internal_state)
-              end
-            end
+          it "saves the proposal_state_id" do
+            subject.call
+            expect(template.reload.field_values["proposal_state_id"]).to eq(proposal_state_id)
           end
 
           context "when the form has a component constraint" do
-            context "and templatable is Organization" do
-              it "creates the second resource" do
-                expect { subject.call }.to broadcast(:ok)
-                expect(template.reload.templatable).to eq(organization)
-              end
-            end
-
             context "and templatable is Proposal Component" do
               let(:component) { create(:component, manifest_name: :proposals, organization:) }
               let(:component_constraint) { component.id }
 
               it "creates the second resource" do
-                expect(template.reload.templatable).to eq(organization)
                 expect { subject.call }.to broadcast(:ok)
                 expect(template.reload.templatable).to eq(component)
               end

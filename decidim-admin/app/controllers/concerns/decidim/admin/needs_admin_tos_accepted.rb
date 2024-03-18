@@ -45,7 +45,6 @@ module Decidim
         return true if participatory_process_user_role?
         return true if assembly_user_role?
         return true if conference_user_role?
-        return true if voting_monitoring_commitee_member?
 
         false
       end
@@ -66,12 +65,6 @@ module Decidim
         return false unless Decidim.module_installed?(:conferences)
 
         true if Decidim::ConferenceUserRole.exists?(user: current_user)
-      end
-
-      def voting_monitoring_commitee_member?
-        return false unless Decidim.module_installed?(:elections)
-
-        true if Decidim::Votings::MonitoringCommitteeMember.exists?(user: current_user)
       end
     end
   end

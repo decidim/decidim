@@ -2,7 +2,7 @@
 
 module Decidim
   module Proposals
-    # A form object to be used when public users want to request acces to a Collaborative Draft.
+    # A form object to be used when public users want to request access to a Collaborative Draft.
     class RequestAccessToCollaborativeDraftForm < Decidim::Form
       mimic :collaborative_draft
 

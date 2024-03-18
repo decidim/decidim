@@ -18,7 +18,7 @@ describe "UserRedirect" do
       end
 
       it "does not redirect to login page" do
-        expect(page).not_to have_content("Log in")
+        expect(page).to have_no_content("Log in")
       end
 
       it "renders a JSON with the manifest" do

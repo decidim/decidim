@@ -28,7 +28,7 @@ describe "Postal letter code verification" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_verifications.authorizations_path
-    click_link "Code by postal letter"
+    click_on "Code by postal letter"
   end
 
   context "when code requested but letter not sent" do
@@ -62,7 +62,7 @@ describe "Postal letter code verification" do
 
       before do
         fill_in "Verification code", with: attempted_verification_code
-        click_button "Confirm"
+        click_on "Confirm"
       end
 
       context "when code is incorrect" do

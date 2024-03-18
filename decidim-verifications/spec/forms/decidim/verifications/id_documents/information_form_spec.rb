@@ -15,7 +15,7 @@ module Decidim::Verifications::IdDocuments
     let(:user) { create(:user) }
 
     let(:verification_type) { "online" }
-    let(:document_type) { "DNI" }
+    let(:document_type) { "identification_number" }
     let(:document_number) { "XXXXXXXXY" }
 
     context "when the information is valid" do

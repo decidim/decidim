@@ -12,7 +12,7 @@ shared_examples "has mandatory config setting" do |mandatory_field|
   end
 
   it "does not allow updating the component" do
-    click_button "Update"
+    click_on "Update"
 
     within ".#{mandatory_field}_container" do
       expect(page).to have_content("There is an error in this field")

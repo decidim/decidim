@@ -122,7 +122,7 @@ module Decidim
     def hashtaggable_text_field(type, name, locale, options = {})
       options[:hashtaggable] = true if type.to_sym == :editor
 
-      content_tag(:div, class: "hashtags__container") do
+      content_tag(:div) do
         if options[:value]
           send(type, name_with_locale(name, locale), options.merge(label: options[:label], value: options[:value][locale]))
         else
@@ -202,7 +202,7 @@ module Decidim
 
       content_tag(
         :div,
-        class: "editor #{"hashtags__container" if editor_options[:editor]["class"].include?("js-hashtags")}",
+        class: "editor",
         id: "#{sanitize_for_dom_selector(@object_name)}_#{sanitize_for_dom_selector(name)}"
       ) do
         template = ""
@@ -416,9 +416,9 @@ module Decidim
     # options      - A Hash with options to build the field.
     #              * max_file_size: Maximum size for the file (If you really want to change max
     #                 file size you should probably change it in validator).
-    #              * resouce_name: Name of the resource (e.g. user)
+    #              * resource_name: Name of the resource (e.g. user)
     #              * resource_class: Attribute's resource class (e.g. Decidim::User)
-    #              * resouce_class: Class of the resource (e.g. user)
+    #              * resource_class: Class of the resource (e.g. user)
     #              * required: Whether the file is required or not (false by default).
     #              * titled: Whether the file can have title or not.
     #              * show_current: Whether the current file is displayed next to the button.

@@ -10,7 +10,7 @@ module Decidim
       # Enable this methods:
       #
       # - .error with an array of rows with errors in the csv file
-      # - .values an array with emails readed from the csv file
+      # - .values an array with emails read from the csv file
       #
       # Returns nothing
       class Data

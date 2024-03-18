@@ -29,8 +29,8 @@ describe "Admin checks dashboard panel statistics" do
 
   context "when does not have Pending moderations" do
     it "hides the panel" do
-      expect(page).not_to have_content(t("decidim.admin.dashboard.pending_moderations.title"))
-      expect(page).not_to have_content(t("decidim.admin.dashboard.pending_moderations.goto_moderation"))
+      expect(page).to have_no_content(t("decidim.admin.dashboard.pending_moderations.title"))
+      expect(page).to have_no_content(t("decidim.admin.dashboard.pending_moderations.goto_moderation"))
     end
   end
 

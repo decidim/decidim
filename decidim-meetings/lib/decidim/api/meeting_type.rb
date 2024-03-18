@@ -45,6 +45,9 @@ module Decidim
         object.audio_url if object.closing_visible?
       end
 
+      field :withdrawn_at, Decidim::Core::DateTimeType, description: "The date and time this meeting was withdrawn", null: true
+      field :withdrawn, GraphQL::Types::Boolean, "Whether this meeting has been withdrawn or not", method: :withdrawn?, null: true
+
       field :created_at, Decidim::Core::DateTimeType, description: "The date and time this minutes was created", null: true
       field :updated_at, Decidim::Core::DateTimeType, description: "The date and time this minutes was updated", null: true
 

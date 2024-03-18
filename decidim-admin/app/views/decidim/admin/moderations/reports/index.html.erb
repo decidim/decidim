@@ -38,7 +38,7 @@
       <% end %>
     </dt>
     <dd class="reported-content">
-      <div class="current">
+      <div>
         <%= reported_content_for moderation.reportable %>
       </div>
       <% if translatable_resource?(moderation.reportable) %>
@@ -70,7 +70,7 @@
       <th><%= t("models.report.fields.reason", scope: "decidim.moderations") %></th>
       <th><%= t("models.report.fields.locale", scope: "decidim.moderations") %></th>
       <th><%= t("models.report.fields.details", scope: "decidim.moderations") %></th>
-      <th class="actions"><%= t("actions.title", scope: "decidim.moderations") %></th>
+      <th><%= t("actions.title", scope: "decidim.moderations") %></th>
     </tr>
     </thead>
     <tbody>
@@ -79,7 +79,7 @@
         <td><%= t("decidim.admin.moderations.report.reasons.#{report.reason}") %></td>
         <td><%= report.locale.present? ? locale_name(report.locale) : "" %></td>
         <td><%= report.details&.truncate(250) %></td>
-        <td class="actions">
+        <td>
           <%= icon_link_to "fullscreen-line",
                            moderation_report_path(moderation_id: moderation, id: report.id),
                            t("actions.expand", scope: "decidim.moderations"),

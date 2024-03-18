@@ -33,14 +33,14 @@ module Decidim
         HTML
       end
 
-      it "converts the hastags and mentions to WYSIWYG editor ready elements" do
+      it "converts the hashtags and mentions to WYSIWYG editor ready elements" do
         expect(subject.editor_locales(data, false)).to eq(editor_html)
       end
 
       context "when modifying all locales" do
         let(:data) { { en: html, es: html } }
 
-        it "converts the hastags and mentions to WYSIWYG editor ready elements" do
+        it "converts the hashtags and mentions to WYSIWYG editor ready elements" do
           expect(subject.editor_locales(data, true)).to eq(en: editor_html, es: editor_html)
         end
       end

@@ -4,8 +4,6 @@ module Decidim
   module Forms
     # This cell renders the navigation of a questionnaire step.
     class StepNavigationCell < Decidim::ViewModel
-      include Decidim::LayoutHelper
-
       def current_step_index
         model
       end

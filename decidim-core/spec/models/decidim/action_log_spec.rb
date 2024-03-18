@@ -190,7 +190,7 @@ describe Decidim::ActionLog do
       it { is_expected.to be_falsey }
     end
 
-    context "when there is no particiaptory space" do
+    context "when there is no participatory space" do
       before do
         action_log.participatory_space.delete
       end

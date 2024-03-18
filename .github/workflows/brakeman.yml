@@ -39,7 +39,6 @@ jobs:
           - decidim-core
           - decidim-debates
           - decidim-dev
-          - decidim-elections
           - decidim-forms
           - decidim-initiatives
           - decidim-meetings

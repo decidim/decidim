@@ -4,7 +4,7 @@ module Decidim
   # We serve a custom /favicon.ico route for Decidim in order to show the
   # correct favicons also when browsing e.g. PDF documents originating from the
   # same domain displayed inline in the browser. For those special files
-  # displayed in the browser, the favicon could be otherwise incorrectly sohwn
+  # displayed in the browser, the favicon could be otherwise incorrectly shown
   # or cached.
   #
   # This custom route ensures that the favicons are always correctly served for

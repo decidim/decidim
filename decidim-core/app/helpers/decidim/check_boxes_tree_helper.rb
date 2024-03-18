@@ -3,6 +3,8 @@
 module Decidim
   # This helper include some methods for rendering a checkboxes tree input.
   module CheckBoxesTreeHelper
+    include SanitizeHelper
+
     # This method returns a hash with the options for the checkbox and its label
     # used in filters that uses checkboxes trees
     def check_boxes_tree_options(value, label, **options)
@@ -49,23 +51,21 @@ module Decidim
     end
 
     def filter_categories_values
-      organization = current_participatory_space.organization
-
       sorted_main_categories = current_participatory_space.categories.first_class.includes(:subcategories).sort_by do |category|
-        [category.weight, translated_attribute(category.name, organization)]
+        [category.weight, decidim_escape_translated(category.name)]
       end
 
       categories_values = sorted_main_categories.flat_map do |category|
         sorted_descendant_categories = category.descendants.includes(:subcategories).sort_by do |subcategory|
-          [subcategory.weight, translated_attribute(subcategory.name, organization)]
+          [subcategory.weight, decidim_escape_translated(subcategory.name)]
         end
 
         subcategories = sorted_descendant_categories.flat_map do |subcategory|
-          TreePoint.new(subcategory.id.to_s, translated_attribute(subcategory.name, organization))
+          TreePoint.new(subcategory.id.to_s, decidim_escape_translated(subcategory.name))
         end
 
         TreeNode.new(
-          TreePoint.new(category.id.to_s, translated_attribute(category.name, organization)),
+          TreePoint.new(category.id.to_s, decidim_escape_translated(category.name)),
           subcategories
         )
       end

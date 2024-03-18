@@ -6,53 +6,74 @@ module Decidim
       def address_sections
         [
           {
-            id: "demo",
+            id: t("decidim.design.helpers.demo"),
             contents: [
               {
                 type: :text,
                 values: [
-                  "Address cell receives a resource, and searches the geolocalizable attributes to render an specific markup."
+                  t("decidim.design.helpers.address_description")
                 ]
               },
               {
-                type: :partial,
-                template: "decidim/design/components/address/static-address-person"
+                values: cell("decidim/address", address_item)
               },
               {
                 type: :text,
                 values: [
-                  "Depending of the type of the content, the address could be an online url.
-                    For such cases, the displayed information is quite the same but shaped to fit."
+                  t("decidim.design.helpers.address_description_2")
                 ]
               },
               {
-                type: :partial,
-                template: "decidim/design/components/address/static-address-online"
+                values: cell("decidim/address", online_item, online: true)
               }
             ]
           },
           {
-            id: "sourcecode",
+            id: t("decidim.design.helpers.source_code"),
             contents: [
               {
-                type: :table,
-                options: { headings: %w(Cell Code) },
-                items: address_table(
-                  { name: "Address", url: "https://github.com/decidim/decidim/blob/develop/decidim-core/app/cells/decidim/address_cell.rb" }
-                )
+                type: :text,
+                values: [""],
+                cell_snippet: {
+                  cell: "decidim/address",
+                  args: [address_item],
+                  call_string: [
+                    'cell("decidim/address", _RESOURCE_)',
+                    'cell("decidim/address", _RESOURCE_, online: true)'
+                  ]
+                }
               }
             ]
           }
         ]
       end
 
-      def address_table(*table_rows, **_opts)
-        table_rows.map do |table_cell|
-          row = []
-          row << table_cell[:name]
-          row << link_to(table_cell[:url].split("/").last, table_cell[:url], target: "_blank", class: "text-secondary underline", rel: "noopener")
-          row
+      def addressable_class
+        Class.new(ApplicationRecord) do
+          self.table_name = Decidim::Pages::Page.table_name
+
+          attr_accessor :organization, :location, :address, :latitude, :longitude, :online_meeting_url, :type_of_meeting
+
+          geocoded_by :address
         end
+      end
+
+      def address_item
+        addressable_class.new(
+          organization: current_organization,
+          location: "Barcelona",
+          address: "Carrer del Pare Llaurador, 113",
+          latitude: 40.1234,
+          longitude: 2.1234
+        )
+      end
+
+      def online_item
+        addressable_class.new(
+          organization: current_organization,
+          type_of_meeting: "online",
+          online_meeting_url: "https://meet.jit.si/DecidimTry"
+        )
       end
     end
   end

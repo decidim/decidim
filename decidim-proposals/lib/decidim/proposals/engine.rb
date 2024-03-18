@@ -100,7 +100,9 @@ module Decidim
           payload = data[:this]
           if payload[:from_type] == Decidim::Accountability::Result.name && payload[:to_type] == Proposal.name
             proposal = Proposal.find(payload[:to_id])
-            proposal.update(state: "accepted", state_published_at: Time.current)
+
+            proposal.assign_state("accepted")
+            proposal.update(state_published_at: Time.current)
           end
         end
       end
@@ -111,8 +113,8 @@ module Decidim
       end
 
       initializer "decidim_proposals.remove_space_admins" do
-        ActiveSupport::Notifications.subscribe("decidim.admin.participatorty_space.destroy_admin:after") do |_event_name, klass, id|
-          Decidim::Proposals::ValuationAssignment.where(valuator_role_type: klass, valuator_role_id: id).destroy_all
+        ActiveSupport::Notifications.subscribe("decidim.admin.participatory_space.destroy_admin:after") do |_event_name, data|
+          Decidim::Proposals::ValuationAssignment.where(valuator_role_type: data.fetch(:class_name), valuator_role_id: data.fetch(:role)).destroy_all
         end
       end
 

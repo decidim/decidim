@@ -49,13 +49,13 @@ describe "Explore Budgets", :slow do
     end
 
     it "lists all the budgets" do
-      expect(page).to have_selector(".card--list__item", count: 6)
+      expect(page).to have_css(".card--list__item", count: 6)
 
       budgets.each do |budget|
         expect(page).to have_content(translated(budget.title))
         expect(page).to have_content(number_to_currency(budget.total_budget, unit: Decidim.currency_unit, precision: 0))
       end
-      expect(page).not_to have_content("Remove vote")
+      expect(page).to have_no_content("Remove vote")
       expect(page).to have_content("0 projects")
     end
 
@@ -95,7 +95,7 @@ describe "Explore Budgets", :slow do
         it "shows the projects count and it has no remove vote link" do
           visit_component
 
-          expect(page).not_to have_content("Remove vote")
+          expect(page).to have_no_content("Remove vote")
           expect(item).to have_content("3 projects")
         end
       end
@@ -114,7 +114,7 @@ describe "Explore Budgets", :slow do
         it "shows the check icon" do
           visit_component
 
-          expect(item).to have_selector("div.card__highlight-text svg.fill-success")
+          expect(item).to have_css("div.card__highlight-text svg.fill-success")
           expect(item).to have_link("See projects", href: budget_path(budget))
         end
 
@@ -127,7 +127,7 @@ describe "Explore Budgets", :slow do
 
           expect(item).to have_content("delete your vote")
           within item do
-            accept_confirm { click_link "delete your vote" }
+            accept_confirm { click_on "delete your vote" }
             expect(Decidim::Budgets::Order.where(budget:)).to be_blank
           end
         end

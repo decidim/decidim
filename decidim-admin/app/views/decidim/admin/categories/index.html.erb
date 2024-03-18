@@ -14,7 +14,7 @@
         <thead>
           <tr>
             <th><%= t("activemodel.attributes.category.name") %></th>
-            <th class="actions"></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -38,7 +38,7 @@
               </td>
             </tr>
             <% category.subcategories.each do |subcategory| %>
-              <tr class="extra__table-list__subcategory">
+              <tr>
                 <td>
                   <%= link_to translated_attribute(subcategory.name), edit_category_path(current_participatory_space, subcategory) %><br>
                 </td>
@@ -48,7 +48,11 @@
                 <% end %>
 
                 <% if allowed_to? :destroy, :category, category: subcategory %>
-                  <%= icon_link_to "delete-bin-line", category_path(current_participatory_space, subcategory), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                  <% if subcategory.unused? %>
+                    <%= icon_link_to "delete-bin-line", category_path(current_participatory_space, subcategory), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                  <% else %>
+                    <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", "aria-hidden": true %>
+                  <% end %>
                 <% end %>
                 </td>
               </tr>

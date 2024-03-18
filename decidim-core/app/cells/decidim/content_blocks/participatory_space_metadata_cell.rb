@@ -11,7 +11,7 @@ module Decidim
 
       def metadata_valued_items
         metadata_items.filter_map do |item|
-          next if (value = translated_attribute(presented_space.send(item))).blank?
+          next if (value = decidim_escape_translated(presented_space.send(item))).blank?
 
           {
             title: t(item, scope: translations_scope),

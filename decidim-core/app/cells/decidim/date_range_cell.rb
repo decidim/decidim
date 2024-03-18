@@ -13,8 +13,6 @@ module Decidim
   # }
   #
   class DateRangeCell < Decidim::ViewModel
-    include Decidim::IconHelper
-
     def show
       return unless start_time && end_time
 

@@ -24,9 +24,9 @@ describe Decidim::Comments::UserGroupMentionedEvent do
   let(:parsed_body) { Decidim::ContentProcessor.parse("Comment mentioning some user group, @#{group.nickname}", current_organization: organization) }
   let(:parsed_ca_body) { Decidim::ContentProcessor.parse("Un commentaire pour @#{group.nickname}", current_organization: organization) }
   let(:body) { { en: parsed_body.rewrite, machine_translations: { ca: parsed_ca_body.rewrite } } }
-  let(:email_subject) { "You have been mentioned in #{html_escape(translated(resource.title))} as a member of #{html_escape(group.name)}" }
+  let(:email_subject) { "You have been mentioned in #{resource_title} as a member of #{html_escape(group.name)}" }
   let(:email_intro) { "A group you belong to has been mentioned" }
-  let(:email_outro) { "You have received this notification because you are a member of the group #{html_escape(group.name)} that has been mentioned in #{html_escape(translated(resource.title))}." }
+  let(:email_outro) { "You have received this notification because you are a member of the group #{html_escape(group.name)} that has been mentioned in #{resource_title}." }
 
   it_behaves_like "a comment event"
   it_behaves_like "a simple event email"
@@ -61,7 +61,7 @@ describe Decidim::Comments::UserGroupMentionedEvent do
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include("You have been mentioned in <a href=\"#{resource_path}?commentId=#{comment.id}#comment_#{comment.id}\">#{html_escape(translated(resource.title))}</a>")
+        .to include("You have been mentioned in <a href=\"#{resource_path}?commentId=#{comment.id}#comment_#{comment.id}\">#{resource_title}</a>")
 
       expect(subject.notification_title)
         .to include(" as a member of <a href=\"/profiles/#{group.nickname}\">#{html_escape(group.name)} @#{group.nickname}</a>")

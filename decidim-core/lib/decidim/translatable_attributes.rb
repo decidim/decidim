@@ -17,7 +17,7 @@ module Decidim
       # type - The attribute's type
       # options - Options to send to the form class when defining the attribute.
       # block - An optional block to be called for each attribute name and
-      # locale. The block will receive two arguments, one with the attriubte
+      # locale. The block will receive two arguments, one with the attribute
       # name and another with the locale.
       #
       #

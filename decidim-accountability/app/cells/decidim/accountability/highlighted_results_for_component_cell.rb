@@ -8,10 +8,7 @@ module Decidim
     # It is intended to be used in the `participatory_space_highlighted_elements`
     # view hook.
     class HighlightedResultsForComponentCell < Decidim::ViewModel
-      include ActiveSupport::NumberHelper
       include Decidim::Accountability::ApplicationHelper
-      include Decidim::ComponentPathHelper
-      include Decidim::LayoutHelper
       include Cell::ViewModel::Partial
 
       delegate :snippets, to: :controller
