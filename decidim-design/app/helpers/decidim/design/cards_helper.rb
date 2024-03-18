@@ -22,6 +22,7 @@ module Decidim
       def cards_sections
         [
           {
+            id: "types",
             title: t("decidim.design.helpers.types"),
             contents: [
               {
@@ -57,6 +58,7 @@ module Decidim
             ]
           },
           {
+            id: "variations",
             title: t("decidim.design.helpers.variations"),
             contents: [
               {
@@ -141,6 +143,7 @@ module Decidim
             ]
           },
           {
+            id: "source_code",
             title: t("decidim.design.helpers.source_code"),
             contents: source_contents
           }
@@ -285,7 +288,7 @@ module Decidim
         return [] unless Decidim.module_installed?(:debates) && (resource = Decidim::Debates::Debate.last).present?
 
         [
-          { values: section_subtitle(title: "Debates") },
+          { values: section_subtitle(title: t("decidim.design.helpers.debates")) },
           cell_table_item(
             t("decidim.design.helpers.debate_l"),
             {
