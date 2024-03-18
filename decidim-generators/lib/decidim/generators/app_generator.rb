@@ -223,6 +223,12 @@ module Decidim
         end
       end
 
+      def load_defaults_rails61
+        gsub_file "config/application.rb",
+                  /config.load_defaults 7.0/,
+                  "config.load_defaults 6.1"
+      end
+
       def tweak_spring
         return unless File.exist?("config/spring.rb")
 
