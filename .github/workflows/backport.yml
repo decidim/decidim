@@ -1,0 +1,33 @@
+name: "Backport"
+on:
+  pull_request:
+    branches:
+      - develop
+    types: [closed]
+
+jobs:
+  backport:
+    if: ${{ github.event.pull_request.merged }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2.2"
+          bundler-cache: true
+      - shell: bash
+        name: Backport checker and backport last request
+        run: |
+          # Temporal workaround until decidim-maintainers_toolbox v0.2.0 is released
+          gem install activesupport:6.1.7
+          gem install decidim-maintainers_toolbox
+          echo "********************************************************************"
+          echo "BACKPORT CHECKER"
+          decidim-backports-checker --github-token=${{ secrets.BACKPORT_PAT }} --last-version-number=0.28 --days-to-check-from=3
+          echo "********************************************************************"
+          echo "BACKPORTING LAST PULL REQUEST"
+          commit_message=$(git log -1 --pretty=format:"%s")
+          [[ $commit_message =~ ^.*\(#([0-9]*)\)$ ]] && pull_request_id=${BASH_REMATCH[1]}
+          decidim-backporter --github-token=${{ secrets.BACKPORT_PAT }} --version-number=0.28 --pull-request-id=${pull_request_id}
