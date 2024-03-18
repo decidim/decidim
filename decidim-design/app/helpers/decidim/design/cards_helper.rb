@@ -415,7 +415,7 @@ module Decidim
         [
           { values: section_subtitle(title: t("decidim.design.helpers.sortitions")) },
           cell_table_item(
-            t("decidim.design.helpers.collaborative_sortition_l"),
+            t("decidim.design.helpers.sortition_l"),
             {
               cell: "decidim/sortitions/sortition_l",
               args: [resource],
