@@ -225,6 +225,10 @@ module Decidim
         ENV["SHAKAPACKER_CONFIG"] = Decidim::Webpacker.configuration.configuration_file
       end
 
+      initializer "decidim_core.active_storage_variant_processor" do |app|
+        app.config.active_storage.variant_processor = :mini_magick
+      end
+
       initializer "decidim_core.action_controller" do |_app|
         config.to_prepare do
           ActiveSupport.on_load :action_controller do
