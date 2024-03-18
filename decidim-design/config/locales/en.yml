@@ -32,6 +32,10 @@ en:
           description_html: 'Buttons are built using different combinations of CSS classes: the <code>button</code> class, a size and a color.'
           title: Buttons
         dialogs:
+          dialog_demo_description_html: The dialogs, or modal components, are implemented through the rails helper <code>decidim_modal</code>.
+          dialogs_description_html: Dialogs are a javascript feature available thanks to an external library called <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a>.
+          iam_a_modal: I am a modal
+          show_modal: Show modal
           title: Dialogs
       foundations:
         accessibility:
@@ -133,6 +137,7 @@ en:
         disabled: Disabled
         form_elements: Form elements
         hex_code: Hex code
+        html_tips: HTML tips
         icons: Icons
         main_colors: Main Colors
         plain_text: I am just plain text
