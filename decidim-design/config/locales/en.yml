@@ -31,6 +31,8 @@ en:
         buttons:
           description_html: 'Buttons are built using different combinations of CSS classes: the <code>button</code> class, a size and a color.'
           title: Buttons
+        follow:
+          title: Follow
       foundations:
         accessibility:
           accessibility_labels: Accessibility labels
@@ -129,6 +131,8 @@ en:
         demo_text: 'This cell receives a model of LastActivity items and displays the following elements:'
         demo_text_2: Used by the last activity page, in a content block and within the dropdowns.
         disabled: Disabled
+        follow_button: Follow Button
+        follower_description_html: Make sure the partial <code>decidim/shared/login_modal</code> is present in the DOM. This partial is placed in the application layout when the user is logged in.
         form_elements: Form elements
         hex_code: Hex code
         icons: Icons
