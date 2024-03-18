@@ -14,6 +14,8 @@ fr-CA:
           title: Message d'annonce
         author:
           title: Auteur
+        buttons:
+          title: Boutons
       foundations:
         iconography:
           description_iconography: Nous utilisons des icônes pour renforcer la signification des actions, des titres, etc
@@ -32,17 +34,25 @@ fr-CA:
         activity: Activité
         avatar: Avatar
         base: Base
+        colors: Couleurs
         compact: Compact
         context: Contexte
         default: Par défaut
         demo: Démo
+        disabled: Désactivé
         form_elements: Éléments de formulaire
         hex_code: Code hexadécimal
+        icons: Icônes
         main_colors: Couleurs principales
         plain_text: Je ne suis que du texte brut
         rgba_code:
+        send: Envoyer
+        sizes: Tailles
         source_code: Code source
         state: État
+        text: Texte
+        transparent: Transparent
+        transparent_description: 'En cas de fond plus sombre:'
         typography_texts: Typographie et textes
         usage: Usage
         usage_background_1: Arrière-plan de la zone latérale
