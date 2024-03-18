@@ -501,9 +501,9 @@ end
         return [] unless Decidim.module_installed?(:initiatives) && (resource = Decidim::Initiative.last).present?
 
         [
-          { values: section_subtitle(title: "Initiatives") },
+          { values: section_subtitle(title: t("decidim.design.helpers.initiatives")) },
           cell_table_item(
-            "Initiative G",
+            t("decidim.design.helpers.initiative_g"),
             {
               cell: "decidim/initiatives/initiative_g",
               args: [resource],
@@ -517,7 +517,7 @@ end
             }
           ),
           cell_table_item(
-            "Initiative S",
+            t("decidim.design.helpers.initiative_s"),
             {
               cell: "decidim/initiatives/initiative_s",
               args: [resource],
@@ -538,12 +538,12 @@ end
         process_resource = Decidim::ParticipatoryProcess.last
         process_group_resource = Decidim::ParticipatoryProcessGroup.last
 
-        items << { values: section_subtitle(title: "Participatory Processes") } if [process_resource, process_group_resource].any?(&:present?)
+        items << { values: section_subtitle(title: t("decidim.design.helpers.participatory_processes")) } if [process_resource, process_group_resource].any?(&:present?)
 
         if (resource = process_resource).present?
           items += [
             cell_table_item(
-              "Participatory Process G",
+              t("decidim.design.helpers.participatory_process_g"),
               {
                 cell: "decidim/participatory_processes/process_g",
                 args: [resource],
@@ -557,7 +557,7 @@ end
               }
             ),
             cell_table_item(
-              "Participatory Process S",
+              t("decidim.design.helpers.participatory_process_s"),
               {
                 cell: "decidim/participatory_processes/process_s",
                 args: [resource],
@@ -574,7 +574,7 @@ end
         if (resource = process_group_resource).present?
           items += [
             cell_table_item(
-              "Participatory Process Group G",
+              t("decidim.design.helpers.participatory_process_group_g"),
               {
                 cell: "decidim/participatory_processes/process_group_g",
                 args: [resource],
@@ -588,7 +588,7 @@ end
               }
             ),
             cell_table_item(
-              "Participatory Process Group S",
+              t("decidim.design.helpers.participatory_process_group_s"),
               {
                 cell: "decidim/participatory_processes/process_group_s",
                 args: [resource],

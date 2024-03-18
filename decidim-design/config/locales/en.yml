@@ -163,6 +163,9 @@ en:
         highlight_description: Used by resources who allow to highlight
         icons: Icons
         image_and_description: Image and Description
+        initiative_g: initiative_g
+        initiative_s: initiative_s
+        initiatives: Initiatives
         list: List
         main_colors: Main Colors
         meeting_l: Meeting L
@@ -171,6 +174,11 @@ en:
         meetings_html: Used by <i>Meetings</i> cards
         metadata_items: Metadata items
         metadata_text: Each resource define its own metadata items
+        participatory_process_g: Participatory Process G
+        participatory_process_group_g: Participatory Process Group G
+        participatory_process_group_s: Participatory Process Group S
+        participatory_process_s: Participatory Process S
+        participatory_processes: Participatory Processes
         plain_text: I am just plain text
         plain_text_description: You can provide as first argument both a plain text and a hash object
         plain_text_vs_hash: Plain Text Vs Hash
