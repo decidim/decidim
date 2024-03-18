@@ -16,15 +16,16 @@ class Premailer
       # @return [String] a plain text.
       def to_plain_text
         html_src = begin
+          @doc.css("style").remove
           @doc.at("body").inner_html
         rescue StandardError
           ""
         end
 
-        html_src = @doc.to_html unless html_src && html_src.present?
-
-        # remove style tags and content
-        html_src.gsub!(%r{<style.*?/style>}m, "")
+        unless html_src && html_src.present?
+          @doc.css("style").remove
+          html_src = @doc.to_html
+        end
 
         convert_to_text(html_src, @options[:line_length], @html_encoding)
       end
