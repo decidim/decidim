@@ -6,6 +6,7 @@ module Decidim
       def follow_sections
         [
           {
+            id: "usage",
             title: t("decidim.design.helpers.usage"),
             contents: [
               {
