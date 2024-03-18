@@ -157,9 +157,9 @@ end
 
         contents = [
           { values: section_subtitle(title: t("decidim.design.helpers.generic_cards")) },
-          cell_table_item("Card L", { cell: "decidim/card_l", args: [dummy_resource], call_string: 'cell("decidim/card_l", _RESOURCE_)' }),
-          cell_table_item("Card G", { cell: "decidim/card_l", args: [dummy_resource], call_string: 'cell("decidim/card_g", _RESOURCE_)' }),
-          cell_table_item("Card S", { cell: "decidim/card_l", args: [dummy_resource], call_string: 'cell("decidim/card_s", _RESOURCE_)' })
+          cell_table_item(t("decidim.design.helpers.card_g"), { cell: "decidim/card_l", args: [dummy_resource], call_string: 'cell("decidim/card_l", _RESOURCE_)' }),
+          cell_table_item(t("decidim.design.helpers.card_l"), { cell: "decidim/card_l", args: [dummy_resource], call_string: 'cell("decidim/card_g", _RESOURCE_)' }),
+          cell_table_item(t("decidim.design.helpers.card_s"), { cell: "decidim/card_l", args: [dummy_resource], call_string: 'cell("decidim/card_s", _RESOURCE_)' })
         ]
 
         contents += accountability_items
@@ -183,9 +183,9 @@ end
         return [] unless Decidim.module_installed?(:accountability) && (resource = Decidim::Accountability::Result.last).present?
 
         [
-          { values: section_subtitle(title: "Accountability") },
+          { values: section_subtitle(title: t("decidim.design.helpers.accountability")) },
           cell_table_item(
-            "Result L",
+            t("decidim.design.helpers.result_l"),
             {
               cell: "decidim/accountability/result_l",
               args: [resource],
@@ -205,9 +205,9 @@ end
         return [] unless Decidim.module_installed?(:blogs) && (resource = Decidim::Blogs::Post.last).present?
 
         [
-          { values: section_subtitle(title: "Blogs") },
+          { values: section_subtitle(title: t("decidim.design.helpers.blogs")) },
           cell_table_item(
-            "Post L",
+            t("decidim.design.helpers.post_l"),
             {
               cell: "decidim/blogs/post_l",
               args: [resource],
@@ -221,7 +221,7 @@ end
             }
           ),
           cell_table_item(
-            "Post G",
+            t("decidim.design.helpers.post_g"),
             {
               cell: "decidim/blogs/post_g",
               args: [resource],
@@ -233,7 +233,7 @@ end
             }
           ),
           cell_table_item(
-            "Post S",
+            t("decidim.design.helpers.post_s"),
             {
               cell: "decidim/blogs/post_s",
               args: [resource],

@@ -109,6 +109,7 @@ en:
           typefaces_description_1: Decidim uses Source Sans Pro as primary typeface. This typeface supports 310 languages
           typefaces_description_2: This fonts are licensed under the Open Font License
       helpers:
+        accountability: Accountability
         accountability_cards_html: Used by <i>Accountability projects</i> cards. This card requires the module assets to display properly, i.e. <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
         activity: Activity
         address_description: Address cell receives a resource, and searches the geolocalizable attributes to render an specific markup.
@@ -120,6 +121,7 @@ en:
         base: Base
         block_text: Use the extra_data block
         blog_cards_html: Used by <i>Blogs</i> cards
+        blogs: Blogs
         budget_card_html: Used by <i>Budget projects</i> cards. This card requires the module assets to display properly, i.e. <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>
         callout_class: Callout Class
         callout_description: This attribute applies an status to the announcement. By default, it uses secondary color.
@@ -159,6 +161,10 @@ en:
         plain_text: I am just plain text
         plain_text_description: You can provide as first argument both a plain text and a hash object
         plain_text_vs_hash: Plain Text Vs Hash
+        post_g: Post G
+        post_l: Post L
+        post_s: Post S
+        result_l: Result L
         rgba_code: RGBA code
         search: Search
         send: Send
