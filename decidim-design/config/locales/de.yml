@@ -122,6 +122,8 @@ de:
       home:
         index:
           by_sharing_principles: Durch die gemeinsame Nutzung der Prinzipien, Philosophie, und der Logik hinter Designentscheidungen wollen wir die Community dazu befähigen, konsequent beizutragen, so dass wir die beste Erfahrung für die Teilnehmenden erreichen.
+          decidim_guide: Der Leitfaden zum Design von Decidim
+          different_ui_components: Gleichzeitig dokumentieren wir die verschiedenen verwendeten UI-Komponenten und -Muster, die wiederverwendet oder erweitert werden sollten.
           github_source: Quellcode auf GitHub
           home_header: Decidim-Design-Leitfaden
           welcome_sentence: Willkommen zur Decidim Design Guide (DDG). Dieser Leitfaden ist die Ressource für Designer und Entwickler, die die Plattform anpassen, neue Module entwickeln und neue Funktionen integrieren.
