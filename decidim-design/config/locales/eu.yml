@@ -115,6 +115,7 @@ eu:
         avatar_description: Erabiltzen da espezio estuak daudenean, egilea nor den bigarren mailako informazioa denean.
         background: Aurrekariak eta mugak
         base: Oinarria
+        callout_class: Callout Class
         callout_description: Honek estatus bat aplikatzen dio iragarpenari. Besterik ezean, bigarren mailako kolorea erabiltzen du.
         colors: Koloreak
         compact: Trinkoa
@@ -132,10 +133,18 @@ eu:
         hex_code: Hex kodea
         icons: Ikonoak
         main_colors: Kolore nagusiak
+        plain_text: Testu argia naiz
+        plain_text_description: Lehen argudio gisa, testu argi bat eta hash objektu bat eman ditzakezu
+        plain_text_vs_hash: Testu argia Vs Hash
         rgba_code: RGBA kodea
+        send: Bidali
+        sizes: Neurrriak
         source_code: Iturburu Kodea
         state: Egoera
         tailwind: Tailwind izena
+        text: Testua
+        transparent: Gardena
+        transparent_description: 'Hondo ilunagoa izanez gero:'
         typography_texts: Tipografia eta testuak
         usage: Erabilera
         usage_background_1: Atzealdea alde batera utzita
@@ -158,6 +167,7 @@ eu:
         usage_typography_4: Loturak eta botoiak
         value: Balioa
         variations: Aldakuntzak
+        variations_description: Hiru bertsio ezberdin daude gelaxka honi buruz. Bakoitza hobeto egokitzen da erakusten ari den testuingurura.
         variations_text: Jarduera motari dagokionez, zelulak eduki ezberdinak erakuts ditzake, baliabide ezberdinen berri emanez, espazio parte-hartzaile batekoak izan ala ez, autore bat duena ala ez.
       home:
         index:
