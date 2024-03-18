@@ -35,6 +35,8 @@ en:
           title: Cards
         follow:
           title: Follow
+        share:
+          title: Share
       foundations:
         accessibility:
           accessibility_labels: Accessibility labels
@@ -199,6 +201,8 @@ en:
         rgba_code: RGBA code
         search: Search
         send: Send
+        share_button: Share Button
+        share_usage_description_html: Make sure the partial <code>decidim/shared/share_modal</code> is present in the DOM. This partial is placed in the application layout.
         sizes: Sizes
         sortition_l: sortition_l
         sortitions: Sortitions
