@@ -20,7 +20,7 @@ For performance, an endorsable has a counter cache of endorsements.
 |   ((Proposal,...))   |                                   +-------------+
 +----------------------+  0..N +--------------------+   +--+Decidim::User|
 |-has_many endorsements|-------+Decidim::Endorsement|   |  +-------------+
-|#counter cahce column |       +--------------------+   |
+|#counter cache column |       +--------------------+   |
 |-endorsements_counter |       |-author: may be a   |<--+
 +----------------------+       |         user or a  |   |
                                |         user_group |   |  +------------------+
@@ -81,7 +81,7 @@ To render this button, `decidim-core` offers the `decidim/endorsement_buttons` c
 cell("decidim/endorsement_buttons", resource)
 ----
 
-This cell, renders the endorsements counter and the endorsement button by default. But it has the possibility to be invoked to render elements sepparately.
+This cell, renders the endorsements counter and the endorsement button by default. But it has the possibility to be invoked to render elements separately.
 
 [source,ruby]
 ----

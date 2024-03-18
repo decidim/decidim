@@ -8,7 +8,7 @@ shared_examples "manage process categories examples" do
     login_as user, scope: :user
     visit decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
     within_admin_sidebar_menu do
-      click_link "Categories"
+      click_on "Categories"
     end
   end
 

@@ -10,7 +10,7 @@ describe "show" do
 
   before do
     visit_component
-    click_link(id: "proposals__proposal_#{proposal.id}")
+    click_on(id: "proposals__proposal_#{proposal.id}")
   end
 
   context "when shows the proposal component" do

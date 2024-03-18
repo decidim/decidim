@@ -1,0 +1,179 @@
+---
+en:
+  decidim:
+    design:
+      components:
+        accordions:
+          content_panel: Content of the panel
+          demo: Demo
+          demo_description: Throughout the application the accordions are used, mainly, to show/hide content in tabs or fold/unfold visible texts.
+          description_accordions_html: Accordions are a javascript feature available thanks to an external library called %{link_code} a11y-accordion-component.
+          github_source_html: Source code on GitHub %{github_link}
+          panel: Panel
+          title: Accordions
+          trigger: Trigger
+          usage: Usage
+          usage_p: An accordion requires at least three elements
+          usage_p_1_html: 1. A wrapper <code>div</code>, with the data-attribute <code>data-component="accordion"</code>, over all the available triggers and panels.
+          usage_p_2_html: 2. A trigger element, user actionable (as a button), pointing to the collapsable element through <code>data-controls="panel"</code>, where <i>panel</i> is the <code>id</code> of the panel.
+          usage_p_3_html: 3. A hideable element, whose <code>id</code> matches the data-controls value the trigger refers to.
+        activities:
+          activities: Activities
+        address:
+          title: Address
+        announcement:
+          iam_an_announcement: I am an announcement
+          this_is_the_body: This is the body
+          this_is_the_title: This is the title
+          title: Announcement
+        author:
+          title: Author
+        buttons:
+          description_html: 'Buttons are built using different combinations of CSS classes: the <code>button</code> class, a size and a color.'
+          title: Buttons
+      foundations:
+        accessibility:
+          accessibility_labels: Accessibility labels
+          accessibility_labels_paragraph: When defining elements, always make sure they make sense for screen reader users.
+          accessibility_title: Accessibility
+          adjacent_links: Adjacent links
+          adjacent_links_header: Adjacent links for the same resource
+          adjacent_links_paragraph: If the same resource has multiple adjacent links pointing to it, it makes it difficult for such users to glance through the page because they might need to go through multiple links to get to the next resource.
+          color_contrast: Color contrast
+          color_contrast_paragraph: When creating user interfaces or modifying the colors, always make sure that you are not breaking accessibility with your changes. You can use the Color contrast checker to ensure that your colors have enough contrast against the background color where they are displayed at.
+          decidim_follows_html: Decidim follows the <u>Web Content Accessibility Guidelines (WCAG) 2.1</u>
+          dynamic_changes_header: Dynamic functionality changes the page context unintuitively
+          dynamic_changes_paragraph: Changes in the form inputs should not change the context of the page automatically.
+          elements_hidden: Elements hidden
+          elements_hidden_header: Elements hidden from the accessibility API
+          elements_hidden_paragraph: To hide an element from assistive technologies, use the aria-hidden="true" attribute on it.
+          heading_on: Heading on important sections
+          here_link: here
+          illogical_heading_order: Illogical heading order
+          illogical_heading_paragraph: Every page should have a logical heading order when using the <h1>, <h2>, <h3>, <h4>, <h5> and <h6> heading elements.
+          important_sections_heading: Heading on important sections
+          important_sections_paragraph: It is highly important that each important section of the page has a heading to make it easier to understand what important sections are on the page just by browsing through its headings.
+          links_and_buttons: Links and Buttons
+          links_and_buttons_paragraph: The anchor elements (i.e. links) are meant to link to different pages or to anchor positions within the page. If the element is supposed to e.g. open some hidden item on that page, you should use the <button> element instead.
+          see_further_info_html: See further info %{link}
+          unique_h1: Unique H1
+          unique_h1_paragraph: Every page should have a unique H1 heading on it
+          use_aria: Use ARIA
+          use_aria_header: Use ARIA attributes where possible
+          use_aria_paragraph: Many elements that provide interactive functionality on the website require ARIA attributes on them to make them accessible.
+        color:
+          color_header: Color
+          description_p1: We provide a Base palette with few colors so simple customizations are easy. You can modify the Base palette either in the Administration area or in the Tailwind configuration file if you need more advanced customization.
+          description_p2_html: When customizing your colors, have in mind the %{contrast_link}. You can check the contrast of your choosing with %{checker_link} or other similar tools.
+          wcag_compliant_rations: WCAG 2.1 AA compliant contrast ratio
+          wcag_contrast_checker: WebAIM Contrast Checker
+        iconography:
+          description_iconography: We use icons to reinforce the meaning of actions, titles, etc
+          description_iconography_html: 'We use the Remixicon open source library: %{iconography_link}'
+          title: Iconography
+        layout:
+          breakpoint: Breakpoint
+          breakpoints: Breakpoints
+          centered: Centered
+          code: Code
+          columns: Being the number of columns 10, 8 or 6.
+          description_layout_p1: For desktop, Decidim uses a 12 column grid with limited number of templates (grid configurations) for different types of content. The objective is that a given type of content (homepage, list of elements, individual item) has a distinctive layout, so users can understand in which kind of content they are just by the general look of the page.
+          description_layout_p2: These simple rules should be followed when creating new modules or customizing existing ones, so a Decidim site can maintain its consistency.
+          desktop: Desktop
+          full_width: Full width
+          layout_list_1: 'Homepage (of the site, of an space): full width'
+          layout_list_2: 'List of elements (of spaces, of items inside a space, etc): left aside'
+          layout_list_3: 'Individual item (proposal, blog post): centered, optionally with a right aside'
+          left_aside: Left aside
+          mobile: Mobile
+          not_required: Not required
+          properties: Properties
+          right_aside: Right Aside
+          section_p_breakpoints: 'To manage the responsive max-width of elements we rely on the default `container` Tailwind class, which states the following breakpoints:'
+          section_p_code: When implementing new modules you have some helpers that automatically provides you with the code needed to setup the HTML structure. You should use these helpers instead of directly using div elements with classes, so you maintain consistency.
+          section_p_code_html: You can find the basic layouts in %{link_section_code}
+          section_p_desktop: Desktop grid system is composed of 12 flexible columns with a gutter between columns of 16px and left and right margins of 48px
+          section_p_mobile: Mobile grid system is composed of 4 flexible columns with a gutter between columns of 16px and left and right margins of 16px. For sizes below 320px this margins are set to 8px
+          section_p_tablet: Tablet grid system is composed of 8 flexible columns with a gutter between columns of 16px and left and right margins of 24px
+          tablet: Tablet
+          title: Layout
+        typography:
+          description: These guidelines summarize how use typography at Decidim, and serve as guardrails for designers to design freely with best typographic practices in mind.
+          headings:
+            characters: Characters per line
+            layout: Layout cols
+            size: Size
+          title: Typography
+          typefaces_description_1: Decidim uses Source Sans Pro as primary typeface. This typeface supports 310 languages
+          typefaces_description_2: This fonts are licensed under the Open Font License
+      helpers:
+        activity: Activity
+        address_description: Address cell receives a resource, and searches the geolocalizable attributes to render an specific markup.
+        address_description_2: Depending of the type of the content, the address could be an online url. For such cases, the displayed information is quite the same but shaped to fit.
+        argument: Argument
+        avatar: Avatar
+        avatar_description: It is used when there are narrow spaces, where the author is a secondary information.
+        background: Background and borders
+        base: Base
+        callout_class: Callout Class
+        callout_description: This attribute applies an status to the announcement. By default, it uses secondary color.
+        colors: Colors
+        compact: Compact
+        compact_description: This author version is the common way to identify the resource creator.
+        context: Context
+        context_description: This cell display some information about a user. It a visual help to identify the resource/content creator. Hovering with the mouse displays a tooltip with further info and links to its profile.
+        context_description_2: For resources, this cell appears beneath the main heading. For other contents, it appears next to the content itself.
+        default: Default
+        default_description: Calling the cell with no extra arguments, but the user itself.
+        demo: Demo
+        demo_text: 'This cell receives a model of LastActivity items and displays the following elements:'
+        demo_text_2: Used by the last activity page, in a content block and within the dropdowns.
+        disabled: Disabled
+        form_elements: Form elements
+        hex_code: Hex code
+        icons: Icons
+        main_colors: Main Colors
+        plain_text: I am just plain text
+        plain_text_description: You can provide as first argument both a plain text and a hash object
+        plain_text_vs_hash: Plain Text Vs Hash
+        rgba_code: RGBA code
+        send: Send
+        sizes: Sizes
+        source_code: Source Code
+        state: State
+        tailwind: Tailwind name
+        text: Text
+        transparent: Transparent
+        transparent_description: 'In case of a darker background:'
+        typography_texts: Typography and texts
+        usage: Usage
+        usage_background_1: Aside background
+        usage_background_2: Selected sidebar filter background
+        usage_background_3: Default icon color
+        usage_background_4: Lines and separators
+        usage_background_5: Footer background
+        usage_background_6: Admin layout background
+        usage_base_1: Main nav component background\nNav menus in homepage and space home
+        usage_base_2: Main color for links and buttons
+        usage_base_3: Graphic ornaments and accent color\nCards and list items hover state border
+        usage_formelements_1: Input elements default background
+        usage_formelements_2: Input elements disabled state background
+        usage_state_1: Success notice border\nAlert notice icon fill\nButton background on success message
+        usage_state_2: Warning notice border
+        usage_state_3: Alert notice border\nAlert notice icon fill
+        usage_typography_1: Headings and section titles
+        usage_typography_2: Inline text
+        usage_typography_3: Text over dark background
+        usage_typography_4: Links and buttons
+        value: Value
+        variations: Variations
+        variations_description: There are three different versions of this cell. Each one fits better regarding the context it is being displayed.
+        variations_text: Regarding the type of activity, the cell could show different content, reporting the distinct resources, whether belong to a participatory space or not, has an author or not.
+      home:
+        index:
+          by_sharing_principles: By sharing the principles, philosophy, and rationale behind design decisions we want to empower the community to contribute with consistency so we reach the best participant experience.
+          decidim_guide: The guide to design all things Decidim
+          different_ui_components: At the same time, we document the different UI components and patterns in use, that should be reused or extended.
+          github_source: Source code on GitHub
+          home_header: Decidim Design Guide
+          welcome_sentence: Welcome to the Decidim Design Guide (DDG). This guide is the resource for designers and developers who need to customize, develop new modules, and integrate new features.

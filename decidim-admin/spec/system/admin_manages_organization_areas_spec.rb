@@ -16,12 +16,12 @@ describe "Organization Areas" do
     before do
       login_as admin, scope: :user
       visit decidim_admin.root_path
-      click_link "Settings"
-      click_link "Areas"
+      click_on "Settings"
+      click_on "Areas"
     end
 
     it "can create new areas" do
-      click_link "Add"
+      click_on "Add"
 
       within ".item__edit-form" do
         fill_in_i18n :area_name, "#area-name-tabs", en: "My area",
@@ -54,8 +54,8 @@ describe "Organization Areas" do
       end
 
       it "can edit them" do
-        within find("tr", text: translated(area.name)) do
-          click_link "Edit"
+        within "tr", text: translated(area.name) do
+          click_on "Edit"
         end
 
         within ".item__edit-form" do
@@ -78,7 +78,7 @@ describe "Organization Areas" do
         expect(page).to have_admin_callout("successfully")
 
         within "#areas" do
-          expect(page).not_to have_content(translated(area.name))
+          expect(page).to have_no_content(translated(area.name))
         end
       end
 
@@ -97,8 +97,8 @@ describe "Organization Areas" do
   private
 
   def click_delete_area
-    within find("tr", text: translated(area.name)) do
-      accept_confirm { click_link "Delete" }
+    within "tr", text: translated(area.name) do
+      accept_confirm { click_on "Delete" }
     end
   end
 end

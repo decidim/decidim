@@ -8,8 +8,6 @@ module Decidim
 
     include ActionView::Helpers::FormOptionsHelper
     include Decidim::FiltersHelper
-    include Decidim::LayoutHelper
-    include Decidim::IconHelper
 
     private
 

@@ -2,7 +2,6 @@
 
 module Decidim
   class ChangeNicknameEvent < Decidim::Events::SimpleEvent
-    include Decidim::Events::NotificationEvent
     delegate :organization, to: :user, prefix: false
     delegate :url_helpers, to: "Decidim::Core::Engine.routes"
 

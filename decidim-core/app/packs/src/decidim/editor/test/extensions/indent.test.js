@@ -141,7 +141,7 @@ describe("Indent", () => {
       expect(editor.getHTML()).toEqual("<p>Hello, world!</p>");
     });
 
-    it("does not oudent the content if the selection is not at the beginning of the line", async () => {
+    it("does not outdent the content if the selection is not at the beginning of the line", async () => {
       await updateContent(editorElement, '<p class="editor-indent-2">Hello, world!</p>');
 
       editorElement.focus();

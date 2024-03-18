@@ -59,7 +59,7 @@ module Decidim
         @pad_id ||= [reference, token].join("-").slice(0, 50)
       end
 
-      # compatibilize with old versions if no salt available (less secure)
+      # compatibility with old versions if no salt available (less secure)
       def token
         if defined?(salt) && salt.present?
           tokenizer = Decidim::Tokenizer.new(salt:)

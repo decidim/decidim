@@ -5,8 +5,6 @@ module Decidim
     # This cell renders the percentage of responses which chose
     # the given answer option in a meeting poll question
     class QuestionResponsesCell < Decidim::ViewModel
-      include ActionView::Helpers::NumberHelper
-
       def show
         render
       end

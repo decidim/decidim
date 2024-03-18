@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     class InitiativeSerializer < Decidim::Exporters::Serializer
-      # Serializes an inititative
+      # Serializes an initiative
       def serialize
         {
           id: resource.id,

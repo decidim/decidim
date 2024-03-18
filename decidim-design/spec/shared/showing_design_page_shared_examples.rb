@@ -3,7 +3,7 @@
 shared_examples "showing the design page" do |title, content|
   it "shows the page" do
     within ".design__navigation" do
-      click_link title
+      click_on title
     end
 
     within "main" do

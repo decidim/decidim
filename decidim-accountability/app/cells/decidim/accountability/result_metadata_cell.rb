@@ -4,13 +4,7 @@ module Decidim
   module Accountability
     # This cell renders metadata for an instance of a Result
     class ResultMetadataCell < Decidim::CardMetadataCell
-      include Decidim::SanitizeHelper
-      include Decidim::TranslationsHelper
-      include ActiveSupport::NumberHelper
-      include Decidim::ResourceReferenceHelper
-      include Decidim::ResourceVersionsHelper
       include Decidim::Accountability::Engine.routes.url_helpers
-      include Decidim::LayoutHelper
 
       delegate :start_date, :end_date, :status, :category, :parent, :reference, to: :model
 
@@ -75,7 +69,7 @@ module Decidim
         return if status.blank?
 
         {
-          text: translated_attribute(status.name),
+          text: decidim_escape_translated(status.name),
           icon: "focus-2-line"
         }
       end
@@ -114,12 +108,12 @@ module Decidim
         {
           text: t("models.result.fields.status", scope: "decidim.accountability"),
           icon: "focus-2-line",
-          value: translated_attribute(status.name)
+          value: decidim_escape_translated(status.name)
         }
       end
 
       def status_description
-        return unless status.present? && (description = translated_attribute(status.description)).present?
+        return unless status.present? && (description = decidim_escape_translated(status.description)).present?
 
         {
           text: t("models.status.fields.description", scope: "decidim.accountability"),

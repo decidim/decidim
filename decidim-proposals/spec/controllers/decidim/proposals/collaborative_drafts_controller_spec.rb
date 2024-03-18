@@ -21,7 +21,7 @@ module Decidim
       end
 
       describe "GET index" do
-        context "when invoked without paramters" do
+        context "when invoked without parameters" do
           it "returns a list of open collaborative drafts by updated_at" do
             get :index
 

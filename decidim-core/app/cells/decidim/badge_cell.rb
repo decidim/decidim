@@ -2,11 +2,7 @@
 
 module Decidim
   class BadgeCell < Decidim::ViewModel
-    include Decidim::ApplicationHelper
     include Decidim::Core::Engine.routes.url_helpers
-    include Decidim::IconHelper
-
-    delegate :current_user, to: :controller
 
     def small
       render "small"

@@ -13,9 +13,9 @@ describe "Admin lists authorizations" do
     switch_to_host(organization.host)
     login_as admin, scope: :user
     visit decidim_admin.root_path
-    click_link "Participants"
+    click_on "Participants"
     within_admin_sidebar_menu do
-      click_link "Authorizations"
+      click_on "Authorizations"
     end
   end
 

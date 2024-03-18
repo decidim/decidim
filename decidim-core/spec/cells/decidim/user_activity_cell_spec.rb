@@ -83,9 +83,9 @@ describe Decidim::UserActivityCell, type: :cell do
     end
 
     within ".pagination" do
-      expect(page).to have_selector("li.page.current", text: "1")
-      expect(page).to have_selector("li.page a", text: "2")
-      expect(page).not_to have_selector("li.page a", text: "3")
+      expect(page).to have_css("li.page.current", text: "1")
+      expect(page).to have_css("li.page a", text: "2")
+      expect(page).to have_no_selector("li.page a", text: "3")
     end
   end
 
@@ -102,8 +102,8 @@ describe Decidim::UserActivityCell, type: :cell do
       end
 
       within ".pagination" do
-        expect(page).to have_selector("li.page a", text: "1")
-        expect(page).to have_selector("li.page.current", text: "2")
+        expect(page).to have_css("li.page a", text: "1")
+        expect(page).to have_css("li.page.current", text: "2")
       end
     end
   end
@@ -127,7 +127,7 @@ describe Decidim::UserActivityCell, type: :cell do
         comment_link = "#{root_link}?commentId=#{log.resource.id}#comment_#{log.resource.id}"
         title = html_truncate(translated_attribute(log.resource.root_commentable.title), length: 80)
 
-        expect(subject).not_to have_link(title, href: comment_link)
+        expect(subject).to have_no_link(title, href: comment_link)
       end
       logs.last(10).each do |log|
         root_link = Decidim::ResourceLocatorPresenter.new(log.resource.root_commentable).path
@@ -137,7 +137,7 @@ describe Decidim::UserActivityCell, type: :cell do
         expect(subject).to have_link(title, href: comment_link)
       end
 
-      expect(subject).not_to have_selector(".pagination")
+      expect(subject).to have_no_selector(".pagination")
     end
   end
 end

@@ -151,7 +151,7 @@ module Decidim
           end
 
           context "when all rows are new" do
-            it "positions are setted by order of reception" do
+            it "positions are set by order of reception" do
               matrix_rows_by_position = subject.matrix_rows_by_position
               (1..3).each do |idx|
                 question_matrix_row_form = matrix_rows_by_position[idx - 1]

@@ -33,7 +33,7 @@ describe "Private Space Debate" do
         visit_component
 
         within "aside" do
-          expect(page).not_to have_link("New debate")
+          expect(page).to have_no_link("New debate")
         end
       end
     end
@@ -60,7 +60,7 @@ describe "Private Space Debate" do
           visit_component
 
           within "aside" do
-            expect(page).not_to have_link("New debate")
+            expect(page).to have_no_link("New debate")
           end
         end
       end
@@ -91,7 +91,7 @@ describe "Private Space Debate" do
         it "allows create a debate" do
           visit_component
 
-          click_link "New debate"
+          click_on "New debate"
 
           within ".new_debate" do
             fill_in :debate_title, with: "Creating my debate"

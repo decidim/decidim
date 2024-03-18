@@ -14,7 +14,7 @@ module Decidim
   #
   # :resource_name - an optional name for a resource for searching only that
   #    type of resources.
-  # :user - an optional `Decidim::User` that performed the activites
+  # :user - an optional `Decidim::User` that performed the activities
   # :current_user - an optional `Decidim::User` for defining whether to show the
   #   private log entries that relate to the current user.
   # :follows - a collection of `Decidim::Follow` resources. It will return any

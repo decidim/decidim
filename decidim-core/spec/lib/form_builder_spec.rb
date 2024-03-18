@@ -229,7 +229,7 @@ module Decidim
           expect(parsed.css("label")).not_to be_empty
 
           expect(parsed.css("li.tabs-title a").count).to eq 3
-          expect(parsed.css(".editor.hashtags__container").count).to eq 3
+          expect(parsed.css(".editor").count).to eq 3
 
           expect(parsed.css(".editor label[for='resource_short_description_en']").first).to be_nil
 
@@ -294,7 +294,6 @@ module Decidim
       end
 
       it "renders" do
-        expect(parsed.css(".hashtags__container")).not_to be_empty
         expect(parsed.css("input#resource_name_en")).not_to be_empty
       end
     end
@@ -763,7 +762,7 @@ module Decidim
           attached?: present?,
           attachment: double(
             blob:,
-            "image?" => image?
+            image?: image?
           )
         )
       end

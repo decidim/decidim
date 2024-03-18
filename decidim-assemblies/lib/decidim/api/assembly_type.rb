@@ -54,12 +54,12 @@ module Decidim
       field :twitter_handler, String, "Twitter handler", null: true
       field :instagram_handler, String, "Instagram handler", null: true
       field :facebook_handler, String, "Facebook handler", null: true
-      field :youtube_handler, String, "Youtube handler", null: true
-      field :github_handler, String, "Github handler", null: true
+      field :youtube_handler, String, "YouTube handler", null: true
+      field :github_handler, String, "GitHub handler", null: true
       field :announcement, Decidim::Core::TranslatedFieldType, "Highlighted announcement for this assembly", null: true
 
       field :members, [Decidim::Assemblies::AssemblyMemberType, { null: true }], "Members of this assembly", null: false
-      field :children, [Decidim::Assemblies::AssemblyType, { null: true }], "Childrens of this assembly", null: false
+      field :children, [Decidim::Assemblies::AssemblyType, { null: true }], "Children of this assembly", null: false
 
       def hero_image
         object.attached_uploader(:hero_image).path

@@ -12,13 +12,13 @@ module Decidim
     describe "output_policy" do
       it { is_expected.to respond_to(:output_policy) }
       it { expect(subject.output_policy).to be_a(String) }
-      it { expect(subject.output_policy).to include("default-src 'self' 'unsafe-inline'; ") }
-      it { expect(subject.output_policy).to include("script-src 'self' 'unsafe-inline' 'unsafe-eval';") }
-      it { expect(subject.output_policy).to include("style-src 'self' 'unsafe-inline';") }
-      it { expect(subject.output_policy).to include("img-src 'self' *.hereapi.com data:;") }
-      it { expect(subject.output_policy).to include("connect-src 'self' *.hereapi.com *.jsdelivr.net data:;") }
-      it { expect(subject.output_policy).to include("font-src 'self';") }
-      it { expect(subject.output_policy).to include("frame-src 'self' www.youtube-nocookie.com player.vimeo.com;") }
+      it { expect(subject.output_policy).to include("default-src 'self' 'unsafe-inline'") }
+      it { expect(subject.output_policy).to include("script-src 'self' 'unsafe-inline' 'unsafe-eval'") }
+      it { expect(subject.output_policy).to include("style-src 'self' 'unsafe-inline'") }
+      it { expect(subject.output_policy).to include("img-src 'self' *.hereapi.com data:") }
+      it { expect(subject.output_policy).to include("connect-src 'self' *.hereapi.com data:") }
+      it { expect(subject.output_policy).to include("font-src 'self'") }
+      it { expect(subject.output_policy).to include("frame-src 'self' www.youtube-nocookie.com player.vimeo.com") }
       it { expect(subject.output_policy).to include("media-src 'self'") }
     end
 
@@ -28,18 +28,18 @@ module Decidim
       it { expect(subject.append_csp_directive("default-src", "https://example.org")).to include("https://example.org") }
 
       context "when policies as passed as hash" do
-        let(:additional_content_security_policies) { { "img-src": %w('self') } } # rubocop:disable Lint/PercentStringArray
+        let(:additional_content_security_policies) { { "img-src": ["'self'"] } }
 
         it "does not raise any errors" do
-          expect { subject.output_policy }.not_to raise_error(RuntimeError)
+          expect { subject.output_policy }.not_to raise_error
         end
       end
 
       context "when policies as passed as string" do
-        let(:additional_content_security_policies) { { "img-src" => %w('self') } } # rubocop:disable Lint/PercentStringArray
+        let(:additional_content_security_policies) { { "img-src" => ["'self'"] } }
 
         it "does not raise any errors" do
-          expect { subject.output_policy }.not_to raise_error(RuntimeError)
+          expect { subject.output_policy }.not_to raise_error
         end
       end
 

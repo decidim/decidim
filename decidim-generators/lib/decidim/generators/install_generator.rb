@@ -186,7 +186,7 @@ module Decidim
         rails "db:test:prepare"
       end
 
-      # Runs rails commands in a subprocess, and aborts if it does not suceeed
+      # Runs rails commands in a subprocess, and aborts if it does not succeed
       def rails(*)
         abort unless system("bin/rails", *)
       end

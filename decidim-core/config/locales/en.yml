@@ -79,6 +79,9 @@ en:
     'false': 'No'
     'true': 'Yes'
   date:
+    buttons:
+      close: Close
+      select: Select
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d-%m-%Y"
@@ -86,6 +89,10 @@ en:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Format: dd/mm/yyyy'
+      order: d-m-y
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -810,9 +817,9 @@ en:
           email_subject: A user group has updated its profile
           notification_title: The %{user_group_name} user group has updated its profile, leaving it unverified. You can now verify it in the <a href="%{groups_admin_path}">admin panel</a>.
       nickname_event:
-        notification_body: We have corrected the way nicknames are used so that there are no duplicates, and that is why we have removed the case sensitive rule. <br/> Your nickname was created after another one with the same name, so we have automatically renamed it. You can change it from <a href="%{link_to_account_settings}">your account settings</a>.
+        notification_body: We have corrected the way nicknames are used so that there are no duplicates, and that is why we have removed the case-sensitive rule. <br/> Your nickname was created after another one with the same name, so we have automatically renamed it. You can change it from <a href="%{link_to_account_settings}">your account settings</a>.
       notification_event:
-        notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: An event occurred to <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: An administrator removed your %{resource_type} because it has been reported as %{report_reasons}.
@@ -877,7 +884,7 @@ en:
       create:
         button: Follow
         error: There was a problem following this resource.
-        participatory_space: Following <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Following <span>%{resource_name}</span>
       destroy:
         button: Stop following
         error: There was a problem unfollowing this resource.
@@ -891,14 +898,14 @@ en:
         file:
           explanation: 'Guidance for file:'
           message_1: Has to be an image or a document.
-          message_2: For images, use preferrably landscape images, the service crops the image.
+          message_2: For images, use preferably landscape images, the service crops the image.
         icon:
           explanation: 'Guidance for icon:'
           message_1: Has to be a square image.
           message_2: The recommended size for this image is 512x512.
         image:
           explanation: 'Guidance for image:'
-          message_1: Preferrably a landscape image that does not have any text.
+          message_1: Preferably a landscape image that does not have any text.
           message_2: The service crops the image.
       file_validation:
         allowed_file_extensions: 'Allowed file extensions: %{extensions}'
@@ -1216,7 +1223,7 @@ en:
         token_error: The link has expired.
         unsubscribe: Unsubscribe
     newsletters_opt_in:
-      unathorized: Sorry, this link is no longer available.
+      unauthorized: Sorry, this link is no longer available.
       update:
         error: There was a problem saving the newsletter settings.
         success: Newsletter settings successfully updated.
@@ -2026,6 +2033,10 @@ en:
     x: X
     xing: Xing
   time:
+    buttons:
+      close: Close
+      reset: Reset
+      select: Select
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2040,6 +2051,8 @@ en:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      help:
+        time_format: 'Format: hh:mm'
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
       long_with_particles: "%B %d, %Y at %H:%M"

@@ -11,12 +11,6 @@ module Decidim
 
         def attributes = super.merge(decidim_initiatives_types_id: form.context.type_id)
 
-        def create_resource(soft: false)
-          super(soft:)
-        rescue ActiveRecord::RecordInvalid
-          raise Decidim::Commands::HookError
-        end
-
         def resource_class = Decidim::InitiativesTypeScope
       end
     end

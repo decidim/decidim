@@ -12,11 +12,11 @@ module Decidim
       describe "when content contains urls" do
         let(:content) { <<~EOCONTENT }
           Content with <a href="http://urls.net" onmouseover="alert('hello')">URLs</a> of anchor type and text urls like https://decidim.org.
-          And a malicous <a href="javascript:document.cookies">click me</a>
+          And a malicious <a href="javascript:document.cookies">click me</a>
         EOCONTENT
         let(:result) { <<~EORESULT }
           Content with URLs of anchor type and text urls like <a href="https://decidim.org" target="_blank" rel="nofollow noopener noreferrer ugc">https://decidim.org</a>.
-          And a malicous click me
+          And a malicious click me
         EORESULT
 
         it "converts all URLs to links and strips attributes in anchors" do
@@ -140,7 +140,8 @@ module Decidim
 
         context "when proposal has an answer that was not published yet" do
           before do
-            proposal.update!(answer: "an answer", state: "accepted", answered_at: Time.current)
+            proposal.assign_state("accepted")
+            proposal.update!(answer: "an answer", answered_at: Time.current)
           end
 
           it "only consider the first version" do
@@ -156,7 +157,8 @@ module Decidim
           let(:proposal) { create(:proposal) }
 
           before do
-            proposal.update!(answer: "an answer", state: "accepted", answered_at: Time.current)
+            proposal.assign_state("accepted")
+            proposal.update!(answer: "an answer", answered_at: Time.current)
             proposal.update!(state_published_at: Time.current)
           end
 
@@ -165,11 +167,11 @@ module Decidim
           end
 
           it "does not include state on the first version" do
-            expect(subject.first.changeset.keys).not_to include("state")
+            expect(subject.first.changeset.keys).not_to include("decidim_proposals_proposal_state_id")
           end
 
           it "includes the state and the state_published_at fields in the last version" do
-            expect(subject.last.changeset.keys).to include("state", "state_published_at")
+            expect(subject.last.changeset.keys).to include("decidim_proposals_proposal_state_id", "state_published_at")
           end
         end
       end
@@ -180,14 +182,14 @@ module Decidim
 
         include_context "with editor content containing hashtags and mentions"
 
-        it "converts the hastags and mentions to WYSIWYG editor ready elements" do
+        it "converts the hashtags and mentions to WYSIWYG editor ready elements" do
           expect(subject.editor_body).to eq(editor_html)
         end
 
         context "when modifying all locales" do
           let(:content) { { en: html, es: html } }
 
-          it "converts the hastags and mentions to WYSIWYG editor ready elements" do
+          it "converts the hashtags and mentions to WYSIWYG editor ready elements" do
             expect(subject.editor_body(all_locales: true)).to eq("en" => editor_html, "es" => editor_html)
           end
         end

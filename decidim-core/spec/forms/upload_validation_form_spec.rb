@@ -54,7 +54,7 @@ module Decidim
       end
     end
 
-    context "when resouce class is missing" do
+    context "when resource class is missing" do
       let(:resource_class) { nil }
 
       it "is invalid" do

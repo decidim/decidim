@@ -93,8 +93,8 @@ module Decidim
       # Public: Builds a list of Decidim::Scopes where the user could have a
       # valid authorization.
       #
-      # If the intiative is set with a global scope (meaning the scope is nil),
-      # all the scopes in the organizaton are valid.
+      # If the initiative is set with a global scope (meaning the scope is nil),
+      # all the scopes in the organization are valid.
       #
       # Returns an array of Decidim::Scopes.
       def authorized_scope_candidates
