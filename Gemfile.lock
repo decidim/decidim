@@ -802,9 +802,6 @@ DEPENDENCIES
   decidim-templates!
   letter_opener_web (~> 2.0)
   listen (~> 3.1)
-  net-imap (~> 0.2.3)
-  net-pop (~> 0.1.1)
-  net-smtp (~> 0.3.1)
   parallel_tests (~> 4.2)
   puma (>= 6.3.1)
   spring (~> 4.0)
