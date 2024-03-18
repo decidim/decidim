@@ -130,6 +130,11 @@ module Decidim
         gsub_file "config/environments/production.rb", /config\.assets.*$/, ""
       end
 
+      def add_sprockets_configuration
+        # Create an empty file so Sprockets 4 do not complain
+        create_file "app/assets/config/manifest.js"
+      end
+
       def copy_migrations
         rails "decidim:choose_target_plugins", "railties:install:migrations"
         recreate_db if options[:recreate_db]
