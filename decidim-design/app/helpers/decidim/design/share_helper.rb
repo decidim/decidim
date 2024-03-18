@@ -8,7 +8,6 @@ module Decidim
           {
             id: "usage",
             title: t("decidim.design.helpers.usage"),
-
             contents: [
               {
                 type: :text,
