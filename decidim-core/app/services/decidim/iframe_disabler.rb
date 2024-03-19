@@ -19,7 +19,7 @@ module Decidim
     def disable_iframes(node)
       if node.name == "iframe"
         # Default title for accessibility
-        node["title"] ||= I18n.t("decidim.shared.embed.title")
+        node["title"] = I18n.t("decidim.shared.embed.title") if node["title"].blank?
         # Disable scrollbar for some embed services
         node["scrolling"] = "no"
         orig_node = node.to_s

@@ -42,6 +42,17 @@ describe Decidim::IframeDisabler do
       end
     end
 
+    context "when the iframe's title attribute is empty" do
+      let(:iframe) { %(<iframe src="https://www.youtube.com/embed/f6JMgJAQ2tc" title="" scrolling="no"></iframe>) }
+      let(:text) { %(<iframe src="https://www.youtube.com/embed/f6JMgJAQ2tc" title="Embedded video content" scrolling="no"></iframe>) }
+
+      it "adds the default title to the iframe node" do
+        expect(subject).to eq(
+          %(<div class="disabled-iframe"><!-- #{text} --></div>)
+        )
+      end
+    end
+
     context "when the iframe is a sub-node" do
       let(:text) { %(<div><div>#{iframe}</div></div>) }
 
