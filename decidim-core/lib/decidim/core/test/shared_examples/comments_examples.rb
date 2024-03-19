@@ -57,7 +57,7 @@ shared_examples "comments" do
       expect(page).not_to have_content("Comments are disabled at this time")
       expect(page).to have_css(".comment", minimum: 1)
 
-      within("#accordion-#{single_comment.id}") do
+      within "#comment_#{single_comment.id}" do
         expect(page).to have_content "Hide replies"
       end
     end
@@ -73,7 +73,7 @@ shared_examples "comments" do
         expect(page).not_to have_content("Comments are disabled at this time")
         expect(page).to have_css(".comment", minimum: 1)
 
-        within("#accordion-#{single_comment.id}") do
+        within "#comment_#{single_comment.id}" do
           expect(page).not_to have_content "Hide replies"
         end
       end
