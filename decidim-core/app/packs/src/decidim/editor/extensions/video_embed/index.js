@@ -165,6 +165,9 @@ export default Node.create({
 
           src = videoDialog.getValue("src");
           title = videoDialog.getValue("title");
+          if (title && title.trim().length < 1) {
+            title = null;
+          }
           if (!src || src.length < 1) {
             this.editor.commands.focus(null, { scrollIntoView: false });
             return false;
