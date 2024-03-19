@@ -1,15 +1,15 @@
 <% content_for :heading do %>
-  <%= cell "decidim/announcement", "This page comes from a legacy view. Content is outdated.", callout_class: "alert" %>
+  <%= cell "decidim/announcement", t(".header_alert"), callout_class: "alert" %>
   <%= t(".title") %>
 <% end %>
 
 <% content_for :toc do %>
-  <a href="#common">HTML regular inputs</a>
-  <a href="#helps">Help texts</a>
-  <a href="#disabled">Disabled</a>
-  <a href="#error">Errors</a>
-  <a href="#length">Min/Max length</a>
-  <a href="#emoji">Emojis</a>
+  <a href="#common"><%= t(".html_regular_inputs") %></a>
+  <a href="#helps"><%= t(".help_texts") %></a>
+  <a href="#disabled"><%= t(".disabled") %></a>
+  <a href="#error"><%= t(".errors") %></a>
+  <a href="#length"><%= t(".min_max_length") %></a>
+  <a href="#emoji"><%= t(".emojis") %></a>
 <% end %>
 
 <%

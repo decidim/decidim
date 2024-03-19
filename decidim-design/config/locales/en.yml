@@ -36,6 +36,14 @@ en:
         follow:
           title: Follow
         forms:
+          disabled: Disabled
+          emojis: Emojis
+          errors: Errors
+          header_alert: This page comes from a legacy view. Content is outdated.
+          help_texts: Help texts
+          html_regular_inputs: HTML regular inputs
+          min_max_length: Min/Max length
+
           title: Forms
         report:
           title: Report
