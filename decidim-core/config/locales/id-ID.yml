@@ -413,8 +413,6 @@ id:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah anggota grup itu.
           email_subject: Anda telah dikeluarkan dari grup %{user_group_name}!
           notification_title: Anda telah dikeluarkan dari grup <a href="%{resource_path}">%{user_group_name}</a>.
-      notification_event:
-        notification_title: Peristiwa terjadi pada <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
           email_intro: Halaman <a href="%{resource_url}">profil</a> dari %{name} (%{nickname}), yang Anda ikuti, telah diperbarui.

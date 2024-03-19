@@ -6,7 +6,7 @@ module Decidim
       # A command with all the business logic that updates an
       # existing initiative type.
       class UpdateInitiativeType < Decidim::Commands::UpdateResource
-        include ::Decidim::AttachmentAttributesMethods
+        fetch_file_attributes :banner_image
 
         fetch_form_attributes :title, :description, :signature_type, :attachments_enabled, :comments_enabled,
                               :undo_online_signatures_enabled, :custom_signature_end_date_enabled, :area_enabled,
@@ -15,16 +15,6 @@ module Decidim
                               :child_scope_threshold_enabled, :only_global_scope_enabled
 
         protected
-
-        def update_resource
-          super
-        rescue ActiveRecord::RecordInvalid
-          raise Decidim::Commands::HookError
-        end
-
-        def attributes
-          super.merge(attachment_attributes(:banner_image))
-        end
 
         def run_after_hooks
           resource.initiatives.signature_type_updatable.each do |initiative|

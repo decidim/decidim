@@ -296,7 +296,7 @@ fr-CA:
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
             social_handlers: Réseaux sociaux
             title: Informations générales
-            visbility: Visibilité
+            visibility: Visibilité
         assemblies_types:
           form:
             title: Titre
@@ -310,7 +310,7 @@ fr-CA:
           form:
             existing_user: Utilisateur existant
             explanation: 'Instruction concernant l’image:'
-            image_guide: De préférence une image en format portrait sans texte.
+            image_guide: De préférence une image au format portrait ne contenant pas de texte.
             non_user: Utilisateur inconnu
             non_user_avatar_help: Vous devriez obtenir le consentement des personnes avant de les publier en tant que membre.
             select_a_position: Sélectionnez un statut

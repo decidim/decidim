@@ -280,7 +280,6 @@ zh-TW:
       block_user:
         new:
           action: 封鎖帳號並且發送理由
-          already_reported_html: 繼續操作也會隱藏所有參與者內容， <a href="%{link}">封鎖這個帳號</a>。
           description: 封鎖一個使用者會讓他的帳號無法使用，可以在此提供建議說明如何取消封鎖
           justification: 理由
           title: 封鎖使用者 %{name}
@@ -346,7 +345,6 @@ zh-TW:
         title: 驗證衝突
         transfer:
           email: 電子郵件
-          error: 轉移現在參與者到管理參與者時發生錯誤
           name: 名稱
           reason: 理由
           success: 目前的轉換完成
@@ -355,8 +353,6 @@ zh-TW:
         user_name: 使用者
       dashboard:
         pending_moderations:
-          anouncement:
-            other: 有 %{count} 個操作等待中
           goto_moderation: 前往全域管理
           title: 等待的操作
         show:
@@ -540,6 +536,7 @@ zh-TW:
         help_sections: 幫助部分
         homepage: 首頁
         impersonations: 模擬登錄
+        manage: 管理
         moderation: 全局審查
         newsletters: 電子報
         participants: 參與者
