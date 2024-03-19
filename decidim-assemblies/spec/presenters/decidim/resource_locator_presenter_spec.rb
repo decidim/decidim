@@ -47,13 +47,13 @@ module Decidim
       describe "#show" do
         subject { described_class.new(participatory_space).show }
 
-        it { is_expected.to start_with("/admin/#{admin_route_fragment}") }
+        it { is_expected.to eq("/admin/#{admin_route_fragment}") }
       end
 
       describe "#edit" do
         subject { described_class.new(participatory_space).edit }
 
-        it { is_expected.to start_with("/admin/#{admin_route_fragment}/edit") }
+        it { is_expected.to eq("/admin/#{admin_route_fragment}/edit") }
       end
     end
 
@@ -93,19 +93,19 @@ module Decidim
       describe "#admin_index" do
         subject { described_class.new([resource, nested_resource]).admin_index }
 
-        it { is_expected.to start_with("/admin/#{admin_route_fragment}/components/1/manage/dummy_resources/1/nested_dummy_resources") }
+        it { is_expected.to eq("/admin/#{admin_route_fragment}/components/1/manage/dummy_resources/1/nested_dummy_resources") }
       end
 
       describe "#show" do
         subject { described_class.new([resource, nested_resource]).show }
 
-        it { is_expected.to start_with("/admin/#{admin_route_fragment}/components/1/manage/dummy_resources/1/nested_dummy_resources/1") }
+        it { is_expected.to eq("/admin/#{admin_route_fragment}/components/1/manage/dummy_resources/1/nested_dummy_resources/1") }
       end
 
       describe "#edit" do
         subject { described_class.new([resource, nested_resource]).edit }
 
-        it { is_expected.to start_with("/admin/#{admin_route_fragment}/components/1/manage/dummy_resources/1/nested_dummy_resources/1/edit") }
+        it { is_expected.to eq("/admin/#{admin_route_fragment}/components/1/manage/dummy_resources/1/nested_dummy_resources/1/edit") }
       end
     end
 
