@@ -480,6 +480,9 @@ gl:
         button: Deixar de seguir
         error: Houbo un erro ao seguir este recurso.
     forms:
+      file_help:
+        file:
+          message_2: Nas imaxes, emprega preferiblemente as apaisadas, o servizo recorta a imaxe.
       upload:
         labels:
           add_attachment: Engadir ficheiro anexo

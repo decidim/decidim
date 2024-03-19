@@ -434,6 +434,7 @@ lb:
         help_sections: Hilfeabschnitte
         homepage: Startseite
         impersonations: Identitätswechsel
+        manage: Verwalten
         moderation: Globale Moderationen
         newsletters: Newsletter
         participants: Teilnehmer

@@ -310,7 +310,6 @@ zh-CN:
             select_an_area: 选择区域
             select_process_group: 选择一个流程组
             title: 一般信息
-            visbility: 可见性
       content_blocks:
         highlighted_processes:
           name: 高亮的进程

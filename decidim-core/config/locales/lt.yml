@@ -1225,7 +1225,6 @@ lt:
         token_error: Nuorodos galiojimo laikas baigėsi.
         unsubscribe: Atsisakyti prenumeratos
     newsletters_opt_in:
-      unathorized: Atsiprašome, šios nuorodos nebėra.
       update:
         error: Išsaugant naujienlaiškių nuostatas iškilo problema.
         success: Naujienlaiškio nuostatos atnaujintos.

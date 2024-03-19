@@ -41,8 +41,6 @@ ga:
           choose:
             offline: As líne
             online: Ar líne
-        dni: Cárta ID
-        nie: Cárta ID Eachtrannaigh
       postal_letter:
         admin:
           pending_authorizations:

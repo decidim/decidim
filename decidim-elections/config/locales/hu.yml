@@ -105,6 +105,8 @@ hu:
         unpublish: Közzététel visszavonása
       admin:
         answers:
+          create:
+            success: A válasz létrehozása sikeres.
           edit:
             title: Válasz szerkesztése
             update: Válasz frissítése
@@ -207,6 +209,10 @@ hu:
         menu:
           votings_submenu:
             monitoring_committee: Ellenőrző Bizottság
+        polling_officers:
+          index:
+            role_manager: menedzser
+            role_president: elnök
         votings:
           form:
             census_contact_information_help: Ez a kapcsolatfelvételi információ azoknak a résztvevőknek szól, akik a népszámlálással kapcsolatos problémákat szeretnének jelenteni. Ez lehet e-mail cím, kapcsolatfelvételi űrlap egy másik oldalon, kérdőív a látogatók számára, stb.
@@ -221,6 +227,11 @@ hu:
               no_polling_stations: Még nem vagy kijelölve egyetlen szavazóhelyiséghez sem.
               role: A te szereped
               voting: Szavazás
+      polling_officers:
+        roles:
+          manager: Menedzser
+          president: Elnök
+          unassigned: Nem hozzárendelt
       votings:
         check_census:
           success:

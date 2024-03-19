@@ -326,6 +326,8 @@ sv:
           name: Andra HTML-block
         html_3:
           name: Tredje HTML-block
+        main_data:
+          name: Titel och beskrivning
         participatory_processes:
           name: Dialoger
         stats:

@@ -109,6 +109,9 @@ cs:
             pending_orders: Čeká na hlasování
             select_for_implementation: Vybrat pro implementaci
             selected: Vybrané
+            selected_options:
+              'no': 'Ne'
+              'yes': 'Ano'
             title: Projekty
             update: Aktualizovat
             update_budget_button: Aktualizovat rozpočet projektu

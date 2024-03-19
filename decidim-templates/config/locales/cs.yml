@@ -10,7 +10,6 @@ cs:
   decidim:
     admin:
       menu:
-        manage: Spravovat
         templates: Šablony
       templates:
         actions:

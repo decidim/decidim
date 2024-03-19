@@ -167,8 +167,6 @@
           new:
             send: Be om verifikasjon
             title: Last opp dine identitetsdokumentet
-        dni: DNI
-        nie: NIE
         passport: Pass
       postal_letter:
         admin:

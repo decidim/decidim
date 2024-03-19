@@ -201,6 +201,8 @@ hu:
             down: Le
             remove: Eltávolítás
             up: Fel
+          create:
+            success: Napirend létrehozása sikeres.
           edit:
             title: Napirend szerkesztése
             update: Frissítés
@@ -246,6 +248,7 @@ hu:
             title: Ttalálkozó lezárása
         meetings:
           create:
+            invalid: Probléma történt a találkozó létrehozása során.
             success: A találkozó létrehozása sikeres - a nyilvánossá tételhez manuálisan kell publikálnia.
           destroy:
             invalid:
@@ -416,6 +419,9 @@ hu:
           create_as: Ülés létrehozása mint
         meetings:
           upcoming_meetings_warning: Jelenleg nincs ütemezett találkozó, de itt megtalálhatod az összes korábbi találkozó listáját.
+        new:
+          create: Létrehoz
+          title: Találkozó létrehozása
         registration_confirm:
           cancel: Mégse
           confirm: Megerősítés
@@ -471,6 +477,7 @@ hu:
       registrations:
         create:
           invalid: Probléma történt a találkozóhoz való csatlakozáskor.
+          success: Sikeresen csatlakoztál a találkozóhoz. Mivel regisztráltál a találkozóra, értesítünk, ha frissülnek az információk.
         decline_invitation:
           invalid: Hiba történt a meghívás visszautasítása során.
           success: Meghívás elutasítása sikeres.

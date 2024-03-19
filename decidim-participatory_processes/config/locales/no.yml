@@ -12,15 +12,22 @@
         decidim_area_id: Område
         description: Beskrivelse
         developer_group: Promotørgruppe
+        document: Dokument
         domain: Domene
         end_date: Sluttdato
         hashtag: Emneknagg
         hero_image: Hovedbilde
+        import_attachments: Importer vedlegg
+        import_categories: Importer kategorier
+        import_components: Importer komponenter
+        import_steps: Importer trinn
         local_area: Organisasjonsområde
         meta_scope: Omfang av metadata
         participatory_process_group_id: Prosessgruppe
+        participatory_process_type_id: Prosesstype
         participatory_scope: Medvirkningen gjelder
         participatory_structure: Hvordan det blir gjort
+        private_space: Privat prosess
         promoted: Fremhevet
         published_at: Publisert på
         related_process_ids: Relaterte prosesser
@@ -63,6 +70,12 @@
         email: Epost
         name: Navn
         role: Rolle
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              allowed_file_content_types: 'Ugyldig dokumenttype. Bare filer med følgende filtyper er tillatt: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Fase er aktivert
       decidim/participatory_process_step_changed_event: Fase endret
@@ -87,6 +100,7 @@
         duplicate: Kopier
         edit: Rediger
         import_process: Importer
+        moderate: Moderér
         new_process: Ny prosess
         new_process_group: Ny prosessgruppe
         new_process_step: Ny medvirkningsfase
@@ -95,7 +109,11 @@
         preview: Forhåndsvis
         publish: Publiser
         resend_invitation: Send invitasjonen på nytt
+        see_process: Se prosess
         unpublish: Avpubliser
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Etter prosessgruppe
       menu:
         participatory_process_groups: Prosessgrupper
         participatory_process_groups_submenu:
@@ -109,6 +127,8 @@
           attachments: Vedlegg
           categories: Kategorier
           components: Komponenter
+          info: Om denne prosessen
+          landing_page: Landingsside
           moderations: Moderering
           private_users: Private brukere
           process_admins: Prosessadministratorer
@@ -116,6 +136,7 @@
       models:
         participatory_process:
           fields:
+            actions: Handlinger
             created_at: Opprettet på
             private: Privat
             published: Publisert
@@ -194,8 +215,18 @@
           success: Medvirkningsfasen er blitt opprettet.
         default_title: Introduksjon
         destroy:
+          error:
+            active_step: Kan ikke slette den aktive fasen.
+            last_step: Kan ikke slette siste fase i en prosess.
           success: Medvirkningsfasen ble slettet.
         edit:
+          cta_deprecated:
+            body_html: |-
+              Å konfigurere CTA gjennom trinnene i en prosess vil bli faset ut i det nye designet.
+              Nå gjøres dette i <b>Landingsside</b>ved hjelp av innholdsblokken <b>Topptekst og bilde</b>.
+              Vi har latt det står igjen her for deg så du kan migrere CTA som du trenger. Feltene <i>Call-to-action-sti</i> og
+              <i>Call-to-action-tekst</i> vil bli fjernet i neste versjon.
+            title: CTA foreldet
           title: Rediger medvirkningsfase
           update: Oppdater
         index:
@@ -212,6 +243,17 @@
         create:
           error: Det oppstod et problem med å lage en ny prosesstype.
           success: Prosesstypen ble opprettet.
+        destroy:
+          success: Prosesstypen ble slettet.
+        edit:
+          title: Rediger prosesstype
+          update: Oppdater
+        new:
+          create: Opprett
+          title: Ny prosesstype
+        update:
+          error: Det oppsto et problem med å oppdatere denne prosesstypen.
+          success: Prosesstypen ble oppdatert.
       participatory_process_user_roles:
         create:
           error: Det oppstod et problem med å legge til en deltaker for denne prosessen.
@@ -239,6 +281,7 @@
           private: Privat
           public: Offentlig
           published: Publisert
+          unpublished: Upublisert
         new:
           create: Opprett
           title: Ny prosess
@@ -255,6 +298,7 @@
           success: Prosessgruppen ble opprettet.
       titles:
         participatory_process_groups: Prosessgrupper
+        participatory_process_types: Prosesstyper
         participatory_processes: Deltakende prosesser
       users:
         resend_invitation:
@@ -310,13 +354,24 @@
         title: Deltakende prosesser
     participatory_process_groups:
       content_blocks:
+        extra_data:
+          developer_group: Promotert av
+          name: Nøkkeldata
+          participatory_scope: Medvirkningen gjelder
+          participatory_structure: Hvordan det blir gjort
+          target: Hvem kan delta
+        html:
+          name: HTML blokk
         html_1:
           name: Første HTML-blokk
         html_2:
           name: Andre HTML-blokk
         html_3:
           name: Tredje HTML-blokk
+        main_data:
+          name: Tittel og beskrivelse
         participatory_processes:
+          active: Aktive prosesser
           name: Deltakende prosesser
         stats:
           name: Aktivitet
@@ -334,13 +389,17 @@
       admin:
         content_blocks:
           highlighted_processes:
+            active: Aktiv
+            all: Alle
             max_results: Maksimalt antall elementer som vises
+            selection_criteria: Utvalgskriterier
         new_import:
           accepted_types:
             json: JSON
         participatory_process_groups:
           form:
             metadata: Metadata
+            title: Om denne prosessen
             visibility: Synlighet
         participatory_process_imports:
           form:

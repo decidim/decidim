@@ -132,8 +132,6 @@ id:
           new:
             send: Meminta verifikasi
             title: Unggah dokumen identitas Anda
-        dni: DNI
-        nie: NIE
         passport: Paspor
       postal_letter:
         admin:

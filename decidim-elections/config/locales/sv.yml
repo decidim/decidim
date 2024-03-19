@@ -32,6 +32,7 @@ sv:
         title: Titel
       voting:
         banner_image: Bannerbild
+        description: Beskrivning
         end_time: Omröstningen avslutas
         promoted: Annonserad
         scope_id: Omfång
@@ -455,6 +456,8 @@ sv:
         content_blocks:
           header:
             name: Omröstningsbanner
+          main_data:
+            name: Titel och beskrivning
           metrics:
             name: Omröstningsmetrik
         index:

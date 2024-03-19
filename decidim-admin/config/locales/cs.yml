@@ -288,7 +288,7 @@ cs:
       block_user:
         new:
           action: Blokovat účet a odeslat odůvodnění
-          already_reported_html: Pokračováním v této akci také skryjete veškerý obsah účastníků. <a href="%{link}">Blokujte účet</a>.
+          already_reported_html: Pokračováním v této akci také skryjete veškerý obsah účastníků.
           description: Blokováním uživatele bude jejich účet nepoužitelný. Ve svém zdůvodnění můžete uvést veškerá pravidla pro způsob, jakým byste uvažovali o odblokování uživatele.
           justification: Odůvodnění
           title: Blokovat uživatele %{name}
@@ -378,17 +378,14 @@ cs:
           update: Aktualizovat
       dashboard:
         pending_moderations:
-          anouncement:
-            one: Je zde %{count} čekající na moderování
-            few: Jsou zde %{count} čekající na moderování
-            many: Je zde %{count} čekajících na moderování
-            other: Je tu %{count} čekajících na moderování
           goto_moderation: Přejít na globální moderaci
           title: Čekající moderování
         show:
           dropdown: Rozbalovací nabídka
           view_more_logs: Zobrazit další protokoly
       domain_whitelist:
+        form:
+          domain_too_short: Doména je příliš krátká
         update:
           error: Nepodařilo se aktualizovat seznam povolených domén.
           success: Seznam povolených domén byl úspěšně aktualizován.
@@ -581,9 +578,11 @@ cs:
         areas: Oblasti
         configuration: Konfigurace
         content: Nahlášený obsah
+        external_domain_whitelist: Povolené externí domény
         help_sections: Sekce nápovědy
         homepage: Domovská stránka
         impersonations: V zastoupení
+        manage: Spravovat
         moderation: Globální moderace
         newsletters: Zpravodaje
         participants: Účastníci
@@ -867,6 +866,11 @@ cs:
       organization_external_domain_whitelist:
         edit:
           update: Aktualizace
+        external_domain:
+          down: Dolů
+          external_domain: Externí doména
+          remove: Odstranit
+          up: Nahoru
         form:
           add: Přidat do seznamu povolených
           title: Seznam externích povolených domén

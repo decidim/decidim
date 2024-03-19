@@ -284,7 +284,6 @@ lt:
             select_parent_assembly: Pasirinkti pagrindinę asamblėją
             social_handlers: Socialiniai
             title: Bendroji informacija
-            visbility: Matomumas
         assemblies_types:
           form:
             title: Pavadinimas

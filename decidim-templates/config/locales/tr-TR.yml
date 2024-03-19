@@ -35,6 +35,8 @@ tr:
         proposal_answer_templates:
           form:
             save: Kaydet
+          index:
+            internal_state: İçsel durum
         questionnaire_templates:
           choose:
             create_from_template: Şablondan Oluştur

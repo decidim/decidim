@@ -62,6 +62,7 @@ hu:
         personal_url: Személyes URL-cím
         position: Pozíció
         short_bio: Rövid önéletrajz
+        twitter_handle: X kezelő
         user_id: Felhasználó
       conference_user_role:
         email: Email
@@ -88,6 +89,12 @@ hu:
     admin:
       actions:
         confirm: Megerősít
+        new_conference: Új konferencia
+        new_conference_user_role: Új konferencia admin
+        new_media_link: Új média link
+        new_partner: Új partner
+        new_registration_type: Új regisztrációtípus
+        new_speaker: Új előadó
         send_diplomas: Küldési igazolások küldése
       conference_copies:
         new:
@@ -151,6 +158,7 @@ hu:
           title: Általános információ
         index:
           published: Közzétett
+          unpublished: Nem publikált
         new:
           create: Teremt
           title: konferencia
@@ -190,11 +198,13 @@ hu:
           conference_invites: Meghívottak
           conference_speakers: Előadók
           diploma: Tanúsítvány a jelenlétről
+          info: Erről a konferenciáról
           media_links: Média linkek
           moderations: moderálások
           partners: Partnerek
           registration_types: Regisztráció típusok
           registrations: Regisztrációk
+          see_conference: Konferencia megtekintése
           user_registrations: Felhasználói regisztrálások
       models:
         conference:
@@ -444,6 +454,7 @@ hu:
           are_you_new?: Új résztvevő?
           login_as: '%{name} <%{email}> -ként jelentkeztél be'
           make_conference_registration: Regisztráció a konferenciára
+          manage_registration: Regisztráció kezelése
           register: Regisztráció
           sign_in_description: Jelentkezzen be a konferenciára történő regisztrációhoz
           sign_up_description: Hozzon létre egy fiókot a konferenciára való jelentkezéshez
@@ -489,6 +500,7 @@ hu:
         home:
           highlighted_conferences:
             active_spaces: Aktív konferenciák
+            see_all_spaces: Az összes konferencia megtekintése
       registration_types:
         index:
           choose_an_option: 'Válassza ki a regisztrációs lehetőséget:'
@@ -557,6 +569,7 @@ hu:
   layouts:
     decidim:
       conference_hero:
+        manage_registration: Regisztráció kezelése
         register: Regisztráció
       conferences:
         conference:

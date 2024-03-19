@@ -167,8 +167,6 @@ it:
           new:
             send: Richiedi la verifica
             title: Carica il tuo documento di identità
-        dni: DNI
-        nie: NIE
         passport: Passaporto
       postal_letter:
         admin:

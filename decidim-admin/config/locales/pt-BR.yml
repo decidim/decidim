@@ -288,7 +288,6 @@ pt-BR:
       block_user:
         new:
           action: Bloquear conta e enviar justificativa
-          already_reported_html: Continuar com essa ação você também ocultará o conteúdo de todos os participantes. <a href="%{link}">Bloqueie a conta</a>.
           description: Bloquear um usuário irá tornar sua conta inutilizável. Você pode fornecer em sua justificação quaisquer diretrizes sobre como você poderia considerar desbloquear o usuário.
           justification: Justificativa
           title: Bloquear usuário %{name}
@@ -378,9 +377,6 @@ pt-BR:
           update: Atualizar
       dashboard:
         pending_moderations:
-          anouncement:
-            one: Existem %{count} pendentes de moderação
-            other: Existem %{count} moderações pendentes
           goto_moderation: Ir para moderações globais
           title: Moderações pendentes
         show:
@@ -574,6 +570,7 @@ pt-BR:
         help_sections: Seções de ajuda
         homepage: Pagina inicial
         impersonations: Imitações
+        manage: Gerenciar
         moderation: Moderadores globais
         newsletters: Newsletters
         participants: Participantes

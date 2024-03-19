@@ -10,7 +10,6 @@ ja:
   decidim:
     admin:
       menu:
-        manage: 管理
         templates: テンプレート
       templates:
         actions:

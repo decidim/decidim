@@ -241,7 +241,6 @@ pt-BR:
             notification_title: Sua proposta <a href="%{resource_path}">%{resource_title}</a> foi aceita.
           follower:
             email_intro: 'A proposta "%{resource_title}" foi aceita. Você pode ler a resposta nesta página:'
-            email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi aceita.
         proposal_evaluating:
           affected_user:
@@ -251,7 +250,6 @@ pt-BR:
             notification_title: Sua proposta <a href="%{resource_path}">%{resource_title}</a> está sendo avaliada.
           follower:
             email_intro: 'A proposta "%{resource_title}" está sendo avaliada atualmente. Você pode verificar uma resposta nesta página:'
-            email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> está sendo avaliada.
         proposal_mentioned:
           email_intro: Sua proposta "%{mentioned_proposal_title}" foi mencionada <a href="%{resource_url}">neste espaço</a> nos comentários.
@@ -277,7 +275,6 @@ pt-BR:
             notification_title: Sua proposta <a href="%{resource_path}">%{resource_title}</a> foi rejeitada.
           follower:
             email_intro: 'A proposta "%{resource_title}" foi rejeitada. Você pode ler a resposta nesta página:'
-            email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi rejeitada.
         proposal_update_category:
           email_intro: 'Um administrador atualizou a categoria de sua proposta "%{resource_title}", confira:'

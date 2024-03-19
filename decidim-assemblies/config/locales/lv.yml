@@ -241,7 +241,6 @@ lv:
             select_parent_assembly: Izvēlieties saistīto asambleju
             social_handlers: Sociālie plašsaziņas līdzekļi
             title: Vispārēja informācija
-            visbility: Redzamība
         assemblies_types:
           form:
             title: Nosaukums

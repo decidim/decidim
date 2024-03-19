@@ -20,7 +20,7 @@ de:
           any: Gemischt
           offline: Angesicht zu Angesicht
           online: Online
-        state: Zustand
+        state: Status
         title: Titel
         type_id: Typ
       initiatives_committee_member:
@@ -88,7 +88,7 @@ de:
           decidim_area_id_eq:
             label: Bereich
           state_eq:
-            label: Zustand
+            label: Status
             values:
               accepted: Ausreichend Unterschriften
               created: Erstellt
@@ -124,7 +124,7 @@ de:
             created_at: Erstellt am
             id: ID
             published_at: Veröffentlicht am
-            state: Zustand
+            state: Status
             supports_count: Unterschriften
             title: Initiativen
         initiatives_type_scope:
@@ -219,9 +219,9 @@ de:
           info_initiative:
             created_at: Erstellt am
             description: Beschreibung
-            initiative_votes_count: Stimmen zählen
+            initiative_votes_count: Anzahl Stimmen
             initiatives: Initiativen
-            state: Zustand
+            state: Status
         committee_requests:
           index:
             approve: Genehmigen
@@ -481,7 +481,7 @@ de:
           author: Autor
           myself: Meine Initiativen
           scope: Umfang
-          state: Zustand
+          state: Status
           type: Art
         index_header:
           new_initiative: Neue Initiative

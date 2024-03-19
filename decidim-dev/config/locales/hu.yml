@@ -20,8 +20,8 @@ hu:
               bar: Oszlop
               foo: foo
           step:
-            endorsements_blocked: Jóváhagyások letiltva
-            endorsements_enabled: Jóváhagyások engedélyezve
+            endorsements_blocked: Támogatások letiltva
+            endorsements_enabled: Támogatások engedélyezve
             test_options:
               bar: Oszlop
               foo: foo

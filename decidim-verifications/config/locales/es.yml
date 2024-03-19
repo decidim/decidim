@@ -232,8 +232,7 @@ es:
           update:
             error: Se ha producido un error al volver a cargar tu documento.
             success: El documento se ha vuelto a cargar correctamente.
-        dni: DNI
-        nie: NIE
+        identification_number: Número de identificación
         passport: Pasaporte
       postal_letter:
         admin:
