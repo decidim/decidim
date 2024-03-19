@@ -177,8 +177,6 @@ is-IS:
         email_intro: 'Það hefur verið uppfært í "%{resource_title}". Þú getur séð það frá þessari síðu:'
         email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}". Þú getur sleppt því frá fyrri tengilinn.
         email_subject: Uppfærsla á %{resource_title}
-      notification_event:
-        notification_title: Atburður átti sér stað <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">prófíl síðu</a> af %{name} (%{nickname}), sem þú fylgist með, hefur verið uppfærð.

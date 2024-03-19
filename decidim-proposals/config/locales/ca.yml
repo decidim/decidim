@@ -30,6 +30,8 @@ ca:
         cost: Cost
         cost_report: Informe de cost
         execution_period: Període d'execució
+      proposal_state:
+        announcement_title: Encapçalament de la resposta
       proposals_copy:
         copy_proposals: Entenc que això importarà totes les propostes del component seleccionat a l'actual i que aquesta acció no es pot desfer.
         origin_component_id: Component des d'on importar les propostes
@@ -68,15 +70,12 @@ ca:
               not_official: No son oficials
               supported: Han rebut suports o adhesions
     models:
-      decidim/proposals/accepted_proposal_event: S'ha acceptat la proposta
       decidim/proposals/admin/update_proposal_category_event: S'ha canviat la categoria de la proposta
       decidim/proposals/admin/update_proposal_scope_event: Àmbit de la proposta modificat
       decidim/proposals/creation_enabled_event: S'ha activat la creació de propostes
       decidim/proposals/endorsing_enabled_event: S'ha habilitat les adhesions a les propostes
-      decidim/proposals/evaluating_proposal_event: S'està avaluant la proposta
       decidim/proposals/proposal_mentioned_event: Proposta esmentada
       decidim/proposals/publish_proposal_event: Proposta publicada
-      decidim/proposals/rejected_proposal_event: S'ha rebutjat la proposta
       decidim/proposals/voting_enabled_event: Les propostes admeten suports
   activerecord:
     models:
@@ -103,6 +102,8 @@ ca:
             values:
               'false': Propostes
               'true': Esmenes
+          proposal_state_id_eq:
+            label: Estat
           scope_id_eq:
             label: Àmbit
           state_eq:
@@ -268,28 +269,6 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: L'adhesió a les propostes de %{participatory_space_title} ha començat
           notification_title: Ara ja pots començar a <a href="%{resource_path}">adherir-te a propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        proposal_accepted:
-          affected_user:
-            email_intro: 'S''ha acceptat la teva proposta "%{resource_title}". Pots llegir la resposta en aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè ets autora de "%{resource_title}".
-            email_subject: S'ha acceptat la teva proposta
-            notification_title: S'ha acceptat la teva proposta <a href="%{resource_path}">%{resource_title}</a>.
-          follower:
-            email_intro: 'S''ha acceptat la proposta "%{resource_title}". Pots llegir la resposta des d''aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
-            email_subject: S'ha acceptat una proposta que segueixes
-            notification_title: S'ha acceptat la proposta <a href="%{resource_path}">%{resource_title}</a>.
-        proposal_evaluating:
-          affected_user:
-            email_intro: 'La teva proposta "%{resource_title}" s''està avaluant. Pots consultar la resposta en aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè ets autora de "%{resource_title}".
-            email_subject: S'està avaluant la teva proposta
-            notification_title: S'està avaluant la teva proposta <a href="%{resource_path}">%{resource_title}</a>.
-          follower:
-            email_intro: 'La proposta "%{resource_title}" s''està avaluant actualment. Pots consultar una resposta en aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
-            email_subject: S'està avaluant una proposta que segueixes
-            notification_title: S'ha avaluat la proposta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_mentioned:
           email_intro: La teva proposta "%{mentioned_proposal_title}" ha estat esmentada als comentaris <a href="%{resource_url}">en aquest espai</a>.
           email_outro: Has rebut aquesta notificació perquè ets autora de "%{resource_title}".
@@ -306,17 +285,17 @@ ca:
           email_subject: Nova proposta "%{resource_title}" afegida a %{participatory_space_title}
           notification_title: '%{author} ha afegit la proposta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}.'
           notification_title_official: S'ha afegit la proposta oficial <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}.
-        proposal_rejected:
+        proposal_state_changed:
           affected_user:
-            email_intro: 'La teva proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta en aquesta pàgina:'
+            email_intro: 'La proposta "%{resource_title}" ha canviat d''estat a "%{state}". Pots llegir la resposta en aquesta pàgina:'
             email_outro: Has rebut aquesta notificació perquè ets autora de "%{resource_title}".
-            email_subject: La teva proposta ha estat rebutjada
-            notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a> ha estat rebutjada.
+            email_subject: La teva proposta ha canviat el seu estat (%{state})
+            notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a>ha canviat el seu estat a "%{state}".
           follower:
-            email_intro: 'La proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta des d''aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
-            email_subject: S'ha rebutjat una proposta que segueixes
-            notification_title: S'ha rebutjat la proposta <a href="%{resource_path}">%{resource_title}</a>.
+            email_intro: 'La proposta "%{resource_title}" ha canviat d''estat a "%{state}". Pots llegir la resposta en aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}". Pots deixar de seguir-ho des de l'enllaç anterior.
+            email_subject: Una proposta que segueixes ha canviat el seu estat (%{state})
+            notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a>ha canviat el seu estat a "%{state}".
         proposal_update_category:
           email_intro: 'Una administradora ha actualitzat la categoria de la teva proposta "%{resource_title}", fes-hi una ullada:'
           email_outro: Has rebut aquesta notificació perquè ets autora de la proposta.
@@ -391,9 +370,13 @@ ca:
     proposals:
       actions:
         answer_proposal: Respondre a la proposta
+        delete_proposal_state_confirm: Segur que vols esborrar aquest estat?
+        destroy: Esborrar estat
         edit_proposal: Edita la proposta
+        edit_proposal_state: Editar estat
         import: Importar des d'un altre component
         new: Nova proposta
+        new_proposal_state: Nou estat
         participatory_texts: Textos participatius
         show: Veure proposta
         title: Accions
@@ -471,11 +454,7 @@ ca:
             success: El text participatiu s'ha actualitzat correctament.
         proposal_answers:
           form:
-            accepted: Acceptades
             answer_proposal: Resposta
-            evaluating: En avaluació
-            not_answered: No resposta
-            rejected: Rebutjada
             title: Respondre a la proposta %{title}
         proposal_notes:
           create:
@@ -486,6 +465,23 @@ ca:
             submit: Enviar
           leave_your_note: Deixa la teva nota
           title: Notes privades
+        proposal_states:
+          create:
+            error: Error en crear l'estat
+            success: Estat creat correctament
+          destroy:
+            success: Estat esborrat amb èxit
+          edit:
+            title: Editar estat
+            update: Actualizar
+          index:
+            title: Estats
+          new:
+            create: Crear
+            title: Nou estat
+          update:
+            error: Hi ha hagut un error actualitzant l'estat
+            success: Estat actualitzat correctament
         proposals:
           answer:
             invalid: Hi ha hagut un problema en respondre a aquesta proposta.
@@ -517,6 +513,7 @@ ca:
             selected: seleccionat
             split: Dividir propostes
             split_button: Dividir
+            statuses: Estats
             title: Propostes
             unassign_from_valuator: Desfer assignació a avaluadora
             unassign_from_valuator_button: Desfer assignació
@@ -607,11 +604,8 @@ ca:
           participants: Participants
           user_groups: Grups
         filter_state_values:
-          accepted: Acceptada
           all: Totes
-          evaluating: En avaluació
           not_answered: No resposta
-          rejected: Rebutjada
         filter_type_values:
           all: Totes
           amendments: Esmenes
@@ -744,6 +738,9 @@ ca:
             valuator: Avaluadora
             valuators: Avaluadores
             votes: Suports
+        proposal_state:
+          css_class: Classe CSS
+          title: Estat
       new:
         limit_reached: No pots crear noves propostes perquè has superat el límit.
       participatory_text_proposal:

@@ -6,51 +6,21 @@ module Decidim
       # A command with all the business logic when creating a new participatory
       # conference in the system.
       class UpdateConference < Decidim::Commands::UpdateResource
-        include ::Decidim::AttachmentAttributesMethods
+        fetch_file_attributes :hero_image, :banner_image
 
         fetch_form_attributes :title, :slogan, :slug, :weight, :hashtag, :description, :short_description,
                               :objectives, :location, :start_date, :end_date, :promoted, :show_statistics,
                               :scopes_enabled, :scope, :registrations_enabled
 
-        # Executes the command. Broadcasts these events:
-        #
-        # - :ok when everything is valid.
-        # - :invalid if the form was not valid and we could not proceed.
-        #
-        # Returns nothing.
-        def call
-          return broadcast(:invalid) if form.invalid?
-
-          update_conference
-          link_participatory_processes
-          link_assemblies
-
-          if resource.valid?
-            broadcast(:ok, resource)
-          else
-            form.errors.add(:hero_image, resource.errors[:hero_image]) if resource.errors.include? :hero_image
-            form.errors.add(:banner_image, resource.errors[:banner_image]) if resource.errors.include? :banner_image
-            broadcast(:invalid)
-          end
-        end
-
         private
 
-        def update_conference
-          resource.assign_attributes(attributes)
-          save_conference if resource.valid?
-        end
+        def run_after_hooks
+          send_notification_registrations_enabled if should_notify_followers_registrations_enabled?
+          send_notification_update_conference if should_notify_followers_update_conference?
+          schedule_upcoming_conference_notification if start_date_changed?
 
-        def save_conference
-          transaction do
-            resource.save!
-            send_notification_registrations_enabled if should_notify_followers_registrations_enabled?
-            send_notification_update_conference if should_notify_followers_update_conference?
-            schedule_upcoming_conference_notification if start_date_changed?
-            Decidim.traceability.perform_action!(:update, resource, form.current_user) do
-              resource
-            end
-          end
+          link_participatory_processes
+          link_assemblies
         end
 
         def registration_attributes
@@ -62,7 +32,7 @@ module Decidim
           }
         end
 
-        def attributes = super.merge(registration_attributes).merge(attachment_attributes(:hero_image, :banner_image))
+        def attributes = super.merge(registration_attributes)
 
         def send_notification_registrations_enabled
           Decidim::EventsManager.publish(
@@ -110,7 +80,7 @@ module Decidim
         end
 
         def participatory_processes
-          @participatory_processes ||= resource.participatory_space_sibling_scope(:participatory_processes).where(id: @form.participatory_processes_ids)
+          @participatory_processes ||= resource.participatory_space_sibling_scope(:participatory_processes).where(id: form.participatory_processes_ids)
         end
 
         def link_participatory_processes
@@ -118,7 +88,7 @@ module Decidim
         end
 
         def assemblies
-          @assemblies ||= resource.participatory_space_sibling_scope(:assemblies).where(id: @form.assemblies_ids)
+          @assemblies ||= resource.participatory_space_sibling_scope(:assemblies).where(id: form.assemblies_ids)
         end
 
         def link_assemblies

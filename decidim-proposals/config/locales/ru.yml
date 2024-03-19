@@ -23,14 +23,11 @@ ru:
             add_photos:
               needs_to_be_reattached: Необходимо заново прикрепить
     models:
-      decidim/proposals/accepted_proposal_event: Предложение принято
       decidim/proposals/admin/update_proposal_category_event: Категория предложения изменена
       decidim/proposals/creation_enabled_event: Включена возможность создания предложений
       decidim/proposals/endorsing_enabled_event: Включена возможность поддерживать предложения
-      decidim/proposals/evaluating_proposal_event: Предложение сейчас рассматривается
       decidim/proposals/proposal_mentioned_event: Предложение упомянуто
       decidim/proposals/publish_proposal_event: Предложение обнародовано
-      decidim/proposals/rejected_proposal_event: Предложение отклонено
       decidim/proposals/voting_enabled_event: Включена возможность голосовать по поводу предложений
   activerecord:
     models:
@@ -97,16 +94,6 @@ ru:
           email_intro: 'Теперь вы можете поддерживать предложения в %{participatory_space_title}! Начните со страницы:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: В %{participatory_space_title} началось предоставление поддержки предложениям
-        proposal_accepted:
-          follower:
-            email_intro: 'Предложение "%{resource_title}" было принято. Вы можете прочитать ответ на странице:'
-            email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
-            notification_title: Предложение <a href="%{resource_path}">%{resource_title}</a> было принято.
-        proposal_evaluating:
-          follower:
-            email_intro: 'Предложение "%{resource_title}" сейчас рассматривается. Вы можете проверить наличие ответа на странице:'
-            email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
-            notification_title: Предложение <a href="%{resource_path}">%{resource_title}</a> на рассмотрении.
         proposal_mentioned:
           email_subject: Ваше предложение "%{mentioned_proposal_title}"было упомянуто
           notification_title: Ваше предложение «%{mentioned_proposal_title}» было упомянуто в комментариях <a href="%{resource_path}">в этом пространстве</a>.
@@ -116,11 +103,6 @@ ru:
         proposal_published_for_space:
           email_intro: В "%{participatory_space_title}", за которым вы следите, добавлено предложение "%{resource_title}".
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
-        proposal_rejected:
-          follower:
-            email_intro: 'Предложение "%{resource_title}" было отклонено. Вы можете прочитать ответ на странице:'
-            email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
-            notification_title: Предложение <a href="%{resource_path}">%{resource_title}</a> было отклонено.
         proposal_update_category:
           email_intro: 'Администратор обновил категорию вашего предложения «%{resource_title}», проверьте её:'
           email_outro: Вы получили это уведомление, потому что вы являетесь автором предложения.
@@ -148,10 +130,7 @@ ru:
             name: Предложение
         proposal_answers:
           form:
-            accepted: Принято
             answer_proposal: Ответить
-            evaluating: Рассматривается
-            rejected: Отклонено
             title: Ответ на предложение %{title}
         proposal_notes:
           form:

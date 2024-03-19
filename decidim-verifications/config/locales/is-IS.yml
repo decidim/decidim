@@ -69,8 +69,6 @@ is-IS:
           new:
             send: Beiðni um staðfestingu
             title: Hladdu upp skjalið þitt
-        dni: DNI
-        nie: NIE
         passport: Vegabréf
       postal_letter:
         admin:
