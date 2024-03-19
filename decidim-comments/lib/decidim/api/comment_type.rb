@@ -58,7 +58,7 @@ module Decidim
       end
 
       def up_votes
-        object.up_votes.size
+        object.up_votes_count
       end
 
       def up_voted
@@ -66,7 +66,7 @@ module Decidim
       end
 
       def down_votes
-        object.down_votes.size
+        object.down_votes_count
       end
 
       def down_voted

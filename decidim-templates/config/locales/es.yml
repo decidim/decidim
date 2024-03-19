@@ -9,7 +9,6 @@ es:
   decidim:
     admin:
       menu:
-        manage: Gestionar
         templates: Plantillas
       templates:
         actions:
@@ -70,8 +69,8 @@ es:
           index:
             component_constraint: Añadir restricción
             confirm_delete: '¿Seguro que quieres eliminar esta plantilla?'
-            global_scope: Global (disponible en todas partes)
-            internal_state: Estado interno
+            missing_state: Falta el estado
+            proposal_state_id: Estado interno
             title: Respuestas a propuestas
           new:
             title: Nueva la plantilla de respuesta a propuesta

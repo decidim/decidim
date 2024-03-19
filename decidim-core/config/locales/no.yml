@@ -560,8 +560,6 @@
           email_outro: Du har mottatt dette varselet fordi du er en administrator av plattformen.
           email_subject: En brukergruppe har oppdatert sin profil
           notification_title: Brukergruppen %{user_group_name} har oppdatert sin profil, og det er ubekreftet. Du kan nå bekrefte det i <a href="%{groups_admin_path}">admin-panelet</a>.
-      notification_event:
-        notification_title: En hendelse oppstod til <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: En administrator har fjernet din %{resource_type} fordi den er rapportert som %{report_reasons}.
@@ -615,7 +613,6 @@
       create:
         button: Følg
         error: Det oppstod et problem med å følge denne ressursen.
-        participatory_space: Følger <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Stopp å følge
         error: Det oppstod et problem med å slutte å følge denne ressursen.
@@ -630,7 +627,6 @@
           message_1: Må være et bilde eller et dokument.
         image:
           explanation: 'Veiledning for bilde:'
-          message_1: Et landskapsbilde uten tekst er å anbefale.
           message_2: Tjenesten beskjærer bildet.
       file_validation:
         allowed_file_extensions: 'Tillatte filetternavn: %{extensions}'

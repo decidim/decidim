@@ -696,8 +696,6 @@ ar:
           email_outro: تلقيت هذا الإشعار لأنك مدير في هذه المنصة.
           email_subject: قامت مجموعة من المستخدمين بتحديث ملفاتها الشخصية
           notification_title: قامت مجموعة المستخدمين %{user_group_name} بتحديث الملف الشخصي الخاص بها، تاركة ذلك غير مؤكد. يمكنك الآن تأكيدها في لوحة <a href="%{groups_admin_path}">المشرف</a>.
-      notification_event:
-        notification_title: حدث حدث ل <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: قام مسؤول بحذف %{resource_type} لأنه تم الإبلاغ عنه كـ %{report_reasons}.
@@ -766,7 +764,6 @@ ar:
       create:
         button: إتبع
         error: حدثت مشكلة بعد هذا المورد.
-        participatory_space: متابعة <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: إيقاف المتابَعة
         error: حدثت مشكلة في إلغاء متابعة هذا المورد.
@@ -779,14 +776,12 @@ ar:
         file:
           explanation: 'إرشادات الملف:'
           message_1: يجب أن تكون صورة أو وثيقة.
-          message_2: بالنسبة للصور، يُفضل استخدام صور بالوضع العرضي، تقوم الخدمة باقتصاص الصورة.
         icon:
           explanation: 'إرشادات للأيقونة:'
           message_1: يجب أن تكون صورة مربعة.
           message_2: الحجم الموصى به لهذه الصورة هو 512 × 512.
         image:
           explanation: 'إرشادات للصورة:'
-          message_1: يفضل أن تكون صورة بالوضع العرضي لا تحتوي على أي نص.
           message_2: تقوم الخدمة باقتصاص الصورة.
       file_validation:
         allowed_file_extensions: 'ملحقات الملف المسموح بها: %{extensions}'

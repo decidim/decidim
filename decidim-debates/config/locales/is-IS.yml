@@ -74,9 +74,6 @@ is-IS:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgir %{space_title} þátttakandi plássinu. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> umræðurnar voru búnar til á <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{author_nickname}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
         creation_disabled:

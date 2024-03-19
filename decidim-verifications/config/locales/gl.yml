@@ -166,8 +166,6 @@ gl:
           new:
             send: Solicitar verificación
             title: Carga o documento de identidade
-        dni: DNI
-        nie: NIE
         passport: Pasaporte
       postal_letter:
         admin:
@@ -188,8 +186,6 @@ gl:
             title: Solicita o teu código de verificación
       sms:
         authorizations:
-          destroy:
-            success: Código de verificación restablecido con éxito. Volve ingresar o teu número de teléfono.
           edit:
             confirm_destroy: '¿Estás seguro de que queres restablecer o código de verificación?'
             destroy: Restablecer o código de verificación

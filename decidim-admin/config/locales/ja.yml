@@ -287,7 +287,7 @@ ja:
       block_user:
         new:
           action: アカウントをブロックして理由を送信
-          already_reported_html: この操作を続けると、参加者のコンテンツは全て非表示になります。 <a href="%{link}">アカウントをブロック</a>。
+          already_reported_html: このアクションを続けると、参加者のすべてのコンテンツも非表示になります。
           description: ユーザーをブロックすると、そのアカウントは利用できなくなります。ユーザーのブロックを解除することを検討する方法に関するガイドラインを判定通知に含めることができます。
           justification: 判定理由
           title: ユーザー %{name} をブロックする
@@ -354,7 +354,7 @@ ja:
         title: 確認の競合
         transfer:
           email: Eメールアドレス
-          error: 参加者から管理対象参加者への移行中に問題が発生しました。
+          error: 現在の参加者を管理対象の参加者に移行する際に問題が発生しました。
           name: 名前
           reason: 理由
           success: 現在の移転が正常に完了しました。
@@ -377,8 +377,8 @@ ja:
           update: 更新
       dashboard:
         pending_moderations:
-          anouncement:
-            other: '%{count} 件の保留中のモデレーションがあります'
+          announcement:
+            other: 保留中のモデレーションが%{count} 件あります
           goto_moderation: グローバルモデレーションへ移動
           title: 保留中のモデレーション
         show:
@@ -570,6 +570,7 @@ ja:
         help_sections: ヘルプセクション
         homepage: ホームページ
         impersonations: なりすまし
+        manage: 管理
         moderation: グローバルモデレーション
         newsletters: ニュースレター
         participants: 参加者

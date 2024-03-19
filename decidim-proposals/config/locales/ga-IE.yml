@@ -96,9 +96,7 @@ ga:
               odt: ODT
         proposal_answers:
           form:
-            accepted: Glactha
             answer_proposal: Freagra
-            rejected: Diúltaithe
         proposal_notes:
           form:
             note: Nóta
@@ -136,9 +134,7 @@ ga:
           official: Oifigiúil
           user_groups: Grúpaí
         filter_state_values:
-          accepted: Glactha
           all: Uile
-          rejected: Diúltaithe
         filter_type_values:
           all: Uile
           proposals: Moltaí

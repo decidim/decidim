@@ -78,6 +78,9 @@ ca:
     'false': 'No'
     'true': 'Sí'
   date:
+    buttons:
+      close: Tancar
+      select: Seleccionar
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d-%m-%Y"
@@ -85,6 +88,10 @@ ca:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Format: dd/mm/aaaa'
+      order: d-m-a
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -802,7 +809,7 @@ ca:
           email_subject: Un grup d'usuàries ha actualitzat el seu perfil
           notification_title: El grup d'usuàries %{user_group_name} ha actualitzat el seu perfil perdent-ne la verificació. Pots tornar a verificar-lo a través del <a href="%{groups_admin_path}"> taulell d'administració</a>.
       nickname_event:
-        notification_body: S'ha corregit la manera en que es fan servir els àlies per a que no n'hi hagi de duplicats, per fer-ho ja no es distingueix entre majúscules i minúscules.<br/>El teu àlies es va crear més tard que un altre d'igual, així que se t'ha renombrat automàticament. Pots modificar el teu àlies des de la <a href="%{link_to_account_settings}">configuració del teu compte</a>.
+        notification_body: S'ha corregit la manera en que es fan servir els àlies per a que no n'hi hagi de duplicats, per fer-ho ja no es distingueix entre majúscules i minúscules.<br/>El teu àlies es va crear més tard que un altre d'igual, així que s'ha renombrat automàticament. Pots modificar el teu àlies des de la <a href="%{link_to_account_settings}">configuració del teu compte</a>.
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -869,7 +876,7 @@ ca:
       create:
         button: Seguir
         error: S'ha produït un error en seguir aquest recurs.
-        participatory_space: Seguint <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Seguint <span>%{resource_name}</span>
       destroy:
         button: Deixar de seguir
         error: S'ha produït un error en deixar de seguir aquest recurs.
@@ -883,7 +890,7 @@ ca:
         file:
           explanation: 'Instruccions per a l''arxiu:'
           message_1: Ha de ser una imatge o un document.
-          message_2: Per a les imatges, fes servir imatges apaïsades preferiblement, el servei retalla la imatge.
+          message_2: Per a les imatges, fes servir, preferiblement, imatges apaïsades, el servei retalla la imatge.
         icon:
           explanation: 'Instruccions per a la icona:'
           message_1: Ha de ser una imatge quadrada.
@@ -1208,7 +1215,7 @@ ca:
         token_error: L'enllaç ha caducat.
         unsubscribe: Anul·la la subscripció
     newsletters_opt_in:
-      unathorized: Ho sentim, aquest enllaç ja no està disponible.
+      unauthorized: Ho sentim, aquest enllaç ja no està disponible.
       update:
         error: S'ha produït un error en desar la configuració del butlletí de notícies.
         success: La configuració del butlletí de notícies s'ha actualitzat correctament.
@@ -2017,6 +2024,10 @@ ca:
     x: X
     xing: Xing
   time:
+    buttons:
+      close: Tancar
+      reset: Reiniciar
+      select: Seleccionar
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2031,6 +2042,8 @@ ca:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      help:
+        time_format: 'Format: hh:mm'
       long: "%B %d, %Y %H:%M"
       long_dashed: "%A-%m-%d %H:%M:%S"
       long_with_particles: "%d %B, de %Y a les %H:%M"
