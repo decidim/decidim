@@ -28,6 +28,7 @@ gem "decidim-dev", github: "decidim/decidim"
 ### 2.2. Run these commands
 
 ```console
+mkdir -p  app/assets/config/ && touch app/assets/config/manifest.js # For "2.2. Rails update to 7.0"
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
@@ -41,6 +42,16 @@ bin/rails db:migrate
 
 We have updated the Ruby version to 3.2.2. Upgrading to this version will require either to install this Ruby version on your host, or change the decidim docker image to use ruby:3.2.2.
 You can read more about this change on PR [#12199](https://github.com/decidim/decidim/pull/12199).
+
+## 2.2. Rails update to 7.0
+
+We have updated the Rails version to 7.0.8.1. You only need to create an empty file for sprockets-rails to work properly:
+
+```console
+mkdir -p  app/assets/config/ && touch app/assets/config/manifest.js
+```
+
+You can read more about this change on PR [#12616](https://github.com/decidim/decidim/pull/12616).
 
 ## 3. One time actions
 
