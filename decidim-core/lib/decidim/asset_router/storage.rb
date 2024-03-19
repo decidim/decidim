@@ -130,7 +130,7 @@ module Decidim
       # variant (e.g. a thumbnail) hasn't been processed yet because the variant
       # representation hasn't been requested before.
       #
-      # Due to performance reasons it is adviced to avoid requesting the assets
+      # Due to performance reasons it is advised to avoid requesting the assets
       # through the Rails representation URLs when possible because that causes
       # a lot of requests to the Rails backend and slowness to the service under
       # heavy loads.
