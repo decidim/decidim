@@ -221,7 +221,7 @@ en:
         tab_panels_usage_description_html: "<strong>enabled</strong>: <i>Boolean</i>. Conditionally render the tab"
         tab_panels_usage_description_id_html: "<strong>id</strong>: <i>String</i>. Unique id"
         tab_panels_usage_description_rails_html: "<strong>method</strong>: <i>Symbol</i>. Any function rails understands"
-        tab_panels_usage_description_remixion_html: "<strong>icon</strong>: <i>String</i>. Remixicon key"
+        tab_panels_usage_description_remixicon_html: "<strong>icon</strong>: <i>String</i>. Remixicon key"
         tab_panels_usage_description_tab_html: "<strong>text</strong>: <i>String</i>. Tab title"
         tailwind: Tailwind name
         text: Text

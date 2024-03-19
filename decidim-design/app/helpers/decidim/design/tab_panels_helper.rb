@@ -29,7 +29,7 @@ module Decidim
                   t("decidim.design.helpers.tab_panels_usage_description_html"),
                   t("decidim.design.helpers.tab_panels_usage_description_id_html"),
                   t("decidim.design.helpers.tab_panels_usage_description_tab_html"),
-                  t("decidim.design.helpers.tab_panels_usage_description_remixion_html"),
+                  t("decidim.design.helpers.tab_panels_usage_description_remixicon_html"),
                   t("decidim.design.helpers.tab_panels_usage_description_rails_html"),
                   t("decidim.design.helpers.tab_panels_usage_description_arguments_html")
                 ]
