@@ -282,7 +282,6 @@ id:
             select_an_area: Pilih suatu Area
             select_process_group: Pilih grup proses
             title: Informasi Umum
-            visbility: Visibilitas
       content_blocks:
         highlighted_processes:
           name: Proses yang disorot

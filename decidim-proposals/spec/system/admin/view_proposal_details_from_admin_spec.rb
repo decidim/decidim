@@ -38,8 +38,8 @@ describe "Admin views proposal details from admin" do
             list_item = find("li", text: author.name)
 
             within list_item do
-              expect(page).to have_selector("a", text: author.name)
-              expect(page).to have_selector(:xpath, './/a[@title="Contact"]')
+              expect(page).to have_css("a", text: author.name)
+              expect(page).to have_xpath('.//a[@title="Contact"]')
             end
           end
         end
@@ -55,7 +55,7 @@ describe "Admin views proposal details from admin" do
             list_item = find("li", text: author.name)
 
             within list_item do
-              expect(page).to have_selector("a", text: author.name)
+              expect(page).to have_css("a", text: author.name)
             end
           end
         end
@@ -244,7 +244,7 @@ describe "Admin views proposal details from admin" do
       go_to_admin_proposal_page(proposal)
 
       within "#documents" do
-        expect(page).to have_selector("a", text: translated(document.title))
+        expect(page).to have_css("a", text: translated(document.title))
         expect(page).to have_content(document.file_type)
       end
     end
@@ -257,7 +257,7 @@ describe "Admin views proposal details from admin" do
       go_to_admin_proposal_page(proposal)
 
       within "#photos" do
-        expect(page).to have_selector(:xpath, "//img[@src=\"#{image.thumbnail_url}\"]")
+        expect(page).to have_xpath("//img[@src=\"#{image.thumbnail_url}\"]")
       end
     end
   end

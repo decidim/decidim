@@ -15,8 +15,8 @@ end
 
 shared_examples "Endorse resource system specs" do
   def expect_page_not_to_include_endorsements
-    expect(page).not_to have_button("Like")
-    expect(page).not_to have_css("#resource-#{resource.id}-endorsements-count")
+    expect(page).to have_no_button("Like")
+    expect(page).to have_no_css("#resource-#{resource.id}-endorsements-count")
   end
 
   def visit_resource
@@ -91,7 +91,7 @@ shared_examples "Endorse resource system specs" do
           visit_resource
           within "[data-buttons]" do
             expect(page).to have_button("Dislike")
-            expect(page).not_to have_button("Like")
+            expect(page).to have_no_button("Like")
           end
         end
 

@@ -113,7 +113,7 @@ module TranslationHelpers
     scroll_to(find(tab_selector))
     localized_values.each do |locale, value|
       within tab_selector do
-        click_link I18n.with_locale(locale) { t("name", scope: "locale") }
+        click_on I18n.with_locale(locale) { t("name", scope: "locale") }
       end
       yield "#{field}_#{locale}", value
     end
@@ -125,7 +125,7 @@ module TranslationHelpers
     scroll_to(find(tab_selector))
     locales.each do |locale|
       within tab_selector do
-        click_link I18n.with_locale(locale) { t("name", scope: "locale") }
+        click_on I18n.with_locale(locale) { t("name", scope: "locale") }
       end
       yield "#{field}_#{locale}"
     end

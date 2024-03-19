@@ -20,13 +20,11 @@ module Decidim
       def call
         return broadcast(:invalid) if invalid?
 
-        transaction do
-          run_before_hooks
-          update_resource
-          run_after_hooks
-        end
-
+        perform!
         broadcast(:ok, resource)
+      rescue ActiveRecord::RecordInvalid
+        add_file_attribute_errors!
+        broadcast(:invalid)
       rescue Decidim::Commands::HookError
         broadcast(:invalid)
       end
@@ -51,6 +49,16 @@ module Decidim
 
       # Useful for running any code that you may want to execute after updating the resource.
       def run_after_hooks; end
+
+      private
+
+      def perform!
+        transaction do
+          run_before_hooks
+          update_resource
+          run_after_hooks
+        end
+      end
     end
   end
 end

@@ -16,8 +16,8 @@ shared_examples "comments" do
   it "shows the list of comments for the resource" do
     visit resource_path
 
-    expect(page).to have_selector("#comments")
-    expect(page).to have_selector(".comment", count: comments.length)
+    expect(page).to have_css("#comments")
+    expect(page).to have_css(".comment", count: comments.length)
 
     within "#comments" do
       comments.each do |comment|
@@ -33,7 +33,7 @@ shared_examples "comments" do
 
     visit resource_path
 
-    expect(page).not_to have_content("Comments are disabled at this time")
+    expect(page).to have_no_content("Comments are disabled at this time")
 
     expect(page).to have_css(".comment", minimum: 1)
 
@@ -50,7 +50,7 @@ shared_examples "comments" do
 
     it "displays the show replies link on comment with reply" do
       visit resource_path
-      expect(page).not_to have_content("Comments are disabled at this time")
+      expect(page).to have_no_content("Comments are disabled at this time")
       expect(page).to have_css(".comment", minimum: 1)
 
       within("#accordion-#{single_comment.id}") do
@@ -66,11 +66,11 @@ shared_examples "comments" do
 
       it "displays the show replies link on comment with reply" do
         visit resource_path
-        expect(page).not_to have_content("Comments are disabled at this time")
+        expect(page).to have_no_content("Comments are disabled at this time")
         expect(page).to have_css(".comment", minimum: 1)
 
         within("#accordion-#{single_comment.id}") do
-          expect(page).not_to have_content "Hide reply"
+          expect(page).to have_no_content "Hide reply"
         end
       end
     end
@@ -85,18 +85,18 @@ shared_examples "comments" do
     end
 
     it "shows only a deletion message for deleted comments" do
-      expect(page).to have_selector("#comment_#{deleted_comment.id}")
+      expect(page).to have_css("#comment_#{deleted_comment.id}")
 
-      expect(page).not_to have_content(deleted_comment.author.name)
-      expect(page).not_to have_content(translated(deleted_comment.body))
+      expect(page).to have_no_content(deleted_comment.author.name)
+      expect(page).to have_no_content(translated(deleted_comment.body))
       within "#comment_#{deleted_comment.id}" do
         expect(page).to have_content("Comment deleted on")
-        expect(page).not_to have_selector(".comment__header")
+        expect(page).to have_no_css(".comment__header")
       end
     end
 
     it "counts only not deleted comments" do
-      expect(page).to have_selector("span.comments-count", text: "#{comments.length - 1} comments")
+      expect(page).to have_css("span.comments-count", text: "#{comments.length - 1} comments")
     end
 
     context "when deleted comment has replies, they are shown" do
@@ -106,7 +106,7 @@ shared_examples "comments" do
         visit resource_path
 
         within "#comment_#{deleted_comment.id}" do
-          expect(page).to have_selector("#comment-#{deleted_comment.id}-replies")
+          expect(page).to have_css("#comment-#{deleted_comment.id}-replies")
           expect(page).to have_content(reply.author.name)
           expect(page).to have_content(reply.body.values.first)
         end
@@ -117,7 +117,7 @@ shared_examples "comments" do
   context "when not authenticated" do
     it "does not show form to add comments to user" do
       visit resource_path
-      expect(page).not_to have_selector(".add-comment form")
+      expect(page).to have_no_css(".add-comment form")
     end
   end
 
@@ -128,7 +128,7 @@ shared_examples "comments" do
     end
 
     it "shows form to add comments to user" do
-      expect(page).to have_selector(".add-comment form")
+      expect(page).to have_css(".add-comment form")
     end
 
     describe "when using emojis" do
@@ -144,8 +144,8 @@ shared_examples "comments" do
           end
 
           within ".add-comment form" do
-            expect(page).to have_selector(".emoji__container")
-            expect(page).to have_selector(".emoji__trigger .emoji__button")
+            expect(page).to have_css(".emoji__container")
+            expect(page).to have_css(".emoji__trigger .emoji__button")
             find(".emoji__trigger .emoji__button").click
           end
 
@@ -431,11 +431,11 @@ shared_examples "comments" do
               field.native.send_keys "toto"
             end
 
-            expect(page).not_to have_selector(".emoji__decidim")
+            expect(page).to have_no_css(".emoji__decidim")
             within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
               find(".emoji__button").click
             end
-            expect(page).to have_selector(".emoji__decidim")
+            expect(page).to have_css(".emoji__decidim")
           end
         end
 
@@ -450,7 +450,7 @@ shared_examples "comments" do
               field.native.send_keys("0123456789012345678901234567")
               find(".emoji__button").click
             end
-            expect(page).not_to have_selector(".emoji-picker__picker.emoji-picker__picker")
+            expect(page).to have_no_css(".emoji-picker__picker.emoji-picker__picker")
           end
         end
       end
@@ -470,7 +470,7 @@ shared_examples "comments" do
 
       it "shows comment to the user, updates the comments counter and clears the comment textarea" do
         expect(page).to have_comment_from(user, content, wait: 20)
-        expect(page).to have_selector("span.comments-count", text: "#{commentable.comments.count} comments")
+        expect(page).to have_css("span.comments-count", text: "#{commentable.comments.count} comments")
         expect(page.find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}").value).to be_empty
       end
     end
@@ -536,7 +536,7 @@ shared_examples "comments" do
           within "#comment_#{thread.id}" do
             click_on "Hide reply"
             expect(page).to have_content("Show reply")
-            expect(page).not_to have_content(new_reply_body)
+            expect(page).to have_no_content(new_reply_body)
           end
         end
 
@@ -548,7 +548,7 @@ shared_examples "comments" do
             within "#comment_#{thread.id}" do
               click_on "Hide 3 replies"
               expect(page).to have_content("Show 3 replies")
-              expect(page).not_to have_content(new_reply_body)
+              expect(page).to have_no_content(new_reply_body)
             end
           end
         end
@@ -618,7 +618,7 @@ shared_examples "comments" do
         it "the context menu of the comment does not show a delete link" do
           within "#comment_#{comment.id}" do
             page.find("[id^='dropdown-trigger']").click
-            expect(page).not_to have_link("Delete")
+            expect(page).to have_no_link("Delete")
           end
         end
       end
@@ -643,13 +643,13 @@ shared_examples "comments" do
 
           accept_confirm
 
-          expect(page).to have_selector("#comment_#{comment.id}")
+          expect(page).to have_css("#comment_#{comment.id}")
           within "#comment_#{comment.id}" do
             expect(page).to have_content("Comment deleted on")
-            expect(page).not_to have_content comment_author.name
-            expect(page).not_to have_selector(".comment__header")
+            expect(page).to have_no_content comment_author.name
+            expect(page).to have_no_css(".comment__header")
           end
-          expect(page).to have_selector("span.comments-count", text: "3 comments")
+          expect(page).to have_css("span.comments-count", text: "3 comments")
 
           expect(Decidim::Comments::Comment.not_deleted.count).to eq(3)
         end
@@ -671,7 +671,7 @@ shared_examples "comments" do
           within "#comment_#{comment.id}" do
             # Toolbar
             page.find("[id^='dropdown-trigger']").click
-            expect(page).not_to have_button("Edit")
+            expect(page).to have_no_button("Edit")
           end
         end
       end
@@ -701,7 +701,7 @@ shared_examples "comments" do
           it "the comment body changes" do
             within "#comment_#{comment.id}" do
               expect(page).to have_content("This comment has been fixed")
-              expect(page).not_to have_content(comment_body)
+              expect(page).to have_no_content(comment_body)
             end
           end
 
@@ -726,7 +726,7 @@ shared_examples "comments" do
           click_on "Reply"
         end
 
-        expect(page).to have_selector("#comment_#{comment.id} .add-comment")
+        expect(page).to have_css("#comment_#{comment.id} .add-comment")
 
         within "form#new_comment_for_#{comment.commentable_type.demodulize}_#{comment.id}" do
           field = find("#add-comment-#{comment.commentable_type.demodulize}-#{comment.id}")
@@ -736,7 +736,7 @@ shared_examples "comments" do
         end
 
         expect(page).to have_reply_to(comment, content)
-        expect(page).to have_selector("span.comments-count", text: "#{commentable.comments.count} comments")
+        expect(page).to have_css("span.comments-count", text: "#{commentable.comments.count} comments")
         expect(page).to have_reply_to(comment, "This is a reply")
       end
     end
@@ -751,7 +751,7 @@ shared_examples "comments" do
         visit current_path
 
         within "#comments #comment_#{parent.id}" do
-          expect(page).to have_selector("#comment-#{parent.id}-replies")
+          expect(page).to have_css("#comment-#{parent.id}-replies")
           expect(page.find("#comment-#{parent.id}-replies").text).to be_blank
         end
       end
@@ -762,7 +762,7 @@ shared_examples "comments" do
         before do
           visit resource_path
 
-          expect(page).to have_selector(".add-comment form")
+          expect(page).to have_css(".add-comment form")
         end
 
         it "works according to the setting in the commentable" do
@@ -781,10 +781,10 @@ shared_examples "comments" do
             end
 
             within "#comments" do
-              expect(page).to have_selector "span.success.label", text: "In favor", wait: 20
+              expect(page).to have_css "span.success.label", text: "In favor", wait: 20
             end
           else
-            expect(page).not_to have_selector("[data-toggle-ok=true]")
+            expect(page).to have_no_css("[data-toggle-ok=true]")
           end
         end
       end
@@ -799,11 +799,11 @@ shared_examples "comments" do
         it "works according to the setting in the commentable" do
           within "#comment_#{comments[0].id}" do
             if commentable.comments_have_votes?
-              expect(page).to have_selector(".js-comment__votes--up", text: /0/)
+              expect(page).to have_css(".js-comment__votes--up", text: /0/)
               page.find(".js-comment__votes--up").click
-              expect(page).to have_selector(".js-comment__votes--up", text: /1/)
+              expect(page).to have_css(".js-comment__votes--up", text: /1/)
             else
-              expect(page).not_to have_selector(".js-comment__votes--up", text: /0/)
+              expect(page).to have_no_css(".js-comment__votes--up", text: /0/)
             end
           end
         end
@@ -815,10 +815,10 @@ shared_examples "comments" do
             skip "Commentable comments has no votes" unless commentable.comments_have_votes?
 
             visit current_path
-            expect(page).to have_selector("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
+            expect(page).to have_css("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
             page.find("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up").click
-            expect(page).to have_selector("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /1/)
-            expect(page).to have_selector("#comment_#{comment_on_comment.id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
+            expect(page).to have_css("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /1/)
+            expect(page).to have_css("#comment_#{comment_on_comment.id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
           end
         end
       end
@@ -827,11 +827,11 @@ shared_examples "comments" do
         it "works according to the setting in the commentable" do
           within "#comment_#{comments[0].id}" do
             if commentable.comments_have_votes?
-              expect(page).to have_selector(".js-comment__votes--down", text: /0/)
+              expect(page).to have_css(".js-comment__votes--down", text: /0/)
               page.find(".js-comment__votes--down").click
-              expect(page).to have_selector(".js-comment__votes--down", text: /1/)
+              expect(page).to have_css(".js-comment__votes--down", text: /1/)
             else
-              expect(page).not_to have_selector(".js-comment__votes--down", text: /0/)
+              expect(page).to have_no_css(".js-comment__votes--down", text: /0/)
             end
           end
         end
@@ -855,7 +855,7 @@ shared_examples "comments" do
 
         context "when text finish with a mention" do
           it "shows the tribute container" do
-            expect(page).to have_selector(".tribute-container", text: mentioned_user.name, wait: 10)
+            expect(page).to have_css(".tribute-container", text: mentioned_user.name, wait: 10)
           end
         end
 
@@ -863,7 +863,7 @@ shared_examples "comments" do
           let(:content) { "A valid user mention: @#{mentioned_user.nickname}." }
 
           it "shows the tribute container" do
-            expect(page).not_to have_selector(".tribute-container", text: mentioned_user.name)
+            expect(page).to have_no_css(".tribute-container", text: mentioned_user.name)
           end
         end
       end
@@ -873,7 +873,7 @@ shared_examples "comments" do
         let(:content) { "A unconfirmed user mention: @#{mentioned_user.nickname}" }
 
         it "do not show the tribute container" do
-          expect(page).not_to have_selector(".tribute-container", text: mentioned_user.name)
+          expect(page).to have_no_css(".tribute-container", text: mentioned_user.name)
         end
       end
 
@@ -882,7 +882,7 @@ shared_examples "comments" do
         let(:content) { "A confirmed user group mention: @#{mentioned_group.nickname}" }
 
         it "shows the tribute container" do
-          expect(page).to have_selector(".tribute-container", text: mentioned_group.nickname, wait: 10)
+          expect(page).to have_css(".tribute-container", text: mentioned_group.nickname, wait: 10)
         end
       end
     end
@@ -916,7 +916,7 @@ shared_examples "comments" do
 
         it "ignores the mention" do
           expect(page).to have_comment_from(user, "This text mentions a user outside current organization: @#{mentioned_user.nickname}", wait: 20)
-          expect(page).not_to have_link "@#{mentioned_user.nickname}"
+          expect(page).to have_no_link "@#{mentioned_user.nickname}"
         end
       end
 
@@ -925,7 +925,7 @@ shared_examples "comments" do
 
         it "ignores the mention" do
           expect(page).to have_comment_from(user, "This text mentions a @nonexistent user", wait: 20)
-          expect(page).not_to have_link "@nonexistent"
+          expect(page).to have_no_link "@nonexistent"
         end
       end
     end

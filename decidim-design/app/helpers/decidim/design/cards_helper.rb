@@ -19,14 +19,14 @@ module Decidim
         end
       end
 
-      # rubocop:disable Layout/LineLength
       def cards_sections
         [
           {
             id: "types",
+            title: t("decidim.design.helpers.types"),
             contents: [
               {
-                values: section_subtitle(title: "Card L", label: "list")
+                values: section_subtitle(title: t("decidim.design.helpers.card_l"), label: t("decidim.design.helpers.list"))
               },
               {
                 type: :partial,
@@ -37,7 +37,7 @@ module Decidim
                 template: "decidim/design/components/cards/static-card-l"
               },
               {
-                values: section_subtitle(title: "Card G", label: "grid")
+                values: section_subtitle(title: t("decidim.design.helpers.card_g"), label: t("decidim.design.helpers.grid"))
               },
               {
                 type: :partial,
@@ -45,7 +45,7 @@ module Decidim
                 template: ["decidim/design/components/cards/static-card-g", "decidim/design/components/cards/static-card-g"]
               },
               {
-                values: section_subtitle(title: "Card S", label: "search")
+                values: section_subtitle(title: t("decidim.design.helpers.card_s"), label: t("decidim.design.helpers.search"))
               },
               {
                 type: :partial,
@@ -59,13 +59,14 @@ module Decidim
           },
           {
             id: "variations",
+            title: t("decidim.design.helpers.variations"),
             contents: [
               {
                 type: :text,
-                values: ["Each card will look like different regarding the properties of the resource displayed. You can override such behaviour in the specific cell."]
+                values: [t("decidim.design.helpers.variations_cards_description")]
               },
               {
-                values: section_subtitle(title: "Metadata items")
+                values: section_subtitle(title: t("decidim.design.helpers.metadata_items"))
               },
               {
                 type: :partial,
@@ -74,10 +75,10 @@ module Decidim
               },
               {
                 type: :text,
-                values: ["Each resource define its own metadata items"]
+                values: [t("decidim.design.helpers.metadata_text")]
               },
               {
-                values: section_subtitle(title: "Highlight")
+                values: section_subtitle(title: t("decidim.design.helpers.highlight"))
               },
               {
                 type: :partial,
@@ -85,10 +86,10 @@ module Decidim
               },
               {
                 type: :text,
-                values: ["Used by resources who allow to highlight"]
+                values: [t("decidim.design.helpers.highlight_description")]
               },
               {
-                values: section_subtitle(title: "Image and description")
+                values: section_subtitle(title: t("decidim.design.helpers.image_and_description"))
               },
               {
                 type: :partial,
@@ -96,10 +97,10 @@ module Decidim
               },
               {
                 type: :text,
-                values: ["Used by <i>Blogs</i> cards"]
+                values: [t("decidim.design.helpers.blog_cards_html")]
               },
               {
-                values: section_subtitle(title: "Description")
+                values: section_subtitle(title: t("decidim.design.helpers.description"))
               },
               {
                 type: :partial,
@@ -107,10 +108,10 @@ module Decidim
               },
               {
                 type: :text,
-                values: ["Used by <i>Debates</i> cards"]
+                values: [t("decidim.design.helpers.debates_cards_html")]
               },
               {
-                values: section_subtitle(title: "Use different template for the image block")
+                values: section_subtitle(title: t("decidim.design.helpers.debates_cards_text"))
               },
               {
                 type: :partial,
@@ -118,10 +119,10 @@ module Decidim
               },
               {
                 type: :text,
-                values: ["Used by <i>Meetings</i> cards"]
+                values: [t("decidim.design.helpers.meetings_html")]
               },
               {
-                values: section_subtitle(title: "Use the extra_data block")
+                values: section_subtitle(title: t("decidim.design.helpers.block_text"))
               },
               {
                 type: :partial,
@@ -129,7 +130,7 @@ module Decidim
               },
               {
                 type: :text,
-                values: ["Used by <i>Accountability projects</i> cards. This card requires the module assets to display properly, i.e. <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>"]
+                values: [t("decidim.design.helpers.accountability_cards_html")]
               },
               {
                 type: :partial,
@@ -137,31 +138,31 @@ module Decidim
               },
               {
                 type: :text,
-                values: ["Used by <i>Budget projects</i> cards. This card requires the module assets to display properly, i.e. <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>"]
+                values: [t("decidim.design.helpers.budget_card_html")]
               }
             ]
           },
           {
             id: "source_code",
+            title: t("decidim.design.helpers.source_code"),
             contents: source_contents
           }
         ]
       end
-      # rubocop:enable Layout/LineLength
 
       def source_contents
         dummy_resource = DummyClass.new(
           id: 1000,
           organization: current_organization,
-          title: "Dummy resource title",
-          description: "Dummy resource description"
+          title: t("decidim.design.helpers.dummy_title"),
+          description: t("decidim.design.helpers.dummy_description")
         )
 
         contents = [
-          { values: section_subtitle(title: "Generic cards") },
-          cell_table_item("Card L", { cell: "decidim/card_l", args: [dummy_resource], call_string: 'cell("decidim/card_l", _RESOURCE_)' }),
-          cell_table_item("Card G", { cell: "decidim/card_l", args: [dummy_resource], call_string: 'cell("decidim/card_g", _RESOURCE_)' }),
-          cell_table_item("Card S", { cell: "decidim/card_l", args: [dummy_resource], call_string: 'cell("decidim/card_s", _RESOURCE_)' })
+          { values: section_subtitle(title: t("decidim.design.helpers.generic_cards")) },
+          cell_table_item(t("decidim.design.helpers.card_g"), { cell: "decidim/card_l", args: [dummy_resource], call_string: 'cell("decidim/card_l", _RESOURCE_)' }),
+          cell_table_item(t("decidim.design.helpers.card_l"), { cell: "decidim/card_l", args: [dummy_resource], call_string: 'cell("decidim/card_g", _RESOURCE_)' }),
+          cell_table_item(t("decidim.design.helpers.card_s"), { cell: "decidim/card_l", args: [dummy_resource], call_string: 'cell("decidim/card_s", _RESOURCE_)' })
         ]
 
         contents += accountability_items
@@ -185,9 +186,9 @@ module Decidim
         return [] unless Decidim.module_installed?(:accountability) && (resource = Decidim::Accountability::Result.last).present?
 
         [
-          { values: section_subtitle(title: "Accountability") },
+          { values: section_subtitle(title: t("decidim.design.helpers.accountability")) },
           cell_table_item(
-            "Result L",
+            t("decidim.design.helpers.result_l"),
             {
               cell: "decidim/accountability/result_l",
               args: [resource],
@@ -207,9 +208,9 @@ module Decidim
         return [] unless Decidim.module_installed?(:blogs) && (resource = Decidim::Blogs::Post.last).present?
 
         [
-          { values: section_subtitle(title: "Blogs") },
+          { values: section_subtitle(title: t("decidim.design.helpers.blogs")) },
           cell_table_item(
-            "Post L",
+            t("decidim.design.helpers.post_l"),
             {
               cell: "decidim/blogs/post_l",
               args: [resource],
@@ -223,7 +224,7 @@ module Decidim
             }
           ),
           cell_table_item(
-            "Post G",
+            t("decidim.design.helpers.post_g"),
             {
               cell: "decidim/blogs/post_g",
               args: [resource],
@@ -235,7 +236,7 @@ module Decidim
             }
           ),
           cell_table_item(
-            "Post S",
+            t("decidim.design.helpers.post_s"),
             {
               cell: "decidim/blogs/post_s",
               args: [resource],
@@ -253,9 +254,9 @@ module Decidim
         return [] unless Decidim.module_installed?(:budgets) && (resource = Decidim::Budgets::Project.last).present?
 
         [
-          { values: section_subtitle(title: "Budgets") },
+          { values: section_subtitle(title: t("decidim.design.helpers.budgets")) },
           cell_table_item(
-            "Project L",
+            t("decidim.design.helpers.project_l"),
             {
               cell: "decidim/budgets/project_l",
               args: [resource],
@@ -269,7 +270,7 @@ module Decidim
             }
           ),
           cell_table_item(
-            "Project S",
+            t("decidim.design.helpers.project_s"),
             {
               cell: "decidim/budgets/project_s",
               args: [resource],
@@ -287,9 +288,9 @@ module Decidim
         return [] unless Decidim.module_installed?(:debates) && (resource = Decidim::Debates::Debate.last).present?
 
         [
-          { values: section_subtitle(title: "Debates") },
+          { values: section_subtitle(title: t("decidim.design.helpers.debates")) },
           cell_table_item(
-            "Debate L",
+            t("decidim.design.helpers.debate_l"),
             {
               cell: "decidim/debates/debate_l",
               args: [resource],
@@ -303,7 +304,7 @@ module Decidim
             }
           ),
           cell_table_item(
-            "Debate S",
+            t("decidim.design.helpers.debate_s"),
             {
               cell: "decidim/debates/debate_s",
               args: [resource],
@@ -321,9 +322,9 @@ module Decidim
         return [] unless Decidim.module_installed?(:meetings) && (resource = Decidim::Meetings::Meeting.last).present?
 
         [
-          { values: section_subtitle(title: "Meetings") },
+          { values: section_subtitle(title: t("decidim.design.helpers.meetings")) },
           cell_table_item(
-            "Meeting L",
+            t("decidim.design.helpers.meeting_l"),
             {
               cell: "decidim/meetings/meeting_l",
               args: [resource],
@@ -337,7 +338,7 @@ module Decidim
             }
           ),
           cell_table_item(
-            "Meeting S",
+            t("decidim.design.helpers.meeting_s"),
             {
               cell: "decidim/meetings/meeting_s",
               args: [resource],
@@ -358,12 +359,12 @@ module Decidim
         proposal_resource = Decidim::Proposals::Proposal.last
         collaborative_draft_resource = Decidim::Proposals::CollaborativeDraft.last
 
-        items << { values: section_subtitle(title: "Proposals") } if [proposal_resource, collaborative_draft_resource].any?(&:present?)
+        items << { values: section_subtitle(title: t("decidim.design.helpers.proposals")) } if [proposal_resource, collaborative_draft_resource].any?(&:present?)
 
         if (resource = proposal_resource).present?
           items += [
             cell_table_item(
-              "Proposal L",
+              t("decidim.design.helpers.proposal_l"),
               {
                 cell: "decidim/proposals/proposal_l",
                 args: [resource],
@@ -377,7 +378,7 @@ module Decidim
               }
             ),
             cell_table_item(
-              "Proposal S",
+              t("decidim.design.helpers.proposal_s"),
               {
                 cell: "decidim/proposals/proposal_s",
                 args: [resource],
@@ -394,7 +395,7 @@ module Decidim
         if (resource = collaborative_draft_resource).present?
           items += [
             cell_table_item(
-              "Collaborative Draft L",
+              t("decidim.design.helpers.collaborative_draft_l"),
               {
                 cell: "decidim/proposals/collaborative_draft_l",
                 args: [resource],
@@ -415,9 +416,9 @@ module Decidim
         return [] unless Decidim.module_installed?(:sortitions) && (resource = Decidim::Sortitions::Sortition.last).present?
 
         [
-          { values: section_subtitle(title: "Sortitions") },
+          { values: section_subtitle(title: t("decidim.design.helpers.sortitions")) },
           cell_table_item(
-            "Sortition L",
+            t("decidim.design.helpers.sortition_l"),
             {
               cell: "decidim/sortitions/sortition_l",
               args: [resource],
@@ -435,9 +436,9 @@ module Decidim
         return [] unless Decidim.module_installed?(:assemblies) && (resource = Decidim::Assembly.last).present?
 
         [
-          { values: section_subtitle(title: "Assemblies") },
+          { values: section_subtitle(title: t("decidim.design.helpers.assemblies")) },
           cell_table_item(
-            "Assembly G",
+            t("decidim.design.helpers.assembly_g"),
             {
               cell: "decidim/assemblies/assembly_g",
               args: [resource],
@@ -451,7 +452,7 @@ module Decidim
             }
           ),
           cell_table_item(
-            "Assembly S",
+            t("decidim.design.helpers.assembly_s"),
             {
               cell: "decidim/assemblies/assembly_s",
               args: [resource],
@@ -469,9 +470,9 @@ module Decidim
         return [] unless Decidim.module_installed?(:conferences) && (resource = Decidim::Conference.last).present?
 
         [
-          { values: section_subtitle(title: "Conferences") },
+          { values: section_subtitle(title: t("decidim.design.helpers.conferences")) },
           cell_table_item(
-            "Conference G",
+            t("decidim.design.helpers.conference_g"),
             {
               cell: "decidim/conferences/conference_g",
               args: [resource],
@@ -485,7 +486,7 @@ module Decidim
             }
           ),
           cell_table_item(
-            "Conference S",
+            t("decidim.design.helpers.conference_s"),
             {
               cell: "decidim/conferences/conference_s",
               args: [resource],
@@ -503,9 +504,9 @@ module Decidim
         return [] unless Decidim.module_installed?(:initiatives) && (resource = Decidim::Initiative.last).present?
 
         [
-          { values: section_subtitle(title: "Initiatives") },
+          { values: section_subtitle(title: t("decidim.design.helpers.initiatives")) },
           cell_table_item(
-            "Initiative G",
+            t("decidim.design.helpers.initiative_g"),
             {
               cell: "decidim/initiatives/initiative_g",
               args: [resource],
@@ -519,7 +520,7 @@ module Decidim
             }
           ),
           cell_table_item(
-            "Initiative S",
+            t("decidim.design.helpers.initiative_s"),
             {
               cell: "decidim/initiatives/initiative_s",
               args: [resource],
@@ -540,12 +541,12 @@ module Decidim
         process_resource = Decidim::ParticipatoryProcess.last
         process_group_resource = Decidim::ParticipatoryProcessGroup.last
 
-        items << { values: section_subtitle(title: "Participatory Processes") } if [process_resource, process_group_resource].any?(&:present?)
+        items << { values: section_subtitle(title: t("decidim.design.helpers.participatory_processes")) } if [process_resource, process_group_resource].any?(&:present?)
 
         if (resource = process_resource).present?
           items += [
             cell_table_item(
-              "Participatory Process G",
+              t("decidim.design.helpers.participatory_process_g"),
               {
                 cell: "decidim/participatory_processes/process_g",
                 args: [resource],
@@ -559,7 +560,7 @@ module Decidim
               }
             ),
             cell_table_item(
-              "Participatory Process S",
+              t("decidim.design.helpers.participatory_process_s"),
               {
                 cell: "decidim/participatory_processes/process_s",
                 args: [resource],
@@ -576,7 +577,7 @@ module Decidim
         if (resource = process_group_resource).present?
           items += [
             cell_table_item(
-              "Participatory Process Group G",
+              t("decidim.design.helpers.participatory_process_group_g"),
               {
                 cell: "decidim/participatory_processes/process_group_g",
                 args: [resource],
@@ -590,7 +591,7 @@ module Decidim
               }
             ),
             cell_table_item(
-              "Participatory Process Group S",
+              t("decidim.design.helpers.participatory_process_group_s"),
               {
                 cell: "decidim/participatory_processes/process_group_s",
                 args: [resource],

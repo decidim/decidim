@@ -646,8 +646,6 @@ ro:
           email_outro: Ai primit această notificare deoarece ești un administrator al platformei.
           email_subject: Un grup de utilizatori și-a actualizat profilul
           notification_title: Grupul de utilizatori %{user_group_name} și-a actualizat profilul, lăsând neverificat. Acum îl poți verifica în panoul <a href="%{groups_admin_path}">de administratori</a>.
-      notification_event:
-        notification_title: A apărut un eveniment pentru <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: Un administrator a eliminat %{resource_type} deoarece a fost raportat ca %{report_reasons}.
@@ -702,7 +700,6 @@ ro:
       create:
         button: Urmărește
         error: A apărut o problemă la urmărirea acestei resurse.
-        participatory_space: Urmăriți<span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Nu doresc să mai urmăresc
         error: A apărut o problemă la anularea urmăririi acestei resurse.
@@ -719,7 +716,6 @@ ro:
           explanation: 'Îndrumare pentru imagine:'
         image:
           explanation: 'Orientări pentru imagine:'
-          message_1: De preferință o imagine landscape care să nu conțină vreun text.
           message_2: Serviciul decupează imaginea.
       file_validation:
         allowed_file_extensions: 'Extensii de fișiere permise: %{extensions}'

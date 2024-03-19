@@ -560,8 +560,6 @@ tr:
           email_outro: Bu bildirimi, platformun yöneticisi olduğunuz için aldınız.
           email_subject: Bir kullanıcı grubu profilini güncelledi
           notification_title: '%{user_group_name} kullanıcı grubu profilini güncelledi ve doğrulanmadan bırakıldı. Artık bunu <a href="%{groups_admin_path}"> yönetici panelinde </a> doğrulayabilirsiniz.'
-      notification_event:
-        notification_title: Bir olay <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: Bir yönetici, %{resource_type}'nizi %{report_reasons} olarak bildirildiği için kaldırdı.
@@ -612,6 +610,7 @@ tr:
       create:
         button: Takip et
         error: Bu kaynağı takip eden bir hata oluştu.
+        participatory_space: <span>%{resource_name</span> Takip edilen
       destroy:
         button: Takibi bırak
         error: Bu kaynağı takip etmekten bir hata oluştu.
@@ -626,7 +625,6 @@ tr:
           message_1: Bir resim veya bir belge olmalı.
         image:
           explanation: 'Dosya kılavuzu:'
-          message_1: Tercihen herhangi bir metin içermeyen yatay bir resim.
           message_2: Bu servis görüntüyü kırpar.
       file_validation:
         allowed_file_extensions: 'İzin verilen dosya uzantıları: %{extensions}'

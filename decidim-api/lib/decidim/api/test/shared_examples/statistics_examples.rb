@@ -21,7 +21,7 @@ shared_examples "implements stats type" do
       }
     end
 
-    it "executes sucessfully" do
+    it "executes successfully" do
       expect { response }.not_to raise_error
     end
 
