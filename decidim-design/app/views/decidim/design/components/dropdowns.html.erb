@@ -1,24 +1,24 @@
 <% content_for :heading do %>
-  Dropdowns
+  <%= t("decidim.design.helpers.dropdowns") %>
 <% end %>
 
 <% content_for :description do %>
-  Dropdowns are a javascript feature available thanks to an external library called <a href="https://github.com/jonathanlevaillant/a11y-dropdown-component" target="_blank" rel="noopener noreferrer">a11y-dropdown-component</a>.
+<%= t("decidim.design.helpers.dropdowns_description_html", link: link_to(t("decidim.design.helpers.ally_link"), "https://github.com/jonathanlevaillant/a11y-dropdown-component", target: "_blank", rel: "noopener noreferrer"))%>
 <% end %>
 
 <% content_for :toc do %>
-  <a href="#example">Demo</a>
-  <a href="#usage">Usage</a>
+  <a href="#example"><%= t("decidim.design.helpers.demo") %></a>
+  <a href="#usage"><%= t("decidim.design.helpers.usage") %></a>
 <% end %>
 
 <section id="demo" class="design__section">
-  <h2>Demo</h2>
+  <h2><%= t("decidim.design.helpers.demo") %></h2>
 
-  <p>The dropdowns are used along the application in order to collapse large, easy-readable menus for desktop devices, but too wordy for mobile devices.</p>
+  <p><%= t("decidim.design.helpers.dropdowns_demo_description") %></p>
 
-  <p>This javascript feature is enhanced with a small css, through the naming: the hideable content MUST HAVE an <code>id</code> starting with <i>dropdown-menu</i>.</p>
+  <p><%= t("decidim.design.helpers.dropdowns_demo_description_html") %></p>
 
-  <p>The following example will not be noticeable in desktop, but mobile:</p>
+  <p><%= t("decidim.design.helpers.dropdowns_demo_1_description") %></p>
 
   <button id="dropdown-trigger-element" data-component="dropdown" data-target="dropdown-menu-element" data-auto-close="true">
     <span><%= t("decidim.searches.filters.jump_to") %></span>
@@ -36,7 +36,7 @@
 </section>
 
 <section id="usage" class="design__section">
-  <h2>Usage</h2>
+  <h2><%= t("decidim.design.helpers.usage") %></h2>
 
   <p>An dropdown requires two elements:</p>
 
