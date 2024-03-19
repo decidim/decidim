@@ -111,7 +111,7 @@ FactoryBot.define do
   factory :assembly_admin, parent: :user, class: "Decidim::User" do
     transient do
       skip_injection { false }
-      assembly { create(:assembly, skip_injection: skip_injection) }
+      assembly { create(:assembly) }
     end
 
     organization { assembly.organization }
@@ -129,7 +129,7 @@ FactoryBot.define do
   factory :assembly_moderator, parent: :user, class: "Decidim::User" do
     transient do
       skip_injection { false }
-      assembly { create(:assembly, skip_injection: skip_injection) }
+      assembly { create(:assembly) }
     end
 
     organization { assembly.organization }
