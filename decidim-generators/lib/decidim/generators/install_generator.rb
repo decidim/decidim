@@ -179,6 +179,7 @@ module Decidim
       end
 
       def tweak_spring
+        run "bundle exec spring stop"
         run "bundle exec spring binstub --all"
 
         create_file "config/spring.rb", <<~CONFIG
