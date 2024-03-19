@@ -321,6 +321,8 @@ module Decidim
         current_parent = parent
         current_level = 0
         list.children.each do |item|
+          next unless item.is_a?(Nokogiri::XML::Element) && item.name == "li"
+
           indent = detect_indent(item)
           if indent == current_level || li.nil?
             if item.child.name == "p"
