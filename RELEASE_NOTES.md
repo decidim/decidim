@@ -6,7 +6,6 @@ As usual, we recommend that you have a full backup, of the database, application
 
 To update, follow these steps:
 
-
 ### 1.1. Update your ruby version
 
 If you're using rbenv, this is done with the following commands:
