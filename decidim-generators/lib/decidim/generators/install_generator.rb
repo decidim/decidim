@@ -183,6 +183,21 @@ module Decidim
         copy_file "rack_profiler_initializer.rb", "config/initializers/rack_profiler.rb"
       end
 
+      def tweak_spring
+        run "bundle exec spring binstub --all"
+
+        create_file "config/spring.rb", <<~CONFIG
+          require "decidim/spring"
+
+          Spring.watch(
+            ".ruby-version",
+            ".rbenv-vars",
+            "tmp/restart.txt",
+            "tmp/caching-dev.txt"
+          )
+        CONFIG
+      end
+
       def bundle_install
         run "bundle install"
       end

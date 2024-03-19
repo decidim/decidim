@@ -229,12 +229,6 @@ module Decidim
                   "config.load_defaults 6.1"
       end
 
-      def tweak_spring
-        return unless File.exist?("config/spring.rb")
-
-        prepend_to_file "config/spring.rb", "require \"decidim/spring\"\n\n"
-      end
-
       def tweak_csp_initializer
         return unless File.exist?("config/initializers/content_security_policy.rb")
 
