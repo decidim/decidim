@@ -16,6 +16,8 @@ fr:
           title: Auteur
         buttons:
           title: Boutons
+        report:
+          title: Signaler
       foundations:
         iconography:
           description_iconography: Nous utilisons des icônes pour renforcer la signification des actions, des titres, etc
@@ -45,6 +47,8 @@ fr:
         icons: Icônes
         main_colors: Couleurs principales
         plain_text: Je ne suis que du texte brut
+        report_button: Bouton Signaler
+        report_usage_description: Le bouton Signaler lance une fenêtre modale pour marquer la ressource courante.
         rgba_code:
         send: Envoyer
         sizes: Tailles
