@@ -299,7 +299,7 @@ module Decidim
                   "config.log_level = %w(debug info warn error fatal).include?(ENV['RAILS_LOG_LEVEL']) ? ENV['RAILS_LOG_LEVEL'] : :info"
 
         gsub_file "config/environments/production.rb",
-                  %r{# config.asset_host = 'http://assets.example.com'},
+                  %r{# config.asset_host = "http://assets.example.com"},
                   "config.asset_host = ENV['RAILS_ASSET_HOST'] if ENV['RAILS_ASSET_HOST'].present?"
 
         if options[:force_ssl] == "false"
