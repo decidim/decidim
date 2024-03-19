@@ -201,8 +201,8 @@ describe "Admin manages newsletters" do
             expect(page).to have_content(recipients_count)
           end
 
-          within "form.newsletter_deliver .form__wrapper-block" do
-            accept_confirm { find("*", text: "Deliver").click }
+          within "form.newsletter_deliver .item__edit-sticky" do
+            accept_confirm { click_on("Deliver newsletter") }
           end
 
           expect(page).to have_content("Newsletters")
@@ -238,8 +238,8 @@ describe "Admin manages newsletters" do
             expect(page).to have_content(recipients_count)
           end
 
-          within "form.newsletter_deliver .form__wrapper-block" do
-            accept_confirm { find("*", text: "Deliver").click }
+          within "form.newsletter_deliver .item__edit-sticky" do
+            accept_confirm { click_on("Deliver newsletter") }
           end
 
           expect(page).to have_content("Newsletters")
@@ -275,8 +275,8 @@ describe "Admin manages newsletters" do
             expect(page).to have_content(recipients_count)
           end
 
-          within "form.newsletter_deliver .form__wrapper-block" do
-            accept_confirm { find("*", text: "Deliver").click }
+          within "form.newsletter_deliver .item__edit-sticky" do
+            accept_confirm { click_on("Deliver newsletter") }
           end
 
           expect(page).to have_content("Newsletters")
@@ -319,8 +319,8 @@ describe "Admin manages newsletters" do
             expect(page).to have_content(recipients_count)
           end
 
-          within "form.newsletter_deliver .form__wrapper-block" do
-            accept_confirm { find("*", text: "Deliver").click }
+          within "form.newsletter_deliver .item__edit-sticky" do
+            accept_confirm { click_on("Deliver newsletter") }
           end
 
           expect(page).to have_content("Newsletters")
