@@ -293,7 +293,7 @@ ja:
             slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
             social_handlers: ソーシャル
             title: 一般情報
-            visbility: 公開範囲
+            visibility: 公開範囲
         assemblies_types:
           form:
             title: タイトル
@@ -307,7 +307,7 @@ ja:
           form:
             existing_user: 既存の参加者
             explanation: '画像のガイダンス:'
-            image_guide: テキストを持たない人物の画像を使用する必要があります。
+            image_guide: テキストを含まない縦長の画像をお勧めします。
             non_user: 参加者がいません
             non_user_avatar_help: メンバーとして公開する前に同意を得る必要があります。
             select_a_position: ポジションを選択

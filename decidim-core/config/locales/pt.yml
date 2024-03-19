@@ -551,8 +551,6 @@ pt:
           email_outro: Recebeu esta notificação porque é administrador(a) da plataforma.
           email_subject: Um grupo de utilizadores atualizou o seu perfil
           notification_title: O grupo de utilizadores %{user_group_name} atualizou o seu perfil, deixando-o por verificar. Pode agora verificá-lo no <a href="%{groups_admin_path}">painel de administrador</a>.
-      notification_event:
-        notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: Um administrador removeu o seu %{resource_type} porque foi denunciado como %{report_reasons}.
@@ -604,7 +602,6 @@ pt:
       create:
         button: Seguir
         error: Ocorreu um problema ao seguir este recurso.
-        participatory_space: Seguindo <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Parar de seguir
         error: Ocorreu um problema ao seguir este recurso.
@@ -619,7 +616,6 @@ pt:
           message_1: Tem que ser uma imagem ou um documento.
         image:
           explanation: 'Orientação para a imagem:'
-          message_1: Preferencialmente, uma imagem de paisagem que não tem nenhum texto.
           message_2: O serviço corta a imagem.
       file_validation:
         allowed_file_extensions: 'Extensões de ficheiro permitidas: %{extensions}'

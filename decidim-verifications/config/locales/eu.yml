@@ -91,7 +91,7 @@ eu:
           email_intro: <a href="%{resource_url}">%{resource_title}</a> parte-hartzailea saiatu da (<a href="%{managed_user_url}">%{managed_user_name}</a>) parte-hartzailearen datuekin egiaztatzen.
           email_outro: Egiaztau <a href="%{conflicts_url}"> egiaztapenen gatazken zerrenda </a> eta jarri harremanetan parte-hartzailearekin bere datuak egiaztatu eta arazoa konpontzeko.
           email_subject: Errorea beste parte-hartzaile baten bidez egiaztatzean
-          notification_title: <a href="%{resource_url}">%{resource_title}</a> parte-hartzailea saiatu da (<a href="%{managed_user_url}">%{managed_user_name}</a>) parte-hartzailearen datuekin egiaztatzen.
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> parte-hartzailea saiatu da (<a href="%{managed_user_path}">%{managed_user_name}</a>) parte-hartzailearen datuekin egiaztatzen.
     verifications:
       authorizations:
         authorization_metadata:
@@ -231,8 +231,7 @@ eu:
           update:
             error: Arazo bat egon da zure dokumentua berriro igotzean.
             success: Dokumentua ondo igota berriro.
-        dni: DNI
-        nie: NIE
+        identification_number: Identifikazio zenbakia
         passport: pasaportea
       postal_letter:
         admin:
@@ -269,7 +268,7 @@ eu:
             error: Arazo bat egon da zure eskaerarekin.
             success: Mila esker! SMS bat bidali dugu zure telefonora.
           destroy:
-            success: Egiaztapen kodea behar bezala berrezarri da. Sartu berriro zure telefono zenbakia.
+            success: Egiaztapen-kodea arrakastaz berrezarri da. Mesedez, sartu berriro zure telefono zenbakia.
           edit:
             confirm_destroy: Ziur egiaztapen-kodea berrezarri nahi duzula?
             destroy: Berrezarri egiaztapen-kodea

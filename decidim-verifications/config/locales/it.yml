@@ -166,8 +166,6 @@ it:
           new:
             send: Richiedi la verifica
             title: Carica il tuo documento di identità
-        dni: DNI
-        nie: NIE
         passport: Passaporto
       postal_letter:
         admin:
@@ -188,8 +186,6 @@ it:
             title: Richiedi il tuo codice di verifica
       sms:
         authorizations:
-          destroy:
-            success: Codice di verifica ripristinato correttamente. Per favore reinserisci il tuo numero di telefono.
           edit:
             confirm_destroy: Sei sicuro di voler resettare il codice di verifica?
             destroy: Reimposta il codice di verifica
