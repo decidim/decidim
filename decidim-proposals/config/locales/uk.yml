@@ -23,14 +23,11 @@ uk:
             add_photos:
               needs_to_be_reattached: Необхідно повторно вкласти
     models:
-      decidim/proposals/accepted_proposal_event: Пропозиція прийнята
       decidim/proposals/admin/update_proposal_category_event: Категорію пропозиції змінено
       decidim/proposals/creation_enabled_event: Внесення пропозицій увімкнено
       decidim/proposals/endorsing_enabled_event: Увімкнене надання підтримки пропозиціям
-      decidim/proposals/evaluating_proposal_event: Пропозиція розглядається
       decidim/proposals/proposal_mentioned_event: Пропозицію було згадано
       decidim/proposals/publish_proposal_event: Пропозицію оприлюднено
-      decidim/proposals/rejected_proposal_event: Пропозицію відхилено
       decidim/proposals/voting_enabled_event: Увімкнене голосування по пропозиціям
   activerecord:
     models:
@@ -97,16 +94,6 @@ uk:
           email_intro: 'Ви можете підтримувати пропозиції у %{participatory_space_title}! Почніть брати участь зі сторінки:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: У %{participatory_space_title} почалось надання підтримки пропозиціям
-        proposal_accepted:
-          follower:
-            email_intro: 'Пропозиція "%{resource_title}" була прийнята. Ви можете прочитати відповідь на сторінці:'
-            email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-            notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було прийнято.
-        proposal_evaluating:
-          follower:
-            email_intro: 'Пропозиція "%{resource_title}" зараз розглядається. Ви можете перевірити наявність відповіді на сторінці:'
-            email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-            notification_title: Пропозиція <a href="%{resource_path}">%{resource_title}</a> розглядається.
         proposal_mentioned:
           email_subject: Вашу пропозицію "%{mentioned_proposal_title}" було згадано
           notification_title: Вашу пропозицію "%{mentioned_proposal_title}" було згадано в коментарях <a href="%{resource_path}">в цьому просторі</a>.
@@ -116,11 +103,6 @@ uk:
         proposal_published_for_space:
           email_intro: До "%{participatory_space_title}", за яким ви стежите, була додана пропозиція "%{resource_title}".
           email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{participatory_space_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-        proposal_rejected:
-          follower:
-            email_intro: 'Пропозиція "%{resource_title}" була відхилена. Ви можете прочитати відповідь на сторінці:'
-            email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-            notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було відхилено.
         proposal_update_category:
           email_intro: 'Адміністратор оновив категорію вашої пропозиції "%{resource_title}", перевірте її:'
           email_outro: Ви отримали це сповіщення, оскільки ви є автором цієї пропозиції.
@@ -148,10 +130,7 @@ uk:
             name: Пропозиція
         proposal_answers:
           form:
-            accepted: Прийнято
             answer_proposal: Відповісти
-            evaluating: Розглядається
-            rejected: Відхилено
             title: Відповідь на пропозицію %{title}
         proposal_notes:
           form:
