@@ -12,6 +12,23 @@ module Decidim
                :mounted_engine, :mounted_admin_engine, :admin_extension_module, :admins_query,
                to: :class
 
+      def skip_space_slug?(method_name)
+        [
+          "edit_#{underscored_name}_path".to_sym,
+          "edit_#{underscored_name}_url".to_sym,
+          "new_#{underscored_name}_path".to_sym,
+          "new_#{underscored_name}_url".to_sym,
+          "#{underscored_name}_path".to_sym,
+          "#{underscored_name}_url".to_sym,
+          "#{underscored_name.pluralize}_path".to_sym,
+          "#{underscored_name.pluralize}_url".to_sym
+        ].include?(method_name)
+      end
+
+      def slug_param_name
+        "#{underscored_name}_slug".to_sym
+      end
+
       def mounted_params
         {
           host: organization.host,
