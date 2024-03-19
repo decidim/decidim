@@ -30,6 +30,14 @@ de:
         buttons:
           description_html: 'Schaltflächen werden mit einer Kombination verschiedener CSS-Klassen erstellt: der <code>button</code>-Klasse, einer Größe und einer Farbe.'
           title: Schaltflächen
+        cards:
+          title: Karten
+        follow:
+          title: Folgen
+        report:
+          title: Melden
+        share:
+          title: Teilen
       foundations:
         accessibility:
           accessibility_labels: Barrierefreiheitsbezeichnungen
@@ -60,10 +68,12 @@ de:
           use_aria_paragraph: Viele Elemente, die interaktive Funktionalität auf der Website bieten, erfordern ARIA-Attribute auf ihnen, um sie barrierefrei zugänglich zu machen.
         color:
           color_header: Farbe
+          description_p1: Wir bieten eine Grundpalette mit wenigen Farben, so dass kleinere Anpassungen einfach sind. Sie können die Grundpalette entweder im Administrationsbereich oder in der Tailwind-Konfigurationsdatei ändern, wenn Sie erweiterte Anpassungen vornehmen möchten.
           description_p2_html: Wenn Sie die Farben anpassen, denken Sie an den %{contrast_link}. Sie können den Kontrast Ihrer Auswahl mit %{checker_link} oder anderen ähnlichen Tools überprüfen.
           wcag_compliant_rations: WCAG 2.1 AA konformes Kontrastverhältnis
           wcag_contrast_checker: WebAIM-Kontrastprüfung
         iconography:
+          description_iconography: Wir verwenden Symbole, um die Bedeutung von Aktionen, Titeln usw. zu stärken
           description_iconography_html: 'Wir verwenden die Open-Source-Bibliothek Remixicon: %{iconography_link}'
           title: Ikonografie
         layout:
@@ -90,15 +100,22 @@ de:
         avatar: Profilbild
         background: Hintergrund und Ränder
         base: Basis
+        blogs: Blogs
+        budgets: Budgets
         colors: Farben
         compact: Kompakt
         context: Kontext
+        debates: Debatten
         default: Standard
         demo: Demo
+        description: Beschreibung
         disabled: Deaktiviert
         form_elements: Formularelemente
+        grid: Raster
         hex_code: Hex-Code
         icons: Symbole
+        image_and_description: Bild und Beschreibung
+        initiatives: Initiativen
         main_colors: Hauptfarben
         rgba_code: RGBA-Code
         send: Senden
@@ -119,6 +136,7 @@ de:
         usage_typography_4: Links und Schaltflächen
         value: Wert
         variations: Variationen
+        variations_cards_description: Jede Karte sieht je nach Eigenschaften der angezeigten Ressource unterschiedlich aus. Sie können dieses Verhalten in der jeweiligen Zelle überschreiben.
       home:
         index:
           by_sharing_principles: Durch die gemeinsame Nutzung der Prinzipien, Philosophie, und der Logik hinter Designentscheidungen wollen wir die Community dazu befähigen, konsequent beizutragen, so dass wir die beste Erfahrung für die Teilnehmenden erreichen.
