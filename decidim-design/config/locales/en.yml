@@ -35,6 +35,8 @@ en:
           title: Cards
         follow:
           title: Follow
+        report:
+          title: Report
         share:
           title: Share
       foundations:
@@ -197,6 +199,8 @@ en:
         proposal_l: Proposal L
         proposal_s: Proposal S
         proposals: Proposals
+        report_button: Report button
+        report_usage_description: Report button launches a modal window to flag the current resource.
         result_l: Result L
         rgba_code: RGBA code
         search: Search
