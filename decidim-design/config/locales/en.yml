@@ -44,6 +44,25 @@ en:
           usage_description_html: 1. A user actionable element, with the data-attribute <code>data-dialog-open="example"</code>, where example is the <code>id</code> of the modal.
         follow:
           title: Follow
+        forms:
+          date: date
+          datetime_local: datetime-local
+          disabled: Disabled
+          emojis: Emojis
+          emojis_description: Only works for textarea
+          errors: Errors
+          errors_description: Does not apply for select
+          header_alert: This page comes from a legacy view. Content is outdated.
+          help_texts: Help texts
+          html_regular_inputs: HTML regular inputs
+          min_max_length: Min/Max length
+          min_max_length_description: Only works for input type='text' and textarea
+          number: number
+          password: password
+          regular_inputs_description: 'Only displays common types, full available list: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
+          text: text
+          textarea_required: textarea required
+          title: Forms
         report:
           title: Report
         share:
