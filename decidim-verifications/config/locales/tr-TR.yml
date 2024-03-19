@@ -154,8 +154,7 @@ tr:
           new:
             send: Doğrulama isteğinde bulun
             title: Kimlik belgenizi yükleyin
-        dni: DNI
-        nie: NIE
+        identification_number: Kimlik Numarası 
         passport: Pasaport
       postal_letter:
         admin:
@@ -176,8 +175,6 @@ tr:
             title: Doğrulama kodunuzu isteyin
       sms:
         authorizations:
-          destroy:
-            success: Doğrulama kodu başarıyla sıfırlandı. Lütfen telefon numaranızı tekrar girin.
           edit:
             confirm_destroy: Doğrulama kodunu sıfırlamak istediğinizden emin misiniz?
             destroy: Doğrulama kodunu sıfırla

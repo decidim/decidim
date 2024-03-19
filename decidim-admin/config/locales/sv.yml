@@ -313,7 +313,6 @@ sv:
         title: Verifieringskonflikter
         transfer:
           email: E-post
-          error: Det gick inte att konvertera användaren till hanterad användare.
           name: Namn
           reason: Anledning
           success: Flytten slutfördes problemfritt.
@@ -499,6 +498,7 @@ sv:
         help_sections: Hjälpavsnitt
         homepage: Hemsida
         impersonations: Uppträd som
+        manage: Hantera
         moderation: Global moderering
         newsletters: Nyhetsbrev
         participants: Deltagare

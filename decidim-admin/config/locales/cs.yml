@@ -287,7 +287,7 @@ cs:
       block_user:
         new:
           action: Blokovat účet a odeslat odůvodnění
-          already_reported_html: Pokračováním v této akci také skryjete veškerý obsah účastníků. <a href="%{link}">Blokujte účet</a>.
+          already_reported_html: Pokračováním v této akci také skryjete veškerý obsah účastníků.
           description: Blokováním uživatele bude jejich účet nepoužitelný. Ve svém zdůvodnění můžete uvést veškerá pravidla pro způsob, jakým byste uvažovali o odblokování uživatele.
           justification: Odůvodnění
           title: Blokovat uživatele %{name}
@@ -377,16 +377,17 @@ cs:
           update: Aktualizovat
       dashboard:
         pending_moderations:
-          anouncement:
-            one: Je zde %{count} čekající na moderování
-            few: Jsou zde %{count} čekající na moderování
-            many: Je zde %{count} čekajících na moderování
-            other: Je tu %{count} čekajících na moderování
           goto_moderation: Přejít na globální moderaci
           title: Čekající moderování
         show:
           dropdown: Rozbalovací nabídka
           view_more_logs: Zobrazit další protokoly
+      domain_allowlist:
+        form:
+          domain_too_short: Doména je příliš krátká
+        update:
+          error: Aktualizace seznamu povolených externích domén se nezdařila
+          success: Seznam povolených externích domén byl úspěšně aktualizován.
       exports:
         export_as: "%{name} jako %{export_format}"
         formats:
@@ -575,9 +576,11 @@ cs:
         areas: Oblasti
         configuration: Konfigurace
         content: Nahlášený obsah
+        external_domain_allowlist: Povolené externí domény
         help_sections: Sekce nápovědy
         homepage: Domovská stránka
         impersonations: V zastoupení
+        manage: Spravovat
         moderation: Globální moderace
         newsletters: Zpravodaje
         participants: Účastníci
@@ -858,6 +861,17 @@ cs:
             layout_appearance_title: Upravit vzhled zobrazení
             preview: Náhled
           omnipresent_banner_appearance_title: Upravit všudypřítomný banner
+      organization_external_domain_allowlist:
+        edit:
+          update: Aktualizovat
+        external_domain:
+          down: Dolů
+          external_domain: Externí doména
+          remove: Odstranit
+          up: Nahoru
+        form:
+          add: Přidat na Seznam povolených
+          title: Seznam povolených externích domén
       participatory_space_private_users:
         create:
           error: Při přidávání soukromého uživatele pro tento participační prostor došlo k chybě.
@@ -1007,6 +1021,7 @@ cs:
         areas: Oblasti
         authorization_workflows: Metody ověření
         dashboard: Ovládací panel
+        edit_external_domains: Seznam povolených externích domén
         edit_landing_page: Obsah stránky
         edit_organization_appearance: Upravit vzhled domovské stránky
         impersonatable_users: Spravovatelní účastníci

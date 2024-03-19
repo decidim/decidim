@@ -166,8 +166,6 @@
           new:
             send: Be om verifikasjon
             title: Last opp dine identitetsdokumentet
-        dni: DNI
-        nie: NIE
         passport: Pass
       postal_letter:
         admin:
@@ -188,8 +186,6 @@
             title: Be om din verifiseringskode
       sms:
         authorizations:
-          destroy:
-            success: Verifiseringskode vellykket tilbakestilt. Vennligst legg inn telefonnummeret ditt på nytt.
           edit:
             confirm_destroy: Er du sikker på at du vil tilbakestille verifikasjonskoden?
             destroy: Tilbakestill verifiseringskode

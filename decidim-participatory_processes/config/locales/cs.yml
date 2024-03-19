@@ -225,6 +225,8 @@ cs:
             last_step: Nelze odstranit poslední fázi procesu.
           success: Úspěšný krok procesu byl úspěšně smazán.
         edit:
+          cta_deprecated:
+            title: Zastaralá CTA
           title: Úprava kroku procesu participace
           update: Aktualizace
         index:
@@ -438,7 +440,7 @@ cs:
             select_process_group: Vyberte skupinu procesů
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
             title: Obecná informace
-            visbility: Viditelnost
+            visibility: Viditelnost
       content_blocks:
         extra_data:
           name: Fáze a doba trvání

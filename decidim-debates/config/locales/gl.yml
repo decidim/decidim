@@ -96,13 +96,6 @@ gl:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_intro: |-
-              Ola,
-              Creouse un novo debate "%{resource_title}" nos %{space_title} espazos participativos, verifícalo e contribuír:
-            email_outro: Recibiches esta notificación porque estás seguindo o %{space_title} espazo participativo. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-            email_subject: Novo debate "%{resource_title}" en %{space_title}
-            notification_title: O <a href="%{resource_path}">%{resource_title}</a> debate foi creado en <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Ola,
