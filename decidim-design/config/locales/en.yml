@@ -35,6 +35,8 @@ en:
           title: Cards
         follow:
           title: Follow
+        forms:
+          title: Forms
         report:
           title: Report
         share:
