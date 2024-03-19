@@ -1,10 +1,11 @@
 <% content_for :heading do %>
-  Iconography
+  <%= t(".title") %>
 <% end %>
 
 <% content_for :description do %>
-  <p>We use icons to reinforce the meaning of actions, titles, etc.</p>
-  <p>We use the Remixicon open source library: <a href="https://remixicon.com" target="_blank" rel="noopener noreferrer">https://remixicon.com</a></p>
+<p><%= t(".description_iconography") %></p>
+ <% iconography_link_url = "https://remixicon.com" %>
+<p><%= t(".description_iconography_html", iconography_link: link_to(iconography_link_url, iconography_link_url, target: "_blank", rel: "noopener noreferrer")) %></p>
 <% end %>
 
 <% content_for :toc do %>

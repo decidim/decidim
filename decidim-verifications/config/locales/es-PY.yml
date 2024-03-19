@@ -231,8 +231,7 @@ es-PY:
           update:
             error: Se ha producido un error al volver a cargar tu documento.
             success: El documento se ha vuelto a cargar correctamente.
-        dni: CI
-        nie: NIE
+        identification_number: Número de identificación
         passport: Pasaporte
       postal_letter:
         admin:
@@ -269,7 +268,7 @@ es-PY:
             error: Se ha producido un problema con tu solicitud.
             success: '¡Gracias! Hemos enviado un SMS a tu teléfono.'
           destroy:
-            success: Código de verificación restablecido correctamente. Por favor vuelve a introducir tu número de teléfono.
+            success: Código de verificación correctamente restablecido. Vuelve a escribir tu número de teléfono.
           edit:
             confirm_destroy: '¿Seguro que quieres restablecer el código de verificación?'
             destroy: Restablecer código de verificación

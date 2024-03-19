@@ -62,7 +62,7 @@ module Decidim
       href = Decidim.cors_enabled ? "" : asset_pack_path("media/images/remixicon.symbol.svg")
 
       content_tag :svg, html_properties do
-        content_tag :use, nil, "href" => "#{href}#ri-#{name}", :tabindex => -1
+        content_tag :use, nil, "href" => "#{href}#ri-#{name}"
       end
     end
 

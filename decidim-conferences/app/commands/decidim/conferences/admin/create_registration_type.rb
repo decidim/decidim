@@ -18,22 +18,22 @@ module Decidim
               title: form.title
             },
             participatory_space: {
-              title: form.current_participatory_space.title
+              title: form.participatory_space.title
             }
           }
         end
 
         def attributes
-          super.merge({ conference: form.current_participatory_space })
+          super.merge({ conference: form.participatory_space })
         end
 
-        def conference_meetings(registration_type)
-          meeting_components = registration_type.conference.components.where(manifest_name: "meetings")
-          Decidim::ConferenceMeeting.where(component: meeting_components).where(id: @form.attributes[:conference_meeting_ids])
+        def conference_meetings
+          meeting_components = resource.conference.components.where(manifest_name: "meetings")
+          Decidim::ConferenceMeeting.where(component: meeting_components).where(id: form.conference_meeting_ids)
         end
 
         def run_after_hooks
-          resource.conference_meetings = conference_meetings(resource)
+          resource.conference_meetings = conference_meetings
         end
       end
     end

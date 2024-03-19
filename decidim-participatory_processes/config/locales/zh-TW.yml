@@ -397,7 +397,6 @@ zh-TW:
             select_participatory_process_type: 選擇一個程序類型
             select_process_group: 選擇一個程序群組
             title: 基本資訊
-            visbility: 可見度
       content_blocks:
         highlighted_processes:
           name: 精選程序

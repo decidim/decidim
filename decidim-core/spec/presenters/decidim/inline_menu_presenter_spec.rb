@@ -19,7 +19,7 @@ module Decidim
       it "renders the menu as a navigation list" do
         expect(subject.render).to have_no_selector("ul")
         expect(subject.render).to \
-          have_selector("li", count: 2) &
+          have_css("li", count: 2) &
           have_link("Foo", href: "/foo") &
           have_link("Bar", href: "/bar")
       end
@@ -36,8 +36,8 @@ module Decidim
       it "renders the menu in the right order" do
         expect(subject.render).to have_no_selector("ul")
         expect(subject.render).to \
-          have_selector("li:first-child", text: "Bar") &
-          have_selector("li:last-child", text: "Foo")
+          have_css("li:first-child", text: "Bar") &
+          have_css("li:last-child", text: "Foo")
       end
     end
 
@@ -52,7 +52,7 @@ module Decidim
       it "skips non visible options" do
         expect(subject.render).to have_no_selector("ul")
         expect(subject.render).to \
-          have_selector("li", count: 1) &
+          have_css("li", count: 1) &
           have_link("Bar", href: "/bar")
       end
     end

@@ -50,15 +50,12 @@ sk:
             title:
               identical: A telo nemôže byť totožné
     models:
-      decidim/proposals/accepted_proposal_event: Návrh akceptovaný
       decidim/proposals/admin/update_proposal_category_event: Kategória návrhu zmenená
       decidim/proposals/admin/update_proposal_scope_event: Rozsah návrhu zmenený
       decidim/proposals/creation_enabled_event: Tvorba návrhu povolená
       decidim/proposals/endorsing_enabled_event: Podpora návrhu povolená
-      decidim/proposals/evaluating_proposal_event: Tento návrh sa hodnotí
       decidim/proposals/proposal_mentioned_event: Návrh spomenutý
       decidim/proposals/publish_proposal_event: Návrh publikovaný
-      decidim/proposals/rejected_proposal_event: Návrh odmietnutý
       decidim/proposals/voting_enabled_event: Povolenie hlasovania o návrhu
   activerecord:
     models:
@@ -177,26 +174,6 @@ sk:
           email_intro: 'Môžete schváliť návrhy v %{participatory_space_title}! Zúčastnite sa na tejto stránke: '
           email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Schválenie návrhov sa začalo po dobu%{participatory_space_title}
-        proposal_accepted:
-          affected_user:
-            email_intro: 'Váš návrh "%{resource_title}" bol prijatý. Odpoveď môžete čítať na tejto stránke: '
-            email_outro: Toto oznámenie ste dostali, pretože ste autorom položky "%{resource_title}".
-            email_subject: Váš návrh bol prijatý
-            notification_title: Váš návrh <a href="%{resource_path}">%{resource_title} </a> bol prijatý.
-          follower:
-            email_intro: 'Návrh "%{resource_title}" bol prijatý. Odpoveď môžete čítať na tejto stránke: '
-            email_outro: Toto oznámenie ste dostali, pretože sledujete "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
-            notification_title: Návrh <a href="%{resource_path}">%{resource_title} </a> bol prijatý.
-        proposal_evaluating:
-          affected_user:
-            email_intro: 'Váš návrh "%{resource_title}" sa práve vyhodnocuje. V tejto stránke môžete skontrolovať odpoveď: '
-            email_outro: Toto oznámenie ste dostali, pretože ste autorom položky "%{resource_title}".
-            email_subject: Váš návrh je hodnotený
-            notification_title: Váš návrh <a href="%{resource_path}">%{resource_title} </a> je hodnotený.
-          follower:
-            email_intro: 'V súčasnej dobe sa hodnotí návrh "%{resource_title}". V tejto stránke môžete skontrolovať odpoveď: '
-            email_outro: Toto oznámenie ste dostali, pretože sledujete "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
-            notification_title: Návrh <a href="%{resource_path}">%{resource_title} </a> sa hodnotí.
         proposal_mentioned:
           email_intro: Váš návrh %{mentioned_proposal_title} bol zmienený v komentároch v <a href="%{resource_url}">tomto priestore</a>.
           email_outro: Toto oznámenie ste dostali, pretože ste autorom položky "%{resource_title}".
@@ -211,15 +188,6 @@ sk:
           email_intro: Návrh "%{resource_title}" bol pridaný k "%{participatory_space_title}", ktorý sledujete.
           email_outro: Toto oznámenie ste dostali, pretože sledujete "%{participatory_space_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
           email_subject: Nový návrh "%{resource_title}" bol pridaný k%{participatory_space_title}
-        proposal_rejected:
-          affected_user:
-            email_intro: 'Váš návrh "%{resource_title}" bol zamietnutý. Odpoveď môžete čítať na tejto stránke: '
-            email_outro: Toto oznámenie ste dostali, pretože ste autorom položky "%{resource_title}".
-            notification_title: Váš návrh <a href="%{resource_path}">%{resource_title} </a> bol zamietnutý.
-          follower:
-            email_intro: 'Návrh "%{resource_title}" bol zamietnutý. Odpoveď môžete čítať na tejto stránke: '
-            email_outro: Toto oznámenie ste dostali, pretože sledujete "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
-            notification_title: Návrh <a href="%{resource_path}">%{resource_title} </a> bol zamietnutý.
         proposal_update_category:
           email_intro: 'Správca aktualizoval kategórii vášho návrhu "%{resource_title}", pozrite sa na neho:'
           email_outro: Toto oznámenie ste dostali, pretože ste autorom návrhu.
@@ -335,10 +303,7 @@ sk:
             success: Úspešný text bol úspešne aktualizovaný.
         proposal_answers:
           form:
-            accepted: Prijal
             answer_proposal: Odpovedať
-            evaluating: Hodnotenie
-            rejected: Odmietnuté
             title: Odpoveď na návrh%{title}
         proposal_notes:
           form:
@@ -440,11 +405,8 @@ sk:
           official: Oficiálne
           user_groups: Skupiny užívateľov
         filter_state_values:
-          accepted: Prijal
           all: Všetko
-          evaluating: Hodnotenie
           not_answered: Nezodpovedané
-          rejected: Odmietnuté
         filter_type_values:
           all: Všetko
           amendments: Zmeny

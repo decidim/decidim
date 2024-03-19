@@ -8,7 +8,7 @@
   }
 
   &__actions {
-    @apply flex flex-col md:flex-row justify-between items-center gap-10;
+    @apply flex flex-col md:flex-row justify-between items-center gap-10 pt-10;
 
     &-left {
       @apply flex items-center gap-2;

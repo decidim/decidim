@@ -287,7 +287,6 @@ fr:
       block_user:
         new:
           action: Bloquer le compte et envoyer la justification
-          already_reported_html: En poursuivant cette action, vous masquerez également tous les contenus du participant. <a href="%{link}">Bloquez le compte</a>.
           description: Bloquer un utilisateur rendra son compte inutilisable, vous devriez fournir dans votre justification les conditions de déblocage de l'utilisateur.
           justification: Justification
           title: Bloquer l'utilisateur %{name}
@@ -354,7 +353,6 @@ fr:
         title: Conflits de vérification
         transfer:
           email: Email
-          error: Une erreur est survenue lors du transfert de l'utilisateur actuel en utilisateur représenté.
           name: Nom
           reason: Raison
           success: Le transfert a bien été effectué.
@@ -377,7 +375,7 @@ fr:
           update: Mettre à jour
       dashboard:
         pending_moderations:
-          anouncement:
+          announcement:
             one: Il y a %{count} modération en attente
             other: Il y a %{count} modérations en attente
           goto_moderation: Aller au panneau de modération global
@@ -575,6 +573,7 @@ fr:
         help_sections: Sections d'aide
         homepage: Page d'accueil
         impersonations: Utilisateurs représentés
+        manage: Gérer
         moderation: Modération globale
         newsletters: Bulletins d'information (newsletter)
         participants: Participants

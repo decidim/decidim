@@ -136,7 +136,7 @@ de:
         new:
           copy: Kopieren
           select: Wählen Sie die Daten aus, die Sie duplizieren möchten
-          title: Doppelte Montage
+          title: Dupliziertes Gremium
       assembly_imports:
         create:
           error: Beim Importieren dieses Gremiums ist ein Fehler aufgetreten.
@@ -296,7 +296,7 @@ de:
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             social_handlers: Sozial
             title: Allgemeine Information
-            visbility: Sichtweite
+            visibility: Sichtbarkeit
         assemblies_types:
           form:
             title: Titel
@@ -310,7 +310,7 @@ de:
           form:
             existing_user: Existierender Benutzer
             explanation: 'Hinweise für das Bild:'
-            image_guide: Vorzugsweise ein Bild im Querformat, das keinen Text enthält.
+            image_guide: Vorzugsweise ein Portraitbild, das keinen Text enthält.
             non_user: Nichtbenutzer
             non_user_avatar_help: Sie sollten die Zustimmung der Personen einholen, bevor Sie sie als Mitglied veröffentlichen.
             select_a_position: Wählen Sie eine Position

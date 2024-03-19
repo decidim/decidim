@@ -499,8 +499,6 @@ lv:
           email_outro: Jūs saņēmāt šo paziņojumu, jo esat šīs platformas administrators.
           email_subject: Lietotāju grupa ir atjauninājusi savu profilu
           notification_title: Lietotāju grupa %{user_group_name}, ir atjauninājusi savu profilu, atstājot to neapstiprinātu. Tagad to varat apstiprināt <a href="%{groups_admin_path}">administratora panelī</a>.
-      notification_event:
-        notification_title: <a href="%{resource_path}">%{resource_title}</a> ir noticis atgadījums.
       resource_endorsed:
         email_intro: '%{endorser_name}%{endorser_nickname}, kam jūs sekojat, tikko atbalstīja "%{resource_title}", un mums šķiet, ka tas jums varētu būt interesanti. Aplūkojiet to un piedalieties:'
         email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{endorser_nickname}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.

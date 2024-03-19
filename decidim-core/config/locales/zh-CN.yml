@@ -495,8 +495,6 @@ zh-CN:
           email_outro: 您收到此通知是因为您是平台的管理员。
           email_subject: 用户组更新了它的个人资料
           notification_title: '%{user_group_name} 用户群组更新了它的个人资料，未验证。您现在可以在 <a href="%{groups_admin_path}">管理面板</a> 中验证它。'
-      notification_event:
-        notification_title: 事件发生到 <a href="%{resource_path}">%{resource_title}</a>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, 你正在关注, 刚刚支持"%{resource_title}", 我们认为它对你可能很感兴趣。 查看并贡献：'
         email_outro: 您收到此通知是因为您正在关注 %{endorser_nickname}。您可以停止收到跟随上一个链接的通知。
@@ -552,7 +550,6 @@ zh-CN:
           message_1: 必须是图像或文档。
         image:
           explanation: '图像指南：'
-          message_1: 更喜欢一个没有任何文本的横屏图像。
           message_2: 服务裁剪图像。
       file_validation:
         allowed_file_extensions: '允许的文件扩展名: %{extensions}'

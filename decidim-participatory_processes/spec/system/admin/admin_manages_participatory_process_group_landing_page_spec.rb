@@ -50,7 +50,7 @@ describe "Admin manages participatory process group landing page" do
           end
         end
 
-        first("ul.js-list-availables li").drag_to(find("ul.js-list-actives"))
+        first("ul.js-list-available li").drag_to(find("ul.js-list-actives"))
         sleep(2)
       end.to change(active_content_blocks, :count).by(1)
     end

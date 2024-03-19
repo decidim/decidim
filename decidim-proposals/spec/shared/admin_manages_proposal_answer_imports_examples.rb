@@ -16,7 +16,7 @@ shared_examples "admin manages proposal answer imports" do
       expect(page).to have_content("There is an error in this field")
     end
 
-    it "adds proposal answers after succesfully import" do
+    it "adds proposal answers after successfully import" do
       File.write(json_file, JSON.pretty_generate(answers))
       dynamically_attach_file(:import_file, json_file)
 
@@ -55,7 +55,7 @@ shared_examples "admin manages proposal answer imports" do
         end
       end
 
-      it "adds proposal answers after succesfully import" do
+      it "adds proposal answers after successfully import" do
         File.write(json_file, JSON.pretty_generate(answers))
         dynamically_attach_file(:import_file, json_file)
 

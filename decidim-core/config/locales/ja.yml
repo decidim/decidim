@@ -74,6 +74,9 @@ ja:
     'false': 'いいえ'
     'true': 'はい'
   date:
+    buttons:
+      close: 閉じる
+      select: 選択
     formats:
       decidim_short: "%Y/%m/%d"
       decidim_short_dashed: "%Y-%m-%d"
@@ -81,6 +84,10 @@ ja:
       decidim_with_day_and_month_name: "%Y %b %d %A"
       decidim_with_month_name: "%Y %B %d"
       decidim_with_month_name_short: "%b %d"
+      help:
+        date_format: 'フォーマット: dd/mm/yyyy'
+      order: d-m-y
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -786,7 +793,7 @@ ja:
           email_subject: ユーザーグループがプロファイルを更新しました
           notification_title: '%{user_group_name} ユーザーグループがプロファイルを更新し、未検証のままにしました。 <a href="%{groups_admin_path}">管理画面</a> で確認できるようになりました。'
       nickname_event:
-        notification_body: ニックネームの使用方法を修正し、重複をなくすために大文字小文字を区別しないようにしました。<br/> あなたのニックネームは他の人と同じだったため、自動的にリネームされました。<a href="%{link_to_account_settings}">アカウント設定</a>から変更することができます。
+        notification_body: ニックネームの使用方法を修正し、重複をなくすために大文字小文字を区別しないようにしました。<br/> あなたのニックネームは他の同じ名前の方の後に登録されたため、自動的にリネームされました。<a href="%{link_to_account_settings}">アカウント設定</a>から変更することができます。
       notification_event:
         notification_title: <a href="%{resource_path}">%{resource_title}</a> にイベントが発生しました。
       reports:
@@ -851,7 +858,7 @@ ja:
       create:
         button: フォロー
         error: このリソースの後に問題がありました。
-        participatory_space: <span class="show-for-sr">%{resource_name}</span>をフォロー中
+        participatory_space: <span>%{resource_name}</span> をフォロー中
       destroy:
         button: フォローを停止
         error: リソースのフォローを解除する際に問題が発生しました。
@@ -865,14 +872,14 @@ ja:
         file:
           explanation: 'ファイルのガイダンス:'
           message_1: 画像またはドキュメントである必要があります。
-          message_2: 画像の場合、ランドスケープ画像が適しています。システムが画像を切り抜きます。
+          message_2: 画像の場合、横長の画像が適しています。システムが画像を切り抜きます。
         icon:
           explanation: 'アイコンのガイド:'
           message_1: 正方形の画像でなければなりません。
           message_2: この画像の推奨サイズは512x512です。
         image:
           explanation: '画像のガイダンス:'
-          message_1: テキストを含まない風景画像が適しています。
+          message_1: テキストを含まない横長の画像をお勧めします。
           message_2: システムが画像を切り抜きます。
       file_validation:
         allowed_file_extensions: 'アップロード可能なファイル形式: %{extensions}'
@@ -1190,7 +1197,7 @@ ja:
         token_error: リンクの有効期限が切れました。
         unsubscribe: 購読解除
     newsletters_opt_in:
-      unathorized: 申し訳ありませんが、このリンクは使用できません。
+      unauthorized: 申し訳ありませんが、このリンクは使用できなくなりました。
       update:
         error: ニュースレター設定の保存中に問題が発生しました。
         success: ニュースレター設定を更新しました。
@@ -1996,6 +2003,10 @@ ja:
     x: X
     xing: Xing
   time:
+    buttons:
+      close: 閉じる
+      reset: リセット
+      select: 選択
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2010,6 +2021,8 @@ ja:
         mailer:
           invitation_instructions:
             accept_until_format: "%Y %B %d, %I:%M %p"
+      help:
+        time_format: 'フォーマット: hh:mm'
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
       long_with_particles: "%Y年%m月%d日 %H:%M"

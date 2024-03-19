@@ -19,7 +19,7 @@ shared_examples_for "has attachment collections" do
     it "show their documents" do
       within "[id*=documents-#{attachment_collection.id}]", visible: false do
         expect(page).to have_content(:all, translated(document.title))
-        expect(page).not_to have_content(:all, translated(other_document.title))
+        expect(page).to have_no_content(:all, translated(other_document.title))
       end
     end
   end
@@ -53,7 +53,7 @@ shared_examples_for "has attachment collections" do
 
     it "is not present" do
       expect(page).to have_content(translated(attachment_collection.name))
-      expect(page).not_to have_content(translated(empty_attachment_collection.name))
+      expect(page).to have_no_content(translated(empty_attachment_collection.name))
     end
   end
 end

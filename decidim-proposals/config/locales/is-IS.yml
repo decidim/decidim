@@ -55,16 +55,6 @@ is-IS:
           email_intro: 'Þú getur samþykkt tillögur í %{participatory_space_title}! Byrja að taka þátt í þessari síðu:'
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
           email_subject: Tillögur um áritun hafa byrjað fyrir %{participatory_space_title}
-        proposal_accepted:
-          follower:
-            email_intro: 'Tillagan "%{resource_title}" hefur verið samþykkt. Þú getur lesið svarið á þessari síðu:'
-            email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}". Þú getur sleppt því frá fyrri tengilinn.
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> tillöguna hefur verið samþykkt.
-        proposal_evaluating:
-          follower:
-            email_intro: 'Tillagan "%{resource_title}" er nú metin. Þú getur leitað að svari á þessari síðu:'
-            email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}". Þú getur sleppt því frá fyrri tengilinn.
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> tillögunni er metið.
         proposal_mentioned:
           email_subject: Tillagan þín "%{mentioned_proposal_title}" hefur verið minnst
           notification_title: Tillaga þín "%{mentioned_proposal_title}" hefur verið nefnd <a href="%{resource_path}">í þessu rými</a> í athugasemdunum.
@@ -73,11 +63,6 @@ is-IS:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> tillöguna var gefin út af <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Tillagan "%{resource_title}" hefur verið bætt við "%{participatory_space_title}" sem þú fylgist með.
-        proposal_rejected:
-          follower:
-            email_intro: 'Tillagan "%{resource_title}" hefur verið hafnað. Þú getur lesið svarið á þessari síðu:'
-            email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}". Þú getur sleppt því frá fyrri tengilinn.
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> tillöguna hefur verið hafnað.
         proposal_update_category:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú ert höfundur tillögunnar.
           email_subject: '%{resource_title} tillöguflokkinn hefur verið uppfærður'
@@ -100,10 +85,7 @@ is-IS:
             name: Tillaga
         proposal_answers:
           form:
-            accepted: Samþykkt
             answer_proposal: Svara
-            evaluating: Mat
-            rejected: Hafnað
             title: Svar fyrir tillögu %{title}
         proposal_notes:
           form:
