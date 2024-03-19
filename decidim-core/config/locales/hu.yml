@@ -44,7 +44,7 @@ hu:
       decidim/promote_to_admin: A csoport adminisztrátora
       decidim/promoted_to_admin_event: Csoportadminisztrátorrá jelölve
       decidim/removed_from_group: Eltávolítva a csoportból
-      decidim/resource_endorsed_event: Erőforrás jóváhagyva
+      decidim/resource_endorsed_event: Erőforrás támogatva
       decidim/resource_hidden_event: Rejtett erőforrás
       decidim/user_group_created_event: Felhasználói csoport létrehozva
       decidim/welcome_notification_event: Üdvözlő üzenet
@@ -63,7 +63,7 @@ hu:
         other: Módosítások
       decidim/endorsement:
         one: Jóváhagyás
-        other: Jóváhagyások
+        other: Támogatások
       decidim/user:
         one: Résztvevő
         other: Résztvevők
@@ -75,7 +75,9 @@ hu:
     'true': 'Igen'
   carrierwave:
     errors:
+      file_resolution_too_large: A fájl felbontása túl nagy
       file_size_too_large: Túl nagy a fájl mérete
+      not_inside_organization: A fájl nincs csatolva egyetlen szervezethez sem
   date:
     formats:
       decidim_short: "%Y.%m.%d"
@@ -337,7 +339,7 @@ hu:
         other: megjegyzések
       endorsements:
         one: jóváhagyás
-        other: jóváhagyások
+        other: támogatások
       official_author: Hivatalos
     authorization_handlers:
       another_dummy_authorization_handler:
@@ -515,11 +517,14 @@ hu:
           subtitle: A regisztráció befejezéséhez töltsd ki a következő űrlapot
           username_help: Bejegyzésekben megjelenő nyilvános megnevezés. Az anonimitás megőrzése érdekében bármilyen név lehet.
       registrations:
+        create:
+          error: Hiba történt a fiók létrehozásakor.
         new:
           already_have_an_account?: Már van egy fiókod?
           newsletter: Hírlevél fogadása a legfontosabb információkkal
           newsletter_title: Kapcsolatfelvételi engedély
           nickname_help: A beceneved itt %{organization} csak betűket, számokat '-' és '_' jeleket tartalmazhat.
+          sign_in: Bejelentkezés
           sign_up: Regisztráció
           sign_up_as:
             legend: Regisztrálj mint
@@ -579,10 +584,11 @@ hu:
         success: Kép sikeresen feltöltve
       drag_and_drop_help: Képek hozzáadása húzással és ejtéssel vagy beillesztéssel.
     endorsable:
+      endorsements: Támogatások
       endorsements_count: Támogatások száma
     endorsement_buttons_cell:
-      already_endorsed: Jóváhagyva
-      endorse: Jóváhagy
+      already_endorsed: Támogatva
+      endorse: Támogat
     endorsements:
       identities:
         done: Kész
@@ -730,7 +736,7 @@ hu:
       resource_endorsed:
         email_intro: '%{endorser_name}% {endorser_nickname}, akit követsz, éppen jóváhagyta a "%{resource_title}" -t, és úgy gondoljuk, hogy ez érdekes lehet számodra. Nézd meg, és járulj hozzá:'
         email_outro: Azért kaptad ezt az értesítést, mert %{endorser_nickname} követed. Az előző hivatkozást követve abbahagyhatod az értesítések fogadását.
-        email_subject: "%{endorser_nickname} új jóváhagyást hajtott végre"
+        email_subject: "%{endorser_nickname} támogatásról biztosított"
         notification_title: A <a href="%{resource_path}">%{resource_title}</a> %{resource_type} a(z) <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> hagyta jóvá.
       users:
         profile_updated:
@@ -740,6 +746,7 @@ hu:
           notification_title: '%{name} (%{nickname}) (akit egyébként követsz) <a href="%{resource_path}">profil oldala</a> frissült.'
         user_officialized:
           email_outro: Azért kapta ezt az értesítést, mert Ön a szervezet adminisztrátora.
+          email_subject: "%{name} regisztrációja hivatalossá lett téva"
     export_mailer:
       download_your_data_export:
         click_button: 'Kattintson a következő linkre az adatainak letöltéséhez. <br/> A fájl elérhető marad eddig %{date}<br/> Szüksége lesz egy a zip fájlt kicsomagoló programra. <a href="https://www.7-zip.org/"> 7-Zip</a>Windowson,<a href="https://www.keka.io/en/">Keka</a> (Mac-en) vagy <a href="https://peazip.github.io">PeaZip</a> (Linuxon). Jelszó: %{password}'
@@ -772,6 +779,7 @@ hu:
       create:
         button: Követés
         error: Hiba történt az erőforrás követése során.
+        participatory_space: ' <span class="show-for-sr">%{resource_name}</span> követése'
       destroy:
         button: Követés törlése
         error: Hiba történt az erőforrás követésének visszavonásakor.
@@ -791,6 +799,8 @@ hu:
           explanation: 'Útmutató:'
           message_1: A képnek négyzet alakúnak kell lennie.
           message_2: A javasolt képméret 512x512 px.
+        image:
+          message_1: Olyan fekvő kép használata ajánlott, amely nem tartalmaz szöveget.
       file_validation:
         max_file_size: 'Maximális fájlméret: %{megabytes} MB'
       upload:
@@ -1151,10 +1161,12 @@ hu:
           close_meeting_reminder: Szeretnék e-mailben emlékeztetőt kapni a zárt megbeszélésekről és nem nyilvános jelentésekről
         notifications_sending_frequencies:
           daily: Napi
+          none: Egyik sem
           real_time: Valósidejű
           weekly: Heti
         notifications_sending_frequency: Milyen gyakran szeretne e-mailt kapni az értesítésekről?
         own_activity: Saját tevékenységem - amikor valaki megjegyzést fűz a javaslatomhoz, vagy megemlíti a nevemet
+        push_notifications: Push értesítések
         push_notifications_reminder: Ahhoz, hogy értesítéseket kapjon a platformtól, először engedélyeznie kell azokat a böngésző beállításaiban.
         receive_notifications_about: Értesítést szeretnék kapni
         update_notifications_settings: Változások mentése
@@ -1214,11 +1226,13 @@ hu:
           error: Hiba történt az általános szerződési feltételek elfogadása során.
           success: Remek! Elfogadtad a feltételeket.
         form:
+          agreement: Elfogadom a feltételeket
           legend: Elfogadom a felhasználási feltételeket
         refuse:
           modal_body: Ha elutasítja, akkor nem fogja tudni használni a platformot. <a href="%{download_your_data_path}">Töltse le az adatait</a> és/vagy <a href="%{delete_path}">törölje a fiókját</a>.
           modal_btn_continue: Feltételek elfogadása és folytatás
           modal_btn_exit: Később átnézem
+          modal_button: Feltételek elutasítása
           modal_close: Felugró ablak bezárása
           modal_title: Tényleg elutasítod az ÁSZF frissített szövegét?
         required_review:
@@ -1245,6 +1259,8 @@ hu:
         following: Követés
         groups: Csoportok
         members: Belépés
+        officialized: Hivatalos résztvevő
+        send_private_message: Privát üzenet küldése
         timeline: Idővonal
         view_full_profile: Teljes profil megtekintése
       sidebar:
@@ -1288,7 +1304,7 @@ hu:
         success: A jelentést létrehozása sikeres, de még egy adminisztrátora felülvizsgálja.
     resource_endorsements:
       create:
-        error: Hiba történt a jóváhagyási művelet során.
+        error: Hiba történt a támogatási művelet során.
     scopes:
       global: Globális hatáskör
       picker:
@@ -1398,6 +1414,7 @@ hu:
         share_link: Hivatkozás megosztása
     statistics:
       comments_count: Hozzászólások
+      endorsements_count: Támogatások
       followers_count: Követők
       headline: Statisztikák
       no_stats: Még nincsenek statisztikák.
@@ -1417,6 +1434,7 @@ hu:
     user_conversations:
       create:
         error: Az üzenet létrehozása sikertelen. Próbálkozzon újra később
+        existing_error: Az üzenet létrehozása sikertelen. A beszélgetés már létezik, kérjük, próbálkozzon újra most.
         success: A beszélgetés sikeresen elindult!
       index:
         add_max_users: 'Felhasználók hozzáadása a beszélgetéshez: legfeljebb 9 felhasználó'
@@ -1611,6 +1629,8 @@ hu:
       updated: Fiókja sikeresen frissült.
     sessions:
       already_signed_out: Kijelentkezett sikeresen.
+      new:
+        sign_in: Bejelentkezés
       signed_in: Sikeresen bejelentkezett.
       signed_out: Kijelentkezett sikeresen.
     shared:
@@ -1619,6 +1639,7 @@ hu:
         didn_t_receive_confirmation_instructions: Nem kapott megerősítési utasítást?
         didn_t_receive_unlock_instructions: Nem kapott feloldási utasítást?
         forgot_your_password: Elfelejtette a jelszavát?
+        sign_in: Bejelentkezés
         sign_in_with_provider: Jelentkezzen be %{provider}
         sign_up: Regisztrálj
       minimum_password_length:
@@ -1635,6 +1656,7 @@ hu:
       public: Nyilvános információk.
   errors:
     messages:
+      allowed_file_content_types: 'csak a következő kiterjesztésű fájlok engedélyezettek: %{types}'
       already_confirmed: már megerősítették, kérjük, próbáljon meg bejelentkezni
       confirmation_period_expired: meg kell erősíteni %{period}, kérem, kérjen újat
       content_type_allowlist_error: érvénytelen fájltípus
@@ -1745,6 +1767,7 @@ hu:
         facebook: "%{organization} a Facebookon"
         github: "%{organization} a GitHubon"
         instagram: "%{organization} az Instagramon"
+        x: "%{organization} az X-en"
         youtube: "%{organization} a YouTube-on"
       timeout_modal:
         body: Ön %{minutes} percig inaktív volt. Ha továbbra is inaktív marad, a saját biztonsága érdekében automatikusan kijelentkeztetjük.
@@ -1811,6 +1834,7 @@ hu:
     weibo: Sina Weibo
     whatsapp_app: Whatsapp
     whatsapp_web: Whatsapp
+    x: X
     xing: Xing
   time:
     formats:

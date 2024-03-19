@@ -820,7 +820,7 @@ fi:
           message_1: On oltava kuva tai asiakirja.
           message_2: Kuvina käytä mieluiten vaakasuintaisia kuvia, palvelu rajaa kuvaa.
         icon:
-          explanation: 'Ikonin ohjeistus:'
+          explanation: 'Kuvakkeen ohjeistus:'
           message_1: On oltava neliömuotoinen kuva.
           message_2: Tämän kuvan suositeltu koko on 512x512.
         image:
@@ -1438,7 +1438,7 @@ fi:
         title: Valitse tulosten määrä sivua kohti
       share_modal:
         close_window: Sulje ikkuna
-        copy_share_link: Kopio
+        copy_share_link: Kopioi
         copy_share_link_clarification: Kopioi jakolinkki leikepöydälle
         copy_share_link_copied: Kopioitu!
         copy_share_link_message: Linkin kopiointi leikepöydälle onnistui.

@@ -171,7 +171,7 @@ fi:
             invitation_sent_at: Kutsu on
       participatory_process_copies:
         new:
-          copy: Kopio
+          copy: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
           title: Kopioi osallistumisprosessi
       participatory_process_group_landing_page:

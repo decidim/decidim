@@ -551,6 +551,9 @@ gl:
       default_image: Imaxe predeterminada
       errors:
         error: Hai un erro neste campo.
+      file_help:
+        file:
+          message_2: Nas imaxes, emprega preferiblemente as apaisadas, o servizo recorta a imaxe.
       upload:
         labels:
           add_attachment: Engadir ficheiro anexo

@@ -192,11 +192,6 @@ sk:
           new:
             send: Požiadajte o overenie
             title: Nahrajte svoj doklad totožnosti
-          update:
-            error: Pri načítaní dokumentu došlo k problému
-            success: Dokument bol úspešne znovunahraný
-        dni: IČO
-        nie: DIČ
         passport: Cestovný pas
       postal_letter:
         admin:

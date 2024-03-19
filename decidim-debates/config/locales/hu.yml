@@ -31,7 +31,7 @@ hu:
         actions:
           comment: Megjegyzés
           create: Létrehozás
-          endorse: Jóváhagy
+          endorse: Támogat
         name: Viták
         settings:
           global:
@@ -44,8 +44,8 @@ hu:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
             creation_enabled: A résztvevők létrehozhatnak vitákat
-            endorsements_blocked: Jóváhagyások letiltva
-            endorsements_enabled: Jóváhagyások engedélyezve
+            endorsements_blocked: Támogatások letiltva
+            endorsements_enabled: Támogatások engedélyezve
     debates:
       actions:
         close: Bezár

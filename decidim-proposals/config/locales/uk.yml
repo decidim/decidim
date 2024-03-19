@@ -110,13 +110,11 @@ uk:
         proposal_accepted:
           follower:
             email_intro: 'Пропозиція "%{resource_title}" була прийнята. Ви можете прочитати відповідь на сторінці:'
-            email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
             email_subject: Пропозиція, за якою ви стежите, була прийнята
             notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було прийнято.
         proposal_evaluating:
           follower:
             email_intro: 'Пропозиція "%{resource_title}" зараз розглядається. Ви можете перевірити наявність відповіді на сторінці:'
-            email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
             email_subject: Пропозиція, за якою ви стежите, зараз розглядається
             notification_title: Пропозиція <a href="%{resource_path}">%{resource_title}</a> розглядається.
         proposal_mentioned:
@@ -131,7 +129,6 @@ uk:
         proposal_rejected:
           follower:
             email_intro: 'Пропозиція "%{resource_title}" була відхилена. Ви можете прочитати відповідь на сторінці:'
-            email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
             email_subject: Пропозиція, за якою ви стежите, була відхилена
             notification_title: Пропозицію <a href="%{resource_path}">%{resource_title}</a> було відхилено.
         proposal_update_category:
@@ -164,6 +161,7 @@ uk:
             accepted: Прийнято
             answer_proposal: Відповісти
             evaluating: Розглядається
+            not_answered: Без відповідей
             rejected: Відхилено
             title: Відповідь на пропозицію %{title}
         proposal_notes:
@@ -230,7 +228,10 @@ uk:
         filter_origin_values:
           official: Службове
         filter_state_values:
+          accepted: Прийнято
+          evaluating: Розглядається
           not_answered: Без відповідей
+          rejected: Відхилено
       content_blocks:
         highlighted_proposals:
           proposals: Пропозиції

@@ -12,6 +12,8 @@ de:
         state: Status
         title: Titel
         user_group_id: Kollaborativen Entwurf erstellen als
+      import_participatory_text:
+        document: Partizipatives Textdokument
       proposal:
         address: Adresse
         answer: Antworten
@@ -107,7 +109,7 @@ de:
           scope_id_eq:
             label: Umfang
           state_eq:
-            label: Zustand
+            label: Status
             values:
               accepted: Angenommen
               evaluating: In Bearbeitung
@@ -619,7 +621,7 @@ de:
         filter_state_values:
           accepted: Angenommen
           all: Alle
-          evaluating: In Bearbeitung
+          evaluating: In Bewertung
           not_answered: Unbeantwortet
           rejected: Abgelehnt
         filter_type_values:
@@ -755,7 +757,7 @@ de:
             published_answer: Veröffentlichte Antwort
             published_at: Veröffentlicht am
             scope: Umfang
-            state: Zustand
+            state: Status
             title: Titel
             valuator: Schätzer
             valuators: Schätzer
@@ -794,7 +796,7 @@ de:
           edit_documents: Dokumente bearbeiten
           edit_image: Bild bearbeiten
           gallery_legend: "(Optional) Ein Bild zur Vorschlagskarte hinzufügen"
-          select_a_category: Bitte wählen sie eine Kategorie
+          select_a_category: Bitte wählen Sie eine Kategorie
           send: Abschicken
           title: Vorschlag bearbeiten
         edit_draft:
@@ -812,7 +814,7 @@ de:
           related_to: Bezüglich
           scope: Umfang
           search: Suche
-          state: Zustand
+          state: Status
           type: Art
           voted: Gewählt
         filters_small_view:

@@ -234,12 +234,11 @@ nl:
         proposal_accepted:
           affected_user:
             email_intro: 'Uw voorstel "%{resource_title}" is geaccepteerd. U kunt het antwoord op deze pagina lezen:'
-            email_outro: U heeft deze melding ontvangen omdat u een auteur bent van "%{resource_title}".
+            email_outro: U hebt deze melding ontvangen omdat u een auteur bent van "%{resource_title}".
             email_subject: Uw voorstel is aanvaard
             notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> is aanvaard.
           follower:
             email_intro: 'Het voorstel "%{resource_title}" is aanvaard. Je kan het antwoord op deze pagina lezen:'
-            email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
             email_subject: Een voorstel dat je volgt, is geaccepteerd
             notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
         proposal_evaluating:
@@ -250,7 +249,6 @@ nl:
             notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> wordt beoordeeld.
           follower:
             email_intro: 'Het voorstel "%{resource_title}" is geaccepteerd. Je kan het antwoord op deze pagina lezen:'
-            email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
             email_subject: Een voorstel dat je volgt, wordt geëvalueerd
             notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> wordt beoordeeld.
         proposal_mentioned:
@@ -275,7 +273,6 @@ nl:
             notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> is afgewezen.
           follower:
             email_intro: 'Het voorstel "%{resource_title}" is afgewezen. Je kan de reden hier lezen:'
-            email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
             email_subject: Een voorstel dat je volgt, is afgewezen
             notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is afgewezen.
         proposal_update_category:
@@ -418,6 +415,7 @@ nl:
             accepted: Aanvaard
             answer_proposal: Antwoord
             evaluating: Aan het beoordelen
+            not_answered: Nog niet beantwoord
             rejected: Geweigerd
             title: Antwoord voor voorstel %{title}
         proposal_notes:
@@ -564,9 +562,9 @@ nl:
         filter_state_values:
           accepted: Aanvaard
           all: Alle
-          evaluating: Evalueren
+          evaluating: Aan het beoordelen
           not_answered: Nog niet beantwoord
-          rejected: Afgewezen
+          rejected: Geweigerd
         filter_type_values:
           all: Alle
           amendments: wijzigingen

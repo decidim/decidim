@@ -272,7 +272,6 @@ it:
             select_parent_assembly: Seleziona l'assemblea madre
             social_handlers: Social networks
             title: Informazioni generali
-            visbility: Visibilità
         assemblies_settings:
           edit:
             update: Aggiorna

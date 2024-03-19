@@ -256,7 +256,6 @@ pt:
             notification_title: A sua proposta <a href="%{resource_path}">%{resource_title}</a> foi aceite.
           follower:
             email_intro: 'A proposta "%{resource_title}" foi aceite. Pode ler a resposta nesta página:'
-            email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
             email_subject: Uma proposta que segue foi aceite
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi aceite.
         proposal_evaluating:
@@ -267,7 +266,6 @@ pt:
             notification_title: A sua proposta <a href="%{resource_path}">%{resource_title}</a> está sob avaliação.
           follower:
             email_intro: 'A proposta "%{resource_title}" está atualmente sob avaliação. Pode verificar a resposta nesta página:'
-            email_outro: Recebeu esta notificação porque segue "%{resource_title}". Pode ignorá-la a partir da hiperligação anterior.
             email_subject: Uma proposta que você segue está sob avaliação
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> está sob avaliação.
         proposal_mentioned:
@@ -291,7 +289,6 @@ pt:
             notification_title: A sua proposta <a href="%{resource_path}">%{resource_title}</a> foi rejeitada.
           follower:
             email_intro: 'A proposta "%{resource_title}" foi rejeitada. Pode ler a resposta nesta página:'
-            email_outro: Recebeu esta notificação porque segue "%{resource_title}". Pode ignorá-la a partir da hiperligação anterior.
             email_subject: Uma proposta que você segue foi rejeitada
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi rejeitada.
         proposal_update_category:
@@ -423,6 +420,7 @@ pt:
             accepted: Aceites
             answer_proposal: Resposta
             evaluating: Avaliando
+            not_answered: Não respondido
             rejected: Rejeitado
             title: Resposta para a proposta %{title}
         proposal_notes:

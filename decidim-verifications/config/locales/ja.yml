@@ -222,10 +222,9 @@ ja:
             send: リクエスト確認
             title: 身分証明書をアップロード
           update:
-            error: ドキュメントの再アップロード中に問題が発生しました
-            success: ドキュメントを再アップロードしました
-        dni: 免許証
-        nie: マイナンバーカード
+            error: ドキュメントの再アップロード中に問題が発生しました。
+            success: ドキュメントを再アップロードしました。
+        identification_number: 識別番号
         passport: パスポート
       postal_letter:
         admin:
