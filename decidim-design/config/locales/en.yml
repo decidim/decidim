@@ -168,6 +168,9 @@ en:
         dropdowns_demo_description: The dropdowns are used along the application in order to collapse large, easy-readable menus for desktop devices, but too wordy for mobile devices.
         dropdowns_demo_description_html: 'This javascript feature is enhanced with a small css, through the naming: the hideable content MUST HAVE an <code>id</code> starting with <i>dropdown-menu</i>.'
         dropdowns_description_html: Dropdowns are a javascript feature available thanks to an external library called %{link}.
+        dropdowns_usage_1_description: 2. A hideable element, whose <code>id</code> matches the data-target value the trigger refers to.
+        dropdowns_usage_description: 'An dropdown requires two elements:'
+        dropdowns_usage_description_html: 1. A user actionable element, with the data-attributes <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
         dummy_description: Dummy resource description
         dummy_title: Dummy resource title
         follow_button: Follow Button
