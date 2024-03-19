@@ -41,13 +41,13 @@ module Decidim
       end
 
       def proposal_wizard_steps
-        [ProposalsController::STEP1, ProposalsController::STEP2, ProposalsController::STEP3, ProposalsController::STEP4]
+        [ProposalsController::STEP1, ProposalsController::STEP2]
       end
 
       private
 
       def total_steps
-        4
+        2
       end
 
       # Renders the back link except for step_2: compare
@@ -55,10 +55,8 @@ module Decidim
         case step
         when ProposalsController::STEP1
           proposals_path
-        when ProposalsController::STEP3
-          compare_proposal_path
-        when ProposalsController::STEP4
-          edit_draft_proposal_path
+        when ProposalsController::STEP2
+          complete_proposal_path
         end
       end
 
