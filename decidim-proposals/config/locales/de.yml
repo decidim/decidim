@@ -30,6 +30,8 @@ de:
         cost: Kosten
         cost_report: Kostenbericht
         execution_period: Ausführungszeitraum
+      proposal_state:
+        announcement_title: Antwort-Überschrift
       proposals_copy:
         copy_proposals: Ich verstehe, dass dies alle Vorschläge von der ausgewählten Komponente in die aktuelle Komponente importiert und dass diese Aktion nicht rückgängig gemacht werden kann.
         origin_component_id: Komponente zum Kopieren der Vorschläge aus
@@ -68,15 +70,12 @@ de:
               not_official: Sind nicht offiziell
               supported: Haben Stimmen oder Unterstützung erhalten
     models:
-      decidim/proposals/accepted_proposal_event: Vorschlag angenommen
       decidim/proposals/admin/update_proposal_category_event: Vorschlagskategorie geändert
       decidim/proposals/admin/update_proposal_scope_event: Vorschlagsumfang geändert
       decidim/proposals/creation_enabled_event: Vorschlagserstellung aktiviert
       decidim/proposals/endorsing_enabled_event: Vorschlagsunterstützung aktiviert
-      decidim/proposals/evaluating_proposal_event: Der Vorschlag wird geprüft
       decidim/proposals/proposal_mentioned_event: Vorschlag erwähnt
       decidim/proposals/publish_proposal_event: Vorschlag veröffentlicht
-      decidim/proposals/rejected_proposal_event: Vorschlag abgelehnt
       decidim/proposals/voting_enabled_event: Vorschlagsabstimmung aktiviert
   activerecord:
     models:
@@ -103,10 +102,12 @@ de:
             values:
               'false': Vorschläge
               'true': Änderungen
+          proposal_state_id_eq:
+            label: Status
           scope_id_eq:
             label: Umfang
           state_eq:
-            label: Zustand
+            label: Status
             values:
               accepted: Angenommen
               evaluating: In Bearbeitung
@@ -268,28 +269,6 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: In %{participatory_space_title} ist es jetzt möglich, Vorschläge zu unterstützen
           notification_title: Sie können nun Vorschläge auf <a href="%{participatory_space_url}">%{participatory_space_title}</a> <a href="%{resource_path}">unterstützen</a>.
-        proposal_accepted:
-          affected_user:
-            email_intro: 'Ihr Vorschlag "%{resource_title}" wurde angenommen. Sie können die Antwort auf dieser Seite lesen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
-            email_subject: Ihr Vorschlag wurde angenommen
-            notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde angenommen.
-          follower:
-            email_intro: 'Der Vorschlag "%{resource_title}" wurde akzeptiert. Sie können die Antwort auf dieser Seite lesen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-            email_subject: Ein Vorschlag, dem Sie folgen, wurde akzeptiert
-            notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde angenommen.
-        proposal_evaluating:
-          affected_user:
-            email_intro: 'Ihr Vorschlag "%{resource_title}" wird derzeit geprüft. Das Resultat wird auf dieser Seite aufgeschaltet werden:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
-            email_subject: Ihr Vorschlag wird evaluiert
-            notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wird evaluiert.
-          follower:
-            email_intro: 'Der Vorschlag "%{resource_title}" wird derzeit geprüft. Das Resultat wird auf dieser Seite aufgeschaltet werden:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-            email_subject: Ein Vorschlag, dem Sie folgen, wird evaluiert
-            notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wird evaluiert.
         proposal_mentioned:
           email_intro: Ihr Vorschlag "%{mentioned_proposal_title}" wurde <a href="%{resource_url}">hier</a> in den Kommentaren erwähnt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
@@ -306,17 +285,17 @@ de:
           email_subject: Neuer Vorschlag "%{resource_title}" zu %{participatory_space_title} hinzugefügt
           notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde von %{author} zu %{participatory_space_title} hinzugefügt.
           notification_title_official: Der offizielle Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde zu %{participatory_space_title} hinzugefügt.
-        proposal_rejected:
+        proposal_state_changed:
           affected_user:
-            email_intro: 'Ihr Vorschlag "%{resource_title}" wurde abgelehnt. Sie können die Antwort auf dieser Seite lesen:'
+            email_intro: 'Der Status des Vorschlags "%{resource_title}" wurde zu "%{state}" geändert. Sie können die Antwort auf dieser Seite lesen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
-            email_subject: Ihr Vorschlag wurde abgelehnt
-            notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde abgelehnt.
+            email_subject: Der Status Ihres Vorschlags hat sich geändert (%{state})
+            notification_title: Der Status Ihres Vorschlags <a href="%{resource_path}">%{resource_title}</a> hat sich zu "%{state}" geändert.
           follower:
-            email_intro: 'Der Vorschlag "%{resource_title}" wurde abgelehnt. Sie können die Antwort auf dieser Seite lesen:'
+            email_intro: 'Der Status Ihres Vorschlags "%{resource_title}" wurde zu "%{state}" geändert. Sie können die Antwort auf dieser Seite lesen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-            email_subject: Ein Vorschlag, dem Sie folgen, wurde abgelehnt
-            notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde abgelehnt.
+            email_subject: Der Status eines Vorschlags, dem Sie folgen, hat sich geändert (%{state})
+            notification_title: Der Status des Vorschlags <a href="%{resource_path}">%{resource_title}</a> hat sich zu "%{state}" geändert.
         proposal_update_category:
           email_intro: 'Ein Administrator hat die Kategorie Ihres Vorschlags "%{resource_title}" aktualisiert, sehen Sie es sich an:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Vorschlags sind.
@@ -391,9 +370,13 @@ de:
     proposals:
       actions:
         answer_proposal: Vorschlag beantworten
+        delete_proposal_state_confirm: Möchten Sie diesen Status wirklich löschen?
+        destroy: Status löschen
         edit_proposal: Vorschlag bearbeiten
+        edit_proposal_state: Status bearbeiten
         import: Importieren von einer anderen Komponente
         new: Neuer Vorschlag
+        new_proposal_state: Neuer Status
         participatory_texts: Partizipative Texte
         show: Vorschlag anzeigen
         title: Aktionen
@@ -471,11 +454,7 @@ de:
             success: Partizipativer Text erfolgreich aktualisiert.
         proposal_answers:
           form:
-            accepted: Angenommen
             answer_proposal: Antworten
-            evaluating: In Bewertung
-            not_answered: Unbeantwortet
-            rejected: Abgelehnt
             title: Antwort auf Vorschlag %{title}
         proposal_notes:
           create:
@@ -486,6 +465,23 @@ de:
             submit: Absenden
           leave_your_note: Anmerkung hinterlassen
           title: Private Notizen
+        proposal_states:
+          create:
+            error: Fehler beim Erstellen des Status
+            success: Status erfolgreich erstellt
+          destroy:
+            success: Status erfolgreich gelöscht
+          edit:
+            title: Status bearbeiten
+            update: Aktualisieren
+          index:
+            title: Status
+          new:
+            create: Erstellen
+            title: Neuer Status
+          update:
+            error: Fehler beim Aktualisieren des Status
+            success: Status erfolgreich aktualisiert
         proposals:
           answer:
             invalid: Es gab ein Problem bei der Beantwortung dieses Vorschlags.
@@ -517,6 +513,7 @@ de:
             selected: ausgewählt
             split: Vorschläge aufteilen
             split_button: Aufteilen
+            statuses: Status
             title: Vorschläge
             unassign_from_valuator: Zuweisung an den Schätzer zurückziehen
             unassign_from_valuator_button: Zuweisung aufheben
@@ -607,11 +604,8 @@ de:
           participants: Teilnehmer
           user_groups: Benutzergruppen
         filter_state_values:
-          accepted: Angenommen
           all: Alle
-          evaluating: In Bearbeitung
           not_answered: Unbeantwortet
-          rejected: Abgelehnt
         filter_type_values:
           all: Alle
           amendments: Änderungsanträge
@@ -739,11 +733,14 @@ de:
             published_answer: Veröffentlichte Antwort
             published_at: Veröffentlicht am
             scope: Umfang
-            state: Zustand
+            state: Status
             title: Titel
             valuator: Schätzer
             valuators: Schätzer
             votes: Stimmen
+        proposal_state:
+          css_class: CSS-Klasse
+          title: Status
       new:
         limit_reached: Sie können keine neuen Vorschläge erstellen, da Sie das maximal mögliche Anzahl erreicht haben.
       participatory_text_proposal:
@@ -770,7 +767,7 @@ de:
           attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
           back: Zurück
           edit_documents: Dokumente bearbeiten
-          select_a_category: Bitte wählen sie eine Kategorie
+          select_a_category: Bitte wählen Sie eine Kategorie
           send: Abschicken
           title: Vorschlag bearbeiten
         edit_draft:
@@ -788,7 +785,7 @@ de:
           related_to: Bezüglich
           scope: Umfang
           search: Suche
-          state: Zustand
+          state: Status
           type: Art
           voted: Gewählt
         index:

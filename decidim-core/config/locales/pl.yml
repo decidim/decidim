@@ -86,6 +86,8 @@ pl:
     'false': 'Nie'
     'true': 'Tak'
   date:
+    buttons:
+      close: Zamknij
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d.%m.%Y"
@@ -794,10 +796,6 @@ pl:
           email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
           email_subject: Grupa użytkowników zaktualizowała swój profil
           notification_title: Grupa użytkowników %{user_group_name} zaktualizowała swój profil, pozostawiając go niezweryfikowanym. Możesz go teraz zweryfikować w <a href="%{groups_admin_path}">panelu administratora</a>.
-      nickname_event:
-        notification_body: By uniknąć duplikatów, skorygowaliśmy sposób, w jaki używane są pseudonimy. Dlatego usunęliśmy zasadę uwzględniającą wielkość liter. <br/> Twój pseudonim został utworzony po innym o tej samej nazwie, więc automatycznie zmieniliśmy go. Możesz to zmienić w <a href="%{link_to_account_settings}">ustawieniach konta</a>.
-      notification_event:
-        notification_title: Zdarzenie miało miejsce w <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: Administrator usunął %{resource_type}, ponieważ zasób został zgłoszony jako %{report_reasons}.
@@ -861,7 +859,6 @@ pl:
       create:
         button: Obserwuj
         error: Wystąpił błąd podczas próby obserwowania tego zasobu.
-        participatory_space: Obserwuj <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Przestań obserwować
         error: Nastąpił błąd podczas cofania obserwowania tego zasobu.
@@ -875,14 +872,12 @@ pl:
         file:
           explanation: 'Wytyczne dotyczące pliku:'
           message_1: Ma być obrazem lub dokumentem.
-          message_2: W przypadku obrazów używaj najlepiej tych o orientacji poziomej, usługa przycina obraz.
         icon:
           explanation: 'Wytyczne dla ikony:'
           message_1: Musi być obrazem kwadratowym.
           message_2: Zalecany rozmiar dla tego obrazu to 512x512.
         image:
           explanation: 'Wytyczne dotyczące obrazu:'
-          message_1: Preferowany obraz krajobrazu, który nie zawiera żadnego tekstu.
           message_2: Obraz jest docinany automatycznie.
       file_validation:
         allowed_file_extensions: 'Dozwolone rozszerzenia plików: %{extensions}'
@@ -1200,7 +1195,7 @@ pl:
         token_error: Link wygasł.
         unsubscribe: Anuluj subskrypcję
     newsletters_opt_in:
-      unathorized: Przepraszamy, ten link nie jest już dostępny.
+      unauthorized: Przepraszamy, ten link nie jest już dostępny.
       update:
         error: Przy zapisywaniu ustawień newslettera pojawił się problem.
         success: Ustawienia newslettera zostały pomyślnie zaktualizowane.
@@ -1263,6 +1258,7 @@ pl:
     offline:
       name: W trybie offline
       show:
+        message_2: Spróbuj ponownie później.
         retry: Powtórz
     open_data:
       not_available_yet: Pliki Open Data nie są jeszcze dostępne. Spróbuj ponownie za kilka minut.
@@ -1783,6 +1779,8 @@ pl:
     button: Dodaj emotikonę
   errors:
     messages:
+      blank: nie może być puste
+      cannot_be_blank: nie może być puste
       confirmation_period_expired: musi być potwierdzone w ciągu %{period}, proszę poprosić o nowy
       content_type_allowlist_error: typ pliku jest nieprawidłowy
       expired: wygasł, proszę poprosić o nowy

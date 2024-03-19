@@ -1,42 +1,42 @@
 <% content_for :heading do %>
-  Dialogs
+  <%= t(".title") %>
 <% end %>
 
 <% content_for :description do %>
-  Dialogs are a javascript feature available thanks to an external library called <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a>.
+   <%= t(".dialogs_description_html") %>
 <% end %>
 
 <% content_for :toc do %>
-  <a href="#example">Demo</a>
-  <a href="#usage">Usage</a>
-  <a href="#html">HTML tips</a>
+  <a href="#example"><%= t("decidim.design.helpers.demo") %></a>
+  <a href="#usage"><%= t("decidim.design.helpers.usage") %></a>
+  <a href="#html"><%= t("decidim.design.helpers.html_tips") %></a>
 <% end %>
 
 <section id="demo" class="design__section">
-  <h2>Demo</h2>
+  <h2><%= t("decidim.design.helpers.demo") %></h2>
 
-  <p>The dialogs, or modal components, are implemented through the rails helper <code>decidim_modal</code>. </p>
+  <p><%= t(".dialog_demo_description_html") %></p>
 
   <button data-dialog-open="example" class="button button__lg button__secondary">
     Show modal
   </button>
 
   <%= decidim_modal id: "example" do %>
-    I am a modal
+   I am a modal
   <% end %>
 </section>
 
 <section id="usage" class="design__section">
-  <h2>Usage</h2>
+  <h2><%= t("decidim.design.helpers.usage") %></h2>
 
-  <p>An dialog requires two elements:</p>
+  <p><%= t(".usage_description") %></p>
 
-  <p>1. A user actionable element, with the data-attribute <code>data-dialog-open="example"</code>, where example is the <code>id</code> of the modal.</p>
+  <p><%= t(".usage_description_html") %></p>
 
-  <p>2. A modal element, whose <code>id</code> matches the data-target value the trigger refers to.</p>
+  <p><%= t(".usage_description_2_html") %></p>
 
   <div class="design__section-snippet" style="margin-top: inherit;">
-    <p>Source code on GitHub: <%= link_to("decidim-core/app/packs/src/decidim/a11y.js", "https://github.com/decidim/decidim/blob/develop/decidim-core/app/packs/src/decidim/a11y.js", target: "_blank", rel: "noopener noreferrer") %></p>
+    <p><%= t("decidim.design.home.index.github_source") %>: <%= link_to("decidim-core/app/packs/src/decidim/a11y.js", "https://github.com/decidim/decidim/blob/develop/decidim-core/app/packs/src/decidim/a11y.js", target: "_blank", rel: "noopener noreferrer") %></p>
 
     <code>
       <textarea spellcheck="false" rows="7">
@@ -53,11 +53,11 @@
 </section>
 
 <section id="html" class="design__section">
-  <h2>HTML tips</h2>
+  <h2><%= t("decidim.design.helpers.html_tips") %></h2>
 
-  <p>In order to display a complex modal, matching up the styles, do the following markup:</p>
+  <p><%= t(".tips_description") %></p>
 
-  <p>Pay attention to the <i>data-attributes</i> and the <i>ids</i>. For instance, the <code>[data-dialog-title]</code>'s id starts with <i>dialog-title</i> plus the <i>modal id</i>.</p>
+  <p><%= t(".tips_description_html") %></p>
 
   <div class="design__section-snippet" style="margin-top: inherit;">
     <code>
@@ -70,7 +70,7 @@
     </h3>
     <div>
       <p id="dialog-desc-example">
-        Modal description (optional)
+         Modal description (optional)
       </p>
 
       // ... add more HTML
@@ -78,7 +78,7 @@
   </div>
   <div data-dialog-actions>
     <button data-dialog-close="example">
-      Close modal
+       Close modal
     </button>
     // ... add more buttons
   </div>

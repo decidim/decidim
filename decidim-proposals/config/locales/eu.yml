@@ -30,6 +30,8 @@ eu:
         cost: Kostua
         cost_report: Kostuaren txostena
         execution_period: Gauzatzeko epea
+      proposal_state:
+        announcement_title: Erantzunaren goiburua
       proposals_copy:
         copy_proposals: Ulertzen dut honek hautetsiaren proposamen guztiak orainaldiari egotziko dizkiola eta ezin dela ekintza hori atzera bota.
         origin_component_id: Proposamenak kopiatzeko osagaia
@@ -68,15 +70,12 @@ eu:
               not_official: Ez dira ofizialak
               supported: Laguntza edo basesak jaso izana
     models:
-      decidim/proposals/accepted_proposal_event: Poposamena onartura
       decidim/proposals/admin/update_proposal_category_event: Proposamen kategoria aldatu da
       decidim/proposals/admin/update_proposal_scope_event: Proposamen-eremua aldatuta
       decidim/proposals/creation_enabled_event: Proposamenaren sorrera gaituta
       decidim/proposals/endorsing_enabled_event: Onartutako proposamena gaituta
-      decidim/proposals/evaluating_proposal_event: Proposamena ebaluatzen ari da
       decidim/proposals/proposal_mentioned_event: Proposamena aipatua
       decidim/proposals/publish_proposal_event: Proposatutakoa argitaratua
-      decidim/proposals/rejected_proposal_event: Proposamena baztertu da
       decidim/proposals/voting_enabled_event: Proposamenaren botoa gaituta
   activerecord:
     models:
@@ -103,6 +102,8 @@ eu:
             values:
               'false': Proposamenak
               'true': Zuzenketak
+          proposal_state_id_eq:
+            label: Egoera
           scope_id_eq:
             label: Esparrua
           state_eq:
@@ -268,28 +269,6 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen duzulako. Jakinarazpenak jasotzeari utz diezaiokezu aurreko estekan.
           email_subject: Onarpen proposamenak %{participatory_space_title}-an hasi dira
           notification_title: 'Orain has zaitezke <a href="%{resource_path}"></a> proposamenak onartzen hemen: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
-        proposal_accepted:
-          affected_user:
-            email_intro: 'Zure proposamena "%{resource_title}" onartu da. Orri honetan erantzun dezakezu:'
-            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}"-ren egilea zarelako.
-            email_subject: Zure proposamena onartu da
-            notification_title: Zure <a href="%{resource_path}">%{resource_title}</a>-proposamena onartu egin da.
-          follower:
-            email_intro: '"%{resource_title}" proposamena onartu da. Orri honetan erantzuna irakur dezakezu:'
-            email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarelako. Jarraitzeari utzi ahal diozu aurreko estekan.
-            email_subject: Jarraitzen ari zaren proposamen bat onartu da
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena onartu egin da.
-        proposal_evaluating:
-          affected_user:
-            email_intro: 'Zure proposamena "%{resource_title}" ari da ebaluatzen. Orri honetan erantzun dezakezu:'
-            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" egilea zarelako.
-            email_subject: Zure proposamena ebaluatzen ari da
-            notification_title: Zure proposamena <a href="%{resource_path}">%{resource_title}</a> ebaluatzen ari da.
-          follower:
-            email_intro: '"%{resource_title}" proposamena ebaluatzen ari da. Orri honetan erantzun dezakezu:'
-            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" jarraitzen ari zarelako. Jarraitzeari utzi ahal diozu aurreko estekan.
-            email_subject: Jarraitzen ari zaren proposamena ebaluatzen ari da
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena ebaluatzen ari da.
         proposal_mentioned:
           email_intro: Zure proposamen hau "%{mentioned_proposal_title}" aipatu da <a href="%{resource_url}"> iruzkinen</a> espazioan.
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" egilea zarelako.
@@ -306,17 +285,17 @@ eu:
           email_subject: '"%{resource_title}" proposamen berria hona %{participatory_space_title} gehitu da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena %{participatory_space_title}-era gehitu du %{author} k.
           notification_title_official: 'Proposamen ofiziala hona gehitu da: <a href="%{resource_path}">%{resource_title}</a>.'
-        proposal_rejected:
+        proposal_state_changed:
           affected_user:
-            email_intro: 'Zure proposamena "%{resource_title}" baztertu egin da. Orri honetan erantzuna irakur dezakezu:'
-            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" egilea zarelako.
-            email_subject: Zure proposamena ez da onartu
-            notification_title: Zure <a href="%{resource_path}">%{resource_title}</a> proposamena baztertu egin da.
+            email_intro: '"%{resource_title}" proposamenak egoera aldatu du eta "%{state}" jarri du. Orrialde honetan irakur dezakezu erantzuna:'
+            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}"-ren egilea zarelako.
+            email_subject: Zure proposamenak aldatu du (%{state}) egoera
+            notification_title: Zure proposamenak <a href="%{resource_path}">%{resource_title}</a> egoera aldatu du eta "%{state}" egoera jarri du.
           follower:
-            email_intro: '"%{resource_title}" proposamena baztertu egin da. Orri honetan erantzuna irakur dezakezu:'
+            email_intro: '"%{resource_title}" proposamenak egoera aldatu du eta "%{state}" jarri du. Orrialde honetan irakur dezakezu erantzuna:'
             email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" jarraitzen ari zarelako. Jarraitzeari utzi ahal diozu aurreko estekan.
-            email_subject: Zuk jarraitzen duzun proposamen bat ukatu da
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena baztertu egin da.
+            email_subject: Jarraitzen ari zaren proposamen batek (%{state}) egoera aldatu du
+            notification_title: Zure proposamenak <a href="%{resource_path}">%{resource_title}</a> egoera aldatu du eta "%{state}" egoera jarri du.
         proposal_update_category:
           email_intro: 'Administratzaileak "%{resource_title}" proposamenaren kategoria eguneratu du, ikus ezazu orri honetan:'
           email_outro: Jakinarazpen hau jaso duzu iruzkin honen egilea zarelako.
@@ -391,9 +370,13 @@ eu:
     proposals:
       actions:
         answer_proposal: Erantzun proposamenari
+        delete_proposal_state_confirm: Ziur zaude egoera hau ezabatu nahi duzula?
+        destroy: Ezabatu egoera
         edit_proposal: Editatu proposamena
+        edit_proposal_state: Editatu egoera
         import: Inportatu proposamenak beste osagai batetik
         new: Proposamen berria
+        new_proposal_state: Beste egoera bat
         participatory_texts: Testu partehartzaileak
         show: Ikusi proposamena
         title: Ekintzak
@@ -472,11 +455,7 @@ eu:
             success: Testu kolaboratiboa behar bezala eguneratu da.
         proposal_answers:
           form:
-            accepted: Onartuta
             answer_proposal: Erantzuna
-            evaluating: Ebaluatzen
-            not_answered: Erantzun gabe
-            rejected: Ukatua
             title: 'Erantzun proposamen honi: %{title}'
         proposal_notes:
           create:
@@ -487,6 +466,23 @@ eu:
             submit: Bidali
           leave_your_note: Utzi zure oharra
           title: Ohar pribatuak
+        proposal_states:
+          create:
+            error: Errorea egoera sortzean
+            success: Egoera zuzen sortua
+          destroy:
+            success: Egoera behar bezala ezabatua
+          edit:
+            title: Editatu egoera
+            update: Eguneratu
+          index:
+            title: Egoerak
+          new:
+            create: Sortu
+            title: Beste egoera bat
+          update:
+            error: Errorea egoera eguneratzean
+            success: Errorea zuzen eguneratua
         proposals:
           answer:
             invalid: Arazo bat izan da proposamen honi erantzutean.
@@ -518,6 +514,7 @@ eu:
             selected: hautatutako
             split: Proposamen zatituak
             split_button: Zatitu
+            statuses: Egoerak
             title: Proposamenak
             unassign_from_valuator: Desesleitu ebaluatzaileari
             unassign_from_valuator_button: Desesleitu
@@ -608,11 +605,8 @@ eu:
           participants: Parte-hartzaileak
           user_groups: Taldeak
         filter_state_values:
-          accepted: Onartuta
           all: Guztiak
-          evaluating: Ebaluatzen
           not_answered: Erantzun gabe
-          rejected: Ukatuta
         filter_type_values:
           all: Guztiak
           amendments: Zuzenketak
@@ -745,6 +739,9 @@ eu:
             valuator: Ebaluatzailea
             valuators: Ebaluatzaileak
             votes: Botoak
+        proposal_state:
+          css_class: CSS klasea
+          title: Egoera
       new:
         limit_reached: Ezin duzu proposamen gehiago egin, muga gainditu duzulako.
       participatory_text_proposal:

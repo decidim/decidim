@@ -84,7 +84,7 @@ shared_examples "when managing proposals category as an admin" do
           click_on(id: "js-submit-edit-category")
         end
 
-        expect(page).to have_selector(".success")
+        expect(page).to have_css(".success")
       end
 
       it "updates both correctly" do

@@ -97,12 +97,6 @@ sk:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_intro: |-
-              Ahoj, debata "%{resource_title}" bola vytvorená v participatívnom priestore "%{participatory_space_title}", pozrite sa na ňu a prispejte:
-            email_outro: Toto oznámenie ste dostali, pretože sledujete participatívny priestor %{space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
-            email_subject: Nová debata "%{resource_title}" na %{space_title}
-            notification_title: Debata <a href="%{resource_path}">%{resource_title} </a> bola vytvorená v priestore <a href="%{space_path}">%{space_title} </a>.
           user_followers:
             email_intro: |-
               Dobrý deň,

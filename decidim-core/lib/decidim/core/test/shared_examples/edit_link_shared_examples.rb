@@ -27,7 +27,7 @@ shared_examples "editable content for admins" do
       let(:user) { create(:user, :confirmed, organization:) }
 
       it "does not have a link to edit the content at the admin" do
-        expect(page).not_to have_css(header_selector)
+        expect(page).to have_no_css(header_selector)
       end
     end
   end

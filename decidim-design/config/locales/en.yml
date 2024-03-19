@@ -2,6 +2,71 @@
 en:
   decidim:
     design:
+      components:
+        accordions:
+          content_panel: Content of the panel
+          demo: Demo
+          demo_description: Throughout the application the accordions are used, mainly, to show/hide content in tabs or fold/unfold visible texts.
+          description_accordions_html: Accordions are a javascript feature available thanks to an external library called %{link_code} a11y-accordion-component.
+          github_source_html: Source code on GitHub %{github_link}
+          panel: Panel
+          title: Accordions
+          trigger: Trigger
+          usage: Usage
+          usage_p: An accordion requires at least three elements
+          usage_p_1_html: 1. A wrapper <code>div</code>, with the data-attribute <code>data-component="accordion"</code>, over all the available triggers and panels.
+          usage_p_2_html: 2. A trigger element, user actionable (as a button), pointing to the collapsable element through <code>data-controls="panel"</code>, where <i>panel</i> is the <code>id</code> of the panel.
+          usage_p_3_html: 3. A hideable element, whose <code>id</code> matches the data-controls value the trigger refers to.
+        activities:
+          activities: Activities
+        address:
+          title: Address
+        announcement:
+          iam_an_announcement: I am an announcement
+          this_is_the_body: This is the body
+          this_is_the_title: This is the title
+          title: Announcement
+        author:
+          title: Author
+        buttons:
+          description_html: 'Buttons are built using different combinations of CSS classes: the <code>button</code> class, a size and a color.'
+          title: Buttons
+        cards:
+          title: Cards
+        dialogs:
+          dialog_demo_description_html: The dialogs, or modal components, are implemented through the rails helper <code>decidim_modal</code>.
+          dialogs_description_html: Dialogs are a javascript feature available thanks to an external library called <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a>.
+          tips_description: 'In order to display a complex modal, matching up the styles, do the following markup:'
+          tips_description_html: Pay attention to the <i>data-attributes</i> and the <i>ids</i>. For instance, the <code>[data-dialog-title]</code>'s id starts with <i>dialog-title</i> plus the <i>modal id</i>.
+          title: Dialogs
+          usage_description: An dialog requires two elements
+          usage_description_2_html: 2. A modal element, whose <code>id</code> matches the data-target value the trigger refers to.
+          usage_description_html: 1. A user actionable element, with the data-attribute <code>data-dialog-open="example"</code>, where example is the <code>id</code> of the modal.
+        follow:
+          title: Follow
+        forms:
+          date: date
+          datetime_local: datetime-local
+          disabled: Disabled
+          emojis: Emojis
+          emojis_description: Only works for textarea
+          errors: Errors
+          errors_description: Does not apply for select
+          header_alert: This page comes from a legacy view. Content is outdated.
+          help_texts: Help texts
+          html_regular_inputs: HTML regular inputs
+          min_max_length: Min/Max length
+          min_max_length_description: Only works for input type='text' and textarea
+          number: number
+          password: password
+          regular_inputs_description: 'Only displays common types, full available list: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
+          text: text
+          textarea_required: textarea required
+          title: Forms
+        report:
+          title: Report
+        share:
+          title: Share
       foundations:
         accessibility:
           accessibility_labels: Accessibility labels
@@ -38,15 +103,149 @@ en:
           description_p2_html: When customizing your colors, have in mind the %{contrast_link}. You can check the contrast of your choosing with %{checker_link} or other similar tools.
           wcag_compliant_rations: WCAG 2.1 AA compliant contrast ratio
           wcag_contrast_checker: WebAIM Contrast Checker
+        iconography:
+          description_iconography: We use icons to reinforce the meaning of actions, titles, etc
+          description_iconography_html: 'We use the Remixicon open source library: %{iconography_link}'
+          title: Iconography
+        layout:
+          breakpoint: Breakpoint
+          breakpoints: Breakpoints
+          centered: Centered
+          code: Code
+          columns: Being the number of columns 10, 8 or 6.
+          description_layout_p1: For desktop, Decidim uses a 12 column grid with limited number of templates (grid configurations) for different types of content. The objective is that a given type of content (homepage, list of elements, individual item) has a distinctive layout, so users can understand in which kind of content they are just by the general look of the page.
+          description_layout_p2: These simple rules should be followed when creating new modules or customizing existing ones, so a Decidim site can maintain its consistency.
+          desktop: Desktop
+          full_width: Full width
+          layout_list_1: 'Homepage (of the site, of an space): full width'
+          layout_list_2: 'List of elements (of spaces, of items inside a space, etc): left aside'
+          layout_list_3: 'Individual item (proposal, blog post): centered, optionally with a right aside'
+          left_aside: Left aside
+          mobile: Mobile
+          not_required: Not required
+          properties: Properties
+          right_aside: Right Aside
+          section_p_breakpoints: 'To manage the responsive max-width of elements we rely on the default `container` Tailwind class, which states the following breakpoints:'
+          section_p_code: When implementing new modules you have some helpers that automatically provides you with the code needed to setup the HTML structure. You should use these helpers instead of directly using div elements with classes, so you maintain consistency.
+          section_p_code_html: You can find the basic layouts in %{link_section_code}
+          section_p_desktop: Desktop grid system is composed of 12 flexible columns with a gutter between columns of 16px and left and right margins of 48px
+          section_p_mobile: Mobile grid system is composed of 4 flexible columns with a gutter between columns of 16px and left and right margins of 16px. For sizes below 320px this margins are set to 8px
+          section_p_tablet: Tablet grid system is composed of 8 flexible columns with a gutter between columns of 16px and left and right margins of 24px
+          tablet: Tablet
+          title: Layout
+        typography:
+          description: These guidelines summarize how use typography at Decidim, and serve as guardrails for designers to design freely with best typographic practices in mind.
+          headings:
+            characters: Characters per line
+            layout: Layout cols
+            size: Size
+          title: Typography
+          typefaces_description_1: Decidim uses Source Sans Pro as primary typeface. This typeface supports 310 languages
+          typefaces_description_2: This fonts are licensed under the Open Font License
       helpers:
+        accountability: Accountability
+        accountability_cards_html: Used by <i>Accountability projects</i> cards. This card requires the module assets to display properly, i.e. <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
+        activity: Activity
+        address_description: Address cell receives a resource, and searches the geolocalizable attributes to render an specific markup.
+        address_description_2: Depending of the type of the content, the address could be an online url. For such cases, the displayed information is quite the same but shaped to fit.
+        argument: Argument
+        assemblies: Assemblies
+        assembly_g: Assembly G
+        assembly_s: Assembly S
+        avatar: Avatar
+        avatar_description: It is used when there are narrow spaces, where the author is a secondary information.
         background: Background and borders
         base: Base
+        block_text: Use the extra_data block
+        blog_cards_html: Used by <i>Blogs</i> cards
+        blogs: Blogs
+        budget_card_html: Used by <i>Budget projects</i> cards. This card requires the module assets to display properly, i.e. <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>
+        budgets: Budgets
+        callout_class: Callout Class
+        callout_description: This attribute applies an status to the announcement. By default, it uses secondary color.
+        card_g: Card G
+        card_l: Card L
+        card_s: Card S
+        collaborative_draft_l: Collaborative Draft L
+        colors: Colors
+        compact: Compact
+        compact_description: This author version is the common way to identify the resource creator.
+        conference_g: Conference G
+        conference_s: Conference S
+        conferences: Conferences
+        context: Context
+        context_description: This cell display some information about a user. It a visual help to identify the resource/content creator. Hovering with the mouse displays a tooltip with further info and links to its profile.
+        context_description_2: For resources, this cell appears beneath the main heading. For other contents, it appears next to the content itself.
+        debate_l: Debate L
+        debate_s: Debate S
+        debates: Debates
+        debates_cards_html: Used by <i>Debates</i> cards
+        debates_cards_text: Use different template for the image block
+        default: Default
+        default_description: Calling the cell with no extra arguments, but the user itself.
+        demo: Demo
+        demo_text: 'This cell receives a model of LastActivity items and displays the following elements:'
+        demo_text_2: Used by the last activity page, in a content block and within the dropdowns.
+        description: Description
+        disabled: Disabled
+        dummy_description: Dummy resource description
+        dummy_title: Dummy resource title
+        follow_button: Follow Button
+        follower_description_html: Make sure the partial <code>decidim/shared/login_modal</code> is present in the DOM. This partial is placed in the application layout when the user is logged in.
         form_elements: Form elements
+        generic_cards: Generic cards
+        grid: Grid
         hex_code: Hex code
+        highlight: Highlight
+        highlight_description: Used by resources who allow to highlight
+        html_tips: HTML tips
+        icons: Icons
+        image_and_description: Image and Description
+        initiative_g: initiative_g
+        initiative_s: initiative_s
+        initiatives: Initiatives
+        list: List
         main_colors: Main Colors
+        meeting_l: Meeting L
+        meeting_s: Meeting S
+        meetings: Meetings
+        meetings_html: Used by <i>Meetings</i> cards
+        metadata_items: Metadata items
+        metadata_text: Each resource define its own metadata items
+        participatory_process_g: Participatory Process G
+        participatory_process_group_g: Participatory Process Group G
+        participatory_process_group_s: Participatory Process Group S
+        participatory_process_s: Participatory Process S
+        participatory_processes: Participatory Processes
+        plain_text: I am just plain text
+        plain_text_description: You can provide as first argument both a plain text and a hash object
+        plain_text_vs_hash: Plain Text Vs Hash
+        post_g: Post G
+        post_l: Post L
+        post_s: Post S
+        project_l: Project L
+        project_s: Project S
+        proposal_l: Proposal L
+        proposal_s: Proposal S
+        proposals: Proposals
+        report_button: Report button
+        report_usage_description: Report button launches a modal window to flag the current resource.
+        result_l: Result L
         rgba_code: RGBA code
+        search: Search
+        send: Send
+        share_button: Share Button
+        share_usage_description_html: Make sure the partial <code>decidim/shared/share_modal</code> is present in the DOM. This partial is placed in the application layout.
+        sizes: Sizes
+        sortition_l: sortition_l
+        sortitions: Sortitions
+        source_code: Source Code
         state: State
         tailwind: Tailwind name
+        text: Text
+        transparent: Transparent
+        transparent_description: 'In case of a darker background:'
+        types: Types
         typography_texts: Typography and texts
         usage: Usage
         usage_background_1: Aside background
@@ -68,9 +267,13 @@ en:
         usage_typography_3: Text over dark background
         usage_typography_4: Links and buttons
         value: Value
+        variations: Variations
+        variations_cards_description: Each card will look like different regarding the properties of the resource displayed. You can override such behaviour in the specific cell.
+        variations_description: There are three different versions of this cell. Each one fits better regarding the context it is being displayed.
+        variations_text: Regarding the type of activity, the cell could show different content, reporting the distinct resources, whether belong to a participatory space or not, has an author or not.
       home:
         index:
-          by_sharing_principles: By sharing the principles, philsophy, and rationale behind design decisions we want to empower the community to contribute with consistency so we reach the best participant experience.
+          by_sharing_principles: By sharing the principles, philosophy, and rationale behind design decisions we want to empower the community to contribute with consistency so we reach the best participant experience.
           decidim_guide: The guide to design all things Decidim
           different_ui_components: At the same time, we document the different UI components and patterns in use, that should be reused or extended.
           github_source: Source code on GitHub

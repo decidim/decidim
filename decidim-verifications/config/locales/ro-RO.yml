@@ -172,8 +172,6 @@ ro:
           new:
             send: Cere verificare
             title: Încarcă documentul tău de identitate
-        dni: CI
-        nie: Viză de flotant/permis de ședere pentru rezidenți
         passport: Pașaport
       postal_letter:
         admin:
@@ -194,8 +192,6 @@ ro:
             title: Cere codul tău de verificare
       sms:
         authorizations:
-          destroy:
-            success: Codul de verificare a fost resetat. Te rugăm să reintroduci numărul tău de telefon.
           edit:
             confirm_destroy: Sigur dorești să resetezi codul de verificare?
             destroy: Resetează codul de verificare

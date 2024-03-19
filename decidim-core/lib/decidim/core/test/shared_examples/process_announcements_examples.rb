@@ -4,7 +4,7 @@ shared_examples "manage processes announcements" do
   let!(:participatory_process) { create(:participatory_process, :with_content_blocks, organization:, blocks_manifests: [:announcement]) }
 
   it "can customize a general announcement for the process" do
-    within find("tr", text: translated(participatory_process.title)) do
+    within "tr", text: translated(participatory_process.title) do
       click_on translated(participatory_process.title)
     end
 

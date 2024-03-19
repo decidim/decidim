@@ -8,12 +8,11 @@
   </div>
 
   <div class="card-section">
-    <div class="grid grid-cols-2 gap-x-8 p-4">
+    <div class="grid md:grid-cols-2 gap-x-8 p-4">
       <% templates.each do |newsletter_template| %>
-        <div class="card" id="<%= newsletter_template.name %>">
-          <iframe src="<%= preview_newsletter_template_path(newsletter_template.name) %>" class="newsletter-template-preview w-full h-96" data-email-preview>
+        <div class="card pb-12 md:pb-0" id="<%= newsletter_template.name %>">
+          <iframe src="<%= preview_newsletter_template_path(newsletter_template.name) %>" class="w-full h-[60dvh]" data-email-preview>
           </iframe>
-
           <div class="card-footer">
             <h2 class="card-title flex items-center">
               <%= t newsletter_template.public_name_key %>

@@ -78,6 +78,9 @@ fr:
     'false': 'Non'
     'true': 'Oui'
   date:
+    buttons:
+      close: Fermer
+      select: Sélectionner
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d-%m-%Y"
@@ -85,6 +88,10 @@ fr:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Format: jj/mm/aaaa'
+      order: j-m-a
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -807,8 +814,6 @@ fr:
           notification_title: Le groupe d'utilisateurs %{user_group_name} a mis à jour son profil, le laissant non vérifié. Vous pouvez maintenant le vérifier dans le <a href="%{groups_admin_path}">panneau d'administration</a>.
       nickname_event:
         notification_body: Nous avons corrigé la façon dont les pseudonymes sont utilisés pour qu'il n'y ait pas de doublons, quelque soit l'utilisation de majuscules et/ou de minuscules. <br/> Votre pseudonyme a été créé après un autre qui était identique, nous l'avons donc automatiquement renommé. Vous pouvez le modifier depuis <a href="%{link_to_account_settings}">les paramètres de votre compte</a>.
-      notification_event:
-        notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: Un administrateur a modéré votre %{resource_type} car il a été signalé comme %{report_reasons}.
@@ -873,7 +878,6 @@ fr:
       create:
         button: Suivre
         error: Une erreur s'est produite lors du traitement de votre demande de suivre ce contenu.
-        participatory_space: Suivre <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Ne plus suivre
         error: Une erreur s'est produite lors du traitement de votre demande de ne plus suivre ce contenu.
@@ -887,14 +891,14 @@ fr:
         file:
           explanation: 'Orientation pour le fichier :'
           message_1: Doit être une image ou un document.
-          message_2: Pour les images, utilisez de préférence des images en format paysage, le service rogne l'image.
+          message_2: Pour les images, utilisez de préférence des images en format paysage car le service rogne l'image.
         icon:
           explanation: 'Manuel pour l''image:'
           message_1: Doit être une image carrée.
           message_2: La taille recommandée pour cette image est de 512x512.
         image:
           explanation: 'Orientation pour l''image:'
-          message_1: De préférence une image au format paysage qui n'a pas de texte.
+          message_1: De préférence une image au format paysage ne contenant pas de texte.
           message_2: Le service recadre l'image.
       file_validation:
         allowed_file_extensions: 'Extensions de fichier autorisées : %{extensions}'
@@ -1212,7 +1216,7 @@ fr:
         token_error: Le lien a expiré.
         unsubscribe: Se désabonner
     newsletters_opt_in:
-      unathorized: Désolé, ce lien n'est plus disponible.
+      unauthorized: Désolé, ce lien n'est plus disponible.
       update:
         error: Un problème est survenu lors de l'enregistrement des paramètres de la newsletter.
         success: Les paramètres de la newsletter ont été mis à jour avec succès.
@@ -2021,6 +2025,10 @@ fr:
     x: X
     xing: Xing
   time:
+    buttons:
+      close: Fermer
+      reset: Réinitialiser
+      select:
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2035,6 +2043,8 @@ fr:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      help:
+        time_format: 'Format: hh:mm'
       long: "%A %d %B %Y %H h %M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
       long_with_particles: "%d %B %Y à %H:%M"
