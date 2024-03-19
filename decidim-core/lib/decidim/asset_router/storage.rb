@@ -6,6 +6,23 @@ module Decidim
     # saved through ActiveStorage. This handles the different cases for routing
     # to the remote routes when using an assets CDN or to local routes when
     # using the local disk storage driver.
+    #
+    # Note that when the assets are stored in a remote storage service, such as
+    # Amazon S3, Google Cloud Storage or Azure Storage, this generates the asset
+    # URL directly to the storage service itself bypassing the Rails server and
+    # saving CPU time from serving the asset redirect requests. This causes a
+    # significant performance improvement on pages that display a lot of images.
+    # It will also produce a less significant performance improvement when using
+    # the local disk storage because in this situation, the images are served
+    # using one request instead of two when served directly from the storage
+    # service rather than through the asset redirect URL.
+    #
+    # When implementing changes to the logic, please keep the remote storage
+    # options and performance implications in mind because the specs for this
+    # utility do not cover the remote storage options because the extra
+    # configuration needed to test, the service itself needed for testing and
+    # the extra dependency overhead for adding these remote storage gems when
+    # they are not needed.
     class Storage
       # Initializes the router.
       #
@@ -20,11 +37,12 @@ module Decidim
       # @param options The options for the URL that are the normal route options
       #   Rails route helpers accept
       def url(**)
-        if asset.is_a? ActiveStorage::Attached
+        case asset
+        when ActiveStorage::Attached
           blob_url(asset.blob, **)
-        elsif asset.is_a? ActiveStorage::Blob
+        when ActiveStorage::Blob
           blob_url(asset, **)
-        else
+        else # ActiveStorage::VariantWithRecord, ActiveStorage::Variant
           representation_url(**)
         end
       end
@@ -88,23 +106,44 @@ module Decidim
         end
       end
 
-      # Converts the variation URLs last part to the correct file extension in
-      # case the variation has a different format than the original image.
+      # Returns a representation URL for the asset either directly through the
+      # storage service or through the Rails representation URL in case the
+      # path URL is requested or if the asset variant hasn't been processed yet
+      # and is not therefore yet stored at the storage service.
       #
-      # @return [String] The converted representation URL
+      # @return [String] The representation URL for the image variant
       def representation_url(**options)
-        representation_url =
-          if options[:only_path] || remote?
-            routes.rails_representation_url(asset, **default_options.merge(options))
-          else
-            asset.url(**options)
-          end
+        return rails_representation_url(**options) if options[:only_path] || remote?
+
+        representation_url = variant_url(**options)
+        return representation_url if representation_url.present?
 
         # In case the representation hasn't been processed yet, it may not have
         # a representation URL yet and it therefore needs to be served through
         # the local representation URL for the first time (or until it has been
         # processed).
-        return representation_url(**options.merge(only_path: true)) if representation_url.blank?
+        representation_url(**options.merge(only_path: true))
+      end
+
+      # Returns the local Rails representation URL meaning that the asset will
+      # be served through the service itself. This may be necessary if the asset
+      # variant (e.g. a thumbnail) hasn't been processed yet because the variant
+      # representation hasn't been requested before.
+      #
+      # Due to performance reasons it is adviced to avoid requesting the assets
+      # through the Rails representation URLs when possible because that causes
+      # a lot of requests to the Rails backend and slowness to the service under
+      # heavy loads.
+      #
+      # Converts the variation URLs last part to the correct file extension in
+      # case the variation has a different format than the original image. The
+      # conversion needs to be only done for the Rails representation URLs
+      # because once the image is stored at the storage service, it already has
+      # the correct file extension.
+      #
+      # @return [String] The converted representation URL
+      def rails_representation_url(**options)
+        representation_url = routes.rails_representation_url(asset, **default_options.merge(options))
 
         variation = asset.try(:variation)
         return representation_url unless variation
@@ -117,6 +156,31 @@ module Decidim
 
         basename = File.basename(asset.blob.filename.to_s, original_ext)
         representation_url.sub(/#{basename}\.#{original_ext.tr(".", "")}$/, "#{basename}.#{format}")
+      end
+
+      # Fetches the image variant's URL at the storage service if the variant
+      # has already been processed and is stored at the storage service. If the
+      # variant hasn't been processed yet, returns `nil` in which case the
+      # variant has to be served through the service's own representation URL
+      # causing it to be processed and stored at the storage service.
+      #
+      # @return [String, nil] The variant URL at the storage service or `nil` if
+      #   the variant hasn't been processed yet and does not yet exist at the
+      #   storage service
+      def variant_url(**)
+        case asset
+        when ActiveStorage::VariantWithRecord
+          # This is used when `ActiveStorage.track_variants` is enabled through
+          # `config.active_storage.track_variants`. In case the variant hasn't
+          # been processed yet, the `#url` method would return nil.
+          asset.url(**) if asset.processed?
+        else # ActiveStorage::Variant
+          # Check whether the variant exists at the storage service before
+          # returning its URL. Otherwise the URL would be returned even when the
+          # variant is not yet processed causing 404 errors for the images on
+          # the page.
+          asset.url(**) if asset.service.exist?(asset.key)
+        end
       end
     end
   end
