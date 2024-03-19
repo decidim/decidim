@@ -22,7 +22,7 @@
   </button>
 
   <%= decidim_modal id: "example" do %>
-    <%= t(".iam_a_modal") %>
+   I am a modal
   <% end %>
 </section>
 
@@ -45,7 +45,7 @@
 &lt;/button&gt;
 
 &#60;%= decidim_modal id: "example" do %&#62;
-   <%= t(".iam_a_modal") %>
+  I am a modal
 &#60;% end %&#62;
       </textarea>
     </code>
@@ -66,11 +66,11 @@
   <div data-dialog-container>
     &#60;%= icon "icon_identifier" %&#62; // ... pick a desired icon
     <h3 id="dialog-title-example" tabindex="-1" data-dialog-title>
-      <%= t(".modal_title") %>
+      Modal title
     </h3>
     <div>
       <p id="dialog-desc-example">
-         <%= t(".modal_description") %>
+         Modal description (optional)
       </p>
 
       // ... add more HTML
@@ -78,7 +78,7 @@
   </div>
   <div data-dialog-actions>
     <button data-dialog-close="example">
-       <%= t(".close_modal") %>
+       Close modal
     </button>
     // ... add more buttons
   </div>
