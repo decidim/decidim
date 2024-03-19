@@ -36,7 +36,6 @@ en:
         dialogs:
           dialog_demo_description_html: The dialogs, or modal components, are implemented through the rails helper <code>decidim_modal</code>.
           dialogs_description_html: Dialogs are a javascript feature available thanks to an external library called <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a>.
-          show_modal: Show modal
           tips_description: 'In order to display a complex modal, matching up the styles, do the following markup:'
           tips_description_html: Pay attention to the <i>data-attributes</i> and the <i>ids</i>. For instance, the <code>[data-dialog-title]</code>'s id starts with <i>dialog-title</i> plus the <i>modal id</i>.
           title: Dialogs
