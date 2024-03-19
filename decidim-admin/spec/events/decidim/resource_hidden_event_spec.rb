@@ -12,30 +12,13 @@ module Decidim
     let(:resource) { comment }
     let(:event_name) { "decidim.events.reports.resource_hidden" }
     let(:extra) { { report_reasons: ["spam"] } }
+    let(:notification_title) { "An administrator removed your comment because it has been reported as spam.</br>\n<i>a reported comment</i>" }
+    let(:email_subject) { "Your comment has been removed" }
+    let(:email_outro) { "You have received this notification because you are an author of the removed content." }
+    let(:email_intro) { "An administrator removed your comment because it has been reported as spam." }
 
-    describe "notification_title" do
-      it "includes the report reason" do
-        expect(subject.notification_title).to include("spam")
-      end
-    end
-
-    describe "email_subject" do
-      it "is generated correctly" do
-        expect(subject.email_subject).to eq("Your comment has been removed")
-      end
-    end
-
-    describe "email_outro" do
-      it "is generated correctly" do
-        expect(subject.email_outro).to eq("You have received this notification because you are an author of the removed content.")
-      end
-    end
-
-    describe "email_intro" do
-      it "is generated correctly" do
-        expect(subject.email_intro).to include("An administrator removed your comment because it has been reported as spam.")
-      end
-    end
+    it_behaves_like "a simple event email"
+    it_behaves_like "a simple event notification"
 
     describe "resource_text" do
       it "is generated correctly" do

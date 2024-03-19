@@ -434,7 +434,7 @@ de:
             select_process_group: Wählen Sie eine Prozessgruppe aus
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             title: Allgemeine Information
-            visbility: Sichtweite
+            visbility: Sichtbarkeit
       content_blocks:
         highlighted_processes:
           name: Hervorgehobene Beteiligungsprozesse

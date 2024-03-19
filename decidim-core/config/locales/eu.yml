@@ -104,6 +104,12 @@ eu:
       x_minutes:
         one: Minutu 1
         other: "Minutu %{count}"
+      x_months:
+        one: Hilabete bat
+        other: "%{count} hilabete"
+      x_seconds:
+        one: Segundo bat
+        other: "%{count} segundo"
   decidim:
     accessibility:
       external_link: Kanpoko lotura

@@ -114,6 +114,7 @@ module Decidim
   autoload :ControllerHelpers, "decidim/controller_helpers"
   autoload :ProcessesFileLocally, "decidim/processes_file_locally"
   autoload :DependencyResolver, "decidim/dependency_resolver"
+  autoload :HasConversations, "decidim/has_conversations"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.

@@ -287,7 +287,6 @@ zh-TW:
             select_parent_assembly: 選擇父組件
             social_handlers: 社群
             title: 基本資訊
-            visbility: 可見度
         assemblies_settings:
           edit:
             update: 更新

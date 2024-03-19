@@ -98,7 +98,7 @@ hu:
       initiatives_settings:
         update:
           error: Hiba történt
-          success: A kezdeményezés frissítése sikeres volt
+          success: A kezdeményezés beállításai sikeresen frissültek
       menu:
         attachments: Csatolmányok
         committee_members: Bizottsági tagok
@@ -216,7 +216,7 @@ hu:
           index:
             approve: Jóváhagy
             confirm_revoke: Biztos vagy benne?
-            invite_to_committee_help: Oszd meg a linket felhasználók meghívásához a promóciós bizottságba
+            invite_to_committee_help: Oszd meg a linket felhasználók meghívásához a kezdeményező bizottságba
             no_members_yet: A kezdeményező bizottságban nincsenek tagok
             revoke: Visszavonás
             title: Bizottsági tagok
@@ -256,7 +256,7 @@ hu:
             photos: Fotók
           update:
             error: Hiba történt
-            success: Az állampolgári kezdeményezés frissítése sikeres
+            success: A kezdeményezés frissítése sikeres
         initiatives_settings:
           edit:
             update: Frissítés
@@ -298,6 +298,8 @@ hu:
             update: Frissítés
           form:
             authorizations: Hitelesítési beállítások
+            child_scope_threshold_enabled_help: 'Ez a konfigurációs jelző nem támogatja az offline szavazást. Engedélyezi az altartományokat, és egy olyan engedélyezési kezelővel működik, amely egy tartományt társít a felhasználóhoz. Győződjön meg róla, hogy ezt a jogosultságot választja ki, alább az engedélyezési beállításoknál. A működéséhez a hatóköröket hierarchikusan kell konfigurálni: 1 Szülő - N gyermek. A konfiguráció működéséről bővebb információért lásd a következő oldalon <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">kezdeményezések admin dokumentációs oldalán</a>.'
+            only_global_scope_enabled_help: Jelölje be ezt a jelölőnégyzetet, ha engedélyezte a "Gyermek hatókör aláírás" opciót, és a globális hatókörét szülő hatókörként konfigurálta. Ennek engedélyezésével a kezdeményezés típusának kiválasztása kihagyásra kerül a kezdeményezés létrehozására szolgáló varázslóban. A konfiguráció működésével kapcsolatos további információkért lásd ezt a cikket<a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.
             options: Opciók
             title: Általános információ
           initiative_type_scopes:
@@ -583,6 +585,11 @@ hu:
         status_change_for: A(z) %{title} kezdeményezés állapota változott
       last_activity:
         new_initiative: Új kezdeményezés
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Aktív kezdeményezések
+            see_all_initiatives: Az összes kezdeményezés megtekintése
       show:
         badge_name:
           accepted: Elegendő aláírás

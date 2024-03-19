@@ -47,7 +47,7 @@ hu:
             label: Megjegyzés
             placeholder: Mit gondolsz erről?
           form_error: Kötelező kitölteni, és nem lehet hosszabb, mint %{length} karakter.
-          submit: Elküld
+          submit: Küldés
           user_group_id:
             label: 'Megjegyzés mint:'
         opinion:

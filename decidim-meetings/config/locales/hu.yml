@@ -488,6 +488,9 @@ hu:
         meetings:
           no_meetings_warning: Nincs, vagy nincs ütemezve olyan találkozó, amely megfelel a keresési feltételeknek.
           upcoming_meetings_warning: Jelenleg nincs ütemezett találkozó, de itt megtalálhatod az összes korábbi találkozó listáját.
+        new:
+          create: Létrehoz
+          title: Találkozó létrehozása
         registration_confirm:
           cancel: Mégse
           confirm: Megerősítés

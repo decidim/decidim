@@ -213,11 +213,6 @@ pt-BR:
           new:
             send: Solicitar verificação
             title: Carregue seu documento de identidade
-          update:
-            error: Ocorreu um problema ao recarregar seu documento
-            success: Documento reusado com sucesso
-        dni: DNI
-        nie: NIE
         passport: Passaporte
       postal_letter:
         admin:

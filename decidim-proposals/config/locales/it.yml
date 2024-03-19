@@ -236,7 +236,6 @@ it:
             notification_title: La tua proposta <a href="%{resource_path}">%{resource_title}</a> è stata accettata.
           follower:
             email_intro: 'La proposta "%{resource_title}" è stata accettata. Puoi leggere la risposta in questa pagina:'
-            email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
             email_subject: Una proposta che stai seguendo è stata accettata
             notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata accettata.
         proposal_evaluating:
@@ -247,7 +246,6 @@ it:
             notification_title: La tua proposta <a href="%{resource_path}">%{resource_title}</a> è in fase di valutazione.
           follower:
             email_intro: 'La proposta "%{resource_title}" è attualmente in fase di valutazione. Puoi trovare una risposta in questa pagina:'
-            email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
             email_subject: Una proposta che stai seguendo è in corso di valutazione
             notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è in fase di valutazione.
         proposal_mentioned:
@@ -272,7 +270,6 @@ it:
             notification_title: La tua proposta <a href="%{resource_path}">%{resource_title}</a> è stata respinta.
           follower:
             email_intro: 'La proposta "%{resource_title}" è stata respinta. Puoi leggere la risposta in questa pagina:'
-            email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
             email_subject: Una proposta che stai seguendo è stata respinta
             notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata respinta.
         proposal_update_category:
@@ -404,6 +401,7 @@ it:
             accepted: Accettata
             answer_proposal: Risposta
             evaluating: Valutare
+            not_answered: Non risposto
             rejected: Rifiutata
             title: Risposta per la proposta %{title}
         proposal_notes:
@@ -546,11 +544,11 @@ it:
         filter_scope_values:
           all: Tutti
         filter_state_values:
-          accepted: Accettato
+          accepted: Accettata
           all: Tutti
           evaluating: Valutare
           not_answered: Non risposto
-          rejected: Respinto
+          rejected: Rifiutata
         filter_type_values:
           all: Tutti
           amendments: Modifiche

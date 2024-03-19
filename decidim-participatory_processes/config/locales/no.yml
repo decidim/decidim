@@ -12,15 +12,22 @@
         decidim_area_id: Område
         description: Beskrivelse
         developer_group: Promotørgruppe
+        document: Dokument
         domain: Domene
         end_date: Sluttdato
         hashtag: Emneknagg
         hero_image: Hovedbilde
+        import_attachments: Importer vedlegg
+        import_categories: Importer kategorier
+        import_components: Importer komponenter
+        import_steps: Importer trinn
         local_area: Organisasjonsområde
         meta_scope: Omfang av metadata
         participatory_process_group_id: Prosessgruppe
+        participatory_process_type_id: Prosesstype
         participatory_scope: Medvirkningen gjelder
         participatory_structure: Hvordan det blir gjort
+        private_space: Privat prosess
         promoted: Fremhevet
         published_at: Publisert på
         related_process_ids: Relaterte prosesser
@@ -63,6 +70,12 @@
         email: Epost
         name: Navn
         role: Rolle
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              allowed_file_content_types: 'Ugyldig dokumenttype. Bare filer med følgende filtyper er tillatt: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Fase er aktivert
       decidim/participatory_process_step_changed_event: Fase endret
@@ -227,8 +240,19 @@
         create:
           error: Det oppstod et problem med å lage en ny prosesstype.
           success: Prosesstypen ble opprettet.
+        destroy:
+          success: Prosesstypen ble slettet.
+        edit:
+          title: Rediger prosesstype
+          update: Oppdater
         form:
           title: Tittel
+        new:
+          create: Opprett
+          title: Ny prosesstype
+        update:
+          error: Det oppsto et problem med å oppdatere denne prosesstypen.
+          success: Prosesstypen ble oppdatert.
       participatory_process_user_roles:
         create:
           error: Det oppstod et problem med å legge til en deltaker for denne prosessen.
@@ -273,6 +297,7 @@
           success: Prosessgruppen ble opprettet.
       titles:
         participatory_process_groups: Prosessgrupper
+        participatory_process_types: Prosesstyper
         participatory_processes: Deltakende prosesser
       users:
         resend_invitation:
@@ -338,6 +363,7 @@
         html_3:
           name: Tredje HTML-blokk
         metadata:
+          developer_group: Promotert av
           name: Metadata
           participatory_scope: Medvirkningen gjelder
           participatory_structure: Hvordan det blir gjort

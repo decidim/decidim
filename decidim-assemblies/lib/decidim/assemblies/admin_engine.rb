@@ -128,7 +128,7 @@ module Decidim
       initializer "decidim_assemblies.admin_assemblies_components_menu" do
         Decidim.menu :admin_assemblies_components_menu do |menu|
           current_participatory_space.components.each do |component|
-            caption = translated_attribute(component.name)
+            caption = decidim_escape_translated(component.name)
             if component.primary_stat.present?
               caption += content_tag(:span, component.primary_stat, class: component.primary_stat.zero? ? "component-counter component-counter--off" : "component-counter")
             end

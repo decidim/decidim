@@ -30,7 +30,7 @@ hu:
             answer_option: Válasz opció
             free_text: Szabadszöveg
             remove: Eltávolít
-            statement: Nyilatkozat
+            statement: Állítás
           edit:
             save: Mentés
           form:
@@ -41,7 +41,7 @@ hu:
             expand: Minden kérdés kibontása
           matrix_row:
             remove: Eltávolít
-            statement: Nyilatkozat
+            statement: Állítás
           question:
             add_answer_option: Válasz opció hozzáadása
             any: Bármilyen
@@ -51,7 +51,7 @@ hu:
             expand: Kibontás
             question: Kérdés
             remove: Eltávolít
-            statement: Nyilatkozat
+            statement: Állítás
             up: Fel
           title_and_description:
             collapse: Összecsuk

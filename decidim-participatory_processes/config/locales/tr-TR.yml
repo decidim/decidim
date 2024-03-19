@@ -377,7 +377,7 @@ tr:
             select_an_area: Bir alan seçin
             select_process_group: Bir işlem grubu seçin
             title: Genel bilgi
-            visbility: görünürlük
+            visbility: Görünürlük
       content_blocks:
         highlighted_processes:
           name: Vurgulanan süreçler

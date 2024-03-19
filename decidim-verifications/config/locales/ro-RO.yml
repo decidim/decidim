@@ -208,11 +208,6 @@ ro:
           new:
             send: Cere verificare
             title: Încarcă documentul tău de identitate
-          update:
-            error: A apărut o eroare la reîncărcarea documentului
-            success: Document reîncărcat cu succes
-        dni: CI
-        nie: Viză de flotant/permis de ședere pentru rezidenți
         passport: Pașaport
       postal_letter:
         admin:

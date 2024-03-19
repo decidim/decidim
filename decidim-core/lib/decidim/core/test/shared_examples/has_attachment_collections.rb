@@ -14,14 +14,14 @@ shared_examples_for "has attachment collections" do
 
     it "shows them" do
       within ".attachments .documents" do
-        expect(page).to have_content(/#{translated(attachment_collection.name, locale: :en)}/i)
+        expect(page).to have_content(translated(attachment_collection.name))
       end
     end
 
     it "show their documents" do
       within ".attachments .documents #docs-collection-#{attachment_collection.id}", visible: false do
-        expect(page).to have_content(:all, /#{translated(document.title, locale: :en)}/i)
-        expect(page).not_to have_content(:all, /#{translated(other_document.title, locale: :en)}/i)
+        expect(page).to have_content(:all, translated(document.title))
+        expect(page).not_to have_content(:all, translated(other_document.title))
       end
     end
   end
@@ -39,7 +39,9 @@ shared_examples_for "has attachment collections" do
 
     it "shows them ordered" do
       within ".attachments .documents" do
-        expect(translated(first_attachment_collection.name, locale: :en)).to appear_before(translated(last_attachment_collection.name, locale: :en))
+        expect(decidim_escape_translated(first_attachment_collection.name).gsub("&quot;",
+                                                                                "\"")).to appear_before(decidim_escape_translated(last_attachment_collection.name).gsub("&quot;",
+                                                                                                                                                                        "\""))
       end
     end
   end
@@ -55,8 +57,8 @@ shared_examples_for "has attachment collections" do
 
     it "is not present" do
       within ".attachments .documents" do
-        expect(page).to have_content(/#{translated(attachment_collection.name, locale: :en)}/i)
-        expect(page).not_to have_content(/#{translated(empty_attachment_collection.name, locale: :en)}/i)
+        expect(page).to have_content(translated(attachment_collection.name))
+        expect(page).not_to have_content(translated(empty_attachment_collection.name))
       end
     end
   end

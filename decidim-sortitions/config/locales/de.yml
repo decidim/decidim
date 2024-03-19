@@ -102,7 +102,7 @@ de:
           category: Kategorie
           category_prompt: Wählen Sie eine Kategorie
           search: Suche
-          state: Zustand
+          state: Status
         filters_small_view:
           close_modal: Modal schließen
           filter: Filter

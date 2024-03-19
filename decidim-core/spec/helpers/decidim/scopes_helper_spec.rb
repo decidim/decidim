@@ -15,7 +15,7 @@ module Decidim
             <div class="picker-values">
               <div>
                 <a class="" href="/scopes/picker?current=#{scope.id}&amp;field=my_scope_input" data-picker-value="#{scope.id}">
-                  #{scope.name["en"]} (#{scope.scope_type.name["en"]})
+                  #{scope.name["en"]} (#{decidim_escape_translated(scope.scope_type.name)})
                 </a>
               </div>
             </div>

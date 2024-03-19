@@ -208,7 +208,7 @@ de:
           voted_on_space_with_scope: Sie haben für das %{budget_name} Budget for the %{space_name} innerhalb %{scope_name} (%{scope_type}) abgestimmt.
       projects:
         budget_confirm:
-          are_you_sure: Wenn du deine Meinung änderst, kannst du deine Stimme nachträglich ändern.
+          are_you_sure: Wenn Sie Ihre Meinung ändern, können Sie Ihre Stimme nachträglich ändern.
           cancel: Abbrechen
           confirm: Bestätigen
           description: Dies sind die Projekte, die Sie für das Budget ausgewählt haben.
@@ -385,4 +385,4 @@ de:
       orders_count: Projektauswahlen
       projects_count: Projekte
   index:
-    confirmed_orders_count: Stimmen zählen
+    confirmed_orders_count: Anzahl Stimmen

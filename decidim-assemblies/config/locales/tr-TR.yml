@@ -286,7 +286,6 @@ tr:
             select_parent_assembly: Bağlı olduğu kurulu seçin
             social_handlers: Sosyal
             title: Genel bilgi
-            visbility: görünürlük
         assemblies_settings:
           edit:
             update: Güncelle
