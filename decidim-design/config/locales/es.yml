@@ -35,8 +35,33 @@ es:
           title: Tarjetas
         dialogs:
           dialog_demo_description_html: Los cuadros de diálogo, o elementos modales, se implementan a través del ayudante de <i>rails</i><code>decidim_modal</code>.
+          dialogs_description_html: Los cuadros de diálogo son una característica <i>JavaScript</i> disponible gracias a una biblioteca externa llamada <a href="https://github.com/jonathanlevaillant/a11y-dialogo-component" target="_blank" rel="noopener noreferrer">a11y-dialogo-component</a>.
+          tips_description: 'Para mostrar una modal compleja, que coincida con los estilos, añade el siguiente marcador:'
+          tips_description_html: Presta atención a los <i>data-attributes</i> y a los <i>Ids</i>. Por ejemplo, el <code>[data-dialog-title]</code> de los <i>Ids</i> empieza con <i>dialog-title</i> más el <i>modal id</i>.
+          title: Cuadros de diálogo
+          usage_description: Un cuadro de diálogo requiere dos elementos
+          usage_description_2_html: 2. Un elemento modal, cuyo <code>id</code> coincide con el valor de los controles de datos al que se refiere el activador.
+          usage_description_html: 1. Un elemento accionable por la participante, con el atributo de datos <code>data-dialog-open="example"</code>, donde <i>example</i> es la <code>Id</code> de la modal.
         follow:
           title: Seguir
+        forms:
+          date: fecha
+          datetime_local: Fecha y hora local
+          disabled: Deshabilitado
+          emojis: Emoticonos
+          emojis_description: Solo funciona en áreas de texto
+          errors: Errores
+          errors_description: No se puede seleccionar
+          header_alert: Se muestra esta página a partir de una vista antigua. El contenido está desactualizado.
+          help_texts: Texto de ayuda
+          min_max_length: Longitud Mín/Máx
+          min_max_length_description: Solo funciona en entradas de tipo texto y área de texto
+          number: número
+          password: contraseña
+          regular_inputs_description: 'Solo muestra tipos comunes, lista completa disponible: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
+          text: texto
+          textarea_required: área de texto requerida
+          title: Formularios
         report:
           title: Denunciar
         share:
@@ -168,6 +193,7 @@ es:
         hex_code: Código hexadecimal
         highlight: Destacado
         highlight_description: Utilizado por recursos que permiten ser destacados
+        html_tips:
         icons: Iconos
         image_and_description: Imagen y Descripción
         initiative_g: Iniciativa G
