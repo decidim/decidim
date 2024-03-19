@@ -141,11 +141,6 @@ module Decidim
         create_file "app/assets/config/manifest.js"
       end
 
-      def copy_migrations
-        rails "decidim:choose_target_plugins", "railties:install:migrations"
-        recreate_db if options[:recreate_db]
-      end
-
       def letter_opener_web
         route <<~RUBY
           if Rails.env.development?
@@ -200,6 +195,11 @@ module Decidim
 
       def bundle_install
         run "bundle install"
+      end
+
+      def copy_migrations
+        rails "decidim:choose_target_plugins", "railties:install:migrations"
+        recreate_db if options[:recreate_db]
       end
 
       private
