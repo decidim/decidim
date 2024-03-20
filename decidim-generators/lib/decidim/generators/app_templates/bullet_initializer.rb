@@ -5,6 +5,7 @@ if defined?(Bullet) && !Rails.application.config.try(:boost_performance)
     Bullet.enable = true
     Bullet.bullet_logger = true
     Bullet.rails_logger = true
+    Bullet.add_footer = true
     Bullet.stacktrace_includes = %w(decidim-)
   end
 end
