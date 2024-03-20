@@ -27,7 +27,6 @@ gem "decidim-dev", github: "decidim/decidim"
 ### 2.2. Run these commands
 
 ```console
-mkdir -p  app/assets/config/ && touch app/assets/config/manifest.js # For "2.2. Rails update to 7.0"
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
@@ -44,11 +43,7 @@ You can read more about this change on PR [#12199](https://github.com/decidim/de
 
 ## 2.2. Rails update to 7.0
 
-We have updated the Rails version to 7.0.8.1. You only need to create an empty file for sprockets-rails to work properly:
-
-```console
-mkdir -p  app/assets/config/ && touch app/assets/config/manifest.js
-```
+We have updated the Rails version to 7.0.8.1. You do not need to do anything.
 
 You can read more about this change on PR [#12616](https://github.com/decidim/decidim/pull/12616).
 
