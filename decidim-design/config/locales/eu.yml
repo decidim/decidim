@@ -50,6 +50,19 @@ eu:
           disabled: Desgaitua
           emojis: Emotikonoak
           emojis_description: Soilik balio du testu-arlorako
+          errors: Erroreak
+          errors_description: Ezin da hautatu
+          header_alert: Orrialde hau ikuspegi zahar batetik dator. Edukia zaharkituta dago.
+          help_texts: Laguntza-testua
+          html_regular_inputs: HTML input erregularrak
+          min_max_length: Luzera min - max
+          min_max_length_description: Testu motako sarreretan eta testu eremuan soilik funtzionatzen du
+          number: zenbakia
+          password: pasahitza
+          regular_inputs_description: 'Mota arruntak baino ez ditu erakusten ditu, eskuragarri dagoen zerrenda osoa: data, tokiko ordua, posta elektronikoa, hilabetea, zenbakia, pasahitza, bilaketa, tel., testua, ordua, url, astea'
+          text: testua
+          textarea_required: eskatutako testu-eremua
+          title: Inprimakiak
         report:
           title: Salatu
         share:
