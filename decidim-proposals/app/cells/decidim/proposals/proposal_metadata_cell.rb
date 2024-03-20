@@ -22,7 +22,7 @@ module Decidim
         elsif model.emendation?
           { text: content_tag(:span, humanize_proposal_state(state), class: "label #{state_class}") }
         else
-          { text: content_tag(:span, translated_attribute(model.proposal_state&.title), class: "label #{model.proposal_state.css_class}") }
+          { text: content_tag(:span, translated_attribute(model.proposal_state&.title), class: "label", style: model.proposal_state.css_style) }
         end
       end
 
