@@ -38,10 +38,6 @@ require "diffy"
 require "ransack"
 require "wisper"
 require "shakapacker"
-require "sprockets/railtie"
-
-# Needed for the assets:precompile task, for configuring webpacker instance
-require "decidim/webpacker"
 
 require "decidim/api"
 require "decidim/core/content_blocks/registry_manager"
@@ -49,6 +45,7 @@ require "decidim/core/menu"
 require "decidim/middleware/strip_x_forwarded_host"
 require "decidim/middleware/static_dispatcher"
 require "decidim/middleware/current_organization"
+require "decidim/webpacker"
 
 module Decidim
   module Core
