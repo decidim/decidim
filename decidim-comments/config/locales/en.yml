@@ -65,13 +65,18 @@ en:
           against: Against
           in_favor: In favor
         cancel_reply: Cancel reply
+        comment_label: Comment %{comment_id}
+        comment_label_reply: Comment %{comment_id} (reply to comment %{parent_comment_id})
         confirm_destroy: Are you sure you want to delete this comment?
+        controls_label: Comment controls
         delete: Delete
         deleted_at: Comment deleted on %{date}
         deleted_user: Deleted participant
         edit: Edit
         edited: Edited
-        hide_replies: Hide replies
+        hide_replies:
+          one: Hide reply
+          other: Hide %{count} replies
         moderated_at: Comment moderated on %{date}
         reply: Reply
         report:

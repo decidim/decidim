@@ -85,6 +85,10 @@ module Decidim
         "comments-for-#{commentable_type.demodulize}-#{model.id}"
       end
 
+      def threads_node_id
+        "#{node_id}-threads"
+      end
+
       def commentable_type
         model.commentable_type
       end
