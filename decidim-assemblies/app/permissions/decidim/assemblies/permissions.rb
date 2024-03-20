@@ -16,6 +16,7 @@ module Decidim
         if permission_action.scope == :public
           public_list_assemblies_action?
           public_read_assembly_action?
+          public_embed_assembly_action?
           public_list_members_action?
           return permission_action
         end
@@ -132,6 +133,17 @@ module Decidim
       def public_list_members_action?
         return unless permission_action.action == :list &&
                       permission_action.subject == :members
+
+        allow!
+      end
+
+      def public_embed_assembly_action?
+        return unless permission_action.action == :embed &&
+                      [:assembly, :participatory_space].include?(permission_action.subject) &&
+                      assembly
+
+        return disallow! unless assembly.published?
+        return disallow! if assembly.private_space && !assembly.is_transparent?
 
         allow!
       end

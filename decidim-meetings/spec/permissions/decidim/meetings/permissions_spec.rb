@@ -82,6 +82,28 @@ describe Decidim::Meetings::Permissions do
     end
   end
 
+  context "when embedding a meeting" do
+    let(:action) do
+      { scope: :public, action: :embed, subject: :meeting }
+    end
+
+    context "when meeting isn't published" do
+      before do
+        allow(meeting).to receive(:published?).and_return(false)
+      end
+
+      it { is_expected.to be false }
+    end
+
+    context "when meeting is published" do
+      before do
+        allow(meeting).to receive(:published?).and_return(true)
+      end
+
+      it { is_expected.to be true }
+    end
+  end
+
   context "when joining a meeting" do
     let(:action) do
       { scope: :public, action: :join, subject: :meeting }

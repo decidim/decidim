@@ -16,6 +16,7 @@ module Decidim
         if permission_action.scope == :public
           public_list_conferences_action?
           public_read_conference_action?
+          public_embed_conference_action?
           public_list_speakers_action?
           public_list_program_action?
           public_list_media_links_action?
@@ -129,6 +130,16 @@ module Decidim
         return allow! if conference.published?
 
         toggle_allow(can_manage_conference?)
+      end
+
+      def public_embed_conference_action?
+        return unless permission_action.action == :embed &&
+                      [:conference, :participatory_space].include?(permission_action.subject) &&
+                      conference
+
+        return disallow! unless conference.published?
+
+        allow!
       end
 
       def public_list_speakers_action?

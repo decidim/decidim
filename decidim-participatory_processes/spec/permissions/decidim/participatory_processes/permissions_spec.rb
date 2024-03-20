@@ -135,6 +135,36 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       end
     end
 
+    context "when embedding an process" do
+      let(:action) do
+        { scope: :public, action: :embed, subject: :process }
+      end
+      let(:context) { { process: process } }
+
+      context "when the process is published" do
+        let(:user) { create(:user, organization: organization) }
+
+        it { is_expected.to be true }
+      end
+
+      context "when the process is not published" do
+        let(:user) { create(:user, organization: organization) }
+        let(:process) { create(:participatory_process, :unpublished, organization: organization) }
+
+        context "when the user doesn't have access to it" do
+          it { is_expected.to be false }
+        end
+
+        context "when the user has access to it" do
+          before do
+            create(:participatory_process_user_role, user: user, participatory_process: process)
+          end
+
+          it { is_expected.to be false }
+        end
+      end
+    end
+
     context "when listing processes" do
       let(:action) do
         { scope: :public, action: :list, subject: :process }

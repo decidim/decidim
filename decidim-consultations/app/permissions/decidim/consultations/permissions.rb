@@ -5,6 +5,8 @@ module Decidim
     class Permissions < Decidim::DefaultPermissions
       def permissions
         allowed_public_anonymous_action?
+        allowed_public_embed_consultation_action?
+        allowed_public_embed_question_action?
 
         return permission_action unless user
 
@@ -22,7 +24,7 @@ module Decidim
       end
 
       def consultation
-        @consultation ||= context.fetch(:consultation, nil)
+        @consultation ||= context.fetch(:current_participatory_space, nil) || context.fetch(:consultation, nil)
       end
 
       def authorized?(permission_action, resource: nil)
@@ -43,6 +45,24 @@ module Decidim
         when :question
           toggle_allow(question.published? || user&.admin?)
         end
+      end
+
+      def allowed_public_embed_consultation_action?
+        return unless permission_action.action == :embed &&
+                      [:consultation, :participatory_space].include?(permission_action.subject) &&
+                      consultation
+
+        return disallow! unless consultation.published?
+
+        allow!
+      end
+
+      def allowed_public_embed_question_action?
+        return unless permission_action.action == :embed && permission_action.subject == :question && question
+
+        return disallow! unless question.published?
+
+        allow!
       end
 
       def allowed_public_action?

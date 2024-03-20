@@ -3,17 +3,8 @@
 require "spec_helper"
 
 describe "Question embeds", type: :system do
-  let(:question) { create(:question) }
+  let(:resource) { create(:question) }
+  let(:widget_path) { Decidim::EngineRouter.main_proxy(resource).question_question_widget_path }
 
-  context "when visiting the embed page for a question" do
-    before do
-      switch_to_host(question.organization.host)
-      visit "#{decidim_consultations.question_path(question)}/embed"
-    end
-
-    it "renders the page correctly" do
-      expect(page).to have_i18n_content(question.title)
-      expect(page).to have_content(question.organization.name)
-    end
-  end
+  it_behaves_like "an embed resource", skip_space_checks: true, skip_link_checks: true
 end

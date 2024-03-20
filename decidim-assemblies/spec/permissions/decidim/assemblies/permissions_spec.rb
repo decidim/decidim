@@ -127,6 +127,36 @@ describe Decidim::Assemblies::Permissions do
       end
     end
 
+    context "when embedding an assembly" do
+      let(:action) do
+        { scope: :public, action: :embed, subject: :assembly }
+      end
+      let(:context) { { assembly: assembly } }
+
+      context "when the assembly is published" do
+        let(:user) { create(:user, organization: organization) }
+
+        it { is_expected.to be true }
+      end
+
+      context "when the assembly is not published" do
+        let(:user) { create(:user, organization: organization) }
+        let(:assembly) { create(:assembly, :unpublished, organization: organization) }
+
+        context "when the user doesn't have access to it" do
+          it { is_expected.to be false }
+        end
+
+        context "when the user has access to it" do
+          before do
+            create(:assembly_user_role, user: user, assembly: assembly)
+          end
+
+          it { is_expected.to be false }
+        end
+      end
+    end
+
     context "when listing assemblies" do
       let(:action) do
         { scope: :public, action: :list, subject: :assembly }

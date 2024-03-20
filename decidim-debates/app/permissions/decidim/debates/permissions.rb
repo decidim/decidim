@@ -21,6 +21,8 @@ module Decidim
           can_endorse_debate?
         when :close
           can_close_debate?
+        when :embed
+          can_embed_debate?
         end
 
         permission_action
@@ -43,6 +45,10 @@ module Decidim
         return allow! if debate&.closeable_by?(user)
 
         disallow!
+      end
+
+      def can_embed_debate?
+        allow!
       end
 
       def can_endorse_debate?

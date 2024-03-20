@@ -106,4 +106,18 @@ describe Decidim::Debates::Permissions do
       it { is_expected.to be false }
     end
   end
+
+  context "when embedding a debate" do
+    let(:action) do
+      { scope: :public, action: :embed, subject: :debate }
+    end
+
+    it { is_expected.to be true }
+
+    context "when the debate is closed" do
+      let(:debate) { create :debate, :closed, component: debates_component }
+
+      it { is_expected.to be true }
+    end
+  end
 end

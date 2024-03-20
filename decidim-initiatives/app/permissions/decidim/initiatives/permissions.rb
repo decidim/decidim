@@ -11,6 +11,7 @@ module Decidim
         # Non-logged users permissions
         list_public_initiatives?
         read_public_initiative?
+        embed_public_initiative?
         search_initiative_types_and_scopes?
         request_membership?
 
@@ -55,6 +56,15 @@ module Decidim
         return allow! if user && authorship_or_admin?
 
         disallow!
+      end
+
+      def embed_public_initiative?
+        return unless [:initiative, :participatory_space].include?(permission_action.subject) &&
+                      permission_action.action == :embed
+
+        return disallow! if initiative.created? || initiative.validating? || initiative.discarded?
+
+        allow!
       end
 
       def search_initiative_types_and_scopes?
