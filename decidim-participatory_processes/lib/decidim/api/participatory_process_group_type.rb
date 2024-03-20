@@ -14,7 +14,7 @@ module Decidim
       field :hero_image, GraphQL::Types::String, "The hero image for this participatory process group", null: true
 
       def hero_image
-        object.attached_uploader(:hero_image).path
+        object.attached_uploader(:hero_image).url
       end
     end
   end

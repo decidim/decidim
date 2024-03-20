@@ -139,8 +139,8 @@ describe "Admin manages participatory processes", versioning: true do
       click_on "Update"
 
       expect(page).to have_admin_callout("successfully")
-      expect(page).to have_css("img[src*='#{participatory_process3.attached_uploader(:hero_image).path}']")
-      expect(page).to have_css("img[src*='#{participatory_process3.attached_uploader(:banner_image).path}']")
+      expect(page).to have_css("img[src*='#{participatory_process3.attached_uploader(:hero_image).url}']")
+      expect(page).to have_css("img[src*='#{participatory_process3.attached_uploader(:banner_image).url}']")
     end
   end
 end

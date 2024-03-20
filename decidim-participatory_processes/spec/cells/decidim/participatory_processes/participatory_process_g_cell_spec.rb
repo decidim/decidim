@@ -22,7 +22,7 @@ module Decidim::ParticipatoryProcesses
       end
 
       it "displays the process hero image" do
-        expect(subject).to have_css("img[src='#{model.attached_uploader(:hero_image).path}']")
+        expect(subject).to have_css("img[src='#{model.attached_uploader(:hero_image).url}']")
       end
 
       it_behaves_like "process card with metadata", metadata_class: "card__grid-metadata"

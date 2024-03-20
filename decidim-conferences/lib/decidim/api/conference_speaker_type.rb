@@ -20,7 +20,7 @@ module Decidim
       field :updated_at, Decidim::Core::DateTimeType, "The time this member was updated", null: true
 
       def avatar
-        object.attached_uploader(:avatar).path
+        object.attached_uploader(:avatar).url
       end
     end
   end

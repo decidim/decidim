@@ -159,7 +159,7 @@ describe "Decidim::Api::QueryType" do
         "translation" => participatory_process.announcement[locale]
       },
       "attachments" => [],
-      "bannerImage" => participatory_process.attached_uploader(:banner_image).path.sub(Rails.public_path.to_s, ""),
+      "bannerImage" => participatory_process.attached_uploader(:banner_image).url,
       "categories" => [],
       "components" => components,
       "createdAt" => participatory_process.created_at.iso8601.to_s.gsub("Z", "+00:00"),
@@ -167,7 +167,7 @@ describe "Decidim::Api::QueryType" do
       "developerGroup" => { "translation" => participatory_process.developer_group[locale] },
       "endDate" => participatory_process.end_date.to_s,
       "hashtag" => "",
-      "heroImage" => participatory_process.attached_uploader(:hero_image).path.sub(Rails.public_path.to_s, ""),
+      "heroImage" => participatory_process.attached_uploader(:hero_image).url,
       "id" => participatory_process.id.to_s,
       "linkedParticipatorySpaces" => [],
       "localArea" => { "translation" => participatory_process.local_area[locale] },

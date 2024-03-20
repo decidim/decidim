@@ -64,8 +64,8 @@ shared_examples "manage assemblies" do
 
       expect(page).to have_admin_callout("successfully")
 
-      expect(page).to have_css("img[src*='#{assembly.attached_uploader(:hero_image).path}']")
-      expect(page).to have_css("img[src*='#{assembly.attached_uploader(:banner_image).path}']")
+      expect(page).to have_css("img[src*='#{assembly.attached_uploader(:hero_image).url}']")
+      expect(page).to have_css("img[src*='#{assembly.attached_uploader(:banner_image).url}']")
     end
   end
 

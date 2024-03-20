@@ -21,7 +21,7 @@ module Decidim
       def logo
         return unless model.logo.attached?
 
-        "<div class='card p-m'> #{image_tag model.attached_uploader(:logo).path(variant: :medium), alt: "logo"} </div>"
+        "<div class='card p-m'> #{image_tag model.attached_uploader(:logo).variant_url(:medium), alt: "logo"} </div>"
       end
     end
   end

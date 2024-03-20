@@ -19,7 +19,7 @@ module Decidim
         @image ||= model.attachments.find(&:image?)
       end
 
-      def resource_image_path
+      def resource_image_url
         image.url if has_image?
       end
 

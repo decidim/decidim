@@ -11,8 +11,8 @@ module Decidim
         Decidim::Conferences::Engine.routes.url_helpers.conference_path(model)
       end
 
-      def resource_image_path
-        model.attached_uploader(:hero_image).path
+      def resource_image_url
+        model.attached_uploader(:hero_image).url
       end
 
       def metadata_cell

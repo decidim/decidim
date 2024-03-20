@@ -25,7 +25,7 @@ module Decidim
 
       context "when the image has not been uploaded" do
         it "returns nil" do
-          expect(subject.images_container.attached_uploader(:background_image).path).to be_nil
+          expect(subject.images_container.attached_uploader(:background_image).url).to be_nil
         end
       end
 
@@ -46,7 +46,7 @@ module Decidim
 
         it "returns the image" do
           expect(subject.images_container.background_image.attached?).to be true
-          expect(subject.images_container.attached_uploader(:background_image).path).not_to be_nil
+          expect(subject.images_container.attached_uploader(:background_image).url).not_to be_nil
         end
       end
 

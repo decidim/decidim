@@ -115,7 +115,7 @@ module Decidim
         let(:query) { "{ bannerImage }" }
 
         it "returns the banner image of the process" do
-          expect(response["bannerImage"]).to eq(model.attached_uploader(:banner_image).path)
+          expect(response["bannerImage"]).to eq(model.attached_uploader(:banner_image).url)
         end
       end
 
@@ -123,7 +123,7 @@ module Decidim
         let(:query) { "{ heroImage }" }
 
         it "returns the hero image of the process" do
-          expect(response["heroImage"]).to eq(model.attached_uploader(:hero_image).path)
+          expect(response["heroImage"]).to eq(model.attached_uploader(:hero_image).url)
         end
       end
 
