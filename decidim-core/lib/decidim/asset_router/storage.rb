@@ -108,7 +108,7 @@ module Decidim
 
       # Returns a representation URL for the asset either directly through the
       # storage service or through the Rails representation URL in case the
-      # path URL is requested or if the asset variant hasn't been processed yet
+      # path URL is requested or if the asset variant has not been processed yet
       # and is not therefore yet stored at the storage service.
       #
       # @return [String] The representation URL for the image variant
@@ -118,7 +118,7 @@ module Decidim
         representation_url = variant_url(**options)
         return representation_url if representation_url.present?
 
-        # In case the representation hasn't been processed yet, it may not have
+        # In case the representation has not been processed yet, it may not have
         # a representation URL yet and it therefore needs to be served through
         # the local representation URL for the first time (or until it has been
         # processed).
@@ -127,8 +127,8 @@ module Decidim
 
       # Returns the local Rails representation URL meaning that the asset will
       # be served through the service itself. This may be necessary if the asset
-      # variant (e.g. a thumbnail) hasn't been processed yet because the variant
-      # representation hasn't been requested before.
+      # variant (e.g. a thumbnail) has not been processed yet because the
+      # variant representation has not been requested before.
       #
       # Due to performance reasons it is advised to avoid requesting the assets
       # through the Rails representation URLs when possible because that causes
@@ -160,18 +160,18 @@ module Decidim
 
       # Fetches the image variant's URL at the storage service if the variant
       # has already been processed and is stored at the storage service. If the
-      # variant hasn't been processed yet, returns `nil` in which case the
+      # variant has not been processed yet, returns `nil` in which case the
       # variant has to be served through the service's own representation URL
       # causing it to be processed and stored at the storage service.
       #
       # @return [String, nil] The variant URL at the storage service or `nil` if
-      #   the variant hasn't been processed yet and does not yet exist at the
+      #   the variant has not been processed yet and does not yet exist at the
       #   storage service
       def variant_url(**)
         case asset
         when ActiveStorage::VariantWithRecord
           # This is used when `ActiveStorage.track_variants` is enabled through
-          # `config.active_storage.track_variants`. In case the variant hasn't
+          # `config.active_storage.track_variants`. In case the variant has not
           # been processed yet, the `#url` method would return nil.
           asset.url(**) if asset.processed?
         else # ActiveStorage::Variant
