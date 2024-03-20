@@ -92,7 +92,7 @@ module Decidim
                   <p><img src="/path/to/image.jpg" alt="Image"></p>
                   <div class="editor-content-videoEmbed">
                     <div>
-                      <div class="disabled-iframe"><!-- <iframe src="https://example.org/video/xyz" title="Video" frameborder="0" allowfullscreen="true"></iframe> --></div>
+                      <div class="disabled-iframe"><!-- <iframe src="https://example.org/video/xyz" title="Video" frameborder="0" allowfullscreen="true" scrolling="no"></iframe> --></div>
                     </div>
                   </div>
                   </div>
