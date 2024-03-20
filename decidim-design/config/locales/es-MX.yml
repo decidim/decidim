@@ -236,6 +236,7 @@ es-MX:
         sortitions: Sorteos
         source_code: Código Fuente
         state: Estado
+        tab_panels_context_description_html: Se utiliza principalmente en <i>layout_item</i> o en <i>layout_center</i>, después del contenido principal del recurso.
         tailwind: Nombre del Tailwind
         text: Texto
         transparent: Transparente
