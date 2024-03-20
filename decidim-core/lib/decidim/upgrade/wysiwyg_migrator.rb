@@ -258,6 +258,9 @@ module Decidim
         parent
       end
 
+      # rubocop: disable Metrics/CyclomaticComplexity
+      # rubocop: disable Metrics/PerceivedComplexity
+
       # Quill.js did not support multi-level lists which is why it used a CSS
       # hack to make it visually look like the list has multiple levels. This
       # is not semantically correct but for users with no visual impairments it
@@ -321,6 +324,8 @@ module Decidim
         current_parent = parent
         current_level = 0
         list.children.each do |item|
+          next unless item.is_a?(Nokogiri::XML::Element) && item.name == "li"
+
           indent = detect_indent(item)
           if indent == current_level || li.nil?
             if item.child.name == "p"
@@ -356,6 +361,8 @@ module Decidim
 
         parent
       end
+      # rubocop: enable Metrics/CyclomaticComplexity
+      # rubocop: enable Metrics/PerceivedComplexity
 
       # Converts iframe embeds to the new format. We assume all iframes are
       # video embeds as this the only type of embed what Quill.js supported and

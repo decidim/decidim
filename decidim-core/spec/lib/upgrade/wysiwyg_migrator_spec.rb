@@ -211,6 +211,13 @@ module Decidim
           expect(subject).to eq(en: expected_content, es: "<p>Castellano</p>#{expected_content}")
         end
       end
+
+      context "when we have \\n inside a list" do
+        let(:original_content) { "<p>Vivamus rhoncus pretium neque et posuere:<ul>\n<li>Suspendisse gravida justo nec ornare rhoncus.</li>\n<li>Morbi venenatis metus augue.</li>\n</ul></p>" }
+        let(:expected_content) { "<p>Vivamus rhoncus pretium neque et posuere:</p><ul><li><p>Suspendisse gravida justo nec ornare rhoncus.</p></li><li><p>Morbi venenatis metus augue.</p></li></ul>" }
+
+        it_behaves_like "HTML content migration"
+      end
     end
 
     describe ".register_model" do
