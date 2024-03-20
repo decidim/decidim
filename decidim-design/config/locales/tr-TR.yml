@@ -2,11 +2,16 @@
 tr:
   decidim:
     design:
+      components:
+        tab_panels:
+          title: Sekmeler
       foundations:
         iconography:
           description_iconography: Eylemlerin, başlıkların vb. anlamlarını güçlendirmek için simgeler kullanırız
           description_iconography_html: 'Remixicon %{iconography_link} açık kaynak kitaplığını kullanıyoruz:'
           title: İkonografi
+      helpers:
+        tab_panels_context_description: Bu sekme bileşeni, dikey alandan tasarruf etmek için görüntülenen ana öğenin tüm ilgili içeriklerini veya diğer kaynaklarını bir araya getirir. Sekmeye tıklamak, içeriği göstermek için oluşturulan paneli etkinleştirecektir.
       home:
         index:
           by_sharing_principles: Tasarım kararlarının ardındaki ilkeleri, felsefeyi ve mantığı paylaşarak, topluluğun tutarlı bir şekilde katkıda bulunmasını sağlamak ve böylece en iyi katılımcı deneyimine ulaşmak istiyoruz.
