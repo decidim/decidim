@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::AssetRouter
-  describe Storage, :disk_storage_host do
+  describe Storage do
     subject { router }
 
     let(:router) { described_class.new(asset) }
