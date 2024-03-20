@@ -236,6 +236,7 @@ ca:
         sortitions: Sortejos
         source_code: Codi font
         state: Estat
+        tab_panels_context_description_html: Emprat principalment a <i>layout_item</i> o a <i>layout_center</i>, després del contingut principal del recurs.
         tailwind: Nom del Tailwind
         text: Text
         transparent: Transparent
