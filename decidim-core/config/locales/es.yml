@@ -1456,6 +1456,8 @@ es:
         close_modal: Cerrar el modal
         ok: De acuerdo
         title: Confirmar
+      embed:
+        title: Contenido de vídeo incrustado
       extended_navigation_bar:
         more: Más
         unfold: Desplegar
