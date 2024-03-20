@@ -32,7 +32,7 @@ module Decidim
             class: "static-map",
             target: "_blank",
             rel: "noopener",
-            data: { "external-link": false }
+            data: { "external-link": "text-only" }
           }.merge(map_html_options)
           return link_to(map_url, html_options) do
             image_tag decidim.static_map_path(sgid: resource.to_sgid.to_s), alt: "#{map_service_brand} - #{address_text}"

@@ -30,7 +30,7 @@
               </li>
             <% end %>
             <li>
-              <%= link_to "#{commentable_path("commentId" => model.id)}#comment_#{model.id}", target: "_blank", data: { "external-link": "false" }, class: "dropdown__item", title: t("decidim.components.comment.single_comment_link_title") do %>
+              <%= link_to "#{commentable_path("commentId" => model.id)}#comment_#{model.id}", target: "_blank", data: { "external-link": "text-only" }, class: "dropdown__item", title: t("decidim.components.comment.single_comment_link_title") do %>
                 <%= icon "share-line" %>
                 <span><%= t("decidim.components.comment.single_comment_link_title") %></span>
               <% end %>
