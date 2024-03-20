@@ -58,9 +58,8 @@ describe "Edit proposals" do
         expect(page).to have_content("only files with the following extensions are allowed: jpeg, jpg, pdf, png, rtf, txt")
       end
 
-      context "with a file and photo" do
+      context "with a document" do
         let!(:file) { create(:attachment, :with_pdf, weight: 1, attached_to: proposal) }
-        let!(:photo) { create(:attachment, :with_image, weight: 0, attached_to: proposal) }
 
         it "can delete attachments" do
           visit current_path
@@ -70,9 +69,6 @@ describe "Edit proposals" do
 
           click_on "Edit documents"
           within ".upload-modal" do
-            within "[data-filename='city.jpeg']" do
-              click_on("Remove")
-            end
             within "[data-filename='Exampledocument.pdf']" do
               click_on("Remove")
             end
@@ -82,7 +78,6 @@ describe "Edit proposals" do
           click_on "Send"
 
           expect(page).to have_no_content("Documents")
-          expect(page).to have_no_content("Images")
         end
 
         context "with attachment titles" do

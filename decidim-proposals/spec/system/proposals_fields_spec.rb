@@ -46,7 +46,7 @@ describe "Proposals" do
 
         context "when process is not related to any scope" do
           it "can be related to a scope" do
-            visit complete_proposal_path(component, proposal_draft)
+            visit edit_draft_proposal_path(component, proposal_draft)
 
             within "form.edit_proposal" do
               expect(page).to have_content(/Scope/i)
@@ -58,7 +58,7 @@ describe "Proposals" do
           let(:participatory_process) { scoped_participatory_process }
 
           it "cannot be related to a scope" do
-            visit complete_proposal_path(component, proposal_draft)
+            visit edit_draft_proposal_path(component, proposal_draft)
 
             within "form.edit_proposal" do
               expect(page).to have_no_content("Scope")
@@ -67,7 +67,7 @@ describe "Proposals" do
         end
 
         it "creates a new proposal", :slow do
-          visit complete_proposal_path(component, proposal_draft)
+          visit edit_draft_proposal_path(component, proposal_draft)
 
           within ".edit_proposal" do
             fill_in :proposal_title, with: "More sidewalks and less roads"
@@ -107,7 +107,7 @@ describe "Proposals" do
           let(:proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "More sidewalks and less roads", body: "It will not solve everything") }
 
           it "creates a new proposal", :slow do
-            visit complete_proposal_path(component, proposal_draft)
+            visit edit_draft_proposal_path(component, proposal_draft)
 
             within ".edit_proposal" do
               fill_in :proposal_title, with: "More sidewalks and less roads"
@@ -150,7 +150,7 @@ describe "Proposals" do
 
             before do
               # Prepare the view for submission (other than the address field)
-              visit complete_proposal_path(component, proposal_draft)
+              visit edit_draft_proposal_path(component, proposal_draft)
 
               fill_in :proposal_title, with: "More sidewalks and less roads"
               fill_in :proposal_body, with: "Cities need more people, not more cars"
@@ -173,7 +173,7 @@ describe "Proposals" do
           let(:component_suggested_hashtags) { "SuggestedHashtag1 SuggestedHashtag2" }
 
           it "offers and save extra hashtags", :slow do
-            visit complete_proposal_path(component, proposal_draft)
+            visit edit_draft_proposal_path(component, proposal_draft)
 
             within ".edit_proposal" do
               check :proposal_suggested_hashtags_suggestedhashtag1
@@ -200,7 +200,7 @@ describe "Proposals" do
           end
 
           it "creates a new proposal as a user group", :slow do
-            visit complete_proposal_path(component, user_group_proposal_draft)
+            visit edit_draft_proposal_path(component, user_group_proposal_draft)
 
             within ".edit_proposal" do
               fill_in :proposal_title, with: "More sidewalks and less roads"
@@ -238,7 +238,7 @@ describe "Proposals" do
             let(:proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "More sidewalks and less roads", body: "It will not solve everything") }
 
             it "creates a new proposal as a user group", :slow do
-              visit complete_proposal_path(component, proposal_draft)
+              visit edit_draft_proposal_path(component, proposal_draft)
 
               within ".edit_proposal" do
                 fill_in :proposal_title, with: "More sidewalks and less roads"
@@ -296,7 +296,7 @@ describe "Proposals" do
           let(:proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "Proposal with attachments", body: "This is my proposal and I want to upload attachments.") }
 
           it "creates a new proposal with attachments" do
-            visit complete_proposal_path(component, proposal_draft)
+            visit edit_draft_proposal_path(component, proposal_draft)
 
             within ".edit_proposal" do
               fill_in :proposal_title, with: "Proposal with attachments"
@@ -320,7 +320,7 @@ describe "Proposals" do
 
           context "with multiple images" do
             before do
-              visit complete_proposal_path(component, proposal_draft)
+              visit edit_draft_proposal_path(component, proposal_draft)
 
               within ".edit_proposal" do
                 fill_in :proposal_title, with: "Proposal with attachments"
@@ -425,6 +425,6 @@ describe "Proposals" do
   end
 end
 
-def complete_proposal_path(component, proposal)
-  "#{Decidim::EngineRouter.main_proxy(component).proposal_path(proposal)}/complete"
+def edit_draft_proposal_path(component, proposal)
+  "#{Decidim::EngineRouter.main_proxy(component).proposal_path(proposal)}/edit_draft"
 end
