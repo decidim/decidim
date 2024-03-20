@@ -33,8 +33,23 @@ eu:
           title: Botoiak
         cards:
           title: Txartelak
+        dialogs:
+          dialog_demo_description_html: Elkarrizketa-koadroak, edo elementu modalak <code>decidim_modal</code> laguntzailearen bidez inplementatzen dira.
+          dialogs_description_html: Elkarrizketa-koadroak javascript-en ezaugarriak dira eta honela deitzen dira:<a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a>.
+          tips_description: 'Modal konplexu bat erakusteko, estiloekin bat eginez, egin marka hau:'
+          tips_description_html: 'Adi hauei: <i>data-attributes</i> eta the <i>ids</i>. Adibidez, <code>[data-dialog-title]</code> kodea hasten da honela: <i>dialog-title</i> gehi <i>modal id</i>.'
+          title: Elkarrizketak
+          usage_description: Elkarrizketa batek bi elementu eskatzen ditu
+          usage_description_2_html: 2. Elementu modala, zeinaren <code>id</code> datu-kontrolek bat egiten duten eragileari dagokion balioarekin.
+          usage_description_html: 1. Erabiltzailearen elementu erabilgarria, <code>data-dialog-open="example"</code> data-atributuarekin, non adibidea den modalaren <code>id</code>.
         follow:
           title: Jarraitu
+        forms:
+          date: data
+          datetime_local: tokiko data eta ordua
+          disabled: Desgaitua
+          emojis: Emotikonoak
+          emojis_description: Soilik balio du testu-arlorako
         report:
           title: Salatu
         share:
