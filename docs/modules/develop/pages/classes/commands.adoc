@@ -29,6 +29,10 @@ module Decidim
       # copied from the form
       fetch_form_attributes :title, :description, :component
 
+      # Tell the parent class which files are going to be
+      # extracted from the form and attached to the resource
+      fetch_file_attributes :logo, :banner
+
       # This is the class initializer. It can be ignored if you do not need
       # to do anything special.
       def initialize(form)
@@ -87,6 +91,10 @@ module Decidim
       # Tell the parent class which fields are going to be
       # copied from the form
       fetch_form_attributes :title, :description, :component
+
+      # Tell the parent class which files are going to be
+      # extracted from the form and attached to the resource
+      fetch_file_attributes :logo, :banner
 
       # This is the class initializer. It can be ignored if you do not need
       # to do anything special.

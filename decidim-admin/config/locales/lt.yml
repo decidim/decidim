@@ -282,7 +282,6 @@ lt:
       block_user:
         new:
           action: Užblokuoti paskyrą ir išsiųsti paaiškinimą
-          already_reported_html: Tęsdami šį veiksmą taip pat paslėpsite visus dalyvių turinius. <a href="%{link}">Užblokuoti paskyrą</a>.
           description: Naudotojo užblokavimas pavers paskyrą nenaudojama. Rekomenduojame paaiškinime pasidalinti būdais kaip naudotojas gali būti atblokuotas.
           justification: Paaiškinimas
           title: Blokuoti naudotoją %{name}
@@ -349,7 +348,6 @@ lt:
         title: Patikros konfliktai
         transfer:
           email: El. paštas
-          error: Iškilo problema perkeliant dabartinį dalyvį į tvarkomą dalyvį.
           name: Vardas
           reason: Priežastis
           success: Perkėlimas sėkmingai baigtas.
@@ -358,11 +356,6 @@ lt:
         user_name: Naudotojas
       dashboard:
         pending_moderations:
-          anouncement:
-            one: Yra %{count} laukiantis moderavimo
-            few: Yra %{count} laukiantys moderavimo
-            many: Yra %{count} laukiantys moderavimo
-            other: Yra %{count} laukiantys moderavimo
           goto_moderation: Eikite į globalius moderavimus
           title: Laukiantys Moderavimai
         show:
@@ -558,6 +551,7 @@ lt:
         help_sections: Pagalbos skyrius
         homepage: Pradinis puslapis
         impersonations: Įsikūnyjimai
+        manage: Valdyti
         moderation: Globalūs moderavimai
         newsletters: Naujienlaiškiai
         participants: Dalyviai

@@ -153,8 +153,6 @@ sk:
           new:
             send: Požiadajte o overenie
             title: Nahrajte svoj doklad totožnosti
-        dni: IČO
-        nie: DIČ
         passport: Cestovný pas
       postal_letter:
         admin:
@@ -175,8 +173,6 @@ sk:
             title: Požiadajte o overovací kód
       sms:
         authorizations:
-          destroy:
-            success: Overovací kód úspešne resetovať. Opäť zadajte svoje telefónne číslo.
           edit:
             confirm_destroy: Naozaj chcete obnoviť overovací kód?
             destroy: Obnoviť overovací kód

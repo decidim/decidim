@@ -296,7 +296,7 @@ eu:
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: % {url}'
             social_handlers: Soziala
             title: Informazio orokorra
-            visbility: ikusgarritasuna
+            visibility: Ikusgarritasuna
         assemblies_types:
           form:
             title: Editatu batzar mota
@@ -310,7 +310,7 @@ eu:
           form:
             existing_user: Parte-hartzailea existitzen da
             explanation: 'Jarraibideak irudirako:'
-            image_guide: Ahal izanez gero, irudi bertikal bat testurik gabe.
+            image_guide: Ahal dela, testurik gabeko irudi bertikal bat.
             non_user: Erabiltzailea ez
             non_user_avatar_help: Pertsonen baimena lortu beharko zenuke, kide gisa argitaratu baino lehen.
             select_a_position: Hautatu posizio bat
@@ -452,6 +452,10 @@ eu:
           take_part: Parte hartu
         index:
           promoted_assemblies: Batzar nabarmenduak
+        metadata:
+          children_item:
+            one: "%{count} batzarra"
+            other: "%{count} batzar"
         order_by_assemblies:
           assemblies:
             one: "%{count} batzarrak"
