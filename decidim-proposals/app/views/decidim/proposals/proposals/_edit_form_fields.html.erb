@@ -38,7 +38,7 @@
   <%= scopes_select_field form, :scope_id, root: current_component.scope %>
 <% end %>
 
-<% if component_settings.attachments_allowed? && (new_proposal || @proposal)%>
+<% if component_settings.attachments_allowed? && (new_proposal || @proposal) %>
   <%= form.attachment :documents,
                       multiple: true,
                       label: t("decidim.proposals.proposals.edit.add_documents"),
