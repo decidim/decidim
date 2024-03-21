@@ -38,12 +38,12 @@ Examples of unacceptable behavior include:
 
 ## Enforcement Responsibilities
 
-The Coordination Committee is responsible for clarifying and enforcing our standards of
+The [Coordination Committee][committee] is responsible for clarifying and enforcing our standards of
 acceptable behavior and will take appropriate and fair corrective action in
 response to any behavior that they deem inappropriate, threatening, offensive,
 or harmful.
 
-The Coordination Committee has the right and responsibility to remove, edit, or reject
+The [Coordination Committee][committee] has the right and responsibility to remove, edit, or reject
 comments, commits, code, wiki edits, issues, and other contributions that are
 not aligned to this Code of Conduct, and will communicate reasons for moderation
 decisions when appropriate.
@@ -59,16 +59,16 @@ representative at an online or offline event.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the Coordination Committee responsible for enforcement at
+reported to the [Coordination Committee][committee] responsible for enforcement at
 hola@decidim.org.
 All complaints will be reviewed and investigated promptly and fairly.
 
-All the Coordination Committee members are obligated to respect the privacy and security of the
+All the [Coordination Committee][committee] members are obligated to respect the privacy and security of the
 reporter of any incident.
 
 ## Enforcement Guidelines
 
-The Coordination Committee will follow these Community Impact Guidelines in determining
+The [Coordination Committee][committee] will follow these Community Impact Guidelines in determining
 the consequences for any action they deem in violation of this Code of Conduct:
 
 ### 1. Correction
@@ -76,7 +76,7 @@ the consequences for any action they deem in violation of this Code of Conduct:
 **Community Impact**: Use of inappropriate language or other behavior deemed
 unprofessional or unwelcome in the community.
 
-**Consequence**: A private, written warning from the Coordination Committee, providing
+**Consequence**: A private, written warning from the [Coordination Committee][committee], providing
 clarity around the nature of the violation and an explanation of why the
 behavior was inappropriate. A public apology may be requested.
 
@@ -130,3 +130,4 @@ For answers to common questions about this code of conduct, see the FAQ at
 [Mozilla CoC]: https://github.com/mozilla/diversity
 [FAQ]: https://www.contributor-covenant.org/faq
 [translations]: https://www.contributor-covenant.org/translations
+[committee]: https://meta.decidim.org/assemblies/coordination-committee
