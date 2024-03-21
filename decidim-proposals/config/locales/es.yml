@@ -111,7 +111,7 @@ es:
           state_eq:
             label: Estado
             values:
-              accepted: Aceptada
+              accepted: Aceptadas
               evaluating: En evaluación
               published: Publicada
               rejected: Rechazada
@@ -471,7 +471,7 @@ es:
             success: Texto participativo actualizado correctamente.
         proposal_answers:
           form:
-            accepted: Aceptadas
+            accepted: Aceptada
             answer_proposal: Respuesta
             evaluating: En evaluación
             not_answered: No contestada
@@ -602,7 +602,7 @@ es:
           create: "%{user_name} asignó la propuesta %{resource_name} a una evaluadora"
           delete: "%{user_name} desasignó una evaluadora de la propuesta %{proposal_title}"
       answers:
-        accepted: Aceptadas
+        accepted: Aceptada
         evaluating: En evaluación
         not_answered: No contestada
         rejected: Rechazada
@@ -619,7 +619,7 @@ es:
         filter_scope_values:
           all: Todas
         filter_state_values:
-          accepted: Aceptadas
+          accepted: Aceptada
           all: Todas
           evaluating: En evaluación
           not_answered: No contestada
