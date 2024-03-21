@@ -12,7 +12,7 @@ module Decidim
             active = current_step == wizard_step
             inactive_data = {} if active
             attributes = active ? { "aria-current": "step", "aria-label": "#{t("current_step", scope:)}: #{t(wizard_step, scope:)}", data: { active: "" } } : inactive_data
-            content_tag(:li, t(wizard_step, scope:), attributes)
+            content_tag(:li, t(wizard_step, scope:), attributes.merge(class: "w-1/2"))
           end.join.html_safe
         end
       end
