@@ -67,6 +67,8 @@ eu:
           title: Salatu
         share:
           title: Partekatu
+        tab_panels:
+          title: Panelen Tab
       foundations:
         accessibility:
           accessibility_labels: Irisgarritasun-etiketak
@@ -198,6 +200,7 @@ eu:
         hex_code: Hex kodea
         highlight: Nabarmendua
         highlight_description: Nabarmentzeko moduko baliabideek erabilia
+        html_tips: HTML datuak
         icons: Ikonoak
         image_and_description: Irudia eta Deskribapena
         initiative_g: g_ekimena
@@ -240,6 +243,14 @@ eu:
         sortitions: Zozketak
         source_code: Iturburu Kodea
         state: Egoera
+        tab_panels_context_description: Tab-panel osagai honek biltzen ditu erlazionatutako eduki guztiak edo elementu nagusiaren beste baliabide batzuk, espazio bertikala salbatzeko. Erlaitzean klik eginez, edukia erakusteko sortutako panela aktibatuko da.
+        tab_panels_context_description_html: 'Nagusiki hemen erabiltzen da: <i>layout_item</i> edo <i>layout_center</i>, baliabidearen eduki nagusiaren ostean.'
+        tab_panels_usage_description: 'Osagai honek hashes sorta bat jasotzen du eta elementu bakoitzaren irteera taula berrantolatzen du paneleko egitura batean. Panel bakoitzerako eskuragarri dauden propietateak:'
+        tab_panels_usage_description_arguments_html: "<strong>args</strong>: <i>Array</i>. Aurreko metodoaren argudioak"
+        tab_panels_usage_description_html: "<strong>enabled</strong>: <i>Boolean</i>. Jarri erlaitza baldintzapean"
+        tab_panels_usage_description_id_html: "<strong>id</strong>: <i>String</i>. Id bakarra"
+        tab_panels_usage_description_rails_html: "<strong>method</strong>: <i>Symbol</i>. Edozein funtzio-errailek ulertzen du"
+        tab_panels_usage_description_remixicon_html: "<strong>icon</strong>: <i>String</i>. Remixicon tekla"
         tailwind: Tailwind izena
         text: Testua
         transparent: Gardena
