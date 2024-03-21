@@ -120,7 +120,7 @@ ca:
           state_eq:
             label: Estat
             values:
-              accepted: Acceptada
+              accepted: Acceptades
               evaluating: En avaluació
               not_answered: Sense resposta
               published: Publicades
@@ -604,7 +604,7 @@ ca:
           create: "%{user_name} ha assignat la proposta %{resource_name} a una avaluadora"
           delete: "%{user_name} ha desfet l'assignació a una avaluadora de la proposta %{proposal_title}"
       answers:
-        accepted: Acceptades
+        accepted: Acceptada
         evaluating: En avaluació
         not_answered: No resposta
         rejected: Rebutjada
