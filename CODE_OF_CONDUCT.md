@@ -60,7 +60,7 @@ representative at an online or offline event.
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported to the [Coordination Committee][committee] responsible for enforcement at
-hola@decidim.org.
+associacio@decidim.org.
 All complaints will be reviewed and investigated promptly and fairly.
 
 All the [Coordination Committee][committee] members are obligated to respect the privacy and security of the
