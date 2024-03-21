@@ -177,6 +177,8 @@ module Decidim
           organization:,
           parent:
         )
+      rescue ActiveRecord::RecordInvalid
+        retry
       end
 
       def create_area_type!(name:, plural:)
