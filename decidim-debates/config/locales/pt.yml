@@ -152,13 +152,6 @@ pt:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_intro: |-
-              Olá,
-              Um novo debate "%{resource_title}" foi criado no espaço participativo %{space_title}, confira e contribua:
-            email_outro: Recebeu esta notificação porque segue o espaço participativo %{space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
-            email_subject: Novo debate "%{resource_title}" em %{space_title}
-            notification_title: O debate <a href="%{resource_path}">%{resource_title}</a> foi criado em <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Olá,

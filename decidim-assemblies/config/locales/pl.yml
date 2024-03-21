@@ -302,7 +302,7 @@ pl:
             slug_help_html: 'Slugi URL służą do generowania adresów URL kierujących bezpośrednio do tego zgromadzenia. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             social_handlers: Profile społecznościowe
             title: Informacje ogólne
-            visbility: Widoczność
+            visibility: Widoczność
         assemblies_types:
           form:
             title: Tytuł
@@ -316,7 +316,6 @@ pl:
           form:
             existing_user: Istniejący użytkownik
             explanation: 'Wskazówka dotycząca obrazu:'
-            image_guide: Najlepiej obraz pionowy (portretowy), który nie ma żadnego tekstu.
             non_user: Brak użytkownika
             non_user_avatar_help: Powinieneś uzyskać zgodę osób przed opublikowaniem ich jako członka.
             select_a_position: Wybierz pozycję

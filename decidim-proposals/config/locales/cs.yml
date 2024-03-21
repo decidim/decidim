@@ -30,6 +30,8 @@ cs:
         cost: Náklady
         cost_report: Přehled nákladů
         execution_period: Období provádění
+      proposal_state:
+        announcement_title: Hlavička odpovědi
       proposals_copy:
         copy_proposals: Rozumím, že tento krok naimportuje všechny návrhy z vybraného prvku do toho současného a že tuto akci nelze vrátit zpět.
         origin_component_id: Komponenta pro kopírování návrhů z
@@ -68,15 +70,12 @@ cs:
               not_official: Nejsou oficiální
               supported: Obdrželi podporu nebo potvrzení
     models:
-      decidim/proposals/accepted_proposal_event: Návrh byl akceptován
       decidim/proposals/admin/update_proposal_category_event: Kategorie nabídky se změnila
       decidim/proposals/admin/update_proposal_scope_event: Rozsah návrhu se změnil
       decidim/proposals/creation_enabled_event: Vytváření návrhu je povoleno
       decidim/proposals/endorsing_enabled_event: Schválení návrhu je povoleno
-      decidim/proposals/evaluating_proposal_event: Návrh je hodnocen
       decidim/proposals/proposal_mentioned_event: Návrh byl zmíněn
       decidim/proposals/publish_proposal_event: Návrh byl zveřejněn
-      decidim/proposals/rejected_proposal_event: Návrh byl zamítnut
       decidim/proposals/voting_enabled_event: Hlasování návrhu je povoleno
   activerecord:
     models:
@@ -111,6 +110,8 @@ cs:
             values:
               'false': Návrhy
               'true': Pozměňovací návrhy
+          proposal_state_id_eq:
+            label: Stav
           scope_id_eq:
             label: Oblast působnosti
           state_eq:
@@ -276,28 +277,6 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Schválení návrhů bylo zahájeno po dobu %{participatory_space_title}
           notification_title: Nyní můžete začít <a href="%{resource_path}">schvalovat návrhy</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        proposal_accepted:
-          affected_user:
-            email_intro: 'Váš návrh "%{resource_title}" byl přijat. Odpověď můžete číst na této stránce:'
-            email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
-            email_subject: Váš návrh byl přijat
-            notification_title: Váš návrh <a href="%{resource_path}">%{resource_title}</a> byl přijat.
-          follower:
-            email_intro: 'Návrh "%{resource_title}" byl přijat. Odpověď můžete číst na této stránce:'
-            email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
-            email_subject: Návrh, který sledujete, byl přijat
-            notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl přijat.
-        proposal_evaluating:
-          affected_user:
-            email_intro: 'Váš návrh "%{resource_title}" se právě vyhodnocuje. V této stránce můžete zkontrolovat odpověď:'
-            email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
-            email_subject: Váš návrh je hodnocen
-            notification_title: Váš návrh <a href="%{resource_path}">%{resource_title}</a> je hodnocen.
-          follower:
-            email_intro: 'V současné době se hodnotí návrh "%{resource_title}". V této stránce můžete zkontrolovat odpověď:'
-            email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
-            email_subject: Návrh, který předkládáte, se posuzuje
-            notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> se hodnotí.
         proposal_mentioned:
           email_intro: Váš návrh "%{mentioned_proposal_title}" byl zmíněn <a href="%{resource_url}">v této skupině</a> v komentářích.
           email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
@@ -314,17 +293,9 @@ cs:
           email_subject: Nový návrh "%{resource_title}" byl přidán k %{participatory_space_title}
           notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl přidán do %{participatory_space_title} uživatelem %{author}.
           notification_title_official: Oficiální návrh <a href="%{resource_path}">%{resource_title}</a> byl přidán do %{participatory_space_title}.
-        proposal_rejected:
+        proposal_state_changed:
           affected_user:
-            email_intro: 'Váš návrh "%{resource_title}" byl zamítnut. Odpověď můžete číst na této stránce:'
-            email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
-            email_subject: Váš návrh byl odmítnut
-            notification_title: Váš návrh <a href="%{resource_path}">%{resource_title}</a> byl zamítnut.
-          follower:
-            email_intro: 'Návrh "%{resource_title}" byl zamítnut. Odpověď můžete číst na této stránce:'
-            email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
-            email_subject: Návrh, který sledujete, byl zamítnut
-            notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl zamítnut.
+            email_intro: 'Návrh "%{resource_title}" změnil svůj stav na "%{state}". Odpověď si můžete přečíst na této stránce:'
         proposal_update_category:
           email_intro: 'Správce aktualizoval kategorii vašeho návrhu "%{resource_title}", podívejte se na něj:'
           email_outro: Toto oznámení jste obdrželi, protože jste autorem návrhu.
@@ -399,9 +370,13 @@ cs:
     proposals:
       actions:
         answer_proposal: Odpověď na návrh
+        delete_proposal_state_confirm: Opravdu chcete odstranit tento stav?
+        destroy: Odstranit stav
         edit_proposal: Upravit návrh
+        edit_proposal_state: Upravit stav
         import: Import z jiné součásti
         new: Nový návrh
+        new_proposal_state: Nový status
         participatory_texts: Participující texty
         show: Zobrazit návrh
         title: Akce
@@ -483,11 +458,7 @@ cs:
             success: Úspěšný text byl úspěšně aktualizován.
         proposal_answers:
           form:
-            accepted: Přijato
             answer_proposal: Odpovědět
-            evaluating: Hodnocení
-            not_answered: Nezodpovězeno
-            rejected: Odmítnuto
             title: Odpověď na návrh %{title}
         proposal_notes:
           create:
@@ -498,6 +469,23 @@ cs:
             submit: Předložit
           leave_your_note: Nechte svou poznámku
           title: Soukromé poznámky
+        proposal_states:
+          create:
+            error: Chyba při vytváření stavu
+            success: Status byl úspěšně vytvořen
+          destroy:
+            success: Status byl úspěšně odstraněn
+          edit:
+            title: Upravit status
+            update: Aktualizovat
+          index:
+            title: Statusy
+          new:
+            create: Vytvořit
+            title: Nový status
+          update:
+            error: Chyba při aktualizaci statusu
+            success: Status byl úspěšně aktualizován
         proposals:
           answer:
             invalid: Při odpovědi na tento návrh se vyskytl problém.
@@ -529,6 +517,7 @@ cs:
             selected: vybraný
             split: Rozdělit návrhy
             split_button: Rozdělit
+            statuses: Statusy
             title: Návrhy
             unassign_from_valuator: Odebrat přiřazení od hodnotitele
             unassign_from_valuator_button: Zrušit přiřazení
@@ -621,11 +610,8 @@ cs:
           participants: Účastníci
           user_groups: Skupiny uživatelů
         filter_state_values:
-          accepted: Přijato
           all: Vše
-          evaluating: Hodnocení
           not_answered: Nezodpovězeno
-          rejected: Odmítnuto
         filter_type_values:
           all: Vše
           amendments: Změny
@@ -762,6 +748,9 @@ cs:
             valuator: Hodnotitel
             valuators: Hodnotitelé
             votes: Hlasy
+        proposal_state:
+          css_class: Třída CSS
+          title: Status
       new:
         limit_reached: Nelze vytvořit nové návrhy, protože jste překročili limit.
       participatory_text_proposal:

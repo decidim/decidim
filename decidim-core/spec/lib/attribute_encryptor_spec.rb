@@ -4,6 +4,15 @@ require "spec_helper"
 
 module Decidim
   describe AttributeEncryptor do
+    around do |example|
+      # Clear the cached cryptor instance because the specs are testing the
+      # utility under different configurations which can affect the
+      # `ActiveSupport::MessageEncryptor` instance.
+      described_class.remove_instance_variable(:@cryptor) if described_class.instance_variable_defined?(:@cryptor)
+      example.run
+      described_class.remove_instance_variable(:@cryptor) if described_class.instance_variable_defined?(:@cryptor)
+    end
+
     describe ".decrypt" do
       context "when the passed value is blank" do
         let(:value) { "" }
@@ -74,6 +83,15 @@ module Decidim
 
         it "returns the decrypted value" do
           expect(described_class.decrypt(value)).to eq("Decidim")
+        end
+
+        it "runs in a performant way when called multiple times consecutively" do
+          start = Time.current
+          1000.times { described_class.decrypt(value) }
+
+          # This actually takes a lot less time but the idea of the spec is to
+          # check that this runs in a performant way.
+          expect(Time.current - start).to be < 1
         end
       end
     end

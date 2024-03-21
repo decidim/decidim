@@ -287,7 +287,7 @@ eu:
       block_user:
         new:
           action: Blokeatu kontua eta bidali justifikazioa
-          already_reported_html: Ekintza honekin jarraituz gero, parte-hartzailearen eduki guztiak ere ezkutatuko dituzu. < a href = " % {link}">Blokeatu kontua </a>.
+          already_reported_html: Ekintza honekin jarraituz, parte-hartzailearen eduki guztiak ere ezkutatuko dituzu.
           description: Erabiltzaile baten blokeoak kontu erabilezina utziko du. Zure justifikazioan zein irizpideren arabera desblokeatuko zenukeen azaldu dezakezu.
           justification: Justifikazioa
           title: Blokeatu erabiltzaile hau %{name}
@@ -354,7 +354,7 @@ eu:
         title: Egiaztapen-arazoak
         transfer:
           email: Helbide elektronikoa
-          error: Arazo bat egon da oraingo parte-hartzailea kudeatutako parte-hartzaile batera.
+          error: Arazo bat sortu da parte-hartzailea kudeatutako parte-hartzaileari eskualdatzean.
           name: Izena
           reason: Arrazoia
           success: Egungo transferentzia zuzen egina.
@@ -377,9 +377,9 @@ eu:
           update: Eguneratu
       dashboard:
         pending_moderations:
-          anouncement:
-            one: '%{count} moderazio daude zain'
-            other: '%{count} moderazo zain'
+          announcement:
+            one: Moderazio bat falta da
+            other: '%{count} moderazio daude zain'
           goto_moderation: Joan moderazio globaletara
           title: Zain dauden moderazioak
         show:
@@ -566,6 +566,7 @@ eu:
         help_sections: Laguntza atalak
         homepage: Orrialde nagusia
         impersonations: Inpertsonazioak
+        manage: Kudeatu
         moderation: Moderazio globalak
         newsletters: Buletinak
         participants: Parte-hartzaileak

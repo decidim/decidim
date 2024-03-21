@@ -159,13 +159,6 @@ el:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_intro: |-
-              Γεια σας,
-              Μια νέα συζήτηση «%{resource_title}» δημιουργήθηκε στον χώρο συμμετοχής %{space_title}, δείτε την και συνεισφέρετε:
-            email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
-            email_subject: Νέα συζήτηση «%{resource_title}» στον χώρο %{space_title}
-            notification_title: Η <a href="%{resource_path}">%{resource_title}</a> συζήτηση δημιουργήθηκε στον χώρο <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Γεια σας,

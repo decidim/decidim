@@ -56,6 +56,7 @@ hu:
         subtitle: Felirat
         target: Ki vesz részt
         title: Cím
+        twitter: X
         weight: Pozíció sorrend
         youtube: Youtube
       assembly_member:
@@ -95,7 +96,9 @@ hu:
       actions:
         import_assembly: Importálás
         new_assembly: Új gyűlés
+        new_assembly_member: Új gyűlés tag
         new_assembly_type: Új Gyűlés típus
+        new_assembly_user_role: Új gyűlés admin
       assemblies:
         create:
           error: Hiba történt az új gyűlés létrehozása során.
@@ -106,6 +109,7 @@ hu:
           private: Privát
           public: Nyilvános
           published: Közzétéve
+          unpublished: Nem publikált
         new:
           create: Létrehozás
           title: Új gyűlés
@@ -148,11 +152,13 @@ hu:
         destroy:
           success: A tag eltávolítása a gyűlésből sikeres volt.
         edit:
+          title: Gyűlés tagjának frissítése
           update: Frissítés
         index:
           assembly_members_title: Gyűlés tagjai
         new:
           create: Létrehozás
+          title: Új gyűlés tag
         update:
           error: Hiba történt a gyűlés tagjának frissítése során.
           success: Gyűlés tagjának frissítése sikeres.
@@ -170,17 +176,23 @@ hu:
         destroy:
           success: Admin eltávolítása a gyűlésből sikeres.
         edit:
+          title: Gyűlés adminjának frissítése
           update: Frissítés
         index:
           assembly_admins_title: Gyűlés adminjai
         new:
           create: Létrehozás
+          title: Új gyűlés admin
         update:
           error: Hiba történt a gyűlés adminjának frissítése során.
           success: Gyűlés adminjának frissítése sikeres.
       filters:
+        ceased_date_not_null:
+          label: Megszűnt
         decidim_assemblies_type_id_eq:
           label: Gyűlés típusa
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: Keresés név vagy felhasználónév alapján
       menu:
         assemblies: Gyűlések
         assemblies_submenu:
@@ -191,9 +203,11 @@ hu:
           attachments: Mellékletek
           categories: Kategóriák
           components: Elemek
+          info: Erről a gyűlésről
           landing_page: Landing oldal
           moderations: Moderálás
           private_users: Privát felhasználók
+          see_assembly: A gyűlés megtekintése
         assemblies_types: Gyűlés típusa
       models:
         assemblies_types:
@@ -202,6 +216,7 @@ hu:
             title: Cím
         assembly:
           fields:
+            actions: Műveletek
             created_at: 'Létrehozva:'
             private: Privát
             promoted: Kiemelt
@@ -277,7 +292,7 @@ hu:
             select_parent_assembly: Szülői összeállítás kiválasztása
             social_handlers: Social
             title: Általános információ
-            visbility: Láthatóság
+            visibility: Láthatóság
         assemblies_types:
           form:
             title: Cím
@@ -285,7 +300,6 @@ hu:
           form:
             existing_user: Meglévő résztvevő
             explanation: 'Útmutató a képhez:'
-            image_guide: Olyan fekvő képek használata ajánlott, amelyek nem tartalmaznak szöveget.
             non_user: Nem résztvevő
             non_user_avatar_help: A tagként való szerepléshez hozzájárulást kell szerezni a személyektől.
             select_a_position: Válassz pozíciót

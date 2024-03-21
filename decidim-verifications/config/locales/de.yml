@@ -88,7 +88,7 @@ de:
     events:
       verifications:
         verify_with_managed_user:
-          email_intro: Der Teilnehmer <a href="%{resource_url}">%{resource_title}</a> hat versucht, sich mit den Daten eines anderen Teilnehmers (<a href="%{managed_user_url}">%{managed_user_name}</a>) zu verifizieren.
+          email_intro: Der Teilnehmer <a href="%{resource_path}">%{resource_title}</a> hat versucht, sich mit den Daten eines anderen Teilnehmers (<a href="%{managed_user_path}">%{managed_user_name}</a>) zu verifizieren.
           email_outro: Prüfen Sie die <a href="%{conflicts_url}">Konfliktliste der Verifizierungsmethode</a> und wenden Sie sich an den Teilnehmer, um dessen Details zu überprüfen und das Problem zu lösen.
           email_subject: Verifizierungsversuch gegenüber eines anderen Teilnehmers fehlgeschlagen
           notification_title: Der Teilnehmer <a href="%{resource_path}">%{resource_title}</a> hat versucht, sich mit den Daten eines anderen Teilnehmers (<a href="%{managed_user_path}">%{managed_user_name}</a>) zu verifizieren.
@@ -231,8 +231,7 @@ de:
           update:
             error: Beim erneuten Hochladen Ihres Dokuments ist ein Problem aufgetreten.
             success: Das Dokument wurde erfolgreich erneut hochgeladen.
-        dni: Personalausweis
-        nie: NIE
+        identification_number: Identifikationsnummer
         passport: Reisepass
       postal_letter:
         admin:

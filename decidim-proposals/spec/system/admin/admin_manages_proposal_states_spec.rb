@@ -7,13 +7,13 @@ describe "Admin manages proposals states" do
     let!(:component) { create(:proposal_component, participatory_space:) }
   end
 
-  context "when visiting the component admin page" do
+  describe "visiting the component admin page" do
     it "lists the proposal states button" do
       expect(page).to have_content("Statuses")
     end
   end
 
-  context "when listing proposal states page" do
+  describe "listing proposal states page" do
     before do
       click_on "Statuses"
     end
@@ -31,7 +31,7 @@ describe "Admin manages proposals states" do
     end
   end
 
-  context "when creating a proposal state" do
+  describe "creating a proposal state" do
     before do
       click_on "Statuses"
       click_on "New status"
@@ -52,11 +52,13 @@ describe "Admin manages proposals states" do
           :proposal_state_announcement_title,
           "#proposal_state-announcement_title-tabs",
           en: "A longer announcement",
-          es: "Anuncio más larga",
-          ca: "Anunci més llarga"
+          es: "Anuncio más largo",
+          ca: "Anunci més llarg"
         )
 
-        fill_in :proposal_state_css_class, with: "csscustom"
+        within ".proposal-status__color" do
+          find_by_id("proposal_state_text_color_9a6700").click
+        end
 
         find("*[type=submit]").click
       end
@@ -64,7 +66,7 @@ describe "Admin manages proposals states" do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_css(".csscustom")
+        expect(page).to have_css(".label", style: "background-color: #FFFCE5; color: #9A6700; border-color: #9A6700;")
         expect(page).to have_content("Custom state")
       end
 
@@ -72,17 +74,53 @@ describe "Admin manages proposals states" do
       expect(state).to be_present
       expect(translated(state.title)).to eq("Custom state")
       expect(translated(state.announcement_title)).to eq("A longer announcement")
-      expect(state.css_class).to eq("csscustom")
+      expect(state.css_style).to eq("background-color: #FFFCE5; color: #9A6700; border-color: #9A6700;")
+    end
+
+    it "updates the label and announcement previews" do
+      expect(Decidim::Proposals::ProposalState.find_by(token: "custom")).to be_nil
+      within ".new_proposal_state" do
+        fill_in_i18n(
+          :proposal_state_title,
+          "#proposal_state-title-tabs",
+          en: "Custom state",
+          es: "Estado personalizado",
+          ca: "Estat personalitzat"
+        )
+
+        fill_in_i18n(
+          :proposal_state_announcement_title,
+          "#proposal_state-announcement_title-tabs",
+          en: "A longer announcement",
+          es: "Anuncio más largo",
+          ca: "Anunci més llarg"
+        )
+
+        within ".proposal-status__color" do
+          find_by_id("proposal_state_text_color_9a6700").click
+        end
+
+        expect(page).to have_css("[data-label-preview]", style: "background-color: rgb(255, 252, 229); color: rgb(154, 103, 0);")
+        within "[data-label-preview]" do
+          expect(page).to have_content("Estat personalitzat")
+        end
+
+        expect(page).to have_css("[data-announcement-preview]", style: "background-color: rgb(255, 252, 229); color: rgb(154, 103, 0); border-color: #9A6700/var(--tw-border-opacity);")
+        within "[data-announcement-preview]" do
+          expect(page).to have_content("Anunci més llarg")
+        end
+      end
     end
   end
 
-  context "when editing a proposal state" do
+  describe "editing a proposal state" do
     let(:state_params) do
       {
         title: { "en" => "Editable state" },
         announcement_title: { "en" => "Editable announcement title" },
         token: "editable",
-        css_class: "csseditable"
+        bg_color: "#EBF9FF",
+        text_color: "#0851A6"
       }
     end
     let!(:state) { create(:proposal_state, component: current_component, **state_params) }
@@ -113,17 +151,19 @@ describe "Admin manages proposals states" do
           :proposal_state_announcement_title,
           "#proposal_state-announcement_title-tabs",
           en: "A longer announcement",
-          es: "Anuncio más larga",
-          ca: "Anunci més llarga"
+          es: "Anuncio más largo",
+          ca: "Anunci més llarg"
         )
 
-        fill_in :proposal_state_css_class, with: "csscustom"
+        within ".proposal-status__color" do
+          find_by_id("proposal_state_text_color_9a6700").click
+        end
 
         find("*[type=submit]").click
       end
 
       within "table" do
-        expect(page).to have_css(".csscustom")
+        expect(page).to have_css(".label", style: "background-color: #FFFCE5; color: #9A6700; border-color: #9A6700;")
         expect(page).to have_content("Custom state")
       end
 
@@ -131,17 +171,56 @@ describe "Admin manages proposals states" do
 
       expect(translated(state.title)).to eq("Custom state")
       expect(translated(state.announcement_title)).to eq("A longer announcement")
-      expect(state.css_class).to eq("csscustom")
+      expect(state.css_style).to eq("background-color: #FFFCE5; color: #9A6700; border-color: #9A6700;")
+    end
+
+    it "updates the label and announcement previews" do
+      within "tr", text: translated(state.title) do
+        click_on "Edit"
+      end
+
+      within ".edit_proposal_state" do
+        fill_in_i18n(
+          :proposal_state_title,
+          "#proposal_state-title-tabs",
+          en: "Custom state",
+          es: "Estado personalizado",
+          ca: "Estat personalitzat"
+        )
+
+        fill_in_i18n(
+          :proposal_state_announcement_title,
+          "#proposal_state-announcement_title-tabs",
+          en: "A longer announcement",
+          es: "Anuncio más largo",
+          ca: "Anunci més llarg"
+        )
+
+        within ".proposal-status__color" do
+          find_by_id("proposal_state_text_color_9a6700").click
+        end
+
+        expect(page).to have_css("[data-label-preview]", style: "background-color: rgb(255, 252, 229); color: rgb(154, 103, 0);")
+        within "[data-label-preview]" do
+          expect(page).to have_content("Estat personalitzat")
+        end
+
+        expect(page).to have_css("[data-announcement-preview]", style: "background-color: rgb(255, 252, 229); color: rgb(154, 103, 0); border-color: #9A6700/var(--tw-border-opacity);")
+        within "[data-announcement-preview]" do
+          expect(page).to have_content("Anunci més llarg")
+        end
+      end
     end
   end
 
-  context "when deleting a proposal state" do
+  describe "deleting a proposal state" do
     let(:state_params) do
       {
         title: { "en" => "Editable state" },
         announcement_title: { "en" => "Editable announcement title" },
         token: "editable",
-        css_class: "csseditable"
+        bg_color: "#EBF9FF",
+        text_color: "#0851A6"
       }
     end
     let!(:state) { create(:proposal_state, component: current_component, **state_params) }

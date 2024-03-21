@@ -296,7 +296,7 @@ es-MX:
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             social_handlers: Social
             title: Información general
-            visbility: Visibilidad
+            visibility: Visibilidad
         assemblies_types:
           form:
             title: Título
@@ -310,7 +310,7 @@ es-MX:
           form:
             existing_user: Usuario existente
             explanation: 'Instrucciones para la imagen:'
-            image_guide: Preferiblemente una imagen en formato horizontal que no contenga texto.
+            image_guide: Preferiblemente una imagen apaisada que no tenga ningún texto.
             non_user: No usuario
             non_user_avatar_help: Debes obtener el consentimiento de las personas antes de publicarles como miembros.
             select_a_position: Selecciona una posición

@@ -502,8 +502,6 @@ bg:
           email_outro: Получавате това известие, защото сте администратор на платформата.
           email_subject: Група от участници обнови профила си
           notification_title: Групата %{user_group_name} обнови профила си, което я прави "непроверена". Проверете я на <a href="%{groups_admin_path}">админ панел</a>.
-      notification_event:
-        notification_title: Настъпи събитие в <a href="%{resource_path}">%{resource_title}</a>.
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, когото следвате, одобри "%{resource_title}" Ако представлява интерес за вас, проверете и участвайте:'
         email_outro: Получавате това известие, защото следвате %{endorser_nickname}. Може да прекратите известията чрез предната връзка.
