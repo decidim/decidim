@@ -122,8 +122,8 @@ export default class UploadModal {
     if (src) {
       buffer = await fetch(src).then((res) => res.arrayBuffer())
       // since we cannot know the exact mime-type of the file,
-      // we assume as "image" if it has the src attribute in order to load the preview
-      type = "image"
+      // we assume as "image/*" if it has the src attribute in order to load the preview
+      type = "image/*"
     }
 
     const file = new File([buffer], element.dataset.filename, { type })
