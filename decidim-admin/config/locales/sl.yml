@@ -122,6 +122,7 @@ sl:
         scope_id_eq:
           label: Področje
       menu:
+        manage: Uredi
         scope_types: Tipi področja
         scopes: Področja
       models:

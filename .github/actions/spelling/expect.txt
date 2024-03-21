@@ -29,6 +29,7 @@ AMR
 andreslucena
 ANOT
 antora
+Anunci
 apiauth
 apikey
 appendable
@@ -475,6 +476,7 @@ linthtmlrc
 linting
 listid
 litem
+llarg
 Llaurador
 Llobregat
 lng
@@ -660,6 +662,7 @@ Percebe
 perfil
 Peroy
 persistor
+personalitzat
 pgdata
 pgp
 PGVERSION

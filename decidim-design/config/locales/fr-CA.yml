@@ -1,0 +1,67 @@
+---
+fr-CA:
+  decidim:
+    design:
+      components:
+        activities:
+          activities: Activités
+        address:
+          title: Adresse
+        announcement:
+          iam_an_announcement: Je suis un message d'annonce
+          this_is_the_body: Ceci est le corps de texte
+          this_is_the_title: Ceci est le titre
+          title: Message d'annonce
+        author:
+          title: Auteur
+        buttons:
+          title: Boutons
+      foundations:
+        iconography:
+          description_iconography: Nous utilisons des icônes pour renforcer la signification des actions, des titres, etc
+          description_iconography_html: 'Nous utilisons la bibliothèque open source Remixicon : %{iconography_link}'
+          title: Iconographie
+        typography:
+          description: Ces directives résument l'utilisation de la typographie dans Decidim, et servent de garde-fous aux concepteurs pour concevoir librement tout en gardant à l'esprit les meilleures pratiques typographiques.
+          headings:
+            characters: Caractères par ligne
+            layout: Colonnes de mise en page
+            size: Taille
+          title: Typographie
+          typefaces_description_1: Decidim utilise Source Sans Pro comme police primaire. Cette police prend en charge 310 langues
+          typefaces_description_2: Ces polices sont sous licence Open Font License
+      helpers:
+        activity: Activité
+        avatar: Avatar
+        base: Base
+        colors: Couleurs
+        compact: Compact
+        context: Contexte
+        default: Par défaut
+        demo: Démo
+        disabled: Désactivé
+        form_elements: Éléments de formulaire
+        hex_code: Code hexadécimal
+        icons: Icônes
+        main_colors: Couleurs principales
+        plain_text: Je ne suis que du texte brut
+        rgba_code:
+        send: Envoyer
+        sizes: Tailles
+        source_code: Code source
+        state: État
+        text: Texte
+        transparent: Transparent
+        transparent_description: 'En cas de fond plus sombre:'
+        typography_texts: Typographie et textes
+        usage: Usage
+        usage_background_1: Arrière-plan de la zone latérale
+        usage_background_3: Couleur de l'icône par défaut
+        usage_background_4: Lignes et séparateurs
+        usage_background_5: Arrière-plan du pied de page
+        usage_base_2: Couleur principale des liens et des boutons
+        usage_formelements_1: Arrière-plan par défaut des champs de formulaire avec saisie
+        usage_formelements_2: Arrière-plan par défaut des champs de formulaire avec saisie désactivés
+        usage_typography_1: En-têtes et titres de section
+        usage_typography_4: Liens et boutons
+        value: Valeur

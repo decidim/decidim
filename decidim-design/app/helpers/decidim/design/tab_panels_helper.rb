@@ -7,30 +7,31 @@ module Decidim
         [
           {
             id: "context",
+            title: t("decidim.design.helpers.context"),
             contents: [
               {
                 type: :text,
                 values: [
-                  "This tab-panel component gathers all the related contents or another resources of the main element displayed,
-                    in order to save vertical space. Clicking on the tab will activate the created panel to show the content.",
-                  "Mainly is used within the <i>layout_item</i> or the <i>layout_center</i>, after the main content of the resource."
+                  t("decidim.design.helpers.tab_panels_context_description"),
+                  t("decidim.design.helpers.tab_panels_context_description_html")
                 ]
               }
             ]
           },
           {
             id: "usage",
+            title: t("decidim.design.helpers.usage"),
             contents: [
               {
                 type: :text,
                 values: [
-                  "This component receives an array of hashes, and rearrange the output of each item into a tab-panel structure. Available properties for each panel:",
-                  "<strong>enabled</strong>: <i>Boolean</i>. Conditionally render the tab",
-                  "<strong>id</strong>: <i>String</i>. Unique id",
-                  "<strong>text</strong>: <i>String</i>. Tab title",
-                  "<strong>icon</strong>: <i>String</i>. Remixicon key",
-                  "<strong>method</strong>: <i>Symbol</i>. Any function rails understands",
-                  "<strong>args</strong>: <i>Array</i>. Arguments for the previous method"
+                  t("decidim.design.helpers.tab_panels_usage_description"),
+                  t("decidim.design.helpers.tab_panels_usage_description_html"),
+                  t("decidim.design.helpers.tab_panels_usage_description_id_html"),
+                  t("decidim.design.helpers.tab_panels_usage_description_tab_html"),
+                  t("decidim.design.helpers.tab_panels_usage_description_remixicon_html"),
+                  t("decidim.design.helpers.tab_panels_usage_description_rails_html"),
+                  t("decidim.design.helpers.tab_panels_usage_description_arguments_html")
                 ]
               },
               {
@@ -110,7 +111,7 @@ module Decidim
             text: "Button",
             icon: resource_type_icon_key("images"),
             method: :cell,
-            args: ["decidim/button", { text: "Send" }]
+            args: ["decidim/button", { text: t("decidim.design.helpers.send") }]
           },
           {
             enabled: true,
@@ -118,7 +119,7 @@ module Decidim
             text: "Announcement",
             icon: resource_type_icon_key("documents"),
             method: :cell,
-            args: ["decidim/announcement", "I am an announcement"]
+            args: ["decidim/announcement", t("decidim.design.components.announcement.iam_an_announcement")]
           }
         ]
       end

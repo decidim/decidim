@@ -91,13 +91,6 @@ id:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_intro: |-
-              Hai,
-              Debat baru "%{resource_title}" telah dibuat di %{space_title} ruang partisipatif, periksa dan berkontribusi:
-            email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{space_title} ruang partisipatif. Anda dapat berhenti menerima pemberitahuan setelah tautan sebelumnya.
-            email_subject: Perdebatan baru "%{resource_title}" pada %{space_title}
-            notification_title: Debat <a href="%{resource_path}">%{resource_title}</a> dibuat pada <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Hai,

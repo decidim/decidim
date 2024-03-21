@@ -1,0 +1,133 @@
+---
+cs:
+  decidim:
+    design:
+      components:
+        accordions:
+          content_panel: Obsah panelu
+          demo: Demo
+          github_source_html: Zdrojový kód na GitHub %{github_link}
+          panel: Panel
+          trigger: Spouštěč
+          usage: Použití
+          usage_p_1_html: 1. wrapper <code>div</code>, s atributem dat <code>data-component="accordion"</code>, přes všechny dostupné spouštěče a panely.
+          usage_p_2_html: 2. spouštěcí prvek, uživatelsky proveditelný (jako tlačítko), ukazující na sbalitelný prvek prostřednictvím <code>data-controls="panel"</code>, kde <i>panel</i> je <code>id</code> panelu.
+        activities:
+          activities: Aktivity
+        address:
+          title: Adresa
+        announcement:
+          iam_an_announcement: Jsem oznámení
+          this_is_the_body: Toto je tělo
+          this_is_the_title: Toto je titulek
+          title: Oznámení
+        author:
+          title: Autor
+        buttons:
+          description_html: 'Tlačítka jsou sestavena pomocí různých kombinací CSS tříd: třída <code>button</code>, size a color.'
+          title: Tlačítka
+      foundations:
+        accessibility:
+          accessibility_labels: Štítky přístupnosti
+          accessibility_labels_paragraph: Při definování prvků se vždy ujistěte, že mají smysl pro čtenáře obrazovky.
+          accessibility_title: Přístupnost
+          adjacent_links: Přidat odkazy
+          adjacent_links_header: Přidejte odkazy pro stejný zdroj
+          adjacent_links_paragraph: Pokud má tentýž zdroj více sousedících odkazů, které na něj ukazují, pro tyto uživatele je obtížné podívat se na stránku, protože možná budou muset procházet více odkazů, aby se dostali k dalšímu zdroji.
+          color_contrast: Barevný kontrast
+          decidim_follows_html: Decidim se řídí <u>Pokyny pro přístupnost webového obsahu (WCAG) 2.1</u>
+          elements_hidden: Skryté prvky
+          elements_hidden_paragraph: Pro skrytí prvku před asistenčními technologiemi použijte atribut aria-hidden="true".
+          heading_on: Záhlaví na důležitých oddílech
+          here_link: zde
+          illogical_heading_order: Nelogické pořadí záhlaví
+          illogical_heading_paragraph: Každá stránka by měla mít logické pořadí nadpisů při použití prvků <h1>, <h2>, <h3>, <h4>, <h5> a <h6>.
+          important_sections_heading: Záhlaví na důležitých oddílech
+          important_sections_paragraph: Je velmi důležité, aby každá důležitá část stránky měla nadpis, který usnadní pochopení důležitých částí na stránce jen prohlížením jejích záhlaví.
+          links_and_buttons: Odkazy a tlačítka
+          links_and_buttons_paragraph: Kotevní prvky (tj. odkazy) mají odkazovat na různé stránky nebo ukotvit umístění na stránce. Pokud má prvek například otevřít na této stránce skrytou položku, měli byste místo toho použít prvek <button>.
+          see_further_info_html: Zobrazit další informace %{link}
+          unique_h1: Unikátní H1
+          unique_h1_paragraph: Každá stránka by měla mít jedinečný nadpis H1
+          use_aria: Použití ARIA
+          use_aria_header: Používejte atributy ARIA tam, kde je to možné
+          use_aria_paragraph: Mnoho prvků, které poskytují interaktivní funkce na webových stránkách, vyžaduje atributy ARIA, aby byly přístupné.
+        color:
+          color_header: Barva
+          description_p1: Poskytujeme základní paletu s několika barvami, takže jednoduché úpravy jsou snadné. Pokud potřebujete pokročilejší nastavení, můžete změnit základní paletu buď v administrativní oblasti nebo v konfiguračním souboru Tailwind.
+          description_p2_html: Při přizpůsobování barev mějte na paměti %{contrast_link}. Můžete zkontrolovat kontrast dle vašeho výběru s %{checker_link} nebo jinými podobnými nástroji.
+          wcag_compliant_rations: WCAG 2.1 kontrastní poměr vyhovující požadavkům AA
+          wcag_contrast_checker: Kontrola kontrastu WebAIM
+        iconography:
+          description_iconography: Používáme ikony k posílení významu akcí, titulků atd
+          description_iconography_html: 'Používáme open source knihovnu Remixikon: %{iconography_link}'
+          title: Ikonografie
+        layout:
+          breakpoint: Zarážka
+          breakpoints: Zarážky
+          centered: Na střed
+          code: Kód
+          columns: Počet sloupců 10, 8 nebo 6.
+          description_layout_p1: Pro stolní počítače používá Decidim mřížku 12 sloupců s omezeným počtem šablon (konfigurace mřížky) pro různé typy obsahu. Cílem je, aby daný typ obsahu (domovská stránka, seznam prvků, jednotlivé položky) měl charakteristický vzhled, aby uživatelé pochopili, v jakém druhu obsahu jsou jen podle obecného vzhledu stránky.
+          description_layout_p2: Tato jednoduchá pravidla by měla být dodržována při vytváření nových modulů nebo přizpůsobování stávajících, takže stránky Decidim mohou zachovat svou konzistenci.
+          desktop: Počítač
+          full_width: Plná šířka
+          left_aside: Nalevo
+          mobile: Mobilní zařízení
+          not_required: Nevyžadováno
+          properties: Vlastnosti
+          right_aside: Vpravo
+          tablet: Tablet
+          title: Rozložení
+        typography:
+          headings:
+            characters: Znaků na řádek
+            layout: Sloupce rozložení
+            size: Velikost
+          title: Typografie
+          typefaces_description_1: Decidim používá Source Sans Pro jako primární typ. Tento typ podporuje 310 jazyků
+          typefaces_description_2: Tato písma jsou licencována pod Open Font License
+      helpers:
+        activity: Aktivita
+        background: Pozadí a okraje
+        base: Podklad
+        colors: Barvy
+        demo: Demo
+        demo_text: 'Tato buňka přijímá model LastActivity položek a zobrazuje následující prvky:'
+        demo_text_2: Používá se poslední stránka aktivity v bloku obsahu a v rozevíracích seznamech.
+        disabled: Deaktivován
+        form_elements: Prvky formuláře
+        hex_code: Hex kód
+        icons: Ikony
+        main_colors: Hlavní barvy
+        rgba_code: RGBA kód
+        send: Odeslat
+        sizes: Velikosti
+        source_code: Zdrojový kód
+        state: Stav
+        tailwind: Tailwind název
+        text: Text
+        transparent: Průhledný
+        transparent_description: 'V případě tmavšího pozadí:'
+        typography_texts: Typografie a texty
+        usage: Použití
+        usage_background_1: Vedle pozadí
+        usage_background_3: Výchozí barva ikony
+        usage_background_4: Linky a oddělovače
+        usage_background_5: Pozadí zápatí
+        usage_background_6: Pozadí admin rozložení
+        usage_base_1: Hlavní nav komponenta pozadí\nNav menu domovské stránky a prostoru Úvodní strana
+        usage_base_2: Hlavní barva odkazů a tlačítek
+        usage_formelements_1: Výchozí pozadí vstupních prvků
+        usage_state_2: Okraj výstražného upozornění
+        usage_typography_2: Vložený text
+        usage_typography_3: Text na tmavém pozadí
+        usage_typography_4: Odkazy a tlačítka
+        value: Hodnota
+        variations: Variace
+      home:
+        index:
+          decidim_guide: Průvodce navrhováním všech věcí Decidim
+          github_source: Zdrojový kód na GitHubu
+          home_header: Decidim Design Guide
+          welcome_sentence: Vítejte v průvodci Decidim Design Guide (DDG). Tento průvodce je zdrojem pro designéry a vývojáře, kteří potřebují přizpůsobit, vyvinout nové moduly a integrovat nové funkce.
