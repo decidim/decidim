@@ -166,8 +166,6 @@ lv:
             title: Pieprasīt jūsu verifikācijas kodu
       sms:
         authorizations:
-          destroy:
-            success: Verifikācijas kods ir veiksmīgi atiestatīts. Lūdzu, atkārtoti ievadiet savu tālruņa numuru.
           edit:
             confirm_destroy: Vai tiešām vēlaties atiestatīt verifikācijas kodu?
             destroy: Atiestatīt verifikācijas kodu

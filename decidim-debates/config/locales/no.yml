@@ -155,13 +155,6 @@
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_intro: |-
-              Hei,
-              En ny innspillstråd "%{resource_title}" har blitt opprettet under området %{space_title}, sjekk det ut og bidra:
-            email_outro: Du har mottatt denne varslingen fordi du følger %{space_title}. Du kan slutte å motta varsler hvis du følger den vedlagte lenken.
-            email_subject: Ny innspillstråd "%{resource_title}" under %{space_title}
-            notification_title: Innspillstråden <a href="%{resource_path}">%{resource_title}</a> ble opprettet under <a href="%{space_path}">%{space_title} </a>.
           user_followers:
             email_intro: |-
               Hei,

@@ -45,6 +45,8 @@ module Decidim
         hash.push(model.must_render_translation?(current_organization) ? 1 : 0)
         hash.push(model.authored_by?(current_user) ? 1 : 0)
         hash.push(model.reported_by?(current_user) ? 1 : 0)
+        hash.push(model.up_votes_count)
+        hash.push(model.down_votes_count)
         hash.push(model.cache_key_with_version)
         hash.push(model.author.cache_key_with_version)
         @hash = hash.join(Decidim.cache_key_separator)
@@ -135,11 +137,11 @@ module Decidim
       end
 
       def up_votes_count
-        model.up_votes.count
+        model.up_votes_count
       end
 
       def down_votes_count
-        model.down_votes.count
+        model.down_votes_count
       end
 
       def root_depth
@@ -155,11 +157,11 @@ module Decidim
       end
 
       def voted_up?
-        model.up_voted_by?(current_user)
+        @up_voted ||= model.up_voted_by?(current_user)
       end
 
       def voted_down?
-        model.down_voted_by?(current_user)
+        @down_voted ||= model.down_voted_by?(current_user)
       end
 
       def nested?

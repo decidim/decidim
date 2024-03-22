@@ -401,7 +401,6 @@ hu:
             select_participatory_process_type: Válasszon folyamat típust
             select_process_group: Válassza ki a folyamatcsoportot
             title: Általános információk
-            visbility: Láthatóság
       content_blocks:
         highlighted_processes:
           name: Kiemelt folyamatok

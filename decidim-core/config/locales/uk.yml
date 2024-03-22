@@ -257,8 +257,6 @@ uk:
         email_intro: '"%{resource_title}" було оновлено. Ви можете переглянути його на сторінці:'
         email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
         email_subject: Оновлення до %{resource_title}
-      notification_event:
-        notification_title: З <a href="%{resource_path}">%{resource_title}</a> відбулася подія.
       users:
         profile_updated:
           email_intro: Сторінка <a href="%{resource_url}">профілю</a> учасника %{name} (%{nickname}), за яким ви стежите, була оновлена.

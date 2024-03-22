@@ -506,8 +506,6 @@ sk:
           notification_title: Boli ste odstránení zo skupiny <a href="%{resource_path}">%{user_group_name} </a>.
         user_group_created:
           email_outro: Toto oznámenie ste dostali, pretože ste administrátorom platformy.
-      notification_event:
-        notification_title: Došlo k udalosti <a href="%{resource_path}">%{resource_title} </a>.
       resource_endorsed:
         email_intro: '%{endorser_name}%{endorser_nickname}, ktorého sledujete, práve podporill %{resource_title} a myslíme, že by vás to mohlo zaujímať. Pozrite sa a prispejte aj vy:'
         email_outro: Túto notifikáciu ste dostali, pretože sledujete %{endorser_nickname}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.

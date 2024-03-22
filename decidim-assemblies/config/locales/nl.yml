@@ -262,7 +262,6 @@ nl:
             select_parent_assembly: Selecteer de hoofdgroep
             social_handlers: sociaal
             title: Algemene informatie
-            visbility: Zichtbaarheid
         assemblies_types:
           form:
             title: Titel
@@ -270,7 +269,6 @@ nl:
           form:
             existing_user: Bestaande deelnemer
             explanation: 'Eigenschappen afbeelding:'
-            image_guide: Bij voorkeur een afbeelding in 'portretmodus' (staand) die geen tekst bevat.
             non_user: Niet deelnemer
             non_user_avatar_help: Je hebt de toestemming nodig van de personen voordat je ze als lid publiceert.
             select_a_position: Selecteer een positie

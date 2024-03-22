@@ -42,6 +42,10 @@ module Decidim
         comment_vote = build(:comment_vote, comment:, author:)
         expect(comment_vote).to be_invalid
       end
+
+      it "updates the comment votes count after creation" do
+        expect(comment_vote.comment.up_votes_count).to eq(1)
+      end
     end
   end
 end
