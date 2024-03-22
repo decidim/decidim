@@ -50,7 +50,6 @@ module Decidim
         2
       end
 
-      # Renders the back link except for step_2: compare
       def proposal_wizard_aside_link_to_back(step)
         case step
         when ProposalsController::STEP1

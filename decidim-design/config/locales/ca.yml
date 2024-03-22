@@ -1,0 +1,175 @@
+---
+ca:
+  decidim:
+    design:
+      components:
+        accordions:
+          content_panel: Contingut del panell
+          demo: Demo
+          demo_description: Al llarg de tota l'aplicació els acordions es fan servir, principalment, per mostrar/amagar contingut a les pestanyes o per replegar/desplegar textos visibles.
+          description_accordions_html: Els acordions són una característica JavaScript disponible gràcies a una biblioteca externa anomenada %{link_code} a11y-accordion-component.
+          github_source_html: Codi font a GitHub %{github_link}
+          panel: Panell
+          title: Acordions
+          trigger: Activador
+          usage: Ús
+          usage_p: Un acordió necessita com a mínim tres elements
+          usage_p_1_html: '1. Un embolcall <code>div</code>, amb l''atribut "data": <code>data-component="accordion"</code>, sobre tots els activadors i panells disponibles.'
+          usage_p_2_html: 2. Un element activador, usuària accionable (com un botó), apuntant a l'element plegable a través de <code>data-controls="panel"</code>, on <i>panel</i> és el <code>id</code> del panell.
+          usage_p_3_html: 3. Un element ocult, on <code>id</code> coincideix amb el valor dels controls de dades al que es refereix l'activador.
+        activities:
+          activities: Activitats
+        address:
+          title: Adreça
+        announcement:
+          iam_an_announcement: Soc un anunci
+          this_is_the_body: Això és el cos/descripció
+          this_is_the_title: Això és el títol
+          title: Anunci/Avís
+        author:
+          title: Autoria
+        buttons:
+          description_html: 'Els botons es construeixen fent servir diferents combinacions de classes CSS: la classe <code>botó</code>, una mida i un color.'
+          title: Botons
+      foundations:
+        accessibility:
+          accessibility_labels: Etiquetes d'accessibilitat
+          accessibility_labels_paragraph: En definir els elements, assegura't sempre que tenen sentit pels lectors de pantalla.
+          accessibility_title: Accessibilitat
+          adjacent_links: Enllaços adjacents
+          adjacent_links_header: Enllaços adjacents pel mateix recurs
+          adjacent_links_paragraph: Si el mateix recurs té múltiples enllaços adjacents apuntant-hi, això dificulta que les usuàries puguin mirar a través de la pàgina perquè és possible que les hi calgui passar per diversos enllaços per arribar al següent recurs.
+          color_contrast: Contrast de color
+          color_contrast_paragraph: En crear interfícies d'usuària o modificar els colors, assegura't que no està trencant-se l'accessibilitat amb els teus canvis. Pots fer servir el comprovador de contrast de color per assegurar-se que aquests colors tenen suficients contrasts el color de fons sobre el que es mostren.
+          decidim_follows_html: Decidim segueix les directrius <u>d'Accessibilitat al Contingut Web (WCAG) 2.1</u>
+          dynamic_changes_header: 'Funció dinàmica: canvia el context de la pàgina de forma poc intuïtiva'
+          dynamic_changes_paragraph: Els canvis a les entrades del formulari no haurien de modificar el context de la pàgina automàticament.
+          elements_hidden: Elements amagats
+          elements_hidden_header: Elements amagats de l'API d'accessibilitat
+          elements_hidden_paragraph: Per amagar un element de la tecnologia d'assistència, fes servir l'atribut aria-hidden="true" en aquest.
+          heading_on: Encapçalament a seccions importants
+          illogical_heading_order: Ordre d'encapçalament il·lògica
+          illogical_heading_paragraph: Totes les pàgines han de tenir un ordre lògic de capçaleres quan facis servir els elements d'encapçalament <h1>, <h2>, <h3>, <h4>, <h5>, i <h6>.
+          important_sections_heading: Encapçalament a seccions importants
+          important_sections_paragraph: És molt important que cada secció de la pàgina tingui un títol per a facilitar la comprensió de les seccions importants de la pàgina simplement navegant pels seus encapçalaments.
+          links_and_buttons: Enllaços i botons
+          links_and_buttons_paragraph: Els punts d'ancoratge (per exemple enllaços) estan pensant per enllaçar a diferents pàgines o a posicions d'ancoratge dins de la pàgina. Si volem que aquest punt obri, per exemple, algun element amagar en aquella pàgina, hauries de fer servir l'element <button> en el seu lloc.
+          see_further_info_html: Veure més informació %{link}
+          unique_h1: H1 únic
+          unique_h1_paragraph: Cada pàgina ha de tenir un únic encapçalament H1
+          use_aria: Fes servir ARIA
+          use_aria_header: Fes servir els atributs ARIA quan sigui possible
+          use_aria_paragraph: Molts elements que proporcionen funcionalitat interactiva al lloc web requereixen atributs ARIA per fer-los accessibles.
+        color:
+          color_header: Color
+          description_p1: Facilitem una paleta base amb pocs colors de manera que és fàcil fer personalitzacions simples. Pots modificar la paleta base, tant des del Taulell d'Administració com des de l'arxiu de configuració Tailwind si necessites una personalització més avançada.
+          description_p2_html: Quan personalitzis els teus colors, has de tenir en compte %{contrast_link}. Pots revisar el contrast de la teva elecció amb %{checker_link} o qualsevol eina similar.
+          wcag_compliant_rations: Relació de contrast compatible amb WCAG 2.1 AA
+          wcag_contrast_checker: Verificador de contrastos WebAIM
+        iconography:
+          description_iconography: Fem servir icones per reforçar el significat de les accions, dels títols, etc.
+          description_iconography_html: 'Fem servir la llibreria de codi obert Remixicon: %{iconography_link}'
+          title: Iconografia
+        layout:
+          breakpoint: Punt d'interrupció
+          breakpoints: Punts d'interrupció
+          centered: Centrat
+          code: Codi
+          columns: Essent el número de columnes 10, 8 o 6.
+          description_layout_p1: Per l'escriptori, Decidim fa servir una graella de 12 columnes amb un nombre limitat de plantilles (configuració de la graella) per diferents tipus de contingut. L'objectiu és que un tipus determinat de contingut (pàgina d'inici, llistat de trobades, element individual) tingui un disseny definit, per a que les usuàries puguin entendre a quin tipus de contingut es troben tan sols per l'aspecte general de la pàgina.
+          description_layout_p2: Aquestes simples regles han de seguir-se en crear nous mòduls o personalitzar els existents, de manera que una instància de Decidim pugui mantenir la seva consistència.
+          desktop: Ordinador d'escriptori
+          full_width: Amplada completa
+          layout_list_1: 'Pàgina d''inici (de la instància, d''un espai de participació): amplada completa'
+          layout_list_2: 'Llista d''elements (d''espais de participació, d''elements dins d''un espai de participació, etc.): al costat esquerre'
+          layout_list_3: 'Element individual (proposta, entrada al blog): centrat, opcionalment al costat dret'
+          left_aside: Al costat esquerre
+          mobile: Mòbil
+          not_required: No és requisit
+          properties: Propietats
+          right_aside: Al costat dret
+          section_p_breakpoints: 'Per gestionar l''ample màxim dels elements al disseny web adaptatiu depenem de la classe Tailwind predeterminada ''container'', que indica els punts d''interrupció següents:'
+          section_p_code: A l'hora d'implementar nous mòduls, disposes d'alguns ajudants que et proporcionen automàticament el codi necessari per a configurar l'estructura HTML. Hauries de fer servir aquests ajudants, en lloc de fer servir directament elements com <div> amb <class>, mantenint així la consistència.
+          section_p_code_html: Pots trobar els dissenys bàsics a %{link_section_code}
+          section_p_desktop: El sistema de graella per als ordinadors d'escriptori, es compon de 12 columnes flexibles amb un espaiat (canal) entre columnes de 16px i un marge esquerre i dret de 48px
+          section_p_mobile: El sistema de graella pel mòbil es compon de 4 columnes flexibles amb un espaiat (canal) entre columnes de 16px i de marge esquerre i dret de 16px. Per a mides inferiors a 320px aquests marges s'estableixen en 8px.
+          section_p_tablet: El sistema de graella per tauletes tàctils, es compon de 8 columnes flexibles amb un espaiat (canal) entre columnes de 16px i un marge esquerre i dret de 24px
+          tablet: Tauleta tàctil
+          title: Disseny (maqueta distribució)
+        typography:
+          description: Aquestes directrius resumeixen com fer servir la tipografia a Decidim, i serveixen com a pauta perquè les dissenyadores puguin dissenyar lliurement amb les millors pràctiques tipogràfiques en ment.
+          headings:
+            characters: Caràcters per línia
+            size: Mida
+          title: Tipografia
+          typefaces_description_1: Decidim fa servir Source Sants Pro com a tipus de lletra primària. Aquest tipus de lletra disposa de totes les variants de caràcters en 310 llengües
+          typefaces_description_2: Aquestes tipografies es troben sota la llicència Open Font
+      helpers:
+        activity: Activitat
+        address_description: La cel·la d'adreça rep un recurs i cerca els atributs geolocalitzables per representar un marcatge específic.
+        address_description_2: Depenent del tipus de contingut, l'adreça pot ser una adreça web. Per a aquests casos, la informació mostrada és força igual, però està modelada per adequar-la.
+        avatar: Imatge de perfil
+        avatar_description: Es fa servir quan hi ha espais estrets, on l'autoria és una informació secundària.
+        background: Vores i fons
+        base: Base
+        callout_description: Aquest atribut aplica un estat a l'anunci/avís. Per defecte, aplica el color secundari.
+        colors: Colors
+        compact:
+        compact_description: Aquesta versió de l'autoria és la forma més comuna d'identificar a la creadora del recurs.
+        context: Context
+        context_description: Aquesta cel·la mostra informació al voltant d'una usuària. És una ajuda visual per a identificar la creadora d'un recurs/contingut. En passar per sobre el cursor, es mostra una descripció amb més informació i enllaços al seu perfil.
+        context_description_2: Pels recursos, aquesta cel·la apareix sota l'encapçalament principal. Per altres continguts, apareix al costat del mateix contingut.
+        default: Per defecte
+        default_description: Crida a la cel·la sense arguments addicionals, sinó a la proposta usuària.
+        demo: Demo
+        demo_text: 'Aquesta cel·la rep un model d''elements de Darrera Activitat i mostra els següents elements:'
+        demo_text_2: Es fa servir a la darrera pàgina d'activitat, en un bloc de contingut i dins dels desplegables.
+        disabled: Deshabilitat
+        form_elements: Elements de formulari
+        hex_code: Codi hexadecimal
+        icons: Icones
+        main_colors: Colors principals
+        plain_text: Soc un text pla/simple
+        plain_text_description: Pots proporcionar com a primer argument tant un text pla com un objecte hash
+        plain_text_vs_hash: Text simple vs Hash
+        rgba_code: Codi RGBA
+        send: Enviar
+        sizes: Mides
+        source_code: Codi font
+        state: Estat
+        tailwind: Nom del Tailwind
+        text: Text
+        transparent: Transparent
+        transparent_description: 'En cas d''un fons més fosc:'
+        typography_texts: Textos i tipografia
+        usage: Ús
+        usage_background_1: Fons lateral
+        usage_background_2: Fons de filtre de barra lateral seleccionat
+        usage_background_3: Color d'icona predeterminat
+        usage_background_4: Línies i separadors
+        usage_background_5: Fons del peu de pàgina
+        usage_background_6: Fons del taulell d'administració
+        usage_base_1: Fons del component de navegació principal\nNav menús a la pàgina d'inici de la plataforma i a la pàgina d'inici de l'espai de participació
+        usage_base_2: Color principal per a enllaços i botons
+        usage_base_3: Ornament gràfics i color d'accent\nAlteració de l'aspexte de targetes i llistes d'elements en pasar el ratolí sobre aquest, encara que no s'hagi seleccionat
+        usage_formelements_1: Fons per defecte dels elements d'entrada
+        usage_formelements_2: Fons dels elements d'entrada deshabilitats
+        usage_state_1: Vora de la notificació d'èxit\nFarcit de la icona de la notificació d'alerta\nFos del botó a la notificació d'èxit
+        usage_state_2: Vora de la nota d'avís
+        usage_state_3: Vora de la nota de avís\nFons de la icona de la nota
+        usage_typography_1: Encapçalaments i títols de secció
+        usage_typography_2: Text en línia
+        usage_typography_3: Text sobre fons fosc
+        usage_typography_4: Enllaços i botons
+        value:
+        variations: Variacions
+        variations_description: Hi ha tres versions diferents d'aquesta cel·la. Cadascuna encaixa millor en el context en què es mostra.
+        variations_text: Pel que fa al tipus d'activitat, la cel·la podria mostrar diferents continguts, informant dels diferents recursos, pertanyin o no a un espai participatiu, tinguin autoria o no.
+      home:
+        index:
+          by_sharing_principles: Compartint els principis, filosofia i els raonaments darrere de les decisions de disseny volem empoderar a la comunitat perquè contribueixin amb consistència per arribar a la millor experiència per a les participants.
+          decidim_guide: La guia per a dissenyar tota mena de coses per Decidim
+          different_ui_components: Al mateix temps, hem documentat les interfícies d'usuària dels diferents components i patrons en ús, que han de ser reutilitzades o ampliades.
+          github_source: Codi font a GitHub
+          home_header: Guia de disseny de Decidim
+          welcome_sentence: Benvinguda a la Guia de Disseny de Decidim (GDD). Aquesta guia és un recurs per a dissenyadores i desenvolupadores que necessitin personalitzar, desenvolupar nous mòduls, i integrar noves funcionalitats.

@@ -325,6 +325,8 @@ sv:
           name: Andra HTML-block
         html_3:
           name: Tredje HTML-block
+        main_data:
+          name: Titel och beskrivning
         participatory_processes:
           name: Dialoger
         stats:
@@ -372,7 +374,6 @@ sv:
             select_an_area: Välj ett område
             select_process_group: Välj en dialoggrupp
             title: Allmän information
-            visbility: Synlighet
       content_blocks:
         highlighted_processes:
           name: Viktiga dialoger just nu

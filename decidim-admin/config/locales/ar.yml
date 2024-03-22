@@ -287,7 +287,6 @@ ar:
         title: تضارب التحقق
         transfer:
           email: البريد الإلكتروني
-          error: كانت هناك مشكلة في نقل المشارك الحالي إلى مشارك مُدار.
           name: الإسم
           reason: السبب
           success: قد اكتمل النقل الحالي بنجاح.
@@ -448,6 +447,7 @@ ar:
         help_sections: أقسام المساعدة
         homepage: الصفحة الرئيسية
         impersonations: التقليد
+        manage: تدبير
         newsletters: الرسائل الإخبارية
         participants: المشاركون
         scope_types: أنواع المجال

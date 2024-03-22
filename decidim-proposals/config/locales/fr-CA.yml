@@ -30,6 +30,8 @@ fr-CA:
         cost: Coût
         cost_report: Rapport de coût
         execution_period: Période d'exécution
+      proposal_state:
+        announcement_title: En-tête de réponse
       proposals_copy:
         copy_proposals: Je comprends que cela importera toutes les propositions de la fonctionnalité sélectionnée dans la fonctionnalité actuelle et que cette action ne peut être annulée.
         origin_component_id: Fonctionnalité dont on veut copier les propositions
@@ -68,15 +70,12 @@ fr-CA:
               not_official: Non officiels
               supported: A reçu des soutiens ou des approbations
     models:
-      decidim/proposals/accepted_proposal_event: Proposition acceptée
       decidim/proposals/admin/update_proposal_category_event: Catégorie de proposition modifiée
       decidim/proposals/admin/update_proposal_scope_event: La portée de la proposition a été modifiée
       decidim/proposals/creation_enabled_event: Autoriser la création de nouvelles propositions
       decidim/proposals/endorsing_enabled_event: Activer le module de soutiens
-      decidim/proposals/evaluating_proposal_event: Proposition en cours d'évaluation
       decidim/proposals/proposal_mentioned_event: Proposition mentionnée
       decidim/proposals/publish_proposal_event: Proposition publiée
-      decidim/proposals/rejected_proposal_event: Proposition non retenue
       decidim/proposals/voting_enabled_event: Activer le module de vote simple
   activerecord:
     models:
@@ -103,6 +102,8 @@ fr-CA:
             values:
               'false': Propositions
               'true': Amendements
+          proposal_state_id_eq:
+            label: État
           scope_id_eq:
             label: Secteur
           state_eq:
@@ -268,28 +269,6 @@ fr-CA:
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
           email_subject: Vous pouvez désormais soutenir des propositions dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant commencer à <a href="%{resource_path}">soutenir les propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        proposal_accepted:
-          affected_user:
-            email_intro: 'Votre proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page:'
-            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
-            email_subject: Votre proposition a été acceptée
-            notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
-          follower:
-            email_intro: 'La proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page :'
-            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
-            email_subject: Une proposition que vous suivez a été acceptée
-            notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
-        proposal_evaluating:
-          affected_user:
-            email_intro: 'Votre proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez rechercher une réponse sur cette page:'
-            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
-            email_subject: Votre proposition est en cours d'évaluation
-            notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
-          follower:
-            email_intro: 'La proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez consulter cette page pour voir si une réponse a été formulée :'
-            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
-            email_subject: Une proposition que vous suivez est en cours d'évaluation
-            notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
         proposal_mentioned:
           email_intro: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_url}">dans cet espace</a> dans les commentaires.
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
@@ -306,17 +285,17 @@ fr-CA:
           email_subject: Nouvelle proposition "%{resource_title}" ajoutée à %{participatory_space_title}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title} par %{author}.
           notification_title_official: La proposition officielle <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}.
-        proposal_rejected:
+        proposal_state_changed:
           affected_user:
-            email_intro: 'Votre proposition "%{resource_title}" a été rejetée. Vous pouvez lire la réponse sur cette page:'
-            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
-            email_subject: Votre proposition a été rejetée
-            notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> a été rejetée.
+            email_intro: 'La proposition "%{resource_title}" est passée à l''état "%{state}". Vous pouvez lire la réponse sur cette page :'
+            email_outro: Vous avez reçu cette notification parce que vous êtes un(e) auteur(e) de "%{resource_title}".
+            email_subject: Votre proposition a changé d'état (%{state})
+            notification_title: L'état de votre proposition <a href="%{resource_path}">%{resource_title}</a> est passé à %{state}.
           follower:
-            email_intro: 'La proposition "%{resource_title}" n''a pas été retenue. Vous pouvez lire le commentaire ici :'
-            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
-            email_subject: Une proposition que vous suivez a été rejetée
-            notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> n'a pas été retenue.
+            email_intro: 'La proposition "%{resource_title}" est passée à l''état "%{state}". Vous pouvez lire la réponse sur cette page :'
+            email_outro: Vous recevez cette notification car vous suivez « %{resource_title} ». Vous pouvez annuler ce suivi en allant sur le lien précédent.
+            email_subject: Une proposition que vous suivez a changé d'état (%{state})
+            notification_title: L'état de la proposition <a href="%{resource_path}">%{resource_title}</a> est passé à "%{state}".
         proposal_update_category:
           email_intro: 'Un administrateur a mis à jour la catégorie de votre proposition "%{resource_title}". Vous pouvez y accéder ici :'
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
@@ -391,9 +370,13 @@ fr-CA:
     proposals:
       actions:
         answer_proposal: Répondre à la proposition
+        delete_proposal_state_confirm: Etes-vous sûr(e) de vouloir supprimer cet état?
+        destroy: Supprimer l'état
         edit_proposal: Modifier la proposition
+        edit_proposal_state: Modifier l'état
         import: Importer depuis une autre fonctionnalité
         new: Nouvelle proposition
+        new_proposal_state: Nouvel état
         participatory_texts: Textes participatifs
         show: Afficher la proposition
         title: Actions
@@ -471,11 +454,7 @@ fr-CA:
             success: Texte participatif mis à jour avec succès.
         proposal_answers:
           form:
-            accepted: Retenue
             answer_proposal: Répondre
-            evaluating: En cours d'évaluation
-            not_answered: Non répondu
-            rejected: Non retenue
             title: Réponse à la proposition %{title}
         proposal_notes:
           create:
@@ -486,6 +465,23 @@ fr-CA:
             submit: Soumettre
           leave_your_note: Laisser une remarque
           title: Notes privées
+        proposal_states:
+          create:
+            error: Erreur lors de la création de l'état
+            success: Etat créé avec succès
+          destroy:
+            success: Etat supprimé avec succès
+          edit:
+            title: Modifier l'état
+            update: Mettre à jour
+          index:
+            title: États
+          new:
+            create: Créer
+            title: Nouvel état
+          update:
+            error: Erreur lors de la mise à jour de l'état
+            success: Etat mis à jour avec succès
         proposals:
           answer:
             invalid: Il y a eu un problème lors de la réponse à cette proposition.
@@ -517,6 +513,7 @@ fr-CA:
             selected: choisi
             split: Fractionner la proposition
             split_button: Scinder
+            statuses: États
             title: Propositions
             unassign_from_valuator: Retirer de l'évaluateur
             unassign_from_valuator_button: Ne plus assigner
@@ -607,11 +604,8 @@ fr-CA:
           participants: Participants
           user_groups: Groupes d'utilisateurs
         filter_state_values:
-          accepted: Accepté
           all: Tout
-          evaluating: En cours d'évaluation
           not_answered: En attente de réponse
-          rejected: Rejeté
         filter_type_values:
           all: Tout
           amendments: Amendements
@@ -744,6 +738,9 @@ fr-CA:
             valuator: Évaluateur
             valuators: Évaluateurs
             votes: Votes
+        proposal_state:
+          css_class: Classe CSS
+          title: État
       new:
         limit_reached: Vous ne pouvez plus créer de nouvelles propositions car vous avez atteint la limite autorisée.
       participatory_text_proposal:

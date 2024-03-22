@@ -415,8 +415,6 @@ end
 
 if Decidim.module_installed? :proposals
   Decidim::Proposals.configure do |config|
-    config.similarity_threshold = Rails.application.secrets.dig(:decidim, :proposals, :similarity_threshold).presence || 0.25
-    config.similarity_limit = Rails.application.secrets.dig(:decidim, :proposals, :similarity_limit).presence || 10
     config.participatory_space_highlighted_proposals_limit = Rails.application.secrets.dig(:decidim, :proposals, :participatory_space_highlighted_proposals_limit).presence || 4
     config.process_group_highlighted_proposals_limit = Rails.application.secrets.dig(:decidim, :proposals, :process_group_highlighted_proposals_limit).presence || 3
   end

@@ -7,15 +7,15 @@ module Decidim
         [
           {
             id: "usage",
+            title: t("decidim.design.helpers.usage"),
             contents: [
               {
                 type: :text,
-                values: ["Make sure the partial <code>decidim/shared/login_modal</code> is present in the DOM.
-                          This partial is placed in the application layout when the user is logged in."]
+                values: [t("decidim.design.helpers.follower_description_html")]
               },
               {
                 type: :cell_table,
-                options: { headings: ["Follow Button"] },
+                options: { headings: [t("decidim.design.helpers.follow_button")] },
                 cell_snippet: {
                   cell: "decidim/follow_button",
                   args: [Decidim::User.where.not(id: current_user&.id).first],

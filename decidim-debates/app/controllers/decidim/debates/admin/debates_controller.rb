@@ -74,7 +74,7 @@ module Decidim
         private
 
         def debates
-          @debates ||= Debate.where(component: current_component)
+          @debates ||= Debate.where(component: current_component).not_hidden
         end
 
         def debate

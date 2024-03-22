@@ -19,10 +19,12 @@ module Decidim
     end
 
     def self.cryptor
-      key = ActiveSupport::KeyGenerator.new("attribute").generate_key(
-        Rails.application.secrets.secret_key_base, ActiveSupport::MessageEncryptor.key_len
-      )
-      ActiveSupport::MessageEncryptor.new(key)
+      @cryptor ||= begin
+        key = ActiveSupport::KeyGenerator.new("attribute").generate_key(
+          Rails.application.secrets.secret_key_base, ActiveSupport::MessageEncryptor.key_len
+        )
+        ActiveSupport::MessageEncryptor.new(key)
+      end
     end
   end
 end

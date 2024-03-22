@@ -152,7 +152,7 @@ describe "Datepicker" do
           context "when choosing a date" do
             it "enables the select button" do
               find(".datepicker__calendar-button").click
-              yesterday = Date.yesterday.strftime("%d")
+              yesterday = Date.yesterday.strftime("%-d")
               find("td > span", text: yesterday, match: :first).click
               expect(page).to have_button("Select", disabled: false)
             end

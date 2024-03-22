@@ -28,6 +28,12 @@ module Decidim
         I18n.t(state, scope: "decidim.proposals.answers", default: :not_answered)
       end
 
+      def proposal_state_css_style(proposal)
+        return "" if proposal.emendation?
+
+        proposal.proposal_state&.css_style
+      end
+
       # Public: The css class applied based on the proposal state.
       #
       # proposal - The proposal to evaluate.
@@ -36,7 +42,6 @@ module Decidim
       def proposal_state_css_class(proposal)
         return "alert" if proposal.withdrawn?
         return if proposal.state.blank?
-        return proposal.proposal_state&.css_class unless proposal.emendation?
 
         case proposal.state
         when "accepted"

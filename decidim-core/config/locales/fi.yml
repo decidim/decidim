@@ -78,6 +78,9 @@ fi:
     'false': 'Ei'
     'true': 'Kyllä'
   date:
+    buttons:
+      close: Sulje
+      select: Valitse
     formats:
       decidim_short: "%d.%m.%Y"
       decidim_short_dashed: "%d.%m.%Y"
@@ -85,6 +88,10 @@ fi:
       decidim_with_day_and_month_name: "%A %d. %b %Y"
       decidim_with_month_name: "%B %d. %Y"
       decidim_with_month_name_short: "%d. %b"
+      help:
+        date_format: 'Muoto: pp.kk.vvvv'
+      order: d.m.y
+      separator: "."
   datetime:
     distance_in_words:
       about_x_hours:
@@ -802,10 +809,6 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet palvelun hallintakäyttäjä.
           email_subject: Ryhmä on päivittänyt profiiliaan
           notification_title: Ryhmä nimeltä %{user_group_name} on päivittänyt profiiliaan, jättäen ryhmän varmentamattomaksi. Voit varmentaa ryhmän <a href="%{groups_admin_path}">hallintapaneelin kautta</a>.
-      nickname_event:
-        notification_body: Olemme muuttaneet nimimerkkien sääntöjä varmistaaksemme, että alustalla ei ole useampaa tiliä samalla nimimerkillä eri tavalla kirjoitettuna. <br/> Tilisi on luotu toisen samaa nimimerkkiä käyttäneen henkilön jälkeen, joten olemme vaihtaneet nimimerkkiäsi automaattisesti. Halutessasi voit vaihtaa nimimerkkiäsi <a href="%{link_to_account_settings}">tilisi asetuksista</a>.
-      notification_event:
-        notification_title: Kohteessa <a href="%{resource_path}">%{resource_title}</a> on uutta toimintaa.
       reports:
         resource_hidden:
           email_intro: Hallintakäyttäjä poisti luomasi kohteen %{resource_type}, koska se ilmoitettiin asiattomana syyllä "%{report_reasons}".
@@ -869,7 +872,7 @@ fi:
       create:
         button: Seuraa
         error: Tämän kohteen seuraaminen epäonnistui.
-        participatory_space: Seuraat kohdetta <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Seuraat kohdetta <span>%{resource_name}</span>
       destroy:
         button: Lopeta seuranta
         error: Tämän kohteen seuraamisen lopettaminen epäonnistui.
@@ -883,14 +886,12 @@ fi:
         file:
           explanation: 'Tiedoston ohjeistus:'
           message_1: On oltava kuva tai asiakirja.
-          message_2: Kuvina käytä mieluiten vaakasuintaisia kuvia, palvelu rajaa kuvaa.
         icon:
-          explanation: 'Ikonin ohjeistus:'
+          explanation: 'Kuvakkeen ohjeistus:'
           message_1: On oltava neliömuotoinen kuva.
           message_2: Tämän kuvan suositeltu koko on 512x512.
         image:
           explanation: 'Kuvan ohjeistus:'
-          message_1: Käytä mieluiten vaakasuuntaista kuvaa, jossa ei ole tekstiä.
           message_2: Palvelu rajaa kuvaa.
       file_validation:
         allowed_file_extensions: 'Sallitut tiedostopäätteet: %{extensions}'
@@ -1208,7 +1209,7 @@ fi:
         token_error: Linkki on vanhentunut.
         unsubscribe: Peruuta tilaus
     newsletters_opt_in:
-      unathorized: Valitettavasti tämä linkki ei ole enää käytettävissä.
+      unauthorized: Valitettavasti tämä linkki ei ole enää käytettävissä.
       update:
         error: Uutiskirjeasetusten päivitys epäonnistui.
         success: Uutiskirjeasetusten päivitys onnistui.
@@ -1505,7 +1506,7 @@ fi:
         label: 'Tulosten määrä sivulla:'
         title: Valitse tulosten määrä sivua kohti
       share_modal:
-        copy_share_link: Kopio
+        copy_share_link: Kopioi
         copy_share_link_clarification: Kopioi jakolinkki leikepöydälle
         copy_share_link_copied: Kopioitu!
         copy_share_link_message: Linkin kopiointi leikepöydälle onnistui.
@@ -2018,6 +2019,10 @@ fi:
     x: X
     xing: Xing
   time:
+    buttons:
+      close: Sulje
+      reset: Nollaa
+      select: Valitse
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2032,6 +2037,8 @@ fi:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d., %Y klo %k:%M"
+      help:
+        time_format: 'Muoto: tt:mm'
       long: "%B %d., %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
       long_with_particles: "%B %d., %Y %H:%M"
