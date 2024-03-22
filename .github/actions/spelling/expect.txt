@@ -883,6 +883,7 @@ timeouter
 timestamped
 tiptap
 TLDR
+tmate
 todos
 Tomorrowland
 tomselect

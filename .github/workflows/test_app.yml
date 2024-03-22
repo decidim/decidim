@@ -116,3 +116,9 @@ jobs:
           name: screenshots
           path: ./spec/decidim_dummy_app/tmp/screenshots
           if-no-files-found: ignore
+      - name: Setup tmate session
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3
+        timeout-minutes: 60
+        with:
+          limit-access-to-actor: true
