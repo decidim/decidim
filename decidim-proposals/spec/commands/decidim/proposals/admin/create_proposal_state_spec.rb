@@ -29,7 +29,9 @@ module Decidim
             {
               title: { en: "A reasonable proposal title" },
               description: { en: "A reasonable proposal body" },
-              token: "custom"
+              token: "custom",
+              bg_color: "#ffeebd",
+              text_color: "#ad4910"
             }
           end
 

@@ -33,12 +33,42 @@ en:
           title: Buttons
         cards:
           title: Cards
+        dialogs:
+          dialog_demo_description_html: The dialogs, or modal components, are implemented through the rails helper <code>decidim_modal</code>.
+          dialogs_description_html: Dialogs are a javascript feature available thanks to an external library called <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a>.
+          tips_description: 'In order to display a complex modal, matching up the styles, do the following markup:'
+          tips_description_html: Pay attention to the <i>data-attributes</i> and the <i>ids</i>. For instance, the <code>[data-dialog-title]</code>'s id starts with <i>dialog-title</i> plus the <i>modal id</i>.
+          title: Dialogs
+          usage_description: An dialog requires two elements
+          usage_description_2_html: 2. A modal element, whose <code>id</code> matches the data-target value the trigger refers to.
+          usage_description_html: 1. A user actionable element, with the data-attribute <code>data-dialog-open="example"</code>, where example is the <code>id</code> of the modal.
         follow:
           title: Follow
+        forms:
+          date: date
+          datetime_local: datetime-local
+          disabled: Disabled
+          emojis: Emojis
+          emojis_description: Only works for textarea
+          errors: Errors
+          errors_description: Does not apply for select
+          header_alert: This page comes from a legacy view. Content is outdated.
+          help_texts: Help texts
+          html_regular_inputs: HTML regular inputs
+          min_max_length: Min/Max length
+          min_max_length_description: Only works for input type='text' and textarea
+          number: number
+          password: password
+          regular_inputs_description: 'Only displays common types, full available list: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
+          text: text
+          textarea_required: textarea required
+          title: Forms
         report:
           title: Report
         share:
           title: Share
+        tab_panels:
+          title: Tab Panels
       foundations:
         accessibility:
           accessibility_labels: Accessibility labels
@@ -170,6 +200,7 @@ en:
         hex_code: Hex code
         highlight: Highlight
         highlight_description: Used by resources who allow to highlight
+        html_tips: HTML tips
         icons: Icons
         image_and_description: Image and Description
         initiative_g: initiative_g
@@ -212,6 +243,15 @@ en:
         sortitions: Sortitions
         source_code: Source Code
         state: State
+        tab_panels_context_description: This tab-panel component gathers all the related contents or another resources of the main element displayed, in order to save vertical space. Clicking on the tab will activate the created panel to show the content.
+        tab_panels_context_description_html: Mainly is used within the <i>layout_item</i> or the <i>layout_center</i>, after the main content of the resource.
+        tab_panels_usage_description: 'This component receives an array of hashes, and rearrange the output of each item into a tab-panel structure. Available properties for each panel:'
+        tab_panels_usage_description_arguments_html: "<strong>args</strong>: <i>Array</i>. Arguments for the previous method"
+        tab_panels_usage_description_html: "<strong>enabled</strong>: <i>Boolean</i>. Conditionally render the tab"
+        tab_panels_usage_description_id_html: "<strong>id</strong>: <i>String</i>. Unique id"
+        tab_panels_usage_description_rails_html: "<strong>method</strong>: <i>Symbol</i>. Any function rails understands"
+        tab_panels_usage_description_remixicon_html: "<strong>icon</strong>: <i>String</i>. Remixicon key"
+        tab_panels_usage_description_tab_html: "<strong>text</strong>: <i>String</i>. Tab title"
         tailwind: Tailwind name
         text: Text
         transparent: Transparent

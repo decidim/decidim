@@ -27,6 +27,14 @@ module Decidim
         Decidim::Proposals::AdminLog::ProposalStatePresenter
       end
 
+      def css_style
+        "background-color: #{bg_color}; color: #{text_color}; border-color: #{text_color};"
+      end
+
+      def self.colors
+        Decidim::Proposals.proposal_states_colors
+      end
+
       protected
 
       def generate_token
