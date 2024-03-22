@@ -1438,6 +1438,8 @@ ja:
         close_modal: ウィンドウを閉じる
         ok: OK
         title: 確定
+      embed:
+        title: 埋め込み動画コンテンツ
       extended_navigation_bar:
         more: もっと見る
         unfold: 展開する
