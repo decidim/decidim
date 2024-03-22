@@ -31,6 +31,44 @@ ja:
         buttons:
           description_html: 'ボタンは、 <code>ボタン</code> クラス、サイズ、色など、さまざまなCSSクラスの組み合わせで構築されます。'
           title: ボタン
+        cards:
+          title: カード
+        dialogs:
+          dialog_demo_description_html: ダイアログまたはモーダルコンポーネントは、rails helper <code>decidim_modal</code> を介して実装されます。
+          dialogs_description_html: ダイアログは <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a> という外部ライブラリにより利用できるjavascriptの機能です。
+          tips_description: '複雑なモーダルを表示し、スタイルを合わせるためには、以下のマークアップを使います:'
+          tips_description_html: <i>data-attributes</i> と <i>ids</i>に注意してください. 例えば、<code>[data-dialog-title]</code>のidは<i>dialog-title</i> で始まり、その後に <i>modal id</i>が続きます.
+          title: ダイアログ
+          usage_description: ダイアログには2つの要素が必要です
+          usage_description_2_html: 2. その要素の <code>id</code> がトリガーの参照するdata-targetの値に一致するモーダル要素。
+          usage_description_html: 1. data-attribute <code>data-dialog-open="example"</code>を持つユーザアクションの可能な要素、例えばモーダルの <code>id</code> 。
+        follow:
+          title: フォロー
+        forms:
+          date: 日付
+          datetime_local: datetime-local
+          disabled: 無効
+          emojis: 絵文字
+          emojis_description: テキストエリアでのみ動作します
+          errors: エラー
+          errors_description: selectには適用されません
+          header_alert: このページはレガシービューから来ています。コンテンツは古くなっています。
+          help_texts: ヘルプ テキスト
+          html_regular_inputs: HTML 通常入力
+          min_max_length: 最小/最大の長さ
+          min_max_length_description: Input type='text' と textareaでのみ動作します
+          number: 数値
+          password: パスワード
+          regular_inputs_description: '共通のタイプのみを表示します。利用可能な全リストは以下の通りです: date、datetime-local、email、month、number、password、search、tel、text、time、url、week'
+          text: テキスト
+          textarea_required: テキストエリアが必要です
+          title: フォーム
+        report:
+          title: レポート
+        share:
+          title: シェア
+        tab_panels:
+          title: タブパネル
       foundations:
         accessibility:
           accessibility_labels: アクセシビリティラベル
@@ -107,6 +145,7 @@ ja:
           typefaces_description_1: DecidimはSource Sans Proをプライマリ・フォントとして使用しています。この書体は310の言語に対応しています。
           typefaces_description_2: このフォントはOpen Font Licenseの下でライセンスされています。
       helpers:
+        accountability: アカウンタビリティ
         activity: アクティビティ
         address_description: アドレスセルはリソースを受け取り、geolocalizable属性を検索して特定のマークアップを出力します。
         address_description_2: コンテンツの種類によっては、アドレスがオンラインURLになる場合があります。 そのような場合、表示される情報はまったく同じですが、適合するように形作られています。
@@ -133,6 +172,8 @@ ja:
         hex_code: 16進コード
         icons: アイコン
         main_colors: メインカラー
+        meetings: ミーティング
+        participatory_processes: 参加プロセス
         plain_text: これはプレーンテキストです
         plain_text_description: 最初の引数として、プレーンテキストとハッシュオブジェクトの両方を指定することができます。
         plain_text_vs_hash: プレーンテキストとハッシュ
