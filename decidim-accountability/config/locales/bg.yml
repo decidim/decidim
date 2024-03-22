@@ -8,6 +8,7 @@ bg:
         decidim_scope_id: Сфера
         description: Описание
         end_date: Крайна дата
+        meetings_ids: Включени срещи
         progress: Напредък
         project_ids: Включени проекти
         proposals: Включени предложения
@@ -22,6 +23,7 @@ bg:
       timeline_entry:
         description: Описание
         entry_date: Дата
+        title: Заглавие
     models:
       decidim/accountability/proposal_linked_event: Предложение, включено в резултата
       decidim/accountability/result_progress_updated_event: Напредъкът на резултатите е актуализиран
@@ -33,6 +35,8 @@ bg:
   decidim:
     accountability:
       actions:
+        attachment_collections: Папки
+        attachments: Прикачени файлове
         confirm_destroy: Сигурни ли сте, че искате да изтриете това %{name}?
         destroy: Изтрий
         edit: Редактирай
