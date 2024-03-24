@@ -102,6 +102,18 @@ module Decidim
         nil
       end
 
+      def resource_title
+        return unless resource
+
+        title = if resource.respond_to?(:title)
+                  decidim_sanitize_translated(resource.title)
+                elsif resource.respond_to?(:name)
+                  decidim_sanitize_translated(resource.name)
+                end
+
+        Decidim::ContentProcessor.render_without_format(title, links: false).html_safe
+      end
+
       private
 
       def event_interpolations
