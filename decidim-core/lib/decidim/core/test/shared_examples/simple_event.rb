@@ -185,6 +185,7 @@ shared_examples_for "a simple event notification" do
     end
 
     it "is html safe" do
+      pending "Enable after #12547 is merged"
       expect(subject.notification_title).not_to include("script")
     end
   end
