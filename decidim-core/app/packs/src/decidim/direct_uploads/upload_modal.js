@@ -122,8 +122,8 @@ export default class UploadModal {
     if (src) {
       buffer = await fetch(src).then((res) => res.arrayBuffer())
       // since we cannot know the exact mime-type of the file,
-      // we assume as "image" if it has the src attribute in order to load the preview
-      type = "image"
+      // we assume as "image/*" if it has the src attribute in order to load the preview
+      type = "image/*"
     }
 
     const file = new File([buffer], element.dataset.filename, { type })
@@ -154,21 +154,25 @@ export default class UploadModal {
     // Disabled save button when any children have data-state="error"
     this.saveButton.disabled = Array.from(files).filter(({ dataset: { state } }) => state === STATUS.ERROR).length > 0;
 
+    const dataSelectFileButton = this.emptyItems.querySelector("[data-select-file-button]");
+
     // Only allow to continue the upload when the multiple option is true (default: false)
     const continueUpload = !files.length || this.options.multiple
     this.input.disabled = !continueUpload
     if (continueUpload) {
       this.emptyItems.classList.remove("is-disabled");
-      this.emptyItems.querySelector("label").removeAttribute("disabled");
+      dataSelectFileButton.removeAttribute("disabled");
     } else {
       this.emptyItems.classList.add("is-disabled");
-      this.emptyItems.querySelector("label").setAttribute("disabled", true);
+      dataSelectFileButton.disabled = true;
     }
+
+    dataSelectFileButton.addEventListener("click", () => this.input.click());
   }
 
   createUploadItem(file, errors, opts = {}) {
     const okTemplate = `
-      <img src="" alt="${escapeQuotes(file.name)}" />
+      <img src="data:," alt="${escapeQuotes(file.name)}" />
       <span>${escapeHtml(truncateFilename(file.name))}</span>
     `
 
@@ -182,7 +186,7 @@ export default class UploadModal {
     `
 
     const titleTemplate = `
-      <img src="" alt="${escapeQuotes(file.name)}" />
+      <img src="data:," alt="${escapeQuotes(file.name)}" />
       <div>
         <div>
           <label>${this.locales.filename}</label>
