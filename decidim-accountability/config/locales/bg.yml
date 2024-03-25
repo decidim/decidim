@@ -111,10 +111,18 @@ bg:
           new:
             create: Създай резултат
             title: Нови резултати
+          update:
+            invalid: Възникна проблем при актуализирането на този резултат.
+            success: Резултатът беше актуализиран успешно.
         shared:
           subnav:
             statuses: Статуси
         statuses:
+          create:
+            invalid: Възникна проблем при създаването на този статус.
+            success: Статуса е създаден успешно.
+          destroy:
+            success: Статуса е изтрит успешно.
           edit:
             title: Редактирай на статуса
             update: Обнови на статус
@@ -123,7 +131,15 @@ bg:
           new:
             create: Създай статус
             title: Нов статус
+          update:
+            invalid: Възникна проблем при обновяването на този статус.
+            success: Статуса беше обновен успешно.
         timeline_entries:
+          create:
+            invalid: Възникна проблем при създаването на този запис.
+            success: Записът беше създаден успешно.
+          destroy:
+            success: Записът беше изтрит успешно.
           edit:
             title: Редактирай на запис
             update: Обнови на запис
@@ -132,6 +148,9 @@ bg:
           new:
             create: Създай запис
             title: Нов запис
+          update:
+            invalid: Възникна проблем при актуализирането на този запис.
+            success: Записът беше актуализиран успешно.
       admin_log:
         result:
           create: "%{user_name} създаде резултата %{resource_name} в %{space_name}"
