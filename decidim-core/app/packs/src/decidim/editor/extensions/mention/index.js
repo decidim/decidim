@@ -14,7 +14,7 @@ const searchUsers = async (queryText) => {
   }`;
 
 
-  return fetch(Decidim.config.config.api_path, {
+  return fetch(window.Decidim.config.get("apiPath"), {
     method: "POST",
     cache: "no-cache",
     headers: { "Content-Type": "application/json" },
