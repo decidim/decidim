@@ -1,1 +1,8 @@
+---
 bg:
+  decidim:
+    templates:
+      admin:
+        proposal_answer_templates:
+          index:
+            global_scope: Глобално (достъпно навсякъде)
