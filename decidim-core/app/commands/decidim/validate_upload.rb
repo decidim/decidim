@@ -7,9 +7,19 @@ module Decidim
     end
 
     def call
-      return broadcast(:invalid, @form.errors) if @form.invalid?
+      if @form.invalid?
+        remove_invalid_file
+        return broadcast(:invalid, @form.errors)
+      end
 
       broadcast(:ok)
+    end
+
+    private
+
+    def remove_invalid_file
+      blob = ActiveStorage::Blob.find_signed(@form.blob)
+      blob.purge if blob.present?
     end
   end
 end

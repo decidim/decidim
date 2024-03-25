@@ -120,6 +120,18 @@ You can read more about this change on PR [\#12143](https://github.com/decidim/d
 
 You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
+### 3.13 Clean up orphaned attachment blobs
+
+We have added a new task that helps you clean the orphaned attachment blobs. This task will remove all the attachment blobs that are not referenced by any attachment record. This helps cleaning your filesystem of unused files.
+
+You can run the task with the following command:
+
+```bash
+bundle exec decidim:attachments:cleanup
+```
+
+You can see more details about this change on PR [\#11851](https://github.com/decidim/decidim/pull/11851)
+
 ## 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
