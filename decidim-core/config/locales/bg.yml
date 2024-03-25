@@ -503,6 +503,8 @@ bg:
           email_outro: Получавате това известие, защото сте администратор на платформата.
           email_subject: Група от участници обнови профила си
           notification_title: Групата %{user_group_name} обнови профила си, което я прави "непроверена". Проверете я на <a href="%{groups_admin_path}">админ панел</a>.
+      nickname_event:
+        notification_body: Коригирахме начина, по който се използват прякорите, така че да няма дубликати, и затова премахнахме правилото за отнасящо се към главни и малки букви. <br/> Вашият псевдоним е създаден след друг със същото име, така че автоматично го преименувахме. Можете да го промените от <a href="%{link_to_account_settings}">настройките на вашия акаунт</a>.
       notification_event:
         notification_title: Настъпи събитие в <a href="%{resource_path}">%{resource_title}</a>.
       resource_endorsed:
@@ -1040,6 +1042,23 @@ bg:
   doorkeeper:
     scopes:
       public: Вашата публична информация.
+  emojis:
+    categories:
+      activities: Активности
+      people-body: Хора и тяло
+      recents: Наскоро използвани
+      smileys-emotion: Усмивки и емоции
+    error:
+      load: Проблем при зареждане на емотиконки
+    recents:
+      clear: Изтриване на последните емотиконки
+      none: Все още не сте избрали имотиконки.
+    retry: Опитайте отново
+    search:
+      _: Търсете имотиконки...
+      clear: Изчисти търсенето
+      error: Проблем при търсене на имотиконки
+      not_found: Няма намерени резултати
   errors:
     messages:
       confirmation_period_expired: трябва Ви потвърдят в рамките на %{period}, моля заявете отново
