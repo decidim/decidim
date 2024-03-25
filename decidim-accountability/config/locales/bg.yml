@@ -122,9 +122,20 @@ bg:
           create: "%{user_name} създаде резултата %{resource_name} в %{space_name}"
           delete: "%{user_name} изтри резултата %{resource_name} в %{space_name}"
           update: "%{user_name} обнови резултата %{resource_name} в %{space_name}"
+        status:
+          create: "Статусът е създаден"
+          delete: "Статусът е изтрит"
+          update: "Статусът е обновен"
+        timeline_entry:
+          create: "Създаде запис във времевата линия"
+          delete: "Изтри запис от времевата линия"
+          update: "Обнови запис във времевата линия"
         value_types:
           parent_presenter:
             not_found: 'Родителя липсва в базата данни (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          results: Резултати
       import_mailer:
         import:
           errors: Грешки
@@ -137,8 +148,12 @@ bg:
       models:
         result:
           fields:
+            category: Категория
+            created_at: Създаден
             end_date: Крайна дата
+            id: ID
             progress: Напредък
+            scope: Обхват
             start_date: Начална дата
             status: Статус
             title: Заглавие
@@ -151,6 +166,7 @@ bg:
         timeline_entry:
           fields:
             entry_date: Дата
+            title: Заглавие
       results:
         count:
           results_count:
@@ -181,8 +197,19 @@ bg:
             votes: Поддръжки
         timeline:
           title: Развитие на проекта
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Категория
+          scope_id_eq:
+            label: Обхват
+          status_id_eq:
+            label: Статус
     components:
       accountability:
+        actions:
+          comment: Коментар
         name: Отговорност
         settings:
           global:
@@ -223,3 +250,5 @@ bg:
         result_project: Проекти, включени в резултата
       included_proposals:
         result_proposal: Предложения, включени в резултата
+    statistics:
+      results_count: Резултати
