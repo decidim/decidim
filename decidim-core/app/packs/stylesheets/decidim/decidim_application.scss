@@ -2,4 +2,14 @@
 // Notice that this file is included at the very end of the stylesheets packs to have
 // more priority
 //
+// Please note this file is only targeting the end user interface and not the admin interface.
+// To override the admin interface styles you will need to create a new file having the following path:
+// app/packs/stylesheets/decidim/admin/decidim_application.scss
+//
+// Additionally, you can override the styles for the system interface by adding the file:
+// app/packs/stylesheets/decidim/system/decidim_application.scss
+//
+// To override the Tailwind CSS configuration you can do so by following the instructions
+// available at https://docs.decidim.org/en/develop/customize/styles.html#_tailwind_css
+//
 // By default this is empty.

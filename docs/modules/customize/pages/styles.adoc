@@ -68,6 +68,16 @@ Since this file is being managed by Decidim, it will be impossible to customize 
 
 You can override the default configuration by creating a file  `config/tailwind.config.js.erb` starting from the following https://github.com/decidim/decidim/blob/develop/decidim-core/lib/decidim/assets/tailwind/tailwind.config.js.erb[content]
 
+== Overriding CSS and styles
+
+If you want to override a specific CSS class, you can do so by adding a new CSS class in your `app/assets/stylesheets/decidim_application.scss` file. This will allow you to override the default styles provided by Decidim.
+
+*Please note:* the above file is created by default when you install Decidim. Also the file is empty. This file allows you to edit *only* the end user styles.
+
+If you want to edit the admin styles, you will need to create a new file called `app/packs/stylesheets/decidim/admin/decidim_application.scss`.
+
+Additionally, you can also override the styles in the system panel by creating a new file called `app/packs/stylesheets/decidim/system/decidim_application.scss`.
+
 == Accessibility
 
 To maintain accessibility level, if you add new colors use a http://webaim.org/resources/contrastchecker/[Color contrast checker] (WCAG AA is mandatory, WCAG AAA is recommended)
