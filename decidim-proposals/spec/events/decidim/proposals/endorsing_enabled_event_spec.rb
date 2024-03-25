@@ -16,7 +16,7 @@ module Decidim
       let(:email_subject) { "Proposals endorsing has started for #{decidim_sanitize_translated(participatory_space.title)}" }
       let(:email_intro) { "You can endorse proposals in #{participatory_space_title}! Start participating in this page:" }
       let(:email_outro) { "You have received this notification because you are following #{participatory_space_title}. You can stop receiving notifications following the previous link." }
-      let(:notification_title) { "You can now start <a href=\"#{resource_path}\">endorsing proposals</a> in <a href=\"#{participatory_space_url}\">#{participatory_space_title}</a>." }
+      let(:notification_title) { "You can now start <a href=\"#{resource_path}\">endorsing proposals</a> in <a href=\"#{participatory_space_url}\">#{participatory_space_title}</a>" }
 
       it_behaves_like "a simple event"
       it_behaves_like "a simple event email"
