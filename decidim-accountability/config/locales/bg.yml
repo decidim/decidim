@@ -46,9 +46,11 @@ bg:
         title: Действия
       admin:
         exports:
+          result_comments: Коментари
           results: Резултати
         import_results:
           new:
+            download_export: Свалете експорта в CSV формат
             import: Внасяне
             title: Импортирай резултати от CSV
         imports:
