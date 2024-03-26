@@ -10,7 +10,6 @@ module Decidim
       validates :title, translatable_presence: true
       translatable_attribute :title, String
       translatable_attribute :content, String
-      attribute :show_in_footer, Boolean
       attribute :changed_notably, Boolean
       attribute :allow_public_access, Boolean
       attribute :weight, Integer
