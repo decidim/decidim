@@ -114,6 +114,10 @@ bg:
         title: Заглавие
   decidim:
     admin:
+      domain_whitelist:
+        update:
+          error: Неуспешно актуализиране на белия списък на домейни.
+          success: Белият списък на домейни е актуализиран успешно.
       organization_appearance:
         form:
           colors:
