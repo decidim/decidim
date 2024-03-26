@@ -6,10 +6,40 @@ bg:
         offline: Извън линия
         offline_explanation: Инструкции за проверка извън линия
         online: На линия
+      confirmation:
+        verification_code: Код за потвърждение
       id_document_information:
         document_number: Номер на документ (с буквите)
         document_type: Тип на документа
+      id_document_upload:
+        document_number: Номер на документа (с буква)
+        document_type: Тип на Вашия документ
+        user: Участник
+        verification_attachment: Сканирано копие на Вашия документ
+      mobile_phone:
+        mobile_phone_number: Номер на мобилен телефон
+      offline_confirmation:
+        email: Имейл на участника
+      postal_letter_address:
+        full_address: Пълен адрес
+      postal_letter_confirmation:
+        verification_code: Код за потвърждение
+      postal_letter_postage:
+        full_address: Пълен адрес
+        verification_code: Код за потвърждение
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Неправилен файл за импортиране, моля, прочетете внимателно инструкциите и се уверете, че файлът е UTF-8 кодиран.
   decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: Полезна функция, ако процесът вече е започнал и искате да анулирате разрешенията на предходния процес.
+          button: Отмени всичко
+          button_before: Отмени преди дата
     verifications:
       dummy_authorization:
         extra_explanation:
