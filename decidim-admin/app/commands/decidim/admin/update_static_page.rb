@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # A command with all the business logic when updating a static page.
     class UpdateStaticPage < Decidim::Commands::UpdateResource
-      fetch_form_attributes :title, :slug, :show_in_footer, :weight, :topic, :content, :allow_public_access
+      fetch_form_attributes :title, :slug, :weight, :topic, :content, :allow_public_access
 
       private
 

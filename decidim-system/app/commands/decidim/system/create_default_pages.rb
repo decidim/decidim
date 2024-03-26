@@ -23,7 +23,6 @@ module Decidim
             translated_slug = I18n.t(slug, scope: "decidim.system.default_pages")
             page.title = localized_attribute(translated_slug, :title)
             page.content = localized_attribute(translated_slug, :content)
-            page.show_in_footer = true
             page.allow_public_access = true if slug == "terms-of-service"
           end
 
