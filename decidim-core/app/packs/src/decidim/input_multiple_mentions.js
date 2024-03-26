@@ -42,7 +42,7 @@ $(() => {
   const autoComplete = new AutoComplete($searchInput[0], {
     dataMatchKeys: ["name", "nickname"],
     dataSource: (query, callback) => {
-      $.post("/api", {
+      $.post(window.Decidim.config.get("apiPath"), {
         "query": `
           {
             users(filter:{wildcard:"${query}",excludeIds:[]})
