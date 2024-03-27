@@ -206,11 +206,6 @@ nl:
           new:
             send: Verzoek om verificatie
             title: Upload uw identiteitsdocument
-          update:
-            error: Er is een probleem opgetreden bij het opnieuw uploaden van uw document
-            success: Document opnieuw succesvol geladen
-        dni: DNI
-        nie: NIE
         passport: Paspoort
       postal_letter:
         admin:

@@ -362,6 +362,10 @@ hu:
         actions:
           comment: Megjegyzés
           vote: Szavazás
+      question:
+        actions:
+          comment: Hozzászólás
+          vote: Szavazás
     statistics:
       consultations_count: Konzultációk
       votes_count: Szavazások

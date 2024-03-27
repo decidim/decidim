@@ -2,11 +2,7 @@
 
 module Decidim
   module Initiatives
-    class SpawnCommitteeRequestEvent < Decidim::Events::BaseEvent
-      include Decidim::Events::EmailEvent
-      include Decidim::Events::NotificationEvent
-      include Decidim::SanitizeHelper
-
+    class SpawnCommitteeRequestEvent < Decidim::Events::SimpleEvent
       def email_subject
         I18n.t(
           "decidim.initiatives.events.spawn_committee_request_event.email_subject",
@@ -56,14 +52,6 @@ module Decidim
         @applicant ||= Decidim::UserPresenter.new(
           Decidim::User.find(@extra["applicant"]["id"])
         )
-      end
-
-      def resource_title
-        return unless resource
-
-        title = decidim_sanitize_translated(resource.title)
-
-        Decidim::ContentProcessor.render_without_format(title, links: false).html_safe
       end
     end
   end

@@ -53,7 +53,7 @@ fi:
         enable_omnipresent_banner: Näytä kaikkialla näkyvä banneri
         enable_participatory_space_filters: Ota käyttöön osallistumistilan suodattimet
         facebook_handler: Facebook-käsittelijä
-        favicon: ikoni
+        favicon: Kuvake
         force_authentication: Kirjautuminen vaaditaan
         force_users_to_authenticate_before_access_organization: Pakota käyttäjät kirjautumaan ennen organisaatioon pääsyä
         from: Lähettäjän sähköpostiosoite
@@ -925,7 +925,7 @@ fi:
           success: Tunnisteen poistaminen onnistui.
         share_tokens:
           empty: Aktiivisia tunnisteita ei ole tällä hetkellä
-          help: Näitä tunnisteita käytetään jaettaessa tätä julkaisematonta kohdetta muille käyttäjille. Ne piilotetaan, kun kohde julkaistaan. Klikkaa tunnisteen jakoikonia vieraillaksesi jaettavassa URL-osoitteessa.
+          help: Näitä tunnisteita käytetään jaettaessa tätä julkaisematonta kohdetta muille käyttäjille. Ne piilotetaan, kun kohde julkaistaan. Klikkaa tunnisteen jakokuvaketta vieraillaksesi jaettavassa URL-osoitteessa.
           title: Jakotunnisteet
       shared:
         gallery:

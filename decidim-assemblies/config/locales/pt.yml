@@ -272,7 +272,6 @@ pt:
             select_parent_assembly: Selecione a reunião pai
             social_handlers: Social
             title: Informação geral
-            visbility: Visibilidade
         assemblies_settings:
           edit:
             update: Atualizar

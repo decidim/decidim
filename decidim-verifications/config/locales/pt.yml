@@ -206,11 +206,6 @@ pt:
           new:
             send: Solicitar verificação
             title: Envie o seu documento de identidade
-          update:
-            error: Ocorreu um problema ao reenviar o seu documento
-            success: Documento reenviado com êxito
-        dni: DNI
-        nie: NIE
         passport: Passaporte
       postal_letter:
         admin:

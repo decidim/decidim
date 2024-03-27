@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Assemblies::CreateAssemblyMemberEvent do
   include_context "when a simple event"
 
-  let(:resource) { create :assembly }
+  let(:resource) { create(:assembly, title: generate_localized_title(:assembly_title)) }
   let(:participatory_space) { resource }
   let(:event_name) { "decidim.events.assemblies.create_assembly_member" }
   let(:email_subject) { "You have been invited to be a member of the #{resource_title} assembly!" }

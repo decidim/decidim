@@ -8,6 +8,10 @@ describe Decidim::Initiatives::RevokeMembershipRequestEvent do
   let(:user_role) { :affected_user }
   let(:extra) { { author: author } }
 
+  include_context "when a simple event"
+
+  let(:user_role) { :affected_user }
+  let(:extra) { { author: author } }
   let(:event_name) { "decidim.events.initiatives.approve_membership_request" }
   let(:organization) { create(:organization) }
   let!(:resource) { create(:initiative, :created, organization: organization) }

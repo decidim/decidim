@@ -152,7 +152,6 @@ id:
             notification_title: Proposal Anda <a href="%{resource_path}">%{resource_title}</a> telah diterima.
           follower:
             email_intro: 'Proposal "%{resource_title}" telah diterima. Anda dapat membaca jawabannya di halaman ini:'
-            email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
             email_subject: Proposal yang Anda ikuti telah diterima
             notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> telah diterima.
         proposal_evaluating:
@@ -163,7 +162,6 @@ id:
             notification_title: Proposal Anda <a href="%{resource_path}">%{resource_title}</a> sedang dievaluasi.
           follower:
             email_intro: 'Proposal "%{resource_title}" saat ini sedang dievaluasi. Anda dapat memeriksa jawaban di halaman ini:'
-            email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
             email_subject: Proposal yang Anda ikuti sedang dievaluasi
             notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> sedang dievaluasi.
         proposal_mentioned:
@@ -186,7 +184,6 @@ id:
             notification_title: Proposal Anda <a href="%{resource_path}">%{resource_title}</a> telah ditolak.
           follower:
             email_intro: 'Proposal "%{resource_title}" telah ditolak. Anda dapat membaca jawabannya di halaman ini:'
-            email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
             email_subject: Proposal yang Anda ikuti telah ditolak
             notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> telah ditolak.
         proposal_update_category:
@@ -309,6 +306,7 @@ id:
             accepted: Diterima
             answer_proposal: Menjawab
             evaluating: Mengevaluasi
+            not_answered: Tidak dijawab
             rejected: Ditolak
             title: Jawaban untuk proposal %{title}
         proposal_notes:

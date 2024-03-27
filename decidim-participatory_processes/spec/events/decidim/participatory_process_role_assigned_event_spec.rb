@@ -8,7 +8,7 @@ describe Decidim::ParticipatoryProcessRoleAssignedEvent do
   let(:resource) { create :participatory_process }
   let(:participatory_space) { resource }
   let(:event_name) { "decidim.events.participatory_process.role_assigned" }
-  let(:role) { create :participatory_process_user_role, user: user, participatory_process: resource, role: :admin }
+  let(:role) { create(:participatory_process_user_role, user: user, participatory_process: resource, role: :admin) }
   let(:extra) { { role: role } }
   let(:email_subject) { "You have been assigned as #{role} for \"#{resource_title}\"." }
   let(:email_outro) { "You have received this notification because you are #{role} of the \"#{resource_title}\" participatory process." }

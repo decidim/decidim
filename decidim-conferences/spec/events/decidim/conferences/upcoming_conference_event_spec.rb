@@ -5,9 +5,8 @@ require "spec_helper"
 describe Decidim::Conferences::UpcomingConferenceEvent do
   include_context "when a simple event"
 
-  let(:resource) { create :conference }
+  let(:resource) { create(:conference) }
   let(:participatory_space) { resource }
   let(:event_name) { "decidim.events.conferences.upcoming_conference" }
-
   it_behaves_like "a simple event"
 end

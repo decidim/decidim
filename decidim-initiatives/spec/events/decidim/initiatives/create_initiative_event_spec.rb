@@ -4,15 +4,14 @@ require "spec_helper"
 
 describe Decidim::Initiatives::CreateInitiativeEvent do
   subject do
-    described_class.new(resource: initiative, event_name: event_name, user: user, extra: {})
+    described_class.new(resource: resource, event_name: event_name, user: user, extra: {})
   end
 
   include_context "when a simple event"
 
   let(:organization) { resource.organization }
-  let(:resource) { create(:initiative) }
+  let(:resource) { create :initiative, title: generate_localized_title(:initiative_title) }
   let(:initiative_author) { resource.author }
-
   let(:event_name) { "decidim.events.initiatives.initiative_created" }
   let(:user) { create :user, organization: organization }
   let(:resource_path) { resource_locator(resource).path }

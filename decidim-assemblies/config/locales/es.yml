@@ -231,9 +231,9 @@ es:
           name: Miembro
           positions:
             other: Otro
-            president: Presidenta
+            president: Presidencia
             secretary: Secretaria
-            vice_president: Vicepresidenta
+            vice_president: Vicepresidencia
         assembly_user_role:
           fields:
             email: Correo electrónico

@@ -283,7 +283,6 @@ lt:
             notification_title: Jūsų pasiūlymas <a href="%{resource_path}">%{resource_title}</a> priimtas.
           follower:
             email_intro: 'Pasiūlymas "%{resource_title}" priimtas. Atsakymą galite perskaityti šiame puslapyje:'
-            email_outro: Gavote šį pranešimą, nes sekate %{resource_title}. Galite nebesekti paspaudę ant aukščiau esančios nuorodos.
             email_subject: Pasiūlymas, kurį sekate, buvo priimtas
             notification_title: <a href="%{resource_path}">%{resource_title}</a> pasiūlymas priimtas.
         proposal_evaluating:
@@ -294,7 +293,6 @@ lt:
             notification_title: Jūsų pasiūlymas <a href="%{resource_path}">%{resource_title}</a> šiuo metu vertinamas.
           follower:
             email_intro: 'Pasiūlymas "%{resource_title}" šiuo metu vertinamas. Atsakymą galite patikrinti šiame puslapyje:'
-            email_outro: Gavote šį pranešimą, nes sekate %{resource_title}. Galite nebesekti paspaudę ant aukščiau esančios nuorodos.
             email_subject: Pasiūlymas, kurį sekate, šiuo metu vertinamas
             notification_title: <a href="%{resource_path}">%{resource_title}</a> pasiūlymas šiuo metu vertinamas.
         proposal_mentioned:
@@ -321,7 +319,6 @@ lt:
             notification_title: Jūsų pasiūlymas <a href="%{resource_path}">%{resource_title}</a> atmestas.
           follower:
             email_intro: 'Pasiūlymas „%{resource_title}“ atmestas. Atsakymą galite perskaityti šiame puslapyje:'
-            email_outro: Gavote šį pranešimą, nes sekate %{resource_title}. Galite nebesekti paspaudę ant aukščiau esančios nuorodos.
             email_subject: Pasiūlymas, kurį sekate, buvo atmestas
             notification_title: Pasiūlymas <a href="%{resource_path}">%{resource_title}</a> buvo atmestas.
         proposal_update_category:

@@ -110,13 +110,11 @@ ru:
         proposal_accepted:
           follower:
             email_intro: 'Предложение "%{resource_title}" было принято. Вы можете прочитать ответ на странице:'
-            email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
             email_subject: Предложение, за которым вы следите, было принято
             notification_title: Предложение <a href="%{resource_path}">%{resource_title}</a> было принято.
         proposal_evaluating:
           follower:
             email_intro: 'Предложение "%{resource_title}" сейчас рассматривается. Вы можете проверить наличие ответа на странице:'
-            email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
             email_subject: Предложение, за которым вы следите, сейчас рассматривается
             notification_title: Предложение <a href="%{resource_path}">%{resource_title}</a> на рассмотрении.
         proposal_mentioned:
@@ -131,7 +129,6 @@ ru:
         proposal_rejected:
           follower:
             email_intro: 'Предложение "%{resource_title}" было отклонено. Вы можете прочитать ответ на странице:'
-            email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
             email_subject: Предложение, за которым вы следите, было отклонено
             notification_title: Предложение <a href="%{resource_path}">%{resource_title}</a> было отклонено.
         proposal_update_category:
@@ -164,6 +161,7 @@ ru:
             accepted: Принято
             answer_proposal: Ответить
             evaluating: Рассматривается
+            not_answered: Без ответов
             rejected: Отклонено
             title: Ответ на предложение %{title}
         proposal_notes:
@@ -230,7 +228,10 @@ ru:
         filter_origin_values:
           official: Служебные
         filter_state_values:
+          accepted: Принято
+          evaluating: Рассматривается
           not_answered: Без ответов
+          rejected: Отклонено
       content_blocks:
         highlighted_proposals:
           proposals: Предложения

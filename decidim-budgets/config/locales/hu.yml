@@ -100,6 +100,8 @@ hu:
             pending_orders: Függőben lévő szavazások
             select_for_implementation: Kijelölés megvalósításra
             selected: Kiválasztva
+            selected_options:
+              'yes': 'Igen'
             title: Projektek
             update: Frissítés
             update_scope_button: Hatáskör frissítése

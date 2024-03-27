@@ -193,7 +193,6 @@ sk:
             notification_title: Váš návrh <a href="%{resource_path}">%{resource_title} </a> bol prijatý.
           follower:
             email_intro: 'Návrh "%{resource_title}" bol prijatý. Odpoveď môžete čítať na tejto stránke: '
-            email_outro: Toto oznámenie ste dostali, pretože sledujete "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
             email_subject: Návrh, ktorý sledujete, bol prijatý
             notification_title: Návrh <a href="%{resource_path}">%{resource_title} </a> bol prijatý.
         proposal_evaluating:
@@ -204,7 +203,6 @@ sk:
             notification_title: Váš návrh <a href="%{resource_path}">%{resource_title} </a> je hodnotený.
           follower:
             email_intro: 'V súčasnej dobe sa hodnotí návrh "%{resource_title}". V tejto stránke môžete skontrolovať odpoveď: '
-            email_outro: Toto oznámenie ste dostali, pretože sledujete "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
             email_subject: Návrh, ktorý sledujete, sa hodnotí
             notification_title: Návrh <a href="%{resource_path}">%{resource_title} </a> sa hodnotí.
         proposal_mentioned:
@@ -228,7 +226,6 @@ sk:
             notification_title: Váš návrh <a href="%{resource_path}">%{resource_title} </a> bol zamietnutý.
           follower:
             email_intro: 'Návrh "%{resource_title}" bol zamietnutý. Odpoveď môžete čítať na tejto stránke: '
-            email_outro: Toto oznámenie ste dostali, pretože sledujete "%{resource_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
             email_subject: Návrh, ktorý sledujete, bol zamietnutý
             notification_title: Návrh <a href="%{resource_path}">%{resource_title} </a> bol zamietnutý.
         proposal_update_category:
@@ -354,9 +351,10 @@ sk:
             success: Úspešný text bol úspešne aktualizovaný.
         proposal_answers:
           form:
-            accepted: Prijal
+            accepted: Prijaté
             answer_proposal: Odpovedať
-            evaluating: Hodnotenie
+            evaluating: Hodnotené
+            not_answered: Nezodpovedané
             rejected: Odmietnuté
             title: Odpoveď na návrh%{title}
         proposal_notes:
@@ -499,9 +497,9 @@ sk:
         filter_scope_values:
           all: Všetko
         filter_state_values:
-          accepted: Prijal
+          accepted: Prijaté
           all: Všetko
-          evaluating: Hodnotenie
+          evaluating: Hodnotené
           not_answered: Nezodpovedané
           rejected: Odmietnuté
         filter_type_values:

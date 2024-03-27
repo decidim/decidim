@@ -206,11 +206,6 @@ gl:
           new:
             send: Solicitar verificación
             title: Carga o documento de identidade
-          update:
-            error: Produciuse un problema ao volver cargar o documento
-            success: O documento foi reencriptado con éxito
-        dni: DNI
-        nie: NIE
         passport: Pasaporte
       postal_letter:
         admin:

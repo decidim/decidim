@@ -185,9 +185,6 @@ lv:
           new:
             send: Pieprasīt verifikāciju
             title: Augšupielādējiet savu personu apliecinošu dokumentu
-          update:
-            error: Atkārtoti augšupielādējot jūsu dokumentu, radās problēma
-            success: Dokuments ir veiksmīgi atkārtoti augšupielādēts
         passport: Pase
       postal_letter:
         admin:

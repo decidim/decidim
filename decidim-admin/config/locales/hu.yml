@@ -93,6 +93,7 @@ hu:
         success_color: Siker
         time_zone: Időzóna
         tos_version: Használati feltételek
+        twitter_handler: X kezelő
         user_groups_enabled: Csoportok engedélyezése
         users_registration_mode: Felhasználói regisztrációs mód
         warning_color: Figyelmeztetés
@@ -735,6 +736,9 @@ hu:
           select_scopes: Kiszűri azokat a felhasználókat, akik a fiók "Saját érdeklődési kör" beállításainál aktiválták a kiválasztott hatókört.
           select_spaces: A hírlevél szegmentálására szolgáló terek kiválasztása
           select_users: Válassza ki, hogy mely felhasználók számára szeretné elküldeni a hírlevelet
+          send_to_all_users: Küldés az összes felhasználónak
+          send_to_followers: Küldés a követőknek
+          send_to_participants: Küldés a résztvevőknek
           title: Címzettek kiválasztása
           warning: "<strong>Figyelem:</strong> Ez a hírlevél csak azoknak a felhasználóknak kerül elküldésre, akik bejelölték a <em>Hírleveleket szeretnék kapni</em> opciót az értesítési beállításokban."
         send:
@@ -795,6 +799,7 @@ hu:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Néhány szövegmezőbe, a résztvevők HTML tag-eket tudnak majd beilleszteni a szövegszerkesztő segítségével.
           social_handlers: Social
+          twitter: X
           url: URL
           youtube: Youtube
         update:
@@ -808,6 +813,7 @@ hu:
             colors_title: Szervezet színei
             colors_warning_html: Óvatosan! A színek megváltoztatása megtörhetik az akadálymentes kontrasztokat. Ellenőrizheti a kontrasztot a <a href="%{link}">WebAIM Contrast Checker</a> vagy más, hasonló eszköz segítségével.
             header_snippets_help: Ebben a mezőben a HTML fejlécet szerkesztheted. Ennek akkor van jelentősége, ha olyan külső szolgáltatásokat szeretnél intergálni, amelyekhez JavaScript vagy CSS szükséges. Sőt, metacímkéket is hozzáadhatsz. Ez az adminban nem, csak a nyilvános oldalakon jelenik majd meg.
+          cta_button_path_help: 'Felülírhatod, hogy a kezdőlap felhívás gombja link hova mutasson. Részleges, ne pedig teljes URL címeket használj. A megengedett karakterek: betű, szám, kötőjel vagy perjel, de mindig betűvel kell kezdődnie. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon. Példa: %{url}'
           cta_button_text_help: A felhívás gomb szövegét a szervezethez tartozó minden egyes nyelven megjelenítheted. Amennyiben nincs beállítva, akkor akkor az alapértelmezett értéket fogja használni. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon.
           homepage_appearance_title: Honlap megjelenésének szerkesztése
           homepage_highlighted_content_banner_title: Kiemelt banner
@@ -826,6 +832,10 @@ hu:
         form:
           add: Hozzáadás a kivétellistához
           title: Külső domain kivétellista
+      organization_homepage:
+        edit:
+          active_content_blocks: Aktív tartalom blokkok
+          inactive_content_blocks: Inaktív tartalmi blokkok
       organization_homepage_content_blocks:
         edit:
           update: Frissítés
@@ -972,9 +982,11 @@ hu:
         authorization_workflows: Ellenőrzési módszerek
         dashboard: Vezérlőpult
         edit_external_domains: Külső domain kivétellista
+        edit_organization_appearance: Honlap megjelenésének szerkesztése
         impersonatable_users: Kezelhető résztvevők
         impersonations: Résztvevők kezelése
         metrics: Mérőszámok
+        pages: Oldalak
         panel: Admin
         participants: Résztvevők
         scope_types: Hatáskör típusok

@@ -6,7 +6,7 @@ describe Decidim::Accountability::ResultProgressUpdatedEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.accountability.result_progress_updated" }
-  let(:resource) { create(:result) }
+  let(:resource) { create(:result, title: generate_localized_title(:result_title)) }
   let(:proposal_component) do
     create(:component, manifest_name: "proposals", participatory_space: resource.component.participatory_space)
   end
@@ -55,7 +55,7 @@ describe Decidim::Accountability::ResultProgressUpdatedEvent do
   describe "email_intro" do
     it "is generated correctly" do
       expect(subject.email_intro).not_to include(proposal.title.to_s)
-      expect(subject.email_outro).to include(proposal_title)
+      expect(subject.email_intro).to include(proposal_title)
     end
   end
 

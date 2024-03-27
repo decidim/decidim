@@ -141,7 +141,7 @@ de:
         new:
           copy: Kopieren
           select: Wählen Sie die Daten aus, die Sie duplizieren möchten
-          title: Doppelte Montage
+          title: Dupliziertes Gremium
       assembly_imports:
         create:
           error: Beim Importieren dieses Gremiums ist ein Fehler aufgetreten.
@@ -292,7 +292,7 @@ de:
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             social_handlers: Sozial
             title: Allgemeine Information
-            visbility: Sichtweite
+            visbility: Sichtbarkeit
         assemblies_settings:
           edit:
             update: Aktualisieren
