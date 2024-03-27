@@ -38,7 +38,7 @@ shared_examples_for "resource endorsed event" do
     let(:resource_title) { decidim_sanitize_translated(resource.title) }
     it "is generated correctly" do
       expect(subject.email_intro)
-        .to eq("#{author.name} #{author_presenter.nickname}, who you are following," \
+        .to eq("#{author.name} #{author_presenter.nickname}, who you are following, " \
                "has just endorsed \"#{resource_title}\" and we think it may be interesting to you. Check it out and contribute:")
     end
   end
