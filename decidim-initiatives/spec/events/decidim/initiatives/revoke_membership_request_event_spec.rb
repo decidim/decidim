@@ -20,8 +20,6 @@ describe Decidim::Initiatives::RevokeMembershipRequestEvent do
   let(:email_outro) { "You received this notification because you applied to this initiative: #{resource_title}." }
   let(:notification_title) { "<a href=\"#{author_profile_url}\">#{author_nickname}</a> rejected your application to be part of the promoter committee for the following initiative <a href=\"#{resource_url}\">#{resource_title}</a>." }
 
-  include_context "when a simple event"
-
   it_behaves_like "a simple event email"
   it_behaves_like "a simple event notification"
 
