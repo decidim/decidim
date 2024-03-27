@@ -12,25 +12,11 @@ module Decidim
     class CreateDebateEvent < Decidim::Events::SimpleEvent
       include Decidim::Events::AuthorEvent
 
-      i18n_attributes :space_title, :space_path
-
       def resource_text
         translated_attribute(resource.description)
       end
 
       private
-
-      def space
-        @space ||= resource.participatory_space
-      end
-
-      def space_path
-        Decidim::ResourceLocatorPresenter.new(space).path
-      end
-
-      def space_title
-        space.title.is_a?(Hash) ? space.title[I18n.locale.to_s] : space.title
-      end
 
       def i18n_scope
         @i18n_scope ||= if extra[:type].to_s == "user"

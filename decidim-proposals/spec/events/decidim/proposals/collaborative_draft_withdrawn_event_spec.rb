@@ -8,7 +8,6 @@ describe Decidim::Proposals::CollaborativeDraftWithdrawnEvent do
   let(:event_name) { "decidim.events.proposals.collaborative_draft_withdrawn" }
   let(:resource) { create :collaborative_draft, title: "It's my collaborative draft" }
   let(:resource_path) { Decidim::ResourceLocatorPresenter.new(resource).path }
-  let(:resource_title) { decidim_html_escape(resource.title) }
   let(:author) { resource.authors.first }
   let(:author_id) { author.id }
   let(:author_presenter) { Decidim::UserPresenter.new(author) }
@@ -22,7 +21,7 @@ describe Decidim::Proposals::CollaborativeDraftWithdrawnEvent do
     let(:notification_title) { %(<a href="#{author_path}">#{author_name} #{author_nickname}</a> <strong>withdrawn</strong> the <a href="#{resource_path}">#{resource_title}</a> collaborative draft.) }
     let(:email_outro) { %(You have received this notification because you are a collaborator of <a href="#{resource_url}">#{resource_title}</a>.) }
     let(:email_intro) { %(<a href="#{author_url}">#{author_name} #{author_nickname}</a> withdrawn the <a href="#{resource_url}">#{resource_title}</a> collaborative draft.) }
-    let(:email_subject) { "#{author_name} #{author_nickname} withdrawn the #{decidim_sanitize(resource_title)} collaborative draft." }
+    let(:email_subject) { "#{author_name} #{author_nickname} withdrawn the #{resource_title} collaborative draft." }
 
     it_behaves_like "a simple event"
     it_behaves_like "a simple event email"

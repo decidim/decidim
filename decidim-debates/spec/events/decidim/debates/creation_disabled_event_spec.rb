@@ -11,7 +11,6 @@ module Decidim
 
       let(:event_name) { "decidim.events.debates.creation_disabled" }
       let(:resource) { create(:debates_component) }
-      let(:participatory_space) { resource.participatory_space }
       let(:resource_path) { main_component_path(resource) }
       let(:email_subject) { "Debate creation disabled in #{decidim_sanitize_translated(participatory_space.title)}" }
       let(:email_intro) { "Debate creation is no longer active in #{participatory_space_title}. You can still participate in open debates from this page:" }

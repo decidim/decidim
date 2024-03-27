@@ -2,10 +2,7 @@
 
 module Decidim
   module Initiatives
-    class SpawnCommitteeRequestEvent < Decidim::Events::BaseEvent
-      include Decidim::Events::EmailEvent
-      include Decidim::Events::NotificationEvent
-
+    class SpawnCommitteeRequestEvent < Decidim::Events::SimpleEvent
       def email_subject
         I18n.t(
           "decidim.initiatives.events.spawn_committee_request_event.email_subject",

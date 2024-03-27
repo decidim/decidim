@@ -34,14 +34,7 @@ module Decidim
       end
 
       def email_subject
-        I18n.t("email_subject", **email_subject_i18n_options).html_safe
-      end
-
-      def email_subject_i18n_options
-        sanitized_values = { resource_title: decidim_sanitize(resource_title) }
-        sanitized_values[:mentioned_proposal_title] = decidim_sanitize(mentioned_proposal_title) if i18n_options.has_key?(:mentioned_proposal_title)
-        sanitized_values[:participatory_space_title] = decidim_sanitize(participatory_space_title) if i18n_options.has_key?(:participatory_space_title)
-        i18n_options.merge(sanitized_values)
+        I18n.t("email_subject", **i18n_options).html_safe
       end
 
       def email_intro
@@ -77,13 +70,7 @@ module Decidim
 
       # Public: The Hash of options to pass to the I18.t method.
       def i18n_options
-        default_i18n_options.merge(event_interpolations).transform_values do |value|
-          if value.is_a?(String)
-            decidim_html_escape(value)
-          else
-            value
-          end
-        end
+        default_i18n_options.merge(event_interpolations)
       end
 
       # Caches the path for the given resource when it's a Decidim::Component.
@@ -114,6 +101,18 @@ module Decidim
       # Returns a string.
       def resource_text
         nil
+      end
+
+      def resource_title
+        return unless resource
+
+        title = if resource.respond_to?(:title)
+                  decidim_sanitize_translated(resource.title)
+                elsif resource.respond_to?(:name)
+                  decidim_sanitize_translated(resource.name)
+                end
+
+        Decidim::ContentProcessor.render_without_format(title, links: false).html_safe
       end
 
       private

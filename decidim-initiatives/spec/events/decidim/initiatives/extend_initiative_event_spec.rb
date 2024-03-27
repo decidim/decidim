@@ -6,10 +6,8 @@ describe Decidim::Initiatives::ExtendInitiativeEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.initiatives.initiative_extended" }
-  let(:resource) { initiative }
-
-  let(:initiative) { create :initiative }
-  let(:participatory_space) { initiative }
+  let(:resource) { create :initiative, title: generate_localized_title(:initiative_title) }
+  let(:participatory_space) { resource }
 
   it_behaves_like "a simple event"
 
