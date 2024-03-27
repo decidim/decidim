@@ -31,7 +31,7 @@ shared_context "when a simple event" do
   let(:resource_title) { resource.title["en"] }
   # to be used when resource is a component resource, not a participatory space, in which case should be overriden
   let(:participatory_space) { resource.participatory_space }
-  let(:participatory_space_title) { decidim_escape_translated(participatory_space.title) }
+  let(:participatory_space_title) { decidim_sanitize_translated(participatory_space.title) }
   let(:participatory_space_path) { Decidim::ResourceLocatorPresenter.new(participatory_space).path }
   let(:participatory_space_url) { Decidim::ResourceLocatorPresenter.new(participatory_space).url }
   let(:author) do
@@ -180,8 +180,6 @@ end
 shared_examples_for "a simple event notification" do
   describe "notification_title" do
     it "is generated correctly" do
-      pp subject.notification_title
-      pp notification_title
       expect(subject.notification_title)
         .to eq(notification_title)
     end
