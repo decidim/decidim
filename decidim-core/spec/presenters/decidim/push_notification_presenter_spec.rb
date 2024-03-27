@@ -42,7 +42,7 @@ module Decidim
 
       describe "#body" do
         it "returns text without links and with HTML entities unescaped" do
-          expect(subject.body).to eq("The post #{translated(resource.title)} has been published in #{translated(resource.component.participatory_space.title)}")
+          expect(subject.body).to eq("The post #{translated(resource.title)} has been published in #{decidim_sanitize_translated(resource.component.participatory_space.title)}")
         end
       end
 

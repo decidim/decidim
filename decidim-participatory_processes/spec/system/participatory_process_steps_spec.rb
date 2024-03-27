@@ -37,7 +37,7 @@ describe "Participatory Process Steps", type: :system do
 
       expect(page).to have_css(".timeline__item", count: 3)
       steps.each do |step|
-        expect(page).to have_content(/#{translated(step.title)}/i)
+        expect(page).to have_content(translated(step.title))
       end
     end
 

@@ -28,7 +28,7 @@ module Decidim
 
       describe "email body" do
         it "includes the participatory space name" do
-          expect(email_body(mail)).to match(moderation.participatory_space.title["en"])
+          expect(email_body(mail)).to include(decidim_escape_translated(moderation.participatory_space.title))
         end
 
         it "includes the report's reason" do

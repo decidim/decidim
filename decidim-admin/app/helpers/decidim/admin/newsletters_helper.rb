@@ -74,7 +74,7 @@ module Decidim
           else
             Decidim.find_participatory_space_manifest(type["manifest_name"].to_sym)
                    .participatory_spaces.call(current_organization).where(id: type["ids"]).each do |space|
-              html += "<strong>#{translated_attribute space.title}</strong>"
+              html += "<strong>#{decidim_escape_translated space.title}</strong>"
             end
           end
           html += "<br/>"
