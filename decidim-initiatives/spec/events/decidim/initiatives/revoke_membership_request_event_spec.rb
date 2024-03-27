@@ -3,7 +3,6 @@
 require "spec_helper"
 
 describe Decidim::Initiatives::RevokeMembershipRequestEvent do
-  include_context "when a simple event"
   subject do
     described_class.new(
       resource: initiative,
@@ -14,8 +13,10 @@ describe Decidim::Initiatives::RevokeMembershipRequestEvent do
     )
   end
 
+  include_context "when a simple event"
+
   let(:user_role) { :affected_user }
-  let(:extra) { { author: } }
+  let(:extra) { { author: author } }
   let(:event_name) { "decidim.events.initiatives.approve_membership_request" }
   let(:organization) { create(:organization) }
   let!(:resource) { create(:initiative, :created, organization: organization) }

@@ -8,13 +8,13 @@ module Decidim
       describe "notification digest mail" do
         let!(:component) do
           create(:debates_component,
-                 organization:,
-                 participatory_space:,
+                 organization: organization,
+                 participatory_space: participatory_space,
                  name: generate_component_name(participatory_space.organization.available_locales, :debates))
         end
 
-        let(:admin) { create(:user, :admin, organization:) }
-        let!(:follow) { create(:follow, followable: record, user:) }
+        let(:admin) { create(:user, :admin, organization: organization) }
+        let!(:follow) { create(:follow, followable: record, user: user) }
         let(:params) do
           {
             conclusions: "Example conclusion",

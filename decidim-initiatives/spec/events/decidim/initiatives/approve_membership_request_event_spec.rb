@@ -6,7 +6,7 @@ describe Decidim::Initiatives::ApproveMembershipRequestEvent do
   include_context "when a simple event"
 
   let(:user_role) { :affected_user }
-  let(:extra) { { author: } }
+  let(:extra) { { author: author } }
   let(:event_name) { "decidim.events.initiatives.approve_membership_request" }
   let!(:resource) { create(:initiative, :created) }
   let(:participatory_space) { resource }

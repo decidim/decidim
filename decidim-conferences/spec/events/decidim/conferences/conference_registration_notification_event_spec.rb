@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Conferences::ConferenceRegistrationNotificationEvent do
   let(:resource) { create(:conference) }
   let(:event_name) { "decidim.events.conferences.conference_registration_validation_pending" }
-  let(:user) { create(:user, organization:) }
+  let(:user) { create(:user, organization: organization) }
 
   include_context "when a simple event" do
     let(:participatory_space) { resource }

@@ -12,7 +12,7 @@ module Decidim
       def i18n_options
         {
           resource_title: resource_title,
-          resource_path:,
+          resource_path: resource_path,
           resource_url: resource_url,
           scope: event_name
         }

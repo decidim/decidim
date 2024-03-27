@@ -8,7 +8,7 @@ module Decidim
 
     let(:comment) { create(:comment, body: generate_localized_description(:comment_body)) }
     let(:moderation) { create(:moderation, reportable: comment) }
-    let(:report) { create(:report, moderation:) }
+    let(:report) { create(:report, moderation: moderation) }
     let(:resource) { comment }
     let(:resource_text) { "<i>#{decidim_sanitize(translated(resource.body), strip_tags: true)}</i>" }
     let(:event_name) { "decidim.events.reports.resource_hidden" }

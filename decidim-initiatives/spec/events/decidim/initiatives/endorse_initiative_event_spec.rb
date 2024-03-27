@@ -6,7 +6,7 @@ describe Decidim::Initiatives::EndorseInitiativeEvent do
   include Decidim::SanitizeHelper
 
   subject do
-    described_class.new(resource:, event_name: event_name, user: user, extra: {})
+    described_class.new(resource: resource, event_name: event_name, user: user, extra: {})
   end
 
   include_context "when a simple event"

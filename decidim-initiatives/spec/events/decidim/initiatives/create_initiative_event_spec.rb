@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe Decidim::Initiatives::CreateInitiativeEvent do
   subject do
-    described_class.new(resource:, event_name: event_name, user: user, extra: {})
+    described_class.new(resource: resource, event_name: event_name, user: user, extra: {})
   end
 
   include_context "when a simple event"
