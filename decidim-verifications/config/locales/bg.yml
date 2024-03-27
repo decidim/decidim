@@ -41,6 +41,23 @@ bg:
           before_date_info: Полезна функция, ако процесът вече е започнал и искате да анулирате разрешенията на предходния процес.
           button: Отмени всичко
           button_before: Отмени преди дата
+          destroy_ok: Всички съвпадащи оторизации бяха отменени успешно.
+          info: Има общо %{count} потвърдени участници.
+          title: Оторизации за отмяна
+        authorization_workflows: Оторизации
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} актуализира конфигурацията за оторизация на документи за самоличност"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} потвърди %{resource_name}, като използва офлайн проверка на документите за самоличност"
+    authorization_handlers:
+      admin:
+        id_documents:
+          help:
+            - Потребителите попълват своята информация за самоличност и качват копие на своя документ.
+            - Попълнете информацията, присъстваща в каченото изображение.
+            - Информацията трябва да съответства на това, което е попълнил потребителят.
+            - 
     verifications:
       dummy_authorization:
         extra_explanation:
