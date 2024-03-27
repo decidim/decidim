@@ -154,7 +154,7 @@ describe "Proposals", type: :system do
       end
 
       it "shows the author as meeting" do
-        expect(page).to have_content(translated(proposal.authors.first.title))
+        expect(page).to have_content(decidim_sanitize_translated(proposal.authors.first.title))
       end
 
       it_behaves_like "rendering safe content", ".columns.mediumlarge-8.large-9"

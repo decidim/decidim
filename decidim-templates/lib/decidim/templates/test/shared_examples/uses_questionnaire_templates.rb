@@ -20,7 +20,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
     end
 
     context "when there are templates" do
-      let!(:templates) { create_list(:questionnaire_template, 6, :with_questions, organization: questionnaire.questionnaire_for.organization) }
+      let!(:templates) { create_list(:questionnaire_template, 6, :with_questions, skip_injection: true, organization: questionnaire.questionnaire_for.organization) }
       let(:template) { templates.first }
       let(:question) { template.templatable.questions.first }
 
@@ -74,7 +74,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
   end
 
   describe "apply a template" do
-    let!(:templates) { create_list(:questionnaire_template, 6, :with_questions, organization: questionnaire.questionnaire_for.organization) }
+    let!(:templates) { create_list(:questionnaire_template, 6, :with_questions, skip_injection: true, organization: questionnaire.questionnaire_for.organization) }
     let(:template) { templates.first }
     let(:question) { template.templatable.questions.first }
     let(:questionnaire_question) { questionnaire.questions.first }

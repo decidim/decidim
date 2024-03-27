@@ -61,7 +61,7 @@ describe "Meeting registrations", type: :system do
         visit questionnaire_public_path
 
         expect(page).to have_i18n_content(questionnaire.title, upcase: true)
-        expect(page).to have_i18n_content(questionnaire.description)
+        expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
 
         expect(page).to have_no_i18n_content(question.body)
 
@@ -98,7 +98,7 @@ describe "Meeting registrations", type: :system do
           visit questionnaire_public_path
 
           expect(page).to have_i18n_content(questionnaire.title, upcase: true)
-          expect(page).to have_i18n_content(questionnaire.description)
+          expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
 
           expect(page).to have_no_i18n_content(question.body)
 
@@ -153,7 +153,7 @@ describe "Meeting registrations", type: :system do
             visit questionnaire_public_path
 
             expect(page).to have_i18n_content(questionnaire.title, upcase: true)
-            expect(page).to have_i18n_content(questionnaire.description)
+            expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
 
             expect(page).not_to have_css(".form.answer-questionnaire")
 
@@ -309,7 +309,7 @@ describe "Meeting registrations", type: :system do
           visit questionnaire_public_path
 
           expect(page).to have_i18n_content(questionnaire.title, upcase: true)
-          expect(page).to have_i18n_content(questionnaire.description)
+          expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
           expect(page).to have_content "Show my attendance publicly"
           expect(page).to have_field("public_participation", checked: false)
 
@@ -483,7 +483,7 @@ describe "Meeting registrations", type: :system do
           visit questionnaire_public_path
 
           expect(page).to have_i18n_content(questionnaire.title, upcase: true)
-          expect(page).to have_i18n_content(questionnaire.description)
+          expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
 
           expect(page).to have_no_i18n_content(question.body)
 

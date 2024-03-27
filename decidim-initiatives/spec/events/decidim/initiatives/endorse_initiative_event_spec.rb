@@ -14,7 +14,7 @@ describe Decidim::Initiatives::EndorseInitiativeEvent do
   include Decidim::TranslationsHelper
 
   let(:organization) { resource.organization }
-  let(:resource) { create :initiative }
+  let(:resource) { create(:initiative) }
   let(:initiative_author) { resource.author }
   let(:event_name) { "decidim.events.initiatives.initiative_endorsed" }
   let(:user) { create :user, organization: organization }

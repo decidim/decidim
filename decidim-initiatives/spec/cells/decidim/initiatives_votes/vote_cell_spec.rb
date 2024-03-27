@@ -25,7 +25,7 @@ describe Decidim::InitiativesVotes::VoteCell, type: :cell do
   context "when rendering" do
     it "shows title and identifier of initiative" do
       expect(subject).to have_content(vote.initiative.title[:en])
-      expect(subject).to have_content(translated(vote.initiative.title, locale: :en))
+      expect(subject).to have_content(decidim_sanitize_translated(vote.initiative.title))
     end
 
     it "shows decrypted data" do

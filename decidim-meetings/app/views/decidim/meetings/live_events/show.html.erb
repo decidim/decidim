@@ -1,4 +1,4 @@
-<% provide(:title, present(meeting).title) %>
+<% provide(:title, present(meeting).title(html_escape: true)) %>
 
 <% add_decidim_meta_tags({
   title: present(meeting).title,

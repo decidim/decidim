@@ -45,7 +45,7 @@ describe "Decidim::Api::QueryType" do
     {
       "__typename" => "Sortitions",
       "id" => current_component.id.to_s,
-      "name" => { "translation" => "Sortitions" },
+      "name" => { "translation" => translated(current_component.name) },
       "sortitions" => {
         "edges" => [
           {

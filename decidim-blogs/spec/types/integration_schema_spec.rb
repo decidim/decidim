@@ -50,7 +50,7 @@ describe "Decidim::Api::QueryType" do
     {
       "__typename" => "Blogs",
       "id" => current_component.id.to_s,
-      "name" => { "translation" => "Blog" },
+      "name" => { "translation" => translated(current_component.name) },
       "posts" => {
         "edges" => [
           {

@@ -3,15 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Initiatives::SpawnCommitteeRequestEvent do
-  subject do
-    described_class.new(
-      resource: initiative,
-      event_name: event_name,
-      user: [initiative.author],
-      user_role: :affected_user,
-      extra: { applicant: applicant }
-    )
-  end
+  include_context "when a simple event"
 
   include_context "when a simple event"
 

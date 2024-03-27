@@ -16,15 +16,8 @@ module Decidim::Meetings
     end
 
     context "when title contains special html entities" do
-      let!(:original_title) { meeting.title["en"] }
-
-      before do
-        meeting.update!(title: { en: "<strong>#{original_title}</strong> &'<" })
-        meeting.reload
-      end
-
       it "escapes them correctly" do
-        expect(subject.to_s).to include("&lt;strong&gt;#{original_title}&lt;/strong&gt; &amp;'&lt;")
+        expect(subject.to_s).to include(decidim_escape_translated(meeting.title).gsub("&quot;", "\""))
       end
     end
   end

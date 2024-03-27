@@ -50,17 +50,11 @@ module Decidim::Meetings
     context "when title contains special html entities" do
       let(:show_space) { true }
 
-      before do
-        @original_title = meeting.title["en"]
-        meeting.update!(title: { en: "#{meeting.title["en"]} &'<" })
-        meeting.reload
-      end
-
       it "escapes them correctly" do
-        expect(the_cell.title).to eq("#{@original_title} &amp;&#39;&lt;")
+        expect(the_cell.title).to eq(decidim_escape_translated(meeting.title))
         # as the `cell` test helper wraps content in a Capybara artifact that already converts html entities
         # we should compare with the expected visual result, as we were checking the DOM instead of the html
-        expect(cell_html).to have_content("#{@original_title} &'<")
+        expect(cell_html).to have_content(translated(meeting.title))
       end
     end
   end

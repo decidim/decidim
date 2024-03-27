@@ -573,11 +573,10 @@ FactoryBot.define do
   factory :coauthorship, class: "Decidim::Coauthorship" do
     transient do
       skip_injection { false }
-    end
-    coauthorable { create(:dummy_resource, skip_injection: skip_injection) }
-    transient do
       organization { coauthorable.component.participatory_space.organization }
     end
+
+    coauthorable { create(:dummy_resource, skip_injection: skip_injection) }
     author { create(:user, :confirmed, organization: organization, skip_injection: skip_injection) }
   end
 

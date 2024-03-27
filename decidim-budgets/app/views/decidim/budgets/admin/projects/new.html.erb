@@ -1,6 +1,6 @@
 <% add_decidim_page_title("#{translated_attribute(budget.title)} - #{t(".title")}") %>
 <%= decidim_form_for([budget, @form], html: { class: "form new_project" }) do |f| %>
-  <%= render partial: "form", object: f, locals: { title: "#{translated_attribute(budget.title)} &gt; #{t(".title")}" } %>
+  <%= render partial: "form", object: f, locals: { title: "#{decidim_escape_translated(budget.title)} &gt; #{t(".title")}" } %>
 
   <div class="button--double form-general-submit">
     <%= f.submit t(".create") %>
