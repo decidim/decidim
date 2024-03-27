@@ -162,8 +162,8 @@ module Decidim
         return ApplicationRecord.none if id_list.to_a.empty?
 
         values_clause = id_list.each_with_index.map { |id, i| "(#{id}, #{i})" }.join(", ")
-        joins(Arel.sql("JOIN (VALUES #{values_clause}) AS #{table_name}_id_order(id, ordering) ON #{table_name}.id = #{table_name}_id_order.id").to_s)
-          .order(Arel.sql("#{table_name}_id_order.ordering").to_s)
+        joins(Arel.sql("JOIN (VALUES #{values_clause}) AS #{table_name}_id_order(id, ordering) ON #{table_name}.id = #{table_name}_id_order.id"))
+          .order(Arel.sql("#{table_name}_id_order.ordering"))
       end
 
       # Declares the searchable fields for this instance and, optionally, some conditions.
