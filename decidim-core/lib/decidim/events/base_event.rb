@@ -7,6 +7,7 @@ module Decidim
     # notifications dashboard and to generate other notifications (emails, for example).
     class BaseEvent
       extend ActiveModel::Translation
+      include Decidim::TranslatableAttributes
 
       class_attribute :types
       self.types = []
@@ -102,9 +103,9 @@ module Decidim
         return unless resource
 
         title = if resource.respond_to?(:title)
-                  translated(resource.title)
+                  translated_attribute(resource.title)
                 elsif resource.respond_to?(:name)
-                  translated(resource.name)
+                  translated_attribute(resource.name)
                 end
 
         Decidim::ContentProcessor.render_without_format(title, links: false).html_safe

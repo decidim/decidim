@@ -10,7 +10,7 @@ describe Decidim::Initiatives::CreateInitiativeEvent do
   include_context "when a simple event"
 
   let(:organization) { resource.organization }
-  let(:resource) { create :initiative }
+  let(:resource) { create :initiative, title: generate_localized_title(:initiative_title) }
   let(:initiative_author) { resource.author }
   let(:event_name) { "decidim.events.initiatives.initiative_created" }
   let(:user) { create :user, organization: organization }

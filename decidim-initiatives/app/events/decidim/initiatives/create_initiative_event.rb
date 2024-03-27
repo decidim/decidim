@@ -2,10 +2,7 @@
 
 module Decidim
   module Initiatives
-    class CreateInitiativeEvent < Decidim::Events::BaseEvent
-      include Decidim::Events::EmailEvent
-      include Decidim::Events::NotificationEvent
-
+    class CreateInitiativeEvent < Decidim::Events::SimpleEvent
       def email_subject
         I18n.t(
           "decidim.initiatives.events.create_initiative_event.email_subject",
