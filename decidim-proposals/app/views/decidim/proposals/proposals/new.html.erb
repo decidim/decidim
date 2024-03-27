@@ -8,15 +8,11 @@
   <%= render partial: "wizard_header" %>
 
   <%= decidim_form_for(@form) do |form| %>
+
     <%= form_required_explanation %>
 
     <div class="form__wrapper">
-      <%= form.text_field :title, class: "js-hashtags" %>
-      <%= text_editor_for_proposal_body(form) %>
-
-      <% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
-        <%= user_group_select_field form, :user_group_id %>
-      <% end %>
+      <%= render partial: "edit_form_fields", locals: { form: , new_proposal: true } %>
     </div>
 
     <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
@@ -31,5 +27,4 @@
       </button>
     </div>
   <% end %>
-
 <% end %>

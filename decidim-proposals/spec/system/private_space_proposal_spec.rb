@@ -99,7 +99,7 @@ describe "Private Space Proposal" do
             find("*[type=submit]").click
           end
 
-          expect(page).to have_content("Well done!")
+          expect(page).to have_content("Publish your proposal")
         end
       end
 

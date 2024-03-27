@@ -3,13 +3,17 @@
 module Decidim
   module Proposals
     # A form object to be used when public users want to create a proposal.
-    class ProposalForm < Decidim::Proposals::ProposalWizardCreateStepForm
+    class ProposalForm < Decidim::Form
       include Decidim::TranslatableAttributes
       include Decidim::AttachmentAttributes
       include Decidim::HasUploadValidations
 
       mimic :proposal
 
+      attribute :title, String
+      attribute :body, Decidim::Attributes::CleanString
+      attribute :body_template, String
+      attribute :user_group_id, Integer
       attribute :address, String
       attribute :latitude, Float
       attribute :longitude, Float
@@ -20,22 +24,33 @@ module Decidim
 
       attachments_attribute :documents
 
+      validates :title, :body, presence: true, etiquette: true
+      validates :title, length: { in: 15..150 }
+      validates :body, proposal_length: {
+        minimum: 15,
+        maximum: ->(record) { record.component.settings.proposal_length }
+      }
       validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
       validates :scope_id, scope_belongs_to_component: true, if: ->(form) { form.scope_id.present? }
+
+      validate :body_is_not_bare_template
       validate :notify_missing_attachment_if_errored
 
+      alias component current_component
       delegate :categories, to: :current_component
 
       def map_model(model)
-        super
-
-        body = translated_attribute(model.body)
+        self.title = translated_attribute(model.title)
+        self.body = translated_attribute(model.body)
         @suggested_hashtags = Decidim::ContentRenderers::HashtagRenderer.new(body).extra_hashtags.map(&:name).map(&:downcase)
 
         presenter = ProposalPresenter.new(model)
         self.body = presenter.editor_body(all_locales: body.is_a?(Hash))
+
+        self.user_group_id = model.user_groups.first&.id
+        self.category_id = model.categorization.decidim_category_id if model.categorization
 
         # The scope attribute is with different key (decidim_scope_id), so it
         # has to be manually mapped.
@@ -99,6 +114,12 @@ module Decidim
       end
 
       private
+
+      def body_is_not_bare_template
+        return if body_template.blank?
+
+        errors.add(:body, :cant_be_equal_to_template) if body.presence == body_template.presence
+      end
 
       # This method will add an error to the "add_documents" field only if there is any error
       # in any other field. This is needed because when the form has an error, the attachment

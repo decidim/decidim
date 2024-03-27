@@ -4,6 +4,7 @@ module Decidim
   module Proposals
     # A command with all the business logic when a user creates a new proposal.
     class CreateProposal < Decidim::Command
+      include ::Decidim::MultipleAttachmentsMethods
       include HashtagsMethods
 
       # Public: Initializes the command.
@@ -31,8 +32,14 @@ module Decidim
           return broadcast(:invalid)
         end
 
+        if process_attachments?
+          build_attachments
+          return broadcast(:invalid) if attachments_invalid?
+        end
+
         with_events(with_transaction: true) do
           create_proposal
+          create_attachments(first_weight: first_attachment_weight) if process_attachments?
         end
 
         broadcast(:ok, proposal)
@@ -74,8 +81,14 @@ module Decidim
               },
               component: form.component
             )
+
+            proposal.category = form.category if form.category_id.present?
+            proposal.scope = form.scope if form.scope_id.present?
+            proposal.documents = form.documents if form.documents.present?
+            proposal.address = form.address if form.has_address? && !form.geocoded?
             proposal.add_coauthor(@current_user, user_group:)
             proposal.save!
+            @attached_to = proposal
             proposal
           end
         end
@@ -109,6 +122,12 @@ module Decidim
 
       def user_group_proposals
         Proposal.not_withdrawn.from_user_group(@user_group).where(component: form.current_component)
+      end
+
+      def first_attachment_weight
+        return 1 if proposal.photos.count.zero?
+
+        proposal.photos.count
       end
     end
   end

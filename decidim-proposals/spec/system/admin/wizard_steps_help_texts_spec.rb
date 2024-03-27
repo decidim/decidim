@@ -70,8 +70,8 @@ describe "Manage proposal wizard steps help texts" do
     visit edit_component_path(current_component)
 
     fill_in_i18n_editor(
-      :component_settings_proposal_wizard_step_3_help_text,
-      "#global-settings-proposal_wizard_step_3_help_text-tabs",
+      :component_settings_proposal_wizard_step_2_help_text,
+      "#global-settings-proposal_wizard_step_2_help_text-tabs",
       en: "This is the third step of the Proposal creation wizard.",
       es: "Este es el tercer paso del asistente de creación de propuestas.",
       ca: "Aquest és el tercer pas de l'assistent de creació de la proposta."
@@ -97,8 +97,8 @@ describe "Manage proposal wizard steps help texts" do
     visit edit_component_path(current_component)
 
     fill_in_i18n_editor(
-      :component_settings_proposal_wizard_step_4_help_text,
-      "#global-settings-proposal_wizard_step_4_help_text-tabs",
+      :component_settings_proposal_wizard_step_2_help_text,
+      "#global-settings-proposal_wizard_step_2_help_text-tabs",
       en: "This is the fourth step of the Proposal creation wizard.",
       es: "Este es el cuarto paso del asistente de creación de propuestas.",
       ca: "Aquest és el quart pas de l'assistent de creació de la proposta."
