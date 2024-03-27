@@ -14,7 +14,7 @@ module Decidim
       end
 
       def participatory_space_title
-        translated_attribute model.component.participatory_space.title
+        decidim_escape_translated model.component.participatory_space.title
       end
 
       def participatory_space_path

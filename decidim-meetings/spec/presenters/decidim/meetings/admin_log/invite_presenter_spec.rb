@@ -20,13 +20,13 @@ module Decidim::Meetings::AdminLog
         it "renders the invite information" do
           user = action_log.user
           inviter = "<a class=\"logs__log__author\" title=\"@#{user.nickname}\" data-tooltip=\"true\" data-disable-hover=\"false\" href=\"/profiles/#{user.nickname}\">#{user.name}</a>"
-          space = "<a class=\"logs__log__space\" href=\"/processes/#{participatory_space.slug}?participatory_process_slug=#{participatory_space.slug}\">#{translated(participatory_space.title)}</a>"
+          space = "<a class=\"logs__log__space\" href=\"/processes/#{participatory_space.slug}?participatory_process_slug=#{participatory_space.slug}\">#{decidim_escape_translated(participatory_space.title)}</a>"
           action_string = "#{inviter} invited #{invite.user.name} to join <span class=\"logs__log__resource\"></span> meeting on the #{space} space"
           expect(subject).to include action_string
         end
       end
 
-      context "when invite doesn't exist anymore" do
+      context "when invite does not exist anymore" do
         before do
           invite.destroy
           action_log.reload
