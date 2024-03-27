@@ -32,8 +32,19 @@ de:
           title: Schaltflächen
         cards:
           title: Karten
+        dialogs:
+          title: Dialoge
+          usage_description: Ein Dialog erfordert zwei Elemente
+          usage_description_2_html: 2. Ein modales Element, dessen <code>ID</code> mit dem Datenzielwert übereinstimmt, auf den der Trigger verweist.
+          usage_description_html: 1. Ein benutzerdefinierbares Element, mit dem Daten-Attribut <code>data-dialog-open="Beispiel"</code>, wobei das Beispiel die <code>ID</code> des Modals ist.
         follow:
           title: Folgen
+        forms:
+          disabled: Deaktiviert
+          emojis: Emojis
+          emojis_description: Funktioniert nur für Textbereiche
+          errors: Fehler
+          help_texts: Hilfe-Texte
         report:
           title: Melden
         share:
@@ -117,13 +128,21 @@ de:
         image_and_description: Bild und Beschreibung
         initiatives: Initiativen
         main_colors: Hauptfarben
+        proposals: Vorschläge
+        report_button: Schaltfläche "Melden"
+        report_usage_description: Die Schaltfläche "Melden" öffnet einen modalen Dialog, wo Beiträge zur Moderation gemeldet werden können.
+        result_l: Resultat L
         rgba_code: RGBA-Code
+        search: Suche
         send: Senden
+        share_button: Schaltfläche "Teilen"
         sizes: Grössen
         source_code: Quellcode
         state: Status
         text: Text
         transparent: Transparent
+        transparent_description: 'Im Falle eines dunkleren Hintergrunds:'
+        types: Typen
         typography_texts: Typographie und Texte
         usage: Nutzung
         usage_background_3: Standard-Symbolfarbe
