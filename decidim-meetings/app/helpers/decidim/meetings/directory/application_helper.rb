@@ -92,7 +92,7 @@ module Decidim
             key_point = current_participatory_space.class.name.gsub("::", "__") + current_participatory_space.id.to_s
 
             TreeNode.new(
-              TreePoint.new(key_point, translated_attribute(current_participatory_space.title, current_organization)),
+              TreePoint.new(key_point, decidim_escape_translated(current_participatory_space.title)),
               categories_values
             )
           end
