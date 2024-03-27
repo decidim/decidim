@@ -56,7 +56,7 @@ module Decidim
       def group
         @records = @records
                    .group(group_by)
-                   .order(Arel.sql("#{group_by} DESC").to_s)
+                   .order(Arel.sql("#{group_by} DESC"))
       end
 
       def sum

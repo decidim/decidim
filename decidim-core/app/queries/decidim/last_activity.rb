@@ -60,14 +60,14 @@ module Decidim
                           "decidim_action_logs.participatory_space_type = '#{manifest.model_class_name}'",
                           "decidim_action_logs.participatory_space_id IN (#{Arel.sql(klass.visible_for(current_user).select(:id).to_sql)})"
                         ].join(" AND ")
-                      ).to_s
+                      )
                     else
-                      Arel.sql("decidim_action_logs.participatory_space_type = '#{manifest.model_class_name}'").to_s
+                      Arel.sql("decidim_action_logs.participatory_space_type = '#{manifest.model_class_name}'")
                     end
 
         conditions << "(#{condition})"
       end
-      query.where(Arel.sql(conditions.join(" OR ")).to_s)
+      query.where(Arel.sql(conditions.join(" OR ")))
     end
 
     def filter_deleted(query)
@@ -82,15 +82,15 @@ module Decidim
                           "decidim_action_logs.resource_type = '#{resource_type}'",
                           "decidim_action_logs.resource_id IN (#{Arel.sql(klass.not_deleted.select(:id).to_sql)})"
                         ].join(" AND ")
-                      ).to_s
+                      )
                     else
-                      Arel.sql("decidim_action_logs.resource_type = '#{resource_type}'").to_s
+                      Arel.sql("decidim_action_logs.resource_type = '#{resource_type}'")
                     end
 
         conditions << "(#{condition})"
       end
 
-      query.where(Arel.sql(conditions.join(" OR ")).to_s)
+      query.where(Arel.sql(conditions.join(" OR ")))
     end
   end
 end
