@@ -53,14 +53,6 @@ module Decidim
           Decidim::User.find(@extra["author"]["id"])
         )
       end
-
-      def resource_title
-        return unless resource
-
-        title = decidim_sanitize_translated(resource.title)
-
-        Decidim::ContentProcessor.render_without_format(title, links: false).html_safe
-      end
     end
   end
 end

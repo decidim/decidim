@@ -8,5 +8,6 @@ describe Decidim::Conferences::ConferenceRegistrationsEnabledEvent do
   let(:resource) { create(:conference) }
   let(:participatory_space) { resource }
   let(:event_name) { "decidim.events.conferences.registrations_enabled" }
+
   it_behaves_like "a simple event"
 end

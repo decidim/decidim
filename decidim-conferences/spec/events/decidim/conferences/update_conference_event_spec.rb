@@ -8,5 +8,6 @@ describe Decidim::Conferences::UpdateConferenceEvent do
   let(:resource) { create(:conference) }
   let(:participatory_space) { resource }
   let(:event_name) { "decidim.events.conferences.conference_updated" }
+
   it_behaves_like "a simple event"
 end

@@ -46,14 +46,6 @@ module Decidim
       def author
         @author ||= Decidim::UserPresenter.new(resource.author)
       end
-
-      def resource_title
-        return unless resource
-
-        title = decidim_sanitize_translated(resource.title)
-
-        Decidim::ContentProcessor.render_without_format(title, links: false).html_safe
-      end
     end
   end
 end
