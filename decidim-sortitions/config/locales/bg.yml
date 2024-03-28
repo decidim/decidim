@@ -39,3 +39,6 @@ bg:
           dice_result: "(1) Резултат от жребия"
           mathematical_result: Резултат (1) x (2)
           sortition_reproducibility_details: Подробности за възпроизвеждане на жребия
+          time_seed: "(2) Време за зареждане"
+        sortition:
+          view: Изглед
