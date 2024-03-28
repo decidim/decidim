@@ -137,13 +137,13 @@ module Decidim
 
       describe "future_spaces" do
         it "returns none" do
-          expect(described_class.future_spaces).to eq ApplicationRecord.none
+          expect(described_class.future_spaces).to eq ApplicationRecord.none.to_a
         end
       end
 
       describe "past_spaces" do
         it "returns none" do
-          expect(described_class.past_spaces).to eq ApplicationRecord.none
+          expect(described_class.past_spaces).to eq ApplicationRecord.none.to_a
         end
       end
     end

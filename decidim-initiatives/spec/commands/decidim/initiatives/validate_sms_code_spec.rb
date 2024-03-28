@@ -7,7 +7,7 @@ module Decidim
     describe ValidateSmsCode do
       let(:form_klass) { Decidim::Verifications::Sms::ConfirmationForm }
       let(:form) { form_klass.from_params(form_params) }
-      let(:form_params) { { "verification_code" => "123456" } }
+      let(:form_params) { { :verification_code => "123456" } }
       let(:verification_metadata) { form_params }
       let(:command) { described_class.new(form, verification_metadata) }
 

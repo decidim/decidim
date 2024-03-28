@@ -1,7 +1,7 @@
 <% if meetings.present? %>
   <div class="conference__program-item">
     <div class="conference__program-time">
-      <%= start_time.to_s(:time) %> - <%= end_time.to_s(:time) %>
+      <%= start_time.to_fs(:time) %> - <%= end_time.to_fs(:time) %>
     </div>
     <div data-component="accordion" data-multiselectable="false" data-collapsible="false">
       <% categories = meetings.map(&:category).uniq %>

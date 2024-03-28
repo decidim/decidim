@@ -39,15 +39,13 @@ require "ransack"
 require "wisper"
 require "shakapacker"
 
-# Needed for the assets:precompile task, for configuring webpacker instance
-require "decidim/webpacker"
-
 require "decidim/api"
 require "decidim/core/content_blocks/registry_manager"
 require "decidim/core/menu"
 require "decidim/middleware/strip_x_forwarded_host"
 require "decidim/middleware/static_dispatcher"
 require "decidim/middleware/current_organization"
+require "decidim/webpacker"
 
 module Decidim
   module Core
@@ -224,6 +222,10 @@ module Decidim
         ENV["SHAKAPACKER_CONFIG"] = Decidim::Webpacker.configuration.configuration_file
       end
 
+      initializer "decidim_core.active_storage_variant_processor" do |app|
+        app.config.active_storage.variant_processor = :mini_magick
+      end
+
       initializer "decidim_core.action_controller" do |_app|
         config.to_prepare do
           ActiveSupport.on_load :action_controller do
@@ -297,8 +299,8 @@ module Decidim
         end
       end
 
-      initializer "decidim_core.i18n_exceptions" do
-        ActionView::Base.raise_on_missing_translations = true unless Rails.env.production?
+      initializer "decidim_core.i18n_exceptions" do |app|
+        app.config.i18n.raise_on_missing_translations = true unless Rails.env.production?
       end
 
       initializer "decidim_core.geocoding", after: :load_config_initializers do
@@ -382,14 +384,8 @@ module Decidim
       end
 
       initializer "decidim_core.notifications" do
-        if Rails.autoloaders.zeitwerk_enabled?
-          config.after_initialize do
-            Decidim::EventsManager.subscribe_events!
-          end
-        else
-          config.to_prepare do
-            Decidim::EventsManager.subscribe_events!
-          end
+        config.after_initialize do
+          Decidim::EventsManager.subscribe_events!
         end
       end
 

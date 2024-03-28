@@ -29,11 +29,11 @@ module Decidim
       private
 
       def verification_metadata_valid?
-        @verification_metadata && @verification_metadata["verification_code"].present?
+        @verification_metadata && @verification_metadata[:verification_code].present?
       end
 
       def valid_code?
-        @verification_metadata["verification_code"] == @form.verification_code
+        @verification_metadata[:verification_code] == @form.verification_code
       end
     end
   end
