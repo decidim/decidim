@@ -1446,6 +1446,8 @@ eu:
         close_modal: Itxi leihoa
         ok: Ados
         title: Baieztatu
+      embed:
+        title: Bideo-eduki txertatuak
       extended_navigation_bar:
         more: Gehiago
         unfold: Zabaldu

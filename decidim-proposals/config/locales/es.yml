@@ -32,6 +32,17 @@ es:
         execution_period: Período de ejecución
       proposal_state:
         announcement_title: Encabezado de la respuesta
+        bg_color: Color de fondo
+        colors:
+          blue: Azul
+          gray: Gris
+          green: Verde
+          orange: Naranja
+          pink: Rosa
+          purple: Morado
+          red: Rojo
+          yellow: Amarillo
+        text_color: Color del texto
       proposals_copy:
         copy_proposals: Entiendo que esto importará todas las propuestas del componente seleccionado al actual y que esta acción no se puede deshacer.
         origin_component_id: Componente desde dónde importar las propuestas
@@ -109,7 +120,7 @@ es:
           state_eq:
             label: Estado
             values:
-              accepted: Aceptada
+              accepted: Aceptadas
               evaluating: En evaluación
               not_answered: Sin respuesta
               published: Publicada
@@ -474,6 +485,8 @@ es:
           edit:
             title: Editar estado
             update: Actualizar
+          form:
+            preview: Previsualizar
           index:
             title: Estados
           new:
@@ -591,7 +604,7 @@ es:
           create: "%{user_name} asignó la propuesta %{resource_name} a una evaluadora"
           delete: "%{user_name} desasignó una evaluadora de la propuesta %{proposal_title}"
       answers:
-        accepted: Aceptadas
+        accepted: Aceptada
         evaluating: En evaluación
         not_answered: No contestada
         rejected: Rechazada
@@ -674,7 +687,7 @@ es:
         requests:
           accepted_request:
             error: No has podido ser aceptada como contribuidora. Por favor, inténtalo de nuevo más tarde.
-            success: "Se ha acceptado con éxito a @%{user} como colaboradora."
+            success: "Se ha aceptado con éxito a @%{user} como colaboradora."
           access_requested:
             error: Tu solicitud no pudo ser completada, por favor inténtalo de nuevo más tarde.
             success: Tu solicitud para colaborar ha sido enviada correctamente.

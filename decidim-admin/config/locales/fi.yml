@@ -354,6 +354,7 @@ fi:
         title: Vahvistusten ristiriidat
         transfer:
           email: Sähköposti
+          error: Nykyisen käyttäjän siirto hallituksi käyttäjäksi epäonnistui.
           name: Nimi
           reason: Syy
           success: Siirto onnistui.

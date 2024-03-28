@@ -32,6 +32,17 @@ tr:
         execution_period: Yürütme süresi
       proposal_state:
         announcement_title: Yanıt Başlığı 
+        bg_color: Arka plan rengi
+        colors:
+          blue: Mavi
+          gray: Gri
+          green: Yeşil
+          orange: Turuncu
+          pink: Pembe
+          purple: Mor
+          red: Kırmızı
+          yellow: Sarı
+        text_color: Yazı Rengi
       proposals_copy:
         origin_component_id: Teklifleri kopyalamak için bileşen
       proposals_import:
@@ -363,6 +374,8 @@ tr:
           edit:
             title: Durumu Düzenle
             update: Güneclleme
+          form:
+            preview: Ön İzleme
           index:
             title: Durumlar
           new:
