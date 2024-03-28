@@ -7,6 +7,10 @@ bg:
         description: Описание
         offline_votes: Лични подписи
   decidim:
+    admin:
+      initiatives_settings:
+        update:
+          error: Възникна грешка!
     initiatives:
       application_helper:
         filter_state_values:
