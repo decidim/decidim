@@ -2,6 +2,11 @@
 fi:
   decidim:
     design:
+      components:
+        accordions:
+          content_panel: Paneelin sisältö
+          demo: Esimerkki
+          demo_description: Koko sovelluksen sisällä haitarielementtejä käytetään pääasiassa näyttämään tai piilottamaan välilehtiä tai muuta sisältöä.
       foundations:
         accessibility:
           accessibility_labels: Saavutettavat nimilaput
