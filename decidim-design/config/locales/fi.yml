@@ -132,13 +132,36 @@ fi:
           section_p_code_html: Löydät perusulkoasun asettelut kohteesta %{link_section_code}
           section_p_desktop: Työpöytälaitteiden ruudukkojärjestelmä koostuu 12 joustavasta sarakkeesta, joiden välillä on 16 pikseliä leveät välit ja vasemmalla sekä oikealla puolella 48 pikseliä leveät marginaalit
           section_p_mobile: Mobiililaitteiden ruudukkojärjestelmä koostuu 4 joustavasta sarakkeesta, joiden välillä on 16 pikseliä leveät välit ja vasemmalla sekä oikealla puolella 16 pikseliä leveät marginaalit. Alle 320 pikseliä levelille ruudunleveyksille nämä marginaalit asetetaan 8 pikseliin.
+          section_p_tablet: Tablet-laitteiden ruudukkojärjestelmä koostuu 8 joustavasta sarakkeesta, joiden välillä on 16 pikseliä leveät välit ja vasemmalla sekä oikealla puolella 24 pikseliä leveät marginaalit
+          tablet: Tablet-laitteet
           title: Ulkoasu
         typography:
+          description: Tämä ohjeisto tiivistää kuinka typografiaa hyödynnetään Decidimissä ja tarjoaa suunnittelijoille parhaat typografiset käytänteet huomioivat suuntaviivat.
           headings:
+            characters: Merkkejä per rivi
             layout: Ulkoasun sarakkeet
+            size: Koko
+          title: Typografia
+          typefaces_description_1: Decidim käyttää Source Sans Pro -fonttia ensisijaisena kirjasintyyppinä. Tämä kirjasintyyppi tukee 310 kieltä.
+          typefaces_description_2: Tämä fontti on lisensoitu Open Font License (OFL) -ehtojen mukaisesti
       helpers:
+        accountability: Vastuullisuus
+        accountability_cards_html: 'Käytetään <i>Vastuullisuushankkeiden</i> korteissa. Tämä kortti vaatii kyseisen moduulin omien tyylitiedostojen sisällyttämisen sivulle, eli seuraavan koodin lisäämistä näkymään: <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>'
+        activity: Toiminta
+        address_description: Osoitesolu saa tiedokseen tietueen, jolta solu etsii geolokalisoituja tietoja lisätäkseen oikeanlaiset merkinnät näkymään.
+        address_description_2: Sisällön tyypistä riippuen osoite voi olla verkko-osoite. Näissä tapauksissa näytettävä tieto on hyvin samankaltainen, mutta se muotoillaan sopimaan sisältöpaikalle.
+        argument: Parametrit
+        assemblies: Ryhmät
+        assembly_g: Ryhmä G
+        assembly_s: Ryhmä S
+        avatar: Profiilikuva
+        avatar_description: Käytetään kapeissa tiloissa, missä laatijatieto on toissijainen.
         background: Taustat ja reunat
         base: Perusvärit
+        block_text: Käytä extra_data -lohkoa
+        blog_cards_html: Käytetään <i>Blogien</i> korteissa
+        blogs: Blogit
+        budget_card_html: 'Käytetään <i>Budjetointihankkeiden</i> korteissa. Tämä kortti vaatii kyseisen moduulin omien tyylitiedostojen sisällyttämisen sivulle, eli seuraavan koodin lisäämistä näkymään: <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>'
         budgets: Budjetit
         callout_class: Huomautuselementin luokka
         callout_description: Tämä attribuutti määrittää ilmoituksen tilan. Oletuksena se käyttää toissijaista väriä.
@@ -161,10 +184,31 @@ fi:
         debates_cards_html: Käytetään <i>Keskustelujen</i> korteissa
         debates_cards_text: Käytä eri pohjaa kuvalohkolle
         default: Oletusnäkymä
+        default_description: Solun kutsuminen ilman muita parametreja kuin itse käyttäjä.
+        demo: Esimerkki
+        demo_text: 'Tämä solu saa tietoonsa LastActivity-tyyppisen mallin (model) asiat ja se esittää seuraavat elementit:'
+        demo_text_2: Käytetään viimeisimmän toiminnan sivulla, sisältölohkossa sekä alasvetovalikoissa.
+        description: Kuvaus
+        disabled: Käytöstä poistettu
+        dummy_description: Esimerkkitietueen kuvaus
+        dummy_title: Esimerkkitietueen otsikko
+        follow_button: Seuraa-painike
         follower_description_html: Varmista, että sivun osa <code>decidim/shared/login_modal</code> on lisätty näkymään. Tämä sivun osa liitetään sovelluksen näkymään, kun käyttäjä kirjautuu sisään.
         form_elements: Lomake-elementit
+        generic_cards: Geneeriset kortit
+        grid: Ruudukko
         hex_code: Heksadesimaalivärikoodi
+        highlight: Korostus
+        highlight_description: Käytetään tietueissa, jotka sallivat korostuksen
+        html_tips: HTML-vinkit
+        icons: Kuvakkeet
+        image_and_description: Kuva ja kuvaus
+        initiative_g: initiative_g
+        initiative_s: initiative_s
+        initiatives: Aloitteet
+        list: Luettelo
         main_colors: Pääasialliset värit
+        meeting_l: Tapaaminen L
         meeting_s: S-kokoinen tapaaminen
         meetings: Tapaamiset
         meetings_html: Käytetään <i>Tapaamisten</i> korteissa
@@ -176,11 +220,43 @@ fi:
         participatory_process_s: Osallistumisprosessi S
         participatory_processes: Osallistumisprosessit
         plain_text: Tässä on tavallista tekstiä
+        plain_text_description: Voit tarjota ensimmäisen argumentin joko tavallisena tekstinä tai hajautusoliona (hash)
+        plain_text_vs_hash: Pelkkä teksti vai hajautusolio
+        post_g: Artikkeli G
+        post_l: Artikkeli L
+        post_s: Artikkeli S
+        project_l: Hanke L
+        project_s: Hanke S
+        proposal_l: Ehdotus L
+        proposal_s: Ehdotus S
+        proposals: Ehdotukset
+        report_button: Ilmoita-painike
+        report_usage_description: Ilmoita-painike avaa ikkunakomponentin, jonka avulla voidaan ilmoittaa tämänhetkinen tietue moderointiin.
+        result_l: Tulos L
         rgba_code: RGBA-värikoodi
+        search: Haku
+        send: Lähetä
+        share_button: Jaa-painike
         share_usage_description_html: Varmista, että sivun osa <code>decidim/shared/share_modal</code> on lisätty näkymään. Tämä sivun osa liitetään sovelluksen näkymään.
+        sizes: Koot
+        sortition_l: sortition_l
+        sortitions: Satunnaisvalinnat
+        source_code: Lähdekoodi
         state: Tilaa kuvaavat värit
+        tab_panels_context_description: Tämä välilehtipaneeli kokoaa kaikki asiaan liittyvät sisällöt tai tietueeseen liitetyt muut tietueet, säästääkseen tilaa sivun pystysuunnassa. Välilehteä painamalla, kysiseen välilehteen liitetty paneeli aktivoituu ja näyttää sisältönsä.
         tab_panels_context_description_html: Käytetään elementtien <i>layout_item</i> ja <i>layout_center</i> sisällä, tietueen pääsisällön jälkeen.
+        tab_panels_usage_description: 'Tämä komponentti saa listan hajautusolioita (hash) ja se järjestää kyseisen sisällön välilehtirakenteeseen. Seraavat määritykset voidaan asettaa jokaiselle paneelille:'
+        tab_panels_usage_description_arguments_html: "<strong>args</strong>: <i>Array</i>. Parametrit edeltävälle funktiolle"
+        tab_panels_usage_description_html: "<strong>enabled</strong>: <i>Boolean</i>. Näytä välilehti ehdollisesti"
+        tab_panels_usage_description_id_html: "<strong>id</strong>: <i>String</i>. Yksilöivä ID-tunniste"
+        tab_panels_usage_description_rails_html: "<strong>method</strong>: <i>Symbol</i>. Mikä tahansa fuktio, jonka Rails tuntee"
+        tab_panels_usage_description_remixicon_html: "<strong>icon</strong>: <i>String</i>. Remixicon-avain kuvakkeelle"
+        tab_panels_usage_description_tab_html: "<strong>text</strong>: <i>String</i>. Välilehden otsikko"
         tailwind: Tailwind-nimike
+        text: Teksti
+        transparent: Läpinäkyvä
+        transparent_description: 'Tummempaa taustaa vasten:'
+        types: Tyypit
         typography_texts: Typografia ja tekstit
         usage: Käyttötapaukset
         usage_background_1: Sivupalkin taustaväri
@@ -202,6 +278,10 @@ fi:
         usage_typography_3: Tumman taustan päällä näytettävän tekstin väri
         usage_typography_4: Linkit ja painikkeet
         value: Arvo
+        variations: Muunnelmat
+        variations_cards_description: Jokainen kortti näyttää erilaiselta, riippuen mitä tietueen ominaisuuksia näytetään. Voit ohittaa tämän oletustoiminnallisuuden yksittäisissä soluissa.
+        variations_description: Tästä solusta on kolme eri versiota. Jokainen niistä sopii parhaiten siihen asiayhteyteen, missä niitä näytetään.
+        variations_text: Riippuen toiminnan tyypistä, tämä solu voi näyttää erilaiselta erilaisissa tilanteissa. Esimerkiksi, jos tietue kuuluu osallistumistilaan tai sillä on laatija, nämä tiedot voidaan esittää kortilla. Mikäli näin ei ole, solu näyttää erilaiselta.
       home:
         index:
           by_sharing_principles: Jakamalla suunnittelupäätösten taustalla olevat periaatteet, filosofia ja perustelut, haluamme mahdollistaa yhteisöllemme tavan osallistua kehittämiseen yhdenmukaisesti, jotta voimme saavuttaa parhaan mahdollisen osallistujakokemuksen alustan käyttäjille.
