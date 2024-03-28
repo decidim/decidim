@@ -129,6 +129,13 @@ fi:
           right_aside: Oikea sivupalkki
           section_p_breakpoints: 'Hallitaksemme responsiivista elementtien maksimileveyttä, hyödynnämme Tailwind-kehyksen tarjoamaa jäsennysluokkaa `container`, joka määrittää seuraavat katkaisupisteet:'
           section_p_code: Luodessasi uusia moduuleja tarjoamme avustajia, jotka tarjoavat automaattisesti kaiken koodin HTML-rakenteen määrittämiseen. Hyödynnä näitä avustajia räätälöityjen div-elementtien sijaan, jotta sivusto säilyttää yhtenäisyytensä.
+          section_p_code_html: Löydät perusulkoasun asettelut kohteesta %{link_section_code}
+          section_p_desktop: Työpöytälaitteiden ruudukkojärjestelmä koostuu 12 joustavasta sarakkeesta, joiden välillä on 16 pikseliä leveät välit ja vasemmalla sekä oikealla puolella 48 pikseliä leveät marginaalit
+          section_p_mobile: Mobiililaitteiden ruudukkojärjestelmä koostuu 4 joustavasta sarakkeesta, joiden välillä on 16 pikseliä leveät välit ja vasemmalla sekä oikealla puolella 16 pikseliä leveät marginaalit. Alle 320 pikseliä levelille ruudunleveyksille nämä marginaalit asetetaan 8 pikseliin.
+          title: Ulkoasu
+        typography:
+          headings:
+            layout: Ulkoasun sarakkeet
       helpers:
         background: Taustat ja reunat
         base: Perusvärit
@@ -154,6 +161,7 @@ fi:
         debates_cards_html: Käytetään <i>Keskustelujen</i> korteissa
         debates_cards_text: Käytä eri pohjaa kuvalohkolle
         default: Oletusnäkymä
+        follower_description_html: Varmista, että sivun osa <code>decidim/shared/login_modal</code> on lisätty näkymään. Tämä sivun osa liitetään sovelluksen näkymään, kun käyttäjä kirjautuu sisään.
         form_elements: Lomake-elementit
         hex_code: Heksadesimaalivärikoodi
         main_colors: Pääasialliset värit
@@ -169,7 +177,9 @@ fi:
         participatory_processes: Osallistumisprosessit
         plain_text: Tässä on tavallista tekstiä
         rgba_code: RGBA-värikoodi
+        share_usage_description_html: Varmista, että sivun osa <code>decidim/shared/share_modal</code> on lisätty näkymään. Tämä sivun osa liitetään sovelluksen näkymään.
         state: Tilaa kuvaavat värit
+        tab_panels_context_description_html: Käytetään elementtien <i>layout_item</i> ja <i>layout_center</i> sisällä, tietueen pääsisällön jälkeen.
         tailwind: Tailwind-nimike
         typography_texts: Typografia ja tekstit
         usage: Käyttötapaukset
