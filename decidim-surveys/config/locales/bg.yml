@@ -9,3 +9,10 @@ bg:
       decidim/surveys/survey:
         one: Анкета
         other: Анкети
+  decidim:
+    surveys:
+      last_activity:
+        new_survey_at_html: "<span>Ново допитване на %{link}</span>"
+      surveys:
+        answer:
+          spam_detected: Възникна проблем при попълването на отговорите във формуляра. Навярно сте били твърде бързи, бихте ли опитали отново?
