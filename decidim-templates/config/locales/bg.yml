@@ -1,1 +1,23 @@
+---
 bg:
+  decidim:
+    admin:
+      templates:
+        apply:
+          success: Шаблонът е приложен успешно
+        copy:
+          success: Шаблонът е копиран успешно
+        create:
+          success: Шаблонът е създаден успешно
+        destroy:
+          success: Шаблонът е изтрит успешно
+        update:
+          success: Шаблонът е обновен успешно
+    templates:
+      admin:
+        questionnaire_templates:
+          edit:
+            empty: Все още няма въпроси
+          form:
+            save: Запази
+            template_title: Информация за шаблона
