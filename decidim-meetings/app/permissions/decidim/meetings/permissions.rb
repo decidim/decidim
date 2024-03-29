@@ -4,6 +4,7 @@ module Decidim
   module Meetings
     class Permissions < Decidim::DefaultPermissions
       def permissions
+        allow_embed_meeting?
         return permission_action unless user
 
         # Delegate the admin permission checks to the admin permissions class
@@ -55,6 +56,15 @@ module Decidim
 
       def question
         @question ||= context.fetch(:question, nil)
+      end
+
+      # As this is a public action, we need to run this before other checks
+      def allow_embed_meeting?
+        return unless permission_action.action == :embed && permission_action.subject == :meeting && meeting
+        return disallow! if meeting.withdrawn?
+        return allow! if meeting.published?
+
+        disallow!
       end
 
       def can_join_meeting?

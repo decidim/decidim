@@ -3,18 +3,8 @@
 require "spec_helper"
 
 describe "Conference embeds", type: :system do
-  let!(:conference) { create(:conference) }
+  let!(:resource) { create(:conference) }
+  let(:widget_path) { Decidim::EngineRouter.main_proxy(resource).conference_conference_widget_path }
 
-  context "when visiting the embed page for an conference" do
-    before do
-      switch_to_host(conference.organization.host)
-      visit resource_locator(conference).path
-      visit "#{current_path}/embed"
-    end
-
-    it "renders the page correctly" do
-      expect(page).to have_i18n_content(conference.title)
-      expect(page).to have_content(conference.organization.name)
-    end
-  end
+  it_behaves_like "an embed resource", skip_space_checks: true, skip_link_checks: true
 end

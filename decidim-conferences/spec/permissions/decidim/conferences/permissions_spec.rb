@@ -125,6 +125,42 @@ describe Decidim::Conferences::Permissions do
       end
     end
 
+    context "when embedding a conference" do
+      let(:action) do
+        { scope: :public, action: :embed, subject: :conference }
+      end
+      let(:context) { { conference: conference } }
+
+      context "when the user is an admin" do
+        let(:user) { create :user, :admin }
+
+        it { is_expected.to be true }
+      end
+
+      context "when the conference is published" do
+        let(:user) { create :user, organization: organization }
+
+        it { is_expected.to be true }
+      end
+
+      context "when the conference is not published" do
+        let(:user) { create :user, organization: organization }
+        let(:conference) { create :conference, :unpublished, organization: organization }
+
+        context "when the user doesn't have access to it" do
+          it { is_expected.to be false }
+        end
+
+        context "when the user has access to it" do
+          before do
+            create :conference_user_role, user: user, conference: conference
+          end
+
+          it { is_expected.to be false }
+        end
+      end
+    end
+
     context "when listing conferences" do
       let(:action) do
         { scope: :public, action: :list, subject: :conference }

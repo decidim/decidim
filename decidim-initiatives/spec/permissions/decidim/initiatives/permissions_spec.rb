@@ -149,6 +149,76 @@ describe Decidim::Initiatives::Permissions do
     end
   end
 
+  context "when emeding an initiative" do
+    let(:initiative) { create(:initiative, :accepted, organization: organization) }
+    let(:action) do
+      { scope: :public, action: :embed, subject: :initiative }
+    end
+    let(:context) do
+      { initiative: initiative }
+    end
+
+    context "when initiative is created" do
+      let(:initiative) { create(:initiative, :created, organization: organization) }
+
+      it { is_expected.to be false }
+    end
+
+    context "when initiative is validating" do
+      let(:initiative) { create(:initiative, :validating, organization: organization) }
+
+      it { is_expected.to be false }
+    end
+
+    context "when initiative is discarded" do
+      let(:initiative) { create(:initiative, :discarded, organization: organization) }
+
+      it { is_expected.to be false }
+    end
+
+    context "when initiative is published" do
+      let(:initiative) { create(:initiative, :published, organization: organization) }
+
+      it { is_expected.to be true }
+    end
+
+    context "when initiative is rejected" do
+      let(:initiative) { create(:initiative, :rejected, organization: organization) }
+
+      it { is_expected.to be true }
+    end
+
+    context "when initiative is accepted" do
+      let(:initiative) { create(:initiative, :accepted, organization: organization) }
+
+      it { is_expected.to be true }
+    end
+
+    context "when user is admin" do
+      let(:user) { create(:user, :admin, organization: organization) }
+
+      it { is_expected.to be true }
+    end
+
+    context "when user is author of the initiative" do
+      let(:initiative) { create(:initiative, author: user, organization: organization) }
+
+      it { is_expected.to be true }
+    end
+
+    context "when user is committee member of the initiative" do
+      before do
+        create(:initiatives_committee_member, initiative: initiative, user: user)
+      end
+
+      it { is_expected.to be true }
+    end
+
+    context "when any other condition" do
+      it { is_expected.to be true }
+    end
+  end
+
   context "when listing committee members of the initiative as author" do
     let(:initiative) { create(:initiative, organization: organization, author: user) }
     let(:action) do
