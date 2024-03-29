@@ -75,7 +75,7 @@ module Decidim
         end
 
         def all_proposals
-          Decidim::Proposals::Proposal.where(component: origin_component).accepted
+          Decidim::Proposals::Proposal.where(component: origin_component).published.not_hidden.not_withdrawn.accepted.order(:published_at)
         end
 
         def origin_component
@@ -87,8 +87,12 @@ module Decidim
           # because otherwise duplicates could be created until the component is
           # published.
           original_proposal.linked_resources(:projects, "included_proposals", component_published: false).any? do |project|
-            project.budget == form.budget
+            component_budgets.exists?(project.decidim_budgets_budget_id)
           end
+        end
+
+        def component_budgets
+          @component_budgets ||= Decidim::Budgets::Budget.where(component: form.budget.component)
         end
       end
     end
