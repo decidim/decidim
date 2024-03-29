@@ -150,6 +150,7 @@ fi:
         activity: Toiminta
         address_description: Osoitesolu saa tiedokseen tietueen, jolta solu etsii geolokalisoituja tietoja lisätäkseen oikeanlaiset merkinnät näkymään.
         address_description_2: Sisällön tyypistä riippuen osoite voi olla verkko-osoite. Näissä tapauksissa näytettävä tieto on hyvin samankaltainen, mutta se muotoillaan sopimaan sisältöpaikalle.
+        ally_link: a11y-dropdown-component
         argument: Parametrit
         assemblies: Ryhmät
         assembly_g: Ryhmä G
@@ -190,6 +191,14 @@ fi:
         demo_text_2: Käytetään viimeisimmän toiminnan sivulla, sisältölohkossa sekä alasvetovalikoissa.
         description: Kuvaus
         disabled: Käytöstä poistettu
+        dropdowns: Alasvetovalikot
+        dropdowns_demo_1_description: 'Seuraava esimerkki ei ole havaittavissa työpöytälaitteilla, vaan ainoastaan mobiililaitteilla:'
+        dropdowns_demo_description: Alasvetovalikkoja käytetään sovelluksessa avaamaan suuria ja helpostikäytettäviä valikoita työpöytälaitteille, mutta mobiililaitteille ne voivat olla liian raskaita.
+        dropdowns_demo_description_html: 'Tämä JavaScript-ominaisuutta on parannettu CSS-nimeämisen avulla: piilotettavan sisällön ON SISÄLLETTÄVÄ <code>id</code>-attribuutti, joka alkaa tekstillä <i>dropdown-menu</i>.'
+        dropdowns_description_html: Pudotusvalikot ovat ulkoisen %{link} -kirjaston tarjoama JavaScript ominaisuus.
+        dropdowns_usage_1_description: 2. Piilotettava elementti, jonka <code>id</code>-attribuutti vastaa pudotusvalikkoon viittaavan liipaisinelementin <code>data-target</code>-attribuutin arvoa.
+        dropdowns_usage_description: 'Pudotusvalikko tarvitsee kaksi elementtiä:'
+        dropdowns_usage_description_html: 1. Käyttäjän kohdistettavissa oleva elementti, joka sisältää data-attribuutit <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
         dummy_description: Esimerkkitietueen kuvaus
         dummy_title: Esimerkkitietueen otsikko
         follow_button: Seuraa-painike
