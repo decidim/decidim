@@ -112,11 +112,58 @@ describe "Admin manages budgets" do
   end
 
   describe "when managing a budget with scopes" do
+    let!(:scopes) { create_list(:subscope, 3, organization: organization, parent: scope) }
+    let(:scope_id) { scope.id }
+    let(:participatory_space) { create(:participatory_process, organization: organization, scopes_enabled: ) }
+    let!(:component) { create(:component, manifest:, settings: { scopes_enabled:, scope_id: }, participatory_space:) }
     let!(:budget) { create(:budget, component: current_component) }
-    let!(:scope) { create(:scope, organization: current_component.organization) }
+    let!(:scope) { create(:scope, organization: organization) }
+    let(:scopes_enabled) { true }
 
-    it "does not display subscopes" do
-      expect(page).to have_no_content(scope.name)
+    before do
+      visit current_path
+    end
+
+    context "when the scope has subscopes" do
+      context "when scopes_enabled is true" do
+        it "displays the scope column" do
+          expect(component.scopes_enabled?).to be_truthy
+          expect(component.has_subscopes?).to be_truthy
+          expect(page).to have_content("Scope")
+        end
+      end
+
+      context "when scopes_enabled is false" do
+        let(:scopes_enabled) { false }
+
+        it "displays the scope column" do
+          expect(component.scopes_enabled?).to be_falsey
+          expect(component.has_subscopes?).to be_falsey
+          expect(page).not_to have_content("Scope")
+        end
+      end
+    end
+
+    context "when the scope does not have subscopes" do
+      let(:scope_id) { scopes.first.id }
+
+      context "when scopes_enabled is true" do
+        it "hides the scope column" do
+          expect(component.scopes_enabled?).to be_truthy
+          expect(component.has_subscopes?).to be_falsey
+          expect(page).not_to have_content("Scope")
+        end
+      end
+
+      context "when scopes_enabled is false" do
+        let(:scopes_enabled) { false }
+
+        it "displays the scope column" do
+          expect(component.scopes_enabled?).to be_falsey
+          expect(component.has_subscopes?).to be_falsey
+          expect(page).not_to have_content("Scope")
+        end
+      end
     end
   end
 
