@@ -112,12 +112,12 @@ describe "Admin manages budgets" do
   end
 
   describe "when managing a budget with scopes" do
-    let!(:scopes) { create_list(:subscope, 3, organization: organization, parent: scope) }
+    let!(:scopes) { create_list(:subscope, 3, organization:, parent: scope) }
     let(:scope_id) { scope.id }
-    let(:participatory_space) { create(:participatory_process, organization: organization, scopes_enabled: ) }
+    let(:participatory_space) { create(:participatory_process, organization:, scopes_enabled:) }
     let!(:component) { create(:component, manifest:, settings: { scopes_enabled:, scope_id: }, participatory_space:) }
     let!(:budget) { create(:budget, component: current_component) }
-    let!(:scope) { create(:scope, organization: organization) }
+    let!(:scope) { create(:scope, organization:) }
     let(:scopes_enabled) { true }
 
     before do
@@ -127,8 +127,8 @@ describe "Admin manages budgets" do
     context "when the scope has subscopes" do
       context "when scopes_enabled is true" do
         it "displays the scope column" do
-          expect(component.scopes_enabled?).to be_truthy
-          expect(component.has_subscopes?).to be_truthy
+          expect(component).to be_scopes_enabled
+          expect(component).to have_subscopes
           expect(page).to have_content("Scope")
         end
       end
@@ -137,9 +137,9 @@ describe "Admin manages budgets" do
         let(:scopes_enabled) { false }
 
         it "displays the scope column" do
-          expect(component.scopes_enabled?).to be_falsey
-          expect(component.has_subscopes?).to be_falsey
-          expect(page).not_to have_content("Scope")
+          expect(component).not_to be_scopes_enabled
+          expect(component).not_to have_subscopes
+          expect(page).to have_no_content("Scope")
         end
       end
     end
@@ -149,9 +149,9 @@ describe "Admin manages budgets" do
 
       context "when scopes_enabled is true" do
         it "hides the scope column" do
-          expect(component.scopes_enabled?).to be_truthy
-          expect(component.has_subscopes?).to be_falsey
-          expect(page).not_to have_content("Scope")
+          expect(component).to be_scopes_enabled
+          expect(component).not_to have_subscopes
+          expect(page).to have_no_content("Scope")
         end
       end
 
@@ -159,9 +159,9 @@ describe "Admin manages budgets" do
         let(:scopes_enabled) { false }
 
         it "displays the scope column" do
-          expect(component.scopes_enabled?).to be_falsey
-          expect(component.has_subscopes?).to be_falsey
-          expect(page).not_to have_content("Scope")
+          expect(component).not_to be_scopes_enabled
+          expect(component).not_to have_subscopes
+          expect(page).to have_no_content("Scope")
         end
       end
     end
