@@ -13,7 +13,9 @@
       <%= translated_attribute project.category.name %>
     <% end %>
   </td>
-  <%= td_resource_scope_for(project.scope) %>
+  <% if current_component.has_subscopes? %>
+    <%= td_resource_scope_for(project.scope) %>
+  <% end %>
   <td>
     <%= project.confirmed_orders_count %>
   </td>
