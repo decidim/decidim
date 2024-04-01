@@ -11,6 +11,8 @@ bg:
         state: Състояние
         title: Заглавие
         user_group_id: Създай съвместна чернова като
+      import_participatory_text:
+        document: Текстов документ за участие
       proposal:
         address: Адрес
         answer: Отговор
@@ -141,6 +143,7 @@ bg:
             endorsements_enabled: Одобряване разрешено
             proposal_answering_enabled: Отговора на предложение е разрешен
             publish_answers_immediately: Публикувай отговорите на предложения незабавно
+            publish_answers_immediately_help_html: 'Имайте предвид, че ако отговаряте на някои предложения, без това активиране, ще трябва да ги публикувате ръчно, като ги изберете и използвате действието за публикуване. За повече информация как работи това вижте <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">страницата с документация за отговорите на предложенията</a>.'
             suggested_hashtags: Предлагай хаштаг на участниците когато създават предложения
             votes_blocked: Поддържането блокирано
             votes_enabled: Поддържането разрешено
