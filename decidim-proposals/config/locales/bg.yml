@@ -216,3 +216,10 @@ bg:
           follower:
             email_intro: 'Предложението „%{resource_title}“ беше отхвърлено. Можете да прочетете отговора на тази страница:'
             email_subject: Предложение, което следвате, е отхвърлено
+            notification_title: Предложението <a href="%{resource_path}">%{resource_title}</a> беше отхвърлено.
+    proposals:
+      collaborative_drafts:
+        index:
+          count:
+            one: "Съвместна чернова"
+            other: "Съвместни чернови"
