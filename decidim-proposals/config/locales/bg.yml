@@ -217,9 +217,17 @@ bg:
         proposal_published_for_space:
           email_intro: Предложението "%{resource_title}" беше добавено в "%{participatory_space_title}", което следвате.
           email_outro: Получавате това известие, защото следвате "%{participatory_space_title}". Може да прекратите известията чрез предната връзка.
+          notification_title: Предложениетоl <a href="%{resource_path}">%{resource_title}</a> е добавено към %{participatory_space_title} от %{author}
+          notification_title_official: Официалното предложение <a href="%{resource_path}">%{resource_title}</a> е добавено към %{participatory_space_title}
         proposal_rejected:
           affected_user:
+            email_intro: 'Вашето предложение "%{resource_title}" беше отхвърлено. Можете да прочетете отговора на тази страница:'
             email_outro: Получавате това известие, защото сте автор на %{resource_title}".
+            email_subject: Вашето предложение беше отхвърлено
+            notification_title: Вашето предложение <a href="%{resource_path}">%{resource_title}</a> беше отхвърлено.
+          follower:
+            email_intro: 'Предложението „%{resource_title}“ беше отхвърлено. Можете да прочетете отговора на тази страница:'
+            email_subject: Предложение, което следвате, беше отхвърлено
     proposals:
       admin:
         imports:
