@@ -35,9 +35,9 @@ module Decidim
       initializer "decidim-api.graphiql" do
         Decidim::GraphiQL::Rails.config.tap do |config|
           config.query_params = true
-          config.initial_query = File.read(
-            File.join(__dir__, "graphiql-initial-query.txt")
-          ).html_safe
+          config.initial_query = ERB::Util.html_escape(
+            File.read(File.join(__dir__, "graphiql-initial-query.txt"))
+          )
         end
       end
 
