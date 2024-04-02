@@ -1,5 +1,11 @@
 ---
 is:
+  activemodel:
+    attributes:
+      organization:
+        password: Lykilorð
+        port: Gátt
+        user_name: Notendanafn
   decidim:
     system:
       actions:
