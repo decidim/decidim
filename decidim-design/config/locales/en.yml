@@ -45,8 +45,6 @@ en:
         follow:
           title: Follow
         forms:
-          date: date
-          datetime_local: datetime-local
           disabled: Disabled
           emojis: Emojis
           emojis_description: Only works for textarea
@@ -57,10 +55,7 @@ en:
           html_regular_inputs: HTML regular inputs
           min_max_length: Min/Max length
           min_max_length_description: Only works for input type='text' and textarea
-          number: number
-          password: password
           regular_inputs_description: 'Only displays common types, full available list: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
-          text: text
           textarea_required: textarea required
           title: Forms
         report:
