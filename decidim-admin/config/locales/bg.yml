@@ -118,6 +118,11 @@ bg:
         update:
           error: Неуспешно актуализиране на белия списък на домейни.
           success: Белият списък на домейни е актуализиран успешно.
+      filters:
+        state_eq:
+          label: Състояние
+          values:
+            rejected: Отхвърлен
       organization_appearance:
         form:
           colors:
