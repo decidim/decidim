@@ -59,6 +59,7 @@ nl:
   decidim:
     admin:
       actions:
+        manage: Beheer
         new_initiative_type: Nieuw initiatiefstype
       filters:
         search_placeholder:
