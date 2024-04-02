@@ -315,9 +315,75 @@ bg:
         show:
           final_proposal: окончателно предложение
           info-message: Това е <strong>съвместна чернова</strong> за предложение. Това означава, че можете да помогнете на авторите да оформят предложението си, като използвате раздела за коментари по-долу, или да го подобрите директно, като поискате редакторски достъп. След като авторите Ви предоставят достъп, ще можете да извършвате промени в черновата.
+          published_proposal: публикувано предложение
+          version_history: вижте хронологията на версиите за това предложение
+        wizard_aside:
+          info: Създавате <strong>съвместна чернова</strong>.
       content_blocks:
         highlighted_proposals:
           proposals: Предложения
+      last_activity:
+        new_proposal_at_html: "<span>Ново предложение на адрес: %{link}</span>"
+        proposal_updated_at_html: "<span>Предложение беше актуализирано на: %{link}</span>"
+      models:
+        collaborative_draft:
+          fields:
+            authors: Автори
+            contributions: Добавки
+      new:
+        limit_reached: Не можете да създавате нови предложения, докато сте надхвърлили ограничението.
+      proposals:
+        count:
+          proposals_count:
+            one: "%{count} предложение"
+            other: "%{count} предложения"
+        edit:
+          add_image: Добавяне на изображение
+          edit_image: Редактиране на изображение
+          gallery_legend: "(Незадължително) Добавете изображение към картата с предложението"
+        index:
+          view_proposal: Преглед на предложението
+        linked_proposals:
+          proposal_votes:
+            one: поддръжка
+            other: поддръжки
+        participatory_texts:
+          view_index:
+            see_index: Вижте индекса
+        proposal:
+          creation_date: 'Създадено на:'
+          view_proposal: Преглед на предложението
+        proposals:
+          empty: Все още няма предложение
+          empty_filters: Няма предложение, което да отговаря на тези критерии
+        show:
+          back_to: Назад към
+          back_to_list: Назад към списъка
+          endorsements_list: Списък с одобрения
+          read_less: Виж по-малко
+          read_more: Прочетете повече
+          report: Отчет
+        tags:
+          changed_from: "(променено от предишното <u>%{previous_name}</u> от администратор)"
+        votes_count:
+          most_popular_proposal: Най-популярно предложение
+          need_more_votes: Има нужда от повече подкрепяния
+        voting_rules:
+          minimum_votes_per_user:
+            given_enough_votes: Предоставили сте достатъчно подкрепяния.
+          threshold_per_proposal:
+            description: За да бъдат валидирани, предложенията трябва да съберат %{limit} подкрепяния
+          vote_limit:
+            left: Оставащи
+        wizard_aside:
+          info: Вие създавате <strong>предложение</strong>.
+        wizard_steps:
+          see_steps: вижте стъпките
+          step_of: Стъпка %{current_step_num} от общо %{total_steps}
+      proposals_picker:
+        close: Затвори
+        more_proposals: Има още %{number} предложения. Прецизирайте търсенето си, за да ги намерите.
+        no_proposals: Няма предложения, които да съответстват на критериите Ви за търсене, или няма никакви предложения.
       versions:
         collaborative_drafts:
           back_to_resource: Обратно към съвместната чернова
