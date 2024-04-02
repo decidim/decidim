@@ -35,6 +35,9 @@ lb:
             body: Haupttext
     components:
       blogs:
+        actions:
+          comment: Kommentar
+          endorse: Bestätigen
         name: Blog
         settings:
           global:
