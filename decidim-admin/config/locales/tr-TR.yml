@@ -799,3 +799,8 @@ tr:
   errors:
     messages:
       invalid_json: Geçersiz JSON
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Küresel denetimler
