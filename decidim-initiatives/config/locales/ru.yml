@@ -39,6 +39,7 @@ ru:
   decidim:
     admin:
       actions:
+        manage: Управлять
         new_initiative_type: Добавить вид почина
       menu:
         components: Составляющие
