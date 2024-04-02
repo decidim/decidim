@@ -45,8 +45,6 @@ ja:
         follow:
           title: フォロー
         forms:
-          date: 日付
-          datetime_local: datetime-local
           disabled: 無効
           emojis: 絵文字
           emojis_description: テキストエリアでのみ動作します
@@ -57,10 +55,7 @@ ja:
           html_regular_inputs: HTML 通常入力
           min_max_length: 最小/最大の長さ
           min_max_length_description: Input type='text' と textareaでのみ動作します
-          number: 数値
-          password: パスワード
           regular_inputs_description: '共通のタイプのみを表示します。利用可能な全リストは以下の通りです: date、datetime-local、email、month、number、password、search、tel、text、time、url、week'
-          text: テキスト
           textarea_required: テキストエリアが必要です
           title: フォーム
         report:
