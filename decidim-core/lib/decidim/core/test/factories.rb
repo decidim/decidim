@@ -112,7 +112,7 @@ FactoryBot.define do
       create_static_pages { true }
     end
 
-    name { Faker::Company.unique.name }
+    name { "#{Faker::Company.unique.name} O'Higgins" }
     reference_prefix { Faker::Name.suffix }
     time_zone { "UTC" }
     twitter_handler { Faker::Hipster.word }
