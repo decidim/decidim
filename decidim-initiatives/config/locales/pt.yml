@@ -63,6 +63,7 @@ pt:
   decidim:
     admin:
       actions:
+        manage: Gerir
         new_initiative_type: Novo tipo de iniciativa
       filters:
         initiatives:
@@ -375,6 +376,7 @@ pt:
             other: e mais %{count} pessoas
         committee_members:
           approve: Aprovar
+          revoke: Revogar
           title: Membros do Comité
         count:
           title:
