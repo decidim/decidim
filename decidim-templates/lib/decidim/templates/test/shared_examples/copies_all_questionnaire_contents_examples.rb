@@ -31,7 +31,7 @@ shared_examples_for "copies all questionnaire contents" do
     end
 
     def check_answer_options(source_question, new_question)
-      expect(source_question.answer_options.count).to eq(new_question.answer_options.count)
+      expect(source_question.answer_options.size).to eq(new_question.answer_options.size)
 
       source_question.answer_options.each_with_index do |source_answer_option, idx|
         new_answer_option = new_question.answer_options[idx]
