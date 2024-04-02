@@ -6,7 +6,7 @@ import { createSuggestionRenderer, createNodeView } from "src/decidim/editor/com
 export const HashtagPluginKey = new PluginKey("hashtag");
 
 const searchHashtags = async (queryText) => {
-  return fetch(window.Decidim.config.get("apiPath"), {
+  return fetch(window.Decidim.config.get("api_path"), {
     method: "POST",
     cache: "no-cache",
     headers: { "Content-Type": "application/json" },
