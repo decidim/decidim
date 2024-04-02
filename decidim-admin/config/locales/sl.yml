@@ -127,6 +127,9 @@ sl:
       filters:
         scope_id_eq:
           label: Področje
+        state_eq:
+          values:
+            rejected: Zavrnjen
       menu:
         scope_types: Tipi področja
         scopes: Področja
