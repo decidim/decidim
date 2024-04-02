@@ -15,8 +15,8 @@ fi-pl:
           usage: Käyttöesimerkki
           usage_p: Haitarielementti tarvitsee vähintään kolme elementtiä
           usage_p_1_html: 1. Jäsentävä <code>div</code>-elementti, jossa on data-attribuutti <code>data-component="accordion"</code>, joka pitää sisällään kaikki liipaisimet ja paneelit.
-          usage_p_2_html: 2. Käyttäjän kohdistettavissa (painike) oleva liipaisinelementti, joka viittaa hallinnoitavaan elementtiin attribuutin <code>data-controls="panel"</code> avulla. Kyseisessä attribuutissa <i>panel</i> on viitattavan paneelielementin <code>id</code>-arvo.
-          usage_p_3_html: 3. Piilotettava tai näytettävä elementti, jonka <code>id</code> vastaa data-controls -attribuutin arvoa haitarielementin liipaisimessa.
+          usage_p_2_html: 2. Käyttäjän kohdistettavissa oleva liipaisinelementti (painike), joka viittaa hallinnoitavaan elementtiin attribuutin <code>data-controls="panel"</code> avulla. Kyseisessä attribuutissa <i>panel</i> on viitattavan paneelielementin <code>id</code>-attribuutin arvo.
+          usage_p_3_html: 3. Piilotettava tai näytettävä elementti, jonka <code>id</code>-attribuutti vastaa <code>data-controls</code>-attribuutin arvoa haitarielementin liipaisimessa.
         activities:
           activities: Toiminta
         address:
@@ -37,7 +37,7 @@ fi-pl:
           dialog_demo_description_html: Valintaikkunat tai ikkunakomponentit (modaalit, dialogit) luodaan käyttämällä Rails-avustajaa (helper) nimeltä <code>decidim_modal</code>.
           dialogs_description_html: Haitarielementit ovat ulkoisen <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-accordion-component -kirjaston</a> tarjoama JavaScript-ominaisuus.
           tips_description: 'Näyttääksesi monimutkaisen ikkunakomponentin vastaavilla tyyleillä, käytä seuraavia HTML-merkintöjä:'
-          tips_description_html: Kiinnitä huomiota <i>data-*</i> -attribuutteihin sekä <i>id</i>-tunnisteisiin. Esimerkiksi <code>[data-dialog-title]</code>-elementin id alkaa merkkijonolla <i>dialog-title</i>, jonka perään liitetään ikkunakomponentin <i>id</i>.
+          tips_description_html: Kiinnitä huomiota <i>data-*</i> -attribuutteihin sekä <i>id</i>-tunnisteisiin. Esimerkiksi <code>[data-dialog-title]</code>-elementin id:n tulee alkaa merkkijonolla <i>dialog-title</i>, jonka perään liitetään ikkunakomponentin <i>id</i>.
           title: Ikkunat
           usage_description: Ikkuna tarvitsee vähintään kaksi elementtiä
           usage_description_2_html: 2. Ikkunaelementti, jonka <code>id</code>-attribuutti vastaa ikkunaan viittaavan liipaisinelementin <code>data-target</code>-attribuutin arvoa.
@@ -45,8 +45,6 @@ fi-pl:
         follow:
           title: Seuraa
         forms:
-          date: date
-          datetime_local: datetime-local
           disabled: Käytöstä poistettu
           emojis: Emojit
           emojis_description: Toimii ainoastaan tekstialueille (<code>textarea</code>)
@@ -57,10 +55,7 @@ fi-pl:
           html_regular_inputs: Tavanomaiset HTML-syötteet
           min_max_length: Minimi- ja maksimipituus
           min_max_length_description: Toimii ainoastaan syötteille (input), joiden tyyppi (<code>type</code>-attribuutin arvo) on <code>"text"</code>
-          number: number
-          password: password
           regular_inputs_description: 'Näyttää vain yleisimmät tyypit, lista tuetuista tyypeistä: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
-          text: text
           textarea_required: textarea required
           title: Lomakkeet
         report:
@@ -115,8 +110,8 @@ fi-pl:
           centered: Keskitetty
           code: Koodi
           columns: Sarakkeiden lukumäärä, jokin arvoista 10, 8 tai 6.
-          description_layout_p1: Työpöytälaitteille Decidim tarjoaa 12-sarakkeen ruudukon, jossa on rajattu määrä pohjia (ruudukon asetukset) erityppisille sisällöille. Tavoitteena on, että jokaisella tietyntyyppisellä sisällöllä (etusivu, tietuelistat, yksittäinen tietue) on erottuva ja yhdenmukainen ulkoasu, jotta käyttäjät ymmärtävät, mitä sisältöä he tarkastelevat vilkaisemalla sivua yleisellä tasolla.
-          description_layout_p2: Näitä yksinkertaisia sääntöjä tulee noudattaa luotaessa uusia moduuleja tai muokatessa olemassa olevia moduuleja, jotta Decidim-sivusto voi säilyttää yhdenmukaisuutensa.
+          description_layout_p1: Työpöytälaitteille Decidim tarjoaa 12 sarakkeen ruudukon, jossa on rajattu määrä pohjia (ruudukon asetukset) erityppisille sisällöille. Tavoitteena on, että jokaisella tietyntyyppisellä sisällöllä (etusivu, tietuelistat, yksittäinen tietue) on erottuva ja yhdenmukainen ulkoasu, jotta käyttäjät ymmärtävät, mitä sisältöä he tarkastelevat vilkaisemalla sivua yleisellä tasolla.
+          description_layout_p2: Näitä yksinkertaisia sääntöjä tulee noudattaa luotaessa uusia ohjelmistomoduuleja tai muokatessa olemassa olevia ohjelmistomoduuleja, jotta Decidim-sivusto säilyttää yhdenmukaisuutensa.
           desktop: Työpöytälaitteet
           full_width: Täysi leveys
           layout_list_1: 'Etusivu (sivuston tai osallistumistilan): täysi leveys'
@@ -131,8 +126,8 @@ fi-pl:
           section_p_code: Luodessasi uusia moduuleja tarjoamme avustajia, jotka tarjoavat automaattisesti kaiken koodin HTML-rakenteen määrittämiseen. Hyödynnä näitä avustajia räätälöityjen div-elementtien sijaan, jotta sivusto säilyttää yhtenäisyytensä.
           section_p_code_html: Löydät perusulkoasun asettelut kohteesta %{link_section_code}
           section_p_desktop: Työpöytälaitteiden ruudukkojärjestelmä koostuu 12 joustavasta sarakkeesta, joiden välillä on 16 pikseliä leveät välit ja vasemmalla sekä oikealla puolella 48 pikseliä leveät marginaalit
-          section_p_mobile: Mobiililaitteiden ruudukkojärjestelmä koostuu 4 joustavasta sarakkeesta, joiden välillä on 16 pikseliä leveät välit ja vasemmalla sekä oikealla puolella 16 pikseliä leveät marginaalit. Alle 320 pikseliä levelille ruudunleveyksille nämä marginaalit asetetaan 8 pikseliin.
-          section_p_tablet: Tablet-laitteiden ruudukkojärjestelmä koostuu 8 joustavasta sarakkeesta, joiden välillä on 16 pikseliä leveät välit ja vasemmalla sekä oikealla puolella 24 pikseliä leveät marginaalit
+          section_p_mobile: Mobiililaitteiden ruudukkojärjestelmä koostuu neljästä joustavasta sarakkeesta, joiden välillä on 16 pikseliä leveät välit ja vasemmalla sekä oikealla puolella 16 pikseliä leveät marginaalit. Alle 320 pikseliä levelille ruudunleveyksille nämä marginaalit asetetaan 8 pikseliin.
+          section_p_tablet: Tablet-laitteiden ruudukkojärjestelmä koostuu kahdeksasta joustavasta sarakkeesta, joiden välillä on 16 pikseliä leveät välit ja vasemmalla sekä oikealla puolella 24 pikseliä leveät marginaalit
           tablet: Tablet-laitteet
           title: Ulkoasu
         typography:
@@ -156,7 +151,7 @@ fi-pl:
         assembly_g: Ryhmä G
         assembly_s: Ryhmä S
         avatar: Profiilikuva
-        avatar_description: Käytetään kapeissa tiloissa, missä laatijatieto on toissijainen.
+        avatar_description: Käytetään kapeissa tiloissa, joissa laatijatieto on toissijainen.
         background: Taustat ja reunat
         base: Perusvärit
         block_text: Käytä extra_data -lohkoa
@@ -166,34 +161,34 @@ fi-pl:
         budgets: Budjetit
         callout_class: Huomautuselementin luokka
         callout_description: Tämä attribuutti määrittää ilmoituksen tilan. Oletuksena se käyttää toissijaista väriä.
-        card_g: G-kokoinen kortti
-        card_l: L-kokoinen kortti
-        card_s: S-kokoinen kortti
-        collaborative_draft_l: L-kokoinen yhteistyöluonnos
+        card_g: Kortti G
+        card_l: Kortti L
+        card_s: Kortti S
+        collaborative_draft_l: Yhteistyöluonnos L
         colors: Värit
         compact: Tiivis näkymä
         compact_description: Tämä laatijaelementin versio on yleisin tapa tunnistaa tietueiden laatija.
-        conference_g: G-kokoinen konferenssi
-        conference_s: S-kokoinen konferenssi
+        conference_g: Konferenssi G
+        conference_s: Konferenssi S
         conferences: Konferenssit
         context: Asiayhteys
         context_description: Tämä solu näyttää tietoja käyttäjästä. Se on visuaalinen tapa tunnistaa tietueen sisältöä tai sen laatija. Hiiren osoittaminen elementin päällä näyttää sivun päälle avautuvan työkaluvinkin, jossa on lisätietoa ja linkkejä profiiliin.
         context_description_2: Tämä solu näytetään pääotsikon alapuolella tietueille. Muilla sisällöillä se näytetään sisällön vieressä.
-        debate_l: L-kokoinen keskustelu
-        debate_s: S-kokoinen keskustelu
+        debate_l: Keskustelu L
+        debate_s: Keskustelu S
         debates: Keskustelut
         debates_cards_html: Käytetään <i>Keskustelujen</i> korteissa
         debates_cards_text: Käytä eri pohjaa kuvalohkolle
         default: Oletusnäkymä
         default_description: Solun kutsuminen ilman muita parametreja kuin itse käyttäjä.
         demo: Esimerkki
-        demo_text: 'Tämä solu saa tietoonsa LastActivity-tyyppisen mallin (model) asiat ja se esittää seuraavat elementit:'
+        demo_text: 'Tämä solu saa tietoonsa LastActivity-tyyppisen tietueen (model) asiat ja se esittää seuraavat elementit:'
         demo_text_2: Käytetään viimeisimmän toiminnan sivulla, sisältölohkossa sekä alasvetovalikoissa.
         description: Kuvaus
         disabled: Käytöstä poistettu
         dropdowns: Alasvetovalikot
         dropdowns_demo_1_description: 'Seuraava esimerkki ei ole havaittavissa työpöytälaitteilla, vaan ainoastaan mobiililaitteilla:'
-        dropdowns_demo_description: Alasvetovalikkoja käytetään sovelluksessa avaamaan suuria ja helpostikäytettäviä valikoita työpöytälaitteille, mutta mobiililaitteille ne voivat olla liian raskaita.
+        dropdowns_demo_description: Alasvetovalikkoja käytetään sovelluksessa avaamaan suuria ja helppokäyttöisiä valikoita työpöytälaitteille, mutta mobiililaitteille ne voivat olla liian raskaita.
         dropdowns_demo_description_html: 'Tämä JavaScript-ominaisuutta on parannettu CSS-nimeämisen avulla: piilotettavan sisällön ON SISÄLLETTÄVÄ <code>id</code>-attribuutti, joka alkaa tekstillä <i>dropdown-menu</i>.'
         dropdowns_description_html: Pudotusvalikot ovat ulkoisen %{link} -kirjaston tarjoama JavaScript ominaisuus.
         dropdowns_usage_1_description: 2. Piilotettava elementti, jonka <code>id</code>-attribuutti vastaa pudotusvalikkoon viittaavan liipaisinelementin <code>data-target</code>-attribuutin arvoa.
@@ -218,7 +213,7 @@ fi-pl:
         list: Luettelo
         main_colors: Pääasialliset värit
         meeting_l: Tapaaminen L
-        meeting_s: S-kokoinen tapaaminen
+        meeting_s: Tapaaminen S
         meetings: Tapaamiset
         meetings_html: Käytetään <i>Tapaamisten</i> korteissa
         metadata_items: Metatieto-elementit
@@ -230,7 +225,7 @@ fi-pl:
         participatory_processes: Osallistumisprosessit
         plain_text: Tässä on tavallista tekstiä
         plain_text_description: Voit tarjota ensimmäisen argumentin joko tavallisena tekstinä tai hajautusoliona (hash)
-        plain_text_vs_hash: Pelkkä teksti vai hajautusolio
+        plain_text_vs_hash: Pelkkä teksti vai hajautusolio (hash)
         post_g: Artikkeli G
         post_l: Artikkeli L
         post_s: Artikkeli S
