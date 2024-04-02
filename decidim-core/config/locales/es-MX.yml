@@ -1313,7 +1313,7 @@ es-MX:
           headline: Estado actual de %{organization}
         sub_hero:
           register: Regístrate
-          register_title: Regístrate para crear una cuenta
+          register_title: Inicia sesión o crea una cuenta
       index:
         standalone_pages: Páginas
         subheading: Navegar por las páginas de ayuda de %{name}
