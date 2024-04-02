@@ -45,8 +45,6 @@ eu:
         follow:
           title: Jarraitu
         forms:
-          date: data
-          datetime_local: tokiko data eta ordua
           disabled: Desgaitua
           emojis: Emotikonoak
           emojis_description: Soilik balio du testu-arlorako
@@ -57,10 +55,7 @@ eu:
           html_regular_inputs: HTML input erregularrak
           min_max_length: Luzera min - max
           min_max_length_description: Testu motako sarreretan eta testu eremuan soilik funtzionatzen du
-          number: zenbakia
-          password: pasahitza
           regular_inputs_description: 'Mota arruntak baino ez ditu erakusten ditu, eskuragarri dagoen zerrenda osoa: data, tokiko ordua, posta elektronikoa, hilabetea, zenbakia, pasahitza, bilaketa, tel., testua, ordua, url, astea'
-          text: testua
           textarea_required: eskatutako testu-eremua
           title: Inprimakiak
         report:
