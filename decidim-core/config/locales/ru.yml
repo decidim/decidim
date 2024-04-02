@@ -504,9 +504,12 @@ ru:
         index:
           from: От
           no_conversations: У вас еще нет бесед
+          title: Беседы
         reply:
           send: Отправить
           title: Ответить
+        show:
+          title: Беседа с %{usernames}
         start:
           send: Отправить
           title: Начать беседу
@@ -590,6 +593,7 @@ ru:
     profiles:
       default_officialization_text_for_users: Личность этого участника подтверждена при всём честном народе, его / ее имя или роль проверены на соответствие его / ее реальному имени и роли
       show:
+        conversations: Беседы
         followers: Читают
         following: Следит за
       sidebar:
@@ -666,6 +670,8 @@ ru:
     user_conversations:
       index:
         close: Закрыть
+      show:
+        title: Беседа с %{usernames}
       update:
         error: Сообщение не отправлено. Попробуйте позже
     version_author:
