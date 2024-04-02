@@ -19,6 +19,27 @@ bg:
         local_area: Район на организацията
         meta_scope: Метаданни сфера
   decidim:
+    admin:
+      actions:
+        filter:
+          all_processes: Показване на всички процеси
+          process_groups: Групи процеси
+      models:
+        participatory_process:
+          fields:
+            promoted: Акцентирано
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Активни блокове със съдържание
+          inactive_content_blocks: Неактивни блокове със съдържание
+      participatory_process_steps:
+        destroy:
+          error:
+            active_step: Не може да изтриете активна фаза.
+            last_step: Не може да изтриете последната фаза от процеса.
+      participatory_processes:
+        index:
+          not_published: Не публикувано
     participatory_processes:
       show:
         area: Район
