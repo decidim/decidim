@@ -1300,7 +1300,7 @@ fi-pl:
           register: Rekisteröidy
         hero:
           participate: Osallistu
-          participate_title: Osallistu prosesseihin alustalla
+          participate_title: Osallistu alustan prosesseihin
           welcome: Tervetuloa organisaatioon %{organization}!
         statistics:
           headline: '%{organization} numeroina'
