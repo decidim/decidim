@@ -26,6 +26,8 @@ ga:
         other: Coistí
   decidim:
     admin:
+      actions:
+        manage: Bainistigh
       filters:
         initiatives:
           decidim_area_id_eq:
@@ -122,6 +124,7 @@ ga:
       initiatives:
         committee_members:
           approve: Ceadaigh
+          revoke: Cúlghairm
         filters:
           any: Ar Bith
           area: Ceantar
