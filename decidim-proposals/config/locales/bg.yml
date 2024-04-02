@@ -223,3 +223,8 @@ bg:
           count:
             one: "Съвместна чернова"
             other: "Съвместни чернови"
+      proposals:
+        index:
+          count:
+            one: "%{count} предложение"
+            other: "%{count} предложения"
