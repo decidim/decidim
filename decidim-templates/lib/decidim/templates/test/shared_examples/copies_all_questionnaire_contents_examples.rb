@@ -41,7 +41,7 @@ shared_examples_for "copies all questionnaire contents" do
     end
 
     def check_matrix_rows(source_question, new_question)
-      expect(source_question.matrix_rows.count).to eq(new_question.matrix_rows.count)
+      expect(source_question.matrix_rows.size).to eq(new_question.matrix_rows.size)
 
       source_question.matrix_rows.each_with_index do |source_matrix_row, idx|
         new_matrix_row = new_question.matrix_rows[idx]
