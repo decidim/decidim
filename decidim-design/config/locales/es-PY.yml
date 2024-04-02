@@ -45,8 +45,6 @@ es-PY:
         follow:
           title: Seguir
         forms:
-          date: fecha
-          datetime_local: Fecha y hora local
           disabled: Deshabilitado
           emojis: Emoticonos
           emojis_description: Solo funciona en áreas de texto
@@ -56,10 +54,7 @@ es-PY:
           help_texts: Texto de ayuda
           min_max_length: Longitud Mín/Máx
           min_max_length_description: Solo funciona en entradas de tipo texto y área de texto
-          number: número
-          password: contraseña
           regular_inputs_description: 'Solo muestra tipos comunes, lista completa disponible: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
-          text: texto
           textarea_required: área de texto requerida
           title: Formularios
         report:
