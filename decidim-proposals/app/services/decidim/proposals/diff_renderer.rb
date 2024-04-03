@@ -22,6 +22,7 @@ module Decidim
       # Parses the values before parsing the changeset.
       def parse_changeset(attribute, values, type, diff)
         return parse_scope_changeset(attribute, values, type, diff) if type == :scope
+        return parse_state_changeset(attribute, values, type, diff) if attribute == :decidim_proposals_proposal_state_id
 
         values = parse_values(attribute, values)
         old_value = values[0]
@@ -36,6 +37,24 @@ module Decidim
           }
         )
       end
+
+
+      def parse_state_changeset(attribute, values, type, diff)
+        return unless diff
+
+        old_state = Decidim::Proposals::ProposalState.find_by(id: values[0])
+        new_state = Decidim::Proposals::ProposalState.find_by(id: values[1])
+
+        diff.update(
+          attribute => {
+            type:,
+            label: I18n.t(attribute, scope: i18n_scope),
+            old_value: old_state ? translated_attribute(old_state.title) : "",
+            new_value: new_state ? translated_attribute(new_state.title) : ""
+          }
+        )
+      end
+
 
       # Handles which values to use when diffing emendations and
       # normalizes line endings of the :body attribute values.
