@@ -79,8 +79,8 @@ describe Decidim::ContentBlocks::ParticipatorySpaceHeroCell, type: :cell do
 
     it "uses that image's big version as background" do
       style = subject.find("section")["style"]
-      bgurl = style.match(/background-image:url\('([^']+)'\)/)[1]
-      expect(bgurl).to be_blob_url(content_block.images_container.background_image.blob)
+      background_url = style.match(/background-image:url\('([^']+)'\)/)[1]
+      expect(background_url).to be_blob_url(content_block.images_container.background_image.blob)
     end
   end
 end
