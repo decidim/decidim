@@ -63,3 +63,25 @@ bg:
           publish:
             invalid: Възникна проблем при публикуването на тази среща
             success: Срещата беше публикувана успешно
+          unpublish:
+            invalid: Възникна проблем при отмяната на публикуването на тази среща
+            success: Публикуването на срещата беше успешно отменено
+          update:
+            invalid: Възникна проблем при актуализирането на тази среща
+            success: Срещата беше актуализирана успешно
+        meetings_poll:
+          update:
+            invalid: Възникна проблем при актуализирането на тази анкета за среща
+            success: Анкетата за среща бе актуализирана успешно
+        registrations:
+          form:
+            reserved_slots_help: Оставете 0, ако не разполагате с резервирани места
+      calendar_modal:
+        close_window: Затвори прозореца
+        copy_calendar_url_explanation: Моля, обърнете внимание, че експортирате селекция от срещи, тъй като има активни филтри. Ако искате да ги експортирате всички, първо нулирайте всички филтри.
+      content_blocks:
+        upcoming_meetings:
+          view_all_meetings: Виж всички
+      last_activity:
+        meeting_updated_at_html: "<span>Срещата беше актуализирана на: %{link}</span>"
+        new_meeting_at_html: "<span>Нова среща на %{link}</span>"
