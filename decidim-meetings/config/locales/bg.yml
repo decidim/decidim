@@ -99,3 +99,23 @@ bg:
           disclaimer: 'Отказ от отговорност: Използвайки външна система за регистрация, вие сте наясно, че организаторите на %{organization} не носят отговорност за данните, предоставени от потребителите на външната услуга.'
         meeting_minutes:
           related_information: Свързана информация
+        meetings:
+          no_meetings_warning: Няма срещи, които да съответстват на критериите Ви за търсене, или няма насрочени срещи.
+        show:
+          back: Обратно към списъка
+          view: Преглед
+      meetings_map:
+        view_meeting: Преглед на срещата
+      public_participants_list:
+        attending_participants: Присъстващи участници
+      registrations:
+        create:
+          success: Присъединихте се успешно към срещата. Тъй като се регистрирахте за тази среща, ще бъдете уведомявани за всички нейни актуализации.
+      versions:
+        back_to_resource: Връщане назад към срещата
+      withdraw:
+        error: Възникна грешка при оттеглянето на срещата
+        success: Срещата е оттеглена успешно
+    participatory_spaces:
+      highlighted_meetings:
+        see_all: Виж всички срещи (%{count})
