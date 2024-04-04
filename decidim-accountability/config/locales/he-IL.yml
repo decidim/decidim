@@ -8,3 +8,37 @@ he:
         decidim_scope_id: היקף
         description: תיאור
         end_date: תאריך סיום
+        progress: התקדמות
+        project_ids: פרויקטים כלולים
+        proposals: הצעות כלולות
+        start_date: תאריך התחלה
+        title: כותרת
+        updated_at: עודכן ב-
+      status:
+        description: תיאור
+        key: מפתח
+        name: שם
+        progress: התקדמות
+      timeline_entry:
+        description: תיאור
+        entry_date: תאריך
+        title: כותרת
+    models:
+      decidim/accountability/proposal_linked_event: הצעה כלולה בתוצאה
+      decidim/accountability/result_progress_updated_event: התקדמות התוצאה עודכנה
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: תוצאה
+        two: תוצאות
+        many: תוצאות
+        other: תוצאות
+  decidim:
+    accountability:
+      actions:
+        attachment_collections: תיקיות
+        attachments: צרופות
+        confirm_destroy: האם את/ה בטוח/ה שברצונך למחוק את {name}?
+        destroy: מחיקה
+        edit: עריכה
+        preview: תצוגה מקדימה
