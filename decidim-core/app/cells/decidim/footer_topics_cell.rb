@@ -7,7 +7,7 @@ module Decidim
   #
   # Example:
   #
-  #    cell("decidim/footer_topics")
+  #    cell("decidim/footer_topics", nil)
   class FooterTopicsCell < Decidim::ViewModel
     def show
       return if topics.blank?
