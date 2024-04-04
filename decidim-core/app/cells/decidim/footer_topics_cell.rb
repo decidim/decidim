@@ -7,18 +7,23 @@ module Decidim
   #
   # Example:
   #
-  #    cell("decidim/footer_topics")
+  #    cell("decidim/footer_topics", nil)
   class FooterTopicsCell < Decidim::ViewModel
     def show
       return if topics.blank?
 
-      topics
+      render
     end
 
     private
 
     def topics
-      @topics = current_organization.static_page_topics.where(show_in_footer: true)
+      @topics ||= current_organization.static_page_topics.where(show_in_footer: true) do |topic|
+        {
+          title: decidim_escape_translated(topic.title),
+          path: decidim.page_path(topic.pages.first)
+        }
+      end
     end
 
     def topic_item(page_data, opts = {})
