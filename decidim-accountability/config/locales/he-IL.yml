@@ -172,9 +172,95 @@ he:
           create: "%{user_name} יצר.ה את %{resource_name} הסטטוס"
           delete: "%{user_name} מחק.ה את %{resource_name} הסטטוס"
           update: "%{user_name} עדכנ.ה את %{resource_name} הסטטוס"
+        timeline_entry:
+          create: "%{user_name} יצר את הערך של ציר הזמן %{resource_name}"
+          delete: "%{user_name} מחק את הערך של ציר הזמן %{resource_name}"
+          update: "%{user_name} יצר את הערך של ציר הזמן %{resource_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'ההורה לא נמצא במסד הנתונים (מזהה: %{id})'
+      content_blocks:
+        highlighted_results:
+          results: תוצאות
+      import_mailer:
+        import:
+          errors: שגיאות
+          errors_present: הייתה בעיה בייבוא ​​התוצאות.
+          row_number: שורה
+          subject: ייבוא ​​מוצלח של תוצאות
+          success: ייבוא ​​מוצלח של תוצאות. ניתן לעיין בתוצאות בממשק הניהול.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: תוצאה אחת יובאה מפרויקטים.
+            two: "שתי תוצאות יובאו מפרויקטים."
+            many: "%{count} תוצאות יובאו מפרויקטים."
+            other: "%{count} תוצאות יובאו מפרויקטים."
+          subject: ייבוא ​​מוצלח של תוצאות
+          success: פרויקטים מיובאים בהצלחה לתוצאות ברכיב %{component_name}. ניתן לעיין בתוצאות בממשק הניהול.
+      last_activity:
+        new_result: 'תוצאה חדשה:'
+      models:
+        result:
+          fields:
+            category: קטגוריה
+            created_at: נוצר
+            end_date: תאריך סיום
+            id: מספר מזהה
+            progress: התקדמות
+            scope: היקף
+            start_date: תאריך התחלה
+            status: סטטוס
+            title: כותרת
+        status:
+          fields:
+            description: תיאור
+            key: מפתח
+            name: שם
+            progress: התקדמות
+        timeline_entry:
+          fields:
+            entry_date: תאריך
+            title: כותרת
+      results:
+        count:
+          results_count:
+            one: תוצאה אחת
+            two: "שתי תוצאות"
+            many: "%{count} תוצאות"
+            other: "%{count} תוצאות"
+        filters:
+          all: הכל
+        home:
+          categories_label: קטגוריות
+          empty: אין תוצאות עדיין.
+          empty_filters: אין תוצאות עם קריטריון זה.
+          subcategories_label: תתי קטגוריות
+        home_header:
+          global_status: סטטוס ביצוע גלובלי
+        nav_breadcrumb:
+          global: ביצוע גלובלי
+        no_results: אין פרוייקטים
+        search:
+          search: חיפוש פעולה
+        show:
+          stats:
+            attendees: משתתפים.ות
+            back_to_resource: בחזרה לתוצאות
+            comments: תגובות
+            contributions: תרומות
+            last_edited_by: נערך לאחרונה על-ידי
+            last_updated_at: עודכן לאחרונה ב
+            meetings: פגישות
+            proposals: הצעות
+            votes: תמיכה
+        timeline:
+          title: אבולוציה של הפרויקט
     admin:
       filters:
         results:
+          category_id_eq:
+            label: קטגוריה
           scope_id_eq:
             label: היקף
           status_id_eq:
