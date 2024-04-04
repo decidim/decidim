@@ -26,6 +26,12 @@ module Decidim
       field :parent, Decidim::Accountability::ResultType, "The parent result", null: true
       field :status, Decidim::Accountability::StatusType, "The status for this result", null: true
       field :timeline_entries, [Decidim::Accountability::TimelineEntryType, { null: true }], "The timeline entries for this result", null: true
+
+      # Unsure why this field is required but it is requested in the integration
+      # schema spec of the accountability component which is why this is added
+      # here. It used to come from the ComponentInterface but results are not
+      # components which is why they cannot implement that interface.
+      field :participatory_space, Decidim::Core::ParticipatorySpaceType, "The participatory space in which this result belongs to.", null: false
     end
   end
 end
