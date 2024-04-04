@@ -26,7 +26,7 @@ $(() => {
 
   /* eslint no-use-before-define: ["error", { "variables": false }]*/
   let remoteSearch = function(text, cb) {
-    $.post("/api", {query: `{hashtags(name:"${text}") {name}}`}).
+    $.post(window.Decidim.config.get("api_path"), {query: `{hashtags(name:"${text}") {name}}`}).
 
       then((response) => {
         let data = response.data.hashtags || {};

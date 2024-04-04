@@ -42,7 +42,7 @@ $(() => {
   /* eslint no-use-before-define: ["error", { "variables": false }]*/
   let remoteSearch = function(text, cb) {
     let query = `{users(filter:{wildcard:"${text}"}){nickname,name,avatarUrl,__typename,...on UserGroup{membersCount}}}`;
-    $.post("/api", {query: query}).
+    $.post(window.Decidim.config.get("api_path"), {query: query}).
       then((response) => {
         let data = response.data.users || {};
         cb(data)

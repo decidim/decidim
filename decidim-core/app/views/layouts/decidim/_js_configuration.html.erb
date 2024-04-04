@@ -1,5 +1,6 @@
 <%
 js_configs = {
+  api_path: decidim_api.root_path(locale: nil),
   icons_path: Decidim.cors_enabled ? "" : asset_pack_path("media/images/icons.svg"),
   messages: {
     "selfxssWarning": {
