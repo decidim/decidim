@@ -13,7 +13,6 @@ module Decidim
       routes do
         resources :proposals, except: [:destroy] do
           member do
-            get :complete
             get :edit_draft
             patch :update_draft
             get :preview
