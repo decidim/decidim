@@ -85,3 +85,17 @@ bg:
       last_activity:
         meeting_updated_at_html: "<span>Срещата беше актуализирана на: %{link}</span>"
         new_meeting_at_html: "<span>Нова среща на %{link}</span>"
+      meeting:
+        not_allowed: Нямате разрешение да разглеждате тази среща
+      meetings:
+        calendar_modal:
+          close_window: Затвори прозореца
+        filters_small_view:
+          close_modal: Затвори прозореца
+          filter: Филтър
+          filter_by: Филтрирай по
+          unfold: Разгъване
+        form:
+          disclaimer: 'Отказ от отговорност: Използвайки външна система за регистрация, вие сте наясно, че организаторите на %{organization} не носят отговорност за данните, предоставени от потребителите на външната услуга.'
+        meeting_minutes:
+          related_information: Свързана информация
