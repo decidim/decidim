@@ -8,10 +8,6 @@ module Decidim
 
     let!(:process) { create(:participatory_process) }
 
-    before do
-      ActiveStorage::Current.host = "https://#{process.organization.host}"
-    end
-
     describe "#hero_image_url" do
       context "when there is no image" do
         before do
