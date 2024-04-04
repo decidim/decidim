@@ -79,30 +79,29 @@ module Decidim
         let!(:attachment) { create(:attachment, :with_image, attached_to: answer) }
 
         it "returns the download attachment link" do
-          expect(subject.body).to match(%r{^<ul><li><a target="_blank" rel="noopener noreferrer" href="[^"]+"><span>#{escape_translated_regexp(attachment.title)}</span> <small>jpeg 105 KB</small></a></li></ul>$})
+          regexp = %r{^<ul><li>(<a target="_blank" rel="noopener noreferrer" href="([^"]+)">(((?!</a>).)*)</a>)</li></ul>}
+          expect(subject.body).to match(regexp)
 
-          link = Nokogiri::HTML(subject.body).css("a").first
-          expect(link["href"]).to be_blob_url(attachment.file.blob)
+          match = subject.body.match(regexp)
+          href = match[2]
+          inner = match[3]
+
+          expect(inner).to eq(%(<span>#{decidim_escape_translated(attachment.title)}</span> <small>jpeg 105 KB</small>))
+          expect(href).to be_blob_url(attachment.file.blob)
         end
 
         context "when the attachment does not have a title" do
           let!(:attachment) { create(:attachment, :with_image, attached_to: answer, title: {}, description: {}) }
 
           it "returns the download attachment link" do
-            expect(subject.body).to match(%r{^<ul><li><a target="_blank" rel="noopener noreferrer" href="[^"]+"><span>Download attachment</span> <small>jpeg 105 KB</small></a></li></ul>$})
+            regexp = %r{^<ul><li><a target="_blank" rel="noopener noreferrer" href="([^"]+)"><span>Download attachment</span> <small>jpeg 105 KB</small></a></li></ul>$}
+            expect(subject.body).to match(regexp)
 
-            link = Nokogiri::HTML(subject.body).css("a").first
-            expect(link["href"]).to be_blob_url(attachment.file.blob)
+            match = subject.body.match(regexp)
+            href = match[1]
+
+            expect(href).to be_blob_url(attachment.file.blob)
           end
-        end
-
-        # Uses `decidim_escape_translated` to escape the string literal to
-        # expected format and prefixes the parentheses with a backslash in order
-        # to utilize the escaped string as part of a regular expression.
-        def escape_translated_regexp(data)
-          decidim_escape_translated(data)
-            .gsub("(", "\\(")
-            .gsub(")", "\\)")
         end
       end
     end
