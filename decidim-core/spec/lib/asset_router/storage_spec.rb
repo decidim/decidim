@@ -18,7 +18,14 @@ module Decidim::AssetRouter
 
       context "with an ActiveStorage::Attached" do
         it "creates the disk service route to the blob" do
+          ActiveStorage::Current.host = "http://localhost:#{default_port}"
           expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar.jpg$})
+        end
+
+        context "when the host is not set" do
+          it "sets the host based on the asset" do
+            expect(subject).to match(%r{^http://#{organization.host}:#{default_port}/rails/active_storage/disk/[^/]+/avatar.jpg$})
+          end
         end
 
         context "when requesting the local redirect path to the asset" do
@@ -42,7 +49,14 @@ module Decidim::AssetRouter
         let(:asset) { organization.official_img_footer.blob }
 
         it "creates the disk service route to the blob" do
+          ActiveStorage::Current.host = "http://localhost:#{default_port}"
           expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar.jpg$})
+        end
+
+        context "when the host is not set" do
+          it "creates the redirect route to the blob" do
+            expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/blobs/redirect/[^/]+/avatar.jpg$})
+          end
         end
 
         context "when requesting the local redirect path to the asset" do
