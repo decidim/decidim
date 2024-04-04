@@ -42,3 +42,13 @@ he:
         destroy: מחיקה
         edit: עריכה
         preview: תצוגה מקדימה
+        timeline_entries: אבולוציה של הפרויקט
+        title: פעולות
+      admin:
+        exports:
+          result_comments: תגובות
+          results: תוצאות
+        import_results:
+          new:
+            download_export: להורדת הייצוא כקובץ CSV
+            import: ייבוא
