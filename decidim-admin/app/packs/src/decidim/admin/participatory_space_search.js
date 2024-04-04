@@ -10,7 +10,7 @@ import AutoComplete from "src/decidim/autocomplete";
  */
 const apiRequest = (query) => {
   return new Promise((resolve) => {
-    fetch("/api", {
+    fetch(window.Decidim.config.get("api_path"), {
       method: "post",
       headers: {
         "Content-Type": "application/json"

@@ -27,6 +27,7 @@ describe "Editor" do
 
   let(:html_document) do
     js_configs = {
+      api_path: "/api",
       messages: {
         editor: I18n.t("editor"),
         selfxssWarning: I18n.t("decidim.security.selfxss_warning")
