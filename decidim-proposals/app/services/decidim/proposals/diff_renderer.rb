@@ -38,7 +38,6 @@ module Decidim
         )
       end
 
-
       def parse_state_changeset(attribute, values, type, diff)
         return unless diff
 
@@ -54,7 +53,6 @@ module Decidim
           }
         )
       end
-
 
       # Handles which values to use when diffing emendations and
       # normalizes line endings of the :body attribute values.
