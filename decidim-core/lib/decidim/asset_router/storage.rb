@@ -35,7 +35,7 @@ module Decidim
           when ActiveStorage::Blob
             asset
           else
-            asset.blob
+            asset&.blob
           end
       end
 
@@ -154,8 +154,11 @@ module Decidim
       #
       # @param blob The blob object
       # @param options Options for building the URL
-      # @return [String] The URL to the blob object
+      # @return [String, nil] The URL to the blob object or `nil` if the blob is
+      #   not defined.
       def blob_url(**options)
+        return unless blob
+
         if options[:only_path] || remote? || !asset_url_available?
           routes.rails_blob_url(blob, **default_options.merge(options))
         else
@@ -203,8 +206,11 @@ module Decidim
       # the correct file extension.
       #
       # @param options The options for building the URL
-      # @return [String] The converted representation URL
+      # @return [String, nil] The converted representation URL or `nil` if the
+      #   asset is not defined.
       def rails_representation_url(**options)
+        return unless asset
+
         representation_url = routes.rails_representation_url(asset, **default_options.merge(options))
 
         variation = asset.try(:variation)
@@ -212,11 +218,12 @@ module Decidim
 
         format = variation.try(:format)
         return representation_url unless format
+        return unless blob
 
-        original_ext = File.extname(asset.blob.filename.to_s)
+        original_ext = File.extname(blob.filename.to_s)
         return representation_url if original_ext == ".#{format}"
 
-        basename = File.basename(asset.blob.filename.to_s, original_ext)
+        basename = File.basename(blob.filename.to_s, original_ext)
         representation_url.sub(/#{basename}\.#{original_ext.tr(".", "")}$/, "#{basename}.#{format}")
       end
 
@@ -229,8 +236,9 @@ module Decidim
       # @param options The options for building the URL
       # @return [String, nil] The variant URL at the storage service or `nil` if
       #   the variant has not been processed yet and does not yet exist at the
-      #   storage service
+      #   storage service or `nil` when the asset is not defined
       def variant_url(**)
+        return unless asset
         return unless asset_url_available?
 
         case asset
@@ -253,6 +261,8 @@ module Decidim
       # @return [Boolean] A boolean indicating if the current host is required
       #   to build the asset URL.
       def current_host_required?
+        return false unless blob
+
         blob.service.is_a?(ActiveStorage::Service::DiskService)
       end
 

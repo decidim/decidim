@@ -150,6 +150,14 @@ module Decidim::AssetRouter
         end
       end
 
+      # This is used by the generator specs to check that some default
+      # configurations are set correctly.
+      context "with nil" do
+        let(:asset) { nil }
+
+        it { is_expected.to be_nil }
+      end
+
       context "when the CDN host is defined" do
         before do
           allow(Rails.application.secrets).to receive(:dig).and_call_original
