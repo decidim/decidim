@@ -79,14 +79,20 @@ module Decidim
         let!(:attachment) { create(:attachment, :with_image, attached_to: answer) }
 
         it "returns the download attachment link" do
-          expect(subject.body).to eq(%(<ul><li><a target="_blank" rel="noopener noreferrer" href="#{attachment.url}"><span>#{decidim_escape_translated(attachment.title)}</span> <small>jpeg 105 KB</small></a></li></ul>))
+          expect(subject.body).to match(%r{^<ul><li><a target="_blank" rel="noopener noreferrer" href="[^"]+"><span>#{decidim_escape_translated(attachment.title).gsub(/[()]/, "\\\\\\0")}</span> <small>jpeg 105 KB</small></a></li></ul>$})
+
+          link = Nokogiri::HTML(subject.body).css("a").first
+          expect(link["href"]).to be_blob_url(attachment.file.blob)
         end
 
         context "when the attachment does not have a title" do
           let!(:attachment) { create(:attachment, :with_image, attached_to: answer, title: {}, description: {}) }
 
           it "returns the download attachment link" do
-            expect(subject.body).to eq(%(<ul><li><a target="_blank" rel="noopener noreferrer" href="#{attachment.url}"><span>Download attachment</span> <small>jpeg 105 KB</small></a></li></ul>))
+            expect(subject.body).to match(%r{^<ul><li><a target="_blank" rel="noopener noreferrer" href="[^"]+"><span>Download attachment</span> <small>jpeg 105 KB</small></a></li></ul>$})
+
+            link = Nokogiri::HTML(subject.body).css("a").first
+            expect(link["href"]).to be_blob_url(attachment.file.blob)
           end
         end
       end

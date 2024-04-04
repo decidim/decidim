@@ -43,13 +43,12 @@ RSpec.configure do |config|
     Decidim.content_security_policies_extra = {
       "img-src": %w(https://via.placeholder.com)
     }
+  end
 
-    # Needed for the asset URLs to work through the local disk service when the
-    # asset URLs are requested outside of a request context.
-    #
-    # Normally this would be set by the controller through the
-    # `ActiveStorage::SetCurrent` concern when the storage URLs are requested
-    # within a normal request context.
-    ActiveStorage::Current.host = "http://localhost:#{Capybara.server_port}"
+  config.before do
+    # Ensure that the current host is not set for any spec in order to test that
+    # the automatic current host definition is working correctly in all
+    # situations.
+    ActiveStorage::Current.host = nil
   end
 end

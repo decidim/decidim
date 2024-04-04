@@ -257,7 +257,8 @@ describe "Admin views proposal details from admin" do
       go_to_admin_proposal_page(proposal)
 
       within "#photos" do
-        expect(page).to have_xpath("//img[@src=\"#{image.thumbnail_url}\"]")
+        img = page.find("img")
+        expect(img["src"]).to be_blob_url(image.file.blob)
       end
     end
   end
