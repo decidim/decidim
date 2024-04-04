@@ -1,1 +1,9 @@
 he:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: סטטוס
+        decidim_category_id: קטגוריה
+        decidim_scope_id: היקף
+        description: תיאור
+        end_date: תאריך סיום
