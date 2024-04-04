@@ -12,7 +12,7 @@ module Decidim
     def show
       return if topics.blank?
 
-      topics
+      render
     end
 
     private
