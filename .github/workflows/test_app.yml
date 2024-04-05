@@ -41,7 +41,7 @@ on:
 
 jobs:
   build_app:
-    name: Test app
+    name: Test
     runs-on: ubuntu-latest
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
