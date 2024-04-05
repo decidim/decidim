@@ -65,7 +65,7 @@ $(() => {
     }
 
     $exitLink.attr("href", url);
-    $exitLink.html(exitLinkText);
+    $exitLink.text(exitLinkText);
     $exitNotification.foundation("open");
   };
 
