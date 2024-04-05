@@ -110,6 +110,14 @@ describe Decidim::Proposals::Permissions do
     end
   end
 
+  context "when emebeding a proposal" do
+    let(:action) do
+      { scope: :public, action: :embed, subject: :proposal }
+    end
+
+    it { is_expected.to be true }
+  end
+
   describe "voting" do
     let(:action) do
       { scope: :public, action: :vote, subject: :proposal }

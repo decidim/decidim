@@ -25,6 +25,14 @@ describe Decidim::Sortitions::Permissions do
     it_behaves_like "delegates permissions to", Decidim::Sortitions::Admin::Permissions
   end
 
+  context "when emebedding a sortition" do
+    let(:action) do
+      { scope: :public, action: :embed, subject: :sortition }
+    end
+
+    it { is_expected.to be true }
+  end
+
   context "when any other condition" do
     let(:action) do
       { scope: :foo, action: :blah, subject: :sortition }
