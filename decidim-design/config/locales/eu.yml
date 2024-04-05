@@ -145,6 +145,7 @@ eu:
         activity: Jarduera
         address_description: Helbide-gelaxkak baliabide bat jasotzen du eta atributu geolokalizagarriak bilatzen ditu markaketa zehatz bat egiteko.
         address_description_2: Eduki motaren arabera, helbidea online url bat izan daiteke. Kasu horietarako, erakutsitako informazioa berdina da, baina egokitzeko modukoa.
+        ally_link: a11y- goitibeherako zerrendaren osagaia
         argument: Argumentua
         assemblies: Batzarrak
         assembly_g: G Batzarra
@@ -185,6 +186,7 @@ eu:
         demo_text_2: Azken jarduera-orriak erabiltzen du, eduki-bloke batean eta dropdown-en barruan.
         description: Deskribapena
         disabled: Desgaitua
+        dropdowns: Goitibeherako zerrendak
         dummy_description: Baliabideen balizko deskribapena
         dummy_title: Baliabideen balizko izenburua
         follow_button: Jarraitu Botoiari
