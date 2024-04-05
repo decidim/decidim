@@ -15,6 +15,7 @@ module Decidim
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
     AVAILABLE_MACHINE_TRANSLATION_DISPLAY_PRIORITIES = %w(original translation).freeze
 
+    # translatable_fields :name
     translatable_fields :description, :cta_button_text, :omnipresent_banner_title, :omnipresent_banner_short_description,
                         :highlighted_content_banner_title, :highlighted_content_banner_short_description, :highlighted_content_banner_action_title,
                         :highlighted_content_banner_action_subtitle, :welcome_notification_subject, :welcome_notification_body, :id_documents_explanation_text,
@@ -41,7 +42,7 @@ module Decidim
     #  disable: Users cannot register or sign in.
     enum users_registration_mode: [:enabled, :existing, :disabled], _prefix: true
 
-    validates :name, :host, uniqueness: true
+    validates :host, uniqueness: true
     validates :reference_prefix, presence: true
     validates :time_zone, presence: true, time_zone: true
     validates :default_locale, inclusion: { in: :available_locales }
@@ -59,6 +60,27 @@ module Decidim
     validates_upload :highlighted_content_banner_image, uploader: Decidim::ImageUploader
 
     has_one_attached :open_data_file
+
+
+    # validate :unique_name
+
+    def unique_name
+      query = self.class.where('name->>? ilike ?', I18n.locale, "#{org_translated_name[I18n.locale]}%")
+      if new_record?
+        errors.add(:name, :taken) if query.empty?
+      else
+        errors.add(:name, :taken) if query.where.not(id: id).empty?
+      end
+    end
+
+    def name
+      raise NotImplementedError, "You should use org_translated_name instead of name"
+    end
+
+    def org_translated_name
+      attributes["name"]
+    end
+
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::OrganizationPresenter

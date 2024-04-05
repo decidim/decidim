@@ -6,4 +6,4 @@
 
 <p class="email-instructions"><%= t ".body_2" %></p>
 
-<p class="email-closing"><%= t(".greetings", organization_name: h(@organization.name), organization_url: decidim.root_url(host: @organization.host)).html_safe %></p>
+<p class="email-closing"><%= t(".greetings", organization_name: decidim_sanitize_translated(@organization.org_translated_name), organization_url: decidim.root_url(host: @organization.host)).html_safe %></p>

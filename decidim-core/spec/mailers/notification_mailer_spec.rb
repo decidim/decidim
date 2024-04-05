@@ -26,7 +26,7 @@ module Decidim
       end
 
       it "includes the organization data" do
-        expect(mail.body.encoded).to include(user.organization.name)
+        expect(mail.body.encoded).to include(decidim_escape_translated(user.organization.org_translated_name))
       end
 
       it "includes the greeting" do

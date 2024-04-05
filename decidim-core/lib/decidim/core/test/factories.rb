@@ -112,7 +112,16 @@ FactoryBot.define do
       create_static_pages { true }
     end
 
-    name { Faker::Company.unique.name }
+    name do
+      Decidim::Faker::Localized.localized do
+        if skip_injection
+          Faker::Company.unique.name
+        else
+          "<script>alert(\"organization_name\");</script> #{Faker::Company.unique.name}"
+        end
+      end
+    end
+
     reference_prefix { Faker::Name.suffix }
     time_zone { "UTC" }
     twitter_handler { Faker::Hipster.word }

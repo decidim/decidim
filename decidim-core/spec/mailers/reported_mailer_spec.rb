@@ -107,7 +107,7 @@ module Decidim
           let(:reportable) { create(:proposal, :official) }
 
           it "includes the name of the organization" do
-            expect(email_body(mail)).to match(author.name)
+            expect(email_body(mail)).to include(decidim_escape_translated(author.org_translated_name))
           end
         end
 
