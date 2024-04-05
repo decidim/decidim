@@ -187,6 +187,13 @@ eu:
         description: Deskribapena
         disabled: Desgaitua
         dropdowns: Goitibeherako zerrendak
+        dropdowns_demo_1_description: 'Hurrengo adibidea ez da ikusgarri egongo mahaigainean, mugikorrean baizik:'
+        dropdowns_demo_description: Goitibeherako zerrendak aplikazioan zehar erabiltzen dira ez kolapsatzeko menu handiak, erraz irakurtzeko modukoak mahaigaineko gailuentzat, baina koloretsuegiak gailu mugikorrentzat.
+        dropdowns_demo_description_html: 'Javascript ezaugarri hau css txiki batez indartzen da, izenburuaren bidez: eduki ezkutagarriak nortasun agiria IZAN BEHAR DU <code>id</code> goitibeherako zerrendatik hasita.'
+        dropdowns_description_html: Goitibeherako zerrendak javascript ezaugarriak dira, % {link} izeneko kanpoko liburutegi bati esker.
+        dropdowns_usage_1_description: 2. Elementu modala, zeinaren <code>id</code> datu-kontrolek bat egiten duten eragileari dagokion balioarekin.
+        dropdowns_usage_description: 'Goitibeherako zerrenda batek bi elementu eskatzen ditu:'
+        dropdowns_usage_description_html: 1. Erabiltzaile-elementu prozesagarria, datu-osagaia = "dropdown" data-target = "dropdown-menu-element" datu-atributuak dituena.
         dummy_description: Baliabideen balizko deskribapena
         dummy_title: Baliabideen balizko izenburua
         follow_button: Jarraitu Botoiari
