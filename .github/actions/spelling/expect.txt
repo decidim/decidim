@@ -42,6 +42,7 @@ Arquitectura
 Arrakis
 Artagnan
 arxiu
+associacio
 atcat
 atiger
 Atlassian
