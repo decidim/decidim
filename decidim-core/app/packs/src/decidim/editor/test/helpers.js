@@ -26,7 +26,8 @@ import createEditor from "src/decidim/editor/index";
 import editorMessages from "src/decidim/editor/test/fixtures/editor_messages";
 import uploadTemplates from "src/decidim/editor/test/fixtures/upload_templates";
 
-const config = { messages: { editor: editorMessages } };
+// eslint-disable-next-line camelcase
+const config = { api_path: "/api",  messages: { editor: editorMessages } };
 window.Decidim = { config: { get: (key) => config[key] } };
 window.ClipboardEvent = class ClipboardEvent extends Event {};
 window.DragEvent = class DragEvent extends Event {};

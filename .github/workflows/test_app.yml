@@ -41,7 +41,7 @@ on:
 
 jobs:
   build_app:
-    name: Test app
+    name: Test
     runs-on: ubuntu-latest
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
@@ -101,7 +101,6 @@ jobs:
           DISPLAY: ":99"
           CI: "true"
           SIMPLECOV: "true"
-          PARALLEL_TEST_PROCESSORS: 2
           SHAKAPACKER_RUNTIME_COMPILE: "false"
           NODE_ENV: "test"
       - uses: codecov/codecov-action@v3
