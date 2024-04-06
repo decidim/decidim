@@ -47,7 +47,6 @@ module Decidim
         I18n.with_locale(locale) do
           "T'han convidat a administrar #{translated_attribute(user.organization.org_translated_name)}"
         end
-
       end
       let(:body) { "Acceptar invitaci" }
       let(:default_subject) { "You have been invited to manage #{translated_attribute(user.organization.org_translated_name)}" }

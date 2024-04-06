@@ -61,15 +61,14 @@ module Decidim
 
     has_one_attached :open_data_file
 
-
     # validate :unique_name
 
     def unique_name
-      query = self.class.where('name->>? ilike ?', I18n.locale, "#{org_translated_name[I18n.locale]}%")
+      query = self.class.where("name->>? ilike ?", I18n.locale, "#{org_translated_name[I18n.locale]}%")
       if new_record?
         errors.add(:name, :taken) if query.empty?
-      else
-        errors.add(:name, :taken) if query.where.not(id: id).empty?
+      elsif query.where.not(id:).empty?
+        errors.add(:name, :taken)
       end
     end
 
@@ -80,7 +79,6 @@ module Decidim
     def org_translated_name
       attributes["name"]
     end
-
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::OrganizationPresenter
