@@ -12,6 +12,10 @@ module Decidim
       def stats
         Decidim.stats.with_context(object)
       end
+
+      def name
+        object.org_translated_name[object.default_locale]
+      end
     end
   end
 end

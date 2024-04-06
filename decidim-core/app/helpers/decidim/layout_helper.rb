@@ -5,6 +5,7 @@ module Decidim
   module LayoutHelper
     include Decidim::ModalHelper
     include Decidim::TooltipHelper
+    include Decidim::TranslatableAttributes
 
     # Public: Generates a set of meta tags that generate the different favicon
     # versions for an organization.
@@ -167,6 +168,10 @@ module Decidim
                                           else
                                             decidim_sanitize_admin(translated_attribute(current_organization.description))
                                           end
+    end
+
+    def organization_name(organization = current_organization)
+      translated_attribute(organization.org_translated_name)
     end
 
     private
