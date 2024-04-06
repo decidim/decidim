@@ -148,7 +148,7 @@ describe "Homepage" do
       end
 
       it "welcomes the user" do
-        expect(page).to have_content(organization.name)
+        expect(page).to have_content(translated(organization.org_translated_name))
       end
 
       context "when there are static pages" do
@@ -179,7 +179,7 @@ describe "Homepage" do
           expect(page).to have_css("#footer_sub_hero")
 
           within "#footer_sub_hero" do
-            expect(page).to have_content(organization.name)
+            expect(page).to have_content(translated(organization.org_translated_name))
           end
         end
 
@@ -304,7 +304,7 @@ describe "Homepage" do
           let(:organization) { create(:organization) }
 
           it "does not show the statistics block" do
-            expect(page).to have_no_content("Current state of #{organization.name}")
+            expect(page).to have_no_content("Current state of #{translated(organization.org_translated_name)}")
           end
         end
 
@@ -318,7 +318,7 @@ describe "Homepage" do
 
           it "shows the statistics block" do
             within "#statistics" do
-              expect(page).to have_content("Current state of #{organization.name}")
+              expect(page).to have_content("Current state of #{translated(organization.org_translated_name)}")
               expect(page).to have_content("Processes")
               expect(page).to have_content("Participants")
             end

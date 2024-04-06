@@ -114,11 +114,12 @@ FactoryBot.define do
 
     name do
       Decidim::Faker::Localized.localized do
-        if skip_injection
-          Faker::Company.unique.name
-        else
-          "<script>alert(\"organization_name\");</script> #{Faker::Company.unique.name}"
-        end
+        # if skip_injection
+        #   Faker::Company.unique.name
+        # else
+        #   "<script>alert(\"organization_name\");</script> #{Faker::Company.unique.name}"
+        # end
+        Faker::Company.unique.name
       end
     end
 

@@ -158,7 +158,7 @@ shared_examples "manage posts" do
     it "can set organization as posts author" do
       click_on "New post"
 
-      select organization.name, from: "post_decidim_author_id"
+      select translated(organization.org_translated_name), from: "post_decidim_author_id"
 
       fill_in_i18n(
         :post_title,
@@ -196,7 +196,7 @@ shared_examples "manage posts" do
       end
 
       within ".edit_post" do
-        select organization.name, from: "post_decidim_author_id"
+        select translated(organization.org_translated_name), from: "post_decidim_author_id"
         find("*[type=submit]").click
       end
 

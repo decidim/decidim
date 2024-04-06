@@ -171,7 +171,7 @@ module Decidim
     end
 
     def organization_name(organization = current_organization)
-      translated_attribute(organization.org_translated_name)
+      translated_attribute(organization.org_translated_name, organization)
     end
 
     private
