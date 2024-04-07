@@ -7,7 +7,8 @@ module Decidim
     include LocalisedMailer
     include MultitenantAssetHost
     include Decidim::SanitizeHelper
-    helper_method :decidim_escape_translated, :decidim_sanitize_translated, :translated_attribute, :decidim_sanitize, :decidim_sanitize_newsletter
+    include Decidim::OrganizationHelper
+    helper_method :organization_name, :decidim_escape_translated, :decidim_sanitize_translated, :translated_attribute, :decidim_sanitize, :decidim_sanitize_newsletter
 
     after_action :set_smtp
 
