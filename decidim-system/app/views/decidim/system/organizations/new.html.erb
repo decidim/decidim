@@ -6,7 +6,9 @@
 
 <%= decidim_form_for(@form) do |f| %>
   <div class="form__wrapper">
-    <%= f.text_field :name, autofocus: true %>
+    <div>
+      <%= f.translated :text_field, :name, autofocus: true %>
+    </div>
 
     <%= f.text_field :reference_prefix, help_text: t(".reference_prefix_hint") %>
 

@@ -71,10 +71,10 @@ module Decidim
         errors.add(:name, :taken)
       end
     end
-
-    def name
-      raise NotImplementedError, "You should use org_translated_name instead of name"
-    end
+    #
+    # def name
+    #   raise NotImplementedError, "You should use org_translated_name instead of name"
+    # end
 
     def org_translated_name
       attributes["name"]

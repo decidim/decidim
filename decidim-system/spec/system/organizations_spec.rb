@@ -41,7 +41,7 @@ describe "Organizations" do
       end
 
       it "creates a new organization" do
-        fill_in "Name", with: "Citizen Corp"
+        fill_in_i18n :organization_name, "#organization-name-tabs", en: "Citizen Corp"
         fill_in "Host", with: "www.example.org"
         fill_in "Secondary hosts", with: "foo.example.org\n\rbar.example.org"
         fill_in "Reference prefix", with: "CCORP"
@@ -64,7 +64,7 @@ describe "Organizations" do
 
       context "with invalid data" do
         it "does not create an organization" do
-          fill_in "Name", with: "Bad"
+          fill_in_i18n :organization_name, "#organization-name-tabs", en: "Bad"
           click_on "Create organization & invite admin"
 
           expect(page).to have_content("There is an error in this field")
@@ -122,7 +122,7 @@ describe "Organizations" do
       it_behaves_like "form hiding advanced settings"
 
       it "edits the data" do
-        fill_in "Name", with: "Citizens Rule!"
+        fill_in_i18n :organization_name, "#organization-name-tabs", en: "Citizens Rule!"
         fill_in "Host", with: "www.example.org"
         fill_in "Secondary hosts", with: "foobar.example.org\n\rbar.example.org"
         choose "Do not allow participants to register, but allow existing participants to login"

@@ -12,12 +12,14 @@ module Decidim
 
       mimic :organization
 
-      attribute :name, String
+      translatable_attribute :name, String
       attribute :host, String
       attribute :secondary_hosts, String
       attribute :force_users_to_authenticate_before_access_organization, Boolean
       attribute :available_authorizations, Array[String]
       attribute :users_registration_mode, String
+      attribute :default_locale, String
+
       jsonb_attribute :smtp_settings, [
         [:from, String],
         [:from_email, String],
@@ -56,11 +58,13 @@ module Decidim
 
       jsonb_attribute :omniauth_settings, OMNIATH_PROVIDERS_ATTRIBUTES
 
-      validates :name, :host, :users_registration_mode, presence: true
+      validates :host, :users_registration_mode, presence: true
+      validate :validate_organization_name_presence
       validate :validate_organization_uniqueness
       validates :users_registration_mode, inclusion: { in: Decidim::Organization.users_registration_modes }
 
       def map_model(model)
+        self.default_locale = model.default_locale
         self.secondary_hosts = model.secondary_hosts.join("\n")
         self.omniauth_settings = (model.omniauth_settings || {}).transform_values do |v|
           Decidim::OmniauthProvider.value_defined?(v) ? Decidim::AttributeEncryptor.decrypt(v) : v
@@ -103,9 +107,15 @@ module Decidim
       end
 
       private
+      def validate_organization_name_presence
+        translated_attr = "name_#{current_organization.try(:default_locale) || Decidim.default_locale.to_s}".to_sym
+        errors.add(translated_attr, :blank) if send(translated_attr).blank?
+      end
 
       def validate_organization_uniqueness
-        errors.add(:name, :taken) if Decidim::Organization.where(name:).where.not(id:).exists?
+        name.each do |language, value|
+          errors.add(:"name_#{language}", :taken) if Decidim::Organization.where("name::text ilike ?", "%#{value}%").where.not(id:).exists?
+        end
         errors.add(:host, :taken) if Decidim::Organization.where(host:).where.not(id:).exists?
       end
     end

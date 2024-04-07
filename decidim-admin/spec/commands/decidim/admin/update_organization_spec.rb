@@ -74,7 +74,7 @@ module Decidim::Admin
           expect { command.call }.to broadcast(:ok)
           organization.reload
 
-          expect(organization.org_translated_name["en"]).to eq("My super organization")
+          expect(translated(organization.org_translated_name)).to eq("My super organization")
           expect(organization.rich_text_editor_in_public_views).to be(true)
           expect(organization.enable_machine_translations).to be(true)
         end
