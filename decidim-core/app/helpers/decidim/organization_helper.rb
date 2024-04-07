@@ -4,7 +4,6 @@ module Decidim
   # View helpers related to the organization.
 
   module OrganizationHelper
-
     # Renders a view with the customizable CSS variables in two flavours:
     # 1. as a hexadecimal valid CSS color (ie: #ff0000)
     # 2. as a disassembled RGB components (ie: 255 0 0)

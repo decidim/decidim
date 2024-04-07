@@ -15,10 +15,10 @@ module Decidim
       field :avatar_url, String, "The author's avatar url", null: false
       field :profile_path, String, "The author's profile path", null: false
       field :badge, String, "The author's badge icon", null: false
-      field :organization_name, String, "The authors's organization name", null: false
+      field :organization_name, Decidim::Core::TranslatedFieldType, "The authors's organization name", null: false
 
       def organization_name
-        object.organization.name
+        object.organization.org_translated_name
       end
 
       field :deleted, Boolean, "Whether the author's account has been deleted or not", null: false

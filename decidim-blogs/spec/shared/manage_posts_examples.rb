@@ -15,7 +15,7 @@ shared_examples "manage posts" do
     end
 
     within ".edit_post" do
-      expect(page).to have_select("post_decidim_author_id", selected: author.name)
+      expect(page).to have_select("post_decidim_author_id", selected: translated(author.try(:org_translated_name) || author.name))
 
       fill_in_i18n(
         :post_title,
@@ -40,7 +40,7 @@ shared_examples "manage posts" do
     within "table" do
       expect(page).to have_content("My new title")
       expect(page).to have_content("Post title 2")
-      expect(page).to have_content(author.name)
+      expect(page).to have_content(translated(author.try(:org_translated_name) || author.name))
     end
   end
 
@@ -183,7 +183,7 @@ shared_examples "manage posts" do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_content(author.name)
+        expect(page).to have_content(translated(organization.org_translated_name))
         expect(page).to have_content("My post")
         expect(page).to have_content("Post title 1")
         expect(page).to have_content("Post title 2")
@@ -203,7 +203,7 @@ shared_examples "manage posts" do
       expect(page).to have_admin_callout("successfully")
 
       within "tr", text: translated(post1.title) do
-        expect(page).to have_content(author.name)
+        expect(page).to have_content(translated(organization.org_translated_name))
       end
     end
   end
