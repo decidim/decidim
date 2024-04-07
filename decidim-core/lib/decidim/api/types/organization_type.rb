@@ -14,7 +14,7 @@ module Decidim
       end
 
       def name
-        object.org_translated_name[object.default_locale]
+        object.org_translated_name
       end
     end
   end

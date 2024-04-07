@@ -30,10 +30,10 @@ module Decidim
         object.presenter.profile_path
       end
 
-      field :organization_name, GraphQL::Types::String, "The user group's organization name", null: false
+      field :organization_name, Decidim::Core::TranslatedFieldType, "The user group's organization name", null: false
 
       def organization_name
-        object.organization.name
+        object.organization.org_translated_name
       end
 
       field :deleted, GraphQL::Types::Boolean, "Whether the user group's has been deleted or not", null: false

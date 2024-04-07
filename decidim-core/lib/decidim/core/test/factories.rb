@@ -805,7 +805,7 @@ FactoryBot.define do
           title: participatory_space.try(:name) || participatory_space.try(:title)
         }.compact,
         resource: {
-          title: resource.try(:name) || resource.try(:title)
+          title: resource.try(:org_translated_name) || resource.try(:name) || resource.try(:title)
         }.compact,
         user: {
           ip: user.try(:current_sign_in_ip),
