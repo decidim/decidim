@@ -24,7 +24,7 @@ module Decidim
         if opts[:invitation_instructions]
           opts[:subject] =
             I18n.t("devise.mailer.#{opts[:invitation_instructions]}.subject",
-                   organization: translated_attribute(user.organization.org_translated_name))
+                   organization: organization_name(user.organization))
         end
       end
 

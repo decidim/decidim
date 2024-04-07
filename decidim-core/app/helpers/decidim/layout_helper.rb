@@ -174,6 +174,10 @@ module Decidim
       translated_attribute(organization.org_translated_name, organization)
     end
 
+    def current_organization_name
+      organization_name(current_organization)
+    end
+
     private
 
     def empty_organization_description?
