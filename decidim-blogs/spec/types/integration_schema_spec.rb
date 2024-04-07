@@ -29,7 +29,7 @@ describe "Decidim::Api::QueryType" do
           "id" => endo.author.id.to_s,
           "name" => endo.author.name,
           "nickname" => "@#{endo.author.nickname}",
-          "organizationName" => { "translation" => translated(endo.author.organization.org_translated_name) },
+          "organizationName" => { "translation" => translated(endo.author.organization.name) },
           "profilePath" => "/profiles/#{endo.author.nickname}"
         }
       end,

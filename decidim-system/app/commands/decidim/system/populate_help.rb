@@ -56,7 +56,7 @@ module Decidim
       end
 
       def organization_name
-        translated_attribute(@organization.org_translated_name)
+        translated_attribute(@organization.name)
       end
     end
   end

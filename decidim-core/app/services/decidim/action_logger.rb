@@ -88,7 +88,7 @@ module Decidim
     end
 
     def title_for(resource)
-      resource.try(:title) || resource.try(:org_translated_name) || resource.try(:name) || resource.try(:subject)
+      resource.try(:title) || resource.try(:name) || resource.try(:subject)
     end
 
     def participatory_space_manifest_name

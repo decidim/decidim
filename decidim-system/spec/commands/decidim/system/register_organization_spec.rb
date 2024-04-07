@@ -16,7 +16,7 @@ module Decidim
           let(:from_label) { "Decide Gotham" }
           let(:params) do
             {
-              name: "Gotham City",
+              name: { en: "Gotham City" },
               host: "decide.gotham.gov",
               secondary_hosts: "foo.gotham.gov\r\n\r\nbar.gotham.gov",
               reference_prefix: "JKR",
@@ -52,7 +52,7 @@ module Decidim
             expect { command.call }.to change(Organization, :count).by(1)
             organization = Organization.last
 
-            expect(organization.name).to eq("Gotham City")
+            expect(translated(organization.name)).to eq("Gotham City")
             expect(organization.host).to eq("decide.gotham.gov")
             expect(organization.secondary_hosts).to contain_exactly("foo.gotham.gov", "bar.gotham.gov")
             expect(organization.external_domain_allowlist).to contain_exactly("decidim.org", "github.com")
@@ -73,7 +73,7 @@ module Decidim
             admin = User.last
 
             expect(admin.email).to eq("f.laguardia@gotham.gov")
-            expect(admin.organization.name).to eq("Gotham City")
+            expect(translated(admin.organization.name)).to eq("Gotham City")
             expect(admin).to be_admin
             expect(admin).to be_created_by_invite
             expect(admin).to be_valid

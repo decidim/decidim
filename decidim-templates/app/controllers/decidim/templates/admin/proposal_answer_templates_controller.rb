@@ -138,7 +138,7 @@ module Decidim
 
         def populate_template_interpolations(proposal)
           template.description.to_h do |language, value|
-            value.gsub!("%{organization}", translated_attribute(proposal.organization.org_translated_name))
+            value.gsub!("%{organization}", translated_attribute(proposal.organization.name))
             value.gsub!("%{name}", author_name(proposal))
             value.gsub!("%{admin}", current_user.name)
 

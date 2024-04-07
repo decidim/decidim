@@ -70,7 +70,7 @@ module Decidim
       end
 
       def author_name
-        official? ? translated_attribute(author.org_translated_name) : normalized_author.name
+        translated_attribute(normalized_author.name)
       end
 
       private

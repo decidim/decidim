@@ -33,7 +33,7 @@ module Decidim
       field :organization_name, Decidim::Core::TranslatedFieldType, "The user group's organization name", null: false
 
       def organization_name
-        object.organization.org_translated_name
+        object.organization.name
       end
 
       field :deleted, GraphQL::Types::Boolean, "Whether the user group's has been deleted or not", null: false

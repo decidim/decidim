@@ -25,7 +25,7 @@ module Decidim
         end
 
         it "includes the organization data" do
-          expect(subject.body).to include(translated(user.organization.org_translated_name))
+          expect(subject.body).to include(translated(user.organization.name))
         end
 
         it "includes the message" do

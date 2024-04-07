@@ -13,7 +13,7 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
 
   context "when the content block has no settings" do
     it "shows the default welcome text" do
-      expect(subject).to have_text("Welcome to #{translated(organization.org_translated_name)}")
+      expect(subject).to have_text("Welcome to #{translated(organization.name)}")
     end
   end
 

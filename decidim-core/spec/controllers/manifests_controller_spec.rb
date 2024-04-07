@@ -22,7 +22,7 @@ module Decidim
         expect(response).to be_successful
 
         manifest = JSON.parse(response.body)
-        expect(manifest["name"]).to eq(translated(organization.org_translated_name))
+        expect(manifest["name"]).to eq(translated(organization.name))
         expect(manifest["lang"]).to eq(organization.default_locale)
         expect(manifest["description"]).to eq(ActionView::Base.full_sanitizer.sanitize(translated(organization.description)))
         expect(manifest["background_color"]).to eq("#e02d2d")

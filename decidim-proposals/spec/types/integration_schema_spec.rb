@@ -46,7 +46,7 @@ describe "Decidim::Api::QueryType" do
           "id" => e.author.id.to_s,
           "name" => e.author.name,
           "nickname" => "@#{e.author.nickname}",
-          "organizationName" => { "translation" => translated(e.author.organization.org_translated_name) },
+          "organizationName" => { "translation" => translated(e.author.organization.name) },
           "profilePath" => "/profiles/#{e.author.nickname}" }
       end,
       "endorsementsCount" => proposal.endorsements.size,

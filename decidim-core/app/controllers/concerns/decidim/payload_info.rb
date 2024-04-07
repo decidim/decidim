@@ -12,7 +12,7 @@ module Decidim
         super
         payload[:user_id] = try(:current_user).try(:id)
         payload[:organization_id] = try(:current_organization).try(:id)
-        payload[:app] = translated_attribute(try(:current_organization).try(:org_translated_name))
+        payload[:app] = translated_attribute(try(:current_organization).try(:name))
         payload[:remote_ip] = request.remote_ip
         payload[:referer] = request.referer.to_s
         payload[:request_id] = request.uuid

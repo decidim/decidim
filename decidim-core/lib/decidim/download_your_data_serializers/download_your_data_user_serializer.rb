@@ -17,7 +17,7 @@ module Decidim
           locale: resource.locale,
           organization: {
             id: resource.organization.try(:id),
-            name: translated_attribute(resource.organization.try(:org_translated_name))
+            name: translated_attribute(resource.organization.try(:name))
           },
           newsletter_notifications_at: resource.newsletter_notifications_at,
           notifications_sending_frequency: resource.notifications_sending_frequency,

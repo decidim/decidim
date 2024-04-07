@@ -64,20 +64,12 @@ module Decidim
     # validate :unique_name
 
     def unique_name
-      query = self.class.where("name->>? ilike ?", I18n.locale, "#{org_translated_name[I18n.locale]}%")
+      query = self.class.where("name->>? ilike ?", I18n.locale, "#{name[I18n.locale]}%")
       if new_record?
         errors.add(:name, :taken) if query.empty?
       elsif query.where.not(id:).empty?
         errors.add(:name, :taken)
       end
-    end
-    #
-    # def name
-    #   raise NotImplementedError, "You should use org_translated_name instead of name"
-    # end
-
-    def org_translated_name
-      attributes["name"]
     end
 
     def self.log_presenter_class_for(_log)

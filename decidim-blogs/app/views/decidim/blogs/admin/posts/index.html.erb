@@ -33,7 +33,7 @@
               <%= decidim_sanitize_editor post_description_admin(post) %>
             </td>
             <td>
-              <%= translated_attribute(post.try(:author).try(:org_translated_name) || post.try(:author).try(:name)) %>
+              <%= translated_attribute(post.try(:author).try(:name)) %>
             </td>
             <% publish_data = publish_data(post.published_at) %>
             <td>

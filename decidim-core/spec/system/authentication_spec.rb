@@ -286,10 +286,10 @@ describe "Authentication" do
       end
 
       within "#notifications" do
-        expect(page).to have_content("thanks for joining #{translated(organization.org_translated_name)}")
+        expect(page).to have_content("thanks for joining #{translated(organization.name)}")
       end
 
-      expect(last_email_body).to include("thanks for joining #{translated(organization.org_translated_name)}")
+      expect(last_email_body).to include("thanks for joining #{translated(organization.name)}")
     end
   end
 

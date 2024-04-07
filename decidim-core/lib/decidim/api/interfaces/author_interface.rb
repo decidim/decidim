@@ -18,7 +18,7 @@ module Decidim
       field :organization_name, Decidim::Core::TranslatedFieldType, "The authors's organization name", null: false
 
       def organization_name
-        object.organization.org_translated_name
+        object.organization.name
       end
 
       field :deleted, Boolean, "Whether the author's account has been deleted or not", null: false

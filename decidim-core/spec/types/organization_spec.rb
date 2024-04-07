@@ -29,7 +29,7 @@ describe "Decidim::Api::QueryType" do
     end
 
     it "has name" do
-      expect(response["organization"]["name"]["translation"]).to eq(current_organization.org_translated_name[current_organization.default_locale])
+      expect(response["organization"]["name"]["translation"]).to eq(translated(current_organization.name))
     end
 
     %w(

@@ -14,7 +14,7 @@ module Decidim
       let(:mail) { described_class.notify(user, token) }
 
       it "parses the subject" do
-        expect(mail.subject).to eq("Your account was blocked by #{translated_attribute(organization.org_translated_name)}")
+        expect(mail.subject).to eq("Your account was blocked by #{translated_attribute(organization.name)}")
       end
 
       it "parses the body" do
