@@ -288,6 +288,7 @@ fr:
       block_user:
         new:
           action: Bloquer le compte et envoyer la justification
+          already_reported_html: En poursuivant cette action, vous masquerez également tous les contenus du participant.
           description: Bloquer un utilisateur rendra son compte inutilisable, vous devriez fournir dans votre justification les conditions de déblocage de l'utilisateur.
           justification: Justification
           title: Bloquer l'utilisateur %{name}
