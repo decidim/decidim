@@ -74,7 +74,7 @@ If you want to override a specific CSS class, you can do so by adding a new CSS 
 
 *Please note:* the above file is created by default when you install Decidim. Also the file is empty. This file allows you to edit *only* the end user styles.
 
-If you want to override other layouts, you can do so by creating new files: 
+If you want to override other layouts, you can do so by creating new files:
 
 . /admin: `app/packs/stylesheets/decidim/admin/decidim_application.scss`
 . /system: `app/packs/stylesheets/decidim/system/decidim_application.scss`
