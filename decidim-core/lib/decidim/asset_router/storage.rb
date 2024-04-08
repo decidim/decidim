@@ -246,14 +246,20 @@ module Decidim
           # This is used when `ActiveStorage.track_variants` is enabled through
           # `config.active_storage.track_variants`. In case the variant has not
           # been processed yet, the `#url` method would return nil.
-          asset.url(**) if asset.processed?
+          asset.url(**) if asset.processed? && asset_exists?
         else # ActiveStorage::Variant
           # Check whether the variant exists at the storage service before
           # returning its URL. Otherwise the URL would be returned even when the
           # variant is not yet processed causing 404 errors for the images on
           # the page.
-          asset.url(**) if asset.service.exist?(asset.key)
+          asset.url(**) if asset_exists?
         end
+      end
+
+      def asset_exists?
+        return false if asset.key.blank?
+
+        blob.service.exist?(asset.key)
       end
 
       # Determines if the current host is required to build the asset URL.
