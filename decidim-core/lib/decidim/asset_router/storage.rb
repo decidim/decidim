@@ -246,6 +246,12 @@ module Decidim
           # This is used when `ActiveStorage.track_variants` is enabled through
           # `config.active_storage.track_variants`. In case the variant has not
           # been processed yet, the `#url` method would return nil.
+          #
+          # Note that if the `asset.processed?` returns `true`, the variant
+          # record has been created in the database but it does not mean that
+          # it has been uploaded to the storage service yet. Likely a bug in
+          # ActiveStorage but to be sure that the asset is uploaded to the
+          # storage service, we also check that.
           asset.url(**) if asset.processed? && asset_exist?
         else # ActiveStorage::Variant
           # Check whether the variant exists at the storage service before
