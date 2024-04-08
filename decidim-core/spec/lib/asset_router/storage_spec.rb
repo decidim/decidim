@@ -99,6 +99,23 @@ module Decidim::AssetRouter
           it "creates the route to the variant through the storage service" do
             expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar.jpg$})
           end
+
+          # Note that this situation should not normally happen but it is
+          # possible e.g. if the backend has created the variant record in the
+          # database but has not yet uploaded the asset to the storage service.
+          context "and does not exist at the storage service" do
+            before do
+              path = asset.blob.service.path_for(asset.key)
+              File.delete(path)
+            end
+
+            it "creates the redirect route to the variant" do
+              expect(asset.processed?).to be(true)
+              expect(asset.key).not_to be_nil
+              expect(asset.blob.service.exist?(asset.key)).to be(false)
+              expect(subject).to match(%r{^/rails/active_storage/representations/redirect/.*/avatar.jpg$})
+            end
+          end
         end
 
         context "when track_variants is disabled" do
