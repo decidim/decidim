@@ -29,6 +29,7 @@ AMR
 andreslucena
 ANOT
 antora
+Anunci
 apiauth
 apikey
 appendable
@@ -41,6 +42,7 @@ Arquitectura
 Arrakis
 Artagnan
 arxiu
+associacio
 atcat
 atiger
 Atlassian
@@ -475,6 +477,7 @@ linthtmlrc
 linting
 listid
 litem
+llarg
 Llaurador
 Llobregat
 lng
@@ -660,6 +663,7 @@ Percebe
 perfil
 Peroy
 persistor
+personalitzat
 pgdata
 pgp
 PGVERSION

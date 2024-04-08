@@ -129,7 +129,8 @@ describe "Valuator manages proposals" do
           {
             title: { en: "Custom state" },
             token: "custom_state",
-            css_class: "custom-state"
+            bg_color: "#ffeebd",
+            text_color: "#ad4910"
           }
         end
         let!(:custom_state) { create(:proposal_state, **state_params, component: current_component) }
