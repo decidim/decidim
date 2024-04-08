@@ -387,7 +387,7 @@ ca:
         title: Suports
     participatory_spaces:
       highlighted_proposals:
-        see_all: Veure tots (%{count})
+        see_all: Veure totes (%{count})
     proposals:
       actions:
         answer_proposal: Respondre a la proposta
