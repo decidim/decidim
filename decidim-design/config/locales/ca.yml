@@ -140,6 +140,7 @@ ca:
         activity: Activitat
         address_description: La cel·la d'adreça rep un recurs i cerca els atributs geolocalitzables per representar un marcatge específic.
         address_description_2: Depenent del tipus de contingut, l'adreça pot ser una adreça web. Per a aquests casos, la informació mostrada és força igual, però està modelada per adequar-la.
+        ally_link: a11y-dropdown-component
         assemblies: Assemblees
         assembly_g: Assemblea G
         assembly_s: Assemblea S
@@ -178,6 +179,14 @@ ca:
         demo_text_2: Es fa servir a la darrera pàgina d'activitat, en un bloc de contingut i dins dels desplegables.
         description: Descripció
         disabled: Deshabilitat
+        dropdowns: Menús desplegables
+        dropdowns_demo_1_description: 'El següent exemple no serà visible a l''escriptori, però al mòbil:'
+        dropdowns_demo_description: Els menús desplegables es fan servir al llarg de l'aplicació per col·lapsar menús grans, menús fàcils de llegir per a dispositius d'escriptori, però massa difícils per a dispositius mòbils.
+        dropdowns_demo_description_html: 'Aquesta característica de JavaScript està millorada amb un petit .css, a través del nom: el contingut ocult HA D''INCLOURE una <code>id</code> que comença amb <i>menú desplegable</i>.'
+        dropdowns_description_html: Els menús desplegables són una característica <i>JavaScript</i> disponible gràcies a una biblioteca externa anomenada %{link}.
+        dropdowns_usage_1_description: 2. Un element modal, la <code>id</code> del qual coincideix amb el valor dels controls de dades a què es refereix l'activador.
+        dropdowns_usage_description: 'Un menú desplegable requereix dos elements:'
+        dropdowns_usage_description_html: 1. Un element accionable pel participant, amb els atributs de dades <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
         dummy_description: Descripció del recurs fictici
         dummy_title: Títol del recurs fictici
         follow_button: Botó "Seguir"
