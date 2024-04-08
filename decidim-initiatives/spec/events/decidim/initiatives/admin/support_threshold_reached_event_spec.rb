@@ -6,7 +6,7 @@ describe Decidim::Initiatives::Admin::SupportThresholdReachedEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.initiatives.support_threshold_reached" }
-  let(:resource) { create :initiative }
+  let(:resource) { create :initiative, title: generate_localized_title(:initiative_title) }
   let(:participatory_space) { resource }
   let(:email_subject) { "Signatures threshold reached" }
   let(:email_intro) { "The initiative #{resource_title} has reached the signatures threshold" }
