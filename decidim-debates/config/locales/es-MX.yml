@@ -192,10 +192,10 @@ es-MX:
           space_followers:
             email_intro: |-
               Hola,
-              Se ha creado un nuevo debate "%{resource_title}" en el espacio participativo %{space_title} , échale un vistazo y contribuye:
-            email_outro: Has recibido esta notificación porque estás siguiendo a %{space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-            email_subject: Nuevo debate "%{resource_title}" en %{space_title}
-            notification_title: El debate <a href="%{resource_path}">%{resource_title}</a> fue creado el <a href="%{space_path}">%{space_title}</a>.
+              Se ha creado un nuevo debate "%{resource_title}" en el espacio participativo %{participatory_space_title}, échale un vistazo y contribuye:
+            email_outro: Has recibido esta notificación porque estás siguiendo a %{participatory_space_title}. Puedes dejar de recibir notificaciones desde el enlace anterior.
+            email_subject: Nuevo debate "%{resource_title}" en %{participatory_space_title}
+            notification_title: Se ha creado el debate <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
           user_followers:
             email_intro: |-
               Hola,
