@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Initiatives::InitiativeSentToTechnicalValidationEvent do
+  include_context "when a simple event"
+
   let(:resource) { create :initiative, title: generate_localized_title(:initiative_title) }
   let(:participatory_space) { resource }
   let(:event_name) { "decidim.events.initiatives.initiative_sent_to_technical_validation" }
