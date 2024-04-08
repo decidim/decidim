@@ -25,9 +25,9 @@ describe Decidim::Proposals::CollaborativeDraftAccessAcceptedEvent do
 
   context "when the notification is for coauthor users" do
     let(:email_subject) { "#{requester_name} has been accepted to access as a contributor of the #{resource_title}." }
-    let(:email_intro) { %(#{requester_name} has been accepted to access as a contributor of the <a href="#{resource_url}">#{decidim_html_escape(resource_title)}</a> collaborative draft.) }
-    let(:email_outro) { %(You have received this notification because you are a collaborator of <a href="#{resource_url}">#{decidim_html_escape(resource_title)}</a>.) }
-    let(:notification_title) { %(<a href="#{requester_path}">#{requester_name} #{requester_nickname}</a> has been <strong>accepted to access as a contributor</strong> of the <a href="#{resource_path}">#{decidim_html_escape(resource_title)}</a> collaborative draft.) }
+    let(:email_intro) { %(#{requester_name} has been accepted to access as a contributor of the <a href="#{resource_url}">#{resource_title}</a> collaborative draft.) }
+    let(:email_outro) { %(You have received this notification because you are a collaborator of <a href="#{resource_url}">#{resource_title}</a>.) }
+    let(:notification_title) { %(<a href="#{requester_path}">#{requester_name} #{requester_nickname}</a> has been <strong>accepted to access as a contributor</strong> of the <a href="#{resource_path}">#{resource_title}</a> collaborative draft.) }
 
     it_behaves_like "a simple event"
     it_behaves_like "a simple event email"
@@ -37,9 +37,9 @@ describe Decidim::Proposals::CollaborativeDraftAccessAcceptedEvent do
   context "when the notification is for the requester" do
     let(:event_name) { "decidim.events.proposals.collaborative_draft_access_requester_accepted" }
     let(:email_subject) { "You have been accepted as a contributor of #{resource_title}." }
-    let(:email_intro) { %(You have been accepted to access as a contributor of the <a href="#{resource_url}">#{decidim_html_escape(resource_title)}</a> collaborative draft.) }
-    let(:email_outro) { %(You have received this notification because you requested to become a collaborator of <a href="#{resource_url}">#{decidim_html_escape(resource_title)}</a>.) }
-    let(:notification_title) { %(You have been <strong>accepted to access as a contributor</strong> of the <a href="#{resource_path}">#{decidim_html_escape(resource_title)}</a> collaborative draft.) }
+    let(:email_intro) { %(You have been accepted to access as a contributor of the <a href="#{resource_url}">#{resource_title}</a> collaborative draft.) }
+    let(:email_outro) { %(You have received this notification because you requested to become a collaborator of <a href="#{resource_url}">#{resource_title}</a>.) }
+    let(:notification_title) { %(You have been <strong>accepted to access as a contributor</strong> of the <a href="#{resource_path}">#{resource_title}</a> collaborative draft.) }
 
     it_behaves_like "a simple event"
     it_behaves_like "a simple event email"

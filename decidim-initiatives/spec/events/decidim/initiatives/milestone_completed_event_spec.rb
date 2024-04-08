@@ -6,11 +6,9 @@ describe Decidim::Initiatives::MilestoneCompletedEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.initiatives.milestone_completed" }
-  let(:resource) { initiative }
-
-  let(:initiative) { create :initiative }
+  let(:resource) { create :initiative, title: generate_localized_title(:initiative_title) }
   let(:extra) { { percentage: 75 } }
-  let(:participatory_space) { initiative }
+  let(:participatory_space) { resource }
 
   it_behaves_like "a simple event"
 

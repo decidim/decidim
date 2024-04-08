@@ -2,10 +2,7 @@
 
 module Decidim
   module Initiatives
-    class RevokeMembershipRequestEvent < Decidim::Events::BaseEvent
-      include Decidim::Events::EmailEvent
-      include Decidim::Events::NotificationEvent
-
+    class RevokeMembershipRequestEvent < Decidim::Events::SimpleEvent
       def email_subject
         I18n.t(
           "decidim.initiatives.events.revoke_membership_request.email_subject",
