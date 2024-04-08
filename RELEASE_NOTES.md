@@ -116,7 +116,19 @@ bin/rails decidim:upgrade:fix_orphan_categorizations
 
 You can read more about this change on PR [\#12143](https://github.com/decidim/decidim/pull/12143).
 
-### 3.5. [[TITLE OF THE ACTION]]
+### 3.5. Better CSS overrides
+
+We have added a better CSS override, that allows you to override the CSS of the components in a more granular way.
+
+Previously, you could override the CSS of a component by adding CSS rules in the `app/packs/stylesheets/decidim/decidim_application.scss` file. This file remains in place but is loaded as the last file in the application, so it will override all the CSS rules from any Decidim component.
+
+Additionally, if you need, you can customize also the `admin` and `system` interfaces by creating in your application the following files:
+- `app/packs/stylesheets/decidim/decidim_application.scss` for admin interface
+- `app/packs/stylesheets/decidim/system/decidim_application.scss` for system interface
+
+You can read more about this change on PR [\#12646](https://github.com/decidim/decidim/pull/12646).
+
+### 3.6. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
