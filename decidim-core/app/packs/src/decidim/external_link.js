@@ -17,6 +17,10 @@ let MESSAGES = DEFAULT_MESSAGES;
  * the link opens in a new tab to the screen readers. This can be done by adding
  * data-external-link="text-only" attribute to the anchor tag,
  * e.g. <a href="https://..." target="_blank" data-external-link="text-only">...</a>
+ *
+ * In addition, if you want to disable the external link warning for the link, you can add the
+ * data-external-domain-link="false" attribute to the anchor tag,
+ * e.g. <a href="https://..." target="_blank" data-external-link="text-only" data-external-domain-link="false">...</a>
  */
 export default class ExternalLink {
   static configureMessages(messages) {
