@@ -45,13 +45,13 @@ namespace :decidim do
           "Decidim::Forms::Questionnaire" => %w(description tos),
           "Decidim::Forms::Question" => %w(description),
           "Decidim::Organization" => %w(
-          welcome_notification_body
-          admin_terms_of_use_body
-          admin_terms_of_service_body
-          description
-          highlighted_content_banner_short_description
-          id_documents_explanation_text
-        ),
+            welcome_notification_body
+            admin_terms_of_use_body
+            admin_terms_of_service_body
+            description
+            highlighted_content_banner_short_description
+            id_documents_explanation_text
+          ),
           "Decidim::StaticPage" => %w(content),
           "Decidim::ContextualHelpSection" => %w(content),
           "Decidim::Category" => %w(description),
@@ -70,10 +70,10 @@ namespace :decidim do
           "Decidim::Meetings::AgendaItem" => %w(description),
           "Decidim::Meetings::Meeting" => %w(registration_terms description registration_email_custom_content closing_report)
         }.each_with_object({}) do |(main_model, attributes), hash|
-            hash[main_model.constantize] = attributes
-          rescue NameError
-            hash
-          end
+          hash[main_model.constantize] = attributes
+        rescue NameError
+          hash
+        end
       end
     end
   end
