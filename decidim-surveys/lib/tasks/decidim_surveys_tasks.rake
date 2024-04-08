@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 namespace :decidim_surveys do
-  desc "Migrate data from decidim_surveys tables to decidim_forms tables"
+  desc "Migrates data from decidim_surveys tables to decidim_forms tables"
   task migrate_data_to_decidim_forms: :environment do
     class Answer < ApplicationRecord
       self.table_name = :decidim_surveys_survey_answers

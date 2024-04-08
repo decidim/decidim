@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 namespace :decidim do
-  desc "Install migrations from Decidim to the app."
+  desc "Installs migrations from Decidim to the app."
   task upgrade: [
     :choose_target_plugins,
     :"decidim:upgrade_app",
@@ -12,7 +12,7 @@ namespace :decidim do
 
   task update: [:upgrade]
 
-  desc "Setup environment so that only decidim migrations are installed."
+  desc "Sets up environment so that only decidim migrations are installed."
   task :choose_target_plugins do
     ENV["FROM"] = %w(
       decidim

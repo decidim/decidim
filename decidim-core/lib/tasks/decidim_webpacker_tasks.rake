@@ -51,7 +51,7 @@ namespace :decidim do
       add_decidim_browserslist_configuration
     end
 
-    desc "Upgrade Decidim dependencies in Rails instance application"
+    desc "Upgrades Decidim dependencies in Rails instance application"
     task upgrade: :environment do
       raise "Decidim gem is not installed" if decidim_path.nil?
 

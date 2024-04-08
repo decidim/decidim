@@ -3,7 +3,7 @@
 namespace :decidim do
   namespace :initiatives do
     namespace :upgrade do
-      desc "Fix the broken pages"
+      desc "Fixes the broken pages"
       task fix_broken_pages: :environment do
         Decidim::Initiative.find_each do |initiative|
           initiative.components.where(manifest_name: "pages").each do |component|
