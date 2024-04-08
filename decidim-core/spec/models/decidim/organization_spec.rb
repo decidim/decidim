@@ -56,6 +56,33 @@ module Decidim
         subject.default_locale = :en
         expect(subject).not_to be_valid
       end
+
+      describe "name" do
+        context "when name does not exists" do
+          it "is valid" do
+            expect(described_class.count).to eq(0)
+            expect(subject).to be_valid
+          end
+        end
+
+        context "when name exists for same locale" do
+          let!(:dummy_organization) { create(:organization, name: { en: "Dummy Random 22" }) }
+
+          it "is invalid" do
+            subject.name = { en: "Dummy Random 22" }
+            expect(subject).not_to be_valid
+          end
+        end
+
+        context "when name exists for different locale" do
+          let!(:dummy_organization) { create(:organization, name: { ca: "Dummy Random 22", en: "Dummy" }) }
+
+          it "is invalid" do
+            subject.name = { en: "Dummy Random 22" }
+            expect(subject).not_to be_valid
+          end
+        end
+      end
     end
 
     describe "enabled omniauth providers" do

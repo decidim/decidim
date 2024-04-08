@@ -61,14 +61,16 @@ module Decidim
 
     has_one_attached :open_data_file
 
-    # validate :unique_name
+    validate :unique_name
 
     def unique_name
-      query = self.class.where("name->>? ilike ?", I18n.locale, "#{name[I18n.locale]}%")
-      if new_record?
-        errors.add(:name, :taken) if query.empty?
-      elsif query.where.not(id:).empty?
-        errors.add(:name, :taken)
+      base_query = new_record? ? Decidim::Organization.all : Decidim::Organization.where.not(id:).all
+      organization_names = base_query.pluck(:name).collect(&:values).flatten.map(&:downcase)
+
+      name.each do |language, value|
+        next if value.is_a?(Hash)
+
+        errors.add("name_#{language}", :taken) if organization_names.include?(value.downcase)
       end
     end
 

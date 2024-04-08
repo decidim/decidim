@@ -9,7 +9,7 @@ module Decidim
         let(:form) do
           UpdateOrganizationForm.new(params)
         end
-        let(:organization) { create(:organization, name: { en: "My organization" } ) }
+        let(:organization) { create(:organization, name: { en: "My organization" }) }
 
         let(:command) { described_class.new(organization.id, form) }
 
@@ -81,7 +81,6 @@ module Decidim
 
         context "when the form is invalid" do
           context "and the name is empty" do
-
             let(:params) do
               {
                 name: { en: "" },
@@ -93,11 +92,11 @@ module Decidim
               expect { command.call }.to broadcast(:invalid)
             end
           end
-          context "and the name is empty hash" do
 
+          context "and the name is empty hash" do
             let(:params) do
               {
-                name: { },
+                name: {},
                 host: "foo.com"
               }
             end
@@ -106,8 +105,8 @@ module Decidim
               expect { command.call }.to broadcast(:invalid)
             end
           end
-          context "and the name is nil" do
 
+          context "and the name is nil" do
             let(:params) do
               {
                 name: nil,

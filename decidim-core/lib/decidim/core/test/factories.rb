@@ -112,15 +112,9 @@ FactoryBot.define do
       create_static_pages { true }
     end
 
+    # we do not want machine translation here
     name do
-      Decidim::Faker::Localized.localized do
-        # if skip_injection
-        #   Faker::Company.unique.name
-        # else
-        #   "<script>alert(\"organization_name\");</script> #{Faker::Company.unique.name}"
-        # end
-        Faker::Company.unique.name
-      end
+      Decidim.available_locales.index_with { |_locale| Faker::Company.unique.name }
     end
 
     reference_prefix { Faker::Name.suffix }
