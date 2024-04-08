@@ -1465,6 +1465,8 @@ en:
         close_modal: Close modal
         ok: OK
         title: Confirm
+      embed:
+        title: Embedded video content
       extended_navigation_bar:
         more: More
         unfold: Unfold
