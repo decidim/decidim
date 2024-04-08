@@ -3,7 +3,6 @@
 require "spec_helper"
 
 describe Decidim::Blogs::CreatePostEvent do
-  include_context "when a simple event"
   let(:resource) { create(:post, title: generate_localized_title(:blog_title)) }
   let(:event_name) { "decidim.events.blogs.post_created" }
   let(:email_intro) { "The post \"#{resource_title}\" has been published in \"#{participatory_space_title}\" that you are following." }
@@ -11,6 +10,7 @@ describe Decidim::Blogs::CreatePostEvent do
   let(:notification_title) { "The post <a href=\"#{resource_path}\">#{resource_title}</a> has been published in #{participatory_space_title}" }
   let(:email_subject) { "New post published in #{decidim_sanitize_translated(participatory_space.title)}" }
 
+  include_context "when a simple event"
   it_behaves_like "a simple event"
   it_behaves_like "a simple event email"
   it_behaves_like "a simple event notification"
