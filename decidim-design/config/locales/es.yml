@@ -140,6 +140,7 @@ es:
         activity: Actividad
         address_description: La celda de dirección recibe un recurso y busca los atributos geolocalizables para representar un marcado específico.
         address_description_2: Dependiendo del tipo de contenido, la dirección puede ser una dirección web. Para estos casos, la información mostrada es bastante igual, pero está moldeada para adecuarla.
+        ally_link: a11y-dropdown-component
         assemblies: Asambleas
         assembly_g: Asamblea G
         assembly_s: Asamblea S
@@ -178,6 +179,14 @@ es:
         demo_text_2: Utilizado por la última página de actividad, en un bloque de contenido y dentro de los desplegables.
         description: Descripción
         disabled: Deshabilitado
+        dropdowns: Menús desplegables
+        dropdowns_demo_1_description: 'El siguiente ejemplo no será visible en el escritorio, pero en el móvil:'
+        dropdowns_demo_description: Los menús desplegables se utilizan a lo largo de la aplicación para colapsar menús grandes, menús fáciles de leer para dispositivos de escritorio, pero demasiado difíciles para dispositivos móviles.
+        dropdowns_demo_description_html: 'Esta característica de JavaScript está mejorada con un pequeño .css, a través del nombre: el contenido oculto DEBE INCLUIR una <code>id</code> que comienza con <i>menú desplegable</i>.'
+        dropdowns_description_html: Los menús desplegables son una característica <i>JavaScript</i> disponible gracias a una biblioteca externa llamada %{link}.
+        dropdowns_usage_1_description: 2. Un elemento modal, cuya <code>id</code> coincide con el valor de los controles de datos al que se refiere el activador.
+        dropdowns_usage_description: 'Un menú desplegable requiere dos elementos:'
+        dropdowns_usage_description_html: 1. Un elemento accionable por la participante, con los atributos de datos <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
         dummy_description: Descripción del recurso ficticio
         dummy_title: Título del recurso ficticio
         follow_button: Botón "Seguir"
