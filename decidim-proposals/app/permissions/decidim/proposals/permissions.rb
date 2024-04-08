@@ -4,6 +4,7 @@ module Decidim
   module Proposals
     class Permissions < Decidim::DefaultPermissions
       def permissions
+        allow_embed_proposal?
         return permission_action unless user
 
         # Delegate the admin permission checks to the admin permissions class
@@ -45,6 +46,14 @@ module Decidim
 
       def proposal
         @proposal ||= context.fetch(:proposal, nil) || context.fetch(:resource, nil)
+      end
+
+      # As this is a public action, we need to run this before other checks
+      def allow_embed_proposal?
+        return unless permission_action.action == :embed && permission_action.subject == :proposal && proposal
+        return disallow! if proposal.withdrawn?
+
+        allow!
       end
 
       def voting_enabled?

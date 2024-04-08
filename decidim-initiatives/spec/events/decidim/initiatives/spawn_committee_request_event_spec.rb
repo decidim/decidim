@@ -5,8 +5,6 @@ require "spec_helper"
 describe Decidim::Initiatives::SpawnCommitteeRequestEvent do
   include_context "when a simple event"
 
-  include_context "when a simple event"
-
   let(:user_role) { :affected_user }
   let(:extra) { { applicant: applicant } }
   let(:user) { resource.author }

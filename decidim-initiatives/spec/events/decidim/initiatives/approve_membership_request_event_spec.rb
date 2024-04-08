@@ -8,7 +8,7 @@ describe Decidim::Initiatives::ApproveMembershipRequestEvent do
   let(:user_role) { :affected_user }
   let(:extra) { { author: author } }
   let(:event_name) { "decidim.events.initiatives.approve_membership_request" }
-  let!(:resource) { create(:initiative, :created) }
+  let!(:resource) { create(:initiative, :created, title: generate_localized_title(:initiative_title)) }
   let(:participatory_space) { resource }
 
   let(:author) { resource.author }

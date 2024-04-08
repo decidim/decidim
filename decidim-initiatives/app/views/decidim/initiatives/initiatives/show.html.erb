@@ -65,7 +65,9 @@ edit_link(
       </div>
     <% end %>
     <%= render partial: "decidim/shared/share_modal" %>
-    <%= embed_modal_for initiative_widget_url(current_initiative, format: :js) %>
+    <% if allowed_to? :embed, :initiative, initiative: current_initiative %>
+      <%= embed_modal_for initiative_widget_url(current_initiative, format: :js) %>
+    <% end %>
     <%= resource_reference(current_initiative) %>
     <%= resource_version(current_initiative, versions_path: initiative_versions_path(current_initiative)) %>
   </div>
