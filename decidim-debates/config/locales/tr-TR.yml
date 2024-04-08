@@ -182,11 +182,11 @@ tr:
         create_debate_event:
           space_followers:
             email_intro: |-
-              Merhaba,
-              %{space_title} katılımcı alanda yeni bir "%{resource_title}" tartışması oluşturuldu, inceleyin ve katkıda bulunun:
-            email_outro: '%{space_title} katılımcı alanı takip ettiğiniz için bu bildirimi aldınız. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
-            email_subject: '%{space_title} üzerinde yeni tartışma "%{resource_title}"'
-            notification_title: <a href="%{resource_path}">%{resource_title} </a> tartışması <a href="%{space_path}">%{space_title} </a> adresinde oluşturuldu.
+              Merhaba 
+              %{participatory_space_title} katılımcı alanında yeni bir "%{resource_title}" tartışma başlığı oluşturuldu. İnceleyerek katkıda bulunabilirsiniz. 
+            email_outro: Bu bildirimi %{participatory_space_title} katılımcılık Başlıklı alanını takip ettiğiniz için aldınız. Bildirim almayı önceki bağlantı linkini izleyerek durdurabilirsiniz.
+            email_subject: '%{participatory_space_title} başlıpı ile ilgili yeni tartışma "%{resource_title}"'
+            notification_title: <a href="%{resource_path}">%{resource_title</a> tartışması <a href="%{participatory_space_url}">%{participatory_space_title</a> tarihinde oluşturuldu.
           user_followers:
             email_intro: |-
               Merhaba,
