@@ -6,7 +6,7 @@ module Decidim
   describe ManifestsController do
     routes { Decidim::Core::Engine.routes }
 
-    let(:organization) { create(:organization, name: "Organization's name") }
+    let(:organization) { create(:organization, name: { en: "Organization's name"}) }
 
     before do
       Decidim::Organization.destroy_all

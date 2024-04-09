@@ -21,7 +21,7 @@ module Decidim
         TestEvent.new(resource:, event_name: "test", user:)
       end
 
-      let(:organization) { create(:organization, name: "O'Connor") }
+      let(:organization) { create(:organization, name: { en: "O'Connor" }) }
       let(:user) { create(:user, name: "Sarah Connor", organization:) }
       let(:resource) { user }
 
