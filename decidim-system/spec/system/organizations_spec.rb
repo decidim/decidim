@@ -110,7 +110,7 @@ describe "Organizations" do
     end
 
     describe "editing an organization" do
-      let!(:organization) { create(:organization, name: { ca: "", en: "Citizen Corp", es: ""}) }
+      let!(:organization) { create(:organization, name: { ca: "", en: "Citizen Corp", es: "" }) }
 
       before do
         click_on "Organizations"
@@ -142,7 +142,7 @@ describe "Organizations" do
 
     describe "editing an organization with disabled OmniAuth provider" do
       let!(:organization) do
-        create(:organization, name: { ca: "", en: "Citizen Corp", es: ""}, default_locale: :es, available_locales: ["es"], description: { es: "Un texto largo" })
+        create(:organization, name: { ca: "", en: "Citizen Corp", es: "" }, default_locale: :es, available_locales: ["es"], description: { es: "Un texto largo" })
       end
 
       before do

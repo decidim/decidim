@@ -6,7 +6,7 @@ module Decidim
   describe WelcomeNotificationEvent do
     subject { described_class.new(resource: user, event_name: "test", user:) }
     let(:user) { create(:user, organization:, name: "James") }
-    let(:organization) { create(:organization, name: { en: "Awesome Town" } ) }
+    let(:organization) { create(:organization, name: { en: "Awesome Town" }) }
 
     describe "subject" do
       it "has a default" do
