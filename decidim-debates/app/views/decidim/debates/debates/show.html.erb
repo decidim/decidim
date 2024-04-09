@@ -58,7 +58,9 @@ edit_link(
       <%= endorsement_buttons_cell(debate) %>
     <% end %>
     <%= cell "decidim/comments_button", nil %>
-
+    <% if debate.closed? %>
+      <%= endorsers_list_cell(debate) %>
+    <% end %>
     <div class="ml-auto">
       <%= render partial: "decidim/shared/tags", locals: { resource: debate } %>
     </div>
