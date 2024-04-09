@@ -122,7 +122,7 @@ module Decidim
         }
 
         Decidim::Organization.first || Decidim::Organization.create!(
-          name: ::Faker::Company.name,
+          name: Decidim.available_locales.index_with { |_locale| ::Faker::Company.name },
           twitter_handler: ::Faker::Hipster.word,
           facebook_handler: ::Faker::Hipster.word,
           instagram_handler: ::Faker::Hipster.word,

@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe UserUpdateMailer do
-    let(:organization) { create(:organization, name: "Test Organization") }
+    let(:organization) { create(:organization, name: { ca: "", en: "Test Organization", es: "" }) }
     let(:user) { create(:user, :confirmed, organization:) }
     let(:updates) { %w(field1 field2 field3) }
 

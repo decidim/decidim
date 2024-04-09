@@ -70,7 +70,7 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
     context "when organization is updated" do
       it "generates a different hash" do
         old_hash = cell(content_block.cell, content_block).send(:cache_hash)
-        controller.current_organization.update!(name: "New name")
+        controller.current_organization.update!(name: { en: "New name" })
         controller.current_organization.reload
 
         expect(cell(content_block.cell, content_block).send(:cache_hash)).not_to eq(old_hash)
