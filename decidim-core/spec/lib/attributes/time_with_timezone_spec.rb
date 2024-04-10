@@ -41,21 +41,25 @@ module Decidim
         context "with formatted DateTime" do
           context "when d/m/Y" do
             let(:value) { "01/02/2017 15:00" }
+
             include_context "with date and time parsing"
           end
 
           context "when Y-m-d HH:MM" do
             let(:value) { "2017-02-01 15:00" }
+
             include_context "with date and time parsing"
           end
 
           context "when Y-m-d HH:MM:SS TZ" do
             let(:value) { "2017-02-01 16:00:00 +01:00" }
+
             include_context "with date and time parsing"
           end
 
           context "when %Y-%m-%d %H:%M:%S.%N %z" do
             let(:value) { "2017-02-01 16:00:00.000000000 +0100" }
+
             include_context "with date and time parsing"
           end
         end
