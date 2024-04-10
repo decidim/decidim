@@ -3,6 +3,7 @@
 module Decidim
   module ContentParsers
     autoload :BaseParser, "decidim/content_parsers/base_parser"
+    autoload :BlobParser, "decidim/content_parsers/blob_parser"
     autoload :UserParser, "decidim/content_parsers/user_parser"
     autoload :UserGroupParser, "decidim/content_parsers/user_group_parser"
     autoload :HashtagParser, "decidim/content_parsers/hashtag_parser"
