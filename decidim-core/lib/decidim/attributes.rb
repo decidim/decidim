@@ -5,6 +5,7 @@ module Decidim
     autoload :TimeWithZone, "decidim/attributes/time_with_zone"
     autoload :LocalizedDate, "decidim/attributes/localized_date"
     autoload :CleanString, "decidim/attributes/clean_string"
+    autoload :RichText, "decidim/attributes/rich_text"
     autoload :Blob, "decidim/attributes/blob"
     autoload :Array, "decidim/attributes/array"
     autoload :Hash, "decidim/attributes/hash"
@@ -27,6 +28,7 @@ module Decidim
     ActiveModel::Type.register(:"decidim/attributes/time_with_zone", Decidim::Attributes::TimeWithZone)
     ActiveModel::Type.register(:"decidim/attributes/localized_date", Decidim::Attributes::LocalizedDate)
     ActiveModel::Type.register(:"decidim/attributes/clean_string", Decidim::Attributes::CleanString)
+    ActiveModel::Type.register(:"decidim/attributes/rich_text", Decidim::Attributes::RichText)
     ActiveModel::Type.register(:"decidim/attributes/blob", Decidim::Attributes::Blob)
 
     # Overrides
