@@ -27,9 +27,10 @@ module Decidim
 
       # From database to form
       def cast_value(value)
-        return value unless value.is_a?(String)
+        clean_string = super
+        return clean_string unless clean_string.is_a?(String)
 
-        renderer = Decidim::ContentProcessor.renderer_klass(:blob).constantize.new(value)
+        renderer = Decidim::ContentProcessor.renderer_klass(:blob).constantize.new(clean_string)
         renderer.render
       end
     end
