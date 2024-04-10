@@ -116,6 +116,8 @@ module Decidim
       validates :type, inclusion: { in: TYPES.keys }
 
       def type_class
+        return Decidim::Attributes::RichText if type == :text && editor == true
+
         TYPES[type][:klass]
       end
 
