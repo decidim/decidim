@@ -11,7 +11,7 @@ module Decidim
 
           attribute :offline, Boolean
           attribute :online, Boolean
-          translatable_attribute :offline_explanation, String
+          translatable_attribute :offline_explanation, Decidim::Attributes::RichText
 
           validates :offline_explanation, translatable_presence: true, if: :offline
           validate :has_some_method_selected?

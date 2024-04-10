@@ -8,7 +8,7 @@ module Decidim
         include TranslatableAttributes
 
         translatable_attribute :title, String
-        translatable_attribute :description, String
+        translatable_attribute :description, Decidim::Attributes::RichText
 
         attribute :duration, Integer, default: 0
         attribute :parent_id, Integer
