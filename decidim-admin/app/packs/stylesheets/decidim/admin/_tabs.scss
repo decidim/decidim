@@ -55,6 +55,12 @@
   @apply hidden;
 }
 
+.form-defaults {
+  .language-change:not(.reset-defaults) {
+    @apply pt-1;
+  }
+}
+
 .form {
   .language-change {
     @apply h-8 mb-4;
