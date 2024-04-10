@@ -131,6 +131,18 @@ module Decidim::AssetRouter
             it "creates the route to the variant through the storage service" do
               expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar.jpg$})
             end
+
+            context "and when passing incompatible URL options" do
+              # The `:host` option is passed e.g. in many mailers.
+              # `ActiveStorage::Variant#url` method does not allow this argument
+              # which is why this test is testing that it does not lead to an
+              # error.
+              let(:options) { { host: "example.lvh.me" } }
+
+              it "creates the route to the variant" do
+                expect(subject).to match(%r{^http://example.lvh.me:#{default_port}/rails/active_storage/disk/[^/]+/avatar.jpg$})
+              end
+            end
           end
         end
 

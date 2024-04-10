@@ -237,9 +237,10 @@ module Decidim
       # @return [String, nil] The variant URL at the storage service or `nil` if
       #   the variant has not been processed yet and does not yet exist at the
       #   storage service or `nil` when the asset is not defined
-      def variant_url(**)
+      def variant_url(**options)
         return unless asset
         return unless asset_url_available?
+        return unless asset_exist?
 
         case asset
         when ActiveStorage::VariantWithRecord
@@ -252,13 +253,18 @@ module Decidim
           # it has been uploaded to the storage service yet. Likely a bug in
           # ActiveStorage but to be sure that the asset is uploaded to the
           # storage service, we also check that.
-          asset.url(**) if asset.processed? && asset_exist?
+          asset.url(**options) if asset.processed?
         else # ActiveStorage::Variant
           # Check whether the variant exists at the storage service before
           # returning its URL. Otherwise the URL would be returned even when the
           # variant is not yet processed causing 404 errors for the images on
           # the page.
-          asset.url(**) if asset_exist?
+          #
+          # Note that the `ActiveStorage::Variant#url` method only accepts
+          # certain keyword arguments where as the other objects allow any
+          # keyword arguments.
+          possible_kwargs = asset.method(:url).parameters.select { |p| p[0] == :key }.map { |p| p[1] }
+          asset.url(**options.slice(*possible_kwargs))
         end
       end
 
