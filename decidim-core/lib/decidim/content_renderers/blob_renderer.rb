@@ -9,7 +9,12 @@ module Decidim
     #
     # OR for representations
     #
-    # e.g. gid://<APP_NAME>/ActiveStorage::Blob/1/eyJfcmFpbHMi6IkJBaDdCem9MWm05e...==--114f8f7a7af14e9691a3672e3c35d5989070ebc4
+    # e.g. gid://<APP_NAME>/ActiveStorage::Blob/1/<encoded variant transformations>
+    #
+    # The `<encoded variant transformations>` part of the URL is a Base64
+    # encoded string that contains an unencrypted JSON-encoded value about the
+    # blob transformations. This way the specific representations can be stored
+    # in the database without having these values expiring.
     #
     # @see BaseRenderer Examples of how to use a content renderer
     class BlobRenderer < BaseRenderer
