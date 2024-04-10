@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 namespace :decidim do
-  desc "Installs migrations from Decidim to the app."
+  desc "Performs upgrade tasks (migrations, node, docs )."
   task upgrade: [
     :choose_target_plugins,
     :"decidim:upgrade_app",
