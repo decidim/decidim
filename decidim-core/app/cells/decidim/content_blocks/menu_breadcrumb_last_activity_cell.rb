@@ -6,7 +6,7 @@ module Decidim
     # in a Decidim Organization.
     class MenuBreadcrumbLastActivityCell < LastActivityCell
       def show
-        return if current_user.blank? && current_organization.force_users_to_authenticate_before_access_organization
+        return if current_user.blank? && current_organization&.force_users_to_authenticate_before_access_organization
 
         super
       end
