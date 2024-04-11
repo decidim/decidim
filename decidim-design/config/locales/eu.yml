@@ -64,6 +64,8 @@ eu:
           title: Partekatu
         tab_panels:
           title: Panelen Tab
+        tooltips:
+          demo: Demoa
       foundations:
         accessibility:
           accessibility_labels: Irisgarritasun-etiketak
