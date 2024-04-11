@@ -31,6 +31,10 @@ module Decidim
       decidim_sanitize_translated(model.address)
     end
 
+    def display_start_and_end_time?
+      model.respond_to?(:start_time) && model.respond_to?(:end_time)
+    end
+
     def start_and_end_time
       <<~HTML
         #{with_tooltip(l(model.start_time, format: :tooltip)) { start_time }}
