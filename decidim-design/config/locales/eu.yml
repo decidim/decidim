@@ -66,6 +66,15 @@ eu:
           title: Panelen Tab
         tooltips:
           demo: Demoa
+          demo_description: Osagai honek funtziona dezan, parte-hartzaileak elementuan egon behar du.
+          description: Tooltip osagai bat da. Erabiltzaileek sagua erabil dezakete horri buruzko informazio gehiago izateko.
+          github_source_html: Iturburu-kodea %{github_link} GitHuben
+          title: Argibidea
+          usage: Erabilera
+          usage_p: 'Tooltip batek eskatzen du "tooltip"en erabilerarako laguntzaile bat, hiru argudio hauekin:'
+          usage_p_1_html: 1. Tooltip-en balioa duen katea. Orrialde honen adibidean "Kaixo, mundua" dago.
+          usage_p_2_html: '2. Hautazko klase bat, sinbolo batekin; bertan erakutsiko da tresna-punta. Balio posibleak hauek dira: <code>goian<code>, <code>behean>code>, <code>eskuinean<code> edo <code>ezkerrean<code>.'
+          usage_p_3_html: 3. Erabiltzaileak bistaratzeko behar duen katea duen blokea.
       foundations:
         accessibility:
           accessibility_labels: Irisgarritasun-etiketak
