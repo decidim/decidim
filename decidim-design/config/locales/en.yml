@@ -64,6 +64,17 @@ en:
           title: Share
         tab_panels:
           title: Tab Panels
+        tooltips:
+          demo: Demo
+          demo_description: For this component to work a participant need to hover on the element.
+          description: A tooltip is a component that users can hover their mouse to have extra information about it.
+          github_source_html: Source code on GitHub %{github_link}
+          title: Tooltips
+          usage: Usage
+          usage_p: 'A tooltip requires the usage of the `with_tooltip` helper, with three arguments:'
+          usage_p_1_html: 1. A string with the value of the tooltip. In the example of this page is "Hello world".
+          usage_p_2_html: 2. An optional class with a symbol on where the tooltip will be displayed. Possible values are <code>:top</code>, <code>:bottom</code>, <code>:right</code>, or <code>:left</code>.
+          usage_p_3_html: 3. A block with the string that the user needs to hover to be displayed.
       foundations:
         accessibility:
           accessibility_labels: Accessibility labels
