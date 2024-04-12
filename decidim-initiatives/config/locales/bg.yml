@@ -6,9 +6,71 @@ bg:
         decidim_user_group_id: Автор
         description: Описание
         offline_votes: Лични подписи
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              title: Заглавието не трябва да бъде празно
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Инициатива
+        other: Инициативи
   decidim:
+    admin:
+      initiatives_settings:
+        update:
+          error: Възникна грешка
+          success: Настройките на инициативите са актуализирани успешно
+    gamification:
+      badges:
+        initiatives:
+          description_own: Публикували сте %{score} инициативи.
+          unearned_another: Този участник все още няма публикувани инициативи.
     initiatives:
+      admin:
+        committee_requests:
+          index:
+            invite_to_committee_help: Споделете този линк, за да поканите други участници в промоторския комитет
+            no_members_yet: Няма участници в промоторския комитет
+        initiatives:
+          edit:
+            success: Инициативата е изпратена за техническа валидация
+          update:
+            error: Възникна грешка
+            success: Инициативата беше актуализирана успешно
+        initiatives_type_scopes:
+          create:
+            error: Възникна грешка
+            success: Създаден е нов обхват за дадения тип инициатива
+          destroy:
+            success: Обхватът беше премахнат успешно
+          edit:
+            destroy: Изтрий
+          update:
+            error: Възникна грешка
+            success: Обхватът беше актуализиран успешно
+        initiatives_types:
+          create:
+            error: Възникна грешка
+            success: Успешно е създаден нов тип инициатива
+          destroy:
+            success: Типът инициатива беше премахнат успешно
+          edit:
+            destroy: Изтрий
+          update:
+            error: Възникна грешка
+            success: Типът инициатива беше актуализиран успешно
       application_helper:
         filter_state_values:
           closed: Затворен
           open: Отворен
+      committee_requests:
+        new:
+          help_text: На път сте да заявите членство в промоторския комитет на тази инициатива
+      create_initiative:
+        fill_data:
+          decidim_user_group_id_help: Не е възможно да се промени авторството на инициативата след създаването и.
+        finish_help:
+          access_reminder: Можете да достъпите инициативите си чрез филтъра %{link} на страницата Инициативи.
