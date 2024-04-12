@@ -3,9 +3,9 @@
 require "spec_helper"
 
 describe Decidim::Proposals::Admin::UpdateProposalCategoryEvent do
-  let(:resource) { create :proposal }
+  let(:resource) { create :proposal, title: "It is my super proposal" }
   let(:event_name) { "decidim.events.proposals.proposal_update_category" }
-  let(:email_subject) { "The #{resource_title} proposal category has been updated" }
+  let(:email_subject) { "The #{translated(resource.title)} proposal category has been updated" }
   let(:email_intro) { "An admin has updated the category of your proposal \"#{resource_title}\", check it out in this page:" }
   let(:email_outro) { "You have received this notification because you are the author of the proposal." }
   let(:notification_title) { "The <a href=\"#{resource_path}\">#{resource_title}</a> proposal category has been updated by an admin." }

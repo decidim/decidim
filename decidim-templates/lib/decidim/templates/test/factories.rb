@@ -11,10 +11,13 @@ FactoryBot.define do
     organization
     name { generate_localized_title(:template_name, skip_injection: skip_injection) }
     description { generate_localized_title(:template_description, skip_injection: skip_injection) }
-    templatable { build(:dummy_resource) }
+    templatable { build(:dummy_resource, skip_injection: skip_injection) }
 
     ## Questionnaire templates
     factory :questionnaire_template do
+      transient do
+        skip_injection { false }
+      end
       trait :with_questions do
         after(:create) do |template, evaluator|
           template.templatable = create(:questionnaire, :with_questions, questionnaire_for: template, skip_injection: evaluator.skip_injection)

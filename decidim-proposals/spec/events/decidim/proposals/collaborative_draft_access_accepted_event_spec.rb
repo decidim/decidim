@@ -6,8 +6,9 @@ describe Decidim::Proposals::CollaborativeDraftAccessAcceptedEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.proposals.collaborative_draft_access_accepted" }
-  let(:resource) { create :collaborative_draft }
+  let(:resource) { create :collaborative_draft, title: "It is my collaborative draft" }
   let(:resource_path) { Decidim::ResourceLocatorPresenter.new(resource).path }
+  let(:resource_title) { resource.title }
   let(:author) { resource.authors.first }
   let(:author_id) { author.id }
   let(:author_presenter) { Decidim::UserPresenter.new(author) }

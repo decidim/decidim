@@ -11,7 +11,6 @@ module Decidim
 
       let(:event_name) { "decidim.events.proposals.creation_enabled" }
       let(:resource) { create(:proposal_component) }
-      let(:participatory_space) { resource.participatory_space }
       let(:resource_path) { main_component_path(resource) }
       let(:email_subject) { "Proposals now available in #{participatory_space_title}" }
       let(:email_intro) { "You can now create new proposals in #{participatory_space_title}! Start participating in this page:" }
