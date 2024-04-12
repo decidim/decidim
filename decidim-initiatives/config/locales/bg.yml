@@ -6,6 +6,11 @@ bg:
         decidim_user_group_id: Автор
         description: Описание
         offline_votes: Лични подписи
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Инициатива
+        other: Инициативи
   decidim:
     admin:
       initiatives_settings:
