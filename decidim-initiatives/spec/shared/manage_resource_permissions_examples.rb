@@ -9,7 +9,7 @@ shared_examples "manage resource permissions" do
     end
 
     it "shows the resource permissions settings" do
-      expect(page).to have_content(decidim_escape_translated(resource.title))
+      expect(page).to have_content(translated(resource.title))
     end
 
     context "when setting permissions" do
