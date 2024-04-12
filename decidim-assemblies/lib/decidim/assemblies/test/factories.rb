@@ -121,8 +121,8 @@ FactoryBot.define do
       create :assembly_user_role,
              user: user,
              assembly: evaluator.assembly,
-             skip_injection: evaluator.skip_injection,
-             role: :admin
+             role: :admin,
+             skip_injection: evaluator.skip_injection
     end
   end
 
@@ -139,15 +139,15 @@ FactoryBot.define do
       create :assembly_user_role,
              user: user,
              assembly: evaluator.assembly,
-             skip_injection: evaluator.skip_injection,
-             role: :moderator
+             role: :moderator,
+             skip_injection: evaluator.skip_injection
     end
   end
 
   factory :assembly_collaborator, parent: :user, class: "Decidim::User" do
     transient do
       skip_injection { false }
-      assembly { create(:assembly, skip_injection: skip_injection) }
+      assembly { create(:assembly) }
     end
 
     organization { assembly.organization }
@@ -165,7 +165,7 @@ FactoryBot.define do
   factory :assembly_valuator, parent: :user, class: "Decidim::User" do
     transient do
       skip_injection { false }
-      assembly { create(:assembly, skip_injection: skip_injection) }
+      assembly { create(:assembly) }
     end
 
     organization { assembly.organization }
@@ -175,8 +175,8 @@ FactoryBot.define do
       create :assembly_user_role,
              user: user,
              assembly: evaluator.assembly,
-             skip_injection: evaluator.skip_injection,
-             role: :valuator
+             role: :valuator,
+             skip_injection: evaluator.skip_injection
     end
   end
 
