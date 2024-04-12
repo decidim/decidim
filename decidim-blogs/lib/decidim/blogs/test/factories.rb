@@ -29,9 +29,9 @@ FactoryBot.define do
       after :create do |post, evaluator|
         5.times.collect do
           create(:endorsement,
-                      resource: post,
-                      skip_injection: evaluator.skip_injection,
-                      author: build(:user, skip_injection: evaluator.skip_injection, organization: post.participatory_space.organization))
+                 resource: post,
+                 skip_injection: evaluator.skip_injection,
+                 author: build(:user, skip_injection: evaluator.skip_injection, organization: post.participatory_space.organization))
         end
       end
     end
