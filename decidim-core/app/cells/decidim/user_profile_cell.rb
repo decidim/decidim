@@ -29,7 +29,7 @@ module Decidim
     delegate :badge, to: :presented_resource
 
     def description
-      html_truncate(decidim_html_escape(user.about.to_s), length: 100)
+      html_truncate(decidim_escape_translated(user.about), length: 100)
     end
 
     def avatar

@@ -11,7 +11,6 @@ module Decidim
       include Decidim::Events::EmailEvent
       include Decidim::Events::NotificationEvent
       include Decidim::ComponentPathHelper
-      include Decidim::SanitizeHelper
 
       delegate :created_at, to: :resource
 
@@ -101,18 +100,6 @@ module Decidim
       # Returns a string.
       def resource_text
         nil
-      end
-
-      def resource_title
-        return unless resource
-
-        title = if resource.respond_to?(:title)
-                  decidim_sanitize_translated(resource.title)
-                elsif resource.respond_to?(:name)
-                  decidim_sanitize_translated(resource.name)
-                end
-
-        Decidim::ContentProcessor.render_without_format(title, links: false).html_safe
       end
 
       private
