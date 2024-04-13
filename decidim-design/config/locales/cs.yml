@@ -26,6 +26,19 @@ cs:
         buttons:
           description_html: 'Tlačítka jsou sestavena pomocí různých kombinací CSS tříd: třída <code>button</code>, size a color.'
           title: Tlačítka
+        cards:
+          title: Karty
+        tab_panels:
+          title: Panely záložek
+        tooltips:
+          demo: Demo
+          demo_description: Aby tato komponenta fungovala, musí účastník přejít kurzorem na prvek.
+          description: Nástrojový tip je komponenta, kterou mohou uživatelé přejít myší a získat o ní další informace.
+          github_source_html: Zdrojový kód na GitHub %{github_link}
+          title: Popisek
+          usage: Použití
+          usage_p_2_html: 2. Volitelná třída se symbolem na místě, kde bude zobrazena nápověda. Možné hodnoty jsou <code>:top</code>, <code>:bottom</code>, <code>:right</code>, nebo <code>:left</code>.
+          usage_p_3_html: 3. Blok s řetězcem, který uživatel potřebuje přejet kurzorem pro zobrazení.
       foundations:
         accessibility:
           accessibility_labels: Štítky přístupnosti
@@ -35,7 +48,9 @@ cs:
           adjacent_links_header: Přidejte odkazy pro stejný zdroj
           adjacent_links_paragraph: Pokud má tentýž zdroj více sousedících odkazů, které na něj ukazují, pro tyto uživatele je obtížné podívat se na stránku, protože možná budou muset procházet více odkazů, aby se dostali k dalšímu zdroji.
           color_contrast: Barevný kontrast
+          color_contrast_paragraph: Při vytváření uživatelských rozhraní nebo při úpravě barev se vždy ujistěte, že svými změnami neporušujete přístupnost. Můžete použít kontrolu kontrastu barev k zajištění dostatečného kontrastu barev s barvou pozadí, ve kterém jsou zobrazeny.
           decidim_follows_html: Decidim se řídí <u>Pokyny pro přístupnost webového obsahu (WCAG) 2.1</u>
+          dynamic_changes_header: Dynamická funkce neintuitivně mění kontext stránky
           elements_hidden: Skryté prvky
           elements_hidden_paragraph: Pro skrytí prvku před asistenčními technologiemi použijte atribut aria-hidden="true".
           heading_on: Záhlaví na důležitých oddílech
