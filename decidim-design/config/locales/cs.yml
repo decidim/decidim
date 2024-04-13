@@ -90,11 +90,13 @@ cs:
           desktop: Počítač
           full_width: Plná šířka
           layout_list_1: 'Domovská stránka (ze stránky, z prostoru): celá šířka'
+          layout_list_3: 'Jednotlivá položka (návrh, blogový příspěvek): vycentrovaná, volitelně zarovnaná vpravo'
           left_aside: Nalevo
           mobile: Mobilní zařízení
           not_required: Nevyžadováno
           properties: Vlastnosti
           right_aside: Vpravo
+          section_p_code: Při implementaci nových modulů máte některé pomocníky, které vám automaticky poskytují kód potřebný k nastavení HTML struktury. Měli byste použít tyto pomocníky namísto přímého použití prvků div s třídami, abyste zachovali konzistenci.
           tablet: Tablet
           title: Rozložení
         typography:
@@ -107,18 +109,56 @@ cs:
           typefaces_description_2: Tato písma jsou licencována pod Open Font License
       helpers:
         activity: Aktivita
+        argument: Parametr
+        avatar: Avatar
+        avatar_description: Používá se v případě úzkých míst, kde je autor sekundární informací.
         background: Pozadí a okraje
         base: Podklad
+        blogs: Blogy
+        budgets: Rozpočty
+        card_g: Karta G
+        card_l: Karta L
+        card_s: Karta S
         colors: Barvy
+        compact: Kompaktní
+        compact_description: Tato autorská verze je běžným způsobem, jak identifikovat tvůrce zdrojů.
+        conference_g: Konference G
         demo: Demo
         demo_text: 'Tato buňka přijímá model LastActivity položek a zobrazuje následující prvky:'
         demo_text_2: Používá se poslední stránka aktivity v bloku obsahu a v rozevíracích seznamech.
         disabled: Deaktivován
         form_elements: Prvky formuláře
         hex_code: Hex kód
+        html_tips: HTML tipy
         icons: Ikony
+        image_and_description: Obrázek a popis
+        initiative_g: initiative_g
+        initiative_s: initiative_s
+        initiatives: Iniciativy
+        list: Seznam
         main_colors: Hlavní barvy
+        meeting_l: Schůzka L
+        meeting_s: Schůzka S
+        meetings: Schůzky
+        meetings_html: Používá karty <i>Schůzky</i>
+        metadata_items: Položky metadat
+        metadata_text: Každý zdroj definuje své vlastní položky metadat
+        participatory_process_g: Participační proces G
+        participatory_process_group_g: Skupina participačních procesů G
+        participatory_process_group_s: Skupina participačních procesů S
+        participatory_process_s: Participační proces S
+        participatory_processes: Participační procesy
+        plain_text: Jsem prostý text
+        plain_text_description: Můžete poskytnout jako první parametr jak prostý text, tak hash objekt
+        post_g: Příspěvek G
+        post_l: Příspěvek L
+        post_s: Příspěvek S
+        project_l: Projekt L
+        project_s: Projekt S
+        proposal_l: Návrh L
+        result_l: Výsledek L
         rgba_code: RGBA kód
+        search: Hledat
         send: Odeslat
         sizes: Velikosti
         source_code: Zdrojový kód
@@ -127,6 +167,7 @@ cs:
         text: Text
         transparent: Průhledný
         transparent_description: 'V případě tmavšího pozadí:'
+        types: Typy
         typography_texts: Typografie a texty
         usage: Použití
         usage_background_1: Vedle pozadí
@@ -138,6 +179,7 @@ cs:
         usage_base_2: Hlavní barva odkazů a tlačítek
         usage_formelements_1: Výchozí pozadí vstupních prvků
         usage_state_2: Okraj výstražného upozornění
+        usage_typography_1: Nadpisy a názvy sekcí
         usage_typography_2: Vložený text
         usage_typography_3: Text na tmavém pozadí
         usage_typography_4: Odkazy a tlačítka
@@ -146,6 +188,7 @@ cs:
       home:
         index:
           decidim_guide: Průvodce navrhováním všech věcí Decidim
+          different_ui_components: Zároveň dokumentujeme různé komponenty a vzory, které se používají, které by měly být znovu použity nebo rozšířeny.
           github_source: Zdrojový kód na GitHubu
           home_header: Decidim Design Guide
           welcome_sentence: Vítejte v průvodci Decidim Design Guide (DDG). Tento průvodce je zdrojem pro designéry a vývojáře, kteří potřebují přizpůsobit, vyvinout nové moduly a integrovat nové funkce.
