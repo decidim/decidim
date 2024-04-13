@@ -51,7 +51,9 @@ cs:
           color_contrast_paragraph: Při vytváření uživatelských rozhraní nebo při úpravě barev se vždy ujistěte, že svými změnami neporušujete přístupnost. Můžete použít kontrolu kontrastu barev k zajištění dostatečného kontrastu barev s barvou pozadí, ve kterém jsou zobrazeny.
           decidim_follows_html: Decidim se řídí <u>Pokyny pro přístupnost webového obsahu (WCAG) 2.1</u>
           dynamic_changes_header: Dynamická funkce neintuitivně mění kontext stránky
+          dynamic_changes_paragraph: Změny ve vstupech formuláře by neměly automaticky měnit kontext stránky.
           elements_hidden: Skryté prvky
+          elements_hidden_header: Prvky skryté z API pro přístupnost
           elements_hidden_paragraph: Pro skrytí prvku před asistenčními technologiemi použijte atribut aria-hidden="true".
           heading_on: Záhlaví na důležitých oddílech
           here_link: zde
@@ -87,6 +89,7 @@ cs:
           description_layout_p2: Tato jednoduchá pravidla by měla být dodržována při vytváření nových modulů nebo přizpůsobování stávajících, takže stránky Decidim mohou zachovat svou konzistenci.
           desktop: Počítač
           full_width: Plná šířka
+          layout_list_1: 'Domovská stránka (ze stránky, z prostoru): celá šířka'
           left_aside: Nalevo
           mobile: Mobilní zařízení
           not_required: Nevyžadováno
