@@ -123,11 +123,21 @@ cs:
         compact: Kompaktní
         compact_description: Tato autorská verze je běžným způsobem, jak identifikovat tvůrce zdrojů.
         conference_g: Konference G
+        conference_s: Konference S
+        conferences: Konference
+        context: Kontext
+        debate_l: Rozprava L
+        debate_s: Rozprava S
+        debates: Rozpravy
         demo: Demo
         demo_text: 'Tato buňka přijímá model LastActivity položek a zobrazuje následující prvky:'
         demo_text_2: Používá se poslední stránka aktivity v bloku obsahu a v rozevíracích seznamech.
+        description: Popis
         disabled: Deaktivován
+        dropdowns: Rozbalovací nabídky
+        dropdowns_demo_1_description: 'Následující příklad nebude patrný na počítači, ale na mobilu ano:'
         form_elements: Prvky formuláře
+        grid: Mřížka
         hex_code: Hex kód
         html_tips: HTML tipy
         icons: Ikony
@@ -156,11 +166,18 @@ cs:
         project_l: Projekt L
         project_s: Projekt S
         proposal_l: Návrh L
+        proposal_s: Návrh S
+        proposals: Návrhy
+        report_button: Tlačítko reportu
+        report_usage_description: Tlačítko reportu spustí modální okno, které bude ukazovat aktuální zdroj.
         result_l: Výsledek L
         rgba_code: RGBA kód
         search: Hledat
         send: Odeslat
+        share_button: Tlačítko Sdílet
         sizes: Velikosti
+        sortition_l: sortition_l
+        sortitions: Losování
         source_code: Zdrojový kód
         state: Stav
         tailwind: Tailwind název
