@@ -28,6 +28,12 @@ cs:
           title: Tlačítka
         cards:
           title: Karty
+        dialogs:
+          dialog_demo_description_html: Dialogy nebo modální komponenty jsou implementovány přes rails helper <code>decidim_modal</code>.
+          dialogs_description_html: Dialogy jsou javascript funkce dostupné díky externí knihovně s názvem <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a>.
+          tips_description: 'Chcete-li zobrazit komplexní modál, který odpovídá stylům, proveďte následující markup:'
+          title: Dialogy
+          usage_description: Dialog vyžaduje dva prvky
         tab_panels:
           title: Panely záložek
         tooltips:
