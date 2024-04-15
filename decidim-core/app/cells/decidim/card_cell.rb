@@ -28,7 +28,7 @@ module Decidim
     end
 
     def title
-      model.try(:title) || model.try(:name) || ""
+      decidim_escape_translated(model.try(:title) || model.try(:name) || "")
     end
 
     def body
