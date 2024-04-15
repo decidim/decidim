@@ -6,3 +6,20 @@ bg:
         description: Описание
         image: Изображение
         proposals: Свързани предложения
+      voting:
+        scope_id: Обхват
+    errors:
+      models:
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: не може да се променя
+            public_key:
+              cant_be_changed: не може да се променя
+  activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: Избирателният служител вече е председател на избирателна секция
