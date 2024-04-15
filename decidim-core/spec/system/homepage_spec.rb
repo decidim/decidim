@@ -313,6 +313,8 @@ describe "Homepage" do
           end
 
           it "does not show last activity section on menu bar main dropdown" do
+            expect(page).to have_no_content(translated(comment.body))
+            expect(page).to have_no_link("New comment")
             expect(page).to have_no_link("Last activity")
           end
         end
