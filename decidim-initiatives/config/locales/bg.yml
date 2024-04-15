@@ -122,3 +122,34 @@ bg:
         show:
           any_vote_method: За тази гражданска инициатива се събират подписи както онлайн, така и лично.
           follow_description: Получавайте известия, когато има новини за тази инициатива
+          offline_method: За тази гражданска инициатива се събират подписи само лично.
+          print: Отпечатай инициативата
+        votes_count:
+          most_popular_initiative: Най-популярна инициатива
+          need_more_votes: Има нужда от повече подписи
+      signature_interval:
+        title: Период за събиране на подписи
+      update:
+        error: Възникна грешка
+        success: Инициативата беше актуализирана успешно
+      versions:
+        shared:
+          back_to_resource: Връщане назад към инициативата
+  layouts:
+    decidim:
+      initiative_creation_header:
+        previous_form: Начало
+        show_similar_initiatives: Сравнете
+        step: Стъпка %{current} от общо %{total}
+        title: Създаване на нова инициатива
+      initiative_header:
+        initiative_menu_item: Инициатива
+      initiative_signature_creation_header:
+        finished: Подписът на инициативата е създаден
+        see_steps: вижте стъпките
+        select_identity: Изберете идентичност
+        step: Стъпка %{current} от общо %{total}
+      initiatives:
+        initiative:
+          check: Прегледайте
+          check_and_support: Прегледайте и се подпишете
