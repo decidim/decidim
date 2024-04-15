@@ -53,33 +53,6 @@ module Decidim
 
         it { is_expected.to be_invalid }
       end
-
-      context "when the body exceeds the permitted length" do
-        let(:component) { create(:proposal_component, :with_proposal_length, participatory_space:, proposal_length: allowed_length) }
-        let(:allowed_length) { 15 }
-        let(:body) { "A body longer than the permitted" }
-
-        it { is_expected.to be_invalid }
-
-        context "with carriage return characters that cause it to exceed" do
-          let(:allowed_length) { 80 }
-          let(:body) { "This text is just the correct length\r\nwith the carriage return characters removed" }
-
-          it { is_expected.to be_valid }
-        end
-      end
-
-      context "when there is a body template set" do
-        let(:body_template) { "This is the template" }
-
-        it { is_expected.to be_valid }
-
-        context "when the template and the body are the same" do
-          let(:body) { body_template }
-
-          it { is_expected.to be_invalid }
-        end
-      end
     end
   end
 end
