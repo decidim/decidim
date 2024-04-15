@@ -269,7 +269,7 @@ lb:
           'false': undurchsichtig
           'true': transparent
         private_space: Dies ist eine private Versammlung
-        related_participatory_processes: Procesos participativos relacionados
+        related_participatory_processes: Ähnliche Beteiligungsprozesse
     assembly_members:
       assembly_member:
         designated_on: Bezeichnet am
