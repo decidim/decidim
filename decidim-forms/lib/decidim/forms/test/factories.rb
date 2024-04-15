@@ -8,7 +8,6 @@ FactoryBot.define do
     transient do
       skip_injection { false }
     end
-
     title { generate_localized_title(:questionnaire_title, skip_injection: skip_injection) }
     description { generate_localized_description(:questionnaire_description, skip_injection: skip_injection) }
     tos { generate_localized_title(:questionnaire_tos, skip_injection: skip_injection) }
