@@ -45,6 +45,8 @@ de:
           emojis_description: Funktioniert nur für Textbereiche
           errors: Fehler
           help_texts: Hilfe-Texte
+          min_max_length: Min / max Länge
+          title: Formulare
         report:
           title: Melden
         share:
