@@ -204,7 +204,7 @@ describe "Edit proposals", type: :system do
         check "proposal_has_address"
 
         expect(page).to have_field("Title", with: translated(proposal.title))
-        expect(page).to have_field("Body", with: translated(proposal.body))
+        expect(page).to have_field("Body", with: strip_tags(translated(proposal.body)))
         expect(page).to have_field("Address", with: proposal.address)
         expect(page).to have_css("[data-decidim-map]")
 
@@ -231,7 +231,7 @@ describe "Edit proposals", type: :system do
           click_link "Edit proposal"
 
           expect(page).to have_field("Title", with: translated(proposal.title))
-          expect(page).to have_field("Body", with: translated(proposal.body))
+          expect(page).to have_field("Body", with: strip_tags(translated(proposal.body)))
           expect(page).to have_field("Address", with: proposal.address)
 
           within "form.edit_proposal" do
