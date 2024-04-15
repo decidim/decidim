@@ -101,11 +101,11 @@ module Decidim
       }
     end
 
-    def duration_item
+    def start_date_item
       return if dates_blank?
 
       {
-        text: distance_of_time_in_words(start_date, end_date, scope: "datetime.distance_in_words.short"),
+        text: I18n.l(start_date, format: "%H:%M %p %Z"),
         icon: "time-line"
       }
     end
