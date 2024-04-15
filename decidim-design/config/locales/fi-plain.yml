@@ -64,6 +64,17 @@ fi-pl:
           title: Jakaminen
         tab_panels:
           title: Välilehtipaneelit
+        tooltips:
+          demo: Esimerkki
+          demo_description: Tämän komponentin toiminta vaatii osoittimen viennin elementin päälle.
+          description: Työkaluvihje on komponentti, jonka avulla käyttäjät saavat lisätietoa asiasta viemällä osoittimen elementin päälle.
+          github_source_html: Lähdekoodi GitHubissa %{github_link}
+          title: Työkaluvihjeet
+          usage: Käyttöesimerkki
+          usage_p: 'Työkaluvihjeen käyttäminen vaatii `with_tooltip` -avustajan (helper) käyttöä seuraavilla parametreilla:'
+          usage_p_1_html: 1. Merkkijono, jonka arvo on työkaluvihjeen otsikko. Tällä sivulla esitetyssä esimerkissä arvona on "Hello world".
+          usage_p_2_html: '2. Valinnainen luokka symbolina, joka määrittää mihin suuntaan työkaluvihje avautuu. Mahdolliset arvot ovat: <code>:top</code> (elementin yläpuolelle), <code>:bottom</code> (elementin alapuolelle), <code>:right</code> (elementin oikealle puolelle) tai <code>:left</code> (elementin vasemmalle puolelle).'
+          usage_p_3_html: 3. Lohko, joka määrittää työkaluvihjeen näyttämän sisällön, kun työkaluvihjeen osoitin on laukaisuelementin päällä.
       foundations:
         accessibility:
           accessibility_labels: Saavutettavat nimilaput
@@ -105,8 +116,8 @@ fi-pl:
           description_iconography_html: 'Käytämme Remixicon-nimistä avoimen lähdekoodin kuvakekirjastoa: %{iconography_link}'
           title: Kuvakkeet
         layout:
-          breakpoint: Katkaisupiste
-          breakpoints: Katkaisupisteet
+          breakpoint: Muutospiste
+          breakpoints: Muutospisteet
           centered: Keskitetty
           code: Koodi
           columns: Sarakkeiden lukumäärä, jokin arvoista 10, 8 tai 6.
@@ -122,7 +133,7 @@ fi-pl:
           not_required: Ei vaadittu
           properties: Määritykset
           right_aside: Oikea sivupalkki
-          section_p_breakpoints: 'Hallitaksemme responsiivista elementtien maksimileveyttä, hyödynnämme Tailwind-kehyksen tarjoamaa jäsennysluokkaa `container`, joka määrittää seuraavat katkaisupisteet:'
+          section_p_breakpoints: 'Hallitaksemme responsiivista elementtien maksimileveyttä, hyödynnämme Tailwind-kehyksen tarjoamaa jäsennysluokkaa `container`, joka määrittää seuraavat muutospisteet:'
           section_p_code: Luodessasi uusia moduuleja tarjoamme avustajia, jotka tarjoavat automaattisesti kaiken koodin HTML-rakenteen määrittämiseen. Hyödynnä näitä avustajia räätälöityjen div-elementtien sijaan, jotta sivusto säilyttää yhtenäisyytensä.
           section_p_code_html: Löydät perusulkoasun asettelut kohteesta %{link_section_code}
           section_p_desktop: Työpöytälaitteiden ruudukkojärjestelmä koostuu 12 joustavasta sarakkeesta, joiden välillä on 16 pikseliä leveät välit ja vasemmalla sekä oikealla puolella 48 pikseliä leveät marginaalit
