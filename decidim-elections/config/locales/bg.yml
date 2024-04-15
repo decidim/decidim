@@ -161,9 +161,41 @@ bg:
         ballot_decision:
           audit: "(Бюлетина за одит)"
           description: Тук имате опциите да пуснете бюлетината си, така че да проверите дали тя се преброява коректно и се криптира правилно. От съображения за сигурност проверката на вашата бюлетина ще я развали. Това означава, че за реално гласуване, ще трябва да рестартирате процеса на гласуване.
+        confirm:
+          question: Въпрос %{count}
+        confirmed:
+          text: 'Можете да проверите дали гласът Ви е добавен успешно в урната със следния идентификатор: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+        header:
+          ballot_decision: Гласувайте или проверете вашият вот
+          casting: Подаване на вот
+          encrypting: Криптиране на вота
+        new:
+          selections: "%{selected} от %{max_selections}<br> елемента с възможност за избор"
+        onboarding_modal:
+          close: Затвори прозореца
+        verify:
+          success:
+            info: Вашият криптиран вот е в %{link} избирателна урна
+      warnings:
+        no_elections_warning: Няма избори, отговарящи на вашите критерии за търсене, или няма насрочени избори.
+    events:
+      elections:
+        trustees:
+          new_election:
+            email_outro: Получихте това известие, защото бяхте добавен като Валидатор на изборите %{resource_title}.
+            email_subject: Вие сте Валидатор на изборите %{resource_title}..
+            notification_title: Вие сте Валидатор на изборите <a href="%{resource_path}">%{resource_title}</a>.
+          new_trustee:
+            email_outro: Получихте това известие, защото бяхте добавен като Валидатор за изборите %{resource_name}.
+            notification_title: Вие сте Валидатор на изборите <a href="%{participatory_space_url}">%{resource_name}</a>.
+        votes:
+          accepted_votes:
+            email_outro: Получихте това известие, защото гласувахте за изборите %{resource_name}.
     votings:
       admin:
         ballot_styles:
+          create:
+            error: Възникна проблем при създаването на този "Стил на бюлетина"
           index:
             actions:
               new: Ново
