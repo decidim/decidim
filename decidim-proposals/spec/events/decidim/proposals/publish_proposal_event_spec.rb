@@ -75,7 +75,7 @@ module Decidim
         include_context "when a simple event"
 
         let(:event_name) { "decidim.events.proposals.proposal_published_for_space" }
-        let(:notification_title) { "The proposal <a href=\"#{resource_path}\">#{resource_title}</a> has been added to #{participatory_space_title} by #{author.name} <a href=\"/profiles/#{author.nickname}\">@#{author.nickname}</a>." }
+        let(:notification_title) { "The proposal <a href=\"#{resource_path}\">#{resource_title}</a> has been added to #{participatory_space_title} by #{author.name} <a href=\"/profiles/#{author.nickname}\">@#{author.nickname}</a>" }
         let(:email_outro) { "You have received this notification because you are following \"#{participatory_space_title}\". You can stop receiving notifications following the previous link." }
         let(:email_intro) { "The proposal \"#{resource_title}\" has been added to \"#{participatory_space_title}\" that you are following." }
         let(:email_subject) { "New proposal \"#{resource_title}\" added to #{participatory_space_title}" }
