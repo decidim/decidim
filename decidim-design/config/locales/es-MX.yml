@@ -61,6 +61,17 @@ es-MX:
           title: Denunciar
         share:
           title: Compartir
+        tooltips:
+          demo: Demo
+          demo_description: Para que este componente funcione, un participante debe pasar el cursor sobre el elemento.
+          description: Un <i>tooltip</i> es un componente con el que, al pasar el ratón por encima,  las participantes pueden tener información adicional sobre él.
+          github_source_html: Código fuente en GitHub %{github_link}
+          title: Descripción emergente
+          usage: Uso
+          usage_p: 'Una descripción emergente necesita utilizar el ayudante "with_tooltip" con tres argumentos:'
+          usage_p_1_html: 1. Una ristra de caracteres o frase de la descripción emergente. En el ejemplo de esta página es "Hola mundo".
+          usage_p_2_html: 2. Una clase opcional con un símbolo donde se mostrará la descripción emergente. Los valores posibles son <code>:top</code>, <code>:bottom</code>, <code>:right</code>, o <code>:left</code>.
+          usage_p_3_html: 3. Un bloque con ristra de caracteres o frase por la que la usuaria debe pasar el cursor para que se muestre.
       foundations:
         accessibility:
           accessibility_labels: Etiquetas de accesibilidad
