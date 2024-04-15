@@ -296,10 +296,6 @@ en:
         title:
           one: "%{count} amendment"
           other: "%{count} amendments"
-      compare_draft:
-        continue: Continue
-        no_similars_found: No similar emendations found.
-        title: Similar Emendations
       created:
         error: An error ocurred while creating the amendment draft.
         success: Amendment draft has been created successfully.

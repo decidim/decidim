@@ -16,7 +16,6 @@ describe "Manage proposal wizard steps help texts" do
   end
 
   let!(:proposal) { create(:proposal, component: current_component, users: [user]) }
-  let!(:proposal_similar) { create(:proposal, component: current_component, title: "This proposal is to ensure a similar exists") }
 
   it "customize the help text for step 1 of the proposal wizard" do
     visit edit_component_path(current_component)
