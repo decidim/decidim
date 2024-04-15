@@ -94,3 +94,6 @@ he:
       assembly_user_roles:
         create:
           error: הייתה בעיה בהוספת מנהל.ת עבור אסיפה זו.
+    assemblies:
+      show:
+        related_participatory_processes: תהליך השתתפותי מקושר
