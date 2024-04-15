@@ -174,7 +174,7 @@ FactoryBot.define do
     tos_agreement { "1" }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     personal_url { Faker::Internet.url }
-    about { generate_localized_title(:user_about, skip_injection:) }
+    about { generate_localized_title(:user_about, skip_injection: skip_injection) }
     confirmation_sent_at { Time.current }
     accepted_tos_version { organization.tos_version }
     notifications_sending_frequency { "real_time" }
