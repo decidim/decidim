@@ -6,6 +6,8 @@ bg:
         description: Описание
         image: Изображение
         proposals: Свързани предложения
+      voting:
+        scope_id: Обхват
   decidim:
     elections:
       admin:
