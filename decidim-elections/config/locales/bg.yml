@@ -24,3 +24,11 @@ bg:
           description: Тук имате опциите да пуснете бюлетината си, така че да проверите дали тя се преброява коректно и се криптира правилно. От съображения за сигурност проверката на вашата бюлетина ще я развали. Това означава, че за реално гласуване, ще трябва да рестартирате процеса на гласуване.
       warnings:
         no_elections_warning: На критериите Ви за търсене не съответстват минали или насрочени избори.
+    events:
+      elections:
+        trustees:
+          new_election:
+            email_subject: Вие сте Валидатор на изборите %{resource_title}..
+            notification_title: Вие сте Валидатор на изборите <a href="%{resource_path}">%{resource_title}</a>.
+          new_trustee:
+            notification_title: Вие сте Валидатор на изборите <a href="%{participatory_space_url}">%{resource_name}</a>.
