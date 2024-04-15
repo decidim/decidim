@@ -124,7 +124,7 @@ describe "Meeting", download: true do
   context "when the meeting is the same as the current year" do
     let(:meeting) { create(:meeting, :published, component:, start_time: Time.current) }
 
-    it "does not show the year" do
+    it "shows the year" do
       visit_meeting
 
       within ".meeting__calendar-container .meeting__calendar" do
