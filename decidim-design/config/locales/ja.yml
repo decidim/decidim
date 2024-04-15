@@ -64,6 +64,11 @@ ja:
           title: シェア
         tab_panels:
           title: タブパネル
+        tooltips:
+          demo: デモ
+          github_source_html: GitHub %{github_link} のソース コード
+          title: ツールチップ
+          usage: 使い方
       foundations:
         accessibility:
           accessibility_labels: アクセシビリティラベル
