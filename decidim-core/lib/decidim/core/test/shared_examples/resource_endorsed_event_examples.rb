@@ -9,7 +9,6 @@ shared_examples_for "resource endorsed event" do
   let(:author) { create :user, organization: resource.organization }
 
   let(:extra) { { endorser_id: author.id } }
-  let(:resource_title) { decidim_sanitize_translated(resource.title) }
   let(:endorsement) { create :endorsement, resource: resource, author: author }
   let(:resource_path) { resource_locator(resource).path }
   let(:follower) { create(:user, organization: resource.organization) }
