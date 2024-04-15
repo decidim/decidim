@@ -396,11 +396,7 @@ fi-pl:
       show:
         assembly_type: Ryhmän tyyppi
         duration: Kesto
-        is_transparent:
-          'false': läpinäkymätön
-          'true': läpinäkyvä
         private_space: Tämä on yksityinen ryhmä
-        related_participatory_processes: Liittyvät osallisuusprosessit
         social_networks_title: Vieraile ryhmän sivulla palvelussa
     assembly_members:
       assembly_member:
