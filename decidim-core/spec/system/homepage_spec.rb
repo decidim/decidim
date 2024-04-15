@@ -318,6 +318,20 @@ describe "Homepage" do
             expect(page).to have_no_link("Last activity")
           end
         end
+
+        context "when there is a promoted participatory space and user is not authenticated" do
+          let!(:participatory_space) { create(:participatory_process, :promoted, title:, organization:) }
+          let(:title) { {en: "Promoted, promoted, promoted!!!"} }
+
+          before do
+            visit current_path
+            find_by_id("main-dropdown-summary").hover
+          end
+
+          it "does not show last activity section on menu bar main dropdown" do
+            expect(page).to have_no_content(title[:en])
+          end
+        end
       end
 
       describe "includes statistics" do
