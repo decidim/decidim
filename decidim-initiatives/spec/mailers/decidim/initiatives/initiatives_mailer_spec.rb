@@ -40,7 +40,7 @@ module Decidim
           end
 
           it "renders the body" do
-            expect(mail.body.encoded).to include(decidim_escape_translated(initiative.title))
+            expect(mail.body.encoded).to include(decidim_html_escape(initiative.title))
           end
 
           it "doesn't render the promoter committee help" do

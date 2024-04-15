@@ -19,7 +19,8 @@ module Decidim
       let(:resource) { create(:dummy_resource, title: { en: "<script>alert('Hey');</script>" }) }
 
       it "sanitizes the HTML tags from the i18n options" do
-        expect(subject.i18n_options[:resource_title]).to eq("alert('Hey');")
+        expect(subject.i18n_options[:resource_title])
+          .to eq("alert('Hey');")
       end
     end
   end
