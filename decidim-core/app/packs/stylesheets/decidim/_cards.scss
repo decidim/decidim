@@ -127,13 +127,13 @@
       @apply text-black text-2xl font-bold;
     }
 
-    &-time {
+    &-year {
       @apply text-black text-xs;
     }
 
     &-month,
     &-day,
-    &-time {
+    &-year {
       @apply inline-flex items-center justify-evenly empty:[&>span]:hidden;
     }
   }

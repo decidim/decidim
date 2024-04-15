@@ -3,7 +3,6 @@
 module Decidim
   module Accountability
     class ResultType < Decidim::Api::Types::BaseObject
-      implements Decidim::Core::ComponentInterface
       implements Decidim::Core::CategorizableInterface
       implements Decidim::Comments::CommentableInterface
       implements Decidim::Core::ScopableInterface

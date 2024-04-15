@@ -51,18 +51,18 @@
 }
 
 .layout-item {
-  @apply container grid grid-cols-1 md:grid-cols-12 py-4 md:py-24 gap-12 md:gap-x-0;
+  @apply container grid grid-cols-1 lg:grid-cols-12 py-4 lg:py-24 gap-12 lg:gap-x-0;
 
   &__main {
-    @apply lg:col-start-2 md:col-span-8 lg:col-span-7 relative;
+    @apply xl:col-start-2 lg:col-span-8 xl:col-span-7 relative;
   }
 
   &__aside {
-    @apply md:col-start-10 lg:col-start-10 md:col-span-3 lg:col-span-2;
+    @apply lg:col-start-10 xl:col-start-10 lg:col-span-3 xl:col-span-2;
   }
 
   &__back {
-    @apply mb-4 md:mb-0 md:absolute md:-left-[1em] md:-top-8 md:-translate-y-full;
+    @apply mb-4 lg:mb-0 lg:absolute lg:-left-[1em] lg:-top-8 lg:-translate-y-full;
   }
 
   &__arrow {

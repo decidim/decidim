@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
 namespace :decidim do
-  desc "Install migrations from Decidim to the app."
+  desc "Performs upgrade tasks (migrations, node, docs )."
   task upgrade: [
     :choose_target_plugins,
     :"decidim:upgrade_app",
     :"railties:install:migrations",
-    :"decidim:webpacker:upgrade",
+    :"decidim:upgrade:webpacker",
     :"decidim_api:generate_docs"
   ]
 
   task update: [:upgrade]
 
-  desc "Setup environment so that only decidim migrations are installed."
+  desc "Sets up environment so that only decidim migrations are installed."
   task :choose_target_plugins do
     ENV["FROM"] = %w(
       decidim
