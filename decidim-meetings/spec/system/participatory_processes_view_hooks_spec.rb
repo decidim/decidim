@@ -17,7 +17,7 @@ describe "Meetings in process home", type: :system do
       visit resource_locator(participatory_process).path
       expect(page).to have_css(".past_meetings .card--list__item", count: 3)
 
-      expect(page).not_to have_content(translated(moderated_meeting.title))
+      expect(page).not_to have_content(translated(/#{moderated_meeting.title}/i))
 
       past_meetings.sort_by { |m| [m.end_time, m.start_time] }.last(3).each do |meeting|
         expect(page).to have_content(translated(meeting.title))
@@ -35,7 +35,7 @@ describe "Meetings in process home", type: :system do
       visit resource_locator(participatory_process).path
       expect(page).to have_css(".upcoming_meetings .card--list__item", count: 3)
 
-      expect(page).not_to have_content(translated(moderated_meeting.title))
+      expect(page).not_to have_content(/#{translated(moderated_meeting.title)}/i)
 
       upcoming_meetings.sort_by { |m| [m.start_time, m.end_time] }.first(3).each do |meeting|
         expect(page).to have_content(translated(meeting.title))

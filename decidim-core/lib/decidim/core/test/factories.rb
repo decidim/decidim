@@ -174,13 +174,7 @@ FactoryBot.define do
     tos_agreement { "1" }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     personal_url { Faker::Internet.url }
-    about do
-      if skip_injection
-        generate(:title)
-      else
-        "<script>alert(\"user_about\");</script> #{generate(:title)}"
-      end
-    end
+    about { generate_localized_title(:user_about, skip_injection:) }
     confirmation_sent_at { Time.current }
     accepted_tos_version { organization.tos_version }
     notifications_sending_frequency { "real_time" }
@@ -579,10 +573,11 @@ FactoryBot.define do
   factory :coauthorship, class: "Decidim::Coauthorship" do
     transient do
       skip_injection { false }
+    end
+    coauthorable { create(:dummy_resource, skip_injection: skip_injection) }
+    transient do
       organization { coauthorable.component.participatory_space.organization }
     end
-
-    coauthorable { create(:dummy_resource, skip_injection: skip_injection) }
     author { create(:user, :confirmed, organization: organization, skip_injection: skip_injection) }
   end
 
