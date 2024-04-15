@@ -20,7 +20,7 @@ module Decidim
       private
 
       def meeting_items
-        [type, duration_item, comments_count_item, category_item, withdrawn_item]
+        [start_date_item, type, comments_count_item, category_item, withdrawn_item]
       end
 
       def meeting_items_for_map

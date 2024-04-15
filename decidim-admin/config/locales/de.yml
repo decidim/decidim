@@ -287,7 +287,7 @@ de:
       block_user:
         new:
           action: Konto sperren und Begründung senden
-          already_reported_html: Wenn Sie diese Aktion fortsetzen, werden Sie auch alle Inhalte der Teilnehmenden ausblenden. <a href="%{link}"> Konto blockieren</a>.
+          already_reported_html: Wenn Sie diese Aktion fortsetzen, werden Sie auch alle Inhalte der Teilnehmenden ausblenden.
           description: Das Blockieren eines Benutzers wird sein Konto unbrauchbar machen. Sie können begründen und Richtlinien dafür bieten, wie der Benutzer vorgehen könnte, damit Sie in Betracht ziehen, die Blockierung wieder aufzuheben.
           justification: Begründung
           title: Benutzer %{name} blockieren
@@ -377,9 +377,9 @@ de:
           update: Aktualisieren
       dashboard:
         pending_moderations:
-          anouncement:
-            one: Es gibt %{count} ausstehende Moderation
-            other: Es gibt %{count} ausstehende Moderationen
+          announcement:
+            one: Es gibt %{count} zu moderierender Beitrag
+            other: Es gibt %{count} zu moderierende Beiträge
           goto_moderation: Gehe zur globalen Moderation
           title: Offene Moderationen
         show:
@@ -388,6 +388,9 @@ de:
       domain_allowlist:
         form:
           domain_too_short: Domain zu kurz
+        update:
+          error: Liste der zulässigen externen Domains konnte nicht aktualisiert werden
+          success: Die Liste der zulässigen externen Domains wurde erfolgreich aktualisiert.
       exports:
         export_as: "%{name} als %{export_format}"
         formats:
@@ -568,9 +571,11 @@ de:
         areas: Bereiche
         configuration: Aufbau
         content: Gemeldeter Inhalt
+        external_domain_allowlist: Erlaubte externe Domains
         help_sections: Hilfeabschnitte
         homepage: Startseite
         impersonations: Identitätswechsel
+        manage: Verwalten
         moderation: Globale Moderationen
         newsletters: Newsletter
         participants: Teilnehmer
@@ -859,6 +864,9 @@ de:
           external_domain: Externe Domain
           remove: Entfernen
           up: Hoch
+        form:
+          add: Zur erlaubten Liste hinzufügen
+          title: Liste erlaubter externer Domains
       participatory_space_private_users:
         create:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.

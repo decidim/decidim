@@ -96,7 +96,6 @@ hu:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Keresés a(z) %{collection} elemei között cím, leírás, azonosító vagy szerző alapján.
       initiatives_settings:
         update:
-          error: Hiba történt.
           success: A kezdeményezés beállítása sikeres.
       menu:
         attachments: Csatolmányok
@@ -370,6 +369,7 @@ hu:
           back: Vissza
           choose_html: Szeretnék létrehozni egy <strong>%{title}</strong>
           more_information: (További információk)
+          new: Új kezdeményezés létrehozása
           select: Szeretném támogatni ezt a kezdeményezést
           select_initiative_type_help: A kezdeményezések olyan eszközök, amelyekkel a résztvevők beavatkozhatnak, hogy a szervezet a közérdek védelmében lépéseket tegyen. Milyen kezdeményezést szeretnél elindítani?
         share_committee_link:
@@ -543,6 +543,7 @@ hu:
           comment: Megjegyzés
       initiatives_type:
         actions:
+          create: Létrehozás
           title: Hozzászólások
           vote: Szavazás
   layouts:

@@ -16,7 +16,8 @@ module Decidim
             title: { "en" => "Editable state" },
             announcement_title: { "en" => "Editable announcement title" },
             token: "editable",
-            css_class: "csseditable"
+            bg_color: "#c4ecd0",
+            text_color: "#16592e"
           }
         end
         let!(:state) { create(:proposal_state, component:, **state_params) }
@@ -36,7 +37,8 @@ module Decidim
             title: { en: "A reasonable proposal title" },
             announcement_title: { en: "A reasonable proposal announcement title" },
             token: "custom",
-            css_class: "fooo"
+            bg_color: "#ffeebd",
+            text_color: "#ad4910"
           }
         end
 
@@ -87,7 +89,7 @@ module Decidim
               expect(action_log.version.event).to eq "update"
             end
 
-            [:title, :announcement_title, :css_class].each do |field|
+            [:title, :announcement_title, :bg_color, :text_color].each do |field|
               it "updates the #{field}" do
                 expect { command.call }.to change(state, field)
               end

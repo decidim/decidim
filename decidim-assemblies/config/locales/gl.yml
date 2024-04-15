@@ -259,7 +259,6 @@ gl:
             select_parent_assembly: Seleccione o conxunto primario
             social_handlers: Social
             title: Información xeral
-            visbility: Visibilidade
         assemblies_types:
           form:
             title: Título
@@ -267,7 +266,6 @@ gl:
           form:
             existing_user: Usuario existente
             explanation: 'Instrucións para a imaxe:'
-            image_guide: É preferíbel unha imaxe apaisada sen ningún texto.
             non_user: Non usuario
             non_user_avatar_help: Tes que obter o consentimento das persoas antes de publicalas coma membros.
             select_a_position: Seleccione unha posición

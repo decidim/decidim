@@ -56,11 +56,11 @@
   </td>
 
   <td class="valuators-count">
-    <%= proposal.valuation_assignments.count %>
+    <%= proposal.valuation_assignments.size %>
   </td>
 
   <td>
-    <strong class="label <%= proposal_state_css_class proposal %>">
+    <strong class="label <%= proposal_state_css_class proposal %>" style="<%= proposal_state_css_style proposal %>">
       <%= t("decidim/amendment", scope: "activerecord.models", count: 1) if proposal.emendation? %>
       <%= proposal_complete_state proposal %>
     </strong>

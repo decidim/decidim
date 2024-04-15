@@ -401,7 +401,6 @@ el:
             select_participatory_process_type: Επιλέξτε έναν τύπο διεργασίας
             select_process_group: Επιλέξτε ομάδα διαδικασίας
             title: Γενικές πληροφορίες
-            visbility: Ορατότητα
       content_blocks:
         highlighted_processes:
           name: Επισημασμένες διαδικασίες

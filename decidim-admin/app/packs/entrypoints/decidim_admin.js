@@ -17,6 +17,9 @@ import "src/decidim/slug_form"
 import "src/decidim/admin/admin_autocomplete"
 import "src/decidim/admin/triadic_color_picker"
 import "src/decidim/admin/participatory_space_search"
+import "src/decidim/admin/css_preview"
+import "src/decidim/admin/sync_radio_buttons"
+import "src/decidim/admin/text_copy"
 
 // CSS
 import "entrypoints/decidim_admin.scss";

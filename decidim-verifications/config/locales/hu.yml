@@ -84,10 +84,8 @@ hu:
     events:
       verifications:
         verify_with_managed_user:
-          email_intro: A résztvevő <a href="%{resource_url}">%{resource_title}</a> megpróbálta ellenőrizni magát egy másik résztvevő adataival (<a href="%{managed_user_url}">%{managed_user_name}</a>).
           email_outro: Ellenőrizze az <a href="%{conflicts_url}">Ellenőrzések konfliktuslistáját</a>, és lépjen kapcsolatba a résztvevővel az adatok ellenőrzése és a probléma megoldása érdekében.
           email_subject: Sikertelen hitelesítési kísérlet egy másik résztvevővel szemben
-          notification_title: A résztvevő <a href="%{resource_path}">%{resource_title}</a> megpróbálta ellenőrizni magát egy másik résztvevő adataival (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
       authorizations:
         authorization_metadata:
@@ -224,8 +222,6 @@ hu:
           update:
             error: Probléma adódott a dokumentum újratöltésével.
             success: Dokumentum sikeresen újratöltve.
-        dni: Sz.ig.
-        nie: Lakcím kártya
         passport: Útlevél
       postal_letter:
         admin:
@@ -261,8 +257,6 @@ hu:
           create:
             error: Probléma merült fel a kérésével kapcsolatban.
             success: Köszönjük! SMS-t küldtünk a telefonjára.
-          destroy:
-            success: A hitelesítési kód sikeresen visszaáll. Kérjük, írja be újra a telefonszámát.
           edit:
             confirm_destroy: Biztosan vissza szeretné állítani az ellenőrző kódot?
             destroy: Ellenőrző kód visszaállítása

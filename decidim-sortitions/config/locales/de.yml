@@ -95,7 +95,7 @@ de:
           all: Alle
           cancelled: Abgebrochen
           category: Kategorie
-          state: Zustand
+          state: Status
         index:
           empty: Es gibt noch keine Sortierungen.
         linked_sortitions:

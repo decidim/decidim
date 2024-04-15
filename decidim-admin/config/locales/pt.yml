@@ -290,7 +290,6 @@ pt:
         title: Conflitos de verificação
         transfer:
           email: e-Mail
-          error: Houve um problema ao transferir o utilizador actual para utilizador gerido.
           name: Nome
           reason: Motivo
           success: A transferência actual foi completada com êxito.
@@ -434,6 +433,7 @@ pt:
         help_sections: Secções de ajuda
         homepage: Página inicial
         impersonations: Personificações
+        manage: Gerir
         moderation: Moderações globais
         newsletters: Boletins informativos
         participants: Participantes

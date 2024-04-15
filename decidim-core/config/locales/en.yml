@@ -1464,6 +1464,8 @@ en:
         close_modal: Close modal
         ok: OK
         title: Confirm
+      embed:
+        title: Embedded video content
       extended_navigation_bar:
         more: More
         unfold: Unfold
@@ -2058,6 +2060,7 @@ en:
       long_with_particles: "%B %d, %Y at %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Deletions
