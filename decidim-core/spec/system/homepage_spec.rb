@@ -321,7 +321,7 @@ describe "Homepage" do
 
         context "when there is a promoted participatory space and user is not authenticated" do
           let!(:participatory_space) { create(:participatory_process, :promoted, title:, organization:) }
-          let(:title) { {en: "Promoted, promoted, promoted!!!"} }
+          let(:title) { { en: "Promoted, promoted, promoted!!!" } }
 
           before do
             visit current_path
