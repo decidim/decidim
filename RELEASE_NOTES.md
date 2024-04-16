@@ -116,7 +116,20 @@ bin/rails decidim:upgrade:fix_orphan_categorizations
 
 You can read more about this change on PR [\#12143](https://github.com/decidim/decidim/pull/12143).
 
-### 3.5. Clean up orphaned attachment blobs
+### 3.5. Improved CSS overrides
+
+We have improved the CSS overriding mechanism. This is what allows you to change the CSS of decidim in your application in a more granular way.
+
+Previously, you could do this by adding CSS rules in the `app/packs/stylesheets/decidim/decidim_application.scss` file. This file remains in place but is loaded as the last file in the application, so it will take precedence over all the CSS rules from the Decidim modules.
+
+Additionally, if you need, you can also customize the `admin` and `system` interfaces by creating in your application the following files:
+
+- `app/packs/stylesheets/decidim/admin/decidim_application.scss` for admin interface
+- `app/packs/stylesheets/decidim/system/decidim_application.scss` for system interface
+
+You can read more about this change on PR [\#12646](https://github.com/decidim/decidim/pull/12646).
+
+### 3.6. Clean up orphaned attachment blobs
 
 We have added a new task that helps you clean the orphaned attachment blobs. This task will remove all the attachment blobs that have been created for more than 1 hour and are not yet referenced by any attachment record. This helps cleaning your filesystem of unused files.
 
@@ -128,7 +141,7 @@ bundle exec decidim:attachments:cleanup
 
 You can see more details about this change on PR [\#11851](https://github.com/decidim/decidim/pull/11851)
 
-### 3.6. [[TITLE OF THE ACTION]]
+### 3.7. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
