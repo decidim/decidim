@@ -23,6 +23,7 @@ bg:
         password_confirmation: Потвърдете паролата си
         personal_url: Персонален URL
         remove_avatar: Премахни аватара
+        tos_agreement: Договор за правилата и условията на ползване
     models:
       decidim/attachment_created_event: Прикачени файлове
       decidim/component_published_event: Активен компонент
@@ -59,6 +60,9 @@ bg:
   booleans:
     'false': 'Не'
     'true': 'Да'
+  carrierwave:
+    errors:
+      file_size_too_large: Размерът на файла е твърде голям
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -71,7 +75,9 @@ bg:
       logo: "Официално лого на %{organization}"
       skip_button: Към съдържанието
     account:
+      blocked: Този акаунт е блокиран поради нарушение на Правилата и условията за ползване
       delete:
+        alert: Това действие не може да бъде върнато. Ако изтриете акаунта си, няма да можете да влезете с идентификационните си данни. Изтриването на вашия акаунт ще доведе до анонимизиране на вашите приноси. Все пак ще можете да създадете нов акаунт, но тези приноси няма да бъдат свързани с него.
         confirm:
           close: Затвори прозореца
           ok: Да, желая да изтрия профила си
@@ -84,7 +90,11 @@ bg:
       download_your_data_export:
         file_no_exists: Файлът не съществува
         notice: Свалянето на Вашите данни е в процес. Ще получите ел. писмо когато приключи.
+      email_change:
+        body1: Изпратихме имейл на %{unconfirmed_email}, за да потвърдим новия ви имейл адрес.
+        resend_successfully: Имейлът за потвърждение е препратен успешно на %{unconfirmed_email}
       show:
+        available_locales_helper: Изберете езика, който искате да използвате, за да разглеждате и получавате известия в платформата
         change_password: Смяна на паролата
         update_account: Обнови профил
       update:
@@ -94,6 +104,8 @@ bg:
     admin:
       actions:
         cancel: Отказ
+      password_change:
+        alert: Трябва да промените паролата си, за да продължите по-нататък
     admin_log:
       area:
         create: "%{user_name} създаде район %{resource_name}"
@@ -232,9 +244,12 @@ bg:
         download: Изтегли файл
       documents:
         related_documents: Свързани документи
+      geocoding:
+        geocoded_address: Адрес
       photos:
         related_photos: Свързани изображения
     author:
+      avatar_multiuser: Аватар за множество потребители
       comments:
         one: коментар
         other: коментари
@@ -264,6 +279,7 @@ bg:
           foo: Нещо2
         name: Нещо1 идентификация
       granted_at: Предоставено на %{timestamp}
+      renew: Подновете верификацията
       sms:
         explanation: Предоставете мобилният си номер, за да проверим идентичността Ви.
         name: Код чрез SMS
@@ -284,6 +300,8 @@ bg:
           authorize: Идентифицирайте се чрез "%{authorization}"
           explanation: За да изпълните това действие е необходима идентификация чрез "%{authorization}".
           title: Необходима е идентификация
+        ok:
+          title: Бяхте оторизиран, докато сте на тази страница. Моля, презаредете страницата, за да изпълните действието си
         pending:
           explanation: За да изпълните това действие е необходима идентификация чрез "%{authorization}", но Вашата идентификация все още не е завършена
           resume: Проверете напредъка на Вашата "%{authorization}" идентификация
@@ -401,6 +419,8 @@ bg:
           register: Създай профил
           sign_in_disabled: Може да влезете с външен профил
           sign_up_disabled: Регистрацията е забранена, може да ползвате съществуващ профил за достъп
+        user:
+          timed_out: Бяхте неактивни твърде дълго и автоматично сте разлогнати от услугата. Ако искате да продължите да използвате услугата, моля, влезте отново.
       shared:
         newsletter_modal:
           buttons:
@@ -430,7 +450,14 @@ bg:
         ready: Готов
       show:
         download_data: Изтегляне на данни
+        download_data_description: Файл, съдържащ цялата информация, свързана с вашия акаунт, ще бъде изпратен до <strong>%{user_email}</strong>. Този имейл ще съдържа .zip файл и парола за отварянето му.<br/><br/>За да разархивирате файла, ще ви трябва <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) или <a href="https://www.keka.io/">Keka</a> (for MacOS). Ако използвате Linux, през повечето време ще го имате инсталиран по подразбиране. Ако не, можете да използвате <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> или <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Заяви данни
+    editor_images:
+      create:
+        error: Грешка при качването на изображението
+        success: Изображението е качено успешно
+    endorsable:
+      endorsements_count: Брой одобрения
     endorsement_buttons_cell:
       already_endorsed: Одобрен
       endorse: Одобрявам
