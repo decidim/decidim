@@ -1,0 +1,14 @@
+---
+he:
+  decidim:
+    events:
+      proposals:
+        proposal_accepted:
+          follower:
+            email_subject: הצעה שאת.ה עוקב.ת אחריה התקבלה
+        proposal_evaluating:
+          follower:
+            email_subject: הצעה שאת.ה עוקב.ת אחריה נמצאת בשלב ההערכה
+        proposal_rejected:
+          follower:
+            email_subject: הצעה שאת.ה עוקב.ת אחריה נדחתה

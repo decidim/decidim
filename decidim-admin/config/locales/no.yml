@@ -961,3 +961,8 @@
   errors:
     messages:
       invalid_json: Ugyldig JSON
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Globale moderasjoner

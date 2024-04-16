@@ -109,7 +109,7 @@ es:
           state_eq:
             label: Estado
             values:
-              accepted: Aceptada
+              accepted: Aceptadas
               evaluating: En evaluación
               not_answered: Sin respuesta
               published: Publicada
@@ -472,7 +472,7 @@ es:
             success: Texto participativo actualizado correctamente.
         proposal_answers:
           form:
-            accepted: Aceptadas
+            accepted: Aceptada
             answer_proposal: Respuesta
             evaluating: En evaluación
             not_answered: No contestada
@@ -595,7 +595,7 @@ es:
           create: "%{user_name} asignó la propuesta %{resource_name} a una evaluadora"
           delete: "%{user_name} desasignó una evaluadora de la propuesta %{proposal_title}"
       answers:
-        accepted: Aceptadas
+        accepted: Aceptada
         evaluating: En evaluación
         not_answered: No contestada
         rejected: Rechazada
@@ -608,7 +608,7 @@ es:
           participants: Participantes
           user_groups: Grupos
         filter_state_values:
-          accepted: Aceptadas
+          accepted: Aceptada
           all: Todas
           evaluating: En evaluación
           not_answered: No contestada
@@ -681,7 +681,7 @@ es:
         requests:
           accepted_request:
             error: No has podido ser aceptada como contribuidora. Por favor, inténtalo de nuevo más tarde.
-            success: "Se ha acceptado con éxito a @%{user} como colaboradora."
+            success: "Se ha aceptado con éxito a @%{user} como colaboradora."
           access_requested:
             error: Tu solicitud no pudo ser completada, por favor inténtalo de nuevo más tarde.
             success: Tu solicitud para colaborar ha sido enviada correctamente.

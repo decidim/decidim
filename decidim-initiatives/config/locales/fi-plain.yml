@@ -80,7 +80,7 @@ fi-pl:
   decidim:
     admin:
       actions:
-        manage: Hallinnoi
+        manage: Hallitse
         new_initiative_type: Uusi aloitetyyppi
         new_initiative_type_scope: Uusi aloitetyypin teema
       filters:
@@ -469,7 +469,7 @@ fi-pl:
           invite_to_committee_help: Jaa tämä linkki ja kutsu muita käyttäjiä kannatuskomiteaan.
           link: Linkki
           no_members_yet: Kannatuskomiteassa ei ole jäseniä.
-          revoke: Poista
+          revoke: Peruuta
           title: Komitean jäsenet
         count:
           title:

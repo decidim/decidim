@@ -188,6 +188,7 @@ ga:
           register: Cláraigh
         sub_hero:
           register: Cláraigh
+          register_title: Cláraigh le cuntas a chruthú
       index:
         standalone_pages: Leathanaigh
         title: Cabhair

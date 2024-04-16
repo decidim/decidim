@@ -1,1 +1,6 @@
+---
 sk:
+  activemodel:
+    attributes:
+      question:
+        title: Názov

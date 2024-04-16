@@ -63,6 +63,7 @@
   decidim:
     admin:
       actions:
+        manage: Administrer
         new_initiative_type: Ny intiativtype
       filters:
         initiatives:
@@ -383,6 +384,7 @@
             other: og %{count} flere personer
         committee_members:
           approve: Godkjenn
+          revoke: Tilbakekall
           title: Utvalgets medlemmer
         count:
           title:

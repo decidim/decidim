@@ -330,7 +330,7 @@ tr:
           'false': opak
           'true': şeffaf
         private_space: Bu özel bir kurul
-        related_participatory_processes: İlgili katılımcı süreçleri
+        related_participatory_processes: İlgili Katılımcı süreçler
     assembly_members:
       assembly_member:
         designated_on: Üzerinde belirlenen

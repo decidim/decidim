@@ -135,6 +135,8 @@ sk:
         assemblies_types:
           form:
             title: Názov
+      show:
+        related_participatory_processes: Súvisiace participatívne procesy
     events:
       assemblies:
         create_assembly_member:
