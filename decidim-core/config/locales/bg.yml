@@ -593,6 +593,8 @@ bg:
           email_outro: Получавате това известие, защото сте администратор на платформата.
           email_subject: Група от участници обнови профила си
           notification_title: Групата %{user_group_name} обнови профила си, което я прави "непроверена". Проверете я на <a href="%{groups_admin_path}">админ панел</a>.
+      nickname_event:
+        notification_body: Коригирахме начина, по който се използват прякорите, така че да няма дублиращи се имена и затова премахнахме правилото за чувствителност към главни и малки букви. <br/> Вашият псевдоним е създаден след друг със същото име, така че автоматично го преименувахме. Можете да го промените от <a href="%{link_to_account_settings}">настройките на вашия акаунт</a>.
       notification_event:
         notification_title: Настъпи събитие в <a href="%{resource_path}">%{resource_title}</a>.
       resource_endorsed:
@@ -637,6 +639,7 @@ bg:
       create:
         button: Следвай
         error: Възникна проблем със следването на този ресурс.
+        participatory_space: Следвате <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Спри следването
         error: Възникна проблем с отказа от следване на този ресурс.
@@ -648,10 +651,17 @@ bg:
           password: Паролата е твърде къса.
           password_confirmation: Паролата и потвърждението на паролата трябва да съвпадат.
         error: В това поле има грешка.
+      file_help:
+        file:
+          message_2: Относно изображенията, препотъчваме използването на пейзажно-ориентирани изображения, системата изрязва изображението (при портретна ориентация).
+        image:
+          message_1: За предпочитане пейзажно-ориентирано изображение, което няма текст.
       upload:
         labels:
           cancel: Отказ
           save: Запази
+      upload_help:
+        dropzone: Тук пуснете файлове с влачене или просто щракнете за избор на файл за качване
     gamification:
       all_badges_link: Виж всички достъпни значки.
       badges:
@@ -740,6 +750,7 @@ bg:
         success: Заявката за присъединяване е създадена успешно. Администраторът ще прегледа вашата заявка, преди да ви приеме в групата.
       leave:
         error: Възникна проблем при напускане на групата
+        last_admin: Не можете да премахнете себе си от тази група, тъй като сте последният администратор. Направете друг член администратор, за да напуснете групата.
         success: Групата е напусната успешно.
       members:
         accept_or_reject_join_requests: 'Следните участници кандидатстват за присъединяване към групата. Приемете или отхвърлете техните заявки:'
@@ -839,6 +850,8 @@ bg:
           modal_title: Нов разговор
           no_results: Няма резултати
           participant_with_disabled_message_reception: Участника е забранил получаването на съобщения
+        conversation:
+          show: Показване на разговора с %{sender}
         create:
           error: Разговора не започна. Опитайте по-късно
         index:
@@ -850,16 +863,20 @@ bg:
           next: Напред
           no_conversations: Все още нямате разговори
           title: Разговори
+          to: До
         reply:
           placeholder: Вашият отговор...
           send: Изпрати
           title: Отговори
         show:
           chat_with: Разговор с
+          deleted_accounts: Не можете да водите разговор с изтрити акаунти.
           title: Разговор с %{usernames}
         start:
           send: Изпрати
           title: Започни разговор
+        update:
+          error: Съобщението не е изпратено, поради възникнала грешка. Моля, опитайте отново по-късно.
     metrics:
       followers:
         description: Брой участници, които следват това пространство
@@ -876,6 +893,7 @@ bg:
     newsletter_mailer:
       newsletter:
         note: Получихте това писмо, защото сте абонирани за бюлетини на %{organization_name}. Можете да промените вашите настройки на <a href="%{link}">страницата "известия"</a>.
+        see_on_website: Не виждате това писмо правилно? Вижте го на <a href="%{link}" target="_blank" class="see-on-website">сайта</a>.
         unsubscribe: За да се откажете от получаването на такъв тип писма <a href="%{link}" target="_blank" class="unsubscribe">Отпишете се</a>.
     newsletter_templates:
       basic_only_text:
@@ -922,16 +940,21 @@ bg:
     notifications_settings:
       show:
         allow_public_contact: Позволявам на всеки да ми изпраща директно съобщение, дори и да не го следвам.
+        allow_push_notifications: Получавайте насочени известия, за да разберете какво се случва, когато не сте на платформата. Можете да ги изключите по всяко време.
         direct_messages: Получавайте директни съобщения от всеки
         everything_followed: Всичко, което следвам
         newsletter_notifications: Желая да получавам бюлетин
         newsletters: Бюлетин с новости
         own_activity: Моята дейност, например когато някой коментира мое предложение или ме спомене
+        push_notifications_reminder: За да получавате известия от платформата, първо трябва да ги разрешите в настройките на браузъра си.
         receive_notifications_about: Искам да получавам известия за
         update_notifications_settings: Запази промените
       update:
         error: Има проблем с обновяването на настройките Ви за известия.
         success: Настройките Ви за известия са обновени успешно.
+    offline:
+      show:
+        message: Изглежда, че в момента сте офлайн. Моля, опитайте отново по-късно.
     open_data:
       not_available_yet: Файловете с отворени данни все още не са налице. Опитайте отново след няколко минути.
     own_user_groups:
@@ -983,6 +1006,7 @@ bg:
         form:
           legend: Съгласявам се с общите условия за ползване
         refuse:
+          modal_body: Ако откажете, няма да можете да използвате платформата, но можете да <a href="%{download_your_data_path}">изтеглите данните си</a> и/или <a href="%{delete_path}">да изтриете вашия акаунт</a>.
           modal_btn_exit: Ще ги прегледам по-късно
           modal_title: Наистина ли отказвате обновените Общи условия?
         required_review:
@@ -990,8 +1014,13 @@ bg:
           body: Моля, отделете време за да прегледате обновените Общи условия. В противен случай не може да използвате платформата.
     participatory_space_private_users:
       not_allowed: Нямате права да преглеждате това съдържание
+    passwords:
+      update:
+        error: Възникна проблем при актуализирането на паролата
+        success: Паролата е успешно променена
     profile:
       deleted: Участника е изтрит
+      inaccessible_message: Този профил е недостъпен поради нарушение на Правилата и условията за ползване!
       view: Изглед
     profiles:
       default_officialization_text_for_user_groups: Тази група е публично проверена, нейното име е потвърдено, че съответства на истинското и име
@@ -1085,7 +1114,10 @@ bg:
         report: Доклад
         spam: Съдържа клик-байт, реклама, измами или скриптове.
         title: Съобщи за проблем
+      flag_user_modal:
+        does_not_belong: Съдържа незаконни дейности, заплахи за самоубийство, лична информация или нещо друго, което считате, че е неподходящо за %{organization_name}.
       floating_help:
+        close: Затваряне на помощта
         help: Помощ
       follow_button:
         sign_in_before_follow: Моля влезте, преди да извършите това действие
@@ -1110,6 +1142,9 @@ bg:
         share_link: Сподели връзка
     statistics:
       comments_count: Коментари
+    user_activity:
+      index:
+        no_activities_warning: Този участник все още няма активности.
     user_contact_disabled: Този участник не приема директни съобщения.
     user_conversations:
       create:
@@ -1137,6 +1172,8 @@ bg:
         send: Изпрати
         title_reply: Отговори
       show:
+        back: Покажи всички разговори
+        deleted_accounts: Не можете да водите разговор с изтрити акаунти.
         not_allowed: Този участник не приема вече директни съобщения.
         title: Разговор с %{usernames}
       update:
@@ -1175,6 +1212,7 @@ bg:
         number_of_versions: Версии
         title: Версии
     versions_list_item:
+      back: Покажи всички версии
       show:
         version_index: Версия %{index}
     welcome_notification:
@@ -1275,6 +1313,7 @@ bg:
         confirm_new_password: Потвърди нова парола
         new_password: Нова парола
         password_help: "Минимум %{minimun_characters} символа, не трябва да са разпространени (например, 123456) и трябва да са различни от вашите име и ел. поща."
+        password_help_admin: "Минимум %{minimun_characters} символа, не трябва да са разпространени (например, 123456) и трябва да са различни от вашите име и ел. поща."
       new:
         forgot_your_password: Забравили сте паролата си?
         send_me_reset_password_instructions: Изпрати ми инструкции за възстановяване на паролата
@@ -1334,6 +1373,7 @@ bg:
       not_saved:
         one: 'При обработката на заявката Ви възникна грешка:'
         other: 'При обработката на заявката Ви имаше няколко грешки:'
+      password_confirmation_message: 'Написаното в „Потвърдете паролата си“ не съответства на паролата'
       too_many_marks: използва твърде много последователни препинателни знаци (напр. ! и ?)
       too_much_caps: използва твърде много главни букви (над 25% от текста)
   forms:
@@ -1363,6 +1403,10 @@ bg:
         expire_time_html: Вашата сесия изтича след <b><span class="minutes">%{minutes}</span> минути</b>.
       notifications_dashboard:
         mark_all_as_read: Маркирай всичко като прочетено
+      offline_banner:
+        cache_version_page: Уви! Вашата мрежа е офлайн. Това е предишна кеширана версия на страницата, която посещавате, възможно е съдържанието да не е актуално.
+      timeout_modal:
+        sign_out: Изход
       user_menu:
         admin_dashboard: Администраторски панел
         conversations: Разговори
@@ -1384,6 +1428,7 @@ bg:
   locale:
     name: български език
   password_validator:
+    blacklisted: е в черния списък
     domain_included_in_password: е твърде подобно на името на домейна
     email_included_in_password: е твърде подобно на Вашата ел. поща
     fallback: не е валидно
@@ -1440,6 +1485,7 @@ bg:
     dropdown:
       choose_diff_view_html: 'HTML режим на изглед:'
       choose_diff_view_mode: 'Сравни режим на изглед:'
+      choose_diff_view_mode_menu: Изберете режим на сравнение
       option_escaped: Escaped
       option_split: Един до друг
       option_unescaped: Unescaped
