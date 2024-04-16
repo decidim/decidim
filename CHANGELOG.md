@@ -4,13 +4,13 @@
 
 ### Upgrade notes
 
-#### Verifications documents configurations
+#### 1. Verifications documents configurations
 
 Until now we have hard-coded the document types for verifications with types from Spain legislation ("DNI, NIE and passport"). We have change it to "Identification number and passport", and allow installations to adapt them to their own needs.
 
 If you want to go back to the old setting, you need to follow these steps:
 
-##### Add to your config/secrets.yml the `decidim.verifications.document_types` key
+##### 1.1. Add to your config/secrets.yml the `decidim.verifications.document_types` key
 
 ```erb
 decidim_default: &decidim_default
@@ -20,7 +20,7 @@ decidim_default: &decidim_default
     document_types: <%%= Decidim::Env.new("VERIFICATIONS_DOCUMENT_TYPES", %w(identification_number passport)).to_array %>
 ```
 
-##### Add to your `config/initializers/decidim.rb` the following snippet in the bottom of the file
+##### 1.2. Add to your `config/initializers/decidim.rb` the following snippet in the bottom of the file
 
 ```ruby
 if Decidim.module_installed? :verifications
@@ -30,13 +30,13 @@ if Decidim.module_installed? :verifications
 end
 ```
 
-##### Add the values that you want to define using the environmnet variable `VERIFICATIONS_DOCUMENT_TYPES`
+##### 1.3. Add the values that you want to define using the environmnet variable `VERIFICATIONS_DOCUMENT_TYPES`
 
 ```env
 VERIFICATIONS_DOCUMENT_TYPES="dni,nie,passport"
 ```
 
-##### Add the translation of these values to your i18n files (i.e. `config/locales/en.yml`)
+##### 1.4. Add the translation of these values to your i18n files (i.e. `config/locales/en.yml`)
 
 ```yaml
 en:
@@ -49,6 +49,19 @@ en:
 ```
 
 You can read more about this change on PR [\#12306](https://github.com/decidim/decidim/pull/12306)
+
+#### 2. Improved CSS overrides
+
+We have improved the CSS overriding mechanism. This is what allows you to change the CSS of decidim in your application in a more granular way.
+
+Previously, you could do this by adding CSS rules in the `app/packs/stylesheets/decidim/decidim_application.scss` file. This file remains in place but is loaded as the last file in the application, so it will take precedence over all the CSS rules from the Decidim modules.
+
+Additionally, if you need, you can also customize the `admin` and `system` interfaces by creating in your application the following files:
+
+- `app/packs/stylesheets/decidim/admin/decidim_application.scss` for admin interface
+- `app/packs/stylesheets/decidim/system/decidim_application.scss` for system interface
+
+You can read more about this change on PR [\#12646](https://github.com/decidim/decidim/pull/12646).
 
 ### Added
 
