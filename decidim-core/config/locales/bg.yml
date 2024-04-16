@@ -58,6 +58,9 @@ bg:
   booleans:
     'false': 'Не'
     'true': 'Да'
+  carrierwave:
+    errors:
+      file_size_too_large: Размерът на файла е твърде голям
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -546,6 +549,7 @@ bg:
       create:
         button: Следвай
         error: Възникна проблем със следването на този ресурс.
+        participatory_space: Следвате <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Спри следването
         error: Възникна проблем с отказа от следване на този ресурс.
@@ -554,6 +558,11 @@ bg:
         decidim/user:
           password: Паролата е твърде къса.
           password_confirmation: Паролата и потвърждението на паролата трябва да съвпадат.
+      file_help:
+        file:
+          message_2: Относно изображенията, препотъчваме използването на пейзажно-ориентирани изображения, системата изрязва изображението (при портретна ориентация).
+        image:
+          message_1: За предпочитане пейзажно-ориентирано изображение, което няма текст.
     gamification:
       all_badges_link: Виж всички достъпни значки.
       badges:
