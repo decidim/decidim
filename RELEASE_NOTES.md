@@ -120,8 +120,6 @@ You can read more about this change on PR [\#12143](https://github.com/decidim/d
 
 We have added a new task that helps you clean the orphaned attachment blobs. This task will remove all the attachment blobs that have been created for more than 1 hour and are not yet referenced by any attachment record. This helps cleaning your filesystem of unused files.
 
-For a consistent behavior we are recommending to run this task 2 times at least 1 hour apart.
-
 You can run the task with the following command:
 
 ```bash
