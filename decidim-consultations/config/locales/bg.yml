@@ -1,1 +1,21 @@
+---
 bg:
+  activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Броят на гласовете е невалиден
+  decidim:
+    admin:
+      consultations:
+        deprecation_warning: Модулът за консултации ще бъде отхвърлен в близко бъдеще. Работим върху следващата криптографски защитена версия, наречена Гласувания.
+      question_configuration:
+        disable_external_voting: Моля, деактивирайте външното гласуване за разширени конфигурации
+    consultations:
+      last_activity:
+        new_question_at_html: "<span>Нов въпрос в(ъв) %{link}</span>"
+      question_votes:
+        create:
+          error: Възникна проблем с гласуването по въпроса
