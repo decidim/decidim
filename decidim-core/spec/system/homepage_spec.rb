@@ -213,7 +213,7 @@ describe "Homepage" do
             )
           end
           let!(:static_page_topic2) { create(:static_page_topic, organization: true) }
-          let!(:static_page_topic2_page1) { create(:static_page, organization:, topic: static_page_topic2, weight: 0, ) }
+          let!(:static_page_topic2_page1) { create(:static_page, organization:, topic: static_page_topic2, weight: 0) }
           let!(:static_page_topic2_page2) { create(:static_page, organization:, topic: static_page_topic2, weight: 1) }
           let!(:static_page_topic3) { create(:static_page_topic, organization: true) }
           let!(:static_page_topic3_page1) { create(:static_page, organization:, topic: static_page_topic3) }
