@@ -11,12 +11,16 @@ module Decidim
 
     protected
 
+    def verify_organization; end
+
     def validate_direct_upload
       maximum_allowed_size = current_organization.settings.upload_maximum_file_size
 
       extension = File.extname(blob_args[:filename]).delete(".")
 
-      head :unprocessable_entity unless maximum_allowed_size.try(:to_i) >= blob_args[:byte_size]
+      Rails.logger.debug content_types.inspect
+
+      head :unprocessable_entity unless maximum_allowed_size.try(:to_i) >= blob_args[:byte_size].try(:to_i)
       head :unprocessable_entity unless content_types.any? { |pattern| pattern.match?(blob_args[:content_type]) }
       head :unprocessable_entity unless content_types.any? { |pattern| pattern.match?(MiniMime.lookup_by_extension(extension).content_type) }
       head :unprocessable_entity unless allowed_extensions.any? { |pattern| pattern.match?(extension) }
