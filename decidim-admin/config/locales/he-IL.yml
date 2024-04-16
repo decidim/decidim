@@ -1,0 +1,49 @@
+he:
+  activemodel:
+    attributes:
+      area:
+        area_type: סוג איזור
+        name: שם
+        organization: ארגון
+      area_type:
+        name: שם
+        organization: ארגון
+        plural: רבים
+      attachment:
+        attachment_collection_id: תיקייה
+        description: תיאור
+        file: קובץ
+        title: צרופה או שם קובץ
+        weight: סידור המיקום
+      attachment_collection:
+        description: תיאור
+        name: שם
+        weight: סידור המיקום
+      category:
+        description: תיאור
+        name: שם
+        parent_id: הורה
+        weight: סידור המיקום
+      component:
+        name: שם
+        published_at: פורסם בתאריך
+        weight: סידור המיקום
+      external_domain:
+        value: ערך
+      help_section:
+        content: תוכן
+      id: מספר מזהה
+      import:
+        user_group_id: יצירת ייבוא כ
+      newsletter:
+        body: גוף
+        send_to_all_users: שליחה לכל המשתמשים.ות
+        send_to_followers: שליחה לכל העוקבים.ות
+        send_to_participants: שליחה למשתתפים.ות
+        subject: נושא
+      organization:
+        admin_terms_of_service_body: גוף התנאים וההגבלות של המנהל.ת
+        alert_color: התראה
+        available_authorizations: הרשאות זמינות
+        badges_enabled: אפשר תגיות
+        comments_max_length: אורך מקסימלי לתגובות (השאירו 0 לערך ברירת המחדל)

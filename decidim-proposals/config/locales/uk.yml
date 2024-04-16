@@ -7,6 +7,7 @@ uk:
         body: Основний текст
         category_id: Категорія
         has_address: Має адресу
+        scope_id: Обсяг
         state: Стан
         title: Назва
         user_group_id: Створити пропозицію як
@@ -218,6 +219,7 @@ uk:
           send: Попередній перегляд
           title: Редагувати чернетку пропозиції
         filters:
+          all: Усі
           category: Категорія
           origin: Джерело
           related_to: Пов'язане з

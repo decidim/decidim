@@ -271,11 +271,7 @@ id:
       show:
         assembly_type: Tipe perakitan
         duration: Lamanya
-        is_transparent:
-          'false': buram
-          'true': transparan
         private_space: Ini adalah pertemuan pribadi
-        related_participatory_processes: Proses partisipatif terkait
     assembly_members:
       assembly_member:
         designated_on: Ditunjuk pada

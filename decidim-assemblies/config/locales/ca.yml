@@ -396,11 +396,7 @@ ca:
       show:
         assembly_type: Tipus d'assemblea
         duration: Durada
-        is_transparent:
-          'false': opaca
-          'true': transparent
         private_space: Aquesta és una assemblea privada
-        related_participatory_processes: Processos participatius relacionats
         social_networks_title: Visita l'assemblea a
     assembly_members:
       assembly_member:

@@ -1039,6 +1039,7 @@ sv:
           headline: Aktuellt läge för %{organization}
         sub_hero:
           register: Registrera
+          register_title: Skapa ett konto
       index:
         standalone_pages: Sidor
         subheading: Navigera genom hjälpsidorna för %{name}
@@ -1465,6 +1466,7 @@ sv:
               description: Lagrar information om de cookies som tillåts av användaren på denna webbplats.
               service: Denna webbplats
             pwaInstallPromptSeen:
+              description: Lagrar status om den progressiva webbapplikationen (PWA) installationsmeddelandet har redan setts av användaren.
               service: Denna webbplats
           types:
             cookie: Cookie

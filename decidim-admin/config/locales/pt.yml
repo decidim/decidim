@@ -883,3 +883,8 @@ pt:
   errors:
     messages:
       invalid_json: JSON inválido
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Moderações globais

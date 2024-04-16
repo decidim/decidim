@@ -45,8 +45,6 @@ en:
         follow:
           title: Follow
         forms:
-          date: date
-          datetime_local: datetime-local
           disabled: Disabled
           emojis: Emojis
           emojis_description: Only works for textarea
@@ -57,10 +55,7 @@ en:
           html_regular_inputs: HTML regular inputs
           min_max_length: Min/Max length
           min_max_length_description: Only works for input type='text' and textarea
-          number: number
-          password: password
           regular_inputs_description: 'Only displays common types, full available list: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
-          text: text
           textarea_required: textarea required
           title: Forms
         report:
@@ -69,6 +64,17 @@ en:
           title: Share
         tab_panels:
           title: Tab Panels
+        tooltips:
+          demo: Demo
+          demo_description: For this component to work a participant need to hover on the element.
+          description: A tooltip is a component that users can hover their mouse to have extra information about it.
+          github_source_html: Source code on GitHub %{github_link}
+          title: Tooltips
+          usage: Usage
+          usage_p: 'A tooltip requires the usage of the `with_tooltip` helper, with three arguments:'
+          usage_p_1_html: 1. A string with the value of the tooltip. In the example of this page is "Hello world".
+          usage_p_2_html: 2. An optional class with a symbol on where the tooltip will be displayed. Possible values are <code>:top</code>, <code>:bottom</code>, <code>:right</code>, or <code>:left</code>.
+          usage_p_3_html: 3. A block with the string that the user needs to hover to be displayed.
       foundations:
         accessibility:
           accessibility_labels: Accessibility labels
@@ -150,6 +156,7 @@ en:
         activity: Activity
         address_description: Address cell receives a resource, and searches the geolocalizable attributes to render an specific markup.
         address_description_2: Depending of the type of the content, the address could be an online url. For such cases, the displayed information is quite the same but shaped to fit.
+        ally_link: a11y-dropdown-component
         argument: Argument
         assemblies: Assemblies
         assembly_g: Assembly G
@@ -190,6 +197,14 @@ en:
         demo_text_2: Used by the last activity page, in a content block and within the dropdowns.
         description: Description
         disabled: Disabled
+        dropdowns: Dropdowns
+        dropdowns_demo_1_description: 'The following example will not be noticeable in desktop, but mobile:'
+        dropdowns_demo_description: The dropdowns are used along the application in order to collapse large, easy-readable menus for desktop devices, but too wordy for mobile devices.
+        dropdowns_demo_description_html: 'This javascript feature is enhanced with a small css, through the naming: the hideable content MUST HAVE an <code>id</code> starting with <i>dropdown-menu</i>.'
+        dropdowns_description_html: Dropdowns are a javascript feature available thanks to an external library called %{link}.
+        dropdowns_usage_1_description: 2. A hideable element, whose <code>id</code> matches the data-target value the trigger refers to.
+        dropdowns_usage_description: 'An dropdown requires two elements:'
+        dropdowns_usage_description_html: 1. A user actionable element, with the data-attributes <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
         dummy_description: Dummy resource description
         dummy_title: Dummy resource title
         follow_button: Follow Button

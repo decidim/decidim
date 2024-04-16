@@ -68,6 +68,7 @@ pt-BR:
   decidim:
     admin:
       actions:
+        manage: Gerenciar
         new_initiative_type: Novo tipo de iniciativa
       filters:
         initiatives:
@@ -410,6 +411,7 @@ pt-BR:
         committee_members:
           approve: Aprovar
           link: Link
+          revoke: Revogar
           title: Membros do Comitê
         count:
           title:

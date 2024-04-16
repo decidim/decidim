@@ -889,3 +889,8 @@ it:
   errors:
     messages:
       invalid_json: Problemi con la trasmissione tramite JSON (JSON non valido)
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Moderazione globale
