@@ -8,11 +8,40 @@ bg:
         description: Описание
   decidim:
     debates:
+      actions:
+        new: Ново %{name}
       debates:
+        debate:
+          participate: Участвайте
         filters:
           user_groups: Групи
+        filters_small_view:
+          close_modal: Затвори прозореца
+          filter: Филтър
+          filter_by: Филтрирай по
+          unfold: Разгъване
         show:
+          back: Назад към списъка
+          date: Дата
           groups_count: Групи
-          last_comment_by: Последно коментиран от
+          last_comment_by: Последен коментар от
           no_comments_yet: Все още няма коментари
           participants_count: Участници
+        versions:
+          debates:
+            back_to_resource: Назад към дебата
+          index:
+            title: Версии
+        versions_list:
+          back_to_resource: Назад към дебата
+      last_activity:
+        debate_updated_at_html: "<span>Дебатът беше актуализиран на: %{link}</span>"
+        new_debate_at_html: "<span>Нов дебат на адрес: %{link}</span>"
+    events:
+      debates:
+        creation_enabled:
+          notification_title: Вече можете да създавате <a href="%{resource_path}">нови дебати</a> в(ъв) <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          unearned_own: Все още не сте участвали в нито един дебат.
