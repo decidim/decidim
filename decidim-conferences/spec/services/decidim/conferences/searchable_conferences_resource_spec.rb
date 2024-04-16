@@ -37,7 +37,7 @@ module Decidim
           d += I18n.transliterate(translated(space.objectives, locale: locale))
           {
             "content_a" => I18n.transliterate(translated(space.title, locale: locale)),
-            "content_b" => I18n.transliterate(translated(space.slogan, locale: locale)),
+            "content_b" => I18n.transliterate(strip_tags(translated(space.slogan, locale: locale))),
             "content_c" => I18n.transliterate(translated(space.short_description, locale: locale)),
             "content_d" => d
           }

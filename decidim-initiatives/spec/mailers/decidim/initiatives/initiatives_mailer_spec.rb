@@ -15,12 +15,12 @@ module Decidim
 
         context "when the promoting committee is enabled" do
           it "renders the headers" do
-            expect(mail.subject).to eq("Your initiative '#{initiative.title["en"]}' has been created")
+            expect(mail.subject).to eq("Your initiative '#{translated(initiative.title)}' has been created")
             expect(mail.to).to eq([initiative.author.email])
           end
 
           it "renders the body" do
-            expect(mail.body.encoded).to match(initiative.title["en"])
+            expect(mail.body.encoded).to include(decidim_escape_translated(initiative.title))
           end
 
           it "renders the promoter committee help" do
@@ -40,7 +40,7 @@ module Decidim
           end
 
           it "renders the body" do
-            expect(mail.body.encoded).to match(initiative.title["en"])
+            expect(mail.body.encoded).to include(decidim_html_escape(translated(initiative.title)))
           end
 
           it "doesn't render the promoter committee help" do
@@ -63,7 +63,7 @@ module Decidim
         end
 
         it "renders the body" do
-          expect(mail.body).to match("The initiative #{initiative.title["en"]} has changed its status to: #{I18n.t(initiative.state, scope: "decidim.initiatives.admin_states")}")
+          expect(mail.body).to include("The initiative #{decidim_sanitize_translated(initiative.title)} has changed its status to: #{I18n.t(initiative.state, scope: "decidim.initiatives.admin_states")}")
         end
       end
 
@@ -76,7 +76,7 @@ module Decidim
         end
 
         it "renders the body" do
-          expect(mail.body.encoded).to match(initiative.title["en"])
+          expect(mail.body.encoded).to include(decidim_sanitize_translated(initiative.title))
         end
       end
     end

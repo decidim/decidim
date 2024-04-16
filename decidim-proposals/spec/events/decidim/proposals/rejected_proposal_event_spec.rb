@@ -4,7 +4,6 @@ require "spec_helper"
 
 describe Decidim::Proposals::RejectedProposalEvent do
   let(:resource) { create :proposal, :with_answer, title: "It's my super proposal" }
-  let(:resource_title) { translated(resource.title) }
   let(:event_name) { "decidim.events.proposals.proposal_rejected" }
   let(:email_subject) { "A proposal you're following has been rejected" }
   let(:email_intro) { "The proposal \"#{resource_title}\" has been rejected. You can read the answer in this page:" }

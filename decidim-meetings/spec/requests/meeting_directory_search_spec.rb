@@ -34,11 +34,11 @@ RSpec.describe "Meeting directory search", type: :request do
   end
 
   it "displays all meetings without any filters" do
-    expect(subject).to include(translated(meeting1.title))
-    expect(subject).to include(translated(meeting2.title))
-    expect(subject).to include(translated(meeting3.title))
-    expect(subject).to include(translated(meeting4.title))
-    expect(subject).to include(translated(meeting5.title))
+    expect(subject).to include(decidim_escape_translated(meeting1.title))
+    expect(subject).to include(decidim_escape_translated(meeting2.title))
+    expect(subject).to include(decidim_escape_translated(meeting3.title))
+    expect(subject).to include(decidim_escape_translated(meeting4.title))
+    expect(subject).to include(decidim_escape_translated(meeting5.title))
   end
 
   context "when filtering by category" do
@@ -48,11 +48,11 @@ RSpec.describe "Meeting directory search", type: :request do
       let(:category_ids) { nil }
 
       it "displays all resources" do
-        expect(subject).to include(translated(meeting1.title))
-        expect(subject).to include(translated(meeting2.title))
-        expect(subject).to include(translated(meeting3.title))
-        expect(subject).to include(translated(meeting4.title))
-        expect(subject).to include(translated(meeting5.title))
+        expect(subject).to include(decidim_escape_translated(meeting1.title))
+        expect(subject).to include(decidim_escape_translated(meeting2.title))
+        expect(subject).to include(decidim_escape_translated(meeting3.title))
+        expect(subject).to include(decidim_escape_translated(meeting4.title))
+        expect(subject).to include(decidim_escape_translated(meeting5.title))
       end
     end
 
@@ -60,11 +60,11 @@ RSpec.describe "Meeting directory search", type: :request do
       let(:category_ids) { [category2.id] }
 
       it "displays only resources for that category and its children" do
-        expect(subject).not_to include(translated(meeting1.title))
-        expect(subject).not_to include(translated(meeting2.title))
-        expect(subject).to include(translated(meeting3.title))
-        expect(subject).to include(translated(meeting4.title))
-        expect(subject).not_to include(translated(meeting5.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting1.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting2.title))
+        expect(subject).to include(decidim_escape_translated(meeting3.title))
+        expect(subject).to include(decidim_escape_translated(meeting4.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting5.title))
       end
     end
 
@@ -72,11 +72,11 @@ RSpec.describe "Meeting directory search", type: :request do
       let(:category_ids) { [child_category.id] }
 
       it "displays only resources for that category" do
-        expect(subject).not_to include(translated(meeting1.title))
-        expect(subject).not_to include(translated(meeting2.title))
-        expect(subject).not_to include(translated(meeting3.title))
-        expect(subject).to include(translated(meeting4.title))
-        expect(subject).not_to include(translated(meeting5.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting1.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting2.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting3.title))
+        expect(subject).to include(decidim_escape_translated(meeting4.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting5.title))
       end
     end
 
@@ -85,11 +85,11 @@ RSpec.describe "Meeting directory search", type: :request do
       let(:category_ids) { [value] }
 
       it "displays only resources for that participatory_process - all categories and sub-categories" do
-        expect(subject).not_to include(translated(meeting1.title))
-        expect(subject).to include(translated(meeting2.title))
-        expect(subject).to include(translated(meeting3.title))
-        expect(subject).to include(translated(meeting4.title))
-        expect(subject).not_to include(translated(meeting5.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting1.title))
+        expect(subject).to include(decidim_escape_translated(meeting2.title))
+        expect(subject).to include(decidim_escape_translated(meeting3.title))
+        expect(subject).to include(decidim_escape_translated(meeting4.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting5.title))
       end
     end
 
@@ -97,11 +97,11 @@ RSpec.describe "Meeting directory search", type: :request do
       let(:category_ids) { ["without"] }
 
       it "returns resources without a category" do
-        expect(subject).to include(translated(meeting1.title))
-        expect(subject).not_to include(translated(meeting2.title))
-        expect(subject).not_to include(translated(meeting3.title))
-        expect(subject).not_to include(translated(meeting4.title))
-        expect(subject).to include(translated(meeting5.title))
+        expect(subject).to include(decidim_escape_translated(meeting1.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting2.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting3.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting4.title))
+        expect(subject).to include(decidim_escape_translated(meeting5.title))
       end
     end
 
@@ -109,11 +109,11 @@ RSpec.describe "Meeting directory search", type: :request do
       let(:category_ids) { ["without", category1.id] }
 
       it "returns resources without a category and with the selected category" do
-        expect(subject).to include(translated(meeting1.title))
-        expect(subject).to include(translated(meeting2.title))
-        expect(subject).not_to include(translated(meeting3.title))
-        expect(subject).not_to include(translated(meeting4.title))
-        expect(subject).to include(translated(meeting5.title))
+        expect(subject).to include(decidim_escape_translated(meeting1.title))
+        expect(subject).to include(decidim_escape_translated(meeting2.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting3.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting4.title))
+        expect(subject).to include(decidim_escape_translated(meeting5.title))
       end
     end
   end

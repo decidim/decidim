@@ -10,7 +10,7 @@
               <div aria-hidden="true" class="card__image-top"
                 style="background-image:url('<%= conference.attached_uploader(:hero_image).path %>')"></div>
               <div class="card__content">
-                <span class="card__title card__link"><%= translated_attribute conference.title %></span>
+                <span class="card__title card__link"><%= decidim_escape_translated conference.title %></span>
               </div>
             <% end %>
           </div>

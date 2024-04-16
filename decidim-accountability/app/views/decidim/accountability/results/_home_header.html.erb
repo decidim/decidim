@@ -1,7 +1,7 @@
 <div class="intro section">
   <div class="row">
     <div class="small-12 medium-7 columns">
-      <%== translated_attribute component_settings.intro %>
+      <%= decidim_sanitize_admin translated_attribute(component_settings.intro) %>
     </div>
 
     <% if component_settings.display_progress_enabled? && progress_calculator(current_scope, nil).present? %>

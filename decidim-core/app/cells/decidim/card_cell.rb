@@ -28,11 +28,11 @@ module Decidim
     end
 
     def title
-      model.try(:title) || model.try(:name) || ""
+      decidim_escape_translated(model.try(:title) || model.try(:name) || "")
     end
 
     def body
-      model.try(:body) || model.try(:about) || ""
+      decidim_escape_translated(model.try(:body) || model.try(:about) || "")
     end
 
     def resource_manifest

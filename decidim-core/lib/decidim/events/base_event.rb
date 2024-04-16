@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative "../../../app/helpers/decidim/sanitize_helper"
+
 module Decidim
   module Events
     # This class serves as a base for all event classes. Event classes are intended to
@@ -8,6 +10,7 @@ module Decidim
     class BaseEvent
       extend ActiveModel::Translation
       include Decidim::TranslatableAttributes
+      include Decidim::SanitizeHelper
 
       class_attribute :types
       self.types = []
@@ -103,9 +106,9 @@ module Decidim
         return unless resource
 
         title = if resource.respond_to?(:title)
-                  translated_attribute(resource.title)
+                  decidim_sanitize_translated(resource.title)
                 elsif resource.respond_to?(:name)
-                  translated_attribute(resource.name)
+                  decidim_sanitize_translated(resource.name)
                 end
 
         Decidim::ContentProcessor.render_without_format(title, links: false).html_safe

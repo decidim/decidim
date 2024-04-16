@@ -62,7 +62,7 @@ describe "Conference program", type: :system do
         expect(page).to have_selector(".programme-title", count: 3)
 
         meetings.each do |meeting|
-          expect(page).to have_content(Decidim::ConferenceMeetingPresenter.new(meeting).title)
+          expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(Decidim::ConferenceMeetingPresenter.new(meeting).title))
         end
       end
     end

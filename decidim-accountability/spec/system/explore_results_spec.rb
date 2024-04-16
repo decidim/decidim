@@ -175,7 +175,7 @@ describe "Explore results", versioning: true, type: :system do
 
     it "shows all result info" do
       expect(page).to have_i18n_content(result.title)
-      expect(page).to have_i18n_content(result.description)
+      expect(page).to have_i18n_content(result.description, strip_tags: true)
       expect(page).to have_content(result.reference)
       expect(page).to have_content("#{result.progress.to_i}%")
     end
@@ -321,7 +321,7 @@ describe "Explore results", versioning: true, type: :system do
       it "shows related meetings" do
         meetings.each do |meeting|
           expect(page).to have_i18n_content(meeting.title)
-          expect(page).to have_i18n_content(meeting.description)
+          expect(page).to have_content(i18n_content(meeting.description, strip_tags: true).strip)
         end
       end
 

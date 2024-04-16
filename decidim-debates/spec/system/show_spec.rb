@@ -6,9 +6,9 @@ describe "show", type: :system do
   include_context "with a component"
   let(:manifest_name) { "debates" }
 
-  let(:description) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
-  let(:information_updates) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
-  let(:instructions) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
+  let(:description) { generate_localized_description(:debate_description) }
+  let(:information_updates) { generate_localized_description(:information_updates) }
+  let(:instructions) { generate_localized_description(:instructions) }
   let!(:debate) { create(:debate, component: component, description: description, information_updates: information_updates, instructions: instructions, skip_injection: true) }
 
   before do

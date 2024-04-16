@@ -478,9 +478,9 @@ describe "Explore meetings", :slow, type: :system do
 
     it "shows all meeting info" do
       expect(page).to have_i18n_content(meeting.title)
-      expect(page).to have_i18n_content(meeting.description)
-      expect(page).to have_i18n_content(meeting.location)
-      expect(page).to have_i18n_content(meeting.location_hints)
+      expect(page).to have_i18n_content(meeting.description, strip_tags: true)
+      expect(page).to have_i18n_content(meeting.location, strip_tags: true)
+      expect(page).to have_i18n_content(meeting.location_hints, strip_tags: true)
       expect(page).to have_content(meeting.address)
       expect(page).to have_content(meeting.reference)
 
@@ -594,7 +594,7 @@ describe "Explore meetings", :slow, type: :system do
       it "shows the closing report" do
         visit_component
         click_link translated(meeting.title)
-        expect(page).to have_i18n_content(meeting.closing_report)
+        expect(page).to have_i18n_content(meeting.closing_report, strip_tags: true)
 
         within ".definition-data" do
           expect(page).to have_content("ATTENDEES COUNT\n#{meeting.attendees_count}")

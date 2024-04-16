@@ -18,7 +18,7 @@
 
               <% if translated_attribute(timeline_entry.description).present? %>
                 <div class="timeline__description__description">
-                  <%== translated_attribute timeline_entry.description %>
+                  <%= decidim_escape_translated(timeline_entry.description) %>
                 </div>
               <% end %>
             </div>

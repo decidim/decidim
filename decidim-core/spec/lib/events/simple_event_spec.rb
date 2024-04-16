@@ -20,7 +20,7 @@ module Decidim
 
       it "sanitizes the HTML tags from the i18n options" do
         expect(subject.i18n_options[:resource_title])
-          .to eq "alert('Hey');"
+          .to eq("alert('Hey');")
       end
     end
   end

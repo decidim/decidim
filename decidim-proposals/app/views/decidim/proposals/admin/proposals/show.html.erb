@@ -107,7 +107,7 @@
             <% proposal_meetings.each do |meeting| %>
               <% presented_meeting = present(meeting) %>
               <li>
-                <%= link_to presented_meeting.title, presented_meeting.profile_path %>
+                <%= link_to decidim_escape_translated(meeting.title).html_safe, presented_meeting.profile_path %>
               </li>
             <% end %>
           </ul>

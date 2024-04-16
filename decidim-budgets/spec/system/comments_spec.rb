@@ -30,9 +30,9 @@ describe "Comments", type: :system do
       end
 
       within_window(another_window) do
-        expect(page).to have_content(commentable.title["en"])
-        expect(page).to have_content(comments.first.body["en"])
-        expect(page).not_to have_content(comments.second.body["en"])
+        expect(page).to have_content(translated(commentable.title))
+        expect(page).to have_content(decidim_sanitize_translated(comments.first.body))
+        expect(page).not_to have_content(decidim_sanitize_translated(comments.second.body))
       end
     end
   end
