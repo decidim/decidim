@@ -878,6 +878,7 @@ pt:
           headline: Estado atual de %{organization}
         sub_hero:
           register: Registar
+          register_title: Registe-se para criar conta
       index:
         standalone_pages: Páginas
         subheading: Navegar pelas páginas de ajuda de %{name}

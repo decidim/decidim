@@ -6,10 +6,72 @@ bg:
         offline: Извън линия
         offline_explanation: Инструкции за проверка извън линия
         online: На линия
+      confirmation:
+        verification_code: Код за потвърждение
       id_document_information:
         document_number: Номер на документ (с буквите)
         document_type: Тип на документа
+      id_document_upload:
+        document_number: Номер на документа (с буква)
+        document_type: Тип на Вашия документ
+        user: Участник
+        verification_attachment: Сканирано копие на Вашия документ
+      mobile_phone:
+        mobile_phone_number: Номер на мобилен телефон
+      offline_confirmation:
+        email: Имейл на участника
+      postal_letter_address:
+        full_address: Пълен адрес
+      postal_letter_confirmation:
+        verification_code: Код за потвърждение
+      postal_letter_postage:
+        full_address: Пълен адрес
+        verification_code: Код за потвърждение
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Неправилен файл за импортиране, моля, прочетете внимателно инструкциите и се уверете, че файлът е UTF-8 кодиран.
   decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: Полезна функция, ако процесът вече е започнал и искате да анулирате разрешенията на предходния процес.
+          button: Отмени всичко
+          button_before: Отмени преди дата
+          destroy:
+            confirm: Отмяната на разрешенията преди определена дата, не може да бъде възстановено. Сигурни ли сте, че искате да продължите?
+            confirm_all: Отмяната на всички разрешения, не може да бъде възстановено. Сигурни ли сте, че искате да продължите?
+          destroy_nok: Възникна проблем при отмяната на разрешения.
+          destroy_ok: Всички съвпадащи оторизации бяха отменени успешно.
+          info: Има общо %{count} потвърдени участници.
+          no_data: Няма потвърдени участници.
+          title: Оторизации за отмяна
+        authorization_workflows: Оторизации
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} актуализира конфигурацията за оторизация на документи за самоличност"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} потвърди %{resource_name}, като използва офлайн проверка на документите за самоличност"
+    authorization_handlers:
+      admin:
+        csv_census:
+          help:
+            - Администраторите качват CSV с имейлите на приетите участници.
+            - Само участници с имейл в този CSV файл могат да бъдат потвърдени.
+        id_documents:
+          help:
+            - Потребителите попълват своята информация за самоличност и качват копие на своя документ.
+            - Попълнете информацията, присъстваща в каченото изображение.
+            - Информацията трябва да съответства на това, което е попълнил потребителят.
+            - Ако не можете да видите ясно информацията или не можете да я проверите, можете да отхвърлите заявката и потребителят ще има възможността да я коригира.
+        postal_letter:
+          help:
+            - Участниците искат да им бъде изпратен код за потвърждение на техния адрес.
+            - Изпращате писмото до техния адрес с кода за потвърждение.
+            - 
+            - 
     verifications:
       dummy_authorization:
         extra_explanation:

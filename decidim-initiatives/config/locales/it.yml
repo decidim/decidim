@@ -62,6 +62,7 @@ it:
   decidim:
     admin:
       actions:
+        manage: Gestisci
         new_initiative_type: Nuovo tipo di iniziativa
       filters:
         initiatives:
@@ -374,6 +375,7 @@ it:
             other: e altre %{count} persone
         committee_members:
           approve: Approva
+          revoke: Revoca
           title: Membri del comitato
         count:
           title:

@@ -85,6 +85,7 @@ lt:
   decidim:
     admin:
       actions:
+        manage: Valdyti
         new_initiative_type: Naujas iniciatyvos tipas
       filters:
         initiatives:
@@ -464,6 +465,7 @@ lt:
           invite_to_committee_help: Pasidalinkite šia nuoroda norėdami pakvieti kitus į remėjų komitetą.
           link: Nuoroda
           no_members_yet: Rėmėjų komitete nėra narių.
+          revoke: Atšaukti
           title: Komiteto nariai
         count:
           title:

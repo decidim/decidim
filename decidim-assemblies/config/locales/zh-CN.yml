@@ -301,11 +301,7 @@ zh-CN:
       show:
         assembly_type: 程序集类型
         duration: 期限
-        is_transparent:
-          'false': 不透明度
-          'true': 透明度
         private_space: 这是一个私人装饰
-        related_participatory_processes: 相关的参与进程
     assembly_members:
       assembly_member:
         designated_on: 指定于

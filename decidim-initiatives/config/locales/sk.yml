@@ -53,6 +53,7 @@ sk:
   decidim:
     admin:
       actions:
+        manage: Správa
         new_initiative_type: Nový typ iniciatívy
       menu:
         components: Komponenty

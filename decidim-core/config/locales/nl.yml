@@ -887,6 +887,7 @@ nl:
           headline: Huidige stand van %{organization}
         sub_hero:
           register: Registreren
+          register_title: Meld je aan voor een account
       index:
         standalone_pages: Pages
         subheading: Navigeer door de helppagina's van %{name}

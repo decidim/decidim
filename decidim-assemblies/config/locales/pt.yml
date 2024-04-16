@@ -317,11 +317,7 @@ pt:
       show:
         assembly_type: Tipo de reunião
         duration: Duração
-        is_transparent:
-          'false': opaco
-          'true': transparente
         private_space: Esta é uma reunião privada
-        related_participatory_processes: Processos participativos relacionados
     assembly_members:
       assembly_member:
         designated_on: Designado em

@@ -1,1 +1,10 @@
 bg:
+  decidim:
+    templates:
+      admin:
+        block_user_templates:
+          form:
+            save: Запази
+        proposal_answer_templates:
+          form:
+            save: Запази
