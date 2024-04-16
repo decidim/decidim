@@ -66,6 +66,7 @@ ja:
           title: タブパネル
         tooltips:
           demo: デモ
+          demo_description: このコンポーネントを動作させるには、要素にカーソルを合わせる必要があります。
           github_source_html: GitHub %{github_link} のソース コード
           title: ツールチップ
           usage: 使い方
