@@ -19,11 +19,13 @@ module Decidim
 
     def topics
       @topics ||= current_organization.static_page_topics.where(show_in_footer: true).map do |topic|
+        next if topic.pages.empty?
+
         {
           title: decidim_escape_translated(topic.title),
           path: decidim.page_path(topic.pages.first)
         }
-      end
+      end.compact
     end
 
     def topic_item(page_data, opts = {})
