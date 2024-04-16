@@ -777,7 +777,7 @@ fi:
       linked_classes:
         all: Kaikki
         collaborative_draft: Yhdessä koostettu luonnos
-        dummy_resource: Dummy-resurssit
+        dummy_resource: Esimerkkitietueet
         meeting: Tapaamiset
         project: Hankkeet
         proposal: Ehdotukset

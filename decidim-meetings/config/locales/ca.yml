@@ -663,7 +663,7 @@ ca:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Trobades anteriors
-        see_all: Veure tots (%{count})
+        see_all: Veure totes (%{count})
         upcoming_meetings: Properes trobades
       upcoming_meeting_for_card:
         upcoming_meeting: Propera trobada

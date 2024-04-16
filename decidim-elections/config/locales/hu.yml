@@ -158,6 +158,7 @@ hu:
             success: "%{number} javaslat sikeresen importálva a válaszokba"
           new:
             create: Válaszjavaslatok importálása
+            no_components: Ezen a részvételi téren nincsenek más javaslati komponensek, amelyek a javaslatokat kérdésekbe importálják.
             select_component: Kérjük, válassz egy komponenst
             title: Javaslatok importálása
         questions:

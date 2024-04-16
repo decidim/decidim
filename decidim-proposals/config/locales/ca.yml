@@ -111,7 +111,7 @@ ca:
           state_eq:
             label: Estat
             values:
-              accepted: Acceptada
+              accepted: Acceptades
               evaluating: En avaluació
               published: Publicades
               rejected: Rebutjada
@@ -387,7 +387,7 @@ ca:
         title: Suports
     participatory_spaces:
       highlighted_proposals:
-        see_all: Veure tots (%{count})
+        see_all: Veure totes (%{count})
     proposals:
       actions:
         answer_proposal: Respondre a la proposta
@@ -471,7 +471,7 @@ ca:
             success: El text participatiu s'ha actualitzat correctament.
         proposal_answers:
           form:
-            accepted: Acceptades
+            accepted: Acceptada
             answer_proposal: Resposta
             evaluating: En avaluació
             not_answered: No resposta
@@ -602,7 +602,7 @@ ca:
           create: "%{user_name} ha assignat la proposta %{resource_name} a una avaluadora"
           delete: "%{user_name} ha desfet l'assignació a una avaluadora de la proposta %{proposal_title}"
       answers:
-        accepted: Acceptades
+        accepted: Acceptada
         evaluating: En avaluació
         not_answered: No resposta
         rejected: Rebutjada
@@ -619,7 +619,7 @@ ca:
         filter_scope_values:
           all: Totes
         filter_state_values:
-          accepted: Acceptades
+          accepted: Acceptada
           all: Totes
           evaluating: En avaluació
           not_answered: No resposta

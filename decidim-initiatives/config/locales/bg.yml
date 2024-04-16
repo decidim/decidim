@@ -6,9 +6,150 @@ bg:
         decidim_user_group_id: Автор
         description: Описание
         offline_votes: Лични подписи
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              title: Заглавието не трябва да бъде празно
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Инициатива
+        other: Инициативи
   decidim:
+    admin:
+      initiatives_settings:
+        update:
+          error: Възникна грешка
+          success: Настройките на инициативите са актуализирани успешно
+    gamification:
+      badges:
+        initiatives:
+          description_own: Публикували сте %{score} инициативи.
+          unearned_another: Този участник все още няма публикувани инициативи.
     initiatives:
+      admin:
+        committee_requests:
+          index:
+            invite_to_committee_help: Споделете този линк, за да поканите други участници в промоторския комитет
+            no_members_yet: Няма участници в промоторския комитет
+        initiatives:
+          edit:
+            success: Инициативата е изпратена за техническа валидация
+          update:
+            error: Възникна грешка
+            success: Инициативата беше актуализирана успешно
+        initiatives_type_scopes:
+          create:
+            error: Възникна грешка
+            success: Създаден е нов обхват за дадения тип инициатива
+          destroy:
+            success: Обхватът беше премахнат успешно
+          edit:
+            destroy: Изтрий
+          update:
+            error: Възникна грешка
+            success: Обхватът беше актуализиран успешно
+        initiatives_types:
+          create:
+            error: Възникна грешка
+            success: Успешно е създаден нов тип инициатива
+          destroy:
+            success: Типът инициатива беше премахнат успешно
+          edit:
+            destroy: Изтрий
+          update:
+            error: Възникна грешка
+            success: Типът инициатива беше актуализиран успешно
       application_helper:
         filter_state_values:
           closed: Затворен
           open: Отворен
+      committee_requests:
+        new:
+          help_text: На път сте да заявите членство в промоторския комитет на тази инициатива
+      create_initiative:
+        fill_data:
+          decidim_user_group_id_help: Не е възможно да се промени авторството на инициативата след създаването и.
+        finish_help:
+          access_reminder: Можете да достъпите инициативите си чрез филтъра %{link} на страницата Инициативи.
+        previous_form:
+          help: В какво се състои инициативата? Напишете заглавието и описанието. Препоръчваме кратко заглавие и описание, което да включва предложеното решение.
+        show_similar_initiatives:
+          compare_help: Ако някоя от следните инициативи е подобна на Вашата, препоръчваме да се подпишете в нея. Така ще има повече възможности за осъществяването на предложението Ви.
+          continue: Моята инициатива е различна
+      form:
+        delete_attachment: Изтрий
+      index:
+        uninitialized: Инициативите все още не са конфигурирани от администратор
+      initiative_signatures:
+        fill_personal_data:
+          date_select:
+            day: Ден
+            month: Месец
+            year: Година
+          help: Моля, попълнете личните си данни в следните полета, за да подпишете инициативата
+        sms_phone_number:
+          help: Попълнете потвърдения си телефонен номер във формуляра, за да заявите вашия код за потвърждение
+      initiative_votes:
+        create:
+          invalid: Предоставената информация за подписване на инициативата не е валидна
+          success_html: Поздравления! Подписахте успешно инициативата <strong> %{title}</strong>
+        sms_code:
+          invalid: Кодът Ви за потвърждение не съвпада с нашия. Моля, проверете отново съобщението, което Ви изпратихме със SMS.
+      initiatives:
+        author:
+          deleted: Изтрито
+        committee_members:
+          invite_to_committee_help: Споделете този линк, за да поканите други участници в промоторския комитет
+          no_members_yet: Няма участници в промоторския комитет
+        filters:
+          search: Търсене
+        filters_small_view:
+          close_modal: Затвори прозореца
+          filter: Филтър
+          filter_by: Филтрирай по
+          unfold: Разгъване
+        index_header:
+          not_authorized:
+            authorizations_page: Преглед на оторизациите
+            close: Затвори
+            explanation: Трябва да преминете проверка, за да създадете нова инициатива.
+            title: Изисква се оторизация
+        result:
+          answer_title: На тази инициатива е отговорено
+        show:
+          any_vote_method: За тази гражданска инициатива се събират подписи както онлайн, така и лично.
+          follow_description: Получавайте известия, когато има новини за тази инициатива
+          offline_method: За тази гражданска инициатива се събират подписи само лично.
+          print: Отпечатай инициативата
+        votes_count:
+          most_popular_initiative: Най-популярна инициатива
+          need_more_votes: Има нужда от повече подписи
+      signature_interval:
+        title: Период за събиране на подписи
+      update:
+        error: Възникна грешка
+        success: Инициативата беше актуализирана успешно
+      versions:
+        shared:
+          back_to_resource: Връщане назад към инициативата
+  layouts:
+    decidim:
+      initiative_creation_header:
+        previous_form: Начало
+        show_similar_initiatives: Сравнете
+        step: Стъпка %{current} от общо %{total}
+        title: Създаване на нова инициатива
+      initiative_header:
+        initiative_menu_item: Инициатива
+      initiative_signature_creation_header:
+        finished: Подписът на инициативата е създаден
+        see_steps: вижте стъпките
+        select_identity: Изберете идентичност
+        step: Стъпка %{current} от общо %{total}
+      initiatives:
+        initiative:
+          check: Прегледайте
+          check_and_support: Прегледайте и се подпишете

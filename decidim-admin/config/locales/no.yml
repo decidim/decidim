@@ -793,6 +793,10 @@
         form:
           add: Legg til i hviteliste
           title: Hviteliste for eksterne domener
+      organization_homepage:
+        edit:
+          active_content_blocks: Aktive innholdsblokker
+          inactive_content_blocks: Inaktive innholdsblokker
       organization_homepage_content_blocks:
         edit:
           update: Oppdater

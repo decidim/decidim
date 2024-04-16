@@ -11,6 +11,8 @@ bg:
         state: Състояние
         title: Заглавие
         user_group_id: Създай съвместна чернова като
+      import_participatory_text:
+        document: Текстов документ за участие
       proposal:
         address: Адрес
         answer: Отговор
@@ -141,6 +143,7 @@ bg:
             endorsements_enabled: Одобряване разрешено
             proposal_answering_enabled: Отговора на предложение е разрешен
             publish_answers_immediately: Публикувай отговорите на предложения незабавно
+            publish_answers_immediately_help_html: 'Имайте предвид, че ако отговаряте на някои предложения, без това активиране, ще трябва да ги публикувате ръчно, като ги изберете и използвате действието за публикуване. За повече информация как работи това вижте <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">страницата с документация за отговорите на предложенията</a>.'
             suggested_hashtags: Предлагай хаштаг на участниците когато създават предложения
             votes_blocked: Поддържането блокирано
             votes_enabled: Поддържането разрешено
@@ -214,23 +217,173 @@ bg:
         proposal_published_for_space:
           email_intro: Предложението "%{resource_title}" беше добавено в "%{participatory_space_title}", което следвате.
           email_outro: Получавате това известие, защото следвате "%{participatory_space_title}". Може да прекратите известията чрез предната връзка.
+          notification_title: Предложениетоl <a href="%{resource_path}">%{resource_title}</a> е добавено към %{participatory_space_title} от %{author}
+          notification_title_official: Официалното предложение <a href="%{resource_path}">%{resource_title}</a> е добавено към %{participatory_space_title}
         proposal_rejected:
           affected_user:
+            email_intro: 'Вашето предложение "%{resource_title}" беше отхвърлено. Можете да прочетете отговора на тази страница:'
             email_outro: Получавате това известие, защото сте автор на %{resource_title}".
+            email_subject: Вашето предложение беше отхвърлено
+            notification_title: Вашето предложение <a href="%{resource_path}">%{resource_title}</a> беше отхвърлено.
+          follower:
+            email_intro: 'Предложението „%{resource_title}“ беше отхвърлено. Можете да прочетете отговора на тази страница:'
+            email_subject: Предложение, което следвате, беше отхвърлено
+            notification_title: Предложението <a href="%{resource_path}">%{resource_title}</a> беше отхвърлено.
+    gamification:
+      badges:
+        proposal_votes:
+          unearned_another: Този участник все още не е подкрепил нито едно предложение.
+        proposals:
+          unearned_another: Този участник все още не е създал нито едно предложение.
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Виж всички предложения (%{count})
     proposals:
       admin:
         imports:
           title:
+            answers: Импортиране на отговори на предложения
             proposals: Копиране на предложения
+        participatory_texts:
+          new_import:
+            document_legend: 'Добавете документ с големина до 2 Mb, като всеки раздел до 3 нива надолу в структурата ще бъде анализиран в „Предложения“. Поддържаните формати са: %{valid_mime_types}'
+          publish:
+            invalid: Неуспешно публикуване на предложения
+            success: Всички предложения бяха публикувани
+        proposal_notes:
+          create:
+            error: Възникна проблем при създаването на тази бележка за предложението
+            success: Бележката за предложението беше създадена успешно
         proposals:
+          answer:
+            invalid: Възникна проблем при отговарянето на това предложение
+            success: Отговорихте успешно на предложението
+          create:
+            invalid: Възникна проблем при създаването на това предложение
+            success: Предложението беше създадено успешно
+          publish_answers:
+            number_of_proposals: Отговорите на %{number} предложения ще бъдат публикувани.
+            select_a_proposal: Моля, изберете предложение
           show:
+            authors: Автори
+            comments_negative_count: Против
+            comments_neutral_count: Неутрален
+            comments_positive_count: Подкрепям
+            created_at: Дата на създаване
+            endorsements_ranking: Класиране по препоръки
+            link: Връзка
             proposals: Предложения
+            votes_ranking: Класиране по подкрепяния
+          update_category:
+            select_a_proposal: Моля, изберете предложение
+          update_scope:
+            select_a_proposal: Моля, изберете предложение
+            select_a_scope: Моля, изберете обхват
         proposals_imports:
+          create:
+            invalid: Възникна проблем при импортирането на предложенията
+            success: "%{number} предложения бяха импортирани успешно"
           new:
             title: Копиране на предложения
+        valuation_assignments:
+          create:
+            invalid: Възникна грешка при възлагането на предложенията на оценител
+            success: Предложенията бяха възложени успешно на оценител
+          delete:
+            invalid: Възникна грешка при отмяна на възлагането на предложения към оценител
+            success: Оценителят бе успешно премахнат от предложенията
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            irreversible_action_modal:
+              body: След като черновата бъде публикувана като предложение, тя повече няма да може да се редактира. За предложението няма да могат да се приемат нови автори или добавки.
+          view_collaborative_draft: Преглед на съвместна чернова
+          withdraw:
+            irreversible_action_modal:
+              body: След като черновата бъде затворена, тя повече няма да може да се редактира. За черновата няма да могат да се приемат нови автори или добавки.
+        count:
+          drafts_count:
+            one: "Съвместна чернова"
+            other: "Съвместни чернови"
+        requests:
+          accepted_request:
+            success: "@%{user} беше приет(а) успешно като сътрудник"
+          access_requested:
+            success: Вашата заявка за сътрудничество беше изпратена успешно
+          rejected_request:
+            success: "@%{user} беше отхвърлен(а) успешно като сътрудник"
+        show:
+          final_proposal: окончателно предложение
+          info-message: Това е <strong>съвместна чернова</strong> за предложение. Това означава, че можете да помогнете на авторите да оформят предложението си, като използвате раздела за коментари по-долу, или да го подобрите директно, като поискате редакторски достъп. След като авторите Ви предоставят достъп, ще можете да извършвате промени в черновата.
+          published_proposal: публикувано предложение
+          version_history: вижте хронологията на версиите за това предложение
+        wizard_aside:
+          info: Създавате <strong>съвместна чернова</strong>.
       content_blocks:
         highlighted_proposals:
           proposals: Предложения
+      last_activity:
+        new_proposal_at_html: "<span>Ново предложение на адрес: %{link}</span>"
+        proposal_updated_at_html: "<span>Предложение беше актуализирано на: %{link}</span>"
+      models:
+        collaborative_draft:
+          fields:
+            authors: Автори
+            contributions: Добавки
+      new:
+        limit_reached: Не можете да създавате нови предложения, докато сте надхвърлили ограничението.
+      proposals:
+        count:
+          proposals_count:
+            one: "%{count} предложение"
+            other: "%{count} предложения"
+        edit:
+          add_image: Добавяне на изображение
+          edit_image: Редактиране на изображение
+          gallery_legend: "(Незадължително) Добавете изображение към картата с предложението"
+        index:
+          view_proposal: Преглед на предложението
+        linked_proposals:
+          proposal_votes:
+            one: поддръжка
+            other: поддръжки
+        participatory_texts:
+          view_index:
+            see_index: Вижте индекса
+        proposal:
+          creation_date: 'Създадено на:'
+          view_proposal: Преглед на предложението
+        proposals:
+          empty: Все още няма предложение
+          empty_filters: Няма предложение, което да отговаря на тези критерии
+        show:
+          back_to: Назад към
+          back_to_list: Назад към списъка
+          endorsements_list: Списък с одобрения
+          read_less: Виж по-малко
+          read_more: Прочетете повече
+          report: Отчет
+        tags:
+          changed_from: "(променено от предишното <u>%{previous_name}</u> от администратор)"
+        votes_count:
+          most_popular_proposal: Най-популярно предложение
+          need_more_votes: Има нужда от повече подкрепяния
+        voting_rules:
+          minimum_votes_per_user:
+            given_enough_votes: Предоставили сте достатъчно подкрепяния.
+          threshold_per_proposal:
+            description: За да бъдат валидирани, предложенията трябва да съберат %{limit} подкрепяния
+          vote_limit:
+            left: Оставащи
+        wizard_aside:
+          info: Вие създавате <strong>предложение</strong>.
+        wizard_steps:
+          see_steps: вижте стъпките
+          step_of: Стъпка %{current_step_num} от общо %{total_steps}
+      proposals_picker:
+        close: Затвори
+        more_proposals: Има още %{number} предложения. Прецизирайте търсенето си, за да ги намерите.
+        no_proposals: Няма предложения, които да съответстват на критериите Ви за търсене, или няма никакви предложения.
       versions:
         collaborative_drafts:
           back_to_resource: Обратно към съвместната чернова

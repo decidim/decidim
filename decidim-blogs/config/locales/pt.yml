@@ -57,6 +57,9 @@ pt:
       read_more: Ler mais
     components:
       blogs:
+        actions:
+          comment: Comentar
+          endorse: Apoiar
         name: Blog
         settings:
           global:

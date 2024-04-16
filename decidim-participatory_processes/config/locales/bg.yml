@@ -19,8 +19,74 @@ bg:
         local_area: Район на организацията
         meta_scope: Метаданни сфера
   decidim:
+    admin:
+      actions:
+        filter:
+          all_processes: Показване на всички процеси
+          process_groups: Групи процеси
+      models:
+        participatory_process:
+          fields:
+            promoted: Акцентирано
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Активни блокове със съдържание
+          inactive_content_blocks: Неактивни блокове със съдържание
+      participatory_process_steps:
+        destroy:
+          error:
+            active_step: Не може да изтриете активна фаза.
+            last_step: Не може да изтриете последната фаза от процеса.
+      participatory_processes:
+        index:
+          not_published: Не публикувано
+    log:
+      value_types:
+        participatory_process_type_presenter:
+          not_found: 'Типът на процеса не бе намерен в базата данни (Идент. №: %{id})'
+    participatory_process:
+      show:
+        related_assemblies: Свързани събрания
+    participatory_process_groups:
+      content_blocks:
+        title:
+          name: Заглавие, описание и хаштаг
+    participatory_process_steps:
+      index:
+        title: Фази на процес за участие
     participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            active_step: Активна фаза
+            more_information: Още информация
+            participate: Участвайте
+            participate_in: Участие в процеса %{resource_name}
+            processes_button_title: Връзка към страницата „Процеси“, на която се показват всички процеси
+      participatory_processes:
+        filters:
+          explanations:
+            no_active: Няма активни процеси
+            no_active_nor_upcoming: Няма активни или предстоящи процеси
+        index:
+          loading: Зареждане на резултати...
       show:
         area: Район
+        dates: Дати
         developer_group: Група за популяризиране
         end_date: Крайна дата
+        unspecified: Неопределено
+  layouts:
+    decidim:
+      participatory_process_widgets:
+        show:
+          active_step: Активна фаза
+      participatory_processes:
+        participatory_process:
+          active_step: 'Текуща фаза:'
+        promoted_process:
+          active_step: 'Текуща фаза:'
+      process_header_steps:
+        step: Фаза %{current} от общо %{total}
+      process_navigation:
+        process_menu_item: Процесът

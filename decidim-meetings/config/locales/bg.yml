@@ -1,6 +1,34 @@
 ---
 bg:
+  activemodel:
+    errors:
+      models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Този URL адрес не може да бъде вграден в страница за среща или събитие на живо
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Продължителността на точките надвишава продължителността на срещата с(ъс) %{count} минути
+              too_many_minutes_child: Продължителността на подточките надвишава продължителността на точката от дневния ред „%{parent_title}“ с(ъс) %{count} минути
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: На този имейл вече е изпратена покана
   decidim:
+    admin:
+      meeting_copies:
+        new:
+          select: Изберете кои данни искате да дублирате
+    forms:
+      meetings:
+        attendees_count_help_text: Не забравяйте да включите общия брой присъстващи на вашата среща, независимо дали те присъстват лично, онлайн или хибридно.
+    gamification:
+      badges:
+        attended_meetings:
+          unearned_another: Този участник все още не е присъствал на нито една среща.
+          unearned_own: Все още не сте присъствали на нито една среща.
     meetings:
       actions:
         invalid_destroy:
@@ -8,9 +36,86 @@ bg:
             one: 'Срещата не може да бъде премахната, понеже има %{count} участник свързан с нея:'
             other: 'Срещата не може да бъде премахната, понеже има %{count} участника свързани с нея:'
       admin:
+        agenda:
+          create:
+            invalid: Възникна проблем при създаването на този дневен ред
+            success: Дневният ред беше създаден успешно
+          update:
+            invalid: Възникна проблем при актуализирането на този дневен ред
+            success: Дневният ред беше актуализиран успешно
+        invites:
+          index:
+            filter_by: Филтрирай по
+            registrations_disabled: Не можете да поканите присъстващи, защото регистрациите са изключени.
         meetings:
+          close:
+            invalid: Възникна проблем при закриването на тази среща
+            success: Срещата беше закрита успешно
+          create:
+            invalid: Възникна проблем при създаването на тази среща
           destroy:
             invalid:
               proposals_count:
                 one: Срещата не може да бъде премахната, понеже има %{count} участник свързан с нея
                 other: Срещата не може да бъде премахната, понеже има %{count} участника свързани с нея
+          form:
+            disclaimer: 'Отказ от отговорност: Използвайки външна система за регистрация, вие сте наясно, че организаторите на %{organization} не носят отговорност за данните, предоставени от потребителите на външната услуга.'
+          publish:
+            invalid: Възникна проблем при публикуването на тази среща
+            success: Срещата беше публикувана успешно
+          unpublish:
+            invalid: Възникна проблем при отмяната на публикуването на тази среща
+            success: Публикуването на срещата беше успешно отменено
+          update:
+            invalid: Възникна проблем при актуализирането на тази среща
+            success: Срещата беше актуализирана успешно
+        meetings_poll:
+          update:
+            invalid: Възникна проблем при актуализирането на тази анкета за среща
+            success: Анкетата за среща бе актуализирана успешно
+        registrations:
+          form:
+            reserved_slots_help: Оставете 0, ако не разполагате с резервирани места
+      calendar_modal:
+        close_window: Затвори прозореца
+        copy_calendar_url_explanation: Моля, обърнете внимание, че експортирате селекция от срещи, тъй като има активни филтри. Ако искате да ги експортирате всички, първо нулирайте всички филтри.
+      content_blocks:
+        upcoming_meetings:
+          view_all_meetings: Виж всички
+      last_activity:
+        meeting_updated_at_html: "<span>Срещата беше актуализирана на: %{link}</span>"
+        new_meeting_at_html: "<span>Нова среща на %{link}</span>"
+      meeting:
+        not_allowed: Нямате разрешение да разглеждате тази среща
+      meetings:
+        calendar_modal:
+          close_window: Затвори прозореца
+        filters_small_view:
+          close_modal: Затвори прозореца
+          filter: Филтър
+          filter_by: Филтрирай по
+          unfold: Разгъване
+        form:
+          disclaimer: 'Отказ от отговорност: Използвайки външна система за регистрация, вие сте наясно, че организаторите на %{organization} не носят отговорност за данните, предоставени от потребителите на външната услуга.'
+        meeting_minutes:
+          related_information: Свързана информация
+        meetings:
+          no_meetings_warning: Няма срещи, които да съответстват на критериите Ви за търсене, или няма насрочени срещи.
+        show:
+          back: Обратно към списъка
+          view: Преглед
+      meetings_map:
+        view_meeting: Преглед на срещата
+      public_participants_list:
+        attending_participants: Присъстващи участници
+      registrations:
+        create:
+          success: Присъединихте се успешно към срещата. Тъй като се регистрирахте за тази среща, ще бъдете уведомявани за всички нейни актуализации.
+      versions:
+        back_to_resource: Връщане назад към срещата
+      withdraw:
+        error: Възникна грешка при оттеглянето на срещата
+        success: Срещата е оттеглена успешно
+    participatory_spaces:
+      highlighted_meetings:
+        see_all: Виж всички срещи (%{count})

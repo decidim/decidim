@@ -191,11 +191,11 @@ eu:
         create_debate_event:
           space_followers:
             email_intro: |-
-              Kaixo,
-              "%{resource_title}" beste eztabaida bat sortu da %{space_title} parte hartzeko espazioan, begiratu eta lagundu:
-            email_outro: Jakinarazpen hori jaso duzu %{space_title} partaidetzazko espazioa jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
-            email_subject: Beste eztabaida bat "%{resource_title}" hemen %{space_title}
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> eztabaida sortu zen <a href="%{space_path}">%{space_title}</a>.
+              Kaixo:
+              "%{resources ce_title}" eztabaida berria sortu da %{participatory_space_title}} partaidetza-espazioan, egiaztatu eta egin ekarpenak:
+            email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} parte hartzeko espazioa jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
+            email_subject: '"%{resource_title}" eztabaida berria hemen %{participatory_space_title}'
+            notification_title: '<a href="%{resource_path}">%{resource_title}</a> eztabaida sortu da hemen: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
           user_followers:
             email_intro: |-
               Kaixo,

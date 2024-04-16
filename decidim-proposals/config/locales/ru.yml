@@ -8,6 +8,7 @@ ru:
         body: Основной текст
         category_id: Категория
         has_address: Имеет адрес
+        scope_id: Охват
         state: Cостояние
         title: Заголовок
         user_group_id: Создать предложение в качестве
@@ -284,6 +285,7 @@ ru:
           send: Предпросмотр
           title: Редактировать черновик предложения
         filters:
+          all: Все
           category: Категория
           origin: Источник
           related_to: Связано с

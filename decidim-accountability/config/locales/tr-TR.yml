@@ -143,6 +143,14 @@ tr:
           create: "%{user_name} sonuç yaratmıştır %{resource_name} içinde %{space_name}"
           delete: "%{user_name} %{resource_name} sonuçtan %{space_name}sildi"
           update: "%{user_name} güncellenen sonuç %{resource_name} in %{space_name}"
+        status:
+          create: "48 / 5.000\nÇeviri sonuçları\nÇeviri sonucu\n%{user_name}, %{resource_name} kaydını oluşturdu"
+          delete: "%{user_name}, %{resource_name} kaydını sildi"
+          update: "%{user_name}, %{resource_name} kaydını Güncelledi"
+        timeline_entry:
+          create: "%{user_name}, %{resource_name} zaman çizelgesi girişini oluşturdu"
+          delete: "%{user_name}, %{resource_name} zaman çizelgesi girişini sildi"
+          update: "%{user_name}, %{resource_name} zaman çizelgesi girişini güncelledi"
         value_types:
           parent_presenter:
             not_found: 'Üst veritabanında bulunamadı (ID: %{id})'
@@ -181,6 +189,7 @@ tr:
         timeline_entry:
           fields:
             entry_date: tarih
+            title: Başlık
       result_m:
         executed: Yürütüldü
         view: Görünüm
@@ -225,6 +234,8 @@ tr:
             label: Durum
     components:
       accountability:
+        actions:
+          comment: Yorum
         name: Sorumluluk
         settings:
           global:
@@ -265,3 +276,5 @@ tr:
         result_project: Bu sonuca dahil edilen projeler
       included_proposals:
         result_proposal: Bu sonuca dahil teklifler
+    statistics:
+      results_count: Sonuçlar

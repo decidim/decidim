@@ -172,6 +172,11 @@ uk:
           ok: Гаразд
           title: Недостатньо прав через відсутність підтвердження особи
     collapsible_list:
+      hidden_elements_count:
+        one: і ще %{count}
+        few: і ще %{count}
+        many: і ще %{count}
+        other: і ще %{count}
       see_less: "(читати менше)"
       see_more: "(читати далі)"
     components:
@@ -379,9 +384,12 @@ uk:
         index:
           from: Від
           no_conversations: У вас ще немає бесід
+          title: Бесіди
         reply:
           send: Надіслати
           title: Відповісти
+        show:
+          title: Бесіда з %{usernames}
         start:
           send: Надіслати
           title: Почати бесіду
@@ -465,6 +473,7 @@ uk:
     profiles:
       default_officialization_text_for_users: Особу цього учасника прилюдно підтверджено, його ім'я чи роль перевірено на відповідність його справжньому імені та ролі
       show:
+        conversations: Бесіди
         followers: Ті, хто стежить
         following: 'Стежить за:'
       user:
@@ -530,6 +539,8 @@ uk:
     user_conversations:
       index:
         close: Закрити
+      show:
+        title: Бесіда з %{usernames}
       update:
         error: Повідомлення не надіслано. Спробуйте ще раз пізніше
     version_author:

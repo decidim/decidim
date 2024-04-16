@@ -41,6 +41,9 @@ ga:
           comments: tráchtanna
     components:
       blogs:
+        actions:
+          comment: Tabhair Trácht
+          endorse: Formhuinigh
         name: Blag
         settings:
           step:

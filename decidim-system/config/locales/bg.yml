@@ -1,5 +1,12 @@
 ---
 bg:
+  activemodel:
+    attributes:
+      organization:
+        address: Име на SMTP хост
+        password: Парола
+        port: Порт
+        user_name: Потребителско име
   decidim:
     system:
       actions:
@@ -8,5 +15,25 @@ bg:
         edit: Редактирай
         new: Нов
       admins:
+        create:
+          success: Администраторът беше създаден успешно
+        destroy:
+          success: Администраторът беше изтрит успешно
         show:
+          destroy: Унищожи
           edit: Редактирай
+        update:
+          success: Администраторът беше актуализиран успешно
+      models:
+        admin:
+          name: Администратор
+        oauth_application:
+          name: Приложение за OAuth
+      organizations:
+        create:
+          success: Организацията беше създадена успешно.
+        smtp_settings:
+          instructions:
+            from_label: 'Подателят на имейла ще бъде: „името-на-организацията-ви <your-organization@example.org>“. Оставете празно, за да използвате „имейл адресът“ като етикет'
+        users_registration_mode:
+          existing: Не разрешавайте на участниците да се регистрират, но разрешете на съществуващите участници да влизат в профила си

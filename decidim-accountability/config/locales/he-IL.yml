@@ -1,0 +1,219 @@
+---
+he:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: סטטוס
+        decidim_category_id: קטגוריה
+        decidim_scope_id: היקף
+        description: תיאור
+        end_date: תאריך סיום
+        progress: התקדמות
+        project_ids: פרויקטים כלולים
+        proposals: הצעות כלולות
+        start_date: תאריך התחלה
+        title: כותרת
+        updated_at: עודכן ב-
+      status:
+        description: תיאור
+        key: מפתח
+        name: שם
+        progress: התקדמות
+      timeline_entry:
+        description: תיאור
+        entry_date: תאריך
+        title: כותרת
+    models:
+      decidim/accountability/proposal_linked_event: הצעה כלולה בתוצאה
+      decidim/accountability/result_progress_updated_event: התקדמות התוצאה עודכנה
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: תוצאה
+        two: תוצאות
+        many: תוצאות
+        other: תוצאות
+  decidim:
+    accountability:
+      actions:
+        attachment_collections: תיקיות
+        attachments: צרופות
+        confirm_destroy: האם את/ה בטוח/ה שברצונך למחוק את {name}?
+        destroy: מחיקה
+        edit: עריכה
+        preview: תצוגה מקדימה
+        timeline_entries: אבולוציה של הפרויקט
+        title: פעולות
+      admin:
+        exports:
+          result_comments: תגובות
+          results: תוצאות
+        import_results:
+          new:
+            download_export: להורדת הייצוא כקובץ CSV
+            import: ייבוא
+        models:
+          result:
+            name: תוצאה
+          status:
+            name: סטטוס
+        results:
+          edit:
+            title: עריכת תוצאה
+            update: עדכון תוצאה
+          index:
+            title: תוצאות
+          new:
+            create: יצירת תוצאה
+            title: תוצאה חדשה
+        shared:
+          subnav:
+            statuses: סטטוסים
+        statuses:
+          edit:
+            title: עריכת סטטוס
+            update: עדכון סטטוס
+          index:
+            title: סטטוסים
+          new:
+            create: יצירת סטטוס
+            title: סטטוס חדש
+        timeline_entries:
+          edit:
+            title: עריכת רשומה
+            update: עדכן רשומה
+          index:
+            title: ערכי ציר הזמן של הפרויקט
+          new:
+            create: יצירת רשומה
+            title: רשומה חדשה
+      admin_log:
+        result:
+          create: "%{user_name} תוצאה נוצרה %{resource_name} ב %{space_name}"
+          delete: "%{user_name} מחק.ה את %{resource_name} התוצאה ב %{space_name}"
+          update: "%{user_name} עדכן.ה תוצאה %{resource_name} ב %{space_name}"
+        status:
+          create: "%{user_name} יצר.ה את %{resource_name} הסטטוס"
+          delete: "%{user_name} מחק.ה את %{resource_name} הסטטוס"
+          update: "%{user_name} עדכנ.ה את %{resource_name} הסטטוס"
+        timeline_entry:
+          create: "%{user_name} יצר את הערך של ציר הזמן %{resource_name}"
+          delete: "%{user_name} מחק את הערך של ציר הזמן %{resource_name}"
+          update: "%{user_name} יצר את הערך של ציר הזמן %{resource_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'ההורה לא נמצא במסד הנתונים (מזהה: %{id})'
+      content_blocks:
+        highlighted_results:
+          results: תוצאות
+      import_mailer:
+        import:
+          errors: שגיאות
+          row_number: שורה
+          subject: ייבוא ​​מוצלח של תוצאות
+          success: ייבוא ​​מוצלח של תוצאות. ניתן לעיין בתוצאות בממשק הניהול.
+      models:
+        result:
+          fields:
+            category: קטגוריה
+            created_at: נוצר
+            end_date: תאריך סיום
+            id: מספר מזהה
+            progress: התקדמות
+            scope: היקף
+            start_date: תאריך התחלה
+            status: סטטוס
+            title: כותרת
+        status:
+          fields:
+            description: תיאור
+            key: מפתח
+            name: שם
+            progress: התקדמות
+        timeline_entry:
+          fields:
+            entry_date: תאריך
+            title: כותרת
+      results:
+        count:
+          results_count:
+            one: תוצאה אחת
+            two: "שתי תוצאות"
+            many: "%{count} תוצאות"
+            other: "%{count} תוצאות"
+        filters:
+          all: הכל
+        home:
+          categories_label: קטגוריות
+          subcategories_label: תתי קטגוריות
+        home_header:
+          global_status: סטטוס ביצוע גלובלי
+        nav_breadcrumb:
+          global: ביצוע גלובלי
+        search:
+          search: חיפוש פעולה
+        show:
+          stats:
+            attendees: משתתפים.ות
+            back_to_resource: בחזרה לתוצאות
+            comments: תגובות
+            contributions: תרומות
+            last_edited_by: נערך לאחרונה על-ידי
+            last_updated_at: עודכן לאחרונה ב
+            meetings: פגישות
+            proposals: הצעות
+            votes: תמיכה
+        timeline:
+          title: אבולוציה של הפרויקט
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: קטגוריה
+          scope_id_eq:
+            label: היקף
+          status_id_eq:
+            label: סטטוס
+    components:
+      accountability:
+        actions:
+          comment: תגובה
+        name: אחריותיות
+        settings:
+          global:
+            categories_label: שם ל"קטגוריות"
+            comments_enabled: איפשור תגובות
+            comments_max_length: אורך מקסימלי להערות (השאירו 0 לערך ברירת המחדל)
+            display_progress_enabled: הצגת התקדמות
+            heading_leaf_level_results: שם ל"פרויקטים"
+            heading_parent_level_results: שם ל"תוצאות"
+            intro: הקדמה
+            scope_id: היקף
+            scopes_enabled: היקפים מאופשרים
+            subcategories_label: שם ל"תתי קטוגריות"
+          step:
+            comments_blocked: תגובות חסומות
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'ההצעה "%{proposal_title}" נכללה בתוצאה. ניתן לראות אותה מהעמוד הזה:'
+          email_outro: קיבלת הודעה זו מכיוון שאת.ה עוקב.ת אחר "%{proposal_title}". ניתן להפסיק לקבל התראות באמצעות הקישור הקודם.
+          email_subject: עדכון ל-%{proposal_title}
+          notification_title: ההצעה <a href="%{proposal_path}">%{proposal_title}</a> נכללה בתוצאת <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'התוצאה "%{resource_title}", הכוללת את ההצעה "%{proposal_title}", הושלמה כעת %{progress}%. ניתן לראות את זה מהעמוד הזה:'
+          email_outro: קיבלת הודעה זו מכיוון שאת.ה עוקב.ת אחר "%{proposal_title}", וההצעה הזו כלולה בתוצאה "%{resource_title}". ניתן להפסיק לקבל התראות באמצעות הקישור הקודם.
+          email_subject: עדכון ל-%{resource_title} התקדמות
+          notification_title: התוצאה <a href="%{resource_path}">%{resource_title}</a>, הכוללת את ההצעה <a href="%{proposal_path}">%{proposal_title}</a>, היא כעת %{ התקדמות}% הושלמה.
+    metrics:
+      results:
+        description: מספר התוצאות שנוצרו
+        object: תוצאות
+        title: תוצאות
+    resource_links:
+      included_projects:
+        result_project: פרויקטים כלולים בתוצאה זו
+      included_proposals:
+        result_proposal: הצעות כלולות בתוצאה זו
+    statistics:
+      results_count: תוצאות

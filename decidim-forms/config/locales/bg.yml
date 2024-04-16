@@ -7,8 +7,19 @@ bg:
       question:
         max_choices: Максимален брой възможности
         question_type: Тип
+    errors:
+      models:
+        questionnaire:
+          request_invalid: Възникна грешка при обработката на заявката. Моля, опитайте отново
   decidim:
     forms:
+      errors:
+        answer:
+          body: Основният текст не може да бъде празен
+      questionnaires:
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Влезте в профила си</a> или <a href="%{sign_up_link}">се регистрирайте</a>, за да попълните отговорите си във формуляра.
       step_navigation:
         show:
           are_you_sure: Това действие не може да се отмени и Вие не можете да редактирате отговорите си. Сигурни ли сте?
