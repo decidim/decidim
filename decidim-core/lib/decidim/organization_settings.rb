@@ -104,8 +104,8 @@ module Decidim
         {
           "upload" => {
             "allowed_file_extensions" => {
-              "default" => %w(jpg jpeg png webp pdf rtf txt),
-              "admin" => %w(jpg jpeg png webp pdf doc docx xls xlsx ppt pptx ppx rtf txt odt ott odf otg ods ots),
+              "default" => %w(jpg jpeg png webp pdf rtf txt csv),
+              "admin" => %w(jpg jpeg png webp pdf doc docx xls xlsx ppt pptx ppx rtf txt odt ott odf otg ods ots csv json),
               "image" => %w(jpg jpeg png webp)
             },
             "allowed_content_types" => {
@@ -114,6 +114,7 @@ module Decidim
                 application/pdf
                 application/rtf
                 text/plain
+                text/csv
               ),
               "admin" => %w(
                 image/*
@@ -125,7 +126,9 @@ module Decidim
                 application/vnd.oasis.opendocument
                 application/pdf
                 application/rtf
+                application/json
                 text/plain
+                text/csv
               )
             },
             "maximum_file_size" => {

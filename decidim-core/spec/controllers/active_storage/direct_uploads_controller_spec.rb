@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-module Decidim
+module ActiveStorage
   describe DirectUploadsController do
     describe "POST #create" do
       let(:checksum) { OpenSSL::Digest.base64digest("MD5", "Hello") }

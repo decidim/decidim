@@ -267,10 +267,8 @@ module Decidim
       end
 
       initializer "decidim_core.direct_uploader_paths", after: "decidim_core.exceptions_app" do |_app|
-        Rails.application.routes.prepend do
-          scope ActiveStorage.routes_prefix do
-            post "/direct_uploads" => "decidim/direct_uploads#create", :as => :decidim_direct_uploads
-          end
+        config.to_prepare do
+          ActiveStorage::DirectUploadsController.include Decidim::DirectUpload
         end
       end
 
