@@ -19,7 +19,7 @@ module Decidim
 
       def per_page
         if OPTIONS.include?(params[:per_page])
-          params[:per_page]
+          params[:per_page].to_i
         elsif params[:per_page]
           sorted = OPTIONS.sort
           params[:per_page].to_i.clamp(sorted.first, sorted.last)
