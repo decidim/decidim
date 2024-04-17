@@ -49,21 +49,21 @@ module Decidim
         let(:default_port) { Rails.env.development? ? 3000 : Capybara.server_port }
 
         it "returns a URL containing the port only" do
-          expect(subject.variant_url(:testing)).to match(%r{^http://#{hostname.gsub(".", "\\.")}:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
+          expect(subject.variant_url(:testing)).to match(%r{^http://#{Regexp.escape(hostname)}:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
         end
 
         context "when force_ssl is enabled" do
           include_context "with force_ssl enabled"
 
           it "returns a URL containing the port and protocol" do
-            expect(subject.variant_url(:testing)).to match(%r{^https://#{hostname.gsub(".", "\\.")}:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
+            expect(subject.variant_url(:testing)).to match(%r{^https://#{Regexp.escape(hostname)}:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
           end
 
           context "and the PORT environment variable is defined as 3001" do
             let(:local_port) { 3001 }
 
             it "returns a URL containing the port and protocol" do
-              expect(subject.variant_url(:testing)).to match(%r{^https://#{hostname.gsub(".", "\\.")}:3001/rails/active_storage/disk/[^/]+/avatar\.jpg$})
+              expect(subject.variant_url(:testing)).to match(%r{^https://#{Regexp.escape(hostname)}:3001/rails/active_storage/disk/[^/]+/avatar\.jpg$})
             end
           end
 
@@ -71,7 +71,7 @@ module Decidim
             let(:local_port) { 443 }
 
             it "returns a URL containing the protocol only" do
-              expect(subject.variant_url(:testing)).to match(%r{^https://#{hostname.gsub(".", "\\.")}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
+              expect(subject.variant_url(:testing)).to match(%r{^https://#{Regexp.escape(hostname)}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
             end
           end
         end
@@ -97,7 +97,7 @@ module Decidim
             end
 
             it "returns the original URL" do
-              expect(subject.variant_url(:testing)).to match(%r{^http://#{hostname.gsub(".", "\\.")}:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
+              expect(subject.variant_url(:testing)).to match(%r{^http://#{Regexp.escape(hostname)}:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
             end
           end
         end
@@ -149,14 +149,14 @@ module Decidim
         end
 
         it "returns a default URL" do
-          expect(subject.variant_url(:testing, options)).to match(%r{^http://#{hostname.gsub(".", "\\.")}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
+          expect(subject.variant_url(:testing, options)).to match(%r{^http://#{Regexp.escape(hostname)}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
         end
 
         context "and the PORT environment variable is defined as 443" do
           let(:local_port) { 443 }
 
           it "returns a URL containing the protocol only" do
-            expect(subject.variant_url(:testing, options)).to match(%r{^https://#{hostname.gsub(".", "\\.")}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
+            expect(subject.variant_url(:testing, options)).to match(%r{^https://#{Regexp.escape(hostname)}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
           end
         end
 
@@ -164,7 +164,7 @@ module Decidim
           let(:local_port) { 8080 }
 
           it "returns a URL containing the port" do
-            expect(subject.variant_url(:testing, options)).to match(%r{^http://#{hostname.gsub(".", "\\.")}:8080/rails/active_storage/disk/[^/]+/avatar\.jpg$})
+            expect(subject.variant_url(:testing, options)).to match(%r{^http://#{Regexp.escape(hostname)}:8080/rails/active_storage/disk/[^/]+/avatar\.jpg$})
           end
         end
 
@@ -172,14 +172,14 @@ module Decidim
           include_context "with force_ssl enabled"
 
           it "returns a URL containing the protocol only" do
-            expect(subject.variant_url(:testing, options)).to match(%r{^https://#{hostname.gsub(".", "\\.")}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
+            expect(subject.variant_url(:testing, options)).to match(%r{^https://#{Regexp.escape(hostname)}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
           end
 
           context "and the PORT environment variable is defined as 8080" do
             let(:local_port) { 8080 }
 
             it "returns a URL containing the port and protocol" do
-              expect(subject.variant_url(:testing, options)).to match(%r{^https://#{hostname.gsub(".", "\\.")}:8080/rails/active_storage/disk/[^/]+/avatar\.jpg$})
+              expect(subject.variant_url(:testing, options)).to match(%r{^https://#{Regexp.escape(hostname)}:8080/rails/active_storage/disk/[^/]+/avatar\.jpg$})
             end
           end
         end
@@ -200,7 +200,7 @@ module Decidim
         end
 
         it "returns a URL containing the CDN configurations" do
-          expect(subject.variant_url(:testing)).to match(%r{^#{cdn_host.gsub(".", "\\.")}/rails/active_storage/blobs/redirect/[^/]+/avatar\.jpg$})
+          expect(subject.variant_url(:testing)).to match(%r{^#{Regexp.escape(cdn_host)}/rails/active_storage/blobs/redirect/[^/]+/avatar\.jpg$})
         end
       end
     end
