@@ -68,3 +68,12 @@ bg:
   errors:
     messages:
       cannot_be_blank: не може да остане празно
+  layouts:
+    decidim:
+      assemblies:
+        index:
+          children: 'Събрания: '
+          organizational_chart: Организационна диаграма
+          reset_chart: Начално състояние
+      assembly_navigation:
+        assembly_menu_item: Събранието
