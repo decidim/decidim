@@ -67,6 +67,8 @@ module Decidim
     end
 
     def resource_image_url
+      # Backwards compatibility.
+      return resource_image_path if respond_to?(:resource_image_path)
       nil
     end
 

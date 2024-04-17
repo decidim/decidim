@@ -1,5 +1,5 @@
 <div class="card__list-image">
-  <% if resource_image_url.present? %>
+  <% if has_image? %>
     <%= image_tag resource_image_url, class: "w-full h-full object-cover" %>
   <% else %>
     <div class="w-full h-full relative">
