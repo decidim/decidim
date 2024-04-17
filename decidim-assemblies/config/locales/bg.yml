@@ -6,3 +6,17 @@ bg:
         area_id: Район
         assembly_type: Тип събрание
         assembly_type_other: Друг тип събрание
+  decidim:
+    assemblies:
+      admin:
+        assembly_members:
+          form:
+            image_guide: За предпочитане използвайте хоризонтално изображение без текст.
+      assemblies:
+        filters:
+          names:
+            all: Всички
+      show:
+        is_transparent:
+          'false': непрозрачно
+          'true': прозрачно
