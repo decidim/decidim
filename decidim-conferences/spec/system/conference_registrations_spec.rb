@@ -127,6 +127,19 @@ describe "Conference registrations" do
         expect(page).to have_css("button[disabled]", text: "Registration", count: 4)
       end
     end
+
+    context "and there is no registrations types" do
+      let!(:registration_types) { [] }
+
+      it "allows to register" do
+        visit_conference
+        within ".conference__hero" do
+          expect(page).to have_content "Register"
+          click_on "Register"
+          expect(page).to have_content "CHOOSE YOUR REGISTRATION OPTION:"
+        end
+      end
+    end
   end
 
   context "and the user is going to the conference" do
