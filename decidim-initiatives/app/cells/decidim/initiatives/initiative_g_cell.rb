@@ -16,7 +16,9 @@ module Decidim
       end
 
       def resource_image_url
-        image.url if has_image?
+        return if image.blank?
+
+        image.url
       end
 
       def metadata_cell
