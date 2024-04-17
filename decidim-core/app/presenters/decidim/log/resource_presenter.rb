@@ -65,7 +65,7 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def present_resource_name
-        h.decidim_escape_translated extra["title"]
+        h.decidim_escape_translated(extra["title"]).html_safe
       end
     end
   end
