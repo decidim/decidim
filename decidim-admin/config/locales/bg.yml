@@ -30,6 +30,7 @@ bg:
         body: Тяло
         subject: Тема
       organization:
+        admin_terms_of_use_body: Съдържание на административните условия за ползване
         alert_color: Аларма
         badges_enabled: Включи значките
         comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
@@ -103,12 +104,21 @@ bg:
         file: Файл
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Изберете поне едно място за участие
         organization:
           attributes:
             official_img_footer:
               allowed_file_content_types: Невалиден файл на изображението
             official_img_header:
               allowed_file_content_types: Невалиден файл на изображението
+      new_import:
+        attributes:
+          file:
+            invalid_file: Предоставен е невалиден файл, моля, проверете дали файлът е правилно форматиран
+            invalid_mime_type: Невалиден мим формат
   activerecord:
     attributes:
       decidim/static_page:
@@ -117,11 +127,78 @@ bg:
         title: Заглавие
   decidim:
     admin:
+      actions:
+        attachment_collection:
+          new: Нова колекция от прикачени файлове
+        manage: Управление
+        new: Ново %{name}
+      admin_terms_of_use:
+        accept:
+          error: Възникна грешка при приемането на административните условия за ползване.
+          success: Чудесно! Приехте административните условия за ползване.
+        actions:
+          are_you_sure: Сигурни ли сте, че искате да откажете административните условия за ползване?
+          title: Съгласявам се с правилата и условията за ползване
+        required_review:
+          alert: 'Задължително: Прегледайте административните условия за ползване'
+          callout: Моля, отделете малко време, за да прегледате административните условия за ползване. В противен случай няма да можете да администрирате платформата.
+        title: Административни условия за ползване
+      area_types:
+        destroy:
+          success: Типът област е премахнат успешно
+        update:
+          success: Типът област е актуализиран успешно
+      areas:
+        destroy:
+          success: Областта е премахната успешно
+        update:
+          success: Областта е актуализирана успешно
+      attachment_collections:
+        index:
+          attachment_collection_used: Тази папка не може да бъде премахната, защото се използва.
+      autocomplete:
+        search_prompt: Въведете поне три символа, за да търсите
+      categories:
+        index:
+          category_used: Тази категория не може да бъде премахната, защото се използва.
+      conflicts:
+        transfer:
+          error: Възникна проблем при прехвърлянето на текущия участник към управляван участник.
+      dashboard:
+        show:
+          welcome: Добре дошли в Административния панел.
+      domain_whitelist:
+        update:
+          error: Неуспешно актуализиране на белия списък на домейни
+          success: Белият списък на домейни е актуализиран успешно
+      exports:
+        notice: Заявеното от Вас експортиране е в процес. Ще получите имейл, когато приключи.
       filters:
+        search_placeholder:
+          user_name_or_user_email_cont: Търси в %{collection} по име или имейл.
         state_eq:
           label: Състояние
           values:
             rejected: Отхвърлен
+      help_sections:
+        error: Възникна проблем при актуализирането на помощните раздели
+        success: Помощните раздели бяха актуализирани успешно
+      impersonatable_users:
+        index:
+          filter_by: Филтрирай по
+      imports:
+        error: Възникна проблем по време на импортирането
+        example_error: Не можа да се създаде пример за дадения тип
+        notice: "%{count} %{resource_name} успешно импортирани"
+      logs:
+        logs_list:
+          no_logs_yet: Все още няма регистри
+      menu:
+        reported_users: Докладвани потребители
+      models:
+        user:
+          fields:
+            last_sign_in_at: Дата на последно влизане
       organization_appearance:
         form:
           colors:
