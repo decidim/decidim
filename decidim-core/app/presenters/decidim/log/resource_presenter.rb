@@ -65,7 +65,7 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def present_resource_name
-        if resource.present?
+        if resource.present? && resource.respond_to?(:presenter)
           resource.presenter.title(html_escape: true)
         else
           h.decidim_escape_translated(extra["title"]).html_safe
