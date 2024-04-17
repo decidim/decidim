@@ -10,6 +10,8 @@ module Decidim
     # overwrite `BasePresenter#resource_presenter` to return your custom resource presenter.
     # The only requirement for custom renderers is that they should respond to `present`.
     class ResourcePresenter
+      include Decidim::SanitizeHelper
+
       # Public: Initializes the presenter.
       #
       # resource - An instance of a model that can be located by
@@ -65,10 +67,10 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def present_resource_name
-        if resource.present? && resource.respond_to?(:presenter)
+        if resource.present? && resource.respond_to?(:presenter) && resource.presenter.respond_to?(:title)
           resource.presenter.title(html_escape: true)
         else
-          h.decidim_escape_translated(extra["title"]).html_safe
+          decidim_escape_translated(extra["title"]).html_safe
         end
       end
     end
