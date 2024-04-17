@@ -118,6 +118,8 @@ bg:
           label: Състояние
           values:
             rejected: Отхвърлен
+      menu:
+        manage: Управление
       organization_appearance:
         form:
           colors:
