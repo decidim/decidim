@@ -168,7 +168,7 @@ module Decidim
                 },
                 {
                   title: "CSV document",
-                  file: upload_test_file(Decidim::Dev.asset("verify_user_groups.csv"), content_type: "text/csv")
+                  file: upload_test_file(Decidim::Dev.asset("invalid_extension.log"), content_type: "text/plain")
                 }
               ]
             end
