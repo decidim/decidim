@@ -19,12 +19,12 @@ module Decidim::AssetRouter
       context "with an ActiveStorage::Attached" do
         it "creates the disk service route to the blob" do
           ActiveStorage::Current.host = "http://localhost:#{default_port}"
-          expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar.jpg$})
+          expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
         end
 
         context "when the host is not set" do
           it "sets the host based on the asset" do
-            expect(subject).to match(%r{^http://#{organization.host}:#{default_port}/rails/active_storage/disk/[^/]+/avatar.jpg$})
+            expect(subject).to match(%r{^http://#{organization.host}:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
           end
         end
 
@@ -32,14 +32,14 @@ module Decidim::AssetRouter
           let(:options) { { only_path: true } }
 
           it "creates the redirect route to the blob" do
-            expect(subject).to match(%r{^/rails/active_storage/blobs/redirect/[^/]+/avatar.jpg$})
+            expect(subject).to match(%r{^/rails/active_storage/blobs/redirect/[^/]+/avatar\.jpg$})
           end
 
           context "with extra URL options" do
             let(:options) { { only_path: true, utm_source: "website", utm_medium: "email", utm_campaign: "testing" } }
 
             it "handles the extra URL options correctly" do
-              expect(subject).to match(%r{^/rails/active_storage/blobs/redirect/[^/]+/avatar.jpg\?utm_campaign=testing&utm_medium=email&utm_source=website$})
+              expect(subject).to match(%r{^/rails/active_storage/blobs/redirect/[^/]+/avatar\.jpg\?utm_campaign=testing&utm_medium=email&utm_source=website$})
             end
           end
         end
@@ -50,12 +50,12 @@ module Decidim::AssetRouter
 
         it "creates the disk service route to the blob" do
           ActiveStorage::Current.host = "http://localhost:#{default_port}"
-          expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar.jpg$})
+          expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
         end
 
         context "when the host is not set" do
           it "creates the redirect route to the blob" do
-            expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/blobs/redirect/[^/]+/avatar.jpg$})
+            expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/blobs/redirect/[^/]+/avatar\.jpg$})
           end
         end
 
@@ -63,14 +63,14 @@ module Decidim::AssetRouter
           let(:options) { { only_path: true } }
 
           it "creates the redirect route to the blob" do
-            expect(subject).to match(%r{^/rails/active_storage/blobs/redirect/[^/]+/avatar.jpg$})
+            expect(subject).to match(%r{^/rails/active_storage/blobs/redirect/[^/]+/avatar\.jpg$})
           end
 
           context "with extra URL options" do
             let(:options) { { only_path: true, utm_source: "website", utm_medium: "email", utm_campaign: "testing" } }
 
             it "handles the extra URL options correctly" do
-              expect(subject).to match(%r{^/rails/active_storage/blobs/redirect/[^/]+/avatar.jpg\?utm_campaign=testing&utm_medium=email&utm_source=website$})
+              expect(subject).to match(%r{^/rails/active_storage/blobs/redirect/[^/]+/avatar\.jpg\?utm_campaign=testing&utm_medium=email&utm_source=website$})
             end
           end
         end
@@ -90,14 +90,14 @@ module Decidim::AssetRouter
         end
 
         it "creates the route to the variant" do
-          expect(subject).to match(%r{^/rails/active_storage/representations/redirect/[^/]+/[^/]+/avatar.jpg$})
+          expect(subject).to match(%r{^/rails/active_storage/representations/redirect/[^/]+/[^/]+/avatar\.jpg$})
         end
 
         context "when the asset has been processed" do
           before { asset.processed }
 
           it "creates the route to the variant through the storage service" do
-            expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar.jpg$})
+            expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
           end
 
           # Note that this situation should not normally happen but it is
@@ -113,7 +113,7 @@ module Decidim::AssetRouter
               expect(asset.processed?).to be(true)
               expect(asset.key).to be_present
               expect(asset.blob.service.exist?(asset.key)).to be(false)
-              expect(subject).to match(%r{^/rails/active_storage/representations/redirect/[^/]+/[^/]+/avatar.jpg$})
+              expect(subject).to match(%r{^/rails/active_storage/representations/redirect/[^/]+/[^/]+/avatar\.jpg$})
             end
           end
         end
@@ -122,14 +122,14 @@ module Decidim::AssetRouter
           let(:track_variants) { false }
 
           it "creates the route to the variant" do
-            expect(subject).to match(%r{^/rails/active_storage/representations/redirect/[^/]+/[^/]+/avatar.jpg$})
+            expect(subject).to match(%r{^/rails/active_storage/representations/redirect/[^/]+/[^/]+/avatar\.jpg$})
           end
 
           context "and the asset has been processed" do
             before { asset.processed }
 
             it "creates the route to the variant through the storage service" do
-              expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar.jpg$})
+              expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
             end
 
             context "and when passing incompatible URL options" do
@@ -140,7 +140,7 @@ module Decidim::AssetRouter
               let(:options) { { host: "example.lvh.me" } }
 
               it "creates the route to the variant" do
-                expect(subject).to match(%r{^http://example.lvh.me:#{default_port}/rails/active_storage/disk/[^/]+/avatar.jpg$})
+                expect(subject).to match(%r{^http://example.lvh.me:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.jpg$})
               end
             end
           end
@@ -150,14 +150,14 @@ module Decidim::AssetRouter
           let(:asset) { organization.official_img_footer.variant(resize_to_fit: [160, 160], format: "png") }
 
           it "creates the route to the variant with converted file extension" do
-            expect(subject).to match(%r{^/rails/active_storage/representations/redirect/[^/]+/[^/]+/avatar.png$})
+            expect(subject).to match(%r{^/rails/active_storage/representations/redirect/[^/]+/[^/]+/avatar\.png$})
           end
 
           context "when the asset has been processed" do
             before { asset.processed }
 
             it "creates the route to the variant through the storage service" do
-              expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar.png$})
+              expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.png$})
             end
           end
 
@@ -165,14 +165,14 @@ module Decidim::AssetRouter
             let(:track_variants) { false }
 
             it "creates the route to the variant with converted file extension" do
-              expect(subject).to match(%r{^/rails/active_storage/representations/redirect/[^/]+/[^/]+/avatar.png$})
+              expect(subject).to match(%r{^/rails/active_storage/representations/redirect/[^/]+/[^/]+/avatar\.png$})
             end
 
             context "and the asset has been processed" do
               before { asset.processed }
 
               it "creates the route to the variant through the storage service" do
-                expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar.png$})
+                expect(subject).to match(%r{^http://localhost:#{default_port}/rails/active_storage/disk/[^/]+/avatar\.png$})
               end
             end
           end
@@ -194,14 +194,14 @@ module Decidim::AssetRouter
         end
 
         it "creates the route to the CDN blob" do
-          expect(subject).to match(%r{^https://cdn.example.org/rails/active_storage/blobs/redirect/[^/]+/avatar.jpg$})
+          expect(subject).to match(%r{^https://cdn.example.org/rails/active_storage/blobs/redirect/[^/]+/avatar\.jpg$})
         end
 
         context "with extra URL options" do
           let(:options) { { utm_source: "website", utm_medium: "email", utm_campaign: "testing" } }
 
           it "handles the extra URL options correctly" do
-            expect(subject).to match(%r{^https://cdn.example.org/rails/active_storage/blobs/redirect/[^/]+/avatar.jpg\?utm_campaign=testing&utm_medium=email&utm_source=website$})
+            expect(subject).to match(%r{^https://cdn.example.org/rails/active_storage/blobs/redirect/[^/]+/avatar\.jpg\?utm_campaign=testing&utm_medium=email&utm_source=website$})
           end
         end
       end
