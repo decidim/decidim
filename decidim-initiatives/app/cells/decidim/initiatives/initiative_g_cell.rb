@@ -11,10 +11,6 @@ module Decidim
         Decidim::Initiatives::Engine.routes.url_helpers.initiative_path(model)
       end
 
-      def has_image?
-        image.present?
-      end
-
       def image
         @image ||= model.attachments.find(&:image?)
       end

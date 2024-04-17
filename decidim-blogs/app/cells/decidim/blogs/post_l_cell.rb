@@ -9,10 +9,6 @@ module Decidim
 
       private
 
-      def has_image?
-        true
-      end
-
       def has_description?
         true
       end

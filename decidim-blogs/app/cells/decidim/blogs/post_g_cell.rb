@@ -9,10 +9,6 @@ module Decidim
 
       private
 
-      def has_image?
-        resource_image_url.present?
-      end
-
       def show_description?
         true
       end
