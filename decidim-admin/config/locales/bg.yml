@@ -114,15 +114,22 @@ bg:
         title: Заглавие
   decidim:
     admin:
+      conflicts:
+        transfer:
+          error: Възникна проблем при прехвърлянето на текущия участник към управляван участник.
       domain_whitelist:
         update:
           error: Неуспешно актуализиране на белия списък на домейни.
           success: Белият списък на домейни е актуализиран успешно.
       filters:
+        search_placeholder:
+          user_name_or_user_email_cont: Търси в %{collection} по име или имейл.
         state_eq:
           label: Състояние
           values:
             rejected: Отхвърлен
+      menu:
+        manage: Управление
       organization_appearance:
         form:
           colors:
