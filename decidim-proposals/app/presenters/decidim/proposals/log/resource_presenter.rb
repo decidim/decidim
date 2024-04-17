@@ -11,7 +11,7 @@ module Decidim
         # Returns an HTML-safe String.
         def present_resource_name
           if resource.present?
-            Decidim::Proposals::ProposalPresenter.new(resource).title
+            resource.presenter.title(html_escape: true)
           else
             super
           end

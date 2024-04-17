@@ -10,7 +10,11 @@ module Decidim
         #
         # Returns an HTML-safe String.
         def present_resource_name
-          Decidim::Meetings::MeetingPresenter.new(resource).title
+          if resource.present?
+            resource.presenter.title(html_escape: true)
+          else
+            super
+          end
         end
       end
     end

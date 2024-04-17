@@ -10,7 +10,7 @@ module Decidim
         #
         # Returns an HTML-safe String.
         def present_resource_name
-          Decidim::Debates::DebatePresenter.new(resource).title
+          Decidim::Debates::DebatePresenter.new(resource).title(html_escape: true)
         end
       end
     end

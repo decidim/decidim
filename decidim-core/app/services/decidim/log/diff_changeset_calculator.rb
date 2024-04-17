@@ -86,7 +86,7 @@ module Decidim
         locales.flat_map do |locale|
           previous_value = values.first.try(:[], locale)
           new_value = values.last.try(:[], locale)
-          if previous_value == new_value
+          if previous_value == new_value || (previous_value.nil? && new_value.blank?)
             nil
           else
             label = generate_label(attribute, locale)
