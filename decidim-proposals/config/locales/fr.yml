@@ -32,6 +32,17 @@ fr:
         execution_period: Période d'exécution
       proposal_state:
         announcement_title: En-tête de réponse
+        bg_color: Couleur d'arrière-plan
+        colors:
+          blue: Bleu
+          gray: Gris
+          green: Vert
+          orange: Orange
+          pink: Rose
+          purple: Violet
+          red: Rouge
+          yellow: Jaune
+        text_color: Couleur du texte
       proposals_copy:
         copy_proposals: Je comprends que cela importera toutes les propositions de la fonctionnalité sélectionnée dans la fonctionnalité actuelle et que cette action ne peut être annulée.
         origin_component_id: Fonctionnalité dont on veut copier les propositions
@@ -474,6 +485,8 @@ fr:
           edit:
             title: Modifier l'état
             update: Mettre à jour
+          form:
+            preview: Aperçu
           index:
             title: États
           new:

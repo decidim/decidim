@@ -396,11 +396,7 @@ eu:
       show:
         assembly_type: Batzar mota
         duration: Iraupena
-        is_transparent:
-          'false': opakua
-          'true': gardena
         private_space: Hau batzar pribatua da
-        related_participatory_processes: Erlazionatutako prozesu parte-hartzaileak
         social_networks_title: 'Bisitatu batzarra:'
     assembly_members:
       assembly_member:

@@ -1438,6 +1438,8 @@ ja:
         close_modal: ウィンドウを閉じる
         ok: OK
         title: 確定
+      embed:
+        title: 埋め込み動画コンテンツ
       extended_navigation_bar:
         more: もっと見る
         unfold: 展開する
@@ -2028,6 +2030,7 @@ ja:
       long_with_particles: "%Y年%m月%d日 %H:%M"
       short: "%Y/%m/%d %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%Y-%m-%d %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: 削除

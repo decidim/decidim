@@ -1018,11 +1018,13 @@ ro:
           register: Inregistrare
         hero:
           participate: Participă
+          participate_title: Participă la procesele platformei
           welcome: Bine ai venit la %{organization}!
         statistics:
           headline: Starea curentă a %{organization}
         sub_hero:
           register: Inregistrare
+          register_title: Înregistrează-te pentru a crea un cont
       index:
         standalone_pages: Pagini
         subheading: Navigați prin paginile de ajutor ale %{name}

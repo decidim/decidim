@@ -32,6 +32,17 @@ ja:
         execution_period: 実行期間
       proposal_state:
         announcement_title: 回答の見出し
+        bg_color: 背景色
+        colors:
+          blue: 青
+          gray: グレー
+          green: 緑
+          orange: オレンジ
+          pink: ピンク
+          purple: 紫
+          red: 赤
+          yellow: 黄
+        text_color: テキストの色
       proposals_copy:
         copy_proposals: この操作は選択したコンポーネントにあるすべての提案を現在のコンポーネントにインポートし、元に戻せないことを理解しています。
         origin_component_id: 提案をコピーするコンポーネント
@@ -468,6 +479,8 @@ ja:
           edit:
             title: ステータスの編集
             update: 更新
+          form:
+            preview: プレビュー
           index:
             title: ステータス
           new:

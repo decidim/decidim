@@ -205,11 +205,7 @@ is-IS:
       show:
         assembly_type: Samsetning gerð
         duration: Lengd
-        is_transparent:
-          'false': ógagnsæ
-          'true': gagnsæ
         private_space: Þetta er einkasamkoma
-        related_participatory_processes: Svipaðir þátttakandi ferli
     assembly_members:
       index:
         title: Meðlimir

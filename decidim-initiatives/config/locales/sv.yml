@@ -73,6 +73,7 @@ sv:
   decidim:
     admin:
       actions:
+        manage: Hantera
         new_initiative_type: Ny initiativtyp
       filters:
         initiatives:
@@ -363,6 +364,7 @@ sv:
         committee_members:
           approve: Godkänn
           link: Länk
+          revoke: Återkalla
           title: Kommittémedlemmar
         count:
           title:

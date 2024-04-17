@@ -21,6 +21,7 @@ it:
       timeline_entry:
         description: Descrizione
         entry_date: Data
+        title: Titolo
     models:
       decidim/accountability/proposal_linked_event: Proposta inclusa in un risultato
       decidim/accountability/result_progress_updated_event: Avanzamento dei risultati aggiornato
@@ -37,6 +38,8 @@ it:
         confirm_destroy: Sei sicuro di voler eliminare questo %{name}?
         destroy: Cancella
         edit: Modifica
+        import: Importa progetti da un'altro componenete
+        new_result: Nuovo risultato
         preview: Anteprima
         timeline_entries: Evoluzione del progetto
         title: Azioni
@@ -61,6 +64,8 @@ it:
           new:
             create: Crea un risultato
             title: Nuovo risultato
+          update:
+            success: Risultati aggiornati con successo
         shared:
           subnav:
             statuses: Stati
@@ -120,6 +125,7 @@ it:
         timeline_entry:
           fields:
             entry_date: Data
+            title: Titolo
       results:
         count:
           results_count:

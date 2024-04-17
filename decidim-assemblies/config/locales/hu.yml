@@ -385,11 +385,7 @@ hu:
       show:
         assembly_type: Gyűlés típusa
         duration: Időtartam
-        is_transparent:
-          'false': áttetsző
-          'true': átlátszó
         private_space: Ez egy privát gyűlés
-        related_participatory_processes: Kapcsolódó részvételi folyamatok
         social_networks_title: Látogasd meg a gyűlést itt
     assembly_members:
       assembly_member:

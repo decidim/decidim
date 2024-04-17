@@ -59,6 +59,7 @@ el:
   decidim:
     admin:
       actions:
+        manage: Διαχείριση
         new_initiative_type: Νέος τύπος πρωτοβουλίας
       filters:
         search_placeholder:
