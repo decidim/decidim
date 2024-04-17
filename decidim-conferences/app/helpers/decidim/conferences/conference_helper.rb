@@ -5,6 +5,7 @@ module Decidim
   module Conferences
     module ConferenceHelper
       include PaginateHelper
+      include Decidim::AttachmentsHelper
 
       # Renders the dates of a conference
       #
