@@ -228,15 +228,7 @@ sq:
           search: Kërko për veprime
         show:
           stats:
-            attendees: Të pranishëm
             back_to_resource: Kthehu mbrapsht tek rezultati
-            comments: Komente
-            contributions: Kontributet
-            last_edited_by: Së fundi edituar nga
-            last_updated_at: Përditësimi i fundit në
-            meetings: Mbledhjet
-            proposals: Propozimet
-            votes: Mbështetjet
         timeline:
           title: Evoluimi i projektit
     admin:
