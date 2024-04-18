@@ -52,7 +52,7 @@ module Decidim
           @tile_image_content ||= File.read(Decidim::Dev.asset("icon.png"))
         end
 
-        def serve_maptiles(_request, _tileprops)
+        def serve_maptiles(_request, _properties)
           [200, { "Content-Type" => "image/png" }, [tile_image_content]]
         end
 

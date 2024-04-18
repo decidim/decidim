@@ -32,7 +32,7 @@ module Decidim
 
         require "decidim/dev/test/map_server"
 
-        # Add the test app server as the first middleware in the stack
+        # Add the test map server as the first middleware in the stack
         app.config.middleware.insert_before 0, Decidim::Dev::Test::MapServer
       end
 
