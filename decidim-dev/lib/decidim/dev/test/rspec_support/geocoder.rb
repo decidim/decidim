@@ -29,6 +29,11 @@ module GeocoderHelpers
     Decidim.maps = {
       provider: :test,
       api_key: "1234123412341234",
+      dynamic: {
+        tile_layer: {
+          url: "/maptiles/{z}/{x}/{y}.png"
+        }
+      },
       static: { url: "https://www.example.org/my_static_map" },
       autocomplete: { url: "/photon_api" } # Locally drawn route for the tests
     }
@@ -105,6 +110,21 @@ RSpec.configure do |config|
   config.before(:each, :serves_map) do
     stub_request(:get, %r{https://www\.example\.org/my_static_map})
       .to_return(body: "map_data")
+
+    # The map tiles are requested through JavaScript which means mocking the
+    # tiles requests would not work as the request is initiated through
+    # JavaScript. Therefore, the map tiles have to be served through the
+    # application itself.
+    Rails.application.routes.disable_clear_and_finalize = true
+    Rails.application.routes.draw do
+      get "maptiles/:z/:x/:y.png", to: ->(_) { [200, { "Content-Type" => "image/png" }, [""]] }
+    end
+    Rails.application.routes.disable_clear_and_finalize = false
+  end
+
+  config.after(:each, :serves_map) do
+    # Reset the routes back to original
+    Rails.application.reload_routes!
   end
 
   config.before(:each, :serves_geocoding_autocomplete) do
