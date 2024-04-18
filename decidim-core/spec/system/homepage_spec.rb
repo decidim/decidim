@@ -152,9 +152,9 @@ describe "Homepage" do
       end
 
       context "when there are static pages" do
-        let!(:static_page1) { create(:static_page, organization: true) }
-        let!(:static_page2) { create(:static_page, organization: true) }
-        let!(:static_page3) { create(:static_page, organization:, show_in_footer: false) }
+        let!(:static_page1) { create(:static_page) }
+        let!(:static_page2) { create(:static_page) }
+        let!(:static_page3) { create(:static_page) }
 
         before do
           visit current_path
@@ -192,8 +192,8 @@ describe "Homepage" do
             )
           end
           let(:user) { nil }
-          let!(:static_page1) { create(:static_page, organization: true, allow_public_access: true) }
-          let!(:static_page_topic1) { create(:static_page_topic, organization: true) }
+          let!(:static_page1) { create(:static_page, allow_public_access: true) }
+          let!(:static_page_topic1) { create(:static_page_topic) }
           let!(:static_page_topic1_page1) do
             create(
               :static_page,
@@ -212,10 +212,10 @@ describe "Homepage" do
               allow_public_access: true
             )
           end
-          let!(:static_page_topic2) { create(:static_page_topic, organization: true) }
+          let!(:static_page_topic2) { create(:static_page_topic) }
           let!(:static_page_topic2_page1) { create(:static_page, organization:, topic: static_page_topic2, weight: 0) }
           let!(:static_page_topic2_page2) { create(:static_page, organization:, topic: static_page_topic2, weight: 1) }
-          let!(:static_page_topic3) { create(:static_page_topic, organization: true) }
+          let!(:static_page_topic3) { create(:static_page_topic) }
           let!(:static_page_topic3_page1) { create(:static_page, organization:, topic: static_page_topic3) }
 
           # Re-visit required for the added pages and topics to be visible and
