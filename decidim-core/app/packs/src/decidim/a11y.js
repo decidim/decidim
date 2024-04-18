@@ -188,6 +188,10 @@ const createDialog = (component) => {
  * @return {void}
  */
 const announceForScreenReader = (message, mode = "assertive") => {
+  if (!message || typeof message !== "string" || message.length < 1) {
+    return;
+  }
+
   let element = document.getElementById("screen-reader-announcement");
   if (!element) {
     element = document.createElement("div");
