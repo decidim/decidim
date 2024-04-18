@@ -541,7 +541,6 @@ ca:
           other: " signatures"
         vote_cabin:
           already_voted: Ja has signat
-          supports_required: "Es requereixen %{total_supports} signatures"
           verification_required: Verifica el teu compte per a signar la iniciativa
           vote: Signar
           votes_blocked: S'ha desactivat la signatura
