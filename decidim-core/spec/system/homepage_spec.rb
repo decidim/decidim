@@ -152,9 +152,9 @@ describe "Homepage" do
       end
 
       context "when there are static pages" do
-        let!(:static_page1) { create(:static_page) }
-        let!(:static_page2) { create(:static_page) }
-        let!(:static_page3) { create(:static_page) }
+        let!(:static_page1) { create(:static_page, organization:) }
+        let!(:static_page2) { create(:static_page, organization:) }
+        let!(:static_page3) { create(:static_page, organization:) }
 
         before do
           visit current_path
@@ -192,8 +192,8 @@ describe "Homepage" do
             )
           end
           let(:user) { nil }
-          let!(:static_page1) { create(:static_page, allow_public_access: true) }
-          let!(:static_page_topic1) { create(:static_page_topic) }
+          let!(:static_page1) { create(:static_page, organization:, allow_public_access: true) }
+          let!(:static_page_topic1) { create(:static_page_topic, organization:) }
           let!(:static_page_topic1_page1) do
             create(
               :static_page,
