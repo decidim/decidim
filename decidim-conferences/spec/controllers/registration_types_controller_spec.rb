@@ -21,7 +21,6 @@ module Decidim
       let!(:registration_types) do
         create_list(:registration_type, registration_types_count, conference:)
       end
-      let(:registration_type) { registration_types.first }
 
       before do
         request.env["decidim.current_organization"] = organization
@@ -36,7 +35,8 @@ module Decidim
         end
 
         context "when registration_types is empty" do
-          let(:registration_types) { nil }
+          let(:registration_types) { [] }
+
           context "and current_participatory_space registrations is enabled" do
             it "does raise an error" do
               expect { get :index, params: { conference_slug: conference.slug } }
