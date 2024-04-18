@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class AddDisplayConditionsForOtherQuestionsCounterCacheToQuestions < ActiveRecord::Migration[6.1]
   def change
     add_column :decidim_forms_questions, :display_conditions_for_other_questions_count, :integer, null: false, default: 0
