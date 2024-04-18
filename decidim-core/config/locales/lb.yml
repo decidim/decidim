@@ -875,6 +875,7 @@ lb:
           headline: Aktuellen Stand vun %{organization}
         sub_hero:
           register: Registréieren
+          register_title: Registrieren
       index:
         standalone_pages: Säiten
         subheading: Duerch d'Hëllefs-Säiten vun %{name} navigéieren

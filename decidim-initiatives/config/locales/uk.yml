@@ -39,6 +39,7 @@ uk:
   decidim:
     admin:
       actions:
+        manage: Керувати
         new_initiative_type: Додати різновид почину
       menu:
         components: Складові

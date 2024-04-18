@@ -1150,6 +1150,7 @@ pt-BR:
           headline: Estado atual de %{organization}
         sub_hero:
           register: Registrar-se
+          register_title: Cadastre-se para criar uma conta
       index:
         standalone_pages: Páginas
         subheading: Navegue pelas páginas de ajuda de %{name}

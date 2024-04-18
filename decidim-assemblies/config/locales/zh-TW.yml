@@ -336,11 +336,7 @@ zh-TW:
       show:
         assembly_type: 大會類型
         duration: 持續時間
-        is_transparent:
-          'false': 不透明
-          'true': 透明
         private_space: 這是一個私人大會
-        related_participatory_processes: 相關參與過程
         social_networks_title: 訪問大會
     assembly_members:
       assembly_member:

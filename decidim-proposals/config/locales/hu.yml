@@ -19,6 +19,7 @@ hu:
         category_id: Kategória
         decidim_scope_id: Hatáskör
         has_address: Van lakcíme
+        scope_id: Hatáskör
         state: Állapot
         suggested_hashtags: Javasolt hashtagek
         title: Cím

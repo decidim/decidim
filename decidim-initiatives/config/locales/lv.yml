@@ -61,6 +61,7 @@ lv:
   decidim:
     admin:
       actions:
+        manage: Pārvaldīt
         new_initiative_type: Jauns iniciatīvas veids
       filters:
         search_placeholder:

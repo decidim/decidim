@@ -113,6 +113,11 @@ bg:
         title: Заглавие
   decidim:
     admin:
+      filters:
+        state_eq:
+          label: Състояние
+          values:
+            rejected: Отхвърлен
       organization_appearance:
         form:
           colors:

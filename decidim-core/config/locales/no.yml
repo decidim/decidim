@@ -898,6 +898,7 @@
           headline: Nåværende status for %{organization}
         sub_hero:
           register: Registrer deg
+          register_title: Registrer deg for å opprette en konto
       index:
         standalone_pages: Sider
         subheading: Naviger gjennom hjelpesidene til %{name}

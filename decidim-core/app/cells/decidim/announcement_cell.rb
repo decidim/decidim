@@ -39,6 +39,12 @@ module Decidim
       has_title? ? clean_body : clean_announcement
     end
 
+    def css_styles
+      return unless options[:callout_styles]
+
+      options[:callout_styles]
+    end
+
     def css_class
       return unless options[:callout_class]
 
