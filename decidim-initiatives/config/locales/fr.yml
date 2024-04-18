@@ -541,7 +541,6 @@ fr:
           other: " signatures"
         vote_cabin:
           already_voted: Déjà signée
-          supports_required: "%{total_supports} signatures requises"
           verification_required: Vérifiez votre compte pour signer la pétition
           vote: Signer
           votes_blocked: Signatures désactivées
