@@ -179,7 +179,7 @@ const createDialog = (component) => {
 /**
  * Announces a message to the screen reader dynamically.
  *
- * This should not be called concecutively multiple times because the screen
+ * This should not be called consecutively multiple times because the screen
  * reader may not read all the messages if the content is changed quickly.
  *
  * @param {String} message The message to be announced
