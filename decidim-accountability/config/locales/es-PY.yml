@@ -234,15 +234,7 @@ es-PY:
           search: Buscar actuaciones
         show:
           stats:
-            attendees: Asistentes
             back_to_resource: Volver al resultado
-            comments: Comentarios
-            contributions: Aportes
-            last_edited_by: Última edición por
-            last_updated_at: Última actualización en
-            meetings: Lista de encuentros
-            proposals: Propuestas
-            votes: Soportes
         timeline:
           title: Evolución del proyecto
     admin:
