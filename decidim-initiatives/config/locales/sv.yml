@@ -427,7 +427,6 @@ sv:
           other: " underskrifter"
         vote_cabin:
           already_voted: Redan undertecknad
-          supports_required: "%{total_supports} underskrifter krävs"
           verification_required: Verifiera ditt konto för att skriva under initiativet
           vote: Signera
           votes_blocked: Underskrifter är avaktiverade
