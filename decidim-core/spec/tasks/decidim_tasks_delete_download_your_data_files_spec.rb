@@ -30,9 +30,9 @@ describe "rake decidim:delete_download_your_data_files", type: :task do
     end
 
     it "runs gracefully" do
-      expect(download_your_data_attachments.count).to be_positive
+      expect(download_your_data_attachments.size).to be_positive
       expect { task.execute }.not_to raise_error
-      expect(download_your_data_attachments.count).to be_zero
+      expect(download_your_data_attachments.size).to be_zero
     end
   end
 

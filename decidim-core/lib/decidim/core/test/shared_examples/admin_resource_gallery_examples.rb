@@ -74,10 +74,10 @@ shared_examples "admin manages resource gallery" do
       let(:current_photos) { [image1] }
 
       it "to decrease the number of photos in the gallery" do
-        expect(resource.attachments.count).to eq(2)
+        expect(resource.attachments.size).to eq(2)
         expect(resource.photos.count).to eq(2)
         expect { command.call }.to change(Decidim::Attachment, :count).by(-1)
-        expect(resource.attachments.count).to eq(1)
+        expect(resource.attachments.size).to eq(1)
         expect(resource.photos.count).to eq(1)
       end
     end

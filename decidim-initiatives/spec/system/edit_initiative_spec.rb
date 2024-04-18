@@ -63,7 +63,7 @@ describe "Edit initiative" do
 
       expect(page).to have_content "Edit Initiative"
 
-      expect(initiative.reload.attachments.count).to eq(0)
+      expect(initiative.reload.attachments.size).to eq(0)
 
       dynamically_attach_file(:initiative_documents, Decidim::Dev.asset("Exampledocument.pdf"))
       dynamically_attach_file(:initiative_photos, Decidim::Dev.asset("avatar.jpg"))
@@ -74,7 +74,7 @@ describe "Edit initiative" do
 
       expect(initiative.reload.documents.count).to eq(1)
       expect(initiative.photos.count).to eq(1)
-      expect(initiative.attachments.count).to eq(2)
+      expect(initiative.attachments.size).to eq(2)
     end
 
     context "when initiative is published" do
