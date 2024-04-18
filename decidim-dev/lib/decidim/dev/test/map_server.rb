@@ -6,7 +6,7 @@ module Decidim
       # The test map server serves all map related requests for the app.
       #
       # Works as a rack middleware that is mounted to the Rails app during
-      # tests (at the decidim-dev module's config/initializers).
+      # tests (at the decidim-dev module's engine).
       class MapServer
         def self.host
           "http://#{hostname}:#{Capybara.server_port}"
