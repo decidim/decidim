@@ -425,7 +425,7 @@ describe "Explore meetings", :slow do
     end
   end
 
-  describe "show", :serves_map do
+  describe "show" do
     let(:meetings_count) { 1 }
     let(:meeting) { meetings.first }
     let(:date) { 10.days.from_now }
