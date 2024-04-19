@@ -199,6 +199,9 @@ bg:
         user:
           fields:
             last_sign_in_at: Дата на последно влизане
+      newsletters:
+        send:
+          no_recipients: Няма получатели за тази селекция
       organization_appearance:
         form:
           colors:
