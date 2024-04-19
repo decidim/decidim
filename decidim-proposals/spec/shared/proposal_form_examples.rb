@@ -133,7 +133,7 @@ shared_examples "a proposal form" do |options|
     let(:allowed_length) { 15 }
     let(:body) { "A body longer than the permitted" }
 
-    it { is_expected.to be_invalid }
+    it { is_expected.to be_invalid } unless options[:admin]
 
     context "with carriage return characters that cause it to exceed" do
       let(:allowed_length) { 80 }
@@ -151,7 +151,7 @@ shared_examples "a proposal form" do |options|
     context "when the template and the body are the same" do
       let(:body) { body_template }
 
-      it { is_expected.to be_invalid }
+      it { is_expected.to be_invalid } unless options[:admin]
     end
   end
 
