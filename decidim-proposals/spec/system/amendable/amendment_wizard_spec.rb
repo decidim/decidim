@@ -91,18 +91,6 @@ describe "Amendment Wizard" do
           end
         end
       end
-
-      context "when the Modify link is clicked" do
-        before do
-          click_on "Modify"
-        end
-      end
-
-      context "when the back button is clicked" do
-        before do
-          click_on "Back"
-        end
-      end
     end
   end
 

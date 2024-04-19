@@ -2,7 +2,7 @@
 
 namespace :decidim do
   namespace :upgrade do
-    desc "Fix wrongly mapped short links components"
+    desc "Fixes wrongly mapped short links components"
     task fix_short_urls: :environment do
       logger = Logger.new($stdout)
       logger.info("Fixing wrongly mapped short links...")

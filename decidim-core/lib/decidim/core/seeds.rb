@@ -166,16 +166,19 @@ module Decidim
       end
 
       def create_scope!(scope_type:, parent:)
-        n = rand(3)
-        code = parent.nil? ? "#{::Faker::Address.country_code}_#{n}" : "#{parent.code}-#{::Faker::Address.unique.state_abbr}"
+        n = rand(99_999)
+        code = parent.nil? ? "#{::Faker::Address.country_code}_#{n}" : "#{parent.code}-#{::Faker::Address.postcode}_#{n}"
+        name = [::Faker::Address.state, ::Faker::Address.city].sample
 
         Decidim::Scope.create!(
-          name: Decidim::Faker::Localized.literal(::Faker::Address.unique.state),
+          name: Decidim::Faker::Localized.literal(name),
           code:,
           scope_type:,
           organization:,
           parent:
         )
+      rescue ActiveRecord::RecordInvalid
+        retry
       end
 
       def create_area_type!(name:, plural:)

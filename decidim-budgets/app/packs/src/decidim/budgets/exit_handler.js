@@ -68,7 +68,7 @@ $(() => {
     }
 
     $exitLink.attr("href", url);
-    $exitLink.html(exitLinkText);
+    $exitLink.text(exitLinkText);
     window.Decidim.currentDialogs["exit-notification"].open();
   };
 

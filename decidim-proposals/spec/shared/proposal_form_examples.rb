@@ -20,6 +20,7 @@ shared_examples "a proposal form" do |options|
       { en: "Everything would be better" }
     end
   end
+  let(:body_template) { nil }
   let(:author) { create(:user, organization:) }
   let(:user_group) { create(:user_group, :verified, users: [author], organization:) }
   let(:user_group_id) { user_group.id }
@@ -39,6 +40,7 @@ shared_examples "a proposal form" do |options|
     {
       title:,
       body:,
+      body_template:,
       author:,
       category_id:,
       scope_id:,
