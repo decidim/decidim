@@ -128,15 +128,24 @@ describe "Conference registrations" do
       end
     end
 
-    context "and there is no registrations types" do
-      let!(:registration_types) { [] }
-
+    context "and there is registrations types" do
       it "allows to register" do
         visit_conference
         within ".conference__hero" do
           expect(page).to have_content "Register"
           click_on "Register"
-          expect(page).to have_content "CHOOSE YOUR REGISTRATION OPTION:"
+        end
+        expect(page).to have_content "CHOOSE YOUR REGISTRATION OPTION:"
+      end
+    end
+
+    context "and there is no registrations types" do
+      let(:registration_types) { [] }
+
+      it "does not show register button" do
+        visit_conference
+        within ".conference__hero" do
+          expect(page).to have_no_content "Register"
         end
       end
     end
