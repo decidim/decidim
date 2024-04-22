@@ -11,7 +11,6 @@ describe "ExternalDomainWarning" do
   before do
     switch_to_host(organization.host)
     visit decidim.root_path
-
   end
 
   after do
