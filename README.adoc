@@ -18,7 +18,7 @@
 :uri-producing-oss-license: http://producingoss.com/en/governments-and-open-source.html#starting-open-for-govs
 :uri-propose-new-features: https://meta.decidim.org/processes/roadmap
 :uri-releases: https://github.com/decidim/decidim/releases
-:uri-roadmap: https://github.com/decidim/decidim/projects/16
+:uri-roadmap: https://github.com/orgs/decidim/projects/22/views/1
 :uri-security: https://github.com/decidim/decidim/blob/develop/SECURITY.md
 :uri-social-contract: http://www.decidim.org/contract/
 :uri-website: https://decidim.org
