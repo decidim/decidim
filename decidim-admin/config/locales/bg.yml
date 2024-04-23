@@ -136,3 +136,6 @@ bg:
             colors_title: Цветове на организацията
           images:
             layout_appearance_title: Редактиране външния вид шаблона
+      organization_external_domain_whitelist:
+        form:
+          add: Добави към белия списък
