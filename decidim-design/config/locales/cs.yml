@@ -36,6 +36,8 @@ cs:
           usage_description: Dialog vyžaduje dva prvky
           usage_description_2_html: 2. Modální prvek, jehož <code>id</code> odpovídá hodnotě data-target, ke které se spouštěč vztahuje.
         forms:
+          disabled: Zakázáno
+          emojis: Emoji
           min_max_length: Min/Max délka
           textarea_required: je vyžadováno textové pole
           title: Formuláře
