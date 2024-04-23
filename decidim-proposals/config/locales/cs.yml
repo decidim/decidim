@@ -12,6 +12,8 @@ cs:
         state: Stav
         title: Titul
         user_group_id: Vytvořit návrh spolupráce jako
+      import_participatory_text:
+        document: Textový dokument k participaci
       proposal:
         address: Adresa
         answer: Odpovědět
