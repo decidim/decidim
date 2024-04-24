@@ -193,7 +193,7 @@ describe "Homepage" do
           end
           let(:user) { nil }
           let!(:static_page1) { create(:static_page, :with_topic, organization:, allow_public_access: true) }
-          let!(:static_page_topic1) { create(:static_page, :with_topic, organization:, allow_public_access: true ) }
+          let!(:static_page_topic1) { create(:static_page, :with_topic, organization:, allow_public_access: true) }
           let!(:static_page_topic1_page1) do
             create(
               :static_page,
