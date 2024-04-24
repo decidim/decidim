@@ -21,7 +21,7 @@ module Decidim
         aria[:current] = "page"
       end
 
-      content_tag(:li, class: cls.join(" "), aria:) do
+      content_tag(:li, class: cls.join(" "), aria: aria) do
         link_to(text, link, options)
       end
     end
