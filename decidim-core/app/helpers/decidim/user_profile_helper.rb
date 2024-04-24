@@ -14,6 +14,7 @@ module Decidim
     #
     # Returns a String with the menu tab.
     def user_profile_tab(text, link, options = {})
+      cls = %w(tabs-title)
       aria = {}
       if is_active_link?(link, (options[:aria_link_type] || :inclusive))
         cls << "is-active"
