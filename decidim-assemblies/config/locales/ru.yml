@@ -261,11 +261,7 @@ ru:
       show:
         assembly_type: Вид собрания
         duration: Длительность
-        is_transparent:
-          'false': непрозрачное
-          'true': прозрачное
         private_space: Это частное собрание
-        related_participatory_processes: Сопутствующие движения соучастия
     assembly_members:
       assembly_member:
         designated_on: 'Полномочия предоставлены:'

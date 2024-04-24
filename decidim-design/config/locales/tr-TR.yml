@@ -2,11 +2,23 @@
 tr:
   decidim:
     design:
+      components:
+        tab_panels:
+          title: Sekmeler
       foundations:
         iconography:
           description_iconography: Eylemlerin, başlıkların vb. anlamlarını güçlendirmek için simgeler kullanırız
           description_iconography_html: 'Remixicon %{iconography_link} açık kaynak kitaplığını kullanıyoruz:'
           title: İkonografi
+      helpers:
+        tab_panels_context_description: Bu sekme bileşeni, dikey alandan tasarruf etmek için görüntülenen ana öğenin tüm ilgili içeriklerini veya diğer kaynaklarını bir araya getirir. Sekmeye tıklamak, içeriği göstermek için oluşturulan paneli etkinleştirecektir.
+        tab_panels_usage_description: 'Bu bileşen bir dizi karma işlem yapar. Her bir öğenin çıktısını bir sekme paneli yapısında yeniden düzenler. Her panel için mevcut özellikler:'
+        tab_panels_usage_description_arguments_html: "<string>args</string>: <i>Dizi</i>. Önceki yönteme ilişkin argümanlar"
+        tab_panels_usage_description_html: "<strong>etkin</strong>: <i>Boolean</i>. Sekmeyi koşullu olarak oluştur"
+        tab_panels_usage_description_id_html: "<strong>id</strong>: <i>String</i>. Benzersiz kimlik"
+        tab_panels_usage_description_rails_html: "<strong>yöntem</strong>: <i>Sembol</i>. Herhangi bir fonksiyonunun anlayabileceği"
+        tab_panels_usage_description_remixicon_html: "<strong>icon</strong>: <i>String</i>. Remiks simgesi tuşu"
+        tab_panels_usage_description_tab_html: "<strong>metin</strong>: <i>Dize</i>. Sekme başlığı\n<strong>text</strong>: <i>String</i>. Sekme başlığı"
       home:
         index:
           by_sharing_principles: Tasarım kararlarının ardındaki ilkeleri, felsefeyi ve mantığı paylaşarak, topluluğun tutarlı bir şekilde katkıda bulunmasını sağlamak ve böylece en iyi katılımcı deneyimine ulaşmak istiyoruz.

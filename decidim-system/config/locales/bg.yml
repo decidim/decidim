@@ -1,4 +1,11 @@
 bg:
+  activemodel:
+    attributes:
+      organization:
+        address: Име на SMTP хост
+        password: Парола
+        port: Порт
+        user_name: Потребителско име
   decidim:
     system:
       actions:

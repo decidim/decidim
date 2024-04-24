@@ -881,3 +881,8 @@ lb:
   errors:
     messages:
       invalid_json: Ungültiger JSON
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Globale Moderationen

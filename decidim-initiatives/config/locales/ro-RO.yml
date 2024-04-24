@@ -75,6 +75,7 @@ ro:
   decidim:
     admin:
       actions:
+        manage: Gestionează
         new_initiative_type: Noul tip de inițiativă
       filters:
         initiatives:
@@ -411,6 +412,7 @@ ro:
             other: și încă %{count} persoane
         committee_members:
           approve: Aprobă
+          revoke: Revocă
           title: Membrii comitetului
         count:
           title:

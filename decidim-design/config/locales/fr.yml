@@ -16,6 +16,17 @@ fr:
           title: Auteur
         buttons:
           title: Boutons
+        forms:
+          emojis: Emojis
+          emojis_description: Fonctionne uniquement pour une zone de texte
+          errors: Erreurs
+          errors_description: Ne s'applique pas à la liste déroulante
+          help_texts: Textes d'aide
+          min_max_length: longueur Min/Max
+          textarea_required: zone de texte requise
+          title: Formulaires
+        report:
+          title: Signaler
       foundations:
         iconography:
           description_iconography: Nous utilisons des icônes pour renforcer la signification des actions, des titres, etc
@@ -42,9 +53,12 @@ fr:
         disabled: Désactivé
         form_elements: Éléments de formulaire
         hex_code: Code hexadécimal
+        html_tips: Astuces HTML
         icons: Icônes
         main_colors: Couleurs principales
         plain_text: Je ne suis que du texte brut
+        report_button: Bouton Signaler
+        report_usage_description: Le bouton Signaler lance une fenêtre modale pour marquer la ressource courante.
         rgba_code:
         send: Envoyer
         sizes: Tailles

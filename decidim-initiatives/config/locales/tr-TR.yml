@@ -346,6 +346,7 @@ tr:
             other: ve %{count} kişi daha
         committee_members:
           approve: Onayla
+          revoke: Geri al
           title: Komite üyeleri
         count:
           title:

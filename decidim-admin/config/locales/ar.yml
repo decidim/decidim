@@ -874,3 +874,8 @@ ar:
   errors:
     messages:
       invalid_json: JSON غير صالح
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: مُشرف عام

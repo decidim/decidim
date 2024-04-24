@@ -1,0 +1,104 @@
+<% content_for :heading do %>
+  <%= t(".title") %>
+<% end %>
+
+<% content_for :description do %>
+  <%= t(".description") %>
+<% end %>
+
+<% content_for :toc do %>
+  <a href="#demo"><%= t(".demo") %></a>
+  <a href="#usage"><%= t(".usage") %></a>
+<% end %>
+
+<section id="demo" class="design__section">
+  <h2><%= t(".demo") %></h2>
+
+  <p><%= t(".demo_description") %></p>
+
+  <table class="design__table">
+    <thead>
+      <th><%= t(".demo") %></th>
+      <th><%= t(".usage") %></th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <%= with_tooltip("Hello world", class: :top) do %>
+            <span>Hover me</span>
+          <% end %>
+        </td>
+        <td>
+          class: :top
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= with_tooltip("Hello world", class: :bottom) do %>
+            <span>Hover me</span>
+          <% end %>
+        </td>
+        <td>
+          class: :bottom
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= with_tooltip("Hello world", class: :left) do %>
+            <span>Hover me</span>
+          <% end %>
+        </td>
+        <td>
+          class: :left
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= with_tooltip("Hello world", class: :right) do %>
+            <span>Hover me</span>
+          <% end %>
+        </td>
+        <td>
+          class: :right
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="usage" class="design__section">
+  <h2><%= t(".usage") %></h2>
+
+  <p><%= t(".usage_p") %></p>
+
+  <p><%= t(".usage_p_1_html") %></p>
+
+  <p><%= t(".usage_p_2_html") %></p>
+
+  <p><%= t(".usage_p_3_html") %></p>
+
+  <div class="design__section-snippet" style="margin-top: inherit;">
+    <% github_link = "https://github.com/decidim/decidim/blob/develop/decidim-core/app/packs/src/decidim/tooltips.js" %>
+    <p><%= t(".github_source_html", github_link: link_to("decidim-core/app/packs/src/decidim/tooltips.js", github_link, target: "_blank", rel: "noopener noreferrer")) %></p>
+
+    <code>
+      <textarea spellcheck="false" rows="16">
+<%%= with_tooltip("Hello world", class: :top) do %>
+  <span>Hover me</span>
+<%% end %>
+
+<%%= with_tooltip("Hello world", class: :bottom) do %>
+  <span>Hover me</span>
+<%% end %>
+
+<%%= with_tooltip("Hello world", class: :right) do %>
+  <span>Hover me</span>
+<%% end %>
+
+<%%= with_tooltip("Hello world", class: :left) do %>
+  <span>Hover me</span>
+<%% end %>
+      </textarea>
+    </code>
+  </div>
+</section>
