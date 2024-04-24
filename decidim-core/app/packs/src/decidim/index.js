@@ -70,6 +70,7 @@ import {
   createAccordion,
   createDialog,
   createDropdown,
+  announceForScreenReader,
   Dialogs
 } from "src/decidim/a11y"
 import changeReportFormBehavior from "src/decidim/change_report_form_behavior"
@@ -83,7 +84,8 @@ window.Decidim = window.Decidim || {
   FormValidator,
   addInputEmoji,
   EmojiButton,
-  Dialogs
+  Dialogs,
+  announceForScreenReader
 };
 
 window.morphdom = morphdom
