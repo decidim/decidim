@@ -91,6 +91,7 @@ bg:
         verify_with_managed_user:
           email_intro: Участникът <a href="%{resource_url}">%{resource_title}</a> се е опитал да се удостовери с данните на друг участник (<a href="%{managed_user_url}">%{managed_user_name}</a>).
           email_outro: Проверете <a href="%{conflicts_url}">Списък с конфликти при верификация</a> и се свържете с участника, за да потвърдите данните му и да разрешите проблема.
+          email_subject: Неуспешен опит за проверка към друг участник
           notification_title: Участникът <a href="%{resource_path}">%{resource_title}</a> се е опитал да се удостовери с данните на друг участник (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
       dummy_authorization:
