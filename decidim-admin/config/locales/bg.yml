@@ -126,3 +126,6 @@ bg:
             colors_title: Цветове на организацията
           images:
             layout_appearance_title: Редактиране външния вид шаблона
+      static_pages:
+        index:
+          last_notable_change: Последна значима промяна
