@@ -20,7 +20,7 @@ module Decidim
     end
 
     def per_page
-      params[:per_page] || Decidim::Paginable::OPTIONS.first
+      params[:per_page].to_i || Decidim::Paginable::OPTIONS.first
     end
   end
 end
