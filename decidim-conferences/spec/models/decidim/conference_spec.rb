@@ -28,5 +28,33 @@ module Decidim
 
       it { is_expected.to be_valid }
     end
+
+    describe "#has_published_registration_types?" do
+      context "when conference has no registration type" do
+        it "returns false" do
+          expect(conference.has_published_registration_types?).to be_falsey
+        end
+      end
+
+      context "when conference has registration types" do
+        let!(:registration_types) do
+          create_list(:registration_type, 5, conference:)
+        end
+
+        it "return true" do
+          expect(conference.has_published_registration_types?).to be_truthy
+        end
+
+        context "and the registration types are unpublished" do
+          let!(:registration_types) do
+            create_list(:registration_type, 5, :unpublished, conference:)
+          end
+
+          it "returns false" do
+            expect(conference.has_published_registration_types?).to be_falsey
+          end
+        end
+      end
+    end
   end
 end
