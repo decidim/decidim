@@ -11,7 +11,7 @@ module Decidim
         end
 
         def space_presenter
-          AssemblyPresenter
+          Decidim::Assemblies::AssemblyPresenter
         end
 
         def translations_scope
