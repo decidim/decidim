@@ -174,9 +174,11 @@ cs:
         disabled: Deaktivován
         dropdowns: Rozbalovací nabídky
         dropdowns_demo_1_description: 'Následující příklad nebude patrný na počítači, ale na mobilu ano:'
+        dropdowns_usage_description: 'Rozevírací nabídka vyžaduje dva prvky:'
         dropdowns_usage_description_html: 1. Uživatelsky proveditelný prvek, s atributy <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
         follow_button: Tlačítko Sledovat
         form_elements: Prvky formuláře
+        generic_cards: Obecné karty
         grid: Mřížka
         hex_code: Hex kód
         highlight: Zvýraznění
