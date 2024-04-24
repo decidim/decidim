@@ -17,7 +17,7 @@ module Decidim
         let(:test_version) { "0.27.0.dev" }
 
         it "returns the develop branch" do
-          expect(subject.edge_git_branch).to eq("deps/rails-7")
+          expect(subject.edge_git_branch).to eq("develop")
         end
       end
 
