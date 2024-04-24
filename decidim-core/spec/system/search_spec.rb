@@ -68,4 +68,21 @@ describe "Search" do
       expect(page).to have_css("#input-search-mobile")
     end
   end
+
+  context "when there is a malformed URL" do
+    let(:participatory_space) { create(:participatory_process, :published, :with_steps, organization:) }
+    let!(:proposal_component) { create(:proposal_component, participatory_space:) }
+    let!(:proposals) { create_list(:proposal, 11, component: proposal_component) }
+
+    before do
+      proposals.each { |s| s.update(published_at: Time.current) }
+    end
+
+    it "displays the results page" do
+      visit %{/search?filter[with_resource_type]=Decidim::Proposals::Proposal&page=2&per_page=10'"()%26%25<zzz><ScRiPt >alert("XSS")</ScRiPt>}
+
+      expect(page).to have_content("22 Results for the search")
+      expect(page).to have_content("Results per page")
+    end
+  end
 end
