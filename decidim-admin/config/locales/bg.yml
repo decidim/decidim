@@ -139,3 +139,9 @@ bg:
       organization_external_domain_whitelist:
         form:
           add: Добави към белия списък
+          title: Бял списък с външни домейни
+      static_pages:
+        index:
+          last_notable_change: Последна значима промяна
+      titles:
+        edit_external_domains: Бял списък с външни домейни
