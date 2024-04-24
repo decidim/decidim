@@ -32,7 +32,7 @@ module Decidim
     describe "#has_published_registration_types?" do
       context "when conference has no registration type" do
         it "returns false" do
-          expect(conference.has_published_registration_types?).to be_falsey
+          expect(conference).not_to have_published_registration_types
         end
       end
 
@@ -42,7 +42,7 @@ module Decidim
         end
 
         it "return true" do
-          expect(conference.has_published_registration_types?).to be_truthy
+          expect(conference).to have_published_registration_types
         end
 
         context "and the registration types are unpublished" do
@@ -51,7 +51,7 @@ module Decidim
           end
 
           it "returns false" do
-            expect(conference.has_published_registration_types?).to be_falsey
+            expect(conference).not_to have_published_registration_types
           end
         end
       end
