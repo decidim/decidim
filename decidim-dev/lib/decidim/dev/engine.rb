@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/dev/needs_development_tools"
+
 module Decidim
   module Dev
     # Decidim's development Rails Engine.
