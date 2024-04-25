@@ -95,8 +95,13 @@ bg:
           notification_title: Участникът <a href="%{resource_path}">%{resource_title}</a> се е опитал да се удостовери с данните на друг участник (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
       authorizations:
+        authorization_metadata:
+          info: 'Това са данните от текущото потвърждение:'
+          no_data_stored: Няма съхранени данни.
         create:
+          error: Възникна проблем при създаването на оторизацията.
           success: Успешно се удостоверихте.
+          unconfirmed: Трябва да потвърдите имейла си, с оглед на Вашата оторизация.
         destroy:
           success: Успешно изтрихте удостоверяването.
         index:
