@@ -38,7 +38,7 @@ module Decidim
         update_traceability!(component:)
 
         create_report!(reportable: Decidim::Proposals::Proposal.take, current_user: Decidim::User.take)
-        hide_report!(reportable: Decidim::Proposals::Proposal.take, current_user: Decidim::User.take)
+        hide_report!(reportable: Decidim::Proposals::Proposal.take)
       end
 
       def organization

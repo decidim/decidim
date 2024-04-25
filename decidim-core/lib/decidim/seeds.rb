@@ -115,14 +115,14 @@ module Decidim
         user: current_user,
         locale: I18n.locale,
         reason: "spam",
-        details: "From the seeds",
+        details: "From the seeds"
       )
     rescue ActiveRecord::RecordInvalid
       # Ignore in case we have an error in the report creation.
       # Most likely is a "Validation failed: User has already been taken"
     end
 
-    def hide_report!(reportable:, current_user:)
+    def hide_report!(reportable:)
       moderation = Moderation.find_or_create_by!(reportable:, participatory_space: reportable.participatory_space)
       moderation.update!(hidden_at: Time.zone.now)
     end
@@ -131,7 +131,7 @@ module Decidim
       moderation = UserModeration.find_or_create_by!(user: reportable)
 
       UserReport.create!(
-        moderation: moderation,
+        moderation:,
         user: current_user,
         reason: "spam",
         details: "From the seeds"
