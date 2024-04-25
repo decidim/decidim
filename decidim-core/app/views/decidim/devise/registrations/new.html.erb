@@ -60,7 +60,7 @@
 
         <div class="card" id="card__tos">
           <div class="card__content">
-            <h3><%= t(".tos_title") %></h3>
+            <h2><%= t(".tos_title") %></h2>
 
             <p class="tos-text">
               <%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %>
@@ -74,7 +74,7 @@
 
         <div class="card" id="card__newsletter">
           <div class="card__content">
-            <h3><%= t(".newsletter_title") %></h3>
+            <h2><%= t(".newsletter_title") %></h2>
               <div class="field">
                 <%= f.check_box :newsletter, label: t(".newsletter"), checked: @form.newsletter %>
               </div>
