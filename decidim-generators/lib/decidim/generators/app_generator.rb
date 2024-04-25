@@ -98,6 +98,28 @@ module Decidim
         []
       end
 
+      def remove_old_assets
+        remove_file "config/initializers/assets.rb"
+        remove_dir("app/assets")
+        remove_dir("app/javascript")
+      end
+
+      def remove_sprockets_requirement
+        gsub_file "config/application.rb", %r{require ['"]rails/all['"]\R}, <<~RUBY
+          require "decidim/rails"
+
+          # Add the frameworks used by your app that are not loaded by Decidim.
+          # require "action_mailbox/engine"
+          # require "action_text/engine"
+          require "action_cable/engine"
+          require "rails/test_unit/railtie"
+        RUBY
+
+        gsub_file "config/environments/development.rb", /config\.assets.*$/, ""
+        gsub_file "config/environments/test.rb", /config\.assets.*$/, ""
+        gsub_file "config/environments/production.rb", /config\.assets.*$/, ""
+      end
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
@@ -223,10 +245,10 @@ module Decidim
         end
       end
 
-      def tweak_spring
-        return unless File.exist?("config/spring.rb")
-
-        prepend_to_file "config/spring.rb", "require \"decidim/spring\"\n\n"
+      def load_defaults_rails61
+        gsub_file "config/application.rb",
+                  /config.load_defaults 7.0/,
+                  "config.load_defaults 6.1"
       end
 
       def tweak_csp_initializer
@@ -299,7 +321,7 @@ module Decidim
                   "config.log_level = %w(debug info warn error fatal).include?(ENV['RAILS_LOG_LEVEL']) ? ENV['RAILS_LOG_LEVEL'] : :info"
 
         gsub_file "config/environments/production.rb",
-                  %r{# config.asset_host = 'http://assets.example.com'},
+                  %r{# config.asset_host = "http://assets.example.com"},
                   "config.asset_host = ENV['RAILS_ASSET_HOST'] if ENV['RAILS_ASSET_HOST'].present?"
 
         if options[:force_ssl] == "false"

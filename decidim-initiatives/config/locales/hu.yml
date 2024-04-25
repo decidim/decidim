@@ -76,6 +76,7 @@ hu:
   decidim:
     admin:
       actions:
+        manage: Kezelés
         new_initiative_type: Új kezdeményezés típusa
       filters:
         initiatives:
@@ -436,6 +437,7 @@ hu:
             other: és még %{count} ember
         committee_members:
           approve: Jóváhagy
+          revoke: Visszavonás
           title: Bizottsági tagok
         count:
           title:

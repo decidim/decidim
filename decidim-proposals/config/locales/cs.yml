@@ -32,6 +32,17 @@ cs:
         execution_period: Období provádění
       proposal_state:
         announcement_title: Hlavička odpovědi
+        bg_color: Barva pozadí
+        colors:
+          blue: Modrá
+          gray: Šedá
+          green: Zelená
+          orange: Oranžová
+          pink: Růžová
+          purple: Fialová
+          red: Červená
+          yellow: Žlutá
+        text_color: Barva textu
       proposals_copy:
         copy_proposals: Rozumím, že tento krok naimportuje všechny návrhy z vybraného prvku do toho současného a že tuto akci nelze vrátit zpět.
         origin_component_id: Komponenta pro kopírování návrhů z
@@ -296,6 +307,14 @@ cs:
         proposal_state_changed:
           affected_user:
             email_intro: 'Návrh "%{resource_title}" změnil svůj stav na "%{state}". Odpověď si můžete přečíst na této stránce:'
+            email_outro: Obdrželi jste toto oznámení, protože jste autorem "%{resource_title}".
+            email_subject: Váš návrh změnil svůj stav (%{state})
+            notification_title: Váš návrh <a href="%{resource_path}">%{resource_title}</a> změnil svůj stav na "%{state}".
+          follower:
+            email_intro: 'Návrh "%{resource_title}" změnil svůj stav na "%{state}". Odpověď si můžete přečíst na této stránce:'
+            email_outro: Toto oznámení jste obdrželi, protože sledujete "%{resource_title}". Můžete sledování odhlásit na předchozím odkazu.
+            email_subject: Návrh, který sledujete, změnil stav (%{state})
+            notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> změnil svůj stav na "%{state}".
         proposal_update_category:
           email_intro: 'Správce aktualizoval kategorii vašeho návrhu "%{resource_title}", podívejte se na něj:'
           email_outro: Toto oznámení jste obdrželi, protože jste autorem návrhu.
@@ -478,6 +497,8 @@ cs:
           edit:
             title: Upravit status
             update: Aktualizovat
+          form:
+            preview: Náhled
           index:
             title: Statusy
           new:

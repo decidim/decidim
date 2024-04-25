@@ -1174,11 +1174,13 @@ zh-TW:
           register: 註冊
         hero:
           participate: 參與
+          participate_title: 參與平台的流程
           welcome: 歡迎來到 %{organization}！
         statistics:
           headline: '%{organization} 的目前狀態'
         sub_hero:
           register: 註冊
+          register_title: 註冊以創建帳戶
       index:
         standalone_pages: 頁
         subheading: 瀏覽 %{name} 的幫助頁面

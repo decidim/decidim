@@ -71,6 +71,7 @@ pl:
   decidim:
     admin:
       actions:
+        manage: Zarządzanie
         new_initiative_type: Nowy typ inicjatywy
       filters:
         initiatives:

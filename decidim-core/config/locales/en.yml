@@ -145,6 +145,7 @@ en:
       external_link: External link
       front_page_link: Go to front page
       logo: "%{organization}'s official logo"
+      opens_in_new_tab: Opens in new tab
       skip_button: Skip to main content
     account:
       blocked: This account has been blocked due to terms of service violation
@@ -2060,6 +2061,7 @@ en:
       long_with_particles: "%B %d, %Y at %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Deletions

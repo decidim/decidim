@@ -437,6 +437,10 @@ ru:
           intro: "%{sender} написал новые сообщения в вашей беседе. Кликните здесь, чтобы посмотреть их:"
           subject: У вас есть новые сообщения от %{sender}
       conversations:
+        index:
+          title: Беседы
+        show:
+          title: Беседа с %{usernames}
         start:
           send: Отправить
     newsletter_mailer:
@@ -490,6 +494,7 @@ ru:
       deleted: Удаленный участник
     profiles:
       show:
+        conversations: Беседы
         followers: Читают
         following: Следит за
       sidebar:

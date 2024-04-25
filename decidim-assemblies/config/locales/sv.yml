@@ -341,11 +341,7 @@ sv:
       show:
         assembly_type: Typ av grupp
         duration: Varaktighet
-        is_transparent:
-          'false': ogenomskinlig
-          'true': transparent
         private_space: Detta är en privat grupp
-        related_participatory_processes: Relaterade dialoger
     assembly_members:
       assembly_member:
         designated_on: Utsedd den

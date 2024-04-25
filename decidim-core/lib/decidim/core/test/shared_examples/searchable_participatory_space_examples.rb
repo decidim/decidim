@@ -125,7 +125,7 @@ shared_examples "global search of participatory spaces" do
     attrs.delete("id")
     attrs.delete("created_at")
     attrs.delete("updated_at")
-    expect(attrs.delete("datetime").to_s(:short)).to eq(space.published_at.to_s(:short))
+    expect(attrs.delete("datetime").to_fs(:short)).to eq(space.published_at.to_fs(:short))
     expect(attrs).to eq(expected_searchable_resource_attrs(space, locale))
   end
 

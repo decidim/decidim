@@ -32,6 +32,17 @@ eu:
         execution_period: Gauzatzeko epea
       proposal_state:
         announcement_title: Erantzunaren goiburua
+        bg_color: Pantailaren atzeko planoaren kolorea
+        colors:
+          blue: Urdina
+          gray: Grisa
+          green: Berdea
+          orange: Laranja
+          pink: Arrosa
+          purple: Morea
+          red: Gorria
+          yellow: Horia
+        text_color: Testuaren kolorea
       proposals_copy:
         copy_proposals: Ulertzen dut honek hautetsiaren proposamen guztiak orainaldiari egotziko dizkiola eta ezin dela ekintza hori atzera bota.
         origin_component_id: Proposamenak kopiatzeko osagaia
@@ -475,6 +486,8 @@ eu:
           edit:
             title: Editatu egoera
             update: Eguneratu
+          form:
+            preview: Aurrebistaratu
           index:
             title: Egoerak
           new:

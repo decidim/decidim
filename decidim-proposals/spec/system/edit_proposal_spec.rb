@@ -213,6 +213,11 @@ describe "Edit proposals" do
         fill_in_geocoding :proposal_address, with: new_address
         expect(page).to have_content("You can move the point on the map.")
 
+        # Give time for the screen reader announcement to be added since there
+        # is a small delay before the message appears.
+        sleep 0.5
+        expect(page).to have_content("Marker added to the map.")
+
         click_on "Send"
         expect(page).to have_content(new_address)
       end

@@ -947,3 +947,8 @@ nl:
   errors:
     messages:
       invalid_json: Ongeldige JSON
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Algemene moderatie
