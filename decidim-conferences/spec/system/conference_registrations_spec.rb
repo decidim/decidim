@@ -143,7 +143,9 @@ describe "Conference registrations" do
     end
 
     context "and there is unpublished registrations types" do
-      let(:registration_types) { :unpublished }
+      let!(:registration_types) do
+        create_list(:registration_type, 5, :unpublished, conference:)
+      end
 
       it "does not show register button" do
         visit_conference
