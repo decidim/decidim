@@ -118,10 +118,18 @@ bg:
           verify_with_these_options: 'Това са възможните опции, с които да потвърдите самоличността си:'
         index:
           expired_verification: Изтекло потвърждение
+          pending_verification: Очаква проверка
+          show_renew_info: Щракнете, за да подновите верификацията
           unauthorized_verification: Ново потвърждение
+        new:
+          authorize: Изпрати
+          authorize_with: Потвърждение чрез %{authorizer}
         renew_modal:
+          cancel: Отмяна
           close: затваряне
+          continue: Продължи
           info_renew: Ако искате да актуализирате данните, продължете с подновяването
+          title: Подновяване на верификацията
       csv_census:
         admin:
           census:
