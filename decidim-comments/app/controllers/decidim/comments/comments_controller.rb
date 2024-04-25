@@ -53,10 +53,11 @@ module Decidim
         form = Decidim::Comments::CommentForm.from_params(
           params.merge(commentable: comment.commentable)
         ).with_context(
+          current_user:,
           current_organization:
         )
 
-        Decidim::Comments::UpdateComment.call(comment, current_user, form) do
+        Decidim::Comments::UpdateComment.call(comment, form) do
           on(:ok) do
             respond_to do |format|
               format.js { render :update }
