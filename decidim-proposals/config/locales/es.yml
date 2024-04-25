@@ -291,7 +291,7 @@ es:
           email_subject: Nueva propuesta "%{resource_title}" de %{author_nickname}
           notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido publicada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
-          email_intro: La propuesta "%{resource_title}" se ha añadido en "%{participatory_space_title}", que estás siguiendo.
+          email_intro: La propuesta "%{resource_title}" se ha añadido en el espacio "%{participatory_space_title}", que estás siguiendo.
           email_outro: Recibiste esta notificación porque estás siguiendo "%{participatory_space_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Nueva propuesta "%{resource_title}" añadida a %{participatory_space_title}
           notification_title: '%{author} ha añadido la propuesta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}.'
@@ -299,12 +299,12 @@ es:
         proposal_state_changed:
           affected_user:
             email_intro: 'La propuesta "%{resource_title}" ha cambiado su estado a "%{state}". Puedes leer la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque eres autora de "%{resource_title}".
+            email_outro: Has recibido esta notificación porque eres autora de la propuesta "%{resource_title}".
             email_subject: Tu propuesta ha cambiado su estado (%{state})
             notification_title: Tu propuesta <a href="%{resource_path}">%{resource_title}</a> ha cambiado su estado a "%{state}".
           follower:
             email_intro: 'La propuesta "%{resource_title}" ha cambiado su estado a "%{state}". Puedes leer la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque estás siguiendo "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+            email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
             email_subject: Una propuesta que sigues ha cambiado su estado (%{state})
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha cambiado su estado a "%{state}".
         proposal_update_category:
