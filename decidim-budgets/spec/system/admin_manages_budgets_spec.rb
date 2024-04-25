@@ -139,7 +139,7 @@ describe "Admin manages budgets" do
         it "displays the scope column" do
           expect(component).not_to be_scopes_enabled
           expect(component).not_to have_subscopes
-          expect(page).to have_no_content("Scope")
+          expect(page).not_to have_content("Scope")
         end
       end
     end
@@ -151,7 +151,7 @@ describe "Admin manages budgets" do
         it "hides the scope column" do
           expect(component).to be_scopes_enabled
           expect(component).not_to have_subscopes
-          expect(page).to have_no_content("Scope")
+          expect(page).not_to have_content("Scope")
         end
       end
 
@@ -161,7 +161,7 @@ describe "Admin manages budgets" do
         it "displays the scope column" do
           expect(component).not_to be_scopes_enabled
           expect(component).not_to have_subscopes
-          expect(page).to have_no_content("Scope")
+          expect(page).not_to have_content("Scope")
         end
       end
     end

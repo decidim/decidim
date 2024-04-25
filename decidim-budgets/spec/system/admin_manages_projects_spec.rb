@@ -94,7 +94,7 @@ describe "Admin manages projects" do
       let!(:scope) { create(:scope, organization: current_component.organization) }
 
       it "does not display subscopes" do
-        expect(page).to have_no_content(scope.name)
+        expect(page).not_to have_content(scope.name)
       end
     end
 
