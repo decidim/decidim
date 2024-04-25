@@ -131,6 +131,7 @@ ja:
       external_link: 外部リンク
       front_page_link: フロントページに移動
       logo: "%{organization}の公式ロゴ"
+      opens_in_new_tab: 新しいタブで開く
       skip_button: メインコンテンツにスキップ
     account:
       blocked: このアカウントは利用規約に違反しているためブロックされています
@@ -1436,6 +1437,8 @@ ja:
         close_modal: ウィンドウを閉じる
         ok: OK
         title: 確定
+      embed:
+        title: 埋め込み動画コンテンツ
       extended_navigation_bar:
         more: もっと見る
         unfold: 展開する
