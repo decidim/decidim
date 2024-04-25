@@ -144,6 +144,7 @@ fi-pl:
       external_link: Ulkoinen linkki
       front_page_link: Siirry etusivulle
       logo: "Organisaation %{organization} virallinen logo"
+      opens_in_new_tab: Avautuu uuteen välilehteen
       skip_button: Siirry sisältöön
     account:
       blocked: Tämä käyttäjätili on estetty, koska käyttäjä ei noudattanut käyttöehtoja
@@ -1454,6 +1455,8 @@ fi-pl:
         close_modal: Sulje ikkuna
         ok: OK
         title: Vahvista
+      embed:
+        title: Upotettu videosisältö
       extended_navigation_bar:
         more: Lisää
         unfold: Avaa
