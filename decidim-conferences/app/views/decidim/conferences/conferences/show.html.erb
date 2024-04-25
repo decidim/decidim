@@ -58,7 +58,7 @@ edit_link(
         <% if current_participatory_space.registrations_enabled? %>
           <% if current_participatory_space.has_registration_for?(current_user) %>
             <%= link_to t("decidim.conferences.conferences.show.manage_registration"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__primary" %>
-          <% elsif current_participatory_space.registration_types.present? %>
+          <% elsif current_participatory_space.has_published_registration_types? %>
             <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__secondary" %>
           <% end %>
         <% end %>
@@ -85,7 +85,7 @@ edit_link(
 
     <% if current_participatory_space.registrations_enabled? %>
       <section class="content-block">
-        <% if current_participatory_space.registration_types.present? %>
+        <% if current_participatory_space.has_published_registration_types? %>
           <h2 class="h2 decorator"><%= t("decidim.conferences.conferences.show.register") %></h2>
         <% end %>
         <% if current_user.present? %>
@@ -98,7 +98,7 @@ edit_link(
             <div>
               <% if current_participatory_space.has_registration_for?(current_user) %>
                 <%= link_to t("decidim.conferences.conferences.show.manage_registration"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__primary" %>
-              <% elsif current_participatory_space.registration_types.present? %>
+              <% elsif current_participatory_space.has_published_registration_types? %>
                 <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__secondary" %>
               <% end %>
             </div>
