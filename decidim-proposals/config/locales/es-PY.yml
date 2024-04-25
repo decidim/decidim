@@ -32,6 +32,17 @@ es-PY:
         execution_period: Período de ejecución
       proposal_state:
         announcement_title: Encabezado de la respuesta
+        bg_color: Color de fondo
+        colors:
+          blue: Azul
+          gray: Gris
+          green: Verde
+          orange: Naranja
+          pink: Rosa
+          purple: Morado
+          red: Rojo
+          yellow: Amarillo
+        text_color: Color del texto
       proposals_copy:
         copy_proposals: Entiendo que esto importará todas las propuestas del componente seleccionado al actual y que esta acción no se puede deshacer.
         origin_component_id: Componente para copiar las propuestas de
@@ -474,6 +485,8 @@ es-PY:
           edit:
             title: Editar estado
             update: Actualizar
+          form:
+            preview: Previsualizar
           index:
             title: Estados
           new:

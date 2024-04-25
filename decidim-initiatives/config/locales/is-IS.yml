@@ -19,6 +19,8 @@ is-IS:
         name: Heill heiti
   decidim:
     admin:
+      actions:
+        manage: Stjórna
       menu:
         components: Hluti
         information: Upplýsingar

@@ -32,6 +32,17 @@ fi:
         execution_period: Toteutusjakso
       proposal_state:
         announcement_title: Vastauksen otsikko
+        bg_color: Taustaväri
+        colors:
+          blue: Sininen
+          gray: Harmaa
+          green: Vihreä
+          orange: Oranssi
+          pink: Vaaleanpunainen
+          purple: Violetti
+          red: Punainen
+          yellow: Keltainen
+        text_color: Tekstin väri
       proposals_copy:
         copy_proposals: Ymmärrän, että tämä tuo kaikki ideat valitusta komponentista tähän komponenttiin ja tätä toimintoa ei voi peruuttaa.
         origin_component_id: Osio josta ehdotukset kopioidaan
@@ -473,6 +484,8 @@ fi:
           edit:
             title: Muokkaa tilaa
             update: Päivitä
+          form:
+            preview: Esikatsele
           index:
             title: Tilat
           new:

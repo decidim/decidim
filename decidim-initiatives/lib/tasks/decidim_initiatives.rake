@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 namespace :decidim_initiatives do
-  desc "Check validating initiatives and moves all without changes for a configured time to discarded state"
+  desc "Checks validating initiatives and moves all without changes for a configured time to discarded state"
   task check_validating: :environment do
     Decidim::Initiatives::OutdatedValidatingInitiatives
       .for(Decidim::Initiatives.max_time_in_validating_state)
       .each(&:discarded!)
   end
 
-  desc "Check published initiatives and moves to accepted/rejected state depending on the votes collected when the signing period has finished"
+  desc "Checks published initiatives and moves to accepted/rejected state depending on the votes collected when the signing period has finished"
   task check_published: :environment do
     Decidim::Initiatives::SupportPeriodFinishedInitiatives.new.each do |initiative|
       if initiative.supports_goal_reached?
@@ -19,7 +19,7 @@ namespace :decidim_initiatives do
     end
   end
 
-  desc "Notify progress on published initiatives"
+  desc "Notifies progress on published initiatives"
   task notify_progress: :environment do
     Decidim::Initiative
       .published

@@ -920,6 +920,7 @@ bg:
     versions:
       resource_version:
         of_versions: "(от %{number})"
+        see_other_versions: виж други версии
         version: Версия %{number}
     versions_list_item:
       show:

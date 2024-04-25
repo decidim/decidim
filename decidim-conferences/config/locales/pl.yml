@@ -452,6 +452,13 @@ pl:
       conference_speaker_cell:
         personal_url:
           personal_website: Osobista strona internetowa
+      conference_speakers:
+        index:
+          speakers:
+            one: Mówca
+            few: Prelegenci
+            many: Prelegenci
+            other: Mówcy
       conferences:
         partners:
           collaborators: Partnerzy

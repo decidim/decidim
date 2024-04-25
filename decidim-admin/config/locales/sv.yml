@@ -985,3 +985,8 @@ sv:
   errors:
     messages:
       invalid_json: Ogiltig JSON
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Global moderering

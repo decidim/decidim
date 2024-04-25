@@ -1016,11 +1016,13 @@ el:
           register: Εγγραφή
         hero:
           participate: Συμμετοχή
+          participate_title: Συμμετάσχετε στις διαδικασίες της πλατφόρμας
           welcome: Καλώς ορίσατε στον οργανισμό %{organization}!
         statistics:
           headline: Τρέχουσα κατάσταση του οργανισμού %{organization}
         sub_hero:
           register: Εγγραφή
+          register_title: Εγγραφείτε για να δημιουργήσετε ένα λογαριασμό
       index:
         standalone_pages: Σελίδες
         subheading: Περιηγηθείτε στις σελίδες βοήθειας του %{name}
