@@ -93,6 +93,15 @@ bg:
           email_subject: Неуспешен опит за проверка към друг участник
           notification_title: Участникът <a href="%{resource_path}">%{resource_title}</a> се е опитал да се удостовери с данните на друг участник (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
+      authorizations:
+        authorization_metadata:
+          info: 'Това са данните от текущото потвърждение:'
+          no_data_stored: Няма съхранени данни.
+        create:
+          error: Възникна проблем при създаването на оторизацията.
+          success: Вие бяхте успешно оторизиран.
+          transferred: 'Възстановихме следните данни за участие въз основа на Вашата оторизация:'
+          unconfirmed: Трябва да потвърдите имейла си, с оглед на Вашата оторизация.
       dummy_authorization:
         extra_explanation:
           postal_codes:
