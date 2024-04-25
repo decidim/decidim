@@ -28,5 +28,5 @@ RSpec.shared_context "when creating a comment" do
       current_organization: organization
     )
   end
-  let(:command) { described_class.new(form, author) }
+  let(:command) { described_class.new(form) }
 end
