@@ -79,9 +79,10 @@ module Decidim
           params.merge(commentable:)
         ).with_context(
           current_organization:,
-          current_component:
+          current_component:,
+          current_user:
         )
-        Decidim::Comments::CreateComment.call(form, current_user) do
+        Decidim::Comments::CreateComment.call(form) do
           on(:ok) do |comment|
             handle_success(comment)
             respond_to do |format|
