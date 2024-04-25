@@ -16,6 +16,6 @@
       <p><%= t("micro_camera_permissions_warning", scope: "decidim.meetings.meetings.show") %></p>
     <% end %>
 
-     <%= link_to t("join_meeting", scope: "decidim.meetings.meetings.meeting"), live_event_url, target: "_blank", class: "button button__xl button__secondary", data: { "external-link": false } %>
+     <%= link_to t("join_meeting", scope: "decidim.meetings.meetings.meeting"), live_event_url, target: "_blank", class: "button button__xl button__secondary", data: { external_link: "text-only", external_domain_link: false } %>
   <% end %>
 </div>
