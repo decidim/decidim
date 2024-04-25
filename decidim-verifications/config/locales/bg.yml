@@ -119,6 +119,19 @@ bg:
         index:
           expired_verification: Изтекло потвърждение
           granted_verification: Предоставена проверка
+          introduce_code: Представете код
+          pending_verification: Очаква проверка
+          show_renew_info: Щракнете, за да подновите верификацията
+          subscribe: Абонирай се
+          unauthorized_methods: Методи за проверка
+        new:
+          authorize: Изпрати
+          authorize_with: Потвърждение чрез %{authorizer}
+        renew_modal:
+          cancel: Отмяна
+          continue: Продължи
+          info_renew: Ако искате да актуализирате данните, продължете с подновяването.
+          title: Подновяване на верификацията
       dummy_authorization:
         extra_explanation:
           postal_codes:
