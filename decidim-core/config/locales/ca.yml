@@ -144,6 +144,7 @@ ca:
       external_link: Enllaç extern
       front_page_link: Anar a la pàgina principal
       logo: "Logo oficial de %{organization}"
+      opens_in_new_tab: Obrir en una pestanya nova
       skip_button: Vés al contingut principal
     account:
       blocked: Aquest compte ha estat bloquejat degut a una violació dels termes i condicions d'ús
@@ -1454,6 +1455,8 @@ ca:
         close_modal: Tancar el modal
         ok: D'acord
         title: Confirmar
+      embed:
+        title: Contingut del vídeo incrustat
       extended_navigation_bar:
         more: Més
         unfold: Desplegar
