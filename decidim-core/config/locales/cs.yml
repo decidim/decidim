@@ -170,6 +170,7 @@ cs:
       external_link: Externí odkaz
       front_page_link: Přejít na titulní stránku
       logo: "Oficiální logo %{organization}"
+      opens_in_new_tab: Otevře se v nové kartě
       skip_button: Přeskočit na hlavní obsah
     account:
       blocked: Tento účet byl zablokován kvůli porušení smluvních podmínek
@@ -1497,6 +1498,8 @@ cs:
         close_modal: Zavřít okno
         ok: OK
         title: Potvrdit
+      embed:
+        title: Vložený obsah videa
       extended_navigation_bar:
         more: Více
         unfold: Rozvinout
