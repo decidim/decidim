@@ -61,7 +61,7 @@ describe "Valuator uses proposal answer templates" do
         template.destroy!
         select template.name["en"], from: :proposal_answer_template_chooser
         expect(page).to have_no_content(description)
-        expect(page).to have_content("Couldn't find this template")
+        expect(page).to have_content("Could not find this template")
       end
     end
   end
