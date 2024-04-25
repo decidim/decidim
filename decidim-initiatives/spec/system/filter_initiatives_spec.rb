@@ -143,9 +143,7 @@ describe "Filter Initiatives", :slow do
       it "lists the accepted initiatives" do
         within "#panel-dropdown-menu-state" do
           click_filter_item "Open"
-          within "label", text: "Closed" do
-            click_on
-          end
+          click_on(id: "dropdown-trigger-with_any_state_closed")
           click_filter_item "Enough signatures"
         end
 
@@ -158,9 +156,7 @@ describe "Filter Initiatives", :slow do
       it "lists the rejected initiatives" do
         within "#panel-dropdown-menu-state" do
           click_filter_item "Open"
-          within "label", text: "Closed" do
-            click_on
-          end
+          click_on(id: "dropdown-trigger-with_any_state_closed")
           click_filter_item "Not enough signatures"
         end
 
@@ -273,11 +269,11 @@ describe "Filter Initiatives", :slow do
     context "when selecting one area" do
       it "lists the filtered initiatives", :slow do
         within "#panel-dropdown-menu-area" do
-          within "label", text: area_type1.name[I18n.locale.to_s] do
-            click_on
+          within ".filter", text: area_type1.name[I18n.locale.to_s] do
+            find("button[aria-expanded='false']").click
           end
-          within "label", text: area_type2.name[I18n.locale.to_s] do
-            click_on
+          within ".filter", text: area_type2.name[I18n.locale.to_s] do
+            find("button[aria-expanded='false']").click
           end
           click_filter_item area1.name[I18n.locale.to_s]
         end

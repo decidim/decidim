@@ -22,7 +22,7 @@ describe "Explore results", :versioning do
 
       context "when filtering by scope" do
         it "shows an empty page with a message" do
-          within "div.filter-container" do
+          within ".filter-container:not(.filter-search)" do
             click_on translated(scope.name)
           end
 
@@ -115,13 +115,13 @@ describe "Explore results", :versioning do
 
       context "with a scope" do
         before do
-          within "div.filter-container" do
+          within ".filter-container:not(.filter-search)" do
             click_on translated(scope.name)
           end
         end
 
         it "shows current scope active" do
-          within "div.filter-container a.is-active" do
+          within ".filter-container:not(.filter-search) a.is-active" do
             expect(page).to have_content(translated(scope.name))
           end
         end
@@ -204,7 +204,7 @@ describe "Explore results", :versioning do
         end
 
         it "shows current scope active" do
-          within "div.filter-container a.is-active" do
+          within ".filter-container:not(.filter-search) a.is-active" do
             expect(page).to have_content(translated(scope.name))
           end
         end
@@ -212,7 +212,7 @@ describe "Explore results", :versioning do
         it "maintains scope filter" do
           click_on translated(category.name)
 
-          within "div.filter-container a.is-active" do
+          within ".filter-container:not(.filter-search) a.is-active" do
             expect(page).to have_content(translated(scope.name))
           end
         end
