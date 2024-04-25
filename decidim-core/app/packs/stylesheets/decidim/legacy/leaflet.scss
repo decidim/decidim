@@ -72,7 +72,7 @@
 }
 
 .leaflet-container.leaflet-touch-drag {
-  /* Fallback for FF which doesn't support pinch-zoom */
+  /* Fallback for FF which does not support pinch-zoom */
   touch-action: none;
   touch-action: pinch-zoom;
 }
