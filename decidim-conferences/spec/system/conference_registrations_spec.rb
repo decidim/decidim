@@ -128,7 +128,7 @@ describe "Conference registrations" do
       end
     end
 
-    context "and there is published registrations types" do
+    context "and there are published registrations types" do
       it "allows to register" do
         visit_conference
         within ".conference__hero" do
@@ -142,12 +142,12 @@ describe "Conference registrations" do
       end
     end
 
-    context "and there is unpublished registrations types" do
+    context "and there are unpublished registrations types" do
       let!(:registration_types) do
         create_list(:registration_type, 5, :unpublished, conference:)
       end
 
-      it "does not show register button" do
+      it "does not show the register button" do
         visit_conference
         within ".conference__hero" do
           expect(page).to have_no_content "Register"
@@ -158,10 +158,10 @@ describe "Conference registrations" do
       end
     end
 
-    context "and there is no registrations types" do
+    context "and there are no registrations types" do
       let(:registration_types) { [] }
 
-      it "does not show register button" do
+      it "does not show the register button" do
         visit_conference
         within ".conference__hero" do
           expect(page).to have_no_content "Register"
