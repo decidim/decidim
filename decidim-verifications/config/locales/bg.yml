@@ -192,6 +192,28 @@ bg:
               introduce_user_data: Въведете данните от изображението
               reject: Откажи
               verify: Провери
+          offline_confirmations:
+            create:
+              error: Проверката открива несъвпадения. Моля, опитайте отново или кажете на участника да го коригира.
+              success: Участникът е потвърден успешно.
+            new:
+              cancel: Отказ
+              introduce_user_data: Въведете електронната поща на участника и данните от документа
+              verify: Провери
+          pending_authorizations:
+            index:
+              config: Конфигуриране
+              offline_verification: Офлайн проверка
+              title: Изчакващи онлайн проверки
+              verification_number: 'Верификация #%{n}'
+          rejections:
+            create:
+              success: Верификацията беше отхвърлена. Участниците ще получат покана да коригират документите си.
+        authorizations:
+          choose:
+            choose_a_type: 'Моля, изберете как искате да бъдете проверен:'
+            offline: Офлайн
+            online: Онлайн
       sms:
         authorizations:
           destroy:
