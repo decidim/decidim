@@ -694,7 +694,7 @@ ca:
         amendment_accepted:
           affected_user:
             email_intro: 'S''ha acceptat una esmena per %{amendable_title}. Pots veure-ho des d''aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè vas presentar l'esmena "%{amendable_title}".
+            email_outro: Has rebut aquesta notificació perquè s'ha acceptat una esmena presentada a l'apartat "%{amendable_title}" que administres.
             email_subject: Esmena acceptada per %{amendable_title} a %{emendation_author_nickname}
             notification_title: L'<a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat acceptada per <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
@@ -705,7 +705,7 @@ ca:
         amendment_created:
           affected_user:
             email_intro: 'S''ha creat una nova esmena per a %{amendable_title}. La pots veure des d''aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè vas presentar l'esmena "%{amendable_title}".
+            email_outro: Has rebut aquesta notificació perquè s'ha presentat una esmena a l'apartat "%{amendable_title}" que administres.
             email_subject: Nova esmena per a %{amendable_title}
             notification_title: S'ha creat una nova esmena per a <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
@@ -716,7 +716,7 @@ ca:
         amendment_promoted:
           affected_user:
             email_intro: 'Una esmena rebutjada per %{amendable_title} ha estat publicada com una nova %{amendable_type}. La pots veure des d''aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè vas presentar l'esmena "%{amendable_title}".
+            email_outro: Has rebut aquesta notificació perquè s'ha promogut una esmena a l'apartat "%{amendable_title}" que administres.
             email_subject: Una nova esmena feta per %{emendation_author_nickname} s'ha publicat com a nova %{amendable_type}
             notification_title: Una <a href="%{emendation_path}">esmena rebutjada</a> per <a href="%{amendable_path}">%{amendable_title}</a> ha estat publicada com un nou %{amendable_type} per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
@@ -727,7 +727,7 @@ ca:
         amendment_rejected:
           affected_user:
             email_intro: 'Una esmena s''ha rebutjat per %{amendable_title}. La pots veure des d''aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè ets autora de %{amendable_title}.
+            email_outro: Has rebut aquesta notificació perquè s'ha rebutjat una esmena a l'apartat "%{amendable_title}" que administres.
             email_subject: Esmena rebutjada per %{amendable_title} a %{emendation_author_nickname}
             notification_title: L'<a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat rebutjada per <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
@@ -1096,13 +1096,13 @@ ca:
     messaging:
       conversation_mailer:
         comanagers_new_conversation:
-          admin_in_group: Reps aquesta notificació perquè ets administradora de %{group}.
+          admin_in_group: Reps aquesta notificació perquè administres el grup "%{group}".
           greeting: Hola, %{recipient}!
           intro: "%{manager} ha iniciat una nova conversa en nom de %{group}. Fes clic aquí per veure-la:"
           outro: Gaudeix de la plataforma!
           subject: "%{manager} ha iniciat una nova conversa com a %{group}"
         comanagers_new_message:
-          admin_in_group: Reps aquesta notificació perquè ets administradora de %{group}.
+          admin_in_group: Reps aquesta notificació perquè administres el grup "%{group}".
           greeting: Hola, %{recipient}!
           intro: "%{manager} ha publicat nous missatge a una conversa en nom de %{group}. Fes clic aquí per veure-la:"
           outro: Gaudeix de la plataforma!
@@ -1113,13 +1113,13 @@ ca:
           outro: Gaudeix de la plataforma!
           subject: "%{sender} ha iniciat una conversa amb tu"
         new_group_conversation:
-          admin_in_group: Reps aquesta notificació perquè ets administradora de %{group}.
+          admin_in_group: Reps aquesta notificació perquè administres el grup "%{group}".
           greeting: Hola, %{recipient}!
           intro: "%{sender} ha iniciat una nova conversa amb el %{group}. Fes clic aquí per veure-la:"
           outro: Gaudeix de la plataforma!
           subject: "%{sender} ha iniciat una nova conversa amb %{group}"
         new_group_message:
-          admin_in_group: Reps aquesta notificació perquè ets administradora de %{group}.
+          admin_in_group: Reps aquesta notificació perquè administres el grup "%{group}".
           greeting: Hola, %{recipient}!
           intro: "%{sender} ha publicat nous missatge a una conversa amb el grup %{group}. Fes clic aquí per veure-la:"
           outro: Gaudeix de la plataforma!
