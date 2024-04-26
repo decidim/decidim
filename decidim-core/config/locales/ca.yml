@@ -694,23 +694,23 @@ ca:
         amendment_accepted:
           affected_user:
             email_intro: 'S''ha acceptat una esmena per %{amendable_title}. Pots veure-ho des d''aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè ets una autora de %{amendable_title}.
+            email_outro: Has rebut aquesta notificació perquè vas presentar l'esmena "%{amendable_title}".
             email_subject: Esmena acceptada per %{amendable_title} a %{emendation_author_nickname}
             notification_title: L'<a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat acceptada per <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'S''ha acceptat una esmena per %{amendable_title}. Pots veure-ho en aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+            email_outro: Has rebut aquesta notificació perquè estàs seguint l'esmena "%{amendable_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
             email_subject: Esmena acceptada per %{amendable_title} de %{emendation_author_nickname}
             notification_title: L'<a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat acceptada per <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'S''ha creat una nova esmena per a %{amendable_title}. La pots veure des d''aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè ets autora de %{amendable_title}.
+            email_outro: Has rebut aquesta notificació perquè vas presentar l'esmena "%{amendable_title}".
             email_subject: Nova esmena per a %{amendable_title}
             notification_title: S'ha creat una nova esmena per a <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'S''ha creat una nova esmena per a %{amendable_title}. La pots veure des d''aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+            email_outro: Has rebut aquesta notificació perquè estàs seguint l'esmena "%{amendable_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
             email_subject: Nova esmena per a %{amendable_title}
             notification_title: S'ha creat una nova esmena per a <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
@@ -776,7 +776,7 @@ ca:
           notification_title: T'han convidat a unir-te al grup <a href="%{resource_path}">%{user_group_name}</a>. Comprova els <a href="%{groups_profile_tab_path}">grups de la pàgina</a> en el teu perfil per acceptar la invitació!
         join_request_accepted:
           email_intro: Felicitats! Una administradora del grup <a href="%{resource_url}">%{user_group_name}</a> ha acceptat la teva sol·licitud per unir-te.
-          email_outro: Has rebut aquesta notificació perquè s'ha actualitzat la teva sol·licitud per a formar-ne part.
+          email_outro: Has rebut aquesta notificació perquè s'ha actualitzat la teva sol·licitud per a formar part del grup.
           email_subject: La teva sol·licitud per a unir-te al grup %{user_group_name} ha estat acceptada!
           notification_title: Has estat acceptada al grup <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
@@ -786,7 +786,7 @@ ca:
           notification_title: Algú ha sol·licitat unir-se al grup %{user_group_name}. Pots acceptar o rebutjar la sol·licitud des de <a href="%{resource_path}">els membres del grup de la pàgina</a>.
         join_request_rejected:
           email_intro: Una administradora del grup <a href="%{resource_url}">%{user_group_name}</a> ha rebutjat la teva sol·licitud per unir-te.
-          email_outro: Has rebut aquesta notificació perquè la teva sol·licitud d'incorporació s'ha actualitzat.
+          email_outro: Has rebut aquesta notificació perquè la teva sol·licitud d'incorporació al grup s'ha actualitzat.
           email_subject: La teva sol·licitud per unir-te al grup %{user_group_name} ha estat rebutjada!
           notification_title: La teva sol·licitud per unir-te al grup <a href="%{resource_path}">%{user_group_name}</a> ha estat rebutjada.
         promoted_to_admin:
