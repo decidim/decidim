@@ -1,1 +1,29 @@
 sq:
+  activemodel:
+    attributes:
+      post:
+        body: Përmbajtja
+        decidim_author_id: Autor
+        published_at: Koha e publikimit
+        title: Titulli
+    models:
+      decidim/blogs/create_post_event: Postim i ri
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Postim
+        other: Postimet
+  decidim:
+    blogs:
+      actions:
+        author_id: Krijo postimin si
+        confirm_destroy: Je i sigurt që dëshiron ta fshish këtë postim?
+        destroy: Fshij
+        edit: Përpuno
+        new: Postim i ri
+        title: Veprime
+      admin:
+        posts:
+          create:
+            invalid: Ndodhi një gabim gjatë krijimit të këtij postimi.
+            success: Postimi u krijua me sukses.
