@@ -27,7 +27,7 @@ module Decidim
         up_votes_count = self.class.where(decidim_comment_id: comment.id, weight: 1).count
         down_votes_count = self.class.where(decidim_comment_id: comment.id, weight: -1).count
 
-        comment.update(up_votes_count:, down_votes_count:)
+        comment.update(up_votes_count: up_votes_count, down_votes_count: down_votes_count)
       end
 
       # Private: check if the comment and the author have the same organization
