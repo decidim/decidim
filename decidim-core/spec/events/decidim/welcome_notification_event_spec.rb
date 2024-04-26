@@ -8,12 +8,12 @@ describe Decidim::WelcomeNotificationEvent do
   let(:event_instance) do
     described_class.new(
       resource: user,
-      event_name:,
-      user:
+      event_name: event_name,
+      user: user
     )
   end
   let(:event_name) { "decidim.events.core.welcome_notification" }
-  let(:user) { create(:user, organization:) }
+  let(:user) { create(:user, organization: organization) }
   let(:organization) { create(:organization, name: organization_name) }
 
   context "with a normal organization name" do
