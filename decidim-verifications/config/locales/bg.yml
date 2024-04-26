@@ -132,6 +132,8 @@ bg:
           continue: Продължи
           info_renew: Ако искате да актуализирате данните, продължете с подновяването.
           title: Подновяване на верификацията
+        skip_verification: Можете да пропуснете това засега и %{link}
+        start_exploring: започнете да разглеждате
       dummy_authorization:
         extra_explanation:
           postal_codes:
