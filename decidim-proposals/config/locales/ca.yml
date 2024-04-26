@@ -299,7 +299,7 @@ ca:
         proposal_state_changed:
           affected_user:
             email_intro: 'La proposta "%{resource_title}" ha canviat d''estat a "%{state}". Pots llegir la resposta en aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè ets autora de "%{resource_title}".
+            email_outro: Has rebut aquesta notificació perquè vas presentar la proposta "%{resource_title}".
             email_subject: La teva proposta ha canviat el seu estat (%{state})
             notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a>ha canviat el seu estat a "%{state}".
           follower:
