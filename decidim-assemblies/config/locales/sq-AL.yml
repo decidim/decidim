@@ -1,1 +1,20 @@
+---
 sq:
+  activemodel:
+    attributes:
+      assemblies_type:
+        title: Titulli
+      assembly:
+        announcement: Njoftim
+        assembly_type: Lloji i asamblesë
+        assembly_type_other: Lloji i asamblesë tjetër
+        closing_date: Data e mbylljes
+        closing_date_reason: Arsyeja e datës së mbylljes
+        composition: Përbërja
+        copy_categories: Kopjo kategoritë
+        created_by: Krijuar nga
+        created_by_other: Krijuar nga tjetër
+        creation_date: Data e krijimit
+        decidim_assemblies_type_id: Lloji i asamblesë
+        decidim_scope_id: Qëllimi
+        description: Përshkrimi
