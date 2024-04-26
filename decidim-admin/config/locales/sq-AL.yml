@@ -54,9 +54,42 @@ sq:
         description: Përshkrimi
         enable_omnipresent_banner: Shfaq banerin e gjithëpranishëm
         enable_participatory_space_filters: Aktivizo filtrat e hapësirës së pjesëmarrjes
+        facebook_handler: Emri i përdoruesit Facebook
         favicon: Ikona
         force_authentication: Sforco autentikimin
+        from: Adresa email e dërguesit
+        github_handler: Emri i përdoruesit Github
         highlight_color: Theksim
+        highlighted_content_banner_image: Imazhi
         highlighted_content_banner_short_description: Përshkrim i shkurtër
         highlighted_content_banner_title: Titulli
         host: Organizatori
+        instagram_handler: Emri i përdoruesit Instagram
+        logo: Logo
+        success_color: Sukses
+        time_zone: Zona orare
+        twitter_handler: Emri i përdoruesit X
+        warning_color: Paralajmërim
+        welcome_notification_body: Përmbajtja e njoftimit të mirëseardhjes
+        welcome_notification_subject: Tema e njoftimit të mirëseardhjes
+        youtube_handler: Emri i përdoruesit Youtube
+      participatory_space_private_user:
+        email: Email
+        name: Emri
+      scope:
+        code: Kodi
+        name: Emri
+        organization: Organizata
+      scope_type:
+        name: Emri
+        organization: Organizata
+  decidim:
+    admin:
+      models:
+        share_token:
+          fields:
+            last_used_at: Hera e fundit që u përdor
+            times_used: Sa herë është përdorur
+      organization:
+        form:
+          social_handlers: Rrjetet sociale
