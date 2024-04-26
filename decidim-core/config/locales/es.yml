@@ -621,7 +621,7 @@ es:
         amendment_accepted:
           affected_user:
             email_intro: 'Se ha aceptado una enmienda para %{amendable_title}. Puedes verla desde esta página:'
-            email_outro: Has recibido esta notificación porque presentaste la enmienda "%{amendable_title}".
+            email_outro: Has recibido esta notificación porque se ha aceptado una enmienda al apartado "%{amendable_title}" que administras.
             email_subject: Enmienda aceptada para %{amendable_title} de %{emendation_author_nickname}
             notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido aceptada para <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
@@ -632,7 +632,7 @@ es:
         amendment_created:
           affected_user:
             email_intro: 'Se ha creado una nueva enmienda para %{amendable_title}. Puedes verla desde esta página:'
-            email_outro: Has recibido esta notificación porque presentaste la enmienda "%{amendable_title}".
+            email_outro: Has recibido esta notificación porque se ha presentado una esmena al apartado "%{amendable_title}" que administras.
             email_subject: Nueva enmienda para %{amendable_title}
             notification_title: Se ha creado una nueva enmienda para <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
@@ -643,7 +643,7 @@ es:
         amendment_promoted:
           affected_user:
             email_intro: 'Una enmienda rechazada para %{amendable_title} ha sido publicada como una nueva %{amendable_type}. Puedes verla desde esta página:'
-            email_outro: Has recibido esta notificación porque presentaste la enmienda "%{amendable_title}".
+            email_outro: Has recibido esta notificación porque se ha promocionado una esmena al apartado "%{amendable_title}" que administras.
             email_subject: Se ha publicado una enmienda de %{emendation_author_nickname} como nuevo %{amendable_type}
             notification_title: Un <a href="%{emendation_path}">rechazó la enmienda</a> para <a href="%{amendable_path}">%{amendable_title}</a> se ha publicado como un nuevo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
@@ -654,7 +654,7 @@ es:
         amendment_rejected:
           affected_user:
             email_intro: 'Una enmienda ha sido rechazada por %{amendable_title}. Puedes verla desde esta página:'
-            email_outro: Has recibido esta notificación porque presentaste la enmienda "%{amendable_title}".
+            email_outro: Has recibido esta notificación porque se ha rechazado una enmienda al apartado "%{amendable_title}" que administras.
             email_subject: Enmienda rechazada por %{amendable_title} de %{emendation_author_nickname}
             notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
