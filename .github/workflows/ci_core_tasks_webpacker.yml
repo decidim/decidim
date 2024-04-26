@@ -1,4 +1,4 @@
-name: "[CI] Templates"
+name: "[CI] Core (webpacker tasks tests)"
 on:
   push:
     branches:
@@ -11,18 +11,15 @@ on:
     paths:
       - "*"
       - ".github/**"
-      - "decidim-admin/**"
+      - "decidim-api/**"
       - "decidim-core/**"
       - "decidim-dev/**"
-      - "decidim-forms/**"
-      - "decidim-module-templates/**"
-      - "decidim-templates/**"
 
 env:
   CI: "true"
   RUBY_VERSION: 3.0.2
   NODE_VERSION: 16.9.1
-  DECIDIM_MODULE: decidim-templates
+  DECIDIM_MODULE: decidim-core
   CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326
 
 jobs:
@@ -42,15 +39,11 @@ jobs:
           --health-retries 5
         env:
           POSTGRES_PASSWORD: postgres
-      validator:
-        image: ghcr.io/validator/validator:latest
-        ports: ["8888:8888"]
     env:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
       RUBYOPT: '-W:no-deprecated'
-      VALIDATOR_HTML_URI: http://localhost:8888/
     steps:
       - uses: actions/checkout@v2.0.0
         with:
@@ -61,7 +54,7 @@ jobs:
           name: ${{ env.DECIDIM_MODULE }}
           ruby_version: ${{ env.RUBY_VERSION }}
           node_version: ${{ env.NODE_VERSION }}
-      - run: bundle exec rake parallel:spec
+      - run: bundle exec rake parallel:spec['spec/tasks/decidim_webpacker_tasks.rake']
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:
