@@ -15,10 +15,6 @@ inputs:
     description: 'Node version'
     default: '16.9.1'
     required: false
-  processor_count:
-    description: "Number or parallel jobs to run"
-    default: "4"
-    required: false
 
 runs:
   using: "composite"
@@ -75,5 +71,3 @@ runs:
       name: Parallel tests
       shell: "bash"
       working-directory: ./spec/decidim_dummy_app/
-      env:
-        PARALLEL_TEST_PROCESSORS: " ${{ inputs.processor_count }}"
