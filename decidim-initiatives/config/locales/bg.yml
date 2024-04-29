@@ -21,6 +21,9 @@ bg:
         filter_state_values:
           closed: Затворен
           open: Отворен
+      initiatives:
+        vote_cabin:
+          supports_required: "Необходими са %{total_supports} подписа"
       modal:
         not_authorized:
           authorizations_page: Преглед на оторизациите
