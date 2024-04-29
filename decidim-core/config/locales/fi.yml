@@ -2043,6 +2043,7 @@ fi:
       long_with_particles: "%B %d., %Y %H:%M"
       short: "%d.%m.%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d.%m.%Y %H:%M %Z (GMT %:z)"
   versions:
     directions:
       left: Poistot
