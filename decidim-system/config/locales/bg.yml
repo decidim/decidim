@@ -1,11 +1,26 @@
 bg:
   activemodel:
     attributes:
+      oauth_application:
+        name: Име на приложението за OAuth
+        organization_logo: Лого на организацията (квадратно)
+        organization_name: Организация
+        organization_url: URL адрес на организацията
+        redirect_uri: URI за пренасочване
       organization:
         address: Име на SMTP хост
+        from_email: Имейл адрес
+        from_label: Етикет
         password: Парола
         port: Порт
         user_name: Потребителско име
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Администраторски MIME типове
+          default: MIME типове по подразбиране
+        allowed_file_extensions:
+          admin: Административни файлови разширения
+          default: Файлови разширения по подразбиране
   decidim:
     system:
       actions:
