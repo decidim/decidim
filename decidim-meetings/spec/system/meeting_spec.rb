@@ -128,7 +128,7 @@ describe "Meeting", download: true do
       visit_meeting
 
       within ".meeting__calendar-container .meeting__calendar" do
-        expect(page).not_to have_content(meeting.start_time.year)
+        expect(page).to have_content(meeting.start_time.year)
       end
     end
   end
