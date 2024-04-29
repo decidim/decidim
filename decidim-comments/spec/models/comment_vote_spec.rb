@@ -43,8 +43,22 @@ module Decidim
         expect(comment_vote).to be_invalid
       end
 
-      it "updates the comment votes count after creation" do
-        expect(comment_vote.comment.up_votes_count).to eq(1)
+      context "when it is a downvote" do
+        let!(:comment_vote) { create(:comment_vote, comment: comment, author: author, weight: -1) }
+
+        it "updates the comment votes count after creation" do
+          expect(comment.up_votes_count).to eq(0)
+          expect(comment.down_votes_count).to eq(1)
+        end
+      end
+
+      context "when it is an upvote" do
+        let!(:comment_vote) { create(:comment_vote, comment: comment, author: author, weight: 1) }
+
+        it "updates the comment votes count after creation" do
+          expect(comment.up_votes_count).to eq(1)
+          expect(comment.down_votes_count).to eq(0)
+        end
       end
     end
   end
