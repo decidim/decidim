@@ -14,7 +14,7 @@
     <div class="card">
       <div class="card__content">
         <div class="answer-questionnaire">
-          <%= decidim_form_for(@preview_form, url: "", method: :post, html: { class: "form answer-questionnaire" }, data: { "safe-path" => "" }) do |form| %>
+          <%= decidim_form_for(@preview_form, url: "", method: :post, authenticity_token: !defined?(skip_authenticity_token), html: { class: "form answer-questionnaire" }, data: { "safe-path" => "" }) do |form| %>
             <%= invisible_captcha %>
             <% answer_idx = 0 %>
             <% cleaned_answer_idx = 0 %>
