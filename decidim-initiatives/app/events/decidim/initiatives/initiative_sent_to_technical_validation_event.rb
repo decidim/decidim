@@ -12,7 +12,7 @@ module Decidim
       end
 
       def admin_initiative_url
-        decidim_admin_initiatives.edit_initiative_url(resource, resource.mounted_params)
+        EngineRouter.admin_proxy(resource).edit_initiative_url(resource)
       end
     end
   end

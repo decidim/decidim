@@ -8,8 +8,8 @@ describe Decidim::Initiatives::InitiativeSentToTechnicalValidationEvent do
   let(:resource) { create :initiative, title: generate_localized_title(:initiative_title) }
   let(:participatory_space) { resource }
   let(:event_name) { "decidim.events.initiatives.initiative_sent_to_technical_validation" }
-  let(:admin_initiative_path) { "/admin/initiatives/#{resource.slug}/edit?initiative_slug=#{resource.slug}" }
-  let(:admin_initiative_url) { "http://#{organization.host}#{admin_initiative_path}" }
+  let(:admin_initiative_path) { "/admin/initiatives/#{resource.slug}/edit" }
+  let(:admin_initiative_url) { "http://#{organization.host}:#{Capybara.server_port}#{admin_initiative_path}" }
   let(:email_subject) { "Initiative \"#{resource_title}\" was sent to technical validation." }
   let(:email_outro) { "You have received this notification because you are an admin of the platform." }
   let(:email_intro) { %(The initiative "#{resource_title}" has been sent to technical validation. Check it out at <a href="#{admin_initiative_url}">the admin panel</a>) }
