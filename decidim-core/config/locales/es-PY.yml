@@ -2045,6 +2045,7 @@ es-PY:
       long_with_particles: "%d de %B del %Y a las %Hh%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Supresiones
