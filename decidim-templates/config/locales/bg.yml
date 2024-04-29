@@ -1,23 +1,74 @@
 ---
 bg:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Заглавие
+      template:
+        description: Описание
+        name: Име
   decidim:
     admin:
+      menu:
+        templates: Шаблони
       templates:
         apply:
+          error: Възникна проблем при прилагането на този шаблон.
           success: Шаблонът е приложен успешно
         copy:
+          error: Възникна проблем при копирането на този шаблон.
           success: Шаблонът е копиран успешно
         create:
+          error: Възникна проблем при създаването на този шаблон.
           success: Шаблонът е създаден успешно
         destroy:
           success: Шаблонът е изтрит успешно
+        empty: Все още няма шаблони.
         update:
+          error: Възникна проблем при обновяването на този шаблон.
           success: Шаблонът е обновен успешно
+      titles:
+        template_types:
+          questionnaires: Шаблони за въпросници
+        templates: Шаблони
+    models:
+      questionnaire_template:
+        fields:
+          questions: Брой въпроси
+          title: Заглавие на въпросник
+      template:
+        fields:
+          created_at: Създаден на
+        name: Шаблон
     templates:
       admin:
         questionnaire_templates:
+          choose:
+            create_from_template: Създайте от шаблон
+            description: На път сте да създадете нов въпросник. Можете да изберете предварително дефиниран шаблон и да го промените след това.
+            label: Избор на шаблон
+            placeholder: Избор на шаблон
+            skip_template: Пропусни
           edit:
+            edit: Редактирай
             empty: Все още няма въпроси
+            questionnaire: Въпросник
           form:
             save: Запази
             template_title: Информация за шаблона
+            title: Шаблон за въпросник %{questionnaire_for}
+          index:
+            confirm_delete: Сигурни ли сте, че желаете да изтриете този шаблон?
+            title: Шаблони за въпросници
+          preview:
+            current_step: Стъпка %{step}
+            of_total_steps: от %{total_steps}
+            tos_agreement: С участието си приемате Условията на услугата
+      admin_log:
+        template:
+          create: "%{user_name} създаде шаблона на въпросника %{resource_name}"
+          delete: "%{user_name} изтри шаблона на въпросника %{resource_name}"
+          duplicate: "%{user_name} дублира шаблона на въпросника %{resource_name}"
+          update: "%{user_name} актуализира шаблона на въпросника %{resource_name}"
+      template_types:
+        questionnaires: Въпросници
