@@ -44,7 +44,7 @@ module Decidim
       end
 
       context "when it is a downvote" do
-        let!(:comment_vote) { create(:comment_vote, comment:, author:, weight: -1) }
+        let!(:comment_vote) { create(:comment_vote, comment: comment, author: author, weight: -1) }
 
         it "updates the comment votes count after creation" do
           expect(comment.up_votes_count).to eq(0)
@@ -53,7 +53,7 @@ module Decidim
       end
 
       context "when it is an upvote" do
-        let!(:comment_vote) { create(:comment_vote, comment:, author:, weight: 1) }
+        let!(:comment_vote) { create(:comment_vote, comment: comment, author: author, weight: 1) }
 
         it "updates the comment votes count after creation" do
           expect(comment.up_votes_count).to eq(1)
