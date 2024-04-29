@@ -22,6 +22,16 @@ bg:
         allowed_file_extensions:
           admin: Административни файлови разширения
           default: Файлови разширения по подразбиране
+          image: Разширения на файлове с изображения
+        maximum_file_size:
+          avatar: Размер на файла на аватара
+          default: Размер на файла по подразбиране
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: URI адресът за пренасочване трябва да бъде SSL URI
   decidim:
     system:
       actions:
@@ -29,28 +39,122 @@ bg:
         destroy: Изтрий
         edit: Редактирай
         new: Нов
+        save: Запази
+        title: Действия
       admins:
         create:
+          error: Възникна проблем при създаването на нов администратор.
           success: Администраторът беше създаден успешно
         destroy:
           success: Администраторът беше изтрит успешно
+        edit:
+          title: Редактиране на администратора
+          update: Обновяване
+        index:
+          title: Администратори
+        new:
+          create: Създаване
+          title: Нов администратор
         show:
           destroy: Унищожи
           edit: Редактирай
         update:
+          error: Възникна проблем при актуализирането на този администратор.
           success: Администраторът беше актуализиран успешно
+      dashboard:
+        show:
+          current_organizations: Текущи организации
+      default_pages:
+        placeholders:
+          content: Моля, добавете важно съдържание на статичната страница %{page} в администраторското табло.
+          title: Заглавие по подразбиране за %{page}
+      devise:
+        passwords:
+          edit:
+            change_your_password: Промени паролата си
+            minimum_characters: "(%{minimum} символа минимум)"
+          new:
+            forgot_your_password: Забравили сте паролата си
+            send_me_reset_password_instructions: Изпратете ми инструкции за възстановяване на паролата
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Не сте ли получили указания за потвърждение?
+            did_not_receive_unlock_instructions?: Не сте получили инструкции за отключване?
+            forgot_your_password?: Забравили сте паролата си?
+            log_in: Вход
+            sign_up: Регистрация
+      menu:
+        admins: Администратори
+        dashboard: Табло за управление
+        oauth_applications: Приложения за OAuth
+        organizations: Организации
       models:
         admin:
+          fields:
+            created_at: Създаден на
+            email: Имейл
           name: Администратор
+          validations:
+            email_uniqueness: вече съществува друг администратор със същия имейл
         oauth_application:
+          fields:
+            created_at: Създаден на
+            name: Име на приложението за OAuth
+            organization_name: Организация
           name: Приложение за OAuth
         organization:
+          actions:
+            save_and_invite: Създаване на организация и покана на администратор
+          fields:
+            created_at: Създадено на
+            file_upload_settings: Настройки за качване на файл
+            name: Име
+            omniauth_settings: Настройки за Omniauth
+            smtp_settings: SMTP Настройки
           name: Организация
-      organizations:
+      oauth_applications:
         create:
+          error: Възникна проблем при създаването на това приложение.
+          success: Приложението беше създадено успешно.
+        destroy:
+          error: Възникна проблем при премахването на това приложение.
+          success: Приложението беше премахнато успешно.
+        edit:
+          save: Запази
+          title: Редактиране на приложението
+        form:
+          select_organization: Избор на организация
+        index:
+          confirm_delete: Сигурни ли сте, че искате да изтриете това приложение?
+          title: Приложения за OAuth
+        new:
+          save: Запази
+          title: Ново приложение
+        update:
+          error: Възникна проблем при актуализирането на това приложение.
+          success: Приложението беше актуализирано успешно.
+      organizations:
+        advanced_settings:
+          hide: Скрий разширените настройки
+          show: Показване на разширените настройки
+        create:
+          error: Възникна проблем при създаването на нова организация.
           success: Организацията беше създадена успешно.
         smtp_settings:
+          fieldsets:
+            sender: Подател
           instructions:
             from_label: 'Подателят на имейла ще бъде: „името-на-организацията-ви <your-organization@example.org>“. Оставете празно, за да използвате „имейл адресът“ като етикет'
+          placeholder:
+            from_email: your-organization@example.org
+            from_label: your-organization-name
+        update:
+          error: Възникна проблем при актуализирането на тази организация.
+          success: Организацията беше актуализирана успешно.
         users_registration_mode:
+          disabled: Достъпът е възможен само с външни профили
+          enabled: Разрешете на участниците да се регистрират и да влизат в профилите си
           existing: Не разрешавайте на участниците да се регистрират, но разрешете на съществуващите участници да влизат в профила си
+      shared:
+        notices:
+          no_organization_warning_html: Трябва да създадете организация, за да започнете. Уверете се, че сте прочели %{guide}, преди да продължите.
