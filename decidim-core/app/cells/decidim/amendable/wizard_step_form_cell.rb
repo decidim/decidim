@@ -46,7 +46,7 @@ module Decidim
           total_steps: 2,
           steps: {
             "1": i18n_step(1),
-            "2": i18n_step(4)
+            "2": i18n_step(2)
           }
         }
       end
