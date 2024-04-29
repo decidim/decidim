@@ -4,9 +4,9 @@ require "spec_helper"
 
 shared_examples "generates routes without query strings on slug" do
   let(:organization) { create(:organization, host: "1.lvh.me") }
-  let(:participatory_space) { create(factory_name, organization:) }
-  let(:component) { create(:component, id: 1, participatory_space:) }
-  let(:resource) { create(:dummy_resource, id: 1, component:) }
+  let(:participatory_space) { create(factory_name, organization: organization) }
+  let(:component) { create(:component, id: 1, participatory_space: participatory_space) }
+  let(:resource) { create(:dummy_resource, id: 1, component: component) }
 
   context "with a component resource" do
     describe "#url" do
