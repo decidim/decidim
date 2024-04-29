@@ -122,12 +122,12 @@ describe "Admin manages budgets", type: :system do
   end
 
   describe "when managing a budget with scopes" do
-    let!(:scopes) { create_list(:subscope, 3, organization:, parent: scope) }
+    let!(:scopes) { create_list(:subscope, 3, organization: organization, parent: scope) }
     let(:scope_id) { scope.id }
-    let(:participatory_space) { create(:participatory_process, organization:, scopes_enabled:) }
-    let!(:component) { create(:component, manifest:, settings: { scopes_enabled:, scope_id: }, participatory_space:) }
+    let(:participatory_space) { create(:participatory_process, organization: organization, scopes_enabled: scopes_enabled) }
+    let!(:component) { create(:component, manifest: manifest, settings: { scopes_enabled: scopes_enabled, scope_id: scope_id }, participatory_space: participatory_space) }
     let!(:budget) { create(:budget, component: current_component) }
-    let!(:scope) { create(:scope, organization:) }
+    let!(:scope) { create(:scope, organization: organization) }
     let(:scopes_enabled) { true }
 
     before do

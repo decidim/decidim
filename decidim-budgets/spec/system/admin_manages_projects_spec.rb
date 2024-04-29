@@ -95,7 +95,7 @@ describe "Admin manages projects", type: :system do
     end
 
     describe "update projects budget" do
-      let!(:another_component) { create(:budgets_component, organization:, participatory_space: current_component.participatory_space) }
+      let!(:another_component) { create(:budgets_component, organization: organization, participatory_space: current_component.participatory_space) }
       let!(:another_budget) { create(:budget, component: another_component) }
 
       it "shows all of the budgets within the participatory_space" do
@@ -104,7 +104,7 @@ describe "Admin manages projects", type: :system do
         find_by_id("js-bulk-actions-button").click
         click_on "Change budget"
         options = ["Select budget", format_title(destination_budget), format_title(budget), format_title(another_budget)]
-        expect(page).to have_select("reference_id", options:)
+        expect(page).to have_select("reference_id", options: options)
       end
 
       it "changes project budget" do
