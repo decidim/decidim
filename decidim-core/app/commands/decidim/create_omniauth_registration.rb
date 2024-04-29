@@ -57,14 +57,12 @@ module Decidim
         # to be marked confirmed.
         @user.skip_confirmation! if !@user.confirmed? && @user.email == verified_email
       else
-        generated_password = SecureRandom.hex
-
         @user.email = (verified_email || form.email)
         @user.name = form.name
         @user.nickname = form.normalized_nickname
         @user.newsletter_notifications_at = nil
-        @user.password = generated_password
-        @user.password_confirmation = generated_password
+        @user.password = SecureRandom.hex
+        @user.password_confirmation = @user.password
         if form.avatar_url.present?
           url = URI.parse(form.avatar_url)
           filename = File.basename(url.path)

@@ -19,7 +19,7 @@ $(() => {
     metricsParams.spaceId = $("#metrics #metrics-space_id").val() || null;
   }
 
-  const fetch = (metrics) => $.post("/api", query(metrics));
+  const fetch = (metrics) => $.post(window.Decidim.config.get("api_path"), query(metrics));
 
   const downloadMetricData = (event) => {
     event.preventDefault();

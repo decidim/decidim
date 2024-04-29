@@ -47,10 +47,12 @@ module Decidim
 
       it "has a up_votes association returning comment votes with weight 1" do
         expect(comment.up_votes.count).to eq(1)
+        expect(comment.up_votes_count).to eq(1)
       end
 
       it "has a down_votes association returning comment votes with weight -1" do
         expect(comment.down_votes.count).to eq(1)
+        expect(comment.down_votes_count).to eq(1)
       end
 
       it "has an associated participatory_process" do

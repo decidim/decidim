@@ -55,7 +55,7 @@ module Decidim
                 event: "decidim.events.groups.join_request_created",
                 event_class: JoinRequestCreatedEvent,
                 resource: user_group,
-                affected_users: affected_users,
+                affected_users: match_array(affected_users),
                 extra: {
                   user_group_name: user_group.name,
                   user_group_nickname: user_group.nickname
