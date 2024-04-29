@@ -31,10 +31,12 @@ describe "Admin applies questionnaire templates", type: :system do
     click_on "Add component"
     click_on "Survey"
 
+    page.all("svg.icon--pencil")[1].click
+
     select(translated_attribute(questionnaire_template.name), from: "select-template")
     expect(page).to have_content("If you are human, ignore this field")
     click_on "Create from template"
 
-    expect(page).to have_content("Template applied successfully.")
+    expect(page).to have_content("Template applied successfully")
   end
 end
