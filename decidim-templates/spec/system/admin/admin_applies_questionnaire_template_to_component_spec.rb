@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin applies questionnaire templates" do
+describe "Admin applies questionnaire templates", type: :system do
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
   let!(:participatory_space) { create(:participatory_process, organization: organization) }
