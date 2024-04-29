@@ -214,6 +214,7 @@ bg:
             choose_a_type: 'Моля, изберете как искате да бъдете проверен:'
             offline: Офлайн
             online: Онлайн
+            title: Потвърдете личноста си, чрез документ за самоличност
       sms:
         authorizations:
           destroy:
