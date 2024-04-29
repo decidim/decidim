@@ -5,9 +5,9 @@
       <h5><%= t("decidim.initiatives.initiatives.result.answer_title") %>:</h5>
       <p>
         <% if initiative.answer_url.present? %>
-          <a href="<%= initiative.answer_url %>" target="_blank">
+          <%= link_to initiative.answer_url, target: "_blank", rel: "noopener noreferrer" do %>
             <%= decidim_sanitize_editor translated_attribute initiative.answer %>
-          </a>
+          <% end %>
         <% else %>
           <%= decidim_sanitize_editor translated_attribute initiative.answer %>
         <% end %>
