@@ -96,11 +96,11 @@ module Decidim
       }
 
       scope :sort_by_valuation_assignments_count_asc, lambda {
-        order(Arel.sql("#{sort_by_valuation_assignments_count_nulls_last_query} ASC NULLS FIRST").to_s)
+        order(valuation_assignments_count: :asc)
       }
 
       scope :sort_by_valuation_assignments_count_desc, lambda {
-        order(Arel.sql("#{sort_by_valuation_assignments_count_nulls_last_query} DESC NULLS LAST").to_s)
+        order(valuation_assignments_count: :desc)
       }
 
       scope_search_multi :with_any_state, [:accepted, :rejected, :evaluating, :state_not_published]
@@ -331,18 +331,6 @@ module Decidim
 
       def self.ransack(params = {}, options = {})
         ProposalSearch.new(self, params, options)
-      end
-
-      # Defines the base query so that ransack can actually sort by this value
-      def self.sort_by_valuation_assignments_count_nulls_last_query
-        <<-SQL.squish
-        (
-          SELECT COUNT(decidim_proposals_valuation_assignments.id)
-          FROM decidim_proposals_valuation_assignments
-          WHERE decidim_proposals_valuation_assignments.decidim_proposal_id = decidim_proposals_proposals.id
-          GROUP BY decidim_proposals_valuation_assignments.decidim_proposal_id
-        )
-        SQL
       end
 
       # method to filter by assigned valuator role ID
