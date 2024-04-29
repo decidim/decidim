@@ -1826,7 +1826,7 @@ eu:
       widget:
         see_more: Ikusi gehiago
   locale:
-    name: Euskera
+    name: Ingelesa
     name_with_error: Euskera (akatsa!)
   password_validator:
     blacklisted: Zerrenda beltzean
