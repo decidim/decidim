@@ -59,7 +59,7 @@ describe "Locales", type: :system do
 
       click_button "Entra"
 
-      expect(page).to have_content("Email o la contrasenya no són vàlids.")
+      expect(page).to have_content("El Correu electrònic o la contrasenya no són vàlids.")
     end
 
     context "with a signed in user" do
