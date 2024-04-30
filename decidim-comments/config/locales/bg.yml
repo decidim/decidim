@@ -5,3 +5,26 @@ bg:
       decidim/comments/comment_by_followed_user_event: Коментар
       decidim/comments/comment_created_event: Коментар
       decidim/comments/reply_created_event: Отговор на коментар
+  decidim:
+    comments:
+      comments:
+        delete:
+          error: Коментарът не можа да бъде изтрит.
+      comments_count: Брой коментари
+      last_activity:
+        new_comment_at_html: "<span>Нов коментар на %{link}</span>"
+      view: Преглед
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Влезте с Вашия профил</a> или <a href="%{sign_up_url}">се регистрирайте</a>, за да добавите коментара си.
+        form:
+          form_error: Текстът е задължителен и не може да е по-дълъг от %{length} символа.
+      comment:
+        report:
+          reasons:
+            does_not_belong: Съдържа незаконни дейности, заплахи за самоубийство, лична информация или нещо друго, което считате, че е неподходящо за %{organization_name}.
+      comment_thread:
+        title: Разговор с %{authorName}
+  errors:
+    messages:
+      cannot_have_comments: не може да има коментари

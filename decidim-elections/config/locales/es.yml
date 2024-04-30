@@ -740,31 +740,31 @@ es:
       elections:
         election_published:
           email_intro: 'La votación %{resource_title} ya está activa en %{participatory_space_title}. Puedes verla desde esta página:'
-          email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{participatory_space_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: La votación %{resource_title} en %{participatory_space_title} ya está activa.
           notification_title: La votación <a href="%{resource_path}">%{resource_title}</a> ya está activa en %{participatory_space_title}.
         trustees:
           new_election:
             email_intro: Has sido añadido como garante para la elección de %{resource_title}.
-            email_outro: Has recibido esta notificación porque has sido añadido como garante para la elección %{resource_title}.
+            email_outro: Has recibido esta notificación porque has sido añadido como garante para la elección "%{resource_title}".
             email_subject: Eres garante para la elección de %{resource_title}..
             notification_title: Eres garante para la elección de <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Un administrador te ha añadido como garante para %{resource_name}. Debes crear tu clave pública <a href='%{trustee_zone_url}'>en tu zona de garantes</a>
-            email_outro: Has recibido esta notificación porque has sido añadido como garante para %{resource_name}.
+            email_outro: Has recibido esta notificación porque has sido añadido como garante para la elección "%{resource_name}".
             email_subject: Eres garante de %{resource_name}.
             notification_title: Eres garante de <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: '¡Tu voto ha sido aceptado! Utilizando tu token de voto: %{encrypted_vote_hash}, puedes verificar tu voto <a href="%{verify_url}">aquí</a>.'
-            email_outro: Has recibido esta notificación porque has votado en la elección %{resource_name}.
+            email_outro: Has recibido esta notificación porque has votado en la elección "%{resource_name}".
             email_subject: Tu voto para %{resource_name} ha sido aceptado.
             notification_title: 'Tu voto ha sido aceptado. Verifica tu voto <a href="%{verify_url}">aquí</a> usando tu token de voto: %{encrypted_vote_hash}'
       votings:
         polling_officers:
           polling_station_assigned:
             email_intro: Se te ha asignado como %{role} del punto de votación %{polling_station_name} en <a href="%{resource_url}">%{resource_title}</a>. Puedes administrar el punto de votación desde el espacio <a href="%{polling_officer_zone_url}">Zona de gestores de mesa</a>.
-            email_outro: Has recibido esta notificación porque has sido asignado como %{role} de %{polling_station_name}.
+            email_outro: Has recibido esta notificación porque has sido asignado como %{role} de "%{polling_station_name}".
             email_subject: Eres %{role} del punto de votación %{polling_station_name}.
             notification_title: Eres %{role} del punto de votación %{polling_station_name} en la votación <a href="%{resource_path}">%{resource_title}</a>.
         send_access_code:

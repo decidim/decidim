@@ -740,18 +740,18 @@ ca:
       elections:
         election_published:
           email_intro: 'La votació %{resource_title} ja està activa a %{participatory_space_title}. Pots veure-la des d''aquesta pàgina:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: La votació %{resource_title} ja està activa a %{participatory_space_title}.
           notification_title: La votació <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title} ja està activa.
         trustees:
           new_election:
             email_intro: Has estat afegit com a garant de l'elecció %{resource_title}.
-            email_outro: Has rebut aquesta notificació perquè t'han afegit com a garant de l'elecció %{resource_title}.
+            email_outro: Has rebut aquesta notificació perquè t'han afegit com a garant de l'elecció "%{resource_title}".
             email_subject: Ets un garant de l'elecció %{resource_title}..
             notification_title: Ets un garant de l'elecció <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Una administradora t'ha afegit com a garant de %{resource_name}. Hauries de crear la teva clau pública a la teva <a href='%{trustee_zone_url}'>zona de garants</a>
-            email_outro: Has rebut aquesta notificació perquè t'han afegit com a garant de %{resource_name}.
+            email_outro: Has rebut aquesta notificació perquè t'han afegit com a garant de l'elecció "%{resource_name}".
             email_subject: Ets garant de %{resource_name}.
             notification_title: Ets garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
@@ -764,7 +764,7 @@ ca:
         polling_officers:
           polling_station_assigned:
             email_intro: T'han assignat com %{role} del punt de votació %{polling_station_name} a <a href="%{resource_url}">%{resource_title}</a>. Pots gestionar el punt de votació accedint a la <a href="%{polling_officer_zone_url}">Zona de gestors de mesa</a>.
-            email_outro: Has rebut aquesta notificació perquè t'han assignat com %{role} de %{polling_station_name}.
+            email_outro: Has rebut aquesta notificació perquè t'han assignat com %{role} de "%{polling_station_name}".
             email_subject: Ets %{role} del punt de votació %{polling_station_name}.
             notification_title: Ets %{role} del punt de votació %{polling_station_name} a la votació <a href="%{resource_path}">%{resource_title}</a>.
         send_access_code:

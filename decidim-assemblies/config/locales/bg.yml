@@ -2,11 +2,78 @@
 bg:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Активиране на организационна диаграма
       assembly:
         area_id: Район
         assembly_type: Тип събрание
         assembly_type_other: Друг тип събрание
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Невалиден файлов формат. Разрешени са само файлове със следните разширения: %{types}'
   decidim:
+    admin:
+      assemblies:
+        index:
+          not_published: Не публикувано
+      assemblies_settings:
+        update:
+          error: Възникна проблем при актуализирането на настройките.
+          success: Настройките са актуализирани успешно.
+      assembly_members:
+        edit:
+          title: Актуализиране на член на събранието.
+        new:
+          title: Нов член на събранието.
+      assembly_user_roles:
+        edit:
+          title: Актуализиране на администратора на събранието.
+        new:
+          title: Нов администратор на събранието.
+      menu:
+        assemblies_settings: Настройки
+        assemblies_submenu:
+          info: Информация
     assemblies:
+      admin:
+        assemblies_settings:
+          form:
+            title: Настройки за събрания
+        assembly_imports:
+          form:
+            document_legend: Добавяне на документ
+        assembly_members:
+          form:
+            image_guide: За предпочитане използвайте хоризонтално изображение без текст.
+          index:
+            filter:
+              all: Всички
+            filter_by: Филтрирай по
+            search: Търсене
+      pages:
+        home:
+          highlighted_assemblies:
+            assemblies_button_title: Връзка към страницата „Събрания“, на която се показват всички събрания
       show:
         area: Район
+        is_transparent:
+          'false': непрозрачно
+          'true': прозрачно
+        read_less: Скрийте
+        read_more: Прочетете повече
+        social_networks: Социални мрежи
+  errors:
+    messages:
+      cannot_be_blank: не може да остане празно
+  layouts:
+    decidim:
+      assemblies:
+        index:
+          children: 'Събрания: '
+          organizational_chart: Организационна диаграма
+          reset_chart: Начално състояние
+      assembly_navigation:
+        assembly_menu_item: Събранието

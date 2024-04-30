@@ -359,3 +359,16 @@ bg:
         no_census_contact_information: Все още няма контактна информация
         send_access_code:
           invalid: Възникна проблем при изпращането на Кода за достъп
+          success: Вашият код за достъп беше изпратен успешно
+      votings_m:
+        footer_button_text:
+          participate: Участвайте
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Изход
+      voting_navigation:
+        voting_menu_item: Гласуването
+      votings:
+        promoted_voting:
+          more_info: Повече информация

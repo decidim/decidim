@@ -236,22 +236,22 @@ es:
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sido <strong>aceptada para acceder como contribuidora</strong> del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
           email_intro: 'Se ha denegado que %{requester_name} acceda como contribuidora del borrador colaborativo <a href="%{resource_url}">%{resource_title}</a>.'
-          email_outro: Has recibido esta notificación porque eres una contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Has recibido esta notificación porque has contribuido en la propuesta "<a href="%{resource_url}">%{resource_title}</a>".
           email_subject: "%{requester_name} ha sido rechazado para acceder como contribuidora del borrador colaborativo %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sido <strong>rechazado para acceder como contribuidora</strong> del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} ha solicitado acceso como contribuidora. Puede <strong>aceptar o rechazar la solicitud</strong> de la página de borrador colaborativo de <a href="%{resource_url}">%{resource_title}</a>.'
-          email_outro: Has recibido esta notificación porque eres contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Has recibido esta notificación porque has contribuido en la propuesta "<a href="%{resource_url}">%{resource_title}</a>".
           email_subject: "%{requester_name} ha solicitado acceso para contribuir a %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> solicitó acceso para contribuir al borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>. Por favor, <strong>acepta o rechaza la solicitud</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: Has sido aceptada para acceder como contribuidora del borrador colaborativo <a href="%{resource_url}">%{resource_title}</a>.
-          email_outro: Has recibido esta notificación porque has solicitado ser contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Has recibido esta notificación porque has solicitado contribuir en la propuesta "<a href="%{resource_url}">%{resource_title}</a>".
           email_subject: Has sido aceptada como contribuidora de %{resource_title}.
           notification_title: Has sido aceptada <strong>acceder como contribuidora</strong> del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
           email_intro: Ha sido rechazada para acceder como contribuidora del borrador colaborativo <a href="%{resource_url}">%{resource_title}</a>.
-          email_outro: Has recibido esta notificación porque has solicitado ser contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Has recibido esta notificación porque has solicitado contribuir en la propuesta "<a href="%{resource_url}">%{resource_title}</a>".
           email_subject: Has sido rechazada como contribuidora de %{resource_title}.
           notification_title: Has sido <strong>rechazada como contribuidora</strong> del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
@@ -272,28 +272,28 @@ es:
         proposal_accepted:
           affected_user:
             email_intro: 'Tu propuesta "%{resource_title}" ha sido aceptada. Puedes leer la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque eres autora de "%{resource_title}".
+            email_outro: Has recibido esta notificación porque presentaste la propuesta "%{resource_title}".
             email_subject: Tu propuesta ha sido aceptada
             notification_title: Tu propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido aceptada.
           follower:
             email_intro: 'La propuesta "%{resource_title}" ha sido aceptada. Puedes leer la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque estás siguiendo "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+            email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
             email_subject: Una propuesta que estás siguiendo ha sido aceptada
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido aceptada.
         proposal_evaluating:
           affected_user:
             email_intro: 'Tu propuesta "%{resource_title}" está siendo evaluada. Puedes consultar la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque eres autora de "%{resource_title}".
+            email_outro: Has recibido esta notificación porque presentaste la propuesta "%{resource_title}".
             email_subject: Tu propuesta está siendo evaluada
             notification_title: Tu propuesta <a href="%{resource_path}">%{resource_title}</a> está siendo evaluada.
           follower:
             email_intro: 'La propuesta "%{resource_title}" se está evaluando actualmente. Puedes encontrar la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque estás siguiendo "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+            email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
             email_subject: Una propuesta que estás siguiendo está siendo evaluada
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> está siendo evaluada.
         proposal_mentioned:
           email_intro: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_url}"> en este espacio</a> en los comentarios.
-          email_outro: Has recibido esta notificación porque eres autora de "%{resource_title}".
+          email_outro: Has recibido esta notificación porque presentaste la propuesta "%{resource_title}".
           email_subject: Tu propuesta "%{mentioned_proposal_title}" ha sido mencionada
           notification_title: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_path}">en este espacio</a> en los comentarios.
         proposal_published:
@@ -302,20 +302,20 @@ es:
           email_subject: Nueva propuesta "%{resource_title}" de %{author_nickname}
           notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido publicada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
-          email_intro: La propuesta "%{resource_title}" se ha añadido en "%{participatory_space_title}", que estás siguiendo.
-          email_outro: Recibiste esta notificación porque estás siguiendo "%{participatory_space_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_intro: La propuesta "%{resource_title}" se ha añadido en el espacio "%{participatory_space_title}", que estás siguiendo.
+          email_outro: Recibiste esta notificación porque estás siguiendo el espacio "%{participatory_space_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Nueva propuesta "%{resource_title}" añadida a %{participatory_space_title}
           notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido añadida a %{participatory_space_title} por %{author}
           notification_title_official: Se ha añadido la propuesta oficial <a href="%{resource_path}">%{resource_title}</a> en %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Tu propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque eres autora de "%{resource_title}".
+            email_outro: Has recibido esta notificación porque presentaste la propuesta "%{resource_title}".
             email_subject: Tu propuesta ha sido rechazada
             notification_title: Tu propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
           follower:
             email_intro: 'La propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque estás siguiendo "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+            email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
             email_subject: Una propuesta que estás siguiendo ha sido rechazada
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
         proposal_update_category:

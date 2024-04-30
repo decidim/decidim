@@ -124,6 +124,8 @@ bg:
           follow_description: Получавайте известия, когато има новини за тази инициатива
           offline_method: За тази гражданска инициатива се събират подписи само лично.
           print: Отпечатай инициативата
+        vote_cabin:
+          supports_required: "Необходими са %{total_supports} подписа"
         votes_count:
           most_popular_initiative: Най-популярна инициатива
           need_more_votes: Има нужда от повече подписи

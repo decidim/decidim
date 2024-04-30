@@ -12,3 +12,30 @@ bg:
     blogs:
       actions:
         confirm_destroy: Сигурни ли сте, че желаете да изтриете тази публикация?
+      admin:
+        models:
+          post:
+            name: Публикация
+        posts:
+          create:
+            invalid: Възникна проблем при създаването на тази публикация
+            success: Публикацията беше създадена успешно
+          destroy:
+            success: Публикацията беше изтрита успешно
+          update:
+            success: Публикацията беше запазена успешно
+      last_activity:
+        new_post_at_html: "<span>Нова публикация на %{link}</span>"
+      models:
+        post:
+          fields:
+            created_at: Създадена на
+      posts:
+        show:
+          back: Назад към списъка
+          comments: Коментари
+          view: Преглед
+        sidebar_blog:
+          comments: коментари
+          most_commented_posts: Най-коментирани публикации
+      read_more: Прочетете повече
