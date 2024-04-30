@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Valuator uses proposal answer templates" do
-  let(:field_values) { { proposal_state_id: } }
+  let(:field_values) { { internal_state: :rejected } }
   let(:token) { "rejected" }
   let!(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, :admin_terms_accepted, organization:) }
@@ -11,7 +11,6 @@ describe "Valuator uses proposal answer templates" do
   let!(:valuation_assignment) { create(:valuation_assignment, proposal:, valuator_role:) }
   let(:participatory_space) { create(:participatory_process, title: { en: "A participatory process" }, organization:) }
   let!(:templatable) { create(:proposal_component, name: { en: "A component" }, participatory_space:) }
-  let(:proposal_state_id) { Decidim::Proposals::ProposalState.find_by(component: templatable, token:).id }
   let(:description) { "Some meaningful answer" }
   let!(:template) { create(:template, target: :proposal_answer, description: { en: description }, organization:, templatable:, field_values:) }
   let!(:proposal) { create(:proposal, component: templatable) }
