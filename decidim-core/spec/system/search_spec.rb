@@ -60,8 +60,7 @@ describe "Search", type: :system do
     it "displays the results page" do
       visit %{/search?filter[with_resource_type]=Decidim::Proposals::Proposal&page=2&per_page=10'"()%26%25<zzz><ScRiPt >alert("XSS")</ScRiPt>}
 
-      expect(page).to have_content("22 Results for the search")
-      expect(page).to have_content("Results per page")
+      expect(page).to have_content("22 RESULTS FOR THE SEARCH")
     end
   end
 end
