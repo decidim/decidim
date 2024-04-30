@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe "Project search" do
+RSpec.describe "Project search", type: :request do
   include Decidim::ComponentPathHelper
 
   let(:user) { create(:user, :confirmed) }
