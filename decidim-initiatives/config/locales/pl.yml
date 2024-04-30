@@ -499,7 +499,6 @@ pl:
           other: " podpisy"
         vote_cabin:
           already_voted: Już podpisano
-          supports_required: "Wymagane %{total_supports} podpisów"
           verification_required: Zweryfikuj swoje konto, aby podpisać inicjatywę
           vote: Podpisz
           votes_blocked: Podpisywanie wyłączone

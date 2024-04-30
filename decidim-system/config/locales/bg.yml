@@ -1,14 +1,231 @@
 bg:
   activemodel:
     attributes:
+      oauth_application:
+        name: Име на приложението за OAuth
+        organization_logo: Лого на организацията (квадратно)
+        organization_name: Организация
+        organization_url: URL адрес на организацията
+        redirect_uri: URI за пренасочване
       organization:
         address: Име на SMTP хост
+        from_email: Имейл адрес
+        from_label: Етикет
         password: Парола
         port: Порт
         user_name: Потребителско име
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Администраторски MIME типове
+          default: MIME типове по подразбиране
+        allowed_file_extensions:
+          admin: Административни файлови разширения
+          default: Файлови разширения по подразбиране
+          image: Разширения на файлове с изображения
+        maximum_file_size:
+          avatar: Размер на файла на аватара
+          default: Размер на файла по подразбиране
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: URI адресът за пренасочване трябва да бъде SSL URI
   decidim:
     system:
       actions:
         confirm_destroy: Сигурни ли сте, че желаете да изтриете това?
         destroy: Изтрий
         edit: Редактирай
+        new_admin: Нов администратор
+        new_oauth_application: Ново OAUTH приложение
+        new_organization: Нова организация
+        save: Запази
+        title: Действия
+      admins:
+        create:
+          error: Възникна проблем при създаването на нов администратор.
+          success: Администраторът беше създаден успешно.
+        destroy:
+          success: Администраторът беше изтрит успешно.
+        edit:
+          title: Редактиране на администратора
+          update: Обновяване
+        index:
+          title: Администратори
+        new:
+          create: Създаване
+          title: Нов администратор
+        update:
+          error: Възникна проблем при актуализирането на този администратор.
+          success: Администраторът беше актуализиран успешно.
+      dashboard:
+        show:
+          admins: Администратори
+          current_organizations: Текущи организации
+      default_pages:
+        placeholders:
+          content: Моля, добавете важно съдържание на статичната страница %{page} в администраторското табло.
+          summary: Моля, добавете смислено резюме към статичната страница %{page} на администраторското табло.
+          title: Заглавие по подразбиране за %{page}
+        terms-of-service: Общи условия
+      devise:
+        passwords:
+          edit:
+            change_your_password: Промени паролата си
+            minimum_characters: "(%{minimum} символа минимум)"
+          new:
+            forgot_your_password: Забравили сте паролата си
+            send_me_reset_password_instructions: Изпратете ми инструкции за възстановяване на паролата
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Не сте ли получили указания за потвърждение?
+            did_not_receive_unlock_instructions?: Не сте получили инструкции за отключване?
+            forgot_your_password?: Забравили сте паролата си?
+            log_in: Вход
+            sign_up: Регистрация
+      menu:
+        admins: Администратори
+        dashboard: Табло за управление
+        oauth_applications: Приложения за OAuth
+        organizations: Организации
+      models:
+        admin:
+          fields:
+            created_at: Създаден на
+            email: Имейл
+          validations:
+            email_uniqueness: вече съществува друг администратор със същия имейл
+        oauth_application:
+          fields:
+            created_at: Създаден на
+            name: Име на приложението за OAuth
+            organization_name: Организация
+        organization:
+          actions:
+            save_and_invite: Създаване на организация и покана на администратор
+          fields:
+            content_security_policy: Политика за защита на съдържанието
+            created_at: Създадено на
+            file_upload_settings: Настройки за качване на файл
+            name: Име
+            omniauth_settings: Настройки за Omniauth
+            smtp_settings: SMTP Настройки
+      oauth_applications:
+        create:
+          error: Възникна проблем при създаването на това приложение.
+          success: Приложението беше създадено успешно.
+        destroy:
+          error: Възникна проблем при премахването на това приложение.
+          success: Приложението беше премахнато успешно.
+        edit:
+          save: Запази
+          title: Редактиране на приложението
+        form:
+          select_organization: Избор на организация
+        index:
+          confirm_delete: Сигурни ли сте, че искате да изтриете това приложение?
+          title: Приложения за OAuth
+        new:
+          save: Запази
+          title: Ново приложение
+        update:
+          error: Възникна проблем при актуализирането на това приложение.
+          success: Приложението беше актуализирано успешно.
+      organizations:
+        advanced_settings:
+          hide: Скрий разширените настройки
+          show: Показване на разширените настройки
+        create:
+          error: Възникна проблем при създаването на нова организация.
+          success_html: |
+            <p>
+               Организацията е създадена успешно.
+            </p>
+            <ol>
+               <li>Може да се наложи да актуализирате кода на приложението си, тъй като за да позволите заявки към %{host} трябва да добавите следното към вашия
+               конфигурация на средата (т.е. <code>config/environment/production.rb</code>) или вашия <code>config/application.rb</code>:
+                 <p> config.hosts << "%{host}" </p>
+               </li>
+               <li>
+                 След като това бъде направено, ще имате достъп до вашата платформа чрез <a href="http://%{host}">http://%{host}</a>
+               </li>
+               <li>
+                 Изпратихме имейл до <b>%{email}</b>, който трябва да потвърдите.
+               </li>
+            </ol>
+        csp_settings:
+          connect_src: Свържете src
+          connect_src_hint: |
+            Директивата connect-src ограничава URL адресите, които могат да бъдат заредени с помощта на <script> елементи.
+            Платформата ще добави „self“, но ви позволява да добавите още. Оставете го празно, ако не сте сигурни.
+          default_src: src по подразбиране
+          default_src_hint: |
+            Директивата default-src е правилото по подразбиране за зареждане на съдържание като JavaScript, изображения, CSS, шрифтове, AJAX заявки, рамки, HTML5 медии.
+            Платформата ще добави "'self' 'unsafe-inline'", но ви позволява да добавяте още. оставете го празно, ако не сте сигурни.
+          font_src: Font src
+          font_src_hint: |
+            Директивата font-src ограничава URL адресите, които могат да бъдат заредени чрез @font-face.
+            Платформата ще добави „self“, но ви позволява да добавите още. оставете го празно, ако не сте сигурни.
+          frame_src: Frame src
+          frame_src_hint: |
+            Директивата frame-src ограничава URL адресите, които могат да се зареждат чрез елементи <frame>, <iframe> и <object>.
+            Платформата ще добави „self“, но ви позволява да добавите още. оставете го празно, ако не сте сигурни.
+          img_src: Img src
+          img_src_hint: |
+            Директивата img-src ограничава URL адресите, които могат да се зареждат чрез елементи <img>, <image>, <picture> и <svg>.
+            Платформата ще добави „self“, но ви позволява да добавите още. оставете го празно, ако не сте сигурни.
+          media_src: Media src
+          media_src_hint: |
+            Директивата media-src ограничава URL адресите, които могат да бъдат заредени с помощта на елементите <video>, <audio> и <source>.
+            Платформата ще добави „self“, но ви позволява да добавите още. оставете го празно, ако не сте сигурни.
+          script_src: Script src
+          script_src_hint: |
+            Директивата script-src ограничава URL адресите, които могат да бъдат заредени с помощта на <script> елементи.
+            Платформата ще добави "'self' 'unsafe-inline' 'unsafe-eval'", но ви позволява да добавяте още. оставете го празно, ако не сте сигурни.
+          style_src: Style src
+          style_src_hint: |
+            Директивата style-src ограничава URL адресите, които могат да бъдат заредени с помощта на <style> елементи.
+            Платформата ще добави "'self' 'unsafe-inline'", но ви позволява да добавяте още. оставете го празно, ако не сте сигурни.
+        edit:
+          confirm_resend_invitation: Сигурни ли сте, че искате да изпратите отново тази покана?
+          resend_invitation: Изпратете отново покана
+          secondary_hosts_hint: Въведете всяка от тях на нов ред
+          title: Редактиране на организацията
+        file_upload_settings:
+          content_types:
+            admin_hint: Тези типове MIME са разрешени за качвания в администраторския раздел. Потребителите с администратори трябва да са наясно с рисковете при качването на някои формати на документи, така че можете да очаквате да бъдат по-предпазливи при качването на файлове.
+            default_hint: Тези типове MIME са разрешени за всички потребители по подразбиране.
+            intro_html: Добавяте заместващи символи със знака звездичка за MIME типовете, напр. <code>изображение/*</code>.
+        resend_invitation:
+          success: Поканата е изпратена успешно.
+        smtp_settings:
+          fieldsets:
+            sender: Подател
+          instructions:
+            from_label: 'Подателят на имейла ще бъде: „your-organization-name <your-organization@example.org>“. Оставете празно, за да използвате „имейл адресът“ като етикет.'
+          placeholder:
+            from_email: your-organization@example.org
+            from_label: your-organization-name
+        update:
+          error: Възникна проблем при актуализирането на тази организация.
+          success: Организацията беше актуализирана успешно.
+        users_registration_mode:
+          disabled: Достъпът е възможен само с външни профили
+          enabled: Разрешете на участниците да се регистрират и да влизат в профилите си
+          existing: Не разрешавайте на участниците да се регистрират, но разрешете на съществуващите участници да влизат в профилите си
+      shared:
+        notices:
+          no_organization_warning_html: Трябва да създадете организация, за да започнете. Уверете се, че сте прочели %{guide}, преди да продължите.
+          our_getting_started_guide: нашето стартово ръководство
+        organizations_list:
+          confirm_resend_invitation: Сигурни ли сте, че искате да изпратите отново тази покана?
+          resend_invitation: Изпратете отново покана
+      titles:
+        dashboard: Табло за управление
+        decidim: Civil Power
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Изход

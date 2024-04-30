@@ -199,15 +199,7 @@ ko:
           search: 작업 검색
         show:
           stats:
-            attendees: 참여자
             back_to_resource: 결과로 돌아가기
-            comments: 댓글
-            contributions: 기여
-            last_edited_by: 최근 편집자
-            last_updated_at: 마지막 업데이트
-            meetings: 회의
-            proposals: 제안
-            votes: 지원
     admin:
       filters:
         results:

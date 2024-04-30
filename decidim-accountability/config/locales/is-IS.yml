@@ -135,15 +135,7 @@ is-IS:
           search: Leitaðu að aðgerðum
         show:
           stats:
-            attendees: Dómarar
             back_to_resource: Fara aftur til niðurstöðu
-            comments: Athugasemdir
-            contributions: Framlög
-            last_edited_by: Síðast breytt af
-            last_updated_at: Síðast uppfært á
-            meetings: Fundir
-            proposals: Tillögur
-            votes: Styður
         timeline:
           title: Verkefnisþróun
     admin:

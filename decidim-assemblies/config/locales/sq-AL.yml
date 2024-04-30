@@ -1,1 +1,67 @@
 sq:
+  activemodel:
+    attributes:
+      assemblies_type:
+        title: Titulli
+      assembly:
+        announcement: Njoftim
+        area_id: Zona
+        assembly_type: Lloji i asamblesë
+        assembly_type_other: Lloji i asamblesë tjetër
+        closing_date: Data e mbylljes
+        closing_date_reason: Arsyeja e datës së mbylljes
+        composition: Përbërja
+        copy_categories: Kopjo kategoritë
+        created_by: Krijuar nga
+        created_by_other: Krijuar nga tjetër
+        creation_date: Data e krijimit
+        decidim_area_id: Zona
+        decidim_assemblies_type_id: Lloji i asamblesë
+        decidim_scope_id: Qëllimi
+        description: Përshkrimi
+        developer_group: Grupi promovues
+        document: Dokument
+        domain: Domeini
+        duration: Kohëzgjatja
+        facebook: Facebook
+        github: Github
+        hashtag: Hashtag
+        hero_image: Imazhi kryesor
+        import_attachments: Importoni bashkëngjitjet
+        import_categories: Importoni kategoritë
+        import_components: Importoni përbërësit
+        included_at: Përfshirë në
+        instagram: Instagram
+        internal_organisation: Organizatë e brëndshme
+        is_transparent: Është transparente
+        local_area: Zona e organizatës
+        parent_id: Asambleja e përgjithshme
+        participatory_scope: Çfarë u vendos
+        participatory_structure: Si u vendos
+        private_space: Hapësirë private
+        promoted: Në pah
+        published_at: Publikuar në
+        purpose_of_action: Qëllimi i aksionit
+        scope_id: Qëllimi
+        scopes_enabled: Fushveprimet e aktivizuara
+        short_description: Përshkrim i shkurtër
+        show_statistics: Trego statistikat
+        slug: Identifikues URL-je
+        special_features: Karaktersitika të veçanta
+        subtitle: Nëntitull
+        target: Kush merr pjesë
+        title: Titulli
+        twitter: X
+        youtube: YouTube
+      assembly_member:
+        birthday: Datëlindje
+        birthplace: Vendi i lindjes
+        full_name: Emri i plotë
+        gender: Gjinia
+        non_user_avatar: Avatar
+        position: Pozicioni
+        user_id: Perdorues ose grup
+      assembly_user_role:
+        email: Email
+        name: Emri
+        role: Roli

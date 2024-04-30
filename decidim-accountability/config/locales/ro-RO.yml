@@ -214,15 +214,7 @@ ro:
           search: Caută acțiuni
         show:
           stats:
-            attendees: Participanți
             back_to_resource: Înapoi la rezultat
-            comments: Comentarii
-            contributions: Contribuții
-            last_edited_by: Ultima actualizare realizată de
-            last_updated_at: Ultima actualizare la
-            meetings: Întâlniri
-            proposals: Propuneri
-            votes: Voturi
         timeline:
           title: Evoluția proiectului
     admin:

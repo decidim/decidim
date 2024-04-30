@@ -438,7 +438,6 @@ pt:
           other: " assinaturas"
         vote_cabin:
           already_voted: Já assinou
-          supports_required: "%{total_supports} assinaturas necessárias"
           verification_required: Verifique a sua conta para assinar a iniciativa
           vote: Assinar
           votes_blocked: Assinatura desativada

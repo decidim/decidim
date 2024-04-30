@@ -234,15 +234,7 @@ pt-BR:
           search: Procure ações
         show:
           stats:
-            attendees: Participantes
             back_to_resource: Volte ao resultado
-            comments: Comentários
-            contributions: Contribuições
-            last_edited_by: Editado pela última vez por
-            last_updated_at: Última atualização em
-            meetings: Reuniões
-            proposals: Propostas
-            votes: Suporta
         timeline:
           title: Evolução do projeto
     admin:
