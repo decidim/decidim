@@ -92,6 +92,7 @@ es:
           elements_hidden_header: Elementos escondidos de la API de accesibilidad
           elements_hidden_paragraph: Para ocultar un elemento de las tecnologías de asistencia, utiliza el atributo aria-hidden="true" en él.
           heading_on: Encabezado en secciones importantes
+          here_link: aquí
           illogical_heading_order: Orden de encabezado ilógica
           illogical_heading_paragraph: Cada página debe tener un orden de encabezado lógico cuando utilices los elementos de encabezamiento <h1>, <h2>, <h3>, <h4>, <h5> y <h6>.
           important_sections_heading: Encabezado en secciones importantes
@@ -169,6 +170,7 @@ es:
         blogs: Blog
         budget_card_html: Utilizado por tarjetas proyectos de <i>Presupuestos</i>. Esta tarjeta requiere que los activos del módulo se muestren correctamente, es decir, <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
         budgets: Presupuestos
+        callout_class: Clase de la llamada
         callout_description: Este atributo aplica un estado al anuncio/avís. Por defecto, utiliza color secundario.
         card_g: Tarjeta G
         card_l: Tarjeta L
