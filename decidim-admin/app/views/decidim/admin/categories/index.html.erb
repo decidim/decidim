@@ -54,11 +54,11 @@
                   <% if allowed_to? :destroy, :category, category: subcategory %>
                     <% if subcategory.unused? %>
                       <%= icon_link_to "circle-x", category_path(current_participatory_space, subcategory), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                    <% else %>
+                      <span class="action-icon" title="<%= t("categories.index.category_used", scope: "decidim.admin") %>" data-tooltip="true" data-disable-hover="false">
+                        <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", "aria-hidden": true %>
+                      </span>
                     <% end %>
-                  <% else %>
-                    <span class="action-icon" title="<%= t("categories.index.category_used", scope: "decidim.admin") %>" data-tooltip="true" data-disable-hover="false">
-                      <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", "aria-hidden": true %>
-                    </span>
                   <% end %>
                   </td>
                 </tr>
