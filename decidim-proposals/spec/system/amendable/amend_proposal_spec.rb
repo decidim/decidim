@@ -245,6 +245,10 @@ describe "Amend Proposal", versioning: true, type: :system do
 
           context "when the form is filled correctly" do
             before do
+              login_as user, scope: :user
+              visit proposal_path
+              expect(page).to have_content(proposal_title)
+              click_link "Amend Proposal"
               within ".new_amendment" do
                 fill_in "amendment[emendation_params][title]", with: "More sidewalks and less roads"
                 fill_in "amendment[emendation_params][body]", with: "Cities need more people, not more cars"
@@ -260,6 +264,10 @@ describe "Amend Proposal", versioning: true, type: :system do
 
           context "when the form is filled incorrectly" do
             before do
+              login_as user, scope: :user
+              visit proposal_path
+              expect(page).to have_content(proposal_title)
+              click_link "Amend Proposal"
               within ".new_amendment" do
                 fill_in "amendment[emendation_params][title]", with: "INVALID TITLE"
               end
