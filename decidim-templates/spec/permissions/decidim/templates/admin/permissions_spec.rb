@@ -9,7 +9,7 @@ describe Decidim::Templates::Admin::Permissions do
   let(:user) { create(:user, :admin, organization:) }
   let(:context) do
     {
-      current_organization: create(:organization)
+      current_organization: organization
     }
   end
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
@@ -67,6 +67,34 @@ describe Decidim::Templates::Admin::Permissions do
 
   context "when reading a template" do
     it_behaves_like "action is allowed", :admin, :read, :template
+
+    context "when user is a valuator" do
+      let(:user) { create(:user, :confirmed, organization:) }
+      let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process: participatory_space) }
+      let!(:valuation_assignment) { create(:valuation_assignment, proposal:, valuator_role:) }
+      let(:proposal) { create :proposal, component: }
+      let(:component) { create(:proposal_component, participatory_space:) }
+      let(:participatory_space) { create :participatory_process, organization: }
+      let(:action) do
+        { scope: :admin, action: action_str, subject: :template }
+      end
+      let(:context) do
+        {
+          current_organization: organization,
+          proposal:
+        }
+      end
+
+      let(:action_str) { :read }
+
+      it { is_expected.to be true }
+
+      context "when other actions" do
+        let(:action_str) { :index }
+
+        it_behaves_like "permission is not set"
+      end
+    end
   end
 
   context "when creating a template" do
