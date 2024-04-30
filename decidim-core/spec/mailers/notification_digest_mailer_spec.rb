@@ -25,7 +25,7 @@ module Decidim
         let(:event_name) { "decidim.events.comments.comment_created" }
         let(:event_class) { "Decidim::Comments::CommentCreatedEvent" }
         let(:extra) { { "comment_id" => comment.id, "received_as" => "follower" } }
-        let(:notification) { create(:notification, user:, resource:, event_name:, event_class:, extra:) }
+        let(:notification) { create(:notification, user: user, resource: resource, event_name: event_name, event_class: event_class, extra: extra) }
 
         it "includes the comment body" do
           expect(subject.body).to include("This is a comment")
