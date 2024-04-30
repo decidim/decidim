@@ -28,6 +28,33 @@ Nothing.
 
 Nothing.
 
+## [0.26.10](https://github.com/decidim/decidim/tree/v0.26.10)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- Pinning chrome version to v119 [\#12498](https://github.com/decidim/decidim/pull/12498)
+- Backport 'Fix decidim-templates usage' to v0.26 [\#12601](https://github.com/decidim/decidim/pull/12601)
+
+### Removed
+
+Nothing.
+
+### Internal
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
 ## [0.26.9](https://github.com/decidim/decidim/tree/v0.26.9)
 
 ### Upgrade notes
