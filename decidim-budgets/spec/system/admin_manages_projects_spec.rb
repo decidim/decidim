@@ -84,5 +84,14 @@ describe "Admin manages projects", type: :system do
       expect(::Decidim::Budgets::Project.find(project.id).selected_at).to eq(Time.zone.today)
       expect(::Decidim::Budgets::Project.find(project2.id).selected_at).to eq(Time.zone.today)
     end
+
+    describe "when managing a project with scopes" do
+      let!(:project) { create(:project, component: current_component) }
+      let!(:scope) { create(:scope, organization: current_component.organization) }
+
+      it "does not display subscopes" do
+        expect(page).to have_no_content(scope.name)
+      end
+    end
   end
 end
