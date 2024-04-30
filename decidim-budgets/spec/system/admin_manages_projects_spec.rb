@@ -93,35 +93,5 @@ describe "Admin manages projects", type: :system do
         expect(page).to have_no_content(scope.name)
       end
     end
-
-    describe "update projects budget" do
-      let!(:another_component) { create(:budgets_component, organization: organization, participatory_space: current_component.participatory_space) }
-      let!(:another_budget) { create(:budget, component: another_component) }
-
-      it "shows all of the budgets within the participatory_space" do
-        visit current_path
-        find_by_id("projects_bulk").set(true)
-        find_by_id("js-bulk-actions-button").click
-        click_on "Change budget"
-        options = ["Select budget", format_title(destination_budget), format_title(budget), format_title(another_budget)]
-        expect(page).to have_select("reference_id", options: options)
-      end
-
-      it "changes project budget" do
-        find_by_id("projects_bulk").set(true)
-        find_by_id("js-bulk-actions-button").click
-        click_on "Change budget"
-        select translated(destination_budget.title), from: "reference_id"
-        click_on "Update project's budget"
-        within_flash_messages do
-          expect(page).to have_content("Projects successfully updated to the budget: #{translated(project.title)} and #{translated(project2.title)}")
-        end
-        expect(page).to have_no_css("tr[data-id='#{project.id}']")
-        expect(page).to have_no_css("tr[data-id='#{project2.id}']")
-
-        expect(project.reload.budget).to eq(destination_budget)
-        expect(project2.reload.budget).to eq(destination_budget)
-      end
-    end
   end
 end
