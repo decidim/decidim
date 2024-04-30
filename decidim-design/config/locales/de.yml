@@ -34,6 +34,8 @@ de:
         cards:
           title: Karten
         dialogs:
+          dialog_demo_description_html: Die Dialoge oder modale Komponenten werden über den Rails-Helfer <code>decidim_modal</code> implementiert.
+          dialogs_description_html: Dialoge sind eine Javascript-Funktion, die dank einer externen Bibliothek namens <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a> verfügbar ist.
           title: Dialoge
           usage_description: Ein Dialog erfordert zwei Elemente
           usage_description_2_html: 2. Ein modales Element, dessen <code>ID</code> mit dem Datenzielwert übereinstimmt, auf den der Trigger verweist.
@@ -45,9 +47,14 @@ de:
           emojis: Emojis
           emojis_description: Funktioniert nur für Textbereiche
           errors: Fehler
+          errors_description: Gilt nicht für select
+          header_alert: Diese Seite kommt aus einer alten Ansicht. Der Inhalt ist veraltet.
           help_texts: Hilfe-Texte
+          html_regular_inputs: Reguläre HTML-Eingaben
           min_max_length: Min / max Länge
           min_max_length_description: Funktioniert nur für input type='text' und 'textarea'
+          regular_inputs_description: 'Zeigt nur gängige Typen an, volle verfügbare Liste: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
+          textarea_required: textarea erforderlich
           title: Formulare
         report:
           title: Melden
@@ -237,6 +244,7 @@ de:
         value: Wert
         variations: Variationen
         variations_cards_description: Jede Karte sieht je nach Eigenschaften der angezeigten Ressource unterschiedlich aus. Sie können dieses Verhalten in der jeweiligen Zelle überschreiben.
+        variations_text: Was die Art der Aktivität betrifft, so könnte die Zelle verschiedene Inhalte anzeigen, zum Beispiel ob die unterschiedlichen Ressourcen angezeigt werden, ob sie zu einem partizipatorischen Raum gehören oder nicht, ob sie einen einen Autor haben oder nicht.
       home:
         index:
           by_sharing_principles: Durch die gemeinsame Nutzung der Prinzipien, Philosophie, und der Logik hinter Designentscheidungen wollen wir die Community dazu befähigen, konsequent beizutragen, so dass wir die beste Erfahrung für die Teilnehmenden erreichen.
