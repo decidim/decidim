@@ -144,6 +144,7 @@ de:
       external_link: Externer Link
       front_page_link: Zur Startseite gehen
       logo: "Offizielles Logo von %{organization}"
+      opens_in_new_tab: In neuem Tab öffnen
       skip_button: Zu Hauptinhalten überspringen
     account:
       blocked: Dieses Konto wurde wegen Verletzung der Nutzungsbedingungen gesperrt
@@ -1459,6 +1460,8 @@ de:
         close_modal: Fenster schließen
         ok: Ok
         title: Bestätigen
+      embed:
+        title: Eingebetteter Videoinhalt
       extended_navigation_bar:
         more: Mehr
         unfold: Entfalten
@@ -2045,6 +2048,7 @@ de:
       long_with_particles: "%d. %B %Y %H:%M"
       short: "%d.%m.%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Löschungen

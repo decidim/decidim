@@ -144,6 +144,7 @@ es-PY:
       external_link: Enlace externo
       front_page_link: Ir a la página principal
       logo: "Logo oficial de %{organization}"
+      opens_in_new_tab: Abrir en una pestaña nueva
       skip_button: Saltar al contenido principal
     account:
       blocked: Esta cuenta ha sido bloqueada por una violación de los términos y condiciones de uso
@@ -1457,6 +1458,8 @@ es-PY:
         close_modal: Cerrar el modal
         ok: De acuerdo
         title: Confirmar
+      embed:
+        title: Contenido de vídeo incrustado
       extended_navigation_bar:
         more: Más
         unfold: Desplegar
@@ -2042,6 +2045,7 @@ es-PY:
       long_with_particles: "%d de %B del %Y a las %Hh%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Supresiones

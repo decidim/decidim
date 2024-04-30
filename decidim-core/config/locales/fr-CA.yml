@@ -144,6 +144,7 @@ fr-CA:
       external_link: Lien externe
       front_page_link: Aller à la première page
       logo: "Logo officiel de %{organization}"
+      opens_in_new_tab: S'ouvre dans un nouvel onglet
       skip_button: Passer au contenu principal
     account:
       blocked: Ce compte a été bloqué en raison d'une violation des conditions d'utilisation
@@ -1458,6 +1459,8 @@ fr-CA:
         close_modal: Fermer la fenêtre modale
         ok: Ok
         title: Valider
+      embed:
+        title: Contenu vidéo intégré
       extended_navigation_bar:
         more: Plus
         unfold: Afficher
@@ -2043,6 +2046,7 @@ fr-CA:
       long_with_particles: "%d %B %Y à %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Suppressions
