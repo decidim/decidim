@@ -17,9 +17,6 @@ import Rails from "@rails/ujs"
 import svg4everybody from "svg4everybody"
 import morphdom from "morphdom"
 
-// vendor customized scripts (bad practice: these ones should be removed eventually)
-import "src/decidim/vendor/modernizr"
-
 /**
  * Local dependencies
  */
@@ -73,6 +70,7 @@ import {
   createAccordion,
   createDialog,
   createDropdown,
+  announceForScreenReader,
   Dialogs
 } from "src/decidim/a11y"
 import changeReportFormBehavior from "src/decidim/change_report_form_behavior"
@@ -86,7 +84,8 @@ window.Decidim = window.Decidim || {
   FormValidator,
   addInputEmoji,
   EmojiButton,
-  Dialogs
+  Dialogs,
+  announceForScreenReader
 };
 
 window.morphdom = morphdom

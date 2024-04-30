@@ -695,6 +695,7 @@ gl:
           headline: Estado actual de %{organization}
         sub_hero:
           register: Rexistrarse
+          register_title: Rexistrarse para crear unha conta
       index:
         standalone_pages: Páxinas
         subheading: Navega polas páxinas de axuda de %{name}

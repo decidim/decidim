@@ -15,6 +15,7 @@ de:
           usage: Nutzung
           usage_p: Ein Akkordeon benötigt mindestens drei Elemente
           usage_p_1_html: 1. Ein Wrapper <code>div</code>, mit dem Data-Attribut <code>data-component="accordion"</code>, über alle verfügbaren Trigger und Panels.
+          usage_p_2_html: 2. Ein Triggerelement, fremdbedienbar (als Button), das auf das zusammenklappbare Element durch <code>data-controls="Panel"</code>zeigt, wobei das <i>panel</i> durch die <code>id</code> des Panels angesteuert wird.
           usage_p_3_html: 3. Ein versteckbares Element, dessen <code>id</code> mit dem Wert der Datensteuerung übereinstimmt, auf den sich der Trigger bezieht.
         activities:
           activities: Aktivitäten
@@ -30,6 +31,33 @@ de:
         buttons:
           description_html: 'Schaltflächen werden mit einer Kombination verschiedener CSS-Klassen erstellt: der <code>button</code>-Klasse, einer Größe und einer Farbe.'
           title: Schaltflächen
+        cards:
+          title: Karten
+        dialogs:
+          title: Dialoge
+          usage_description: Ein Dialog erfordert zwei Elemente
+          usage_description_2_html: 2. Ein modales Element, dessen <code>ID</code> mit dem Datenzielwert übereinstimmt, auf den der Trigger verweist.
+          usage_description_html: 1. Ein benutzerdefinierbares Element, mit dem Daten-Attribut <code>data-dialog-open="Beispiel"</code>, wobei das Beispiel die <code>ID</code> des Modals ist.
+        follow:
+          title: Folgen
+        forms:
+          disabled: Deaktiviert
+          emojis: Emojis
+          emojis_description: Funktioniert nur für Textbereiche
+          errors: Fehler
+          help_texts: Hilfe-Texte
+          min_max_length: Min / max Länge
+          min_max_length_description: Funktioniert nur für input type='text' und 'textarea'
+          title: Formulare
+        report:
+          title: Melden
+        share:
+          title: Teilen
+        tooltips:
+          demo: Demo
+          github_source_html: Quellcode auf GitHub %{github_link}
+          title: Tooltips
+          usage: Verwendung
       foundations:
         accessibility:
           accessibility_labels: Barrierefreiheitsbezeichnungen
@@ -60,21 +88,28 @@ de:
           use_aria_paragraph: Viele Elemente, die interaktive Funktionalität auf der Website bieten, erfordern ARIA-Attribute auf ihnen, um sie barrierefrei zugänglich zu machen.
         color:
           color_header: Farbe
+          description_p1: Wir bieten eine Grundpalette mit wenigen Farben, so dass kleinere Anpassungen einfach sind. Sie können die Grundpalette entweder im Administrationsbereich oder in der Tailwind-Konfigurationsdatei ändern, wenn Sie erweiterte Anpassungen vornehmen möchten.
           description_p2_html: Wenn Sie die Farben anpassen, denken Sie an den %{contrast_link}. Sie können den Kontrast Ihrer Auswahl mit %{checker_link} oder anderen ähnlichen Tools überprüfen.
           wcag_compliant_rations: WCAG 2.1 AA konformes Kontrastverhältnis
           wcag_contrast_checker: WebAIM-Kontrastprüfung
         iconography:
+          description_iconography: Wir verwenden Symbole, um die Bedeutung von Aktionen, Titeln usw. zu stärken
           description_iconography_html: 'Wir verwenden die Open-Source-Bibliothek Remixicon: %{iconography_link}'
           title: Ikonografie
         layout:
+          breakpoint: Breakpoint
+          breakpoints: Breakpoints
           centered: Zentriert
           code: Code
+          columns: Anzahl der Spalten (10, 8 oder 6).
           desktop: Desktop
           full_width: Volle Breite
           layout_list_1: 'Homepage (der Seite, des Bereichs): volle Breite'
+          left_aside: Seitlich links
           mobile: Mobil
           not_required: Nicht erforderlich
           properties: Eigenschaften
+          right_aside: Seitlich rechts
           tablet: Tablet
           title: Layout
         typography:
@@ -85,40 +120,122 @@ de:
           typefaces_description_1: Decidim verwendet Source Sans Pro als primäre Schriftart. Diese Schrift unterstützt 310 Sprachen.
           typefaces_description_2: Diese Schriften sind lizenziert mit der Open Font Lizenz
       helpers:
+        accountability: Verantwortlichkeit
         activity: Aktivität
+        ally_link: a11y-dropdown-Komponente
         argument: Argument
+        assemblies: Gremien
+        assembly_g: Gremium G
+        assembly_s: Gremium S
         avatar: Profilbild
         background: Hintergrund und Ränder
         base: Basis
+        block_text: extra_Data-Block verwenden
+        blog_cards_html: Wird von <i>Blog</i>-Karten verwendet
+        blogs: Blogs
+        budget_card_html: Wird von <i>Budgetprojekt</i- Karten verwendet. Diese Karte erfordert eine korrekte Anzeige der Modul-Assets z.B. <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>
+        budgets: Budgets
+        callout_class: Callout-Klasse
+        card_g: Karte G
+        card_l: Karte L
+        card_s: Karte S
+        collaborative_draft_l: Gemeinsamer Entwurf L
         colors: Farben
         compact: Kompakt
+        conference_g: Konferenz G
+        conference_s: Konferenz S
+        conferences: Konferenzen
         context: Kontext
+        debate_l: Debatte L
+        debate_s: Debatte S
+        debates: Debatten
+        debates_cards_html: Wird von <i>Debatten</i>-Karten verwendet
+        debates_cards_text: Andere Vorlage für den Bilderblock verwenden
         default: Standard
+        default_description: Aufruf der Zelle ohne zusätzliche Argumente, sondern nur des Benutzers selbst.
         demo: Demo
+        description: Beschreibung
         disabled: Deaktiviert
+        dropdowns: Dropdowns
+        dropdowns_description_html: Dropdowns sind eine Javascript-Funktion, die dank einer externen Bibliothek namens %{link} verfügbar ist.
+        dropdowns_usage_description: 'Ein Dropdown erfordert zwei Elemente:'
+        dummy_title: Dummy Ressourcentitel
+        follow_button: Folgen-Button
+        follower_description_html: Stellen Sie sicher, dass die partielle <code>Dezimal/Shared/login_modal</code> im DOM-Archiv vorhanden ist. Dieser Teil wird beim Einloggen im Anwendungslayout platziert.
         form_elements: Formularelemente
+        generic_cards: Allgemeine Karten
+        grid: Raster
         hex_code: Hex-Code
+        highlight: Hervorhebung
+        highlight_description: Verwendet von Ressourcen, die das Hervorheben erlauben
         icons: Symbole
+        image_and_description: Bild und Beschreibung
+        initiative_g: initiative_g
+        initiative_s: initiative_s
+        initiatives: Initiativen
+        list: Liste
         main_colors: Hauptfarben
+        meeting_l: Sitzung L
+        meeting_s: Sitzung S
+        meetings: Sitzung
+        meetings_html: Wird von <i>Meetings</i>-Karten verwendet
+        metadata_items: Metadaten-Elemente
+        metadata_text: Jede Ressource definiert eigene Metadaten
+        participatory_process_g: Partizipationsprozess G
+        participatory_process_group_g: Partizipative Prozessgruppe G
+        participatory_process_group_s: Partizipative Prozessgruppe S
+        participatory_process_s: Partizipationsprozess S
+        participatory_processes: Partizipationsprozesse
+        plain_text: Ich bin nur reiner Text
+        plain_text_description: Sie können als erstes Argument sowohl einen Klartext als auch ein Hash-Objekt angeben
+        plain_text_vs_hash: Einfacher Text Vs Hash
+        post_g: Beitrag G
+        post_l: Beitrag L
+        post_s: Beitrag S
+        project_l: Projekt L
+        project_s: Projekt S
+        proposal_l: Vorschlag L
+        proposal_s: Vorschlag S
+        proposals: Vorschläge
+        report_button: Schaltfläche "Melden"
+        report_usage_description: Die Schaltfläche "Melden" öffnet einen modalen Dialog, wo Beiträge zur Moderation gemeldet werden können.
+        result_l: Resultat L
         rgba_code: RGBA-Code
+        search: Suche
         send: Senden
+        share_button: Schaltfläche "Teilen"
         sizes: Grössen
+        sortition_l: Sortierung_I
+        sortitions: Sortierungen
         source_code: Quellcode
         state: Status
+        tab_panels_usage_description_arguments_html: "<strong>args</strong>: <i>Array</i>. Argumente für die vorherige Methode"
+        tab_panels_usage_description_html: "<strong>aktiviert</strong>: <i>Boolean</i>. Unter Umständen wird der Tab gerendert"
+        tab_panels_usage_description_id_html: "<strong>id</strong>: <i>String</i>. Einzigartige II"
+        tab_panels_usage_description_rails_html: "<strong>Methode</strong>: <i>Symbol</i>. Irgendeine Funktion, die von Rails verstanden wird"
+        tab_panels_usage_description_remixicon_html: "<strong>Icon</strong>: <i>String</i>. Remixicon-Key"
+        tab_panels_usage_description_tab_html: "<strong>text</strong>: <i>String</i>. Abschnittstitel"
+        tailwind: Tailwind-Bezeichnung
         text: Text
         transparent: Transparent
+        transparent_description: 'Im Falle eines dunkleren Hintergrunds:'
+        types: Typen
         typography_texts: Typographie und Texte
         usage: Nutzung
+        usage_background_1: Seitlicher Hintergrund
         usage_background_3: Standard-Symbolfarbe
         usage_background_4: Zeilen und Trennzeichen
         usage_background_5: Hintergrund der Fußzeile
         usage_base_2: Hauptfarbe für Links und Schaltflächen
+        usage_state_1: Rahmen Erfolgsnachricht\nFüllung Alarm-Benachrichtigungssymbol\nHintergrund des Buttons bei Erfolgsmeldung
+        usage_state_2: Warnbanner-Rahmen
         usage_typography_1: Überschriften und Titel der Abschnitte
         usage_typography_2: Inline-Text
         usage_typography_3: Text über dunklem Hintergrund
         usage_typography_4: Links und Schaltflächen
         value: Wert
         variations: Variationen
+        variations_cards_description: Jede Karte sieht je nach Eigenschaften der angezeigten Ressource unterschiedlich aus. Sie können dieses Verhalten in der jeweiligen Zelle überschreiben.
       home:
         index:
           by_sharing_principles: Durch die gemeinsame Nutzung der Prinzipien, Philosophie, und der Logik hinter Designentscheidungen wollen wir die Community dazu befähigen, konsequent beizutragen, so dass wir die beste Erfahrung für die Teilnehmenden erreichen.

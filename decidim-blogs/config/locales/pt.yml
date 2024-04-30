@@ -35,6 +35,9 @@ pt:
             body: Corpo
     components:
       blogs:
+        actions:
+          comment: Comentar
+          endorse: Apoiar
         name: Blog
         settings:
           global:

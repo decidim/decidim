@@ -19,13 +19,6 @@ module Decidim
 
       private
 
-      # Creates a unique namespace for a filter form to prevent duplicate IDs in
-      # the DOM when multiple filter forms are rendered with the same fields (e.g.
-      # for desktop and mobile).
-      def filter_form_namespace
-        "filters_#{SecureRandom.uuid}"
-      end
-
       # i18n-tasks-use t('decidim.initiatives.initiatives.filters.state')
       # i18n-tasks-use t('decidim.initiatives.initiatives.filters.scope')
       # i18n-tasks-use t('decidim.initiatives.initiatives.filters.type')

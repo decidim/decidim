@@ -261,11 +261,7 @@ uk:
       show:
         assembly_type: Різновид зборів
         duration: Тривалість
-        is_transparent:
-          'false': непрозорі
-          'true': прозорі
         private_space: Це приватні збори
-        related_participatory_processes: Пов'язані рухи співучасті
     assembly_members:
       assembly_member:
         designated_on: 'Надано повноваження:'

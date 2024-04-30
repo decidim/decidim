@@ -62,6 +62,7 @@ lb:
   decidim:
     admin:
       actions:
+        manage: Verwalten
         new_initiative_type: Neuer Initiativentyp
       filters:
         initiatives:
@@ -330,6 +331,7 @@ lb:
             other: und %{count} weitere Leute
         committee_members:
           approve: Genehmigen
+          revoke: Widerrufen
           title: Ausschussmitglieder
         count:
           title:

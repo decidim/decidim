@@ -1,0 +1,95 @@
+he:
+  activemodel:
+    attributes:
+      assemblies_type:
+        title: כותרת
+      assembly:
+        announcement: הכרזה
+        area_id: אזור
+        assembly_type: סוג אסיפה
+        assembly_type_other: סוג אסיפה אחרת
+        banner_image: תמונת הבאנר
+        closing_date: תאריך סגירה
+        closing_date_reason: סיבת תאריך סגירה
+        composition: הרכב
+        copy_categories: העתקת קטגוריה
+        copy_components: העתקת רכיבים
+        copy_features: העתקת מאפיינים
+        created_by: נוצר ע"י
+        created_by_other: נוצר על ידי אחרים
+        creation_date: תאריך יצירה
+        decidim_area_id: אזור
+        decidim_assemblies_type_id: סוג אסיפה
+        decidim_scope_id: היקף
+        description: תיאור
+        developer_group: קבוצת יזמים
+        document: מסמך
+        domain: דומיין
+        duration: משך זמן
+        facebook: פייסבוק
+        github: Github
+        hashtag: תַּג הַקְבָּצָה
+        hero_image: תמונת ראשית
+        import_attachments: יבוא צרופות
+        import_categories: ייבוא קטגוריות
+        import_components: ייבוא רכיבים
+        included_at: נכלל ב
+        instagram: אינסטגרם
+        internal_organisation: ארגון פנימי
+        is_transparent: שקוף
+        local_area: אזור ארגון
+        meta_scope: מטא נתונים של היקף
+        parent_id: אסיפה (הורה)
+        participatory_processes_ids: תהליך השתתפותי מקושר
+        participatory_scope: מה הוחלט
+        participatory_structure: איך זה מוחלט
+        private_space: מרחב פרטי
+        promoted: הודגש
+        published_at: פורסם בתאריך
+        purpose_of_action: מטרת הפעולה
+        scope_id: היקף
+        scopes_enabled: היקפים מאופשרים
+        short_description: תיאור קצר
+        show_statistics: הצגת סטטיסטיקה
+        slug: כינוי לקישור
+        special_features: מאפיינים מיוחדים
+  decidim:
+    admin:
+      assembly_copies:
+        new:
+          title: שכפל אסיפה
+      assembly_imports:
+        create:
+          error: הייתה בעיה בייבוא ​​אסיפה זו.
+          success: אסיפה יובאה בהצלחה.
+        new:
+          import: ייבוא
+          select: בחירת הנתונים לייבוא
+          title: ייבוא אסיפה
+      assembly_members:
+        create:
+          error: הייתה בעיה בהוספת חבר.ה עבור אסיפה זו.
+          success: חבר.ה נוצר.ה בהצלחה עבור האסיפה הזו.
+        destroy:
+          success: חבר.ה נמחק.ה בהצלחה מאסיפה זו.
+        edit:
+          title: עדכון חבר.ה אסיפה
+          update: עדכון
+        index:
+          assembly_members_title: חברי.ות אסיפה
+        new:
+          create: יצירה
+          title: חבר.ה אסיפה חדש.ה
+        update:
+          error: הייתה בעיה בעדכון חבר.ה עבור אסיפה זו.
+          success: חבר.ה עודכנ.ה בהצלחה עבור אסיפה זו.
+      assembly_publications:
+        create:
+          error: הייתה בעיה בפרסום ​​אסיפה זו.
+          success: אסיפה פורסמה בהצלחה.
+        destroy:
+          error: הייתה בעיה בביטול פרסום ​​אסיפה זו.
+          success: פרסום האסיפה בוטל בהצלחה.
+      assembly_user_roles:
+        create:
+          error: הייתה בעיה בהוספת מנהל.ת עבור אסיפה זו.

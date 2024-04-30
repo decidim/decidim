@@ -5,9 +5,19 @@ bg:
         decidim_user_group_id: Автор
         description: Описание
         offline_votes: Лични подписи
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Инициатива
+        other: Инициативи
   decidim:
     initiatives:
       application_helper:
         filter_state_values:
           closed: Затворен
           open: Отворен
+      modal:
+        not_authorized:
+          authorizations_page: Преглед на оторизациите
+          explanation: Трябва да преминете проверка, за да създадете нова инициатива.
+          title: Изисква се оторизация
