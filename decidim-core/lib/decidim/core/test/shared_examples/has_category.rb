@@ -13,7 +13,7 @@ shared_examples_for "has category" do
 
   context "when the category is from the same organization" do
     before do
-      subject.category = create(:category, participatory_space:)
+      subject.category = create(:category, participatory_space: participatory_space)
     end
 
     it { is_expected.to be_valid }
@@ -21,7 +21,7 @@ shared_examples_for "has category" do
 
   context "when the resource is being deleted" do
     before do
-      subject.category = create(:category, participatory_space:)
+      subject.category = create(:category, participatory_space: participatory_space)
       subject.save!
     end
 

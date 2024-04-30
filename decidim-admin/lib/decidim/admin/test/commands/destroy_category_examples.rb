@@ -20,8 +20,8 @@ module Decidim
         end
 
         context "when the category is being used by a resource" do
-          let(:component) { create(:dummy_component, participatory_space:) }
-          let!(:resource) { create(:dummy_resource, component:, category:) }
+          let(:component) { create(:dummy_component, participatory_space: participatory_space) }
+          let!(:resource) { create(:dummy_resource, component: component, category: category) }
 
           it "broadcasts invalid" do
             expect { command.call }.to broadcast(:invalid)
