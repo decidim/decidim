@@ -541,7 +541,6 @@ es-PY:
           other: " firmas"
         vote_cabin:
           already_voted: Ha sido firmado
-          supports_required: "Se requieren %{total_supports} firmas"
           verification_required: Verifica tu cuenta para firmar la iniciativa.
           vote: Firmar
           votes_blocked: Firma desactivada

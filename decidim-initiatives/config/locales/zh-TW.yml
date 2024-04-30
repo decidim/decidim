@@ -508,7 +508,6 @@ zh-TW:
           other: " 簽名"
         vote_cabin:
           already_voted: 已簽署
-          supports_required: "需要 %{total_supports} 個簽署支持"
           verification_required: 驗證您的帳戶以簽署該倡議
           vote: 簽署
           votes_blocked: 簽署已禁用

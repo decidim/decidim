@@ -637,6 +637,8 @@ ro:
           discard_confirmation: Sigur dorești să renunți la această ciornă de propunere?
           send: Previzualizează
           title: Editează ciorna de propunere
+        edit_form_fields:
+          marker_added: Marker adăugat pe hartă.
         filters:
           activity: Activitatea mea
           all: Toate

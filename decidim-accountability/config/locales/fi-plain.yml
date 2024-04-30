@@ -234,15 +234,7 @@ fi-pl:
           search: Hae toimintoja
         show:
           stats:
-            attendees: Osallistujat
             back_to_resource: Palaa tulokseen
-            comments: Kommentit
-            contributions: Osallistumiset
-            last_edited_by: Viimeksi muokannut
-            last_updated_at: Päivitetty viimeksi
-            meetings: Tapaamiset
-            proposals: Ehdotukset
-            votes: Kannatukset
         timeline:
           title: Projektin kehitys
     admin:

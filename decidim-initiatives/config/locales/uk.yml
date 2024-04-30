@@ -217,7 +217,6 @@ uk:
           other: " підписів"
         vote_cabin:
           already_voted: Вже підписалися
-          supports_required: "Необхідно %{total_supports} підписів"
           vote: Підписати
           votes_blocked: Підписування вимкнене
         votes_count:

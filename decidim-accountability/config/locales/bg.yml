@@ -228,15 +228,7 @@ bg:
           search: Търсене на действия
         show:
           stats:
-            attendees: Присъстващи
             back_to_resource: Върни се към резултата
-            comments: Коментари
-            contributions: Предложения
-            last_edited_by: Последна промяна на
-            last_updated_at: Последно обновен на
-            meetings: Срещи
-            proposals: Предложения
-            votes: Поддръжки
         timeline:
           title: Развитие на проекта
     admin:
