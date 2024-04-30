@@ -13,7 +13,11 @@ module Decidim
       enum condition_type: [:answered, :not_answered, :equal, :not_equal, :match], _prefix: true
 
       # Question which will be displayed or hidden
-      belongs_to :question, class_name: "Question", foreign_key: "decidim_question_id", inverse_of: :display_conditions, counter_cache: :display_conditions_count
+      belongs_to :question,
+                 class_name: "Question",
+                 foreign_key: "decidim_question_id",
+                 inverse_of: :display_conditions,
+                 counter_cache: :display_conditions_count
 
       # Question the answers of which are checked against conditions
       belongs_to :condition_question,
