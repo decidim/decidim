@@ -29,7 +29,7 @@ describe "Valuator uses proposal answer templates" do
     expect(proposal.reload.internal_state).to eq("not_answered")
     within ".edit_proposal_answer" do
       expect(page).to have_select(:proposal_answer_template_chooser, with_options: [translated(template.name)])
-      expect(page).to have_no_select(:proposal_answer_template_chooser, with_options: [translated(other_component_template.name)])
+      expect(page).not_to have_select(:proposal_answer_template_chooser, with_options: [translated(other_component_template.name)])
       select template.name["en"], from: :proposal_answer_template_chooser
       expect(page).to have_content(description)
       click_on "Answer"
@@ -51,7 +51,7 @@ describe "Valuator uses proposal answer templates" do
     end
 
     it "hides the template selector in the proposal answer page" do
-      expect(page).to have_no_select(:proposal_answer_template_chooser)
+      expect(page).not_to have_select(:proposal_answer_template_chooser)
     end
   end
 
@@ -60,7 +60,7 @@ describe "Valuator uses proposal answer templates" do
       within ".edit_proposal_answer" do
         template.destroy!
         select template.name["en"], from: :proposal_answer_template_chooser
-        expect(page).to have_no_content(description)
+        expect(page).not_to have_content(description)
         expect(page).to have_content("Could not find this template")
       end
     end
