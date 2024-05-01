@@ -78,6 +78,9 @@ es-PY:
     'false': 'No'
     'true': 'Sí'
   date:
+    buttons:
+      close: Cerrar
+      select: Seleccionar
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d-%m-%Y"
@@ -85,6 +88,10 @@ es-PY:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Formato: dd/mm/aaaa'
+      order: d-m-a
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -137,6 +144,7 @@ es-PY:
       external_link: Enlace externo
       front_page_link: Ir a la página principal
       logo: "Logo oficial de %{organization}"
+      opens_in_new_tab: Abrir en una pestaña nueva
       skip_button: Saltar al contenido principal
     account:
       blocked: Esta cuenta ha sido bloqueada por una violación de los términos y condiciones de uso
@@ -805,9 +813,9 @@ es-PY:
           email_subject: Un grupo de usuarias ha actualizado su perfil
           notification_title: El grupo de usuarias %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_path}">panel de administración</a>.
       nickname_event:
-        notification_body: Hemos corregido la forma en que se utilizan los alias para que no haya duplicados, para hacerlo ya no se distingue entre mayúsculas y minúsculas.<br/>Tu alias fue creado después de otro igual, así que lo hemos renombrado automáticamente. Puedes modificarlo desde la <a href="%{link_to_account_settings}">configuración de tu cuenta</a>.
+        notification_body: Hemos corregido la forma en que se utilizan los alias para que no haya duplicados, para hacerlo ya no se distingue entre mayúsculas y minúsculas.<br/>Tu alias fue creado después de otro igual, así se ha renombrado automáticamente. Puedes modificarlo desde la <a href="%{link_to_account_settings}">configuración de tu cuenta</a>.
       notification_event:
-        notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: Se ha producido un evento a <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: Una administradora eliminó su %{resource_type} porque ha sido reportado como %{report_reasons}.
@@ -872,7 +880,7 @@ es-PY:
       create:
         button: Seguir
         error: Ha habido un error siguiendo este recurso.
-        participatory_space: Siguiendo <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Siguiendo <span>%{resource_name}</span>
       destroy:
         button: Dejar de seguir
         error: Ha habido un error dejando de seguir este recurso.
@@ -886,14 +894,14 @@ es-PY:
         file:
           explanation: 'Instrucciones para el archivo:'
           message_1: Tiene que ser una imagen o un documento.
-          message_2: Para las imágenes, utilizar imágenes apaisadas preferiblemente, el servicio recorta la imagen.
+          message_2: Para las imágenes, utiliza, preferiblemente, imágenes apaisadas, el servicio recorta la imagen.
         icon:
           explanation: 'Instrucciones para el icono:'
           message_1: Tiene que ser una imagen cuadrada.
           message_2: El tamaño recomendado para esta imagen es 512x512.
         image:
           explanation: 'Instrucciones para la imagen:'
-          message_1: Preferiblemente una imagen de paisaje que no tenga ningún texto.
+          message_1: Preferiblemente una imagen apaisada que no tenga ningún texto.
           message_2: El servicio recorta la imagen.
       file_validation:
         allowed_file_extensions: 'Formatos de archivo permitidos: %{extensions}'
@@ -1211,7 +1219,7 @@ es-PY:
         token_error: El enlace ha expirado.
         unsubscribe: Darse de baja
     newsletters_opt_in:
-      unathorized: Lo sentimos, este enlace ya no está disponible.
+      unauthorized: Lo sentimos, este enlace ya no está disponible.
       update:
         error: Se ha producido un error al guardar la configuración del boletín de noticias.
         success: La configuración del boletín de noticias se ha actualizado correctamente.
@@ -1306,7 +1314,7 @@ es-PY:
           headline: Estado actual de %{organization}
         sub_hero:
           register: Regístrate
-          register_title: Regístrate para crear una cuenta
+          register_title: Inicia sesión o crea una cuenta
       index:
         standalone_pages: Páginas
         subheading: Navegar por las páginas de ayuda de %{name}
@@ -1452,6 +1460,8 @@ es-PY:
         close_modal: Cerrar el modal
         ok: De acuerdo
         title: Confirmar
+      embed:
+        title: Contenido de vídeo incrustado
       extended_navigation_bar:
         more: Más
         unfold: Desplegar
@@ -2020,6 +2030,10 @@ es-PY:
     x: X
     xing: Xing
   time:
+    buttons:
+      close: Cerrar
+      reset: Reiniciar
+      select: Seleccionar
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2034,11 +2048,14 @@ es-PY:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      help:
+        time_format: 'Formato: hh:mm'
       long: "%B %d, %Y %H:%M"
       long_dashed: "%d-%m-%Y %H:%M:%S"
       long_with_particles: "%d de %B del %Y a las %Hh%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Supresiones

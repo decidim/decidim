@@ -240,7 +240,6 @@ lv:
             select_parent_assembly: Izvēlieties saistīto asambleju
             social_handlers: Sociālie plašsaziņas līdzekļi
             title: Vispārēja informācija
-            visbility: Redzamība
         assemblies_types:
           form:
             title: Nosaukums
@@ -295,11 +294,7 @@ lv:
       show:
         assembly_type: Asamblejas veids
         duration: Ilgums
-        is_transparent:
-          'false': neskaidra
-          'true': caurskatāma
         private_space: Šī ir privāta asambleja
-        related_participatory_processes: Saistītie līdzdalības procesi
     assembly_members:
       assembly_member:
         designated_on: Izraudzīts

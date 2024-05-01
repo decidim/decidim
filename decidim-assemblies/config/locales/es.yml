@@ -235,9 +235,9 @@ es:
           name: Miembro
           positions:
             other: Otro
-            president: Presidenta
+            president: Presidencia
             secretary: Secretaria
-            vice_president: Vicepresidenta
+            vice_president: Vicepresidencia
         assembly_user_role:
           fields:
             email: Correo electrónico
@@ -296,7 +296,7 @@ es:
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             social_handlers: Social
             title: Información general
-            visbility: Visibilidad
+            visibility: Visibilidad
         assemblies_types:
           form:
             title: Título
@@ -396,11 +396,7 @@ es:
       show:
         assembly_type: Tipo de asambleas
         duration: Duración
-        is_transparent:
-          'false': opaca
-          'true': transparente
         private_space: Esta es una asamblea privada
-        related_participatory_processes: Procesos participativos relacionados
         social_networks_title: Visita la asamblea en
     assembly_members:
       assembly_member:

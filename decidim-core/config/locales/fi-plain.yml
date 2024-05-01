@@ -78,6 +78,9 @@ fi-pl:
     'false': 'Ei'
     'true': 'Kyllä'
   date:
+    buttons:
+      close: Sulje
+      select: Valitse
     formats:
       decidim_short: "%d.%m.%Y"
       decidim_short_dashed: "%d.%m.%Y"
@@ -85,6 +88,10 @@ fi-pl:
       decidim_with_day_and_month_name: "%A %d. %b %Y"
       decidim_with_month_name: "%B %d. %Y"
       decidim_with_month_name_short: "%d. %b"
+      help:
+        date_format: 'Muoto: pp.kk.vvvv'
+      order: d.m.y
+      separator: "."
   datetime:
     distance_in_words:
       about_x_hours:
@@ -137,6 +144,7 @@ fi-pl:
       external_link: Ulkoinen linkki
       front_page_link: Siirry etusivulle
       logo: "Organisaation %{organization} virallinen logo"
+      opens_in_new_tab: Avautuu uuteen välilehteen
       skip_button: Siirry sisältöön
     account:
       blocked: Tämä käyttäjätili on estetty, koska käyttäjä ei noudattanut käyttöehtoja
@@ -805,7 +813,7 @@ fi-pl:
       nickname_event:
         notification_body: Olemme muuttaneet nimimerkkien sääntöjä varmistaaksemme, että alustalla ei ole useampaa tiliä samalla nimimerkillä eri tavalla kirjoitettuna. <br/> Tilisi on luotu toisen samaa nimimerkkiä käyttäneen henkilön jälkeen, joten olemme vaihtaneet nimimerkkiäsi automaattisesti. Halutessasi voit vaihtaa nimimerkkiäsi <a href="%{link_to_account_settings}">tilisi asetuksista</a>.
       notification_event:
-        notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
+        notification_title: Kohteessa <a href="%{resource_path}">%{resource_title}</a> on uutta toimintaa.
       reports:
         resource_hidden:
           email_intro: Hallintakäyttäjä poisti luomasi kohteen %{resource_type}, koska se ilmoitettiin asiattomana syyllä "%{report_reasons}".
@@ -869,7 +877,7 @@ fi-pl:
       create:
         button: Seuraa
         error: Tämän kohteen seuraamisessa tapahtui virhe.
-        participatory_space: Seuraat kohdetta <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Seuraat kohdetta <span>%{resource_name}</span>
       destroy:
         button: Lopeta seuranta
         error: Tämän kohteen seuraamisen lopetuksessa tapahtui virhe.
@@ -1208,7 +1216,7 @@ fi-pl:
         token_error: Linkki on vanhentunut.
         unsubscribe: Peruuta tilaus
     newsletters_opt_in:
-      unathorized: Valitettavasti tämä linkki ei ole enää käytettävissä.
+      unauthorized: Valitettavasti tämä linkki ei ole enää käytettävissä.
       update:
         error: Uutiskirjeasetusten päivitys epäonnistui.
         success: Uutiskirjeasetusten päivitys onnistui.
@@ -1297,7 +1305,7 @@ fi-pl:
           register: Rekisteröidy
         hero:
           participate: Osallistu
-          participate_title: Osallistu prosesseihin alustalla
+          participate_title: Osallistu alustan prosesseihin
           welcome: Tervetuloa organisaatioon %{organization}!
         statistics:
           headline: '%{organization} numeroina'
@@ -1449,6 +1457,8 @@ fi-pl:
         close_modal: Sulje ikkuna
         ok: OK
         title: Vahvista
+      embed:
+        title: Upotettu videosisältö
       extended_navigation_bar:
         more: Lisää
         unfold: Avaa
@@ -2018,6 +2028,10 @@ fi-pl:
     x: X
     xing: Xing
   time:
+    buttons:
+      close: Sulje
+      reset: Nollaa
+      select: Valitse
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2032,11 +2046,14 @@ fi-pl:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y klo %k:%M"
+      help:
+        time_format: 'Muoto: tt:mm'
       long: "%B %d., %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
       long_with_particles: "%B %d., %Y %H:%M"
       short: "%d.%m.%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d.%m.%Y %H:%M %Z (GMT %:z)"
   versions:
     directions:
       left: Poistot

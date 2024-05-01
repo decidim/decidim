@@ -329,8 +329,6 @@ ru:
         email_intro: '«%{resource_title}» обновили. Вы можете посмотреть его на странице:'
         email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
         email_subject: Обновление %{resource_title}
-      notification_event:
-        notification_title: С <a href="%{resource_path}">%{resource_title}</a> произошло событие.
       users:
         profile_updated:
           email_intro: Страница <a href="%{resource_url}">профиля</a> участника %{name} (%{nickname}), за которым вы следите, была обновлена.
@@ -439,6 +437,10 @@ ru:
           intro: "%{sender} написал новые сообщения в вашей беседе. Кликните здесь, чтобы посмотреть их:"
           subject: У вас есть новые сообщения от %{sender}
       conversations:
+        index:
+          title: Беседы
+        show:
+          title: Беседа с %{usernames}
         start:
           send: Отправить
     newsletter_mailer:
@@ -492,6 +494,7 @@ ru:
       deleted: Удаленный участник
     profiles:
       show:
+        conversations: Беседы
         followers: Читают
         following: Следит за
       sidebar:

@@ -296,7 +296,6 @@ pt-BR:
             slug_help_html: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
             social_handlers: Social
             title: Informação geral
-            visbility: Visibilidade
         assemblies_types:
           form:
             title: Editar o tipo de assembleia
@@ -310,7 +309,6 @@ pt-BR:
           form:
             existing_user: Participante existente
             explanation: 'Orientação para a imagem:'
-            image_guide: De preferência, uma imagem em formato paisagem que não tenha nenhum texto.
             non_user: Não-participante
             non_user_avatar_help: Você deve receber o consentimento das pessoas antes de publicá-las como membro.
             select_a_position: Selecione uma posição
@@ -396,11 +394,7 @@ pt-BR:
       show:
         assembly_type: Tipo de assembleia
         duration: Duração
-        is_transparent:
-          'false': opaco
-          'true': transparente
         private_space: Esta é uma assembleia privada
-        related_participatory_processes: Processos participativos relacionados
         social_networks_title: Visite assembleia em
     assembly_members:
       assembly_member:

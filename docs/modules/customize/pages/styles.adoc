@@ -50,11 +50,11 @@ image::header-snippet.png[Header snippet]
 
 Notice that you can resize this textarea.
 
-== Webpacker
+== Shakapacker
 
-Decidim uses Webpacker to compile assets. There are two ways to customize CSS:
+Decidim uses Shakapacker to compile assets. There are two ways to customize CSS:
 
-1. if you want to redefine a specific snippet of CSS (say a few classes but not a whole file) you can use decidim_application.scss
+1. if you want to redefine a specific snippet of CSS (say a few classes but not a whole file) you can use decidim_application.scss. You can read more about this in the <<Overriding CSS and styles>> section.
 2. and of course you can overwrite whole files by copying them into the application i.e: to replace `decidim-core/app/packs/stylesheets/decidim/modules/_data-consent.scss` you should create in your Rails app a file in `app/packs/stylesheets/decidim/modules/_data-consent.scss` and it will have more priority over the Decidim file.
 3. if you want to customize the application colors yo can use the admin interface.
 
@@ -67,6 +67,17 @@ Decidim uses Tailwind CSS as a CSS framework, which has a default configuration 
 Since this file is being managed by Decidim, it will be impossible to customize it.
 
 You can override the default configuration by creating a file  `config/tailwind.config.js.erb` starting from the following https://github.com/decidim/decidim/blob/develop/decidim-core/lib/decidim/assets/tailwind/tailwind.config.js.erb[content]
+
+== Overriding CSS and styles
+
+If you want to override a specific CSS class, you can do so by adding a new CSS class in your `app/assets/stylesheets/decidim_application.scss` file. This will allow you to override the default styles provided by Decidim.
+
+*Please note:* the above file is created by default when you install Decidim. Also the file is empty. This file allows you to edit *only* the end user styles.
+
+If you want to override other layouts, you can do so by creating new files:
+
+. /admin: `app/packs/stylesheets/decidim/admin/decidim_application.scss`
+. /system: `app/packs/stylesheets/decidim/system/decidim_application.scss`
 
 == Accessibility
 

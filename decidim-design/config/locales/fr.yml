@@ -1,0 +1,105 @@
+---
+fr:
+  decidim:
+    design:
+      components:
+        activities:
+          activities: Activités
+        address:
+          title: Adresse
+        announcement:
+          iam_an_announcement: Je suis un message d'annonce
+          this_is_the_body: Ceci est le corps de texte
+          this_is_the_title: Ceci est le titre
+          title: Message d'annonce
+        author:
+          title: Auteur
+        buttons:
+          title: Boutons
+        forms:
+          emojis: Emojis
+          emojis_description: Fonctionne uniquement pour une zone de texte
+          errors: Erreurs
+          errors_description: Ne s'applique pas à la liste déroulante
+          help_texts: Textes d'aide
+          min_max_length: longueur Min/Max
+          textarea_required: zone de texte requise
+          title: Formulaires
+        report:
+          title: Signaler
+      foundations:
+        iconography:
+          description_iconography: Nous utilisons des icônes pour renforcer la signification des actions, des titres, etc
+          description_iconography_html: 'Nous utilisons la bibliothèque open source Remixicon : %{iconography_link}'
+          title: Iconographie
+        layout:
+          mobile: Téléphone mobile
+          not_required: Non requis
+          properties: Propriétés
+          right_aside: Côté droit
+          section_p_breakpoints: 'Pour gérer la largeur maximale adaptée des éléments, nous comptons sur la classe par défaut `container` Tailwind qui indique les points d''arrêt suivants :'
+          section_p_code: Lors de l'implémentation de nouveaux modules, vous avez quelques aides qui vous fournissent automatiquement le code nécessaire pour configurer la structure HTML. Vous devriez utiliser ces aides au lieu d'utiliser directement des éléments div avec des classes, afin de maintenir la cohérence.
+          section_p_code_html: Vous pouvez trouver les mises en page de base dans %{link_section_code}
+          section_p_desktop: Le système de grille de bureau est composé de 12 colonnes flexibles avec un interstice entre les colonnes de 16px et les marges gauche et droite de 48px
+          section_p_mobile: Le système de grille mobile est composé de 4 colonnes flexibles avec un interstice entre des colonnes de 16px et des marges gauche et droite de 16px. Pour les tailles inférieures à 320px ces marges sont réglées sur 8px
+          section_p_tablet: Le système de grille de bureau est composé de 8 colonnes flexibles avec un interstice entre les colonnes de 16px et les marges gauche et droite de 24px
+          tablet: Tablette
+        typography:
+          description: Ces directives résument l'utilisation de la typographie dans Decidim, et servent de garde-fous aux concepteurs pour concevoir librement tout en gardant à l'esprit les meilleures pratiques typographiques.
+          headings:
+            characters: Caractères par ligne
+            layout: Colonnes de mise en page
+            size: Taille
+          title: Typographie
+          typefaces_description_1: Decidim utilise Source Sans Pro comme police primaire. Cette police prend en charge 310 langues
+          typefaces_description_2: Ces polices sont sous licence Open Font License
+      helpers:
+        activity: Activité
+        avatar: Avatar
+        background: Arrière-plan et bordures
+        base: Base
+        block_text: Utiliser le bloc extra_data
+        blog_cards_html: Utilisé par les cartes <i>Blogs</i>
+        blogs: Blogs
+        budget_card_html: Utilisé par les cartes <i>Projets de budget</i> . Cette carte nécessite que les assets du module s'affichent correctement, c'est-à-dire <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>
+        budgets: Budgets
+        callout_class: Classe de rappel
+        callout_description: Cet attribut applique un statut à l'annonce. Par défaut, il utilise la couleur secondaire.
+        card_g: Carte G
+        card_l: Carte L
+        card_s: Carte S
+        collaborative_draft_l: Brouillon collaboratif L
+        colors: Couleurs
+        compact: Compact
+        context: Contexte
+        default: Par défaut
+        demo: Démo
+        disabled: Désactivé
+        form_elements: Éléments de formulaire
+        hex_code: Code hexadécimal
+        html_tips: Astuces HTML
+        icons: Icônes
+        main_colors: Couleurs principales
+        plain_text: Je ne suis que du texte brut
+        report_button: Bouton Signaler
+        report_usage_description: Le bouton Signaler lance une fenêtre modale pour marquer la ressource courante.
+        rgba_code:
+        send: Envoyer
+        sizes: Tailles
+        source_code: Code source
+        state: État
+        text: Texte
+        transparent: Transparent
+        transparent_description: 'En cas de fond plus sombre:'
+        typography_texts: Typographie et textes
+        usage: Usage
+        usage_background_1: Arrière-plan de la zone latérale
+        usage_background_3: Couleur de l'icône par défaut
+        usage_background_4: Lignes et séparateurs
+        usage_background_5: Arrière-plan du pied de page
+        usage_base_2: Couleur principale des liens et des boutons
+        usage_formelements_1: Arrière-plan par défaut des champs de formulaire avec saisie
+        usage_formelements_2: Arrière-plan par défaut des champs de formulaire avec saisie désactivés
+        usage_typography_1: En-têtes et titres de section
+        usage_typography_4: Liens et boutons
+        value: Valeur

@@ -78,6 +78,9 @@ eu:
     'false': 'Ez'
     'true': 'Bai'
   date:
+    buttons:
+      close: Itxi
+      select: Hautatu
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%e-%h-%U"
@@ -85,6 +88,10 @@ eu:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Formatua: dd/mm/yyyy'
+      order: d-m-y
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -120,11 +127,18 @@ eu:
       x_minutes:
         one: Minutu 1
         other: "Minutu %{count}"
+      x_months:
+        one: 1 hilabete
+        other: "%{count} hilabete"
+      x_seconds:
+        one: Segundo bat
+        other: "%{count} segundo"
   decidim:
     accessibility:
       external_link: Kanpoko lotura
       front_page_link: Zoaz orri nagusira
       logo: "%{organization} aren logo ofiziala"
+      opens_in_new_tab: Ireki beste fitxa batean
       skip_button: Joan eduki nagusira
     account:
       blocked: Kontu hau blokeatu egin da erabilera-terminoak eta -baldintzak urratu direlako
@@ -789,7 +803,7 @@ eu:
           email_subject: Talde batek bere profila eguneratu du
           notification_title: '%{user_group_name} taldeak bere profila eguneratu du egiaztapena galduz. Berriro egiaztatu ahal duzu honen bidez <a href="%{groups_admin_path}">panel de administración</a>.'
       nickname_event:
-        notification_body: Zuzendu dugu nola erabiltzen diren ezizenak bikoizketarik egon ez dadin, eta hori egiteko jada ez dira bereizten letra larriak eta xeheak. < br/>Tu alias beste berdin baten ondoren sortu zen, beraz, automatikoki berrizendatu dugu. < a href = " % {link_to_account_settings}" >zure kontuaren konfiguraziotik alda dezakezu.
+        notification_body: 'Ezizenak erabiltzeko modua zuzendu dugu bikoiztasunik egon ez dadin, eta horregatik kendu dugu kasu sentikorra den araua. Zure ezizena beste baten ostean sortu da, eta automatikoki aldatu dugu. Zure kontuaren konfiguraziotik alda dezakezu hemen: <a href="%{link_to_account_settings}">your account settings</a>.'
       notification_event:
         notification_title: 'Gertaera bat jazo da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
       reports:
@@ -853,7 +867,7 @@ eu:
       create:
         button: Jarraitu
         error: Arazo bat egon da baliabide hau jarraitzean.
-        participatory_space: Jarraitzen <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Jarraitzen <span>%{resource_name}</span>
       destroy:
         button: Utzi jarraitzeari
         error: Arazo bat egon da baliabide hau jarraitzeari uztean.
@@ -867,14 +881,14 @@ eu:
         file:
           explanation: 'Jarraibideak artxiborako:'
           message_1: Irudi bat edo dokumentu bat izan behar da.
-          message_2: Irudietarako, ahal dela, erabili irudi etzanak, zerbitzuak irudia mozten baitu.
+          message_2: Irudietarako, erabili batez ere irudi etzanak; zerbitzuak irudia mozten du.
         icon:
           explanation: 'Jarraibideak irudirako:'
           message_1: Irudi karratua izan behar da.
           message_2: Irudi honetarako gomendatzen den tamaina da 512x512.
         image:
           explanation: 'Jarraibideak irudirako:'
-          message_1: Ahal izanez gero, irudi etzana eta testurik gabekoa.
+          message_1: Ahal dela, testurik gabeko irudi etzana.
           message_2: Zerbitzuak irudia moztu egiten du.
       file_validation:
         allowed_file_extensions: 'Onartutako artxiboen formatua: %{extensions}'
@@ -1192,7 +1206,7 @@ eu:
         token_error: Lotura iraungi da.
         unsubscribe: Baja eman
     newsletters_opt_in:
-      unathorized: Sentitzen dugu, lotura hau ez dago eskuragarri.
+      unauthorized: Sentitzen dut, esteka hau ez dago eskuragarri.
       update:
         error: Arazo bat egon da buletinaren konfigurazioak gordetzean.
         success: Buletinaren ezarpenak zuzen eguneratuak.
@@ -1433,6 +1447,8 @@ eu:
         close_modal: Itxi leihoa
         ok: Ados
         title: Baieztatu
+      embed:
+        title: Bideo-eduki txertatuak
       extended_navigation_bar:
         more: Gehiago
         unfold: Zabaldu
@@ -2001,6 +2017,10 @@ eu:
     x: X
     xing: Xing
   time:
+    buttons:
+      close: Itxi
+      reset: Berrabiarazi
+      select: Hautatu
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2015,11 +2035,14 @@ eu:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      help:
+        time_format: 'Formatua: hh:mm'
       long: "%B, %d %Y %H:%M"
       long_dashed: "%Y-%m-%d, %H:%M:%S"
       long_with_particles: "%B%d, %Y% H:%M etan"
       short: "%d/%m/%Y, %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Ezabapenak

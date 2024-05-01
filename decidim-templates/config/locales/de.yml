@@ -9,7 +9,6 @@ de:
   decidim:
     admin:
       menu:
-        manage: Verwalten
         templates: Vorlagen
       templates:
         actions:
@@ -26,6 +25,8 @@ de:
         destroy:
           success: Vorlage erfolgreich gelöscht.
         empty: Es gibt noch keine Vorlagen.
+        fetch:
+          error: Diese Vorlage konnte nicht gefunden werden. Bitte Seite neu laden.
         missing_resource: "(fehlende Ressource)"
         update:
           error: Bei der Aktualisierung dieser Vorlage ist ein Problem aufgetreten.
@@ -70,8 +71,8 @@ de:
           index:
             component_constraint: Einschränkung hinzufügen
             confirm_delete: Möchten Sie diese Vorlage wirklich löschen?
-            global_scope: Global (überall verfügbar)
-            internal_state: Interner Status
+            missing_state: Fehlender Status
+            proposal_state_id: Interner Status
             title: Vorschlagsantworten
           new:
             title: Neue Vorlage für Vorschlagsantworten

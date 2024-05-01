@@ -33,6 +33,7 @@ AMR
 andreslucena
 ANOT
 antora
+Anunci
 apiauth
 apikey
 appendable
@@ -45,6 +46,7 @@ Arquitectura
 Arrakis
 Artagnan
 arxiu
+associacio
 atcat
 atiger
 Atlassian
@@ -283,6 +285,7 @@ Esa
 espa
 estat
 este
+Etags
 etherpad
 evanfuture
 evt
@@ -482,6 +485,7 @@ linthtmlrc
 linting
 listid
 litem
+llarg
 Llaurador
 Llobregat
 lng
@@ -592,9 +596,11 @@ nodoc
 nok
 nomargin
 nominatim
+noopen
 nopadding
 noresults
 normalcase
+nosniff
 notif
 notselected
 npmjs
@@ -668,6 +674,7 @@ Percebe
 perfil
 Peroy
 persistor
+personalitzat
 pgdata
 pgp
 PGVERSION
@@ -698,6 +705,7 @@ preheader
 premailer
 Preproc
 presenceness
+previewer
 previewurl
 privatable
 Procesos
@@ -955,6 +963,7 @@ usergroup
 usermenu
 Uth
 utm
+uuids
 Uusimaa
 Valero
 validable

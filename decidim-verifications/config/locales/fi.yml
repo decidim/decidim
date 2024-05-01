@@ -231,8 +231,7 @@ fi:
           update:
             error: Asiakirjan uudelleenlataaminen epäonnistui.
             success: Asiakirjan uudelleenlataaminen onnistui.
-        dni: Henkilökortti
-        nie: HETU
+        identification_number: Henkilötunnus
         passport: Passi
       postal_letter:
         admin:
@@ -269,7 +268,7 @@ fi:
             error: Pyyntösi epäonnistui.
             success: Kiitos! Olemme lähettäneet tekstiviestin puhelimeesi.
           destroy:
-            success: Uuden vahvistuskoodin luonti onnistui. Kirjoita puhelinnumerosi uudelleen.
+            success: Varmennuskoodin nollaaminen onnistui. Anna puhelinnumerosi uudelleen.
           edit:
             confirm_destroy: Haluatko varmasti luoda uuden vahvistuskoodin?
             destroy: Luo uusi vahvistuskoodi

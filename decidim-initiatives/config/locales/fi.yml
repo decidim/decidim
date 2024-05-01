@@ -541,7 +541,6 @@ fi:
           other: " allekirjoitusta"
         vote_cabin:
           already_voted: Allekirjoitettu aikaisemmin
-          supports_required: "%{total_supports} allekirjoitusta vaaditaan"
           verification_required: Vahvista tilisi allekirjoittaaksesi aloitteen
           vote: Allekirjoita
           votes_blocked: Allekirjoitus poistettu käytöstä

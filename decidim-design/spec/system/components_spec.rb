@@ -72,4 +72,8 @@ describe "Components" do
   context "when on tab panels page" do
     it_behaves_like "showing the design page", "Tab Panels", "layout_item"
   end
+
+  context "when on tooltips page" do
+    it_behaves_like "showing the design page", "Tooltips", "top"
+  end
 end

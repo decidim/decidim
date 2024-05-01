@@ -85,6 +85,7 @@ lt:
   decidim:
     admin:
       actions:
+        manage: Valdyti
         new_initiative_type: Naujas iniciatyvos tipas
       filters:
         initiatives:
@@ -105,7 +106,6 @@ lt:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Ieškoti %{collection} pagal pavadinimą, aprašymą, ID ar autoriaus vardą ir pavardę.
       initiatives_settings:
         update:
-          error: Įvyko klaida.
           success: Iniciatyvų nustatymai atnaujinti.
       menu:
         attachments: Priedai
@@ -465,6 +465,7 @@ lt:
           invite_to_committee_help: Pasidalinkite šia nuoroda norėdami pakvieti kitus į remėjų komitetą.
           link: Nuoroda
           no_members_yet: Rėmėjų komitete nėra narių.
+          revoke: Atšaukti
           title: Komiteto nariai
         count:
           title:
@@ -541,7 +542,6 @@ lt:
           other: " parašai"
         vote_cabin:
           already_voted: Jau pasirašyta
-          supports_required: "%{total_supports} – reikalingas parašų skaičius"
           verification_required: Norėdami pasirašyti iniciatyvą, patvirtinkite savo paskyrą
           vote: Pasirašyti
           votes_blocked: Pasirašymas išjungtas

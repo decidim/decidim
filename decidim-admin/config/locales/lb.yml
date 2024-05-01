@@ -290,7 +290,6 @@ lb:
         title: "Überprüfungskonflikte\n\n"
         transfer:
           email: E-Mail
-          error: Es gab ein Problem bei der Übertragung des aktuellen Teilnehmers zu den verwalteten Teilnehmern.
           name: Name
           reason: Grund
           success: Übertragung erfolgreich.
@@ -432,6 +431,7 @@ lb:
         help_sections: Hilfeabschnitte
         homepage: Startseite
         impersonations: Identitätswechsel
+        manage: Verwalten
         moderation: Globale Moderationen
         newsletters: Newsletter
         participants: Teilnehmer
@@ -881,3 +881,8 @@ lb:
   errors:
     messages:
       invalid_json: Ungültiger JSON
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Globale Moderationen

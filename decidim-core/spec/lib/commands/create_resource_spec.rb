@@ -88,8 +88,8 @@ module Decidim
       context "when invalid data" do
         let(:user) { nil }
 
-        it "raises error when invalid date is submitted" do
-          expect { subject.call }.to raise_error(ActiveRecord::RecordInvalid)
+        it "broadcasts invalid when invalid date is submitted" do
+          expect { subject.call }.to broadcast(:invalid)
         end
       end
 

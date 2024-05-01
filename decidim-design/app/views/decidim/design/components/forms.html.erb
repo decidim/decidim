@@ -1,21 +1,21 @@
 <% content_for :heading do %>
-  <%= cell "decidim/announcement", "This page comes from a legacy view. Content is outdated.", callout_class: "alert" %>
-  Forms
+  <%= cell "decidim/announcement", t(".header_alert"), callout_class: "alert" %>
+  <%= t(".title") %>
 <% end %>
 
 <% content_for :toc do %>
-  <a href="#common">HTML regular inputs</a>
-  <a href="#helps">Help texts</a>
-  <a href="#disabled">Disabled</a>
-  <a href="#error">Errors</a>
-  <a href="#length">Min/Max length</a>
-  <a href="#emoji">Emojis</a>
+  <a href="#common"><%= t(".html_regular_inputs") %></a>
+  <a href="#helps"><%= t(".help_texts") %></a>
+  <a href="#disabled"><%= t(".disabled") %></a>
+  <a href="#error"><%= t(".errors") %></a>
+  <a href="#length"><%= t(".min_max_length") %></a>
+  <a href="#emoji"><%= t(".emojis") %></a>
 <% end %>
 
 <%
   text_types = [
                 "date",
-                "datetime-local",
+                "datetime_local",
                 # "email",
                 # "month",
                 "number",
@@ -32,10 +32,10 @@
 %>
 
 <section id="common-panel" class="design__section">
-  <h2 class="h2">HTML regular inputs</h2>
+  <h2 class="h2"><%= t(".html_regular_inputs") %></h2>
 
   <div class="form__wrapper">
-    <%= cell "decidim/announcement", "Only displays common types, full available list: date, datetime-local, email, month, number, password, search, tel, text, time, url, week" %>
+    <%= cell "decidim/announcement", t(".regular_inputs_description") %>
 
     <% text_types.each do |element| %>
       <label>
@@ -74,7 +74,7 @@
 </section>
 
 <section id="helps" class="design__section">
-  <h2 class="h2">Help texts</h2>
+  <h2 class="h2"><%= t(".help_texts") %></h2>
 
   <div class="form__wrapper">
     <% text_types.each do |element| %>
@@ -118,7 +118,7 @@
 </section>
 
 <section id="disabled" class="design__section">
-  <h2 class="h2">Disabled</h2>
+  <h2 class="h2"><%= t(".disabled") %></h2>
 
   <div class="form__wrapper">
     <% text_types.each do |element| %>
@@ -158,10 +158,10 @@
 </section>
 
 <section id="error" class="design__section">
-  <h2 class="h2">Errors</h2>
+  <h2 class="h2"><%= t(".errors") %></h2>
 
   <div class="form__wrapper">
-    <%= cell "decidim/announcement", "Does not apply for select" %>
+    <%= cell "decidim/announcement", t(".errors_description") %>
 
     <% text_types.each do |element| %>
       <label>
@@ -186,7 +186,7 @@
     <% end %>
 
     <label>
-      textarea required
+      <%= t(".textarea_required") %>
       <textarea cols="30" rows="10" required></textarea>
       <div class="form-error">Lorem ipsum dolor sit amet.</div>
     </label>
@@ -194,10 +194,10 @@
 </section>
 
 <section id="length" class="design__section">
-  <h2 class="h2">Min/Max length</h2>
+  <h2 class="h2"><%= t(".min_max_length") %></h2>
 
   <div class="form__wrapper">
-    <%= cell "decidim/announcement", "Only works for input type='text' and textarea" %>
+    <%= cell "decidim/announcement", t(".min_max_length_description") %>
 
     <label>
       input type="text" maxlength="20"
@@ -222,10 +222,10 @@
 </section>
 
 <section id="emoji" class="design__section">
-  <h2 class="h2">Emojis</h2>
+  <h2 class="h2"><%= t(".emojis") %></h2>
 
   <div class="form__wrapper">
-    <%= cell "decidim/announcement", "Only works for textarea" %>
+    <%= cell "decidim/announcement", t(".emojis_description") %>
 
     <label>
       textarea data-input-emoji="true"

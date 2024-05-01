@@ -1,0 +1,307 @@
+---
+ja:
+  decidim:
+    design:
+      components:
+        accordions:
+          content_panel: パネルの内容
+          demo: デモ
+          demo_description: アプリケーション全体を通して、アコーディオンは主にタブ内のコンテンツの表示/非表示、または表示テキストの折りたたみ/展開に使用します。
+          description_accordions_html: アコーディオンは、 %{link_code} a11y-accordion-componentと呼ばれる外部ライブラリによって利用できるjavascriptの機能です。
+          github_source_html: GitHub上のソースコード %{github_link}
+          panel: パネル
+          title: アコーディオン
+          trigger: トリガー
+          usage: 使い方
+          usage_p: アコーディオンには少なくとも3つの要素が必要です
+          usage_p_1_html: 1. すべての使用可能なトリガーとパネルを覆う、data-属性<code>data-component="accordion"</code>を持つラッパー<code>div</code>。
+          usage_p_2_html: <code>data-controls="panel"</code>によって折りたたみ可能となる要素を指定する、（ボタンとして）ユーザー操作可能なトリガー要素。ここで指定されている<i>panel</i>は対象となるパネルの<code>id</code>を指す。
+          usage_p_3_html: 3. トリガーが指定するdata-controlsの値と一致する<code>id</code> を持つ非表示要素。
+        activities:
+          activities: アクティビティ
+        address:
+          title: アドレス
+        announcement:
+          iam_an_announcement: これはAnnouncementです
+          this_is_the_body: これが本文です
+          this_is_the_title: これがタイトルです
+          title: アナウンスメント
+        author:
+          title: 筆者
+        buttons:
+          description_html: 'ボタンは、 <code>ボタン</code> クラス、サイズ、色など、さまざまなCSSクラスの組み合わせで構築されます。'
+          title: ボタン
+        cards:
+          title: カード
+        dialogs:
+          dialog_demo_description_html: ダイアログまたはモーダルコンポーネントは、rails helper <code>decidim_modal</code> を介して実装されます。
+          dialogs_description_html: ダイアログは <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a> という外部ライブラリにより利用できるjavascriptの機能です。
+          tips_description: '複雑なモーダルを表示し、スタイルを合わせるためには、以下のマークアップを使います:'
+          tips_description_html: <i>data-attributes</i> と <i>ids</i>に注意してください. 例えば、<code>[data-dialog-title]</code>のidは<i>dialog-title</i> で始まり、その後に <i>modal id</i>が続きます.
+          title: ダイアログ
+          usage_description: ダイアログには2つの要素が必要です
+          usage_description_2_html: 2. その要素の <code>id</code> がトリガーの参照するdata-targetの値に一致するモーダル要素。
+          usage_description_html: 1. data-attribute <code>data-dialog-open="example"</code>を持つユーザアクションの可能な要素、例えばモーダルの <code>id</code> 。
+        follow:
+          title: フォロー
+        forms:
+          disabled: 無効
+          emojis: 絵文字
+          emojis_description: テキストエリアでのみ動作します
+          errors: エラー
+          errors_description: selectには適用されません
+          header_alert: このページはレガシービューから来ています。コンテンツは古くなっています。
+          help_texts: ヘルプ テキスト
+          html_regular_inputs: HTML 通常入力
+          min_max_length: 最小/最大の長さ
+          min_max_length_description: Input type='text' と textareaでのみ動作します
+          regular_inputs_description: '共通のタイプのみを表示します。利用可能な全リストは以下の通りです: date、datetime-local、email、month、number、password、search、tel、text、time、url、week'
+          textarea_required: テキストエリアが必要です
+          title: フォーム
+        report:
+          title: レポート
+        share:
+          title: シェア
+        tab_panels:
+          title: タブパネル
+        tooltips:
+          demo: デモ
+          demo_description: このコンポーネントを動作させるには、要素にカーソルを合わせる必要があります。
+          description: ツールチップは、ユーザーがマウスをかざすとその項目についての追加情報を表示するコンポーネントです。
+          github_source_html: GitHub %{github_link} のソース コード
+          title: ツールチップ
+          usage: 使い方
+          usage_p: 'ツールチップを使うには、`with_tooltip` ヘルパーを三つの引数とともに使用する必要があります:'
+          usage_p_1_html: 1. ツールチップの値を持つ文字列。このページの例では「Hello world」です。
+          usage_p_2_html: 2. ツールチップを表示する位置を指定するシンボルを持つオプショナルなクラス。 指定可能な値は <code>:top</code>、 <code>:bottom</code>、 <code>:right</code>、または <code>:left</code> です。
+          usage_p_3_html: 3. ユーザーがマウスをかざす必要がある文字列を含むブロック。
+      foundations:
+        accessibility:
+          accessibility_labels: アクセシビリティラベル
+          accessibility_labels_paragraph: 要素を定義する場合は、スクリーンリーダーのユーザーにとって意味のあるものであることを必ず確認してください。
+          accessibility_title: アクセシビリティ
+          adjacent_links: 隣接するリンク
+          adjacent_links_header: 同じリソースの隣接するリンク
+          adjacent_links_paragraph: 同じリソースに複数の隣接するリンクが指している場合、ユーザーがページを素早く確認するのが困難になることがあります。なぜなら、次のリソースに進むために複数のリンクをたどる必要があるかもしれないためです。
+          color_contrast: 色のコントラスト
+          color_contrast_paragraph: ユーザーインターフェイスを作成したり、色を変更したりするときは、変更によってアクセシビリティが損なわれていないことを常に確認してください。カラーコントラストチェッカーを使うと、表示色が背景色に対して十分なコントラストがあることを確認できます。
+          decidim_follows_html: Decidim は <u>Web Content Accessibility Guidelines (WCAG) 2.1</u> に準拠しています。
+          dynamic_changes_header: 動的な機能は直感に反してページのコンテキストを変更します。
+          dynamic_changes_paragraph: フォーム入力の変更は、ページのコンテキストを自動的に変更してはなりません。
+          elements_hidden: 要素の非表示
+          elements_hidden_header: アクセシビリティAPIから隠す要素
+          elements_hidden_paragraph: 支援技術に要素を見せないようにするには、 aria-hidden="true" 属性を使用します。
+          heading_on: 重要なセクションの見出し
+          here_link: こちら
+          illogical_heading_order: 非論理的な見出しの順序
+          illogical_heading_paragraph: <h1>, <h2>, <h3>, <h4>, <h5>, <h6> の見出し要素を使用する場合、すべてのページは論理的な見出し順序を持つ必要があります。
+          important_sections_heading: 重要なセクションの見出し
+          important_sections_paragraph: ページの重要なセクションごとに見出しがあることが非常に重要です。これにより、見出しを流し読みするだけでページ内にどのような重要なセクションがあるのかが分かりやすくなります。
+          links_and_buttons: リンクとボタン
+          links_and_buttons_paragraph: アンカー要素（つまりリンク）は、異なるページへのリンクやページ内の特定の位置へのアンカーとして機能します。例えばその要素がページ上で何か隠された項目を表示するような場合は、<button>要素を使用するべきです。
+          see_further_info_html: 詳しい情報は %{link} を参照してください
+          unique_h1: ただ一つのH1
+          unique_h1_paragraph: すべてのページには、H1見出しが一つだけ書かれるべきです。
+          use_aria: ARIA を使用する
+          use_aria_header: 可能な場合はARIA属性を使用する
+          use_aria_paragraph: ウェブサイト上でインタラクティブ機能を提供する多くの要素には、それらにアクセシブルにするために ARIA 属性が必要です。
+        color:
+          color_header: 色
+          description_p1: シンプルなカスタマイズが簡単にできるように、少数の色で構成される基本パレットを提供しています。より高度なカスタマイズが必要な場合は、管理画面のエリアまたはTailwindの設定ファイルのいずれかで基本パレットを変更することができます。
+          description_p2_html: 色をカスタマイズする際は、 %{contrast_link} を念頭に置いてください。 %{checker_link} やその他のツールで選択した配色のコントラストを確認できます。
+          wcag_compliant_rations: WCAG 2.1 AA 準拠のコントラスト比
+          wcag_contrast_checker: WebAIM コントラストチェッカー
+        iconography:
+          description_iconography: アクション、タイトルなどの意味を強調するためにアイコンを使用します
+          description_iconography_html: 'Remixicon オープンソースライブラリを使用しています: %{iconography_link}'
+          title: アイコン画像
+        layout:
+          breakpoint: ブレークポイント
+          breakpoints: ブレークポイント
+          centered: 中央揃え
+          code: コード
+          columns: カラム数は10、8または6とする。
+          description_layout_p1: デスクトップの場合、Decidimは異なる種類のコンテンツに対して、12カラムのグリッドによる限られた数のテンプレート(グリッド構成) を使用します。 その目的は、特定の種類のコンテンツ(ホームページ、要素一覧、個々の項目) に特徴的なレイアウトを持たせることで、ユーザーがページの一般的な見た目だけでどの種類のコンテンツにいるのかを理解できるようにすることです。
+          description_layout_p2: 新しいモジュールを作成したり既存のものをカスタマイズしたりする際には、これらのシンプルなルールに従うべきです。そうすることでDecidimサイトがその一貫性を維持できるようになります。
+          desktop: デスクトップ
+          full_width: 横最大幅
+          layout_list_1: 'ホームページ(サイト、スペース): 幅全体'
+          layout_list_2: '要素のリスト（スペース、スペース内のアイテムなど）: 左側'
+          layout_list_3: '個々の項目（提案、ブログ記事）: 中央、オプションで右側に'
+          left_aside: 左サイド
+          mobile: モバイル
+          not_required: 任意
+          properties: プロパティ
+          right_aside: 右サイド
+          section_p_breakpoints: '要素のレスポンシブなmax-widthを管理するために、デフォルトの`container` Tailwind クラスに依存しています。このクラスは以下のブレークポイントを定めています:'
+          section_p_code: 新しいモジュールを実装する際、HTML構造を設定するために必要なコードを自動的に提供するヘルパーがいくつかあります。一貫性を保つために、クラス属性付きのdiv要素を直接使用するのではなく、これらのヘルパーを使用すべきです。
+          section_p_code_html: 基本的なレイアウトは %{link_section_code} で確認できます
+          section_p_desktop: デスクトップグリッドシステムは、列間に16pxの隙間と、左右に48pxのマージンを持つ12の柔軟な列で構成されています。
+          section_p_mobile: モバイルグリッドシステムは、列間に16pxの隙間と、左右に16pxのマージンを持つ4つの柔軟な列で構成されています。サイズが320px以下の場合、このマージンは8pxに設定されます。
+          section_p_tablet: タブレットグリッドシステムは、列間に16pxの隙間と、左右に24pxのマージンを持つ8つの柔軟な列で構成されています。
+          tablet: タブレット
+          title: レイアウト
+        typography:
+          description: このガイドラインは、Decidimにおけるタイポグラフィの用例をまとめ、デザイナーがタイポグラフィの最適な実践を理解し、自由にデザインするためのガイドレールとして提供されます。
+          headings:
+            characters: 1行あたりの文字数
+            layout: レイアウトカラム数
+            size: サイズ
+          title: タイポグラフィ
+          typefaces_description_1: DecidimはSource Sans Proをプライマリ・フォントとして使用しています。この書体は310の言語に対応しています。
+          typefaces_description_2: このフォントはOpen Font Licenseの下でライセンスされています。
+      helpers:
+        accountability: アカウンタビリティ
+        accountability_cards_html: <i>Accountability プロジェクト</i> カードで使用されます。このカードを正しく表示させるにはモジュールアセットが必要です。例えば、 <code>append_stylesheet_pack_tag "decidim_accountability"</code>などとします。
+        activity: アクティビティ
+        address_description: アドレスセルはリソースを受け取り、geolocalizable属性を検索して特定のマークアップを出力します。
+        address_description_2: コンテンツの種類によっては、アドレスがオンラインURLになる場合があります。 そのような場合、表示される情報はまったく同じですが、適合するように形作られています。
+        ally_link: a11y-dropdown-component
+        argument: 引数
+        assemblies: 参加スペース
+        assembly_g: 参加スペースG
+        assembly_s: 参加スペースS
+        avatar: アバター
+        avatar_description: 著者が二次的な情報であり、スペースが狭い場合に使用されます。
+        background: 背景とボーダー
+        base: 基本
+        block_text: extra_data ブロックを使用
+        blog_cards_html: <i>ブログ</i> カードで使用
+        blogs: ブログ
+        budget_card_html: <i>予算プロジェクト</i> カードで使用されます。このカードを正しく表示させるにはモジュールアセットが必要です。例えば、 <code>append_stylesheet_pack_tag "decidim_budgets"</code>などとします
+        budgets: 予算
+        callout_class: 吹き出しクラス
+        callout_description: この属性は、アナウンスにステータスを適用します。デフォルトでは、セカンダリカラーを使用します。
+        card_g: カード G
+        card_l: カード L
+        card_s: カード S
+        collaborative_draft_l: 共同草案L
+        colors: 色
+        compact: コンパクト
+        compact_description: この著者の形式はリソース作成者を指定する一般的な方法です。
+        conference_g: カンファレンスG
+        conference_s: カンファレンスS
+        conferences: カンファレンス
+        context: コンテキスト
+        context_description: このセルは、ユーザーに関する情報を表示します。これは、リソース/コンテンツクリエーターを識別するための視覚的なサポートです。マウスをホバーすると、さらに詳しい情報とそのプロファイルへのリンクが含まれたツールチップが表示されます。
+        context_description_2: リソースの場合、このセルはメインヘッダーの下に表示されます。その他のコンテンツの場合、コンテンツ自体の隣に表示されます。
+        debate_l: ディベートL
+        debate_s: ディベートS
+        debates: ディベート
+        debates_cards_html: <i>ディベート</i> カードで使用
+        debates_cards_text: 画像ブロックに異なるテンプレートを使用する
+        default: デフォルト
+        default_description: 追加の引数なしで、そのユーザー自身を指定してセルを呼び出します。
+        demo: デモ
+        demo_text: 'このセルは LastActivity アイテムのモデルを受け取り、以下の要素を表示します。'
+        demo_text_2: 最近のアクティビティページ、コンテンツブロック、ドロップダウン内で使用されます。
+        description: 説明
+        disabled: 無効
+        dropdowns: ドロップダウン
+        dropdowns_demo_1_description: '次の例はデスクトップでは通知可能ではありませんが、モバイルでは:'
+        dropdowns_demo_description: ドロップダウンは、デスクトップデバイス用の大規模で読みやすいメニューを折りたたむために、アプリケーションに沿って使用されますが、モバイルデバイスにはあまりにも冗長です。
+        dropdowns_demo_description_html: 'このJavaScriptの機能は小さなCSSと命名ルールにより強化されるものです: 非表示コンテンツには、<i>dropdown-menu</i>で始まる<code>id</code>が必須です。'
+        dropdowns_description_html: ドロップダウンは %{link} と呼ばれる外部ライブラリにより利用可能な javascriptの機能です。
+        dropdowns_usage_1_description: 2. トリガーが参照するdata-target属性の値と一致する<code>id</code> を持つ非表示要素。
+        dropdowns_usage_description: 'ドロップダウンには2つの要素が必要です:'
+        dropdowns_usage_description_html: 1. data-属性 <code>data-component="dropdown" data-target="dropdown-menu-element"</code> を持つ、ユーザーのアクションを受け付ける要素。
+        dummy_description: Dummy resource description
+        dummy_title: Dummy resource title
+        follow_button: フォローボタン
+        follower_description_html: <code>decidim/shared/login_modal</code> partial が DOM に存在していることを確認してください。 このpartialは、ログイン時にアプリケーションのレイアウトに配置されます。
+        form_elements: フォーム要素
+        generic_cards: 汎用カード
+        grid: グリッド
+        hex_code: 16進コード
+        highlight: 強調表示
+        highlight_description: 強調表示を許可するリソースによって使用されます
+        html_tips: HTML tips
+        icons: アイコン
+        image_and_description: 画像と説明
+        initiative_g: イニシアチブG
+        initiative_s: イニシアチブS
+        initiatives: イニシアチブ
+        list: リスト
+        main_colors: メインカラー
+        meeting_l: ミーティングL
+        meeting_s: ミーティングS
+        meetings: ミーティング
+        meetings_html: <i>ミーティング</i> カードで使用
+        metadata_items: メタデータ項目
+        metadata_text: 各リソースは独自のメタデータ項目を定義します
+        participatory_process_g: 参加プロセス G
+        participatory_process_group_g: 参加プロセスグループG
+        participatory_process_group_s: 参加プロセスグループS
+        participatory_process_s: 参加プロセスS
+        participatory_processes: 参加プロセス
+        plain_text: これはプレーンテキストです
+        plain_text_description: 最初の引数として、プレーンテキストとハッシュオブジェクトの両方を指定することができます。
+        plain_text_vs_hash: プレーンテキストとハッシュ
+        post_g: 投稿G
+        post_l: 投稿L
+        post_s: 投稿S
+        project_l: プロジェクト L
+        project_s: プロジェクト S
+        proposal_l: 提案 L
+        proposal_s: 提案S
+        proposals: 提案
+        report_button: 通報ボタン
+        report_usage_description: 通報ボタンをクリックすると、現在のリソースにフラグを立てるモーダルウィンドウが開きます。
+        result_l:
+        rgba_code: RGBA コード
+        search: 検索
+        send: 送信
+        share_button: シェアボタン
+        share_usage_description_html: <code>decidim/shared/share_modal</code> partialがDOMに存在することを確認してください。このpartialはアプリケーションレイアウトに配置されます。
+        sizes: サイズ
+        sortition_l: 並べ替えL
+        sortitions: 並べ替え
+        source_code: ソースコード
+        state: 状態
+        tab_panels_context_description: このタブパネルコンポーネントは、縦方向のスペースを節約するために、表示されているメイン要素の関連コンテンツやその他のリソースをすべて集約します。タブをクリックすると、作成されたパネルがアクティブになり、コンテンツが表示されます。
+        tab_panels_context_description_html: 主に、リソースのメインコンテンツの後に <i>layout_item</i> または <i>layout_center</i>内で使用されます。
+        tab_panels_usage_description: 'このコンポーネントはハッシュの配列を受け取り、各アイテムの出力をタブパネル構造に再配置します。各パネルで利用可能なプロパティは以下の通りです:'
+        tab_panels_usage_description_arguments_html: "<strong>args</strong>: <i>Array</i>. 前のメソッドの引数"
+        tab_panels_usage_description_html: "<strong>enabled</strong>: <i>Boolean</i>. タブを条件付きでレンダリングする"
+        tab_panels_usage_description_id_html: "<strong>id</strong>: <i>String</i>. ユニーク id"
+        tab_panels_usage_description_rails_html: "<strong>メソッド</strong>: <i>シンボル</i>. Railsが理解する任意の関数"
+        tab_panels_usage_description_remixicon_html: "<strong>icon</strong>: <i>String</i>. Remixicon キー"
+        tab_panels_usage_description_tab_html: "<strong>text</strong>: <i>String</i>. タブ見出し"
+        tailwind: Tailwindでの名称
+        text: テキスト
+        transparent: 透過
+        transparent_description: '暗い背景の場合:'
+        types: タイプ
+        typography_texts: タイポグラフィとテキスト
+        usage: 使い方
+        usage_background_1: asideの背景
+        usage_background_2: 選択されたサイドバーフィルタの背景
+        usage_background_3: 標準のアイコンカラー
+        usage_background_4: 線と区切り
+        usage_background_5: フッターの背景
+        usage_background_6: 管理画面用レイアウトの背景
+        usage_base_1: メインナビコンポーネントの背景\nホームページとスペースホームのナビメニュー
+        usage_base_2: リンクとボタンのメインカラー
+        usage_base_3: グラフィックオーナメントとアクセントカラー\nカードとリストアイテムのホバーの境界線を表示する
+        usage_formelements_1: 入力要素の標準の背景
+        usage_formelements_2: 入力を無効にした入力要素の背景
+        usage_state_1: 成功通知のボーダー\nアラート通知のアイコン\n成功メッセージのボタン背景
+        usage_state_2: 警告のボーダー
+        usage_state_3: アラート通知のボーダー\nアラート通知のアイコンの色
+        usage_typography_1: 見出しとセクションのタイトル
+        usage_typography_2: インラインテキスト
+        usage_typography_3: ダーク背景上のテキスト
+        usage_typography_4: リンクとボタン
+        value: 値
+        variations: バリエーション
+        variations_cards_description: 表示されるリソースのプロパティに応じて、各カードの見た目は異なります。この振る舞いは特定のセルでオーバーライドすることができます。
+        variations_description: このセルには3つの異なるバージョンがあります。それぞれが表示されているコンテキストに合わせて使い分けます。
+        variations_text: 活動の種類に関して、参加型スペースに属するかどうか、著者がいるかどうかなどによって、セルは異なるコンテンツを表示したり、異なるリソースを報告することができます。
+      home:
+        index:
+          by_sharing_principles: 設計上の決定を行うための原理、哲学、根拠を共有することにより、コミュニティが一貫性のある貢献を行えるようになり、最高の参加体験が得られることを目指します。
+          decidim_guide: Decidim に関するすべてを設計するためのガイド
+          different_ui_components: 同時に、使い方の異なるUIコンポーネントとパターンを文書化し、再利用または拡張が行えるようにします。
+          github_source: ソースコード（GitHub）
+          home_header: Decidim デザインガイド
+          welcome_sentence: Decidim デザインガイド (DDG) へようこそ。 このガイドは、カスタマイズ、新規モジュール開発、新機能統合を行うデザイナーや開発者のためのリソースです。

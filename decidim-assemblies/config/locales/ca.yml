@@ -235,9 +235,9 @@ ca:
           name: Membre
           positions:
             other: Altre
-            president: Presidenta
-            secretary: Secretària
-            vice_president: Vicepresidenta
+            president: Presidència
+            secretary: Secretaria
+            vice_president: Vicepresidència
         assembly_user_role:
           fields:
             email: Correu electrònic
@@ -296,7 +296,7 @@ ca:
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             social_handlers: Social
             title: Informació general
-            visbility: Visibilitat
+            visibility: Visibilitat
         assemblies_types:
           form:
             title: Títol
@@ -396,11 +396,7 @@ ca:
       show:
         assembly_type: Tipus d'assemblea
         duration: Durada
-        is_transparent:
-          'false': opaca
-          'true': transparent
         private_space: Aquesta és una assemblea privada
-        related_participatory_processes: Processos participatius relacionats
         social_networks_title: Visita l'assemblea a
     assembly_members:
       assembly_member:

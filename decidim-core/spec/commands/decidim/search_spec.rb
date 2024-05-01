@@ -8,7 +8,7 @@ describe Decidim::Search do
   context "with resources from different organizations" do
     let(:other_organization) { create(:organization) }
     let(:term) { "fire" }
-    let(:fake_type) { "Decidim::DoesNot::Exist" }
+    let(:fake_type) { "Decidim::Organization" } # a type that is not searchable
     let!(:result) do
       create(:searchable_resource, organization: current_organization, content_a: "Fight fire with fire")
     end

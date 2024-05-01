@@ -290,7 +290,6 @@ it:
         title: Verifica dei conflitti
         transfer:
           email: Email
-          error: Si è verificato un problema nel trasferimento dell'utente corrente a partecipante gestito.
           name: Nome
           reason: Motivazione
           success: Il trasferimento è stato completato con successo.
@@ -434,6 +433,7 @@ it:
         help_sections: Sezioni di Aiuto
         homepage: Homepage
         impersonations: Impersonificazioni
+        manage: Gestisci
         moderation: Moderazione globale
         newsletters: Newsletters
         participants: Partecipanti
@@ -889,3 +889,8 @@ it:
   errors:
     messages:
       invalid_json: Problemi con la trasmissione tramite JSON (JSON non valido)
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Moderazione globale

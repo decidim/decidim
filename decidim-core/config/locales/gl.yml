@@ -432,8 +432,6 @@ gl:
           email_outro: Recibiches esta notificación porque ti es membro dese grupo.
           email_subject: Eliminaches do grupo %{user_group_name}.
           notification_title: Elimineches do grupo <a href="%{resource_path}">%{user_group_name}</a>.
-      notification_event:
-        notification_title: Un evento ocorreu en <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
           email_intro: O <a href="%{resource_url}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
@@ -697,6 +695,7 @@ gl:
           headline: Estado actual de %{organization}
         sub_hero:
           register: Rexistrarse
+          register_title: Rexistrarse para crear unha conta
       index:
         standalone_pages: Páxinas
         subheading: Navega polas páxinas de axuda de %{name}

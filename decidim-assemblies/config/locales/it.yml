@@ -259,7 +259,6 @@ it:
             select_parent_assembly: Seleziona l'assemblea madre
             social_handlers: Social networks
             title: Informazioni generali
-            visbility: Visibilità
         assemblies_types:
           form:
             title: Titolo
@@ -267,7 +266,6 @@ it:
           form:
             existing_user: Utente esistente
             explanation: 'Guida per l''immagine:'
-            image_guide: È preferibile un'immagine verticale priva di testo.
             non_user: Non utente
             non_user_avatar_help: Si dovrebbe ottenere il consenso delle persone prima di renderle pubbliche come membri dell'assemblea.
             select_a_position: Seleziona una posizione
@@ -322,11 +320,7 @@ it:
       show:
         assembly_type: Tipo di assemblea
         duration: Durata
-        is_transparent:
-          'false': opaco
-          'true': trasparente
         private_space: Questa è un'assemblea privata
-        related_participatory_processes: Processi partecipativi correlati
     assembly_members:
       assembly_member:
         designated_on: Designato su

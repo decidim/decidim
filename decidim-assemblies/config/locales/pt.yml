@@ -258,7 +258,6 @@ pt:
             select_parent_assembly: Selecione a reunião pai
             social_handlers: Social
             title: Informação geral
-            visbility: Visibilidade
         assemblies_types:
           form:
             title: Título
@@ -266,7 +265,6 @@ pt:
           form:
             existing_user: Participante existente
             explanation: 'Orientações para imagem:'
-            image_guide: De preferência uma imagem em formato paisagem sem texto algum.
             non_user: Não participante
             non_user_avatar_help: Deve obter o consentimento das pessoas antes de as publicar como membros.
             select_a_position: Selecione uma posição
@@ -319,11 +317,7 @@ pt:
       show:
         assembly_type: Tipo de reunião
         duration: Duração
-        is_transparent:
-          'false': opaco
-          'true': transparente
         private_space: Esta é uma reunião privada
-        related_participatory_processes: Processos participativos relacionados
     assembly_members:
       assembly_member:
         designated_on: Designado em

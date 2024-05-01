@@ -78,6 +78,9 @@ fi:
     'false': 'Ei'
     'true': 'Kyllä'
   date:
+    buttons:
+      close: Sulje
+      select: Valitse
     formats:
       decidim_short: "%d.%m.%Y"
       decidim_short_dashed: "%d.%m.%Y"
@@ -85,6 +88,10 @@ fi:
       decidim_with_day_and_month_name: "%A %d. %b %Y"
       decidim_with_month_name: "%B %d. %Y"
       decidim_with_month_name_short: "%d. %b"
+      help:
+        date_format: 'Muoto: pp.kk.vvvv'
+      order: d.m.y
+      separator: "."
   datetime:
     distance_in_words:
       about_x_hours:
@@ -137,6 +144,7 @@ fi:
       external_link: Ulkoinen linkki
       front_page_link: Siirry etusivulle
       logo: "Organisaation %{organization} virallinen logo"
+      opens_in_new_tab: Avautuu uuteen välilehteen
       skip_button: Siirry sisältöön
     account:
       blocked: Tämä käyttäjätili on estetty, koska käyttäjä ei noudattanut käyttöehtoja
@@ -841,7 +849,7 @@ fi:
         all: Kaikki
         answer: Vastaus
         collaborative_draft: Yhdessä koostettu luonnos
-        dummy_resource: Dummy-resurssit
+        dummy_resource: Esimerkkitietueet
         meeting: Tapaamiset
         project: Hankkeet
         proposal: Ehdotukset
@@ -869,7 +877,7 @@ fi:
       create:
         button: Seuraa
         error: Tämän kohteen seuraaminen epäonnistui.
-        participatory_space: Seuraat kohdetta <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Seuraat kohdetta <span>%{resource_name}</span>
       destroy:
         button: Lopeta seuranta
         error: Tämän kohteen seuraamisen lopettaminen epäonnistui.
@@ -885,7 +893,7 @@ fi:
           message_1: On oltava kuva tai asiakirja.
           message_2: Kuvina käytä mieluiten vaakasuintaisia kuvia, palvelu rajaa kuvaa.
         icon:
-          explanation: 'Ikonin ohjeistus:'
+          explanation: 'Kuvakkeen ohjeistus:'
           message_1: On oltava neliömuotoinen kuva.
           message_2: Tämän kuvan suositeltu koko on 512x512.
         image:
@@ -1208,7 +1216,7 @@ fi:
         token_error: Linkki on vanhentunut.
         unsubscribe: Peruuta tilaus
     newsletters_opt_in:
-      unathorized: Valitettavasti tämä linkki ei ole enää käytettävissä.
+      unauthorized: Valitettavasti tämä linkki ei ole enää käytettävissä.
       update:
         error: Uutiskirjeasetusten päivitys epäonnistui.
         success: Uutiskirjeasetusten päivitys onnistui.
@@ -1449,6 +1457,8 @@ fi:
         close_modal: Sulje ikkuna
         ok: OK
         title: Vahvista
+      embed:
+        title: Upotettu videosisältö
       extended_navigation_bar:
         more: Lisää
         unfold: Avaa
@@ -1505,7 +1515,7 @@ fi:
         label: 'Tulosten määrä sivulla:'
         title: Valitse tulosten määrä sivua kohti
       share_modal:
-        copy_share_link: Kopio
+        copy_share_link: Kopioi
         copy_share_link_clarification: Kopioi jakolinkki leikepöydälle
         copy_share_link_copied: Kopioitu!
         copy_share_link_message: Linkin kopiointi leikepöydälle onnistui.
@@ -2018,6 +2028,10 @@ fi:
     x: X
     xing: Xing
   time:
+    buttons:
+      close: Sulje
+      reset: Nollaa
+      select: Valitse
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2032,11 +2046,14 @@ fi:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d., %Y klo %k:%M"
+      help:
+        time_format: 'Muoto: tt:mm'
       long: "%B %d., %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
       long_with_particles: "%B %d., %Y %H:%M"
       short: "%d.%m.%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d.%m.%Y %H:%M %Z (GMT %:z)"
   versions:
     directions:
       left: Poistot

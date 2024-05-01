@@ -19,6 +19,18 @@ module Decidim
           %(<a href="#{::Decidim::ResourceLocatorPresenter.new(resource).url}">Testing resource</a>)
         )
       end
+
+      context "when the notification is a comment" do
+        let(:comment) { create(:comment, body: "This is a comment") }
+        let(:event_name) { "decidim.events.comments.comment_created" }
+        let(:event_class) { "Decidim::Comments::CommentCreatedEvent" }
+        let(:extra) { { "comment_id" => comment.id, "received_as" => "follower" } }
+        let(:notification) { create(:notification, user:, resource:, event_name:, event_class:, extra:) }
+
+        it "includes the comment body" do
+          expect(subject.body).to include("This is a comment")
+        end
+      end
     end
   end
 end

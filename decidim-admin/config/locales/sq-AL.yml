@@ -54,9 +54,86 @@ sq:
         description: Përshkrimi
         enable_omnipresent_banner: Shfaq banerin e gjithëpranishëm
         enable_participatory_space_filters: Aktivizo filtrat e hapësirës së pjesëmarrjes
+        facebook_handler: Emri i përdoruesit Facebook
         favicon: Ikona
         force_authentication: Sforco autentikimin
+        force_users_to_authenticate_before_access_organization: Detyro përdoruesit të autentikohen para se të aksesojnë organizatën
+        from: Adresa email e dërguesit
+        github_handler: Emri i përdoruesit Github
         highlight_color: Theksim
+        highlighted_content_banner_image: Imazhi
         highlighted_content_banner_short_description: Përshkrim i shkurtër
         highlighted_content_banner_title: Titulli
         host: Organizatori
+        instagram_handler: Emri i përdoruesit Instagram
+        logo: Logo
+        machine_translation_display_priority: Prioriteti i shfaqjes së përkthimit automatik
+        machine_translation_display_priority_original: Teksti origjinal i pari
+        machine_translation_display_priority_translation: Teksti i përkthyer i pari
+        name: Emri
+        official_url: Adresa zyrtare e organizatës
+        omnipresent_banner_short_description: Përshkrim i shkurtër
+        omnipresent_banner_title: Titulli
+        omnipresent_banner_url: URL
+        organization_admin_email: Emaili i adminit të organizatës
+        organization_admin_name: Emri i adminit të organizatës
+        organization_locales: Gjuhët e organizatës
+        primary_color: Ngjyra parësore
+        rich_text_editor_in_public_views: Aktivizo editorin kompleks për pjesëmarrësit
+        secondary_color: Ngjyra dytësore
+        send_welcome_notification: Dërgo njoftim mirëseardhjeje
+        success_color: Sukses
+        tertiary_color: Ngjyra tretësore
+        time_zone: Zona orare
+        tos_version: Versioni i kushteve të shërbimit
+        twitter_handler: Emri i përdoruesit X
+        user_groups_enabled: Aktivizo grupet
+        users_registration_mode: Mënyra e regjistrimit të përdoruesve
+        warning_color: Kujdes
+        welcome_notification_body: Përmbajtja e njoftimit të mirëseardhjes
+        welcome_notification_subject: Tema e njoftimit të mirëseardhjes
+        youtube_handler: Emri i përdoruesit Youtube
+      participatory_space_private_user:
+        email: Email
+        name: Emri
+      scope:
+        code: Kodi
+        name: Emri
+        organization: Organizata
+      scope_type:
+        name: Emri
+        organization: Organizata
+        plural: Shumësi
+      static_page:
+        allow_public_access: Lejo akses të paautentikuar
+        content: Përmbajtja
+        organization: Organizata
+        slug: Slug i adresës URL
+        title: Titulli
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: Përmbajtje
+        slug: Slug i adresës URL
+        title: Titulli
+  decidim:
+    admin:
+      models:
+        share_token:
+          fields:
+            last_used_at: Hera e fundit që u përdor
+            times_used: Sa herë është përdorur
+      organization:
+        form:
+          social_handlers: Rrjetet sociale
+      organization_appearance:
+        form:
+          colors:
+            choose_color: Zgjidh ngjyrën parësore
+            colors_title: Ngjyrat e organizatës
+            colors_warning_html: Kujdes! Ndryshimi i këtyre ngjyrave mund të prishë aksesibilitetin e kontrastit. Kontrolloni kontrastin e zgjedhur me <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> ose mjete të ngjashme.
+            explanation: Kjo vegël ndihmon në zgjedhjen e një kombimini ngyrash, të përbërë nga nuanca të barazlarguara në rrotën e ngjyrave, që do perdoret në faqen e organizatës.
+            legend_html: Ngjyrat kryesore të aplikacionit, bazuar në <a href="https://www.color-meanings.com/triadic-colors/">algoritmin triadik</a>. Ngjyra <i>dytësore</i> llogaritet automatikisht nga ngjyra parësore dhe thellësia e zgjedhur.
+            saturation: Thellësia
+            title: Përzgjedhësi i ngjyrës
+            update_suggested_colors: Përditëso ngjyrat e rekomanduara

@@ -17,7 +17,7 @@ on:
       - "decidim-participatory_processes/**"
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -29,15 +29,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        test-command:
-          - bundle exec parallel_test --type rspec --pattern spec/ --exclude-pattern spec/system
-          - bundle exec parallel_test --type rspec --pattern spec/system
+        test:
+          - command: bundle exec parallel_test --type rspec --pattern spec/ --exclude-pattern spec/system
+            name: "Tests without system specs"
+          - command: bundle exec parallel_test --type rspec --pattern spec/lib
+            name: "Lib specs"
     needs: build_app
-    name: ${{ matrix.test-command }}
+    name: ${{ matrix.test.name }}
     uses: ./.github/workflows/test_app.yml
     secrets: inherit
     with:
       working-directory: "decidim-admin"
-      test_command: ${{ matrix.test-command }}
+      test_command: ${{ matrix.test.command }}
       bullet_n_plus_one: false
       bullet_unused_eager_loading: false

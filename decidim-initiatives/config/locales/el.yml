@@ -59,6 +59,7 @@ el:
   decidim:
     admin:
       actions:
+        manage: Διαχείριση
         new_initiative_type: Νέος τύπος πρωτοβουλίας
       filters:
         search_placeholder:
@@ -331,7 +332,6 @@ el:
           other: "υπογραφές"
         vote_cabin:
           already_voted: Έχει ήδη υπογραφεί
-          supports_required: "Απαιτούνται %{total_supports} υπογραφές"
           verification_required: Επαληθεύστε τον λογαριασμό σας για να υπογράψετε την πρωτοβουλία
           vote: Υπογραφή
           votes_blocked: Η υπογραφή απενεργοποιήθηκε

@@ -296,7 +296,7 @@ fi:
             slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
             social_handlers: Sosiaalinen media
             title: Yleiset tiedot
-            visbility: Näkyvyys
+            visibility: Näkyvyys
         assemblies_types:
           form:
             title: Muokkaa ryhmätyyppiä
@@ -396,11 +396,7 @@ fi:
       show:
         assembly_type: Ryhmän tyyppi
         duration: Kesto
-        is_transparent:
-          'false': läpinäkymätön
-          'true': läpinäkyvä
         private_space: Tämä on yksityinen ryhmä
-        related_participatory_processes: Liittyvät osallistumisprosessit
         social_networks_title: Vieraile ryhmän sivulla palvelussa
     assembly_members:
       assembly_member:

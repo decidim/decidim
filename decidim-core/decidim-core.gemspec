@@ -71,10 +71,10 @@ Gem::Specification.new do |s|
   # Also note that we need Rails 6.1.5+,
   # see https://gist.github.com/yahonda/2776d8d7b6ea7045359f38c10449937b
   s.add_dependency "psych", "~> 4.0"
-  s.add_dependency "rack", "~> 2.2", ">= 2.2.6.4"
+  s.add_dependency "rack", "~> 2.2", ">= 2.2.8.1"
   s.add_dependency "rack-attack", "~> 6.0"
-  s.add_dependency "rails", "~> 6.1.7", ">=6.1.7.4"
-  s.add_dependency "rails-i18n", "~> 6.0"
+  s.add_dependency "rails", "~> 7.0.8"
+  s.add_dependency "rails-i18n", "~> 7.0"
   s.add_dependency "ransack", "~> 3.2.1"
   s.add_dependency "redis", "~> 4.1"
   s.add_dependency "request_store", "~> 1.5.0"

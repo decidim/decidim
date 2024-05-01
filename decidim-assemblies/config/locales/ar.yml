@@ -283,7 +283,6 @@ ar:
             select_parent_assembly: حدد الجمعية الأصلية
             social_handlers: التواصل الاجتماعي
             title: معلومات عامة
-            visbility: الرؤية
         assemblies_types:
           form:
             title: العنوان
@@ -291,7 +290,6 @@ ar:
           form:
             existing_user: المشارك الحالي
             explanation: 'إرشادات للصورة:'
-            image_guide: يفضل أن تكون صورة لا تحتوي على أي نص.
             non_user: غير مشارك
             non_user_avatar_help: يجب أن تحصل على موافقة الأشخاص قبل نشرهم كأعضاء.
             select_a_position: اختر المنصب
@@ -350,11 +348,7 @@ ar:
       show:
         assembly_type: نوع الجمعية
         duration: المدة الزمنية
-        is_transparent:
-          'false': مبهمة
-          'true': شفافة
         private_space: هذه جمعية خاصة
-        related_participatory_processes: العمليات التشاركية ذات الصلة
         social_networks_title: زيارة التجمع على
     assembly_members:
       assembly_member:

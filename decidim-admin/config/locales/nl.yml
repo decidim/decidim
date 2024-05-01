@@ -294,7 +294,6 @@ nl:
         title: Controle conflicten
         transfer:
           email: E-mail
-          error: Er is een probleem opgetreden bij het overbrengen van de huidige deelnemer naar een beheerde deelnemer.
           name: Naam
           reason: Reden
           success: De overdracht is met succes voltooid.
@@ -480,6 +479,7 @@ nl:
         help_sections: Helpsecties
         homepage: Startpagina
         impersonations: Zich voordoen als
+        manage: Beheer
         moderation: Algemene moderatie
         newsletters: Nieuwsbrieven
         participants: Deelnemers
@@ -947,3 +947,8 @@ nl:
   errors:
     messages:
       invalid_json: Ongeldige JSON
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Algemene moderatie

@@ -1,0 +1,307 @@
+---
+eu:
+  decidim:
+    design:
+      components:
+        accordions:
+          content_panel: Panelaren edukia
+          demo: Demoa
+          demo_description: Aplikazioan zehar akordeoiak erabiltzen dira, batez ere edukiak erlaitzetan erakusteko/ezkutatzeko edo testu ikusgarriak tolesteko/ez tolesteko.
+          description_accordions_html: Akordeoiak javascript funtzioak dira, erabilgarri daudenak %{link_code} izeneko kanpoko liburutegi bati esker.
+          github_source_html: 'Iturburu-kodea hemen: GitHub % {github_link}}'
+          panel: Panela
+          title: Akordeoiak
+          trigger: Eragin
+          usage: Erabilera
+          usage_p: Akordeoiak gutxienez hiru elementu behar ditu
+          usage_p_1_html: 1. <code>div</code> bilgarri bat, <code>data-component="accordion"</code>, data-atributuarekin, eskuragarri dauden trigger eta panel guztien gainean.
+          usage_p_2_html: 2. Elementu aktibatzaile bat, erabiltzaile jardugarria (botoi gisa), elementu kolapsagarria adierazten duena <code>data-controls="panel"</code>, where <i>panel</i> is the <code>id</code> panelaren identifikatzailea.
+          usage_p_3_html: 3. Elementu ezkutagarria, zeinaren <code>id</code> datu-kontrolek bat egiten duten eragileari dagokion balioarekin.
+        activities:
+          activities: Jarduerak
+        address:
+          title: Helbidea
+        announcement:
+          iam_an_announcement: Ni iragarpena naiz
+          this_is_the_body: Hau gorputza da
+          this_is_the_title: Hau izenburua da
+          title: Iragarpena
+        author:
+          title: Egilea
+        buttons:
+          description_html: 'Botoiak CSS klaseen konbinazio desberdinak erabiliz eraiki dira: <code>botoia</code> klasea, tamaina bat eta kolore bat.'
+          title: Botoiak
+        cards:
+          title: Txartelak
+        dialogs:
+          dialog_demo_description_html: Elkarrizketa-koadroak, edo elementu modalak <code>decidim_modal</code> laguntzailearen bidez inplementatzen dira.
+          dialogs_description_html: Elkarrizketa-koadroak javascript-en ezaugarriak dira eta honela deitzen dira:<a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a>.
+          tips_description: 'Modal konplexu bat erakusteko, estiloekin bat eginez, egin marka hau:'
+          tips_description_html: 'Adi hauei: <i>data-attributes</i> eta the <i>ids</i>. Adibidez, <code>[data-dialog-title]</code> kodea hasten da honela: <i>dialog-title</i> gehi <i>modal id</i>.'
+          title: Elkarrizketak
+          usage_description: Elkarrizketa batek bi elementu eskatzen ditu
+          usage_description_2_html: 2. Elementu modala, zeinaren <code>id</code> datu-kontrolek bat egiten duten eragileari dagokion balioarekin.
+          usage_description_html: 1. Erabiltzailearen elementu erabilgarria, <code>data-dialog-open="example"</code> data-atributuarekin, non adibidea den modalaren <code>id</code>.
+        follow:
+          title: Jarraitu
+        forms:
+          disabled: Desgaitua
+          emojis: Emotikonoak
+          emojis_description: Soilik balio du testu-arlorako
+          errors: Erroreak
+          errors_description: Ezin da hautatu
+          header_alert: Orrialde hau ikuspegi zahar batetik dator. Edukia zaharkituta dago.
+          help_texts: Laguntza-testua
+          html_regular_inputs: HTML input erregularrak
+          min_max_length: Luzera min - max
+          min_max_length_description: Testu motako sarreretan eta testu eremuan soilik funtzionatzen du
+          regular_inputs_description: 'Mota arruntak baino ez ditu erakusten ditu, eskuragarri dagoen zerrenda osoa: data, tokiko ordua, posta elektronikoa, hilabetea, zenbakia, pasahitza, bilaketa, tel., testua, ordua, url, astea'
+          textarea_required: eskatutako testu-eremua
+          title: Inprimakiak
+        report:
+          title: Salatu
+        share:
+          title: Partekatu
+        tab_panels:
+          title: Panelen Tab
+        tooltips:
+          demo: Demoa
+          demo_description: Osagai honek funtziona dezan, parte-hartzaileak elementuan egon behar du.
+          description: Tooltip osagai bat da. Erabiltzaileek sagua erabil dezakete horri buruzko informazio gehiago izateko.
+          github_source_html: Iturburu-kodea %{github_link} GitHuben
+          title: Argibidea
+          usage: Erabilera
+          usage_p: 'Tooltip batek eskatzen du "tooltip"en erabilerarako laguntzaile bat, hiru argudio hauekin:'
+          usage_p_1_html: 1. Tooltip-en balioa duen katea. Orrialde honen adibidean "Kaixo, mundua" dago.
+          usage_p_2_html: '2. Hautazko klase bat, sinbolo batekin; bertan erakutsiko da tresna-punta. Balio posibleak hauek dira: <code>goian<code>, <code>behean>code>, <code>eskuinean<code> edo <code>ezkerrean<code>.'
+          usage_p_3_html: 3. Erabiltzaileak bistaratzeko behar duen katea duen blokea.
+      foundations:
+        accessibility:
+          accessibility_labels: Irisgarritasun-etiketak
+          accessibility_labels_paragraph: Elementuak definitzerakoan, ziurtatu beti zentzua dutela pantaila-irakurgailuen erabiltzaileentzat.
+          accessibility_title: Irisgarritasuna
+          adjacent_links: Ondoko loturak
+          adjacent_links_header: Ondoko estekak baliabide bererako
+          adjacent_links_paragraph: Baliabide berak ondoko lotura bat baino gehiago baditu, horrek zaildu egiten du erabiltzaile horiek orrialdera begiratzea, hurrengo baliabidera iristeko esteka bat baino gehiago erabili behar dituztelako.
+          color_contrast: Kolore-kontrastea
+          color_contrast_paragraph: Erabiltzaile-interfazeak sortzean edo koloreak aldatzean, ziurtatu beti zure aldaketen ondorioz ez zarela irisgarritasuna hausten ari. Kolore-kontrastearen zuzentzailea erabil dezakezu zure koloreek kontraste nahikoa izan dezaten erakusten diren atzealdeko kolorearen aldean, non ageri baitira.
+          decidim_follows_html: 'Decidimek jarraitzen du: <u>Web Content Accessibility Guidelines (WCAG) 2.1</u>'
+          dynamic_changes_header: Funtzionalitate dinamikoak orrialdearen testuingurua aldatzen du intuiziorik gabe
+          dynamic_changes_paragraph: Inprimakien sarreretan gertatzen diren aldaketek ez dute orrialdearen testuingurua automatikoki aldatu behar.
+          elements_hidden: Elementu ezkutuak
+          elements_hidden_header: Elementu ezkutuak irisgarritasuneko APIan
+          elements_hidden_paragraph: Elementu bat laguntza-teknologietatik ezkutatzeko, erabili "egia" atributua.
+          heading_on: Sail garrantzitsuen goiburuan doa
+          here_link: hemen
+          illogical_heading_order: Goiburuaren ordena ilogikoa
+          illogical_heading_paragraph: Orrialde bakoitzak goiburuko ordena logiko bat izan behar du <h1>, <h2>, <h3>, <h4>, <h5> eta <h6> elementuak erabiltzean.
+          important_sections_heading: Sail garrantzitsuen goiburuan doa
+          important_sections_paragraph: Oso garrantzitsua da orrialdeko atal garrantzitsu bakoitzak sarrera bat izatea, errazago ulertzeko zer atal garrantzitsu dauden orrian bere sarreretan nabigatuz.
+          links_and_buttons: Loturak eta Botoiak
+          links_and_buttons_paragraph: Ainguraketa-elementuak (hau da, estekak) orrialde desberdinei lotzeko edo orrialdearen barruan posizioak ainguratzeko erabiltzen dira. Elementuak orri horretan ezkutatutako elementuren bat ireki behar duela uste bada, <button> elementua erabili behar du haren ordez.
+          see_further_info_html: Ikusi informazio gehiago %{link}
+          unique_h1: H1 bakarra
+          unique_h1_paragraph: Orrialde bakoitzak H1 bakarra izan beharko luke
+          use_aria: Erabili ARIA
+          use_aria_header: Erabili ARIA atributuak ahal denean
+          use_aria_paragraph: Web orrian funtzionaltasun interaktiboa ematen duten elementu askok ARIA atributuak behar dituzte irisgarriak izan daitezen.
+        color:
+          color_header: Kolorea
+          description_p1: Base paleta bat eskaintzen dugu kolore gutxirekin, pertsonalizazio sinpleak errazak izan daitezen. Oinarrizko paleta alda dezakezu Administrazioaren eremuan edo Tailwind konfigurazio fitxategian, pertsonalizazio aurreratuagoa behar baduzu.
+          description_p2_html: Zure koloreak pertsonalizatzean, eduki gogoan % {contrast_link}. Zure aukeraren kontrastea egiazta dezakezu % {checker_link} edo antzeko tresnen bitartez.
+          wcag_compliant_rations: WCAG 2.1 AA adostasun-kontraste erlazioa
+          wcag_contrast_checker: WebAIM Kontraste-egiaztatzailea
+        iconography:
+          description_iconography: Ikonoak erabiltzen ditugu ekintzen, tituluen... esanahia indartzeko
+          description_iconography_html: 'Remixicon kode irekiko liburutegia erabiltzen dugu: %{iconography_link}'
+          title: Ikonografia
+        layout:
+          breakpoint: Eten-puntua
+          breakpoints: Eten-puntuak
+          centered: Zentratuta
+          code: Kodea
+          columns: Zutabe kopurua 10, 8 edo 6 izanik.
+          description_layout_p1: Mahaigainerako, Decidimek 12 zutabeko lauki bat erabiltzen du, txantiloi kopuru mugatuarekin (sare-konfigurazioak) eduki mota desberdinetarako. Helburua da eduki mota jakin batek (hasierako orria, elementuen zerrenda, elementu indibiduala) maketazio bereizgarria izatea, erabiltzaileek uler dezaten zein eduki motatan dauden orrialdearen begirada orokorraren bidez.
+          description_layout_p2: Arau sinple horiek jarraitu behar dira modulu berriak sortzean edo daudenak pertsonalizatzean, Decidim gune batek bere koherentzia mantendu dezan.
+          desktop: Mahaigaina
+          full_width: Zabalera osoa
+          layout_list_1: 'Hasierako orria (eskaerarena, parte hartzeko gune batena): zabalera osoa'
+          layout_list_2: 'Elementuen zerrenda (parte hartzeko espazioena, espazio baten barruko elementuena...): ezkerreko aldean'
+          layout_list_3: 'Objektu indibiduala (proposamena, blogeko sarrera): zentratua, aukeran eskuineko aldean'
+          left_aside: Ezker aldean
+          mobile: Mugikorra
+          not_required: Ez da beharrezkoa
+          properties: Ezaugarriak
+          right_aside: Eskuin aldean
+          section_p_breakpoints: 'Web diseinu egokitzailerako elementuen gehieneko zabalera kudeatzeko, aurrez zehaztutako Tailwind ''container'' klasearen mende gaude. Horrek honako eten-puntu hauek adierazten ditu:'
+          section_p_code: Modulu berriak inplementatzean, HTML egitura konfiguratzeko beharrezkoa den kodea automatikoki ematen dizuten laguntzaile batzuk dituzu. Laguntzaile horiek erabili beharko zenituzke, <div> <class> elementuak zuzenean erabili beharrean, horrela sendotasuna mantenduz.
+          section_p_code_html: 'Oinarrizko diseinuak hemen aurki ditzakezu: %{link_section_code}'
+          section_p_desktop: Mahaigaineko ordenagailuentzako lauki-sistema 12 zutabe malguk osatzen dute, eta 16px-ko zutabeen eta ezkerreko eta eskuineko marjinen arteko tartea (kanala) 48px-koa da
+          section_p_mobile: Mugikorrerako lauki-sistemak 4 zutabe malgu ditu, eta 16px-ko zutabeen arteko tartea (kanala) eta ezkerreko eta eskuineko ertzak 16px-koak dira. 320px baino gutxiagoko tamainetarako, marjina horiek 8px dira
+          section_p_tablet: Tabletetarako lauki-sistemak 8 zutabe malgu ditu, eta 16px-ko zutabeen eta ezkerreko eta eskuineko ertzen arteko tartea (kanala) 24px-koa da
+          tablet: Tableta
+          title: Diseinua
+        typography:
+          description: Jarraibide hauek Decidim-en tipografia nola erabiltzen den laburbiltzen dute, eta diseinatzaileentzat zaindari gisa balio dute praktika tipografiko onenak erabiliz modu librean diseinatzeko.
+          headings:
+            characters: Karaktereak lerroka
+            layout: Maketazioa
+            size: Neurria
+          title: Tipografia
+          typefaces_description_1: Decidimek Source Sans Pro erabiltzen du tipografia primario gisa. Letra mota honek 310 hizkuntza onartzen ditu
+          typefaces_description_2: Iturri hauek Open Font lizentziapean daude
+      helpers:
+        accountability: Erantzukizuna
+        accountability_cards_html: <i>Proiektuen erantzukizuna</i> txartelek erabilia. Txartel honek moduluko aktiboak behar bezala erakustea eskatzen du, hau da, <code>append_stylesheet_pack_tag \"decidim_contabilidad\"<code>
+        activity: Jarduera
+        address_description: Helbide-gelaxkak baliabide bat jasotzen du eta atributu geolokalizagarriak bilatzen ditu markaketa zehatz bat egiteko.
+        address_description_2: Eduki motaren arabera, helbidea online url bat izan daiteke. Kasu horietarako, erakutsitako informazioa berdina da, baina egokitzeko modukoa.
+        ally_link: a11y- goitibeherako zerrendaren osagaia
+        argument: Argumentua
+        assemblies: Batzarrak
+        assembly_g: G Batzarra
+        assembly_s: S Batzarra
+        avatar: Abatarra
+        avatar_description: Erabiltzen da espezio estuak daudenean, egilea nor den bigarren mailako informazioa denean.
+        background: Aurrekariak eta mugak
+        base: Oinarria
+        block_text: Erabili extr_data blokea
+        blog_cards_html: <i>Blogs</i> txartelak erabilia
+        blogs: Blogak
+        budget_card_html: <i>Aurrekontuen proiektuak<i> txartelek erabilia. Txartel honek moduluko aktiboak behar bezala erakustea eskatzen du, hau da, <code>append_stylesheet_pack_tag\"decidim_budgets\"</code>
+        budgets: Aurrekontuak
+        callout_class: Callout Class
+        callout_description: Honek estatus bat aplikatzen dio iragarpenari. Besterik ezean, bigarren mailako kolorea erabiltzen du.
+        card_g: G Txartela
+        card_l: L Txartela
+        card_s: S Txartela
+        collaborative_draft_l: L Zirriborro Kolaboratiboa
+        colors: Koloreak
+        compact: Trinkoa
+        compact_description: Egilearen bertsio hau baliabide sortzailea identifikatzeko modu arrunta da.
+        conference_g: G Hitzaldia
+        conference_s: S Hitzaldia
+        conferences: Hitzaldiak
+        context: Testuingurua
+        context_description: Gelaxka honek erabiltzaile bati buruzko informazioa erakusten du. Baliabidearen/edukiaren sortzailea identifikatzeko laguntza bisuala da. Kursoreaz gainetik pasatzean, informazio gehiago eta bere profilerako estekak dituen deskribapena agertzen da.
+        context_description_2: Baliabideetarako, gelaxka hau sarrera nagusiaren azpian agertzen da. Beste eduki batzuetarako, edukiaren ondoan agertzen da.
+        debate_l: L Eztabaida
+        debate_s: S Eztabaida
+        debates: Eztabaidak
+        debates_cards_html: <i>Eztabaidak</i> txartelek erabilia
+        debates_cards_text: Erabili txantiloi desberdinak irudi-blokerako
+        default: Lehenetsia
+        default_description: Deitu gelaxka argudio gehigarririk gabe, erabiltzailea bera.
+        demo: Demoa
+        demo_text: 'Zelula honek LastActivity itemen eredu bat jasotzen du eta elementu hauek erakusten ditu:'
+        demo_text_2: Azken jarduera-orriak erabiltzen du, eduki-bloke batean eta dropdown-en barruan.
+        description: Deskribapena
+        disabled: Desgaitua
+        dropdowns: Goitibeherako zerrendak
+        dropdowns_demo_1_description: 'Hurrengo adibidea ez da ikusgarri egongo mahaigainean, mugikorrean baizik:'
+        dropdowns_demo_description: Goitibeherako zerrendak aplikazioan zehar erabiltzen dira ez kolapsatzeko menu handiak, erraz irakurtzeko modukoak mahaigaineko gailuentzat, baina koloretsuegiak gailu mugikorrentzat.
+        dropdowns_demo_description_html: 'Javascript ezaugarri hau css txiki batez indartzen da, izenburuaren bidez: eduki ezkutagarriak nortasun agiria IZAN BEHAR DU <code>id</code> goitibeherako zerrendatik hasita.'
+        dropdowns_description_html: Goitibeherako zerrendak javascript ezaugarriak dira, % {link} izeneko kanpoko liburutegi bati esker.
+        dropdowns_usage_1_description: 2. Elementu modala, zeinaren <code>id</code> datu-kontrolek bat egiten duten eragileari dagokion balioarekin.
+        dropdowns_usage_description: 'Goitibeherako zerrenda batek bi elementu eskatzen ditu:'
+        dropdowns_usage_description_html: 1. Erabiltzaile-elementu prozesagarria, datu-osagaia = "dropdown" data-target = "dropdown-menu-element" datu-atributuak dituena.
+        dummy_description: Baliabideen balizko deskribapena
+        dummy_title: Baliabideen balizko izenburua
+        follow_button: Jarraitu Botoiari
+        follower_description_html: Ziurtatu <code>decdim/partekatua/login_modala</code> partziala DOMen dagoela. Zati hori aplikazioaren maketazioan jartzen da erabiltzailea bertan sartzen denean.
+        form_elements: Forma elementuak
+        generic_cards: Txartel generikoak
+        grid: Sarea
+        hex_code: Hex kodea
+        highlight: Nabarmendua
+        highlight_description: Nabarmentzeko moduko baliabideek erabilia
+        html_tips: HTML datuak
+        icons: Ikonoak
+        image_and_description: Irudia eta Deskribapena
+        initiative_g: g_ekimena
+        initiative_s: s_ekimena
+        initiatives: Ekimenak
+        list: Zerrenda
+        main_colors: Kolore nagusiak
+        meeting_l: L Topaketa
+        meeting_s: S Topaketa
+        meetings: Topaketak
+        meetings_html: <i>Topaketak</i> txartelek erabilia
+        metadata_items: Metadatuen gaiak
+        metadata_text: Baliabide bakoitzak bere metadatu-elementuak definitzen ditu
+        participatory_process_g: G Prozesu Parte-hartzailea
+        participatory_process_group_g: Prozesu Parte-hartzailearen G Taldea
+        participatory_process_group_s: Prozesu Parte-hartzailearen S Taldea
+        participatory_process_s: S Prozesu Parte-hartzailea
+        participatory_processes: Prozesu parte-hartzaileak
+        plain_text: Testu argia naiz
+        plain_text_description: Lehen argudio gisa, testu argi bat eta hash objektu bat eman ditzakezu
+        plain_text_vs_hash: Testu argia Vs Hash
+        post_g: G Argitalpena
+        post_l: L Argitalpena
+        post_s: S Argitalpena
+        project_l: L Proiektua
+        project_s: S Proiektua
+        proposal_l: L Proposamena
+        proposal_s: S Proposamena
+        proposals: Proposamenak
+        report_button: Salatzeko botoia
+        report_usage_description: Salatzeko botoiak leiho modal bat zabaltzen du egungo baliabidearen bandera jartzeko.
+        result_l: L Emaitza
+        rgba_code: RGBA kodea
+        search: Bilatu
+        send: Bidali
+        share_button: Partekatzeko Botoia
+        share_usage_description_html: Ziurtatu <code>decdim/partekatua/login_modala</code> partziala DOMen dagoela. Zati hori aplikazioaren maketazioan jartzen da erabiltzailea bertan sartzen denean.
+        sizes: Neurrriak
+        sortition_l: i_zozketa
+        sortitions: Zozketak
+        source_code: Iturburu Kodea
+        state: Egoera
+        tab_panels_context_description: Tab-panel osagai honek biltzen ditu erlazionatutako eduki guztiak edo elementu nagusiaren beste baliabide batzuk, espazio bertikala salbatzeko. Erlaitzean klik eginez, edukia erakusteko sortutako panela aktibatuko da.
+        tab_panels_context_description_html: 'Nagusiki hemen erabiltzen da: <i>layout_item</i> edo <i>layout_center</i>, baliabidearen eduki nagusiaren ostean.'
+        tab_panels_usage_description: 'Osagai honek hashes sorta bat jasotzen du eta elementu bakoitzaren irteera taula berrantolatzen du paneleko egitura batean. Panel bakoitzerako eskuragarri dauden propietateak:'
+        tab_panels_usage_description_arguments_html: "<strong>args</strong>: <i>Array</i>. Aurreko metodoaren argudioak"
+        tab_panels_usage_description_html: "<strong>enabled</strong>: <i>Boolean</i>. Jarri erlaitza baldintzapean"
+        tab_panels_usage_description_id_html: "<strong>id</strong>: <i>String</i>. Id bakarra"
+        tab_panels_usage_description_rails_html: "<strong>method</strong>: <i>Symbol</i>. Edozein funtzio-errailek ulertzen du"
+        tab_panels_usage_description_remixicon_html: "<strong>icon</strong>: <i>String</i>. Remixicon tekla"
+        tab_panels_usage_description_tab_html: "<strong>text</strong>: <i>String</i>. Fitxaren izenburua"
+        tailwind: Tailwind izena
+        text: Testua
+        transparent: Gardena
+        transparent_description: 'Hondo ilunagoa izanez gero:'
+        types: Motak
+        typography_texts: Tipografia eta testuak
+        usage: Erabilera
+        usage_background_1: Atzealdea alde batera utzita
+        usage_background_2: Albo-iragazkiaren hondoa hautatua
+        usage_background_3: Lehenetsi ikono kolorea
+        usage_background_4: Lerroak eta bereizgailuak
+        usage_background_5: Oin-azpia
+        usage_background_6: Admin Layout hondoa
+        usage_base_1: Nav osagaien fondo nagusia\nNav menuak hasierako orrian eta espazioko etxean
+        usage_base_2: Kolore nagusia esteka eta botoietarako
+        usage_base_3: Apaingarri grafikoak eta azentu-kolorea\nKartak eta zerrenda-elementuak mugako estatuan
+        usage_formelements_1: Sarrerako elementuek ez dute aurrekaririk
+        usage_formelements_2: Egoerako hondoko elementu desgaituak
+        usage_state_1: Arrakasta-abisuaren muga\nAlerta abisuaren ikonoa bete\nBotoia hondoa arrakasta-mezuan
+        usage_state_2: Muga-abisua
+        usage_state_3: Alerta-abisuaren muga\nAlerta-abisuaren ikonoa bete
+        usage_typography_1: Idazpuruak eta atalaren izenburuak
+        usage_typography_2: Lineako proba
+        usage_typography_3: Hondo ilunaren gaineko testua
+        usage_typography_4: Loturak eta botoiak
+        value: Balioa
+        variations: Aldakuntzak
+        variations_cards_description: Txartel bakoitza desberdina izango da erakutsitako baliabidearen propietateei dagokienez. Zelula espezifikoan horrelako portaera deuseztatu dezakezu.
+        variations_description: Hiru bertsio ezberdin daude gelaxka honi buruz. Bakoitza hobeto egokitzen da erakusten ari den testuingurura.
+        variations_text: Jarduera motari dagokionez, zelulak eduki ezberdinak erakuts ditzake, baliabide ezberdinen berri emanez, espazio parte-hartzaile batekoak izan ala ez, autore bat duena ala ez.
+      home:
+        index:
+          by_sharing_principles: Diseinu-erabakien printzipioak, filosofia eta oinarriak partekatzean, komunitatea koherentziaz lagundu dezan gaitu nahi dugu, parte-hartzaileentzako esperientziarik onena lor dezagun.
+          decidim_guide: 'Decidim: gauza guztiak diseinatzeko gida'
+          different_ui_components: Aldi berean, erabiltzen diren IUko osagai ezberdinak eta ereduak dokumentatzen ditugu, berrerabili edo zabaldu beharko liratekeenak.
+          github_source: Iturburu-kodea GitHub-en
+          home_header: Decidim Diseinuaren Gida
+          welcome_sentence: Ongi etorri Decidim Design Guy-ra (DDG). Gida hau baliabidea da diseinatzaile eta garatzaileentzat, modulu berriak pertsonalizatu, garatu eta funtzio berriak integratu behar dituztenentzat.

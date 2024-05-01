@@ -265,7 +265,6 @@ sv:
             select_parent_assembly: Välj överordnad gruppen
             social_handlers: Socialt
             title: Allmän information
-            visbility: Synlighet
         assemblies_types:
           form:
             title: Titel
@@ -273,7 +272,6 @@ sv:
           form:
             existing_user: Befintlig deltagare
             explanation: 'Vägledning för bild:'
-            image_guide: Helst en porträttbild utan text.
             non_user: Ej deltagande
             non_user_avatar_help: Du bör få samtycke av personerna innan du publicerar dem som medlem.
             select_a_position: Välj en position
@@ -343,11 +341,7 @@ sv:
       show:
         assembly_type: Typ av grupp
         duration: Varaktighet
-        is_transparent:
-          'false': ogenomskinlig
-          'true': transparent
         private_space: Detta är en privat grupp
-        related_participatory_processes: Relaterade dialoger
     assembly_members:
       assembly_member:
         designated_on: Utsedd den

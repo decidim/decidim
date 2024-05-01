@@ -129,7 +129,7 @@ module Decidim::Conferences
         it "traces the action", versioning: true do
           expect(Decidim.traceability)
             .to receive(:perform_action!)
-            .with(:update, my_conference, user)
+            .with(:update, my_conference, user, {})
             .and_call_original
 
           expect { command.call }.to change(Decidim::ActionLog, :count)

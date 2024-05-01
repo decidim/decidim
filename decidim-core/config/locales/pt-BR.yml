@@ -728,10 +728,6 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque é um administrador da plataforma.
           email_subject: Um grupo de usuários atualizou seu perfil
           notification_title: O grupo de usuários %{user_group_name} atualizou seu perfil, deixando-o não verificado. Você pode verificá-lo no painel de administração <a href="%{groups_admin_path}"></a>.
-      nickname_event:
-        notification_body: Temos corrigido a forma que os nomes de usuário são utilizados para que não haja duplicados, e por isso excluimos a regra de sensibilidade de maiúsculas e minúsculas. <br/> Seu nome de usuário foi criado depois de um usuário com o mesmo nome, portanto renomeamos automaticamente. Pode mudar seu nome de usuário em <a href="%{link_to_account_settings}">suas configurações de conta</a>.
-      notification_event:
-        notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: Um administrador removeu seu %{resource_type} porque ele foi reportado como %{report_reasons}.
@@ -796,7 +792,6 @@ pt-BR:
       create:
         button: Seguir
         error: Ocorreu um erro ao seguir este recurso.
-        participatory_space: Seguindo <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Parar de seguir
         error: Ocorreu um erro ao seguir esse recurso.
@@ -810,14 +805,12 @@ pt-BR:
         file:
           explanation: 'Orientação para o arquivo:'
           message_1: Tem que ser uma imagem ou um documento.
-          message_2: Para imagens, use a orientação de tipo paisagem, o serviço recorta a imagem.
         icon:
           explanation: 'Orientação para o ícone:'
           message_1: Deve ser uma imagem quadrada.
           message_2: O tamanho recomendado para esta imagem é 512x512.
         image:
           explanation: 'Orientação da imagem:'
-          message_1: Preferencialmente, uma imagem de paisagem que não tenha nenhum texto.
           message_2: O serviço recorta a imagem.
       file_validation:
         allowed_file_extensions: 'Extensões de arquivo permitidas: %{extensions}'
@@ -1157,6 +1150,7 @@ pt-BR:
           headline: Estado atual de %{organization}
         sub_hero:
           register: Registrar-se
+          register_title: Cadastre-se para criar uma conta
       index:
         standalone_pages: Páginas
         subheading: Navegue pelas páginas de ajuda de %{name}
@@ -1295,7 +1289,7 @@ pt-BR:
         spam: Contém clickbait, publicidade, fraudes ou scripts bots.
         title: Denunciar usuário inapropriado
       floating_help:
-        help: Socorro
+        help: Ajuda
       login_modal:
         sign_up: Cadastrar-se
       mentions_modal:

@@ -86,6 +86,9 @@ cs:
     'false': 'Ne'
     'true': 'Ano'
   date:
+    buttons:
+      close: Zavřít‏
+      select: Vybrat
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d-%m-%Y"
@@ -93,6 +96,10 @@ cs:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Formát: dd/mm/rrrr'
+      order: d-m-r
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -163,6 +170,7 @@ cs:
       external_link: Externí odkaz
       front_page_link: Přejít na titulní stránku
       logo: "Oficiální logo %{organization}"
+      opens_in_new_tab: Otevře se v nové kartě
       skip_button: Přeskočit na hlavní obsah
     account:
       blocked: Tento účet byl zablokován kvůli porušení smluvních podmínek
@@ -541,6 +549,8 @@ cs:
         name: Zápatí pod hlavním pruhem
       global_menu:
         name: Globální menu
+      hero:
+        name: Obrázek hrdiny a CTA
       hero_settings_form:
         background_image: Obrázek pozadí
         welcome_text: Uvítací text
@@ -698,6 +708,10 @@ cs:
     endorsers_list:
       endorsed_by: Líbí se…
     errors:
+      files:
+        file_cannot_be_processed: Soubor nelze zpracovat
+        file_resolution_too_large: Rozlišení souboru je příliš velké
+        not_inside_organization: Soubor není připojen k žádné organizaci
       internal_server_error:
         copied: Text zkopírován!
         copy_error_message_clarification: Kopírovat chybovou zprávu do schránky
@@ -835,9 +849,9 @@ cs:
           email_subject: Skupina uživatelů aktualizovala svůj profil
           notification_title: Uživatelská skupina %{user_group_name} aktualizovala svůj profil, ponechala jej neověřený. Nyní jej můžete ověřit v <a href="%{groups_admin_path}">admin panelu</a>.
       nickname_event:
-        notification_body: Opravili jsme způsob, jakým jsou přezdívky používány, aby nedocházelo k duplicitám, a proto jsme odstranili pravidlo rozlišení velkých a malých písmen. <br/> Vaše přezdívka byla vytvořena po jiné, se stejným jménem, takže jsme ji automaticky přejmenovali. Můžete to změnit z <a href="%{link_to_account_settings}">nastavení účtu</a>.
+        notification_body: Opravili jsme způsob, jakým jsou přezdívky používány, aby nedocházelo k duplicitám, a proto jsme odstranili pravidlo rozlišení velkých a malých písmen. <br/> Vaše přezdívka byla vytvořena po jiné, se stejným jménem, takže jsme ji automaticky přejmenovali. Můžete to změnit z <a href="%{link_to_account_settings}">vašeho nastavení účtu</a>.
       notification_event:
-        notification_title: Došlo k události <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: Objevila se událost na <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: Administrátor odstranil váš %{resource_type} protože byl nahlášen jako %{report_reasons}.
@@ -906,7 +920,6 @@ cs:
       create:
         button: Sledovat
         error: Při sledování tohoto zdroje došlo k chybě.
-        participatory_space: Sleduje <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Ukončit sledování
         error: Při sledování tohoto zdroje došlo k chybě.
@@ -920,14 +933,14 @@ cs:
         file:
           explanation: 'Pokyny pro soubor:'
           message_1: Jedná se o obrázek nebo dokument.
-          message_2: U obrázků použijte pokud možno formát na šířku, obrázek bude oříznut.
+          message_2: Jako obrázky používejte obrázky na šířku, služba obrázek ořízne.
         icon:
           explanation: 'Pokyny pro ikonu:'
           message_1: Musí to být čtvercový obrázek.
           message_2: Doporučená velikost pro tento obrázek je 512 x 512.
         image:
           explanation: 'Pokyny pro obrázek:'
-          message_1: Je vhodnější obrázek na šířku, který nemá žádný text.
+          message_1: Nejlépe obrázek na šířku bez textu.
           message_2: Software tento obrázek ořízne.
       file_validation:
         allowed_file_extensions: 'Povolené přípony souborů: %{extensions}'
@@ -1245,7 +1258,7 @@ cs:
         token_error: Platnost odkazu vypršela.
         unsubscribe: Odhlásit odběr
     newsletters_opt_in:
-      unathorized: Je nám líto, tento odkaz již není k dispozici.
+      unauthorized: Je nám líto, tento odkaz již není k dispozici.
       update:
         error: Při ukládání nastavení zpravodaje došlo k chybě.
         success: Nastavení Zpravodaje bylo úspěšně aktualizováno.
@@ -1308,6 +1321,8 @@ cs:
     offline:
       name: Offline
       show:
+        message_1: Vypadá to, že jste v režimu offline.
+        message_2: Prosím, zkuste to znovu později.
         retry: Zkusit znovu
     open_data:
       not_available_yet: Soubory Open Data nejsou dosud k dispozici. Zkuste to prosím znovu za pár minut.
@@ -1484,6 +1499,8 @@ cs:
         close_modal: Zavřít okno
         ok: OK
         title: Potvrdit
+      embed:
+        title: Vložený obsah videa
       extended_navigation_bar:
         more: Více
         unfold: Rozvinout
@@ -1828,12 +1845,32 @@ cs:
     upload:
       uploadedFile: Nahraný soubor
   emojis:
+    add_custom: Přidat vlastní emoji
     button: Přidat emoji
     categories:
+      activity: Aktivita
       custom: Vlastní
       flags: Značky
+      foods: Jídlo a pití
+      frequent: Často používané
+      nature: Zvířata a příroda
       objects: Objekty
+      people: Smajlíci a lidé
+      places: Cestování a místa
+      search: Výsledky hledání
       symbols: Symboly
+    pick: Vyberte emoji…
+    search: Hledat
+    search_no_results_1: Ale ne!
+    search_no_results_2: Tento emoji nebyl nalezen
+    skins:
+      '1': Výchozí
+      '2': Světlý
+      '3': Středně světlé
+      '4': Střední
+      '5': Středně tmavý
+      '6': Tmavý
+      choose: Zvolte výchozí tón vzhledu
   errors:
     messages:
       allowed_file_content_types: 'jsou povoleny pouze soubory s následujícími příponami: %{types}'
@@ -2039,6 +2076,10 @@ cs:
     x: X
     xing: Xing
   time:
+    buttons:
+      close: Zavřít‏
+      reset: Resetovat
+      select: Vybrat
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2053,6 +2094,8 @@ cs:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      help:
+        time_format: 'Formát: hh:mm'
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
       long_with_particles: "%B %d, %Y v %H:%M"

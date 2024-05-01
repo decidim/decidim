@@ -47,15 +47,12 @@ lv:
             title:
               identical: UN pamatteksts nevar būt identisks
     models:
-      decidim/proposals/accepted_proposal_event: Priekšlikums pieņemts
       decidim/proposals/admin/update_proposal_category_event: Priekšlikuma kategorija ir mainīta
       decidim/proposals/admin/update_proposal_scope_event: Priekšlikuma tvērums ir mainīts
       decidim/proposals/creation_enabled_event: Priekšlikuma izveide ir iespējota
       decidim/proposals/endorsing_enabled_event: Priekšlikuma atbalstīšana ir iespējota
-      decidim/proposals/evaluating_proposal_event: Priekšlikums tiek vērtēts
       decidim/proposals/proposal_mentioned_event: Priekšlikums ir minēts
       decidim/proposals/publish_proposal_event: Priekšlikums ir publicēts
-      decidim/proposals/rejected_proposal_event: Priekšlikums ir noraidīts
       decidim/proposals/voting_enabled_event: Balsošana par priekšlikumu ir iespējota
   activerecord:
     models:
@@ -177,26 +174,6 @@ lv:
           email_intro: 'Jūs varat atbalstīt priekšlikumus telpā %{participatory_space_title}! Sāciet piedalīties šajā lapā:'
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
           email_subject: Priekšlikumu atbalstīšana %{participatory_space_title} ir sākusies
-        proposal_accepted:
-          affected_user:
-            email_intro: 'Jūsu priekšlikums "%{resource_title}" tika pieņemts. Jūs varat izlasīt atbildi šajā lapā:'
-            email_outro: Jūs saņēmāt šo paziņojumu, jo esat "%{resource_title}" autors.
-            email_subject: Šis priekšlikums ir pieņemts.
-            notification_title: Jūsu priekšlikums <a href="%{resource_path}">%{resource_title}</a> ir pieņemts.
-          follower:
-            email_intro: 'Priekšlikums "%{resource_title}" ir pieņemts. Jūs varat izlasīt atbildi šajā lapā:'
-            email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat "%{resource_title}". Jūs varat atsekot tai no iepriekšējās saites.
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> priekšlikums ir pieņemts.
-        proposal_evaluating:
-          affected_user:
-            email_intro: 'Pašlaik tiek vērtēts jūsu priekšlikums "%{resource_title}". Atbilde būs pieejama šajā lapā:'
-            email_outro: Jūs saņēmāt šo paziņojumu, jo esat "%{resource_title}" autors.
-            email_subject: Jūsu priekšlikums tiek vērtēts
-            notification_title: Jūsu priekšlikums <a href="%{resource_path}">%{resource_title}</a> tiek vērtēts.
-          follower:
-            email_intro: 'Pašlaik tiek vērtēts jūsu priekšlikums "%{resource_title}". Atbilde būs pieejama šajā lapā:'
-            email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat "%{resource_title}". Jūs varat atsekot tai no iepriekšējās saites.
-            notification_title: Priekšlikums <a href="%{resource_path}">%{resource_title}</a> tiek vērtēts.
         proposal_mentioned:
           email_intro: Jūsu priekšlikums "%{mentioned_proposal_title}" ir pieminēts <a href="%{resource_url}"> šajā telpā </a> komentāros.
           email_outro: Jūs saņēmāt šo paziņojumu, jo esat "%{resource_title}" autors.
@@ -211,15 +188,6 @@ lv:
           email_intro: Priekšlikums "%{resource_title}" ir pievienots "%{participatory_space_title}", kam jūs sekojat.
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat "%{participatory_space_title}". Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
           email_subject: Jauns priekšlikums "%{resource_title}" tika pievienots %{participatory_space_title}
-        proposal_rejected:
-          affected_user:
-            email_intro: 'Jūsu priekšlikums "%{resource_title}" tika noraidīts. Jūs varat izlasīt atbildi šajā lapā:'
-            email_outro: Jūs saņēmāt šo paziņojumu, jo esat "%{resource_title}" autors.
-            notification_title: Jūsu priekšlikums <a href="%{resource_path}">%{resource_title}</a> tika noraidīts.
-          follower:
-            email_intro: 'Priekšlikums "%{resource_title}" tika noraidīts. Jūs varat izlasīt atbildi šajā lapā:'
-            email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat "%{resource_title}". Jūs varat atsekot tai no iepriekšējās saites.
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> priekšlikums tika noraidīts.
         proposal_update_category:
           email_intro: 'Administrators ir atjauninājis jūsu priekšlikuma kategoriju "%{resource_title}", aplūkojiet to šajā lapā:'
           email_outro: Jūs saņēmāt šo paziņojumu, jo esat priekšlikuma autors.
@@ -330,10 +298,7 @@ lv:
             success: Līdzdalības procesa teksts ir veiksmīgi atjaunināts.
         proposal_answers:
           form:
-            accepted: Pieņemts
             answer_proposal: Atbilde
-            evaluating: Vērtē
-            rejected: Noraidīts
             title: Atbilde par priekšlikumu %{title}
         proposal_notes:
           form:
@@ -434,11 +399,8 @@ lv:
           official: Oficiālā
           user_groups: Grupas
         filter_state_values:
-          accepted: Pieņemts
           all: Visi
-          evaluating: Vērtē
           not_answered: Nav atbildēts
-          rejected: Noraidīts
         filter_type_values:
           all: Visi
           amendments: Grozījumi

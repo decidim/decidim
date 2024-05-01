@@ -199,6 +199,7 @@ tr:
       block_user:
         new:
           action: Hesabı engelle ve uyarı mesjı gönder
+          already_reported_html: Bu işleme devam ederek katılımcıların tüm içeriklerini de gizleyebilirsiniz.
           justification: Gerekçe
           title: '%{name} Kullanıcısını Engelle'
       categories:
@@ -262,7 +263,6 @@ tr:
         solved: Çözüldü
         transfer:
           email: E-Posta
-          error: Mevcut katılımcıyı yönetilen katılımcıya aktarırken bir sorun oluştu.
           name: İsim
           reason: Nedeni
           success: Aktarım başarıyla tamamlandı.
@@ -364,6 +364,7 @@ tr:
         help_sections: Yardım bölümleri
         homepage: Anasayfa
         impersonations: impersonations
+        manage: yönetme
         moderation: Küresel denetimler
         newsletters: Haber bültenleri
         participants: Katılımcılar
@@ -798,3 +799,8 @@ tr:
   errors:
     messages:
       invalid_json: Geçersiz JSON
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Küresel denetimler

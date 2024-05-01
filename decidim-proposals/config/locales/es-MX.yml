@@ -30,6 +30,19 @@ es-MX:
         cost: Coste
         cost_report: Informe de coste
         execution_period: Período de ejecución
+      proposal_state:
+        announcement_title: Encabezado de la respuesta
+        bg_color: Color de fondo
+        colors:
+          blue: Azul
+          gray: Gris
+          green: Verde
+          orange: Naranja
+          pink: Rosa
+          purple: Morado
+          red: Rojo
+          yellow: Amarillo
+        text_color: Color del texto
       proposals_copy:
         copy_proposals: Entiendo que esto importará todas las propuestas del componente seleccionado al actual y que esta acción no se puede deshacer.
         origin_component_id: Componente desde dónde copiar las propuestas
@@ -68,15 +81,12 @@ es-MX:
               not_official: No son oficiales
               supported: No han recibido apoyos ni adhesiones
     models:
-      decidim/proposals/accepted_proposal_event: Propuesta aceptada
       decidim/proposals/admin/update_proposal_category_event: La categoría de la propuesta ha cambiado
       decidim/proposals/admin/update_proposal_scope_event: Ámbito de propuesta cambiado
       decidim/proposals/creation_enabled_event: Creación de propuestas habilitada
       decidim/proposals/endorsing_enabled_event: Adhesión a propuesta habilitada
-      decidim/proposals/evaluating_proposal_event: La propuesta está siendo evaluada
       decidim/proposals/proposal_mentioned_event: Propuesta mencionada
       decidim/proposals/publish_proposal_event: Propuesta publicada
-      decidim/proposals/rejected_proposal_event: Propuesta rechazada
       decidim/proposals/voting_enabled_event: Apoyo de propuestas habilitado
   activerecord:
     models:
@@ -103,6 +113,8 @@ es-MX:
             values:
               'false': Propuestas
               'true': Enmiendas
+          proposal_state_id_eq:
+            label: Estado
           scope_id_eq:
             label: Ámbito
           state_eq:
@@ -268,28 +280,6 @@ es-MX:
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: La adhesión de propuestas ha comenzado para %{participatory_space_title}
           notification_title: Ahora puedes empezar a <a href="%{resource_path}">adherirte propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        proposal_accepted:
-          affected_user:
-            email_intro: 'Su propuesta "%{resource_title}" ha sido aceptada. Puedes leer la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque eres autor de "%{resource_title}".
-            email_subject: Su propuesta ha sido aceptada.
-            notification_title: Su propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido aceptada.
-          follower:
-            email_intro: 'La propuesta "%{resource_title}" ha sido aceptada. Puedes leer la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-            email_subject: Se ha aceptado una propesta que estás siguiendo
-            notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido aceptada.
-        proposal_evaluating:
-          affected_user:
-            email_intro: 'Su propuesta "%{resource_title}" está siendo evaluada. Puedes buscar una respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque eres autor de "%{resource_title}".
-            email_subject: Tu propuesta esta siendo evaluada
-            notification_title: Su propuesta <a href="%{resource_path}">%{resource_title}</a> está siendo evaluada.
-          follower:
-            email_intro: 'La propuesta "%{resource_title}" se está evaluando actualmente. Puedes encontrar la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-            email_subject: Se está evaluando una propuesta que estás siguiendo
-            notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> está siendo evaluada.
         proposal_mentioned:
           email_intro: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_url}">en este espacio</a> en los comentarios.
           email_outro: Has recibido esta notificación porque eres autor de "%{resource_title}".
@@ -306,17 +296,17 @@ es-MX:
           email_subject: Nueva propuesta "%{resource_title}" añadida a %{participatory_space_title}
           notification_title: '%{author} ha añadido la propuesta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}.'
           notification_title_official: Se ha añadido la propuesta oficial <a href="%{resource_path}">%{resource_title}</a> en %{participatory_space_title}.
-        proposal_rejected:
+        proposal_state_changed:
           affected_user:
-            email_intro: 'Su propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque eres autor de "%{resource_title}".
-            email_subject: Tu propuesta ha sido rechazada
-            notification_title: Su propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
+            email_intro: 'La propuesta "%{resource_title}" ha cambiado su estado a "%{state}". Puedes leer la respuesta en esta página:'
+            email_outro: Has recibido esta notificación porque presentaste la propuesta "%{resource_title}".
+            email_subject: Tu propuesta ha cambiado su estado (%{state})
+            notification_title: Tu propuesta <a href="%{resource_path}">%{resource_title}</a> ha cambiado su estado a "%{state}".
           follower:
-            email_intro: 'La propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-            email_subject: Se ha rechazado una propuesta que estás siguiendo
-            notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
+            email_intro: 'La propuesta "%{resource_title}" ha cambiado su estado a "%{state}". Puedes leer la respuesta en esta página:'
+            email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+            email_subject: Una propuesta que sigues ha cambiado su estado (%{state})
+            notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha cambiado su estado a "%{state}".
         proposal_update_category:
           email_intro: 'Un/a administrador/a ha actualizado la categoría de tu propuesta "%{resource_title}", compruébalo:'
           email_outro: Recibiste esta notificación porque eres autor/a de la propuesta.
@@ -391,9 +381,13 @@ es-MX:
     proposals:
       actions:
         answer_proposal: Responder a la propuesta
+        delete_proposal_state_confirm: '¿Seguro que quieres borrar este estado?'
+        destroy: Borrar estado
         edit_proposal: Editar propuesta
+        edit_proposal_state: Editar estado
         import: Importar desde otro componente
         new: Nueva propuesta
+        new_proposal_state: Nuevo estado
         participatory_texts: Textos participativos
         show: Ver propuesta
         title: Acciones
@@ -471,11 +465,7 @@ es-MX:
             success: Texto participativo actualizado con éxito.
         proposal_answers:
           form:
-            accepted: Aceptadas
             answer_proposal: Respuesta
-            evaluating: En evaluación
-            not_answered: No contestada
-            rejected: Rechazada
             title: Responder a la propuesta %{title}
         proposal_notes:
           create:
@@ -486,6 +476,25 @@ es-MX:
             submit: Enviar
           leave_your_note: Deja tu nota
           title: Notas privadas
+        proposal_states:
+          create:
+            error: Error al crear el estado
+            success: Estado creado correctamente
+          destroy:
+            success: Estado borrado con éxito
+          edit:
+            title: Editar estado
+            update: Actualizar
+          form:
+            preview: Previsualizar
+          index:
+            title: Estados
+          new:
+            create: Crear
+            title: Nuevo estado
+          update:
+            error: Se ha producido un error actualizando el estado
+            success: Estado actualizado correctamente
         proposals:
           answer:
             invalid: Ha habido un problema al responder a esta propuesta.
@@ -517,6 +526,7 @@ es-MX:
             selected: seleccionado
             split: Propuestas divididas
             split_button: Dividir
+            statuses: Estados
             title: Propuestas
             unassign_from_valuator: Desasignar de evaluadora
             unassign_from_valuator_button: Desasignar
@@ -607,11 +617,8 @@ es-MX:
           participants: Participantes
           user_groups: Grupos de Usuarios
         filter_state_values:
-          accepted: Aceptado
           all: Todos
-          evaluating: En evaluación
           not_answered: No contestada
-          rejected: Rechazado
         filter_type_values:
           all: Todos
           amendments: Enmiendas
@@ -744,6 +751,9 @@ es-MX:
             valuator: Evaluadora
             valuators: Evaluadoras
             votes: Apoyos
+        proposal_state:
+          css_class: Clase CSS
+          title: Estado
       new:
         limit_reached: No puedes crear nuevas propuestas porque has superado el límite.
       participatory_text_proposal:
@@ -778,6 +788,8 @@ es-MX:
           discard_confirmation: '¿Estás seguro que quieres descartar este borrador de propuesta?'
           send: Previsualizar
           title: Editar el borrador de la propuesta
+        edit_form_fields:
+          marker_added: Marcador añadido al mapa.
         filters:
           activity: Mi actividad
           all: Todo
