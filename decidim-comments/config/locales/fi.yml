@@ -70,7 +70,6 @@ fi:
         deleted_user: Poistettu käyttäjä
         edit: Muokkaa
         edited: Muokattu
-        hide_replies: Piilota vastaukset
         moderated_at: Kommentti moderoitu %{date}
         reply: Vastaa
         report:
