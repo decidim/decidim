@@ -542,7 +542,6 @@ lt:
           other: " parašai"
         vote_cabin:
           already_voted: Jau pasirašyta
-          supports_required: "%{total_supports} – reikalingas parašų skaičius"
           verification_required: Norėdami pasirašyti iniciatyvą, patvirtinkite savo paskyrą
           vote: Pasirašyti
           votes_blocked: Pasirašymas išjungtas

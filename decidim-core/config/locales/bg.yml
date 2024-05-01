@@ -890,6 +890,9 @@ bg:
         share_link: Сподели връзка
     statistics:
       comments_count: Коментари
+    user_activity:
+      index:
+        no_activities_warning: Този участник все още няма активности.
     user_contact_disabled: Този участник не приема директни съобщения.
     user_conversations:
       create:

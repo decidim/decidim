@@ -299,12 +299,12 @@ es-MX:
         proposal_state_changed:
           affected_user:
             email_intro: 'La propuesta "%{resource_title}" ha cambiado su estado a "%{state}". Puedes leer la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque eres autora de "%{resource_title}".
+            email_outro: Has recibido esta notificación porque presentaste la propuesta "%{resource_title}".
             email_subject: Tu propuesta ha cambiado su estado (%{state})
             notification_title: Tu propuesta <a href="%{resource_path}">%{resource_title}</a> ha cambiado su estado a "%{state}".
           follower:
             email_intro: 'La propuesta "%{resource_title}" ha cambiado su estado a "%{state}". Puedes leer la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque estás siguiendo "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+            email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
             email_subject: Una propuesta que sigues ha cambiado su estado (%{state})
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha cambiado su estado a "%{state}".
         proposal_update_category:
@@ -788,6 +788,8 @@ es-MX:
           discard_confirmation: '¿Estás seguro que quieres descartar este borrador de propuesta?'
           send: Previsualizar
           title: Editar el borrador de la propuesta
+        edit_form_fields:
+          marker_added: Marcador añadido al mapa.
         filters:
           activity: Mi actividad
           all: Todo

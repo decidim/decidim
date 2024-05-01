@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A custom mailer for sending notifications to an admin when a report is created..
+  # A custom mailer for sending notifications to an admin when a report is created.
   class ReportedMailer < Decidim::ApplicationMailer
     helper Decidim::ResourceHelper
 
