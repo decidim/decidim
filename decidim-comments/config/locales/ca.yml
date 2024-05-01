@@ -70,7 +70,6 @@ ca:
         deleted_user: Participant eliminada
         edit: Editar
         edited: Editat
-        hide_replies: Oculta les respostes
         moderated_at: Comentari moderat el %{date}
         reply: Respondre
         report:
