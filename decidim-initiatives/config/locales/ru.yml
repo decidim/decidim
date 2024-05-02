@@ -217,7 +217,6 @@ ru:
           other: " подписей"
         vote_cabin:
           already_voted: Уже подписали
-          supports_required: "Требуется %{total_supports} подписей"
           vote: Подписать
           votes_blocked: Подписание отключено
         votes_count:

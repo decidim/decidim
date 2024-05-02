@@ -159,7 +159,8 @@ class DynamicFieldsComponent {
       $newField.appendTo($container);
     }
 
-    $newField.foundation();
+    // REDESIGN_PENDING: deprecated
+    window.initFoundation($newField);
 
     if (this.onAddField) {
       this.onAddField($newField);

@@ -336,7 +336,6 @@ lv:
           other: "paraksti"
         vote_cabin:
           already_voted: Jau parakstīta
-          supports_required: "Nepieciešami %{total_supports} paraksti"
           verification_required: Lai parakstītu iniciatīvu, verificējiet savu kontu
           vote: Parakstīt
           votes_blocked: Parakstīšana ir atspējota

@@ -788,6 +788,8 @@ de:
           discard_confirmation: Möchten Sie diesen Vorschlagsentwurf wirklich verwerfen?
           send: Vorschau
           title: Vorschlagsentwurf bearbeiten
+        edit_form_fields:
+          marker_added: Markierung zur Karte hinzugefügt.
         filters:
           activity: Meine Aktivität
           all: Alle

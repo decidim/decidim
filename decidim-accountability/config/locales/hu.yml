@@ -234,15 +234,7 @@ hu:
           search: Műveletek keresése
         show:
           stats:
-            attendees: Résztvevők
             back_to_resource: Vissza az eredményekhez
-            comments: Hozzászólások
-            contributions: Közreműködők
-            last_edited_by: 'Utoljára szerkesztette:'
-            last_updated_at: Utoljára frissítve
-            meetings: Találkozók
-            proposals: Javaslatok
-            votes: Támogatás
         timeline:
           title: Projekt alakulása
     admin:

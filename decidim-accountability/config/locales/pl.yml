@@ -234,15 +234,7 @@ pl:
           search: Szukaj działań
         show:
           stats:
-            attendees: Uczestnicy
             back_to_resource: Wróć do wyniku
-            comments: Komentarze
-            contributions: Wkład
-            last_edited_by: Ostatnio edytowane przez
-            last_updated_at: Ostatnia aktualizacja
-            meetings: Spotkania
-            proposals: Propozycje
-            votes: Wsparcia
         timeline:
           title: Rozwój projektu
     admin:
