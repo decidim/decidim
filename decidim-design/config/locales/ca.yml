@@ -92,6 +92,7 @@ ca:
           elements_hidden_header: Elements amagats de l'API d'accessibilitat
           elements_hidden_paragraph: Per amagar un element de la tecnologia d'assistència, fes servir l'atribut aria-hidden="true" en aquest.
           heading_on: Encapçalament a seccions importants
+          here_link: aquí
           illogical_heading_order: Ordre d'encapçalament il·lògica
           illogical_heading_paragraph: Totes les pàgines han de tenir un ordre lògic de capçaleres quan facis servir els elements d'encapçalament <h1>, <h2>, <h3>, <h4>, <h5>, i <h6>.
           important_sections_heading: Encapçalament a seccions importants
@@ -169,6 +170,7 @@ ca:
         blogs: Blog
         budget_card_html: Emprat per les targetes de projectes de <i>Pressupostos</i>. Aquesta targeta requereix que els actius del mòdul es mostrin correctament, per exemple, <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
         budgets: Pressupostos
+        callout_class: Classe de la crida
         callout_description: Aquest atribut aplica un estat a l'anunci/avís. Per defecte, aplica el color secundari.
         card_g: Targeta G
         card_l: Targeta L
