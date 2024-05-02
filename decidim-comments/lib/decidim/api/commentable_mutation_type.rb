@@ -17,9 +17,10 @@ module Decidim
         params = { "comment" => { "body" => body, "alignment" => alignment, "user_group_id" => user_group_id, "commentable" => object } }
         form = Decidim::Comments::CommentForm.from_params(params).with_context(
           current_organization: context[:current_organization],
+          current_user: context[:current_user],
           current_component: object.component
         )
-        Decidim::Comments::CreateComment.call(form, context[:current_user]) do
+        Decidim::Comments::CreateComment.call(form) do
           on(:ok) do |comment|
             return comment
           end
