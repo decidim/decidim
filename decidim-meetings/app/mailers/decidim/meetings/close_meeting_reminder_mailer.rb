@@ -27,7 +27,7 @@ module Decidim
             to: @user.email,
             subject: I18n.t(
               "decidim.meetings.close_meeting_reminder_mailer.close_meeting_reminder.subject",
-              organization_name: @organization.name
+              meeting_title: @meeting.title
             )
           )
         end
