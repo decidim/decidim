@@ -10,7 +10,7 @@
   <% if @similar_proposals.present? %>
     <div class="proposal__container my-10">
       <% @similar_proposals.each do |proposal| %>
-        <%= card_for @proposal %>
+        <%= card_for proposal %>
       <% end %>
     </div>
   <% end %>
