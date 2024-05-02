@@ -22,7 +22,7 @@ module Decidim::Meetings
       end
 
       it "parses the subject" do
-        expect(mail.subject).to eq("You can now close your meeting with a report on the #{meeting.title} platform")
+        expect(mail.subject).to eq("You can now close the meeting #{meeting.title} with a report")
       end
     end
   end
