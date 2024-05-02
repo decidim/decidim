@@ -64,6 +64,7 @@ eu:
           against: Aurka
           in_favor: Alde
         cancel_reply: Ezeztatu erantzuna
+        comment_label: '%{comment_id} iruzkina'
         confirm_destroy: Ziur zaude iruzkin hau ezabatu nahi duzula?
         delete: Ezabatu
         deleted_at: Iruzkina ezabatu da data honetan %{date}
