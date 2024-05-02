@@ -20,7 +20,7 @@ module Decidim
           current_user: context[:current_user],
           current_component: object.component
         )
-        Decidim::Comments::CreateComment.call(formgit ) do
+        Decidim::Comments::CreateComment.call(form) do
           on(:ok) do |comment|
             return comment
           end
