@@ -225,10 +225,6 @@ sv:
         error: Det gick inte att ändra resursen.
         promote_button: Gör till %{model_name}
         promote_confirm_text: Vill du stötta detta ändringsförslag?
-      compare_draft:
-        continue: Fortsätt
-        no_similars_found: Hittade inga liknande ändringsförslag.
-        title: Liknande ändringsförslag
       created:
         error: Ett fel uppstod när ändringsutkastet skulle skapas.
         success: Skapade utkast till ändringsförslag.
@@ -277,9 +273,6 @@ sv:
       wizard_step_form:
         steps:
           '1': Skapa ändringsförslag
-          '2': Jämför ändringsförslag
-          '3': Slutför ändringsförslaget
-          '4': Publicera ändringsförslaget
     anonymous_user: Anonym
     application:
       document:
