@@ -153,7 +153,6 @@ nl:
             proposal_wizard_step_1_help_text: Helptekst "Maak" bij het maken van een nieuw voorstel
             proposal_wizard_step_2_help_text: Helptekst "Vergelijk" bij het maken van een nieuw voorstel
             proposal_wizard_step_3_help_text: Voorstel wizard "Complete" stap helptekst
-            proposal_wizard_step_4_help_text: Helptekst "Publiceren" bij het maken van een nieuw voorstel
             resources_permissions_enabled: Actiemachtigingen kunnen voor elk voorstel worden ingesteld
             scope_id: Scope
             scopes_enabled: Scopes ingeschakeld
@@ -870,7 +869,7 @@ nl:
           step_1: Maak je voorstel
           step_2: Vergelijk
           step_3: Compleet
-          step_4: Publiceer uw voorstel
+          step_4: Publiceer je voorstel
           step_of: Stap %{current_step_num} van %{total_steps}
           title: Voorstel creatie stappen
       proposals_picker:
