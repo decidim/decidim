@@ -9,8 +9,8 @@ module Decidim
     helper UserGroupHelper
 
     before_action :authenticate_user!
-    helper_method :amendment, :amendable, :emendation, :similar_emendations
-    before_action :ensure_is_draft_from_user, only: [:compare_draft, :edit_draft, :update_draft, :destroy_draft, :preview_draft, :publish_draft]
+    helper_method :amendment, :amendable, :emendation
+    before_action :ensure_is_draft_from_user, only: [:edit_draft, :update_draft, :destroy_draft, :preview_draft, :publish_draft]
 
     def new
       raise ActionController::RoutingError, "Not Found" unless amendable
@@ -34,22 +34,13 @@ module Decidim
       Decidim::Amendable::CreateDraft.call(@form) do
         on(:ok) do |amendment|
           flash[:notice] = t("created.success", scope: "decidim.amendments")
-          redirect_to compare_draft_amend_path(amendment)
+          redirect_to preview_draft_amend_path(amendment)
         end
 
         on(:invalid) do
           flash.now[:alert] = t("created.error", scope: "decidim.amendments")
           render :new
         end
-      end
-    end
-
-    def compare_draft
-      enforce_permission_to :create, :amendment, current_component: amendable.component
-
-      if similar_emendations.empty?
-        flash[:notice] = t("no_similars_found", scope: "decidim.amendments.compare_draft")
-        redirect_to edit_draft_amend_path(amendment)
       end
     end
 
@@ -217,10 +208,6 @@ module Decidim
 
     def ensure_is_draft_from_user
       raise ActionController::RoutingError, "Not Found" unless amendment.draft? && amender == current_user
-    end
-
-    def similar_emendations
-      @similar_emendations ||= Decidim::SimilarEmendations.for(amendment)
     end
 
     def breadcrumb_item
