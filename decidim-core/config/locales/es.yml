@@ -296,10 +296,6 @@ es:
         title:
           one: "%{count} enmienda"
           other: "%{count} enmiendas"
-      compare_draft:
-        continue: Continuar
-        no_similars_found: No se encontraron enmiendas similares.
-        title: Enmiendas similares
       created:
         error: Se ha producido un error al crear el borrador de enmienda.
         success: El borrador de enmienda se ha creado correctamente.
@@ -355,9 +351,6 @@ es:
       wizard_step_form:
         steps:
           '1': Crea tu enmienda
-          '2': Compara tu enmienda
-          '3': Completa tu enmienda
-          '4': Publicar tu enmienda
     anonymous_user: Anónima
     application:
       document:
