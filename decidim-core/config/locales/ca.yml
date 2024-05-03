@@ -296,10 +296,6 @@ ca:
         title:
           one: "%{count} esmena"
           other: "%{count} esmenes"
-      compare_draft:
-        continue: Continua
-        no_similars_found: No s’han trobat esmenes semblants.
-        title: Esmenes similars
       created:
         error: S'ha produït un error durant la creació de l’esmena.
         success: L'esborrany d’esmena ha estat creat amb èxit.
@@ -355,9 +351,6 @@ ca:
       wizard_step_form:
         steps:
           '1': Crea la teva esmena
-          '2': Compara la teva esmena
-          '3': Completa la teva esmena
-          '4': Publica la teva esmena
     anonymous_user: Anònim
     application:
       document:
