@@ -146,10 +146,6 @@ zh-CN:
         error: 修改此资源时出错。
         promote_button: 提升至 %{model_name}
         promote_confirm_text: 您确定要推广此修饰吗？
-      compare_draft:
-        continue: 继续
-        no_similars_found: 未找到类似的修改。
-        title: 类似的修改
       created:
         error: 创建修正草案时发生错误。
         success: 修正草稿已成功创建。
@@ -189,9 +185,6 @@ zh-CN:
       wizard_step_form:
         steps:
           '1': 创建您的修改
-          '2': 比较您的修改
-          '3': 完成您的修改
-          '4': 发布您的修改
     anonymous_user: 匿名的
     application:
       document:
