@@ -351,6 +351,7 @@ es:
       wizard_step_form:
         steps:
           '1': Crea tu enmienda
+          '2': Publica tu enmienda
     anonymous_user: Anónima
     application:
       document:
