@@ -175,10 +175,6 @@
         error: Det oppsto feil under endringen av denne resurssen.
         promote_button: Promoter til %{model_name}
         promote_confirm_text: Er du sikker på at du vil forfremme denne emendasjonen?
-      compare_draft:
-        continue: Fortsett
-        no_similars_found: Ingen like emendasjoner funnet.
-        title: Lignende Emendasjoner
       created:
         error: En feil oppstod mens du lagde endrings utkast.
         success: Endrings utkastet har blitt opprettet.
@@ -224,9 +220,6 @@
       wizard_step_form:
         steps:
           '1': Opprett endringen din
-          '2': Sammenlign endringen din
-          '3': Fullfør endringen din
-          '4': Publiser endringen din
     anonymous_user: Anonym
     application:
       document:
