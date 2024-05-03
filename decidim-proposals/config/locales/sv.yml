@@ -171,7 +171,6 @@ sv:
             proposal_wizard_step_1_help_text: Hjälptext till steget "Skapa" i förslagsguiden
             proposal_wizard_step_2_help_text: Hjälptext till steget "Jämför" i förslagsguiden
             proposal_wizard_step_3_help_text: Hjälptext till steget "Komplettera" i förslagsguiden
-            proposal_wizard_step_4_help_text: Förslagsguidens hjälptext för steg "Publicera"
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje förslag
             scope_id: Omfång
             scopes_enabled: Omfång aktiverade
