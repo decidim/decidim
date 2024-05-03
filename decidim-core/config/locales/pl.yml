@@ -277,10 +277,6 @@ pl:
         promote_button: '%{model_name} - promuj'
         promote_confirm_text: Czy na pewno chcesz promować tę wersję?
         promote_help_text: Możesz promować tę korektę i opublikować ją jako niezależny %{model_name}.
-      compare_draft:
-        continue: Dalej
-        no_similars_found: Nie znaleziono podobnych wersji.
-        title: Podobne wersje
       created:
         error: Wystąpił błąd podczas tworzenia projektu poprawki.
         success: Projekt poprawki został pomyślnie utworzony.
@@ -337,9 +333,6 @@ pl:
       wizard_step_form:
         steps:
           '1': Utwórz poprawkę
-          '2': Porównaj poprawkę
-          '3': Uzupełnij poprawkę
-          '4': Opublikuj poprawkę
     anonymous_user: Anonim
     application:
       document:
