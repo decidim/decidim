@@ -191,7 +191,6 @@ ar:
             proposal_wizard_step_1_help_text: اقتراح الاقتراح "إنشاء" نص مساعدة الخطوة
             proposal_wizard_step_2_help_text: اقتراح الاقتراح "قارن" نص خطوة المساعدة
             proposal_wizard_step_3_help_text: نص اقتراح "إكمال" تعليمات نص المعالج
-            proposal_wizard_step_4_help_text: اقتراح الاقتراح "نشر" نص تعليمات الخطوة
             resources_permissions_enabled: يمكن تعيين أذونات الإجراءات لكل اقتراح
             scope_id: نطاق
             scopes_enabled: النطاقات مفعلة
@@ -989,7 +988,7 @@ ar:
           step_1: إنشاء اقتراحك
           step_2: قارن
           step_3: إكمال
-          step_4: انشر اقتراحك
+          step_4: نشر اقتراحك
           step_of: الخطوة %{current_step_num} من %{total_steps}
           title: خطوات إنشاء الاقتراحات
       proposals_picker:
