@@ -357,6 +357,7 @@ ca:
           '1': Crea la teva esmena
           '2': Compara la teva esmena
           '3': Completa la teva esmena
+          '4': Publica la teva esmena
     anonymous_user: Anònim
     application:
       document:
