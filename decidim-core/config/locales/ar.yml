@@ -254,10 +254,6 @@ ar:
         error: طرأ خطأ خلال تصليح هذا المورد.
         promote_button: ترقية إلى صفة %{model_name}
         promote_confirm_text: هل أنت متأكد من رغبتك في الترويج لهذا الإصدار؟
-      compare_draft:
-        continue: متابعة
-        no_similars_found: لم يتم العثور على أي تعديل مماثل.
-        title: تعديلات مشابهة
       created:
         error: حدث خطأ أثناء إنشاء مسودة التعديل.
         success: تم إنشاء مسودة التعديل بنجاح.
@@ -306,9 +302,6 @@ ar:
       wizard_step_form:
         steps:
           '1': إنشاء التعديل الخاص بك
-          '2': قارن تعديلك
-          '3': اكمل تعديلك
-          '4': انشر تعديلك
     anonymous_user: مجهول
     application:
       document:
