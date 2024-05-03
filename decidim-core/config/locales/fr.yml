@@ -354,6 +354,7 @@ fr:
       wizard_step_form:
         steps:
           '1': Créez votre amendement
+          '2': Publier votre amendement
     anonymous_user: Anonyme
     application:
       document:
