@@ -234,10 +234,6 @@ ro:
         error: A apărut o eroare la trimiterea unui amendament pentru această resursă.
         promote_button: Promovează la %{model_name}
         promote_confirm_text: Sigur dorești să promovezi acest amendament?
-      compare_draft:
-        continue: Continuă
-        no_similars_found: Nu există amendamente similare.
-        title: Amendamente similare
       created:
         error: S-a produs o eroare la crearea ciornei de amendament.
         success: Ciorna de amendament a fost creată cu succes.
@@ -286,9 +282,6 @@ ro:
       wizard_step_form:
         steps:
           '1': Creează-ți un amendament
-          '2': Compară amendamentul tău
-          '3': Completează amendamentul tău
-          '4': Publică amendamentul tău
     anonymous_user: Anonim
     application:
       document:
