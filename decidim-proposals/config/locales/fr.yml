@@ -186,6 +186,7 @@ fr:
             proposal_length: Nombre maximum de caractères du corps de la proposition
             proposal_limit: Limite de proposition par utilisateur
             proposal_wizard_step_1_help_text: Texte d'aide à l'étape "Créer" de la création de proposition
+            proposal_wizard_step_2_help_text: Texte d'aide à l'étape "Publier" de l'assistant de proposition
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque proposition
             scope_id: Secteur
             scopes_enabled: Secteurs activés
@@ -883,9 +884,11 @@ fr:
         wizard_aside:
           back: Retour
           back_from_step_1: Retour aux propositions
+          back_from_step_2: Retour à l'édition
         wizard_steps:
           current_step: Étape actuelle
           step_1: Créer une proposition
+          step_2: Publier votre proposition
           title: Étapes de création de proposition
       proposals_picker:
         choose_proposals: Choisir les propositions
