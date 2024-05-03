@@ -166,10 +166,6 @@ lb:
         error: Beim Änneren vun dëser Ressource ass e Feeler opgetrueden.
         promote_button: Zu engem %{model_name} befërderen
         promote_confirm_text: Möchten Sie diese Erweiterung wirklich fördern?
-      compare_draft:
-        continue: Weider
-        no_similars_found: Keine ähnlichen Entwürfe gefunden.
-        title: Änlech Entwërf
       created:
         error: Beim Erstellen des Änderungsvorschlags ist ein Fehler aufgetreten.
         success: D'Ännerung gouf ugeholl.
@@ -218,9 +214,6 @@ lb:
       wizard_step_form:
         steps:
           '1': Erstell deng Ännerung
-          '2': Vergläich deng Ännerungsvirschléi
-          '3': Vervollstänneg deng Ännerungsvirschléi
-          '4': Verëffentlech deng Ännerungsvirschléi
     anonymous_user: Anonym
     application:
       document:
