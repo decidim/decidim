@@ -314,10 +314,6 @@ lt:
           few: "%{count} pataisos"
           many: "%{count} pataisos"
           other: "%{count} pataisos"
-      compare_draft:
-        continue: Tęsti
-        no_similars_found: Panašių pataisymų nerasta.
-        title: Panašūs pataisymai
       created:
         error: Kuriant pakeitimo juodraštį įvyko klaida.
         success: Pakeitimo juodraštis sukurtas.
@@ -373,9 +369,6 @@ lt:
       wizard_step_form:
         steps:
           '1': Sukurkite savo pataisą
-          '2': Palyginkite savo pataisą
-          '3': Užbaikite savo pataisą
-          '4': Paskalbkite savo pataisą
     anonymous_user: Anonimas
     application:
       document:
