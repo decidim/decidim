@@ -150,10 +150,6 @@ lv:
         error: Vienuma grozījumu veikšanas laikā radusies kļūda.
         promote_button: Paaugstināt līdz %{model_name}
         promote_confirm_text: Vai tiešām vēlaties atbalstīt šo labojumu?
-      compare_draft:
-        continue: Turpināt
-        no_similars_found: Netika atrasts neviens līdzīgs labojums.
-        title: Līdzīgi labojumi
       created:
         error: Grozījuma melnraksta veidošanas laikā radās kļūda.
         success: Grozījuma melnraksts ir veiksmīgi izveidots.
@@ -199,9 +195,6 @@ lv:
       wizard_step_form:
         steps:
           '1': Izveidot savu grozījumu
-          '2': Salīdzināt savu grozījumu
-          '3': Pabeigt savu grozījumu
-          '4': Publicēt savu grozījumu
     anonymous_user: Anonīms
     application:
       document:
