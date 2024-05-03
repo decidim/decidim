@@ -177,7 +177,6 @@ de:
             proposal_wizard_step_1_help_text: Hilfetext "Erstellen"-Schritt im Vorschlagsassistenten
             proposal_wizard_step_2_help_text: Hilfetext "Vergleichen"-Schritt im Vorschlagsassistenten
             proposal_wizard_step_3_help_text: Hilfetext "Fertigstellen"-Schritt im Vorschlagsassistenten
-            proposal_wizard_step_4_help_text: Hilfetext "Veröffentlichen"-Schritt im Vorschlagsassistenten
             resources_permissions_enabled: Berechtigungen können für jeden Vorschlag festgelegt werden
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
@@ -761,7 +760,7 @@ de:
           no_similars_found: Gut gemacht! Keine ähnlichen Vorschläge gefunden
           title: Ähnliche Vorschläge
         complete:
-          send: Senden
+          send: Abschicken
           title: Vorschlag vervollständigen
         dynamic_map_instructions:
           description: Die Koordinaten werden aktualisiert, wenn Sie auf "Vorschau" klicken. Die angegebene Adresse wird sich jedoch nicht ändern.
