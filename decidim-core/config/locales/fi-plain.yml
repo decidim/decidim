@@ -296,10 +296,6 @@ fi-pl:
         title:
           one: "%{count} muutos"
           other: "%{count} muutosta"
-      compare_draft:
-        continue: Jatka
-        no_similars_found: Samankaltaisia muutoksia ei löytynyt.
-        title: Samankaltaiset muutokset
       created:
         error: Muutosluonnoksen lisäys epäonnistui.
         success: Muutosluonnoksen lisäys onnistui.
@@ -358,9 +354,6 @@ fi-pl:
       wizard_step_form:
         steps:
           '1': Luo muutos
-          '2': Vertaile muutostasi
-          '3': Viimeistele muutoksesi
-          '4': Julkaise muutoksesi
     anonymous_user: Anonyymi
     application:
       document:
