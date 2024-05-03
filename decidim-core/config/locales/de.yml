@@ -296,10 +296,6 @@ de:
         title:
           one: "%{count} Anpassung"
           other: "%{count} Anpassungen"
-      compare_draft:
-        continue: Fortfahren
-        no_similars_found: Keine ähnlichen Entwürfe gefunden.
-        title: Ähnliche Entwürfe
       created:
         error: Beim Erstellen des Änderungsvorschlags ist ein Fehler aufgetreten.
         success: Der Änderungsvorschlag wurde erfolgreich erstellt.
@@ -358,9 +354,6 @@ de:
       wizard_step_form:
         steps:
           '1': Erstellen Sie Ihre Änderung
-          '2': Vergleichen Sie Ihren Änderungsvorschlag
-          '3': Vervollständigen Sie Ihren Änderungsvorschlag
-          '4': Veröffentlichen Sie Ihren Änderungsvorschlag
     anonymous_user: Anonym
     application:
       document:
