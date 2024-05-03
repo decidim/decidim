@@ -257,10 +257,6 @@ hu:
         promote_button: Kezdeményezze a %{model_name}
         promote_confirm_text: Biztos benne, hogy támogatni kívánja ezt a helyreigazítást?
         promote_help_text: Támogathatja ezt a helyesbítést, valamint közzéteheti azt független %{model_name} elemként.
-      compare_draft:
-        continue: Tovább
-        no_similars_found: Nem találtunk hasonló szövegjavítást.
-        title: Hasonló szövegjavítások
       created:
         error: A módosító javaslat tervezet létrehozása során hiba történt.
         success: A módosító javaslat tervezet sikeresen létrejött.
@@ -318,9 +314,6 @@ hu:
       wizard_step_form:
         steps:
           '1': Készítse el a módosítását
-          '2': Módosításod összehasonlítása
-          '3': Módosításod befejezése
-          '4': Módosításod publikálása
     anonymous_user: Névtelen
     application:
       document:
