@@ -171,7 +171,6 @@ pt:
             proposal_wizard_step_1_help_text: Texto de ajuda do passo "Criar" do Assistente de Propostas
             proposal_wizard_step_2_help_text: Texto de ajuda do passo "Comparar" do Assistente de Propostas
             proposal_wizard_step_3_help_text: Texto de ajuda do passo "Concluir" do Assistente de Propostas
-            proposal_wizard_step_4_help_text: Texto de ajuda do passo "Publicar" do Assistente de Propostas
             resources_permissions_enabled: As permissões de ações podem ser definidas para cada proposta
             scope_id: Âmbito
             scopes_enabled: Âmbitos activados
