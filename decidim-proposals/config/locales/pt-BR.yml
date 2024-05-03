@@ -149,9 +149,6 @@ pt-BR:
             proposal_length: Comprimento máximo do corpo da proposta
             proposal_limit: Limite da proposta por usuário
             proposal_wizard_step_1_help_text: Assistente de propostas "Criar" passo ajuda texto
-            proposal_wizard_step_2_help_text: Assistente de proposta "Comparar" passo ajuda texto
-            proposal_wizard_step_3_help_text: Texto de ajuda da etapa "Completa" do assistente de proposta
-            proposal_wizard_step_4_help_text: Assistente de propostas "Publicar" passo ajuda texto
             resources_permissions_enabled: Permissões de ações podem ser definidas para cada proposta
             scope_id: Escopo
             scopes_enabled: Escopos habilitados
@@ -621,13 +618,6 @@ pt-BR:
         create:
           error: Houve erros ao votar a proposta.
       proposals:
-        compare:
-          continue: Continuar
-          no_similars_found: Bem feito! Não foram encontradas propostas semelhantes
-          title: Propostas semelhantes
-        complete:
-          send: Enviar
-          title: Complete sua proposta
         dynamic_map_instructions:
           description: As coordenadas serão atualizadas quando clicar no botão 'visualizar'. No entanto, o endereço não muda.
           instructions: Você pode mover o ponto no mapa.
@@ -738,15 +728,9 @@ pt-BR:
         wizard_aside:
           back: Costas
           back_from_step_1: Voltar às propostas
-          back_from_step_2: Voltar às propostas
-          back_from_step_3: Voltar para a proposta de comparação
-          back_from_step_4: Voltar à edição de rascunho
         wizard_steps:
           current_step: Etapa atual
           step_1: Crie sua proposta
-          step_2: Comparar
-          step_3: Completo
-          step_4: Publique sua proposta
           title: Etapas de criação proposta
       proposals_picker:
         choose_proposals: Escolher propostas
