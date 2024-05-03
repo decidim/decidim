@@ -183,7 +183,6 @@ lt:
             proposal_wizard_step_1_help_text: Pasiūlymo vedlio etapo „Sukurti“ pagalbos tekstas
             proposal_wizard_step_2_help_text: Pasiūlymo vedlio etapo „Palyginti“ pagalbos tekstas
             proposal_wizard_step_3_help_text: Pasiūlymo vedlio etapo „Užbaigti“ pagalbos tekstas
-            proposal_wizard_step_4_help_text: Pasiūlymo vedlio etapo „Paskelbti“ pagalbos tekstas
             resources_permissions_enabled: Kiekvienam pasiūlymui galima nustatyti leistinus veiksmus
             scope_id: Apimtis
             scopes_enabled: Sritys įjungtos
