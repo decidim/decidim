@@ -158,9 +158,6 @@ pl:
             proposal_length: Maksymalna długość treści propozycji
             proposal_limit: Limit propozycji na użytkownika
             proposal_wizard_step_1_help_text: 'Tekst pomocy Kreatora - krok: "Utwórz"'
-            proposal_wizard_step_2_help_text: 'Tekst pomocy Kreatora - krok: "Porównaj"'
-            proposal_wizard_step_3_help_text: 'Tekst pomocy Kreatora - krok: "Dokończ"'
-            proposal_wizard_step_4_help_text: 'Tekst pomocy Kreatora - krok: "Publikuj"'
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdej propozycji
             scope_id: Zakres
             scopes_enabled: Zakresy włączone
@@ -686,13 +683,6 @@ pl:
         create:
           error: Podczas próby poparcia propozycji wystąpił błąd.
       proposals:
-        compare:
-          continue: Dalej
-          no_similars_found: Dobra robota! Nie znaleziono podobnych propozycji
-          title: Podobne propozycje
-        complete:
-          send: Wyślij
-          title: Uzupełnij swoją propozycję
         edit:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
@@ -802,15 +792,9 @@ pl:
         wizard_aside:
           back: Wróć
           back_from_step_1: Wróć do propozycji
-          back_from_step_2: Wróć do propozycji
-          back_from_step_3: Powrót do porównania propozycji
-          back_from_step_4: Wróć do edycji szkicu
         wizard_steps:
           current_step: Bieżący krok
           step_1: Utwórz swoją propozycję
-          step_2: Porównaj
-          step_3: Kompletny
-          step_4: Opublikuj swoją propozycję
           title: Kroki tworzenia propozycji
       proposals_picker:
         choose_proposals: Wybierz propozycje
