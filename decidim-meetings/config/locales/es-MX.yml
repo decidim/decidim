@@ -423,7 +423,6 @@ es-MX:
           body: El encuentro <a href="%{meeting_path}">"%{meeting_title}"</a> está pendiente de cerrarse. Por favor, agrega un informe de la reunión usando el botón "Cerrar encuentro".
           greetings: Hola,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Hola %{username},
-          subject: Ahora puedes cerrar el encuentro con un informe en la plataforma %{organization_name}
       conference_venues: Sedes de las jornadas
       content_blocks:
         upcoming_meetings:
