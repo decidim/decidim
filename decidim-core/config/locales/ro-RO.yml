@@ -292,7 +292,6 @@ ro:
           '1': Creează-ți un amendament
           '2': Compară amendamentul tău
           '3': Completează amendamentul tău
-          '4': Publică amendamentul tău
     anonymous_user: Anonim
     application:
       document:
