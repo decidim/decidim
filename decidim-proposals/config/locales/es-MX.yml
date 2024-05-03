@@ -186,6 +186,7 @@ es-MX:
             proposal_length: Longitud máxima del cuerpo de la propuesta
             proposal_limit: Límite de propuestas por usuario
             proposal_wizard_step_1_help_text: Texto de ayuda para el paso "Crear" del asistente de propuesta
+            proposal_wizard_step_2_help_text: Texto de ayuda para el paso "Publicar" del asistente de propuestas
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada propuesta
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
@@ -883,9 +884,11 @@ es-MX:
         wizard_aside:
           back: Volver
           back_from_step_1: Volver a propuestas
+          back_from_step_2: Volver a la edición
         wizard_steps:
           current_step: Paso actual
           step_1: Crear tu propuesta
+          step_2: Publica tu propuesta
           title: Pasos de creación de una propuesta
       proposals_picker:
         choose_proposals: Elegir propuestas
