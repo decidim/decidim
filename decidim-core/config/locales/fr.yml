@@ -144,6 +144,7 @@ fr:
       external_link: Lien externe
       front_page_link: Aller à la première page
       logo: "Logo officiel de %{organization}"
+      opens_in_new_tab: S'ouvre dans un nouvel onglet
       skip_button: Passer au contenu principal
     account:
       blocked: Ce compte a été bloqué en raison d'une violation des conditions d'utilisation
@@ -814,6 +815,8 @@ fr:
           notification_title: Le groupe d'utilisateurs %{user_group_name} a mis à jour son profil, le laissant non vérifié. Vous pouvez maintenant le vérifier dans le <a href="%{groups_admin_path}">panneau d'administration</a>.
       nickname_event:
         notification_body: Nous avons corrigé la façon dont les pseudonymes sont utilisés pour qu'il n'y ait pas de doublons, quelque soit l'utilisation de majuscules et/ou de minuscules. <br/> Votre pseudonyme a été créé après un autre qui était identique, nous l'avons donc automatiquement renommé. Vous pouvez le modifier depuis <a href="%{link_to_account_settings}">les paramètres de votre compte</a>.
+      notification_event:
+        notification_title: Un événement a eu lieu sur <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: Un administrateur a modéré votre %{resource_type} car il a été signalé comme %{report_reasons}.
@@ -878,6 +881,7 @@ fr:
       create:
         button: Suivre
         error: Une erreur s'est produite lors du traitement de votre demande de suivre ce contenu.
+        participatory_space: Suivre <span>%{resource_name}</span>
       destroy:
         button: Ne plus suivre
         error: Une erreur s'est produite lors du traitement de votre demande de ne plus suivre ce contenu.
@@ -1457,6 +1461,8 @@ fr:
         close_modal: Fermer la fenêtre de dialogue
         ok: Ok
         title: Valider
+      embed:
+        title: Contenu vidéo intégré
       extended_navigation_bar:
         more: Plus
         unfold: Afficher
@@ -2050,6 +2056,7 @@ fr:
       long_with_particles: "%d %B %Y à %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Suppressions

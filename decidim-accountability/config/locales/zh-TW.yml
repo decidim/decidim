@@ -218,15 +218,7 @@ zh-TW:
           search: 搜尋操作
         show:
           stats:
-            attendees: 與會者
             back_to_resource: 返回至結果
-            comments: 評論
-            contributions: 貢獻
-            last_edited_by: 最後編輯者
-            last_updated_at: 更新時間
-            meetings: 會議
-            proposals: 提案
-            votes: 支援
         timeline:
           title: 專案評估
     admin:

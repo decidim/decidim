@@ -2,6 +2,18 @@
 pl:
   decidim:
     design:
+      components:
+        tooltips:
+          demo: Wersja demonstracyjna
+          demo_description: Aby ten komponent działał, uczestnik musi najechać kursorem na element.
+          description: Tooltip to komponent, na który użytkownik może najechać kursorem myszy, aby uzyskać dodatkowe informacje na jego temat.
+          github_source_html: Kod źródłowy na GitHub %{github_link}
+          title: Podpowiedzi
+          usage: Użycie
+          usage_p: 'Tooltip wymaga użycia pomocnika `with_tooltip` z trzema argumentami:'
+          usage_p_1_html: 1. Treść podpowiedzi. Przykładowo na tej stronie jest to "Hello world".
+          usage_p_2_html: '2. Opcjonalna klasa z symbolem, na którym będzie wyświetlany tooltip. Możliwe wartości to: <code>:góra</code>, <code>:dół</code>, <code>:prawo</code>, lub <code>:lewo</code>.'
+          usage_p_3_html: 3. Blok z ciągiem znaków, na który użytkownik musi najechać kursorem, aby został wyświetlony.
       foundations:
         color:
           color_header: Kolor

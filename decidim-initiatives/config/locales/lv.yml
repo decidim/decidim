@@ -61,6 +61,7 @@ lv:
   decidim:
     admin:
       actions:
+        manage: Pārvaldīt
         new_initiative_type: Jauns iniciatīvas veids
       filters:
         search_placeholder:
@@ -335,7 +336,6 @@ lv:
           other: "paraksti"
         vote_cabin:
           already_voted: Jau parakstīta
-          supports_required: "Nepieciešami %{total_supports} paraksti"
           verification_required: Lai parakstītu iniciatīvu, verificējiet savu kontu
           vote: Parakstīt
           votes_blocked: Parakstīšana ir atspējota

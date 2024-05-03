@@ -350,7 +350,6 @@ zh-CN:
           other: " 签名"
         vote_cabin:
           already_voted: 已签名
-          supports_required: "需要 %{total_supports} 签名"
           verification_required: 验证您的帐户以签署倡议
           vote: 签名
           votes_blocked: 签名已禁用

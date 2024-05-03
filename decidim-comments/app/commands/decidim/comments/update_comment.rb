@@ -4,14 +4,13 @@ module Decidim
   module Comments
     # A command with all the business logic to update an existing comment
     class UpdateComment < Decidim::Command
+      delegate :current_user, to: :form
       # Public: Initializes the command.
       #
       # comment - Decidim::Comments::Comment
-      # current_user - Decidim::User
       # form - A form object with the params.
-      def initialize(comment, current_user, form)
+      def initialize(comment, form)
         @comment = comment
-        @current_user = current_user
         @form = form
       end
 
@@ -33,7 +32,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :comment, :current_user
+      attr_reader :form, :comment
 
       def event_arguments
         {

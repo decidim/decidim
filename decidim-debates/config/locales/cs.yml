@@ -172,6 +172,9 @@ cs:
       debates:
         create_debate_event:
           space_followers:
+            email_intro: |-
+              Dobrý den,
+              Byla vytvořena nová debata "%{resource_title}" ve skupině %{participatory_space_title}, omrkněte a přispějte:
             email_outro: Toto oznámení jste obdrželi, protože sledujete participační prostor %{participatory_space_title}. Můžete zrušit příjem oznámení na předchozím odkazu.
             email_subject: Nová debata "%{resource_title}" na %{participatory_space_title}
             notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> byla vytvořena na <a href="%{participatory_space_url}">%{participatory_space_title}</a>.

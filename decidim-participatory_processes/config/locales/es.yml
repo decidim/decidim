@@ -337,7 +337,7 @@ es:
           notification_title: Se te ha asignado el rol de %{role} en el proceso participativo <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
           email_intro: 'Ya está activa la fase %{resource_title} para %{participatory_space_title}. Puedes verla desde esta página:'
-          email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{participatory_space_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Una actualización en %{participatory_space_title}
           notification_title: Ya está activa la fase %{resource_title} para <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:

@@ -59,6 +59,7 @@ nl:
   decidim:
     admin:
       actions:
+        manage: Beheer
         new_initiative_type: Nieuw initiatiefstype
       filters:
         search_placeholder:
@@ -366,7 +367,6 @@ nl:
           other: " handtekeningen"
         vote_cabin:
           already_voted: Al getekend
-          supports_required: "%{total_supports} handtekeningen vereist"
           verification_required: Verifieer uw account om het initiatief te ondertekenen
           vote: Teken
           votes_blocked: Ondertekenen uitgeschakeld

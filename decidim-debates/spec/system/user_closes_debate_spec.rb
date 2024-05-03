@@ -22,6 +22,12 @@ describe "User closes a debate" do
   end
 
   context "when closing my debate" do
+    let!(:endorsement) do
+      5.times do
+        create(:endorsement, resource: debate, author: build(:user, organization: debate.participatory_space.organization))
+      end
+    end
+
     it "allows closing my debate", :slow do
       find("button[data-dialog-open='close-debate']", text: "Close debate").click
 
@@ -32,6 +38,7 @@ describe "User closes a debate" do
 
       expect(page).to have_content("The debate was closed")
       expect(page).to have_content("Yes, all organizations should use Decidim!")
+      expect(page).to have_css(".endorsers-list__avatar")
     end
   end
 

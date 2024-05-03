@@ -234,15 +234,7 @@ eu:
           search: Bilatu ekintzak
         show:
           stats:
-            attendees: Bertaratuak
             back_to_resource: Itzuli emaitzetara
-            comments: Iruzkinak
-            contributions: Ekarpenak
-            last_edited_by: Azken editorea
-            last_updated_at: Azken eguneraketa
-            meetings: Topaketak
-            proposals: Proposamenak
-            votes: Babesak
         timeline:
           title: Proiektuaren bilakaera
     admin:

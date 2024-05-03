@@ -325,7 +325,6 @@ ar:
           other: " التوقيعات"
         vote_cabin:
           already_voted: وقعت بالفعل
-          supports_required: "%{total_supports} التوقيعات المطلوبة"
           verification_required: تحقق من حسابك لتوقيع المبادرة
           vote: إشارة
           votes_blocked: توقيع المعوقين

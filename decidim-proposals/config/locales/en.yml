@@ -780,6 +780,8 @@ en:
           discard_confirmation: Are you sure you want to discard this proposal draft?
           send: Preview
           title: Edit Proposal Draft
+        edit_form_fields:
+          marker_added: Marker added to the map.
         filters:
           activity: My activity
           all: All

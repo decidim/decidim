@@ -396,11 +396,7 @@ de:
       show:
         assembly_type: Montageart
         duration: Dauer
-        is_transparent:
-          'false': undurchsichtig
-          'true': transparent
         private_space: Dies ist eine private Versammlung
-        related_participatory_processes: Ähnliche Beteiligungsprozesse
         social_networks_title: Gremium besuchen unter
     assembly_members:
       assembly_member:
