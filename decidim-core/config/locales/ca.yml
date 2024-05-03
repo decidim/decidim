@@ -351,6 +351,7 @@ ca:
       wizard_step_form:
         steps:
           '1': Crea la teva esmena
+          '2': Publica la teva esmena
     anonymous_user: Anònim
     application:
       document:
