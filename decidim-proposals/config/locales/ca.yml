@@ -186,6 +186,7 @@ ca:
             proposal_length: Longitud màxima del cos de la proposta
             proposal_limit: Límit de propostes per participant
             proposal_wizard_step_1_help_text: Text d'ajuda pel pas "Crear" de l'assistent de propostes
+            proposal_wizard_step_2_help_text: Text d'ajuda pel pas "Publicar" de l'assistent de propostes
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada proposta
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
@@ -883,9 +884,11 @@ ca:
         wizard_aside:
           back: Torna
           back_from_step_1: Tornar a propostes
+          back_from_step_2: Torna a l'edició
         wizard_steps:
           current_step: Pas actual
           step_1: Crea la teva proposta
+          step_2: Publica la teva proposta
           title: Passos per a la creació d'una proposta
       proposals_picker:
         choose_proposals: Triar propostes
