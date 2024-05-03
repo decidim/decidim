@@ -156,7 +156,6 @@ pt-BR:
             proposal_wizard_step_1_help_text: Assistente de propostas "Criar" passo ajuda texto
             proposal_wizard_step_2_help_text: Assistente de proposta "Comparar" passo ajuda texto
             proposal_wizard_step_3_help_text: Texto de ajuda da etapa "Completa" do assistente de proposta
-            proposal_wizard_step_4_help_text: Assistente de propostas "Publicar" passo ajuda texto
             resources_permissions_enabled: Permissões de ações podem ser definidas para cada proposta
             scope_id: Escopo
             scopes_enabled: Escopos habilitados
