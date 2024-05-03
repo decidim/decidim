@@ -282,6 +282,7 @@ ro:
       wizard_step_form:
         steps:
           '1': Creează-ți un amendament
+          '2': Publică amendamentul tău
     anonymous_user: Anonim
     application:
       document:
