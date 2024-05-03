@@ -177,7 +177,6 @@ ca:
             proposal_wizard_step_1_help_text: Text d'ajuda pel pas "Crear" de l'assistent de propostes
             proposal_wizard_step_2_help_text: Text d'ajuda pel pas "Comparar" de l'assistent de propostes
             proposal_wizard_step_3_help_text: Text d'ajuda pel pas "Completar" de l'assistent de propostes
-            proposal_wizard_step_4_help_text: Text d'ajuda pel pas "Publicar" de l'assistent de propostes
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada proposta
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
@@ -779,7 +778,7 @@ ca:
           no_similars_found: Ben fet! No s'han trobat propostes semblants
           title: Propostes similars
         complete:
-          send: Enviar
+          send: Envia
           title: Completa la teva proposta
         count:
           proposals_count:
