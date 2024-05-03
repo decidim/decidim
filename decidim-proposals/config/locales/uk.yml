@@ -83,7 +83,6 @@ uk:
             proposal_wizard_step_1_help_text: Довідка майстра пропозицій щодо кроку "Створити"
             proposal_wizard_step_2_help_text: Довідка майстра пропозицій щодо кроку "Порівняти"
             proposal_wizard_step_3_help_text: Довідка майстра пропозицій щодо кроку "Завершити"
-            proposal_wizard_step_4_help_text: Довідка майстра пропозицій щодо кроку "Оприлюднити"
             resources_permissions_enabled: Для кожної пропозиції можна встановити ті чи інші дозволи на дії
             threshold_per_proposal: Поріг на кожну пропозицію
             vote_limit: Гранична кількість голосів від одного учасника
@@ -271,7 +270,6 @@ uk:
           no_similars_found: Гарна робота! Не знайдено схожий пропозицій
           title: Подібні пропозиції
         complete:
-          send: Надіслати
           title: Завершіть свою пропозицію
         edit:
           attachment_legend: "(Необов'язково) Додати вкладений файл"
