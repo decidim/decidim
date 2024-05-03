@@ -119,7 +119,6 @@ bg:
             proposal_wizard_step_1_help_text: Текст на помощника за стъпка "Създай"
             proposal_wizard_step_2_help_text: Текст на помощника за стъпка "Сравни"
             proposal_wizard_step_3_help_text: Текст на помощника за стъпка "Завърши"
-            proposal_wizard_step_4_help_text: Текст на помощника за стъпка "Публикувай"
             resources_permissions_enabled: Позволените действия могат да се задават за всяко предложение
             threshold_per_proposal: Праг за предложенията
             vote_limit: Максимален брой поддръжки на участник
