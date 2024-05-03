@@ -160,9 +160,6 @@ pt:
             proposal_length: Comprimento máximo do corpo da proposta
             proposal_limit: Limite de propostas por utilizador
             proposal_wizard_step_1_help_text: Texto de ajuda do passo "Criar" do Assistente de Propostas
-            proposal_wizard_step_2_help_text: Texto de ajuda do passo "Comparar" do Assistente de Propostas
-            proposal_wizard_step_3_help_text: Texto de ajuda do passo "Concluir" do Assistente de Propostas
-            proposal_wizard_step_4_help_text: Texto de ajuda do passo "Publicar" do Assistente de Propostas
             resources_permissions_enabled: As permissões de ações podem ser definidas para cada proposta
             scope_id: Âmbito
             scopes_enabled: Âmbitos activados
@@ -594,13 +591,6 @@ pt:
         create:
           error: Ocorreu um problema ao votar na proposta.
       proposals:
-        compare:
-          continue: Continuar
-          no_similars_found: Bem feito! Não foram encontradas propostas semelhantes
-          title: Propostas semelhantes
-        complete:
-          send: Enviar
-          title: Concluir a sua proposta
         dynamic_map_instructions:
           description: As coordenadas serão actualizadas quando clicar no botão ‘pré-visualização’. No entanto, o endereço não será alterado.
           instructions: Pode mover o ponto no mapa.
@@ -708,15 +698,9 @@ pt:
         wizard_aside:
           back: Retroceder
           back_from_step_1: Retroceder para as propostas
-          back_from_step_2: Retroceder para as propostas
-          back_from_step_3: Retroceder à comparação de propostas
-          back_from_step_4: Retroceder para a edição do rascunho
         wizard_steps:
           current_step: Passo atual
           step_1: Criar a sua proposta
-          step_2: Comparar
-          step_3: Concluir
-          step_4: Publicar a sua proposta
           title: Passos para criação de proposta
       proposals_picker:
         choose_proposals: Escolher propostas
