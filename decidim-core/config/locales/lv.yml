@@ -222,7 +222,6 @@ lv:
           '1': Izveidot savu grozījumu
           '2': Salīdzināt savu grozījumu
           '3': Pabeigt savu grozījumu
-          '4': Publicēt savu grozījumu
     anonymous_user: Anonīms
     application:
       collection:
