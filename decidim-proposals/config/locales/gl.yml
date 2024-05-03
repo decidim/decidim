@@ -157,7 +157,6 @@ gl:
             proposal_wizard_step_1_help_text: Asistente de propostas "Crear" texto de axuda paso a paso
             proposal_wizard_step_2_help_text: Asistente de propostas "Comparar" texto de axuda paso a paso
             proposal_wizard_step_3_help_text: Asistente de propostas Texto de axuda de paso "Completo"
-            proposal_wizard_step_4_help_text: Asistente de propostas "Publica" o texto de axuda paso a paso
             resources_permissions_enabled: Os permisos de acción pódense establecer para cada proposta
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
@@ -663,7 +662,7 @@ gl:
           error: Houbo erros ao votar a proposta.
       proposals:
         compare:
-          continue: Continúe
+          continue: Continuar
           no_similars_found: Ben feito! Non se atoparon propostas similares
           title: Propostas similares
         complete:
