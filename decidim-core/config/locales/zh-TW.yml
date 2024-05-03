@@ -251,10 +251,6 @@ zh-TW:
         promote_button: 晉升為 %{model_name}
         promote_confirm_text: 您確定要晉升此修正嗎？
         promote_help_text: 您可以提升此修正，並將其發布為獨立的 %{model_name}.
-      compare_draft:
-        continue: 繼續
-        no_similars_found: 找不到相似的修正案。
-        title: 相似的修正案
       created:
         error: 創建修正案草稿時發生錯誤。
         success: 修正案草稿已成功創建。
@@ -309,9 +305,6 @@ zh-TW:
       wizard_step_form:
         steps:
           '1': 創建您的修正案
-          '2': 比較您的修正案
-          '3': 完成您的修正案
-          '4': 發佈您的修正案
     anonymous_user: 匿名
     application:
       document:
