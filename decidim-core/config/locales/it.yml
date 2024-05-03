@@ -243,7 +243,6 @@ it:
           '1': Crea il tuo emendamento
           '2': Confronta il tuo emendamento
           '3': Completa il tuo emendamento
-          '4': Pubblica il tuo emendamento
     anonymous_user: Anonimo
     application:
       collection:
