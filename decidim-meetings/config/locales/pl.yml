@@ -28,15 +28,29 @@ pl:
         organizer_gid: Utwórz jako
         organizer_id: Organizator
         private_meeting: Prywatne spotkanie
+        registration_email_custom_content: Niestandardowa treści rejestracyjnego e-maila
         registration_form_enabled: Włączono formularz rejestracyjny
         registration_terms: Warunki rejestracji
+        registration_type: Typ rejestracji
         registration_url: Adres URL rejestracji
         registrations_enabled: Rejestracje włączone
+        reserved_slots: Zastrzeżone miejsca na to spotkanie
+        start_time: Godzina rozpoczęcia
         title: Tytuł
         transparent: Transparentny
         type_of_meeting: Typ
+      meeting_agenda:
+        title: Tytuł
+        visible: Widoczna
       meeting_agenda_items:
+        description: Opis
         duration: Czas trwania
+        title: Tytuł
+      meeting_registration_invite:
+        email: E-mail
+        name: Nazwa
+      validate_registration_code:
+        code: Kod
     errors:
       models:
         meeting:
