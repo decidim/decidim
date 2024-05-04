@@ -3,6 +3,49 @@ pl:
   decidim:
     design:
       components:
+        accordions:
+          content_panel: Zawartość panelu
+          demo: Wersja demonstracyjna
+          demo_description: W całej aplikacji używane są akordiony, głównie do pokazania/ukrycia zawartości w zakładkach lub zwinięcia/rozwinięcia widocznych tekstów.
+          description_accordions_html: Akordiony to funkcja javascript dostępna dzięki bibliotece zewnętrznej o nazwie %{link_code} a11y-accordion-component.
+          github_source_html: Kod źródłowy na GitHub %{github_link}
+          panel: Panel
+          title: Listy rozwijane (akordiony)
+          trigger: Wyzwalacz
+          usage: Użycie
+          usage_p: Akordion wymaga co najmniej trzech elementów
+          usage_p_1_html: 1. Wrapper <code>div</code>, z atrybutem data-attribute <code>data-component="accordion"</code>, na wszystkich dostępnych wyzwalaczach i panelach.
+          usage_p_2_html: 2. Element wyzwalający, z którego może skorzystać użytkownik (jak przez przycisk), wskazujący na zwijany element przez <code>data-controls="panel"</code>, gdzie <i>panel</i> jest <code>id</code> panelu.
+          usage_p_3_html: 3. Ukrywany element, którego <code>id</code> odpowiada wartości data-controls, do której odnosi się wyzwalacz.
+        activities:
+          activities: Aktywności
+        address:
+          title: Adres
+        announcement:
+          iam_an_announcement: Jestem ogłoszeniem
+          this_is_the_body: To jest ciało
+          this_is_the_title: To jest tytuł
+          title: Ogłoszenie
+        author:
+          title: Autor
+        buttons:
+          description_html: 'Przyciski są budowane przy użyciu różnych kombinacji klas CSS: klasy <code>button</code>, rozmiaru i koloru.'
+          title: Przyciski
+        cards:
+          title: Karty
+        dialogs:
+          dialog_demo_description_html: Dialogi lub komponenty modalne są zaimplementowane przez pomocnika Rails <code>decidim_modal</code>.
+          dialogs_description_html: Dialogi są funkcją javascript dostępną dzięki bibliotece zewnętrznej o nazwie <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a>.
+          tips_description: 'Aby wyświetlić złożony modal, pasujący do stylów, użyj następującego kodu:'
+          tips_description_html: Zwróć uwagę na <i>data-attributes</i> oraz <i>identyfikatory</i>. Na przykład, identyfikator <code>[data-dialog-title]</code> rozpoczyna się od <i>dialog-title</i> oraz <i>identyfikatora modala</i>.
+          title: Okna dialogowe
+          usage_description: Okno dialogowe wymaga dwóch elementów
+          usage_description_2_html: 2. Element modalny, którego <code>id</code> odpowiada wartości data-target, do której odnosi się wyzwalacz.
+          usage_description_html: 1. Element wykonalny przez użytkownika, z atrybutem data-attribute <code>data-dialog-open="example"</code>, gdzie przykładem jest <code>id</code> modala.
+        follow:
+          title: Obserwuj
+        forms:
+          disabled: Nieaktywny
         tooltips:
           demo: Wersja demonstracyjna
           demo_description: Aby ten komponent działał, uczestnik musi najechać kursorem na element.
@@ -47,9 +90,44 @@ pl:
           section_p_tablet: System siatki w wersji na tablet składa się z 8 elastycznych kolumn z odstępem między kolumnami wynoszącym 16 pikseli oraz lewym i prawym marginesem wynoszącym 24 pikseli
           tablet: Tablet
           title: Układ
+        typography:
+          title: Typografia
+          typefaces_description_1: Decidim używa Source Sans Pro jako podstawowego typu czcionki. Ten typ obsługuje 310 języków
+          typefaces_description_2: Ta czcionka jest licencjonowana na licencji Open Font License
       helpers:
+        accountability: Rozliczalność
+        accountability_cards_html: Używane przez karty <i>rozliczalności projektów</i>. Ta karta wymaga zasobów modułu, aby zostać wyświetlona poprawnie, tj. <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
+        activity: Aktywność
+        address_description: Komórka adresu odbiera zasób i przeszukuje geolokalizowalne atrybuty, aby renderować konkretny kod.
+        address_description_2: W zależności od rodzaju treści adres może być adresem internetowym. W takich przypadkach wyświetlane informacje są całkiem identyczne, ale podlegają kształtowaniu, aby je dopasować.
+        ally_link: a11y-dropdown-component
+        argument: Argument
+        assemblies: Zgromadzenia
+        assembly_g: Zestaw G
+        assembly_s: Zestaw S
+        avatar: Awatar
+        avatar_description: Jest ona używana, gdy istnieją wąskie przestrzenie, gdzie autor jest informacją drugorzędną.
         background: Tło i obramowanie
         base: Baza
+        block_text: Użyj bloku extra_data
+        blog_cards_html: Używane przez karty <i>blogów</i>
+        blogs: Blogi
+        budget_card_html: Używane przez karty <i>projektów budżetów</i>. Ta karta wymaga poprawnego wyświetlania zasobów modułu, tj. <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>
+        budgets: Budżety
+        callout_class: Klasa wywołania
+        callout_description: Ten atrybut stosuje status ogłoszenia. Domyślnie używa koloru drugorzędnego.
+        card_g: Karta G
+        card_l: Karta L
+        card_s: Karta S
+        collaborative_draft_l: Wspólny szkic L
+        colors: Kolory
+        compact: Kompaktowy
+        compact_description: Ta wersja autora jest wspólnym sposobem identyfikacji twórcy zasobów.
+        conference_g: Konferencja G
+        conference_s: Konferencja S
+        conferences: Konferencje
+        context: Kontekst
+        context_description: Ta komórka wyświetla informacje o użytkowniku. Jest to wizualna pomoc w identyfikacji twórcy zasobów/treści. Najechanie myszą wyświetla podpowiedź z dalszymi informacjami i linkami do jego lub jej profilu.
         form_elements: Elementy formularza
         hex_code: Kod szesnastkowy
         main_colors: Kolory główne
