@@ -57,6 +57,8 @@ pl:
           attributes:
             iframe_embed_type:
               not_embeddable: Ten adres URL nie może być osadzony na stronie spotkania lub wydarzenia na żywo
+            online_meeting_url:
+              url_format: Adres URL musi być prawidłowy
         meeting_agenda:
           attributes:
             base:
@@ -99,16 +101,27 @@ pl:
           closed_at_present:
             label: Państwo
             values:
+              'false': Otwarte
               'true': Zamknięte
           is_upcoming_true:
             label: Data
-          with_any_origin:
             values:
+              'false': Przeszłe
+              'true': Nadchodzące
+          scope_id_eq:
+            label: Zakres
+          with_any_origin:
+            label: Źródło
+            values:
+              official: Oficjalny
+              participants: Uczestnik
               user_group: Grupy użytkowników
           with_any_type:
             label: Rodzaj spotkania
             values:
+              hybrid: Hybrydowe
               in_person: Osobiste
+              online: Online
       meeting_copies:
         create:
           error: Wystąpił błąd podczas duplikowania tego spotkania.
@@ -275,7 +288,9 @@ pl:
             select_user: Wybierz użytkownika
           index:
             filter:
+              accepted: Zaakceptowano
               all: Wszystkie
+              rejected: Odrzucono
               sent: Wysłano
             filter_by: Filtruj według
             invite_attendee: Zaproś uczestnika
