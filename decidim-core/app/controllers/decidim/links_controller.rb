@@ -14,7 +14,7 @@ module Decidim
     rescue_from URI::InvalidURIError, with: :modal
 
     def new
-      headers["X-Robots-Tag"] = "noindex"
+      headers["X-Robots-Tag"] = "none"
     end
 
     private
