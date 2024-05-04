@@ -909,9 +909,11 @@ cs:
         wizard_aside:
           back: Zadní
           back_from_step_1: Zpět k návrhům
+          back_from_step_2: Zpět k úpravě
         wizard_steps:
           current_step: Aktuální krok
           step_1: Vytvořte svůj návrh
+          step_2: Publikovat váš návrh
           title: Kroky vytváření návrhů
       proposals_picker:
         choose_proposals: Vybrat návrhy
