@@ -22,6 +22,8 @@ pl:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Skomentuj
         name: Wybory losowe
         settings:
           global:
@@ -157,3 +159,5 @@ pl:
             few: "%{count} wyborów losowych"
             many: "%{count} wybory losowe"
             other: "%{count} wybory losowe"
+    statistics:
+      sortitions_count: Wybory przez losowanie
