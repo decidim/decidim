@@ -320,6 +320,7 @@ pl:
           '1': Utwórz poprawkę
           '2': Porównaj poprawkę
           '3': Uzupełnij poprawkę
+          '4': Opublikuj poprawkę
     anonymous_user: Anonim
     application:
       collection:
