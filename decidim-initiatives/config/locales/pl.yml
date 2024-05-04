@@ -226,6 +226,7 @@ pl:
             export_votes: Eksport podpisów
             reject: Odrzuć inicjatywę
             send_to_technical_validation: Wyślij do weryfikacji technicznej
+            success: Inicjatywa została wysłana do weryfikacji technicznej.
             update: Aktualizuj
           form:
             settings: Ustawienia
@@ -239,14 +240,40 @@ pl:
             edit: Edytuj
             new: Nowy
             photos: Zdjęcia
+          update:
+            error: Wystąpił błąd.
+            success: Inicjatywa została zaktualizowana.
+        initiatives_settings:
+          edit:
+            update: Aktualizuj
+          form:
+            comments: Najczęściej komentowane
+            date: Najnowsze
+            publication_date: Ostatnio opublikowane
+            random: Losowo
+            signatures: Najczęściej podpisane
+            title: Ustawienia dla inicjatyw
         initiatives_type_scopes:
+          create:
+            error: Wystąpił błąd.
+            success: Utworzono nowy zakres dla danego typu inicjatywy.
+          destroy:
+            success: Zakres został pomyślnie usunięty.
           edit:
             title: Edytuj zakres typu inicjatywy
             update: Aktualizuj
           new:
             create: Utwórz
             title: Utwórz zakres typu inicjatywy
+          update:
+            error: Wystąpił błąd.
+            success: Zakres został zaktualizowany.
         initiatives_types:
+          create:
+            error: Wystąpił błąd.
+            success: Utworzono nowy typ inicjatywy.
+          destroy:
+            success: Typ inicjatywy został usunięty.
           edit:
             update: Aktualizuj
           form:
