@@ -124,6 +124,14 @@ module Decidim
                      end
           proposal.add_coauthor(coauthor)
           proposal.save!
+
+          Decidim::EventsManager.publish(
+            event: "decidim.events.proposals.proposal_published",
+            event_class: Decidim::Proposals::PublishProposalEvent,
+            resource: proposal,
+            followers: []
+          )
+          
           proposal
         end
       end
