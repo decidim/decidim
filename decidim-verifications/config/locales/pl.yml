@@ -59,6 +59,7 @@ pl:
       direct: Bezpośredni
       help: Pomoc
       id_documents:
+        explanation: Prześlij dokumenty tożsamości, abyśmy mogli sprawdzić Twoją tożsamość.
         name: Dokumenty tożsamości
       multistep: Multi-Step
       name: Imię
