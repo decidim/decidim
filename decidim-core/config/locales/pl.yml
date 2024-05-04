@@ -88,6 +88,7 @@ pl:
   date:
     buttons:
       close: Zamknij
+      select: Wybierz
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d.%m.%Y"
@@ -95,6 +96,10 @@ pl:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Format: dd/mm/rrrr'
+      order: d-m-y
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -130,6 +135,7 @@ pl:
       external_link: Link zewnętrzny
       front_page_link: Przejdź do strony głównej
       logo: "Oficjalne logo %{organization}"
+      opens_in_new_tab: Otwiera się w nowej karcie
       skip_button: Przejdź do głównej zawartości
     account:
       blocked: To konto zostało zablokowane z powodu naruszenia regulaminu
@@ -333,6 +339,7 @@ pl:
       wizard_step_form:
         steps:
           '1': Utwórz poprawkę
+          '2': Opublikuj poprawkę
     anonymous_user: Anonim
     application:
       document:
@@ -789,6 +796,10 @@ pl:
           email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
           email_subject: Grupa użytkowników zaktualizowała swój profil
           notification_title: Grupa użytkowników %{user_group_name} zaktualizowała swój profil, pozostawiając go niezweryfikowanym. Możesz go teraz zweryfikować w <a href="%{groups_admin_path}">panelu administratora</a>.
+      nickname_event:
+        notification_body: Skorygowaliśmy sposób, w jaki używane są pseudonimy, aby nie było duplikatów i dlatego usunęliśmy zasadę uwzględniającą wielkość liter. <br/> Twój pseudonim został utworzony po innym o tej samej nazwie, więc automatycznie zmieniliśmy jego nazwę. Możesz to zmienić z <a href="%{link_to_account_settings}">ustawień konta</a>.
+      notification_event:
+        notification_title: W <a href="%{resource_path}">%{resource_title}</a> doszło do zdarzenia.
       reports:
         resource_hidden:
           email_intro: Administrator usunął %{resource_type}, ponieważ zasób został zgłoszony jako %{report_reasons}.
@@ -852,6 +863,7 @@ pl:
       create:
         button: Obserwuj
         error: Wystąpił błąd podczas próby obserwowania tego zasobu.
+        participatory_space: Śledzenie <span>%{resource_name}</span>
       destroy:
         button: Przestań obserwować
         error: Nastąpił błąd podczas cofania obserwowania tego zasobu.
@@ -865,12 +877,14 @@ pl:
         file:
           explanation: 'Wytyczne dotyczące pliku:'
           message_1: Ma być obrazem lub dokumentem.
+          message_2: W przypadku obrazów używaj najlepiej tych o orientacji poziomej, usługa przycina obraz.
         icon:
           explanation: 'Wytyczne dla ikony:'
           message_1: Musi być obrazem kwadratowym.
           message_2: Zalecany rozmiar dla tego obrazu to 512x512.
         image:
           explanation: 'Wytyczne dotyczące obrazu:'
+          message_1: Najlepiej obraz poziomy, który nie ma żadnego tekstu.
           message_2: Obraz jest docinany automatycznie.
       file_validation:
         allowed_file_extensions: 'Dozwolone rozszerzenia plików: %{extensions}'
@@ -1251,6 +1265,7 @@ pl:
     offline:
       name: W trybie offline
       show:
+        message_1: Wygląda na to, że jesteś obecnie offline.
         message_2: Spróbuj ponownie później.
         retry: Powtórz
     open_data:
@@ -1428,6 +1443,8 @@ pl:
         close_modal: Zamknij okno
         ok: OK
         title: Potwierdź
+      embed:
+        title: Wbudowana zawartość wideo
       extended_navigation_bar:
         more: Więcej
         unfold: Rozwiń
@@ -1663,6 +1680,9 @@ pl:
         change_my_password: Zmień moje hasło
         confirm_new_password: Potwierdź nowe hasło
         new_password: Nowe hasło
+        old_password_help: Aby potwierdzić zmiany na koncie, podaj swoje aktualne hasło.
+        password_help: "Minimalna liczba znaków: %{minimum_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
+        password_help_admin: "Minimalna liczba znaków: %{minimum_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail, a także Twoich poprzednich haseł."
         title: Zmiana hasła
       new:
         forgot_your_password: Zapomniałeś hasła?
@@ -1769,7 +1789,31 @@ pl:
     upload:
       uploadedFile: Załadowany plik
   emojis:
+    add_custom: Użyj niestandardowych emoji
     button: Dodaj emotikonę
+    categories:
+      activity: Aktywność
+      custom: Niestandardowe
+      flags: Flagi
+      foods: Żywność i napoje
+      frequent: Często używane
+      nature: Zwierzęta i przyroda
+      objects: Obiekty
+      people: Buźki i osoby
+      places: Podróże i miejsca
+      search: Wyniki wyszukiwania
+      symbols: Symbole
+    pick: Wybierz emoji…
+    search: Szukaj
+    search_no_results_1: O nie!
+    search_no_results_2: Nie udało się znaleźć tego emoji
+    skins:
+      '1': Domyślna
+      '2': Jasna
+      '3': Średnio jasna
+      '4': Średnia
+      '5': Średnio ciemna
+      '6': Ciemna
   errors:
     messages:
       blank: nie może być puste
