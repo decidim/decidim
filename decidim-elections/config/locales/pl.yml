@@ -24,6 +24,7 @@ pl:
       voting:
         banner_image: Banner
         end_time: Głosowanie kończy się
+        scope_id: Zakres
         start_time: Głosowanie rozpoczyna się
         voting_type: Typ głosowania
     errors:
@@ -1030,8 +1031,11 @@ pl:
           complete_voting:
             available_answers: 'Możliwe odpowiedzi:'
             census_verified: Ten uczestnik nie głosował jeszcze osobiście.
+            census_verified_with_online_vote: Ten uczestnik głosował już online. Jeśli głosuje osobiście, poprzednie głosy zostaną unieważnione i będzie to głosowanie ostateczne.
             complete_voting: Zakończ głosowanie
             identify_another: Zidentyfikuj innego uczestnika
+            questions_title: 'Są oni uprawnieni do głosowania w następujących pytaniach:'
+            questions_title_voted: 'Ten uczestnik głosował już online i ma prawo głosować w następujących pytaniach:'
             voted: Uczestnik zagłosował
           create:
             error: Głos nie został zarejestrowany. Spróbuj ponownie.
@@ -1086,6 +1090,7 @@ pl:
         actions:
           confirm_destroy: Jesteś pewny?
           destroy: Usuń
+          new: Nowy urzędnik głosowania
           title: Działania
         roles:
           manager: Kierownik
@@ -1106,10 +1111,12 @@ pl:
           confirm_destroy: Jesteś pewny?
           destroy: Usuń
           edit: Edytuj
+          new: Nowy lokal wyborczy
           title: Działania
       votings:
         access_code_modal:
           email: Wyślij e-mailem do %{email}
+          info: Potrzebujesz kodu dostępu, aby wziąć udział. Jeśli nie otrzymałeś(aś) go pocztą, możemy wysłać Ci nowy.
           no_email: Brak e-mail
           no_sms: Brak dostępnego numeru telefonu
           sms: Wyślij SMS do %{sms}
@@ -1119,10 +1126,13 @@ pl:
           description: Tutaj masz możliwość sprawdzenia danych umieszczonych na liście wyborców, aby wiedzieć, czy masz prawo uczestniczyć w tym głosowaniu. Powinieneś mieć już kod dostępu, ale jeśli go zgubiłeś, możesz ponownie o ten kod poprosić, gdy Twoje dane są poprawne.
           error:
             info: 'Spróbuj ponownie. Jeśli uważasz, że dane w systemie są nieprawidłowe, możesz je zgłosić tutaj: %{census_contact_information}.'
+            title: Wprowadzone przez Ciebie dane nie są na liście wyborców dla tego głosowania
           form_title: 'Wypełnij formularz, aby sprawdzić Twoje dane na liście wyborców:'
           invalid: Wystąpił błąd przy sprawdzaniu listy wyborców.
           success:
+            access_link: pocztą elektroniczną.
             access_link_with_sms: poprzez SMS lub e-mail.
+            info: Powinieneś był już otrzymać swój kod dostępu pocztą. Jeśli go nie posiadasz, możesz poprosić o to tutaj
             title: Twoje dane z listy wyborców nie są prawidłowe!
           title: Mogę głosować?
         check_fields:
@@ -1131,6 +1141,7 @@ pl:
           day_placeholder: DD
           document_number: Numer dokumentu
           document_number_placeholder: Numer ID
+          document_type: Typ dokumentu
           month: Miesiąc
           month_placeholder: MM
           postal_code: Kod pocztowy
@@ -1150,6 +1161,7 @@ pl:
         filters:
           active: Aktywne
           all: Wszystko
+          date: Data
           finished: Zakończone
           search: Szukaj
           upcoming: Nadchodzące
@@ -1161,13 +1173,20 @@ pl:
           access_code: Kod dostępu
           access_code_placeholder: Kod dostępu
           ask_for_a_new_one: Poproś o nowe.
+          dont_have_access_code: Nie masz kodu dostępu?
           form_title: 'Wypełnij poniższy formularz, aby uzyskać dostęp do głosowania:'
           start_voting: Rozpocznij głosowanie
           title: Zidentyfikuj mnie z danymi na liście wyborców
+        no_census_contact_information: Brak danych kontaktowych.
         orders:
           label: 'Sortuj głosowania według:'
           random: Losowo
           recent: Najnowsze
+        send_access_code:
+          invalid: Wystąpił problem podczas wysyłania kodu dostępu.
+          success: Twój kod dostępu został wysłany pomyślnie.
+        show:
+          title: O tym głosowaniu
       votings_m:
         badge_name:
           finished: Zakończone
