@@ -135,6 +135,7 @@ pl:
       external_link: Link zewnętrzny
       front_page_link: Przejdź do strony głównej
       logo: "Oficjalne logo %{organization}"
+      opens_in_new_tab: Otwiera się w nowej karcie
       skip_button: Przejdź do głównej zawartości
     account:
       blocked: To konto zostało zablokowane z powodu naruszenia regulaminu
@@ -344,6 +345,7 @@ pl:
           '1': Utwórz poprawkę
           '2': Porównaj poprawkę
           '3': Uzupełnij poprawkę
+          '4': Opublikuj poprawkę
     anonymous_user: Anonim
     application:
       document:
@@ -1265,6 +1267,7 @@ pl:
     offline:
       name: W trybie offline
       show:
+        message_1: Wygląda na to, że jesteś obecnie offline.
         message_2: Spróbuj ponownie później.
         retry: Powtórz
     open_data:
@@ -1444,6 +1447,8 @@ pl:
         close_modal: Zamknij okno
         ok: OK
         title: Potwierdź
+      embed:
+        title: Wbudowana zawartość wideo
       extended_navigation_bar:
         more: Więcej
         unfold: Rozwiń
@@ -1679,6 +1684,9 @@ pl:
         change_my_password: Zmień moje hasło
         confirm_new_password: Potwierdź nowe hasło
         new_password: Nowe hasło
+        old_password_help: Aby potwierdzić zmiany na koncie, podaj swoje aktualne hasło.
+        password_help: "Minimalna liczba znaków: %{minimum_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
+        password_help_admin: "Minimalna liczba znaków: %{minimum_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail, a także Twoich poprzednich haseł."
         title: Zmiana hasła
       new:
         forgot_your_password: Zapomniałeś hasła?
@@ -1788,9 +1796,16 @@ pl:
     button: Dodaj emotikonę
     categories:
       activities: Aktywności
+      animals-nature: Zwierzęta i przyroda
+      custom: Niestandardowe
+      flags: Flagi
+      food-drink: Żywność i napoje
+      objects: Obiekty
       people-body: Ludzie i ciało
       recents: Ostatnio używane
       smileys-emotion: Uśmiechy i emocje
+      symbols: Symbole
+      travel-places: Podróże i miejsca
     error:
       load: Nie udało się załadować emotikonów
     recents:
