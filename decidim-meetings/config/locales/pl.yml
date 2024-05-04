@@ -608,6 +608,8 @@ pl:
             question: Pytanie
             question_replied: Odpowiedziano na pytanie
             reply_question: Odpowiedz na pytanie
+      public_participants_list:
+        attending_participants: Uczestnicy biorący udział
       read_more: "(zobacz więcej)"
       registration_mailer:
         confirmation:
