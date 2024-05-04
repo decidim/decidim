@@ -15,6 +15,7 @@ module Decidim
 
     def new
       headers["X-Robots-Tag"] = "none"
+      headers["Link"] = %(<#{url_for}>; rel="canonical")
     end
 
     private
