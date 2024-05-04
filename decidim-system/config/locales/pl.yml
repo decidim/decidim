@@ -81,6 +81,7 @@ pl:
           links:
             did_not_receive_confirmation_instructions?: Nie otrzymałeś(aś) instrukcji potwierdzenia?
             did_not_receive_unlock_instructions?: Nie dotarła instrukcja odblokowania?
+            forgot_your_password?: Nie pamiętasz hasła?
       menu:
         admins: Administratorzy
         dashboard: Panel
