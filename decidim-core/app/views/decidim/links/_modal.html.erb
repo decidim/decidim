@@ -16,6 +16,6 @@
     <button class="button button__lg button__transparent-secondary" data-dialog-close="external-domain-warning">
       <%= t("decidim.links.warning.cancel") %>
     </button>
-    <%= link_to t("decidim.links.warning.proceed"), external_url.to_s , target: "_blank", class: "button button__lg button__secondary" %>
+    <%= link_to t("decidim.links.warning.proceed"), external_url.to_s , target: "_blank", class: "button button__lg button__secondary", rel: "nofollow noopener noreferrer" %>
   </div>
 <% end %>
