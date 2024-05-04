@@ -24,6 +24,7 @@ pl:
       voting:
         banner_image: Banner
         end_time: Głosowanie kończy się
+        scope_id: Zakres
         start_time: Głosowanie rozpoczyna się
         voting_type: Typ głosowania
     errors:
@@ -605,6 +606,8 @@ pl:
               upload_error:
                 invalid_format: Wgrany plik nie zawiera żadnego klucza identyfikacyjnego.
                 invalid_key: Nie można załadować kluczy identyfikacyjnych z przesłanego pliku.
+                invalid_public_key: Klucze identyfikacyjne w przesłanym pliku nie pasują do zapisanego publicznego klucza identyfikacyjnego.
+              upload_legend: Serwer posiada Twoje publiczne klucze identyfikacyjne, ale Twoja przeglądarka nadal nie ma takich kluczy. Musisz zaimportować plik z kluczami identyfikacyjnymi do komputera z kopii zapasowej, którą utworzyłeś po ich wygenerowaniu.
             not_supported_browser_description: Wygląda na to, że używasz przeglądarki internetowej, która nie może być użyta do działań męża (osoby) zaufania. Upewnij się, że używasz najnowszej wersji przeglądarki, lub spróbuj użyć dowolnej z najpopularniejszych przeglądarek, aby móc wykonać zadania męża (osoby) zaufania.
             not_supported_browser_title: Aktualizuj przeglądarkę by działać jako mąż (osoba) zaufania
           update:
@@ -996,6 +999,7 @@ pl:
             update: Aktualizuj
           form:
             select_a_voting_type: Wybierz typ głosowania
+            show_check_census_help: Czy pokazać link "Czy mogę głosować?" w menu głosów publicznych
             title: Tytuł
             voting_type:
               hybrid: Hybrydowe
@@ -1022,6 +1026,7 @@ pl:
           census:
             create:
               invalid: Wystąpił błąd przy przesyłaniu listy wyborców. Spróbuj ponownie później.
+              invalid_csv_header: Nagłówki CSV są brakujące lub nie są poprawne — przeczytaj uważnie instrukcję
             delete:
               button: Usuń wszystkie dane listy wyborców
             destroy:
@@ -1076,6 +1081,8 @@ pl:
         highlighted_votings:
           name: Wyróżnione głosowania
         landing_page:
+          description:
+            title: O tym głosowaniu
           metrics:
             heading: Partycypacja w liczbach
           polling_stations:
@@ -1159,9 +1166,12 @@ pl:
         in_person_votes:
           complete_voting:
             available_answers: 'Możliwe odpowiedzi:'
+            census_verified: Ten uczestnik nie głosował jeszcze osobiście.
+            census_verified_with_online_vote: Ten uczestnik głosował już online. Jeśli głosuje osobiście, poprzednie głosy zostaną unieważnione i będzie to głosowanie ostateczne.
             complete_voting: Zakończ głosowanie
             identify_another: Zidentyfikuj innego uczestnika
             questions_title: 'Ma prawo do głosowania w następujących kwestiach:'
+            questions_title_voted: 'Ten uczestnik głosował już online i ma prawo głosować w następujących pytaniach:'
             voted: Uczestnik zagłosował
           create:
             error: Głos nie został zarejestrowany. Spróbuj ponownie.
@@ -1252,9 +1262,11 @@ pl:
           description: Tutaj masz możliwość sprawdzenia danych umieszczonych na liście wyborców, aby wiedzieć, czy masz prawo uczestniczyć w tym głosowaniu. Powinieneś mieć już kod dostępu, ale jeśli go zgubiłeś, możesz ponownie o ten kod poprosić, gdy Twoje dane są poprawne.
           error:
             info: 'Spróbuj ponownie. Jeśli uważasz, że dane w systemie są nieprawidłowe, możesz je zgłosić tutaj: %{census_contact_information}'
+            title: Wprowadzone przez Ciebie dane nie są na liście wyborców dla tego głosowania
           form_title: 'Wypełnij formularz, aby sprawdzić Twoje dane na liście wyborców:'
           invalid: Wystąpił błąd przy sprawdzaniu listy wyborców.
           success:
+            access_link: pocztą elektroniczną.
             access_link_with_sms: poprzez SMS lub e-mail.
             info: Powinieneś był już otrzymać swój kod dostępu pocztą. Jeśli go nie posiadasz, możesz poprosić o to tutaj
             title: Twoje dane z listy wyborców nie są prawidłowe!
@@ -1265,6 +1277,7 @@ pl:
           day_placeholder: DD
           document_number: Numer dokumentu
           document_number_placeholder: Numer ID
+          document_type: Typ dokumentu
           month: Miesiąc
           month_placeholder: MM
           postal_code: Kod pocztowy
@@ -1286,6 +1299,7 @@ pl:
         filters:
           active: Aktywne
           all: Wszystko
+          date: Data
           finished: Zakończone
           search: Szukaj
           upcoming: Nadchodzące
