@@ -131,7 +131,7 @@ module Decidim
             resource: proposal,
             followers: []
           )
-          
+
           proposal
         end
       end
