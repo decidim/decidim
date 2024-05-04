@@ -252,6 +252,16 @@ pl:
           update:
             error: Wystąpił błąd
             success: Inicjatywa została zaktualizowana
+        initiatives_settings:
+          edit:
+            update: Aktualizuj
+          form:
+            comments: Najczęściej komentowane
+            date: Najnowsze
+            publication_date: Ostatnio opublikowane
+            random: Losowo
+            signatures: Najczęściej podpisane
+            title: Ustawienia dla inicjatyw
         initiatives_type_scopes:
           create:
             error: Wystąpił błąd
