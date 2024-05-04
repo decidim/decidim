@@ -1693,6 +1693,7 @@ pl:
         few: 'Podczas przetwarzania Twojego żądania wystąpiły błędy:'
         many: 'Podczas przetwarzania Twojego żądania wystąpiły błędy:'
         other: 'Podczas przetwarzania Twojego żądania wystąpiły błędy:'
+      password_confirmation_message: '"Potwierdź hasło" nie pasuje do hasła'
       too_many_marks: używa zbyt wielu kolejnych znaków interpunkcyjnych (np.! i?)
       too_much_caps: używa zbyt dużej liczby wielkich liter (ponad 25% tekstu)
   forms:
@@ -1776,6 +1777,8 @@ pl:
       notifications_dashboard:
         mark_all_as_read: Oznacz wszystkie jako przeczytane
         mark_as_read: Oznacz jako przeczytane
+      offline_banner:
+        cache_version_page: Ups! Twoja sieć jest offline. Jest to poprzednio buforowana wersja strony, którą odwiedzasz, być może zawartość nie jest aktualna.
       social_media_links:
         facebook: "%{organization} na Facebooku"
         github: "%{organization} na GitHubie"
