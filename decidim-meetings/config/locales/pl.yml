@@ -53,6 +53,23 @@ pl:
         name: Nazwa
       validate_registration_code:
         code: Kod
+    errors:
+      models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Ten adres URL nie może być osadzony na stronie spotkania lub wydarzenia na żywo.
+            online_meeting_url:
+              url_format: Adres URL musi być prawidłowy
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Czas trwania elementów przekracza czas trwania spotkania o %{count} minut.
+              too_many_minutes_child: Czas trwania elementów podrzędnych przekracza czas trwania elementu nadrzędnego "%{parent_title}" w porządku obrad o %{count} minut.
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Ten e-mail został już zaproszony.
     models:
       decidim/meetings/close_meeting_event: Spotkanie zakończone
       decidim/meetings/create_meeting_event: Spotkanie
@@ -86,16 +103,27 @@ pl:
           closed_at_present:
             label: Państwo
             values:
+              'false': Otwarte
               'true': Zamknięte
           is_upcoming_true:
             label: Data
-          with_any_origin:
             values:
+              'false': Przeszłe
+              'true': Nadchodzące
+          scope_id_eq:
+            label: Zakres
+          with_any_origin:
+            label: Źródło
+            values:
+              official: Oficjalny
+              participants: Uczestnik
               user_group: Grupy użytkowników
           with_any_type:
             label: Rodzaj spotkania
             values:
+              hybrid: Hybrydowe
               in_person: Osobiste
+              online: Online
       meeting_copies:
         create:
           error: Wystąpił błąd podczas duplikowania tego spotkania.
@@ -249,7 +277,9 @@ pl:
             select_user: Wybierz użytkownika
           index:
             filter:
+              accepted: Zaakceptowano
               all: Wszystkie
+              rejected: Odrzucono
               sent: Wysłano
             invite_attendee: Zaproś uczestnika
             invites: Zaproszeni
