@@ -1,16 +1,33 @@
 pl:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Tytuł
+      template:
+        description: Opis
+        name: Nazwa
   decidim:
     admin:
       menu:
         templates: Szablony
       templates:
+        actions:
+          new_template: Nowy szablon
         apply:
           error: Wystąpił błąd z zastosowaniem tego szablonu.
+          success: Szablon zastosowany pomyślnie.
         copy:
           error: Wystąpił błąd podczas kopiowania tego szablonu.
+          success: Szablon został skopiowany.
         create:
           error: Wystąpił błąd podczas tworzenia tego szablonu.
+          success: Szablon został utworzony.
+        destroy:
+          success: Szablon został usunięty.
         empty: Brak szablonów.
+        fetch:
+          error: Nie można znaleźć tego szablonu. Proszę odświeżyć stronę.
+        missing_resource: "(brak zasobu)"
       titles:
         template_types:
           questionnaires: Szablony kwestionariusza
