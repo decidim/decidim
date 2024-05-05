@@ -135,6 +135,11 @@ pl:
             'true': Odrzucono
         search_placeholder:
           user_name_or_user_email_cont: Szukaj po nazwie lub adresie e-mail
+        sent_at_not_null:
+          label: Wysłano
+          values:
+            'false': Nie wysłano
+            'true': Wysłano
       meeting_copies:
         create:
           error: Wystąpił błąd podczas duplikowania tego spotkania.
@@ -145,6 +150,7 @@ pl:
     components:
       meetings:
         actions:
+          comment: Skomentuj
           join: Dołącz
         name: Spotkania
         settings:
@@ -562,11 +568,22 @@ pl:
         questions:
           closed_question:
             question_results: Wyniki wyborów
+          index_admin:
+            edit: Edytuj w panelu administratora
+            question: Pytanie
+            received_answer: otrzymana odpowiedź
+            received_answers: otrzymane odpowiedzi
+            results: Wyniki
+            send: Wyślij
+            sent: Wysłano
           published_question:
             max_choices_alert: Wybrano zbyt wiele opcji
             question: Pytanie
             question_replied: Odpowiedziano na pytanie
             reply_question: Odpowiedz na pytanie
+      public_participants_list:
+        attending_organizations: Organizacje
+        attending_participants: Uczestnicy
       read_more: "(zobacz więcej)"
       registration_mailer:
         confirmation:
@@ -580,6 +597,7 @@ pl:
       registrations:
         create:
           invalid: Wystąpił błąd podczas dołączania do spotkania.
+          success: Dołączenie do spotkania się powiodło. Ponieważ jesteś zarejestrowany(a) na to spotkanie, otrzymasz powiadomienie, jeżeli pojawią się nowe informacje na jego temat.
         decline_invitation:
           invalid: Wystąpił błąd podczas próby odrzucenia zaproszenia.
           success: Zaproszenie zostało odrzucone.
@@ -593,6 +611,10 @@ pl:
       types:
         private_meeting: Prywatne spotkanie
         transparent: Transparentne
+        withdraw: Wycofany
+      withdraw:
+        error: Wystąpił błąd podczas wycofywania spotkania.
+        success: Spotkanie zostało pomyślnie wycofane.
     metrics:
       meetings:
         description: Liczba utworzonych spotkań
