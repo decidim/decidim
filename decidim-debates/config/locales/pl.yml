@@ -193,6 +193,10 @@ pl:
     events:
       debates:
         create_debate_event:
+          space_followers:
+            email_intro: |-
+              Cześć,
+              Nowa debata "%{resource_title}" została utworzona na przestrzeni partycypacyjnej %{participatory_space_title}, sprawdź ją i pomóż:
           user_followers:
             email_intro: |-
               Cześć,
