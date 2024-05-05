@@ -1819,15 +1819,21 @@ pl:
       not_found: Nie znaleziono żadnych wyników
   errors:
     messages:
+      allowed_file_content_types: 'dozwolone są tylko pliki z następującymi rozszerzeniami: %{types}'
+      already_confirmed: zostało już potwierdzone, spróbuj się zalogować
       blank: nie może być puste
       cannot_be_blank: nie może być puste
+      confirmation: nie pasuje do %{attribute}
       confirmation_period_expired: musi być potwierdzone w ciągu %{period}, proszę poprosić o nowy
       content_type_allowlist_error: typ pliku jest nieprawidłowy
+      cycle_detected: rodzic zakresu nie może być jednym z jego potomków
+      empty: nie może być pusty
       expired: wygasł, proszę poprosić o nowy
       file_size_is_less_than_or_equal_to: rozmiar pliku musi być mniejszy lub równy %{count}
       invalid_time_zone: nie jest prawidłową strefą czasową
       long_words: zawiera słowa, które są zbyt długie (powyżej 35 znaków)
       must_start_with_caps: musi zaczynać się od dużej litery
+      nesting_too_deep: nie może wchodzić w skład podkategorii
       not_found: nie został znaleziony. Czy zarejestrowałeś(-aś) się wcześniej?
       not_locked: nie był zablokowany
       not_saved:
@@ -1837,6 +1843,8 @@ pl:
         other: 'Podczas przetwarzania Twojego żądania wystąpiły błędy:'
       too_many_marks: używa zbyt wielu kolejnych znaków interpunkcyjnych (np.! i?)
       too_much_caps: używa zbyt dużej liczby wielkich liter (ponad 25% tekstu)
+      too_short: jest za krótkie (poniżej %{count} znaków)
+      url_format: Ten adres URL jest w niepoprawnym formacie
   forms:
     correct_errors: Wystąpiły błędy w formularzu, popraw je, aby kontynuować.
     length_validator:
@@ -1852,12 +1860,22 @@ pl:
     timestamp_error_message: Przepraszam, to było za szybkie! Proszę przesłać ponownie.
   layouts:
     decidim:
+      announcements:
+        view_less: Pokaż mniej
+        view_more: Więcej informacji
       data_consent:
         details:
           columns:
+            description: Opis
+            name: Nazwa
+            service: Usługa
             type: Typ
           items:
+            _session_id:
+              description: Pozwala witrynom na zapamiętanie użytkownika w witrynie internetowej, gdy przenoszą się między stronami internetowymi.
+              service: Ta strona internetowa
             decidim-consent:
+              description: Przechowuje informacje o ciasteczkach dozwolonych przez użytkownika na tej stronie.
               service: Ta strona internetowa
             pwaInstallPromptSeen:
               description: Zachowuje status, jeśli powiadomienie o instalacji progresywnej aplikacji internetowej (PWA) zostało już wyświetlone przez użytkownika.
@@ -2023,6 +2041,7 @@ pl:
       long_with_particles: "%B %d, %Y o %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Elementy usunięte
