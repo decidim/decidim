@@ -57,7 +57,7 @@ shared_examples "proposals wizards" do |options|
     context "when in step_2: Compare" do
       context "with similar results" do
         before do
-          create(:proposal, title: "More sidewalks and less roads", body: "Cities need more people, not more cars", component:)
+          create(:proposal, title: "More sidewalks and roads", body: "Cities need more people, not more cars", component:)
           create(:proposal, title: "More sidewalks and less roadways", body: "Green is always better", component:)
           visit_component
           click_link "New proposal"
@@ -78,7 +78,8 @@ shared_examples "proposals wizards" do |options|
 
         it "shows similar proposals" do
           expect(page).to have_content("Similar Proposals (2)")
-          expect(page).to have_css("[id^='proposals__proposal']", text: "More sidewalks and less roads")
+          expect(page).to have_css("[id^='proposals__proposal']", text: "More sidewalks and roads")
+          expect(page).to have_css("[id^='proposals__proposal']", text: "More sidewalks and less roadways")
           expect(page).to have_css("[id^='proposals__proposal']", count: 2)
         end
 
