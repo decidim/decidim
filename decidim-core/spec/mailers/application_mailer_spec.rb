@@ -42,9 +42,14 @@ module Decidim
 
       context "when smtp_settings are not set" do
         let(:smtp_settings) { nil }
+        let(:organization) { create(:organization, name: "My Organization", smtp_settings:) }
 
         it "returns default values" do
           expect(mail.from).to eq(["change-me@example.org"])
+        end
+
+        it "returns the organization with the name" do
+          expect(mail.header[:from].value).to eq("My Organization <change-me@example.org>")
         end
       end
 

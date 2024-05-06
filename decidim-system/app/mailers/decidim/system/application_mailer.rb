@@ -5,7 +5,7 @@ module Decidim
     # Custom application mailer, scoped to the system mailer.
     #
     class ApplicationMailer < ActionMailer::Base
-      default from: Decidim.config.mailer_sender
+      default from: email_address_with_name(Decidim.config.mailer_sender, Decidim.config.application_name)
       layout "mailer"
     end
   end

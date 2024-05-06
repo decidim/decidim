@@ -7,11 +7,19 @@ module Decidim
     include LocalisedMailer
     include MultitenantAssetHost
     after_action :set_smtp
+    after_action :set_from
 
     default from: Decidim.config.mailer_sender
     layout "decidim/mailer"
 
     private
+
+    def set_from
+      return if @organization.nil?
+      return if mail.from.any?(/ /) # if there is an space, there is already a name in the address
+
+      mail.from = email_address_with_name(mail.from.first, @organization.name)
+    end
 
     def set_smtp
       return if @organization.nil? || @organization.smtp_settings.blank?
