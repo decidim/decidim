@@ -789,6 +789,8 @@ eu:
           discard_confirmation: Ziur zaude proposamenaren zirriborroa baztertu nahi duzula?
           send: Aurreikusi
           title: Editatu proposamenaren zirriborroa
+        edit_form_fields:
+          marker_added: Markatzailea mapan gehitua.
         filters:
           activity: Nire jarduera
           all: Guztiak

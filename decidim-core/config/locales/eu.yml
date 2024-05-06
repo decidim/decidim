@@ -138,6 +138,7 @@ eu:
       external_link: Kanpoko lotura
       front_page_link: Zoaz orri nagusira
       logo: "%{organization} aren logo ofiziala"
+      opens_in_new_tab: Ireki beste fitxa batean
       skip_button: Joan eduki nagusira
     account:
       blocked: Kontu hau blokeatu egin da erabilera-terminoak eta -baldintzak urratu direlako
@@ -2041,6 +2042,7 @@ eu:
       long_with_particles: "%B%d, %Y% H:%M etan"
       short: "%d/%m/%Y, %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Ezabapenak

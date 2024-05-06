@@ -234,15 +234,7 @@ lt:
           search: Ieškoti veiksmų
         show:
           stats:
-            attendees: Dalyviai
             back_to_resource: Grįžti į rezultatą
-            comments: Komentarai
-            contributions: Indėliai
-            last_edited_by: Paskutinį kartą redaguota
-            last_updated_at: Paskutinį kartą atnaujinta
-            meetings: Susirinkimai
-            proposals: Pasiūlymai
-            votes: Palaikymai
         timeline:
           title: Projekto raida
     admin:

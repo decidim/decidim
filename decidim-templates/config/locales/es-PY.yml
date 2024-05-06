@@ -25,6 +25,8 @@ es-PY:
         destroy:
           success: Plantilla eliminada correctamente.
         empty: Todavía no hay plantillas.
+        fetch:
+          error: No se ha podido encontrar esta plantilla. Por favor, vuelve a cargar la página.
         missing_resource: "(recurso ausente)"
         update:
           error: Se ha producido un error al actualizar esta plantilla.

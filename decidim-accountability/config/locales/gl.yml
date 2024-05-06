@@ -138,15 +138,7 @@ gl:
           search: Busca de accións
         show:
           stats:
-            attendees: Asistentes
             back_to_resource: Volver ao resultado
-            comments: Comentarios
-            contributions: Contribucións
-            last_edited_by: Última edición por
-            last_updated_at: Última actualización en
-            meetings: Reunións
-            proposals: Propostas
-            votes: Soporta
         timeline:
           title: Evolución do proxecto
     admin:

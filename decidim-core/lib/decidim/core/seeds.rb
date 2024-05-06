@@ -87,6 +87,8 @@ module Decidim
         settings = welcome_text.inject(settings) { |acc, (k, v)| acc.update("welcome_text_#{k}" => v) }
         hero_content_block.settings = settings
         hero_content_block.save!
+
+        create_user_report!(reportable: Decidim::User.take, current_user: Decidim::User.take)
       end
 
       def reset_column_information

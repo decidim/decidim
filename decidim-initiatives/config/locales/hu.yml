@@ -501,7 +501,6 @@ hu:
           other: " aláírások"
         vote_cabin:
           already_voted: Már aláírtad
-          supports_required: "%{total_supports} aláírás szükséges"
           verification_required: Ellenőrizze fiókját, hogy aláírja a kezdeményezést
           vote: Aláírás
           votes_blocked: Aláírás letiltva

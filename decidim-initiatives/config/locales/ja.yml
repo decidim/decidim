@@ -534,7 +534,6 @@ ja:
           other: " 署名"
         vote_cabin:
           already_voted: 既に署名されています
-          supports_required: "%{total_supports} 署名が必要です"
           verification_required: イニシアチブに署名するにはアカウントを確認してください
           vote: サイン
           votes_blocked: ログインが無効になっています

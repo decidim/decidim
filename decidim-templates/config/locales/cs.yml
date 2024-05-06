@@ -25,6 +25,8 @@ cs:
         destroy:
           success: Šablona byla úspěšně odstraněna.
         empty: Zatím nejsou žádné šablony.
+        fetch:
+          error: Nelze najít tuto šablonu. Prosím obnovte stránku.
         missing_resource: "(chybějící zdroj)"
         update:
           error: Při aktualizaci této šablony došlo k chybě.

@@ -541,7 +541,6 @@ eu:
           other: " sinadurak"
         vote_cabin:
           already_voted: Dagoeneko sinatuta
-          supports_required: "%{total_supports} sinadura beharrezkoa da"
           verification_required: Egiaztatu kontua ekimena sinatzeko
           vote: Saioa
           votes_blocked: Sinadura desgaituta dago
