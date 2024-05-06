@@ -8,6 +8,7 @@ module Decidim
     class StatusCell < Decidim::ViewModel
       include Decidim::Accountability::ApplicationHelper
       include Decidim::Accountability::BreadcrumbHelper
+      include ActionView::Helpers::NumberHelper
 
       def show
         return unless render?
