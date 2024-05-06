@@ -25,56 +25,6 @@ module Decidim
       sign_in user
     end
 
-    describe "GET compare_draft" do
-      context "when the amendment is a draft" do
-        let(:amendment_state) { "draft" }
-
-        context "and the user is NOT the amender" do
-          let(:user) { other_user }
-
-          it "redirects to 404" do
-            expect do
-              get :compare_draft, params:
-            end.to raise_error(ActionController::RoutingError)
-          end
-        end
-      end
-
-      context "when the user is the amender" do
-        let(:user) { amendment.amender }
-
-        context "and the amendment is NOT a draft" do
-          it "redirects to 404" do
-            expect do
-              get :compare_draft, params:
-            end.to raise_error(ActionController::RoutingError)
-          end
-        end
-
-        context "and the amendment is a draft" do
-          let(:amendment_state) { "draft" }
-
-          context "with similar emendations" do
-            let!(:similar_emendation) { create(:dummy_resource, :published, title: emendation.title, component:) }
-            let!(:similar_amendment) { create(:amendment, amendable:, emendation: similar_emendation) }
-
-            it "renders the view: compare_draft" do
-              allow(Decidim::SimilarEmendations).to receive(:for).and_return([similar_emendation])
-              get(:compare_draft, params:)
-              expect(subject).to render_template(:compare_draft)
-            end
-          end
-
-          context "without similar emendations" do
-            it "redirects to edit_draft" do
-              get(:compare_draft, params:)
-              expect(response).to redirect_to edit_draft_amend_path(amendment)
-            end
-          end
-        end
-      end
-    end
-
     describe "GET edit_draft" do
       context "when the amendment is a draft" do
         let(:amendment_state) { "draft" }

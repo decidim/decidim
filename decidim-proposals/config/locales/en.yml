@@ -187,9 +187,7 @@ en:
             proposal_length: Maximum proposal body length
             proposal_limit: Proposal limit per participant
             proposal_wizard_step_1_help_text: Proposal wizard "Create" step help text
-            proposal_wizard_step_2_help_text: Proposal wizard "Compare" step help text
-            proposal_wizard_step_3_help_text: Proposal wizard "Complete" step help text
-            proposal_wizard_step_4_help_text: Proposal wizard "Publish" step help text
+            proposal_wizard_step_2_help_text: Proposal wizard "Publish" step help text
             resources_permissions_enabled: Actions permissions can be set for each proposal
             scope_id: Scope
             scopes_enabled: Scopes enabled
@@ -766,13 +764,6 @@ en:
         create:
           error: There was a problem supporting the proposal.
       proposals:
-        compare:
-          continue: Continue
-          no_similars_found: Well done! No similar proposals found
-          title: Similar Proposals
-        complete:
-          send: Send
-          title: Complete your proposal
         dynamic_map_instructions:
           description: The coordinates will be updated when clicking on 'preview' button. However, the address does not change.
           instructions: You can move the point on the map.
@@ -894,15 +885,11 @@ en:
         wizard_aside:
           back: Back
           back_from_step_1: Back to proposals
-          back_from_step_2: Back to proposals
-          back_from_step_3: Back to compare proposals
-          back_from_step_4: Back to edit draft
+          back_from_step_2: Back to edit
         wizard_steps:
           current_step: Current step
           step_1: Create your proposal
-          step_2: Compare
-          step_3: Complete
-          step_4: Publish your proposal
+          step_2: Publish your proposal
           title: Proposal creation steps
       proposals_picker:
         choose_proposals: Choose proposals
