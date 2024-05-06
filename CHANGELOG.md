@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [0.27.6](https://github.com/decidim/decidim/tree/0.27.6)
+
 ### Upgrade notes
 
 #### Verifications documents configurations
