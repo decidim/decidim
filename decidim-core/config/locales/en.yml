@@ -1,5 +1,6 @@
 ---
 en:
+
   activemodel:
     attributes:
       account:
@@ -1240,6 +1241,7 @@ en:
     notifications:
       no_notifications: No notifications yet.
       show:
+        moderated: Content moderated
         missing_event: Oops, this notification belongs to an item that is no longer available. You can discard it.
     notifications_digest_mailer:
       header:
