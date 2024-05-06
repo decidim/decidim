@@ -150,10 +150,10 @@ describe "Conference registrations" do
       it "does not show the register button" do
         visit_conference
         within ".conference__hero" do
-          expect(page).to have_no_content "Register"
+          expect(page).not_to have_content "Register"
         end
         within ".conference__content-block" do
-          expect(page).to have_no_content "Register"
+          expect(page).not_to have_content "Register"
         end
       end
     end
@@ -164,10 +164,10 @@ describe "Conference registrations" do
       it "does not show the register button" do
         visit_conference
         within ".conference__hero" do
-          expect(page).to have_no_content "Register"
+          expect(page).not_to have_content "Register"
         end
         within ".conference__content-block" do
-          expect(page).to have_no_content "Register"
+          expect(page).not_to have_content "Register"
         end
       end
     end
