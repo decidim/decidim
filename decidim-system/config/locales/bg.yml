@@ -233,7 +233,14 @@ bg:
             app_secret: Тайна на приложението
           google_oauth2:
             client_id: ID на клиента
+            client_secret: Тайна на клиента
+          icon: Икона
+          icon_path: Път до иконата
+          twitter:
+            api_key: API ключ
+            api_secret: Тайна на API
         resend_invitation:
+          error: Възникна проблем при изпращането на поканата.
           success: Поканата е изпратена успешно.
         smtp_settings:
           fieldsets:
