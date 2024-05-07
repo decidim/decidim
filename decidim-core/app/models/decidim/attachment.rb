@@ -12,7 +12,7 @@ module Decidim
 
     translatable_fields :title, :description
     belongs_to :attachment_collection, class_name: "Decidim::AttachmentCollection", optional: true
-    belongs_to :attached_to, polymorphic: true
+    belongs_to :attached_to, polymorphic: true, counter_cache: true
 
     has_one_attached :file
     validates_upload :file, uploader: Decidim::AttachmentUploader
@@ -21,9 +21,6 @@ module Decidim
     delegate :attached?, to: :file
 
     default_scope { order(arel_table[:weight].asc, arel_table[:id].asc) }
-
-    after_create_commit :increase_attachment_counter
-    after_destroy_commit :decrease_attachment_counter
 
     # Returns the organization related to this attachment in case the
     # attached_to model belongs to an organization. Otherwise will return nil.
@@ -100,32 +97,6 @@ module Decidim
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::AttachmentPresenter
-    end
-
-    private
-
-    # rubocop:disable Rails/SkipsModelValidations
-    def increase_attachment_counter
-      return if dummy_resource_class?
-
-      attached_to.increment!(:attachments_count)
-    end
-
-    def decrease_attachment_counter
-      return if dummy_resource_class?
-
-      attached_to.decrement!(:attachments_count)
-    end
-    # rubocop:enable Rails/SkipsModelValidations
-
-    # Skip the attachments counter_cache if this is a DummyResource class or if it is the Organization class
-    # (both used in tests).
-    # In the case of the DummyResource class, as it does not have a table so the counter_cache does not work on it
-    # In the case of the Organization class, it is only used for tests, so it does not need the column in the table
-    def dummy_resource_class?
-      return false unless defined?("Decidim::Dev")
-
-      [::Decidim::Dev::DummyResource, ::Decidim::Organization].any? { |klass| attached_to.instance_of? klass }
     end
   end
 end

@@ -46,8 +46,8 @@ module Decidim
             total_count: proposal.endorsements.size,
             user_endorsements:
           },
-          comments: proposal.comments_count,
-          attachments: proposal.attachments.count,
+          comments: proposal.comments.size,
+          attachments: proposal.attachments.size,
           followers: proposal.follows.size,
           published_at: proposal.published_at,
           url:,
