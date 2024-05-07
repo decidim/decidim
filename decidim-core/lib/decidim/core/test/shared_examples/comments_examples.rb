@@ -54,7 +54,7 @@ shared_examples "comments" do
       expect(page).to have_css(".comment", minimum: 1)
 
       within("#accordion-#{single_comment.id}") do
-        expect(page).to have_content "Hide replies"
+        expect(page).to have_content "Hide reply"
       end
     end
 
@@ -70,7 +70,7 @@ shared_examples "comments" do
         expect(page).to have_css(".comment", minimum: 1)
 
         within("#accordion-#{single_comment.id}") do
-          expect(page).not_to have_content "Hide replies"
+          expect(page).not_to have_content "Hide reply"
         end
       end
     end
@@ -520,7 +520,7 @@ shared_examples "comments" do
         it "displays the hide button" do
           visit current_path
           within "#comment_#{thread.id}" do
-            expect(page).to have_content("Hide replies")
+            expect(page).to have_content("Hide reply")
             expect(page).to have_content(new_reply_body)
           end
         end
@@ -528,7 +528,7 @@ shared_examples "comments" do
         it "displays the show button" do
           visit current_path
           within "#comment_#{thread.id}" do
-            click_button "Hide replies"
+            click_button "Hide reply"
             expect(page).to have_content("Show reply")
             expect(page).not_to have_content(new_reply_body)
           end
@@ -540,7 +540,7 @@ shared_examples "comments" do
           it "displays the show button" do
             visit current_path
             within "#comment_#{thread.id}" do
-              click_button "Hide replies"
+              click_button "Hide 3 replies"
               expect(page).to have_content("Show 3 replies")
               expect(page).not_to have_content(new_reply_body)
             end
