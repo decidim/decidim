@@ -182,6 +182,7 @@ ja:
             proposal_length: 提案本文の最大長
             proposal_limit: 参加者ごとの提案数制限
             proposal_wizard_step_1_help_text: 提案ウィザード "作成" ステップヘルプ テキスト
+            proposal_wizard_step_2_help_text: 提案ウィザード "公開" ステップヘルプ テキスト
             resources_permissions_enabled: アクションの権限を提案ごとに設定する
             scope_id: スコープ
             scopes_enabled: スコープが有効
@@ -870,9 +871,11 @@ ja:
         wizard_aside:
           back: 戻る
           back_from_step_1: 提案に戻る
+          back_from_step_2:
         wizard_steps:
           current_step: 現在のステップ
           step_1: 提案を作成
+          step_2: 提案の公開
           title: 提案の作成手順
       proposals_picker:
         choose_proposals: 提案を選択
