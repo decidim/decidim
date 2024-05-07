@@ -340,6 +340,7 @@ ja:
       wizard_step_form:
         steps:
           '1': 修正を作成する
+          '2': 修正を公開
     anonymous_user: 匿名です
     application:
       document:
