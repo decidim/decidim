@@ -31,7 +31,7 @@ module Decidim
     end
 
     def button_label
-      return button_edit_label if attachments.size.positive?
+      return button_edit_label if attachments.count.positive?
 
       options[:button_label]
     end

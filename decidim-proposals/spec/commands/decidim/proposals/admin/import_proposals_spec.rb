@@ -224,7 +224,7 @@ module Decidim
                 end.to change(Attachment, :count).by(1)
 
                 new_proposal = Proposal.where(component: current_component).last
-                expect(new_proposal.attachments.size).to eq(1)
+                expect(new_proposal.attachments.count).to eq(1)
               end
             end
           end

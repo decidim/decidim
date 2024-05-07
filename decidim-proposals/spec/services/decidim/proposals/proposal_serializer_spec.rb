@@ -132,7 +132,7 @@ module Decidim
         end
 
         it "serializes the amount of attachments" do
-          expect(serialized).to include(attachments: proposal.attachments.size)
+          expect(serialized).to include(attachments: proposal.attachments.count)
         end
 
         it "serializes the endorsements" do
