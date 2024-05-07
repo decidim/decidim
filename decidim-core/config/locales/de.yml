@@ -354,6 +354,7 @@ de:
       wizard_step_form:
         steps:
           '1': Erstellen Sie Ihre Änderung
+          '2': Änderung veröffentlichen
     anonymous_user: Anonym
     application:
       document:
