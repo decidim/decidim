@@ -9,7 +9,7 @@ module Decidim
       let(:organization) { create(:organization, smtp_settings:) }
       let(:smtp_settings) do
         {
-          "address" => "mail.gotham.gov",
+          "address" => "mail.example.org",
           "port" => "25",
           "user_name" => "f.laguardia",
           "encrypted_password" => Decidim::AttributeEncryptor.encrypt("password"),
@@ -24,7 +24,7 @@ module Decidim
       let(:mail_subject) { "Test subject" }
 
       it "update correctly mail.delivery_method.settings" do
-        expect(mail.delivery_method.settings[:address]).to eq("mail.gotham.gov")
+        expect(mail.delivery_method.settings[:address]).to eq("mail.example.org")
         expect(mail.delivery_method.settings[:port]).to eq("25")
         expect(mail.delivery_method.settings[:user_name]).to eq("f.laguardia")
         expect(mail.delivery_method.settings[:password]).to eq("password")
