@@ -186,6 +186,7 @@ de:
             proposal_length: Maximale Länge des Haupttextes
             proposal_limit: Vorschlagslimit pro Benutzer
             proposal_wizard_step_1_help_text: Hilfetext "Erstellen"-Schritt im Vorschlagsassistenten
+            proposal_wizard_step_2_help_text: Hilfetext "Veröffentlichen"-Schritt im Vorschlagsassistenten
             resources_permissions_enabled: Berechtigungen können für jeden Vorschlag festgelegt werden
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
@@ -883,9 +884,11 @@ de:
         wizard_aside:
           back: Zurück
           back_from_step_1: Zurück zu Vorschlägen
+          back_from_step_2: Zurück zum Bearbeiten
         wizard_steps:
           current_step: Aktueller Schritt
           step_1: Vorschlag erstellen
+          step_2: Vorschlag veröffentlichen
           title: Schritten zur Erstellung von Vorschlägen
       proposals_picker:
         choose_proposals: Vorschläge auswählen
