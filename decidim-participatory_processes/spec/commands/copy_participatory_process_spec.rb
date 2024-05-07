@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::ParticipatoryProcesses
   describe Admin::CopyParticipatoryProcess do
-    subject { described_class.new(form, participatory_process, user) }
+    subject { described_class.new(form, participatory_process) }
 
     let(:organization) { create(:organization) }
     let(:user) { create(:user, organization:) }
