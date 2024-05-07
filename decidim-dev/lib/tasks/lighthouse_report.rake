@@ -16,8 +16,8 @@ namespace :decidim do
       host = "http://localhost:3000"
       urls = ["/"]
       urls << ::Decidim::ResourceLocatorPresenter.new(Decidim::ParticipatoryProcess.published.first).path
-      urls << ::Decidim::ResourceLocatorPresenter.new(Decidim::Meetings::Meeting.published.first).path
-      urls << ::Decidim::ResourceLocatorPresenter.new(Decidim::Proposals::Proposal.published.first).path
+      urls << ::Decidim::ResourceLocatorPresenter.new(Decidim::Meetings::Meeting.published.not_hidden.first).path
+      urls << ::Decidim::ResourceLocatorPresenter.new(Decidim::Proposals::Proposal.published.not_hidden.first).path
 
       # Update lighthouse configuration with the urls
       lighthouse_rc_path = Rails.root.join("../.lighthouserc.json")
