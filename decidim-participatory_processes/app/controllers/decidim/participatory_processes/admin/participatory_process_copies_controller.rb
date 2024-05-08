@@ -15,7 +15,7 @@ module Decidim
 
         def create
           enforce_permission_to :create, :process
-          @form = form(ParticipatoryProcessCopyForm).from_params(params)
+          @form = form(ParticipatoryProcessCopyForm).from_params(params).with_context(current_user:)
 
           CopyParticipatoryProcess.call(@form, current_participatory_process) do
             on(:ok) do
