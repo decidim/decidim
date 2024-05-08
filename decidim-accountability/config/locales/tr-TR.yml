@@ -225,15 +225,7 @@ tr:
           search: İşlemleri ara
         show:
           stats:
-            attendees: Katılımcılar
             back_to_resource: Sonuca geri dön
-            comments: Yorumlar
-            contributions: Katılımlar
-            last_edited_by: Son düzenleyen
-            last_updated_at: Son güncelleme
-            meetings: Toplantılar
-            proposals: Teklifler
-            votes: Destekler
         timeline:
           title: Proje gelişimi
     admin:

@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe CreateProposal do
-      let(:form_klass) { ProposalWizardCreateStepForm }
+      let(:form_klass) { ProposalForm }
       let(:component) { create(:proposal_component) }
       let(:organization) { component.organization }
       let(:user) { create(:user, :admin, :confirmed, organization:) }

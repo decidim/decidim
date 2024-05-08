@@ -144,6 +144,7 @@ de:
       external_link: Externer Link
       front_page_link: Zur Startseite gehen
       logo: "Offizielles Logo von %{organization}"
+      opens_in_new_tab: In neuem Tab öffnen
       skip_button: Zu Hauptinhalten überspringen
     account:
       blocked: Dieses Konto wurde wegen Verletzung der Nutzungsbedingungen gesperrt

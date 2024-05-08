@@ -11,8 +11,10 @@
         collection,
         :first,
         :last
-    ) do |builder|
-      builder.label(class: "filter") { builder.send(builder_type.singularize, class: "reset-defaults") + filter_text_for(builder.text) }
-    end %>
+    ) do |builder| %>
+      <div class="filter">
+        <%= builder.label { builder.send(builder_type.singularize, class: "reset-defaults") + filter_text_for(builder.text) } %>
+      </div>
+    <% end %>
   </div>
 </div>

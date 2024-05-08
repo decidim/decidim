@@ -22,15 +22,6 @@ module Decidim
     include ActiveSupport::Configurable
     autoload :DummyTranslator, "decidim/dev/dummy_translator"
 
-    # Settings needed to compare emendations in Decidim::SimilarEmendations
-    config_accessor :similarity_threshold do
-      0.25
-    end
-
-    config_accessor :similarity_limit do
-      10
-    end
-
     # Public: Finds an asset.
     #
     # Returns a String with the path for a particular asset.

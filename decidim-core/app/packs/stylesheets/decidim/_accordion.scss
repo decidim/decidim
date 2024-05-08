@@ -4,10 +4,10 @@
 
 [data-component="accordion"]
   [id*="comment"][class="comment-reply"][aria-hidden="true"] {
-  display: block;
+  display: none;
 }
 
 [data-component="accordion"]
   [id*="comment"][class="comment-reply"][aria-hidden="false"] {
-  display: none;
+  display: block;
 }

@@ -478,7 +478,6 @@ ro:
           other: " semnături"
         vote_cabin:
           already_voted: Deja semnat
-          supports_required: "%{total_supports} semnături necesare"
           verification_required: Verifică-ți contul pentru a semna inițiativa
           vote: Semnare
           votes_blocked: Semnarea este dezactivată

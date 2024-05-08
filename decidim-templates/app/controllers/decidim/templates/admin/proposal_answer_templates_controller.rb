@@ -55,7 +55,9 @@ module Decidim
         end
 
         def fetch
-          enforce_permission_to(:read, :template, template:)
+          enforce_permission_to(:read, :template, template:, proposal:)
+
+          return render json: { msg: I18n.t("templates.fetch.error", scope: "decidim.admin") }, status: :unprocessable_entity if template.blank?
 
           state = fetch_proposal_state(template)
 
