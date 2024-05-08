@@ -13,6 +13,8 @@ module Decidim
 
         reset_column_information
 
+        ActiveJob::Base.queue_adapter = :inline
+
         organization = create_organization!
 
         if organization.top_scopes.none?

@@ -173,6 +173,9 @@ module Decidim
           resource:,
           followers: resource.participatory_space.followers
         )
+
+        Decidim::Comments::Seed.comments_for(resource)
+
         resource
       end
 

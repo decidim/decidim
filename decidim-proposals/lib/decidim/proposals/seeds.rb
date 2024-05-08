@@ -126,10 +126,10 @@ module Decidim
           proposal.save!
 
           Decidim::EventsManager.publish(
-            event: "decidim.events.proposals.proposal_published",
+            event: "decidim.events.proposals.proposal_published_for_space",
             event_class: Decidim::Proposals::PublishProposalEvent,
             resource: proposal,
-            followers: []
+            followers: proposal.participatory_space.followers
           )
 
           proposal
