@@ -175,12 +175,16 @@ module Decidim
         rails "decidim:choose_target_plugins", "railties:install:migrations"
         recreate_db if options[:recreate_db]
       end
-      
+
+      def db_migrate
+        rails "db:migrate"
+      end
+
       def precompile_assets
         rails "assets:precompile"
       end
 
-      def seed
+      def db_seed
         rails "db:seed" if options[:seed_db]
       end
 
@@ -193,8 +197,6 @@ module Decidim
       def recreate_db
         soft_rails "db:environment:set", "db:drop"
         rails "db:create"
-
-        rails "db:migrate"
       end
 
       # Runs rails commands in a subprocess, and aborts if it does not succeed
