@@ -16,7 +16,7 @@ module Decidim
           let(:from_label) { "Decide Gotham" }
           let(:params) do
             {
-              name: { en: "Gotham City" },
+              name: "Gotham City",
               host: "decide.gotham.gov",
               secondary_hosts: "foo.gotham.gov\r\n\r\nbar.gotham.gov",
               reference_prefix: "JKR",

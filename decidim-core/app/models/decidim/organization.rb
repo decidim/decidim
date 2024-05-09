@@ -64,7 +64,15 @@ module Decidim
 
     def unique_name
       base_query = new_record? ? Decidim::Organization.all : Decidim::Organization.where.not(id:).all
-      organization_names = base_query.pluck(:name).collect(&:values).flatten.map(&:downcase)
+
+      organization_names = []
+
+      base_query.pluck(:name).each do |value|
+        organization_names += value.except("machine_translations").values
+        organization_names += value.fetch("machine_translations", {}).values
+      end
+
+      organization_names = organization_names.map(&:downcase)
 
       name.each do |language, value|
         next if value.is_a?(Hash)

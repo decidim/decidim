@@ -41,7 +41,7 @@ describe "Organizations" do
       end
 
       it "creates a new organization" do
-        fill_in_i18n :organization_name, "#organization-name-tabs", en: "Citizen Corp"
+        fill_in "Name", with: "Citizen Corp"
         fill_in "Host", with: "www.example.org"
         fill_in "Secondary hosts", with: "foo.example.org\n\rbar.example.org"
         fill_in "Reference prefix", with: "CCORP"
@@ -64,7 +64,7 @@ describe "Organizations" do
 
       context "with invalid data" do
         it "does not create an organization" do
-          fill_in_i18n :organization_name, "#organization-name-tabs", en: "Bad"
+          fill_in "Name", with: "Bad"
           click_on "Create organization & invite admin"
 
           expect(page).to have_content("There is an error in this field")
@@ -122,16 +122,16 @@ describe "Organizations" do
       it_behaves_like "form hiding advanced settings"
 
       it "edits the data" do
-        fill_in_i18n :organization_name, "#organization-name-tabs", en: "Citizens Rule!"
+        fill_in_i18n :update_organization_name, "#update_organization-name-tabs", en: "Citizens Rule!"
         fill_in "Host", with: "www.example.org"
         fill_in "Secondary hosts", with: "foobar.example.org\n\rbar.example.org"
         choose "Do not allow participants to register, but allow existing participants to login"
         check "Example authorization (Direct)"
 
         click_on "Show advanced settings"
-        check "organization_omniauth_settings_facebook_enabled"
-        fill_in "organization_omniauth_settings_facebook_app_id", with: "facebook-app-id"
-        fill_in "organization_omniauth_settings_facebook_app_secret", with: "facebook-app-secret"
+        check "update_organization_omniauth_settings_facebook_enabled"
+        fill_in "update_organization_omniauth_settings_facebook_app_id", with: "facebook-app-id"
+        fill_in "update_organization_omniauth_settings_facebook_app_secret", with: "facebook-app-secret"
 
         click_on "Save"
 
@@ -174,7 +174,9 @@ describe "Organizations" do
         )
 
         # Reload the UpdateOrganizationForm
+        Decidim::System.send(:remove_const, :OrganizationForm)
         Decidim::System.send(:remove_const, :UpdateOrganizationForm)
+        load "#{Decidim::System::Engine.root}/app/forms/decidim/system/organization_form.rb"
         load "#{Decidim::System::Engine.root}/app/forms/decidim/system/update_organization_form.rb"
 
         click_on "Organizations"
@@ -187,7 +189,9 @@ describe "Organizations" do
 
       after do
         # Reload the UpdateOrganizationForm
+        Decidim::System.send(:remove_const, :OrganizationForm)
         Decidim::System.send(:remove_const, :UpdateOrganizationForm)
+        load "#{Decidim::System::Engine.root}/app/forms/decidim/system/organization_form.rb"
         load "#{Decidim::System::Engine.root}/app/forms/decidim/system/update_organization_form.rb"
       end
 
