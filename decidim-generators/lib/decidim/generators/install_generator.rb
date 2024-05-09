@@ -183,7 +183,7 @@ module Decidim
         rails "db:create"
 
         rails "db:migrate"
-        
+
         rails "assets:precompile"
 
         rails "db:seed" if options[:seed_db]
