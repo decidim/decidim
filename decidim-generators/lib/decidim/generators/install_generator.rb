@@ -189,7 +189,7 @@ module Decidim
       end
 
       def test_prepare
-        rails "db:test:prepare"
+        rails "db:test:prepare" if options[:recreate_db]
       end
 
       private
