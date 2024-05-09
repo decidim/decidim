@@ -171,13 +171,21 @@ module Decidim
         run "bundle install"
       end
 
+      def copy_migrations
+        rails "decidim:choose_target_plugins", "railties:install:migrations"
+        recreate_db if options[:recreate_db]
+      end
+      
       def precompile_assets
         rails "assets:precompile"
       end
 
-      def copy_migrations
-        rails "decidim:choose_target_plugins", "railties:install:migrations"
-        recreate_db if options[:recreate_db]
+      def seed
+        rails "db:seed" if options[:seed_db]
+      end
+
+      def test_prepare
+        rails "db:test:prepare"
       end
 
       private
@@ -187,10 +195,6 @@ module Decidim
         rails "db:create"
 
         rails "db:migrate"
-
-        rails "db:seed" if options[:seed_db]
-
-        rails "db:test:prepare"
       end
 
       # Runs rails commands in a subprocess, and aborts if it does not succeed
