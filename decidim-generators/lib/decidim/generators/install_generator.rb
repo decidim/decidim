@@ -171,6 +171,10 @@ module Decidim
         run "bundle install"
       end
 
+      def precompile_assets
+        rails "assets:precompile"
+      end
+
       def copy_migrations
         rails "decidim:choose_target_plugins", "railties:install:migrations"
         recreate_db if options[:recreate_db]
