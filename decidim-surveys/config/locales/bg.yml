@@ -9,3 +9,25 @@ bg:
       decidim/surveys/survey:
         one: Анкета
         other: Анкети
+      decidim/surveys/survey_answer:
+        one: Отговор
+        other: Отговори
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Отговор
+        name: Анкета
+        settings:
+          global:
+            announcement: Съобщение
+            clean_after_publish: Изтриване на отговорите при публикуване на проучването
+            ends_at: Отговорите се приемат до
+            ends_at_help: Оставете празно при липса на конкретна дата
+            scope_id: Обхват
+            scopes_enabled: Обхватите са активирани
+            starts_at: Отговорите се приемат от
+            starts_at_help: Оставете празно при липса на конкретна дата
+          step:
+            allow_answers: Разрешаване на отговори
+            allow_unregistered: Разрешаване на нерегистрирани потребители да отговарят на въпросите в проучването
