@@ -6,14 +6,25 @@ As usual, we recommend that you have a full backup, of the database, application
 
 To update, follow these steps:
 
-### 1.1. Update your Gemfile
+### 1.1. Update your ruby version
+
+If you're using rbenv, this is done with the following commands:
+
+```console
+rbenv install 3.2.2
+rbenv local 3.2.2
+```
+
+If not, you need to adapt it to your environment. See "2.1. Ruby update to 3.2"
+
+### 2.1. Update your Gemfile
 
 ```ruby
 gem "decidim", github: "decidim/decidim"
 gem "decidim-dev", github: "decidim/decidim"
 ```
 
-### 1.2. Run these commands
+### 2.2. Run these commands
 
 ```console
 bundle update decidim
@@ -21,9 +32,20 @@ bin/rails decidim:upgrade
 bin/rails db:migrate
 ```
 
-### 1.3. Follow the steps and commands detailed in these notes
+### 2.3. Follow the steps and commands detailed in these notes
 
 ## 2. General notes
+
+## 2.1. Ruby update to 3.2
+
+We have updated the Ruby version to 3.2.2. Upgrading to this version will require either to install this Ruby version on your host, or change the decidim docker image to use ruby:3.2.2.
+You can read more about this change on PR [#12199](https://github.com/decidim/decidim/pull/12199).
+
+## 2.2. Rails update to 7.0
+
+We have updated the Rails version to 7.0.8.1. You do not need to do anything.
+
+You can read more about this change on PR [#12616](https://github.com/decidim/decidim/pull/12616).
 
 ## 3. One time actions
 

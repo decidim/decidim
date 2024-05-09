@@ -16,8 +16,7 @@ module Decidim
         include_hidden: false,
         label_options: {
           "data-children-checkbox": parent_id,
-          value:,
-          class: "filter"
+          value:
         }
       }
       options.merge!(checkbox_options)
@@ -93,7 +92,7 @@ module Decidim
     end
 
     def filter_global_scopes_values
-      filter_scopes_values_from(current_organization.scopes.top_level.includes(:scope_type, :children))
+      filter_scopes_values_from(current_organization.scopes.top_level)
     end
 
     def filter_areas_values

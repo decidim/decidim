@@ -196,15 +196,7 @@ sv:
           search: Sök efter åtgärder
         show:
           stats:
-            attendees: Deltagare
             back_to_resource: Gå tillbaka till resultatet
-            comments: Kommentarer
-            contributions: Bidrag
-            last_edited_by: Senast ändrad av
-            last_updated_at: Senast uppdaterad den
-            meetings: Möten
-            proposals: Förslag
-            votes: Stöd
         timeline:
           title: Projektutveckling
     admin:

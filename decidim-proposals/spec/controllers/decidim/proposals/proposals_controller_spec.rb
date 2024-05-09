@@ -207,20 +207,6 @@ module Decidim
           end
         end
 
-        context "when you try to complete a proposal created by another user" do
-          it "will not render the complete page" do
-            get(:complete, params:)
-            expect(subject).not_to render_template(:complete)
-          end
-        end
-
-        context "when you try to compare a proposal created by another user" do
-          it "will not render the compare page" do
-            get(:compare, params:)
-            expect(subject).not_to render_template(:compare)
-          end
-        end
-
         context "when you try to publish a proposal created by another user" do
           it "will not render the publish page" do
             post(:publish, params:)

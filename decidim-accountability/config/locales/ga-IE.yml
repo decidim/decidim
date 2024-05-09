@@ -76,12 +76,6 @@ ga:
         home:
           categories_label: Catagóirí
           subcategories_label: Fochatagóirí
-        show:
-          stats:
-            comments: Tráchtanna
-            meetings: Cruinnithe
-            proposals: Moltaí
-            votes: Tacaíochtaí
     admin:
       filters:
         results:

@@ -122,15 +122,7 @@ uk:
           search: Пошук дій
         show:
           stats:
-            attendees: Учасники
             back_to_resource: Повернутися до підсумків
-            comments: Коментарів
-            contributions: Внесені пропозиції
-            last_edited_by: Останній раз редагувалося
-            last_updated_at: Останній раз оновлювалося
-            meetings: Зустрічі
-            proposals: Пропозиції
-            votes: Підтримує
         timeline:
           title: Розвиток проекту
     components:
