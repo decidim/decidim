@@ -59,7 +59,7 @@ module Decidim::Proposals
         let(:cell_html) { my_cell.call }
 
         it "renders amendment text" do
-          expect(subject).to have_css("div.card__list-metadata span", text: "Amendment")
+          expect(subject).to have_css("div.card__list-metadata div", text: "Amendment")
         end
 
         it "renders the emendation state (evaluating by default)" do

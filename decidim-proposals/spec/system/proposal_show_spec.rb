@@ -64,7 +64,7 @@ describe "Show a Proposal" do
         context "when author does not restrict messaging" do
           it "includes a link to message the proposal author" do
             within "[data-author]" do
-              find("div.author__container").hover
+              find(".author__container").hover
             end
             expect(page).to have_link("Send private message")
           end
