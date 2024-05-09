@@ -176,27 +176,19 @@ module Decidim
         recreate_db if options[:recreate_db]
       end
 
-      def db_migrate
-        rails "db:migrate"
-      end
-
-      def precompile_assets
-        rails "assets:precompile"
-      end
-
-      def db_seed
-        rails "db:seed" if options[:seed_db]
-      end
-
-      def test_prepare
-        rails "db:test:prepare" if options[:recreate_db]
-      end
-
       private
 
       def recreate_db
         soft_rails "db:environment:set", "db:drop"
         rails "db:create"
+
+        rails "db:migrate"
+        
+        rails "assets:precompile"
+
+        rails "db:seed" if options[:seed_db]
+
+        rails "db:test:prepare"
       end
 
       # Runs rails commands in a subprocess, and aborts if it does not succeed
@@ -206,7 +198,7 @@ module Decidim
 
       # Runs rails commands in a subprocess silencing errors, and ignores status
       def soft_rails(*)
-        system("bin/rails --trace", *, err: File::NULL)
+        system("bin/rails", *, err: File::NULL)
       end
 
       def cut(text, strip: true)
