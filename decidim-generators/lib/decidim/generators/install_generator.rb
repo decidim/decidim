@@ -186,19 +186,19 @@ module Decidim
 
         rails "assets:precompile"
 
-        rails "db:seed" if options[:seed_db]
+        rails "--trace db:seed" if options[:seed_db]
 
         rails "db:test:prepare"
       end
 
       # Runs rails commands in a subprocess, and aborts if it does not succeed
       def rails(*)
-        abort unless system("bin/rails --trace", *)
+        abort unless system("bin/rails", *)
       end
 
       # Runs rails commands in a subprocess silencing errors, and ignores status
       def soft_rails(*)
-        system("bin/rails --trace", *, err: File::NULL)
+        system("bin/rails", *, err: File::NULL)
       end
 
       def cut(text, strip: true)
