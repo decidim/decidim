@@ -26,8 +26,8 @@ module Decidim
         2.times do |_n|
           process = create_process!(process_group: process_groups.sample, process_type: process_types.sample)
 
-          create_follow!(admin_user, process)
-          create_follow!(Decidim::User.where(admin: false).first, process)
+          create_follow!(Decidim::User.where(organization:, admin: true).first, process)
+          create_follow!(Decidim::User.where(organization:, admin: false).first, process)
 
           create_process_step!(process:)
 
