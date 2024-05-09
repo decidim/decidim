@@ -186,7 +186,7 @@ module Decidim
 
         rails "assets:precompile"
 
-        rails "--trace db:seed" if options[:seed_db]
+        rails "--trace", "db:seed" if options[:seed_db]
 
         rails "db:test:prepare"
       end
