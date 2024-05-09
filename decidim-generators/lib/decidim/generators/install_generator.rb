@@ -193,12 +193,12 @@ module Decidim
 
       # Runs rails commands in a subprocess, and aborts if it does not succeed
       def rails(*)
-        abort unless system("bin/rails", *)
+        abort unless system("bin/rails --trace", *)
       end
 
       # Runs rails commands in a subprocess silencing errors, and ignores status
       def soft_rails(*)
-        system("bin/rails", *, err: File::NULL)
+        system("bin/rails --trace", *, err: File::NULL)
       end
 
       def cut(text, strip: true)
