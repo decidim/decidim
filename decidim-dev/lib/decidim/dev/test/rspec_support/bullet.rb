@@ -17,6 +17,10 @@ RSpec.configure do |config|
     Bullet.unused_eager_loading_enable = Decidim::Env.new("DECIDIM_BULLET_UNUSED_EAGER", "false").present?
     # Detect unnecessary COUNT queries which could be avoided with a counter_cache
     Bullet.counter_cache_enable = Decidim::Env.new("DECIDIM_BULLET_COUNTER_CACHE", "true").present?
+
+    # Having a counter cache for this column is too difficult, as this should also work for the Decidim::DummyResource
+    # model, and counter_cache needs a real table in the database.
+    Bullet.add_safelist type: :counter_cache, class_name: "Decidim::Proposals::Proposal", association: :attachments
   end
 
   if Bullet.enable?

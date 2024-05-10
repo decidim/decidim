@@ -31,7 +31,7 @@ shared_examples_for "copies all questionnaire contents" do
     end
 
     def check_answer_options(source_question, new_question)
-      expect(source_question.answer_options.count).to eq(new_question.answer_options.count)
+      expect(source_question.answer_options.size).to eq(new_question.answer_options.size)
 
       source_question.answer_options.each_with_index do |source_answer_option, idx|
         new_answer_option = new_question.answer_options[idx]
@@ -41,7 +41,7 @@ shared_examples_for "copies all questionnaire contents" do
     end
 
     def check_matrix_rows(source_question, new_question)
-      expect(source_question.matrix_rows.count).to eq(new_question.matrix_rows.count)
+      expect(source_question.matrix_rows.size).to eq(new_question.matrix_rows.size)
 
       source_question.matrix_rows.each_with_index do |source_matrix_row, idx|
         new_matrix_row = new_question.matrix_rows[idx]
@@ -52,7 +52,7 @@ shared_examples_for "copies all questionnaire contents" do
     end
 
     def check_display_conditions(source_display_conditions, new_display_conditions)
-      expect(source_display_conditions.count).to eq(new_display_conditions.count)
+      expect(source_display_conditions.size).to eq(new_display_conditions.size)
 
       source_display_conditions.each_with_index do |source_matrix_row, idx|
         new_matrix_row = new_display_conditions[idx]
