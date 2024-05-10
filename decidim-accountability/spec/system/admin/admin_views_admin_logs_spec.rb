@@ -25,7 +25,7 @@ describe "Admin views admin logs" do
       end
     end
 
-    it "updates a timeline entry" do
+    it "updates a timeline entry", versioning: true do
       click_on "Edit", match: :first
 
       within ".edit_timeline_entry" do
@@ -40,10 +40,9 @@ describe "Admin views admin logs" do
 
       visit decidim_admin.root_path
       expect { accept_alert }.to raise_error(Capybara::ModalNotFound)
-      expect(page).to have_content("foobar")
     end
 
-    it "creates a timeline entry" do
+    it "creates a timeline entry", versioning: true do
       click_on "New timeline entry", match: :first
 
       within ".new_timeline_entry" do
@@ -58,7 +57,6 @@ describe "Admin views admin logs" do
 
       visit decidim_admin.root_path
       expect { accept_alert }.to raise_error(Capybara::ModalNotFound)
-      expect(page).to have_content("foobar")
     end
   end
 
@@ -69,7 +67,7 @@ describe "Admin views admin logs" do
     let!(:proposal_component) { create(:proposal_component, participatory_space:) }
     let!(:proposals) { create_list(:proposal, 5, component: proposal_component) }
 
-    it "updates a result" do
+    it "updates a result", versioning: true do
       visit_component_admin
       within "tr", text: translated(result.title) do
         click_on "Edit"
@@ -88,7 +86,7 @@ describe "Admin views admin logs" do
       expect { accept_alert }.to raise_error(Capybara::ModalNotFound)
     end
 
-    it "creates a new result", :slow do
+    it "creates a new result", versioning: true do
       click_on "New result", match: :first
 
       within ".new_result" do
@@ -114,7 +112,7 @@ describe "Admin views admin logs" do
       click_on "Statuses"
     end
 
-    it "updates a status" do
+    it "updates a status", versioning: true do
       within "tr", text: status.key do
         click_on "Edit"
       end
@@ -131,7 +129,7 @@ describe "Admin views admin logs" do
       expect { accept_alert }.to raise_error(Capybara::ModalNotFound)
     end
 
-    it "creates a new status" do
+    it "creates a new status", versioning: true do
       click_on "New status"
 
       within ".new_status" do

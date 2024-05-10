@@ -29,7 +29,7 @@ describe "Admin views admin logs" do
       visit_component_admin
     end
 
-    it "updates a meeting" do
+    it "updates a meeting", versioning: true do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         click_on "Edit"
       end
@@ -51,7 +51,7 @@ describe "Admin views admin logs" do
       expect { accept_alert }.to raise_error(Capybara::ModalNotFound)
     end
 
-    it "creates a new meeting" do
+    it "creates a new meeting", versioning: true do
       click_on "New meeting"
       fill_in_i18n(:meeting_title, "#meeting-title-tabs", **attributes[:title].except("machine_translations"))
 
