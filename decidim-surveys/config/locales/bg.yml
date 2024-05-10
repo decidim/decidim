@@ -38,3 +38,32 @@ bg:
           email_intro: Анкетата %{resource_title} в(ъв) %{participatory_space_title} беше затворена.
           email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предходния линк.
           email_subject: Приключи анкетата в(ъв) %{participatory_space_title}
+          notification_title: Анкетата <a href="%{resource_path}">%{resource_title}</a> в(ъв) <a href="%{participatory_space_url}">%{participatory_space_title}</a> приключи.
+        survey_opened:
+          email_intro: 'Анкетата %{resource_title} в(ъв) %{participatory_space_title} вече е отворена. Можете да участвате в нея от тази страница:'
+          email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предходния линк.
+          email_subject: Нова анкета в(ъв) %{participatory_space_title}
+          notification_title: Анкетата <a href="%{resource_path}">%{resource_title}</a> в(ъв) <a href="%{participatory_space_url}">%{participatory_space_title}</a> вече е отворена.
+    metrics:
+      survey_answers:
+        description: Брой на анкетите с отговори от участници
+        object: отговори на анкети
+        title: Отговори на анкети
+    statistics:
+      answers_count: Отговори
+    surveys:
+      admin:
+        component:
+          actions:
+            answers_alert: Ако публикувате компонента, всички резултати ще бъдат премахнати.
+        exports:
+          survey_user_answers: Отговори на участник в анкети
+        surveys:
+          update:
+            invalid: Възникна проблем при запазването на анкетата.
+            success: Анкетата беше запазена успешно.
+      last_activity:
+        new_survey: 'Нова анкета:'
+      survey_confirmation_mailer:
+        confirmation:
+          body: Вие успешно отговорихте на анкетата %{questionnaire_title} в %{participatory_space}
