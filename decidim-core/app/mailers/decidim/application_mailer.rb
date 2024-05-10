@@ -30,13 +30,13 @@ module Decidim
       return if @organization.nil?
       return if already_defined_name_in_mail?(mail.from.first)
 
-      mail.from = get_from(mail.from.first)
+      mail.from = get_sender
     end
 
-    def get_from(from)
-      return default_from(from) if @organization.smtp_settings.blank?
-      return default_from(from) if @organization.smtp_settings["from"].nil?
-      return default_from(from) if @organization.smtp_settings["from"].empty?
+    def get_sender
+      return default_sender if @organization.smtp_settings.blank?
+      return default_sender if @organization.smtp_settings["from"].nil?
+      return default_sender if @organization.smtp_settings["from"].empty?
 
       smtp_settings_from = @organization.smtp_settings["from"]
       return smtp_settings_from if already_defined_name_in_mail?(smtp_settings_from)
@@ -44,8 +44,8 @@ module Decidim
       email_address_with_name(smtp_settings_from, @organization.name)
     end
 
-    def default_from(from)
-      email_address_with_name(from, @organization.name)
+    def default_sender
+      email_address_with_name(mail.from.first, @organization.name)
     end
 
     def already_defined_name_in_mail?(mail_address)
