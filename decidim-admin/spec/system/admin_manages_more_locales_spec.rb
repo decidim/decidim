@@ -11,7 +11,7 @@ describe "Admin language selector" do
   let(:organization) { create(:organization, available_locales:) }
 
   before do
-    # Reload the UpdateOrganizationForm
+    # Reload the StaticPageForm
     Decidim::Admin.send(:remove_const, :StaticPageForm)
     load "#{Decidim::Admin::Engine.root}/app/forms/decidim/admin/static_page_form.rb"
     switch_to_host(organization.host)
