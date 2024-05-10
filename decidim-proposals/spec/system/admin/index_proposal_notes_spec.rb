@@ -33,7 +33,7 @@ describe "Index Proposal Notes" do
   it "shows proposal notes for the current proposal" do
     proposal_notes.each do |proposal_note|
       expect(page).to have_content(proposal_note.author.name)
-      expect(page).to have_content(proposal_note.body)
+      expect(page).to have_content(decidim_sanitize_translated(proposal_note.body))
     end
     expect(page).to have_css("form")
   end
