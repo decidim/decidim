@@ -145,7 +145,7 @@ module Decidim
 
                 expect(organization.smtp_settings["from"]).to eq("decide@example.org")
                 expect(organization.smtp_settings["from_email"]).to eq("decide@example.org")
-                expect(last_email.From.value).to eq("decide@example.org")
+                expect(last_email.From.value).to eq("Gotham City <decide@example.org>")
               end
             end
           end
