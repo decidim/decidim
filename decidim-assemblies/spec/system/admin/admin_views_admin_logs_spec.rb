@@ -159,7 +159,6 @@ describe "Admin views admin logs" do
 
       visit decidim_admin.root_path
       expect { accept_alert }.to raise_error(Capybara::ModalNotFound)
-      expect(page).to have_content("aaa")
     end
   end
 
