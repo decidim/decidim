@@ -14,20 +14,22 @@ module Decidim
 
     private
 
+    attr_reader :organization
+
     def set_smtp
-      return if @organization.nil? || @organization.smtp_settings.blank?
+      return if organization.nil? || organization.smtp_settings.blank?
 
       mail.reply_to = mail.reply_to || Decidim.config.mailer_reply
       mail.delivery_method.settings.merge!(
-        address: @organization.smtp_settings["address"],
-        port: @organization.smtp_settings["port"],
-        user_name: @organization.smtp_settings["user_name"],
-        password: Decidim::AttributeEncryptor.decrypt(@organization.smtp_settings["encrypted_password"])
+        address: organization.smtp_settings["address"],
+        port: organization.smtp_settings["port"],
+        user_name: organization.smtp_settings["user_name"],
+        password: Decidim::AttributeEncryptor.decrypt(organization.smtp_settings["encrypted_password"])
       ) { |_k, o, v| v.presence || o }.compact_blank!
     end
 
     def set_from
-      return if @organization.nil?
+      return if organization.nil?
       return if already_defined_name_in_mail?(mail.from.first)
 
       mail.from = get_sender
@@ -35,18 +37,18 @@ module Decidim
 
     def get_sender
       return Decidim.config.mailer_sender if return_mailer_sender?
-      return default_sender if @organization.smtp_settings.blank?
-      return default_sender if @organization.smtp_settings["from"].nil?
-      return default_sender if @organization.smtp_settings["from"].empty?
+      return default_sender if organization.smtp_settings.blank?
+      return default_sender if organization.smtp_settings["from"].nil?
+      return default_sender if organization.smtp_settings["from"].empty?
 
-      smtp_settings_from = @organization.smtp_settings["from"]
+      smtp_settings_from = organization.smtp_settings["from"]
       return smtp_settings_from if already_defined_name_in_mail?(smtp_settings_from)
 
-      email_address_with_name(smtp_settings_from, @organization.name)
+      email_address_with_name(smtp_settings_from, organization.name)
     end
 
     def default_sender
-      email_address_with_name(Decidim.config.mailer_sender, @organization.name)
+      email_address_with_name(Decidim.config.mailer_sender, organization.name)
     end
 
     def already_defined_name_in_mail?(mail_address)
@@ -55,7 +57,7 @@ module Decidim
     end
 
     def return_mailer_sender?
-      already_defined_name_in_mail?(Decidim.config.mailer_sender) && !@organization.smtp_settings.blank?
+      already_defined_name_in_mail?(Decidim.config.mailer_sender) && !organization.smtp_settings.blank?
     end
   end
 end
