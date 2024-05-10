@@ -491,7 +491,13 @@ FactoryBot.define do
     transient do
       skip_injection { false }
     end
-    body { generate_localized_title(:proposal_note_body, skip_injection:) }
+    body do
+      if skip_injection
+        generate(:title)
+      else
+        "<script>alert(\"proposal_note_body\");</script> #{generate(:title)}"
+      end
+    end
     proposal { build(:proposal, skip_injection:) }
     author { build(:user, organization: proposal.organization, skip_injection:) }
   end

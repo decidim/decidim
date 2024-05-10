@@ -5,8 +5,6 @@ module Decidim
     module AdminLog
       module ValueTypes
         class ProposalTitleBodyPresenter < Decidim::Log::ValueTypes::DefaultPresenter
-          include Decidim::TranslatableAttributes
-
           def present
             return unless value
 
