@@ -6,7 +6,7 @@ module Decidim
   describe Decidim::Dev::DummyResourceMailer do
     describe "smtp_settings" do
       let(:user) { create(:user, organization:) }
-      let(:organization) { create(:organization, smtp_settings:) }
+      let(:organization) { create(:organization, name: "My Organization", smtp_settings:) }
       let(:smtp_settings) do
         {
           "address" => "mail.example.org",
@@ -42,7 +42,6 @@ module Decidim
 
       context "when smtp_settings are not set" do
         let(:smtp_settings) { nil }
-        let(:organization) { create(:organization, name: "My Organization", smtp_settings:) }
 
         it "returns default values" do
           expect(mail.from).to eq(["change-me@example.org"])
@@ -61,11 +60,27 @@ module Decidim
         end
       end
 
-      context "when from is set" do
+      context "when from is set with a name" do
         let(:from) { "Bruce Wayne <decide@gotham.org>" }
 
         it "set default values for mail.from and mail.reply_to" do
           expect(mail.from).to eq(["decide@gotham.org"])
+        end
+
+        it "returns the organization with the name" do
+          expect(mail.header[:from].value).to eq("Bruce Wayne <decide@gotham.org>")
+        end
+      end
+
+      context "when from is set without a name" do
+        let(:from) { "decide@gotham.org" }
+
+        it "set default values for mail.from and mail.reply_to" do
+          expect(mail.from).to eq(["decide@gotham.org"])
+        end
+
+        it "returns the organization with the name" do
+          expect(mail.header[:from].value).to eq("My Organization <decide@gotham.org>")
         end
       end
 
