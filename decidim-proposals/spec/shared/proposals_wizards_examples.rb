@@ -54,116 +54,17 @@ shared_examples "proposals wizards" do |options|
       end
     end
 
-    context "when in step_2: Compare" do
-      context "with similar results" do
-        before do
-          create(:proposal, title: "More sidewalks and less roads", body: "Cities need more people, not more cars", component:)
-          create(:proposal, title: "More sidewalks and less roadways", body: "Green is always better", component:)
-          visit_component
-          click_on "New proposal"
-          within ".new_proposal" do
-            fill_in :proposal_title, with: proposal_title
-            fill_in :proposal_body, with: proposal_body
-
-            find("*[type=submit]").click
-          end
-        end
-
-        it "show previous and current step_2 highlighted" do
-          within "#wizard-steps" do
-            expect(page).to have_css("[data-active]", text: "Compare")
-            expect(page).to have_css("[data-past]", count: 1)
-          end
-        end
-
-        it "shows similar proposals" do
-          expect(page).to have_content("Similar Proposals (2)")
-          expect(page).to have_css("[id^='proposals__proposal']", text: "More sidewalks and less roads")
-          expect(page).to have_css("[id^='proposals__proposal']", count: 2)
-        end
-
-        it "show continue button" do
-          expect(page).to have_link("Continue")
-        end
-
-        it "does not show the back button" do
-          expect(page).to have_no_link("Back")
-        end
-      end
-
-      context "without similar results" do
-        before do
-          visit_component
-          click_on "New proposal"
-          within ".new_proposal" do
-            fill_in :proposal_title, with: proposal_title
-            fill_in :proposal_body, with: proposal_body
-
-            find("*[type=submit]").click
-          end
-        end
-
-        it "redirects to step_3: complete" do
-          expect(page).to have_content("Complete your proposal")
-          expect(page).to have_css(".edit_proposal")
-        end
-
-        it "shows no similar proposal found callout" do
-          within "[data-alert-box].success" do
-            expect(page).to have_content("Well done! No similar proposals found")
-          end
-        end
-      end
-    end
-
-    context "when in step_3: Complete" do
-      before do
-        visit_component
-        click_on "New proposal"
-        within ".new_proposal" do
-          fill_in :proposal_title, with: proposal_title
-          fill_in :proposal_body, with: proposal_body
-
-          find("*[type=submit]").click
-        end
-      end
-
-      it "show previous and current step_3 highlighted" do
-        within "#wizard-steps" do
-          expect(page).to have_css("[data-active]", text: "Complete")
-          expect(page).to have_css("[data-past]", count: 2)
-        end
-      end
-
-      it "show form and submit button" do
-        expect(page).to have_field("Title", with: proposal_title)
-        expect(page).to have_field("Body", with: proposal_body)
-        expect(page).to have_button("Send")
-      end
-
-      context "when the back button is clicked" do
-        before do
-          create(:proposal, title: proposal_title, component:)
-          click_on "Back"
-        end
-
-        it "redirects to step_3: complete" do
-          expect(page).to have_content("Similar Proposals (1)")
-        end
-      end
-    end
-
-    context "when in step_4: Publish" do
+    context "when in step_2: Publish" do
       let!(:proposal_draft) { create(:proposal, :draft, users: [user], component:, title: proposal_title, body: proposal_body) }
 
       before do
         visit component_path.preview_proposal_path(proposal_draft)
       end
 
-      it "show current step_4 highlighted" do
+      it "show current step_2 highlighted" do
         within "#wizard-steps" do
           expect(page).to have_css("[data-active]", text: "Publish your proposal")
-          expect(page).to have_css("[data-past]", count: 3)
+          expect(page).to have_css("[data-past]", count: 1)
         end
       end
 
@@ -229,7 +130,7 @@ shared_examples "proposals wizards" do |options|
     end
 
     context "when editing a proposal draft" do
-      context "when in step_4: edit proposal draft" do
+      context "when in step_2: edit proposal draft" do
         let!(:proposal_draft) { create(:proposal, :draft, users: [user], component:, title: proposal_title, body: proposal_body) }
         let!(:edit_draft_proposal_path) do
           "#{Decidim::EngineRouter.main_proxy(component).proposal_path(proposal_draft)}/edit_draft"
@@ -239,10 +140,10 @@ shared_examples "proposals wizards" do |options|
           visit edit_draft_proposal_path
         end
 
-        it "show current step_4 highlighted" do
+        it "show current step_2 highlighted" do
           within "#wizard-steps" do
-            expect(page).to have_css("[data-active]", text: "Complete")
-            expect(page).to have_css("[data-past]", count: 2)
+            expect(page).to have_css("[data-active]", text: "Create your proposal")
+            expect(page).to have_css("[data-past]", count: 0)
           end
         end
 
@@ -277,7 +178,7 @@ shared_examples "proposals wizards" do |options|
              participatory_space: participatory_process)
     end
 
-    context "when in step_4: edit proposal draft" do
+    context "when in step_2: edit proposal draft" do
       let!(:proposal_draft) { create(:proposal, :draft, users: [user], address:, component:, title: proposal_title, body: proposal_body) }
 
       before do
@@ -299,7 +200,7 @@ shared_examples "proposals wizards" do |options|
       end
     end
 
-    context "when in step_4: Publish" do
+    context "when in step_2: Publish" do
       let!(:proposal_draft) { create(:proposal, :draft, users: [user], address:, component:, title: proposal_title, body: proposal_body) }
 
       before do
@@ -309,10 +210,10 @@ shared_examples "proposals wizards" do |options|
         visit component_path.preview_proposal_path(proposal_draft)
       end
 
-      it "show current step_4 highlighted" do
+      it "show current step_2 highlighted" do
         within "#wizard-steps" do
           expect(page).to have_css("[data-active]", text: "Publish your proposal")
-          expect(page).to have_css("[data-past]", count: 3)
+          expect(page).to have_css("[data-past]", count: 1)
         end
       end
 

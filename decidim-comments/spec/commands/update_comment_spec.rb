@@ -25,11 +25,12 @@ module Decidim
         Decidim::Comments::CommentForm.from_params(
           form_params
         ).with_context(
+          current_user:,
           current_organization: organization
         )
       end
       let(:current_user) { author }
-      let(:command) { described_class.new(comment, current_user, form) }
+      let(:command) { described_class.new(comment, form) }
 
       describe "call" do
         describe "when the form is not valid" do

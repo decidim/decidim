@@ -8,7 +8,7 @@ module Decidim
       helper_method :collection, :conference
 
       def index
-        raise ActionController::RoutingError, "No registration types for this conference " if registration_types.empty? && current_participatory_space.registrations_enabled.empty?
+        raise ActionController::RoutingError, "No registration types for this conference " if registration_types.empty? && current_participatory_space.registrations_enabled
 
         enforce_permission_to :list, :registration_types
       end

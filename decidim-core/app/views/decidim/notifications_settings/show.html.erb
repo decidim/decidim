@@ -12,7 +12,7 @@
           <label for="notifications_from_own_activity" class="toggle__switch-toggle">
             <span>
               <input
-                <%= %(checked="checked") if @notifications_settings.notifications_from_own_activity %>
+                <%== %(checked="checked") if @notifications_settings.notifications_from_own_activity %>
                 id="notifications_from_own_activity"
                 type="checkbox"
                 name="notifications_from_own_activity">
@@ -30,7 +30,7 @@
           <label for="notifications_from_followed" class="toggle__switch-toggle">
             <span>
               <input
-                <%= %(checked="checked") if @notifications_settings.notifications_from_followed %>
+                <%== %(checked="checked") if @notifications_settings.notifications_from_followed %>
                 id="notifications_from_followed"
                 type="checkbox"
                 name="notifications_from_followed">
@@ -62,7 +62,7 @@
         <label for="newsletter_notifications" class="toggle__switch-toggle">
           <span>
             <input
-              <%= %(checked="checked") if @notifications_settings.newsletter_notifications %>
+              <%== %(checked="checked") if @notifications_settings.newsletter_notifications %>
               id="newsletter_notifications"
               type="checkbox"
               name="newsletter_notifications">
@@ -84,7 +84,7 @@
         <label for="allow_public_contact" class="toggle__switch-toggle">
           <span>
             <input
-              <%= %(checked="checked") if @notifications_settings.allow_public_contact %>
+              <%== %(checked="checked") if @notifications_settings.allow_public_contact %>
               id="allow_public_contact"
               type="checkbox"
               name="allow_public_contact">
@@ -108,7 +108,7 @@
             <label for="email_on_moderations" class="toggle__switch-toggle">
               <span>
                 <input
-                  <%= %(checked="checked") if @notifications_settings.email_on_moderations %>
+                  <%== %(checked="checked") if @notifications_settings.email_on_moderations %>
                   id="email_on_moderations"
                   type="checkbox"
                   name="email_on_moderations">
@@ -156,7 +156,7 @@
             <label class="toggle__switch-toggle" for="allow_push_notifications">
               <span>
                 <input
-                  <%= %(checked="checked") if @notifications_settings.meet_push_notifications_requirements? %>
+                  <%== %(checked="checked") if @notifications_settings.meet_push_notifications_requirements? %>
                   id="allow_push_notifications"
                   type="checkbox"
                   name="allow_push_notifications">

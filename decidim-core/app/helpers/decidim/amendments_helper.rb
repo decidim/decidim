@@ -5,7 +5,7 @@ module Decidim
   module AmendmentsHelper
     include RichTextEditorHelper
 
-    TOTAL_STEPS = 4
+    TOTAL_STEPS = 2
 
     # Renders the state of an emendation
     #
@@ -130,14 +130,10 @@ module Decidim
 
     def current_step
       @current_step ||= case params[:action].to_sym
-                        when :new, :create
+                        when :new, :create, :edit_draft, :update_draft, :destroy_draft
                           1
-                        when :compare_draft
-                          2
-                        when :edit_draft, :update_draft, :destroy_draft
-                          3
                         when :preview_draft, :publish_draft
-                          4
+                          2
                         end
     end
 
@@ -147,10 +143,6 @@ module Decidim
             when 1
               :new
             when 2
-              :compare_draft
-            when 3
-              :edit_draft
-            when 4
               :preview_draft
             end
 
@@ -162,9 +154,7 @@ module Decidim
       case current_step
       when 1
         Decidim::ResourceLocatorPresenter.new(amendable).path
-      when 3
-        Decidim::Core::Engine.routes.url_helpers.compare_draft_amend_path(amendable.amendment)
-      when 4
+      when 2
         Decidim::Core::Engine.routes.url_helpers.edit_draft_amend_path(amendable.amendment)
       end
     end

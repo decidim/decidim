@@ -12,8 +12,13 @@ window.Decidim.managedUsersForm = managedUsersForm;
 window.Decidim.config = new Configuration();
 window.Decidim.InputCharacterCounter = InputCharacterCounter;
 
+// REDESIGN_PENDING: deprecated
+window.initFoundation = (element) => {
+  $(element).foundation();
+};
+
 $(() => {
-  $(document).foundation();
+  window.initFoundation(document);
 
   $(document).on("show.zf.dropdownMenu", function(event, $element) {
     $element.attr("aria-hidden", "false");

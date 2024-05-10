@@ -107,7 +107,7 @@ module Decidim
       attrs.delete("id")
       attrs.delete("created_at")
       attrs.delete("updated_at")
-      expect(attrs.delete("datetime").to_s(:short)).to eq(resource.created_at.in_time_zone.to_s(:short))
+      expect(attrs.delete("datetime").to_fs(:short)).to eq(resource.created_at.in_time_zone.to_fs(:short))
       expect(attrs).to eq(expected_searchable_resource_attrs(resource, locale))
     end
 
