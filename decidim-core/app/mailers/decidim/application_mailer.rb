@@ -32,10 +32,10 @@ module Decidim
       return if organization.nil?
       return if already_defined_name_in_mail?(mail.from.first)
 
-      mail.from = get_sender
+      mail.from = sender
     end
 
-    def get_sender
+    def sender
       return Decidim.config.mailer_sender if return_mailer_sender?
       return default_sender if organization.smtp_settings.blank?
       return default_sender if organization.smtp_settings["from"].nil?
@@ -57,7 +57,7 @@ module Decidim
     end
 
     def return_mailer_sender?
-      already_defined_name_in_mail?(Decidim.config.mailer_sender) && !organization.smtp_settings.blank?
+      already_defined_name_in_mail?(Decidim.config.mailer_sender) && organization.smtp_settings.present?
     end
   end
 end
