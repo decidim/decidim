@@ -34,6 +34,7 @@ module Decidim
     end
 
     def get_sender
+      return Decidim.config.mailer_sender if return_mailer_sender?
       return default_sender if @organization.smtp_settings.blank?
       return default_sender if @organization.smtp_settings["from"].nil?
       return default_sender if @organization.smtp_settings["from"].empty?
@@ -45,12 +46,16 @@ module Decidim
     end
 
     def default_sender
-      email_address_with_name(mail.from.first, @organization.name)
+      email_address_with_name(Decidim.config.mailer_sender, @organization.name)
     end
 
     def already_defined_name_in_mail?(mail_address)
       # if there is an space, there is already a name in the address
       mail_address.match?(/ /)
+    end
+
+    def return_mailer_sender?
+      already_defined_name_in_mail?(Decidim.config.mailer_sender) && !@organization.smtp_settings.blank?
     end
   end
 end

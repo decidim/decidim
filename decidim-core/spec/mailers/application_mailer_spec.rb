@@ -55,8 +55,32 @@ module Decidim
       context "when from is not set" do
         let(:from) { nil }
 
-        it "set default values for mail.from" do
-          expect(mail.from).to eq(["change-me@example.org"])
+        before do
+          allow(Decidim.config).to receive(:mailer_sender).and_return(mailer_sender)
+        end
+
+        context "when the mailer_sender config_accessor does not have a name" do
+          let(:mailer_sender) { "changed@example.org" }
+
+          it "uses this email" do
+            expect(mail.from).to eq(["changed@example.org"])
+          end
+
+          it "returns the organization with the name" do
+            expect(mail.header[:from].value).to eq("My Organization <changed@example.org>")
+          end
+        end
+
+        context "when the mailer_sender config_accessor has a name" do
+          let(:mailer_sender) { "ACME <changed@example.org>" }
+
+          it "uses this email" do
+            expect(mail.from).to eq(["changed@example.org"])
+          end
+
+          it "returns the name defined in the mailer_sender" do
+            expect(mail.header[:from].value).to eq("ACME <changed@example.org>")
+          end
         end
       end
 
