@@ -37,14 +37,14 @@ module Decidim
         get :show
         expect(response.location).to eq("http://test.host/users/sign_in")
         expect(response.body).to have_text("You are being redirected")
-        expect(response.status).to eq(302)
+        expect(response).to have_http_status(:found)
       end
 
       it "allows accessing the locale page" do
         get :locale
         expect(request.path).to eq("/locale")
         expect(response.body).to have_text("Locale changed")
-        expect(response.status).to eq(200)
+        expect(response).to have_http_status(:ok)
       end
     end
 
@@ -55,7 +55,7 @@ module Decidim
         get :show
         expect(request.path).to eq("/show")
         expect(response.body).to have_text("Hello world")
-        expect(response.status).to eq(200)
+        expect(response).to have_http_status(:ok)
       end
     end
 
@@ -66,7 +66,7 @@ module Decidim
         get :show
         expect(request.path).to eq("/show")
         expect(response.body).to have_text("Hello world")
-        expect(response.status).to eq(200)
+        expect(response).to have_http_status(:ok)
       end
     end
   end

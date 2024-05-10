@@ -94,7 +94,7 @@ module Decidim
       end
 
       it "controller uses nil" do
-        expect(controller.organization_time_zone).to eq(nil)
+        expect(controller.organization_time_zone).to be_nil
       end
     end
   end
