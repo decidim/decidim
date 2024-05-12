@@ -7,7 +7,9 @@ export default function initLanguageChangeSelect(elements) {
       let targetTabPaneSelector = select.value;
       let tabsContent = select.parentElement.parentElement.nextElementSibling;
 
+      tabsContent.querySelector(".is-active").ariaHidden = "true";
       tabsContent.querySelector(".is-active").classList.remove("is-active");
+      tabsContent.querySelector(targetTabPaneSelector).ariaHidden = "false";
       tabsContent.querySelector(targetTabPaneSelector).classList.add("is-active");
     })
   });

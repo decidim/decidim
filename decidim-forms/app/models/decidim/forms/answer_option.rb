@@ -9,7 +9,7 @@ module Decidim
 
       translatable_fields :body
 
-      belongs_to :question, class_name: "Question", foreign_key: "decidim_question_id"
+      belongs_to :question, class_name: "Question", foreign_key: "decidim_question_id", counter_cache: true
 
       has_many :display_conditions,
                class_name: "DisplayCondition",
