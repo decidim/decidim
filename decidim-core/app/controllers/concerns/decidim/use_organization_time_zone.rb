@@ -25,7 +25,7 @@ module Decidim
       #
       # Returns a String.
       def organization_time_zone
-        @organization_time_zone ||= current_organization.time_zone
+        @organization_time_zone ||= current_organization&.time_zone
       end
     end
   end
