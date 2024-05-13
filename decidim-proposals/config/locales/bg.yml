@@ -265,12 +265,198 @@ bg:
           email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предходния линк.
           email_subject: Предоставянето на подкрепа за предложения започна за %{participatory_space_title}
           notification_title: Вече можете да започнете <a href="%{resource_path}">да подкрепяте предложения</a> в(ъв) <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        accepted_proposals:
+          conditions:
+            - Изберете пространството за участие, което ви интересува, с подаване на активни предложения
+            - Опитайте се да правите предложения, които могат да бъдат изпълнени. По този начин е по-вероятно те да бъдат приети.
+          description: Тази значка се дава, когато участвате активно с нови предложения и те са приети.
+          description_another: Този участник има %{score} приети предложения.
+          description_own: Имате %{score} приети предложения.
+          name: Приети предложения
+          next_level_in: Нужни са Ви още %{score} приети предложения, за да достигнете следващото ниво!
+          unearned_another: Все още не е прието нито едно предложение на този участник.
+          unearned_own: Все нямате прието предложение.
+        proposal_votes:
+          conditions:
+            - Разгледайте и прекарайте известно време, за да се запознаете с предложенията на други хора
+            - Подкрепете предложенията, които харесвате или намирате за интересни
+          description: Тази значка се предоставя, когато подкрепяте предложения на други хора.
+          description_another: Този участник е подкрепил %{score} предложения.
+          description_own: Подкрепили сте %{score} предложения.
+          name: Подкрепяния на предложение
+          next_level_in: Подкрепете още %{score} предложения, за да достигнете следващото ниво!
+          unearned_another: Този участник все още не е подкрепил нито едно предложение.
+          unearned_own: Все още не сте подкрепили нито едно предложение.
+        proposals:
+          conditions:
+            - Изберете пространството за участие, което ви интересува, с подаване на активни предложения
+            - Създайте ноео предложение
+          description: Тази значка се предоставя, когато участвате активно с нови предложения.
+          description_another: Този участник е създал %{score} предложения.
+          description_own: Създали сте %{score} предложения.
+          name: Предложения
+          next_level_in: Създайте още %{score} предложения, за да достигнете следващото ниво!
+          unearned_another: Този участник все още не е създал нито едно предложение.
+          unearned_own: Все още не сте създали нито едно предложение.
+    metrics:
+      accepted_proposals:
+        description: Брой на приетите предложения
+        object: предложения
+        title: Приети предложения
+      endorsements:
+        description: Брой одобрения на предложения
+        object: одобрения
+        title: Одобрения
+      proposals:
+        description: Брой предложения
+        object: предложения
+        title: Предложения
+      votes:
+        description: Брой на подкрепяния за предложения
+        object: подкрепа
+        title: Подкрепа
     proposals:
+      admin:
+        proposal_notes:
+          create:
+            error: Възникна проблем при създаването на тази бележка за предложението.
+            success: Бележката за предложението беше създадена успешно.
+          form:
+            note: Бележка
+            submit: Подаване
+          leave_your_note: Оставете Вашата бележка
+          title: Лични бележки
+        proposal_states:
+          create:
+            error: Грешка при създаване на състоянието
+            success: Статусът е създаден успешно
+          destroy:
+            success: Статусът е изтрит успешно
+          edit:
+            title: Редактирай на статуса
+            update: Актуализация
+          form:
+            preview: Преглед
+          index:
+            title: Статуси
+          new:
+            create: Създаване
+            title: Нов статус
+          update:
+            error: Грешка при актуализиране на статуса
+            success: Статусът е актуализиран успешно
+        proposals:
+          answer:
+            invalid: Възникна проблем при отговарянето на това предложение.
+            success: Успешно отговорено на предложението.
+          create:
+            invalid: Възникна проблем при създаването на това предложение.
+            success: Предложението беше създадено успешно.
+          edit:
+            title: Актуализиране на предложението
+            update: Актуализация
+          form:
+            attachment_legend: "(Незадължително) Добавяне на прикачен файл"
+            created_in_meeting: Това предложение е резултат от среща
+            delete_attachment: Изтриване на прикачен файл
+            select_a_category: Изберете категория
+            select_a_meeting: Избор на среща
+          index:
+            actions: Активности
+            assign_to_valuator: Възлагане на оценител
+            assign_to_valuator_button: Възлагане
+            cancel: Отказ
+            change_category: Промяна на категория
+            change_scope: Промяна на обхвата
+            merge: Сливане в едно ново
+            merge_button: Сливане
+            publish: Публикувай
+            publish_answers: Публикуване на отговори
+            select_component: Избери компонент
+            selected: избрани
+            split: Разделяне на предложения
+            split_button: Разделяне
+            statuses: Статуси
+            title: Предложения
+            unassign_from_valuator: Отнемане възложеното на оценителя
+            unassign_from_valuator_button: Отнемане на възложеното
+            update: Актуализация
+            update_scope_button: Актуализиране на обхвата
+          new:
+            create: Създаване
+            title: Създаване на предложение
+      answers:
+        not_answered: Не отговорено
+        rejected: Отхвърлено
+        withdrawn: Оттеглено
+      application_helper:
+        filter_origin_values:
+          all: Всички
+          meetings: Срещи
+          official: Официално
+          participants: Участници
+          user_groups: Групи
+        filter_state_values:
+          all: Всички
+          not_answered: Не отговорено
+        filter_type_values:
+          all: Всички
+          amendments: Изменения
+          proposals: Предложения
       collaborative_drafts:
+        collaborative_draft:
+          publish:
+            error: Възникна проблем при публикуването на съвместната чернова.
+            irreversible_action_modal:
+              body: След като черновата бъде публикувана като предложение, тя повече няма да може да се редактира. За предложението няма да се приемат нови автори или допълнения.
+              cancel: Отказ
+              ok: Публикувай като предложение
+              title: Следното действие е необратимо
+            success: Съвместната чернова беше публикувана успешно като предложение.
+          withdraw:
+            error: Възникна проблем при затварянето на съвместната чернова.
+            irreversible_action_modal:
+              body: След като черновата бъде затворена, тя повече няма да може да се редактира. За черновата няма да се приемат нови автори или допълнения.
+              cancel: Отказ
+              ok: Оттегляне на съвместната чернова
+              title: Следното действие е необратимо
+            success: Съвместната чернова беше оттеглена успешно.
+        create:
+          error: Възникна проблем при създаването на тази съвместна чернова.
+          success: Съвместната чернова беше създадена успешно.
+        edit:
+          attachment_legend: "(Незадължително) Добавяне на прикачен файл"
+          back: Назад
+          select_a_category: Моля, изберете категория
+          send: Изпрати
+          title: Редактиране на съвместната чернова
+        empty: Все още няма съвместни чернови
+        empty_filters: Няма съвместна чернова с този критерий
+        filters:
+          all: Всички
+          amendment: Изменения
+          category: Категория
+          open: Отворен
+          published: Публикувано
+          related_to: Свързано с
+          scope: Обхват
+          search: Търсене
+          state: Статус
+          withdrawn: Оттеглено
+        filters_small_view:
+          close_modal: Затвори прозореца
+          filter: Филтър
+          filter_by: Филтрирай по
+          unfold: Разгъване
         index:
           count:
             one: "Съвместна чернова"
             other: "Съвместни чернови"
+        name: Съвместни чернови
+        new:
+          add_file: Добави файл
       proposals:
         index:
           count:
