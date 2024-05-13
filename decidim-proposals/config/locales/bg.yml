@@ -8,6 +8,7 @@ bg:
         category_id: Категория
         decidim_scope_id: Сфера
         has_address: Има адрес
+        scope_id: Обхват
         state: Състояние
         title: Заглавие
         user_group_id: Създай съвместна чернова като
@@ -22,12 +23,16 @@ bg:
         category_id: Категория
         decidim_scope_id: Сфера
         has_address: Има адрес
+        scope_id: Обхват
         state: Състояние
         suggested_hashtags: Предложени хаштагове
         title: Заглавие
         user_group_id: Създай предложение като
       proposal_answer:
         answer: Отговор
+        cost: Разход
+        cost_report: Доклад за разходите
+        execution_period: Период на изпълнение
       proposals_copy:
         copy_proposals: Разбирам, че това ще вмъкне всички предложения от избрания компонент към текущия и това действие не е обратимо.
         origin_component_id: Компонент, от който да се копират предложенията
