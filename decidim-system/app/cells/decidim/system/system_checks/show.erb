@@ -1,0 +1,11 @@
+<ul>
+  <li>
+    <% if correct_secret_key_base? %>
+      <%= icon "checkbox-circle-line", class: "fill-success inline" %>
+      <%= t("secret_key.success", scope: "decidim.system.system_checks") %>
+    <% else %>
+      <%= icon "close-circle-line", class: "fill-alert inline" %>
+      <%= t("secret_key.error", scope: "decidim.system.system_checks", generated_secret_key:) %>
+    <% end %>
+  </li>
+</ul>

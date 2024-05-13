@@ -10,6 +10,8 @@ module Decidim
         @admins = Admin.all
       end
 
+      private
+
       def check_organizations_presence
         return if Organization.exists?
 
