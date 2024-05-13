@@ -30,16 +30,35 @@ bg:
         cost: Разход
         cost_report: Доклад за разходите
         execution_period: Период на изпълнение
+      proposal_state:
+        announcement_title: Заглавие на отговора
+        bg_color: Цвят на фона
+        colors:
+          blue: Син
+          gray: Сив
+          green: Зелен
+          orange: Оранжев
+          pink: Розов
+          purple: Лилав
+          red: Червен
+          yellow: Жълт
+        text_color: Цвят на текста
       proposals_copy:
+        copy_proposals: Разбирам, че това ще вмъкне всички предложения от избрания компонент към текущия, и че това действие е необратимо.
         origin_component_id: Компонент, от който да се копират предложенията
       proposals_import:
         import_proposals: Копиране на предложения
+        keep_answers: Запазете състоянието и отговорите
         keep_authors: Запази автора на оригинала
       valuation_assignment:
         admin_log:
           valuator_role_id: Име на проверяващ
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              allowed_file_content_types: 'Невалиден файлов формат. Позволени са само файлове със следните разширения: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -51,6 +70,16 @@ bg:
               identical: И заглавието не може да е еднакво
             title:
               identical: И основния текст не може да е еднакъв
+        proposals_merge:
+          attributes:
+            base:
+              not_official: Не са официални
+              supported: Получили са подкрепа или одобрения
+        proposals_split:
+          attributes:
+            base:
+              not_official: Не са официални
+              supported: Получили са подкрепа или одобрения
     models:
       decidim/proposals/admin/update_proposal_category_event: Категорията на предложението е променена
       decidim/proposals/admin/update_proposal_scope_event: Сферата на предложението е променена
@@ -77,17 +106,45 @@ bg:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Категория
+          is_emendation_true:
+            label: Тип
+            values:
+              'false': Предложения
+              'true': Изменения
+          proposal_state_id_eq:
+            label: Състояние
+          scope_id_eq:
+            label: Обхват
+          state_eq:
+            label: Състояние
+            values:
+              accepted: Прието
+              evaluating: Оценяване
+              not_answered: Не отговорено
+              published: Публикувано
+              rejected: Отхвърлено
+              validating: Техническа проверка
+              withdrawn: Оттеглено
           valuator_role_ids_has:
             label: Прикрепено към проверяващ
+          with_any_state:
+            label: Отговорено
+            values:
+              state_not_published: Не отговорено
+              state_published: Отговорено
         search_placeholder:
           id_string_or_title_cont: Търси в %{collection} по ID или заглавие.
     components:
       proposals:
         actions:
           amend: Промяна
+          comment: Коментар
           create: Създай
           endorse: Одобри
           vote: Поддръжка
+          vote_comment: Оцени коментара
           withdraw: Оттегляне
         name: Предложения
         settings:
@@ -100,6 +157,15 @@ bg:
             can_accumulate_supports_beyond_threshold: Може да събира поддръжка над прага
             collaborative_drafts_enabled: Съвместните чернови са разрешени
             comments_enabled: Коментарите са разрешени
+            comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
+            default_sort_order: Сортиране на предложения по подразбиране
+            default_sort_order_help: '"По подразбиране" означава, че ако подрепата е активирана, предложенията ще се показват сортирани по произволен ред, а ако подкрепата е блокирана, тогава те ще бъдат сортирани по най-подкрепяни.'
+            default_sort_order_options:
+              default: По подразбиране
+              most_commented: Най-коментирани
+              most_endorsed: Най-препоръчвани
+              most_followed: Най-следвани
+              most_voted: Най-подкрепяни
             geocoding_enabled: Координатите са разрешени
             minimum_votes_per_user: Минимална поддръжка за потребител
             new_proposal_body_template: Шаблон за основен текст на предложение
@@ -185,6 +251,20 @@ bg:
         proposal_published_for_space:
           email_intro: Предложението "%{resource_title}" беше добавено в "%{participatory_space_title}", което следвате.
           email_outro: Получавате това известие, защото следвате "%{participatory_space_title}". Може да прекратите известията чрез предната връзка.
+        proposal_update_category:
+          email_outro: Получавате това известие, защото сте авторът на предложението.
+          email_subject: Категорията на предложението %{resource_title} беше актуализирана
+          notification_title: Категорията на предложението <a href="%{resource_path}">%{resource_title}</a> беше актуализирана от администратор.
+        proposal_update_scope:
+          email_intro: 'Администратор актуализира обхвата на Вашето предложение „%{resource_title}“. Вижте повече на тази страница:'
+          email_outro: Получавате това известие, защото сте авторът на предложението.
+          email_subject: Обхватът на предложението %{resource_title} беше актуализиран
+          notification_title: Обхватът на предложението <a href="%{resource_path}">%{resource_title}</a> беше актуализиран от администратор.
+        voting_enabled:
+          email_intro: 'Можете да подкрепяте нови предложения в(ъв) %{participatory_space_title}! Започнете да участвате на следната страница:'
+          email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предходния линк.
+          email_subject: Предоставянето на подкрепа за предложения започна за %{participatory_space_title}
+          notification_title: Вече можете да започнете <a href="%{resource_path}">да подкрепяте предложения</a> в(ъв) <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     proposals:
       collaborative_drafts:
         index:
