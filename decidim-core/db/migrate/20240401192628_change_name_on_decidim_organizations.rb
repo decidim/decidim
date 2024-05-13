@@ -26,5 +26,6 @@ class ChangeNameOnDecidimOrganizations < ActiveRecord::Migration[6.1]
     Organization.find_each do |organization|
       organization.update(name: organization.old_name[organization.default_locale])
     end
+    remove_column :decidim_organizations, :old_name
   end
 end
