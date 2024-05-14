@@ -1,23 +1,13 @@
 <ul>
-  <li>
-    <% if correct_secret_key_base? %>
-      <%= icon "checkbox-circle-line", class: "fill-success inline" %>
-      <%= t("secret_key.success", scope: "decidim.system.system_checks") %>
-    <% else %>
-      <%= icon "close-circle-line", class: "fill-alert inline" %>
-      <%= t("secret_key.error", scope: "decidim.system.system_checks", generated_secret_key:) %>
-    <% end %>
-  </li>
-  <li>
-    <% if correct_active_job_queue? %>
-      <%= icon "checkbox-circle-line", class: "fill-success inline" %>
-      <%= t("active_job_queue.success", scope: "decidim.system.system_checks") %>
-    <% else %>
-      <%= icon "close-circle-line", class: "fill-alert inline" %>
-      <% link = link_to(t("active_job_queue.decidim_documentation", scope: "decidim.system.system_checks"),
-                         "https://docs.decidim.org/en/develop/services/activejob",
-                        class: "underline") %>
-      <%= t("active_job_queue.error", scope: "decidim.system.system_checks", link:) %>
-    <% end %>
-  </li>
+  <% checks.each do |key, check| %>
+    <li>
+      <% if check[:check_method] %>
+        <%= icon "checkbox-circle-line", class: "fill-success inline" %>
+        <%= t("#{key}.success", scope: "decidim.system.system_checks") %>
+      <% else %>
+        <%= icon "close-circle-line", class: "fill-alert inline" %>
+        <%= t("#{key}.error", scope: "decidim.system.system_checks", error_extra: check[:error_extra]) %>
+      <% end %>
+    </li>
+  <% end %>
 </ul>

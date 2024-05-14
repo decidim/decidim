@@ -9,6 +9,19 @@ module Decidim
 
       private
 
+      def checks
+        {
+          secret_key: {
+            check_method: correct_secret_key_base?,
+            error_extra: generated_secret_key
+          },
+          active_job_queue: {
+            check_method: correct_active_job_queue?,
+            error_extra: active_job_queue_link
+          }
+        }
+      end
+
       def correct_secret_key_base?
         Rails.application.secrets.secret_key_base.length == 128
       end
@@ -21,6 +34,12 @@ module Decidim
         # The default ActiveJob queue is not recommended for production environments,
         # as it can lose jobs when restarting
         Rails.application.config.active_job.queue_adapter != :async
+      end
+
+      def active_job_queue_link
+        link_to(t("active_job_queue.decidim_documentation", scope: "decidim.system.system_checks"),
+                "https://docs.decidim.org/en/develop/services/activejob",
+                class: "underline")
       end
     end
   end
