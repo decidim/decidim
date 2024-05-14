@@ -35,8 +35,17 @@ describe Decidim::System::SystemChecksCell, type: :cell do
       end
     end
 
-    context "when the secret key is incorrect" do
+    context "when the secret key is empty" do
       let(:secret_key) { "" }
+
+      it "shows the error message" do
+        expect(subject).to have_content "The secret key is not defined correctly"
+        expect(subject).to have_content "Please save to the SECRET_KEY_BASE environment variable and restart the server"
+      end
+    end
+
+    context "when the secret key is nil" do
+      let(:secret_key) { nil }
 
       it "shows the error message" do
         expect(subject).to have_content "The secret key is not defined correctly"
