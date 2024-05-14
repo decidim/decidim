@@ -16,6 +16,12 @@ module Decidim
       def generated_secret_key
         SecureRandom.hex(64)
       end
+
+      def correct_active_job_queue?
+        # The default ActiveJob queue is not recommended for production environments,
+        # as it can lose jobs when restarting
+        Rails.application.config.active_job.queue_adapter != :async
+      end
     end
   end
 end

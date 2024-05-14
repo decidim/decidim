@@ -266,6 +266,10 @@ en:
           confirm_resend_invitation: Are you sure you want to resend the invitation?
           resend_invitation: Resend invitation
       system_checks:
+        active_job_queue:
+          decidim_documentation: Decidim Documentation
+          error: The ActiveJob queue is not configured. This is not a recommended setup for production. Read more at %{link}.
+          success: The ActiveJob queue is configured correctly.
         secret_key:
           error: 'The secret key is not defined correctly. Please save to the SECRET_KEY_BASE environment variable and restart the server: %{generated_secret_key}'
           success: The secret key is configured correctly.

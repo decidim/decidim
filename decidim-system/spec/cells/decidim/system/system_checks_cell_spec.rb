@@ -44,4 +44,28 @@ describe Decidim::System::SystemChecksCell, type: :cell do
       end
     end
   end
+
+  describe "active_job_queue_check" do
+    before do
+      allow(Rails.application.config.active_job).to receive(:queue_adapter).and_return(active_job_queue)
+    end
+
+    context "when the ActiveJob queue is correct" do
+      let(:active_job_queue) { :sidekiq }
+
+      it "shows the success message" do
+        expect(subject).to have_content "The ActiveJob queue is configured correctly"
+      end
+    end
+
+    context "when the ActiveJob queue is incorrect" do
+      let(:active_job_queue) { :async }
+
+      it "shows the error message" do
+        expect(subject).to have_content "The ActiveJob queue is not configured."
+        expect(subject).to have_content "This is not a recommended setup for production"
+        expect(subject).to have_link("Decidim Documentation", href: "https://docs.decidim.org/en/develop/services/activejob")
+      end
+    end
+  end
 end
