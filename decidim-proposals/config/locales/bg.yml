@@ -277,6 +277,7 @@ bg:
             notification_title: Вашето предложение <a href="%{resource_path}">%{resource_title}</a> е одобрено.
           follower:
             email_intro: 'Предложението "%{resource_title}" е одобрено. Прочетете отговора на страницата:'
+            email_outro: Получавате това известие, защото следвате "%{resource_title}". Може да премахнете следването чрез предната връзка.
             email_subject: Предложение, което следвате, е прието
             notification_title: Предложението <a href="%{resource_path}">%{resource_title}</a> беше одобрено.
         proposal_evaluating:
@@ -287,6 +288,7 @@ bg:
             notification_title: Вашето предложение <a href="%{resource_path}">%{resource_title}</a> се разглежда.
           follower:
             email_intro: 'Предложението "%{resource_title}" се разглежда в момента. Прочетете отговора на страницата:'
+            email_outro: Получавате това известие, защото следвате "%{resource_title}". Може да премахнете следването чрез предната връзка.
             email_subject: Предложение, което следвате, е в процес на оценяване
             notification_title: Предложението <a href="%{resource_path}">%{resource_title}</a> се разглежда.
         proposal_mentioned:
@@ -313,9 +315,11 @@ bg:
             notification_title: Вашето предложение <a href="%{resource_path}">%{resource_title}</a> беше отхвърлено.
           follower:
             email_intro: 'Предложението „%{resource_title}“ беше отхвърлено. Можете да прочетете отговора на тази страница:'
+            email_outro: Получавате това известие, защото следвате "%{resource_title}". Може да премахнете следването чрез предната връзка.
             email_subject: Предложение, което следвате, е отхвърлено
             notification_title: Предложението <a href="%{resource_path}">%{resource_title}</a> беше отхвърлено.
         proposal_update_category:
+          email_intro: 'Администратор актуализира категорията на Вашето предложение „%{resource_title}“. Вижте повече на тази страница:'
           email_outro: Получавате това известие, защото сте авторът на предложението.
           email_subject: Категорията на предложението %{resource_title} беше актуализирана
           notification_title: Категорията на предложението <a href="%{resource_path}">%{resource_title}</a> беше актуализирана от администратор.
@@ -381,8 +385,55 @@ bg:
         description: Брой на подкрепяния за предложения
         object: подкрепа
         title: Подкрепа
+    participatory_spaces:
+      highlighted_proposals:
+        last: Позледни предложения
+        see_all: Виж всички предложения
     proposals:
+      actions:
+        answer_proposal: Отговор на предложение
+        edit_proposal: Редактиране на предложение
+        import: Импортиране на предложения от друг компонент
+        new: Ново предложение
+        participatory_texts: Текстове на участници
+        show: Показване на предложението
+        title: Активности
       admin:
+        actions:
+          preview: Преглед
+        exports:
+          proposal_comments: Коментари
+          proposals: Предложения
+        imports:
+          help:
+            answers: |
+              Документът за импортиране трябва да съдържа следните имена на колони в случай на CSV или Excel файлове или имена на ключове в случай на JSON файлове:
+              <ul>
+              <li><b>id:</b> ID на предложението за отговор</li>
+              <li><b>състояние:</b> Едно от „прието“, „оценява“ или „отхвърлено“</li>
+              <li><b>answer/en:</b> Отговор на английски език. Това ще зависи от езиковата конфигурация на вашата платформа.</li>
+              </ul>
+            proposals: |
+              Файлът трябва да има следните имена на колони в случай на CSV или Excel файлове или имена на ключове в случай на JSON файлове:
+              <ul>
+              <li><b>title/en:</b> Заглавие на английски език. Това ще зависи от езиковата конфигурация на вашата платформа.</li>
+              <li><b>body/en:</b> Основен текст на английски език. Това ще зависи от езиковата конфигурация на вашата платформа.</li>
+              <li><b>scope/id:</b> ID за обхвата</li>
+              <li><b>category/id:</b> ID за категорията</li>
+              </ul>
+          label:
+            answers: Импортиране на отговори от файл
+            proposals: Импортиране на предложения от файл
+          resources:
+            answers:
+              one: отговор на предложение
+              other: отговори на предложение
+            proposals:
+              one: предложение
+              other: предложения
+          title:
+            answers: Импортиране на отговори на предложение от файл
+            proposals: Импортиране на предложения от файл
         proposal_answers:
           form:
             not_answered: Не отговорено
