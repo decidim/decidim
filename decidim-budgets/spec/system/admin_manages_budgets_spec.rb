@@ -3,12 +3,11 @@
 require "spec_helper"
 
 describe "Admin manages budgets" do
-  let(:budget) { create(:budget, component: current_component) }
+  let!(:budget) { create(:budget, component: current_component) }
   let(:manifest_name) { "budgets" }
 
   include_context "when managing a component as an admin"
   before do
-    budget
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit_component_admin
