@@ -175,8 +175,6 @@ lt:
         smtp_settings:
           fieldsets:
             sender: Siuntėjas
-          instructions:
-            from_label: 'El. pašto siuntėjas bus: "jūsų-organizacijos-pavadinimas <your-organization@example.org>". Palikite tuščią, jei norite naudoti el. pašto adresą kaip etiketę.'
           placeholder:
             from_email: jūsų-organizacija@example.org
             from_label: jūsų-organizacijos-pavadinimas
