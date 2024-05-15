@@ -244,8 +244,6 @@ cs:
         smtp_settings:
           fieldsets:
             sender: Odesilatel
-          instructions:
-            from_label: 'Odesílatel e-mailu bude: "Název vaší organizace <your-organization@example.org>". Ponechte prázdné pro použití ''E-mailové adresy'' jako popisku.'
           placeholder:
             from_email: vaše-organizace@example.org
             from_label: jméno vaší organizace
