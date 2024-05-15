@@ -151,7 +151,21 @@ Additionally, if you need, you can also customize the `admin` and `system` inter
 
 You can read more about this change on PR [\#12646](https://github.com/decidim/decidim/pull/12646).
 
-### 3.6. [[TITLE OF THE ACTION]]
+### 3.6. Update to Footer Topic and Pages functionality
+
+We have removed a functionality where previously, Pages without a topic could be displayed to the footer. These were being iterated within the `decidim-core/app/views/layouts/decidim/footer/_main_links.html.erb`.
+
+We removed a duplicate `Terms and Conditions` link that existed next to `Default link for Terms of Service` which has now been renamed to `Terms of Service` within `decidim-core/app/views/layouts/decidim/footer/_main_legal.html.erb`.
+
+We also removed the Help page within `Decidim` column in the footer from `decidim-core/lib/decidim/core/menu.rb` in place of renaming the seeded `General` topic column `Help` instead.
+
+Finally, specific pages could only be displayed in the footer under a topic with the `show_in_footer` attribute enabled. We have altered this functionality by removing this attribute within `static_pages` (`decidim-admin/app/commands/decidim/admin/create_static_page.rb` + `decidim-admin/app/commands/decidim/admin/update_static_page.rb`) to not confuse admin users wanting to create custom pages.
+
+Instead `static_page_topics` are iterated into a new cell here `decidim-core/app/cells/decidim/footer_topics_cell.rb` along with their assosiated pages to footer under the Help column. This change to be shown in the footer is now seeded to application automatically but can deactived in admin along with any newly created topic.
+
+You can read more about this change on PR [\#12592](https://github.com/decidim/decidim/pull/12592).
+
+### 3.7. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
