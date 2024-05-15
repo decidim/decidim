@@ -4,9 +4,9 @@ require "decidim/translatable_attributes"
 
 module Decidim
   module System
-    # A form object used to update organizations from the system dashboard.
+    # A form object to be inherited to create and update organizations from the system dashboard.
     #
-    class OrganizationForm < Form
+    class BaseOrganizationForm < Form
       include TranslatableAttributes
       include JsonbAttributes
 
@@ -106,7 +106,9 @@ module Decidim
 
       private
 
-      def validate_organization_uniqueness; end
+      def validate_organization_uniqueness
+        raise "#{self.class.name} is expected to implement #validate_organization_uniqueness"
+      end
     end
   end
 end

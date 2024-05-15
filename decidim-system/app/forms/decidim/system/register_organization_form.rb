@@ -6,7 +6,7 @@ module Decidim
   module System
     # A form object used to create organizations from the system dashboard.
     #
-    class RegisterOrganizationForm < OrganizationForm
+    class RegisterOrganizationForm < BaseOrganizationForm
       include JsonbAttributes
       mimic :organization
 

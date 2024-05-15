@@ -43,5 +43,13 @@ module Decidim
     def current_organization_name
       organization_name(current_organization)
     end
+
+    private
+
+    def empty_organization_description?
+      organization_description = translated_attribute(current_organization.description)
+
+      organization_description.blank? || organization_description == "<p></p>"
+    end
   end
 end

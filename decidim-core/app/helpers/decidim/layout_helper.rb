@@ -142,12 +142,6 @@ module Decidim
 
     private
 
-    def empty_organization_description?
-      organization_description = translated_attribute(current_organization.description)
-
-      organization_description.blank? || organization_description == "<p></p>"
-    end
-
     def tag_builder
       @tag_builder ||= ActionView::Helpers::TagHelper::TagBuilder.new(self)
     end

@@ -48,11 +48,11 @@ module Decidim
       smtp_settings_from = organization.smtp_settings["from"]
       return smtp_settings_from if already_defined_name_in_mail?(smtp_settings_from)
 
-      email_address_with_name(smtp_settings_from, translated(organization.name))
+      email_address_with_name(smtp_settings_from, organization_name(organization))
     end
 
     def default_sender
-      email_address_with_name(Decidim.config.mailer_sender, translated(organization.name))
+      email_address_with_name(Decidim.config.mailer_sender, organization_name(organization))
     end
 
     def already_defined_name_in_mail?(mail_address)

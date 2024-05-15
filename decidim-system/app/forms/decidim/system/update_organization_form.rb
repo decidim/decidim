@@ -4,7 +4,7 @@ require "decidim/translatable_attributes"
 
 module Decidim
   module System
-    class UpdateOrganizationForm < OrganizationForm
+    class UpdateOrganizationForm < BaseOrganizationForm
       translatable_attribute :name, String
 
       validate :validate_organization_name_presence
@@ -34,9 +34,6 @@ module Decidim
           errors.add("name_#{language}", :taken) if organization_names.include?(value.downcase)
         end
 
-        # name.each do |language, value|
-        #   errors.add(:"name_#{language}", :taken) if Decidim::Organization.where("name::text ilike ?", "%#{value}%").where.not(id:).exists?
-        # end
         errors.add(:host, :taken) if Decidim::Organization.where(host:).where.not(id:).exists?
       end
     end

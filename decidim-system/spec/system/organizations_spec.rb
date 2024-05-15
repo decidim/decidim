@@ -174,7 +174,7 @@ describe "Organizations" do
         )
 
         # Reload the UpdateOrganizationForm
-        Decidim::System.send(:remove_const, :OrganizationForm)
+        Decidim::System.send(:remove_const, :BaseOrganizationForm)
         Decidim::System.send(:remove_const, :UpdateOrganizationForm)
         load "#{Decidim::System::Engine.root}/app/forms/decidim/system/organization_form.rb"
         load "#{Decidim::System::Engine.root}/app/forms/decidim/system/update_organization_form.rb"
@@ -189,7 +189,7 @@ describe "Organizations" do
 
       after do
         # Reload the UpdateOrganizationForm
-        Decidim::System.send(:remove_const, :OrganizationForm)
+        Decidim::System.send(:remove_const, :BaseOrganizationForm)
         Decidim::System.send(:remove_const, :UpdateOrganizationForm)
         load "#{Decidim::System::Engine.root}/app/forms/decidim/system/organization_form.rb"
         load "#{Decidim::System::Engine.root}/app/forms/decidim/system/update_organization_form.rb"
