@@ -236,8 +236,6 @@ de:
         smtp_settings:
           fieldsets:
             sender: Absender
-          instructions:
-            from_label: 'E-Mail-Absender lautet: "Ihr-Organisationsname <your-organization@example.org>". Leer lassen, um die E-Mail-Adresse als Absender zu verwenden.'
           placeholder:
             from_email: deine-organisation@example.org
             from_label: name-ihrer-organisation
