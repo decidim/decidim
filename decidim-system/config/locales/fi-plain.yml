@@ -243,8 +243,6 @@ fi-pl:
         smtp_settings:
           fieldsets:
             sender: Lähettäjä
-          instructions:
-            from_label: 'Sähköpostin lähettäjä on: "organisaatiosi-nimi <your-organization@example.org>". Jätä tyhjäksi käyttääksesi "Sähköpostiosoite" -kentän arvoa lähettäjän nimenä.'
           placeholder:
             from_email: sinun-organisaatiosi@example.org
             from_label: organisaatiosi-nimi
