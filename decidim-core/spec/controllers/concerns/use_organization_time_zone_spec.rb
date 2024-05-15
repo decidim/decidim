@@ -85,5 +85,17 @@ module Decidim
         end
       end
     end
+
+    context "when there is no organization" do
+      let(:time_zone) { utc_time_zone }
+
+      before do
+        request.env["decidim.current_organization"] = nil
+      end
+
+      it "controller uses nil" do
+        expect(controller.organization_time_zone).to be_nil
+      end
+    end
   end
 end
