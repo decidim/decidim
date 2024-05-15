@@ -244,6 +244,8 @@ fr:
         smtp_settings:
           fieldsets:
             sender: Expéditeur
+          instructions:
+            from_label: 'L''expéditeur de l''e-mail sera : "nom-de-votre-organisation <votre-organisation@example.org>". Laissez vide pour utiliser le même nom que celui défini pour l''organisation.'
           placeholder:
             from_email: votre-organisation@exemple.org
             from_label: nom-de-votre-organisation
