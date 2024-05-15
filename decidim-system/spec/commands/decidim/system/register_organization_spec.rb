@@ -17,21 +17,21 @@ module Decidim
           let(:params) do
             {
               name: "Gotham City",
-              host: "decide.gotham.gov",
-              secondary_hosts: "foo.gotham.gov\r\n\r\nbar.gotham.gov",
+              host: "decide.example.org",
+              secondary_hosts: "foo.example.org\r\n\r\nbar.example.org",
               reference_prefix: "JKR",
               organization_admin_name: "Fiorello Henry La Guardia",
-              organization_admin_email: "f.laguardia@gotham.gov",
+              organization_admin_email: "f.laguardia@example.org",
               available_locales: ["en"],
               default_locale: "en",
               users_registration_mode: "enabled",
               force_users_to_authenticate_before_access_organization: "false",
               smtp_settings: {
-                "address" => "mail.gotham.gov",
+                "address" => "mail.example.org",
                 "port" => "25",
                 "user_name" => "f.laguardia",
                 "password" => Decidim::AttributeEncryptor.encrypt("password"),
-                "from_email" => "decide@gotham.gov",
+                "from_email" => "decide@example.org",
                 "from_label" => from_label
               },
               omniauth_settings_facebook_enabled: true,
@@ -53,11 +53,11 @@ module Decidim
             organization = Organization.last
 
             expect(organization.name).to eq("Gotham City")
-            expect(organization.host).to eq("decide.gotham.gov")
-            expect(organization.secondary_hosts).to match_array(["foo.gotham.gov", "bar.gotham.gov"])
-            expect(organization.external_domain_whitelist).to match_array(["decidim.org", "github.com"])
-            expect(organization.smtp_settings["from"]).to eq("Decide Gotham <decide@gotham.gov>")
-            expect(organization.smtp_settings["from_email"]).to eq("decide@gotham.gov")
+            expect(organization.host).to eq("decide.example.org")
+            expect(organization.secondary_hosts).to contain_exactly("foo.example.org", "bar.example.org")
+            expect(organization.external_domain_whitelist).to contain_exactly("decidim.org", "github.com")
+            expect(organization.smtp_settings["from"]).to eq("Decide Gotham <decide@example.org>")
+            expect(organization.smtp_settings["from_email"]).to eq("decide@example.org")
             expect(organization.omniauth_settings["omniauth_settings_facebook_enabled"]).to be(true)
             expect(organization.file_upload_settings).to eq(upload_settings)
             expect(
@@ -72,7 +72,7 @@ module Decidim
             expect { command.call }.to change(User, :count).by(1)
             admin = User.last
 
-            expect(admin.email).to eq("f.laguardia@gotham.gov")
+            expect(admin.email).to eq("f.laguardia@example.org")
             expect(admin.organization.name).to eq("Gotham City")
             expect(admin).to be_admin
             expect(admin).to be_created_by_invite
@@ -115,10 +115,10 @@ module Decidim
 
               organization = Organization.last
 
-              expect(organization.smtp_settings["from"]).to eq("Decide Gotham <decide@gotham.gov>")
+              expect(organization.smtp_settings["from"]).to eq("Decide Gotham <decide@example.org>")
               expect(organization.smtp_settings["from_label"]).to eq("Decide Gotham")
-              expect(organization.smtp_settings["from_email"]).to eq("decide@gotham.gov")
-              expect(last_email.From.value).to eq("Decide Gotham <decide@gotham.gov>")
+              expect(organization.smtp_settings["from_email"]).to eq("decide@example.org")
+              expect(last_email.From.value).to eq("Decide Gotham <decide@example.org>")
             end
 
             context "when from_label is empty" do
@@ -131,9 +131,9 @@ module Decidim
 
                 organization = Organization.last
 
-                expect(organization.smtp_settings["from"]).to eq("decide@gotham.gov")
-                expect(organization.smtp_settings["from_email"]).to eq("decide@gotham.gov")
-                expect(last_email.From.value).to eq("decide@gotham.gov")
+                expect(organization.smtp_settings["from"]).to eq("decide@example.org")
+                expect(organization.smtp_settings["from_email"]).to eq("decide@example.org")
+                expect(last_email.From.value).to eq("Gotham City <decide@example.org>")
               end
             end
           end

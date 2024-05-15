@@ -7,11 +7,11 @@ module Decidim::System
     subject do
       described_class.new(
         name: "Gotham City",
-        host: "decide.gotham.gov",
-        secondary_hosts: "foo.gotham.gov\r\n\r\nbar.gotham.gov",
+        host: "decide.example.org",
+        secondary_hosts: "foo.example.org\r\n\r\nbar.example.org",
         reference_prefix: "JKR",
         organization_admin_name: "Fiorello Henry La Guardia",
-        organization_admin_email: "f.laguardia@gotham.gov",
+        organization_admin_email: "f.laguardia@example.org",
         available_locales: ["en"],
         default_locale: "en",
         users_registration_mode: "enabled",
@@ -27,11 +27,11 @@ module Decidim::System
 
     let(:smtp_settings) do
       {
-        "address" => "mail.gotham.gov",
+        "address" => "mail.example.org",
         "port" => 25,
         "user_name" => "f.laguardia",
         "password" => password,
-        "from_email" => "decide@gotham.gov",
+        "from_email" => "decide@example.org",
         "from_label" => from_label
       }
     end
@@ -69,7 +69,7 @@ module Decidim::System
         it "concatenates from_label and from_email" do
           from = subject.set_from
 
-          expect(from).to eq("Decide Gotham <decide@gotham.gov>")
+          expect(from).to eq("Decide Gotham <decide@example.org>")
         end
 
         context "when from_label is empty" do
@@ -78,7 +78,7 @@ module Decidim::System
           it "returns the email" do
             from = subject.set_from
 
-            expect(from).to eq("decide@gotham.gov")
+            expect(from).to eq("decide@example.org")
           end
         end
       end
