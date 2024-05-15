@@ -354,6 +354,7 @@ fi-pl:
       wizard_step_form:
         steps:
           '1': Luo muutos
+          '2': Julkaise muutoksesi
     anonymous_user: Anonyymi
     application:
       document:
