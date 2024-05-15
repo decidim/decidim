@@ -280,7 +280,7 @@ describe "Conferences" do
     end
 
     it "has a sidebar" do
-      expect(page).not_to have_css(".conference__nav-container")
+      expect(page).to have_no_css(".conference__nav-container")
     end
   end
 end
