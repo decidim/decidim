@@ -360,6 +360,7 @@ fi-pl:
           '1': Luo muutos
           '2': Vertaile muutostasi
           '3': Viimeistele muutoksesi
+          '4': Julkaise muutoksesi
     anonymous_user: Anonyymi
     application:
       document:
