@@ -244,8 +244,6 @@ es-MX:
         smtp_settings:
           fieldsets:
             sender: Remitente
-          instructions:
-            from_label: 'El remitente de correo electrónico será: "nombre-de-tu-organizacion <your-organization@example.org>". Déjalo en blanco para usar la ''dirección de correo electrónico'' como etiqueta.'
           placeholder:
             from_email: tu-organizacion@example.org
             from_label: el-nombre-de-tu-organizacion
