@@ -5,94 +5,37 @@ module Decidim
     module Admin
       # A command with all the business logic when updating a conference
       # speaker in the system.
-      class UpdateConferenceSpeaker < Decidim::Command
-        include ::Decidim::AttachmentAttributesMethods
+      class UpdateConferenceSpeaker < Decidim::Commands::UpdateResource
+        fetch_file_attributes :avatar
 
-        # Public: Initializes the command.
-        #
-        # form - A form object with the params.
-        # conference_speaker - The ConferenceSpeaker to update
-        def initialize(form, conference_speaker)
-          @form = form
-          @conference_speaker = conference_speaker
+        fetch_form_attributes :full_name, :twitter_handle, :personal_url, :position, :affiliation, :user, :short_bio
+
+        protected
+
+        def invalid?
+          form.invalid? || !resource
         end
 
-        # Executes the command. Broadcasts these events:
-        #
-        # - :ok when everything is valid.
-        # - :invalid if the form was not valid and we could not proceed.
-        #
-        # Returns nothing.
-        def call
-          return broadcast(:invalid) if form.invalid?
-          return broadcast(:invalid) unless conference_speaker
-
-          # We are going to assign the attributes only to handle the validation of the avatar before accessing
-          # `update_conference_speaker!` which uses `update!`. Without this step, the image validation may render
-          # an ActiveRecord::RecordInvalid error
-          # After we assign and check if the object is valid, we reload the model to let it be handled the old way
-          # If there is an error we add the error to the form
-          conference_speaker.assign_attributes(attributes)
-
-          if conference_speaker.valid?
-            conference_speaker.reload
-
-            transaction do
-              update_conference_speaker!
-              link_meetings(@conference_speaker)
-            end
-            broadcast(:ok)
-          else
-            form.errors.add(:avatar, conference_speaker.errors[:avatar]) if conference_speaker.errors.include? :avatar
-
-            broadcast(:invalid)
-          end
+        def extra_params
+          {
+            resource: {
+              title: resource.full_name
+            },
+            participatory_space: {
+              title: resource.conference.title
+            }
+          }
         end
 
         private
 
-        attr_reader :form, :conference_speaker
-
-        def attributes
-          form.attributes.slice(
-            "full_name",
-            "twitter_handle",
-            "personal_url",
-            "position",
-            "affiliation",
-            "short_bio"
-          ).symbolize_keys.merge(
-            user: form.user
-          ).merge(
-            attachment_attributes(:avatar)
-          )
+        def conference_meetings
+          meeting_components = resource.conference.components.where(manifest_name: "meetings")
+          Decidim::ConferenceMeeting.where(component: meeting_components).where(id: form.conference_meeting_ids)
         end
 
-        def update_conference_speaker!
-          log_info = {
-            resource: {
-              title: conference_speaker.full_name
-            },
-            participatory_space: {
-              title: conference_speaker.conference.title
-            }
-          }
-
-          Decidim.traceability.update!(
-            conference_speaker,
-            form.current_user,
-            attributes,
-            log_info
-          )
-        end
-
-        def conference_meetings(speaker)
-          meeting_components = speaker.conference.components.where(manifest_name: "meetings")
-          Decidim::ConferenceMeeting.where(component: meeting_components).where(id: @form.attributes[:conference_meeting_ids])
-        end
-
-        def link_meetings(conference_speaker)
-          conference_speaker.conference_meetings = conference_meetings(conference_speaker)
+        def run_after_hooks
+          resource.conference_meetings = conference_meetings
         end
       end
     end

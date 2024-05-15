@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Sortitions
     module Admin
-      describe SortitionsController, type: :controller do
+      describe SortitionsController do
         routes { Decidim::Sortitions::AdminEngine.routes }
 
         let(:component) { sortition.component }

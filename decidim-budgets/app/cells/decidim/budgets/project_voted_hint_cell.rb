@@ -4,8 +4,6 @@ module Decidim
   module Budgets
     # This cell renders a checkmark with a text.
     class ProjectVotedHintCell < BaseCell
-      include Decidim::IconHelper
-
       delegate :voted_for?, :current_order, to: :controller
 
       def show
@@ -18,7 +16,7 @@ module Decidim
 
       def hint
         contents = []
-        contents << icon("check", role: "img", "aria-hidden": true)
+        contents << icon("check-line", role: "img", "aria-hidden": true)
         contents << " "
         contents << t("decidim.budgets.projects.project.you_voted")
       end

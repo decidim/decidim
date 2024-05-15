@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin reminds users with pending orders", type: :system do
+describe "Admin reminds users with pending orders" do
   include_context "when managing a component as an admin"
 
   let(:organization) { create(:organization) }
@@ -17,7 +17,7 @@ describe "Admin reminds users with pending orders", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit_component_admin
-    click_link "Send voting reminders"
+    click_on "Send voting reminders"
   end
 
   describe "new vote reminder" do
@@ -34,7 +34,7 @@ describe "Admin reminds users with pending orders", type: :system do
     end
 
     it "sends reminders" do
-      perform_enqueued_jobs { click_button "Send" }
+      perform_enqueued_jobs { click_on "Send" }
       expect(page).to have_content("2 users will be reminded")
 
       expect(emails.count).to eq(2)
@@ -46,10 +46,10 @@ describe "Admin reminds users with pending orders", type: :system do
     end
 
     it "does not send reminders twice" do
-      perform_enqueued_jobs { click_button "Send" }
+      perform_enqueued_jobs { click_on "Send" }
       expect(page).to have_content("2 users will be reminded")
-      click_link "Send voting reminders"
-      perform_enqueued_jobs { click_button "Send" }
+      click_on "Send voting reminders"
+      perform_enqueued_jobs { click_on "Send" }
       expect(page).to have_content("0 users will be reminded")
     end
   end

@@ -4,7 +4,7 @@ require "spec_helper"
 require "zip"
 
 module Decidim
-  describe ExportMailer, type: :mailer do
+  describe ExportMailer do
     let(:user) { create(:user, name: "Sarah Connor", organization:) }
     let!(:organization) { create(:organization) }
 
@@ -38,7 +38,7 @@ module Decidim
     end
 
     describe "download your data export" do
-      object = "Decidim::DummyResources::DummyResource"
+      object = "Decidim::Dev::DummyResource"
       klass = Object.const_get(object)
       let(:export_data) { [[klass.model_name.name.parameterize.pluralize, Decidim::Exporters.find_exporter("CSV").new(klass.user_collection(user), klass.export_serializer).export]] }
       let(:images) { [] }

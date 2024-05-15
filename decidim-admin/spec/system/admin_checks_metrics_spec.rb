@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin checks metrics", type: :system do
+describe "Admin checks metrics" do
   let(:organization) { create(:organization) }
 
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
@@ -22,13 +22,13 @@ describe "Admin checks metrics", type: :system do
 
   it "lists metrics" do
     expect(page).to have_content("Metrics")
-    expect(page).to have_selector(".areachart", count: 9)
+    expect(page).to have_css(".areachart", count: 9)
   end
 
   it "allows checking more metrics" do
-    click_link "See more metrics"
+    click_on "See more metrics"
 
     expect(page).to have_content("Metrics")
-    expect(page).to have_selector(".areachart", count: metric_manifests.count)
+    expect(page).to have_css(".areachart", count: metric_manifests.count)
   end
 end

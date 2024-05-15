@@ -6,6 +6,9 @@ module Decidim
       # Controller used to manage participatory process types for the current
       # organization
       class ParticipatoryProcessTypesController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
+        include Decidim::TranslatableAttributes
+        before_action :set_controller_breadcrumb
+
         helper_method :collection, :current_participatory_process_type
         layout "decidim/admin/participatory_process_type"
 
@@ -54,7 +57,7 @@ module Decidim
           @form = participatory_process_type_form
                   .from_params(params, participatory_process_type: current_participatory_process_type)
 
-          UpdateParticipatoryProcessType.call(current_participatory_process_type, @form) do
+          UpdateParticipatoryProcessType.call(@form, current_participatory_process_type) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_process_types.update.success", scope: "decidim.admin")
               redirect_to participatory_process_types_path
@@ -71,7 +74,7 @@ module Decidim
         def destroy
           enforce_permission_to :destroy, :participatory_process_type, participatory_process_type: current_participatory_process_type
 
-          DestroyParticipatoryProcessType.call(current_participatory_process_type, current_user) do
+          Decidim::Commands::DestroyResource.call(current_participatory_process_type, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_process_types.destroy.success", scope: "decidim.admin")
               redirect_to participatory_process_types_path
@@ -80,6 +83,22 @@ module Decidim
         end
 
         private
+
+        def set_controller_breadcrumb
+          controller_breadcrumb_items << {
+            label: t("participatory_process_types", scope: "decidim.admin.menu"),
+            url: participatory_process_types_path,
+            active: false
+          }
+
+          return if params[:id].blank?
+
+          controller_breadcrumb_items << {
+            label: translated_attribute(current_participatory_process_type.title),
+            url: edit_participatory_process_type_path(current_participatory_process_type),
+            active: true
+          }
+        end
 
         def participatory_process_type_form
           form(Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessTypeForm)

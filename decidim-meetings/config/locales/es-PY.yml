@@ -20,7 +20,9 @@ es-PY:
         description: Descripción
         end_time: Día y hora de finalización
         id: ID
+        iframe_access_level: Visualización de la sala videoconferencia
         iframe_embed_type: Visualización de la sala de videoconferencia
+        iframe_embed_type_html: Sólo unos pocos servicios permiten "Incrustar en la página de reunión" o "Abrir en la página del evento en directo". Tenga en cuenta que con la opción "Incrustar en la página de reunión" en teléfonos móviles, ya que la pantalla hereda diferentes dimensiones, en realidad funcionará como una "Abrir en la página del evento en directo".
         location: Ubicación
         location_hints: Pistas de ubicación
         online_meeting_url: URL del encuentro online
@@ -88,6 +90,11 @@ es-PY:
   decidim:
     admin:
       filters:
+        accepted_at_not_null:
+          label: Aceptada
+          values:
+            'false': No aceptada
+            'true': Aceptada
         meetings:
           category_id_eq:
             label: Categoría
@@ -115,13 +122,24 @@ es-PY:
               hybrid: Híbrido
               in_person: Presencial
               online: Online
+        rejected_at_not_null:
+          label: Rechazada
+          values:
+            'false': No rechazada
+            'true': Rechazada
+        search_placeholder:
+          user_name_or_user_email_cont: Buscar por nombre o correo electrónico
+        sent_at_not_null:
+          label: Enviada
+          values:
+            'false': No enviada
+            'true': Enviada
       meeting_copies:
         create:
           error: Se ha producido un error al duplicar este encuentro.
           success: El encuentro se ha duplicado con éxito.
         new:
           copy: Copiar
-          select: Selecciona qué datos quieres duplicar
           title: Duplicar encuentro
     components:
       meetings:
@@ -223,7 +241,7 @@ es-PY:
             one: 'El encuentro no se puede eliminar porque tiene %{count} propuesta asociada:'
             other: 'El encuentro no se puede eliminar porque tiene %{count} propuestas asociadas:'
         manage_poll: Configurar encuesta
-        new: Nuevo encuentro
+        new_meeting: Añadir encuentro
         preview: Previsualizar
         registrations: Inscripciones
         title: Acciones
@@ -280,16 +298,9 @@ es-PY:
             non_user: Usuario no existente
             select_user: Selecciona un usuario
           index:
-            filter:
-              accepted: Aceptada
-              all: Todas
-              rejected: Rechazada
-              sent: Enviadas
-            filter_by: Filtrar por
             invite_attendee: Invitar asistente
             invites: Invitaciones
             registrations_disabled: No puedes invitar a nadie porque las inscripciones están deshabilitadas.
-            search: Buscar
         meeting_closes:
           edit:
             close: Cerrar
@@ -313,6 +324,7 @@ es-PY:
           form:
             address_help: 'Dirección: usada por Geocoder para encontrar la ubicación'
             disclaimer: 'Descargo de responsabilidad: Mediante el uso de un sistema de inscripción externo, aceptas que las organizadoras de %{organization} no son responsables de los datos proporcionados por las usuarias en el servicio externo.'
+            iframe_embed_type_html: 'Solo unos pocos servicios permiten ser incrustados en encuentros o eventos en directo desde los siguientes dominios: %{domains}'
             location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
             location_hints_help: 'Consejos de ubicación: información adicional. Ejemplo: la planta del edificio si se trata de un encuentro presencial, o la contraseña de la sala si se trata de un encuentro online con acceso restringido.'
             online_meeting_url_help: 'Enlace: permitir a las participantes conectarse directamente a tu encuentro'
@@ -320,7 +332,6 @@ es-PY:
             select_a_meeting_type: Por favor, selecciona un tipo de encuentro
             select_a_registration_type: Por favor, seleccione un tipo de inscripción
             select_an_iframe_access_level: Por favor, seleccione un nivel de acceso iframe
-            show_embedded_iframe_help: 'Solo unos pocos servicios permiten ser incrustados en encuentros o eventos en vivo desde los siguientes dominios: %{domains}'
           index:
             title: Encuentros
           new:
@@ -351,9 +362,6 @@ es-PY:
           update:
             invalid: Se ha producido un error al actualizar esta encuesta.
             success: Encuesta actualizada correctamente.
-        models:
-          meeting:
-            name: Encuentro
         registrations:
           edit:
             save: Guardar
@@ -398,11 +406,11 @@ es-PY:
           all: Todas
         filter_meeting_space_values:
           all: Todos
-        filter_scope_values:
-          all: Todos
+      calendar:
+        meeting_to_event:
+          read_more: Leer más sobre este encuentro
       calendar_modal:
         calendar_url: URL del calendario
-        close_window: Cerrar ventana
         copy_calendar_url: Copiar
         copy_calendar_url_clarification: Copiar la URL del calendario al portapapeles
         copy_calendar_url_copied: '¡Copiado!'
@@ -420,8 +428,6 @@ es-PY:
       content_blocks:
         upcoming_meetings:
           name: Próximos encuentros
-          upcoming_meetings: Próximos encuentros
-          view_all_meetings: Ver todo
       directory:
         meetings:
           index:
@@ -462,7 +468,6 @@ es-PY:
         calendar_modal:
           add_to_calendar: Añadir al calendario
           apple: Añadir al calendario de Apple
-          close_window: Cerrar ventana
           full_details_html: Para obtener todos los detalles ve a %{link}
           google: Añadir al calendario de Google
           outlook: Abrir el calendario de Outlook
@@ -492,8 +497,7 @@ es-PY:
             all: Todos
             official: Oficial
             participants: Participantes
-            user_groups: Grupos
-          scope: Ámbito
+            user_group: Grupos
           search: Buscar
           type: Tipo
           type_values:
@@ -501,16 +505,12 @@ es-PY:
             hybrid: Híbrida
             in_person: Presencial
             online: Online
-        filters_small_view:
-          close_modal: Cerrar ventana
-          filter: Filtrar
-          filter_by: Filtrar por
-          unfold: Desplegar
         form:
           address_help: 'Dirección: que utilizará Geocoder para encontrar la ubicación'
           available_slots_help: Déjalo a 0 si tienes espacio ilimitado disponible
           create_as: Crear encuentro como
           disclaimer: 'Descargo de responsabilidad: Mediante el uso de un sistema de inscripción externo, aceptas que las organizadoras de %{organization} no son responsables de los datos proporcionados por las usuarias en el servicio externo.'
+          iframe_embed_type_html: 'Solo unos pocos servicios permiten ser incrustados en encuentros o eventos en directo desde los siguientes dominios: %{domains}'
           location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
           location_hints_help: 'Consejos de ubicación: información adicional. Ejemplo: la planta del edificio si se trata de un encuentro presencial, o la contraseña de la sala si se trata de un encuentro online con acceso restringido.'
           online_meeting_url_help: 'Enlace: permitir a las participantes conectarse directamente a tu encuentro'
@@ -519,15 +519,17 @@ es-PY:
           select_a_meeting_type: Por favor, selecciona un tipo de encuentro
           select_a_registration_type: Por favor, selecciona un tipo de inscripción
           select_an_iframe_access_level: Por favor, selecciona un nivel de acceso iframe
-          show_embedded_iframe_help: 'Solo unos pocos servicios permiten ser incrustados en encuentros o eventos en vivo desde los siguientes dominios: %{domains}'
         index:
           click_here: Ver todos los encuentros
           new_meeting: Nuevo encuentro
           see_all: Ver todos los encuentros
           see_all_withdrawn: Ver todos los encuentros retirados
           text_banner: Estás viendo la lista de encuentros retirados por sus autores. %{go_back_link}.
-        meeting_minutes:
-          related_information: Información relacionada
+        meeting:
+          close_meeting: Cerrar el encuentro
+          edit_close_meeting: Editar el informe del encuentro
+          edit_meeting: Editar el encuentro
+          join_meeting: Unirse al encuentro
         meetings:
           no_meetings_warning: No hay encuentros que coincidan con tu búsqueda o no hay ningún encuentro programado.
           upcoming_meetings_warning: Actualmente no hay encuentros programados, pero puedes ver los encuentros anteriores.
@@ -540,13 +542,7 @@ es-PY:
           confirm: Confirmar
         show:
           attendees: Número de asistentes
-          back: Volver al listado
-          close_meeting: Cerrar encuentro
           contributions: Número de contribuciones
-          date: Fecha
-          edit_close_meeting: Editar informe del encuentro
-          edit_meeting: Editar el encuentro
-          going: Te has inscrito en este encuentro
           join: Inscribirse al encuentro
           leave: Cancela tu inscripción
           leave_confirmation: '¿Seguro que quieres cancelar tu inscripción para este encuentro?'
@@ -564,7 +560,6 @@ es-PY:
           remaining_slots:
             one: "Queda %{count} ranuras"
             other: "%{count} ranuras restantes"
-          view: Ver
           visit_finished: Ver encuentro pasado
           withdraw_btn_hint: Puedes retirar tu encuentro si cambias de opinión. El encuentro no será eliminado, aparecerá en la lista de encuentros retirados.
           withdraw_confirmation_html: '¿Seguro que quieres retirar este encuentro?<br><br><strong>¡Esta acción no se puede cancelar!</strong>'
@@ -572,8 +567,6 @@ es-PY:
         update:
           invalid: Se ha producido un error al actualizar este encuentro.
           success: Has actualizado el encuentro con éxito.
-      meetings_map:
-        view_meeting: Ver encuentro
       models:
         invite:
           fields:
@@ -615,6 +608,7 @@ es-PY:
             question_replied: Pregunta respondida
             reply_question: Responder pregunta
       public_participants_list:
+        attending_organizations: Organizaciones
         attending_participants: Participantes asistentes
         hidden_participants_count:
           one: y %{count} persona más
@@ -647,8 +641,6 @@ es-PY:
         private_meeting: Encuentro privado
         transparent: Transparente
         withdraw: Retirado
-      versions:
-        back_to_resource: Volver al encuentro
       withdraw:
         error: Se ha producido un error al retirar el encuentro.
         success: El encuentro se ha retirado con éxito.
@@ -662,8 +654,6 @@ es-PY:
         past_meetings: Encuentros pasados
         see_all: Ver todo (%{count})
         upcoming_meetings: Próximos encuentros
-      upcoming_meeting_for_card:
-        upcoming_meeting: Próxima reunion
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Resultados relacionados:'

@@ -6,6 +6,20 @@ RSpec.shared_examples "manage debates" do
   before { visit_component_admin }
 
   describe "listing" do
+    context "with hidden debates" do
+      let!(:my_other_debate) { create(:debate, category:, component: current_component) }
+
+      before do
+        my_other_debate.update!(title: { en: "Debate <strong>title</strong>" })
+        create(:moderation, :hidden, reportable: my_other_debate)
+      end
+
+      it "does not list the hidden debates" do
+        visit current_path
+        expect(page).to have_no_content(translated(my_other_debate.title))
+      end
+    end
+
     context "with enriched content" do
       before do
         debate.update!(title: { en: "Debate <strong>title</strong>" })
@@ -19,14 +33,14 @@ RSpec.shared_examples "manage debates" do
   end
 
   describe "admin form" do
-    before { click_on "New Debate" }
+    before { click_on "New debate" }
 
     it_behaves_like "having a rich text editor", "new_debate", "full"
   end
 
   describe "updating a debate" do
     it "updates a debate" do
-      within find("tr", text: translated(debate.title)) do
+      within "tr", text: translated(debate.title) do
         page.find(".action-icon--edit").click
       end
 
@@ -42,9 +56,7 @@ RSpec.shared_examples "manage debates" do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout "Debate successfully updated"
 
       within "table" do
         expect(page).to have_content("My new title")
@@ -55,8 +67,8 @@ RSpec.shared_examples "manage debates" do
       let!(:debate) { create(:debate, :participant_author, component: current_component) }
 
       it "cannot edit the debate" do
-        within find("tr", text: translated(debate.title)) do
-          expect(page).not_to have_selector(".action-icon--edit")
+        within "tr", text: translated(debate.title) do
+          expect(page).to have_no_selector(".action-icon--edit")
         end
       end
     end
@@ -64,7 +76,7 @@ RSpec.shared_examples "manage debates" do
 
   describe "previewing debates" do
     it "links the debate correctly" do
-      within find("tr", text: translated(debate.title)) do
+      within "tr", text: translated(debate.title) do
         link = find("a", class: "action-icon--preview")
         expect(link[:href]).to include(resource_locator(debate).path)
       end
@@ -77,9 +89,7 @@ RSpec.shared_examples "manage debates" do
   end
 
   it "creates a new finite debate" do
-    within ".card-title" do
-      click_link "New Debate"
-    end
+    click_on "New debate"
 
     within ".new_debate" do
       fill_in_i18n(
@@ -107,8 +117,10 @@ RSpec.shared_examples "manage debates" do
       choose "Finite"
     end
 
-    fill_in :debate_start_time, with: Time.current.change(day: 12, hour: 10, min: 50)
-    fill_in :debate_end_time, with: Time.current.change(day: 12, hour: 12, min: 50)
+    fill_in_datepicker :debate_start_time_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
+    fill_in_timepicker :debate_start_time_time, with: "10:50"
+    fill_in_datepicker :debate_end_time_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
+    fill_in_timepicker :debate_end_time_time, with: "12:50"
 
     within ".new_debate" do
       select translated(category.name), from: :debate_decidim_category_id
@@ -116,9 +128,7 @@ RSpec.shared_examples "manage debates" do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout "Debate successfully created"
 
     within "table" do
       expect(page).to have_content("My debate")
@@ -126,9 +136,7 @@ RSpec.shared_examples "manage debates" do
   end
 
   it "creates a new open debate" do
-    within ".card-title" do
-      click_link "New Debate"
-    end
+    click_on "New debate"
 
     within ".new_debate" do
       fill_in_i18n(
@@ -156,8 +164,8 @@ RSpec.shared_examples "manage debates" do
       choose "Open"
     end
 
-    expect(page).not_to have_selector "#debate_start_time"
-    expect(page).not_to have_selector "#debate_end_time"
+    expect(page).to have_no_selector "#debate_start_time"
+    expect(page).to have_no_selector "#debate_end_time"
 
     within ".new_debate" do
       select translated(category.name), from: :debate_decidim_category_id
@@ -165,9 +173,7 @@ RSpec.shared_examples "manage debates" do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout "Debate successfully created"
 
     within "table" do
       expect(page).to have_content("My debate")
@@ -182,18 +188,16 @@ RSpec.shared_examples "manage debates" do
     end
 
     it "deletes a debate" do
-      within find("tr", text: translated(debate2.title)) do
-        accept_confirm admin: true do
+      within "tr", text: translated(debate2.title) do
+        accept_confirm do
           page.find(".action-icon--remove").click
         end
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout "Debate successfully deleted"
 
       within "table" do
-        expect(page).not_to have_content(translated(debate2.title))
+        expect(page).to have_no_content(translated(debate2.title))
       end
     end
 
@@ -201,8 +205,8 @@ RSpec.shared_examples "manage debates" do
       let!(:debate2) { create(:debate, :participant_author, component: current_component) }
 
       it "cannot delete the debate" do
-        within find("tr", text: translated(debate2.title)) do
-          expect(page).not_to have_selector(".action-icon--remove")
+        within "tr", text: translated(debate2.title) do
+          expect(page).to have_no_selector(".action-icon--remove")
         end
       end
     end
@@ -210,7 +214,7 @@ RSpec.shared_examples "manage debates" do
 
   describe "closing a debate" do
     it "closes a debate" do
-      within find("tr", text: translated(debate.title)) do
+      within "tr", text: translated(debate.title) do
         page.find(".action-icon--close").click
       end
 
@@ -226,13 +230,11 @@ RSpec.shared_examples "manage debates" do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout "Debate successfully closed"
 
       within "table" do
-        within find("tr", text: translated(debate.title)) do
-          expect(page).not_to have_selector(".action-icon--edit")
+        within "tr", text: translated(debate.title) do
+          expect(page).to have_no_selector(".action-icon--edit")
           page.find(".action-icon--close").click
         end
       end
@@ -244,8 +246,8 @@ RSpec.shared_examples "manage debates" do
       let!(:debate) { create(:debate, :participant_author, component: current_component) }
 
       it "cannot close the debate" do
-        within find("tr", text: translated(debate.title)) do
-          expect(page).not_to have_selector(".action-icon--close")
+        within "tr", text: translated(debate.title) do
+          expect(page).to have_no_selector(".action-icon--close")
         end
       end
     end

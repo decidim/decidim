@@ -10,12 +10,12 @@
             <li>
               <%# NOTE: The following markup is duplicated to fulfill a11y requirements %>
               <% if steps.length == 1 %>
-                <div id="trigger-process-steps-<%= i %>" class="participatory-space__metadata-modal__step<%= " is-active" if active %>" aria-expanded="true">
+                <div id="trigger-process-steps-<%= i %>" class="participatory-space__metadata-modal__step<%= " is-active" if active %>">
                   <span><%= step.position + 1 %></span>
                   <span>
                     <span class="participatory-space__metadata-modal__step-title">
                       <span class="participatory-space__metadata-modal__step-current"><%= t("active_step", scope: "layouts.decidim.participatory_processes.participatory_process") %></span>
-                      <%= translated_attribute(step.title) %>
+                      <%= decidim_escape_translated(step.title) %>
                     </span>
                     <span class="participatory-space__metadata-modal__step-dates"><%= step_dates(step) %></span>
                   </span>
@@ -26,7 +26,7 @@
                   <span>
                     <span class="participatory-space__metadata-modal__step-title">
                       <span class="participatory-space__metadata-modal__step-current"><%= t("active_step", scope: "layouts.decidim.participatory_processes.participatory_process") %></span>
-                      <%= translated_attribute(step.title) %>
+                      <%= decidim_escape_translated(step.title) %>
                     </span>
                     <span class="participatory-space__metadata-modal__step-dates"><%= step_dates(step) %></span>
                   </span>

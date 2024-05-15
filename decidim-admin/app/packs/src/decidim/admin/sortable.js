@@ -1,5 +1,3 @@
-/* eslint-disable no-ternary */
-
 import createSortList from "src/decidim/admin/sort_list.component"
 
 // Once in DOM

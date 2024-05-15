@@ -20,19 +20,15 @@ sk:
         other: Hlasy
   decidim:
     comments:
-      last_activity:
-        new_comment_at_html: "<span>Nový komentár na %{link}</span>"
       votes:
         create:
           error: Pri hlasovaní za komentár sa vyskytol problém.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Prihláste sa so svojím účtom</a> alebo <a href="%{sign_up_url}"> sa zaregistrujte</a>, aby ste pridali svoj komentár.
         form:
           body:
             label: Komentár
             placeholder: Čo si myslíte o tomto?
-          submit: Odoslať
           user_group_id:
             label: Komentovať ako
         opinion:
@@ -63,8 +59,6 @@ sk:
           older: Staršie
           recent: Nedávne
         title: 'Zoradiť podľa:'
-      comment_thread:
-        title: Konverzácia s %{authorName}
       comments:
         blocked_comments_for_user_warning: V súčasnosti nemôžete komentovať, ale môžete si prečítať predchádzajúce komentáre.
         blocked_comments_warning: Komentáre nie sú v súčasnosti povolené, ale môžete si prečítať predchádzajúce komentáre.

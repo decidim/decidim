@@ -51,7 +51,6 @@ ru:
         logo: Логотип
         name: Имя
         official_img_footer: Нижний колонтитул официального логотипа
-        official_img_header: Заголовок официального логотипа
         official_url: Официальный веб-адрес организации
         omnipresent_banner_short_description: Краткое описание
         omnipresent_banner_title: Заголовок
@@ -62,7 +61,6 @@ ru:
         send_welcome_notification: Отправить приветственное уведомление
         success_color: Успешно
         tos_version: Версия условий участия
-        twitter_handler: Обработчик Twitter
         user_groups_enabled: Включить группы
         warning_color: Предупреждение
         welcome_notification_body: Текст приветствия
@@ -98,8 +96,6 @@ ru:
           attributes:
             official_img_footer:
               allowed_file_content_types: Недопустимый файл изображения
-            official_img_header:
-              allowed_file_content_types: Недопустимый файл изображения
   activerecord:
     attributes:
       decidim/static_page:
@@ -119,8 +115,6 @@ ru:
       actions:
         add: Добавить
         browse: Просмотреть
-        manage: Управлять
-        new: Добавить %{name}
         permissions: Права
         reject: Отклонить
         verify: Подтвердить личность
@@ -159,7 +153,6 @@ ru:
           title: Редактировать папку
           update: Обновить
         index:
-          attachment_collection_used: Эту папку нельзя удалить, так как она используется.
           attachment_collections_title: Папки вложений
         new:
           create: Создать
@@ -198,7 +191,6 @@ ru:
           update: Обновить
         index:
           categories_title: Категории
-          category_used: Эту категорию нельзя удалить, поскольку она используется.
         new:
           create: Создать категорию
           title: Добавить категорию
@@ -262,7 +254,6 @@ ru:
             all: Все
             managed: Управляемые
             not_managed: Не управляемые
-          filter_by: 'Отобрать по признаку:'
           impersonate: Олицетворить (выступить в роли участника)
           impersonate_new_managed_user: Выступить в роли нового управляемого участника
           managed: Управляемые
@@ -305,10 +296,10 @@ ru:
         area_types: Виды участков
         areas: Участки
         configuration: Конфигурация
-        dashboard: Панель управления
         help_sections: Разделы справки
         homepage: Домашняя страница
         impersonations: Выступления в роли участника
+        manage: Управлять
         newsletters: Рассылки новостей
         participants: Участники
         scope_types: Виды охвата
@@ -371,7 +362,6 @@ ru:
           fields:
             created_at: Дата создания
             email: Эл. адрес
-            last_sign_in_at: Дата последнего входа
             name: Имя
             role: Роль
             roles:
@@ -427,8 +417,6 @@ ru:
           deliver: Доставить рассылку новостей
           none: Нет
           participants_help: Отправляет новостную рассылку всем подтвержденным пользователям, которые участвовали в любом из выбранных пространств в списке.
-          send_to_all_users: Отправить всем пользователям
-          send_to_followers: Отправить подписчикам
         show:
           preview: Предпросмотр
           subject: Тема
@@ -461,7 +449,6 @@ ru:
           github: ГитХаб
           instagram: Инстаграм
           social_handlers: Социальные сети
-          twitter: Твиттер
           youtube: ЮТуб
         update:
           error: При попытке обновить эту организацию произошла ошибка.
@@ -470,19 +457,12 @@ ru:
         edit:
           update: Обновить
         form:
-          colors:
-            header_snippets_help: Используйте это поле, чтобы добавлять что-либо в HTML-заголовок. Чаще всего это делается для включения сторонних служб, для которых требуется дополнительный JavaScript или CSS. Кроме того, вы можете использовать это для добавления дополнительных метатегов в HTML. Обратите внимание, что это будет отображаться только на общедоступных страницах, а не в разделе администратора.
-          cta_button_path_help: 'Вы можете изменить то, куда ведет нажатие кнопки «Призвать к действию» на главной странице. Используйте здесь частичные пути, а не полные веб-адреса. В них допустимы буквы, цифры, тире и косые черты, и они должны начинаться с буквы. Кнопка «Призвать к действию» отображается на главной странице между приветственным текстом и описанием. Пример: %{url}'
           cta_button_text_help: Вы можете изменить текст кнопки «Призвать к действию» на главной странице для каждого доступного в вашей организации языка. Если вы не зададите текст, будет использоваться значение по умолчанию. Кнопка «Призвать к действию» отображается на главной странице между приветственным текстом и описанием.
           homepage_appearance_title: Редактировать внешний вид главной страницы
           homepage_highlighted_content_banner_title: Баннер рекомендуемого содержимого
           images:
             layout_appearance_title: Редактировать внешний вид макета
           omnipresent_banner_appearance_title: Редактировать вездесущий баннер
-      organization_homepage:
-        edit:
-          active_content_blocks: Блоки действующего содержимого
-          inactive_content_blocks: Блоки недействующего содержимого
       participatory_space_private_users:
         create:
           error: При попытке добавить частного участника в это пространство соучастия произошла ошибка.
@@ -551,7 +531,6 @@ ru:
         dashboard: Панель управления
         scope_types: Виды охвата
         scopes: Охваты
-        static_pages: Страницы
         user_groups: Группы участников
       user_group:
         reject:
@@ -585,7 +564,6 @@ ru:
         users_count:
           admins: Администраторы
           participants: Участники
-      view_public_page: Просмотреть общедоступную страницу
     moderations:
       actions:
         hidden: Скрыт
@@ -614,12 +592,3 @@ ru:
   errors:
     messages:
       invalid_json: Недопустимый JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Рассылки новостей
-        settings:
-          title: Настройки
-        users:
-          title: Участники

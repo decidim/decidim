@@ -1,0 +1,36 @@
+.emoji-picker {
+  &__popupContainer {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+
+    & .emoji-picker__closeButton {
+      position: absolute;
+      border: none;
+      z-index: 1;
+      right: 0;
+      top: 0;
+      cursor: pointer;
+      padding: 4px;
+      align-self: flex-end;
+      transform: translate(50%, -50%);
+      background: #999;
+      width: 1.5rem;
+      height: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+
+      &:hover {
+        background: #4f46e5;
+      }
+
+      & svg {
+        fill: white;
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+  }
+}

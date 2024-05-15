@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Budgets
-  describe VoteReminderMailer, type: :mailer do
+  describe VoteReminderMailer do
     let(:mail) { described_class.vote_reminder(reminder) }
     let(:router) { Decidim::EngineRouter.main_proxy(component) }
     let(:organization) { create(:organization) }

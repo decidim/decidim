@@ -28,6 +28,3 @@
           update:
             invalid: Det oppsto et problem med å lagre denne siden.
             success: Siden ble lagret.
-      home:
-        sub_hero:
-          register_title: Registrer deg for å opprette en konto

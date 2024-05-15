@@ -18,25 +18,25 @@ shared_examples_for "has embedded video in description" do |description_attribut
 
   context "when cookies are rejected" do
     before do
-      click_link "Cookie settings"
-      click_button "Accept only essential"
+      click_on "Cookie settings"
+      click_on "Accept only essential"
     end
 
     it "disables iframe" do
       expect(page).to have_content(cookie_warning)
-      expect(page).not_to have_selector("iframe")
+      expect(page).to have_no_css("iframe")
     end
   end
 
   context "when cookies are accepted" do
     before do
-      click_link "Cookie settings"
-      click_button "Accept all"
+      click_on "Cookie settings"
+      click_on "Accept all"
     end
 
     it "shows iframe" do
-      expect(page).not_to have_content(cookie_warning)
-      expect(page).to have_selector("iframe", count:)
+      expect(page).to have_no_content(cookie_warning)
+      expect(page).to have_css("iframe", count:)
     end
   end
 end

@@ -17,7 +17,7 @@ module Decidim
     # Breaks the request lifecycle, if user is not authenticated.
     # Otherwise returns.
     def ensure_authenticated!
-      return true unless current_organization.force_users_to_authenticate_before_access_organization
+      return true unless current_organization&.force_users_to_authenticate_before_access_organization
 
       # Next stop: Check whether auth is ok
       unless user_signed_in?
@@ -35,11 +35,15 @@ module Decidim
     end
 
     def unauthorized_paths
-      # /locale is for changing the locale
-      %w(/locale) + Decidim::StaticPage.where(
+      default_unauthorized_paths + Decidim::StaticPage.where(
         organization: current_organization,
         allow_public_access: true
       ).pluck(Arel.sql("CONCAT('/pages/', slug)"))
+    end
+
+    def default_unauthorized_paths
+      # /locale is for changing the locale and /manifest.webmanifest to request PWA manifest
+      %w(/locale /manifest.webmanifest)
     end
   end
 end

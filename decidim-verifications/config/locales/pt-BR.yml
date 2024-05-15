@@ -46,7 +46,7 @@ pt-BR:
             - Os usuários preenchem suas informações de identidade e carregam uma cópia do documento.
             - Você preencher as informações presentes na imagem carregada.
             - A informação deve corresponder ao que o usuário preenchido.
-            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
+            - 
         postal_letter:
           help:
             - Os usuários solicitaram que um código de verificação seja enviado para o endereço.
@@ -63,6 +63,11 @@ pt-BR:
       name: Nome
       postal_letter:
         name: Código por carta postal
+    events:
+      verifications:
+        verify_with_managed_user:
+          email_outro: Verifique a <a href="%{conflicts_url}">lista de conflitos das verificações</a> e entre em contato com o participante para verificar seus detalhes e resolver o problema.
+          email_subject: Falha na tentativa de verificação contra outro usuário
     verifications:
       authorizations:
         authorization_metadata:
@@ -166,8 +171,6 @@ pt-BR:
           new:
             send: Solicitar verificação
             title: Carregue seu documento de identidade
-        dni: DNI
-        nie: NIE
         passport: Passaporte
       postal_letter:
         admin:
@@ -188,8 +191,6 @@ pt-BR:
             title: Solicite seu código de verificação
       sms:
         authorizations:
-          destroy:
-            success: O código de verificação foi redefinido com sucesso. Por favor, digite novamente o seu número de telefone.
           edit:
             confirm_destroy: Tem certeza de que deseja redefinir o código de verificação?
             destroy: Redefinir código de verificação

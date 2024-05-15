@@ -6,7 +6,7 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        # This method allows us to detect the components related whith a
+        # This method allows us to detect the components related with a
         # content block. The content block can have different components
         # associated depending on the scope_name. The scope names and their
         # associated models are configured in Decidim::ContentBlocks::BaseCell
@@ -33,11 +33,17 @@ module Decidim
           end
         end
 
+        private
+
         def base_model_name(scope_name)
-          scope_manifest = Decidim.participatory_space_manifests.find { |manifest| manifest.content_blocks_scope_name == scope_name }
+          scope_manifest = detect_manifest(Decidim.participatory_space_manifests, scope_name) || detect_manifest(Decidim.resource_manifests, scope_name)
           return scope_manifest.model_class_name if scope_manifest.present?
 
           Decidim::ContentBlocks::BaseCell::SCOPE_ASSOCIATIONS[scope_name]
+        end
+
+        def detect_manifest(manifests_set, scope_name)
+          manifests_set.find { |manifest| manifest.content_blocks_scope_name == scope_name }
         end
       end
     end

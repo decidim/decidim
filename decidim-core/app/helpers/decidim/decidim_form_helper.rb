@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A heper to expose an easy way to add authorization forms in a view.
+  # A helper to expose an easy way to add authorization forms in a view.
   module DecidimFormHelper
     # A custom form for that injects client side validations with Abide.
     #
@@ -12,7 +12,7 @@ module Decidim
     # Returns a String.
     def decidim_form_for(record, options = {}, &)
       options[:data] ||= {}
-      options[:data].update(abide: true, "live-validate" => true, "validate-on-blur" => true)
+      options[:data].update(:abide => true, "live-validate" => true, "validate-on-blur" => true)
 
       options[:html] ||= {}
       options[:html].update(novalidate: true) unless options[:html].has_key?(:novalidate)
@@ -25,7 +25,7 @@ module Decidim
       if record.is_a?(ActiveRecord::Base)
         object = record.is_a?(Array) ? record.last : record
         format = options[:format]
-        apply_form_for_options!(record, object, options) if object
+        apply_form_for_options!(object, options) if object
         options[:format] = format if format
       end
 
@@ -210,7 +210,7 @@ module Decidim
       return unless record.respond_to?(:errors)
       return unless record.errors[:base].any?
 
-      alert_box(record.errors.full_messages_for(:base).join(","), "alert", false)
+      alert_box(record.errors.full_messages_for(:base).join(","), :alert, false)
     end
 
     # Handle which collection to pass to Decidim::FilterFormBuilder.areas_select
@@ -219,6 +219,21 @@ module Decidim
       return organization.areas if organization.area_types.all? { |at| at.area_ids.empty? }
 
       organization.area_types
+    end
+
+    def ordered_scopes_descendants(root = nil)
+      root = try(:current_participatory_space)&.scope if root == false
+      if root.present?
+        root.descendants
+      else
+        current_organization.scopes
+      end.sort { |a, b| a.part_of.reverse <=> b.part_of.reverse }
+    end
+
+    def ordered_scopes_descendants_for_select(root = nil)
+      ordered_scopes_descendants(root).map do |scope|
+        [" #{"&nbsp;" * 4 * (scope.part_of.count - 1)} #{translated_attribute(scope.name)}".html_safe, scope&.id]
+      end
     end
   end
 end

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages posts", type: :system do
+describe "Admin manages posts" do
   let(:manifest_name) { "blogs" }
   let(:two_days_ago) { 2.days.ago.strftime("%d/%m/%Y %H:%M") }
   let(:two_days_from_now) { 2.days.from_now.strftime("%d/%m/%Y %H:%M") }
@@ -26,12 +26,12 @@ describe "Admin manages posts", type: :system do
 
   it "sets publish time correctly" do
     within "table" do
-      within find("tr", text: translated(post1.title)) do
+      within "tr", text: translated(post1.title) do
         expect(page).to have_content(two_days_ago)
       end
-      within find("tr", text: translated(post2.title)) do
+      within "tr", text: translated(post2.title) do
         expect(page).to have_content(two_days_from_now)
-        expect(find("td:nth-child(4) svg")[:class]).to have_content("icon--clock icon")
+        expect(find("td:nth-child(4) span")).to have_css("[aria-label='Not published yet.']")
       end
     end
   end

@@ -1,8 +1,6 @@
 fi:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Ota organisaatiokaavio käyttöön
       assemblies_type:
         title: Otsikko
       assembly:
@@ -58,7 +56,7 @@ fi:
         subtitle: Alaotsikko
         target: Kuka osallistuu
         title: Otsikko
-        twitter: Twitter
+        twitter: X
         weight: Järjestysnumero
         youtube: YouTube
       assembly_member:
@@ -98,7 +96,9 @@ fi:
       actions:
         import_assembly: Tuo
         new_assembly: Uusi ryhmä
+        new_assembly_member: Uusi ryhmän jäsen
         new_assembly_type: Uusi ryhmätyyppi
+        new_assembly_user_role: Uusi ryhmän hallintakäyttäjä
       assemblies:
         create:
           error: Uuden ryhmän luonti epäonnistui.
@@ -106,10 +106,10 @@ fi:
         edit:
           update: Päivitä
         index:
-          not_published: Ei julkaistu
           private: Yksityinen
           public: Julkinen
           published: Julkaistu
+          unpublished: Julkaisematon
         new:
           create: Luo
           title: Uusi ryhmä
@@ -120,10 +120,6 @@ fi:
         create:
           error: Ryhmän kopiointi epäonnistui.
           success: Ryhmän kopiointi onnistui.
-      assemblies_settings:
-        update:
-          error: Asetusten päivittäminen epäonnistui.
-          success: Asetusten päivittäminen onnistui.
       assemblies_types:
         create:
           error: Uuden ryhmätyypin luonti epäonnistui.
@@ -156,13 +152,13 @@ fi:
         destroy:
           success: Jäsenen poistaminen ryhmästä onnistui.
         edit:
-          title: Päivitä ryhmän jäsenen tietoja.
+          title: Päivitä ryhmän jäsenen tietoja
           update: Päivittää
         index:
           assembly_members_title: Ryhmän jäsenet
         new:
           create: Luoda
-          title: Uusi ryhmän jäsen.
+          title: Uusi ryhmän jäsen
         update:
           error: Ryhmän jäsenen päivitys epäonnistui.
           success: Ryhmän jäsenen tietojen päivitys onnistui.
@@ -171,8 +167,8 @@ fi:
           error: Ryhmän julkaiseminen epäonnistui.
           success: Ryhmän julkaisu onnistui.
         destroy:
-          error: Ryhmän julkaisun peruminen epäonnistui.
-          success: Ryhmän julkaisun peruminen onnistui.
+          error: Ryhmän julkaisun lopettaminen epäonnistui.
+          success: Ryhmän julkaisun lopettaminen onnistui.
       assembly_user_roles:
         create:
           error: Hallintakäyttäjän lisäys ryhmään epäonnistui.
@@ -180,22 +176,28 @@ fi:
         destroy:
           success: Hallintakäyttäjän poisto ryhmästä onnistui.
         edit:
-          title: Päivitä ryhmän hallintakäyttäjän tietoja.
+          title: Päivitä ryhmän hallintakäyttäjän tietoja
           update: Päivitä
         index:
           assembly_admins_title: Ryhmän hallintakäyttäjät
         new:
           create: Luo
-          title: Uusi ryhmän hallintakäyttäjä.
+          title: Uusi ryhmän hallintakäyttäjä
         update:
           error: Ryhmän hallintakäyttäjän päivitys epäonnistui.
           success: Ryhmän hallintakäyttäjän päivitys onnistui.
       filters:
+        ceased_date_not_null:
+          label: Lopetettu
+          values:
+            'false': Ei lopetettu
+            'true': Lopetettu
         decidim_assemblies_type_id_eq:
           label: Ryhmän tyyppi
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: Etsi nimellä tai käyttäjänimellä
       menu:
         assemblies: Ryhmät
-        assemblies_settings: Asetukset
         assemblies_submenu:
           assembly_admins: Ryhmän hallintakäyttäjät
           assembly_members: Jäsenet
@@ -204,9 +206,11 @@ fi:
           attachments: Liitteet
           categories: Aihepiirit
           components: Komponentit
-          info: Tiedot
+          info: Tietoa tästä ryhmästä
+          landing_page: Laskeutumissivu
           moderations: Moderoinnit
           private_users: Yksityiset käyttäjät
+          see_assembly: Näytä ryhmä
         assemblies_types: Ryhmien tyypit
       models:
         assemblies_types:
@@ -215,6 +219,7 @@ fi:
             title: Otsikko
         assembly:
           fields:
+            actions: Toiminnot
             created_at: Luonnin ajankohta
             private: Yksityinen
             promoted: Korostettu
@@ -288,25 +293,19 @@ fi:
             select_an_area: Valitse alue
             select_an_assembly_type: Valitse ryhmän tyyppi
             select_parent_assembly: Valitse pääryhmä
-            slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
+            slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
             social_handlers: Sosiaalinen media
             title: Yleiset tiedot
-            visbility: Näkyvyys
-        assemblies_settings:
-          edit:
-            update: Päivitä
-          form:
-            title: Ryhmien asetukset
+            visibility: Näkyvyys
         assemblies_types:
           form:
-            title: Otsikko
+            title: Muokkaa ryhmätyyppiä
         assembly_copies:
           form:
-            slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
+            slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
         assembly_imports:
           form:
-            document_legend: Lisää dokumentti
-            slug_help: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
+            slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
         assembly_members:
           form:
             existing_user: Olemassa oleva käyttäjä
@@ -317,13 +316,6 @@ fi:
             select_a_position: Valitse asema
             select_user: Valitse käyttäjä
             user_type: Käyttäjätyyppi
-          index:
-            filter:
-              all: Kaikki
-              ceased: Lakkautettu
-              not_ceased: Ei lakkautettu
-            filter_by: Suodata
-            search: Hae
         content_blocks:
           highlighted_assemblies:
             max_results: Näytettävien elementtien enimmäismäärä
@@ -331,6 +323,26 @@ fi:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Alue
+          closing_date: Päättymispäivä
+          created_by: Tekijä
+          creation_date: Luontipäivä
+          data: Ryhmän tiedot
+          developer_group: Edistäjäryhmä
+          duration: Kesto
+          included_at: Sisältyy kohteeseen
+          indefinite_duration: Määrittelemätön
+          local_area: Organisaatioalue
+          meta_scope: Teema
+          participatory_scope: Mitä päätetään
+          participatory_structure: Miten päätetään
+          target: Kuka osallistuu
+          title: Tietoa tästä ryhmästä
+        filters:
+          names:
+            all: Kaikki
+          type: Tyyppi
         show:
           title: Tietoa tästä ryhmästä
       assembly_members:
@@ -345,8 +357,16 @@ fi:
         participatory: Osallistuva
         working_group: Työryhmä
       content_blocks:
+        children_assemblies:
+          name: Ryhmät
+        dates_metadata:
+          name: Päivämäärien tiedot
+        extra_data:
+          name: Tyyppi ja kesto
         highlighted_assemblies:
           name: Tärkeimmät ryhmät
+        related_assemblies:
+          name: Liittyvät ryhmät
       created_by:
         city_council: Kaupunginvaltuusto
         others: Muut
@@ -368,40 +388,16 @@ fi:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktiiviset ryhmät
-            assemblies_button_title: Linkki kaikkien ryhmien sivulle
-            see_all_assemblies: Näytä kaikki ryhmät
+            active_spaces: Aktiiviset ryhmät
+            see_all_spaces: Näytä kaikki ryhmät
         user_profile:
           member_of:
             member_of: Jäsen ryhmässä
       show:
-        area: alue
         assembly_type: Ryhmän tyyppi
-        children: Ryhmät
-        closing_date: Sulkemispäivä
-        composition: Kokoonpano
-        created_by: Luonut
-        creation_date: Luontipäivämäärä
-        developer_group: Edistäjäryhmä
         duration: Kesto
-        included_at: Lisäysaika
-        indefinite_duration: Määrittelemätön
-        internal_organisation: Sisäinen organisaatio
-        is_transparent:
-          'false': läpinäkymätön
-          'true': läpinäkyvä
-        local_area: Organisaatioalue
-        participatory_scope: Mitä päätetään
-        participatory_structure: Miten päätetään
         private_space: Tämä on yksityinen ryhmä
-        purpose_of_action: Toiminnan tarkoitus
-        read_less: Vähennä tekstiä
-        read_more: Lue lisää
-        related_participatory_processes: Liittyvät osallistumisprosessit
-        scope: Teema
-        social_networks: Sosiaalinen media
         social_networks_title: Vieraile ryhmän sivulla palvelussa
-        target: Kuka osallistuu
     assembly_members:
       assembly_member:
         designated_on: Nimetty
@@ -451,20 +447,14 @@ fi:
           more_info: Lisätietoja
           take_part: Osallistu
         index:
-          children: 'Ryhmät: '
-          organizational_chart: Organisaatiokaavio
           promoted_assemblies: Korostetut ryhmät
-          reset_chart: Palauta
+        metadata:
+          children_item:
+            one: "%{count} ryhmä"
+            other: "%{count} ryhmää"
         order_by_assemblies:
           assemblies:
             one: "%{count} ryhmä"
             other: "%{count} ryhmää"
-        promoted_assembly:
-          more_info: Lisätiedot
-          take_part: Osallistu
       assembly_navigation:
         assembly_member_menu_item: Jäsenet
-        assembly_menu_item: Ryhmä
-      assembly_widgets:
-        show:
-          take_part: Osallistu

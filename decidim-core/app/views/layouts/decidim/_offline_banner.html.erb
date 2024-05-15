@@ -1,5 +1,5 @@
-<div class="flash callout primary small js-offline-message" style="display: none">
-  <%= t(".cache_version_page") %>
+<div class="js-offline-message hidden">
+  <%= cell("decidim/announcement", t(".cache_version_page"), callout_class: "alert" ) %>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", () => {

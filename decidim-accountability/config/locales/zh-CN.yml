@@ -34,8 +34,6 @@ zh-CN:
         confirm_destroy: 您确定要删除此 %{name} 吗？
         destroy: 删除
         edit: 编辑
-        import_csv: 导入 CSV
-        new: 新建 %{name}
         preview: 预览
         timeline_entries: 项目进化
         title: 行动
@@ -45,14 +43,11 @@ zh-CN:
         import_results:
           new:
             import: 导入
-            title: 从 CSV 导入结果
         models:
           result:
             name: 结果
           status:
             name: 状态
-          timeline_entry:
-            name: 时间线条目
         results:
           edit:
             title: 编辑结果
@@ -131,15 +126,7 @@ zh-CN:
           search: 搜索操作
         show:
           stats:
-            attendees: 参与者
             back_to_resource: 返回结果
-            comments: 评论
-            contributions: 二. 捐款
-            last_edited_by: 最后编辑者
-            last_updated_at: 最后更新于
-            meetings: 会议
-            proposals: 建议
-            votes: 支持
         timeline:
           title: 项目进化
     components:

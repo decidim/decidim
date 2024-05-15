@@ -6,6 +6,9 @@ module Decidim
       # Controller used to manage the initiatives answers
       class AnswersController < Decidim::Initiatives::Admin::ApplicationController
         include Decidim::Initiatives::NeedsInitiative
+        include Decidim::Admin::ParticipatorySpaceAdminBreadcrumb
+
+        add_breadcrumb_item_from_menu :admin_initiative_actions_menu
 
         helper Decidim::Initiatives::InitiativeHelper
         layout "decidim/admin/initiatives"

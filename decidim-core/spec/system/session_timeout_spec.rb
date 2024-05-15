@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Session timeout", type: :system do
+describe "Session timeout" do
   include ActiveSupport::Testing::TimeHelpers
 
   let(:organization) { create(:organization) }
@@ -30,14 +30,14 @@ describe "Session timeout", type: :system do
       visit decidim.root_path
       2.times.each do
         expect(page).to have_content("If you continue being inactive", wait: 4)
-        find("#continueSession").click
+        find_by_id("continueSession").click
         travel 20.seconds
       end
 
       switch_to_window(win1)
       expect(page).to have_content("If you continue being inactive", wait: 4)
-      find("#continueSession").click
-      expect(page).not_to have_content("You were inactive for too long")
+      find_by_id("continueSession").click
+      expect(page).to have_no_content("You were inactive for too long")
     end
 
     it "does not timeout user who wants to be remembered" do
@@ -46,7 +46,7 @@ describe "Session timeout", type: :system do
       visit decidim.root_path
       travel 1.minute
       sleep 1
-      expect(page).not_to have_content("You were inactive for too long")
+      expect(page).to have_no_content("You were inactive for too long")
     end
   end
 end

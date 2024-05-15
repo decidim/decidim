@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module ParticipatoryProcesses
-    describe ParticipatoryProcessGroupsController, type: :controller do
+    describe ParticipatoryProcessGroupsController do
       routes { Decidim::ParticipatoryProcesses::Engine.routes }
 
       let(:organization) { create(:organization) }

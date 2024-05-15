@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User manages group invitations", type: :system do
+describe "User manages group invitations" do
   let(:user) { create(:user, :confirmed) }
   let!(:membership) { create(:user_group_membership, user:, role: :invited) }
 
@@ -18,7 +18,7 @@ describe "User manages group invitations", type: :system do
         expect(page).to have_content(membership.user_group.name)
       end
 
-      click_link "Accept"
+      click_on "Accept"
 
       expect(page).to have_content("Invitation successfully accepted")
 
@@ -30,11 +30,11 @@ describe "User manages group invitations", type: :system do
         expect(page).to have_content(membership.user_group.name)
       end
 
-      click_link "Reject"
+      click_on "Reject"
 
       expect(page).to have_content("Invitation successfully rejected")
 
-      expect(page).not_to have_content(membership.user_group.name)
+      expect(page).to have_no_content(membership.user_group.name)
     end
   end
 end

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Blogs::Admin
-  describe PostsHelper, type: :helper do
+  describe PostsHelper do
     describe "#post_author_select_field" do
       let(:organization) { create(:organization) }
       let(:user) { create(:user, :admin, :confirmed, organization:) }

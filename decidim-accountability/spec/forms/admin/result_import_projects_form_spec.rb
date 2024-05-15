@@ -47,7 +47,7 @@ module Decidim::Accountability
       end
     end
 
-    describe "when import all is not selexted" do
+    describe "when import all is not selected" do
       let(:import_all_selected) { false }
 
       it { is_expected.not_to be_valid }

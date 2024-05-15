@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Answer a survey", type: :system do
+describe "Answer a survey" do
   InvisibleCaptcha.honeypots = [:honeypot_id]
   InvisibleCaptcha.visual_honeypots = true
 
@@ -65,7 +65,7 @@ describe "Answer a survey", type: :system do
 
       check "questionnaire_tos_agreement"
 
-      accept_confirm { click_button "Submit" }
+      accept_confirm { click_on "Submit" }
 
       within ".success.flash" do
         expect(page).to have_content("successfully")
@@ -87,7 +87,7 @@ describe "Answer a survey", type: :system do
 
         check "questionnaire_tos_agreement"
 
-        accept_confirm { click_button "Submit" }
+        accept_confirm { click_on "Submit" }
 
         within ".alert.flash", wait: 5 do
           expect(page).to have_content("problem")

@@ -1,6 +1,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <%= csrf_meta_tags %>
-<%= stylesheet_pack_tag "decidim_admin", media: "all" %>
-<%= javascript_pack_tag "decidim_admin", defer: false %>
-<%= organization_colors %>
+<%= legacy_favicon %>
+<%= favicon %>
+<%= apple_favicon %>
+<%= append_stylesheet_pack_tag "decidim_admin_overrides", media: "all" %>
+<%= stylesheet_pack_tag "decidim_core", "decidim_admin", media: "all" %>
+<%= javascript_pack_tag "decidim_core", "decidim_admin", defer: false %>
 <%= snippets.display(:head) %>

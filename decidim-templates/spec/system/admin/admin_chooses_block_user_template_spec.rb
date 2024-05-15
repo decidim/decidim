@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin chooses user block templates when blocking user", type: :system do
+describe "Admin chooses user block templates when blocking user" do
   let(:organization) { create(:organization, default_locale: :en) }
   let!(:admin) { create(:user, :admin, :confirmed, organization:) }
   let(:model_name) { Decidim::User.model_name }
@@ -22,7 +22,7 @@ describe "Admin chooses user block templates when blocking user", type: :system 
   context "when on reported users path" do
     before do
       visit decidim_admin.moderated_users_path
-      click_link "Block User"
+      click_on "Block User"
     end
 
     after do
@@ -33,7 +33,9 @@ describe "Admin chooses user block templates when blocking user", type: :system 
       select template.name["en"], from: :block_template_chooser, wait: 5
       expect(page).to have_field(:block_user_justification, with: translated(template.description))
 
-      find("*[type=submit]").click
+      within("[data-content]") do
+        find("*[type=submit]").click
+      end
       expect(page).to have_admin_callout("successfully")
 
       expect(user.reload).to be_blocked

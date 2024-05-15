@@ -18,19 +18,15 @@ lv:
         other: Balsis
   decidim:
     comments:
-      last_activity:
-        new_comment_at_html: "<span>Jauns komentārs %{link}</span>"
       votes:
         create:
           error: Balsojot par komentāru, radās problēma.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Pierakstieties, izmantojot savu kontu</a> vai <a href="%{sign_up_url}"> reģistrējieties, </a>, lai pievienotu komentāru.
         form:
           body:
             label: Komentēt
             placeholder: Ko tu domā par šo?
-          submit: Sūtīt
           user_group_id:
             label: Komentēt kā
         opinion:
@@ -61,8 +57,6 @@ lv:
           older: Vecāki
           recent: Nesenie
         title: 'Sakārtot pēc:'
-      comment_thread:
-        title: Saruna ar %{authorName}
       comments:
         blocked_comments_for_user_warning: Pašlaik jūs nevarat komentēt, bet jūs varat izlasīt iepriekšējos komentārus.
         blocked_comments_warning: Komentāri šobrīd ir atspējoti, bet jūs varat lasīt iepriekšējos komentārus.

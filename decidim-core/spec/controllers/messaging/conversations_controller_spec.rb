@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe Messaging::ConversationsController, type: :controller do
+  describe Messaging::ConversationsController do
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }

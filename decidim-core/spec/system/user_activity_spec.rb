@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User activity", type: :system do
+describe "User activity" do
   let(:organization) { create(:organization) }
   let(:comment) { create(:comment, commentable: resource, author: user) }
   let(:user) { create(:user, :confirmed, organization:) }
@@ -47,14 +47,14 @@ describe "User activity", type: :system do
     allow(Decidim::ActionLog).to receive(:public_resource_types).and_return(
       %w(
         Decidim::Comments::Comment
-        Decidim::DummyResources::DummyResource
+        Decidim::Dev::DummyResource
       )
     )
     allow(Decidim::ActionLog).to receive(:private_resource_types).and_return(
-      %w(Decidim::DummyResources::CoauthorableDummyResource)
+      %w(Decidim::Dev::CoauthorableDummyResource)
     )
     allow(Decidim::ActionLog).to receive(:publicable_public_resource_types).and_return(
-      %w(Decidim::DummyResources::DummyResource)
+      %w(Decidim::Dev::DummyResource)
     )
 
     switch_to_host organization.host
@@ -80,7 +80,7 @@ describe "User activity", type: :system do
           expect(page).to have_content(translated(resource.title))
           expect(page).to have_content(translated(comment.commentable.title))
           expect(page).to have_content(translated(resource3.title))
-          expect(page).not_to have_content(translated(resource2.title))
+          expect(page).to have_no_content(translated(resource2.title))
         end
       end
     end
@@ -97,8 +97,8 @@ describe "User activity", type: :system do
 
         expect(page).to have_content(translated(resource.title))
         expect(page).to have_content(translated(comment.commentable.title))
-        expect(page).not_to have_content(translated(resource2.title))
-        expect(page).not_to have_content(translated(resource3.title))
+        expect(page).to have_no_content(translated(resource2.title))
+        expect(page).to have_no_content(translated(resource3.title))
       end
     end
 
@@ -116,7 +116,7 @@ describe "User activity", type: :system do
       end
     end
 
-    context "when accessing a non existing profile" do
+    context "when accessing a nonexistent profile" do
       before do
         allow(page.config).to receive(:raise_server_errors).and_return(false)
         visit decidim.profile_activity_path(nickname: "invalid_nickname")

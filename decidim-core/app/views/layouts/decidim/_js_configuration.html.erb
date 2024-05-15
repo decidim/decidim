@@ -1,5 +1,6 @@
 <%
 js_configs = {
+  api_path: decidim_api.root_path(locale: nil),
   icons_path: Decidim.cors_enabled ? "" : asset_pack_path("media/images/remixicon.symbol.svg"),
   messages: {
     "selfxssWarning": I18n.t("decidim.security.selfxss_warning"),
@@ -7,9 +8,11 @@ js_configs = {
       "removeRecipient": t("decidim.shared.mentions_modal.remove_recipient", name: "%name%")
     },
     emojis: I18n.t("emojis").deep_transform_keys { |k| k.to_s.camelize(:lower) },
-    editor: I18n.t("editor")
+    editor: I18n.t("editor"),
+    date: I18n.t("date"),
+    time: I18n.t("time")
   },
-  external_domain_whitelist: [current_organization.host] + current_organization.external_domain_whitelist,
+  external_domain_allowlist: [current_organization.host] + current_organization.external_domain_allowlist,
   consent_cookie_name: Decidim.consent_cookie_name,
   sign_out_path: decidim.destroy_user_session_path
 }
@@ -24,7 +27,8 @@ character_messages = {
   }
 }
 external_link_messages = {
-  "externalLink": t("decidim.accessibility.external_link")
+  "externalLink": t("decidim.accessibility.external_link"),
+  "opensInNewTab": t("decidim.accessibility.opens_in_new_tab")
 }
 validator_messages = {
   "correctErrors": t("forms.correct_errors")

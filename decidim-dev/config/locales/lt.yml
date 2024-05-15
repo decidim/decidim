@@ -52,6 +52,7 @@ lt:
           description_own: Jūs sukūrėte %{score} testus.
           name: Testai
           next_level_in: Parenkite dar %{score} testus ir pasiekite kitą lygį!
+          unearned_another: Šis dalyvis dar nesukūrė jokių testų.
           unearned_own: Jūs dar nesukūrėte jokių testų.
     resource_links:
       test_link:

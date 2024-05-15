@@ -1,0 +1,5 @@
+<%# NOTE: The pack_tag do not work as expected, when they are INSIDE the cell, therefore, we create a partial to do so %>
+<%= append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
+<%= append_javascript_pack_tag "decidim_proposals" %>
+
+<%= cell "decidim/proposals/proposals_picker", current_component, form:, field: %>

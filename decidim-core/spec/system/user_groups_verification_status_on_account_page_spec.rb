@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User group verification status on account page", type: :system do
+describe "User group verification status on account page" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization:) }
 
@@ -19,11 +19,11 @@ describe "User group verification status on account page", type: :system do
       visit decidim.own_user_groups_path
 
       within "#dropdown-menu-profile" do
-        click_link "Groups"
+        click_on "Groups"
       end
 
       expect(page).to have_content(user_group.name)
-      expect(page).not_to have_css("div.profile__user-avatar-badge")
+      expect(page).to have_no_css("div.profile__user-avatar-badge")
     end
 
     describe "#verified?" do
@@ -40,11 +40,11 @@ describe "User group verification status on account page", type: :system do
       visit decidim.own_user_groups_path
 
       within "#dropdown-menu-profile" do
-        click_link "Groups"
+        click_on "Groups"
       end
 
       expect(page).to have_content(user_group.name)
-      expect(page).not_to have_css("div.profile__user-avatar-badge")
+      expect(page).to have_no_css("div.profile__user-avatar-badge")
     end
   end
 
@@ -55,7 +55,7 @@ describe "User group verification status on account page", type: :system do
       visit decidim.own_user_groups_path
 
       within "#dropdown-menu-profile" do
-        click_link "Groups"
+        click_on "Groups"
       end
 
       expect(page).to have_content(user_group.name)

@@ -113,10 +113,13 @@ module Decidim
       decidim-blogs
       decidim-budgets
       decidim-comments
+      decidim-conferences
       decidim-core
       decidim-debates
+      decidim-design
       decidim-forms
       decidim-generators
+      decidim-initiatives
       decidim-meetings
       decidim-pages
       decidim-participatory_processes
@@ -126,10 +129,6 @@ module Decidim
       decidim-system
       decidim-templates
       decidim-verifications
-      decidim-conferences
-      decidim-elections
-      decidim-initiatives
-      decidim-templates
     ).each do |decidim_gem|
       context "with #{decidim_gem}" do
         let(:gem) { decidim_gem }
@@ -222,13 +221,6 @@ module Decidim
 
       context "with decidim-budgets" do
         let(:gem) { "decidim-budgets" }
-
-        it_behaves_like "existing module"
-      end
-
-      # Dependency for decidim-core
-      context "with decidim-api" do
-        let(:gem) { "decidim-api" }
 
         it_behaves_like "existing module"
       end

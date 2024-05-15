@@ -3,7 +3,7 @@
 module Decidim
   # A presenter to render menu items of breadcrumb root menu
   class BreadcrumbRootMenuItemPresenter < MenuItemPresenter
-    include ::Webpacker::Helper
+    include ::Shakapacker::Helper
     include ::ActionView::Helpers::AssetUrlHelper
     include Decidim::LayoutHelper
 
@@ -18,7 +18,7 @@ module Decidim
 
     def arrow_link(text, url, args = {})
       link_to url, class: args.with_indifferent_access[:class] do
-        "<span>#{text}</span> #{redesigned_icon("arrow-right-line")}".html_safe
+        "<span>#{text}</span> #{icon("arrow-right-line")}".html_safe
       end
     end
   end

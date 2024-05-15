@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages questionnaire templates", type: :system do
+describe "Admin manages questionnaire templates" do
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
@@ -34,7 +34,7 @@ describe "Admin manages questionnaire templates", type: :system do
   describe "creating a questionnaire_template" do
     before do
       within ".layout-content" do
-        click_link("New")
+        click_on("New")
       end
     end
 
@@ -55,16 +55,16 @@ describe "Admin manages questionnaire templates", type: :system do
           ca: "Descripció"
         )
 
-        page.find("*[type=submit]").click
+        click_on "Save", match: :first
       end
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_current_path decidim_admin_templates.edit_questionnaire_template_path(Decidim::Templates::Template.last.id)
-        expect(page.find("#template_name_en").value).to eq("My template")
+        expect(page.find_by_id("template_name_en").value).to eq("My template")
 
-        click_link "Edit"
+        click_on "Edit"
       end
 
       within ".card-section" do
@@ -85,7 +85,7 @@ describe "Admin manages questionnaire templates", type: :system do
         )
       end
 
-      page.find("*[type=submit]").click
+      click_on "Save"
       expect(page).to have_admin_callout("successfully")
     end
   end
@@ -93,7 +93,7 @@ describe "Admin manages questionnaire templates", type: :system do
   describe "trying to create a questionnaire_template with invalid data" do
     before do
       within ".layout-content" do
-        click_link("New")
+        click_on("New")
       end
     end
 
@@ -114,7 +114,7 @@ describe "Admin manages questionnaire templates", type: :system do
           ca: "Descripció"
         )
 
-        find("*[type=submit]").click
+        find("*[type=submit]", match: :first).click
       end
 
       expect(page).to have_admin_callout("problem")
@@ -126,7 +126,7 @@ describe "Admin manages questionnaire templates", type: :system do
 
     before do
       visit decidim_admin_templates.questionnaire_templates_path
-      click_link translated(template.name)
+      click_on translated(template.name)
     end
 
     it "updates a template" do
@@ -144,9 +144,9 @@ describe "Admin manages questionnaire templates", type: :system do
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_current_path decidim_admin_templates.edit_questionnaire_template_path(template)
-        expect(page.find("#template_name_en").value).to eq("My new name")
+        expect(page.find_by_id("template_name_en").value).to eq("My new name")
       end
     end
   end
@@ -156,7 +156,7 @@ describe "Admin manages questionnaire templates", type: :system do
 
     before do
       visit decidim_admin_templates.questionnaire_templates_path
-      click_link translated(template.name)
+      click_on translated(template.name)
     end
 
     it "does not update the template" do
@@ -184,8 +184,8 @@ describe "Admin manages questionnaire templates", type: :system do
     end
 
     it "copies the template" do
-      within find("tr", text: translated(template.name)) do
-        click_link "Duplicate"
+      within "tr", text: translated(template.name) do
+        click_on "Duplicate"
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -202,11 +202,11 @@ describe "Admin manages questionnaire templates", type: :system do
 
     it "shows a functional questionnaire form" do
       within ".layout-content" do
-        click_link("Edit")
+        click_on("Edit")
       end
 
-      within ".container" do
-        click_link("Edit")
+      within "[data-content]" do
+        click_on("Edit")
       end
 
       within ".edit_questionnaire" do
@@ -226,7 +226,7 @@ describe "Admin manages questionnaire templates", type: :system do
           ca: "Els meus termes"
         )
 
-        click_button "Add question"
+        click_on "Add question"
         find(".button.expand-all").click
 
         within ".questionnaire-question" do
@@ -238,7 +238,7 @@ describe "Admin manages questionnaire templates", type: :system do
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_current_path decidim_admin_templates.edit_questionnaire_template_path(template)
         expect(page).to have_content("My question")
       end
@@ -246,16 +246,16 @@ describe "Admin manages questionnaire templates", type: :system do
 
     it "does not show preview or answers buttons" do
       within ".layout-content" do
-        click_link("Edit")
+        click_on("Edit")
       end
 
-      within ".container" do
-        click_link("Edit")
+      within "[data-content]" do
+        click_on("Edit")
       end
 
-      within ".card-title" do
-        expect(page).not_to have_button("Preview")
-        expect(page).not_to have_button("No answers yet")
+      within ".item_show__header" do
+        expect(page).to have_no_button("Preview")
+        expect(page).to have_no_button("No answers yet")
       end
     end
   end
@@ -268,8 +268,8 @@ describe "Admin manages questionnaire templates", type: :system do
     end
 
     it "destroys the template" do
-      within find("tr", text: translated(template.name)) do
-        accept_confirm { click_link "Delete" }
+      within "tr", text: translated(template.name) do
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -288,10 +288,10 @@ describe "Admin manages questionnaire templates", type: :system do
 
     it "shows the template preview" do
       within ".questionnaire-template-preview" do
-        expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+        expect(page).to have_i18n_content(questionnaire.title)
         expect(page).to have_i18n_content(questionnaire.questions.first.body)
         expect(page).to have_field(id: "questionnaire_responses_0")
-        expect(page).to have_selector("button[type=submit][disabled]")
+        expect(page).to have_css("button[type=submit][disabled]")
       end
     end
   end

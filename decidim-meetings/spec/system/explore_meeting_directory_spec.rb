@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore meeting directory", type: :system do
+describe "Explore meeting directory" do
   let(:directory) { Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path }
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, organization:) }
@@ -42,7 +42,7 @@ describe "Explore meeting directory", type: :system do
 
     it "does not show past meetings" do
       within "#meetings" do
-        expect(page).not_to have_content(translated(past_meeting.title))
+        expect(page).to have_no_content(translated(past_meeting.title))
       end
     end
   end
@@ -56,11 +56,11 @@ describe "Explore meeting directory", type: :system do
       within "form.new_filter" do
         fill_in("filter[title_or_description_cont]", with: "foobar")
         within "div.filter-search" do
-          click_button
+          click_on
         end
       end
 
-      expect(page).not_to have_content("Another meeting")
+      expect(page).to have_no_content("Another meeting")
       expect(page).to have_content("Foobar meeting")
 
       filter_params = CGI.parse(URI.parse(page.current_url).query)
@@ -90,7 +90,6 @@ describe "Explore meeting directory", type: :system do
         visit directory
 
         within "#panel-dropdown-menu-category" do
-          click_filter_item "All"
           click_filter_item translated(participatory_process.title)
         end
 
@@ -113,7 +112,6 @@ describe "Explore meeting directory", type: :system do
       visit directory
 
       within "#panel-dropdown-menu-scope" do
-        click_filter_item "All"
         click_filter_item translated(meeting.scope.name)
       end
 
@@ -129,7 +127,6 @@ describe "Explore meeting directory", type: :system do
         visit directory
 
         within "#panel-dropdown-menu-origin" do
-          click_filter_item "All"
           click_filter_item "Official"
         end
 
@@ -148,7 +145,6 @@ describe "Explore meeting directory", type: :system do
         visit directory
 
         within "#panel-dropdown-menu-origin" do
-          click_filter_item "All"
           click_filter_item "Groups"
         end
 
@@ -161,7 +157,6 @@ describe "Explore meeting directory", type: :system do
         visit directory
 
         within "#panel-dropdown-menu-origin" do
-          click_filter_item "All"
           click_filter_item "Participants"
         end
 
@@ -195,7 +190,7 @@ describe "Explore meeting directory", type: :system do
         filter_params = CGI.parse(URI.parse(page.current_url).query)
         base_url = "http://#{organization.host}:#{Capybara.server_port}"
 
-        click_button "Export calendar"
+        click_on "Export calendar"
         expect(page).to have_css("#calendarShare", visible: :visible)
         within("#calendarShare") do
           expect(page).to have_content("Calendar URL")
@@ -234,7 +229,6 @@ describe "Explore meeting directory", type: :system do
 
       it "allows filtering by type 'both'" do
         within "#panel-dropdown-menu-type" do
-          click_filter_item "All"
           click_filter_item "Hybrid"
         end
       end
@@ -276,7 +270,7 @@ describe "Explore meeting directory", type: :system do
           click_filter_item "Past"
         end
 
-        expect(page).not_to have_content(translated(upcoming_meeting1.title))
+        expect(page).to have_no_content(translated(upcoming_meeting1.title))
 
         result = page.find("#meetings .card__list-list").text
         expect(result.index(translated(past_meeting3.title))).to be < result.index(translated(past_meeting1.title))
@@ -315,9 +309,8 @@ describe "Explore meeting directory", type: :system do
         click_filter_item "Past"
       end
 
-      expect(page).not_to have_css(meetings_selector)
+      expect(page).to have_no_css(meetings_selector)
       within("#panel-dropdown-menu-space_type") do
-        click_filter_item "All"
         click_filter_item "Assemblies"
       end
 

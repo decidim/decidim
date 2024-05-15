@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe EditorImagesController, type: :controller do
+  describe EditorImagesController do
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }

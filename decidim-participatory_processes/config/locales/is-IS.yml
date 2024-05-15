@@ -58,14 +58,12 @@ is-IS:
           attachments: Viðhengi
           categories: Flokkar
           components: Hluti
-          info: Upplýsingar
           moderations: Moderations
       models:
         participatory_process:
           fields:
             created_at: Búið til á
             private: Einkamál
-            promoted: Hápunktur
             published: Published
             title: Titill
           name: Þátttökuferli
@@ -116,7 +114,6 @@ is-IS:
         edit:
           update: Uppfæra
         index:
-          not_published: Ekki birt
           private: Einkamál
           public: Opinber
           published: Published
@@ -150,51 +147,24 @@ is-IS:
         title: Þátttaka ferli hópa
     participatory_processes:
       admin:
-        participatory_process_copies:
-          form:
-            slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessarar ferlis. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'
         participatory_processes:
           form:
             announcement_help: Textinn sem þú slærð inn hér verður sýndur fyrir notandann rétt fyrir neðan ferlið.
             related_processes: Tengd ferli
-            slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessarar ferlis. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'
             title: Almennar upplýsingar
       index:
         title: Þátttökuferli
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Virk ferli
-            see_all_processes: Sjá öll ferli
-      participatory_processes:
-        index:
-          loading: Loading niðurstöður ...
       show:
-        end_date: Loka dagsetning
-        local_area: Skipulagssvæði
-        participatory_scope: Hvað er ákveðið
-        participatory_structure: Hvernig er það ákveðið
         private_space: Þetta er einkarekið ferli
         related_processes: Tengd ferli
-        scope: Umfang
-        start_date: Upphafsdagur
-        target: Hver tekur þátt
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
           browse: Skoða
           processes_count: 'Ferli:'
-      participatory_process_widgets:
-        show:
-          take_part: Taka þátt
       participatory_processes:
         index:
           promoted_processes: Hápunktar ferli
         participatory_process:
           take_part: Taka þátt
-        promoted_process:
-          more_info: Meiri upplýsingar
-          take_part: Taka þátt
-      process_navigation:
-        process_menu_item: Árangurinn

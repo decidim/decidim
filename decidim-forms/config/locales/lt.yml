@@ -22,6 +22,8 @@ lt:
             choices:
               missing: nepilnas - trūksta elementų
               too_many: per daug
+        questionnaire:
+          request_invalid: Tvarkant prašymą įvyko klaida. Bandykite dar kartą.
   decidim:
     forms:
       admin:
@@ -124,6 +126,9 @@ lt:
       admin_log:
         questionnaire:
           update: "%{user_name} atnaujino %{resource_name} klausimyną"
+      errors:
+        answer:
+          body: Pagrindinė dalis negali būti tuščia
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -139,6 +144,8 @@ lt:
         single_option: Vienas variantas
         sorting: Rūšiavimas
         title_and_description: Pavadinimas ir aprašymas
+      questionnaire_answer_presenter:
+        download_attachment: Parsisiųsti priedą
       questionnaires:
         answer:
           invalid: Atsakant į šią formą iškilo problema.
@@ -149,7 +156,6 @@ lt:
         show:
           answer_questionnaire:
             already_have_an_account?: Jau turite paskyrą?
-            anonymous_user_message: <a href="%{sign_in_link}">Prisijunkite su savo paskyra</a> arba <a href="%{sign_up_link}">užsiregistruokite</a> norėdami užpildyti formą.
             are_you_new?: Naujas naudotojas?
             sign_in_description: Prisijunkite norėdami dalyvauti apklausoje
             sign_up_description: Norėdami dalyvauti apklausoje, susikurkite dalyvio paskyrą
@@ -171,7 +177,6 @@ lt:
           questionnaire_not_published:
             body: Ši forma dar nepaskelbta.
           tos_agreement: Dalyvaudami sutinkate su paslaugos teikimo sąlygomis
-          upload_file: Įkelti failą
       step_navigation:
         show:
           are_you_sure: Šio veiksmo atšaukti negalima ir savo atsakymų keisti negalėsite. Ar esate įsitikinę?

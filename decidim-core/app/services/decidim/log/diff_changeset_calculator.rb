@@ -20,7 +20,7 @@ module Decidim
     class DiffChangesetCalculator
       # original_changeset - a `changeset` from a PaperTrail::Version instance
       # fields_mapping - a Hash mapping attribute names and a type to render them
-      # i18n_labels_scope - a String representing the I18n scope where the attribtue
+      # i18n_labels_scope - a String representing the I18n scope where the attribute
       #   labels can be found
       def initialize(original_changeset, fields_mapping, i18n_labels_scope)
         @original_changeset = original_changeset
@@ -119,7 +119,7 @@ module Decidim
       # Generates the label for the given attribute. If the `locale` is set,
       # it appends the locale at the end: `AttributeName (LocaleName)`.
       #
-      # attribute - A Symbol representing the attribute name. It will retrive
+      # attribute - A Symbol representing the attribute name. It will retrieve
       #   this key from the I18n scope set at `i18n_labels_scope`.
       # locale - a String representing the name of the locale.
       #

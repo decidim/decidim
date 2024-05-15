@@ -30,6 +30,19 @@ fr-CA:
         cost: Coût
         cost_report: Rapport de coût
         execution_period: Période d'exécution
+      proposal_state:
+        announcement_title: En-tête de réponse
+        bg_color: Couleur d'arrière-plan
+        colors:
+          blue: Bleu
+          gray: Gris
+          green: Vert
+          orange: Orange
+          pink: Rose
+          purple: Violet
+          red: Rouge
+          yellow: Jaune
+        text_color: Couleur du texte
       proposals_copy:
         copy_proposals: Je comprends que cela importera toutes les propositions de la fonctionnalité sélectionnée dans la fonctionnalité actuelle et que cette action ne peut être annulée.
         origin_component_id: Fonctionnalité dont on veut copier les propositions
@@ -68,15 +81,12 @@ fr-CA:
               not_official: Non officiels
               supported: A reçu des soutiens ou des approbations
     models:
-      decidim/proposals/accepted_proposal_event: Proposition acceptée
       decidim/proposals/admin/update_proposal_category_event: Catégorie de proposition modifiée
       decidim/proposals/admin/update_proposal_scope_event: La portée de la proposition a été modifiée
       decidim/proposals/creation_enabled_event: Autoriser la création de nouvelles propositions
       decidim/proposals/endorsing_enabled_event: Activer le module de soutiens
-      decidim/proposals/evaluating_proposal_event: Proposition en cours d'évaluation
       decidim/proposals/proposal_mentioned_event: Proposition mentionnée
       decidim/proposals/publish_proposal_event: Proposition publiée
-      decidim/proposals/rejected_proposal_event: Proposition non retenue
       decidim/proposals/voting_enabled_event: Activer le module de vote simple
   activerecord:
     models:
@@ -103,6 +113,8 @@ fr-CA:
             values:
               'false': Propositions
               'true': Amendements
+          proposal_state_id_eq:
+            label: État
           scope_id_eq:
             label: Secteur
           state_eq:
@@ -268,28 +280,6 @@ fr-CA:
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
           email_subject: Vous pouvez désormais soutenir des propositions dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant commencer à <a href="%{resource_path}">soutenir les propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-        proposal_accepted:
-          affected_user:
-            email_intro: 'Votre proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page:'
-            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
-            email_subject: Votre proposition a été acceptée
-            notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
-          follower:
-            email_intro: 'La proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page :'
-            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
-            email_subject: Une proposition que vous suivez a été acceptée
-            notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
-        proposal_evaluating:
-          affected_user:
-            email_intro: 'Votre proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez rechercher une réponse sur cette page:'
-            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
-            email_subject: Votre proposition est en cours d'évaluation
-            notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
-          follower:
-            email_intro: 'La proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez consulter cette page pour voir si une réponse a été formulée :'
-            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
-            email_subject: Une proposition que vous suivez est en cours d'évaluation
-            notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
         proposal_mentioned:
           email_intro: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_url}">dans cet espace</a> dans les commentaires.
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
@@ -306,17 +296,17 @@ fr-CA:
           email_subject: Nouvelle proposition "%{resource_title}" ajoutée à %{participatory_space_title}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title} par %{author}.
           notification_title_official: La proposition officielle <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}.
-        proposal_rejected:
+        proposal_state_changed:
           affected_user:
-            email_intro: 'Votre proposition "%{resource_title}" a été rejetée. Vous pouvez lire la réponse sur cette page:'
-            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
-            email_subject: Votre proposition a été rejetée
-            notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> a été rejetée.
+            email_intro: 'La proposition "%{resource_title}" est passée à l''état "%{state}". Vous pouvez lire la réponse sur cette page :'
+            email_outro: Vous avez reçu cette notification parce que vous êtes un(e) auteur(e) de "%{resource_title}".
+            email_subject: Votre proposition a changé d'état (%{state})
+            notification_title: L'état de votre proposition <a href="%{resource_path}">%{resource_title}</a> est passé à %{state}.
           follower:
-            email_intro: 'La proposition "%{resource_title}" n''a pas été retenue. Vous pouvez lire le commentaire ici :'
-            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
-            email_subject: Une proposition que vous suivez a été rejetée
-            notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> n'a pas été retenue.
+            email_intro: 'La proposition "%{resource_title}" est passée à l''état "%{state}". Vous pouvez lire la réponse sur cette page :'
+            email_outro: Vous recevez cette notification car vous suivez « %{resource_title} ». Vous pouvez annuler ce suivi en allant sur le lien précédent.
+            email_subject: Une proposition que vous suivez a changé d'état (%{state})
+            notification_title: L'état de la proposition <a href="%{resource_path}">%{resource_title}</a> est passé à "%{state}".
         proposal_update_category:
           email_intro: 'Un administrateur a mis à jour la catégorie de votre proposition "%{resource_title}". Vous pouvez y accéder ici :'
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
@@ -386,13 +376,18 @@ fr-CA:
         title: Votes
     participatory_spaces:
       highlighted_proposals:
+        last: Dernières propositions
         see_all: Tout voir (%{count})
     proposals:
       actions:
         answer_proposal: Répondre à la proposition
+        delete_proposal_state_confirm: Etes-vous sûr(e) de vouloir supprimer cet état?
+        destroy: Supprimer l'état
         edit_proposal: Modifier la proposition
+        edit_proposal_state: Modifier l'état
         import: Importer depuis une autre fonctionnalité
         new: Nouvelle proposition
+        new_proposal_state: Nouvel état
         participatory_texts: Textes participatifs
         show: Afficher la proposition
         title: Actions
@@ -430,8 +425,8 @@ fr-CA:
               one: proposition
               other: propositions
           title:
-            answers: Importer des réponses aux propositions
-            proposals: Importer des propositions
+            answers: Importer des réponses à des propositions depuis un fichier
+            proposals: Importer des propositions depuis un fichier
         models:
           proposal:
             name: Proposition
@@ -470,11 +465,7 @@ fr-CA:
             success: Texte participatif mis à jour avec succès.
         proposal_answers:
           form:
-            accepted: Retenue
             answer_proposal: Répondre
-            evaluating: En cours d'évaluation
-            not_answered: Non répondu
-            rejected: Non retenue
             title: Réponse à la proposition %{title}
         proposal_notes:
           create:
@@ -485,6 +476,25 @@ fr-CA:
             submit: Soumettre
           leave_your_note: Laisser une remarque
           title: Notes privées
+        proposal_states:
+          create:
+            error: Erreur lors de la création de l'état
+            success: Etat créé avec succès
+          destroy:
+            success: Etat supprimé avec succès
+          edit:
+            title: Modifier l'état
+            update: Mettre à jour
+          form:
+            preview: Aperçu
+          index:
+            title: États
+          new:
+            create: Créer
+            title: Nouvel état
+          update:
+            error: Erreur lors de la mise à jour de l'état
+            success: Etat mis à jour avec succès
         proposals:
           answer:
             invalid: Il y a eu un problème lors de la réponse à cette proposition.
@@ -516,6 +526,7 @@ fr-CA:
             selected: choisi
             split: Fractionner la proposition
             split_button: Scinder
+            statuses: États
             title: Propositions
             unassign_from_valuator: Retirer de l'évaluateur
             unassign_from_valuator_button: Ne plus assigner
@@ -525,35 +536,27 @@ fr-CA:
             create: Créer
             title: Créer une proposition
           publish_answers:
-            number_of_proposals: Les réponses pour %{number} propositions seront publiées.
+            number_of_proposals: Les réponses de %{number} propositions seront publiées ?
             select_a_proposal: Veuillez sélectionner une proposition.
           show:
             amendments_count: Nombre d'amendements
             assigned_valuators: Évaluateurs assignés
-            authors: Auteurs
             body: Corps
             comments_count: Nombre de commentaires
-            comments_negative_count: Contre
-            comments_neutral_count: Neutre
-            comments_positive_count: En faveur
-            created_at: Date de création
             documents: Documents
             endorsements_count: Nombre de soutiens
-            endorsements_ranking: Classement par soutiens
             endorsers: Soutiens
-            link: Lien
+            link: Voir la proposition
             n_more_endorsers:
               one: et 1 de plus
               other: et %{count} autres
             photos: Photos
-            proposals: Propositions
             ranking: "%{ranking} sur %{total}"
             related_meetings: Réunions associées
             remove_assignment: Supprimer l'affectation
             remove_assignment_confirmation: Êtes-vous sûr de vouloir supprimer l'évaluateur de cette proposition ?
             valuators: Évaluateurs
             votes_count: Nombre de votes
-            votes_ranking: Classement par supports
           update_category:
             invalid: 'Ces propositions avaient déjà la catégorie %{subject_name} : %{proposals}.'
             select_a_category: Veuillez sélectionner une catégorie.
@@ -573,7 +576,7 @@ fr-CA:
             no_components: Il n'y a pas d'autre fonctionnalité de proposition dans cet espace participatif dans laquelle importer les propositions.
             select_component: Veuillez sélectionner une fonctionnalité
             select_states: Vérifiez l'état des propositions à importer
-            title: Importer des propositions
+            title: Importer des propositions depuis une autre fonctionnalité
         proposals_merges:
           create:
             invalid: 'Une erreur est survenue lors de la fusion des propositions à cause de certaines d''entre elles:'
@@ -607,22 +610,15 @@ fr-CA:
         rejected: Non retenue
         withdrawn: Retirée
       application_helper:
-        filter_category_values:
-          all: Tout
         filter_origin_values:
           all: Tout
           meetings: Des réunions
           official: Propositions officielles
           participants: Participants
           user_groups: Groupes d'utilisateurs
-        filter_scope_values:
-          all: Tout
         filter_state_values:
-          accepted: Accepté
           all: Tout
-          evaluating: En cours d'évaluation
           not_answered: En attente de réponse
-          rejected: Rejeté
         filter_type_values:
           all: Tout
           amendments: Amendements
@@ -637,7 +633,6 @@ fr-CA:
               ok: Publier en tant que proposition
               title: L'action suivante est irréversible
             success: Brouillon collaboratif publié avec succès en tant que proposition.
-          view_collaborative_draft: Afficher le brouillon collaboratif
           withdraw:
             error: Il y a eu des erreurs en fermant le brouillon collaboratif.
             irreversible_action_modal:
@@ -646,10 +641,6 @@ fr-CA:
               ok: Retirer le projet collaboratif
               title: L'action suivante est irréversible
             success: Brouillon collaboratif retiré avec succès.
-        count:
-          drafts_count:
-            one: "%{count} brouillon collaboratif"
-            other: "%{count} brouillons collaboratifs"
         create:
           error: Il y a eu un problème lors de la création de ce brouillon collaboratif.
           success: Brouillon collaboratif créé avec succès.
@@ -659,6 +650,8 @@ fr-CA:
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Modifier un brouillon collaboratif
+        empty: Il n'y a pas encore de brouillons collaboratifs
+        empty_filters: Il n'y a pas de brouillon collaboratif avec ce critère
         filters:
           all: Tout
           amendment: Amendements
@@ -675,6 +668,11 @@ fr-CA:
           filter: Filtre
           filter_by: Filtrer par
           unfold: Se dérouler
+        index:
+          count:
+            one: "%{count} brouillon collaboratif"
+            other: "%{count} brouillons collaboratifs"
+        name: Brouillons collaboratifs
         new:
           add_file: Ajouter un fichier
           edit_file: Modifier le fichier
@@ -701,7 +699,6 @@ fr-CA:
             error: Ne peut être rejeté en tant que collaborateur, réessayez plus tard.
             success: "@%{user} a été rejeté en tant que collaborateur avec succès."
         show:
-          back: Retour
           edit: Modifier un brouillon collaboratif
           final_proposal: proposition finale
           final_proposal_help_text: Ce brouillon est terminé. Vous pouvez voir la proposition finale terminée
@@ -714,7 +711,6 @@ fr-CA:
           published_proposal: proposition publiée
           request_access: Demande d'accès
           requested_access: Accès demandé
-          version_history: voir l'historique des versions de cette proposition
           withdraw: retirer le projet
         states:
           open: Ouvrir
@@ -725,12 +721,11 @@ fr-CA:
           success: Brouillon collaboratif mis à jour avec succès.
         wizard_aside:
           back_from_collaborative_draft: Retour aux brouillons collaboratifs
-          info: Vous créez un <strong>projet collaboratif</strong>.
         wizard_header:
           title: Créez votre projet collaboratif
       content_blocks:
         highlighted_proposals:
-          proposals: Propositions
+          name: Propositions
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
         success: Proposition créée avec succès. Enregistrée comme brouillon.
@@ -741,11 +736,6 @@ fr-CA:
         new_proposal: 'Nouvelle proposition :'
         proposal_updated: 'Proposition mise à jour :'
       models:
-        collaborative_draft:
-          fields:
-            authors: Auteurs
-            comments: commentaires
-            contributions: Contributions
         proposal:
           fields:
             category: Catégorie
@@ -761,6 +751,9 @@ fr-CA:
             valuator: Évaluateur
             valuators: Évaluateurs
             votes: Votes
+        proposal_state:
+          css_class: Classe CSS
+          title: État
       new:
         limit_reached: Vous ne pouvez plus créer de nouvelles propositions car vous avez atteint la limite autorisée.
       participatory_text_proposal:
@@ -768,7 +761,6 @@ fr-CA:
         buttons:
           amend: Modifier
           comment: Commentaire
-          comments: commentaires
       proposal_votes:
         create:
           error: Des erreurs se sont produites lors du soutien de la proposition.
@@ -780,21 +772,14 @@ fr-CA:
         complete:
           send: Envoyer
           title: Complétez votre proposition
-        count:
-          proposals_count:
-            one: "%{count} proposition"
-            other: "%{count} propositions"
         dynamic_map_instructions:
           description: Les coordonnées seront mises à jour en cliquant sur le bouton 'Aperçu'. Cependant, l'adresse ne change pas.
           instructions: Vous pouvez déplacer le point sur la carte.
         edit:
           add_documents: Ajouter des documents
-          add_image: Ajouter une image
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
           edit_documents: Modifier les documents
-          edit_image: Modifier l'Image
-          gallery_legend: "(Facultatif) Ajouter une image à la carte de proposition"
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Modifier la proposition
@@ -803,6 +788,8 @@ fr-CA:
           discard_confirmation: Êtes-vous sûr de vouloir supprimer le brouillon de votre proposition ?
           send: Aperçu
           title: Modifier le brouillon de votre proposition
+        edit_form_fields:
+          marker_added: Marqueur ajouté à la carte.
         filters:
           activity: Mon activité
           all: Tout
@@ -816,23 +803,16 @@ fr-CA:
           state: État
           type: Type
           voted: Ne montrer que les propositions pour lesquelles j'ai voté
-        filters_small_view:
-          close_modal: Fermer la fenêtre de dialogue
-          filter: Filtrer
-          filter_by: Filtrer par
-          unfold: Voir plus
         index:
           click_here: Voir toutes les propositions
           collaborative_drafts_list: Accéder aux brouillons collaboratifs
+          count:
+            one: "%{count} proposition"
+            other: "%{count} propositions"
           new_proposal: Nouvelle proposition
           see_all: Voir toutes les propositions
           see_all_withdrawn: Voir toutes les propositions retirées
           text_banner: Vous voyez actuellemnent la liste des propositions retirées par leurs auteurs. %{go_back_link}.
-          view_proposal: Voir la proposition
-        linked_proposals:
-          proposal_votes:
-            one: vote
-            other: votes
         new:
           send: Continuer
           title: Créer une proposition
@@ -846,10 +826,8 @@ fr-CA:
           recent: Les plus récentes
           with_more_authors: Avec le plus d'auteurs
         participatory_texts:
-          index:
-            document_index: Index de document
           view_index:
-            see_index: Voir index
+            document_index: Index du document
         placeholder:
           address: 60 Boulevard Victor Hugo Saint-Jean-de-Luz, BP 64500
         preview:
@@ -861,18 +839,12 @@ fr-CA:
             other: Vous avez la possibilité de modifier cette proposition dans les %{count} minutes suivant sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
           publish: Publier
           title: Publier la proposition
-        proposal:
-          creation_date: 'Création : %{date}'
-          view_proposal: Voir la proposition
         proposals:
           empty: Il n'y a pas encore de proposition.
           empty_filters: Aucune proposition ne correspond à ce critère.
         show:
           answer: Répondre
-          back_to: Retour à
-          back_to_list: Retour à la liste
           changes_at_title: Amendement de (%{title}"
-          comments: Commentaires
           edit_proposal: Modifier la proposition
           estimated_cost: Coût estimé
           hidden_endorsers_count:
@@ -887,14 +859,9 @@ fr-CA:
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
           proposal_rejected_reason: 'Cette proposition n''a pas été retenue parce que :'
-          read_less: Lire moins
-          read_more: En savoir plus
-          report: Signaler
           withdraw_btn_hint: Si vous changez d'avis et tant que votre proposition n'a pas reçu de vote, commentaire et/ou soutien, vous pouvez toujours la retirer. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
           withdraw_confirmation_html: Êtes-vous sûr de vouloir retirer cette proposition ?<br><br><strong>Cette action ne peut pas être annulée !</strong>
           withdraw_proposal: Retirer la proposition
-        tags:
-          changed_from: "(changé de <u>%{previous_name}</u> par un administrateur)"
         update:
           title: Mettre à jour la proposition
         vote_button:
@@ -908,8 +875,6 @@ fr-CA:
           count:
             one: VOTE
             other: VOTES
-          most_popular_proposal: Proposition la plus populaire
-          need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Chaque proposition doit rassembler plus de %{limit} votes
@@ -924,7 +889,6 @@ fr-CA:
           title: 'Le vote est soumis aux règles suivantes :'
           vote_limit:
             description: Vous pouvez voter pour %{limit} propositions au maximum.
-            left: Restant
             votes: Votes
         wizard_aside:
           back: Retour
@@ -932,20 +896,15 @@ fr-CA:
           back_from_step_2: Retour aux propositions
           back_from_step_3: Retour à la comparaison des propositions
           back_from_step_4: Retour à l'édition du brouillon
-          info: Vous créez une <strong>proposition</strong>.
         wizard_steps:
           current_step: Étape actuelle
-          see_steps: voir les étapes
           step_1: Créer une proposition
           step_2: Comparer aux autres propositions
           step_3: Compléter votre proposition
           step_4: Publier votre proposition
-          step_of: Étape %{current_step_num} sur %{total_steps}
           title: Étapes de création de proposition
       proposals_picker:
         choose_proposals: Choisir les propositions
-        close: Fermer
-        more_proposals: Il y a %{number} propositions supplémentaires. Affinez votre recherche pour les localiser.
         no_proposals: Aucune proposition ne correspond à vos critères de recherche ou il n'y a aucune proposition.
       publish:
         error: Il y a eu des erreurs lors de la publication de la proposition.
@@ -959,12 +918,8 @@ fr-CA:
         error: Des erreurs sont survenues lors de l'enregistrement du brouillon de la proposition.
         success: Le brouillon de proposition a été mis à jour.
       versions:
-        collaborative_drafts:
-          back_to_resource: Revenir au brouillon collaboratif
         index:
           title: Versions
-        proposals:
-          back_to_resource: Retourner à la proposition
       withdraw:
         errors:
           has_supports: Cette proposition ne peut pas être retirée car elle comporte déjà des votes.

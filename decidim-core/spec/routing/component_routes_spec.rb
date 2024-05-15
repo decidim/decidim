@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Component routing", type: :routing do
+describe "Component routing" do
   routes { Decidim::Core::Engine.routes }
 
   let(:participatory_process) { create(:participatory_process) }

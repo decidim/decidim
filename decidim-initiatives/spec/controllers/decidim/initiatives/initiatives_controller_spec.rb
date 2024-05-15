@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Initiatives::InitiativesController, type: :controller do
+describe Decidim::Initiatives::InitiativesController do
   routes { Decidim::Initiatives::Engine.routes }
 
   let(:organization) { create(:organization) }
@@ -65,7 +65,7 @@ describe Decidim::Initiatives::InitiativesController, type: :controller do
       let(:commented_initiative) { create(:initiative, organization:) }
       let!(:comment) { create(:comment, commentable: commented_initiative) }
 
-      it "most commented appears fisrt" do
+      it "most commented appears first" do
         get :index, params: { order: "most_commented" }
         expect(subject.helpers.initiatives.first).to eq(commented_initiative)
       end

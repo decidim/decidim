@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Support Proposal", slow: true, type: :system do
+describe "Support Proposal", slow: true do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
@@ -13,8 +13,8 @@ describe "Support Proposal", slow: true, type: :system do
   let!(:user) { create(:user, :confirmed, organization:) }
 
   def expect_page_not_to_include_votes
-    expect(page).not_to have_button("Support")
-    expect(page).not_to have_css(".progress-bar__container .progress-bar__number span", text: "0\nSupports")
+    expect(page).to have_no_button("Support")
+    expect(page).to have_no_css(".progress-bar__container .progress-bar__number span", text: "0\nSupports")
   end
 
   context "when votes are not enabled" do
@@ -23,7 +23,7 @@ describe "Support Proposal", slow: true, type: :system do
         visit_component
         expect_page_not_to_include_votes
 
-        click_link proposal_title
+        click_on proposal_title
         expect_page_not_to_include_votes
       end
     end
@@ -37,7 +37,7 @@ describe "Support Proposal", slow: true, type: :system do
         visit_component
         expect_page_not_to_include_votes
 
-        click_link proposal_title
+        click_on proposal_title
         expect_page_not_to_include_votes
       end
     end
@@ -68,10 +68,10 @@ describe "Support Proposal", slow: true, type: :system do
     context "when the user is not logged in" do
       it "is given the option to sign in" do
         visit_component
-        click_link proposal_title
+        click_on proposal_title
 
         within ".proposal__aside-vote" do
-          click_button "Support"
+          click_on "Support"
         end
 
         expect(page).to have_css("#loginModal", visible: :visible)
@@ -86,12 +86,12 @@ describe "Support Proposal", slow: true, type: :system do
       context "when the proposal is not voted yet" do
         before do
           visit_component
-          click_link proposal_title
+          click_on proposal_title
         end
 
         it "is able to vote the proposal" do
           within "#proposal-#{proposal.id}-vote-button" do
-            click_button "Support"
+            click_on "Support"
             expect(page).to have_button("Already supported")
           end
 
@@ -105,13 +105,13 @@ describe "Support Proposal", slow: true, type: :system do
         before do
           create(:proposal_vote, proposal:, author: user)
           visit_component
-          click_link proposal_title
+          click_on proposal_title
         end
 
         it "is not able to vote it again" do
           within "#proposal-#{proposal.id}-vote-button" do
             expect(page).to have_button("Already supported")
-            expect(page).not_to have_button("Support")
+            expect(page).to have_no_button("Support")
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
@@ -121,7 +121,7 @@ describe "Support Proposal", slow: true, type: :system do
 
         it "is able to undo the vote" do
           within "#proposal-#{proposal.id}-vote-button" do
-            click_button "Already supported"
+            click_on "Already supported"
             expect(page).to have_button("Support")
           end
 
@@ -158,7 +158,7 @@ describe "Support Proposal", slow: true, type: :system do
               visit_component
 
               expect(page).to have_css("#voting-rules")
-              expect(page).not_to have_css("#remaining-votes-count")
+              expect(page).to have_no_css("#remaining-votes-count")
             end
           end
 
@@ -184,12 +184,12 @@ describe "Support Proposal", slow: true, type: :system do
         context "when the proposal is not voted yet" do
           before do
             visit_component
-            click_link proposal_title
+            click_on proposal_title
           end
 
           it "updates the remaining votes counter" do
             within ".proposal__aside-vote" do
-              click_button "Support"
+              click_on "Support"
               expect(page).to have_button("Already supported")
             end
 
@@ -209,12 +209,12 @@ describe "Support Proposal", slow: true, type: :system do
 
             component.update!(permissions:)
             visit_component
-            click_link proposal_title
+            click_on proposal_title
           end
 
           it "shows a modal dialog" do
             within "#proposal-#{proposal.id}-vote-button" do
-              click_button "Support"
+              click_on "Support"
             end
 
             expect(page).to have_content("Authorization required")
@@ -225,19 +225,19 @@ describe "Support Proposal", slow: true, type: :system do
           before do
             create(:proposal_vote, proposal:, author: user)
             visit_component
-            click_link proposal_title
+            click_on proposal_title
           end
 
           it "is not able to vote it again" do
             within "#proposal-#{proposal.id}-vote-button" do
               expect(page).to have_button("Already supported")
-              expect(page).not_to have_button("Support")
+              expect(page).to have_no_button("Support")
             end
           end
 
           it "is able to undo the vote" do
             within ".proposal__aside-vote" do
-              click_button "Already supported"
+              click_on "Already supported"
               expect(page).to have_button("Support")
             end
 
@@ -258,14 +258,14 @@ describe "Support Proposal", slow: true, type: :system do
           end
 
           it "is not able to vote other proposals" do
-            click_link proposal_title
+            click_on proposal_title
             within ".proposal__aside-vote" do
               expect(page).to have_content("1\nSupport")
             end
 
             other_proposals_titles.each do |title|
               visit_component
-              click_link title
+              click_on title
               within ".proposal__aside-vote" do
                 expect(page).to have_content("No supports remaining")
                 expect(page).to have_css(".button[disabled]")
@@ -282,14 +282,14 @@ describe "Support Proposal", slow: true, type: :system do
             end
 
             it "shows the vote count but not the vote button" do
-              click_link proposal_title
+              click_on proposal_title
               within ".proposal__aside-vote" do
                 expect(page).to have_content("1\nSupport")
               end
 
               other_proposals_titles.each do |title|
                 visit_component
-                click_link title
+                click_on title
                 within ".proposal__aside-vote" do
                   expect(page).to have_content("Supports disabled")
                   expect(page).to have_css(".button[disabled]")
@@ -320,8 +320,8 @@ describe "Support Proposal", slow: true, type: :system do
 
         page.find_link rejected_proposal_title
 
-        click_link rejected_proposal_title
-        expect(page).not_to have_selector("#proposal-#{rejected_proposal.id}-vote-button")
+        click_on rejected_proposal_title
+        expect(page).to have_no_selector("#proposal-#{rejected_proposal.id}-vote-button")
       end
     end
 
@@ -341,7 +341,7 @@ describe "Support Proposal", slow: true, type: :system do
       it "does not allow users to vote to a proposal that is reached the limit" do
         create(:proposal_vote, proposal:)
         visit_component
-        click_link proposal_title
+        click_on proposal_title
 
         within "#proposal-#{proposal.id}-vote-button" do
           expect(page).to have_content("Support limit reached")
@@ -350,10 +350,10 @@ describe "Support Proposal", slow: true, type: :system do
 
       it "allows users to vote on proposals under the limit" do
         visit_component
-        click_link proposal_title
+        click_on proposal_title
 
         within ".proposal__aside-vote" do
-          click_button "Support"
+          click_on "Support"
           expect(page).to have_content("Already supported")
         end
       end
@@ -376,7 +376,7 @@ describe "Support Proposal", slow: true, type: :system do
       it "allows users to vote on proposals over the limit" do
         create(:proposal_vote, proposal:)
         visit_component
-        click_link proposal_title
+        click_on proposal_title
 
         within ".proposal__aside-vote" do
           expect(page).to have_content("1\nSupport")
@@ -405,38 +405,38 @@ describe "Support Proposal", slow: true, type: :system do
           translated(proposal.title)
         end
 
-        click_link proposal_titles[0]
+        click_on proposal_titles[0]
 
         within ".proposal__aside-vote" do
-          click_button "Support"
+          click_on "Support"
           expect(page).to have_content("Already supported")
           expect(page).to have_content("0\nSupports")
         end
 
         visit_component
-        click_link proposal_titles[1]
+        click_on proposal_titles[1]
         within ".proposal__aside-vote" do
-          click_button "Support"
+          click_on "Support"
           expect(page).to have_content("Already supported")
           expect(page).to have_content("0\nSupports")
         end
 
         visit_component
-        click_link proposal_titles[2]
+        click_on proposal_titles[2]
         within ".proposal__aside-vote" do
-          click_button "Support"
+          click_on "Support"
           expect(page).to have_content("Already supported")
           expect(page).to have_content("1\nSupport")
         end
 
         visit_component
-        click_link proposal_titles[0]
+        click_on proposal_titles[0]
         within ".proposal__aside-vote" do
           expect(page).to have_content("1\nSupport")
         end
 
         visit_component
-        click_link proposal_titles[1]
+        click_on proposal_titles[1]
         within ".proposal__aside-vote" do
           expect(page).to have_content("1\nSupport")
         end
@@ -450,11 +450,11 @@ describe "Support Proposal", slow: true, type: :system do
 
       it "gives a point after voting" do
         visit_component
-        click_link proposal_title
+        click_on proposal_title
 
         expect do
           within ".proposal__aside-vote" do
-            click_button "Support"
+            click_on "Support"
             expect(page).to have_content("1\nSupport")
           end
         end.to change { Decidim::Gamification.status_for(user, :proposal_votes).score }.by(1)

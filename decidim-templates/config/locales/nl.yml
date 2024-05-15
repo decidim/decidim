@@ -33,6 +33,12 @@ nl:
         name: Template
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Opslaan
+        proposal_answer_templates:
+          form:
+            save: Opslaan
         questionnaire_templates:
           choose:
             create_from_template: Met template aanmaken
@@ -43,9 +49,6 @@ nl:
           edit:
             edit: Bewerk
             questionnaire: Vragenlijst
-          form:
-            save: Opslaan
-            template_title: Template informatie
           index:
             confirm_delete: Weet je zeker dat je dit template wilt verwijderen?
             title: Vragenlijst templates

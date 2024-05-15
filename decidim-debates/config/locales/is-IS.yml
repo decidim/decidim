@@ -29,7 +29,6 @@ is-IS:
         confirm_destroy: Ertu viss?
         destroy: Eyða
         edit: Breyta
-        new: Nýtt %{name}
         title: Aðgerðir
       admin:
         debates:
@@ -41,9 +40,6 @@ is-IS:
           new:
             create: Búðu til umræðu
             title: Ný umræða
-        models:
-          debate:
-            name: Umræða
       admin_log:
         debate:
           create: "%{user_name} búið til %{resource_name} umræðu á %{space_name} plássinu"
@@ -53,8 +49,6 @@ is-IS:
           debates_count:
             one: "%{count} umræða"
             other: "%{count} umræður"
-        debate:
-          participate: Taka þátt
         filters:
           all: Allt
           category: Flokkur
@@ -62,11 +56,6 @@ is-IS:
           official: Opinber
           origin: Uppruni
           search: Leita
-        filters_small_view:
-          close_modal: Loka mát
-          filter: Sía
-          filter_by: Sía eftir
-          unfold: Fella út
         form:
           select_a_category: Vinsamlegast veldu flokk
         index:
@@ -85,9 +74,6 @@ is-IS:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgir %{space_title} þátttakandi plássinu. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> umræðurnar voru búnar til á <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{author_nickname}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
         creation_disabled:

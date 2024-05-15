@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Postal letter management", type: :system do
+describe "Postal letter management" do
   let(:organization) do
     create(:organization, available_authorizations: ["postal_letter"])
   end
@@ -44,17 +44,17 @@ describe "Postal letter management", type: :system do
   end
 
   it "shows the list of pending verifications" do
-    expect(page).to have_selector("table tbody tr", count: 2)
+    expect(page).to have_css("table tbody tr", count: 2)
 
     within "table tbody" do
       within "tr", text: letter_not_sent.user.name do
-        expect(page).to have_selector("td", text: letter_not_sent.verification_metadata["address"])
-        expect(page).to have_selector("td", text: letter_not_sent.verification_metadata["pending_verification_code"])
+        expect(page).to have_css("td", text: letter_not_sent.verification_metadata["address"])
+        expect(page).to have_css("td", text: letter_not_sent.verification_metadata["pending_verification_code"])
       end
 
       within "tr", text: letter_sent.user.name do
-        expect(page).to have_selector("td", text: letter_sent.verification_metadata["verification_code"])
-        expect(page).to have_selector("td", text: letter_sent.verification_metadata["address"])
+        expect(page).to have_css("td", text: letter_sent.verification_metadata["verification_code"])
+        expect(page).to have_css("td", text: letter_sent.verification_metadata["address"])
       end
     end
   end
@@ -67,8 +67,8 @@ describe "Postal letter management", type: :system do
     expect(page).to have_content("Letter successfully marked as sent")
 
     within "table tbody tr", text: letter_not_sent.user.name do
-      expect(page).not_to have_selector("td a.action-icon--verify")
-      expect(page).to have_selector("td", text: %r{\d+/\d+/\d+ \d+:\d+})
+      expect(page).to have_no_css("td a.action-icon--verify")
+      expect(page).to have_css("td", text: %r{\d+/\d+/\d+ \d+:\d+})
     end
   end
 end

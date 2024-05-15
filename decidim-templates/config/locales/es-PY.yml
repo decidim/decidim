@@ -11,6 +11,8 @@ es-PY:
       menu:
         templates: Plantillas
       templates:
+        actions:
+          new_template: Añadir plantilla
         apply:
           error: Se ha producido un error al aplicar esta plantilla.
           success: Plantilla aplicada correctamente.
@@ -23,6 +25,9 @@ es-PY:
         destroy:
           success: Plantilla eliminada correctamente.
         empty: Todavía no hay plantillas.
+        fetch:
+          error: No se ha podido encontrar esta plantilla. Por favor, vuelve a cargar la página.
+        missing_resource: "(recurso ausente)"
         update:
           error: Se ha producido un error al actualizar esta plantilla.
           success: Plantilla actualizada correctamente.
@@ -42,12 +47,35 @@ es-PY:
     templates:
       admin:
         block_user_templates:
+          edit:
+            title: Editar plantilla del mensaje de bloqueo de la cuenta de usuaria
           form:
             save: Guardar
-            template_title: Información de la plantilla
           index:
             confirm_delete: '¿Seguro que quieres eliminar esta plantilla?'
             title: Bloquear los mensajes de la usuaria
+          new:
+            title: Nueva plantilla para el mensaje de bloqueo de la cuenta de usuaria
+          template_chooser:
+            select_template: Selecciona una plantilla de respuesta
+        proposal_answer_templates:
+          edit:
+            title: Editar la plantilla de respuesta a la propuesta
+          form:
+            component_constraint_help: Tenga en cuenta que solo se listarán los espacios de participación que tengan componentes del tipo "propuestas".
+            hint1_html: "<strong>%{organization}</strong> será reemplazado por el nombre de la organización"
+            hint2_html: "<strong>%{name}</strong> será reemplazado por el nombre de la autora"
+            hint3_html: "<strong>%{admin}</strong> será reemplazado por el nombre de la administradora (la que responde a la propuesta)"
+            hint_html: "<strong>Sugerencia:</strong> Puede utilizar estas variables en cualquier lugar de la plantilla de respuesta que se reemplazarán cuando utilice la plantilla"
+            save: Guardar
+          index:
+            component_constraint: Añadir restricción
+            confirm_delete: '¿Seguro que quieres eliminar esta plantilla?'
+            missing_state: Falta el estado
+            proposal_state_id: Estado interno
+            title: Respuestas a propuestas
+          new:
+            title: Nueva la plantilla de respuesta a propuesta
           template_chooser:
             select_template: Selecciona una plantilla de respuesta
         questionnaire_templates:
@@ -61,13 +89,14 @@ es-PY:
             edit: Editar
             empty: Aún no hay preguntas.
             questionnaire: Cuestionario
+            title: Editar plantilla del cuestionario
           form:
-            save: Guardar
-            template_title: Información de la plantilla
             title: Plantilla de cuestionario %{questionnaire_for}
           index:
             confirm_delete: '¿Seguro que quieres eliminar esta plantilla?'
             title: Plantillas de cuestionario
+          new:
+            title: Nueva plantilla de cuestionario
           preview:
             current_step: Paso %{step}
             of_total_steps: de %{total_steps}
@@ -80,4 +109,5 @@ es-PY:
           update: "%{user_name} ha actualizado la platilla del cuestionario %{resource_name}"
       template_types:
         block_user: Bloquear los mensajes de la usuaria
+        proposal_answer_templates: Respuestas a propuestas
         questionnaires: Cuestionarios

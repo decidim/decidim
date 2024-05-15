@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Comments", type: :system do
+describe "Comments" do
   let!(:component) { create(:budgets_component, organization:) }
   let!(:budget) { create(:budget, component:) }
   let!(:commentable) { create(:project, budget:) }
@@ -27,14 +27,14 @@ describe "Comments", type: :system do
       another_window = window_opened_by do
         within(".comment", match: :first) do
           page.find("[id^='dropdown-trigger']").click
-          click_link "Get link"
+          click_on "Get link"
         end
       end
 
       within_window(another_window) do
-        expect(page).to have_content(commentable.title["en"])
-        expect(page).to have_content(comments.first.body["en"])
-        expect(page).not_to have_content(comments.second.body["en"])
+        expect(page).to have_content(decidim_sanitize_translated(commentable.title))
+        expect(page).to have_content(decidim_sanitize_translated(comments.first.body))
+        expect(page).to have_no_content(decidim_sanitize_translated(comments.second.body))
       end
     end
   end

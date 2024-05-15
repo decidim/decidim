@@ -7,6 +7,7 @@ ru:
         body: Основной текст
         category_id: Категория
         has_address: Имеет адрес
+        scope_id: Охват
         state: Cостояние
         title: Заголовок
         user_group_id: Создать предложение в качестве
@@ -23,14 +24,11 @@ ru:
             add_photos:
               needs_to_be_reattached: Необходимо заново прикрепить
     models:
-      decidim/proposals/accepted_proposal_event: Предложение принято
       decidim/proposals/admin/update_proposal_category_event: Категория предложения изменена
       decidim/proposals/creation_enabled_event: Включена возможность создания предложений
       decidim/proposals/endorsing_enabled_event: Включена возможность поддерживать предложения
-      decidim/proposals/evaluating_proposal_event: Предложение сейчас рассматривается
       decidim/proposals/proposal_mentioned_event: Предложение упомянуто
       decidim/proposals/publish_proposal_event: Предложение обнародовано
-      decidim/proposals/rejected_proposal_event: Предложение отклонено
       decidim/proposals/voting_enabled_event: Включена возможность голосовать по поводу предложений
   activerecord:
     models:
@@ -97,16 +95,6 @@ ru:
           email_intro: 'Теперь вы можете поддерживать предложения в %{participatory_space_title}! Начните со страницы:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: В %{participatory_space_title} началось предоставление поддержки предложениям
-        proposal_accepted:
-          follower:
-            email_intro: 'Предложение "%{resource_title}" было принято. Вы можете прочитать ответ на странице:'
-            email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
-            notification_title: Предложение <a href="%{resource_path}">%{resource_title}</a> было принято.
-        proposal_evaluating:
-          follower:
-            email_intro: 'Предложение "%{resource_title}" сейчас рассматривается. Вы можете проверить наличие ответа на странице:'
-            email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
-            notification_title: Предложение <a href="%{resource_path}">%{resource_title}</a> на рассмотрении.
         proposal_mentioned:
           email_subject: Ваше предложение "%{mentioned_proposal_title}"было упомянуто
           notification_title: Ваше предложение «%{mentioned_proposal_title}» было упомянуто в комментариях <a href="%{resource_path}">в этом пространстве</a>.
@@ -116,11 +104,6 @@ ru:
         proposal_published_for_space:
           email_intro: В "%{participatory_space_title}", за которым вы следите, добавлено предложение "%{resource_title}".
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
-        proposal_rejected:
-          follower:
-            email_intro: 'Предложение "%{resource_title}" было отклонено. Вы можете прочитать ответ на странице:'
-            email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
-            notification_title: Предложение <a href="%{resource_path}">%{resource_title}</a> было отклонено.
         proposal_update_category:
           email_intro: 'Администратор обновил категорию вашего предложения «%{resource_title}», проверьте её:'
           email_outro: Вы получили это уведомление, потому что вы являетесь автором предложения.
@@ -148,10 +131,7 @@ ru:
             name: Предложение
         proposal_answers:
           form:
-            accepted: Принято
             answer_proposal: Ответить
-            evaluating: Рассматривается
-            rejected: Отклонено
             title: Ответ на предложение %{title}
         proposal_notes:
           form:
@@ -174,8 +154,6 @@ ru:
             create: Внести
             title: Создать предложение
           show:
-            created_at: Дата создания
-            proposals: Предложения
             votes_count: Количество голосов
         proposals_imports:
           new:
@@ -241,27 +219,16 @@ ru:
           send: Предпросмотр
           title: Редактировать черновик предложения
         filters:
+          all: Все
           category: Категория
           origin: Источник
           related_to: Связано с
           search: Поиск
           state: Cостояние
           voted: Проголосованные
-        filters_small_view:
-          close_modal: Закрыть окошко
-          filter: Отобрать
-          filter_by: 'Отобрать по признаку:'
-          unfold: Развернуть
         index:
           new_proposal: Внести предложение
           see_all_withdrawn: Просмотреть все отозванные предложения
-          view_proposal: Просмотреть предложение
-        linked_proposals:
-          proposal_votes:
-            one: голосовать
-            few: голоса
-            many: голоса
-            other: голоса
         new:
           send: Продолжить
         orders:
@@ -278,17 +245,12 @@ ru:
             other: Вы сможете отредактировать это предложение в течение первых %{count} минут после обнародования предложения. После того, как пройдет этот промежуток времени, вы не сможете редактировать предложение.
           publish: Обнародовать
           title: Обнародуйте свое предложение
-        proposal:
-          creation_date: 'Создано: %{date}'
-          view_proposal: Просмотреть предложение
         show:
           answer: Ответить
-          comments: Комментарии
           edit_proposal: Редактировать предложение
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается
           proposal_rejected_reason: 'Это предложение было отклонено, поскольку:'
-          report: Пожаловаться
           withdraw_btn_hint: Вы можете снять свое предложение, если передумаете, пока вы не получили никакой поддержки. Предложение не будет удалено, оно будет указано в списке снятых предложений.
           withdraw_proposal: Снять предложение
         vote_button:
@@ -304,8 +266,6 @@ ru:
             few: ГОЛОСА
             many: ГОЛОСОВ
             other: ГОЛОСА
-          most_popular_proposal: Самое популярное предложение
-          need_more_votes: Нужно больше голосов
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Каждое предложение может накапливать более %{limit} выражений поддержки
@@ -314,18 +274,14 @@ ru:
           title: 'Голосование регулируется следующими правилами:'
           vote_limit:
             description: Вы можете проголосовать до %{limit} предложений.
-            left: Осталось
             votes: Голоса
         wizard_aside:
           back: Вернуться
-          info: Вы создаете <strong>предложение</strong>.
         wizard_steps:
-          see_steps: просмотреть шаги
           step_1: Создайте свое предложение
           step_2: Сравните
           step_3: Завершите
           step_4: Обнародуйте свое предложение
-          step_of: Шаг %{current_step_num} из %{total_steps}
       publish:
         error: При попытке обнародовать это предложение произошли ошибки.
         success: Предложение успешно обнародовано.

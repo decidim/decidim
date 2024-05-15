@@ -2,7 +2,7 @@
 <% search_label = t("decidim.searches.filters.search") unless local_assigns.has_key?(:search_label) %>
 
 <% if filter_sections.present? || local_assigns.has_key?(:search_variable) %>
-  <%= redesigned_filter_form_for filter, url_for, class: "new_filter self-stretch", data: { filters: "", component: "accordion" } do |form| %>
+  <%= filter_form_for filter, url_for, class: "new_filter self-stretch", data: { filters: "", component: "accordion" } do |form| %>
 
     <button id="dropdown-trigger-filters" data-component="dropdown" data-target="dropdown-menu-filters" data-disabled-md="true">
       <%= icon "arrow-down-s-line" %>
@@ -21,10 +21,10 @@
       <% if local_assigns.has_key?(:search_variable) %>
         <div class="filter-search filter-container">
           <%= form.search_field search_variable,
-            label: false,
-            placeholder: search_label,
-            title: search_label,
-            "aria-label": search_label %>
+                                label: false,
+                                placeholder: search_label,
+                                title: search_label,
+                                "aria-label": search_label %>
           <button type="submit" aria-label="<%= search_label %>">
             <%= icon "search-line" %>
           </button>

@@ -1,11 +1,13 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="card">
-  <div class="card-divider">
-    <h2 class="card-title">
+
+  <div class="item_show__header">
+    <h1 class="item_show__header-title">
       <%= t(".title") %>
-    </h2>
+    </h1>
   </div>
-  <div class="card-section">
+
+  <div class="table-scroll">
     <table class="table-list">
       <thead>
         <tr>
@@ -33,10 +35,10 @@
             </td>
             <td>
               <% if authorization.letter_sent? %>
-                <%= icon "circle-check",
+                <%= icon "checkbox-circle-line",
                          class: "action-icon action-icon--disabled" %>
               <% else %>
-                <%= icon_link_to "circle-check",
+                <%= icon_link_to "checkbox-circle-line",
                                  pending_authorization_postage_path(authorization.id),
                                  t(".mark_as_sent"),
                                  method: :post,

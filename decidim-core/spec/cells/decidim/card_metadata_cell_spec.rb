@@ -18,7 +18,7 @@ describe Decidim::CardMetadataCell, type: :cell do
 
   context "when show space is disabled" do
     it "does not render the space the model belongs to" do
-      expect(cell_html).not_to have_content(translated(model.component.participatory_space.title, locale: :en))
+      expect(cell_html).to have_no_content(decidim_escape_translated(model.component.participatory_space.title))
     end
   end
 
@@ -26,7 +26,7 @@ describe Decidim::CardMetadataCell, type: :cell do
     let(:options) { { show_space: true } }
 
     it "renders the space the model belongs to" do
-      expect(cell_html).to have_content(translated(model.component.participatory_space.title, locale: :en))
+      expect(cell_html).to have_content(decidim_escape_translated(model.component.participatory_space.title))
     end
   end
 
@@ -85,7 +85,7 @@ describe Decidim::CardMetadataCell, type: :cell do
       let(:items_list) { [:author_item] }
 
       it "displays the author cell" do
-        expect(cell_html).to have_css("div[data-author]")
+        expect(cell_html).to have_css("span[data-author]")
         expect(cell_html).to have_content(model.author.name)
       end
     end
@@ -95,7 +95,7 @@ describe Decidim::CardMetadataCell, type: :cell do
 
       context "and one of dates is blank" do
         it "displays nothing" do
-          expect(cell_html).not_to have_css("span.card__grid-loader")
+          expect(cell_html).to have_no_css("span.card__grid-loader")
         end
       end
 
@@ -110,11 +110,11 @@ describe Decidim::CardMetadataCell, type: :cell do
       end
     end
 
-    context "when duration_item enabled" do
-      let(:items_list) { [:duration_item] }
+    context "when start_date_item enabled" do
+      let(:items_list) { [:start_date_item] }
 
       context "and one of dates is blank" do
-        let(:start_date) { Date.current }
+        let(:end_date) { Date.current }
 
         it "displays nothing" do
           expect(cell_html.text).to be_blank
@@ -126,7 +126,7 @@ describe Decidim::CardMetadataCell, type: :cell do
         let(:end_date) { 5.days.from_now.at_beginning_of_day }
 
         it "displays the duration" do
-          expect(cell_html).to have_content("1d")
+          expect(cell_html).to have_content("00:00 AM UTC")
         end
       end
     end
@@ -159,7 +159,7 @@ describe Decidim::CardMetadataCell, type: :cell do
           let(:end_date) { Date.parse("#{current_year}-06-06") }
 
           it "displays the dates excluding year" do
-            expect(cell_html).not_to have_content(current_year)
+            expect(cell_html).to have_no_content(current_year)
             expect(cell_html).to have_content("31 Jan → 06 Jun")
           end
         end
@@ -178,7 +178,7 @@ describe Decidim::CardMetadataCell, type: :cell do
           let(:end_date) { Time.zone.parse("#{current_year}-01-31 17:00") }
 
           it "displays hour interval excluding year" do
-            expect(cell_html).not_to have_content(current_year)
+            expect(cell_html).to have_no_content(current_year)
             expect(cell_html).to have_content("31 Jan 14:30 → 17:00")
           end
         end

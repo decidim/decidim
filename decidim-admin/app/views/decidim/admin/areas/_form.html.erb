@@ -1,10 +1,14 @@
-
-<div class="row column">
-  <%= form.translated :text_field, :name %>
-</div>
-
-<div class="row">
-  <div class="columns xlarge-6">
-    <%= form.collection_select :area_type_id, organization_area_types, :id, :name %>
+<div class="form__wrapper">
+  <div class="card pt-4">
+    <div class="card-section">
+      <div class="row column">
+        <%= form.translated :text_field, :name, aria: { label: :name } %>
+      </div>
+      <div class="row">
+        <div class="columns">
+          <%= form.collection_select :area_type_id, organization_area_types, :id, :name %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

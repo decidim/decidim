@@ -1,0 +1,86 @@
+.flash {
+  @apply flex justify-start gap-4 border-l-4 border-secondary my-4 p-4 bg-secondary/5;
+
+  &__icon {
+    svg {
+      @apply w-12 h-12 fill-current flex-none;
+    }
+  }
+
+  &__title {
+    @apply font-semibold text-lg;
+  }
+
+  &__message {
+    @apply text-black font-medium text-md;
+
+    a {
+      @apply underline text-secondary;
+
+      svg {
+        @apply text-secondary;
+      }
+    }
+
+    p {
+      @apply font-normal text-md leading-6;
+    }
+
+    ul {
+      @apply ml-4;
+
+      li {
+        @apply list-disc;
+      }
+    }
+
+    &-body {
+      @apply text-gray-2 text-sm font-normal prose-a:text-secondary prose-a:underline;
+    }
+  }
+
+  .close-button {
+    @apply ml-auto self-start;
+
+    svg {
+      @apply w-5 h-5 fill-current;
+    }
+  }
+
+  &.primary {
+    svg {
+      @apply text-secondary;
+    }
+  }
+
+  &.secondary,
+  &.info {
+    .flash__icon {
+      @apply text-secondary;
+    }
+  }
+
+  &.success {
+    @apply border-success bg-success/5;
+
+    .flash__icon {
+      @apply text-success;
+    }
+  }
+
+  &.alert {
+    @apply border-alert bg-alert/5;
+
+    .flash__icon {
+      @apply text-alert;
+    }
+  }
+
+  &.warning {
+    @apply border-warning bg-warning/5;
+
+    .flash__icon {
+      @apply text-warning;
+    }
+  }
+}

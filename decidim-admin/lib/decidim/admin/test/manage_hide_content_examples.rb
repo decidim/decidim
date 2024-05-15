@@ -17,10 +17,9 @@ shared_examples "hideable resource during block" do
     switch_to_host(admin.organization.host)
     login_as admin, scope: :user
     visit reportable_path
-    selector = Decidim.redesign_active ? ".profile__actions-secondary" : ".profile--sidebar"
 
-    within selector, match: :first do
-      click_button(I18n.t("decidim.shared.flag_modal.report"))
+    within ".profile__actions-secondary", match: :first do
+      click_on(I18n.t("decidim.shared.flag_modal.report"))
     end
     within ".flag-modal" do
       find(:css, "input[name='report[block]']").set(true)
@@ -32,7 +31,7 @@ shared_examples "hideable resource during block" do
     within ".flag-modal" do
       find(:css, "input[name='report[hide]']").set(true)
     end
-    click_button I18n.t("decidim.shared.flag_user_modal.block")
+    click_on I18n.t("decidim.shared.flag_user_modal.block")
     expect(page).to have_current_path(decidim_admin.new_user_block_path(user_id: reportable.id, hide: true))
   end
 
@@ -47,12 +46,12 @@ shared_examples "hideable resource during block" do
       within ".flag-modal" do
         find(:css, "input[name='report[hide]']").set(true)
       end
-      click_button I18n.t("decidim.shared.flag_user_modal.block")
+      click_on I18n.t("decidim.shared.flag_user_modal.block")
       expect(page).to have_current_path(decidim_admin.new_user_block_path(user_id: reportable.id, hide: true))
 
       fill_in :block_user_justification, with: "This user is a spammer" * 2 # to have at least 15 chars
 
-      click_button I18n.t("decidim.admin.block_user.new.action")
+      click_on I18n.t("decidim.admin.block_user.new.action")
 
       expect(content.reload).to be_hidden
     end

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Meeting live event poll answer", type: :system do
+describe "Meeting live event poll answer" do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
@@ -56,13 +56,13 @@ describe "Meeting live event poll answer", type: :system do
     end
 
     it "does not list any question" do
-      click_button "Questions (0)"
+      click_on "Questions (0)"
       expect(page.all(".meeting-polls__question--admin").size).to eq(0)
     end
   end
 
   context "when questions are published" do
-    let!(:question_multiple_option) { create(:meetings_poll_question, :published, questionnaire:, body: body_multiple_option_question, question_type: "multiple_option") }
+    let!(:question_multiple_option) { create(:meetings_poll_question, :published, questionnaire:, body: body_multiple_option_question, question_type: "multiple_option", max_choices: 2) }
     let!(:question_single_option) { create(:meetings_poll_question, :published, questionnaire:, body: body_single_option_question, question_type: "single_option") }
 
     before do
@@ -70,13 +70,37 @@ describe "Meeting live event poll answer", type: :system do
     end
 
     it "allows to reply a question" do
-      click_button "Questions (2)"
+      click_on "Questions (2)"
       open_first_question
 
       check question_multiple_option.answer_options.first.body["en"]
-      click_button "Reply question"
+      click_on "Reply question"
 
       expect(page).to have_content("Question replied")
+    end
+
+    it "does not allow selecting two single options" do
+      click_on "Questions (2)"
+      find("details[data-question='#{question_single_option.id}']").click
+
+      choose question_single_option.answer_options.first.body["en"]
+      choose question_single_option.answer_options.second.body["en"]
+      answers = all("details[data-question='#{question_single_option.id}'] input[type='radio']")
+
+      expect(answers[0]["checked"]).to be_falsy
+      expect(answers[1]["checked"]).to be_truthy
+      expect(answers[2]["checked"]).to be_falsy
+    end
+
+    it "does not allow selecting more than the maximum choices for multiple options" do
+      click_on "Questions (2)"
+      open_first_question
+
+      check question_multiple_option.answer_options.first.body["en"]
+      check question_multiple_option.answer_options.second.body["en"]
+      check question_multiple_option.answer_options.third.body["en"]
+
+      expect(page).to have_content("There are too many choices selected")
     end
   end
 
@@ -90,7 +114,7 @@ describe "Meeting live event poll answer", type: :system do
     end
 
     it "shows the responses" do
-      click_button "Questions (1)"
+      click_on "Questions (1)"
       open_first_question
 
       expect(page).to have_content("0%")

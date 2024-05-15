@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "show", type: :system do
+describe "show" do
   include_context "with a component"
   let(:manifest_name) { "sortitions" }
 
@@ -52,7 +52,7 @@ describe "show", type: :system do
       proposal = sortition.proposals.last
 
       within "#proposals" do
-        click_link translated(proposal.title)
+        click_on translated(proposal.title)
       end
 
       expect(page).to have_content("Included in #{translated(sortition.title)}")

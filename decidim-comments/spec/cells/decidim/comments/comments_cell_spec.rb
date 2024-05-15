@@ -18,8 +18,8 @@ module Decidim::Comments
     context "when rendering" do
       it "renders the thread" do
         expect(subject).to have_css(".comments-count", text: "1 comment")
-        expect(subject).to have_css(".callout.primary.loading-comments p", text: "Loading comments ...")
-        expect(subject).not_to have_content(comment.body.values.first)
+        expect(subject).to have_css(".flash.primary.loading-comments", text: "Loading comments ...")
+        expect(subject).to have_no_content(comment.body.values.first)
         expect(subject).to have_css(".add-comment")
         expect(subject).to have_content("Log in with your account or sign up to add your comment.")
 
@@ -41,13 +41,13 @@ module Decidim::Comments
           expect(subject).to have_content(comment.body.values.first)
 
           other_comments.each do |other_comment|
-            expect(subject).not_to have_content(other_comment.body.values.first)
+            expect(subject).to have_no_content(other_comment.body.values.first)
           end
         end
 
         it "renders the single comment warning" do
-          expect(subject).to have_css(".callout.secondary", text: "You are seeing a single comment")
-          expect(subject).to have_css(".callout.secondary", text: "View all comments")
+          expect(subject).to have_css(".flash.secondary", text: "You are seeing a single comment")
+          expect(subject).to have_css(".flash.secondary", text: "View all comments")
         end
 
         context "with the single comment being moderated" do
@@ -61,14 +61,14 @@ module Decidim::Comments
           end
 
           it "renders the thread" do
-            expect(subject).to have_css(".callout.primary.loading-comments p", text: "Loading comments ...")
-            expect(subject).not_to have_content(comment.body.values.first)
-            expect(subject).not_to have_css(".add-comment")
+            expect(subject).to have_css(".flash.primary.loading-comments", text: "Loading comments ...")
+            expect(subject).to have_no_content(comment.body.values.first)
+            expect(subject).to have_no_css(".add-comment")
           end
 
           it "renders the single comment warning" do
-            expect(subject).to have_css(".callout.secondary", text: "You are seeing a single comment")
-            expect(subject).to have_css(".callout.secondary", text: "View all comments")
+            expect(subject).to have_css(".flash.secondary", text: "You are seeing a single comment")
+            expect(subject).to have_css(".flash.secondary", text: "View all comments")
           end
         end
       end
@@ -91,9 +91,9 @@ module Decidim::Comments
           end
 
           it "renders the alignment buttons" do
-            expect(subject).to have_css(".opinion-toggle--ok")
-            expect(subject).to have_css(".opinion-toggle--meh")
-            expect(subject).to have_css(".opinion-toggle--ko")
+            expect(subject).to have_css("button[data-toggle-ok]")
+            expect(subject).to have_css("button[data-toggle-meh]")
+            expect(subject).to have_css("button[data-toggle-ko]")
           end
         end
 
@@ -105,8 +105,8 @@ module Decidim::Comments
           end
 
           it "renders the comments blocked warning" do
-            expect(subject).to have_css(".callout.warning", text: I18n.t("decidim.components.comments.blocked_comments_warning"))
-            expect(subject).not_to have_css(".callout.warning", text: I18n.t("decidim.components.comments.blocked_comments_for_user_warning"))
+            expect(subject).to have_css(".flash.warning", text: I18n.t("decidim.components.comments.blocked_comments_warning"))
+            expect(subject).to have_no_css(".flash.warning", text: I18n.t("decidim.components.comments.blocked_comments_for_user_warning"))
           end
         end
 
@@ -117,8 +117,8 @@ module Decidim::Comments
           end
 
           it "renders the user comments blocked warning" do
-            expect(subject).not_to have_css(".callout.warning", text: I18n.t("decidim.components.comments.blocked_comments_for_unauthorized_user_warning"))
-            expect(subject).to have_css(".callout.warning", text: I18n.t("decidim.components.comments.blocked_comments_for_user_warning"))
+            expect(subject).to have_no_css(".flash.warning", text: I18n.t("decidim.components.comments.blocked_comments_for_unauthorized_user_warning"))
+            expect(subject).to have_css(".flash.warning", text: I18n.t("decidim.components.comments.blocked_comments_for_user_warning"))
           end
         end
 
@@ -142,8 +142,8 @@ module Decidim::Comments
           end
 
           it "renders the user not authorized to comment warning" do
-            expect(subject).to have_css(".callout.warning", text: I18n.t("decidim.components.comments.blocked_comments_for_unauthorized_user_warning"))
-            expect(subject).not_to have_css(".callout.warning", text: I18n.t("decidim.components.comments.blocked_comments_for_user_warning"))
+            expect(subject).to have_css(".flash.warning", text: I18n.t("decidim.components.comments.blocked_comments_for_unauthorized_user_warning"))
+            expect(subject).to have_no_css(".flash.warning", text: I18n.t("decidim.components.comments.blocked_comments_for_user_warning"))
           end
         end
       end

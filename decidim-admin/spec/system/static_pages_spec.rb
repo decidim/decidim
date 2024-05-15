@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Content pages", type: :system do
+describe "Content pages" do
   include ActionView::Helpers::SanitizeHelper
 
   let(:admin) { create(:user, :admin, :confirmed) }
@@ -38,7 +38,7 @@ describe "Content pages", type: :system do
         page_title = decidim_page.title[I18n.locale.to_s]
 
         within(".page__accordion", text: topic_title) do
-          click_button
+          find("button[role=button]").click
 
           expect(page).to have_css(
             "a[href=\"#{decidim.page_path(decidim_page)}\"]",
@@ -54,13 +54,12 @@ describe "Content pages", type: :system do
       before do
         login_as admin, scope: :user
         visit decidim_admin.root_path
-        click_link "Pages"
+        click_on "Pages"
+        click_on "Topics"
       end
 
       it "can create topics" do
-        within ".secondary-nav" do
-          click_link "Create topic"
-        end
+        click_on "Create topic"
 
         within ".new_static_page_topic" do
           fill_in_i18n(
@@ -83,7 +82,7 @@ describe "Content pages", type: :system do
         end
 
         expect(page).to have_admin_callout("successfully")
-        expect(page).to have_css(".card h2", text: "General")
+        expect(page).to have_css(".table-scroll", text: "General")
       end
     end
 
@@ -93,13 +92,12 @@ describe "Content pages", type: :system do
       before do
         login_as admin, scope: :user
         visit decidim_admin.root_path
-        click_link "Pages"
+        click_on "Pages"
+        click_on "Topics"
       end
 
       it "can create page groups" do
-        within find(".card-title", text: topic.title[I18n.locale.to_s]) do
-          click_link "Edit"
-        end
+        click_on translated(topic.title)
 
         within ".edit_static_page_topic" do
           fill_in_i18n(
@@ -122,7 +120,7 @@ describe "Content pages", type: :system do
         end
 
         expect(page).to have_admin_callout("successfully")
-        expect(page).to have_css(".card h2", text: "New title")
+        expect(page).to have_css(".table-scroll", text: "New title")
       end
     end
 
@@ -132,19 +130,18 @@ describe "Content pages", type: :system do
       before do
         login_as admin, scope: :user
         visit decidim_admin.root_path
-        click_link "Pages"
+        click_on "Pages"
+        click_on "Topics"
       end
 
       it "can delete them" do
-        within find(".card", text: translated(topic.title)) do
-          accept_confirm(admin: true) { click_link "Remove topic" }
+        within "tr", text: translated(topic.title) do
+          accept_confirm { click_on "Delete" }
         end
 
         expect(page).to have_admin_callout("successfully")
 
-        within "table" do
-          expect(page).not_to have_content(translated(topic.title))
-        end
+        expect(page).to have_no_css(".table-scroll")
       end
     end
   end
@@ -155,21 +152,19 @@ describe "Content pages", type: :system do
     before do
       login_as admin, scope: :user
       visit decidim_admin.root_path
-      click_link "Pages"
+      click_on "Pages"
     end
 
     context "when displaying the page form" do
       before do
-        click_link "Create page"
+        click_on "Create page"
       end
 
       it_behaves_like "having a rich text editor", "new_static_page", "full"
     end
 
     it "can create new pages" do
-      within ".secondary-nav" do
-        click_link "Create page"
-      end
+      click_on "Create page"
 
       within ".new_static_page" do
         fill_in :static_page_slug, with: "welcome"
@@ -190,13 +185,13 @@ describe "Content pages", type: :system do
           ca: "<p>Contingut HTML</p>"
         )
 
-        select topic.title[I18n.locale.to_s], from: "Topic"
+        select topic.title[I18n.locale.to_s], from: :static_page_topic_id
         find("*[type=submit]").click
       end
 
       expect(page).to have_admin_callout("successfully")
 
-      within find(".card", text: topic.title[I18n.locale.to_s]) do
+      within ".card", text: topic.title[I18n.locale.to_s] do
         expect(page).to have_css("tr", text: "Welcome to Decidim")
       end
     end
@@ -211,8 +206,8 @@ describe "Content pages", type: :system do
 
       context "when displaying the page form" do
         before do
-          within find("tr", text: translated(decidim_page.title)) do
-            click_link "Edit"
+          within "tr", text: translated(decidim_page.title) do
+            click_on "Edit"
           end
         end
 
@@ -220,8 +215,8 @@ describe "Content pages", type: :system do
       end
 
       it "can edit them" do
-        within find("tr", text: translated(decidim_page.title)) do
-          click_link "Edit"
+        within "tr", text: translated(decidim_page.title) do
+          click_on "Edit"
         end
 
         within ".edit_static_page" do
@@ -235,37 +230,41 @@ describe "Content pages", type: :system do
             "#static_page-content-tabs",
             en: "This is the new <strong>content</strong>"
           )
-          select topic.title[I18n.locale.to_s], from: "Topic"
+          select topic.title[I18n.locale.to_s], from: :static_page_topic_id
           find("*[type=submit]").click
         end
 
         expect(page).to have_admin_callout("successfully")
 
-        within find(".card", text: topic.title[I18n.locale.to_s]) do
+        within ".card", text: topic.title[I18n.locale.to_s] do
           expect(page).to have_css("tr", text: "Not welcomed anymore")
         end
       end
 
       it "can delete them" do
-        within find("tr", text: translated(decidim_page.title)) do
-          accept_confirm(admin: true) { click_link "Delete" }
+        within "tr", text: translated(decidim_page.title) do
+          accept_confirm { click_on "Delete" }
         end
 
         expect(page).to have_admin_callout("successfully")
 
         within "table" do
-          expect(page).not_to have_content(translated(decidim_page.title))
+          expect(page).to have_no_content(translated(decidim_page.title))
         end
       end
 
       it "can visit them" do
-        within find("tr", text: translated(decidim_page.title)) do
-          click_link "View public page"
+        new_window = window_opened_by do
+          within "tr", text: translated(decidim_page.title) do
+            click_on "View public page"
+          end
         end
 
-        expect(page).to have_content(translated(decidim_page.title))
-        expect(page).to have_content(strip_tags(translated(decidim_page.content)))
-        expect(page).to have_current_path(/#{decidim_page.slug}/)
+        page.within_window(new_window) do
+          expect(page).to have_content(translated(decidim_page.title))
+          expect(page).to have_content(strip_tags(translated(decidim_page.content)))
+          expect(page).to have_current_path(/#{decidim_page.slug}/)
+        end
       end
     end
   end

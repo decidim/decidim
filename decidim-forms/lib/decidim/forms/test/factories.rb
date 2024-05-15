@@ -5,53 +5,54 @@ require "decidim/participatory_processes/test/factories"
 
 FactoryBot.define do
   factory :questionnaire, class: "Decidim::Forms::Questionnaire" do
-    title { generate_localized_title }
-    description do
-      Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-        generate_localized_title
-      end
+    transient do
+      skip_injection { false }
     end
-    tos { generate_localized_title }
-    questionnaire_for { build(:participatory_process) }
+    title { generate_localized_title(:questionnaire_title, skip_injection:) }
+    description { generate_localized_description(:questionnaire_description, skip_injection:) }
+    tos { generate_localized_title(:questionnaire_tos, skip_injection:) }
+    questionnaire_for { build(:participatory_process, skip_injection:) }
     salt { SecureRandom.hex(32) }
 
     trait :with_questions do
       questions do
         position = 0
         qs = %w(short_answer long_answer).collect do |text_question_type|
-          q = build(:questionnaire_question, question_type: text_question_type, position:)
+          q = build(:questionnaire_question, question_type: text_question_type, position:, skip_injection:)
           position += 1
           q
         end
-        qs << build(:questionnaire_question, :with_answer_options, question_type: :single_option, position:)
+        qs << build(:questionnaire_question, :with_answer_options, question_type: :single_option, position:, skip_injection:)
         qs
       end
     end
 
     trait :with_all_questions do
-      after(:build) do |questionaire, _evaluator|
+      after(:build) do |questionnaire, evaluator|
         position = 0
         %w(short_answer long_answer).collect do |text_question_type|
           q = create(:questionnaire_question,
                      question_type: text_question_type,
                      position:,
-                     questionnaire: questionaire)
+                     questionnaire:,
+                     skip_injection: evaluator.skip_injection)
           position += 1
-          questionaire.questions << q
+          questionnaire.questions << q
         end
 
         %w(single_option multiple_option).each do |option_question_type|
           q = create(:questionnaire_question, :with_answer_options,
                      question_type: option_question_type,
                      position:,
-                     questionnaire: questionaire)
+                     questionnaire:,
+                     skip_injection: evaluator.skip_injection)
           q.display_conditions.build(
-            condition_question: questionaire.questions[q.position - 1],
+            condition_question: questionnaire.questions[q.position - 1],
             question: q,
             condition_type: :answered,
             mandatory: true
           )
-          questionaire.questions << q
+          questionnaire.questions << q
           position += 1
         end
 
@@ -60,14 +61,15 @@ FactoryBot.define do
                     question_type: matrix_question_type,
                     position:,
                     body: generate_localized_title,
-                    questionnaire: questionaire)
+                    questionnaire:,
+                    skip_injection: evaluator.skip_injection)
           q.display_conditions.build(
-            condition_question: questionaire.questions[q.position - 1],
+            condition_question: questionnaire.questions[q.position - 1],
             question: q,
             condition_type: :answered,
             mandatory: true
           )
-          questionaire.questions << q
+          questionnaire.questions << q
           position += 1
         end
       end
@@ -82,16 +84,13 @@ FactoryBot.define do
 
   factory :questionnaire_question, class: "Decidim::Forms::Question" do
     transient do
+      skip_injection { false }
       options { [] }
       rows { [] }
     end
 
-    body { generate_localized_title }
-    description do
-      Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-        generate_localized_title
-      end
-    end
+    body { generate_localized_title(:questionnaire_question_body, skip_injection:) }
+    description { generate_localized_description(:questionnaire_question_description, skip_injection:) }
     mandatory { false }
     position { 0 }
     question_type { Decidim::Forms::Question::TYPES.first }
@@ -119,13 +118,13 @@ FactoryBot.define do
 
     trait :with_answer_options do
       answer_options do
-        Array.new(3).collect { build(:answer_option) }
+        Array.new(3).collect { build(:answer_option, skip_injection:) }
       end
     end
 
     trait :conditioned do
       display_conditions do
-        Array.new(3).collect { build(:display_condition) }
+        Array.new(3).collect { build(:display_condition, skip_injection:) }
       end
     end
 
@@ -139,22 +138,28 @@ FactoryBot.define do
   end
 
   factory :answer, class: "Decidim::Forms::Answer" do
+    transient do
+      skip_injection { false }
+    end
     body { "hola" }
     questionnaire
-    question { create(:questionnaire_question, questionnaire:) }
-    user { create(:user, organization: questionnaire.questionnaire_for.organization) }
+    question { create(:questionnaire_question, questionnaire:, skip_injection:) }
+    user { create(:user, organization: questionnaire.questionnaire_for.organization, skip_injection:) }
     session_token { Digest::MD5.hexdigest(user.id.to_s) }
 
     trait :with_attachments do
-      after(:create) do |answer, _evaluator|
-        create :attachment, :with_image, attached_to: answer
-        create :attachment, :with_pdf, attached_to: answer
+      after(:create) do |answer, evaluator|
+        create :attachment, :with_image, attached_to: answer, skip_injection: evaluator.skip_injection
+        create :attachment, :with_pdf, attached_to: answer, skip_injection: evaluator.skip_injection
       end
     end
   end
 
   factory :answer_option, class: "Decidim::Forms::AnswerOption" do
-    question { create(:questionnaire_question) }
+    transient do
+      skip_injection { false }
+    end
+    question { create(:questionnaire_question, skip_injection:) }
     body { generate_localized_title }
     free_text { false }
 
@@ -168,31 +173,40 @@ FactoryBot.define do
   end
 
   factory :answer_choice, class: "Decidim::Forms::AnswerChoice" do
+    transient do
+      skip_injection { false }
+    end
     answer
-    answer_option { create(:answer_option, question: answer.question) }
-    matrix_row { create(:question_matrix_row, question: answer.question) }
+    answer_option { create(:answer_option, question: answer.question, skip_injection:) }
+    matrix_row { create(:question_matrix_row, question: answer.question, skip_injection:) }
   end
 
   factory :question_matrix_row, class: "Decidim::Forms::QuestionMatrixRow" do
-    question { create(:questionnaire_question) }
+    transient do
+      skip_injection { false }
+    end
+    question { create(:questionnaire_question, skip_injection:) }
     body { generate_localized_title }
     position { 0 }
   end
 
   factory :display_condition, class: "Decidim::Forms::DisplayCondition" do
-    condition_question { create(:questionnaire_question) }
-    question { create(:questionnaire_question, position: 1) }
+    transient do
+      skip_injection { false }
+    end
+    condition_question { create(:questionnaire_question, skip_injection:) }
+    question { create(:questionnaire_question, position: 1, skip_injection:) }
     condition_type { :answered }
     mandatory { true }
 
     trait :equal do
       condition_type { :equal }
-      answer_option { create(:answer_option, question: condition_question) }
+      answer_option { create(:answer_option, question: condition_question, skip_injection:) }
     end
 
     trait :match do
       condition_type { :match }
-      condition_value { generate_localized_title }
+      condition_value { generate_localized_title(:condition_value, skip_injection:) }
     end
   end
 end

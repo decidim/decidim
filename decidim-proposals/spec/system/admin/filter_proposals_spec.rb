@@ -2,11 +2,11 @@
 
 require "spec_helper"
 
-describe "Admin filters proposals", type: :system do
+describe "Admin filters proposals" do
   include_context "when admin manages proposals"
   include_context "with filterable context"
 
-  STATES = Decidim::Proposals::Proposal::STATES.keys
+  STATES = { evaluating: 10, accepted: 20, rejected: -10 }.keys
 
   let(:model_name) { Decidim::Proposals::Proposal.model_name }
   let(:resource_controller) { Decidim::Proposals::Admin::ProposalsController }
@@ -15,18 +15,43 @@ describe "Admin filters proposals", type: :system do
     create(:proposal, trait, component:)
   end
 
-  def proposal_with_state(state)
-    Decidim::Proposals::Proposal.where(component:).find_by(state:)
+  def proposal_with_state(token)
+    proposal_state = Decidim::Proposals::ProposalState.where(component:, token:).first
+    Decidim::Proposals::Proposal.where(component:).find_by(proposal_state:)
   end
 
-  def proposal_without_state(state)
-    Decidim::Proposals::Proposal.where(component:).where.not(state:).sample
+  def proposal_without_state(token)
+    proposal_state = Decidim::Proposals::ProposalState.where(component:, token:).first
+    Decidim::Proposals::Proposal.where(component:).where.not(proposal_state:).sample
+  end
+
+  context "when filtering by answered" do
+    let!(:answered_proposal) { create(:proposal, :with_answer, component:) }
+    let!(:unanswered_proposal) { create(:proposal, component:) }
+
+    before { visit_component_admin }
+
+    context "when filtering proposals by Answered" do
+      it_behaves_like "a filtered collection", options: "Answered", filter: "Answered" do
+        let(:in_filter) { translated(answered_proposal.title) }
+        let(:not_in_filter) { translated(unanswered_proposal.title) }
+      end
+    end
+
+    context "when filtering proposals by Not answered" do
+      it_behaves_like "a filtered collection", options: "Answered", filter: "Not answered" do
+        let(:in_filter) { translated(unanswered_proposal.title) }
+        let(:not_in_filter) { translated(answered_proposal.title) }
+      end
+    end
   end
 
   context "when filtering by state" do
     let!(:proposals) do
       STATES.map { |state| create_proposal_with_trait(state) }
     end
+
+    let!(:withdrawn_proposal) { create_proposal_with_trait(:withdrawn) }
 
     before { visit_component_admin }
 
@@ -38,6 +63,13 @@ describe "Admin filters proposals", type: :system do
           let(:in_filter) { translated(proposal_with_state(state).title) }
           let(:not_in_filter) { translated(proposal_without_state(state).title) }
         end
+      end
+    end
+
+    context "when filtering proposals by state: Withdrawn" do
+      it_behaves_like "a filtered collection", options: "State", filter: "Withdrawn" do
+        let(:in_filter) { translated(withdrawn_proposal.title) }
+        let(:not_in_filter) { translated(proposals.sample.title) }
       end
     end
   end

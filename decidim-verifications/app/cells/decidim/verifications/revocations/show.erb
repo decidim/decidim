@@ -8,25 +8,27 @@
     <div class="revoke_all_box">
       <p><%= t("decidim.admin.menu.authorization_revocation.info", count: model.count ) %></p>
       <%= link_to t("decidim.admin.menu.authorization_revocation.button"),
-        decidim_verifications.admin_verifications_destroy_all_path,
-        method: :delete,
-        class: "button",
-        data: { confirm: t("decidim.admin.menu.authorization_revocation.destroy.confirm_all") } %>
+                  decidim_verifications.admin_verifications_destroy_all_path,
+                  method: :delete,
+                  class: "button button__sm md:button__lg button__secondary",
+                  data: { confirm: t("decidim.admin.menu.authorization_revocation.destroy.confirm_all") } %>
     </div>
     <br>
     <div class="revoke_before_date_box">
-      <%= decidim_form_for(@form, url: decidim_verifications.admin_verifications_destroy_before_date_path, html: { class: "form" } ) do |form| %>
-        <div class="card">
-          <div class="card-section">
-            <div class="row column">
-              <%= form.check_box :impersonated_only %>
-            </div>
-            <div class="row column">
-              <%= form.date_field :before_date, value: Time.zone.today.prev_month, autocomplete: "off" %>
-              <%= label_tag(:before_date_info, t("decidim.admin.menu.authorization_revocation.before_date_info")) %>
-            </div>
-            <div class="button--double">
-              <%= form.submit t("decidim.admin.menu.authorization_revocation.button_before"), data: { confirm: t("decidim.admin.menu.authorization_revocation.destroy.confirm") } %>
+      <%= decidim_form_for(@form, url: decidim_verifications.admin_verifications_destroy_before_date_path, html: { class: "form form-defaults" } ) do |form| %>
+        <div class="form__wrapper">
+          <div class="card">
+            <div class="card-section">
+              <div class="row column">
+                <%= form.check_box :impersonated_only %>
+              </div>
+              <div class="row column">
+                <%= form.date_field :before_date, value: Time.zone.today.prev_month, autocomplete: "off" %>
+                <%= label_tag(:before_date_info, t("decidim.admin.menu.authorization_revocation.before_date_info")) %>
+              </div>
+              <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+                <%= form.submit t("decidim.admin.menu.authorization_revocation.button_before"), data: { confirm: t("decidim.admin.menu.authorization_revocation.destroy.confirm") }, class: "button button__sm md:button__lg button__secondary" %>
+              </div>
             </div>
           </div>
         </div>

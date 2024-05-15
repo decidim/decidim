@@ -46,7 +46,7 @@ it:
             - Gli utenti inseriscono le loro informazioni di identità e caricano una copia del loro documento.
             - Inserisci le informazioni presenti nell'immagine caricata.
             - Le informazioni dovrebbero corrispondere a quello que l'utente ha inserito.
-            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
+            - 
         postal_letter:
           help:
             - Gli utenti richiedono un codice di verifica da inviare al loro indirizzo.
@@ -166,8 +166,6 @@ it:
           new:
             send: Richiedi la verifica
             title: Carica il tuo documento di identità
-        dni: DNI
-        nie: NIE
         passport: Passaporto
       postal_letter:
         admin:
@@ -188,8 +186,6 @@ it:
             title: Richiedi il tuo codice di verifica
       sms:
         authorizations:
-          destroy:
-            success: Codice di verifica ripristinato correttamente. Per favore reinserisci il tuo numero di telefono.
           edit:
             confirm_destroy: Sei sicuro di voler resettare il codice di verifica?
             destroy: Reimposta il codice di verifica

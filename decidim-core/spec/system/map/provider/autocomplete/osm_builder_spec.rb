@@ -6,7 +6,7 @@ module Decidim
   module Map
     module Provider
       module Autocomplete
-        describe Osm::Builder, type: :system do
+        describe Osm::Builder do
           it_behaves_like "a page with geocoding input" do
             let(:options) { { url: "https://photon.example.org/api/" } }
             let(:html_head) do
@@ -35,7 +35,7 @@ module Decidim
                               country: "Country1"
                             },
                             geometry: {
-                              coordinates: [1.123, 2.234]
+                              coordinates: [2.234, 1.123]
                             }
                           },
                           {
@@ -46,7 +46,7 @@ module Decidim
                               country: "Country2"
                             },
                             geometry: {
-                              coordinates: [3.345, 4.456]
+                              coordinates: [4.456, 3.345]
                             }
                           },
                           {
@@ -58,7 +58,7 @@ module Decidim
                               country: "Country3"
                             },
                             geometry: {
-                              coordinates: [5.567, 6.678]
+                              coordinates: [6.678, 5.567]
                             }
                           }
                         ]
@@ -81,8 +81,8 @@ module Decidim
             end
 
             it "calls the geocoding API correctly" do
-              find("#test_address").set("city")
-              expect(page).to have_selector(
+              find_by_id("test_address").set("city")
+              expect(page).to have_css(
                 ".autoComplete_wrapper",
                 text: [
                   "Park, Street1 1, 123456, City1, State1, Country1",
@@ -90,7 +90,7 @@ module Decidim
                   "Street3 3, 142536, City3, Country3"
                 ].join("\n")
               )
-              expect(page).to have_selector(
+              expect(page).to have_css(
                 "#ajax_request",
                 text: {
                   method: "GET",
@@ -104,7 +104,7 @@ module Decidim
               )
 
               find(".autoComplete_wrapper ul#autoComplete_list_1 li", match: :first).click
-              expect(page).to have_selector(
+              expect(page).to have_css(
                 "#geocoder_suggested",
                 text: {
                   key: "Park, Street1 1, 123456, City1, State1, Country1",
@@ -112,7 +112,7 @@ module Decidim
                   coordinates: [1.123, 2.234]
                 }.to_json
               )
-              expect(page).to have_selector(
+              expect(page).to have_css(
                 "#geocoder_coordinates",
                 text: "1.123,2.234"
               )

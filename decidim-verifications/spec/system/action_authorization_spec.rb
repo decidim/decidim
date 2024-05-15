@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Action Authorization", type: :system do
+describe "Action Authorization" do
   include_context "with a component"
 
   let(:manifest_name) { "proposals" }
@@ -38,7 +38,7 @@ describe "Action Authorization", type: :system do
 
       before do
         visit main_component_path(component)
-        click_link "New proposal"
+        click_on "New proposal"
       end
 
       it "prompts user to authorize" do
@@ -48,18 +48,18 @@ describe "Action Authorization", type: :system do
 
       it "prompts the user to authorize again after modal reopening" do
         within("#authorizationModal") do
-          click_button "×"
+          click_on "×"
         end
-        click_link "New proposal"
+        click_on "New proposal"
 
         expect(page).to have_content("Authorization required")
         expect(page).to have_content("In order to perform this action, you need to be authorized with \"Example authorization\"")
       end
 
       it "redirects to authorization when modal clicked" do
-        click_link "Authorize with \"Example authorization\""
+        click_on "Authorize with \"Example authorization\""
 
-        expect(page).to have_selector("h1", text: "Verify with Example authorization")
+        expect(page).to have_css("h1", text: "Verify with Example authorization")
       end
     end
 
@@ -85,7 +85,7 @@ describe "Action Authorization", type: :system do
       end
 
       it "prompts user to authorize" do
-        click_link "New proposal"
+        click_on "New proposal"
 
         expect(page).to have_content("Authorization required")
         expect(page).to have_content("In order to perform this action, you need to be authorized with \"Example authorization\"")
@@ -94,10 +94,10 @@ describe "Action Authorization", type: :system do
       end
 
       it "redirects to authorization when modal clicked" do
-        click_link "New proposal"
-        click_link "Authorize with \"Example authorization\""
+        click_on "New proposal"
+        click_on "Authorize with \"Example authorization\""
 
-        expect(page).to have_selector("h1", text: "Verify with Example authorization")
+        expect(page).to have_css("h1", text: "Verify with Example authorization")
         expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
         expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}.")
       end
@@ -110,7 +110,7 @@ describe "Action Authorization", type: :system do
         end
 
         it "prompts user to check their authorization status" do
-          click_link "New proposal"
+          click_on "New proposal"
 
           expect(page).to have_content("Not authorized")
           expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
@@ -130,7 +130,7 @@ describe "Action Authorization", type: :system do
           let(:postal_code) { "" }
 
           it "prompts user to check their authorization status" do
-            click_link "New proposal"
+            click_on "New proposal"
 
             expect(page).to have_content("Not authorized")
             expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
@@ -143,7 +143,7 @@ describe "Action Authorization", type: :system do
           let(:user_scope) { nil }
 
           it "prompts user to check their authorization status" do
-            click_link "New proposal"
+            click_on "New proposal"
 
             expect(page).to have_content("Not authorized")
             expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
@@ -156,7 +156,7 @@ describe "Action Authorization", type: :system do
           let(:postal_code) { nil }
 
           it "prompts user to check their authorization status" do
-            click_link "New proposal"
+            click_on "New proposal"
 
             expect(page).to have_content("Not authorized")
             expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
@@ -175,7 +175,7 @@ describe "Action Authorization", type: :system do
       before do
         create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 1.month.ago)
         visit main_component_path(component)
-        click_link "New proposal"
+        click_on "New proposal"
       end
 
       it "prompts user to check their authorization status" do
@@ -185,7 +185,7 @@ describe "Action Authorization", type: :system do
       end
 
       it "redirects to resume authorization when modal clicked" do
-        click_link "Reauthorize with \"Example authorization\""
+        click_on "Reauthorize with \"Example authorization\""
 
         expect(page).to have_content("Verify with Example authorization")
       end
@@ -196,11 +196,11 @@ describe "Action Authorization", type: :system do
 
       before do
         visit main_component_path(component)
-        click_link "New proposal"
+        click_on "New proposal"
       end
 
       it "goes directly to action" do
-        expect(page).to have_selector("h1", text: "Create your proposal")
+        expect(page).to have_css("h1", text: "Create your proposal")
       end
     end
   end
@@ -215,7 +215,7 @@ describe "Action Authorization", type: :system do
 
       before do
         visit main_component_path(component)
-        click_link "New proposal"
+        click_on "New proposal"
       end
 
       it "prompts user to authorize" do
@@ -224,7 +224,7 @@ describe "Action Authorization", type: :system do
       end
 
       it "redirects to authorization when modal clicked" do
-        click_link "Authorize with \"Dummy authorization workflow\""
+        click_on "Authorize with \"Dummy authorization workflow\""
 
         expect(page).to have_content("DUMMY VERIFICATION")
       end
@@ -238,7 +238,7 @@ describe "Action Authorization", type: :system do
       before do
         create(:authorization, :pending, name: "dummy_authorization_workflow", user:)
         visit main_component_path(component)
-        click_link "New proposal"
+        click_on "New proposal"
       end
 
       it "prompts user to check their authorization status" do
@@ -248,7 +248,7 @@ describe "Action Authorization", type: :system do
       end
 
       it "redirects to resume authorization when modal clicked" do
-        click_link "Check your \"Dummy authorization workflow\" authorization progress"
+        click_on "Check your \"Dummy authorization workflow\" authorization progress"
 
         expect(page).to have_content("CONTINUE YOUR VERIFICATION")
       end
@@ -262,7 +262,7 @@ describe "Action Authorization", type: :system do
       before do
         create(:authorization, name: "dummy_authorization_workflow", user:, granted_at: 1.month.ago)
         visit main_component_path(component)
-        click_link "New proposal"
+        click_on "New proposal"
       end
 
       it "prompts user to check their authorization status" do
@@ -272,7 +272,7 @@ describe "Action Authorization", type: :system do
       end
 
       it "redirects to resume authorization when modal clicked" do
-        click_link "Reauthorize with \"Dummy authorization workflow\""
+        click_on "Reauthorize with \"Dummy authorization workflow\""
 
         expect(page).to have_content("DUMMY VERIFICATION ENGINE")
       end
@@ -283,11 +283,11 @@ describe "Action Authorization", type: :system do
 
       before do
         visit main_component_path(component)
-        click_link "New proposal"
+        click_on "New proposal"
       end
 
       it "goes directly to action" do
-        expect(page).to have_selector("h1", text: "Create your proposal")
+        expect(page).to have_css("h1", text: "Create your proposal")
       end
     end
   end

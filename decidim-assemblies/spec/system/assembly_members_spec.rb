@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Assembly members", type: :system do
+describe "Assembly members" do
   let(:organization) { create(:organization) }
   let(:assembly) { create(:assembly, :with_content_blocks, organization:, blocks_manifests:) }
   let(:blocks_manifests) { [] }
@@ -22,7 +22,7 @@ describe "Assembly members", type: :system do
       it "the menu nav is not shown" do
         visit decidim_assemblies.assembly_path(assembly)
 
-        expect(page).not_to have_css(".participatory-space__nav-container")
+        expect(page).to have_no_css(".participatory-space__nav-container")
       end
     end
 
@@ -32,7 +32,7 @@ describe "Assembly members", type: :system do
       it "the menu link is not shown" do
         visit decidim_assemblies.assembly_path(assembly)
 
-        expect(page).not_to have_content("Members")
+        expect(page).to have_no_content("Members")
       end
     end
   end
@@ -60,7 +60,7 @@ describe "Assembly members", type: :system do
         it "the menu nav is not shown" do
           visit decidim_assemblies.assembly_path(assembly)
 
-          expect(page).not_to have_css(".participatory-space__nav-container")
+          expect(page).to have_no_css(".participatory-space__nav-container")
         end
       end
 
@@ -70,7 +70,7 @@ describe "Assembly members", type: :system do
         it "the menu link is not shown" do
           visit decidim_assemblies.assembly_path(assembly)
 
-          expect(page).not_to have_content("Members")
+          expect(page).to have_no_content("Members")
         end
       end
     end
@@ -89,7 +89,7 @@ describe "Assembly members", type: :system do
         it "the menu nav is not shown" do
           visit decidim_assemblies.assembly_path(assembly)
 
-          expect(page).not_to have_css(".participatory-space__nav-container")
+          expect(page).to have_no_css(".participatory-space__nav-container")
         end
       end
 
@@ -101,7 +101,7 @@ describe "Assembly members", type: :system do
 
           within ".participatory-space__nav-container" do
             expect(page).to have_content("Members")
-            click_link "Members"
+            click_on "Members"
           end
 
           expect(page).to have_current_path decidim_assemblies.assembly_assembly_members_path(assembly)
@@ -110,9 +110,9 @@ describe "Assembly members", type: :system do
 
       it "lists all the non ceased assembly members" do
         within "#assembly_members-grid" do
-          expect(page).to have_selector(".profile__user", count: 2)
+          expect(page).to have_css(".profile__user", count: 2)
 
-          expect(page).not_to have_content(Decidim::AssemblyMemberPresenter.new(ceased_assembly_member).name)
+          expect(page).to have_no_content(Decidim::AssemblyMemberPresenter.new(ceased_assembly_member).name)
         end
       end
     end

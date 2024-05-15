@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Gamification", type: :system do
+describe "Gamification" do
   let!(:organization) { create(:organization) }
 
   before do
@@ -19,7 +19,7 @@ describe "Gamification", type: :system do
 
       it "shows a list of badges" do
         visit decidim.profile_path(user.nickname)
-        click_link "Badges"
+        click_on "Badges"
         within "div[data-badge='test']" do
           expect(page).to have_content "Level 2"
         end
@@ -37,7 +37,7 @@ describe "Gamification", type: :system do
 
       it "shows a list of badges" do
         visit decidim.profile_path(user_group.nickname)
-        click_link "Badges"
+        click_on "Badges"
         within "div[data-badge='test']" do
           expect(page).to have_content "Level 2"
         end
@@ -50,9 +50,9 @@ describe "Gamification", type: :system do
 
     it "can be reached from the profile's badges page" do
       visit decidim.profile_path(user.nickname)
-      click_link "Badges"
+      click_on "Badges"
       within ".profile__badge-banner" do
-        click_link "See all available badges"
+        click_on "See all available badges"
       end
 
       expect(page).to have_current_path(decidim.gamification_badges_path)

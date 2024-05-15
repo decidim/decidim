@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Newsletters (view in web)", type: :system do
+describe "Newsletters (view in web)" do
   let(:organization) { create(:organization) }
   let!(:newsletter) { create(:newsletter, :sent, organization:) }
   let!(:content_block) do

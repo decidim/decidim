@@ -36,7 +36,7 @@ module Decidim::Proposals
 
       context "and is a proposal" do
         it "renders the proposal state (nil by default)" do
-          expect(subject).not_to have_css("span.label")
+          expect(subject).to have_no_css("span.label")
         end
       end
 
@@ -59,7 +59,7 @@ module Decidim::Proposals
         let(:cell_html) { my_cell.call }
 
         it "renders amendment text" do
-          expect(subject).to have_css("div.card__list-metadata span", text: "Amendment")
+          expect(subject).to have_css("div.card__list-metadata div", text: "Amendment")
         end
 
         it "renders the emendation state (evaluating by default)" do

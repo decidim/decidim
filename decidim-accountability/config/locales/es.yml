@@ -39,9 +39,11 @@ es:
         confirm_destroy: '¿Seguro que quieres eliminar este %{name}?'
         destroy: Borrar
         edit: Editar
-        import: Importar proyectos a resultados
-        import_csv: Importar CSV
-        new: Nuevo/a %{name}
+        import: Importar proyectos desde otro componente
+        import_csv: Importar resultados desde un archivo CSV
+        new_result: Añadir resultado
+        new_status: Añadir estado
+        new_timeline_entry: Añadir entrada de la cronología
         preview: Previsualizar
         timeline_entries: Evolución del proyecto
         title: Acciones
@@ -74,17 +76,16 @@ es:
                 </ul>
               </li>
               </ol>
-            title: Importar resultados vía CSV
+            title: Importar resultados desde un archivo CSV
         imports:
           create:
+            invalid: Ha habido un problema importando los resultados.
             success: Se está importando el fichero. Recibirás un correo electrónico en los próximos minutos con el resultado de la importación.
         models:
           result:
             name: Resultado
           status:
             name: Estado
-          timeline_entry:
-            name: Entrada de la cronología
         projects_import:
           create:
             invalid: Hubo un problema al importar los proyectos como resultados, por favor, sigue las instrucciones cuidadosamente y asegúrate que has marcado los proyectos seleccionados para su implementación.
@@ -100,7 +101,7 @@ es:
             success:
               one: Hay un proyecto para ser importado. Se notificará por correo electrónico, cuando se complete la importación.
               other: "Hay %{count} proyectos para ser importados. Se notificará por correo electrónico, cuando se complete la importación."
-            title: Importar Proyectos a Seguimiento
+            title: Importar proyectos desde otro componente
         results:
           create:
             invalid: Se ha producido un error al crear este resultado.
@@ -173,9 +174,7 @@ es:
             not_found: 'El padre no se encontró en la base de datos (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Fechas
           results: Resultados
-          unspecified: No especificado
       import_mailer:
         import:
           errors: Errores
@@ -214,9 +213,6 @@ es:
           fields:
             entry_date: Fecha
             title: Título
-      result_m:
-        executed: Ejecutado
-        view: Ver
       results:
         count:
           results_count:
@@ -226,24 +222,19 @@ es:
           all: Todos
         home:
           categories_label: Categorías
+          empty: Aún no hay ningún resultado.
+          empty_filters: No hay ningún resultado con este criterio.
           subcategories_label: Subcategorías
         home_header:
           global_status: Estado de ejecución global
         nav_breadcrumb:
           global: Ejecución global
+        no_results: No hay proyectos
         search:
           search: Buscar actuaciones
         show:
           stats:
-            attendees: Asistentes
             back_to_resource: Volver al resultado
-            comments: Comentarios
-            contributions: Aportes
-            last_edited_by: Última edición por
-            last_updated_at: Última actualización en
-            meetings: Lista de encuentros
-            proposals: Propuestas
-            votes: Soportes
         timeline:
           title: Evolución del proyecto
     admin:
@@ -278,12 +269,12 @@ es:
       accountability:
         proposal_linked:
           email_intro: 'La propuesta "%{proposal_title}" se ha incluido en un resultado. Puedes verlo desde esta página:'
-          email_outro: Has recibido esta notificación porque estás siguiendo "%{proposal_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_outro: Has recibido esta notificación porque estás siguiendo la propuesta "%{proposal_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Una actualización en %{proposal_title}
           notification_title: Se ha incluido la propuesta <a href="%{proposal_path}">%{proposal_title}</a> en el resultado <a href="%{resource_path}">%{resource_title}</a>.
         result_progress_updated:
           email_intro: 'El resultado "%{resource_title}", que incluye la propuesta "%{proposal_title}", está completado al %{progress}%. Puedes verlo desde esta página:'
-          email_outro: Has recibido esta notificación porque estás siguiendo "%{proposal_title}" y esta propuesta se incluye en el resultado "%{resource_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_outro: Has recibido esta notificación porque estás siguiendo la propuesta "%{proposal_title}" y esta se incluye en el resultado "%{resource_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Una actualización sobre el progreso de %{resource_title}
           notification_title: El resultado <a href="%{resource_path}">%{resource_title}</a>, que incluye la propuesta <a href="%{proposal_path}">%{proposal_title}</a>, ahora está completado al %{progress}%.
     metrics:
@@ -293,7 +284,7 @@ es:
         title: Resultados
     participatory_spaces:
       highlighted_results:
-        see_all: Ver todos los resultados (%{count})
+        see_all: Ver todos los resultados
     resource_links:
       included_projects:
         result_project: Proyectos incluidos en este resultado

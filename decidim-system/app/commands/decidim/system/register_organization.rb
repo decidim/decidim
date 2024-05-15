@@ -55,7 +55,7 @@ module Decidim
           reference_prefix: form.reference_prefix,
           available_locales: form.available_locales,
           available_authorizations: form.clean_available_authorizations,
-          external_domain_whitelist: ["decidim.org", "github.com"],
+          external_domain_allowlist: ["decidim.org", "github.com"],
           users_registration_mode: form.users_registration_mode,
           force_users_to_authenticate_before_access_organization: form.force_users_to_authenticate_before_access_organization,
           badges_enabled: true,
@@ -65,8 +65,20 @@ module Decidim
           smtp_settings: form.encrypted_smtp_settings,
           send_welcome_notification: true,
           file_upload_settings: form.file_upload_settings.final,
+          colors: default_colors,
           content_security_policy: form.content_security_policy
         )
+      end
+
+      def default_colors
+        {
+          alert: "#ec5840",
+          primary: "#53bf40",
+          success: "#57d685",
+          warning: "#ffae00",
+          tertiary: "#bf4053",
+          secondary: "#4053bf"
+        }
       end
 
       def invite_user_form(organization)

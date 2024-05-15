@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Collaborative drafts", type: :system do
+describe "Collaborative drafts" do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
@@ -28,8 +28,6 @@ describe "Collaborative drafts", type: :system do
   end
 
   context "when creating a new collaborative_draft" do
-    let(:scope_picker) { select_data_picker(:collaborative_draft_scope_id) }
-
     context "when the user is logged in" do
       before do
         login_as user, scope: :user
@@ -65,7 +63,7 @@ describe "Collaborative drafts", type: :system do
             visit new_collaborative_draft_path
 
             within "form.new_collaborative_draft" do
-              expect(page).not_to have_content("Scope")
+              expect(page).to have_no_content("Scope")
             end
           end
         end
@@ -110,13 +108,13 @@ describe "Collaborative drafts", type: :system do
           end
 
           it "allows returning to the index" do
-            click_link "Back to collaborative drafts"
+            click_on "Back to collaborative drafts"
 
             expect(page).to have_content("There are no collaborative drafts yet")
           end
         end
 
-        context "when geocoding is enabled", :serves_geocoding_autocomplete, :serves_map do
+        context "when geocoding is enabled", :serves_geocoding_autocomplete do
           let!(:component) do
             create(:proposal_component,
                    :with_creation_enabled,
@@ -214,7 +212,7 @@ describe "Collaborative drafts", type: :system do
             expect(page).to have_content("#AutoHashtag1")
             expect(page).to have_content("#AutoHashtag2")
             expect(page).to have_content("#SuggestedHashtag1")
-            expect(page).not_to have_content("#SuggestedHashtag2")
+            expect(page).to have_no_content("#SuggestedHashtag2")
           end
         end
 
@@ -246,7 +244,7 @@ describe "Collaborative drafts", type: :system do
             expect(page).to have_author(user_group.name)
           end
 
-          context "when geocoding is enabled", :serves_geocoding_autocomplete, :serves_map do
+          context "when geocoding is enabled", :serves_geocoding_autocomplete do
             let!(:component) do
               create(:proposal_component,
                      :with_creation_enabled,
@@ -300,8 +298,8 @@ describe "Collaborative drafts", type: :system do
 
           it "shows a modal dialog" do
             visit_component
-            click_link "Access collaborative drafts"
-            click_link "New collaborative draft"
+            click_on "Access collaborative drafts"
+            click_on "New collaborative draft"
             expect(page).to have_content("Authorization required")
           end
         end
@@ -323,7 +321,7 @@ describe "Collaborative drafts", type: :system do
               fill_in :collaborative_draft_body, with: "This is my collaborative draft and I want to upload attachments."
             end
 
-            dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"), front_interface: true)
+            dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"))
 
             within ".new_collaborative_draft" do
               find("*[type=submit]").click
@@ -332,7 +330,7 @@ describe "Collaborative drafts", type: :system do
             expect(page).to have_content("successfully")
 
             within "#panel-images" do
-              expect(page).to have_selector("img[src*=\"city.jpeg\"]", count: 1)
+              expect(page).to have_css("img[src*=\"city.jpeg\"]", count: 1)
             end
           end
         end
@@ -348,8 +346,8 @@ describe "Collaborative drafts", type: :system do
 
         it "does not show the creation button" do
           visit_component
-          click_link "Access collaborative drafts"
-          expect(page).not_to have_link("New collaborative draft")
+          click_on "Access collaborative drafts"
+          expect(page).to have_no_link("New collaborative draft")
         end
       end
     end

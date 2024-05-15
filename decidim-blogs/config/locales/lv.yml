@@ -17,9 +17,6 @@ lv:
         new: Jauna ziņa
         title: Darbības
       admin:
-        models:
-          post:
-            name: Ziņa
         posts:
           edit:
             save: Atjaunināt
@@ -35,9 +32,6 @@ lv:
           fields:
             author: Autors
             body: Pamatteksts
-      posts:
-        show:
-          view: Apskatīt
     components:
       blogs:
         name: Emuārs

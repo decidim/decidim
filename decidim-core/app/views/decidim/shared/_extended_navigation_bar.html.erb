@@ -1,17 +1,17 @@
 <div class="row expanded">
-  <div class="process-nav">
+  <div>
     <div class="row">
-      <button class="process-nav__trigger hide-for-medium" data-toggle="process-nav-content">
+      <button data-toggle="process-nav-content">
         <%= icon "caret-bottom", class: "icon--small process-nav__trigger__icon", aria_label: t("decidim.shared.extended_navigation_bar.unfold"), role: "img" %>
         <% default_item = active_item || items.first %>
-        <span class="process-nav__link">
+        <span>
           <%= default_item[:name] %>
         </span>
       </button>
-      <div class="row column process-nav__content <%= browser.mobile? ? "is-active" : "" %>" id="process-nav-content" data-toggler=".is-active">
+      <div class="row column <%= browser.mobile? ? "is-active" : "" %>" id="process-nav-content" data-toggler=".is-active">
         <ul>
           <% items.each_with_index do |item, index| %>
-            <li class="<%= "is-active" if item[:active] %> <%= "hide-for-medium" if index > max_items %>">
+            <li class="<%= "is-active" if item[:active] %>">
               <%= link_to item[:url], class: "process-nav__link #{item[:active] ? "active" : nil}" do %>
                 <%= item[:name] %>
               <% end %>
@@ -20,17 +20,17 @@
         </ul>
 
         <% if extra_items.any? %>
-          <button class="button tiny process-nav__more show-for-medium" data-toggle="process-nav__hide-content">
+          <button class="button" data-toggle="process-nav__hide-content">
             <%= t("decidim.shared.extended_navigation_bar.more") %> <i></i><i></i><i></i>
           </button>
-          <div class="dropdown-pane process-nav__hidden-content" id="process-nav__hide-content"
+          <div class="dropdown-pane" id="process-nav__hide-content"
               data-dropdown
               data-hover="true"
               data-hover-pane="true"
               data-v-offset="-25"
               data-position="bottom"
               data-alignment="right">
-            <div class="process-nav__hidden-content__more">
+            <div>
               <%= t("decidim.shared.extended_navigation_bar.more") %> <i></i><i></i><i></i>
             </div>
             <ul>

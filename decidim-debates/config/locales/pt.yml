@@ -48,7 +48,6 @@ pt:
         confirm_destroy: Tem a certeza?
         destroy: Eliminar
         edit: Editar
-        new: Novo %{name}
         title: Ações
       admin:
         debate_closes:
@@ -78,9 +77,6 @@ pt:
             success: Debate atualizado corretamente.
         exports:
           comments: Comentários
-        models:
-          debate:
-            name: Debate
       admin_log:
         debate:
           close: "%{user_name} Fechou o debate %{resource_name} no espaço %{space_name}"
@@ -93,10 +89,8 @@ pt:
           invalid: Ocorreu um problema ao fechar o debate.
           success: Debate fechado com êxito
         close_debate_modal:
-          close: Fechar
           description: Qual é o sumário ou conclusão para este debate?
           send: Fechar debate
-        closed: Fechado
         count:
           debates_count:
             one: "%{count} debate"
@@ -104,8 +98,6 @@ pt:
         create:
           invalid: Ocorreu um problema ao criar o debate.
           success: Debate criado corretamente.
-        debate:
-          participate: Participar
         edit:
           back: Retroceder
           save: Guardar alterações
@@ -119,18 +111,11 @@ pt:
           my_debates: Os meus debates
           official: Oficial
           origin: Origem
-          scope: Âmbito
           search: Pesquisar
           state: Estado
           state_values:
             closed: Fechar
             open: Abertas
-          user_groups: Grupos
-        filters_small_view:
-          close_modal: Fechar modal
-          filter: Filtrar
-          filter_by: Filtrar por
-          unfold: Desdobrar
         form:
           select_a_category: Por favor, selecione uma categoria
         index:
@@ -146,28 +131,17 @@ pt:
           recent: Mais recente
           updated: Actualizado recentemente
         show:
-          back: Retroceder à lista
           close_debate: Fechar debate
-          date: Data
           debate_closed: Fechar
           debate_conclusions_are: 'O debate foi fechado em %{date} com as seguintes conclusões:'
           edit_conclusions: Editar conclusões
           edit_debate: Editar debate
           groups_count: Grupos
-          last_comment_by: Último comentário por
-          no_comments_yet: Não há ainda comentários
           open: Abrir debate
           participants_count: Participantes
         update:
           invalid: Ocorreu um problema ao atualizar o debate.
           success: Debate atualizado corretamente.
-        versions:
-          debates:
-            back_to_resource: Retroceder para debate
-          index:
-            title: Versões
-        versions_list:
-          back_to_resource: Retroceder para debate
       models:
         debate:
           fields:
@@ -178,13 +152,6 @@ pt:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_intro: |-
-              Olá,
-              Um novo debate "%{resource_title}" foi criado no espaço participativo %{space_title}, confira e contribua:
-            email_outro: Recebeu esta notificação porque segue o espaço participativo %{space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
-            email_subject: Novo debate "%{resource_title}" em %{space_title}
-            notification_title: O debate <a href="%{resource_path}">%{resource_title}</a> foi criado em <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Olá,

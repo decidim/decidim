@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages area types", type: :system do
+describe "Admin manages area types" do
   let(:admin) { create(:user, :admin, :confirmed) }
   let(:organization) { admin.organization }
 
@@ -10,8 +10,9 @@ describe "Admin manages area types", type: :system do
     switch_to_host(organization.host)
     login_as admin, scope: :user
     visit decidim_admin.root_path
-    click_link "Settings"
-    click_link "Area types"
+    click_on "Settings"
+    click_on "Areas"
+    click_on "Area types"
   end
 
   it "can create new area types" do
@@ -60,8 +61,8 @@ describe "Admin manages area types", type: :system do
     end
 
     it "can edit them" do
-      within find("tr", text: translated(area_type.name)) do
-        click_link "Edit"
+      within "tr", text: translated(area_type.name) do
+        click_on "Edit"
       end
 
       within ".edit_area_type" do
@@ -74,7 +75,7 @@ describe "Admin manages area types", type: :system do
         fill_in_i18n(
           :area_type_plural,
           "#area_type-plural-tabs",
-          en: "This is the new pluarl"
+          en: "This is the new plural"
         )
         find("*[type=submit]").click
       end
@@ -87,14 +88,14 @@ describe "Admin manages area types", type: :system do
     end
 
     it "can delete them" do
-      within find("tr", text: translated(area_type.name)) do
-        accept_confirm(admin: true) { click_link "Delete" }
+      within "tr", text: translated(area_type.name) do
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).not_to have_content(translated(area_type.name))
+        expect(page).to have_no_content(translated(area_type.name))
       end
     end
   end

@@ -191,7 +191,7 @@ Decidim works fine when some of the services are disabled individually but obvio
 
 === Global geocoder configurations
 
-In the Dedicim initialiser (`config/initializers/decidim.rb`) you will also see a commented section for the global geocoder configurations commented as follows:
+In the Decidim initialiser (`config/initializers/decidim.rb`) you will also see a commented section for the global geocoder configurations commented as follows:
 
 [source,ruby]
 ----
@@ -268,7 +268,7 @@ In the example configuration, we assume you have used the following domain for t
 
 https://tiles.example.org
 
-=== Static map images: Openstreetmap static maps server (osm-static-maps)
+=== Static map images: OpenStreetMap static maps server (osm-static-maps)
 
 Some pages in Decidim display static map images which need to be fetched from an external server.
 The tiles server does not provide such static images by itself because one static map image may need multiple tiles to be combined into one.

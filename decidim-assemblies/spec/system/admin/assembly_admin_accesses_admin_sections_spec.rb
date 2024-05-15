@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Assembly admin accesses admin sections", type: :system do
+describe "Assembly admin accesses admin sections" do
   include_context "when assembly admin administrating an assembly"
 
   before do
@@ -10,23 +10,46 @@ describe "Assembly admin accesses admin sections", type: :system do
     login_as user, scope: :user
   end
 
-  context "when is a mother assembly" do
+  shared_examples "sees public space menu" do
     it "can access all sections" do
-      visit decidim_admin_assemblies.assemblies_path
-      click_link "Configure"
+      expect(page).to have_content("Info")
+      expect(page).to have_content("Components")
+      expect(page).to have_content("Categories")
+      expect(page).to have_content("Attachments")
+      expect(page).to have_content("Members")
+      expect(page).to have_content("Assembly admins")
+      expect(page).to have_no_content("Private users")
+      expect(page).to have_content("Moderations")
+    end
+  end
 
-      within ".secondary-nav" do
-        expect(page).to have_content("Info")
-        expect(page).to have_content("Components")
-        expect(page).to have_content("Categories")
-        expect(page).to have_content("Attachments")
-        expect(page).to have_content("Folders")
-        expect(page).to have_content("Files")
-        expect(page).to have_content("Members")
-        expect(page).to have_content("Assembly admins")
-        expect(page).to have_content("Private users")
-        expect(page).to have_content("Moderations")
-      end
+  shared_examples "sees private space menu" do
+    it "can access all sections" do
+      expect(page).to have_content("Info")
+      expect(page).to have_content("Components")
+      expect(page).to have_content("Categories")
+      expect(page).to have_content("Attachments")
+      expect(page).to have_content("Members")
+      expect(page).to have_content("Assembly admins")
+      expect(page).to have_content("Private users")
+      expect(page).to have_content("Moderations")
+    end
+  end
+
+  context "when is a mother assembly" do
+    before do
+      visit decidim_admin_assemblies.assemblies_path
+      click_on "Configure"
+    end
+
+    context "when is a public assembly" do
+      it_behaves_like "sees public space menu"
+    end
+
+    context "when is a private assembly" do
+      let(:assembly) { create(:assembly, organization:, private_space: true) }
+
+      it_behaves_like "sees private space menu"
     end
   end
 
@@ -35,26 +58,21 @@ describe "Assembly admin accesses admin sections", type: :system do
 
     before do
       visit decidim_admin_assemblies.assemblies_path
-      within find("tr", text: translated(assembly.title)) do
-        click_link "Assemblies"
+      within "tr", text: translated(assembly.title) do
+        click_on "Assemblies"
       end
 
-      click_link "Configure"
+      click_on "Configure"
     end
 
-    it "can access all sections" do
-      within ".secondary-nav" do
-        expect(page).to have_content("Info")
-        expect(page).to have_content("Components")
-        expect(page).to have_content("Categories")
-        expect(page).to have_content("Attachments")
-        expect(page).to have_content("Folders")
-        expect(page).to have_content("Files")
-        expect(page).to have_content("Members")
-        expect(page).to have_content("Assembly admins")
-        expect(page).to have_content("Private users")
-        expect(page).to have_content("Moderations")
-      end
+    context "when is a public assembly" do
+      it_behaves_like "sees public space menu"
+    end
+
+    context "when is a private assembly" do
+      let(:child_assembly) { create(:assembly, parent: assembly, organization:, private_space: true) }
+
+      it_behaves_like "sees private space menu"
     end
 
     it_behaves_like "assembly admin manage assembly components"

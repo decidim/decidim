@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Static pages", type: :system do
+describe "Static pages" do
   let(:organization) { create(:organization) }
   let!(:page1) { create(:static_page, :with_topic, organization:) }
   let!(:page2) { create(:static_page, :with_topic, organization:) }
@@ -23,7 +23,7 @@ describe "Static pages", type: :system do
     it "lists all the standalone pages" do
       visit decidim.pages_path
 
-      within find(pages_selector, text: "Pages") do
+      within pages_selector, text: "Pages" do
         expect(page).to have_content translated(page3.title)
       end
     end
@@ -57,8 +57,8 @@ describe "Static pages", type: :system do
 
       context "when cookies are rejected" do
         before do
-          click_link "Cookie settings"
-          click_button "Accept only essential"
+          click_on "Cookie settings"
+          click_on "Accept only essential"
         end
 
         it_behaves_like "accessible page"
@@ -66,22 +66,22 @@ describe "Static pages", type: :system do
         it "disables iframe" do
           visit decidim.page_path(video_page)
           expect(page).to have_content("You need to enable all cookies in order to see this content")
-          expect(page).not_to have_selector("iframe")
+          expect(page).to have_no_selector("iframe")
         end
       end
 
       context "when cookies are accepted" do
         before do
-          click_link "Cookie settings"
-          click_button "Accept all"
+          click_on "Cookie settings"
+          click_on "Accept all"
         end
 
         it_behaves_like "accessible page"
 
         it "shows iframe" do
           visit decidim.page_path(video_page)
-          expect(page).not_to have_content("You need to enable all cookies in order to see this content")
-          expect(page).to have_selector("iframe", count: 1)
+          expect(page).to have_no_content("You need to enable all cookies in order to see this content")
+          expect(page).to have_css("iframe", count: 1)
         end
       end
     end
@@ -96,7 +96,7 @@ describe "Static pages", type: :system do
         # where "paramxx" is the parameter name and "aaa" is the value. The
         # total length of each parameter is therefore 6 + 2 + 100 characters
         # = 108 bytes. Cookie overflow should therefore happen at latest
-        # around 38 of these parameters concenated together.
+        # around 38 of these parameters concatenated together.
         50.times.map do |i|
           "param#{i.to_s.rjust(2, "0")}=#{SecureRandom.alphanumeric(100)}"
         end.join("&")

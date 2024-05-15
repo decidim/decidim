@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin orders projects", type: :system do
+describe "Admin orders projects" do
   include_context "when managing a component as an admin"
   let(:manifest_name) { "budgets" }
   let(:budget) { create(:budget, component: current_component, total_budget: 100_000) }
@@ -38,7 +38,7 @@ describe "Admin orders projects", type: :system do
   it "orders projects by ID" do
     ordered_projects = projects.sort_by(&:id).reverse
 
-    click_link "ID"
+    click_on "ID"
     rows = page.all("tbody tr")
 
     rows.each_with_index do |row, i|
@@ -49,7 +49,7 @@ describe "Admin orders projects", type: :system do
   it "orders projects by title" do
     ordered_projects = projects.sort_by { |project| translated(project.title) }
 
-    click_link "Title"
+    click_on "Title"
     rows = page.all("tbody tr")
 
     rows.each_with_index do |row, i|
@@ -60,7 +60,7 @@ describe "Admin orders projects", type: :system do
   it "orders projects by category" do
     ordered_projects = projects.sort_by { |project| translated(project.category.name) }
 
-    click_link "Category"
+    click_on "Category"
     rows = page.all("tbody tr")
 
     rows.each_with_index do |row, i|
@@ -71,7 +71,7 @@ describe "Admin orders projects", type: :system do
   it "orders projects by scope" do
     ordered_projects = projects.sort_by { |project| translated(project.scope.name) }
 
-    click_link "Scope"
+    click_on "Scope"
     rows = page.all("tbody tr")
 
     rows.each_with_index do |row, i|
@@ -80,7 +80,7 @@ describe "Admin orders projects", type: :system do
   end
 
   it "orders projects by selected" do
-    click_link "Selected"
+    click_on "Selected"
     rows = page.all("tbody tr")
 
     expect(rows[0]).to have_text(translated(projects[2].title))
@@ -117,7 +117,7 @@ describe "Admin orders projects", type: :system do
     end
 
     it "orders projects by votes count" do
-      click_link "Votes count"
+      click_on "Votes count"
       rows = page.all("tbody tr")
 
       expect(rows[0]).to have_text(translated(projects.second.title))

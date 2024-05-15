@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Meetings
-  describe CloseMeetingReminderMailer, type: :mailer do
+  describe CloseMeetingReminderMailer do
     include ActionView::Helpers::SanitizeHelper
 
     let(:organization) { create(:organization) }
@@ -22,7 +22,7 @@ module Decidim::Meetings
       end
 
       it "parses the subject" do
-        expect(mail.subject).to eq("You can now close your meeting with a report on the #{organization.name} platform")
+        expect(mail.subject).to eq(%(You can now close the meeting "#{decidim_sanitize_translated(meeting.title)}" with a report))
       end
     end
   end

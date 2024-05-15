@@ -1,3 +1,5 @@
+<% add_decidim_page_title(t(".title")) %>
+
 <% provide :title do %>
   <h1 class="h1"><%= t ".title" %></h1>
 <% end %>
@@ -14,16 +16,16 @@
 
     <%= f.text_field :organization_admin_name %>
 
-    <%= f.email_field :organization_admin_email %>
+    <%= f.email_field :organization_admin_email, help_text: t(".organization_admin_email_hint") %>
 
     <%= f.fields_for :locales do |fields| %>
       <%= f.label :organization_locales, "", class: @form.respond_to?(:errors) && @form.errors[:default_locale].present? ? "is-invalid-label" : "" %>
       <table>
         <thead>
           <tr>
-            <th>Locale</th>
-            <th>Enabled <%= f.error_for(:available_locales) %></th>
-            <th>Default? <%= f.error_for(:default_locale) %></th>
+            <th><%= t(".locale") %></th>
+            <th><%= t(".enabled") %> <%= f.error_for(:available_locales) %></th>
+            <th><%= t(".default") %><%= f.error_for(:default_locale) %></th>
           </tr>
         </thead>
         <tbody>
@@ -44,9 +46,9 @@
 
     <%= field_set_tag f.label(:users_registration_mode, nil, for: nil) do %>
       <%= f.collection_radio_buttons :users_registration_mode,
-                                    Decidim::Organization.users_registration_modes,
-                                    :first,
-                                    ->(mode) { t("decidim.system.organizations.users_registration_mode.#{mode.first}") } do |builder|
+                                     Decidim::Organization.users_registration_modes,
+                                     :first,
+                                     ->(mode) { t("decidim.system.organizations.users_registration_mode.#{mode.first}") } do |builder|
                                       builder.label(for: nil, class: "form__wrapper-checkbox-label") { builder.radio_button(id: nil) + builder.text }
                                     end %>
     <% end %>

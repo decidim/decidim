@@ -20,7 +20,9 @@ ja:
         description: 説明
         end_time: 終了時間
         id: ID
+        iframe_access_level: iframeアクセスレベル：
         iframe_embed_type: Iframe 埋め込みタイプ
+        iframe_embed_type_html: '「ミーティングページに埋め込む」または「配信イベントページで開く」を許可しているサービスはわずかしかありません。 モバイルでの「ミーティングページに埋め込む」オプションに注意してください。画面が異なる寸法を継承するため、実際には「配信イベントで開く」として機能します。'
         location: 場所
         location_hints: 位置情報のヒント
         online_meeting_url: オンラインミーティングURL
@@ -55,7 +57,9 @@ ja:
         meeting:
           attributes:
             iframe_embed_type:
-              not_embeddable: このURLは、ミーティングやライブイベントのページに埋め込むことはできません。
+              not_embeddable: このURLは、ミーティングや配信イベントのページに埋め込むことはできません。
+            online_meeting_url:
+              url_format: 有効な URL でなければなりません
         meeting_agenda:
           attributes:
             base:
@@ -83,6 +87,11 @@ ja:
   decidim:
     admin:
       filters:
+        accepted_at_not_null:
+          label: 承認済み
+          values:
+            'false': 未承認
+            'true': 承認済み
         meetings:
           category_id_eq:
             label: カテゴリ
@@ -110,13 +119,24 @@ ja:
               hybrid: ハイブリッド
               in_person: 対面
               online: オンライン
+        rejected_at_not_null:
+          label: 却下済み
+          values:
+            'false': 未却下
+            'true': 却下済み
+        search_placeholder:
+          user_name_or_user_email_cont: 名前またはメールアドレスで検索
+        sent_at_not_null:
+          label: 送信済み
+          values:
+            'false': 未送信
+            'true': 送信済み
       meeting_copies:
         create:
           error: このミーティングを複製する際に問題が発生しました。
           success: ミーティングを複製しました。
         new:
           copy: コピー
-          select: 複製したいデータを選択してください
           title: ミーティングを複製
     components:
       meetings:
@@ -217,7 +237,7 @@ ja:
           proposals_count:
             other: '%{count} 件の提案が関連付けられているため、ミーティングを削除できません:'
         manage_poll: アンケートの管理
-        new: 新しいミーティング
+        new_meeting: 新しいミーティング
         preview: プレビュー
         registrations: 登録
         title: アクション
@@ -274,16 +294,9 @@ ja:
             non_user: 非参加者
             select_user: 参加者を選択
           index:
-            filter:
-              accepted: 承認済み
-              all: すべて
-              rejected: 拒否
-              sent: 送信済み
-            filter_by: フィルター
             invite_attendee: 参加者を招待
             invites: 招待
             registrations_disabled: 登録が無効になっているため、参加者を招待することはできません。
-            search: 検索
         meeting_closes:
           edit:
             close: 閉じる
@@ -306,6 +319,7 @@ ja:
           form:
             address_help: 'アドレス: ジオコーダーが場所を見つけるために使用'
             disclaimer: '免責事項: 外部の登録システムを使用する場合、ユーザーが外部サービスに提供したデータについて%{organization} の主催者が責任を負わないことをあらかじめご了承ください。'
+            iframe_embed_type_html: 'ミーティングまたは配信イベントに埋め込めるサービスは以下のドメインに限定されています: %{domains}'
             location_help: '場所: ユーザーにメッセージが表示されます。'
             location_hints_help: '位置情報のヒント：追加情報。 例: 対面ミーティングでの建物のフロア、またはアクセス制限のあるオンラインミーティングでのミーティングパスワード。'
             online_meeting_url_help: 'リンク: 参加者があなたのミーティングに直接接続できるようにします'
@@ -313,7 +327,6 @@ ja:
             select_a_meeting_type: ミーティング種別を選択してください
             select_a_registration_type: 登録種別を選択してください
             select_an_iframe_access_level: Iframeアクセスレベルを選択してください
-            show_embedded_iframe_help: 'ミーティングまたはライブイベントに埋め込めるサービスは以下のドメインに限定されています: %{domains}'
           index:
             title: ミーティング
           new:
@@ -344,9 +357,6 @@ ja:
           update:
             invalid: このミーティングの投票の更新に問題がありました．
             success: ミーティングの投票を更新しました。
-        models:
-          meeting:
-            name: ミーティング
         registrations:
           edit:
             save: 保存
@@ -390,11 +400,11 @@ ja:
           all: すべて
         filter_meeting_space_values:
           all: すべて
-        filter_scope_values:
-          all: すべて
+      calendar:
+        meeting_to_event:
+          read_more: このミーティングについてもっと読む
       calendar_modal:
         calendar_url: カレンダー URL
-        close_window: ウィンドウを閉じる
         copy_calendar_url: コピー
         copy_calendar_url_clarification: カレンダーURLをクリップボードにコピー
         copy_calendar_url_copied: コピーしました
@@ -412,8 +422,6 @@ ja:
       content_blocks:
         upcoming_meetings:
           name: これからのミーティング
-          upcoming_meetings: これからのミーティング
-          view_all_meetings: すべて表示
       directory:
         meetings:
           index:
@@ -426,7 +434,7 @@ ja:
       iframe_embed_type:
         embed_in_meeting_page: ミーティングページに埋め込む
         none: なし
-        open_in_live_event_page: ライブイベントページで開く (オプションの投票付き)
+        open_in_live_event_page: 配信イベントページで開く (オプションの投票付き)
         open_in_new_tab: URLを新しいタブで開く
       last_activity:
         meeting_updated: '更新されたミーティング:'
@@ -454,7 +462,6 @@ ja:
         calendar_modal:
           add_to_calendar: カレンダーに追加
           apple: Apple カレンダーに追加
-          close_window: ウィンドウを閉じる
           full_details_html: 詳細は %{link} をご覧ください
           google: Google カレンダーに追加
           outlook: Outlookカレンダーに追加
@@ -483,8 +490,7 @@ ja:
             all: すべて
             official: 事務局
             participants: 参加者
-            user_groups: グループ
-          scope: スコープ
+            user_group: グループ
           search: 検索
           type: 種別
           type_values:
@@ -492,16 +498,12 @@ ja:
             hybrid: ハイブリッド
             in_person: 対面
             online: オンライン
-        filters_small_view:
-          close_modal: モーダルを閉じる
-          filter: フィルター
-          filter_by: フィルター
-          unfold: 展開する
         form:
           address_help: 'アドレス: ジオコーダーが場所を見つけるために使用'
           available_slots_help: 無制限の場合は0のままにしてください
           create_as: 次のユーザとしてミーティングを作成：
           disclaimer: '免責事項: 外部の登録システムを使用する場合、ユーザーが外部サービスに提供したデータについて%{organization} の主催者が責任を負わないことをあらかじめご了承ください。'
+          iframe_embed_type_html: 'ミーティングまたは配信イベントに埋め込めるサービスは以下のドメインに限定されています: %{domains}'
           location_help: '場所: ユーザーにメッセージが表示されます。'
           location_hints_help: '位置情報のヒント：追加情報。 例: 対面ミーティングでの建物のフロア、またはアクセス制限のあるオンラインミーティングでのミーティングパスワード。'
           online_meeting_url_help: 'リンク: 参加者があなたのミーティングに直接接続できるようにします'
@@ -510,15 +512,17 @@ ja:
           select_a_meeting_type: ミーティング種別を選択してください
           select_a_registration_type: 登録種別を選択してください
           select_an_iframe_access_level: iframeアクセスレベルを選択してください
-          show_embedded_iframe_help: 'ミーティングまたはライブイベントに埋め込めるサービスは以下のドメインに限定されています: %{domains}'
         index:
           click_here: すべてのミーティングを見る
           new_meeting: 新しいミーティング
           see_all: すべてのミーティングを見る
           see_all_withdrawn: 撤回されたすべてのミーティングを見る
           text_banner: 作成者が取り消したミーティングの一覧を表示しています． %{go_back_link}
-        meeting_minutes:
-          related_information: 関連情報
+        meeting:
+          close_meeting: ミーティングを終了する
+          edit_close_meeting: ミーティングレポートを編集
+          edit_meeting: ミーティングを編集
+          join_meeting: ミーティングに参加
         meetings:
           no_meetings_warning: 検索条件に一致するミーティングがないか，予定されているミーティングがありません．
           upcoming_meetings_warning: 現在、スケジュールされたミーティングはありませんが、ここではリストされた過去のミーティングをすべて見つけることができます。
@@ -531,13 +535,7 @@ ja:
           confirm: 確認する
         show:
           attendees: 出席者数
-          back: リストに戻る
-          close_meeting: ミーティングを閉じる
           contributions: コントリビューション数
-          date: 日付
-          edit_close_meeting: ミーティングレポートを編集
-          edit_meeting: ミーティングを編集
-          going: このミーティングにログインしました
           join: ミーティングに参加
           leave: 登録をキャンセルする
           leave_confirmation: このミーティングの登録をキャンセルしてもよろしいですか？
@@ -554,7 +552,6 @@ ja:
             validation_pending: 保留中
           remaining_slots:
             other: "残り%{count} スロット"
-          view: 表示
           visit_finished: 過去のミーティングを表示
           withdraw_btn_hint: 気が変わった場合はミーティングを取り消せます．ミーティングは削除されません．取り消されたミーティングのリストに表示されます．
           withdraw_confirmation_html: このミーティングを取り消してもよろしいですか?<br><br><strong>この操作はキャンセルできません!</strong>
@@ -562,8 +559,6 @@ ja:
         update:
           invalid: ミーティングの更新に問題がありました。
           success: ミーティングを更新しました．
-      meetings_map:
-        view_meeting: ミーティングを表示
       models:
         invite:
           fields:
@@ -605,6 +600,7 @@ ja:
             question_replied: 質問に回答しました
             reply_question: 質問に返信する
       public_participants_list:
+        attending_organizations: 組織
         attending_participants: 参加する
         hidden_participants_count:
           other: 他 %{count} 人
@@ -636,8 +632,6 @@ ja:
         private_meeting: プライベートミーティング
         transparent: 透明性
         withdraw: 取り消し
-      versions:
-        back_to_resource: ミーティングに戻る
       withdraw:
         error: ミーティングを取り上げる際にエラーが発生しました。
         success: ミーティングは正常に取り下げられました。
@@ -651,8 +645,6 @@ ja:
         past_meetings: 過去のミーティング
         see_all: すべてのミーティングを見る (%{count})
         upcoming_meetings: 今後のミーティング
-      upcoming_meeting_for_card:
-        upcoming_meeting: 今後のミーティング
     resource_links:
       meetings_through_proposals:
         meeting_result: '関連する結果:'

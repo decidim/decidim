@@ -5,6 +5,9 @@ module Decidim
     # Controller that allows managing the appearance of the organization.
     class OrganizationAppearanceController < Decidim::Admin::ApplicationController
       layout "decidim/admin/settings"
+
+      add_breadcrumb_item_from_menu :admin_settings_menu
+
       helper Decidim::Admin::UploaderImageDimensionsHelper
 
       def edit
@@ -16,7 +19,7 @@ module Decidim
         enforce_permission_to :update, :organization, organization: current_organization
         @form = form(OrganizationAppearanceForm).from_params(params)
 
-        UpdateOrganizationAppearance.call(current_organization, @form) do
+        UpdateOrganizationAppearance.call(@form, current_organization) do
           on(:ok) do
             flash[:notice] = I18n.t("organization.update.success", scope: "decidim.admin")
             redirect_to edit_organization_appearance_path

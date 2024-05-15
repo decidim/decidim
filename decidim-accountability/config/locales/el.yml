@@ -39,9 +39,6 @@ el:
         confirm_destroy: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το όνομα %{name};
         destroy: Διαγραφή
         edit: Επεξεργασία
-        import: Εισαγωγή έργων στα αποτελέσματα
-        import_csv: Εισαγωγή αρχείου CSV
-        new: Νέο όνομα %{name}
         preview: Προεπισκόπηση
         timeline_entries: Εξέλιξη έργου
         title: Ενέργειες
@@ -74,7 +71,6 @@ el:
                 </ul>
               </li>
               </ol>
-            title: Εισαγωγή αποτελεσμάτων από αρχείο CSV
         imports:
           create:
             success: Η εισαγωγή του αρχείου ξεκίνησε. Μέσα στα επόμενα λεπτά θα λάβετε ένα email με το αποτέλεσμα της εισαγωγής.
@@ -83,8 +79,6 @@ el:
             name: Αποτέλεσμα
           status:
             name: Κατάσταση
-          timeline_entry:
-            name: Καταχώρηση χρονοδιαγράμματος
         projects_import:
           create:
             invalid: Παρουσιάστηκε πρόβλημα κατά την εισαγωγή των έργων στα αποτελέσματα, παρακαλούμε να ακολουθήσετε προσεκτικά τις οδηγίες και να βεβαιωθείτε ότι έχετε επιλέξει έργα για υλοποίηση.
@@ -100,7 +94,6 @@ el:
             success:
               one: 1 έργο στην ουρά για εισαγωγή. Θα ειδοποιηθείτε μέσω email μόλις ολοκληρωθεί.
               other: "%{count} έργα στην ουρά για εισαγωγή. Θα ειδοποιηθείτε μέσω email μόλις ολοκληρωθεί."
-            title: Εισαγωγή Έργων στην Υπευθυνότητα
         results:
           create:
             invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτού του αποτελέσματος.
@@ -173,9 +166,7 @@ el:
             not_found: 'H γονική διαδικασία δεν βρέθηκε στη βάση δεδομένων (αναγνωριστικό: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Ημερομηνίες
           results: Αποτελέσματα
-          unspecified: Δεν έχει καθοριστεί
       import_mailer:
         import:
           errors: Σφάλματα
@@ -214,9 +205,6 @@ el:
           fields:
             entry_date: Ημερομηνία
             title: Τίτλος
-      result_m:
-        executed: Εκτελέσθηκε
-        view: Προβολή
       results:
         count:
           results_count:
@@ -235,15 +223,7 @@ el:
           search: Αναζήτηση ενεργειών
         show:
           stats:
-            attendees: Συμμετέχοντες
             back_to_resource: Επιστροφή στο αποτέλεσμα
-            comments: Σχόλια
-            contributions: Συνεισφορές
-            last_edited_by: Τελευταία επεξεργασία από
-            last_updated_at: Τελευταία ενημέρωση στις
-            meetings: Συσκέψεις
-            proposals: Προτάσεις
-            votes: Υποστηρίξεις
         timeline:
           title: Εξέλιξη έργου
     admin:

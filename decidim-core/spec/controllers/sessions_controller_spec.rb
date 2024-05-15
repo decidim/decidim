@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Devise
-    describe SessionsController, type: :controller do
+    describe SessionsController do
       routes { Decidim::Core::Engine.routes }
 
       describe "after_sign_in_path_for" do

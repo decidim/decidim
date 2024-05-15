@@ -4,9 +4,8 @@ require "spec_helper"
 
 module Decidim
   module Initiatives
-    describe InitiativesMailer, type: :mailer do
+    describe InitiativesMailer do
       include Decidim::TranslationsHelper
-      include Decidim::SanitizeHelper
 
       let(:organization) { create(:organization, host: "1.lvh.me") }
       let(:initiative) { create(:initiative, organization:) }
@@ -23,7 +22,7 @@ module Decidim
           end
 
           it "renders the body" do
-            expect(mail.body.encoded).to include(decidim_html_escape(translated(initiative.title)))
+            expect(mail.body.encoded).to include(decidim_escape_translated(initiative.title))
           end
 
           it "renders the promoter committee help" do
@@ -53,7 +52,7 @@ module Decidim
 
         it "renders the correct link" do
           expect(mail).to have_link(router.initiative_url(initiative, host: initiative.organization.host))
-          expect(mail).not_to have_link(admin_router.initiative_url(initiative, host: initiative.organization.host))
+          expect(mail).to have_no_link(admin_router.initiative_url(initiative, host: initiative.organization.host))
         end
       end
 
@@ -66,7 +65,7 @@ module Decidim
         end
 
         it "renders the body" do
-          expect(mail.body).to include("The initiative #{decidim_sanitize(translated(initiative.title))} has changed its status to: #{I18n.t(initiative.state, scope: "decidim.initiatives.admin_states")}")
+          expect(mail.body).to include("The initiative #{decidim_sanitize_translated(initiative.title)} has changed its status to: #{I18n.t(initiative.state, scope: "decidim.initiatives.admin_states")}")
         end
       end
 
@@ -79,7 +78,7 @@ module Decidim
         end
 
         it "renders the body" do
-          expect(mail.body.encoded).to include(decidim_sanitize(translated(initiative.title)))
+          expect(mail.body.encoded).to include(decidim_sanitize_translated(initiative.title))
         end
       end
     end

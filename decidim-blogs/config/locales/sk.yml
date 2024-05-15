@@ -18,9 +18,6 @@ sk:
         new: Nový príspevok
         title: Akcie
       admin:
-        models:
-          post:
-            name: Príspevok
         posts:
           edit:
             save: Aktualizovať
@@ -36,9 +33,6 @@ sk:
           fields:
             author: Autor
             body: Telo textu
-      posts:
-        show:
-          view: Zobraziť
     components:
       blogs:
         name: Blog

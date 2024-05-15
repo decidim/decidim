@@ -38,10 +38,10 @@ shared_examples_for "manage questionnaire answers" do
     context "and managing answers page" do
       before do
         visit questionnaire_edit_path
-        click_link "Show responses"
+        click_on "Show responses"
       end
 
-      it "shows the anwers page" do
+      it "shows the answers page" do
         expect(page).to have_content(answer1.body)
         expect(page).to have_content(answer1.question.body["en"])
         expect(page).to have_content(answer2.body)
@@ -66,7 +66,7 @@ shared_examples_for "manage questionnaire answers" do
         let(:first_type) { "long_answer" }
 
         it "shows session token" do
-          expect(page).not_to have_content(answer1.body)
+          expect(page).to have_no_content(answer1.body)
           expect(page).to have_content(answer1.session_token)
           expect(page).to have_content(answer2.session_token)
           expect(page).to have_content(answer3.session_token)
@@ -80,14 +80,14 @@ shared_examples_for "manage questionnaire answers" do
         let!(:answer_option) { create :answer_option, question: first }
         let!(:answer_choice) { create :answer_choice, answer: answer1, answer_option:, body: translated(answer_option.body, locale: I18n.locale) }
 
-        before do
-          find_all("a.action-icon.action-icon--eye").first.click
-        end
-
         it "shows the answers page with custom body" do
-          within "#answers" do
-            expect(page).to have_css("dt", text: translated(first.body))
-            expect(page).to have_css("li", text: translated(answer_option.body))
+          new_window = window_opened_by { find_all("a.action-icon.action-icon--eye").first.click }
+
+          page.within_window(new_window) do
+            within "#answers" do
+              expect(page).to have_css("dt", text: translated(first.body))
+              expect(page).to have_css("li", text: translated(answer_option.body))
+            end
           end
         end
       end
@@ -98,36 +98,36 @@ shared_examples_for "manage questionnaire answers" do
 
       before do
         visit questionnaire_edit_path
-        click_link "Show responses"
+        click_on "Show responses"
       end
 
       it "shows all the questions and responses" do
-        click_link answer1.body, match: :first
+        click_on answer1.body, match: :first
         expect(page).to have_content(first.body["en"])
         expect(page).to have_content(second.body["en"])
         expect(page).to have_content(answer1.body)
       end
 
       it "first answer has a next link" do
-        click_link answer1.body, match: :first
+        click_on answer1.body, match: :first
         expect(page).to have_link("Next ›")
-        expect(page).not_to have_link("‹ Prev")
+        expect(page).to have_no_link("‹ Prev")
       end
 
       it "second answer has prev/next links" do
-        click_link answer2.body, match: :first
+        click_on answer2.body, match: :first
         expect(page).to have_link("Next ›")
         expect(page).to have_link("‹ Prev")
       end
 
       it "third answer has prev link" do
-        click_link answer3.session_token, match: :first
-        expect(page).not_to have_link("Next ›")
+        click_on answer3.session_token, match: :first
+        expect(page).to have_no_link("Next ›")
         expect(page).to have_link("‹ Prev")
       end
 
       it "third answer has download link for the attachments" do
-        click_link answer3.session_token, match: :first
+        click_on answer3.session_token, match: :first
         expect(page).to have_content(translated(file_answer.attachments.first.title))
         expect(page).to have_content(translated(file_answer.attachments.second.title))
       end
@@ -140,7 +140,7 @@ shared_examples_for "manage questionnaire answers" do
         end
 
         it "third answer has download link for the attachments" do
-          click_link answer3.session_token, match: :first
+          click_on answer3.session_token, match: :first
           expect(page).to have_content("Download attachment")
         end
       end

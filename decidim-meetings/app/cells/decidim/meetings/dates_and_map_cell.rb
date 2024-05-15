@@ -17,6 +17,10 @@ module Decidim
         return render :static_map if display_map?
       end
 
+      def year
+        l model.start_time, format: "%Y"
+      end
+
       private
 
       def same_month?

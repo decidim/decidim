@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Identity document offline review", type: :system do
+describe "Identity document offline review" do
   let!(:organization) do
     create(
       :organization,
@@ -23,7 +23,7 @@ describe "Identity document offline review", type: :system do
       user:,
       verification_metadata: {
         "verification_type" => "offline",
-        "document_type" => "DNI",
+        "document_type" => "identification_number",
         "document_number" => "XXXXXXXX"
       }
     )
@@ -35,24 +35,24 @@ describe "Identity document offline review", type: :system do
     switch_to_host(organization.host)
     login_as admin, scope: :user
     visit decidim_admin_id_documents.root_path
-    click_link "Offline verification"
+    click_on "Offline verification"
   end
 
   it "allows the user to verify an identity document" do
-    submit_verification_form(doc_type: "DNI", doc_number: "XXXXXXXX")
+    submit_verification_form(doc_type: "Identification number", doc_number: "XXXXXXXX")
 
     expect(page).to have_content("Participant successfully verified")
   end
 
   it "shows an error when there is no authorization for the given email" do
-    submit_verification_form(doc_type: "DNI", doc_number: "XXXXXXXX", user_email: "this@doesnot.exist")
+    submit_verification_form(doc_type: "Identification number", doc_number: "XXXXXXXX", user_email: "this@doesnot.exist")
 
     expect(page).to have_content("Verification does not match")
     expect(page).to have_content("Introduce the participant email and the document data")
   end
 
   it "shows an error when information does not match" do
-    submit_verification_form(doc_type: "NIE", doc_number: "XXXXXXXY")
+    submit_verification_form(doc_type: "Identification number", doc_number: "XXXXXXXY")
 
     expect(page).to have_content("Verification does not match")
     expect(page).to have_content("Introduce the participant email and the document data")
@@ -65,6 +65,6 @@ describe "Identity document offline review", type: :system do
     select doc_type, from: "Type of the document"
     fill_in "Document number (with letter)", with: doc_number
 
-    click_button "Verify"
+    click_on "Verify"
   end
 end

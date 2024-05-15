@@ -1,8 +1,6 @@
 sv:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Aktivera organisationskarta
       assemblies_type:
         title: Titel
       assembly:
@@ -56,7 +54,6 @@ sv:
         subtitle: Underrubrik
         target: Vem deltar
         title: Titel
-        twitter: Twitter
         weight: Ordning
         youtube: YouTube
       assembly_member:
@@ -98,7 +95,6 @@ sv:
         edit:
           update: Uppdatera
         index:
-          not_published: Ej publicerad
           private: Privat
           public: Öppen
           published: Publicerad
@@ -112,10 +108,6 @@ sv:
         create:
           error: Det gick inte att duplicera gruppen.
           success: Gruppen har duplicerats.
-      assemblies_settings:
-        update:
-          error: Det gick inte att uppdatera inställningarna.
-          success: Inställningarna har uppdaterats.
       assemblies_types:
         create:
           error: Det gick inte att skapa en ny typ av grupp.
@@ -148,13 +140,11 @@ sv:
         destroy:
           success: Medlemmen har raderats från gruppen.
         edit:
-          title: Uppdatera medlem i gruppen.
           update: Uppdatera
         index:
           assembly_members_title: Medlemmar i gruppen
         new:
           create: Skapa
-          title: Ny gruppsmedlem.
         update:
           error: Det gick inte att uppdatera medlemmen i gruppen.
           success: Medlemmen i gruppen har uppdaterats.
@@ -172,13 +162,11 @@ sv:
         destroy:
           success: Administratören har tagits bort från gruppen.
         edit:
-          title: Uppdatera gruppsadministratör.
           update: Uppdatera
         index:
           assembly_admins_title: Gruppsadministratörer
         new:
           create: Skapa
-          title: Ny gruppsadministratör.
         update:
           error: Det gick inte att uppdatera en administratör för gruppen.
           success: Administratören för gruppen har uppdaterats.
@@ -187,7 +175,6 @@ sv:
           label: Typ av grupp
       menu:
         assemblies: Grupper
-        assemblies_settings: Inställningar
         assemblies_submenu:
           assembly_admins: Administratörer för gruppen
           assembly_members: Medlemmar
@@ -196,7 +183,6 @@ sv:
           attachments: Bilagor
           categories: Kategorier
           components: Komponenter
-          info: Info
           moderations: Moderering
           private_users: Privata användare
         assemblies_types: Typer av grupper
@@ -277,42 +263,20 @@ sv:
             select_an_area: Välj ett område
             select_an_assembly_type: Välj typ av gruppen
             select_parent_assembly: Välj överordnad gruppen
-            slug_help: 'URL-slugs används till att generera de URL:er som pekar på gruppen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
             social_handlers: Socialt
             title: Allmän information
-            visbility: Synlighet
-        assemblies_settings:
-          edit:
-            update: Uppdatera
-          form:
-            title: Inställningar för församlingar
         assemblies_types:
           form:
             title: Titel
-        assembly_copies:
-          form:
-            slug_help: 'URL-slugs används till att generera de URL:er som pekar på gruppen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
-        assembly_imports:
-          form:
-            document_legend: Lägg till ett dokument
-            slug_help: 'URL-sniglar används för att generera URL:er som pekar till församlingen. Accepterar endast bokstäver, siffror och bindestreck och måste börja med en bokstav. Exempel: %{url}'
         assembly_members:
           form:
             existing_user: Befintlig deltagare
             explanation: 'Vägledning för bild:'
-            image_guide: Helst en porträttbild utan text.
             non_user: Ej deltagande
             non_user_avatar_help: Du bör få samtycke av personerna innan du publicerar dem som medlem.
             select_a_position: Välj en position
             select_user: Välj en deltagare
             user_type: Typ av deltagare
-          index:
-            filter:
-              all: Allt
-              ceased: Upphört
-              not_ceased: Inte upphört
-            filter_by: Filtrera efter
-            search: Sök
         content_blocks:
           highlighted_assemblies:
             max_results: Maximalt antal element att visa
@@ -320,6 +284,20 @@ sv:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Område
+          created_by: Skapad av
+          data: Gruppdata
+          developer_group: Kampanjgrupp
+          duration: Varaktighet
+          included_at: Inkluderad den
+          indefinite_duration: Permanent
+          meta_scope: Omfång
+          participatory_scope: Vad som bestäms
+        filters:
+          names:
+            all: Alla
+          type: Typ
         show:
           title: Om den här gruppen
       assembly_members:
@@ -334,6 +312,8 @@ sv:
         participatory: Deltagande
         working_group: Arbetsgrupp
       content_blocks:
+        children_assemblies:
+          name: Grupper
         highlighted_assemblies:
           name: Viktiga grupper
       created_by:
@@ -355,41 +335,13 @@ sv:
       last_activity:
         new_assembly: 'Ny grupp:'
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Aktiva grupper
-            assemblies_button_title: Länk till sidan över grupper som visar alla grupper
-            see_all_assemblies: Visa alla grupper
         user_profile:
           member_of:
             member_of: Medlem av
       show:
-        area: Område
         assembly_type: Typ av grupp
-        children: Grupper
-        closing_date: Stängningsdatum
-        composition: Sammansättning
-        created_by: Skapad av
-        creation_date: Skapelsedatum
-        developer_group: Kampanjgrupp
         duration: Varaktighet
-        included_at: Ingår vid
-        indefinite_duration: Permanent
-        internal_organisation: Intern organisation
-        is_transparent:
-          'false': ogenomskinlig
-          'true': transparent
-        local_area: Område
-        participatory_scope: Vad bestäms
-        participatory_structure: Hur det bestäms
         private_space: Detta är en privat grupp
-        purpose_of_action: Syftet med åtgärden
-        read_less: Läs mindre
-        read_more: Läs mer
-        related_participatory_processes: Relaterade dialoger
-        scope: Omfång
-        social_networks: Sociala nätverk
-        target: Vilka deltar
     assembly_members:
       assembly_member:
         designated_on: Utsedd den
@@ -439,20 +391,10 @@ sv:
           more_info: Mer information
           take_part: Delta
         index:
-          children: 'Grupper: '
-          organizational_chart: Organisationsschema
           promoted_assemblies: Viktiga grupper
-          reset_chart: Återställ
         order_by_assemblies:
           assemblies:
             one: "%{count} grupp"
             other: "%{count} grupper"
-        promoted_assembly:
-          more_info: Mer information
-          take_part: Delta
       assembly_navigation:
         assembly_member_menu_item: Medlemmar
-        assembly_menu_item: Gruppen
-      assembly_widgets:
-        show:
-          take_part: Delta

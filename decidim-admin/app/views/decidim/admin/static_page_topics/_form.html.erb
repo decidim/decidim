@@ -1,9 +1,9 @@
 <div class="row column">
-  <%= form.translated :text_field, :title, autofocus: true %>
+  <%= form.translated :text_field, :title, autofocus: true, aria: { label: :title } %>
 </div>
 
 <div class="row column">
-  <%= form.translated :text_field, :description %>
+  <%= form.translated :text_field, :description, aria: { label: :description } %>
 </div>
 
 <div class="row column">

@@ -142,14 +142,6 @@
   &__aside__element-title {
     @apply inline-block text-gray-2 font-bold text-md align-middle;
   }
-
-  &__aside__element__signature {
-    @apply bg-white rounded md:py-4 md:px-6;
-  }
-
-  &__aside__element__signature-title {
-    @apply text-sm text-gray-2 font-semibold mb-4 block;
-  }
 }
 
 #initiatives {

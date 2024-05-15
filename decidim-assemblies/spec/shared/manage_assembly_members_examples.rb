@@ -5,16 +5,18 @@ shared_examples "manage assembly members examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
-    click_link "Members"
+    within_admin_sidebar_menu do
+      click_on "Members"
+    end
   end
 
   context "without existing user" do
     let!(:assembly_member) { create(:assembly_member, assembly:) }
 
     it "creates a new assembly member" do
-      find(".card-title a.new").click
+      click_on "New assembly member"
 
-      fill_in :assembly_member_designation_date, with: Time.current
+      fill_in_datepicker :assembly_member_designation_date_date, with: Time.current.strftime("%d/%m/%Y")
 
       within ".new_assembly_member" do
         fill_in(
@@ -46,9 +48,9 @@ shared_examples "manage assembly members examples" do
     let!(:member_user) { create(:user, :confirmed, organization: assembly.organization) }
 
     it "creates a new assembly member" do
-      find(".card-title a.new").click
+      click_on "New assembly member"
 
-      fill_in :assembly_member_designation_date, with: Time.current
+      fill_in_datepicker :assembly_member_designation_date_date, with: Time.current.strftime("%d/%m/%Y")
 
       within ".new_assembly_member" do
         select "Existing participant", from: :assembly_member_existing_user
@@ -72,9 +74,9 @@ shared_examples "manage assembly members examples" do
     let!(:member_organization) { create(:user_group, :confirmed, :verified, organization: assembly.organization) }
 
     it "creates a new assembly member" do
-      find(".card-title a.new").click
+      click_on "New assembly member"
 
-      fill_in :assembly_member_designation_date, with: Time.current
+      fill_in_datepicker :assembly_member_designation_date_date, with: Time.current.strftime("%d/%m/%Y")
 
       within ".new_assembly_member" do
         select "Existing participant", from: :assembly_member_existing_user
@@ -108,8 +110,8 @@ shared_examples "manage assembly members examples" do
     end
 
     it "updates an assembly member" do
-      within find("#assembly_members tr", text: assembly_member.full_name) do
-        click_link "Edit"
+      within "#assembly_members tr", text: assembly_member.full_name do
+        click_on "Edit"
       end
 
       within ".edit_assembly_member" do
@@ -130,14 +132,14 @@ shared_examples "manage assembly members examples" do
     end
 
     it "deletes the assembly member" do
-      within find("#assembly_members tr", text: assembly_member.full_name) do
-        accept_confirm(admin: true) { find("a.action-icon--remove").click }
+      within "#assembly_members tr", text: assembly_member.full_name do
+        accept_confirm { find("a.action-icon--remove").click }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "#assembly_members table" do
-        expect(page).not_to have_content(assembly_member.full_name)
+        expect(page).to have_no_content(assembly_member.full_name)
       end
     end
   end
@@ -154,8 +156,8 @@ shared_examples "manage assembly members examples" do
     it "lists 15 members per page by default" do
       expect(page).to have_css(resource_selector, count: 15)
       expect(page).to have_css("[data-pages] [data-page]", count: 2)
-      click_link "Next"
-      expect(page).to have_selector("[data-pages] [data-page][aria-current='page']", text: "2")
+      click_on "Next"
+      expect(page).to have_css("[data-pages] [data-page][aria-current='page']", text: "2")
       expect(page).to have_css(resource_selector, count: 5)
     end
   end

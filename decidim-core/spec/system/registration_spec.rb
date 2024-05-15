@@ -12,7 +12,7 @@ def fill_registration_form(
   fill_in :registration_user_password, with: password
 end
 
-describe "Registration", type: :system do
+describe "Registration" do
   let(:organization) { create(:organization) }
   let!(:terms_of_service_page) { Decidim::StaticPage.find_by(slug: "terms-of-service", organization:) }
 
@@ -37,7 +37,7 @@ describe "Registration", type: :system do
         expect(page).to have_link("Log in with Facebook")
 
         within_language_menu do
-          click_link "Català"
+          click_on "Català"
         end
       end
     end
@@ -56,7 +56,7 @@ describe "Registration", type: :system do
       within "form.new_user" do
         find("*[type=submit]").click
       end
-      click_button "Check and continue"
+      click_on "Check and continue"
       expect(page).to have_current_path decidim.new_user_registration_path
       expect(page).to have_css("#sign-up-newsletter-modal", visible: :all)
       expect(page).to have_field("registration_user_newsletter", checked: true)
@@ -66,7 +66,7 @@ describe "Registration", type: :system do
       within "form.new_user" do
         find("*[type=submit]").click
       end
-      click_button "Keep unchecked"
+      click_on "Keep unchecked"
       expect(page).to have_css("#sign-up-newsletter-modal", visible: :all)
       fill_registration_form
       within "form.new_user" do
@@ -112,10 +112,12 @@ describe "Registration", type: :system do
       user.save!
 
       # Sign in
-      click_link "Log in", match: :first
-      fill_in :session_user_email, with: user.email
-      fill_in :session_user_password, with: password
-      click_button "Log in"
+      click_on "Log in", match: :first
+      within "form.new_user" do
+        fill_in :session_user_email, with: user.email
+        fill_in :session_user_password, with: password
+        click_on "Log in"
+      end
     end
 
     context "with a weak password" do
@@ -130,7 +132,7 @@ describe "Registration", type: :system do
       let(:password) { "decidim123456789" }
 
       it "does not require password change straight away" do
-        expect(page).not_to have_content("Password change")
+        expect(page).to have_no_content("Password change")
       end
     end
   end

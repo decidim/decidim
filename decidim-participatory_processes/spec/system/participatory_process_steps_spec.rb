@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Participatory Process Steps", type: :system do
+describe "Participatory Process Steps" do
   let(:organization) { create(:organization) }
   let!(:participatory_process) do
     create(
@@ -38,29 +38,7 @@ describe "Participatory Process Steps", type: :system do
 
       expect(page).to have_css(".participatory-space__metadata-modal__step", count: 3)
       steps.each do |step|
-        expect(page).to have_content(/#{translated(step.title)}/i)
-      end
-    end
-
-    it "does not show a CTA button in the process hero content block" do
-      visit decidim_participatory_processes.participatory_process_path(participatory_process)
-
-      within "[id^='hero']" do
-        expect(page).not_to have_css("[data-cta]")
-      end
-    end
-
-    context "when the active step has CTA text and url set" do
-      before do
-        participatory_process.steps.first.update!(cta_path: "my_path", cta_text: { en: "Take action!" })
-      end
-
-      it "shows a CTA button in the process hero content block" do
-        visit decidim_participatory_processes.participatory_process_path(participatory_process)
-
-        within "[id^='hero']" do
-          expect(page).to have_link("Take action!")
-        end
+        expect(page).to have_content(translated(step.title))
       end
     end
   end

@@ -156,7 +156,6 @@ zh-TW:
         show:
           answer_questionnaire:
             already_have_an_account?: 已經有帳號了嗎？
-            anonymous_user_message: <a href="%{sign_in_link}">使用現有帳號登入</a> 或 <a href="%{sign_up_link}">註冊新帳戶</a> 以回答此表單。
             are_you_new?: 新用戶?
             sign_in_description: 登入以填寫問卷
             sign_up_description: 建立參與者帳號以填寫問卷
@@ -178,7 +177,6 @@ zh-TW:
           questionnaire_not_published:
             body: 此表單尚未發佈。
           tos_agreement: 透過參與，您同意其服務條款
-          upload_file: 上傳檔案
       step_navigation:
         show:
           are_you_sure: 此操作無法撤消，您將無法編輯您的答案。您確定嗎？

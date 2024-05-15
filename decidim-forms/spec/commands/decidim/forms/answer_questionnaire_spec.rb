@@ -5,32 +5,16 @@ require "spec_helper"
 module Decidim
   module Forms
     describe AnswerQuestionnaire do
-      def tokenize(id)
-        "fake-hash-for-#{id}"
-      end
-
-      let(:current_organization) { create(:organization) }
-      let(:current_user) { create(:user, organization: current_organization) }
-      let(:session_id) { "session-string" }
-      let(:session_token) { tokenize(current_user&.id || session_id) }
-      let(:remote_ip) { "1.1.1.1" }
-      let(:ip_hash) { tokenize(remote_ip) }
-      let(:request) do
-        double(
-          session: { session_id: },
-          remote_ip:
+      let(:command) { described_class.new(form, current_user, questionnaire) }
+      let(:form) do
+        QuestionnaireForm.from_params(
+          form_params
+        ).with_context(
+          current_organization:,
+          session_token:,
+          ip_hash:
         )
       end
-
-      let(:participatory_process) { create(:participatory_process, organization: current_organization) }
-      let(:questionnaire) { create(:questionnaire, questionnaire_for: participatory_process) }
-      let(:question1) { create(:questionnaire_question, questionnaire:) }
-      let(:question2) { create(:questionnaire_question, questionnaire:) }
-      let(:question3) { create(:questionnaire_question, questionnaire:) }
-      let(:answer_options) { create_list(:answer_option, 5, question: question2) }
-      let(:answer_option_ids) { answer_options.pluck(:id).map(&:to_s) }
-      let(:matrix_rows) { create_list(:question_matrix_row, 3, question: question2) }
-      let(:matrix_row_ids) { matrix_rows.pluck(:id).map(&:to_s) }
       let(:form_params) do
         {
           "responses" => [
@@ -57,16 +41,33 @@ module Decidim
           "tos_agreement" => "1"
         }
       end
-      let(:form) do
-        QuestionnaireForm.from_params(
-          form_params
-        ).with_context(
-          current_organization:,
-          session_token:,
-          ip_hash:
+      let(:matrix_row_ids) { matrix_rows.pluck(:id).map(&:to_s) }
+      let(:matrix_rows) { create_list(:question_matrix_row, 3, question: question2) }
+      let(:answer_option_ids) { answer_options.pluck(:id).map(&:to_s) }
+      let(:answer_options) { create_list(:answer_option, 5, question: question2) }
+      let(:question3) { create(:questionnaire_question, questionnaire:) }
+      let(:question2) { create(:questionnaire_question, questionnaire:) }
+      let(:question1) { create(:questionnaire_question, questionnaire:) }
+      let(:questionnaire) { create(:questionnaire, questionnaire_for: participatory_process) }
+      let(:participatory_process) { create(:participatory_process, organization: current_organization) }
+      let(:request) do
+        double(
+          session: { session_id: },
+          remote_ip:
         )
       end
-      let(:command) { described_class.new(form, current_user, questionnaire) }
+      let(:ip_hash) { tokenize(remote_ip) }
+      let(:remote_ip) { "1.1.1.1" }
+      let(:session_token) { tokenize(current_user&.id || session_id) }
+      let(:session_id) { "session-string" }
+      let(:current_user) { create(:user, organization: current_organization) }
+      let(:current_organization) { create(:organization) }
+
+      it_behaves_like "fires an ActiveSupport::Notification event", "decidim.forms.answer_questionnaire:after"
+
+      def tokenize(id)
+        "fake-hash-for-#{id}"
+      end
 
       describe "when the form is invalid" do
         before do
@@ -151,7 +152,7 @@ module Decidim
           end
 
           context "when attachments are allowed" do
-            it "creates multiple atachments for the proposal" do
+            it "creates multiple attachments for the proposal" do
               expect { command.call }.to change(Decidim::Attachment, :count).by(2)
               last_attachment = Decidim::Attachment.last
               expect(last_attachment.attached_to).to be_a(Decidim::Forms::Answer)
@@ -172,7 +173,7 @@ module Decidim
               ]
             end
 
-            it "does not create atachments for the proposal" do
+            it "does not create attachments for the proposal" do
               expect { command.call }.not_to change(Decidim::Attachment, :count)
             end
 
@@ -195,19 +196,19 @@ module Decidim
         end
 
         context "when display_conditions are not mandatory on the same question but are fulfilled" do
-          let(:questionnaire_conditionned) { create(:questionnaire, questionnaire_for: participatory_process) }
+          let(:questionnaire_conditioned) { create(:questionnaire, questionnaire_for: participatory_process) }
           let!(:option1) { create(:answer_option, question: condition_question) }
           let!(:option2) { create(:answer_option, question: condition_question) }
           let!(:option3) { create(:answer_option, question: condition_question) }
           let!(:condition_question) do
             create(
               :questionnaire_question,
-              questionnaire: questionnaire_conditionned,
+              questionnaire: questionnaire_conditioned,
               mandatory: false,
               question_type: "single_option"
             )
           end
-          let!(:question) { create(:questionnaire_question, questionnaire: questionnaire_conditionned, question_type: "short_answer") }
+          let!(:question) { create(:questionnaire_question, questionnaire: questionnaire_conditioned, question_type: "short_answer") }
           let!(:display_condition) { create(:display_condition, question:, condition_question:, condition_type: :equal, answer_option: option1, mandatory: false) }
           let!(:display_condition2) { create(:display_condition, question:, condition_question:, condition_type: :equal, answer_option: option3, mandatory: false) }
           let(:form_params) do
@@ -227,7 +228,7 @@ module Decidim
               "tos_agreement" => "1"
             }
           end
-          let(:command) { described_class.new(form, current_user, questionnaire_conditionned) }
+          let(:command) { described_class.new(form, current_user, questionnaire_conditioned) }
 
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
@@ -237,7 +238,7 @@ module Decidim
             expect do
               command.call
             end.to change(Answer, :count).by(2)
-            expect(Answer.all.map(&:questionnaire)).to eq([questionnaire_conditionned, questionnaire_conditionned])
+            expect(Answer.all.map(&:questionnaire)).to eq([questionnaire_conditioned, questionnaire_conditioned])
           end
 
           it "creates answers with the correct information" do
@@ -246,6 +247,39 @@ module Decidim
             expect(Answer.first.choices.first.answer_option).to eq(option1)
             expect(Answer.second.body).to eq("answer_test")
           end
+        end
+
+        context "when questionnaire component is a survey" do
+          let(:manifest_name) { "surveys" }
+          let(:manifest) { Decidim.find_component_manifest(manifest_name) }
+
+          let!(:component) do
+            create(:component,
+                   manifest:,
+                   participatory_space: participatory_process,
+                   published_at: nil)
+          end
+          let!(:survey) { create(:survey, component:, questionnaire:) }
+
+          let(:answers) do
+            survey.questionnaire.questions.map do |question|
+              create(:answer, questionnaire: survey.questionnaire, question:, user: current_user)
+            end
+          end
+
+          let(:event_arguments) do
+            {
+              resource: questionnaire,
+              extra: {
+                session_token:,
+                questionnaire:,
+                event_author: current_user
+              }
+            }
+          end
+          let(:mailer) { double :mailer }
+
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.forms.answer_questionnaire:after"
         end
       end
 

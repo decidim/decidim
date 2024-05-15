@@ -17,9 +17,9 @@ module Decidim
       min_length = ::PasswordValidator.minimum_length_for(user)
       help_text =
         if needs_admin_password?(user)
-          t("devise.passwords.edit.password_help_admin", minimun_characters: min_length)
+          t("devise.passwords.edit.password_help_admin", minimum_characters: min_length)
         else
-          t("devise.passwords.edit.password_help", minimun_characters: min_length)
+          t("devise.passwords.edit.password_help", minimum_characters: min_length)
         end
 
       {
@@ -27,8 +27,21 @@ module Decidim
         required: true,
         label: false,
         help_text:,
+        value: @account&.password,
         minlength: min_length,
         maxlength: ::PasswordValidator::MAX_LENGTH,
+        placeholder: "••••••"
+      }
+    end
+
+    def old_password_options
+      help_text = t("devise.passwords.edit.old_password_help").html_safe
+
+      {
+        autocomplete: "current-password",
+        required: true,
+        label: false,
+        help_text:,
         placeholder: "••••••"
       }
     end

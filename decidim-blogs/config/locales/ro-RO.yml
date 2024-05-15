@@ -24,9 +24,6 @@ ro:
         new: Postare nouă
         title: Acțiuni
       admin:
-        models:
-          post:
-            name: Postează
         posts:
           create:
             invalid: A apărut o eroare la crearea acestei postări.
@@ -60,9 +57,6 @@ ro:
             official_blog_post: Postare oficială
             published_at: Publicat la
             title: Titlu
-      posts:
-        show:
-          view: Vizualizează
     components:
       blogs:
         actions:

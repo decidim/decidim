@@ -15,7 +15,7 @@ module Decidim
         end
 
         def developer_group_item
-          return if (text = decidim_sanitize translated_attribute(developer_group)).blank?
+          return if (text = decidim_sanitize_translated(developer_group)).blank?
 
           {
             title: t("decidim.participatory_process_groups.content_blocks.extra_data.developer_group"),
@@ -25,7 +25,7 @@ module Decidim
         end
 
         def target_item
-          return if (text = decidim_sanitize translated_attribute(target)).blank?
+          return if (text = decidim_sanitize_translated(target)).blank?
 
           {
             title: t("decidim.participatory_process_groups.content_blocks.extra_data.target"),
@@ -35,7 +35,7 @@ module Decidim
         end
 
         def participatory_scope_item
-          return if (text = decidim_sanitize translated_attribute(participatory_scope)).blank?
+          return if (text = decidim_sanitize_translated(participatory_scope)).blank?
 
           {
             title: t("decidim.participatory_process_groups.content_blocks.extra_data.participatory_scope"),
@@ -45,7 +45,7 @@ module Decidim
         end
 
         def participatory_structure_item
-          return if (text = decidim_sanitize translated_attribute(participatory_structure)).blank?
+          return if (text = decidim_sanitize_translated(participatory_structure)).blank?
 
           {
             title: t("decidim.participatory_process_groups.content_blocks.extra_data.participatory_structure"),

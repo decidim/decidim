@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Proposals in process home", type: :system do
+describe "Proposals in process home" do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
   let(:proposals_count) { 2 }
@@ -19,7 +19,7 @@ describe "Proposals in process home", type: :system do
   context "when there are no proposals" do
     it "does not show the highlighted proposals section" do
       visit resource_locator(participatory_process).path
-      expect(page).not_to have_css("#participatory-process-homepage-highlighted-proposals")
+      expect(page).to have_no_css("#participatory-process-homepage-highlighted-proposals")
     end
   end
 

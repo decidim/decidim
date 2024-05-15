@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe ConflictsController, type: :controller do
+    describe ConflictsController do
       routes { Decidim::Admin::Engine.routes }
 
       let(:organization) do
@@ -69,7 +69,7 @@ module Decidim
             }
           }
 
-          expect(flash[:alert]).to eq("There was a problem transfering the current participant to managed participant.")
+          expect(flash[:alert]).to eq("There was a problem transferring the current participant to managed participant.")
         end
       end
     end

@@ -1,7 +1,7 @@
-import { createBasicEditor, updateContent, selectRange, sleep } from "../helpers";
+import { createBasicEditor, updateContent, selectRange, sleep } from "src/decidim/editor/test/helpers";
 
-import Dialog from "../../extensions/dialog";
-import Link from "../../extensions/link";
+import Dialog from "src/decidim/editor/extensions/dialog";
+import Link from "src/decidim/editor/extensions/link";
 
 describe("Link", () => {
   let editor = null;

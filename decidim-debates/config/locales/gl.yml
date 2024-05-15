@@ -39,7 +39,6 @@ gl:
         confirm_destroy: Estás seguro?
         destroy: Eliminar
         edit: Editar
-        new: Novo %{name}
         title: Accións
       admin:
         debates:
@@ -59,9 +58,6 @@ gl:
           update:
             invalid: Houbo un problema ao actualizar este debate.
             success: Debate actualizado con éxito.
-        models:
-          debate:
-            name: Debate
       admin_log:
         debate:
           create: "%{user_name} creou o %{resource_name} debate sobre o espazo %{space_name}"
@@ -74,8 +70,6 @@ gl:
         create:
           invalid: Produciuse un problema ao crear o debate.
           success: Debate creouse con éxito.
-        debate:
-          participate: Participar
         filters:
           all: Todo
           category: Categoría
@@ -84,11 +78,6 @@ gl:
           origin: Orixe
           participants: Participantes
           search: Busca
-        filters_small_view:
-          close_modal: Pechar modal
-          filter: Filtro
-          filter_by: Filtrar por
-          unfold: Despregar
         form:
           select_a_category: Selecciona unha categoría
         index:
@@ -107,13 +96,6 @@ gl:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_intro: |-
-              Ola,
-              Creouse un novo debate "%{resource_title}" nos %{space_title} espazos participativos, verifícalo e contribuír:
-            email_outro: Recibiches esta notificación porque estás seguindo o %{space_title} espazo participativo. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-            email_subject: Novo debate "%{resource_title}" en %{space_title}
-            notification_title: O <a href="%{resource_path}">%{resource_title}</a> debate foi creado en <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Ola,

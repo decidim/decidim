@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Data consent within organization", type: :system do
+describe "Data consent within organization" do
   let(:organization) { create(:organization) }
   let(:cookie) { page.driver.browser.manage.cookie_named(Decidim.consent_cookie_name) }
 
@@ -23,8 +23,8 @@ describe "Data consent within organization", type: :system do
   end
 
   it "discards the data consent" do
-    click_button(id: "dc-dialog-accept")
-    expect(page).not_to have_content("Information about the cookies used on the website")
+    click_on(id: "dc-dialog-accept")
+    expect(page).to have_no_content("Information about the cookies used on the website")
   end
 
   it "sets the correct expiration for the cookie" do
@@ -49,13 +49,13 @@ describe "Data consent within organization", type: :system do
   if ENV["TEST_SSL"]
     it "sets the cookie with the secure flag" do
       expect(page).to have_content("Information about the cookies used on the website")
-      click_button(id: "dc-dialog-accept")
+      click_on(id: "dc-dialog-accept")
       expect(cookie[:secure]).to be(true)
     end
   else
     it "sets the cookie without the secure flag" do
       expect(page).to have_content("Information about the cookies used on the website")
-      click_button(id: "dc-dialog-accept")
+      click_on(id: "dc-dialog-accept")
       expect(cookie[:secure]).to be(false)
     end
   end

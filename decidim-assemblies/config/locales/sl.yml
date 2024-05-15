@@ -45,7 +45,6 @@ sl:
         subtitle: Podnapis
         target: Kdor je prisostoval
         title: Naziv
-        twitter: Twitter
         youtube: YouTube
       assembly_member:
         birthday: Rojstni dan
@@ -89,7 +88,6 @@ sl:
         edit:
           update: Posodobi
         index:
-          not_published: Ni objavljeno
           private: Zasebno
           public: Javno
           published: Objavljeno
@@ -103,10 +101,6 @@ sl:
         create:
           error: Pojavila se je težava pri podvajanju združbe.
           success: Združba uspešno podvojena.
-      assemblies_settings:
-        update:
-          error: Pojavila se je težava pri urejanju nastavitev.
-          success: Nastavitve uspešno posodobljene.
       assemblies_types:
         create:
           error: Pojavila se je težava pri kreiranju nove združbe.
@@ -140,7 +134,6 @@ sl:
           success: Član uspešno izbrisan v tej združbi.
       menu:
         assemblies: Združbe
-        assemblies_settings: Nastavitve
         assemblies_submenu:
           assembly_admins: Skrbniki združbe
           assembly_members: Člani
@@ -149,7 +142,6 @@ sl:
           attachments: Priponke
           categories: Kategorije
           components: Komponente
-          info: Informacije
         assemblies_types: Vrste združb
       models:
         assemblies_types:
@@ -172,23 +164,13 @@ sl:
             other: Drugo
             select_an_assembly_type: Izberi vrsto združbe
             select_parent_assembly: Izberi matično združbo
-            visbility: Vidljivost
-        assemblies_settings:
-          edit:
-            update: Posodobi
-          form:
-            title: Nastavitve za združbe
         assemblies_types:
           form:
             title: Naziv
-        assembly_imports:
-          form:
-            document_legend: Dodaj dokument
-        assembly_members:
-          index:
-            filter:
-              all: Vsi
-            search: Išči
+      assemblies:
+        filters:
+          names:
+            all: Vsi
       assembly_members:
         index:
           members: Člani
@@ -204,28 +186,9 @@ sl:
         commission: Provizija
       index:
         title: Združbe
-      pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: Aktivne združbe
-            assemblies_button_title: Povezava do strani Združb
-            see_all_assemblies: Poglej vse združbe
       show:
         assembly_type: Vrsta združbe
-        children: Združbe
-        closing_date: Datum zaprtja
-        composition: Sestava
-        created_by: Ustvaril
-        creation_date: Datum nastanka
         duration: Trajanje
-        included_at: Vsebovan
-        indefinite_duration: Nedoločno
-        read_less: Preberi manj
-        read_more: Preberi več
-        related_participatory_processes: Povezani participativni procesi
-        scope: Področje
-        social_networks: Socialna omrežja
-        target: Kdor je prisostoval
     help:
       participatory_spaces:
         assemblies:
@@ -246,15 +209,10 @@ sl:
         assembly:
           more_info: Več informacij
         index:
-          children: 'Združbe: '
-          organizational_chart: Organizacijska struktura
           promoted_assemblies: Poudarjene združbe
-          reset_chart: Ponastavi
         order_by_assemblies:
           assemblies:
             one: "%{count} združba"
             two: "%{count} združbi"
             few: "%{count} združb"
             other: "%{count} združb"
-        promoted_assembly:
-          more_info: Več informacij

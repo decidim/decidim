@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe ApplicationController, type: :controller do
+  describe ApplicationController do
     let(:utc_time_zone) { "UTC" }
     let(:alt_time_zone) { "Hawaii" }
     let(:organization) { create(:organization, time_zone:) }
@@ -83,6 +83,18 @@ module Decidim
         it "Time uses Rails timezone outside the controller scope" do
           expect(Time.zone.name).to eq("Azores")
         end
+      end
+    end
+
+    context "when there is no organization" do
+      let(:time_zone) { utc_time_zone }
+
+      before do
+        request.env["decidim.current_organization"] = nil
+      end
+
+      it "controller uses nil" do
+        expect(controller.organization_time_zone).to be_nil
       end
     end
   end

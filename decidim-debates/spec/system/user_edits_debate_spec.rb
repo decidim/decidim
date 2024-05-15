@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User edits a debate", type: :system do
+describe "User edits a debate" do
   include_context "with a component"
 
   let(:manifest_name) { "debates" }
@@ -27,13 +27,12 @@ describe "User edits a debate", type: :system do
     let(:author) { user }
     let!(:scope) { create(:scope, organization:) }
     let!(:category) { create(:category, participatory_space:) }
-    let(:scope_picker) { select_data_picker(:debate_scope_id) }
 
     it "allows editing my debate", :slow do
       visit_component
 
-      click_link debate.title.values.first
-      click_link "Edit debate"
+      click_on debate.title.values.first
+      click_on "Edit debate"
 
       within ".edit_debate" do
         fill_in :debate_title, with: "Should every organization use Decidim?"
@@ -49,7 +48,7 @@ describe "User edits a debate", type: :system do
       expect(page).to have_content("Add your comments on whether Decidim is useful for every organization.")
       expect(page).to have_content(translated(scope.name))
       expect(page).to have_content(translated(category.name))
-      expect(page).to have_selector("[data-author]", text: user.name)
+      expect(page).to have_css("[data-author]", text: user.name)
     end
 
     context "when editing as a user group" do
@@ -66,8 +65,8 @@ describe "User edits a debate", type: :system do
 
       it "edits their debate", :slow do
         visit_component
-        click_link debate.title.values.first
-        click_link "Edit debate"
+        click_on debate.title.values.first
+        click_on "Edit debate"
 
         within ".edit_debate" do
           fill_in :debate_title, with: "Should every organization use Decidim?"
@@ -83,7 +82,7 @@ describe "User edits a debate", type: :system do
         expect(page).to have_content("Add your comment on whether Decidim is useful for every organization.")
         expect(page).to have_content(translated(scope.name))
         expect(page).to have_content(translated(category.name))
-        expect(page).to have_selector("[data-author]", text: user_group.name)
+        expect(page).to have_css("[data-author]", text: user_group.name)
       end
     end
   end

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Report Proposal", type: :system do
+describe "Report Proposal" do
   include_context "with a component"
 
   let(:manifest_name) { "proposals" }
@@ -33,7 +33,7 @@ describe "Report Proposal", type: :system do
       expect(page).to have_css(".flag-modal", visible: :visible)
 
       within ".flag-modal" do
-        click_button "Report"
+        click_on "Report"
       end
 
       expect(page).to have_content "report has been created"

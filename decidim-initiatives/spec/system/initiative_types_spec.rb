@@ -3,7 +3,7 @@
 require "spec_helper"
 require "decidim/core/test/shared_examples/has_contextual_help"
 
-describe "Initiatives", type: :system do
+describe "Initiatives" do
   let(:organization) { create(:organization) }
   let(:base_initiative) do
     create(:initiative, organization:)
@@ -19,7 +19,7 @@ describe "Initiatives", type: :system do
       visit decidim.root_path
 
       within "#home__menu" do
-        expect(page).not_to have_content("Initiatives")
+        expect(page).to have_no_content("Initiatives")
       end
     end
 
@@ -53,6 +53,10 @@ describe "Initiatives", type: :system do
         create(:initiative, :created, organization:)
       end
 
+      before do
+        allow(Decidim::Initiatives).to receive(:print_enabled).and_return(true)
+      end
+
       it_behaves_like "shows contextual help" do
         let(:index_path) { decidim_initiatives.initiatives_path }
         let(:manifest_name) { :initiatives }
@@ -71,10 +75,10 @@ describe "Initiatives", type: :system do
           it "the menu link is shown" do
             visit decidim_initiatives.initiatives_path
 
-            find("#main-dropdown-summary").hover
+            find_by_id("main-dropdown-summary").hover
             within ".menu-bar__main-dropdown__menu" do
               expect(page).to have_content("Initiatives")
-              click_link "Initiatives"
+              click_on "Initiatives"
             end
 
             expect(page).to have_current_path(decidim_initiatives.initiatives_path)
@@ -85,12 +89,12 @@ describe "Initiatives", type: :system do
           within "#initiatives" do
             expect(page).to have_content("1")
             expect(page).to have_content(translated(initiative.title, locale: :en))
-            expect(page).not_to have_content(translated(unpublished_initiative.title, locale: :en))
+            expect(page).to have_no_content(translated(unpublished_initiative.title, locale: :en))
           end
         end
 
         it "links to the individual initiative page" do
-          click_link(translated(initiative.title, locale: :en))
+          click_on(translated(initiative.title, locale: :en))
           expect(page).to have_current_path(decidim_initiatives.initiative_path(initiative))
         end
 
@@ -105,7 +109,7 @@ describe "Initiatives", type: :system do
 
           it "does not display the initiative type filter" do
             within ".new_filter[action$='/initiatives']" do
-              expect(page).not_to have_content(/Type/i)
+              expect(page).to have_no_content(/Type/i)
             end
           end
         end
@@ -146,7 +150,7 @@ describe "Initiatives", type: :system do
           within "#initiatives" do
             expect(page).to have_content("1")
             expect(page).to have_content(translated(initiative.title, locale: :en))
-            expect(page).not_to have_content(translated(unpublished_initiative.title, locale: :en))
+            expect(page).to have_no_content(translated(unpublished_initiative.title, locale: :en))
           end
         end
       end
@@ -163,7 +167,7 @@ describe "Initiatives", type: :system do
 
         it "shows the card image" do
           within "#initiative_#{initiative.id}" do
-            expect(page).to have_selector(".card__grid-img")
+            expect(page).to have_css(".card__grid-img")
           end
         end
       end

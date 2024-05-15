@@ -30,8 +30,5 @@ cs:
           update:
             invalid: Při ukládání stránky došlo k chybám.
             success: Stránka byla úspěšně uložena.
-      home:
-        hero:
-          participate_title: Účast na procesech platformy
-        sub_hero:
-          register_title: Zaregistrujte se pro vytvoření účtu
+      show:
+        empty: Na této stránce zatím není žádný obsah.

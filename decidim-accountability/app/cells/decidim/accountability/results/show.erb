@@ -1,6 +1,6 @@
 <% if results.any? %>
   <% results.each do |result| %>
-    <%= card_for result, render_extra_data: true %>
+    <%= card_for result %>
   <% end %>
 <% else %>
   <%= cell("decidim/announcement", t("no_results", scope: "decidim.accountability.results")) %>

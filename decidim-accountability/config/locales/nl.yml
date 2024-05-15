@@ -38,8 +38,6 @@ nl:
         confirm_destroy: Weet u zeker dat u deze %{name} wilt verwijderen?
         destroy: Verwijder
         edit: Bewerk
-        import_csv: Importeer CSV
-        new: Nieuw %{name}
         preview: Voorbeeld
         timeline_entries: Project evolutie
         title: acties
@@ -50,14 +48,11 @@ nl:
         import_results:
           new:
             import: Importeren
-            title: Importeer resultaten van CSV
         models:
           result:
             name: Resultaat
           status:
             name: Status
-          timeline_entry:
-            name: Tijdlijn gebeurtenis
         results:
           edit:
             title: Bewerk resultaat
@@ -106,9 +101,7 @@ nl:
             not_found: 'Het bovenliggende element is niet gevonden in de database (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Datums
           results: Resultaten
-          unspecified: Niet gespecificeerd
       import_mailer:
         import:
           errors: Foutmeldingen
@@ -137,9 +130,6 @@ nl:
           fields:
             entry_date: Datum
             title: Titel
-      result_m:
-        executed: Uitgevoerd
-        view: Bekijk
       results:
         count:
           results_count:
@@ -158,15 +148,7 @@ nl:
           search: Zoek naar acties
         show:
           stats:
-            attendees: Deelnemers
             back_to_resource: Ga terug naar resultaat
-            comments: Reacties
-            contributions: Bijdrage
-            last_edited_by: Laatst bewerkt door
-            last_updated_at: Laatst bijgewerkt om
-            meetings: Events
-            proposals: Voorstellen
-            votes: Ondersteunt
         timeline:
           title: Project evolutie
     admin:

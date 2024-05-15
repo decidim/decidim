@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Map
-    describe DynamicMap::Builder, type: :system do
+    describe DynamicMap::Builder do
       it_behaves_like "a page with dynamic map" do
         let(:html_head) do
           # Overrides Leaflet's `L.tileLayer` method which should be called by
@@ -35,11 +35,11 @@ module Decidim
         end
 
         it "sets up the tile layer" do
-          expect(page).to have_selector(
+          expect(page).to have_css(
             "#tile_layer_url1",
             text: options[:tile_layer][:url]
           )
-          expect(page).to have_selector(
+          expect(page).to have_css(
             "#tile_layer_config1",
             text: options[:tile_layer][:options].to_json
           )

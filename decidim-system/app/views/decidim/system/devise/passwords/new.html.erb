@@ -1,4 +1,4 @@
-<h2 class="h3">Forgot your password?</h2>
+<h2 class="h3"><%= link_to t(".forgot_your_password") %></h2>
 
 <%= decidim_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: %>
@@ -8,7 +8,7 @@
   </div>
 
   <div class="form__wrapper-block">
-    <%= f.submit "Send me reset password instructions", class: "button button__sm md:button__lg md:button__lg button__secondary" %>
+    <%= f.submit t(".send_me_reset_password_instructions"), class: "button button__sm md:button__lg md:button__lg button__secondary" %>
   </div>
 <% end %>
 

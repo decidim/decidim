@@ -22,6 +22,8 @@ pl:
             choices:
               missing: nie są kompletne
               too_many: jest zbyt wiele
+        questionnaire:
+          request_invalid: Wystąpił błąd podczas obsługi żądania. Spróbuj ponownie.
   decidim:
     forms:
       admin:
@@ -42,6 +44,8 @@ pl:
             actions:
               back: Powrót do odpowiedzi
               export: Eksportuj
+              next: Następne &rsaquo;
+              previous: "&lsaquo; Poprzedni"
               show: Pokaż odpowiedzi
             empty: Brak odpowiedzi
             export:
@@ -77,6 +81,7 @@ pl:
           form:
             add_question: Dodaj pytanie
             add_separator: Dodaj separator
+            add_title_and_description: Dodaj tytuł i opis
             already_answered_warning: Niektórzy użytkownicy już odpowiedzieli na pytania tego formularza, więc nie można modyfikować jego pytań.
             collapse: Zwiń wszystkie pytania
             expand: Rozwiń wszystkie pytania
@@ -106,11 +111,29 @@ pl:
             remove: Usuń
             separator: Separator
             up: W górę
+          title_and_description:
+            collapse: Zwiń
+            description: Opis
+            down: W dół
+            expand: Rozwiń
+            remove: Usuń
+            title: Tytuł
+            title_and_description: Tytuł i opis
+            up: W górę
           update:
             invalid: Podczas zapisywania formularza wystąpił błąd.
             success: Formularz został zapisany.
+      admin_log:
+        questionnaire:
+          update: "%{user_name} zaktualizował(a) kwestionariusz %{resource_name}"
+      errors:
+        answer:
+          body: Treść nie może być pusta
       images:
         dimensions: "%{width} × %{height} px"
+        processors:
+          resize_and_pad: Rozmiar obrazu zostanie zmieniony i dopasowany do wymiarów %{dimensions}.
+          resize_to_fit: Rozmiar obrazu zostanie zmieniony i dopasowany do wymiarów %{dimensions}.
       question_types:
         files: Pliki
         long_answer: Długa odpowiedź
@@ -121,6 +144,8 @@ pl:
         single_option: Jedna opcja
         sorting: Sortowanie
         title_and_description: Tytuł i opis
+      questionnaire_answer_presenter:
+        download_attachment: Pobierz załącznik
       questionnaires:
         answer:
           invalid: Podczas wypełniania formularza wystąpiły błędy.
@@ -130,7 +155,10 @@ pl:
           max_choices: 'Maksymalny wybór opcji: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Zaloguj się na swoje konto</a> lub <a href="%{sign_up_link}">zarejestruj się</a> aby wypełnić formularz.
+            already_have_an_account?: Posiadasz już konto?
+            are_you_new?: Nowy użytkownik?
+            sign_in_description: Zaloguj się, aby wziąć udział w ankiecie
+            sign_up_description: Utwórz konto uczestnika, aby wziąć udział w ankiecie
             title: Wypełnij formularz
           current_step: Krok %{step}
           of_total_steps: z %{total_steps}

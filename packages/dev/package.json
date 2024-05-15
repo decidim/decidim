@@ -1,7 +1,7 @@
 {
   "name": "@decidim/dev",
   "description": "The dev dependencies for Decidim",
-  "version": "0.28.0-dev",
+  "version": "0.29.0-dev",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git",
@@ -10,6 +10,7 @@
   "author": "Decidim Contributors",
   "license": "AGPL-3.0",
   "dependencies": {
+    "@linthtml/linthtml": "^0.9.6",
     "axe-core": "^4.7.2",
     "markdownlint-cli": "^0.35.0"
   }

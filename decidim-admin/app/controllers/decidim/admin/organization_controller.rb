@@ -7,6 +7,8 @@ module Decidim
     class OrganizationController < Decidim::Admin::ApplicationController
       layout "decidim/admin/settings"
 
+      add_breadcrumb_item_from_menu :admin_settings_menu
+
       def edit
         enforce_permission_to :update, :organization, organization: current_organization
         @form = form(OrganizationForm).from_model(current_organization)
@@ -17,7 +19,7 @@ module Decidim
         @form = form(OrganizationForm).from_params(params)
         @form.id = current_organization.id
 
-        UpdateOrganization.call(current_organization, @form) do
+        UpdateOrganization.call(@form, current_organization) do
           on(:ok) do
             flash[:notice] = I18n.t("organization.update.success", scope: "decidim.admin")
             redirect_to edit_organization_path
@@ -44,13 +46,16 @@ module Decidim
         respond_to do |format|
           format.json do
             if (term = params[:term].to_s).present?
-              query = relation.order(name: :asc)
               query = if term.start_with?("@")
-                        query.where("nickname ILIKE ?", "#{term.delete("@")}%")
+                        nickname = term.delete("@")
+                        relation.where("nickname ILIKE ?", "#{nickname}%")
+                                .order(Arel.sql(ActiveRecord::Base.sanitize_sql_array("similarity(nickname, '#{nickname}') DESC")))
                       else
-                        query.where("name ILIKE ?", "%#{term}%").or(
-                          query.where("email ILIKE ?", "%#{term}%")
+                        relation.where("name ILIKE ?", "%#{term}%").or(
+                          relation.where("email ILIKE ?", "%#{term}%")
                         )
+                                .order(Arel.sql(ActiveRecord::Base.sanitize_sql_array("GREATEST(similarity(name, '#{term}'), similarity(email, '#{term}')) DESC")))
+                                .order(Arel.sql(ActiveRecord::Base.sanitize_sql_array("(similarity(name, '#{term}') + similarity(email, '#{term}')) / 2 DESC")))
                       end
               render json: query.all.collect { |u| { value: u.id, label: "#{u.name} (@#{u.nickname})" } }
             else

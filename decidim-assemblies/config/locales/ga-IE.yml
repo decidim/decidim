@@ -16,7 +16,6 @@ ga:
         slug: Píosa URL
         subtitle: Fotheideal
         title: Teideal
-        twitter: Twitter
         youtube: YouTube
       assembly_member:
         birthday: Breithlá
@@ -66,14 +65,12 @@ ga:
         new:
           create: Cruthaigh
       menu:
-        assemblies_settings: Socruithe
         assemblies_submenu:
           assembly_members: Baill
           attachment_collections: Fillteáin
           attachment_files: Comhaid
           attachments: Ceangaltáin
           categories: Catagóirí
-          info: Eolas
       models:
         assemblies_types:
           fields:
@@ -108,21 +105,16 @@ ga:
             metadata: Meiteashonraí
             other: Eile
             social_handlers: Sóisialta
-        assemblies_settings:
-          edit:
-            update: Nuashonraigh
         assemblies_types:
           form:
             title: Teideal
-        assembly_members:
-          index:
-            filter:
-              all: Uile
-              ceased: Stadta
-            search: Cuardaigh
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        filters:
+          names:
+            all: Uile
       assembly_members:
         index:
           members: Baill
@@ -135,19 +127,11 @@ ga:
         help: 'Taispeáin:'
         others: Eile
       show:
-        area: Ceantar
         duration: Fad
-        is_transparent:
-          'false': doiléir
-        related_participatory_processes: Próisis Rannpháirteacha Ceangailte
-        scope: Scóip
     assembly_members:
       index:
         title: Baill
   layouts:
     decidim:
-      assemblies:
-        index:
-          reset_chart: Athshocraigh
       assembly_navigation:
         assembly_member_menu_item: Baill

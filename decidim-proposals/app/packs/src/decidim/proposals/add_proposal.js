@@ -11,6 +11,7 @@ $(() => {
     }
     $addressInputField.on("geocoder-suggest-coordinates.decidim", () => $map.show());
 
+    const markerAddedAnnouncement = $addressInputField.data("screen-reader-announcement");
     let latFieldName = "latitude";
     let longFieldName = "longitude";
 
@@ -31,10 +32,11 @@ $(() => {
         // Remove previous marker when user updates address in address field
         ctrl.removeMarker();
         ctrl.addMarker({
-          latitude: coordinates[1],
-          longitude: coordinates[0],
+          latitude: coordinates[0],
+          longitude: coordinates[1],
           address: $addressInputField.val()
         });
+        window.Decidim.announceForScreenReader(markerAddedAnnouncement);
       });
     });
   }

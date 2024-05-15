@@ -5,7 +5,6 @@ require "spec_helper"
 module Decidim::Conferences
   describe ConferenceGCell, type: :cell do
     controller Decidim::Conferences::ConferencesController
-    include Decidim::TranslatableAttributes
 
     subject { cell("decidim/conferences/conference_g", model).call }
 

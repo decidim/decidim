@@ -73,6 +73,10 @@ module Decidim::Budgets
         expect(serialized[:url]).to eq(project.polymorphic_resource_url({}))
       end
 
+      it "serializes the address" do
+        expect(serialized).to include(address: project.address)
+      end
+
       it "includes related proposal ids" do
         expect(serialized[:related_proposals]).to match_array(project.linked_resources(:proposals, "included_proposals").map(&:id))
       end

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe DummyResources::CreateDummyResource do
+  describe Dev::CreateDummyResource do
     subject { described_class.new(form) }
 
     let(:current_component) { create(:component) }
@@ -34,10 +34,10 @@ module Decidim
     end
 
     context "when everything is ok" do
-      let(:resource) { DummyResources::DummyResource.last }
+      let(:resource) { Dev::DummyResource.last }
 
       it "creates the resource" do
-        expect { subject.call }.to change(DummyResources::DummyResource, :count).by(1)
+        expect { subject.call }.to change(Dev::DummyResource, :count).by(1)
       end
 
       it "sets the title" do
@@ -74,7 +74,7 @@ module Decidim
 
         it "creates a gallery for the resource" do
           expect { subject.call }.to change(Decidim::Attachment, :count).by(2)
-          resource = DummyResources::DummyResource.last
+          resource = Dev::DummyResource.last
           expect(resource.photos.count).to eq(2)
           last_attachment = Decidim::Attachment.last
           expect(last_attachment.attached_to).to eq(resource)

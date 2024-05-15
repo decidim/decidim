@@ -1,0 +1,55 @@
+#data_picker-modal {
+  @apply invisible opacity-0 fixed z-50 inset-0 bg-[rgba(0,0,0,.25)] transition duration-300;
+
+  .data_picker-modal-content {
+    @apply absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] lg:max-w-[900px] max-h-[95vh] h-fit overflow-y-auto p-6 bg-white z-50 rounded shadow-[0_4px_6px_rgba(211,211,211,.25)];
+  }
+
+  .close-button {
+    @apply absolute top-4 right-4 text-2xl text-secondary;
+  }
+
+  &[aria-hidden="false"] {
+    @apply visible opacity-100;
+  }
+
+  #data_picker-title {
+    @apply text-2xl text-black font-semibold focus:outline-none mb-2;
+  }
+
+  .picker-header {
+    @apply mb-4;
+
+    li {
+      @apply mb-2;
+
+      a {
+        @apply text-secondary;
+
+        &:hover {
+          @apply underline;
+        }
+      }
+    }
+  }
+
+  .picker-footer {
+    @apply my-4;
+  }
+}
+
+.data-picker {
+  @apply inline-block px-4 py-2 border border-gray outline outline-1 outline-transparent rounded bg-background-2 text-black font-normal placeholder:text-gray focus:outline-2 focus:outline-secondary disabled:bg-background-3 disabled:text-gray-2 disabled:cursor-not-allowed;
+
+  a:hover {
+    @apply underline text-secondary;
+  }
+
+  &.picker-multiple {
+    @apply block;
+  }
+}
+
+.data-picker.picker-single .picker-values:not(:empty) + .picker-prompt {
+  @apply hidden;
+}

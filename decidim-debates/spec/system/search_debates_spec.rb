@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Search debates", type: :system do
+describe "Search debates" do
   include ActionView::Helpers::SanitizeHelper
 
   include_context "with a component"

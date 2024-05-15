@@ -71,6 +71,9 @@ lb:
       decidim/participatory_process_group:
         one: Prozessgruppe
         other: Prozessgruppen
+      decidim/participatory_process_step:
+        one: Etapp
+        other: Phasen
   decidim:
     admin:
       actions:
@@ -80,9 +83,6 @@ lb:
         destroy: Läschen
         duplicate: Duplizieren
         edit: Editéieren
-        filter:
-          all_processes: Alle Beteiligungsprozesse anzeigen
-          process_groups: Prozessgruppen
         import_process: Import
         new_process: Neuer Beteiligungsprozess
         new_process_group: Neue Prozessgruppe
@@ -104,7 +104,6 @@ lb:
           attachments: Unhäng
           categories: Kategorien
           components: Komponenten
-          info: Informatioun
           moderations: Moderationen
           private_users: Private Benutzer
           process_admins: Benutzer verarbeiten
@@ -114,7 +113,6 @@ lb:
           fields:
             created_at: Erstallt den
             private: Privat
-            promoted: Highlighted
             published: Verëffentlecht
             title: Titel
           name: Bedeelegungsprozess
@@ -148,13 +146,6 @@ lb:
           copy: Kopieren
           select: Wählen Sie aus, welche Daten Sie duplizieren möchten
           title: Beteiligungsprozess duplizieren
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Aktive Inhaltsblöcke
-          inactive_content_blocks: Inaktive Inhaltsblöcke
-      participatory_process_group_landing_page_content_blocks:
-        edit:
-          update: Aktualisieren
       participatory_process_groups:
         destroy:
           error: Beim Löschen der Beteiligungsprozessgruppe ist ein Fehler aufgetreten.
@@ -168,6 +159,58 @@ lb:
         update:
           error: Beim Aktualisieren dieser partizipativen Prozessgruppe ist ein Fehler aufgetreten.
           success: Partizipative Prozessgruppe wurde erfolgreich aktualisiert.
+      participatory_process_imports:
+        create:
+          error: Beim Importieren dieses Beteiligungsprozesses ist ein Fehler aufgetreten.
+          success: Beteiligungsprozess wurde erfolgreich importiert.
+        new:
+          import: Import
+          select: Wählen Sie aus, welche Daten Sie importieren möchten
+          title: Beteiligungsprozess importieren
+      participatory_process_publications:
+        create:
+          error: Bei der Veröffentlichung dieses Beteiligungsprozesses ist ein Fehler aufgetreten.
+          success: Partizipativer Prozess erfolgreich veröffentlicht.
+        destroy:
+          error: Beim Aufheben der Veröffentlichung dieses Beteiligungsprozesses ist ein Fehler aufgetreten.
+          success: Partizipativer Prozess wurde nicht veröffentlicht.
+      participatory_process_step_activations:
+        create:
+          error: Beim Aktivieren dieses partizipativen Prozessschritts ist ein Fehler aufgetreten.
+          success: Partizipativer Prozessschritt erfolgreich aktiviert.
+      participatory_process_steps:
+        create:
+          error: Beim Erstellen eines neuen partizipativen Prozessschritts ist ein Fehler aufgetreten.
+          success: Partizipativer Prozessschritt erfolgreich erstellt.
+        default_title: Aféierung
+        destroy:
+          success: Participatory-Prozessschritt erfolgreich gelöscht.
+        edit:
+          title: Beteiligungsschritt bearbeiten
+          update: Aktualiséieren
+        index:
+          steps_title: Phasen
+        new:
+          create: Erstellen
+          title: Neuer partizipativer Prozessschritt
+        ordering:
+          error: Beim Neuanordnen dieser partizipativen Prozessschritte ist ein Fehler aufgetreten.
+        update:
+          error: Beim Aktualisieren dieses partizipativen Prozessschritts ist ein Fehler aufgetreten.
+          success: Partizipativer Prozessschritt erfolgreich aktualisiert.
+      participatory_process_user_roles:
+        create:
+          error: Beim Hinzufügen eines Benutzers für diesen partizipativen Prozess ist ein Fehler aufgetreten.
+          success: Benutzer hat diesen partizipativen Prozess erfolgreich hinzugefügt.
+        destroy:
+          success: Der Benutzer wurde erfolgreich aus diesem partizipativen Prozess entfernt.
+        edit:
+          title: Administrator des Beteiligungsprozesses aktualisieren
+          update: Aktualiséieren
+        index:
+          process_admins_title: Partizipative Prozessbenutzer
+        new:
+          create: Erstellen
       titles:
         participatory_process_groups: Prozessgruppen
         participatory_processes: Bedeelegungsprozesser
@@ -223,9 +266,6 @@ lb:
         description: Anzahl der Beteiligungsprozesse in dieser Organisation
         object: Bedeelegungsprozesser
         title: Bedeelegungsprozesser
-    participatory_process:
-      show:
-        related_assemblies: Ähnliche Versammlungen
     participatory_process_groups:
       content_blocks:
         html_1:
@@ -234,36 +274,52 @@ lb:
           name: Zweiter HTML-Block
         html_3:
           name: Dritter HTML-Block
-        metadata:
-          developer_group: Unterstützt von
-          name: Metadaten
-          participatory_scope: Was wird entschieden
-          participatory_structure: Wie wird es entschieden
-          target: Wer nimmt teil
         participatory_processes:
           name: Bedeelegungsprozesser
         stats:
           name: Aktivität
         title:
           meta_scope: Ëmfang
-          name: Titel, Beschreibung und Hashtag
       show:
         title: Prozessgruppen
     participatory_processes:
+      admin:
+        participatory_processes:
+          form:
+            other: Andere
+            related_processes: Ähnliche Beteiligungsprozesse
+            scope_type_max_depth_help: Beschränken Sie die Bereichs-Filtertiefe; der Filter zeigt nur Ergebnisse von Allgemein bis zum ausgewählten Bereichstyp an.
+            select_an_area: Wählen Sie einen Bereich aus
+            select_process_group: Wählen Sie eine Prozessgruppe aus
+            title: Allgemeine Information
+      content_blocks:
+        highlighted_processes:
+          name: Hervorgehobene Beteiligungsprozesse
+      index:
+        title: Bedeelegungsprozesser
+      last_activity:
+        new_participatory_process: Neuer partizipativer Prozess
+      participatory_process_steps:
+        index:
+          back_to_process: Zurück zur Prozessseite
+      participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 aktiver Beteiligungsprozess
+              other: "%{count} Beteiligungsprozesse"
+          explanations:
+            no_active_nor_upcoming_callout: Es gibt keine aktiven oder zukünftigen Beteiligungsprozesse. Hier ist eine Liste der vergangenen.
+          names:
+            active: Aktiv
+            all: All
+            past: Vergaangenes
+            upcoming: Demnächst stattfannend
+          see: Sehen
       show:
         belongs_to_group: Dieser Prozess gehört zu
-        dates: Daten
-        developer_group: Promoter-Gruppe
-        end_date: Endtermin
-        local_area: Organisationsbereich
-        participatory_scope: Was wird entschieden
-        participatory_structure: Wie wird es entschieden
         private_space: Dies ist ein privater Prozess
         related_processes: Ähnliche Beteiligungsprozesse
-        scope: Ëmfang
-        start_date: Ufanksdatum
-        target: Wer nimmt teil
-        unspecified: Keine Angabe
     statistics:
       processes_count: Bedeelegungsprozesser
   layouts:
@@ -273,29 +329,12 @@ lb:
           browse: Durchsuchen
           browse_resource: Prozessgruppe %{resource_name} durchsuchen
           processes_count: 'Bedeelegungsprozesser:'
-      participatory_process_widgets:
-        show:
-          active_step: Aktiv Etapp
-          take_part: Deelhuelen
       participatory_processes:
         index:
           promoted_processes: Hervorgehobene Beteiligungsprozesse
         participatory_process:
-          active_step: 'Aktuell Etapp'
+          active_step: Aktuell Etapp
           more_info: Méi Informatiounen
           more_info_about: Méi Informatiounen iwert den Prozess %{resource_name}
           take_part: Deelhuelen
           take_part_in: Deelhuelen um Prozess %{resource_name}
-        promoted_process:
-          active_step: 'Aktuell Etapp:'
-          more_info: Méi Informatiounen
-          more_info_about: Méi Informatiounen iwert den Prozess %{resource_name}
-          take_part: Deelhuelen
-          take_part_in: Deelhuelen um Prozess %{resource_name}
-        promoted_process_group:
-          more_info: Méi Informatiounen
-      process_header_steps:
-        step: Etapp %{current} vun %{total}
-        view_steps: Prozessetappen
-      process_navigation:
-        process_menu_item: De Prozess

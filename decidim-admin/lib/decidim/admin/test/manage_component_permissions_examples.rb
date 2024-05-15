@@ -23,12 +23,12 @@ shared_examples "Managing component permissions" do
   context "when setting permissions" do
     before do
       within ".component-#{component.id}" do
-        click_link "Permissions"
+        click_on "Permissions"
       end
     end
 
     it "saves permission settings in the component" do
-      within "form.new_component_permissions" do
+      within "#components form" do
         within ".foo-permission" do
           check "Example authorization (Direct)"
           fill_in "Allowed postal codes", with: "08002"
@@ -42,7 +42,7 @@ shared_examples "Managing component permissions" do
         include(
           "authorization_handlers" => {
             "dummy_authorization_handler" => {
-              "options" => { "allowed_postal_codes" => "08002" }
+              "options" => { "allowed_postal_codes" => "08002", "allowed_scope_id" => "" }
             }
           }
         )
@@ -54,9 +54,9 @@ shared_examples "Managing component permissions" do
     before do
       allow_any_instance_of(Decidim::Admin::PermissionsForm).to receive(:valid?).and_return(false)
       within ".component-#{component.id}" do
-        click_link "Permissions"
+        click_on "Permissions"
       end
-      within "form.new_component_permissions" do
+      within "#components form" do
         within ".foo-permission" do
           check "Example authorization (Direct)"
           fill_in "Allowed postal codes", with: "08002"
@@ -85,12 +85,12 @@ shared_examples "Managing component permissions" do
       )
 
       within ".component-#{component.id}" do
-        click_link "Permissions"
+        click_on "Permissions"
       end
     end
 
     it "removes the action from the permissions hash" do
-      within "form.new_component_permissions" do
+      within "#components form" do
         within ".foo-permission" do
           uncheck "Example authorization (Direct)"
           uncheck "Another example authorization (Direct)"
@@ -120,12 +120,12 @@ shared_examples "Managing component permissions" do
       )
 
       within ".component-#{component.id}" do
-        click_link "Permissions"
+        click_on "Permissions"
       end
     end
 
     it "changes the configured action in the permissions hash" do
-      within "form.new_component_permissions" do
+      within "#components form" do
         within ".foo-permission" do
           uncheck "Example authorization (Direct)"
           check "Another example authorization (Direct)"
@@ -149,7 +149,7 @@ shared_examples "Managing component permissions" do
     end
 
     it "adds an authorization to the configured action in the component permissions hash" do
-      within "form.new_component_permissions" do
+      within "#components form" do
         within ".foo-permission" do
           check "Another example authorization (Direct)"
           fill_in "Passport number", with: "AXXXXXXXX"
@@ -164,7 +164,7 @@ shared_examples "Managing component permissions" do
         include(
           "authorization_handlers" => {
             "dummy_authorization_handler" => {
-              "options" => { "allowed_postal_codes" => "08002" }
+              "options" => { "allowed_postal_codes" => "08002", "allowed_scope_id" => "" }
             },
             "another_dummy_authorization_handler" => {
               "options" => { "passport_number" => "AXXXXXXXX" }
@@ -199,20 +199,20 @@ shared_examples "Managing component permissions" do
     end
 
     it "shows the resource permissions settings" do
-      expect(page).to have_content(translated(resource.title))
+      expect(page).to have_content("Edit permissions")
     end
 
     context "when resources permissions are disabled" do
       let(:component_settings) { { resources_permissions_enabled: false } }
 
       it "does not show the resource permissions settings" do
-        expect(page).not_to have_content(resource.title)
+        expect(page).to have_no_content(resource.title)
       end
     end
 
     context "when setting permissions" do
       it "saves permission settings for the resource" do
-        within "form.new_component_permissions" do
+        within "#components form" do
           within ".foo-permission" do
             check "Example authorization (Direct)"
             fill_in "Allowed postal codes", with: "08002"
@@ -226,7 +226,7 @@ shared_examples "Managing component permissions" do
           include(
             "authorization_handlers" => {
               "dummy_authorization_handler" => {
-                "options" => { "allowed_postal_codes" => "08002" }
+                "options" => { "allowed_postal_codes" => "08002", "allowed_scope_id" => "" }
               }
             }
           )
@@ -253,7 +253,7 @@ shared_examples "Managing component permissions" do
       end
 
       it "removes the action from the permissions hash" do
-        within "form.new_component_permissions" do
+        within "#components form" do
           within ".foo-permission" do
             uncheck "Example authorization (Direct)"
             uncheck "Another example authorization (Direct)"
@@ -286,7 +286,7 @@ shared_examples "Managing component permissions" do
       end
 
       it "changes the configured action in the resource permissions hash" do
-        within "form.new_component_permissions" do
+        within "#components form" do
           within ".foo-permission" do
             uncheck "Example authorization (Direct)"
             check "Another example authorization (Direct)"
@@ -310,7 +310,7 @@ shared_examples "Managing component permissions" do
       end
 
       it "adds an authorization to the configured action in the resource permissions hash" do
-        within "form.new_component_permissions" do
+        within "#components form" do
           within ".foo-permission" do
             check "Another example authorization (Direct)"
             fill_in "Passport number", with: "AXXXXXXXX"
@@ -325,7 +325,7 @@ shared_examples "Managing component permissions" do
           include(
             "authorization_handlers" => {
               "dummy_authorization_handler" => {
-                "options" => { "allowed_postal_codes" => "08002" }
+                "options" => { "allowed_postal_codes" => "08002", "allowed_scope_id" => "" }
               },
               "another_dummy_authorization_handler" => {
                 "options" => { "passport_number" => "AXXXXXXXX" }
@@ -354,7 +354,7 @@ shared_examples "Managing component permissions" do
       end
 
       it "changes the configured action in the resource permissions hash" do
-        within "form.new_component_permissions" do
+        within "#components form" do
           within ".foo-permission" do
             uncheck "Example authorization (Direct)"
             check "Another example authorization (Direct)"
@@ -378,7 +378,7 @@ shared_examples "Managing component permissions" do
       end
 
       it "adds an authorization to the configured action in the resource permissions hash" do
-        within "form.new_component_permissions" do
+        within "#components form" do
           within ".foo-permission" do
             check "Another example authorization (Direct)"
             fill_in "Passport number", with: "AXXXXXXXX"
@@ -393,7 +393,7 @@ shared_examples "Managing component permissions" do
           include(
             "authorization_handlers" => {
               "dummy_authorization_handler" => {
-                "options" => { "allowed_postal_codes" => "08002" }
+                "options" => { "allowed_postal_codes" => "08002", "allowed_scope_id" => "" }
               },
               "another_dummy_authorization_handler" => {
                 "options" => { "passport_number" => "AXXXXXXXX" }
@@ -421,7 +421,7 @@ shared_examples "Managing component permissions" do
       end
 
       it "saves the action from the permissions hash as an empty hash" do
-        within "form.new_component_permissions" do
+        within "#components form" do
           within ".foo-permission" do
             uncheck "Example authorization (Direct)"
             uncheck "Another example authorization (Direct)"

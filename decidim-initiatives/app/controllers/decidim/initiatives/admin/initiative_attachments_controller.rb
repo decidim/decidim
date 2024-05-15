@@ -8,6 +8,8 @@ module Decidim
         include InitiativeAdmin
         include Decidim::Admin::Concerns::HasAttachments
 
+        add_breadcrumb_item_from_menu :admin_initiative_menu
+
         def after_destroy_path
           initiative_attachments_path(current_initiative)
         end

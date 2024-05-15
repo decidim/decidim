@@ -38,7 +38,7 @@ tr:
             - Kullanıcılar kimlik bilgilerini doldurur ve dokümanlarının bir kopyasını yüklerler.
             - Yüklenen görüntüdeki mevcut bilgileri doldurursunuz.
             - Bilgiler, kullanıcının doldurduğu bilgilerle eşleşmelidir.
-            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
+            - 
         postal_letter:
           help:
             - Kullanıcılar adreslerine gönderilecek bir doğrulama kodu ister.
@@ -154,8 +154,7 @@ tr:
           new:
             send: Doğrulama isteğinde bulun
             title: Kimlik belgenizi yükleyin
-        dni: DNI
-        nie: NIE
+        identification_number: Kimlik Numarası 
         passport: Pasaport
       postal_letter:
         admin:
@@ -176,8 +175,6 @@ tr:
             title: Doğrulama kodunuzu isteyin
       sms:
         authorizations:
-          destroy:
-            success: Doğrulama kodu başarıyla sıfırlandı. Lütfen telefon numaranızı tekrar girin.
           edit:
             confirm_destroy: Doğrulama kodunu sıfırlamak istediğinizden emin misiniz?
             destroy: Doğrulama kodunu sıfırla

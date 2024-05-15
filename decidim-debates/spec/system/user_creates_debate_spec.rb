@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User creates debate", type: :system do
+describe "User creates debate" do
   include_context "with a component"
   let(:manifest_name) { "debates" }
 
@@ -30,7 +30,7 @@ describe "User creates debate", type: :system do
           before do
             organization.update(rich_text_editor_in_public_views: true)
             visit_component
-            click_link "New debate"
+            click_on "New debate"
           end
 
           it_behaves_like "having a rich text editor", "new_debate", "basic"
@@ -39,7 +39,7 @@ describe "User creates debate", type: :system do
         it "creates a new debate", :slow do
           visit_component
 
-          click_link "New debate"
+          click_on "New debate"
 
           within ".new_debate" do
             fill_in :debate_title, with: "Should every organization use Decidim?"
@@ -53,7 +53,7 @@ describe "User creates debate", type: :system do
           expect(page).to have_content("Should every organization use Decidim?")
           expect(page).to have_content("Add your comments on whether Decidim is useful for every organization.")
           expect(page).to have_content(translated(category.name))
-          expect(page).to have_selector("[data-author]", text: user.name)
+          expect(page).to have_css("[data-author]", text: user.name)
         end
 
         context "when creating as a user group" do
@@ -62,7 +62,7 @@ describe "User creates debate", type: :system do
           it "creates a new debate", :slow do
             visit_component
 
-            click_link "New debate"
+            click_on "New debate"
 
             within ".new_debate" do
               fill_in :debate_title, with: "Should every organization use Decidim?"
@@ -77,7 +77,7 @@ describe "User creates debate", type: :system do
             expect(page).to have_content("Should every organization use Decidim?")
             expect(page).to have_content("Add your comment on whether Decidim is useful for every organization.")
             expect(page).to have_content(translated(category.name))
-            expect(page).to have_selector("[data-author]", text: user_group.name)
+            expect(page).to have_css("[data-author]", text: user_group.name)
           end
         end
 
@@ -96,7 +96,7 @@ describe "User creates debate", type: :system do
 
           it "shows a modal dialog" do
             visit_component
-            click_link "New debate"
+            click_on "New debate"
             expect(page).to have_content("Authorization required")
           end
         end
@@ -105,7 +105,7 @@ describe "User creates debate", type: :system do
       context "when creation is not enabled" do
         it "does not show the creation button" do
           visit_component
-          expect(page).not_to have_link("New debate")
+          expect(page).to have_no_link("New debate")
         end
       end
     end

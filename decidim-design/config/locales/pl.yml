@@ -1,0 +1,66 @@
+---
+pl:
+  decidim:
+    design:
+      components:
+        tooltips:
+          demo: Wersja demonstracyjna
+          demo_description: Aby ten komponent działał, uczestnik musi najechać kursorem na element.
+          description: Tooltip to komponent, na który użytkownik może najechać kursorem myszy, aby uzyskać dodatkowe informacje na jego temat.
+          github_source_html: Kod źródłowy na GitHub %{github_link}
+          title: Podpowiedzi
+          usage: Użycie
+          usage_p: 'Tooltip wymaga użycia pomocnika `with_tooltip` z trzema argumentami:'
+          usage_p_1_html: 1. Treść podpowiedzi. Przykładowo na tej stronie jest to "Hello world".
+          usage_p_2_html: '2. Opcjonalna klasa z symbolem, na którym będzie wyświetlany tooltip. Możliwe wartości to: <code>:góra</code>, <code>:dół</code>, <code>:prawo</code>, lub <code>:lewo</code>.'
+          usage_p_3_html: 3. Blok z ciągiem znaków, na który użytkownik musi najechać kursorem, aby został wyświetlony.
+      foundations:
+        color:
+          color_header: Kolor
+          description_p1: Zapewniamy podstawową paletę kolorów, która umożliwia dokonywanie prostych modyfikacji. Możesz zmienić paletę podstawową w obszarze administracyjnym lub w pliku konfiguracyjnym Tailwind, jeśli potrzebujesz bardziej zaawansowanych modyfikacji.
+          description_p2_html: Podczas dostosowywania kolorów pamiętaj o %{contrast_link}. Możesz sprawdzić wybrany kontrast za pomocą %{checker_link} lub innych podobnych narzędzi.
+          wcag_compliant_rations: Współczynnik kontrastu zgodny z WCAG 2.1 AA
+          wcag_contrast_checker: Sprawdzanie kontrastu WebAIM
+        layout:
+          breakpoint: Punkt przerwania
+          breakpoints: Punkty przerwania
+          centered: Wyśrodkowany
+          code: Kod
+          columns: Liczba kolumn 10, 8, lub 6.
+          description_layout_p1: W przypadku wersji na pulpit Decidim wykorzystuje 12-kolumnową siatkę z ograniczoną liczbą szablonów ( konfiguracja siatki) dla różnych typów treści. Założeniem jest, aby dany rodzaj treści (strona główna, lista elementów, pojedynczy element) miał charakterystyczny układ. Dzięki temu użytkownicy mogą zrozumieć z jakim rodzajem treści mają do czynienia po ogólnym wyglądzie strony.
+          description_layout_p2: Te proste zasady powinny być przestrzegane podczas tworzenia nowych modułów albo modyfikowania istniejących, aby witryna Decidim mogła zachować spójność.
+          desktop: Pulpit
+          full_width: Pełna szerokość
+          layout_list_1: 'Strona główna (witryny, obszaru): pełna szerokość'
+          layout_list_2: 'Lista elementów (obszaru, elementów wewnątrz obszaru itp.): lewa strona'
+          layout_list_3: 'Pojedynczy element (wniosek, wpis na blogu): wyśrodkowany, opcjonalnie wyrównany w prawo'
+          left_aside: Lewa strona
+          mobile: Mobilny
+          not_required: Niewymagane
+          properties: Właściwości
+          right_aside: Prawa strona
+          section_p_breakpoints: 'Aby zarządzać responsywną maksymalną szerokością elementów, polegamy na domyślnej klasie "container" Tailwind, która określa następujące punkty przerwania:'
+          section_p_code: Podczas wdrażania nowych modułów masz do dyspozycji kilka narzędzi pomocniczych, które automatycznie zapewniają kod potrzebny do skonfigurowania struktury HTML. Powinieneś używać tych pomocników zamiast bezpośredniego używania elementów div z klasami, aby zachować spójność.
+          section_p_code_html: Możesz znaleźć podstawowe układy w %{link_section_code}
+          section_p_desktop: System siatki w wersji na pulpit składa się z 12 elastycznych kolumn z odstępem między kolumnami wynoszącym 16 pikseli oraz lewym i prawym marginesem wynoszącym 48 pikseli
+          section_p_mobile: System siatki w wersji mobilnej składa się z 4 elastycznych kolumn z odstępem pomiędzy kolumnami wynoszącym 16 pikseli oraz lewym i prawym marginesem wynoszącym 16 pikseli. Dla rozmiarów poniżej 320 pikseli marginesy te są ustawione na 8 pikseli
+          section_p_tablet: System siatki w wersji na tablet składa się z 8 elastycznych kolumn z odstępem między kolumnami wynoszącym 16 pikseli oraz lewym i prawym marginesem wynoszącym 24 pikseli
+          tablet: Tablet
+          title: Układ
+      helpers:
+        background: Tło i obramowanie
+        base: Baza
+        form_elements: Elementy formularza
+        hex_code: Kod szesnastkowy
+        main_colors: Kolory główne
+        rgba_code: Kod RGBA
+        state: Stan
+        tailwind: Nazwa Tailwind
+      home:
+        index:
+          by_sharing_principles: Dzieląc się zasadami, filozofią, i przesłaniem, które stoją za decyzjami dotyczącymi projektowania, chcemy zainspirować społeczność do konsekwentnego zaangażowania, abyśmy mogli zapewnić uczestnikom jak najlepsze doświadczenia.
+          decidim_guide: Przewodnik projektowania wszystkich elementów Decidim
+          different_ui_components: Jednocześnie dokumentujemy różne komponenty i wzorce interfejsu użytkowania, które należy ponownie wykorzystać lub rozszerzyć.
+          github_source: Kod źródłowy na GitHub
+          home_header: Przewodnik Projektowania Decidim
+          welcome_sentence: Witamy w Przewodniku Projektowania Decidim (PPD). Ten przewodnik jest zasobem dla projektantów i programistów, którzy dostosowują i tworzą nowe moduły oraz integrują nowe funkcje.

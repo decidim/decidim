@@ -27,8 +27,3 @@ zh-TW:
           update:
             invalid: 保存頁面時出現問題
             success: 頁面保存成功
-      home:
-        hero:
-          participate_title: 參與平台的流程
-        sub_hero:
-          register_title: 註冊以創建帳戶

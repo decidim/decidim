@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin passwords", type: :system do
+describe "Admin passwords" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, :admin, password:, password_updated_at:, organization:) }
   let(:password) { "decidim123456789" }
@@ -22,7 +22,7 @@ describe "Admin passwords", type: :system do
       expect(page).to have_content("Admin users need to change their password every 90 days")
       expect(page).to have_content("Password change")
       fill_in :password_user_password, with: new_password
-      click_button "Change my password"
+      click_on "Change my password"
       expect(page).to have_css("[data-alert-box].success")
       expect(page).to have_content("Password successfully updated")
       expect(user.reload.password_updated_at).to be_between(2.seconds.ago, Time.current)
@@ -32,7 +32,7 @@ describe "Admin passwords", type: :system do
       manual_login(user.email, password)
       expect(page).to have_content("Password change")
       within "#admin-bar" do
-        click_link "Admin dashboard"
+        click_on "Admin dashboard"
       end
       expect(page).to have_content("You need to change your password in order to proceed further")
       expect(page).to have_content("Password change")
@@ -48,8 +48,9 @@ describe "Admin passwords", type: :system do
         manual_login(user.email, password)
         expect(page).to have_content("Password change")
         fill_in :password_user_password, with: new_password
-        click_button "Change my password"
-        expect(page).to have_css(".callout.success")
+        click_on "Change my password"
+
+        expect(page).to have_admin_callout("Password successfully updated")
         expect(page).to have_current_path(decidim_admin.root_path)
       end
     end
@@ -64,8 +65,8 @@ describe "Admin passwords", type: :system do
 
       it "does not prompt to change password" do
         manual_login(user.email, password)
-        expect(page).not_to have_content("Admin users need to change their password every")
-        expect(page).not_to have_content("Password change")
+        expect(page).to have_no_content("Admin users need to change their password every")
+        expect(page).to have_no_content("Password change")
       end
     end
   end
@@ -80,9 +81,11 @@ describe "Admin passwords", type: :system do
   end
 
   def manual_login(email, password)
-    click_link "Log in", match: :first
-    fill_in :session_user_email, with: email
-    fill_in :session_user_password, with: password
-    click_button "Log in"
+    click_on "Log in", match: :first
+    within ".new_user" do
+      fill_in :session_user_email, with: email
+      fill_in :session_user_password, with: password
+      click_on "Log in"
+    end
   end
 end

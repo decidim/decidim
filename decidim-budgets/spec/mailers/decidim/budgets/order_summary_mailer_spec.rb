@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Budgets
-  describe OrderSummaryMailer, type: :mailer do
+  describe OrderSummaryMailer do
     let(:order) { create(:order, :with_projects) }
     let(:user) { order.user }
     let(:space) { order.budget.participatory_space }
@@ -23,16 +23,16 @@ module Decidim::Budgets
         end
 
         it "includes the budget title" do
-          expect(mail.body.encoded).to include(translated(budget.title))
+          expect(mail.body.encoded).to include(decidim_escape_translated(budget.title))
         end
 
         it "includes the participatory space title" do
-          expect(mail.body).to include(translated(space.title))
+          expect(mail.body).to include(decidim_escape_translated(space.title))
         end
 
         it "includes the projects names" do
           order.projects.each do |project|
-            expect(mail.body).to include(translated(project.title))
+            expect(mail.body).to include(decidim_escape_translated(project.title))
           end
         end
       end
@@ -51,7 +51,7 @@ module Decidim::Budgets
 
         it "includes the scope name and scope type name" do
           expect(mail.body.encoded).to include(translated(scope.name))
-          expect(mail.body.encoded).to include(translated(scope.scope_type.name))
+          expect(mail.body.encoded).to include(decidim_escape_translated(scope.scope_type.name))
         end
       end
     end

@@ -1,0 +1,19 @@
+{
+  "name": "decidim-development-app",
+  "private": true,
+  "dependencies": {
+    "@decidim/browserslist-config": "file:packages/browserslist-config",
+    "@decidim/core": "file:packages/core",
+    "@decidim/webpacker": "file:packages/webpacker"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "@decidim/dev": "file:packages/dev",
+    "@decidim/eslint-config": "file:packages/eslint-config",
+    "@decidim/prettier-config": "file:packages/prettier-config",
+    "@decidim/stylelint-config": "file:packages/stylelint-config"
+  },
+  "browserslist": [
+    "extends @decidim/browserslist-config"
+  ]
+}

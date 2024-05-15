@@ -1,0 +1,99 @@
+<% content_for :heading do %>
+  <%= t(".accessibility_title") %>
+<% end %>
+
+<% content_for :description do %>
+  <p><%= t(".decidim_follows_html") %></p>
+<% end %>
+
+<% content_for :toc do %>
+  <a href="#heading-order"><%= t(".illogical_heading_order") %></a>
+  <a href="#unique-h1"><%= t(".unique_h1") %></a>
+  <a href="#one-heading"><%= t(".heading_on") %></a>
+  <a href="#color-contrast"><%= t(".color_contrast") %></a>
+  <a href="#links-buttons"><%= t(".links_and_buttons") %></a>
+  <a href="#a11y-labels"><%= t(".accessibility_labels") %></a>
+  <a href="#adjacent-links"><%= t(".adjacent_links") %></a>
+  <a href="#aria"><%= t(".use_aria") %></a>
+  <a href="#elements-hidden"><%= t(".elements_hidden") %></a>
+<% end %>
+
+<section id="heading-order" class="design__section">
+  <h2><%= t(".illogical_heading_order") %></h2>
+
+  <p><%= t(".illogical_heading_paragraph") %></p>
+
+  <p><%= t(".see_further_info_html", link: link_to(t(".here_link"), "https://docs.decidim.org/en/develop/develop/guide_accessibility.html#_illogical_heading_order", target: "_blank", rel: "noopener noreferrer")) %></p>
+</section>
+
+<section id="unique-h1" class="design__section">
+  <h2><%= t(".unique_h1") %></h2>
+
+  <p><%= t(".unique_h1_paragraph") %></p>
+
+  <p><%= t(".see_further_info_html", link: link_to(t(".here_link"), "https://docs.decidim.org/en/develop/develop/guide_accessibility.html#_unique_h1_on_every_page", target: "_blank", rel: "noopener noreferrer")) %></p>
+</section>
+
+<section id="one-heading" class="design__section">
+  <h2><%= t(".important_sections_heading") %></h2>
+
+  <p><%= t(".important_sections_paragraph") %></p>
+
+  <p><%= t(".see_further_info_html", link: link_to(t(".here_link"), "https://docs.decidim.org/en/develop/develop/guide_accessibility.html#_heading_on_important_sections", target: "_blank", rel: "noopener noreferrer")) %></p>
+</section>
+
+<section id="color-contrast" class="design__section">
+  <h2><%= t(".color_contrast") %></h2>
+
+  <p><%= t(".color_contrast_paragraph") %></p>
+
+  <p><%= t(".see_further_info_html", link: link_to(t(".here_link"), "https://docs.decidim.org/en/develop/develop/guide_accessibility.html#_color_contrast ", target: "_blank", rel: "noopener noreferrer")) %></p>
+</section>
+
+<section id="links-buttons" class="design__section">
+  <h2><%= t(".links_and_buttons") %></h2>
+
+  <p><%= t(".links_and_buttons_paragraph") %></p>
+
+  <p><%= t(".see_further_info_html", link: link_to(t(".here_link"), "https://docs.decidim.org/en/develop/develop/guide_accessibility.html#_links_and_buttons", target: "_blank", rel: "noopener noreferrer")) %></p>
+</section>
+
+<section id="a11y-labels" class="design__section">
+  <h2><%= t(".accessibility_labels") %></h2>
+
+  <p><%= t(".accessibility_labels_paragraph") %></p>
+
+  <p><%= t(".see_further_info_html", link: link_to(t(".here_link"), "https://docs.decidim.org/en/develop/develop/guide_accessibility.html#_accessibility_labels", target: "_blank", rel: "noopener noreferrer")) %></p>
+</section>
+
+<section id="adjacent-links" class="design__section">
+  <h2><%= t(".adjacent_links_header") %></h2>
+
+  <p><%= t(".adjacent_links_paragraph") %></p>
+
+  <p><%= t(".see_further_info_html", link: link_to(t(".here_link"), "https://docs.decidim.org/en/develop/develop/guide_accessibility.html#_adjacent_links_for_the_same_resource", target: "_blank", rel: "noopener noreferrer")) %></p>
+</section>
+
+<section id="dynamic-changes" class="design__section">
+  <h2><%= t(".dynamic_changes_header") %></h2>
+
+  <p><%= t(".dynamic_changes_paragraph") %></p>
+
+  <p><%= t(".see_further_info_html", link: link_to(t(".here_link"), "https://docs.decidim.org/en/develop/develop/guide_accessibility.html#_dynamic_functionality_changes_the_page_context_unintuitively", target: "_blank", rel: "noopener noreferrer")) %></p>
+</section>
+
+<section id="aria" class="design__section">
+  <h2><%= t(".use_aria_header") %></h2>
+
+  <p><%= t(".use_aria_paragraph") %></p>
+
+  <p><%= t(".see_further_info_html", link: link_to(t(".here_link"), "https://docs.decidim.org/en/develop/develop/guide_accessibility.html#_use_aria_attributes_where_possible", target: "_blank", rel: "noopener noreferrer")) %></p>
+</section>
+
+<section id="elements-hidden" class="design__section">
+  <h2><%= t(".elements_hidden_header") %></h2>
+
+  <p><%= t(".elements_hidden_paragraph") %></p>
+
+  <p><%= t(".see_further_info_html", link: link_to(t(".here_link"), "https://docs.decidim.org/en/develop/develop/guide_accessibility.html#_elements_hidden_from_the_accessibility_api", target: "_blank", rel: "noopener noreferrer")) %></p>
+</section>

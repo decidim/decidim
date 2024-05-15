@@ -2,11 +2,42 @@
 
 require "spec_helper"
 
-describe "Admin manages assemblies", type: :system do
+describe "Admin manages assemblies" do
   include_context "when admin administrating an assembly"
 
-  let(:model_name) { assembly.class.model_name }
   let(:resource_controller) { Decidim::Assemblies::Admin::AssembliesController }
+  let(:model_name) { assembly.class.model_name }
+
+  context "when conditionally displaying private user menu entry" do
+    let!(:my_space) { create(:assembly, organization:, private_space:) }
+
+    before do
+      switch_to_host(organization.host)
+      login_as user, scope: :user
+      visit decidim_admin_assemblies.assemblies_path
+      click_on translated(my_space.title)
+    end
+
+    context "when the participatory space is private" do
+      let(:private_space) { true }
+
+      it "hides the private user menu entry" do
+        within_admin_sidebar_menu do
+          expect(page).to have_content("Private users")
+        end
+      end
+    end
+
+    context "when the participatory space is public" do
+      let(:private_space) { false }
+
+      it "shows the private user menu entry" do
+        within_admin_sidebar_menu do
+          expect(page).to have_no_content("Private users")
+        end
+      end
+    end
+  end
 
   shared_examples "creating an assembly" do
     let(:image1_filename) { "city.jpeg" }
@@ -16,7 +47,7 @@ describe "Admin manages assemblies", type: :system do
     let(:image2_path) { Decidim::Dev.asset(image2_filename) }
 
     before do
-      click_link "New assembly"
+      click_on "New assembly"
     end
 
     %w(purpose_of_action composition description short_description announcement internal_organisation).each do |field|
@@ -70,7 +101,7 @@ describe "Admin manages assemblies", type: :system do
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_current_path decidim_admin_assemblies.assemblies_path(q: { parent_id_eq: parent_assembly&.id })
         expect(page).to have_content("My assembly")
       end
@@ -137,8 +168,8 @@ describe "Admin manages assemblies", type: :system do
       switch_to_host(organization.host)
       login_as user, scope: :user
       visit decidim_admin_assemblies.assemblies_path
-      within find("tr", text: translated(parent_assembly.title)) do
-        click_link "Assemblies"
+      within "tr", text: translated(parent_assembly.title) do
+        click_on "Assemblies"
       end
     end
 

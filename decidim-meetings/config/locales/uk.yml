@@ -54,7 +54,6 @@ uk:
           success: Успішно створено копію зустрічі.
         new:
           copy: Скопіювати
-          select: Оберіть відомості, копію яких ви хотіли б створити
           title: Створити копію зустрічі
     components:
       meetings:
@@ -117,7 +116,6 @@ uk:
         confirm_destroy: Ви впевнені, що хочете видалити цю зустріч?
         destroy: Видалити
         edit: Редагувати
-        new: Додати зустріч
         preview: Попередній перегляд
         registrations: Реєстрації
         title: Дії
@@ -165,15 +163,8 @@ uk:
             non_user: Не чинний учасник
             select_user: Оберіть учасника
           index:
-            filter:
-              accepted: Прийняті
-              all: Усі
-              rejected: Відхилені
-              sent: Надіслані
-            filter_by: 'Відібрати за ознакою:'
             invite_attendee: Запросити учасника
             invites: Запрошення
-            search: Шукати
         meeting_closes:
           edit:
             close: Закрити
@@ -198,9 +189,6 @@ uk:
           services:
             add_service: Додати послугу
             services: Послуги
-        models:
-          meeting:
-            name: Зустріч
         registrations:
           edit:
             save: Зберегти
@@ -242,13 +230,6 @@ uk:
           category: Категорія
           date: Дата
           search: Шукати
-        filters_small_view:
-          close_modal: Закрити віконце
-          filter: Відібрати
-          filter_by: 'Відібрати за ознакою:'
-          unfold: Розгорнути
-        meeting_minutes:
-          related_information: Супутні відомості
         meetings:
           upcoming_meetings_warning: Наразі нема запланованих зустрічей, але тут ви можете знайти перелік усіх попередніх зустрічей.
         registration_confirm:
@@ -261,7 +242,6 @@ uk:
           meeting_minutes: Протокол зустрічі
           no_slots_available: Не залишилось місць
           organizations: Організації, що приймають участь
-          view: Переглянути
       models:
         invite:
           fields:
@@ -302,8 +282,6 @@ uk:
       highlighted_meetings:
         past_meetings: Минулі зустрічі
         upcoming_meetings: Прийдешні зустрічі
-      upcoming_meeting_for_card:
-        upcoming_meeting: Прийдешня зустріч
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Пов''язані підсумки:'

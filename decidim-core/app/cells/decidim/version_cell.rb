@@ -3,11 +3,9 @@
 module Decidim
   class VersionCell < Decidim::ViewModel
     include Decidim::TraceabilityHelper
-    include Decidim::LayoutHelper
-    include Decidim::SanitizeHelper
 
     def resource_title
-      decidim_html_escape(translated_attribute(versioned_resource.title))
+      decidim_escape_translated(versioned_resource.title)
     end
 
     def current_version
@@ -34,8 +32,8 @@ module Decidim
       i18n("back_to_resource")
     end
 
-    def i18n(string, **params)
-      t(string, **params, scope: i18n_scope, default: t(string, **params, scope: default_i18n_scope))
+    def i18n(string, **)
+      t(string, **, scope: i18n_scope, default: t(string, **, scope: default_i18n_scope))
     end
 
     def i18n_scope

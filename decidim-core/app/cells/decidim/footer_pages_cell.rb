@@ -15,8 +15,6 @@ module Decidim
   #
   #    cell("decidim/footer_pages", :topics)
   class FooterPagesCell < Decidim::ViewModel
-    include ApplicationHelper
-
     OPTIONS = [:topics, :pages].freeze
 
     def show
@@ -42,7 +40,7 @@ module Decidim
         .static_pages_accessible_for(current_user)
         .where(show_in_footer: true, topic_id: nil)
         .where.not(slug: "terms-and-conditions").map do |page|
-        { title: translated_attribute(page.title), path: decidim.page_path(page) }
+        { title: decidim_escape_translated(page.title), path: decidim.page_path(page) }
       end
     end
 
@@ -51,9 +49,9 @@ module Decidim
         next if (topic_pages = topic.accessible_pages_for(current_user).where(show_in_footer: true)).blank?
 
         {
-          title: translated_attribute(topic.title),
+          title: decidim_escape_translated(topic.title),
           pages: topic_pages.map do |page|
-            { title: translated_attribute(page.title), path: decidim.page_path(page) }
+            { title: decidim_escape_translated(page.title), path: decidim.page_path(page) }
           end
         }
       end.compact

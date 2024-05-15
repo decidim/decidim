@@ -2,7 +2,7 @@
 
 shared_examples "share link" do
   it "allows copying the share link from the share modal" do
-    click_button("Share")
+    click_on("Share")
 
     # This overrides document.execCommand in order to ensure it was called.
     page.execute_script(
@@ -29,7 +29,7 @@ shared_examples "share link" do
       expect(page).to have_content("Share")
       expect(page).to have_content("Copy")
 
-      input = find("#urlShareLink")
+      input = find_by_id("urlShareLink")
 
       find("[data-clipboard-copy]").click
 

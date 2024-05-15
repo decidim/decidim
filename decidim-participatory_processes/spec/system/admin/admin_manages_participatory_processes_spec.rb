@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages participatory processes", type: :system, versioning: true do
+describe "Admin manages participatory processes", versioning: true do
   include_context "when admin administrating a participatory process"
 
   let!(:participatory_process_groups) do
@@ -13,6 +13,37 @@ describe "Admin manages participatory processes", type: :system, versioning: tru
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_participatory_processes.participatory_processes_path
+  end
+
+  context "when conditionally displaying private user menu entry" do
+    let!(:my_space) { create(:participatory_process, organization:, private_space:) }
+
+    before do
+      switch_to_host(organization.host)
+      login_as user, scope: :user
+      visit decidim_admin_participatory_processes.participatory_processes_path
+      click_on translated(my_space.title)
+    end
+
+    context "when the participatory process is private" do
+      let(:private_space) { true }
+
+      it "hides the private user menu entry" do
+        within_admin_sidebar_menu do
+          expect(page).to have_content("Private participants")
+        end
+      end
+    end
+
+    context "when the participatory process is public" do
+      let(:private_space) { false }
+
+      it "shows the private user menu entry" do
+        within_admin_sidebar_menu do
+          expect(page).to have_no_content("Private participants")
+        end
+      end
+    end
   end
 
   it_behaves_like "manage processes examples"
@@ -26,7 +57,7 @@ describe "Admin manages participatory processes", type: :system, versioning: tru
     let(:image2_path) { Decidim::Dev.asset(image2_filename) }
 
     before do
-      click_link "New process"
+      click_on "New process"
     end
 
     %w(short_description description announcement).each do |field|
@@ -81,7 +112,7 @@ describe "Admin manages participatory processes", type: :system, versioning: tru
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".container" do
+      within "[data-content]" do
         expect(page).to have_current_path decidim_admin_participatory_processes.participatory_process_steps_path(Decidim::ParticipatoryProcess.last)
         expect(page).to have_content("Phases")
         expect(page).to have_content("Introduction")
@@ -97,11 +128,15 @@ describe "Admin manages participatory processes", type: :system, versioning: tru
     end
 
     it "update a participatory process without images does not delete them" do
-      within find("tr", text: translated(participatory_process3.title)) do
-        click_link "Configure"
+      within "tr", text: translated(participatory_process3.title) do
+        click_on translated(participatory_process3.title)
       end
-      click_submenu_link "Info"
-      click_button "Update"
+
+      within_admin_sidebar_menu do
+        click_on "About this process"
+      end
+
+      click_on "Update"
 
       expect(page).to have_admin_callout("successfully")
       expect(page).to have_css("img[src*='#{participatory_process3.attached_uploader(:hero_image).path}']")

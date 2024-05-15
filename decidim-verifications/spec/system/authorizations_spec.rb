@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_authorization_handler"] do
+describe "Authorizations", with_authorization_workflows: ["dummy_authorization_handler"] do
   before do
     switch_to_host(organization.host)
   end
@@ -18,7 +18,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
       before do
         visit decidim.root_path
         within "#main-bar" do
-          click_link("Log in")
+          click_on("Log in")
         end
 
         within "form.new_user", match: :first do
@@ -31,14 +31,14 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
       it "redirects the user to the authorization form after the first sign in" do
         fill_in "Document number", with: "123456789X"
 
-        fill_in :authorization_handler_birthday, with: Time.current.change(day: 12)
+        fill_in_datepicker :authorization_handler_birthday_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
 
-        click_button "Send"
+        click_on "Send"
         expect(page).to have_content("You have been successfully authorized")
       end
 
       it "allows the user to skip it" do
-        click_link "start exploring"
+        click_on "start exploring"
         expect(page).to have_current_path decidim.account_path
 
         expect(page).to have_content("Participant settings")
@@ -52,13 +52,13 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         it "transfers the authorization from the deleted user" do
           fill_in "Document number", with: document_number
 
-          fill_in :authorization_handler_birthday, with: Time.current.change(day: 12)
+          fill_in_datepicker :authorization_handler_birthday_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
 
-          expect { click_button "Send" }.not_to change(Decidim::Authorization, :count)
+          expect { click_on "Send" }.not_to change(Decidim::Authorization, :count)
           expect(page).to have_content("There was a problem creating the authorization.")
           expect(page).to have_content("A participant is already authorized with the same data. An administrator will contact you to verify your details.")
 
-          expect { click_button "Send" }.not_to change(Decidim::AuthorizationTransfer, :count)
+          expect { click_on "Send" }.not_to change(Decidim::AuthorizationTransfer, :count)
           expect(page).to have_content("There was a problem creating the authorization.")
         end
       end
@@ -71,11 +71,11 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         it "transfers the authorization from the deleted user" do
           fill_in "Document number", with: document_number
 
-          fill_in :authorization_handler_birthday, with: Time.current.change(day: 12)
+          fill_in_datepicker :authorization_handler_birthday_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
 
-          click_button "Send"
+          click_on "Send"
           expect(page).to have_content("You have been successfully authorized.")
-          expect(page).not_to have_content("We have recovered the following participation data based on your authorization:")
+          expect(page).to have_no_content("We have recovered the following participation data based on your authorization:")
         end
 
         context "and the deleted user for the duplicate authorization had transferrable data" do
@@ -92,15 +92,15 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
             visit_authorizations
 
-            click_link "Example authorization"
+            click_on "Example authorization"
           end
 
           it "reports the transferred participation data" do
             fill_in "Document number", with: document_number
 
-            fill_in :authorization_handler_birthday, with: Time.current.change(day: 12)
+            fill_in_datepicker :authorization_handler_birthday_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
 
-            click_button "Send"
+            click_on "Send"
             expect(page).to have_content("You have been successfully authorized.")
             expect(page).to have_content("We have recovered the following participation data based on your authorization:")
             expect(page).to have_content("Comments: 10")
@@ -116,7 +116,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
       before do
         visit decidim.root_path
         within "#main-bar" do
-          click_link("Log in")
+          click_on("Log in")
         end
 
         within "form.new_user", match: :first do
@@ -146,12 +146,12 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
       it "allows the user to authorize against available authorizations" do
         visit_authorizations
-        click_link(text: /Example authorization/)
+        click_on(text: /Example authorization/)
 
         fill_in "Document number", with: "123456789X"
-        fill_in :authorization_handler_birthday, with: Time.current.change(day: 12)
+        fill_in_datepicker :authorization_handler_birthday_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
 
-        click_button "Send"
+        click_on "Send"
 
         expect(page).to have_content("You have been successfully authorized")
 
@@ -159,18 +159,18 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
         within ".authorizations-list" do
           expect(page).to have_content("Example authorization")
-          expect(page).not_to have_link(text: /Example authorization/)
+          expect(page).to have_no_link(text: /Example authorization/)
         end
       end
 
       it "checks if the given data is invalid" do
         visit_authorizations
-        click_link(text: /Example authorization/)
+        click_on(text: /Example authorization/)
 
         fill_in "Document number", with: "12345678"
-        fill_in :authorization_handler_birthday, with: Time.current.change(day: 12)
+        fill_in_datepicker :authorization_handler_birthday_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
 
-        click_button "Send"
+        click_on "Send"
 
         expect(page).to have_content("There was a problem creating the authorization.")
       end
@@ -201,8 +201,8 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
             visit_authorizations
 
             within ".authorizations-list" do
-              expect(page).not_to have_link(text: /Example authorization/)
-              expect(page).not_to have_css(".authorization-renewable")
+              expect(page).to have_no_link(text: /Example authorization/)
+              expect(page).to have_no_css(".authorization-renewable")
             end
           end
         end
@@ -237,7 +237,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
               visit_authorizations
               page.find("div[data-dialog-open='renew-modal']", text: /Example authorization/).click
               within "#renew-modal" do
-                click_link "Continue"
+                click_on "Continue"
               end
 
               expect(page).to have_content("Document number")
@@ -256,7 +256,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           visit_authorizations
 
           within ".authorizations-list" do
-            expect(page).not_to have_link(text: /Example authorization/)
+            expect(page).to have_no_link(text: /Example authorization/)
             expect(page).to have_content(I18n.l(authorization.granted_at, format: :long_with_particles))
           end
         end
@@ -276,11 +276,11 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           end
 
           within "#renew-modal" do
-            click_link "Continue"
+            click_on "Continue"
           end
 
           fill_in "Document number", with: "123456789X"
-          click_button "Send"
+          click_on "Send"
 
           expect(page).to have_content("You have been successfully authorized")
         end
@@ -292,7 +292,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
       it "does not list authorizations" do
         visit decidim_verifications.authorizations_path
-        expect(page).not_to have_link("Authorizations")
+        expect(page).to have_no_link("Authorizations")
       end
     end
   end
@@ -301,9 +301,9 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
   def visit_authorizations
     within_user_menu do
-      click_link "My account"
+      click_on "My account"
     end
 
-    click_link "Authorizations"
+    click_on "Authorizations"
   end
 end

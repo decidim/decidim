@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Private Participatory Processes", type: :system do
+describe "Private Participatory Processes" do
   let!(:organization) { create(:organization) }
   let!(:participatory_process) { create(:participatory_process, :published, organization:) }
   let!(:private_participatory_process) { create(:participatory_process, :published, organization:, private_space: true) }
@@ -27,30 +27,32 @@ describe "Private Participatory Processes", type: :system do
           end
 
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
-          expect(page).to have_selector(".card__grid", count: 1)
+          expect(page).to have_css(".card__grid", count: 1)
 
-          expect(page).not_to have_content(translated(private_participatory_process.title, locale: :en))
+          expect(page).to have_no_content(translated(private_participatory_process.title, locale: :en))
         end
       end
     end
 
-    context "when user is logged in and is not a participatory space private user" do
-      before do
-        switch_to_host(organization.host)
-        login_as user, scope: :user
-        visit decidim_participatory_processes.participatory_processes_path
-      end
+    context "when user is logged" do
+      context "when is not a participatory space private user" do
+        before do
+          switch_to_host(organization.host)
+          login_as user, scope: :user
+          visit decidim_participatory_processes.participatory_processes_path
+        end
 
-      it "lists only the not private participatory process" do
-        within "#processes-grid" do
-          within "#processes-grid h2" do
-            expect(page).to have_content("1")
+        it "lists only the not private participatory process" do
+          within "#processes-grid" do
+            within "#processes-grid h2" do
+              expect(page).to have_content("1")
+            end
+
+            expect(page).to have_content(translated(participatory_process.title, locale: :en))
+            expect(page).to have_css(".card__grid", count: 1)
+
+            expect(page).to have_no_content(translated(private_participatory_process.title, locale: :en))
           end
-
-          expect(page).to have_content(translated(participatory_process.title, locale: :en))
-          expect(page).to have_selector(".card__grid", count: 1)
-
-          expect(page).not_to have_content(translated(private_participatory_process.title, locale: :en))
         end
       end
 
@@ -69,7 +71,7 @@ describe "Private Participatory Processes", type: :system do
 
             expect(page).to have_content(translated(participatory_process.title, locale: :en))
             expect(page).to have_content(translated(private_participatory_process.title, locale: :en))
-            expect(page).to have_selector(".card__grid", count: 2)
+            expect(page).to have_css(".card__grid", count: 2)
           end
         end
 
@@ -97,7 +99,7 @@ describe "Private Participatory Processes", type: :system do
 
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
           expect(page).to have_content(translated(private_participatory_process.title, locale: :en))
-          expect(page).to have_selector(".card__grid", count: 2)
+          expect(page).to have_css(".card__grid", count: 2)
         end
       end
 

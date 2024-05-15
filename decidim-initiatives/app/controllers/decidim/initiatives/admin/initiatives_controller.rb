@@ -11,6 +11,7 @@ module Decidim
         include Decidim::Initiatives::SingleInitiativeType
         include Decidim::Initiatives::TypeSelectorOptions
         include Decidim::Initiatives::Admin::Filterable
+        include Decidim::Admin::ParticipatorySpaceAdminBreadcrumb
 
         helper ::Decidim::Admin::ResourcePermissionsHelper
         helper Decidim::Initiatives::InitiativeHelper
@@ -45,7 +46,7 @@ module Decidim
           @form = form(Decidim::Initiatives::Admin::InitiativeForm)
                   .from_params(params, initiative: current_initiative)
 
-          Decidim::Initiatives::Admin::UpdateInitiative.call(current_initiative, @form, current_user) do
+          Decidim::Initiatives::Admin::UpdateInitiative.call(@form, current_initiative) do
             on(:ok) do |initiative|
               flash[:notice] = I18n.t("initiatives.update.success", scope: "decidim.initiatives.admin")
               redirect_to edit_initiative_path(initiative)
@@ -176,6 +177,7 @@ module Decidim
             format.pdf do
               send_data(output, filename: "votes_#{current_initiative.id}.pdf", type: "application/pdf")
             end
+            format.html
           end
         end
 

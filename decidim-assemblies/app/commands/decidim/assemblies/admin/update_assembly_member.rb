@@ -5,84 +5,23 @@ module Decidim
     module Admin
       # A command with all the business logic when updating an assembly
       # member in the system.
-      class UpdateAssemblyMember < Decidim::Command
-        include ::Decidim::AttachmentAttributesMethods
+      class UpdateAssemblyMember < Decidim::Commands::UpdateResource
+        fetch_file_attributes :non_user_avatar
 
-        # Public: Initializes the command.
-        #
-        # form - A form object with the params.
-        # assembly_member - The AssemblyMember to update
-        def initialize(form, assembly_member)
-          @form = form
-          @assembly_member = assembly_member
-        end
-
-        # Executes the command. Broadcasts these events:
-        #
-        # - :ok when everything is valid.
-        # - :invalid if the form was not valid and we could not proceed.
-        #
-        # Returns nothing.
-        def call
-          return broadcast(:invalid) if form.invalid?
-          return broadcast(:invalid) unless assembly_member
-
-          assembly_member.assign_attributes(attributes)
-
-          if assembly_member.valid?
-            assembly_member.reload
-            update_assembly_member!
-            broadcast(:ok)
-          else
-            if assembly_member.errors.include? :non_user_avatar
-              form.errors.add(
-                :non_user_avatar,
-                assembly_member.errors[:non_user_avatar]
-              )
-            end
-
-            broadcast(:invalid)
-          end
-        end
+        fetch_form_attributes :full_name, :gender, :birthday, :birthplace, :ceased_date, :designation_date,
+                              :position, :position_other, :weight, :user
 
         private
 
-        attr_reader :form, :assembly_member
-
-        def attributes
-          form.attributes.slice(
-            "full_name",
-            "gender",
-            "birthday",
-            "birthplace",
-            "ceased_date",
-            "designation_date",
-            "position",
-            "position_other",
-            "weight"
-          ).symbolize_keys.merge(
-            user: form.user
-          ).merge(
-            attachment_attributes(:non_user_avatar)
-          )
-        end
-
-        def update_assembly_member!
-          log_info = {
+        def extra_params
+          {
             resource: {
-              title: assembly_member.full_name
+              title: resource.full_name
             },
             participatory_space: {
-              title: assembly_member.assembly.title
+              title: resource.assembly.title
             }
           }
-
-          Decidim.traceability.update!(
-            assembly_member,
-            form.current_user,
-            attributes,
-            log_info
-          )
         end
       end
     end

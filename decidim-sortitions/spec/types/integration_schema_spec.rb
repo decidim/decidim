@@ -45,7 +45,7 @@ describe "Decidim::Api::QueryType" do
     {
       "__typename" => "Sortitions",
       "id" => current_component.id.to_s,
-      "name" => { "translation" => "Sortitions" },
+      "name" => { "translation" => translated(current_component.name) },
       "sortitions" => {
         "edges" => [
           {
@@ -96,7 +96,7 @@ describe "Decidim::Api::QueryType" do
       )
     end
 
-    it "executes sucessfully" do
+    it "executes successfully" do
       expect { response }.not_to raise_error
     end
 
@@ -138,7 +138,7 @@ describe "Decidim::Api::QueryType" do
     )
     end
 
-    it "executes sucessfully" do
+    it "executes successfully" do
       expect { response }.not_to raise_error
     end
 

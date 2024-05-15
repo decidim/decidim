@@ -1,1 +1,3 @@
+// Since the following resource contains url() stuff, webpacker does not resolve as it should the inner paths
+// (it misses "file-loader" webpack plugin). Therefore, we need to keep this file separate from the JS entrypoint
 @import "stylesheets/decidim/application.scss";

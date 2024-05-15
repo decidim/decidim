@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Report User", type: :system do
+describe "Report User" do
   let(:user) { create(:user, :confirmed) }
   let!(:users) { create_list(:user, 3, :confirmed, organization: user.organization) }
   let(:reportable) { users.first }
@@ -25,7 +25,7 @@ describe "Report User", type: :system do
 
     it "cannot be reported" do
       within ".profile__actions-secondary" do
-        expect(page).not_to have_button("Report")
+        expect(page).to have_no_button("Report")
       end
     end
   end
@@ -34,10 +34,10 @@ describe "Report User", type: :system do
     it "gives the option to sign in" do
       page.visit reportable_path
 
-      expect(page).not_to have_css("#loginModal-content")
+      expect(page).to have_no_css("#loginModal-content")
 
       within ".profile__actions-secondary" do
-        click_button "Report"
+        click_on "Report"
       end
 
       expect(page).to have_css("#loginModal-content")
@@ -55,19 +55,19 @@ describe "Report User", type: :system do
       it "reports the resource" do
         visit reportable_path
 
-        expect(page).to have_selector(".profile__actions-secondary")
+        expect(page).to have_css(".profile__actions-secondary")
 
         within ".profile__actions-secondary" do
-          click_button "Report"
+          click_on "Report"
         end
 
         expect(page).to have_css(".flag-modal", visible: :visible)
 
         within ".flag-modal" do
           expect(page).to have_field(name: "report[block]", visible: :visible)
-          expect(page).not_to have_field(name: "report[hide]", visible: :visible)
+          expect(page).to have_no_field(name: "report[hide]", visible: :visible)
 
-          click_button "Report"
+          click_on "Report"
         end
 
         expect(page).to have_content "report has been created"
@@ -76,10 +76,10 @@ describe "Report User", type: :system do
       it "chooses to block the resource" do
         visit reportable_path
 
-        expect(page).to have_selector(".profile__actions-secondary")
+        expect(page).to have_css(".profile__actions-secondary")
 
         within ".profile__actions-secondary" do
-          click_button "Report"
+          click_on "Report"
         end
 
         expect(page).to have_css(".flag-modal", visible: :visible)
@@ -88,7 +88,7 @@ describe "Report User", type: :system do
           find(:css, "input[name='report[block]']").set(true)
           expect(page).to have_field(name: "report[block]", visible: :visible)
           expect(page).to have_field(name: "report[hide]", visible: :visible)
-          click_button "Block this participant"
+          click_on "Block this participant"
         end
 
         expect(page).to have_content "report has been created"
@@ -106,15 +106,15 @@ describe "Report User", type: :system do
         visit reportable_path
 
         within ".profile__actions-secondary" do
-          click_button "Report"
+          click_on "Report"
         end
 
         expect(page).to have_css("#flagModal-content", visible: :visible)
-        expect(page).not_to have_field(name: "report[block]", visible: :visible)
-        expect(page).not_to have_field(name: "report[hide]", visible: :visible)
+        expect(page).to have_no_field(name: "report[block]", visible: :visible)
+        expect(page).to have_no_field(name: "report[hide]", visible: :visible)
 
         within "#flagModal-content" do
-          click_button "Report"
+          click_on "Report"
         end
 
         expect(page).to have_content "report has been created"
@@ -131,7 +131,7 @@ describe "Report User", type: :system do
         visit reportable_path
 
         within ".profile__actions-secondary" do
-          click_button "Report"
+          click_on "Report"
         end
 
         expect(page).to have_css("#flagModal-content", visible: :visible)

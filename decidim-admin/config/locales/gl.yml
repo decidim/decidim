@@ -66,7 +66,6 @@ gl:
         machine_translation_display_priority_translation: Primeiro o texto traducido
         name: Nome
         official_img_footer: Footer do logotipo oficial
-        official_img_header: Cabeceira do logotipo oficial
         official_url: URL da organización oficial
         omnipresent_banner_short_description: Descrición curta
         omnipresent_banner_title: Título
@@ -83,7 +82,6 @@ gl:
         success_color: Éxito
         time_zone: Fuso horario
         tos_version: Versión de condicións de servizo
-        twitter_handler: Xestor de Twitter
         user_groups_enabled: Activar grupos de usuarios
         users_registration_mode: Modo rexistro de usuarios/as
         warning_color: Aviso
@@ -125,8 +123,6 @@ gl:
           attributes:
             official_img_footer:
               allowed_file_content_types: Ficheiro de imaxe non válido
-            official_img_header:
-              allowed_file_content_types: Ficheiro de imaxe non válido
   activerecord:
     attributes:
       decidim/static_page:
@@ -153,8 +149,6 @@ gl:
         export: Exportar todo
         export-selection: Exportar selección
         import: Importar
-        manage: Xestionar
-        new: Novo %{name}
         newsletter:
           new: Novo boletín
         participatory_space_private_user:
@@ -201,7 +195,6 @@ gl:
           title: Editar carpeta
           update: Actualización
         index:
-          attachment_collection_used: Non se pode eliminar este cartafol porque está en uso.
           attachment_collections_title: Cartafoles adxuntos
         new:
           create: Crear
@@ -247,7 +240,6 @@ gl:
           update: Actualización
         index:
           categories_title: Categorías
-          category_used: Esta categoría non se pode eliminar porque está en uso.
         new:
           create: Crear categoría
           title: Nova categoría
@@ -297,7 +289,6 @@ gl:
         solved: Resolto
         transfer:
           email: Correo electrónico
-          error: Produciuse un problema ao transferir el participante actual a un participante xestionado.
           name: Nome
           reason: Motivo
           success: A transferencia actual completouse con éxito.
@@ -307,10 +298,6 @@ gl:
       dashboard:
         show:
           view_more_logs: Ver máis rexistros
-          welcome: Benvido/a ao panel de administración.
-      domain_whitelist:
-        form:
-          domain_too_short: Dominio curto de máis
       exports:
         export_as: "%{name} como %{export_format}"
         formats:
@@ -376,7 +363,6 @@ gl:
           report_count_eq: Número de denuncias
           reported_id_string_or_reported_content_cont: Procurar %{collection} por contido ou Id reportábel.
           title_cont: Procurar %{collection} por título.
-          user_name_or_user_email_cont: Procurar %{collection} por nome ou correo electrónico.
           user_name_or_user_nickname_or_user_email_cont: Pescudar %{collection} por correo, nome ou alcume.
         state_eq:
           label: Estado
@@ -400,7 +386,6 @@ gl:
             all: Todo
             managed: Xestionado
             not_managed: Non se xestiona
-          filter_by: Filtrar por
           impersonate: Suplantar
           impersonate_new_managed_user: Substituír o novo usuario xestor
           managed: Xestionado
@@ -478,10 +463,10 @@ gl:
         area_types: Tipos de área
         areas: Campos
         configuration: Configuración
-        dashboard: Taboleiro de instrumentos
         help_sections: Seccións de axuda
         homepage: Páxina de inicio
         impersonations: Impersonacións
+        manage: Xestionar
         moderation: Moderacións globais
         newsletters: Boletíns informativos
         participants: Participantes
@@ -556,7 +541,6 @@ gl:
           fields:
             created_at: Data de creación
             email: Correo electrónico
-            last_sign_in_at: Última data de inicio de sesión
             name: Nome
             role: Rol
             roles:
@@ -661,9 +645,6 @@ gl:
           select_scopes: Filtrar polos usuarios que teñan activado calquera ámbito seleccionado nos axustes "Os meus intereses" das súas contas.
           select_spaces: Seleccionar espazos para segmentar o boletín
           select_users: Selecciona a que usuarios queres enviar o boletín
-          send_to_all_users: Enviar a todos os usuarios
-          send_to_followers: Enviar aos seguidores
-          send_to_participants: Enviar aos participantes
           title: Seleccionar os destinatarios
           warning: "<strong>Atención:</strong> Este boletín enviarase só aos usuarios que teñen activado <em>Desexo recibir boletíns</em> nos seus axustes de notificacións."
         show:
@@ -695,7 +676,6 @@ gl:
           officialize: Organizar
           title: Clasificar o usuario "%{name}"
         show_email_modal:
-          close_modal: Pechar modal
           email_address: Enderezo de correo electrónico
           full_name: Nome completo
           hidden: oculto
@@ -710,7 +690,6 @@ gl:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Nalgúns cadros de texto, os participantes poderán inserir algunhas etiquetas HTML empregando o editor de texto avanzado.
           social_handlers: Social
-          twitter: Twitter
           url: URL
           youtube: YouTube
         update:
@@ -723,8 +702,6 @@ gl:
           colors:
             colors_title: Cores da organización
             colors_warning_html: Atención! Mudar estas cores pode estragar ao contrastes de accesibilidade. Podes verificar o contraste da túa elección a través de <a href="%{link}">WebAIM Contrast Checker</a> ou outras ferramentas semellantes.
-            header_snippets_help: Use este campo para engadir cousas ao título HTML. O uso máis común é integrar servizos de terceiros que requiren algún JavaScript ou CSS adicional. Ademais, podes usalo para engadir etiquetas metais extra ao HTML. Ten en conta que isto só se renderá en páxinas públicas, non na sección de administración.
-          cta_button_path_help: 'Pode sobrescribir onde se enlaza o botón de chamada a acción na páxina de inicio. Use aquí rutas parciais, non URL completo. Acepta letras, números, guións e barras, e debe comezar cunha letra. O botón de chamada a acción amósase na páxina de inicio entre o texto de benvida ea descrición. Exemplo: %{url}'
           cta_button_text_help: Pode sobrescribir o texto do botón de chamada a acción na páxina de inicio para cada idioma dispoñible na súa organización. Se non se establece, empregarase o valor predeterminado. O botón de chamada a acción amósase na páxina de inicio entre o texto de benvida ea descrición.
           homepage_appearance_title: Editar o aspecto da páxina de inicio
           homepage_highlighted_content_banner_title: Banner de contido de alto nivel
@@ -732,16 +709,6 @@ gl:
             layout_appearance_title: Editar aspecto de deseño
             preview: Vista Previa
           omnipresent_banner_appearance_title: Editar o banner omnipresente
-      organization_external_domain_whitelist:
-        edit:
-          update: Actualizar
-        external_domain:
-          external_domain: Dominio externo
-          remove: Eliminar
-      organization_homepage:
-        edit:
-          active_content_blocks: Bloques de contido activo
-          inactive_content_blocks: Bloques de contido inactivo
       participatory_space_private_users:
         create:
           error: Produciuse un erro engadindo un usuario privado a este espazo participativo.
@@ -757,7 +724,6 @@ gl:
           title: Novo usuario privado do espazo participativo.
       participatory_space_private_users_csv_imports:
         new:
-          title: Sube o teu ficheiro CSV
           upload: Subir
       reminders:
         create:
@@ -820,7 +786,6 @@ gl:
       shared:
         gallery:
           add_images: Engadir imaxes
-          delete_image: Eliminar imaxe
           edit_images: Editar imaxes
           gallery_legend: Engadir unha galería de imaxes (opcional)
       static_page_topics:
@@ -849,15 +814,12 @@ gl:
           update: Actualización
         form:
           none: Nada
-          slug_help: 'Empregar aquí rutas parciais dos URLs. Acepta letras, números, guións, barras e ten de comezar cunha letra. Exemplo: %{url}'
         index:
           last_notable_change: Último cambio notable
         new:
           create: Crear páxina
           title: Nova páxina
         topic:
-          destroy: Eliminar tema
-          edit: Editar tema
           without_topic: Páxinas sen tema
         update:
           error: Produciuse un erro ao actualizar esta páxina.
@@ -874,7 +836,6 @@ gl:
         participants: Usuarios
         scope_types: Tipos de alcance
         scopes: Ámbitos
-        static_pages: Páxinas
         statistics: Actividade
         user_groups: Grupos de usuarios
         users: Administradores
@@ -918,7 +879,6 @@ gl:
           last_month: O mes pasado
           last_week: A semana pasada
           participants: Participantes
-      view_public_page: Ver páxina pública
     metrics:
       blocked_users:
         object: usuarias bloqueadas
@@ -968,9 +928,5 @@ gl:
   layouts:
     decidim:
       admin:
-        newsletters:
-          title: Boletíns informativos
-        settings:
-          title: Configuración
-        users:
-          title: Usuarios
+        global_moderations:
+          title: Moderacións globais

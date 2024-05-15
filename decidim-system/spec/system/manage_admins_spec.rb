@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Manage admins", type: :system do
+describe "Manage admins" do
   let(:admin) { create(:admin) }
   let!(:admin2) { create(:admin) }
 
@@ -14,7 +14,7 @@ describe "Manage admins", type: :system do
   describe "when creating a new admin" do
     context "with a valid password" do
       it "is created" do
-        click_link "New"
+        click_on "New"
 
         within ".new_admin" do
           fill_in :admin_email, with: "admin@foo.bar"
@@ -36,7 +36,7 @@ describe "Manage admins", type: :system do
 
     context "with an invalid password" do
       it "gives an error" do
-        click_link "New"
+        click_on "New"
 
         within ".new_admin" do
           fill_in :admin_email, with: "admin@foo.bar"
@@ -54,8 +54,8 @@ describe "Manage admins", type: :system do
   describe "when updating an admin" do
     context "with a valid password" do
       it "is updated" do
-        within find("tr", text: admin.email) do
-          click_link "Edit"
+        within "tr", text: admin.email do
+          click_on "Edit"
         end
 
         within ".edit_admin" do
@@ -76,8 +76,8 @@ describe "Manage admins", type: :system do
 
     context "with an invalid password" do
       it "gives an error" do
-        within find("tr", text: admin.email) do
-          click_link "Edit"
+        within "tr", text: admin.email do
+          click_on "Edit"
         end
 
         within ".edit_admin" do
@@ -93,8 +93,8 @@ describe "Manage admins", type: :system do
   end
 
   it "deletes an admin" do
-    within find("tr", text: admin2.email) do
-      accept_confirm { click_link "Delete" }
+    within "tr", text: admin2.email do
+      accept_confirm { click_on "Delete" }
     end
 
     within ".success.flash" do
@@ -102,13 +102,13 @@ describe "Manage admins", type: :system do
     end
 
     within "table" do
-      expect(page).not_to have_content(admin2.email)
+      expect(page).to have_no_content(admin2.email)
     end
   end
 
   it "cannot delete admin rights from self" do
-    within find("tr", text: admin.email) do
-      expect(page).not_to have_link("Delete", visible: :hidden)
+    within "tr", text: admin.email do
+      expect(page).to have_no_link("Delete", visible: :hidden)
     end
   end
 end

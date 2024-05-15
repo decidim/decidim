@@ -6,7 +6,7 @@ shared_examples "update sortitions" do
 
     before do
       visit_component_admin
-      click_link "Edit"
+      click_on "Edit"
     end
 
     it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='sortition-additional_info-tabs']", "full"

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages organization", type: :system do
+describe "Admin manages organization" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
 
@@ -32,7 +32,7 @@ describe "Admin manages organization", type: :system do
       it "does not show the HTML header snippet form field" do
         visit decidim_admin.edit_organization_appearance_path
 
-        expect(page).not_to have_field(:organization_header_snippets)
+        expect(page).to have_no_field(:organization_header_snippets)
       end
     end
 
@@ -42,15 +42,17 @@ describe "Admin manages organization", type: :system do
 
         expect(page).to have_css(".color-picker")
         find(".color-picker summary").click
-        selector = find("#primary-selector")
+        selector = find_by_id("primary-selector")
 
-        selector.click(x: 23, y: 23)
-        expect(find("#preview-primary", visible: :all).value).to eq "#40b3bf"
-        expect(find("#preview-secondary", visible: :all).value).to eq "#bf40b3"
+        selector.find("div[data-value='#40a8bf']").click
+        expect(find_by_id("preview-primary", visible: :all).value).to eq "#40a8bf"
+        expect(find_by_id("preview-secondary", visible: :all).value).to eq "#bf40a8"
+        expect(find_by_id("preview-tertiary", visible: :all).value).to eq "#a8bf40"
 
-        selector.click(x: 323, y: 13)
-        expect(find("#preview-primary", visible: :all).value).to eq "#6e40bf"
-        expect(find("#preview-secondary", visible: :all).value).to eq "#bf6f40"
+        selector.find("div[data-value='#bf408c']").click
+        expect(find_by_id("preview-primary", visible: :all).value).to eq "#bf408c"
+        expect(find_by_id("preview-secondary", visible: :all).value).to eq "#8cbf40"
+        expect(find_by_id("preview-tertiary", visible: :all).value).to eq "#408cbf"
       end
     end
 
@@ -69,15 +71,14 @@ describe "Admin manages organization", type: :system do
       dynamically_attach_file(:organization_favicon, Decidim::Dev.asset("logo.png"), remove_before: true) do
         expect(page).to have_content("Has to be a square image")
       end
-      dynamically_attach_file(:organization_official_img_header, Decidim::Dev.asset("city2.jpeg"), remove_before: true)
       dynamically_attach_file(:organization_official_img_footer, Decidim::Dev.asset("city3.jpeg"), remove_before: true)
 
-      click_button "Update"
+      click_on "Update"
 
       expect(page).to have_content("updated successfully")
 
       within "#minimap" do
-        expect(page.all("img").count).to eq(4)
+        expect(page.all("img").count).to eq(3)
       end
     end
   end

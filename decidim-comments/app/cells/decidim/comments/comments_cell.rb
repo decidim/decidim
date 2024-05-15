@@ -4,10 +4,7 @@ module Decidim
   module Comments
     # A cell to display a comments section for a commentable object.
     class CommentsCell < Decidim::ViewModel
-      include Decidim::IconHelper
-
       delegate :user_signed_in?, to: :controller
-
       def add_comment
         return if single_comment?
         return if comments_blocked?
@@ -86,6 +83,10 @@ module Decidim
 
       def node_id
         "comments-for-#{commentable_type.demodulize}-#{model.id}"
+      end
+
+      def threads_node_id
+        "#{node_id}-threads"
       end
 
       def commentable_type

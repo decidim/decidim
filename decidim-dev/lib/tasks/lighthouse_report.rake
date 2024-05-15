@@ -4,7 +4,7 @@ namespace :decidim do
   namespace :lighthouse do
     desc "Prepares seeds for Lighthouse report"
     task prepare_urls: :environment do
-      # Lighhouse report is executed in CI and should check:
+      # Lighthouse report is executed in CI and should check:
       # - homepage
       # - a participatory process page
       # - a meeting page
@@ -43,8 +43,8 @@ namespace :decidim do
     def lighthouse_paths
       ["/"].tap do |urls|
         urls << Decidim::ResourceLocatorPresenter.new(Decidim::ParticipatoryProcess.published.first).path
-        urls << Decidim::ResourceLocatorPresenter.new(Decidim::Meetings::Meeting.published.first).path
-        urls << Decidim::ResourceLocatorPresenter.new(Decidim::Proposals::Proposal.published.first).path
+        urls << Decidim::ResourceLocatorPresenter.new(Decidim::Meetings::Meeting.published.not_hidden.first).path
+        urls << Decidim::ResourceLocatorPresenter.new(Decidim::Proposals::Proposal.published.not_hidden.first).path
       end
     end
   end

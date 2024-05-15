@@ -26,7 +26,6 @@ is-IS:
       meeting_copies:
         new:
           copy: Afrita
-          select: Veldu hvaða gögn þú vilt afrita
           title: Afrita fundi
     components:
       meetings:
@@ -113,9 +112,6 @@ is-IS:
           services:
             add_service: Bæta við þjónustu
             services: Þjónusta
-        models:
-          meeting:
-            name: Fundur
         registrations:
           edit:
             save: Vista
@@ -146,11 +142,6 @@ is-IS:
           category: Flokkur
           date: Dagsetning
           search: Leita
-        filters_small_view:
-          close_modal: Loka mát
-          filter: Sía
-          filter_by: Sía eftir
-          unfold: Fella út
         meetings:
           upcoming_meetings_warning: Eins og er, eru engar áætlanir fundar, en hér er hægt að finna allar fyrri fundi skráð.
         registration_confirm:

@@ -5,65 +5,39 @@ module Decidim
     module Admin
       # This command is executed when the user creates a Project from the admin
       # panel.
-      class CreateProject < Decidim::Command
+      class CreateProject < Decidim::Commands::CreateResource
         include ::Decidim::GalleryMethods
-
-        def initialize(form)
-          @form = form
-        end
-
-        # Creates the project if valid.
-        #
-        # Broadcasts :ok if successful, :invalid otherwise.
-        def call
-          return broadcast(:invalid) if @form.invalid?
-
-          if process_gallery?
-            build_gallery
-            return broadcast(:invalid) if gallery_invalid?
-          end
-
-          transaction do
-            create_project!
-            link_proposals
-            create_gallery if process_gallery?
-          end
-
-          broadcast(:ok)
-        end
+        fetch_form_attributes :budget, :scope, :category, :title, :description, :budget_amount, :address, :latitude, :longitude
 
         private
 
-        attr_reader :form, :project, :gallery
+        attr_reader :gallery
 
-        def create_project!
-          attributes = {
-            budget: form.budget,
-            scope: form.scope,
-            category: form.category,
-            title: form.title,
-            description: form.description,
-            budget_amount: form.budget_amount,
-            address: form.address,
-            latitude: form.latitude,
-            longitude: form.longitude
-          }
-
-          @project = Decidim.traceability.create!(
-            Project,
-            form.current_user,
-            attributes,
-            visibility: "all"
-          )
-          @attached_to = @project
+        def run_after_hooks
+          @attached_to = resource
+          link_proposals
+          create_gallery if process_gallery?
         end
 
+        def run_before_hooks
+          return unless process_gallery?
+
+          build_gallery
+          raise Decidim::Commands::HookError if gallery_invalid?
+        end
+
+        def extra_params
+          { visibility: "all" }
+        end
+
+        def resource_class = Decidim::Budgets::Project
+
         def proposals
-          @proposals ||= project.sibling_scope(:proposals).where(id: form.proposal_ids)
+          @proposals ||= resource.sibling_scope(:proposals).where(id: form.proposal_ids)
         end
 
         def link_proposals
-          project.link_resources(proposals, "included_proposals")
+          resource.link_resources(proposals, "included_proposals")
         end
       end
     end

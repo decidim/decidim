@@ -41,9 +41,11 @@ cs:
         confirm_destroy: Opravdu chcete smazat tento %{name}?
         destroy: Odstranit
         edit: Upravit
-        import: Importovat projekty do výsledků
-        import_csv: Importovat CSV
-        new: Nový %{name}
+        import: Importovat projekty z jiné komponenty
+        import_csv: Importovat výsledky z CSV souboru
+        new_result: Nový výsledek
+        new_status: Nový status
+        new_timeline_entry: Nový záznam v časové ose
         preview: Náhled
         timeline_entries: Vývoj projektu
         title: Akce
@@ -76,17 +78,16 @@ cs:
                 </ul>
               </li>
               </ol>
-            title: Importovat výsledky z CSV
+            title: Importovat výsledky z CSV souboru
         imports:
           create:
+            invalid: Při importu výsledků došlo k chybě.
             success: Soubor se začal importovat. Během několika následujících minut obdržíte e-mail s výsledkem importu.
         models:
           result:
             name: Výsledek
           status:
             name: Stav
-          timeline_entry:
-            name: Záznam v harmonogramu
         projects_import:
           create:
             invalid: Došlo k potížím při importu projektů do výsledků, postupujte prosím pečlivě podle pokynů a ujistěte se, že jste vybrali projekty pro realizaci.
@@ -106,7 +107,7 @@ cs:
               few: "%{count} projekty, které mají být importovány. Po dokončení budete upozorněni e-mailem."
               many: "%{count} projektů, které mají být importovány. Po dokončení budete upozorněni e-mailem."
               other: "%{count} projektů, které mají být importovány. Po dokončení budete upozorněni e-mailem."
-            title: Importovat projekty k odpovědnosti
+            title: Importovat projekty z jiné komponenty
         results:
           create:
             invalid: Při vytváření tohoto výsledku nastal problém.
@@ -179,9 +180,7 @@ cs:
             not_found: 'Nadřazený nebyl nalezen v databázi (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Data
           results: Výsledky
-          unspecified: Nespecifikováno
       import_mailer:
         import:
           errors: Chyby
@@ -222,9 +221,6 @@ cs:
           fields:
             entry_date: Datum
             title: Název
-      result_m:
-        executed: Provedeno
-        view: Zobrazit
       results:
         count:
           results_count:
@@ -236,24 +232,19 @@ cs:
           all: Vše
         home:
           categories_label: Kategorie
+          empty: Zatím nejsou žádné výsledky.
+          empty_filters: S těmito kritérii nejsou žádné výsledky.
           subcategories_label: Podkategorie
         home_header:
           global_status: Globální stav provedení
         nav_breadcrumb:
           global: Globální provedení
+        no_results: Nebyly nalezeny žádné projekty
         search:
           search: Hledat akce
         show:
           stats:
-            attendees: Účastníci
             back_to_resource: Přejít zpět na výsledek
-            comments: Komentáře
-            contributions: Příspěvky
-            last_edited_by: Naposledy upravil
-            last_updated_at: Poslední aktualizace v
-            meetings: Setkání
-            proposals: Návrhy
-            votes: Hlasy
         timeline:
           title: Vývoj projektu
     admin:

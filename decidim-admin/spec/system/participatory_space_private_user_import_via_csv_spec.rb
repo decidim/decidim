@@ -2,18 +2,20 @@
 
 require "spec_helper"
 
-describe "Admin manages participatory space private users via csv import", type: :system do
+describe "Admin manages participatory space private users via csv import" do
   let(:organization) { create(:organization) }
 
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
-  let(:assembly) { create(:assembly, organization:) }
+  let(:assembly) { create(:assembly, organization:, private_space: true) }
 
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
-    find("a[href*='participatory_space_private_users']").click
-    find("a[href*='csv_import'").click
+    within_admin_sidebar_menu do
+      click_on "Private users"
+    end
+    click_on "Import via CSV"
   end
 
   it "show the form to add some private users via csv" do
@@ -33,7 +35,7 @@ describe "Admin manages participatory space private users via csv import", type:
     end
 
     it "propose to delete" do
-      expect(page).to have_selector(".alert")
+      expect(page).to have_css(".alert")
     end
 
     it "ask you for confirmation and delete existing users" do
@@ -41,7 +43,7 @@ describe "Admin manages participatory space private users via csv import", type:
 
       expect(page).to have_content("Are you sure you want to delete all private participants?")
 
-      find("a.button[data-confirm-ok]").click
+      click_on("OK")
 
       expect(page).to have_content("You have no private participants")
     end

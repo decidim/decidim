@@ -39,9 +39,11 @@ fi-pl:
         confirm_destroy: Oletko varma, että haluat poistaa tämän tuloksen?
         destroy: Poista
         edit: Muokkaa
-        import: Tuo hankkeita tuloksiin
-        import_csv: Tuo CSV
-        new: Uusi %{name}
+        import: Tuo hankkeita toisesta komponentista
+        import_csv: Tuo tulokset CSV-tiedostosta
+        new_result: Uusi tulos
+        new_status: Uusi tila
+        new_timeline_entry: Uusi aikajanan merkintä
         preview: Esikatsele
         timeline_entries: Projektin edistyminen
         title: Toiminnot
@@ -77,14 +79,13 @@ fi-pl:
             title: Tuo tulokset CSV-tiedostosta
         imports:
           create:
+            invalid: Tulosten tuonti epäonnistui.
             success: Tiedoston tuominen on aloitettu. Saat muutaman minuutin kuluttua sähköpostin, jossa ilmoitetaan tuonnin lopputulos.
         models:
           result:
             name: Tulos
           status:
             name: Tila
-          timeline_entry:
-            name: Aikajanan merkintä
         projects_import:
           create:
             invalid: Hankkeiden tuominen tuloksiin epäonnistui, seuraa ohjeita tarkasti ja tarkasta, että olet valinnut hankkeita toteutukseen.
@@ -100,7 +101,7 @@ fi-pl:
             success:
               one: 1 hanke on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu.
               other: "%{count} hanketta on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu."
-            title: Tuo hankkeita vastuullisuuskomponenttiin
+            title: Tuo hankkeita toisesta komponentista
         results:
           create:
             invalid: Tuloksen luonti epäonnistui.
@@ -173,9 +174,7 @@ fi-pl:
             not_found: 'Pääelementtiä ei löytynyt tietokannasta (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Päivämäärät
           results: Tulokset
-          unspecified: Ei määritelty
       import_mailer:
         import:
           errors: Virheet
@@ -214,9 +213,6 @@ fi-pl:
           fields:
             entry_date: Päivämäärä
             title: Otsikko
-      result_m:
-        executed: Valmistunut
-        view: Näytä
       results:
         count:
           results_count:
@@ -226,24 +222,19 @@ fi-pl:
           all: Kaikki
         home:
           categories_label: Aihepiirit
+          empty: Ei yhtään tulosta.
+          empty_filters: Tuloksia ei löytynyt annetuilla hakuehdoilla.
           subcategories_label: Ala-aihepiiri
         home_header:
           global_status: Yleisen toteutuksen tila
         nav_breadcrumb:
           global: Yleinen toteutus
+        no_results: Hankkeita ei ole saatavilla
         search:
           search: Hae toimintoja
         show:
           stats:
-            attendees: Osallistujat
             back_to_resource: Palaa tulokseen
-            comments: Kommentit
-            contributions: Osallistumiset
-            last_edited_by: Viimeksi muokannut
-            last_updated_at: Päivitetty viimeksi
-            meetings: Tapaamiset
-            proposals: Ehdotukset
-            votes: Kannatukset
         timeline:
           title: Projektin kehitys
     admin:

@@ -31,7 +31,6 @@ lv:
         confirm_destroy: Vai esat pārliecināts?
         destroy: Dzēst
         edit: Labot
-        new: Jauns %{name}
         title: Darbības
       admin:
         debates:
@@ -49,9 +48,6 @@ lv:
           update:
             invalid: Šo debašu atjaunināšanas laikā radās problēma.
             success: Debates ir veiksmīgi atjauninātas
-        models:
-          debate:
-            name: Debates
       admin_log:
         debate:
           create: "%{user_name} izveidoja %{resource_name} debates telpā %{space_name}"
@@ -60,8 +56,6 @@ lv:
         create:
           invalid: Debašu izveides laikā radās problēma.
           success: Debates ir veiksmīgi izveidotas.
-        debate:
-          participate: Piedalīties
         filters:
           all: Visi
           category: Kategorija
@@ -69,19 +63,12 @@ lv:
           official: Oficiālā
           origin: Izcelsme
           search: Meklēt
-        filters_small_view:
-          close_modal: Aizvērt modal
-          filter: Filtrēt
-          filter_by: Filtrēt pēc
-          unfold: Atritināt
         index:
           new_debate: Jaunas debates
         new:
           back: Atpakaļ
           create: Izveidot
           title: Jaunas debates
-        show:
-          back: Atpakaļ uz sarakstu
       models:
         debate:
           fields:
@@ -92,12 +79,6 @@ lv:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_intro: |-
-              Sveiki, %{space_title} līdzdalības telpā ir izveidotas jaunas debates "%{resource_title}", aplūkojiet tās un piedalieties:
-            email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
-            email_subject: Jaunas debates "%{resource_title}" par %{space_title}
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> debates tika izveidotas telpā <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Sveiki,%{author_name}%{author_nickname}, kam jūs sekojat, ir izveidojis jaunas debates "%{resource_title}". Aplūkojiet tās un piedalieties:

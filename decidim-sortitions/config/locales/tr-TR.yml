@@ -36,7 +36,7 @@ tr:
         actions:
           destroy: Sıralamayı iptal et
           edit: Düzenle
-          new: Yeni sıralama
+          new_sortition: Yeni Sıralama
           show: Sıralama detayları
         models:
           sortition:
@@ -50,9 +50,6 @@ tr:
               seed: Çekirdek
               target_items: Seçilecek öğeler
               title: Başlık
-            name:
-              one: Sıralama
-              other: Sıralama
         sortitions:
           confirm_destroy:
             confirm_destroy: Bu sıralamayı iptal etmek istediğinize emin misiniz?
@@ -66,7 +63,6 @@ tr:
           form:
             all_categories: Tüm Kategoriler
             select_proposal_component: Teklif kümesini seçin
-            title: Teklifler için yeni sıralama
           index:
             title: Sıralama
           new:
@@ -91,14 +87,7 @@ tr:
           all: Tümü
           cancelled: İptal edildi
           category: Kategori
-          category_prompt: Bir kategori seç
-          search: Arama
           state: Statü
-        filters_small_view:
-          close_modal: Pencereyi kapat
-          filter: Filtrele
-          filter_by: Şuna göre filtrele
-          unfold: Aç
         linked_sortitions:
           selected_proposals: Seçili teklifler
         orders:
@@ -112,24 +101,22 @@ tr:
         show:
           algorithm: Sıralamanın algoritma kodu
           any_category: tüm kategorilerden
-          back: Listeye geri dön
           cancelled: İptal edilen sıralama
           candidate_proposal_ids: Sıralama tekliflerinin sırası ve ID'si
           candidate_proposals_info: 'Sıralama, aşağıdaki teklifler arasında (%{category_label}), aşağıdaki kimliklerle gerçekleştirildi (seçilen teklifler kalın olarak)  '
           category: '%{category} kategoriden'
-          dice_result: "(1) Zar sonucu"
+          dice_result: (1) Zar sonucu
           introduction: 'Bu sayfa, %{reference} sıralamasının sonuçlarını içerir. Bu sıralama sayesinde, %{target_items} sonuç sayısı rasgele ve aşağıda gösterilen teklif kümesinden eşit olasılık dağılımıyla seçilmiştir. Sonuçlarla birlikte, bu sayfada görüntülenen bilgiler, garantileri en üst düzeye çıkarmak ve sonuçları yeniden üretmek için gereken tüm bilgileri sağlar. Bu sınıflandırmanın kalitesinin anahtarı, bir zarın yuvarlanmasıyla sağlanan (tanıklar tarafından doğrulanan) çift rastlantısallık ve rasgele bir seçim oluşturan bir algoritma için girdi sağlayan sıralamanın kesin zamanıdır. Ayırma için zaman-tohum o kadar doğrudur (saniye) ki, insanlar tarafından kontrol edilmesi imkansızdır, böylece adil bir sonucu garantilemek için çift "kontrol edilemez" bir girdi sağlar.  '
           mathematical_result: Sonuç (1) x (2)
           proposals_selected_by_sortition: Sıralamaya göre seçilen teklifler
           sortition_reproducibility_details: Sıralama yeniden üretilebilirlik ayrıntıları
-          time_seed: "(2) Zaman tohumu"
+          time_seed: (2) Zaman tohumu
           witnesses: Tanıklar
         sortition:
           random_seed: Rastgele tohum
           selected_proposals:
             one: teklif seçildi
             other: teklif seçildi
-          view: Görünüm
         sortition_author:
           deleted: Silinmiş katılımcı
         sortition_cancel_author:

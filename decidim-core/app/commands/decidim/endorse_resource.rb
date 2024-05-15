@@ -8,7 +8,7 @@ module Decidim
     #
     # resource     - An instance of Decidim::Endorsable.
     # current_user - The current user.
-    # current_group_id- (optional) The current_grup that is endorsing the Resource.
+    # current_group_id- (optional) The current_group that is endorsing the Resource.
     def initialize(resource, current_user, current_group_id = nil)
       @resource = resource
       @current_user = current_user
@@ -31,6 +31,8 @@ module Decidim
       else
         broadcast(:invalid)
       end
+    rescue ActiveRecord::RecordNotUnique
+      broadcast(:invalid)
     end
 
     private

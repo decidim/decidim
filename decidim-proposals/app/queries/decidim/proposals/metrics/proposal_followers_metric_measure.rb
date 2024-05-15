@@ -46,7 +46,7 @@ module Decidim
         end
 
         def retrieve_proposals
-          Decidim::Proposals::Proposal.where(component: @resource).except_withdrawn
+          Decidim::Proposals::Proposal.where(component: @resource).not_withdrawn
         end
 
         def retrieve_collaborative_drafts

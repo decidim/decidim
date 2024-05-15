@@ -1,5 +1,5 @@
 /* eslint-disable require-jsdoc */
-import getCoordinateInputName from "./coordinate_input"
+import getCoordinateInputName from "src/decidim/geocoding/coordinate_input"
 
 /**
  * You can use this method to "attach" front-end geocoding to any forms in the
@@ -125,7 +125,10 @@ export default function attachGeocoding($input, options, callback) {
   $input.on("geocoder-suggest-coordinates.decidim", (_ev, coordinates) => {
     setCoordinates(coordinates);
     geocoded = true;
-    callback(coordinates)
+    if (typeof callback === "function") {
+      callback(coordinates);
+      return;
+    }
   });
 
   // Set the initial values if the field defines the coordinates

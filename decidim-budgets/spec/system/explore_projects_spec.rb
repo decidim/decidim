@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore projects", :slow, type: :system do
+describe "Explore projects", :slow do
   include_context "with a component"
   let(:manifest_name) { "budgets" }
   let(:budget) { create(:budget, component:) }
@@ -19,17 +19,28 @@ describe "Explore projects", :slow, type: :system do
 
     before do
       visit_budget
-      click_link translated(project.title)
+      click_on translated(project.title)
     end
 
     it_behaves_like "has embedded video in description", :description
   end
 
   describe "index" do
+    context "when there are no projects" do
+      let!(:projects) { nil }
+      let(:project) { nil }
+
+      it "shows an empty page with a message" do
+        visit_budget
+
+        expect(page).to have_content("There are no projects yet")
+      end
+    end
+
     it "shows all resources for the given component" do
       visit_budget
       within "#projects" do
-        expect(page).to have_selector(".card__list", count: projects_count)
+        expect(page).to have_css(".card__list", count: projects_count)
       end
 
       projects.each do |project|
@@ -44,7 +55,7 @@ describe "Explore projects", :slow, type: :system do
           fill_in "filter[search_text_cont]", with: translated(project.title)
 
           within "div.filter-search" do
-            click_button
+            click_on
           end
         end
 
@@ -62,11 +73,11 @@ describe "Explore projects", :slow, type: :system do
         within "aside form.new_filter" do
           fill_in("filter[search_text_cont]", with: "foobar")
           within "div.filter-search" do
-            click_button
+            click_on
           end
         end
 
-        expect(page).not_to have_content("Another project")
+        expect(page).to have_no_content("Another project")
         expect(page).to have_content("Foobar project")
 
         filter_params = CGI.parse(URI.parse(page.current_url).query)
@@ -81,7 +92,6 @@ describe "Explore projects", :slow, type: :system do
         visit_budget
 
         within "#panel-dropdown-menu-scope" do
-          click_filter_item "All"
           click_filter_item translated(scope.name)
         end
 
@@ -99,8 +109,7 @@ describe "Explore projects", :slow, type: :system do
         visit_budget
 
         within "#panel-dropdown-menu-category" do
-          click_filter_item "All"
-          click_filter_item translated(category.name)
+          click_filter_item decidim_escape_translated(category.name)
         end
 
         within "#projects" do

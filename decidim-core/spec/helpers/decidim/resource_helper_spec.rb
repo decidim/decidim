@@ -7,28 +7,12 @@ module Decidim
     let(:component) { create(:component) }
     let(:resource) { create(:dummy_resource, component:) }
 
-    describe "linked_resources_for" do
-      let(:linked_resource) { create(:dummy_resource, component:, title: { en: "Dummy title" }) }
-
-      before do
-        resource.link_resources(linked_resource, "test_link")
-      end
-
-      it "renders the linked resources using the template" do
-        content = helper.linked_resources_for(resource, :dummy, "test_link")
-
-        expect(content).to include("Dummy title")
-        expect(content).to include("section-heading")
-        expect(content).to include("Related dummy")
-      end
-    end
-
     describe "linked_classes_for" do
-      subject { helper.linked_classes_for(DummyResources::DummyResource) }
+      subject { helper.linked_classes_for(Dev::DummyResource) }
 
       context "when it is not resourceable" do
         before do
-          allow(DummyResources::DummyResource)
+          allow(Dev::DummyResource)
             .to receive(:respond_to?)
             .with(:linked_classes_for)
             .and_return(false)
@@ -42,7 +26,7 @@ module Decidim
           allow(helper)
             .to receive(:current_component)
             .and_return(component)
-          allow(DummyResources::DummyResource)
+          allow(Dev::DummyResource)
             .to receive(:linked_classes_for)
             .and_return(["Decidim::Meetings::Meeting"])
         end
@@ -54,7 +38,7 @@ module Decidim
     end
 
     describe "linked_classes_filter_values_for" do
-      subject { helper.linked_classes_filter_values_for(DummyResources::DummyResource) }
+      subject { helper.linked_classes_filter_values_for(Dev::DummyResource) }
 
       before do
         allow(helper)

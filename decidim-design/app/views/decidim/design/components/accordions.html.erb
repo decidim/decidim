@@ -1,0 +1,68 @@
+<% content_for :heading do %>
+  <%= t(".title") %>
+<% end %>
+
+<% content_for :description do %>
+  <% accordions_description_link = "https://github.com/jonathanlevaillant/a11y-accordion-component" %>
+  <%= t(".description_accordions_html", link_code: link_to(accordions_description_link, accordions_description_link, target: "_blank", rel: "noopener noreferrer")) %>
+<% end %>
+
+<% content_for :toc do %>
+  <a href="#example"><%= t(".demo") %></a>
+  <a href="#usage"><%= t(".usage") %></a>
+<% end %>
+
+<section id="demo" class="design__section">
+  <h2><%= t(".demo") %></h2>
+
+  <p><%= t(".demo_description") %></p>
+
+  <div data-component="accordion" data-multiselectable="false" id="example-accordion-1">
+    <ul class="tab-x-container">
+      <% 3.times do |tab| %>
+        <li>
+          <button id="trigger-1-<%= tab %>" class="tab-x" data-controls="panel-1-<%= tab %>" <%= "data-open=true" if tab.zero? %>>
+            <%= t(".trigger") %> <%= tab %>
+          </button>
+        </li>
+      <% end %>
+    </ul>
+
+    <% 3.times do |panel| %>
+      <div id="panel-1-<%= panel %>" class="py-8 text-sm font-italic">
+        <%= t(".content_panel") %> <%= panel %>
+      </div>
+    <% end %>
+  </div>
+</section>
+
+<section id="usage" class="design__section">
+  <h2><%= t(".usage") %></h2>
+
+  <p><%= t(".usage_p") %></p>
+
+  <p><%= t(".usage_p_1_html") %></p>
+
+  <p><%= t(".usage_p_2_html") %></p>
+
+  <p><%= t(".usage_p_3_html") %></p>
+
+  <div class="design__section-snippet" style="margin-top: inherit;">
+    <% github_link = "https://github.com/decidim/decidim/blob/develop/decidim-core/app/packs/src/decidim/a11y.js" %>
+    <p><%= t(".github_source_html", github_link: link_to("decidim-core/app/packs/src/decidim/a11y.js", github_link, target: "_blank", rel: "noopener noreferrer")) %></p>
+
+    <code>
+      <textarea spellcheck="false" rows="8">
+<div data-component="accordion" id="example-accordion">
+  <button id="trigger" data-controls="panel">
+    <%= t(".trigger") %>
+  </button>
+
+  <div id="panel" aria-hidden="true">
+    <%= t(".panel") %>
+  </div>
+</div>
+      </textarea>
+    </code>
+  </div>
+</section>

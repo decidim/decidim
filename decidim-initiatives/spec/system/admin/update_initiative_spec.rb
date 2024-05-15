@@ -2,15 +2,15 @@
 
 require "spec_helper"
 
-describe "User prints the initiative", type: :system do
+describe "User prints the initiative" do
   include_context "when admins initiative"
 
   def submit_and_validate
-    find("*[type=submit]").click
-
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
+    within("[data-content]") do
+      find("*[type=submit]").click
     end
+
+    expect(page).to have_admin_callout "The initiative has been successfully updated."
   end
 
   context "when initiative update" do
@@ -107,8 +107,8 @@ describe "User prints the initiative", type: :system do
           page.find(".action-icon--edit").click
 
           within ".edit_initiative" do
-            expect(page).not_to have_css("label[for='initiative_type_id']")
-            expect(page).not_to have_css("#initiative_type_id")
+            expect(page).to have_no_css("label[for='initiative_type_id']")
+            expect(page).to have_no_css("#initiative_type_id")
           end
         end
       end

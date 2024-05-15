@@ -12,7 +12,7 @@ shared_examples "when managing proposals scope as an admin" do
 
     context "when selecting proposals" do
       before do
-        page.find("#proposals_bulk.js-check-all").set(true)
+        page.find_by_id("proposals_bulk", class: "js-check-all").set(true)
       end
 
       it "shows the number of selected proposals" do
@@ -25,7 +25,7 @@ shared_examples "when managing proposals scope as an admin" do
 
       context "when click the bulk action button" do
         before do
-          click_button "Actions"
+          click_on "Actions"
         end
 
         it "shows the bulk actions dropdown" do
@@ -39,12 +39,12 @@ shared_examples "when managing proposals scope as an admin" do
 
       context "when change scope is selected from actions dropdown" do
         before do
-          click_button "Actions"
-          click_button "Change scope"
+          click_on "Actions"
+          click_on "Change scope"
         end
 
         it "shows the scope select" do
-          expect(page).to have_css("#scope_id.data-picker.picker-single", count: 1)
+          expect(page).to have_css("#scope_id", count: 1)
         end
 
         it "shows an update button" do

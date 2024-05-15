@@ -11,9 +11,9 @@ $(() => {
   const $form = $(".meetings_form");
   if ($form.length > 0) {
     const $meetingTypeOfMeeting = $form.find("#meeting_type_of_meeting");
-    const $meetingOnlineFields = $form.find(".field[data-meeting-type='online']");
-    const $meetingInPersonFields = $form.find(".field[data-meeting-type='in_person']");
-    const $meetingOnlineAccessLevelFields = $form.find(".field[data-meeting-type='online-access-level']");
+    const $meetingOnlineFields = $form.find("[data-meeting-type='online']");
+    const $meetingInPersonFields = $form.find("[data-meeting-type='in_person']");
+    const $meetingOnlineAccessLevelFields = $form.find("[data-meeting-type='online-access-level']");
 
     const toggleDependsOnSelect = ($target, $showDiv, type) => {
       const value = $target.val();
@@ -62,7 +62,7 @@ $(() => {
 
     createFieldDependentInputs({
       controllerField: $("#meeting_iframe_embed_type"),
-      wrapperSelector: ".iframe-fields",
+      wrapperSelector: "main",
       dependentFieldsSelector: ".iframe-fields--access-level",
       dependentInputSelector: "input",
       enablingCondition: ($field) => {

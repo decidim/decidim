@@ -1,3 +1,3 @@
-import "./loader"
-import "./a2hs"
-import "./push-permissions"
+import "src/decidim/sw/loader"
+import "src/decidim/sw/a2hs"
+import "src/decidim/sw/push-permissions"

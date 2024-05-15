@@ -69,9 +69,6 @@ sr:
       show:
         direct_messages: Primaj direktne poruke od svih bez ograničenja
     pages:
-      home:
-        metrics:
-          headline: Metrika
       participatory_space:
         metrics:
           headline: Metrika

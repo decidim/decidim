@@ -24,6 +24,7 @@ module Decidim::Surveys
             answer_options << answer_option.attributes
           end
           question_attrs[:answer_options] = answer_options
+          question_attrs = question_attrs.reject { |key, _value| key.ends_with?("_count") }
           questions << question_attrs
         end
         questionnaire_attrs[:questions] = questions

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages participatory process private users", type: :system do
+describe "Admin manages participatory process private users" do
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:organization) { create(:organization) }
   let!(:participatory_process) { create(:participatory_process, organization:, private_space: true) }

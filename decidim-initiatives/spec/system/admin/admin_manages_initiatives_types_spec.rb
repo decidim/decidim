@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages initiatives types", type: :system do
+describe "Admin manages initiatives types" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
   let!(:initiatives_type) { create(:initiatives_type, organization:) }
@@ -21,7 +21,7 @@ describe "Admin manages initiatives types", type: :system do
 
   context "when creating an initiative type" do
     it "creates the initiative type" do
-      click_link "New initiative type"
+      click_on "New initiative type"
 
       fill_in_i18n(
         :initiatives_type_title,
@@ -39,17 +39,15 @@ describe "Admin manages initiatives types", type: :system do
 
       dynamically_attach_file(:initiatives_type_banner_image, Decidim::Dev.asset("city2.jpeg"))
 
-      click_button "Create"
+      click_on "Create"
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("A new initiative type has been successfully created")
-      end
+      expect(page).to have_admin_callout("A new initiative type has been successfully created")
     end
   end
 
   context "when updating an initiative type" do
     it "updates the initiative type" do
-      within find("tr", text: translated(initiatives_type.title)) do
+      within "tr", text: translated(initiatives_type.title) do
         page.find(".action-icon--edit").click
       end
 
@@ -66,25 +64,21 @@ describe "Admin manages initiatives types", type: :system do
       check "Enable authors to choose the area for their initiative"
       uncheck "Enable comments"
 
-      click_button "Update"
+      click_on "Update"
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("The initiative type has been successfully updated")
-      end
+      expect(page).to have_admin_callout("The initiative type has been successfully updated")
     end
   end
 
   context "when deleting an initiative type" do
     it "deletes the initiative type" do
-      within find("tr", text: translated(initiatives_type.title)) do
-        accept_confirm(admin: true) do
+      within "tr", text: translated(initiatives_type.title) do
+        accept_confirm do
           page.find(".action-icon--remove").click
         end
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("The initiative type has been successfully removed")
-      end
+      expect(page).to have_admin_callout("The initiative type has been successfully removed")
     end
   end
 end

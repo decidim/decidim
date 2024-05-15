@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "SMS code request", type: :system do
+describe "SMS code request" do
   let!(:organization) do
     create(:organization, available_authorizations: ["sms"])
   end
@@ -22,7 +22,7 @@ describe "SMS code request", type: :system do
   context "when requesting a code by sms" do
     before do
       fill_in "Mobile phone number", with: "600102030"
-      click_button "Send me an SMS"
+      click_on "Send me an SMS"
     end
 
     it "allows the user to request a code by sms to get verified" do

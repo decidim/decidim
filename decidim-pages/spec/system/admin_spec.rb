@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Edit a page", type: :system do
+describe "Edit a page" do
   include_context "when managing a component as an admin"
   let(:component) { create(:component, manifest_name: "pages", participatory_space: participatory_process) }
   let(:manifest_name) { "pages" }

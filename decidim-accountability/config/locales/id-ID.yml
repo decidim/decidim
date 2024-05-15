@@ -34,7 +34,6 @@ id:
         confirm_destroy: Anda yakin ingin menghapus %{name}ini?
         destroy: Menghapus
         edit: Edit
-        new: Baru %{name}
         preview: Pratinjau
         timeline_entries: Evolusi proyek
         title: Tindakan
@@ -46,8 +45,6 @@ id:
             name: Hasil
           status:
             name: Status
-          timeline_entry:
-            name: Entri waktu
         results:
           edit:
             title: Edit hasil
@@ -120,15 +117,7 @@ id:
           search: Cari tindakan
         show:
           stats:
-            attendees: Hadirin
             back_to_resource: Kembali ke hasil
-            comments: Komentar
-            contributions: Kontribusi
-            last_edited_by: Terakhir diedit oleh
-            last_updated_at: Terakhir diperbarui pada
-            meetings: Rapat
-            proposals: Proposal
-            votes: Mendukung
         timeline:
           title: Evolusi proyek
     components:

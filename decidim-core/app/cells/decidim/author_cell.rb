@@ -5,9 +5,7 @@ module Decidim
   # below resource titles to indicate its authorship & such, and is intended
   # for resources that have a single author.
   class AuthorCell < Decidim::ViewModel
-    include LayoutHelper
     include CellsHelper
-    include Decidim::SanitizeHelper
     include ::Devise::Controllers::Helpers
     include ::Devise::Controllers::UrlHelpers
     include Messaging::ConversationHelper

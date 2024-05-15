@@ -11,7 +11,7 @@
     <h2 class="h3 text-secondary"><%= present(@proposal).title(links: true, html_escape: true) %></h2>
 
     <% unless component_settings.participatory_texts_enabled? %>
-      <%= cell "decidim/coauthorships", @proposal %>
+      <%= cell "decidim/coauthorships", @proposal, context_actions: [] %>
     <% end %>
 
     <div class="editor-content">

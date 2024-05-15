@@ -67,7 +67,6 @@ nl:
         machine_translation_display_priority_translation: Vertaalde tekst eerst
         name: Naam
         official_img_footer: Officieel logo voettekst
-        official_img_header: Officieel logo header
         official_url: Officiële URL van de organisatie
         omnipresent_banner_short_description: Korte beschrijving
         omnipresent_banner_title: Titel
@@ -84,7 +83,6 @@ nl:
         success_color: Succes
         time_zone: Tijdszone
         tos_version: Servicevoorwaarden versie
-        twitter_handler: Twitter gebruikersnaam
         user_groups_enabled: Groepen inschakelen
         users_registration_mode: Gebruikers registratiemodus
         warning_color: Waarschuwing
@@ -126,8 +124,6 @@ nl:
           attributes:
             official_img_footer:
               allowed_file_content_types: Ongeldig afbeeldingsbestand
-            official_img_header:
-              allowed_file_content_types: Ongeldig afbeeldingsbestand
   activerecord:
     attributes:
       decidim/static_page:
@@ -154,8 +150,6 @@ nl:
         export: Alles exporteren
         export-selection: Selectie exporteren
         import: Importeren
-        manage: Beheer
-        new: Nieuwe %{name}
         newsletter:
           new: Nieuwe nieuwsbrief
         participatory_space_private_user:
@@ -204,7 +198,6 @@ nl:
           title: Bewerk map
           update: Bijwerken
         index:
-          attachment_collection_used: Deze map kan niet worden verwijderd omdat deze in gebruik is.
           attachment_collections_title: Bijlagemappen
         new:
           create: creëren
@@ -251,7 +244,6 @@ nl:
           update: Bijwerken
         index:
           categories_title: Categorieën
-          category_used: Deze categorie kan niet worden verwijderd omdat het in gebruik is.
         new:
           create: Categorie creëren
           title: Nieuwe categorie
@@ -302,7 +294,6 @@ nl:
         title: Controle conflicten
         transfer:
           email: E-mail
-          error: Er is een probleem opgetreden bij het overbrengen van de huidige deelnemer naar een beheerde deelnemer.
           name: Naam
           reason: Reden
           success: De overdracht is met succes voltooid.
@@ -312,10 +303,6 @@ nl:
       dashboard:
         show:
           view_more_logs: Bekijk meer logs
-          welcome: Welkom bij de beheerder omgeving.
-      domain_whitelist:
-        form:
-          domain_too_short: Domein te kort
       exports:
         export_as: "%{name} als %{export_format}"
         formats:
@@ -381,7 +368,6 @@ nl:
           report_count_eq: Aantal rapporteringen
           reported_id_string_or_reported_content_cont: Zoek %{collection} op rapporteerbaar id of op inhoud.
           title_cont: Zoek %{collection} op titel.
-          user_name_or_user_email_cont: '%{collection} doorzoeken op Id of titel.'
           user_name_or_user_nickname_or_user_email_cont: Doorzoek %{collection} op e-mail, naam of bijnaam.
         state_eq:
           label: Provincie
@@ -405,7 +391,6 @@ nl:
             all: Alle
             managed: Beheerd
             not_managed: Niet beheerd
-          filter_by: Sorteren op
           impersonate: Nabootsen
           impersonate_new_managed_user: Beheer nieuwe deelnemer
           managed: Beheerd
@@ -491,11 +476,10 @@ nl:
         area_types: Pagina types
         areas: Thema's
         configuration: Configuratie
-        dashboard: Dashboard
-        external_domain_whitelist: Toegelaten externe domeinen
         help_sections: Helpsecties
         homepage: Startpagina
         impersonations: Zich voordoen als
+        manage: Beheer
         moderation: Algemene moderatie
         newsletters: Nieuwsbrieven
         participants: Deelnemers
@@ -570,7 +554,6 @@ nl:
           fields:
             created_at: Aanmaakdatum
             email: E-mail
-            last_sign_in_at: Datum laatste login
             name: Naam
             role: Rol
             roles:
@@ -676,9 +659,6 @@ nl:
           select_scopes: Filter gebruikers uit die een scope geselecteerd hebben in de Mijn interesses instellingen van hun account.
           select_spaces: Selecteer ruimtes om de nieuwsbrief te segmenteren
           select_users: Selecteer welke gebruikers u de nieuwsbrief wilt verzenden
-          send_to_all_users: Stuur naar alle gebruikers
-          send_to_followers: Stuur naar volgers
-          send_to_participants: Stuur naar deelnemers
           title: Selecteer ontvangers
           warning: "<strong>Opgelet:</strong> Deze nieuwsbrief zal alleen worden verzonden naar gebruikers die <em>Ik wil nieuwsbrieven ontvangen</em> in hun notificatie instellingen hebben geactiveerd."
         show:
@@ -710,7 +690,6 @@ nl:
           officialize: Bevestigen
           title: Deelnemer "%{name}" officieel maken
         show_email_modal:
-          close_modal: Sluit venster
           description: Als je rechtstreeks contact wil opnemen met een deelnemer, kun je op de knop Weergeven klikken om het e-mailadres te zien. Voor deze actie worden logbestanden bewaard.
           email_address: E-mail adres
           full_name: Volledige naam
@@ -727,7 +706,6 @@ nl:
           instagram: Instagram
           rich_text_editor_in_public_views_help: In bepaalde teksten kunnen deelnemers enkele HTML-tags toevoegen door gebruik te maken van de rich text-editor.
           social_handlers: Sociaal
-          twitter: Twitter
           url: URL
           youtube: YouTube
         update:
@@ -740,8 +718,6 @@ nl:
           colors:
             colors_title: Organisatiekleuren
             colors_warning_html: Waarschuwing! Het wijzigen van deze kleuren kan de toegankelijkheid verminderen door een te klein contrast. Je kunt het contrast van je keuze nakijken met <a href="%{link}">WebAIM Contrast Checker</a> of andere vergelijkbare tools.
-            header_snippets_help: Gebruik dit veld om dingen toe te voegen aan de HTML-kop. Het meest voorkomende gebruik is het integreren van diensten van derden die extra JavaScript of CSS nodig hebben. U kunt het ook gebruiken om extra metatags toe te voegen aan de HTML. Houd er rekening mee dat dit alleen op openbare pagina's wordt weergegeven, niet in de beheerdersafdeling.
-          cta_button_path_help: 'U kunt de verwijzing van de knop "Call to Action" overschrijven. Gebruik hier gedeeltelijke paden, niet volledige URL''s. Aanvaardt letters, cijfers, streepjes en streepjes en moet beginnen met een brief. De knop "Call to Action" wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving. Voorbeeld: %{url}'
           cta_button_text_help: U kunt de tekst voor "Call To Action" overschrijven op de homepage voor elke beschikbare taal in uw organisatie. Indien niet ingesteld, wordt de standaardwaarde gebruikt. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving.
           homepage_appearance_title: Bewerk de startpagina-weergave
           homepage_highlighted_content_banner_title: Uitgelichte inhoudsbanner
@@ -749,21 +725,6 @@ nl:
             layout_appearance_title: Weergave van de lay-out bewerken
             preview: Voorvertoning
           omnipresent_banner_appearance_title: Bewerk de permanente banner
-      organization_external_domain_whitelist:
-        edit:
-          update: Bijwerken
-        external_domain:
-          down: Naar beneden
-          external_domain: Extern domein
-          remove: Verwijderen
-          up: Naar boven
-        form:
-          add: Toevoegen aan whitelist
-          title: Externe domein whitelist
-      organization_homepage:
-        edit:
-          active_content_blocks: Actieve inhoudsblokken
-          inactive_content_blocks: Inactieve inhoudsblokken
       participatory_space_private_users:
         create:
           error: Er is een probleem opgetreden bij het toevoegen van een privédeelnemer aan deze deelruimte.
@@ -784,7 +745,6 @@ nl:
             empty: Je hebt geen privé deelnemers.
             explanation: Je hebt %{count} privédeelnemers.
             title: Verwijder privé deelnemer
-          title: Upload het CSV-bestand
           upload: Upload
       reminders:
         create:
@@ -847,7 +807,6 @@ nl:
       shared:
         gallery:
           add_images: Afbeeldingen toevoegen
-          delete_image: Afbeelding verwijderen
           edit_images: Bewerk afbeeldingen
           gallery_legend: Voeg een afbeeldingsgalerij toe (optioneel)
       static_page_topics:
@@ -876,15 +835,12 @@ nl:
           update: Bijwerken
         form:
           none: Geen
-          slug_help: 'Gebruik gedeeltelijke paden, niet volledige URL''s hier. Accepteert letters, cijfers, streepjes en slashes, en moet beginnen met een letter. Voorbeeld: %{url}'
         index:
           last_notable_change: Laatste opvallende verandering
         new:
           create: Creëer pagina
           title: Nieuwe pagina
         topic:
-          destroy: Verwijder onderwerp
-          edit: Onderwerp bewerken
           without_topic: Pagina's zonder onderwerp
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze pagina.
@@ -901,7 +857,6 @@ nl:
         participants: Deelnemers
         scope_types: Scope types
         scopes: Scopes
-        static_pages: Pagina's
         statistics: Activiteit
         user_groups: groepen
         users: Beheerders
@@ -945,7 +900,6 @@ nl:
           last_month: Vorige maand
           last_week: Vorige week
           participants: Deelnemers
-      view_public_page: Bekijk openbare pagina
     metrics:
       blocked_users:
         object: geblokkeerde gebruikers
@@ -996,9 +950,5 @@ nl:
   layouts:
     decidim:
       admin:
-        newsletters:
-          title: Nieuwsbrieven
-        settings:
-          title: Instellingen
-        users:
-          title: Deelnemers
+        global_moderations:
+          title: Algemene moderatie

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages sortitions", type: :system do
+describe "Admin manages sortitions" do
   let(:manifest_name) { "sortitions" }
 
   include_context "when managing a component as an admin"
@@ -16,9 +16,11 @@ describe "Admin manages sortitions", type: :system do
 
     it "is added" do
       visit current_path
-      click_link "Components"
-      click_button "Add component"
-      click_link "Sortitions"
+      within_admin_sidebar_menu do
+        click_on "Components"
+      end
+      click_on "Add component"
+      click_on "Sortitions"
 
       fill_in_i18n(
         :component_name,
@@ -26,7 +28,7 @@ describe "Admin manages sortitions", type: :system do
         en: name
       )
 
-      click_button "Add component"
+      click_on "Add component"
 
       expect(page).to have_content("Component created successfully")
       expect(page).to have_content(name)

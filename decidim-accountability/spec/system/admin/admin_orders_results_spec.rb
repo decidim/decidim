@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin orders results", type: :system do
+describe "Admin orders results" do
   let(:manifest_name) { "accountability" }
   let!(:results) do
     [
@@ -29,7 +29,7 @@ describe "Admin orders results", type: :system do
   it "orders results by ID" do
     ordered_results = results.sort_by(&:id).reverse
 
-    click_link "ID"
+    click_on "ID"
     rows = page.all("tbody tr")
 
     rows.each_with_index do |row, i|
@@ -40,7 +40,7 @@ describe "Admin orders results", type: :system do
   it "orders results by title" do
     ordered_results = results.sort_by { |result| translated(result.title) }
 
-    click_link "Title"
+    click_on "Title"
     rows = page.all("tbody tr")
 
     rows.each_with_index do |row, i|
@@ -51,7 +51,7 @@ describe "Admin orders results", type: :system do
   it "orders results by category" do
     ordered_results = results.sort_by { |result| translated(result.category.name) }
 
-    click_link "Category"
+    click_on "Category"
     rows = page.all("tbody tr")
 
     rows.each_with_index do |row, i|
@@ -62,7 +62,7 @@ describe "Admin orders results", type: :system do
   it "orders results by scope" do
     ordered_results = results.sort_by { |result| translated(result.scope.name) }
 
-    click_link "Scope"
+    click_on "Scope"
     rows = page.all("tbody tr")
 
     rows.each_with_index do |row, i|
@@ -73,7 +73,7 @@ describe "Admin orders results", type: :system do
   it "orders results by status" do
     ordered_results = results.sort_by { |result| translated(result.status.name) }
 
-    click_link "Status"
+    click_on "Status"
     rows = page.all("tbody tr")
 
     rows.each_with_index do |row, i|
@@ -84,7 +84,7 @@ describe "Admin orders results", type: :system do
   it "orders results by progress" do
     ordered_results = results.sort_by(&:progress)
 
-    click_link "Progress"
+    click_on "Progress"
     rows = page.all("tbody tr")
 
     rows.each_with_index do |row, i|
@@ -95,7 +95,7 @@ describe "Admin orders results", type: :system do
   it "orders results by created at" do
     ordered_results = results.sort_by(&:created_at)
 
-    click_link "Created"
+    click_on "Created"
     rows = page.all("tbody tr")
 
     rows.each_with_index do |row, i|

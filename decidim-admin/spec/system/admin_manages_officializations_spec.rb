@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages officializations", type: :system do
+describe "Admin manages officializations" do
   include_context "with filterable context"
 
   let(:model_name) { Decidim::User.model_name }
@@ -16,7 +16,7 @@ describe "Admin manages officializations", type: :system do
     switch_to_host(organization.host)
     login_as admin, scope: :user
     visit decidim_admin.root_path
-    click_link "Participants"
+    click_on "Participants"
   end
 
   describe "listing officializations" do
@@ -30,8 +30,8 @@ describe "Admin manages officializations", type: :system do
     let!(:external_not_officialized) { create(:user) }
 
     before do
-      within ".secondary-nav" do
-        click_link "Participants"
+      within_admin_sidebar_menu do
+        click_on "Participants"
       end
     end
 
@@ -52,15 +52,15 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, :blocked, organization:) }
 
     before do
-      within ".secondary-nav" do
-        click_link "Participants"
+      within_admin_sidebar_menu do
+        click_on "Participants"
       end
     end
 
     context "when user is blocked" do
       it "cannot be officialized" do
         within "tr[data-user-id=\"#{user.id}\"]" do
-          expect(page).not_to have_link("Officialize")
+          expect(page).to have_no_link("Officialize")
         end
       end
     end
@@ -71,17 +71,17 @@ describe "Admin manages officializations", type: :system do
       let!(:user) { create(:user, organization:) }
 
       before do
-        within ".secondary-nav" do
-          click_link "Participants"
+        within_admin_sidebar_menu do
+          click_on "Participants"
         end
 
         within "tr[data-user-id=\"#{user.id}\"]" do
-          click_link "Officialize"
+          click_on "Officialize"
         end
       end
 
       it "officializes it with the standard badge" do
-        click_button "Officialize"
+        click_on "Officialize"
 
         expect(page).to have_content("successfully officialized")
 
@@ -98,7 +98,7 @@ describe "Admin manages officializations", type: :system do
           es: "Alcaldesa de Barcelona"
         )
 
-        click_button "Officialize"
+        click_on "Officialize"
 
         expect(page).to have_content("successfully officialized")
 
@@ -119,12 +119,12 @@ describe "Admin manages officializations", type: :system do
       end
 
       before do
-        within ".secondary-nav" do
-          click_link "Participants"
+        within_admin_sidebar_menu do
+          click_on "Participants"
         end
 
         within "tr[data-user-id=\"#{user.id}\"]" do
-          click_link "Reofficialize"
+          click_on "Reofficialize"
         end
       end
 
@@ -136,7 +136,7 @@ describe "Admin manages officializations", type: :system do
           "#officialization-officialized_as-tabs",
           en: "Major of Barcelona"
         )
-        click_button "Officialize"
+        click_on "Officialize"
 
         expect(page).to have_content("successfully officialized")
 
@@ -151,12 +151,12 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, :officialized, organization:) }
 
     before do
-      within ".secondary-nav" do
-        click_link "Participants"
+      within_admin_sidebar_menu do
+        click_on "Participants"
       end
 
       within "tr[data-user-id=\"#{user.id}\"]" do
-        click_link "Unofficialize"
+        click_on "Unofficialize"
       end
     end
 
@@ -173,14 +173,14 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, :confirmed, organization:) }
 
     before do
-      within ".secondary-nav" do
-        click_link "Participants"
+      within_admin_sidebar_menu do
+        click_on "Participants"
       end
     end
 
     it "redirect to conversation path" do
       within "tr[data-user-id=\"#{user.id}\"]" do
-        click_link "Contact"
+        click_on "Contact"
       end
       expect(page).to have_current_path decidim.new_conversation_path(recipient_id: user.id)
     end
@@ -190,14 +190,14 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, :confirmed, organization:) }
 
     before do
-      within ".secondary-nav" do
-        click_link "Participants"
+      within_admin_sidebar_menu do
+        click_on "Participants"
       end
     end
 
     it "redirect to user profile page" do
       within "tr[data-user-id=\"#{user.id}\"]" do
-        click_link user.name
+        click_on user.name
       end
 
       within "div.profile__details" do
@@ -210,14 +210,14 @@ describe "Admin manages officializations", type: :system do
     let!(:user) { create(:user, :confirmed, organization:) }
 
     before do
-      within ".secondary-nav" do
-        click_link "Participants"
+      within_admin_sidebar_menu do
+        click_on "Participants"
       end
     end
 
     it "redirect to user profile page" do
       within "tr[data-user-id=\"#{user.id}\"]" do
-        click_link user.nickname
+        click_on user.nickname
       end
 
       within "div.profile__details" do
@@ -230,26 +230,26 @@ describe "Admin manages officializations", type: :system do
     let!(:users) { create_list(:user, 3, organization:) }
 
     before do
-      within ".secondary-nav" do
-        click_link "Participants"
+      within_admin_sidebar_menu do
+        click_on "Participants"
       end
     end
 
     it "shows the users emails to admin users and logs the action" do
       users.each do |user|
         within "tr[data-user-id=\"#{user.id}\"]" do
-          click_link "Show email"
+          click_on "Show email"
         end
 
         within "#show-email-modal" do
           expect(page).to have_content("Show participant's email address")
-          expect(page).not_to have_content(user.email)
+          expect(page).to have_no_content(user.email)
 
-          click_button "Show"
+          click_on "Show"
 
           expect(page).to have_content(user.email)
 
-          find("button[data-close]").click
+          find("button[data-dialog-close]").click
         end
       end
 

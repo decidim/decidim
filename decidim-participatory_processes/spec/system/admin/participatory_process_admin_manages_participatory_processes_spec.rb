@@ -2,10 +2,10 @@
 
 require "spec_helper"
 
-describe "Participatory process admin manages participatory processes", type: :system do
+describe "Participatory process admin manages participatory processes" do
   include_context "when admin administrating a participatory process"
 
-  let(:blocks_manifests) { [:process_hero, :main_data] }
+  let(:blocks_manifests) { [:hero, :main_data] }
 
   before do
     blocks_manifests.each do |manifest_name|
@@ -20,7 +20,7 @@ describe "Participatory process admin manages participatory processes", type: :s
   it_behaves_like "manage processes announcements"
 
   it "cannot create a new participatory_process" do
-    expect(page).not_to have_selector(".actions .new")
+    expect(page).to have_no_selector(".actions .new")
   end
 
   context "when deleting a participatory process" do
@@ -31,8 +31,8 @@ describe "Participatory process admin manages participatory processes", type: :s
     end
 
     it "cannot delete a participatory_process" do
-      within find("tr", text: translated(participatory_process2.title)) do
-        expect(page).not_to have_content("Delete")
+      within "tr", text: translated(participatory_process2.title) do
+        expect(page).to have_no_content("Delete")
       end
     end
   end

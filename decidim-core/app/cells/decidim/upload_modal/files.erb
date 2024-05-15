@@ -19,7 +19,7 @@
     </div>
     <% end %>
 
-    <div class="active-uploads upload-modal__files" data-active-uploads="<%= modal_id %>">
+    <div class="upload-modal__files" data-active-uploads="<%= modal_id %>">
       <% attachments.each do |attachment| %>
         <% next if [Array, Hash].any? { |klass| attachment.is_a? klass } %>
 
@@ -46,23 +46,23 @@
   </div>
 
   <%= tag.button button_label,
-    id: button_id,
-    name: attribute,
-    class: button_class,
-    type: "button",
-    data: {
-      modal_open_key => modal_id,
-      upload: {
-        add_attribute:,
-        resource_name:,
-        resource_class:,
-        required: required?,
-        max_file_size:,
-        multiple:,
-        titled: has_title?,
-        form_object_class:
-      }.transform_keys { |key| key.to_s.camelize(:lower) }
-    } %>
+                 id: button_id,
+                 name: attribute,
+                 class: button_class,
+                 type: "button",
+                 data: {
+                   "dialog-open": modal_id,
+                   upload: {
+                     add_attribute:,
+                     resource_name:,
+                     resource_class:,
+                     required: required?,
+                     max_file_size:,
+                     multiple:,
+                     titled: has_title?,
+                     form_object_class:
+                   }.transform_keys { |key| key.to_s.camelize(:lower) }
+                 } %>
 
   <%= input_validation_field if required? %>
 </div>

@@ -81,7 +81,6 @@
           success: Møtet ble duplisert.
         new:
           copy: Kopier
-          select: Velg hvilke data du vil duplisere
           title: Duplisert møte
     components:
       meetings:
@@ -178,7 +177,6 @@
             one: 'Dette møtet kan ikke slettes, da det har %{count} forslag tilknyttet:'
             other: 'Dette møtet kan ikke slettes, da det har %{count} forslag tilknyttet:'
         manage_poll: Administrere menignsmåling
-        new: Nytt møte
         preview: Forhåndsvis
         registrations: Registreringer
         title: Handlinger
@@ -229,15 +227,8 @@
             non_user: Ikke eksisterende deltaker
             select_user: Velg deltaker
           index:
-            filter:
-              accepted: Aksepterte
-              all: Alle
-              rejected: Avvist
-              sent: Sendt
-            filter_by: Filtrer etter
             invite_attendee: Inviter deltaker
             invites: Invitasjoner
-            search: Søk
         meeting_closes:
           edit:
             close: Lukk
@@ -277,9 +268,6 @@
         meetings_poll:
           form:
             title: Rediger meningsmåling for %{questionnaire_for}
-        models:
-          meeting:
-            name: Møte
         registrations:
           edit:
             save: Lagre
@@ -320,18 +308,13 @@
           all: Alle
         filter_meeting_space_values:
           all: Alle
-        filter_scope_values:
-          all: Alle
       calendar_modal:
         calendar_url: Kalender URL
-        close_window: Lukk vindu
         export_calendar: Eksporter kalender
       conference_venues: Konferanse Arenaer
       content_blocks:
         upcoming_meetings:
           name: Kommende møter
-          upcoming_meetings: Kommende møter
-          view_all_meetings: Vis alle
       directory:
         meetings:
           index:
@@ -366,7 +349,6 @@
         calendar_modal:
           add_to_calendar: Legg til i kalender
           apple: Legg til i Apple kalender
-          close_window: Lukk vindu
           full_details_html: For komplette detaljer, gå til %{link}
           google: Legg til i Google kalender
           outlook: Legg til i Outlook kalender
@@ -396,19 +378,12 @@
             all: Alle
             official: Offisiell
             participants: Deltakere
-            user_groups: Grupper
-          scope: Tema
           search: Søk
           type: Type
           type_values:
             all: Alle
             in_person: Fysisk
             online: Digitalt
-        filters_small_view:
-          close_modal: Lukk modal
-          filter: Filter
-          filter_by: Filtrer etter
-          unfold: Åpne
         form:
           address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
           available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig
@@ -420,8 +395,6 @@
         index:
           click_here: Se alle møter
           new_meeting: Nytt møte
-        meeting_minutes:
-          related_information: Relatert Informasjon
         meetings:
           upcoming_meetings_warning: For øyeblikket er det ingen planlagte møter, men her kan du finne alle de forrige møtene oppført.
         registration_confirm:
@@ -430,7 +403,6 @@
         show:
           attendees: Antall deltakere
           contributions: Bidrag teller
-          date: Dato
           join: Bli med på møte
           meeting_minutes: Møte referater
           no_slots_available: Ingen plasser tilgjengelig
@@ -442,12 +414,9 @@
           remaining_slots:
             one: "%{count} plass igjen"
             other: "%{count} plasser igjen"
-          view: Vis
         update:
           invalid: Det oppstod et problem med å oppdatere dette møtet.
           success: Du har nå oppdatert møtet.
-      meetings_map:
-        view_meeting: Vis møte
       models:
         invite:
           fields:
@@ -513,8 +482,6 @@
         past_meetings: Tidligere møter
         see_all: Vis alle (%{count})
         upcoming_meetings: Kommende møter
-      upcoming_meeting_for_card:
-        upcoming_meeting: Kommende møte
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Relaterte resultater:'

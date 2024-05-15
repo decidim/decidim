@@ -18,8 +18,8 @@ module Decidim
 
       helper_method :proposal_presenter, :form_presenter, :tab_panel_items
 
-      before_action :authenticate_user!, only: [:new, :create, :complete]
-      before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
+      before_action :authenticate_user!, only: [:new, :create]
+      before_action :ensure_is_draft, only: [:preview, :publish, :edit_draft, :update_draft, :destroy_draft]
       before_action :set_proposal, only: [:show, :edit, :update, :withdraw]
       before_action :edit_form, only: [:edit_draft, :edit]
 
@@ -28,8 +28,6 @@ module Decidim
       # rubocop:disable Naming/VariableNumber
       STEP1 = :step_1
       STEP2 = :step_2
-      STEP3 = :step_3
-      STEP4 = :step_4
       # rubocop:enable Naming/VariableNumber
 
       def index
@@ -74,20 +72,21 @@ module Decidim
         if proposal_draft.present?
           redirect_to edit_draft_proposal_path(proposal_draft, component_id: proposal_draft.component.id, question_slug: proposal_draft.component.participatory_space.slug)
         else
-          @form = form(ProposalWizardCreateStepForm).from_params(body: translated_proposal_body_template)
+          @form = form(ProposalForm).from_params(body: translated_proposal_body_template)
         end
       end
 
       def create
         enforce_permission_to :create, :proposal
         @step = STEP1
-        @form = form(ProposalWizardCreateStepForm).from_params(proposal_creation_params)
+        @form = form(ProposalForm).from_params(proposal_creation_params)
 
         CreateProposal.call(@form, current_user) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
 
-            redirect_to "#{Decidim::ResourceLocatorPresenter.new(proposal).path}/compare"
+            @proposal = proposal
+            redirect_to "#{Decidim::ResourceLocatorPresenter.new(proposal).path}/preview"
           end
 
           on(:invalid) do
@@ -97,37 +96,15 @@ module Decidim
         end
       end
 
-      def compare
-        enforce_permission_to :edit, :proposal, proposal: @proposal
-        @step = STEP2
-        @similar_proposals ||= Decidim::Proposals::SimilarProposals
-                               .for(current_component, @proposal)
-                               .all
-
-        if @similar_proposals.blank?
-          flash[:notice] = I18n.t("proposals.proposals.compare.no_similars_found", scope: "decidim")
-          redirect_to "#{Decidim::ResourceLocatorPresenter.new(@proposal).path}/complete"
-        end
-      end
-
-      def complete
-        enforce_permission_to :edit, :proposal, proposal: @proposal
-        @step = STEP3
-
-        @form = form_proposal_model
-
-        @form.attachment = form_attachment_new
-      end
-
       def preview
         enforce_permission_to :edit, :proposal, proposal: @proposal
-        @step = STEP4
+        @step = STEP2
         @form = form(ProposalForm).from_model(@proposal)
       end
 
       def publish
         enforce_permission_to :edit, :proposal, proposal: @proposal
-        @step = STEP4
+        @step = STEP2
         PublishProposal.call(@proposal, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("proposals.publish.success", scope: "decidim")
@@ -142,7 +119,7 @@ module Decidim
       end
 
       def edit_draft
-        @step = STEP3
+        @step = STEP1
         enforce_permission_to :edit, :proposal, proposal: @proposal
       end
 
@@ -225,21 +202,21 @@ module Decidim
       def default_filter_params
         {
           search_text_cont: "",
-          with_any_origin: default_filter_origin_params,
+          with_any_origin: nil,
           activity: "all",
-          with_any_category: default_filter_category_params,
-          with_any_state: %w(accepted evaluating state_not_published),
-          with_any_scope: default_filter_scope_params,
+          with_any_category: nil,
+          with_any_state: default_states,
+          with_any_scope: nil,
           related_to: "",
           type: "all"
         }
       end
 
-      def default_filter_origin_params
-        filter_origin_params = %w(participants meeting)
-        filter_origin_params << "official" if component_settings.official_proposals_enabled
-        filter_origin_params << "user_group" if current_organization.user_groups_enabled?
-        filter_origin_params
+      def default_states
+        [
+          Decidim::Proposals::ProposalState.where(component: current_component).pluck(:token).map(&:to_s),
+          %w(state_not_published)
+        ].flatten - ["rejected"]
       end
 
       def proposal_draft

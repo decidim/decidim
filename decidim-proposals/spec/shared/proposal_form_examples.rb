@@ -20,6 +20,7 @@ shared_examples "a proposal form" do |options|
       { en: "Everything would be better" }
     end
   end
+  let(:body_template) { nil }
   let(:author) { create(:user, :confirmed, organization:) }
   let(:user_group) { create(:user_group, :confirmed, :verified, users: [author], organization:) }
   let(:user_group_id) { user_group.id }
@@ -34,10 +35,12 @@ shared_examples "a proposal form" do |options|
   let(:suggested_hashtags) { [] }
   let(:attachment_params) { nil }
   let(:meeting_as_author) { false }
+
   let(:params) do
     {
       title:,
       body:,
+      body_template:,
       author:,
       category_id:,
       scope_id:,
@@ -123,6 +126,33 @@ shared_examples "a proposal form" do |options|
     let(:body) { nil }
 
     it { is_expected.to be_invalid }
+  end
+
+  context "when the body exceeds the permitted length" do
+    let(:component) { create(:proposal_component, :with_proposal_length, participatory_space:, proposal_length: allowed_length) }
+    let(:allowed_length) { 15 }
+    let(:body) { "A body longer than the permitted" }
+
+    it { is_expected.to be_invalid } unless options[:admin]
+
+    context "with carriage return characters that cause it to exceed" do
+      let(:allowed_length) { 80 }
+      let(:body) { "This text is just the correct length\r\nwith the carriage return characters removed" }
+
+      it { is_expected.to be_valid }
+    end
+  end
+
+  context "when there is a body template set" do
+    let(:body_template) { "This is the template" }
+
+    it { is_expected.to be_valid }
+
+    context "when the template and the body are the same" do
+      let(:body) { body_template }
+
+      it { is_expected.to be_invalid } unless options[:admin]
+    end
   end
 
   context "when no category_id" do
@@ -258,14 +288,14 @@ shared_examples "a proposal form" do |options|
   context "when the attachment is present" do
     let(:params) do
       {
-        title:,
-        body:,
-        author:,
-        category_id:,
-        scope_id:,
-        address:,
-        meeting_as_author:,
-        suggested_hashtags:,
+        :title => title,
+        :body => body,
+        :author => author,
+        :category_id => category_id,
+        :scope_id => scope_id,
+        :address => address,
+        :meeting_as_author => meeting_as_author,
+        :suggested_hashtags => suggested_hashtags,
         attachments_key => [Decidim::Dev.test_file("city.jpeg", "image/jpeg")]
       }
     end

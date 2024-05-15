@@ -2,15 +2,15 @@
 
 require "spec_helper"
 
-describe "User answers the initiative", type: :system do
+describe "User answers the initiative" do
   include_context "when admins initiative"
 
-  def submit_and_validate(message = "successfully")
-    find("*[type=submit]").click
-
-    within ".callout-wrapper" do
-      expect(page).to have_content(message)
+  def submit_and_validate(message)
+    within "[data-content]" do
+      find("*[type=submit]").click
     end
+
+    expect(page).to have_admin_callout(message)
   end
 
   context "when user is admin" do
@@ -34,7 +34,7 @@ describe "User answers the initiative", type: :system do
         )
       end
 
-      submit_and_validate
+      submit_and_validate("The initiative has been successfully updated")
     end
 
     context "when initiative is in published state" do
@@ -54,13 +54,13 @@ describe "User answers the initiative", type: :system do
               es: "Una respuesta",
               ca: "Una resposta"
             )
-            expect(page).to have_css("#initiative_signature_start_date")
-            expect(page).to have_css("#initiative_signature_end_date")
+            expect(page).to have_css("#initiative_signature_start_date_date")
+            expect(page).to have_css("#initiative_signature_end_date_date")
 
-            fill_in :initiative_signature_start_date, with: 1.day.ago
+            fill_in_datepicker :initiative_signature_start_date_date, with: 1.day.ago.strftime("%d/%m/%Y")
           end
 
-          submit_and_validate
+          submit_and_validate("The initiative has been successfully updated")
         end
 
         context "when dates are invalid" do
@@ -75,13 +75,14 @@ describe "User answers the initiative", type: :system do
                 es: "Una respuesta",
                 ca: "Una resposta"
               )
-              expect(page).to have_css("#initiative_signature_start_date")
-              expect(page).to have_css("#initiative_signature_end_date")
+              expect(page).to have_css("#initiative_signature_start_date_date")
+              expect(page).to have_css("#initiative_signature_end_date_date")
 
-              fill_in :initiative_signature_start_date, with: 1.month.since(initiative.signature_end_date)
+              fill_in :initiative_signature_start_date_date, with: nil, fill_options: { clear: :backspace }
+              fill_in_datepicker :initiative_signature_start_date_date, with: 1.month.since(initiative.signature_end_date).strftime("%d/%m/%Y")
             end
 
-            submit_and_validate("error")
+            submit_and_validate("An error has occurred")
             expect(page).to have_current_path decidim_admin_initiatives.edit_initiative_answer_path(initiative)
           end
         end
@@ -97,8 +98,8 @@ describe "User answers the initiative", type: :system do
         page.find(".action-icon--answer").click
 
         within ".edit_initiative_answer" do
-          expect(page).not_to have_css("#initiative_signature_start_date")
-          expect(page).not_to have_css("#initiative_signature_end_date")
+          expect(page).to have_no_css("#initiative_signature_start_date_date")
+          expect(page).to have_no_css("#initiative_signature_end_date_date")
         end
       end
     end

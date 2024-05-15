@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Data consent", type: :system do
+describe "Data consent" do
   let(:orga) { create(:organization) }
   let(:cookies_description) { "We use cookies on our website to improve the performance and content of the site" }
 
@@ -22,39 +22,39 @@ describe "Data consent", type: :system do
       expect(page).to have_content(cookies_description)
 
       within "#dc-dialog-wrapper" do
-        click_button "Accept all"
+        click_on "Accept all"
       end
 
-      expect(page).not_to have_content(cookies_description)
+      expect(page).to have_no_content(cookies_description)
 
       visit decidim.root_path
-      expect(page).not_to have_content(cookies_description)
+      expect(page).to have_no_content(cookies_description)
     end
 
     it "user rejects the cookies and dialog is not shown anymore'" do
       expect(page).to have_content(cookies_description)
 
       within "#dc-dialog-wrapper" do
-        click_button "Accept only essential"
+        click_on "Accept only essential"
       end
 
-      expect(page).not_to have_content(cookies_description)
+      expect(page).to have_no_content(cookies_description)
 
       visit decidim.root_path
-      expect(page).not_to have_content(cookies_description)
+      expect(page).to have_no_content(cookies_description)
     end
   end
 
   context "when cookie modal is open" do
     before do
       within "#dc-dialog-wrapper" do
-        click_button "Settings"
+        click_on "Settings"
       end
     end
 
     it "shows cookie" do
-      expect(page).not_to have_content("decidim-consent")
-      expect(page).not_to have_content("Stores information about the cookies allowed by the user on this website")
+      expect(page).to have_no_content("decidim-consent")
+      expect(page).to have_no_content("Stores information about the cookies allowed by the user on this website")
       find("[data-id='essential']").find("[id^='accordion-trigger']").click
       expect(page).to have_content("decidim-consent")
       expect(page).to have_content("Stores information about the cookies allowed by the user on this website")
@@ -64,10 +64,10 @@ describe "Data consent", type: :system do
       within "[data-id='analytics']" do
         find("label").click
       end
-      click_button "Save settings"
+      click_on "Save settings"
 
       within "footer" do
-        click_link "Cookie settings"
+        click_on "Cookie settings"
       end
 
       within "[data-id='analytics']" do

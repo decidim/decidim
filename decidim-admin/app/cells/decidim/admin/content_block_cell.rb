@@ -3,7 +3,6 @@
 module Decidim
   module Admin
     class ContentBlockCell < Decidim::ViewModel
-      include Decidim::IconHelper
       include Decidim::ContentBlocks::HasRelatedComponents
 
       delegate :public_name_key, :has_settings?, :component_manifest_name, to: :model
@@ -30,7 +29,7 @@ module Decidim
       def name
         return I18n.t(public_name_key) if component.blank?
 
-        "#{I18n.t(public_name_key)} (#{translated_attribute(component&.name)})"
+        "#{I18n.t(public_name_key)} (#{decidim_escape_translated(component&.name)})"
       end
     end
   end

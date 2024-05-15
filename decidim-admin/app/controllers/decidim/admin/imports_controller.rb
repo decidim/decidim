@@ -5,6 +5,7 @@ module Decidim
     # This controller allows admins to import resources from a file.
     class ImportsController < Decidim::Admin::ApplicationController
       include Decidim::ComponentPathHelper
+      before_action :set_import_breadcrumb_item
 
       helper_method :import_manifest
 
@@ -85,6 +86,23 @@ module Decidim
 
       def current_component
         @current_component ||= current_participatory_space.components.find(params[:component_id])
+      end
+
+      def parent_path
+        @parent_path ||= ::Decidim::EngineRouter.admin_proxy(current_participatory_space).components_path
+      end
+
+      def set_import_breadcrumb_item
+        context_breadcrumb_items << {
+          label: t("components", scope: "decidim.admin.menu"),
+          url: parent_path,
+          active: false
+        }
+        context_breadcrumb_items << {
+          label: translated_attribute(current_component.name),
+          url: ::Decidim::EngineRouter.admin_proxy(current_component).root_path,
+          active: true
+        }
       end
     end
   end

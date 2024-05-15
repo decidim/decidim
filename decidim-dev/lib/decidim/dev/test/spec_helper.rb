@@ -13,7 +13,7 @@ require "decidim/dev/test/w3c_rspec_validators_overrides"
 # in ./rspec_support/ and its subdirectories.
 Dir["#{__dir__}/rspec_support/**/*.rb"].each { |f| require f }
 
-require_relative "factories"
+require "decidim/dev/test/factories"
 
 RSpec.configure do |config|
   config.color = true
@@ -41,7 +41,8 @@ RSpec.configure do |config|
 
   config.before :all do
     Decidim.content_security_policies_extra = {
-      "img-src": %w(https://via.placeholder.com)
+      "img-src": %W(https://via.placeholder.com #{Decidim::Dev::Test::MapServer.host}),
+      "connect-src": %W(#{Decidim::Dev::Test::MapServer.host})
     }
   end
 end

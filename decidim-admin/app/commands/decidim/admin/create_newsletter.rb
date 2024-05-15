@@ -4,48 +4,30 @@ module Decidim
   module Admin
     # Creates a newsletter and assigns the right author and
     # organization.
-    class CreateNewsletter < Decidim::Command
+    class CreateNewsletter < Decidim::Commands::CreateResource
+      fetch_form_attributes :subject, :organization
       # Initializes the command.
       #
       # form - The source fo data for this newsletter.
       # content_block - An instance of `Decidim::ContentBlock` that holds the
       #     newsletter attributes.
-      # user - The User that authored this newsletter.
-      def initialize(form, content_block, user)
-        @form = form
+      def initialize(form, content_block)
+        super(form)
         @content_block = content_block
-        @user = user
-      end
-
-      def call
-        return broadcast(:invalid) unless form.valid?
-
-        transaction do
-          create_newsletter
-          create_content_block
-        end
-
-        broadcast(:ok, newsletter)
       end
 
       private
 
-      attr_reader :user, :form, :newsletter, :content_block
+      attr_reader :content_block
 
-      def create_newsletter
-        @newsletter = Decidim.traceability.create!(
-          Newsletter,
-          user,
-          subject: form.subject,
-          author: user,
-          organization: user.organization
-        )
-      end
+      def resource_class = Decidim::Newsletter
 
-      def create_content_block
-        ContentBlocks::UpdateContentBlock.call(form, content_block, user) do
+      def attributes = super.merge({ author: form.current_user })
+
+      def run_after_hooks
+        ContentBlocks::UpdateContentBlock.call(form, content_block, form.current_user) do
           on(:ok) do |content_block|
-            content_block.update(scoped_resource_id: newsletter.id)
+            content_block.update(scoped_resource_id: resource.id)
             @content_block = content_block
           end
           on(:invalid) do

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Meeting live event access", type: :system do
+describe "Meeting live event access" do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
@@ -54,12 +54,12 @@ describe "Meeting live event access", type: :system do
           it "does not show the meeting link embedded" do
             visit_meeting
 
-            expect(page).not_to have_content("This meeting is happening right now")
+            expect(page).to have_no_content("This meeting is happening right now")
             case embedding_type
             when :embedded
-              expect(page).not_to have_css("iframe")
+              expect(page).to have_no_css("iframe")
             else
-              expect(page).not_to have_content("Join meeting")
+              expect(page).to have_no_content("Join meeting")
             end
           end
         end
@@ -91,7 +91,7 @@ describe "Meeting live event access", type: :system do
               case embedding_type
               when :embedded
                 expect(page).to have_content("You need to enable all cookies in order to see this content")
-                expect(page).not_to have_css("iframe")
+                expect(page).to have_no_css("iframe")
               else
                 expect(page).to have_content("Join meeting")
               end
@@ -112,12 +112,12 @@ describe "Meeting live event access", type: :system do
           it "does not show the meeting link embedded" do
             visit_meeting
 
-            expect(page).not_to have_content("This meeting is happening right now")
+            expect(page).to have_no_content("This meeting is happening right now")
             case embedding_type
             when :embedded
-              expect(page).not_to have_css("iframe")
+              expect(page).to have_no_css("iframe")
             else
-              expect(page).not_to have_content("Join meeting")
+              expect(page).to have_no_content("Join meeting")
             end
           end
         end
@@ -130,12 +130,12 @@ describe "Meeting live event access", type: :system do
           it "does not show the meeting link embedded" do
             visit_meeting
 
-            expect(page).not_to have_content("This meeting is happening right now")
+            expect(page).to have_no_content("This meeting is happening right now")
             case embedding_type
             when :embedded
-              expect(page).not_to have_css("iframe")
+              expect(page).to have_no_css("iframe")
             else
-              expect(page).not_to have_content("Join meeting")
+              expect(page).to have_no_content("Join meeting")
             end
           end
         end
@@ -171,7 +171,7 @@ describe "Meeting live event access", type: :system do
         it "does not show the meeting link embedded" do
           visit_meeting
 
-          expect(page).not_to have_content("This meeting is happening right now")
+          expect(page).to have_no_content("This meeting is happening right now")
         end
       end
 
@@ -183,7 +183,7 @@ describe "Meeting live event access", type: :system do
         it "does not show the meeting link embedded" do
           visit_meeting
 
-          expect(page).not_to have_content("This meeting is happening right now")
+          expect(page).to have_no_content("This meeting is happening right now")
         end
       end
 
@@ -218,7 +218,7 @@ describe "Meeting live event access", type: :system do
       it "does not show the link to the live meeting streaming" do
         visit_meeting
 
-        expect(page).not_to have_content("This meeting is happening right now")
+        expect(page).to have_no_content("This meeting is happening right now")
       end
     end
 
@@ -255,7 +255,7 @@ describe "Meeting live event access", type: :system do
       it "shows the link to the live meeting streaming" do
         visit_meeting
 
-        new_window = window_opened_by { click_link "Join meeting" }
+        new_window = window_opened_by { click_on "Join meeting" }
 
         within_window new_window do
           expect(page).to have_current_path(meeting_live_event_path)
@@ -301,7 +301,7 @@ describe "Meeting live event access", type: :system do
     it "does not show the link to the live meeting streaming" do
       visit_meeting
 
-      expect(page).not_to have_content("This meeting is happening right now")
+      expect(page).to have_no_content("This meeting is happening right now")
     end
   end
 
@@ -311,7 +311,61 @@ describe "Meeting live event access", type: :system do
     it "does not show the meeting link embedded" do
       visit_meeting
 
-      expect(page).not_to have_css("iframe")
+      expect(page).to have_no_css("iframe")
+    end
+  end
+
+  describe "when a meeting link is available signed in" do
+    let!(:meeting) { create(:meeting, :published, :signed_in_iframe_access_level, :online, component:) }
+
+    context "when user is not signed in" do
+      it "not shown to not signed in users" do
+        visit_meeting
+
+        expect(page).to have_no_css(".address__hints")
+        expect(page).to have_no_content(meeting.online_meeting_url)
+      end
+    end
+
+    context "when user is signed in" do
+      before do
+        login_as user, scope: :user
+      end
+
+      it "shown to signed in users" do
+        visit_meeting
+
+        expect(page).to have_css(".address__hints")
+        expect(page).to have_content(meeting.online_meeting_url)
+      end
+    end
+  end
+
+  describe "when a meeting link is available as a registered user" do
+    let!(:meeting) { create(:meeting, :published, :registered_iframe_access_level, :online, component:) }
+    let!(:registered_user) { create(:user, :confirmed, organization:) }
+    let!(:registration) { create(:registration, meeting:, user: registered_user) }
+
+    context "when user is not registered" do
+      it "not shown to registered users" do
+        visit_meeting
+
+        expect(page).to have_no_css(".address__hints")
+        expect(page).to have_no_content(meeting.online_meeting_url)
+      end
+    end
+
+    context "when user is registered" do
+      before do
+        login_as registered_user, scope: :user
+      end
+
+      it "is shown to registered users" do
+        visit_meeting
+
+        expect(page).to have_css(".address__hints")
+        expect(page).to have_content(meeting.online_meeting_url)
+      end
     end
   end
 
@@ -329,7 +383,7 @@ describe "Meeting live event access", type: :system do
       let(:current_time) { start_time - 20.minutes }
 
       it "is not live" do
-        expect(page).not_to have_content("This meeting is happening right now")
+        expect(page).to have_no_content("This meeting is happening right now")
       end
     end
 
@@ -353,7 +407,7 @@ describe "Meeting live event access", type: :system do
       let(:current_time) { end_time + 5.minutes }
 
       it "is not live" do
-        expect(page).not_to have_content("This meeting is happening right now")
+        expect(page).to have_no_content("This meeting is happening right now")
       end
     end
   end

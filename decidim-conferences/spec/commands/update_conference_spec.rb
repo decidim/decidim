@@ -75,7 +75,7 @@ module Decidim::Conferences
       let(:form) do
         Admin::ConferenceForm.from_params(params).with_context(context)
       end
-      let(:command) { described_class.new(my_conference, form) }
+      let(:command) { described_class.new(form, my_conference) }
 
       describe "when the form is not valid" do
         before do
@@ -129,7 +129,7 @@ module Decidim::Conferences
         it "traces the action", versioning: true do
           expect(Decidim.traceability)
             .to receive(:perform_action!)
-            .with(:update, my_conference, user)
+            .with(:update, my_conference, user, {})
             .and_call_original
 
           expect { command.call }.to change(Decidim::ActionLog, :count)

@@ -1,11 +1,27 @@
 ru:
+  activemodel:
+    attributes:
+      oauth_application:
+        organization_logo: Логотип организации (квадрат)
+        organization_url: Веб-адрес организации
+        redirect_uri: URI перенаправления
+      organization:
+        address: Имя хоста SMTP
+        password: Пароль
+        port: Порт
+        user_name: Имя пользователя
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: URI перенаправления должен быть SSL URI
   decidim:
     system:
       actions:
         confirm_destroy: Вы действительно хотите удалить это?
         destroy: Удалить
         edit: Редактировать
-        new: Добавить
         save: Сохранить
         title: Действия
       admins:
@@ -34,7 +50,6 @@ ru:
           fields:
             created_at: 'Добавлено:'
             email: Эл. адрес
-          name: Администратор
           validations:
             email_uniqueness: уже есть другой администратор с тем же эл-адресом
         organization:
@@ -44,11 +59,9 @@ ru:
             created_at: 'Добавлено:'
             name: Имя
             smtp_settings: Настройки SMTP
-          name: Организация
       organizations:
         create:
           error: При попытке добавить новую организацию произошла ошибка.
-          success: Организация успешно добавлена.
         edit:
           secondary_hosts_hint: Введите каждый из них в новой строке
         index:

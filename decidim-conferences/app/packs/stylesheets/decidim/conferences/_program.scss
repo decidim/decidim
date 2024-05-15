@@ -3,10 +3,6 @@
 
   &-selector {
     @apply grid grid-cols-2 md:flex gap-4 md:gap-1 justify-end [&~*]:mt-6 [&_button]:w-full;
-
-    [aria-expanded="true"] {
-      @apply button__secondary;
-    }
   }
 
   &-item {

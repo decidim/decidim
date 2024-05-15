@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User edit meeting", type: :system do
+describe "User edit meeting" do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
@@ -33,15 +33,15 @@ describe "User edit meeting", type: :system do
     it "can be updated" do
       visit_component
 
-      click_link translated(meeting.title)
-      click_link "Edit meeting"
+      click_on translated(meeting.title)
+      click_on "Edit meeting"
 
       expect(page).to have_content "Edit Your Meeting"
 
       within "form.meetings_form" do
         fill_in :meeting_title, with: new_title
         fill_in :meeting_description, with: new_description
-        click_button "Update"
+        click_on "Update"
       end
 
       expect(page).to have_content(new_title)
@@ -62,8 +62,8 @@ describe "User edit meeting", type: :system do
           # Prepare the view for submission (other than the address field)
           visit_component
 
-          click_link translated(meeting.title)
-          click_link "Edit meeting"
+          click_on translated(meeting.title)
+          click_on "Edit meeting"
 
           expect(page).to have_content "Edit Your Meeting"
         end
@@ -74,14 +74,14 @@ describe "User edit meeting", type: :system do
       it "returns an error message" do
         visit_component
 
-        click_link translated(meeting.title)
-        click_link "Edit meeting"
+        click_on translated(meeting.title)
+        click_on "Edit meeting"
 
         expect(page).to have_content "Edit Your Meeting"
 
         within "form.meetings_form" do
           fill_in :meeting_description, with: " "
-          click_button "Update"
+          click_on "Update"
         end
 
         expect(page).to have_content("problem updating")
@@ -94,18 +94,18 @@ describe "User edit meeting", type: :system do
       it "displays the description not wrapped in ProseMirror div" do
         visit_component
 
-        click_link translated(meeting.title)
-        click_link "Edit meeting"
+        click_on translated(meeting.title)
+        click_on "Edit meeting"
 
         expect(page).to have_content "Edit Your Meeting"
 
         within "form.meetings_form" do
-          expect(page).not_to have_css("div.editor-input")
+          expect(page).to have_no_css("div.editor-input")
         end
 
         within "textarea#meeting_description" do
           expect(page).to have_content translated(meeting.description)
-          expect(page).not_to have_content '<div class="editor-input">'
+          expect(page).to have_no_content '<div class="editor-input">'
         end
       end
     end
@@ -119,8 +119,8 @@ describe "User edit meeting", type: :system do
     it "renders an error" do
       visit_component
 
-      click_link translated(meeting.title)
-      expect(page).not_to have_content("Edit meeting")
+      click_on translated(meeting.title)
+      expect(page).to have_no_content("Edit meeting")
       visit "#{current_path}/edit"
 
       expect(page).to have_content("not authorized")

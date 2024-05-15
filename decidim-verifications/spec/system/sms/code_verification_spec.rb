@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "sms code verification", type: :system do
+describe "sms code verification" do
   let(:organization) do
     create(:organization, available_authorizations: ["sms"])
   end
@@ -27,7 +27,7 @@ describe "sms code verification", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_verifications.authorizations_path
-    click_link "Code by SMS"
+    click_on "Code by SMS"
   end
 
   context "when code requested" do
@@ -49,7 +49,7 @@ describe "sms code verification", type: :system do
 
       before do
         fill_in "Verification code", with: attempted_verification_code
-        click_button "Confirm"
+        click_on "Confirm"
       end
 
       context "when code is incorrect" do
@@ -71,11 +71,11 @@ describe "sms code verification", type: :system do
       end
     end
 
-    context "when reseting the code" do
+    context "when resetting the code" do
       it "deletes the verification and asks the user again" do
-        accept_confirm { click_link "Reset verification code" }
+        accept_confirm { click_on "Reset verification code" }
 
-        expect(page).to have_content("Verification code sucessfully reset. Please re-enter your phone number.")
+        expect(page).to have_content("Verification code successfully reset. Please re-enter your phone number.")
 
         expect(Decidim::Authorization.count).to eq(0)
       end

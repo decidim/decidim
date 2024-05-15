@@ -79,13 +79,7 @@ ga:
           form:
             invite: Tabhair Cuireadh
           index:
-            filter:
-              accepted: Glactha
-              all: Uile
-              rejected: Diúltaithe
-              sent: Seolta
             invites: Cuirí
-            search: Cuardaigh
         meeting_closes:
           edit:
             close: Dún
@@ -104,17 +98,11 @@ ga:
             up: Thuas
           services:
             services: Seirbhísí
-        models:
-          meeting:
-            name: Cruinniú
         registrations:
           edit:
             save: Sábháil
           form:
             invites: Cuirí
-      content_blocks:
-        upcoming_meetings:
-          view_all_meetings: Amharc ar uile
       directory:
         meetings:
           index:
@@ -142,16 +130,11 @@ ga:
           origin_values:
             all: Uile
             official: Oifigiúil
-            user_groups: Grúpaí
-          scope: Scóip
           search: Cuardaigh
           type: Cineál
           type_values:
             all: Uile
             online: Ar líne
-        filters_small_view:
-          filter: Scag
-          unfold: Oscail
         form:
           select_a_category: Roghnaigh catagóir le do thoil
         new:
@@ -160,9 +143,6 @@ ga:
         registration_confirm:
           cancel: Cealaigh
           confirm: Deimhnigh
-        show:
-          date: Dáta
-          view: Amharc
       models:
         invite:
           fields:

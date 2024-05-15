@@ -2,9 +2,7 @@
 
 require "spec_helper"
 
-describe "Organization admins", type: :system do
-  include Decidim::SanitizeHelper
-
+describe "Organization admins" do
   let(:admin) { create(:user, :admin, :confirmed) }
   let(:organization) { admin.organization }
 
@@ -16,14 +14,14 @@ describe "Organization admins", type: :system do
     before do
       login_as admin, scope: :user
       visit decidim_admin.root_path
-      click_link "Participants"
-      click_link "Admins"
+      click_on "Participants"
+      within_admin_sidebar_menu do
+        click_on "Admins"
+      end
     end
 
     it "can invite new users" do
-      within ".card-title" do
-        find(".button--title").click
-      end
+      click_on "New admin"
 
       within ".new_user" do
         fill_in :user_name, with: "New admin"
@@ -40,9 +38,7 @@ describe "Organization admins", type: :system do
     end
 
     it "can invite a user with a specific role" do
-      within ".card-title" do
-        find(".button--title").click
-      end
+      click_on "New admin"
 
       within ".new_user" do
         fill_in :user_name, with: "New user manager"
@@ -74,7 +70,7 @@ describe "Organization admins", type: :system do
 
       it "can resend the invitation" do
         within "tr[data-user-id=\"#{user.id}\"]" do
-          click_link "Resend invitation"
+          click_on "Resend invitation"
         end
 
         expect(page).to have_content("Invitation successfully resent")
@@ -84,15 +80,15 @@ describe "Organization admins", type: :system do
         expect(page).to have_content(other_admin.name)
 
         within "tr[data-user-id=\"#{other_admin.id}\"]" do
-          accept_confirm(admin: true) { click_link "Delete" }
+          accept_confirm { click_on "Delete" }
         end
 
-        expect(page).not_to have_content(other_admin.name)
+        expect(page).to have_no_content(other_admin.name)
       end
 
       it "cannot remove admin rights from self" do
         within "tr[data-user-id=\"#{admin.id}\"]" do
-          expect(page).not_to have_link("Delete")
+          expect(page).to have_no_link("Delete")
         end
 
         within "tr[data-user-id=\"#{other_admin.id}\"]" do

@@ -2,9 +2,8 @@
 
 require "spec_helper"
 
-RSpec.describe "Meeting search", type: :request do
+RSpec.describe "Meeting search" do
   include Decidim::ComponentPathHelper
-  include Decidim::SanitizeHelper
 
   subject { response.body }
 
@@ -74,10 +73,10 @@ RSpec.describe "Meeting search", type: :request do
   it_behaves_like "a resource search with origin", :published_meeting
 
   it "displays all meetings without any filters" do
-    expect(subject).to include(decidim_html_escape(translated(meeting1.title)))
-    expect(subject).to include(decidim_html_escape(translated(meeting2.title)))
-    expect(subject).not_to include(decidim_html_escape(translated(meeting3.title)))
-    expect(subject).not_to include(decidim_html_escape(translated(meeting4.title)))
+    expect(subject).to include(decidim_escape_translated(meeting1.title))
+    expect(subject).to include(decidim_escape_translated(meeting2.title))
+    expect(subject).not_to include(decidim_escape_translated(meeting3.title))
+    expect(subject).not_to include(decidim_escape_translated(meeting4.title))
   end
 
   context "when searching by date" do
@@ -98,11 +97,11 @@ RSpec.describe "Meeting search", type: :request do
       let(:date) { ["upcoming"] }
 
       it "only returns that are scheduled in the future" do
-        expect(subject).to include(decidim_html_escape(translated(meeting1.title)))
-        expect(subject).to include(decidim_html_escape(translated(meeting2.title)))
-        expect(subject).not_to include(decidim_html_escape(translated(meeting3.title)))
-        expect(subject).not_to include(decidim_html_escape(translated(meeting4.title)))
-        expect(subject).not_to include(decidim_html_escape(translated(past_meeting.title)))
+        expect(subject).to include(decidim_escape_translated(meeting1.title))
+        expect(subject).to include(decidim_escape_translated(meeting2.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting3.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting4.title))
+        expect(subject).not_to include(decidim_escape_translated(past_meeting.title))
       end
     end
 
@@ -110,11 +109,11 @@ RSpec.describe "Meeting search", type: :request do
       let(:date) { ["past"] }
 
       it "only returns meetings that were scheduled in the past" do
-        expect(subject).not_to include(decidim_html_escape(translated(meeting1.title)))
-        expect(subject).not_to include(decidim_html_escape(translated(meeting2.title)))
-        expect(subject).not_to include(decidim_html_escape(translated(meeting3.title)))
-        expect(subject).not_to include(decidim_html_escape(translated(meeting4.title)))
-        expect(subject).to include(decidim_html_escape(translated(past_meeting.title)))
+        expect(subject).not_to include(decidim_escape_translated(meeting1.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting2.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting3.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting4.title))
+        expect(subject).to include(decidim_escape_translated(past_meeting.title))
       end
     end
   end
@@ -126,10 +125,10 @@ RSpec.describe "Meeting search", type: :request do
       let(:availability) { "withdrawn" }
 
       it "only returns meetings that are withdrawn" do
-        expect(subject).not_to include(decidim_html_escape(translated(meeting1.title)))
-        expect(subject).not_to include(decidim_html_escape(translated(meeting2.title)))
-        expect(subject).not_to include(decidim_html_escape(translated(meeting3.title)))
-        expect(subject).to include(decidim_html_escape(translated(meeting4.title)))
+        expect(subject).not_to include(decidim_escape_translated(meeting1.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting2.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting3.title))
+        expect(subject).to include(decidim_escape_translated(meeting4.title))
       end
     end
 
@@ -137,10 +136,10 @@ RSpec.describe "Meeting search", type: :request do
       let(:availability) { nil }
 
       it "only returns meetings that are not withdrawn" do
-        expect(subject).to include(decidim_html_escape(translated(meeting1.title)))
-        expect(subject).to include(decidim_html_escape(translated(meeting2.title)))
-        expect(subject).not_to include(decidim_html_escape(translated(meeting3.title)))
-        expect(subject).not_to include(decidim_html_escape(translated(meeting4.title)))
+        expect(subject).to include(decidim_escape_translated(meeting1.title))
+        expect(subject).to include(decidim_escape_translated(meeting2.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting3.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting4.title))
       end
     end
   end
@@ -149,10 +148,10 @@ RSpec.describe "Meeting search", type: :request do
     let(:filter_params) { { search_text_cont: "TestCheck" } }
 
     it "show only the meeting containing the search_text" do
-      expect(subject).to include(decidim_html_escape(translated(meeting1.title)))
-      expect(subject).not_to include(decidim_html_escape(translated(meeting2.title)))
-      expect(subject).not_to include(decidim_html_escape(translated(meeting3.title)))
-      expect(subject).not_to include(decidim_html_escape(translated(meeting4.title)))
+      expect(subject).to include(decidim_escape_translated(meeting1.title))
+      expect(subject).not_to include(decidim_escape_translated(meeting2.title))
+      expect(subject).not_to include(decidim_escape_translated(meeting3.title))
+      expect(subject).not_to include(decidim_escape_translated(meeting4.title))
     end
   end
 
@@ -177,8 +176,8 @@ RSpec.describe "Meeting search", type: :request do
       let(:type) { ["online"] }
 
       it "only lists online meetings" do
-        expect(subject).to include(decidim_html_escape(translated(online_meeting.title)))
-        expect(subject).not_to include(decidim_html_escape(translated(in_person_meeting.title)))
+        expect(subject).to include(decidim_escape_translated(online_meeting.title))
+        expect(subject).not_to include(decidim_escape_translated(in_person_meeting.title))
       end
     end
 
@@ -186,8 +185,8 @@ RSpec.describe "Meeting search", type: :request do
       let(:type) { ["in_person"] }
 
       it "only lists online meetings" do
-        expect(subject).to include(decidim_html_escape(translated(in_person_meeting.title)))
-        expect(subject).not_to include(decidim_html_escape(translated(online_meeting.title)))
+        expect(subject).to include(decidim_escape_translated(in_person_meeting.title))
+        expect(subject).not_to include(decidim_escape_translated(online_meeting.title))
       end
     end
   end
@@ -209,8 +208,8 @@ RSpec.describe "Meeting search", type: :request do
       let(:activity) { "all" }
 
       it "returns all the meetings" do
-        expect(subject).to include(decidim_html_escape(translated(meeting1.title)))
-        expect(subject).to include(decidim_html_escape(translated(meeting2.title)))
+        expect(subject).to include(decidim_escape_translated(meeting1.title))
+        expect(subject).to include(decidim_escape_translated(meeting2.title))
       end
     end
 
@@ -218,8 +217,8 @@ RSpec.describe "Meeting search", type: :request do
       let(:activity) { "my_meetings" }
 
       it "returns only the meeting created by the current user" do
-        expect(subject).to include(decidim_html_escape(translated(meeting1.title)))
-        expect(subject).not_to include(decidim_html_escape(translated(meeting2.title)))
+        expect(subject).to include(decidim_escape_translated(meeting1.title))
+        expect(subject).not_to include(decidim_escape_translated(meeting2.title))
       end
     end
   end

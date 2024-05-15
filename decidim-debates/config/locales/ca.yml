@@ -51,7 +51,7 @@ ca:
         confirm_destroy: Segur?
         destroy: Suprimeix
         edit: Edita
-        new: Nou %{name}
+        new: Afegir debat
         title: Accions
       admin:
         debate_closes:
@@ -81,9 +81,6 @@ ca:
             success: Debate actualizado correctament.
         exports:
           comments: Comentaris
-        models:
-          debate:
-            name: Debat
       admin_log:
         debate:
           close: "La participant %{user_name} ha tancat el debat %{resource_name} a l'espai %{space_name}"
@@ -96,10 +93,9 @@ ca:
           invalid: S'ha produït un error en tancar el debat.
           success: Debat tancat correctament.
         close_debate_modal:
-          close: Tanca
+          cancel: Cancel·lar
           description: Quin és el resum o conclusions d'aquest debat?
           send: Tancar el debat
-        closed: Tancat
         count:
           debates_count:
             one: "%{count} debat"
@@ -107,8 +103,9 @@ ca:
         create:
           invalid: S'ha produït un error en crear el debat.
           success: Debat creat correctament.
-        debate:
-          participate: Participa
+        debates:
+          empty: Encara no hi ha cap debat.
+          empty_filters: No hi ha cap debat amb aquest criteri.
         edit:
           back: Enrere
           save: Guardar canvis
@@ -123,18 +120,12 @@ ca:
           official: Oficial
           origin: Origen
           participants: Participants
-          scope: Àmbit
           search: Cerca
           state: Estat
           state_values:
             closed: Tancat
             open: Obert
-          user_groups: Grups
-        filters_small_view:
-          close_modal: Tancar finestra
-          filter: Filtra
-          filter_by: Filtra per
-          unfold: Desplega
+          user_group: Grups
         form:
           select_a_category: Si us plau, selecciona una categoria
         index:
@@ -150,36 +141,27 @@ ca:
           recent: Més recents
           updated: Recentment actualitzats
         show:
-          back: Torna al llistat
           close_debate: Tancar el debat
-          date: Data
           debate_closed: Tancat
           debate_conclusions_are: 'El debat es va tancar el %{date} amb aquestes conclusions:'
           edit_conclusions: Editar conclusions
           edit_debate: Editar debat
           groups_count: Grups
-          last_comment_by: Darrer comentari de
-          no_comments_yet: Encara no hi ha comentaris
           open: Debat obert
           participants_count: Participants
         update:
           invalid: S'ha produït un error en actualitzar aquest debat.
           success: Debat actualitzat correctament.
-        versions:
-          debates:
-            back_to_resource: Tornar al debat
-          index:
-            title: Versions
-        versions_list:
-          back_to_resource: Tornar al debat
       last_activity:
         debate_updated: 'Debat actualitzat:'
         new_debate: 'Nou debat:'
       models:
         debate:
           fields:
+            end: Finalitza
             end_time: Data de finalització
             official_debate: Debat oficial
+            start: Comença
             start_time: Data d'inici
             title: Títol
     events:
@@ -188,10 +170,10 @@ ca:
           space_followers:
             email_intro: |-
               Hola,
-              S'ha creat un nou debat "%{resource_title}" a l'espai participatiu %{space_title}, fes-hi un cop d'ull i contribueix:
-            email_outro: Has rebut aquesta notificació perquè estàs seguint %{space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-            email_subject: Nou debat "%{resource_title}" el dia %{space_title}
-            notification_title: El debat <a href="%{resource_path}">%{resource_title}</a> s'ha creat a <a href="%{space_path}">%{space_title}</a>.
+              S'ha creat un nou debat "%{resource_title}" a l'espai participatiu %{participatory_space_title}, dona-hi una ullada i contribueix-hi:
+            email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions des de l'enllaç anterior.
+            email_subject: Nou debat "%{resource_title}" a %{participatory_space_title}
+            notification_title: S'ha creat el debat <a href="%{resource_path}">%{resource_title}</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
           user_followers:
             email_intro: |-
               Hola,
@@ -201,12 +183,12 @@ ca:
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creat el debat <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'La creació de debats ja no està activa a %{participatory_space_title}. Encara pots participar en debats oberts des d''aquesta pàgina:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: S'ha desactivat la creació de debats a %{participatory_space_title}
           notification_title: La creació de debats està deshabilitada a l'espai <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
           email_intro: 'Ja pots crear nous debats a %{participatory_space_title}! Comença a participar en aquesta pàgina:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Els debats ja estan disponibles a %{participatory_space_title}
           notification_title: Ara pots començar <a href="%{resource_path}">nous debats</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         debate_closed:

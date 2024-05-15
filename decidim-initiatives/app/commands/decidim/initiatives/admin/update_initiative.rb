@@ -5,51 +5,34 @@ module Decidim
     module Admin
       # A command with all the business logic that updates an
       # existing initiative.
-      class UpdateInitiative < Decidim::Command
+      class UpdateInitiative < Decidim::Commands::UpdateResource
         include Decidim::Initiatives::AttachmentMethods
 
-        # Public: Initializes the command.
-        #
-        # initiative - Decidim::Initiative
-        # form       - A form object with the params.
-        def initialize(initiative, form, current_user)
-          @form = form
-          @initiative = initiative
-          @current_user = current_user
-          @attached_to = initiative
+        protected
+
+        attr_reader :attachment
+
+        def update_resource
+          super
+        rescue ActiveRecord::RecordInvalid
+          raise Decidim::Commands::HookError
         end
 
-        # Executes the command. Broadcasts these events:
-        #
-        # - :ok when everything is valid.
-        # - :invalid if the form was not valid and we could not proceed.
-        #
-        # Returns nothing.
-        def call
-          return broadcast(:invalid) if form.invalid?
-
-          if process_attachments?
-            @initiative.attachments.destroy_all
-
-            build_attachment
-            return broadcast(:invalid) if attachment_invalid?
-          end
-
-          @initiative = Decidim.traceability.update!(
-            initiative,
-            current_user,
-            attributes
-          )
+        def run_after_hooks
           create_attachment if process_attachments?
           notify_initiative_is_extended if @notify_extended
-          broadcast(:ok, initiative)
-        rescue ActiveRecord::RecordInvalid
-          broadcast(:invalid, initiative)
         end
 
-        private
+        def run_before_hooks
+          return unless process_attachments?
 
-        attr_reader :form, :initiative, :current_user, :attachment
+          resource.attachments.destroy_all
+
+          @attached_to = resource
+
+          build_attachment
+          raise Decidim::Commands::HookError if attachment_invalid?
+        end
 
         def attributes
           attrs = {
@@ -65,9 +48,9 @@ module Decidim
 
           if current_user.admin?
             add_admin_accessible_attrs(attrs)
-          elsif initiative.created?
-            attrs[:signature_end_date] = form.signature_end_date if initiative.custom_signature_end_date_enabled?
-            attrs[:decidim_area_id] = form.area_id if initiative.area_enabled?
+          elsif resource.created?
+            attrs[:signature_end_date] = form.signature_end_date if resource.custom_signature_end_date_enabled?
+            attrs[:decidim_area_id] = form.area_id if resource.area_enabled?
           end
 
           attrs
@@ -80,8 +63,8 @@ module Decidim
           attrs[:state] = form.state if form.state
           attrs[:decidim_area_id] = form.area_id
 
-          if initiative.published? && form.signature_end_date != initiative.signature_end_date &&
-             form.signature_end_date > initiative.signature_end_date
+          if resource.published? && form.signature_end_date != resource.signature_end_date &&
+             form.signature_end_date > resource.signature_end_date
             @notify_extended = true
           end
         end
@@ -90,8 +73,8 @@ module Decidim
           Decidim::EventsManager.publish(
             event: "decidim.events.initiatives.initiative_extended",
             event_class: Decidim::Initiatives::ExtendInitiativeEvent,
-            resource: initiative,
-            followers: initiative.followers - [initiative.author]
+            resource:,
+            followers: resource.followers - [resource.author]
           )
         end
       end

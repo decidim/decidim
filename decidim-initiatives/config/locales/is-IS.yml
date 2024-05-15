@@ -19,6 +19,8 @@ is-IS:
         name: Heill heiti
   decidim:
     admin:
+      actions:
+        manage: Stjórna
       menu:
         components: Hluti
         information: Upplýsingar
@@ -68,20 +70,14 @@ is-IS:
             print: Prenta
         initiatives_type_scopes:
           edit:
-            back: Til baka
-            confirm_destroy: Ertu viss?
             title: Breyta frumgerð gerð umfang
             update: Uppfæra
           new:
-            back: Til baka
             create: Búa til
             title: Búðu til frumkvæði gerðarsviðs
         initiatives_types:
           edit:
-            confirm_destroy: Ertu viss?
             update: Uppfæra
-          form:
-            title: Almennar upplýsingar
           initiative_type_scopes:
             title: Umfang fyrir frumgerð gerð
           new:
@@ -121,20 +117,11 @@ is-IS:
         previous_form:
           back: Til baka
           continue: Haltu áfram
-          help: Hvað felur frumkvæði í sér? Skrifaðu niður titilinn og lýsingu. Við mælum með stuttri og nákvæmri titli og lýsing á áherslu á fyrirhugaða lausnina.
-          more_information: "(Meiri upplýsingar)"
         promotal_committee:
-          back: Til baka
           more_information: "(Meiri upplýsingar)"
         select_initiative_type:
           back: Til baka
-          more_information: "(Meiri upplýsingar)"
-        share_committee_link:
-          continue: Haltu áfram
-        show_similar_initiatives:
-          back: Til baka
-          continue: Frumkvæði mitt er öðruvísi
-          more_information: "(Meiri upplýsingar)"
+          more_information: (Meiri upplýsingar)
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, sem þú fylgist með, hefur búið til nýtt frumkvæði, athugaðu það og stuðlað að:"
@@ -146,11 +133,7 @@ is-IS:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{author_nickname}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
           email_subject: Initiative endorsed by %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> frumkvæði var samþykkt með <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-      index:
-        title: Frumkvæði
       initiatives:
-        author:
-          deleted: Eytt
         count:
           title:
             one: "%{count} frumkvæði"
@@ -159,13 +142,7 @@ is-IS:
           any: Einhver
           author: Höfundur
           myself: Verkefni mín
-          search: Leita
           type: Gerð
-        filters_small_view:
-          close_modal: Lokaðu glugga
-          filter: Sía
-          filter_by: Sía eftir
-          unfold: Fella út
         index_header:
           new_initiative: Nýtt frumkvæði
         orders:
@@ -186,11 +163,6 @@ is-IS:
           check_initiative_details: Þú getur séð frumkvæði upplýsingar
           here: hér
         more_information: Hér hefur þú meiri upplýsingar um frumkvöðlunarferlið.
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Virk verkefni
-            see_all_initiatives: Sjá öll verkefni
       states:
         accepted: Samþykkt
         expired: Útrunnið
@@ -201,14 +173,7 @@ is-IS:
       initiative_creation_header:
         fill_data: Búa til
         finish: Klára
-        previous_form: Byrja
         select_initiative_type: Veldu
-        show_similar_initiatives: Bera saman
-      initiative_header:
-        initiative_menu_item: Frumkvæði
       initiatives:
-        initiative:
-          check: Skoðaðu þetta
-          check_and_support: Skoðaðu það og skráðu þig inn
         no_initiatives_yet:
           no_initiatives_yet: Engar aðgerðir ennþá!

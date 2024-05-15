@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User group email confirmation", type: :system do
+describe "User group email confirmation" do
   let!(:creator) { create(:user, :confirmed) }
   let!(:user_group) { create(:user_group, users: [creator], organization: creator.organization) }
 
@@ -18,7 +18,7 @@ describe "User group email confirmation", type: :system do
     end
 
     it "does not show the link to edit" do
-      expect(page).not_to have_content("Resend email confirmation instructions")
+      expect(page).to have_no_content("Resend email confirmation instructions")
     end
   end
 
@@ -30,8 +30,8 @@ describe "User group email confirmation", type: :system do
 
     it "allows demoting a user" do
       clear_emails
-      click_button "Manage group"
-      click_link "Resend email confirmation instructions"
+      click_on "Manage group"
+      click_on "Resend email confirmation instructions"
       expect(page).to have_content("Email confirmation instructions sent")
 
       visit last_email_link

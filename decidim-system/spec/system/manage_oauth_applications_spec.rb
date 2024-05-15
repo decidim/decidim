@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Manage OAuth applications", type: :system do
+describe "Manage OAuth applications" do
   include ActionView::Helpers::SanitizeHelper
 
   let(:admin) { create(:admin) }
@@ -14,7 +14,7 @@ describe "Manage OAuth applications", type: :system do
   end
 
   it "can create new applications" do
-    click_link "New"
+    click_on "New"
 
     within ".new_oauth_application" do
       fill_in :oauth_application_name, with: "Meta Decidim"
@@ -45,8 +45,8 @@ describe "Manage OAuth applications", type: :system do
     end
 
     it "can edit them" do
-      within find("tr", text: application.name) do
-        click_link "Edit"
+      within "tr", text: application.name do
+        click_on "Edit"
       end
 
       within ".edit_oauth_application" do
@@ -62,19 +62,19 @@ describe "Manage OAuth applications", type: :system do
     end
 
     it "can delete them" do
-      within find("tr", text: application.name) do
-        accept_confirm { click_link "Delete" }
+      within "tr", text: application.name do
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_content("successfully")
 
       within "table" do
-        expect(page).not_to have_content(application.name)
+        expect(page).to have_no_content(application.name)
       end
     end
 
     it "view their data" do
-      click_link application.name
+      click_on application.name
 
       expect(page).to have_content(application.uid)
       expect(page).to have_content(application.secret)

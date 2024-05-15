@@ -30,7 +30,7 @@ hu:
         actions:
           comment: Megjegyzés
           create: Létrehozás
-          endorse: Jóváhagy
+          endorse: Támogat
         name: Viták
         settings:
           global:
@@ -43,15 +43,14 @@ hu:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
             creation_enabled: A résztvevők létrehozhatnak vitákat
-            endorsements_blocked: Jóváhagyások letiltva
-            endorsements_enabled: Jóváhagyások engedélyezve
+            endorsements_blocked: Támogatások letiltva
+            endorsements_enabled: Támogatások engedélyezve
     debates:
       actions:
         close: Bezár
         confirm_destroy: Biztos vagy benne?
         destroy: Törlés
         edit: Szerkesztés
-        new: Új %{name}
         title: Műveletek
       admin:
         debate_closes:
@@ -81,9 +80,6 @@ hu:
             success: A vita sikeresen frissült.
         exports:
           comments: Hozzászólások
-        models:
-          debate:
-            name: Vita
       admin_log:
         debate:
           close: "%{user_name} lezárta a(z) %{resource_name} vitát a(z) %{space_name} térben"
@@ -96,10 +92,8 @@ hu:
           invalid: Probléma merült fel a vita lezárása során.
           success: Vita sikeresen lezárva.
         close_debate_modal:
-          close: Bezár
           description: Mi a vita összefoglalása vagy az abból levont következtetés?
           send: Vita lezárása
-        closed: Lezárva
         count:
           debates_count:
             one: "%{count} vita"
@@ -107,8 +101,6 @@ hu:
         create:
           invalid: Probléma merült fel a vita létrehozása során.
           success: Vita létrehozása sikeres.
-        debate:
-          participate: Részvétel
         edit:
           back: Vissza
           save: Változások mentése
@@ -123,18 +115,11 @@ hu:
           official: Hivatalos
           origin: Kiindulópont
           participants: Résztvevők
-          scope: Hatókör
           search: Keresés
           state: Állapot
           state_values:
             closed: Lezárva
             open: Nyitva
-          user_groups: Csoportok
-        filters_small_view:
-          close_modal: Modal bezárása
-          filter: Szűrő
-          filter_by: 'Szűrés ez alapján:'
-          unfold: Kibont
         form:
           select_a_category: Válassz kategóriát
         index:
@@ -150,28 +135,17 @@ hu:
           recent: Legfrissebb
           updated: Nemrégiben frissítve
         show:
-          back: Vissza a listához
           close_debate: Vita lezárása
-          date: Dátum
           debate_closed: Lezárva
           debate_conclusions_are: 'A vitát %{date} -n zárult le az alábbi következtetésekkel:'
           edit_conclusions: Következtetések szerkesztése
           edit_debate: Vita szerkesztése
           groups_count: Csoportok
-          last_comment_by: Utolsó hozzászólás
-          no_comments_yet: Még nincsenek hozzászólások
           open: Nyitott vita
           participants_count: Résztvevők
         update:
           invalid: Hiba történt a vita frissítése során.
           success: A vita frissítse sikeres.
-        versions:
-          debates:
-            back_to_resource: Visszalépés a vitához
-          index:
-            title: Verziók
-        versions_list:
-          back_to_resource: Visszalépés a vitához
       last_activity:
         debate_updated: 'Vita frissítve:'
         new_debate: 'Új vita:'
@@ -185,13 +159,6 @@ hu:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_intro: |-
-              Szia,
-              Új vitát "%{resource_title}" hoztak létre a %{space_title} részvételi téren, nézd meg és járulj hozzá:
-            email_outro: 'Ezt az értesítést azért kaptad, mert ezt a részvételi helyet követed: "%{space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
-            email_subject: Új vita "%{resource_title}" indult itt %{space_title}
-            notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a>vita létrejött itt:<a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Szia,

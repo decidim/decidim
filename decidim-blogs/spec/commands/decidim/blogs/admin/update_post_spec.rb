@@ -6,7 +6,7 @@ module Decidim
   module Blogs
     module Admin
       describe UpdatePost do
-        subject { described_class.new(form, post, current_user) }
+        subject { described_class.new(form, post) }
 
         let(:organization) { create(:organization) }
         let(:participatory_process) { create(:participatory_process, organization:) }
@@ -23,7 +23,8 @@ module Decidim
             title: { en: title },
             body: { en: body },
             published_at: publish_time,
-            current_component:,
+            component: current_component,
+            current_user:,
             author: current_user
           )
         end
@@ -98,7 +99,8 @@ module Decidim
                 title: { en: title },
                 body: { en: body },
                 published_at: publish_time,
-                current_component:,
+                component: current_component,
+                current_user:,
                 author: group
               )
             end

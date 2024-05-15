@@ -7,6 +7,7 @@ module Decidim
       #
       class AssembliesController < Decidim::Assemblies::Admin::ApplicationController
         include Decidim::Assemblies::Admin::Filterable
+        include Decidim::Admin::ParticipatorySpaceAdminBreadcrumb
         helper_method :current_assembly, :parent_assembly, :current_participatory_space
         layout "decidim/admin/assemblies"
 
@@ -51,7 +52,7 @@ module Decidim
             assembly_id: current_assembly.id
           )
 
-          UpdateAssembly.call(current_assembly, @form) do
+          UpdateAssembly.call(@form, current_assembly) do
             on(:ok) do |assembly|
               flash[:notice] = I18n.t("assemblies.update.success", scope: "decidim.admin")
               redirect_to edit_assembly_path(assembly)

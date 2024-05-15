@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Budgets
     module Admin
-      describe ProjectsController, type: :controller do
+      describe ProjectsController do
         routes { Decidim::Budgets::AdminEngine.routes }
 
         let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
@@ -71,22 +71,6 @@ module Decidim
                 expect(response.body).to include("There was a problem updating this project")
               end
             end
-          end
-        end
-
-        context "when proposal linking is not enabled" do
-          let(:component) { create(:budgets_component) }
-
-          before do
-            allow(Decidim::Budgets).to receive(:enable_proposal_linking).and_return(false)
-          end
-
-          it "does not load the proposals admin picker concern" do
-            expect(Decidim::Budgets::Admin::ProjectsController).not_to receive(:include).with(
-              Decidim::Proposals::Admin::Picker
-            )
-
-            load "#{Decidim::Budgets::Engine.root}/app/controllers/decidim/budgets/admin/projects_controller.rb"
           end
         end
       end

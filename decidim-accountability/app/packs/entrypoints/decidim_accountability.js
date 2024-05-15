@@ -4,4 +4,4 @@
 require.context("../images", true)
 
 // CSS
-import "stylesheets/redesigned_accountability.scss"
+import "stylesheets/accountability.scss"

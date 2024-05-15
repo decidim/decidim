@@ -70,7 +70,6 @@ ar:
         machine_translation_display_priority_translation: النص المترجم أولاً
         name: اسم
         official_img_footer: تذييل الشعار الرسمي
-        official_img_header: رأس الشعار الرسمي
         official_url: عنوان URL الرسمي للمنظمة
         omnipresent_banner_short_description: وصف قصير
         omnipresent_banner_title: العنوان
@@ -87,7 +86,6 @@ ar:
         success_color: نجاح
         time_zone: المنطقة الزمنية
         tos_version: شروط وأحكام الخدمة
-        twitter_handler: مُعرّف حساب تويتر
         user_groups_enabled: تمكين المجموعات
         warning_color: تحذير
         welcome_notification_body: محتوى إشعار الترحيب
@@ -128,8 +126,6 @@ ar:
           attributes:
             official_img_footer:
               allowed_file_content_types: ملف صورة غير صالح
-            official_img_header:
-              allowed_file_content_types: ملف صورة غير صالح
   activerecord:
     attributes:
       decidim/static_page:
@@ -153,8 +149,6 @@ ar:
           new: فئة جديدة
         export: تصدير الكل
         import: استيراد
-        manage: تدبير
-        new: جديد %{name}
         newsletter:
           new: رسالة إخبارية جديدة
         per_page: في كل صفحة
@@ -202,7 +196,6 @@ ar:
           title: تحرير المجلد
           update: تحديث
         index:
-          attachment_collection_used: لا يمكن إزالة هذا المجلد لأنه قيد الاستخدام.
           attachment_collections_title: مجلدات المرفقات
         new:
           create: إنشاء
@@ -245,7 +238,6 @@ ar:
           update: تحديث
         index:
           categories_title: الاقسام
-          category_used: لا يمكن إزالة هذه الفئة لأنها قيد الاستخدام.
         new:
           create: إنشاء فئة
           title: فئة جديدة
@@ -295,7 +287,6 @@ ar:
         title: تضارب التحقق
         transfer:
           email: البريد الإلكتروني
-          error: كانت هناك مشكلة في نقل المشارك الحالي إلى مشارك مُدار.
           name: الإسم
           reason: السبب
           success: قد اكتمل النقل الحالي بنجاح.
@@ -305,10 +296,6 @@ ar:
       dashboard:
         show:
           view_more_logs: عرض المزيد من السجلات
-          welcome: أهلا بك على اللوح الإداري.
-      domain_whitelist:
-        form:
-          domain_too_short: نطاق الدومين قصير جداً
       exports:
         export_as: "%{name} ك %{export_format}"
         formats:
@@ -374,7 +361,6 @@ ar:
           report_count_eq: عدد التقارير يساوى
           reported_id_string_or_reported_content_cont: البحث عن %{collection} بواسطة رقم-مُعرف أو بالمحتوى.
           title_cont: البحث عن %{collection} بحسب العنوان.
-          user_name_or_user_email_cont: البحث عن %{collection} حسب الاسم أو البريد الإلكتروني.
           user_name_or_user_nickname_or_user_email_cont: البحث عن %{collection} بحسب عنوان البريد الإكتروني أو الإسم أو الإسم المستعار.
         state_eq:
           label: الحالة
@@ -398,7 +384,6 @@ ar:
             all: الكل
             managed: تمكن
             not_managed: غير مُدار
-          filter_by: مصنف بواسطة
           impersonate: انتحال
           impersonate_new_managed_user: إدارة مشارك جديد
           managed: تمكن
@@ -459,15 +444,16 @@ ar:
         area_types: أنواع المناطق
         areas: المناطق
         configuration: الإعدادات
-        dashboard: لوحة القيادة
         help_sections: أقسام المساعدة
         homepage: الصفحة الرئيسية
         impersonations: التقليد
+        manage: تدبير
         newsletters: الرسائل الإخبارية
         participants: المشاركون
         scope_types: أنواع المجال
         scopes: مجالات
         settings: الإعدادات
+        static_page_topics: المواضيع
         static_pages: صفحات
         user_groups: المجموعات
         users: المشاركون
@@ -530,7 +516,6 @@ ar:
           fields:
             created_at: تاريخ الإنشاء
             email: البريد الإلكتروني
-            last_sign_in_at: تسجيل الدخول الأخير في التاريخ
             name: اسم
             role: وظيفة
             roles:
@@ -616,9 +601,6 @@ ar:
           none: لا شَيْء
           scopes_help: إرسال النشرة الإخبارية للمستخدمين الذين لديهم أي من المجالات المحددة تم تفعيله في إعدادات "اهتماماتي" لحسابهم.
           select_scopes: أختر للمستخدمين الذين فعلوا أي مجال محدد في إعدادات أهتماماتي لحساباتهم.
-          send_to_all_users: إرسال إلى كافة المستخدمين
-          send_to_followers: إرسال إلى المتابِعين
-          send_to_participants: إرسال إلى المشاركين
           title: حدد المستلمين للإرسال اليهم
           warning: "<strong>تنبيه:</strong> سيتم إرسال هذه النشرة الإخبارية فقط للمستخدمين الذين فعلوا <em>أريد تلقي النشرات الإخبارية</em> في إعدادات الإشعارات الخاصة بهم."
         show:
@@ -650,7 +632,6 @@ ar:
           officialize: الصفة الرسمية
           title: إضفاء الطابع الرسمي على المشارك "%{name}"
         show_email_modal:
-          close_modal: اغلاق النموذج
           description: إذا كنت بحاجة إلى الاتصال بأحد المشاركين مباشرة، يمكنك النقر على زر العرض لرؤية عنوان بريده الإلكتروني. سيتم تسجيل هذا الإجراء.
           email_address: عنوان البريد الإلكتروني
           full_name: الاسم الكامل
@@ -666,7 +647,7 @@ ar:
           github: غِت‌ هَب
           instagram: إينستاجرام
           social_handlers: التواصل الاجتماعي
-          twitter: تويتر
+          twitter: X
           url: عنوان الرابط
           youtube: يوتيوب
         update:
@@ -678,8 +659,6 @@ ar:
         form:
           colors:
             colors_title: ألوان المنظمة
-            header_snippets_help: استخدم هذا الحقل لإضافة أشياء إلى رأس HTML. الاستخدام الأكثر شيوعًا هو دمج خدمات الجهات الخارجية التي تتطلب بعض JavaScript أو CSS إضافية. أيضًا ، يمكنك استخدامه لإضافة علامات وصفية إضافية إلى HTML. لاحظ أنه سيتم عرض هذا فقط في الصفحات العامة ، وليس في قسم المسؤول.
-          cta_button_path_help: 'يمكنك الكتابة فوق المكان الذي يرتبط به زر Call To Action في الصفحة الرئيسية. استخدم المسارات الجزئية ، وليس عناوين URL الكاملة هنا. يقبل الحروف والأرقام والشرطات والمائلة ، ويجب أن يبدأ بحرف. يظهر زر Call To Action في الصفحة الرئيسية بين نص الترحيب والوصف. مثال: %{url}'
           cta_button_text_help: يمكنك الكتابة فوق نص زر Call To Action في الصفحة الرئيسية لكل لغة متاحة في مؤسستك. إذا لم يتم تعيينها ، سيتم استخدام القيمة الافتراضية. يظهر زر Call To Action في الصفحة الرئيسية بين نص الترحيب والوصف.
           homepage_appearance_title: تحرير مظهر الصفحة الرئيسية
           homepage_highlighted_content_banner_title: لافتة المحتوى الراقي
@@ -687,17 +666,6 @@ ar:
             layout_appearance_title: تحرير مظهر التخطيط
             preview: معاينة
           omnipresent_banner_appearance_title: تحرير لافتة في كل مكان
-      organization_external_domain_whitelist:
-        edit:
-          update: تحديث
-        external_domain:
-          down: أسفل
-          remove: إزالة
-          up: أعلى
-      organization_homepage:
-        edit:
-          active_content_blocks: كتل المحتوى النشط
-          inactive_content_blocks: كتل المحتوى غير النشطة
       participatory_space_private_users:
         create:
           error: حدثت مشكلة أثناء إضافة مشارك خاص لهذه المساحة التشاركية.
@@ -717,7 +685,6 @@ ar:
             empty: ليس لديك أي مشاركين خاصين.
             explanation: لديك %{count} مشاركين خاصين.
             title: حذف جميع المشاركين الخاصين
-          title: حمّل ملف CSV الخاص بك
           upload: حمّل
       reminders:
         new:
@@ -768,7 +735,6 @@ ar:
       shared:
         gallery:
           add_images: إضافة صور
-          delete_image: احذف الصورة
           edit_images: تعديل الصورة
       static_page_topics:
         create:
@@ -786,8 +752,6 @@ ar:
       static_pages:
         actions:
           view: عرض الصفحة العامة
-        content_blocks:
-          title: محتوى الصفحة
         create:
           error: كانت هناك مشكلة في إنشاء صفحة جديدة.
           success: تم إنشاء الصفحة بنجاح.
@@ -804,8 +768,6 @@ ar:
           create: إنشاء صفحة
           title: صفحة جديدة
         topic:
-          destroy: إزالة الموضوع
-          edit: تحرير الموضوع
           without_topic: صفحات بدون موضوع
         update:
           error: حدثت مشكلة أثناء تحديث هذه الصفحة.
@@ -815,13 +777,15 @@ ar:
         areas: المناطق
         authorization_workflows: طرق التحقق
         dashboard: لوحة القيادة
+        edit_organization_appearance: تعديل مظهر الصفحة الرئيسية
         impersonatable_users: المشاركون في الإدارة
         impersonations: إدارة المشاركين
+        menu: القائمة الرئيسية
+        pages: الصفحات
         panel: مدير
         participants: المشاركين
         scope_types: أنواع النطاق
         scopes: مجالات
-        static_pages: صفحات
         statistics: النشاط
         user_groups: المجموعات
         users: المدراء
@@ -865,7 +829,6 @@ ar:
           last_month: الشهر الماضي
           last_week: الأسبوع الماضي
           participants: المشاركون
-      view_public_page: عرض الصفحة العامة
     metrics:
       blocked_users:
         title: المستخدمين المحظورين
@@ -901,6 +864,7 @@ ar:
             participatory_space: الفضاء التشاركي
             reportable_type: النوع
             reported_content_url: تم الإبلاغ عن عنوان URL للمحتوى
+            reports: السبب
             visit_url: زيارة العنوان الشبكي
         report:
           fields:
@@ -913,9 +877,5 @@ ar:
   layouts:
     decidim:
       admin:
-        newsletters:
-          title: النشرات الإخبارية
-        settings:
-          title: الإعدادات
-        users:
-          title: المشاركين
+        global_moderations:
+          title: مُشرف عام

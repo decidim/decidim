@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Notifications", type: :system do
+describe "Notifications" do
   let(:resource) { create(:dummy_resource) }
   let(:participatory_space) { resource.component.participatory_space }
   let(:organization) { participatory_space.organization }
@@ -20,14 +20,14 @@ describe "Notifications", type: :system do
     end
 
     it "has a button on the topbar nav that links to the notifications page" do
-      find("#trigger-dropdown-account").click
+      find_by_id("trigger-dropdown-account").click
       within "#dropdown-menu-account" do
-        click_link("Notifications")
+        click_on("Notifications")
       end
 
       expect(page).to have_current_path decidim.notifications_path
-      expect(page).not_to have_content("No notifications yet")
-      expect(page).to have_content("An event occured")
+      expect(page).to have_no_content("No notifications yet")
+      expect(page).to have_content("An event occurred")
     end
 
     context "when the resource has been deleted" do
@@ -37,9 +37,9 @@ describe "Notifications", type: :system do
       end
 
       it "displays nothing" do
-        find("#trigger-dropdown-account").click
+        find_by_id("trigger-dropdown-account").click
         within "#dropdown-menu-account" do
-          click_link("Notifications")
+          click_on("Notifications")
         end
 
         expect(page).to have_current_path decidim.notifications_path
@@ -52,7 +52,7 @@ describe "Notifications", type: :system do
 
       it "the button is not shown as active" do
         within ".main-bar" do
-          expect(page).not_to have_selector("[data-unread-items]")
+          expect(page).to have_no_selector("[data-unread-items]")
         end
       end
     end
@@ -60,7 +60,7 @@ describe "Notifications", type: :system do
     context "when there are some notifications" do
       it "the button is shown as active" do
         within ".main-bar" do
-          expect(page).to have_selector("[data-unread-items]")
+          expect(page).to have_css("[data-unread-items]")
         end
       end
     end
@@ -74,7 +74,7 @@ describe "Notifications", type: :system do
     end
 
     it "does not show any notification" do
-      expect(page).not_to have_content("Mark all as read")
+      expect(page).to have_no_content("Mark all as read")
       expect(page).to have_content("No notifications yet")
     end
   end
@@ -85,29 +85,29 @@ describe "Notifications", type: :system do
     end
 
     it "shows the notifications" do
-      expect(page).to have_selector(".notification")
+      expect(page).to have_css(".notification")
     end
 
     context "when setting a single notification as read" do
-      let(:notification_title) { "An event occured to #{translated resource.title}" }
+      let(:notification_title) { "An event occurred to #{translated resource.title}" }
 
       it "hides the notification from the page" do
-        expect(page).to have_content(translated(notification_title))
+        expect(page).to have_content(decidim_sanitize_translated(notification_title))
         find("[data-notification-read]").click
-        expect(page).not_to have_content(translated(notification_title))
+        expect(page).to have_no_content(translated(notification_title))
         expect(page).to have_content("No notifications yet")
       end
     end
 
     context "when setting all notifications as read" do
       it "hides all notifications from the page" do
-        click_link "Mark all as read"
-        expect(page).not_to have_selector("[data-notification]")
-        expect(page).not_to have_content("Mark all as read")
+        click_on "Mark all as read"
+        expect(page).to have_no_selector("[data-notification]")
+        expect(page).to have_no_content("Mark all as read")
         expect(page).to have_content("No notifications yet")
 
         within ".main-bar" do
-          expect(page).not_to have_selector("[data-unread-items]")
+          expect(page).to have_no_selector("[data-unread-items]")
         end
       end
     end

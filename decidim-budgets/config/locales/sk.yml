@@ -67,15 +67,12 @@ sk:
         budget_excess:
           budget_excess:
             title: Maximálny rozpočet prekročený
-          close: Zavrieť
           ok: OK
         budget_summary:
           are_you_sure: Naozaj chcete zrušiť svoj hlas?
-          assigned: 'Priradený:'
           cancel_order: vymažte svoj hlas a začnite odznova
           checked_out:
             title: Hlasovanie o rozpočte dokončené
-          title: Vy rozhodujete o rozpočte
         count:
           projects_count:
             one: 1 projekt
@@ -86,32 +83,17 @@ sk:
           category: Kategória
           scope: Rozsah
           search: Hľadať
-        filters_small_view:
-          close_modal: Zavrieť okno
-          filter: Filter
-          filter_by: Filtrovať podľa
-          unfold: Rozbaliť
-        order_progress:
-          vote: Hlasovať
-        order_selected_projects:
-          remove: Odstrániť
-          selected_projects:
-            one: vybraný projekt
-            few: vybrané projekty
-            many: vybrané projekty
-            other: vybrané projekty
-          view: Zobraziť
         orders:
           highest_cost: Najvyššie náklady
           label: Zoradiť projekty podľa
           lowest_cost: Najnižšie náklady
           most_voted: Najviac hlasov
           random: Náhodné poradie
-        project:
-          view: Zobraziť
+        project_budget_button:
+          add: Pridať
+          added: Pridané
         show:
           budget: Rozpočet
-          view_all_projects: Zobraziť všetky projekty
     components:
       budgets:
         actions:

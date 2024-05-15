@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin invite", type: :system do
+describe "Admin invite" do
   let(:form) do
     Decidim::System::RegisterOrganizationForm.new(params)
   end
@@ -47,13 +47,8 @@ describe "Admin invite", type: :system do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_selector ".callout--full"
+      expect(page).to have_admin_callout "Your password was set successfully. You are now signed in."
 
-      within ".callout--full" do
-        page.find(".close-button").click
-      end
-
-      expect(page).to have_content("Dashboard")
       expect(page).to have_current_path "/admin/admin_terms/show"
     end
   end

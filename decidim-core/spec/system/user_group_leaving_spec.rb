@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User group leaving", type: :system do
+describe "User group leaving" do
   let!(:user) { create(:user, :confirmed) }
   let!(:user_group) { create(:user_group, :confirmed, :verified, users: [], organization: user.organization) }
 
@@ -17,8 +17,8 @@ describe "User group leaving", type: :system do
       let!(:user_group) { create(:user_group, :confirmed, :verified, users: [user], organization: user.organization) }
 
       it "cannot leave group" do
-        click_button "Manage group"
-        accept_confirm { click_link "Leave group" }
+        click_on "Manage group"
+        accept_confirm { click_on "Leave group" }
 
         expect(page).to have_content("You cannot remove yourself from this group as you are the last administrator")
       end
@@ -32,11 +32,11 @@ describe "User group leaving", type: :system do
         end
 
         it "can leave the group" do
-          click_button "Manage group"
-          accept_confirm { click_link "Leave group" }
+          click_on "Manage group"
+          accept_confirm { click_on "Leave group" }
 
           expect(page).to have_content("Group successfully abandoned")
-          expect(page).not_to have_content("Leave group")
+          expect(page).to have_no_content("Leave group")
         end
       end
     end
@@ -52,8 +52,8 @@ describe "User group leaving", type: :system do
       it "allows the user to leave and join back" do
         visit decidim.profile_path(user_group.nickname)
 
-        click_button "Manage group"
-        accept_confirm { click_link "Leave group" }
+        click_on "Manage group"
+        accept_confirm { click_on "Leave group" }
 
         expect(page).to have_content("Group successfully abandoned")
         expect(page).to have_content("Request to join group")
@@ -63,7 +63,7 @@ describe "User group leaving", type: :system do
 
   context "when the user does not belong to the group" do
     it "does not show the link to leave" do
-      expect(page).not_to have_content("Leave group")
+      expect(page).to have_no_content("Leave group")
     end
   end
 end

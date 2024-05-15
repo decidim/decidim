@@ -5,9 +5,7 @@ module Decidim
   # so other cells only have to customize a few methods or overwrite views.
   class CardLCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
-    include Decidim::ApplicationHelper
     include Decidim::TooltipHelper
-    include Decidim::SanitizeHelper
     include Decidim::CardHelper
     include Decidim::LayoutHelper
     include Decidim::SearchesHelper
@@ -104,12 +102,10 @@ module Decidim
     end
 
     def title
-      decidim_html_escape(translated_attribute(resource.title))
+      decidim_escape_translated(resource.title)
     end
 
     def title_tag
-      # REDESIGN_PENDING: May this tag should be a header below :h2 calculated
-      # dynamically?
       options[:title_tag] || :div
     end
 

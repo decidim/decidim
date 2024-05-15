@@ -6,7 +6,6 @@ module Decidim
     # the default size is the List Card (:l)
     # also available the List Item Card (:list_item)
     class MeetingCell < Decidim::ViewModel
-      include Decidim::SanitizeHelper
       include MeetingCellsHelper
       include Cell::ViewModel::Partial
 

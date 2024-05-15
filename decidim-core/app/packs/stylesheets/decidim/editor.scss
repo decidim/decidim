@@ -1,0 +1,204 @@
+.editor-props {
+  --editor-active-color: #487bda;
+  --editor-border-color: #ccc;
+  --editor-disabled-color: #eee;
+  --editor-bubble-border-color: #ccc;
+  --editor-bubble-shadow-color: #333;
+}
+
+.editor-suggestions-props {
+  --editor-suggestions-border-color: #000;
+  --editor-suggestions-background-color: #fff;
+  --editor-suggestions-selected-highlight-color: #c7c7c7;
+}
+
+.editor-active {
+  @apply outline outline-4 outline-[var(--editor-active-color)];
+}
+
+.editor-border {
+  @apply border-solid border-[#ccc];
+}
+
+.editor-container {
+  @apply editor-props editor-suggestions-props flex flex-col mb-6 border editor-border;
+
+  &.editor-disabled {
+    .editor-input .ProseMirror {
+      @apply bg-[var(--editor-disabled-color)];
+    }
+  }
+
+  .editor-toolbar {
+    @apply py-1.5 px-2.5 border-0 border-b editor-border;
+
+    .editor-toolbar-group {
+      @apply inline-block mx-2.5;
+
+      &:first-child {
+        @apply ml-0;
+      }
+    }
+
+    .editor-toolbar-control {
+      @apply ml-2 mt-0;
+
+      &:first-child {
+        @apply ml-0;
+      }
+
+      &.active,
+      &:hover,
+      &:focus {
+        svg {
+          @apply fill-[var(--editor-active-color)];
+        }
+      }
+    }
+
+    select {
+      @apply inline-block w-auto h-8 mb-0 py-0;
+    }
+
+    button {
+      @apply relative;
+    }
+
+    .editor-toolbar-icon {
+      @apply w-5 h-5;
+    }
+  }
+
+  .editor-input {
+    @apply relative flex-auto overflow-y-auto;
+
+    [data-linkbubble] {
+      @apply px-2 py-1 border border-solid border-[var(--editor-bubble-border-color)] bg-white shadow-md shadow-[var(--editor-bubble-shadow-color)];
+
+      [data-linkbubble-content] {
+        @apply inline-flex;
+
+        [data-linkbubble-value] {
+          @apply truncate ml-2 max-w-[185px];
+        }
+      }
+
+      button {
+        @apply mx-1 cursor-pointer text-[var(--editor-active-color)];
+      }
+    }
+
+    .ProseMirror {
+      @apply relative p-2.5 outline-0 min-h-full prose max-w-none prose-headings:first:mt-0 prose-p:first:mt-0 prose-ul:first:mt-0 prose-ol:first:mt-0 prose-blockquote:first:mt-0 prose-pre:first:mt-0;
+
+      &.ProseMirror-focused,
+      &.dialog-open {
+        [data-video-embed].ProseMirror-selectednode {
+          @apply editor-active;
+        }
+
+        [data-image-resizer].ProseMirror-selectednode {
+          [data-image-resizer-wrapper] {
+            @apply editor-active;
+
+            [data-image-resizer-control],
+            [data-image-resizer-dimensions] {
+              @apply block;
+            }
+          }
+        }
+      }
+
+      &[contenteditable="false"] {
+        @apply cursor-not-allowed bg-[var(--editor-disabled-color)];
+      }
+
+      .editor-content-image {
+        img {
+          @apply my-0;
+        }
+      }
+
+      [data-video-embed] {
+        @apply mb-8;
+
+        iframe {
+          @apply pointer-events-none;
+        }
+      }
+
+      [data-image-resizer] {
+        @apply mb-8;
+
+        [data-image-resizer-wrapper] {
+          @apply relative inline-block;
+
+          [data-image-resizer-control] {
+            @apply absolute hidden w-2.5 h-2.5 rounded-none border border-solid border-[#000] bg-[#fff] opacity-80;
+          }
+
+          [data-image-resizer-control^="top-"] {
+            @apply top-0;
+          }
+
+          [data-image-resizer-control^="bottom-"] {
+            @apply bottom-0;
+          }
+
+          [data-image-resizer-control$="-left"] {
+            @apply left-0;
+          }
+
+          [data-image-resizer-control$="-right"] {
+            @apply right-0;
+          }
+
+          [data-image-resizer-control^="top-right"],
+          [data-image-resizer-control^="bottom-left"] {
+            @apply cursor-nesw-resize;
+          }
+
+          [data-image-resizer-control^="top-left"],
+          [data-image-resizer-control^="bottom-right"] {
+            @apply cursor-nwse-resize;
+          }
+
+          [data-image-resizer-dimensions] {
+            @apply absolute bottom-2 right-3 p-1 hidden bg-[#fff] opacity-80 text-xs;
+
+            [data-image-resizer-dimension]::after {
+              content: attr(data-image-resizer-dimension-value);
+            }
+          }
+        }
+      }
+
+      [data-suggestion] {
+        @apply border border-solid border-[var(--editor-suggestions-border-color)] rounded-md py-0.5 px-1;
+      }
+    }
+  }
+}
+
+.editor-suggestions {
+  @apply editor-suggestions-props border border-solid border-[var(--editor-suggestions-border-color)] bg-[var(--editor-suggestions-background-color)];
+
+  &:hover {
+    .editor-suggestions-item[data-selected]:not(:hover) {
+      @apply bg-transparent;
+    }
+  }
+
+  .editor-suggestions-item {
+    @apply block w-full text-left py-2.5 px-1.5 border-0 border-t border-solid border-[var(--editor-suggestions-border-color)] rounded-none;
+
+    &:first-child {
+      @apply border-t-0;
+    }
+
+    &:hover,
+    &[data-selected] {
+      @apply bg-[var(--editor-suggestions-selected-highlight-color)];
+    }
+  }
+}

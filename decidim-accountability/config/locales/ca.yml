@@ -39,9 +39,11 @@ ca:
         confirm_destroy: Segur que vols suprimir aquest %{name}?
         destroy: Esborrar
         edit: Editar
-        import: Importar projectes a resultats
-        import_csv: Importar CSV
-        new: Nou/va %{name}
+        import: Importar projectes des d'un altre component
+        import_csv: Importar resultats des d'un fitxer CSV
+        new_result: Afegir resultat
+        new_status: Afegir estat
+        new_timeline_entry: Afegir entrada de la cronologia
         preview: Previsualitzar
         timeline_entries: Evolució del projecte
         title: Accions
@@ -74,17 +76,16 @@ ca:
               </ul>
               </li>
               </ol>
-            title: Importar resultats via CSV
+            title: Importar resultats des d'un fitxer CSV
         imports:
           create:
+            invalid: Hi ha hagut un problema important els resultats.
             success: S'està important el fitxer. Rebràs un correu electrònic en els pròxims minuts amb el resultat de la importació.
         models:
           result:
             name: Resultat
           status:
             name: Estat
-          timeline_entry:
-            name: Entrada de la cronologia
         projects_import:
           create:
             invalid: Hi ha hagut un problema important els projectes com a resultats, si us plau, segueix les instruccions amb cura i assegura't de marcar els projectes seleccionats per a la seva implementació.
@@ -100,7 +101,7 @@ ca:
             success:
               one: Hi ha 1 projecte a la cua per ser importat. Es notificarà per correu electrònic, quan es completi la importació.
               other: "Hi ha %{count} a la cua per ser importats. Es notificarà per correu electrònic, quan es completi la importació."
-            title: Importar Projectes a Seguiment
+            title: Importar projectes des d'un altre component
         results:
           create:
             invalid: S'ha produït un error en crear aquest resultat.
@@ -173,9 +174,7 @@ ca:
             not_found: 'No s''ha trobat el pare a la base de dades (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Dates
           results: Resultats
-          unspecified: Sense especificar
       import_mailer:
         import:
           errors: Errors
@@ -214,9 +213,6 @@ ca:
           fields:
             entry_date: Data
             title: Títol
-      result_m:
-        executed: Executat
-        view: Veure
       results:
         count:
           results_count:
@@ -226,24 +222,19 @@ ca:
           all: Tots
         home:
           categories_label: Categories
+          empty: Encara no hi ha cap resultat.
+          empty_filters: No hi ha cap resultat amb aquest criteri.
           subcategories_label: Subcategories
         home_header:
           global_status: Estat d'execució global
         nav_breadcrumb:
           global: Execució global
+        no_results: No hi ha projectes
         search:
           search: Cercar actuacions
         show:
           stats:
-            attendees: Assistents
             back_to_resource: Tornar al resultat
-            comments: Comentaris
-            contributions: Aportacions
-            last_edited_by: Editat per última vegada per
-            last_updated_at: Darrera actualització el
-            meetings: Trobades
-            proposals: Propostes
-            votes: Suports
         timeline:
           title: Evolució del projecte
     admin:
@@ -283,7 +274,7 @@ ca:
           notification_title: La proposta <a href="%{proposal_path}">%{proposal_title}</a> s'ha inclòs al resultat <a href="%{resource_path}">%{resource_title}</a>.
         result_progress_updated:
           email_intro: 'El resultat "%{resource_title}", que inclou la proposta "%{proposal_title}", s''ha completat en un %{progress}%. Pots veure-ho des d''aquesta pàgina:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{proposal_title}", i aquesta proposta s'inclou al resultat "%{resource_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la proposta "%{proposal_title}", i aquesta s'inclou al resultat "%{resource_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una actualització sobre el progrés de %{resource_title}
           notification_title: El resultat <a href="%{resource_path}">%{resource_title}</a>, que inclou la proposta <a href="%{proposal_path}">%{proposal_title}</a>, s'ha completat en un %{progress}%.
     metrics:
@@ -293,7 +284,7 @@ ca:
         title: Resultats
     participatory_spaces:
       highlighted_results:
-        see_all: Veure tots els resultats (%{count})
+        see_all: Veure tots els resultats
     resource_links:
       included_projects:
         result_project: Projectes inclosos en aquest resultat

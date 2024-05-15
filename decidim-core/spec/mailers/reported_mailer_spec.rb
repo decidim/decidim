@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe ReportedMailer, type: :mailer do
+  describe ReportedMailer do
     let(:organization) { create(:organization, name: "Test Organization") }
     let(:user) { create(:user, :admin, organization:) }
     let(:component) { create(:component, organization:) }
@@ -12,6 +12,10 @@ module Decidim
     let(:author) { reportable.creator_identity }
     let!(:report) { create(:report, moderation:, details: "bacon eggs spam") }
     let(:decidim) { Decidim::Core::Engine.routes.url_helpers }
+
+    before do
+      reportable.coauthorships.first.author.update!(name: "O'Higgins")
+    end
 
     describe "#report" do
       let(:mail) { described_class.report(user, report) }
@@ -28,7 +32,7 @@ module Decidim
 
       describe "email body" do
         it "includes the participatory space name" do
-          expect(email_body(mail)).to match(moderation.participatory_space.title["en"])
+          expect(email_body(mail)).to include(decidim_escape_translated(moderation.participatory_space.title))
         end
 
         it "includes the report's reason" do
@@ -91,7 +95,7 @@ module Decidim
           end
 
           it "includes the name of the author but no link to their profile" do
-            expect(mail).not_to have_link(author.name)
+            expect(mail).to have_no_link(author.name)
           end
         end
 
@@ -107,7 +111,7 @@ module Decidim
           let(:reportable) { create(:proposal, :official) }
 
           it "includes the name of the organization" do
-            expect(email_body(mail)).to match(author.name)
+            expect(email_body(mail)).to match(decidim_escape_translated(author.name))
           end
         end
 

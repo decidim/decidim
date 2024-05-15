@@ -20,6 +20,8 @@ module Decidim::Assemblies
       )
     end
     let(:related_process_ids) { [participatory_processes.map(&:id)] }
+    let(:hero_image) { nil }
+    let(:banner_image) { nil }
 
     let(:form) do
       instance_double(
@@ -32,8 +34,8 @@ module Decidim::Assemblies
         slug: "slug",
         hashtag: "hashtag",
         meta_scope: { en: "meta scope" },
-        hero_image: nil,
-        banner_image: nil,
+        hero_image:,
+        banner_image:,
         promoted: nil,
         developer_group: { en: "developer group" },
         local_area: { en: "local" },
@@ -42,7 +44,7 @@ module Decidim::Assemblies
         participatory_structure: { en: "participatory structure" },
         description: { en: "description" },
         short_description: { en: "short_description" },
-        current_organization: organization,
+        organization:,
         scopes_enabled: true,
         scope:,
         area:,
@@ -83,21 +85,17 @@ module Decidim::Assemblies
     end
 
     context "when the assembly is not persisted" do
-      let(:invalid_assembly) do
-        instance_double(
-          Decidim::Assembly,
-          persisted?: false,
-          valid?: false,
-          errors: {
-            hero_image: "File resolution is too large",
-            banner_image: "File resolution is too large"
-          }
-        ).as_null_object
+      let(:hero_image) do
+        ActiveStorage::Blob.create_and_upload!(
+          io: File.open(Decidim::Dev.asset("invalid.jpeg")),
+          filename: "avatar.jpeg",
+          content_type: "image/jpeg"
+        )
       end
+      let(:banner_image) { hero_image }
 
       before do
         allow(Decidim::ActionLogger).to receive(:log).and_return(true)
-        allow(Decidim::Assembly).to receive(:create).and_return(invalid_assembly)
       end
 
       it "broadcasts invalid" do

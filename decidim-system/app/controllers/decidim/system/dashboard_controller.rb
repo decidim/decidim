@@ -7,6 +7,7 @@ module Decidim
 
       def show
         @organizations = Organization.all
+        @admins = Admin.all
       end
 
       def check_organizations_presence

@@ -5,7 +5,7 @@ module Decidim
     # This module includes helpers to show admin terms of service
     module AdminTermsHelper
       def admin_terms_of_service_body
-        current_organization.admin_terms_of_service_body.symbolize_keys[I18n.locale].html_safe
+        decidim_sanitize_admin(translated_attribute(current_organization.admin_terms_of_service_body)).html_safe
       end
 
       def announcement_body
@@ -20,7 +20,7 @@ module Decidim
         button_to(
           t("decidim.admin.admin_terms_of_service.actions.accept"),
           admin_terms_accept_path,
-          class: "button success",
+          class: "button button__sm button__secondary success",
           method: :put
         )
       end
@@ -29,7 +29,7 @@ module Decidim
         link_to(
           t("decidim.admin.admin_terms_of_service.actions.refuse"),
           decidim.root_path,
-          class: "button clear",
+          class: "button button__sm button__secondary clear",
           data: {
             confirm: t("actions.are_you_sure", scope: "decidim.admin.admin_terms_of_service")
           }

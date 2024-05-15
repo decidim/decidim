@@ -48,14 +48,12 @@ uk:
         logo: Логотип
         name: Назва
         official_img_footer: Нижній колонтитул офіційного логотипу
-        official_img_header: Заголовок офіційного логотипу
         official_url: Офіційна веб-адреса організації
         omnipresent_banner_short_description: Стислий опис
         omnipresent_banner_title: Заголовок
         omnipresent_banner_url: Веб-адреса
         reference_prefix: Довідковий префікс
         tos_version: Версія умов участі
-        twitter_handler: Адреса Twitter
         youtube_handler: Адреса YouTube
       scope:
         code: Код
@@ -93,8 +91,6 @@ uk:
       actions:
         add: Додати
         browse: Переглянути
-        manage: Керувати
-        new: Додати %{name}
         permissions: Права
         reject: Відхилити
         verify: Підтвердити
@@ -133,7 +129,6 @@ uk:
           title: Редагувати теку
           update: Оновити
         index:
-          attachment_collection_used: Цю теку не можна видалити, оскільки вона використовується.
           attachment_collections_title: Теки вкладень
         new:
           create: Додати
@@ -172,7 +167,6 @@ uk:
           update: Оновити
         index:
           categories_title: Категорії
-          category_used: Цю категорію не можна видалити, оскільки вона використовується.
         new:
           create: Створити категорію
           title: Додати категорію
@@ -233,7 +227,6 @@ uk:
             all: Усі
             managed: Керовані
             not_managed: Не керовані
-          filter_by: 'Відібрати за ознакою:'
           impersonate: Виступити в ролі учасника
           impersonate_new_managed_user: Виступити в ролі нового керованого учасника
           managed: Керовані
@@ -276,9 +269,9 @@ uk:
         area_types: Різновиди дільниць
         areas: Дільниці
         configuration: Конфігурація
-        dashboard: Приладна дошка
         homepage: Домашня сторінка
         impersonations: Виступи в ролі учасника
+        manage: Керувати
         newsletters: Розсилання новин
         scope_types: Різновиди обсягу
         scopes: Обсяги
@@ -339,7 +332,6 @@ uk:
           fields:
             created_at: Дата створення
             email: Адреса електронної пошти
-            last_sign_in_at: Дата останнього входу
             name: Ім'я
             role: Роль
             roles:
@@ -417,7 +409,6 @@ uk:
           github: ГітХаб
           instagram: Інстаграм
           social_handlers: Соціальні мережі
-          twitter: Твіттер
           youtube: ЮТуб
         update:
           error: При спробі оновити цю організацію сталася помилка.
@@ -426,19 +417,12 @@ uk:
         edit:
           update: Оновити
         form:
-          colors:
-            header_snippets_help: Використовуйте це поле, щоб додавати щось до заголовку HTML. Найпоширенішим використанням є інтеграція сторонніх служб, які потребують додаткового JavaScript або CSS. Також ви можете використовувати його для додавання додаткових метатегів до HTML. Зверніть увагу, що це буде показано лише на загальнодоступних сторінках, а не в розділі адміністратора.
-          cta_button_path_help: 'Ви можете змінити те, куди веде натискання кнопки "Закликати до дії" на головній сторінці. Використовуйте тут часткові шляхи, а не повні веб-адреси. Прийнятні літери, цифри, дефіс та скісна риска. Першою має бути літера. Кнопка "Закликати до дії" відображається на головній сторінці між привітальним текстом та описом. Приклад: %{url}'
           cta_button_text_help: Ви можете змінити текст кнопки "Закликати до дії" на головній сторінці для кожної доступної мови вашої організації. Якщо ви не задасте цей текст, буде використане значення за замовчуванням. Кнопка "Закликати до дії" відображається на домашній сторінці між привітальним текстом та описом.
           homepage_appearance_title: Редагувати вигляд головної сторінки
           homepage_highlighted_content_banner_title: Банер висвітленого вмісту
           images:
             layout_appearance_title: Редагувати зовнішній вигляд шаблону
           omnipresent_banner_appearance_title: Редагувати всюдисущий банер
-      organization_homepage:
-        edit:
-          active_content_blocks: Блоки діючого вмісту
-          inactive_content_blocks: Блоки недіючого вмісту
       participatory_space_private_users:
         create:
           error: При спробі додати приватного учасника до цього простору співучасті сталася помилка.
@@ -507,7 +491,6 @@ uk:
         dashboard: Приладна дошка
         scope_types: Різновиди обсягу
         scopes: Обсяги
-        static_pages: Сторінки
         user_groups: Гурти учасників
       user_group:
         reject:
@@ -560,12 +543,3 @@ uk:
   errors:
     messages:
       invalid_json: Неприпустимий JSON
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Розсилання новин
-        settings:
-          title: Налаштування
-        users:
-          title: Учасники

@@ -12,7 +12,7 @@ module Decidim
       around_action :use_organization_time_zone
       helper_method :organization_time_zone
 
-      # Executes a block of code in the context of the the organization's time zone
+      # Executes a block of code in the context of the organization's time zone
       #
       # &action - a block of code to be wrapped around the time zone
       #
@@ -25,7 +25,7 @@ module Decidim
       #
       # Returns a String.
       def organization_time_zone
-        @organization_time_zone ||= current_organization.time_zone
+        @organization_time_zone ||= current_organization&.time_zone
       end
     end
   end

@@ -22,9 +22,6 @@ zh-TW:
         new: 新貼文
         title: 操作
       admin:
-        models:
-          post:
-            name: 文章
         posts:
           create:
             invalid: 建立此文章時出現問題
@@ -58,9 +55,6 @@ zh-TW:
             official_blog_post: 官方文章
             published_at: 發布時間
             title: 標題
-      posts:
-        show:
-          view: 檢視
     components:
       blogs:
         actions:

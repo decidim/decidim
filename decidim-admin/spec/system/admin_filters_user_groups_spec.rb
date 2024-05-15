@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-describe "Admin filters user_groups", type: :system do
+describe "Admin filters user_groups" do
   let(:organization) { create(:organization) }
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:resource_controller) { Decidim::Admin::UserGroupsController }
@@ -102,7 +102,7 @@ describe "Admin filters user_groups", type: :system do
       before { visit decidim_admin.user_groups_path(q: { s: "state asc" }) }
 
       it "hides the result" do
-        expect(page).not_to have_content(group.name)
+        expect(page).to have_no_content(group.name)
       end
     end
 
@@ -120,7 +120,7 @@ describe "Admin filters user_groups", type: :system do
 
       it "hides the result" do
         expect(group.users.size).to eq(2)
-        expect(page).not_to have_content(group.name)
+        expect(page).to have_no_content(group.name)
       end
     end
 
@@ -138,7 +138,7 @@ describe "Admin filters user_groups", type: :system do
 
       it "hides the result" do
         expect(group.users.size).to eq(2)
-        expect(page).not_to have_content(group.name)
+        expect(page).to have_no_content(group.name)
       end
     end
 
@@ -156,7 +156,7 @@ describe "Admin filters user_groups", type: :system do
 
       it "hides the result" do
         expect(group.users.size).to eq(2)
-        expect(page).not_to have_content(group.name)
+        expect(page).to have_no_content(group.name)
       end
     end
 
@@ -174,7 +174,7 @@ describe "Admin filters user_groups", type: :system do
 
       it "hides the result" do
         expect(group.users.size).to eq(2)
-        expect(page).not_to have_content(group.name)
+        expect(page).to have_no_content(group.name)
       end
     end
 
@@ -192,7 +192,7 @@ describe "Admin filters user_groups", type: :system do
 
       it "hides the result" do
         expect(group.users.size).to eq(2)
-        expect(page).not_to have_content(group.name)
+        expect(page).to have_no_content(group.name)
       end
     end
   end

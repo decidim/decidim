@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Follow projects", type: :system do
+describe "Follow projects" do
   let(:manifest_name) { "budgets" }
   let(:budget) { create(:budget, component:) }
 
@@ -12,5 +12,5 @@ describe "Follow projects", type: :system do
 
   let(:followable_path) { resource_locator([budget, followable]).path }
 
-  include_examples "follows"
+  include_examples "follows with a component"
 end

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Preview sortitions with share token", type: :system do
+describe "Preview sortitions with share token" do
   let(:manifest_name) { "sortitions" }
 
   include_context "with a component"

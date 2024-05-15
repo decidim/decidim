@@ -58,7 +58,6 @@ bg:
         machine_translation_display_priority_translation: Първо преведеният текст
         name: Име
         official_img_footer: Долен колонтитул на официалното лого
-        official_img_header: Заглавка на официалното лого
         official_url: Официален URL адрес на организацията
         omnipresent_banner_short_description: Кратко описание
         omnipresent_banner_title: Заглавие
@@ -71,7 +70,6 @@ bg:
         success_color: Успешно
         time_zone: Часова зона
         tos_version: Версия на условия за ползване
-        twitter_handler: Манипулатор на Twitter
         user_groups_enabled: Разреши групи
         warning_color: Предупреждение
         welcome_notification_body: Тяло на приветствието
@@ -107,8 +105,6 @@ bg:
           attributes:
             official_img_footer:
               allowed_file_content_types: Невалиден файл на изображението
-            official_img_header:
-              allowed_file_content_types: Невалиден файл на изображението
   activerecord:
     attributes:
       decidim/static_page:
@@ -117,10 +113,19 @@ bg:
         title: Заглавие
   decidim:
     admin:
+      filters:
+        state_eq:
+          label: Състояние
+          values:
+            rejected: Отхвърлен
+      menu:
+        manage: Управление
       organization_appearance:
         form:
           colors:
             colors_title: Цветове на организацията
-            header_snippets_help: Използвайте това поле, за да добавите нещо в HTML заглавието. Най-често се използва за интеграция на външни услуги, които изискват допълнителни JavaScript или CSS. Освен това, можете да го ползвате за добавяне на допълнителни метатагове в HTML. Обърнете внимание, че ще се визуализира само в публичните страници, но не и в администраторския раздел.
           images:
             layout_appearance_title: Редактиране външния вид шаблона
+      static_pages:
+        index:
+          last_notable_change: Последна значима промяна

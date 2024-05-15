@@ -55,7 +55,7 @@ module Decidim
             expect(organization.name).to eq("Gotham City")
             expect(organization.host).to eq("decide.gotham.gov")
             expect(organization.secondary_hosts).to contain_exactly("foo.gotham.gov", "bar.gotham.gov")
-            expect(organization.external_domain_whitelist).to contain_exactly("decidim.org", "github.com")
+            expect(organization.external_domain_allowlist).to contain_exactly("decidim.org", "github.com")
             expect(organization.smtp_settings["from"]).to eq("Decide Gotham <decide@gotham.gov>")
             expect(organization.smtp_settings["from_email"]).to eq("decide@gotham.gov")
             expect(organization.omniauth_settings["omniauth_settings_facebook_enabled"]).to be(true)
@@ -105,6 +105,18 @@ module Decidim
 
             expect(organization.tos_version).not_to be_nil
             expect(organization.tos_version).to eq(tos_page.updated_at)
+          end
+
+          it "sets the default colors" do
+            command.call
+            organization = Organization.last
+
+            expect(organization.colors["alert"]).to eq("#ec5840")
+            expect(organization.colors["primary"]).to eq("#53bf40")
+            expect(organization.colors["success"]).to eq("#57d685")
+            expect(organization.colors["warning"]).to eq("#ffae00")
+            expect(organization.colors["tertiary"]).to eq("#bf4053")
+            expect(organization.colors["secondary"]).to eq("#4053bf")
           end
 
           describe "#encrypted_smtp_settings" do

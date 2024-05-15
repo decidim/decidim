@@ -5,7 +5,6 @@ fi-pl:
         assemblies_ids: Liittyvät ryhmät
         available_slots: Vapaat paikat
         banner_image: Bannerikuva
-        consultations_ids: Liittyvät kuulemiset
         copy_categories: Kopioi aihepiirit
         copy_components: Kopioi komponentit
         copy_features: Kopioi ominaisuudet
@@ -63,7 +62,7 @@ fi-pl:
         personal_url: Henkilökohtainen URL-osoite
         position: Asema
         short_bio: Lyhyt henkilökuvaus
-        twitter_handle: Twitter-käyttäjänimi
+        twitter_handle: X käsittelijä
         user_id: Käyttäjä
       conference_user_role:
         email: Sähköposti
@@ -91,6 +90,11 @@ fi-pl:
       actions:
         confirm: Vahvista
         new_conference: Uusi konferenssi
+        new_conference_user_role: Uusi konferenssin hallintakäyttäjä
+        new_media_link: Uusi medialinkki
+        new_partner: Uusi yhteistyökumppani
+        new_registration_type: Uusi ilmoittautumistyyppi
+        new_speaker: Uusi puhuja
         send_diplomas: Lähetä läsnäolotodistukset
       conference_copies:
         new:
@@ -153,8 +157,8 @@ fi-pl:
         form:
           title: Yleistä tietoa
         index:
-          not_published: Ei julkaistu
           published: Julkaistu
+          unpublished: Julkaisematon
         new:
           create: Luo
           title: Konferenssi
@@ -194,18 +198,18 @@ fi-pl:
           conference_invites: Kutsut
           conference_speakers: Puhujat
           diploma: Läsnäolotodistus
-          info: Tiedot
+          info: Tietoja tästä konferenssista
           media_links: Medialinkit
           moderations: Moderoinnit
           partners: Yhteistyökumppanit
           registration_types: Ilmoittautumistyypit
           registrations: Ilmoittautumiset
+          see_conference: Näytä konferenssi
           user_registrations: Käyttäjien ilmoittautumiset
       models:
         conference:
           fields:
             created_at: Luonnin ajankohta
-            promoted: Korostettu
             published: Julkaistu
             title: Otsikko
         conference_speaker:
@@ -331,7 +335,7 @@ fi-pl:
       admin:
         conference_copies:
           form:
-            slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
+            slug_help_html: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
         conference_invites:
           create:
             error: Käyttäjän kutsumisessa konferenssiin esiintyi ongelma.
@@ -343,15 +347,8 @@ fi-pl:
             non_user: Käyttäjää ei ole olemassa
             select_user: Valitse käyttäjä
           index:
-            filter:
-              accepted: Hyväksytyt
-              all: Kaikki
-              rejected: Hylätyt
-              sent: Lähetetyt
-            filter_by: Suodata
             invite_attendee: Kutsu osallistuja
             invites: Kutsut
-            search: Hae
           new:
             explanation: Käyttäjä kutsutaan mukaan konferenssiin. Jos sähköpostiosoitteella ei ole käyttäjätiliä, käyttäjä kutsutaan myös organisaatioon.
             invite: Kutsu
@@ -373,7 +370,10 @@ fi-pl:
             registrations_count:
               one: Ilmoittautumisia on 1 kpl.
               other: Ilmoittautumisia on %{count} kpl.
-            slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
+            slug_help_html: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
+        content_blocks:
+          highlighted_conferences:
+            max_results: Näytettävien elementtien enimmäismäärä
         diplomas:
           edit:
             save: Tallenna
@@ -435,7 +435,7 @@ fi-pl:
           invalid: Konferenssista poistumisessa on tapahtunut virhe.
           success: Olet poistunut konferenssista onnistuneeksi.
       conference_speaker:
-        go_to_twitter: Siirry Twitteriin
+        go_to_twitter: Siirry X-palveluun
         more_info: lisätietoja
         personal_website: Henkilökohtainen verkkosivusto
         show:
@@ -454,9 +454,14 @@ fi-pl:
           collaborators: Yhteistyökumppanit
           main_promotors: Järjestäjät
         show:
+          already_have_an_account?: Onko sinulla jo käyttäjätili?
+          are_you_new?: Oletko uusi osallistuja?
           login_as: Olet kirjautunut sisään henkilönä %{name} <%{email}>
           make_conference_registration: Ilmoittaudu konferenssiin
+          manage_registration: Hallinnoi ilmoittautumistasi
           register: Rekisteröidy
+          sign_in_description: Kirjaudu sisään ilmoittautuaksesi tähän konferenssiin
+          sign_up_description: Luo käyttäjätili palveluun ilmoittautuaksesi konferenssin
       content_blocks:
         highlighted_conferences:
           name: Tärkeimmät konferenssit
@@ -498,9 +503,8 @@ fi-pl:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Aktiiviset konferenssit
-            conferences_button_title: Linkki Konferenssit-sivulle, jossa näkyvät kaikki konferenssit
-            see_all_conferences: Katso kaikki konferenssit
+            active_spaces: Aktiiviset konferenssit
+            see_all_spaces: Näytä kaikki konferenssit
       registration_types:
         index:
           choose_an_option: 'Valitse ilmoittautumisvaihtoehto:'
@@ -512,7 +516,6 @@ fi-pl:
         introduction: Esittely
         objectives: Tavoitteet
         related_assemblies: Liittyvät ryhmät
-        related_consultations: Liittyvät kuulemiset
         related_participatory_processes: Liittyvät osallisuusprosessit
     events:
       conferences:
@@ -570,10 +573,8 @@ fi-pl:
   layouts:
     decidim:
       conference_hero:
+        manage_registration: Hallinnoi ilmoittautumistasi
         register: Ilmoittaudu
-      conference_widgets:
-        show:
-          take_part: Osallistu
       conferences:
         conference:
           more_info: Lisätietoja
@@ -584,11 +585,7 @@ fi-pl:
           conferences:
             one: "%{count} konferenssi"
             other: "%{count} konferenssia"
-        promoted_conference:
-          more_info: Lisätietoja
-          take_part: Osallistu
       conferences_nav:
-        conference_menu_item: Tiedot
         conference_partners_menu_item: Yhteistyökumppanit
         conference_speaker_menu_item: Puhujat
         media: Media

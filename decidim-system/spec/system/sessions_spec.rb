@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Sessions", type: :system do
+describe "Sessions" do
   let!(:admin) do
     create(:admin, email: "admin@example.org",
                    password: "decidim123456789",
@@ -33,7 +33,7 @@ describe "Sessions", type: :system do
         find("*[type=submit]").click
       end
 
-      expect(page).not_to have_content("Dashboard")
+      expect(page).to have_no_content("Dashboard")
     end
   end
 end

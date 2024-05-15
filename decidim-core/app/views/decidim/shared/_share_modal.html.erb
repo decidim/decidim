@@ -4,10 +4,10 @@
   <h2 id="dialog-title-socialShare" tabindex="-1" data-dialog-title><%= t("share", scope: "decidim.shared.share_modal") %></h2>
   <div>
     <%= social_share_button_tag(decidim_page_title,
-      url: decidim_meta_url,
-      image: decidim_meta_image_url,
-      desc: h(decidim_meta_description),
-      via: decidim_meta_twitter_handler) %>
+                                url: decidim_meta_url,
+                                image: decidim_meta_image_url,
+                                desc: h(decidim_meta_description),
+                                via: decidim_meta_twitter_handler) %>
 
     <div class="share-modal__input">
       <input id="urlShareLink" type="text" title="<%= t("share_link" , scope: "decidim.shared.share_modal") %>" value="<%= decidim_meta_url %>" readonly>

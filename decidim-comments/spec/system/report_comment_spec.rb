@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Report Comment", type: :system do
+describe "Report Comment" do
   include_context "with a component"
 
   let(:manifest_name) { "dummy" }

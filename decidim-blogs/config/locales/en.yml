@@ -24,9 +24,6 @@ en:
         new: New post
         title: Actions
       admin:
-        models:
-          post:
-            name: Post
         posts:
           create:
             invalid: There was a problem creating this post.
@@ -70,6 +67,7 @@ en:
           count:
             one: "%{count} post"
             other: "%{count} posts"
+          empty: There are no posts yet.
     components:
       blogs:
         actions:

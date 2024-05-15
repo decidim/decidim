@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages organization homepage", type: :system do
+describe "Admin manages organization homepage" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
 
@@ -18,7 +18,7 @@ describe "Admin manages organization homepage", type: :system do
       expect(Decidim::ContentBlock.count).to eq 0
 
       within ".edit_content_blocks" do
-        click_button "Add content block"
+        click_on "Add content block"
         within ".add-components" do
           find("a", text: "Hero image").click
         end
@@ -39,7 +39,7 @@ describe "Admin manages organization homepage", type: :system do
         with: "Custom welcome text!"
       )
 
-      click_button "Update"
+      click_on "Update"
       visit decidim.root_path
       expect(page).to have_content("Custom welcome text!")
     end
@@ -49,7 +49,7 @@ describe "Admin manages organization homepage", type: :system do
 
       dynamically_attach_file(:content_block_images_background_image, Decidim::Dev.asset("city2.jpeg"))
 
-      click_button "Update"
+      click_on "Update"
       visit decidim.root_path
       expect(page.html).to include("city2.jpeg")
     end

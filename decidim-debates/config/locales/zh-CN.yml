@@ -46,7 +46,6 @@ zh-CN:
         confirm_destroy: 您确定吗？
         destroy: 删除
         edit: 编辑
-        new: 新建 %{name}
         title: 行动
       admin:
         debate_closes:
@@ -70,9 +69,6 @@ zh-CN:
           update:
             invalid: 在更新这次辩论时遇到了问题。
             success: 辩论已成功更新。
-        models:
-          debate:
-            name: B. 辩论
       admin_log:
         debate:
           close: "%{user_name} 关闭了 %{resource_name} 场内的 %{space_name} 个辩论"
@@ -85,18 +81,14 @@ zh-CN:
           invalid: 辩论结束时遇到问题。
           success: 辩论已成功结束。
         close_debate_modal:
-          close: 关闭
           description: 这次辩论的总结或结束是什么？
           send: 结束辩论
-        closed: 已关闭
         count:
           debates_count:
             other: "%{count} 次辩论"
         create:
           invalid: 有一个问题是如何建立辩论。
           success: 辩论成功创建。
-        debate:
-          participate: 参与
         edit:
           back: 后退
           save: 保存更改
@@ -110,18 +102,11 @@ zh-CN:
           my_debates: 我的辩论
           official: 官方的
           origin: 始发地
-          scope: 范围
           search: 搜索
           state: 状态
           state_values:
             closed: 已关闭
             open: 打开
-          user_groups: 群組
-        filters_small_view:
-          close_modal: 关闭模式
-          filter: 筛选器
-          filter_by: 筛选方式
-          unfold: 展开...
         index:
           new_debate: 新的辩论
         new:
@@ -135,27 +120,16 @@ zh-CN:
           recent: 最新的
           updated: 最近更新
         show:
-          back: 返回列表
           close_debate: 结束辩论
-          date: 日期
           debate_closed: 已关闭
           debate_conclusions_are: '辩论在 %{date} 结束后得出以下结论：'
           edit_conclusions: 编辑结论
           edit_debate: 编辑辩论
           groups_count: 群組
-          last_comment_by: 最后评论者
-          no_comments_yet: 尚无评论
           participants_count: 参加者
         update:
           invalid: 有人在更新辩论时遇到问题。
           success: 辩论已成功更新。
-        versions:
-          debates:
-            back_to_resource: 回到辩论
-          index:
-            title: 版本
-        versions_list:
-          back_to_resource: 回到辩论
       models:
         debate:
           fields:
@@ -166,13 +140,6 @@ zh-CN:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_intro: |-
-              您好，
-              在参与性的 %{space_title} 空间上创建了一个新的辩论"%{resource_title}"。查看它并做出贡献：
-            email_outro: 您收到此通知是因为您正在关注 %{space_title} 个参与性空间。您可以停止收到跟随上一个链接的通知。
-            email_subject: 在%{resource_title}上的新辩论 " %{space_title}
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> 辩论是在 <a href="%{space_path}">%{space_title}</a> 创建的。
           user_followers:
             email_intro: |-
               你好，

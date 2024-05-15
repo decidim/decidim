@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Internal server error display", type: :system do
+describe "Internal server error display" do
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :confirmed, name: "Sarah Kerrigan", organization:) }
   let(:controller) do
@@ -36,16 +36,16 @@ describe "Internal server error display", type: :system do
 
     it "generates the copiable form" do
       expect(page).to have_content("Please try again later. If the error persists, please copy the following info and send it to platform maintainers with any other information you may want to share.")
-      within find("tr", text: "User ID") do
+      within "tr", text: "User ID" do
         expect(page).to have_content("Unknown")
       end
-      within find("tr", text: "Date and time") do
+      within "tr", text: "Date and time" do
         expect(page).to have_content("2022-01-01T12:00:00.000000")
       end
-      within find("tr", text: "URL") do
+      within "tr", text: "URL" do
         expect(page).to have_content("http://#{organization.host}:#{Capybara.server_port}")
       end
-      within find("tr", text: "Request method") do
+      within "tr", text: "Request method" do
         expect(page).to have_content("GET")
       end
       expect(page).to have_button("Copy to clipboard")
@@ -59,7 +59,7 @@ describe "Internal server error display", type: :system do
     end
 
     it "displays the user ID" do
-      within find("tr", text: "User ID") do
+      within "tr", text: "User ID" do
         expect(page).to have_content(user.id)
       end
     end
@@ -85,7 +85,7 @@ describe "Internal server error display", type: :system do
     end
 
     it "generates the reference" do
-      within find("tr", text: "Reference") do
+      within "tr", text: "Reference" do
         expect(page).to have_content(/\[dummy changes-(\w+['-])+\w+\] \[(\w+['-]+)+\w+\] \[normal_string\]$/)
       end
     end

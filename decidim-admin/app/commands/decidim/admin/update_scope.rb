@@ -3,50 +3,17 @@
 module Decidim
   module Admin
     # A command with all the business logic when updating a scope.
-    class UpdateScope < Decidim::Command
-      # Public: Initializes the command.
-      #
-      # scope - The Scope to update
-      # form - A form object with the params.
-      def initialize(scope, form)
-        @scope = scope
-        @form = form
-      end
+    class UpdateScope < Decidim::Commands::UpdateResource
+      fetch_form_attributes :name, :code, :scope_type
 
-      # Executes the command. Broadcasts these events:
-      #
-      # - :ok when everything is valid.
-      # - :invalid if the form was not valid and we could not proceed.
-      #
-      # Returns nothing.
-      def call
-        return broadcast(:invalid) if form.invalid?
+      protected
 
-        update_scope
-        broadcast(:ok)
-      end
-
-      private
-
-      attr_reader :form
-
-      def update_scope
-        Decidim.traceability.update!(
-          @scope,
-          form.current_user,
-          attributes,
-          extra: {
-            parent_name: @scope.parent.try(:name),
-            scope_type_name: form.scope_type.try(:name)
-          }
-        )
-      end
-
-      def attributes
+      def extra_params
         {
-          name: form.name,
-          code: form.code,
-          scope_type: form.scope_type
+          extra: {
+            parent_name: resource.parent.try(:name),
+            scope_type_name: resource.scope_type.try(:name)
+          }
         }
       end
     end

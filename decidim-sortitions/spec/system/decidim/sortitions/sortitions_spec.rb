@@ -2,11 +2,21 @@
 
 require "spec_helper"
 
-describe "sortitions", type: :system do
+describe "sortitions" do
   include_context "with a component"
 
   let(:manifest_name) { "sortitions" }
   let!(:user) { create(:user, :confirmed, organization: participatory_process.organization) }
+
+  context "when there are no sortitions" do
+    it "shows an empty page with a message" do
+      visit_component
+
+      within "main" do
+        expect(page).to have_content("There are no sortitions yet.")
+      end
+    end
+  end
 
   context "when listing sortitions in a participatory process" do
     it "lists all the sortitions" do
@@ -22,9 +32,9 @@ describe "sortitions", type: :system do
       it "lists the sortitions ordered randomly" do
         page.visit "#{main_component_path(component)}?order=random"
 
-        expect(page).to have_selector(".card__list", count: 2)
-        expect(page).to have_selector(".card__list", text: lucky_sortition.title[:en])
-        expect(page).to have_selector(".card__list", text: unlucky_sortition.title[:en])
+        expect(page).to have_css(".card__list", count: 2)
+        expect(page).to have_css(".card__list", text: lucky_sortition.title[:en])
+        expect(page).to have_css(".card__list", text: unlucky_sortition.title[:en])
       end
     end
 
@@ -35,8 +45,8 @@ describe "sortitions", type: :system do
 
         visit_component
 
-        expect(page).to have_selector(".order-by .button:first-child", text: recent.title[:en])
-        expect(page).to have_selector(".order-by .button:last-child", text: older.title[:en])
+        expect(page).to have_css(".order-by .button:first-child", text: recent.title[:en])
+        expect(page).to have_css(".order-by .button:last-child", text: older.title[:en])
       end
     end
 
@@ -58,11 +68,11 @@ describe "sortitions", type: :system do
         within "form.new_filter" do
           fill_in("filter[search_text_cont]", with: "foobar")
           within "div.filter-search" do
-            click_button
+            click_on
           end
         end
 
-        expect(page).not_to have_content("Another sortition")
+        expect(page).to have_no_content("Another sortition")
         expect(page).to have_content("Foobar sortition")
 
         filter_params = CGI.parse(URI.parse(page.current_url).query)

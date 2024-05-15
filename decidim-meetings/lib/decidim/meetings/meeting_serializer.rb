@@ -32,8 +32,8 @@ module Decidim
           component: { id: component.id },
           title: meeting.title,
           description: meeting.description,
-          start_time: meeting.start_time.to_s(:db),
-          end_time: meeting.end_time.to_s(:db),
+          start_time: meeting.start_time,
+          end_time: meeting.end_time,
           attendees: meeting.attendees_count.to_i,
           contributions: meeting.contributions_count.to_i,
           organizations: meeting.attending_organizations,
@@ -46,7 +46,9 @@ module Decidim
           url:,
           related_proposals:,
           related_results:,
-          published: meeting.published_at.present?
+          published: meeting.published_at.present?,
+          withdrawn: meeting.withdrawn?,
+          withdrawn_at: meeting.withdrawn_at
         }
       end
 

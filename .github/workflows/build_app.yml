@@ -3,7 +3,7 @@ on:
     inputs:
       ruby_version:
         description: 'Ruby Version'
-        default: "3.1.1"
+        default: "3.2.2"
         type: string
         required: false
       node_version:
@@ -58,7 +58,9 @@ jobs:
       - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
         name: Create the screenshots folder
         shell: "bash"
-      - run: RAILS_ENV=test bundle exec rails assets:precompile
+      - run: RAILS_ENV=test bundle exec rails shakapacker:compile
         name: Precompile assets
         working-directory: ./spec/decidim_dummy_app/
         shell: "bash"
+        env:
+          NODE_ENV: "test"

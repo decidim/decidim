@@ -20,7 +20,9 @@ cs:
         description: Popis
         end_time: Čas ukončení
         id: ID
+        iframe_access_level: Úroveň přístupu do iframe
         iframe_embed_type: Typ vloženého rámu
+        iframe_embed_type_html: Jen pár služeb umožňuje "Vložit na stránku schůzky" nebo "Otevřít v živé události". Všimněte si, že s možností "Vložit na stránku schůzky" na mobilní zařízení, jako obrazovka dědí různé rozměry, bude fungovat jako "Otevřít v živé události".
         location: Umístění
         location_hints: Nápověda k poloze
         online_meeting_url: URL online schůzky
@@ -56,6 +58,8 @@ cs:
           attributes:
             iframe_embed_type:
               not_embeddable: Tato adresa URL nemůže být vložena do stránky schůzky nebo živé události.
+            online_meeting_url:
+              url_format: Musí být platná URL
         meeting_agenda:
           attributes:
             base:
@@ -92,6 +96,11 @@ cs:
   decidim:
     admin:
       filters:
+        accepted_at_not_null:
+          label: Přijato
+          values:
+            'false': Nepřijato
+            'true': Přijato
         meetings:
           category_id_eq:
             label: Kategorie
@@ -119,13 +128,24 @@ cs:
               hybrid: Hybridní
               in_person: Osobně
               online: Online
+        rejected_at_not_null:
+          label: Odmítnuto
+          values:
+            'false': Neodmítnuto
+            'true': Odmítnuto
+        search_placeholder:
+          user_name_or_user_email_cont: Hledat podle jména nebo e-mailu
+        sent_at_not_null:
+          label: Odesláno
+          values:
+            'false': Neodesláno
+            'true': Odesláno
       meeting_copies:
         create:
           error: Bylo zde chyba, že se tato schůzka zdvojnásobila.
           success: Duplicitní schůzka úspěšně.
         new:
           copy: Kopírovat
-          select: Vyberte, která data chcete duplikovat
           title: Duplicitní schůzka
     components:
       meetings:
@@ -229,7 +249,7 @@ cs:
             many: 'Schůzku nelze zničit, protože má k ní přidruženo %{count} návrhů:'
             other: 'Schůzka nemůže být zničena, protože s ní je spojeno %{count} návrhů:'
         manage_poll: Spravovat anketu
-        new: Nové setkání
+        new_meeting: Nová schůzka
         preview: Náhled
         registrations: Registrace
         title: Akce
@@ -286,16 +306,9 @@ cs:
             non_user: Neexistující uživatel
             select_user: Vyberte uživatele
           index:
-            filter:
-              accepted: Přijato
-              all: Vše
-              rejected: Odmítnuto
-              sent: Odeslaná
-            filter_by: Filtrovat podle
             invite_attendee: Pozvat účastníka
             invites: Pozvánky
             registrations_disabled: Nemůžete pozvat účastníka, protože registrace jsou blokovány.
-            search: Vyhledávání
         meeting_closes:
           edit:
             close: Zavřít
@@ -321,6 +334,7 @@ cs:
           form:
             address_help: 'Adresa: použita Geocoderem k nalezení polohy'
             disclaimer: 'Prohlášení o zřeknutí: Použitím externího registračního systému jste si vědomi toho, že organizátoři %{organization} nejsou odpovědní za data poskytovaná uživateli externí službě.'
+            iframe_embed_type_html: 'Pouze pár služeb umožňuje vložení do schůzky nebo živé události z následujících domén: %{domains}'
             location_help: 'Poloha: zpráva určená uživatelům, kteří předávají místo, aby se setkali'
             location_hints_help: 'Upřesnění k místu: dodatečné informace. Příklad: patro budovy, pokud se jedná o osobní schůzku, nebo vstupní heslo pro schůzku, pokud se jedná o schůzku s omezeným přístupem.'
             online_meeting_url_help: 'Odkaz: Umožnit účastníkům připojení přímo k vaší schůzce'
@@ -328,7 +342,6 @@ cs:
             select_a_meeting_type: Vyberte prosím typ schůzky
             select_a_registration_type: Vyberte prosím typ registrace
             select_an_iframe_access_level: Vyberte prosím úroveň přístupu iframe
-            show_embedded_iframe_help: 'Pouze pár služeb umožňuje vložení do schůzky nebo živé události z následujících domén: %{domains}'
           index:
             title: Setkání
           new:
@@ -359,9 +372,6 @@ cs:
           update:
             invalid: Při aktualizaci této schůze došlo k chybě.
             success: Anketa ke schůzi byla úspěšně aktualizována.
-        models:
-          meeting:
-            name: Setkání
         registrations:
           edit:
             save: Uložit
@@ -408,11 +418,11 @@ cs:
           all: Vše
         filter_meeting_space_values:
           all: Vše
-        filter_scope_values:
-          all: Vše
+      calendar:
+        meeting_to_event:
+          read_more: Přečtěte si více o této schůzce
       calendar_modal:
         calendar_url: Adresa URL kalendáře
-        close_window: Zavřete okno
         copy_calendar_url: Kopírovat
         copy_calendar_url_clarification: Kopírovat URL kalendáře do schránky
         copy_calendar_url_copied: Zkopírováno!
@@ -430,8 +440,6 @@ cs:
       content_blocks:
         upcoming_meetings:
           name: Nadcházející schůzky
-          upcoming_meetings: Nadcházející schůzky
-          view_all_meetings: Zobrazit vše
       directory:
         meetings:
           index:
@@ -472,7 +480,6 @@ cs:
         calendar_modal:
           add_to_calendar: Přidat do kalendáře
           apple: Přidat do Apple kalendáře
-          close_window: Zavřít okno
           full_details_html: Pro úplné podrobnosti přejděte na %{link}
           google: Přidat do Google kalendáře
           outlook: Přidat do kalendáře aplikace Outlook
@@ -504,8 +511,7 @@ cs:
             all: Vše
             official: Úředník
             participants: Účastníci
-            user_groups: Skupiny
-          scope: Oblast působnosti
+            user_group: Skupiny
           search: Vyhledávání
           type: Typ
           type_values:
@@ -513,16 +519,12 @@ cs:
             hybrid: Hybridní
             in_person: Osobně
             online: Online
-        filters_small_view:
-          close_modal: Zavřít modální
-          filter: Filtr
-          filter_by: Filtrovat podle
-          unfold: Rozvinout
         form:
           address_help: 'Adresa: použita Geocoderem k nalezení polohy'
           available_slots_help: Ponechte 0, pokud máte k dispozici neomezený počet slotů
           create_as: Vytvořit schůzku jako
           disclaimer: 'Prohlášení o zřeknutí: použitím externího registračního systému, jste si vědomi toho, že organizátoři %{organization} nejsou odpovědní za data poskytovaná uživateli externí službě.'
+          iframe_embed_type_html: 'Pouze pár služeb umožňuje vložení do schůzky nebo živé události z následujících domén: %{domains}'
           location_help: 'Poloha: zpráva určená uživatelům, kteří navrhují místo ke schůzce na'
           location_hints_help: 'Upřesnění k místu: dodatečné informace. Příklad: patro budovy, pokud se jedná o osobní schůzku, nebo vstupní heslo pro schůzku, pokud se jedná o schůzku s omezeným přístupem.'
           online_meeting_url_help: 'Odkaz: Umožnit účastníkům připojení přímo k vaší schůzce'
@@ -531,15 +533,17 @@ cs:
           select_a_meeting_type: Vyberte prosím typ schůzky
           select_a_registration_type: Vyberte prosím typ registrace
           select_an_iframe_access_level: Vyberte prosím úroveň přístupu iframe
-          show_embedded_iframe_help: 'Pouze pár služeb umožňuje vložení do schůzky nebo živé události z následujících domén: %{domains}'
         index:
           click_here: Zobrazit všechny schůzky
           new_meeting: Nová schůzka
           see_all: Zobrazit všechny schůzky
           see_all_withdrawn: Zobrazit všechny stažené schůzky
           text_banner: Zobrazujete seznam schůzek stažených jejich autory. %{go_back_link}.
-        meeting_minutes:
-          related_information: Související informace
+        meeting:
+          close_meeting: Ukončit schůzku
+          edit_close_meeting: Upravit zprávu schůzky
+          edit_meeting: Upravit schůzku
+          join_meeting: Připojit se ke schůzce
         meetings:
           no_meetings_warning: Žádná schůzka neodpovídá vašim kritériím nebo není naplánována žádná schůzka.
           upcoming_meetings_warning: V současné době neexistují žádné plánované schůzky, ale naleznete zde všechny minulé schůzky.
@@ -552,13 +556,7 @@ cs:
           confirm: Potvrdit
         show:
           attendees: Počet účastníků
-          back: Zpět na seznam
-          close_meeting: Ukončit schůzku
           contributions: Počet příspěvků
-          date: Datum
-          edit_close_meeting: Upravit zprávu schůzky
-          edit_meeting: Upravit schůzku
-          going: Přihlásili jste se k této schůzce
           join: Připojte se k setkání
           leave: Zrušit registraci
           leave_confirmation: Opravdu chcete zrušit registraci na tuto schůzku?
@@ -578,7 +576,6 @@ cs:
             few: "%{count} zbývajících bloků"
             many: "%{count} zbývajících bloků"
             other: "%{count} zbývajících bloků"
-          view: Zobrazit
           visit_finished: Zobrazit minulou schůzku
           withdraw_btn_hint: Schůzku můžete stáhnout, pokud změníte názor. Schůzka není smazána, objeví se v seznamu stažených schůzek.
           withdraw_confirmation_html: Opravdu chcete tuto schůzku stáhnout?<br><br><strong>Tuto akci nelze zrušit!</strong>
@@ -586,8 +583,6 @@ cs:
         update:
           invalid: Při aktualizaci schůzky došlo k chybě.
           success: Úspěšně jste aktualizovali schůzku.
-      meetings_map:
-        view_meeting: Zobrazit schůzku
       models:
         invite:
           fields:
@@ -629,6 +624,7 @@ cs:
             question_replied: Odpověď na otázku
             reply_question: Odpovědět na otázku
       public_participants_list:
+        attending_organizations: Organizace
         attending_participants: Účast účastníků
         hidden_participants_count:
           one: a %{count} další osoba
@@ -660,11 +656,9 @@ cs:
         in_person: Osobně
         online: Online
       types:
-        private_meeting: Privátní setkání
+        private_meeting: Soukromá schůzka
         transparent: Průhledný
         withdraw: Staženo
-      versions:
-        back_to_resource: Přejít zpět na schůzku
       withdraw:
         error: Došlo k chybě při stahování schůzky.
         success: Schůzka byla úspěšně stažena.
@@ -678,8 +672,6 @@ cs:
         past_meetings: Minulé schůze
         see_all: Zobrazit všechny (%{count})
         upcoming_meetings: Nadcházející schůzky
-      upcoming_meeting_for_card:
-        upcoming_meeting: Nadcházející schůzka
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Související výsledky:'

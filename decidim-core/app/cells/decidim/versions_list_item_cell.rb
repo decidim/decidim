@@ -2,8 +2,6 @@
 
 module Decidim
   class VersionsListItemCell < Decidim::ViewModel
-    include Decidim::LayoutHelper
-
     def version
       model
     end
@@ -28,8 +26,8 @@ module Decidim
       i18n("version_index", index:, total:)
     end
 
-    def i18n(string, **params)
-      t(string, **params, scope: i18n_scope, default: t(string, **params, scope: default_i18n_scope))
+    def i18n(string, **)
+      t(string, **, scope: i18n_scope, default: t(string, **, scope: default_i18n_scope))
     end
 
     def i18n_scope

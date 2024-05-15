@@ -1,3 +1,4 @@
+<% add_decidim_page_title component_name %>
 <%= append_javascript_pack_tag "decidim_budgets" %>
 <%= append_stylesheet_pack_tag "decidim_budgets", media: "all" %>
 
@@ -6,7 +7,11 @@
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
-  <%= render partial: "decidim/shared/component_announcement", locals: { truncate: true } %>
+  <%= render partial: "decidim/shared/component_announcement" %>
+
+  <% if current_workflow.budgets.empty? %>
+    <%= cell("decidim/announcement", t("empty", scope: "decidim.budgets.budgets_list")) %>
+  <% end %>
 
   <section class="layout-main__section">
     <%= cell("decidim/budgets/budgets_header", current_workflow) %>

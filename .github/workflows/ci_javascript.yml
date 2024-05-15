@@ -1,4 +1,4 @@
-name: "[CI] Javascript"
+name: "[CI] JavaScript"
 on:
   push:
     branches:
@@ -19,10 +19,11 @@ on:
 env:
   CI: "true"
   NODE_VERSION: 18.17.1
-  WEBPACKER_RUNTIME_COMPILE: "false"
+  NODE_ENV: "test"
+  SHAKAPACKER_RUNTIME_COMPILE: "false"
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
 jobs:

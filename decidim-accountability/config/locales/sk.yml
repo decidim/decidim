@@ -37,8 +37,6 @@ sk:
         confirm_destroy: Naozaj chcete odstrániť toto %{name}?
         destroy: Odstrániť
         edit: Upraviť
-        import_csv: Importovať súbor CSV
-        new: Nový %{name}
         preview: Ukážka
         timeline_entries: Vývoj projektu
         title: Akcie
@@ -48,14 +46,11 @@ sk:
         import_results:
           new:
             import: Importovať
-            title: Importovať výsledky zo súboru CSV
         models:
           result:
             name: Výsledok
           status:
             name: Stav
-          timeline_entry:
-            name: Časová osa
         results:
           edit:
             title: Upraviť výsledok
@@ -96,9 +91,7 @@ sk:
             not_found: 'Nadradený záznam nebol nájdený v databáze(ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Dátumy
           results: Výsledky
-          unspecified: Nešpecifikované
       import_mailer:
         import:
           errors: Chyby
@@ -122,8 +115,6 @@ sk:
         timeline_entry:
           fields:
             entry_date: Dátum
-      result_m:
-        view: Zobraziť
       results:
         count:
           results_count:
@@ -144,15 +135,7 @@ sk:
           search: Hľadať akcie
         show:
           stats:
-            attendees: Účastníci
             back_to_resource: Naspať na výsledky
-            comments: Komentáre
-            contributions: Príspevky
-            last_edited_by: Naposledy editoval
-            last_updated_at: Naposledy aktualizované
-            meetings: Stretnutia
-            proposals: Návrhy
-            votes: Podporenia
         timeline:
           title: Vývoj projektu
     components:

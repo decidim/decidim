@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Results in process home", type: :system do
+describe "Results in process home" do
   include_context "with a component"
   let(:manifest_name) { "accountability" }
   let(:results_count) { 5 }
@@ -14,7 +14,7 @@ describe "Results in process home", type: :system do
   context "when there are no results" do
     it "does not show the highlighted results section" do
       visit resource_locator(participatory_process).path
-      expect(page).not_to have_css("#participatory-process-homepage-highlighted-results")
+      expect(page).to have_no_css("#participatory-process-homepage-highlighted-results")
     end
   end
 

@@ -54,6 +54,9 @@ en:
       answers_count: Answers
     surveys:
       admin:
+        component:
+          actions:
+            answers_alert: If you publish the component, all results will be removed.
         exports:
           survey_user_answers: Survey participant answers
         surveys:
@@ -62,6 +65,11 @@ en:
             success: Survey successfully saved.
       last_activity:
         new_survey: 'New survey:'
+      survey_confirmation_mailer:
+        confirmation:
+          body: You have successfully answered the %{questionnaire_title} survey within %{participatory_space}
+          subject: Questionnaire %{questionnaire_title} answering confirmation
+        export_name: Survey answers
       surveys:
         answer:
           invalid: There was a problem answering the survey.

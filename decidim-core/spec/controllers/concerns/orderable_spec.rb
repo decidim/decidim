@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe ActionController::Base, type: :controller do
+  describe ActionController::Base do
     let(:view) { controller.view_context }
 
     controller do
@@ -48,7 +48,7 @@ module Decidim
         expect(view.random_seed).to be_between(-1, 1)
       end
 
-      it "returns the same random seed for concecutive calls" do
+      it "returns the same random seed for consecutive calls" do
         first_seed = view.random_seed
         expect(view.random_seed).to be(first_seed)
       end

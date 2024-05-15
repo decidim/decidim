@@ -18,7 +18,7 @@ shared_examples "when managing proposals category as an admin" do
 
     context "when selecting proposals" do
       before do
-        page.find("#proposals_bulk.js-check-all").set(true)
+        page.find_by_id("proposals_bulk", class: "js-check-all").set(true)
       end
 
       it "shows the number of selected proposals" do
@@ -31,7 +31,7 @@ shared_examples "when managing proposals category as an admin" do
 
       context "when click the bulk action button" do
         before do
-          click_button "Actions"
+          click_on "Actions"
         end
 
         it "shows the bulk actions dropdown" do
@@ -45,8 +45,8 @@ shared_examples "when managing proposals category as an admin" do
 
       context "when change category is selected from actions dropdown" do
         before do
-          click_button "Actions"
-          click_button "Change category"
+          click_on "Actions"
+          click_on "Change category"
         end
 
         it "shows the category select" do
@@ -58,18 +58,50 @@ shared_examples "when managing proposals category as an admin" do
         end
       end
 
-      context "when submiting form" do
+      context "when submitting form" do
         before do
-          click_button "Actions"
-          click_button "Change category"
+          click_on "Actions"
+          click_on "Change category"
           within "#js-form-recategorize-proposals" do
             select translated(category.name), from: :category_id
-            click_button(id: "js-submit-edit-category")
+            click_on(id: "js-submit-edit-category")
           end
         end
 
         it "changes to selected category" do
-          expect(page).to have_selector(".success")
+          expect(page).to have_css(".success")
+        end
+      end
+    end
+
+    context "when updating multiple proposals consecutively" do
+      before do
+        find("tr[data-id=\"#{proposal_first.id}\"] input").set(true)
+        click_on "Actions"
+        click_on "Change category"
+        within "#js-form-recategorize-proposals" do
+          select translated(category.name), from: :category_id
+          click_on(id: "js-submit-edit-category")
+        end
+
+        expect(page).to have_css(".success")
+      end
+
+      it "updates both correctly" do
+        find("tr[data-id=\"#{proposal_last.id}\"] input").set(true)
+        click_on "Actions"
+        click_on "Change category"
+        within "#js-form-recategorize-proposals" do
+          select translated(parent_category.name), from: :category_id
+          click_on(id: "js-submit-edit-category")
+        end
+
+        within "tr[data-id=\"#{proposal_first.id}\"]" do
+          expect(page).to have_content(translated(category.name))
+        end
+
+        within "tr[data-id=\"#{proposal_last.id}\"]" do
+          expect(page).to have_content(translated(parent_category.name))
         end
       end
     end

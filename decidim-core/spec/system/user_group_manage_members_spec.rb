@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User group manage members", type: :system do
+describe "User group manage members" do
   let!(:creator) { create(:user, :confirmed) }
   let!(:user_group) { create(:user_group, :confirmed, :verified, users: [creator], organization: creator.organization) }
   let!(:member) { create(:user, :confirmed, organization: creator.organization) }
@@ -20,7 +20,7 @@ describe "User group manage members", type: :system do
     end
 
     it "does not show the link to edit" do
-      expect(page).not_to have_content("Manage members")
+      expect(page).to have_no_content("Manage members")
     end
 
     it "rejects the user that accesses manually" do
@@ -37,8 +37,8 @@ describe "User group manage members", type: :system do
       login_as creator, scope: :user
       visit decidim.profile_path(user_group.nickname)
 
-      click_button "Manage group"
-      click_link "Manage members"
+      click_on "Manage group"
+      click_on "Manage members"
     end
 
     it "allows managing the group members" do
@@ -47,15 +47,15 @@ describe "User group manage members", type: :system do
     end
 
     it "allows removing a user from the group" do
-      accept_confirm { click_link "Remove participant" }
+      accept_confirm { click_on "Remove participant" }
       expect(page).to have_content("Participant successfully removed from the group")
-      expect(page).not_to have_content(member.name)
+      expect(page).to have_no_content(member.name)
     end
 
     it "allows promoting a user" do
-      accept_confirm { click_link "Make admin" }
+      accept_confirm { click_on "Make admin" }
       expect(page).to have_content("Participant promoted successfully")
-      expect(page).not_to have_content(member.name)
+      expect(page).to have_no_content(member.name)
     end
 
     context "with pending requests" do
@@ -69,10 +69,10 @@ describe "User group manage members", type: :system do
       it "allows accepting a join request" do
         within "#list-request" do
           expect(page).to have_content(requested_user.name)
-          click_link "Accept"
+          click_on "Accept"
         end
 
-        expect(page).not_to have_css("#list-request")
+        expect(page).to have_no_css("#list-request")
         expect(page).to have_content("Join request successfully accepted")
         expect(page).to have_content(requested_user.name)
         expect(page).to have_content("Member")
@@ -81,12 +81,12 @@ describe "User group manage members", type: :system do
       it "allows rejecting a join request" do
         within "#list-request" do
           expect(page).to have_content(requested_user.name)
-          click_link "Reject"
+          click_on "Reject"
         end
 
-        expect(page).not_to have_css("#list-request")
+        expect(page).to have_no_css("#list-request")
         expect(page).to have_content("Join request successfully rejected")
-        expect(page).not_to have_content(requested_user.name)
+        expect(page).to have_no_content(requested_user.name)
       end
     end
   end

@@ -5,13 +5,16 @@
   <div>
     <div data-name="<%= attribute %>" class="upload-modal__dropzone-container" data-dropzone>
       <%= form.file_field add_attribute,
-        id: "files-#{modal_id}",
-        label: false,
-        required: false,
-        multiple:,
-        direct_upload: true,
-        hidden: true,
-        data: { direct_upload_url: } %>
+                          id: "files-#{modal_id}",
+                          label: false,
+                          required: false,
+                          multiple:,
+                          direct_upload: true,
+                          hidden: true,
+                          data: {
+                            direct_upload_url:,
+                            upload_validations_url:
+                          } %>
 
       <%= tag.ul class: "upload-modal__dropzone", hidden: true, data: {
             dropzone_items: "",
@@ -34,10 +37,10 @@
             <%= icon "upload-cloud-2-line", class: "w-8 h-8 text-gray fill-current" %>
             <%= t("decidim.forms.upload_help.dropzone") %>
           </span>
-          <label class="button button__sm button__secondary" for="files-<%= modal_id %>">
+          <button class="button button__sm button__secondary" data-select-file-button>
             <span><%= t("decidim.forms.upload.select_file") %></span>
             <%= icon "arrow-right-line", class: "fill-current" %>
-          </label>
+          </button>
         </div>
       </div>
     </div>

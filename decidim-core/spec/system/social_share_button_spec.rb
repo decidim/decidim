@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Social share button", type: :system do
+describe "Social share button" do
   let!(:resource) { create(:dummy_resource) }
   let(:resource_path) { Decidim::ResourceLocatorPresenter.new(resource).path }
 
@@ -66,7 +66,7 @@ describe "Social share button", type: :system do
       end
 
       context "and clicks on the Share button" do
-        before { click_button "Share" }
+        before { click_on "Share" }
 
         it_behaves_like "showing the social share buttons"
       end
@@ -76,7 +76,7 @@ describe "Social share button", type: :system do
       before { visit resource_path }
 
       context "and clicks on the Share button" do
-        before { click_button "Share" }
+        before { click_on "Share" }
 
         it_behaves_like "showing the social share buttons"
       end

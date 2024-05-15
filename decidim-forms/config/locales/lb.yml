@@ -129,7 +129,6 @@ lb:
           max_choices: 'Max Auswahlmöglichkeiten: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Melden Sie sich mit Ihrem Konto an</a> oder <a href="%{sign_up_link}">Melden Sie sich an</a> , um den Fragebogen zu beantworten.
             title: Beantworten Sie den Fragebogen
           current_step: Schritt %{step}
           of_total_steps: von %{total_steps}

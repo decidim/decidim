@@ -1,0 +1,80 @@
+.logs {
+  @apply ml-0 mb-0 list-none p-4;
+
+  &__log:not(:last-child) {
+    @apply border-b border-gray-3;
+  }
+
+  .logs__log__content,
+  .logs__log__diff-row {
+    @apply flex flex-row gap-x-4 p-2 px-4 items-center;
+  }
+
+  .logs__log--deletion .logs__log__content {
+    background-color: rgb(255, 242, 242);
+  }
+
+  .logs__log__explanation {
+    a {
+      @apply underline text-secondary;
+    }
+
+    span {
+      @apply font-semibold;
+    }
+  }
+
+  .logs__log__diff {
+    max-height: 200px;
+    overflow-y: scroll;
+
+    &[aria-hidden="true"] {
+      @apply hidden;
+    }
+
+    &[aria-hidden="false"] {
+      @apply block;
+    }
+  }
+
+  .logs__log__actions {
+    @apply h-5 w-5;
+  }
+
+  .logs__log__actions-dropdown {
+    &[aria-expanded="false"] {
+      &::after {
+        @apply block h-5 w-5;
+
+        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.1714 12.0007L8.22168 7.05093L9.63589 5.63672L15.9999 12.0007L9.63589 18.3646L8.22168 16.9504L13.1714 12.0007Z'%3E%3C/path%3E%3C/svg%3E");
+      }
+    }
+
+    &[aria-expanded="true"] {
+      &::after {
+        @apply block h-5 w-5;
+
+        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z'%3E%3C/path%3E%3C/svg%3E");
+      }
+    }
+  }
+
+  .logs__log__diff-title {
+    padding-right: rem-calc(10);
+    font-weight: 600;
+  }
+
+  .logs__log__diff-row--new-value {
+    background-color: rgb(217, 255, 221);
+  }
+
+  .logs__log__diff-row--previous-value {
+    background-color: rgb(238, 238, 238);
+
+    .logs__log__diff-title {
+      color: rgb(152, 152, 152);
+      font-weight: normal;
+      text-transform: lowercase;
+    }
+  }
+}

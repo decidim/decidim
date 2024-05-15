@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Meeting agenda", type: :system do
+describe "Meeting agenda" do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
@@ -20,7 +20,7 @@ describe "Meeting agenda", type: :system do
     it "the section agenda is not visible" do
       visit_meeting
 
-      expect(page).not_to have_css("[data-meeting-agenda]")
+      expect(page).to have_no_css("[data-meeting-agenda]")
     end
   end
 

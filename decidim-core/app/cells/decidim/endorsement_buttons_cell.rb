@@ -1,20 +1,12 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This cell renders the endrosement button and the endorsements count.
+  # This cell renders the endorsement button and the endorsements count.
   # It only supports one row of buttons per page due to current tag ids used by javascript.
   class EndorsementButtonsCell < Decidim::ViewModel
-    include LayoutHelper
     include CellsHelper
     include EndorsableHelper
     include ResourceHelper
-    include IconHelper
-    include Decidim::SanitizeHelper
-
-    delegate :current_user, to: :controller, prefix: false
-    delegate :current_settings, to: :controller, prefix: false
-    delegate :current_component, to: :controller, prefix: false
-    delegate :allowed_to?, to: :controller, prefix: false
 
     # Renders the "Endorse" button.
     # Contains all the logic about how the button should be rendered
@@ -49,13 +41,13 @@ module Decidim
     end
 
     # produce the path to endorsements from the engine routes as the cell does not have access to routes
-    def endorsements_path(*args)
-      decidim.endorsements_path(*args)
+    def endorsements_path(*)
+      decidim.endorsements_path(*)
     end
 
     # produce the path to an endorsement from the engine routes as the cell does not have access to routes
-    def endorsement_path(*args)
-      decidim.endorsement_path(*args)
+    def endorsement_path(*)
+      decidim.endorsement_path(*)
     end
 
     def button_content

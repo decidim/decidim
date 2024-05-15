@@ -26,6 +26,17 @@ pl:
         name: Szablon
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Zapisz
+          index:
+            title: Blokuj wiadomości użytkownika
+        proposal_answer_templates:
+          form:
+            save: Zapisz
+          index:
+            missing_state: Brakujący stan
+            proposal_state_id: Stan wewnętrzny
         questionnaire_templates:
           choose:
             create_from_template: Utwórz z szablonu
@@ -37,8 +48,6 @@ pl:
             edit: Edytuj
             questionnaire: Kwestionariusz
           form:
-            save: Zapisz
-            template_title: Informacje o szablonie
             title: Szablon kwestionariusza %{questionnaire_for}
           index:
             confirm_delete: Czy na pewno chcesz usunąć ten szablon?

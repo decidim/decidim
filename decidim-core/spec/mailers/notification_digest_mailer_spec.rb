@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe NotificationsDigestMailer, type: :mailer do
+  describe NotificationsDigestMailer do
     let(:organization) { create(:organization, name: "O'Connor") }
     let(:user) { create(:user, name: "Sarah Connor", organization:) }
     let(:notification_ids) { [notification.id] }
@@ -18,6 +18,18 @@ module Decidim
         expect(subject.body).to include(
           %(<a href="#{::Decidim::ResourceLocatorPresenter.new(resource).url}">Testing resource</a>)
         )
+      end
+
+      context "when the notification is a comment" do
+        let(:comment) { create(:comment, body: "This is a comment") }
+        let(:event_name) { "decidim.events.comments.comment_created" }
+        let(:event_class) { "Decidim::Comments::CommentCreatedEvent" }
+        let(:extra) { { "comment_id" => comment.id, "received_as" => "follower" } }
+        let(:notification) { create(:notification, user:, resource:, event_name:, event_class:, extra:) }
+
+        it "includes the comment body" do
+          expect(subject.body).to include("This is a comment")
+        end
       end
     end
   end

@@ -49,8 +49,8 @@ module Decidim
         {
           search_text_cont: "",
           with_any_status: default_filter_status_params,
-          with_any_scope: default_filter_scope_params,
-          with_any_category: default_filter_category_params,
+          with_any_scope: nil,
+          with_any_category: nil,
           addition_type: "all"
         }
       end

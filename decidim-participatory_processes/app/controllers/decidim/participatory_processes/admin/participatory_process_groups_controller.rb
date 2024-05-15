@@ -6,7 +6,12 @@ module Decidim
       # Controller that allows managing participatory process groups.
       #
       class ParticipatoryProcessGroupsController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
+        include Decidim::TranslatableAttributes
+
         helper ProcessesForSelectHelper
+
+        before_action :set_controller_breadcrumb
+        add_breadcrumb_item_from_menu :admin_participatory_processes_menu
 
         helper_method :collection, :participatory_process_group
 
@@ -48,7 +53,7 @@ module Decidim
           enforce_permission_to :update, :process_group, process_group: @participatory_process_group
           @form = form(ParticipatoryProcessGroupForm).from_params(params)
 
-          UpdateParticipatoryProcessGroup.call(@participatory_process_group, @form) do
+          UpdateParticipatoryProcessGroup.call(@form, @participatory_process_group) do
             on(:ok) do |participatory_process_group|
               flash[:notice] = I18n.t("participatory_process_groups.update.success", scope: "decidim.admin")
               redirect_to edit_participatory_process_group_path(participatory_process_group)
@@ -65,7 +70,7 @@ module Decidim
           @participatory_process_group = collection.find(params[:id])
           enforce_permission_to :destroy, :process_group, process_group: @participatory_process_group
 
-          DestroyParticipatoryProcessGroup.call(@participatory_process_group, current_user) do
+          Decidim::Commands::DestroyResource.call(@participatory_process_group, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_process_groups.destroy.success", scope: "decidim.admin")
               redirect_to action: :index
@@ -79,6 +84,17 @@ module Decidim
         end
 
         private
+
+        def set_controller_breadcrumb
+          return unless collection.exists?(params[:id])
+
+          controller_breadcrumb_items.append(
+            label: translated_attribute(participatory_process_group.title),
+            url: edit_participatory_process_group_path(participatory_process_group),
+            active: true,
+            resource: participatory_process_group
+          )
+        end
 
         def participatory_process_group
           @participatory_process_group ||= collection.find(params[:id])

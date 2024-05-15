@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin filters user_roles", type: :system do
+describe "Admin filters user_roles" do
   let(:organization) { create(:organization) }
   let!(:admin) { create(:user, :admin, :confirmed, organization:) }
   let(:conference) { create(:conference, organization:) }

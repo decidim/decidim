@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin checks dashboard panel statistics", type: :system do
+describe "Admin checks dashboard panel statistics" do
   let(:organization) { create(:organization) }
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
@@ -10,10 +10,6 @@ describe "Admin checks dashboard panel statistics", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin.root_path
-  end
-
-  it "shows Welcome message" do
-    expect(page).to have_content(t("decidim.admin.dashboard.show.welcome"))
   end
 
   it "show users Activity panel" do
@@ -33,8 +29,8 @@ describe "Admin checks dashboard panel statistics", type: :system do
 
   context "when does not have Pending moderations" do
     it "hides the panel" do
-      expect(page).not_to have_content(t("decidim.admin.dashboard.pending_moderations.title"))
-      expect(page).not_to have_content(t("decidim.admin.dashboard.pending_moderations.goto_moderation"))
+      expect(page).to have_no_content(t("decidim.admin.dashboard.pending_moderations.title"))
+      expect(page).to have_no_content(t("decidim.admin.dashboard.pending_moderations.goto_moderation"))
     end
   end
 

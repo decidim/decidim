@@ -15,7 +15,7 @@ describe Decidim::Debates::CloseDebateForm do
     }
   end
   let(:debate) { create(:debate, :participant_author, component: current_component, author: user) }
-  let(:conclusions) { "We found a conlcusion." }
+  let(:conclusions) { "We found a conclusion." }
   let(:attributes) do
     {
       id: debate.id,
@@ -23,7 +23,7 @@ describe Decidim::Debates::CloseDebateForm do
     }
   end
 
-  context "when the conclusions exceeds the permited length" do
+  context "when the conclusions exceeds the permitted length" do
     let(:conclusions) { "c" * 10_001 }
 
     it { is_expected.to be_invalid }

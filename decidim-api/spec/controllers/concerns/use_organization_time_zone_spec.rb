@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Api
-    describe ApplicationController, type: :controller do
+    describe ApplicationController do
       let(:utc_time_zone) { "UTC" }
       let(:alt_time_zone) { "Hawaii" }
       let(:organization) { create(:organization, time_zone:) }

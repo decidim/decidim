@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "AdminAccess", type: :system do
+describe "AdminAccess" do
   let(:organization) { create(:organization) }
   let(:initiative) { create(:initiative, organization:) }
 

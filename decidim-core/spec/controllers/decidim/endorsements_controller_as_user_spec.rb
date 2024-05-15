@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe EndorsementsController, type: :controller do
+  describe EndorsementsController do
     include_context "when in a resource"
 
     describe "As User" do
@@ -46,7 +46,7 @@ module Decidim
             get(:identities, params:)
 
             expect(response).to have_http_status(:ok)
-            expect(assigns[:user_verified_groups]).to eq user.user_groups
+            expect(assigns[:user_verified_groups]).to match_array(user.user_groups)
             expect(subject).to render_template("decidim/endorsements/identities")
           end
         end

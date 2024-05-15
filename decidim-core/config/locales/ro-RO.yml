@@ -78,12 +78,6 @@ ro:
   booleans:
     'false': 'Nu'
     'true': 'Da'
-  carrierwave:
-    errors:
-      file_cannot_be_processed: Fișierul nu poate fi procesat
-      file_resolution_too_large: Rezoluția fișierului este prea mare
-      file_size_too_large: Mărimea fișierului este prea mare
-      not_inside_organization: Fișierul nu este atașat niciunei organizații
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -236,12 +230,10 @@ ro:
         error: S-a produs o eroare în timpul acceptării amendamentului.
         success: Amendamentul a fost acceptat cu succes.
       amendable:
-        amended_by: Amendament făcut de
         button: Fă un amendament pentru %{model_name}
         error: A apărut o eroare la trimiterea unui amendament pentru această resursă.
         promote_button: Promovează la %{model_name}
         promote_confirm_text: Sigur dorești să promovezi acest amendament?
-        section_heading: Amendamente (%{count})
       compare_draft:
         continue: Continuă
         no_similars_found: Nu există amendamente similare.
@@ -254,7 +246,6 @@ ro:
         success: Ciorna de amendament a fost ștearsă cu succes.
       edit_draft:
         discard: Renunță la această ciornă
-        discard_confirmation: Sigur dorești să renunți la această ciornă de amendament?
         send: Previzualizează
         title: Editează ciorna de amendament
       emendation:
@@ -304,8 +295,6 @@ ro:
         download: Descarcă fișier
       documents:
         related_documents: Documente asociate
-      geocoding:
-        geocoded_address: Adresă
       photo:
         alt: Imagine media
         title: Imagine
@@ -313,7 +302,6 @@ ro:
         related_photos: Imagini asociate
     author:
       avatar: 'Avatar: %{name}'
-      avatar_multiuser: Avatar pentru mai mulți utilizatori
       comments:
         one: comentariu
         few: comentarii
@@ -355,7 +343,6 @@ ro:
       started_at: Început la %{timestamp}
     authorization_modals:
       content:
-        close_modal: Închide fereastra
         expired:
           authorize: Reautorizează cu "%{authorization}"
           explanation: Autorizarea ta expirat. Pentru a efectua această acțiune, trebuie să fii reautorizat cu "%{authorization}".
@@ -391,7 +378,6 @@ ro:
         few: și încă %{count}
         other: și încă %{count}
       see_less: "(vezi mai puţin)"
-      see_more: "(vezi mai mult)"
     components:
       component_order_selector:
         order:
@@ -442,8 +428,6 @@ ro:
         description: Descriere
       footer_sub_hero:
         name: Banner suberou suberou
-      hero:
-        name: Imagine Erou
       hero_settings_form:
         background_image: Imagine de fundal
         welcome_text: Text de bun-venit
@@ -479,8 +463,6 @@ ro:
         name: Statisticile organizației
       sub_hero:
         name: Banner suberoi
-    datepicker:
-      help_text: 'Format preconizat: %{datepicker_format}'
     devise:
       omniauth_registrations:
         new:
@@ -494,11 +476,7 @@ ro:
           already_have_an_account?: Ai deja un cont?
           newsletter: Primește un buletin informativ ocazional cu informații relevante
           newsletter_title: Drepturi privind contactele
-          nickname_help: Pseudonimul tău în %{organization}. Poate conține doar litere, numere, '-' și '_'.
-          sign_in: Autentificare
           sign_up: Înscrie-te
-          sign_up_as:
-            legend: Înregistrează-te ca
           subtitle: Înscrie-te pentru a participa la discuții și pentru a vota propuneri.
           tos_agreement: Prin înregistrare ești de acord cu %{link}.
           tos_title: Condiții de utilizare
@@ -507,13 +485,10 @@ ro:
         new:
           are_you_new?: Nou pe platformă?
           register: Creează un cont
-        user:
-          timed_out: Ați fost inactiv pentru prea mult timp și ai fost deconectat automat de la serviciu. Dacă dorești să continui să utilizezi serviciul, te rugăm să te conectezi din nou.
       shared:
         newsletter_modal:
           buttons:
             check: Verifică și continuă
-            close_modal: Închide fereastra
             uncheck: Mențineți nebifat
           title: Notificări newsletter
         omniauth_buttons:
@@ -537,13 +512,9 @@ ro:
         ready: Gata
       show:
         download_data: Descarcă datele
-        download_data_description: Un fișier care conține toate informațiile asociate contului tău va fi trimis la <strong>%{user_email}</strong>. Acest e-mail va conține un fișier .zip și o parolă pentru a-l deschide.<br/><br/>Pentru a dezarhiva fişierul, aveţi nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows) sau <a href="https://www.keka.io/">Keka</a> (pentru MacOS). Dacă utilizați Linux, de cele mai multe ori îl veți instala în mod implicit. Dacă nu, puteți utiliza <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> sau <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Cere date
     editor_images:
       drag_and_drop_help: Adaugă imagini prin tragere & plasare sau lipirea lor.
-    endorsable:
-      endorsements: Susținători
-      endorsements_count: Număr de susțineri
     endorsement_buttons_cell:
       already_endorsed: Nu-mi place
       endorse: Îmi place
@@ -675,8 +646,6 @@ ro:
           email_outro: Ai primit această notificare deoarece ești un administrator al platformei.
           email_subject: Un grup de utilizatori și-a actualizat profilul
           notification_title: Grupul de utilizatori %{user_group_name} și-a actualizat profilul, lăsând neverificat. Acum îl poți verifica în panoul <a href="%{groups_admin_path}">de administratori</a>.
-      notification_event:
-        notification_title: A apărut un eveniment pentru <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: Un administrator a eliminat %{resource_type} deoarece a fost raportat ca %{report_reasons}.
@@ -731,7 +700,6 @@ ro:
       create:
         button: Urmărește
         error: A apărut o problemă la urmărirea acestei resurse.
-        participatory_space: Urmăriți<span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Nu doresc să mai urmăresc
         error: A apărut o problemă la anularea urmăririi acestei resurse.
@@ -748,7 +716,6 @@ ro:
           explanation: 'Îndrumare pentru imagine:'
         image:
           explanation: 'Orientări pentru imagine:'
-          message_1: De preferință o imagine landscape care să nu conțină vreun text.
           message_2: Serviciul decupează imaginea.
       file_validation:
         allowed_file_extensions: 'Extensii de fișiere permise: %{extensions}'
@@ -763,7 +730,6 @@ ro:
           filename: Nume fișier
           remove: Șterge
           replace: Înlocuiește
-          save: Salvează
           title: Titlu
           title_required: Titlul este obligatoriu!
         select_file: Selectaţi fişierul
@@ -844,12 +810,9 @@ ro:
           title: Ce pot face în %{organization}?
         title: Ajutor General
     last_activities:
-      activities:
-        no_activities_warning: Nicio activitate
       all: Toate tipurile de activitate
       index:
         last_activity: Ultima activitate
-        resource_type: Tip
     links:
       invalid_url: URL invalid
       warning:
@@ -1036,11 +999,6 @@ ro:
         retry: Încearcă din nou
     open_data:
       not_available_yet: Fişierele de date deschise nu sunt încă disponibile, vă rugăm să încercaţi din nou în câteva minute.
-    own_user_groups:
-      index:
-        pending: In asteptare
-        rejected: Respins
-        verified: Verificat
     pad_iframe:
       disclaimer: Conținutul acestui panou este scris de utilizatori înregistrați și își exprimă opiniile. %{organization} nu poate fi considerat responsabil pentru conținutul său.
       pad: Târg
@@ -1056,18 +1014,17 @@ ro:
           proposals: Propuneri
           proposals_explanation: Formulează propuneri, votează propunerile existente și promovează schimbările pe care dorești să le vezi implementate.
         footer_sub_hero:
-          footer_sub_hero_body: Haideți să construim o societate mai deschisă, mai transparentă și mai colaborativă.<br /> Alăturați-vă, participați și decideți.
           footer_sub_hero_headline: Bun venit pe platforma participativă %{organization}.
           register: Inregistrare
         hero:
           participate: Participă
+          participate_title: Participă la procesele platformei
           welcome: Bine ai venit la %{organization}!
-        metrics:
-          headline: Indicatori
         statistics:
           headline: Starea curentă a %{organization}
         sub_hero:
           register: Inregistrare
+          register_title: Înregistrează-te pentru a crea un cont
       index:
         standalone_pages: Pagini
         subheading: Navigați prin paginile de ajutor ale %{name}
@@ -1077,10 +1034,8 @@ ro:
         metrics:
           headline: Indicatori
           link: Arată toate măsurătorile
-    participatory_space_private_users:
-      not_allowed: Nu aveţi permisiunea să vizualizaţi acest conţinut
     profile:
-      view: Vizualizare
+      deleted: Participant șters
     profiles:
       show:
         activity: Activitate
@@ -1092,7 +1047,6 @@ ro:
         members: Membri
         officialized: Participant oficial
         send_private_message: Trimite mesaj privat
-        view_full_profile: Vezi profilul complet
       sidebar:
         badges:
           info: Insignele sunt câștigate prin desfășurarea de activități specifice pe platformă.
@@ -1156,7 +1110,6 @@ ro:
       term_input_placeholder: Caută
     searches:
       filters:
-        back: Înapoi la rezultate
         jump_to: 'Sari la:'
         state:
           active: Activ
@@ -1164,15 +1117,9 @@ ro:
           future: Viitorul
           past: Trecute
       filters_small_view:
-        close_modal: Închide fereastra
         filter: Filtrare
         filter_by: Filtrare după
-        unfold: Desfășurat
       results:
-        results:
-          one: "%{count} rezultat"
-          few: "%{count} rezultate"
-          other: "%{count} rezultate"
         view_all: Vezi toate (%{count})
     security:
       selfxss_warning:
@@ -1184,10 +1131,6 @@ ro:
         close_modal: Închide fereastra
         ok: Ok
         title: Confirmare
-      embed_modal:
-        close_window: Închide fereastra
-        embed: Vă rugăm să inserați acest cod în pagina dvs.
-        embed_link: Încorporează
       extended_navigation_bar:
         more: Mai
         unfold: Desfășurat
@@ -1214,13 +1157,8 @@ ro:
         spam: Conține clickbait, publicitate, escrocherii sau roboți script.
         title: Raportează un utilizator nepotrivit
       floating_help:
-        close: Închide Ajutor
         help: Ajutor
-      follow_button:
-        sign_in_before_follow: Vă rugăm să vă autentificați înainte de a efectua această acțiune
       login_modal:
-        close_modal: Închide fereastra
-        please_sign_in: Te rugăm să te conectezi
         sign_up: Înscrie-te
       participatory_space_filters:
         filters:
@@ -1237,7 +1175,6 @@ ro:
         label: 'Rezultate pe pagină:'
         title: Selectaţi numărul de rezultate pe pagină
       share_modal:
-        close_window: Închide fereastra
         copy_share_link: Copiază
         copy_share_link_clarification: Copiază link-ul de partajare în clipboard
         copy_share_link_copied: Copiat!
@@ -1269,28 +1206,12 @@ ro:
         existing_error: Mesajul nu a putut fi creat. Conversaţia există deja, vă rugăm să încercaţi din nou acum.
         success: Conversația a început cu succes!
       index:
-        add_max_users: 'Adaugă utilizatori la conversație: maxim 9 utilizatori'
-        add_users_placeholder: Caută...
-        close: Inchide
         conversations_info: Conversațiile sunt private. nimeni altcineva nu le poate vedea. O conversație poate fi începută cu vreun participant sau grup înregistrat pe platformă.
-        from: De la
-        last_message: Ultimul mesaj
-        modal_title: Conversație nouă
-        new_conversation: Conversație nouă
-        next: Următoarea
         no_conversations_warning: Nu există încă conversații.
-        no_results: Niciun rezultat
         time_ago: "%{time} în urmă"
-      new:
-        title: Începe o conversație
       reply:
         placeholder: Răspunsul tău...
         send: Trimite
-        title_reply: Răspuns
-      show:
-        back: Arată toate conversațiile
-        not_allowed: Acest utilizator nu mai acceptă mesaje directe.
-        title: Conversație cu %{usernames}
       update:
         error: Mesajul nu a fost trimis. Încercați din nou mai târziu
     user_interests:
@@ -1312,27 +1233,13 @@ ro:
         back_to_resource: Mergi înapoi
         changes_at_title: Modificări la "%{title}"
         number_of_versions: Versiuni
-        show_all_versions: Arată toate versiunile
-        version_author: Autor versiune
         version_created_at: Versiune creată la
-        version_number: Număr versiune
-        version_number_out_of_total: "%{current_version} din %{total_count}"
-    version_author:
-      show:
-        deleted: Participant șters
     versions:
       resource_version:
         of_versions: "(din %{number})"
         see_other_versions: afișați alte versiuni
         version: Versiunea %{number}
-    versions_list:
-      show:
-        back_to_resource: Mergi înapoi
-        changes_at_title: Modificări la "%{title}"
-        number_of_versions: Versiuni
-        title: Versiuni
     versions_list_item:
-      back: Arată toate versiunile
       show:
         version_index: Versiunea %{index}
     welcome_notification:
@@ -1358,8 +1265,6 @@ ro:
       last_attempt: Mai ai încă o încercare înainte de a bloca contul.
       locked: Contul dvs. este blocat.
       not_found_in_database: '%{authentication_keys} sau parolă invalidă.'
-      timeout: Sesiunea ta a expirat. Te rugăm să te autentifici din nou pentru a continua.
-      unauthenticated: Trebuie să te autentifici sau să te înregistrezi înainte de a continua.
     invitations:
       edit:
         header: Finalizează crearea contului tău
@@ -1406,7 +1311,6 @@ ro:
         action: Deblochează contul meu
         greeting: Bună ziua %{recipient}!
         instruction: 'Faceți clic pe link-ul de mai jos pentru a vă debloca contul:'
-        message: Contul dvs. a fost blocat din cauza unei cantități excesive de încercări de conectare nereușite.
         subject: Instrucțiuni de deblocare
     omniauth_callbacks:
       failure: Nu te-a putut autentifica de la %{kind} deoarece "%{reason}".
@@ -1416,7 +1320,6 @@ ro:
         change_my_password: Schimbă-mi parola
         confirm_new_password: Confirmare parolă nouă
         new_password: Parola nouă
-        password_help: "minim %{minimun_characters} caractere, nu trebuie să fie prea comune (ex. 123456) și trebuie să fie diferite de porecla și adresa dvs. de e-mail."
       new:
         forgot_your_password: Ți-ai uitat parola?
         send_me_reset_password_instructions: Trimite-mi instrucțiunile de resetare a parolei
@@ -1434,18 +1337,10 @@ ro:
       signed_up_but_unconfirmed: Un mesaj cu un link de confirmare a fost trimis la adresa ta de e-mail. Te rugăm să urmezi link-ul pentru a-ți activa contul.
       update_needs_confirmation: Ți-ai actualizat contul cu succes, dar trebuie să verificăm noua ta adresă de e-mail. Vă rugăm să verificați adresa de e-mail și să urmați link-ul de confirmare pentru a confirma noua dvs. adresă de e-mail.
       updated: Contul dvs. a fost actualizat cu succes.
-    sessions:
-      already_signed_out: Deconectat cu succes.
-      new:
-        sign_in: Autentificare
-      signed_in: Conectat cu succes.
-      signed_out: Deconectat cu succes.
     shared:
       links:
         back: Înapoi
         forgot_your_password: Ți-ai uitat parola?
-        sign_in: Autentificare
-        sign_in_with_provider: Conectează-te cu %{provider}
         sign_up: Înscrie-te
       minimum_password_length:
         one: "(minim%{count} caracter)"
@@ -1456,13 +1351,11 @@ ro:
         resend_unlock_instructions: Retrimite instrucțiunile de deblocare
       send_instructions: Veţi primi un e-mail cu instrucţiuni despre cum să vă deblocaţi contul în câteva minute.
       send_paranoid_instructions: Dacă contul tău există, vei primi un e-mail cu instrucțiuni pentru cum să-l deblochezi în câteva minute.
-      unlocked: Contul tău a fost deblocat cu succes. Te rugăm să te autentifici pentru a continua.
   doorkeeper:
     scopes:
       public: Informațiile dvs. publice.
   errors:
     messages:
-      already_confirmed: a fost deja confirmat, încercați să vă conectați
       confirmation_period_expired: trebuie să fie confirmat în %{period}, vă rugăm să solicitați unul nou
       content_type_allowlist_error: tipul de fișier nu este valid
       expired: a expirat, vă rugăm să solicitaţi unul nou
@@ -1492,6 +1385,10 @@ ro:
     timestamp_error_message: Ne pare rău, acest lucru a fost prea rapid! Te rugăm să retrimiți.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Tip
       edit_link:
         edit: Editare
       footer:
@@ -1499,12 +1396,9 @@ ro:
         decidim_logo: Logo decidim
         download_open_data: Descarcă fișierele de date deschise
         made_with_open_source: Site web creat cu <a target="_blank" href="https://github.com/decidim/decidim">software gratuit</a>.
-      header:
-        close_menu: Închide meniul
-        main_menu: Meniul principal
-        navigation: Navigation
-        sign_in: Conectare în cont
         sign_up: Înscrie-te
+      header:
+        main_menu: Meniul principal
         user_menu: Meniu utilizator
       impersonation_warning:
         close_session: Închide sesiunea
@@ -1519,12 +1413,10 @@ ro:
         facebook: "%{organization} pe Facebook"
         github: "%{organization} pe GitHub"
         instagram: "%{organization} la Instagram"
-        twitter: "%{organization} pe Twitter"
         youtube: "%{organization} pe YouTube"
       timeout_modal:
         body: Ai fost inactiv de %{minutes} minute. Dacă continui să fii inactiv, vei fi deconectat automat pentru propria ta securitate.
         continue_session: Continuă sesiunea
-        sign_out: Ieșiți
         title: Vreți să continuați sesiunea?
       user_menu:
         account: 'Cont de utilizator: %{name}'
@@ -1533,7 +1425,6 @@ ro:
         notifications: Notificări
         profile: Contul meu
         public_profile: Profilul meu public
-        sign_out: Deconectare
         title: Link-uri profil
       user_profile:
         account: Cont
@@ -1544,8 +1435,6 @@ ro:
         notifications_settings: Setări notificări
         title: Setările participantului
         user_groups: Grupuri
-      widget:
-        see_more: Vezi mai multe
   locale:
     name: Română
     name_with_error: Română (eroare!)

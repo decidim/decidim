@@ -33,7 +33,7 @@ module Decidim
       # @option options [nil, Boolean] :readonly True if the input is readonly.
       # @return [ActiveSupport::SafeBuffer] Rendered form field.
       def settings_attribute_input(form, attribute, name, i18n_scope, options = {})
-        form_method = form_method_for_attribute(attribute)
+        form_method = form_method_for_attribute(attribute, options)
 
         container_class = "#{name}_container"
         if options[:readonly]
@@ -57,7 +57,7 @@ module Decidim
           elsif form_method == :select_field
             render_select_form_field(form, attribute, name, i18n_scope, options)
           elsif form_method == :scope_field
-            scopes_picker_field(form, name)
+            scopes_select_field(form, name)
           else
             form.send(form_method, name, options)
           end
@@ -109,14 +109,14 @@ module Decidim
                                                :last,
                                                :first,
                                                { checked: form.object.send(name) },
-                                               options) { |b| b.label { b.radio_button + b.text } }
+                                               options) { |b| b.label(class: "form__wrapper-checkbox-label") { b.radio_button + b.text } }
         end
         html << content_tag(:p, options[:help_text], class: "help-text") if options[:help_text]
         html
       end
 
       # Get the translation for a given attribute
-      # Returns a translation or nil. If nil, ZURB Foundation will not add the help_text.
+      # Returns a translation or nil. If nil, FoundationRailsHelper will not add the help_text.
       #
       # @param name (see #settings_attribute_input)
       # @param suffix [String] What suffix the i18n key has
@@ -134,8 +134,8 @@ module Decidim
       #
       # @param attribute [Decidim::SettingsManifest::Attribute]
       # @return [Symbol] The FormBuilder's method used to render
-      def form_method_for_attribute(attribute)
-        return :editor if attribute.type.to_sym == :text && attribute.editor?
+      def form_method_for_attribute(attribute, options)
+        return :editor if attribute.type.to_sym == :text && options[:editor]
 
         TYPES[attribute.type.to_sym]
       end

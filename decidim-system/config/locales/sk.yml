@@ -1,11 +1,27 @@
 sk:
+  activemodel:
+    attributes:
+      oauth_application:
+        organization_logo: Logo organizácie (štvorec)
+        organization_url: Odkaz na stránku organizácie 
+        redirect_uri: Presmerovať URI
+      organization:
+        address: SMTP hostname
+        password: Heslo
+        port: Port
+        user_name: Používateľské meno
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Presmerovacie URI musí byť SSL URI
   decidim:
     system:
       actions:
         confirm_destroy: Naozaj chcete odstrániť?
         destroy: Odstrániť
         edit: Upraviť
-        new: Nový
         save: Uložit
         title: Akcie
       admins:
@@ -34,7 +50,6 @@ sk:
           fields:
             created_at: Vytvorené
             email: E-mail
-          name: Admin
           validations:
             email_uniqueness: správca s touto e-mailovou adresou už existuje
         organization:
@@ -45,11 +60,9 @@ sk:
             name: Meno
             omniauth_settings: Nastavenia Omniauth
             smtp_settings: Nastavenie SMTP
-          name: Organizácia
       organizations:
         create:
           error: Pri vytváraní novej organizácie došlo k chybe.
-          success: Organizácia úspešne vytvorená.
         edit:
           secondary_hosts_hint: Zadajte každý host na nový riadok
         index:

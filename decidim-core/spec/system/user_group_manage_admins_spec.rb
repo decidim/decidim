@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User group manage admins", type: :system do
+describe "User group manage admins" do
   let!(:creator) { create(:user, :confirmed) }
   let!(:user_group) { create(:user_group, :confirmed, :verified, users: [creator], organization: creator.organization) }
   let!(:admin) { create(:user, :confirmed, organization: creator.organization) }
@@ -21,7 +21,7 @@ describe "User group manage admins", type: :system do
     end
 
     it "does not show the link to edit" do
-      expect(page).not_to have_content("Manage group")
+      expect(page).to have_no_content("Manage group")
     end
 
     it "rejects the user that accesses manually" do
@@ -35,14 +35,14 @@ describe "User group manage admins", type: :system do
       login_as creator, scope: :user
       visit decidim.profile_path(user_group.nickname)
 
-      click_button "Manage group"
-      click_link "Manage admins"
+      click_on "Manage group"
+      click_on "Manage admins"
     end
 
     it "allows demoting a user" do
-      accept_confirm { click_link "Remove admin" }
+      accept_confirm { click_on "Remove admin" }
       expect(page).to have_content("Participant successfully removed from admin")
-      expect(page).not_to have_content(admin.name)
+      expect(page).to have_no_content(admin.name)
     end
   end
 end

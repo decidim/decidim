@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Proposals
-    describe CollaborativeDraftsController, type: :controller do
+    describe CollaborativeDraftsController do
       routes { Decidim::Proposals::Engine.routes }
 
       let(:component) { create(:proposal_component, :with_creation_enabled, :with_collaborative_drafts_enabled) }
@@ -21,7 +21,7 @@ module Decidim
       end
 
       describe "GET index" do
-        context "when invoked without paramters" do
+        context "when invoked without parameters" do
           it "returns a list of open collaborative drafts by updated_at" do
             get :index
 

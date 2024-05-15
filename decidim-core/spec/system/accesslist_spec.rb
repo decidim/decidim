@@ -3,7 +3,7 @@
 require "spec_helper"
 require "rack/attack"
 
-describe "Access list", type: :system do
+describe "Access list" do
   let!(:organization) { create(:organization) }
   let!(:admin) { create(:admin) }
 
@@ -38,7 +38,7 @@ describe "Access list", type: :system do
     it "allows access to admin side page" do
       visit decidim_system.root_path
 
-      expect(page).not_to have_content("Dashboard")
+      expect(page).to have_no_content("Dashboard")
       expect(page).to have_content("Forbidden")
     end
   end

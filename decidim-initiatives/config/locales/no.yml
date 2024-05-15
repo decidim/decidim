@@ -62,6 +62,7 @@
   decidim:
     admin:
       actions:
+        manage: Administrer
         new_initiative_type: Ny intiativtype
       filters:
         initiatives:
@@ -218,7 +219,6 @@
             send_to_technical_validation: Send til teknisk validering
             update: Oppdater
           form:
-            attachments: Vedlegg
             settings: Innstillinger
             title: Generell informasjon
           index:
@@ -242,24 +242,17 @@
             title: Innstillinger for initiativer
         initiatives_type_scopes:
           edit:
-            back: Tilbake
-            confirm_destroy: Er du sikker?
-            destroy: Slett
             title: Rediger initiativtypens omgang
             update: Oppdater
           new:
-            back: Tilbake
             create: Opprett
             title: Opprett tema for initiativtype
         initiatives_types:
           edit:
-            confirm_destroy: Er du sikker?
-            destroy: Slett
             update: Oppdater
           form:
             authorizations: Innstillinger for autorisasjon
             options: Valg
-            title: Generell informasjon
           initiative_type_scopes:
             title: Tema for initiativtypen
           new:
@@ -281,10 +274,6 @@
         rejected: Ikke nok signaturer
         validating: Teknisk validering
       application_helper:
-        filter_area_values:
-          all: Alle
-        filter_scope_values:
-          all: Alle
         filter_state_values:
           accepted: Nok signaturer
           all: Alle
@@ -324,31 +313,21 @@
           more_information: "(Mer informasjon)"
           send_my_initiative: Send mitt initiativ til teknisk validering
         finish_help:
-          access_reminder: Du kan få tilgang til dine initiativ gjennom %{link} -filteret på Initiativ-siden.
           publish_helper_text: Husk at for å publisere ditt initiativ må du fylle ut påkrevd informasjon og <strong>sende den til teknisk validering</strong> slik at en administrator kan gjennomgå det.
         previous_form:
           back: Tilbake
           continue: Fortsett
-          help: Hva består initiativet av? Skriv tittelen og beskrivelsen. Vi anbefaler en kort og kortfattet tittel og en beskrivelse med fokus på den foreslåtte løsningen.
-          more_information: "(Mer informasjon)"
         promotal_committee:
-          back: Tilbake
           individual_help_text: Denne typen initiativ krever en promoteringskommisjon som består av minst %{committee_size} personer (vitner). Du må dele følgende kobling til de andre som inngår i dette initiativet. Når kontaktene dine mottar denne lenken må de følge de angitte trinnene.
           more_information: "(Mer informasjon)"
         select_initiative_type:
           back: Tilbake
           choose_html: Jeg vil opprette en <strong>%{title}</strong>
-          more_information: "(Mer informasjon)"
+          more_information: (Mer informasjon)
           select: Jeg ønsker å promotere dette initiativet
           select_initiative_type_help: Initiativer er en måte deltakerne kan gripe inn på, slik at organisasjonen kan iverksette tiltak i forsvar for den generelle interessen. Hvilket initiativ vil du lansere?
         share_committee_link:
-          continue: Fortsett
           invite_to_committee_help: Lenke for å invitere folk som vil være en del av promotør komiteen
-        show_similar_initiatives:
-          back: Tilbake
-          compare_help: Hvis noen av de følgende initiativene ligner dine, oppfordrer vi deg til å signere den. Forslaget ditt vil ha flere muligheter for å bli gjort.
-          continue: Initiativet mitt er annerledes
-          more_information: "(Mer informasjon)"
       edit:
         accept: Godta initiativ
         back: Tilbake
@@ -379,18 +358,10 @@
           email_subject: "%{author_nickname} avviste din søknad til promotørkomiteen"
           notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> avviste søknaden din om å være en del av promotørutvalget i følgende initiativ <a href="%{resource_url}">%{resource_title}</a>.
       form:
-        add_attachments: Dokumenter
         attachment_legend: "(Valgfritt) Legg til et vedlegg"
-        delete_attachment: Slett
-      index:
-        title: Initiativer
       initiative_signatures:
         fill_personal_data:
           continue: Fortsett
-          date_select:
-            day: Dag
-            month: Måned
-            year: År
         finish:
           back_to_initiative: Tilbake til initiativ
         sms_code:
@@ -406,15 +377,12 @@
         sms_phone:
           invalid: Telefonnummeret er ugyldig eller venter på godkjenning. Vennligst sjekk autorisasjonene dine.
       initiatives:
-        author:
-          deleted: Slettet
         author_list:
           hidden_authors_count:
             one: og 1 til persjon
             other: og %{count} flere personer
         committee_members:
           approve: Godkjenn
-          confirm_revoke: Er du sikker?
           revoke: Tilbakekall
           title: Utvalgets medlemmer
         count:
@@ -427,14 +395,8 @@
           author: Forfatter
           myself: Initiativene mine
           scope: Tema
-          search: Søk
           state: Status
           type: Type
-        filters_small_view:
-          close_modal: Lukk vindu
-          filter: Filter
-          filter_by: Filtrer etter
-          unfold: Åpne
         index_header:
           new_initiative: Nytt initiativ
         initiatives:
@@ -476,19 +438,14 @@
         result:
           initiative_rejected_reason: Dette initiativet er blitt avvist på grunn av manglende underskrifter.
         show:
-          any_vote_method: Initiativet samler inn signaturer både på nett og fysisk.
           confirm: Du sender nå initiativet til en administrator for å gjennomgå og publisere det. Når det er publisert vil du ikke kunne redigere den. Er du sikker?
           edit: Rediger
-          follow_description: Motta et varsel når det er nyheter i dette initiativet
-          offline_method: Dette initiativet samler kun signaturer ved fysisk oppmøte.
-          print: Skriv ut initiativ
           send_to_technical_validation: Send til teknisk validering
         signatures_count:
           one: " underskrift"
           other: " underskrifter"
         vote_cabin:
           already_voted: Allerede signert
-          supports_required: "%{total_supports} signaturer påkrevd"
           verification_required: Verifiser kontoen din for å signere initiativet
           vote: Signer
           votes_blocked: Underskriving deaktivert
@@ -496,8 +453,6 @@
           count:
             one: SIGNATUR
             other: SIGNATURER
-          most_popular_initiative: Mest populært initiativ
-          need_more_votes: Trenger flere underskrifter
       initiatives_mailer:
         creation_subject: Initiativet ditt '%{title}' er opprettet
         initiative_link:
@@ -512,14 +467,8 @@
       modal:
         not_authorized:
           authorizations_page: Vis godkjennelser
-          close: Lukk
           explanation: Du må verifiseres for å opprette et nytt initiativ.
           title: Autorisasjon kreves
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Aktive initiativer
-            see_all_initiatives: Se alle initiativer
       show:
         badge_name:
           accepted: Nok signaturer
@@ -532,9 +481,6 @@
         accepted: Aksepterte
         expired: Utløpt
       unavailable_scope: Utilgjengelig tema
-      versions:
-        shared:
-          back_to_resource: Tilbake til initiativ
     menu:
       initiatives: Initiativer
     resources:
@@ -548,30 +494,16 @@
   layouts:
     decidim:
       initiative_creation_header:
-        back: Tilbake
         fill_data: Opprett
         finish: Fullfør
-        previous_form: Start
         promotal_committee: Promotør komitè
         select_initiative_type: Velg
-        show_similar_initiatives: Sammenlign
-        title: Opprett nytt initiativ
-      initiative_header:
-        initiative_menu_item: Initiativ
       initiative_signature_creation_header:
-        back: Tilbake
         fill_personal_data: Fullfør dataene dine
         finish: Fullfør
-        finished: Initiativsignatur opprettet
-        see_steps: se trinn
-        select_identity: Velg identitet
         sms_code: SMS-kode verifisering
         sms_phone_number: Mobiltelefon number
-        step: Trinn %{current} av %{total}
         title: Signer %{initiative_title}
       initiatives:
-        initiative:
-          check: Sjekk det ut
-          check_and_support: Sjekk det ut og signer
         no_initiatives_yet:
           no_initiatives_yet: Ingen intiativer ennå!

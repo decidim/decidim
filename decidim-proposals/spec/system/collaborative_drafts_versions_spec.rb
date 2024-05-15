@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore versions", type: :system, versioning: true do
+describe "Explore versions", versioning: true do
   include_context "with a component"
   let(:component) { create(:proposal_component, :with_creation_enabled, :with_collaborative_drafts_enabled, organization:) }
 
@@ -30,7 +30,7 @@ describe "Explore versions", type: :system, versioning: true do
 
   context "when visiting versions index" do
     before do
-      click_link "see other versions", match: :first
+      click_on "see other versions", match: :first
     end
 
     it "lists all versions" do
@@ -41,9 +41,9 @@ describe "Explore versions", type: :system, versioning: true do
 
   context "when showing version" do
     before do
-      click_link "see other versions", match: :first
+      click_on "see other versions", match: :first
 
-      click_link("Version 2 of 2")
+      click_on("Version 2 of 2")
     end
 
     it_behaves_like "accessible page"

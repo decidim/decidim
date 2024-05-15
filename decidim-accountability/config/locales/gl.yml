@@ -37,8 +37,6 @@ gl:
         confirm_destroy: Estás seguro de que queres eliminar este %{name}?
         destroy: Eliminar
         edit: Editar
-        import_csv: Importar CSV
-        new: Novo %{name}
         preview: Vista previa
         timeline_entries: Evolución do proxecto
         title: Accións
@@ -49,14 +47,11 @@ gl:
         import_results:
           new:
             import: Importar
-            title: Importar resultados dun CSV
         models:
           result:
             name: Resultado
           status:
             name: Estado
-          timeline_entry:
-            name: Entrada de liña de tempo
         results:
           edit:
             title: Editar resultado
@@ -97,9 +92,7 @@ gl:
             not_found: 'Non se atopou o pai na base de datos (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Datas
           results: Resultados
-          unspecified: Sen especificar
       import_mailer:
         import:
           errors: Erros
@@ -127,9 +120,6 @@ gl:
         timeline_entry:
           fields:
             entry_date: Data
-      result_m:
-        executed: Executado
-        view: Ver
       results:
         count:
           results_count:
@@ -148,15 +138,7 @@ gl:
           search: Busca de accións
         show:
           stats:
-            attendees: Asistentes
             back_to_resource: Volver ao resultado
-            comments: Comentarios
-            contributions: Contribucións
-            last_edited_by: Última edición por
-            last_updated_at: Última actualización en
-            meetings: Reunións
-            proposals: Propostas
-            votes: Soporta
         timeline:
           title: Evolución do proxecto
     admin:

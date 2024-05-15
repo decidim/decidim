@@ -17,9 +17,6 @@ gl:
         new: Nova publicación
         title: Accións
       admin:
-        models:
-          post:
-            name: Publicación
         posts:
           edit:
             save: Actualizar
@@ -36,9 +33,6 @@ gl:
           fields:
             author: Autor
             body: Corpo
-      posts:
-        show:
-          view: Ver
     components:
       blogs:
         actions:

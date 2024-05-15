@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe ActionController::Base, type: :controller do
+  describe ActionController::Base do
     let(:component) { create(:component) }
     let(:participatory_process) { component.participatory_space }
 

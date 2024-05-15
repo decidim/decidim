@@ -90,7 +90,6 @@ uk:
           attachments: Вкладені файли
           categories: Категорії
           components: Складові
-          info: Відомості
           moderations: Дії з модерації
           private_users: Приватні учасники
           process_admins: Учасники руху
@@ -100,7 +99,6 @@ uk:
           fields:
             created_at: 'Додано:'
             private: Приватний
-            promoted: Висвітлено
             published: Оприлюднено
             title: Назва
           name: Рух співучасті
@@ -196,7 +194,6 @@ uk:
         edit:
           update: Оновити
         index:
-          not_published: Не оприлюднено
           private: Приватний
           public: Оприлюдені
           published: Оприлюднено
@@ -259,31 +256,18 @@ uk:
     participatory_process_steps:
       index:
         process_steps: Кроки руху
-        title: Кроки руху співучасті
     participatory_processes:
       admin:
-        participatory_process_copies:
-          form:
-            slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
         participatory_processes:
           form:
             announcement_help: Текст, який ви введете тут, буде показано учаснику трохи нижче опису руху.
             related_processes: Супутні рухи
-            slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
             title: Загальні відомості
       content_blocks:
         highlighted_processes:
           name: Висвітлені рухи
       index:
         title: Рухи співучасті
-      pages:
-        home:
-          highlighted_processes:
-            active_processes: Діючі рухи
-            active_step: Діючий крок
-            more_information: Додаткові відомості
-            participate: Взяти участь
-            see_all_processes: Переглянути всі рухи
       participatory_processes:
         filters:
           counters:
@@ -315,42 +299,18 @@ uk:
             past: Минулі
             upcoming: Прийдешні
           see: Подивитися
-        index:
-          loading: Завантаження результатів...
       show:
-        developer_group: Робочий гурт з просування
-        end_date: Дата закінчення
-        local_area: Дільниця організації
-        participatory_scope: Що вирішується
-        participatory_structure: Як це вирішується
         private_space: Це приватний рух
         related_processes: Супутні рухи
-        scope: Обсяг
-        start_date: Дата початку
-        target: Хто бере участь
-        unspecified: Не вказано
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
           browse: Огляд
           processes_count: 'Рухів:'
-      participatory_process_widgets:
-        show:
-          active_step: Діючий крок
-          take_part: Взяти участь
       participatory_processes:
         index:
           promoted_processes: Висвітлені рухи
         participatory_process:
           active_step: 'Поточний крок:'
           take_part: Взяти участь
-        promoted_process:
-          active_step: 'Поточний крок:'
-          more_info: Додаткові відомості
-          take_part: Взяти участь
-      process_header_steps:
-        step: '%{current}-й крок з %{total} кроків'
-        view_steps: Переглянути кроки
-      process_navigation:
-        process_menu_item: Рух

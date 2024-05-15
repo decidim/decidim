@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Conferences", type: :system do
+describe "Conferences" do
   let(:organization) { create(:organization) }
   let!(:conference) { create(:conference, organization:) }
 
@@ -26,7 +26,7 @@ describe "Conferences", type: :system do
     end
 
     it "the menu link is not shown" do
-      expect(page).not_to have_content("MEDIA")
+      expect(page).to have_no_content("MEDIA")
     end
   end
 
@@ -48,7 +48,7 @@ describe "Conferences", type: :system do
     it "shows them" do
       within "#conference-media-links" do
         expect(page).to have_content("Media and Links")
-        expect(page).to have_content(/#{translated(media_link.title, locale: :en)}/i)
+        expect(page).to have_content(translated(media_link.title))
         expect(page).to have_css("[data-conference-media-links] a")
       end
     end
@@ -65,7 +65,7 @@ describe "Conferences", type: :system do
 
     it "shows them" do
       within "#conference-media-documents" do
-        expect(page).to have_content(/#{translated(document.title, locale: :en)}/i)
+        expect(page).to have_content(translated(document.title))
       end
 
       within "#conference-media-photos" do
@@ -86,11 +86,11 @@ describe "Conferences", type: :system do
 
     it "shows them ordered" do
       within "#conference-media-documents" do
-        expect(translated(first_document.title, locale: :en)).to appear_before(translated(last_document.title, locale: :en))
+        expect(decidim_escape_translated(first_document.title).gsub("&quot;", "\"")).to appear_before(decidim_escape_translated(last_document.title).gsub("&quot;", "\""))
       end
 
       within "#conference-media-photos" do
-        expect(strip_tags(translated(fist_image.description, locale: :en))).to appear_before(strip_tags(translated(last_image.description, locale: :en)))
+        expect(decidim_escape_translated(fist_image.title).gsub("&quot;", "\"")).to appear_before(decidim_escape_translated(last_image.title).gsub("&quot;", "\""))
       end
     end
   end

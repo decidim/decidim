@@ -12,6 +12,8 @@ en:
       menu:
         templates: Templates
       templates:
+        actions:
+          new_template: New template
         apply:
           error: There was a problem applying this template.
           success: Template applied successfully.
@@ -24,6 +26,9 @@ en:
         destroy:
           success: Template deleted successfully.
         empty: There are no templates yet.
+        fetch:
+          error: Could not find this template. Please reload the page.
+        missing_resource: "(missing resource)"
         update:
           error: There was a problem updating this template.
           success: Template updated successfully.
@@ -43,12 +48,35 @@ en:
     templates:
       admin:
         block_user_templates:
+          edit:
+            title: Edit block user message template
           form:
             save: Save
-            template_title: Template information
           index:
             confirm_delete: Are you sure you want to delete this template?
             title: Block user messages
+          new:
+            title: New block user message template
+          template_chooser:
+            select_template: Select a template answer
+        proposal_answer_templates:
+          edit:
+            title: Edit proposal answer template
+          form:
+            component_constraint_help: Note that only participatory spaces having components of the type "proposals" will be listed.
+            hint1_html: "<strong>%{organization}</strong> will be replaced by the organization's name"
+            hint2_html: "<strong>%{name}</strong> will be replaced by the author's name"
+            hint3_html: "<strong>%{admin}</strong> will be replaced by the admin's name (the one answering the proposal)"
+            hint_html: "<strong>Hint:</strong> You can use these variables anywhere on the answer template that will be replaced when using the template"
+            save: Save
+          index:
+            component_constraint: Add constraint
+            confirm_delete: Are you sure you want to delete this template?
+            missing_state: Missing state
+            proposal_state_id: Internal state
+            title: Proposal answers
+          new:
+            title: New proposal answer template
           template_chooser:
             select_template: Select a template answer
         questionnaire_templates:
@@ -62,13 +90,14 @@ en:
             edit: Edit
             empty: There are no questions yet.
             questionnaire: Questionnaire
+            title: Edit questionnaire template
           form:
-            save: Save
-            template_title: Template information
             title: Questionnaire template %{questionnaire_for}
           index:
             confirm_delete: Are you sure you want to delete this template?
             title: Questionnaire templates
+          new:
+            title: New questionnaire template
           preview:
             current_step: Step %{step}
             of_total_steps: of %{total_steps}
@@ -81,4 +110,5 @@ en:
           update: "%{user_name} updated the %{resource_name} questionnaire template"
       template_types:
         block_user: Block user messages
+        proposal_answer_templates: Proposal answers
         questionnaires: Questionnaires

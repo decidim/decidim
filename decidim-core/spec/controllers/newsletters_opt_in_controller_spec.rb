@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe NewslettersOptInController, type: :controller do
+  describe NewslettersOptInController do
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }

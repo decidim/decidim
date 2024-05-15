@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Index Proposal Notes", type: :system do
+describe "Index Proposal Notes" do
   let(:component) { create(:proposal_component) }
   let(:organization) { component.organization }
 
@@ -24,9 +24,10 @@ describe "Index Proposal Notes", type: :system do
   include_context "when managing a component as an admin"
 
   before do
-    within find("tr", text: translated(proposal.title)) do
-      click_link "Answer proposal"
+    within "tr", text: translated(proposal.title) do
+      click_on "Answer proposal"
     end
+    click_on "Private notes"
   end
 
   it "shows proposal notes for the current proposal" do
@@ -34,7 +35,7 @@ describe "Index Proposal Notes", type: :system do
       expect(page).to have_content(proposal_note.author.name)
       expect(page).to have_content(proposal_note.body)
     end
-    expect(page).to have_selector("form")
+    expect(page).to have_css("form")
   end
 
   context "when the form has a text inside body" do
@@ -47,7 +48,8 @@ describe "Index Proposal Notes", type: :system do
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".comment-thread .card:last-child" do
+      click_on "Private notes"
+      within ".component__show_notes-grid .comment:last-child" do
         expect(page).to have_content("New awesome body")
       end
     end

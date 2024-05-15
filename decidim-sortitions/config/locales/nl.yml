@@ -38,7 +38,6 @@ nl:
         actions:
           destroy: Annuleer de loting
           edit: Bewerk
-          new: Nieuwe loting
           show: Details van de loting
         models:
           sortition:
@@ -52,9 +51,6 @@ nl:
               seed: Zaad
               target_items: Te selecteren items
               title: Titel
-            name:
-              one: Loting
-              other: Lotingen
         sortitions:
           confirm_destroy:
             confirm_destroy: Weet je zeker dat je deze loting wilt annuleren?
@@ -68,7 +64,6 @@ nl:
           form:
             all_categories: Alle categorieën
             select_proposal_component: Selecteer de voorgestelde set
-            title: Nieuwe loting van de voorstellen
           index:
             title: Lotingen
           new:
@@ -93,14 +88,7 @@ nl:
           all: Alle
           cancelled: Geannuleerd
           category: Categorie
-          category_prompt: Selecteer een categorie
-          search: Zoeken
           state: Staat
-        filters_small_view:
-          close_modal: Venster sluiten
-          filter: Sorteer
-          filter_by: Sorteren op
-          unfold: Uitvouwen
         linked_sortitions:
           selected_proposals: Geselecteerde voorstellen
         orders:
@@ -114,24 +102,22 @@ nl:
         show:
           algorithm: De algoritme-code van de loting
           any_category: alle categorieën
-          back: Terug naar het overzicht
           cancelled: Geannuleerde loting
           candidate_proposal_ids: Sorteervolgorde orders en ID's
           candidate_proposals_info: 'De loting werd uitgevoerd tussen de volgende voorstellen (%{category_label}), met de volgende ID''s (vetgedrukt de geselecteerde voorstellen)  '
           category: van de %{category} categorie
-          dice_result: "(1) Resultaat dobbelsteen"
+          dice_result: (1) Resultaat dobbelsteen
           introduction: 'Deze pagina bevat de resultaten van de loting %{reference}. Door middel van deze loting is het %{target_items} aantal resultaten willekeurig geselecteerd en met een gelijke kansverdeling uit de set weergegeven voorstellen. Samen met de resultaten biedt de informatie die op deze pagina wordt weergegeven alle informatie die nodig is om garanties te maximaliseren en de resultaten te reproduceren. De sleutel tot de kwaliteit van deze loting is de dubbele willekeurigheid die wordt geboden door het rollen van een dobbelsteen (geverifieerd door getuigen) en de precieze tijd van de loting die input levert voor een algoritme dat een willekeurige selectie genereert. Het tijdsbestek voor de loting is zo nauwkeurig (seconden) dat het onmogelijk is om door mensen te controleren en biedt dus een dubbele "oncontroleerbare" invoer om een ​​rechtvaardig resultaat te garanderen.  '
           mathematical_result: Resultaat (1) x (2)
           proposals_selected_by_sortition: Voorstellen geselecteerd door loting
           sortition_reproducibility_details: Loting reproduceerbaarheidsdetails
-          time_seed: "(2) Tijdzaad"
+          time_seed: (2) Tijdzaad
           witnesses: getuigen
         sortition:
           random_seed: Willekeurig zaad
           selected_proposals:
             one: 1 voorstel geselecteerd
             other: '%{count} voorstellen geselecteerd'
-          view: Bekijk
         sortition_author:
           deleted: Verwijder gebruiker
         sortition_cancel_author:

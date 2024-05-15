@@ -4,8 +4,6 @@ module Decidim
   module Amendable
     # This cell renders the button to amend the given resource.
     class PromoteButtonCardCell < Decidim::ViewModel
-      delegate :current_user, to: :controller, prefix: false
-
       def emendation
         @emendation ||= model
       end

@@ -10,7 +10,7 @@ describe Decidim::Tokenizer do
   let(:string) { "Poems everybody!" }
 
   describe "digest" do
-    it "returns the salt initilzed" do
+    it "returns the salt initialized" do
       expect(subject.salt).to eq(secret)
     end
 
@@ -37,7 +37,7 @@ describe Decidim::Tokenizer do
     context "when the size is different" do
       let(:length) { 15 }
 
-      it "generates a digest of the propser size" do
+      it "generates a digest of the proper size" do
         expect(subject.int_digest(string).size).to eq(15)
       end
     end

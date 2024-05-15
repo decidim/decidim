@@ -15,16 +15,6 @@ module Decidim
         render :show
       end
 
-      def speakers_list
-        cell(
-          "decidim/collapsible_list",
-          presenters_for_speakers(list),
-          cell_name: "decidim/author",
-          cell_options: options.merge(has_actions: false),
-          size:
-        )
-      end
-
       private
 
       def list
@@ -60,7 +50,7 @@ module Decidim
       def short_bio
         return unless model.short_bio.presence
 
-        translated_attribute model.short_bio
+        decidim_escape_translated model.short_bio
       end
 
       def twitter_handle

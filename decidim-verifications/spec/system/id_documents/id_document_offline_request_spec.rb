@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Identity document offline request", type: :system do
+describe "Identity document offline request" do
   let!(:organization) do
     create(
       :organization,
@@ -27,7 +27,7 @@ describe "Identity document offline request", type: :system do
 
   it "allows the user fill in their identity document" do
     submit_upload_form(
-      doc_type: "DNI",
+      doc_type: "Identification number",
       doc_number: "XXXXXXXX"
     )
 
@@ -40,6 +40,6 @@ describe "Identity document offline request", type: :system do
     select doc_type, from: "Type of your document"
     fill_in "Document number (with letter)", with: doc_number
 
-    click_button "Request verification"
+    click_on "Request verification"
   end
 end

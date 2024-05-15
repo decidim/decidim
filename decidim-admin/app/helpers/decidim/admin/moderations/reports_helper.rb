@@ -19,13 +19,13 @@ module Decidim
               when User
                 content_tag :li do
                   link_to current_or_new_conversation_path_with(author), target: "_blank", rel: "noopener" do
-                    "#{author.name} #{icon "envelope-closed"}".html_safe
+                    "#{author.name} #{icon "mail-send-line"}".html_safe
                   end
                 end
               when Decidim::Meetings::Meeting
                 content_tag :li do
                   link_to resource_locator(author).path, target: "_blank", rel: "noopener" do
-                    decidim_sanitize(translated_attribute(author.title))
+                    decidim_sanitize_translated(author.title)
                   end
                 end
               else

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Profile", type: :system do
+describe "Profile" do
   let(:user) { create(:user, :confirmed) }
 
   before do
@@ -20,6 +20,10 @@ describe "Profile", type: :system do
       end
     end
 
+    it "is not indexable by crawlers" do
+      expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
+    end
+
     it "shows the profile page when clicking on the menu" do
       within "[data-content]" do
         expect(page).to have_content(user.nickname)
@@ -28,7 +32,7 @@ describe "Profile", type: :system do
 
     it "adds a link to edit the profile" do
       within "[data-content]" do
-        click_link "Edit profile"
+        click_on "Edit profile"
       end
 
       expect(page).to have_current_path(decidim.account_path)
@@ -40,14 +44,18 @@ describe "Profile", type: :system do
       visit decidim.profile_path(user.nickname)
     end
 
+    it "is not indexable by crawlers" do
+      expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
+    end
+
     it "shows user name in the header, its nickname and a contact link" do
-      expect(page).to have_selector("h1", text: user.name)
+      expect(page).to have_css("h1", text: user.name)
       expect(page).to have_content(user.nickname)
       expect(page).to have_link("Message")
     end
 
     it "does not show officialization stuff" do
-      expect(page).not_to have_content("This participant is publicly verified")
+      expect(page).to have_no_content("This participant is publicly verified")
     end
 
     context "and user officialized the standard way" do
@@ -64,8 +72,13 @@ describe "Profile", type: :system do
       end
 
       it "shows officialization status" do
-        click_link "Badges"
+        click_on "Badges"
         expect(page).to have_content("Major of Barcelona")
+      end
+
+      it "is not indexable by crawlers" do
+        click_on "Badges"
+        expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
       end
     end
 
@@ -93,20 +106,22 @@ describe "Profile", type: :system do
 
       it "lists the followers" do
         visit decidim.profile_path(user.nickname)
-        click_link "Followers"
+        click_on "Followers"
 
         expect(page).to have_content(other_user.name)
+        expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
       end
 
       it "lists the followings" do
         visit decidim.profile_path(user.nickname)
-        click_link "Follows"
+        click_on "Follows"
 
-        expect(page).not_to have_content("Some of the resources followed are not public.")
+        expect(page).to have_no_content("Some of the resources followed are not public.")
         expect(page).to have_content(translated(other_user.name))
         expect(page).to have_content(translated(user_to_follow.name))
         expect(page).to have_content(translated(user_group.name))
-        expect(page).not_to have_content(translated(public_resource.title))
+        expect(page).to have_no_content(translated(public_resource.title))
+        expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
       end
 
       context "when the user follows non public resources" do
@@ -122,13 +137,13 @@ describe "Profile", type: :system do
             expect(page).to have_content("4 follows")
           end
 
-          click_link "Follows"
+          click_on "Follows"
           expect(page).to have_content("Some of the resources followed are not public.")
           expect(page).to have_content(translated(other_user.name))
           expect(page).to have_content(translated(user_to_follow.name))
           expect(page).to have_content(translated(user_group.name))
-          expect(page).not_to have_content(translated(public_resource.title))
-          expect(page).not_to have_content(translated(non_public_resource.name))
+          expect(page).to have_no_content(translated(public_resource.title))
+          expect(page).to have_no_content(translated(non_public_resource.name))
         end
       end
 
@@ -142,12 +157,12 @@ describe "Profile", type: :system do
         it "lists only the unblocked followings" do
           visit decidim.profile_path(user.nickname)
 
-          click_link "Follows"
+          click_on "Follows"
           expect(page).to have_content("Some of the resources followed are not public.")
           expect(page).to have_content(translated(other_user.name))
           expect(page).to have_content(translated(user_to_follow.name))
           expect(page).to have_content(translated(user_group.name))
-          expect(page).not_to have_content(translated(public_resource.title))
+          expect(page).to have_no_content(translated(public_resource.title))
         end
       end
 
@@ -161,9 +176,9 @@ describe "Profile", type: :system do
         it "lists only the unblocked followers" do
           visit decidim.profile_path(user.nickname)
 
-          click_link "Followers"
+          click_on "Followers"
           expect(page).to have_content(translated(other_user.name))
-          expect(page).not_to have_content(translated(blocked_user.name))
+          expect(page).to have_no_content(translated(blocked_user.name))
         end
       end
     end
@@ -188,7 +203,7 @@ describe "Profile", type: :system do
         end
 
         it "shows a badges tab" do
-          expect(page).not_to have_link("Badges")
+          expect(page).to have_no_link("Badges")
         end
       end
     end
@@ -203,17 +218,18 @@ describe "Profile", type: :system do
       end
 
       it "lists the user groups" do
-        click_link "Groups"
+        click_on "Groups"
 
         expect(page).to have_content(accepted_user_group.name)
-        expect(page).not_to have_content(pending_user_group.name)
+        expect(page).to have_no_content(pending_user_group.name)
+        expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
       end
 
       context "when user groups are disabled" do
         let(:organization) { create(:organization, user_groups_enabled: false) }
         let(:user) { create(:user, :confirmed, organization:) }
 
-        it { is_expected.not_to have_content("Groups") }
+        it { is_expected.to have_no_content("Groups") }
       end
     end
   end

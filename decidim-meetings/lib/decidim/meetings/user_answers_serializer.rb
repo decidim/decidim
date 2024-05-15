@@ -17,7 +17,7 @@ module Decidim
         @answers.each_with_index.inject({}) do |serialized, (answer, idx)|
           serialized.update(
             answer_translated_attribute_name(:id) => [answer.id, answer.user.id].join("_"),
-            answer_translated_attribute_name(:created_at) => answer.created_at.to_s(:db),
+            answer_translated_attribute_name(:created_at) => answer.created_at,
             answer_translated_attribute_name(:user_status) => answer_translated_attribute_name(answer.decidim_user_id.present? ? "registered" : "unregistered"),
             "#{idx + 1}. #{translated_attribute(answer.question.body)}" => normalize_body(answer)
           )

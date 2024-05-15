@@ -7,12 +7,17 @@ module Decidim
     # This cell renders the List (:l) result card
     # for an instance of a Result
     class ResultLCell < Decidim::CardLCell
-      include ApplicationHelper
-      include ActiveSupport::NumberHelper
-
-      delegate :component_settings, to: :controller
+      include Decidim::Accountability::ApplicationHelper
 
       alias result model
+
+      def component_settings
+        controller.try(:component_settings) || result.component.settings
+      end
+
+      def render_extra_data?
+        true
+      end
 
       private
 

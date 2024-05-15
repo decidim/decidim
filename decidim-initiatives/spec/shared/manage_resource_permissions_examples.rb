@@ -9,12 +9,12 @@ shared_examples "manage resource permissions" do
     end
 
     it "shows the resource permissions settings" do
-      expect(page).to have_content(translated(resource.title))
+      expect(page).to have_content("Edit permissions")
     end
 
     context "when setting permissions" do
       it "saves permission settings for the resource" do
-        within "form.new_component_permissions" do
+        within "form.form" do
           within ".#{action}-permission" do
             check "Example authorization (Direct)"
             fill_in "Allowed postal codes", with: "08002"
@@ -28,7 +28,7 @@ shared_examples "manage resource permissions" do
           include(
             "authorization_handlers" => {
               "dummy_authorization_handler" => {
-                "options" => { "allowed_postal_codes" => "08002" }
+                "options" => { "allowed_postal_codes" => "08002", "allowed_scope_id" => "" }
               }
             }
           )
@@ -43,7 +43,7 @@ shared_examples "manage resource permissions" do
             action => {
               "authorization_handlers" => {
                 "dummy_authorization_handler" => {
-                  "options" => { "allowed_postal_codes" => "08002" }
+                  "options" => { "allowed_postal_codes" => "08002", "allowed_scope_id" => "" }
                 }
               }
             }
@@ -54,7 +54,7 @@ shared_examples "manage resource permissions" do
       end
 
       it "removes the action from the permissions hash" do
-        within "form.new_component_permissions" do
+        within "form.form" do
           within ".#{action}-permission" do
             uncheck "Example authorization (Direct)"
             uncheck "Another example authorization (Direct)"
@@ -76,7 +76,7 @@ shared_examples "manage resource permissions" do
             action => {
               "authorization_handlers" => {
                 "dummy_authorization_handler" => {
-                  "options" => { "allowed_postal_codes" => "08002" }
+                  "options" => { "allowed_postal_codes" => "08002", "allowed_scope_id" => "" }
                 }
               }
             }
@@ -87,7 +87,7 @@ shared_examples "manage resource permissions" do
       end
 
       it "changes the configured action in the resource permissions hash" do
-        within "form.new_component_permissions" do
+        within "form.form" do
           within ".#{action}-permission" do
             uncheck "Example authorization (Direct)"
             check "Another example authorization (Direct)"
@@ -111,7 +111,7 @@ shared_examples "manage resource permissions" do
       end
 
       it "adds an authorization to the configured action in the resource permissions hash" do
-        within "form.new_component_permissions" do
+        within "form.form" do
           within ".#{action}-permission" do
             check "Another example authorization (Direct)"
             fill_in "Passport number", with: "AXXXXXXXX"
@@ -126,7 +126,7 @@ shared_examples "manage resource permissions" do
           include(
             "authorization_handlers" => {
               "dummy_authorization_handler" => {
-                "options" => { "allowed_postal_codes" => "08002" }
+                "options" => { "allowed_postal_codes" => "08002", "allowed_scope_id" => "" }
               },
               "another_dummy_authorization_handler" => {
                 "options" => { "passport_number" => "AXXXXXXXX" }

@@ -26,7 +26,7 @@ module Decidim::Admin
       expect(Decidim.traceability)
         .to receive(:perform_action!)
         .with(
-          "delete",
+          :delete,
           participatory_space_private_user,
           user,
           resource: { title: user.name }

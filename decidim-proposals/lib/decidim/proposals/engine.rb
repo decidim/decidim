@@ -13,8 +13,6 @@ module Decidim
       routes do
         resources :proposals, except: [:destroy] do
           member do
-            get :compare
-            get :complete
             get :edit_draft
             patch :update_draft
             get :preview
@@ -39,6 +37,24 @@ module Decidim
           root to: "proposals#index"
         end
         get "/", to: redirect("proposals", status: 301)
+      end
+
+      initializer "decidim_proposals.register_icons" do
+        Decidim.icons.register(name: "Decidim::Proposals::CollaborativeDraft", icon: "draft-line", category: "activity",
+                               description: "Collaborative draft", engine: :proposals)
+        Decidim.icons.register(name: "Decidim::Proposals::Proposal", icon: "chat-new-line", category: "activity",
+                               description: "Proposal", engine: :proposals)
+        Decidim.icons.register(name: "participatory_texts_item", icon: "bookmark-line", description: "Index item", category: "participatory_texts",
+                               engine: :proposals)
+
+        Decidim.icons.register(name: "scan-line", icon: "scan-line", category: "system", description: "", engine: :proposals)
+        Decidim.icons.register(name: "edit-2-line", icon: "edit-2-line",
+                               category: "action", description: "Edit icon for Collaborative Drafts", engine: :proposals)
+
+        Decidim.icons.register(name: "bookmark-line", icon: "bookmark-line", category: "system", description: "", engine: :proposals)
+        Decidim.icons.register(name: "arrow-right-s-fill", icon: "arrow-right-s-fill", category: "system", description: "", engine: :proposals)
+        Decidim.icons.register(name: "bar-chart-2-line", icon: "bar-chart-2-line", category: "system", description: "", engine: :proposals)
+        Decidim.icons.register(name: "scales-line", icon: "scales-line", category: "system", description: "", engine: :proposals)
       end
 
       initializer "decidim_proposals.content_processors" do |_app|
@@ -82,7 +98,9 @@ module Decidim
           payload = data[:this]
           if payload[:from_type] == Decidim::Accountability::Result.name && payload[:to_type] == Proposal.name
             proposal = Proposal.find(payload[:to_id])
-            proposal.update(state: "accepted", state_published_at: Time.current)
+
+            proposal.assign_state("accepted")
+            proposal.update(state_published_at: Time.current)
           end
         end
       end
@@ -93,8 +111,8 @@ module Decidim
       end
 
       initializer "decidim_proposals.remove_space_admins" do
-        ActiveSupport::Notifications.subscribe("decidim.admin.participatorty_space.destroy_admin:after") do |_event_name, klass, id|
-          Decidim::Proposals::ValuationAssignment.where(valuator_role_type: klass, valuator_role_id: id).destroy_all
+        ActiveSupport::Notifications.subscribe("decidim.admin.participatory_space.destroy_admin:after") do |_event_name, data|
+          Decidim::Proposals::ValuationAssignment.where(valuator_role_type: data.fetch(:class_name), valuator_role_id: data.fetch(:role)).destroy_all
         end
       end
 

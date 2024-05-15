@@ -15,7 +15,7 @@ module Decidim
       private
 
       def diff_fields_mapping
-        return { external_domain_whitelist: :string } if action == "update_external_domain"
+        return { external_domain_allowlist: :string } if action == "update_external_domain"
 
         settings_attributes_mapping
           .merge(omnipresent_banner_attributes_mapping)
@@ -67,7 +67,6 @@ module Decidim
           logo: :string,
           header_snippets: :string,
           favicon: :string,
-          official_img_header: :string,
           official_img_footer: :string,
           official_url: :string
         }

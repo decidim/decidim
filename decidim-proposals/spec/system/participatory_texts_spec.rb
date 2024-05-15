@@ -2,8 +2,7 @@
 
 require "spec_helper"
 
-describe "Participatory texts", type: :system do
-  include Decidim::SanitizeHelper
+describe "Participatory texts" do
   include ActionView::Helpers::TextHelper
 
   include_context "with a component"
@@ -27,7 +26,7 @@ describe "Participatory texts", type: :system do
     expect(prop_block).to have_link("Comment") if component.settings.comments_enabled
     expect(prop_block).to have_link(proposal.comments_count.to_s) if component.settings.comments_enabled
     expect(prop_block).to have_content(clean_proposal_body) if proposal.participatory_text_level == "article"
-    expect(prop_block).not_to have_content(clean_proposal_body) if proposal.participatory_text_level != "article"
+    expect(prop_block).to have_no_content(clean_proposal_body) if proposal.participatory_text_level != "article"
   end
 
   shared_examples_for "lists all the proposals ordered" do
@@ -73,7 +72,7 @@ describe "Participatory texts", type: :system do
       within all("#proposals section[id^='proposal']").first, visible: :visible do
         expect(page).to have_link("Amend")
         expect(amend_button_disabled?).to eq(disabled_value)
-        expect(page).to have_link(amendments_count)
+        expect(page).to have_link(amendments_count.to_s)
       end
     end
   end
@@ -84,7 +83,63 @@ describe "Participatory texts", type: :system do
       proposal_title = translated(proposals.first.title)
       find("#proposals section[id^='proposal']", text: proposal_title).hover
       within all("#proposals section[id^='proposal']").first, visible: :visible do
-        expect(page).not_to have_css(".amend-buttons")
+        expect(page).to have_no_css(".amend-buttons")
+      end
+    end
+  end
+
+  shared_examples "the Amend button is protected under authorization" do
+    shared_context "when clicking on the amend button" do
+      before do
+        visit_component
+        within "#proposals section[id='proposal_#{proposal.id}']" do
+          click_on "Amend"
+        end
+      end
+    end
+
+    let(:proposal) { proposals.first }
+    let(:user) { create(:user, :confirmed, organization:) }
+
+    before do
+      proposal.create_resource_permission(
+        permissions: {
+          "amend" => {
+            "authorization_handlers" => {
+              "dummy_authorization_handler" => { "options" => {} }
+            }
+          }
+        }
+      )
+    end
+
+    context "when the user is not logged in" do
+      include_context "when clicking on the amend button"
+
+      it "needs to login" do
+        expect(page).to have_content("Please log in")
+      end
+    end
+
+    context "when the user is logged in" do
+      before { login_as user, scope: :user }
+
+      context "when the user is not authorized" do
+        include_context "when clicking on the amend button"
+
+        it "cannot perform the action" do
+          expect(page).to have_content("Authorization required")
+        end
+      end
+
+      context "when the user is authorized" do
+        let!(:authorization) { create(:authorization, name: "dummy_authorization_handler", user:) }
+
+        include_context "when clicking on the amend button"
+
+        it "can perform the action" do
+          expect(page).to have_content("Create Amendment Draft")
+        end
       end
     end
   end
@@ -133,6 +188,8 @@ describe "Participatory texts", type: :system do
             let(:amendments_count) { 0 }
             let(:disabled_value) { false }
           end
+
+          it_behaves_like "the Amend button is protected under authorization"
         end
 
         context "when amendment CREATION is disabled" do
@@ -191,6 +248,8 @@ describe "Participatory texts", type: :system do
               end
             end
           end
+
+          it_behaves_like "the Amend button is protected under authorization"
         end
 
         context "when amendment CREATION is disabled" do

@@ -1,4 +1,4 @@
-<h2 class="h3">Log in</h2>
+<h2 class="h3"><%= t("log_in", scope: "decidim.system.devise.shared.links") %></h2>
 
 <%= decidim_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form__wrapper">
@@ -12,7 +12,7 @@
   </div>
 
   <div class="form__wrapper-block">
-    <%= f.submit "Log in", class: "button button__sm md:button__lg md:button__lg button__secondary" %>
+    <%= f.submit t("log_in", scope: "decidim.system.devise.shared.links"), class: "button button__sm md:button__lg md:button__lg button__secondary" %>
   </div>
 <% end %>
 

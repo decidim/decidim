@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Authorized comments", type: :system do
+describe "Authorized comments" do
   let!(:initiative_type) { create(:initiatives_type, :online_signature_enabled, organization:) }
   let!(:scoped_type) { create(:initiatives_type_scope, type: initiative_type) }
   let(:commentable) { create(:initiative, :published, author:, scoped_type:, organization:) }
@@ -26,18 +26,18 @@ describe "Authorized comments", type: :system do
 
   shared_examples_for "allowed to comment" do
     it do
-      expect(page).not_to have_content("You need to be verified to comment at this moment")
-      expect(page).to have_selector("form.new_comment")
+      expect(page).to have_no_content("You need to be verified to comment at this moment")
+      expect(page).to have_css("form.new_comment")
     end
   end
 
   shared_examples_for "not allowed to comment" do
     it do
       expect(page).to have_content("You need to be verified to comment at this moment")
-      click_link("You need to be verified to comment at this moment")
+      click_on("You need to be verified to comment at this moment")
       expect(page).to have_content("Authorization required")
       expect(page).to have_link("Authorize with \"Example authorization\"")
-      click_link("Authorize with \"Example authorization\"")
+      click_on("Authorize with \"Example authorization\"")
       expect(page).to have_content("Verify with Example authorization")
     end
   end

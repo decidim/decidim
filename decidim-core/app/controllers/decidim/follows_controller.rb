@@ -4,7 +4,7 @@ module Decidim
   class FollowsController < Decidim::ApplicationController
     include FormFactory
     before_action :authenticate_user!
-    helper_method :resource, :button_cell
+    helper_method :resource, :button_cell, :button_cell_mobile
 
     def destroy
       @form = form(Decidim::FollowForm).from_params(params)
@@ -43,9 +43,11 @@ module Decidim
     end
 
     def button_options
-      # REDESIGN_PENDING - After removing the old follow button the inline
-      # param should also be removed
-      params.require(:follow).permit(:button_classes, :inline).to_h.symbolize_keys
+      params.require(:follow).permit(:button_classes).to_h.symbolize_keys
+    end
+
+    def button_cell_mobile
+      @button_cell_mobile ||= cell("decidim/follow_button", resource, **button_options.merge(mobile: true))
     end
 
     def button_cell

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Initiative signing", type: :system do
+describe "Initiative signing" do
   let(:organization) { create(:organization, available_authorizations: authorizations) }
   let(:initiative) { create(:initiative, :published, organization:, scoped_type: create(:initiatives_type_scope, type: initiatives_type)) }
   let(:initiatives_type) { create(:initiatives_type, :with_user_extra_fields_collection, :with_sms_code_validation, organization:) }
@@ -45,13 +45,13 @@ describe "Initiative signing", type: :system do
     if has_content?("Complete your data")
       fill_in :initiatives_vote_name_and_surname, with: confirmed_user.name
       fill_in :initiatives_vote_document_number, with: document_number
-      fill_in :initiatives_vote_date_of_birth, with: 30.years.ago.strftime("01/01/%Y")
+      fill_in_datepicker :initiatives_vote_date_of_birth_date, with: 30.years.ago.strftime("01/01/%Y")
 
       fill_in :initiatives_vote_postal_code, with: "01234"
 
-      click_button "Continue"
+      click_on "Continue"
 
-      expect(page).not_to have_css("div.alert")
+      expect(page).to have_no_css("div.alert")
     end
   end
 
@@ -64,7 +64,7 @@ describe "Initiative signing", type: :system do
   end
 
   context "when personal data collection is enabled" do
-    context "when the user has not signed the initiaive yet an signs it" do
+    context "when the user has not signed the initiative yet an signs it" do
       context "when sms authorization is not available for the site" do
         let(:authorizations) { [] }
 
@@ -154,12 +154,12 @@ end
 
 def fill_phone_number
   fill_in :mobile_phone_mobile_phone_number, with: phone_number
-  click_button "Send me an SMS"
+  click_on "Send me an SMS"
 end
 
 def fill_sms_code
   fill_in :confirmation_verification_code, with: form_sms_code
-  click_button "Check code and continue"
+  click_on "Check code and continue"
 end
 
 def signature_text(number)

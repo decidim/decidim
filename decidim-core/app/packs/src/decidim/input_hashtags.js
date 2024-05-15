@@ -18,7 +18,7 @@ $(() => {
 
   /* eslint no-use-before-define: ["error", { "variables": false }]*/
   let remoteSearch = function(text, cb) {
-    $.post("/api", {query: `{hashtags(name:"${text}") {name}}`}).
+    $.post(window.Decidim.config.get("api_path"), {query: `{hashtags(name:"${text}") {name}}`}).
 
       then((response) => {
         let data = response.data.hashtags || {};
@@ -27,7 +27,7 @@ $(() => {
         cb([])
       }).always(() => {
       // This function runs Tribute every single time you type something
-      // So we must evalute DOM properties after each
+      // So we must evaluate DOM properties after each
         const $parent = $(tribute.current.element).parent()
         $parent.addClass("is-active")
 

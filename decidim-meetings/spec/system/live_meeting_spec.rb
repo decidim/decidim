@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Meeting live event", type: :system do
+describe "Meeting live event" do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
@@ -34,7 +34,7 @@ describe "Meeting live event", type: :system do
   it "shows a close button" do
     expect(page).to have_content("close")
 
-    click_link "close"
+    click_on "close"
     expect(page).to have_current_path meeting_path
   end
 
@@ -46,15 +46,15 @@ describe "Meeting live event", type: :system do
 
     it "tells that you need to enable cookies" do
       visit meeting_live_event_path
-      expect(page).not_to have_selector("iframe")
+      expect(page).to have_no_selector("iframe")
       expect(page).to have_content("You need to enable all cookies in order to see this content")
     end
 
     it "can enable all cookies" do
       visit meeting_live_event_path
-      click_link "Change cookie settings"
-      click_button "Accept all"
-      expect(page).to have_selector("iframe")
+      click_on "Change cookie settings"
+      click_on "Accept all"
+      expect(page).to have_css("iframe")
     end
   end
 
@@ -63,6 +63,8 @@ describe "Meeting live event", type: :system do
       allow(Decidim.config).to receive(:expire_session_after).and_return(2.minutes)
       allow(Decidim.config).to receive(:session_timeout_interval).and_return(1.second)
       switch_to_host(organization.host)
+      visit decidim.root_path
+      data_consent("essential")
       login_as user, scope: :user
       visit meeting_live_event_path
     end
@@ -73,15 +75,15 @@ describe "Meeting live event", type: :system do
 
       it "does not timeout user" do
         travel 5.minutes
-        expect(page).to have_selector("[aria-label='User account: #{user.name}']")
-        expect(page).not_to have_content("If you continue being inactive", wait: 4)
-        expect(page).not_to have_content("You were inactive for too long")
+        expect(page).to have_css("[aria-label='User account: #{user.name}']")
+        expect(page).to have_no_content("If you continue being inactive", wait: 4)
+        expect(page).to have_no_content("You were inactive for too long")
       end
 
       context "and ends soon" do
         let(:end_time) { 15.seconds.from_now }
 
-        it "logouts user" do
+        it "logs user out" do
           travel 1.minute
           expect(page).to have_content("If you continue being inactive", wait: 30)
           allow(Time).to receive(:current).and_return(1.minute.from_now)

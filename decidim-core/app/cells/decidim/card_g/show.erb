@@ -3,7 +3,7 @@
     <% if has_image? %>
       <%= image_tag resource_image_path, alt: alt_title %>
     <% else %>
-      <%= icon "placeholder-card-g", class: "w-full h-full fill-primary" %>
+      <%= external_icon "media/images/placeholder-card-g.svg", class: "card__placeholder-g" %>
     <% end %>
   </div>
   <div class="<%= classes[:text] %>">

@@ -44,7 +44,6 @@ module Decidim
             form.current_user
           ) do
             attributes = {
-              state: form.state,
               answer: form.answer,
               cost: form.cost,
               cost_report: form.cost_report,
@@ -54,7 +53,9 @@ module Decidim
             if form.state == "not_answered"
               attributes[:answered_at] = nil
               attributes[:state_published_at] = nil
+              proposal.proposal_state = nil
             else
+              proposal.assign_state(form.state)
               attributes[:answered_at] = Time.current
               attributes[:state_published_at] = Time.current if !initial_has_state_published && form.publish_answer?
             end

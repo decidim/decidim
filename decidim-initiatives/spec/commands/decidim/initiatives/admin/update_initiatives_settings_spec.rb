@@ -6,7 +6,7 @@ module Decidim
   module Initiatives
     module Admin
       describe UpdateInitiativesSettings do
-        subject { described_class.new(initiatives_settings, form) }
+        subject { described_class.new(form, initiatives_settings) }
 
         let(:organization) { create(:organization) }
         let(:user) { create(:user, :admin, :confirmed, organization:) }

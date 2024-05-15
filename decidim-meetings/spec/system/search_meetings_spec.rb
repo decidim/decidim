@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Search meetings", type: :system do
+describe "Search meetings" do
   include ActionView::Helpers::SanitizeHelper
 
   include_context "with a component"
@@ -13,6 +13,22 @@ describe "Search meetings", type: :system do
     let!(:term) { strip_tags(searchables.first.title["en"]).split.sample }
 
     include_examples "searchable results"
+  end
+
+  context "when there are more meetings than the pagination" do
+    let!(:meetings) { create_list(:meeting, 35, :published, component:) }
+
+    it "views them all" do
+      visit_component
+
+      within("main") do
+        expect(page).to have_content("35 meetings")
+      end
+
+      within "main nav" do
+        expect(page).to have_content("Next")
+      end
+    end
   end
 
   context "when meetings are not published" do
@@ -29,12 +45,12 @@ describe "Search meetings", type: :system do
       it "does not contain these searchables" do
         within "#form-search_topbar" do
           fill_in "term", with: term
-          click_button
+          click_on
         end
 
         expect(page).to have_current_path decidim.search_path, ignore_query: true
         expect(page).to have_content(%(Results for the search: "#{term}"))
-        expect(page).to have_selector(".filter-search.filter-container")
+        expect(page).to have_css(".filter-search.filter-container")
         expect(page.find("#search-count h1").text.to_i).to eq(0)
       end
     end

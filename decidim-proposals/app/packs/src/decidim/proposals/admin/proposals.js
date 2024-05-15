@@ -47,6 +47,12 @@ $(() => {
     }
   }
 
+  const resetForms = function() {
+    $("#js-bulk-actions-dropdown button").each(function() {
+      $(`#js-form-${$(this).data("action")}`)[0].reset();
+    })
+  }
+
   const showOtherActionsButtons = function() {
     $("#js-other-actions-wrapper").removeClass("hide");
   }
@@ -59,7 +65,7 @@ $(() => {
     $(".js-bulk-action-form").addClass("hide");
   }
 
-  // Expose functions to make them avaialble in .js.erb templates
+  // Expose functions to make them available in .js.erb templates
   window.selectedProposalsCount = selectedProposalsCount;
   window.selectedProposalsNotPublishedAnswerCount = selectedProposalsNotPublishedAnswerCount;
   window.selectedProposalsCountUpdate = selectedProposalsCountUpdate;
@@ -68,6 +74,7 @@ $(() => {
   window.showOtherActionsButtons = showOtherActionsButtons;
   window.hideOtherActionsButtons = hideOtherActionsButtons;
   window.hideBulkActionForms = hideBulkActionForms;
+  window.resetForms = resetForms;
 
   if ($(".js-bulk-action-form").length) {
     hideBulkActionForms();
@@ -79,7 +86,7 @@ $(() => {
 
       if (action) {
         $(`#js-form-${action}`).submit(function() {
-          $(".layout-content > .callout-wrapper").html("");
+          $(".layout-content > div[data-callout-wrapper]").html("");
         })
 
         $(`#js-${action}-actions`).removeClass("hide");

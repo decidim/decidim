@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Comments
-    describe VotesController, type: :controller do
+    describe VotesController do
       routes { Decidim::Comments::Engine.routes }
 
       let(:organization) { create(:organization) }

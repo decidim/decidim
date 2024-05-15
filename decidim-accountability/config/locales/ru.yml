@@ -37,7 +37,6 @@ ru:
         confirm_destroy: Вы действительно хотите удалить %{name}?
         destroy: Удалить
         edit: Редактировать
-        new: Добавить %{name}
         preview: Предварительный просмотр
         timeline_entries: Развитие проекта
         title: Действия
@@ -49,8 +48,6 @@ ru:
             name: Итог
           status:
             name: Состояние
-          timeline_entry:
-            name: Запись на линии времени
         results:
           edit:
             title: Редактировать итог
@@ -126,15 +123,7 @@ ru:
           search: Поиск действий
         show:
           stats:
-            attendees: Участники
             back_to_resource: Вернуться к итогу
-            comments: Комментарии
-            contributions: Внесенные предложения
-            last_edited_by: Последний раз редактировалось
-            last_updated_at: Последнее обновление
-            meetings: Встречи
-            proposals: Предложения
-            votes: Выражений поддержки
         timeline:
           title: Развитие проекта
     components:

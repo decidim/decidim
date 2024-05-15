@@ -1,8 +1,6 @@
 fr-CA:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: Activer le schéma d'assemblée
       assemblies_type:
         title: Titre
       assembly:
@@ -58,7 +56,7 @@ fr-CA:
         subtitle: Sous-titre
         target: Participants
         title: Titre
-        twitter: Twitter
+        twitter: X
         weight: Rang
         youtube: Youtube
       assembly_member:
@@ -98,7 +96,9 @@ fr-CA:
       actions:
         import_assembly: Importation
         new_assembly: Nouvelle assemblée
+        new_assembly_member: Nouveau membre de l'assemblée
         new_assembly_type: Nouveau type d'assemblée
+        new_assembly_user_role: Nouvel administrateur de l'assemblée
       assemblies:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
@@ -106,10 +106,10 @@ fr-CA:
         edit:
           update: Mettre à jour
         index:
-          not_published: Non publié
           private: Privée
           public: Publique
           published: Publiée
+          unpublished: Non publié
         new:
           create: Créer
           title: Nouvelle assemblée
@@ -120,10 +120,6 @@ fr-CA:
         create:
           error: Une erreur s'est produite lors de la duplication de cette assemblée.
           success: L'assemblée a été dupliquée avec succès.
-      assemblies_settings:
-        update:
-          error: Il y a eu un problème lors de la mise à jour des paramètres.
-          success: Paramètres mis à jour avec succès.
       assemblies_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type d'assemblée.
@@ -156,13 +152,13 @@ fr-CA:
         destroy:
           success: Membre supprimé avec succès pour cette assemblée.
         edit:
-          title: Mettre à jour le membre de l'assemblée.
+          title: Mettre à jour le membre de l'assemblée
           update: Mettre à jour
         index:
           assembly_members_title: Membres de l'assemblée
         new:
           create: Créer
-          title: Nouveau membre de l'assemblée.
+          title: Nouveau membre de l'assemblée
         update:
           error: Une erreur s'est produite lors de la mise à jour du membre de cette assemblée.
           success: Membre mis à jour avec succès pour cette assemblée.
@@ -180,22 +176,28 @@ fr-CA:
         destroy:
           success: Utilisateur supprimé avec succès de cette assemblée.
         edit:
-          title: Mettre à jour l'utilisateur de l'assemblée.
+          title: Mettre à jour l'administrateur de l'assemblée
           update: Mettre à jour
         index:
           assembly_admins_title: Administrateurs de l'assemblée
         new:
           create: Créer
-          title: Nouvel administrateur de l'assemblée.
+          title: Nouvel administrateur de l'assemblée
         update:
           error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cette assemblée.
           success: Utilisateur mis à jour avec succès pour cette assemblée.
       filters:
+        ceased_date_not_null:
+          label: Terminé
+          values:
+            'false': En cours
+            'true': Terminé
         decidim_assemblies_type_id_eq:
           label: Type d'assemblée
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: Rechercher par nom ou par pseudonyme
       menu:
         assemblies: Assemblées
-        assemblies_settings: Paramètres
         assemblies_submenu:
           assembly_admins: Administrateurs de l'assemblée
           assembly_members: Membres
@@ -204,9 +206,11 @@ fr-CA:
           attachments: Documents liés
           categories: Catégories
           components: Composants
-          info: Information
+          info: À propos de cette assemblée
+          landing_page: Page d'accueil
           moderations: Modérations
           private_users: Utilisateurs privés
+          see_assembly: Voir l'assemblée
         assemblies_types: Types d'assemblée
       models:
         assemblies_types:
@@ -215,6 +219,7 @@ fr-CA:
             title: Titre
         assembly:
           fields:
+            actions: Actions
             created_at: Créée le
             private: Privée
             promoted: Mise en avant
@@ -288,42 +293,29 @@ fr-CA:
             select_an_area: Sélectionnez une zone d'application
             select_an_assembly_type: Sélectionnez un type d'assemblée
             select_parent_assembly: Sélectionnez l'assemblée parente
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui renvoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
             social_handlers: Réseaux sociaux
             title: Informations générales
-            visbility: Visibilité
-        assemblies_settings:
-          edit:
-            update: Mettre à jour
-          form:
-            title: Paramètres pour les assemblées
+            visibility: Visibilité
         assemblies_types:
           form:
             title: Titre
         assembly_copies:
           form:
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui envoient vers cette agora. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_imports:
           form:
-            document_legend: Ajouter un document
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_members:
           form:
             existing_user: Utilisateur existant
             explanation: 'Instruction concernant l’image:'
-            image_guide: De préférence une image en format portrait sans texte.
+            image_guide: De préférence une image au format portrait ne contenant pas de texte.
             non_user: Utilisateur inconnu
             non_user_avatar_help: Vous devriez obtenir le consentement des personnes avant de les publier en tant que membre.
             select_a_position: Sélectionnez un statut
             select_user: Sélectionnez un utilisateur
             user_type: Type d'utilisateur
-          index:
-            filter:
-              all: Tout
-              ceased: Validité terminée
-              not_ceased: Validité en cours
-            filter_by: Filtrer par
-            search: Rechercher
         content_blocks:
           highlighted_assemblies:
             max_results: Quantité maximale d'éléments à afficher
@@ -331,6 +323,26 @@ fr-CA:
           accepted_types:
             json: JSON
       assemblies:
+        description:
+          area_name: Périmètre d'assemblée
+          closing_date: Date de clôture
+          created_by: Créé par
+          creation_date: Date de création
+          data: Données de l'assemblée
+          developer_group: Organisateur
+          duration: Durée
+          included_at: Intégré à cette plateforme le
+          indefinite_duration: Indéfinie
+          local_area: Zone de l’organisation
+          meta_scope: Secteur
+          participatory_scope: Ce qui est décidé
+          participatory_structure: Modalités de décision
+          target: Qui participe
+          title: À propos de cette assemblée
+        filters:
+          names:
+            all: Tout
+          type: Type
         show:
           title: À propos de cette assemblée
       assembly_members:
@@ -345,8 +357,16 @@ fr-CA:
         participatory: Organe participatif
         working_group: Groupe de travail
       content_blocks:
+        children_assemblies:
+          name: Assemblées
+        dates_metadata:
+          name: Métadonnées des dates
+        extra_data:
+          name: Type et durée
         highlighted_assemblies:
           name: Assemblées mises en avant
+        related_assemblies:
+          name: Assemblées liées
       created_by:
         city_council: Conseil municipal
         others: Autres
@@ -368,40 +388,16 @@ fr-CA:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Assemblées actives
-            assemblies_button_title: Lien vers la page Assemblées où toutes les assemblées sont affichées
-            see_all_assemblies: Voir toutes les assemblées
+            active_spaces: Assemblées actives
+            see_all_spaces: Voir toutes les assemblées
         user_profile:
           member_of:
             member_of: Membre de
       show:
-        area: Zone d'application
         assembly_type: Type d'assemblée
-        children: Sous-assemblées
-        closing_date: Date de clôture
-        composition: Composition
-        created_by: Créé par
-        creation_date: Date de création
-        developer_group: Organisateur
         duration: Durée
-        included_at: Inclus à
-        indefinite_duration: Indéfinie
-        internal_organisation: Organisation interne
-        is_transparent:
-          'false': non-visible par les non-membres
-          'true': visible par les non-membres
-        local_area: Périmètre d'assemblée
-        participatory_scope: Objectifs
-        participatory_structure: Modalités de décision
         private_space: Ceci est une assemblée privée
-        purpose_of_action: But de l'action
-        read_less: Voir moins
-        read_more: Voir la suite
-        related_participatory_processes: Concertations associées
-        scope: Périmètre d'application
-        social_networks: Réseaux sociaux
         social_networks_title: Visiter l'assemblée sur
-        target: Participants
     assembly_members:
       assembly_member:
         designated_on: Désigné le
@@ -451,20 +447,14 @@ fr-CA:
           more_info: Plus d'informations
           take_part: Participer
         index:
-          children: 'Assemblées : '
-          organizational_chart: Organigramme
           promoted_assemblies: Assemblées mises en avant
-          reset_chart: Réinitialiser
+        metadata:
+          children_item:
+            one: "%{count} assemblée"
+            other: "%{count} assemblées"
         order_by_assemblies:
           assemblies:
             one: "%{count} assemblée"
             other: "%{count} assemblées"
-        promoted_assembly:
-          more_info: Plus d'informations
-          take_part: Participer
       assembly_navigation:
         assembly_member_menu_item: Membres
-        assembly_menu_item: L'assemblée
-      assembly_widgets:
-        show:
-          take_part: Participer

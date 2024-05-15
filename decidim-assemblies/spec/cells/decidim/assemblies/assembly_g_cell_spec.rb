@@ -5,7 +5,6 @@ require "spec_helper"
 module Decidim::Assemblies
   describe AssemblyGCell, type: :cell do
     controller Decidim::ApplicationController
-    include Decidim::TranslatableAttributes
 
     subject { cell("decidim/assemblies/assembly_g", model).call }
 

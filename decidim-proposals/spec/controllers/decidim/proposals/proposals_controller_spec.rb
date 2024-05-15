@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Proposals
-    describe ProposalsController, type: :controller do
+    describe ProposalsController do
       routes { Decidim::Proposals::Engine.routes }
 
       let(:user) { create(:user, :confirmed, organization: component.organization) }
@@ -207,20 +207,6 @@ module Decidim
           end
         end
 
-        context "when you try to complete a proposal created by another user" do
-          it "will not render the complete page" do
-            get(:complete, params:)
-            expect(subject).not_to render_template(:complete)
-          end
-        end
-
-        context "when you try to compare a proposal created by another user" do
-          it "will not render the compare page" do
-            get(:compare, params:)
-            expect(subject).not_to render_template(:compare)
-          end
-        end
-
         context "when you try to publish a proposal created by another user" do
           it "will not render the publish page" do
             post(:publish, params:)
@@ -243,7 +229,7 @@ module Decidim
             expect(flash[:notice]).to eq("Proposal successfully updated.")
             expect(response).to have_http_status(:found)
             proposal.reload
-            expect(proposal.withdrawn?).to be true
+            expect(proposal).to be_withdrawn
           end
 
           context "and the proposal already has supports" do
@@ -255,7 +241,7 @@ module Decidim
               expect(flash[:alert]).to eq("This proposal cannot be withdrawn because it already has supports.")
               expect(response).to have_http_status(:found)
               proposal.reload
-              expect(proposal.withdrawn?).to be false
+              expect(proposal).not_to be_withdrawn
             end
           end
         end
@@ -273,7 +259,7 @@ module Decidim
               expect(flash[:alert]).to eq("You are not authorized to perform this action.")
               expect(response).to have_http_status(:found)
               proposal.reload
-              expect(proposal.withdrawn?).to be false
+              expect(proposal).not_to be_withdrawn
             end
           end
         end

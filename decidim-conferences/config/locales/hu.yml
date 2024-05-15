@@ -5,7 +5,6 @@ hu:
         assemblies_ids: Kapcsolódó gyűlések
         available_slots: Rendelkezésre álló időpontok
         banner_image: Banner kép
-        consultations_ids: Kapcsolódó konzultációk
         copy_categories: Másolási kategóriák
         copy_components: Másoljon komponenseket
         copy_features: Másolási funkciók
@@ -62,7 +61,7 @@ hu:
         personal_url: Személyes URL-cím
         position: Pozíció
         short_bio: Rövid önéletrajz
-        twitter_handle: Twitter oldal
+        twitter_handle: X kezelő
         user_id: Felhasználó
       conference_user_role:
         email: Email
@@ -90,6 +89,11 @@ hu:
       actions:
         confirm: Megerősít
         new_conference: Új konferencia
+        new_conference_user_role: Új konferencia admin
+        new_media_link: Új média link
+        new_partner: Új partner
+        new_registration_type: Új regisztrációtípus
+        new_speaker: Új előadó
         send_diplomas: Küldési igazolások küldése
       conference_copies:
         new:
@@ -152,8 +156,8 @@ hu:
         form:
           title: Általános információ
         index:
-          not_published: Nem publikált
           published: Közzétett
+          unpublished: Nem publikált
         new:
           create: Teremt
           title: konferencia
@@ -193,18 +197,18 @@ hu:
           conference_invites: Meghívottak
           conference_speakers: Előadók
           diploma: Tanúsítvány a jelenlétről
-          info: Info
+          info: Erről a konferenciáról
           media_links: Média linkek
           moderations: moderálások
           partners: Partnerek
           registration_types: Regisztráció típusok
           registrations: Regisztrációk
+          see_conference: Konferencia megtekintése
           user_registrations: Felhasználói regisztrálások
       models:
         conference:
           fields:
             created_at: 'Létrehozva:'
-            promoted: promotált
             published: Közzétett
             title: Cím
         conference_speaker:
@@ -328,9 +332,6 @@ hu:
         title: Hangszórók
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'Az URL-csigákat használják az e konferenciára utaló URL-ek előállításához. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
         conference_invites:
           create:
             error: Probléma merült fel a felhasználó csatlakozásakor.
@@ -342,15 +343,8 @@ hu:
             non_user: Nem létező felhasználó
             select_user: Felhasználó kiválasztása
           index:
-            filter:
-              accepted: Elfogadott
-              all: Minden
-              rejected: Elutasítva
-              sent: Küldött
-            filter_by: Szűrés vlami alapján
             invite_attendee: Hívja meg a résztvevőt
             invites: Meghívottak
-            search: Keresés
           new:
             explanation: A résztvevő meghívást kap egy konferenciára. Ha az e-mail cím nincs regisztrálva, akkor a szervezethez is meghívást kap.
             invite: Meghívás
@@ -372,7 +366,6 @@ hu:
             registrations_count:
               one: 1 regisztráció volt.
               other: '%{count} regisztráció volt.'
-            slug_help: 'Az URL-csigákat használják az e konferenciára utaló URL-ek előállításához. Csak leveleket, számokat és kötőjeleket fogad el, és betűvel kell kezdenie. Példa: %{url}'
         diplomas:
           edit:
             save: Mentés
@@ -425,16 +418,13 @@ hu:
         create:
           invalid: Probléma merült fel a konferencián.
           success: A konferencia sikeresen csatlakozott.
-          unauthorized: A konferenciára való regisztráció előtt be kell jelentkeznie.
         decline_invitation:
           invalid: Hiba történt a meghívás visszautasításában.
           success: Elutasította a meghívást sikeresen.
-          unauthorized: A meghívás elutasítása előtt be kell jelentkeznie.
         destroy:
           invalid: Probléma merült fel a konferencián.
           success: A konferencia sikeres volt.
       conference_speaker:
-        go_to_twitter: Menjen a Twitterre
         more_info: több információ
         personal_website: Személyes weboldal
         show:
@@ -453,9 +443,14 @@ hu:
           collaborators: Partnerek
           main_promotors: Szervezők
         show:
+          already_have_an_account?: Van már fiókja?
+          are_you_new?: Új résztvevő?
           login_as: '%{name} <%{email}> -ként jelentkeztél be'
           make_conference_registration: Regisztráció a konferenciára
+          manage_registration: Regisztráció kezelése
           register: Regisztráció
+          sign_in_description: Jelentkezzen be a konferenciára történő regisztrációhoz
+          sign_up_description: Hozzon létre egy fiókot a konferenciára való jelentkezéshez
       content_blocks:
         highlighted_conferences:
           name: Kiemelt konferenciák
@@ -497,9 +492,8 @@ hu:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Aktív konferenciák
-            conferences_button_title: Link a Konferenciák oldalra, ahol az összes konferencia látható
-            see_all_conferences: Lásd az összes konferenciát
+            active_spaces: Aktív konferenciák
+            see_all_spaces: Az összes konferencia megtekintése
       registration_types:
         index:
           choose_an_option: 'Válassza ki a regisztrációs lehetőséget:'
@@ -511,7 +505,6 @@ hu:
         introduction: Bevezetés
         objectives: célok
         related_assemblies: Kapcsolódó gyűlések
-        related_consultations: Kapcsolódó konzultációk
         related_participatory_processes: Kapcsolódó részvételi folyamatok
     events:
       conferences:
@@ -569,10 +562,8 @@ hu:
   layouts:
     decidim:
       conference_hero:
+        manage_registration: Regisztráció kezelése
         register: Regisztráció
-      conference_widgets:
-        show:
-          take_part: Részt vesz
       conferences:
         conference:
           more_info: Több információ
@@ -583,11 +574,7 @@ hu:
           conferences:
             one: "%{count} konferencia"
             other: "%{count} konferencia"
-        promoted_conference:
-          more_info: Több információ
-          take_part: Részt vesz
       conferences_nav:
-        conference_menu_item: Információ
         conference_partners_menu_item: Partnerek
         conference_speaker_menu_item: Hangszórók
         media: Média

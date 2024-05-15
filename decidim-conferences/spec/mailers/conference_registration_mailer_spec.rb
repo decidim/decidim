@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Conferences
-  describe ConferenceRegistrationMailer, type: :mailer do
+  describe ConferenceRegistrationMailer do
     include ActionView::Helpers::SanitizeHelper
     include Decidim::TranslationsHelper
 

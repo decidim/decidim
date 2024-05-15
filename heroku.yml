@@ -1,5 +1,0 @@
-build:
-  docker:
-    web: Dockerfile.design
-run:
-  web: bundle exec rails s -p $PORT

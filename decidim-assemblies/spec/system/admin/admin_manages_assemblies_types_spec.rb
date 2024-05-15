@@ -2,9 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages assemblies", type: :system do
-  include Decidim::SanitizeHelper
-
+describe "Admin manages assemblies" do
   let(:admin) { create(:user, :admin, :confirmed) }
   let(:organization) { admin.organization }
 
@@ -16,13 +14,19 @@ describe "Admin manages assemblies", type: :system do
     end
 
     it "can create new assemblies types" do
-      click_link "New assembly type"
+      within "[data-content]" do
+        click_on "New assembly type"
 
-      within ".new_assembly_type" do
-        fill_in_i18n :assemblies_type_title, "#assemblies_type-title-tabs", en: "My assembly type",
-                                                                            es: "Mi assembly type",
-                                                                            ca: "La meva assembly type"
-        find("*[type=submit]").click
+        within ".new_assembly_type" do
+          fill_in_i18n(
+            :assemblies_type_title,
+            "#assemblies_type-title-tabs",
+            en: "My assembly type",
+            es: "Mi assembly type",
+            ca: "La meva assembly type"
+          )
+          find("*[type=submit]").click
+        end
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -46,8 +50,8 @@ describe "Admin manages assemblies", type: :system do
       end
 
       it "can edit them" do
-        within find("tr", text: translated(assembly_type.title)) do
-          click_link "Edit"
+        within "tr", text: translated(assembly_type.title) do
+          click_on "Edit"
         end
 
         within ".edit_assembly_type" do
@@ -69,8 +73,8 @@ describe "Admin manages assemblies", type: :system do
 
         expect(page).to have_admin_callout("successfully")
 
-        within ".card-section" do
-          expect(page).not_to have_content(translated(assembly_type.title))
+        within "#assembly-types" do
+          expect(page).to have_no_content(translated(assembly_type.title))
         end
       end
     end
@@ -79,8 +83,8 @@ describe "Admin manages assemblies", type: :system do
   private
 
   def click_delete_assembly_type
-    within find("tr", text: translated(assembly_type.title)) do
-      accept_confirm(admin: true) { click_link "Delete" }
+    within "tr", text: translated(assembly_type.title) do
+      accept_confirm { click_on "Delete" }
     end
   end
 end

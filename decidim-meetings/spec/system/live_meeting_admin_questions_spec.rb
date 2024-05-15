@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Meeting live event poll administration", type: :system do
+describe "Meeting live event poll administration" do
   include_context "when managing a component" do
     let(:component_organization_traits) { admin_component_organization_traits }
   end
@@ -58,7 +58,7 @@ describe "Meeting live event poll administration", type: :system do
 
   before do
     visit meeting_live_event_path
-    click_button "Administrate"
+    click_on "Administrate"
   end
 
   context "when all questions are unpublished" do
@@ -73,7 +73,7 @@ describe "Meeting live event poll administration", type: :system do
       open_first_question
 
       expect(page).to have_content("This is the first question")
-      new_window = window_opened_by { click_link "Edit in the admin" }
+      new_window = window_opened_by { click_on "Edit in the admin" }
 
       within_window new_window do
         expect(page).to have_current_path(questionnaire_edit_path)
@@ -84,7 +84,7 @@ describe "Meeting live event poll administration", type: :system do
       open_first_question
 
       within ".meeting-polls__admin-action-question" do
-        click_button "Send"
+        click_on "Send"
         expect(page).to have_content("Sent")
         expect(page).to have_content("0 received answers")
       end
@@ -111,7 +111,7 @@ describe "Meeting live event poll administration", type: :system do
       open_first_question
 
       within ".meeting-polls__admin-action-results" do
-        click_button "Send"
+        click_on "Send"
         expect(page).to have_content("Sent")
       end
 

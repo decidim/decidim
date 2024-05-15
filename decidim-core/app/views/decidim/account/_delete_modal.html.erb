@@ -1,5 +1,5 @@
 <%= decidim_modal id: "delete-account", class:"verification-modal" do %>
-  <%= decidim_form_for(@form, url: account_path, method: :delete, namespace: "delete_user_confirm", html: { class: "user-form delete-account-modal" }) do |f| %>
+  <%= decidim_form_for(@form, url: account_path, method: :delete, namespace: "delete_user_confirm", html: { class: "delete-account-modal" }) do |f| %>
     <%= f.hidden_field :delete_reason %>
     <div data-dialog-container>
       <%= icon "close-circle-line" %>

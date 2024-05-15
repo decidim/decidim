@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Private Space Answer a survey", type: :system do
+describe "Private Space Answer a survey" do
   let(:manifest_name) { "surveys" }
   let(:manifest) { Decidim.find_component_manifest(manifest_name) }
 
@@ -55,7 +55,7 @@ describe "Private Space Answer a survey", type: :system do
         expect(page).to have_i18n_content(questionnaire.title)
         expect(page).to have_i18n_content(questionnaire.description)
 
-        expect(page).not_to have_css(".form.answer-questionnaire")
+        expect(page).to have_no_css(".form.answer-questionnaire")
 
         within "[data-question-readonly]" do
           expect(page).to have_i18n_content(question.body)
@@ -80,7 +80,7 @@ describe "Private Space Answer a survey", type: :system do
 
           check "questionnaire_tos_agreement"
 
-          accept_confirm { click_button "Submit" }
+          accept_confirm { click_on "Submit" }
 
           within ".success.flash" do
             expect(page).to have_content("successfully")
@@ -104,7 +104,7 @@ describe "Private Space Answer a survey", type: :system do
           expect(page).to have_content "The form is available only for private users"
           expect(page).to have_content "Form closed"
 
-          expect(page).to have_selector(".button[disabled]")
+          expect(page).to have_css(".button[disabled]")
         end
       end
     end
@@ -141,7 +141,7 @@ describe "Private Space Answer a survey", type: :system do
 
           check "questionnaire_tos_agreement"
 
-          accept_confirm { click_button "Submit" }
+          accept_confirm { click_on "Submit" }
 
           within ".success.flash" do
             expect(page).to have_content("successfully")

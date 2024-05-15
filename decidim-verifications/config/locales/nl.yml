@@ -46,7 +46,7 @@ nl:
             - Gebruikers vullen hun identiteitsinformatie in en uploaden een kopie van hun document.
             - U vult de informatie in die in de geüploade afbeelding aanwezig is.
             - De informatie moet overeenkomen met wat de gebruiker heeft ingevuld.
-            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
+            - 
         postal_letter:
           help:
             - Deelnemers vragen een verificatiecode op te sturen naar hun adres.
@@ -166,8 +166,6 @@ nl:
           new:
             send: Verzoek om verificatie
             title: Upload uw identiteitsdocument
-        dni: DNI
-        nie: NIE
         passport: Paspoort
       postal_letter:
         admin:
@@ -188,8 +186,6 @@ nl:
             title: Vraag uw verificatiecode aan
       sms:
         authorizations:
-          destroy:
-            success: Verificatiecode succesvol gereset. Voer uw telefoonnummer opnieuw in.
           edit:
             confirm_destroy: Weet je zeker dat je de verificatiecode opnieuw wilt instellen?
             destroy: Verificatiecode opnieuw instellen

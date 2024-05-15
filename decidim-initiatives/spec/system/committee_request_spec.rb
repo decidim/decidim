@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Decidim::Initiatives::CommitteeRequestController", type: :system do
+describe "Decidim::Initiatives::CommitteeRequestController" do
   let(:organization) { create(:organization) }
   let(:initiative) { create(:initiative, :created, organization:) }
 
@@ -59,7 +59,7 @@ describe "Decidim::Initiatives::CommitteeRequestController", type: :system do
 
       context "when requesting membership" do
         it "an authentication modal is opened" do
-          click_link "Continue"
+          click_on "Continue"
           expect(page).to have_content("Please log in")
         end
       end

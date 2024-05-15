@@ -15,7 +15,7 @@ module Decidim
 
       # Executes the command. Broadcasts these events:
       #
-      # - :ok when everithing is valid.
+      # - :ok when everything is valid.
       # - :invalid if verification_metadata is not present or the form code is
       #            invalid.
       #
@@ -29,11 +29,11 @@ module Decidim
       private
 
       def verification_metadata_valid?
-        @verification_metadata && @verification_metadata["verification_code"].present?
+        @verification_metadata && @verification_metadata[:verification_code].present?
       end
 
       def valid_code?
-        @verification_metadata["verification_code"] == @form.verification_code
+        @verification_metadata[:verification_code] == @form.verification_code
       end
     end
   end

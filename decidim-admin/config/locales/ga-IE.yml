@@ -67,7 +67,6 @@ ga:
         category:
           new: Catagóir nua
         import: Iompórtáil
-        manage: Bainistigh
         per_page: In aghaidh an leathanach
         reject: Diúltaigh
         share: Roinn
@@ -192,6 +191,7 @@ ga:
         admins: Riaracháin
         areas: Ceantair
         homepage: Leathanach baile
+        manage: Bainistigh
         scopes: Scóip
         settings: Socruithe
         static_pages: Leathanaigh
@@ -305,7 +305,6 @@ ga:
           facebook: Facebook
           github: GitHub
           social_handlers: Sóisialta
-          twitter: Twitter
           url: URL
           youtube: YouTube
       organization_appearance:
@@ -314,13 +313,6 @@ ga:
         form:
           images:
             preview: Réamhamharc
-      organization_external_domain_whitelist:
-        edit:
-          update: Nuashonraigh
-        external_domain:
-          down: Ísligh
-          remove: Bain as
-          up: Ardaigh
       participatory_space_private_users:
         new:
           create: Cruthaigh
@@ -357,7 +349,6 @@ ga:
         metrics: Méadrachtaí
         panel: Riarachán
         scopes: Scóip
-        static_pages: Leathanaigh
         user_groups: Grúpaí
       user_groups:
         index:
@@ -393,8 +384,3 @@ ga:
         report:
           fields:
             reason: Cúis
-  layouts:
-    decidim:
-      admin:
-        settings:
-          title: Socruithe

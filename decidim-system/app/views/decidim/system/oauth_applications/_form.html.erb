@@ -2,10 +2,10 @@
   <%= form.text_field :name %>
   <%= form.text_field :redirect_uri %>
   <%= form.select :decidim_organization_id,
-                Decidim::Organization.pluck(:name, :id),
-                { include_blank: t(".select_organization") },
-                { multiple: false } %>
+                  Decidim::Organization.pluck(:name, :id),
+                  { include_blank: t(".select_organization") },
+                  { multiple: false } %>
   <%= form.text_field :organization_name %>
   <%= form.text_field :organization_url %>
-  <%= form.upload :organization_logo, required: true, redesigned: true, button_class: "button button__lg button__transparent-primary" %>
+  <%= form.upload :organization_logo, required: true, button_class: "button button__lg button__transparent-primary" %>
 </div>

@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+# i18n-tasks-use t('decidim.conferences.conferences.show.already_have_an_account?')
+# i18n-tasks-use t('decidim.conferences.conferences.show.are_you_new?')
+# i18n-tasks-use t('decidim.conferences.conferences.show.sign_in_description')
+# i18n-tasks-use t('decidim.conferences.conferences.show.sign_up_description')
 module Decidim
   module Conferences
     # A controller that holds the logic to show Conferences in a
@@ -8,13 +12,10 @@ module Decidim
       include ParticipatorySpaceContext
       include Paginable
 
-      participatory_space_layout only: :show
-
       helper Decidim::AttachmentsHelper
       helper Decidim::IconHelper
       helper Decidim::SanitizeHelper
       helper Decidim::ResourceReferenceHelper
-      helper Decidim::Conferences::PartnersHelper
 
       helper_method :collection, :promoted_conferences, :conferences, :stats
 
@@ -25,7 +26,7 @@ module Decidim
       end
 
       def show
-        check_current_user_can_visit_space
+        enforce_permission_to :read, :conference, conference: current_participatory_space
       end
 
       def user_diploma

@@ -1,4 +1,4 @@
-/* eslint-disable multiline-ternary, no-ternary */
+/* eslint-disable multiline-ternary */
 
 /*
  *

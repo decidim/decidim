@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages assembly private users", type: :system do
+describe "Admin manages assembly private users" do
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:organization) { create(:organization) }
   let!(:assembly) { create(:assembly, organization:, private_space: true) }

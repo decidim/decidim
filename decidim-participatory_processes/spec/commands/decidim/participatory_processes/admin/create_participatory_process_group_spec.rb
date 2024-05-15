@@ -19,6 +19,7 @@ module Decidim::ParticipatoryProcesses
         group_url: "http://example.org",
         hero_image: nil,
         current_organization: organization,
+        organization:,
         current_user:,
         participatory_process_ids: [],
         developer_group: { en: "developer group" },
@@ -49,20 +50,15 @@ module Decidim::ParticipatoryProcesses
         expect { subject.call }.to change(Decidim::ParticipatoryProcessGroup, :count).by(1)
       end
 
-      it "traces the creation", versioning: true do
+      it "traces the action", versioning: true do
         expect(Decidim.traceability)
-          .to receive(:perform_action!)
-          .with(
-            "create",
-            Decidim::ParticipatoryProcessGroup,
-            current_user
-          ).and_call_original
+          .to receive(:create)
+          .with(Decidim::ParticipatoryProcessGroup, current_user, kind_of(Hash))
+          .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
-
         action_log = Decidim::ActionLog.last
         expect(action_log.version).to be_present
-        expect(action_log.version.event).to eq "create"
       end
     end
   end

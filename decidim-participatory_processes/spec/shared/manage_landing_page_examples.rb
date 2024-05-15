@@ -14,13 +14,11 @@ shared_examples "manage landing page examples" do
   end
 
   context "when editing a participatory process group landing page" do
-    it "has sub nav with Landing page active" do
+    it "has breadcrumb with landing page" do
       visit edit_landing_page_path
-      within "div.secondary-nav" do
-        expect(page).to have_content("Info")
-        expect(page).to have_content("Landing page")
-        active_secondary_nav = find(:xpath, ".//li[@class='is-active']")
-        expect(active_secondary_nav.text).to eq("Landing page")
+
+      within("div.process-title-content-breadcrumb-container-left") do
+        expect(page).to have_css("span", text: "Landing page")
       end
     end
   end
@@ -31,9 +29,9 @@ shared_examples "manage landing page examples" do
 
       expect do
         within ".edit_content_blocks" do
-          click_button(text: "Add content block")
+          click_on(text: "Add content block")
           within ".add-components" do
-            find("a", text: "Hero image", exact_text: true).click
+            find("a", text: "Hero image and CTA", exact_text: true).click
           end
         end
       end.to change(active_content_blocks, :count).by(1)
@@ -44,13 +42,13 @@ shared_examples "manage landing page examples" do
 
       expect do
         within ".edit_content_blocks" do
-          click_button(text: "Add content block")
+          click_on(text: "Add content block")
           within ".add-components" do
-            find("a", text: "Hero image", exact_text: true).click
+            find("a", text: "Hero image and CTA", exact_text: true).click
           end
         end
 
-        first("ul.js-list-availables li").drag_to(find("ul.js-list-actives"))
+        first("ul.js-list-available li").drag_to(find("ul.js-list-actives"))
         sleep(2)
       end.to change(active_content_blocks, :count).by(1)
     end
@@ -76,17 +74,17 @@ shared_examples "manage landing page examples" do
       visit edit_content_block_path(resource, content_block)
 
       fill_in(
-        :content_block_settings_welcome_text_en,
-        with: "Custom welcome text!"
+        :content_block_settings_button_text_en,
+        with: "Custom button text!"
       )
 
-      click_button "Update"
+      click_on "Update"
       visit edit_content_block_path(resource, content_block)
-      expect(page).to have_selector("input[value='Custom welcome text!']")
+      expect(page).to have_css("input[value='Custom button text!']")
 
       content_block.reload
 
-      expect(content_block.settings.to_json).to match(/Custom welcome text!/)
+      expect(content_block.settings.to_json).to match(/Custom button text!/)
     end
   end
 end
@@ -109,7 +107,7 @@ shared_context "when admin administrating a participatory process with hero cont
         ]
 
         content_block.settings do |settings|
-          settings.attribute :welcome_text, type: :text, translated: true
+          settings.attribute :button_text, type: :text, translated: true
         end
 
         content_block.default!

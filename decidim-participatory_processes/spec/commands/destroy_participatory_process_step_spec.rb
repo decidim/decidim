@@ -21,7 +21,7 @@ module Decidim::ParticipatoryProcesses
 
       context "when deleting the active step" do
         it "broadcasts invalid" do
-          expect { subject.call }.to broadcast(:invalid, :active_step)
+          expect { subject.call }.to broadcast(:invalid)
         end
 
         it "does not delete the step" do

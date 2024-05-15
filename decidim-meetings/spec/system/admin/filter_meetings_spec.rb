@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-describe "Admin filters meetings", type: :system do
+describe "Admin filters meetings" do
   include_context "with filterable context"
 
   let(:manifest_name) { "meetings" }

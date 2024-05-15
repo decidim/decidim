@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin
   describe UpdateHelpSections do
-    let(:organization) { create(:organization, external_domain_whitelist: []) }
+    let(:organization) { create(:organization, external_domain_allowlist: []) }
     let(:user) { create(:user, organization:) }
     let(:form) { Decidim::Admin::HelpSectionsForm.from_params(attributes) }
     let(:command) { described_class.new(form, organization, user) }

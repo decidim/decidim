@@ -38,9 +38,6 @@ zh-TW:
         confirm_destroy: 確定要刪除 %{name} ？
         destroy: 刪除
         edit: 編輯
-        import: 匯入專案到結果
-        import_csv: 匯入CSV
-        new: 新增 %{name}
         preview: 預覽
         timeline_entries: 專案評估
         title: 操作
@@ -73,7 +70,6 @@ zh-TW:
                 </ul>
               </li>
               </ol>
-            title: 從 CSV 匯入結果
         imports:
           create:
             success: 檔案開始匯入，執行完成後會寄發 email 說明匯入結果.
@@ -82,8 +78,6 @@ zh-TW:
             name: 結果
           status:
             name: 狀態
-          timeline_entry:
-            name: 輸入時間線
         projects_import:
           create:
             invalid: 匯入專案到結果時發生錯誤，請確實依照說明小心操作，以及確認已經選擇要實做的專案
@@ -97,7 +91,6 @@ zh-TW:
             select_component: 選擇一個元件
             success:
               other: "%{count} 個專案已經排程匯入，完成後會寄送 email 通知."
-            title: 匯入專案到問責
         results:
           create:
             invalid: 建立結果時發生錯誤.
@@ -170,9 +163,7 @@ zh-TW:
             not_found: '資料庫中找不到上一層 (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: 日期
           results: 結果
-          unspecified: 未指定
       import_mailer:
         import:
           errors: 錯誤
@@ -210,9 +201,6 @@ zh-TW:
           fields:
             entry_date: 日期
             title: 標題
-      result_m:
-        executed: 已執行
-        view: 檢視
       results:
         count:
           results_count:
@@ -230,15 +218,7 @@ zh-TW:
           search: 搜尋操作
         show:
           stats:
-            attendees: 與會者
             back_to_resource: 返回至結果
-            comments: 評論
-            contributions: 貢獻
-            last_edited_by: 最後編輯者
-            last_updated_at: 更新時間
-            meetings: 會議
-            proposals: 提案
-            votes: 支援
         timeline:
           title: 專案評估
     admin:

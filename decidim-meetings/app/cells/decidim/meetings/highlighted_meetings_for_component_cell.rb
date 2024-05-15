@@ -8,10 +8,9 @@ module Decidim
     # It is intended to be used in the `participatory_space_highlighted_elements`
     # view hook.
     class HighlightedMeetingsForComponentCell < Decidim::ViewModel
-      include ApplicationHelper
+      include Decidim::Meetings::ApplicationHelper
       include Decidim::ComponentPathHelper
       include Decidim::CardHelper
-      include Decidim::LayoutHelper
 
       delegate :snippets, to: :controller
 
@@ -31,7 +30,7 @@ module Decidim
 
       def base_relation
         @base_relation ||= Decidim::Meetings::Meeting.where(component: model)
-                                                     .except_withdrawn
+                                                     .not_withdrawn
                                                      .published
                                                      .not_hidden
                                                      .visible_for(current_user)
@@ -62,7 +61,15 @@ module Decidim
       end
 
       def show_map?
+        maps_active? && !all_online_meetings?
+      end
+
+      def maps_active?
         Decidim::Map.available?(:geocoding, :dynamic)
+      end
+
+      def all_online_meetings?
+        collection.collect(&:type_of_meeting).all?("online")
       end
 
       def show_calendar?

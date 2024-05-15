@@ -37,6 +37,9 @@ es-PY:
         user_group_id: Importar como
       newsletter:
         body: Cuerpo
+        send_to_all_users: Enviar a todas las usuarias
+        send_to_followers: Enviar a las seguidoras
+        send_to_participants: Enviar a las participantes
         subject: Asunto
       organization:
         admin_terms_of_service_body: Cuerpo de texto para los términos de servicio de administración
@@ -75,7 +78,6 @@ es-PY:
         machine_translation_display_priority_translation: Texto traducido primero
         name: Nombre
         official_img_footer: Logotipo oficial de pie de página
-        official_img_header: Logotipo oficial de cabecera
         official_url: URL oficial de la organización
         omnipresent_banner_short_description: Descripción breve
         omnipresent_banner_title: Título
@@ -90,9 +92,10 @@ es-PY:
         secondary_hosts: Hosts secundarios
         send_welcome_notification: Enviar notificación de bienvenida
         success_color: Éxito
+        tertiary_color: Terciario
         time_zone: Zona Horaria
         tos_version: Versión de los Términos de Servicio
-        twitter_handler: Nombre de Twitter
+        twitter_handler: Nombre de usuaria en X
         user_groups_enabled: Habilitar grupos de usuarios
         users_registration_mode: Modo de registro de usuarios
         warning_color: Advertencia
@@ -127,6 +130,7 @@ es-PY:
         weight: Orden de posición
       static_page_topic:
         description: Descripción
+        name: Nombre de tema
         show_in_footer: Mostrar en el pie de página
         title: Título
         weight: Orden de posición
@@ -141,8 +145,6 @@ es-PY:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Archivo de imagen no válido
-            official_img_header:
               allowed_file_content_types: Archivo de imagen no válido
         participatory_space_private_user_csv_import:
           attributes:
@@ -185,8 +187,6 @@ es-PY:
         export: Exportar todo
         export-selection: Exportar selección
         import: Importar
-        manage: Gestionar
-        new: Nuevo %{name}
         newsletter:
           new: Nuevo boletín
         participatory_space_private_user:
@@ -194,6 +194,7 @@ es-PY:
         per_page: Por página
         permissions: Permisos
         reject: Rechazar
+        send_me_a_test_email: Enviarme un correo electrónico de prueba
         share: Compartir
         user:
           new: Nueva administradora
@@ -254,7 +255,6 @@ es-PY:
           title: Editar carpeta
           update: Actualizar
         index:
-          attachment_collection_used: Esta carpeta no se puede eliminar porque está en uso.
           attachment_collections_title: Carpetas de archivos adjuntos
         new:
           create: Crear
@@ -287,7 +287,7 @@ es-PY:
       block_user:
         new:
           action: Bloquear cuenta y enviar justificación
-          already_reported_html: Continuando con esta acción también esconderás todos los contenidos de la participante. <a href="%{link}">Bloquea la cuenta</a>.
+          already_reported_html: Continuando con esta acción también esconderás todos los contenidos de la participante.
           description: El bloqueo de una usuaria dejará su cuenta inutilizable. Puedes proporcionar en tu justificación los criterios bajo los cuales considerarías desbloquearla.
           justification: Justificación
           title: Bloquear a la usuaria %{name}
@@ -303,7 +303,6 @@ es-PY:
           update: Actualizar
         index:
           categories_title: Categorías
-          category_used: Esta categoría no se puede eliminar porque está en uso.
         new:
           create: Crear categoría
           title: Nueva categoría
@@ -318,6 +317,7 @@ es-PY:
         create:
           error: Hubo un error al crear este componente.
           success: Componente creado con éxito.
+          success_landing_page: Componente creado con éxito. Puedes añadir un bloque de contenido para este componente en la ppágina de inicio del espacio de participación. <a href="%{landing_page_path}">Ve a la página de inicio</a> para configurarla.
         destroy:
           error: Ha habido un error al eliminar este componente.
           success: Componente borrado con éxito.
@@ -354,29 +354,43 @@ es-PY:
         title: Conflictos de verificación
         transfer:
           email: Correo electrónico
-          error: Hubo un problema al transferir el participante actual a un participante gestionado.
+          error: Hubo un problema transfiriendo la participante actual a una participante gestionada.
           name: Nombre
           reason: Motivo
           success: La transferencia actual se ha completado correctamente.
           title: Transferir
         'true': 'Sí'
         user_name: Usuaria
+      content_blocks:
+        create:
+          error: Se ha producido un error creando el bloque de contenido.
+          success: El bloque de contenido se ha creado correctamente.
+        destroy:
+          error: Se ha producido un error al intentar eliminar este bloque de contenido.
+          success: El bloque de contenido se ha eliminado correctamente.
+        edit:
+          active_content_blocks: Bloques de contenido activos
+          add: Añadir bloque de contenido
+          destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
+          inactive_content_blocks: Bloques de contenido inactivos
+          title: Contenidos de la página
+          update: Actualizar
       dashboard:
         pending_moderations:
-          anouncement:
+          announcement:
             one: Hay %{count} moderación pendiente
             other: Hay %{count} moderaciones pendientes
           goto_moderation: Ir a moderaciones globales
           title: Moderaciones pendientes
         show:
+          dropdown: Desplegable
           view_more_logs: Ver más registros
-          welcome: Bienvenida al panel de administración.
-      domain_whitelist:
+      domain_allowlist:
         form:
-          domain_too_short: Dominio demasiado corto
+          domain_too_short: El dominio es demasiado corto
         update:
-          error: Error al actualizar la lista de dominios autorizados.
-          success: Se ha actualizado correctamente el listado de dominios autorizados.
+          error: Se ha producido un error al actualizar la lista de dominios externos permitidos
+          success: La lista de dominios externos permitidos se ha actualizado correctamente.
       exports:
         export_as: "%{name} como %{export_format}"
         formats:
@@ -443,7 +457,6 @@ es-PY:
           report_count_eq: Número de denuncias
           reported_id_string_or_reported_content_cont: Buscar %{collection} por contenido o id reportable.
           title_cont: Buscar %{collection} por título.
-          user_name_or_user_email_cont: Busca %{collection} por nombre o por correo electrónico.
           user_name_or_user_nickname_or_user_email_cont: Buscar %{collection} por correo electrónico, nombre o alias.
         state_eq:
           label: Estado
@@ -469,7 +482,6 @@ es-PY:
             all: Todas
             managed: Administrado
             not_managed: No gestionado
-          filter_by: Filtrado por
           impersonate: Suplantar
           impersonate_new_managed_user: Impersonar a un nuevo usuario administrado
           managed: Administrado
@@ -559,18 +571,20 @@ es-PY:
         areas: Áreas
         configuration: Configuración
         content: Contenido reportado
-        dashboard: Panel de control
-        external_domain_whitelist: Dominios externos permitidos
+        external_domain_allowlist: Dominios externos permitidos
         help_sections: Secciones de ayuda
         homepage: Página principal
         impersonations: Impersonaciones
+        manage: Gestionar
         moderation: Moderaciones globales
         newsletters: Boletines
         participants: Participantes
         reported_users: Participantes reportadas
         scope_types: Tipos de ámbito
         scopes: Ámbitos
+        see_site: Ver el sitio web
         settings: Configuración
+        static_page_topics: Temas
         static_pages: Páginas
         user_groups: Grupos de usuarios
         users: Usuarios
@@ -639,7 +653,7 @@ es-PY:
           fields:
             created_at: Fecha de creación
             email: Correo electrónico
-            last_sign_in_at: Última fecha de identificación
+            last_sign_in_at: Última conexión
             name: Nombre
             role: Rol
             roles:
@@ -750,16 +764,16 @@ es-PY:
           select_scopes: Filtrar para las participantes que hayan activado cualquier ámbito en su configuración de "Mis intereses".
           select_spaces: Selecciona espacios para segmentar el boletín
           select_users: Selecciona a qué usuarios deseas enviar el boletín
-          send_to_all_users: Enviar a todos los usuarios
-          send_to_followers: Enviar a los seguidores
-          send_to_participants: Enviar a los participantes
           title: Selecciona los destinatarios
           warning: "<strong>Atención:</strong> Este boletín sólo será enviado a participantes que hayan activado <em>Quiero recibir boletines de noticias</em> en sus ajustes de notificaciones."
         send:
           no_recipients: No hay destinatarias para esta selección.
+        send_to_user:
+          sent_successfully: El boletín ha sido enviado correctamente a %{email}
         show:
           preview: Previsualizar
           select_recipients_to_deliver: Selecciona los destinatarios
+          send_me_a_test_email: Enviarme un correo electrónico de prueba
           subject: Asunto
         update:
           error: Se ha producido un error al actualizar este boletín.
@@ -793,7 +807,6 @@ es-PY:
           officialize: Oficializar
           title: Oficializar el usuario "%{name}"
         show_email_modal:
-          close_modal: Cierra el modal
           description: Si necesitas contactar directamente con una participante, puedes hacer clic en el botón Mostrar para ver la dirección de correo electrónico. Esta acción se registrará.
           email_address: Dirección de correo electrónico
           full_name: Nombre completo
@@ -813,7 +826,7 @@ es-PY:
           instagram: Instagram
           rich_text_editor_in_public_views_help: En algunas áreas de texto, los participantes podrán insertar algunas etiquetas HTML utilizando el editor de texto enriquecido.
           social_handlers: Social
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: YouTube
         update:
@@ -824,18 +837,26 @@ es-PY:
           update: Actualizar
         form:
           colors:
+            choose_color: Elegir un color primario
             colors_title: Colores de organizacion
             colors_warning_html: '¡Advertencia! Cambiar estos colores puede romper los contrastes de accesibilidad. Puedes comprobar el contraste de tu elección con <a href="%{link}">WebAIM Contrast Checker</a> u otras herramientas similares.'
-            header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
-          cta_button_path_help: 'Puedes sobrescribir el enlace al botón de acción principal en la página principal. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
+            explanation: Esta herramienta te ayuda a elegir un esquema de color, compuesto por distintas tonalidades seleccionadas de forma armoniosa para usarse en el sitio web de la organización.
+            legend_html: Colores principales de la aplicación, basados en el <a href="https://www.color-meanings.com/triadic-colors/">algoritmo Triadic</a>. El color <i>secundario</i> es autocalculado a partir del color primario y la saturación que has elegido.
+            saturation: Saturación
+            title: Selector de color
+            update_suggested_colors: Actualizar a los colores sugeridos
+          cta_button_path_help_html: 'Puedes redirigir la dirección donde enlaza el Botón de Acción principal de la página de inicio donde desees. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El Botón de Acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
           cta_button_text_help: Puedes sobrescribir el texto del botón de acción principal en la página de inicio para cada idioma disponible en tu organización. Si no está configurado, se usará el valor predeterminado. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción.
+          header_snippets:
+            header_snippets_help_html: Utiliza este campo para añadir cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieren JavaScript o CSS adicionales. También, puedes usarlo para añadir meta-etiquetas extra al HTML. Ten en cuenta que esto sólo será renderizado en páginas públicas, no en la sección de administración. Si el código interactúa con APIs externas o no cumple con las pautas de seguridad de la aplicación, será necesario cambiar la Política de Seguridad del Contenido. Lea más sobre <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">en el sitio de documentación</a>.
+            title: Fragmentos de código HTML de cabecera
           homepage_appearance_title: Editar apariencia de página de inicio
           homepage_highlighted_content_banner_title: Banner de contenido resaltado
           images:
             layout_appearance_title: Editar apariencia de diseño global
             preview: Previsualizar
           omnipresent_banner_appearance_title: Editar banner omnipresente
-      organization_external_domain_whitelist:
+      organization_external_domain_allowlist:
         edit:
           update: Actualizar
         external_domain:
@@ -844,24 +865,8 @@ es-PY:
           remove: Eliminar
           up: Subir
         form:
-          add: Añadir a la lista blanca
-          title: Lista blanca de dominios externos
-      organization_homepage:
-        content_blocks:
-          create:
-            error: Se ha producido un error al intentar crear este bloque de contenido.
-            success: Bloque de contenido creado correctamente.
-          destroy:
-            error: Se ha producido un error al tratar de eliminar este bloque de contenido.
-            success: Bloque de contenido eliminado correctamente.
-          edit:
-            update: Actualizar
-        edit:
-          active_content_blocks: Bloques de contenido activos
-          add: Añadir bloque de contenido
-          destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
-          inactive_content_blocks: Bloques de contenido inactivos
-          title: Contenidos de la página
+          add: Añadir a la lista de direcciones permitidas
+          title: Lista de dominios externos permitidos
       participatory_space_private_users:
         create:
           error: Hubo un error al agregar un usuario privado para este espacio participativo.
@@ -880,6 +885,8 @@ es-PY:
           invalid: Hubo un problema al leer el archivo CSV. Por favor, asegúrate de haber seguido las instrucciones.
           success: El archivo CSV se ha cargado correctamente, estamos enviando un correo de invitación a las participantes. Este proceso puede tardar un poco.
         new:
+          csv_upload:
+            title: Sube tu archivo CSV
           destroy:
             button: Borrar todas las participantes privadas
             confirm: '¿Seguro que quieres eliminar todas las participantes privadas? Esta acción no se puede deshacer, no podrás recuperarlas.'
@@ -891,7 +898,7 @@ es-PY:
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Sube tu archivo CSV
+          title: Importar participantes privadas vía CSV
           upload: Subir
       reminders:
         create:
@@ -957,7 +964,6 @@ es-PY:
       shared:
         gallery:
           add_images: Añadir imágenes
-          delete_image: Borrar la imagen
           edit_images: Editar imagenes
           gallery_legend: Añadir una galería de imágenes (opccional)
       static_page_topics:
@@ -978,20 +984,6 @@ es-PY:
       static_pages:
         actions:
           view: Ver la página pública
-        content_blocks:
-          active_content_blocks: Bloques de contenido activos
-          add: Añadir bloque de contenido
-          create:
-            error: Se ha producido un error al intentar crear este bloque de contenido.
-            success: El bloque de contenido se ha creado correctamente.
-          destroy:
-            error: Se ha producido un error al intentar eliminar este bloque de contenido.
-            success: Bloque de contenido eliminado correctamente.
-          destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
-          edit:
-            update: Actualizar
-          inactive_content_blocks: Bloques de contenido inactivos
-          title: Contenido de la página
         create:
           error: Se ha producido un error al crear una nueva página.
           success: La página se ha creado correctamente. Sigue ahora con la configuración de las fases.
@@ -999,19 +991,18 @@ es-PY:
           success: La página se ha eliminado correctamente.
         edit:
           changed_notably_help: Si se marca, se notificará a las participantes para que acepten los nuevos términos y condiciones de uso.
+          last_notable_change: 'Último cambio notable: %{tos_version_formatted}'
           title: Editar página
           update: Actualizar
         form:
           none: Ninguna
-          slug_help: 'Usa rutas parciales, no direcciones URL completas aquí. Acepta letras, números, guiones y barras diagonales, y debe comenzar con una letra. Ejemplo: %{url}'
+          slug_help_html: 'Usa rutas parciales, no direcciones URL completas aquí. Acepta letras, números, guiones y barras diagonales, y debe comenzar con una letra. Ejemplo: %{url}'
         index:
           last_notable_change: Último cambio notable
         new:
           create: Crear página
           title: Nueva página
         topic:
-          destroy: Eliminar tema
-          edit: Editar tema
           empty: No hay ninguna página sobre este tema.
           without_topic: Páginas sin tema
         update:
@@ -1023,14 +1014,19 @@ es-PY:
         areas: Áreas
         authorization_workflows: Métodos de verificación
         dashboard: Panel de control
+        edit_external_domains: Lista de dominios externos permitidos
+        edit_landing_page: Contenidos de la página
+        edit_organization_appearance: Editar apariencia de página de inicio
         impersonatable_users: Usuarios manejables
         impersonations: Gestion de usuarios
+        menu: Menú
         metrics: Métricas
+        page_topics: Temas
+        pages: Páginas
         panel: Administradora
         participants: Usuarios
         scope_types: Tipos de ámbito
         scopes: Ámbitos
-        static_pages: Páginas
         statistics: Actividad
         user_groups: Grupos de usuarios
         users: Administradoras
@@ -1082,7 +1078,6 @@ es-PY:
           last_week: La última semana
           no_users_count_statistics_yet: Aún no hay estadísticas de recuento de usuarias.
           participants: Participantes
-      view_public_page: Ver página pública
     forms:
       errors:
         impersonate_user:
@@ -1143,9 +1138,3 @@ es-PY:
       admin:
         global_moderations:
           title: Moderaciones globales
-        newsletters:
-          title: Boletines
-        settings:
-          title: Ajustes
-        users:
-          title: Usuarios

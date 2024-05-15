@@ -1,0 +1,15 @@
+<% add_decidim_page_title(strip_tags(yield(:heading).lines.last).strip) if content_for?(:heading) %>
+<% add_decidim_page_title("Decidim Design Guide") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= decidim_page_title %></title>
+    <%= render partial: "layouts/decidim/design/head" %>
+  </head>
+
+  <body class="relative text-black text-md form-defaults">
+    <%= render layout: "layouts/decidim/design/layout" do %>
+      <%= yield %>
+    <% end %>
+  </body>
+</html>

@@ -2,9 +2,7 @@
 
 require "spec_helper"
 
-describe "Organization Areas", type: :system do
-  include Decidim::SanitizeHelper
-
+describe "Organization Areas" do
   let(:admin) { create(:user, :admin, :confirmed) }
   let(:organization) { admin.organization }
 
@@ -18,14 +16,14 @@ describe "Organization Areas", type: :system do
     before do
       login_as admin, scope: :user
       visit decidim_admin.root_path
-      click_link "Settings"
-      click_link "Areas"
+      click_on "Settings"
+      click_on "Areas"
     end
 
     it "can create new areas" do
-      click_link "Add"
+      click_on "Add"
 
-      within ".new_area" do
+      within ".item__edit-form" do
         fill_in_i18n :area_name, "#area-name-tabs", en: "My area",
                                                     es: "Mi area",
                                                     ca: "La meva area"
@@ -56,11 +54,11 @@ describe "Organization Areas", type: :system do
       end
 
       it "can edit them" do
-        within find("tr", text: translated(area.name)) do
-          click_link "Edit"
+        within "tr", text: translated(area.name) do
+          click_on "Edit"
         end
 
-        within ".edit_area" do
+        within ".item__edit-form" do
           fill_in_i18n :area_name, "#area-name-tabs", en: "Another area",
                                                       es: "Otra area",
                                                       ca: "Una altra area"
@@ -79,8 +77,8 @@ describe "Organization Areas", type: :system do
 
         expect(page).to have_admin_callout("successfully")
 
-        within ".card-section" do
-          expect(page).not_to have_content(translated(area.name))
+        within "#areas" do
+          expect(page).to have_no_content(translated(area.name))
         end
       end
 
@@ -99,8 +97,8 @@ describe "Organization Areas", type: :system do
   private
 
   def click_delete_area
-    within find("tr", text: translated(area.name)) do
-      accept_confirm(admin: true) { click_link "Delete" }
+    within "tr", text: translated(area.name) do
+      accept_confirm { click_on "Delete" }
     end
   end
 end

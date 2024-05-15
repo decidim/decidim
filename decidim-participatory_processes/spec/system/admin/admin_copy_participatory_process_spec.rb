@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin copies participatory process", type: :system do
+describe "Admin copies participatory process" do
   include_context "when admin administrating a participatory process"
 
   let!(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
@@ -22,7 +22,7 @@ describe "Admin copies participatory process", type: :system do
 
   context "without any context" do
     it "copies the process with the basic fields" do
-      click_link "Duplicate", match: :first
+      click_on "Duplicate", match: :first
 
       within ".copy_participatory_process" do
         fill_in_i18n(
@@ -33,18 +33,18 @@ describe "Admin copies participatory process", type: :system do
           ca: "Còpia del procés participatiu"
         )
         fill_in :participatory_process_slug, with: "pp-copy"
-        click_button "Copy"
+        click_on "Copy"
       end
 
       expect(page).to have_content("successfully")
       expect(page).to have_content("Copy participatory process")
-      expect(page).to have_content("Not published")
+      expect(page).to have_content("Unpublished")
     end
   end
 
   context "with context" do
     before do
-      click_link "Duplicate", match: :first
+      click_on "Duplicate", match: :first
 
       within ".copy_participatory_process" do
         fill_in_i18n(
@@ -60,14 +60,17 @@ describe "Admin copies participatory process", type: :system do
 
     it "copies the process with steps" do
       page.check("participatory_process[copy_steps]")
-      click_button "Copy"
+      click_on "Copy"
 
       expect(page).to have_content("successfully")
 
-      within find("tr", text: "Copy participatory process") do
-        click_link "Configure"
+      within "tr", text: "Copy participatory process" do
+        click_on "Copy participatory process"
       end
-      click_link "Phases"
+
+      within_admin_sidebar_menu do
+        click_on "Phases"
+      end
 
       within ".table-list" do
         participatory_process.steps.each do |step|
@@ -78,14 +81,17 @@ describe "Admin copies participatory process", type: :system do
 
     it "copies the process with categories" do
       page.check("participatory_process[copy_categories]")
-      click_button "Copy"
+      click_on "Copy"
 
       expect(page).to have_content("successfully")
 
-      within find("tr", text: "Copy participatory process") do
-        click_link "Configure"
+      within "tr", text: "Copy participatory process" do
+        click_on "Copy participatory process"
       end
-      click_link "Categories"
+
+      within_admin_sidebar_menu do
+        click_on "Categories"
+      end
 
       within ".table-list" do
         participatory_process.categories.each do |category|
@@ -96,14 +102,17 @@ describe "Admin copies participatory process", type: :system do
 
     it "copies the process with components" do
       page.check("participatory_process[copy_components]")
-      click_button "Copy"
+      click_on "Copy"
 
       expect(page).to have_content("successfully")
 
-      within find("tr", text: "Copy participatory process") do
-        click_link "Configure"
+      within "tr", text: "Copy participatory process" do
+        click_on "Copy participatory process"
       end
-      click_link "Components"
+
+      within_admin_sidebar_menu do
+        click_on "Components"
+      end
 
       within ".table-list" do
         participatory_process.components.each do |component|

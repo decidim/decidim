@@ -19,8 +19,6 @@ module Decidim
   #   - `callout_class`: The Css class to apply
   #
   class AnnouncementCell < Decidim::ViewModel
-    include Decidim::SanitizeHelper
-
     def show
       return if blank_content?
 
@@ -41,7 +39,15 @@ module Decidim
       has_title? ? clean_body : clean_announcement
     end
 
-    def callout_class
+    def css_styles
+      return unless options[:callout_styles]
+
+      options[:callout_styles]
+    end
+
+    def css_class
+      return unless options[:callout_class]
+
       options[:callout_class]
     end
 
@@ -57,12 +63,6 @@ module Decidim
       return announcement.presence unless announcement.is_a?(Hash)
 
       announcement[:body].presence
-    end
-
-    def truncate?
-      return false unless options.has_key? :truncate
-
-      options[:truncate]
     end
 
     def clean_body

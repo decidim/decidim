@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Explore versions", type: :system, versioning: true do
+describe "Explore versions", versioning: true do
   let(:organization) { create(:organization) }
   let(:initiative) { create(:initiative, organization:) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
@@ -16,10 +16,11 @@ describe "Explore versions", type: :system, versioning: true do
     ).with_context(
       current_organization: organization,
       current_component: nil,
+      current_user: user,
       initiative:
     )
   end
-  let(:command) { Decidim::Initiatives::Admin::UpdateInitiative.new(initiative, form, user) }
+  let(:command) { Decidim::Initiatives::Admin::UpdateInitiative.new(form, initiative) }
   let(:initiative_path) { decidim_initiatives.initiative_path(initiative) }
 
   before do
@@ -56,7 +57,7 @@ describe "Explore versions", type: :system, versioning: true do
     before do
       command.call
       visit initiative_path
-      click_link "see other versions"
+      click_on "see other versions"
     end
 
     it "lists all versions" do
@@ -69,8 +70,8 @@ describe "Explore versions", type: :system, versioning: true do
     before do
       command.call
       visit initiative_path
-      click_link "see other versions"
-      click_link("Version 2 of 2")
+      click_on "see other versions"
+      click_on("Version 2 of 2")
     end
 
     it_behaves_like "accessible page"

@@ -147,7 +147,7 @@ module Decidim
             - _single underscores_
             - **double asterisks**
             - __double underscores__
-            Will produce this oputput:
+            Will produce this output:
             - <em>single asterisks</em>
             - <u>single underscores</u>
             - <strong>double asterisks</strong>
@@ -173,7 +173,7 @@ module Decidim
             - <u>single underscores</u>
             - <strong>double asterisks</strong>
             - <strong>double underscores</strong>
-            Will produce this oputput:
+            Will produce this output:
             - <em>single asterisks</em>
             - <u>single underscores</u>
             - <strong>double asterisks</strong>
@@ -223,23 +223,6 @@ module Decidim
             should_parse_and_produce_proposals(1)
             proposal_should_conform(:article, "1", list)
           end
-        end
-      end
-
-      describe "HTML comments are ignored" do
-        let(:paragraph) { "<!-- This should be ignored --> \nThis should be kept." }
-
-        before do
-          items << "#{paragraph}\n"
-        end
-
-        it "ignores the comment" do
-          should_parse_and_produce_proposals(1)
-
-          proposal = Proposal.last
-          # proposal titled with its numbering (position)
-          expect(translated(proposal.title)).to eq("1")
-          expect(translated(proposal.body)).to eq("This should be kept.")
         end
       end
     end

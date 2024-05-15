@@ -38,7 +38,6 @@ it:
         actions:
           destroy: Annulla la sortizione
           edit: Modifica
-          new: Nuova sortizione
           show: Dettagli di ordinamento
         models:
           sortition:
@@ -52,9 +51,6 @@ it:
               seed: seme
               target_items: Articoli da selezionare
               title: Titolo
-            name:
-              one: Sorteggio
-              other: Sorteggi
         sortitions:
           confirm_destroy:
             confirm_destroy: Sei sicuro di voler cancellare questa selezione?
@@ -68,7 +64,6 @@ it:
           form:
             all_categories: Tutte le categorie
             select_proposal_component: Seleziona il set di proposte
-            title: Nuova raccolta di proposte
           index:
             title: Sorteggi
           new:
@@ -93,14 +88,7 @@ it:
           all: Tutti
           cancelled: Annullato
           category: Categoria
-          category_prompt: Seleziona una categoria
-          search: Ricerca
           state: Stato
-        filters_small_view:
-          close_modal: Chiudi modale
-          filter: Filtro
-          filter_by: Filtra per
-          unfold: Espandi
         linked_sortitions:
           selected_proposals: Proposte selezionate
         orders:
@@ -114,24 +102,22 @@ it:
         show:
           algorithm: Il codice dell'algoritmo di sorteggio
           any_category: da tutte le categorie
-          back: Torna alla lista
           cancelled: Ordinamento annullato
           candidate_proposal_ids: Ordine e ID delle proposte da sorteggiare
           candidate_proposals_info: 'Il sorteggio è stato effettuato tra le seguenti proposte (%{category_label}), con i seguenti ID (in grassetto le proposte selezionate)  '
           category: dalla categoria %{category}
-          dice_result: "(1) Risultato dei dadi"
+          dice_result: (1) Risultato dei dadi
           introduction: 'Questa pagina contiene i risultati del sorteggio %{reference}. Per mezzo di questo sorteggio, %{target_items} risultati sono stati selezionati casualmente e con una distribuzione di probabilità uguale dall''insieme di proposte visualizzate sotto. Insieme ai risultati, le informazioni visualizzate in questa pagina forniscono tutte le informazioni necessarie per massimizzare le garanzie e riprodurre i risultati. La chiave per la qualità di questo sorteggio è la doppia casualità fornita da un lancio di un dado (verificato da testimoni) e il tempo preciso del sorteggio, che fornisce l''input per un algoritmo che genera una selezione casuale. L''origine del tempo per il sorteggio è così preciso (secondi) che è impossibile controllarlo per gli umani, fornendo così un doppio input "incontrollabile" per garantire un risultato equo.  '
           mathematical_result: Risultato (1) x (2)
           proposals_selected_by_sortition: Proposte selezionate per il sorteggio
           sortition_reproducibility_details: Dettagli di riproducibilità del sorteggio
-          time_seed: "(2) seme temporale"
+          time_seed: (2) seme temporale
           witnesses: Testimoni
         sortition:
           random_seed: Seme casuale
           selected_proposals:
             one: 1 proposta selezionata
             other: '%{count} proposte selezionate'
-          view: vista
         sortition_author:
           deleted: Utente eliminato
         sortition_cancel_author:

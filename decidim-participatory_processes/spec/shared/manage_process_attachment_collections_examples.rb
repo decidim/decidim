@@ -7,7 +7,10 @@ shared_examples "manage process attachment collections examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
-    click_link "Folders"
+    within_admin_sidebar_menu do
+      click_on "Attachments"
+    end
+    click_on "Folders"
   end
 
   it_behaves_like "manage attachment collections examples"

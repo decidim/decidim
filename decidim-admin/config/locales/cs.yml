@@ -37,6 +37,9 @@ cs:
         user_group_id: Vytvořit importy jako
       newsletter:
         body: Tělo
+        send_to_all_users: Odeslat všem uživatelům
+        send_to_followers: Odeslat sledujícím
+        send_to_participants: Odeslat účastníkům
         subject: Předmět
       organization:
         admin_terms_of_service_body: Tělo zprávy správcovských podmínek použití
@@ -75,7 +78,6 @@ cs:
         machine_translation_display_priority_translation: Přeložený text přednostně
         name: Název
         official_img_footer: Oficiální logo zápatí
-        official_img_header: Oficiální logo záhlaví
         official_url: Oficiální URL organizace
         omnipresent_banner_short_description: Stručný popis
         omnipresent_banner_title: Název
@@ -90,9 +92,10 @@ cs:
         secondary_hosts: Sekundární hostitelé
         send_welcome_notification: Odeslat uvítací oznámení
         success_color: Úspěch
+        tertiary_color: Terciární
         time_zone: Časové pásmo
         tos_version: Verze podmínek služby
-        twitter_handler: Twitter handler
+        twitter_handler: X handler
         user_groups_enabled: Povolit skupiny
         users_registration_mode: Režim registrace uživatelů
         warning_color: Varování
@@ -127,6 +130,7 @@ cs:
         weight: Pozice v řazení
       static_page_topic:
         description: Popis
+        name: Název tématu
         show_in_footer: Zobrazit v zápatí
         title: Titul
         weight: Pozice v řazení
@@ -141,8 +145,6 @@ cs:
         organization:
           attributes:
             official_img_footer:
-              allowed_file_content_types: Neplatný soubor s obrázkem
-            official_img_header:
               allowed_file_content_types: Neplatný soubor s obrázkem
         participatory_space_private_user_csv_import:
           attributes:
@@ -185,8 +187,6 @@ cs:
         export: Exportovat vše
         export-selection: Exportovat výběr
         import: Importovat
-        manage: Spravovat
-        new: Nová %{name}
         newsletter:
           new: Nový zpravodaj
         participatory_space_private_user:
@@ -194,6 +194,7 @@ cs:
         per_page: Na stránku
         permissions: Oprávnění
         reject: Odmítnout
+        send_me_a_test_email: Pošlete mi testovací e-mail
         share: Sdílet
         user:
           new: Nový administrátor
@@ -254,7 +255,6 @@ cs:
           title: Upravit složku
           update: Aktualizace
         index:
-          attachment_collection_used: Tuto složku nelze odstranit, protože je používána.
           attachment_collections_title: Složky přílohy
         new:
           create: Vytvořit
@@ -287,7 +287,7 @@ cs:
       block_user:
         new:
           action: Blokovat účet a odeslat odůvodnění
-          already_reported_html: Pokračováním v této akci také skryjete veškerý obsah účastníků. <a href="%{link}">Blokujte účet</a>.
+          already_reported_html: Pokračováním v této akci také skryjete veškerý obsah účastníků.
           description: Blokováním uživatele bude jejich účet nepoužitelný. Ve svém zdůvodnění můžete uvést veškerá pravidla pro způsob, jakým byste uvažovali o odblokování uživatele.
           justification: Odůvodnění
           title: Blokovat uživatele %{name}
@@ -303,7 +303,6 @@ cs:
           update: Aktualizace
         index:
           categories_title: Kategorie
-          category_used: Tuto kategorii nelze odstranit, protože se používá.
         new:
           create: Vytvořit kategorii
           title: Nová kategorie
@@ -318,6 +317,7 @@ cs:
         create:
           error: Při vytváření této komponenty došlo k chybě.
           success: Komponenta byla úspěšně vytvořena.
+          success_landing_page: Komponenta byla úspěšně vytvořena. Můžete přidat blok obsahu pro tuto komponentu domů tohoto prostoru. Chcete-li jej nastavit, přejděte na <a href="%{landing_page_path}">vstupní stránku</a>.
         destroy:
           error: Došlo k chybě při mazání této komponenty.
           success: Komponenta byla úspěšně smazána.
@@ -361,24 +361,33 @@ cs:
           title: Převod
         'true': 'Ano'
         user_name: Uživatel
+      content_blocks:
+        create:
+          error: Při vytváření bloku obsahu došlo k chybě.
+          success: Blok obsahu byl úspěšně vytvořen.
+        destroy:
+          error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě.
+          success: Blok obsahu byl úspěšně odstraněn.
+        edit:
+          active_content_blocks: Aktivní bloky obsahu
+          add: Přidat blok obsahu
+          destroy_confirmation: Opravdu chcete smazat tento blok obsahu?
+          inactive_content_blocks: Neaktivní bloky obsahu
+          title: Obsah stránky
+          update: Aktualizovat
       dashboard:
         pending_moderations:
-          anouncement:
-            one: Je zde %{count} čekající na moderování
-            few: Jsou zde %{count} čekající na moderování
-            many: Je zde %{count} čekajících na moderování
-            other: Je tu %{count} čekajících na moderování
           goto_moderation: Přejít na globální moderaci
           title: Čekající moderování
         show:
+          dropdown: Rozbalovací nabídka
           view_more_logs: Zobrazit další protokoly
-          welcome: Vítejte v Admin panelu.
-      domain_whitelist:
+      domain_allowlist:
         form:
           domain_too_short: Doména je příliš krátká
         update:
-          error: Nepodařilo se aktualizovat seznam povolených domén.
-          success: Seznam povolených domén byl úspěšně aktualizován.
+          error: Aktualizace seznamu povolených externích domén se nezdařila
+          success: Seznam povolených externích domén byl úspěšně aktualizován.
       exports:
         export_as: "%{name} jako %{export_format}"
         formats:
@@ -445,7 +454,6 @@ cs:
           report_count_eq: Počet nahlášení
           reported_id_string_or_reported_content_cont: Hledat %{collection} podle nahlášeného Id nebo obsahu.
           title_cont: Hledat %{collection} podle názvu.
-          user_name_or_user_email_cont: Hledat %{collection} podle jména nebo e-mailu.
           user_name_or_user_nickname_or_user_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky.
         state_eq:
           label: Stav
@@ -471,7 +479,6 @@ cs:
             all: Vše
             managed: Spravované
             not_managed: Není spravováno
-          filter_by: Filtrovat podle
           impersonate: Vydávat se za uživatele
           impersonate_new_managed_user: Spravovat nového účastníka
           managed: Spravované
@@ -569,18 +576,20 @@ cs:
         areas: Oblasti
         configuration: Konfigurace
         content: Nahlášený obsah
-        dashboard: Ovládací panel
-        external_domain_whitelist: Povolené externí domény
+        external_domain_allowlist: Povolené externí domény
         help_sections: Sekce nápovědy
         homepage: Domovská stránka
         impersonations: V zastoupení
+        manage: Spravovat
         moderation: Globální moderace
         newsletters: Zpravodaje
         participants: Účastníci
         reported_users: Nahlášení účastníci
         scope_types: Typ oblasti působnosti
         scopes: Oblasti působnosti
+        see_site: Zobrazit web
         settings: Nastavení
+        static_page_topics: Témata
         static_pages: Stránky
         user_groups: Skupiny
         users: Účastníci
@@ -760,16 +769,16 @@ cs:
           select_scopes: Filtrovat uživatele, kteří aktivovali jakoukoli vybranou oblast působnosti v nastavení jejich účtu Moje Zájmy.
           select_spaces: Vybrat mezery pro rozdělení zpravodaje
           select_users: Vybrat, kterým uživatelům chcete poslat zpravodaj
-          send_to_all_users: Odeslat všem uživatelům
-          send_to_followers: Odeslat sledujícím
-          send_to_participants: Odeslat účastníkům
           title: Vybrat příjemce k doručení
           warning: "<strong> Pozor: </strong> Tento zpravodaj bude zasílán pouze uživatelům, kteří si aktivovali <em> chci dostávat zpravodaj </em> v nastavení oznámení."
         send:
           no_recipients: Žádní příjemci pro tento výběr.
+        send_to_user:
+          sent_successfully: Zpravodaj byl úspěšně odeslán na %{email}
         show:
           preview: Náhled
           select_recipients_to_deliver: Vybrat příjemce k doručení
+          send_me_a_test_email: Pošlete mi testovací e-mail
           subject: Předmět
         update:
           error: Při aktualizaci tohoto zpravodaje došlo k chybě.
@@ -803,7 +812,6 @@ cs:
           officialize: Ověřit
           title: Oficializovat účastníka "%{name}"
         show_email_modal:
-          close_modal: Zavřít okno
           description: Pokud potřebujete kontaktovat účastníka, můžete kliknout na tlačítko Zobrazit pro zobrazení e-mailové adresy. Tato akce bude zaznamenána.
           email_address: E-mailová adresa
           full_name: Celé jméno
@@ -823,7 +831,7 @@ cs:
           instagram: Instagram
           rich_text_editor_in_public_views_help: V některých textových polích budou účastníci moci vložit některé HTML tagy pomocí textového editoru.
           social_handlers: Sociální
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: Youtube
         update:
@@ -834,44 +842,36 @@ cs:
           update: Aktualizace
         form:
           colors:
+            choose_color: Vyberte hlavní barvu
             colors_title: Organizační barvy
             colors_warning_html: Varování! Změna těchto barev může narušit kontrasty přístupnosti. Můžete zkontrolovat kontrast výběru s <a href="%{link}">kontrolou kontrastu WebAIM Contrast Checker</a> nebo jinými podobnými nástroji.
-            header_snippets_help: Toto pole použijte k přidání věcí do hlavičky HTML. Nejběžnějším používáním je integrace služeb třetích stran, které vyžadují nějaký extra JavaScript nebo CSS. Můžete také použít k přidání dalších metaznaček do HTML. Všimněte si, že to bude vykresleno pouze na veřejných stránkách, nikoliv v sekci admin.
-          cta_button_path_help: 'Můžete přepsat, kde se na domovské stránce odkazuje tlačítko Výzvy k akci. Použijte zde částečné cesty, ne úplné adresy URL. Přijme písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Tlačítko Výzvy k akci se na domovské stránce zobrazí mezi uvítacím textem a popisem. Příklad: %{url}'
+            explanation: Tento nástroj vám pomůže vybrat barevné schéma skládající se z odstínů rovnoměrně rozložených kolem barevného kruhového spektra, který bude použit na internetových stránkách organizace.
+            legend_html: Hlavní barvy aplikace, založené na <a href="https://www.color-meanings.com/triadic-colors/">Triadic algoritmu</a>. <i>sekundární</i> barva je automaticky vypočítána z primární barvy a sytosti, kterou vyberete.
+            saturation: Sytost
+            title: Výběr barev
+            update_suggested_colors: Aktualizovat navrhované barvy
+          cta_button_path_help_html: 'Místo, kam tlačítko Výzva k akci na domovské stránce vede, lze přepsat. V tomto případě použijte částečnou cestu, nikoliv kompletní URL. Lze použít písmena, číslice, pomlčky a lomítka a musí se začínat písmenem. Tlačítko Výzva k akci je na domovské stránce umístěno mezi uvítacím textem a popisem. Příklad: %{url}'
           cta_button_text_help: Text tlačítka výzvy k akci můžete na domovské stránce přepsat pro každý dostupný jazyk ve vaší organizaci. Pokud není nastaveno, bude použita výchozí hodnota. Tlačítko Výzvy k akci se na domovské stránce zobrazí mezi uvítacím textem a popisem.
+          header_snippets:
+            header_snippets_help_html: Toto pole použijte k přidání věcí do HTML záhlaví. Nejběžnějším použitím je integrace služeb třetích stran, které vyžadují nějaký další JavaScript nebo CSS. Můžete jej také použít k přidání dalších metaznaček do HTML. Všimněte si, že to bude vykresleno pouze na veřejných stránkách, nikoli v sekci pro správu. Pokud kód interaguje s externími rozhraními API nebo nesplňuje zásady zabezpečení aplikace, bude nutné změnit Zásady zabezpečení obsahu. Další informace o <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">na webu dokumentace</a>.
+            title: HTML snippety záhlaví
           homepage_appearance_title: Upravit vzhled stránky
           homepage_highlighted_content_banner_title: Zvýrazněný obsahový banner
           images:
             layout_appearance_title: Upravit vzhled zobrazení
             preview: Náhled
           omnipresent_banner_appearance_title: Upravit všudypřítomný banner
-      organization_external_domain_whitelist:
+      organization_external_domain_allowlist:
         edit:
           update: Aktualizovat
         external_domain:
           down: Dolů
           external_domain: Externí doména
-          remove: Odebrat
+          remove: Odstranit
           up: Nahoru
         form:
-          add: Přidat do seznamu povolených
-          title: Seznam externích povolených domén
-      organization_homepage:
-        content_blocks:
-          create:
-            error: Při pokusu o vytvoření tohoto bloku obsahu se vyskytl problém.
-            success: Blok obsahu byl úspěšně vytvořen.
-          destroy:
-            error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě.
-            success: Blok obsahu byl úspěšně odstraněn.
-          edit:
-            update: Aktualizovat
-        edit:
-          active_content_blocks: Bloky aktivního obsahu
-          add: Přidat blok obsahu
-          destroy_confirmation: Opravdu chcete smazat tento blok obsahu?
-          inactive_content_blocks: Neaktivní bloky obsahu
-          title: Obsah stránky
+          add: Přidat na Seznam povolených
+          title: Seznam povolených externích domén
       participatory_space_private_users:
         create:
           error: Při přidávání soukromého uživatele pro tento participační prostor došlo k chybě.
@@ -890,6 +890,8 @@ cs:
           invalid: Při čtení souboru CSV se vyskytl problém. Ujistěte se, že jste dodrželi pokyny.
           success: CSV soubor byl úspěšně nahrán, posíláme účastníkům e-mail s pozvánkou. To může chvíli trvat.
         new:
+          csv_upload:
+            title: Nahrát soubor CSV
           destroy:
             button: Odstranit všechny soukromé účastníky
             confirm: Jste si jisti, že chcete odstranit všechny soukromé účastníky? Tuto akci nelze vrátit zpět, nebudete je moci obnovit.
@@ -901,7 +903,7 @@ cs:
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
-          title: Nahrajte Váš CSV soubor
+          title: Importovat soukromé účastníky přes CSV
           upload: Nahrát
       reminders:
         create:
@@ -969,7 +971,6 @@ cs:
       shared:
         gallery:
           add_images: Přidat obrázky
-          delete_image: Odstranit obrázek
           edit_images: Upravit obrázky
           gallery_legend: Přidat galerii obrázků (volitelné)
       static_page_topics:
@@ -990,20 +991,6 @@ cs:
       static_pages:
         actions:
           view: Zobrazit veřejnou stránku
-        content_blocks:
-          active_content_blocks: Aktivní bloky obsahu
-          add: Přidat blok obsahu
-          create:
-            error: Při pokusu o vytvoření tohoto bloku obsahu se vyskytl problém.
-            success: Blok obsahu byl úspěšně vytvořen.
-          destroy:
-            error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě.
-            success: Blok obsahu byl úspěšně odstraněn.
-          destroy_confirmation: Opravdu chcete smazat tento blok obsahu?
-          edit:
-            update: Aktualizovat
-          inactive_content_blocks: Neaktivní bloky obsahu
-          title: Obsah stránky
         create:
           error: Při vytváření nové stránky došlo k chybě.
           success: Stránka úspěšně vytvořena.
@@ -1011,19 +998,18 @@ cs:
           success: Stránka byla úspěšně zničena
         edit:
           changed_notably_help: Pokud je zaškrtnuto, účastníci budou upozorněni, aby přijali nové smluvní podmínky.
+          last_notable_change: 'Poslední významná změna: %{tos_version_formatted}'
           title: Upravit stránku
           update: Aktualizace
         form:
           none: Žádný
-          slug_help: 'Zde použijte částečné cesty, nikoli úplné adresy URL. Jsou povolena písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Příklad: %{url}'
+          slug_help_html: 'Použijte v tomto případě částečnou cestu, nikoliv kompletní URL. Lze použít písmena, číslice, pomlčky a lomítka a musí se začínat písmenem. Příklad: %{url}'
         index:
           last_notable_change: Poslední významná změna
         new:
           create: Vytvořit stránku
           title: Nová stránka
         topic:
-          destroy: Odebrat téma
-          edit: Upravit téma
           empty: V tomto tématu nejsou žádné stránky.
           without_topic: Stránky bez tématu
         update:
@@ -1035,14 +1021,19 @@ cs:
         areas: Oblasti
         authorization_workflows: Metody ověření
         dashboard: Ovládací panel
+        edit_external_domains: Seznam povolených externích domén
+        edit_landing_page: Obsah stránky
+        edit_organization_appearance: Upravit vzhled domovské stránky
         impersonatable_users: Spravovatelní účastníci
         impersonations: Správa účastníků
+        menu: Nabídka
         metrics: Metriky
+        page_topics: Témata
+        pages: Stránky
         panel: Admin
         participants: Uživatelé
         scope_types: Typy oblastí působnosti
         scopes: Oblasti působnosti
-        static_pages: Stránky
         statistics: Aktivita
         user_groups: Skupiny
         users: Administrátoři
@@ -1094,7 +1085,6 @@ cs:
           last_week: Minulý týden
           no_users_count_statistics_yet: Zatím nejsou žádné statistiky počtu uživatelů.
           participants: Účastníci
-      view_public_page: Zobrazit veřejnou stránku
     forms:
       errors:
         impersonate_user:
@@ -1155,9 +1145,3 @@ cs:
       admin:
         global_moderations:
           title: Globální moderace
-        newsletters:
-          title: Zpravodaje
-        settings:
-          title: Nastavení
-        users:
-          title: Účastníci

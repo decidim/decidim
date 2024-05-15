@@ -28,7 +28,7 @@ module Decidim
           enforce_permission_to :create, :conference_speaker
           @form = form(ConferenceSpeakerForm).from_params(params)
 
-          CreateConferenceSpeaker.call(@form, current_user, current_conference) do
+          CreateConferenceSpeaker.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("conference_speakers.create.success", scope: "decidim.admin")
               redirect_to conference_speakers_path(current_conference)

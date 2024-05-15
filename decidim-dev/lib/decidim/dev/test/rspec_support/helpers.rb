@@ -5,7 +5,7 @@ module Decidim
   module ComponentTestHelpers
     def click_submenu_link(text)
       within ".secondary-nav--subnav" do
-        click_link text
+        click_on text
       end
     end
 
@@ -13,15 +13,28 @@ module Decidim
       main_bar_selector = ".main-bar"
 
       within main_bar_selector do
-        find("#trigger-dropdown-account").click
+        find_by_id("trigger-dropdown-account").click
 
         yield
       end
     end
 
+    def within_admin_sidebar_menu
+      within("[id='admin-sidebar-menu-settings']") do
+        yield
+      end
+    end
+
+    def within_admin_menu
+      click_on "Manage"
+      within("[id*='dropdown-menu-settings']") do
+        yield
+      end
+    end
+
     def within_language_menu(options = {})
-      within(options.fetch(:admin, !Decidim.redesign_active) ? ".topbar__dropmenu.language-choose" : "footer") do
-        find(options.fetch(:admin, !Decidim.redesign_active) ? "ul.dropdown.menu" : "#trigger-dropdown-language-chooser").click
+      within(options[:admin] ? ".language-choose" : "footer") do
+        find(options[:admin] ? "#admin-menu-trigger" : "#trigger-dropdown-language-chooser").click
         yield
       end
     end
@@ -31,7 +44,7 @@ module Decidim
     end
 
     def within_flash_messages
-      within ".flash" do
+      within ".flash", match: :first do
         yield
       end
     end
@@ -41,7 +54,9 @@ module Decidim
     end
 
     def have_admin_callout(text)
-      have_selector(".callout--full", text:)
+      within_flash_messages do
+        have_content text
+      end
     end
 
     def stub_get_request_with_format(rq_url, rs_format)
@@ -162,12 +177,8 @@ module Decidim
       )
 
       # Wait for the file to be uploaded
-      if respond_to?(:redesigned) && redesigned
-        within "[data-dropzone-items]" do
-          expect(page).to have_content(filename)
-        end
-      else
-        expect(page).to have_css("img[alt='Uploaded file']")
+      within "[data-dropzone-items]" do
+        expect(page).to have_content(filename)
       end
     end
 

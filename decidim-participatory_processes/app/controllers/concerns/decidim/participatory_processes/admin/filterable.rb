@@ -17,8 +17,28 @@ module Decidim
             collection
           end
 
-          def extra_filters
+          def filters
+            [
+              :private_space_eq,
+              :published_at_null,
+              :decidim_participatory_process_group_id_eq
+            ]
+          end
+
+          def filters_with_values
+            {
+              private_space_eq: [true, false],
+              published_at_null: [true, false],
+              decidim_participatory_process_group_id_eq: OrganizationParticipatoryProcessGroups.new(current_organization).pluck(:id)
+            }
+          end
+
+          def dynamically_translated_filters
             [:decidim_participatory_process_group_id_eq]
+          end
+
+          def translated_decidim_participatory_process_group_id_eq(id)
+            translated_attribute(Decidim::ParticipatoryProcessGroup.find(id).title)
           end
         end
       end

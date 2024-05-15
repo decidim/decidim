@@ -12,7 +12,7 @@ shared_examples "manage announcements" do
       ca: "Un avís molt important"
     )
 
-    click_button "Update"
+    click_on "Update"
 
     visit main_component_path(current_component)
 
@@ -46,12 +46,12 @@ shared_examples "manage announcements" do
         ca: "Un avís per a aquesta fase"
       )
 
-      click_button "Update"
+      click_on "Update"
 
       visit main_component_path(current_component)
 
       within page.find("[data-announcement]", match: :first) do
-        expect(page).not_to have_content("An important announcement")
+        expect(page).to have_no_content("An important announcement")
         expect(page).to have_content("An announcement for this step")
       end
     end

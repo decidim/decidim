@@ -6,6 +6,11 @@ module Decidim
       # Controller used to manage the available initiative types for the current
       # organization.
       class InitiativesTypesController < Decidim::Initiatives::Admin::ApplicationController
+        include Decidim::TranslatableAttributes
+        before_action :set_controller_breadcrumb, except: [:index, :new, :create]
+
+        add_breadcrumb_item_from_menu :admin_initiatives_menu
+
         helper ::Decidim::Admin::ResourcePermissionsHelper
         helper_method :current_initiative_type
 
@@ -27,7 +32,7 @@ module Decidim
           enforce_permission_to :create, :initiative_type
           @form = initiative_type_form.from_params(params)
 
-          CreateInitiativeType.call(@form, current_user) do
+          CreateInitiativeType.call(@form) do
             on(:ok) do |initiative_type|
               flash[:notice] = I18n.t("decidim.initiatives.admin.initiatives_types.create.success")
               redirect_to edit_initiatives_type_path(initiative_type)
@@ -55,7 +60,7 @@ module Decidim
           @form = initiative_type_form
                   .from_params(params, initiative_type: current_initiative_type)
 
-          UpdateInitiativeType.call(current_initiative_type, @form, current_user) do
+          UpdateInitiativeType.call(@form, current_initiative_type) do
             on(:ok) do
               flash[:notice] = I18n.t("decidim.initiatives.admin.initiatives_types.update.success")
               redirect_to edit_initiatives_type_path(current_initiative_type)
@@ -82,6 +87,15 @@ module Decidim
         end
 
         private
+
+        def set_controller_breadcrumb
+          controller_breadcrumb_items <<
+            {
+              label: translated_attribute(current_initiative_type.title),
+              url: edit_initiatives_type_path(current_initiative_type),
+              active: true
+            }
+        end
 
         def current_initiative_type
           @current_initiative_type ||= InitiativesType.where(organization: current_organization).find(params[:id])

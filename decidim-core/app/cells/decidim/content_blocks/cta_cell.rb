@@ -3,8 +3,6 @@
 module Decidim
   module ContentBlocks
     class CtaCell < Decidim::ViewModel
-      include Decidim::SanitizeHelper
-
       def show
         return if button_url.blank?
 
@@ -21,10 +19,6 @@ module Decidim
 
       def button_url
         @button_url ||= model.settings.button_url
-      end
-
-      def cta_button
-        link_to translated_button_text, button_url, class: "button button--sc medium-6", title: translated_button_text
       end
 
       def background_image

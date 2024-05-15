@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages participatory process publication", type: :system do
+describe "Admin manages participatory process publication" do
   include_context "when admin administrating a participatory process"
 
   let(:admin_page_path) { decidim_admin_participatory_processes.edit_participatory_process_path(participatory_space) }

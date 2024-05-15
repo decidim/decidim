@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Data consent scripts", type: :system do
+describe "Data consent scripts" do
   let(:organization) { create(:organization) }
 
   let(:template_class) do
@@ -26,9 +26,9 @@ describe "Data consent scripts", type: :system do
         <html lang="en">
         <head>
           <title>Accessibility Test</title>
-          #{stylesheet_pack_tag "redesigned_decidim_core"}
+          #{stylesheet_pack_tag "decidim_core"}
           #{stylesheet_pack_tag "decidim_dev"}
-          #{javascript_pack_tag "redesigned_decidim_core", "decidim_dev", defer: false}
+          #{javascript_pack_tag "decidim_core", "decidim_dev", defer: false}
         </head>
         <!-- Add some line breaks so that the "WAI WCAG" notification does not block screenshots -->
         <br><br><br><br><br>
@@ -51,11 +51,14 @@ describe "Data consent scripts", type: :system do
   let(:html_body) { "" }
 
   before do
+    # Create a favicon so it does not fail when trying to fetch it
+    favicon = ""
     # Create a temporary route to display the generated HTML in a correct site
     # context.
     final_html = html_document
     Rails.application.routes.draw do
       get "cookie_scripts", to: ->(_) { [200, {}, [final_html]] }
+      get "/favicon.ico", to: ->(_) { [200, {}, [favicon]] }
     end
 
     switch_to_host(organization.host)
@@ -95,7 +98,7 @@ describe "Data consent scripts", type: :system do
 
       it "does not run scripts" do
         expect(page).to have_content("Hello cookies")
-        expect(page).not_to have_content("cookies accepted")
+        expect(page).to have_no_content("cookies accepted")
       end
 
       context "when accept all cookies" do
@@ -114,9 +117,9 @@ describe "Data consent scripts", type: :system do
 
         it "runs scripts" do
           expect(page).to have_content(essential_cookies_accepted)
-          expect(page).not_to have_content(preferences_cookies_accepted)
-          expect(page).not_to have_content(analytics_cookies_accepted)
-          expect(page).not_to have_content(marketing_cookies_accepted)
+          expect(page).to have_no_content(preferences_cookies_accepted)
+          expect(page).to have_no_content(analytics_cookies_accepted)
+          expect(page).to have_no_content(marketing_cookies_accepted)
         end
       end
 
@@ -125,9 +128,9 @@ describe "Data consent scripts", type: :system do
 
         it "runs analytics scripts" do
           expect(page).to have_content(essential_cookies_accepted)
-          expect(page).not_to have_content(preferences_cookies_accepted)
+          expect(page).to have_no_content(preferences_cookies_accepted)
           expect(page).to have_content(analytics_cookies_accepted)
-          expect(page).not_to have_content(marketing_cookies_accepted)
+          expect(page).to have_no_content(marketing_cookies_accepted)
         end
       end
     end

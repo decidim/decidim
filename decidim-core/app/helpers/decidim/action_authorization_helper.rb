@@ -11,7 +11,7 @@ module Decidim
     #
     # Returns a String with the link.
     def action_authorized_link_to(action, *arguments, &block)
-      !respond_to?(:redesign_enabled?) || redesign_enabled? ? redesign_authorized_to(:link, action, arguments, block) : authorized_to(:link, action, arguments, block)
+      authorized_to(:link, action, arguments, block)
     end
 
     # Public: Emulates a `button_to` but conditionally renders a popup modal
@@ -23,7 +23,7 @@ module Decidim
     #
     # Returns a String with the button.
     def action_authorized_button_to(action, *arguments, &block)
-      !respond_to?(:redesign_enabled?) || redesign_enabled? ? redesign_authorized_to(:button, action, arguments, block) : authorized_to(:button, action, arguments, block)
+      authorized_to(:button, action, arguments, block)
     end
 
     # Public: Emulates a `link_to` but conditionally renders a popup modal
@@ -52,43 +52,6 @@ module Decidim
 
     # rubocop: disable Metrics/PerceivedComplexity
     def authorized_to(tag, action, arguments, block)
-      if block
-        body = block
-        url = arguments[0]
-        html_options = arguments[1]
-      else
-        body = arguments[0]
-        url = arguments[1]
-        html_options = arguments[2]
-      end
-
-      html_options ||= {}
-      resource = html_options.delete(:resource)
-      permissions_holder = html_options.delete(:permissions_holder)
-
-      if !current_user
-        html_options = clean_authorized_to_data_open(html_options)
-
-        html_options["data-dialog-open"] = "loginModal"
-        url = "#"
-      elsif action && !action_authorized_to(action, resource:, permissions_holder:).ok?
-        html_options = clean_authorized_to_data_open(html_options)
-
-        html_options["data-dialog-open"] = "authorizationModal"
-        html_options["data-dialog-remote-url"] = modal_path(action, resource)
-        url = "#"
-      end
-
-      html_options["onclick"] = "event.preventDefault();" if url == ""
-
-      if block
-        send("#{tag}_to", url, html_options, &body)
-      else
-        send("#{tag}_to", body, url, html_options)
-      end
-    end
-
-    def redesign_authorized_to(tag, action, arguments, block)
       if block
         body = block
         url = arguments[0]

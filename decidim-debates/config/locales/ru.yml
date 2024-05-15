@@ -39,7 +39,6 @@ ru:
         confirm_destroy: Вы уверены?
         destroy: Удалить
         edit: Редактировать
-        new: Добавить %{name}
         title: Действия
       admin:
         debates:
@@ -59,9 +58,6 @@ ru:
           update:
             invalid: При попытке обновить это обсуждение произошла ошибка.
             success: Обсуждение успешно обновлено.
-        models:
-          debate:
-            name: Обсуждение
       admin_log:
         debate:
           create: "%{user_name} создал обсуждение %{resource_name} в пространстве %{space_name}"
@@ -76,8 +72,6 @@ ru:
         create:
           invalid: При попытке создать это обсуждение произошла ошибка.
           success: Обсуждение успешно создано.
-        debate:
-          participate: Принять участие
         filters:
           all: Все
           category: Категория
@@ -85,11 +79,6 @@ ru:
           official: Служебные
           origin: Источник
           search: Поиск
-        filters_small_view:
-          close_modal: Закрыть окошко
-          filter: Отобрать
-          filter_by: 'Отобрать по признаку:'
-          unfold: Развернуть
         form:
           select_a_category: Пожалуйста, выберите категорию
         index:
@@ -108,9 +97,6 @@ ru:
     events:
       debates:
         create_debate_event:
-          space_followers:
-            email_outro: Вы получили это уведомление, потому что вы следите за пространством соучастия %{space_title}. Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
-            notification_title: В <a href="%{space_path}">%{space_title}</a> началось обсуждение <a href="%{resource_path}">%{resource_title}</a>.
           user_followers:
             email_outro: Вы получили это уведомление, потому что вы следите за «%{author_nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
         creation_disabled:

@@ -1,0 +1,64 @@
+<% content_for :heading do %>
+  <%= t("decidim.design.helpers.dropdowns") %>
+<% end %>
+
+<% content_for :description do %>
+<%= t("decidim.design.helpers.dropdowns_description_html", link: link_to(t("decidim.design.helpers.ally_link"), "https://github.com/jonathanlevaillant/a11y-dropdown-component", target: "_blank", rel: "noopener noreferrer")) %>
+<% end %>
+
+<% content_for :toc do %>
+  <a href="#example"><%= t("decidim.design.helpers.demo") %></a>
+  <a href="#usage"><%= t("decidim.design.helpers.usage") %></a>
+<% end %>
+
+<section id="demo" class="design__section">
+  <h2><%= t("decidim.design.helpers.demo") %></h2>
+
+  <p><%= t("decidim.design.helpers.dropdowns_demo_description") %></p>
+
+  <p><%= t("decidim.design.helpers.dropdowns_demo_description_html") %></p>
+
+  <p><%= t("decidim.design.helpers.dropdowns_demo_1_description") %></p>
+
+  <button id="dropdown-trigger-element" data-component="dropdown" data-target="dropdown-menu-element" data-auto-close="true">
+    <span><%= t("decidim.searches.filters.jump_to") %></span>
+    <%= icon "arrow-down-s-line" %>
+    <%= icon "arrow-up-s-line" %>
+  </button>
+
+  <ul id="dropdown-menu-element">
+    <% 3.times do |item| %>
+      <li class="p-2 text-gray-2">
+        Item <%= item %>
+      </li>
+    <% end %>
+  </ul>
+</section>
+
+<section id="usage" class="design__section">
+  <h2><%= t("decidim.design.helpers.usage") %></h2>
+
+  <p><%= t("decidim.design.helpers.dropdowns_usage_description") %></p>
+
+  <p><%= t("decidim.design.helpers.dropdowns_usage_description_html") %></p>
+
+  <p><%= t("decidim.design.helpers.dropdowns_usage_1_description") %></p>
+
+  <div class="design__section-snippet" style="margin-top: inherit;">
+    <p><%= t("decidim.design.home.index.github_source") %>: <%= link_to("decidim-core/app/packs/src/decidim/a11y.js", "https://github.com/decidim/decidim/blob/develop/decidim-core/app/packs/src/decidim/a11y.js", target: "_blank", rel: "noopener noreferrer") %></p>
+
+    <code>
+      <textarea spellcheck="false" rows="8">
+&lt;button id=&quot;dropdown-trigger-element&quot; data-component=&quot;dropdown&quot; data-target=&quot;dropdown-menu-element&quot;&gt;
+  Trigger
+&lt;/button&gt;
+
+&lt;ul id=&quot;dropdown-menu-element&quot;&gt;
+  &lt;li&gt;Item&lt;/li&gt;
+  &lt;li&gt;Item&lt;/li&gt;
+  &lt;li&gt;Item&lt;/li&gt;
+&lt;/ul&gt;
+      </textarea>
+    </code>
+  </div>
+</section>

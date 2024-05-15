@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Surveys
     module Admin
-      describe SurveysController, type: :controller do
+      describe SurveysController do
         routes { Decidim::Surveys::AdminEngine.routes }
 
         let(:component) { survey.component }

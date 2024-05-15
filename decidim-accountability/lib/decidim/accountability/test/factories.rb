@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "decidim/components/namer"
 require "decidim/faker/localized"
 require "decidim/dev"
 
@@ -8,16 +9,19 @@ require "decidim/participatory_processes/test/factories"
 
 FactoryBot.define do
   factory :accountability_component, parent: :component do
-    name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :accountability).i18n_name }
+    transient do
+      skip_injection { false }
+    end
+    name { generate_component_name(participatory_space.organization.available_locales, :accountability, skip_injection:) }
     manifest_name { :accountability }
-    participatory_space { create(:participatory_process, :with_steps, organization:) }
+    participatory_space { create(:participatory_process, :with_steps, organization:, skip_injection:) }
     settings do
       {
-        intro: Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
-        categories_label: Decidim::Faker::Localized.word,
-        subcategories_label: Decidim::Faker::Localized.word,
-        heading_parent_level_results: Decidim::Faker::Localized.word,
-        heading_leaf_level_results: Decidim::Faker::Localized.word,
+        intro: generate_localized_description(:accountability_component_intro, skip_injection:),
+        categories_label: generate_localized_word(:accountability_component_categories_label, skip_injection:),
+        subcategories_label: generate_localized_word(:accountability_component_subcategories_label, skip_injection:),
+        heading_parent_level_results: generate_localized_word(:accountability_component_heading_parent_level_results, skip_injection:),
+        heading_leaf_level_results: generate_localized_word(:accountability_component_heading_leaf_level_results, skip_injection:),
         scopes_enabled: true,
         scope_id: participatory_space.scope&.id
       }
@@ -25,27 +29,36 @@ FactoryBot.define do
   end
 
   factory :status, class: "Decidim::Accountability::Status" do
-    component { create(:accountability_component) }
+    transient do
+      skip_injection { false }
+    end
+    component { create(:accountability_component, skip_injection:) }
     sequence(:key) { |n| "status_#{n}" }
-    name { Decidim::Faker::Localized.word }
-    description { generate_localized_title }
+    name { generate_localized_word(:status_name, skip_injection:) }
+    description { generate_localized_word(:status_description, skip_injection:) }
     progress { rand(1..100) }
   end
 
   factory :result, class: "Decidim::Accountability::Result" do
-    component { create(:accountability_component) }
-    title { generate_localized_title }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    transient do
+      skip_injection { false }
+    end
+    component { create(:accountability_component, skip_injection:) }
+    title { generate_localized_title(:result_title, skip_injection:) }
+    description { generate_localized_description(:result_description, skip_injection:) }
     start_date { "12/7/2017" }
     end_date { "30/9/2017" }
-    status { create :status, component: }
+    status { create :status, component:, skip_injection: }
     progress { rand(1..100) }
   end
 
   factory :timeline_entry, class: "Decidim::Accountability::TimelineEntry" do
-    result { create(:result) }
+    transient do
+      skip_injection { false }
+    end
+    result { create(:result, skip_injection:) }
     entry_date { "12/7/2017" }
-    title { generate_localized_title }
-    description { generate_localized_title }
+    title { generate_localized_title(:timeline_entry_title, skip_injection:) }
+    description { generate_localized_title(:timeline_entry_description, skip_injection:) }
   end
 end

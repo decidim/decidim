@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Conference registrations", type: :system do
+describe "Conference registrations" do
   let(:organization) { create(:organization) }
   let(:conferences_count) { 5 }
   let!(:conferences) do
@@ -55,7 +55,7 @@ describe "Conference registrations", type: :system do
       visit_conference
 
       within "[data-conference-hero]", match: :first do
-        expect(page).not_to have_button("Register")
+        expect(page).to have_no_button("Register")
       end
     end
   end
@@ -113,18 +113,62 @@ describe "Conference registrations", type: :system do
         visit_conference_registration_types
 
         within "#registration-type-#{registration_type.id}" do
-          click_button "Registration"
+          click_on "Registration"
         end
 
         within "#conference-registration-confirm-#{registration_type.id}" do
           expect(page).to have_content "A legal text"
-          click_button "Confirm"
+          click_on "Confirm"
         end
 
         expect(page).to have_content("successfully")
 
         expect(page).to have_css(".button", text: "Attending")
         expect(page).to have_css("button[disabled]", text: "Registration", count: 4)
+      end
+    end
+
+    context "and there are published registrations types" do
+      it "allows to register" do
+        visit_conference
+        within ".conference__hero" do
+          expect(page).to have_content "Register"
+        end
+        within ".conference__content-block" do
+          expect(page).to have_content "Register"
+          click_on "Register"
+        end
+        expect(page).to have_content "CHOOSE YOUR REGISTRATION OPTION:"
+      end
+    end
+
+    context "and there are unpublished registrations types" do
+      let!(:registration_types) do
+        create_list(:registration_type, 5, :unpublished, conference:)
+      end
+
+      it "does not show the register button" do
+        visit_conference
+        within ".conference__hero" do
+          expect(page).to have_no_content "Register"
+        end
+        within ".conference__content-block" do
+          expect(page).to have_no_content "Register"
+        end
+      end
+    end
+
+    context "and there are no registrations types" do
+      let(:registration_types) { [] }
+
+      it "does not show the register button" do
+        visit_conference
+        within ".conference__hero" do
+          expect(page).to have_no_content "Register"
+        end
+        within ".conference__content-block" do
+          expect(page).to have_no_content "Register"
+        end
       end
     end
   end
@@ -155,7 +199,7 @@ describe "Conference registrations", type: :system do
       visit_conference_registration_types
 
       within "#registration-type-#{registration_type.id}" do
-        click_button "Attending"
+        click_on "Attending"
       end
 
       expect(page).to have_content("successfully")

@@ -16,7 +16,6 @@ module Decidim
   autoload :FormBuilder, "decidim/form_builder"
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
   autoload :FilterFormBuilder, "decidim/filter_form_builder"
-  autoload :RedesignedFilterFormBuilder, "decidim/redesigned_filter_form_builder"
   autoload :ComponentManifest, "decidim/component_manifest"
   autoload :NotificationSettingManifest, "decidim/notification_setting_manifest"
   autoload :ParticipatorySpaceManifest, "decidim/participatory_space_manifest"
@@ -103,7 +102,6 @@ module Decidim
   autoload :ShareableWithToken, "decidim/shareable_with_token"
   autoload :RecordEncryptor, "decidim/record_encryptor"
   autoload :AttachmentAttributes, "decidim/attachment_attributes"
-  autoload :CarrierWaveMigratorService, "decidim/carrier_wave_migrator_service"
   autoload :ReminderRegistry, "decidim/reminder_registry"
   autoload :ReminderManifest, "decidim/reminder_manifest"
   autoload :ManifestMessages, "decidim/manifest_messages"
@@ -116,14 +114,22 @@ module Decidim
   autoload :EventRecorder, "decidim/event_recorder"
   autoload :ControllerHelpers, "decidim/controller_helpers"
   autoload :ProcessesFileLocally, "decidim/processes_file_locally"
-  autoload :RedesignLayout, "decidim/redesign_layout"
-  autoload :DisabledRedesignLayout, "decidim/disabled_redesign_layout"
   autoload :BlockRegistry, "decidim/block_registry"
   autoload :DependencyResolver, "decidim/dependency_resolver"
   autoload :Upgrade, "decidim/upgrade"
   autoload :ParticipatorySpaceUser, "decidim/participatory_space_user"
   autoload :ModerationTools, "decidim/moderation_tools"
   autoload :ContentSecurityPolicy, "decidim/content_security_policy"
+  autoload :IconRegistry, "decidim/icon_registry"
+  autoload :HasConversations, "decidim/has_conversations"
+
+  module Commands
+    autoload :CreateResource, "decidim/commands/create_resource"
+    autoload :UpdateResource, "decidim/commands/update_resource"
+    autoload :DestroyResource, "decidim/commands/destroy_resource"
+    autoload :ResourceHandler, "decidim/commands/resource_handler"
+    autoload :HookError, "decidim/commands/hook_error"
+  end
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -148,19 +154,31 @@ module Decidim
     participatory_space_manifests.each do |manifest|
       manifest.seed!
 
-      Organization.all.each do |organization|
-        ContextualHelpSection.set_content(
-          organization,
-          manifest.name,
-          Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.sentence(word_count: 15)
-          end
-        )
-      end
+      seed_contextual_help_sections!(manifest)
     end
 
+    seed_gamification_badges!
+
+    seed_endorsements!
+
+    I18n.available_locales = original_locale
+  end
+
+  def self.seed_contextual_help_sections!(manifest)
+    Organization.all.each do |organization|
+      ContextualHelpSection.set_content(
+        organization,
+        manifest.name,
+        Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.sentence(word_count: 15)
+        end
+      )
+    end
+  end
+
+  def self.seed_gamification_badges!
     Gamification.badges.each do |badge|
-      puts "Setting random values for the \"#{badge.name}\" badge..."
+      puts "Setting random values for the \"#{badge.name}\" badge..." # rubocop:disable Rails/Output
       User.all.find_each do |user|
         Gamification::BadgeScore.find_or_create_by!(
           user:,
@@ -169,8 +187,24 @@ module Decidim
         )
       end
     end
+  end
 
-    I18n.available_locales = original_locale
+  def self.seed_endorsements!
+    resources_types = Decidim.resource_manifests
+                             .map { |resource| resource.attributes[:model_class_name] }
+                             .select { |resource| resource.constantize.include? Decidim::Endorsable }
+
+    resources_types.each do |resource_type|
+      resource_type.constantize.find_each do |resource|
+        # exclude the users that already endorsed
+        users = resource.endorsements.map(&:author)
+        rand(50).times do
+          user = (Decidim::User.all - users).sample
+          Decidim::Endorsement.create!(resource:, author: user)
+          users << user
+        end
+      end
+    end
   end
 
   # Finds all currently loaded Decidim ActiveRecord classes and resets their
@@ -273,7 +307,7 @@ module Decidim
     end
   end
 
-  # Exposes a configuration option: the whitelist ips
+  # Exposes a configuration option: the IPs that are allowed to access the system
   config_accessor :system_accesslist_ips do
     []
   end
@@ -395,18 +429,12 @@ module Decidim
     %w(X Facebook WhatsApp Telegram)
   end
 
-  # If set to true redesigned versions of layouts and cells will be used by
-  # default
-  config_accessor :redesign_active do
-    ENV.fetch("REDESIGN_ENABLED", "true") == "true"
-  end
-
   # The Decidim::Exporters::CSV's default column separator
   config_accessor :default_csv_col_sep do
     ";"
   end
 
-  # Exposes a configuration option: HTTP_X_FORWADED_HOST header follow-up.
+  # Exposes a configuration option: HTTP_X_FORWARDED_HOST header follow-up.
   # If a caching system is in place, it can also allow cache and log poisoning attacks,
   # allowing attackers to control the contents of caches and logs that could be used for other attacks.
   config_accessor :follow_http_x_forwarded_host do
@@ -526,6 +554,11 @@ module Decidim
     %w(terms-of-service)
   end
 
+  # The default max last activity users to be shown
+  config_accessor :default_max_last_activity_users do
+    6
+  end
+
   # List of additional content security policies to be appended to the default ones
   # This is useful for adding custom CSPs for external services like Here Maps, YouTube, etc.
   # Read more: https://docs.decidim.org/en/develop/configure/initializer#_content_security_policy
@@ -633,7 +666,7 @@ module Decidim
   #
   # Returns an Array[ComponentManifest].
   def self.component_manifests
-    component_registry.manifests
+    component_registry.manifests.sort_by(&:name)
   end
 
   # Public: Finds all registered participatory space manifest's via the
@@ -727,6 +760,10 @@ module Decidim
     MenuRegistry.register(name.to_sym, &)
   end
 
+  def self.icons
+    @icons ||= Decidim::IconRegistry.new
+  end
+
   # Public: Stores an instance of ViewHooks
   def self.view_hooks
     @view_hooks ||= ViewHooks.new
@@ -791,11 +828,11 @@ module Decidim
   end
 
   def self.register_assets_path(path)
-    Rails.autoloaders.main.ignore(path) if Rails.configuration.autoloader == :zeitwerk
+    Rails.autoloaders.main.ignore(path)
   end
 
   # Checks if a particular decidim gem is installed and needed by this
-  # particular instance. Preferrably this happens through bundler by inspecting
+  # particular instance. Preferably this happens through bundler by inspecting
   # the Gemfile of the instance but when Decidim is used without bundler, this
   # will check:
   # 1. If the gem is globally available or not in the loaded specs, i.e. the

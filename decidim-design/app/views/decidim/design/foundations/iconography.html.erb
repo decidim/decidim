@@ -1,0 +1,17 @@
+<% content_for :heading do %>
+  <%= t(".title") %>
+<% end %>
+
+<% content_for :description do %>
+<p><%= t(".description_iconography") %></p>
+ <% iconography_link_url = "https://remixicon.com" %>
+<p><%= t(".description_iconography_html", iconography_link: link_to(iconography_link_url, iconography_link_url, target: "_blank", rel: "noopener noreferrer")) %></p>
+<% end %>
+
+<% content_for :toc do %>
+  <% iconography_sections.each do |section| %>
+    <%= link_to(section_text(section), "##{section[:id]}") %>
+  <% end %>
+<% end %>
+
+<%= render partial: "decidim/design/shared/sections", locals: { sections: iconography_sections } %>

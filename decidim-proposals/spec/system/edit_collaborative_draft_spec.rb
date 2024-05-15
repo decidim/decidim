@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Edit collaborative_drafts", type: :system do
+describe "Edit collaborative_drafts" do
   include_context "with a component"
   let!(:component) { create(:proposal_component, :with_collaborative_drafts_enabled, organization:) }
   let(:manifest_name) { "proposals" }
@@ -26,16 +26,16 @@ describe "Edit collaborative_drafts", type: :system do
     it "can be updated" do
       visit_component
 
-      click_link "Access collaborative drafts"
-      click_link collaborative_draft.title
-      click_link "Edit collaborative draft"
+      click_on "Access collaborative drafts"
+      click_on collaborative_draft.title
+      click_on "Edit collaborative draft"
 
       expect(page).to have_content "Edit collaborative draft"
 
       within "form.edit_collaborative_draft" do
         fill_in :collaborative_draft_title, with: new_title
         fill_in :collaborative_draft_body, with: new_body
-        click_button "Send"
+        click_on "Send"
       end
 
       expect(page).to have_content(new_title)
@@ -54,11 +54,11 @@ describe "Edit collaborative_drafts", type: :system do
         it "can be updated" do
           visit_component
 
-          click_link "Access collaborative drafts"
-          click_link collaborative_draft.title
-          click_link "Edit collaborative draft"
+          click_on "Access collaborative drafts"
+          click_on collaborative_draft.title
+          click_on "Edit collaborative draft"
 
-          dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"), front_interface: true)
+          dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"))
 
           within "form.edit_collaborative_draft" do
             find("*[type=submit]").click
@@ -74,9 +74,9 @@ describe "Edit collaborative_drafts", type: :system do
         organization.update(rich_text_editor_in_public_views: true)
         visit_component
 
-        click_link "Access collaborative drafts"
-        click_link collaborative_draft.title
-        click_link "Edit collaborative draft"
+        click_on "Access collaborative drafts"
+        click_on collaborative_draft.title
+        click_on "Edit collaborative draft"
       end
 
       it_behaves_like "having a rich text editor", "edit_collaborative_draft", "basic"
@@ -86,13 +86,13 @@ describe "Edit collaborative_drafts", type: :system do
       it "returns an error message" do
         visit_component
 
-        click_link "Access collaborative drafts"
-        click_link collaborative_draft.title
-        click_link "Edit collaborative draft"
+        click_on "Access collaborative drafts"
+        click_on collaborative_draft.title
+        click_on "Edit collaborative draft"
 
         within "form.edit_collaborative_draft" do
           fill_in :collaborative_draft_body, with: "A"
-          click_button "Send"
+          click_on "Send"
         end
 
         # The character counters are doubled because there is a separate screen reader character counter.
@@ -100,7 +100,7 @@ describe "Edit collaborative_drafts", type: :system do
 
         within "form.edit_collaborative_draft" do
           fill_in :collaborative_draft_body, with: "WE DO NOT WANT TO SHOUT IN THE PROPOSAL BODY TEXT!"
-          click_button "Send"
+          click_on "Send"
         end
 
         expect(page).to have_content("is using too many capital letters (over 25% of the text)")
@@ -109,17 +109,17 @@ describe "Edit collaborative_drafts", type: :system do
       it "keeps the submitted values" do
         visit_component
 
-        click_link "Access collaborative drafts"
-        click_link collaborative_draft.title
-        click_link "Edit collaborative draft"
+        click_on "Access collaborative drafts"
+        click_on collaborative_draft.title
+        click_on "Edit collaborative draft"
 
         within "form.edit_collaborative_draft" do
           fill_in :collaborative_draft_title, with: "A title with a #hashtag"
           fill_in :collaborative_draft_body, with: "ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL"
         end
-        click_button "Send"
+        click_on "Send"
 
-        expect(page).to have_selector("input[value='A title with a #hashtag']")
+        expect(page).to have_css("input[value='A title with a #hashtag']")
         expect(page).to have_content("ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL")
       end
     end
@@ -133,9 +133,9 @@ describe "Edit collaborative_drafts", type: :system do
     it "renders an error" do
       visit_component
 
-      click_link "Access collaborative drafts"
-      click_link collaborative_draft.title
-      expect(page).not_to have_content("Edit collaborative draft")
+      click_on "Access collaborative drafts"
+      click_on collaborative_draft.title
+      expect(page).to have_no_content("Edit collaborative draft")
       visit "#{current_path}/edit"
 
       expect(page).to have_content("not authorized")
@@ -152,9 +152,9 @@ describe "Edit collaborative_drafts", type: :system do
     it "renders an error" do
       visit_component
 
-      click_link "Access collaborative drafts"
-      click_link collaborative_draft.title
-      expect(page).not_to have_content("Edit collaborative draft")
+      click_on "Access collaborative drafts"
+      click_on collaborative_draft.title
+      expect(page).to have_no_content("Edit collaborative draft")
       visit "#{current_path}/edit"
 
       expect(page).to have_content("not authorized")

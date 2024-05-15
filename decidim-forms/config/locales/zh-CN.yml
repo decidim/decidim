@@ -122,7 +122,6 @@ zh-CN:
           max_choices: '最大选择数: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">使用您的帐户</a> 或 <a href="%{sign_up_link}">注册</a> 以回答表单。
             title: 回答表单
           current_step: 步骤 %{step}
           of_total_steps: '%{total_steps}'

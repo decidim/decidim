@@ -33,7 +33,7 @@ module Decidim
             "additional_paths" => all_additional_paths,
             "entrypoints" => all_entrypoints,
             "stylesheet_imports" => all_stylesheet_imports,
-            "compile" => (ENV.fetch("WEBPACKER_RUNTIME_COMPILE", "false") == "true")
+            "compile" => (ENV.fetch("SHAKAPACKER_RUNTIME_COMPILE", "false") == "true")
           )
         end
 
@@ -68,7 +68,7 @@ module Decidim
       end
 
       def original_configuration_file_path
-        @original_configuration_file_path = File.join(app_path, "config/webpacker.yml")
+        @original_configuration_file_path = File.join(app_path, "config/shakapacker.yml")
       end
 
       def load_asset_configurations

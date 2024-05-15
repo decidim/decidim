@@ -4,14 +4,10 @@ module Decidim
   module Assemblies
     module ContentBlocks
       class HighlightedAssembliesCell < Decidim::ContentBlocks::HighlightedParticipatorySpacesCell
-        delegate :current_user, to: :controller
-
         def highlighted_spaces
           @highlighted_spaces ||= OrganizationPrioritizedAssemblies
                                   .new(current_organization, current_user)
                                   .query
-                                  .with_attached_hero_image
-                                  .includes([:organization])
         end
 
         def i18n_scope

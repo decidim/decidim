@@ -1,10 +1,14 @@
 # frozen_string_literal: true
 
+require "decidim/components/namer"
+
 module Decidim
   module Initiatives
     # A command with all the business logic that creates a new initiative.
     class CreateInitiative < Decidim::Command
       include CurrentLocale
+      include ::Decidim::MultipleAttachmentsMethods
+      include ::Decidim::GalleryMethods
 
       # Public: Initializes the command.
       #
@@ -23,6 +27,16 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
+
+        if process_attachments?
+          build_attachments
+          return broadcast(:invalid) if attachments_invalid?
+        end
+
+        if process_gallery?
+          build_gallery
+          return broadcast(:invalid) if gallery_invalid?
+        end
 
         initiative = create_initiative
 
@@ -44,6 +58,10 @@ module Decidim
 
         initiative.transaction do
           initiative.save!
+
+          @attached_to = initiative
+          create_attachments if process_attachments?
+          create_gallery if process_gallery?
 
           create_components_for(initiative)
           send_notification(initiative)

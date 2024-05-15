@@ -36,12 +36,12 @@ ca:
       surveys:
         survey_closed:
           email_intro: L'enquesta %{resource_title} a %{participatory_space_title} ha estat tancada.
-          email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: S'ha acabat una enquesta a %{participatory_space_title}
           notification_title: L'enquesta <a href="%{resource_path}">%{resource_title}</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a> ha acabat.
         survey_opened:
           email_intro: 'L''enquesta %{resource_title} a %{participatory_space_title} ja està oberta. Pots participar-hi des d''aquesta pàgina:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una nova enquesta a %{participatory_space_title}
           notification_title: L'enquesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> ja està oberta.
     metrics:
@@ -53,6 +53,9 @@ ca:
       answers_count: Respostes
     surveys:
       admin:
+        component:
+          actions:
+            answers_alert: Si publiques el component, s'eliminaran tots els resultats.
         exports:
           survey_user_answers: Respostes de les participants de l'enquesta
         surveys:
@@ -61,6 +64,11 @@ ca:
             success: Enquesta desada correctament.
       last_activity:
         new_survey: 'Nova enquesta:'
+      survey_confirmation_mailer:
+        confirmation:
+          body: Has respost amb èxit a l'enquesta %{questionnaire_title} dins de %{participatory_space}
+          subject: Confirmació de resposta al qüestionari %{questionnaire_title}
+        export_name: Respostes a l'enquesta
       surveys:
         answer:
           invalid: S'ha produït un error en respondre l'enquesta.

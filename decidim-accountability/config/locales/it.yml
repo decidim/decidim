@@ -21,6 +21,7 @@ it:
       timeline_entry:
         description: Descrizione
         entry_date: Data
+        title: Titolo
     models:
       decidim/accountability/proposal_linked_event: Proposta inclusa in un risultato
       decidim/accountability/result_progress_updated_event: Avanzamento dei risultati aggiornato
@@ -37,8 +38,8 @@ it:
         confirm_destroy: Sei sicuro di voler eliminare questo %{name}?
         destroy: Cancella
         edit: Modifica
-        import_csv: Importa da file CSV
-        new: Nuovo %{name}
+        import: Importa progetti da un'altro componenete
+        new_result: Nuovo risultato
         preview: Anteprima
         timeline_entries: Evoluzione del progetto
         title: Azioni
@@ -49,14 +50,11 @@ it:
         import_results:
           new:
             import: Importa
-            title: Importa risultati da CSV
         models:
           result:
             name: Risultato
           status:
             name: Stato
-          timeline_entry:
-            name: Voce della cronologia
         results:
           edit:
             title: Modifica il risultato
@@ -66,6 +64,8 @@ it:
           new:
             create: Crea un risultato
             title: Nuovo risultato
+          update:
+            success: Risultati aggiornati con successo
         shared:
           subnav:
             statuses: Stati
@@ -97,9 +97,7 @@ it:
             not_found: 'Il genitore non è stato trovato sul database (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Date
           results: Risultati
-          unspecified: Non specificato
       import_mailer:
         import:
           errors: Errori
@@ -127,9 +125,7 @@ it:
         timeline_entry:
           fields:
             entry_date: Data
-      result_m:
-        executed: Eseguito
-        view: Visualizza
+            title: Titolo
       results:
         count:
           results_count:
@@ -148,15 +144,7 @@ it:
           search: Cerca azioni
         show:
           stats:
-            attendees: Partecipanti
             back_to_resource: Torna al risultato
-            comments: Commenti
-            contributions: Contributi
-            last_edited_by: Ultima modifica del
-            last_updated_at: Ultimo aggiornamento alle
-            meetings: Riunioni
-            proposals: Proposte
-            votes: Voti
         timeline:
           title: Evoluzione del progetto
     admin:

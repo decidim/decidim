@@ -35,8 +35,6 @@ da:
         confirm_destroy: Er du sikker på, at du vil slette dette %{name}?
         destroy: Slet
         edit: Rediger
-        import_csv: Importér CSV
-        new: Nyt %{name}
         preview: Eksempelvisning
         timeline_entries: Projektudvikling
         title: Handlinger
@@ -46,14 +44,11 @@ da:
         import_results:
           new:
             import: Import
-            title: Importresultater fra CSV
         models:
           result:
             name: Resultat
           status:
             name: Status
-          timeline_entry:
-            name: Indførsel på tidslinje
         results:
           edit:
             title: Rediger resultat
@@ -133,15 +128,7 @@ da:
           search: Søg efter handlinger
         show:
           stats:
-            attendees: Mødedeltagere
             back_to_resource: Tilbage til resultater
-            comments: Kommentarer
-            contributions: Bidrag
-            last_edited_by: Sidst redigeret af
-            last_updated_at: Senest opdateret den
-            meetings: Møder
-            proposals: Forslag
-            votes: Støtter
         timeline:
           title: Projektets udvikling
     components:

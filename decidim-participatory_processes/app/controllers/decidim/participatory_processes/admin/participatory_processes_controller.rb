@@ -8,6 +8,9 @@ module Decidim
       class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
         include Decidim::Admin::ParticipatorySpaceAdminContext
         include Decidim::ParticipatoryProcesses::Admin::Filterable
+
+        add_breadcrumb_item_from_menu :admin_participatory_process_menu, only: :show
+
         participatory_space_admin_layout only: [:edit]
 
         helper ProcessGroupsForSelectHelper
@@ -57,7 +60,7 @@ module Decidim
             process_id: current_participatory_process.id
           )
 
-          UpdateParticipatoryProcess.call(current_participatory_process, @form) do
+          UpdateParticipatoryProcess.call(@form, current_participatory_process) do
             on(:ok) do |participatory_process|
               flash[:notice] = I18n.t("participatory_processes.update.success", scope: "decidim.admin")
               redirect_to edit_participatory_process_path(participatory_process)

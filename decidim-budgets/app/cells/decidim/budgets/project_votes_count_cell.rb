@@ -5,8 +5,6 @@ module Decidim
     # This cell renders the vote count.
     # Two possible layouts: One or two lines
     class ProjectVotesCountCell < Decidim::ViewModel
-      include Decidim::IconHelper
-
       def show
         return unless show_votes_count?
 
@@ -28,11 +26,11 @@ module Decidim
       end
 
       def number
-        content_tag :div, model.confirmed_orders_count, class: "text-large"
+        content_tag :div, model.confirmed_orders_count
       end
 
       def count_label
-        content_tag(:span, t("decidim.budgets.projects.project.votes", count: model.confirmed_orders_count), class: "text-uppercase text-small")
+        content_tag(:span, t("decidim.budgets.projects.project.votes", count: model.confirmed_orders_count))
       end
 
       def css_class

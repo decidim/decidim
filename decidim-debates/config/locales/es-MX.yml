@@ -51,7 +51,7 @@ es-MX:
         confirm_destroy: '¿Seguro que quieres borrar el debate?'
         destroy: Borrar
         edit: Editar
-        new: Nuevo %{name}
+        new: Añadir debate
         title: Acciones
       admin:
         debate_closes:
@@ -81,9 +81,6 @@ es-MX:
             success: Debate actualizado con éxito.
         exports:
           comments: Comentarios
-        models:
-          debate:
-            name: Debate
       admin_log:
         debate:
           close: "La participante %{user_name} ha creado el debate %{resource_name} en el espacio %{space_name}"
@@ -96,10 +93,9 @@ es-MX:
           invalid: Se ha producido un error al cerrar el debate.
           success: Debate cerrado correctamente.
         close_debate_modal:
-          close: Cerrar
+          cancel: Cancelar
           description: '¿Cuál es el resumen o la conclusión de este debate?'
           send: Cerrar debate
-        closed: Cerrado
         count:
           debates_count:
             one: "%{count} debate"
@@ -107,8 +103,9 @@ es-MX:
         create:
           invalid: Ha habido un problema al crear el debate.
           success: Debate creado con éxito.
-        debate:
-          participate: Participar
+        debates:
+          empty: Aún no hay ningún debate.
+          empty_filters: No hay ningún debate con este criterio.
         edit:
           back: Atrás
           save: Guardar cambios
@@ -123,18 +120,12 @@ es-MX:
           official: Oficial
           origin: Origen
           participants: Participantes
-          scope: Ámbito
           search: Buscar
           state: Estado
           state_values:
             closed: Cerrado
             open: Abierto
-          user_groups: Grupos
-        filters_small_view:
-          close_modal: Cerrar ventana
-          filter: Filtrar
-          filter_by: Filtrar por
-          unfold: Desplegar
+          user_group: Grupos
         form:
           select_a_category: Por favor, selecciona una categoría
         index:
@@ -150,36 +141,27 @@ es-MX:
           recent: Más recientes
           updated: Actualizados recientemente
         show:
-          back: Volver al listado
           close_debate: Cerrar debate
-          date: Fecha
           debate_closed: Cerrado
           debate_conclusions_are: 'El debate se cerró el %{date} con estas conclusiones:'
           edit_conclusions: Editar conclusiones
           edit_debate: Editar debate
           groups_count: Grupos
-          last_comment_by: Último comentario de
-          no_comments_yet: No hay comentarios todavía
           open: Debate abierto
           participants_count: Participantes
         update:
           invalid: Se ha producido un error al actualizar este debate.
           success: Debate actualizado correctamente.
-        versions:
-          debates:
-            back_to_resource: Volver al debate
-          index:
-            title: Versiones
-        versions_list:
-          back_to_resource: Volver al debate
       last_activity:
         debate_updated: 'Debate actualizado:'
         new_debate: 'Nuevo debate:'
       models:
         debate:
           fields:
+            end: Finaliza
             end_time: Fecha de finalización
             official_debate: Debate oficial
+            start: Empieza
             start_time: Fecha de inicio
             title: Título
     events:
@@ -188,10 +170,10 @@ es-MX:
           space_followers:
             email_intro: |-
               Hola,
-              Se ha creado un nuevo debate "%{resource_title}" en el espacio participativo %{space_title} , échale un vistazo y contribuye:
-            email_outro: Has recibido esta notificación porque estás siguiendo a %{space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-            email_subject: Nuevo debate "%{resource_title}" en %{space_title}
-            notification_title: El debate <a href="%{resource_path}">%{resource_title}</a> fue creado el <a href="%{space_path}">%{space_title}</a>.
+              Se ha creado un nuevo debate "%{resource_title}" en el espacio participativo %{participatory_space_title}, échale un vistazo y contribuye:
+            email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{participatory_space_title}". Puedes dejar de recibir notificaciones desde el enlace anterior.
+            email_subject: Nuevo debate "%{resource_title}" en %{participatory_space_title}
+            notification_title: Se ha creado el debate <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
           user_followers:
             email_intro: |-
               Hola,

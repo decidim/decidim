@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Initiative", type: :system do
+describe "Initiative" do
   let(:organization) { create(:organization) }
   let(:state) { :published }
   let(:base_initiative) do
@@ -23,6 +23,10 @@ describe "Initiative", type: :system do
     let!(:initiative) { base_initiative }
     let(:attached_to) { initiative }
 
+    before do
+      allow(Decidim::Initiatives).to receive(:print_enabled).and_return(true)
+    end
+
     it_behaves_like "editable content for admins" do
       let(:target_path) { decidim_initiatives.initiative_path(initiative) }
     end
@@ -42,7 +46,7 @@ describe "Initiative", type: :system do
 
       shared_examples_for "initiative does not show signatures" do
         it "does not show signatures for the state" do
-          expect(page).not_to have_css(".progress-bar__container")
+          expect(page).to have_no_css(".progress-bar__container")
         end
       end
 
@@ -126,74 +130,82 @@ describe "Initiative", type: :system do
         end
 
         it "does not have comments" do
-          expect(page).not_to have_css(".comments")
-          expect(page).not_to have_content("0 comments")
+          expect(page).to have_no_css(".comments")
+          expect(page).to have_no_content("0 comments")
         end
       end
+    end
 
-      context "when I am the author of the initiative" do
-        before do
-          sign_in initiative.author
-          visit decidim_initiatives.initiative_path(initiative)
-        end
+    context "when I am the author of the initiative" do
+      before do
+        sign_in initiative.author
+        visit decidim_initiatives.initiative_path(initiative)
+      end
 
-        shared_examples_for "initiative does not show send to technical validation" do
-          it { expect(page).not_to have_link("Send to technical validation") }
-        end
+      shared_examples_for "initiative does not show send to technical validation" do
+        it { expect(page).to have_no_link("Send to technical validation") }
+      end
 
-        shared_examples_for "initiative shows send to technical validation disabled" do
-          it { expect(page).to have_link("Send to technical validation", href: "#") }
-        end
+      shared_examples_for "initiative shows send to technical validation disabled" do
+        it { expect(page).to have_link("Send to technical validation", href: "#") }
+      end
 
-        context "when initiative state is created" do
-          let(:state) { :created }
+      context "when initiative state is created" do
+        let(:state) { :created }
 
-          context "when the user cannot send the initiative to technical validation" do
-            before do
-              initiative.committee_members.destroy_all
-              visit decidim_initiatives.initiative_path(initiative)
-            end
-
-            it_behaves_like "initiative shows send to technical validation disabled"
-            it { expect(page).to have_content("Before sending your initiative for technical validation") }
+        context "when the user cannot send the initiative to technical validation" do
+          before do
+            initiative.committee_members.destroy_all
+            visit decidim_initiatives.initiative_path(initiative)
           end
-
-          context "when the user can send the initiative to technical validation" do
-            it { expect(page).to have_link("Send to technical validation", href: decidim_initiatives.send_to_technical_validation_initiative_path(initiative)) }
-            it { expect(page).to have_content('If everything looks ok, click on "Send to technical validation" for an administrator to review and publish your initiative') }
-          end
-        end
-
-        context "when initiative state is validating" do
-          let(:state) { :validating }
 
           it_behaves_like "initiative shows send to technical validation disabled"
+          it { expect(page).to have_content("Before sending your initiative for technical validation") }
         end
 
-        context "when initiative state is discarded" do
-          let(:state) { :discarded }
-
-          it_behaves_like "initiative does not show send to technical validation"
-        end
-
-        context "when initiative state is published" do
-          let(:state) { :published }
-
-          it_behaves_like "initiative does not show send to technical validation"
-        end
-
-        context "when initiative state is rejected" do
-          let(:state) { :rejected }
-
-          it_behaves_like "initiative does not show send to technical validation"
-        end
-
-        context "when initiative state is accepted" do
-          let(:state) { :accepted }
-
-          it_behaves_like "initiative does not show send to technical validation"
+        context "when the user can send the initiative to technical validation" do
+          it { expect(page).to have_link("Send to technical validation", href: decidim_initiatives.send_to_technical_validation_initiative_path(initiative)) }
+          it { expect(page).to have_content('If everything looks ok, click on "Send to technical validation" for an administrator to review and publish your initiative') }
         end
       end
+
+      context "when initiative state is validating" do
+        let(:state) { :validating }
+
+        it_behaves_like "initiative shows send to technical validation disabled"
+      end
+
+      context "when initiative state is discarded" do
+        let(:state) { :discarded }
+
+        it_behaves_like "initiative does not show send to technical validation"
+      end
+
+      context "when initiative state is published" do
+        let(:state) { :published }
+
+        it_behaves_like "initiative does not show send to technical validation"
+      end
+
+      context "when initiative state is rejected" do
+        let(:state) { :rejected }
+
+        it_behaves_like "initiative does not show send to technical validation"
+      end
+
+      context "when initiative state is accepted" do
+        let(:state) { :accepted }
+
+        it_behaves_like "initiative does not show send to technical validation"
+      end
+    end
+
+    describe "follow button" do
+      let!(:user) { create(:user, :confirmed, organization:) }
+      let(:followable) { initiative }
+      let(:followable_path) { decidim_initiatives.initiative_path(initiative) }
+
+      include_examples "follows"
     end
   end
 
@@ -213,16 +225,16 @@ describe "Initiative", type: :system do
       it "shows the components" do
         within ".participatory-space__nav-container" do
           expect(page).to have_content(translated(meetings_component.name, locale: :en))
-          expect(page).not_to have_content(translated(proposals_component.name, locale: :en))
+          expect(page).to have_no_content(translated(proposals_component.name, locale: :en))
         end
       end
 
       it "allows visiting the components" do
         within ".participatory-space__nav-container" do
-          click_link translated(meetings_component.name, locale: :en)
+          click_on translated(meetings_component.name, locale: :en)
         end
 
-        expect(page).to have_selector('[id^="meetings__meeting"]', count: 3)
+        expect(page).to have_css('[id^="meetings__meeting"]', count: 3)
       end
     end
   end

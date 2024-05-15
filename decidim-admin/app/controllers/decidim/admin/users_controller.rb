@@ -7,6 +7,8 @@ module Decidim
     class UsersController < Decidim::Admin::ApplicationController
       include Decidim::Admin::Officializations::Filterable
 
+      add_breadcrumb_item_from_menu :admin_user_menu
+
       def index
         enforce_permission_to :read, :admin_user
         @users = filtered_collection

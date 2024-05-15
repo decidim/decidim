@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Last activity", type: :system do
+describe "Last activity" do
   let(:organization) { create(:organization) }
   let(:commentable) { create(:dummy_resource, component:) }
   let(:comment) { create(:comment, commentable:) }
@@ -43,11 +43,11 @@ describe "Last activity", type: :system do
     allow(Decidim::ActionLog).to receive(:public_resource_types).and_return(
       %w(
         Decidim::Comments::Comment
-        Decidim::DummyResources::DummyResource
+        Decidim::Dev::DummyResource
       )
     )
     allow(Decidim::ActionLog).to receive(:publicable_public_resource_types).and_return(
-      %w(Decidim::DummyResources::DummyResource)
+      %w(Decidim::Dev::DummyResource)
     )
 
     create(:content_block, organization:, scope_name: :homepage, manifest_name: :last_activity)
@@ -67,7 +67,7 @@ describe "Last activity", type: :system do
 
     it "shows activities long comment shorten text" do
       expect(page).to have_content(long_body_comment[0..79])
-      expect(page).not_to have_content(another_comment.translated_body)
+      expect(page).to have_no_content(another_comment.translated_body)
     end
 
     context "when there is a deleted comment" do
@@ -75,7 +75,7 @@ describe "Last activity", type: :system do
 
       it "is not shown" do
         within "#last_activity" do
-          expect(page).not_to have_content("This is deleted")
+          expect(page).to have_no_content("This is deleted")
         end
       end
     end
@@ -83,7 +83,7 @@ describe "Last activity", type: :system do
     context "when viewing all activities" do
       before do
         within "#last_activity" do
-          click_link "View all"
+          click_on "View all"
         end
       end
 
@@ -95,7 +95,7 @@ describe "Last activity", type: :system do
       end
 
       it "shows the activities in correct order" do
-        result = page.find("#activities").text
+        result = page.find_by_id("activities").text
         expect(result.index(translated(resource.title))).to be < result.index(translated(comment.commentable.title))
         expect(result.index(translated(comment.commentable.title))).to be < result.index(translated(another_comment.commentable.title))
       end
@@ -107,7 +107,7 @@ describe "Last activity", type: :system do
 
         expect(page).to have_content(translated(comment.commentable.title))
         expect(page).to have_content(translated(another_comment.commentable.title))
-        expect(page).not_to have_content(translated(resource.title))
+        expect(page).to have_no_content(translated(resource.title))
         expect(page).to have_css("[data-activity]", count: 2)
       end
 
@@ -130,7 +130,7 @@ describe "Last activity", type: :system do
         end
 
         it "does not show the old activities at the top of the list" do
-          expect(page).not_to have_content(translated(old_comment.commentable.title))
+          expect(page).to have_no_content(translated(old_comment.commentable.title))
         end
       end
 

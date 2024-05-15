@@ -16,7 +16,7 @@
       </div>
       <%= single_comment_warning %>
       <%= blocked_comments_warning %>
-      <div class="comment-threads">
+      <div class="comment-threads" id="<%= threads_node_id %>" aria-live="polite">
         <%= comments_loading %>
         <% comments.each do |comment| %>
           <%= cell("decidim/comments/comment_thread", comment, order:) %>
@@ -25,8 +25,6 @@
       <%= add_comment %>
       <%= user_comments_blocked_warning %>
     </div>
-    <div class="callout primary loading-comments hidden">
-      <p><%= t("decidim.components.comments.loading") %></p>
-    </div>
+    <%= cell("decidim/announcement", t("decidim.components.comments.loading"), callout_class: "primary loading-comments hidden") %>
   </div>
 <% end %>

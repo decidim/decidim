@@ -1,4 +1,4 @@
-import { updateContent } from "../../helpers";
+import { updateContent } from "src/decidim/editor/test/helpers";
 
 export default (ctx) => {
   return {

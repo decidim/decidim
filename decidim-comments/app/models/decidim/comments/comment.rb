@@ -29,6 +29,7 @@ module Decidim
       translatable_fields :body
 
       parent_item_foreign_key :decidim_commentable_id
+      parent_item_polymorphic_type_key :decidim_commentable_type
 
       belongs_to :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", polymorphic: true
       belongs_to :root_commentable, foreign_key: "decidim_root_commentable_id", foreign_type: "decidim_root_commentable_type", polymorphic: true, touch: true
@@ -121,14 +122,14 @@ module Decidim
       #
       # Returns a bool value to indicate if the condition is truthy or not
       def up_voted_by?(user)
-        up_votes.any? { |vote| vote.author == user }
+        up_votes.exists?(author: user)
       end
 
       # Public: Check if the user has downvoted the comment
       #
       # Returns a bool value to indicate if the condition is truthy or not
       def down_voted_by?(user)
-        down_votes.any? { |vote| vote.author == user }
+        down_votes.exists?(author: user)
       end
 
       # Public: Overrides the `reported_content_url` Reportable concern method.

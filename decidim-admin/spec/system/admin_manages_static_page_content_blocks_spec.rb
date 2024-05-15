@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages static page content blocks", type: :system do
+describe "Admin manages static page content blocks" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
   let!(:tos_page) { Decidim::StaticPage.find_by(slug: "terms-of-service", organization:) }
@@ -19,7 +19,7 @@ describe "Admin manages static page content blocks", type: :system do
       expect(Decidim::ContentBlock.count).to eq 0
 
       within ".edit_content_blocks" do
-        click_button "Add content block"
+        click_on "Add content block"
         within ".add-components" do
           find("a", text: "Summary").click
         end
@@ -37,7 +37,7 @@ describe "Admin manages static page content blocks", type: :system do
       expect do
         number_of_content_blocks.times do
           within ".edit_content_blocks" do
-            click_button "Add content block"
+            click_on "Add content block"
             within ".add-components" do
               find("a", text: "Section").click
             end
@@ -69,18 +69,14 @@ describe "Admin manages static page content blocks", type: :system do
 
       within ".edit_content_blocks" do
         within first("ul.js-list-actives li") do
-          find("a[data-method='delete']").click
+          accept_confirm { find("a[data-method='delete']").click }
         end
-      end
-
-      within ".confirm-modal-footer" do
-        find("a.button[data-confirm-ok]").click
       end
 
       expect(page).to have_content("Content block successfully deleted")
 
       visit decidim.page_path(tos_page)
-      expect(page).not_to have_content(content)
+      expect(page).to have_no_content(content)
     end
   end
 
@@ -94,7 +90,7 @@ describe "Admin manages static page content blocks", type: :system do
                           "#content_block-settings--summary-tabs",
                           en: "<p>Custom privacy policy summary text!</p>"
 
-      click_button "Update"
+      click_on "Update"
       visit decidim.page_path(tos_page)
       expect(page).to have_content("Custom privacy policy summary text!")
 

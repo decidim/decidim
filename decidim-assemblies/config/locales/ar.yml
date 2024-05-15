@@ -1,8 +1,6 @@
 ar:
   activemodel:
     attributes:
-      assemblies_setting:
-        enable_organization_chart: تمكين الخريطة التنظيمية
       assemblies_type:
         title: العنوان
       assembly:
@@ -58,7 +56,7 @@ ar:
         subtitle: العنوان الفرعي
         target: من يشارك
         title: العنوان
-        twitter: تويتر
+        twitter: X
         weight: موضع الطلب
         youtube: يوتيوب
       assembly_member:
@@ -112,7 +110,6 @@ ar:
         edit:
           update: تحديث
         index:
-          not_published: غير منشور
           private: خاص
           public: عامة
           published: نشرت
@@ -126,10 +123,6 @@ ar:
         create:
           error: حدثت مشكلة في تكرار هذا التجميع.
           success: الجمعية مكررة بنجاح.
-      assemblies_settings:
-        update:
-          error: طرأت مشكلة أثناء تحديث الإعدادات.
-          success: تم تحديث الإعدادات بنجاح.
       assemblies_types:
         create:
           error: حدثت مشكلة أثناء إنشاء جمعية جديدة.
@@ -162,13 +155,11 @@ ar:
         destroy:
           success: تم حذف العضو بنجاح لهذا التجميع.
         edit:
-          title: تحديث عضو التجميع.
           update: تحديث
         index:
           assembly_members_title: أعضاء الجمعية
         new:
           create: إنشاء
-          title: عضو الجمعية الجديد.
         update:
           error: حدثت مشكلة أثناء تحديث العضو لهذا التجميع.
           success: تم تحديث العضو بنجاح لهذا التجميع.
@@ -186,13 +177,11 @@ ar:
         destroy:
           success: تمت إزالة المشرف بنجاح من هذا التجميع.
         edit:
-          title: تحديث مسؤول التجميع.
           update: تحديث
         index:
           assembly_admins_title: مدراء الجمعية
         new:
           create: إنشاء
-          title: مشرف جديد على الجمعية.
         update:
           error: حدثت مشكلة أثناء تحديث مشرفٍ على هذه الجمعية.
           success: تم تحديث المشرف على هذه الجمعية بنجاح.
@@ -201,7 +190,6 @@ ar:
           label: نوع الجمعية
       menu:
         assemblies: الجمعيات
-        assemblies_settings: الإعدادات
         assemblies_submenu:
           assembly_admins: مدراء الجمعية
           assembly_members: الأعضاء
@@ -210,7 +198,6 @@ ar:
           attachments: المرفقات
           categories: الفئات
           components: المكونات
-          info: معلومات
           moderations: الإعتدال
           private_users: المستخدمون الخاصون
         assemblies_types: نوع التجمّعات
@@ -294,42 +281,20 @@ ar:
             select_an_area: اختر منطقة
             select_an_assembly_type: حدد نوع الجمعية
             select_parent_assembly: حدد الجمعية الأصلية
-            slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا التجميع. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
             social_handlers: التواصل الاجتماعي
             title: معلومات عامة
-            visbility: الرؤية
-        assemblies_settings:
-          edit:
-            update: تحديث
-          form:
-            title: إعدادات الجمعية
         assemblies_types:
           form:
             title: العنوان
-        assembly_copies:
-          form:
-            slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا التجميع. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
-        assembly_imports:
-          form:
-            document_legend: إضافة وثيقة
-            slug_help: 'يتم استخدام سبائك URL لإنشاء عناوين URL التي تشير إلى هذا التجمع. تُقبل الحروف والأرقام والشرطات فقط، ويجب أن تبدأ بحرف. مثال: %{url}'
         assembly_members:
           form:
             existing_user: المشارك الحالي
             explanation: 'إرشادات للصورة:'
-            image_guide: يفضل أن تكون صورة لا تحتوي على أي نص.
             non_user: غير مشارك
             non_user_avatar_help: يجب أن تحصل على موافقة الأشخاص قبل نشرهم كأعضاء.
             select_a_position: اختر المنصب
             select_user: اختيار مشارك
             user_type: نوع المشارك
-          index:
-            filter:
-              all: الكل
-              ceased: توقف
-              not_ceased: لم تتوقف
-            filter_by: مصنف بواسطة
-            search: البحث
         content_blocks:
           highlighted_assemblies:
             max_results: أقصى قدر من العناصر لإظهارها
@@ -337,6 +302,9 @@ ar:
           accepted_types:
             json: ملفات بصيغة (JSON)
       assemblies:
+        filters:
+          names:
+            all: الكل
         show:
           title: حول الجمعية
       assembly_members:
@@ -351,6 +319,8 @@ ar:
         participatory: تشاركية
         working_group: فريق العمل
       content_blocks:
+        children_assemblies:
+          name: جمعيات
         highlighted_assemblies:
           name: المجالس البارزة
       created_by:
@@ -372,42 +342,14 @@ ar:
       last_activity:
         new_assembly: 'جمعية جديدة:'
       pages:
-        home:
-          highlighted_assemblies:
-            active_assemblies: الجمعيات النشطة
-            assemblies_button_title: رابط إلى صفحة الجمعيات لاستعراض جميع الجمعيات
-            see_all_assemblies: عرض كافة الجمعيات
         user_profile:
           member_of:
             member_of: عضو في
       show:
-        area: المنطقة
         assembly_type: نوع الجمعية
-        children: الجمعيات
-        closing_date: الموعد النهائي
-        composition: المكونات
-        created_by: أنشئ من طرف
-        creation_date: تاريخ الإنشاء
-        developer_group: مجموعة المروجين
         duration: المدة الزمنية
-        included_at: المدرجة في
-        indefinite_duration: غير محدد
-        internal_organisation: التنظيم الداخلي
-        is_transparent:
-          'false': مبهمة
-          'true': شفافة
-        local_area: منطقة التنظيم
-        participatory_scope: ما الذي تقرر
-        participatory_structure: كيف تقرر ذلك
         private_space: هذه جمعية خاصة
-        purpose_of_action: الغرض من الإجراء
-        read_less: أقرأ أقل
-        read_more: اقرأ المزيد
-        related_participatory_processes: العمليات التشاركية ذات الصلة
-        scope: نطاق
-        social_networks: شبكات التواصل الاجتماعي
         social_networks_title: زيارة التجمع على
-        target: من يشارك
     assembly_members:
       assembly_member:
         designated_on: المعينة على
@@ -457,10 +399,7 @@ ar:
           more_info: مزيد من المعلومات
           take_part: خذ جزء
         index:
-          children: 'المجالس: '
-          organizational_chart: الهيكل التنظيمي
           promoted_assemblies: المجالس البارزة
-          reset_chart: إعادة تعيين
         order_by_assemblies:
           assemblies:
             zero: "%{count} اجتماعات"
@@ -469,12 +408,5 @@ ar:
             few: "%{count} اجتماعات"
             many: "%{count} اجتماع"
             other: "%{count} اجتماعات"
-        promoted_assembly:
-          more_info: مزيد من المعلومات
-          take_part: خذ جزء
       assembly_navigation:
         assembly_member_menu_item: الأعضاء
-        assembly_menu_item: الجمعية
-      assembly_widgets:
-        show:
-          take_part: شارِك

@@ -13,7 +13,7 @@ de:
         from_label: Beschreibung
         password: Passwort
         port: Datenbank Port
-        user_name: Benutzername
+        user_name: Kontoname
       organization_file_uploads:
         allowed_content_types:
           admin: Admin MIME-Typen
@@ -37,7 +37,9 @@ de:
         confirm_destroy: Möchtest du das wirklich löschen?
         destroy: Löschen
         edit: Bearbeiten
-        new: Neu
+        new_admin: Neuer Admin
+        new_oauth_application: Neue OAUTH-Anwendung
+        new_organization: Neue Organisation
         save: Speichern
         title: Aktionen
       admins:
@@ -59,12 +61,29 @@ de:
           success: Admin erfolgreich aktualisiert.
       dashboard:
         show:
+          admins: Admins
           current_organizations: Aktuelle Organisationen
       default_pages:
         placeholders:
           content: Fügen Sie der statischen Seite %{page} im Admin-Dashboard sinnvollen Inhalt hinzu.
           summary: Fügen Sie der statischen Seite %{page} im Admin-Dashboard eine sinnvolle Zusammenfassung hinzu.
           title: Standardtitel für %{page}
+        terms-of-service: Nutzungsbedingungen
+      devise:
+        passwords:
+          edit:
+            change_your_password: Passwort ändern
+            minimum_characters: "(Minimum %{minimum} Zeichen)"
+          new:
+            forgot_your_password: Passwort vergessen?
+            send_me_reset_password_instructions: Schicken Sie mir eine Anweisung zum Zurücksetzen des Passwortes
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Keine Bestätigungs-Mail erhalten?
+            did_not_receive_unlock_instructions?: Anweisungen zum Entsperren nicht erhalten?
+            forgot_your_password?: Haben Sie Ihr Passwort vergessen?
+            log_in: Anmelden
+            sign_up: Registrieren
       menu:
         admins: Admins
         dashboard: Instrumententafel
@@ -73,9 +92,8 @@ de:
       models:
         admin:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             email: Email
-          name: Administrator
           validations:
             email_uniqueness: ein anderer Administrator mit der gleichen E-Mail existiert bereits
         oauth_application:
@@ -83,17 +101,16 @@ de:
             created_at: Erstellt am
             name: Name OAuth-Anwendung
             organization_name: Organisation
-          name: OAuth-Anwendung
         organization:
           actions:
             save_and_invite: Organisation erstellen & den Admin einladen
           fields:
-            created_at: Hergestellt in
+            content_security_policy: Sicherheitsrichtlinie für Inhalte (Content Security Policy)
+            created_at: Erstellt am
             file_upload_settings: Datei-Upload Einstellungen
             name: Name
             omniauth_settings: Omniauth-Einstellungen
             smtp_settings: SMTP-Einstellungen
-          name: Organisation
       oauth_applications:
         create:
           error: Beim Erstellen dieser Anwendung ist ein Fehler aufgetreten.
@@ -121,9 +138,52 @@ de:
           show: Zeige erweiterte Einstellungen
         create:
           error: Beim Erstellen einer neuen Organisation ist ein Fehler aufgetreten.
-          success: Organisation erfolgreich erstellt
+          success_html: |
+            <p>
+              Organisation erfolgreich erstellt.
+            </p>
+            <ol>
+              <li>Eventuell müssen Sie Ihren Anwendungscode aktualisieren um Anfragen an %{host} zu erlauben. Fügen Sie folgendes zu Ihrer Umgebungskonfiguration (z.B. <code>config/environment/production.rb</code>) oder <code>config/application.rb</code> hinzu:
+                <p> config.hosts << "%{host}" </p>
+              </li>
+              <li>
+                Danach können Sie auf die Plattform über <a href="http://%{host}">http://%{host}</a> zugreifen
+              </li>
+              <li>
+                Wir haben eine E-Mail an <b>%{email}</b> gesendet, die Sie bestätigen müssen.
+              </li>
+            </ol>
+        csp_settings:
+          connect_src: Verbindungsvorschriften (connect-src)
+          connect_src_hint: |
+            Die connect-src Anweisung schränkt URLs ein, die mittels <script> Elementen geladen werden können. Die Plattform fügt "self" hinzu, erlaubt aber zusätzliche Quellen. Lassen Sie das Feld leer, wenn Sie unsicher sind.
+          default_src: Standardvorschriften (default-src)
+          default_src_hint: |
+            Die default-src Anweisung ist die Standardmethode um Inhalte wie JavaScript, Bilder, CSS, Schriften, AJAX-Anfragen, Frames oder HTML5-Medien.
+            Die Plattform fügt "'self' 'unsafe-inline'" hinzu, erlaubt aber zusätzliche Quellen. Lassen Sie das Feld leer, wenn Sie unsicher sind.
+          font_src: Schriftvorschriften (font-src)
+          font_src_hint: |
+            Die font-src Anweisung schränkt URLs ein, die mittels @font-face geladen werden können. Die Plattform fügt "self" hinzu, erlaubt aber zusätzliche Quellen. Lassen Sie das Feld leer, wenn Sie unsicher sind.
+          frame_src: Framevorschriften (frame-src)
+          frame_src_hint: |
+            Die frame-src Anweisung schränkt URLs ein, die mittels <frame>, <iframe> und <object> Elementen geladen werden können. Die Plattform fügt "self" hinzu, erlaubt aber zusätzliche Quellen. Lassen Sie das Feld leer, wenn Sie unsicher sind.
+          img_src: Bildvorschriften
+          img_src_hint: |
+            Die img-src Anweisung schränkt URLs ein, die mittels <img>, <image>, <picture> und <svg>Elementen geladen werden können. Die Plattform fügt "self" hinzu, erlaubt aber zusätzliche Quellen. Lassen Sie das Feld leer, wenn Sie unsicher sind.
+          media_src: Medienvorschriften (media-src)
+          media_src_hint: |
+            Die media-src Anweisung schränkt URLs ein, die mittels <video>, <audio> und <source> Elementen geladen werden können. Die Plattform fügt "self" hinzu, erlaubt aber zusätzliche Quellen. Lassen Sie das Feld leer, wenn Sie unsicher sind.
+          script_src: Skriptvorschriften (script-src)
+          script_src_hint: |
+            Die script-src Anweisung schränkt URLs ein, die mittels <script> Elementen geladen werden können. Die Plattform fügt "'self' 'unsafe-inline''unsafe-eval'" hinzu, erlaubt aber zusätzliche Quellen. Lassen Sie das Feld leer, wenn Sie unsicher sind.
+          style_src: Stilvorschriften (style-src)
+          style_src_hint: |
+            Die style-src Anweisung schränkt URLs ein, die mittels <style> Elementen geladen werden können. Die Plattform fügt "'self' 'unsafe-inline'" hinzu, erlaubt aber zusätzliche Quellen. Lassen Sie das Feld leer, wenn Sie unsicher sind.
         edit:
+          confirm_resend_invitation: Sind Sie sicher, das Sie die Einladung erneut senden möchten?
+          resend_invitation: Einladung erneut senden
           secondary_hosts_hint: Geben Sie jede von ihnen in einer neuen Zeile ein
+          title: Organisation bearbeiten
         file_upload_settings:
           content_types:
             admin_hint: Diese MIME-Typen sind für das Hochladen im Admin-Panel erlaubt. Admin-Benutzer sollten sich der Risiken des Hochladens einiger Dokumentformate bewusst sein, so dass man von ihnen erwarten kann dass sie vorsichtiger mit Datei-Uploads sind.
@@ -145,6 +205,10 @@ de:
         index:
           title: Organisationen
         new:
+          default: Standard?
+          enabled: Aktiviert
+          locale: Spracheinstellung
+          organization_admin_email_hint: Wir senden Ihnen eine E-Mail an diese Adresse, die Sie bestätigen müssen um Ihr Passwort einrichten zu können.
           reference_prefix_hint: Das Referenzpräfix wird zur eindeutigen Identifizierung von Ressourcen in allen Organisationen verwendet.
           secondary_hosts_hint: Geben Sie jede von ihnen in einer neuen Zeile ein.
           title: Neue Organisation
@@ -166,6 +230,9 @@ de:
           twitter:
             api_key: API-Schlüssel
             api_secret: API-Geheimnis
+        resend_invitation:
+          error: Beim Versand der Einladung ist ein Fehler aufgetreten.
+          success: Einladung erfolgreich gesendet.
         smtp_settings:
           fieldsets:
             sender: Absender
@@ -185,5 +252,14 @@ de:
         notices:
           no_organization_warning_html: Sie müssen eine Organisation erstellen, um zu beginnen. Stellen Sie sicher, dass Sie %{guide} lesen, bevor Sie fortfahren.
           our_getting_started_guide: unser Leitfaden für Anfänger
+        organizations_list:
+          confirm_resend_invitation: Sind Sie sicher, das Sie die Einladung erneut senden möchten?
+          resend_invitation: Einladung erneut senden
       titles:
         dashboard: Instrumententafel
+        decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Abmelden

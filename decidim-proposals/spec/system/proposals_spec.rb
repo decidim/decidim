@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Proposals", type: :system do
+describe "Proposals" do
   include ActionView::Helpers::TextHelper
   include_context "with a component"
   let(:manifest_name) { "proposals" }
@@ -49,7 +49,7 @@ describe "Proposals", type: :system do
     it_behaves_like "accessible page" do
       before do
         visit_component
-        click_link proposal_title
+        click_on proposal_title
       end
     end
 
@@ -64,12 +64,13 @@ describe "Proposals", type: :system do
     it "allows viewing a single proposal" do
       visit_component
 
-      click_link proposal_title
+      click_on proposal_title
 
       expect(page).to have_content(proposal_title)
       expect(page).to have_content(strip_tags(translated(proposal.body)).strip)
       expect(page).to have_author(proposal.creator_author.name)
       expect(page).to have_content(proposal.reference)
+      expect(page).to have_content(proposal.published_at.strftime("%d/%m/%Y %H:%M"))
     end
 
     context "when process is not related to any scope" do
@@ -77,7 +78,7 @@ describe "Proposals", type: :system do
 
       it "can be filtered by scope" do
         visit_component
-        click_link proposal_title
+        click_on proposal_title
         expect(page).to have_content(translated(scope.name))
       end
     end
@@ -88,8 +89,8 @@ describe "Proposals", type: :system do
 
       it "does not show the scope name" do
         visit_component
-        click_link proposal_title
-        expect(page).not_to have_content(translated(scope.name))
+        click_on proposal_title
+        expect(page).to have_no_content(translated(scope.name))
       end
     end
 
@@ -100,7 +101,7 @@ describe "Proposals", type: :system do
 
       before do
         visit_component
-        click_link official_proposal_title
+        click_on official_proposal_title
       end
 
       it "shows the author as official" do
@@ -116,7 +117,7 @@ describe "Proposals", type: :system do
       before do
         organization.update(rich_text_editor_in_public_views: true)
         visit_component
-        click_link proposal_title
+        click_on proposal_title
       end
 
       it_behaves_like "rendering safe content", ".editor-content"
@@ -127,7 +128,7 @@ describe "Proposals", type: :system do
 
       before do
         visit_component
-        click_link proposal_title
+        click_on proposal_title
       end
 
       it_behaves_like "rendering unsafe content", ".editor-content"
@@ -139,7 +140,7 @@ describe "Proposals", type: :system do
 
       before do
         visit_component
-        click_link proposal_title
+        click_on proposal_title
       end
 
       it "shows the author as meeting" do
@@ -156,7 +157,7 @@ describe "Proposals", type: :system do
 
       it "shows the comments" do
         visit_component
-        click_link proposal_title
+        click_on proposal_title
 
         comments.each do |comment|
           expect(page).to have_content(comment.body.values.first)
@@ -195,7 +196,7 @@ describe "Proposals", type: :system do
         )
 
         visit_component
-        click_link proposal_title
+        click_on proposal_title
       end
 
       context "when is created by the admin" do
@@ -235,7 +236,7 @@ describe "Proposals", type: :system do
         )
 
         visit_component
-        click_link proposal_title
+        click_on proposal_title
 
         expect(page).to have_content("20,000.00")
         expect(page).to have_content("MY EXECUTION PERIOD")
@@ -256,7 +257,7 @@ describe "Proposals", type: :system do
 
       it "shows related meetings" do
         visit_component
-        click_link proposal_title
+        click_on proposal_title
 
         expect(page).to have_i18n_content(meeting.title)
       end
@@ -275,7 +276,7 @@ describe "Proposals", type: :system do
 
       it "shows related resources" do
         visit_component
-        click_link proposal_title
+        click_on proposal_title
 
         expect(page).to have_i18n_content(result.title)
       end
@@ -286,11 +287,11 @@ describe "Proposals", type: :system do
 
       it "shows a badge and an answer" do
         visit_component
-        click_link proposal_title
+        click_on proposal_title
 
         expect(page).to have_content("Evaluating")
 
-        within ".callout.warning[data-announcement]" do
+        within ".flash[data-announcement]", style: proposal.proposal_state.css_style do
           expect(page).to have_content("This proposal is being evaluated")
           expect(page).to have_i18n_content(proposal.answer)
         end
@@ -306,11 +307,11 @@ describe "Proposals", type: :system do
         uncheck "Evaluating"
         uncheck "Not answered"
         page.find_link(proposal_title, wait: 30)
-        click_link proposal_title
+        click_on proposal_title
 
         expect(page).to have_content("Rejected")
 
-        within ".callout.alert[data-announcement]" do
+        within ".flash[data-announcement]", style: proposal.proposal_state.css_style do
           expect(page).to have_content("This proposal has been rejected")
           expect(page).to have_i18n_content(proposal.answer)
         end
@@ -322,11 +323,11 @@ describe "Proposals", type: :system do
 
       it "shows the acceptance reason" do
         visit_component
-        click_link proposal_title
+        click_on proposal_title
 
         expect(page).to have_content("Accepted")
 
-        within ".callout.success[data-announcement]" do
+        within ".flash[data-announcement]", style: proposal.proposal_state.css_style do
           expect(page).to have_content("This proposal has been accepted")
           expect(page).to have_i18n_content(proposal.answer)
         end
@@ -338,15 +339,15 @@ describe "Proposals", type: :system do
 
       it "shows the acceptance reason" do
         visit_component
-        click_link proposal_title
+        click_on proposal_title
 
-        expect(page).not_to have_content("Accepted")
-        expect(page).not_to have_content("This proposal has been accepted")
+        expect(page).to have_no_content("Accepted")
+        expect(page).to have_no_content("This proposal has been accepted")
         expect(page).not_to have_i18n_content(proposal.answer)
       end
     end
 
-    context "when the proposals'a author account has been deleted" do
+    context "when the proposal's author account has been deleted" do
       let(:proposal) { proposals.first }
 
       before do
@@ -356,7 +357,7 @@ describe "Proposals", type: :system do
       it "the user is displayed as a deleted user" do
         visit_component
 
-        click_link proposal_title
+        click_on proposal_title
 
         expect(page).to have_content("Deleted participant")
       end
@@ -381,7 +382,7 @@ describe "Proposals", type: :system do
 
     it "shows related projects" do
       visit_component
-      click_link proposal_title
+      click_on proposal_title
 
       expect(page).to have_i18n_content(project.title)
     end
@@ -397,10 +398,10 @@ describe "Proposals", type: :system do
       it "lists the proposals ordered randomly by default" do
         visit_component
 
-        expect(page).to have_selector("a", text: "Random")
-        expect(page).to have_selector("[id^='proposals__proposal']", count: 2)
-        expect(page).to have_selector("[id^='proposals__proposal']", text: lucky_proposal_title)
-        expect(page).to have_selector("[id^='proposals__proposal']", text: unlucky_proposal_title)
+        expect(page).to have_css("a", text: "Random")
+        expect(page).to have_css("[id^='proposals__proposal']", count: 2)
+        expect(page).to have_css("[id^='proposals__proposal']", text: lucky_proposal_title)
+        expect(page).to have_css("[id^='proposals__proposal']", text: unlucky_proposal_title)
         expect(page).to have_author(lucky_proposal.creator_author.name)
       end
     end
@@ -437,7 +438,7 @@ describe "Proposals", type: :system do
 
         within("#proposals__proposal_#{proposal.id}") do
           within(".card__list-metadata") do
-            expect(page).to have_css("span", text: 2)
+            expect(page).to have_css("div", text: 2)
           end
         end
       end
@@ -468,9 +469,9 @@ describe "Proposals", type: :system do
       before { visit_component }
 
       it "lists the proposals ordered by votes by default" do
-        expect(page).to have_selector("a", text: "Most supported")
-        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: most_voted_proposal_title)
-        expect(page).to have_selector("[id^='proposals__proposal']:last-child", text: less_voted_proposal_title)
+        expect(page).to have_css("a", text: "Most supported")
+        expect(page).to have_css("[id^='proposals__proposal']:first-child", text: most_voted_proposal_title)
+        expect(page).to have_css("[id^='proposals__proposal']:last-child", text: less_voted_proposal_title)
       end
     end
 
@@ -505,9 +506,9 @@ describe "Proposals", type: :system do
 
         expect(page).to have_css("[id^='proposals__proposal']", count: Decidim::Paginable::OPTIONS.first)
 
-        click_link "Next"
+        click_on "Next"
 
-        expect(page).to have_selector("[data-pages] [data-page][aria-current='page']", text: "2")
+        expect(page).to have_css("[data-pages] [data-page][aria-current='page']", text: "2")
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 5)
       end
@@ -519,15 +520,15 @@ describe "Proposals", type: :system do
       before do
         visit_component
         within ".order-by" do
-          expect(page).to have_selector("div.order-by a", text: "Random")
+          expect(page).to have_css("div.order-by a", text: "Random")
           page.find("a", text: "Random").click
-          click_link(selected_option)
+          click_on(selected_option)
         end
       end
 
       it "lists the proposals ordered by selected option" do
-        expect(page).to have_selector("[id^='proposals__proposal']:first-child", text: first_proposal_title)
-        expect(page).to have_selector("[id^='proposals__proposal']:last-child", text: last_proposal_title)
+        expect(page).to have_css("[id^='proposals__proposal']:first-child", text: first_proposal_title)
+        expect(page).to have_css("[id^='proposals__proposal']:last-child", text: last_proposal_title)
       end
     end
 

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages budgets", type: :system do
+describe "Admin manages budgets" do
   let(:budget) { create(:budget, component: current_component) }
   let(:manifest_name) { "budgets" }
 
@@ -15,15 +15,13 @@ describe "Admin manages budgets", type: :system do
   end
 
   describe "admin form" do
-    before { click_on "New Budget" }
+    before { click_on "New budget" }
 
     it_behaves_like "having a rich text editor", "new_budget", "content"
   end
 
   it "creates a new budget" do
-    within ".card-title" do
-      click_link "New Budget"
-    end
+    click_on "New budget"
 
     within ".new_budget" do
       fill_in_i18n(
@@ -42,16 +40,12 @@ describe "Admin manages budgets", type: :system do
       )
       fill_in :budget_weight, with: 1
       fill_in :budget_total_budget, with: 100_000_00
-      scope_pick select_data_picker(:budget_decidim_scope_id), scope
+      select translated(scope.name), from: :budget_decidim_scope_id
     end
 
-    within ".new_budget" do
-      find("*[type=submit]").click
-    end
+    click_on "Create budget"
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout("Budget successfully created.")
 
     within "table" do
       expect(page).to have_content("My Budget")
@@ -60,7 +54,7 @@ describe "Admin manages budgets", type: :system do
 
   describe "updating a budget" do
     it "updates a budget" do
-      within find("tr", text: translated(budget.title)) do
+      within "tr", text: translated(budget.title) do
         page.find(".action-icon--edit").click
       end
 
@@ -72,13 +66,11 @@ describe "Admin manages budgets", type: :system do
           es: "Mi nuevo título",
           ca: "El meu nou títol"
         )
-
-        find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      click_on "Update budget"
+
+      expect(page).to have_admin_callout("Budget successfully updated.")
 
       within "table" do
         expect(page).to have_content("My new title")
@@ -95,18 +87,16 @@ describe "Admin manages budgets", type: :system do
 
   describe "deleting a budget" do
     it "deletes a budget" do
-      within find("tr", text: translated(budget.title)) do
-        accept_confirm(admin: true) do
+      within "tr", text: translated(budget.title) do
+        accept_confirm do
           page.find(".action-icon--remove").click
         end
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("Budget successfully deleted.")
 
       within "table" do
-        expect(page).not_to have_content(translated(budget.title))
+        expect(page).to have_no_content(translated(budget.title))
       end
     end
 
@@ -114,8 +104,64 @@ describe "Admin manages budgets", type: :system do
       let!(:budget) { create(:budget, :with_projects, component: current_component) }
 
       it "cannot delete the budget" do
-        within find("tr", text: translated(budget.title)) do
-          expect(page).not_to have_selector(".action-icon--remove")
+        within "tr", text: translated(budget.title) do
+          expect(page).to have_no_css(".action-icon--remove")
+        end
+      end
+    end
+  end
+
+  describe "when managing a budget with scopes" do
+    let!(:scopes) { create_list(:subscope, 3, organization:, parent: scope) }
+    let(:scope_id) { scope.id }
+    let(:participatory_space) { create(:participatory_process, organization:, scopes_enabled:) }
+    let!(:component) { create(:component, manifest:, settings: { scopes_enabled:, scope_id: }, participatory_space:) }
+    let!(:budget) { create(:budget, component: current_component) }
+    let!(:scope) { create(:scope, organization:) }
+    let(:scopes_enabled) { true }
+
+    before do
+      visit current_path
+    end
+
+    context "when the scope has subscopes" do
+      context "when scopes_enabled is true" do
+        it "displays the scope column" do
+          expect(component).to be_scopes_enabled
+          expect(component).to have_subscopes
+          expect(page).to have_content("Scope")
+        end
+      end
+
+      context "when scopes_enabled is false" do
+        let(:scopes_enabled) { false }
+
+        it "displays the scope column" do
+          expect(component).not_to be_scopes_enabled
+          expect(component).not_to have_subscopes
+          expect(page).to have_no_content("Scope")
+        end
+      end
+    end
+
+    context "when the scope does not have subscopes" do
+      let(:scope_id) { scopes.first.id }
+
+      context "when scopes_enabled is true" do
+        it "hides the scope column" do
+          expect(component).to be_scopes_enabled
+          expect(component).not_to have_subscopes
+          expect(page).to have_no_content("Scope")
+        end
+      end
+
+      context "when scopes_enabled is false" do
+        let(:scopes_enabled) { false }
+
+        it "displays the scope column" do
+          expect(component).not_to be_scopes_enabled
+          expect(component).not_to have_subscopes
+          expect(page).to have_no_content("Scope")
         end
       end
     end
@@ -172,16 +218,16 @@ describe "Admin manages budgets", type: :system do
       it "shows finished and pending orders" do
         visit current_path
         within find_all(".card-divider").last do
-          expect(page).to have_content("Finished votes: \n4")
-          expect(page).to have_content("Pending votes: \n1")
+          expect(page).to have_content("Finished votes: 4")
+          expect(page).to have_content("Pending votes: 1")
         end
       end
 
       it "shows count of users with finished and pending orders" do
         visit current_path
         within find_all(".card-divider").last do
-          expect(page).to have_content("Users with finished votes: \n3")
-          expect(page).to have_content("Users with pending votes: \n1")
+          expect(page).to have_content("Users with finished votes: 3")
+          expect(page).to have_content("Users with pending votes: 1")
         end
       end
     end

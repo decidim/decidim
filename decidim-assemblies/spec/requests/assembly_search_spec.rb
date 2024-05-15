@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe "Assembly search", type: :request do
+RSpec.describe "Assembly search" do
   subject { response.body }
 
   let(:organization) { create(:organization) }
@@ -37,16 +37,16 @@ RSpec.describe "Assembly search", type: :request do
   end
 
   it "displays all assemblies by default" do
-    expect(subject).to include(translated(assembly1.title))
-    expect(subject).to include(translated(assembly2.title))
+    expect(subject).to include(decidim_escape_translated(assembly1.title))
+    expect(subject).to include(decidim_escape_translated(assembly2.title))
   end
 
   context "when filtering by assembly type" do
     let(:filter_params) { { with_any_type: [assembly1.assembly_type.id] } }
 
     it "displays matching assemblies" do
-      expect(subject).to include(translated(assembly1.title))
-      expect(subject).not_to include(translated(assembly2.title))
+      expect(subject).to include(decidim_escape_translated(assembly1.title))
+      expect(subject).not_to include(decidim_escape_translated(assembly2.title))
     end
   end
 
@@ -54,8 +54,8 @@ RSpec.describe "Assembly search", type: :request do
     let(:filter_params) { { with_any_area: [assembly1.area.id] } }
 
     it "displays matching assemblies" do
-      expect(subject).to include(translated(assembly1.title))
-      expect(subject).not_to include(translated(assembly2.title))
+      expect(subject).to include(decidim_escape_translated(assembly1.title))
+      expect(subject).not_to include(decidim_escape_translated(assembly2.title))
     end
   end
 
@@ -63,8 +63,8 @@ RSpec.describe "Assembly search", type: :request do
     let(:filter_params) { { with_any_scope: [assembly1.scope.id] } }
 
     it "displays matching assemblies" do
-      expect(subject).to include(translated(assembly1.title))
-      expect(subject).not_to include(translated(assembly2.title))
+      expect(subject).to include(decidim_escape_translated(assembly1.title))
+      expect(subject).not_to include(decidim_escape_translated(assembly2.title))
     end
   end
 end

@@ -36,8 +36,6 @@ is-IS:
         confirm_destroy: Ertu viss um að þú viljir eyða þessu %{name}?
         destroy: Eyða
         edit: Breyta
-        import_csv: Flytja inn CSV
-        new: Nýtt %{name}
         preview: Preview
         timeline_entries: Verkefnisþróun
         title: Aðgerðir
@@ -48,14 +46,11 @@ is-IS:
         import_results:
           new:
             import: Flytja inn
-            title: Flytja inn niðurstöður frá CSV
         models:
           result:
             name: Niðurstaða
           status:
             name: Staða
-          timeline_entry:
-            name: Tímalína færsla
         results:
           edit:
             title: Breyta niðurstöðum
@@ -96,9 +91,7 @@ is-IS:
             not_found: 'Móðirin fannst ekki í gagnagrunninum (ID: %{id})'
       content_blocks:
         highlighted_results:
-          dates: Dagsetningar
           results: Niðurstöður
-          unspecified: Ekki tilgreint
       import_mailer:
         import:
           errors: Villur
@@ -124,9 +117,6 @@ is-IS:
         timeline_entry:
           fields:
             entry_date: Dagsetning
-      result_m:
-        executed: Framkvæmt
-        view: Skoða
       results:
         count:
           results_count:
@@ -145,15 +135,7 @@ is-IS:
           search: Leitaðu að aðgerðum
         show:
           stats:
-            attendees: Dómarar
             back_to_resource: Fara aftur til niðurstöðu
-            comments: Athugasemdir
-            contributions: Framlög
-            last_edited_by: Síðast breytt af
-            last_updated_at: Síðast uppfært á
-            meetings: Fundir
-            proposals: Tillögur
-            votes: Styður
         timeline:
           title: Verkefnisþróun
     admin:

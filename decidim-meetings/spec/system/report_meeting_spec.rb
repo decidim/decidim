@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Report Meeting", type: :system do
+describe "Report Meeting" do
   include_context "with a component"
 
   let(:manifest_name) { "meetings" }

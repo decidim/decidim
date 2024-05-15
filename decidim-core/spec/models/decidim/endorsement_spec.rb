@@ -26,7 +26,7 @@ module Decidim
     end
 
     it "has an associated resource" do
-      expect(endorsement.resource).to be_a(Decidim::DummyResources::DummyResource)
+      expect(endorsement.resource).to be_a(Decidim::Dev::DummyResource)
     end
 
     it "validates uniqueness for author and user_group and resource combination" do
@@ -84,10 +84,10 @@ module Decidim
         create(:endorsement, resource:, author:, user_group: other_user_group)
       end
 
-      it "sorts user_grup endorsements first and then by created_at" do
+      it "sorts user_group endorsements first and then by created_at" do
         expected_sorting = [
-          endorsement.id, other_endorsement2.id,
-          other_endorsement1.id
+          other_endorsement1.id, endorsement.id,
+          other_endorsement2.id
         ]
         expect(resource.endorsements.for_listing.pluck(:id)).to eq(expected_sorting)
       end

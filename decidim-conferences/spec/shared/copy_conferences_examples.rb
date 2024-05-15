@@ -18,7 +18,7 @@ shared_examples "copy conferences" do
 
   context "without any context" do
     it "copies the conference with the basic fields" do
-      click_link "Duplicate", match: :first
+      click_on "Duplicate", match: :first
 
       within ".copy_conference" do
         fill_in_i18n(
@@ -29,18 +29,18 @@ shared_examples "copy conferences" do
           ca: "Còpia del procés participatiu"
         )
         fill_in :conference_slug, with: "pp-copy"
-        click_button "Copy"
+        click_on "Copy"
       end
 
       expect(page).to have_content("successfully")
       expect(page).to have_content("Copy conference")
-      expect(page).to have_content("Not published")
+      expect(page).to have_content("Unpublished")
     end
   end
 
   context "with context" do
     before do
-      click_link "Duplicate", match: :first
+      click_on "Duplicate", match: :first
 
       within ".copy_conference" do
         fill_in_i18n(
@@ -56,14 +56,16 @@ shared_examples "copy conferences" do
 
     it "copies the conference with categories" do
       page.check("conference[copy_categories]")
-      click_button "Copy"
+      click_on "Copy"
 
       expect(page).to have_content("successfully")
 
-      within find("tr", text: "Copy conference") do
-        click_link "Configure"
+      within "tr", text: "Copy conference" do
+        click_on "Configure"
       end
-      click_link "Categories"
+      within_admin_sidebar_menu do
+        click_on "Categories"
+      end
 
       within ".table-list" do
         conference.categories.each do |category|
@@ -74,14 +76,16 @@ shared_examples "copy conferences" do
 
     it "copies the conference with components" do
       page.check("conference[copy_components]")
-      click_button "Copy"
+      click_on "Copy"
 
       expect(page).to have_content("successfully")
 
-      within find("tr", text: "Copy conference") do
-        click_link "Configure"
+      within "tr", text: "Copy conference" do
+        click_on "Configure"
       end
-      click_link "Components"
+      within_admin_sidebar_menu do
+        click_on "Components"
+      end
 
       within ".table-list" do
         conference.components.each do |component|

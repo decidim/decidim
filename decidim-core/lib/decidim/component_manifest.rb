@@ -44,6 +44,9 @@ module Decidim
     # engine's assets path.
     attribute :icon, String
 
+    # A String with the component's icon key.
+    attribute :icon_key, String
+
     # Actions are used to validate permissions of a component against particular
     # authorizations or potentially other authorization rules.
     #
@@ -133,7 +136,9 @@ module Decidim
     #
     # Returns nothing.
     def seed!(participatory_space)
+      # rubocop:disable Rails/Output
       print "-- Creating #{name} component seeds for the participatory space with ID: #{participatory_space.id}...\n" unless Rails.env.test?
+      # rubocop:enable Rails/Output
       @seeds&.call(participatory_space)
     end
 
@@ -256,7 +261,7 @@ module Decidim
     end
 
     # Public: Finds the specific data importer class from its name, using the
-    # `specific_data_importerer_class_name` attribute. If the class does not exist,
+    # `specific_data_importer_class_name` attribute. If the class does not exist,
     # it raises an exception. If the class name is not set, it returns nil.
     #
     # Returns a Decidim::Importers::Importer subclass or nil.

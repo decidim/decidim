@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Headers
-    describe "ContentSecurityPolicy", type: :controller do
+    describe "ContentSecurityPolicy" do
       let!(:organization) { create(:organization) }
       let!(:user) { create(:user, :confirmed, organization:) }
       let!(:additional_content_security_policies) do
@@ -20,6 +20,7 @@ module Decidim
           "media-src" => "https://example.org"
         }
       end
+      let(:maps_host) { Decidim::Dev::Test::MapServer.host }
 
       controller do
         include Decidim::Headers::ContentSecurityPolicy
@@ -38,28 +39,28 @@ module Decidim
         routes.draw { get "show" => "anonymous#show" }
       end
 
-      it "sets the appropiate headers" do
+      it "sets the appropriate headers" do
         get :show
-        expect(response.headers["Content-Security-Policy"]).to include("default-src 'self' 'unsafe-inline'; ")
-        expect(response.headers["Content-Security-Policy"]).to include("script-src 'self' 'unsafe-inline' 'unsafe-eval';")
-        expect(response.headers["Content-Security-Policy"]).to include("style-src 'self' 'unsafe-inline';")
-        expect(response.headers["Content-Security-Policy"]).to include("img-src 'self' *.hereapi.com data: https://via.placeholder.com;")
-        expect(response.headers["Content-Security-Policy"]).to include("connect-src 'self' *.hereapi.com *.jsdelivr.net;")
-        expect(response.headers["Content-Security-Policy"]).to include("font-src 'self';")
-        expect(response.headers["Content-Security-Policy"]).to include("frame-src 'self' www.youtube-nocookie.com player.vimeo.com;")
-        expect(response.headers["Content-Security-Policy"]).to include("media-src 'self'")
+        expect(response.headers["Content-Security-Policy"]).to include("default-src 'self' 'unsafe-inline' localhost:* #{organization.host}:*; ")
+        expect(response.headers["Content-Security-Policy"]).to include("script-src 'self' 'unsafe-inline' 'unsafe-eval' localhost:* #{organization.host}:*; ")
+        expect(response.headers["Content-Security-Policy"]).to include("style-src 'self' 'unsafe-inline' localhost:* #{organization.host}:*;")
+        expect(response.headers["Content-Security-Policy"]).to include("img-src 'self' *.hereapi.com data: https://via.placeholder.com #{maps_host} localhost:* #{organization.host}:*;")
+        expect(response.headers["Content-Security-Policy"]).to include("connect-src 'self' *.hereapi.com data: #{maps_host} localhost:* #{organization.host}:*; ")
+        expect(response.headers["Content-Security-Policy"]).to include("font-src 'self' localhost:* #{organization.host}:*; ")
+        expect(response.headers["Content-Security-Policy"]).to include("frame-src 'self' www.youtube-nocookie.com player.vimeo.com localhost:* #{organization.host}:* www.example.org;")
+        expect(response.headers["Content-Security-Policy"]).to include("media-src 'self' localhost:* #{organization.host}:*")
       end
 
       context "when content policy is added by organization" do
         let!(:organization) { create(:organization, content_security_policy: additional_content_security_policies) }
 
-        it "sets the appropiate headers" do
+        it "sets the appropriate headers" do
           get :show
           expect(response.headers["Content-Security-Policy"]).to include("default-src 'self' 'unsafe-inline' https://example.org; ")
           expect(response.headers["Content-Security-Policy"]).to include("script-src 'self' 'unsafe-inline' 'unsafe-eval' https://script.example.org;")
           expect(response.headers["Content-Security-Policy"]).to include("style-src 'self' 'unsafe-inline' https://style.example.org;")
-          expect(response.headers["Content-Security-Policy"]).to include("img-src 'self' *.hereapi.com data: https://via.placeholder.com https://img.example.org;")
-          expect(response.headers["Content-Security-Policy"]).to include("connect-src 'self' *.hereapi.com *.jsdelivr.net https://connect.example.org;")
+          expect(response.headers["Content-Security-Policy"]).to include("img-src 'self' *.hereapi.com data: https://via.placeholder.com #{maps_host} https://img.example.org;")
+          expect(response.headers["Content-Security-Policy"]).to include("connect-src 'self' *.hereapi.com data: #{maps_host} https://connect.example.org;")
           expect(response.headers["Content-Security-Policy"]).to include("font-src 'self' https://font.example.org;")
           expect(response.headers["Content-Security-Policy"]).to include("frame-src 'self' www.youtube-nocookie.com player.vimeo.com https://frame.example.org;")
           expect(response.headers["Content-Security-Policy"]).to include("media-src 'self' https://example.org")
@@ -67,17 +68,17 @@ module Decidim
       end
 
       context "when content policy is added via decidim config" do
-        it "sets the appropiate headers" do
+        it "sets the appropriate headers" do
           allow(Decidim).to receive(:content_security_policies_extra).and_return(additional_content_security_policies)
           get :show
-          expect(response.headers["Content-Security-Policy"]).to include("default-src 'self' 'unsafe-inline' https://example.org; ")
-          expect(response.headers["Content-Security-Policy"]).to include("script-src 'self' 'unsafe-inline' 'unsafe-eval' https://script.example.org;")
-          expect(response.headers["Content-Security-Policy"]).to include("style-src 'self' 'unsafe-inline' https://style.example.org;")
-          expect(response.headers["Content-Security-Policy"]).to include("img-src 'self' *.hereapi.com data: https://img.example.org;")
-          expect(response.headers["Content-Security-Policy"]).to include("connect-src 'self' *.hereapi.com *.jsdelivr.net https://connect.example.org;")
-          expect(response.headers["Content-Security-Policy"]).to include("font-src 'self' https://font.example.org;")
-          expect(response.headers["Content-Security-Policy"]).to include("frame-src 'self' www.youtube-nocookie.com player.vimeo.com https://frame.example.org;")
-          expect(response.headers["Content-Security-Policy"]).to include("media-src 'self' https://example.org")
+          expect(response.headers["Content-Security-Policy"]).to include("default-src 'self' 'unsafe-inline' https://example.org localhost:* #{organization.host}:*; ")
+          expect(response.headers["Content-Security-Policy"]).to include("script-src 'self' 'unsafe-inline' 'unsafe-eval' https://script.example.org localhost:* #{organization.host}:*; ")
+          expect(response.headers["Content-Security-Policy"]).to include("style-src 'self' 'unsafe-inline' https://style.example.org localhost:* #{organization.host}:*;")
+          expect(response.headers["Content-Security-Policy"]).to include("img-src 'self' *.hereapi.com data: https://img.example.org localhost:* #{organization.host}:*;")
+          expect(response.headers["Content-Security-Policy"]).to include("connect-src 'self' *.hereapi.com data: https://connect.example.org localhost:* #{organization.host}:*; ")
+          expect(response.headers["Content-Security-Policy"]).to include("font-src 'self' https://font.example.org localhost:* #{organization.host}:*; ")
+          expect(response.headers["Content-Security-Policy"]).to include("frame-src 'self' www.youtube-nocookie.com player.vimeo.com https://frame.example.org localhost:* #{organization.host}:* www.example.org;")
+          expect(response.headers["Content-Security-Policy"]).to include("media-src 'self' https://example.org localhost:* #{organization.host}:*")
         end
       end
 
@@ -114,16 +115,16 @@ module Decidim
           routes.draw { get "show" => "anonymous#show" }
         end
 
-        it "sets the appropiate headers" do
+        it "sets the appropriate headers" do
           get :show
-          expect(response.headers["Content-Security-Policy"]).to include("default-src 'self' 'unsafe-inline' https://example.org; ")
-          expect(response.headers["Content-Security-Policy"]).to include("script-src 'self' 'unsafe-inline' 'unsafe-eval' https://script.example.org;")
-          expect(response.headers["Content-Security-Policy"]).to include("style-src 'self' 'unsafe-inline' https://style.example.org;")
-          expect(response.headers["Content-Security-Policy"]).to include("img-src 'self' *.hereapi.com data: https://img.example.org https://via.placeholder.com;")
-          expect(response.headers["Content-Security-Policy"]).to include("connect-src 'self' *.hereapi.com *.jsdelivr.net https://connect.example.org;")
-          expect(response.headers["Content-Security-Policy"]).to include("font-src 'self' https://font.example.org;")
-          expect(response.headers["Content-Security-Policy"]).to include("frame-src 'self' www.youtube-nocookie.com player.vimeo.com https://frame.example.org;")
-          expect(response.headers["Content-Security-Policy"]).to include("media-src 'self' https://example.org")
+          expect(response.headers["Content-Security-Policy"]).to include("default-src 'self' 'unsafe-inline' https://example.org localhost:* #{organization.host}:*; ")
+          expect(response.headers["Content-Security-Policy"]).to include("script-src 'self' 'unsafe-inline' 'unsafe-eval' https://script.example.org localhost:* #{organization.host}:*; ")
+          expect(response.headers["Content-Security-Policy"]).to include("style-src 'self' 'unsafe-inline' https://style.example.org localhost:* #{organization.host}:*; ")
+          expect(response.headers["Content-Security-Policy"]).to include("img-src 'self' *.hereapi.com data: https://img.example.org https://via.placeholder.com #{maps_host} localhost:* #{organization.host}:*;")
+          expect(response.headers["Content-Security-Policy"]).to include("connect-src 'self' *.hereapi.com data: https://connect.example.org #{maps_host} localhost:* #{organization.host}:*;")
+          expect(response.headers["Content-Security-Policy"]).to include("font-src 'self' https://font.example.org localhost:* #{organization.host}:*;")
+          expect(response.headers["Content-Security-Policy"]).to include("frame-src 'self' www.youtube-nocookie.com player.vimeo.com https://frame.example.org localhost:* #{organization.host}:* www.example.org;")
+          expect(response.headers["Content-Security-Policy"]).to include("media-src 'self' https://example.org localhost:* #{organization.host}:*")
         end
       end
     end

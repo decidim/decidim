@@ -1,0 +1,19 @@
+.show_email {
+  @apply my-4;
+
+  h4 {
+    @apply text-md w-full text-gray-2 font-semibold mb-2;
+  }
+
+  > div {
+    @apply bg-gray-3 mb-2 p-2;
+  }
+
+  #user_email + p {
+    @apply hidden;
+  }
+
+  #user_email:empty + p {
+    @apply block;
+  }
+}

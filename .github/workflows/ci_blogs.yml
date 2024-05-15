@@ -20,7 +20,7 @@ on:
       - "decidim-participatory_processes/**"
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -36,7 +36,5 @@ jobs:
     with:
       working-directory: "decidim-blogs"
       test_command: bundle exec parallel_test --type rspec --pattern spec/
-      bullet_enabled: false
-      bullet_counter_cache: false
       bullet_n_plus_one: false
       bullet_unused_eager_loading: false

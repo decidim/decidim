@@ -17,10 +17,10 @@ module Decidim::Admin
         Decidim::Admin::NewsletterForm.from_params(
           subject: newsletter_subject,
           settings: newsletter_body.transform_keys { |key| "body_#{key}" }
-        ).with_context(current_organization: organization)
+        ).with_context(current_organization: organization, current_user: user)
       end
 
-      let(:command) { described_class.new(form, content_block, user) }
+      let(:command) { described_class.new(form, content_block) }
 
       describe "when the form is not valid" do
         let(:newsletter_subject) { nil }

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "UserTosAcceptance", type: :system do
+describe "UserTosAcceptance" do
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :confirmed, organization:) }
   let!(:tos_page) { Decidim::StaticPage.find_by(slug: "terms-of-service", organization:) }
@@ -46,7 +46,7 @@ describe "UserTosAcceptance", type: :system do
 
     context "and the user accepts the updated TOS" do
       before do
-        click_button btn_accept
+        click_on btn_accept
       end
 
       it "renders a success announcement" do
@@ -57,7 +57,7 @@ describe "UserTosAcceptance", type: :system do
 
     context "and the user refuses the updated TOS" do
       before do
-        click_button btn_refuse
+        click_on btn_refuse
       end
 
       it "renders a modal" do

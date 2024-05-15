@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Filter Assemblies", type: :system do
+describe "Filter Assemblies" do
   let(:organization) { create(:organization) }
 
   before do
@@ -19,7 +19,7 @@ describe "Filter Assemblies", type: :system do
         check "All"
       end
       within "#assemblies-grid" do
-        expect(page).to have_selector(".card__grid", count: 3)
+        expect(page).to have_css(".card__grid", count: 3)
       end
     end
 
@@ -32,7 +32,7 @@ describe "Filter Assemblies", type: :system do
           check translated(assembly.assembly_type.title)
         end
         within "#assemblies-grid" do
-          expect(page).to have_selector(".card__grid", count: 1)
+          expect(page).to have_css(".card__grid", count: 1)
           expect(page).to have_content(translated(assembly.title))
         end
       end
@@ -46,10 +46,10 @@ describe "Filter Assemblies", type: :system do
         check translated(assemblies[1].assembly_type.title)
       end
       within "#assemblies-grid" do
-        expect(page).to have_selector(".card__grid", count: 2)
+        expect(page).to have_css(".card__grid", count: 2)
         expect(page).to have_content(translated(assemblies[0].title))
         expect(page).to have_content(translated(assemblies[1].title))
-        expect(page).not_to have_content(translated(assemblies[2].title))
+        expect(page).to have_no_content(translated(assemblies[2].title))
       end
     end
   end
@@ -63,7 +63,7 @@ describe "Filter Assemblies", type: :system do
 
     it "does not show the assemblies types filter" do
       within("#dropdown-menu-filters") do
-        expect(page).not_to have_css("#dropdown-menu-filters div.filter-container", text: "Type")
+        expect(page).to have_no_css("#dropdown-menu-filters div.filter-container", text: "Type")
       end
     end
   end
@@ -81,7 +81,7 @@ describe "Filter Assemblies", type: :system do
       it "lists all processes belonging to that scope" do
         within "#assemblies-grid" do
           expect(page).to have_content(translated(assembly_with_scope.title))
-          expect(page).not_to have_content(translated(assembly_without_scope.title))
+          expect(page).to have_no_content(translated(assembly_without_scope.title))
         end
       end
     end
@@ -126,7 +126,7 @@ describe "Filter Assemblies", type: :system do
         it "lists all processes belonging to that area" do
           within "#assemblies-grid" do
             expect(page).to have_content(translated(assembly_with_area.title))
-            expect(page).not_to have_content(translated(assembly_without_area.title))
+            expect(page).to have_no_content(translated(assembly_without_area.title))
           end
         end
       end
@@ -145,7 +145,7 @@ describe "Filter Assemblies", type: :system do
           within "#assemblies-grid" do
             expect(page).to have_content(translated(assembly_with_area.title))
             expect(page).to have_content(translated(assembly_with_other_area.title))
-            expect(page).not_to have_content(translated(assembly_without_area.title))
+            expect(page).to have_no_content(translated(assembly_without_area.title))
           end
         end
       end

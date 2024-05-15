@@ -14,7 +14,7 @@ describe ActiveModel::Validations::FileContentTypeValidator do
   let(:uploader) do
     Class.new(Decidim::ApplicationUploader) do
       def content_type_allowlist
-        %w(image/jpeg image/png)
+        %w(image/jpeg image/png image/webp)
       end
     end
   end
@@ -27,7 +27,7 @@ describe ActiveModel::Validations::FileContentTypeValidator do
     Class.new(ApplicationRecord) do
       include Decidim::HasUploadValidations
 
-      self.table_name = "decidim_dummy_resources_dummy_resources"
+      self.table_name = "decidim_dev_dummy_resources"
 
       def self.model_name
         ActiveModel::Name.new(self, nil, "Validatable")
@@ -56,7 +56,7 @@ describe ActiveModel::Validations::FileContentTypeValidator do
     it "adds the content type error" do
       expect(subject.count).to eq(1)
       expect(subject[:file]).to eq(
-        ["only files with the following extensions are allowed: jpeg, jpg, png"]
+        ["only files with the following extensions are allowed: jpeg, jpg, png, webp"]
       )
     end
 

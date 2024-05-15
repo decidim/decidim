@@ -5,7 +5,6 @@ de:
         assemblies_ids: Ähnliche Assemblies
         available_slots: Verfügbare Plätze
         banner_image: Banner-Bild
-        consultations_ids: Verwandte Konsultationen
         copy_categories: Kategorien kopieren
         copy_components: Kopieren Sie Komponenten
         copy_features: Funktionen kopieren
@@ -19,7 +18,7 @@ de:
         objectives: Ziele
         participatory_processes_ids: Ähnliche Beteiligungsprozesse
         promoted: Gefördert
-        published_at: Veröffentlicht unter
+        published_at: Veröffentlicht am
         registration_terms: Registrierungsbedingungen
         registrations_enabled: Registrierungen aktiviert
         scope_id: Umfang
@@ -63,7 +62,7 @@ de:
         personal_url: Persönliche URL
         position: Position
         short_bio: Kurze Beschreibung
-        twitter_handle: Twitter-Handle
+        twitter_handle: X-Handler
         user_id: Nutzer
       conference_user_role:
         email: Email
@@ -91,6 +90,11 @@ de:
       actions:
         confirm: Bestätigen
         new_conference: Neue Konferenz
+        new_conference_user_role: Neuer Konferenz-Admin
+        new_media_link: Neuer Medienlink
+        new_partner: Neuer Partner
+        new_registration_type: Neuer Registrierungstyp
+        new_speaker: Neuer Redner
         send_diplomas: Senden Sie eine Teilnahmebestätigung
       conference_copies:
         new:
@@ -132,7 +136,7 @@ de:
         destroy:
           success: Benutzer wurde erfolgreich von dieser Konferenz entfernt.
         edit:
-          title: Aktualisieren Sie den Konferenzbenutzer.
+          title: Konferenzadmin aktualisieren.
           update: Aktualisieren
         index:
           conference_admins_title: Konferenzadmins
@@ -153,8 +157,8 @@ de:
         form:
           title: Allgemeine Information
         index:
-          not_published: Nicht veröffentlicht
           published: Veröffentlicht
+          unpublished: Nicht veröffentlicht
         new:
           create: Erstellen
           title: Konferenz
@@ -194,18 +198,18 @@ de:
           conference_invites: Lädt ein
           conference_speakers: Lautsprecher
           diploma: Teilnahmebestätigung
-          info: Info
+          info: Über diese Konferenz
           media_links: Medienlinks
           moderations: Moderationen
           partners: Partner
           registration_types: Registrierungsarten
           registrations: Registrierungen
+          see_conference: Konferenz ansehen
           user_registrations: Benutzerregistrierungen
       models:
         conference:
           fields:
-            created_at: Hergestellt in
-            promoted: Gefördert
+            created_at: Erstellt am
             published: Veröffentlicht
             title: Titel
         conference_speaker:
@@ -331,7 +335,7 @@ de:
       admin:
         conference_copies:
           form:
-            slug_help: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Konferenz verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         conference_invites:
           create:
             error: Beim Einladen des Benutzers zur Teilnahme an der Konferenz ist ein Problem aufgetreten.
@@ -343,15 +347,8 @@ de:
             non_user: Nicht existierender Benutzer
             select_user: Nutzer wählen
           index:
-            filter:
-              accepted: Akzeptiert
-              all: Alle
-              rejected: Abgelehnt
-              sent: Geschickt
-            filter_by: Filtern nach
             invite_attendee: Teilnehmer einladen
             invites: Lädt ein
-            search: Suche
           new:
             explanation: Die Person wird zur Teilnahme an der Konferenz eingeladen. Wenn die E-Mail nicht registriert ist, werden sie ebenfalls zur Organisation eingeladen.
             invite: Einladen
@@ -373,7 +370,10 @@ de:
             registrations_count:
               one: Es gab 1 Registrierung.
               other: Es gab %{count} Registrierungen.
-            slug_help: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help_html: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+        content_blocks:
+          highlighted_conferences:
+            max_results: Maximale Anzahl angezeigter Elemente
         diplomas:
           edit:
             save: Speichern
@@ -404,7 +404,7 @@ de:
           success: Konferenz-Teilnahmebestätigung korrekt gesendet
       conference:
         registration_confirm:
-          cancel: Stornieren
+          cancel: Abbrechen
           confirm: Bestätigen
         show:
           going: Gehen
@@ -435,7 +435,7 @@ de:
           invalid: Beim Verlassen dieser Konferenz ist ein Problem aufgetreten.
           success: Sie haben die Konferenz erfolgreich verlassen.
       conference_speaker:
-        go_to_twitter: Gehe zu Twitter
+        go_to_twitter: Gehe zu X
         more_info: Mehr Informationen
         personal_website: Persönliche Webseite
         show:
@@ -447,16 +447,21 @@ de:
       conference_speakers:
         index:
           speakers:
-            one: Sprecher*in
+            one: Sprechende
             other: Sprechende
       conferences:
         partners:
           collaborators: Partner
           main_promotors: Organisatoren
         show:
+          already_have_an_account?: Sie haben bereits ein Konto?
+          are_you_new?: Sie haben noch nie teilgenommen?
           login_as: Sie sind als %{name} <%{email}> angemeldet
           make_conference_registration: Für die Konferenz registrieren
+          manage_registration: Registrierung verwalten
           register: Registrieren
+          sign_in_description: Melden Sie sich an, um sich für die Konferenz zu registrieren
+          sign_up_description: Erstellen Sie ein Konto, um sich für die Konferenz zu registrieren
       content_blocks:
         highlighted_conferences:
           name: Hervorgehobene Konferenzen
@@ -491,16 +496,15 @@ de:
             email: Email
             name: Name
             registration_type: Registrierungstyp
-            state: Zustand
+            state: Status
             states:
               confirmed: Bestätigt
               pending: steht aus
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Aktive Konferenzen
-            conferences_button_title: Link zur Konferenz-Seite die alle Konferenzen anzeigt
-            see_all_conferences: Alle Konferenzen anzeigen
+            active_spaces: Aktive Konferenzen
+            see_all_spaces: Alle Konferenzen anzeigen
       registration_types:
         index:
           choose_an_option: 'Wählen Sie Ihre Registrierungsoption:'
@@ -512,7 +516,6 @@ de:
         introduction: Einführung
         objectives: Ziele
         related_assemblies: Ähnliche Gremien
-        related_consultations: Verwandte Konsultationen
         related_participatory_processes: Ähnliche Beteiligungsprozesse
     events:
       conferences:
@@ -570,10 +573,8 @@ de:
   layouts:
     decidim:
       conference_hero:
+        manage_registration: Registrierung verwalten
         register: Registrieren
-      conference_widgets:
-        show:
-          take_part: Teilnehmen
       conferences:
         conference:
           more_info: Mehr Informationen
@@ -584,11 +585,7 @@ de:
           conferences:
             one: "%{count} Konferenz"
             other: "%{count} Konferenzen"
-        promoted_conference:
-          more_info: Mehr Informationen
-          take_part: Teilnehmen
       conferences_nav:
-        conference_menu_item: Information
         conference_partners_menu_item: Partner
         conference_speaker_menu_item: Lautsprecher
         media: Medien

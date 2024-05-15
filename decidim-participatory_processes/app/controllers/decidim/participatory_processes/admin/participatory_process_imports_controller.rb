@@ -4,6 +4,10 @@ module Decidim
   module ParticipatoryProcesses
     module Admin
       class ParticipatoryProcessImportsController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
+        before_action :set_controller_breadcrumb
+
+        layout "decidim/admin/participatory_processes"
+
         def new
           enforce_permission_to :import, :process
           @form = form(ParticipatoryProcessImportForm).instance
@@ -24,6 +28,16 @@ module Decidim
               render :new
             end
           end
+        end
+
+        private
+
+        def set_controller_breadcrumb
+          controller_breadcrumb_items << {
+            label: t("import", scope: "decidim.admin.actions"),
+            url: new_import_path,
+            active: true
+          }
         end
       end
     end
