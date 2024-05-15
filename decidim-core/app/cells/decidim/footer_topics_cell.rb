@@ -3,11 +3,10 @@
 require "cell/partial"
 
 module Decidim
-  # @todo Document this cell
+  # Topics and their corresponding pages are mapped out to the footer
+  # of the decidim application via cell("decidim/footer_topics", nil).
   #
-  # Example:
   #
-  #    cell("decidim/footer_topics", nil)
   class FooterTopicsCell < Decidim::ViewModel
     def show
       return if topics.blank?
