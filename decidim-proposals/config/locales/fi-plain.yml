@@ -186,6 +186,7 @@ fi-pl:
             proposal_length: Ehdotuksen runkotekstin merkkien enimmäismäärä
             proposal_limit: Ehdotusten enimmäismäärä käyttäjää kohden
             proposal_wizard_step_1_help_text: Ehdotuksen luonnin "Luo" -vaiheen ohjeteksti
+            proposal_wizard_step_2_help_text: Ehdotuksen luonnin "Julkaise" -vaiheen ohjeteksti
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle ehdotukselle
             scope_id: Teema
             scopes_enabled: Teemat käytössä
@@ -882,9 +883,11 @@ fi-pl:
         wizard_aside:
           back: Takaisin
           back_from_step_1: Takaisin ehdotuksiin
+          back_from_step_2: Takaisin muokkaukseen
         wizard_steps:
           current_step: Tämänhetkinen vaihe
           step_1: Luo ehdotuksesi
+          step_2: Julkaise ehdotuksesi
           title: Ehdotuksen luonnin vaiheet
       proposals_picker:
         choose_proposals: Valitse ehdotukset
