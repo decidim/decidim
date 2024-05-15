@@ -243,6 +243,8 @@ ca:
         smtp_settings:
           fieldsets:
             sender: Remitent
+          instructions:
+            from_label: 'El remitent de correu electrònic serà: "nom-de-la-teva-organitzacio <your-organization@example.org>". Deixa-ho en blanc per a fer servir el mateix nom que el que ja està definit al nom de l''organització.'
           placeholder:
             from_email: la-teva-organitzacio@example.org
             from_label: el-nom-de-la-vostra-organitzacio
