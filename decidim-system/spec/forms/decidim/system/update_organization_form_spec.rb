@@ -6,7 +6,7 @@ module Decidim::System
   describe UpdateOrganizationForm do
     subject do
       described_class.new(
-        name: { ca: "", en: ""Gotham City", es: "" },
+        name: { ca: "", en: "Gotham City", es: "" },
         host: "decide.example.org",
         secondary_hosts: "foo.example.org\r\n\r\nbar.example.org",
         reference_prefix: "JKR",
