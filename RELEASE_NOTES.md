@@ -161,7 +161,7 @@ We also removed the Help page within `Decidim` column in the footer from `decidi
 
 Finally, specific pages could only be displayed in the footer under a topic with the `show_in_footer` attribute enabled. We have altered this functionality by removing this attribute within `static_pages` (`decidim-admin/app/commands/decidim/admin/create_static_page.rb` + `decidim-admin/app/commands/decidim/admin/update_static_page.rb`) to not confuse admin users wanting to create custom pages.
 
-Instead `static_page_topics` are iterated into a new cell here `decidim-core/app/cells/decidim/footer_topics_cell.rb` along with their associated pages to footer under the Help column (`decidim-core/app/cells/decidim/footer_topics/show.erbg`). This change to be shown in the footer is now seeded to application automatically but can deactivated in form via admin along with any newly created topic.
+Instead `static_page_topics` are iterated into a new cell here `decidim-core/app/cells/decidim/footer_topics_cell.rb` along with their associated pages to footer under the Help column (`decidim-core/app/cells/decidim/footer_topics/show.erb`). This change to be shown in the footer is now seeded to application automatically but can deactivated in form via admin along with any newly created topic.
 
 You can read more about this change on PR [\#12592](https://github.com/decidim/decidim/pull/12592).
 
