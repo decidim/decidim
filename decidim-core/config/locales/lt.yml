@@ -1037,7 +1037,6 @@ lt:
           content: "<p>%{organization} galite dalyvauti ir spręsti dėl įvairių temų pasinaudodami puslapiais, kuriuos matote viršutiniame meniu: „Procesai“, „Asamblėjos“, „Iniciatyvos“, „Konsultacijos“.</p> <p>Kiekviename iš jų rasite įvairių dalyvavimo galimybių: individualiai arba su kitais žmonėmis teikti pasiūlymus, dalyvauti diskusijose, nustatyti, kurie įgyvendintini projektai, yra prioritetiniai, dalyvauti tiesioginiuose susitikimuose ir kituose veiksmuose.</p>\n"
           title: Ką galiu daryti %{organization}?
         description: Daugiau informacijos apie %{organization}.
-        title: Bendroji Pagalba
     last_activities:
       all: Visos veiklos rūšys
       index:
@@ -1869,7 +1868,6 @@ lt:
         made_with_open_source: Interneto svetainė sukurta naudojant <a target="_blank" href="https://github.com/decidim/decidim">atvirą programinę įrangą</a>.
         resources: Ištekliai
         sign_up: Registruotis
-        terms_and_conditions: Nuostatos ir sąlygos
       header:
         main_menu: Pagrindinis meniu
         user_menu: Naudotojo meniu
