@@ -155,9 +155,10 @@ You can read more about this change on PR [\#12646](https://github.com/decidim/d
 
 We have changed the behavior of the footer pages and topics links:
 
-* removed the "show in the footer" checkbox for pages
-* always show the link to the "Terms of Service" page
-* only show links in footer to topics
+* Removed the "show in the footer" checkbox for pages.
+* Removed duplicate "Terms of Service" link.
+* Always show the link to the "Terms of Service" page.
+* Only show links in footer to topics.
 
 You can read more about this change on PR [\#12592](https://github.com/decidim/decidim/pull/12592).
 
