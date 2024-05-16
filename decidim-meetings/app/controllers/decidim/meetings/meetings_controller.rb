@@ -76,7 +76,7 @@ module Decidim
 
         @form = meeting_form.from_params(params)
 
-        UpdateMeeting.call(@form, current_user, meeting) do
+        UpdateMeeting.call(@form, meeting) do
           on(:ok) do |meeting|
             flash[:notice] = I18n.t("meetings.update.success", scope: "decidim.meetings")
             redirect_to Decidim::ResourceLocatorPresenter.new(meeting).path
