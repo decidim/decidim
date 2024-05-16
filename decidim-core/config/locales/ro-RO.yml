@@ -802,7 +802,6 @@ ro:
         default_page:
           content: "<p>În %{organization} poți participa și decide cu privire la diferite subiecte, prin spaţiile participative pe care le vezi în meniul superior: Procese, Grupuri de lucru, Iniţiative, Consultări.</p> <p>În cadrul fiecăruia vei găsi opțiuni diferite pentru a participa: formulează propuneri individual sau împreună cu alte persoane, ia parte la dezbateri, prioritizează proiectele ce urmează a fi puse în aplicare, participă la întâlniri față-în-față și la alte acțiuni.</p>\n"
           title: Ce pot face în %{organization}?
-        title: Ajutor General
     last_activities:
       all: Toate tipurile de activitate
       index:
