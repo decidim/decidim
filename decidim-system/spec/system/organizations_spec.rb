@@ -137,6 +137,22 @@ describe "Organizations" do
 
       it_behaves_like "form hiding advanced settings"
 
+      it "properly validate name" do
+        create(:organization, name: { ca: "", en: "Duplicate organization", es: "" })
+
+        fill_in_i18n :update_organization_name, "#update_organization-name-tabs", en: "Citizens Rule!", ca: "Something", es: "Another"
+        click_on "Save"
+
+        within "table tbody tr", text: "Citizens Rule!" do
+          click_on "Edit"
+        end
+        fill_in_i18n :update_organization_name, "#update_organization-name-tabs", en: "Citizens Rule!", ca: "", es: ""
+        click_on "Save"
+
+        expect(page).to have_css("div.flash.success")
+        expect(page).to have_content("Citizens Rule!")
+      end
+
       it "edits the data" do
         fill_in_i18n :update_organization_name, "#update_organization-name-tabs", en: "Citizens Rule!"
         fill_in "Host", with: "www.example.org"
