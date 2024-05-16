@@ -686,7 +686,6 @@ it:
         default_page:
           content: "<p>In %{organization} puoi partecipare e decidere su diversi argomenti, attraverso gli spazi che vedi nel menu in alto: Processi, Assemblee, Iniziative, Consultazioni.</p> <p>All'interno di ognuna troverai diverse opzioni per partecipare: fare proposte - individualmente o con altre persone-, prendere parte ai dibattiti, dare la priorità ai progetti da attuare, partecipare alle riunioni faccia a faccia e altre azioni.</p>\n"
           title: Cosa posso fare in %{organization}?
-        title: Aiuto generale
     last_activities:
       all: Tutti i tipi di attività
       index:
