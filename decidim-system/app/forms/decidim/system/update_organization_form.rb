@@ -28,7 +28,7 @@ module Decidim
           organization_names += value.fetch("machine_translations", {}).values
         end
 
-        organization_names = organization_names.map(&:downcase)
+        organization_names = organization_names.map(&:downcase).compact_blank
 
         name.each do |language, value|
           next if value.is_a?(Hash)
