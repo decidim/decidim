@@ -279,7 +279,7 @@ describe "Conferences" do
       visit decidim_conferences.conference_path(conference)
     end
 
-    it "has a sidebar" do
+    it "has no sidebar" do
       expect(page).to have_no_css(".conference__nav-container")
     end
   end
