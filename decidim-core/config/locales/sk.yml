@@ -616,7 +616,6 @@ sk:
         default_page:
           content: "<p>V %{organization} sa môžete zúčastniť a rozhodnúť sa o rôznych témach cez miesta, ktoré vidíte v hornom menu: procesy, zhromaždenie, iniciatívy, konzultácie. </ p> <p> V rámci každej z nich nájdete rôzne možnosti účasti: urobiť návrhy - jednotlivo alebo s inými ľuďmi -, zúčastňovať sa na diskusiách, uprednostňovať realizáciu projektov, zúčastniť sa osobných stretnutí a ďalších akcií. </p>"
           title: Čo môžem robiť v %{organization}?
-        title: Všeobecná nápoveda
     last_activities:
       all: Všetky typy aktivit
       index:
