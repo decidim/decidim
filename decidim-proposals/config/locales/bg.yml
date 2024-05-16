@@ -463,10 +463,18 @@ bg:
           publish:
             invalid: Неуспешно публикуване на предложения
             success: Всички предложения бяха публикувани
+          sections:
+            article: "<em>Член</em>"
+            section: "<em>Раздел:</em> <strong>%{title}</strong>"
+            sub-section: "<em>Подраздел:</em> %{title}"
+          update:
+            success: Текстът за участие беше актуализиран успешно.
         proposal_answers:
           form:
+            answer_proposal: Отговор
             not_answered: Не отговорено
             rejected: Отхвърлено
+            title: Отговор на предложение %{title}
         proposal_notes:
           create:
             error: Възникна проблем при създаването на тази бележка за предложението
@@ -519,16 +527,34 @@ bg:
             number_of_proposals: Отговорите на %{number} предложения ще бъдат публикувани.
             select_a_proposal: Моля, изберете предложение
           show:
+            amendments_count: Брой изменения
+            assigned_valuators: Присъеденени оценители
             authors: Автори
+            body: Основен текст
+            comments_count: Брой коментари
             comments_negative_count: Против
             comments_neutral_count: Неутрален
             comments_positive_count: Подкрепям
             created_at: Дата на създаване
+            documents: Документи
+            endorsements_count: Брой препоръки
             endorsements_ranking: Класиране по препоръки
+            endorsers: Препоръчали
             link: Връзка
+            n_more_endorsers:
+              one: и още 1
+              other: и още %{count}
+            photos: Снимки
             proposals: Предложения
+            ranking: "%{ranking} от %{total}"
+            related_meetings: Свързани срещи
+            remove_assignment: Премахване на възлагане
+            remove_assignment_confirmation: Наистина ли искате да премахнете оценителя от това предложение?
+            valuators: Оценители
+            votes_count: Брой подкрепяния
             votes_ranking: Класиране по подкрепяния
           update_category:
+            invalid: 'Тези предложения вече имат категорията %{subject_name}: %{proposals}.'
             select_a_category: Моля, изберете категория
             select_a_proposal: Моля, изберете предложение
           update_scope:
