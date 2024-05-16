@@ -4,8 +4,11 @@ require "cell/partial"
 
 module Decidim
   # Topics and their corresponding pages are mapped out to the footer
-  # of the decidim application via cell("decidim/footer_topics", nil).
+  # of the layout.
   #
+  #  Example:
+  #
+  #   cell("decidim/footer_topics", nil)
   #
   class FooterTopicsCell < Decidim::ViewModel
     def show
