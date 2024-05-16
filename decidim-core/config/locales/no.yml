@@ -694,7 +694,6 @@
         default_page:
           content: "<p>I %{organization} kan du delta og bestemme forskjellige temaer gjennom mellomrommene du ser i toppmenyen: Prosesser, Forsamlinger, Initiativer, Konsultasjoner.</p> <p>Innenfor hver enkelt finner du forskjellige alternativer for å delta: lage forslag - hver for seg eller med andre mennesker-, delta i debatter, prioritere prosjekter for å implementere, delta på ansikt-til-ansikt møter og andre handlinger.</p>\n"
           title: Hva kan jeg gjøre i %{organization}?
-        title: Generell hjelp
     last_activities:
       all: Alle aktivitetstyper
       index:
