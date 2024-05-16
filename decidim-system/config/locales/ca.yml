@@ -31,6 +31,10 @@ ca:
           attributes:
             redirect_uri:
               must_be_ssl: L'URI de redirecció ha de ser una URI SSL
+        organization:
+          attributes:
+            password:
+              secret_key: Cal que defineixis la variable d'entorn SECRET_KEY_BASE per a poder guardar aquest camp
   decidim:
     system:
       actions:
