@@ -5,14 +5,14 @@ module Decidim
     # This command is executed when the user changes a Meeting from the admin
     # panel.
     class UpdateMeeting < Decidim::Command
+      delegate :current_user, to: :form
       # Initializes a UpdateMeeting Command.
       #
       # form - The form from which to get the data.
       # current_user - The current user.
       # meeting - The current instance of the page to be updated.
-      def initialize(form, current_user, meeting)
+      def initialize(form, meeting)
         @form = form
-        @current_user = current_user
         @meeting = meeting
       end
 
@@ -33,7 +33,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :current_user, :meeting
+      attr_reader :form, :meeting
 
       def event_arguments
         {
@@ -51,7 +51,7 @@ module Decidim
 
         Decidim.traceability.update!(
           meeting,
-          form.current_user,
+          current_user,
           {
             scope: form.scope,
             category: form.category,
