@@ -31,6 +31,10 @@ es-PY:
           attributes:
             redirect_uri:
               must_be_ssl: La URI de redirección debe ser una URI SSL
+        organization:
+          attributes:
+            password:
+              secret_key: Necesitas definir la variable de entorno SECRETA_KEY_BASE para poder guardar este campo
   decidim:
     system:
       actions:
