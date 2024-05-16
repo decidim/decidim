@@ -39,7 +39,7 @@ module Decidim
         {
           resource: meeting,
           extra: {
-            event_author: form.current_user,
+            event_author: current_user,
             locale:
           }
         }
@@ -64,7 +64,7 @@ module Decidim
             longitude: form.longitude,
             location: { I18n.locale => form.location },
             location_hints: { I18n.locale => form.location_hints },
-            author: form.current_user,
+            author: current_user,
             decidim_user_group_id: form.user_group_id,
             registration_type: form.registration_type,
             registration_url: form.registration_url,
