@@ -9,7 +9,7 @@ module Decidim::Conferences
     let(:registrations_enabled) { true }
     let(:available_slots) { 10 }
     let(:organization) { create(:organization) }
-    let!(:conference) { create(:conference, organization:, registrations_enabled:, available_slots:) }
+    let!(:conference) { create(:conference, organization:, title: { en: "A great conference", ca: "Bona jornada", es: "Buena conferencia" }, registrations_enabled:, available_slots:) }
     let!(:conference_admin) { create(:conference_admin, conference:) }
     let!(:registration_type) { create(:registration_type, conference:) }
     let(:user) { create(:user, :confirmed, organization:) }
