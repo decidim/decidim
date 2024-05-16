@@ -37,7 +37,7 @@
   </div>
 
   <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-    <% if @organization.users.first&.invitation_pending? %>
+    <% if @organization&.users&.first&.invitation_pending? %>
       <%= link_to t(".resend_invitation"),
                   resend_invitation_organization_path(@organization),
                   method: :post,

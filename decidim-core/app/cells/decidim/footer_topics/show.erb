@@ -1,0 +1,8 @@
+<nav role="navigation" aria-label="Help">
+  <h2 class="h4 mb-4">Help</h2>
+  <ul class="space-y-4 break-inside-avoid">
+    <% topics.each do |topic| %>
+      <%= topic_item(topic, class: "font-semibold underline") %>
+    <% end %>
+  </ul>
+</nav>

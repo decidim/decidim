@@ -22,6 +22,7 @@ module Decidim
             title: multi_translation("decidim.help.main_topic.title", organization: organization_name),
             description: multi_translation("decidim.help.main_topic.description", organization: organization_name),
             organization: @organization,
+            show_in_footer: true,
             weight: 0
           )
 

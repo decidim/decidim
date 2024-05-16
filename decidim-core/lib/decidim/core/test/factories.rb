@@ -437,6 +437,7 @@ FactoryBot.define do
     end
     title { generate_localized_title(:static_page_topic_title, skip_injection:) }
     description { generate_localized_description(:static_page_topic_description, skip_injection:) }
+    show_in_footer { true }
     organization
   end
 
