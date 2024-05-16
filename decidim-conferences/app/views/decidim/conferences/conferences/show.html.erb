@@ -35,7 +35,8 @@ edit_link(
 
   <%= render partial: "conference_hero" %>
 
-  <%= render layout: "layouts/decidim/shared/layout_two_col", locals: { reverse: true, main_enabled: false } do %>
+  <% layout_style = conference_nav_items(current_participatory_space).any? ? "layout_two_col" : "layout_center" %>
+  <%= render layout: "layouts/decidim/shared/#{layout_style}", locals: { reverse: true, main_enabled: false, columns: 10 } do %>
 
     <%= participatory_space_floating_help %>
 
