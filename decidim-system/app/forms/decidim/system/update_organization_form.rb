@@ -4,6 +4,8 @@ require "decidim/translatable_attributes"
 
 module Decidim
   module System
+    # A form object used to update organizations from the system dashboard.
+    #
     class UpdateOrganizationForm < BaseOrganizationForm
       translatable_attribute :name, String
 
