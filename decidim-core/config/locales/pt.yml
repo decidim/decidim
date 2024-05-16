@@ -683,7 +683,6 @@ pt:
         default_page:
           content: "<p>Em %{organization} pode participar e decidir sobre diferentes tópicos, através dos espaços que vê no menu superior: Processos, Reuniões, Iniciativas, Consultas.</p> <p>Dentro de cada um encontrará diferentes opções para participar: fazer propostas - individualmente ou com outras pessoas -, participar em debates, priorizar projetos a serem implementados, participar em reuniões presenciais e outras ações.</p>\n"
           title: O que posso fazer em %{organization}?
-        title: Ajuda Geral
     last_activities:
       all: Todos os tipos de atividade
       index:
