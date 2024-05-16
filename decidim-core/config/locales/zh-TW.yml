@@ -923,7 +923,6 @@ zh-TW:
           content: "<p>在 %{organization} 中，您可以透過頂部畫面中的不同空間參與並決定各種議題，包括流程、集會、倡議和諮詢。</p> <p>在每個空間中，您將找到不同的參與選項：個人或與他人一起提出提案、參與辯論、優先考慮要實施的項目、參加面對面會議以及其他行動。</p>\n"
           title: 我可以在 %{organization} 做什麼？”
         description: 閱讀更多有關 %{organization} 的資訊.
-        title: 一般幫助
     last_activities:
       all: 所有活動類型
       index:
