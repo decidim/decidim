@@ -36,6 +36,7 @@ de:
         dialogs:
           dialog_demo_description_html: Die Dialoge oder modale Komponenten werden über den Rails-Helfer <code>decidim_modal</code> implementiert.
           dialogs_description_html: Dialoge sind eine Javascript-Funktion, die dank einer externen Bibliothek namens <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a> verfügbar ist.
+          tips_description: 'Um einen komplexen Modus anzuzeigen, der die Stile entspricht, führe folgendes Markup durch:'
           title: Dialoge
           usage_description: Ein Dialog erfordert zwei Elemente
           usage_description_2_html: 2. Ein modales Element, dessen <code>ID</code> mit dem Datenzielwert übereinstimmt, auf den der Trigger verweist.
