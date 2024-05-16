@@ -161,7 +161,7 @@ describe "Organizations" do
         end
 
         it "shows the error message" do
-          fill_in "Name", with: "Citizens Rule!"
+          fill_in_i18n :update_organization_name, "#update_organization-name-tabs", en: "Citizens Rule!"
           fill_in "Host", with: "www.example.org"
           click_on "Save"
 

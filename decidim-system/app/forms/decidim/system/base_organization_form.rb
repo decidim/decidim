@@ -59,6 +59,7 @@ module Decidim
 
       validates :host, :users_registration_mode, presence: true
       validate :validate_organization_uniqueness
+      validate :validate_secret_key_base_for_encryption
       validates :users_registration_mode, inclusion: { in: Decidim::Organization.users_registration_modes }
 
       def map_model(model)
@@ -105,6 +106,14 @@ module Decidim
       end
 
       private
+
+      # We need a valid secret key base for encrypting the SMTP password with it
+      # It is also necessary for other things in Rails (like Cookies encryption)
+      def validate_secret_key_base_for_encryption
+        return if Rails.application.secrets.secret_key_base&.length == 128
+
+        errors.add(:password, I18n.t("activemodel.errors.models.organization.attributes.password.secret_key"))
+      end
 
       def validate_organization_uniqueness
         raise "#{self.class.name} is expected to implement #validate_organization_uniqueness"

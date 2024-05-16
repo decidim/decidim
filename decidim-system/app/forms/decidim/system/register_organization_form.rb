@@ -20,12 +20,11 @@ module Decidim
       attribute :users_registration_mode, String
       attribute :force_users_to_authenticate_before_access_organization, Boolean
 
-      validates :organization_admin_email, :organization_admin_name, :name, :host, :reference_prefix, :users_registration_mode, presence: true
+      validates :organization_admin_email, :organization_admin_name, :name, :reference_prefix, presence: true
       validates :name, presence: true
       validates :available_locales, presence: true
       validates :default_locale, presence: true
       validates :default_locale, inclusion: { in: :available_locales }
-      validates :users_registration_mode, inclusion: { in: Decidim::Organization.users_registration_modes }
 
       private
 
