@@ -608,7 +608,6 @@ lv:
         default_page:
           content: "<p>%{organization} jūs varat piedalīties un lemt par dažādām tēmām, izmantojot augšējā izvēlnē redzamās vietas: procesi, asamblejas, iniciatīvas, konsultācijas. </p><p> Katrā no tām jūs atradīsiet dažādas iespējas piedalīties: izteikt priekšlikumus – individuāli vai kopā ar citiem, piedalīties debatēs, noteikt prioritātes projektiem, kas tiek īstenoti, apmeklēt klātienes sanāksmes un veikt citas darbības.</p>"
           title: Ko es varu darīt %{organization}?
-        title: Vispārēja palīdzība
     last_activities:
       all: Visi aktivitātes veidi
       index:
