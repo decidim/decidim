@@ -680,7 +680,6 @@ lb:
         default_page:
           content: "<p>An der %{organization} kanns de, mëttels de Felder aus dem ieweschten Menü déi Themen-Beräicher entscheeden an erauswielen bei deenen s'de wëlls matmaachen: Prozesser, Gremien, Initiativen, Berodungen.</p> <p>An all Beräich fënns de verschidden Optiounen fir d'Matmaachen: Virschléi maachen - eleng oder mat aneren -, bei Debatten matmaachen, Prioritéiten setzen fir Projeten ëmzesetzen, un perséinlechen Treffen an aneren Aktiounen deelhuelen.</p>\n"
           title: Wat kann ech an der %{organization} maachen?
-        title: Allgemeng Hëllef
     last_activities:
       all: All Zorten vun Aktivitéit
       index:
