@@ -1034,6 +1034,7 @@ es:
           content: "<p>En %{organization} puedes participar y decidir sobre diferentes temas, a través de los espacios que ves en el menú superior: Procesos, Asambleas, Iniciativas, Consultas.</p> <p>Dentro de cada uno encontrarás diferentes opciones para participar: hacer propuestas (individualmente o con otras personas), tomar parte en debates, priorizar proyectos a ejecutar, asistir a encuentros presenciales y otras acciones.</p>\n"
           title: '¿Qué puedo hacer en %{organization}?'
         description: Lee más sobre %{organization}.
+        title: General
     last_activities:
       all: Todos los tipos de actividad
       index:
@@ -1922,6 +1923,7 @@ es:
         made_with_open_source: Web creada con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
         resources: Recursos
         sign_up: Regístrate
+        terms_of_service: Términos y condiciones de uso
       header:
         log_in: Entra
         main_menu: Menú principal
