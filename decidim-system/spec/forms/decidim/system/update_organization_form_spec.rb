@@ -20,7 +20,6 @@ module Decidim::System
         **omniauth_settings
       )
     end
-
     let(:omniauth_settings) do
       {
         "omniauth_settings_facebook_enabled" => true,
