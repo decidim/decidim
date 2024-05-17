@@ -11,6 +11,7 @@ module Decidim
       def call
         print "Creating seeds for decidim-core...\n" unless Rails.env.test? # rubocop:disable Rails/Output
 
+        Rails.application.reloader.reload! if Rails.application.reloader.check!
         reset_column_information
 
         ActiveJob::Base.queue_adapter = :inline
