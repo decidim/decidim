@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 RSpec.shared_examples "manage statuses" do
+  let(:attributes) { attributes_for(:status) }
+
   it "updates a status" do
     within "tr", text: status.key do
       click_on "Edit"
@@ -10,9 +12,7 @@ RSpec.shared_examples "manage statuses" do
       fill_in_i18n(
         :status_name,
         "#status-name-tabs",
-        en: "My new name",
-        es: "Mi nuevo nombre",
-        ca: "El meu nou nom"
+        **attributes[:name].except("machine_translations")
       )
 
       find("*[type=submit]").click
@@ -21,8 +21,11 @@ RSpec.shared_examples "manage statuses" do
     expect(page).to have_admin_callout("successfully")
 
     within "table" do
-      expect(page).to have_content("My new name")
+      expect(page).to have_content(translated(attributes[:name]))
     end
+
+    visit decidim_admin.root_path
+    expect(page).to have_content("updated the #{translated(attributes[:name])} status")
   end
 
   it "creates a new status" do
@@ -31,21 +34,8 @@ RSpec.shared_examples "manage statuses" do
     within ".new_status" do
       fill_in :status_key, with: "status_key_1"
 
-      fill_in_i18n(
-        :status_name,
-        "#status-name-tabs",
-        en: "A longer name",
-        es: "Nombre más larga",
-        ca: "Nom més llarga"
-      )
-
-      fill_in_i18n(
-        :status_description,
-        "#status-description-tabs",
-        en: "A longer description",
-        es: "Descripción más larga",
-        ca: "Descripció més llarga"
-      )
+      fill_in_i18n(:status_name, "#status-name-tabs", **attributes[:name].except("machine_translations"))
+      fill_in_i18n(:status_description, "#status-description-tabs", **attributes[:description].except("machine_translations"))
 
       fill_in :status_progress, with: 75
 
@@ -56,8 +46,11 @@ RSpec.shared_examples "manage statuses" do
 
     within "table" do
       expect(page).to have_content("status_key_1")
-      expect(page).to have_content("A longer name")
+      expect(page).to have_content(translated(attributes[:name]))
     end
+
+    visit decidim_admin.root_path
+    expect(page).to have_content("created the #{translated(attributes[:name])} status")
   end
 
   describe "deleting a result" do

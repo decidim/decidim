@@ -31,6 +31,7 @@ shared_examples "manage results" do
   context "when having existing proposals" do
     let!(:proposal_component) { create(:proposal_component, participatory_space:) }
     let!(:proposals) { create_list(:proposal, 5, component: proposal_component) }
+    let(:attributes) { attributes_for(:result, component: current_component) }
 
     it "updates a result" do
       within "tr", text: translated(result.title) do
@@ -41,9 +42,7 @@ shared_examples "manage results" do
         fill_in_i18n(
           :result_title,
           "#result-title-tabs",
-          en: "My new title",
-          es: "Mi nuevo título",
-          ca: "El meu nou títol"
+          **attributes[:title].except("machine_translations")
         )
 
         tom_select("#proposals_list", option_id: proposals.first(2).map(&:id))
@@ -54,8 +53,12 @@ shared_examples "manage results" do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_content("My new title")
+        expect(page).to have_content(translated(attributes[:title]))
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated result")
+      expect(page).to have_content(translated(attributes[:title]))
     end
 
     it "creates a new result", :slow do
@@ -65,16 +68,12 @@ shared_examples "manage results" do
         fill_in_i18n(
           :result_title,
           "#result-title-tabs",
-          en: "My result",
-          es: "Mi result",
-          ca: "El meu result"
+          **attributes[:title].except("machine_translations")
         )
         fill_in_i18n_editor(
           :result_description,
           "#result-description-tabs",
-          en: "A longer description",
-          es: "Descripción más larga",
-          ca: "Descripció més llarga"
+          **attributes[:description].except("machine_translations")
         )
 
         tom_select("#proposals_list", option_id: proposals.first(2).map(&:id))
@@ -88,8 +87,12 @@ shared_examples "manage results" do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_content("My result")
+        expect(page).to have_content(translated(attributes[:title]))
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("created result")
+      expect(page).to have_content(attributes[:title]["en"])
     end
   end
 
