@@ -43,6 +43,7 @@ describe "Admin manages accountability" do
         click_on "Project evolution"
       end
     end
+
     let!(:timeline_entry) { create(:timeline_entry, result:) }
 
     it_behaves_like "manage timeline"
