@@ -124,6 +124,7 @@ module Decidim
               expect(organization.omniauth_settings).to be_nil
             end
           end
+
         end
 
         context "when the form is invalid" do
