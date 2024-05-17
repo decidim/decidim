@@ -12,6 +12,6 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
 
   Decidim::Organization.find_each do |organization|
     Decidim::System::CreateDefaultPages.call(organization)
-    Decidim::System::PopulateHelp.call(organization)
+    Decidim::System::CreateDefaultHelpPages.call(organization)
   end
 end
