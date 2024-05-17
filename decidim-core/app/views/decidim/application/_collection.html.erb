@@ -12,7 +12,9 @@
 </button>
 
 <div id="dropdown-menu-documents-<%= attachment_collection.id %>" class="documents__collection-content" aria-hidden="true">
-  <p><%= decidim_escape_translated(attachment_collection.description) %></p>
+  <% if (description = attachment_collection.description).present? %>
+    <p><%= decidim_escape_translated(description) %></p>
+  <% end %>
 
   <div class="documents__container">
     <% documents.each do |document| %>
