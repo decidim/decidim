@@ -17,8 +17,8 @@ module Decidim::Meetings
     end
     let(:intervals) { [3.days, 7.days] }
     let(:organization) { create(:organization) }
-    let(:participatory_process) { create(:participatory_process, organization:) }
-    let!(:component) { create(:component, :published, manifest_name: "meetings", participatory_space: participatory_process) }
+    let(:participatory_space) { create(:participatory_process, organization:) }
+    let!(:component) { create(:component, :published, manifest_name: "meetings", participatory_space:) }
     let(:user) { create(:user, :admin, organization:, email: "user@example.org") }
     let!(:meeting) { create(:meeting, :published, component:, author: user, start_time:, end_time:, closed_at:) }
     let(:closed_at) { nil }
@@ -42,11 +42,48 @@ module Decidim::Meetings
           end
         end
 
-        context "and the meeting is not closed" do
+        context "and the user meeting is not closed" do
           it "sends reminder" do
             expect(Decidim::Meetings::SendCloseMeetingReminderJob).to receive(:perform_later)
 
             expect { subject.generate }.to change(Decidim::Reminder, :count).by(1)
+          end
+        end
+
+        context "and the official meeting is not closed" do
+          let(:other_organization) { create(:organization) }
+          let!(:user) { create(:user, :admin, organization:, email: "user@example.org") }
+          let!(:other_admin) { create(:user, :admin, organization: other_organization, email: "user@example.org") }
+          let!(:meeting) { create(:meeting, :published, :official, component:, start_time:, end_time:, closed_at:) }
+
+          it "sends reminder" do
+            expect(Decidim::Meetings::SendCloseMeetingReminderJob).to receive(:perform_later)
+
+            expect { subject.generate }.to change(Decidim::Reminder, :count).by(1)
+          end
+
+          context "and there are space admins" do
+            context "and space admin is Participatory Process" do
+              let(:participatory_space) { create(:participatory_process, organization:) }
+              let!(:process_admin) { create(:process_admin, participatory_process: participatory_space) }
+
+              it "sends reminder" do
+                expect(Decidim::Meetings::SendCloseMeetingReminderJob).to receive(:perform_later).twice
+
+                expect { subject.generate }.to change(Decidim::Reminder, :count).by(2)
+              end
+            end
+
+            context "and space admin is Assembly" do
+              let(:participatory_space) { create(:assembly, organization:) }
+              let!(:process_admin) { create(:assembly_admin, assembly: participatory_space) }
+
+              it "sends reminder" do
+                expect(Decidim::Meetings::SendCloseMeetingReminderJob).to receive(:perform_later).twice
+
+                expect { subject.generate }.to change(Decidim::Reminder, :count).by(2)
+              end
+            end
           end
         end
       end
