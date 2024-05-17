@@ -1,5 +1,5 @@
 <div class="filter-container search__filter">
-  <button id="dropdown-trigger-search" data-component="dropdown" data-target="dropdown-menu-search" data-auto-close="true" data-disabled-md="true">
+  <button id="dropdown-trigger-search" data-component="dropdown" data-target="dropdown-menu-search" data-auto-close="true">
     <%= content_tag :span, t("decidim.searches.filters_small_view.filter_by"), class: "#{"is-active" if params.dig(:filter, :with_resource_type) == nil}" %>
     <% @blocks.each do |elements| %>
       <% elements.each do |type, results| %>
