@@ -1,0 +1,3 @@
+<% if collection.documents.any? %>
+  <%= render partial: "decidim/application/collection", formats: [:html], locals: { attachment_collection: collection, documents: collection.documents } %>
+<% end %>
