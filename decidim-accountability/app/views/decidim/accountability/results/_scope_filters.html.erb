@@ -15,7 +15,7 @@
         <%= icon "arrow-down-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
         <%= icon "arrow-up-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
       </button>
-      <ul id="dropdown-menu-accountability" data-scope-filters>
+      <ul id="dropdown-menu-accountability" data-scope-filters aria-hidden="true">
         <% items.each do |item| %>
           <li>
             <%= link_to item[:url], class: "filter#{" is-active" if item[:active]}" do %>

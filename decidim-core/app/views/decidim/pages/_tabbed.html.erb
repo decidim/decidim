@@ -18,7 +18,7 @@
         <%= icon "arrow-down-s-line" %>
         <%= icon "arrow-up-s-line" %>
       </button>
-      <ul id="dropdown-menu-pages" class="vertical-tabs__list">
+      <ul id="dropdown-menu-pages" class="vertical-tabs__list" aria-hidden="true">
         <% pages.each do |sibling| %>
           <li class="<%= "is-active" if page == sibling %>">
             <%= link_to translated_attribute(sibling.title), page_path(sibling.slug) %>
