@@ -85,7 +85,7 @@ module Decidim
               end
             end
 
-            context "when all smpt settings are blank" do
+            context "when all smtp settings are blank" do
               let(:smtp_settings) do
                 {
                   "address" => "",
