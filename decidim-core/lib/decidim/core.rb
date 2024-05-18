@@ -566,6 +566,12 @@ module Decidim
     {}
   end
 
+  # This config flag is meant for plugin developers, so that they can have a centralized way of managing deface views
+  # Read more: https://docs.decidim.org/en/develop/customize/views#_deface_method
+  config_accessor :deface_enabled do
+    false
+  end
+
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #

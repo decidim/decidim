@@ -181,6 +181,36 @@ You can read more about this change on PR [\#XXXX](https://github.com/decidim/de
 
 ## 5. Changes in APIs
 
+### 5.1 Migration of Proposal states in own table
+
+As of [\#12052](https://github.com/decidim/decidim/pull/12052) all the proposals states are kept in a separate database table, enabling end users to customize the states of the proposals. By default we will create for any proposal component that is being installed in the project 5 default states that cannot be disabled nor deleted. These states are:
+
+- Not Answered ( default state for any new created proposal )
+- Evaluating
+- Accepted
+- Rejected
+- Withdrawn ( special states for proposals that have been withdrawn by the author )
+
+For any of the above states you can customize the name, description, css class used by labels. You can also decide which states the user can receive a notification or an answer.
+
+You do not need to run any task to migrate the existing states, as we will automatically migrate the existing states to the new table.
+
+You can see more details about this change on PR [\#12052](https://github.com/decidim/decidim/pull/12052)
+
+### 5.2. Deface gem, a core dependency
+
+In order to offer a consistent way for plugin developers to extend Decidim, we have included `deface` gem as a core dependency. This allows the teams to remove deface from their own codebase, so that end user not to encounter issues regarding the deface version. Additionally, there is a config flag and a new decidim variable that can be used to control deface's behavior.
+
+In order to make use of this new configuration flag, for existing applications, you will need to add it in your `config/initializers/decidim.rb`
+
+```ruby
+  config.deface_enabled = Rails.application.secrets.decidim[:deface_enabled].present?
+```
+
+In the case of new applications, don't worry, we are adding it by default.
+
+You can see more details about this change on PR [\#12867](https://github.com/decidim/decidim/pull/12867)
+
 ### 5.1. [[TITLE OF THE CHANGE]]
 
 In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
@@ -198,19 +228,3 @@ You need to change it to:
 # Explain the usage of the API as it is in the new version
 result = 1 + 1 if after
 ```
-
-### 5.8 Migration of Proposal states in own table
-
-As of [\#12052](https://github.com/decidim/decidim/pull/12052) all the proposals states are kept in a separate database table, enabling end users to customize the states of the proposals. By default we will create for any proposal component that is being installed in the project 5 default states that cannot be disabled nor deleted. These states are:
-
-- Not Answered ( default state for any new created proposal )
-- Evaluating
-- Accepted
-- Rejected
-- Withdrawn ( special states for proposals that have been withdrawn by the author )
-
-For any of the above states you can customize the name, description, css class used by labels. You can also decide which states the user can receive a notification or an answer.
-
-You do not need to run any task to migrate the existing states, as we will automatically migrate the existing states to the new table.
-
-You can see more details about this change on PR [\#12052](https://github.com/decidim/decidim/pull/12052)
