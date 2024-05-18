@@ -39,12 +39,11 @@ shared_examples "manage assembly members examples" do
       expect(page).to have_current_path decidim_admin_assemblies.assembly_members_path(assembly)
 
       within "#assembly_members table" do
-        expect(page).to have_content( attributes[:full_name])
+        expect(page).to have_content(attributes[:full_name])
       end
 
       visit decidim_admin.root_path
       expect(page).to have_content("created the #{attributes[:full_name]} member")
-
     end
   end
 

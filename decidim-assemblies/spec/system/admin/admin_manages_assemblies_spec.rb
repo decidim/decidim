@@ -95,7 +95,6 @@ describe "Admin manages assemblies" do
       end
       visit decidim_admin.root_path
       expect(page).to have_content("created the #{translated(attributes[:title])} assembly")
-
     end
   end
 

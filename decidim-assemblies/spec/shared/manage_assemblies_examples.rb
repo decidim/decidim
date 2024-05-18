@@ -58,7 +58,6 @@ shared_examples "manage assemblies" do
 
       visit decidim_admin.root_path
       expect(page).to have_content("updated the #{translated(attributes[:title])} assembly")
-
     end
   end
 
