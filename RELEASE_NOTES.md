@@ -151,7 +151,18 @@ Additionally, if you need, you can also customize the `admin` and `system` inter
 
 You can read more about this change on PR [\#12646](https://github.com/decidim/decidim/pull/12646).
 
-### 3.6. [[TITLE OF THE ACTION]]
+### 3.6. Update to Footer Topic and Pages functionality
+
+We have changed the behavior of the footer pages and topics links:
+
+- Removed the "show in the footer" checkbox for pages.
+- Removed duplicate "Terms of Service" link.
+- Always show the link to the "Terms of Service" page.
+- Only show links in footer to topics.
+
+You can read more about this change on PR [\#12592](https://github.com/decidim/decidim/pull/12592).
+
+### 3.7. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
