@@ -20,11 +20,7 @@ shared_examples "manage media links examples" do
     it "creates a new media link", versioning: true do
       within "[data-content]" do
         within ".new_media_link" do
-          fill_in_i18n(
-            :conference_media_link_title,
-            "#conference_media_link-title-tabs",
-            **attributes[:title].except("machine_translations")
-          )
+          fill_in_i18n(:conference_media_link_title, "#conference_media_link-title-tabs", **attributes[:title].except("machine_translations"))
 
           fill_in :conference_media_link_link, with: "https://decidim.org"
           fill_in :conference_media_link_weight, with: 2
@@ -65,11 +61,7 @@ shared_examples "manage media links examples" do
       end
 
       within ".edit_media_link" do
-        fill_in_i18n(
-          :conference_media_link_title,
-          "#conference_media_link-title-tabs",
-          **attributes[:title].except("machine_translations")
-        )
+        fill_in_i18n(:conference_media_link_title, "#conference_media_link-title-tabs", **attributes[:title].except("machine_translations"))
 
         fill_in :conference_media_link_link, with: "https://decidim.org"
         fill_in :conference_media_link_weight, with: 2

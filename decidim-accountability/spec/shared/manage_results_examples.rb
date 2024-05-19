@@ -39,11 +39,7 @@ shared_examples "manage results" do
       end
 
       within ".edit_result" do
-        fill_in_i18n(
-          :result_title,
-          "#result-title-tabs",
-          **attributes[:title].except("machine_translations")
-        )
+        fill_in_i18n(:result_title, "#result-title-tabs", **attributes[:title].except("machine_translations"))
 
         tom_select("#proposals_list", option_id: proposals.first(2).map(&:id))
 
@@ -65,16 +61,8 @@ shared_examples "manage results" do
       click_on "New result", match: :first
 
       within ".new_result" do
-        fill_in_i18n(
-          :result_title,
-          "#result-title-tabs",
-          **attributes[:title].except("machine_translations")
-        )
-        fill_in_i18n_editor(
-          :result_description,
-          "#result-description-tabs",
-          **attributes[:description].except("machine_translations")
-        )
+        fill_in_i18n(:result_title, "#result-title-tabs", **attributes[:title].except("machine_translations"))
+        fill_in_i18n_editor(:result_description, "#result-description-tabs", **attributes[:description].except("machine_translations"))
 
         tom_select("#proposals_list", option_id: proposals.first(2).map(&:id))
 

@@ -28,16 +28,8 @@ shared_examples "manage registration types examples" do
       click_on "New registration type"
 
       within ".new_registration_type" do
-        fill_in_i18n(
-          :conference_registration_type_title,
-          "#conference_registration_type-title-tabs",
-          **attributes[:title].except("machine_translations")
-        )
-        fill_in_i18n_editor(
-          :conference_registration_type_description,
-          "#conference_registration_type-description-tabs",
-          **attributes[:description].except("machine_translations")
-        )
+        fill_in_i18n(:conference_registration_type_title, "#conference_registration_type-title-tabs", **attributes[:title].except("machine_translations"))
+        fill_in_i18n_editor(:conference_registration_type_description, "#conference_registration_type-description-tabs", **attributes[:description].except("machine_translations"))
 
         fill_in(:conference_registration_type_weight, with: 4)
 
@@ -61,16 +53,8 @@ shared_examples "manage registration types examples" do
       end
 
       within ".edit_registration_type" do
-        fill_in_i18n(
-          :conference_registration_type_title,
-          "#conference_registration_type-title-tabs",
-          **attributes[:title].except("machine_translations")
-        )
-        fill_in_i18n_editor(
-          :conference_registration_type_description,
-          "#conference_registration_type-description-tabs",
-          **attributes[:description].except("machine_translations")
-        )
+        fill_in_i18n(:conference_registration_type_title, "#conference_registration_type-title-tabs", **attributes[:title].except("machine_translations"))
+        fill_in_i18n_editor(:conference_registration_type_description, "#conference_registration_type-description-tabs", **attributes[:description].except("machine_translations"))
 
         find("*[type=submit]").click
       end

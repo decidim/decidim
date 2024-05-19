@@ -25,22 +25,9 @@ shared_examples "manage conference speakers examples" do
 
       within ".new_conference_speaker" do
         fill_in(:conference_speaker_full_name, with: attributes[:full_name])
-        fill_in_i18n(
-          :conference_speaker_position,
-          "#conference_speaker-position-tabs",
-          **attributes[:position].except("machine_translations")
-        )
-        fill_in_i18n(
-          :conference_speaker_affiliation,
-          "#conference_speaker-affiliation-tabs",
-          **attributes[:affiliation].except("machine_translations")
-        )
-
-        fill_in_i18n_editor(
-          :conference_speaker_short_bio,
-          "#conference_speaker-short_bio-tabs",
-          **attributes[:short_bio].except("machine_translations")
-        )
+        fill_in_i18n(:conference_speaker_position, "#conference_speaker-position-tabs", **attributes[:position].except("machine_translations"))
+        fill_in_i18n(:conference_speaker_affiliation, "#conference_speaker-affiliation-tabs", **attributes[:affiliation].except("machine_translations"))
+        fill_in_i18n_editor(:conference_speaker_short_bio, "#conference_speaker-short_bio-tabs", **attributes[:short_bio].except("machine_translations"))
 
         find("*[type=submit]").click
       end
@@ -90,22 +77,9 @@ shared_examples "manage conference speakers examples" do
 
       within ".edit_conference_speaker" do
         fill_in(:conference_speaker_full_name, with: attributes[:full_name])
-        fill_in_i18n(
-          :conference_speaker_position,
-          "#conference_speaker-position-tabs",
-          **attributes[:position].except("machine_translations")
-        )
-        fill_in_i18n(
-          :conference_speaker_affiliation,
-          "#conference_speaker-affiliation-tabs",
-          **attributes[:affiliation].except("machine_translations")
-        )
-
-        fill_in_i18n_editor(
-          :conference_speaker_short_bio,
-          "#conference_speaker-short_bio-tabs",
-          **attributes[:short_bio].except("machine_translations")
-        )
+        fill_in_i18n(:conference_speaker_position, "#conference_speaker-position-tabs", **attributes[:position].except("machine_translations"))
+        fill_in_i18n(:conference_speaker_affiliation, "#conference_speaker-affiliation-tabs", **attributes[:affiliation].except("machine_translations"))
+        fill_in_i18n_editor(:conference_speaker_short_bio, "#conference_speaker-short_bio-tabs", **attributes[:short_bio].except("machine_translations"))
 
         find("*[type=submit]").click
       end

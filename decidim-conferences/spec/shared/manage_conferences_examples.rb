@@ -20,31 +20,11 @@ shared_examples "manage conferences" do
 
     it "creates a new conference", versioning: true do
       within ".new_conference" do
-        fill_in_i18n(
-          :conference_title,
-          "#conference-title-tabs",
-          **attributes[:title].except("machine_translations")
-        )
-        fill_in_i18n(
-          :conference_slogan,
-          "#conference-slogan-tabs",
-          **attributes[:slogan].except("machine_translations")
-        )
-        fill_in_i18n_editor(
-          :conference_short_description,
-          "#conference-short_description-tabs",
-          **attributes[:short_description].except("machine_translations")
-        )
-        fill_in_i18n_editor(
-          :conference_description,
-          "#conference-description-tabs",
-          **attributes[:description].except("machine_translations")
-        )
-        fill_in_i18n_editor(
-          :conference_objectives,
-          "#conference-objectives-tabs",
-          **attributes[:objectives].except("machine_translations")
-        )
+        fill_in_i18n(:conference_title, "#conference-title-tabs", **attributes[:title].except("machine_translations"))
+        fill_in_i18n(:conference_slogan, "#conference-slogan-tabs", **attributes[:slogan].except("machine_translations"))
+        fill_in_i18n_editor(:conference_short_description, "#conference-short_description-tabs", **attributes[:short_description].except("machine_translations"))
+        fill_in_i18n_editor(:conference_description, "#conference-description-tabs", **attributes[:description].except("machine_translations"))
+        fill_in_i18n_editor(:conference_objectives, "#conference-objectives-tabs", **attributes[:objectives].except("machine_translations"))
 
         fill_in :conference_weight, with: 1
         fill_in :conference_slug, with: "slug"
@@ -88,31 +68,11 @@ shared_examples "manage conferences" do
       dynamically_attach_file(:conference_banner_image, image3_path, remove_before: true)
 
       within ".edit_conference" do
-        fill_in_i18n(
-          :conference_title,
-          "#conference-title-tabs",
-          **attributes[:title].except("machine_translations")
-        )
-        fill_in_i18n(
-          :conference_slogan,
-          "#conference-slogan-tabs",
-          **attributes[:slogan].except("machine_translations")
-        )
-        fill_in_i18n_editor(
-          :conference_short_description,
-          "#conference-short_description-tabs",
-          **attributes[:short_description].except("machine_translations")
-        )
-        fill_in_i18n_editor(
-          :conference_description,
-          "#conference-description-tabs",
-          **attributes[:description].except("machine_translations")
-        )
-        fill_in_i18n_editor(
-          :conference_objectives,
-          "#conference-objectives-tabs",
-          **attributes[:objectives].except("machine_translations")
-        )
+        fill_in_i18n(:conference_title, "#conference-title-tabs", **attributes[:title].except("machine_translations"))
+        fill_in_i18n(:conference_slogan, "#conference-slogan-tabs", **attributes[:slogan].except("machine_translations"))
+        fill_in_i18n_editor(:conference_short_description, "#conference-short_description-tabs", **attributes[:short_description].except("machine_translations"))
+        fill_in_i18n_editor(:conference_description, "#conference-description-tabs", **attributes[:description].except("machine_translations"))
+        fill_in_i18n_editor(:conference_objectives, "#conference-objectives-tabs", **attributes[:objectives].except("machine_translations"))
         find("*[type=submit]").click
       end
 
