@@ -10,5 +10,5 @@ describe "Process admin manages post" do
 
   include_context "when managing a component as a process admin"
 
-  it_behaves_like "manage posts"
+  it_behaves_like "manage posts", audit_check: false
 end

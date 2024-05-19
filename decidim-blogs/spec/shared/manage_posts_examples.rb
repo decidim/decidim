@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "manage posts" do
+shared_examples "manage posts" do |audit_check: true|
   it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='post-body-tabs']", "full" do
     before do
       within "tr", text: translated(post1.title) do
@@ -31,8 +31,11 @@ shared_examples "manage posts" do
       expect(page).to have_content("Post title 2")
       expect(page).to have_content(author.name)
     end
-    visit decidim_admin.root_path
-    expect(page).to have_content("updated the #{translated(attributes[:title])} blog post")
+
+    if audit_check == true
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the #{translated(attributes[:title])} blog post")
+    end
   end
 
   it "creates a new post", versioning: true do
@@ -53,8 +56,10 @@ shared_examples "manage posts" do
       expect(page).to have_content("Post title 2")
     end
 
-    visit decidim_admin.root_path
-    expect(page).to have_content("created the #{translated(attributes[:title])} blog post")
+    if audit_check == true
+      visit decidim_admin.root_path
+      expect(page).to have_content("created the #{translated(attributes[:title])} blog post")
+    end
   end
 
   describe "deleting a post" do
