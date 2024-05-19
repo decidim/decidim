@@ -8,8 +8,9 @@ shared_examples "manage posts" do
       end
     end
   end
+  let(:attributes) { attributes_for(:post) }
 
-  it "updates a post" do
+  it "updates a post", versioning: true do
     within "tr", text: translated(post1.title) do
       click_on "Edit"
     end
@@ -17,20 +18,8 @@ shared_examples "manage posts" do
     within ".edit_post" do
       expect(page).to have_select("post_decidim_author_id", selected: author.name)
 
-      fill_in_i18n(
-        :post_title,
-        "#post-title-tabs",
-        en: "My new title",
-        es: "Mi nuevo título",
-        ca: "El meu nou títol"
-      )
-      fill_in_i18n_editor(
-        :post_body,
-        "#post-body-tabs",
-        en: "A longer description",
-        es: "Descripción más larga",
-        ca: "Descripció més llarga"
-      )
+      fill_in_i18n(:post_title, "#post-title-tabs", **attributes[:title].except("machine_translations"))
+      fill_in_i18n_editor(:post_body, "#post-body-tabs", **attributes[:body].except("machine_translations"))
 
       find("*[type=submit]").click
     end
@@ -38,30 +27,19 @@ shared_examples "manage posts" do
     expect(page).to have_admin_callout("successfully")
 
     within "table" do
-      expect(page).to have_content("My new title")
+      expect(page).to have_content(translated(attributes[:title]))
       expect(page).to have_content("Post title 2")
       expect(page).to have_content(author.name)
     end
+    visit decidim_admin.root_path
+    expect(page).to have_content("updated the #{translated(attributes[:title])} blog post")
   end
 
-  it "creates a new post" do
+  it "creates a new post", versioning: true do
     click_on "New post"
 
-    fill_in_i18n(
-      :post_title,
-      "#post-title-tabs",
-      en: "My post",
-      es: "Mi post",
-      ca: "El meu post"
-    )
-
-    fill_in_i18n_editor(
-      :post_body,
-      "#post-body-tabs",
-      en: "A description",
-      es: "Descripción",
-      ca: "Descripció"
-    )
+    fill_in_i18n(:post_title, "#post-title-tabs", **attributes[:title].except("machine_translations"))
+    fill_in_i18n_editor(:post_body, "#post-body-tabs", **attributes[:body].except("machine_translations"))
 
     within ".new_post" do
       find("*[type=submit]").click
@@ -70,10 +48,13 @@ shared_examples "manage posts" do
     expect(page).to have_admin_callout("successfully")
 
     within "table" do
-      expect(page).to have_content("My post")
+      expect(page).to have_content(translated(attributes[:title]))
       expect(page).to have_content("Post title 1")
       expect(page).to have_content("Post title 2")
     end
+
+    visit decidim_admin.root_path
+    expect(page).to have_content("created the #{translated(attributes[:title])} blog post")
   end
 
   describe "deleting a post" do
