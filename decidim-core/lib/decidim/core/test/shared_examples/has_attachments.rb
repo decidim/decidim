@@ -23,6 +23,50 @@ shared_examples_for "has attachments content blocks" do
     end
   end
 
+  context "when it has meetings components with meetings" do
+    let!(:document) { create(:attachment, :with_pdf, attached_to:) }
+
+    let(:meeting_component) { create(:meeting_component, :published, participatory_space: attached_to) }
+    let(:meeting) { create(:meeting, component: meeting_component) }
+    let!(:meeting_document) { create(:attachment, :with_pdf, attached_to: meeting) }
+
+    before do
+      visit current_path
+    end
+
+    context "when meetings have attached documents" do
+      it "shows a folder for meeting component" do
+        within "[data-content] .documents__container" do
+          expect(page).to have_content(translated(document.title))
+        end
+
+        within "[data-content]" do
+          expect(page).to have_css("button#dropdown-documents-trigger-component-#{meeting_component.id}", text: "#{translated(meeting_component.name)} Documents")
+
+          click_on "#{translated(meeting_component.name)} Documents"
+
+          within "#dropdown-menu-documents-component-#{meeting_component.id}" do
+            expect(page).to have_content(translated(meeting_document.title))
+          end
+        end
+      end
+    end
+
+    context "when meetings have no attached documents" do
+      let!(:meeting_document) { nil }
+
+      it "does not show a folder for meeting component" do
+        within "[data-content] .documents__container" do
+          expect(page).to have_content(translated(document.title))
+        end
+
+        within "[data-content]" do
+          expect(page).to have_no_css("button#dropdown-documents-trigger-component-#{meeting_component.id}", text: "#{translated(meeting_component.name)} Documents")
+        end
+      end
+    end
+  end
+
   context "when are ordered by weight" do
     let!(:last_document) { create(:attachment, :with_pdf, attached_to:, weight: 2) }
     let!(:first_document) { create(:attachment, :with_pdf, attached_to:, weight: 1) }
