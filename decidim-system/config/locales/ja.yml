@@ -31,6 +31,10 @@ ja:
           attributes:
             redirect_uri:
               must_be_ssl: リダイレクト URI は SSL が有効な URI でなければなりません
+        organization:
+          attributes:
+            password:
+              secret_key: このフィールドを保存するには、環境変数 SECRET_KEY_BASE を定義する必要があります
   decidim:
     system:
       actions:
