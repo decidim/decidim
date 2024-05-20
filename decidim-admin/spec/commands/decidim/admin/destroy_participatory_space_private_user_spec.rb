@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/meetings/test/factories"
 
 module Decidim::Admin
   describe DestroyParticipatorySpacePrivateUser do
@@ -36,6 +37,34 @@ module Decidim::Admin
       expect { subject.call }.to change(Decidim::ActionLog, :count)
       action_log = Decidim::ActionLog.last
       expect(action_log.version).to be_nil
+    end
+
+    context "when assembly is not transparent" do
+      let(:normal_user) { create(:user, organization:) }
+      let(:assembly) { create(:assembly, :private, :opaque, :published, organization: user.organization) }
+      let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: normal_user, privatable_to: assembly) }
+
+      context "and user follows assembly" do
+        let!(:follow) { create(:follow, followable: assembly, user: normal_user) }
+
+        it "destroys the follow" do
+          expect(Decidim::Follow.where(user: normal_user).count).to eq(1)
+          subject.call
+          expect(Decidim::Follow.where(user: normal_user).count).to eq(0)
+        end
+
+        context "and user follows meeting belonging to assembly" do
+          let(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: assembly) }
+          let(:meeting) { create(:meeting, component: meetings_component) }
+          let!(:second_follow) { create(:follow, followable: meeting, user: normal_user) }
+
+          it "destroys all follows" do
+            expect(Decidim::Follow.where(user: normal_user).count).to eq(2)
+            subject.call
+            expect(Decidim::Follow.where(user: normal_user).count).to eq(0)
+          end
+        end
+      end
     end
   end
 end
