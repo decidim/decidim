@@ -1016,6 +1016,7 @@ ja:
           content: "<p>%{organization} では、トップメニューにあるスペース（参加型プロセスや参加スペース、取り組み、議案）から、さまざまなトピックに参加したり、決定したりすることができます。</p> <p>それぞれのスペースには、参加するためのさまざまなオプションが用意されています: （個人または他の人と一緒に）提案をする 、ディベートに参加する、実施するプロジェクトの優先順位を決める、対面ミーティングに出席する、その他のアクションを行う等。</p>\n"
           title: '%{organization} で何ができますか？'
         description: '%{organization} についてもっと読む'
+        title: 全般
     last_activities:
       all: すべてのアクティビティ種別
       index:
@@ -1901,6 +1902,7 @@ ja:
         made_with_open_source: このサイトは <a target="_blank" href="https://github.com/decidim/decidim">フリーソフトウェア</a>で作られています。
         resources: リソース
         sign_up: 新規登録
+        terms_of_service: 利用規約
       header:
         log_in: ログイン
         main_menu: メインメニュー
