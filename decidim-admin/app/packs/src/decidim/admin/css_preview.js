@@ -30,7 +30,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
       updateRules.forEach((rule) => {
         const [target, property, value] = rule.split(":");
-        document.querySelector(target).style[property.trim()] = value.trim();
+        if (target !== "") {
+          document.querySelector(target).style[property.trim()] = value.trim();
+        }
       });
     })
   })

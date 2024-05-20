@@ -24,6 +24,7 @@ describe "Admin edits proposals" do
   describe "editing an official proposal" do
     let(:new_title) { "This is my proposal new title" }
     let(:new_body) { "This is my proposal new body" }
+    let(:attributes) { attributes_for(:proposal, component: current_component) }
 
     it "can be updated" do
       visit_component_admin
@@ -41,6 +42,21 @@ describe "Admin edits proposals" do
         expect(page).to have_content(new_title)
         expect(page).to have_content(new_body)
       end
+    end
+
+    it "can can check logs" do
+      visit_component_admin
+
+      find("a.action-icon--edit-proposal").click
+      expect(page).to have_content "Update proposal"
+
+      fill_in_i18n :proposal_title, "#proposal-title-tabs", **attributes[:title].except("machine_translations")
+      fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", **attributes[:body].except("machine_translations")
+      click_on "Update"
+      expect(page).to have_admin_callout("successfully")
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the #{translated(attributes[:title])} official proposal")
     end
 
     context "when the proposal has some votes" do

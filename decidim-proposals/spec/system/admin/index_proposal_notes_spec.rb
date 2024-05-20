@@ -9,6 +9,7 @@ describe "Index Proposal Notes" do
   let(:manifest_name) { "proposals" }
   let(:proposal) { create(:proposal, component:) }
   let(:participatory_space) { component.participatory_space }
+  let(:attributes) { attributes_for(:proposal_note) }
 
   let(:body) { "New awesome body" }
   let(:proposal_notes_count) { 5 }
@@ -39,9 +40,9 @@ describe "Index Proposal Notes" do
   end
 
   context "when the form has a text inside body" do
-    it "creates a proposal note", :slow do
+    it "creates a proposal note", versioning: true do
       within ".new_proposal_note" do
-        fill_in :proposal_note_body, with: body
+        fill_in :proposal_note_body, with: attributes[:body]
 
         find("*[type=submit]").click
       end
@@ -50,8 +51,11 @@ describe "Index Proposal Notes" do
 
       click_on "Private notes"
       within ".component__show_notes-grid .comment:last-child" do
-        expect(page).to have_content("New awesome body")
+        expect(page).to have_content(decidim_sanitize_translated(attributes[:body]))
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("left a private note on the #{translated(proposal.title)} proposal")
     end
   end
 

@@ -52,6 +52,11 @@ describe "Admin manages proposals valuators" do
           expect(page).to have_css("td.valuators-count", text: 1)
         end
       end
+
+      it "displays log" do
+        visit decidim_admin.root_path
+        expect(page).to have_content("assigned the #{translated(proposal.title)} proposal to a valuator")
+      end
     end
   end
 
