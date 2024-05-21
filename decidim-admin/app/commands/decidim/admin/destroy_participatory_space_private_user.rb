@@ -15,28 +15,28 @@ module Decidim
       end
 
       def run_after_hooks
-        # A hook to destroy the follows of user on private non transparent assembly and its children
-        # when private user is destroyed
-        return unless resource.privatable_to_type == "Decidim::Assembly"
+        # When private user is destroyed, a hook to destroy the follows of user on private non transparent assembly
+        # or private participatory process and the follows of their children
+        space = resource.privatable_to_type.constantize.find(resource.privatable_to_id)
 
-        assembly = Decidim::Assembly.find(resource.privatable_to_id)
-        return unless assembly.private_space == true && assembly.is_transparent == false
+        return unless space.private_space?
+
+        return if space.respond_to?("is_transparent") && space.is_transparent?
 
         user = Decidim::User.find(resource.decidim_user_id)
         ids = []
-        ids << Decidim::Follow.where(user:)
-                              .where(decidim_followable_type: "Decidim::Assembly")
-                              .where(decidim_followable_id: assembly.id)
-                              .first.id
-        children_ids = Decidim::Follow.where(user:)
-                                      .select { |follow| find_object(follow).respond_to?("decidim_component_id") }
-                                      .select { |follow| assembly.components.ids.include?(find_object(follow).decidim_component_id) }
-                                      .map(&:id)
+        follows = Decidim::Follow.where(user:)
+        ids << follows.where(decidim_followable_type: resource.privatable_to_type)
+                      .where(decidim_followable_id: space.id)
+                      .first.id
+        children_ids = follows.select { |follow| find_object_followed(follow).respond_to?("decidim_component_id") }
+                              .select { |follow| space.components.ids.include?(find_object_followed(follow).decidim_component_id) }
+                              .map(&:id)
         ids << children_ids
-        Decidim::Follow.where(user:).where(id: ids.flatten).destroy_all if ids.present?
+        follows.where(id: ids.flatten).destroy_all if ids.present?
       end
 
-      def find_object(follow)
+      def find_object_followed(follow)
         follow.decidim_followable_type.constantize.find(follow.decidim_followable_id)
       end
     end

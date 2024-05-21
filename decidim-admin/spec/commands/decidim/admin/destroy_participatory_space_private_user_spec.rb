@@ -66,5 +66,33 @@ module Decidim::Admin
         end
       end
     end
+
+    context "when participatory process is private" do
+      let(:normal_user) { create(:user, organization:) }
+      let(:participatory_process) { create(:participatory_process, :private, :published, organization: user.organization) }
+      let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: normal_user, privatable_to: participatory_process) }
+
+      context "and user follows process" do
+        let!(:follow) { create(:follow, followable: participatory_process, user: normal_user) }
+
+        it "destroys the follow" do
+          expect(Decidim::Follow.where(user: normal_user).count).to eq(1)
+          subject.call
+          expect(Decidim::Follow.where(user: normal_user).count).to eq(0)
+        end
+
+        context "and user follows meeting belonging to process" do
+          let(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: participatory_process) }
+          let(:meeting) { create(:meeting, component: meetings_component) }
+          let!(:second_follow) { create(:follow, followable: meeting, user: normal_user) }
+
+          it "destroys all follows" do
+            expect(Decidim::Follow.where(user: normal_user).count).to eq(2)
+            subject.call
+            expect(Decidim::Follow.where(user: normal_user).count).to eq(0)
+          end
+        end
+      end
+    end
   end
 end
