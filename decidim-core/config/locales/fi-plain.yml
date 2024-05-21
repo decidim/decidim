@@ -1034,6 +1034,7 @@ fi-pl:
           content: "<p>Palvelussa %{organization} voit osallistua ja päättää eri aiheista ylävalikossa näkyvien osallisuustilojen kautta: prosessit, ryhmät, aloitteet ja kuulemiset.</p> <p>Jokaisessa tilassa voit osallistua: tehdä ehdotuksia - itsenäisesti tai muiden ihmisten kanssa, osallistua keskusteluihin, priorisoida toteutettavia hankkeita sekä osallistua tapaamisiin ja muihin toimiin.</p>\n"
           title: Mitä voin tehdä palvelussa %{organization}?
         description: Lue lisää palvelusta %{organization}.
+        title: Yleiset asiat
     last_activities:
       all: Kaikki tapahtumatyypit
       index:
@@ -1923,6 +1924,7 @@ fi-pl:
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
         resources: Resurssit
         sign_up: Rekisteröidy
+        terms_of_service: Käyttöehdot
       header:
         log_in: Kirjaudu sisään
         main_menu: Päävalikko
