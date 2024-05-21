@@ -11,12 +11,18 @@ module Decidim
       @attachments ||= begin
         resource_registry = Decidim.resource_registry.find(manifest_name)
         model_name = resource_registry&.model_class_name
-        table_name = model_name&.safe_constantize&.table_name
+        model = model_name&.safe_constantize
+        table_name = model&.table_name
 
         if [model_name, table_name].all?(&:present?)
-          Decidim::Attachment.where(attached_to_type: model_name)
-                             .joins("JOIN #{table_name} ON #{table_name}.id = decidim_attachments.attached_to_id")
-                             .where(table_name => { decidim_component_id: __getobj__.id })
+          base_query = Decidim::Attachment.where(attached_to_type: model_name)
+                                          .joins("JOIN #{table_name} ON #{table_name}.id = decidim_attachments.attached_to_id")
+                                          .where(table_name => { decidim_component_id: __getobj__.id })
+          if model&.include?(Decidim::Publicable)
+            base_query.where.not(table_name => { published_at: nil })
+          else
+            base_query
+          end
         else
           Decidim::Attachment.none
         end

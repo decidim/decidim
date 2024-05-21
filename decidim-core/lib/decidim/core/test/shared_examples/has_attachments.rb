@@ -27,7 +27,7 @@ shared_examples_for "has attachments content blocks" do
     let!(:document) { create(:attachment, :with_pdf, attached_to:) }
 
     let(:meeting_component) { create(:meeting_component, :published, participatory_space: attached_to) }
-    let(:meeting) { create(:meeting, component: meeting_component) }
+    let(:meeting) { create(:meeting, :published, component: meeting_component) }
     let!(:meeting_document) { create(:attachment, :with_pdf, attached_to: meeting) }
 
     before do
@@ -79,6 +79,21 @@ shared_examples_for "has attachments content blocks" do
         end
       end
     end
+
+    context "when the meeting is not published" do
+      let(:meeting) { create(:meeting, component: meeting_component) }
+
+      it "does not show a folder for meeting component" do
+        within "[data-content] .documents__container" do
+          expect(page).to have_content(translated(document.title))
+        end
+
+        within "[data-content]" do
+          expect(page).to have_no_css("button#dropdown-documents-trigger-component-#{meeting_component.id}", text: "#{translated(meeting_component.name)} Documents")
+        end
+      end
+    end
+  end
   end
 
   context "when are ordered by weight" do
