@@ -22,11 +22,6 @@
         <%= render partial: "layouts/decidim/header/menu_breadcrumb_main_dropdown", locals: { id: "breadcrumb-main-dropdown-mobile" } %>
       </div>
 
-      <%# Sticky menu mobile %>
-      <div class="main-bar__links-mobile">
-        <%= render partial: "layouts/decidim/header/main_links_mobile" %>
-      </div>
-
       <%# Overlay menus mobile %>
       <%= render partial: "layouts/decidim/header/main_links_mobile_search" %>
       <%= render partial: "layouts/decidim/header/main_links_mobile_account" if current_user %>
