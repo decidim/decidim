@@ -1024,6 +1024,7 @@ eu:
           content: "<p> %{organization} gai desberdinetan parte hartu eta erabaki dezakezu, menu nagusian ikusten dituzun espazioen bidez: Prozesuak, Biltzarrak, Ekimenak, Kontsultak.</p> <p>Parte bakoitzean parte hartzeko aukera desberdinak aurkituko dituzu: proposamenak egitea, banaka edo beste pertsona batzuekin, eztabaidetan parte hartzea, proiektuak gauzatzeko aurreikusitako aurrekontuak, aurrez aurreko topaketak eta bestelako ekintzak biltzea.</p>\n"
           title: Zer egin dezaket %{organization}?
         description: 'Irakurri gehiago honetaz: %{organization}.'
+        title: Orokorra
     last_activities:
       all: Jarduera mota guztiak
       index:
@@ -1912,6 +1913,7 @@ eu:
         made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.
         resources: Baliabideak
         sign_up: Eman izena
+        terms_of_service: Zerbitzuaren baldintzak
       header:
         log_in: Sartu
         main_menu: Menu nagusia
