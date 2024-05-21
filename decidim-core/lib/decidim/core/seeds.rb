@@ -124,7 +124,7 @@ module Decidim
         }
 
         Decidim::Organization.first || Decidim::Organization.create!(
-          name: ::Faker::Company.name,
+          name: Decidim::Faker::Localized.company,
           twitter_handler: ::Faker::Hipster.word,
           facebook_handler: ::Faker::Hipster.word,
           instagram_handler: ::Faker::Hipster.word,

@@ -11,7 +11,7 @@ module Decidim
         )
       end
 
-      let(:name) { "My super organization" }
+      let(:name) { { ca: "", en: "My super organization", es: "" } }
       let(:reference_prefix) { "MSO" }
       let(:time_zone) { "UTC" }
       let(:twitter_handler) { "My twitter awesome handler" }

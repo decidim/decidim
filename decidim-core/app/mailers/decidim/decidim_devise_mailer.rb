@@ -5,6 +5,8 @@ module Decidim
   # each role and use a localised version.
   class DecidimDeviseMailer < ::Devise::Mailer
     include LocalisedMailer
+    include Decidim::SanitizeHelper
+    helper_method :decidim_escape_translated, :decidim_sanitize_translated, :translated_attribute
 
     layout "decidim/mailer"
 
@@ -19,7 +21,11 @@ module Decidim
         @organization = user.organization
         @opts = opts
 
-        opts[:subject] = I18n.t("devise.mailer.#{opts[:invitation_instructions]}.subject", organization: user.organization.name) if opts[:invitation_instructions]
+        if opts[:invitation_instructions]
+          opts[:subject] =
+            I18n.t("devise.mailer.#{opts[:invitation_instructions]}.subject",
+                   organization: organization_name(user.organization))
+        end
       end
 
       devise_mail(user, opts[:invitation_instructions] || :invitation_instructions, opts)

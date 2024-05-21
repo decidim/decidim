@@ -1,6 +1,6 @@
 <% add_decidim_meta_tags({
                            description: strip_tags(translated_attribute(current_organization.description)),
-                           title: current_organization.name,
+                           title: current_organization_name,
                            url: request.original_url,
                            twitter_handler: current_organization.twitter_handler,
                            image_url: Decidim::ContentBlock.published.find_by(

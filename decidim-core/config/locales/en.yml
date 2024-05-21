@@ -1042,7 +1042,7 @@ en:
           content: "<p>In %{organization} you can participate and decide on different topics, through the spaces you see in the top menu: Processes, Assemblies, Initiatives, Consultations.</p> <p>Within each one you will find different options to participate: make proposals - individually or with other people-, take part in debates, prioritize projects to implement, attend face-to-face meetings and other actions.</p>\n"
           title: What can I do in %{organization}?
         description: Read more about %{organization}.
-        title: General Help
+        title: General
     last_activities:
       all: All activity types
       index:
@@ -1932,7 +1932,7 @@ en:
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
         resources: Resources
         sign_up: Sign Up
-        terms_and_conditions: Terms and Conditions
+        terms_of_service: Terms of Service
       header:
         log_in: Log in
         main_menu: Main menu

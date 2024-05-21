@@ -39,6 +39,7 @@ module Decidim
       end
 
       def update
+        @organization = Organization.find(params[:id])
         @form = form(UpdateOrganizationForm).from_params(params)
 
         UpdateOrganization.call(params[:id], @form) do

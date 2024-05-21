@@ -112,7 +112,11 @@ FactoryBot.define do
       create_static_pages { true }
     end
 
-    name { Faker::Company.unique.name }
+    # we do not want machine translation here
+    name do
+      Decidim.available_locales.index_with { |_locale| Faker::Company.unique.name }
+    end
+
     reference_prefix { Faker::Name.suffix }
     time_zone { "UTC" }
     twitter_handler { Faker::Hipster.word }
@@ -433,6 +437,7 @@ FactoryBot.define do
     end
     title { generate_localized_title(:static_page_topic_title, skip_injection:) }
     description { generate_localized_description(:static_page_topic_description, skip_injection:) }
+    show_in_footer { true }
     organization
   end
 

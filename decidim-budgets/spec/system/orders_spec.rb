@@ -305,7 +305,7 @@ describe "Orders" do
 
         expect(page).to have_content "€25,000,000"
 
-        page.find("header a", text: organization.name).click
+        page.find("header a", text: translated(organization.name)).click
 
         expect(page).to have_content "You have not yet voted"
 

@@ -43,9 +43,13 @@ module Decidim
         described_class.invitation_instructions(user, "foo", invitation_instructions: "organization_admin_invitation_instructions")
       end
 
-      let(:mail_subject) { "T'han convidat a administrar #{user.organization.name}" }
+      let(:mail_subject) do
+        I18n.with_locale(locale) do
+          "T'han convidat a administrar #{translated_attribute(user.organization.name)}"
+        end
+      end
       let(:body) { "Acceptar invitaci" }
-      let(:default_subject) { "You have been invited to manage #{user.organization.name}" }
+      let(:default_subject) { "You have been invited to manage #{translated_attribute(user.organization.name)}" }
       let(:default_body) { "Accept invitation" }
 
       include_examples "localised email"
