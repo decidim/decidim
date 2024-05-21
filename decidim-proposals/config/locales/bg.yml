@@ -588,6 +588,17 @@ bg:
           delete:
             invalid: Възникна грешка при отмяна на възлагането на предложения към оценител
             success: Оценителят бе успешно премахнат от предложенията
+      admin_log:
+        proposal:
+          answer: "%{user_name} отговори на предложението %{resource_name} в пространството %{space_name}"
+          create: "%{user_name} създаде предложението %{resource_name} в пространството %{space_name} като официално предложение"
+          publish_answer: "%{user_name} публикува отговора на предложението %{resource_name} в пространството %{space_name}"
+          update: "%{user_name} актуализира официалното предложение %{resource_name} в пространството %{space_name}"
+        proposal_note:
+          create: "%{user_name} остави частна бележка в предложението %{resource_name} в пространството %{space_name}"
+        valuation_assignment:
+          create: "%{user_name} възложи предложението %{resource_name} на оценител"
+          delete: "%{user_name} премахна възлагането на предложението %{proposal_title} на оценител"
       answers:
         not_answered: Не отговорено
         rejected: Отхвърлено
