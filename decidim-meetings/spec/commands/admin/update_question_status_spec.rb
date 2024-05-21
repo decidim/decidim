@@ -13,7 +13,7 @@ module Decidim
         let(:poll) { create(:poll, meeting:) }
         let(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
         let(:question) { create(:meetings_poll_question, questionnaire:) }
-        let(:command) { described_class.new(question, current_user) }
+        let(:command) { described_class.new(question) }
 
         context "with a persisted poll and questionnaire" do
           describe "when the status is unpublished" do

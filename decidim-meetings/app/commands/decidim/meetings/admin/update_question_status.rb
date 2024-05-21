@@ -7,14 +7,13 @@ module Decidim
       # panel.
       class UpdateQuestionStatus < Decidim::Command
         class InvalidStatus < StandardError; end
-
+        delegate :current_user, to: :form
         # Initializes a UpdateQuestionnaire Command.
         #
         # form - The form from which to get the data.
         # questionnaire - The current instance of the questionnaire to be updated.
-        def initialize(question, current_user)
+        def initialize(question)
           @question = question
-          @current_user = current_user
         end
 
         # Updates the questionnaire if valid.
