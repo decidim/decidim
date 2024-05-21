@@ -6,7 +6,7 @@ module Decidim
   describe Decidim::Dev::DummyResourceMailer do
     describe "smtp_settings" do
       let(:user) { create(:user, organization:) }
-      let(:organization) { create(:organization, name: "My Organization", smtp_settings:) }
+      let(:organization) { create(:organization, name: { en: "My Organization" }, smtp_settings:) }
       let(:smtp_settings) do
         {
           "address" => "mail.example.org",
