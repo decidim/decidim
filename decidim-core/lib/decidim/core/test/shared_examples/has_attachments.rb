@@ -94,6 +94,46 @@ shared_examples_for "has attachments content blocks" do
       end
     end
   end
+
+  context "when there is more than one published meeting component" do
+    let!(:document) { create(:attachment, :with_pdf, attached_to:, title: { en: "Global document" }) }
+
+    let(:meeting_component) { create(:meeting_component, :published, participatory_space: attached_to, name: { en: "My Meetings" }) }
+    let(:meeting) { create(:meeting, :published, component: meeting_component) }
+    let!(:meeting_document) { create(:attachment, :with_pdf, attached_to: meeting, title: { en: "My document" }) }
+
+    let(:other_meeting_component) { create(:meeting_component, :published, participatory_space: attached_to, name: { en: "Other Meetings" }) }
+    let(:other_meeting) { create(:meeting, :published, component: other_meeting_component) }
+    let!(:other_meeting_document) { create(:attachment, :with_pdf, attached_to: other_meeting, title: { en: "Other document" }) }
+
+    before do
+      visit current_path
+    end
+
+    it "shows a folder for each meeting component" do
+      within "[data-content] .documents__container" do
+        expect(page).to have_content("Global document")
+      end
+
+      within "[data-content]" do
+        expect(page).to have_css("button#dropdown-documents-trigger-component-#{meeting_component.id}", text: "My Meetings Documents")
+        expect(page).to have_css("button#dropdown-documents-trigger-component-#{other_meeting_component.id}", text: "Other Meetings Documents")
+
+        click_on "My Meetings Documents"
+
+        within "#dropdown-menu-documents-component-#{meeting_component.id}" do
+          expect(page).to have_content("My document")
+          expect(page).to have_no_content("Other document")
+        end
+
+        click_on "Other Meetings Documents"
+
+        within "#dropdown-menu-documents-component-#{other_meeting_component.id}" do
+          expect(page).to have_no_content("My document")
+          expect(page).to have_content("Other document")
+        end
+      end
+    end
   end
 
   context "when are ordered by weight" do
