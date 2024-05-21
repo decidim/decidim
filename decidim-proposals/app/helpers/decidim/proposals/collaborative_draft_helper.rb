@@ -61,7 +61,7 @@ module Decidim
               type: :radio_buttons
             )
           end
-          items.reject { |item| item[:collection].blank? }
+          items.reject { |item| empty_filter?(item[:collection]) }
         end
       end
     end

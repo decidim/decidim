@@ -241,7 +241,7 @@ module Decidim
         # rubocop:enable Metrics/PerceivedComplexity
         # rubocop:enable Metrics/CyclomaticComplexity
 
-        items.reject { |item| item[:collection].blank? }
+        items.reject { |item| empty_filter?(item[:collection]) }
       end
 
       def component_name

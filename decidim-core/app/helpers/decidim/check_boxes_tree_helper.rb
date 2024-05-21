@@ -133,7 +133,25 @@ module Decidim
       content_tag(:span, translation, id:).html_safe + content_tag(:span)
     end
 
+    def empty_filter?(collection)
+      return true if collection.blank?
+      return false unless collection.is_a?(TreeNode)
+      return false unless collection.node.is_a?(Array)
+
+      collection.node.all? { |node| empty_node?(node) }
+    end
+
     private
+
+    def empty_node?(node)
+      if node.is_a?(TreeNode)
+        node.leaf.value.empty?
+      elsif node.is_a?(TreePoint)
+        node.value.empty?
+      else
+        false
+      end
+    end
 
     def filter_scopes_values_from_parent(scope)
       scopes_values = []

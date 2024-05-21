@@ -32,7 +32,7 @@ module Decidim
         sections.append(method: :with_any_type, collection: filter_types_values, label_scope: "decidim.initiatives.initiatives.filters", id: "type") unless single_initiative_type?
         sections.append(method: :with_any_area, collection: filter_areas_values, label_scope: "decidim.initiatives.initiatives.filters", id: "area")
         sections.append(method: :author, collection: filter_author_values, label_scope: "decidim.initiatives.initiatives.filters", id: "author") if current_user
-        sections.reject { |item| item[:collection].blank? }
+        sections.reject { |section| empty_filter?(section[:collection]) }
       end
 
       def filter_author_values

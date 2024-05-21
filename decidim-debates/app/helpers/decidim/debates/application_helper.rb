@@ -87,7 +87,7 @@ module Decidim
           items.append(method: :with_any_origin, collection: filter_origin_values, label_scope: "decidim.debates.debates.filters", id: "origin")
           items.append(method: :activity, collection: activity_filter_values, label_scope: "decidim.debates.debates.filters", id: "activity") if current_user
 
-          items.reject { |item| item[:collection].blank? }
+          items.reject { |item| empty_filter?(item[:collection]) }
         end
       end
 

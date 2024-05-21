@@ -24,7 +24,7 @@ module Decidim
           { method: :with_any_scope, collection: filter_global_scopes_values, label_scope: "decidim.shared.participatory_space_filters.filters", id: "scope" },
           { method: :with_any_area, collection: filter_areas_values, label_scope: "decidim.shared.participatory_space_filters.filters", id: "area" },
           { method: :with_any_type, collection: filter_types_values, label_scope: "decidim.assemblies.assemblies.filters", id: "type" }
-        ].reject { |item| item[:collection].blank? }
+        ].reject { |item| empty_filter?(item[:collection]) }
       end
     end
   end
