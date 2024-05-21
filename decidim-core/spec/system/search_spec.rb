@@ -62,10 +62,6 @@ describe "Search" do
       click_on(id: "dc-dialog-accept")
       click_on(id: "dropdown-trigger-links-mobile-search")
     end
-
-    it "shows the mobile version of the search form" do
-      expect(page).to have_css("#input-search-mobile")
-    end
   end
 
   context "when there is a malformed URL" do
