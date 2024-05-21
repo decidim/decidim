@@ -65,6 +65,20 @@ shared_examples_for "has attachments content blocks" do
         end
       end
     end
+
+    context "when the component is not published" do
+      let(:meeting_component) { create(:meeting_component, :unpublished, participatory_space: attached_to) }
+
+      it "does not show a folder for meeting component" do
+        within "[data-content] .documents__container" do
+          expect(page).to have_content(translated(document.title))
+        end
+
+        within "[data-content]" do
+          expect(page).to have_no_css("button#dropdown-documents-trigger-component-#{meeting_component.id}", text: "#{translated(meeting_component.name)} Documents")
+        end
+      end
+    end
   end
 
   context "when are ordered by weight" do
