@@ -163,16 +163,12 @@ it:
         name: Accountability
         settings:
           global:
-            categories_label: Nome per "Categorie"
             comments_enabled: Commenti abilitati
             comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
             display_progress_enabled: Mostra avanzamento
-            heading_leaf_level_results: Nome per "Progetti"
-            heading_parent_level_results: Nome per "Risultati"
             intro: Introduzione
             scope_id: Ambito
             scopes_enabled: Ambiti abilitati
-            subcategories_label: Nome per "Sottocategorie"
           step:
             comments_blocked: Commenti bloccati
     events:
