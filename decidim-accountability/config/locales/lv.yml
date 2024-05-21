@@ -134,13 +134,9 @@ lv:
         name: Atbildība
         settings:
           global:
-            categories_label: Kategoriju nosaukums
             comments_enabled: Komentāri ir iespējoti
             display_progress_enabled: Rādīt progresu
-            heading_leaf_level_results: Projektu nosaukums
-            heading_parent_level_results: Rezultātu nosaukums
             intro: Ievads
-            subcategories_label: Apakškategoriju nosaukums
           step:
             comments_blocked: Komentāri ir bloķēti
     events:
