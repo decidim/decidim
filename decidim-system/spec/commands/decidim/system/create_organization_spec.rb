@@ -10,7 +10,6 @@ module Decidim
           RegisterOrganizationForm.new(params)
         end
 
-
         let(:command) { described_class.new(form) }
 
         context "when the form is valid" do
