@@ -188,6 +188,7 @@ en:
         export: Export all
         export-selection: Export selection
         import: Import
+        manage: Manage
         newsletter:
           new: New newsletter
         participatory_space_private_user:
