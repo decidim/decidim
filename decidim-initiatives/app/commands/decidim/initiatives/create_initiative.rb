@@ -10,13 +10,13 @@ module Decidim
       include ::Decidim::MultipleAttachmentsMethods
       include ::Decidim::GalleryMethods
 
+      delegate :current_user, to: :form
       # Public: Initializes the command.
       #
       # form - A form object with the params.
       # current_user - Current user.
-      def initialize(form, current_user)
+      def initialize(form)
         @form = form
-        @current_user = current_user
       end
 
       # Executes the command. Broadcasts these events:

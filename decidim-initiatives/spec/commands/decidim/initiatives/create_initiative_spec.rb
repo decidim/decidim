@@ -23,7 +23,7 @@ module Decidim
             )
         end
 
-        let(:command) { described_class.new(form, initiative.author) }
+        let(:command) { described_class.new(form) }
 
         it "broadcasts invalid" do
           expect(form).to receive(:title).at_least(:once).and_return nil
@@ -34,7 +34,7 @@ module Decidim
 
       describe "events" do
         subject do
-          described_class.new(form, author)
+          described_class.new(form)
         end
 
         let(:area) { create(:area, organization:) }
