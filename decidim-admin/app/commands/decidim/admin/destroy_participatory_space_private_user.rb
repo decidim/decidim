@@ -28,11 +28,12 @@ module Decidim
         follows = Decidim::Follow.where(user:)
         ids << follows.where(decidim_followable_type: resource.privatable_to_type)
                       .where(decidim_followable_id: space.id)
-                      .first.id
+                      &.first&.id
         children_ids = follows.select { |follow| find_object_followed(follow).respond_to?("decidim_component_id") }
                               .select { |follow| space.components.ids.include?(find_object_followed(follow).decidim_component_id) }
-                              .map(&:id)
+                              &.map(&:id)
         ids << children_ids
+
         follows.where(id: ids.flatten).destroy_all if ids.present?
       end
 
