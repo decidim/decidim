@@ -3,7 +3,7 @@
 shared_examples "create an initiative" do
   let(:initiative_type) { create(:initiatives_type) }
   let(:scoped_type) { create(:initiatives_type_scope, type: initiative_type) }
-  let(:author) { create(:user, organization: initiative_type.organization) }
+  let(:current_user) { create(:user, organization: initiative_type.organization) }
   let(:form) do
     form_klass
       .from_params(form_params)
@@ -62,7 +62,7 @@ shared_examples "create an initiative" do
         command.call
         initiative = Decidim::Initiative.last
 
-        expect(initiative.author).to eq(author)
+        expect(initiative.current_user).to eq(current_user)
       end
 
       it "Default state is created" do
@@ -99,7 +99,7 @@ shared_examples "create an initiative" do
         command.call
         initiative = Decidim::Initiative.last
 
-        expect(initiative.committee_members.accepted.where(user: author)).to exist
+        expect(initiative.committee_members.accepted.where(user: current_user)).to exist
       end
 
       context "when the initiative type does not enable custom signature end date" do
