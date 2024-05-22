@@ -18,7 +18,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid, together with the resource.
-      # - :invalid if the resource already has supports or does not belong to current user.
+      # - :invalid if the resource already has votes or does not belong to current user.
       #
       # Returns nothing.
       def call

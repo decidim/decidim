@@ -40,7 +40,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :proposal_edit_time, type: :enum, default: "limited", choices: -> { %w(limited infinite) }
     settings.attribute :proposal_edit_before_minutes, type: :integer, default: 5, required: true
     settings.attribute :threshold_per_proposal, type: :integer, default: 0, required: true
-    settings.attribute :can_accumulate_supports_beyond_threshold, type: :boolean, default: false
+    settings.attribute :can_accumulate_votes_beyond_threshold, type: :boolean, default: false
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
     settings.attribute :default_sort_order, type: :select, default: "default", choices: -> { POSSIBLE_SORT_ORDERS }
     settings.attribute :official_proposals_enabled, type: :boolean, default: true
@@ -111,7 +111,7 @@ Decidim.register_component(:proposals) do |component|
     Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).accepted.not_hidden.count
   end
 
-  component.register_stat :supports_count, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
+  component.register_stat :votes_count, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_hidden
     Decidim::Proposals::ProposalVote.where(proposal: proposals).count
   end
