@@ -602,6 +602,8 @@ bg:
           create: "%{user_name} възложи предложението %{resource_name} на оценител"
           delete: "%{user_name} премахна възлагането на предложението %{proposal_title} на оценител"
       answers:
+        accepted: Прието
+        evaluating: Оценяване
         not_answered: Не отговорено
         rejected: Отхвърлено
         withdrawn: Оттеглено
@@ -671,8 +673,88 @@ bg:
         name: Съвместни чернови
         new:
           add_file: Добави файл
+          edit_file: Редактирай файл
+          send: Продължи
+        new_collaborative_draft_button:
+          new_collaborative_draft: Нова съвместна чернова
+        orders:
+          label: 'Подреждане на черновите по:'
+          most_contributed: Най-допринесли
+          random: Произволно
+          recent: Скорошни
+        requests:
+          accepted_request:
+            error: Неуспешно приемане като сътрудник, моля, опитайте отново по-късно.
+            success: "@%{user} беше приет(а) успешно като сътрудник."
+          access_requested:
+            error: Заявката Ви не беше изпълнена успешно, моля, опитайте отново по-късно.
+            success: Вашата заявка за сътрудничество беше изпратена успешно.
+          collaboration_requests:
+            accept_request: Приеми
+            reject_request: Отхвърли
+            title: Заявки за сътрудничество
+          rejected_request:
+            error: Неуспешно отхвърляне като сътрудник, моля, опитайте отново по-късно.
+            success: "@%{user} беше отхвърлен(а) успешно като сътрудник."
+        show:
+          edit: Редактиране на съвместната чернова
+          final_proposal: Окончателно предложение
+          final_proposal_help_text: Тази чернова е завършена. Вижте окончателното предложение
+          hidden_authors_count:
+            one: и още %{count}
+            other: и още %{count} души
+          info-message: Това е <strong>съвместна чернова</strong> за предложение. Това означава, че можете да помогнете на авторите да оформят предложението си, като използвате раздела за коментари по-долу, или да го подобрите директно, като поискате редакторски достъп. След като авторите Ви предоставят достъп, ще можете да извършвате промени в черновата.
+          publish: Публикувай
+          publish_info: Публикуване на тази версия на черновата или
+          published_proposal: Публикувано предложение
+          request_access: Заявка за достъп
+          requested_access: Изпратена е заявка за достъп
+          withdraw: оттеглете черновата
+        states:
+          open: Отвори
+          published: Публикувано
+          withdrawn: Оттеглено
+        update:
+          error: Възникна проблем при запазването на съвместната чернова.
+          success: Съвместната чернова беше актуализирана успешно.
+        wizard_aside:
+          back_from_collaborative_draft: Назад към съвместните чернови
+        wizard_header:
+          title: Създайте своята съвместна чернова
+      content_blocks:
+        highlighted_proposals:
+          name: Предложения
+      create:
+        error: Възникна проблем при запазването на предложението.
+        success: Предложението беше създадено успешно. Запазено като чернова.
       proposals:
         index:
+          click_here: Виж всички предложения
+          collaborative_drafts_list: Достъп до съвместни чернови
           count:
             one: "%{count} предложение"
             other: "%{count} предложения"
+          new_proposal: Ново предложение
+          see_all: Виж всички предложения
+          see_all_withdrawn: Вижте всички оттеглени предложения
+          text_banner: Разглеждате списъка с предложения, оттеглени от своите автори. %{go_back_link}.
+        new:
+          send: Продължи
+          title: Създайте Ваше предложение
+        orders:
+          label: 'Подреждане на предложенията по:'
+          most_commented: Най-коментирани
+          most_endorsed: Най-препоръчвани
+          most_followed: Най-следвани
+          most_voted: Най-подкрепяни
+          random: Произволно
+          recent: Скорошни
+          with_more_authors: С повече автори
+        participatory_texts:
+          view_index:
+            document_index: Индекс на документ
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
+        preview:
+          announcement_body: Вашето предложение е запазено като чернова. Трябва да се публикува, за да се появи на сайта.
+          announcement_title: Вашето предложение все още не е публикувано
