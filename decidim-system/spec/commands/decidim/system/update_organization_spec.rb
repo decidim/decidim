@@ -101,7 +101,7 @@ module Decidim
                 command.call
                 organization = Organization.last
 
-                expect(organization.name).to eq("Gotham City")
+                expect(translated(organization.name)).to eq("Gotham City")
                 expect(organization.smtp_settings).to be_nil
               end
             end
@@ -120,7 +120,7 @@ module Decidim
               command.call
               organization = Organization.last
 
-              expect(organization.name).to eq("Gotham City")
+              expect(translated(organization.name)).to eq("Gotham City")
               expect(organization.omniauth_settings).to be_nil
             end
           end
