@@ -29,7 +29,7 @@ shared_examples "create an initiative" do
       }
     end
 
-    let(:command) { described_class.new(form, author) }
+    let(:command) { described_class.new(form) }
 
     describe "when the form is not valid" do
       before do
