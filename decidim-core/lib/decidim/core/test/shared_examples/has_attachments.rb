@@ -41,9 +41,9 @@ shared_examples_for "has attachments content blocks" do
         end
 
         within "[data-content]" do
-          expect(page).to have_css("button#dropdown-documents-trigger-component-#{meeting_component.id}", text: "#{translated(meeting_component.name)} Documents")
+          expect(page).to have_css("button#dropdown-documents-trigger-component-#{meeting_component.id}", text: "#{translated(meeting_component.name)} documents")
 
-          click_on "#{translated(meeting_component.name)} Documents"
+          click_on "#{translated(meeting_component.name)} documents"
 
           within "#dropdown-menu-documents-component-#{meeting_component.id}" do
             expect(page).to have_content(translated(meeting_document.title))
@@ -61,7 +61,7 @@ shared_examples_for "has attachments content blocks" do
         end
 
         within "[data-content]" do
-          expect(page).to have_no_css("button#dropdown-documents-trigger-component-#{meeting_component.id}", text: "#{translated(meeting_component.name)} Documents")
+          expect(page).to have_no_css("button#dropdown-documents-trigger-component-#{meeting_component.id}", text: "#{translated(meeting_component.name)} documents")
         end
       end
     end
@@ -75,7 +75,7 @@ shared_examples_for "has attachments content blocks" do
         end
 
         within "[data-content]" do
-          expect(page).to have_no_css("button#dropdown-documents-trigger-component-#{meeting_component.id}", text: "#{translated(meeting_component.name)} Documents")
+          expect(page).to have_no_css("button#dropdown-documents-trigger-component-#{meeting_component.id}", text: "#{translated(meeting_component.name)} documents")
         end
       end
     end
@@ -89,7 +89,7 @@ shared_examples_for "has attachments content blocks" do
         end
 
         within "[data-content]" do
-          expect(page).to have_no_css("button#dropdown-documents-trigger-component-#{meeting_component.id}", text: "#{translated(meeting_component.name)} Documents")
+          expect(page).to have_no_css("button#dropdown-documents-trigger-component-#{meeting_component.id}", text: "#{translated(meeting_component.name)} documents")
         end
       end
     end
@@ -116,17 +116,17 @@ shared_examples_for "has attachments content blocks" do
       end
 
       within "[data-content]" do
-        expect(page).to have_css("button#dropdown-documents-trigger-component-#{meeting_component.id}", text: "My Meetings Documents")
-        expect(page).to have_css("button#dropdown-documents-trigger-component-#{other_meeting_component.id}", text: "Other Meetings Documents")
+        expect(page).to have_css("button#dropdown-documents-trigger-component-#{meeting_component.id}", text: "My Meetings documents")
+        expect(page).to have_css("button#dropdown-documents-trigger-component-#{other_meeting_component.id}", text: "Other Meetings documents")
 
-        click_on "My Meetings Documents"
+        click_on "My Meetings documents"
 
         within "#dropdown-menu-documents-component-#{meeting_component.id}" do
           expect(page).to have_content("My document")
           expect(page).to have_no_content("Other document")
         end
 
-        click_on "Other Meetings Documents"
+        click_on "Other Meetings documents"
 
         within "#dropdown-menu-documents-component-#{other_meeting_component.id}" do
           expect(page).to have_no_content("My document")
