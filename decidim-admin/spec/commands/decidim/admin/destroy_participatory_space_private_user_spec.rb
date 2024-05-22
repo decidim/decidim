@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/meetings/test/factories"
 
 module Decidim::Admin
   describe DestroyParticipatorySpacePrivateUser do
@@ -55,10 +54,12 @@ module Decidim::Admin
 
         context "and user follows meeting belonging to assembly" do
           let(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: assembly) }
-          let(:meeting) { create(:meeting, component: meetings_component) }
-          let!(:second_follow) { create(:follow, followable: meeting, user: normal_user) }
 
           it "destroys all follows" do
+            meeting = Decidim::Meetings::Meeting.create!(title: generate_localized_title(:meeting_title, skip_injection: false),
+                                                         description: generate_localized_description(:meeting_description, skip_injection: false),
+                                                         component: meetings_component, author: user)
+            create(:follow, followable: meeting, user: normal_user)
             expect(Decidim::Follow.where(user: normal_user).count).to eq(2)
             subject.call
             expect(Decidim::Follow.where(user: normal_user).count).to eq(0)
@@ -77,19 +78,23 @@ module Decidim::Admin
 
         it "destroys the follow" do
           expect(Decidim::Follow.where(user: normal_user).count).to eq(1)
-          subject.call
-          expect(Decidim::Follow.where(user: normal_user).count).to eq(0)
+          expect do
+            subject.call
+          end.to change(Decidim::Follow, :count).by(-1)
         end
 
         context "and user follows meeting belonging to process" do
           let(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: participatory_process) }
-          let(:meeting) { create(:meeting, component: meetings_component) }
-          let!(:second_follow) { create(:follow, followable: meeting, user: normal_user) }
 
           it "destroys all follows" do
+            meeting = Decidim::Meetings::Meeting.create!(title: generate_localized_title(:meeting_title, skip_injection: false),
+                                                         description: generate_localized_description(:meeting_description, skip_injection: false),
+                                                         component: meetings_component, author: user)
+            create(:follow, followable: meeting, user: normal_user)
             expect(Decidim::Follow.where(user: normal_user).count).to eq(2)
-            subject.call
-            expect(Decidim::Follow.where(user: normal_user).count).to eq(0)
+            expect do
+              subject.call
+            end.to change(Decidim::Follow, :count).by(-2)
           end
         end
       end
