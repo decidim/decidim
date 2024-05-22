@@ -46,7 +46,7 @@ describe "Decidim::Api::QueryType" do
           "id" => e.author.id.to_s,
           "name" => e.author.name,
           "nickname" => "@#{e.author.nickname}",
-          "organizationName" => e.author.organization.name,
+          "organizationName" => { "translation" => translated(e.author.organization.name) },
           "profilePath" => "/profiles/#{e.author.nickname}" }
       end,
       "endorsementsCount" => proposal.endorsements.size,
@@ -144,7 +144,7 @@ describe "Decidim::Api::QueryType" do
                 deleted
                  name
                 nickname
-                organizationName
+                organizationName { translation(locale: "en") }
                 profilePath
               }
               endorsementsCount
@@ -249,7 +249,7 @@ describe "Decidim::Api::QueryType" do
             deleted
              name
             nickname
-            organizationName
+            organizationName { translation(locale: "en") }
             profilePath
           }
           endorsementsCount

@@ -28,6 +28,8 @@ module Decidim
                     decidim_sanitize_translated(author.title)
                   end
                 end
+              when Decidim::Organization
+                content_tag :li, organization_name(author)
               else
                 content_tag(:li, author.name)
               end

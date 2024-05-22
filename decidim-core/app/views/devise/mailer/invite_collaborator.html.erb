@@ -2,9 +2,9 @@
 
 <p class="email-instructions">
   <% if @resource.invited_by.present? %>
-    <%= t("devise.mailer.invitation_instructions.invited_you_as_admin", invited_by: @resource.invited_by.name, application: @resource.organization.name) %>
+    <%= t("devise.mailer.invitation_instructions.invited_you_as_admin", invited_by: @resource.invited_by.name, application: organization_name(@resource.organization)) %>
   <% else %>
-    <%= t("devise.mailer.invitation_instructions.someone_invited_you_as_admin", application: @resource.organization.name) %>
+    <%= t("devise.mailer.invitation_instructions.someone_invited_you_as_admin", application: organization_name(@resource.organization)) %>
   <% end %>
 </p>
 
