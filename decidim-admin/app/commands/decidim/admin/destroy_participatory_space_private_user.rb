@@ -26,15 +26,21 @@ module Decidim
         user = Decidim::User.find(resource.decidim_user_id)
         ids = []
         follows = Decidim::Follow.where(user:)
-        ids << follows.where(decidim_followable_type: resource.privatable_to_type)
-                      .where(decidim_followable_id: space.id)
-                      &.first&.id
-        children_ids = follows.select { |follow| find_object_followed(follow).respond_to?("decidim_component_id") }
-                              .select { |follow| space.components.ids.include?(find_object_followed(follow).decidim_component_id) }
-                              &.map(&:id)
-        ids << children_ids
-
+        ids << find_space_follow_id(follows, resource, space)
+        ids << find_children_follows_ids(follows, space)
         follows.where(id: ids.flatten).destroy_all if ids.present?
+      end
+
+      def find_space_follow_id(follows, resource, space)
+        follows.where(decidim_followable_type: resource.privatable_to_type)
+               .where(decidim_followable_id: space.id)
+               &.first&.id
+      end
+
+      def find_children_follows_ids(follows, space)
+        follows.select { |follow| find_object_followed(follow).respond_to?("decidim_component_id") }
+               .select { |follow| space.components.ids.include?(find_object_followed(follow).decidim_component_id) }
+               &.map(&:id)
       end
 
       def find_object_followed(follow)
