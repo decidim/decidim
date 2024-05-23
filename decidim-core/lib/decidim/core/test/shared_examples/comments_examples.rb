@@ -117,8 +117,8 @@ shared_examples "comments" do
   context "when not authenticated" do
     it "does not show form to add comments to user" do
       visit resource_path
-      expect(page).not_to have_selector(".add-comment form")
-      expect(page).to have_selector(".comment-thread")
+      expect(page).to have_no_css(".add-comment form")
+      expect(page).to have_css(".comment-thread")
     end
   end
 
