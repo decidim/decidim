@@ -32,7 +32,7 @@ module Decidim
 
         private
 
-        attr_reader :question, :current_user
+        attr_reader :question
 
         def update_question
           Decidim.traceability.update!(
