@@ -47,6 +47,12 @@ We have updated the Rails version to 7.0.8.1. You do not need to do anything.
 
 You can read more about this change on PR [#12616](https://github.com/decidim/decidim/pull/12616).
 
+## 2.3. Removal of the accountability naming customization
+
+We have removed the ability to customize the labels from the Accountability component, as it was not following the recommended way of handling these text customizations. If you want to migrate your current customizations, you can read about [Text customizations in Decidim Documentation](https://docs.decidim.org/en/develop/customize/texts)
+
+You can read more about this change on PR [#12853](https://github.com/decidim/decidim/pull/12853).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
