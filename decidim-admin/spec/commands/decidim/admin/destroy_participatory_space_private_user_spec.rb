@@ -48,8 +48,9 @@ module Decidim::Admin
 
         it "destroys the follow" do
           expect(Decidim::Follow.where(user: normal_user).count).to eq(1)
-          subject.call
-          expect(Decidim::Follow.where(user: normal_user).count).to eq(0)
+          expect do
+            subject.call
+          end.to change(Decidim::Follow, :count).by(-1)
         end
 
         context "and user follows meeting belonging to assembly" do
@@ -61,8 +62,9 @@ module Decidim::Admin
                                                          component: meetings_component, author: user)
             create(:follow, followable: meeting, user: normal_user)
             expect(Decidim::Follow.where(user: normal_user).count).to eq(2)
-            subject.call
-            expect(Decidim::Follow.where(user: normal_user).count).to eq(0)
+            expect do
+              subject.call
+            end.to change(Decidim::Follow, :count).by(-2)
           end
         end
       end
