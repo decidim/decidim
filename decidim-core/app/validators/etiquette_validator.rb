@@ -22,7 +22,9 @@ class EtiquetteValidator < ActiveModel::EachValidator
   private
 
   def validate_caps(record, attribute, value)
-    return if value.scan(/[A-Z]/).length < value.length / 4
+    # to prevent :too_much_caps error when there are no caps and 1-3 char string
+    caps = value.scan(/[A-Z]/).length
+    return if caps == 0 or value.scan(/[A-Z]/).length < value.length / 4
 
     record.errors.add(attribute, options[:message] || :too_much_caps)
   end
