@@ -6,8 +6,6 @@ module Decidim
   module Meetings
     module Admin
       describe UpdateQuestionStatus do
-        let(:current_organization) { create(:organization) }
-        let(:current_user) { create(:user, organization: meeting_component.organization) }
         let(:meeting_component) { create(:meeting_component) }
         let(:meeting) { create(:meeting, component: meeting_component) }
         let(:poll) { create(:poll, meeting:) }
