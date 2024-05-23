@@ -55,6 +55,10 @@ module Decidim
       def multi_translation(key, **)
         Decidim::TranslationsHelper.multi_translation(key, @organization.available_locales, **)
       end
+
+      def organization_name
+        translated_attribute(@organization.name)
+      end
     end
   end
 end
