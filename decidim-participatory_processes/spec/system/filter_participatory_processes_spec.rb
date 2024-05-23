@@ -131,7 +131,7 @@ describe "Filter Participatory Processes" do
   end
 
   context "when filtering processes by area" do
-    context "organization without areas" do
+    context "without organization areas" do
       let!(:process_without_area) { create(:participatory_process, organization:) }
 
       before do
@@ -143,7 +143,7 @@ describe "Filter Participatory Processes" do
       end
     end
 
-    context "organization with areas" do
+    context "with organization areas" do
       let!(:area) { create(:area, organization:) }
       let!(:other_area) { create(:area, organization:) }
       let!(:process_with_area) { create(:participatory_process, area:, organization:) }

@@ -177,9 +177,7 @@ module Decidim
         )
       end
 
-      if scopes_values.any?
-        scopes_values.prepend(TreePoint.new("global", t("decidim.scopes.global"))) if participatory_space&.scope.blank?
-      end
+      scopes_values.prepend(TreePoint.new("global", t("decidim.scopes.global"))) if scopes_values.any? && participatory_space.present?
 
       filter_tree_from(scopes_values)
     end
