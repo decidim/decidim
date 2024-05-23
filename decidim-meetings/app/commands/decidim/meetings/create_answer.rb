@@ -34,6 +34,7 @@ module Decidim
 
       def answer_question
         answer = Answer.new(
+          user: current_user,
           questionnaire: @questionnaire,
           question: form.question
         )
