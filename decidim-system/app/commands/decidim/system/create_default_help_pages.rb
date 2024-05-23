@@ -4,6 +4,8 @@ module Decidim
   module System
     # A command that will create default help pages for an organization.
     class CreateDefaultHelpPages < Decidim::Command
+      include Decidim::TranslatableAttributes
+
       # Public: Initializes the command.
       #
       # organization - An organization
