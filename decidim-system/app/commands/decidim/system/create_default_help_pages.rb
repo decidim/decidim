@@ -29,7 +29,7 @@ module Decidim
           Decidim::StaticPage.create!(
             slug: "help",
             title: multi_translation("decidim.help.main_topic.default_page.title", organization: organization.name),
-            content: multi_translation("decidim.help.main_topic.default_page.content", organization: @organization.name),
+            content: multi_translation("decidim.help.main_topic.default_page.content", organization: organization.name),
             topic:,
             organization: @organization,
             weight: 0
