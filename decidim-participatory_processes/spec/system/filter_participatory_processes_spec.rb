@@ -131,40 +131,54 @@ describe "Filter Participatory Processes" do
   end
 
   context "when filtering processes by area" do
-    let!(:area) { create(:area, organization:) }
-    let!(:other_area) { create(:area, organization:) }
-    let!(:process_with_area) { create(:participatory_process, area:, organization:) }
-    let!(:process_without_area) { create(:participatory_process, organization:) }
-
-    before do
-      visit decidim_participatory_processes.participatory_processes_path
-    end
-
-    context "and choosing an area" do
-      before do
-        within "#panel-dropdown-menu-area" do
-          click_filter_item translated(area.name)
-        end
-      end
-
-      it "lists all processes belonging to that area" do
-        expect(page).to have_content(translated(process_with_area.title))
-        expect(page).to have_no_content(translated(process_without_area.title))
-      end
-    end
-
-    context "when filters are disabled" do
-      let!(:process_with_area) { create(:participatory_process, area: create(:area, organization:), organization:) }
-      let!(:process_with_scope) { create(:participatory_process, scope: create(:scope, organization:), organization:) }
-      let(:organization) { create(:organization, enable_participatory_space_filters: false) }
+    context "organization without areas" do
+      let!(:process_without_area) { create(:participatory_process, organization:) }
 
       before do
         visit decidim_participatory_processes.participatory_processes_path
       end
 
-      it "does not show filters" do
-        expect(page).to have_no_css(".with_area_areas_select_filter")
-        expect(page).to have_no_css(".with_scope_scopes_picker_filter")
+      it "does not show the area filter" do
+        expect(page).to have_no_css("#panel-dropdown-menu-area")
+      end
+    end
+
+    context "organization with areas" do
+      let!(:area) { create(:area, organization:) }
+      let!(:other_area) { create(:area, organization:) }
+      let!(:process_with_area) { create(:participatory_process, area:, organization:) }
+      let!(:process_without_area) { create(:participatory_process, organization:) }
+
+      before do
+        visit decidim_participatory_processes.participatory_processes_path
+      end
+
+      context "and choosing an area" do
+        before do
+          within "#panel-dropdown-menu-area" do
+            click_filter_item translated(area.name)
+          end
+        end
+
+        it "lists all processes belonging to that area" do
+          expect(page).to have_content(translated(process_with_area.title))
+          expect(page).to have_no_content(translated(process_without_area.title))
+        end
+      end
+
+      context "when filters are disabled" do
+        let!(:process_with_area) { create(:participatory_process, area: create(:area, organization:), organization:) }
+        let!(:process_with_scope) { create(:participatory_process, scope: create(:scope, organization:), organization:) }
+        let(:organization) { create(:organization, enable_participatory_space_filters: false) }
+
+        before do
+          visit decidim_participatory_processes.participatory_processes_path
+        end
+
+        it "does not show filters" do
+          expect(page).to have_no_css(".with_area_areas_select_filter")
+          expect(page).to have_no_css(".with_scope_scopes_picker_filter")
+        end
       end
     end
   end
