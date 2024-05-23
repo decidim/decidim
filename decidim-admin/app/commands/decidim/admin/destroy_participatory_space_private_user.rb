@@ -38,10 +38,10 @@ module Decidim
 
       def find_children_follows_ids(follows, space)
         follows.map do |follow|
-          object = find_object_followed(follow) || nil
+          object = find_object_followed(follow).presence
           next unless object.respond_to?("decidim_component_id")
           return follow.id if space.components.ids.include?(object.decidim_component_id)
-        end
+        end.compact
       end
 
       def find_object_followed(follow)
