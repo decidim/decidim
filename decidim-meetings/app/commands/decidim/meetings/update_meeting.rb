@@ -9,7 +9,6 @@ module Decidim
       # Initializes a UpdateMeeting Command.
       #
       # form - The form from which to get the data.
-      # current_user - The current user.
       # meeting - The current instance of the page to be updated.
       def initialize(form, meeting)
         @form = form
