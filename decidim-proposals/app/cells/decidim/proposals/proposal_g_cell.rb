@@ -28,8 +28,6 @@ module Decidim
       end
 
       def resource_image_path
-        return unless model.component.settings.attachments_allowed?
-
         model.attachments.first&.url || proposal_image_placeholder
       end
 
