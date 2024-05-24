@@ -49,25 +49,36 @@ module Decidim
     end
 
     def filter_spaces(query)
-      conditions = []
-
+      current_user_id = current_user&.id.to_i
       Decidim.participatory_space_manifests.map do |manifest|
         klass = manifest.model_class_name.constantize
+        next unless klass.include?(Decidim::HasPrivateUsers)
 
-        condition = if klass.include?(Decidim::HasPrivateUsers)
-                      Arel.sql(
-                        [
-                          "decidim_action_logs.participatory_space_type = '#{manifest.model_class_name}'",
-                          "decidim_action_logs.participatory_space_id IN (#{Arel.sql(klass.visible_for(current_user).select(:id).to_sql)})"
-                        ].join(" AND ")
-                      ).to_s
-                    else
-                      Arel.sql("decidim_action_logs.participatory_space_type = '#{manifest.model_class_name}'").to_s
-                    end
-
-        conditions << "(#{condition})"
+        table = klass.table_name
+        query = query.joins(
+          Arel.sql(
+            <<~SQL.squish
+              LEFT JOIN #{table}
+                ON decidim_action_logs.participatory_space_type = '#{manifest.model_class_name}'
+                AND #{table}.id = decidim_action_logs.participatory_space_id
+              LEFT JOIN decidim_participatory_space_private_users AS #{manifest.name}_private_users
+                ON #{manifest.name}_private_users.privatable_to_type = '#{manifest.model_class_name}'
+                AND #{table}.id = #{manifest.name}_private_users.privatable_to_id
+                AND #{table}.private_space = 't'
+            SQL
+          ).to_s
+        ).where(
+          Arel.sql(
+            <<~SQL.squish
+              #{table}.id IS NULL OR
+              #{table}.private_space = 'f' OR
+              #{manifest.name}_private_users.decidim_user_id = #{current_user_id}
+            SQL
+          ).to_s
+        )
       end
-      query.where(Arel.sql(conditions.join(" OR ")).to_s)
+
+      query
     end
 
     def filter_deleted(query)
