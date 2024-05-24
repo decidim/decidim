@@ -1,1 +1,14 @@
+---
 th:
+  decidim:
+    accountability:
+      admin:
+        import_results:
+          new:
+            download_export: ดาวน์โหลดการส่งออกด้วยรูปแบบ CSV
+            import: นำเข้า
+        models:
+          result:
+            name: ผลลัพธ์
+          status:
+            name: สถานะ
