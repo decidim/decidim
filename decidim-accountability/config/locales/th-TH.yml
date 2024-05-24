@@ -74,6 +74,7 @@ th:
             title: สถานะ
           new:
             create: Create status
+            title: สถานะใหม่
       results:
         home:
           categories_label: หมวดหมู่
