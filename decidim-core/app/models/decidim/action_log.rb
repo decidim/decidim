@@ -132,6 +132,7 @@ module Decidim
       @public_resource_types ||= %w(
         Decidim::Accountability::Result
         Decidim::Blogs::Post
+        Decidim::Conference
         Decidim::Comments::Comment
         Decidim::Debates::Debate
         Decidim::Meetings::Meeting
