@@ -30,13 +30,19 @@ module Decidim
       def resource_image_path
         return unless model.component.settings.attachments_allowed?
 
-        model.attachments.first&.url
+        model.attachments.first&.url || proposal_image_placeholder
       end
 
       def proposal_state_item
         return if model.state.blank?
 
         @proposal_state_item ||= { text: content_tag(:span, humanize_proposal_state(model.state), class: "label #{state_class}") }
+      end
+
+      private
+
+      def proposal_image_placeholder
+        asset_pack_path("media/images/proposal_image_placeholder.svg")
       end
     end
   end
