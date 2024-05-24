@@ -133,6 +133,13 @@ th:
             title: สถานะ
           new:
             create: Create status
+            title: สถานะใหม่
+          update:
+            invalid: เกิดปัญหาในการอัปเดตสถานะนี้
+            success: อัปเดตสถานะสำเร็จแล้ว
+        timeline_entries:
+          create:
+            invalid: เกิดปัญหาในการสร้างรายการนี้
       results:
         home:
           categories_label: หมวดหมู่
