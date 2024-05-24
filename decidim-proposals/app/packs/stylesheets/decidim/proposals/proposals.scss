@@ -77,6 +77,18 @@
   }
 }
 
+#proposals {
+  .view-layout__links{
+    svg {
+      @apply inline-block w-5 h-5;
+
+      &.view-icon--disabled {
+        @apply fill-gray mr-2;
+      }
+    }
+  }
+}
+
 /* overwrite tom-select defaults */
 .ts {
   &-control {
