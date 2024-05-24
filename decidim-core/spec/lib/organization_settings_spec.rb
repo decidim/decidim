@@ -143,6 +143,19 @@ module Decidim
         expect(subject).to be_a(described_class)
         expect(struct_to_hash(subject)).to eq("upload" => default_settings)
       end
+
+      context "when the configuration from the secret has changed" do
+        let(:maximum_attachment_size) { 20 }
+
+        before do
+          allow(Rails.application.secrets.decidim).to receive(:[]).and_call_original
+          allow(Rails.application.secrets.decidim).to receive(:[]).with(:maximum_attachment_size).and_return(maximum_attachment_size)
+        end
+
+        it "returns a new instance using the values from the secrets" do
+          expect(subject.upload_maximum_file_size).to eq(maximum_attachment_size.megabytes)
+        end
+      end
     end
 
     describe "#wrap_upload_maximum_file_size" do
