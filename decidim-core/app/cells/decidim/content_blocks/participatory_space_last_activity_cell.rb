@@ -24,8 +24,8 @@ module Decidim
           Decidim::ParticipatorySpaceLastActivity
           .new(resource).query
           .where.not(user: nil)
-          .select("decidim_user_id, MAX(decidim_action_logs.created_at)")
-          .group("decidim_user_id")
+          .select("decidim_action_logs.decidim_user_id, MAX(decidim_action_logs.created_at)")
+          .group("decidim_action_logs.decidim_user_id")
           .reorder("MAX(decidim_action_logs.created_at) DESC")
       end
 
