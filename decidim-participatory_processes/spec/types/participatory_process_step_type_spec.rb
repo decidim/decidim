@@ -80,7 +80,7 @@ module Decidim
         let(:query) { '{ callToActionText { locales translation(locale:"en") } }' }
 
         it "returns the step's call to action text" do
-          expect(response["callToActionText"]["locales"]).to include(*model.cta_text.keys)
+          expect(response["callToActionText"]["locales"]).to include(*model.cta_text.except("machine_translations").keys)
           expect(response["callToActionText"]["translation"]).to eq(model.cta_text["en"])
         end
       end
