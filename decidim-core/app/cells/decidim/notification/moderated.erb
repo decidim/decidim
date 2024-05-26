@@ -2,7 +2,7 @@
   <div class="notification__wrapper">
     <div class="notification__time" title="<%= l(notification.created_at) %>"> <%= notification.created_at_in_words %></div>
     <div class="notification__snippet">
-      <span class="notification__snippet-title"><%= t("decidim.notifications.show.moderated") %></span>
+      <span class="notification__snippet-title text-gray"><%= t("decidim.notifications.show.moderated") %></span>
     </div>
   </div>
   <%= link_to model, remote: true, method: :delete, class: "notification__button", data: { "notification-read": "" } do %>

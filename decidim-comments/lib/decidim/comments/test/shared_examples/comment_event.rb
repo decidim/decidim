@@ -53,7 +53,7 @@ shared_examples_for "a comment event" do
     context "when comment is moderated" do
       let(:comment) { create(:comment, :moderated) }
 
-      it "returns false" do
+      it "returns true" do
         expect(subject.hidden_resource?).to be true
       end
     end

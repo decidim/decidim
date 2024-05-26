@@ -84,7 +84,7 @@ describe Decidim::Accountability::ProposalLinkedEvent do
     context "when resource is moderated" do
       let(:resource) { create(:proposal, :moderated) }
 
-      it "returns false" do
+      it "returns true" do
         expect(subject.hidden_resource?).to be true
       end
     end
