@@ -199,7 +199,7 @@ You can see more details about this change on PR [\#12052](https://github.com/de
 
 ### 5.2. Seeds require assets precompiling
 
-In order to successfuly showcase the features of the application, we have added as a mandatory step the assets precompiling, as the seeds will now fire the notification system. That allows any Decidim demo instance to display user notifications.
+In order to successfully showcase the features of the application, we have added as a mandatory step the assets precompiling, as the seeds will now fire the notification system. That allows any Decidim demo instance to display user notifications.
 
 if you previously seeded your database using:
 
