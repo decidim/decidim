@@ -1438,7 +1438,6 @@ fi:
           past: Menneet
       filters_small_view:
         filter: Suodata
-        filter_and_search: Suodata ja hae
         filter_by: Suodata
       results:
         view_all: Näytä kaikki (%{count})
