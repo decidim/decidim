@@ -1427,7 +1427,6 @@ lt:
           past: Praėję
       filters_small_view:
         filter: Filtruoti
-        filter_and_search: Filtruoti ir ieškoti
         filter_by: Filtruoti pagal
       results:
         view_all: Peržiūrėti viską (%{count})
