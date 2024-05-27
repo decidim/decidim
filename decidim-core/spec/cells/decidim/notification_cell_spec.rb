@@ -30,4 +30,12 @@ describe Decidim::NotificationCell, type: :cell do
       expect(my_cell.notification_title).to include("this notification belongs to an item that is no longer available")
     end
   end
+
+  context "when resource is moderated" do
+    let!(:resource) { create(:dummy_resource, :moderated, component:) }
+
+    it "does not render the resource" do
+      expect(subject.to_s).to include("Content moderated")
+    end
+  end
 end
