@@ -658,9 +658,18 @@ describe "Proposals" do
     context "when participants are viewing a grid of proposals" do
       it "shows a grid of proposals with images" do
         visit_component
+
+        # Check that grid view is not the default
+        expect(page).to have_no_css(".card__grid-grid")
+
+        # Switch to grid view
         find("a[href*='view_mode=grid']").click
         expect(page).to have_css(".card__grid-grid")
         expect(page).to have_css(".card__grid-img img, .card__grid-img svg")
+
+        # Revisit the component and check session storage
+        visit_component
+        expect(page).to have_css(".card__grid-grid")
       end
     end
 
