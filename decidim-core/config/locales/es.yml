@@ -1437,7 +1437,6 @@ es:
           past: Pasados
       filters_small_view:
         filter: Filtra
-        filter_and_search: Filtrar y buscar
         filter_by: Filtra por
       results:
         view_all: Ver todo (%{count})
