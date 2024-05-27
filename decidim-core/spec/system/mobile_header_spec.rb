@@ -10,7 +10,7 @@ describe "Mobile header" do
     Capybara.current_driver = :iphone
     switch_to_host(organization.host)
     visit decidim.root_path
-    click_button "Accept all"
+    click_link_or_button "Accept all"
   end
 
   it "has a login link" do
@@ -19,13 +19,13 @@ describe "Mobile header" do
 
   context "when user login is confirmed" do
     before do
-        switch_to_host(organization.host)
-        login_as user, scope: :user
-        visit decidim.root_path
+      switch_to_host(organization.host)
+      login_as user, scope: :user
+      visit decidim.root_path
     end
 
     it "displays an avatar on the header" do
-        expect(page).to have_css(".main-bar__avatar")
+      expect(page).to have_css(".main-bar__avatar")
     end
   end
 end
