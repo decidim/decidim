@@ -1419,7 +1419,6 @@ ja:
           past: 過去
       filters_small_view:
         filter: フィルター
-        filter_and_search: フィルターと検索
         filter_by: フィルター
       results:
         view_all: すべて表示 (%{count})
