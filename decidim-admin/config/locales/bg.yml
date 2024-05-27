@@ -14,22 +14,37 @@ bg:
         description: Описание
         file: Файл
         title: Име на прикрепен файл или изображение
+        weight: Нареди позиция
       attachment_collection:
         description: Описание
         name: Име
+        weight: Нареди позиция
       category:
         description: Описание
         name: Име
         parent_id: Родител
+        weight: Нареди позиция
       component:
         name: Име
         published_at: Публикувано на
+        weight: Нареди позиция
+      external_domain:
+        value: Стойност
+      help_section:
+        content: Съдържание
       id: ID
+      import:
+        user_group_id: Създаване на импорта като
       newsletter:
         body: Тяло
+        send_to_all_users: Изпращане до всички потребители
+        send_to_followers: Изпращане до последователите
+        send_to_participants: Изпращане до участниците
         subject: Тема
       organization:
+        admin_terms_of_service_body: Съдържание на административните условия за ползване
         alert_color: Аларма
+        available_authorizations: Активни оторизации
         badges_enabled: Включи значките
         comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
         cta_button_path: Път на бутона "призив към действие"
@@ -38,8 +53,12 @@ bg:
         default_locale: Език по подразбиране
         description: Описание
         enable_omnipresent_banner: Показвай всепоказван банер
+        enable_participatory_space_filters: Активиране на филтри за пространство за участие
         facebook_handler: Манипулатор на Facebook
         favicon: Икона
+        force_authentication: Принудително оторизиране
+        force_users_to_authenticate_before_access_organization: Принуждавайте потребителите да се оторизират, преди достъп до организацията
+        from: Адрес на е-поща на изпращача
         github_handler: Манипулатор на GitHub
         header_snippets: Части на HTML заглавката
         highlight_alternative_color: Подчертаване, алтернативен
@@ -51,6 +70,7 @@ bg:
         highlighted_content_banner_image: Изображение
         highlighted_content_banner_short_description: Кратко описание
         highlighted_content_banner_title: Заглавие
+        host: Хост
         instagram_handler: Манипулатор на Instagram
         logo: Лого
         machine_translation_display_priority: Приоритет за показване на машинен превод
@@ -62,19 +82,29 @@ bg:
         omnipresent_banner_short_description: Кратко описание
         omnipresent_banner_title: Заглавие
         omnipresent_banner_url: URL адрес
+        organization_admin_email: Имейл на администратора на организацията
+        organization_admin_name: Име на администратора на организацията
+        organization_locales: Местоположение на организацията
         primary_color: Основен
         reference_prefix: Префикс на препратка
         rich_text_editor_in_public_views: Разреши редактора на rich text за участниците
         secondary_color: Вторичен
+        secondary_hosts: Вторични хостове
         send_welcome_notification: Изпращай приветствия
         success_color: Успешно
+        tertiary_color: Третостепенен
         time_zone: Часова зона
         tos_version: Версия на условия за ползване
+        twitter_handler: X манипулатор
         user_groups_enabled: Разреши групи
+        users_registration_mode: Режим на регистрация на потребители
         warning_color: Предупреждение
         welcome_notification_body: Тяло на приветствието
         welcome_notification_subject: Тема на приветствието
         youtube_handler: Манипулатор на YouTube
+      participatory_space_private_user:
+        email: Имейл
+        name: Име
       scope:
         code: Код
         name: Име
@@ -86,34 +116,199 @@ bg:
         name: Име
         organization: Организация
         plural: Множествено число
+      settings:
+        scope_id: Обхват
       static_page:
+        allow_public_access: Разрешаване на достъп без оторизация
         changed_notably: Настъпиха значителни промени.
         content: Съдържание
         organization: Организация
         show_in_footer: Покажи в долния колонтитул
         slug: Съкратен URL
         title: Заглавие
+        topic_id: Тема
+        weight: Нареди позиция
       static_page_topic:
         description: Описание
+        name: Заглавие на темата
         show_in_footer: Покажи в долния колонтитул
         title: Заглавие
+        weight: Нареди позиция
       user_group_csv_verification:
         file: Файл
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Изберете поне едно място за участие.
         organization:
           attributes:
             official_img_footer:
               allowed_file_content_types: Невалиден файл на изображението
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Неправилен файл за импортиране, моля, прочетете внимателно инструкциите и се уверете, че файлът е UTF-8 кодиран.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Неправилен файл за импортиране, моля, прочетете внимателно инструкциите и се уверете, че файлът е UTF-8 кодиран.
+      new_import:
+        attributes:
+          file:
+            invalid_file: Предоставен е невалиден файл, моля, проверете дали файлът е правилно форматиран.
+            invalid_mime_type: Невалиден MIME формат.
   activerecord:
     attributes:
       decidim/static_page:
         content: Съдържание
         slug: Съкратен URL
         title: Заглавие
+      doorkeeper/application:
+        authorize_url: Оторизиране на URL адрес
+        client_id: ID на клиента
+        client_secret: Клиентска тайна
+        organization_name: Наименование на организацията
+        organization_url: URL адрес на организацията
+        redirect_uri: Пренасочващ URL адрес
+        site: Уебсайт
   decidim:
     admin:
+      actions:
+        add: Добавяне
+        attachment:
+          new: Нов прикачен файл
+        attachment_collection:
+          new: Нова прикачена папка
+        browse: Разглеждане
+        category:
+          new: Нова категория
+        export: Експорт на всички
+      attachment_collections:
+        update:
+          success: Папката беше актуализирана успешно.
+      attachments:
+        create:
+          error: Възникна проблем при създаването на нов прикачен файл.
+          success: Прикаченият файл беше създаден успешно.
+        destroy:
+          success: Прикаченият файл беше премахнат успешно.
+        edit:
+          title: Редактиране на прикачения файл
+          update: Актуализация
+        index:
+          attachments_title: Прикачени файлове
+        new:
+          create: Създаване на прикачен файл
+          title: Нов прикачен файл
+        update:
+          error: Възникна проблем при актуализирането на този прикачен файл.
+          success: Прикаченият файл беше актуализиран успешно.
+      attachments_privacy_warning:
+        message: Бъдете внимателни, когато работите с прикачени файлове в лично пространство. Всеки участник може да сподели този документ с други.
+      autocomplete:
+        no_results: Няма намерени резултати
+        search_prompt: Въведете поне три символа, за търсене.
+      block_user:
+        new:
+          action: Блокирайте акаунта и изпратете обосновка
+          already_reported_html: Продължавайки с това действие, вие също ще скриете съдържанието за всички участници.
+          description: Блокирането на потребител ще направи акаунта му неизползваем. Можете да предоставите във вашата обосновка всякакви насоки относно начините, по които бихте обмислили деблокирането на потребителя.
+          justification: Обосновка
+          title: Блокиране на потребител %{name}
+      categories:
+        create:
+          error: Възникна проблем при създаването на тази категория.
+          success: Категорията беше създадена успешно.
+        destroy:
+          error: Възникна проблем при изтриването на тази категория. Моля, първо изтрийте всички подкатегории, уверете се, че към тази категория не принадлежат други елементи, след което опитайте отново.
+          success: Категорията беше изтрита успешно.
+        edit:
+          title: Редактиране на категория
+          update: Актуализация
+        index:
+          categories_title: Категории
+        new:
+          create: Създаване на категория
+          title: Нова категория
+        update:
+          error: Възникна проблем при актуализирането на тази категория.
+          success: Категорията е обновена.
+      component_permissions:
+        update:
+          error: Възникна проблем при актуализирането на разрешенията на този компонент.
+          success: Разрешенията бяха актуализирани успешно.
+      components:
+        create:
+          error: Възникна проблем при създаването на този компонент.
+          success: Компонентът беше създаден успешно.
+          success_landing_page: Компонентът е създаден успешно. Можете да добавите блок със съдържание за този компонент в началната страница на пространството. Отидете на <a href="%{landing_page_path}">целевата страница</a>, за да я конфигурирате.
+        destroy:
+          error: Възникна проблем при премахването на този компонент.
+          success: Компонентът беше изтрит успешно.
+        edit:
+          title: Редактиране на компонента
+          update: Актуализация
+        form:
+          default_step_settings: Настройки на стъпките по подразбиране
+          global_settings: Глобални настройки
+          step_settings: Настройки на стъпките
+        index:
+          add: Добавяне на компонент
+          headers:
+            actions: Активности
+            name: Име на компонент
+            scope: Обхват на компонента
+            type: Тип на компонента
+        new:
+          add: Добавяне на компонент
+          title: 'Добавяне на компонент: %{name}'
+        publish:
+          success: Компонентът беше публикуван успешно.
       filters:
+        moderated_users:
+          reports_reason_eq:
+            values:
+              does_not_belong: Не принадлежи
+              offensive: Обидно
+              spam: Спам
+        moderations:
+          reportable_type_string_eq:
+            label: Тип
+        officialized_at_null:
+          label: Състояние
+          values:
+            'false': Официализирано
+            'true': Неофициализирано
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Поканата е приета
+            values:
+              'false': Не се приема
+              'true': Прието
+          user_invitation_sent_at_not_null:
+            label: Поканата е изпратена
+            values:
+              'false': Не е изпратено
+              'true': Изпратено
+        private_space_eq:
+          label: Частни
+          values:
+            'false': Публични
+            'true': Частни
+        published_at_null:
+          label: Публикувано
+          values:
+            'false': Публикувано
+            'true': Непубликувано
+        scope_id_eq:
+          label: Обхват
+        search_label: Търсене
+        search_placeholder:
+          name_or_nickname_or_email_cont: Търсене на %{collection} по имейл, име или псевдоним.
+          report_count_eq: Отчитане на броя
+          reported_id_string_or_reported_content_cont: Търсете в %{collection} по ID или съдържание, което може да бъде отчетено.
         state_eq:
           label: Състояние
           values:
