@@ -1443,7 +1443,6 @@ de:
           past: Vergangenheit
       filters_small_view:
         filter: Filter
-        filter_and_search: Filtern und suchen
         filter_by: Filtern nach
       results:
         view_all: Alle anzeigen (%{count})
