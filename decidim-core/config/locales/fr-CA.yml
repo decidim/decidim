@@ -1237,6 +1237,7 @@ fr-CA:
       no_notifications: Il n'y a pas encore de notifications.
       show:
         missing_event: Oups, cette notification est liée à un élément qui n'est plus disponible. Vous pouvez la supprimer.
+        moderated: Contenu modéré
     notifications_digest_mailer:
       header:
         daily: Résumé quotidien des notifications
@@ -1441,7 +1442,6 @@ fr-CA:
           past: Passé
       filters_small_view:
         filter: Filtrer
-        filter_and_search: Filtrer et rechercher
         filter_by: Filtrer par
       results:
         view_all: Tout voir (%{count})
