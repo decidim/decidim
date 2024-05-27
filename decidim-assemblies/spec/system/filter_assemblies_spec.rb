@@ -62,9 +62,7 @@ describe "Filter Assemblies" do
     end
 
     it "does not show the assemblies types filter" do
-      within("#dropdown-menu-filters") do
-        expect(page).to have_no_css("#dropdown-menu-filters div.filter-container", text: "Type")
-      end
+      expect(page).to have_no_css("#dropdown-menu-filters")
     end
   end
 
