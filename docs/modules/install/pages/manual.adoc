@@ -133,6 +133,7 @@ We should now create your database. For a first local installation, we recommend
 [source,bash]
 ----
 bin/rails db:create db:migrate
+bin/rails assets:precompile
 bin/rails db:seed
 ----
 
@@ -165,5 +166,5 @@ The seed data will not be created in production environments, if you still want 
 
 [source,bash]
 ----
-SEED=true rails db:seed
+SEED=true rails assets:precompile db:seed
 ----

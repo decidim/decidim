@@ -17,14 +17,14 @@ rbenv local 3.2.2
 
 If not, you need to adapt it to your environment. See "2.1. Ruby update to 3.2"
 
-### 2.1. Update your Gemfile
+### 1.2. Update your Gemfile
 
 ```ruby
 gem "decidim", github: "decidim/decidim"
 gem "decidim-dev", github: "decidim/decidim"
 ```
 
-### 2.2. Run these commands
+### 1.3. Run these commands
 
 ```console
 bundle update decidim
@@ -32,7 +32,7 @@ bin/rails decidim:upgrade
 bin/rails db:migrate
 ```
 
-### 2.3. Follow the steps and commands detailed in these notes
+### 1.4. Follow the steps and commands detailed in these notes
 
 ## 2. General notes
 
@@ -187,7 +187,41 @@ You can read more about this change on PR [\#XXXX](https://github.com/decidim/de
 
 ## 5. Changes in APIs
 
-### 5.1. [[TITLE OF THE CHANGE]]
+### 5.1 Migration of Proposal states in own table
+
+As of [\#12052](https://github.com/decidim/decidim/pull/12052) all the proposals states are kept in a separate database table, enabling end users to customize the states of the proposals. By default we will create for any proposal component that is being installed in the project 5 default states that cannot be disabled nor deleted. These states are:
+
+- Not Answered ( default state for any new created proposal )
+- Evaluating
+- Accepted
+- Rejected
+- Withdrawn ( special states for proposals that have been withdrawn by the author )
+
+For any of the above states you can customize the name, description, css class used by labels. You can also decide which states the user can receive a notification or an answer.
+
+You do not need to run any task to migrate the existing states, as we will automatically migrate the existing states to the new table.
+
+You can see more details about this change on PR [\#12052](https://github.com/decidim/decidim/pull/12052)
+
+### 5.2. Seeds require assets precompiling
+
+In order to successfully showcase the features of the application, we have added as a mandatory step the assets precompiling, as the seeds will now fire the notification system. That allows any Decidim demo instance to display user notifications.
+
+if you previously seeded your database using:
+
+```bash
+bin/rails db:drop db:create db:migrate db:seed
+```
+
+You are required to run using:
+
+```bash
+bin/rails db:drop db:create db:migrate assets:precompile db:seed
+```
+
+You can see more details about this change on PR [\#12828](https://github.com/decidim/decidim/pull/12828)
+
+### 5.3. [[TITLE OF THE CHANGE]]
 
 In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
 
@@ -204,19 +238,3 @@ You need to change it to:
 # Explain the usage of the API as it is in the new version
 result = 1 + 1 if after
 ```
-
-### 5.8 Migration of Proposal states in own table
-
-As of [\#12052](https://github.com/decidim/decidim/pull/12052) all the proposals states are kept in a separate database table, enabling end users to customize the states of the proposals. By default we will create for any proposal component that is being installed in the project 5 default states that cannot be disabled nor deleted. These states are:
-
-- Not Answered ( default state for any new created proposal )
-- Evaluating
-- Accepted
-- Rejected
-- Withdrawn ( special states for proposals that have been withdrawn by the author )
-
-For any of the above states you can customize the name, description, css class used by labels. You can also decide which states the user can receive a notification or an answer.
-
-You do not need to run any task to migrate the existing states, as we will automatically migrate the existing states to the new table.
-
-You can see more details about this change on PR [\#12052](https://github.com/decidim/decidim/pull/12052)
