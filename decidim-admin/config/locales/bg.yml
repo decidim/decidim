@@ -344,11 +344,22 @@ bg:
           name_or_nickname_or_email_cont: Търсене на %{collection} по имейл, име или псевдоним.
           report_count_eq: Отчитане на броя
           reported_id_string_or_reported_content_cont: Търсете в %{collection} по ID или съдържание, което може да бъде отчетено.
+          title_cont: Търсене на %{collection} по заглавие.
           user_name_or_user_email_cont: Търси в %{collection} по име или имейл.
+          user_name_or_user_nickname_or_user_email_cont: Търсене на %{collection} по имейл, име или псевдоним.
         state_eq:
           label: Състояние
           values:
+            all: Всички
+            pending: Изчакване
             rejected: Отхвърлен
+            verified: Проверен
+      forms:
+        file_help:
+          import:
+            explanation: 'Указания за файла:'
+            message_1: Поддържат се CSV, JSON и Excel (.xlsx) файлове
+            message_2: За CSV файлове разделителят между колоните трябва да е точка и запетая (";")
       help_sections:
         error: Възникна проблем при актуализирането на помощните раздели
         success: Помощните раздели бяха актуализирани успешно
