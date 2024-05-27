@@ -42,6 +42,10 @@ module Decidim
       def proposal_image_placeholder
         asset_pack_path("media/images/proposal_image_placeholder.svg")
       end
+
+      def classes
+        super.merge(metadata: "card__list-metadata")
+      end
     end
   end
 end
