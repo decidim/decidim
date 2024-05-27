@@ -1233,6 +1233,7 @@ fi-pl:
       no_notifications: Ei vielä ilmoituksia.
       show:
         missing_event: Hups, tämä ilmoitus kuuluu kohteeseen, joka ei ole enää käytettävissä. Voit merkitä sen luetuksi.
+        moderated: Sisältö moderoitu
     notifications_digest_mailer:
       header:
         daily: Päivittäinen ilmoitusyhteenveto
@@ -1437,7 +1438,6 @@ fi-pl:
           past: Menneet
       filters_small_view:
         filter: Suodata
-        filter_and_search: Suodata ja hae
         filter_by: Suodata
       results:
         view_all: Näytä kaikki (%{count})
