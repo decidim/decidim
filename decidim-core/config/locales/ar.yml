@@ -1208,7 +1208,6 @@ ar:
           past: الماضي
       filters_small_view:
         filter: منقي
-        filter_and_search: التصفية والبحث
         filter_by: مصنف بواسطة
       results:
         view_all: عرض الكل (%{count})
