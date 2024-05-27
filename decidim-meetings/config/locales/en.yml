@@ -591,6 +591,9 @@ en:
             start_time: Start date
             title: Title
       polls:
+        answers:
+          index:
+            meeting: Meeting
         questions:
           closed_question:
             question_results: Question results

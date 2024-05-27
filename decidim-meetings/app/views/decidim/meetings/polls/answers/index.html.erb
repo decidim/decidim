@@ -5,7 +5,10 @@
                            description: present(meeting).description,
                            url: meeting_url(meeting.id)
                          }) %>
-
+<%= link_to meeting_path(meeting), class: "button button__sm md:button__lg button__text-secondary" do %>
+  <%= icon "arrow-left-line" %>
+  <%= t("meeting", scope: "decidim.meetings.polls.answers.index") %>
+<% end %>
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
   <div class="text-center py-10">
     <h1 class="title-decorator inline-block text-left">
