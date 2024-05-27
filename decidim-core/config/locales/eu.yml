@@ -1428,7 +1428,6 @@ eu:
           past: Iragana
       filters_small_view:
         filter: Filter
-        filter_and_search: Iragazi eta bilatu
         filter_by: Iragazi arabera
       results:
         view_all: Ikusi dena (%{count})
