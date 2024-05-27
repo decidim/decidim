@@ -34,11 +34,15 @@
               <%= f.check_box :hide,
                               label: t("decidim.shared.flag_modal.hide_content"),
                               include_hidden: false,
+                              id: hide_checkbox_id,
                               data: {
                                 label_action: t("decidim.shared.flag_modal.hide"),
                                 label_report: t("decidim.shared.flag_modal.report"),
                                 hide: "true"
-                              }, id: hide_checkbox_id %>
+                              },
+                              label_options: {
+                                for: hide_checkbox_id
+                              } %>
             <% end %>
           <% end %>
 
