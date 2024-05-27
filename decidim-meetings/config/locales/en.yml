@@ -147,6 +147,7 @@ en:
         actions:
           comment: Comment
           join: Join
+          reply_poll: Reply poll
         name: Meetings
         settings:
           global:
