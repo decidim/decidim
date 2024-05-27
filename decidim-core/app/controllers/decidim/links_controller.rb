@@ -35,7 +35,19 @@ module Decidim
     end
 
     def external_url
-      @external_url ||= URI.parse(URI::Parser.new.escape(params[:external_url]))
+      @external_url ||= URI.parse(escape_url(params[:external_url]))
+    end
+
+    def escape_url(external_url)
+      before_fragment, fragment = external_url.split("#", 2)
+      escaped_before_fragment = URI::Parser.new.escape(before_fragment)
+
+      if fragment
+        escaped_fragment = URI::Parser.new.escape(fragment)
+        "#{escaped_before_fragment}##{escaped_fragment}"
+      else
+        escaped_before_fragment
+      end
     end
   end
 end
