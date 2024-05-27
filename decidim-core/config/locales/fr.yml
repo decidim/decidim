@@ -1442,7 +1442,6 @@ fr:
           past: Passé
       filters_small_view:
         filter: Filtrer
-        filter_and_search: Filtrer et rechercher
         filter_by: Filtrer par
       results:
         view_all: Tout voir (%{count})
