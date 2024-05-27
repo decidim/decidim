@@ -1437,7 +1437,6 @@ ca:
           past: Passats
       filters_small_view:
         filter: Filtra
-        filter_and_search: Filtrar i cercar
         filter_by: Filtra per
       results:
         view_all: Mostra-ho tot (%{count})
