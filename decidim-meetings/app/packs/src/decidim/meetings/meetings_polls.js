@@ -9,6 +9,8 @@ $(() => {
   if ($container.length) {
     const poll = new MeetingsPollComponent($container, $container.data("decidim-meetings-poll"), $counter);
 
+    poll.mountComponent();
+
     $(".meeting-polls__action-list").on("click", (event) => {
       event.preventDefault();
 

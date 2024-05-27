@@ -532,6 +532,7 @@ en:
           edit_close_meeting: Edit meeting report
           edit_meeting: Edit meeting
           join_meeting: Join meeting
+          reply_poll: Reply poll
         meetings:
           no_meetings_warning: No meetings match your search criteria or there is not any meeting scheduled.
           upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
