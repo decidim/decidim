@@ -14,6 +14,7 @@ module Decidim
       include Decidim::Debates::Orderable
 
       helper_method :debates, :debate, :form_presenter, :paginated_debates, :close_debate_form
+      before_action :authenticate_user!, only: [:new, :create]
 
       def new
         enforce_permission_to :create, :debate
