@@ -617,3 +617,61 @@ bg:
       user_group:
         csv_verify:
           invalid: Възникна проблем при прочитането на CSV файла.
+          success: CSV файлът беше качен успешно, проверяваме групите, които отговарят на критериите. Това може да отнеме известно време.
+        reject:
+          invalid: Възникна проблем с отхвърлянето на тази група.
+          success: Групата беше отхвърлена успешно.
+        verify:
+          invalid: Възникна проблем с проверката на тази група.
+          success: Групата беше проверена успешно.
+      user_groups:
+        index:
+          state:
+            pending: Изчакване
+            rejected: Отхвърлено
+            verified: Проверен
+          verify_via_csv: Проверка чрез CSV
+      user_groups_csv_verifications:
+        new:
+          example_file: 'Примерен файл:'
+          explanation: Качете своя файл във формат CSV. Трябва да съдържа официалните електронни пощи на групите в организацията Ви в първата колона от файла, без заглавки. Ще бъдат валидирани само групите с потвърдена електронна поща и с адрес на електронната поща във файла във формат CSV.
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
+          title: Качете своя CSV файл
+          upload: Качване
+      users:
+        create:
+          error: Възникна проблем с поканата на този администратор.
+          success: Участника е поканен успешно.
+        destroy:
+          error: Възникна проблем при опита за изтриване на този администратор.
+          success: Участникът вече не е администратор.
+        form:
+          email: Имейл
+          name: Име
+          role: Роля
+        new:
+          create: Покани
+          title: Поканете нов администратор
+      users_statistics:
+        users_count:
+          admins: Администратори
+          last_day: Предният ден
+          last_month: Миналия месец
+          last_week: Последната седмица
+          no_users_count_statistics_yet: Все още няма статистика за броя на потребителите.
+          participants: Участници
+    forms:
+      errors:
+        impersonate_user:
+          reason: Необходимо е да предоставите причина, когато управлявате участник, който не е управляван.
+    metrics:
+      blocked_users:
+        object: блокирани потребители
+        title: Блокирани потребители
+      reported_users:
+        object: докладвани потребители
+        title: Докладвани потребители
+      user_reports:
+        object: доклади на потребители
