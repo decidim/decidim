@@ -1440,7 +1440,6 @@ es-PY:
           past: Pasado
       filters_small_view:
         filter: Filtrar
-        filter_and_search: Filtrar y buscar
         filter_by: Filtrar por
       results:
         view_all: Ver todo (%{count})
