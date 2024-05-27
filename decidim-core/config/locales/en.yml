@@ -1446,7 +1446,7 @@ en:
           past: Past
       filters_small_view:
         filter: Filter
-        filter_and_search: Filter and Search
+        filter_and_search: Filter and search
         filter_by: Filter by
       results:
         view_all: View all (%{count})
