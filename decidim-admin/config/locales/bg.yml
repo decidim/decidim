@@ -324,14 +324,285 @@ bg:
             explanation: 'Указания за файла:'
             message_1: Поддържат се CSV, JSON и Excel (.xlsx) файлове
             message_2: За CSV файлове разделителят между колоните трябва да е точка и запетая (";")
+      help_sections:
+        error: Възникна проблем при актуализирането на помощните раздели.
+        form:
+          save: Запази
+        success: Помощните раздели бяха актуализирани успешно.
+      impersonatable_users:
+        index:
+          filter:
+            all: Всички
+            managed: Управляван(и)
+            not_managed: Неуправляван(и)
+          impersonate: Имитирай
+          impersonate_new_managed_user: Управление на нов участник
+          managed: Управляван(и)
+          name: Име
+          needs_authorization_warning: Нуждатете се от поне една активирана оторизация за тази организация.
+          not_managed: Неуправляван(и)
+          promote: Промотиране
+          search: Търсене
+          status: Статус
+          view_logs: Преглед на регистрите
+      impersonations:
+        close_session:
+          error: Възникна проблем при затварянето на текущата сесия за управление на участника.
+          success: Текущата сесия за имитиране на потребител беше прекратена успешно.
       menu:
         manage: Управление
+        moderation: Глобални модерации
+        newsletters: Бюлетин с новости
+        participants: Участници
+        reported_users: Докладвани участници
+        scope_types: Типове на обхвата
+        scopes: Обхвати
+        see_site: Виж сайта
+        settings: Настройки
+        static_page_topics: Tеми
+        static_pages: Страници
+        user_groups: Групи
+        users: Участници
+      metrics:
+        metrics:
+          see_more_metrics: Показване на повече индикатори
+      models:
+        area:
+          fields:
+            area_type: Тип район
+            name: Име
+        area_type:
+          fields:
+            name: Име
+            plural: Множествено число
+        attachment:
+          fields:
+            collection: Папка
+            content_type: Тип
+            file_size: Размер
+            title: Заглавие
+          name: Прикачен файл
+        attachment_collection:
+          name: Папка
+        category:
+          name: Категория
+        impersonation_log:
+          fields:
+            admin: Администратор
+            ended_at: Приключило на
+            expired_at: Изтекло на
+            reason: Причина
+            started_at: Започнало в
+            user: Участник
+        newsletter:
+          fields:
+            created_at: Създадено на
+            progress: Прогрес
+            sent_at: Изпратено в
+            sent_to: Изпратено до
+            subject: Относно
+          name: Бюлетин
+        participatory_space_private_user:
+          name: Пространство за участие на частен участник
+        scope:
+          fields:
+            name: Име
+            scope_type: Тип на обхвата
+        scope_type:
+          fields:
+            name: Име
+            plural: Множествено число
+        share_token:
+          fields:
+            created_at: Създадено на
+            expires_at: Изтича на
+            last_used_at: Последно използвано
+            times_used: Брой използвания
+            token: Токен
+            user: Създадено от
+        static_page:
+          fields:
+            created_at: Създадено на
+            title: Заглавие
+        user:
+          fields:
+            created_at: Дата на създаване
+      newsletter_templates:
+        show:
+          use_template: Използване на този шаблон
+      newsletters:
+        create:
+          error: Възникна проблем при създаването на този бюлетин.
+          success: Бюлетинът беше създаден успешно. Моля, прегледайте го, преди да го изпратите.
+        deliver:
+          error: Възникна проблем при доставянето на този бюлетин.
+          success: Бюлетинът беше доставен успешно.
+        destroy:
+          error_already_sent: 'Бюлетинът не може да се премахне: Вече е изпратен.'
+          success: Бюлетинът беше премахнат успешно.
+        edit:
+          save_and_preview: Запази и прегледай
+          title: Редактирай бюлетин
+        index:
+          all: всички
+          all_users: 'Всички потребители '
+          and: 'и '
+          confirm_delete: Наистина ли искате да изтриете този бюлетин?
+          followers: 'последователи '
+          has_been_sent_to: 'Беше изпратено до: '
+          no_scopes: Няма обхвати
+          not_sent: Не е изпратено
+          participants: 'участници '
+          segmented_to: 'Сегментирано за %{subject}: '
+          subscribed_count: 'Абонирани:'
+          title: Бюлетини
+        new:
+          save: Запази
+          title: Нов бюлетин
+        select_recipients_to_deliver:
+          all_spaces: Всички
+          all_users_help: Изпраща бюлетина на всички потвърдени потребители.
+          confirm_deliver: Наистина ли искате да доставите този бюлетин? Това действие не може да бъде отменено.
+          deliver: Доставяне на бюлетина
+          followers_help: Изпраща бюлетина до всички потвърдени потребители, които следят някое от избраните пространства за участие в списъка.
+          none: Няма
+          participants_help: Изпраща бюлетина до всички потвърдени потребители, които са участвали в някое от избраните пространства за участие в списъка.
+          recipients_count: Този бюлетин ще бъде изпратен на <strong id='recipients_count'>%{count}</strong> потребители.
+          scopes_help: Изпраща бюлетина на потребителите, които са активирали някой от избраните обхвати в настройките за „Моите интереси“ в профила си.
+          select_scopes: Филтрирайте по потребители, които са активирали някой от изброените обхвати в настройките за „Моите интереси“ в профила си.
+          select_spaces: Изберете пространства, за да сегментирате бюлетина
+          select_users: Изберете до кои потребители искате да изпратите бюлетина
+          title: Изберете получатели, на които да бъде изпратено
+          warning: "<strong>Внимание:</strong> Този бюлетин ще бъде изпратен само на потребители, които са включили <em>Искам да получавам бюлетини</em> в настройките си за известия."
+        send:
+          no_recipients: Няма получатели за тази селекция.
+        send_to_user:
+          sent_successfully: Бюлетинът е изпратен успешно до %{email}
+        show:
+          preview: Преглед
+          select_recipients_to_deliver: Изберете получатели, на които да бъде доставено
+          send_me_a_test_email: Изпратете ми тестов e-mail
+          subject: Относно
+        update:
+          error: Възникна проблем при актуализирането на този бюлетин.
+          success: Бюлетинът беше актуализиран успешно. Моля, прегледайте го, преди да го изпратите.
+      officializations:
+        block:
+          error: Възникна грешка при блокиране на участника.
+          success: Участникът беше блокиран успешно.
+        create:
+          success: Участникът е официализиран успешно.
+        destroy:
+          success: Официализирането на участника е премахнато успешно.
+        index:
+          actions: Активности
       organization_appearance:
         form:
           colors:
             colors_title: Цветове на организацията
+          homepage_highlighted_content_banner_title: Банер с подчертано съдържание
           images:
             layout_appearance_title: Редактиране външния вид шаблона
+            preview: Преглед
+          omnipresent_banner_appearance_title: Редактиране на присъстващия навсякъде банер
+      organization_external_domain_allowlist:
+        edit:
+          update: Актуализация
+        external_domain:
+          down: Надолу
+          external_domain: Външен домейн
+          remove: Премахни
+          up: Горе
+        form:
+          add: Добави в листа с позволени
+          title: Лист с позволени външни домейни
+      participatory_space_private_users:
+        create:
+          error: Възникна проблем при добавянето на частен участник за това пространство за участие.
+          success: Достъпът на частния участник до пространството за участие беше създаден успешно.
+        destroy:
+          error: Възникна проблем при изтриването на частен участник за това пространство за участие.
+          success: Достъпът на частния участник до пространството за участие беше премахнат успешно.
+        index:
+          import_via_csv: Импортиране чрез CSV
+          title: Пространство за участие на частен участник
+        new:
+          create: Създаване
+          title: Ново пространство за участие на частен участник.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Възникна проблем при четенето на CSV файла. Моля, уверете се, че сте следвали инструкциите.
+          success: Файлът във формат CSV беше качен успешно; изпращаме имейл с покана на участниците. Това може да отнеме известно време.
+        new:
+          csv_upload:
+            title: Качете своя файл във формат CSV
+          destroy:
+            button: Изтрийте всички частни участници
+            confirm: Сигурни ли сте, че искате да изтриете всички частни участници? Това действие е необратимо, няма да можете да ги възстановите.
+            empty: Нямате частни участници.
+            explanation: Имате %{count} частни участници.
+            title: Изтрийте частни участници
+          example_file: 'Примерен файл:'
+          explanation: Качете своя файл във формат CSV. Трябва да съдържа две колони — електронната поща в първата колона и името в последната колона от файла (електронна поща, име) — за потребителите, които искате да добавите в пространството за участие, без заглавки.
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Импортирайте частни участници чрез CSV
+          upload: Качване
+      reminders:
+        create:
+          error: Възникна проблем при създаването на напомняния.
+          success:
+            one: "%{count} потребител ще получи напомняне."
+            other: "%{count} потребители ще получат напомняне."
+        new:
+          submit: Изпрати
+      resource_permissions:
+        edit:
+          submit: Подаване
+          title: Редактирай разрешенията
+        update:
+          success: Разрешенията бяха актуализирани успешно.
+      resources:
+        index:
+          headers:
+            scope: Обхват
+      scope_types:
+        create:
+          error: Възникна проблем при създаването на нов тип обхват.
+          success: Типът обхват е създаден успешно.
+        destroy:
+          success: Типът обхват е премахнат успешно
+        edit:
+          title: Редактиране на типа на обхвата
+          update: Актуализация
+        new:
+          create: Създаване на тип обхват
+          title: Нов тип обхват
+        update:
+          error: Възникна проблем при актуализирането на този тип обхват.
+          success: Типът обхват е актуализиран успешно
+      scopes:
+        create:
+          error: Възникна проблем при създаването на нов обхват.
+          success: Обхватът беше създаден успешно.
+        destroy:
+          success: Обхватът беше премахнат успешно.
       static_pages:
         index:
           last_notable_change: Последна значима промяна
+      titles:
+        edit_organization_appearance: Редактиране на външния вид на началната страница
+        impersonatable_users: Управляеми участници
+        impersonations: Управление на участниците
+        menu: Меню
+        metrics: Метрики
+        page_topics: Tеми
+        pages: Страници
+        panel: Администратор
+        participants: Участници
+        scope_types: Типове на обхвата
+        scopes: Обхвати
+        statistics: Активност
+        user_groups: Групи
+        users: Администратори
