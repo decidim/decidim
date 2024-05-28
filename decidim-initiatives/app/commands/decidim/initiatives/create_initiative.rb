@@ -49,7 +49,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :current_user, :attachment
+      attr_reader :form, :attachment
 
       # Creates the initiative and all default components
       def create_initiative
