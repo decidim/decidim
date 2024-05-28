@@ -47,8 +47,8 @@ import "src/decidim/impersonation"
 import "src/decidim/gallery"
 import "src/decidim/direct_uploads/upload_field"
 import "src/decidim/data_consent"
+import "src/decidim/login_form_validation"
 import "src/decidim/sw"
-
 // local deps that require initialization
 import formDatePicker from "src/decidim/datepicker/form_datepicker"
 import Configuration from "src/decidim/configuration"

@@ -328,6 +328,28 @@ describe "Authentication" do
         expect_current_user_to_be(user)
       end
 
+      it "displays error when email is empty and focus shifts to password" do
+        click_on("Log in", match: :first)
+
+        within "#session_new_user" do
+          fill_in :session_user_email, with: ""
+          find_by_id("session_user_password").click
+        end
+
+        expect(page).to have_css(".form-error.is-visible", text: "There is an error in this field.")
+      end
+
+      it "displays error when email is invalid and focus shifts to password" do
+        click_on("Log in", match: :first)
+
+        within "#session_new_user" do
+          fill_in :session_user_email, with: "invalid-email"
+          find_by_id("session_user_password").click
+        end
+
+        expect(page).to have_css(".form-error.is-visible", text: "There is an error in this field")
+      end
+
       it "caches the omniauth buttons correctly with different languages", :caching do
         click_on("Log in", match: :first)
         expect(page).to have_link("Log in with Facebook")
