@@ -89,7 +89,6 @@ module Decidim
         params = case type
                  when :hybrid
                    params.merge(
-                     end_time: Time.zone.now + [rand(1..4).hours, rand(1..20).days].sample,
                      type_of_meeting: :hybrid,
                      online_meeting_url: "https://www.youtube.com/watch?v=f6JMgJAQ2tc",
                      iframe_access_level: :all,
@@ -97,7 +96,6 @@ module Decidim
                    )
                  when :online
                    params.merge(
-                     end_time: Time.zone.now + [rand(1..4).hours, rand(1..20).days].sample,
                      location: nil,
                      location_hints: nil,
                      latitude: nil,
@@ -109,7 +107,6 @@ module Decidim
                    )
                  when :online_live_event
                    params.merge(
-                     end_time: Time.zone.now + [rand(1..4).hours, rand(1..20).days].sample,
                      location: nil,
                      location_hints: nil,
                      latitude: nil,
