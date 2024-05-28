@@ -8,29 +8,40 @@ module Decidim
     include Decidim::TranslatableAttributes
 
     def attachments
-      @attachments ||= begin
-        resource_registry = Decidim.resource_registry.find(manifest_name)
-        model_name = resource_registry&.model_class_name
-        model = model_name&.safe_constantize
-        table_name = model&.table_name
+      @attachments ||= if [resource_model_name, resource_table_name].all?(&:present?)
+                         base_query = Decidim::Attachment.where(attached_to_type: resource_model_name)
+                                                         .joins("JOIN #{resource_table_name} ON #{resource_table_name}.id = decidim_attachments.attached_to_id")
+                                                         .where(resource_table_name => { decidim_component_id: __getobj__.id })
+                         if resource_model&.include?(Decidim::Publicable)
+                           base_query.where.not(resource_table_name => { published_at: nil })
+                         else
+                           base_query
+                         end
+                       else
+                         Decidim::Attachment.none
+                       end
+    end
 
-        if [model_name, table_name].all?(&:present?)
-          base_query = Decidim::Attachment.where(attached_to_type: model_name)
-                                          .joins("JOIN #{table_name} ON #{table_name}.id = decidim_attachments.attached_to_id")
-                                          .where(table_name => { decidim_component_id: __getobj__.id })
-          if model&.include?(Decidim::Publicable)
-            base_query.where.not(table_name => { published_at: nil })
-          else
-            base_query
-          end
-        else
-          Decidim::Attachment.none
-        end
-      end
+    def resource_model_name
+      @resource_model_name ||= Decidim.resource_registry.find(manifest_name)&.model_class_name
+    end
+
+    def resource_model
+      @resource_model ||= resource_model_name&.safe_constantize
+    end
+
+    def resource_table_name
+      @resource_table_name ||= resource_model&.table_name
     end
 
     def documents
       @documents ||= attachments.with_attached_file.order(:weight).select(&:document?)
+    end
+
+    def documents_visible_for(user)
+      return documents unless resource_model.respond_to?(:visible_for)
+
+      attachments.merge(resource_model.visible_for(user)).with_attached_file.order(:weight).select(&:document?)
     end
 
     def unused?
