@@ -8,9 +8,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   form.removeAttribute("data-live-validate");
 
-  emailInput.removeEventListener("input", Foundation.Abide.validateInput);
-  emailInput.removeEventListener("blur", Foundation.Abide.validateInput);
-
   emailInput.addEventListener("input", function () {
     emailError.classList.remove("is-visible");
   });
