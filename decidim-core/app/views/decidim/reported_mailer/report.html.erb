@@ -13,7 +13,7 @@
 <p><%= link_to translated_attribute(@participatory_space.title), resource_locator(@participatory_space).url %></p>
 
 <p><b><%= t(".reason") %></b></p>
-<p><%= t(@report.reason, organization_name: @participatory_space.organization.name, scope: "decidim.shared.flag_modal") %></p>
+<p><%= t(@report.reason, organization_name: organization_name(@participatory_space.organization), scope: "decidim.shared.flag_modal") %></p>
 
 <% if @report.details.present? %>
   <p><b><%= t(".details") %></b></p>
@@ -37,7 +37,9 @@
   <% else %>
     <p>
       <%=
-        if @author.respond_to?(:name)
+        if @author.is_a?(Decidim::Organization)
+          organization_name(@author)
+        elsif @author.respond_to?(:name)
           @author.name
         elsif @author.respond_to?(:title)
           translated_attribute(@author.title)

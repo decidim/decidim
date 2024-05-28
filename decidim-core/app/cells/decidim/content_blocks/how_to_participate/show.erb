@@ -38,7 +38,7 @@
     </div>
   </div>
   <%= link_to decidim.pages_path, class: "button button__sm md:button__lg button__secondary mt-6" do %>
-    <%= t("more_info", scope: "decidim.pages.home.extended", resource_name: translated_attribute(current_organization.name, current_organization)) %>
+    <%= t("more_info", scope: "decidim.pages.home.extended", resource_name: current_organization_name) %>
     <%= icon "arrow-right-line", class: "fill-current" %>
   <% end %>
 </section>

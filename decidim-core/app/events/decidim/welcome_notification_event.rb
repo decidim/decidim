@@ -44,7 +44,7 @@ module Decidim
     def interpolate(template)
       template
         .gsub("{{name}}", user.name)
-        .gsub("{{organization}}", organization.name)
+        .gsub("{{organization}}", organization_name(organization))
         .gsub("{{help_url}}", url_helpers.pages_url(host: organization.host))
         .gsub("{{badges_url}}", url_helpers.gamification_badges_url(host: organization.host))
         .html_safe

@@ -47,10 +47,10 @@ namespace :decidim do
           Decidim::Organization.find_each do |organization|
             if metric
               m_manifest = Decidim.metrics_registry.for(metric)
-              log_info "[#{organization.name}]: rebuilding metric [#{metric}] for day [#{current_day}]"
+              log_info "[#{organization.name[organization.default_locale.to_s]}]: rebuilding metric [#{metric}] for day [#{current_day}]"
               call_metric_job(m_manifest, organization, current_day)
             else
-              log_info "[#{organization.name}]: rebuilding all metrics for day [#{current_day}]"
+              log_info "[#{organization.name[organization.default_locale.to_s]}]: rebuilding all metrics for day [#{current_day}]"
               Decidim.metrics_registry.all.each do |metric_manifest|
                 call_metric_job(metric_manifest, organization, current_day)
               end

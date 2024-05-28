@@ -9,7 +9,7 @@ module Decidim
         let(:form) do
           UpdateOrganizationForm.new(params)
         end
-        let(:organization) { create(:organization, name: "My organization") }
+        let(:organization) { create(:organization, name: { en: "My organization" }) }
 
         let(:command) { described_class.new(organization.id, form) }
 
@@ -17,7 +17,7 @@ module Decidim
           let(:from_label) { "Decide Gotham" }
           let(:params) do
             {
-              name: "Gotham City",
+              name: { en: "Gotham City" },
               host: "decide.example.org",
               secondary_hosts: "foo.example.org\r\n\r\nbar.example.org",
               force_users_to_authenticate_before_access_organization: false,
@@ -48,7 +48,7 @@ module Decidim
             expect { command.call }.to change(Organization, :count).by(1)
             organization = Organization.last
 
-            expect(organization.name).to eq("Gotham City")
+            expect(translated(organization.name)).to eq("Gotham City")
             expect(organization.host).to eq("decide.example.org")
             expect(organization.secondary_hosts).to contain_exactly("foo.example.org", "bar.example.org")
             expect(organization.users_registration_mode).to eq("existing")
@@ -80,15 +80,43 @@ module Decidim
         end
 
         context "when the form is invalid" do
-          let(:params) do
-            {
-              name: nil,
-              host: "foo.com"
-            }
+          context "and the name is empty" do
+            let(:params) do
+              {
+                name: { en: "" },
+                host: "foo.com"
+              }
+            end
+
+            it "returns an invalid response" do
+              expect { command.call }.to broadcast(:invalid)
+            end
           end
 
-          it "returns an invalid response" do
-            expect { command.call }.to broadcast(:invalid)
+          context "and the name is empty hash" do
+            let(:params) do
+              {
+                name: {},
+                host: "foo.com"
+              }
+            end
+
+            it "returns an invalid response" do
+              expect { command.call }.to broadcast(:invalid)
+            end
+          end
+
+          context "and the name is nil" do
+            let(:params) do
+              {
+                name: nil,
+                host: "foo.com"
+              }
+            end
+
+            it "returns an invalid response" do
+              expect { command.call }.to broadcast(:invalid)
+            end
           end
         end
 
