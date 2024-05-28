@@ -4,10 +4,10 @@ require "spec_helper"
 
 module Decidim::ParticipatoryProcesses
   describe Admin::CopyParticipatoryProcess do
-    subject { described_class.new(form, participatory_process, user) }
+    subject { described_class.new(form, participatory_process) }
 
     let(:organization) { create(:organization) }
-    let(:user) { create(:user, organization:) }
+    let(:current_user) { create(:user, organization:) }
     let(:participatory_process_group) { create(:participatory_process_group, organization:) }
     let(:scope) { create(:scope, organization:) }
     let(:errors) { double.as_null_object }
@@ -21,7 +21,8 @@ module Decidim::ParticipatoryProcesses
         slug: "copied-slug",
         copy_steps?: copy_steps,
         copy_categories?: copy_categories,
-        copy_components?: copy_components
+        copy_components?: copy_components,
+        current_user:
       )
     end
     let!(:category) do
@@ -77,9 +78,8 @@ module Decidim::ParticipatoryProcesses
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
-          .with("duplicate", Decidim::ParticipatoryProcess, user)
+          .with("duplicate", Decidim::ParticipatoryProcess, current_user)
           .and_call_original
-
         expect { subject.call }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
         expect(action_log.action).to eq("duplicate")

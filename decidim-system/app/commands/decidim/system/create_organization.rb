@@ -5,7 +5,7 @@ module Decidim
     # A command with all the business logic when creating a new organization in
     # the system. It creates the organization and invites the admin to the
     # system.
-    class RegisterOrganization < Decidim::Command
+    class CreateOrganization < Decidim::Command
       # Public: Initializes the command.
       #
       # form - A form object with the params.
@@ -29,7 +29,7 @@ module Decidim
         transaction do
           @organization = create_organization
           CreateDefaultPages.call(@organization)
-          PopulateHelp.call(@organization)
+          CreateDefaultHelpPages.call(@organization)
           CreateDefaultContentBlocks.call(@organization)
           invite_form = invite_user_form(@organization)
           invitation_failed = invite_form.invalid?
@@ -49,7 +49,7 @@ module Decidim
 
       def create_organization
         Decidim::Organization.create!(
-          name: form.name,
+          name: { form.default_locale => form.name },
           host: form.host,
           secondary_hosts: form.clean_secondary_hosts,
           reference_prefix: form.reference_prefix,

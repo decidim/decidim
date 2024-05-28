@@ -16,7 +16,7 @@ shared_examples "manage posts" do |audit_check: true|
     end
 
     within ".edit_post" do
-      expect(page).to have_select("post_decidim_author_id", selected: author.name)
+      expect(page).to have_select("post_decidim_author_id", selected: translated(author.name))
 
       fill_in_i18n(:post_title, "#post-title-tabs", **attributes[:title].except("machine_translations"))
       fill_in_i18n_editor(:post_body, "#post-body-tabs", **attributes[:body].except("machine_translations"))
@@ -29,7 +29,7 @@ shared_examples "manage posts" do |audit_check: true|
     within "table" do
       expect(page).to have_content(translated(attributes[:title]))
       expect(page).to have_content("Post title 2")
-      expect(page).to have_content(author.name)
+      expect(page).to have_content(translated(author.name))
     end
 
     if audit_check == true
@@ -144,7 +144,7 @@ shared_examples "manage posts" do |audit_check: true|
     it "can set organization as posts author" do
       click_on "New post"
 
-      select organization.name, from: "post_decidim_author_id"
+      select translated(organization.name), from: "post_decidim_author_id"
 
       fill_in_i18n(
         :post_title,
@@ -169,7 +169,7 @@ shared_examples "manage posts" do |audit_check: true|
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_content(author.name)
+        expect(page).to have_content(translated(organization.name))
         expect(page).to have_content("My post")
         expect(page).to have_content("Post title 1")
         expect(page).to have_content("Post title 2")
@@ -182,14 +182,14 @@ shared_examples "manage posts" do |audit_check: true|
       end
 
       within ".edit_post" do
-        select organization.name, from: "post_decidim_author_id"
+        select translated(organization.name), from: "post_decidim_author_id"
         find("*[type=submit]").click
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "tr", text: translated(post1.title) do
-        expect(page).to have_content(author.name)
+        expect(page).to have_content(translated(organization.name))
       end
     end
   end

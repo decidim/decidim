@@ -184,7 +184,9 @@ module Decidim
 
         rails "db:migrate"
 
-        rails "db:seed" if options[:seed_db]
+        rails "assets:precompile"
+
+        rails "--trace", "db:seed" if options[:seed_db]
 
         rails "db:test:prepare"
       end

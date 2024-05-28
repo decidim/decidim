@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module System
-    describe RegisterOrganization do
+    describe CreateOrganization do
       describe "call" do
         let(:form) do
           RegisterOrganizationForm.new(params)
@@ -51,8 +51,7 @@ module Decidim
           it "creates a new organization" do
             expect { command.call }.to change(Organization, :count).by(1)
             organization = Organization.last
-
-            expect(organization.name).to eq("Gotham City")
+            expect(translated(organization.name)).to eq("Gotham City")
             expect(organization.host).to eq("decide.example.org")
             expect(organization.secondary_hosts).to contain_exactly("foo.example.org", "bar.example.org")
             expect(organization.external_domain_allowlist).to contain_exactly("decidim.org", "github.com")
@@ -73,7 +72,7 @@ module Decidim
             admin = User.last
 
             expect(admin.email).to eq("f.laguardia@example.org")
-            expect(admin.organization.name).to eq("Gotham City")
+            expect(translated(admin.organization.name)).to eq("Gotham City")
             expect(admin).to be_admin
             expect(admin).to be_created_by_invite
             expect(admin).to be_valid
