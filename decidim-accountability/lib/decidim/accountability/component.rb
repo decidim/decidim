@@ -30,10 +30,6 @@ Decidim.register_component(:accountability) do |component|
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: true
     settings.attribute :intro, type: :text, translated: true, editor: true
-    settings.attribute :categories_label, type: :string, translated: true, editor: true
-    settings.attribute :subcategories_label, type: :string, translated: true, editor: true
-    settings.attribute :heading_parent_level_results, type: :string, translated: true, editor: true
-    settings.attribute :heading_leaf_level_results, type: :string, translated: true, editor: true
     settings.attribute :display_progress_enabled, type: :boolean, default: true
   end
 

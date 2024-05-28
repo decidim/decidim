@@ -49,6 +49,7 @@ On creation, these steps are automatically invoked by the generator:
 * `bin/rails decidim:upgrade`
 * `bin/rails db:create`
 * `bin/rails db:migrate`
+* `bin/rails assets:precompile`
 * `bin/rails db:seed`
 
 Mind that if everything went well you should not need to run these commands manually.
