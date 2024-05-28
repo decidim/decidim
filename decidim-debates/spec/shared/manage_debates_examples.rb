@@ -40,7 +40,7 @@ RSpec.shared_examples "manage debates" do
   end
 
   describe "updating a debate" do
-    it "updates a debate" do
+    it "updates a debate", versioning: true do
       within "tr", text: translated(debate.title) do
         page.find(".action-icon--edit").click
       end
@@ -124,27 +124,9 @@ RSpec.shared_examples "manage debates" do
     click_on "New debate"
 
     within ".new_debate" do
-      fill_in_i18n(
-        :debate_title,
-        "#debate-title-tabs",
-        en: "My debate",
-        es: "Mi debate",
-        ca: "El meu debat"
-      )
-      fill_in_i18n_editor(
-        :debate_description,
-        "#debate-description-tabs",
-        en: "Long description",
-        es: "Descripción más larga",
-        ca: "Descripció més llarga"
-      )
-      fill_in_i18n_editor(
-        :debate_instructions,
-        "#debate-instructions-tabs",
-        en: "Long instructions",
-        es: "Instrucciones más largas",
-        ca: "Instruccions més llargues"
-      )
+      fill_in_i18n(:debate_title, "#debate-title-tabs", **attributes[:title].except("machine_translations"))
+      fill_in_i18n_editor(:debate_description, "#debate-description-tabs", **attributes[:description].except("machine_translations"))
+      fill_in_i18n_editor(:debate_instructions, "#debate-instructions-tabs", **attributes[:instructions].except("machine_translations"))
 
       choose "Open"
     end
@@ -161,8 +143,11 @@ RSpec.shared_examples "manage debates" do
     expect(page).to have_admin_callout "Debate successfully created"
 
     within "table" do
-      expect(page).to have_content("My debate")
+      expect(page).to have_content(translated(attributes[:title]))
     end
+
+    visit decidim_admin.root_path
+    expect(page).to have_content("created the #{translated(attributes[:title])} debate on the")
   end
 
   describe "deleting a debate" do

@@ -175,7 +175,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     end
 
     visit decidim_admin.root_path
-    expect(page).to have_content("created the #{translated(attributes[:title])} debate on the")
+    expect(page).to have_content("updated the #{translated(attributes[:title])} meeting on the")
   end
 
   it "sets registration enabled to true when registration type is on this platform" do

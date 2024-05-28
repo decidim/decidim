@@ -25,7 +25,7 @@ describe "Edit a page" do
 
     it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='page-body-tabs']", "full"
 
-    it "updates the page" do
+    it "updates the page", versioning: true do
       within "form.edit_page" do
         fill_in_i18n_editor(:page_body, "#page-body-tabs", **attributes[:content].except("machine_translations"))
         find("*[type=submit]").click
