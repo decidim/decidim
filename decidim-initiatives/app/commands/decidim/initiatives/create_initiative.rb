@@ -149,7 +149,7 @@ module Decidim
                  current_user:
                )
 
-        Decidim::Initiatives::SpawnCommitteeRequest.new(form, current_user).call
+        Decidim::Initiatives::SpawnCommitteeRequest.new(form).call
       end
     end
   end
