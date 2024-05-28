@@ -42,6 +42,11 @@ module Decidim
           when :reply_poll
             toggle_allow(can_reply_poll?)
           end
+        when :poll
+          case permission_action.action
+          when :update
+            toggle_allow(can_update_poll?)
+          end
         else
           return permission_action
         end
@@ -118,6 +123,13 @@ module Decidim
         meeting.present? &&
           meeting.poll.present? &&
           authorized?(:reply_poll, resource: meeting)
+      end
+
+      def can_update_poll?
+        user.present? &&
+          user.admin? &&
+          meeting.present? &&
+          meeting.poll.present?
       end
 
       def can_answer_question?
