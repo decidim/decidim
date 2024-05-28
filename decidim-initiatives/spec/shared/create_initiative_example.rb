@@ -63,7 +63,7 @@ shared_examples "create an initiative" do
         command.call
         initiative = Decidim::Initiative.last
 
-        expect(initiative.current_user).to eq(current_user)
+        expect(initiative.author).to eq(current_user)
       end
 
       it "Default state is created" do
