@@ -1,5 +1,10 @@
 <% if meeting.can_be_joined_by?(current_user) || meeting.on_different_platform? %>
   <section class="layout-aside__section layout-aside__buttons">
+    <% if meeting.poll&.has_questions? %>
+      <%= action_authorized_link_to :reply_poll, meeting_polls_answers_path(meeting), class: "button button__xl button__secondary w-full", data: { "redirect_url" => meeting_polls_answers_path(meeting) }, resource: meeting do %>
+        <span><%= t("reply_poll", scope: "decidim.meetings.meetings.meeting") %></span>
+      <% end %>
+    <% end %>
     <%= cell "decidim/meetings/join_meeting_button", meeting, show_remaining_slots: true %>
   </section>
 <% end %>
