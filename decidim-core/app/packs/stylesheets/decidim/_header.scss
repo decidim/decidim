@@ -214,14 +214,10 @@ header {
         @apply md:hidden;
       }
     }
-
-    [data-target*="dropdown"] {
-      @apply last-of-type:[&>svg]:block;
-    }
   }
 
   .menu-bar {
-    @apply container h-full flex justify-between items-center lg:relative;
+    @apply container h-full flex justify-between items-center lg:relative last-of-type:[&>svg]:hidden; 
 
     &__container {
       @apply bg-primary relative h-14;
@@ -341,7 +337,7 @@ header {
         @apply md:block lg:hidden w-auto last-of-type:[&>svg]:block ml-auto;
 
         > svg {
-          @apply text-white;
+          @apply text-gray;
         }
       }
     }
