@@ -35,7 +35,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :current_user
+      attr_reader :form
 
       def create_request
         request = InitiativesCommitteeMember.new(
