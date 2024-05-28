@@ -449,9 +449,7 @@ en:
         new_meeting: 'New meeting:'
       layouts:
         live_event:
-          administrate: Administrate
           close: close
-          questions: Questions
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -593,7 +591,12 @@ en:
       polls:
         answers:
           index:
+            administrate: Administrate
             meeting: Meeting
+            questions: Questions
+          index_admin:
+            back_to_meeting: Back to meeting
+            title: Administrate
         questions:
           closed_question:
             question_results: Question results

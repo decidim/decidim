@@ -1,19 +1,24 @@
-<% provide(:title, present(meeting).title) %>
-
 <% add_decidim_meta_tags({
                            title: present(meeting).title,
                            description: present(meeting).description,
                            url: meeting_url(meeting.id)
                          }) %>
+
 <%= link_to meeting_path(meeting), class: "button button__sm md:button__lg button__text-secondary" do %>
   <%= icon "arrow-left-line" %>
   <%= t("meeting", scope: "decidim.meetings.polls.answers.index") %>
 <% end %>
+<% if admin_allowed_to?(:update, :poll, meeting: meeting, poll: poll) %>
+  <%= link_to admin_meeting_polls_answers_path(meeting), class: "button button__xl button__secondary w-full" do %>
+    <span><%= t("administrate", scope: "decidim.meetings.polls.answers.index") %></span>
+  <% end %>
+<% end %>
+
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
   <div class="text-center py-10">
     <h1 class="title-decorator inline-block text-left">
       <%= present(meeting).title %>
-      <%= t("questions", scope: "decidim.meetings.layouts.live_event") %> <span id="visible-questions-count">(<%= questionnaire.questions.visible.count %>)</span>
+      <%= t("questions", scope: "decidim.meetings.polls.answers.index") %> <span id="visible-questions-count">(<%= questionnaire.questions.visible.count %>)</span>
     </h1>
   </div>
   <div class="mb-24" id="meeting-poll" data-decidim-meetings-poll='{"questionsUrl":"<%= meeting_polls_questions_path(meeting) %>"}'>

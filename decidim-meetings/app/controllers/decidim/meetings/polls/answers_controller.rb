@@ -9,6 +9,10 @@ module Decidim
 
         helper_method :question
 
+        def admin
+          enforce_permission_to(:update, :poll, meeting:)
+        end
+
         def index
           enforce_permission_to(:reply_poll, :meeting, meeting:)
         end
