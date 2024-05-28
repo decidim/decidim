@@ -105,6 +105,10 @@ shared_examples_for "has attachments content blocks" do
     let(:other_meeting_component) { create(:meeting_component, :published, participatory_space: attached_to, name: { en: "Other Meetings" }) }
     let(:other_meeting) { create(:meeting, :published, component: other_meeting_component) }
     let!(:other_meeting_document) { create(:attachment, :with_pdf, attached_to: other_meeting, title: { en: "Other document" }) }
+    let(:extra_meeting) { create(:meeting, :published, component: other_meeting_component, private_meeting:, transparent:) }
+    let!(:extra_meeting_document) { create(:attachment, :with_pdf, attached_to: extra_meeting, title: { en: "Extra document" }) }
+    let(:private_meeting) { false }
+    let(:transparent) { false }
 
     before do
       visit current_path
@@ -124,6 +128,7 @@ shared_examples_for "has attachments content blocks" do
         within "#dropdown-menu-documents-component-#{meeting_component.id}" do
           expect(page).to have_content("My document")
           expect(page).to have_no_content("Other document")
+          expect(page).to have_no_content("Extra document")
         end
 
         click_on "Other Meetings documents"
@@ -131,6 +136,60 @@ shared_examples_for "has attachments content blocks" do
         within "#dropdown-menu-documents-component-#{other_meeting_component.id}" do
           expect(page).to have_no_content("My document")
           expect(page).to have_content("Other document")
+          expect(page).to have_content("Extra document")
+        end
+      end
+    end
+
+    context "when one of the meetings has visibility concerns" do
+      context "when the meeting private and not transparent" do
+        let(:private_meeting) { true }
+
+        it "hides its documents" do
+          expect(page).to have_css("button#dropdown-documents-trigger-component-#{meeting_component.id}", text: "My Meetings documents")
+          expect(page).to have_css("button#dropdown-documents-trigger-component-#{other_meeting_component.id}", text: "Other Meetings documents")
+
+          click_on "My Meetings documents"
+
+          within "#dropdown-menu-documents-component-#{meeting_component.id}" do
+            expect(page).to have_content("My document")
+            expect(page).to have_no_content("Other document")
+            expect(page).to have_no_content("Extra document")
+          end
+
+          click_on "Other Meetings documents"
+
+          within "#dropdown-menu-documents-component-#{other_meeting_component.id}" do
+            expect(page).to have_no_content("My document")
+            expect(page).to have_content("Other document")
+            expect(page).to have_no_content("Extra document")
+          end
+        end
+      end
+    end
+
+    context "when the meeting is private and transparent" do
+      let(:private_meeting) { true }
+      let(:transparent) { true }
+
+      it "shows its documents" do
+        expect(page).to have_css("button#dropdown-documents-trigger-component-#{meeting_component.id}", text: "My Meetings documents")
+        expect(page).to have_css("button#dropdown-documents-trigger-component-#{other_meeting_component.id}", text: "Other Meetings documents")
+
+        click_on "My Meetings documents"
+
+        within "#dropdown-menu-documents-component-#{meeting_component.id}" do
+          expect(page).to have_content("My document")
+          expect(page).to have_no_content("Other document")
+          expect(page).to have_no_content("Extra document")
+        end
+
+        click_on "Other Meetings documents"
+
+        within "#dropdown-menu-documents-component-#{other_meeting_component.id}" do
+          expect(page).to have_no_content("My document")
+          expect(page).to have_content("Other document")
+          expect(page).to have_content("Extra document")
         end
       end
     end
