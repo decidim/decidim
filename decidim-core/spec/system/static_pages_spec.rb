@@ -108,7 +108,7 @@ describe "Static pages" do
         # ActionDispatch::Cookies::CookieOverflow exception
         visit "#{decidim.pages_path}?#{long_parameters}"
 
-        expect(page).to have_content(organization.name)
+        expect(page).to have_content(translated(organization.name))
       end
     end
 

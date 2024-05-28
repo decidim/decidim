@@ -2,4 +2,4 @@
 
 <p class="email-instructions"><%= t("decidim.meetings.close_meeting_reminder_mailer.close_meeting_reminder.body", meeting_title: translated_attribute(@meeting.title), meeting_path: @meeting.reported_content_url).html_safe %></p>
 
-<p class="email-closing"><%= t("decidim.meetings.close_meeting_reminder_mailer.close_meeting_reminder.greetings", organization_name: h(@organization.name), organization_url: decidim.root_url(host: @organization.host)).html_safe %></p>
+<p class="email-closing"><%= t("decidim.meetings.close_meeting_reminder_mailer.close_meeting_reminder.greetings", organization_name: translated_attribute(@organization.name), organization_url: decidim.root_url(host: @organization.host)).html_safe %></p>

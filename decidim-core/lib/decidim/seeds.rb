@@ -149,5 +149,9 @@ module Decidim
 
       create_blob!(seeds_file: "avatars/#{file_number}.jpg", filename: "#{file_number}.jpg", content_type: "image/jpeg")
     end
+
+    def create_follow!(user, followable)
+      Decidim::Follow.create!(followable:, user:)
+    end
   end
 end

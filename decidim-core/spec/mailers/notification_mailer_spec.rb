@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe NotificationMailer do
-    let(:organization) { create(:organization, name: "O'Connor") }
+    let(:organization) { create(:organization, name: { en: "O'Connor" }) }
     let(:user) { create(:user, name: "Sarah Connor", organization:) }
     let(:resource) { user }
     let(:event_class_name) { "Decidim::ProfileUpdatedEvent" }
@@ -26,7 +26,7 @@ module Decidim
       end
 
       it "includes the organization data" do
-        expect(mail.body.encoded).to include(user.organization.name)
+        expect(mail.body.encoded).to include(decidim_escape_translated(user.organization.name))
       end
 
       it "includes the greeting" do

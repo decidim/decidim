@@ -20,7 +20,7 @@ module Decidim::Blogs::Admin
 
       let(:all_fields) do
         [
-          [organization.name, ""],
+          [translated(organization.name), ""],
           [user.name, user.id],
           [user_group.name, user_group.id]
         ]
@@ -28,7 +28,7 @@ module Decidim::Blogs::Admin
 
       let(:extra_user_fields) do
         [
-          [organization.name, ""],
+          [translated(organization.name), ""],
           [user.name, user.id],
           [user_group.name, user_group.id],
           [another_user.name, another_user.id]
@@ -37,7 +37,7 @@ module Decidim::Blogs::Admin
 
       let(:extra_group_fields) do
         [
-          [organization.name, ""],
+          [translated(organization.name), ""],
           [user.name, user.id],
           [user_group.name, user_group.id],
           [another_user_group.name, another_user_group.id]
@@ -46,7 +46,7 @@ module Decidim::Blogs::Admin
 
       let(:basic_fields) do
         [
-          [organization.name, ""],
+          [translated(organization.name), ""],
           [user.name, user.id]
         ]
       end

@@ -126,7 +126,7 @@ describe "Organizations" do
     end
 
     describe "editing an organization" do
-      let!(:organization) { create(:organization, name: "Citizen Corp") }
+      let!(:organization) { create(:organization, name: { ca: "", en: "Citizen Corp", es: "" }) }
 
       before do
         click_on "Organizations"
@@ -137,17 +137,33 @@ describe "Organizations" do
 
       it_behaves_like "form hiding advanced settings"
 
+      it "properly validate name" do
+        create(:organization, name: { ca: "", en: "Duplicate organization", es: "" })
+
+        fill_in_i18n :update_organization_name, "#update_organization-name-tabs", en: "Citizens Rule!", ca: "Something", es: "Another"
+        click_on "Save"
+
+        within "table tbody tr", text: "Citizens Rule!" do
+          click_on "Edit"
+        end
+        fill_in_i18n :update_organization_name, "#update_organization-name-tabs", en: "Citizens Rule!", ca: "", es: ""
+        click_on "Save"
+
+        expect(page).to have_css("div.flash.success")
+        expect(page).to have_content("Citizens Rule!")
+      end
+
       it "edits the data" do
-        fill_in "Name", with: "Citizens Rule!"
+        fill_in_i18n :update_organization_name, "#update_organization-name-tabs", en: "Citizens Rule!"
         fill_in "Host", with: "www.example.org"
         fill_in "Secondary hosts", with: "foobar.example.org\n\rbar.example.org"
         choose "Do not allow participants to register, but allow existing participants to login"
         check "Example authorization (Direct)"
 
         click_on "Show advanced settings"
-        check "organization_omniauth_settings_facebook_enabled"
-        fill_in "organization_omniauth_settings_facebook_app_id", with: "facebook-app-id"
-        fill_in "organization_omniauth_settings_facebook_app_secret", with: "facebook-app-secret"
+        check "update_organization_omniauth_settings_facebook_enabled"
+        fill_in "update_organization_omniauth_settings_facebook_app_id", with: "facebook-app-id"
+        fill_in "update_organization_omniauth_settings_facebook_app_secret", with: "facebook-app-secret"
 
         click_on "Save"
 
@@ -161,7 +177,7 @@ describe "Organizations" do
         end
 
         it "shows the error message" do
-          fill_in "Name", with: "Citizens Rule!"
+          fill_in_i18n :update_organization_name, "#update_organization-name-tabs", en: "Citizens Rule!"
           fill_in "Host", with: "www.example.org"
           click_on "Save"
 
@@ -173,7 +189,7 @@ describe "Organizations" do
 
     describe "editing an organization with disabled OmniAuth provider" do
       let!(:organization) do
-        create(:organization, name: "Citizen Corp", default_locale: :es, available_locales: ["es"], description: { es: "Un texto largo" })
+        create(:organization, name: { ca: "", en: "Citizen Corp", es: "" }, default_locale: :es, available_locales: ["es"], description: { es: "Un texto largo" })
       end
 
       before do
@@ -205,7 +221,9 @@ describe "Organizations" do
         )
 
         # Reload the UpdateOrganizationForm
+        Decidim::System.send(:remove_const, :BaseOrganizationForm)
         Decidim::System.send(:remove_const, :UpdateOrganizationForm)
+        load "#{Decidim::System::Engine.root}/app/forms/decidim/system/base_organization_form.rb"
         load "#{Decidim::System::Engine.root}/app/forms/decidim/system/update_organization_form.rb"
 
         click_on "Organizations"
@@ -218,7 +236,9 @@ describe "Organizations" do
 
       after do
         # Reload the UpdateOrganizationForm
+        Decidim::System.send(:remove_const, :BaseOrganizationForm)
         Decidim::System.send(:remove_const, :UpdateOrganizationForm)
+        load "#{Decidim::System::Engine.root}/app/forms/decidim/system/base_organization_form.rb"
         load "#{Decidim::System::Engine.root}/app/forms/decidim/system/update_organization_form.rb"
       end
 
