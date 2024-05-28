@@ -28,6 +28,7 @@ module Decidim
       validates :question_type, inclusion: { in: QUESTION_TYPES }
 
       scope :visible, -> { where(status: [:published, :closed]) }
+      scope :unanswered, -> { where.missing(:answers) }
 
       def multiple_choice?
         %w(single_option multiple_option).include?(question_type)

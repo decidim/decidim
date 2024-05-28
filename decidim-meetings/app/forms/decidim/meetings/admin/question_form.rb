@@ -29,6 +29,12 @@ module Decidim
           "questionnaire-question-id"
         end
 
+        def unanswered?
+          return true if id.blank?
+
+          Decidim::Meetings::Question.unanswered.exists?(id:)
+        end
+
         def number_of_options
           answer_options.size
         end
