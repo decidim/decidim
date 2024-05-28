@@ -476,9 +476,11 @@ describe "Proposals" do
     end
 
     context "when voting is disabled" do
+      let(:proposals) { create_list(:proposal, 2, component:) }
       let!(:component) do
         create(:proposal_component,
                :with_votes_disabled,
+               :with_proposal_limit,
                manifest:,
                participatory_space: participatory_process)
       end
@@ -493,6 +495,58 @@ describe "Proposals" do
         visit_component
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
+      end
+
+      it "does not show the voting rules" do
+        proposal_title = translated(proposals.first&.title)
+
+        visit_component
+        expect(page).to have_no_css("#voting-rules")
+
+        click_on proposal_title
+        expect(page).to have_no_css("#voting-rules")
+      end
+    end
+
+    context "when voting is enabled" do
+      let(:proposals) { create_list(:proposal, 2, component:) }
+      let!(:component) do
+        create(:proposal_component,
+               :with_votes_enabled,
+               :with_proposal_limit,
+               manifest:,
+               participatory_space: participatory_process)
+      end
+
+      it "shows the voting rules" do
+        proposal_title = translated(proposals.first&.title)
+
+        visit_component
+        expect(page).to have_css("#voting-rules")
+
+        click_on proposal_title
+        expect(page).to have_css("#voting-rules")
+      end
+    end
+
+    context "when voting is blocked" do
+      let(:proposals) { create_list(:proposal, 2, component:) }
+      let!(:component) do
+        create(:proposal_component,
+               :with_votes_blocked,
+               :with_proposal_limit,
+               manifest:,
+               participatory_space: participatory_process)
+      end
+
+      it "does not show the voting rules" do
+        proposal_title = translated(proposals.first&.title)
+
+        visit_component
+        expect(page).to have_no_css("#voting-rules")
+
+        click_on proposal_title
+        expect(page).to have_no_css("#voting-rules")
       end
     end
 
