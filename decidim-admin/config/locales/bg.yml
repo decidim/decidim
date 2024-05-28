@@ -184,8 +184,21 @@ bg:
         category:
           new: Нова категория
         export: Експорт на всички
+        export-selection: Експорт на селекцията
+        import: Импортиране
         manage: Управление
         new: Ново %{name}
+        newsletter:
+          new: Нов бюлетин
+        participatory_space_private_user:
+          new: Нов частен потребител на пространство за участие
+        per_page: За страница
+        permissions: Разрешения
+        reject: Откажи
+        share: Сподели
+        user:
+          new: Нов администратор
+        verify: Провери
       admin_terms_of_use:
         accept:
           error: Възникна грешка при приемането на административните условия за ползване.
