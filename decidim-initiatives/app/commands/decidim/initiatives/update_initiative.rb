@@ -57,7 +57,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :initiative, :current_user
+      attr_reader :form, :initiative
 
       def attributes
         attrs = {
