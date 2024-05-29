@@ -25,10 +25,7 @@ module Decidim
             Decidim::Meetings::Questionnaire.transaction do
               create_questionnaire_for
               create_questionnaire
-              if @questionnaire.questions_editable?
-                update_questionnaire_questions
-                delete_answers
-              end
+              update_questionnaire_questions if @questionnaire.questions_editable?
               @questionnaire
             end
           end
@@ -85,10 +82,6 @@ module Decidim
           else
             record.save!
           end
-        end
-
-        def delete_answers
-          @questionnaire.answers.destroy_all
         end
       end
     end
