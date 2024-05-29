@@ -46,6 +46,7 @@ module Decidim
             .from_params(form_params)
             .with_context(
               current_organization: organization,
+              current_user: author,
               initiative_type: scoped_type.type
             )
         end
