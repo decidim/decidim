@@ -9,8 +9,7 @@ module Decidim
 
     def attachments
       @attachments ||= if [resource_model_name, resource_table_name].all?(&:present?)
-                         base_query = Decidim::Attachment.where(attached_to_type: resource_model_name)
-                                                         .joins("JOIN #{resource_table_name} ON #{resource_table_name}.id = decidim_attachments.attached_to_id")
+                         base_query = Decidim::Attachment.joins(resource_join.join_sources)
                                                          .where(resource_table_name => { decidim_component_id: __getobj__.id })
                          if resource_model&.include?(Decidim::Publicable)
                            base_query.where.not(resource_table_name => { published_at: nil })
@@ -20,6 +19,15 @@ module Decidim
                        else
                          Decidim::Attachment.none
                        end
+    end
+
+    def resource_join
+      resource_table = Arel::Table.new(resource_table_name)
+      attachments_table = Decidim::Attachment.arel_table
+      attachments_table.join(resource_table).on(
+        resource_table[:id].eq(attachments_table[:attached_to_id]),
+        attachments_table[:attached_to_type].eq(resource_model_name)
+      )
     end
 
     def resource_model_name
