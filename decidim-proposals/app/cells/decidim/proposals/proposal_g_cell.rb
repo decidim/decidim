@@ -8,6 +8,7 @@ module Decidim
     # the default size is the Grid Card (:g)
     class ProposalGCell < Decidim::CardGCell
       include Decidim::Proposals::ApplicationHelper
+      include Decidim::LayoutHelper
 
       delegate :state_class, to: :metadata_cell_instance
 
@@ -28,7 +29,7 @@ module Decidim
       end
 
       def resource_image_path
-        model.attachments.first&.url || proposal_image_placeholder
+        model.attachments.first&.url
       end
 
       def proposal_state_item
@@ -38,10 +39,6 @@ module Decidim
       end
 
       private
-
-      def proposal_image_placeholder
-        asset_pack_path("media/images/proposal_image_placeholder.svg")
-      end
 
       def classes
         super.merge(metadata: "card__list-metadata")

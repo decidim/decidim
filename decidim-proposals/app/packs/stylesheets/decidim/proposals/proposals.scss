@@ -79,12 +79,56 @@
 
 #proposals {
   .view-layout__links {
+    display: flex;
+    gap: 16px;
+
     svg {
       @apply inline-block w-5 h-5;
 
       &.view-icon--disabled {
         @apply fill-gray mr-2;
       }
+    }
+  }
+}
+
+.card {
+  &__proposal-placeholder-g {
+    @apply w-full h-full fill-primary;
+
+    g {
+      path {
+        @apply fill-primary;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    &__list-metadata {
+      gap: 10px;
+    }
+
+    &__search-metadata > div,
+    &__list-metadata > div {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    &__grid-text-title {
+      flex-direction: column;
+      align-items: flex-start;
+
+      > *:not(:last-child) {
+        margin-bottom: 0.8rem;
+      }
+    }
+
+    &__search-metadata > div,
+    &__list-metadata > div {
+      padding-left: 0.7rem;
+      padding-right: 0.7rem;
     }
   }
 }

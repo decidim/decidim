@@ -3,11 +3,11 @@
     <% if has_image? %>
       <%= image_tag resource_image_path, alt: alt_title %>
     <% else %>
-      <%= external_icon "media/images/placeholder-card-g.svg", class: "card__placeholder-g" %>
+      <%= external_icon "media/images/proposal-placeholder-card-g.svg", class: "card__proposal-placeholder-g" %>
     <% end %>
   </div>
   <div class="<%= classes[:text] %>">
-    <div class="flex items-center justify-between">
+    <div class="flex items-center justify-between card__grid-text-title">
       <%= content_tag title_tag, title, class: title_class %>
       <%= raw(proposal_state_item[:text]) if proposal_state_item.present? %>
     </div>
