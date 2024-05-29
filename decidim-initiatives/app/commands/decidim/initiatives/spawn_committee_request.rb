@@ -9,7 +9,6 @@ module Decidim
       # Public: Initializes the command.
       #
       # form - Decidim::Initiative::CommitteeMemberForm
-      # current_user - Decidim::User
       def initialize(form)
         @form = form
       end
