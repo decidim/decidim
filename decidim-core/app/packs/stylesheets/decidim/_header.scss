@@ -217,7 +217,7 @@ header {
   }
 
   .menu-bar {
-    @apply container h-full flex justify-between items-center lg:relative last-of-type:[&>svg]:hidden; 
+    @apply container h-full flex justify-between items-center lg:relative last-of-type:[&>svg]:hidden;
 
     &__container {
       @apply bg-primary relative h-14;
@@ -337,7 +337,7 @@ header {
         @apply md:block lg:hidden w-auto last-of-type:[&>svg]:block ml-auto;
 
         > svg {
-          @apply text-gray;
+          @apply text-white;
         }
       }
     }
@@ -348,6 +348,10 @@ header {
       &-mobile {
         @apply [&_svg]:w-4 [&_svg]:h-4 [&_span]:sr-only;
       }
+    }
+
+    &__language-chooser {
+      @apply absolute top-full left-0 bg-white rounded w-full bg-gray-5;
     }
 
     &__main-dropdown {
