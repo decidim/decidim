@@ -14,7 +14,7 @@ module Decidim
       # Public: returns whether the questionnaire questions can be modified or not.
       def questions_editable?
         has_component = questionnaire_for.meeting.respond_to? :component
-        (has_component && !questionnaire_for.meeting.component.published?) || answers.empty?
+        (has_component && !questionnaire_for.meeting.component.published?) || questions.unpublished.unanswered.exists?
       end
 
       def all_questions_unpublished?

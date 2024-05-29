@@ -29,10 +29,10 @@ module Decidim
           "questionnaire-question-id"
         end
 
-        def unanswered?
+        def editable?
           return true if id.blank?
 
-          Decidim::Meetings::Question.unanswered.exists?(id:)
+          Decidim::Meetings::Question.unpublished.unanswered.exists?(id:)
         end
 
         def number_of_options
