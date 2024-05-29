@@ -22,7 +22,6 @@ shared_examples "update an initiative answer" do
     }
   end
   let(:administrator) { create(:user, :admin, organization:) }
-  let(:current_user) { administrator }
   let(:command) { described_class.new(initiative, form) }
 
   describe "call" do
