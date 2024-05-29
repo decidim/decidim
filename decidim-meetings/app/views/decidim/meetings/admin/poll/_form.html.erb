@@ -25,9 +25,9 @@
         <%= render "decidim/meetings/admin/poll/question",
                    form: question_form,
                    id: tabs_id_for_question(question),
-                   editable: questionnaire.questions_editable?,
+                   editable: question.editable?,
                    answer_option_template_selector: "#answer-option-template-#{index}" %>
-        <%= render "decidim/meetings/admin/poll/answer_option_template", form: question_form, editable: questionnaire.questions_editable?, template_id: "answer-option-template-#{index}" %>
+        <%= render "decidim/meetings/admin/poll/answer_option_template", form: question_form, editable: question.editable?, template_id: "answer-option-template-#{index}" %>
       <% end %>
     <% end %>
   </div>
