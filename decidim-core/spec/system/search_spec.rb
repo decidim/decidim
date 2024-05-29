@@ -66,7 +66,7 @@ describe "Search" do
       expect(page).to have_css("#input-search-mobile")
     end
   end
- 
+
   context "when there is a malformed URL" do
     let(:participatory_space) { create(:participatory_process, :published, :with_steps, organization:) }
     let!(:proposal_component) { create(:proposal_component, participatory_space:) }
