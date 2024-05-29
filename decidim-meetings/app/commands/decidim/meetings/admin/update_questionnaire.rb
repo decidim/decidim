@@ -45,6 +45,8 @@ module Decidim
 
         def update_questionnaire_questions
           @form.questions.each do |form_question|
+            next unless form_question.editable?
+
             update_questionnaire_question(form_question)
           end
         end
