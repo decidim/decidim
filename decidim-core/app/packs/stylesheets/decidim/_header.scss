@@ -93,7 +93,7 @@ header {
       }
 
       &__dropdown {
-        @apply absolute top-full left-0 z-30 bg-white;
+        @apply absolute top-full left-0 z-30 bg-white before:block before:absolute before:-top-8 before:right-12 before:content-[""] before:bg-white before:w-32 before:h-8 before:-mt-8;
       }
 
       &__account {

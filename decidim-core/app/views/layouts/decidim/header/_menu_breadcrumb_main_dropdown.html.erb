@@ -1,6 +1,6 @@
 <div id="<%= id %>" class="menu-bar__main-dropdown">
   <div class="menu-bar__main-dropdown__top">
-    <div class="-translate-y-full">
+    <div class="mb-8">
       <%= form_tag(decidim.search_path, method: :get, class: "filter-search") do %>
         <%= text_field_tag(
           :term,
