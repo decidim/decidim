@@ -502,6 +502,15 @@ bg:
       menu:
         admin_log: Регистър на дейността на администраторите
         admins: Администратори
+        appearance: Външен вид
+        area_types: Типове области
+        areas: Области
+        configuration: Конфигурация
+        content: Докладвано съдържание
+        external_domain_whitelist: Лист с позволени външни домейни
+        help_sections: Помощни раздели
+        homepage: Начална страница
+        impersonations: Имитация
         manage: Управление
         moderation: Глобални модерации
         newsletters: Бюлетин с новости
@@ -648,6 +657,22 @@ bg:
           success: Официализирането на участника е премахнато успешно.
         index:
           actions: Активности
+          badge: Бадж
+          block: Блокиране на потребител
+          created_at: Създадено на
+          name: Име
+          nickname: Псевдоним
+          not_officialized: Неофициализирано
+          officialize: Официализиране
+          officialized: Официализирано
+          reofficialize: Повторно официализиране
+          reports: Доклади
+          show_email: Показване на електронната поща
+          status: Статус
+          unblock: Разблокирай Потребител
+          unofficialize: Премахване на официализирането
+        new:
+          badge: Бадж за официализиране
       organization_appearance:
         form:
           colors:
