@@ -14,7 +14,6 @@ module Decidim
       # Public: Initializes the command.
       #
       # form - A form object with the params.
-      # current_user - Current user.
       def initialize(form)
         @form = form
       end
