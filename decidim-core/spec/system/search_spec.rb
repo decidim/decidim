@@ -53,6 +53,20 @@ describe "Search" do
     end
   end
 
+  context "when the device is a mobile" do
+    before do
+      driven_by(:iphone)
+      switch_to_host(organization.host)
+      visit decidim.root_path
+      click_on(id: "dc-dialog-accept")
+      click_on(id: "main-dropdown-summary-mobile")
+    end
+
+    it "shows the mobile version of the search form" do
+      expect(page).to have_css("#input-search-mobile")
+    end
+  end
+ 
   context "when there is a malformed URL" do
     let(:participatory_space) { create(:participatory_process, :published, :with_steps, organization:) }
     let!(:proposal_component) { create(:proposal_component, participatory_space:) }
