@@ -5,13 +5,12 @@ module Decidim
     # A command with all the business logic that creates a new membership
     # request for the committee of an initiative.
     class SpawnCommitteeRequest < Decidim::Command
+      delegate :current_user, to: :form
       # Public: Initializes the command.
       #
       # form - Decidim::Initiative::CommitteeMemberForm
-      # current_user - Decidim::User
-      def initialize(form, current_user)
+      def initialize(form)
         @form = form
-        @current_user = current_user
       end
 
       # Executes the command. Broadcasts these events:
@@ -35,7 +34,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :current_user
+      attr_reader :form
 
       def create_request
         request = InitiativesCommitteeMember.new(
