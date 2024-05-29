@@ -685,7 +685,7 @@ describe "Proposals" do
       it "shows a placeholder image" do
         visit_component
         find("a[href*='view_mode=grid']").click
-        expect(page).to have_css(".card__grid-img img[src*='proposal_image_placeholder']")
+        expect(page).to have_css(".card__grid-img svg#ri-proposal-placeholder-card-g")
       end
     end
 

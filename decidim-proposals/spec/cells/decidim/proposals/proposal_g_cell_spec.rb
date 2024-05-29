@@ -38,7 +38,7 @@ module Decidim::Proposals
         before { allow(proposal).to receive(:attachments).and_return([]) }
 
         it "renders a placeholder image" do
-          expect(subject).to have_css("img[src*='proposal_image_placeholder']")
+          expect(subject).to have_css(".card__grid-img svg#ri-proposal-placeholder-card-g")
         end
       end
     end
