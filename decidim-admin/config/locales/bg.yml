@@ -664,10 +664,43 @@ bg:
           unofficialize: Премахване на официализирането
         new:
           badge: Бадж за официализиране
+          officialize: Официализиране
+          title: Официализиране на участника „%{name}“
+        show_email_modal:
+          description: Ако искате да се свържете директно с участник, можете да щракнете върху бутона „Показване“, за да видите електронната поща. Това действие ще бъде регистрирано.
+          email_address: Имейл адрес
+          full_name: Три имена
+          hidden: скрито
+          show: Покажи
+          title: Показване на електронната поща на участника
+        unblock:
+          error: Възникна грешка при отблокиране на участника.
+          success: Участникът беше отблокиран успешно.
+      organization:
+        edit:
+          title: Редактиране на организацията
+          update: Актуализация
+        form:
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          rich_text_editor_in_public_views_help: В някои текстови области участниците ще могат да вмъкнат някои HTML тагове с помощта на редактора за обогатен текст.
+          social_handlers: Социални мрежи
+          twitter: X
+          url: URL
+          youtube: YouTube
+        update:
+          error: Възникна проблем при актуализирането на тази организация.
+          success: Организацията беше актуализирана успешно.
       organization_appearance:
+        edit:
+          update: Актуализация
         form:
           colors:
+            choose_color: Изберете основен цвят
             colors_title: Цветове на организацията
+            colors_warning_html: Внимание! Промяната на тези цветове може да наруши контрастите на достъпността. Можете да проверите контраста на Вашия избор с <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> или други подобни инструменти.
+            explanation: Този инструмент ви помага да изберете цветова схема, съставена от нюанси, разположени на еднакво разстояние около цветното колело, която ще се използва в уебсайта на организацията.
           homepage_highlighted_content_banner_title: Банер с подчертано съдържание
           images:
             layout_appearance_title: Редактиране външния вид шаблона
