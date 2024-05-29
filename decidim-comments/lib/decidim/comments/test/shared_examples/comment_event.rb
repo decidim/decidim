@@ -42,4 +42,37 @@ shared_examples_for "a comment event" do
       expect(subject.resource_text).to eq comment.formatted_body
     end
   end
+
+  describe "hidden_resource?" do
+    context "when comment is not moderated" do
+      it "returns false" do
+        expect(subject.hidden_resource?).to be false
+      end
+    end
+
+    context "when comment is moderated" do
+      let(:comment) { create(:comment, :moderated) }
+
+      it "returns true" do
+        expect(subject.hidden_resource?).to be true
+      end
+    end
+
+    context "when resource is not moderated" do
+      it "returns false" do
+        expect(subject.hidden_resource?).to be false
+      end
+    end
+
+    context "when resource is moderated" do
+      before do
+        create(:moderation, reportable: resource, hidden_at: 2.days.ago)
+        resource.reload
+      end
+
+      it "returns true" do
+        expect(subject.hidden_resource?).to be true
+      end
+    end
+  end
 end

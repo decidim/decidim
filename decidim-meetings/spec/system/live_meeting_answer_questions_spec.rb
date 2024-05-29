@@ -6,11 +6,6 @@ describe "Meeting live event poll answer" do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
-  let(:user) do
-    create(:user,
-           :confirmed,
-           organization:)
-  end
   let(:user2) do
     create(:user,
            :confirmed,

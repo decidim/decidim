@@ -4,9 +4,11 @@
   <h1 class="h1"><%= t ".title" %></h1>
 <% end %>
 
-<%= decidim_form_for(@form) do |f| %>
+<%= decidim_form_for(@form, url: organization_path(@organization)) do |f| %>
   <div class="form__wrapper">
-    <%= f.text_field :name, autofocus: true %>
+    <div>
+      <%= f.translated :text_field, :name, autofocus: true %>
+    </div>
 
     <%= f.text_field :host %>
 

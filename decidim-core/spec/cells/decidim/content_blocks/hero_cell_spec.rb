@@ -13,7 +13,7 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
 
   context "when the content block has no settings" do
     it "shows the default welcome text" do
-      expect(subject).to have_text("Welcome to #{organization.name}")
+      expect(subject).to have_text("Welcome to #{translated(organization.name)}")
     end
   end
 
@@ -70,7 +70,7 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
     context "when organization is updated" do
       it "generates a different hash" do
         old_hash = cell(content_block.cell, content_block).send(:cache_hash)
-        controller.current_organization.update!(name: "New name")
+        controller.current_organization.update!(name: { en: "New name" })
         controller.current_organization.reload
 
         expect(cell(content_block.cell, content_block).send(:cache_hash)).not_to eq(old_hash)

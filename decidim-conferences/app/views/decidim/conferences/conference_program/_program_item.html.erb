@@ -3,23 +3,23 @@
     <div class="conference__program-time">
       <%= start_time.to_fs(:time) %> - <%= end_time.to_fs(:time) %>
     </div>
-    <div data-component="accordion" data-multiselectable="false" data-collapsible="false">
+    <div>
       <% categories = meetings.map(&:category).uniq %>
       <% seed = SecureRandom.hex(3).to_s %>
       <% if categories.present? %>
         <ul class="conference__program-category-container">
-          <% categories.each_with_index do |category, i| %>
+          <% categories.each do |category| %>
             <li>
-              <button id="conference-item-trigger-<%= seed %>-tab<%= i %>" class="conference__program-category" data-controls="conference-item-panel-<%= seed %>-tab<%= i %>" data-open="<%= "true" if i.zero? %>">
+              <div class="conference__program-category">
                 <%= category.present? ? translated_attribute(category.name) : "other" %>
-              </button>
+              </div>
             </li>
           <% end %>
         </ul>
       <% end %>
 
-      <% meetings.group_by(&:category).each_with_index do |categories_block, i| %>
-        <div id="conference-item-panel-<%= seed %>-tab<%= i %>" class="conference__program-category-content">
+      <% meetings.group_by(&:category).each do |categories_block| %>
+        <div class="conference__program-category-content">
           <% categories_block.last.each do |meeting| %>
             <%= render partial: "program_meeting", locals: { meeting: } %>
           <% end %>
