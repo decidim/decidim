@@ -57,7 +57,7 @@ module Decidim
       def store_data
         @form = form(Decidim::Initiatives::InitiativeForm).from_params(params, { initiative_type: })
 
-        CreateInitiative.call(@form, current_user) do
+        CreateInitiative.call(@form) do
           on(:ok) do |initiative|
             session[:initiative_id] = initiative.id
 

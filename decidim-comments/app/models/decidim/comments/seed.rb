@@ -22,7 +22,12 @@ module Decidim
 
           rand(0..6).times do
             comment1 = create_comment(resource)
-            comment2 = create_comment(comment1, resource) if [true, false].sample
+            NewCommentNotificationCreator.new(comment1, [], []).create
+
+            if [true, false].sample
+              comment2 = create_comment(comment1, resource)
+              NewCommentNotificationCreator.new(comment2, [], []).create
+            end
 
             next if [true, false].sample
 
