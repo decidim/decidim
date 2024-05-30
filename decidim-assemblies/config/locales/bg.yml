@@ -4,10 +4,45 @@ bg:
     attributes:
       assemblies_setting:
         enable_organization_chart: Активиране на организационна диаграма
+      assemblies_type:
+        title: Заглавие
       assembly:
+        announcement: Обявление
         area_id: Район
         assembly_type: Тип събрание
         assembly_type_other: Друг тип събрание
+        banner_image: Изображение на банера
+        closing_date: Дата на затваряне
+        closing_date_reason: Причина за датата на затваряне
+        composition: Състав
+        copy_categories: Копиране на категориите
+        copy_components: Копиране на компонентите
+        copy_features: Копиране на функциите
+        created_by: Създадено от
+        created_by_other: Създадено от друг
+        creation_date: Дата на създаване
+        decidim_area_id: Област
+        decidim_assemblies_type_id: Тип събрание
+        decidim_scope_id: Обхват
+        description: Описание
+        developer_group: Група за популяризиране
+        document: Документ
+        domain: Домейн
+        duration: Продължителност
+        facebook: Facebook
+        github: GitHub
+        hashtag: Хаштаг
+        hero_image: Изображение за начална страница
+        import_attachments: Импортиране на прикачени файлове
+        import_categories: Импортиране на категории
+        import_components: Импортиране на компоненти
+        included_at: Включено в(ъв)
+        instagram: Instagram
+        internal_organisation: Вътрешна организация
+        is_transparent: Е прозрачно
+        local_area: Област на организацията
+        meta_scope: Метаданни за обхвата
+        parent_id: Родителско събрание
     errors:
       models:
         assembly:
@@ -59,11 +94,20 @@ bg:
             assemblies_button_title: Връзка към страницата „Събрания“, на която се показват всички събрания
       show:
         area: Район
+        closing_date: Дата на затваряне
+        composition: Състав
+        created_by: Създадено от
+        creation_date: Дата на създаване
+        developer_group: Група за популяризиране
+        included_at: Включено в(ъв)
+        internal_organisation: Вътрешна организация
         is_transparent:
           'false': непрозрачно
           'true': прозрачно
+        local_area: Област на организацията
         read_less: Скрийте
         read_more: Прочетете повече
+        scope: Обхват
         social_networks: Социални мрежи
   errors:
     messages:
