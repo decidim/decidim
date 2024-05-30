@@ -20,14 +20,18 @@ header {
     }
   }
 
-  #main-bar {
+  #menu-bar {
+    @apply mt-24 md:mt-0;
+  }
+
+  &.with-admin-bar #menu-bar {
+    @apply mt-[140px];
+  }
+
+  #stickyHeader {
     @apply fixed top-0 shadow-lg z-40 bg-white md:relative;
 
     transition: top 0.3s;
-  }
-
-  #menu-bar {
-    @apply mt-24 md:mt-0;
   }
 
   .main-bar {
@@ -136,22 +140,6 @@ header {
 
       &__search {
         @apply fixed top-0 left-0 w-full h-full z-30 bg-white;
-
-        &-block {
-          @apply container h-full flex flex-col justify-center;
-        }
-
-        .main-bar {
-          @apply border-b border-gray;
-        }
-
-        label {
-          @apply block mb-4 text-black;
-        }
-
-        form {
-          @apply relative;
-        }
       }
 
       &__login {
@@ -163,27 +151,6 @@ header {
 
         svg + span {
           @apply text-sm first-letter:uppercase pr-4;
-        }
-      }
-
-      &__item {
-        @apply w-1/4 flex flex-col items-center relative;
-
-        svg {
-          @apply w-8 h-8 fill-current;
-        }
-
-        svg + span {
-          @apply text-sm first-letter:uppercase;
-        }
-
-        /* overwrite default dropdown styles */
-        &[data-target*="dropdown"] {
-          @apply p-0 gap-0;
-
-          > span {
-            @apply block font-normal text-sm first-letter:uppercase;
-          }
         }
       }
     }

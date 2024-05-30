@@ -1,17 +1,17 @@
 let prevScroll = window.scrollY;
-const mainBar = document.getElementById("main-bar");
+const stickyHeader = document.getElementById("stickyHeader");
 
-window.onscroll = function() {
+document.addEventListener("scroll", () => {
   // if a subelement is not visible it has no offsetParent
-  const header = document.getElementById("main-dropdown-summary-mobile").offsetParent;
+  const header = document.getElementById("main-bar").offsetParent;
   if (header) {
     let currentScroll = window.scrollY;
-
-    if (prevScroll > currentScroll) {
-      mainBar.style.top = 0;
+    if (prevScroll > currentScroll || currentScroll < stickyHeader.offsetHeight) {
+      stickyHeader.style.top = 0;
     } else {
-      mainBar.style.top = `-${header.offsetHeight}px`;
+      stickyHeader.style.top = `-${stickyHeader.offsetHeight}px`;
+      console.log(header.offsetHeight);
     }
     prevScroll = currentScroll;
   }
-};
+});

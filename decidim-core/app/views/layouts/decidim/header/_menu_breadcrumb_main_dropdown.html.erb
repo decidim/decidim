@@ -1,50 +1,10 @@
 <div id="<%= id %>" class="menu-bar__main-dropdown">
   <div class="menu-bar__main-dropdown__top">
     <div class="mb-8">
-      <%= form_tag(decidim.search_path, method: :get, class: "filter-search") do %>
-        <%= text_field_tag(
-          :term,
-          nil,
-          id: "input-search-mobile",
-          class: "reset-defaults outline-none",
-          value: params[:term] || params.dig(:filter, :term),
-          placeholder: t("decidim.search.term_input_placeholder"),
-          title: t("decidim.search.term_input_placeholder"),
-          "aria-label": t("decidim.search.term_input_placeholder"),
-          tabindex: "0"
-        ) %>
-        <button type="submit" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
-          <%= icon "search-line" %>
-        </button>
-      <% end %>
+      <%= render partial: "layouts/decidim/header/menu_form_search_mobile" %>
     </div>
     <%= breadcrumb_root_menu.render %>
-    <% if available_locales.length > 1 %>
-      <div>
-        <button id="trigger-dropdown-language-chooser-mobile" data-component="dropdown" data-target="dropdown-menu-language-chooser-mobile" class="mt-8 border border-black rounded-lg py-0 bg-gray-5">
-          <span><%= t("name", scope: "locale" ) %></span>
-          <%= icon "arrow-down-s-line" %>
-          <%= icon "arrow-up-s-line" %>
-          <span class="sr-only">
-            <% available_locales.each do |locale| %>
-              <span lang="<%= locale %>">
-                <%= I18n.with_locale(locale) { t("layouts.decidim.language_chooser.choose_language") } %>
-              </span>
-            <% end %>
-          </span>
-        </button>
-
-        <div id="dropdown-menu-language-chooser-mobile" class="bg-gray-5 relative" aria-hidden="true">
-          <ul class="menu-bar__language-chooser" role="menu">
-            <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
-              <li class="text-black text-xs hover:bg-secondary hover:text-white transition" role="presentation">
-                <%= link_to locale_name(locale), decidim.locale_path(locale:), method: :post, role: "menuitem", lang: locale, class: "p-2 w-full block" %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    <% end %>
+    <%= render partial: "layouts/decidim/header/mobile_language_choose" %>
   </div>
   <div class="menu-bar__main-dropdown__bottom">
     <div class="menu-bar__main-dropdown__bottom-left">
