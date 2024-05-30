@@ -6,15 +6,14 @@ module Decidim
       # A command with all the business logic to answer
       # initiatives.
       class UpdateInitiativeAnswer < Decidim::Command
+        delegate :current_user, to: :form
         # Public: Initializes the command.
         #
         # initiative   - Decidim::Initiative
         # form         - A form object with the params.
-        # current_user - Decidim::User
-        def initialize(initiative, form, current_user)
+        def initialize(initiative, form)
           @form = form
           @initiative = initiative
-          @current_user = current_user
         end
 
         # Executes the command. Broadcasts these events:
@@ -39,7 +38,7 @@ module Decidim
 
         private
 
-        attr_reader :form, :initiative, :current_user
+        attr_reader :form, :initiative
 
         def attributes
           attrs = {
