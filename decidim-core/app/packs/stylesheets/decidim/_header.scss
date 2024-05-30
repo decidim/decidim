@@ -20,6 +20,16 @@ header {
     }
   }
 
+  #main-bar {
+    @apply fixed top-0 shadow-lg z-40 bg-white md:relative;
+
+    transition: top 0.3s;
+  }
+
+  #menu-bar {
+    @apply mt-24 md:mt-0;
+  }
+
   .main-bar {
     @apply container grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-4 items-center py-5 h-24;
 
