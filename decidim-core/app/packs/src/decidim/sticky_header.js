@@ -1,5 +1,5 @@
 let prevScroll = window.scrollY;
-const stickyHeader = document.getElementById("stickyHeader");
+const stickyHeader = document.getElementById("sticky-header");
 
 document.addEventListener("scroll", () => {
   // if a subelement is not visible it has no offsetParent

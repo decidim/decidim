@@ -20,15 +20,25 @@ header {
     }
   }
 
-  #menu-bar {
+  #flash-messages-container {
+    @apply mt-28 md:mt-0;
+  }
+
+  #menu-bar-container {
     @apply mt-24 md:mt-0;
   }
 
-  &.with-admin-bar #menu-bar {
-    @apply mt-[140px];
+  &.with-admin-bar {
+    #flash-messages-container {
+      @apply mt-40 md:mt-0;
+    }
+
+    #menu-bar-container{
+      @apply mt-[140px] md:mt-0;
+    } 
   }
 
-  #stickyHeader {
+  #sticky-header {
     @apply fixed top-0 shadow-lg z-40 bg-white md:relative;
 
     transition: top 0.3s;
