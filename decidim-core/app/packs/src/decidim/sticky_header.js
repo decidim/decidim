@@ -7,7 +7,7 @@ window.onscroll = function() {
   if (header) {
     let currentScroll = window.scrollY;
 
-    if (prevScrollpos > currentScroll) {
+    if (prevScroll > currentScroll) {
       mainBar.style.top = 0;
     } else {
       mainBar.style.top = `-${header.offsetHeight}px`;
