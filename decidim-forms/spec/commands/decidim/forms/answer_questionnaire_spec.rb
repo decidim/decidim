@@ -11,6 +11,7 @@ module Decidim
           form_params
         ).with_context(
           current_organization:,
+          current_user:,
           session_token:,
           ip_hash:
         )
