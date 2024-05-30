@@ -328,26 +328,50 @@ describe "Authentication" do
         expect_current_user_to_be(user)
       end
 
-      it "displays error when email is empty and focus shifts to password" do
-        click_on("Log in", match: :first)
-
-        within "#session_new_user" do
-          fill_in :session_user_email, with: ""
-          find_by_id("session_user_password").click
+      context "when email validation is triggered in login form" do
+        before do
+          click_on("Log in", match: :first)
         end
 
-        expect(page).to have_css(".form-error.is-visible", text: "There is an error in this field.")
-      end
+        context "when focus shifts to password" do
+          it "displays error when email is empty" do
+            within "#session_new_user" do
+              fill_in :session_user_email, with: ""
+              find_by_id("session_user_password").click
+            end
 
-      it "displays error when email is invalid and focus shifts to password" do
-        click_on("Log in", match: :first)
+            expect(page).to have_css(".form-error.is-visible", text: "There is an error in this field.")
+          end
 
-        within "#session_new_user" do
-          fill_in :session_user_email, with: "invalid-email"
-          find_by_id("session_user_password").click
+          it "displays error when email is invalid" do
+            within "#session_new_user" do
+              fill_in :session_user_email, with: "invalid-email"
+              find_by_id("session_user_password").click
+            end
+
+            expect(page).to have_css(".form-error.is-visible", text: "There is an error in this field")
+          end
         end
 
-        expect(page).to have_css(".form-error.is-visible", text: "There is an error in this field")
+        context "when focus remains on email" do
+          it "does not display error when email is empty" do
+            within "#session_new_user" do
+              fill_in :session_user_email, with: ""
+              find_by_id("session_user_email").click
+            end
+
+            expect(page).to have_no_css(".form-error.is-visible", text: "There is an error in this field.")
+          end
+
+          it "does not display error when email is invalid" do
+            within "#session_new_user" do
+              fill_in :session_user_email, with: "invalid-email"
+              find_by_id("session_user_email").click
+            end
+
+            expect(page).to have_no_css(".form-error.is-visible", text: "There is an error in this field")
+          end
+        end
       end
 
       it "caches the omniauth buttons correctly with different languages", :caching do
