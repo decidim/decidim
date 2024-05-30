@@ -32,7 +32,7 @@ module Decidim
         case state
         when "accepted"
           "success"
-        when "rejected", "withdrawn"
+        when "rejected"
           "alert"
         when "evaluating"
           "warning"
