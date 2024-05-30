@@ -11,6 +11,7 @@ module Decidim
         # Initializes a UpdateQuestionnaire Command.
         #
         # questionnaire - The current instance of the questionnaire to be updated.
+        # current_user  - The current user.
         def initialize(question, current_user)
           @question = question
           @current_user = current_user
