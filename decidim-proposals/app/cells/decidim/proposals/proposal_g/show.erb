@@ -16,7 +16,7 @@
 
     <% if metadata_cell.present? %>
       <div class="<%= classes[:metadata] %>">
-        <%= cell metadata_cell, resource, links: false, include_state: false, **options %>
+        <%= cell metadata_cell, resource, links: false, skip_state: true, **options %>
       </div>
     <% end %>
   </div>
