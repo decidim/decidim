@@ -570,6 +570,7 @@ ca:
         appearance: Aparença
         area_types: Tipus d'àrees
         areas: Àrees
+        components: Components
         configuration: Configuració
         content: Contingut reportat
         external_domain_allowlist: Dominis externs permesos
