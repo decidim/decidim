@@ -175,3 +175,84 @@
     }
   }
 }
+
+// layout reset stuff
+.meeting-poll {
+  header,
+  footer {
+    @apply hidden md:block;
+  }
+}
+
+.meeting-polls {
+  counter-reset: question;
+
+  &__question {
+    @apply bg-white space-y-6;
+
+    summary {
+      @apply p-4 cursor-pointer font-normal text-black text-md transition bg-background marker:text-secondary;
+
+      transition: background-color 0.2s ease-in-out;
+
+      &::after {
+        counter-increment: question;
+        content: "#" counter(question);
+      }
+
+      & + * {
+        @apply space-y-6;
+      }
+    }
+
+    &[open] .meeting-polls__answer--bar > * {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    &.is-new {
+      animation: animateHighlight 5s ease-in-out forwards;
+    }
+
+    & + & {
+      @apply mt-4;
+    }
+
+    @keyframes animateHighlight {
+      0%,
+      80% {
+        background-color: rgba(var(--warning-rgb), 0.1);
+      }
+    }
+  }
+
+  &__answer {
+    label {
+      @apply block p-4 ring-4 ring-background hover:ring-tertiary rounded hover:cursor-pointer transition;
+    }
+
+    & + & {
+      @apply mt-4;
+    }
+
+    &--value {
+      @apply flex gap-2 justify-between text-gray-2 text-lg;
+
+      > *:last-child {
+        @apply w-1/6 flex-none text-gray text-right;
+      }
+    }
+
+    &--bar {
+      @apply w-full h-2.5 overflow-hidden rounded bg-background;
+
+      > * {
+        @apply bg-primary h-full opacity-0;
+      }
+    }
+  }
+
+  &__admin-action {
+    @apply py-4 grid grid-cols-2 gap-4 border-t border-t-gray [&>*:nth-child(2)]:ml-auto [&>*:nth-child(3)]:col-span-2;
+  }
+}

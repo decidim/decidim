@@ -4,22 +4,31 @@
                            url: meeting_url(meeting.id)
                          }) %>
 
-<%= link_to meeting_polls_answers_path(meeting), class: "button button__sm md:button__lg button__text-secondary" do %>
-  <%= icon "arrow-left-line" %>
-  <%= t("back_to_meeting", scope: "decidim.meetings.polls.answers.index_admin") %>
-<% end %>
+<%= append_javascript_pack_tag "decidim_meetings" %>
+<%= append_stylesheet_pack_tag "decidim_meetings" %>
+<%= append_javascript_pack_tag "decidim_forms" %>
+
+<% add_body_classes "meeting-poll" %>
 
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
-  <div class="text-center py-10">
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+    <%= link_to meeting_path(meeting), class: "button button__sm button__text-secondary" do %>
+      <%= icon "arrow-left-line" %>
+      <%= t("back_to_meeting", scope: "decidim.meetings.polls.answers.index_admin") %>
+    <% end %>
+
+    <%= link_to meeting_polls_answers_path(meeting), class: "button button__sm button__secondary" do %>
+      <%= t("view_poll", scope: "decidim.meetings.polls.answers.index_admin") %>
+    <% end %>
+  </div>
+
+  <div class="text-center">
     <h1 class="title-decorator inline-block text-left">
       <%= t("title", scope: "decidim.meetings.polls.answers.index_admin") %>
     </h1>
   </div>
 
-  <div class="mb-24" id="admin-meeting-poll" data-decidim-admin-meetings-poll='{"questionsUrl":"<%= meeting_polls_questions_path(meeting, admin: true) %>"}'>
+  <div class="mt-10 mb-24 meeting-polls" id="admin-meeting-poll" data-decidim-admin-meetings-poll='{"questionsUrl":"<%= meeting_polls_questions_path(meeting, admin: true) %>"}'>
     <%= render partial: "decidim/meetings/polls/questions/index_admin", locals: { open_question: nil } %>
   </div>
 <% end %>
-
-<%= append_javascript_pack_tag "decidim_meetings" %>
-<%= append_javascript_pack_tag "decidim_forms" %>
