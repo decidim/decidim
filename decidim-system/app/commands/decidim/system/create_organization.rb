@@ -33,8 +33,8 @@ module Decidim
           CreateDefaultContentBlocks.call(@organization)
           invite_form = invite_user_form(@organization)
           invitation_failed = invite_form.invalid?
+          raise ActiveRecord::RecordInvalid if invite_form.invalid?
         end
-        return broadcast(:invalid) if invitation_failed
 
         Decidim::InviteUser.call(invite_form) if @organization && invite_form
 
