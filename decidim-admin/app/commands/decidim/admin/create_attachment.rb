@@ -51,7 +51,8 @@ module Decidim
           weight: form.weight,
           attachment_collection: form.attachment_collection,
           file: form.file, # Define attached_to before this
-          content_type: blob(form.file).content_type
+          content_type: form.file && blob(form.file).content_type,
+          link: form.file ? nil : form.link
         )
       end
 

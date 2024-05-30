@@ -1,0 +1,12 @@
+<div class="row column">
+  <%= form.text_field :link, aria: { label: :url }, type: :text %>
+
+  <div class="upload-modal__text">
+    <span class="sr-only"><%= explanation %></span>
+    <ul>
+      <% help_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -473,6 +473,11 @@ FactoryBot.define do
       content_type { "application/pdf" }
       file_size { 17_525 }
     end
+
+    trait :with_link do
+      file { nil }
+      link { Faker::Internet.url }
+    end
   end
 
   factory :component, class: "Decidim::Component" do
