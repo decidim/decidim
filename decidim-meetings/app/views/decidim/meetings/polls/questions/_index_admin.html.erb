@@ -1,6 +1,8 @@
 <% questionnaire.questions.includes([:questionnaire]).each do |question| %>
   <details class="meeting-polls__question meeting-polls__question--admin open" data-question="<%= question.id %>" <%= "open" if open_question == question.id %>>
-    <summary><%= t(".question") %></summary>
+    <summary>
+      <span><%= t(".question") %></span>
+    </summary>
 
     <%= form_tag(meeting_polls_question_path(meeting, question), method: :patch, remote: true) do %>
       <p class="h3"><%= translated_attribute(question.body) %></p>
