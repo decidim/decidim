@@ -601,10 +601,10 @@ en:
           index:
             administrate: Administrate
             meeting: Meeting
-            questions: Questions
+            title: Poll
           index_admin:
             back_to_meeting: Back to meeting
-            title: Administrate
+            title: Administrate poll
             view_poll: View poll
         questions:
           closed_question:
