@@ -13,6 +13,8 @@ bg:
         other: Инициативи
   decidim:
     admin:
+      actions:
+        manage: Управление
       initiatives_settings:
         update:
           error: Възникна грешка!
