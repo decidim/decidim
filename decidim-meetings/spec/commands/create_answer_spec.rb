@@ -30,10 +30,11 @@ module Decidim
         AnswerForm.from_params(
           form_params
         ).with_context(
-          current_organization:
+          current_organization:,
+          current_user:
         )
       end
-      let(:command) { described_class.new(form, current_user, questionnaire) }
+      let(:command) { described_class.new(form, questionnaire) }
 
       describe "when the form is invalid" do
         before do

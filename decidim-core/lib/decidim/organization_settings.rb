@@ -129,11 +129,19 @@ module Decidim
               )
             },
             "maximum_file_size" => {
-              "default" => 10.0,
-              "avatar" => 5.0
+              "default" => default_maximum_attachment_size,
+              "avatar" => default_maximum_avatar_size
             }
           }
         }
+      end
+
+      def default_maximum_attachment_size
+        (Rails.application.secrets.decidim[:maximum_attachment_size].presence || 10).to_f
+      end
+
+      def default_maximum_avatar_size
+        (Rails.application.secrets.decidim[:maximum_avatar_size].presence || 5).to_f
       end
     end
 
