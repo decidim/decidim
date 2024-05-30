@@ -84,10 +84,6 @@
 
     svg {
       @apply inline-block w-5 h-5;
-
-      &.view-icon--disabled {
-        @apply fill-gray mr-2;
-      }
     }
   }
 }
