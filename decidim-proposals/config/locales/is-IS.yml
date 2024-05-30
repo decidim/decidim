@@ -45,7 +45,6 @@ is:
             proposal_wizard_step_1_help_text: Tillaga töframaður "Búa til" skref hjálpartexta
             proposal_wizard_step_2_help_text: Tillaga töframaður "Bera saman" skref hjálpartexta
             proposal_wizard_step_3_help_text: Tillaga töframaður "Complete" skref hjálpartexta
-            proposal_wizard_step_4_help_text: Tillaga "Birta" skref hjálpartexti
             threshold_per_proposal: Gildi fyrir hverja tillögu
           step:
             announcement: Tilkynning
@@ -206,7 +205,6 @@ is:
           no_similars_found: Vel gert! Engar svipaðar tillögur fundust
           title: Svipaðar tillögur
         complete:
-          send: Senda
           title: Ljúka tillögu þinni
         edit:
           back: Til baka

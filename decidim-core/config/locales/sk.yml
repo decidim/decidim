@@ -227,7 +227,6 @@ sk:
           '1': Vytvorte svoj pozmeňovací návrh
           '2': Porovnajte váš pozmeňovací návrh
           '3': Dokončite váš pozmeňovací návrh
-          '4': Zverejniť svoj pozmeňovací návrh
     anonymous_user: Anonymné
     application:
       collection:

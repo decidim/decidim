@@ -320,7 +320,7 @@ ja:
           '1': 修正を作成する
           '2': 修正内容を比較
           '3': 修正を完了する
-          '4': 修正内容を公開
+          '4': 修正を公開
     anonymous_user: 匿名です
     application:
       collection:

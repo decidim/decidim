@@ -56,14 +56,31 @@ pl:
           create: Utwórz
           title: Nowy administrator
         show:
+          destroy: Zniszcz
           edit: Edytuj
         update:
           error: Podczas aktualizowania tego administratora wystąpił błąd.
           success: Administrator został zaktualizowany
+      dashboard:
+        show:
+          current_organizations: Bieżące organizacje
       default_pages:
         placeholders:
           content: Proszę dodać istotne treści do strony statycznej %{page} w panelu administratora.
           title: Domyślny tytuł dla %{page}
+      devise:
+        passwords:
+          edit:
+            change_your_password: Zmień swoje hasło
+            minimum_characters: "(Minimum %{minimum} znaków)"
+          new:
+            forgot_your_password: Zapomniałeś hasła
+            send_me_reset_password_instructions: Wyślij mi instrukcje resetowania hasła
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Nie otrzymałeś(aś) instrukcji potwierdzenia?
+            did_not_receive_unlock_instructions?: Nie dotarła instrukcja odblokowania?
+            forgot_your_password?: Nie pamiętasz hasła?
       menu:
         admins: Administratorzy
         dashboard: Panel

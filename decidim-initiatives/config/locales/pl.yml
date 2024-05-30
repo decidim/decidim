@@ -3,8 +3,13 @@ pl:
   activemodel:
     attributes:
       initiative:
+        answer: Odpowiedź
+        answer_url: Adres URL odpowiedzi
+        area_id: Obszar
+        decidim_scope_id: Zakres
         decidim_user_group_id: Autor
         description: Opis
+        hashtag: Hashtag
         offline_votes: Podpisy na piśmie
         offline_votes_for_scope: Podpisy dla %{scope_name}
         scope_id: Zakres
@@ -17,14 +22,18 @@ pl:
           online: Online
         state: Stan
         title: Tytuł
+        type_id: Typ
       initiatives_committee_member:
         user: Członek Komisji
+      initiatives_settings:
+        initiatives_order: Kolejność
       initiatives_type:
         area_enabled: Pozwól autorom na wybór kategorii dla ich inicjatyw
         attachments_enabled: Pozwól na załączniki
         banner_image: Baner
         child_scope_threshold_enabled: Włącz podpisy dla elementów podrzędnych
         collect_user_extra_fields: Zbierz dane osobowe użytkowników przy zbiórce podpisów
+        comments_enabled: Włącz komentarze
         custom_signature_end_date_enabled: Pozwól autorom na wybór końca okresu zbierania podpisów
         description: Opis
         document_number_authorization_handler: Zezwolenie na weryfikację numeru dokumentu przy zbiórce podpisów
@@ -33,9 +42,13 @@ pl:
         online_signature_enabled: Pozwól na podpisy online
         only_global_scope_enabled: Pozwól tylko na tworzenie inicjatyw o zasięgu globalnym
         promoting_committee_enabled: Włącz komitet organizacyjny
+        signature_type: Typ podpisu
         title: Tytuł
         undo_online_signatures_enabled: Pozwól użytkownikom na wycofanie ich podpisów online
         validate_sms_code_on_votes: Dodaj krok weryfikacji kodem SMS przy zbiórce podpisów
+      initiatives_type_scope:
+        decidim_scopes_id: Zakresy
+        supports_required: Wymagane wsparcie
       initiatives_vote:
         date_of_birth: Data urodzenia
         document_number: Numer dokumentu
@@ -101,6 +114,7 @@ pl:
         components: Komponenty
         information: Informacja
         initiatives: Inicjatywy
+        initiatives_settings: Ustawienia
         initiatives_types: Typy inicjatyw
         moderations: Moderacja
       models:
@@ -252,6 +266,16 @@ pl:
           update:
             error: Wystąpił błąd
             success: Inicjatywa została zaktualizowana
+        initiatives_settings:
+          edit:
+            update: Aktualizuj
+          form:
+            comments: Najczęściej komentowane
+            date: Najnowsze
+            publication_date: Ostatnio opublikowane
+            random: Losowo
+            signatures: Najczęściej podpisane
+            title: Ustawienia dla inicjatyw
         initiatives_type_scopes:
           create:
             error: Wystąpił błąd

@@ -1,1 +1,141 @@
+---
 th:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: สถานะ
+        decidim_category_id: หมวดหมู่
+        decidim_scope_id: ขอบเขต
+        description: คำอธิบาย
+        end_date: วันสิ้นสุด
+        progress: ความคืบหน้า
+        project_ids: รวมโครงการ
+        proposals: รวมข้อเสนอ
+        start_date: วันที่เริ่มต้น
+        title: ชื่อ
+        updated_at: อัปเดตที่
+      status:
+        description: คำอธิบาย
+        key: สำคัญ
+        name: ชื่อ
+        progress: ความคืบหน้า
+      timeline_entry:
+        description: คำอธิบาย
+        entry_date: วันที่
+        title: ชื่อ
+    models:
+      decidim/accountability/proposal_linked_event: ข้อเสนอที่รวมอยู่ในผลลัพธ์
+      decidim/accountability/result_progress_updated_event: อัปเดตความคืบหน้าของผลลัพธ์แล้ว
+  activerecord:
+    models:
+      decidim/accountability/result:
+        other: ผลลัพธ์
+  decidim:
+    accountability:
+      actions:
+        attachment_collections: โฟลเดอร์
+        attachments: ไฟล์แนบ
+        confirm_destroy: คุณแน่ใจหรือไม่ว่าต้องการลบ %{name} นี้
+        destroy: ลบ
+        edit: แก้ไข
+        preview: ดูตัวอย่าง
+        timeline_entries: วิวัฒนาการของโครงการ
+        title: การดำเนินการ
+      admin:
+        exports:
+          result_comments: ความคิดเห็น
+          results: ผลลัพธ์
+        import_results:
+          new:
+            download_export: ดาวน์โหลดการส่งออกด้วยรูปแบบ CSV
+            import: นำเข้า
+        models:
+          result:
+            name: ผลลัพธ์
+          status:
+            name: สถานะ
+        results:
+          edit:
+            title: แก้ไขผลลัพธ์
+            update: อัพเดทผลครับ
+          index:
+            title: ผลลัพธ์
+          new:
+            create: สร้างผลลัพธ์
+            title: ผลลัพธ์ใหม่
+        shared:
+          subnav:
+            statuses: สถานะ
+        statuses:
+          edit:
+            title: แก้ไขสถานะ
+            update: อัพเดตสถานะ
+          index:
+            title: สถานะ
+          new:
+            create: Create status
+            title: สถานะใหม่
+      results:
+        home:
+          categories_label: หมวดหมู่
+          subcategories_label: หมวดหมู่ย่อย
+        home_header:
+          global_status: สถานะการดำเนินการทั่วโลก
+        nav_breadcrumb:
+          global: การดำเนินการระดับโลก
+        search:
+          search: ค้นหาการกระทำ
+        show:
+          stats:
+            back_to_resource: กลับไปหาผลลัพธ์
+            comments: ความคิดเห็น
+        timeline:
+          title: วิวัฒนาการของโครงการ
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: หมวดหมู่
+          scope_id_eq:
+            label: ขอบเขต
+          status_id_eq:
+            label: สถานะ
+    components:
+      accountability:
+        actions:
+          comment: ความคิดเห็น
+        name: ความรับผิดชอบ
+        settings:
+          global:
+            comments_enabled: เปิดใช้งานความคิดเห็นแล้ว
+            comments_max_length: ความคิดเห็นความยาวสูงสุด (ปล่อยให้ 0 เป็นค่าเริ่มต้น)
+            display_progress_enabled: แสดงความคืบหน้า
+            intro: คำแนะนำ
+            scope_id: ขอบเขต
+            scopes_enabled: เปิดใช้งานขอบเขตแล้ว
+          step:
+            comments_blocked: ความคิดเห็นถูกบล็อก
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'ข้อเสนอ "%{proposal_title}" ถูกรวมไว้ในผลลัพธ์แล้ว คุณสามารถดูได้จากหน้านี้:'
+          email_outro: คุณได้รับการแจ้งเตือนนี้เนื่องจากคุณกำลังติดตาม "%{proposal_title}" คุณสามารถหยุดรับการแจ้งเตือนได้ตามลิงก์ก่อนหน้า
+          email_subject: การอัปเดตเป็น %{proposal_title}
+          notification_title: ข้อเสนอ <a href="%{proposal_path}">%{proposal_title}</a> ถูกรวมไว้ในผลลัพธ์ <a href="%{resource_path}">%{resource_title}</a> แล้ว
+        result_progress_updated:
+          email_intro: 'ผลลัพธ์ "%{resource_title}" ซึ่งรวมถึงข้อเสนอ "%{proposal_title}" ขณะนี้เสร็จสมบูรณ์แล้ว %{progress}% คุณสามารถดูได้จากหน้านี้:'
+          email_outro: คุณได้รับการแจ้งเตือนนี้เนื่องจากคุณกำลังติดตาม "%{proposal_title}" และข้อเสนอนี้รวมอยู่ในผลลัพธ์ "%{resource_title}" คุณสามารถหยุดรับการแจ้งเตือนได้ตามลิงก์ก่อนหน้า
+          email_subject: การอัปเดตความคืบหน้าของ %{resource_title}
+          notification_title: ผลลัพธ์ <a href="%{resource_path}">%{resource_title}</a> ซึ่งรวมถึงข้อเสนอ <a href="%{proposal_path}">%{proposal_title}</a> อยู่ในขณะนี้ %{ ความคืบหน้า}% เสร็จสมบูรณ์
+    metrics:
+      results:
+        description: จำนวนผลลัพธ์ที่สร้างขึ้น
+        object: ผลลัพธ์
+        title: ผลลัพธ์
+    resource_links:
+      included_projects:
+        result_project: โครงการที่รวมอยู่ในผลลัพธ์นี้
+      included_proposals:
+        result_proposal: โครงการที่รวมอยู่ในผลลัพธ์นี้
+    statistics:
+      results_count: ผลลัพธ์

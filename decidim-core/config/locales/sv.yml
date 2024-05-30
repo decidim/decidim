@@ -287,7 +287,6 @@ sv:
           '1': Skapa ändringsförslag
           '2': Jämför ändringsförslag
           '3': Slutför ändringsförslaget
-          '4': Publicera ändringsförslaget
     anonymous_user: Anonym
     application:
       collection:

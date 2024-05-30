@@ -136,7 +136,6 @@ zh-CN:
             proposal_wizard_step_1_help_text: 建议向导“创建”步骤帮助文本
             proposal_wizard_step_2_help_text: 建议向导“Compare”步骤帮助文本
             proposal_wizard_step_3_help_text: 建议向导“完成”步骤帮助文本
-            proposal_wizard_step_4_help_text: 建议向导"发布"步骤帮助文本
             resources_permissions_enabled: 每个提案都可以设置动作权限
             scope_id: 范围
             scopes_enabled: 范围已启用

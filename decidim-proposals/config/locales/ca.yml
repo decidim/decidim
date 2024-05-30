@@ -779,7 +779,7 @@ ca:
           no_similars_found: Ben fet! No s'han trobat propostes semblants
           title: Propostes similars
         complete:
-          send: Enviar
+          send: Envia
           title: Completa la teva proposta
         count:
           proposals_count:

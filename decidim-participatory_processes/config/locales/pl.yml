@@ -12,15 +12,22 @@ pl:
         decidim_area_id: Kategoria
         description: Opis
         developer_group: Grupa inicjatorów
+        document: Dokument
         domain: Domena
         end_date: Data zakończenia
         hashtag: Hashtag
         hero_image: Obraz główny
+        import_attachments: Importuj załączniki
+        import_categories: Importuj kategorie
+        import_components: Importuj komponenty
+        import_steps: Importuj kroki
         local_area: Obszar organizacji
         meta_scope: Zakres metadanych
         participatory_process_group_id: Grupa procesów
+        participatory_process_type_id: Typ procesów
         participatory_scope: Zaproponowano
         participatory_structure: Jak decydowano
+        private_space: Proces prywatny
         promoted: Promowany
         published_at: Opublikowano
         related_process_ids: Powiązane procesy
@@ -57,10 +64,18 @@ pl:
         short_description: Krótki opis
         start_date: Data rozpoczęcia
         title: Tytuł
+      participatory_process_type:
+        title: Tytuł
       participatory_process_user_role:
         email: Adres e-mail
         name: Imię
         role: Rola
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              allowed_file_content_types: 'Nieprawidłowy typ dokumentu. Dozwolone są tylko pliki z następującymi rozszerzeniami: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Aktualny etap
       decidim/participatory_process_step_changed_event: Zmieniono etap
@@ -108,6 +123,7 @@ pl:
         participatory_process_groups_submenu:
           info: Informacje
           landing_page: Strona startowa
+        participatory_process_types: Typy procesu
         participatory_processes: Procesy
         participatory_processes_submenu:
           attachment_collections: Foldery
@@ -139,6 +155,11 @@ pl:
             start_date: Data rozpoczęcia
             title: Tytuł
           name: Etap procesu partycypacyjnego
+        participatory_process_type:
+          fields:
+            created_at: Utworzono
+            title: Tytuł
+          name: Typ procesu
         participatory_process_user_role:
           fields:
             email: Adres e-mail
@@ -470,6 +491,7 @@ pl:
             no_active: Brak aktualnych procesów
             no_active_nor_upcoming: Brak aktualnych i nadchodzących procesów
             no_active_nor_upcoming_callout: Nie ma aktualnych ani nadchodzących procesów. Oto lista poprzednich procesów.
+          filter_by: Pokaż
           names:
             active: Aktualne
             all: Wszystko
@@ -478,6 +500,8 @@ pl:
           see: Zobacz
         index:
           loading: Ładowanie wyników...
+        show:
+          title: O tym procesie
       show:
         area: Kategoria
         belongs_to_group: Ten proces należy do

@@ -235,7 +235,6 @@ tr:
           '1': Değişikliğinizi oluşturun
           '2': Değişikliğinizi karşılaştırın
           '3': Değişikliğinizi tamamlayın
-          '4': Değişikliğinizi yayınlayın
     anonymous_user: Anonim
     application:
       collection:

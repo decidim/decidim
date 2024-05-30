@@ -123,7 +123,6 @@ lv:
             proposal_wizard_step_1_help_text: Priekšlikumu vedņa „Izveidot” soļa palīdzības teksts
             proposal_wizard_step_2_help_text: Priekšlikumu vedņa "Salīdzināt" soļa palīdzības teksts
             proposal_wizard_step_3_help_text: Priekšlikuma vedņa „Pabeigt” soļa palīdzības teksts
-            proposal_wizard_step_4_help_text: Priekšlikumu vedņa „Publicēt” soļa palīdzības teksts
             resources_permissions_enabled: Katram priekšlikumam var iestatīt darbības atļaujas
             threshold_per_proposal: Slieksnis vienam priekšlikumam
             vote_limit: Atbalsta limits vienam dalībniekam

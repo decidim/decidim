@@ -177,7 +177,7 @@ es-MX:
             proposal_wizard_step_1_help_text: Texto de ayuda para el paso "Crear" del asistente de propuesta
             proposal_wizard_step_2_help_text: Texto de ayuda para el paso "Comparar" del asistente de propuesta
             proposal_wizard_step_3_help_text: Texto de ayuda para el paso "Comparar" del asistente de propuesta
-            proposal_wizard_step_4_help_text: 'Asistente de propuesta: texto de ayuda paso "Publicar"'
+            proposal_wizard_step_4_help_text: Texto de ayuda para el paso "Publicar" del asistente de propuestas
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada propuesta
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
@@ -941,7 +941,7 @@ es-MX:
           step_1: Crear tu propuesta
           step_2: Comparar
           step_3: Completar
-          step_4: Publicar tu propuesta
+          step_4: Publica tu propuesta
           step_of: Paso %{current_step_num} de %{total_steps}
           title: Pasos de creación de una propuesta
       proposals_picker:

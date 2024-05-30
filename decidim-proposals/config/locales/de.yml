@@ -779,7 +779,7 @@ de:
           no_similars_found: Gut gemacht! Keine ähnlichen Vorschläge gefunden
           title: Ähnliche Vorschläge
         complete:
-          send: Senden
+          send: Abschicken
           title: Vorschlag vervollständigen
         count:
           proposals_count:

@@ -38,12 +38,17 @@ pl:
         origin_component_id: Komponent z którego kopiuję propozycję
       proposals_import:
         import_proposals: Importuj propozycje
+        keep_answers: Zachowaj stan i odpowiedzi
         keep_authors: Zachowaj oryginalnych autorów
       valuation_assignment:
         admin_log:
           valuator_role_id: Imię weryfikatora
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              allowed_file_content_types: 'Nieprawidłowy typ dokumentu. Dozwolone są tylko pliki z następującymi rozszerzeniami: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -59,9 +64,11 @@ pl:
           attributes:
             base:
               not_official: Nieoficjalne
+              supported: Otrzymano wsparcie lub poparcie
         proposals_split:
           attributes:
             base:
+              not_official: Nie są oficjalne
               supported: Otrzymano wsparcie lub potwierdzenia
     models:
       decidim/proposals/accepted_proposal_event: Wniosek został przyjęty
@@ -148,6 +155,17 @@ pl:
             collaborative_drafts_enabled: Zezwalaj na wspólne szkice
             comments_enabled: Komentarze włączone
             comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
+            default_sort_order: Domyślne sortowanie propozycji
+            default_sort_order_help: Domyślnie oznacza, że jeśli wsparcie jest włączone, propozycje będą wyświetlane w kolejności losowej, a jeśli wsparcie jest zablokowane, zostaną posortowane według najbardziej popieranych.
+            default_sort_order_options:
+              default: Domyślne
+              most_commented: Najczęściej komentowane
+              most_endorsed: Najbardziej popierane
+              most_followed: Najczęściej obserwowane
+              most_voted: Najbardziej wspierane
+              random: Losowo
+              recent: Ostatnie
+              with_more_authors: Z większą liczbą autorów
             geocoding_enabled: Włączono geokodowanie
             minimum_votes_per_user: Minimalna liczba wsparć na użytkownika
             new_proposal_body_template: Szablon treści nowej propozycji
@@ -167,7 +185,7 @@ pl:
             proposal_wizard_step_1_help_text: 'Tekst pomocy Kreatora - krok: "Utwórz"'
             proposal_wizard_step_2_help_text: 'Tekst pomocy Kreatora - krok: "Porównaj"'
             proposal_wizard_step_3_help_text: 'Tekst pomocy Kreatora - krok: "Dokończ"'
-            proposal_wizard_step_4_help_text: 'Tekst pomocy Kreatora - krok: "Publikuj"'
+            proposal_wizard_step_4_help_text: Tekst pomocy kroku „Opublikuj” kreatora propozycji
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdej propozycji
             scope_id: Zakres
             scopes_enabled: Zakresy włączone
@@ -189,12 +207,16 @@ pl:
             answers_with_costs: Zezwalaj na koszty w odpowiedziach na propozycje
             automatic_hashtags: Hashtagi dodane do wszystkich propozycji
             comments_blocked: Komentarze zablokowane
+            creation_enabled: Uczestnicy mogą tworzyć propozycje
+            creation_enabled_readonly: To ustawienie jest wyłączone, gdy aktywujesz funkcjonalność tekstów partycypacyjnych. Aby przesłać propozycje jako tekst partycypacyjny, kliknij przycisk "Tekst partycypacyjny" i postępuj zgodnie z instrukcjami.
+            default_sort_order: Domyślne sortowanie propozycji
             default_sort_order_options:
               most_voted: Najwiecej wsparć
             endorsements_blocked: Rekomendacje zostały zablokowane
             endorsements_enabled: Rekomendacje włączone
             proposal_answering_enabled: Włączono odpowiadanie na propozycję
             publish_answers_immediately: Natychmiast publikuj odpowiedzi na propozycje
+            publish_answers_immediately_help_html: 'Pamiętaj, że jeśli odpowiesz na dowolną propozycję bez włączonej tej opcji, musisz ją opublikować ręcznie, wybierając ją i korzystając z akcji do publikacji. Aby uzyskać więcej informacji na temat tego, jak to działa, zobacz stronę <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">z dokumentacją odpowiedzi na propozycje</a>.'
             suggested_hashtags: Hashtagi sugerowane użytkownikom dodającym nowe propozycje
             votes_blocked: Wspieranie zablokowane
             votes_enabled: Wspieranie włączone
@@ -271,6 +293,8 @@ pl:
           email_intro: Propozycja "%{resource_title}" została dodana do przestrzeni "%{participatory_space_title}", którą obserwujesz.
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie kliknij w przycisk obserwowania.
           email_subject: Nowa propozycja "%{resource_title}" została dodana do %{participatory_space_title}
+          notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została dodana do %{participatory_space_title} przez %{author}
+          notification_title_official: Oficjalna propozycja <a href="%{resource_path}">%{resource_title}</a> została dodana do %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Twoja propozycja "%{resource_title}" została odrzucona. Możesz przeczytać odpowiedź na tej stronie:'
@@ -394,6 +418,7 @@ pl:
               many: odpowiedzi na propozycję
               other: odpowiedzi na propozycję
           title:
+            answers: Importuj odpowiedzi do propozycji
             proposals: Importuj propozycje
         models:
           proposal:
@@ -751,10 +776,15 @@ pl:
             few: "%{count} propozycji"
             many: "%{count} propozycji"
             other: "%{count} propozycji"
+        dynamic_map_instructions:
+          description: Współrzędne zostaną zaktualizowane po kliknięciu przycisku 'podgląd'. Jednakże adres nie ulegnie zmianie.
+          instructions: Możesz przenieść punkt na mapie.
         edit:
+          add_documents: Dodaj dokumenty
           add_image: Dodaj obraz
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
+          edit_documents: Edytuj dokumenty
           edit_image: Edytuj obraz
           gallery_legend: "(Opcjonalnie) Dodaj obraz do karty propozycji"
           select_a_category: Wybierz kategorię
@@ -784,9 +814,12 @@ pl:
           filter_by: Filtruj według
           unfold: Rozwiń
         index:
+          click_here: Zobacz wszystkie propozycje
           collaborative_drafts_list: Wspólne szkice
           new_proposal: Nowa propozycja
+          see_all: Zobacz wszystkie propozycje
           see_all_withdrawn: Zobacz wszystkie wycofane propozycje
+          text_banner: Oglądasz listę propozycji wycofanych przez ich autorów. %{go_back_link}.
           view_proposal: Zobacz propozycję
         linked_proposals:
           proposal_votes:
@@ -796,6 +829,7 @@ pl:
             other: wsparcia
         new:
           send: Dalej
+          title: Utwórz swoją propozycję
         orders:
           label: 'Sortuj propozycje według:'
           most_commented: Najczęściej komentowane
@@ -806,6 +840,8 @@ pl:
           recent: Najnowsze
           with_more_authors: Z większą liczbą autorów
         participatory_texts:
+          index:
+            document_index: Indeks dokumentu
           view_index:
             see_index: Zobacz indeks
         placeholder:
@@ -944,3 +980,4 @@ pl:
     statistics:
       proposals_accepted: Przyjęte propozycje
       proposals_count: Propozycje
+      supports_count: Głosy poparcia

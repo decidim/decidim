@@ -148,7 +148,6 @@ hu:
             proposal_wizard_step_1_help_text: Javaslat varázsló "Létrehozás" gomb súgójának szövege
             proposal_wizard_step_2_help_text: Javaslat varázsló "Összehasonlítás" gomb súgójának szövege
             proposal_wizard_step_3_help_text: Javaslat varázsló "Teljesítés" gomb súgójának szövege
-            proposal_wizard_step_4_help_text: Javaslat varázsló "Közzététel" gomb súgójának szövege
             resources_permissions_enabled: Egyes javaslatokhoz műveleti engedélyeket állíthatsz be
             threshold_per_proposal: Küszöbérték javaslatonként
             vote_limit: Támogatási limit felhasználónként
@@ -705,7 +704,7 @@ hu:
           error: Hiba történt a javaslatra való szavazás során.
       proposals:
         compare:
-          continue: Folytatás
+          continue: Tovább
           no_similars_found: Szép munka! Nincsen hasonló javaslat
           title: Hasonló javaslatok
         complete:

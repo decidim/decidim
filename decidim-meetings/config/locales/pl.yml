@@ -28,21 +28,37 @@ pl:
         organizer_gid: Utwórz jako
         organizer_id: Organizator
         private_meeting: Prywatne spotkanie
+        registration_email_custom_content: Niestandardowa treści rejestracyjnego e-maila
         registration_form_enabled: Włączono formularz rejestracyjny
         registration_terms: Warunki rejestracji
+        registration_type: Typ rejestracji
         registration_url: Adres URL rejestracji
         registrations_enabled: Rejestracje włączone
+        reserved_slots: Zastrzeżone miejsca na to spotkanie
+        start_time: Godzina rozpoczęcia
         title: Tytuł
         transparent: Transparentny
         type_of_meeting: Typ
+      meeting_agenda:
+        title: Tytuł
+        visible: Widoczna
       meeting_agenda_items:
+        description: Opis
         duration: Czas trwania
+        title: Tytuł
+      meeting_registration_invite:
+        email: E-mail
+        name: Nazwa
+      validate_registration_code:
+        code: Kod
     errors:
       models:
         meeting:
           attributes:
             iframe_embed_type:
               not_embeddable: Ten adres URL nie może być osadzony na stronie spotkania lub wydarzenia na żywo
+            online_meeting_url:
+              url_format: Adres URL musi być prawidłowy
         meeting_agenda:
           attributes:
             base:
@@ -85,16 +101,27 @@ pl:
           closed_at_present:
             label: Państwo
             values:
+              'false': Otwarte
               'true': Zamknięte
           is_upcoming_true:
             label: Data
-          with_any_origin:
             values:
+              'false': Przeszłe
+              'true': Nadchodzące
+          scope_id_eq:
+            label: Zakres
+          with_any_origin:
+            label: Źródło
+            values:
+              official: Oficjalny
+              participants: Uczestnik
               user_group: Grupy użytkowników
           with_any_type:
             label: Rodzaj spotkania
             values:
+              hybrid: Hybrydowe
               in_person: Osobiste
+              online: Online
       meeting_copies:
         create:
           error: Wystąpił błąd podczas duplikowania tego spotkania.
@@ -106,6 +133,7 @@ pl:
     components:
       meetings:
         actions:
+          comment: Skomentuj
           join: Dołącz
         name: Spotkania
         settings:
@@ -261,7 +289,9 @@ pl:
             select_user: Wybierz użytkownika
           index:
             filter:
+              accepted: Zaakceptowano
               all: Wszystkie
+              rejected: Odrzucono
               sent: Wysłano
             filter_by: Filtruj według
             invite_attendee: Zaproś uczestnika
@@ -574,11 +604,21 @@ pl:
         questions:
           closed_question:
             question_results: Wyniki wyborów
+          index_admin:
+            edit: Edytuj w panelu administratora
+            question: Pytanie
+            received_answer: otrzymana odpowiedź
+            received_answers: otrzymane odpowiedzi
+            results: Wyniki
+            send: Wyślij
+            sent: Wysłano
           published_question:
             max_choices_alert: Wybrano zbyt wiele opcji
             question: Pytanie
             question_replied: Odpowiedziano na pytanie
             reply_question: Odpowiedz na pytanie
+      public_participants_list:
+        attending_participants: Uczestnicy biorący udział
       read_more: "(zobacz więcej)"
       registration_mailer:
         confirmation:
@@ -606,6 +646,7 @@ pl:
       types:
         private_meeting: Prywatne spotkanie
         transparent: Transparentne
+        withdraw: Wycofany
       versions:
         back_to_resource: Wróć do spotkania
       withdraw:

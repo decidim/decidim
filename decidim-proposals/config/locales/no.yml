@@ -166,7 +166,6 @@
             proposal_wizard_step_1_help_text: Forslags veiviseren "Opprett" trinn-hjelpeteksten
             proposal_wizard_step_2_help_text: Forslags veiviseren "Sammenlign" trinn-hjelpeteksten
             proposal_wizard_step_3_help_text: Forslags veiviseren "Fullfør " trinn-hjelpeteksten
-            proposal_wizard_step_4_help_text: Forslags veiviseren "Publiser" trinn-hjelpeteksten
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert forslag
             scope_id: Tema
             scopes_enabled: Aktiverte temaer

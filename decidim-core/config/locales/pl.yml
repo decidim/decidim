@@ -1676,6 +1676,7 @@ pl:
       public: Twoje informacje publiczne.
   errors:
     messages:
+      allowed_file_content_types: 'dozwolone są tylko pliki z następującymi rozszerzeniami: %{types}'
       already_confirmed: zostało już potwierdzone
       confirmation_period_expired: musi być potwierdzone w ciągu %{period}, proszę poprosić o nowy
       content_type_allowlist_error: typ pliku jest nieprawidłowy
@@ -1693,8 +1694,11 @@ pl:
         few: 'Podczas przetwarzania Twojego żądania wystąpiły błędy:'
         many: 'Podczas przetwarzania Twojego żądania wystąpiły błędy:'
         other: 'Podczas przetwarzania Twojego żądania wystąpiły błędy:'
+      password_confirmation_message: '"Potwierdź hasło" nie pasuje do hasła'
       too_many_marks: używa zbyt wielu kolejnych znaków interpunkcyjnych (np.! i?)
       too_much_caps: używa zbyt dużej liczby wielkich liter (ponad 25% tekstu)
+      too_short: jest za krótkie (poniżej %{count} znaków)
+      url_format: Ten adres URL jest w niepoprawnym formacie
   forms:
     correct_errors: Wystąpiły błędy w formularzu, popraw je, aby kontynuować.
     length_validator:
@@ -1713,9 +1717,16 @@ pl:
       data_consent:
         details:
           columns:
+            description: Opis
+            name: Nazwa
+            service: Usługa
             type: Typ
           items:
+            _session_id:
+              description: Pozwala witrynom na zapamiętanie użytkownika w witrynie internetowej, gdy przenoszą się między stronami internetowymi.
+              service: Ta strona internetowa
             decidim-consent:
+              description: Przechowuje informacje o ciasteczkach dozwolonych przez użytkownika na tej stronie.
               service: Ta strona internetowa
             pwaInstallPromptSeen:
               description: Zachowuje status, jeśli powiadomienie o instalacji progresywnej aplikacji internetowej (PWA) zostało już wyświetlone przez użytkownika.
@@ -1776,6 +1787,8 @@ pl:
       notifications_dashboard:
         mark_all_as_read: Oznacz wszystkie jako przeczytane
         mark_as_read: Oznacz jako przeczytane
+      offline_banner:
+        cache_version_page: Ups! Twoja sieć jest offline. Jest to poprzednio buforowana wersja strony, którą odwiedzasz, być może zawartość nie jest aktualna.
       social_media_links:
         facebook: "%{organization} na Facebooku"
         github: "%{organization} na GitHubie"

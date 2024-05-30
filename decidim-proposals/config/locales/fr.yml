@@ -177,7 +177,7 @@ fr:
             proposal_wizard_step_1_help_text: Texte d'aide à l'étape "Créer" de la création de proposition
             proposal_wizard_step_2_help_text: Texte d'aide à l'étape "Comparer" de la création de proposition
             proposal_wizard_step_3_help_text: Texte d'aide à l'étape "Compléter" de la création de proposition
-            proposal_wizard_step_4_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
+            proposal_wizard_step_4_help_text: Texte d'aide à l'étape "Publier" de l'assistant de proposition
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque proposition
             scope_id: Secteur
             scopes_enabled: Secteurs activés
@@ -941,7 +941,7 @@ fr:
           step_1: Créer une proposition
           step_2: Comparer aux autres propositions
           step_3: Compléter votre proposition
-          step_4: Publier votre proposition
+          step_4: Publier la proposition
           step_of: Étape %{current_step_num} sur %{total_steps}
           title: Étapes de création de proposition
       proposals_picker:

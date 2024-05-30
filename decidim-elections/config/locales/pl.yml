@@ -7,11 +7,16 @@ pl:
         image: Obraz
         proposals: Powiązane propozycje
         title: Tytuł
+      ballot_style:
+        code: Kod
       election:
         description: Opis
         end_time: Głosowanie kończy się o
         start_time: Głosowanie rozpoczyna się o
         title: Tytuł
+      monitoring_committee_member:
+        email: E-mail
+        name: Imię
       question:
         max_selections: Maksymalna liczba opcji do wybrania
         min_selections: Żadna z powyższych opcji
@@ -19,6 +24,7 @@ pl:
       voting:
         banner_image: Banner
         end_time: Głosowanie kończy się
+        scope_id: Zakres
         start_time: Głosowanie rozpoczyna się
         voting_type: Typ głosowania
     errors:
@@ -203,6 +209,7 @@ pl:
           trustee_mailer:
             body: "<p>Cześć, %{user_name},</p><p>Dodano cię jako mąż zaufania do %{resource_name}.</p>"
             subject: Dodano cię jako mąż zaufania do %{resource_name}
+            trustee_zone: Zabierz mnie do strefy powiernika
         menu:
           trustees: Mężowie (osoby) zaufania
         models:
@@ -244,11 +251,17 @@ pl:
             success: Pytanie zostało pomyślnie zaktualizowane
         steps:
           create_election:
+            census: Lista wyborców
             errors:
+              census_codes_generated: Kody dostępu do listy wyborców nie są generowane.
+              census_frozen: Kody dostępu do listy wyborców nie są wyeksportowane.
+              census_uploaded: Nie ma spisu wyborców wgranego podczas tych wyborów.
+              component_published: Komponent wyborczy <strong>nie został opublikowany</strong>.
               max_selections: <strong>Maksymalna liczba opcji do wybrania</strong> nie jest odpowiednia do pytania
               minimum_answers: Pytania muszą mieć <strong>co najmniej dwie odpowiedzi</strong>.
               minimum_questions: Wybory <strong>muszą mieć co najmniej jedno pytanie</strong>.
               published: Wybory <strong>nie zostały opublikowane</strong>.
+              time_before: Godzina rozpoczęcia jest <strong>mniej niż 3 godziny</strong> przed rozpoczęciem wyborów.
               trustees_number: Przestrzeń partycypacyjna <strong>musi mieć co najmniej %{number} mężów (osób) zaufania z kluczem publicznym</strong>.
             invalid: Wystąpił problem z konfiguracją tych wyborów
             no_trustees: Nie skonfigurowano mężów (osób) zaufania dla tej przestrzeni partycypacyjnej
@@ -257,6 +270,10 @@ pl:
               'false': nie posiada <strong>klucza publicznego</strong>
               'true': posiada <strong>klucz publiczny</strong>
             requirements:
+              census_codes_generated: Kody dostępu do listy wyborców są generowane.
+              census_frozen: Kody dostępu do listy wyborców są wyeksportowane, a spis podlega zamrożeniu.
+              census_uploaded: Lista wyborców została wgrana.
+              component_published: Komponent wyborczy <strong>został opublikowany</strong>.
               max_selections: <strong>Maksymalna liczby opcji do wybrania</strong> jest odpowiednia dla wszystkich pytań.
               minimum_answers: Pytania muszą mieć <strong>co najmniej dwie odpowiedzi</strong>.
               minimum_questions: Wybory <strong>muszą mieć co najmniej jedno pytanie</strong>.
@@ -304,11 +321,13 @@ pl:
             success: Prośba o publikację wyników została pomyślnie przesłana do Tablicy danych wyborczych
             title: Obliczone wyniki
           tally_started:
+            continue: Kontynuuj
             invalid: Wystąpił błąd podczas usuwania męża (osoby) zaufania
             mark_as_missing: Oznacz jako brakujący
             mark_as_missing_description: Wszyscy mężowie zaufania powinni uczestniczyć w tym procesie, ale jeśli nie może wziąć udziału w tym procesie, możesz oznaczyć go jako brakujący.
             success: Brakująca uwaga męża zaufania została pomyślnie wysłana do Tablicy
             tally_completion: 'Proces zostanie zakończony, gdy wszyscy mężowie zaufania będą aktywni lub zostaną oznaczeni jako brakujący. Wymagana ilość mężów zaufania: %{quorum}.'
+            title: Proces prowadzenia rejestru
             undo_mark_as_missing: Przed zakończeniem procesu będzie mógł uczestniczyć mąż zaufania oznaczony jako brakujący omyłkowo. Mężowie zaufania mogą postępować jak zwykle, a oznaczenie jako "brakujący" zostanie zignorowane.
           vote:
             errors:
@@ -587,6 +606,8 @@ pl:
               upload_error:
                 invalid_format: Wgrany plik nie zawiera żadnego klucza identyfikacyjnego.
                 invalid_key: Nie można załadować kluczy identyfikacyjnych z przesłanego pliku.
+                invalid_public_key: Klucze identyfikacyjne w przesłanym pliku nie pasują do zapisanego publicznego klucza identyfikacyjnego.
+              upload_legend: Serwer posiada Twoje publiczne klucze identyfikacyjne, ale Twoja przeglądarka nadal nie ma takich kluczy. Musisz zaimportować plik z kluczami identyfikacyjnymi do komputera z kopii zapasowej, którą utworzyłeś po ich wygenerowaniu.
             not_supported_browser_description: Wygląda na to, że używasz przeglądarki internetowej, która nie może być użyta do działań męża (osoby) zaufania. Upewnij się, że używasz najnowszej wersji przeglądarki, lub spróbuj użyć dowolnej z najpopularniejszych przeglądarek, aby móc wykonać zadania męża (osoby) zaufania.
             not_supported_browser_title: Aktualizuj przeglądarkę by działać jako mąż (osoba) zaufania
           update:
@@ -674,6 +695,7 @@ pl:
           continue: Dalej
       warnings:
         no_elections_warning: Brak wyborów spełniających kryteria wyszukiwania lub nie ma żadnych zaplanowanych wyborów.
+        no_scheduled_elections_warning: Obecnie nie ma żadnych zaplanowanych wyborów, ale możesz zobaczyć wszystkie zakończone już wybory.
     events:
       elections:
         election_published:
@@ -756,8 +778,28 @@ pl:
           highlighted_votings:
             max_results: Maksymalna ilość elementów do wyświetlenia
           landing_page:
+            attachments_and_folders:
+              name: Załączniki i foldery do głosowania
             description:
               name: Opis głosowania
+            elections:
+              name: Wybory
+            header:
+              name: Nagłówek głosowania
+            html_block_1:
+              name: Pierwszy blok html głosowania
+            html_block_2:
+              name: Drugi blok html głosowania
+            html_block_3:
+              name: Trzeci blok html głosowania
+            metrics:
+              name: Metryki głosowania
+            polling_stations:
+              name: Lokale wyborcze
+            stats:
+              name: Statystyki głosowania
+            timeline:
+              name: Oś czasu głosowania
         index:
           published: Opublikowano
         landing_page:
@@ -871,6 +913,7 @@ pl:
           edit:
             change_polling_station: Wróć do lokali wyborczych
             monitoring_committee_notes: Uwagi
+            monitoring_committee_notes_placeholder: Zgłoś każdy incydent tutaj
             title: Wyniki głosowania <i>%{election_title}</i> w lokalu wyborczym <i>%{polling_station_title}</i>
           elections:
             title: Wybierz wybory, które chcesz zatwierdzić
@@ -956,6 +999,7 @@ pl:
             update: Aktualizuj
           form:
             select_a_voting_type: Wybierz typ głosowania
+            show_check_census_help: Czy pokazać link "Czy mogę głosować?" w menu głosów publicznych
             title: Tytuł
             voting_type:
               hybrid: Hybrydowe
@@ -982,6 +1026,7 @@ pl:
           census:
             create:
               invalid: Wystąpił błąd przy przesyłaniu listy wyborców. Spróbuj ponownie później.
+              invalid_csv_header: Nagłówki CSV są brakujące lub nie są poprawne — przeczytaj uważnie instrukcję
             delete:
               button: Usuń wszystkie dane listy wyborców
             destroy:
@@ -1036,6 +1081,8 @@ pl:
         highlighted_votings:
           name: Wyróżnione głosowania
         landing_page:
+          description:
+            title: O tym głosowaniu
           metrics:
             heading: Partycypacja w liczbach
           polling_stations:
@@ -1052,6 +1099,8 @@ pl:
       pages:
         home:
           highlighted_votings:
+            active_votings: Aktywne głosowania
+            see_all_votings: Zobacz wszystkie głosowania
             votings_button_title: Link do strony Głosowań wyświetla wszystkie głosowania
       polling_officer_zone:
         closures:
@@ -1059,6 +1108,7 @@ pl:
           certify:
             add_images: Dodaj obrazy
             error: Wystąpił błąd podczas dołączania certyfikatu, spróbuj ponownie.
+            form_legend: Prześlij zdjęcie certyfikatu zamknięcia wyborów
             heading: Przeliczanie głosów - Prześlij certyfikat
             info_text: Prześlij zdjęcie certyfikatu zamknięcia wyborów.
             submit: Prześlij certyfikat
@@ -1085,6 +1135,7 @@ pl:
             modal_ballots_count_error:
               btn_validate_total: Sprawdź sumę przeliczonych głosów
               close_modal: Zamknij
+              info_explanation_text: 'Sprawdź całkowitą liczbę kart. Jeśli całkowita liczba jest nieprawidłowa, należy podać wyjaśnienie dla komitetu monitorującego:'
               info_text: Całkowita liczba kart wyborczych (kopert) nie odpowiada liczbie osób, które zagłosowały w tym lokalu wyborczym.
               message_for_monitoring_committee: Wiadomość dla Komisji Wyborczej
               review_recount: Zweryfikuje przeliczenie głosów
@@ -1115,9 +1166,12 @@ pl:
         in_person_votes:
           complete_voting:
             available_answers: 'Możliwe odpowiedzi:'
+            census_verified: Ten uczestnik nie głosował jeszcze osobiście.
+            census_verified_with_online_vote: Ten uczestnik głosował już online. Jeśli głosuje osobiście, poprzednie głosy zostaną unieważnione i będzie to głosowanie ostateczne.
             complete_voting: Zakończ głosowanie
             identify_another: Zidentyfikuj innego uczestnika
             questions_title: 'Ma prawo do głosowania w następujących kwestiach:'
+            questions_title_voted: 'Ten uczestnik głosował już online i ma prawo głosować w następujących pytaniach:'
             voted: Uczestnik zagłosował
           create:
             error: Głos nie został zarejestrowany. Spróbuj ponownie.
@@ -1208,9 +1262,11 @@ pl:
           description: Tutaj masz możliwość sprawdzenia danych umieszczonych na liście wyborców, aby wiedzieć, czy masz prawo uczestniczyć w tym głosowaniu. Powinieneś mieć już kod dostępu, ale jeśli go zgubiłeś, możesz ponownie o ten kod poprosić, gdy Twoje dane są poprawne.
           error:
             info: 'Spróbuj ponownie. Jeśli uważasz, że dane w systemie są nieprawidłowe, możesz je zgłosić tutaj: %{census_contact_information}'
+            title: Wprowadzone przez Ciebie dane nie są na liście wyborców dla tego głosowania
           form_title: 'Wypełnij formularz, aby sprawdzić Twoje dane na liście wyborców:'
           invalid: Wystąpił błąd przy sprawdzaniu listy wyborców.
           success:
+            access_link: pocztą elektroniczną.
             access_link_with_sms: poprzez SMS lub e-mail.
             info: Powinieneś był już otrzymać swój kod dostępu pocztą. Jeśli go nie posiadasz, możesz poprosić o to tutaj
             title: Twoje dane z listy wyborców nie są prawidłowe!
@@ -1221,6 +1277,7 @@ pl:
           day_placeholder: DD
           document_number: Numer dokumentu
           document_number_placeholder: Numer ID
+          document_type: Typ dokumentu
           month: Miesiąc
           month_placeholder: MM
           postal_code: Kod pocztowy
@@ -1242,6 +1299,7 @@ pl:
         filters:
           active: Aktywne
           all: Wszystko
+          date: Data
           finished: Zakończone
           search: Szukaj
           upcoming: Nadchodzące

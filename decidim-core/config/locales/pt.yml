@@ -242,7 +242,6 @@ pt:
           '1': Criar a sua modificação
           '2': Comparar a sua modificação
           '3': Concluir a sua modificação
-          '4': Publicar a sua modificação
     anonymous_user: Anônimo
     application:
       collection:
