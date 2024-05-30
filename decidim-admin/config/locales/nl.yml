@@ -150,6 +150,7 @@ nl:
         export: Alles exporteren
         export-selection: Selectie exporteren
         import: Importeren
+        manage: Beheer
         newsletter:
           new: Nieuwe nieuwsbrief
         participatory_space_private_user:
