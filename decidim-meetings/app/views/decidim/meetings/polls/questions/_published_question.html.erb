@@ -15,12 +15,12 @@
       <% @form.errors.full_messages.each do |msg| %>
         <small class="form-error is-visible mt-1"><%= msg %></small>
       <% end %>
-    </div>
 
-    <% if question.answered_by?(current_user) %>
-      <%= cell("decidim/announcement", t(".question_replied"), callout_class: "success" ) %>
-    <% else %>
-      <button class="ml-auto button button__sm button__secondary"><%= t(".reply_question") %></button>
-    <% end %>
+      <% if question.answered_by?(current_user) %>
+        <%= cell("decidim/announcement", t(".question_replied"), callout_class: "success" ) %>
+      <% else %>
+        <button class="ml-auto mt-4 button button__sm button__secondary"><%= t(".reply_question") %></button>
+      <% end %>
+    </div>
   <% end %>
 </div>

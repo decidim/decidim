@@ -177,14 +177,21 @@
 }
 
 // layout reset stuff
-.meeting-poll {
+.meeting-poll__layout {
   header,
+  main h1,
   footer {
     @apply hidden md:block;
+  }
+
+  .layout-1col {
+    padding: 0;
   }
 }
 
 .meeting-polls {
+  @apply m-0 md:mt-10 md:mb-24;
+
   counter-reset: question;
 
   &__question {
@@ -201,13 +208,17 @@
       }
 
       & + * {
-        @apply space-y-6;
+        @apply pr-4 pl-[calc(1rem+14px)] md:p-0 space-y-6;
       }
     }
 
     &[open] .meeting-polls__answer--bar > * {
       opacity: 1;
       transform: translateX(0);
+    }
+
+    &[open] summary {
+      @apply bg-secondary md:bg-background marker:text-white md:marker:text-secondary text-white md:text-black;
     }
 
     &.is-new {
@@ -231,6 +242,7 @@
       @apply block p-4 ring-4 ring-background hover:ring-tertiary rounded hover:cursor-pointer transition;
     }
 
+    label + label,
     & + & {
       @apply mt-4;
     }
@@ -254,5 +266,13 @@
 
   &__admin-action {
     @apply py-4 grid grid-cols-2 gap-4 border-t border-t-gray [&>*:nth-child(2)]:ml-auto [&>*:nth-child(3)]:col-span-2;
+  }
+
+  &__topbar {
+    @apply my-4 md:my-0 px-4 md:px-0 py-2 md:py-10 flex justify-between gap-4 bg-background md:bg-transparent;
+
+    &.is-admin {
+      @apply mt-0 bg-tertiary md:bg-transparent text-black;
+    }
   }
 }
