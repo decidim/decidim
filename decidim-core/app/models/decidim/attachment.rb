@@ -73,14 +73,18 @@ module Decidim
     #
     # Returns String.
     def file_type
-      url&.split(".")&.last&.downcase
+      if file?
+        url&.split(".")&.last&.downcase
+      elsif link?
+        "link"
+      end
     end
 
     # The URL that points to the attachment
     #
     # Returns String.
     def url
-      if file
+      if file?
         attached_uploader(:file).path
       elsif link?
         link

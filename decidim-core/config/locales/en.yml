@@ -884,6 +884,11 @@ en:
         button: Stop following
         error: There was a problem unfollowing this resource.
     forms:
+      attachment_link:
+        explanation: Guidance for attachment links
+        help_messages:
+          - What guidelines do we want to include?
+          - What are the steps to follow?
       errors:
         decidim/user:
           password: The password is too short.

@@ -31,10 +31,10 @@
                 <%= translated_attribute(attachment.attachment_collection&.name) %>
               </td>
               <td>
-                <%= attachment.link? ? "link" : attachment.file_type %>
+                <%= attachment.file_type %>
               </td>
               <td>
-                <%= attachment.link? ? "-" : number_to_human_size(attachment.file_size) %>
+                <%= attachment.file? ? number_to_human_size(attachment.file_size) : "-" %>
               </td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :attachment, attachment: attachment %>

@@ -11,14 +11,11 @@ module Decidim
     private
 
     def explanation
-      "Add a link to the attachment."
+      I18n.t("decidim.forms.attachment_link.explanation")
     end
 
     def help_messages
-      [
-        "What guidelines do we want to include?",
-        "What are the steps to follow?"
-      ]
+      I18n.t("decidim.forms.attachment_link.help_messages")
     end
   end
 end
