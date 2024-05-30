@@ -180,9 +180,6 @@ ar:
             proposal_length: الحد الأقصى لطول الاقتراح المقترح
             proposal_limit: حد الاقتراح لكل مشارك
             proposal_wizard_step_1_help_text: اقتراح الاقتراح "إنشاء" نص مساعدة الخطوة
-            proposal_wizard_step_2_help_text: اقتراح الاقتراح "قارن" نص خطوة المساعدة
-            proposal_wizard_step_3_help_text: نص اقتراح "إكمال" تعليمات نص المعالج
-            proposal_wizard_step_4_help_text: اقتراح الاقتراح "نشر" نص تعليمات الخطوة
             resources_permissions_enabled: يمكن تعيين أذونات الإجراءات لكل اقتراح
             scope_id: نطاق
             scopes_enabled: النطاقات مفعلة
@@ -682,13 +679,6 @@ ar:
         create:
           error: كانت هناك مشكلة في دعم الاقتراح.
       proposals:
-        compare:
-          continue: استمر
-          no_similars_found: أحسنت! لم يتم العثور على مقترحات مماثلة
-          title: مقترحات مماثلة
-        complete:
-          send: إرسال
-          title: أكمل اقتراحك
         dynamic_map_instructions:
           description: سيتم تحديث الإحداثيات لدى النقر على زر "السابق". غير أن العنوان لن يتغير.
           instructions: يمكنك تحريك النقطة على الخريطة.
@@ -815,15 +805,9 @@ ar:
         wizard_aside:
           back: الى الخلف
           back_from_step_1: العودة إلى الاقتراحات
-          back_from_step_2: العودة إلى الاقتراحات
-          back_from_step_3: العودة إلى مقارنة الاقتراحات
-          back_from_step_4: العودة إلى تحرير المسودة
         wizard_steps:
           current_step: الخطوة الحالية
           step_1: إنشاء اقتراحك
-          step_2: قارن
-          step_3: إكمال
-          step_4: انشر اقتراحك
           title: خطوات إنشاء الاقتراحات
       proposals_picker:
         choose_proposals: اختيار الاقتراحات

@@ -171,9 +171,6 @@ el:
             proposal_length: Μέγιστο μήκος σώματος πρότασης
             proposal_limit: Όριο πρότασης ανά συμμετέχοντα
             proposal_wizard_step_1_help_text: Κείμενο βοήθειας βήματος «Δημιουργίας» του οδηγού πρότασης
-            proposal_wizard_step_2_help_text: Κείμενο βοήθειας βήματος «Σύγκρισης» του οδηγού πρότασης
-            proposal_wizard_step_3_help_text: Κείμενο βοήθειας βήματος «Ολοκλήρωσης» του οδηγού πρότασης
-            proposal_wizard_step_4_help_text: Κείμενο βοήθειας βήματος «Δημοσίευσης» του οδηγού πρότασης
             resources_permissions_enabled: Μπορούν να οριστούν δικαιώματα ενεργειών για κάθε πρόταση
             scope_id: Πεδίο εφαρμογής
             scopes_enabled: Τα πεδία εφαρμογής ενεργοποιήθηκαν
@@ -698,13 +695,6 @@ el:
         create:
           error: Υπήρξε ένα πρόβλημα κατά την υποστήριξη της πρότασης.
       proposals:
-        compare:
-          continue: Συνέχεια
-          no_similars_found: Πολύ καλά! Δεν βρέθηκαν παρόμοιες προτάσεις
-          title: Παρόμοιες προτάσεις
-        complete:
-          send: Αποστολή
-          title: Ολοκληρώστε την πρότασή σας
         dynamic_map_instructions:
           description: Οι συντεταγμένες θα ενημερώνονται όταν κάνετε κλικ στο κουμπί 'προεπισκόπηση'. Ωστόσο, η διεύθυνση δεν αλλάζει.
           instructions: Μπορείτε να μετακινήσετε το σημείο στο χάρτη.
@@ -821,15 +811,9 @@ el:
         wizard_aside:
           back: Πίσω
           back_from_step_1: Πίσω στις προτάσεις
-          back_from_step_2: Πίσω στις προτάσεις
-          back_from_step_3: Πίσω στην σύγκριση προτάσεων
-          back_from_step_4: Πίσω στην επεξεργασία προσχεδίου
         wizard_steps:
           current_step: Τρέχων βήμα
           step_1: Δημιουργήστε την πρότασή σας
-          step_2: Σύγκριση
-          step_3: Ολοκλήρωση
-          step_4: Δημοσιεύστε την πρότασή σας
           title: Βήματα δημιουργίας πρότασης
       proposals_picker:
         choose_proposals: Επιλέξτε προτάσεις

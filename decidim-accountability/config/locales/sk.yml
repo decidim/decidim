@@ -143,13 +143,9 @@ sk:
         name: Zodpovednosť
         settings:
           global:
-            categories_label: Meno pre "Kategórie"
             comments_enabled: Komentáre povolené
             display_progress_enabled: Zobraziť priebeh
-            heading_leaf_level_results: Meno pre "Projekty"
-            heading_parent_level_results: Meno pre "Výsledky"
             intro: Úvod
-            subcategories_label: Názov pre "Podkategórie"
           step:
             comments_blocked: Zablokované komentáre
     events:

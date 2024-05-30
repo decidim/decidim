@@ -423,7 +423,7 @@ de:
           body: Die Veranstaltung <a href="%{meeting_path}">"%{meeting_title}"</a> wurde noch nicht abgeschlossen. Bitte fügen Sie einen Bericht über die Veranstaltung mit der Schaltfläche "Meeting schließen" hinzu.
           greetings: Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Hallo %{username},
-          subject: Sie können Ihre Veranstaltung jetzt mit einem Bericht auf der %{organization_name} Plattform abschließen
+          subject: Sie können nun die Veranstaltung "%{meeting_title}" mit einem Bericht schließen
       conference_venues: Tagungsstätten
       content_blocks:
         upcoming_meetings:

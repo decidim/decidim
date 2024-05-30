@@ -68,7 +68,6 @@ ar:
         deleted_user: مشارك محذوف
         edit: تعديل
         edited: تم التعديل
-        hide_replies: إخفاء الردود
         moderated_at: تمت مراجعة التعليق على %{date}
         reply: الرد
         report:

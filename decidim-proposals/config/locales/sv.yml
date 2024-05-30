@@ -166,9 +166,6 @@ sv:
             proposal_length: Maximal längd på förslagets innehåll
             proposal_limit: Förslagsgräns per användare
             proposal_wizard_step_1_help_text: Hjälptext till steget "Skapa" i förslagsguiden
-            proposal_wizard_step_2_help_text: Hjälptext till steget "Jämför" i förslagsguiden
-            proposal_wizard_step_3_help_text: Hjälptext till steget "Komplettera" i förslagsguiden
-            proposal_wizard_step_4_help_text: Förslagsguidens hjälptext för steg "Publicera"
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje förslag
             scope_id: Omfång
             scopes_enabled: Omfång aktiverade
@@ -622,13 +619,6 @@ sv:
         create:
           error: Det gick inte att stödja förslaget.
       proposals:
-        compare:
-          continue: Fortsätt
-          no_similars_found: Bra gjort! Hittade inga liknande förslag
-          title: Liknande förslag
-        complete:
-          send: Skicka
-          title: Färdigställ ditt förslag
         dynamic_map_instructions:
           description: Koordinaterna uppdateras när du klickar på knappen 'Förhandsgranska'. Adressen ändras dock inte.
           instructions: Nu kan du flytta markören på kartan.
@@ -741,15 +731,9 @@ sv:
         wizard_aside:
           back: Tillbaka
           back_from_step_1: Tillbaka till förslag
-          back_from_step_2: Tillbaka till förslag
-          back_from_step_3: Tillbaka för att jämföra förslag
-          back_from_step_4: Tillbaka för att redigera utkast
         wizard_steps:
           current_step: Nuvarande steg
           step_1: Skapa ditt förslag
-          step_2: Jämför
-          step_3: Komplettera
-          step_4: Publicera ditt förslag
           title: Steg för att skapa förslag
       proposals_picker:
         choose_proposals: Välj förslag

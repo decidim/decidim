@@ -150,10 +150,6 @@ lv:
         error: Vienuma grozījumu veikšanas laikā radusies kļūda.
         promote_button: Paaugstināt līdz %{model_name}
         promote_confirm_text: Vai tiešām vēlaties atbalstīt šo labojumu?
-      compare_draft:
-        continue: Turpināt
-        no_similars_found: Netika atrasts neviens līdzīgs labojums.
-        title: Līdzīgi labojumi
       created:
         error: Grozījuma melnraksta veidošanas laikā radās kļūda.
         success: Grozījuma melnraksts ir veiksmīgi izveidots.
@@ -199,9 +195,6 @@ lv:
       wizard_step_form:
         steps:
           '1': Izveidot savu grozījumu
-          '2': Salīdzināt savu grozījumu
-          '3': Pabeigt savu grozījumu
-          '4': Publicēt savu grozījumu
     anonymous_user: Anonīms
     application:
       document:
@@ -615,7 +608,6 @@ lv:
         default_page:
           content: "<p>%{organization} jūs varat piedalīties un lemt par dažādām tēmām, izmantojot augšējā izvēlnē redzamās vietas: procesi, asamblejas, iniciatīvas, konsultācijas. </p><p> Katrā no tām jūs atradīsiet dažādas iespējas piedalīties: izteikt priekšlikumus – individuāli vai kopā ar citiem, piedalīties debatēs, noteikt prioritātes projektiem, kas tiek īstenoti, apmeklēt klātienes sanāksmes un veikt citas darbības.</p>"
           title: Ko es varu darīt %{organization}?
-        title: Vispārēja palīdzība
     last_activities:
       all: Visi aktivitātes veidi
       index:
