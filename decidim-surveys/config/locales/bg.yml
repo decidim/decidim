@@ -1,10 +1,76 @@
 bg:
   activemodel:
     models:
-      decidim/surveys/closed_survey_event: Анкетата завърши
+      decidim/surveys/closed_survey_event: Анкетата приключи
       decidim/surveys/opened_survey_event: Анкетата започна
   activerecord:
     models:
       decidim/surveys/survey:
         one: Анкета
         other: Анкети
+      decidim/surveys/survey_answer:
+        one: Отговор
+        other: Отговори
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Отговор
+        name: Анкета
+        settings:
+          global:
+            announcement: Съобщение
+            clean_after_publish: Изтриване на отговорите при публикуване на проучването
+            ends_at: Отговорите се приемат до
+            ends_at_help: Оставете празно при липса на конкретна дата
+            scope_id: Обхват
+            scopes_enabled: Обхватите са активирани
+            starts_at: Отговорите се приемат от
+            starts_at_help: Оставете празно при липса на конкретна дата
+          step:
+            allow_answers: Разрешаване на отговори
+            allow_unregistered: Разрешаване на нерегистрирани потребители да отговарят на въпросите в проучването
+            allow_unregistered_help: Ако е активно, няма да се изисква влизане, за да се отговори на анкетата. Това може да доведе до лоши или ненадеждни данни и ще e по-уязвимo на автоматизирани атаки. Използвайте с повишено внимание! Имайте предвид, че участник може да отговори на едно и също проучване няколко пъти, като използва различни браузъри или функцията за „частно сърфиране“ на своя уеб браузър.
+            announcement: Съобщение
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Анкетата %{resource_title} в(ъв) %{participatory_space_title} беше затворена.
+          email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предходния линк.
+          email_subject: Приключи анкетата в(ъв) %{participatory_space_title}
+          notification_title: Анкетата <a href="%{resource_path}">%{resource_title}</a> в(ъв) <a href="%{participatory_space_url}">%{participatory_space_title}</a> приключи.
+        survey_opened:
+          email_intro: 'Анкетата %{resource_title} в(ъв) %{participatory_space_title} вече е отворена. Можете да участвате в нея от тази страница:'
+          email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предходния линк.
+          email_subject: Нова анкета в(ъв) %{participatory_space_title}
+          notification_title: Анкетата <a href="%{resource_path}">%{resource_title}</a> в(ъв) <a href="%{participatory_space_url}">%{participatory_space_title}</a> вече е отворена.
+    metrics:
+      survey_answers:
+        description: Брой на анкетите с отговори от участници
+        object: отговори на анкети
+        title: Отговори на анкети
+    statistics:
+      answers_count: Отговори
+    surveys:
+      admin:
+        component:
+          actions:
+            answers_alert: Ако публикувате компонента, всички резултати ще бъдат премахнати.
+        exports:
+          survey_user_answers: Отговори на участник в анкети
+        surveys:
+          update:
+            invalid: Възникна проблем при запазването на анкетата.
+            success: Анкетата беше запазена успешно.
+      last_activity:
+        new_survey: 'Нова анкета:'
+      survey_confirmation_mailer:
+        confirmation:
+          body: Вие успешно отговорихте на анкетата %{questionnaire_title} в %{participatory_space}
+          subject: Въпросникът %{questionnaire_title} се нуждае от потвърждение
+        export_name: Анкетни отговори
+      surveys:
+        answer:
+          invalid: Възникна проблем при попълването на отговорите на анкетата.
+          spam_detected: Възникна проблем при попълването на отговорите във формуляра. Навярно сте били твърде бързи, бихте ли опитали отново?
+          success: Отговорите на анкетата са попълнени успешно.

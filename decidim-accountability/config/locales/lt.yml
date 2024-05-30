@@ -253,16 +253,12 @@ lt:
         name: Atskaitingumas
         settings:
           global:
-            categories_label: '„Kategorijų“ pavadinimas'
             comments_enabled: Įjungti komentarai
             comments_max_length: Maksimalus komentaro ilgis (įrašyti 0 įprastam ilgiui)
             display_progress_enabled: Rodyti progresą
-            heading_leaf_level_results: '„Projektų“ pavadinimai'
-            heading_parent_level_results: '„Rezultatų“ pavadinimai'
             intro: Įžanga
             scope_id: Apimtis
             scopes_enabled: Apimtys įjungtos
-            subcategories_label: '„Subkategorių“ pavadinimai'
           step:
             comments_blocked: Komentarai užblokuoti
     events:

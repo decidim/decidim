@@ -187,6 +187,7 @@ pl:
         export: Eksportuj wszystko
         export-selection: Eksportuj wybrane
         import: Importuj
+        manage: Zarządzanie
         newsletter:
           new: Nowy newsletter
         participatory_space_private_user:
@@ -287,6 +288,7 @@ pl:
       block_user:
         new:
           action: Zablokuj konto i wyślij uzasadnienie
+          already_reported_html: Kontynuując tę akcję, ukryjesz również wszystkie treści uczestników.
           description: Blokowanie użytkownika sprawi, że jego konto nie będzie użyteczne. Możesz podać w uzasadnieniu wszelkie wytyczne dotyczące sposobu odblokowania użytkownika.
           justification: Uzasadnienie
           title: Zablokuj użytkownika %{name}
@@ -353,6 +355,7 @@ pl:
         title: Konflikty weryfikacji
         transfer:
           email: Adres e-mail
+          error: Podczas transferu bieżącego użytkownika do zarządzanego użytkownika wystąpił błąd.
           name: Imię
           reason: Powód
           success: Bieżący transfer został pomyślnie zakończony.

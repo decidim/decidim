@@ -182,6 +182,7 @@ el:
         export: Εξαγωγή όλων
         export-selection: Εξαγωγή επιλογής
         import: Εισαγωγή
+        manage: Διαχείριση
         newsletter:
           new: Νέο ενημερωτικό δελτίο
         participatory_space_private_user:

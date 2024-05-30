@@ -48,7 +48,6 @@ id:
       actions:
         new_initiative_type: Jenis inisiatif baru
       menu:
-        components: Komponen
         information: Informasi
         initiatives: Inisiatif
         initiatives_types: Jenis inisiatif

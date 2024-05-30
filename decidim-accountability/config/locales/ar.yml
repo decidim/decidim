@@ -199,16 +199,12 @@ ar:
         name: المسائلة
         settings:
           global:
-            categories_label: اسم "الفئات"
             comments_enabled: تم تمكين التعليقات
             comments_max_length: الحد الأقصى لطول التعليقات (اترك ال0 للقيمة الافتراضية)
             display_progress_enabled: عرض التقدم
-            heading_leaf_level_results: اسم "المشاريع"
-            heading_parent_level_results: اسم "النتائج"
             intro: مقدمة
             scope_id: النطاق
             scopes_enabled: النطاقات مفعلة
-            subcategories_label: اسم "الفئات الفرعية"
           step:
             comments_blocked: تم حظر التعليقات
     events:

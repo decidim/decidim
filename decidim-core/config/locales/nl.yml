@@ -169,10 +169,6 @@ nl:
         error: Er is een fout opgetreden bij het wijzigen van deze bron.
         promote_button: Promoot naar %{model_name}
         promote_confirm_text: Weet je zeker dat je deze eervolle vermelding wilt promoten?
-      compare_draft:
-        continue: Volgende
-        no_similars_found: Geen gelijkaardige amendementen gevonden.
-        title: Gelijkaardige amendementen
       created:
         error: Er is een fout opgetreden tijdens het aanmaken van het amendement.
         success: Het amendement werd met succes aangemaakt.
@@ -221,9 +217,6 @@ nl:
       wizard_step_form:
         steps:
           '1': Maak uw amendement
-          '2': Vergelijk uw amendement
-          '3': Voltooi uw amendement
-          '4': Publiceer uw amendement
     anonymous_user: Anoniem
     application:
       document:
@@ -689,7 +682,6 @@ nl:
         default_page:
           content: "<p>In %{organization} kunt u deelnemen en besluiten over verschillende onderwerpen, via de ruimten die u ziet in het top menu: Processen, Groepen, Initiatieven, Raadplegingen.</p> <p>Binnen elke ruimte vindt u verschillende opties om deel te nemen: doe voorstellen - individueel of met andere mensen - neem deel aan debatten, wijs prioriteiten toe aan projecten, woon vergaderingen bij en andere acties.</p>\n \n"
           title: Wat kan ik doen in %{organization}?
-        title: Algemene hulp
     last_activities:
       all: Alle soorten activiteiten
       index:

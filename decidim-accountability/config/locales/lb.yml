@@ -157,16 +157,12 @@ lb:
         name: Rechenschaftspflicht
         settings:
           global:
-            categories_label: Name für "Kategorien"
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             display_progress_enabled: Fortschritt anzeigen
-            heading_leaf_level_results: Name für "Projekte"
-            heading_parent_level_results: Name für "Resultate"
             intro: Einführung
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
-            subcategories_label: Name für "Unterkategorien"
           step:
             comments_blocked: Kommentare blockiert
     events:

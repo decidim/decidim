@@ -114,6 +114,7 @@ sl:
       actions:
         add: Dodaj
         browse: Brskaj
+        manage: Uredi
         per_page: Na stran
         permissions: Dovoljenja
         reject: Zavrni

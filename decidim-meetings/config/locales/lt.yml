@@ -411,7 +411,6 @@ lt:
           body: Susirinkimas<a href="%{meeting_path}">%{meeting_title}</a> laukia būti uždarytas. Prašau pridėkite susirinkimo ataskaitą paspausdami "Uždaryti susirinkimą".
           greetings: Sveiki, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Sveiki %{username},
-          subject: Dabar galite uždaryti susirinkimą su ataskaita %{organization_name} platformoje
       conference_venues: Konferencijos vietos
       content_blocks:
         upcoming_meetings:

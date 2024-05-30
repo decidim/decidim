@@ -64,13 +64,18 @@ de:
           against: Gegen
           in_favor: Zugunsten
         cancel_reply: Antwort abbrechen
+        comment_label: Kommentar %{comment_id}
+        comment_label_reply: Kommentar %{comment_id} (Antwort auf Kommentar %{parent_comment_id})
         confirm_destroy: Sind Sie sich sicher, dass Sie diesen Kommentar löschen möchten?
+        controls_label: Kommentarsteuerung
         delete: Löschen
         deleted_at: Kommentar gelöscht am %{date}
         deleted_user: Gelöschter Benutzer
         edit: Bearbeiten
         edited: Bearbeitet
-        hide_replies: Antworten verbergen
+        hide_replies:
+          one: Antwort verbergen
+          other: '%{count} Antworten verbergen'
         moderated_at: Kommentar moderiert am %{date}
         reply: Antworten
         report:
