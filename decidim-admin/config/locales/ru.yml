@@ -115,6 +115,7 @@ ru:
       actions:
         add: Добавить
         browse: Просмотреть
+        manage: Управлять
         permissions: Права
         reject: Отклонить
         verify: Подтвердить личность
