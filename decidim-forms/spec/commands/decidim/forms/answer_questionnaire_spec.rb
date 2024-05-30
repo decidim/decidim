@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Forms
     describe AnswerQuestionnaire do
-      let(:command) { described_class.new(form, current_user, questionnaire) }
+      let(:command) { described_class.new(form, questionnaire) }
       let(:form) do
         QuestionnaireForm.from_params(
           form_params
@@ -228,7 +228,7 @@ module Decidim
               "tos_agreement" => "1"
             }
           end
-          let(:command) { described_class.new(form, current_user, questionnaire_conditioned) }
+          let(:command) { described_class.new(form, questionnaire_conditioned) }
 
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
