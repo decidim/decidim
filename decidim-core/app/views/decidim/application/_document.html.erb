@@ -13,13 +13,15 @@
       <% end %>
     </div>
   </div>
-  <%= link_to document.url,
-              target: "_blank",
-              rel: "noopener noreferrer",
-              class: "button button__sm button__transparent-secondary flex-none",
-              title: t("decidim.application.document.download"),
-              data: { "external-link": false } do %>
-    <%= t("decidim.application.document.download") %>
-    <%= icon "download-line" %>
+  <% if document.file? %>
+    <%= link_to document.url,
+                target: "_blank",
+                rel: "noopener noreferrer",
+                class: "button button__sm button__transparent-secondary flex-none",
+                title: t("decidim.application.document.download"),
+                data: { "external-link": false } do %>
+      <%= t("decidim.application.document.download") %>
+      <%= icon "download-line" %>
+    <% end %>
   <% end %>
 </div>
