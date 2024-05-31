@@ -584,7 +584,7 @@ ca:
         order_by_conferences:
           conferences:
             one: "%{count} jornada"
-            other: "%{count} jornadas"
+            other: "%{count} jornades"
       conferences_nav:
         conference_partners_menu_item: Col·laboradores
         conference_speaker_menu_item: Ponents
