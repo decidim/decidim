@@ -16,7 +16,7 @@ module Decidim
 
       mimic :attachment
 
-      validates :file, presence: true, unless: :link?
+      validates :file, presence: true, unless: :persisted_or_link?
       validates :link, url: true
       validates :file, passthru: { to: Decidim::Attachment }
       validates :title, :description, translatable_presence: true
@@ -27,8 +27,8 @@ module Decidim
 
       alias organization current_organization
 
-      def link?
-        link.present?
+      def persisted_or_link?
+        persisted? || link.present?
       end
 
       def attachment_collections

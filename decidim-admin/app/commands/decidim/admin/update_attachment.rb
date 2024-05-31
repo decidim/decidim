@@ -43,15 +43,18 @@ module Decidim
       def attributes
         {
           title: form.title,
+          file: form.file,
+          link: form.link,
           description: form.description,
           weight: form.weight
         }.merge(
           attachment_attributes(:file)
         ).compact_blank.merge(
-          attachment_collection: form.attachment_collection,
-          file: form.file,
-          link: form.file ? nil : form.link
-        )
+          attachment_collection: form.attachment_collection
+        ).tap do |attrs|
+          attrs[:file] = nil if form.link.present?
+          attrs[:link] = nil if form.file.present?
+        end
       end
     end
   end

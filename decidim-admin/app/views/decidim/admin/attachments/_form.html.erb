@@ -34,7 +34,7 @@
             text: "Link",
             icon: "link",
             method: :cell,
-            selected: form.object.link?,
+            selected: form.object.link.present?,
             args: ["/decidim/attachments_link_tab", form]
           }
         ] %>
