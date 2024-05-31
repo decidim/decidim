@@ -89,7 +89,7 @@
         <% end %>
       </div>
 
-      <div class="row column questionnaire-question-max-choices">
+      <div class="row column questionnaire-question-max-choices<%= question.editable? ? "" : "-disabled" %>">
         <%=
           form.select(
             :max_choices,
