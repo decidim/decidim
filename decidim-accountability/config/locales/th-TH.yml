@@ -140,6 +140,9 @@ th:
         timeline_entries:
           create:
             invalid: เกิดปัญหาในการสร้างรายการนี้
+            success: สร้างรายการสําเร็จแล้ว
+          destroy:
+            success: ลบรายการเรียบร้อยแล้ว
       results:
         home:
           categories_label: หมวดหมู่
