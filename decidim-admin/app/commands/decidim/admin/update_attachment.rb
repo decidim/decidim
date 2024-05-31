@@ -52,8 +52,8 @@ module Decidim
         ).compact_blank.merge(
           attachment_collection: form.attachment_collection
         ).tap do |attrs|
-          attrs[:file] = nil if form.link.present?
-          attrs[:link] = nil if form.file.present?
+          attrs[:file] = nil if form.link.present? && form.file.blank?
+          attrs[:link] = nil if form.file.present? && form.link.blank?
         end
       end
     end
