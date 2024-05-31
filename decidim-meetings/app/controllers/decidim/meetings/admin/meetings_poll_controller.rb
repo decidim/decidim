@@ -23,7 +23,15 @@ module Decidim
         def update
           enforce_permission_to(:update, :poll, meeting:, poll:)
 
+          current_questions_forms = form(Admin::QuestionnaireForm).from_model(questionnaire).questions
           @form = form(Admin::QuestionnaireForm).from_params(params)
+          @form.questions = @form.questions.map do |question_form|
+            next question_form if question_form.editable?
+
+            full_form = current_questions_forms.find { |form| form.id.to_s == question_form.id.to_s }
+            full_form.position = question_form.position
+            full_form
+          end
 
           Admin::UpdateQuestionnaire.call(@form, questionnaire) do
             on(:ok) do
