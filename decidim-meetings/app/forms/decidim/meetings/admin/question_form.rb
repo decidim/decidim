@@ -18,10 +18,10 @@ module Decidim
         translatable_attribute :description, String
 
         validates :position, numericality: { greater_than_or_equal_to: 0 }
-        validates :question_type, inclusion: { in: Decidim::Meetings::Question::QUESTION_TYPES }
-        validates :max_choices, numericality: { only_integer: true, greater_than: 1, less_than_or_equal_to: ->(form) { form.number_of_options } }, allow_blank: true
+        validates :question_type, inclusion: { in: Decidim::Meetings::Question::QUESTION_TYPES }, if: :editable?
+        validates :max_choices, numericality: { only_integer: true, greater_than: 1, less_than_or_equal_to: ->(form) { form.number_of_options } }, allow_blank: true, if: :editable?
         validates :body, translatable_presence: true, if: :requires_body?
-        validates :answer_options, presence: true
+        validates :answer_options, presence: true, if: :editable?
 
         def to_param
           return id if id.present?
@@ -42,7 +42,7 @@ module Decidim
         private
 
         def requires_body?
-          !deleted
+          editable? && !deleted
         end
       end
     end

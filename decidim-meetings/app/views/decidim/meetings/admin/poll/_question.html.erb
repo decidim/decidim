@@ -68,10 +68,10 @@
       </div>
 
       <% if question.persisted? %>
-        <%= form.hidden_field :id, disabled: !editable %>
+        <%= form.hidden_field :id %>
       <% end %>
 
-      <%= form.hidden_field :position, value: question.position || 0, disabled: !editable %>
+      <%= form.hidden_field :position, value: question.position || 0 %>
       <%= form.hidden_field :deleted, disabled: !editable %>
 
       <div class="questionnaire-question-answer-options<%= question.editable? ? "" : "-disabled" %>" data-template="<%= answer_option_template_selector %>">

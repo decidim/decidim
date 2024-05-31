@@ -45,10 +45,23 @@ module Decidim
 
         def update_questionnaire_questions
           @form.questions.each do |form_question|
-            next unless form_question.editable?
-
-            update_questionnaire_question(form_question)
+            if form_question.editable?
+              update_questionnaire_question(form_question)
+            else
+              update_questionnaire_question_position(form_question)
+            end
           end
+        end
+
+        def update_questionnaire_question_position(form_question)
+          record = @questionnaire.questions.find_by(id: form_question.id)
+          return if record.blank?
+
+          position = form_question.position
+
+          return if position == record.position
+
+          record.update!(position:)
         end
 
         def update_questionnaire_question(form_question)
