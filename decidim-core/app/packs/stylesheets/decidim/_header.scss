@@ -33,9 +33,9 @@ header {
       @apply mt-40 md:mt-0;
     }
 
-    #menu-bar-container{
+    #menu-bar-container {
       @apply mt-[140px] md:mt-0;
-    } 
+    }
   }
 
   #sticky-header {
@@ -351,15 +351,6 @@ header {
       &__bottom,
       &__top {
         @apply flex flex-col md:flex-row justify-between p-4 md:p-8 gap-x-8;
-
-        &-left {
-          @apply w-full md:w-1/2;
-
-          /* Overwrite default size */
-          .card__highlight-text {
-            @apply text-md;
-          }
-        }
 
         &-right {
           @apply hidden md:block md:w-1/2;

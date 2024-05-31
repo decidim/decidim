@@ -6,7 +6,7 @@ describe "Mobile header" do
   let(:organization) { create(:organization) }
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
-  context "when user visit a desktop browser" do
+  context "when user visits with a desktop browser" do
     before do
       switch_to_host(organization.host)
       visit decidim.root_path
@@ -60,7 +60,7 @@ describe "Mobile header" do
       end
     end
 
-    context "when user login is confirmed" do
+    context "when user is logged in" do
       before do
         switch_to_host(organization.host)
         login_as user, scope: :user
@@ -69,6 +69,7 @@ describe "Mobile header" do
 
       it "displays an avatar on the header" do
         expect(page).to have_css(".main-bar__avatar")
+        expect(page).to have_css("#admin-bar")
       end
     end
   end
