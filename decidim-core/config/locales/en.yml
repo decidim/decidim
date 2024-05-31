@@ -887,8 +887,8 @@ en:
       attachment_link:
         explanation: Guidance for attachment links
         help_messages:
-        - What guidelines do we want to include?
-        - What are the steps to follow?
+        - Only correct URL formats are accepted.
+        - Please note that the links must be public so that all participants can access them.
       errors:
         decidim/user:
           password: The password is too short.
