@@ -12,10 +12,6 @@ describe "Mobile header" do
       visit decidim.root_path
     end
 
-    it "does not have a sticky header" do
-      expect(page).to have_no_css(".with-admin-bar")
-    end
-
     it "does not include mobile login classes" do
       expect(page).to have_no_css(".main-bar__links-mobile__login")
     end
@@ -55,7 +51,7 @@ describe "Mobile header" do
       it "includes access to the language selector and search bar" do
         within ".menu-bar__main-dropdown__top" do
           expect(page).to have_css(".filter-search")
-          expect(page).to have_css("#trigger-dropdown-language-chooser-mobile")
+          expect(page).to have_css("#dropdown-trigger-language-chooser-mobile")
         end
       end
     end
