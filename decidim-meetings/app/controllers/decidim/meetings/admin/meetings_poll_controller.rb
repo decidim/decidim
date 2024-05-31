@@ -25,12 +25,16 @@ module Decidim
 
           current_questions_forms = form(Admin::QuestionnaireForm).from_model(questionnaire).questions
           @form = form(Admin::QuestionnaireForm).from_params(params)
+
+          # Although the question values (except the position) will be ignored if they are not editable,
+          # its information is completed so that if any update failure occurs, the form is rendered again
+          # with the full data for the disabled questions.
           @form.questions = @form.questions.map do |question_form|
             next question_form if question_form.editable?
 
-            full_form = current_questions_forms.find { |form| form.id.to_s == question_form.id.to_s }
-            full_form.position = question_form.position
-            full_form
+            full_question_form = current_questions_forms.find { |form| form.id.to_s == question_form.id.to_s }
+            full_question_form.position = question_form.position
+            full_question_form
           end
 
           Admin::UpdateQuestionnaire.call(@form, questionnaire) do
