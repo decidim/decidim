@@ -1,6 +1,9 @@
 ---
 bg:
   activemodel:
+    attributes:
+      post:
+        body: Основен текст
     models:
       decidim/blogs/create_post_event: Нова блог публикация
   activerecord:
