@@ -15,7 +15,7 @@ module Decidim
       end
 
       def state_item
-        return if state.blank? || !@options.fetch(:include_state, true)
+        return if state.blank? || !@options.fetch(:skip_state, false)
 
         if model.withdrawn?
           { text: content_tag(:span, humanize_proposal_state(:withdrawn), class: "label alert") }
