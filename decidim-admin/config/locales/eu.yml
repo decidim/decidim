@@ -561,6 +561,7 @@ eu:
         appearance: Itxura
         area_types: Arlo motak
         areas: Arloak
+        components: Osagaiak
         configuration: Konfigurazioa
         content: Eduki salatua
         external_domain_allowlist: Baimendutako kanpoko domeinuak
