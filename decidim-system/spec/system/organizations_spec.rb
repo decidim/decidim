@@ -88,6 +88,29 @@ describe "Organizations" do
       end
     end
 
+    describe "edits organization name" do
+      let!(:organization) do
+        create(:organization, name: { ca: "", en: "Citizen Corp", es: "" }, default_locale: :en, available_locales: ["en"], description: { en: "large text" })
+      end
+
+      before do
+        click_on "Organizations"
+        click_on "New"
+      end
+
+      it "creates new organization with incorrect organization name" do
+        fill_in "Name", with: "Citizen Corp 2"
+        fill_in "Reference prefix", with: "CCORP"
+        fill_in "Organization admin name", with: "system@system.com"
+
+        click_on "Create organization & invite admin"
+
+        within ".flash__message" do
+          expect(page).to have_content("There was a problem creating a new organization.")
+        end
+      end
+    end
+
     describe "resending the invitation" do
       let(:organization) { create(:organization) }
 
