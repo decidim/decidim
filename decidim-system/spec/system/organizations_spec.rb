@@ -98,7 +98,7 @@ describe "Organizations" do
         click_on "New"
       end
 
-      it "creates new organization with incorrect organization name" do
+      it "creates new organization with incorrect organization admin name" do
         fill_in "Name", with: "Citizen Corp 2"
         fill_in "Reference prefix", with: "CCORP"
         fill_in "Organization admin name", with: "system@system.com"
