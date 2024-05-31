@@ -1,7 +1,8 @@
-<%= form_tag(decidim.search_path, method: :get, id: "form-search-mobile", class: "filter-search") do %>
+<%= form_tag(decidim.search_path, method: :get, id: "form-search_menubreadcrumb", class: "filter-search") do %>
         <%= text_field_tag(
             :term,
             nil,
+            id: "input-search-menubreadcrumb",
             class: "reset-defaults outline-none",
             value: params[:term] || params.dig(:filter, :term),
             placeholder: t("decidim.search.term_input_placeholder"),
