@@ -43,7 +43,7 @@ module Decidim
       end
 
       def selected_choices
-        choices.select(&:body)
+        choices.select(&:answer_option_id)
       end
 
       private
