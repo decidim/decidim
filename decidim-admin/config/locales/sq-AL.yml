@@ -324,6 +324,7 @@ sq:
         area_types: Lloji i zonës
         areas: Zonat
         configuration: Konfigurimi
+        dashboard: Paneli
         homepage: Kryefaqja
         newsletters: Buletinet
         participants: Pjesëmarrësit
@@ -455,7 +456,13 @@ sq:
           subject: Tema
       officializations:
         index:
+          actions: Veprimet
           block: Blloko përdoruesin
+          created_at: Krijuar më
+          name: Emri
+          nickname: Nofka
+          reports: Raportet
+          status: Statusi
       organization:
         form:
           social_handlers: Rrjetet sociale
@@ -469,8 +476,64 @@ sq:
       organization_homepage_content_blocks:
         edit:
           update: Përditëso
+      resource_permissions:
+        edit:
+          title: Github
+      scope_types:
+        edit:
+          update: Përditëso
+      scopes:
+        edit:
+          update: Përditëso
+      share_tokens:
+        actions:
+          destroy: Fshi
+          share: Shpërndaj
+      static_page_topics:
+        edit:
+          title: Përpuno temën
+          update: Përditëso temën
+        new:
+          create: Krijo temën
+          title: Temë e re
+      static_pages:
+        edit:
+          title: Përpuno faqen
+          update: Përditëso
+        topic:
+          edit: Përpuno temën
       titles:
+        dashboard: Paneli
+        pages: Faqet
+        panel: Administrator
+        participants: Pjesëmarrësit
         static_pages: Faqet
+        statistics: Aktiviteti
+        user_groups: Grupet
+        users: Administratorët
+      user_groups_csv_verifications:
+        new:
+          upload: Ngarko
+      users:
+        form:
+          email: Email
+          name: Emri
+          role: Roli
+        new:
+          create: Fto
+      users_statistics:
+        users_count:
+          admins: Administratorët
+          last_day: Dita e fundit
+          last_month: Muaji i kaluar
+          last_week: Java e kaluar
+          participants: Pjesëmarrësit
+    moderations:
+      models:
+        moderation:
+          fields:
+            reportable_type: Lloji
+            reports: Raportet
   layouts:
     decidim:
       admin:
