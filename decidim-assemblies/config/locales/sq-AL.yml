@@ -376,3 +376,16 @@ sq:
           highlighted_assemblies:
             active_spaces: Asambletë aktive
             see_all_spaces: Shiko gjithë asambletë
+        user_profile:
+          member_of:
+            member_of: Anëtar i
+      show:
+        assembly_type: Tipi i asamblesë
+        duration: Kohëzgjatja
+        private_space: Kjo është asamble private
+        social_networks_title: Vizito asamblenë në
+    assembly_members:
+      assembly_member:
+        designated_on: Caktuar më
+      index:
+        title: Anëtarët
