@@ -333,21 +333,33 @@ sq:
           highlighted_assemblies:
             active_assemblies: Asambletë aktive
             see_all_assemblies: Shiko gjithë asambletë
+        user_profile:
+          member_of:
+            member_of: Anëtar i
       show:
         area: Zona
+        assembly_type: Tipi i asamblesë
         children: Asambletë
         closing_date: Data e mbylljes
         composition: Përbërja
         created_by: Krijuar nga
         creation_date: Data e krijimit
         developer_group: Grupi promovues
+        duration: Kohëzgjatja
         included_at: Përfshirë në
         indefinite_duration: E pacaktuar
         internal_organisation: Organizatë e brëndshme
         local_area: Zona e organizatës
         participatory_scope: Çfarë u vendos
         participatory_structure: Si u vendos
+        private_space: Kjo është asamble private
         purpose_of_action: Qëllimi i aksionit
         related_participatory_processes: Procese pjesëmarrëse të përafërta
         scope: Qëllimi
+        social_networks_title: Vizito asamblenë në
         target: Kush merr pjesë
+    assembly_members:
+      assembly_member:
+        designated_on: Caktuar më
+      index:
+        title: Anëtarët
