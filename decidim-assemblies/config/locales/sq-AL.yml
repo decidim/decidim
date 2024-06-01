@@ -8,10 +8,13 @@ sq:
         area_id: Zona
         assembly_type: Lloji i asamblesë
         assembly_type_other: Lloji i asamblesë tjetër
+        banner_image: Imazhi ballor
         closing_date: Data e mbylljes
         closing_date_reason: Arsyeja e datës së mbylljes
         composition: Përbërja
         copy_categories: Kopjo kategoritë
+        copy_components: Kopjo komponentet
+        copy_features: Kopjo veçoritë
         created_by: Krijuar nga
         created_by_other: Krijuar nga tjetër
         creation_date: Data e krijimit
@@ -36,6 +39,7 @@ sq:
         is_transparent: Është transparente
         local_area: Zona e organizatës
         parent_id: Asambleja e përgjithshme
+        participatory_processes_ids: Procese pjesëmarrëse të përafërta
         participatory_scope: Çfarë u vendos
         participatory_structure: Si u vendos
         private_space: Hapësirë private
@@ -52,16 +56,26 @@ sq:
         target: Kush merr pjesë
         title: Titulli
         twitter: X
+        weight: Pozicioni në rradhë
         youtube: YouTube
       assembly_member:
         birthday: Datëlindje
         birthplace: Vendi i lindjes
+        ceased_date: Data e përfundimit
+        designation_date: Data e dezignimit
         full_name: Emri i plotë
         gender: Gjinia
         non_user_avatar: Avatar
         position: Pozicioni
         user_id: Perdorues ose grup
+        weight: Pozicioni në rradhë
       assembly_user_role:
         email: Email
         name: Emri
         role: Roli
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Tip i pavlefshëm dokumenti. Lejohen vetëm prapashtesat e listuara: %{types}.'
