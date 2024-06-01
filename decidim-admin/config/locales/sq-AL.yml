@@ -474,6 +474,9 @@ sq:
           block: Blloko përdoruesin
           created_at: Krijuar më
           name: Emri
+          nickname: Nofka
+          reports: Raportet
+          status: Statusi
       organization:
         form:
           social_handlers: Rrjetet sociale
@@ -491,3 +494,59 @@ sq:
       organization_external_domain_whitelist:
         edit:
           update: Përditëso
+      resource_permissions:
+        edit:
+          title: Github
+      scope_types:
+        edit:
+          update: Përditëso
+      scopes:
+        edit:
+          update: Përditëso
+      share_tokens:
+        actions:
+          destroy: Fshi
+          share: Shpërndaj
+      static_page_topics:
+        edit:
+          title: Përpuno temën
+          update: Përditëso temën
+        new:
+          create: Krijo temën
+          title: Temë e re
+      static_pages:
+        edit:
+          title: Përpuno faqen
+          update: Përditëso
+      titles:
+        dashboard: Paneli
+        menu: Menu
+        page_topics: Temat
+        pages: Faqet
+        panel: Administrator
+        participants: Pjesëmarrësit
+        statistics: Aktiviteti
+        user_groups: Grupet
+        users: Administratorët
+      user_groups_csv_verifications:
+        new:
+          upload: Ngarko
+      users:
+        form:
+          email: Email
+          name: Emri
+          role: Roli
+        new:
+          create: Fto
+      users_statistics:
+        users_count:
+          admins: Administratorët
+          last_day: Dita e fundit
+          last_month: Muaji i kaluar
+          last_week: Java e kaluar
+          participants: Pjesëmarrësit
+    moderations:
+      models:
+        moderation:
+          fields:
+            reportable_type: Lloji
