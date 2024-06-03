@@ -1,7 +1,12 @@
 <div id="main-bar" class="main-bar__container">
   <div class="main-bar">
     <div class="main-bar__logo">
-      <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
+      <div class="main-bar__logo-desktop">
+        <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
+      </div>
+      <div class="lg:hidden">
+        <%= render partial: "layouts/decidim/logo_mobile", locals: { organization: current_organization } %>
+      </div>
     </div>
     <div class="main-bar__search">
       <%= render partial: "layouts/decidim/header/main_search" %>

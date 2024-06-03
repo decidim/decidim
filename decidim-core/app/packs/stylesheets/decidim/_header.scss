@@ -55,6 +55,14 @@ header {
       @apply col-span-3 xl:col-span-2 prose prose-img:max-h-16 prose-img:my-0;
     }
 
+    &__logo-desktop {
+      @apply md:hidden lg:block;
+
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+    }
+
     &__search {
       @apply hidden md:block col-span-2 col-start-5 xl:col-start-4;
 
@@ -121,7 +129,7 @@ header {
       }
 
       &__dropdown-before {
-        @apply before:block before:absolute before:-top-8 before:right-12 before:content-[""] before:bg-white before:w-32 before:h-8 before:-mt-8;
+        @apply before:block before:absolute before:-top-8 before:right-12 before:content-[""] before:bg-secondary before:w-24 before:h-8 before:-mt-8;
       }
 
       &__account {
@@ -146,6 +154,10 @@ header {
         .main-bar__avatar {
           @apply w-12 h-12;
         }
+      }
+
+      &__item {
+        @apply relative;
       }
 
       &__search {
