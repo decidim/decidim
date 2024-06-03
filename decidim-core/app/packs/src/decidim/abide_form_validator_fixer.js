@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  new AbideFormValidatorFixer();
+  new AbideFormValidatorFixer().initialize();
 });
 
 class AbideFormValidatorFixer {
@@ -8,7 +8,7 @@ class AbideFormValidatorFixer {
   }
 
   initialize() {
-    const forms = document.querySelectorAll("[data-live-validate=\"true\"]");
+    const forms = document.querySelectorAll("[data-live-validate='true']");
 
     forms.forEach(form => {
       if (this.isElementVisible(form)) {
@@ -25,13 +25,8 @@ class AbideFormValidatorFixer {
   setupForm(form) {
     const inputs = form.querySelectorAll("input");
 
-    inputs.forEach(input => {
-      const labelElement = input.closest("label");
-      if (!labelElement) {
-        return;
-      }
-
-      const errorElement = labelElement.querySelector(".form-error");
+    inputs.forEach((input) => {
+      const errorElement = input.querySelector(".form-error");
 
       if (!errorElement) {
         return;
