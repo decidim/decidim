@@ -192,7 +192,16 @@ shared_examples "assembly admin manage assembly components" do
           click_on "Publish"
         end
 
-        expect(enqueued_jobs.last[:args]).to include("decidim.events.components.component_published")
+        expect(Decidim::EventPublisherJob).to(have_been_enqueued.with(
+                                                "decidim.events.components.component_published", {
+                                                  resource: component,
+                                                  event_class: "Decidim::ComponentPublishedEvent",
+                                                  affected_users: [],
+                                                  followers: [follower],
+                                                  force_send: false,
+                                                  extra: {}
+                                                }
+                                              ))
       end
     end
 
