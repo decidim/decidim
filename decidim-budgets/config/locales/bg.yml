@@ -2,6 +2,94 @@
 bg:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Обхват
+        description: Описание
+        title: Заглавие
+        total_budget: Общ бюджет
+        weight: Подредба на позиция
       project:
+        budget_amount: Бюджетна сума
         decidim_category_id: Категория
         decidim_scope_id: Сфера
+        description: Описание
+        proposal_ids: Свързани предложения
+        proposals: Предложения
+        selected: Избран за изпълнение
+        title: Заглавие
+      proposals_import:
+        scope_id: Обхват
+  activerecord:
+    models:
+      decidim/budgets/budget:
+        one: Бюджет
+        other: Бюджети
+      decidim/budgets/project:
+        one: Проект
+        other: Проекти
+  decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Категория
+          scope_id_eq:
+            label: Обхват
+          selected_at_null:
+            label: Избрани
+            values:
+              'false': Избран за изпълнение
+              'true': Не избран за изпълнение
+    budgets:
+      actions:
+        attachment_collections: Папки
+        attachments: Прикачени файлове
+        confirm_destroy: Сигурни ли сте, че искате да изтриете този проект?
+        destroy: Изтрий
+        edit: Редактирай
+        edit_projects: Обедини проекти
+        import: Импортиране на предложения в проекти
+        new_budget: Нов бюджет
+        new_project: Нов проект
+        preview: Преглед
+        send_voting_reminders: Изпращайте напомняния за гласуване
+        title: Активности
+      admin:
+        budgets:
+          create:
+            invalid: Възникна проблем при създаването на този бюджет.
+            success: Бюджетът беше създаден успешно.
+          destroy:
+            invalid: Възникна проблем при изтриването на този бюджет.
+            success: Бюджетът беше изтрит успешно.
+          edit:
+            title: Редактиране на бюджет
+            update: Актуализиране на бюджета
+          index:
+            finished_orders: Приключили гласувания
+            pending_orders: Предстоящи гласувания
+            title: Бюджети
+            users_with_finished_orders: Потребители с приключили гласувания
+            users_with_pending_orders: Потребители с чакащи гласувания
+          new:
+            create: Създаване на бюджет
+            title: Нов бюджет
+          update:
+            invalid: Възникна проблем при актуализирането на този бюджет.
+            success: Бюджетът беше актуализиран успешно.
+        exports:
+          projects: Проекти
+        models:
+          budget:
+            name: Бюджет
+          project:
+            name: Проект
+        projects:
+          create:
+            invalid: Възникна проблем при създаването на този проект.
+        proposals_imports:
+          new:
+            title: Импортиране на предложения в проекти
+        reminders:
+          orders:
+            description: Потребителите ще получат имейл с връзки към бюджетите, където имат чакащи заявки.
