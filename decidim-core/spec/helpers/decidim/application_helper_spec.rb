@@ -86,5 +86,19 @@ module Decidim
         it { is_expected.to eq(Decidim::NilPresenter) }
       end
     end
+
+    describe "user_initials" do
+      it "returns the initials for a single name" do
+        expect(helper.user_initials("Alice")).to eq("A")
+      end
+
+      it "returns the initials for a two-part name" do
+        expect(helper.user_initials("Alice Smith")).to eq("AS")
+      end
+
+      it "returns the initials for a multi-part name" do
+        expect(helper.user_initials("Alice Mary Smith")).to eq("AMS")
+      end
+    end
   end
 end
