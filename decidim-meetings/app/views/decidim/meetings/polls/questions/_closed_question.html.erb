@@ -5,6 +5,9 @@
 
 <div>
   <p class="h3"><%= translated_attribute(question.body) %></p>
+  <span id="<%= "closed-announcement-#{question.id}" %>" hidden>
+    <%= cell "decidim/announcement", t("announcement", scope: "decidim.meetings.polls.questions.closed_question"), callout_class: "warning" %>
+  </span>
 
   <%= cell "decidim/meetings/question_responses", question %>
 </div>

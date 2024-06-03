@@ -608,6 +608,7 @@ en:
             view_poll: View poll
         questions:
           closed_question:
+            announcement: The replies for this question have been closed.
             question: Question
             question_results: Results
           index:
