@@ -6,12 +6,16 @@
   }
 
   &[aria-expanded="true"],
-  &:hover {
+  &:hover[disabled="false"] {
     @apply text-secondary border-secondary;
 
     svg {
       @apply text-secondary;
     }
+  }
+
+  &[disabled] {
+    @apply opacity-50 cursor-not-allowed;
   }
 }
 

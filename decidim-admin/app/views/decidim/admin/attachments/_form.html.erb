@@ -17,7 +17,7 @@
         <%= form.select :attachment_collection_id, @form.attachment_collections.map { |c| [translated_attribute(c.name), c.id] }, include_blank: true %>
       </div>
 
-      <div class="p-6">
+      <div class="p-6" data-file-or-link-tabs-controller>
         <%= cell "decidim/tab_panels", [
           {
             enabled: true,
