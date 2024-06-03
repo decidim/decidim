@@ -39,7 +39,7 @@ header {
   }
 
   #sticky-header {
-    @apply fixed top-0 shadow-lg z-40 bg-white md:relative;
+    @apply fixed w-full top-0 shadow-lg z-40 bg-white md:relative;
 
     transition: top 0.3s;
   }
