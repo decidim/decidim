@@ -103,7 +103,9 @@ describe "Organizations" do
         fill_in "Reference prefix", with: "CCORP"
         fill_in "Organization admin name", with: "system@system.com"
 
-        click_on "Create organization & invite admin"
+        expect do
+          click_on "Create organization & invite admin"
+        end.not_to change(Decidim::Organization, :count)
 
         within ".flash__message" do
           expect(page).to have_content("There was a problem creating a new organization. Review your organization admin name.")
