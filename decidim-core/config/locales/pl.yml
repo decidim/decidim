@@ -1433,7 +1433,6 @@ pl:
           past: Przeszły
       filters_small_view:
         filter: Filtr
-        filter_and_search: Filtruj i szukaj
         filter_by: Filtruj według
       results:
         view_all: Zobacz wszystko (%{count})
