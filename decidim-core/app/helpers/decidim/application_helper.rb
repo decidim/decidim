@@ -105,5 +105,9 @@ module Decidim
     def prevent_timeout_seconds
       0
     end
+
+    def user_initials(name)
+      name.split.map(&:first).join.upcase
+    end
   end
 end

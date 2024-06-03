@@ -11,7 +11,9 @@
               ) %>
       </span>
     <% else %>
-      <%= icon "user-smile-line" %>
+      <div class="main-bar__avatar-name">
+        <%= user_initials(current_user.name) %>
+      </div>
     <% end %>
 
   </button>
