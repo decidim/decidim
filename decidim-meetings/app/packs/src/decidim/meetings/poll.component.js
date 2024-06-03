@@ -96,6 +96,7 @@ export default class PollComponent {
       const questionId = $el.data("question");
       const elForm = $el.find("form");
 
+      this.questionsStatuses[questionId] = $el.data("status");
       if (elForm.length > 0) {
         this.answersStatuses[questionId] = Object.fromEntries(new FormData(elForm[0]));
       }
