@@ -185,6 +185,11 @@ ca:
         finished_message: Has finalitzat el procés de votació. Gràcies per participar-hi!
         highlighted_cta: Votar a %{name}
         if_change_opinion: Si has canviat d'opinió, pots
+        orders:
+          highest_cost: Cost més elevat
+          label: Ordenar projectes per
+          lowest_cost: Cost més baix
+          random: Ordre aleatori
         progress: Acaba la votació
         remove_vote: Eliminar el vot
         show: Mostra els projectes
