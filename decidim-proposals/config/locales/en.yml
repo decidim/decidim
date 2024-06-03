@@ -802,6 +802,8 @@ en:
           count:
             one: "%{count} proposal"
             other: "%{count} proposals"
+          grid_mode: Grid mode
+          list_mode: List mode
           new_proposal: New proposal
           see_all: See all proposals
           see_all_withdrawn: See all withdrawn proposals

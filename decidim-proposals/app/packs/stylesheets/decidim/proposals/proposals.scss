@@ -79,8 +79,7 @@
 
 #proposals {
   .view-layout__links {
-    display: flex;
-    gap: 16px;
+    @apply flex gap-4 items-center;
 
     svg {
       @apply inline-block w-5 h-5;
@@ -102,34 +101,16 @@
       }
     }
   }
+  &__grid-text-title {
+    @apply flex justify-between flex-row md:flex-col md:items-start lg:flex-row lg:items-center;
 
-  @media (min-width: 768px) {
-    &__list-metadata {
-      gap: 10px;
-    }
-
-    &__search-metadata > div,
-    &__list-metadata > div {
-      padding-left: 1rem;
-      padding-right: 1rem;
+    .label {
+      @apply md:mt-2;
     }
   }
 
-  @media (min-width: 768px) and (max-width: 1024px) {
-    &__grid-text-title {
-      flex-direction: column;
-      align-items: flex-start;
-
-      > *:not(:last-child) {
-        margin-bottom: 0.8rem;
-      }
-    }
-
-    &__search-metadata > div,
-    &__list-metadata > div {
-      padding-left: 0.7rem;
-      padding-right: 0.7rem;
-    }
+  &__list-metadata {
+    @apply md:flex md:flex-row md:items-center md:gap-4;
   }
 }
 

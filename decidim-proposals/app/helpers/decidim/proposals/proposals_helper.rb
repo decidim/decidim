@@ -17,12 +17,12 @@ module Decidim
           translated_attribute(@proposal.execution_period).present?
       end
 
-      def toggle_view_mode_link(current_mode, target_mode)
+      def toggle_view_mode_link(current_mode, target_mode, title)
         path = proposals_path(view_mode: target_mode)
         icon_name = target_mode == "grid" ? "layout-grid-fill" : "list-check"
         icon_class = "view-icon--disabled" unless current_mode == target_mode
 
-        link_to path do
+        link_to path, title: do
           icon(icon_name, class: icon_class, role: "img", "aria-hidden": true)
         end
       end

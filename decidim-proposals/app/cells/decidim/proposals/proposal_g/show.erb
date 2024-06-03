@@ -7,9 +7,9 @@
     <% end %>
   </div>
   <div class="<%= classes[:text] %>">
-    <div class="flex items-center justify-between card__grid-text-title">
+    <div class="card__grid-text-title">
       <%= content_tag title_tag, title, class: title_class %>
-      <%= raw(proposal_state_item[:text]) if proposal_state_item.present? %>
+      <%= proposal_state_item[:text] if proposal_state_item.present? %>
     </div>
 
     <%= description if show_description? %>
