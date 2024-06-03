@@ -193,6 +193,11 @@ cs:
         finished_message: Dokončili jste hlasovací proces. Děkujeme za účast!
         highlighted_cta: Hlasovat na %{name}
         if_change_opinion: Pokud jste změnili názor, můžete
+        orders:
+          highest_cost: Nejvyšší náklady
+          label: Seřadit rozpočty podle
+          lowest_cost: Nejnižší náklady
+          random: Náhodné pořadí
         progress: Dokončit hlasování
         remove_vote: Odebrat hlas
         show: Zobrazit projekty
