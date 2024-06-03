@@ -87,6 +87,27 @@ bg:
         projects:
           create:
             invalid: Възникна проблем при създаването на този проект.
+            success: Проектът беше създаден успешно.
+          destroy:
+            success: Проектът беше изтрит успешно.
+          edit:
+            title: Редактиране на проект
+            update: Актуализация
+          index:
+            actions: Активности
+            cancel: Отказ
+            change_budget: Промяна на бюджета
+            change_category: Промяна на категория
+            change_scope: Промяна на обхвата
+            change_selected: Промяна на избраното състояние
+            deselect_implementation: Премахване на избора от внедряване
+            finished_orders: Приключили гласувания
+            pending_orders: Предстоящи гласувания
+            select_for_implementation: Избрано за внедряване
+            selected: Избрани
+            selected_options:
+              'no': 'Не'
+              'yes': 'Да'
         proposals_imports:
           new:
             title: Импортиране на предложения в проекти
