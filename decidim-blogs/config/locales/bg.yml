@@ -59,3 +59,39 @@ bg:
             author: Автор
             body: Основен текст
             official_blog_post: Официална публикация
+            published_at: Час на публикуване
+            title: Заглавие
+      posts:
+        index:
+          count:
+            one: "%{count} публикация"
+            other: "%{count} публикации"
+          empty: Все още няма постове.
+    components:
+      blogs:
+        actions:
+          comment: Коментар
+          create: Създаване
+          destroy: Изтрий
+          endorse: Подкрепете
+          update: Актуализация
+        name: Блог
+        settings:
+          global:
+            announcement: Обявление
+            comments_enabled: Коментарите са разрешени
+            comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
+          step:
+            announcement: Обявление
+            comments_blocked: Коментарите са блокирани
+            endorsements_blocked: Подкрепата е блокирана
+            endorsements_enabled: Подкрепата е активирана
+    events:
+      blogs:
+        post_created:
+          email_intro: Публикацията „%{resource_title}“ е публикувана в(ъв)%{participatory_space_title}“, което следвате.
+          email_outro: Получавате това известие, защото следвате "%{participatory_space_title}". Може да премахнете следването чрез предходния линк.
+          email_subject: Публикувана е нова публикация в(ъв) %{participatory_space_title}
+          notification_title: Публикацията <a href="%{resource_path}">%{resource_title}</a> е публикувана в(ъв) %{participatory_space_title}
+    statistics:
+      posts_count: Постове
