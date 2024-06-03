@@ -89,3 +89,83 @@ bg:
         proposals_imports:
           new:
             title: Импортиране на предложения в проекти
+        reminders:
+          orders:
+            description: Потребителите ще получат имейл с връзки към бюджетите, където имат чакащи заявки.
+            title:
+              one: На път сте да изпратите напомняне по имейл до %{count} потребител
+              other: На път сте да изпратите напомняне по имейл до %{count} потребители
+      admin_log:
+        budget:
+          create: "%{user_name} създаде бюджета %{resource_name} в пространството %{space_name}"
+          delete: "%{user_name} изтри бюджета %{resource_name} в пространството %{space_name}"
+          update: "%{user_name} актуализира бюджета %{resource_name} в пространството %{space_name}"
+        project:
+          create: "%{user_name} създаде проекта %{resource_name} в пространството %{space_name}"
+          delete: "%{user_name} изтри проекта %{resource_name} в пространството %{space_name}"
+          update: "%{user_name} актуализира проекта %{resource_name} в пространството %{space_name}"
+      budget_information_modal:
+        back_to: Назад към %{component_name}
+        close_modal: Затвори прозореца
+        continue: Продължи
+        more_information: Още информация
+      budgets_list:
+        budgets: Бюджети
+        cancel_order:
+          more_than_one: да изтриете гласа си за %{name} и да започнете отначало
+          only_one: изтрийте гласа си и започнете отначало.
+        count:
+          one: "%{count} бюджет"
+          other: "%{count} бюджети"
+        empty: Все още няма бюджети
+        finished_message: Завършихте процеса на гласуване. Благодарим за участието!
+        highlighted_cta: Гласуване за %{name}
+        if_change_opinion: Ако сте променили решението си, можете
+        orders:
+          highest_cost: Най-висока стойност
+          label: Подреждане на бюджети по
+          lowest_cost: Най-ниска стойност
+          random: Случаен ред
+        progress: Завършете гласуването
+        remove_vote: Премахване на гласа
+        show: Вижте проектите
+        vote: Гласувай
+        voted_budgets: Гласувани бюджети
+        voted_on: Вие гласувахте за %{links}.
+      last_activity:
+        new_vote_at: Ново гласуване на бюджета на
+      limit_announcement:
+        cant_vote: Не можете да гласувате този бюджет. <a href="%{landing_path}">Опитайте с друг бюджет</a>.
+        limit_reached: Имате активни гласувания в(ъв) %{links}. За да гласувате за този бюджет, трябва <a href="%{landing_path}">да изтриете гласуването си и да започнете отначало</a>.
+      models:
+        budget:
+          fields:
+            name: Име
+            projects_count: Брой проекти
+            total_budget: Общ бюджет
+        project:
+          fields:
+            category: Категория
+            id: ID
+            map: Карта
+            title: Заглавие
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Избраните от Вас проекти са:'
+          subject: Гласувахте в пространството за участие %{space_name}
+          voted_on_space: Гласувахте за бюджета %{budget_name} за пространството за участие %{space_name}.
+          voted_on_space_with_scope: Гласувахте за бюджета %{budget_name} за пространството за участие %{space_name} в(ъв) %{scope_name} (%{scope_type}).
+      projects:
+        budget_confirm:
+          are_you_sure: Ако размислите, може да промените гласа си по-късно.
+          cancel: Отказ
+          confirm: Потвърди
+          description: Това са проектите, които сте избрали да са част от бюджета.
+          title: Потвърждаване на гласуването
+        project_filter:
+          all: Всички
+        projects_for: Проекти за %{name}
+        select_projects: Изберете Проекти
+        show:
+          budget: Бюджет
+      prompt: Изберете бюджет
