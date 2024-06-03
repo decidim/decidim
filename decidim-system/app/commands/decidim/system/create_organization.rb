@@ -35,7 +35,7 @@ module Decidim
           CreateDefaultHelpPages.call(@organization)
           CreateDefaultContentBlocks.call(@organization)
           invite_form = invite_user_form(@organization)
-          invitation_failed = invite_form.invalid?
+          invite_form.invalid?
           raise InvitationFailedError if invite_form.invalid?
         end
 
