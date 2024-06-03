@@ -106,7 +106,7 @@ describe "Organizations" do
         click_on "Create organization & invite admin"
 
         within ".flash__message" do
-          expect(page).to have_content("There was a problem creating a new organization.")
+          expect(page).to have_content("There was a problem creating a new organization. Review your organization admin name.")
         end
       end
     end
