@@ -179,6 +179,11 @@ eu:
         finished_message: Amaitu duzu bozkatzeko prozesua. Eskerrik asko parte hartzeagatik!
         highlighted_cta: Botoa eman hemen %{name}
         if_change_opinion: Iritzia aldatu baduzu, ahal duzu
+        orders:
+          highest_cost: Kosturik handiena
+          label: Ordenatu aurrekontuak honen arabera
+          lowest_cost: Kosturik txikiena
+          random: Ausazko ordena
         progress: Amaitu bozketa
         remove_vote: Kendu botoa
         show: Ikusi proiektuak
