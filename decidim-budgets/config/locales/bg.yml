@@ -110,25 +110,70 @@ bg:
         reminders:
           orders:
             description: Потребителите ще получат имейл с връзки към бюджетите, където имат чакащи заявки.
+            title:
+              one: На път сте да изпратите напомняне по имейл до %{count} потребител
+              other: На път сте да изпратите напомняне по имейл до %{count} потребители
+      admin_log:
+        budget:
+          create: "%{user_name} създаде бюджета %{resource_name} в пространството %{space_name}"
+          delete: "%{user_name} изтри бюджета %{resource_name} в пространството %{space_name}"
+          update: "%{user_name} актуализира бюджета %{resource_name} в пространството %{space_name}"
+        project:
+          create: "%{user_name} създаде проекта %{resource_name} в пространството %{space_name}"
+          delete: "%{user_name} изтри проекта %{resource_name} в пространството %{space_name}"
+          update: "%{user_name} актуализира проекта %{resource_name} в пространството %{space_name}"
       budget:
         view: Преглед на всички бюджетни проекти
+      budget_information_modal:
+        back_to: Назад към %{component_name}
+        close_modal: Затвори прозореца
+        continue: Продължи
+        more_information: Още информация
       budget_list_item:
         voting_finished: Вие гласувахте този бюджет
         voting_started: Вие започнахте да гласувате за този бюджет
       budgets_list:
+        cancel_order:
+          more_than_one: да изтриете гласа си за %{name} и да започнете отначало
+          only_one: изтрийте гласа си и започнете отначало.
         finished_message: Завършихте процеса на гласуване. Благодарим Ви за участието!
+        highlighted_cta: Гласуване за %{name}
         if_change_opinion: Ако сте размислили, имате възможност
         my_budgets: Моите бюджети
+        progress: Завършете гласуването
+        show: Вижте проектите
+        vote: Гласувай
         voted_on: Гласувахте на %{links}
       last_activity:
         new_vote_at_html: "<span>Ново бюджетно гласуване на %{link}</span>"
       limit_announcement:
         cant_vote: Не можете да гласувате за този бюджет. <a href="%{landing_path}">Опитайте с друг бюджет</a>.
+        limit_reached: Имате активни гласувания в(ъв) %{links}. За да гласувате за този бюджет, трябва <a href="%{landing_path}">да изтриете гласуването си и да започнете отначало</a>.
       models:
+        budget:
+          fields:
+            name: Име
+            projects_count: Брой проекти
+            total_budget: Общ бюджет
         project:
           fields:
+            category: Категория
+            id: ID
             scope: Сфера
+            title: Заглавие
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Избраните от Вас проекти са:'
+          subject: Гласувахте в пространството за участие %{space_name}
+          voted_on_space: Гласувахте за бюджета %{budget_name} за пространството за участие %{space_name}.
+          voted_on_space_with_scope: Гласувахте за бюджета %{budget_name} за пространството за участие %{space_name} в(ъв) %{scope_name} (%{scope_type}).
       projects:
+        budget_confirm:
+          are_you_sure: Ако размислите, може да промените гласа си по-късно.
+          cancel: Отказ
+          confirm: Потвърди
+          description: Това са проектите, които сте избрали да са част от бюджета.
+          title: Потвърждаване на гласуването
         budget_excess:
           budget_excess:
             description: Този проект надвишава максималния бюджет и не може да бъде добавен. Ако искате, можете да изтриете проект, който вече сте избрали, за да може да се гласува отново, според вашите предпочитания.
@@ -155,7 +200,10 @@ bg:
           vote_threshold_percent_rule:
             description: За кои проекти смятате, че трябва да осигурим бюджет? Присъеденете най-малко %{minimum_budget} към желаните от Вас проекти и гласувайте, според предпочитанията си за дефиниране на бюджета.
             instruction: "<li>Присъеденете поне %{minimum_budget} към желаните от вас проекти и гласувайте, според предпочитанията си за дефиниране на бюджета.</li>"
+        exit_modal:
+          close_modal: Затвори прозореца
         filters_small_view:
+          close_modal: Затвори прозореца
           filter: Филтър
           filter_by: Филтрирай по
           unfold: Разгъване
@@ -176,7 +224,9 @@ bg:
           add_descriptive: Добавяне на проект %{resource_name} към Вашето гласуване
           added: Добавено към Вашето гласуване
           added_descriptive: Проектът %{resource_name} е добавен към Вашето гласуване
+        projects_for: Проекти за %{name}
         show:
+          budget: Бюджет
           view_all_projects: Преглед на всички проекти
     components:
       budgets:
