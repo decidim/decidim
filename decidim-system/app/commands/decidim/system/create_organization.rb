@@ -29,7 +29,6 @@ module Decidim
         @organization = nil
         invite_form = nil
 
-
         transaction do
           @organization = create_organization
           CreateDefaultPages.call(@organization)

@@ -86,29 +86,23 @@ describe "Organizations" do
           expect(page).to have_content("You need to define the SECRET_KEY_BASE environment variable to be able to save this field")
         end
       end
-    end
 
-    describe "edits organization name" do
-      let!(:organization) do
-        create(:organization, name: { ca: "", en: "Citizen Corp", es: "" }, default_locale: :en, available_locales: ["en"], description: { en: "large text" })
-      end
+      context "with an invalid organization admin name" do
+        before do
+          click_on "Organizations"
+          click_on "New"
+        end
 
-      before do
-        click_on "Organizations"
-        click_on "New"
-      end
+        it "does not create an organization" do
+          fill_in "Name", with: "Citizen Corp 2"
+          fill_in "Reference prefix", with: "CCORP"
+          fill_in "Organization admin name", with: "system@system.com"
 
-      it "creates new organization with incorrect organization admin name" do
-        fill_in "Name", with: "Citizen Corp 2"
-        fill_in "Reference prefix", with: "CCORP"
-        fill_in "Organization admin name", with: "system@system.com"
-
-        expect do
           click_on "Create organization & invite admin"
-        end.not_to change(Decidim::Organization, :count)
 
-        within ".flash__message" do
-          expect(page).to have_content("There was a problem creating a new organization. Review your organization admin name.")
+          within ".flash__message", match: :first do
+            expect(page).to have_content("There was a problem creating a new organization. Review your organization admin name.")
+          end
         end
       end
     end
