@@ -17,7 +17,7 @@ module Decidim
     attr_reader :organization
 
     def set_smtp
-      return if organization.nil? || organization.smtp_settings.blank?
+      return if organization.nil? || organization.smtp_settings.blank? || organization.smtp_settings.except("from", "from_label", "from_email").all?(&:blank?)
 
       mail.reply_to = mail.reply_to || Decidim.config.mailer_reply
       mail.delivery_method.settings.merge!(
