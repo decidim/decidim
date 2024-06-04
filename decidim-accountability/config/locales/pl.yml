@@ -185,6 +185,11 @@ pl:
           success: Importowanie wyników zakończyło się pomyślnie. Możesz przejrzeć wyniki w panelu administracyjnym.
       import_projects_mailer:
         import:
+          added_projects:
+            one: Wynik został prawidłowo zaimportowany z projektów.
+            few: "Wyniki zostały prawidłowo zaimportowane z projektów."
+            many: "Wyniki zostały prawidłowo zaimportowane z projektów."
+            other: "%{count} wynik/wyniki/wyników został/zostały/zostało zaimportowanych z projektów."
           subject: Zaimportowano wyniki
           success: Pomyślnie zaimportowano projekty do wyników w komponencie %{component_name}. Możesz przejrzeć wyniki w interfejsie administracji.
       last_activity:
