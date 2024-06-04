@@ -46,7 +46,7 @@ describe "ExternalDomainWarning" do
 
     it "does not show invalid url alert" do
       visit url
-      expect(page).to have_no_content("Invalid URL")
+      expect(page).not_to have_content("Invalid URL")
       expect(page).to have_content("https://example.org/test/#/bar/edit/12345")
     end
   end
