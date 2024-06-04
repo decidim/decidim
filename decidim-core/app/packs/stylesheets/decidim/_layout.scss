@@ -105,3 +105,15 @@
 .layout-main__buttons {
   @apply flex gap-x-1 items-center;
 }
+
+.layout-aside__ctas-buttons-desktop {
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.layout-aside__ctas-buttons {
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+}

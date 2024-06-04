@@ -1,5 +1,8 @@
 <% if meeting.can_be_joined_by?(current_user) || meeting.on_different_platform? %>
-  <section class="layout-aside__section layout-aside__buttons">
+  <section class="layout-aside__section layout-aside__buttons layout-aside__ctas-buttons-desktop">
+    <%= cell "decidim/meetings/join_meeting_button", meeting, show_remaining_slots: true %>
+  </section>
+  <section class="layout-aside__section layout-aside__buttons layout-aside__ctas-buttons lg:hidden">
     <%= cell "decidim/meetings/join_meeting_button", meeting, show_remaining_slots: true %>
   </section>
 <% end %>
