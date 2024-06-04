@@ -128,6 +128,9 @@ bg:
             success: 'Проектите са актуализирани успешно до категорията %{subject_name}: %{projects}.'
           update_scope:
             invalid: 'Тези проекти вече са имали %{subject_name} обхват: %{projects}.'
+            select_a_project: Моля, изберете проект.
+            select_a_scope: Моля, изберете обхват.
+            success: 'Проектите са актуализирани успешно до %{subject_name} обхват: %{projects}.'
         proposals_imports:
           new:
             title: Импортиране на предложения в проекти
