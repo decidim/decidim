@@ -32,13 +32,13 @@ module Decidim
           @query = retrieve_surveys.each_with_object({}) do |survey, grouped_answers|
             answers = Decidim::Forms::Answer.joins(:questionnaire)
                                             .where(questionnaire: retrieve_questionnaires(survey))
-                                            .where("decidim_forms_answers.created_at <= ?", end_time)
+                                            .where(decidim_forms_answers: { created_at: ..end_time })
             next grouped_answers unless answers
 
             group_key = generate_group_key(survey)
             grouped_answers[group_key] ||= { cumulative: 0, quantity: 0 }
             grouped_answers[group_key][:cumulative] += answers.count
-            grouped_answers[group_key][:quantity] += answers.where("decidim_forms_answers.created_at >= ?", start_time).count
+            grouped_answers[group_key][:quantity] += answers.where(decidim_forms_answers: { created_at: start_time.. }).count
           end
           @query
         end

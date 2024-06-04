@@ -125,12 +125,16 @@
         }
 
         &::-webkit-progress-bar {
-          @apply bg-white;
+          @apply bg-gray lg:bg-white;
         }
 
         &::-moz-progress-bar {
           @apply bg-success;
         }
+      }
+
+      &-label {
+        @apply text-sm font-bold lg:hidden;
       }
     }
 

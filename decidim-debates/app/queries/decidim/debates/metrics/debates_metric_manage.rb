@@ -29,7 +29,7 @@ module Decidim
 
           @query = Decidim::Debates::Debate.where(component: visible_components_from_spaces(retrieve_participatory_spaces)).joins(:component)
                                            .left_outer_joins(:category)
-          @query = @query.where("decidim_debates_debates.start_time <= ?", end_time)
+          @query = @query.where(decidim_debates_debates: { start_time: ..end_time })
           @query = @query.group("decidim_categorizations.decidim_category_id",
                                 :participatory_space_type,
                                 :participatory_space_id)
@@ -37,7 +37,7 @@ module Decidim
         end
 
         def quantity
-          @quantity ||= query.where("decidim_debates_debates.start_time >= ?", start_time).count
+          @quantity ||= query.where(decidim_debates_debates: { start_time: start_time.. }).count
         end
       end
     end

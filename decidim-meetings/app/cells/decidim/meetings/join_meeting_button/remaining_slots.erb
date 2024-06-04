@@ -1,4 +1,5 @@
 <div class="meeting__aside-progress">
   <span><%= t("remaining_slots", scope: "decidim.meetings.meetings.show", count: model.remaining_slots) %></span>
   <progress value="<%= model.remaining_slots %>" max="<%= model.available_slots %>"></progress>
+  <span class="meeting__aside-progress-label"><%= model.remaining_slots %> / <%= model.available_slots %></span>
 </div>

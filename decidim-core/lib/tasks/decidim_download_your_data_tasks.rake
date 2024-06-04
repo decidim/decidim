@@ -64,7 +64,7 @@ namespace :decidim do
     input = $stdin.gets.chomp
     if input.casecmp("y").zero?
       puts %(  Continue...)
-      Decidim::User.where("newsletter_notifications_at < ?", Time.zone.parse("2018-05-25 00:00 +02:00")).find_each(&:newsletter_opt_in_notify)
+      Decidim::User.where(newsletter_notifications_at: ...Time.zone.parse("2018-05-25 00:00 +02:00")).find_each(&:newsletter_opt_in_notify)
     else
       puts %(  Execution cancelled...)
     end
@@ -76,9 +76,7 @@ namespace :decidim do
     attachments = ActiveStorage::Attachment.joins(:blob).where(
       name: "download_your_data_file",
       record_type: "Decidim::UserBaseEntity"
-    ).where(
-      "active_storage_blobs.created_at < ?", Decidim.download_your_data_expiry_time.ago
-    )
+    ).where(active_storage_blobs: { created_at: ...Decidim.download_your_data_expiry_time.ago })
     attachments.each do |attachment|
       delete_download_your_data_file attachment
     end
