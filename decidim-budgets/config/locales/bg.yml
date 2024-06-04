@@ -116,9 +116,12 @@ bg:
             invalid: Възникна проблем при актуализирането на този проект
             success: Проектът беше актуализиран успешно
           update_category:
+            invalid: 'Тези проекти вече имат категория %{subject_name}: %{projects}.'
             select_a_category: Моля, изберете категория
             select_a_project: Моля, изберете проект
+            success: 'Проектите са актуализирани успешно до категорията %{subject_name}: %{projects}.'
           update_scope:
+            invalid: 'Тези проекти вече са имали %{subject_name} обхват: %{projects}.'
             select_a_project: Моля, изберете проект
             select_a_scope: Моля, изберете обхват
           update_selected:
