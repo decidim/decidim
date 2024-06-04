@@ -96,7 +96,7 @@ describe "Organizations" do
         it "does not create an organization" do
           fill_in "Name", with: "Citizen Corp 2"
           fill_in "Reference prefix", with: "CCORP"
-          fill_in "Organization admin name", with: "system@system.com"
+          fill_in "Organization admin name", with: "system@example.org"
 
           click_on "Create organization & invite admin"
 
