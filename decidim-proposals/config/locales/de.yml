@@ -154,6 +154,7 @@ de:
             amendments_wizard_help_text: Hilfetext für Änderungsassistent
             announcement: Ankündigung
             attachments_allowed: Anhänge zulassen
+            attachments_allowed_help: Durch Aktivieren dieser Option werden Vorschläge standardmäßig im Rastermodus angezeigt und das erste Bild wird auf der Karte angezeigt.
             can_accumulate_supports_beyond_threshold: Kann Unterstützungen über den Schwellenwert hinaus ansammeln
             collaborative_drafts_enabled: Kollaborative Entwürfe aktiviert
             comments_enabled: Kommentare aktiviert
@@ -800,6 +801,8 @@ de:
           count:
             one: "%{count} Vorschlag"
             other: "%{count} Vorschläge"
+          grid_mode: Raster-Ansicht
+          list_mode: Listen-Ansicht
           new_proposal: Neuer Vorschlag
           see_all: Alle Vorschläge ansehen
           see_all_withdrawn: Sehen Sie sich alle zurückgezogenen Vorschläge an
