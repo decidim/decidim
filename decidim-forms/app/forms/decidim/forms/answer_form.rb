@@ -108,9 +108,9 @@ module Decidim
 
       def max_choices
         if matrix?
-          errors.add(:choices, :too_many) if grouped_choices.any? { |choices| choices.count > question.max_choices }
+          errors.add(:choices, :too_many, count: question.max_choices) if grouped_choices.any? { |choices| choices.count > question.max_choices }
         elsif selected_choices.size > question.max_choices
-          errors.add(:choices, :too_many)
+          errors.add(:choices, :too_many, count: question.max_choices)
         end
       end
 

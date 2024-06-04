@@ -22,7 +22,7 @@ en:
               too_long: is too long
             choices:
               missing: are not complete
-              too_many: are too many
+              too_many: You can choose a maximum of %{count}.
         questionnaire:
           request_invalid: There was an error handling the request. Please try again.
   decidim:
