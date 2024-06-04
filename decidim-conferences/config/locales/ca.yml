@@ -604,10 +604,6 @@ ca:
           take_part: Participar
         index:
           promoted_conferences: Jornades destacades
-        order_by_conferences:
-          conferences:
-            one: "%{count} jornada"
-            other: "%{count} jornadas"
         promoted_conference:
           more_info: Més informació
           take_part: Participar
