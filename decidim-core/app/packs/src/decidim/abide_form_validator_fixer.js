@@ -1,7 +1,9 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const validatorFixer = new AbideFormValidatorFixer();
-  validatorFixer.initialize();
-});
+/**
+ * This script modifies the behavior of Abide form validation to address the issue of form validation errors
+ * appearing prematurely in input fields.
+ *
+ * The primary goal is to hide error messages until the input field loses focus.
+ */
 
 class AbideFormValidatorFixer {
   initialize() {
@@ -35,3 +37,8 @@ class AbideFormValidatorFixer {
     errorElement.classList.remove("is-visible");
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const validatorFixer = new AbideFormValidatorFixer();
+  validatorFixer.initialize();
+});
