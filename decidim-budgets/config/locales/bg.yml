@@ -124,6 +124,7 @@ bg:
             invalid: 'Тези проекти вече са имали %{subject_name} обхват: %{projects}.'
             select_a_project: Моля, изберете проект
             select_a_scope: Моля, изберете обхват
+            success: 'Проектите са актуализирани успешно до %{subject_name} обхват: %{projects}.'
           update_selected:
             select_a_project: Моля, изберете проект
             select_a_selection: Моля, изберете състояние на внедряване
