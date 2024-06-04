@@ -59,6 +59,7 @@ module Decidim
           participatory_space:,
           settings: {
             vote_limit: 0,
+            attachments_allowed: [true, false].sample,
             collaborative_drafts_enabled: true
           },
           step_settings:
@@ -134,6 +135,10 @@ module Decidim
 
           proposal
         end
+
+        create_attachment(attached_to: proposal, filename: "city.jpeg") if component.settings.attachments_allowed?
+
+        proposal
       end
 
       def random_nickname
