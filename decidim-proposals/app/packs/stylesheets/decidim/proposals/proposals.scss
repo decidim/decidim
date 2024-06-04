@@ -24,7 +24,7 @@
 
   &__aside {
     &-vote {
-      @apply flex flex-row-reverse md:flex-col gap-4 items-center md:items-stretch justify-between first:[&>*]:grow last:[&>*]:w-1/4 md:last:[&>*]:w-auto;
+      @apply flex flex-row-reverse md:flex-col gap-4 items-center md:items-stretch justify-around md:last:[&>*]:w-auto;
     }
   }
 

@@ -106,9 +106,9 @@
   @apply flex gap-x-1 items-center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 577px) {
   .layout-aside__ctas-buttons {
-    @apply fixed inset-x-0 bottom-0 z-30 flex flex-row-reverse items-center justify-around bg-white p-4 shadow-inner;
+    @apply fixed inset-x-0 bottom-0 z-30 flex flex-row-reverse items-center justify-around bg-white gap-4 p-4 shadow-inner;
 
     .meeting__aside-progress {
       @apply flex flex-col-reverse;
