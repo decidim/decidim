@@ -106,8 +106,8 @@ module Decidim
       0
     end
 
-    def user_initials(name)
-      name.split.map(&:first).join.upcase
+    def text_initials(name)
+      name.split(/[\s.]+/).map(&:chr).slice(0, 2).join.upcase
     end
   end
 end

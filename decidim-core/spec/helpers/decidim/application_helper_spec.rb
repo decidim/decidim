@@ -87,17 +87,21 @@ module Decidim
       end
     end
 
-    describe "user_initials" do
-      it "returns the initials for a single name" do
-        expect(helper.user_initials("Alice")).to eq("A")
+    describe "text_initials" do
+      it "returns the initial letter for a single name" do
+        expect(helper.text_initials("Alice")).to eq("A")
       end
 
-      it "returns the initials for a two-part name" do
-        expect(helper.user_initials("Alice Smith")).to eq("AS")
+      it "returns the first two initials letters for a multi-part name" do
+        expect(helper.text_initials("J.L Smith")).to eq("JL")
       end
 
-      it "returns the initials for a multi-part name" do
-        expect(helper.user_initials("Alice Mary Smith")).to eq("AMS")
+      it "returns the first two initials letters for a some long phrase" do
+        expect(helper.text_initials("some long phrase")).to eq("SL")
+      end
+
+      it "returns the first two initials letters for a very long phrase" do
+        expect(helper.text_initials("this is a very long phrase")).to eq("TI")
       end
     end
   end
