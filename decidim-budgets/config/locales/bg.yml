@@ -107,6 +107,15 @@ bg:
             selected_options:
               'no': 'Не'
               'yes': 'Да'
+            title: Проекти
+            update: Актуализация
+            update_budget_button: Актуализирайте бюджета на проекта
+            update_scope_button: Актуализиране на обхвата
+          new:
+            create: Създаване
+            title: Нов проект
+          update:
+            invalid: Възникна проблем при актуализирането на този проект.
         proposals_imports:
           new:
             title: Импортиране на предложения в проекти
