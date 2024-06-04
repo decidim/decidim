@@ -26,11 +26,7 @@
         <div class="meeting-polls__admin-action meeting-polls__admin-action-results">
           <div class="h4"><%= t(".results") %></div>
 
-          <% if question.unpublished? || question.closed? %>
-            <button class="button button__sm button__secondary" disabled><%= t(".send") %></button>
-          <% elsif question.published? %>
-            <button class="button button__sm button__secondary"><%= t(".send") %></button>
-          <% end %>
+          <button class="button button__sm button__secondary" <%= question.published? ? "" : "disabled" %>><%= question.closed? ? t(".sent") : t(".send") %></button>
 
           <div>
             <% unless question.unpublished? %>
