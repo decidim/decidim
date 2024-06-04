@@ -371,6 +371,7 @@ en:
               <li>When a question receives answers or is published/closed, it can no longer be edited.</li>
               <li>You can add a question at any time.</li>
               <li>The poll will be closed when the results of all created questions have been published.</li>
+              <li>Visit the <a href='%{admin_link}' target='_blank' data-external-domain-link='false'>poll administration page</a> to send questions and publish results.</li>
               </ul>
         registrations:
           edit:
