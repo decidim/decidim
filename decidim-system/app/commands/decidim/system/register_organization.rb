@@ -2,6 +2,9 @@
 
 module Decidim
   module System
+    class InvitationFailedError < ActiveRecord::RecordInvalid
+    end
+
     # A command with all the business logic when creating a new organization in
     # the system. It creates the organization and invites the admin to the
     # system.
@@ -24,7 +27,6 @@ module Decidim
 
         @organization = nil
         invite_form = nil
-        invitation_failed = false
 
         transaction do
           @organization = create_organization
@@ -32,13 +34,14 @@ module Decidim
           PopulateHelp.call(@organization)
           CreateDefaultContentBlocks.call(@organization)
           invite_form = invite_user_form(@organization)
-          invitation_failed = invite_form.invalid?
+          raise InvitationFailedError if invite_form.invalid?
         end
-        return broadcast(:invalid) if invitation_failed
 
         Decidim::InviteUser.call(invite_form) if @organization && invite_form
 
         broadcast(:ok)
+      rescue InvitationFailedError
+        broadcast(:invalid_invitation)
       rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
         broadcast(:invalid)
       end

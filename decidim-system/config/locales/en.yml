@@ -139,6 +139,7 @@ en:
           show: Show advanced settings
         create:
           error: There was a problem creating a new organization.
+          error_invitation: There was a problem creating a new organization. Review your organization admin name.
           success: Organization successfully created.
         edit:
           secondary_hosts_hint: Enter each one of them in a new line

@@ -53,6 +53,25 @@ describe "Organizations", type: :system do
           expect(page).to have_content("There's an error in this field")
         end
       end
+
+      context "with an invalid organization admin name" do
+        before do
+          click_on "Organizations"
+          click_on "New"
+        end
+
+        it "does not create an organization" do
+          fill_in "Name", with: "Citizen Corp 2"
+          fill_in "Reference prefix", with: "CCORP"
+          fill_in "Organization admin name", with: "system@example.org"
+
+          click_on "Create organization & invite admin"
+
+          within ".flash__message", match: :first do
+            expect(page).to have_content("There was a problem creating a new organization. Review your organization admin name.")
+          end
+        end
+      end
     end
 
     describe "showing an organization with different locale than user" do
