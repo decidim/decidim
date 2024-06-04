@@ -621,6 +621,10 @@ en:
             results: Results
             send: Send
             sent: Sent
+            statuses:
+              closed: Results sent (closed)
+              published: Sent (open)
+              unpublished: Pending to be sent
           published_question:
             max_choices_alert: There are too many choices selected
             question: Question

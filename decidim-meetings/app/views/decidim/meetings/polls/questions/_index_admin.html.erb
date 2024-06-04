@@ -2,12 +2,15 @@
   <details class="meeting-polls__question meeting-polls__question--admin open" data-question="<%= question.id %>" <%= "open" if open_question == question.id %>>
     <summary>
       <span><%= t(".question") %></span>
+      <span><%= t(question.status, scope: "decidim.meetings.polls.questions.index_admin.statuses") %></span>
     </summary>
 
     <%= form_tag(meeting_polls_question_path(meeting, question), method: :patch, remote: true) do %>
       <p class="h3"><%= translated_attribute(question.body) %></p>
 
-      <%= link_to t(".edit"), Decidim::EngineRouter.admin_proxy(meeting.component).edit_meeting_poll_path(meeting), class: "button button__xs button__secondary mr-auto mt-2" %>
+      <% if question.unpublished? %>
+        <%= link_to t(".edit"), Decidim::EngineRouter.admin_proxy(meeting.component).edit_meeting_poll_path(meeting), class: "button button__xs button__secondary mr-auto mt-2" %>
+      <% end %>
 
       <div>
         <div class="meeting-polls__admin-action meeting-polls__admin-action-question">
