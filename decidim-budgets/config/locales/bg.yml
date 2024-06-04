@@ -106,6 +106,12 @@ bg:
             selected_options:
               'no': 'Не'
               'yes': 'Да'
+            title: Проекти
+            update: Актуализация
+            update_scope_button: Актуализиране на обхвата
+          new:
+            create: Създаване
+            title: Нов проект
           update:
             invalid: Възникна проблем при актуализирането на този проект
             success: Проектът беше актуализиран успешно
