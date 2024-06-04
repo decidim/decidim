@@ -23,5 +23,15 @@
       <%= t("decidim.application.document.download") %>
       <%= icon "download-line" %>
     <% end %>
+  <% else %>
+    <%= link_to document.url,
+                target: "_blank",
+                rel: "noopener noreferrer",
+                class: "button button__sm button__transparent-secondary flex-none",
+                title: t("decidim.application.document.visit_link"),
+                data: { "external-link": true } do %>
+      <%= t("decidim.application.document.visit_link") %>
+    <% end %>
+
   <% end %>
 </div>
