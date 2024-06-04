@@ -155,6 +155,10 @@ header {
           @apply w-12 h-12;
         }
 
+        .main-bar__avatar-name {
+          @apply w-12 h-12 text-2xl;
+        }
+
         .account-container {
           @apply before:block before:absolute before:top-16 before:right-14 before:content-[""] before:bg-white before:w-2 before:h-12 before:-mt-8;
         }
@@ -198,7 +202,7 @@ header {
     }
 
     &__notification {
-      @apply w-2.5 h-2.5 rounded-full block absolute -top-0.5 right-0 bg-primary;
+      @apply w-2.5 h-2.5 rounded-full block absolute -top-0.5 right-1.5 bg-primary;
     }
 
     &__avatar {
@@ -214,7 +218,7 @@ header {
     }
 
     &__avatar-name {
-      @apply w-6 h-6 flex items-center justify-center bg-secondary text-white rounded-full text-xs font-bold;
+      @apply w-6 h-6 flex items-center justify-center bg-secondary text-white rounded-full text-xs font-bold mr-2;
     }
 
     /* overwrite default dropdown styles */
