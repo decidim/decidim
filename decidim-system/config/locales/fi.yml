@@ -142,6 +142,7 @@ fi:
           show: Näytä lisäasetukset
         create:
           error: Uuden organisaation luonti epäonnistui.
+          error_invitation: Uuden organisaation luominen epäonnistui. Tarkasta organisaation hallintakäyttäjän nimi.
           success_html: |
             <p>
               Organisaation luonti onnistui.
