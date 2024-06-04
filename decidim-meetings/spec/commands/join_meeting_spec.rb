@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Meetings
   describe JoinMeeting do
-    subject { described_class.new(meeting, user, registration_form) }
+    subject { described_class.new(meeting, form) }
 
     let(:organization) { create(:organization) }
     let(:participatory_process) { create(:participatory_process, organization:) }
@@ -24,7 +24,24 @@ module Decidim::Meetings
 
     let(:user) { create(:user, :confirmed, organization:, notifications_sending_frequency: "none") }
 
-    let(:registration_form) { Decidim::Meetings::JoinMeetingForm.new }
+    let(:command) { described_class.new(form) }
+
+    let(:user_group) { create(:user_group) }
+
+    let(:form_params) do {
+        user_group_id: user_group.id
+      }
+    end
+
+    let(:form) do
+      Decidim::Meetings::JoinMeetingForm.from_params(
+        form_params
+      ).with_context(
+        current_user: user
+      )
+    end
+
+    # { Decidim::Meetings::JoinMeetingForm.new }
 
     let(:badge_notification) { hash_including(event: "decidim.events.gamification.badge_earned") }
     let(:user_notification) do
@@ -54,6 +71,9 @@ module Decidim::Meetings
       end
 
       it "creates a registration for the meeting and the user no public participation" do
+        # puts user.id
+        # puts form.current_user.id
+        # byebug
         expect { subject.call }.to change(Registration, :count).by(1)
         last_registration = Registration.last
         expect(last_registration.user).to eq(user)
@@ -63,7 +83,7 @@ module Decidim::Meetings
 
       context "when the form has public_participation set to true" do
         before do
-          registration_form.public_participation = true
+          form.public_participation = true
         end
 
         it "creates a registration for the meeting and the user with public participation" do
@@ -252,7 +272,7 @@ module Decidim::Meetings
       let!(:questionnaire) { create(:questionnaire) }
       let!(:question) { create(:questionnaire_question, questionnaire:) }
       let(:session_token) { "some-token" }
-      let(:registration_form) { Decidim::Forms::QuestionnaireForm.from_model(questionnaire).with_context(session_token:) }
+      let(:form) { Decidim::Forms::QuestionnaireForm.from_model(questionnaire).with_context(session_token:, current_user: user) }
 
       context "and the registration form is invalid" do
         it "broadcast invalid_form" do
@@ -262,8 +282,8 @@ module Decidim::Meetings
 
       context "and everything is ok" do
         before do
-          registration_form.tos_agreement = true
-          registration_form.responses.first.body = "My answer response"
+          form.tos_agreement = true
+          form.responses.first.body = "My answer response"
         end
 
         it "broadcasts ok" do
@@ -288,9 +308,9 @@ module Decidim::Meetings
 
         context "when the form has public_participation set to true" do
           before do
-            registration_form.tos_agreement = true
-            registration_form.responses.first.body = "My answer response"
-            registration_form.public_participation = true
+            form.tos_agreement = true
+            form.responses.first.body = "My answer response"
+            form.public_participation = true
           end
 
           it "creates a registration for the meeting and the user with public participation" do
