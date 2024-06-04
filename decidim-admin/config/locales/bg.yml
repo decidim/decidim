@@ -3,7 +3,7 @@ bg:
   activemodel:
     attributes:
       area:
-        area_type: Тип район
+        area_type: Тип област
         name: Име
         organization: Организация
       area_type:
