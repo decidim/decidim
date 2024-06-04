@@ -162,6 +162,7 @@ pl:
             amendments_wizard_help_text: Tekst pomocy Kreatora poprawek
             announcement: Ogłoszenie
             attachments_allowed: Zezwalaj na załączniki
+            attachments_allowed_help: Gdy ta opcja jest włączona, propozycje będą domyślne dla trybu siatkowego, a pierwszy obraz pojawi się na karcie.
             can_accumulate_supports_beyond_threshold: Może gromadzić wsparcia po przekroczeniu progu
             collaborative_drafts_enabled: Zezwalaj na wspólne szkice
             comments_enabled: Komentarze włączone
@@ -770,6 +771,8 @@ pl:
             few: "%{count} propozycji"
             many: "%{count} propozycji"
             other: "%{count} propozycji"
+          grid_mode: Tryb siatkowy
+          list_mode: Tryb listy
           new_proposal: Nowa propozycja
           see_all: Zobacz wszystkie propozycje
           see_all_withdrawn: Zobacz wszystkie wycofane propozycje
