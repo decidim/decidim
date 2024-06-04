@@ -143,6 +143,7 @@ de:
           show: Zeige erweiterte Einstellungen
         create:
           error: Beim Erstellen einer neuen Organisation ist ein Fehler aufgetreten.
+          error_invitation: Es gab ein Problem beim Erstellen einer neuen Organisation. Überprüfen Sie den Administratornamen Ihrer Organisation.
           success_html: |
             <p>
               Organisation erfolgreich erstellt.
