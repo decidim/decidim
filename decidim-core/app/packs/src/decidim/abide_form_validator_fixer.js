@@ -1,18 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
-  new AbideFormValidatorFixer().initialize();
+  const validatorFixer = new AbideFormValidatorFixer();
+  validatorFixer.initialize();
 });
 
 class AbideFormValidatorFixer {
-  constructor() {
-    this.initialize();
-  }
-
   initialize() {
-    const forms = document.querySelectorAll("[data-live-validate='true']");
+    const forms = document.querySelectorAll("main [data-live-validate='true']");
 
-    forms.forEach(form => {
+    forms.forEach((form) => {
       if (this.isElementVisible(form)) {
-        form.removeAttribute("data-live-validate");
         this.setupForm(form);
       }
     });
@@ -26,37 +22,16 @@ class AbideFormValidatorFixer {
     const inputs = form.querySelectorAll("input");
 
     inputs.forEach((input) => {
-      const errorElement = input.querySelector(".form-error");
-
+      const errorElement = input.closest("label")?.querySelector(".form-error") || input.parentElement.querySelector(".form-error");
       if (!errorElement) {
         return;
       }
-
-      input.addEventListener("focus", () => {
-        this.hideError(errorElement);
-      });
-
-      input.addEventListener("blur", () => {
-        this.validateInput(input, errorElement);
-      });
-
-      input.addEventListener("input", () => {
-        this.hideError(errorElement);
-      });
+      form.removeAttribute("data-live-validate");
+      input.addEventListener("input", this.hideErrorElement.bind(this, errorElement));
     });
   }
 
-  hideError(errorElement) {
-    if (errorElement) {
-      errorElement.classList.remove("is-visible");
-    }
-  }
-
-  validateInput(input, errorElement) {
-    if (input.value.trim() === "") {
-      errorElement.classList.add("is-visible");
-    } else {
-      this.hideError(errorElement);
-    }
+  hideErrorElement(errorElement) {
+    errorElement.classList.remove("is-visible");
   }
 }
