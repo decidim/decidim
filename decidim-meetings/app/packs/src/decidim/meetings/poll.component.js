@@ -142,12 +142,12 @@ export default class PollComponent {
       $el.prop(OPEN, true);
     }
 
-    if($el.data("status") === CLOSED && $el.data("status") !== questionStatus ) {
+    if ($el.data("status") === CLOSED && $el.data("status") !== questionStatus) {
       $el.data("status", `${CLOSED}-new`);
       document.getElementById(`closed-announcement-${questionId}`).hidden = false;
     }
 
-    if(answersStatuses) {
+    if (answersStatuses) {
       for (const [key, value] of Object.entries(answersStatuses)) {
         if (key.includes("[choices]")) {
           $el.find(`[name='${key}'][value='${value}']`).prop("checked", true);
