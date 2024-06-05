@@ -18,6 +18,10 @@ module Decidim
       def has_questions?
         questionnaire&.questions&.exists?
       end
+
+      def has_open_questions?
+        has_questions? && questionnaire.questions.not_closed.exists?
+      end
     end
   end
 end
