@@ -88,6 +88,7 @@ describe "Meeting poll answer" do
     end
 
     it "does not allow selecting more than the maximum choices for multiple options" do
+      sleep(2)
       open_first_question
 
       check question_multiple_option.answer_options.first.body["en"]
