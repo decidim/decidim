@@ -9,7 +9,13 @@
       <p class="h3"><%= translated_attribute(question.body) %></p>
 
       <% if question.unpublished? %>
-        <%= link_to t(".edit"), Decidim::EngineRouter.admin_proxy(meeting.component).edit_meeting_poll_path(meeting), class: "button button__xs button__secondary mr-auto mt-2" %>
+        <%= link_to(
+          t(".edit"),
+          Decidim::EngineRouter.admin_proxy(meeting.component).edit_meeting_poll_path(meeting),
+          class: "button button__xs button__secondary mr-auto mt-2",
+          target: "_blank",
+          rel: "noopener noreferrer"
+        ) %>
       <% end %>
 
       <div>
