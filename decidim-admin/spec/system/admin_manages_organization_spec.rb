@@ -17,7 +17,7 @@ describe "Admin manages organization" do
     it "updates the values from the form" do
       visit decidim_admin.edit_organization_path
 
-      fill_in "Name", with: "My super-uber organization"
+      fill_in_i18n :organization_name, "#organization-name-tabs", en: "My super-uber organization"
 
       %w(X Facebook Instagram YouTube GitHub).each do |network|
         within "#organization_social_handlers" do
