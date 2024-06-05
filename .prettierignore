@@ -10,3 +10,5 @@ tmp
 decidim-packs
 # inner package-lock files inside the packages/ folder
 packages/**/package-lock.json
+
+**/locales/*.yml
