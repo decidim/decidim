@@ -27,27 +27,6 @@ module Decidim
                        end
     end
 
-    def resource_join
-      resource_table = Arel::Table.new(resource_table_name)
-      attachments_table = Decidim::Attachment.arel_table
-      attachments_table.join(resource_table).on(
-        resource_table[:id].eq(attachments_table[:attached_to_id]),
-        attachments_table[:attached_to_type].eq(resource_model_name)
-      )
-    end
-
-    def resource_model_name
-      @resource_model_name ||= Decidim.resource_registry.find(manifest_name)&.model_class_name
-    end
-
-    def resource_model
-      @resource_model ||= resource_model_name&.safe_constantize
-    end
-
-    def resource_table_name
-      @resource_table_name ||= resource_model&.table_name
-    end
-
     def documents
       @documents ||= attachments.with_attached_file.order(:weight).select(&:document?)
     end
@@ -75,5 +54,28 @@ module Decidim
     end
 
     def description; end
+
+    private
+
+    def resource_join
+      resource_table = Arel::Table.new(resource_table_name)
+      attachments_table = Decidim::Attachment.arel_table
+      attachments_table.join(resource_table).on(
+        resource_table[:id].eq(attachments_table[:attached_to_id]),
+        attachments_table[:attached_to_type].eq(resource_model_name)
+      )
+    end
+
+    def resource_model_name
+      @resource_model_name ||= Decidim.resource_registry.find(manifest_name)&.model_class_name
+    end
+
+    def resource_model
+      @resource_model ||= resource_model_name&.safe_constantize
+    end
+
+    def resource_table_name
+      @resource_table_name ||= resource_model&.table_name
+    end
   end
 end
