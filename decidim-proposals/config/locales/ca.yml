@@ -154,6 +154,7 @@ ca:
             amendments_wizard_help_text: Text d'ajuda al crear una nova esmena
             announcement: Avís
             attachments_allowed: Permetre adjunts
+            attachments_allowed_help: En activar aquesta opció, les propostes es mostraran en mode de quadrícula per defecte i la primera imatge apareixerà a la targeta.
             can_accumulate_supports_beyond_threshold: Pot acumular suports més enllà del llindar
             collaborative_drafts_enabled: Esborranys col·laboratius habilitats
             comments_enabled: Comentaris habilitats
@@ -800,6 +801,8 @@ ca:
           count:
             one: "%{count} proposta"
             other: "%{count} propostes"
+          grid_mode: Vista en quadrícula
+          list_mode: Vista en llistat
           new_proposal: Nova proposta
           see_all: Veure totes les propostes
           see_all_withdrawn: Veure totes les propostes retirades
