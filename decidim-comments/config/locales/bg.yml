@@ -34,3 +34,70 @@ bg:
       comments_title: Коментар
       last_activity:
         new_comment: 'Нов коментар:'
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Влезте в профила си</a> или <a href="%{sign_up_url}">се регистрирайте</a>, за да добавите Вашия коментар.
+        form:
+          body:
+            label: Коментар
+            placeholder: Какво мислите за това?
+          form_error: Текстът е задължителен и не може да е по-дълъг от %{length} символа.
+          submit_reply: Публикуване на отговор
+          submit_root_comment: Публикуване на коментар
+          user_group_id:
+            label: Коментирайте като
+        opinion:
+          label: Вашето мнение по тази тема
+          negative: Негативно
+          negative_selected: Вашето мнение по тази тема е негативно
+          neutral: Неутрално
+          neutral_selected: Вашето мнение по тази тема е неутрално
+          positive: Позитивно
+          positive_selected: Вашето мнение по тази тема е позитивно
+        remaining_characters: "Оставащи символи: %{count}"
+        remaining_characters_1: "%{count} оставащ символ"
+        title: Добавете Вашия коментар
+      comment:
+        alignment:
+          against: Против
+          in_favor: Подкрепям
+        cancel_reply: Отказ от отговор
+        comment_label: Коментар %{comment_id}
+        comment_label_reply: Коментар %{comment_id} (отговор на коментар %{parent_comment_id})
+        confirm_destroy: Сигурни ли сте, че искате да изтриете този коментар?
+        controls_label: Контроли за коментари
+        delete: Изтрий
+        deleted_at: Коментарът е изтрит на %{date}
+        deleted_user: Изтрит участник
+        edit: Редактирай
+        edited: Редактирано
+        hide_replies:
+          one: Скриване на отговора
+          other: Скриване на %{count} отговора
+        moderated_at: Коментарът е модериран на %{date}
+        reply: Отговори
+        report:
+          action: Доклад
+          already_reported: Това съдържание вече е докладвано и ще бъде прегледано от администратор.
+          close: Затвори
+          description: Това съдържание неподходящо ли е?
+    events:
+      comments:
+        reply_created:
+          email_subject: "%{author_name} отговори на коментара Ви по %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> отговори на коментара Ви по <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: Група, към която принадлежите, беше спомената
+          email_outro: Получавате това известие, защото сте член на групата %{group_name}, която беше спомената в(ъв) %{resource_title}.
+          email_subject: Бяхте споменати в(ъв) %{resource_title} като член на %{group_name}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> Ви спомена в(ъв) <a href="%{resource_path}">%{resource_title}</a> като член на <a href="%{group_path}">%{group_name} %{group_nickname}</a>
+        user_mentioned:
+          email_intro: Бяхте споменати
+          email_outro: Получавате това известие, защото бяхте споменати в(ъв) %{resource_title}.
+          email_subject: Бяхте споменати в(ъв) %{resource_title}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> Ви спомена в(ъв) <a href="%{resource_path}">%{resource_title}</a>
+    metrics:
+      comments:
+        description: Брой коментари генерирани от участници
+        object: коментари
+        title: Коментари
