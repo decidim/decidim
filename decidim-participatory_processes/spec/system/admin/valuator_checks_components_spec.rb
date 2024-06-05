@@ -43,7 +43,7 @@ describe "Valuator checks components" do
       visit decidim_admin.root_path
     end
 
-    it "can only see the proposals component" do
+    it "can access the participatory space" do
       click_on "Process"
       click_on translated(participatory_process.title)
       expect(page).to have_link("Components")
