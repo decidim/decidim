@@ -4,12 +4,33 @@ bg:
     models:
       decidim/comments/comment_by_followed_user_event: Коментар
       decidim/comments/comment_created_event: Коментар
+      decidim/comments/comment_upvoted_event: Коментарът е одобрен
       decidim/comments/reply_created_event: Отговор на коментар
+      decidim/comments/user_group_mentioned_event: Споменаване
+      decidim/comments/user_mentioned_event: Споменаване
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Коментар
+        other: Коментари
+      decidim/comments/comment_vote:
+        one: Глас
+        other: Гласове
   decidim:
     comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Коментарите са активирани
+            end_time: Коментарите са активирани до
+            start_time: Коментарите са активирани от
       comments:
+        create:
+          error: Възникна проблем при създаването на коментара.
         delete:
           error: Коментарът не можа да бъде изтрит.
+        update:
+          error: Възникна проблем при актуализирането на коментара.
       comments_count: Брой коментари
       last_activity:
         new_comment_at_html: "<span>Нов коментар на %{link}</span>"
