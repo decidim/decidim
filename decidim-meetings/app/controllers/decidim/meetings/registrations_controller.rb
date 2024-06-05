@@ -32,7 +32,7 @@ module Decidim
       def create
         enforce_permission_to(:register, :meeting, meeting:)
 
-        @form = JoinMeetingForm.from_params(params)
+        @form = JoinMeetingForm.from_params.merge(params)
 
         JoinMeeting.call(meeting, @form) do
           on(:ok) do
