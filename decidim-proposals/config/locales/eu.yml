@@ -154,6 +154,7 @@ eu:
             amendments_wizard_help_text: Zuzenketen testu-laguntzailea
             announcement: Jakinarazpena
             attachments_allowed: Onartu eranskinak
+            attachments_allowed_help: Aukera hori gaituta, proposamenak lehenetsita lauki moduan erakutsiko dira, eta lehen irudia txartelean agertuko da.
             can_accumulate_supports_beyond_threshold: Babesak metatu ditzake atalasetik haratago
             collaborative_drafts_enabled: Lankidetza zirriborroak gaituta
             comments_enabled: Iruzkinak gaituta
@@ -801,6 +802,8 @@ eu:
           count:
             one: "%{count} proposamen"
             other: "%{count} proposamen"
+          grid_mode: Lauki-forma modua
+          list_mode: Zerrenda modua
           new_proposal: Beste proposamen bat
           see_all: Ikusi proposamen guztiak
           see_all_withdrawn: Ikusi erretiratutako proposamen guztiak
