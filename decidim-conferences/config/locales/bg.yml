@@ -4,8 +4,20 @@ bg:
     attributes:
       conference:
         assemblies_ids: Свързани събрания
+        available_slots: Налични слотове
         banner_image: Банер изображение
         consultations_ids: Свързани консултации
+        copy_categories: Копиране на категориите
+        copy_components: Копиране на компонентите
+        copy_features: Копиране на функциите
+        decidim_scope_id: Обхват
+        description: Описание
+        end_date: Крайна дата
+        hashtag: Хаштаг
+        hero_image: Изображение за начална страница
+        location: Местоположение
+        main_logo: Основно лого
+        objectives: Цели
     errors:
       models:
         conference_registration_invite:
@@ -39,6 +51,7 @@ bg:
       conference_program:
         program_meeting:
           content: Съдържание
+          location: Местоположение
           streaming: Стриймване
         show:
           day: Ден
