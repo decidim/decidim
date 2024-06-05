@@ -95,6 +95,7 @@ Decidim.register_component(:proposals) do |component|
     resource.reported_content_cell = "decidim/proposals/reported_content"
     resource.actions = %w(endorse vote amend comment vote_comment)
     resource.searchable = true
+    resource.admin_route_name = "proposal"
   end
 
   component.register_resource(:collaborative_draft) do |resource|

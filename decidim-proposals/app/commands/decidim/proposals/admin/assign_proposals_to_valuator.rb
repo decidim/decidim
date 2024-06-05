@@ -24,6 +24,7 @@ module Decidim
 
           assign_proposals
           broadcast(:ok)
+          send_email
         rescue ActiveRecord::RecordInvalid
           broadcast(:invalid)
         end
@@ -31,6 +32,10 @@ module Decidim
         private
 
         attr_reader :form
+
+        def send_email
+          ProposalsValuatorMailer.notify_proposals_valuator(form.valuator_role.user, form.current_user, form.proposals).deliver_later
+        end
 
         def assign_proposals
           transaction do

@@ -1,0 +1,17 @@
+<p class="email-greeting"><%= t(".greeting", name: @valuator_user.name) %></p>
+
+<p class="email-instructions"><%= t(".email_body") %></p>
+
+<p class="email-instructions">
+  <ul>
+    <% @proposals.each do |proposal| %>
+      <li class="mb-sm">
+        <span><%= translated_attribute(proposal.title) %></span>:
+        <%= sanitize link_to(t(".public_side"), Decidim::ResourceLocatorPresenter.new(proposal).url), tags: ["a"], attributes: ["href"] %>,
+        <%= sanitize link_to(t(".admin_panel"), Decidim::ResourceLocatorPresenter.new(proposal).admin_url), tags: ["a"], attributes: ["href"] %>
+      </li>
+    <% end %>
+  </ul>
+</p>
+
+<p class="email-closing"><%= t(".gratitude") %></p>

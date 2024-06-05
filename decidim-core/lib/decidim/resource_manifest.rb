@@ -33,6 +33,11 @@ module Decidim
     # When not explicitly set, it will use the model name.
     attribute :route_name, String
 
+    # The name of the named Rails route to create the url to admin the resource
+    # If it is not defined, the resource will be considered non-administrable
+    # and no link will be generated in some places
+    attribute :admin_route_name, String
+
     # The template to use to render the collection of the resource.
     attribute :template, String
 
