@@ -34,13 +34,6 @@ module Decidim
         expect(questionnaire.questionnaire_for).to eq(questionable)
       end
 
-      describe "#questions_editable?" do
-        it "returns false when questionnaire has already answers" do
-          create(:meetings_poll_answer, questionnaire:)
-          expect(subject.reload).not_to be_questions_editable
-        end
-      end
-
       describe "#all_questions_unpublished?" do
         it "returns true when all questionnaire questions are in unpublished state" do
           subject.questions << create(:meetings_poll_question, :unpublished)

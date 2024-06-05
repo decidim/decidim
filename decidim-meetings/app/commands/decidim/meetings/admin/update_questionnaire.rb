@@ -25,7 +25,7 @@ module Decidim
             Decidim::Meetings::Questionnaire.transaction do
               create_questionnaire_for
               create_questionnaire
-              update_questionnaire_questions if @questionnaire.questions_editable?
+              update_questionnaire_questions
               @questionnaire
             end
           end

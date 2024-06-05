@@ -11,11 +11,6 @@ module Decidim
       has_many :questions, -> { order(:position) }, class_name: "Question", foreign_key: "decidim_questionnaire_id", dependent: :destroy
       has_many :answers, class_name: "Answer", foreign_key: "decidim_questionnaire_id", dependent: :destroy
 
-      # Public: returns whether the questionnaire questions can be modified or not.
-      def questions_editable?
-        true
-      end
-
       def all_questions_unpublished?
         questions.all?(&:unpublished?)
       end
