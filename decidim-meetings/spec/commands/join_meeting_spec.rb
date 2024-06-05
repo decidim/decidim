@@ -28,7 +28,8 @@ module Decidim::Meetings
 
     let(:user_group) { create(:user_group) }
 
-    let(:form_params) do {
+    let(:form_params) do
+      {
         user_group_id: user_group.id
       }
     end
@@ -37,7 +38,7 @@ module Decidim::Meetings
       Decidim::Meetings::JoinMeetingForm.from_params(
         form_params
       ).with_context(
-       current_user: user
+        current_user: user
       )
     end
 
