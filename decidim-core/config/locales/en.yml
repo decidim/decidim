@@ -361,7 +361,8 @@ en:
       document:
         download: Download file
       documents:
-        component_documents: "%{name} documents"
+        component_documents:
+          meetings: Meetings documents
         documents: Documents
         related_documents: Related documents
       photo:

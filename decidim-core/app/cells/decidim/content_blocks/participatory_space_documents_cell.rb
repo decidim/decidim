@@ -10,8 +10,12 @@ module Decidim
 
         return [] if components.blank?
 
-        components.where(manifest_name: COMPONENTS_WITH_DOCUMENTS_COLLECTIONS).published.map do |component|
-          Decidim::ComponentAttachmentCollectionPresenter.new(component)
+        components = components.where(manifest_name: COMPONENTS_WITH_DOCUMENTS_COLLECTIONS).published
+
+        include_component_name = components.count > 1
+
+        components.map do |component|
+          Decidim::ComponentAttachmentCollectionPresenter.new(component, include_component_name:)
         end
       end
     end

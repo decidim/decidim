@@ -7,6 +7,12 @@ module Decidim
   class ComponentAttachmentCollectionPresenter < SimpleDelegator
     include Decidim::TranslatableAttributes
 
+    def initialize(resource, opts = {})
+      super(resource)
+
+      @include_component_name = opts[:include_component_name]
+    end
+
     def attachments
       @attachments ||= if [resource_model_name, resource_table_name].all?(&:present?)
                          base_query = Decidim::Attachment.joins(resource_join.join_sources)
@@ -61,7 +67,11 @@ module Decidim
     end
 
     def name
-      I18n.t("decidim.application.documents.component_documents", name: translated_attribute(__getobj__.name))
+      base_name = I18n.t(manifest_name, scope: "decidim.application.documents.component_documents")
+
+      return base_name unless @include_component_name
+
+      "#{base_name} - #{translated_attribute(__getobj__.name)}"
     end
 
     def description; end
