@@ -257,6 +257,15 @@ bg:
           exit: Изход от гласуването
           message: Вашият глас не е регистриран, защото все още не сте завършили процеса на гласуване. Сигурни ли сте, че искате да излезете от гласуването?
           title: Все още не сте гласували
+        filters:
+          category: Категория
+          scope: Обхват
+          search: Търсене
+          status: Статус
+          status_values:
+            all: Всички
+            not_selected: Не селектирано
+            selected: Селектирано
         filters_small_view:
           close_modal: Затвори прозореца
           filter: Филтър
@@ -264,16 +273,30 @@ bg:
           unfold: Разгъване
         index:
           view_project: Преглед на проекта
+        order_progress:
+          vote: Гласувай
         order_selected_projects:
           remove: Премахни
           selected_projects:
             one: избран проект
             other: избрани проекти
           view: Преглед
+        orders:
+          highest_cost: Най-висока стойност
+          label: Подреждане на проектите по
+          lowest_cost: Най-ниска стойност
+          most_voted: Най-гласувани
+          random: Случаен ред
+          selected: Селектирано
         project:
           add: Добавяне на проект %{resource_name} към Вашето гласуване
           remove: Премахване на проекта %{resource_name} от Вашето гласуване
+          selected: Селектирано
           view: Преглед
+          votes:
+            one: глас
+            other: гласове
+          you_voted: Ти гласува за това
         project_budget_button:
           add: Добавяне към гласуването Ви
           add_descriptive: Добавяне на проект %{resource_name} към Вашето гласуване
@@ -283,14 +306,34 @@ bg:
         show:
           budget: Бюджет
           view_all_projects: Преглед на всички проекти
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: 'Области, в които имате незавършено гласуване:'
+          email_intro: Започнахте гласуването за бюджет на участието, но не сте го завършили.
+          email_link: Преминете към продължаване на гласуването
+          email_outro: Моля, не забравяйте да завършите гласуването. За да гласувате, първо трябва да изберете предложението или предложенията, за които искате да гласувате и след това да потвърдите гласа си с бутона „Гласувай“.
+          email_subject:
+            one: Имате незавършено гласуване в гласуването за бюджет на участието
+            other: Имате незавършени гласувания в гласуването за бюджет на участието
     components:
       budgets:
+        actions:
+          comment: Коментар
+          vote: Гласувай
+        name: Бюджети
         settings:
           global:
+            announcement: Обявление
+            comments_enabled: Коментарите са активирани
+            comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
             form:
               errors:
                 budget_voting_rule_only_one: Трябва да бъде активирано само едно правило за гласуване
                 budget_voting_rule_required: Изисква се едно правило за гласуване
+            geocoding_enabled: Координатите са активирани
+            landing_page_content: Целева страница на „Бюджети“
+            more_information_modal: Диалогов прозорец за повече информация
+            projects_per_page: Проекти на страница
             resources_permissions_enabled: Права за действия могат да се задават за всеки проект
             scope_id: Обхват
             scopes_enabled: Обхватите са активирани
@@ -335,3 +378,11 @@ bg:
       destroy:
         error: Възникна проблем при отмяната на гласа Ви
         success: Вашият глас беше отменен успешно
+    resource_links:
+      included_proposals:
+        project_proposal: Предложения, включени в този проект
+    statistics:
+      orders_count: Подкрепа
+      projects_count: Проекти
+  index:
+    confirmed_orders_count: Брой гласове
