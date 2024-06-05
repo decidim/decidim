@@ -42,7 +42,7 @@ module Decidim
       attr_reader :meeting, :user_group, :registration, :form
 
       def accept_invitation
-        meeting.invites.find_by(current_user: user)&.accept!
+        meeting.invites.find_by(user: current_user)&.accept!
       end
 
       def answer_questionnaire
@@ -60,10 +60,9 @@ module Decidim
       end
 
       def create_registration
-        # byebugcure
         @registration = Decidim::Meetings::Registration.create!(
           meeting:,
-          current_user: user,
+          user: current_user,
           user_group:,
           public_participation: form.public_participation
         )
@@ -71,11 +70,11 @@ module Decidim
 
       def can_join_meeting?
         meeting.registrations_enabled? && meeting.has_available_slots? &&
-          !meeting.has_registration_for?(user: current_user)
+          !meeting.has_registration_for?(current_user)
       end
 
       def send_email_confirmation
-        Decidim::Meetings::RegistrationMailer.confirmation(meeting, registration).deliver_later
+        Decidim::Meetings::RegistrationMailer.confirmation(current_user, meeting, registration).deliver_later
       end
 
       def send_notification_confirmation
@@ -83,7 +82,7 @@ module Decidim
           event: "decidim.events.meetings.meeting_registration_confirmed",
           event_class: Decidim::Meetings::MeetingRegistrationNotificationEvent,
           resource: @meeting,
-          affected_users: [@user],
+          affected_users: [current_user],
           extra: {
             registration_code: @registration.code
           }
@@ -124,7 +123,7 @@ module Decidim
       def follow_form
         Decidim::FollowForm
           .from_params(followable_gid: meeting.to_signed_global_id.to_s)
-          .with_context(current_user: user)
+          .with_context(current_user:)
       end
 
       def occupied_slots_over?(percentage)
