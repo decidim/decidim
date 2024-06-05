@@ -599,7 +599,6 @@ en:
         answers:
           index:
             administrate: Administrate
-            meeting: Meeting
             title: Poll
           index_admin:
             back_to_meeting: Back to meeting
