@@ -701,7 +701,6 @@ linters:
           - is-accordion-submenu
           - is-accordion-submenu-parent
           - is-accordion-submenu-parent[aria-expanded=true]
-          - is-admin
           - is-anchored
           - is-at-bottom
           - is-at-top
