@@ -5,8 +5,11 @@ require "spec_helper"
 module Decidim
   describe ComponentAttachmentCollectionPresenter, type: :helper do
     let(:presenter) { described_class.new(component) }
-    let(:participatory_space) { create(:participatory_process) }
+    let(:presenter_with_options) { described_class.new(component, opts) }
 
+    let(:opts) { {} }
+
+    let(:participatory_space) { create(:participatory_process) }
     let(:component) { create(:component, :published, participatory_space:) }
     let(:resource) { create(:dummy_resource, component:, published_at: Time.current) }
     let!(:document) { create(:attachment, :with_pdf, attached_to: resource) }
@@ -35,6 +38,20 @@ module Decidim
         let!(:document) { nil }
 
         it { is_expected.to be true }
+      end
+    end
+
+    describe "#name" do
+      subject { presenter_with_options.name }
+
+      context "with blank options" do
+        it { is_expected.to eq("Dummy component documents") }
+      end
+
+      context "with include_component_name true option" do
+        let(:opts) { { include_component_name: true } }
+
+        it { is_expected.to eq("Dummy component documents - #{translated_attribute(component.name)}") }
       end
     end
   end
