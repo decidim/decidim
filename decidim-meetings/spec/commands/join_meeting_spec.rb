@@ -37,7 +37,7 @@ module Decidim::Meetings
       Decidim::Meetings::JoinMeetingForm.from_params(
         form_params
       ).with_context(
-        current_user: user
+       current_user: user
       )
     end
 
