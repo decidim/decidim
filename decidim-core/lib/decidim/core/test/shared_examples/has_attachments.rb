@@ -23,7 +23,7 @@ shared_examples_for "has attachments content blocks" do
     end
   end
 
-  context "when it has meetings components with meetings" do
+  context "when it has meetings components with attachments" do
     let!(:document) { create(:attachment, :with_pdf, attached_to:) }
 
     let(:meeting_component) { create(:meeting_component, :published, participatory_space: attached_to) }
