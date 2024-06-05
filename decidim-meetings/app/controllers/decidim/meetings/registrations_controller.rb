@@ -9,7 +9,7 @@ module Decidim
       def answer
         enforce_permission_to(:join, :meeting, meeting:)
 
-        @form = form(Decidim::Forms::QuestionnaireForm).from_params(params.merge(session_token:)gi)
+        @form = form(Decidim::Forms::QuestionnaireForm).from_params(params.merge(session_token:))
 
         JoinMeeting.call(meeting, @form) do
           on(:ok) do
