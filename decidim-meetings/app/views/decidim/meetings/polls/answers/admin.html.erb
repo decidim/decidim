@@ -17,7 +17,7 @@
       <%= t("back_to_meeting", scope: "decidim.meetings.polls.answers.index_admin") %>
     <% end %>
 
-    <%= link_to meeting_polls_answers_path(meeting), class: "button button__sm button__secondary" do %>
+    <%= action_authorized_link_to :reply_poll, meeting_polls_answers_path(meeting), class: "button button__sm button__secondary", data: { "redirect_url" => meeting_polls_answers_path(meeting) }, resource: meeting do %>
       <%= t("view_poll", scope: "decidim.meetings.polls.answers.index_admin") %>
     <% end %>
   </div>
