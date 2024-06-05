@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Meeting live event poll administration" do
+describe "Meeting poll administration" do
   include_context "when managing a component" do
     let(:component_organization_traits) { admin_component_organization_traits }
   end
@@ -24,19 +24,12 @@ describe "Meeting live event poll administration" do
 
   let(:manifest_name) { "meetings" }
 
-  let(:meeting) { create(:meeting, :published, :online, :live, component:) }
+  let(:meeting) { create(:meeting, :published, component:) }
   let(:meeting_path) do
     decidim_participatory_process_meetings.meeting_path(
       participatory_process_slug: participatory_process.slug,
       component_id: component.id,
       id: meeting.id
-    )
-  end
-  let(:meeting_live_event_path) do
-    decidim_participatory_process_meetings.meeting_live_event_path(
-      participatory_process_slug: participatory_process.slug,
-      component_id: component.id,
-      meeting_id: meeting.id
     )
   end
   let(:body_multiple_option_question) do
@@ -56,14 +49,17 @@ describe "Meeting live event poll administration" do
   let!(:poll) { create(:poll, meeting:) }
   let!(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
 
-  before do
-    visit meeting_live_event_path
-    click_on "Administrate"
-  end
-
   context "when all questions are unpublished" do
     let!(:question_multiple_option) { create(:meetings_poll_question, :unpublished, questionnaire:, body: body_multiple_option_question, question_type: "multiple_option") }
     let!(:question_single_option) { create(:meetings_poll_question, :unpublished, questionnaire:, body: body_single_option_question, question_type: "single_option") }
+
+    before do
+      visit meeting_path
+      within("[aria-label='aside']") do
+        click_link_or_button "Reply poll"
+      end
+      click_link_or_button "Administrate"
+    end
 
     it "list the questions in the Administrate section" do
       expect(page.all(".meeting-polls__question--admin").size).to eq(2)
@@ -100,6 +96,15 @@ describe "Meeting live event poll administration" do
     let!(:answer_choice_user1) { create(:meetings_poll_answer_choice, answer: answer_user1, answer_option: question_multiple_option.answer_options.first) }
     let!(:answer_choice_user2) { create(:meetings_poll_answer_choice, answer: answer_user2, answer_option: question_multiple_option.answer_options.first) }
 
+    before do
+      visit meeting_path
+      within("[aria-label='aside']") do
+        click_link_or_button "Reply poll"
+      end
+
+      click_link_or_button "Administrate"
+    end
+
     it "allows to see question answers" do
       open_first_question
 
@@ -127,6 +132,6 @@ describe "Meeting live event poll administration" do
   end
 
   def open_first_question
-    page.first(".meeting-polls__question--admin").click
+    find(".meeting-polls__question--admin", match: :first).click
   end
 end
