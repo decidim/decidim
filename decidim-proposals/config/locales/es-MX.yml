@@ -154,6 +154,7 @@ es-MX:
             amendments_wizard_help_text: Asistente de ayuda de las enmiendas
             announcement: "Aviso\n"
             attachments_allowed: Permitir archivos adjuntos
+            attachments_allowed_help: Al activar esta opción, las propuestas se mostrarán en modo de cuadrícula por defecto y la primera imagen aparecerá en la tarjeta.
             can_accumulate_supports_beyond_threshold: Puede acumular apoyos más allá del umbral
             collaborative_drafts_enabled: Habilitar borradores colaborativos
             comments_enabled: Comentarios habilitados
@@ -800,6 +801,8 @@ es-MX:
           count:
             one: "%{count} propuesta"
             other: "%{count} propuestas"
+          grid_mode: Vista en cuadrícula
+          list_mode: Vista en listado
           new_proposal: Nueva propuesta
           see_all: Ver todas las propuestas
           see_all_withdrawn: Ver todas las propuestas retiradas
