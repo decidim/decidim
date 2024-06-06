@@ -258,6 +258,7 @@ ru:
       registrations:
         new:
           already_have_an_account?: У вас уже есть учетная запись?
+          log_in: Войти
           newsletter: Получать время от времени рассылку со свежими новостями
           newsletter_title: Разрешение на связь с вами
           sign_up: Зарегистрироваться
@@ -634,10 +635,14 @@ ru:
       signed_up: Добро пожаловать! Вы успешно зарегистрировались.
       signed_up_but_inactive: Вы успешно зарегистрировались. Однако вы не можете войти в систему, потому что учетная запись еще не активирована.
       signed_up_but_locked: Вы успешно зарегистрировались. Однако вы не можете войти в систему, потому что ваша учетная запись заблокирована.
+    sessions:
+      new:
+        log_in: Войти
     shared:
       links:
         back: Назад
         forgot_your_password: Забыли пароль?
+        log_in: Войти
         sign_up: Зарегистрироваться
     unlocks:
       new:
@@ -661,8 +666,11 @@ ru:
       edit_link:
         edit: Редактировать
       footer:
+        log_in: Войти
         made_with_open_source: Сайт создан с помощью <a target="_blank" href="https://github.com/decidim/decidim"> бесплатного программного обеспечения</a>.
         sign_up: Зарегистрироваться
+      header:
+        log_in: Войти
       impersonation_warning:
         close_session: Закрыть сеанс
         description_html: Вы выступаете в роли участника <b>%{user_name}</b>.
