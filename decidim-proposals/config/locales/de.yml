@@ -74,12 +74,10 @@ de:
           attributes:
             base:
               not_official: Sind nicht offiziell
-              supported: Haben Stimmen oder Unterstützung erhalten
         proposals_split:
           attributes:
             base:
               not_official: Sind nicht offiziell
-              supported: Haben Stimmen oder Unterstützung erhalten
     models:
       decidim/proposals/admin/update_proposal_category_event: Vorschlagskategorie geändert
       decidim/proposals/admin/update_proposal_scope_event: Vorschlagsumfang geändert
@@ -99,9 +97,6 @@ de:
       decidim/proposals/proposal_note:
         one: Anmerkung
         other: Anmerkungen
-      decidim/proposals/proposal_vote:
-        one: Unterstützung
-        other: Unterstützer
   decidim:
     admin:
       filters:
@@ -143,7 +138,6 @@ de:
           comment: Kommentieren
           create: Erstellen
           endorse: Unterstützung
-          vote: Abstimmung
           vote_comment: Kommentar bewerten
           withdraw: Zurückziehen
         name: Vorschläge
@@ -155,23 +149,19 @@ de:
             announcement: Ankündigung
             attachments_allowed: Anhänge zulassen
             attachments_allowed_help: Durch Aktivieren dieser Option werden Vorschläge standardmäßig im Rastermodus angezeigt und das erste Bild wird auf der Karte angezeigt.
-            can_accumulate_supports_beyond_threshold: Kann Unterstützungen über den Schwellenwert hinaus ansammeln
             collaborative_drafts_enabled: Kollaborative Entwürfe aktiviert
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             default_sort_order: Standardsortierung für Vorschläge
-            default_sort_order_help: Standardmäßig bedeutet, dass, wenn Vorschläge unterstützt werden können, sie nach Zufall sortiert werden, und wenn die Unterstützung blockiert werden, sie nach den meist unterstützten sortiert werden.
             default_sort_order_options:
               default: Standard
               most_commented: Am häufigsten kommentiert
               most_endorsed: Am häufigsten befürwortet
               most_followed: Am häufigsten gefolgt
-              most_voted: Am meisten unterstützt
               random: Zufällig
               recent: Neueste
               with_more_authors: Mit mehr Autoren
             geocoding_enabled: Geocoding aktiviert
-            minimum_votes_per_user: Mindeststimmen pro Nutzer
             new_proposal_body_template: Textvorlage für neuen Vorschlag
             new_proposal_body_template_help: Sie können den vorgefüllten Text der neuen Vorschläge bestimmen
             new_proposal_help_text: Hilfetext für neue Vorschläge
@@ -192,7 +182,6 @@ de:
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
             threshold_per_proposal: Schwellenwert pro Vorschlag
-            vote_limit: Unterstützungslimit pro Benutzer
           step:
             amendment_creation_enabled: Ergänzungserstellung aktiviert
             amendment_creation_enabled_help: Teilnehmer kann Vorschläge ergänzen.
@@ -212,13 +201,11 @@ de:
             creation_enabled: Teilnehmer können Vorschläge erstellen
             creation_enabled_readonly: Diese Einstellung ist deaktiviert, wenn Sie die Funktion "Partizipative Texte" aktivieren. Um Vorschläge als partizipativen Text hochzuladen, klicken Sie "Partizipative Texte" und folgen Sie den Anweisungen.
             default_sort_order: Standardsortierung für Vorschläge
-            default_sort_order_help: Standardmäßig bedeutet, dass, wenn Vorschläge unterstützt werden können, sie nach Zufall sortiert werden, und wenn die Unterstützung blockiert werden, sie nach den meist unterstützten sortiert werden.
             default_sort_order_options:
               default: Standard
               most_commented: Am meisten kommentiert
               most_endorsed: Am meisten befürwortet
               most_followed: Am häufigsten gefolgt
-              most_voted: Am häufigsten unterstützt
               random: Zufällig
               recent: Neueste
               with_more_authors: Mit mehr Autoren
@@ -228,9 +215,6 @@ de:
             publish_answers_immediately: Vorschlagsantworten sofort veröffentlichten
             publish_answers_immediately_help_html: 'Wenn Sie einen Vorschlag ohne diese Option beantworten, müssen Sie die Antwort manuell veröffentlichen, indem Sie den Vorschlag auswählen und über «Aktionen» im Menü veröffentlichen. Weitere Informationen darüber finden Sie auf der <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">Dokumentationsseite zur Vorschlagsbeantwortung</a>.'
             suggested_hashtags: Hashtags schlug Benutzern neue Vorschläge vor
-            votes_blocked: Abstimmung blockiert
-            votes_enabled: Abstimmung aktiviert
-            votes_hidden: Abstimmungen ausgeblendet (wenn Abstimmungen aktiviert sind, wird dies die Anzahl der Abstimmungen verbergen)
     events:
       proposals:
         admin:
@@ -317,10 +301,7 @@ de:
           email_subject: Der Bereich des Vorschlags %{resource_title} wurde aktualisiert
           notification_title: Der Bereich des Vorschlags <a href="%{resource_path}">%{resource_title}</a> wurde von einem Administrator aktualisiert.
         voting_enabled:
-          email_intro: 'Sie können für Vorschläge in %{participatory_space_title} abstimmen! Beteiligen Sie sich auf dieser Seite:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: In %{participatory_space_title} ist es jetzt möglich, für Vorschläge abzustimmen
-          notification_title: Sie können jetzt für Vorschläge in <a href="%{participatory_space_url}">%{participatory_space_title}</a> <a href="%{resource_path}">abstimmen</a>
     gamification:
       badges:
         accepted_proposals:
@@ -337,14 +318,7 @@ de:
         proposal_votes:
           conditions:
             - Stöbern Sie und verbringen Sie etwas Zeit, die Vorschläge anderer Leute zu lesen
-            - Unterstützen Sie die Vorschläge, die Sie mögen oder interessant finden
-          description: Dieses Abzeichen wird gewährt, wenn Sie Vorschläge anderer Personen unterstützen.
-          description_another: Dieser Benutzer hat %{score} Vorschläge unterstützt.
-          description_own: Sie haben %{score} Vorschläge unterstützt.
-          name: Vorschlag unterstützt
-          next_level_in: Unterstütze %{score} weitere Vorschläge, um das nächste Level zu erreichen!
-          unearned_another: Dieser Teilnehmer hat bisher noch keine Vorschläge unterstützt.
-          unearned_own: Sie haben noch keine Vorschläge unterstützt.
+            - 
         proposals:
           conditions:
             - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
@@ -369,10 +343,6 @@ de:
         description: Anzahl der Vorschläge
         object: Vorschläge
         title: Vorschläge
-      votes:
-        description: Anzahl der Unterstützungen zu Vorschlägen
-        object: Unterstützer
-        title: Unterstützer
     participatory_spaces:
       highlighted_proposals:
         last: Letzte Vorschläge
@@ -555,7 +525,6 @@ de:
             remove_assignment: Zuweisung entfernen
             remove_assignment_confirmation: Sind Sie sicher, diesen Schätzer von diesem Vorschlag zurückzuziehen?
             valuators: Schätzer
-            votes_count: Anzahl der Unterstützungen
           update_category:
             invalid: 'Diese Vorschläge gehörten bereits zur Kategorie %{subject_name}: %{proposals}.'
             select_a_category: Bitte wählen Sie eine Kategorie aus.
@@ -760,9 +729,6 @@ de:
         buttons:
           amend: Ändern
           comment: Kommentar
-      proposal_votes:
-        create:
-          error: Es gab Fehler bei der Abstimmung des Vorschlags.
       proposals:
         dynamic_map_instructions:
           description: Die Koordinaten werden aktualisiert, wenn Sie auf "Vorschau" klicken. Die angegebene Adresse wird sich jedoch nicht ändern.
@@ -794,7 +760,6 @@ de:
           search: Suche
           state: Status
           type: Art
-          voted: Gewählt
         index:
           click_here: Alle Vorschläge ansehen
           collaborative_drafts_list: Greifen Sie auf gemeinsame Entwürfe zu
@@ -815,7 +780,6 @@ de:
           most_commented: Am meisten kommentiert
           most_endorsed: Am meisten befürwortet
           most_followed: Am meisten gefolgt
-          most_voted: Am meisten unterstützt
           random: Zufällig
           recent: Kürzlich hinzugefügt
           with_more_authors: Mit mehr Autoren
@@ -853,37 +817,13 @@ de:
           proposal_accepted_reason: 'Dieser Vorschlag wurde angenommen, weil:'
           proposal_in_evaluation_reason: Dieser Vorschlag wird evaluiert
           proposal_rejected_reason: 'Dieser Vorschlag wurde abgelehnt, weil:'
-          withdraw_btn_hint: Sie können Ihren Vorschlag zurückziehen, wenn Sie es sich anders überlegen, solange Sie keine Unterstützung erhalten haben. Der Vorschlag wird nicht gelöscht, er erscheint in der Liste der zurückgezogenen Vorschläge.
           withdraw_confirmation_html: Sind Sie sicher, dass Sie diesen Vorschlag zurückziehen möchten?<br><br><strong>Diese Aktion kann nicht abgebrochen werden!</strong>
           withdraw_proposal: Vorschlag zurückziehen
         update:
           title: Vorschlag aktualisieren
-        vote_button:
-          already_voted: Bereits unterstützt
-          already_voted_hover: Unterstützung zurückziehen
-          maximum_votes_reached: Unterstützungslimit erreicht
-          no_votes_remaining: Keine verbleibenden Unterstützungen
-          vote: Unterstützen
-          votes_blocked: Unterstützungen deaktiviert
-        votes_count:
-          count:
-            one: UNTERSTÜTZUNG
-            other: UNTERSTÜTZUNGEN
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: Jeder Vorschlag kann mehr als %{limit} Unterstützungen sammeln
-          minimum_votes_per_user:
-            description: Sie müssen mindestens %{votes} Stimmen auf verschiedene Vorschläge verteilen.
-            given_enough_votes: Sie haben ausreichend Unterstützungen vergeben.
-            supports_remaining: Sie müssen %{remaining_votes} weitere Vorschläge abgeben, damit Ihre Stimmen berücksichtigt werden.
           proposal_limit:
             description: Sie können bis zu %{limit} Vorschläge erstellen.
-          threshold_per_proposal:
-            description: Um validiert zu werden, müssen die Vorschläge %{limit} Unterstützungen erreichen.
-          title: 'Die Abstimmung unterliegt folgenden Regeln:'
-          vote_limit:
-            description: Sie können bis zu %{limit} Vorschläge abstimmen.
-            votes: Stimmen
         wizard_aside:
           back: Zurück
           back_from_step_1: Zurück zu Vorschlägen
@@ -910,9 +850,6 @@ de:
       versions:
         index:
           title: Versionen
-      withdraw:
-        errors:
-          has_supports: Dieser Vorschlag kann nicht zurückgezogen werden, da er bereits unterstützt wird.
     resource_links:
       copied_from_component:
         proposal_proposal: Ähnliche Vorschläge
@@ -924,4 +861,4 @@ de:
     statistics:
       proposals_accepted: Akzeptierte Vorschläge
       proposals_count: Vorschläge
-      supports_count: Unterstützungen
+      votes_count: Stimmen
