@@ -18,6 +18,48 @@ bg:
         location: Местоположение
         main_logo: Основно лого
         objectives: Цели
+        participatory_processes_ids: Свързани процеси за участие
+        promoted: Акцентирано
+        published_at: Публикувано на
+        registration_terms: Условия за регистрация
+        registrations_enabled: Регистрациите са активирани
+        scope_id: Обхват
+        scopes_enabled: Обхватите са активирани
+        short_description: Кратко описание
+        show_statistics: Покажи статистиките
+        sign_date: Дата на подпис
+        signature: Подпис
+        signature_name: Име на подписа
+        slogan: Девиз
+        slug: Съкратен URL
+        start_date: Начална дата
+        title: Заглавие
+      conference_media_link:
+        date: Дата
+        link: Линк
+        title: Заглавие
+        weight: Подредба на позиция
+      conference_partner:
+        link: Линк
+        logo: Лого
+        name: Име
+        partner_type: Тип партньор
+        weight: Подредба на позиция
+      conference_registration_invite:
+        email: Имейл
+        name: Име
+        registration_type_id: Тип регистрация
+        user_id: Потребител
+      conference_registration_type:
+        description: Описание
+        price: Цена
+        title: Заглавие
+        weight: Подредба на позиция
+      conference_speaker:
+        affiliation: Присъединяване
+        avatar: Аватар
+        conference_meeting_ids: Свързани срещи
+        full_name: Пълно име
     errors:
       models:
         conference_registration_invite:
@@ -29,11 +71,95 @@ bg:
       actions:
         new_conference: Нова конференция
       conferences:
+        create:
+          success: Конференцията беше създадена успешно.
+        edit:
+          update: Актуализация
+        exports:
+          registrations: Регистрации
+        form:
+          title: Основна информация
         index:
           not_published: Не публикувано
+          published: Публикувано
+        new:
+          create: Създаване
+          title: Конференция
+        update:
+          error: Възникна проблем при актуализирането на тази конференция.
+          success: Конференцията беше актуализирана успешно.
+      conferences_copies:
+        create:
+          error: Възникна проблем при дублирането на тази конференция.
+          success: Конференцията беше дублирана успешно.
+      media_links:
+        create:
+          error: Възникна проблем при създаването на нов медия линк.
+          success: Медийният линк беше създаден успешно.
+        destroy:
+          success: Медийният линк беше изтрит успешно.
+        edit:
+          title: Актуализиране на медийния линк.
+          update: Актуализация
+        index:
+          media_links_title: Медийни линкове
+        new:
+          create: Създаване
+          title: Медия линк
+        update:
+          error: Възникна проблем при актуализирането на този медия линк.
+          success: Медийният линк беше актуализиран успешно.
       menu:
+        conferences: Конференции
         conferences_submenu:
+          attachment_collections: Папки
+          attachment_files: Файлове
+          attachments: Прикачени файлове
+          categories: Категории
+          components: Компоненти
+          conference_admins: Администратори на конференция
+          conference_invites: Покани
+          conference_speakers: Говорители
+          diploma: Сертификати за присъствие
           info: Информация
+          media_links: Медия линкове
+          moderations: Модерации
+          partners: Партньори
+          registration_types: Типове регистрация
+          registrations: Регистрации
+          user_registrations: Потребителска регистрация
+      models:
+        conference:
+          fields:
+            created_at: Създадено на
+            promoted: Акцентирано
+            published: Публикувано
+            title: Заглавие
+        conference_speaker:
+          fields:
+            affiliation: Присъединяване
+            full_name: Пълно име
+            position: Длъжност
+          name: Говорител на конференция
+        conference_user_role:
+          fields:
+            email: Имейл
+            name: Име
+            role: Роля
+    admin_log:
+      conference:
+        update_diploma: "%{user_name} актуализира конфигурацията на сертификатите за присъствие на конференцията %{resource_name}"
+      conference_speaker:
+        create: "%{user_name} създаде говорителя %{resource_name} в конференцията %{space_name}"
+        delete: "%{user_name} премахна говорителя %{resource_name} от конференцията %{space_name}"
+        update: "%{user_name} актуализира говорителя %{resource_name} в конференцията %{space_name}"
+      conference_user_role:
+        create: "%{user_name} покани %{resource_name} в конференцията %{space_name}"
+        delete: "%{user_name} премахна администратора %{resource_name} от конференцията %{space_name}"
+        update: "%{user_name} промени ролята на %{resource_name} в конференцията %{space_name}"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} потвърди регистрация в конференцията %{resource_name}"
     conferences:
       admin:
         conference_invites:
@@ -52,6 +178,7 @@ bg:
         program_meeting:
           content: Съдържание
           location: Местоположение
+          speakers: Говорители
           streaming: Стриймване
         show:
           day: Ден
@@ -63,6 +190,9 @@ bg:
       conference_speaker_cell:
         twitter_handle:
           go_to_twitter: Към Twitter
+      conference_speakers:
+        index:
+          speakers: Говорители
       conferences:
         show:
           make_conference_registration: 'Регистрирайте се за конференцията:'
