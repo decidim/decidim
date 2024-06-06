@@ -345,6 +345,7 @@ sk:
       registrations:
         new:
           already_have_an_account?: Už máte účet?
+          log_in: Prihlásiť sa
           newsletter: Dostávajte príležitostný spravodajca s relevantnými informáciami
           newsletter_title: Povolenie kontaktu
           sign_up: Zaregistrovať sa
@@ -971,10 +972,14 @@ sk:
       signed_up_but_unconfirmed: Na vašu e-mailovú adresu bola odoslaná správa s potvrdzujúcim odkazom. Kliknutím na odkaz aktivujte svoj účet.
       update_needs_confirmation: Účet ste úspešne aktualizovali, ale musíme overiť novú e-mailovú adresu. Skontrolujte e-mail a potvrďte novú e-mailovú adresu.
       updated: Účet bol úspešne aktualizovaný.
+    sessions:
+      new:
+        log_in: Prihlásiť sa
     shared:
       links:
         back: Späť
         forgot_your_password: Zabudli ste heslo?
+        log_in: Prihlásiť sa
         sign_up: Prihlásiť sa
       minimum_password_length:
         one: "(Minimálne %{count} znakov)"
@@ -1022,6 +1027,7 @@ sk:
         edit: Upraviť
       footer:
         download_open_data: Stiahnite si súbory s otvorenými dátami
+        log_in: Prihlásiť sa
         made_with_open_source: Webová stránka vytvorená s <a target="_blank" href="https://github.com/decidim/decidim"> slobodným softvérom </a>.
         sign_up: Registrovať
       impersonation_warning:
