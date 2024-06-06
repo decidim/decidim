@@ -37,6 +37,15 @@ describe "Meeting poll answer" do
   let!(:poll) { create(:poll, meeting:) }
   let!(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
 
+  context "when there are no questions" do
+    it "does not show a link to reply poll" do
+      login_as user, scope: :user
+      visit meeting_path
+
+      expect(page).to have_no_content("Reply poll")
+    end
+  end
+
   context "when all questions are unpublished" do
     let!(:question_multiple_option) { create(:meetings_poll_question, :unpublished, questionnaire:, body: body_multiple_option_question, question_type: "multiple_option") }
     let!(:question_single_option) { create(:meetings_poll_question, :unpublished, questionnaire:, body: body_single_option_question, question_type: "single_option") }
@@ -51,6 +60,7 @@ describe "Meeting poll answer" do
 
     it "does not list any question" do
       expect(page.all(".meeting-polls__question--admin").size).to eq(0)
+      expect(page).to have_content("some questions will be sent")
     end
   end
 
