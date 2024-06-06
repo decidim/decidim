@@ -384,6 +384,7 @@ lv:
           already_have_an_account?: Jums jau ir konts?
           newsletter: Saņemiet neregulāru informatīvo biļetenu ar būtisko informāciju
           newsletter_title: Atļauja sazināties
+          sign_in: Pieteikties
           sign_up: Reģistrēties
           sign_up_as:
             legend: Reģistrēties kā
@@ -1264,6 +1265,8 @@ lv:
       updated: Jūsu konts tika veiksmīgi atjaunināts.
     sessions:
       already_signed_out: Veiksmīgi izrakstījāties.
+      new:
+        sign_in: Pieteikties
       signed_in: Veiksmīgi pierakstījāties.
       signed_out: Veiksmīgi izrakstījāties.
     shared:
@@ -1272,6 +1275,7 @@ lv:
         didn_t_receive_confirmation_instructions: Nesaņēmāt apstiprināšanas norādījumus?
         didn_t_receive_unlock_instructions: Nesaņēmāt atbloķēšanas norādījumus?
         forgot_your_password: Aizmirsāt paroli?
+        sign_in: Pieteikties
         sign_in_with_provider: Pierakstīties, izmantojot %{provider}
         sign_up: Reģistrēties
       minimum_password_length:
