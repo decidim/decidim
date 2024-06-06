@@ -1930,6 +1930,7 @@ fr-CA:
         sign_up: S'inscrire
         terms_of_service: Conditions d'utilisation
       header:
+        log_in: Connexion
         main_menu: Menu principal
         user_menu: Menu utilisateur
       impersonation_warning:
