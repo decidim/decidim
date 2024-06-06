@@ -77,6 +77,7 @@ describe "Meeting poll answer" do
     end
 
     it "allows to reply a question" do
+      sleep(2)
       open_first_question
 
       check question_multiple_option.answer_options.first.body["en"]
