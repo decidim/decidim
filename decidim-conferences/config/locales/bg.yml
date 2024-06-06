@@ -409,6 +409,7 @@ bg:
           free: Свободно
           going: Присъствие
           no_slots_available: Няма свободни места
+          registration: Регистрация
       conference_program:
         program_meeting:
           content: Съдържание
@@ -417,10 +418,24 @@ bg:
           streaming: Стриймване
         show:
           day: Ден
+          program: Програма
+      conference_registration_mailer:
+        confirmation:
+          confirmed_html: Регистрацията Ви за конференцията <a href="%{url}">%{title}</a> беше потвърдена.
+          details_1: 'Извършихте регистрация от типа %{registration_type} за конференцията. Тя струва %{price}, като можете да посетите следните събития:'
+          details_2: Ще намерите подробности за конференцията в прикачения файл.
+        pending_validation:
+          confirmation_pending: Скоро ще получите потвърждение
+          details: 'Извършихте регистрация от типа %{registration_type}, която струва %{price}, като можете да посетите следните събития:'
+          pending_html: Регистрацията Ви за конференцията <a href="%{url}">%{title}</a> изчаква потвърждение.
       conference_registrations:
         create:
+          invalid: Възникна проблем при присъединяването към тази конференция.
+          success: Успешно се присъединихте към конференцията.
           unauthorized: Трябва да влезете в акаунта си, преди да се регистрирате за конференцията.
         decline_invitation:
+          invalid: Възникна проблем при отхвърлянето на поканата.
+          success: Успешно отхвърлихте поканата.
           unauthorized: Трябва да влезете в акаунта си, преди да откажете поканата.
       conference_speaker_cell:
         twitter_handle:
@@ -494,11 +509,67 @@ bg:
           email_intro: 'Конференцията „%{resource_title}“ беше актуализирана. Можете да прочетете новата версия на страницата ѝ:'
           email_outro: Получавате това известие, защото следвате конференцията „%{resource_title}“. Можете да прекратите следването от предходната връзка.
           email_subject: Конференцията „%{resource_title}“ беше актуализирана
+          notification_title: Конференцията <a href="%{resource_path}">%{resource_title}</a> е актуализирана.
+        registrations_enabled:
+          email_intro: 'Приемат се регистрации за конференцията „%{resource_title}“. Можете да се регистрирате на страницата ѝ:'
+          email_outro: Получавате това известие, защото следвате конференцията „%{resource_title}“. Можете да прекратите следването от предходната връзка.
+          email_subject: Приемат се регистрации за конференцията „%{resource_title}“.
+          notification_title: Приемат се регистрации за конференцията <a href="%{resource_path}">%{resource_title}</a>.
+        role_assigned:
+          email_intro: Получихте ролята на %{role} за конференцията „%{resource_title}“.
+          email_outro: Получихте това известие, защото сте %{role} от конференцията „%{resource_title}“.
+          email_subject: Получихте ролята на %{role} за „%{resource_title}“.
+          notification_title: Получихте ролята на %{role} за конференцията <a href="%{resource_url}">%{resource_title}</a>.
+        upcoming_conference:
+          email_intro: 'Конференцията „%{resource_title}“ ще се състои след 2 дни. Можете да прочетете описанието на страницата ѝ:'
+          email_outro: Получавате това известие, защото следвате конференцията „%{resource_title}“. Можете да прекратите следването от предходната връзка.
+          email_subject: Конференцията „%{resource_title}“ наближава!
+          notification_title: Конференцията <a href="%{resource_path}">%{resource_title}</a> ще се състои след 2 дни.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p><strong>Конференцията</strong> е колекция от срещи, подредени в програма, с определен брой хора, поканени като лектори, и други информационни полета, типични за големи конгреси или социални събития (регистрация, списък на организации, които поддържат или спонсорирайте събитието и т.н.).</p> <p>Примери: Конференцията може да бъде подходящо събитие за организация и нейните членове или да се проведе като част от процес на участие или след консултация.</p>"
+          page: "<p><strong>Конференцията</strong> е колекция от срещи, подредени в програма, с определен брой хора, поканени като лектори, и други информационни полета, типични за големи конгреси или социални събития (регистрация, списък на организации, които поддържат или спонсорирайте събитието и т.н.).</p> <p>Примери: Конференцията може да бъде подходящо събитие за организация и нейните членове или да се проведе като част от процес на участие или след консултация.</p>"
+          title: Какво представляват конференциите?
     log:
       value_types:
         conference_presenter:
           not_found: 'Конференцията не бе намерена в базата данни (Идент. №: %{id})'
+    media:
+      index:
+        description: Връзки за тази конференция
+        title: Медии и връзки
+    menu:
+      conferences: Конференции
+    statistics:
+      conferences_count: Конференции
+  devise:
+    mailer:
+      join_conference:
+        subject: Покана за присъединяване към конференция
   layouts:
     decidim:
+      conference_hero:
+        register: Регистрация
+      conference_widgets:
+        show:
+          take_part: Участвайте
+      conferences:
+        conference:
+          more_info: Още информация
+          take_part: Участвайте
+        index:
+          promoted_conferences: Акцентирани конференции
+        order_by_conferences:
+          conferences:
+            one: "%{count} конференция"
+            other: "%{count} конференции"
+        promoted_conference:
+          more_info: Още информация
+          take_part: Участвайте
       conferences_nav:
         conference_menu_item: Информация
+        conference_partners_menu_item: Партньори
+        conference_speaker_menu_item: Говорители
+        media: Медия
+        venues: Места
