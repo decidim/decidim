@@ -22,6 +22,8 @@ describe "Admin language selector" do
   end
 
   after do
+    Decidim.available_locales = %w(en ca es)
+    I18n.available_locales = %w(en ca es)
     Decidim::Admin.send(:remove_const, :StaticPageForm)
     load "#{Decidim::Admin::Engine.root}/app/forms/decidim/admin/static_page_form.rb"
   end
