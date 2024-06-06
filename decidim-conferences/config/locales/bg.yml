@@ -223,8 +223,82 @@ bg:
             email: Имейл
             name: Име
             role: Роля
+          name: Администратор на конференция
+          roles:
+            admin: Администратор
+            collaborator: Сътрудник
+            moderator: Модератор
+            valuator: Оценител
+        media_link:
+          fields:
+            date: Дата
+            link: Линк
+            title: Заглавие
+          name: Медия линк
+        partner:
+          fields:
+            link: Линк
+            logo: Лого
+            name: Име
+            partner_type: Тип
+          name: Партньор
+          types:
+            collaborator: Сътрудник
+            main_promotor: Основен популяризатор
+        registration_type:
+          fields:
+            conference_meetings: Конферентни срещи
+            price: Цена
+            registrations_count: Брой регистрации
+            title: Заглавие
+            weight: Подредба на позиция
+          name: Тип регистрация
+      partners:
+        create:
+          error: Възникна проблем при добавянето на партньор за тази конференция.
+          success: Партньорът за конференцията беше добавен успешно.
+        destroy:
+          success: Партньорът за конференцията беше премахнат успешно.
+        edit:
+          title: Актуализиране на партньора.
+          update: Актуализация
+        new:
+          create: Създаване
+          title: Нов партньор
+        update:
+          error: Възникна проблем при актуализирането на партньор за тази конференция.
+          success: Партньорът за конференцията беше актуализиран успешно.
+      registration_type_publications:
+        create:
+          error: Възникна проблем при публикуването на този тип регистрация.
+          success: Типът регистрация беше публикуван успешно.
+        destroy:
+          error: Възникна проблем при премахването на публикацията на този тип регистрация.
+          success: Публикацията на типа регистрация беше премахната успешно.
+      registration_types:
+        create:
+          error: Възникна проблем при добавянето на тип регистрация за тази конференция.
+          success: Типът регистрация за конференцията беше добавен успешно.
+        destroy:
+          success: Типът регистрация за конференцията беше премахнат успешно.
+        edit:
+          title: Актуализиране на типа на регистрацията.
+          update: Актуализация
+        new:
+          create: Създаване
+          title: Нов тип регистрация
+        update:
+          error: Възникна проблем при актуализирането на тип регистрация за тази конференция.
+          success: Типът регистрация за конференцията беше актуализиран успешно.
+      titles:
+        conferences: Конференции
     admin_log:
       conference:
+        create: "%{user_name} създаде конференцията %{resource_name}"
+        publish: "%{user_name} публикува конференцията %{resource_name}"
+        send_conference_diplomas: "%{user_name} изпрати сертификати за присъствие на участниците в конференцията %{resource_name}"
+        unpublish: "%{user_name} премахна публикацията на конференцията %{resource_name}"
+        update: "%{user_name} актуализира конференцията %{resource_name}"
         update_diploma: "%{user_name} актуализира конфигурацията на сертификатите за присъствие на конференцията %{resource_name}"
       conference_speaker:
         create: "%{user_name} създаде говорителя %{resource_name} в конференцията %{space_name}"
@@ -346,3 +420,31 @@ bg:
         home:
           highlighted_conferences:
             active_spaces: Активни конференции
+            see_all_spaces: Вижте всички конференции
+      registration_types:
+        index:
+          choose_an_option: 'Изберете опция за регистрация:'
+          no_registrations: Няма регистрации
+          register: Регистрация
+          title: Типове регистрация
+      show:
+        details: Детайли
+        introduction: Въведение
+        objectives: Цели
+        related_assemblies: Свързани събрания
+        related_participatory_processes: Свързани процеси за участие
+    events:
+      conferences:
+        conference_registration_confirmed:
+          notification_title: Регистрацията Ви за конференцията <a href="%{resource_url}">%{resource_title}</a> беше потвърдена.
+        conference_registration_validation_pending:
+          notification_title: Регистрацията Ви за конференцията <a href="%{resource_url}">%{resource_title}</a> изчаква потвърждение.
+        conference_registrations_over_percentage:
+          email_intro: Заетите места за конференцията „%{resource_title}“ надхвърлят %{percentage} %.
+          email_outro: Получавате това известие, защото сте администратор на пространството за участие на конференцията.
+          email_subject: Заетите места за конференцията „%{resource_title}“ надхвърлят %{percentage} %
+          notification_title: Заетите места за конференцията <a href="%{resource_path}">%{resource_title}</a> надхвърлят %{percentage} %.
+        conference_updated:
+          email_intro: 'Конференцията „%{resource_title}“ беше актуализирана. Можете да прочетете новата версия на страницата ѝ:'
+          email_outro: Получавате това известие, защото следвате конференцията „%{resource_title}“. Можете да прекратите следването от предходната връзка.
+          email_subject: Конференцията „%{resource_title}“ беше актуализирана
