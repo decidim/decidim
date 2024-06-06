@@ -74,12 +74,10 @@ ja:
           attributes:
             base:
               not_official: 公式ではありません
-              supported: サポートまたはオススメを受けました
         proposals_split:
           attributes:
             base:
               not_official: 公式ではありません
-              supported: サポートまたはオススメを受けました
     models:
       decidim/proposals/admin/update_proposal_category_event: 提案カテゴリが変更されました
       decidim/proposals/admin/update_proposal_scope_event: 提案範囲が変更されました
@@ -96,8 +94,6 @@ ja:
         other: 提案
       decidim/proposals/proposal_note:
         other: メモ
-      decidim/proposals/proposal_vote:
-        other: サポート
   decidim:
     admin:
       filters:
@@ -139,7 +135,6 @@ ja:
           comment: コメント
           create: 作成
           endorse: オススメする
-          vote: サポート
           vote_comment: コメントに投票
           withdraw: 撤回する
         name: 提案
@@ -150,23 +145,19 @@ ja:
             amendments_wizard_help_text: 修正ウィザードのヘルプテキスト
             announcement: お知らせ
             attachments_allowed: 添付ファイルを許可
-            can_accumulate_supports_beyond_threshold: しきい値を超えてサポートを蓄積可能
             collaborative_drafts_enabled: 共同草稿を有効にする
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
             default_sort_order: デフォルトの提案の並べ替え
-            default_sort_order_help: デフォルトは、サポートが有効な場合、提案がランダムでソートされることを意味します。サポートがブロックされている場合は、最もサポートされている順にソートされます。
             default_sort_order_options:
               default: デフォルト
               most_commented: コメントの多い順
               most_endorsed: オススメの多い順
               most_followed: フォローの多い順
-              most_voted: サポートの多い順
               random: ランダム
               recent: 新しい順
               with_more_authors: 起案者の多い順
             geocoding_enabled: ジオコーディングが有効
-            minimum_votes_per_user: 参加者一人あたりの最低サポート数
             new_proposal_body_template: 新しい提案本文テンプレート
             new_proposal_body_template_help: 新しい提案に含まれる予定のテキストを定義することができます。
             new_proposal_help_text: 新しい提案ヘルプテキスト
@@ -187,7 +178,6 @@ ja:
             scope_id: スコープ
             scopes_enabled: スコープが有効
             threshold_per_proposal: 提案ごとのしきい値
-            vote_limit: 参加者一人あたりのサポート数制限
           step:
             amendment_creation_enabled: 修正の作成は有効です
             amendment_creation_enabled_help: 参加者は提案を修正できます。
@@ -207,13 +197,11 @@ ja:
             creation_enabled: 参加者は提案を作成できます
             creation_enabled_readonly: 参加テキスト機能を有効にするとこの設定は無効になります。 参加テキストとして提案をアップロードするには、参加テキストボタンをクリックし、指示に従ってください。
             default_sort_order: デフォルトの提案の並べ替え
-            default_sort_order_help: デフォルトは、サポートが有効な場合、提案がランダムでソートされることを意味します。サポートがブロックされている場合は、最もサポートされている順にソートされます。
             default_sort_order_options:
               default: デフォルト
               most_commented: コメントの多い順
               most_endorsed: オススメの多い順
               most_followed: フォローの多い順
-              most_voted: サポートの多い順
               random: ランダム
               recent: 新しい順
               with_more_authors: 起案者の多い順
@@ -223,9 +211,6 @@ ja:
             publish_answers_immediately: 提案の回答をすぐに公開
             publish_answers_immediately_help_html: 'これを有効にせずに提案に回答する場合、選択して公開アクションを使用して、手動で公開する必要があります。これがどのように機能するかの詳細については、<a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">提案の回答に関するドキュメントページ</a>を参照してください。'
             suggested_hashtags: 提案作成時に参加者に提案するハッシュタグ
-            votes_blocked: サポートをブロック
-            votes_enabled: サポートを有効にする
-            votes_hidden: サポート非表示（サポートが有効な場合、チェックを入れるとサポート数が非表示になります）
     events:
       proposals:
         admin:
@@ -312,10 +297,7 @@ ja:
           email_subject: '%{resource_title} の提案範囲が更新されました'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案スコープが管理者によって更新されました。
         voting_enabled:
-          email_intro: 'あなたは %{participatory_space_title}で提案をサポートすることができます! このページに参加してください:'
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
-          email_subject: '%{participatory_space_title} の提案サポートが開始されました'
-          notification_title: <a href="%{resource_path}">supporting proposition</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -332,14 +314,7 @@ ja:
         proposal_votes:
           conditions:
             - 閲覧し、他の人の提案を読んでいくつかの時間を過ごします
-            - あなたが好きな提案をサポートするか、興味深いものを見つけましょう
-          description: このバッジは、あなたが他の人の提案を支持するときに付与されます。
-          description_another: この参加者は %{score} の提案をサポートしています。
-          description_own: '%{score} の提案をサポートしました。'
-          name: 提案サポート
-          next_level_in: さらに %{score} の提案をサポートして次のレベルに到達しましょう！
-          unearned_another: この参加者はまだどの提案にもサポートしていません。
-          unearned_own: まだ提案がありません。
+            - 
         proposals:
           conditions:
             - 提出物を有効にして、興味のある参加スペースを選択してください
@@ -364,10 +339,6 @@ ja:
         description: 提案数
         object: 提案
         title: 提案
-      votes:
-        description: 提案へのサポート数
-        object: サポート
-        title: サポート
     participatory_spaces:
       highlighted_proposals:
         last: 最近の提案
@@ -547,7 +518,6 @@ ja:
             remove_assignment: 課題を削除
             remove_assignment_confirmation: この提案から評価者を削除してもよろしいですか？
             valuators: 評価者
-            votes_count: サポート数
           update_category:
             invalid: 'これらの提案は既に %{subject_name} カテゴリ: %{proposals} を持っています。'
             select_a_category: カテゴリを選択してください。
@@ -750,9 +720,6 @@ ja:
         buttons:
           amend: 修正
           comment: コメント
-      proposal_votes:
-        create:
-          error: その提案を支持するのに問題があった。
       proposals:
         dynamic_map_instructions:
           description: '「プレビュー」ボタンをクリックすると座標が更新されますが、アドレスは変更されません。'
@@ -784,7 +751,6 @@ ja:
           search: 検索
           state: ステータス
           type: タイプ
-          voted: サポート
         index:
           click_here: すべての提案を見る
           collaborative_drafts_list: 共同草案にアクセスする
@@ -802,7 +768,6 @@ ja:
           most_commented: コメントの多い順
           most_endorsed: オススメの多い順
           most_followed: フォローの多い順
-          most_voted: サポートの多い順
           random: ランダム
           recent: 新しい順
           with_more_authors: 起案者の多い順
@@ -838,36 +803,13 @@ ja:
           proposal_accepted_reason: 'この提案は以下の理由により承認されました:'
           proposal_in_evaluation_reason: この提案は評価されています
           proposal_rejected_reason: 'この提案は以下の理由により拒否されました:'
-          withdraw_btn_hint: サポートを受けていない限り、気が変わった場合は提案を撤回することができます。 提案は削除されず、撤回された提案のリストに表示されます。
           withdraw_confirmation_html: この提案を撤回してもよろしいですか？<br><br><strong>この操作はキャンセルできません！</strong>
           withdraw_proposal: 提案を撤回する
         update:
           title: 提案を更新
-        vote_button:
-          already_voted: サポート済みです
-          already_voted_hover: サポートを撤回する
-          maximum_votes_reached: サポートの上限に達しました
-          no_votes_remaining: サポートがありません
-          vote: サポート
-          votes_blocked: サポートは無効です
-        votes_count:
-          count:
-            other: サポート
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: 各提案は %{limit} 以上のサポートを蓄積できます
-          minimum_votes_per_user:
-            description: 異なる提案に最低 %{votes} のサポートを配布する必要があります。
-            given_enough_votes: 十分なサポートがあります。
-            supports_remaining: サポートを考慮するためには、あと %{remaining_votes} 件の提案をサポートする必要があります。
           proposal_limit:
             description: 最大 %{limit} 件の提案を作成できます。
-          threshold_per_proposal:
-            description: 検証されるためには、 %{limit} 件のサポートを受ける必要があります。
-          title: 'サポートは以下のルールに従います:'
-          vote_limit:
-            description: 最大 %{limit} 件の提案をサポートできます。
-            votes: サポート
         wizard_aside:
           back: 戻る
           back_from_step_1: 提案に戻る
@@ -894,9 +836,6 @@ ja:
       versions:
         index:
           title: バージョン
-      withdraw:
-        errors:
-          has_supports: この提案はすでにサポートされているため撤回できません。
     resource_links:
       copied_from_component:
         proposal_proposal: 関連する提案
@@ -908,4 +847,4 @@ ja:
     statistics:
       proposals_accepted: 承認された提案
       proposals_count: 提案
-      supports_count: サポート
+      votes_count: 投票
