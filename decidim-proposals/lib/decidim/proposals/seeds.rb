@@ -99,18 +99,7 @@ module Decidim
           visibility: "all"
         ) do
           proposal = Decidim::Proposals::Proposal.new(params)
-          meeting_component = participatory_space.components.find_by(manifest_name: "meetings")
-
-          coauthor = case n
-                     when 0
-                       Decidim::User.where(organization:).sample
-                     when 1
-                       Decidim::UserGroup.where(organization:).sample
-                     when 2
-                       Decidim::Meetings::Meeting.where(component: meeting_component).sample
-                     else
-                       organization
-                     end
+          coauthor = random_coauthor
           proposal.add_coauthor(coauthor)
           proposal.save!
 
@@ -142,6 +131,23 @@ module Decidim
           [:accepted, Decidim::Faker::Localized.sentence(word_count: 10), nil]
         else
           [:not_answered, nil, nil]
+        end
+      end
+
+      def random_coauthor
+        n = rand(5)
+
+        case n
+        when 0
+          Decidim::User.where(organization:).sample
+        when 1
+          Decidim::UserGroup.where(organization:).sample
+        when 2
+          meeting_component = participatory_space.components.find_by(manifest_name: "meetings")
+
+          Decidim::Meetings::Meeting.where(component: meeting_component).sample
+        else
+          organization
         end
       end
 
