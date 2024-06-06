@@ -1927,7 +1927,6 @@ fi-pl:
         sign_up: Rekisteröidy
         terms_of_service: Käyttöehdot
       header:
-        log_in: Kirjaudu sisään
         main_menu: Päävalikko
         user_menu: Käyttäjän valikko
       impersonation_warning:
