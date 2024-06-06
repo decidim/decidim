@@ -83,9 +83,6 @@ tr:
       decidim/proposals/proposal_note:
         one: Not
         other: Notlar
-      decidim/proposals/proposal_vote:
-        one: Destek
-        other: Destekler
   decidim:
     admin:
       filters:
@@ -120,7 +117,6 @@ tr:
           amend: Değiştir
           create: Oluştur
           endorse: Onayla
-          vote: Destek
           withdraw: Geri çek
         name: Teklifler
         settings:
@@ -130,12 +126,10 @@ tr:
             amendments_wizard_help_text: Değişiklik Sihirbazı yardım metni
             announcement: Duyuru
             attachments_allowed: Eklere izin ver
-            can_accumulate_supports_beyond_threshold: Eşiğin ötesinde destek biriktirebilir
             collaborative_drafts_enabled: Ortak çalışma taslakları etkin
             comments_enabled: Yorumlar etkin
             comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
             geocoding_enabled: Coğrafi kod etkin
-            minimum_votes_per_user: Kullanıcı başına minimum destek
             new_proposal_body_template: Yeni teklif gövdesi şablonu
             new_proposal_body_template_help: Yeni Tekliflerin sahip olacağı önceden doldurulmuş metni tanımlayabilirsiniz
             new_proposal_help_text: Yeni teklif yardım metni
@@ -151,7 +145,6 @@ tr:
             scope_id: Kapsam
             scopes_enabled: Kapsamlar etkinleştirildi
             threshold_per_proposal: Teklif başına eşik
-            vote_limit: Katılımcı başına destek sınırı
           step:
             amendment_creation_enabled: Değişiklik oluşturma etkinleştirildi
             amendment_creation_enabled_help: Katılımcı teklifleri değiştirebilir.
@@ -173,9 +166,6 @@ tr:
             proposal_answering_enabled: Teklif yanıtlama etkin
             publish_answers_immediately: Teklif yanıtlarını hemen yayınlayın
             suggested_hashtags: Yeni teklifler için katılımcılara önerilen etiketler
-            votes_blocked: Engellenen destekler
-            votes_enabled: Destekler etkin
-            votes_hidden: Gizli desteği destekler (destekler etkinleştirilmişse, bunu kontrol etmek destek sayısını gizleyecektir)
     events:
       proposals:
         admin:
@@ -244,10 +234,7 @@ tr:
           email_subject: '%{resource_title} teklif kapsamı güncellendi'
           notification_title: <a href="%{resource_path}">%{resource_title} </a> teklif kapsamı bir yönetici tarafından güncellendi.
         voting_enabled:
-          email_intro: 'Teklifleri %{participatory_space_title} içinde destekleyebilirsiniz! Bu sayfaya katılmaya başlayın:'
           email_outro: Bu bildirimi, %{participatory_space_title} izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-          email_subject: '%{participatory_space_title} için teklif desteği başladı'
-          notification_title: Artık <a href="%{participatory_space_url}">%{participatory_space_title}</a> içinde <a href="%{resource_path}"> destekleyici teklifleri </a> başlatabilirsiniz
     gamification:
       badges:
         accepted_proposals:
@@ -264,13 +251,7 @@ tr:
         proposal_votes:
           conditions:
             - Göz atın ve diğer insanların önerilerini okumak için biraz zaman harcayın
-            - Beğendiğiniz ya da ilginç bulduğunuz tekliflere destek verin
-          description: Bu rozet, başkalarının önerilerini desteklediğinizde verilir.
-          description_another: Bu katılımcı %{score} teklife destek verdi.
-          description_own: '%{score} teklife destek verdiniz.'
-          name: Teklif destekleri
-          next_level_in: Bir sonraki seviyeye ulaşmak için %{score} adetten fazla teklife destek verin!
-          unearned_own: Henüz hiçbir teklife destek vermediniz.
+            - 
         proposals:
           conditions:
             - Tekliflerin sunulması için gönderim ile ilgilendiğiniz katılım alanını seçin
@@ -294,10 +275,6 @@ tr:
         description: Teklif sayısı
         object: teklifler
         title: Teklifler
-      votes:
-        description: Tekliflere verilen desteklerin sayısı
-        object: destekler
-        title: Destekler
     participatory_spaces:
       highlighted_proposals:
         see_all: Tüm teklifleri görün (%{count})
@@ -431,7 +408,6 @@ tr:
             remove_assignment: Atamayı kaldır
             remove_assignment_confirmation: Bilirkişiyi, bu tekliften çıkarmak istediğinizden emin misiniz?
             valuators: Bilirkişiler
-            votes_count: Oy sayısı
           update_category:
             invalid: 'Bu teklifler zaten %{subject_name} kategorisine sahipti: %{proposals}.'
             success: 'Teklifler, %{subject_name} kategorisine başarıyla güncellendi: %{proposals}.'
@@ -598,9 +574,6 @@ tr:
         buttons:
           amend: Düzelt
           comment: Yorum Yap
-      proposal_votes:
-        create:
-          error: Teklifi destekleyen bir sorun vardı.
       proposals:
         edit:
           attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
@@ -625,7 +598,6 @@ tr:
           search: Arama
           state: Statü
           type: tip
-          voted: Desteklenmiş
         index:
           collaborative_drafts_list: Ortak çalışmaya dayalı taslaklara erişin
           count:
@@ -640,7 +612,6 @@ tr:
           most_commented: En çok yorum yapılan
           most_endorsed: En çok onaylanan
           most_followed: En çok takip edilen
-          most_voted: En çok desteklenen
           random: Rastgele
           recent: En son
           with_more_authors: Daha fazla yazarlı
@@ -670,34 +641,13 @@ tr:
           proposal_accepted_reason: 'Bu teklif kabul edildi çünkü:'
           proposal_in_evaluation_reason: Bu teklif değerlendiriliyor
           proposal_rejected_reason: 'Bu teklif reddedildi çünkü:'
-          withdraw_btn_hint: Herhangi bir destek almadığınız sürece fikrinizi değiştirirseniz teklifinizi geri çekebilirsiniz. Teklif silinmemiş, iptal edilen teklifler listesinde görünecektir.
           withdraw_confirmation_html: Bu teklifi geri çekmek istediğinizden emin misiniz? <br> <br> <strong> Bu eylem iptal edilemez! </strong>
           withdraw_proposal: Teklifi geri çek
         update:
           title: Teklif güncelleme
-        vote_button:
-          already_voted: Çoktan oy verildi
-          already_voted_hover: Unvote
-          maximum_votes_reached: Oy limiti aşıldı
-          no_votes_remaining: Kalan oy yok
-          vote: Oy
-          votes_blocked: Oylama devre dışı
-        votes_count:
-          count:
-            one: OY
-            other: OYLAR
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: Her teklif, %{limit} fazla destek biriktirebilir
-          minimum_votes_per_user:
-            description: Farklı teklifler arasında en az %{votes} oy kullanmalısınız.
-            supports_remaining: Oylarınızın dikkate alınması için %{remaining_votes} daha fazla teklif vermeniz gerekiyor.
           proposal_limit:
             description: En fazla %{limit} teklif oluşturabilirsin.
-          title: 'Oylama aşağıdaki kurallara tabidir:'
-          vote_limit:
-            description: En fazla %{limit} teklife oy verebilirsiniz.
-            votes: oy
         wizard_aside:
           back: Geri
           back_from_step_1: Teklifte geri dön
