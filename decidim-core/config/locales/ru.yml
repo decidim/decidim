@@ -292,6 +292,7 @@ ru:
           already_have_an_account?: У вас уже есть учетная запись?
           newsletter: Получать время от времени рассылку со свежими новостями
           newsletter_title: Разрешение на связь с вами
+          sign_in: Войти
           sign_up: Зарегистрироваться
           sign_up_as:
             legend: Зарегистрироваться как
@@ -759,6 +760,8 @@ ru:
       signed_up_but_inactive: Вы успешно зарегистрировались. Однако вы не можете войти в систему, потому что учетная запись еще не активирована.
       signed_up_but_locked: Вы успешно зарегистрировались. Однако вы не можете войти в систему, потому что ваша учетная запись заблокирована.
     sessions:
+      new:
+        sign_in: Войти
       signed_in: Вход выполнен успешно.
       signed_out: Вы вышли.
     shared:
@@ -767,6 +770,7 @@ ru:
         didn_t_receive_confirmation_instructions: Не получили инструкцию по подтверждению?
         didn_t_receive_unlock_instructions: Не получили инструкцию по разблокировке?
         forgot_your_password: Забыли пароль?
+        sign_in: Войти
         sign_in_with_provider: Войти с помощью %{provider}
         sign_up: Зарегистрироваться
     unlocks:
