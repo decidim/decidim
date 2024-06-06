@@ -11,6 +11,7 @@ sl:
     devise:
       registrations:
         new:
+          sign_in: Prijava
           sign_up: Registracija
     filters:
       linked_classes:
@@ -51,8 +52,12 @@ sl:
       new:
         sign_up: Registracija
       signed_up: Dobrodošli! Uspešno ste se vpisali.
+    sessions:
+      new:
+        sign_in: Prijava
     shared:
       links:
+        sign_in: Prijava
         sign_up: Registracija
   layouts:
     decidim:
