@@ -468,6 +468,31 @@ describe "Admin manages organization", type: :system do
           )
         end
       end
+
+      context "when adding malformed content" do
+        let(:organization) { create(:organization, admin_terms_of_use_body: {}) }
+
+        it "does not saves it" do
+          WebMock.stub_request(:get, "http://example.org/x").to_return(status: 404)
+
+          accept_alert do
+            page.execute_script(
+              <<~JS
+                var element = document.querySelector("#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 div[contenteditable='true'].ql-editor");
+                element.innerHTML = "testing <img src='http://example.org/x' onerror=alert(1) >";
+              JS
+            )
+          end
+
+          click_button "Update"
+
+          sleep 1
+
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq("<p>testing</p><p><img src=\"http://example.org/x\"></p>")
+        end
+      end
     end
   end
 
