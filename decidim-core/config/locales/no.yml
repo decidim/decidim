@@ -395,6 +395,7 @@
       registrations:
         new:
           already_have_an_account?: Har du allerede en bruker?
+          log_in: Logg inn
           newsletter: Motta et sporadisk nyhetsbrev med relevant informasjon
           newsletter_title: Kontakt tillatelse
           sign_up: Registrer deg
@@ -1208,10 +1209,14 @@
       signed_up_but_unconfirmed: En melding med en bekreftelseslink er sendt til din e-postadresse. Følg lenken for å aktivere kontoen din.
       update_needs_confirmation: Du har oppdatert kontoen, men vi trenger å bekrefte din nye e-postadresse. Sjekk din e-post og følg lenken for å bekrefte din nye e-postadresse.
       updated: Kontoen din er oppdatert.
+    sessions:
+      new:
+        log_in: Logg inn
     shared:
       links:
         back: Tilbake
         forgot_your_password: Glemt ditt passord?
+        log_in: Logg inn
         sign_up: Registrer deg
       minimum_password_length:
         one: "(%{count} karakter minimum)"
@@ -1263,9 +1268,11 @@
         cc_by_license: Creative Commons lisens
         decidim_logo: Decidim logo
         download_open_data: Last ned Åpen Data filer
+        log_in: Logg inn
         made_with_open_source: Nettsted laget med <a target="_blank" href="https://github.com/decidim/decidim">fri programvare</a>.
         sign_up: Registrer deg
       header:
+        log_in: Logg inn
         main_menu: Hovedmeny
         user_menu: Brukermeny
       impersonation_warning:
