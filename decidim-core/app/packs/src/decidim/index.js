@@ -49,6 +49,7 @@ import "src/decidim/direct_uploads/upload_field"
 import "src/decidim/data_consent"
 import "src/decidim/abide_form_validator_fixer"
 import "src/decidim/sw"
+import "src/decidim/sticky_header"
 
 // local deps that require initialization
 import formDatePicker from "src/decidim/datepicker/form_datepicker"

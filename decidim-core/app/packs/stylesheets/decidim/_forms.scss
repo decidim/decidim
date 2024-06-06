@@ -1,3 +1,11 @@
+#form-search-mobile {
+  @apply py-1.5 px-4 bg-gray-5 rounded-sm;
+
+  input[type="text"] {
+    @apply bg-gray-5;
+  }
+}
+
 .form-defaults {
   /* text-like inputs */
   input[type="date"],

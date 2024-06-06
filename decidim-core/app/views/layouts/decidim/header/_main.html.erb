@@ -1,7 +1,12 @@
 <div id="main-bar" class="main-bar__container">
   <div class="main-bar">
     <div class="main-bar__logo">
-      <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
+      <div class="main-bar__logo-desktop">
+        <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
+      </div>
+      <div class="main-bar__logo-mobile">
+        <%= render partial: "layouts/decidim/logo_mobile", locals: { organization: current_organization } %>
+      </div>
     </div>
     <div class="main-bar__search">
       <%= render partial: "layouts/decidim/header/main_search" %>
@@ -11,24 +16,26 @@
     </div>
 
     <div class="lg:hidden">
-      <%# Main dropdown mobile %>
-      <button id="main-dropdown-summary-mobile" class="main-bar__links-mobile__trigger"
-        data-component="dropdown"
-        data-target="dropdown-menu-main-mobile">
-        <%= icon "menu-line" %><span class="sr-only"><%= t("main_menu", scope: "layouts.decidim.header") %></span>
-      </button>
+      <div class="flex flex-row-reverse items-center">
+        <%# Main dropdown mobile %>
+        <button id="main-dropdown-summary-mobile" class="main-bar__links-mobile__trigger p-0"
+          data-component="dropdown"
+          data-target="dropdown-menu-main-mobile">
+          <%= icon "menu-line" %><span class="sr-only"><%= t("main_menu", scope: "layouts.decidim.header") %></span>
+          <%= icon "close-line" %>
+        </button>
 
-      <div id="dropdown-menu-main-mobile" class="main-bar__links-mobile__dropdown" aria-hidden="true">
-        <%= render partial: "layouts/decidim/header/menu_breadcrumb_main_dropdown", locals: { id: "breadcrumb-main-dropdown-mobile" } %>
-      </div>
+        <div id="dropdown-menu-main-mobile" class="main-bar__links-mobile__dropdown main-bar__links-mobile__dropdown-before" aria-hidden="true">
+          <%= render partial: "layouts/decidim/header/menu_breadcrumb_main_dropdown_mobile", locals: { id: "breadcrumb-main-dropdown-mobile" } %>
+        </div>
 
-      <%# Sticky menu mobile %>
-      <div class="main-bar__links-mobile">
-        <%= render partial: "layouts/decidim/header/main_links_mobile" %>
+        <%# Main mobile login %>
+        <div>
+          <%= render partial: "layouts/decidim/header/main_links_mobile_item_account" %>
+        </div>
       </div>
 
       <%# Overlay menus mobile %>
-      <%= render partial: "layouts/decidim/header/main_links_mobile_search" %>
       <%= render partial: "layouts/decidim/header/main_links_mobile_account" if current_user %>
     </div>
   </div>

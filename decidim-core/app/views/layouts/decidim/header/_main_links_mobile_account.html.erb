@@ -1,7 +1,12 @@
 <div id="dropdown-menu-account-mobile" class="main-bar__links-mobile__account" aria-hidden="true">
   <div class="main-bar">
     <div class="main-bar__logo">
-      <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
+      <div class="main-bar__logo-desktop">
+        <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
+      </div>
+      <div class="main-bar__logo-mobile">
+        <%= render partial: "layouts/decidim/logo_mobile", locals: { organization: current_organization } %>
+      </div>
     </div>
 
     <div>
@@ -11,7 +16,7 @@
     </div>
   </div>
 
-  <div class="p-4 container">
+  <div class="account-container p-4 container">
     <% if current_user.avatar.attached? %>
       <div class="main-bar__avatar">
         <%= image_tag(
@@ -20,7 +25,9 @@
               ) %>
       </div>
     <% else %>
-      <%= icon "user-smile-line", class: "main-bar__avatar" %>
+      <div class="main-bar__avatar-name">
+        <%= text_initials(current_user.name) %>
+      </div>
     <% end %>
 
     <p class="h3 mt-2"><%= t("decidim.block_user_mailer.notify.hello") %>&nbsp;<%= current_user.name %></p>
