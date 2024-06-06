@@ -1803,7 +1803,6 @@ hu:
         resources: Segédanyagok
         sign_up: Regisztráció
       header:
-        log_in: Bejelentkezés
         main_menu: Főmenü
         user_menu: Felhasználói menü
       impersonation_warning:
