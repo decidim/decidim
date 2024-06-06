@@ -154,6 +154,7 @@ fi-pl:
             amendments_wizard_help_text: Muutoksen luonnin ohjeteksti
             announcement: Ilmoitus
             attachments_allowed: Salli liitteet
+            attachments_allowed_help: Ottamalla tämän asetuksen käyttöön, ehdotukset näytetään oletuksena ruudukkonäkymässä ja ensimmäinen ehdotukseen liitetty kuva näytetään ehdotuskortilla.
             can_accumulate_supports_beyond_threshold: Voi kerätä kannatuksia yli kynnysarvon
             collaborative_drafts_enabled: Yhteistyöluonnokset ovat käytössä
             comments_enabled: Kommentit käytössä
@@ -799,6 +800,8 @@ fi-pl:
           count:
             one: "%{count} ehdotus"
             other: "%{count} ehdotusta"
+          grid_mode: Ruudukkonäkymä
+          list_mode: Listanäkymä
           new_proposal: Uusi ehdotus
           see_all: Näytä kaikki ehdotukset
           see_all_withdrawn: Näytä kaikki peruutetut ehdotukset
