@@ -867,7 +867,7 @@ eu:
             other: Babesak
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Proposamen bakoitzak %{limit} babes baino gehiago jaso dezake
+            description: Proposamen bakoitzak %{limit} babes baino gehiagotan jaso dezake
           minimum_votes_per_user:
             description: Gutxienez %{votes} babes banatu behar dituzu proposamen desberdinen artean.
             given_enough_votes: Nahiko babes eman dituzu.
