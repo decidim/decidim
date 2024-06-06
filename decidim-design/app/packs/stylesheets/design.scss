@@ -1,3 +1,5 @@
+@import "tom-select/dist/scss/tom-select";
+
 .design__layout {
   @apply grid md:grid-cols-12 container min-h-screen before:content-[''] before:absolute before:-z-10 before:w-1/2 before:h-full before:inset-0 before:bg-background;
 
