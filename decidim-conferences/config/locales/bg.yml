@@ -59,10 +59,96 @@ bg:
         avatar: Аватар
         conference_meeting_ids: Свързани срещи
         full_name: Пълно име
+        personal_url: Персонален URL
+        position: Длъжност
+        short_bio: Кратка биография
+        twitter_handle: X манипулатор
+        user_id: Потребител
+      conference_user_role:
+        email: Имейл
+        name: Име
+        role: Роля
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: На този имейл вече е изпратена покана.
+  activerecord:
+    models:
+      decidim/conference:
+        one: Конференция
+        other: Конференции
+      decidim/conference_speaker:
+        one: Говорител на конференция
+        other: Говорители на конференция
+      decidim/conference_user_role:
+        one: Роля на потребител в конференция
+        other: Роли на потребители в конференция
   decidim:
     admin:
+      actions:
+        confirm: Потвърди
+        new_conference: Нова конференция
+        new_conference_user_role: Нов администратор на конференция
+        new_media_link: Нов медия линк
+        new_partner: Нов партньор
+        new_registration_type: Нов тип регистрация
+        new_speaker: Нов говорител
+        send_diplomas: Изпращане на сертификати за присъствие
+      conference_copies:
+        new:
+          copy: Копиране
+          select: Изберете кои данни искате да дублирате
+          title: Дублиране на конференцията
+      conference_publications:
+        create:
+          error: Възникна проблем при публикуването на тази конференция.
+          success: Конференцията беше публикувана успешно.
+        destroy:
+          error: Възникна проблем при премахването на публикацията на тази конференция.
+          success: Публикацията на конференцията беше премахната успешно.
+      conference_registration:
+        confirm:
+          error: Възникна проблем при потвърждаването на регистрацията на тази конференция.
+          success: Регистрацията на конференцията беше потвърдена успешно.
+      conference_speakers:
+        create:
+          error: Възникна проблем при добавянето на говорител към тази конференция.
+          success: Говорителят на конференцията беше добавен успешно.
+        destroy:
+          success: Говорителят на конференцията беше изтрит успешно.
+        edit:
+          title: Актуализиране на говорителя на конференцията.
+          update: Актуализация
+        index:
+          conference_speakers_title: Говорители на конференция
+        new:
+          create: Създаване
+          title: Нов говорител на конференция.
+        update:
+          error: Възникна проблем при актуализирането на този говорител на конференцията.
+          success: Говорителят на конференцията беше актуализиран успешно.
+      conference_user_roles:
+        create:
+          error: Възникна проблем при добавянето на администратор към тази конференция.
+          success: Администраторът на конференцията беше добавен успешно.
+        destroy:
+          success: Администраторът на конференцията беше премахнат успешно.
+        edit:
+          title: Актуализиране на администратора на конференцията.
+          update: Актуализация
+        index:
+          conference_admins_title: Администратори на конференция
+        new:
+          create: Създаване
+          title: Нов администратор на конференция.
+        update:
+          error: Възникна проблем при актуализирането на този администратор на конференцията.
+          success: Администраторът на конференцията беше актуализиран успешно.
       conferences:
         create:
+          error: Възникна проблем при създаването на тази конференция.
           success: Конференцията беше създадена успешно.
         edit:
           update: Актуализация
@@ -151,7 +237,111 @@ bg:
       conferences:
         conference_registration:
           confirm: "%{user_name} потвърди регистрация в конференцията %{resource_name}"
+        partner:
+          create: "%{user_name} създаде партньора %{resource_name} в конференцията %{space_name}"
+          delete: "%{user_name} премахна партньора %{resource_name} от конференцията %{space_name}"
+          update: "%{user_name} актуализира партньора %{resource_name} в конференцията %{space_name}"
+        registration_type:
+          create: "%{user_name} създаде типа регистрация %{resource_name} в конференцията %{space_name}"
+          delete: "%{user_name} премахна типа регистрация %{resource_name} в конференцията %{space_name}"
+          publish: "%{user_name} публикува типа регистрация %{resource_name} в конференцията %{space_name}"
+          unpublish: "%{user_name} премахна публикацията на типа регистрация %{resource_name} в конференцията %{space_name}"
+          update: "%{user_name} актуализира типа регистрация %{resource_name} в конференцията %{space_name}"
+      media_link:
+        create: "%{user_name} създаде медия линк %{resource_name} в конференцията %{space_name}"
+        delete: "%{user_name} премахна медия линка %{resource_name} от конференцията %{space_name}"
+        update: "%{user_name} актуализира медия линка %{resource_name} в конференцията %{space_name}"
+    conference_program:
+      index:
+        title: Програма
+    conference_speakers:
+      index:
+        title: Говорители
     conferences:
+      admin:
+        conference_copies:
+          form:
+            slug_help_html: 'Използват се променливи полета за URL адрес, за да се генерират URL адреси, които водят към тази конференция. Допуска се използването само на букви, цифри и тирета и адресът трябва да започва с буква. Пример: %{url}'
+        conference_invites:
+          create:
+            error: Възникна проблем при изпращането на покана на участника да се присъедини към конференцията.
+            success: Участникът беше поканен успешно да се присъедини към конференцията.
+          form:
+            attendee_type: Тип присъстващ
+            existing_user: Съществуващ участник
+            invite_explanation: Участникът ще бъде поканен да се присъедини към конференцията, както и към организацията.
+            non_user: Несъществуващ участник
+            select_user: Избор на участник
+          index:
+            invite_attendee: Покани участник
+            invites: Покани
+          new:
+            explanation: Участникът ще бъде поканен да се присъедини към конференция. Ако техният имейл не е регистриран, те също ще бъдат поканени в организацията.
+            invite: Покани
+            new_invite: Покани участник
+        conference_registrations:
+          index:
+            registrations: Регистрации
+        conference_speakers:
+          form:
+            existing_user: Съществуващ участник
+            non_user: Не е участник
+            select_user: Избор на участник
+            user_type: Тип участник
+          index:
+            search: Търсене
+        conferences:
+          form:
+            available_slots_help: Оставете 0, ако разполагате с неограничен брой места.
+            registrations_count:
+              one: Осъществена е 1 регистрация.
+              other: Осъществени са %{count} регистрации.
+            slug_help_html: 'Използват се променливи полета за URL адрес, за да се генерират URL адреси, които водят към тази конференция. Допуска се използването само на букви, цифри и тирета и адресът трябва да започва с буква. Пример: %{url}'
+        content_blocks:
+          highlighted_conferences:
+            max_results: Максимален брой елементи, които да се показват
+        diplomas:
+          edit:
+            save: Запази
+            title: Сертификати за присъствие
+        invite_join_conference_mailer:
+          invite:
+            decline: Отказ на поканата за „%{conference_title}“
+            invited_existing_user_to_join_a_conference: "%{invited_by} Ви покани да се присъедините към конференция в(ъв) %{application}. Можете да откажете или да приемете чрез връзките по-долу."
+            invited_user_to_join_a_conference: "%{invited_by} ви покани да се присъедините към конференция в %{application}. Можете да го приемете чрез връзката по-долу."
+            registration: Регистрация за „%{conference_title}“
+        partners:
+          index:
+            title: Партньори
+        registration_types:
+          form:
+            select_conference_meetings: Избор на конферентни срещи
+          index:
+            title: Типове регистрация
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Ще намерите сертификата за присъствие на конференцията <a href="%{url}">%{title}</a> в прикачените файлове.
+          diploma_user:
+            attendance_verified_by: Присъствието е потвърдено от
+            certificate_of_attendance: Сертификати за присъствие
+            certificate_of_attendance_description: С настоящото се удостоверява, че <strong>%{user}</strong> посети и взе участие в(ъв) <strong>%{title}</strong>, <strong>%{location}</strong> на <strong>%{start} — %{end}</strong>
+        send_diploma:
+          error: Възникна проблем при изпращането на сертификатите за присъствие на конференцията.
+          success: Сертификатите за присъствие на конференцията бяха изпратени успешно
+      conference:
+        registration_confirm:
+          cancel: Отказ
+          confirm: Потвърди
+        show:
+          going: Присъствие
+          no_slots_available: Няма свободни места
+      models:
+        conference_registration:
+          fields:
+            state: Статус
+            states:
+              confirmed: Потвърден
+              pending: Изчакване
       pages:
         home:
           highlighted_conferences:
