@@ -1181,13 +1181,13 @@ tr:
     sessions:
       already_signed_out: Başarıyla Çıkış Yapıldı
       new:
-        log_in: Giriş Yapın
+        log_in: "Giriş \nGiriş Yapın "
       signed_out:
     shared:
       links:
         back: Geri
         forgot_your_password: Parolanızı mı unuttunuz?
-        log_in: Giriş Yapın
+        log_in: "Giriş \nGiriş Yapın "
         log_in_with_provider: '%{provider} ile giriş yapın'
         sign_up: kaydol
       minimum_password_length:
@@ -1238,11 +1238,11 @@ tr:
         cc_by_license: Kar Amaçsız Lisanslama (Creative Commons License)
         decidim_logo: Decidim Logo
         download_open_data: Açık Veri dosyalarını indir
-        log_in: Giriş Yapın
+        log_in: "Giriş \nGiriş Yapın "
         made_with_open_source: Web sitesi <a target="_blank" href="https://github.com/decidim/decidim">ücretsiz yazılımla yapılmıştır</a>.
         sign_up: Kaydol
       header:
-        log_in: Giriş Yapın
+        log_in: "Giriş \nGiriş Yapın "
       impersonation_warning:
         close_session: Oturumu kapat
         description_html: Kullanıcının kimliğine bürünüyorsunuz <b>%{user_name}</b>.
