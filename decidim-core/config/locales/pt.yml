@@ -388,6 +388,7 @@ pt:
       registrations:
         new:
           already_have_an_account?: Já tem uma conta?
+          log_in: Entrar
           newsletter: Receber um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contacto
           sign_up: Inscreva-se
@@ -1188,10 +1189,14 @@ pt:
       signed_up_but_unconfirmed: Uma mensagem com uma hiperligação de confirmação foi enviada para o seu endereço de e-mail. Por favor, siga a hiperligação para ativar a sua conta.
       update_needs_confirmation: Atualizou a sua conta corretamente, mas precisamos de confirmar o seu novo endereço de e-mail. Por favor, verifique o seu e-mail e siga a hiperligação de confirmação para confirmar o seu novo endereço de e-mail.
       updated: A sua conta foi atualizada corretamente.
+    sessions:
+      new:
+        log_in: Entrar
     shared:
       links:
         back: Retroceder
         forgot_your_password: Esqueceu a sua palavra-passe?
+        log_in: Entrar
         sign_up: Inscrever-se
       minimum_password_length:
         one: "(%{count} carácter no mínimo)"
@@ -1243,9 +1248,11 @@ pt:
         cc_by_license: Licença Creative Commons
         decidim_logo: Logótipo do Decidim
         download_open_data: Transferir ficheiros Open Data
+        log_in: Entrar
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
         sign_up: Inscrever-se
       header:
+        log_in: Entrar
         main_menu: Menu principal
         user_menu: Menu de utilizador
       impersonation_warning:
