@@ -4,7 +4,7 @@
       <% if title.present? %>
         <div class="card__header">
           <span class="card__title">
-            <%= title %>
+            <%= decidim_html_escape(title) %>
           </span>
         </div>
       <% end %>
