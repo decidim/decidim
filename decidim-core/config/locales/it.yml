@@ -446,6 +446,7 @@ it:
           newsletter: Ricevi una newsletter occasionale con informazioni pertinenti
           newsletter_title: Autorizzazione di contatto
           nickname_help: Il tuo alias in %{organization} può contenere solo lettere, numeri, '-' e '_'.
+          sign_in: Accedi
           sign_up: Registrati
           sign_up_as:
             legend: Registrati come
@@ -1481,6 +1482,8 @@ it:
       updated: Il tuo account è stato aggiornato correttamente.
     sessions:
       already_signed_out: Logout effettuato.
+      new:
+        sign_in: Accedi
       signed_in: Login effettuato.
       signed_out: Logout effettuato.
     shared:
@@ -1489,6 +1492,7 @@ it:
         didn_t_receive_confirmation_instructions: Non hai ricevuto le istruzioni di conferma?
         didn_t_receive_unlock_instructions: Non hai ricevuto le istruzioni di sblocco?
         forgot_your_password: Hai dimenticato la password?
+        sign_in: Accedi
         sign_in_with_provider: Accedi con %{provider}
         sign_up: Iscriviti
       minimum_password_length:
