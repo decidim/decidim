@@ -103,6 +103,7 @@ ga:
     devise:
       registrations:
         new:
+          log_in: Logáil isteach
           sign_up: Cláraigh
       shared:
         omniauth_buttons:
@@ -278,9 +279,13 @@ ga:
     registrations:
       new:
         sign_up: Cláraigh
+    sessions:
+      new:
+        log_in: Logáil isteach
     shared:
       links:
         back: Ar Ais
+        log_in: Logáil isteach
         sign_up: Cláraigh
   layouts:
     decidim:
@@ -291,7 +296,10 @@ ga:
       edit_link:
         edit: Eagar
       footer:
+        log_in: Logáil isteach
         sign_up: Cláraigh
+      header:
+        log_in: Logáil isteach
       user_profile:
         account: Cuntas
         my_data: Mo chuid sonraí
