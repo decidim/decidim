@@ -1664,7 +1664,7 @@ es-MX:
     sessions:
       already_signed_out: Sesión finalizada con éxito.
       new:
-        sign_in: Entra
+        sign_in: Iniciar sesión
       signed_in: Sesión iniciada con éxito.
       signed_out: Sesión finalizada con éxito.
     shared:
@@ -1673,7 +1673,7 @@ es-MX:
         didn_t_receive_confirmation_instructions: '¿No has recibido las instrucciones de confirmación?'
         didn_t_receive_unlock_instructions: '¿No has recibido instrucciones de desbloqueo?'
         forgot_your_password: '¿Olvidaste tu contraseña?'
-        sign_in: Entra
+        sign_in: Iniciar sesión
         sign_in_with_provider: Inicia sesión con %{provider}
         sign_up: Regístrate
       minimum_password_length:
