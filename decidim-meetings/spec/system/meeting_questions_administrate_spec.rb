@@ -65,6 +65,10 @@ describe "Meeting poll administration" do
       expect(page.all(".meeting-polls__question--admin").size).to eq(2)
     end
 
+    it "shows the status of each question" do
+      expect(page).to have_content("Pending to be sent", count: 2)
+    end
+
     it "allows to edit a question in the administrator" do
       open_first_question
 
@@ -84,6 +88,7 @@ describe "Meeting poll administration" do
         expect(page).to have_content("Sent")
         expect(page).to have_content("0 received answers")
       end
+      expect(page).to have_css("[data-question='#{question_multiple_option.id}']", text: "Sent (open)")
     end
   end
 
@@ -112,6 +117,10 @@ describe "Meeting poll administration" do
       expect(page).to have_content("100%")
     end
 
+    it "shows the status of each question" do
+      expect(page).to have_content("Sent (open)", count: 1)
+    end
+
     it "allows to close a published question" do
       open_first_question
 
@@ -122,6 +131,7 @@ describe "Meeting poll administration" do
 
       question_multiple_option.reload
       expect(question_multiple_option).to be_closed
+      expect(page).to have_css("[data-question='#{question_multiple_option.id}']", text: "Results sent (closed)")
     end
   end
 
