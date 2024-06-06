@@ -14,6 +14,10 @@ module Decidim
           comment.formatted_body(override_translation)
         end
 
+        def hidden_resource?
+          super || (comment.respond_to?(:hidden?) && comment.hidden?)
+        end
+
         def author
           comment.normalized_author
         end

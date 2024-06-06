@@ -39,9 +39,8 @@
           </span>
         </span>
       <% else %>
-        <span class="main-bar__links-desktop__item">
-          <%= icon "user-smile-line" %>
-          <span><%= t("layouts.decidim.user_profile.account") %></span>
+        <span class="main-bar__links-desktop__item-account">
+          <%= text_initials(current_user.name) %>
         </span>
       <% end %>
     </button>

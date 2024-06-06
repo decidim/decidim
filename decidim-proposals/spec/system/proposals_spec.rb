@@ -479,6 +479,7 @@ describe "Proposals" do
       let!(:component) do
         create(:proposal_component,
                :with_votes_disabled,
+               :with_proposal_limit,
                manifest:,
                participatory_space: participatory_process)
       end
@@ -641,6 +642,68 @@ describe "Proposals" do
       let!(:resources) { create_list(:proposal, 3, component:) }
 
       it_behaves_like "an uncommentable component"
+    end
+  end
+
+  describe "viewing mode for proposals" do
+    let!(:proposal) { create(:proposal, :evaluating, component:) }
+
+    context "when participants interact with the proposal view" do
+      it "provides an option for toggling between list and grid views" do
+        visit_component
+        expect(page).to have_css("use[href*='layout-grid-fill']")
+        expect(page).to have_css("use[href*='list-check']")
+      end
+    end
+
+    context "when participants are viewing a grid of proposals" do
+      it "shows a grid of proposals with images" do
+        visit_component
+
+        # Check that grid view is not the default
+        expect(page).to have_no_css(".card__grid-grid")
+
+        # Switch to grid view
+        find("a[href*='view_mode=grid']").click
+        expect(page).to have_css(".card__grid-grid")
+        expect(page).to have_css(".card__grid-img img, .card__grid-img svg")
+
+        # Revisit the component and check session storage
+        visit_component
+        expect(page).to have_css(".card__grid-grid")
+      end
+    end
+
+    context "when participants are viewing a list of proposals" do
+      it "shows a list of proposals" do
+        visit_component
+        find("a[href*='view_mode=list']").click
+        expect(page).to have_css(".card__list-list")
+      end
+    end
+
+    context "when proposals does not have attachments" do
+      it "shows a placeholder image" do
+        visit_component
+        find("a[href*='view_mode=grid']").click
+        expect(page).to have_css(".card__grid-img svg#ri-proposal-placeholder-card-g")
+      end
+    end
+
+    context "when proposals have attachments" do
+      let!(:proposal) { create(:proposal, component:) }
+      let!(:attachment) { create(:attachment, attached_to: proposal) }
+
+      before do
+        component.update!(settings: { attachments_allowed: true })
+      end
+
+      it "shows the proposal image" do
+        visit_component
+
+        expect(page).to have_no_css(".card__grid-img img[src*='proposal_image_placeholder.svg']")
+        expect(page).to have_css(".card__grid-img img")
+      end
     end
   end
 end

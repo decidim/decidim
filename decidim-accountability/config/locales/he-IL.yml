@@ -263,16 +263,12 @@ he:
         name: אחריותיות
         settings:
           global:
-            categories_label: שם ל"קטגוריות"
             comments_enabled: איפשור תגובות
             comments_max_length: אורך מקסימלי להערות (השאירו 0 לערך ברירת המחדל)
             display_progress_enabled: הצגת התקדמות
-            heading_leaf_level_results: שם ל"פרויקטים"
-            heading_parent_level_results: שם ל"תוצאות"
             intro: הקדמה
             scope_id: היקף
             scopes_enabled: היקפים מאופשרים
-            subcategories_label: שם ל"תתי קטוגריות"
           step:
             comments_blocked: תגובות חסומות
     events:

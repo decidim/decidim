@@ -74,7 +74,6 @@ cs:
         deleted_user: Vymazaný účastník
         edit: Upravit
         edited: Upraveno
-        hide_replies: Skrýt odpovědi
         moderated_at: Komentář moderován dne %{date}
         reply: Odpověď
         report:

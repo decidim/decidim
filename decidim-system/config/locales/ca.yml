@@ -31,6 +31,10 @@ ca:
           attributes:
             redirect_uri:
               must_be_ssl: L'URI de redirecció ha de ser una URI SSL
+        organization:
+          attributes:
+            password:
+              secret_key: Cal que defineixis la variable d'entorn SECRET_KEY_BASE per a poder guardar aquest camp
   decidim:
     system:
       actions:
@@ -244,7 +248,7 @@ ca:
           fieldsets:
             sender: Remitent
           instructions:
-            from_label: 'El remitent de correu electrònic serà: "nom-de-la-teva-organitzacio <your-organization@example.org>". Deixa-ho en blanc per a usar ''l''adreça de correu'' com a etiqueta.'
+            from_label: 'El remitent de correu electrònic serà: "nom-de-la-teva-organitzacio <your-organization@example.org>". Deixa-ho en blanc per a fer servir el mateix nom que el que ja està definit al nom de l''organització.'
           placeholder:
             from_email: la-teva-organitzacio@example.org
             from_label: el-nom-de-la-vostra-organitzacio

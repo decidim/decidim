@@ -75,7 +75,6 @@ ro:
   decidim:
     admin:
       actions:
-        manage: Gestionează
         new_initiative_type: Noul tip de inițiativă
       filters:
         initiatives:
@@ -97,7 +96,6 @@ ro:
       menu:
         attachments: Atașamente
         committee_members: Membrii comitetului
-        components: Componente
         information: Informații
         initiatives: Inițiative
         initiatives_types: Tipuri de inițiative

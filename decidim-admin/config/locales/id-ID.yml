@@ -111,6 +111,7 @@ id:
       actions:
         add: Menambahkan
         browse: Jelajahi
+        manage: Mengelola
         permissions: Izin
         reject: Menolak
         verify: Memeriksa

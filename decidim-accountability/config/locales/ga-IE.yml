@@ -91,10 +91,8 @@ ga:
           comment: Tabhair Trácht
         settings:
           global:
-            categories_label: Ainm do "Catagóirí"
             intro: Réamhrá
             scope_id: Scóip
-            subcategories_label: Ainm do "Fochatagóirí"
     metrics:
       results:
         object: torthaí

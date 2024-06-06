@@ -25,6 +25,8 @@ fr-CA:
         destroy:
           success: Modèle supprimé avec succès.
         empty: Il n'y a pas de modèle pour l'instant.
+        fetch:
+          error: Impossible de trouver ce modèle. Veuillez recharger la page.
         missing_resource: "(ressource manquante)"
         update:
           error: Un problème est survenu lors de la mise à jour de ce modèle.

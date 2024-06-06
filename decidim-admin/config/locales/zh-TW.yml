@@ -181,6 +181,7 @@ zh-TW:
         export: 全部匯出
         export-selection: 匯出選擇
         import: 匯入
+        manage: 管理
         newsletter:
           new: 新電子報
         participatory_space_private_user:
@@ -531,6 +532,7 @@ zh-TW:
         appearance: 外觀
         area_types: 區域類型
         areas: 區域
+        components: 组件
         configuration: 配置
         content: 被檢舉的內容
         help_sections: 幫助部分

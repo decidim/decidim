@@ -6,7 +6,7 @@ module Decidim::System
   describe UpdateOrganizationForm do
     subject do
       described_class.new(
-        name: "Gotham City",
+        name: { ca: "", en: "Gotham City", es: "" },
         host: "decide.example.org",
         secondary_hosts: "foo.example.org\r\n\r\nbar.example.org",
         reference_prefix: "JKR",
@@ -17,14 +17,16 @@ module Decidim::System
         users_registration_mode: "enabled",
         force_users_to_authenticate_before_access_organization: "false",
         **smtp_settings,
-        omniauth_settings: {
-          "omniauth_settings_facebook_enabled" => true,
-          "omniauth_settings_facebook_app_id" => facebook_app_id,
-          "omniauth_settings_facebook_app_secret" => facebook_app_secret
-        }
+        **omniauth_settings
       )
     end
-
+    let(:omniauth_settings) do
+      {
+        "omniauth_settings_facebook_enabled" => true,
+        "omniauth_settings_facebook_app_id" => facebook_app_id,
+        "omniauth_settings_facebook_app_secret" => facebook_app_secret
+      }
+    end
     let(:smtp_settings) do
       {
         "address" => "mail.example.org",
@@ -48,6 +50,20 @@ module Decidim::System
           expect(subject.omniauth_settings_facebook_enabled).to be(true)
           expect(subject.omniauth_settings_facebook_app_id).to eq(facebook_app_id)
           expect(subject.omniauth_settings_facebook_app_secret).to eq(facebook_app_secret)
+        end
+
+        context "when all values are blank" do
+          let(:omniauth_settings) do
+            {
+              "omniauth_settings_facebook_enabled" => nil,
+              "omniauth_settings_facebook_app_id" => nil,
+              "omniauth_settings_facebook_app_secret" => nil
+            }
+          end
+
+          it "returns nil" do
+            expect(subject.encrypted_omniauth_settings).to be_nil
+          end
         end
       end
 
@@ -87,6 +103,23 @@ module Decidim::System
         it "handles SMTP password properly" do
           expect(subject.smtp_settings).to eq(smtp_settings.except("password"))
           expect(Decidim::AttributeEncryptor.decrypt(subject.encrypted_smtp_settings[:encrypted_password])).to eq(password)
+        end
+
+        context "when all values are blank" do
+          let(:smtp_settings) do
+            {
+              "address" => "",
+              "port" => "",
+              "user_name" => "",
+              "password" => "",
+              "from_email" => "",
+              "from_label" => ""
+            }
+          end
+
+          it "returns nil" do
+            expect(subject.encrypted_smtp_settings).to be_nil
+          end
         end
       end
     end

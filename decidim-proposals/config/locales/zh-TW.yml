@@ -161,9 +161,6 @@ zh-TW:
             proposal_length: 提案正文的最大長度
             proposal_limit: 參與者可提出提案的上限
             proposal_wizard_step_1_help_text: 提案向導「創建」步驟說明文字
-            proposal_wizard_step_2_help_text: 提案向導「比較」步驟說明文字
-            proposal_wizard_step_3_help_text: 提案向導「完成」步驟說明文字
-            proposal_wizard_step_4_help_text: 提案向導「發佈」步驟說明文字
             resources_permissions_enabled: 每個提案都可以設定行動權限
             scope_id: 範圍
             scopes_enabled: 啟用範圍
@@ -685,13 +682,6 @@ zh-TW:
         create:
           error: 支持提案時發生問題。
       proposals:
-        compare:
-          continue: 繼續
-          no_similars_found: 做得好！沒有相似的提案
-          title: 相似的提案
-        complete:
-          send: 發送
-          title: 完成您的提案
         dynamic_map_instructions:
           description: 當點擊“預覽”按鈕時，座標將會更新，但地址不會更改。
           instructions: 您可以在地圖上移動點。
@@ -804,15 +794,9 @@ zh-TW:
         wizard_aside:
           back: 返回
           back_from_step_1: 返回提案
-          back_from_step_2: 返回提案
-          back_from_step_3: 返回比較提案
-          back_from_step_4: 返回編輯草案
         wizard_steps:
           current_step: 當前步驟
           step_1: 創建你的提案
-          step_2: 比較
-          step_3: 完成
-          step_4: 發佈您的提案
           title: 提案創建步驟
       proposals_picker:
         choose_proposals: 選擇提案

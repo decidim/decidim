@@ -423,7 +423,6 @@ pt-BR:
           body: A reunião <a href="%{meeting_path}">"%{meeting_title}"</a> está pendente para ser fechada. Adicione um relatório da reunião usando o botão "Fechar reunião".
           greetings: Saudações,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Olá %{username},
-          subject: Agora você pode encerrar sua reunião com um relatório na plataforma %{organization_name}
       conference_venues: Locais de conferência
       content_blocks:
         upcoming_meetings:

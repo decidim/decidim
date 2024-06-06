@@ -20,8 +20,30 @@ header {
     }
   }
 
+  #flash-messages-container {
+    @apply mt-28 md:mt-0;
+  }
+
+  #menu-bar-container {
+    @apply mt-24 md:mt-0;
+  }
+
+  &.with-admin-bar {
+    #flash-messages-container {
+      @apply mt-40 md:mt-0;
+    }
+
+    #menu-bar-container {
+      @apply mt-[140px] md:mt-0;
+    }
+  }
+
+  #sticky-header-container {
+    @apply fixed w-full top-0 shadow-lg z-40 bg-white md:relative transition-top duration-300;
+  }
+
   .main-bar {
-    @apply container grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-4 items-center py-5;
+    @apply container grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-4 items-center py-5 h-24;
 
     &__container {
       @apply relative w-full;
@@ -29,6 +51,14 @@ header {
 
     &__logo {
       @apply col-span-3 xl:col-span-2 prose prose-img:max-h-16 prose-img:my-0;
+    }
+
+    &__logo-desktop {
+      @apply hidden lg:block;
+    }
+
+    &__logo-mobile {
+      @apply lg:hidden;
     }
 
     &__search {
@@ -61,6 +91,10 @@ header {
         &-wrapper {
           @apply flex gap-x-4 xl:gap-x-6;
         }
+
+        &-account {
+          @apply w-6 h-6 flex items-center justify-center bg-secondary text-white rounded-full text-xs font-bold mr-2;
+        }
       }
 
       /* overwrite default dropdown styles */
@@ -81,10 +115,10 @@ header {
       @apply fixed bottom-0 left-0 z-40 bg-white w-full px-4 py-3 flex justify-between text-secondary shadow-[0_-4px_6px_rgba(198,198,198,0.25)];
 
       &__trigger {
-        @apply flex flex-col items-center text-secondary cursor-pointer p-2;
+        @apply flex flex-col items-center text-secondary cursor-pointer pl-4 border-l border-gray-3;
 
         svg {
-          @apply w-5 h-5 fill-current;
+          @apply w-6 h-6 fill-current;
         }
 
         span {
@@ -94,6 +128,10 @@ header {
 
       &__dropdown {
         @apply absolute top-full left-0 z-30 bg-white;
+      }
+
+      &__dropdown-before {
+        @apply before:block before:absolute before:-top-10 before:right-12 before:content-[""] before:bg-white before:w-24 before:h-12 before:-mt-8;
       }
 
       &__account {
@@ -118,46 +156,33 @@ header {
         .main-bar__avatar {
           @apply w-12 h-12;
         }
-      }
 
-      &__search {
-        @apply fixed top-0 left-0 w-full h-full z-30 bg-white;
-
-        &-block {
-          @apply container h-full flex flex-col justify-center;
+        .main-bar__avatar-name {
+          @apply w-12 h-12 text-2xl;
         }
 
-        .main-bar {
-          @apply border-b border-gray;
-        }
-
-        label {
-          @apply block mb-4 text-black;
-        }
-
-        form {
-          @apply relative;
+        .account-container {
+          @apply before:block before:absolute before:top-16 before:right-14 before:content-[""] before:bg-white before:w-2 before:h-12 before:-mt-8;
         }
       }
 
       &__item {
-        @apply w-1/4 flex flex-col items-center relative;
+        @apply relative;
+      }
+
+      &__search {
+        @apply fixed top-0 left-0 w-full h-full z-30 bg-white;
+      }
+
+      &__login {
+        @apply w-20 h-full flex flex-row items-center relative text-secondary gap-1;
 
         svg {
-          @apply w-8 h-8 fill-current;
+          @apply w-8 h-6 fill-current;
         }
 
         svg + span {
-          @apply text-sm first-letter:uppercase;
-        }
-
-        /* overwrite default dropdown styles */
-        &[data-target*="dropdown"] {
-          @apply p-0 gap-0;
-
-          > span {
-            @apply block font-normal text-sm first-letter:uppercase;
-          }
+          @apply text-sm first-letter:uppercase pr-4;
         }
       }
     }
@@ -179,11 +204,11 @@ header {
     }
 
     &__notification {
-      @apply w-2.5 h-2.5 rounded-full block absolute -top-0.5 right-0 bg-primary;
+      @apply w-2.5 h-2.5 rounded-full block absolute -top-0.5 right-1.5 bg-primary;
     }
 
     &__avatar {
-      @apply block w-8 h-8 rounded-full border border-secondary overflow-hidden;
+      @apply block w-6 h-6 rounded-full border border-secondary overflow-hidden mr-2;
 
       span {
         @apply w-full h-full rounded-full overflow-hidden;
@@ -194,6 +219,10 @@ header {
       }
     }
 
+    &__avatar-name {
+      @apply w-6 h-6 flex items-center justify-center bg-secondary text-white rounded-full text-xs font-bold mr-2;
+    }
+
     /* overwrite default dropdown styles */
     [id*="dropdown-menu"] {
       @apply py-0 mx-0 w-full;
@@ -202,14 +231,10 @@ header {
         @apply md:hidden;
       }
     }
-
-    [data-target*="dropdown"] {
-      @apply last-of-type:[&>svg]:block;
-    }
   }
 
   .menu-bar {
-    @apply container h-full flex justify-between items-center lg:relative;
+    @apply container h-full flex justify-between items-center lg:relative last-of-type:[&>svg]:hidden;
 
     &__container {
       @apply bg-primary relative h-14;
@@ -342,21 +367,16 @@ header {
       }
     }
 
+    &__language-chooser {
+      @apply absolute top-full left-0 bg-white rounded w-full bg-gray-5;
+    }
+
     &__main-dropdown {
       @apply bg-white divide-y divide-gray-3 rounded-b shadow-lg text-black w-full lg:w-[1280px];
 
       &__bottom,
       &__top {
         @apply flex flex-col md:flex-row justify-between p-4 md:p-8 gap-x-8;
-
-        &-left {
-          @apply w-full md:w-1/2;
-
-          /* Overwrite default size */
-          .card__highlight-text {
-            @apply text-md;
-          }
-        }
 
         &-right {
           @apply hidden md:block md:w-1/2;

@@ -130,8 +130,6 @@ ru:
       amendable:
         button: Изменить %{model_name}
         promote_button: Повысить до %{model_name}
-      compare_draft:
-        continue: Продолжить
       edit_draft:
         send: Предпросмотр
       emendation:

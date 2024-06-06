@@ -73,7 +73,6 @@ lt:
         deleted_user: Ištrintas dalyvis
         edit: Redaguoti
         edited: Redaguota
-        hide_replies: Paslėpti atsakymus
         moderated_at: Komentaras moderuotas %{date}
         reply: Atsakyti
         report:

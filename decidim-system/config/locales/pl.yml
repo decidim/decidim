@@ -37,11 +37,17 @@ pl:
         confirm_destroy: Czy na pewno chcesz to usunąć?
         destroy: Usuń
         edit: Edytuj
+        new_admin: Nowy administrator
+        new_oauth_application: Nowa aplikacja OAuth
+        new_organization: Nowa organizacja
         save: Zapisz
         title: Działania
       admins:
         create:
           error: Podczas tworzenia nowego administratora wystąpił błąd.
+          success: Administrator został utworzony.
+        destroy:
+          success: Administrator został usunięty.
         edit:
           title: Edytuj administratora
           update: Aktualizuj
@@ -52,10 +58,30 @@ pl:
           title: Nowy administrator
         update:
           error: Podczas aktualizowania tego administratora wystąpił błąd.
+          success: Administrator został zaktualizowany.
+      dashboard:
+        show:
+          admins: Administratorzy
+          current_organizations: Bieżące organizacje
       default_pages:
         placeholders:
           content: Proszę dodać istotne treści do strony statycznej %{page} w panelu administratora.
+          summary: Prosimy o dodanie merytorycznej treści na stronie statycznej %{page} w panelu admina.
           title: Domyślny tytuł dla %{page}
+        terms-of-service: Warunki korzystania z usługi
+      devise:
+        passwords:
+          edit:
+            change_your_password: Zmień swoje hasło
+            minimum_characters: "(Minimum %{minimum} znaków)"
+          new:
+            forgot_your_password: Zapomniałeś hasła
+            send_me_reset_password_instructions: Wyślij mi instrukcje resetowania hasła
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Nie otrzymałeś(aś) instrukcji potwierdzenia?
+            did_not_receive_unlock_instructions?: Nie dotarła instrukcja odblokowania?
+            forgot_your_password?: Nie pamiętasz hasła?
       menu:
         admins: Administratorzy
         dashboard: Panel

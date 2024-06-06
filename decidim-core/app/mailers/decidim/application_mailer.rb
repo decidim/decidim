@@ -6,6 +6,10 @@ module Decidim
   class ApplicationMailer < ActionMailer::Base
     include LocalisedMailer
     include MultitenantAssetHost
+    include Decidim::SanitizeHelper
+    include Decidim::OrganizationHelper
+    helper_method :organization_name, :decidim_escape_translated, :decidim_sanitize_translated, :translated_attribute, :decidim_sanitize, :decidim_sanitize_newsletter
+
     after_action :set_smtp
     after_action :set_from
 
@@ -17,7 +21,7 @@ module Decidim
     attr_reader :organization
 
     def set_smtp
-      return if organization.nil? || organization.smtp_settings.blank?
+      return if organization.nil? || organization.smtp_settings.blank? || organization.smtp_settings.except("from", "from_label", "from_email").all?(&:blank?)
 
       mail.reply_to = mail.reply_to || Decidim.config.mailer_reply
       mail.delivery_method.settings.merge!(
@@ -44,11 +48,11 @@ module Decidim
       smtp_settings_from = organization.smtp_settings["from"]
       return smtp_settings_from if already_defined_name_in_mail?(smtp_settings_from)
 
-      email_address_with_name(smtp_settings_from, organization.name)
+      email_address_with_name(smtp_settings_from, organization_name(organization))
     end
 
     def default_sender
-      email_address_with_name(Decidim.config.mailer_sender, organization.name)
+      email_address_with_name(Decidim.config.mailer_sender, organization_name(organization))
     end
 
     def already_defined_name_in_mail?(mail_address)

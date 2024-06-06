@@ -117,6 +117,7 @@ sr:
       actions:
         add: Dodaj
         browse: Prеglеdaj
+        manage: Upravljaj
         per_page: Po stranici
         permissions: Dozvole
         reject: Odbaci

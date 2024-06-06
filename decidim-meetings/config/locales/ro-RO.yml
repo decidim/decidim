@@ -363,7 +363,6 @@ ro:
       close_meeting_reminder_mailer:
         close_meeting_reminder:
           hello: Salut %{username},
-          subject: Acum poți închide întâlnirea cu un raport pe platforma %{organization_name}
       conference_venues: Locuri ale conferinței
       content_blocks:
         upcoming_meetings:

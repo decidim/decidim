@@ -520,7 +520,6 @@ id:
         default_page:
           content: "<p>Dalam %{organization} Anda dapat berpartisipasi dan memutuskan topik yang berbeda, melalui ruang yang Anda lihat di menu atas: Proses, Rakitan, Inisiatif, Konsultasi.</p> <p>Di dalam masing-masing Anda akan menemukan berbagai opsi untuk berpartisipasi: membuat proposal - secara individu atau dengan orang lain-, ambil bagian dalam perdebatan, memprioritaskan proyek untuk dilaksanakan, menghadiri pertemuan tatap muka dan tindakan lainnya.</p>\n"
           title: Apa yang bisa saya lakukan di %{organization}?
-        title: Bantuan umum
     last_activities:
       all: Semua jenis aktivitas
       index:

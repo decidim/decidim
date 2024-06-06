@@ -11,15 +11,19 @@ end
 %>
 
 <div class="layout-container">
-  <header>
-    <%= render partial: "layouts/decidim/admin_links" if current_user&.admin %>
-    <%= render partial: "layouts/decidim/header/main" %>
-    <% if display_flash_messages.present? %>
-      <div class="container">
-        <%= display_flash_messages %>
-      </div>
-    <% end %>
-    <%= render partial: "layouts/decidim/header/menu" unless controller_name == "homepage" %>
+  <header <%= "class=with-admin-bar" if current_user&.admin %>>
+    <div id="sticky-header-container" data-sticky-header>
+      <%= render partial: "layouts/decidim/admin_links" if current_user&.admin %>
+      <%= render partial: "layouts/decidim/header/main" %>
+    </div>
+    <div id="menu-bar-container">
+      <% if display_flash_messages.present? %>
+        <div id="flash-messages-container" class="container">
+          <%= display_flash_messages %>
+        </div>
+      <% end %>
+      <%= render partial: "layouts/decidim/header/menu" unless controller_name == "homepage" %>
+    </div>
   </header>
 
   <div id="content" data-content>

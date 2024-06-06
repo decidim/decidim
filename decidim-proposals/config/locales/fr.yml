@@ -186,9 +186,7 @@ fr:
             proposal_length: Nombre maximum de caractères du corps de la proposition
             proposal_limit: Limite de proposition par utilisateur
             proposal_wizard_step_1_help_text: Texte d'aide à l'étape "Créer" de la création de proposition
-            proposal_wizard_step_2_help_text: Texte d'aide à l'étape "Comparer" de la création de proposition
-            proposal_wizard_step_3_help_text: Texte d'aide à l'étape "Compléter" de la création de proposition
-            proposal_wizard_step_4_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
+            proposal_wizard_step_2_help_text: Texte d'aide à l'étape "Publier" de l'assistant de proposition
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque proposition
             scope_id: Secteur
             scopes_enabled: Secteurs activés
@@ -765,13 +763,6 @@ fr:
         create:
           error: Des erreurs se sont produites lors du vote pour la proposition.
       proposals:
-        compare:
-          continue: Continuer
-          no_similars_found: Bien joué ! Aucune proposition similaire n'a été trouvée
-          title: Propositions similaires
-        complete:
-          send: Envoyer
-          title: Complétez votre proposition
         dynamic_map_instructions:
           description: Les coordonnées seront mises à jour en cliquant sur le bouton 'Aperçu'. Cependant, l'adresse ne change pas.
           instructions: Vous pouvez déplacer le point sur la carte.
@@ -893,15 +884,11 @@ fr:
         wizard_aside:
           back: Retour
           back_from_step_1: Retour aux propositions
-          back_from_step_2: Retour aux propositions
-          back_from_step_3: Retour à la comparaison des propositions
-          back_from_step_4: Retour à l'édition du brouillon
+          back_from_step_2: Retour à l'édition
         wizard_steps:
           current_step: Étape actuelle
           step_1: Créer une proposition
-          step_2: Comparer aux autres propositions
-          step_3: Compléter votre proposition
-          step_4: Publier votre proposition
+          step_2: Publier votre proposition
           title: Étapes de création de proposition
       proposals_picker:
         choose_proposals: Choisir les propositions
