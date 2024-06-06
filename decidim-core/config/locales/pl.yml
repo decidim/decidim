@@ -1921,7 +1921,6 @@ pl:
         resources: Zasoby
         sign_up: Zarejestruj się
       header:
-        log_in: Zaloguj się
         main_menu: Menu główne
         user_menu: Menu użytkownika
       impersonation_warning:
