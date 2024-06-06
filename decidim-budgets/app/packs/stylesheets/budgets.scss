@@ -231,7 +231,11 @@
 }
 
 .budget-summary__button-modal {
-  @apply col-span-12 mb-4 pb-4;
+  @apply hidden lg:block lg:col-span-12 lg:mb-4 lg:pb-4;
+}
+
+.budget-summary__button-dropdown {
+  @apply col-span-12 mb-4 pb-4 lg:hidden;
 }
 
 .progressbox-fixed-wrapper {
@@ -262,7 +266,11 @@
   }
 
   .budget-summary__button-modal {
-    @apply col-span-10 col-start-2 justify-start;
+    @apply hidden lg:block lg:col-span-10 lg:col-start-2 lg:justify-start;
+  }
+
+  .budget-summary__button-dropdown {
+    @apply block col-span-10 col-start-2 justify-start lg:hidden;
   }
 
   .progressbox-fixed-wrapper {

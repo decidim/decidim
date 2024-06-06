@@ -64,6 +64,14 @@
       <%= t("more_information", scope: "decidim.budgets.budget_information_modal") %>
     </button>
   </div>
+  <div class="budget-summary__button-dropdown">
+    <button id="dropdown-trigger-element" data-component="dropdown" data-target="dropdown-menu-element">
+      <%= t("more_information", scope: "decidim.budgets.budget_information_modal") %>
+    </button>
+    <ul id="dropdown-menu-element">
+      <li>dropdown info</li>
+    </ul>
+  </div>
   <div class="w-screen max-w-screen progressbox-fixed-wrapper" data-progressbox-fixed>
     <div class="gap-0 layout-item py-4 items-center budget-summary__progressbar">
       <div class="budget-summary__progressbox layout-item__main">
