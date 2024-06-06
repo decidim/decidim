@@ -1916,7 +1916,6 @@ eu:
         sign_up: Eman izena
         terms_of_service: Zerbitzuaren baldintzak
       header:
-        log_in: Sartu
         main_menu: Menu nagusia
         user_menu: Erabiltzailearen menua
       impersonation_warning:
