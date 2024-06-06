@@ -503,6 +503,7 @@ zh-TW:
       registrations:
         new:
           already_have_an_account?: 已經有帳號了嗎？
+          log_in: 登入
           newsletter: 偶爾收到包含相關信息的時事通訊。
           newsletter_title: 聯絡人權限
           sign_up: 註冊登記
@@ -1544,12 +1545,16 @@ zh-TW:
       signed_up_but_unconfirmed: 確認信件已送至您的 Email 信箱，請點擊信件內連結以啓動您的帳號。
       update_needs_confirmation: 您已經成功的更新帳號資訊，但我們仍需確認您的電子信箱，請至新信箱收信並點擊連結以確認您的新電子郵件帳號。
       updated: 您的帳號已成功升級。
+    sessions:
+      new:
+        log_in: 登入
     shared:
       links:
         back: 返回
         didn_t_receive_confirmation_instructions: 沒有收到確認的說明嗎？
         didn_t_receive_unlock_instructions: 沒有收到解鎖說明？
         forgot_your_password: 忘記密碼了嗎？
+        log_in: 登入
         sign_up: 註冊登記
       minimum_password_length:
         other: "One\n(最少%{count} 個字符)\n\nOther\n(最少%{count} 個字符)"
@@ -1659,6 +1664,7 @@ zh-TW:
         data_consent_settings: Cookie 設定
         decidim_logo: Decidim 商標
         download_open_data: 下載開放數據檔案
+        log_in: 登入
         made_with_open_source: 使用<a target="_blank" href="https://github.com/decidim/decidim">自由軟體</a>建立的網站。
         sign_up: 註冊
       header:
