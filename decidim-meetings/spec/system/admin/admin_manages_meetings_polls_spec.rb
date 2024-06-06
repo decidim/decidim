@@ -8,7 +8,7 @@ describe "Admin manages meetings polls" do
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }
   let(:manifest_name) { "meetings" }
   let!(:meeting) { create(:meeting, scope:, services: [], component: current_component) }
-  let(:poll) { create(:poll) }
+  let(:poll) { create(:poll, meeting:) }
   let(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
   let(:body) do
     {
@@ -31,7 +31,7 @@ describe "Admin manages meetings polls" do
 
   include_context "when managing a component as an admin"
 
-  context "when the questionnaire is not already answered" do
+  context "when the questionnaire has unpublished questions" do
     before do
       visit questionnaire_edit_path
     end
@@ -239,15 +239,134 @@ describe "Admin manages meetings polls" do
     end
   end
 
-  context "when the questionnaire is already answered" do
-    let!(:question) { create(:meetings_poll_question, questionnaire:, body:, question_type: "multiple_option") }
-    let!(:answer) { create(:meetings_poll_answer, questionnaire:, question:) }
+  context "when the questionnaire includes published and closed questions" do
+    let!(:unpublished_question) { create(:meetings_poll_question, :unpublished, questionnaire:, question_type: "single_option", position: 0) }
+    let!(:published_question) { create(:meetings_poll_question, :published, questionnaire:, question_type: "single_option", position: 1) }
+    let!(:closed_question) { create(:meetings_poll_question, :closed, questionnaire:, question_type: "single_option", position: 2) }
 
-    it "can modify questionnaire questions" do
+    it "displays all questions with inputs disabled for not unpublished questions" do
+      visit questionnaire_edit_path
+
+      expand_all_questions
+
+      expect(page).to have_css("input[value='#{translated_attribute(unpublished_question.body)}']:not([disabled])")
+      expect(page).to have_css("input[value='#{translated_attribute(published_question.body)}'][disabled='disabled']")
+      expect(page).to have_css("input[value='#{translated_attribute(closed_question.body)}'][disabled='disabled']")
+    end
+
+    it "can create new questions" do
+      visit questionnaire_edit_path
+
+      click_on "Add question"
+
+      expand_all_questions
+
+      within ".questionnaire-question:last-of-type" do
+        fill_in find_nested_form_field_locator("body_en"), with: "New question title"
+        page.all(".questionnaire-question-answer-option").each_with_index do |question_answer_option, answer_option_idx|
+          within question_answer_option do
+            fill_in find_nested_form_field_locator("body_en"), with: "New question answer option #{answer_option_idx + 1}"
+          end
+        end
+      end
+      click_on "Save"
+
+      expect(page).to have_admin_callout("successfully")
+
+      visit_questionnaire_edit_path_and_expand_all
+
+      expect(page).to have_css("input[value='New question title']")
+      expect(page).to have_css("input[value='New question answer option 1']")
+      expect(page).to have_css("input[value='New question answer option 2']")
+    end
+
+    it "can modify questionnaire open questions" do
       visit questionnaire_edit_path
 
       expect(page).to have_content("Add question")
-      expect(page).to have_no_content("Remove")
+      expand_all_questions
+      within "#questionnaire_question_#{unpublished_question.id}-field" do
+        expect(page).to have_content("Remove")
+        expect(page).to have_content("Add answer option")
+        fill_in find_nested_form_field_locator("body_en"), with: "Changed title"
+        page.all(".questionnaire-question-answer-option").each_with_index do |question_answer_option, answer_option_idx|
+          within question_answer_option do
+            fill_in find_nested_form_field_locator("body_en"), with: "Changed answer option #{answer_option_idx + 1}"
+          end
+        end
+      end
+
+      click_on "Save"
+
+      expect(page).to have_admin_callout("successfully")
+
+      visit_questionnaire_edit_path_and_expand_all
+
+      expect(page).to have_css("input[value='Changed title']")
+      expect(page).to have_css("input[value='Changed answer option 1']")
+      expect(page).to have_css("input[value='Changed answer option 2']")
+      expect(page).to have_css("input[value='Changed answer option 3']")
+    end
+
+    context "when there are validation errors" do
+      before do
+        visit questionnaire_edit_path
+        click_on "Add question"
+        click_on "Save"
+      end
+
+      it "keeps the content of blocked questions" do
+        expect(page).to have_content("There was a problem updating this meeting poll")
+        expand_all_questions
+
+        expect(page).to have_css("input[value='#{translated_attribute(unpublished_question.body)}']:not([disabled])")
+        expect(page).to have_css("input[value='#{translated_attribute(published_question.body)}'][disabled='disabled']")
+        expect(page).to have_css("input[value='#{translated_attribute(closed_question.body)}'][disabled='disabled']")
+      end
+    end
+
+    it "can reorder published or closed questions" do
+      visit questionnaire_edit_path
+      within "#questionnaire_question_#{unpublished_question.id}-field" do
+        expect(page).to have_content("Remove")
+        expect(page).to have_content("Down")
+        expect(page).to have_no_content("Up")
+      end
+
+      within "#questionnaire_question_#{published_question.id}-field" do
+        expect(page).to have_no_content("Remove")
+        expect(page).to have_content("Down")
+        expect(page).to have_content("Up")
+      end
+
+      within "#questionnaire_question_#{closed_question.id}-field" do
+        expect(page).to have_no_content("Remove")
+        expect(page).to have_no_content("Down")
+        expect(page).to have_content("Up")
+      end
+
+      within "#questionnaire_question_#{closed_question.id}-field" do
+        click_on "Up"
+        click_on "Up"
+      end
+
+      within "#questionnaire_question_#{unpublished_question.id}-field" do
+        click_on "Down"
+      end
+
+      click_on "Save"
+
+      expand_all_questions
+
+      within ".questionnaire-question:last-of-type" do
+        expect(page).to have_css("#questionnaire_question_#{unpublished_question.id}-button")
+      end
+      within ".questionnaire-question:first-of-type" do
+        expect(page).to have_css("#questionnaire_question_#{closed_question.id}-button")
+      end
+      expect(unpublished_question.reload.position).to eq(2)
+      expect(published_question.reload.position).to eq(1)
+      expect(closed_question.reload.position).to eq(0)
     end
   end
 
