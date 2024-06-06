@@ -42,8 +42,6 @@ module Decidim::Meetings
       )
     end
 
-    # { Decidim::Meetings::JoinMeetingForm.new }
-
     let(:badge_notification) { hash_including(event: "decidim.events.gamification.badge_earned") }
     let(:user_notification) do
       {
@@ -72,9 +70,6 @@ module Decidim::Meetings
       end
 
       it "creates a registration for the meeting and the user no public participation" do
-        # puts user.id
-        # puts form.current_user.id
-        # byebug
         expect { subject.call }.to change(Registration, :count).by(1)
         last_registration = Registration.last
         expect(last_registration.user).to eq(user)
