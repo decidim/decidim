@@ -155,6 +155,7 @@ en:
             amendments_wizard_help_text: Amendments Wizard help text
             announcement: Announcement
             attachments_allowed: Allow attachments
+            attachments_allowed_help: By enabling this option, proposals will default to grid mode, and the first image will appear on the card.
             can_accumulate_supports_beyond_threshold: Can accumulate supports beyond threshold
             collaborative_drafts_enabled: Collaborative drafts enabled
             comments_enabled: Comments enabled
@@ -801,6 +802,8 @@ en:
           count:
             one: "%{count} proposal"
             other: "%{count} proposals"
+          grid_mode: Grid mode
+          list_mode: List mode
           new_proposal: New proposal
           see_all: See all proposals
           see_all_withdrawn: See all withdrawn proposals

@@ -484,10 +484,9 @@ GEM
     mini_magick (4.12.0)
     mini_mime (1.1.5)
     mini_portile2 (2.8.7)
-    minitest (5.23.1)
-    msgpack (1.7.2)
-    multi_xml (0.7.1)
-      bigdecimal (~> 3.1)
+    minitest (5.22.2)
+    msgpack (1.4.5)
+    multi_xml (0.6.0)
     net-http (0.4.1)
       uri
     net-imap (0.4.12)
@@ -499,7 +498,7 @@ GEM
       timeout
     net-smtp (0.3.4)
       net-protocol
-    nio4r (2.7.3)
+    nio4r (2.7.0)
     nokogiri (1.16.5)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
@@ -568,7 +567,7 @@ GEM
     puma (6.4.2)
       nio4r (~> 2.0)
     racc (1.8.0)
-    rack (2.2.9)
+    rack (2.2.8.1)
     rack-attack (6.7.0)
       rack (>= 1.0, < 4)
     rack-cors (1.1.1)

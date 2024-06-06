@@ -22,22 +22,30 @@ module Decidim
               secondary_hosts: "foo.example.org\r\n\r\nbar.example.org",
               force_users_to_authenticate_before_access_organization: false,
               users_registration_mode: "existing",
-              smtp_settings: {
-                "address" => "mail.example.org",
-                "port" => "25",
-                "user_name" => "f.laguardia",
-                "password" => Decidim::AttributeEncryptor.encrypt("password"),
-                "from_email" => "decide@example.org",
-                "from_label" => from_label
-              },
-              omniauth_settings_facebook_enabled: true,
-              omniauth_settings_facebook_app_id: "facebook-app-id",
-              omniauth_settings_facebook_app_secret: "facebook-app-secret",
+              **smtp_settings,
+              **omniauth_settings,
               file_upload_settings: params_for_uploads(upload_settings)
             }
           end
           let(:upload_settings) do
             Decidim::OrganizationSettings.default(:upload)
+          end
+          let(:omniauth_settings) do
+            {
+              "omniauth_settings_facebook_enabled" => true,
+              "omniauth_settings_facebook_app_id" => "facebook-app-id",
+              "omniauth_settings_facebook_app_secret" => "facebook-app-secret"
+            }
+          end
+          let(:smtp_settings) do
+            {
+              "address" => "mail.example.org",
+              "port" => "25",
+              "user_name" => "f.laguardia",
+              "password" => Decidim::AttributeEncryptor.encrypt("password"),
+              "from_email" => "decide@example.org",
+              "from_label" => from_label
+            }
           end
 
           it "returns a valid response" do
@@ -75,6 +83,45 @@ module Decidim
                 expect(organization.smtp_settings["from"]).to eq("decide@example.org")
                 expect(organization.smtp_settings["from_email"]).to eq("decide@example.org")
               end
+            end
+
+            context "when all smtp settings are blank" do
+              let(:smtp_settings) do
+                {
+                  "address" => "",
+                  "port" => "",
+                  "user_name" => "",
+                  "password" => "",
+                  "from_email" => "",
+                  "from_label" => ""
+                }
+              end
+
+              it "sets smtp_settings to nil" do
+                command.call
+                organization = Organization.last
+
+                expect(translated(organization.name)).to eq("Gotham City")
+                expect(organization.smtp_settings).to be_nil
+              end
+            end
+          end
+
+          context "when all omniauth settings are blank" do
+            let(:omniauth_settings) do
+              {
+                "omniauth_settings_facebook_enabled" => nil,
+                "omniauth_settings_facebook_app_id" => nil,
+                "omniauth_settings_facebook_app_secret" => nil
+              }
+            end
+
+            it "sets omniauth_settings to nil" do
+              command.call
+              organization = Organization.last
+
+              expect(translated(organization.name)).to eq("Gotham City")
+              expect(organization.omniauth_settings).to be_nil
             end
           end
         end
