@@ -74,12 +74,10 @@ fr-CA:
           attributes:
             base:
               not_official: Non officiels
-              supported: Avoir reçu des soutiens ou des approbations
         proposals_split:
           attributes:
             base:
               not_official: Non officiels
-              supported: A reçu des soutiens ou des approbations
     models:
       decidim/proposals/admin/update_proposal_category_event: Catégorie de proposition modifiée
       decidim/proposals/admin/update_proposal_scope_event: La portée de la proposition a été modifiée
@@ -154,23 +152,19 @@ fr-CA:
             amendments_wizard_help_text: Texte d'aide de l'assistant
             announcement: Annonce
             attachments_allowed: Autoriser les pièces jointes
-            can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
             collaborative_drafts_enabled: Brouillons collaboratifs activés
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur maximum (en caractères) des commentaires (laisser 0 pour la valeur par défaut)
             default_sort_order: Tri des propositions par défaut
-            default_sort_order_help: Par défaut, si l’es aides sont activés, les propositions seront affichées par ordre aléatoire, et si les aides sont bloqués, alors ils seront triés par l’aide le plus soutenu.
             default_sort_order_options:
               default: Défaut
               most_commented: Les plus commentées
               most_endorsed: Les plus approuvées
               most_followed: Les plus suivies
-              most_voted: Les plus soutenues
               random: Aléatoire
               recent: Les plus récents
               with_more_authors: Avec le plus d'auteurs
             geocoding_enabled: Géocodage activé
-            minimum_votes_per_user: Nombre minimum de votes par utilisateur
             new_proposal_body_template: Modèle de corps d'une nouvelle proposition
             new_proposal_body_template_help: Vous pouvez définir le texte prérempli que les nouvelles propositions auront
             new_proposal_help_text: Texte d'aide à la création d'une nouvelle proposition
@@ -191,7 +185,6 @@ fr-CA:
             scope_id: Secteur
             scopes_enabled: Secteurs activés
             threshold_per_proposal: Seuil par proposition
-            vote_limit: Limite de votes par utilisateur
           step:
             amendment_creation_enabled: Création d'amendement activée
             amendment_creation_enabled_help: Le participant peut amender les propositions.
@@ -211,13 +204,11 @@ fr-CA:
             creation_enabled: Les participants peuvent créer des propositions
             creation_enabled_readonly: Ce paramètre est désactivé lorsque vous activez la fonctionnalité Textes participatifs. Pour télécharger des propositions sous forme de texte participatif, cliquez sur le bouton Textes participatifs et suivez les instructions.
             default_sort_order: Tri des propositions par défaut
-            default_sort_order_help: Par défaut, si les aides sont activés, les propositions seront affichées par ordre aléatoire, et si les aides sont bloqués, alors ils seront triés par l’aide le plus soutenu.
             default_sort_order_options:
               default: Par défaut
               most_commented: Les plus commentées
               most_endorsed: Les plus soutenues
               most_followed: Les plus suivies
-              most_voted: Les plus votées
               random: Aléatoire
               recent: Récentes
               with_more_authors: Avec le plus d'auteurs
@@ -227,7 +218,7 @@ fr-CA:
             publish_answers_immediately: Publier immédiatement les réponses à la proposition
             publish_answers_immediately_help_html: "Notez que si vous répondez à une proposition sans que cette case soit activée, vous devrez publier la réponse manuellement en sélectionnant la proposition et en utilisant l'action de publication.\nPour plus d'informations sur le fonctionnement de cette action, voir <a href=\"https://docs.decidim.org/en/admin/components/proposals/answers#_publication\" target=\"_blank\">la page de documentation sur les réponses aux propositions</a>."
             suggested_hashtags: Hashtags suggérés aux utilisateurs pour de nouvelles propositions
-            votes_blocked: Bloquer les votes
+            votes_blocked: Votes bloqués
             votes_enabled: Activer le module de vote simple
             votes_hidden: Cacher les votes (si le module de votes est activé, le décompte des votes sera caché)
     events:
@@ -318,7 +309,6 @@ fr-CA:
         voting_enabled:
           email_intro: 'Vous pouvez soutenir les propositions de %{participatory_space_title} ! Participez ici :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-          email_subject: Vous pouvez désormais voter les propositions dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant commencer <a href="%{resource_path}">à voter pour les propositions</a> de <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
@@ -336,14 +326,7 @@ fr-CA:
         proposal_votes:
           conditions:
             - Parcourir et passer du temps à lire les propositions d'autres personnes
-            - Soutenez les propositions que vous aimez ou trouvez intéressantes
-          description: Ce badge est attribué lorsque vous soutenez les propositions d'autres personnes.
-          description_another: Cet utilisateur a soutenu %{score} propositions.
-          description_own: Vous avez soutenu %{score} propositions.
-          name: Soutiens de proposition
-          next_level_in: Soutenir %{score} propositions supplémentaires pour atteindre le niveau supérieur!
-          unearned_another: Cet utilisateur n'a voté pour aucune proposition pour le moment.
-          unearned_own: Vous n'avez soutenu aucune proposition pour le moment.
+            - 
         proposals:
           conditions:
             - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
@@ -368,10 +351,6 @@ fr-CA:
         description: Nombre de propositions générées
         object: propositions
         title: Propositions
-      votes:
-        description: Nombre de votes générés dans les propositions par les utilisateurs
-        object: votes
-        title: Votes
     participatory_spaces:
       highlighted_proposals:
         last: Dernières propositions
@@ -554,7 +533,6 @@ fr-CA:
             remove_assignment: Supprimer l'affectation
             remove_assignment_confirmation: Êtes-vous sûr de vouloir supprimer l'évaluateur de cette proposition ?
             valuators: Évaluateurs
-            votes_count: Nombre de votes
           update_category:
             invalid: 'Ces propositions avaient déjà la catégorie %{subject_name} : %{proposals}.'
             select_a_category: Veuillez sélectionner une catégorie.
@@ -759,9 +737,6 @@ fr-CA:
         buttons:
           amend: Modifier
           comment: Commentaire
-      proposal_votes:
-        create:
-          error: Des erreurs se sont produites lors du soutien de la proposition.
       proposals:
         dynamic_map_instructions:
           description: Les coordonnées seront mises à jour en cliquant sur le bouton 'Aperçu'. Cependant, l'adresse ne change pas.
@@ -850,37 +825,21 @@ fr-CA:
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
           proposal_rejected_reason: 'Cette proposition n''a pas été retenue parce que :'
-          withdraw_btn_hint: Si vous changez d'avis et tant que votre proposition n'a pas reçu de vote, commentaire et/ou soutien, vous pouvez toujours la retirer. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
           withdraw_confirmation_html: Êtes-vous sûr de vouloir retirer cette proposition ?<br><br><strong>Cette action ne peut pas être annulée !</strong>
           withdraw_proposal: Retirer la proposition
         update:
           title: Mettre à jour la proposition
         vote_button:
           already_voted: Déjà votée
-          already_voted_hover: Retirer le vote
           maximum_votes_reached: Nombre maximum de votes atteint
           no_votes_remaining: Aucun vote restant
-          vote: Voter
+          vote: Soutenir
           votes_blocked: Votes désactivés
-        votes_count:
-          count:
-            one: VOTE
-            other: VOTES
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: Chaque proposition doit rassembler plus de %{limit} votes
-          minimum_votes_per_user:
-            description: Vous devez répartir un minimum de %{votes} voix entre différentes propositions.
-            given_enough_votes: Vous avez attribué suffisamment de votes.
-            supports_remaining: Vous devez voter %{remaining_votes} proposition supplémentaire pour que vos votes soient pris en compte.
           proposal_limit:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
-          threshold_per_proposal:
-            description: Pour être acceptées, les propositions doivent atteindre %{limit} votes.
-          title: 'Le vote est soumis aux règles suivantes :'
           vote_limit:
             description: Vous pouvez voter pour %{limit} propositions au maximum.
-            votes: Votes
         wizard_aside:
           back: Retour
           back_from_step_1: Retour aux propositions
@@ -907,9 +866,6 @@ fr-CA:
       versions:
         index:
           title: Versions
-      withdraw:
-        errors:
-          has_supports: Cette proposition ne peut pas être retirée car elle comporte déjà des votes.
     resource_links:
       copied_from_component:
         proposal_proposal: Propositions associées
@@ -921,4 +877,4 @@ fr-CA:
     statistics:
       proposals_accepted: Propositions acceptées
       proposals_count: Propositions
-      supports_count: Votes
+      votes_count: Votes
