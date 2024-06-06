@@ -76,21 +76,9 @@ module Decidim
       end
 
       def create_proposal!(component:)
-        n = rand(5)
-
-        proposal_state, answer, state_published_at = if n > 3
-                                                       [:accepted, Decidim::Faker::Localized.sentence(word_count: 10), Time.current]
-                                                     elsif n > 2
-                                                       [:rejected, nil, Time.current]
-                                                     elsif n > 1
-                                                       [:evaluating, nil, Time.current]
-                                                     elsif n.positive?
-                                                       [:accepted, Decidim::Faker::Localized.sentence(word_count: 10), nil]
-                                                     else
-                                                       [:not_answered, nil, nil]
-                                                     end
-
+        proposal_state, answer, state_published_at = random_state_answer
         proposal_state = Decidim::Proposals::ProposalState.where(component:, token: proposal_state).first
+
         params = {
           component:,
           category: participatory_space.categories.sample,
@@ -139,6 +127,22 @@ module Decidim
         create_attachment(attached_to: proposal, filename: "city.jpeg") if component.settings.attachments_allowed?
 
         proposal
+      end
+
+      def random_state_answer
+        n = rand(5)
+
+        if n > 3
+          [:accepted, Decidim::Faker::Localized.sentence(word_count: 10), Time.current]
+        elsif n > 2
+          [:rejected, nil, Time.current]
+        elsif n > 1
+          [:evaluating, nil, Time.current]
+        elsif n.positive?
+          [:accepted, Decidim::Faker::Localized.sentence(word_count: 10), nil]
+        else
+          [:not_answered, nil, nil]
+        end
       end
 
       def random_nickname
