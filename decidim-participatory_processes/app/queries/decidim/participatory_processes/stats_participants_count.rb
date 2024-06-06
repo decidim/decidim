@@ -22,9 +22,9 @@ module Decidim
           debates_query,
           meetings_query,
           endorsements_query,
-          project_supports_query,
+          project_votes_query,
           proposals_query,
-          proposal_supports_query,
+          proposal_votes_query,
           survey_answer_query
         ].flatten.uniq.count
       end
@@ -93,7 +93,7 @@ module Decidim
           .uniq
       end
 
-      def proposal_supports_query
+      def proposal_votes_query
         return [] unless Decidim.module_installed?(:proposals)
 
         Decidim::Proposals::ProposalVote
@@ -105,7 +105,7 @@ module Decidim
           .uniq
       end
 
-      def project_supports_query
+      def project_votes_query
         return [] unless Decidim.module_installed?(:budgets)
 
         Decidim::Budgets::Order.joins(budget: [:component])

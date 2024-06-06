@@ -76,8 +76,8 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       end
     end
 
-    describe "supports_count" do
-      let(:stats_name) { :supports_count }
+    describe "votes_count" do
+      let(:stats_name) { :votes_count }
 
       before do
         create_list(:proposal_vote, 2, proposal:)
@@ -137,11 +137,11 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       it_behaves_like "has mandatory config setting", :proposal_limit
     end
 
-    context "when support limit per participant is empty" do
+    context "when vote limit per participant is empty" do
       it_behaves_like "has mandatory config setting", :vote_limit
     end
 
-    context "when minimum supports per user is empty" do
+    context "when minimum votes per user is empty" do
       it_behaves_like "has mandatory config setting", :minimum_votes_per_user
     end
 

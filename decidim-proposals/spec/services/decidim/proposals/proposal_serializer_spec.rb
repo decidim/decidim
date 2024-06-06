@@ -157,8 +157,8 @@ module Decidim
           expect(serialized).to include(longitude: proposal.longitude)
         end
 
-        it "serializes the amount of supports" do
-          expect(serialized).to include(supports: proposal.proposal_votes_count)
+        it "serializes the amount of votes" do
+          expect(serialized).to include(votes: proposal.proposal_votes_count)
         end
 
         it "serializes the amount of comments" do

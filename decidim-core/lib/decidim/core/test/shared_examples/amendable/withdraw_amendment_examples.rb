@@ -4,7 +4,7 @@ shared_examples "withdraw amendment" do
   context "when current user is the author of the amendment" do
     let(:current_user) { amendment.amender }
 
-    context "and the amendment has no supports" do
+    context "and the amendment has no votes" do
       it "withdraws the amendment" do
         expect { command.call }.to broadcast(:ok)
         expect(amendment.state).to eq("withdrawn")
@@ -12,7 +12,7 @@ shared_examples "withdraw amendment" do
       end
     end
 
-    context "and the amendment has some supports" do
+    context "and the amendment has some votes" do
       before do
         emendation.votes.create!(author: other_user)
       end

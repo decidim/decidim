@@ -671,14 +671,14 @@ describe "Orders" do
         end
       end
 
-      context "with supports enabled" do
+      context "with votes enabled" do
         let(:proposal_component) do
           create(:proposal_component, :with_votes_enabled, participatory_space: project.component.participatory_space)
         end
 
         let(:proposals) { create_list(:proposal, 1, :with_votes, component: proposal_component) }
 
-        it "does not show the amount of supports" do
+        it "does not show the amount of votes" do
           visit_budget
           click_on translated(project.title)
 

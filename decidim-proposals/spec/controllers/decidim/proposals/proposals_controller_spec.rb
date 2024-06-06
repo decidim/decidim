@@ -242,13 +242,13 @@ module Decidim
             expect(proposal).to be_withdrawn
           end
 
-          context "and the proposal already has supports" do
+          context "and the proposal already has votes" do
             let(:proposal) { create(:proposal, :with_votes, component:, users: [user]) }
 
             it "is not able to withdraw the proposal" do
               put :withdraw, params: params.merge(id: proposal.id)
 
-              expect(flash[:alert]).to eq("This proposal cannot be withdrawn because it already has supports.")
+              expect(flash[:alert]).to eq("This proposal cannot be withdrawn because it already has votes.")
               expect(response).to have_http_status(:found)
               proposal.reload
               expect(proposal).not_to be_withdrawn
@@ -260,7 +260,7 @@ module Decidim
           let(:current_user) { create(:user, :confirmed, organization: component.organization) }
           let(:proposal) { create(:proposal, component:, users: [current_user]) }
 
-          context "and the proposal has no supports" do
+          context "and the proposal has no votes" do
             it "is not able to withdraw the proposal" do
               expect(WithdrawProposal).not_to receive(:call)
 

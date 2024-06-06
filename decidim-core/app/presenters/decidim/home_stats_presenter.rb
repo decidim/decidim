@@ -45,7 +45,7 @@ module Decidim
       stats = {}
       Decidim.component_manifests.flat_map do |component|
         component
-          .stats.except([:supports_count])
+          .stats.except([:votes_count])
           .filter(conditions)
           .with_context(published_components)
           .each do |name, data|
