@@ -343,6 +343,7 @@ bg:
       registrations:
         new:
           already_have_an_account?: Вече имате профил?
+          log_in: Вход
           newsletter: Получавайте извънреден бюлетин с подходяща информация
           newsletter_title: Разрешение за контакт с Вас
           sign_up: Регистрация
@@ -1038,10 +1039,14 @@ bg:
       signed_up_but_unconfirmed: На Вашата ел. поща е изпратено писмо с връзка за потвърждение. Следвайте връзката, за да активирате профила си.
       update_needs_confirmation: Обновихте успешно профила си, но трябва да потвърдим Вашия нов адрес за ел. поща. Моля, проверете пощата си и следвайте връзката за потвърждение, за да потвърдите новия си адрес.
       updated: Профилът Ви беше обновен успешно.
+    sessions:
+      new:
+        log_in: Вход
     shared:
       links:
         back: Назад
         forgot_your_password: Забравили сте паролата си?
+        log_in: Вход
         sign_up: Регистрация
       minimum_password_length:
         one: "(%{count} символ минимум)"
@@ -1102,8 +1107,11 @@ bg:
         edit: Редактирай
       footer:
         download_open_data: Изтеглете файлове с отворени данни
+        log_in: Вход
         made_with_open_source: Уебсайта работи със <a target="_blank" href="https://github.com/decidim/decidim">свободен софтуер</a>.
         sign_up: Регистрация
+      header:
+        log_in: Вход
       impersonation_warning:
         close_session: Затвори сесия
         description_html: Вие управлявате участника <b>%{user_name}</b>.
