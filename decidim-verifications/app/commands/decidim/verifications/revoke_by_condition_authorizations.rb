@@ -43,7 +43,6 @@ module Decidim
                                      end
 
           auths = authorizations_to_revoke.query
-          byebug
           auths.find_each do |auth|
             Decidim.traceability.perform_action!(
               :destroy,
