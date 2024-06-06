@@ -10,6 +10,7 @@ sl:
     devise:
       registrations:
         new:
+          log_in: Prijava
           sign_up: Registracija
     filters:
       linked_classes:
@@ -47,14 +48,19 @@ sl:
       new:
         sign_up: Registracija
       signed_up: Dobrodošli! Uspešno ste se vpisali.
+    sessions:
+      new:
+        log_in: Prijava
     shared:
       links:
+        log_in: Prijava
         sign_up: Registracija
   layouts:
     decidim:
       edit_link:
         edit: Uredi
       footer:
+        log_in: Prijava
         sign_up: Registracija
   locale:
     name: Slovenščina
