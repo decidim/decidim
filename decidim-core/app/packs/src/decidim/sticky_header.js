@@ -10,12 +10,16 @@ if (stickyHeader) {
     const header = document.getElementById("main-bar").offsetParent;
     if (header) {
       let currentScroll = window.scrollY;
-      if (prevScroll > currentScroll || currentScroll < stickyHeader.offsetHeight) {
-        stickyHeader.style.top = 0;
-      } else {
-        stickyHeader.style.top = `-${stickyHeader.offsetHeight}px`;
+      let goingDown = prevScroll > currentScroll;
+      let change = Math.abs(prevScroll - currentScroll);
+      if (change > 5) {
+        if (goingDown || currentScroll < stickyHeader.offsetHeight) {
+          stickyHeader.style.top = 0;
+        } else {
+          stickyHeader.style.top = `-${stickyHeader.offsetHeight}px`;
+        }
+        prevScroll = currentScroll;
       }
-      prevScroll = currentScroll;
     }
   });
 };
