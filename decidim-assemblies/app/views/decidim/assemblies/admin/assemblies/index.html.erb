@@ -48,6 +48,8 @@
 
               <% if allowed_to? :update, :assembly, assembly: assembly %>
                 <%= link_to translated_attribute(assembly.title), edit_assembly_path(assembly) %>
+              <% elsif allowed_to? :read, :component, assembly: assembly %>
+                <%= link_to translated_attribute(assembly.title), components_path(assembly) %><br>
               <% else %>
                 <%= translated_attribute(assembly.title) %>
               <% end %>
