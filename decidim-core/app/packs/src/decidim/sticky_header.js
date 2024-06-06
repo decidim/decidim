@@ -2,7 +2,7 @@
 // Sticky headers allow users to quickly access the navigation, search, and utility-navigation elements without scrolling up to the top of the page.
 // They increase the discoverability of the elements in the header.
 let prevScroll = window.scrollY;
-const stickyHeader = document.getElementById("js-sticky-header");
+const stickyHeader = document.querySelector("[data-sticky-header]");
 
 if (stickyHeader) {
   document.addEventListener("scroll", () => {
