@@ -17,6 +17,8 @@ import dialogMode from "src/decidim/dialog_mode"
 import FocusGuard from "src/decidim/focus_guard"
 import backToListLink from "src/decidim/back_to_list"
 
+import "src/decidim/abide_form_validator_fixer"
+
 window.Decidim = window.Decidim || {};
 window.Decidim.config = new Configuration()
 window.Decidim.ExternalLink = ExternalLink;
