@@ -1970,7 +1970,6 @@ cs:
         resources: Zdroje
         sign_up: Registrovat
       header:
-        log_in: Přihlásit
         main_menu: Hlavní menu
         user_menu: Uživatelské Menu
       impersonation_warning:
