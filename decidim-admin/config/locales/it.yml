@@ -430,6 +430,7 @@ it:
         appearance: Aspetto
         area_types: Tipi di ambito territoriale
         areas: Ambiti territoriali
+        components: Componenti
         configuration: Configurazione
         help_sections: Sezioni di Aiuto
         homepage: Homepage
