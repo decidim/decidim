@@ -38,7 +38,7 @@ header {
     }
   }
 
-  #js-sticky-header {
+  #sticky-header-container {
     @apply fixed w-full top-0 shadow-lg z-40 bg-white md:relative transition-top duration-300;
   }
 
