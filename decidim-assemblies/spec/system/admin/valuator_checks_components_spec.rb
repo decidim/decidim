@@ -42,4 +42,16 @@ describe "Valuator checks components" do
       end
     end
   end
+
+  context "when visiting the admin" do
+    before do
+      visit decidim_admin.root_path
+    end
+
+    it "can access the participatory space" do
+      click_on "Assemblies"
+      click_on translated(assembly.title)
+      expect(page).to have_link("Components")
+    end
+  end
 end
