@@ -1926,7 +1926,6 @@ ca:
         sign_up: Registra't
         terms_of_service: Termes i condicions d'ús
       header:
-        log_in: Entra
         main_menu: Menú principal
         user_menu: Menú d'usuari
       impersonation_warning:
