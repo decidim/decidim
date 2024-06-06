@@ -226,6 +226,7 @@ uk:
           already_have_an_account?: Вже маєте обліковий запис?
           newsletter: Отримувати іноді розсилання зі свіжими новинами
           newsletter_title: Дозвіл на зв'язок
+          sign_in: Увійти
           sign_up: Зареєструватися
           sign_up_as:
             legend: Зареєструватися як
