@@ -79,9 +79,6 @@ it:
       decidim/proposals/proposal_note:
         one: Nota
         other: Gli appunti
-      decidim/proposals/proposal_vote:
-        one: Supporto
-        other: Supporti
   decidim:
     admin:
       filters:
@@ -115,7 +112,6 @@ it:
           comment: Commento
           create: Crea
           endorse: Sostieni
-          vote: Vota
           vote_comment: Vota per il commento
           withdraw: Ritirare
         name: Proposte
@@ -126,7 +122,6 @@ it:
             amendments_wizard_help_text: Creazione guidata emendamenti
             announcement: Annuncio
             attachments_allowed: Consenti allegati
-            can_accumulate_supports_beyond_threshold: Può accumulare supporti oltre la soglia
             collaborative_drafts_enabled: Bozze collaborative abilitate
             comments_enabled: Commenti abilitati
             comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
@@ -134,7 +129,6 @@ it:
               random: Casuale
               recent: Recenti
             geocoding_enabled: Geocoding abilitato
-            minimum_votes_per_user: Voti minimi per utente
             new_proposal_body_template: Nuovo modello di testo della proposta
             new_proposal_body_template_help: È possibile definire un testo precompilato che le nuove proposte avranno
             new_proposal_help_text: Nuovo testo di aiuto per la proposta
@@ -154,7 +148,6 @@ it:
             scope_id: Ambito
             scopes_enabled: Ambiti abilitati
             threshold_per_proposal: Voti necessari per l'approvazione della proposta
-            vote_limit: Limite di voto per utente
           step:
             amendment_creation_enabled: Creazione di emendamenti abilitata
             amendment_creation_enabled_help: I partecipanti possono modificare le proposte.
@@ -177,9 +170,8 @@ it:
             proposal_answering_enabled: Risposta alla proposta abilitata
             publish_answers_immediately: Pubblica immediatamente le risposte proposte
             suggested_hashtags: Gli hashtag hanno suggerito agli utenti nuove proposte
-            votes_blocked: Votazione bloccata
-            votes_enabled: Voto abilitato
-            votes_hidden: Voti nascosti (se i voti sono abilitati, controllando questo si nasconderà il numero di voti)
+            votes_blocked: Voti bloccati
+            votes_enabled: Voti abilitati
     events:
       proposals:
         admin:
@@ -237,10 +229,7 @@ it:
           email_subject: L'ambito della proposta %{resource_title} è stato aggiornato
           notification_title: L'ambito della proposta <a href="%{resource_path}">%{resource_title}</a> è stato aggiornato da un amministratore.
         voting_enabled:
-          email_intro: 'Puoi votare le proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche facendo clich su pulsante Smetti di seguire nella pagina del processo o del contenuto che stai seguendo.
-          email_subject: Il voto delle proposte è iniziato per %{participatory_space_title}
-          notification_title: Ora puoi iniziare <a href="%{resource_path}">proposte di voto</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -257,13 +246,7 @@ it:
         proposal_votes:
           conditions:
             - Naviga e passa un po 'di tempo a leggere le proposte di altre persone
-            - Dare supporto alle proposte che ti piacciono o che ti interessano
-          description: Questo badge è concesso quando supporti le proposte di altre persone.
-          description_another: Questo utente ha fornito supporto a %{score} proposte.
-          description_own: Hai dato supporto a %{score} proposte.
-          name: Supporti della proposta
-          next_level_in: Dare supporto a %{score} ulteriori proposte per raggiungere il livello successivo!
-          unearned_own: Hai dato supporto a proposte.
+            - 
         proposals:
           conditions:
             - Scegli lo spazio di partecipazione di tuo interesse con l'invio per le proposte abilitate
@@ -287,10 +270,6 @@ it:
         description: Numero di proposte generate
         object: proposte
         title: proposte
-      votes:
-        description: Numero di voti generati nelle proposte degli utenti
-        object: voti
-        title: Voti
     participatory_spaces:
       highlighted_proposals:
         see_all: Vedi tutto (%{count})
@@ -401,7 +380,6 @@ it:
             remove_assignment: Rimuovi assegnazione
             remove_assignment_confirmation: Sei sicuro di voler rimuovere il valutatore da questa proposta?
             valuators: Valutatori
-            votes_count: Contare i voti
           update_category:
             invalid: 'Queste proposte avevano già la categoria %{subject_name} %{proposals}.'
             success: 'Proposte aggiornate con successo alla categoria %{subject_name}: %{proposals}.'
@@ -566,9 +544,6 @@ it:
         buttons:
           amend: emendare
           comment: Commento
-      proposal_votes:
-        create:
-          error: Ci sono stati errori durante la votazione della proposta.
       proposals:
         dynamic_map_instructions:
           description: Le coordinate verranno aggiornate quando si fa clic sul pulsante 'Anteprima'. Tuttavia, l'indirizzo non cambia.
@@ -643,34 +618,19 @@ it:
           proposal_accepted_reason: 'Questa proposta è stata accettata perché:'
           proposal_in_evaluation_reason: Questa proposta è in fase di valutazione
           proposal_rejected_reason: 'Questa proposta è stata rifiutata perché:'
-          withdraw_btn_hint: Puoi ritirare la tua proposta se cambi idea, purché non abbia ricevuto alcun supporto. La proposta non viene cancellata, apparirà nell'elenco delle proposte ritirate.
           withdraw_confirmation_html: Sei sicuro di voler ritirare questa proposta?<br><br><strong>Questa azione non può essere annullata!</strong>
           withdraw_proposal: Ritirare la proposta
         update:
           title: Aggiorna proposta
         vote_button:
           already_voted: Già votata
-          already_voted_hover: Ritira il supporto
           maximum_votes_reached: Hai raggiunto il limite di voti
           no_votes_remaining: Sono finite le votazioni possibili
-          vote: Vota
+          vote: Votazione
           votes_blocked: Votazioni disabilitate
-        votes_count:
-          count:
-            one: VOTO
-            other: VOTI
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: Ogni proposta può accumulare più di %{limit} supporti
-          minimum_votes_per_user:
-            description: Devi distribuire un minimo di %{votes} voti tra diverse proposte.
-            supports_remaining: Devi votare %{remaining_votes} altre proposte per i tuoi voti da prendere in considerazione.
           proposal_limit:
             description: Puoi creare fino a %{limit} proposte.
-          title: 'Il voto è soggetto alle seguenti regole:'
-          vote_limit:
-            description: Puoi votare fino a %{limit} proposte.
-            votes: Voti
         wizard_aside:
           back: Indietro
           back_from_step_1: Torna alle proposte
@@ -705,4 +665,4 @@ it:
     statistics:
       proposals_accepted: Proposte accettate
       proposals_count: Proposte
-      supports_count: Sostegni
+      votes_count: Voti
