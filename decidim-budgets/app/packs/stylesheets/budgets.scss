@@ -4,12 +4,8 @@
   }
 
   &-summary {
-    @apply bg-tertiary;
-
-    box-shadow: 0 4px 6px 0 rgba(211, 211, 211, 0.25);
-
     &__content {
-      @apply p-4 md:p-0;
+      @apply bg-tertiary p-4 h-[78px] md:h-full md:p-0;
     }
 
     &__container {
@@ -37,17 +33,17 @@
     }
 
     &__progressbar {
-      @apply my-4 relative;
+      @apply my-0 lg:my-4 relative;
 
       .budget-progress {
-        @apply bg-white rounded;
+        @apply bg-white rounded h-2;
       }
 
       &--minimum {
-        @apply absolute;
+        @apply absolute h-2;
 
         .progress-meter--minimum-mark {
-          @apply h-[20px] ml-auto w-[2px] bg-black block;
+          @apply h-2 ml-auto w-[2px] bg-black block;
         }
       }
 
@@ -71,11 +67,11 @@
     }
 
     &__progressbar-legend {
-      @apply text-sm block;
+      @apply text-xs md:text-sm block;
     }
 
     &__progressbar-legend-strong {
-      @apply font-bold block;
+      @apply font-semibold block text-[10px] md:text-sm;
     }
   }
 
@@ -231,11 +227,19 @@
 }
 
 .budget-summary__button-modal {
-  @apply hidden lg:block lg:col-span-12 lg:mb-4 lg:pb-4;
+  @apply hidden lg:text-secondary lg:block lg:col-span-12 lg:mb-4 lg:pb-4;
 }
 
 .budget-summary__button-dropdown {
-  @apply col-span-12 mb-4 pb-4 lg:hidden;
+  @apply col-span-12 mb-4 pb-4 text-secondary lg:hidden;
+
+  &_text {
+    @apply flex gap-4 justify-start;
+
+    svg {
+      @apply w-5 h-5;
+    }
+  }
 }
 
 .progressbox-fixed-wrapper {
@@ -266,11 +270,11 @@
   }
 
   .budget-summary__button-modal {
-    @apply hidden lg:block lg:col-span-10 lg:col-start-2 lg:justify-start;
+    @apply hidden lg:text-secondary lg:block lg:col-span-10 lg:col-start-2 lg:justify-start;
   }
 
   .budget-summary__button-dropdown {
-    @apply block col-span-10 col-start-2 justify-start lg:hidden;
+    @apply block text-secondary col-span-10 col-start-2 justify-start lg:hidden;
   }
 
   .progressbox-fixed-wrapper {

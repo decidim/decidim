@@ -28,24 +28,24 @@
       </div>
       <div class="budget-summary__progressbar-marks">
         <span class="budget-summary__progressbar-legend" style="width: <%= current_order_budget_percent_minimum %>%;">
-          <%= t("assigned", scope: "decidim.budgets.projects.order_progress") %>
           <strong id="order-total-budget<%= "-responsive" if responsive %>" class="budget-summary__progressbar-legend-strong">
             <%= render partial: "decidim/budgets/projects/order_total_budget" %>
           </strong>
+          <%= t("assigned", scope: "decidim.budgets.projects.order_progress") %>
         </span>
         <% if current_order.minimum_budget > 0 %>
           <span class="budget-summary__progressbar-legend budget-summary__progressbar-marks_center">
-            <%= t("minimum", scope: "decidim.budgets.projects.order_progress") %>
             <strong class="budget-summary__progressbar-legend-strong">
               <%= budget_to_currency(current_order.minimum_budget) %>
             </strong>
+            <%= t("minimum", scope: "decidim.budgets.projects.order_progress") %>
           </span>
         <% end %>
         <%= render partial: "decidim/budgets/projects/order_progress_progressbar_marks_right" %>
       </div>
     </div>
   </div>
-  <div class="budget-summary__progressbox-buttons">
+  <div class="budget-summary__progressbox-buttons layout-aside__ctas-buttons">
     <% if !current_order_checked_out? && voting_open? %>
       <button class="button button__secondary button__lg w-full" data-dialog-open="budget-confirm" <%= budget_confirm_disabled_attr %>>
         <%= t("vote", scope: "decidim.budgets.projects.budget_summary") %>
@@ -58,19 +58,6 @@
         <%= icon "delete-bin-line" %>
       <% end %>
     <% end %>
-  </div>
-  <div class="budget-summary__button-modal">
-    <button type="button" data-dialog-open="budget-modal-info" aria-haspopup="dialog" tabindex="0" class="button button__text button__xs">
-      <%= t("more_information", scope: "decidim.budgets.budget_information_modal") %>
-    </button>
-  </div>
-  <div class="budget-summary__button-dropdown">
-    <button id="dropdown-trigger-element" data-component="dropdown" data-target="dropdown-menu-element">
-      <%= t("more_information", scope: "decidim.budgets.budget_information_modal") %>
-    </button>
-    <ul id="dropdown-menu-element">
-      <li>dropdown info</li>
-    </ul>
   </div>
   <div class="w-screen max-w-screen progressbox-fixed-wrapper" data-progressbox-fixed>
     <div class="gap-0 layout-item py-4 items-center budget-summary__progressbar">
@@ -100,22 +87,21 @@
           <%= render partial: "decidim/budgets/projects/order_progress_progressbar_marks_right" %>
         </div>
       </div>
-      <div class="layout-item__aside budget-summary__progressbox-buttons">
-        <% if !current_order_checked_out? && voting_open? %>
-          <button class="button button__secondary button__lg mt-2 md:mt-0 w-full" data-dialog-open="budget-confirm" <%= budget_confirm_disabled_attr %>>
-            <span>
-              <%= t("vote", scope: "decidim.budgets.projects.budget_summary") %>
-            </span>
-            <%= icon "check-line" %>
-          </button>
-        <% end %>
-        <% if include_heading && current_order_checked_out? %>
-          <%= link_to budget_order_path(return_to: "budget"), method: :delete, class: "button button__lg button__secondary cancel-order w-full mt-2 md:mt-0", data: { confirm: t("are_you_sure", scope: "decidim.budgets.projects.budget_confirm") } do %>
-            <span><%= t("cancel_order", scope: "decidim.budgets.projects.budget_summary") %></span>
-            <%= icon "delete-bin-line" %>
-          <% end %>
-        <% end %>
-      </div>
     </div>
   </div>
 </div>
+  <div class="budget-summary__button-modal">
+    <button type="button" data-dialog-open="budget-modal-info" aria-haspopup="dialog" tabindex="0" class="button button__text button__xs ml-2.5">
+      <%= t("more_information", scope: "decidim.budgets.budget_information_modal") %>
+    </button>
+  </div>
+  <div class="budget-summary__button-dropdown">
+    <button id="dropdown-trigger-element" data-component="dropdown" data-target="dropdown-menu-element" class="budget-summary__button-dropdown_text">
+      <%= t("more_information", scope: "decidim.budgets.budget_information_modal") %>
+      <%= icon "arrow-down-s-line" %>
+      <%= icon "arrow-up-s-line" %>
+    </button>
+    <ul id="dropdown-menu-element">
+      <li>dropdown info</li>
+    </ul>
+  </div>

@@ -120,11 +120,3 @@
     @apply flex-row last:[&>button]:font-semibold last:[&>button]:text-lg last:[&>button]:py-3;
   }
 }
-
-.summary,
-.profiler-button.profiler-totals, 
-.decidim-accessibility-title,
-details#bullet-footer,
-.decidim-accessibility-info  {
-  display: none !important;
-}
