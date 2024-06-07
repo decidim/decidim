@@ -191,8 +191,6 @@ bg:
         smtp_settings:
           fieldsets:
             sender: Подател
-          instructions:
-            from_label: 'Подателят на имейла ще бъде: „името-на-организацията-ви <your-organization@example.org>“. Оставете празно, за да използвате „имейл адресът“ като етикет'
           placeholder:
             from_email: your-organization@example.org
             from_label: your-organization-name
