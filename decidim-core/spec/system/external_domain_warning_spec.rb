@@ -39,6 +39,18 @@ describe "ExternalDomainWarning", type: :system do
     end
   end
 
+  context "when url has a fragment" do
+    let(:destination) { "https://example.org/test/#/bar/edit/12345" }
+    # URI need to be escaped, as if not the fragment will be ignored
+    let(:url) { "http://#{organization.host}/link?external_url=#{URI::Parser.new.escape(destination)}" }
+
+    it "does not show invalid url alert" do
+      visit url
+      expect(page).to have_no_content("Invalid URL")
+      expect(page).to have_content("https://example.org/test/#/bar/edit/12345")
+    end
+  end
+
   context "when url is invalid" do
     let(:invalid_url) { "http://#{organization.host}/link?external_url=foo" }
 
