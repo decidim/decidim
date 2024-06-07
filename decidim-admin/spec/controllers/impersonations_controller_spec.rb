@@ -158,6 +158,46 @@ module Decidim
           end
         end
 
+        context "with existing managed user with the same identity in another organization" do
+          let(:other_organization) do
+            create(
+              :organization,
+              available_authorizations: ["dummy_authorization_handler"]
+            )
+          end
+
+          before do
+            user = create(
+              :user,
+              :managed,
+              organization: other_organization,
+              name: managed_user_name
+            )
+            Decidim::Authorization.create!(
+              user: user,
+              name: authorization_params[:handler_name],
+              unique_id: authorization_params[:document_number],
+              metadata: {
+                document_number: "9999X",
+                postal_code: "99999"
+              }
+            )
+          end
+
+          it_behaves_like "successful authorization"
+
+          it "creates a new managed user" do
+            post(:create, params: params)
+
+            expect(
+              Decidim::User.where(
+                name: managed_user_name,
+                managed: true
+              ).count
+            ).to eq(2)
+          end
+        end
+
         context "with existing non-managed user with the same identity" do
           before do
             user = create(
@@ -188,6 +228,53 @@ module Decidim
 
             expect(flash[:alert]).to be_present
             expect(subject).to render_template(:new)
+          end
+        end
+
+        context "with existing non-managed user with the same identity in another organization" do
+          let(:other_organization) do
+            create(
+              :organization,
+              available_authorizations: ["dummy_authorization_handler"]
+            )
+          end
+
+          before do
+            user = create(
+              :user,
+              organization: other_organization,
+              name: managed_user_name
+            )
+            Decidim::Authorization.create!(
+              user: user,
+              name: authorization_params[:handler_name],
+              unique_id: authorization_params[:document_number],
+              metadata: {
+                document_number: authorization_params[:document_number],
+                postal_code: "99999"
+              }
+            )
+          end
+
+          it_behaves_like "successful authorization"
+
+          it "creates a new managed user" do
+            post(:create, params: params)
+
+            expect(
+              Decidim::User.where(
+                organization: organization,
+                name: managed_user_name,
+                managed: true
+              ).count
+            ).to eq(1)
+
+            expect(
+              Decidim::User.where(
+                organization: other_organization,
+                name: managed_user_name
+              ).count
+            ).to eq(1)
           end
         end
       end
