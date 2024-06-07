@@ -18,7 +18,7 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
       before do
         visit decidim.root_path
         within "#main-bar" do
-          click_on("Log in")
+          click_on("Login")
         end
 
         within "form.new_user", match: :first do
@@ -116,7 +116,7 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
       before do
         visit decidim.root_path
         within "#main-bar" do
-          click_on("Log in")
+          click_on("Login")
         end
 
         within "form.new_user", match: :first do
