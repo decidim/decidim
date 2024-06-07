@@ -192,7 +192,7 @@ en:
           fieldsets:
             sender: Sender
           instructions:
-            from_label: 'Email sender will be: "your-organization-name <your-organization@example.org>". Leave blank to use the ''Email address'' as label'
+            from_label: 'Email sender will be: "your-organization-name <your-organization@example.org>". Leave blank to use the same name as the defined for the organization.'
           placeholder:
             from_email: your-organization@example.org
             from_label: your-organization-name
