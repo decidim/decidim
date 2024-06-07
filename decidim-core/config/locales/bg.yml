@@ -3,6 +3,10 @@ bg:
     attributes:
       account:
         delete_reason: Причина за изтриване на Вашия профил
+      common:
+        created_at: Създадено на
+      conversation:
+        body: Основно съдържание
       group:
         about: Относно
         avatar: Аватар
@@ -11,27 +15,40 @@ bg:
         name: Име
         nickname: Псевдоним
         phone: Телефон
+      message:
+        body: Основно съдържание
       report:
         details: Забележки
       user:
         about: Относно
         email: Вашата ел. поща
+        encrypted_password: Парола
+        locale: Локално
         name: Вашето име
         nickname: Псевдоним
+        old_password: Текуща парола
         password: Парола
         password_confirmation: Потвърдете паролата си
         personal_url: Персонален URL
         remove_avatar: Премахни аватара
+        tos_agreement: Споразумение за условия на услугата
     models:
       decidim/attachment_created_event: Прикачени файлове
       decidim/component_published_event: Активен компонент
       decidim/demoted_membership: Вече не сте администратор в групата
       decidim/gamification/badge_earned_event: Получихте значка
+      decidim/gamification/level_up_event: Достигнахте до по-високо ниво
+      decidim/invited_to_group_event: Поканен в групата
       decidim/join_request_accepted_event: Заявката за присъединяване е приета
       decidim/join_request_rejected_event: Заявката за присъединяване е отхвърлена
       decidim/profile_updated_event: Профилът е обновен
       decidim/promote_to_admin: Назначен за администратор на групата
+      decidim/promoted_to_admin_event: Назначен за администратор на групата
       decidim/removed_from_group: Премахнат от групата
+      decidim/resource_endorsed_event: Съдържанието е одобрено
+      decidim/resource_hidden_event: Съдържанието е скрито
+      decidim/user_group_created_event: Потребителска група е създадена
+      decidim/welcome_notification_event: Приветствено съобщение
   activerecord:
     attributes:
       decidim/user:
