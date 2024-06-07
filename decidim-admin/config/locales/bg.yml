@@ -188,6 +188,7 @@ bg:
         export: Експорт на всички
         export-selection: Експорт на селекцията
         import: Импортиране
+        manage: Управление
         newsletter:
           new: Нов бюлетин
         participatory_space_private_user:
@@ -571,6 +572,7 @@ bg:
         appearance: Външен вид
         area_types: Типове области
         areas: Области
+        components: Компоненти
         configuration: Конфигурация
         content: Докладвано съдържание
         external_domain_whitelist: Лист с позволени външни домейни
