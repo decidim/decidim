@@ -188,6 +188,7 @@ de:
         export: Alles exportieren
         export-selection: Auswahl exportieren
         import: Importieren
+        manage: Verwalten
         newsletter:
           new: Neuer Newsletter
         participatory_space_private_user:
@@ -571,6 +572,7 @@ de:
         appearance: Aussehen
         area_types: Bereichstypen
         areas: Bereiche
+        components: Komponenten
         configuration: Aufbau
         content: Gemeldeter Inhalt
         external_domain_whitelist: Erlaubte externe Domains
