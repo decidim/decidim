@@ -22,6 +22,11 @@ module Decidim
             redirect_to organizations_path
           end
 
+          on(:invalid_invitation) do
+            flash.now[:alert] = t("organizations.create.error_invitation", scope: "decidim.system")
+            render :new
+          end
+
           on(:invalid) do
             flash.now[:alert] = t("organizations.create.error", scope: "decidim.system")
             render :new

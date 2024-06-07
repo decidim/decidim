@@ -4,31 +4,33 @@
 <% data = item.tree_node? && item.node.present? ? { checkboxes_tree: data_checkboxes_tree_id } : {} %>
 <% check_box_label = capture do %>
   <%= filter_text_for(leaf.label, id: "dropdown-title-#{data_checkboxes_tree_id}") %>
-  <% if !is_blank_root && item.tree_node? && item.node.present? %>
-    <button id="dropdown-trigger-<%= data_checkboxes_tree_id %>" data-controls="panel-dropdown-menu-<%= data_checkboxes_tree_id %>" aria-labelledby="dropdown-title-<%= data_checkboxes_tree_id %>">
-      <%= icon "arrow-down-s-fill" %>
-      <%= icon "arrow-up-s-fill" %>
-    </button>
-  <% end %>
 <% end %>
 
 <% if leaf.value == "" %>
   <%= hidden_field_tag "#{form.object_name}[#{method}][]", "", id: "#{form.options[:namespace] rescue "default"}_filter_#{method}_all" %>
 <% end %>
 
-<%= form.check_box(
-      method,
-      check_boxes_tree_options(
-        leaf.value,
-        check_box_label,
-        class: "reset-defaults",
-        data:,
-        is_root_check_box: is_blank_root,
-        parent_id:
-      ),
-      leaf.value.to_s,
-      nil
-    ) %>
+<div class="filter">
+  <%= form.check_box(
+        method,
+        check_boxes_tree_options(
+          leaf.value,
+          check_box_label,
+          class: "reset-defaults",
+          data:,
+          is_root_check_box: is_blank_root,
+          parent_id:
+        ),
+        leaf.value.to_s,
+        nil
+      ) %>
+  <% if !is_blank_root && item.tree_node? && item.node.present? %>
+    <button id="dropdown-trigger-<%= data_checkboxes_tree_id %>" data-controls="panel-dropdown-menu-<%= data_checkboxes_tree_id %>" aria-labelledby="dropdown-title-<%= data_checkboxes_tree_id %>">
+      <%= icon "arrow-down-s-fill" %>
+      <%= icon "arrow-up-s-fill" %>
+    </button>
+  <% end %>
+</div>
 
 <% if item.tree_node? && item.node.present? %>
   <% subitems_content = capture do %>
