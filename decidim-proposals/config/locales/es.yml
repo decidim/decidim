@@ -74,10 +74,12 @@ es:
           attributes:
             base:
               not_official: No son oficiales
+              voted: Han recibido apoyos o adhesiones
         proposals_split:
           attributes:
             base:
               not_official: No son oficiales
+              voted: Han recibido apoyos o adhesiones
     models:
       decidim/proposals/admin/update_proposal_category_event: Categoría de la propuesta cambiada
       decidim/proposals/admin/update_proposal_scope_event: Ámbito de propuesta cambiado
@@ -153,15 +155,18 @@ es:
             announcement: Aviso
             attachments_allowed: Permitir adjuntos
             attachments_allowed_help: Al activar esta opción, las propuestas se mostrarán en modo de cuadrícula por defecto y la primera imagen aparecerá en la tarjeta.
+            can_accumulate_votes_beyond_threshold: Puede acumular apoyos más allá del umbral
             collaborative_drafts_enabled: Borradores colaborativos habilitados
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
             default_sort_order: Ordenación por defecto de propuestas
+            default_sort_order_help: Por defecto significa que si los apoyos están habilitados, las propuestas se mostrarán en orden aleatorio, y si los apoyos están bloqueados, se ordenarán de más a menos apoyos.
             default_sort_order_options:
               default: Por defecto
               most_commented: Más comentadas
               most_endorsed: Con más adhesiones
               most_followed: Más seguidas
+              most_voted: Con más apoyos
               random: Aleatorio
               recent: Recientes
               with_more_authors: Con más autoras
@@ -187,6 +192,7 @@ es:
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
             threshold_per_proposal: Umbral por propuesta
+            vote_limit: Límite de apoyos por participante
           step:
             amendment_creation_enabled: Creación de enmienda activada
             amendment_creation_enabled_help: La participante puede modificar las propuestas.
@@ -206,11 +212,13 @@ es:
             creation_enabled: Las participantes pueden crear propuestas
             creation_enabled_readonly: Esta opción se desactiva cuando activas la funcionalidad de Textos Participativos. Para subir propuestas como texto participativo haz clic en el botón Textos Participativos y sigue las instrucciones.
             default_sort_order: Orden predeterminado de propuestas
+            default_sort_order_help: Por defecto significa que si los apoyos están habilitados, las propuestas se mostrarán en orden aleatorio, y si los apoyos están bloqueados, se ordenarán de más a menos apoyos.
             default_sort_order_options:
               default: Por defecto
               most_commented: Más comentadas
               most_endorsed: Con más adhesiones
               most_followed: Más seguidas
+              most_voted: Con más apoyos
               random: Aleatorio
               recent: Recientes
               with_more_authors: Con más autoras
