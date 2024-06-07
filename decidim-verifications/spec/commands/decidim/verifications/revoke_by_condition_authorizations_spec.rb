@@ -14,14 +14,9 @@ module Decidim::Verifications
     end
 
     let(:form) do
-      instance_double(
-        Decidim::Verifications::Admin::RevocationsBeforeDateForm,
-        current_user:,
-        valid?: true,
-        impersonated_only?: false,
-        before_date:,
-        organization:
-      )
+      Decidim::Verifications::Admin::RevocationsBeforeDateForm
+        .from_params(params)
+        .with_context(current_user:)
     end
 
     let(:authorization) { create(:authorization, id: 9234) }
