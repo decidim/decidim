@@ -387,7 +387,7 @@ ca:
         title: Suports
     participatory_spaces:
       highlighted_proposals:
-        see_all: Veure totes (%{count})
+        see_all: Veure totes les propostes (%{count})
     proposals:
       actions:
         answer_proposal: Respondre a la proposta
@@ -609,18 +609,18 @@ ca:
         withdrawn: Retirada
       application_helper:
         filter_category_values:
-          all: Totes
+          all: Tots
         filter_origin_values:
-          all: Totes
+          all: Tots
           meetings: Trobades
           official: Oficial
           participants: Participants
           user_groups: Grups
         filter_scope_values:
-          all: Totes
+          all: Tots
         filter_state_values:
           accepted: Acceptada
-          all: Totes
+          all: Tots
           evaluating: En avaluació
           not_answered: No resposta
           rejected: Rebutjada
@@ -661,7 +661,7 @@ ca:
           send: Envia
           title: Edita l'esborrany col·laboratiu
         filters:
-          all: Todas
+          all: Tots
           amendment: Esmenes
           category: Categoria
           open: Obert
@@ -806,7 +806,7 @@ ca:
           title: Edició l'esborrany de proposta
         filters:
           activity: La meva activitat
-          all: Tots
+          all: Totes
           amendment_type: Tipus
           category: Categoria
           my_proposals: Les meves propostes
