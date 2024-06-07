@@ -169,8 +169,6 @@ it:
         smtp_settings:
           fieldsets:
             sender: Mittente
-          instructions:
-            from_label: 'Il mittente email sarà: "nome-della-tua-organizzazione <your-organization@example.org>". Lascia vuoto per usare ''Indirizzo email'' come etichetta'
           placeholder:
             from_email: your-organization@example.org
             from_label: nome-della-tua-organizzazione
