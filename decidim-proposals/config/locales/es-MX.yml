@@ -74,10 +74,12 @@ es-MX:
           attributes:
             base:
               not_official: No son oficiales
+              voted: Han recibido apoyos o adhesiones
         proposals_split:
           attributes:
             base:
               not_official: No son oficiales
+              voted: Han recibido apoyos o adhesiones
     models:
       decidim/proposals/admin/update_proposal_category_event: La categoría de la propuesta ha cambiado
       decidim/proposals/admin/update_proposal_scope_event: Ámbito de propuesta cambiado
@@ -153,15 +155,18 @@ es-MX:
             announcement: "Aviso\n"
             attachments_allowed: Permitir archivos adjuntos
             attachments_allowed_help: Al activar esta opción, las propuestas se mostrarán en modo de cuadrícula por defecto y la primera imagen aparecerá en la tarjeta.
+            can_accumulate_votes_beyond_threshold: Puede acumular apoyos más allá del umbral
             collaborative_drafts_enabled: Habilitar borradores colaborativos
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
             default_sort_order: Ordenación por defecto de propuestas
+            default_sort_order_help: Por defecto significa que si los apoyos están habilitados, las propuestas se mostrarán en orden aleatorio, y si los apoyos están bloqueados, se ordenarán de más a menos apoyos.
             default_sort_order_options:
               default: Por defecto
               most_commented: Más comentadas
               most_endorsed: Con más adhesiones
               most_followed: Más seguidas
+              most_voted: Con más apoyos
               random: Aleatorio
               recent: Recientes
               with_more_authors: Con más autoras
@@ -187,6 +192,7 @@ es-MX:
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
             threshold_per_proposal: Umbral por propuesta
+            vote_limit: Límite de apoyos por participante
           step:
             amendment_creation_enabled: Creación de enmienda activada
             amendment_creation_enabled_help: La participante puede modificar las propuestas.
@@ -206,11 +212,13 @@ es-MX:
             creation_enabled: Las participantes pueden crear propuestas
             creation_enabled_readonly: Esta opción se desactiva cuando activas la funcionalidad de Textos Participativos. Para subir propuestas como texto participativo haz clic en el botón Textos Participativos y sigue las instrucciones.
             default_sort_order: Orden predeterminado de propuestas
+            default_sort_order_help: Por defecto significa que si los apoyos están habilitados, las propuestas se mostrarán en orden aleatorio, y si los apoyos están bloqueados, se ordenarán de más a menos apoyos.
             default_sort_order_options:
               default: Por defecto
               most_commented: Más comentadas
               most_endorsed: Con más adhesiones
               most_followed: Más seguidas
+              most_voted: Con más apoyos
               random: Aleatorio
               recent: Recientes
               with_more_authors: Con más autoras
@@ -311,6 +319,7 @@ es-MX:
         voting_enabled:
           email_intro: '¡Puedes votar propuestas en %{participatory_space_title}! Empieza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: La recogida de apoyos a las propuestas recogidas en "%{participatory_space_title}" ha empezado
           notification_title: Ya puedes empezar a <a href="%{resource_path}">apoyar propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
@@ -328,7 +337,14 @@ es-MX:
         proposal_votes:
           conditions:
             - Navega y dedica un tiempo leyendo las propuestas de otras personas
-            - 
+            - Apoya a las propuestas con las que estés de acuerdo o encuentres interesantes
+          description: Esta insignia se concede cuando se apoyan propuestas de otras personas.
+          description_another: Esta participante ha apoyado %{score} propuestas.
+          description_own: Has dado apoyo a %{score} propuestas.
+          name: Apoyos a propuestas
+          next_level_in: '¡Apoya %{score} propuestas más para alcanzar el siguiente nivel!'
+          unearned_another: Esta participante aún no ha apoyado ninguna propuesta.
+          unearned_own: Todavía no has dado apoyo a ninguna propuesta.
         proposals:
           conditions:
             - Elige el espacio de participación con la creación de propuestas habilitada que sea de tu interés
@@ -354,6 +370,7 @@ es-MX:
         object: propuestas
         title: Propuestas
       votes:
+        description: Número de apoyos a propuestas
         object: votos
         title: Votos
     participatory_spaces:
@@ -538,6 +555,7 @@ es-MX:
             remove_assignment: Deshacer asignación
             remove_assignment_confirmation: '¿Seguro que quieres desasignar a la evaluadora de esta propuesta?'
             valuators: Evaluadoras
+            votes_count: Número de apoyos
           update_category:
             invalid: 'Estas propuestas ya tenían la categoría %{subject_name}: %{proposals}.'
             select_a_category: Por favor, selecciona una categoría.
@@ -742,6 +760,9 @@ es-MX:
         buttons:
           amend: Enmendar
           comment: Comentario
+      proposal_votes:
+        create:
+          error: Se ha producido un error al apoyar la propuesta.
       proposals:
         dynamic_map_instructions:
           description: Las coordenadas se actualizarán cuando hagas clic en el botón 'previsualizar'. Sin embargo, la dirección no cambia.
@@ -832,23 +853,37 @@ es-MX:
           proposal_accepted_reason: 'Esta propuesta ha sido aceptada porque:'
           proposal_in_evaluation_reason: Esta propuesta está siendo evaluada
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
+          withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún apoyo. La propuesta no se eliminará, aparecerá en la lista de propuestas retiradas.
           withdraw_confirmation_html: '¿Seguro que quieres retirar esta propuesta?<br><br><strong>Esta acción no se puede deshacer!</strong>'
           withdraw_proposal: Retirar propuesta
         update:
           title: Actualizar propuesta
         vote_button:
           already_voted: Ya has dado tu apoyo
+          already_voted_hover: Retirar el apoyo
           maximum_votes_reached: Límite de apoyos alcanzado
           no_votes_remaining: No hay votos restantes
           vote: Dar apoyo
           votes_blocked: Apoyos desactivados
+        votes_count:
+          count:
+            one: Apoyo
+            other: Apoyos
         voting_rules:
+          can_accumulate_votes_beyond_threshold:
+            description: Cada propuesta puede acumular más de %{limit} apoyos
           minimum_votes_per_user:
             description: Debes distribuir un mínimo de %{votes} apoyos entre las diferentes propuestas.
+            given_enough_votes: Has dado apoyos suficientes.
+            votes_remaining: Has de dar %{remaining_votes} apoyo/s más a propuestas para que tus apoyos sean tenidos en cuenta.
           proposal_limit:
             description: Puedes crear hasta %{limit} propuestas.
+          threshold_per_proposal:
+            description: Para que una propuesta se valide, debe recibir %{limit} apoyos.
+          title: 'La recogida de apoyos se rige por las siguientes normas:'
           vote_limit:
             description: Puedes apoyar hasta %{limit} propuestas.
+            votes: Queda/n %{number} apoyo/s
         wizard_aside:
           back: Volver
           back_from_step_1: Volver a propuestas
@@ -875,6 +910,9 @@ es-MX:
       versions:
         index:
           title: Versiones
+      withdraw:
+        errors:
+          has_votes: Esta propuesta no puede ser retirada porque ya tiene apoyos.
     resource_links:
       copied_from_component:
         proposal_proposal: Propuestas relacionadas
