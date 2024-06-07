@@ -319,6 +319,7 @@ ca:
         voting_enabled:
           email_intro: 'Pots començar a donar suports a les propostes de %{participatory_space_title}. Comença a participar a aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: La recollida de suports a les propostes recollides a "%{participatory_space_title}" ha començat
           notification_title: Ja pots començar a <a href="%{resource_path}">donar suports a propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
@@ -336,7 +337,14 @@ ca:
         proposal_votes:
           conditions:
             - Navega i passa un temps llegint les propostes d'altres persones
-            - 
+            - Dona suport a les propostes amb què estiguis d'acord o trobis interessants
+          description: Aquesta ensenya es concedeix quan dones suport a propostes d'altres persones.
+          description_another: Aquesta participant ha donat suport a %{score} propostes.
+          description_own: Has donat suport a %{score} propostes.
+          name: Suports a propostes
+          next_level_in: Dona suport a %{score} propostes més per arribar al següent nivell!
+          unearned_another: Aquesta participant encara no ha donat suport a cap proposta.
+          unearned_own: Encara no has donat suport a cap proposta.
         proposals:
           conditions:
             - Tria un espai de participació amb la creació de propostes habilitada que sigui del teu interès
@@ -362,6 +370,7 @@ ca:
         object: propostes
         title: Propostes
       votes:
+        description: Nombre de suports a les propostes
         object: suports
         title: Suports
     participatory_spaces:
@@ -546,6 +555,7 @@ ca:
             remove_assignment: Desfer assignació
             remove_assignment_confirmation: Segur que vols desfer l'assignació a l'avaluadora d'aquesta proposta?
             valuators: Avaluadores
+            votes_count: Nombre de suports
           update_category:
             invalid: 'Aquestes propostes ja tenien la categoria %{subject_name}: %{proposals}.'
             select_a_category: Si us plau, selecciona una categoria.
@@ -750,6 +760,9 @@ ca:
         buttons:
           amend: Esmena
           comment: Comentari
+      proposal_votes:
+        create:
+          error: Hi ha hagut un error en donar suport a la proposta.
       proposals:
         dynamic_map_instructions:
           description: Les coordenades s'actualitzaran quan facis clic en el botó 'previsualitzar'. No obstant això, la direcció no canvia.
@@ -840,23 +853,37 @@ ca:
           proposal_accepted_reason: 'Aquesta proposta ha estat acceptada perquè:'
           proposal_in_evaluation_reason: S'està avaluant aquesta proposta
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
+          withdraw_btn_hint: Pots retirar la teva proposta si canvies d'opinió, sempre que no hagis rebut cap suport. La proposta no s'esborra, apareixerà a la llista de propostes retirades.
           withdraw_confirmation_html: Segur que vols retirar aquesta proposta? <br><br><strong>Aquesta acció no es pot desfer!</strong>
           withdraw_proposal: Retirar proposta
         update:
           title: Actualitzar la proposta
         vote_button:
           already_voted: Ja li has donat suport
+          already_voted_hover: Retirar el suport
           maximum_votes_reached: S'ha arribat al límit de suports
           no_votes_remaining: No hi ha suports restants
           vote: Donar suport
           votes_blocked: Recollida de suports desactivada
+        votes_count:
+          count:
+            one: Suport
+            other: Suports
         voting_rules:
+          can_accumulate_votes_beyond_threshold:
+            description: Cada proposta pot acumular més de %{limit} suports
           minimum_votes_per_user:
             description: Has de distribuir un mínim de %{votes} suports entre diferents propostes.
+            given_enough_votes: Has donat suports suficients.
+            votes_remaining: Has de donar %{remaining_votes} suport/s més a propostes perquè els teus suports siguin tinguts en compte.
           proposal_limit:
             description: Pots crear fins a %{limit} propostes.
+          threshold_per_proposal:
+            description: Per ser validades, les propostes han d'arribar a %{limit} suports.
+          title: 'La selecció de propostes es regeix per les següents normes:'
           vote_limit:
             description: Pots donar suport a %{limit} propostes.
+            votes: Queda/en %{number} suport/s
         wizard_aside:
           back: Torna
           back_from_step_1: Tornar a propostes
@@ -883,6 +910,9 @@ ca:
       versions:
         index:
           title: Versions
+      withdraw:
+        errors:
+          has_votes: Aquesta proposta no es pot retirar perquè ja compta amb suports.
     resource_links:
       copied_from_component:
         proposal_proposal: Propostes relacionades
