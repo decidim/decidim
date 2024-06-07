@@ -188,6 +188,7 @@ fr-CA:
         export: Tout exporter
         export-selection: Exporter la sélection
         import: Importer
+        manage: Gérer
         newsletter:
           new: Nouvelle newsletter
         participatory_space_private_user:
@@ -571,6 +572,7 @@ fr-CA:
         appearance: Apparence
         area_types: Types de périmètre d'assemblée
         areas: Zones d'application
+        components: Composants
         configuration: Configuration
         content: Contenu signalé
         external_domain_whitelist: Domaines externes autorisés
