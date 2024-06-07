@@ -86,7 +86,6 @@ pl:
   decidim:
     admin:
       actions:
-        manage: Zarządzanie
         new_initiative_type: Nowy typ inicjatywy
         new_initiative_type_scope: Zakres nowego typu inicjatywy
       filters:
@@ -113,7 +112,6 @@ pl:
       menu:
         attachments: Załączniki
         committee_members: Członkowie Komitetu
-        components: Komponenty
         information: Informacja
         initiative_type_scopes: Zakresy typu inicjatywy
         initiatives: Inicjatywy
