@@ -352,6 +352,7 @@ bg:
               accepted: Прието
               all: Всички
               rejected: Отхвърлен
+              sent: Изпратено
             invite_attendee: Покани участник
             invites: Покани
             search: Търсене
@@ -436,9 +437,72 @@ bg:
         decline_invitation:
           invalid: Възникна проблем при отхвърлянето на поканата.
           success: Успешно отхвърлихте поканата.
+          unauthorized: Трябва да влезете в акаунта си, преди да откажете поканата.
+        destroy:
+          invalid: Възникна проблем при напускането на тази конференция.
+          success: Успешно напуснахте конференцията.
+      conference_speaker:
+        go_to_twitter: Отидете на X
+        more_info: още информация
+        personal_website: Личен уебсайт
+        show:
+          more_info: още информация
+          speaking_at: Говорене на
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Личен уебсайт
+      conference_speakers:
+        index:
+          speakers:
+            one: Говорител
+            other: Говорители
+      conferences:
+        partners:
+          collaborators: Партньори
+          main_promotors: Организатори
+        show:
+          already_have_an_account?: Вече имате профил?
+          are_you_new?: Нов участник?
+          login_as: Влезли сте като %{name} <%{email}>
+          make_conference_registration: Регистрирайте се за конференцията
+          manage_registration: Управление на регистрацията
+          register: Регистрация
+          sign_in_description: Влезте в профила си, за да се регистрирате за конференцията
+          sign_up_description: Създайте си профил в CivilPower, за да се регистрирате за конференцията
+      content_blocks:
+        highlighted_conferences:
+          name: Акцентирани конференции
+      index:
+        title: Конференции
+      mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: Регистрацията Ви за конференцията е потвърдена.
+          pending_validation:
+            subject: Регистрацията Ви за конференцията очаква потвърждение.
+        invite_join_conference_mailer:
+          invite:
+            subject: Покана за присъединяване към конференция
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Сертификатът Ви за присъствие на конференцията е изпратен
       models:
+        conference_invite:
+          fields:
+            email: Имейл
+            name: Име
+            registration_type: Тип регистрация
+            sent_at: Изпратено в
+            status: Статус
+          status:
+            accepted: Приета (%{at})
+            rejected: Отхвърлена (%{at})
+            sent: Изпратено
         conference_registration:
           fields:
+            email: Имейл
+            name: Име
+            registration_type: Тип регистрация
             state: Статус
             states:
               confirmed: Потвърден
