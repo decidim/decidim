@@ -12,9 +12,19 @@ module Decidim::Verifications
         before_date:
       }
     end
+
     let(:form) do
-      Decidim::Verifications::Admin::RevocationsBeforeDateForm.from_params(params)
+      instance_double(
+        Decidim::Verifications::Admin::RevocationsBeforeDateForm,
+        current_user:,
+        valid?: true,
+        impersonated_only?: false,
+        before_date:,
+        organization:
+      )
     end
+
+    let(:authorization) { create(:authorization, id: 9234) }
     let(:now) { Time.zone.now }
     let(:prev_week) { Time.zone.today.prev_week }
     let(:prev_month) { Time.zone.today.prev_month }

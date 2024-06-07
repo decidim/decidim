@@ -47,7 +47,7 @@ module Decidim
             Decidim.traceability.perform_action!(
               :destroy,
               auth,
-              current_user:
+              current_user
             ) do
               auth.destroy
             end
