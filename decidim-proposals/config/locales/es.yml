@@ -610,13 +610,13 @@ es:
         withdrawn: Retirada
       application_helper:
         filter_origin_values:
-          all: Todas
+          all: Todos
           meetings: Encuentros
           official: Oficial
           participants: Participantes
           user_groups: Grupos
         filter_state_values:
-          all: Todas
+          all: Todos
           not_answered: No contestada
         filter_type_values:
           all: Todas
