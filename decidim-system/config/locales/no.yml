@@ -169,8 +169,6 @@
         smtp_settings:
           fieldsets:
             sender: Avsender
-          instructions:
-            from_label: 'E-postavsender vil være: "Ditt organisasjons navn <your-organization@example.org>". La stå tomt for å bruke ''E-postadresse'' som merkelapp'
           placeholder:
             from_email: din-organisasjon@eksempel.org
             from_label: navn på organisasjonen
