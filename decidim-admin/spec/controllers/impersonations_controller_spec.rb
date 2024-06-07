@@ -174,7 +174,7 @@ module Decidim
               name: managed_user_name
             )
             Decidim::Authorization.create!(
-              user:,
+              user: user,
               name: authorization_params[:handler_name],
               unique_id: authorization_params[:document_number],
               metadata: {
@@ -187,7 +187,7 @@ module Decidim
           it_behaves_like "successful authorization"
 
           it "creates a new managed user" do
-            post(:create, params:)
+            post(:create, params: params)
 
             expect(
               Decidim::User.where(
@@ -246,7 +246,7 @@ module Decidim
               name: managed_user_name
             )
             Decidim::Authorization.create!(
-              user:,
+              user: user,
               name: authorization_params[:handler_name],
               unique_id: authorization_params[:document_number],
               metadata: {
@@ -259,11 +259,11 @@ module Decidim
           it_behaves_like "successful authorization"
 
           it "creates a new managed user" do
-            post(:create, params:)
+            post(:create, params: params)
 
             expect(
               Decidim::User.where(
-                organization:,
+                organization: organization,
                 name: managed_user_name,
                 managed: true
               ).count
