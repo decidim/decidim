@@ -9,7 +9,8 @@ if respond_to?(:meeting_component) && meeting_component
   )
 end
 %>
-<% add_decidim_meta_tags(title: t("conference_program.index.title", scope: "decidim")) %>
+<% add_decidim_meta_tags(
+     { title: t("conference_program.index.title", scope: "decidim") }, current_participatory_space) %>
 
 <%# NOTE: this page does not use a regular layout %>
 <main class="container">

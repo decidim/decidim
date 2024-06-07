@@ -8,40 +8,75 @@ module Decidim
     # the other methods to see how they work.
     #
     # @param [Hash] tags - A Hash containing the meta tag name as keys and its content as values.
+    # @param [Object, nil] resource - The resource object that may contain the image.
     #
     # @return [nil]
-    def add_decidim_meta_tags(tags)
+    def add_decidim_meta_tags(tags, resource = nil)
       add_decidim_page_title(tags[:title])
       add_decidim_meta_description(tags[:description])
       add_decidim_meta_url(tags[:url])
       add_decidim_meta_twitter_handler(tags[:twitter_handler])
-      add_decidim_meta_image_url(add_base_url_to(tags[:image_url]))
+      add_decidim_meta_image_url(determine_image_url(tags, resource))
     end
 
-    # Add base url to path if path does not include host.
+    # Adds base URL to the given path if it doesn't include a host.
     #
-    # @parma [String] path - A String containing path (e.g. "/proposals/1" )
+    # @param [String] path - A String containing the path (e.g. "/proposals/1").
     #
-    # @return [String] - a String of URL including base URL and path, or path if it is blank.
+    # @return [String] - A String with the base URL and path, or the original path if it already includes a host.
     def add_base_url_to(path)
-      return path if path.blank?
-      return path if URI.parse(path).host.present?
+      return path if path.blank? || URI.parse(path).host.present?
 
       "#{resolve_base_url}#{path}"
     end
 
-    # Resolve base url (example: https://www.decidim.org) without url params
+    # Determines the image URL to be used for meta tags.
     #
-    # @return [String] -  a String of base URL
-    def resolve_base_url
-      return request.base_url if respond_to?(:request) && request&.base_url.present?
+    # @param [Hash] tags - A Hash containing the meta tag name as keys and its content as values.
+    # @param [Object] resource - The resource object that may contain the image.
+    #
+    # @return [String] - A String of the absolute URL of the image.
+    def determine_image_url(tags, resource)
+      return add_base_url_to(tags[:image_url]) if tags[:image_url].present?
 
-      uri = URI.parse(decidim.root_url(host: current_organization.host))
-      if uri.port.blank? || [80, 443].include?(uri.port)
-        "#{uri.scheme}://#{uri.host}"
-      else
-        "#{uri.scheme}://#{uri.host}:#{uri.port}"
+      return nil unless resource
+
+      if resource.respond_to?(:attachments)
+        attachment_image = resource.attachments.where(content_type: %w(image/jpeg image/png)).first
+        return add_base_url_to(attachment_image.url) if attachment_image
       end
+
+      description_image_url = image_in_description(resource)
+      return add_base_url_to(description_image_url) if description_image_url.present?
+
+      space_image_url = participatory_space_image_url(resource)
+      add_base_url_to(space_image_url) if space_image_url.present?
+    end
+
+    # Extracts the first image URL from the resource description.
+    #
+    # @param [Object] resource - The resource object that contains the body.
+    #
+    # @return [String] - A String of the relative URL of the first image found in the body.
+    def extract_image_from_description(resource)
+      return nil unless resource.respond_to?(:body) && resource.body.present?
+
+      body_html = resource.body[I18n.locale.to_s]
+      doc = Nokogiri::HTML(body_html)
+      doc.css("img").map { |img| img["src"] }.first
+    end
+
+    # Resolves the base URL (example: https://www.decidim.org) without URL parameters.
+    #
+    # @return [String] - A String of the base URL.
+    def resolve_base_url
+      "https://25d8-185-153-38-42.ngrok-free.app"
+      # return request.base_url if respond_to?(:request) && request&.base_url.present?
+      #
+      # uri = URI.parse(decidim.root_url(host: current_organization.host))
+      # port = uri.port.present? && [80, 443].exclude?(uri.port) ? ":#{uri.port}" : ""
+      #
+      # "#{uri.scheme}://#{uri.host}#{port}"
     end
 
     #  Accumulates the given `title` so that they can be chained. Since Rails views
@@ -60,22 +95,20 @@ module Decidim
     # @return [Array<String>]
     def add_decidim_page_title(title)
       @decidim_page_title ||= []
-      return @decidim_page_title if title.blank?
-
-      @decidim_page_title << title
+      @decidim_page_title << title if title.present?
+      @decidim_page_title
     end
 
     # Renders the title for a page. Use the `add_decidim_page_title` method to
     # accumulate elements for the title. Basically, it joins the elements of the title
     # array with `" - "`.
     #
-    # @return [String]
+    # @return [String] - The concatenated title.
     def decidim_page_title
       (@decidim_page_title || []).join(" - ")
     end
 
-    attr_reader :decidim_meta_description, :decidim_meta_url, :decidim_meta_image_url,
-                :decidim_meta_twitter_handler
+    attr_reader :decidim_meta_description, :decidim_meta_url, :decidim_meta_image_url, :decidim_meta_twitter_handler
 
     # Sets the meta description for the current page. We want to keep the most specific
     # one, so you cannot replace the description if it is set by a view that has already
@@ -83,7 +116,7 @@ module Decidim
     # is the last one to be rendered. You can put there a basic content and override it
     # in other layers.
     #
-    # @param [String] description - The String to be set as description
+    # @param [String] description - The String to be set as description.
     #
     # @return [nil]
     def add_decidim_meta_description(description)
@@ -96,7 +129,7 @@ module Decidim
     # is the last one to be rendered. You can put there a basic content and override it
     # in other layers.
     #
-    # @param [String] twitter_handler - The String to be set as Twitter handler
+    # @param [String] twitter_handler - The String to be set as Twitter handler.
     #
     # @return [nil]
     def add_decidim_meta_twitter_handler(twitter_handler)
@@ -109,7 +142,7 @@ module Decidim
     # is the last one to be rendered. You can put there a basic content and override it
     # in other layers.
     #
-    # @param [String] url - The String to be set as URL
+    # @param [String] url - The String to be set as URL.
     #
     # @return [nil]
     def add_decidim_meta_url(url)
@@ -122,11 +155,19 @@ module Decidim
     # is the last one to be rendered. You can put there a basic content and override it
     # in other layers.
     #
-    # @param [String] image_url - The String to be set as image URL
+    # @param [String] image_url - The String to be set as image URL.
     #
     # @return [nil]
     def add_decidim_meta_image_url(image_url)
       @decidim_meta_image_url ||= image_url
+    end
+
+    def participatory_space_image_url(resource)
+      resource.participatory_space&.attached_uploader(:hero_image)&.path
+    end
+
+    def image_in_description(resource)
+      extract_image_from_description(resource)
     end
   end
 end
