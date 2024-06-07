@@ -76,6 +76,11 @@ module.exports = {
       "3xl": ["32px", "40px"],
       "4xl": ["36px", "45px"],
       "5xl": ["48px", "60px"]
+    },
+    extend: {
+      transitionProperty: {
+        'top': 'top',
+      }
     }
   },
   plugins: [require("@tailwindcss/typography")]

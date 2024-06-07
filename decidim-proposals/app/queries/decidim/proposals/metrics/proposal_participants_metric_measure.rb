@@ -5,7 +5,7 @@ module Decidim
     module Metrics
       # Searches for Participants in the following actions
       #  - Create a proposal (Proposals)
-      #  - Give support to a proposal (Proposals)
+      #  - Vote to a proposal (Proposals)
       #  - Endorse (Proposals)
       class ProposalParticipantsMetricMeasure < Decidim::MetricMeasure
         def valid?

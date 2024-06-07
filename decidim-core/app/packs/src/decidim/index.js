@@ -47,6 +47,7 @@ import "src/decidim/impersonation"
 import "src/decidim/gallery"
 import "src/decidim/direct_uploads/upload_field"
 import "src/decidim/data_consent"
+import "src/decidim/abide_form_validator_fixer"
 import "src/decidim/sw"
 import "src/decidim/sticky_header"
 

@@ -469,7 +469,7 @@ describe "Proposals" do
       before { visit_component }
 
       it "lists the proposals ordered by votes by default" do
-        expect(page).to have_css("a", text: "Most supported")
+        expect(page).to have_css("a", text: "Most voted")
         expect(page).to have_css("[id^='proposals__proposal']:first-child", text: most_voted_proposal_title)
         expect(page).to have_css("[id^='proposals__proposal']:last-child", text: less_voted_proposal_title)
       end
@@ -544,7 +544,7 @@ describe "Proposals" do
       let!(:votes) { create_list(:proposal_vote, 3, proposal: most_voted_proposal) }
       let!(:less_voted_proposal) { create(:proposal, component:) }
 
-      it_behaves_like "ordering proposals by selected option", "Most supported" do
+      it_behaves_like "ordering proposals by selected option", "Most voted" do
         let(:first_proposal) { most_voted_proposal }
         let(:last_proposal) { less_voted_proposal }
       end

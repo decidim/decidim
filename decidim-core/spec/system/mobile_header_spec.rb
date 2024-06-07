@@ -30,7 +30,7 @@ describe "Mobile header" do
     end
 
     it "has a sticky header" do
-      expect(page).to have_css("#sticky-header")
+      expect(page).to have_css("#sticky-header-container")
     end
 
     context "when user view the header" do

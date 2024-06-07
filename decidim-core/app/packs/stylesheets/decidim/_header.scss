@@ -38,10 +38,8 @@ header {
     }
   }
 
-  #sticky-header {
-    @apply fixed w-full top-0 shadow-lg z-40 bg-white md:relative;
-
-    transition: top 0.3s;
+  #sticky-header-container {
+    @apply fixed w-full top-0 shadow-lg z-40 bg-white md:relative transition-top duration-300;
   }
 
   .main-bar {
@@ -56,11 +54,11 @@ header {
     }
 
     &__logo-desktop {
-      @apply md:hidden lg:block;
+      @apply hidden lg:block;
+    }
 
-      @media screen and (max-width: 768px) {
-        display: none;
-      }
+    &__logo-mobile {
+      @apply lg:hidden;
     }
 
     &__search {
@@ -92,6 +90,10 @@ header {
 
         &-wrapper {
           @apply flex gap-x-4 xl:gap-x-6;
+        }
+
+        &-account {
+          @apply w-6 h-6 flex items-center justify-center bg-secondary text-white rounded-full text-xs font-bold mr-2;
         }
       }
 

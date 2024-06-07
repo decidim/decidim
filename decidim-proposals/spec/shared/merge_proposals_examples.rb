@@ -75,7 +75,7 @@ shared_examples "merge proposals" do
               expect(page).to have_css(".table-list tbody tr", count: 3)
               expect(page).to have_content("There has been a problem merging the selected proposals")
               expect(page).to have_content("Are not official")
-              expect(page).to have_content("Have received support or endorsements")
+              expect(page).to have_content("Have received votes or endorsements")
             end
           end
 
