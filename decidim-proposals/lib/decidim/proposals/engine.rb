@@ -55,6 +55,7 @@ module Decidim
         Decidim.icons.register(name: "arrow-right-s-fill", icon: "arrow-right-s-fill", category: "system", description: "", engine: :proposals)
         Decidim.icons.register(name: "bar-chart-2-line", icon: "bar-chart-2-line", category: "system", description: "", engine: :proposals)
         Decidim.icons.register(name: "scales-line", icon: "scales-line", category: "system", description: "", engine: :proposals)
+        Decidim.icons.register(name: "layout-grid-fill", icon: "layout-grid-fill", category: "system", description: "", engine: :proposals)
       end
 
       initializer "decidim_proposals.content_processors" do |_app|

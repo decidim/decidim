@@ -25,6 +25,8 @@ ja:
         destroy:
           success: テンプレートを削除しました。
         empty: テンプレートはまだありません。
+        fetch:
+          error: テンプレートが見つかりませんでした。ページをリロードしてください。
         missing_resource: "(リソースが見つかりません)"
         update:
           error: テンプレートの更新中に問題が発生しました。

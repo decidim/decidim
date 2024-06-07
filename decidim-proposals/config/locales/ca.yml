@@ -186,9 +186,7 @@ ca:
             proposal_length: Longitud màxima del cos de la proposta
             proposal_limit: Límit de propostes per participant
             proposal_wizard_step_1_help_text: Text d'ajuda pel pas "Crear" de l'assistent de propostes
-            proposal_wizard_step_2_help_text: Text d'ajuda pel pas "Comparar" de l'assistent de propostes
-            proposal_wizard_step_3_help_text: Text d'ajuda pel pas "Completar" de l'assistent de propostes
-            proposal_wizard_step_4_help_text: Text d'ajuda pel pas "Publicar" de l'assistent de propostes
+            proposal_wizard_step_2_help_text: Text d'ajuda pel pas "Publicar" de l'assistent de propostes
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada proposta
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
@@ -765,13 +763,6 @@ ca:
         create:
           error: Hi ha hagut un error en donar suport a la proposta.
       proposals:
-        compare:
-          continue: Continua
-          no_similars_found: Ben fet! No s'han trobat propostes semblants
-          title: Propostes similars
-        complete:
-          send: Enviar
-          title: Completa la teva proposta
         dynamic_map_instructions:
           description: Les coordenades s'actualitzaran quan facis clic en el botó 'previsualitzar'. No obstant això, la direcció no canvia.
           instructions: Pots moure la ubicació en el mapa.
@@ -893,15 +884,11 @@ ca:
         wizard_aside:
           back: Torna
           back_from_step_1: Tornar a propostes
-          back_from_step_2: Tornar a propostes
-          back_from_step_3: Tornar a comparar propostes
-          back_from_step_4: Tornar a editar l'esborrany
+          back_from_step_2: Torna a l'edició
         wizard_steps:
           current_step: Pas actual
           step_1: Crea la teva proposta
-          step_2: Compara
-          step_3: Completa
-          step_4: Publica la teva proposta
+          step_2: Publica la teva proposta
           title: Passos per a la creació d'una proposta
       proposals_picker:
         choose_proposals: Triar propostes

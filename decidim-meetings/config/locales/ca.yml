@@ -423,7 +423,7 @@ ca:
           body: La trobada <a href="%{meeting_path}">"%{meeting_title}"</a> està pendent de tancar-se. Si us plau, afegiu un informe de la reunió fent servir el botó "Tancar trobada".
           greetings: Hola,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Hola %{username},
-          subject: Està pendent tancar la trobada "%{meeting_title}" amb un informe
+          subject: Ara pots tancar el "%{meeting_title}" amb un informe
       conference_venues: Seus de les jornades
       content_blocks:
         upcoming_meetings:

@@ -11,9 +11,9 @@ module Decidim
 
         def create
           enforce_permission_to(:create, :answer, question:)
-          @form = form(AnswerForm).from_params(params, question:, current_user:)
+          @form = form(AnswerForm).from_params(params.merge(question:, current_user:))
 
-          CreateAnswer.call(@form, current_user, questionnaire) do
+          CreateAnswer.call(@form, questionnaire) do
             # Both :ok and :invalid render the same template, because
             # validation errors are displayed in the template
             respond_to do |format|

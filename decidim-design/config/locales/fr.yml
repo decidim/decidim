@@ -3,6 +3,19 @@ fr:
   decidim:
     design:
       components:
+        accordions:
+          content_panel: Contenu du panneau
+          demo: Démo
+          demo_description: Dans toute l'application, les accordéons sont principalement utilisés pour afficher/masquer le contenu dans des onglets ou plier/déplier les textes visibles.
+          description_accordions_html: Les accordéons sont une fonctionnalité javascript disponible grâce à une bibliothèque externe appelée %{link_code} a11y-accordéon-component.
+          github_source_html: Code source sur GitHub %{github_link}
+          panel: Panneau
+          title: Accordéons
+          trigger: Déclencheur
+          usage: Usage
+          usage_p: Un accordéon nécessite au moins trois éléments
+          usage_p_1_html: 1. Un wrapper <code>div</code>, avec l'attribut de données <code>data-component="accordion"</code>, sur tous les déclencheurs et panneaux disponibles.
+          usage_p_2_html: 2. Un élément de déclencheur utilisable (comme un bouton), pointant vers l'élément pliable à travers <code>data-controls="panel"</code>, où le <i>panneau</i> est l'<code>id</code> du panneau.
         activities:
           activities: Activités
         address:
@@ -16,6 +29,8 @@ fr:
           title: Auteur
         buttons:
           title: Boutons
+        cards:
+          title: Cartes
         forms:
           emojis: Emojis
           emojis_description: Fonctionne uniquement pour une zone de texte

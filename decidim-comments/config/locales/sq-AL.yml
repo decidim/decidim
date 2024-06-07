@@ -28,7 +28,6 @@ sq:
         deleted_at: Komenti u fshi në datën %{date}
         edit: Përpuno
         edited: Ndryshuar
-        hide_replies: Fshih përgjigjet
         moderated_at: Komenti u moderua në datën %{date}
         reply: Përgjigju
         report:

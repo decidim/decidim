@@ -77,6 +77,44 @@
   }
 }
 
+#proposals {
+  .view-layout__links {
+    @apply flex gap-4 items-center;
+
+    svg {
+      @apply inline-block w-5 h-5;
+
+      &.view-icon--disabled {
+        @apply fill-gray;
+      }
+    }
+  }
+}
+
+.card {
+  &__proposal-placeholder-g {
+    @apply w-full h-full fill-primary;
+
+    g {
+      path {
+        @apply fill-primary;
+      }
+    }
+  }
+
+  &__grid-text-title {
+    @apply flex justify-between flex-row md:flex-col md:items-start lg:flex-row lg:items-center;
+
+    .label {
+      @apply md:mt-2;
+    }
+  }
+
+  &__list-metadata {
+    @apply md:flex md:flex-row md:items-center md:gap-4;
+  }
+}
+
 /* overwrite tom-select defaults */
 .ts {
   &-control {

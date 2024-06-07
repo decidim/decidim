@@ -105,5 +105,9 @@ module Decidim
     def prevent_timeout_seconds
       0
     end
+
+    def text_initials(name)
+      name.split(/[\s.]+/).map(&:chr).slice(0, 2).join.upcase
+    end
   end
 end

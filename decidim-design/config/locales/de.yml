@@ -36,6 +36,8 @@ de:
         dialogs:
           dialog_demo_description_html: Die Dialoge oder modale Komponenten werden über den Rails-Helfer <code>decidim_modal</code> implementiert.
           dialogs_description_html: Dialoge sind eine Javascript-Funktion, die dank einer externen Bibliothek namens <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a> verfügbar ist.
+          tips_description: 'Um einen komplexen Modus anzuzeigen, der die Stile entspricht, führe folgendes Markup durch:'
+          tips_description_html: Achten Sie auf die <i>Datenattribute</i> und die <i>Ids</i>. Zum Beispiel die <code>[data-dialog-title]</code>'s Id beginnt mit <i>Dialog-Titel</i> plus die <i>modal id</i>.
           title: Dialoge
           usage_description: Ein Dialog erfordert zwei Elemente
           usage_description_2_html: 2. Ein modales Element, dessen <code>ID</code> mit dem Datenzielwert übereinstimmt, auf den der Trigger verweist.
@@ -60,11 +62,19 @@ de:
           title: Melden
         share:
           title: Teilen
+        tab_panels:
+          title: Tab-Panels
         tooltips:
           demo: Demo
+          demo_description: Damit diese Komponente funktioniert, muss ein Teilnehmer auf dem Element schweben.
+          description: Ein Tooltip ist eine Komponente, die Benutzer mit der Maus schweben können, um zusätzliche Informationen darüber zu erhalten.
           github_source_html: Quellcode auf GitHub %{github_link}
           title: Tooltips
           usage: Verwendung
+          usage_p: 'Ein Tooltip erfordert die Verwendung des `with_tooltip` Helfers, mit drei Argumenten:'
+          usage_p_1_html: 1. Ein String mit dem Wert des Tooltip. Im Beispiel dieser Seite ist "Hallo Welt".
+          usage_p_2_html: 2. Eine optionale Klasse mit einem Symbol, auf der der Tooltip angezeigt wird. Mögliche Werte sind <code>:top</code>, <code>:bottom</code>, <code>:right</code>, oder <code>:left</code>.
+          usage_p_3_html: 3. Ein Block mit der Zeichenkette, die der Benutzer bewegen muss, um angezeigt zu werden.
       foundations:
         accessibility:
           accessibility_labels: Barrierefreiheitsbezeichnungen
@@ -76,8 +86,10 @@ de:
           color_contrast: Farbkontrast
           color_contrast_paragraph: Wenn Sie die Benutzeroberfläche erstellen oder die Farben ändern, stellen Sie immer sicher, dass Sie mit Ihren Änderungen nicht die Barrierefreiheit verletzen. Sie können mit der Farbkontrastprüfung sicherstellen, dass Ihre Textfarben ausreichend Kontrast zur Hintergrundfarbe haben, auf der sie angezeigt werden.
           decidim_follows_html: Decidim folgt bei Barrierefreiheit den Richtlinien für <u>Web Content Accessibility Guidelines (WCAG) 2.1</u>
+          dynamic_changes_header: Dynamische Funktionalität ändert den Seitenkontext unintuitiv
           dynamic_changes_paragraph: Änderungen in den Formulareingaben sollten den Kontext der Seite nicht automatisch ändern.
           elements_hidden: Elemente versteckt
+          elements_hidden_header: Elemente aus der Barrierefreiheit-API versteckt
           elements_hidden_paragraph: Um ein Element vor unterstützenden Technologien zu verstecken, verwenden Sie das Attribut aria-hidden="true".
           heading_on: Überschrift zu wichtigen Abschnitten
           here_link: hier
@@ -109,50 +121,70 @@ de:
           centered: Zentriert
           code: Code
           columns: Anzahl der Spalten (10, 8 oder 6).
+          description_layout_p1: Für den Desktop verwendet Decidim ein 12 Spaltenraster mit limitierter Anzahl von Vorlagen (Grid-Konfigurationen) für verschiedene Inhaltstypen. Das Ziel ist, dass eine bestimmte Art von Inhalten (Homepage, Liste der Elemente, einzelne Artikel) ein unverwechselbares Layout hat, so dass die Benutzer verstehen können, in welcher Art von Inhalt sie sind nur durch das allgemeine Aussehen der Seite.
+          description_layout_p2: Diese einfachen Regeln sollten beim Erstellen neuer Module oder beim Anpassen vorhandener Module befolgt werden, so dass eine Decidim-Website ihre Konsistenz bewahren kann.
           desktop: Desktop
           full_width: Volle Breite
           layout_list_1: 'Homepage (der Seite, des Bereichs): volle Breite'
+          layout_list_2: 'Liste der Elemente (Leerzeichen, Elemente innerhalb eines Raumes usw.): Links'
+          layout_list_3: 'Individueller Artikel (Vorschlag, Blog-Beitrag): zentriert, optional mit rechter Seite'
           left_aside: Seitlich links
           mobile: Mobil
           not_required: Nicht erforderlich
           properties: Eigenschaften
           right_aside: Seitlich rechts
+          section_p_breakpoints: 'Um die Responsive Max-Breite von Elementen zu verwalten, verlassen wir uns auf die Standard `container` Schliffwind-Klasse, die folgende Haltepunkte angibt:'
+          section_p_code: Wenn Sie neue Module implementieren, haben Sie einige Helfer, die Ihnen automatisch den Code zur Verfügung stellen, um die HTML-Struktur einzurichten. Du solltest diese Helfer verwenden, anstatt direkt div Elemente mit Klassen zu verwenden, damit du die Konsistenz aufrechterhalten kannst.
+          section_p_code_html: Sie finden die Grundlayouts in %{link_section_code}
+          section_p_desktop: Desktop-Rastersystem besteht aus 12 flexiblen Spalten mit einem Raster zwischen 16px und linken und rechten Rändern von 48px
+          section_p_mobile: Mobiles Rastersystem besteht aus 4 flexiblen Spalten mit einem Raster zwischen 16px und 16px und rechts. Für Größen unter 320px sind diese Ränder auf 8px gesetzt.
+          section_p_tablet: Desktop-Rastersystem besteht aus 8 flexiblen Spalten mit einem Raster zwischen 16px und linken und rechten Rändern von 48px.
           tablet: Tablet
           title: Layout
         typography:
+          description: Diese Richtlinien fassen die Verwendung der Typografie bei Decidim zusammen und dienen als Garanten für Designer, um frei unter Berücksichtigung der besten typographischen Praktiken zu gestalten.
           headings:
             characters: Zeichen pro Zeile
+            layout: Layout-Spalten
             size: Größe
           title: Typografie
           typefaces_description_1: Decidim verwendet Source Sans Pro als primäre Schriftart. Diese Schrift unterstützt 310 Sprachen.
           typefaces_description_2: Diese Schriften sind lizenziert mit der Open Font Lizenz
       helpers:
         accountability: Verantwortlichkeit
+        accountability_cards_html: Wird von <i>Umsetzungsprojekte</i>- Karten verwendet. Diese Karte erfordert eine korrekte Anzeige der Modul-Assets z.B. <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>
         activity: Aktivität
+        address_description: Die Adresszelle empfängt eine Ressource und durchsucht die geolokalisierbaren Attribute, um ein bestimmtes Markup darzustellen.
+        address_description_2: Abhängig vom Typ des Inhalts kann die Adresse eine Online-URL sein. In solchen Fällen sind die angezeigten Informationen genau dieselbe, aber passend geformt.
         ally_link: a11y-dropdown-Komponente
         argument: Argument
         assemblies: Gremien
         assembly_g: Gremium G
         assembly_s: Gremium S
         avatar: Profilbild
+        avatar_description: Es wird verwendet, wenn es schmale Leerzeichen gibt, in denen der Autor eine sekundäre Information ist.
         background: Hintergrund und Ränder
         base: Basis
         block_text: extra_Data-Block verwenden
         blog_cards_html: Wird von <i>Blog</i>-Karten verwendet
         blogs: Blogs
-        budget_card_html: Wird von <i>Budgetprojekt</i- Karten verwendet. Diese Karte erfordert eine korrekte Anzeige der Modul-Assets z.B. <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>
+        budget_card_html: Wird von <i>Budgetprojekt</i>- Karten verwendet. Diese Karte erfordert eine korrekte Anzeige der Modul-Assets z.B. <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>
         budgets: Budgets
         callout_class: Callout-Klasse
+        callout_description: Dieses Attribut wendet einen Status für die Ankündigung an. Standardmäßig verwendet es die sekundäre Farbe.
         card_g: Karte G
         card_l: Karte L
         card_s: Karte S
         collaborative_draft_l: Gemeinsamer Entwurf L
         colors: Farben
         compact: Kompakt
+        compact_description: Diese Autorenversion ist der übliche Weg, um den Ressourcen-Ersteller zu identifizieren.
         conference_g: Konferenz G
         conference_s: Konferenz S
         conferences: Konferenzen
         context: Kontext
+        context_description: Diese Zelle zeigt einige Informationen über einen Benutzer an. Es ist eine visuelle Hilfe um den Ressourcen-/Inhalts-Ersteller zu identifizieren. Mit der Maus bewegen zeigt einen Tooltip mit weiteren Informationen und Links zu seinem Profil.
+        context_description_2: Für Ressourcen erscheint diese Zelle unterhalb der Hauptüberschrift. Für andere Inhalte erscheint sie neben dem Inhalt selbst.
         debate_l: Debatte L
         debate_s: Debatte S
         debates: Debatten
@@ -161,11 +193,19 @@ de:
         default: Standard
         default_description: Aufruf der Zelle ohne zusätzliche Argumente, sondern nur des Benutzers selbst.
         demo: Demo
+        demo_text: 'Diese Zelle erhält ein Modell von LastActivity Elementen und zeigt folgende Elemente an:'
+        demo_text_2: Wird von der letzten Aktivitätsseite in einem Inhaltsblock und innerhalb der Dropdown-Menüs verwendet.
         description: Beschreibung
         disabled: Deaktiviert
         dropdowns: Dropdowns
+        dropdowns_demo_1_description: 'Das folgende Beispiel wird auf dem Desktop nicht auffindbar sein, sondern mobile:'
+        dropdowns_demo_description: Die Dropdowns werden entlang der Anwendung verwendet, um große, leicht lesbare Menüs für Desktop-Geräte zu zerbrechen, aber zu wordy für mobile Geräte.
+        dropdowns_demo_description_html: 'Dieses Javascript-Feature wird um eine kleine css erweitert, durch den Namen: Der versteckbare Inhalt MÜSSEN eine <code>id</code> HABEN, beginnend mit dem <i>Drop-down-Menü</i>.'
         dropdowns_description_html: Dropdowns sind eine Javascript-Funktion, die dank einer externen Bibliothek namens %{link} verfügbar ist.
+        dropdowns_usage_1_description: 2. Ein versteckbares Element, dessen <code>ID</code> mit dem Datenzielwert übereinstimmt, auf den der Trigger verweist.
         dropdowns_usage_description: 'Ein Dropdown erfordert zwei Elemente:'
+        dropdowns_usage_description_html: 1. Ein benutzerdefinierbares Element, mit den Datenattributen <code>Datenkomponent="Dropdown" data-target="dropdown-menu-element"</code>.
+        dummy_description: Beschreibung der Dummy Ressource
         dummy_title: Dummy Ressourcentitel
         follow_button: Folgen-Button
         follower_description_html: Stellen Sie sicher, dass die partielle <code>Dezimal/Shared/login_modal</code> im DOM-Archiv vorhanden ist. Dieser Teil wird beim Einloggen im Anwendungslayout platziert.
@@ -212,11 +252,15 @@ de:
         search: Suche
         send: Senden
         share_button: Schaltfläche "Teilen"
+        share_usage_description_html: Stellen Sie sicher, dass die partielle <code>Dezimal/Shared/share_modal</code> im DOM-Archiv vorhanden ist. Dieser Teil im Anwendungslayout platziert.
         sizes: Grössen
         sortition_l: Sortierung_I
         sortitions: Sortierungen
         source_code: Quellcode
         state: Status
+        tab_panels_context_description: Diese Tab-Panel-Komponente sammelt alle zugehörigen Inhalte oder andere Ressourcen des angezeigten Hauptelements, um vertikalen Speicherplatz zu sparen. Wenn Sie auf den Tab klicken, wird das erstellte Fenster aktiviert, um den Inhalt anzuzeigen.
+        tab_panels_context_description_html: Hauptsächlich wird nach dem Hauptinhalt der Ressource <i>layout_item</i> oder <i>layout_center</i>verwendet.
+        tab_panels_usage_description: 'Diese Komponente erhält ein Array von Hashes und ordnet die Ausgabe jedes Elements in eine Tab-Panel-Struktur um. Verfügbare Eigenschaften für jedes Panel:'
         tab_panels_usage_description_arguments_html: "<strong>args</strong>: <i>Array</i>. Argumente für die vorherige Methode"
         tab_panels_usage_description_html: "<strong>aktiviert</strong>: <i>Boolean</i>. Unter Umständen wird der Tab gerendert"
         tab_panels_usage_description_id_html: "<strong>id</strong>: <i>String</i>. Einzigartige II"
@@ -231,12 +275,19 @@ de:
         typography_texts: Typographie und Texte
         usage: Nutzung
         usage_background_1: Seitlicher Hintergrund
+        usage_background_2: Hintergrund der ausgewählten Seitenleiste
         usage_background_3: Standard-Symbolfarbe
         usage_background_4: Zeilen und Trennzeichen
         usage_background_5: Hintergrund der Fußzeile
+        usage_background_6: Admin Layout-Hintergrund
+        usage_base_1: Haupt nav Komponente Hintergrund\nNav Menüs in Startseite und Raum Home
         usage_base_2: Hauptfarbe für Links und Schaltflächen
+        usage_base_3: Grafische Ornamente und Akzentfarbe\nKarten und Listenelemente Schwebezustand
+        usage_formelements_1: Standard-Hintergrund für Eingabeelemente
+        usage_formelements_2: Eingabeelemente deaktivierter Statushintergrund
         usage_state_1: Rahmen Erfolgsnachricht\nFüllung Alarm-Benachrichtigungssymbol\nHintergrund des Buttons bei Erfolgsmeldung
         usage_state_2: Warnbanner-Rahmen
+        usage_state_3: Alarm-Benachrichtigungs-Rand\nBenachrichtigungs-Symbol füllen
         usage_typography_1: Überschriften und Titel der Abschnitte
         usage_typography_2: Inline-Text
         usage_typography_3: Text über dunklem Hintergrund
@@ -244,6 +295,7 @@ de:
         value: Wert
         variations: Variationen
         variations_cards_description: Jede Karte sieht je nach Eigenschaften der angezeigten Ressource unterschiedlich aus. Sie können dieses Verhalten in der jeweiligen Zelle überschreiben.
+        variations_description: Es gibt drei verschiedene Versionen dieser Zelle und jede passt besser in den angezeigten Kontext.
         variations_text: Was die Art der Aktivität betrifft, so könnte die Zelle verschiedene Inhalte anzeigen, zum Beispiel ob die unterschiedlichen Ressourcen angezeigt werden, ob sie zu einem partizipatorischen Raum gehören oder nicht, ob sie einen einen Autor haben oder nicht.
       home:
         index:

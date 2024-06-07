@@ -112,9 +112,6 @@ lv:
             proposal_length: Maksimālais priekšlikuma pamatteksta garums
             proposal_limit: Priekšlikumu skaita limits vienam dalībniekam
             proposal_wizard_step_1_help_text: Priekšlikumu vedņa „Izveidot” soļa palīdzības teksts
-            proposal_wizard_step_2_help_text: Priekšlikumu vedņa "Salīdzināt" soļa palīdzības teksts
-            proposal_wizard_step_3_help_text: Priekšlikuma vedņa „Pabeigt” soļa palīdzības teksts
-            proposal_wizard_step_4_help_text: Priekšlikumu vedņa „Publicēt” soļa palīdzības teksts
             resources_permissions_enabled: Katram priekšlikumam var iestatīt darbības atļaujas
             threshold_per_proposal: Slieksnis vienam priekšlikumam
             vote_limit: Atbalsta limits vienam dalībniekam
@@ -523,13 +520,6 @@ lv:
         create:
           error: Atbalstot priekšlikumu, radās problēma
       proposals:
-        compare:
-          continue: Turpināt
-          no_similars_found: Labi padarīts! Netika atrasti līdzīgi priekšlikumi
-          title: Līdzīgi priekšlikumi
-        complete:
-          send: Sūtīt
-          title: Pabeidziet savu priekšlikumu
         edit:
           attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
           back: Atpakaļ
@@ -624,9 +614,6 @@ lv:
           back: Atpakaļ
         wizard_steps:
           step_1: Izveidojiet savu priekšlikumu
-          step_2: Salīdzināt
-          step_3: Pabeigt
-          step_4: Publicējiet savu priekšlikumu
       proposals_picker:
         choose_proposals: Izvēlieties priekšlikumus
       publish:
