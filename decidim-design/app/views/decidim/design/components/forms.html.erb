@@ -10,6 +10,7 @@
   <a href="#error"><%= t(".errors") %></a>
   <a href="#length"><%= t(".min_max_length") %></a>
   <a href="#emoji"><%= t(".emojis") %></a>
+  <a href="#multiselect"><%= t(".multiselect") %></a>
 <% end %>
 
 <%
@@ -230,6 +231,19 @@
     <label>
       textarea data-input-emoji="true"
       <textarea cols="30" rows="10" data-input-emoji="true"></textarea>
+    </label>
+  </div>
+</section>
+
+<section id="multiselect" class="design__section">
+  <h2 class="h2"><%= t(".multiselect") %></h2>
+
+  <div class="form__wrapper">
+    <p><%= t(".multiselect_description_html") %></p>
+
+    <label>
+      input type="text" class="js-tags-container" value="abc, 123"
+      <input type="text" class="js-tags-container" value="abc, 123">
     </label>
   </div>
 </section>
