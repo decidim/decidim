@@ -171,8 +171,6 @@ el:
         smtp_settings:
           fieldsets:
             sender: Αποστολέας
-          instructions:
-            from_label: 'Ο αποστολέας ηλεκτρονικού ταχυδρομείου θα είναι: "όνομα-οργάνωσής <your-organization@example.org>". Αφήστε κενό για να χρησιμοποιήσετε την ''Διεύθυνση email'' ως ετικέτα'
           placeholder:
             from_email: your-organization@example.org
             from_label: το-όνομα-του-οργανισμού-σας
