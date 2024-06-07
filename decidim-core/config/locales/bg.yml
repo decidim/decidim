@@ -492,14 +492,30 @@ bg:
         name: Статистики за организацията
       sub_hero:
         name: Банер на под-героя
+    core:
+      actions:
+        login_before_access: Моля, влезте в профила си, преди да осъществите достъп.
+        unauthorized: Не сте оторизирани да извършвате това действие.
+      application_helper:
+        filter_area_values:
+          all: Всички
+        filter_category_values:
+          all: Всички
+        filter_scope_values:
+          all: Всички
     devise:
       omniauth_registrations:
+        create:
+          email_already_exists: Друг профил използва същия имейл адрес.
         new:
           complete_profile: Завърши профила
+          nickname_help: Вашият псевдоним в %{organization}. Може да съдържа само букви, цифри, „-“ и „_“.
           sign_up: Моля, завършете профила си
           subtitle: Попълнете формуляра за да завършите регистрацията
           username_help: Публичното име ще се показва във Вашите публикации. Ако желаете анонимност, изберете го произволно.
       registrations:
+        create:
+          error: Възникна проблем при създаването на Вашия профил.
         new:
           already_have_an_account?: Вече имате профил?
           log_in: Вход
@@ -507,6 +523,7 @@ bg:
           newsletter_title: Разрешение за контакт с Вас
           sign_up: Регистрация
           subtitle: Регистрирайте се за да участвате в обсъждания и поддържате предложения.
+          terms: условията за ползване
           tos_agreement: Регистрирайки се, приемате %{link}.
           tos_title: Общи условия
           username_help: Публичното име ще се показва във Вашите публикации. Ако желаете анонимност, изберете го произволно.
@@ -514,19 +531,42 @@ bg:
         new:
           are_you_new?: Нов сте в тази платформа?
           register: Създай профил
+          sign_in_disabled: Може да влезете с външен профил.
+          sign_up_disabled: Регистрацията не е активна, може да ползвате съществуващ профил за достъп.
+        user:
+          timed_out: Бяхте неактивни твърде дълго и автоматично сте излезли от услугата. Ако искате да продължите да използвате услугата, моля, влезте отново.
       shared:
         newsletter_modal:
           buttons:
             check: Маркирай и продължи
+            uncheck: Продължаване без отметка
+          notice: |-
+            <p>Сигурни ли сте, че не искате да получавате бюлетин?
+            Моля, обмислете отново поставянето на отметка в квадратчето за бюлетин по-долу.
+            За нас е много важно да можете да получавате имейли от време на време
+            за да направите важни съобщения, винаги можете да промените това на вашия
+            страница с настройки за известия.</p>
+            <p>Ако не поставите отметка в квадратчето, може да пропускате подходяща информация
+            за нови възможности за участие в платформата.<br>
+            Ако все пак искате да избегнете получаването на бюлетини, ние перфектно
+            разберете решението си.</p>
+            <p>Благодарим, че прочетохте това!</p>
           title: Известия за новости
         omniauth_buttons:
           or: Или
+        password_fields:
+          hidden_password: Вашата парола е скрита
+          hide_password: Скриване на паролата
+          show_password: Показване на паролата
+          shown_password: Вашата парола е показана
+        placeholder_email: hi@example.org
     doorkeeper:
       authorizations:
         new:
           authorize: Потвърди приложение
           by_organization_link_html: <small class="heading-small"> чрез %{link}</small>
           cancel: Откажи
+          connect_your_account_html: Свържете акаунта си, като влезете в %{organization}.
           publish_content: Публикувайте съдържание за вас
           see_email: Вижте Вашата ел. поща
           see_name: Вижте Вашето име
@@ -540,13 +580,33 @@ bg:
         ready: Готов
       show:
         download_data: Изтегляне на данни
+        download_data_description_html: |-
+          Файл, съдържащ цялата информация, свързана с вашия акаунт, ще бъде изпратен до <strong>%{user_email}</strong>.
+          Този имейл ще съдържа .zip файл и парола за отварянето му.<br/><br/>За да разархивирате файла, ще ви трябва <a href="https://www.7-zip.org/"> 7-Zip</a> (за Windows) или <a href="https://www.keka.io/">Keka</a> (за MacOS).
+          Ако използвате Linux, през повечето време ще го имате инсталиран по подразбиране. Ако не, можете да използвате <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> или <a href="https://peazip.github.io" >PeaZip</a>).
         request_data: Заяви данни
+    editor_images:
+      create:
+        error: Грешка при качването на изображението.
+        success: Изображението е качено успешно.
+      drag_and_drop_help: Добавете изображения чрез плъзгане и пускане или поставяне (paste).
+    endorsement_buttons_cell:
+      already_endorsed: Не харесвам
+      endorse: Харесвам
     endorsements:
       identities:
         done: Готово
         select_identity: Изберете самоличност
+    endorsers_list:
+      endorsed_by: Харесано от…
     errors:
+      files:
+        file_cannot_be_processed: Файлът не може да бъде обработен
+        file_resolution_too_large: Разделителната способност на файла е твърде голяма
+        not_inside_organization: Файлът не е прикачен към никоя организация.
       internal_server_error:
+        copied: Текстът е копиран!
+        copy_error_message_clarification: Копирайте съобщението за грешка в клипборда
         title: Възникна проблем с нашия сървър
       not_found:
         back_home: Към Начало
@@ -712,6 +772,23 @@ bg:
         decidim/user:
           password: Паролата е твърде къса.
           password_confirmation: Паролата и потвърждението на паролата трябва да съвпадат.
+      upload:
+        labels:
+          edit_image: Редактиране на изображение
+          error: Грешка!
+          file_size_too_large: 'Размерът на файла е твърде голям! Максимален размер на файла: %{megabytes}MB'
+          filename: Име на файл
+          remove: Премахни
+          replace: Замени
+          title: Заглавие
+          title_required: Заглавието е задължително!
+          uploaded: Качено
+          validating: Валидиране...
+          validation_error: Грешка при валидирането!
+        select_file: Избор на файл
+      upload_help:
+        dropzone: Пуснете файлове тук или щракнете върху бутона за качване
+        explanation: Насоки за %{attribute}
     gamification:
       all_badges_link: Виж всички достъпни значки.
       badges:
@@ -723,6 +800,8 @@ bg:
           description_own: "Следват Ви %{score} човека."
           name: Последователи
           next_level_in: Остават %{score} човека до достигане на следващото ниво!
+          unearned_another: Този участник все още няма последователи.
+          unearned_own: Нямате последователи все още.
         index:
           badge_title: "%{name} значка"
           how: Как може да я заслужите
@@ -730,20 +809,39 @@ bg:
           title: Значки
       description: Значките са признания за действия на участниците и напредък в платформата. Когато започнете да откривате, участвате и взаимодействате в платформата, ще спечелите различни значки.
       level: Ниво %{level}
+      reached_top: Достигнахте най-високото ниво за тази значка.
+      title: Какви са значките?
     group_admins:
       actions:
+        are_you_sure: Сигурни ли сте? Това няма да премахне участника от групата.
         demote_admin: Премахни администратор
+      demote:
+        error: Възникна проблем при премахването на този участник от списъка с администратори.
+        success: Участника е успешно премахнат като администратор.
       index:
         current_admins: 'Текущи администратори:'
         manage_admins: Управлявай администраторите
     group_invites:
+      accept:
+        error: Възникна проблем при приемането на тази покана.
+        success: Поканата е приета успешно.
       accept_invitation: Приеми
       accept_or_reject_group_invitations: 'Следните групи ви поканиха да се присъедините. Приемете или отхвърлете заявките:'
       index:
         invite: Покани
         invite_user: Покани участник
+      invite:
+        error: Възникна проблем с поканата към този участник.
+        success: Участникът беше поканен успешно.
+      pending_invitations: Чакащи заявки
+      reject:
+        error: Възникна проблем при отхвърлянето на поканата.
+        success: Поканата е отхвърлена успешно.
       reject_invitation: Отхвърли
     group_members:
+      accept:
+        error: Възникна проблем при приемането на заявката за присъединяване.
+        success: Заявката за присъединяване е приета успешно.
       actions:
         are_you_sure: Сигурни ли сте?
         promote_to_admin: Направи администратор
