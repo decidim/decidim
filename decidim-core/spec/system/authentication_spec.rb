@@ -360,7 +360,7 @@ describe "Authentication" do
               find_by_id("session_user_email").click
             end
 
-            expect(page).to have_no_css(".form-error.is-visible", text: "There is an error in this field.")
+            expect(page).not_to have_css(".form-error.is-visible", text: "There is an error in this field.")
           end
 
           it "does not display error when email is invalid" do
@@ -369,7 +369,7 @@ describe "Authentication" do
               find_by_id("session_user_email").click
             end
 
-            expect(page).to have_no_css(".form-error.is-visible", text: "There is an error in this field")
+            expect(page).not_to have_css(".form-error.is-visible", text: "There is an error in this field")
           end
         end
       end
