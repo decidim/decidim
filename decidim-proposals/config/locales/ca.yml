@@ -761,7 +761,7 @@ ca:
           no_similars_found: Ben fet! No s'han trobat propostes semblants
           title: Propostes similars
         complete:
-          send: Enviar
+          send: Envia
           title: Completa la teva proposta
         dynamic_map_instructions:
           description: Les coordenades s'actualitzaran quan facis clic en el botó 'previsualitzar'. No obstant això, la direcció no canvia.
