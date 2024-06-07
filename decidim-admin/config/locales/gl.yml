@@ -150,6 +150,7 @@ gl:
         export: Exportar todo
         export-selection: Exportar selección
         import: Importar
+        manage: Xestionar
         newsletter:
           new: Novo boletín
         participatory_space_private_user:
