@@ -158,8 +158,6 @@ sv:
         smtp_settings:
           fieldsets:
             sender: Avsändare
-          instructions:
-            from_label: 'E-postavsändare är: "your-organization-name <your-organization@your-provider.org>". Om du lämnar tomt kommer e-postadressen användas'
           placeholder:
             from_email: your-organization@example.org
             from_label: din-organisation-namn
