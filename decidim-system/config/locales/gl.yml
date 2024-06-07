@@ -169,8 +169,6 @@ gl:
         smtp_settings:
           fieldsets:
             sender: Remitente
-          instructions:
-            from_label: 'O remitente do correo será: "o-nome-da-tua-organizacion <your-organization@example.org>". Deixar baleiro para empregar ''Correo electrónico'' como etiqueta'
           placeholder:
             from_email: a-tua-organizacion@exemplo.org
             from_label: o-nome-da-tua-organizacion
