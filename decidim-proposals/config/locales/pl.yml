@@ -74,10 +74,12 @@ pl:
           attributes:
             base:
               not_official: Nieoficjalne
+              voted: Otrzymano głosy lub potwierdzenia
         proposals_split:
           attributes:
             base:
               not_official: Nie są oficjalne
+              voted: Otrzymano głosy lub potwierdzenia
     models:
       decidim/proposals/admin/update_proposal_category_event: Zmieniono kategorię propozycji
       decidim/proposals/admin/update_proposal_scope_event: Zmieniono zakres propozycji
@@ -144,6 +146,7 @@ pl:
           comment: Skomentuj
           create: Tworzenie
           endorse: Rekomendacje
+          vote: Głosuj
           vote_comment: Poprzyj komentarz
           withdraw: Wycofywanie
         name: Propozycje
