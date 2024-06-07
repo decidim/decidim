@@ -88,7 +88,10 @@ module Decidim
       def encrypted_smtp_settings
         smtp_settings["from"] = set_from
 
-        smtp_settings.merge(encrypted_password: Decidim::AttributeEncryptor.encrypt(password))
+        encrypted = smtp_settings.merge(encrypted_password: Decidim::AttributeEncryptor.encrypt(password))
+
+        # if all are empty, nil is returned so it does not break ENV vars configuration
+        encrypted.values.all?(&:blank?) ? nil : encrypted
       end
 
       def set_from
@@ -98,9 +101,12 @@ module Decidim
       end
 
       def encrypted_omniauth_settings
-        omniauth_settings.transform_values do |v|
+        encrypted = omniauth_settings.transform_values do |v|
           Decidim::OmniauthProvider.value_defined?(v) ? Decidim::AttributeEncryptor.encrypt(v) : v
         end
+
+        # if all are empty, nil is returned so it does not break ENV vars configuration
+        encrypted.values.all?(&:blank?) ? nil : encrypted
       end
 
       private
