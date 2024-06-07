@@ -602,14 +602,14 @@ es:
         withdrawn: Retirada
       application_helper:
         filter_origin_values:
-          all: Todas
+          all: Todos
           meetings: Encuentros
           official: Oficial
           participants: Participantes
           user_groups: Grupos
         filter_state_values:
           accepted: Aceptada
-          all: Todas
+          all: Todos
           evaluating: En evaluación
           not_answered: No contestada
           rejected: Rechazada
