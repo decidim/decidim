@@ -243,6 +243,7 @@ bg:
       user_group:
         block: "%{user_name} блокира потребителска група %{resource_name}"
         reject: "%{user_name} отхвърли потвърждението на група участници %{resource_name}"
+        unblock: "%{user_name} отблокира потребителска група %{resource_name}"
         verify: "%{user_name} провери групата %{resource_name}"
         verify_via_csv: "%{user_name} провери групата %{resource_name} чрез CSV файл"
     admin_terms_of_use:
@@ -460,6 +461,11 @@ bg:
         welcome_text: Поздравителен текст
       highlighted_content_banner:
         name: Банер на откроеното съдържание
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Сортирайте елементите по:'
+          random: Произволно
+          recent: Най-скорошни
       how_to_participate:
         name: Как да участвам
       html:
