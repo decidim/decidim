@@ -449,6 +449,14 @@ bg:
         welcome_text: Поздравителен текст
       highlighted_content_banner:
         name: Банер на откроеното съдържание
+      highlighted_elements_settings_form:
+        components:
+          all: Всички
+          label: 'Избери компонент:'
+        orders:
+          label: 'Сортирайте елементите по:'
+          random: Произволно
+          recent: Най-скорошни
       how_to_participate:
         name: Как да участвам
       html:
@@ -458,12 +466,39 @@ bg:
         name: Последна активност
         title: Последна активност
         view_all: Виж всички
+      last_activity_settings_form:
+        max_last_activity_users: Максимален брой потребителски аватари със скорошна активност за показване
+      main_data:
+        name: Основни данни
+      metadata:
+        name: Метаданни
       metrics:
         name: Показатели за организацията
+      participatory_space_metrics:
+        name: Метрики
+      participatory_space_stats:
+        name: Статистики
+      social_networks_metadata:
+        name: Социални мрежи
+      static_page:
+        section:
+          name: Секция
+          section_content: Съдържание
+        summary:
+          name: Обобщение
+          summary_content: Съдържание
+        two_pane_section:
+          left_column: Лява колона
+          name: Секция с две колони
+          right_column: Дясна колона
       stats:
         name: Статистики за организацията
       sub_hero:
         name: Банер на под-героя
+    core:
+      actions:
+        login_before_access: Моля, влезте в профила си, преди да осъществите достъп.
+        unauthorized: Не сте оторизирани да извършвате това действие.
     devise:
       omniauth_registrations:
         new:
