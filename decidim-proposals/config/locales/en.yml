@@ -587,7 +587,7 @@ en:
         proposals_valuator_mailer:
           notify_proposals_valuator:
             admin_panel: admin panel
-            email_body: You've been assigned as a valuator for the proposals listed below. This means you've been trusted to give them feedback and a proper response in the next coming days.
+            email_body: You have been assigned as a valuator for the proposals listed below. This means you have been trusted to give them feedback and a proper response in the next coming days.
             gratitude: Thanks for your help!
             greeting: Hi %{name}
             public_side: public side

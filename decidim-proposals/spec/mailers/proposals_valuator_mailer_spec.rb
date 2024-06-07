@@ -7,10 +7,10 @@ module Decidim::Proposals::Admin
     include ActionView::Helpers::SanitizeHelper
 
     let(:organization) { create(:organization) }
-    let(:participatory_process) { create(:participatory_process, organization: organization) }
+    let(:participatory_process) { create(:participatory_process, organization:) }
     let(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: participatory_process) }
-    let(:user) { create(:user, organization: organization, name: "Tamilla", email: "valuator@example.org") }
-    let(:admin) { create(:user, :admin, organization: organization, name: "Mark") }
+    let(:user) { create(:user, organization:, name: "Ada", email: "valuator@example.org") }
+    let(:admin) { create(:user, :admin, organization:, name: "Mark") }
     let(:proposals) { create_list(:proposal, 3, component: proposals_component) }
 
     def proposal_url(proposal)
@@ -33,7 +33,7 @@ module Decidim::Proposals::Admin
       end
 
       it "body email has valuator name" do
-        expect(email_body(mail)).to include("Tamilla")
+        expect(email_body(mail)).to include("Ada")
       end
 
       it "body email has proposal links" do

@@ -12,7 +12,7 @@ describe "Admin manages proposals valuators" do
   end
   let!(:valuator) { create(:user, organization:) }
   let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user: valuator, participatory_process:) }
-  let!(:admin) { create(:user, :admin, organization: organization) }
+  let!(:admin) { create(:user, :admin, organization:) }
 
   include Decidim::ComponentPathHelper
 
@@ -60,7 +60,7 @@ describe "Admin manages proposals valuators" do
         expect(last_email.subject).to include("New proposals assigned to you for evaluation")
         expect(last_email.from).to eq([Decidim::Organization.first.smtp_settings["from"]])
         expect(last_email.to).to eq([valuator.email])
-        expect(last_email.body.encoded).to include("You've been assigned as a valuator")
+        expect(last_email.body.encoded).to include("You have been assigned as a valuator")
         expect(last_email.body.encoded).to include(Decidim::ResourceLocatorPresenter.new(proposal).admin_url)
       end
     end
