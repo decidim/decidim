@@ -51,6 +51,9 @@ bg:
       decidim/welcome_notification_event: Приветствено съобщение
   activerecord:
     attributes:
+      decidim/action_log:
+        created_at: Време
+        with_participatory_space: Пространство за участници
       decidim/user:
         current_password: Текуща парола
         email: Ел. поща
@@ -75,14 +78,71 @@ bg:
     'false': 'Не'
     'true': 'Да'
   date:
+    buttons:
+      close: Затвори
+      select: Избери
     formats:
       decidim_short: "%d/%m/%Y"
+      decidim_short_dashed: "%d-%m-%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Формат: дд/мм/гггг'
+      order: д-м-г
+      separator: "/"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: около 1 час
+        other: около %{count} часа
+      about_x_months:
+        one: около 1 месец
+        other: около %{count} месеца
+      half_a_minute: половин минута
+      less_than_x_minutes:
+        one: по-малко от минута
+        other: по-малко от %{count} минути
+      less_than_x_seconds:
+        one: по-малко от секунда
+        other: по-малко от %{count} секунди
+      short:
+        about_x_days: "%{count} дни"
+        about_x_hours: "%{count} ч."
+        about_x_minutes: "%{count} мин."
+        about_x_months: "%{count} м."
+        about_x_years: "%{count} г."
+        almost_x_years: "%{count} г."
+        half_a_minute: 1 м
+        less_than_x_minutes: "%{count} мин."
+        less_than_x_seconds: "%{count} сек"
+        over_x_years: "%{count} г."
+        x_days: "%{count} дни"
+        x_hours: "%{count} ч."
+        x_minutes: "%{count} мин."
+        x_months: "%{count} м."
+        x_seconds: "%{count} сек"
+        x_years: "%{count} г."
+      x_days:
+        one: 1 ден
+        other: "%{count} дни"
+      x_hours:
+        one: 1 час
+        other: "%{count} часа"
+      x_minutes:
+        one: 1 минута
+        other: "%{count} минути"
+      x_months:
+        one: 1 месец
+        other: "%{count} месеца"
+      x_seconds:
+        one: 1 секунда
+        other: "%{count} секунди"
   decidim:
     accessibility:
+      external_link: Външна връзка
+      front_page_link: Отидете на начална страница
       logo: "Официално лого на %{organization}"
       skip_button: Към съдържанието
     account:
