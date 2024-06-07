@@ -610,13 +610,13 @@ ca:
         withdrawn: Retirada
       application_helper:
         filter_origin_values:
-          all: Totes
+          all: Tots
           meetings: Trobades
           official: Oficial
           participants: Participants
           user_groups: Grups
         filter_state_values:
-          all: Totes
+          all: Tots
           not_answered: No resposta
         filter_type_values:
           all: Totes
@@ -652,7 +652,7 @@ ca:
         empty: Encara no hi ha cap esborrany col·laboratiu
         empty_filters: No hi ha cap esborrany col·laboratiu amb aquest criteri
         filters:
-          all: Todas
+          all: Tots
           amendment: Esmenes
           category: Categoria
           open: Obert
@@ -784,7 +784,7 @@ ca:
           marker_added: Marcador afegit al mapa.
         filters:
           activity: La meva activitat
-          all: Tots
+          all: Totes
           amendment_type: Tipus
           category: Categoria
           my_proposals: Les meves propostes
