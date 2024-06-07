@@ -118,6 +118,7 @@ sk:
       actions:
         add: Pridať
         browse: Prechádzať
+        manage: Správa
         per_page: Na stranu
         permissions: Práva
         reject: Odmietnuť
