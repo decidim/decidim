@@ -74,10 +74,12 @@ ca:
           attributes:
             base:
               not_official: No son oficials
+              voted: Han rebut suports o adhesions
         proposals_split:
           attributes:
             base:
               not_official: No son oficials
+              voted: Han rebut suports o adhesions
     models:
       decidim/proposals/admin/update_proposal_category_event: S'ha canviat la categoria de la proposta
       decidim/proposals/admin/update_proposal_scope_event: Àmbit de la proposta modificat
@@ -153,15 +155,18 @@ ca:
             announcement: Avís
             attachments_allowed: Permetre adjunts
             attachments_allowed_help: En activar aquesta opció, les propostes es mostraran en mode de quadrícula per defecte i la primera imatge apareixerà a la targeta.
+            can_accumulate_votes_beyond_threshold: Pot acumular suports més enllà del llindar
             collaborative_drafts_enabled: Esborranys col·laboratius habilitats
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
             default_sort_order: Ordre de propostes per defecte
+            default_sort_order_help: '''Per defecte'' vol dir que si els suports estan habilitats, les propostes es mostraran aleatòriament, i si els suports estan bloquejats, aleshores es mostraran de més a menys suports.'
             default_sort_order_options:
               default: Per defecte
               most_commented: Més comentades
               most_endorsed: Amb més adhesions
               most_followed: Amb més seguidores
+              most_voted: Amb més suports
               random: Aleatòriament
               recent: Recents
               with_more_authors: Amb més autores
@@ -187,6 +192,7 @@ ca:
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
             threshold_per_proposal: Llindar per proposta
+            vote_limit: Límit de propostes per participant
           step:
             amendment_creation_enabled: Creació d'esmenes habilitada
             amendment_creation_enabled_help: Les participants poden esmenar les propostes.
@@ -206,11 +212,13 @@ ca:
             creation_enabled: Les participants poden crear propostes
             creation_enabled_readonly: Aquesta opció es desactiva quan actives la funcionalitat de Textos Participatius. Per a pujar propostes com a text participatiu fes clic al botó de Textos Participatius i segueix les instruccions.
             default_sort_order: Ordre per defecte de propostes
+            default_sort_order_help: '''Per defecte'' vol dir que si els suports estan habilitats, les propostes es mostraran aleatòriament, i si els suports estan bloquejats, aleshores es mostraran de més a menys suports.'
             default_sort_order_options:
               default: Per defecte
               most_commented: Més comentades
               most_endorsed: Amb més adhesions
               most_followed: Amb més seguidores
+              most_voted: Amb més suports
               random: Aleatòriament
               recent: Recents
               with_more_authors: Amb més autores
