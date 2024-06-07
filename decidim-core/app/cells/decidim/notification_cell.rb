@@ -9,7 +9,11 @@ module Decidim
     include Decidim::SanitizeHelper
 
     def show
-      render :show
+      if notification.event_class_instance.try(:hidden_resource?)
+        render :moderated
+      else
+        render :show
+      end
     end
 
     def notification_title

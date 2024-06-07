@@ -143,6 +143,7 @@ en:
           show: Show advanced settings
         create:
           error: There was a problem creating a new organization.
+          error_invitation: There was a problem creating a new organization. Review your organization admin name.
           success_html: |
             <p>
               Organization successfully created.
