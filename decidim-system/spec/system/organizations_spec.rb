@@ -63,6 +63,8 @@ describe "Organizations", type: :system do
           fill_in "Name", with: "Citizen Corp"
           fill_in "Host", with: "www.example.org"
           fill_in "Reference prefix", with: "CCORP"
+          fill_in "Organization admin name", with: "City Mayor"
+          fill_in "Organization admin email", with: "mayor@example.org"
           click_on "Create organization & invite admin"
 
           click_on "Show advanced settings"
