@@ -206,13 +206,13 @@ describe "Support Proposal", slow: true do
             it "does not show the remaining votes counter" do
               visit_component
 
-              expect(page).to have_no_css("#voting-rules")
-              expect(page).to have_no_css("#remaining-votes-count")
+              expect(page).not_to have_css("#voting-rules")
+              expect(page).not_to have_css("#remaining-votes-count")
 
               click_on proposal_title
 
-              expect(page).to have_no_css("#voting-rules")
-              expect(page).to have_no_css("#remaining-votes-count")
+              expect(page).not_to have_css("#voting-rules")
+              expect(page).not_to have_css("#remaining-votes-count")
             end
           end
         end
