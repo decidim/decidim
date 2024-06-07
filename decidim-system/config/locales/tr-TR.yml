@@ -163,8 +163,6 @@ tr:
         smtp_settings:
           fieldsets:
             sender: Gönderen
-          instructions:
-            from_label: 'E-posta göndereni: "your-organization-name <your-organization@example.org>" olacaktır. ''E-posta adresini'' etiket olarak kullanmak için boş bırakın'
           placeholder:
             from_email: your-organization@example.org
             from_label: your-organization-name
