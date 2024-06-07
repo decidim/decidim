@@ -30,6 +30,16 @@ module Decidim
       )
     end
 
+    def action
+      @action ||= model.extra["action"] if model.extra && model.extra["action"].present?
+    end
+
+    def action_cell
+      return unless action
+
+      @action_cell ||= ("decidim/notification_actions/#{action["type"]}" if "Decidim::NotificationActions::#{action["type"].camelize}Cell".safe_constantize)
+    end
+
     private
 
     def notification
