@@ -122,9 +122,6 @@ hu:
           twitter:
             api_key: API-kulcs
             api_secret: API Titkos
-        smtp_settings:
-          instructions:
-            from_label: 'Az e-mail feladója a következő lesz: "szervezeti-neve<aszervezete@pelda.org>". Hagyja üresen a(z) ''from_email'' címke használatához'
         update:
           error: Hiba történt a szervezet frissítése során.
           success: Szervezet sikeresen frissítve.
