@@ -29,6 +29,8 @@ module Decidim
   #      total: 10,
   #    )
   class ProgressBarCell < Decidim::ViewModel
+    include ActionView::Helpers::NumberHelper
+
     private
 
     def element_id

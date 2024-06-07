@@ -761,7 +761,7 @@ de:
           no_similars_found: Gut gemacht! Keine ähnlichen Vorschläge gefunden
           title: Ähnliche Vorschläge
         complete:
-          send: Senden
+          send: Abschicken
           title: Vorschlag vervollständigen
         dynamic_map_instructions:
           description: Die Koordinaten werden aktualisiert, wenn Sie auf "Vorschau" klicken. Die angegebene Adresse wird sich jedoch nicht ändern.

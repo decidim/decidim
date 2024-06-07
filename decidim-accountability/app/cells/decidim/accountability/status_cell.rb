@@ -11,6 +11,7 @@ module Decidim
       include Decidim::SanitizeHelper
       include Decidim::TranslationsHelper
       include ActiveSupport::NumberHelper
+      include ActionView::Helpers::NumberHelper
 
       delegate :current_component, :component_settings, to: :controller
 
