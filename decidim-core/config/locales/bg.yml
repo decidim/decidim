@@ -144,39 +144,88 @@ bg:
       external_link: Външна връзка
       front_page_link: Отидете на начална страница
       logo: "Официално лого на %{organization}"
+      opens_in_new_tab: Отваря се в нов раздел
       skip_button: Към съдържанието
     account:
+      blocked: Този акаунт е блокиран поради нарушение на условията на услугата
       delete:
+        alert: Това действие не може да бъде върнато. Ако изтриете акаунта си, няма да можете да влезете с идентификационните си данни. Изтриването на вашия акаунт ще доведе до анонимизиране на вашите приноси. Все пак ще можете да създадете нов акаунт, но тези приноси няма да бъдат свързани с него.
         confirm:
           close: Затвори прозореца
           ok: Да, желая да изтрия профила си
           question: Сигурни ли сте, че желаете да изтриете своя профил?
           title: Изтрий моя профил
         explanation: Моля, напишете причината за изтриване на Вашия профил (по желание).
+        leaving_authorizations_behind: Някои данни, свързани с вашето разрешение, ще бъдат запазени за сигурност. Ако създадете друг акаунт и упълномощите отново, тези данни ще бъдат възстановени в новия ви акаунт.
       destroy:
         error: Възникна проблем с изтриването на профила Ви.
         success: Вашият профил е успешно изтрит.
       download_your_data_export:
         file_no_exists: Файлът не съществува
+        notice: Изтеглянето на вашите данни е в ход. Ще получите имейл, когато приключи.
+      email_change:
+        body1: Изпратихме имейл до %{unconfirmed_email}, за да потвърдим новия ви имейл адрес.
+        body2: Трябва ли да изпратим отново имейла за потвърждение? %{resend_link} или %{cancel_link}.
+        cancel: отказ
+        cancel_error: Промяната на имейла не можа да бъде отменена.
+        cancel_successfully: Промяната на имейла бе отменена успешно.
+        resend_error: Неуспешно изпращане на имейл за потвърждение.
+        resend_successfully: Имейлът за потвърждение е препратен успешно на %{unconfirmed_email}.
+        send_again: Изпрати отново
+        title: Проверка за промяна на имейл
       show:
+        available_locales_helper: Изберете езика, който искате да използвате, за да разглеждате и получавате известия в платформата.
         change_password: Смяна на паролата
         update_account: Обнови профил
       update:
         error: Възникна проблем с обновяването на профила Ви.
         success: Профилът Ви е обновен успешно.
+        success_with_email_confirmation: Профилът Ви беше актуализиран успешно. Ще получите имейл за потвърждение на Вашата нова електронна поща.
+    activity:
+      time_ago: "преди %{time}"
     admin:
       actions:
         cancel: Отказ
+      password_change:
+        alert: Трябва да промените паролата си, за да продължите по-нататък.
+        notification: Администраторите трябва да сменят паролата си на всеки %{days} дни.
     admin_log:
       area:
         create: "%{user_name} създаде район %{resource_name}"
         delete: "%{user_name} изтри район %{resource_name}"
         update: "%{user_name} обнови район %{resource_name}"
+      area_type:
+        create: "%{user_name} създаде тип област %{resource_name}"
+        delete: "%{user_name} изтри тип област %{resource_name}"
+        update: "%{user_name} актуализира типа област %{resource_name}"
+      attachment:
+        create: "%{user_name} създаде прикачения файл %{resource_name}"
+        delete: "%{user_name} изтри прикачения файл %{resource_name}"
+        update: "%{user_name} актуализира прикачения файл %{resource_name}"
+      attachment_collection:
+        create: "%{user_name} създаде колекцията от прикачени файлове %{resource_name}"
+        delete: "%{user_name} създаде колекцията от прикачени файлове %{resource_name}"
+        update: "%{user_name} актуализира колекцията от прикачени файлове %{resource_name}"
+      category:
+        create: "%{user_name} добави категорията %{resource_name} към пространството %{space_name}"
+        delete: "%{user_name} изтри категорията %{resource_name} от пространството %{space_name}"
+        update: "%{user_name} актуализира категорията %{resource_name} в пространството %{space_name}"
       component:
         create: "%{user_name} добави компонента %{resource_name} към пространството %{space_name}"
         delete: "%{user_name} премахна компонента %{resource_name} от пространството %{space_name}"
+        export_component: "%{user_name} експортира %{resource_name} %{component_name} в %{space_name} като %{format_name}"
         publish: "%{user_name} публикува компонента %{resource_name} в пространството %{space_name}"
         unpublish: "%{user_name} отпубликува компонента %{resource_name} от пространството %{space_name}"
+        update_permissions_with_space: "%{user_name} актуализира разрешенията на %{resource_name} в %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} актуализира раздела за помощ на %{resource_name}"
+      helpers:
+        answers: отговори
+        comments: коментари
+        projects: проекти
+        results: резултати
+      impersonation_log:
+        manage: "%{user_name} управлява %{resource_name}, защото %{reason}"
       moderation:
         hide: "%{user_name} скри ресурс от типа %{resource_type} в пространството %{space_name}"
         unreport: "%{user_name} отдокладва ресурс от типа %{resource_type} в пространството %{space_name}"
@@ -191,8 +240,10 @@ bg:
         update: "%{user_name} обнови OAuth приложението %{resource_name}"
       organization:
         update: "%{user_name} обнови настройките на организацията"
+        update_external_domain: "%{user_name} актуализира външните домейни на организацията"
       participatory_space_private_user:
         create: "%{user_name} покани %{resource_name} да бъде частен участник"
+        create_via_csv: "%{user_name} покани %{resource_name} чрез CSV да бъде частен участник"
         delete: "%{user_name} премахна участника %{resource_name} като частен"
       scope:
         create: "%{user_name} създаде сферата %{resource_name}"
@@ -201,17 +252,26 @@ bg:
         delete_with_parent: "%{user_name} изтри сферата %{resource_name} в родителската сфера %{parent_scope}"
         update: "%{user_name} обнови сферата %{resource_name}"
         update_with_parent: "%{user_name} обнови сферата %{resource_name} в родителската сфера %{parent_scope}"
+      scope_type:
+        create: "%{user_name} създаде тип обхват %{resource_name}"
+        delete: "%{user_name} изтри типа обхват %{resource_name}"
+        update: "%{user_name} актуализира типа обхват на %{resource_name}"
       static_page:
         create: "%{user_name} създаде статичната страница %{resource_name}"
         delete: "%{user_name} изтри статичната страница %{resource_name}"
         update: "%{user_name} обнови статичната страница %{resource_name}"
       user:
+        block: "%{user_name} блокира потребител %{resource_name}"
         invite: "%{user_name} покани участника %{resource_name} за роля: %{role}"
         officialize: "%{user_name} присвои официален статус на участника %{resource_name}"
+        promote: "%{user_name} повиши %{resource_name}"
         remove_from_admin: "%{user_name} премахна участника %{resource_name} за роля: %{role}"
         show_email: "%{user_name} получи ел. поща от участника %{resource_name}"
+        transfer: "%{user_name} прехвърли участника %{resource_name}"
+        unblock: "%{user_name} деблокира потребител %{resource_name}"
         unofficialize: "%{user_name} премахна официалния статус на участника %{resource_name}"
       user_group:
+        block: "%{user_name} блокира потребителска група %{resource_name}"
         reject: "%{user_name} отхвърли потвърждението на група участници %{resource_name}"
         verify: "%{user_name} провери групата %{resource_name}"
         verify_via_csv: "%{user_name} провери групата %{resource_name} чрез CSV файл"
