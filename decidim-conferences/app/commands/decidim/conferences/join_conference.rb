@@ -51,7 +51,7 @@ module Decidim
         meetings = Decidim::Meetings::Meeting.where(component: published_meeting_components).where(id: @registration_type.conference_meetings.pluck(:id))
 
         meetings.each do |meeting|
-          Decidim::Meetings::Registration.create!(meeting:, user: current_user)
+          Decidim::Meetings::Registration.create!(meeting:, user:)
         end
       end
 
