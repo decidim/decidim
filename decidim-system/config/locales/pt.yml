@@ -168,8 +168,6 @@ pt:
         smtp_settings:
           fieldsets:
             sender: Remetente
-          instructions:
-            from_label: 'O remetente do email será “nome-sua-organizacao <your-organization@example.org>”. Deixe em branco para usar ‘Endereço de e-mail’ como rótulo'
           placeholder:
             from_email: sua-organizacao@exemplo.org
             from_label: nome-da-sua-organização
