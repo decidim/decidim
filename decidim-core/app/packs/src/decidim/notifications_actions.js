@@ -1,5 +1,5 @@
 /**
- * This file handles the interactions of actions in nofitications (if any)
+ * This file handles the interactions of actions in notifications (if any)
  * @param {HTMLElement} node target node
  * @returns {void}
  */
@@ -16,7 +16,7 @@ export default function(node = document) {
         el.disabled = true;
       });
     });
-    action.addentListener("ajax:complete", () => {
+    action.addEventListener("ajax:complete", () => {
       fetch(action.dataset.notificationAfterAction, {
         method: "PATCH",
         headers: {

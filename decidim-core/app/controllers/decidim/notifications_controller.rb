@@ -21,11 +21,17 @@ module Decidim
         notification.save
       end
       flash.discard
+      klass = "success"
+      text = flash.notice
       if flash.alert.present?
-        render html: ActionController::Base.helpers.content_tag(:div, flash.alert, class: "callout alert"), layout: false
-      else
-        render html: ActionController::Base.helpers.content_tag(:div, flash.notice, class: "callout success"), layout: false
+        klass = "alert"
+        text = flash.alert
+      elsif text.blank?
+        klass = "alert"
+        text = I18n.t("error", scope: "decidim.notifications.update")
       end
+
+      render html: ActionController::Base.helpers.content_tag(:div, text, class: "callout #{klass}"), layout: false
     end
 
     def destroy
