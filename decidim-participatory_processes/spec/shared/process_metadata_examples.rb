@@ -9,7 +9,7 @@ shared_examples "process card with metadata" do |metadata_class:|
       let(:end_date) { 2.months.from_now }
 
       it "renders the time remaining" do
-        expect(subject).to have_css(".#{metadata_class} span", text: "2 months remaining")
+        expect(subject).to have_css(".#{metadata_class} div", text: "2 months remaining")
       end
     end
 
@@ -18,7 +18,7 @@ shared_examples "process card with metadata" do |metadata_class:|
       let(:end_date) { 2.months.from_now }
 
       it "renders the process has not started" do
-        expect(subject).to have_css(".#{metadata_class} span", text: "Not started yet")
+        expect(subject).to have_css(".#{metadata_class} div", text: "Not started yet")
       end
     end
 
@@ -27,7 +27,7 @@ shared_examples "process card with metadata" do |metadata_class:|
       let(:end_date) { 2.months.ago }
 
       it "renders the process has finished with date" do
-        expect(subject).to have_css(".#{metadata_class} span", text: "Finished: #{I18n.l(end_date.to_date, format: :decidim_short)}")
+        expect(subject).to have_css(".#{metadata_class} div", text: "Finished: #{I18n.l(end_date.to_date, format: :decidim_short)}")
       end
     end
   end
@@ -36,7 +36,7 @@ shared_examples "process card with metadata" do |metadata_class:|
     let(:model) { create(:participatory_process, :with_steps) }
 
     it "renders the active step name" do
-      expect(subject).to have_css(".#{metadata_class} span", text: translated(model.active_step.title))
+      expect(subject).to have_css(".#{metadata_class} div", text: translated(model.active_step.title))
     end
   end
 end

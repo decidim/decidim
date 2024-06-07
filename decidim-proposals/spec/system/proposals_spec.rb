@@ -438,7 +438,7 @@ describe "Proposals" do
 
         within("#proposals__proposal_#{proposal.id}") do
           within(".card__list-metadata") do
-            expect(page).to have_css("span", text: 2)
+            expect(page).to have_css("div", text: 2)
           end
         end
       end
