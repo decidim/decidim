@@ -22,7 +22,6 @@
     <div class="budget-summary__progressbar">
       <div class="budget-progress" role="progressbar" aria-label="<%= t("budget", scope: "decidim.budgets.projects.order_progress") %>" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %> %" aria-valuemin="0" aria-valuemax="100">
         <div class="budget-summary__progressbar--minimum" style="width: <%= current_order_budget_percent_minimum %>%">
-          <span class="progress-meter--minimum-mark"></span>
         </div>
         <div class="budget-summary__progressbar--meter" style="width: <%= current_order_budget_percent %>%"> </div>
       </div>
@@ -64,7 +63,6 @@
       <div class="budget-summary__progressbox layout-item__main">
         <div class="budget-progress relative" role="progressbar" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %>%" aria-valuemin="0" aria-valuemax="100">
           <div class="budget-summary__progressbar--minimum" style="width: <%= current_order_budget_percent_minimum %>%">
-            <span class="progress-meter--minimum-mark"></span>
           </div>
           <div class="budget-summary__progressbar--meter" style="width: <%= current_order_budget_percent %>%">
           </div>
@@ -90,18 +88,18 @@
     </div>
   </div>
 </div>
-  <div class="budget-summary__button-modal">
-    <button type="button" data-dialog-open="budget-modal-info" aria-haspopup="dialog" tabindex="0" class="button button__text button__xs ml-2.5">
-      <%= t("more_information", scope: "decidim.budgets.budget_information_modal") %>
-    </button>
-  </div>
-  <div class="budget-summary__button-dropdown">
-    <button id="dropdown-trigger-element" data-component="dropdown" data-target="dropdown-menu-element" class="budget-summary__button-dropdown_text">
-      <%= t("more_information", scope: "decidim.budgets.budget_information_modal") %>
-      <%= icon "arrow-down-s-line" %>
-      <%= icon "arrow-up-s-line" %>
-    </button>
-    <ul id="dropdown-menu-element">
-      <li>dropdown info</li>
-    </ul>
-  </div>
+<div class="budget-summary__button-modal">
+  <button type="button" data-dialog-open="budget-modal-info" aria-haspopup="dialog" tabindex="0" class="button button__text button__xs ml-2.5">
+    <%= t("more_information", scope: "decidim.budgets.budget_information_modal") %>
+  </button>
+</div>
+<div class="budget-summary__button-dropdown">
+  <button id="dropdown-trigger-button-dropdown" data-component="dropdown" data-target="dropdown-menu-button-dropdown" class="budget-summary__button-dropdown_text">
+    <%= t("more_information", scope: "decidim.budgets.budget_information_modal") %>
+    <%= icon "arrow-down-s-line" %>
+    <%= icon "arrow-up-s-line" %>
+  </button>
+  <p id="dropdown-menu-button-dropdown">
+      <%= cell('decidim/budgets/budget_information_modal', @budget).(:more_information) %>
+  </p>
+</div>

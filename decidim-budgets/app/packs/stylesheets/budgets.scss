@@ -40,17 +40,13 @@
       }
 
       &--minimum {
-        @apply absolute h-2;
-
-        .progress-meter--minimum-mark {
-          @apply h-2 ml-auto w-[2px] bg-black block;
-        }
+        @apply absolute h-2 bg-gray-3 rounded-s;
       }
 
       &--meter {
         background-color: var(--success);
 
-        @apply h-[20px] rounded;
+        @apply h-2 rounded-s absolute;
       }
     }
 
@@ -239,6 +235,10 @@
     svg {
       @apply w-5 h-5;
     }
+  }
+
+  p {
+    @apply text-gray-4 font-normal text-[13px];
   }
 }
 
