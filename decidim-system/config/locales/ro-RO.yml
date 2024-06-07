@@ -177,8 +177,6 @@ ro:
         smtp_settings:
           fieldsets:
             sender: Expeditor
-          instructions:
-            from_label: 'Expeditorul de e-mail va fi: "organizația-nume <your-organization@example.org>". Lăsați necompletat pentru a utiliza ''Adresa de e-mail'' ca etichetă'
           placeholder:
             from_email: organizație@exemplu.org
             from_label: numele tău de organizatorie
