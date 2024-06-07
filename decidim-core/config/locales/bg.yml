@@ -4,6 +4,10 @@ bg:
     attributes:
       account:
         delete_reason: Причина за изтриване на Вашия профил
+      common:
+        created_at: Създадено на
+      conversation:
+        body: Основно съдържание
       group:
         about: Относно
         avatar: Аватар
@@ -12,11 +16,14 @@ bg:
         name: Име
         nickname: Псевдоним
         phone: Телефон
+      message:
+        body: Основно съдържание
       report:
         details: Забележки
       user:
         about: Относно
         email: Вашата ел. поща
+        locale: Локално
         name: Вашето име
         nickname: Псевдоним
         password: Парола
@@ -30,11 +37,17 @@ bg:
       decidim/demoted_membership: Вече не сте администратор в групата
       decidim/gamification/badge_earned_event: Получихте значка
       decidim/gamification/level_up_event: Повишихте нивото си
+      decidim/invited_to_group_event: Поканен в групата
       decidim/join_request_accepted_event: Заявката за присъединяване е приета
       decidim/join_request_rejected_event: Заявката за присъединяване е отхвърлена
       decidim/profile_updated_event: Профилът е обновен
       decidim/promote_to_admin: Назначен за администратор на групата
+      decidim/promoted_to_admin_event: Назначен за администратор на групата
       decidim/removed_from_group: Премахнат от групата
+      decidim/resource_endorsed_event: Съдържанието е одобрено
+      decidim/resource_hidden_event: Съдържанието е скрито
+      decidim/user_group_created_event: Потребителска група е създадена
+      decidim/welcome_notification_event: Приветствено съобщение
   activerecord:
     attributes:
       decidim/user:
@@ -70,8 +83,40 @@ bg:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: около 1 час
+        other: около %{count} часа
+      about_x_months:
+        one: около 1 месец
+        other: около %{count} месеца
+      half_a_minute: половин минута
+      less_than_x_minutes:
+        one: по-малко от минута
+        other: по-малко от %{count} минути
+      less_than_x_seconds:
+        one: по-малко от секунда
+        other: по-малко от %{count} секунди
+      x_days:
+        one: 1 ден
+        other: "%{count} дни"
+      x_hours:
+        one: 1 час
+        other: "%{count} часа"
+      x_minutes:
+        one: 1 минута
+        other: "%{count} минути"
+      x_months:
+        one: 1 месец
+        other: "%{count} месеца"
+      x_seconds:
+        one: 1 секунда
+        other: "%{count} секунди"
   decidim:
     accessibility:
+      external_link: Външна връзка
+      front_page_link: Отидете на начална страница
       logo: "Официално лого на %{organization}"
       skip_button: Към съдържанието
     account:
