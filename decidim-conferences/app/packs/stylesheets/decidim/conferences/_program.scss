@@ -14,7 +14,7 @@
   }
 
   &-category {
-    @apply h-10 w-full bg-background border-b-2 border-gray-3 text-center text-md text-gray-2 font-normal truncate;
+    @apply h-10 w-full bg-background-4 border-b-2 border-secondary text-center text-secondary font-semibold text-md truncate leading-10;
 
     &-container {
       @apply flex gap-2 [&>*]:grow [&>*]:min-w-0;
@@ -22,10 +22,6 @@
 
     &-content {
       @apply [&>a]:block [&>a]:py-4;
-    }
-
-    &[aria-expanded="true"] {
-      @apply bg-background-4 border-secondary text-secondary font-semibold;
     }
   }
 
