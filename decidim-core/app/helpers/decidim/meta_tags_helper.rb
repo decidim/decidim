@@ -70,13 +70,12 @@ module Decidim
     #
     # @return [String] - A String of the base URL.
     def resolve_base_url
-      "https://25d8-185-153-38-42.ngrok-free.app"
-      # return request.base_url if respond_to?(:request) && request&.base_url.present?
-      #
-      # uri = URI.parse(decidim.root_url(host: current_organization.host))
-      # port = uri.port.present? && [80, 443].exclude?(uri.port) ? ":#{uri.port}" : ""
-      #
-      # "#{uri.scheme}://#{uri.host}#{port}"
+      return request.base_url if respond_to?(:request) && request&.base_url.present?
+
+      uri = URI.parse(decidim.root_url(host: current_organization.host))
+      port = uri.port.present? && [80, 443].exclude?(uri.port) ? ":#{uri.port}" : ""
+
+      "#{uri.scheme}://#{uri.host}#{port}"
     end
 
     #  Accumulates the given `title` so that they can be chained. Since Rails views
