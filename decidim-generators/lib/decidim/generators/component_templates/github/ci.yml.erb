@@ -68,7 +68,7 @@ jobs:
         working-directory: ./spec/decidim_dummy_app/
       - run: bundle exec rspec
         name: RSpec
-      - uses: codecov/codecov-action@v3
+      - uses: codecov/codecov-action@v4
       - uses: actions/upload-artifact@v3
         if: always()
         with:

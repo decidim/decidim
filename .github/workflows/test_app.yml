@@ -110,7 +110,7 @@ jobs:
           SIMPLECOV: "true"
           SHAKAPACKER_RUNTIME_COMPILE: "false"
           NODE_ENV: "test"
-      - uses: codecov/codecov-action@v3
+      - uses: codecov/codecov-action@v4
         name: Upload coverage
         with:
           token: ${{ inputs.codecov_token }}
