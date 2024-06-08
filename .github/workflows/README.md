@@ -23,7 +23,7 @@ Individual workflows with changes:
 - `ci_javascript.yml`: Runs tests for the JS files. Tests must run from the project root folder. You will need to install NodeJS and the JS dependencies:
 
 ```yml
-- uses: actions/setup-node@v3
+- uses: actions/setup-node@v4
   with:
     node-version: ${{ env.NODE_VERSION }}
 - run: npm ci
