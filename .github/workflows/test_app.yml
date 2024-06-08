@@ -79,7 +79,7 @@ jobs:
         with:
           ruby-version: ${{ inputs.ruby_version }}
       - uses: nanasess/setup-chromedriver@v2
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         id: app-cache
         with:
           path: ./spec/decidim_dummy_app/

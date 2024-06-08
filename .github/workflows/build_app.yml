@@ -46,7 +46,7 @@ jobs:
           node-version: ${{ inputs.node_version }}
           cache: 'npm'
           cache-dependency-path: ./package-lock.json
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         id: app-cache
         with:
           path: ./spec/decidim_dummy_app/

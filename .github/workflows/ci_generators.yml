@@ -85,14 +85,14 @@ jobs:
       - name: Get npm cache directory path
         id: npm-cache-dir-path
         run: echo "dir=$(npm get cache)-${{ env.DECIDIM_MODULE }}" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         id: npm-cache
         with:
           path: ${{ steps.npm-cache-dir-path.outputs.dir }}
           key: npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             npm-
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         id: app-cache
         with:
           path: ./Gemfile.lock
