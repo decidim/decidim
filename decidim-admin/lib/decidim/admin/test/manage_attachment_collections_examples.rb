@@ -2,6 +2,7 @@
 
 shared_examples "manage attachment collections examples" do
   let!(:attachment_collection) { create(:attachment_collection, collection_for:) }
+  let(:attributes) { attributes_for(:attachment_collection) }
 
   before do
     visit current_path
@@ -30,17 +31,13 @@ shared_examples "manage attachment collections examples" do
       fill_in_i18n(
         :attachment_collection_name,
         "#attachment_collection-name-tabs",
-        en: "Application forms",
-        es: "Formularios de solicitud",
-        ca: "Formularis de sol·licitud"
+        **attributes[:name].except("machine_translations")
       )
 
       fill_in_i18n(
         :attachment_collection_description,
         "#attachment_collection-description-tabs",
-        en: "Contains the application forms",
-        es: "Contiene los formularios de solicitud",
-        ca: "Conté els formularis de sol·licitud"
+        **attributes[:description].except("machine_translations")
       )
 
       find("*[type=submit]").click
@@ -49,8 +46,10 @@ shared_examples "manage attachment collections examples" do
     expect(page).to have_admin_callout("successfully")
 
     within "#attachment_collections table" do
-      expect(page).to have_text("Application forms")
+      expect(page).to have_content(translated(attributes[:name]))
     end
+    visit decidim_admin.root_path
+    expect(page).to have_content("created the #{translated(attributes[:name])} attachment collection")
   end
 
   it "can update an attachment collection" do
@@ -64,9 +63,7 @@ shared_examples "manage attachment collections examples" do
       fill_in_i18n(
         :attachment_collection_name,
         "#attachment_collection-name-tabs",
-        en: "Latest application forms",
-        es: "Últimos formularios de solicitud",
-        ca: "Últims formularis de sol·licitud"
+        **attributes[:name].except("machine_translations")
       )
 
       find("*[type=submit]").click
@@ -75,8 +72,10 @@ shared_examples "manage attachment collections examples" do
     expect(page).to have_admin_callout("successfully")
 
     within "#attachment_collections table" do
-      expect(page).to have_text("Latest application forms")
+      expect(page).to have_content(translated(attributes[:name]))
     end
+    visit decidim_admin.root_path
+    expect(page).to have_content("updated the #{translated(attributes[:name])} attachment collection")
   end
 
   context "when deleting a attachment collection" do
