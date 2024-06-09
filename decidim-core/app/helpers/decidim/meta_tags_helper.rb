@@ -16,7 +16,7 @@ module Decidim
       add_decidim_meta_description(tags[:description])
       add_decidim_meta_url(tags[:url])
       add_decidim_meta_twitter_handler(tags[:twitter_handler])
-      add_decidim_meta_image_url(determine_image_url(tags, resource))
+      add_decidim_meta_image_url(resolve_meta_image_url(tags[:image_url], resource))
     end
 
     # Adds base URL to the given path if it doesn't include a host.
@@ -28,42 +28,6 @@ module Decidim
       return path if path.blank? || URI.parse(path).host.present?
 
       "#{resolve_base_url}#{path}"
-    end
-
-    # Determines the image URL to be used for meta tags.
-    #
-    # @param [Hash] tags - A Hash containing the meta tag name as keys and its content as values.
-    # @param [Object] resource - The resource object that may contain the image.
-    #
-    # @return [String] - A String of the absolute URL of the image.
-    def determine_image_url(tags, resource)
-      return add_base_url_to(tags[:image_url]) if tags[:image_url].present?
-
-      return nil unless resource
-
-      if resource.respond_to?(:attachments)
-        attachment_image = resource.attachments.where(content_type: %w(image/jpeg image/png)).first
-        return add_base_url_to(attachment_image.url) if attachment_image
-      end
-
-      description_image_url = image_in_description(resource)
-      return add_base_url_to(description_image_url) if description_image_url.present?
-
-      space_image_url = participatory_space_image_url(resource)
-      add_base_url_to(space_image_url) if space_image_url.present?
-    end
-
-    # Extracts the first image URL from the resource description.
-    #
-    # @param [Object] resource - The resource object that contains the body.
-    #
-    # @return [String] - A String of the relative URL of the first image found in the body.
-    def extract_image_from_description(resource)
-      return nil unless resource.respond_to?(:body) && resource.body.present?
-
-      body_html = resource.body[I18n.locale.to_s]
-      doc = Nokogiri::HTML(body_html)
-      doc.css("img").map { |img| img["src"] }.first
     end
 
     # Resolves the base URL (example: https://www.decidim.org) without URL parameters.
@@ -161,12 +125,16 @@ module Decidim
       @decidim_meta_image_url ||= image_url
     end
 
-    def participatory_space_image_url(resource)
-      resource.participatory_space&.attached_uploader(:hero_image)&.path
-    end
-
-    def image_in_description(resource)
-      extract_image_from_description(resource)
+    # Resolves the image URL to be used for meta tags.
+    # This method creates a new instance of MetaImageUrlResolver,
+    # which handles the logic for determining the most appropriate image URL.
+    #
+    # @param [String, nil] image_url - The initial image URL provided in the tags.
+    # @param [Object, nil] resource - The resource object that may contain the image.
+    #
+    # @return [String, nil] - The resolved image URL, or nil if no appropriate image URL is found.
+    def resolve_meta_image_url(image_url, resource)
+      MetaImageUrlResolver.new(image_url, resource, self).resolve
     end
   end
 end
