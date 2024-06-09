@@ -141,6 +141,7 @@ tr:
             proposal_length: Maksimum teklif gövdesi uzunluğu
             proposal_limit: Katılımcı başına teklif sınırı
             proposal_wizard_step_1_help_text: Teklif sihirbazı "Oluştur" adımı yardım metni
+            proposal_wizard_step_2_help_text: Teklif "Yayınlama"  sihirbazı  yardım metni
             resources_permissions_enabled: Her teklif için işlem izinleri ayarlanabilir
             scope_id: Kapsam
             scopes_enabled: Kapsamlar etkinleştirildi
@@ -586,6 +587,8 @@ tr:
           discard_confirmation: Bu teklif taslağını silmek istediğinizden emin misiniz?
           send: Ön izleme
           title: Teklif Taslağını Düzenle
+        edit_form_fields:
+          marker_added: haritaya İşaretçi eklendi.
         filters:
           activity: Aktivitelerim
           all: Tümü
@@ -651,9 +654,11 @@ tr:
         wizard_aside:
           back: Geri
           back_from_step_1: Teklifte geri dön
+          back_from_step_2: Düzenlemeye Dönünüz
         wizard_steps:
           current_step: Geçerli adım
           step_1: Teklifinizi oluşturun
+          step_2: Teklifinizi Yayınlayın
           title: Teklif oluşturma adımları
       proposals_picker:
         choose_proposals: Teklifleri seçin
