@@ -71,6 +71,7 @@ tr:
     accessibility:
       external_link: Dış bağlantı
       logo: "%{organization} resmi logosu"
+      opens_in_new_tab: Yeni Seçmede Aç
       skip_button: Ana içeriğe geç
     account:
       delete:
@@ -214,6 +215,7 @@ tr:
           '1': Değişikliğinizi oluşturun
           '2': Değişikliğinizi karşılaştırın
           '3': Değişikliğinizi tamamlayın
+          '4': Değişikliğinizi yayınlayın
     anonymous_user: Anonim
     application:
       document:
@@ -843,6 +845,8 @@ tr:
         subject: '%{organization_name} ile ilgili bilgileri almaya devam etmek istiyor musunuz?'
     notifications:
       no_notifications: Henüz bildirim yok.
+      show:
+        moderated: İçerik Denetlendi
     notifications_settings:
       show:
         direct_messages: Herkesten doğrudan mesaj alın
@@ -1331,6 +1335,7 @@ tr:
       long_dashed: "%Y-%m-%d %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)\n%Gün-%Ay-%Yıl %Saat:%Dakika %p %Zone (GMT %:z)"
   versions:
     directions:
       left: Silme
