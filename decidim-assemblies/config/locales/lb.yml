@@ -264,11 +264,7 @@ lb:
       show:
         assembly_type: Montageart
         duration: Dauer
-        is_transparent:
-          'false': undurchsichtig
-          'true': transparent
         private_space: Dies ist eine private Versammlung
-        related_participatory_processes: Procesos participativos relacionados
     assembly_members:
       assembly_member:
         designated_on: Bezeichnet am

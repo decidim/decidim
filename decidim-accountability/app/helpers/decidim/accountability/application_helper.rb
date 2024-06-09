@@ -14,42 +14,8 @@ module Decidim
         number_to_percentage(number, precision: 1, strip_insignificant_zeros: true, locale: I18n.locale)
       end
 
-      def display_count(count)
-        heading_parent_level_results(count)
-      end
-
-      def active_class_if_current(scope)
-        "class=active" if scope.to_s == current_scope.to_s
-      end
-
       def component_name
         (defined?(current_component) && translated_attribute(current_component&.name).presence) || t("decidim.components.accountability.name")
-      end
-
-      def categories_label
-        translated_attribute(component_settings.categories_label).presence || t("results.home.categories_label", scope: "decidim.accountability")
-      end
-
-      def subcategories_label
-        translated_attribute(component_settings.subcategories_label).presence || t("results.home.subcategories_label", scope: "decidim.accountability")
-      end
-
-      def heading_parent_level_results(count)
-        text = translated_attribute(component_settings.heading_parent_level_results).presence
-        if text
-          pluralize(count, text)
-        else
-          t("results.count.results_count", scope: "decidim.accountability", count:)
-        end
-      end
-
-      def heading_leaf_level_results(count)
-        text = translated_attribute(component_settings.heading_leaf_level_results).presence
-        if text
-          pluralize(count, text)
-        else
-          t("results.count.results_count", scope: "decidim.accountability", count:)
-        end
       end
 
       def filter_items_for(participatory_space:, category:)

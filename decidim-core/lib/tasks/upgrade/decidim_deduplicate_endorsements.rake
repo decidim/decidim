@@ -2,7 +2,7 @@
 
 namespace :decidim do
   namespace :upgrade do
-    desc "Remove duplicated endorsements"
+    desc "Removes duplicated endorsements"
     task fix_duplicate_endorsements: :environment do
       logger = Logger.new($stdout)
       logger.info("Removing duplicate endorsements...")

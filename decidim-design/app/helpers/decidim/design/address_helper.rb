@@ -52,7 +52,7 @@ module Decidim
         Class.new(ApplicationRecord) do
           self.table_name = Decidim::Pages::Page.table_name
 
-          attr_accessor :organization, :location, :address, :latitude, :longitude, :online_meeting_url, :type_of_meeting
+          attr_accessor :organization, :location, :address, :latitude, :longitude, :online_meeting_url, :type_of_meeting, :start_time, :end_time
 
           geocoded_by :address
         end
@@ -64,7 +64,9 @@ module Decidim
           location: "Barcelona",
           address: "Carrer del Pare Llaurador, 113",
           latitude: 40.1234,
-          longitude: 2.1234
+          longitude: 2.1234,
+          start_time: 2.days.from_now,
+          end_time: 2.days.from_now + 4.hours
         )
       end
 
@@ -72,7 +74,9 @@ module Decidim
         addressable_class.new(
           organization: current_organization,
           type_of_meeting: "online",
-          online_meeting_url: "https://meet.jit.si/DecidimTry"
+          online_meeting_url: "https://meet.jit.si/DecidimTry",
+          start_time: 2.days.from_now,
+          end_time: 2.days.from_now + 4.hours
         )
       end
     end

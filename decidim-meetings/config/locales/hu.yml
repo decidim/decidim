@@ -337,7 +337,6 @@ hu:
           body: A találkozó <a href="%{meeting_path}">%{meeting_title}</a> lezárásra vár. A "találkozó lezárása" gomb segítségével adjon jelentést a megbeszélésről.
           greetings: Üdvözöljük <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Hello %{username},
-          subject: Lezárhatja a megbeszélést a %{organization_name} platformon beküldött jelentéssel
       conference_venues: Konferencia helyszínek
       content_blocks:
         upcoming_meetings:

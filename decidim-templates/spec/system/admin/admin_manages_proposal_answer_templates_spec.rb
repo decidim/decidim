@@ -226,7 +226,7 @@ describe "Admin manages proposal answer templates" do
         it "changes it with the organization name" do
           within ".edit_proposal_answer" do
             select template.name["en"], from: :proposal_answer_template_chooser
-            expect(page).to have_content("Some meaningful answer with the #{organization.name}")
+            expect(page).to have_content("Some meaningful answer with the #{translated(organization.name)}")
           end
         end
       end

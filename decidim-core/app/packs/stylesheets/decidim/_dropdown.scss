@@ -1,5 +1,5 @@
 [id*="dropdown-menu"] {
-  @apply flex flex-col py-3.5 md:py-0 mx-3.5 md:mx-0 border-t md:border-t-0 border-gray-3 cursor-pointer;
+  @apply flex flex-col py-0 mx-3.5 md:mx-0 border-t-0 border-gray-3 cursor-pointer;
 
   &[aria-hidden="true"] {
     @apply hidden md:flex;
@@ -30,6 +30,24 @@
   &[aria-expanded="true"] > svg:last-of-type,
   &[aria-expanded="false"] > svg:first-of-type {
     @apply block;
+  }
+}
+
+[data-target*="dropdown-menu-language-chooser"] {
+  & > span {
+    @apply block font-semibold text-black text-xs;
+  }
+
+  > svg {
+    @apply w-5 h-6 flex-none text-xs font-normal text-black fill-current;
+  }
+
+  & > ul {
+    @apply w-6 bg-gray;
+
+    > li {
+      @apply w-6 bg-gray;
+    }
   }
 }
 

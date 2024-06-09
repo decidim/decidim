@@ -7,7 +7,7 @@ namespace :decidim do
     # Get all metrics entities and execute its own rake task.
     # It admits a date-string parameter, in a 'YYYY-MM-DD' format from
     # today to all past dates
-    desc "Execute all metrics calculation methods"
+    desc "Calculates all metrics"
     task :all, [:day] => :environment do |_task, args|
       Decidim::Organization.find_each do |organization|
         Decidim.metrics_registry.all.each do |metric_manifest|
@@ -21,7 +21,7 @@ namespace :decidim do
     # Execute metric calculations for just one metric
     # It need a metric name and permits a date-string parameter, in a 'YYYY-MM-DD' format from
     # today to all past dates
-    desc "Execute one metric calculation method"
+    desc "Calculates one metric"
     task :one, [:metric, :day] => :environment do |_task, args|
       next if args.metric.blank?
 
@@ -31,7 +31,7 @@ namespace :decidim do
       end
     end
 
-    desc "Rebuild calculations from specific day"
+    desc "Rebuilds calculations from specific day"
     task :rebuild, [:metric, :day] => :environment do |_task, args|
       metric = args.metric
       day = args.day
@@ -47,10 +47,10 @@ namespace :decidim do
           Decidim::Organization.find_each do |organization|
             if metric
               m_manifest = Decidim.metrics_registry.for(metric)
-              log_info "[#{organization.name}]: rebuilding metric [#{metric}] for day [#{current_day}]"
+              log_info "[#{organization.name[organization.default_locale.to_s]}]: rebuilding metric [#{metric}] for day [#{current_day}]"
               call_metric_job(m_manifest, organization, current_day)
             else
-              log_info "[#{organization.name}]: rebuilding all metrics for day [#{current_day}]"
+              log_info "[#{organization.name[organization.default_locale.to_s]}]: rebuilding all metrics for day [#{current_day}]"
               Decidim.metrics_registry.all.each do |metric_manifest|
                 call_metric_job(metric_manifest, organization, current_day)
               end
@@ -63,7 +63,7 @@ namespace :decidim do
       end
     end
 
-    desc "Show available metrics"
+    desc "Shows the available metrics"
     task list: :environment do
       puts Decidim.metrics_registry.all.pluck :metric_name
     end

@@ -19,7 +19,7 @@ module Decidim
         fallback = super
         return fallback unless fallback.is_a?(Time)
 
-        ActiveSupport::TimeWithZone.new(fallback, Time.zone)
+        Time.zone.parse(fallback.strftime("%F %T"))
       end
     end
   end

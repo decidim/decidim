@@ -130,6 +130,7 @@ tr:
       actions:
         add: Eklemek
         browse: Araştır
+        manage: yönetme
         per_page: Sayfa başına
         permissions: İzinler
         reject: reddetmek
@@ -799,3 +800,8 @@ tr:
   errors:
     messages:
       invalid_json: Geçersiz JSON
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Küresel denetimler

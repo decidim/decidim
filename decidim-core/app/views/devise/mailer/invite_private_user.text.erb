@@ -1,9 +1,9 @@
 <%= t("devise.mailer.invitation_instructions.hello", email: @resource.name) %>
 
 <% if @resource.invited_by.present? %>
-<%= t("devise.mailer.invitation_instructions.invited_you_as_private_user", invited_by: @resource.invited_by.name, application: @resource.organization.name) %>
+<%= t("devise.mailer.invitation_instructions.invited_you_as_private_user", invited_by: @resource.invited_by.name, application: organization_name(@resource.organization)) %>
 <% else %>
-<%= t("devise.mailer.invitation_instructions.someone_invited_you_as_private_user", application: @resource.organization.name) %>
+<%= t("devise.mailer.invitation_instructions.someone_invited_you_as_private_user", application: organization_name(@resource.organization)) %>
 <% end %>
 
 <%= accept_invitation_url(@resource, invitation_token: @token, host: @resource.organization.host) %>

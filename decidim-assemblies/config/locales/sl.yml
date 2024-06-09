@@ -189,7 +189,6 @@ sl:
       show:
         assembly_type: Vrsta združbe
         duration: Trajanje
-        related_participatory_processes: Povezani participativni procesi
     help:
       participatory_spaces:
         assemblies:

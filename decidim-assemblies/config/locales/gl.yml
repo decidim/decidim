@@ -320,11 +320,7 @@ gl:
       show:
         assembly_type: Tipo de montaxe
         duration: Duración
-        is_transparent:
-          'false': opaco
-          'true': transparente
         private_space: Esta é unha asemblea privada
-        related_participatory_processes: Procesos participativos relacionados
     assembly_members:
       assembly_member:
         designated_on: Designado en

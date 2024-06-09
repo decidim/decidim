@@ -10,7 +10,7 @@
           <%= f.collection_radio_buttons :reason, [
             [:spam, t("decidim.shared.flag_modal.spam")],
             [:offensive, t("decidim.shared.flag_modal.offensive")],
-            [:does_not_belong, t("decidim.shared.flag_modal.does_not_belong", organization_name: current_organization.name)]
+            [:does_not_belong, t("decidim.shared.flag_modal.does_not_belong", organization_name: current_organization_name)]
           ], :first, :last do |builder|
             builder.label(for: nil, class: "form__wrapper-checkbox-label") { builder.radio_button(id: nil) + builder.text }
           end %>
@@ -34,11 +34,15 @@
               <%= f.check_box :hide,
                               label: t("decidim.shared.flag_modal.hide_content"),
                               include_hidden: false,
+                              id: hide_checkbox_id,
                               data: {
                                 label_action: t("decidim.shared.flag_modal.hide"),
                                 label_report: t("decidim.shared.flag_modal.report"),
                                 hide: "true"
-                              }, id: hide_checkbox_id %>
+                              },
+                              label_options: {
+                                for: hide_checkbox_id
+                              } %>
             <% end %>
           <% end %>
 

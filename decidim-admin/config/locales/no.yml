@@ -150,6 +150,7 @@
         export: Eksporter alt
         export-selection: Eksporter valg
         import: Importer
+        manage: Administrer
         newsletter:
           new: Nytt nyhetsbrev
         participatory_space_private_user:
@@ -300,6 +301,18 @@
           title: Overfør
         'true': 'Ja'
         user_name: Bruker
+      content_blocks:
+        create:
+          success: Innholds-blokk ble opprettet.
+        destroy:
+          success: Innholds-blokk ble slettet.
+        edit:
+          active_content_blocks: Aktive innholdsblokker
+          add: Legg til innholdsblokk
+          destroy_confirmation: Er du sikker på at du vil slette dette innholdet?
+          inactive_content_blocks: Inaktive innholdsblokker
+          title: Sideinnhold
+          update: Oppdater
       dashboard:
         show:
           view_more_logs: Vis flere logger
@@ -844,6 +857,7 @@
         dashboard: Skrivebord
         impersonatable_users: Håndterbare deltakere
         impersonations: Deltakernes administrasjon
+        menu: Meny
         metrics: Måltall
         panel: Administrator
         participants: Deltakere
@@ -939,3 +953,8 @@
   errors:
     messages:
       invalid_json: Ugyldig JSON
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Globale moderasjoner

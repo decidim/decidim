@@ -8,7 +8,8 @@ module Decidim
       include Decidim::Comments::Commentable
 
       included do
-        has_many :valuation_assignments, foreign_key: "decidim_proposal_id", dependent: :destroy
+        has_many :valuation_assignments, foreign_key: "decidim_proposal_id", dependent: :destroy,
+                                         counter_cache: :valuation_assignments_count, class_name: "Decidim::Proposals::ValuationAssignment"
 
         def valuators
           valuator_role_ids = valuation_assignments.where(proposal: self).pluck(:valuator_role_id)

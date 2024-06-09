@@ -32,6 +32,17 @@ cs:
         execution_period: Období provádění
       proposal_state:
         announcement_title: Hlavička odpovědi
+        bg_color: Barva pozadí
+        colors:
+          blue: Modrá
+          gray: Šedá
+          green: Zelená
+          orange: Oranžová
+          pink: Růžová
+          purple: Fialová
+          red: Červená
+          yellow: Žlutá
+        text_color: Barva textu
       proposals_copy:
         copy_proposals: Rozumím, že tento krok naimportuje všechny návrhy z vybraného prvku do toho současného a že tuto akci nelze vrátit zpět.
         origin_component_id: Komponenta pro kopírování návrhů z
@@ -183,9 +194,6 @@ cs:
             proposal_length: Maximální délka návrhu
             proposal_limit: Limit návrhu na uživatele
             proposal_wizard_step_1_help_text: Text průvodce kroku nápovědy "Vytvořit" Návrh
-            proposal_wizard_step_2_help_text: Text průvodce kroku nápovědy "Porovnat" návrhy
-            proposal_wizard_step_3_help_text: Text průvodce kroku nápovědy „Dokončit“ Návrh
-            proposal_wizard_step_4_help_text: Text průvodce kroku nápovědy "Publikovat" Návrh
             resources_permissions_enabled: Pro každý návrh lze nastavit oprávnění akce
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
@@ -296,6 +304,14 @@ cs:
         proposal_state_changed:
           affected_user:
             email_intro: 'Návrh "%{resource_title}" změnil svůj stav na "%{state}". Odpověď si můžete přečíst na této stránce:'
+            email_outro: Obdrželi jste toto oznámení, protože jste autorem "%{resource_title}".
+            email_subject: Váš návrh změnil svůj stav (%{state})
+            notification_title: Váš návrh <a href="%{resource_path}">%{resource_title}</a> změnil svůj stav na "%{state}".
+          follower:
+            email_intro: 'Návrh "%{resource_title}" změnil svůj stav na "%{state}". Odpověď si můžete přečíst na této stránce:'
+            email_outro: Toto oznámení jste obdrželi, protože sledujete "%{resource_title}". Můžete sledování odhlásit na předchozím odkazu.
+            email_subject: Návrh, který sledujete, změnil stav (%{state})
+            notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> změnil svůj stav na "%{state}".
         proposal_update_category:
           email_intro: 'Správce aktualizoval kategorii vašeho návrhu "%{resource_title}", podívejte se na něj:'
           email_outro: Toto oznámení jste obdrželi, protože jste autorem návrhu.
@@ -478,6 +494,8 @@ cs:
           edit:
             title: Upravit status
             update: Aktualizovat
+          form:
+            preview: Náhled
           index:
             title: Statusy
           new:
@@ -762,13 +780,6 @@ cs:
         create:
           error: Při hlasování o návrhu došlo k chybám.
       proposals:
-        compare:
-          continue: Pokračovat
-          no_similars_found: Výborně! Nebyly nalezeny žádné podobné návrhy
-          title: Podobné návrhy
-        complete:
-          send: Poslat
-          title: Dokončete svůj návrh
         dynamic_map_instructions:
           description: Souřadnice budou aktualizovány po kliknutí na tlačítko 'náhled'. Adresa se však nemění.
           instructions: Můžete přesunout bod na mapě.
@@ -785,6 +796,8 @@ cs:
           discard_confirmation: Opravdu chcete tuto návrh zakázat?
           send: Náhled
           title: Upravit koncept návrhu
+        edit_form_fields:
+          marker_added: Značka přidána na mapu.
         filters:
           activity: Moje aktivita
           all: Vše
@@ -896,15 +909,11 @@ cs:
         wizard_aside:
           back: Zadní
           back_from_step_1: Zpět k návrhům
-          back_from_step_2: Zpět k návrhům
-          back_from_step_3: Zpět k porovnání návrhů
-          back_from_step_4: Zpět k úpravě konceptu
+          back_from_step_2: Zpět k úpravě
         wizard_steps:
           current_step: Aktuální krok
           step_1: Vytvořte svůj návrh
-          step_2: Porovnejte
-          step_3: Dokončete
-          step_4: Publikujte svůj návrh
+          step_2: Publikovat váš návrh
           title: Kroky vytváření návrhů
       proposals_picker:
         choose_proposals: Vybrat návrhy

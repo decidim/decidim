@@ -1,4 +1,21 @@
 sl:
+  activemodel:
+    attributes:
+      oauth_application:
+        organization_logo: Logo organizacije (kvadratni)
+        organization_url: Domača stran organizacije
+        redirect_uri: Preusmeritev URI
+      organization:
+        address: SMTP Gostitelj
+        password: Geslo
+        port: Vrata
+        user_name: Uporabniško ime
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: URL preusmeritev mora bit SSL
   decidim:
     system:
       actions:

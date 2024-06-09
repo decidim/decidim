@@ -6,14 +6,14 @@ module Decidim
       # A command with all the business logic when copying a new participatory
       # process in the system.
       class CopyParticipatoryProcess < Decidim::Command
+        delegate :current_user, to: :form
         # Public: Initializes the command.
         #
         # form - A form object with the params.
         # participatory_process - A participatory_process we want to duplicate
-        def initialize(form, participatory_process, current_user)
+        def initialize(form, participatory_process)
           @form = form
           @participatory_process = participatory_process
-          @current_user = current_user
         end
 
         # Executes the command. Broadcasts these events:
@@ -25,7 +25,7 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          Decidim.traceability.perform_action!("duplicate", @participatory_process, @current_user) do
+          Decidim.traceability.perform_action!("duplicate", @participatory_process, current_user) do
             ParticipatoryProcess.transaction do
               copy_participatory_process
               copy_participatory_process_attachments

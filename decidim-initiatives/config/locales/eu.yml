@@ -79,7 +79,6 @@ eu:
   decidim:
     admin:
       actions:
-        manage: Kudeatu
         new_initiative_type: Beste ekimen mota bat
         new_initiative_type_scope: Beste ekimen mota bat esparruan
       filters:
@@ -106,7 +105,6 @@ eu:
       menu:
         attachments: Eranskinak
         committee_members: Batzorde-kideak
-        components: Osagaiak
         information: informazioa
         initiative_type_scopes: Ekimen motaren esparruak
         initiatives: Ekimenak
@@ -541,7 +539,6 @@ eu:
           other: " sinadurak"
         vote_cabin:
           already_voted: Dagoeneko sinatuta
-          supports_required: "%{total_supports} sinadura beharrezkoa da"
           verification_required: Egiaztatu kontua ekimena sinatzeko
           vote: Saioa
           votes_blocked: Sinadura desgaituta dago

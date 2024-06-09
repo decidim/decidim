@@ -6,12 +6,12 @@ describe "ExternalDomainWarning" do
   let(:allowlist) { ["decidim.org", "example.org"] }
   let(:organization) { create(:organization, external_domain_allowlist: allowlist) }
   let(:content) { { en: 'Hello world <a href="http://www.github.com" target="_blank">Very nice link</a><br><a href="http://www.example.org" target="_blank">Another link</a>' } }
-  let!(:static_page) { create(:static_page, organization:, show_in_footer: true, allow_public_access: true, content:) }
+  let!(:static_page) { create(:static_page, :with_topic, organization:, allow_public_access: true, content:) }
 
   before do
     switch_to_host(organization.host)
     visit decidim.root_path
-    click_on static_page.title["en"]
+    click_on static_page.topic.title["en"]
   end
 
   after do
@@ -36,6 +36,18 @@ describe "ExternalDomainWarning" do
       visit url
       expect(page).to have_no_content("Invalid URL")
       expect(page).to have_content("b%C3%A0r")
+    end
+  end
+
+  context "when url has a fragment" do
+    let(:destination) { "https://example.org/test/#/bar/edit/12345" }
+    # URI need to be escaped, as if not the fragment will be ignored
+    let(:url) { "http://#{organization.host}/link?external_url=#{URI::Parser.new.escape(destination)}" }
+
+    it "does not show invalid url alert" do
+      visit url
+      expect(page).to have_no_content("Invalid URL")
+      expect(page).to have_content("https://example.org/test/#/bar/edit/12345")
     end
   end
 

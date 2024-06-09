@@ -100,7 +100,6 @@ hu:
       menu:
         attachments: Csatolmányok
         committee_members: Bizottsági tagok
-        components: Elemek
         information: Információ
         initiatives: Kezdeményezések
         initiatives_settings: Beállítások
@@ -436,6 +435,7 @@ hu:
             other: és még %{count} ember
         committee_members:
           approve: Jóváhagy
+          revoke: Visszavonás
           title: Bizottsági tagok
         count:
           title:
@@ -499,7 +499,6 @@ hu:
           other: " aláírások"
         vote_cabin:
           already_voted: Már aláírtad
-          supports_required: "%{total_supports} aláírás szükséges"
           verification_required: Ellenőrizze fiókját, hogy aláírja a kezdeményezést
           vote: Aláírás
           votes_blocked: Aláírás letiltva

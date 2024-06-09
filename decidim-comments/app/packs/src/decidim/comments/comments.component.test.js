@@ -344,9 +344,9 @@ describe("CommentsComponent", () => {
               ${generateCommentForm("Dummy", 123)}
             </div>
             <div class="flash primary loading-comments hidden">
-              <span class="flash__message">
+              <div class="flash__message">
                 Loading comments ...
-              </span>
+              </div>
             </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe ReportedMailer do
-    let(:organization) { create(:organization, name: "Test Organization") }
+    let(:organization) { create(:organization) }
     let(:user) { create(:user, :admin, organization:) }
     let(:component) { create(:component, organization:) }
     let(:reportable) { create(:proposal, title: Decidim::Faker::Localized.sentence, body: Decidim::Faker::Localized.paragraph(sentence_count: 3)) }
@@ -12,6 +12,14 @@ module Decidim
     let(:author) { reportable.creator_identity }
     let!(:report) { create(:report, moderation:, details: "bacon eggs spam") }
     let(:decidim) { Decidim::Core::Engine.routes.url_helpers }
+
+    before do
+      if reportable.coauthorships.first.author.is_a?(Decidim::Organization)
+        reportable.coauthorships.first.author.update!(name: { en: "O'Higgins" })
+      else
+        reportable.coauthorships.first.author.update!(name: "O'Higgins")
+      end
+    end
 
     describe "#report" do
       let(:mail) { described_class.report(user, report) }
@@ -107,7 +115,7 @@ module Decidim
           let(:reportable) { create(:proposal, :official) }
 
           it "includes the name of the organization" do
-            expect(email_body(mail)).to match(author.name)
+            expect(email_body(mail)).to match(decidim_escape_translated(author.name))
           end
         end
 

@@ -525,7 +525,7 @@ ca:
           notification_title: La teva inscripció a jornada <a href="%{resource_url}">%{resource_title}</a> està pendent de confirmació.
         conference_registrations_over_percentage:
           email_intro: Les places ocupades per a la jornada "%{resource_title}" superen el %{percentage}%.
-          email_outro: Has rebut aquesta notificació perquè ets administradora de l'espai participatiu de la jornada.
+          email_outro: Has rebut aquesta notificació perquè administres l'espai participatiu de la jornada.
           email_subject: Les places ocupades per a la jornada "%{resource_title}" superen el %{percentage}%
           notification_title: Les places ocupades per a la jornada <a href="%{resource_path}">%{resource_title}</a> superen el %{percentage}%.
         conference_updated:

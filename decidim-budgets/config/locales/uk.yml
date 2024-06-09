@@ -79,6 +79,8 @@ uk:
           category: Категорія
           scope: Обсяг
           search: Шукати
+        project_budget_button:
+          added: Додано
         show:
           budget: Бюджет
     components:

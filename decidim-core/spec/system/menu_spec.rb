@@ -16,7 +16,7 @@ describe "Menu" do
     end
 
     it "switches the active option" do
-      expect(page).to have_css(".menu-bar__breadcrumb-desktop__dropdown-trigger", text: "Help")
+      expect(page).to have_css(".menu-bar__breadcrumb-desktop__dropdown-trigger", text: "Home")
     end
 
     context "and clicking on a subpage of that entry" do
@@ -29,7 +29,7 @@ describe "Menu" do
       end
 
       it "preserves the active option" do
-        expect(page).to have_css(".menu-bar__breadcrumb-desktop__dropdown-trigger", text: "Help")
+        expect(page).to have_css(".menu-bar__breadcrumb-desktop__dropdown-trigger", text: "Home")
       end
     end
   end

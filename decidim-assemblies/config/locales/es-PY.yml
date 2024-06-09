@@ -396,11 +396,7 @@ es-PY:
       show:
         assembly_type: Tipo de asambleas
         duration: Duración
-        is_transparent:
-          'false': opaco
-          'true': transparente
         private_space: Esta es una asamblea privada
-        related_participatory_processes: Procesos participativos relacionados
         social_networks_title: Visita la asamblea en
     assembly_members:
       assembly_member:

@@ -171,7 +171,7 @@ es:
         meeting_closed:
           affected_user:
             email_intro: 'Tu encuentro "%{resource_title}" se ha cerrado. Puedes leer las conclusiones desde su página:'
-            email_outro: Has recibido esta notificación porque has organizaco el encuentro "%{resource_title}".
+            email_outro: Has recibido esta notificación porque organizaste el encuentro "%{resource_title}".
             email_subject: Se ha cerrado el encuentro "%{resource_title}"
             notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido cerrada.
           follower:
@@ -182,14 +182,14 @@ es:
         meeting_created:
           button_text: Inscribirse en el encuentro
           email_intro: Se ha añadido el encuentro "%{resource_title}" al espacio "%{participatory_space_title}" que estás siguiendo.
-          email_outro: Has recibido esta notificación porque sigues "%{participatory_space_title}". Puedes dejar de seguirlo en el enlace anterior.
+          email_outro: Has recibido esta notificación porque sigues el espacio "%{participatory_space_title}". Puedes dejar de seguirlo en el enlace anterior.
           email_subject: Nuevo encuentro añadido en %{participatory_space_title}
           notification_title: Se ha añadido el encuentro <a href="%{resource_path}">%{resource_title}</a> en %{participatory_space_title}
         meeting_registration_confirmed:
           notification_title: Tu inscripción al encuentro <a href="%{resource_url}">%{resource_title}</a> ha sido confirmada. Tu código de registro es %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Las inscripciones para el encuentro "%{resource_title}" superan el %{percentage}%.
-          email_outro: Has recibido esta notificación porque eres administradora del espacio participativo del encuentro.
+          email_outro: Has recibido esta notificación porque administras el espacio participativo del encuentro.
           email_subject: Las inscripciones para el encuentro "%{resource_title}" superan el %{percentage}%
           notification_title: Las inscripciones para el encuentro <a href="%{resource_path}">%{resource_title}</a> superan el %{percentage}%.
         meeting_updated:
@@ -423,7 +423,7 @@ es:
           body: El encuentro <a href="%{meeting_path}">"%{meeting_title}"</a> está pendiente de cerrarse. Por favor, agrega un informe de la reunión usando el botón "Cerrar encuentro".
           greetings: Hola,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Hola %{username},
-          subject: Ahora puedes cerrar el encuentro con un informe en la plataforma %{organization_name}
+          subject: Ahora puede cerrar la reunión "%{meeting_title}" con un informe
       conference_venues: Sedes de las jornadas
       content_blocks:
         upcoming_meetings:

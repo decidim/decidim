@@ -54,7 +54,7 @@ module Decidim
 
       it "creates the geocoding field markup" do
         config = escaped_html(
-          { url: "/photon_api" }.to_json
+          { url: "#{Decidim::Dev::Test::MapServer.host}/photon_api" }.to_json
         )
         expect(form_markup).to include(%(
           <input autocomplete="off" data-decidim-geocoding="#{config}" type="text" name="test[address]" id="test_address" />

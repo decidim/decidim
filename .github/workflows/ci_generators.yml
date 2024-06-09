@@ -24,7 +24,7 @@ env:
   SHAKAPACKER_RUNTIME_COMPILE: "false"
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -32,17 +32,26 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        test-command:
-          - bundle exec parallel_test --type rspec --pattern spec/runtime/branch_flag_spec.rb
-          - bundle exec parallel_test --type rspec --pattern spec/runtime/component_generator_spec.rb
-          - bundle exec parallel_test --type rspec --pattern spec/runtime/edge_flag_spec.rb
-          - bundle exec parallel_test --type rspec --pattern spec/runtime/no_flags_spec.rb
-          - bundle exec parallel_test --type rspec --pattern spec/runtime/path_flag_spec.rb
-          - bundle exec parallel_test --type rspec --pattern spec/runtime/queue_flag_spec.rb
-          - bundle exec parallel_test --type rspec --pattern spec/runtime/storage_flag_spec.rb
-          - bundle exec parallel_test --type rspec --pattern spec/runtime/full_app_generator_spec.rb
-          - bundle exec parallel_test --type rspec --pattern spec/lib/
-    name: "[CI] Generators"
+        test:
+          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/branch_flag_spec.rb
+            name: BranchFlag
+          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/component_generator_spec.rb
+            name: ComponentGenerator
+          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/edge_flag_spec.rb
+            name: EdgeFlag
+          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/no_flags_spec.rb
+            name: NoFlags
+          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/path_flag_spec.rb
+            name: PathFlag
+          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/queue_flag_spec.rb
+            name: QueueFlag
+          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/storage_flag_spec.rb
+            name: StorageFlag
+          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/full_app_generator_spec.rb
+            name: FullAppGenerator
+          - command: bundle exec parallel_test --type rspec --pattern spec/lib/
+            name: Lib
+    name: ${{ matrix.test.name }}
     runs-on: ubuntu-latest
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
@@ -92,8 +101,8 @@ jobs:
       - run: bundle install --jobs 4 --retry 3
         name: Install Ruby deps
         working-directory: ${{ env.DECIDIM_MODULE }}
-      - run: ${{ matrix.test-command }}
-        name: RSpec
+      - run: ${{ matrix.test.command }}
+        name: ${{ matrix.test.name }}
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:
           SIMPLECOV: "true"

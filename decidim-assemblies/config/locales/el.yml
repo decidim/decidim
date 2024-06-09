@@ -339,11 +339,7 @@ el:
       show:
         assembly_type: Τύπος συνέλευσης
         duration: Διάρκεια
-        is_transparent:
-          'false': αδιαφανής
-          'true': διαφανής
         private_space: Αυτή είναι μια ιδιωτική συνέλευση
-        related_participatory_processes: Σχετικές διαδικασίες συμμετοχής
         social_networks_title: Επίσκεψη στη συνέλευση στις
     assembly_members:
       assembly_member:

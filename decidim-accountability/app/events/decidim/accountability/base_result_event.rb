@@ -20,6 +20,10 @@ module Decidim
       def proposal
         @proposal ||= resource.linked_resources(:proposals, "included_proposals").find_by(id: extra[:proposal_id])
       end
+
+      def hidden_resource?
+        super || (proposal.respond_to?(:hidden?) && proposal.hidden?)
+      end
     end
   end
 end

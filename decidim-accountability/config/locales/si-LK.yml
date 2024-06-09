@@ -54,7 +54,3 @@ si:
         timeline_entry:
           fields:
             entry_date: දිනය
-      results:
-        show:
-          stats:
-            meetings: රැස්වීම්

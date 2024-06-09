@@ -64,7 +64,6 @@ el:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Αναζήτηση συλλογής %{collection} με βάση τον τίτλο, την περιγραφή, το αναγνωριστικό ή το όνομα συντάκτη.
       menu:
-        components: Στοιχεία
         information: Πληροφορίες
         initiatives: Πρωτοβουλίες
         initiatives_types: Τύποι πρωτοβουλίας
@@ -331,7 +330,6 @@ el:
           other: "υπογραφές"
         vote_cabin:
           already_voted: Έχει ήδη υπογραφεί
-          supports_required: "Απαιτούνται %{total_supports} υπογραφές"
           verification_required: Επαληθεύστε τον λογαριασμό σας για να υπογράψετε την πρωτοβουλία
           vote: Υπογραφή
           votes_blocked: Η υπογραφή απενεργοποιήθηκε

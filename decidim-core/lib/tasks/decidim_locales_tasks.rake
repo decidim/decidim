@@ -21,7 +21,7 @@ namespace :decidim do
       end
     end
 
-    desc "Rebuild the search index"
+    desc "Rebuilds the search index"
     task rebuild_search: :environment do
       Decidim::SearchableResource.destroy_all
       total = Decidim::Searchable.searchable_resources.count

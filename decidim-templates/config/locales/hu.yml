@@ -11,6 +11,8 @@ hu:
       menu:
         templates: Sablonok
       templates:
+        actions:
+          new_template: Új sablon
         apply:
           error: Probléma merült fel a sablon alkalmazása során.
         copy:
@@ -36,9 +38,13 @@ hu:
         block_user_templates:
           form:
             save: Mentés
+          new:
+            title: Új felhasználó blokkolás üzenet sablon
         proposal_answer_templates:
           form:
             save: Mentés
+          index:
+            title: Javaslat válaszok
         questionnaire_templates:
           choose:
             create_from_template: Létrehozás sablonból
@@ -65,4 +71,5 @@ hu:
           duplicate: "%{user_name} duplikálta a(z) %{resource_name} kérdőív sablont"
           update: "%{user_name} frissítette a(z) %{resource_name} kérdőív sablont"
       template_types:
+        proposal_answer_templates: Javaslat válaszok
         questionnaires: Kérdőívek

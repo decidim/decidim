@@ -251,10 +251,6 @@ zh-TW:
         promote_button: 晉升為 %{model_name}
         promote_confirm_text: 您確定要晉升此修正嗎？
         promote_help_text: 您可以提升此修正，並將其發布為獨立的 %{model_name}.
-      compare_draft:
-        continue: 繼續
-        no_similars_found: 找不到相似的修正案。
-        title: 相似的修正案
       created:
         error: 創建修正案草稿時發生錯誤。
         success: 修正案草稿已成功創建。
@@ -309,9 +305,6 @@ zh-TW:
       wizard_step_form:
         steps:
           '1': 創建您的修正案
-          '2': 比較您的修正案
-          '3': 完成您的修正案
-          '4': 發佈您的修正案
     anonymous_user: 匿名
     application:
       document:
@@ -930,7 +923,6 @@ zh-TW:
           content: "<p>在 %{organization} 中，您可以透過頂部畫面中的不同空間參與並決定各種議題，包括流程、集會、倡議和諮詢。</p> <p>在每個空間中，您將找到不同的參與選項：個人或與他人一起提出提案、參與辯論、優先考慮要實施的項目、參加面對面會議以及其他行動。</p>\n"
           title: 我可以在 %{organization} 做什麼？”
         description: 閱讀更多有關 %{organization} 的資訊.
-        title: 一般幫助
     last_activities:
       all: 所有活動類型
       index:
@@ -1174,11 +1166,13 @@ zh-TW:
           register: 註冊
         hero:
           participate: 參與
+          participate_title: 參與平台的流程
           welcome: 歡迎來到 %{organization}！
         statistics:
           headline: '%{organization} 的目前狀態'
         sub_hero:
           register: 註冊
+          register_title: 註冊以創建帳戶
       index:
         standalone_pages: 頁
         subheading: 瀏覽 %{name} 的幫助頁面

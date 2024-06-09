@@ -138,6 +138,7 @@ eu:
       external_link: Kanpoko lotura
       front_page_link: Zoaz orri nagusira
       logo: "%{organization} aren logo ofiziala"
+      opens_in_new_tab: Ireki beste fitxa batean
       skip_button: Joan eduki nagusira
     account:
       blocked: Kontu hau blokeatu egin da erabilera-terminoak eta -baldintzak urratu direlako
@@ -285,10 +286,6 @@ eu:
         promote_button: '%{model_name}suspertzea'
         promote_confirm_text: Ziur al zaude zuzenketa hau sustatu nahi duzula?
         promote_help_text: Zuzenketa hau sustatu eta %{model_name} independiente gisa argitara dezakezu.
-      compare_draft:
-        continue: Jarraitu
-        no_similars_found: Ez da aurkitu antzeko zuzenketarik.
-        title: Antzeko zuzenketak
       created:
         error: Errorea egon da zuzenketa-zirriborroa sortzean.
         success: Zuzenketa-zirriborroa zuzen sortu da.
@@ -347,9 +344,7 @@ eu:
       wizard_step_form:
         steps:
           '1': Sortu zure zuzenketa
-          '2': Alderatu zure zuzenketa
-          '3': Osatu zure zuzenketa
-          '4': Argitaratu zure zuzenketa
+          '2': Argitaratu zure zuzenketa
     anonymous_user: Anonimoa
     application:
       document:
@@ -1029,7 +1024,7 @@ eu:
           content: "<p> %{organization} gai desberdinetan parte hartu eta erabaki dezakezu, menu nagusian ikusten dituzun espazioen bidez: Prozesuak, Biltzarrak, Ekimenak, Kontsultak.</p> <p>Parte bakoitzean parte hartzeko aukera desberdinak aurkituko dituzu: proposamenak egitea, banaka edo beste pertsona batzuekin, eztabaidetan parte hartzea, proiektuak gauzatzeko aurreikusitako aurrekontuak, aurrez aurreko topaketak eta bestelako ekintzak biltzea.</p>\n"
           title: Zer egin dezaket %{organization}?
         description: 'Irakurri gehiago honetaz: %{organization}.'
-        title: Laguntza orokorra
+        title: Orokorra
     last_activities:
       all: Jarduera mota guztiak
       index:
@@ -1228,6 +1223,7 @@ eu:
       no_notifications: Oraindik ez dago jakinarazpenik.
       show:
         missing_event: Aiba, jakinarazpen hau dagoeneko eskuragarri ez dagoen item batena da. Baztertu dezakezu.
+        moderated: Eduki moderatua
     notifications_digest_mailer:
       header:
         daily: Jakinarazpenen eguneroko laburpena
@@ -1446,6 +1442,8 @@ eu:
         close_modal: Itxi leihoa
         ok: Ados
         title: Baieztatu
+      embed:
+        title: Bideo-eduki txertatuak
       extended_navigation_bar:
         more: Gehiago
         unfold: Zabaldu
@@ -1916,7 +1914,7 @@ eu:
         made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.
         resources: Baliabideak
         sign_up: Eman izena
-        terms_and_conditions: Terminoak eta baldintzak
+        terms_of_service: Zerbitzuaren baldintzak
       header:
         log_in: Sartu
         main_menu: Menu nagusia
@@ -2039,6 +2037,7 @@ eu:
       long_with_particles: "%B%d, %Y% H:%M etan"
       short: "%d/%m/%Y, %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Ezabapenak

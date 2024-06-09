@@ -220,7 +220,7 @@ describe "Participatory Processes" do
       it "has the participatory process title in the show page" do
         visit decidim_participatory_processes.participatory_process_path(participatory_process)
 
-        expect(page).to have_title("#{translated(participatory_process.title)} - #{organization.name}")
+        expect(page).to have_title("#{translated(participatory_process.title)} - #{translated(organization.name)}")
       end
     end
 

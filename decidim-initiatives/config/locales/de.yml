@@ -79,7 +79,6 @@ de:
   decidim:
     admin:
       actions:
-        manage: Verwalten
         new_initiative_type: Neuer Initiativentyp
         new_initiative_type_scope: Neuer Initiativentyp
       filters:
@@ -106,7 +105,6 @@ de:
       menu:
         attachments: Anhänge
         committee_members: Ausschussmitglieder
-        components: Komponenten
         information: Information
         initiative_type_scopes: Initiativentyp
         initiatives: Initiativen
@@ -541,7 +539,6 @@ de:
           other: " Signaturen"
         vote_cabin:
           already_voted: Schon unterschrieben
-          supports_required: "%{total_supports} Signaturen erforderlich"
           verification_required: Bestätigen Sie Ihr Konto, um die Initiative zu unterzeichnen
           vote: Signieren
           votes_blocked: Die Anmeldung ist deaktiviert

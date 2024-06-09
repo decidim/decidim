@@ -113,6 +113,12 @@ module Decidim
       available_slots > conference_registrations.count
     end
 
+    def has_published_registration_types?
+      return false if registration_types.empty?
+
+      registration_types.any?(&:published_at?)
+    end
+
     def remaining_slots
       available_slots - conference_registrations.count
     end

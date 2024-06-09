@@ -9,7 +9,8 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
 
-      belongs_to :proposal, foreign_key: "decidim_proposal_id", class_name: "Decidim::Proposals::Proposal"
+      belongs_to :proposal, foreign_key: "decidim_proposal_id", class_name: "Decidim::Proposals::Proposal",
+                            counter_cache: true
       belongs_to :valuator_role, polymorphic: true
 
       def self.log_presenter_class_for(_log)

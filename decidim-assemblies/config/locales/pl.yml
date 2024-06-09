@@ -316,6 +316,7 @@ pl:
           form:
             existing_user: Istniejący użytkownik
             explanation: 'Wskazówka dotycząca obrazu:'
+            image_guide: Najlepiej obraz pionowy (portretowy), który nie ma żadnego tekstu.
             non_user: Brak użytkownika
             non_user_avatar_help: Powinieneś uzyskać zgodę osób przed opublikowaniem ich jako członka.
             select_a_position: Wybierz pozycję
@@ -401,11 +402,7 @@ pl:
       show:
         assembly_type: Typ zespołu
         duration: Czas trwania
-        is_transparent:
-          'false': nietransparentny
-          'true': transparentny
         private_space: To jest prywatny zespół
-        related_participatory_processes: Powiązane procesy partycypacyjne
         social_networks_title: Odwiedź zespół na
     assembly_members:
       assembly_member:

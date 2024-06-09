@@ -30,7 +30,7 @@ describe "Admin invite" do
 
   before do
     expect do
-      perform_enqueued_jobs { Decidim::System::RegisterOrganization.new(form).call }
+      perform_enqueued_jobs { Decidim::System::CreateOrganization.new(form).call }
     end.to broadcast(:ok)
 
     switch_to_host("decide.lvh.me")

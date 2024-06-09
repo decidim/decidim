@@ -80,7 +80,6 @@ en:
   decidim:
     admin:
       actions:
-        manage: Manage
         new_initiative_type: New initiative type
         new_initiative_type_scope: New initiative type scope
       filters:
@@ -107,7 +106,6 @@ en:
       menu:
         attachments: Attachments
         committee_members: Committee members
-        components: Components
         information: Information
         initiative_type_scopes: Initiative type scopes
         initiatives: Initiatives
@@ -542,7 +540,6 @@ en:
           other: " signatures"
         vote_cabin:
           already_voted: Already signed
-          supports_required: "%{total_supports} signatures required"
           verification_required: Verify your account to sign the initiative
           vote: Sign
           votes_blocked: Signing disabled

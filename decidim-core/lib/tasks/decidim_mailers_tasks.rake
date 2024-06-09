@@ -2,12 +2,12 @@
 
 namespace :decidim do
   namespace :mailers do
-    desc "Task to send the notification digest email with the daily report"
+    desc "Sends the notification digest email with the daily report"
     task notifications_digest_daily: :environment do
       notifications_digest(:daily)
     end
 
-    desc "Task to send the notification digest email with the weekly report"
+    desc "Sends the notification digest email with the weekly report"
     task notifications_digest_weekly: :environment do
       notifications_digest(:weekly)
     end

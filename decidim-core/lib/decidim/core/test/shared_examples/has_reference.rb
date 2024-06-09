@@ -8,7 +8,7 @@ shared_examples_for "has reference" do
 
     context "when there is not a custom resource reference generator present" do
       it "generates a valid reference" do
-        expect(subject.reference).to match(/[A-z]+/)
+        expect(subject.reference).to match(/[a-zA-Z]+/)
       end
     end
 

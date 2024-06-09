@@ -397,11 +397,7 @@ en:
       show:
         assembly_type: Assembly type
         duration: Duration
-        is_transparent:
-          'false': opaque
-          'true': transparent
         private_space: This is a private assembly
-        related_participatory_processes: Related participatory processes
         social_networks_title: Visit assembly on
     assembly_members:
       assembly_member:

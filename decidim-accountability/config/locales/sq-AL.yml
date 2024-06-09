@@ -39,6 +39,8 @@ sq:
         confirm_destroy: Je i sigurt që dëshiron ta fshish këtë %{name}?
         destroy: Fshij
         edit: Përpuno
+        import: Importo projekte nga një komponente tjetër
+        import_csv: Importo rezultate nga CSV
         new_result: Rezultat i ri
         new_status: Status i ri
         new_timeline_entry: Afat kohor i ri
@@ -74,6 +76,7 @@ sq:
                 </ul>
               </li>
               </ol>
+            title: Importo rezultate nga CSV
         imports:
           create:
             invalid: Ndodhi një gabim gjatë importimit të rezultateve.
@@ -98,6 +101,7 @@ sq:
             success:
               one: 1 projekt në rradhë për t'u importuar. Do të njoftohesh me email, kur të përfundojë.
               other: "%{count} projekte në rradhë për t'u importuar. Do të njoftohesh me email, kur të përfundojnë."
+            title: Importo projekte nga një komponente tjetër
         results:
           create:
             invalid: Ndodhi një gabim gjatë krijimit të këtij rezultati.
@@ -218,6 +222,8 @@ sq:
           all: Të gjitha
         home:
           categories_label: Kategoritë
+          empty: Nuk ka rezultate.
+          empty_filters: Nuk ka rezultate me kriteret e kërkuara.
           subcategories_label: Nënkategoritë
         home_header:
           global_status: Statusi i përgjithshëm i ekzekutimit
@@ -228,15 +234,7 @@ sq:
           search: Kërko për veprime
         show:
           stats:
-            attendees: Të pranishëm
             back_to_resource: Kthehu mbrapsht tek rezultati
-            comments: Komente
-            contributions: Kontributet
-            last_edited_by: Së fundi edituar nga
-            last_updated_at: Përditësimi i fundit në
-            meetings: Mbledhjet
-            proposals: Propozimet
-            votes: Mbështetjet
         timeline:
           title: Evoluimi i projektit
     admin:
@@ -255,16 +253,12 @@ sq:
         name: Përgjegjësia
         settings:
           global:
-            categories_label: Emri për "Kategoritë"
             comments_enabled: Komentet e aktivizuara
             comments_max_length: Madhësia maks. e komenteve
             display_progress_enabled: Shfaq ecurinë
-            heading_leaf_level_results: Ermi për "Projekte"
-            heading_parent_level_results: Emri për "Rezultate"
             intro: Hyrje
             scope_id: Fushëveprimi
             scopes_enabled: Fushveprimet e aktivizuara
-            subcategories_label: Emri për "Nënategoritë"
           step:
             comments_blocked: Komentet të bllokuara
     events:

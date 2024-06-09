@@ -3,8 +3,6 @@
 module Decidim
   module ContentBlocks
     class ParticipatorySpaceLastActivityCell < BaseCell
-      DEFAULT_MAX_LAST_ACTIVITY_USERS = 6
-
       def render_recent_avatars
         return if last_activities_users.blank?
 
@@ -36,7 +34,7 @@ module Decidim
       end
 
       def max_last_activity_users
-        model.settings.try(:max_last_activity_users) || DEFAULT_MAX_LAST_ACTIVITY_USERS
+        model.settings.try(:max_last_activity_users) || Decidim.default_max_last_activity_users
       end
 
       def hide_participatory_space = true

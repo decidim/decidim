@@ -144,6 +144,7 @@ de:
       external_link: Externer Link
       front_page_link: Zur Startseite gehen
       logo: "Offizielles Logo von %{organization}"
+      opens_in_new_tab: In neuem Tab öffnen
       skip_button: Zu Hauptinhalten überspringen
     account:
       blocked: Dieses Konto wurde wegen Verletzung der Nutzungsbedingungen gesperrt
@@ -295,10 +296,6 @@ de:
         title:
           one: "%{count} Anpassung"
           other: "%{count} Anpassungen"
-      compare_draft:
-        continue: Fortfahren
-        no_similars_found: Keine ähnlichen Entwürfe gefunden.
-        title: Ähnliche Entwürfe
       created:
         error: Beim Erstellen des Änderungsvorschlags ist ein Fehler aufgetreten.
         success: Der Änderungsvorschlag wurde erfolgreich erstellt.
@@ -357,9 +354,7 @@ de:
       wizard_step_form:
         steps:
           '1': Erstellen Sie Ihre Änderung
-          '2': Vergleichen Sie Ihren Änderungsvorschlag
-          '3': Vervollständigen Sie Ihren Änderungsvorschlag
-          '4': Veröffentlichen Sie Ihren Änderungsvorschlag
+          '2': Änderung veröffentlichen
     anonymous_user: Anonym
     application:
       document:
@@ -1044,7 +1039,7 @@ de:
           content: "<p>In %{organization} können Sie durch die Felder, die Sie im oberen Menü sehen, an verschiedenen Themen teilnehmen: Prozesse, Gremien, Initiativen, Beratungen.</p> <p>In jedem Bereich finden Sie verschiedene Optionen für die Teilnahme: Vorschläge machen - einzeln oder mit anderen -, an Debatten teilnehmen, Prioritäten für umzusetzende Projekte setzen, persönliche Treffen und andere Aktionen besuchen.</p>\n"
           title: Was kann ich in %{organization} tun?
         description: Mehr lesen über %{organization}.
-        title: Allgemeine Hilfe
+        title: Allgemein
     last_activities:
       all: Alle Aktivitätstypen
       index:
@@ -1243,6 +1238,7 @@ de:
       no_notifications: Noch keine Benachrichtigungen
       show:
         missing_event: Hoppla, diese Benachrichtigung gehört zu einem Artikel, der nicht mehr verfügbar ist. Du kannst sie verwerfen.
+        moderated: Inhalt moderiert
     notifications_digest_mailer:
       header:
         daily: Tägliche Zusammenfassung
@@ -1461,6 +1457,8 @@ de:
         close_modal: Fenster schließen
         ok: Ok
         title: Bestätigen
+      embed:
+        title: Eingebetteter Videoinhalt
       extended_navigation_bar:
         more: Mehr
         unfold: Entfalten
@@ -1643,25 +1641,25 @@ de:
       confirmation_instructions:
         action: Konto bestätigen
         greeting: Willkommen %{recipient}!
-        instruction: 'Sie können Ihre Konto-E-Mail über den folgenden Link bestätigen:'
-        subject: Bestätigungsanweisungen
+        instruction: 'Bitte bestätigen Sie Ihre E-Mail-Adresse über den folgenden Link:'
+        subject: E-Mail bestätigen
       email_changed:
         greeting: Hallo %{recipient}!
-        message: Wir kontaktieren Sie, um Sie darüber zu informieren, dass Ihre E-Mail-Adresse zu %{email} geändert wird.
+        message: Ihre E-Mail-Adresse wurde zu %{email} geändert.
         subject: E-Mail geändert
       invitation_instructions:
-        accept: Die Einladung annehmen
-        accept_until: Diese Einladung wird in %{due_date}fällig.
+        accept: Einladung annehmen
+        accept_until: Diese Einladung ist bis %{due_date} gültig.
         decline: Einladung ablehnen
         hello: Hallo %{email},
         ignore: |-
           Wenn Sie die Einladung nicht annehmen möchten, ignorieren Sie diese E-Mail.<br />
-          Ihr Konto wird erst erstellt, wenn Sie auf den obigen Link zugreifen und Ihren Kontonamen und Ihr Passwort festlegen.
+          Ihr Konto wird erst erstellt, wenn Sie auf den angegebenen Link zugreifen und Ihren Kontonamen und Ihr Passwort festlegen.
         invited_you_as_admin: "%{invited_by} hat Sie als Admin von %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren."
-        invited_you_as_private_user: "%{invited_by} hat Sie als privaten Nutzenden zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren."
+        invited_you_as_private_user: "%{invited_by} hat Sie als privaten Teilnehmenden zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren."
         someone_invited_you: Jemand hat Sie zu %{application} eingeladen. Sie können die EInladung über den folgenden Link akzeptieren.
         someone_invited_you_as_admin: Jemand hat Sie als Admin zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren.
-        someone_invited_you_as_private_user: Jemand hat Sie als privater Teilnehmende zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren.
+        someone_invited_you_as_private_user: Jemand hat Sie als privaten Teilnehmenden zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren.
         subject: Anweisungen zur Einladung
       invite_admin:
         subject: Sie wurden eingeladen %{organization} zu verwalten
@@ -1673,21 +1671,21 @@ de:
         subject: Sie wurden eingeladen %{organization} zu verwalten
       password_change:
         greeting: Hallo %{recipient}!
-        message: Wir kontaktieren Sie, um Ihnen mitzuteilen, dass Ihr Passwort geändert wurde.
+        message: Ihr Passwort wurde erfolgreich geändert.
         subject: Passwort geändert
       reset_password_instructions:
-        action: Ändere mein Passwort
+        action: Mein Passwort ändern
         greeting: Hallo %{recipient}!
-        instruction: Jemand hat einen Link angefordert, um Ihr Passwort zu ändern, und Sie können dies über den folgenden Link tun.
-        instruction_2: Wenn Sie dies nicht angefordert haben, ignorieren Sie diese E-Mail.
-        instruction_3: Ihr Passwort ändert sich erst, wenn Sie auf den obigen Link zugreifen und ein Neues erstellen.
-        subject: Passwort-Anweisungen zurücksetzen
+        instruction: 'Jemand hat einen Link angefordert, um Ihr Passwort zu ändern. Falls Sie das selbst waren, folgen Sie diesem Link:'
+        instruction_2: Wenn Sie dies nicht angefordert haben, können Sie diese E-Mail ignorieren.
+        instruction_3: Ihr Passwort ändert sich erst, wenn Sie auf den angezeigten Link zugreifen und ein neues Passwort erstellen.
+        subject: Passwort zurücksetzen
       unlock_instructions:
-        action: Entsperren Sie mein Konto
+        action: Mein Konto entsperren
         greeting: Hallo %{recipient}!
         instruction: 'Klicken Sie auf den folgenden Link, um Ihr Konto zu entsperren:'
         message: Ihr Konto wurde aufgrund einer übermäßigen Anzahl fehlgeschlagener Anmeldeversuche gesperrt.
-        subject: Entsperren Anweisungen
+        subject: Anweisungen zur Entsperrung
     omniauth_callbacks:
       failure: 'Sie konnten nicht mit Ihrem %{kind}-Account angemeldet werden. Grund: "%{reason}".'
       success: Sie haben sich erfolgreich mit Ihrem %{kind}-Account angemeldet.
@@ -1702,7 +1700,7 @@ de:
         title: Passwort ändern
       new:
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
-        send_me_reset_password_instructions: Senden Sie mir das Passwort zurück
+        send_me_reset_password_instructions: Schicken Sie mir eine Anweisung zum Zurücksetzen des Passwortes
       no_token: Sie können nicht auf diese Seite zugreifen, ohne von einer E-Mail zum Zurücksetzen des Kennworts zu stammen. Wenn Sie eine E-Mail zum Zurücksetzen des Passworts erhalten, vergewissern Sie sich bitte, dass Sie die vollständige URL verwendet haben.
       send_instructions: Sie erhalten eine E-Mail mit Anweisungen zum Zurücksetzen Ihres Passworts in wenigen Minuten.
       send_paranoid_instructions: Wenn Ihre E-Mail-Adresse in unserer Datenbank vorhanden ist, erhalten Sie innerhalb weniger Minuten einen Link zur Passwortwiederherstellung unter Ihrer E-Mail-Adresse.
@@ -1932,7 +1930,7 @@ de:
         made_with_open_source: Website mit <a target="_blank" href="https://github.com/decidim/decidim">freier Software erstellt</a>.
         resources: Ressourcen
         sign_up: Registrieren
-        terms_and_conditions: Nutzungsbedingungen
+        terms_of_service: Nutzungsbedingungen
       header:
         log_in: Anmelden
         main_menu: Hauptmenü
@@ -2055,6 +2053,7 @@ de:
       long_with_particles: "%d. %B %Y %H:%M"
       short: "%d.%m.%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Löschungen

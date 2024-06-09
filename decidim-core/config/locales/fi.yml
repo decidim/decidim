@@ -144,6 +144,7 @@ fi:
       external_link: Ulkoinen linkki
       front_page_link: Siirry etusivulle
       logo: "Organisaation %{organization} virallinen logo"
+      opens_in_new_tab: Avautuu uuteen välilehteen
       skip_button: Siirry sisältöön
     account:
       blocked: Tämä käyttäjätili on estetty, koska käyttäjä ei noudattanut käyttöehtoja
@@ -295,10 +296,6 @@ fi:
         title:
           one: "%{count} muutos"
           other: "%{count} muutosta"
-      compare_draft:
-        continue: Jatka
-        no_similars_found: Samankaltaisia muutoksia ei löytynyt.
-        title: Samankaltaiset muutokset
       created:
         error: Muutosluonnoksen lisäys epäonnistui.
         success: Muutosluonnoksen lisäys onnistui.
@@ -357,9 +354,7 @@ fi:
       wizard_step_form:
         steps:
           '1': Luo muutos
-          '2': Vertaile muutostasi
-          '3': Viimeistele muutoksesi
-          '4': Julkaise muutoksesi
+          '2': Julkaise muutoksesi
     anonymous_user: Anonyymi
     application:
       document:
@@ -809,6 +804,10 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet palvelun hallintakäyttäjä.
           email_subject: Ryhmä on päivittänyt profiiliaan
           notification_title: Ryhmä nimeltä %{user_group_name} on päivittänyt profiiliaan, jättäen ryhmän varmentamattomaksi. Voit varmentaa ryhmän <a href="%{groups_admin_path}">hallintapaneelin kautta</a>.
+      nickname_event:
+        notification_body: Olemme muuttaneet nimimerkkien sääntöjä varmistaaksemme, että alustalla ei ole useampaa tiliä samalla nimimerkillä eri tavalla kirjoitettuna. <br/> Tilisi on luotu toisen samaa nimimerkkiä käyttäneen henkilön jälkeen, joten olemme vaihtaneet nimimerkkiäsi automaattisesti. Halutessasi voit vaihtaa nimimerkkiäsi <a href="%{link_to_account_settings}">tilisi asetuksista</a>.
+      notification_event:
+        notification_title: Kohteessa <a href="%{resource_path}">%{resource_title}</a> on uutta toimintaa.
       reports:
         resource_hidden:
           email_intro: Hallintakäyttäjä poisti luomasi kohteen %{resource_type}, koska se ilmoitettiin asiattomana syyllä "%{report_reasons}".
@@ -844,7 +843,7 @@ fi:
         all: Kaikki
         answer: Vastaus
         collaborative_draft: Yhdessä koostettu luonnos
-        dummy_resource: Dummy-resurssit
+        dummy_resource: Esimerkkitietueet
         meeting: Tapaamiset
         project: Hankkeet
         proposal: Ehdotukset
@@ -886,12 +885,14 @@ fi:
         file:
           explanation: 'Tiedoston ohjeistus:'
           message_1: On oltava kuva tai asiakirja.
+          message_2: Kuvina käytä mieluiten vaakasuuntaisia kuvia, palvelu rajaa kuvaa.
         icon:
           explanation: 'Kuvakkeen ohjeistus:'
           message_1: On oltava neliömuotoinen kuva.
           message_2: Tämän kuvan suositeltu koko on 512x512.
         image:
           explanation: 'Kuvan ohjeistus:'
+          message_1: Käytä mieluiten vaakasuuntaista kuvaa, jossa ei ole tekstiä.
           message_2: Palvelu rajaa kuvaa.
       file_validation:
         allowed_file_extensions: 'Sallitut tiedostopäätteet: %{extensions}'
@@ -1033,7 +1034,7 @@ fi:
           content: "<p>Palvelussa %{organization} voit osallistua ja päättää eri aiheista ylävalikossa näkyvien osallistumistilojen kautta: prosessit, ryhmät, aloitteet ja kuulemiset.</p> <p>Jokaisessa tilassa voit osallistua: tehdä ehdotuksia - itsenäisesti tai muiden ihmisten kanssa, osallistua keskusteluihin, priorisoida toteutettavia hankkeita sekä osallistua tapaamisiin ja muihin toimiin.</p>\n"
           title: Mitä voin tehdä palvelussa %{organization}?
         description: Lue lisää palvelusta %{organization}.
-        title: Yleisiä ohjeita
+        title: Yleiset asiat
     last_activities:
       all: Kaikki toimintatyypit
       index:
@@ -1232,6 +1233,7 @@ fi:
       no_notifications: Ei vielä ilmoituksia.
       show:
         missing_event: Hups, tämä ilmoitus kuuluu kohteeseen, joka ei ole enää käytettävissä. Voit merkitä sen luetuksi.
+        moderated: Sisältö moderoitu
     notifications_digest_mailer:
       header:
         daily: Päivittäinen ilmoitusyhteenveto
@@ -1436,7 +1438,6 @@ fi:
           past: Menneet
       filters_small_view:
         filter: Suodata
-        filter_and_search: Suodata ja hae
         filter_by: Suodata
       results:
         view_all: Näytä kaikki (%{count})
@@ -1450,6 +1451,8 @@ fi:
         close_modal: Sulje ikkuna
         ok: OK
         title: Vahvista
+      embed:
+        title: Upotettu videosisältö
       extended_navigation_bar:
         more: Lisää
         unfold: Avaa
@@ -1921,7 +1924,7 @@ fi:
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
         resources: Resurssit
         sign_up: Luo oma käyttäjätili
-        terms_and_conditions: Käyttöehdot
+        terms_of_service: Käyttöehdot
       header:
         log_in: Kirjaudu sisään
         main_menu: Päävalikko
@@ -2044,6 +2047,7 @@ fi:
       long_with_particles: "%B %d., %Y %H:%M"
       short: "%d.%m.%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d.%m.%Y %H:%M %Z (GMT %:z)"
   versions:
     directions:
       left: Poistot

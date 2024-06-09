@@ -19,6 +19,7 @@ hu:
         category_id: Kategória
         decidim_scope_id: Hatáskör
         has_address: Van lakcíme
+        scope_id: Hatáskör
         state: Állapot
         suggested_hashtags: Javasolt hashtagek
         title: Cím
@@ -141,9 +142,6 @@ hu:
             proposal_length: Javaslat szöveg maximális hossza
             proposal_limit: Javaslat limit felhasználónként
             proposal_wizard_step_1_help_text: Javaslat varázsló "Létrehozás" gomb súgójának szövege
-            proposal_wizard_step_2_help_text: Javaslat varázsló "Összehasonlítás" gomb súgójának szövege
-            proposal_wizard_step_3_help_text: Javaslat varázsló "Teljesítés" gomb súgójának szövege
-            proposal_wizard_step_4_help_text: Javaslat varázsló "Közzététel" gomb súgójának szövege
             resources_permissions_enabled: Egyes javaslatokhoz műveleti engedélyeket állíthatsz be
             threshold_per_proposal: Küszöbérték javaslatonként
             vote_limit: Támogatási limit felhasználónként
@@ -615,13 +613,6 @@ hu:
         create:
           error: Hiba történt a javaslatra való szavazás során.
       proposals:
-        compare:
-          continue: Folytatás
-          no_similars_found: Szép munka! Nincsen hasonló javaslat
-          title: Hasonló javaslatok
-        complete:
-          send: Küldés
-          title: Fejezd be a javaslatod
         edit:
           add_documents: Dokumentum hozzáadása
           attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
@@ -721,9 +712,6 @@ hu:
           back: Vissza
         wizard_steps:
           step_1: Hozz létre javaslatot
-          step_2: Összehasonlítás
-          step_3: Befejez
-          step_4: Javaslatod közzététele
           title: A javaslat létrehozásának lépései
       proposals_picker:
         choose_proposals: Javaslatok kiválasztása
