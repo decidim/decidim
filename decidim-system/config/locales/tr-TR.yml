@@ -163,6 +163,8 @@ tr:
         smtp_settings:
           fieldsets:
             sender: Gönderen
+          instructions:
+            from_label: 'E-posta göndereni "kuruluşunuzun-adı <kuruluşunuz@example.org>". Kuruluş için tanımlananla aynı adı kullanmak için boş bırakın.'
           placeholder:
             from_email: your-organization@example.org
             from_label: your-organization-name
