@@ -14,6 +14,8 @@ tr:
         create:
           error: Bu şablonu oluştururken bir hata oluştu.
         empty: Burada henüz şablon yok.
+        fetch:
+          error: Aradığınız şablon bulunamadı. Lütfen sayfayı yenileyin.
       titles:
         template_types:
           questionnaires: Anket şablonları
