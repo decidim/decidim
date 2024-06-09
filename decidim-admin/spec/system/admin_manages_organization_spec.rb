@@ -6,6 +6,7 @@ describe "Admin manages organization" do
   include ActionView::Helpers::SanitizeHelper
 
   let(:organization) { create(:organization) }
+  let(:attributes) { attributes_for(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
 
   before do
@@ -17,7 +18,7 @@ describe "Admin manages organization" do
     it "updates the values from the form" do
       visit decidim_admin.edit_organization_path
 
-      fill_in_i18n :organization_name, "#organization-name-tabs", en: "My super-uber organization"
+      fill_in_i18n :organization_name, "#organization-name-tabs", **attributes[:name].except("machine_translations")
 
       %w(X Facebook Instagram YouTube GitHub).each do |network|
         within "#organization_social_handlers" do
