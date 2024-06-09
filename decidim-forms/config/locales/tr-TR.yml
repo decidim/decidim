@@ -125,6 +125,7 @@ tr:
           answer_questionnaire:
             title: Formu cevapla
           current_step: '%{step} adım'
+          empty: Bu form için henüz hazırlanmış bir soru yok.
           of_total_steps: '%{total_steps}'
           questionnaire_answered:
             body: Bu formu zaten cevapladınız.
