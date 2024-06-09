@@ -70,6 +70,7 @@ tr:
     accessibility:
       external_link: Dış bağlantı
       logo: "%{organization} resmi logosu"
+      opens_in_new_tab: Yeni Seçmede Aç
       skip_button: Ana içeriğe geç
     account:
       delete:
@@ -207,6 +208,7 @@ tr:
       wizard_step_form:
         steps:
           '1': Değişikliğinizi oluşturun
+          '2': Değişikliğinizi yayınlayın
     anonymous_user: Anonim
     application:
       document:
@@ -692,6 +694,7 @@ tr:
         default_page:
           content: "<p>%{organization}'da üst menüde gördüğünüz alanlar aracılığıyla katılabilir ve farklı konulara karar verebilirsiniz: Süreçler, Toplantılar, Girişimler, İstişareler. </p> <p> Her birinde farklı seçenekler bulacaksınız. katılmak: bireysel olarak veya diğer insanlarla birlikte teklifler yapın, tartışmalara katılın, uygulanacak projelere öncelik verin, yüz yüze toplantılara ve diğer eylemlere katılın. </p>\n"
           title: '%{organization} ne yapabilirim?'
+        title: Genel
     last_activities:
       all: Tüm aktivite türleri
       index:
@@ -832,6 +835,8 @@ tr:
         subject: '%{organization_name} ile ilgili bilgileri almaya devam etmek istiyor musunuz?'
     notifications:
       no_notifications: Henüz bildirim yok.
+      show:
+        moderated: İçerik Denetlendi
     notifications_settings:
       show:
         direct_messages: Herkesten doğrudan mesaj alın
@@ -1228,6 +1233,7 @@ tr:
         log_in: Giriş Yapın
         made_with_open_source: Web sitesi <a target="_blank" href="https://github.com/decidim/decidim">ücretsiz yazılımla yapılmıştır</a>.
         sign_up: Kaydol
+        terms_of_service: Hizmet Kullanım Koşulları
       impersonation_warning:
         close_session: Oturumu kapat
         description_html: Kullanıcının kimliğine bürünüyorsunuz <b>%{user_name}</b>.
@@ -1316,6 +1322,7 @@ tr:
       long_dashed: "%Y-%m-%d %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)\n%Gün-%Ay-%Yıl %Saat:%Dakika %p %Zone (GMT %:z)"
   versions:
     directions:
       left: Silme
