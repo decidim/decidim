@@ -2,7 +2,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const proposalAnswerTemplateChooser = document.getElementById("proposal_answer_template_chooser");
   if (proposalAnswerTemplateChooser) {
-
     proposalAnswerTemplateChooser.addEventListener("change", () => {
       const dropdown =  document.getElementById("proposal_answer_template_chooser");
       const url = dropdown.getAttribute("data-url");
@@ -13,7 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
       fetch(`${new URL(url).pathname}?${new URLSearchParams({ id: templateId, proposalId: proposalId })}`).
-        then((response) => response.json()).
+        then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+          return Promise.reject(response);
+        }).
         then((data) => {
           document.getElementById(`proposal_answer_internal_state_${data.state}`).click();
 
@@ -24,8 +28,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
             editor.commands.setContent(value, true);
           }
-        })
+        }).
+        catch((response) => {
+          response.json().then((data) => {
+            const el = document.createElement("p");
+            el.classList.add("text-alert");
+            el.textContent = data.msg;
+            dropdown.after(el);
+          });
+        });
     });
-
   }
 });

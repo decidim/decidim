@@ -38,11 +38,9 @@ module Decidim
 
       def send_reminders(component)
         intervals = Array(reminder_manifest.settings.attributes[:reminder_times].default)
-        space_admins = Decidim::ParticipatoryProcessUserRole.where(decidim_participatory_process_id: component.participatory_space_id, role: "admin").collect(&:user)
-        space_admins = (global_admins + space_admins).uniq
         intervals.each do |interval|
           finder_query(component.id, interval).find_each do |meeting|
-            authors = meeting.official? ? space_admins : [meeting.author]
+            authors = meeting.official? ? space_admins(component) : [meeting.author]
             authors.each do |author|
               send_notif = author.notification_settings.fetch("close_meeting_reminder", "1")
               next unless send_notif == "1"
@@ -60,8 +58,16 @@ module Decidim
         end
       end
 
-      def global_admins
-        @global_admins ||= Decidim::User.where(admin: true).all
+      def space_admins(component)
+        @space_admins ||= begin
+          space_admins = if component.participatory_space.respond_to?(:user_roles)
+                           component.participatory_space.user_roles(:admin).collect(&:user)
+                         else
+                           []
+                         end
+          global_admins = component.organization.admins
+          (global_admins + space_admins).uniq
+        end
       end
     end
   end

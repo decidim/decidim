@@ -9,10 +9,10 @@
       <%= image_tag(
             organization.attached_uploader(:logo).variant_url(:medium, host: organization.host),
             style: "max-height: 50px",
-            alt: "#{organization.name}"
+            alt: organization_name(organization)
           ) %>
     <% else %>
-      <span><%= organization.name %></span>
+      <span><%= organization_name(organization) %></span>
     <% end %>
   <% end %>
 <% else %>

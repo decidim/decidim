@@ -46,13 +46,16 @@ module Decidim
         respond_to do |format|
           format.json do
             if (term = params[:term].to_s).present?
-              query = relation.order(name: :asc)
               query = if term.start_with?("@")
-                        query.where("nickname ILIKE ?", "#{term.delete("@")}%")
+                        nickname = term.delete("@")
+                        relation.where("nickname ILIKE ?", "#{nickname}%")
+                                .order(Arel.sql(ActiveRecord::Base.sanitize_sql_array("similarity(nickname, '#{nickname}') DESC")))
                       else
-                        query.where("name ILIKE ?", "%#{term}%").or(
-                          query.where("email ILIKE ?", "%#{term}%")
+                        relation.where("name ILIKE ?", "%#{term}%").or(
+                          relation.where("email ILIKE ?", "%#{term}%")
                         )
+                                .order(Arel.sql(ActiveRecord::Base.sanitize_sql_array("GREATEST(similarity(name, '#{term}'), similarity(email, '#{term}')) DESC")))
+                                .order(Arel.sql(ActiveRecord::Base.sanitize_sql_array("(similarity(name, '#{term}') + similarity(email, '#{term}')) / 2 DESC")))
                       end
               render json: query.all.collect { |u| { value: u.id, label: "#{u.name} (@#{u.nickname})" } }
             else

@@ -294,11 +294,7 @@ lv:
       show:
         assembly_type: Asamblejas veids
         duration: Ilgums
-        is_transparent:
-          'false': neskaidra
-          'true': caurskatāma
         private_space: Šī ir privāta asambleja
-        related_participatory_processes: Saistītie līdzdalības procesi
     assembly_members:
       assembly_member:
         designated_on: Izraudzīts

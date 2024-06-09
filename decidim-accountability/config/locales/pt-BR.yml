@@ -234,15 +234,7 @@ pt-BR:
           search: Procure ações
         show:
           stats:
-            attendees: Participantes
             back_to_resource: Volte ao resultado
-            comments: Comentários
-            contributions: Contribuições
-            last_edited_by: Editado pela última vez por
-            last_updated_at: Última atualização em
-            meetings: Reuniões
-            proposals: Propostas
-            votes: Suporta
         timeline:
           title: Evolução do projeto
     admin:
@@ -261,16 +253,12 @@ pt-BR:
         name: Prestação de contas
         settings:
           global:
-            categories_label: Nome para "Categorias"
             comments_enabled: Comentários ativados
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
             display_progress_enabled: Mostrar progresso
-            heading_leaf_level_results: Nome para "Projetos"
-            heading_parent_level_results: Nome para "Resultados"
             intro: Introdução
             scope_id: Escopo
             scopes_enabled: Escopos habilitados
-            subcategories_label: Nome para "Subcategorias"
           step:
             comments_blocked: Comentários bloqueados
     events:

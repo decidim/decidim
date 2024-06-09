@@ -187,6 +187,7 @@ fi-pl:
         export: Vie kaikki
         export-selection: Vie valitut
         import: Tuo
+        manage: Hallitse
         newsletter:
           new: Uusi uutiskirje
         participatory_space_private_user:
@@ -354,6 +355,7 @@ fi-pl:
         title: Vahvistusten ristiriidat
         transfer:
           email: Sähköposti
+          error: Nykyisen käyttäjän siirto hallituksi käyttäjäksi epäonnistui.
           name: Nimi
           reason: Syy
           success: Siirto onnistui.

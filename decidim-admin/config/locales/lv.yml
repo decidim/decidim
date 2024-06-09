@@ -115,6 +115,7 @@ lv:
       actions:
         add: Pievienot
         browse: Pārlūkot
+        manage: Pārvaldīt
         per_page: Lapā
         permissions: Atļaujas
         reject: Noraidīt
@@ -263,6 +264,9 @@ lv:
         search_placeholder:
           name_or_nickname_or_email_cont: Meklējiet %{collection} pēc e-pasta adreses, vārda vai segvārda.
           title_cont: Meklējiet %{collection} pēc nosaukuma.
+        state_eq:
+          values:
+            rejected: Noraidīts
       help_sections:
         form:
           save: Saglabāt

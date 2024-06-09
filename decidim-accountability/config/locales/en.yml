@@ -236,15 +236,7 @@ en:
           search: Search for actions
         show:
           stats:
-            attendees: Attendees
             back_to_resource: Go back to result
-            comments: Comments
-            contributions: Contributions
-            last_edited_by: Last edited by
-            last_updated_at: Last updated at
-            meetings: Meetings
-            proposals: Proposals
-            votes: Supports
         timeline:
           title: Project evolution
     admin:
@@ -263,16 +255,12 @@ en:
         name: Accountability
         settings:
           global:
-            categories_label: Name for "Categories"
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
             display_progress_enabled: Display progress
-            heading_leaf_level_results: Name for "Projects"
-            heading_parent_level_results: Name for "Results"
             intro: Intro
             scope_id: Scope
             scopes_enabled: Scopes enabled
-            subcategories_label: Name for "Subcategories"
           step:
             comments_blocked: Comments blocked
     events:

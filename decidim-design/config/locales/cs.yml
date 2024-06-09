@@ -26,6 +26,47 @@ cs:
         buttons:
           description_html: 'Tlačítka jsou sestavena pomocí různých kombinací CSS tříd: třída <code>button</code>, size a color.'
           title: Tlačítka
+        cards:
+          title: Karty
+        dialogs:
+          dialog_demo_description_html: Dialogy nebo modální komponenty jsou implementovány přes rails helper <code>decidim_modal</code>.
+          dialogs_description_html: Dialogy jsou javascript funkce dostupné díky externí knihovně s názvem <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a>.
+          tips_description: 'Chcete-li zobrazit komplexní modál, který odpovídá stylům, proveďte následující markup:'
+          title: Dialogy
+          usage_description: Dialog vyžaduje dva prvky
+          usage_description_2_html: 2. Modální prvek, jehož <code>id</code> odpovídá hodnotě data-target, ke které se spouštěč vztahuje.
+        follow:
+          title: Sledovat
+        forms:
+          disabled: Zakázáno
+          emojis: Emoji
+          emojis_description: Funguje pouze pro textové pole
+          errors: Chyby
+          errors_description: Nepoužije se pro výběr
+          header_alert: Tato stránka pochází ze starého zobrazení. Obsah je zastaralý.
+          help_texts: Texty nápovědy
+          min_max_length: Min/Max délka
+          min_max_length_description: Funguje pouze pro vstupní typ='text' a textarea
+          regular_inputs_description: 'Zobrazí pouze běžné typy, úplný dostupný seznam: datum, datetime-local, e-mail, měsíc, číslo, heslo, vyhledávání, tel, text, čas, url, týden'
+          textarea_required: je vyžadováno textové pole
+          title: Formuláře
+        report:
+          title: Nahlásit
+        share:
+          title: Sdílet
+        tab_panels:
+          title: Panely záložek
+        tooltips:
+          demo: Demo
+          demo_description: Aby tato komponenta fungovala, musí účastník přejít kurzorem na prvek.
+          description: Nástrojový tip je komponenta, kterou mohou uživatelé přejít myší a získat o ní další informace.
+          github_source_html: Zdrojový kód na GitHub %{github_link}
+          title: Popisek
+          usage: Použití
+          usage_p: 'Tooltip vyžaduje použití pomocníka `with_tooltip` se třemi argumenty:'
+          usage_p_1_html: 1. Řetězec s hodnotou popisku nástrojů. V příkladu této stránky je "Hello world".
+          usage_p_2_html: 2. Volitelná třída se symbolem na místě, kde bude zobrazena nápověda. Možné hodnoty jsou <code>:top</code>, <code>:bottom</code>, <code>:right</code>, nebo <code>:left</code>.
+          usage_p_3_html: 3. Blok s řetězcem, který uživatel potřebuje přejet kurzorem pro zobrazení.
       foundations:
         accessibility:
           accessibility_labels: Štítky přístupnosti
@@ -35,8 +76,12 @@ cs:
           adjacent_links_header: Přidejte odkazy pro stejný zdroj
           adjacent_links_paragraph: Pokud má tentýž zdroj více sousedících odkazů, které na něj ukazují, pro tyto uživatele je obtížné podívat se na stránku, protože možná budou muset procházet více odkazů, aby se dostali k dalšímu zdroji.
           color_contrast: Barevný kontrast
+          color_contrast_paragraph: Při vytváření uživatelských rozhraní nebo při úpravě barev se vždy ujistěte, že svými změnami neporušujete přístupnost. Můžete použít kontrolu kontrastu barev k zajištění dostatečného kontrastu barev s barvou pozadí, ve kterém jsou zobrazeny.
           decidim_follows_html: Decidim se řídí <u>Pokyny pro přístupnost webového obsahu (WCAG) 2.1</u>
+          dynamic_changes_header: Dynamická funkce neintuitivně mění kontext stránky
+          dynamic_changes_paragraph: Změny ve vstupech formuláře by neměly automaticky měnit kontext stránky.
           elements_hidden: Skryté prvky
+          elements_hidden_header: Prvky skryté z API pro přístupnost
           elements_hidden_paragraph: Pro skrytí prvku před asistenčními technologiemi použijte atribut aria-hidden="true".
           heading_on: Záhlaví na důležitých oddílech
           here_link: zde
@@ -72,14 +117,20 @@ cs:
           description_layout_p2: Tato jednoduchá pravidla by měla být dodržována při vytváření nových modulů nebo přizpůsobování stávajících, takže stránky Decidim mohou zachovat svou konzistenci.
           desktop: Počítač
           full_width: Plná šířka
+          layout_list_1: 'Domovská stránka (ze stránky, z prostoru): celá šířka'
+          layout_list_2: 'Seznam prvků (mezer, položek uvnitř prostoru atd.): na levé straně'
+          layout_list_3: 'Jednotlivá položka (návrh, blogový příspěvek): vycentrovaná, volitelně zarovnaná vpravo'
           left_aside: Nalevo
           mobile: Mobilní zařízení
           not_required: Nevyžadováno
           properties: Vlastnosti
           right_aside: Vpravo
+          section_p_code: Při implementaci nových modulů máte některé pomocníky, které vám automaticky poskytují kód potřebný k nastavení HTML struktury. Měli byste použít tyto pomocníky namísto přímého použití prvků div s třídami, abyste zachovali konzistenci.
+          section_p_code_html: Základní rozložení můžete najít v %{link_section_code}
           tablet: Tablet
           title: Rozložení
         typography:
+          description: Tyto pokyny popisují, jak používat typografii v Decidim a slouží jako ochranné mantinely, aby návrháři mohli volně navrhovat nejlepší typografické postupy.
           headings:
             characters: Znaků na řádek
             layout: Sloupce rozložení
@@ -89,26 +140,94 @@ cs:
           typefaces_description_2: Tato písma jsou licencována pod Open Font License
       helpers:
         activity: Aktivita
+        argument: Parametr
+        assemblies: Shromáždění
+        assembly_g: Shromáždění G
+        assembly_s: Shromáždění S
+        avatar: Avatar
+        avatar_description: Používá se v případě úzkých míst, kde je autor sekundární informací.
         background: Pozadí a okraje
         base: Podklad
+        block_text: Použít extra_data blok
+        blogs: Blogy
+        budgets: Rozpočty
+        card_g: Karta G
+        card_l: Karta L
+        card_s: Karta S
+        collaborative_draft_l: Společný koncept L
         colors: Barvy
+        compact: Kompaktní
+        compact_description: Tato autorská verze je běžným způsobem, jak identifikovat tvůrce zdrojů.
+        conference_g: Konference G
+        conference_s: Konference S
+        conferences: Konference
+        context: Kontext
+        debate_l: Rozprava L
+        debate_s: Rozprava S
+        debates: Rozpravy
+        default: Výchozí
+        default_description: Volání buňky bez dalších argumentů, pouze samotného uživatele.
         demo: Demo
         demo_text: 'Tato buňka přijímá model LastActivity položek a zobrazuje následující prvky:'
         demo_text_2: Používá se poslední stránka aktivity v bloku obsahu a v rozevíracích seznamech.
+        description: Popis
         disabled: Deaktivován
+        dropdowns: Rozbalovací nabídky
+        dropdowns_demo_1_description: 'Následující příklad nebude patrný na počítači, ale na mobilu ano:'
+        dropdowns_usage_description: 'Rozevírací nabídka vyžaduje dva prvky:'
+        dropdowns_usage_description_html: 1. Uživatelsky proveditelný prvek, s atributy <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
+        follow_button: Tlačítko Sledovat
         form_elements: Prvky formuláře
+        generic_cards: Obecné karty
+        grid: Mřížka
         hex_code: Hex kód
+        highlight: Zvýraznění
+        html_tips: HTML tipy
         icons: Ikony
+        image_and_description: Obrázek a popis
+        initiative_g: initiative_g
+        initiative_s: initiative_s
+        initiatives: Iniciativy
+        list: Seznam
         main_colors: Hlavní barvy
+        meeting_l: Schůzka L
+        meeting_s: Schůzka S
+        meetings: Schůzky
+        meetings_html: Používá karty <i>Schůzky</i>
+        metadata_items: Položky metadat
+        metadata_text: Každý zdroj definuje své vlastní položky metadat
+        participatory_process_g: Participační proces G
+        participatory_process_group_g: Skupina participačních procesů G
+        participatory_process_group_s: Skupina participačních procesů S
+        participatory_process_s: Participační proces S
+        participatory_processes: Participační procesy
+        plain_text: Jsem prostý text
+        plain_text_description: Můžete poskytnout jako první parametr jak prostý text, tak hash objekt
+        post_g: Příspěvek G
+        post_l: Příspěvek L
+        post_s: Příspěvek S
+        project_l: Projekt L
+        project_s: Projekt S
+        proposal_l: Návrh L
+        proposal_s: Návrh S
+        proposals: Návrhy
+        report_button: Tlačítko reportu
+        report_usage_description: Tlačítko reportu spustí modální okno, které bude ukazovat aktuální zdroj.
+        result_l: Výsledek L
         rgba_code: RGBA kód
+        search: Hledat
         send: Odeslat
+        share_button: Tlačítko Sdílet
         sizes: Velikosti
+        sortition_l: sortition_l
+        sortitions: Losování
         source_code: Zdrojový kód
         state: Stav
         tailwind: Tailwind název
         text: Text
         transparent: Průhledný
         transparent_description: 'V případě tmavšího pozadí:'
+        types: Typy
         typography_texts: Typografie a texty
         usage: Použití
         usage_background_1: Vedle pozadí
@@ -120,6 +239,7 @@ cs:
         usage_base_2: Hlavní barva odkazů a tlačítek
         usage_formelements_1: Výchozí pozadí vstupních prvků
         usage_state_2: Okraj výstražného upozornění
+        usage_typography_1: Nadpisy a názvy sekcí
         usage_typography_2: Vložený text
         usage_typography_3: Text na tmavém pozadí
         usage_typography_4: Odkazy a tlačítka
@@ -127,7 +247,9 @@ cs:
         variations: Variace
       home:
         index:
+          by_sharing_principles: Sdílením zásad, filosofie a zdůvodnění rozhodnutí týkajících se designu chceme komunitě umožnit, aby přispívala důsledně a dosáhla co nejlepší zkušenosti účastníků.
           decidim_guide: Průvodce navrhováním všech věcí Decidim
+          different_ui_components: Zároveň dokumentujeme různé komponenty a vzory, které se používají, které by měly být znovu použity nebo rozšířeny.
           github_source: Zdrojový kód na GitHubu
           home_header: Decidim Design Guide
           welcome_sentence: Vítejte v průvodci Decidim Design Guide (DDG). Tento průvodce je zdrojem pro designéry a vývojáře, kteří potřebují přizpůsobit, vyvinout nové moduly a integrovat nové funkce.

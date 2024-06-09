@@ -35,7 +35,7 @@ module Decidim
           include(id: resource.organization.id)
         )
         expect(serialized[:organization]).to(
-          include(name: resource.organization.name)
+          include(name: translated(resource.organization.name))
         )
       end
 

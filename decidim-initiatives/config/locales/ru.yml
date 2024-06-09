@@ -41,7 +41,6 @@ ru:
       actions:
         new_initiative_type: Добавить вид почина
       menu:
-        components: Составляющие
         information: Сведения
         initiatives: Почины
         initiatives_types: Виды починов
@@ -216,7 +215,6 @@ ru:
           other: " подписей"
         vote_cabin:
           already_voted: Уже подписали
-          supports_required: "Требуется %{total_supports} подписей"
           vote: Подписать
           votes_blocked: Подписание отключено
         votes_count:

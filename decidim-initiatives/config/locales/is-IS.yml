@@ -20,7 +20,6 @@ is-IS:
   decidim:
     admin:
       menu:
-        components: Hluti
         information: Upplýsingar
         initiatives: Frumkvæði
         initiatives_types: Frumgerð tegundir

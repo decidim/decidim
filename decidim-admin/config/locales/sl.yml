@@ -114,6 +114,7 @@ sl:
       actions:
         add: Dodaj
         browse: Brskaj
+        manage: Uredi
         per_page: Na stran
         permissions: Dovoljenja
         reject: Zavrni
@@ -121,6 +122,9 @@ sl:
       filters:
         scope_id_eq:
           label: Področje
+        state_eq:
+          values:
+            rejected: Zavrnjen
       menu:
         manage: Uredi
         scope_types: Tipi področja

@@ -2,10 +2,10 @@
   <div class="pt-10">
     <div class="initiative-letterhead">
       <% if current_organization.logo.present? %>
-        <%= image_tag current_organization.attached_uploader(:logo).path(variant: :medium), title: current_organization.name %>
+        <%= image_tag current_organization.attached_uploader(:logo).path(variant: :medium), title: current_organization_name %>
       <% end %>
 
-      <%= current_organization.name %>
+      <%= current_organization_name %>
     </div>
     <h3 class="print-section-title"><%= t "section", scope: "decidim.initiatives.initiatives.print" %></h3>
     <div class="initiative-print-title">

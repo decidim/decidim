@@ -187,6 +187,7 @@ fr-CA:
         export: Tout exporter
         export-selection: Exporter la sélection
         import: Importer
+        manage: Gérer
         newsletter:
           new: Nouvelle newsletter
         participatory_space_private_user:
@@ -287,6 +288,7 @@ fr-CA:
       block_user:
         new:
           action: Bloquer le compte et envoyer la justification
+          already_reported_html: En poursuivant cette action, vous masquerez également tous les contenus du participant.
           description: Bloquer un utilisateur rendra son compte inutilisable. Vous devriez fournir dans votre justification des actions à effectuer par ce dernier pour envisager le déblocage.
           justification: Justification
           title: Bloquer l'utilisateur %{name}
@@ -353,6 +355,7 @@ fr-CA:
         title: Conflits de vérification
         transfer:
           email: Email
+          error: Une erreur est survenue lors du transfert de l'utilisateur actuel en utilisateur représenté.
           name: Nom
           reason: Raison
           success: Le transfert a bien été effectué.

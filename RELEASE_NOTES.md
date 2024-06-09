@@ -6,14 +6,25 @@ As usual, we recommend that you have a full backup, of the database, application
 
 To update, follow these steps:
 
-### 1.1. Update your Gemfile
+### 1.1. Update your ruby version
+
+If you're using rbenv, this is done with the following commands:
+
+```console
+rbenv install 3.2.2
+rbenv local 3.2.2
+```
+
+If not, you need to adapt it to your environment. See "2.1. Ruby update to 3.2"
+
+### 1.2. Update your Gemfile
 
 ```ruby
 gem "decidim", github: "decidim/decidim"
 gem "decidim-dev", github: "decidim/decidim"
 ```
 
-### 1.2. Run these commands
+### 1.3. Run these commands
 
 ```console
 bundle update decidim
@@ -21,9 +32,26 @@ bin/rails decidim:upgrade
 bin/rails db:migrate
 ```
 
-### 1.3. Follow the steps and commands detailed in these notes
+### 1.4. Follow the steps and commands detailed in these notes
 
 ## 2. General notes
+
+## 2.1. Ruby update to 3.2
+
+We have updated the Ruby version to 3.2.2. Upgrading to this version will require either to install this Ruby version on your host, or change the decidim docker image to use ruby:3.2.2.
+You can read more about this change on PR [#12199](https://github.com/decidim/decidim/pull/12199).
+
+## 2.2. Rails update to 7.0
+
+We have updated the Rails version to 7.0.8.1. You do not need to do anything.
+
+You can read more about this change on PR [#12616](https://github.com/decidim/decidim/pull/12616).
+
+## 2.3. Removal of the accountability naming customization
+
+We have removed the ability to customize the labels from the Accountability component, as it was not following the recommended way of handling these text customizations. If you want to migrate your current customizations, you can read about [Text customizations in Decidim Documentation](https://docs.decidim.org/en/develop/customize/texts)
+
+You can read more about this change on PR [#12853](https://github.com/decidim/decidim/pull/12853).
 
 ## 3. One time actions
 
@@ -129,7 +157,18 @@ Additionally, if you need, you can also customize the `admin` and `system` inter
 
 You can read more about this change on PR [\#12646](https://github.com/decidim/decidim/pull/12646).
 
-### 3.6. Clean up orphaned attachment blobs
+### 3.6. Update to Footer Topic and Pages functionality
+
+We have changed the behavior of the footer pages and topics links:
+
+- Removed the "show in the footer" checkbox for pages.
+- Removed duplicate "Terms of Service" link.
+- Always show the link to the "Terms of Service" page.
+- Only show links in footer to topics.
+
+You can read more about this change on PR [\#12592](https://github.com/decidim/decidim/pull/12592).
+
+### 3.7. Clean up orphaned attachment blobs
 
 We have added a new task that helps you clean the orphaned attachment blobs. This task will remove all the attachment blobs that have been created for more than 1 hour and are not yet referenced by any attachment record. This helps cleaning your filesystem of unused files.
 
@@ -141,8 +180,7 @@ bundle exec decidim:attachments:cleanup
 
 You can see more details about this change on PR [\#11851](https://github.com/decidim/decidim/pull/11851)
 
-### 3.7. [[TITLE OF THE ACTION]]
-
+### 3.8. [[TITLE OF THE ACTION]]
 You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
 ## 4. Scheduled tasks
@@ -160,7 +198,41 @@ You can read more about this change on PR [\#XXXX](https://github.com/decidim/de
 
 ## 5. Changes in APIs
 
-### 5.1. [[TITLE OF THE CHANGE]]
+### 5.1 Migration of Proposal states in own table
+
+As of [\#12052](https://github.com/decidim/decidim/pull/12052) all the proposals states are kept in a separate database table, enabling end users to customize the states of the proposals. By default we will create for any proposal component that is being installed in the project 5 default states that cannot be disabled nor deleted. These states are:
+
+- Not Answered ( default state for any new created proposal )
+- Evaluating
+- Accepted
+- Rejected
+- Withdrawn ( special states for proposals that have been withdrawn by the author )
+
+For any of the above states you can customize the name, description, css class used by labels. You can also decide which states the user can receive a notification or an answer.
+
+You do not need to run any task to migrate the existing states, as we will automatically migrate the existing states to the new table.
+
+You can see more details about this change on PR [\#12052](https://github.com/decidim/decidim/pull/12052)
+
+### 5.2. Seeds require assets precompiling
+
+In order to successfully showcase the features of the application, we have added as a mandatory step the assets precompiling, as the seeds will now fire the notification system. That allows any Decidim demo instance to display user notifications.
+
+if you previously seeded your database using:
+
+```bash
+bin/rails db:drop db:create db:migrate db:seed
+```
+
+You are required to run using:
+
+```bash
+bin/rails db:drop db:create db:migrate assets:precompile db:seed
+```
+
+You can see more details about this change on PR [\#12828](https://github.com/decidim/decidim/pull/12828)
+
+### 5.3. [[TITLE OF THE CHANGE]]
 
 In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
 
@@ -177,19 +249,3 @@ You need to change it to:
 # Explain the usage of the API as it is in the new version
 result = 1 + 1 if after
 ```
-
-### 5.8 Migration of Proposal states in own table
-
-As of [\#12052](https://github.com/decidim/decidim/pull/12052) all the proposals states are kept in a separate database table, enabling end users to customize the states of the proposals. By default we will create for any proposal component that is being installed in the project 5 default states that cannot be disabled nor deleted. These states are:
-
-- Not Answered ( default state for any new created proposal )
-- Evaluating
-- Accepted
-- Rejected
-- Withdrawn ( special states for proposals that have been withdrawn by the author )
-
-For any of the above states you can customize the name, description, css class used by labels. You can also decide which states the user can receive a notification or an answer.
-
-You do not need to run any task to migrate the existing states, as we will automatically migrate the existing states to the new table.
-
-You can see more details about this change on PR [\#12052](https://github.com/decidim/decidim/pull/12052)

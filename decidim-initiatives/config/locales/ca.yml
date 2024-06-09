@@ -79,7 +79,6 @@ ca:
   decidim:
     admin:
       actions:
-        manage: Gestionar
         new_initiative_type: Nou tipus d'iniciativa
         new_initiative_type_scope: Afegir àmbit del tipus d'iniciativa
       filters:
@@ -106,7 +105,6 @@ ca:
       menu:
         attachments: Adjunts
         committee_members: Membres de la comissió
-        components: Components
         information: Informació
         initiative_type_scopes: Àmbits del tipus d'iniciativa
         initiatives: Iniciatives
@@ -159,33 +157,33 @@ ca:
         admin:
           initiative_sent_to_technical_validation:
             email_intro: La iniciativa "%{resource_title}" s'ha enviat a validació tècnica. Comprova-ho a través del <a href="%{admin_initiative_url}">taullel d'administració</a>
-            email_outro: Has rebut aquesta notificació perquè ets una de les administradores de la plataforma.
+            email_outro: Has rebut aquesta notificació perquè admnistres la plataforma.
             email_subject: La iniciativa %{resource_title} ha sol·licitat validació tècnica.
             notification_title: La iniciativa "%{resource_title}" s'ha enviat a validació tècnica. Comprova-ho a través del <a href="%{admin_initiative_path}">taullel d'administració</a>
         initiative_extended:
           email_intro: La data de finalització de recollida de signatures per a la iniciativa %{resource_title} s'ha ampliat!
-          email_outro: Has rebut aquesta notificació perquè estàs seguint %{resource_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la iniciativa "%{resource_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: S'ha ampliat la data de finalització de la recollida de signatura de la iniciativa!
           notification_title: El termini de recollida de signatures per a la iniciativa <a href="%{resource_path}">%{resource_title}</a> s'ha ampliat.
         initiative_sent_to_technical_validation:
           email_intro: La iniciativa "%{resource_title}" s'ha enviat a validació tècnica. Comprova-ho a través del <a href="%{admin_initiative_url}">taulell d'administració</a>
-          email_outro: Has rebut aquesta notificació perquè ets una de les administradores de la plataforma.
+          email_outro: Has rebut aquesta notificació perquè admnistres la plataforma.
           email_subject: La iniciativa %{resource_title} ha sol·licitat validació tècnica.
           notification_title: La iniciativa "%{resource_title}" s'ha enviat a validació tècnica. Comprova-ho a través del <a href="%{admin_initiative_path}">taullel d'administració</a>
         milestone_completed:
           affected_user:
             email_intro: La teva iniciativa %{resource_title} ha aconseguit un %{percentage}% de les signatures necessàries!
-            email_outro: Has rebut aquesta notificació perquè ets l'autora de la iniciativa %{resource_title}.
+            email_outro: Has rebut aquesta notificació perquè promous la iniciativa "%{resource_title}".
             email_subject: S'ha completat una nova fita!
             notification_title: La teva iniciativa <a href="%{resource_path}">%{resource_title}</a> ha aconseguit el %{percentage}% de les signatures.
           follower:
             email_intro: La iniciativa %{resource_title} ha aconseguit el %{percentage}% de les signatures!
-            email_outro: Has rebut aquesta notificació perquè estàs seguint %{resource_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+            email_outro: Has rebut aquesta notificació perquè estàs seguint la inciativa "%{resource_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
             email_subject: S'ha completat una nova fita!
             notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha aconseguit el %{percentage}% de les signatures.
         support_threshold_reached:
           email_intro: La iniciativa %{resource_title} ha arribat al llindar de signatures
-          email_outro: Has rebut aquesta notificació perquè ets una de les administradores de la plataforma.
+          email_outro: Has rebut aquesta notificació perquè admnistres la plataforma.
           email_subject: Llindar de signatures aconseguit
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha arribat al llindar de signatures
     gamification:
@@ -401,27 +399,27 @@ ca:
       events:
         approve_membership_request:
           email_intro: "%{author_nickname} ha acceptat la teva sol·licitud per formar part de la comissió promotora de la iniciativa %{resource_title}."
-          email_outro: 'Has rebut aquesta notificació perquè has sol·licitat formar part de la iniciativa %{resource_title}'
+          email_outro: 'Has rebut aquesta notificació perquè has sol·licitat formar part de la iniciativa: "%{resource_title}"'
           email_subject: "%{author_nickname} ha acceptat la teva sol·licitud per formar part de la comissió promotora"
           notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> ha acceptat la teva sol·licitud per formar part de la comissió promotora per la següent iniciativa <a href="%{resource_url}">%{resource_title}</a>.
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, a qui segueixes, ha creat una nova iniciativa. Comprova-la i contribueix:"
-          email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint a "%{author_nickname}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Nova iniciativa de %{author_nickname}
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> va ser creada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, a qui segueixes, ha donat suport a la següent iniciativa. Potser vols contribuir a la conversa:"
-          email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint a "%{author_nickname}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Iniciativa adherida per %{author_nickname}
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> va ser adherida per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} ha rebutjat la teva sol·licitud per formar part de la comissió promotora per la iniciativa %{resource_title}."
-          email_outro: 'Has rebut aquesta notificació perquè has sol·licitat formar part de la iniciativa %{resource_title}.'
+          email_outro: 'Has rebut aquesta notificació perquè has sol·licitat formar part de la iniciativa: "%{resource_title}".'
           email_subject: "%{author_nickname} ha rebutjat la teva sol·licitud per formar part de la comissió promotora"
           notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> ha rebutjat la teva sol·licitud per formar part de la comissió promotora per la següent iniciativa <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
           email_intro: "%{applicant_nickname} ha sol·licitat formar part de la comissió promotora de la teva iniciativa %{resource_title}. Per a acceptar o rebutjar la sol·licitud, vés al formulari d'edició de la teva iniciativa."
-          email_outro: 'Has rebut aquesta notificació perquè ets l''autora de la iniciativa %{resource_title}'
+          email_outro: 'Has rebut aquesta notificació perquè promous la iniciativa: "%{resource_title}"'
           email_subject: "%{applicant_nickname} vol unir-se a la teva iniciativa"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha sol·licitat formar part de la comissió promotora de la teva iniciativa <a href="%{resource_url}">%{resource_title}</a>. Per acceptar-ho o rebutjar-ho fes clic <a href="%{resource_url}/edit">aquí</a>.
       form:
@@ -541,7 +539,6 @@ ca:
           other: " signatures"
         vote_cabin:
           already_voted: Ja has signat
-          supports_required: "Es requereixen %{total_supports} signatures"
           verification_required: Verifica el teu compte per a signar la iniciativa
           vote: Signar
           votes_blocked: S'ha desactivat la signatura

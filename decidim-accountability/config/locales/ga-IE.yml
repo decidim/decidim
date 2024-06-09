@@ -76,12 +76,6 @@ ga:
         home:
           categories_label: Catagóirí
           subcategories_label: Fochatagóirí
-        show:
-          stats:
-            comments: Tráchtanna
-            meetings: Cruinnithe
-            proposals: Moltaí
-            votes: Tacaíochtaí
     admin:
       filters:
         results:
@@ -97,10 +91,8 @@ ga:
           comment: Tabhair Trácht
         settings:
           global:
-            categories_label: Ainm do "Catagóirí"
             intro: Réamhrá
             scope_id: Scóip
-            subcategories_label: Ainm do "Fochatagóirí"
     metrics:
       results:
         object: torthaí

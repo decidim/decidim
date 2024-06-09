@@ -175,10 +175,6 @@
         error: Det oppsto feil under endringen av denne resurssen.
         promote_button: Promoter til %{model_name}
         promote_confirm_text: Er du sikker på at du vil forfremme denne emendasjonen?
-      compare_draft:
-        continue: Fortsett
-        no_similars_found: Ingen like emendasjoner funnet.
-        title: Lignende Emendasjoner
       created:
         error: En feil oppstod mens du lagde endrings utkast.
         success: Endrings utkastet har blitt opprettet.
@@ -224,9 +220,6 @@
       wizard_step_form:
         steps:
           '1': Opprett endringen din
-          '2': Sammenlign endringen din
-          '3': Fullfør endringen din
-          '4': Publiser endringen din
     anonymous_user: Anonym
     application:
       document:
@@ -701,7 +694,6 @@
         default_page:
           content: "<p>I %{organization} kan du delta og bestemme forskjellige temaer gjennom mellomrommene du ser i toppmenyen: Prosesser, Forsamlinger, Initiativer, Konsultasjoner.</p> <p>Innenfor hver enkelt finner du forskjellige alternativer for å delta: lage forslag - hver for seg eller med andre mennesker-, delta i debatter, prioritere prosjekter for å implementere, delta på ansikt-til-ansikt møter og andre handlinger.</p>\n"
           title: Hva kan jeg gjøre i %{organization}?
-        title: Generell hjelp
     last_activities:
       all: Alle aktivitetstyper
       index:
@@ -898,6 +890,7 @@
           headline: Nåværende status for %{organization}
         sub_hero:
           register: Registrer deg
+          register_title: Registrer deg for å opprette en konto
       index:
         standalone_pages: Sider
         subheading: Naviger gjennom hjelpesidene til %{name}

@@ -124,6 +124,7 @@ zh-CN:
       actions:
         add: 添加
         browse: 浏览
+        manage: 管理
         per_page: 每页
         permissions: 权限
         reject: 拒绝

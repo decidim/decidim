@@ -402,11 +402,7 @@ cs:
       show:
         assembly_type: Typ shromáždění
         duration: Doba trvání
-        is_transparent:
-          'false': neprůhledný
-          'true': transparentní
         private_space: Toto je soukromé shromáždění
-        related_participatory_processes: Související participativní procesy
         social_networks_title: Navštivte shromáždění na
     assembly_members:
       assembly_member:

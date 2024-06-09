@@ -138,15 +138,7 @@ gl:
           search: Busca de accións
         show:
           stats:
-            attendees: Asistentes
             back_to_resource: Volver ao resultado
-            comments: Comentarios
-            contributions: Contribucións
-            last_edited_by: Última edición por
-            last_updated_at: Última actualización en
-            meetings: Reunións
-            proposals: Propostas
-            votes: Soporta
         timeline:
           title: Evolución do proxecto
     admin:
@@ -165,16 +157,12 @@ gl:
         name: Responsabilidade
         settings:
           global:
-            categories_label: Nome para "Categorías"
             comments_enabled: Comentarios habilitados
             comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
             display_progress_enabled: Mostrar o progreso
-            heading_leaf_level_results: Nome para "Proxectos"
-            heading_parent_level_results: Nome para "Resultados"
             intro: Intro
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
-            subcategories_label: Nome para "Subcategorías"
           step:
             comments_blocked: Comentarios bloqueados
     events:

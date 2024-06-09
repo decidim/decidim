@@ -55,6 +55,8 @@ module Decidim
     end
 
     def menu_highlighted_participatory_process
+      return if current_user.blank? && current_organization&.force_users_to_authenticate_before_access_organization
+
       @menu_highlighted_participatory_process ||= (
         # The queries already include the order by weight
         Decidim::ParticipatoryProcesses::OrganizationParticipatoryProcesses.new(current_organization) |

@@ -32,6 +32,17 @@ es-MX:
         execution_period: Período de ejecución
       proposal_state:
         announcement_title: Encabezado de la respuesta
+        bg_color: Color de fondo
+        colors:
+          blue: Azul
+          gray: Gris
+          green: Verde
+          orange: Naranja
+          pink: Rosa
+          purple: Morado
+          red: Rojo
+          yellow: Amarillo
+        text_color: Color del texto
       proposals_copy:
         copy_proposals: Entiendo que esto importará todas las propuestas del componente seleccionado al actual y que esta acción no se puede deshacer.
         origin_component_id: Componente desde dónde copiar las propuestas
@@ -175,9 +186,7 @@ es-MX:
             proposal_length: Longitud máxima del cuerpo de la propuesta
             proposal_limit: Límite de propuestas por usuario
             proposal_wizard_step_1_help_text: Texto de ayuda para el paso "Crear" del asistente de propuesta
-            proposal_wizard_step_2_help_text: Texto de ayuda para el paso "Comparar" del asistente de propuesta
-            proposal_wizard_step_3_help_text: Texto de ayuda para el paso "Comparar" del asistente de propuesta
-            proposal_wizard_step_4_help_text: 'Asistente de propuesta: texto de ayuda paso "Publicar"'
+            proposal_wizard_step_2_help_text: Texto de ayuda para el paso "Publicar" del asistente de propuestas
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada propuesta
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
@@ -288,12 +297,12 @@ es-MX:
         proposal_state_changed:
           affected_user:
             email_intro: 'La propuesta "%{resource_title}" ha cambiado su estado a "%{state}". Puedes leer la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque eres autora de "%{resource_title}".
+            email_outro: Has recibido esta notificación porque presentaste la propuesta "%{resource_title}".
             email_subject: Tu propuesta ha cambiado su estado (%{state})
             notification_title: Tu propuesta <a href="%{resource_path}">%{resource_title}</a> ha cambiado su estado a "%{state}".
           follower:
             email_intro: 'La propuesta "%{resource_title}" ha cambiado su estado a "%{state}". Puedes leer la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque estás siguiendo "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+            email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
             email_subject: Una propuesta que sigues ha cambiado su estado (%{state})
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha cambiado su estado a "%{state}".
         proposal_update_category:
@@ -474,6 +483,8 @@ es-MX:
           edit:
             title: Editar estado
             update: Actualizar
+          form:
+            preview: Previsualizar
           index:
             title: Estados
           new:
@@ -752,13 +763,6 @@ es-MX:
         create:
           error: Ha habido errores al apoyar la propuesta.
       proposals:
-        compare:
-          continue: Continuar
-          no_similars_found: '¡Bien hecho! No se encontraron propuestas similares'
-          title: Propuestas similares
-        complete:
-          send: Enviar
-          title: Completa tu propuesta
         dynamic_map_instructions:
           description: Las coordenadas se actualizarán cuando hagas clic en el botón 'previsualizar'. Sin embargo, la dirección no cambia.
           instructions: Puedes mover la ubicación en el mapa.
@@ -775,6 +779,8 @@ es-MX:
           discard_confirmation: '¿Estás seguro que quieres descartar este borrador de propuesta?'
           send: Previsualizar
           title: Editar el borrador de la propuesta
+        edit_form_fields:
+          marker_added: Marcador añadido al mapa.
         filters:
           activity: Mi actividad
           all: Todo
@@ -878,15 +884,11 @@ es-MX:
         wizard_aside:
           back: Volver
           back_from_step_1: Volver a propuestas
-          back_from_step_2: Volver a propuestas
-          back_from_step_3: Volver a comparar propuestas
-          back_from_step_4: Volver a editar borrador
+          back_from_step_2: Volver a la edición
         wizard_steps:
           current_step: Paso actual
           step_1: Crear tu propuesta
-          step_2: Comparar
-          step_3: Completar
-          step_4: Publicar tu propuesta
+          step_2: Publica tu propuesta
           title: Pasos de creación de una propuesta
       proposals_picker:
         choose_proposals: Elegir propuestas

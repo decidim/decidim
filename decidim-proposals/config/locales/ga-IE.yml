@@ -190,10 +190,6 @@ ga:
           amend: Leasaigh
           comment: Trácht
       proposals:
-        compare:
-          continue: Lean ar aghaidh
-        complete:
-          send: Seol
         edit:
           back: Ar Ais
           select_a_category: Roghnaigh catagóir le do thoil
@@ -226,9 +222,6 @@ ga:
             votes: Tacaíochtaí
         wizard_aside:
           back: Ar Ais
-        wizard_steps:
-          step_2: Cuir i gcomparáid
-          step_3: Críochnaithe
       versions:
         index:
           title: Leaganacha

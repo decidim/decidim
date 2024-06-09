@@ -92,7 +92,6 @@ pt-BR:
       menu:
         attachments: Anexos
         committee_members: Membros do Comitê
-        components: Componentes
         information: Em formação
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
@@ -410,6 +409,7 @@ pt-BR:
         committee_members:
           approve: Aprovar
           link: Link
+          revoke: Revogar
           title: Membros do Comitê
         count:
           title:
@@ -479,7 +479,6 @@ pt-BR:
           other: " assinaturas"
         vote_cabin:
           already_voted: Já assinadas
-          supports_required: "São necessárias %{total_supports} assinaturas"
           verification_required: Confirme sua conta para assinar a iniciativa
           vote: Placa
           votes_blocked: Assinatura desativada

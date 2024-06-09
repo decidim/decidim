@@ -30,3 +30,5 @@ pl:
           update:
             invalid: Podczas zapisywania strony wystąpił błąd.
             success: Strona została zapisana.
+      show:
+        empty: Nie ma jeszcze zawartości na tej stronie.

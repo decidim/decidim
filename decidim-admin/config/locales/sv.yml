@@ -169,6 +169,7 @@ sv:
         export: Exportera alla
         export-selection: Exportera markering
         import: Importera
+        manage: Hantera
         newsletter:
           new: Nytt nyhetsbrev
         participatory_space_private_user:
@@ -985,3 +986,8 @@ sv:
   errors:
     messages:
       invalid_json: Ogiltig JSON
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Global moderering

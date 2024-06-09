@@ -128,9 +128,6 @@ ga:
         others: Eile
       show:
         duration: Fad
-        is_transparent:
-          'false': doiléir
-        related_participatory_processes: Próisis Rannpháirteacha Ceangailte
     assembly_members:
       index:
         title: Baill

@@ -79,6 +79,9 @@ ru:
           category: Категория
           scope: Охват
           search: Поиск
+        project_budget_button:
+          add: Добавить
+          added: Добавлено
         show:
           budget: Бюджет
     components:

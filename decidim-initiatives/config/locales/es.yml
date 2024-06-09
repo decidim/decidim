@@ -79,7 +79,6 @@ es:
   decidim:
     admin:
       actions:
-        manage: Gestionar
         new_initiative_type: Nuevo tipo de iniciativa
         new_initiative_type_scope: Añadir ámbito del tipo de iniciativa
       filters:
@@ -106,7 +105,6 @@ es:
       menu:
         attachments: Adjuntos
         committee_members: Miembros de la comisión
-        components: Componentes
         information: Información
         initiative_type_scopes: Ámbitos del tipo de iniciativa
         initiatives: Iniciativas
@@ -159,33 +157,33 @@ es:
         admin:
           initiative_sent_to_technical_validation:
             email_intro: La iniciativa "%{resource_title}" ha sido enviada a validación técnica. Compruébalo a través del <a href="%{admin_initiative_url}"> panel de administración</a>
-            email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
+            email_outro: Has recibido esta notificación porque administras la plataforma.
             email_subject: La iniciativa %{resource_title} ha solicitado validación técnica.
             notification_title: La iniciativa "%{resource_title}" ha sido enviada a validación técnica. Compruébalo a través del <a href="%{admin_initiative_path}"> panel de administración</a>
         initiative_extended:
           email_intro: '¡El plazo de finalización de la iniciativa %{resource_title} se ha ampliado!'
-          email_outro: Has recibido esta notificación porque está siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_outro: Has recibido esta notificación porque está siguiendo la iniciactiva "%{resource_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: '¡Ampliado el términio de recogida de firmas para esta iniciativa!'
           notification_title: El plazo de recogida de firmas para la iniciativa <a href="%{resource_path}">%{resource_title}</a> se ha ampliado.
         initiative_sent_to_technical_validation:
           email_intro: La iniciativa "%{resource_title}" ha sido enviada a la validación técnica. Compruébala en <a href="%{admin_initiative_url}">el panel de administración</a>
-          email_outro: Has recibido esta notificación porque eres una administradora de la plataforma.
+          email_outro: Has recibido esta notificación porque administras la plataforma.
           email_subject: La iniciativa "%{resource_title}" fue enviada a validación técnica.
           notification_title: La iniciativa "%{resource_title}" ha sido enviada a validación técnica. Compruébalo en <a href="%{admin_initiative_path}">el panel de administración</a>
         milestone_completed:
           affected_user:
             email_intro: '¡Tu iniciativa %{resource_title} ha conseguido el %{percentage}% de las firmas necesarias!'
-            email_outro: Has recibido esta notificación porque eres la autora de la iniciativa %{resource_title}.
+            email_outro: Has recibido esta notificación porque promueves la iniciativa "%{resource_title}".
             email_subject: '¡Nuevo hito completado!'
             notification_title: Tu iniciativa <a href="%{resource_path}">%{resource_title}</a> ha conseguido el %{percentage}% de firmas.
           follower:
             email_intro: '¡La iniciativa %{resource_title} ha logrado el %{percentage}% de firmas!'
-            email_outro: Has recibido esta notificación porque estás siguiendo a %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+            email_outro: Has recibido esta notificación porque estás siguiendo la iniciativa "%{resource_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: '¡Nuevo hito completado!'
             notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha logrado el %{percentage}% de las firmas.
         support_threshold_reached:
           email_intro: La iniciativa %{resource_title} ha alcanzado el umbral de firmas
-          email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
+          email_outro: Has recibido esta notificación porque administras la plataforma.
           email_subject: Umbral de firmas alcanzado
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha alcanzado el umbral de firmas
     gamification:
@@ -416,12 +414,12 @@ es:
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> fue adherida por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} rechazó tu solicitud para formar parte del comité promotor de la siguiente iniciativa %{resource_title}."
-          email_outro: 'Has recibido esta notificación porque has solicitado unirte a esta iniciativa: %{resource_title}.'
+          email_outro: 'Has recibido esta notificación porque has solicitado unirte a esta iniciativa: "%{resource_title}".'
           email_subject: "%{author_nickname} rechazó tu solicitud para unirte al comité promotor"
           notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> rechazó tu solicitud para formar parte del comité promotor de la siguiente iniciativa <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
           email_intro: "%{applicant_nickname} ha solicitado unirse al comité promotor de tu iniciativa %{resource_title}. Para aceptar o rechazar la solicitud, ve al formulario de edición de tu iniciativa."
-          email_outro: 'Has recibido esta notificación porque eres la autora de la iniciativa %{resource_title}'
+          email_outro: 'Has recibido esta notificación porque promueves esta iniciativa: "%{resource_title}"'
           email_subject: "%{applicant_nickname} quiere unirse a tu iniciativa"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha solicitado unirse al comité promotor de tu iniciativa <a href="%{resource_url}">%{resource_title}</a>. Para aceptar o rechazar la solicitud haz clic <a href="%{resource_url}/edit">aquí</a>.
       form:
@@ -541,7 +539,6 @@ es:
           other: " firmas"
         vote_cabin:
           already_voted: Ya has firmado
-          supports_required: "Se requieren %{total_supports} firmas"
           verification_required: Verifica tu cuenta para firmar la iniciativa
           vote: Firmar
           votes_blocked: Se ha desactivado la firma

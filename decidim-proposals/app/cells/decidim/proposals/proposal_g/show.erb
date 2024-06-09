@@ -1,0 +1,23 @@
+<%= link_to resource_path, class: classes[:default], id: resource_id do %>
+  <div class="<%= classes[:img] %>">
+    <% if has_image? %>
+      <%= image_tag resource_image_path, alt: alt_title %>
+    <% else %>
+      <%= external_icon "media/images/proposal-placeholder-card-g.svg", class: "card__proposal-placeholder-g" %>
+    <% end %>
+  </div>
+  <div class="<%= classes[:text] %>">
+    <div class="card__grid-text-title">
+      <%= content_tag title_tag, title, class: title_class %>
+      <%= proposal_state_item[:text] if proposal_state_item.present? %>
+    </div>
+
+    <%= description if show_description? %>
+
+    <% if metadata_cell.present? %>
+      <div class="<%= classes[:metadata] %>">
+        <%= cell metadata_cell, resource, links: false, skip_state: true, **options %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

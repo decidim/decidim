@@ -112,7 +112,7 @@ describe "Explore posts" do
       it "show post info" do
         expect(page).to have_i18n_content(post.title)
         expect(page).to have_i18n_content(post.body)
-        expect(page).to have_content(post.author.name)
+        expect(page).to have_content(translated(post.author.name))
         expect(page).to have_content(post.created_at.strftime("%d/%m/%Y %H:%M"))
       end
 

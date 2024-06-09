@@ -16,8 +16,7 @@ module Decidim
       has_many :emendations,
                through: :amendments,
                source: :emendation,
-               source_type: name,
-               inverse_of: :emendations
+               source_type: name
 
       # resource.amenders : users that have created emendations for the original resource
       has_many :amenders,

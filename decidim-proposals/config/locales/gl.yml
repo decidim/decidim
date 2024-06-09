@@ -146,9 +146,6 @@ gl:
             proposal_length: Lonxitude máxima do corpo da proposta
             proposal_limit: Límite de proposta por usuario
             proposal_wizard_step_1_help_text: Asistente de propostas "Crear" texto de axuda paso a paso
-            proposal_wizard_step_2_help_text: Asistente de propostas "Comparar" texto de axuda paso a paso
-            proposal_wizard_step_3_help_text: Asistente de propostas Texto de axuda de paso "Completo"
-            proposal_wizard_step_4_help_text: Asistente de propostas "Publica" o texto de axuda paso a paso
             resources_permissions_enabled: Os permisos de acción pódense establecer para cada proposta
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
@@ -546,13 +543,6 @@ gl:
         create:
           error: Houbo erros ao votar a proposta.
       proposals:
-        compare:
-          continue: Continúe
-          no_similars_found: Ben feito! Non se atoparon propostas similares
-          title: Propostas similares
-        complete:
-          send: Enviar
-          title: Completa a túa proposta
         dynamic_map_instructions:
           instructions: Podes mover o punto no mapa.
         edit:
@@ -653,9 +643,6 @@ gl:
           back: De volta
         wizard_steps:
           step_1: Crea a túa proposta
-          step_2: Compare
-          step_3: Completa
-          step_4: Publica a túa proposta
       publish:
         error: Houbo erros ao publicar a proposta.
         success: Proposta publicada correctamente.

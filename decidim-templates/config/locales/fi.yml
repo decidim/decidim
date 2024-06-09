@@ -25,6 +25,8 @@ fi:
         destroy:
           success: Mallipohjan poisto onnistui.
         empty: Mallipohjia ei ole vielä lisätty.
+        fetch:
+          error: Mallipohjaa ei löytynyt. Lataa sivu uudelleen.
         missing_resource: "(puuttuva resurssi)"
         update:
           error: Mallipohjan päivitys epäonnistui.

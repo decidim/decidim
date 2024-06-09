@@ -3,12 +3,15 @@
 module Decidim
   module Initiatives
     # A form object used to collect the data for a new initiative.
-    class InitiativeForm < PreviousForm
+    class InitiativeForm < Form
       include TranslatableAttributes
       include AttachmentAttributes
 
       mimic :initiative
 
+      attribute :title, String
+      attribute :description, String
+      attribute :type_id, Integer
       attribute :area_id, Integer
       attribute :decidim_user_group_id, Integer
       attribute :signature_type, String
@@ -21,6 +24,9 @@ module Decidim
       attachments_attribute :photos
       attachments_attribute :documents
 
+      validates :title, :description, presence: true
+      validates :title, length: { maximum: 150 }
+      validates :type_id, presence: true
       validates :signature_type, presence: true
       validates :area, presence: true, if: ->(form) { form.area_id.present? }
       validate :notify_missing_attachment_if_errored
@@ -37,6 +43,10 @@ module Decidim
         self.signature_type = model.signature_type || initiative_type.signature_type
         self.title = translated_attribute(model.title)
         self.description = translated_attribute(model.description)
+      end
+
+      def type
+        @type ||= type_id ? Decidim::InitiativesType.find(type_id) : context.initiative.type
       end
 
       def signature_type_updatable?

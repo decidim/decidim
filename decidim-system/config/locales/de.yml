@@ -31,6 +31,10 @@ de:
           attributes:
             redirect_uri:
               must_be_ssl: Der Umleitungs-URI muss ein SSL-URI sein
+        organization:
+          attributes:
+            password:
+              secret_key: Sie müssen die SECRET_KEY_BASE Umgebungsvariable definieren, um dieses Feld speichern zu können
   decidim:
     system:
       actions:
@@ -237,7 +241,7 @@ de:
           fieldsets:
             sender: Absender
           instructions:
-            from_label: 'E-Mail-Absender lautet: "Ihr-Organisationsname <your-organization@example.org>". Leer lassen, um die E-Mail-Adresse als Absender zu verwenden.'
+            from_label: 'E-Mail-Absender lautet: "Ihre-Organisation <ihre-organisation@example.org>". Leer lassen, um die E-Mail-Adresse als Absender zu verwenden.'
           placeholder:
             from_email: deine-organisation@example.org
             from_label: name-ihrer-organisation

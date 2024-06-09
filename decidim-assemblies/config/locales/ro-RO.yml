@@ -356,11 +356,7 @@ ro:
       show:
         assembly_type: Tipul grupului de lucru
         duration: Durată
-        is_transparent:
-          'false': opac
-          'true': transparent
         private_space: Acesta este un grup de lucru privat
-        related_participatory_processes: Procese participative asociate
         social_networks_title: Vizitează adunarea pe
     assembly_members:
       assembly_member:

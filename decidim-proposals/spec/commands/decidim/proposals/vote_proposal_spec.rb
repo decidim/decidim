@@ -53,7 +53,7 @@ module Decidim
         context "when the threshold have been reached but proposal can accumulate more votes" do
           before do
             allow(proposal).to receive(:maximum_votes_reached?).and_return(true)
-            allow(proposal).to receive(:can_accumulate_supports_beyond_threshold).and_return(true)
+            allow(proposal).to receive(:can_accumulate_votes_beyond_threshold).and_return(true)
           end
 
           it "creates a new vote for the proposal" do

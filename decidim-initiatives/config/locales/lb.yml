@@ -83,7 +83,6 @@ lb:
       menu:
         attachments: Anhänge
         committee_members: Ausschussmitglieder
-        components: Komponenten
         information: Information
         initiatives: Initiativen
         initiatives_types: Arten von Initiativen
@@ -330,6 +329,7 @@ lb:
             other: und %{count} weitere Leute
         committee_members:
           approve: Genehmigen
+          revoke: Widerrufen
           title: Ausschussmitglieder
         count:
           title:

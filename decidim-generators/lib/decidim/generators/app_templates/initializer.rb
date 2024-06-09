@@ -419,8 +419,6 @@ end
 
 if Decidim.module_installed? :proposals
   Decidim::Proposals.configure do |config|
-    config.similarity_threshold = Rails.application.secrets.dig(:decidim, :proposals, :similarity_threshold).presence || 0.25
-    config.similarity_limit = Rails.application.secrets.dig(:decidim, :proposals, :similarity_limit).presence || 10
     config.participatory_space_highlighted_proposals_limit = Rails.application.secrets.dig(:decidim, :proposals, :participatory_space_highlighted_proposals_limit).presence || 4
     config.process_group_highlighted_proposals_limit = Rails.application.secrets.dig(:decidim, :proposals, :process_group_highlighted_proposals_limit).presence || 3
   end
@@ -459,8 +457,6 @@ if Decidim.module_installed? :initiatives
     unless Rails.application.secrets.dig(:decidim, :initiatives, :creation_enabled) == "auto"
       config.creation_enabled = Rails.application.secrets.dig(:decidim, :initiatives, :creation_enabled).present?
     end
-    config.similarity_threshold = Rails.application.secrets.dig(:decidim, :initiatives, :similarity_threshold).presence || 0.25
-    config.similarity_limit = Rails.application.secrets.dig(:decidim, :initiatives, :similarity_limit).presence || 5
     config.minimum_committee_members = Rails.application.secrets.dig(:decidim, :initiatives, :minimum_committee_members).presence || 2
     config.default_signature_time_period_length = Rails.application.secrets.dig(:decidim, :initiatives, :default_signature_time_period_length).presence || 120
     config.default_components = Rails.application.secrets.dig(:decidim, :initiatives, :default_components)

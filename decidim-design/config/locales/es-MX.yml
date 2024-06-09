@@ -31,6 +31,50 @@ es-MX:
         buttons:
           description_html: 'Los botones se construyen utilizando diferentes combinaciones de clases CSS: la clase <code>botón</code>, un tamaño y un color.'
           title: Botones
+        cards:
+          title: Tarjetas
+        dialogs:
+          dialog_demo_description_html: Los cuadros de diálogo, o elementos modales, se implementan a través del ayudante de <i>rails</i><code>decidim_modal</code>.
+          dialogs_description_html: Los cuadros de diálogo son una característica <i>JavaScript</i> disponible gracias a una biblioteca externa llamada <a href="https://github.com/jonathanlevaillant/a11y-dialogo-component" target="_blank" rel="noopener noreferrer">a11y-dialogo-component</a>.
+          tips_description: 'Para mostrar una modal compleja, que coincida con los estilos, añade el siguiente marcador:'
+          tips_description_html: Presta atención a los <i>data-attributes</i> y a los <i>Ids</i>. Por ejemplo, el <code>[data-dialog-title]</code> de los <i>Ids</i> empieza con <i>dialog-title</i> más el <i>modal id</i>.
+          title: Cuadros de diálogo
+          usage_description: Un cuadro de diálogo requiere dos elementos
+          usage_description_2_html: 2. Un elemento modal, cuyo <code>id</code> coincide con el valor de los controles de datos al que se refiere el activador.
+          usage_description_html: 1. Un elemento accionable por la participante, con el atributo de datos <code>data-dialog-open="example"</code>, donde <i>example</i> es la <code>Id</code> de la modal.
+        follow:
+          title: Seguir
+        forms:
+          disabled: Deshabilitado
+          emojis: Emoticonos
+          emojis_description: Solo funciona en áreas de texto
+          errors: Errores
+          errors_description: No se puede seleccionar
+          header_alert: Se muestra esta página a partir de una vista antigua. El contenido está desactualizado.
+          help_texts: Texto de ayuda
+          html_regular_inputs: Entradas HTML habituales
+          min_max_length: Longitud Mín/Máx
+          min_max_length_description: Solo funciona en entradas de tipo texto y área de texto
+          regular_inputs_description: 'Solo muestra tipos comunes, lista completa disponible: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
+          textarea_required: área de texto requerida
+          title: Formularios
+        report:
+          title: Denunciar
+        share:
+          title: Compartir
+        tab_panels:
+          title: Panel de pestañas
+        tooltips:
+          demo: Demo
+          demo_description: Para que este componente funcione, un participante debe pasar el cursor sobre el elemento.
+          description: Un <i>tooltip</i> es un componente con el que, al pasar el ratón por encima,  las participantes pueden tener información adicional sobre él.
+          github_source_html: Código fuente en GitHub %{github_link}
+          title: Descripción emergente
+          usage: Uso
+          usage_p: 'Una descripción emergente necesita utilizar el ayudante "with_tooltip" con tres argumentos:'
+          usage_p_1_html: 1. Una ristra de caracteres o frase de la descripción emergente. En el ejemplo de esta página es "Hola mundo".
+          usage_p_2_html: 2. Una clase opcional con un símbolo donde se mostrará la descripción emergente. Los valores posibles son <code>:top</code>, <code>:bottom</code>, <code>:right</code>, o <code>:left</code>.
+          usage_p_3_html: 3. Un bloque con ristra de caracteres o frase por la que la usuaria debe pasar el cursor para que se muestre.
       foundations:
         accessibility:
           accessibility_labels: Etiquetas de accesibilidad
@@ -48,6 +92,7 @@ es-MX:
           elements_hidden_header: Elementos escondidos de la API de accesibilidad
           elements_hidden_paragraph: Para ocultar un elemento de las tecnologías de asistencia, utiliza el atributo aria-hidden="true" en él.
           heading_on: Encabezado en secciones importantes
+          here_link: aquí
           illogical_heading_order: Orden de encabezado ilógica
           illogical_heading_paragraph: Cada página debe tener un orden de encabezado lógico cuando utilices los elementos de encabezamiento <h1>, <h2>, <h3>, <h4>, <h5> y <h6>.
           important_sections_heading: Encabezado en secciones importantes
@@ -100,47 +145,133 @@ es-MX:
           description: Estas directrices resumen cómo utilizar la tipografía en Decidim, y sirven como pauta para que las diseñadoras puedan diseñen libremente con las mejores prácticas tipográficas en mente.
           headings:
             characters: Caracteres por línea
+            layout: Diseño de columnas
             size:
           title: Tipografía
           typefaces_description_1: Decidim utiliza Source Sans Pro como tipo de letra primario. Este tipo de letra está disponible de todas las variantes de caracteres en 310 lenguas
           typefaces_description_2: Estas tipografías están bajo la licencia Open Font
       helpers:
+        accountability:
+        accountability_cards_html: Utilizado por tarjetas de proyectos de <i>Rendición de cuentas</i>. Esta tarjeta requiere que los activos del módulo se muestren correctamente, es decir, <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
         activity: Actividad
         address_description: La celda de dirección recibe un recurso y busca los atributos geolocalizables para representar un marcado específico.
         address_description_2: Dependiendo del tipo de contenido, la dirección puede ser una dirección web. Para estos casos, la información mostrada es bastante igual, pero está moldeada para adecuarla.
+        ally_link: a11y-dropdown-component
+        argument: Parámetro
+        assemblies: Asambleas
+        assembly_g: Asamblea G
+        assembly_s: Asamblea S
         avatar: Imagen de perfil
         avatar_description: Se utiliza cuando hay espacios estrechos, donde la autoría es una información secundaria.
         background: Bordes y fondo
         base: Base
+        block_text: Usar el bloque extra_data
+        blog_cards_html: Utilizado por tarjetas del <i>Blog</i>
+        blogs: Blog
+        budget_card_html: Utilizado por tarjetas proyectos de <i>Presupuestos</i>. Esta tarjeta requiere que los activos del módulo se muestren correctamente, es decir, <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
+        budgets: Presupuestos
+        callout_class: Clase de la llamada
         callout_description: Este atributo aplica un estado al anuncio/avís. Por defecto, utiliza color secundario.
+        card_g: Tarjeta G
+        card_l: Tarjeta L
+        card_s: Tarjeta S
+        collaborative_draft_l: Borrador colaborativo L
         colors: Colores
         compact:
         compact_description: Esta versión de la autoría es la manera común de identificar a la creadora del recurso.
+        conference_g: Jornada G
+        conference_s: Jornada S
+        conferences: Jornadas
         context: Contexto
         context_description: Esta celda muestra información acerca de un usuario. Es una ayuda visual para identificar la creadora del recurso/contenido. Al pasar por encima el cursor, se muestra una descripción con más información y enlaces a su perfil.
         context_description_2: Para los recursos, esta célula aparece debajo del encabezado principal. Para otros contenidos, aparece al lado del contenido mismo.
+        debate_l: Debate L
+        debate_s: Debate S
+        debates: Debates
+        debates_cards_html: Utilizado por tarjetas de <i>Debates</i>
+        debates_cards_text: Usar una plantilla diferente para el bloque de imagen
         default: Por defecto
         default_description: Llamar a la celda sin argumentos adicionales, sino a la propia usuaria.
         demo: Demo
         demo_text: 'Esta celda recibe un modelo de elementos de Última Actividad y muestra los siguientes elementos:'
         demo_text_2: Utilizado por la última página de actividad, en un bloque de contenido y dentro de los desplegables.
+        description: Descripción
         disabled: Deshabilitado
+        dropdowns: Menús desplegables
+        dropdowns_demo_1_description: 'El siguiente ejemplo no será visible en el escritorio, pero en el móvil:'
+        dropdowns_demo_description: Los menús desplegables se utilizan a lo largo de la aplicación para colapsar menús grandes, menús fáciles de leer para dispositivos de escritorio, pero demasiado difíciles para dispositivos móviles.
+        dropdowns_demo_description_html: 'Esta característica de JavaScript está mejorada con un pequeño .css, a través del nombre: el contenido oculto DEBE INCLUIR una <code>id</code> que comienza con <i>menú desplegable</i>.'
+        dropdowns_description_html: Los menús desplegables son una característica <i>JavaScript</i> disponible gracias a una biblioteca externa llamada %{link}.
+        dropdowns_usage_1_description: 2. Un elemento modal, cuya <code>id</code> coincide con el valor de los controles de datos al que se refiere el activador.
+        dropdowns_usage_description: 'Un menú desplegable requiere dos elementos:'
+        dropdowns_usage_description_html: 1. Un elemento accionable por la participante, con los atributos de datos <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
+        dummy_description: Descripción del recurso ficticio
+        dummy_title: Título del recurso ficticio
+        follow_button: Botón "Seguir"
+        follower_description_html: Asegúrate de que el <code>decidim/shared/login_modal</code> parcial esté presente en el DOM. Este parcial se coloca en el diseño de la aplicación cuando la participante está conectada.
         form_elements: Elementos del formulario
+        generic_cards: Tarjetas genéricas
+        grid: Cuadrícula
         hex_code: Código hexadecimal
+        highlight: Destacado
+        highlight_description: Utilizado por recursos que permiten ser destacados
+        html_tips:
         icons: Iconos
+        image_and_description: Imagen y Descripción
+        initiative_g: Iniciativa G
+        initiative_s: Iniciativa S
+        initiatives: Iniciativas
+        list: Lista
         main_colors: Colores principales
+        meeting_l: Encuentro L
+        meeting_s: Encuentro S
+        meetings: Encuentros
+        meetings_html: Utilizado por tarjetas de <i>Encuentros</i>
+        metadata_items: Elementos de metadatos
+        metadata_text: Cada recurso define sus propios elementos de metadatos
+        participatory_process_g: Proceso Participativo G
+        participatory_process_group_g: Grupo de procesos participativos G
+        participatory_process_group_s: Grupo de procesos participativos S
+        participatory_process_s: Proceso Participativo S
+        participatory_processes: Procesos participativos
         plain_text: Soy un texto pla/simple
         plain_text_description: Puede proporcionar como primer argumento tanto un texto plano como un objeto hash
         plain_text_vs_hash: Texto simple vs Hash
+        post_g: Artículo del blog G
+        post_l: Artículo del blog L
+        post_s: Artículo del blog S
+        project_l: Proyecto L
+        project_s: Proyecto S
+        proposal_l: Propuesta L
+        proposal_s: Propuesta S
+        proposals: Propuestas
+        report_button: Botón "Denunciar"
+        report_usage_description: El botón "Denunciar" abre una ventana emergente para marcar el recurso actual.
+        result_l: Resultado L
         rgba_code: Código RGBA
+        search: Buscar
         send: Enviar
+        share_button: Botón de "Compartir"
+        share_usage_description_html: Asegúrate de que el <code>decidim/shared/share_modal</code> parcial esté presente en el DOM. Este parcial se coloca en el diseño de la aplicación.
         sizes: Tamaños
+        sortition_l: Sorteo L
+        sortitions: Sorteos
         source_code: Código Fuente
         state: Estado
+        tab_panels_context_description: Este componente del panel de pestañas recolecta todos los contenidos relacionados u otros recursos del elemento principal mostrado, con el fin de ahorrar espacio vertical. Al hacer clic en la pestaña se activará el panel creado para mostrar el contenido.
+        tab_panels_context_description_html: Se utiliza principalmente en <i>layout_item</i> o en <i>layout_center</i>, después del contenido principal del recurso.
+        tab_panels_usage_description: 'Este componente recibe una matriz de <i>hashes</i>, y reorganiza la salida de cada elemento en una estructura de panel de pestañas. Estas son las propiedades disponibles para cada panel:'
+        tab_panels_usage_description_arguments_html: "<strong>args</strong>: <i>Array</i>. Parámetros para la función anterior"
+        tab_panels_usage_description_html: "<strong>enabled</strong>: <i>Boolean</i>. Renderizar condicionalmente la pestaña"
+        tab_panels_usage_description_id_html: "<strong>id</strong>: <i>String</i>. Id único"
+        tab_panels_usage_description_rails_html: "<strong>method</strong>: <i>Symbol</i>. Cualquier función que <i>rails</i> entienda"
+        tab_panels_usage_description_remixicon_html: "<strong>icon</strong>: <i>String</i>. Clave Remixicon para el Icono"
+        tab_panels_usage_description_tab_html: "<strong>text</strong>: <i>String</i>. Título de la pestaña"
         tailwind: Nombre del Tailwind
         text: Texto
         transparent: Transparente
         transparent_description: 'En caso de un fondo más oscuro:'
+        types: Tipos
         typography_texts: Textos y tipografía
         usage: Uso
         usage_background_1: Fondo lateral
@@ -163,6 +294,7 @@ es-MX:
         usage_typography_4: Enlaces y botones
         value: Valor
         variations: Variaciones
+        variations_cards_description: Cada tarjeta se verá diferente en función a las propiedades del recurso mostrado. Puedes anular este comportamiento en la celda específica.
         variations_description: Hay tres versiones diferentes de esta celda. Cada una encaja mejor con el contexto en el que se muestra.
         variations_text: En cuanto al tipo de actividad, la celda podría mostrar diferentes contenidos, informando de los distintos recursos, pertenezcan o no a un espacio participativo, tengan o no autoría.
       home:

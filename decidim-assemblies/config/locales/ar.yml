@@ -348,11 +348,7 @@ ar:
       show:
         assembly_type: نوع الجمعية
         duration: المدة الزمنية
-        is_transparent:
-          'false': مبهمة
-          'true': شفافة
         private_space: هذه جمعية خاصة
-        related_participatory_processes: العمليات التشاركية ذات الصلة
         social_networks_title: زيارة التجمع على
     assembly_members:
       assembly_member:

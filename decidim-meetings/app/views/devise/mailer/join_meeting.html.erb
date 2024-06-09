@@ -1,7 +1,9 @@
 <p class="email-greeting"><%= t("devise.mailer.invitation_instructions.hello", email: @resource.name) %></p>
 
 <p class="email-instructions">
-  <%= t("decidim.meetings.admin.invite_join_meeting_mailer.invite.invited_you_to_join_a_meeting", invited_by: @resource.invited_by.name, application: @resource.organization.name) %>
+  <%= t("decidim.meetings.admin.invite_join_meeting_mailer.invite.invited_you_to_join_a_meeting",
+        invited_by: @resource.invited_by.name,
+        application: translated_attribute(@resource.organization.name)) %>
 </p>
 
 <p class="email-button email-button__cta cta-decline"><%= link_to t("devise.mailer.invitation_instructions.decline"), accept_invitation_url(@resource, invitation_token: @token, invite_redirect: Decidim::EngineRouter.main_proxy(@opts[:meeting].component).decline_invitation_meeting_registration_path(meeting_id: @opts[:meeting], participatory_space_id: @opts[:meeting].component.participatory_space), host: @resource.organization.host) %></p>

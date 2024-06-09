@@ -375,11 +375,7 @@ lt:
       show:
         assembly_type: Asamblėjos tipas
         duration: Trukmė
-        is_transparent:
-          'false': neskaidru
-          'true': skaidru
         private_space: Tai yra uždara asamblėja
-        related_participatory_processes: Susiję dalyvaujamieji procesai
         social_networks_title: Aplankyti asamblėją
     assembly_members:
       assembly_member:

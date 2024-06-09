@@ -278,6 +278,7 @@ ERVz
 Esa
 espa
 estat
+Etags
 etherpad
 evanfuture
 evt
@@ -587,9 +588,11 @@ nodoc
 nok
 nomargin
 nominatim
+noopen
 nopadding
 noresults
 normalcase
+nosniff
 notif
 notselected
 npmjs
@@ -694,6 +697,7 @@ preheader
 premailer
 Preproc
 presenceness
+previewer
 previewurl
 privatable
 Procesos
@@ -949,6 +953,7 @@ usergroup
 usermenu
 Uth
 utm
+uuids
 Uusimaa
 Valero
 validable

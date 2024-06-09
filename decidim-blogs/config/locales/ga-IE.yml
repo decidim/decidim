@@ -31,6 +31,9 @@ ga:
             body: Corp
     components:
       blogs:
+        actions:
+          comment: Tabhair Trácht
+          endorse: Formhuinigh
         name: Blag
         settings:
           step:

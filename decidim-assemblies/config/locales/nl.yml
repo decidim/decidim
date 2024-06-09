@@ -323,11 +323,7 @@ nl:
       show:
         assembly_type: Groepstype
         duration: Duur
-        is_transparent:
-          'false': ondoorzichtig
-          'true': Transparant
         private_space: Dit is een privé event
-        related_participatory_processes: Verwante inspraakprocessen
         social_networks_title: Bezoek groep op
     assembly_members:
       assembly_member:

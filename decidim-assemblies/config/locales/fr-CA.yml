@@ -396,11 +396,7 @@ fr-CA:
       show:
         assembly_type: Type d'assemblée
         duration: Durée
-        is_transparent:
-          'false': non-visible par les non-membres
-          'true': visible par les non-membres
         private_space: Ceci est une assemblée privée
-        related_participatory_processes: Concertations associées
         social_networks_title: Visiter l'assemblée sur
     assembly_members:
       assembly_member:

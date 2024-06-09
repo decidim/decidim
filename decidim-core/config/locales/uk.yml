@@ -156,6 +156,11 @@ uk:
           ok: Гаразд
           title: Недостатньо прав через відсутність підтвердження особи
     collapsible_list:
+      hidden_elements_count:
+        one: і ще %{count}
+        few: і ще %{count}
+        many: і ще %{count}
+        other: і ще %{count}
       see_less: "(читати менше)"
     components:
       dummy:
@@ -327,6 +332,10 @@ uk:
           intro: "%{sender} написав нові повідомлення у вашій бесіді. Клацніть тут, щоб переглянути їх:"
           subject: Ви отримали нові повідомлення від %{sender}
       conversations:
+        index:
+          title: Бесіди
+        show:
+          title: Бесіда з %{usernames}
         start:
           send: Надіслати
     newsletter_mailer:
@@ -380,6 +389,7 @@ uk:
       deleted: Видалений учасник
     profiles:
       show:
+        conversations: Бесіди
         followers: Ті, хто стежить
         following: 'Стежить за:'
       user:

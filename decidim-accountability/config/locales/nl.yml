@@ -148,15 +148,7 @@ nl:
           search: Zoek naar acties
         show:
           stats:
-            attendees: Deelnemers
             back_to_resource: Ga terug naar resultaat
-            comments: Reacties
-            contributions: Bijdrage
-            last_edited_by: Laatst bewerkt door
-            last_updated_at: Laatst bijgewerkt om
-            meetings: Events
-            proposals: Voorstellen
-            votes: Ondersteunt
         timeline:
           title: Project evolutie
     admin:
@@ -175,16 +167,12 @@ nl:
         name: Opvolging
         settings:
           global:
-            categories_label: Naam voor "Categorieën"
             comments_enabled: Reacties ingeschakeld
             comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
             display_progress_enabled: Geef de voortgang weer
-            heading_leaf_level_results: Naam voor "Projecten"
-            heading_parent_level_results: Naam voor "Resultaten"
             intro: Inleiding
             scope_id: Scope
             scopes_enabled: Scopes ingeschakeld
-            subcategories_label: Naam voor 'Subcategorieën'
           step:
             comments_blocked: Reacties geblokkeerd
     events:

@@ -17,7 +17,7 @@ describe Decidim::WelcomeNotificationEvent do
   let(:organization) { create(:organization, name: organization_name) }
 
   context "with a normal organization name" do
-    let(:organization_name) { "My Organization" }
+    let(:organization_name) { { ca: "", en: "My Organization", es: "" } }
 
     describe "#email_subject" do
       subject { event_instance.email_subject }
@@ -33,7 +33,7 @@ describe Decidim::WelcomeNotificationEvent do
   end
 
   context "with an organization with an apostrophe" do
-    let(:organization_name) { "My ol'Organization" }
+    let(:organization_name) { { ca: "", en: "My ol'Organization", es: "" } }
 
     describe "#email_subject" do
       subject { event_instance.email_subject }

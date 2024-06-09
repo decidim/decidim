@@ -394,11 +394,7 @@ pt-BR:
       show:
         assembly_type: Tipo de assembleia
         duration: Duração
-        is_transparent:
-          'false': opaco
-          'true': transparente
         private_space: Esta é uma assembleia privada
-        related_participatory_processes: Processos participativos relacionados
         social_networks_title: Visite assembleia em
     assembly_members:
       assembly_member:

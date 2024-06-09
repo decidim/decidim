@@ -1,1 +1,9 @@
+---
 "no":
+  decidim:
+    design:
+      components:
+        address:
+          title: Adresse
+        follow:
+          title: Følg

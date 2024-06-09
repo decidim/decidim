@@ -317,11 +317,7 @@
       show:
         assembly_type: Forsamlingstype
         duration: Varighet
-        is_transparent:
-          'false': opaque
-          'true': privat
         private_space: Dette er en privat forsamling
-        related_participatory_processes: Relaterte deltakerprosesser
     assembly_members:
       assembly_member:
         designated_on: Utpekt på

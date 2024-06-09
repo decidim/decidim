@@ -184,6 +184,11 @@ es:
         finished_message: Has terminado el proceso de votación. ¡Gracias por participar!
         highlighted_cta: Votar en %{name}
         if_change_opinion: Si has cambiado de opinión, puedes
+        orders:
+          highest_cost: Coste más elevado
+          label: Ordenar proyectos por
+          lowest_cost: Coste más bajo
+          random: Orden aleatorio
         progress: Finalizar votación
         remove_vote: Eliminar el voto
         show: Ver proyectos
@@ -361,7 +366,7 @@ es:
       budgets:
         budget_published:
           email_intro: 'Ya está activa la fase %{resource_title} para %{participatory_space_title}. Puedes verla desde esta página:'
-          email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{participatory_space_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: El componente %{resource_title} está ahora activo para %{participatory_space_title}.
           notification_title: El presupuesto <a href="%{resource_path}">%{resource_title}</a> en %{participatory_space_title} ya está activo.
     orders:

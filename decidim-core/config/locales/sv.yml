@@ -225,10 +225,6 @@ sv:
         error: Det gick inte att ändra resursen.
         promote_button: Gör till %{model_name}
         promote_confirm_text: Vill du stötta detta ändringsförslag?
-      compare_draft:
-        continue: Fortsätt
-        no_similars_found: Hittade inga liknande ändringsförslag.
-        title: Liknande ändringsförslag
       created:
         error: Ett fel uppstod när ändringsutkastet skulle skapas.
         success: Skapade utkast till ändringsförslag.
@@ -277,9 +273,6 @@ sv:
       wizard_step_form:
         steps:
           '1': Skapa ändringsförslag
-          '2': Jämför ändringsförslag
-          '3': Slutför ändringsförslaget
-          '4': Publicera ändringsförslaget
     anonymous_user: Anonym
     application:
       document:
@@ -825,7 +818,6 @@ sv:
         default_page:
           content: "<p>I %{organization} kan du delta och besluta om olika ämnen genom de områden som visas i toppmenyn: dialoger, grupper, initiativ och konsultationer.</p> <p>Inom varje område kan du delta på olika sätt: lämna förslag – enskilt eller med andra människor – delta i debatter, prioritera projekt att genomföra, delta i möten och andra åtgärder.</p>\n"
           title: Vad kan jag göra i %{organization}?
-        title: Allmän hjälp
     last_activities:
       all: Alla aktivitetstyper
       index:
@@ -1039,6 +1031,7 @@ sv:
           headline: Aktuellt läge för %{organization}
         sub_hero:
           register: Registrera
+          register_title: Skapa ett konto
       index:
         standalone_pages: Sidor
         subheading: Navigera genom hjälpsidorna för %{name}
@@ -1465,6 +1458,7 @@ sv:
               description: Lagrar information om de cookies som tillåts av användaren på denna webbplats.
               service: Denna webbplats
             pwaInstallPromptSeen:
+              description: Lagrar status om den progressiva webbapplikationen (PWA) installationsmeddelandet har redan setts av användaren.
               service: Denna webbplats
           types:
             cookie: Cookie

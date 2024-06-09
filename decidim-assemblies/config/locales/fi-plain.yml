@@ -310,6 +310,7 @@ fi-pl:
           form:
             existing_user: Olemassa oleva käyttäjä
             explanation: 'Kuvan ohjeistus:'
+            image_guide: Käytä mieluiten vaakasuuntaista kuvaa, jossa ei ole tekstiä.
             non_user: Ei käyttäjä
             non_user_avatar_help: Sinun pitäisi hankkia henkilöiden suostumus ennen kuin julkaiset heidän jäsenyytensä.
             select_a_position: Valitse asema
@@ -395,11 +396,7 @@ fi-pl:
       show:
         assembly_type: Ryhmän tyyppi
         duration: Kesto
-        is_transparent:
-          'false': läpinäkymätön
-          'true': läpinäkyvä
         private_space: Tämä on yksityinen ryhmä
-        related_participatory_processes: Liittyvät osallisuusprosessit
         social_networks_title: Vieraile ryhmän sivulla palvelussa
     assembly_members:
       assembly_member:

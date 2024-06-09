@@ -109,7 +109,6 @@ lt:
       menu:
         attachments: Priedai
         committee_members: Komiteto nariai
-        components: Komponentai
         information: Informacija
         initiatives: Iniciatyvos
         initiatives_settings: Nustatymai
@@ -464,6 +463,7 @@ lt:
           invite_to_committee_help: Pasidalinkite šia nuoroda norėdami pakvieti kitus į remėjų komitetą.
           link: Nuoroda
           no_members_yet: Rėmėjų komitete nėra narių.
+          revoke: Atšaukti
           title: Komiteto nariai
         count:
           title:
@@ -540,7 +540,6 @@ lt:
           other: " parašai"
         vote_cabin:
           already_voted: Jau pasirašyta
-          supports_required: "%{total_supports} – reikalingas parašų skaičius"
           verification_required: Norėdami pasirašyti iniciatyvą, patvirtinkite savo paskyrą
           vote: Pasirašyti
           votes_blocked: Pasirašymas išjungtas

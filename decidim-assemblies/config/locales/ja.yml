@@ -393,11 +393,7 @@ ja:
       show:
         assembly_type: 参加スペース種別
         duration: 持続期間
-        is_transparent:
-          'false': 不透明な
-          'true': 透明性
         private_space: これは私的参加スペースです
-        related_participatory_processes: 関連する参加型プロセス
         social_networks_title: 参加スペースを訪問
     assembly_members:
       assembly_member:

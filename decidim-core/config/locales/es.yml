@@ -144,6 +144,7 @@ es:
       external_link: Enlace externo
       front_page_link: Ir a la página principal
       logo: "Logo oficial de %{organization}"
+      opens_in_new_tab: Abrir en una pestaña nueva
       skip_button: Saltar al contenido principal
     account:
       blocked: Esta cuenta ha sido bloqueada por una violación de los términos y condiciones de uso
@@ -295,10 +296,6 @@ es:
         title:
           one: "%{count} enmienda"
           other: "%{count} enmiendas"
-      compare_draft:
-        continue: Continuar
-        no_similars_found: No se encontraron enmiendas similares.
-        title: Enmiendas similares
       created:
         error: Se ha producido un error al crear el borrador de enmienda.
         success: El borrador de enmienda se ha creado correctamente.
@@ -354,9 +351,7 @@ es:
       wizard_step_form:
         steps:
           '1': Crea tu enmienda
-          '2': Compara tu enmienda
-          '3': Completa tu enmienda
-          '4': Publicar tu enmienda
+          '2': Publica tu enmienda
     anonymous_user: Anónima
     application:
       document:
@@ -693,57 +688,57 @@ es:
         amendment_accepted:
           affected_user:
             email_intro: 'Se ha aceptado una enmienda para %{amendable_title}. Puedes verla desde esta página:'
-            email_outro: Has recibido esta notificación porque eres una autora de %{amendable_title}.
+            email_outro: Has recibido esta notificación porque se ha aceptado una enmienda al apartado "%{amendable_title}" que administras.
             email_subject: Enmienda aceptada para %{amendable_title} de %{emendation_author_nickname}
             notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido aceptada para <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Se ha aceptado una enmienda para %{amendable_title}. Puedes verla desde esta página:'
-            email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+            email_outro: Has recibido esta notificación porque estás siguiendo la enmienda "%{amendable_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Enmienda aceptada para %{amendable_title} de %{emendation_author_nickname}
             notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido aceptada para <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Se ha creado una nueva enmienda para %{amendable_title}. Puedes verla desde esta página:'
-            email_outro: Has recibido esta notificación porque eres una autora de %{amendable_title}.
+            email_outro: Has recibido esta notificación porque se ha presentado una esmena al apartado "%{amendable_title}" que administras.
             email_subject: Nueva enmienda para %{amendable_title}
             notification_title: Se ha creado una nueva enmienda para <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Se ha creado una nueva enmienda para %{amendable_title}. Puedes verla desde esta página:'
-            email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+            email_outro: Has recibido esta notificación porque estás siguiendo la enmienda "%{amendable_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Nueva enmienda para %{amendable_title}
             notification_title: Se ha creado una nueva enmienda para <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
             email_intro: 'Una enmienda rechazada para %{amendable_title} ha sido publicada como una nueva %{amendable_type}. Puedes verla desde esta página:'
-            email_outro: Has recibido esta notificación porque eres una autora de %{amendable_title}.
+            email_outro: Has recibido esta notificación porque se ha promocionado una esmena al apartado "%{amendable_title}" que administras.
             email_subject: Se ha publicado una enmienda de %{emendation_author_nickname} como nuevo %{amendable_type}
             notification_title: Un <a href="%{emendation_path}">rechazó la enmienda</a> para <a href="%{amendable_path}">%{amendable_title}</a> se ha publicado como un nuevo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Una enmienda rechazada para %{amendable_title} ha sido publicada como nueva %{amendable_type}. Puedes verla desde esta página:'
-            email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+            email_outro: Has recibido esta notificación porque estás siguiendo la enmienda "%{amendable_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Se ha publicado una enmienda de %{emendation_author_nickname} como nuevo %{amendable_type}
             notification_title: Un <a href="%{emendation_path}">rechazó la enmienda</a> para <a href="%{amendable_path}">%{amendable_title}</a> se ha publicado como un nuevo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Una enmienda ha sido rechazada por %{amendable_title}. Puedes verla desde esta página:'
-            email_outro: Has recibido esta notificación porque eres autora de %{amendable_title}.
+            email_outro: Has recibido esta notificación porque se ha rechazado una enmienda al apartado "%{amendable_title}" que administras.
             email_subject: Enmienda rechazada por %{amendable_title} de %{emendation_author_nickname}
             notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Una enmienda ha sido rechazada por %{amendable_title}. Puedes verla desde esta página:'
-            email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+            email_outro: Has recibido esta notificación porque estás siguiendo la enmienda "%{amendable_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Una enmienda rechazada por %{amendable_title} de %{emendation_author_nickname}
             notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Se ha añadido un nuevo documento a %{resource_title}. Puedes verlo desde esta página:'
-          email_outro: Has recibido esta notificación porque estás siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_outro: Has recibido esta notificación porque estás siguiendo "%{resource_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Se ha producido una actualización para %{resource_title}
           notification_title: Se ha añadido un <a href="%{resource_path}">nuevo documento</a> a <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
           email_intro: 'Ya está activo el componente %{resource_title} para %{participatory_space_title}. Puedes verlo desde esta página:'
-          email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{participatory_space_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Una actualización en %{participatory_space_title}
           notification_title: Ya está activo el componente %{resource_title} para <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
@@ -775,17 +770,17 @@ es:
           notification_title: Te han invitado a unirte al grupo <a href="%{resource_path}">%{user_group_name}</a> . Revisa la pestaña <a href="%{groups_profile_tab_path}">Grupos</a> en tu perfil para aceptar la invitación!
         join_request_accepted:
           email_intro: '¡Felicidades! Una administradora del grupo <a href="%{resource_url}">%{user_group_name}</a> ha aceptado tu solicitud para unirte a él.'
-          email_outro: Has recibido esta notificación porque tu solicitud de incorporación se ha actualizado.
+          email_outro: Has recibido esta notificación porque tu solicitud de incorporación al grupo se ha actualizado.
           email_subject: Tu solicitud para unirte al grupo %{user_group_name} ha sido aceptada!
           notification_title: Has sido aceptada al grupo <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
           email_intro: Alguien pidió unirse al grupo %{user_group_name}. Puedes aceptarla o rechazarla desde <a href="%{resource_url}">miembros del grupo en la página</a>.
-          email_outro: Has recibido esta notificación porque eres administradora del grupo %{user_group_name}.
+          email_outro: Has recibido esta notificación porque administras el grupo "%{user_group_name}".
           email_subject: Alguien ha solicitado unirse al grupo %{user_group_name}
           notification_title: Alguien ha solicitado unirse al grupo %{user_group_name}. Puedes aceptar o rechazar la solicitud desde <a href="%{resource_path}">la página de miembros del grupo</a>.
         join_request_rejected:
           email_intro: Una administradora del grupo <a href="%{resource_url}">%{user_group_name}</a> ha rechazado tu solicitud para unirte a él.
-          email_outro: Has recibido esta notificación porque tu solicitud de incorporación se ha actualizado.
+          email_outro: Has recibido esta notificación porque tu solicitud de incorporación al grupo se ha actualizado.
           email_subject: Tu solicitud para unirte al grupo %{user_group_name} ha sido rechazada!
           notification_title: Tu solicitud para unirte al grupo <a href="%{resource_path}">%{user_group_name}</a> ha sido rechazada.
         promoted_to_admin:
@@ -800,12 +795,12 @@ es:
           notification_title: Has sido eliminado del grupo <a href="%{resource_path}">%{user_group_name}</a>.
         user_group_created:
           email_intro: Se ha creado un nuevo grupo con el nombre %{user_group_name}. Ahora puedes verificarlo, si procede, en el <a href="%{groups_admin_url}">panel de administración</a>.
-          email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
+          email_outro: Has recibido esta notificación porque administras la plataforma.
           email_subject: Se ha creado un nuevo grupo
           notification_title: Se ha creado el grupo %{user_group_name}. Ahora puedes verificarlo en el <a href="%{groups_admin_path}">panel de administración</a>.
         user_group_updated:
           email_intro: El grupo %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_url}">panel de administración</a>.
-          email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
+          email_outro: Has recibido esta notificación porque administras la plataforma.
           email_subject: Un grupo ha actualizado su perfil
           notification_title: El grupo %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_path}">panel de administración</a>.
       nickname_event:
@@ -815,25 +810,25 @@ es:
       reports:
         resource_hidden:
           email_intro: Una administradora eliminó su %{resource_type} porque ha sido reportado como %{report_reasons}.
-          email_outro: Has recibido esta notificación porque eres un autora del contenido eliminado.
+          email_outro: Has recibido esta notificación porque se ha eliminado un contenido que creaste.
           email_subject: Tu %{resource_type} ha sido eliminado
           notification_title: |-
             Una administradora eliminó tu %{resource_type} porque ha sido reportado como %{report_reasons}.</br>
             <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, a quien sigues, acaba de adherirse a "%{resource_title}" que puede ser interesante para ti, compruébalo y contribuye:'
-        email_outro: Has recibido esta notificación porque estás siguiendo a %{endorser_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+        email_outro: Has recibido esta notificación porque estás siguiendo a "%{endorser_nickname}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
         email_subject: "%{endorser_nickname} se ha adherido a una propuesta"
         notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> se ha adherido a la propuesta <a href="%{resource_path}">%{resource_title}</a> (%{resource_type}).
       users:
         profile_updated:
           email_intro: La página <a href="%{resource_url}"> de perfil </a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
-          email_outro: Has recibido esta notificación porque estás siguiendo a %{nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_outro: Has recibido esta notificación porque estás siguiendo a "%{nickname}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: "%{nickname} ha actualizado su perfil"
           notification_title: La página <a href="%{resource_path}"> de perfil </a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
         user_officialized:
           email_intro: La participante %{name} (%{nickname}) ha sido oficializada.
-          email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
+          email_outro: Has recibido esta notificación porque administras la plataforma.
           email_subject: "Se ha oficializado a %{name}"
           notification_title: La participante %{name} (%{nickname}) ha sido oficializada.
     export_mailer:
@@ -1039,7 +1034,7 @@ es:
           content: "<p>En %{organization} puedes participar y decidir sobre diferentes temas, a través de los espacios que ves en el menú superior: Procesos, Asambleas, Iniciativas, Consultas.</p> <p>Dentro de cada uno encontrarás diferentes opciones para participar: hacer propuestas (individualmente o con otras personas), tomar parte en debates, priorizar proyectos a ejecutar, asistir a encuentros presenciales y otras acciones.</p>\n"
           title: '¿Qué puedo hacer en %{organization}?'
         description: Lee más sobre %{organization}.
-        title: Ayuda general
+        title: General
     last_activities:
       all: Todos los tipos de actividad
       index:
@@ -1238,6 +1233,7 @@ es:
       no_notifications: Aún no hay notificaciones.
       show:
         missing_event: Vaya, esta notificación pertenece a un elemento que ya no está disponible. Puedes descartarla.
+        moderated: Contenido moderado
     notifications_digest_mailer:
       header:
         daily: Resumen diario de notificaciones
@@ -1456,6 +1452,8 @@ es:
         close_modal: Cerrar el modal
         ok: De acuerdo
         title: Confirmar
+      embed:
+        title: Contenido de vídeo incrustado
       extended_navigation_bar:
         more: Más
         unfold: Desplegar
@@ -1926,7 +1924,7 @@ es:
         made_with_open_source: Web creada con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
         resources: Recursos
         sign_up: Regístrate
-        terms_and_conditions: Términos y condiciones
+        terms_of_service: Términos y condiciones de uso
       header:
         log_in: Entra
         main_menu: Menú principal
@@ -2049,6 +2047,7 @@ es:
       long_with_particles: "%d de %B del %Y a las %Hh%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Supresiones

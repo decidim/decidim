@@ -122,15 +122,7 @@ uk:
           search: Пошук дій
         show:
           stats:
-            attendees: Учасники
             back_to_resource: Повернутися до підсумків
-            comments: Коментарів
-            contributions: Внесені пропозиції
-            last_edited_by: Останній раз редагувалося
-            last_updated_at: Останній раз оновлювалося
-            meetings: Зустрічі
-            proposals: Пропозиції
-            votes: Підтримує
         timeline:
           title: Розвиток проекту
     components:
@@ -138,13 +130,9 @@ uk:
         name: Звітність
         settings:
           global:
-            categories_label: Назва для "Категорії"
             comments_enabled: Коментарі увімкнено
             display_progress_enabled: Показувати перебіг
-            heading_leaf_level_results: Назва для "Проекти"
-            heading_parent_level_results: Назва для "Підсумки"
             intro: Вступ
-            subcategories_label: Назва для "Підкатегорії"
           step:
             comments_blocked: Коментарі вимкнено
     events:

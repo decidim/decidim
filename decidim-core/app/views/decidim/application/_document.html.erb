@@ -7,8 +7,8 @@
       <div class="card__list-text"><%= decidim_escape_translated(document.description) %></div>
     <% end %>
     <div class="card__list-metadata">
-      <span><%= icon "file-text-line" %><%= document.file_type %></span>
-      <span><%= icon "scales-2-line" %><%= number_to_human_size(document.file_size) %></span>
+      <div><%= icon "file-text-line" %><%= document.file_type %></div>
+      <div><%= icon "scales-2-line" %><%= number_to_human_size(document.file_size) %></div>
     </div>
   </div>
   <%= link_to document.url,

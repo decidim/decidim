@@ -166,10 +166,6 @@ lb:
         error: Beim Änneren vun dëser Ressource ass e Feeler opgetrueden.
         promote_button: Zu engem %{model_name} befërderen
         promote_confirm_text: Möchten Sie diese Erweiterung wirklich fördern?
-      compare_draft:
-        continue: Weider
-        no_similars_found: Keine ähnlichen Entwürfe gefunden.
-        title: Änlech Entwërf
       created:
         error: Beim Erstellen des Änderungsvorschlags ist ein Fehler aufgetreten.
         success: D'Ännerung gouf ugeholl.
@@ -218,9 +214,6 @@ lb:
       wizard_step_form:
         steps:
           '1': Erstell deng Ännerung
-          '2': Vergläich deng Ännerungsvirschléi
-          '3': Vervollstänneg deng Ännerungsvirschléi
-          '4': Verëffentlech deng Ännerungsvirschléi
     anonymous_user: Anonym
     application:
       document:
@@ -687,7 +680,6 @@ lb:
         default_page:
           content: "<p>An der %{organization} kanns de, mëttels de Felder aus dem ieweschten Menü déi Themen-Beräicher entscheeden an erauswielen bei deenen s'de wëlls matmaachen: Prozesser, Gremien, Initiativen, Berodungen.</p> <p>An all Beräich fënns de verschidden Optiounen fir d'Matmaachen: Virschléi maachen - eleng oder mat aneren -, bei Debatten matmaachen, Prioritéiten setzen fir Projeten ëmzesetzen, un perséinlechen Treffen an aneren Aktiounen deelhuelen.</p>\n"
           title: Wat kann ech an der %{organization} maachen?
-        title: Allgemeng Hëllef
     last_activities:
       all: All Zorten vun Aktivitéit
       index:
@@ -875,6 +867,7 @@ lb:
           headline: Aktuellen Stand vun %{organization}
         sub_hero:
           register: Registréieren
+          register_title: Registrieren
       index:
         standalone_pages: Säiten
         subheading: Duerch d'Hëllefs-Säiten vun %{name} navigéieren

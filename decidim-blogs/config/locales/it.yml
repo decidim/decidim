@@ -35,6 +35,9 @@ it:
             body: Corpo
     components:
       blogs:
+        actions:
+          comment: Commento
+          endorse: Appoggia
         name: blog
         settings:
           global:

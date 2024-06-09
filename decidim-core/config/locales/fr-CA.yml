@@ -144,6 +144,7 @@ fr-CA:
       external_link: Lien externe
       front_page_link: Aller à la première page
       logo: "Logo officiel de %{organization}"
+      opens_in_new_tab: S'ouvre dans un nouvel onglet
       skip_button: Passer au contenu principal
     account:
       blocked: Ce compte a été bloqué en raison d'une violation des conditions d'utilisation
@@ -295,10 +296,6 @@ fr-CA:
         title:
           one: "%{count} amendement"
           other: "%{count} amendements"
-      compare_draft:
-        continue: Continuer
-        no_similars_found: Aucune modification similaire trouvé.
-        title: Modifications similaires
       created:
         error: Une erreur s’est produite lors de la création du projet d'amendement.
         success: Le projet d'amendement a été créé avec succès.
@@ -357,9 +354,7 @@ fr-CA:
       wizard_step_form:
         steps:
           '1': Créez votre amendement
-          '2': Comparez votre amendement
-          '3': Complétez votre amendement
-          '4': Publier votre amendement
+          '2': Publier votre amendement
     anonymous_user: Anonyme
     application:
       document:
@@ -814,6 +809,8 @@ fr-CA:
           notification_title: Le groupe d'utilisateurs %{user_group_name} a mis à jour son profil, le laissant non vérifié. Vous pouvez maintenant le vérifier dans le <a href="%{groups_admin_path}">panneau d'administration</a>.
       nickname_event:
         notification_body: Nous avons corrigé la façon dont les pseudonymes sont utilisés pour qu'il n'y ait pas de doublons, quelque soit l'utilisation de majuscules et/ou de minuscules. <br/> Votre pseudonyme a été créé après un autre qui était identique, nous l'avons donc automatiquement renommé. Vous pouvez le modifier depuis <a href="%{link_to_account_settings}">les paramètres de votre compte</a>.
+      notification_event:
+        notification_title: Un événement a eu lieu sur <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: Un administrateur a modéré votre %{resource_type} car il a été signalé comme %{report_reasons}.
@@ -878,6 +875,7 @@ fr-CA:
       create:
         button: Suivre
         error: Une erreur s'est produite lors du traitement de votre demande de suivre ce contenu.
+        participatory_space: Suivre <span>%{resource_name}</span>
       destroy:
         button: Ne plus suivre
         error: Une erreur s'est produite lors du traitement de votre demande de ne plus suivre ce contenu.
@@ -1040,7 +1038,7 @@ fr-CA:
           content: "<p>Sur %{organization} vous pouvez participer et décider sur différents sujets grâce aux espaces que vous voyez dans le menu principal: Processus, Assemblées, Initiatives, Consultations.</p> <p>Au sein de chacune d’elles, vous trouverez différentes options de participation: faites des propositions - individuellement ou avec d’autres personnes -, participez aux débats, accordez la priorité aux projets à mettre en œuvre, participez aux réunions en personne et autres actions.</p>\n"
           title: Que puis-je faire sur la plateforme %{organization} ?
         description: En savoir plus sur %{organization}.
-        title: Aide générale
+        title: Général
     last_activities:
       all: Tous les types d'activité
       index:
@@ -1239,6 +1237,7 @@ fr-CA:
       no_notifications: Il n'y a pas encore de notifications.
       show:
         missing_event: Oups, cette notification est liée à un élément qui n'est plus disponible. Vous pouvez la supprimer.
+        moderated: Contenu modéré
     notifications_digest_mailer:
       header:
         daily: Résumé quotidien des notifications
@@ -1457,6 +1456,8 @@ fr-CA:
         close_modal: Fermer la fenêtre modale
         ok: Ok
         title: Valider
+      embed:
+        title: Contenu vidéo intégré
       extended_navigation_bar:
         more: Plus
         unfold: Afficher
@@ -1927,7 +1928,7 @@ fr-CA:
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
         resources: Ressources
         sign_up: S'inscrire
-        terms_and_conditions: Conditions générales
+        terms_of_service: Conditions d'utilisation
       header:
         log_in: Se connecter
         main_menu: Menu principal
@@ -2050,6 +2051,7 @@ fr-CA:
       long_with_particles: "%d %B %Y à %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Suppressions

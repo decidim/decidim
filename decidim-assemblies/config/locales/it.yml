@@ -320,11 +320,7 @@ it:
       show:
         assembly_type: Tipo di assemblea
         duration: Durata
-        is_transparent:
-          'false': opaco
-          'true': trasparente
         private_space: Questa è un'assemblea privata
-        related_participatory_processes: Processi partecipativi correlati
     assembly_members:
       assembly_member:
         designated_on: Designato su

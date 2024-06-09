@@ -32,6 +32,17 @@ fi-pl:
         execution_period: Toteutusjakso
       proposal_state:
         announcement_title: Vastauksen otsikko
+        bg_color: Taustaväri
+        colors:
+          blue: Sininen
+          gray: Harmaa
+          green: Vihreä
+          orange: Oranssi
+          pink: Vaaleanpunainen
+          purple: Violetti
+          red: Punainen
+          yellow: Keltainen
+        text_color: Tekstin väri
       proposals_copy:
         copy_proposals: Ymmärrän, että tämä tuo kaikki ideat valitusta komponentista tähän komponenttiin ja tätä toimintoa ei voi peruuttaa.
         origin_component_id: Osio josta ehdotukset kopioidaan
@@ -175,9 +186,7 @@ fi-pl:
             proposal_length: Ehdotuksen runkotekstin merkkien enimmäismäärä
             proposal_limit: Ehdotusten enimmäismäärä käyttäjää kohden
             proposal_wizard_step_1_help_text: Ehdotuksen luonnin "Luo" -vaiheen ohjeteksti
-            proposal_wizard_step_2_help_text: Ehdotuksen luonnin "Vertaile" -vaiheen ohjeteksti
-            proposal_wizard_step_3_help_text: Ehdotuksen luonnin "Valmis" -vaiheen ohjeteksti
-            proposal_wizard_step_4_help_text: Ehdotuksen luonnin "Julkaise" -vaiheen ohjeteksti
+            proposal_wizard_step_2_help_text: Ehdotuksen luonnin "Julkaise" -vaiheen ohjeteksti
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle ehdotukselle
             scope_id: Teema
             scopes_enabled: Teemat käytössä
@@ -473,6 +482,8 @@ fi-pl:
           edit:
             title: Muokkaa tilaa
             update: Päivitä
+          form:
+            preview: Esikatsele
           index:
             title: Tilat
           new:
@@ -751,13 +762,6 @@ fi-pl:
         create:
           error: Äänestettäessä ehdotusta tapahtui virhe.
       proposals:
-        compare:
-          continue: Jatka
-          no_similars_found: Hyvin tehty! Vastaavia ehdotuksia ei löytynyt
-          title: Vastaavat ehdotukset
-        complete:
-          send: Lähetä
-          title: Viimeistele ehdotuksesi
         dynamic_map_instructions:
           description: Koordinaatit päivitetään, kun painat Esikatsele-painiketta. Osoitetekstiä ei muuteta.
           instructions: Voit siirtää pistettä kartalla.
@@ -774,6 +778,8 @@ fi-pl:
           discard_confirmation: Haluatko varmasti hylätä tämän ehdotusluonnoksen?
           send: Esikatselu
           title: Muokkaa ehdotusluonnosta
+        edit_form_fields:
+          marker_added: Karttamerkki lisätty.
         filters:
           activity: Oma toiminta
           all: Kaikki
@@ -877,15 +883,11 @@ fi-pl:
         wizard_aside:
           back: Takaisin
           back_from_step_1: Takaisin ehdotuksiin
-          back_from_step_2: Takaisin ehdotuksiin
-          back_from_step_3: Takaisin ehdotusten vertailuun
-          back_from_step_4: Takaisin luonnoksen muokkaukseen
+          back_from_step_2: Takaisin muokkaukseen
         wizard_steps:
           current_step: Tämänhetkinen vaihe
           step_1: Luo ehdotuksesi
-          step_2: Vertaile
-          step_3: Viimeistele
-          step_4: Julkaise ehdotuksesi
+          step_2: Julkaise ehdotuksesi
           title: Ehdotuksen luonnin vaiheet
       proposals_picker:
         choose_proposals: Valitse ehdotukset

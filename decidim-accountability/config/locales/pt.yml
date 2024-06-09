@@ -7,6 +7,7 @@ pt:
         decidim_scope_id: Âmbito
         description: Descrição
         end_date: Data final
+        meetings_ids: Reuniões associadas
         progress: Progresso
         project_ids: Projetos incluídos
         proposals: Propostas incluídas
@@ -21,6 +22,7 @@ pt:
       timeline_entry:
         description: Descrição
         entry_date: Data
+        title: Título
     models:
       decidim/accountability/proposal_linked_event: Proposta incluída em um resultado
       decidim/accountability/result_progress_updated_event: Progresso do resultado atualizado
@@ -37,6 +39,10 @@ pt:
         confirm_destroy: Tem certeza de que deseja eliminar este %{name}?
         destroy: Eliminar
         edit: Editar
+        import: Importar projetos de outro componente
+        import_csv: Importar resultados de um CSV
+        new_result: Novo resultado
+        new_status: Novo estado
         preview: Pré-visualizar
         timeline_entries: Evolução do projeto
         title: Ações
@@ -138,15 +144,7 @@ pt:
           search: Pesquisa por ações
         show:
           stats:
-            attendees: Participantes
             back_to_resource: Retroceder para o resultado
-            comments: Comentários
-            contributions: Contribuições
-            last_edited_by: Última edição por
-            last_updated_at: Última atualização em
-            meetings: Reuniões
-            proposals: Propostas
-            votes: Suporta
         timeline:
           title: Evolução do projeto
     admin:
@@ -165,16 +163,12 @@ pt:
         name: Prestação de contas
         settings:
           global:
-            categories_label: Nome para "Categorias"
             comments_enabled: Comentários ativados
             comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
             display_progress_enabled: Mostrar progresso
-            heading_leaf_level_results: Nome para "Projetos"
-            heading_parent_level_results: Nome para "Resultados"
             intro: Introdução
             scope_id: Âmbito
             scopes_enabled: Âmbitos activados
-            subcategories_label: Nome para "Subcategorias"
           step:
             comments_blocked: Comentários bloqueados
     events:

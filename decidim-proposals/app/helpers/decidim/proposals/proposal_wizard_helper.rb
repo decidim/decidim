@@ -12,7 +12,7 @@ module Decidim
             active = current_step == wizard_step
             inactive_data = {} if active
             attributes = active ? { "aria-current": "step", "aria-label": "#{t("current_step", scope:)}: #{t(wizard_step, scope:)}", data: { active: "" } } : inactive_data
-            content_tag(:li, t(wizard_step, scope:), attributes)
+            content_tag(:li, t(wizard_step, scope:), attributes.merge(class: "w-1/2"))
           end.join.html_safe
         end
       end
@@ -41,24 +41,21 @@ module Decidim
       end
 
       def proposal_wizard_steps
-        [ProposalsController::STEP1, ProposalsController::STEP2, ProposalsController::STEP3, ProposalsController::STEP4]
+        [ProposalsController::STEP1, ProposalsController::STEP2]
       end
 
       private
 
       def total_steps
-        4
+        2
       end
 
-      # Renders the back link except for step_2: compare
       def proposal_wizard_aside_link_to_back(step)
         case step
         when ProposalsController::STEP1
           proposals_path
-        when ProposalsController::STEP3
-          compare_proposal_path
-        when ProposalsController::STEP4
-          edit_draft_proposal_path
+        when ProposalsController::STEP2
+          complete_proposal_path
         end
       end
 

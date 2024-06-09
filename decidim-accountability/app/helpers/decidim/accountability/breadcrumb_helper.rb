@@ -5,10 +5,6 @@ module Decidim
     # Helpers needed to render the navigation breadcrumbs in results.
     #
     module BreadcrumbHelper
-      def stats_calculator
-        @stats_calculator ||= ResultStatsCalculator.new(result)
-      end
-
       def current_scope
         params[:filter][:with_scope] if params[:filter]
       end
