@@ -263,6 +263,8 @@ tr:
         voting_step:
           back: Geri
           continue: Sonraki
+      warnings:
+        no_scheduled_elections_warning: Şu anda planlanmış bir seçim yok, ancak burada geçmiş seçimlerin tamamını listelenmiş olarak bulabilirsiniz.
     events:
       elections:
         election_published:
@@ -316,6 +318,10 @@ tr:
           highlighted_votings:
             active_spaces: Aktif oylamalar
             see_all_spaces: Tüm Oylamaları Görün
+      polling_officer_zone:
+        closures:
+          certify:
+            form_legend: Seçim Kapatma Belgesinin resmini yükleyin
       polling_officers:
         actions:
           new: Yeni Oylama Memuru
