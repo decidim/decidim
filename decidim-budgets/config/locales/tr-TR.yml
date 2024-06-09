@@ -86,6 +86,11 @@ tr:
           more_than_one: '%{name} üzerindeki oyunuzu silin ve baştan başlayın'
           only_one: oyunuzu silin ve baştan başlayın.
         highlighted_cta: '%{name} için oy verin'
+        orders:
+          highest_cost: En Yüksek Maliyet
+          label: Bütçeleri Sıralama
+          lowest_cost: En Düşük Maliyet
+          random: Rastgele Sıralama
       limit_announcement:
         limit_reached: '%{links} alanında aktif oylarınız var. Bu bütçeye oy vermek için <a href="%{landing_path}"> oyunuzu silmeli ve baştan başlamalısınız </a>.'
       models:
