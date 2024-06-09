@@ -22,6 +22,24 @@ tr:
           description_iconography: Eylemlerin, başlıkların vb. anlamlarını güçlendirmek için simgeler kullanırız
           description_iconography_html: 'Remixicon %{iconography_link} açık kaynak kitaplığını kullanıyoruz:'
           title: İkonografi
+        layout:
+          breakpoint: Kesme Noktası
+          breakpoints: Kesme Noktaları
+          code: Kod
+          description_layout_p1: Masaüstü için Decidim, farklı içerik türleri için sınırlı sayıda şablona (ızgara yapılandırmaları) sahip 12 sütunlu bir ızgara kullanır. Belirli bir içerik türünün (ana sayfa, öğe listesi, bireysel öğe) kendine özgü bir düzene sahip olması amaçlanır. Böylece kullanıcılar, sayfanın genel görünümüne bakarak ne tür içerikte olduklarını anlayabilirler.
+          description_layout_p2: Bir Decidim sitesinin tutarlılığını koruyabilmesi için yeni modüller oluştururken veya mevcut modülleri özelleştirirken bu basit kurallara uyulmalıdır.
+          desktop: Masaüstü
+          full_width: Tam Genişlik
+          layout_list_1: 'Ana sayfa (sitenin, bir alanın): tam genişliği'
+          layout_list_2: 'Öğelerin listesi (boşlukların, boşluk içindeki öğelerin vb.): sol kenarda'
+          mobile: Mobil
+          not_required: "Zorunlu Olmayan\nGereksiz"
+          section_p_breakpoints: 'Öğelerin duyarlı maksimum genişliğini yönetmek için, aşağıdaki kesme noktalarını belirten varsayılan "konteyner" Tailwind sınıfına güveniyoruz:'
+          section_p_code: Yeni modülleri uygularken, HTML yapısını kurmak için gereken kodu size otomatik olarak sağlayan bazı yardımcılarınız vardır. Div öğelerini sınıflarla doğrudan kullanmak yerine bu yardımcıları kullanmalısınız, böylece tutarlılığı korursunuz.
+          section_p_code_html: Temel düzenleri %{link_section_code} içinde bulabilirsiniz
+          section_p_desktop: Masaüstü ızgara sistemi, sütunlar arasında 16 piksellik bir boşluk ve 48 piksellik sol ve sağ kenar boşlukları bulunan 12 esnek sütundan oluşur
+          tablet: Tablet
+          title: Düzen
         typography:
           description: Bu yönergeler, Decidim'de tipografinin nasıl kullanılacağını özetlemekte ve tasarımcıların en iyi tipografik uygulamaları göz önünde bulundurarak özgürce tasarım yapmaları için koruma görevi görmektedir.
           headings:
@@ -54,6 +72,7 @@ tr:
         tab_panels_usage_description_tab_html: "<strong>metin</strong>: <i>Dize</i>. Sekme başlığı\n<strong>text</strong>: <i>String</i>. Sekme başlığı"
         variations: Çeşitlilik
         variations_description: Bu hücrenin üç farklı versiyonu bulunmaktadır. Her biri, görüntülendiği içeriğe göre daha iyi uymaktadır.
+        variations_text: Etkinliğin türüne göre hücre, katılımcı bir alana ait olsun ya da olmasın, bir yazarı olsun ya da olmasın, farklı kaynakları bildirerek farklı içerik gösterebilir.
       home:
         index:
           by_sharing_principles: Tasarım kararlarının ardındaki ilkeleri, felsefeyi ve mantığı paylaşarak, topluluğun tutarlı bir şekilde katkıda bulunmasını sağlamak ve böylece en iyi katılımcı deneyimine ulaşmak istiyoruz.
