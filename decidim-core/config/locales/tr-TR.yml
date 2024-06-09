@@ -410,6 +410,7 @@ tr:
           hide_password: Şifrenizi Gizleyin
           show_password: Şifreyi Göster
           shown_password: Şifreniz Gösteriliyor
+        placeholder_email: selam@example.org
     doorkeeper:
       authorizations:
         new:
@@ -737,6 +738,7 @@ tr:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
           greeting: Merhaba, %{recipient}!
           intro: "%{manager}, %{group} adına yeni bir görüşme başlattı. Görmek için buraya tıklayın:"
+          outro: Platformun tadını çıkarın!
           subject: "%{manager}, %{group} olarak yeni bir görüşme başlattı"
         comanagers_new_message:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
@@ -746,20 +748,24 @@ tr:
         new_conversation:
           greeting: Merhaba %{recipient}!
           intro: "%{sender} sizinle yeni bir sohbet başlattı. Görmek için buraya tıklayın:"
+          outro: Platformun tadını çıkarın!
           subject: "%{sender} sizinle bir konuşma başlattı"
         new_group_conversation:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
           greeting: Merhaba, %{recipient}!
           intro: "%{sender}, %{group} adına yeni bir görüşme başlattı. Görmek için buraya tıklayın:"
+          outro: Platformun tadını çıkarın!
           subject: "%{sender}, %{group} olarak yeni bir görüşme başlattı"
         new_group_message:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
           greeting: Merhaba, %{recipient}!
           intro: "%{sender}, %{group} grubuyla bir görüşmede yeni mesajlar yayınladı. Görmek için buraya tıklayın:"
+          outro: Platformun tadını çıkarın!
           subject: "%{group}, %{sender} adlı kişiden yeni mesajlar aldı"
         new_message:
           greeting: Merhaba %{recipient}!
           intro: "%{sender}, konuşmanıza yeni mesajlar gönderdi. Görmek için buraya tıklayın:"
+          outro: Platformun tadını çıkarın!
           subject: '%{sender}, size yeni mesaj gönderdi'
       conversations:
         add_conversation_users:
@@ -1010,6 +1016,7 @@ tr:
         filters:
           areas: alanlar
           select_an_area: Bir bölge seçin
+      progress: "Süreç\nİlerleme"
       reference:
         reference: 'Referans: %{reference}'
       represent_user_group:
@@ -1220,6 +1227,8 @@ tr:
     timestamp_error_message: Üzgünüm, bu çok hızlıydı! Lütfen yeniden gönderin.
   layouts:
     decidim:
+      announcements:
+        view_less: Daha Az Göster
       data_consent:
         details:
           columns:
@@ -1243,6 +1252,9 @@ tr:
       notifications_dashboard:
         mark_all_as_read: Tümünü okundu olarak işaretle
         mark_as_read: Okundu olarak işaretle
+      shared:
+        layout_item:
+          prev: Önceki
       social_media_links:
         facebook: "Facebook'ta %{organization}"
         github: "GitHub'da %{organization}"
@@ -1334,6 +1346,7 @@ tr:
       option_split: Yan yana
       option_unescaped: Yakalandı
       option_unified: Birleşik
+      toggle: Görünümü değiştir
   views:
     pagination:
       next_title: Sonraki sayfaya git
