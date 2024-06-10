@@ -3,6 +3,13 @@
 // They increase the discoverability of the elements in the header.
 let prevScroll = window.scrollY;
 const stickyHeader = document.querySelector("[data-sticky-header]");
+const footer = document.querySelector("footer");
+const ctasButtons = document.querySelector(".layout-aside__ctas-buttons");
+
+const isElementInViewport = (element) => {
+  const rect = element.getBoundingClientRect();
+  return rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+};
 
 if (stickyHeader) {
   document.addEventListener("scroll", () => {
@@ -19,6 +26,14 @@ if (stickyHeader) {
           stickyHeader.style.top = `-${stickyHeader.offsetHeight}px`;
         }
         prevScroll = currentScroll;
+      }
+
+      if (ctasButtons) {
+        if (isElementInViewport(ctasButtons)) {
+          footer.style.marginBottom = `${ctasButtons.offsetHeight}px`;
+        } else {
+          footer.style.marginBottom = 0;
+        }
       }
     }
   });
