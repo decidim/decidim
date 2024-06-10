@@ -221,7 +221,7 @@ describe "Admin manages organization", type: :system do
           expect(page).to have_content("Organization updated successfully")
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
-          )["innerHTML"]).to eq("<p>bar baz</p>")
+          )["innerHTML"]).to eq("<p>bar baz</p><p><br></p>")
         end
       end
 
