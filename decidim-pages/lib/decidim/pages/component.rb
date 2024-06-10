@@ -32,8 +32,8 @@ Decidim.register_component(:pages) do |component|
 
   component.register_stat :pages_count do |components, start_at, end_at|
     pages = Decidim::Pages::Page.where(component: components)
-    pages = pages.where(created_at: start_at..) if start_at.present?
-    pages = pages.where(created_at: ..end_at) if end_at.present?
+    pages = pages.where("created_at >= ?", start_at) if start_at.present?
+    pages = pages.where("created_at <= ?", end_at) if end_at.present?
     pages.count
   end
 

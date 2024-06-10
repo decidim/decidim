@@ -15,10 +15,10 @@ module Decidim
           projects = Decidim::Budgets::Project.where(budget: budgets)
 
           budgets_followers = Decidim::Follow.where(followable: projects).joins(:user)
-                                             .where(decidim_follows: { created_at: ..end_time })
+                                             .where("decidim_follows.created_at <= ?", end_time)
           cumulative_users = budgets_followers.pluck(:decidim_user_id)
 
-          budgets_followers = budgets_followers.where(decidim_follows: { created_at: start_time.. })
+          budgets_followers = budgets_followers.where("decidim_follows.created_at >= ?", start_time)
           quantity_users = budgets_followers.pluck(:decidim_user_id)
 
           {

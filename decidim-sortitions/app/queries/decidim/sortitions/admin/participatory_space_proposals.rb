@@ -26,7 +26,7 @@ module Decidim
                       .not_withdrawn
                       .published
                       .not_hidden
-                      .where(decidim_proposals_proposals: { created_at: ...request_timestamp })
+                      .where("decidim_proposals_proposals.created_at < ?", request_timestamp)
                       .where(component: sortition.decidim_proposals_component)
           proposals = proposals.where.not(id: proposals.only_status(:rejected))
 

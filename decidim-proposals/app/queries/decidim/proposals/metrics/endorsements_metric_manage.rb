@@ -41,7 +41,7 @@ module Decidim
                                        .joins(join_categories)
                                        .where(resource_id: proposals.pluck(:id))
                                        .where(resource_type: Decidim::Proposals::Proposal.name)
-          @query = @query.where(decidim_endorsements: { created_at: ..end_time })
+          @query = @query.where("decidim_endorsements.created_at <= ?", end_time)
           @query = @query.group("decidim_categorizations.id",
                                 :participatory_space_type,
                                 :participatory_space_id,
@@ -50,7 +50,7 @@ module Decidim
         end
 
         def quantity
-          @quantity ||= query.where(decidim_endorsements: { created_at: start_time.. }).count
+          @quantity ||= query.where("decidim_endorsements.created_at >= ?", start_time).count
         end
       end
     end

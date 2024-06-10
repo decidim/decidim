@@ -14,10 +14,10 @@ module Decidim
           meetings = Decidim::Meetings::Meeting.where(component: @resource).joins(:component)
 
           meetings_followers = Decidim::Follow.where(followable: meetings).joins(:user)
-                                              .where(decidim_follows: { created_at: ..end_time })
+                                              .where("decidim_follows.created_at <= ?", end_time)
           cumulative_users = meetings_followers.pluck(:decidim_user_id)
 
-          meetings_followers = meetings_followers.where(decidim_follows: { created_at: start_time.. })
+          meetings_followers = meetings_followers.where("decidim_follows.created_at >= ?", start_time)
           quantity_users = meetings_followers.pluck(:decidim_user_id)
 
           {
