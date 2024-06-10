@@ -156,13 +156,13 @@ describe "Support Proposal", type: :system, slow: true do
             it "doesn't show the remaining votes counter" do
               visit_component
 
-              expect(page).to have_no_css("#voting-rules")
-              expect(page).to have_no_css("#remaining-votes-count")
+              expect(page).to have_no_css(".voting-rules")
+              expect(page).to have_no_css(".remaining-votes-counter")
 
               click_on proposal_title
 
-              expect(page).to have_no_css("#voting-rules")
-              expect(page).to have_no_css("#remaining-votes-count")
+              expect(page).to have_no_css(".voting-rules")
+              expect(page).to have_no_css(".remaining-votes-counter")
             end
           end
 
@@ -179,13 +179,13 @@ describe "Support Proposal", type: :system, slow: true do
             it "shows the remaining votes counter" do
               visit_component
 
-              expect(page).to have_css("#voting-rules")
-              expect(page).to have_css("#remaining-votes-count")
+              expect(page).to have_css(".voting-rules")
+              expect(page).to have_css(".remaining-votes-counter")
 
               click_on proposal_title
 
-              expect(page).to have_css("#voting-rules")
-              expect(page).to have_css("#remaining-votes-count")
+              expect(page).to have_css(".voting-rules")
+              expect(page).to have_css(".remaining-votes-counter")
             end
           end
 
@@ -202,13 +202,13 @@ describe "Support Proposal", type: :system, slow: true do
             it "does not show the remaining votes counter" do
               visit_component
 
-              expect(page).to have_no_css("#voting-rules")
-              expect(page).to have_no_css("#remaining-votes-count")
+              expect(page).to have_no_css(".voting-rules")
+              expect(page).to have_no_css(".remaining-votes-counter")
 
               click_on proposal_title
 
-              expect(page).to have_no_css("#voting-rules")
-              expect(page).to have_no_css("#remaining-votes-count")
+              expect(page).to have_no_css(".voting-rules")
+              expect(page).to have_no_css(".remaining-votes-counter")
             end
           end
         end
