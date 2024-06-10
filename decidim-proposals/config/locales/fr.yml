@@ -74,10 +74,12 @@ fr:
           attributes:
             base:
               not_official: Non officiels
+              voted: A reçu des votes ou des soutiens
         proposals_split:
           attributes:
             base:
               not_official: Non officiels
+              voted: A reçu des votes ou des soutiens
     models:
       decidim/proposals/admin/update_proposal_category_event: Catégorie de proposition modifiée
       decidim/proposals/admin/update_proposal_scope_event: La portée de la proposition a été modifiée
@@ -152,19 +154,24 @@ fr:
             amendments_wizard_help_text: Texte d'aide de l'assistant
             announcement: Annonce
             attachments_allowed: Autoriser les pièces jointes
+            attachments_allowed_help: En activant cette option, les propositions seront en mode grille par défaut, et la première image liée à la proposition apparaîtra sur la carte.
+            can_accumulate_votes_beyond_threshold: Peut accumuler des votes au-delà du seuil
             collaborative_drafts_enabled: Brouillons collaboratifs activés
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur maximum (en caractères) des commentaires (laisser 0 pour la valeur par défaut)
             default_sort_order: Tri des propositions par défaut
+            default_sort_order_help: L'option par défaut signifie que si les votes sont activés, les propositions seront affichées par ordre aléatoire, et si les votes sont bloqués, alors elles seront triées par nombre de votes.
             default_sort_order_options:
               default: Par défaut
               most_commented: Les plus commentées
               most_endorsed: Les plus soutenues
               most_followed: Les plus suivies
+              most_voted: Les plus votées
               random: Aléatoire
               recent: Les plus récentes
               with_more_authors: Avec le plus d'auteurs
             geocoding_enabled: Géocodage activé
+            minimum_votes_per_user: Nombre minimum de votes par utilisateur
             new_proposal_body_template: Modèle de corps d'une nouvelle proposition
             new_proposal_body_template_help: Vous pouvez définir le texte prérempli que les nouvelles propositions auront
             new_proposal_help_text: Texte d'aide à la création d'une nouvelle proposition
@@ -185,6 +192,7 @@ fr:
             scope_id: Secteur
             scopes_enabled: Secteurs activés
             threshold_per_proposal: Seuil par proposition
+            vote_limit: Limite de votes par utilisateur
           step:
             amendment_creation_enabled: Création d'amendement activée
             amendment_creation_enabled_help: Le participant peut amender les propositions.
@@ -204,11 +212,13 @@ fr:
             creation_enabled: Les participants peuvent créer des propositions
             creation_enabled_readonly: Ce paramètre est désactivé lorsque vous activez la fonctionnalité Textes participatifs. Pour télécharger des propositions sous forme de texte participatif, cliquez sur le bouton Textes participatifs et suivez les instructions.
             default_sort_order: Tri des propositions par défaut
+            default_sort_order_help: L'option par défaut signifie que si les votes sont activés, les propositions seront affichées par ordre aléatoire, et si les votes sont bloqués, alors elles seront triées par leur nombre de votes.
             default_sort_order_options:
               default: Par défaut
               most_commented: Les plus commentées
               most_endorsed: Les plus soutenues
               most_followed: Les plus suivies
+              most_voted: Les plus votées
               random: Aléatoire
               recent: Les plus récentes
               with_more_authors: Avec le plus d'auteurs
@@ -309,6 +319,7 @@ fr:
         voting_enabled:
           email_intro: 'Vous pouvez soutenir les propositions de %{participatory_space_title} ! Participez ici :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
+          email_subject: Vous pouvez désormais voter pour les propositions dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant commencer <a href="%{resource_path}">à voter pour les propositions</a> de <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
@@ -326,7 +337,12 @@ fr:
         proposal_votes:
           conditions:
             - Parcourir et passer du temps à lire les propositions d'autres personnes
-            - 
+            - Votez pour les propositions que vous aimez ou trouvez intéressantes
+          description: Ce badge est attribué lorsque vous votez pour les propositions d'autres personnes.
+          description_another: Cet utilisateur a voté pour %{score} propositions.
+          description_own: Vous avez voté pour %{score} propositions.
+          name: Votes de proposition
+          next_level_in: Votez pour %{score} proposition(s) supplémentaire(s) pour atteindre le niveau supérieur !
         proposals:
           conditions:
             - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
