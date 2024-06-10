@@ -276,6 +276,12 @@ bg:
         unblock: "%{user_name} отблокира потребителска група %{resource_name}"
         verify: "%{user_name} провери групата %{resource_name}"
         verify_via_csv: "%{user_name} провери групата %{resource_name} чрез CSV файл"
+      user_moderation:
+        unreport: "%{user_name} отмени %{resource_type} - %{unreported_user_name}"
+    admin_terms_of_service:
+      default_body: "<h2>АДМИНИСТРАТОРСКИ УСЛОВИЯ НА УСЛУГА</h2><p>Надяваме се, че сте получили обичайната лекция от местния системен администратор. Обикновено се свежда до следните три неща:</p><ol><li>Уважавайте поверителността на другите.</li><li>Помислете, преди да щракнете.</li><li>С голямата власт, идва и голяма отговорност.</li></ol>"
+    alert:
+      dismiss: Отхвърляне на известието
     amendments:
       accepted:
         error: Възникна грешка при одобряване на поправката.
@@ -285,6 +291,11 @@ bg:
         error: Възникна грешка при промяната на ресурса.
         promote_button: Обяви като %{model_name}
         promote_confirm_text: Сигурни ли сте, че искате да обявите тази поправка?
+        promote_help_text: Можете да промотирате тази поправка и да я публикувате като независима %{model_name}.
+      amendments:
+        title:
+          one: "%{count} изменение"
+          other: "%{count} изменения"
       compare_draft:
         continue: Продължи
         no_similars_found: Не са намерени подобни поправки.
@@ -315,6 +326,7 @@ bg:
           withdrawn: |-
             Тази поправка на %{amendable_type} %{proposal_link}
             беше оттеглена от автора.
+      name: Изменение
       new:
         amendment_author: Автор на поправката
         send: Създай
@@ -323,9 +335,15 @@ bg:
         modify: Промени
         publish: Публикувай
         title: Публикувай чернова на поправка
+      promoted:
+        error: Възникна проблем при публикуването на изменението, като ново предложение.
+        success: Изменението е успешно публикувано, като ново предложение.
       publish_draft:
         error: Възникна проблем при публикуване на поправката.
         success: Поправката е публикувана успешно.
+      rejected:
+        error: Възникна проблем при отхвърляне на това изменение, опитайте по-късно.
+        success: Изменението е успешно отхвърлено.
       review:
         back: Назад
         heading: Преглед на поравка
@@ -333,39 +351,57 @@ bg:
       update_draft:
         error: Възникна проблем при обновяване черновата на поправка.
         success: Черновата на поправка е успешно обновена.
+      withdraw:
+        error: Възникна грешка при оттеглянето на изменението.
+        success: Изменението беше оттеглено успешно.
       wizard_step_form:
         steps:
           '1': Създайте Ваша поправка
           '2': Сравнете Вашите поправки
           '3': Завършете Вашите поправки
+          '4': Публикувайте своето изменение
     anonymous_user: Анонимен
     application:
       document:
         download: Изтегли файл
       documents:
+        documents: Документи
         related_documents: Свързани документи
+      photo:
+        alt: Медийно изображение
+        title: Изображение
       photos:
+        photos: Изображения
         related_photos: Свързани изображения
     author:
+      avatar: 'Аватар: %{name}'
       comments:
         one: коментар
         other: коментари
       endorsements:
         one: одобряване
         other: одобрявания
+      official_author: Официално
     authorization_handlers:
       another_dummy_authorization_handler:
+        explanation: Преминете проверка, като въведете номер на паспорт започващ с "A".
         fields:
           passport_number: Номер на паспорт
           postal_code: Пощенски код
         name: Друго примерна идентификация
       dummy_authorization_handler:
+        explanation: Преминете проверка, като въведете номер на документ завършващ с "X".
         fields:
+          allowed_postal_codes: Позволени пощенски кодове (разделени със запетаи)
+          allowed_scope_id: Разрешен обхват
           document_number: Номер на документ
           postal_code: Пощенски код
+          scope_id: Обхват
         name: Примерна идентификация
       dummy_authorization_workflow:
         name: Макет на процедура за идентификация
+      errors:
+        duplicate_authorization: Участник вече е оторизиран със същите данни. Администратор ще се свърже с вас, за да потвърди данните ви.
       expired_at: Изтече на %{timestamp}
       expires_at: Изтича на %{timestamp}
       foo_authorization:
@@ -386,6 +422,7 @@ bg:
           title: Идентификацията изтече
         incomplete:
           cancel: Отказ
+          explanation: 'Въпреки че в момента сте оториьирани с „%{authorization}“, трябва да се преоторизирате, тъй като ни липсват следните данни:'
           invalid_field: "%{field}"
           reauthorize: Нова идентификация
           title: Моля, направете нова идентификация
@@ -393,7 +430,11 @@ bg:
           authorize: Идентифицирайте се чрез "%{authorization}"
           explanation: За да изпълните това действие е необходима идентификация чрез "%{authorization}".
           title: Необходима е идентификация
+        ok:
+          title: Бяхте оторизирани, докато сте на тази страница. Моля, презаредете страницата, за да изпълните действието си.
         pending:
+          explanation: За да изпълните това действие е необходима оторизация чрез "%{authorization}", но Вашата оторизация все още не е завършена.
+          resume: Проверете процеса на Вашата "%{authorization}" оторизация.
           title: Идентификацията не е завършила
         unauthorized:
           ok: Добре
@@ -861,6 +902,12 @@ bg:
       index:
         current_members_without_admins: 'Текущи членове (без админи):'
         manage_members: Управллявай членовете
+      promote:
+        error: Възникна проблем с повишаването на този участник.
+        success: Участникът беше повишен успешно.
+      reject:
+        error: Възникна проблем при отхвърлянето на заявката за присъединяване.
+        success: Заявката за присъединяване е отхвърлена успешно.
     groups:
       actions:
         are_you_sure: Сигурни ли сте?
