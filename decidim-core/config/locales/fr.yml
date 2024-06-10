@@ -360,6 +360,9 @@ fr:
       document:
         download: Télécharger le fichier
       documents:
+        component_documents:
+          dummy: Documents de composant factices
+          meetings: Documents de réunions
         documents: Documents
         related_documents: Documents à consulter
       photo:
