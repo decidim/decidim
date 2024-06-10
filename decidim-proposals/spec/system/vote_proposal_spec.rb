@@ -140,6 +140,9 @@ describe "Support Proposal", type: :system, slow: true do
         end
 
         describe "vote counter" do
+          let(:proposals) { create_list(:proposal, 2, component: component) }
+          let(:proposal_title) { translated(proposals.first.title) }
+
           context "when votes are blocked" do
             let!(:component) do
               create(:proposal_component,
@@ -153,7 +156,12 @@ describe "Support Proposal", type: :system, slow: true do
             it "doesn't show the remaining votes counter" do
               visit_component
 
-              expect(page).to have_css(".voting-rules")
+              expect(page).to have_no_css(".voting-rules")
+              expect(page).to have_no_css(".remaining-votes-counter")
+
+              click_on proposal_title
+
+              expect(page).to have_no_css(".voting-rules")
               expect(page).to have_no_css(".remaining-votes-counter")
             end
           end
@@ -173,6 +181,34 @@ describe "Support Proposal", type: :system, slow: true do
 
               expect(page).to have_css(".voting-rules")
               expect(page).to have_css(".remaining-votes-counter")
+
+              click_on proposal_title
+
+              expect(page).to have_css(".voting-rules")
+              expect(page).to have_css(".remaining-votes-counter")
+            end
+          end
+
+          context "when votes are disabled" do
+            let!(:component) do
+              create(:proposal_component,
+                     :with_votes_disabled,
+                     :with_vote_limit,
+                     vote_limit: vote_limit,
+                     manifest: manifest,
+                     participatory_space: participatory_process)
+            end
+
+            it "does not show the remaining votes counter" do
+              visit_component
+
+              expect(page).to have_no_css(".voting-rules")
+              expect(page).to have_no_css(".remaining-votes-counter")
+
+              click_on proposal_title
+
+              expect(page).to have_no_css(".voting-rules")
+              expect(page).to have_no_css(".remaining-votes-counter")
             end
           end
         end
