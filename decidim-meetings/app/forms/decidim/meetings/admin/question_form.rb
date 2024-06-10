@@ -30,9 +30,7 @@ module Decidim
         end
 
         def editable?
-          return true if id.blank?
-
-          Decidim::Meetings::Question.unpublished.unanswered.exists?(id:)
+          @editable ||= id.blank? || Decidim::Meetings::Question.unpublished.unanswered.exists?(id:)
         end
 
         def number_of_options
