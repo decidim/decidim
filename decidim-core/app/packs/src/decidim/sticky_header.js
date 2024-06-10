@@ -15,7 +15,7 @@ if (stickyHeader) {
   document.addEventListener("scroll", () => {
     // if a subelement is not visible it has no offsetParent
     const header = document.getElementById("main-bar").offsetParent;
-    if (header) {
+    if (header && window.getComputedStyle(stickyHeader).position === "fixed") {
       let currentScroll = window.scrollY;
       let goingDown = prevScroll > currentScroll;
       let change = Math.abs(prevScroll - currentScroll);
