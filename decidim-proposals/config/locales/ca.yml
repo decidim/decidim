@@ -802,7 +802,7 @@ ca:
             one: "%{count} proposta"
             other: "%{count} propostes"
           grid_mode: Vista en quadrícula
-          list_mode: Vista en llistat
+          list_mode: Vista en llista
           new_proposal: Nova proposta
           see_all: Veure totes les propostes
           see_all_withdrawn: Veure totes les propostes retirades
