@@ -346,6 +346,9 @@ ja:
       document:
         download: ファイルをダウンロード
       documents:
+        component_documents:
+          dummy: ダミーコンポーネントドキュメント
+          meetings: ミーティングドキュメント
         documents: ドキュメント
         related_documents: 関連ドキュメント
       photo:
@@ -1905,6 +1908,7 @@ ja:
         sign_up: 新規登録
         terms_of_service: 利用規約
       header:
+        log_in: ログイン
         main_menu: メインメニュー
         user_menu: ユーザーメニュー
       impersonation_warning:
