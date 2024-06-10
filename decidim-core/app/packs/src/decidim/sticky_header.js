@@ -16,16 +16,14 @@ const adjustCtasButtons = () => {
     return;
   }
 
-  ctasButtons.forEach((ctasButton) => {
-    if (!ctasButton.offsetParent) {
-      return;
-    }
-    if (isElementInViewport(ctasButton)) {
-      footer.style.marginBottom = `${ctasButton.offsetHeight}px`;
-    } else {
-      footer.style.marginBottom = 0;
-    }
-  });
+  let visibleButtons = Array.from(ctasButtons).filter(isElementInViewport);
+
+  if (visibleButtons.length > 0) {
+    const marginBottom = Math.max(...visibleButtons.map((ctasButton) => ctasButton.offsetHeight));
+    footer.style.marginBottom = `${marginBottom}px`;
+  } else {
+    footer.style.marginBottom = 0;
+  }
 };
 
 if (stickyHeader) {
