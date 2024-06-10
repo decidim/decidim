@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Proposals::Admin
-  describe ProposalsValuatorMailer, type: :mailer do
+  describe ProposalsValuatorMailer do
     include ActionView::Helpers::SanitizeHelper
 
     let(:organization) { create(:organization) }
