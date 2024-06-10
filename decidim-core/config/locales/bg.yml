@@ -422,6 +422,11 @@ bg:
           explanation_html: За да изпълните това действие, първо се идентифицирайте, но преди това потвърдете вашата ел. поща <strong>%{email}</strong>.
           request_confirmation_instructions: Заявка на инструкции за потвърждение
           title: Потвърдете Вашата ел. поща
+    block_user_mailer:
+      notify:
+        body_1: Вашият акаунт беше блокиран.
+        body_2: 'Причина: %{justification}'
+        greetings: Поздрав,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
     collapsible_list:
       hidden_elements_count:
         one: и още %{count}
