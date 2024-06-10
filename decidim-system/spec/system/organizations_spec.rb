@@ -72,6 +72,24 @@ describe "Organizations", type: :system do
           end
         end
       end
+
+      context "without the secret key defined" do
+        before do
+          allow(Rails.application.secrets).to receive(:secret_key_base).and_return(nil)
+        end
+
+        it "does not create an organization" do
+          fill_in "Name", with: "Citizen Corp"
+          fill_in "Host", with: "www.example.org"
+          fill_in "Reference prefix", with: "CCORP"
+          fill_in "Organization admin name", with: "City Mayor"
+          fill_in "Organization admin email", with: "mayor@example.org"
+          click_on "Create organization & invite admin"
+
+          click_on "Show advanced settings"
+          expect(page).to have_content("You need to define the SECRET_KEY_BASE environment variable to be able to save this field")
+        end
+      end
     end
 
     describe "showing an organization with different locale than user" do
@@ -120,6 +138,21 @@ describe "Organizations", type: :system do
 
         expect(page).to have_css("div.flash.success")
         expect(page).to have_content("Citizens Rule!")
+      end
+
+      context "without the secret key defined" do
+        before do
+          allow(Rails.application.secrets).to receive(:secret_key_base).and_return(nil)
+        end
+
+        it "shows the error message" do
+          fill_in "Name", with: "Citizens Rule!"
+          fill_in "Host", with: "www.example.org"
+          click_on "Save"
+
+          click_on "Show advanced settings"
+          expect(page).to have_content("You need to define the SECRET_KEY_BASE environment variable to be able to save this field")
+        end
       end
     end
 
