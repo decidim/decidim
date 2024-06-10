@@ -437,12 +437,20 @@ bg:
           resume: Проверете процеса на Вашата "%{authorization}" оторизация.
           title: Идентификацията не е завършила
         unauthorized:
+          explanation: За съжаление не можете да извършите това действие, тъй като някои от вашите данни за оторизация не съвпадат.
+          invalid_field: "Стойността на %{field} %{value} не е валидна."
           ok: Добре
           title: Не сте идентифициран
         unconfirmed:
+          confirmation_instructions: 'Ако не сте получили инструкциите за потвърждение, можете да ги поискате отново:'
           explanation_html: За да изпълните това действие, първо се идентифицирайте, но преди това потвърдете вашата ел. поща <strong>%{email}</strong>.
           request_confirmation_instructions: Заявка на инструкции за потвърждение
           title: Потвърдете Вашата ел. поща
+    block_user_mailer:
+      notify:
+        body_1: Вашият акаунт беше блокиран.
+        body_2: 'Причина: %{justification}'
+        greetings: Поздрав,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
     collapsible_list:
       hidden_elements_count:
         one: и още %{count}
