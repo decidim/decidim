@@ -350,6 +350,9 @@ eu:
       document:
         download: Deskargatu fitxategia
       documents:
+        component_documents:
+          dummy: Fikziozko osagaien dokumentuak
+          meetings: Topaketen gaineko dokumentuak
         documents: Dokumentuak
         related_documents: Honekin lotutako agiriak
       photo:
@@ -1916,6 +1919,7 @@ eu:
         sign_up: Eman izena
         terms_of_service: Zerbitzuaren baldintzak
       header:
+        log_in: Hasi saioa
         main_menu: Menu nagusia
         user_menu: Erabiltzailearen menua
       impersonation_warning:
