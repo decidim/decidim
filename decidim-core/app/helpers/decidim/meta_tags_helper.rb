@@ -16,10 +16,11 @@ module Decidim
       add_decidim_meta_description(tags[:description])
       add_decidim_meta_url(tags[:url])
       add_decidim_meta_twitter_handler(tags[:twitter_handler])
-      add_decidim_meta_image_url(resolve_meta_image_url(tags[:image_url], resource))
+      image_url = resolve_meta_image_url(tags[:image_url], resource)
+      add_decidim_meta_image_url(add_base_url_to(image_url)) if image_url.present?
     end
 
-    # Adds base URL to the given path if it doesn't include a host.
+    # Adds base URL to the given path if it does not include a host.
     #
     # @param [String] path - A String containing the path (e.g. "/proposals/1").
     #

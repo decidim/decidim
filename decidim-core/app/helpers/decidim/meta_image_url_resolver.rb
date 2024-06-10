@@ -33,15 +33,19 @@ module Decidim
     #
     # @return [String] - A String of the absolute URL of the attachment image.
     def fetch_attachment_image_url
-      return unless @resource.respond_to?(:attachments)
+      attachment = find_image_attachment(@resource) || find_image_attachment(@resource.try(:participatory_space))
+      return unless attachment
 
-      attachment = @resource.attachments.find_by(content_type: %w(image/jpeg image/png))
-      if attachment&.file&.attached?
+      if attachment.file&.attached?
         Rails.application.routes.url_helpers.rails_representation_url(
           attachment.file.variant(resize_to_limit: [1200, 630]).processed,
           only_path: true
         )
       end
+    end
+
+    def find_image_attachment(entity)
+      entity.try(:attachments)&.find_by(content_type: %w(image/jpeg image/png))
     end
 
     # Extracts the first image URL from the resource description.
