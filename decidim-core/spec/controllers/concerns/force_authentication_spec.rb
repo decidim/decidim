@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe "ForceAuthentication" do
-    let(:organization) { create(:organization, force_users_to_authenticate_before_access_organization:) }
+    let(:organization) { create(:organization, force_users_to_authenticate_before_access_organization: force_users_to_authenticate_before_access_organization) }
 
     controller do
       include Decidim::ForceAuthentication
