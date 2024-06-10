@@ -451,6 +451,8 @@ bg:
         body_1: Вашият акаунт беше блокиран.
         body_2: 'Причина: %{justification}'
         greetings: Поздрав,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Здравейте,
+        subject: Вашият акаунт беше блокиран от %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: и още %{count}
@@ -458,6 +460,7 @@ bg:
       see_less: "(скрий)"
     components:
       component_order_selector:
+        no_content: Не можахме да намерим съдържание с този критерий.
         order:
           all_types: Всички типове
           collaborative_draft: Съвместна чернова
@@ -465,6 +468,7 @@ bg:
           debate: Дискусия
           initiative: Инициатива
           meeting: Среща
+          order: Бюджетно гласуване
           post: Публикация
           proposal: Предложение
           question: Въпрос
@@ -478,11 +482,14 @@ bg:
           global:
             amendments_enabled: Поправки разрешени
             comments_enabled: Коментари разрешени
+            comments_max_length: Максимална дължина на коментарите
             dummy_global_attribute1: Макетен атрибут 1
             dummy_global_attribute2: Макетен атрибут 2
             dummy_global_translatable_text: Макетен преводим текст
             enable_pads_creation: Активирай създаване на бележки
             resources_permissions_enabled: Разрешения за ресурс включени
+            scope_id: Обхват
+            scopes_enabled: Обхватите са активирани
           step:
             amendment_creation_enabled: Създаване на поправки разрешено
             amendment_promotion_enabled: Популяризиране на поправки разрешено
@@ -494,8 +501,21 @@ bg:
             dummy_step_translatable_text: Преводим текст на макетната стъпка
     contact: Контакт
     content_blocks:
+      announcement:
+        name: Обявление
+      cta:
+        name: Изображение, текст и бутон с призив към действие
+      cta_settings_form:
+        background_image: Фоново изображение
+        button_text: Призив към действие (Call To Action) текст
+        button_url: Призив към действие (Call To Action) URL
+        description: Описание
       footer_sub_hero:
         name: Долен колонтитул на под-геройския банер
+      global_menu:
+        name: Основно меню
+      hero:
+        name: Профилно изображение и бутон "Призив към действие"
       hero_settings_form:
         background_image: Фоново изображение
         welcome_text: Поздравителен текст
@@ -658,10 +678,19 @@ bg:
       internal_server_error:
         copied: Текстът е копиран!
         copy_error_message_clarification: Копирайте съобщението за грешка в клипборда
+        copy_to_clipboard: Копиране в клипборда
+        date_and_time: Дата и час
+        reference: Референция
+        request_method: Метод на запитване
         title: Възникна проблем с нашия сървър
+        try_later: Моля, опитайте отново по-късно. Ако грешката продължава, моля, копирайте следната информация и я изпратете на поддържащите платформата с всяка друга информация, която може да искате да споделите.
+        unknown: Неизвестно
+        url: URL
+        user: ID на потребител
       not_found:
         back_home: Към Начало
         content_doesnt_exist: Този адрес е неправилен или е премахнат.
+        title: Страницата, която търсите не може да бъде намерена
     events:
       amendments:
         amendment_accepted:
@@ -727,9 +756,15 @@ bg:
         email_subject: Обновление в %{resource_title}
       gamification:
         badge_earned:
+          email_intro: Поздравления! Спечелихте <a href="%{resource_url}">значката %{badge_name}</a> (ниво %{current_level}).
           email_outro: Получавате това известие, защото сте проявили активност на нашия сайт.
+          email_subject: 'Спечелихте нова значка: %{badge_name}!'
+          notification_title: Поздравления! Спечелихте <a href="%{resource_path}">значката %{badge_name}</a> (ниво %{current_level}).
         level_up:
+          email_intro: Поздравления! Достигнахте ниво %{current_level} за <a href="%{resource_url}">значката %{badge_name}</a>!
           email_outro: Получавате това известие, защото сте проявили активност на нашия сайт.
+          email_subject: Достигнахте ниво %{current_level} за значката %{badge_name}!
+          notification_title: Поздравления! Достигнахте ниво %{current_level} за <a href="%{resource_path}">значката %{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: Администратора на групата <a href="%{resource_url}">%{user_group_name}</a> отне администраторските Ви права за тази група.
@@ -780,6 +815,14 @@ bg:
         notification_body: Коригирахме начина, по който се използват прякорите, така че да няма дубликати, и затова премахнахме правилото за отнасящо се към главни и малки букви. <br/> Вашият псевдоним е създаден след друг със същото име, така че автоматично го преименувахме. Можете да го промените от <a href="%{link_to_account_settings}">настройките на вашия акаунт</a>.
       notification_event:
         notification_title: Настъпи събитие в <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: Администратор премахна вашия %{resource_type}, защото е докладван като %{report_reasons}.
+          email_outro: Получихте това известие, защото вие сте авторът на премахнатото съдържание.
+          email_subject: Вашият %{resource_type} е премахнат
+          notification_title: |-
+            Администратор премахна вашия %{resource_type}, защото е докладван като %{report_reasons}.</br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, когото следвате, одобри "%{resource_title}" Ако представлява интерес за вас, проверете и участвайте:'
         email_outro: Получавате това известие, защото следвате %{endorser_nickname}. Може да прекратите известията чрез предната връзка.
@@ -791,8 +834,14 @@ bg:
           email_outro: Получавате това известие, защото следвате %{nickname}. Може да прекратите известията чрез предната връзка.
           email_subject: "%{nickname} обнови своя профил"
           notification_title: Профилната <a href="%{resource_path}">страница</a> на %{name} (%{nickname}), който следвате е обновена.
+        user_officialized:
+          email_intro: Участник %{name} (%{nickname}) е официален.
+          email_outro: Получихте това известие, защото сте администратор на организацията.
+          email_subject: "%{name} е официализиран"
+          notification_title: Участник %{name} (%{nickname}) е официализиран.
     export_mailer:
       download_your_data_export:
+        click_button: 'Щракнете върху следващата връзка, за да изтеглите вашите данни.<br/>Файлът ще бъде достъпен до %{date}.<br/>Ще ви трябва <a href="https://www.7-zip.org/"> 7-Zip</a> (за Windows), <a href="https://www.keka.io/en/">Keka</a> (за MacOS) или <a href="https:// peazip.github.io">PeaZip</a> (за Linux), за да го отворите. Парола: %{password}'
         download: Сваляне
       export:
         ready: Ще намерите като прикачен файл, компресирана версия на Вашия експорт.
@@ -800,6 +849,7 @@ bg:
     filters:
       linked_classes:
         all: Всички
+        answer: Отговор
         collaborative_draft: Съвместна чернова
         dummy_resource: Шаблонни ресурси
         meeting: Срещи
@@ -973,6 +1023,15 @@ bg:
           not_found: 'Типа сфера липсва в базата данни (ID: %{id})'
     managed_users:
       expired_session: Текущата сесия на участника като администратор е изтекла.
+    map:
+      dynamic:
+        screen_reader_explanation: Следващият елемент е карта, която представя елементите на тази страница като точки от картата. Елементът може да се използва с екранен четец, но може да е труден за разбиране.
+        skip_button: Пропускане на картата
+      static:
+        latlng_text: 'географска ширина: %{latitude}, географска дължина: %{longitude}'
+        map_service_brand: OpenStreetMap
+    members:
+      no_members: Тази група все още няма членове.
     menu:
       help: Помощ
       home: Начало
@@ -982,29 +1041,35 @@ bg:
           admin_in_group: Получавате това защото сте администратор в %{group}.
           greeting: Здравейте, %{recipient}!
           intro: "%{manager} започна нов разговор от името на %{group}. Натисни тук за да го видите:"
+          outro: Насладете се на платформата!
           subject: "%{manager} започна нов разговор като %{group}"
         comanagers_new_message:
           admin_in_group: Получавате това защото сте администратор в %{group}.
           greeting: Здравейте, %{recipient}!
           intro: "%{manager} публикува ново съобщение от името на %{group}. Натисни тук за да го видите:"
+          outro: Насладете се на платформата!
           subject: "%{manager} изпрати ново съобщение като %{group}"
         new_conversation:
           greeting: Здравейте, %{recipient}!
           intro: "%{sender} започна нов разговор с Вас. Натисни тук за да го видите:"
+          outro: Насладете се на платформата!
           subject: "%{sender} започва разговор с Вас"
         new_group_conversation:
           admin_in_group: Получавате това защото сте администратор в %{group}.
           greeting: Здравейте, %{recipient}!
           intro: "%{sender} започна нов разговор с групата %{group}. Натисни тук за да го видите:"
+          outro: Насладете се на платформата!
           subject: "%{sender} започна нов разговор с %{group}"
         new_group_message:
           admin_in_group: Получавате това защото сте администратор в %{group}.
           greeting: Здравейте, %{recipient}!
           intro: "%{sender} публикува ново съобщение в разговор с групата %{group}. Натисни тук за да го видите:"
+          outro: Насладете се на платформата!
           subject: "%{group} има ново съобщение от %{sender}"
         new_message:
           greeting: Здравейте, %{recipient}!
           intro: "%{sender} публикува ново съобщение във вашият разговор. Натисни тук за да го видите:"
+          outro: Насладете се на платформата!
           subject: Имате ново съобщение от %{sender}
       conversations:
         add_conversation_users:
@@ -1012,15 +1077,38 @@ bg:
           add_users_placeholder: Търсене...
           modal_title: Нов разговор
           no_results: Няма резултати
+          participant_with_disabled_message_reception: Този участник не желае да получава лични съобщения.
+        create:
+          error: Разговора не започна. Опитайте по-късно.
+        error_modal:
+          close: Затвори прозореца
+          correct_errors: Моля, коригирайте грешките и опитайте отново.
+          intro: 'Имаше следните грешки с вашето съобщение:'
+          ok: ОК
         index:
           new_conversation: Нов разговор
           next: Напред
+          no_conversations: Все още нямате разговори.
           title: Разговори
+        reply_form:
+          placeholder: Вашият отговор...
+          send: Изпрати
         show:
+          back: Назад към всички разговори
           chat_with: Разговор с
+          deleted_accounts: Не можете да водите разговор с изтрити акаунти.
+          not_allowed: Този участник не приема директни съобщения.
           title: Разговор с %{usernames}
         start:
+          placeholder: Вашето съобщение...
           send: Изпрати
+        update:
+          error: Съобщението не е изпратено, поради възникнала грешка.
+    metadata:
+      progress:
+        active: Активно
+        finished: 'Приключило: %{end_date}'
+        not_started: Още не е започнало
     metrics:
       followers:
         description: Брой участници, които следват това пространство
