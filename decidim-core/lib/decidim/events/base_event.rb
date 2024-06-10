@@ -77,6 +77,13 @@ module Decidim
 
       def resource_text; end
 
+      # return the action for the notification (if any)
+      # must return an array with 3 elements:
+      #   1. the action cell (e.g. "buttons")
+      #   2. the action data (depens on the action cell)
+      #   3. a hashs of additional options for the cell (optional)
+      def action; end
+
       def organization
         resource.try(:organization)
       end

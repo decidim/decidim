@@ -12,14 +12,7 @@ module Decidim
     def update
       notification = notifications.find(params[:id])
       enforce_permission_to(:update, :notification, notification:)
-      if flash.notice.present?
-        notification.extra["action"] = {
-          "data" => flash.notice,
-          "type" => "callout",
-          "class" => "success"
-        }
-        notification.save
-      end
+      notification.set_action!("callout", flash.notice, class: "success") if flash.notice.present?
       flash.discard
       klass = "success"
       text = flash.notice

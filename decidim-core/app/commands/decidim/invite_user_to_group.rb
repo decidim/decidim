@@ -23,7 +23,7 @@ module Decidim
       return broadcast(:ok) if user_belongs_to_group?
 
       transaction do
-        invite_user
+        @invitation = invite_user
         send_notification
       end
 
@@ -50,7 +50,8 @@ module Decidim
         affected_users: [form.user],
         extra: {
           user_group_name: user_group.name,
-          user_group_nickname: user_group.nickname
+          user_group_nickname: user_group.nickname,
+          user_group_invitation: @invitation.id
         }
       )
     end

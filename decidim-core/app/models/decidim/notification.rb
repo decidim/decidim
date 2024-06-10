@@ -33,6 +33,21 @@ module Decidim
       extra["received_as"]
     end
 
+    # action hash if the even_class provides one
+    def event_action
+      @event_action ||= event_class_instance.action
+    end
+
+    def set_action(type, data, options = nil)
+      extra["action"] = { "type" => type, "data" => data }
+      extra["action"].merge(options) if options.present? && options.is_a?(Hash)
+    end
+
+    def set_action!(type, data, options = nil)
+      set_action(type, data, options)
+      save!
+    end
+
     def self.user_collection(user)
       where(decidim_user_id: user.id)
     end

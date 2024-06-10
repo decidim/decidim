@@ -43,7 +43,9 @@ module Decidim
         resource:,
         event_name: event,
         extra: extra.merge(received_as: user_role)
-      )
+      ).tap do |notification|
+        notification.set_action(*notification.event_action) if notification.event_action
+      end
     end
 
     attr_reader :event, :event_class, :resource, :recipient, :user_role, :extra
