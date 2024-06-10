@@ -335,6 +335,13 @@ eu:
           conditions:
             - Nabigatu eta irakurri besteen proposamenak
             - Bozkatu gustuko dituzun edo interesgarriak iruditzen zaizkizun proposamenak
+          description: Bereizgarri hau ematen da beste pertsona batzuen proposmenak bozkatzen dituzunean.
+          description_another: Parte-hartzaile honek %{score} proposamen bozkatu ditu.
+          description_own: '%{score} proposamen bozkatu dituzu.'
+          name: Proposamenak bozkatuak
+          next_level_in: Bozkatu %{score} proposamen gehiago hurrengo mailara iristeko!
+          unearned_another: Parte-hartzaile honek oraindik ez du proposamenik bozkatu.
+          unearned_own: Oraindik ez duzu proposamenik bozkatu.
         proposals:
           conditions:
             - Aukeratu zure interesekoa den parte hartzeko gunea, gaitutako proposamenak aurkeztuta
@@ -359,6 +366,10 @@ eu:
         description: Proposamen kopurua
         object: proposamenak
         title: Proposamenak
+      votes:
+        description: Zenbat boto proposamenei
+        object: botoak
+        title: Botoak
     participatory_spaces:
       highlighted_proposals:
         last: Azken proposamenak
@@ -542,6 +553,7 @@ eu:
             remove_assignment: Desegin esleipena
             remove_assignment_confirmation: Ziur zaude proposamen honen ebaluatzailea desesleitu nahi duzula?
             valuators: Ebaluatzaileak
+            votes_count: Boto kopurua
           update_category:
             invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} kategoria.'
             select_a_category: Mesedez, hautatu kategoria bat.
@@ -746,6 +758,9 @@ eu:
         buttons:
           amend: Zuzendu
           comment: Iruzkina
+      proposal_votes:
+        create:
+          error: Arazo bat egon da proposamena bozkatzean.
       proposals:
         dynamic_map_instructions:
           description: Koordenatuak eguneratu egingo dira 'aurrebistaratu' botoian klik egiten duzunean. Baina helbidea ez da aldatzen.
@@ -836,18 +851,33 @@ eu:
           proposal_accepted_reason: 'Proposamen hau onartu da arrazoi hauengatik:'
           proposal_in_evaluation_reason: Proposamen hau ebaluatzen ari da
           proposal_rejected_reason: 'Proposamen hau baztertu da arrazoi hauengatik:'
+          withdraw_btn_hint: Zure proposamena atzera bota dezakezu iritziz aldatzen baduzu, botorik jaso ez baduzu. Proposamena ez da ezabatzen, baztertutako proposamenen zerrendan agertuko da.
           withdraw_confirmation_html: Ziur zaude proposamen hau kendu nahi duzula? <br><br><strong>Ekintza hau ezin da desegin!</strong>
           withdraw_proposal: Ezabatu proposamena
         update:
           title: Eguneratu proposamena
         vote_button:
           already_voted: Bozkatuta duzu
+          already_voted_hover: Kendu botoa
+          maximum_votes_reached: Botoen muga lortua
           no_votes_remaining: Ez da gelditzen botorik
           vote: Proiektuaren alde egin
           votes_blocked: Bozketa desaktibatu da
         voting_rules:
+          can_accumulate_votes_beyond_threshold:
+            description: Proposamen bakoitzak %{limit} boto baino gehiago jaso dezake
+          minimum_votes_per_user:
+            description: Gutxienez %{votes} boto banatu behar dituzu proposamen desberdinen artean.
+            given_enough_votes: Boto gehiegi eman dituzu.
+            votes_remaining: '%{remaining_votes} boto gehiago eman behar dizkiezu proposamenei zure botoak kontuan har daitezen.'
           proposal_limit:
             description: '%{limit} proposamen sortu ditzakezu.'
+          threshold_per_proposal:
+            description: Proposamenak baliagarriak izan daitezen, %{limit} boto izatera iritsi behar da.
+          title: 'Botoek arau hauek bete behar dituzte:'
+          vote_limit:
+            description: Gehienez, %{limit} proposamen bozkatu ahal dituzu.
+            votes: Gainerako % {kopurua} boto
         wizard_aside:
           back: Atzera
           back_from_step_1: Itzuli proposamenetara
@@ -874,6 +904,9 @@ eu:
       versions:
         index:
           title: Bertsioak
+      withdraw:
+        errors:
+          has_votes: Proposamen hau ezin da kendu dagoeneko botoak duelako.
     resource_links:
       copied_from_component:
         proposal_proposal: Lotutako proposamenak
