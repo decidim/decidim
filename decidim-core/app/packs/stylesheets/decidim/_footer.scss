@@ -1,4 +1,6 @@
 footer {
+  @apply md:mb-0 lg:mb-0 #{!important};
+
   .main-footer {
     @apply bg-gray-4;
 

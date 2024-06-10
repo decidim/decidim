@@ -4,7 +4,7 @@
 let prevScroll = window.scrollY;
 const stickyHeader = document.querySelector("[data-sticky-header]");
 const footer = document.querySelector("footer");
-const ctasButtons = document.querySelector(".layout-aside__ctas-buttons");
+const ctasButtons = document.querySelector("[data-ctas-buttons]");
 
 const isElementInViewport = (element) => {
   const rect = element.getBoundingClientRect();
