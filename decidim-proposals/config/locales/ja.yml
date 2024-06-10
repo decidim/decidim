@@ -94,6 +94,8 @@ ja:
         other: 提案
       decidim/proposals/proposal_note:
         other: メモ
+      decidim/proposals/proposal_vote:
+        other: 投票
   decidim:
     admin:
       filters:
@@ -135,6 +137,7 @@ ja:
           comment: コメント
           create: 作成
           endorse: オススメする
+          vote: 投票
           vote_comment: コメントに投票
           withdraw: 撤回する
         name: 提案
@@ -154,10 +157,12 @@ ja:
               most_commented: コメントの多い順
               most_endorsed: オススメの多い順
               most_followed: フォローの多い順
+              most_voted: 得票数順
               random: ランダム
               recent: 新しい順
               with_more_authors: 起案者の多い順
             geocoding_enabled: ジオコーディングが有効
+            minimum_votes_per_user: ユーザーあたりの最小投票数
             new_proposal_body_template: 新しい提案本文テンプレート
             new_proposal_body_template_help: 新しい提案に含まれる予定のテキストを定義することができます。
             new_proposal_help_text: 新しい提案ヘルプテキスト
