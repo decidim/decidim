@@ -249,8 +249,12 @@ bg:
         unblock: "%{user_name} отблокира потребителска група %{resource_name}"
         verify: "%{user_name} провери групата %{resource_name}"
         verify_via_csv: "%{user_name} провери групата %{resource_name} чрез CSV файл"
+      user_moderation:
+        unreport: "%{user_name} отмени %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>ПРАВИЛА НА АДМИНИСТРАТОРА</h2><p>Надяваме се, че сте получили указания от местния системен администратор. Обикновено се свеждат до тези три неща:</p><ol><li>Уважавайте личното пространство на другите.</li><li>Мисли, преди да натиснеш.</li><li>С големите права идва голямата отговорност.</li></ol>"
+    alert:
+      dismiss: Отхвърляне на известието
     amendments:
       accepted:
         error: Възникна грешка при одобряване на поправката.
@@ -328,6 +332,7 @@ bg:
           '1': Създайте Ваша поправка
           '2': Сравнете Вашите поправки
           '3': Завършете Вашите поправки
+          '4': Публикувайте своето изменение
     anonymous_user: Анонимен
     application:
       collection:
@@ -343,6 +348,7 @@ bg:
       photos:
         related_photos: Свързани изображения
     author:
+      avatar: 'Аватар: %{name}'
       avatar_multiuser: Аватар за множество потребители
       comments:
         one: коментар
@@ -350,6 +356,7 @@ bg:
       endorsements:
         one: одобряване
         other: одобрявания
+      official_author: Официално
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Преминете проверка, като въведете номер на паспорт започващ с "A"
@@ -360,11 +367,16 @@ bg:
       dummy_authorization_handler:
         explanation: Преминете проверка, като въведете номер на документ завършващ с "X"
         fields:
+          allowed_postal_codes: Позволени пощенски кодове (разделени със запетаи)
+          allowed_scope_id: Разрешен обхват
           document_number: Номер на документ
           postal_code: Пощенски код
+          scope_id: Обхват
         name: Примерна идентификация
       dummy_authorization_workflow:
         name: Макет на процедура за идентификация
+      errors:
+        duplicate_authorization: Участник вече е оторизиран със същите данни. Администратор ще се свърже с вас, за да потвърди данните ви.
       expired_at: Изтече на %{timestamp}
       expires_at: Изтича на %{timestamp}
       foo_authorization:
