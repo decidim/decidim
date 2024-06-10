@@ -85,22 +85,22 @@
           <%= render partial: "decidim/budgets/projects/order_progress_progressbar_marks_right" %>
         </div>
       </div>
-    </div>
-    <div class="layout-item__aside budget-summary__progressbox-buttons hidden lg:block">
-      <% if !current_order_checked_out? && voting_open? %>
-        <button class="button button__secondary button__lg mt-2 md:mt-0 w-full" data-dialog-open="budget-confirm" <%= budget_confirm_disabled_attr %>>
-          <span>
-            <%= t("vote", scope: "decidim.budgets.projects.budget_summary") %>
-          </span>
-          <%= icon "check-line" %>
-        </button>
-      <% end %>
-      <% if include_heading && current_order_checked_out? %>
-        <%= link_to budget_order_path(return_to: "budget"), method: :delete, class: "button button__lg button__secondary cancel-order w-full mt-2 md:mt-0", data: { confirm: t("are_you_sure", scope: "decidim.budgets.projects.budget_confirm") } do %>
-          <span><%= t("cancel_order", scope: "decidim.budgets.projects.budget_summary") %></span>
-          <%= icon "delete-bin-line" %>
+      <div class="layout-item__aside budget-summary__progressbox-buttons hidden md:block lg:block">
+        <% if !current_order_checked_out? && voting_open? %>
+          <button class="button button__secondary button__lg mt-2 md:mt-0 w-full" data-dialog-open="budget-confirm" <%= budget_confirm_disabled_attr %>>
+            <span>
+              <%= t("vote", scope: "decidim.budgets.projects.budget_summary") %>
+            </span>
+            <%= icon "check-line" %>
+          </button>
         <% end %>
-      <% end %>
+        <% if include_heading && current_order_checked_out? %>
+          <%= link_to budget_order_path(return_to: "budget"), method: :delete, class: "button button__lg button__secondary cancel-order w-full mt-2 md:mt-0", data: { confirm: t("are_you_sure", scope: "decidim.budgets.projects.budget_confirm") } do %>
+            <span><%= t("cancel_order", scope: "decidim.budgets.projects.budget_summary") %></span>
+            <%= icon "delete-bin-line" %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
@@ -116,6 +116,6 @@
     <%= icon "arrow-up-s-line" %>
   </button>
   <p id="dropdown-menu-button-dropdown">
-      <%= cell('decidim/budgets/budget_information_modal', @budget).(:more_information) %>
+      <%= cell('decidim/budgets/budget_information_modal', @budget).call(:more_information) %>
   </p>
 </div>

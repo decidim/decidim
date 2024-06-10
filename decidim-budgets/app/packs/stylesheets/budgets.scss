@@ -67,7 +67,7 @@
     }
 
     &__progressbar-legend-strong {
-      @apply font-semibold block text-[10px] md:text-sm;
+      @apply font-semibold block text-[10px] md:text-sm text-nowrap;
     }
   }
 
