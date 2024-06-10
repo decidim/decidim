@@ -423,7 +423,7 @@ fr:
           body: La réunion <a href="%{meeting_path}">"%{meeting_title}"</a> est en attente de fermeture. Veuillez ajouter un compte-rendu de la réunion en utilisant le bouton "Fermer la réunion".
           greetings: Cordialement, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Bonjour %{username},
-          subject: Vous pouvez maintenant fermer la réunion "%{meeting_title}" et y ajouter un compte rendu
+          subject: Vous pouvez maintenant fermer la rencontre "%{meeting_title}" et y ajouter un compte rendu
       conference_venues: Salles de conférence
       content_blocks:
         upcoming_meetings:
