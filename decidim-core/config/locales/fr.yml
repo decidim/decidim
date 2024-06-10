@@ -361,7 +361,7 @@ fr:
         download: Télécharger le fichier
       documents:
         component_documents:
-          dummy: Documents de composant factices
+          dummy: Documents de fonctionnalité factices
           meetings: Documents de réunions
         documents: Documents
         related_documents: Documents à consulter
@@ -811,7 +811,7 @@ fr:
           email_subject: Un groupe d'utilisateurs viens de mettre à jour son profil
           notification_title: Le groupe d'utilisateurs %{user_group_name} a mis à jour son profil, le laissant non vérifié. Vous pouvez maintenant le vérifier dans le <a href="%{groups_admin_path}">panneau d'administration</a>.
       nickname_event:
-        notification_body: Nous avons corrigé la façon dont les pseudonymes sont utilisés pour qu'il n'y ait pas de doublons, quelque soit l'utilisation de majuscules et/ou de minuscules. <br/> Votre pseudonyme a été créé après un autre qui était identique, nous l'avons donc automatiquement renommé. Vous pouvez le modifier depuis <a href="%{link_to_account_settings}">les paramètres de votre compte</a>.
+        notification_body: Nous avons corrigé la façon dont les pseudonymes sont utilisés pour qu'il n'y ait pas de doublons, et c'est pourquoi nous avons supprimé la distinction entre les majuscules et les minuscules. <br/> Votre pseudonyme a été créé après un autre qui était identique, nous l'avons donc automatiquement modifié. Vous pouvez le modifier depuis <a href="%{link_to_account_settings}">les paramètres de votre compte</a>.
       notification_event:
         notification_title: Un événement a eu lieu sur <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -878,7 +878,7 @@ fr:
       create:
         button: Suivre
         error: Une erreur s'est produite lors du traitement de votre demande de suivre ce contenu.
-        participatory_space: Suivre <span>%{resource_name}</span>
+        participatory_space: Déjà abonné à <span>%{resource_name}</span>
       destroy:
         button: Ne plus suivre
         error: Une erreur s'est produite lors du traitement de votre demande de ne plus suivre ce contenu.
