@@ -16,6 +16,7 @@ fr:
           usage_p: Un accordéon nécessite au moins trois éléments
           usage_p_1_html: 1. Un wrapper <code>div</code>, avec l'attribut de données <code>data-component="accordion"</code>, sur tous les déclencheurs et panneaux disponibles.
           usage_p_2_html: 2. Un élément de déclencheur utilisable (comme un bouton), pointant vers l'élément pliable à travers <code>data-controls="panel"</code>, où le <i>panneau</i> est l'<code>id</code> du panneau.
+          usage_p_3_html: 3. Un élément cachable, dont l' <code>id</code> correspond à la valeur data-controls à laquelle se réfère le déclencheur.
         activities:
           activities: Activités
         address:
@@ -28,26 +29,102 @@ fr:
         author:
           title: Auteur
         buttons:
+          description_html: 'Les boutons sont construits en utilisant différentes combinaisons de classes CSS : la classe <code>button</code>, une taille et une couleur.'
           title: Boutons
         cards:
           title: Cartes
+        dialogs:
+          dialog_demo_description_html: Les boîtes de dialogue, ou modales, sont implémentées à travers le Rails helper <code>decidim_modal</code>.
+          dialogs_description_html: Les boîtes de dialogue sont une fonctionnalité javascript disponible grâce à une bibliothèque externe appelée <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a>.
+          tips_description: 'Pour afficher une modale complexe, correspondants aux styles, faites le balisage suivant :'
+          tips_description_html: Faites attention aux <i>data-attributes</i> et <i>ids</i>. Par exemple, l'id <code>[data-dialog-title]</code> commence par <i>dialog-title</i> plus <i>modal id</i>.
+          title: Dialogues
+          usage_description: Une boîte de dialogue nécessite deux éléments
+          usage_description_2_html: 2. Une modale, dont l' <code>id</code> correspond à la valeur de la cible de données à laquelle se réfère le déclencheur.
+          usage_description_html: 1. Un élément utilisable par l'utilisateur, avec l'attribut de données <code>data-dialog-open="exemple"</code>, où l'exemple est l' <code>id</code> de la modale.
+        follow:
+          title: Abonnements
         forms:
+          disabled: Désactivé
           emojis: Emojis
           emojis_description: Fonctionne uniquement pour une zone de texte
           errors: Erreurs
           errors_description: Ne s'applique pas à la liste déroulante
+          header_alert: Cette page provient d'une vue héritée. Le contenu est obsolète.
           help_texts: Textes d'aide
+          html_regular_inputs: Entrées régulières HTML
           min_max_length: longueur Min/Max
+          min_max_length_description: Ne fonctionne que pour le type d'entrée = 'text' et la zone de texte
+          multiselect: Sélection multiple
+          multiselect_description_html: Les sélections multiples sont une fonctionnalité javascript disponible grâce à une bibliothèque externe appelée <a href="https://tom-select.js.org/" target="_blank" rel="noopener noreferrer">Tom Select</a>.
+          regular_inputs_description: 'Affiche uniquement les types communs, la liste complète disponible : date, datetime locale, email, mois, numéro, mot de passe, recherche, tel, texte, heure, url, semaine'
           textarea_required: zone de texte requise
           title: Formulaires
         report:
           title: Signaler
+        share:
+          title: Partage
+        tab_panels:
+          title: Onglets
+        tooltips:
+          demo: Démo
+          demo_description: Pour que ce composant fonctionne, un participant doit survoler l'élément.
+          description: Une infobulle est un composant que les utilisateurs peuvent survoler pour avoir des informations supplémentaires à son sujet.
+          github_source_html: Code source sur GitHub %{github_link}
+          title: Info-bulles
+          usage: Usage
+          usage_p: 'Une infobulle nécessite l''utilisation du helper`with_tooltip`, avec trois arguments :'
+          usage_p_1_html: '1. Une chaîne de caractères avec la valeur de l''info-bulle. Dans l''exemple de cette page : "Bonjour le monde".'
       foundations:
+        accessibility:
+          accessibility_labels: Étiquettes d'accessibilité
+          accessibility_labels_paragraph: Lorsque vous définissez des éléments, assurez-vous toujours qu'ils ont un sens pour les utilisateurs du lecteur d'écran.
+          accessibility_title: Accessibilité
+          adjacent_links: Liens adjacents
+          adjacent_links_header: Liens adjacents pour la même ressource
+          adjacent_links_paragraph: Si la même ressource a plusieurs liens adjacents pointant vers elle, Cela rend difficile pour ces utilisateurs de jeter un coup d'œil sur la page car ils pourraient avoir besoin de passer par plusieurs liens pour accéder à la ressource suivante.
+          color_contrast: Contraste des couleurs
+          color_contrast_paragraph: Lorsque vous créez des interfaces utilisateur ou que vous modifiez les couleurs, assurez-vous toujours que vous ne cassez pas l'accessibilité avec vos modifications. Vous pouvez utiliser le vérificateur de contraste de couleur pour vous assurer que vos couleurs ont un contraste suffisant avec la couleur de fond où elles sont affichées.
+          decidim_follows_html: Decidim suit les recommandations du <u>Web Content Accessibility Guidelines (WCAG) 2.1</u>
+          dynamic_changes_header: La fonctionnalité dynamique modifie le contexte de la page de façon non intuitive
+          dynamic_changes_paragraph: Les changements dans les entrées de formulaire ne doivent pas modifier le contexte de la page automatiquement.
+          elements_hidden: Éléments cachés
+          elements_hidden_header: Éléments cachés de l'API d'accessibilité
+          elements_hidden_paragraph: Pour cacher un élément aux technologies d'assistance, utilisez l'attribut aria-hidden="true" sur celui-ci.
+          heading_on: Titre sur les sections importantes
+          here_link: ici
+          illogical_heading_order: Ordre de titre illogique
+          illogical_heading_paragraph: Chaque page doit avoir un ordre de titres logique lorsque vous utilisez les éléments <h1>, <h2>, <h3>, <h4>, <h5> et <h6> d'en-tête.
+          important_sections_heading: Titre sur les sections importantes
+          important_sections_paragraph: Il est très important que chaque section importante de la page ait un titre pour faciliter la compréhension des sections importantes de la page en parcourant ses rubriques.
+          links_and_buttons: Liens et boutons
+          links_and_buttons_paragraph: Les éléments d'ancrage (c'est-à-dire les liens) sont destinés à lier à des pages différentes ou à ancrer des positions dans la page. Si l'élément est censé ouvrir un élément caché sur cette page, vous devriez utiliser l'élément <button> à la place.
+          see_further_info_html: Voir plus d'infos %{link}
+          unique_h1: H1 unique
+          unique_h1_paragraph: Chaque page devrait avoir un titre H1 unique
+          use_aria: Utiliser ARIA
+          use_aria_header: Utiliser les attributs ARIA si possible
+          use_aria_paragraph: De nombreux éléments qui fournissent des fonctionnalités interactives sur le site Web requièrent des attributs ARIA pour les rendre accessibles.
+        color:
+          color_header: Couleur 
+          description_p1: Nous fournissons une palette de base avec peu de couleurs de sorte que les personnalisations simples soient faciles. Vous pouvez modifier la palette de base soit dans la zone Administration soit dans le fichier de configuration de Tailwind si vous avez besoin d'une personnalisation plus avancée.
+          description_p2_html: Lorsque vous personnalisez vos couleurs, gardez à l'esprit l'%{contrast_link}. Vous pouvez vérifier le contraste de votre choix avec %{checker_link} ou d'autres outils similaires.
+          wcag_compliant_rations: Ratio de contraste conforme WCAG 2.1 AA
+          wcag_contrast_checker: Vérificateur de contraste WebAIM
         iconography:
           description_iconography: Nous utilisons des icônes pour renforcer la signification des actions, des titres, etc
           description_iconography_html: 'Nous utilisons la bibliothèque open source Remixicon : %{iconography_link}'
           title: Iconographie
         layout:
+          centered: Centré
+          code: Code
+          columns: Le nombre de colonnes 10, 8 ou 6.
+          description_layout_p1: Pour les ordinateurs de bureau, Decidim utilise une grille à 12 colonnes avec un nombre limité de modèles (configuration de la grille) pour différents types de contenu. L'objectif est qu'un certain type de contenu (page d'accueil, liste des éléments, élément individuel) ait une disposition distincte, afin que les utilisateurs puissent comprendre dans quel type de contenu ils sont juste par l'apparence générale de la page.
+          description_layout_p2: Ces règles simples doivent être suivies lors de la création de nouveaux modules ou de la personnalisation des modules existants, afin qu'un site Decidim puisse conserver sa cohérence.
+          desktop: Ordinateur
+          full_width: Largeur complète
+          layout_list_1: 'Page d''accueil (du site, d''un espace) : pleine largeur'
+          layout_list_2: 'Liste des éléments (des espaces, des éléments à l''intérieur d''un espace, etc): côté gauche'
           mobile: Téléphone mobile
           not_required: Non requis
           properties: Propriétés
@@ -59,6 +136,7 @@ fr:
           section_p_mobile: Le système de grille sur mobile est composé de 4 colonnes flexibles avec un interstice entre des colonnes de 16px et des marges gauche et droite de 16px. Pour les tailles inférieures à 320px ces marges sont réglées sur 8px.
           section_p_tablet: Le système de grille sur tablette est composé de 8 colonnes flexibles avec un interstice entre les colonnes de 16px et les marges gauche et droite de 24px.
           tablet: Tablette
+          title: Disposition
         typography:
           description: Ces directives résument l'utilisation de la typographie dans Decidim, et servent de garde-fous aux concepteurs pour concevoir librement tout en gardant à l'esprit les meilleures pratiques typographiques.
           headings:
@@ -69,8 +147,18 @@ fr:
           typefaces_description_1: Decidim utilise Source Sans Pro comme police primaire. Cette police prend en charge 310 langues
           typefaces_description_2: Ces polices sont sous licence Open Font License
       helpers:
+        accountability: Suivi
+        accountability_cards_html: Utilisé par les cartes <i>Réalisations</i> . Cette carte nécessite que les assets du module s'affichent correctement, c'est-à-dire <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
         activity: Activité
+        address_description: La cellule d'adresse reçoit une ressource, et recherche les attributs géolocalisables pour afficher un balisage spécifique.
+        address_description_2: Selon le type de contenu, l'adresse pourrait être une URL en ligne. Pour de tels cas, l'information affichée est la même mais elle est adaptée à la réalité.
+        ally_link: a11y-dropdown-component
+        argument: Argument
+        assemblies: Assemblées
+        assembly_g: Assemblée G
+        assembly_s: Assemblée S
         avatar: Avatar
+        avatar_description: Il est utilisé lorsqu'il y a des espaces étroits, où l'auteur est une information secondaire.
         background: Arrière-plan et bordures
         base: Base
         block_text: Utiliser le bloc extra_data
@@ -86,19 +174,55 @@ fr:
         collaborative_draft_l: Brouillon collaboratif L
         colors: Couleurs
         compact: Compact
+        compact_description: Cette version de l'auteur est la façon courante d'identifier le créateur de la ressource.
+        conference_g: Conférence G
+        conference_s: Conférence S
+        conferences: Conférences
         context: Contexte
+        context_description: Cette cellule affiche quelques informations à propos d'un utilisateur. C'est une aide visuelle pour identifier le créateur de ressource/contenu. Survoler avec la souris affiche une info-bulle avec des informations supplémentaires et des liens vers son profil.
+        context_description_2: Pour les ressources, cette cellule apparaît sous le titre principal. Pour les autres contenus, elle apparaît à côté du contenu lui-même.
+        debate_l: Débat L
+        debate_s: Débat S
+        debates: Débats
+        debates_cards_html: Utilisé par les cartes <i>Débats</i>
+        debates_cards_text: Utiliser un modèle différent pour le bloc d'image
         default: Par défaut
+        default_description: Appeler la cellule sans aucun argument supplémentaire, mais l'utilisateur lui-même.
         demo: Démo
+        demo_text: 'Cette cellule reçoit un modèle d''éléments LastActivity et affiche les éléments suivants :'
+        demo_text_2: Utilisé par la page des dernières activités, dans un bloc de contenu et dans les listes déroulantes.
+        description: Description
         disabled: Désactivé
+        dropdowns: Listes déroulantes
+        dropdowns_demo_1_description: 'L''exemple suivant ne sera pas visible sur un ordinateur, mais le sera sur mobile :'
+        dropdowns_demo_description: Les menus déroulants sont utilisés tout au long de l'application afin de réduire les menus, grands et faciles à lire sur ordinateur, mais trop longs sur les appareils mobiles.
+        dropdowns_demo_description_html: 'Cette fonctionnalité javascript est améliorée avec un petit css, par le nommage : le contenu cachable DOIT avoir un <code>id</code> commençant par <i>dropdown-menu</i>.'
+        follow_button: Bouton Suivre
+        follower_description_html: Assurez-vous que le partial <code>decidim/shared/login_modal</code> est présent dans le DOM. Ce partial est placé dans le layout de l'application lorsque l'utilisateur est connecté.
         form_elements: Éléments de formulaire
+        generic_cards: Cartes génériques
+        grid: Grille
         hex_code: Code hexadécimal
+        highlight: Surbrillance
+        highlight_description: Utilisé par les ressources qui permettent de surligner
         html_tips: Astuces HTML
         icons: Icônes
+        image_and_description: Image et description
+        initiative_g: Pétition G
+        initiative_s: Pétition S
+        initiatives: Pétitions
+        list: Liste
         main_colors: Couleurs principales
+        meeting_l: Rencontre L
+        meeting_s: Rencontre S
+        meetings: Rencontres
+        meetings_html: Utilisé par les cartes <i>Rencontres</i>
+        metadata_items: Eléments de métadonnées
+        metadata_text: Chaque ressource définit ses propres métadonnées
         plain_text: Je ne suis que du texte brut
         report_button: Bouton Signaler
         report_usage_description: Le bouton Signaler lance une fenêtre modale pour marquer la ressource courante.
-        rgba_code:
+        rgba_code: Code RGBA
         send: Envoyer
         sizes: Tailles
         source_code: Code source
@@ -115,6 +239,15 @@ fr:
         usage_base_2: Couleur principale des liens et des boutons
         usage_formelements_1: Arrière-plan par défaut des champs de formulaire avec saisie
         usage_formelements_2: Arrière-plan par défaut des champs de formulaire avec saisie désactivés
+        usage_state_3: Bordure d'alerte\nIcône d'alerte de notification
         usage_typography_1: En-têtes et titres de section
         usage_typography_4: Liens et boutons
         value: Valeur
+      home:
+        index:
+          by_sharing_principles: En partageant les principes, la philosophie, et les raisons qui sous-tendent les décisions de conception, nous voulons donner à la communauté le pouvoir de contribuer avec constance afin que nous atteignions la meilleure expérience des participants possible.
+          decidim_guide: Le guide de design de Decidim
+          different_ui_components: En même temps, nous documentons les différents composants et modèles de l'interface utilisateur utilisés, qui doivent être réutilisés ou étendus.
+          github_source: Code source sur GitHub
+          home_header: Système de design de Decidim
+          welcome_sentence: Bienvenue dans le Système de design de Decidim (SDD). Ce guide est la ressource pour les concepteurs et développeurs qui ont besoin de personnaliser, de développer de nouveaux modules et d'intégrer de nouvelles fonctionnalités.
