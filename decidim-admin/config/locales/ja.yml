@@ -567,6 +567,7 @@ ja:
         appearance: 外観
         area_types: エリア種別
         areas: エリア
+        components: コンポーネント
         configuration: 設定
         content: 報告されたコンテンツ
         external_domain_whitelist: 許可された外部ドメイン
