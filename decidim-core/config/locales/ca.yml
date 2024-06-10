@@ -357,6 +357,9 @@ ca:
       document:
         download: Descarregar fitxer
       documents:
+        component_documents:
+          dummy: Documents sobre components ficticis
+          meetings: Documents sobre trobades
         documents: Documents
         related_documents: Documents relacionats
       photo:
