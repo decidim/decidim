@@ -72,14 +72,14 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 1
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ inputs.ruby_version }}
       - uses: nanasess/setup-chromedriver@v2
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         id: app-cache
         with:
           path: ./spec/decidim_dummy_app/
@@ -110,13 +110,13 @@ jobs:
           SIMPLECOV: "true"
           SHAKAPACKER_RUNTIME_COMPILE: "false"
           NODE_ENV: "test"
-      - uses: codecov/codecov-action@v3
+      - uses: codecov/codecov-action@v4
         name: Upload coverage
         with:
           token: ${{ inputs.codecov_token }}
           name: ${{ inputs.working-directory }}
           flags: ${{ inputs.working-directory }}
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: screenshots
