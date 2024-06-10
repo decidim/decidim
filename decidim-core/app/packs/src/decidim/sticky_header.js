@@ -4,11 +4,28 @@
 let prevScroll = window.scrollY;
 const stickyHeader = document.querySelector("[data-sticky-header]");
 const footer = document.querySelector("footer");
-const ctasButtons = document.querySelector("[data-ctas-buttons]");
+const ctasButtons = document.querySelectorAll("[data-ctas-buttons]");
 
 const isElementInViewport = (element) => {
   const rect = element.getBoundingClientRect();
   return rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+};
+
+const adjustCtasButtons = () => {
+  if (!ctasButtons || !ctasButtons.length) {
+    return;
+  }
+
+  ctasButtons.forEach((ctasButton) => {
+    if (!ctasButton.offsetParent) {
+      return;
+    }
+    if (isElementInViewport(ctasButton)) {
+      footer.style.marginBottom = `${ctasButton.offsetHeight}px`;
+    } else {
+      footer.style.marginBottom = 0;
+    }
+  });
 };
 
 if (stickyHeader) {
@@ -28,13 +45,11 @@ if (stickyHeader) {
         prevScroll = currentScroll;
       }
 
-      if (ctasButtons) {
-        if (isElementInViewport(ctasButtons)) {
-          footer.style.marginBottom = `${ctasButtons.offsetHeight}px`;
-        } else {
-          footer.style.marginBottom = 0;
-        }
-      }
+      adjustCtasButtons();
     }
+  });
+
+  document.addEventListener("on:toggle", () => {
+    adjustCtasButtons();
   });
 };
