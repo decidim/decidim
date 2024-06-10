@@ -140,7 +140,7 @@ describe "Support Proposal", type: :system, slow: true do
         end
 
         describe "vote counter" do
-          let(:proposals) { create_list(:proposal, 2, component:) }
+          let(:proposals) { create_list(:proposal, 2, component: component) }
           let(:proposal_title) { translated(proposals.first.title) }
 
           context "when votes are blocked" do
@@ -194,8 +194,8 @@ describe "Support Proposal", type: :system, slow: true do
               create(:proposal_component,
                      :with_votes_disabled,
                      :with_vote_limit,
-                     vote_limit:,
-                     manifest:,
+                     vote_limit: vote_limit,
+                     manifest: manifest,
                      participatory_space: participatory_process)
             end
 

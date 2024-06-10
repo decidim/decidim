@@ -494,8 +494,8 @@ describe "Proposals", type: :system do
       let!(:component) do
         create(:proposal_component,
                :with_votes_disabled,
-               manifest: manifest,
                :with_proposal_limit,
+               manifest: manifest,
                participatory_space: participatory_process)
       end
 
