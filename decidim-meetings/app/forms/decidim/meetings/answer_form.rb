@@ -24,8 +24,8 @@ module Decidim
         @answer ||= Decidim::Meetings::Answer.find_by(decidim_user_id: current_user.id, decidim_question_id: question_id) if current_user
       end
 
-      def label(idx)
-        base = "#{idx + 1}. #{translated_attribute(question.body)}"
+      def label
+        base = translated_attribute(question.body)
         base += " (#{max_choices_label})" if question.max_choices
         base
       end

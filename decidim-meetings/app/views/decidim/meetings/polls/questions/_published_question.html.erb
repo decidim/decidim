@@ -3,9 +3,11 @@
 </summary>
 
 <div>
-  <p class="h3"><%= translated_attribute(question.body) %></p>
 
   <% @form = form || Decidim::Meetings::AnswerForm.new(question_id: question.id, current_user:) %>
+
+  <p class="h3"><%= @form.label %></p>
+
   <%= decidim_form_for(@form, url: meeting_polls_answers_path(meeting), method: :post, remote: true, html: { class: "form-defaults" }, data: { "safe-path" => meeting_live_event_path(meeting) }) do |form| %>
     <div class="meeting-polls__answer" data-max-choices="<%= question.max_choices %>">
       <p class="form-error max-choices-alert mt-0 mb-4"><%= t(".max_choices_alert") %></p>
