@@ -78,7 +78,6 @@ shared_examples "manage assembly private users examples" do
 
         Decidim::Admin::CreateParticipatorySpacePrivateUser.call(
           form,
-          user,
           assembly
         )
 

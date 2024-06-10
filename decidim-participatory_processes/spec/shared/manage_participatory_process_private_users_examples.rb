@@ -78,7 +78,6 @@ shared_examples "manage participatory process private users examples" do
 
         Decidim::Admin::CreateParticipatorySpacePrivateUser.call(
           form,
-          user,
           participatory_process
         )
 
