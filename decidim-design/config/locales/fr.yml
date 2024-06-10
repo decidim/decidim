@@ -53,11 +53,11 @@ fr:
           properties: Propriétés
           right_aside: Côté droit
           section_p_breakpoints: 'Pour gérer la largeur maximale adaptée des éléments, nous comptons sur la classe par défaut `container` Tailwind qui indique les points d''arrêt suivants :'
-          section_p_code: Lors de l'implémentation de nouveaux modules, vous avez quelques aides qui vous fournissent automatiquement le code nécessaire pour configurer la structure HTML. Vous devriez utiliser ces aides au lieu d'utiliser directement des éléments div avec des classes, afin de maintenir la cohérence.
+          section_p_code: Lors de l'implémentation de nouveaux modules, vous avez quelques aides qui vous fournissent automatiquement le code nécessaire pour configurer la structure HTML. Vous devriez utiliser ces aides au lieu d'utiliser directement des éléments div avec des classes, afin de maintenir de la cohérence.
           section_p_code_html: Vous pouvez trouver les mises en page de base dans %{link_section_code}
-          section_p_desktop: Le système de grille de bureau est composé de 12 colonnes flexibles avec un interstice entre les colonnes de 16px et les marges gauche et droite de 48px
-          section_p_mobile: Le système de grille mobile est composé de 4 colonnes flexibles avec un interstice entre des colonnes de 16px et des marges gauche et droite de 16px. Pour les tailles inférieures à 320px ces marges sont réglées sur 8px
-          section_p_tablet: Le système de grille de bureau est composé de 8 colonnes flexibles avec un interstice entre les colonnes de 16px et les marges gauche et droite de 24px
+          section_p_desktop: Le système de grille sur ordinateur de bureau est composé de 12 colonnes flexibles avec un interstice entre les colonnes de 16px et les marges gauche et droite de 48px.
+          section_p_mobile: Le système de grille sur mobile est composé de 4 colonnes flexibles avec un interstice entre des colonnes de 16px et des marges gauche et droite de 16px. Pour les tailles inférieures à 320px ces marges sont réglées sur 8px.
+          section_p_tablet: Le système de grille sur tablette est composé de 8 colonnes flexibles avec un interstice entre les colonnes de 16px et les marges gauche et droite de 24px.
           tablet: Tablette
         typography:
           description: Ces directives résument l'utilisation de la typographie dans Decidim, et servent de garde-fous aux concepteurs pour concevoir librement tout en gardant à l'esprit les meilleures pratiques typographiques.
