@@ -11,13 +11,13 @@ module Decidim
     let(:form) { double(followable: user2, invalid?: false) }
 
     it "creates a follow" do
-      expect { described_class.new(form, user1).call }.to broadcast(:ok)
+      expect { described_class.new(form).call }.to broadcast(:ok)
       expect(user2.reload.followers).to include(user1)
       expect(user2.follows_count).to eq(1)
     end
 
     it "increments the user's score" do
-      described_class.new(form, user1).call
+      described_class.new(form).call
 
       expect(Decidim::Gamification.status_for(user1, :followers).score).to eq(0)
       expect(Decidim::Gamification.status_for(user2, :followers).score).to eq(1)
@@ -27,7 +27,7 @@ module Decidim
       let!(:follow) { create(:follow, followable: user2, user: user1) }
 
       it "does not raise a validation error" do
-        expect { described_class.new(form, user1).call }.to broadcast(:ok)
+        expect { described_class.new(form).call }.to broadcast(:ok)
         expect(user2.reload.followers).to include(user1)
         expect(user2.follows_count).to eq(1)
       end
