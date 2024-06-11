@@ -143,6 +143,7 @@ fi:
           show: Näytä lisäasetukset
         create:
           error: Uuden organisaation luonti epäonnistui.
+          error_invitation: Uuden organisaation luominen epäonnistui. Tarkasta organisaation hallintakäyttäjän nimi.
           success: Organisaation luonti onnistui.
         edit:
           secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen
