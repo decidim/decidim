@@ -143,6 +143,7 @@ es-PY:
           show: Mostrar configuración avanzada
         create:
           error: Se ha producido un error al crear una nueva organización.
+          error_invitation: Hubo un problema al crear una nueva organización. Revisa el nombre de la administradora de la organización.
           success: Organización creada correctamente.
         edit:
           secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea
