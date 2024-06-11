@@ -52,6 +52,44 @@ module Decidim
         end
       end
 
+      context "when smtp settings has blank values" do
+        let(:smtp_settings) do
+          {
+            "address" => "",
+            "port" => "",
+            "user_name" => "",
+            "encrypted_password" => "",
+            "from_email" => "",
+            "from_label" => "",
+            "from" => ""
+          }
+        end
+
+        it "returns default values" do
+          expect(mail.from).to eq(["change-me@example.org"])
+          expect(mail.delivery_method.settings).to be_blank
+        end
+
+        context "and from is set" do
+          let(:smtp_settings) do
+            {
+              "address" => "",
+              "port" => "",
+              "user_name" => "",
+              "encrypted_password" => "",
+              "from_email" => "",
+              "from_label" => "",
+              "from" => "Custom <custom@example.org>"
+            }
+          end
+
+          it "set default values for mail.from and mail.reply_to" do
+            expect(mail.header[:from].value).to eq("Custom <custom@example.org>")
+            expect(mail.delivery_method.settings).to be_blank
+          end
+        end
+      end
+
       context "when from is not set" do
         let(:from) { nil }
 

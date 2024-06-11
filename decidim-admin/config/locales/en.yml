@@ -188,6 +188,7 @@ en:
         export: Export all
         export-selection: Export selection
         import: Import
+        manage: Manage
         newsletter:
           new: New newsletter
         participatory_space_private_user:
@@ -571,6 +572,7 @@ en:
         appearance: Appearance
         area_types: Area types
         areas: Areas
+        components: Components
         configuration: Configuration
         content: Reported content
         external_domain_whitelist: Allowed external domains
