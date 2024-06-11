@@ -17,7 +17,7 @@
     }
 
     &__content__header {
-      @apply col-span-2 text-2xl mb-2;
+      @apply col-span-2 text-2xl pb-2 mb-2;
 
       .ql-editor {
         @apply inline-block text-2xl;
