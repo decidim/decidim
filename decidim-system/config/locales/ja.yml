@@ -143,6 +143,7 @@ ja:
           show: 詳細設定を表示
         create:
           error: 新しい組織を作成する際に問題が発生しました。
+          error_invitation: 新しい組織を作成する際に問題が発生しました。組織の管理者名を確認してください。
           success: 組織が正常に作成されました。
         edit:
           secondary_hosts_hint: 新しい行にそれぞれ入力してください
