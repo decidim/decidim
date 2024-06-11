@@ -63,11 +63,16 @@ describe "Organizations", type: :system do
         it "does not create an organization" do
           fill_in "Name", with: "Citizen Corp 2"
           fill_in "Reference prefix", with: "CCORP"
+          fill_in "Host", with: "www.example.org"
           fill_in "Organization admin name", with: "system@example.org"
+          fill_in "Organization admin email", with: "system@example.org"
+          check "organization_available_locales_en"
+          choose "organization_default_locale_en"
+          choose "Allow participants to register and login"
 
           click_on "Create organization & invite admin"
 
-          within ".flash__message", match: :first do
+          within ".flash", match: :first do
             expect(page).to have_content("There was a problem creating a new organization. Review your organization admin name.")
           end
         end
