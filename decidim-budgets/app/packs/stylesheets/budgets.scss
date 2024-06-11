@@ -227,7 +227,7 @@
 }
 
 .budget-summary__button-dropdown {
-  @apply col-span-12 mb-4 pb-4 text-secondary lg:hidden;
+  @apply col-span-12 text-secondary lg:hidden;
 
   &_text {
     @apply flex gap-4 justify-start;
