@@ -117,6 +117,6 @@
   }
 
   .survey-section-buttons {
-    @apply h-20 flex-row last:[&>button]:font-semibold last:[&>button]:text-lg last:[&>button]:py-3;
+    @apply flex-row last:[&>button]:font-semibold last:[&>button]:text-lg last:[&>button]:py-3;
   }
 }
