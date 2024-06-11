@@ -143,6 +143,7 @@ eu:
           show: Erakutsi aukera aurreratua
         create:
           error: Errorea izan da antolatzaile berri bat sortzean.
+          error_invitation: Arazo bat sortu da erakunde berri bat sortzean. Berrikusi erakundearen administratzailearen izena.
           success: Antolatzailea zuzen sortu da.
         edit:
           secondary_hosts_hint: Sartu haietako bakoitza lerro berri batean
