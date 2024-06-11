@@ -143,6 +143,7 @@ fr-CA:
           show: Afficher les paramètres avancés
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle organisation.
+          error_invitation: Il y a eu un problème lors de la création d'une nouvelle organisation. Vérifiez le nom de l'administrateur de votre organisation.
           success: Organisation créée avec succès.
         edit:
           secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
