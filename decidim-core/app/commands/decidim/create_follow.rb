@@ -6,10 +6,8 @@ module Decidim
     # Public: Initializes the command.
     #
     # form         - A form object with the params.
-    # current_user - The current user.
-    def initialize(form, current_user)
+    def initialize(form)
       @form = form
-      @current_user = current_user
     end
 
     # Executes the command. Broadcasts these events:
@@ -29,7 +27,7 @@ module Decidim
 
     private
 
-    attr_reader :follow, :form, :current_user
+    attr_reader :follow, :form
 
     def create_follow!
       @follow = Follow.find_by(
