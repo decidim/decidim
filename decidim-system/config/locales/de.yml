@@ -143,6 +143,7 @@ de:
           show: Zeige erweiterte Einstellungen
         create:
           error: Beim Erstellen einer neuen Organisation ist ein Fehler aufgetreten.
+          error_invitation: Es gab ein Problem beim Erstellen einer neuen Organisation. Überprüfen Sie den Administratornamen Ihrer Organisation.
           success: Organisation erfolgreich erstellt
         edit:
           secondary_hosts_hint: Geben Sie jede von ihnen in einer neuen Zeile ein
