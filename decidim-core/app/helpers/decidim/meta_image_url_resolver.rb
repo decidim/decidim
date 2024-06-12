@@ -4,19 +4,18 @@ module Decidim
   class MetaImageUrlResolver
     include TranslatableAttributes
 
-    delegate :add_base_url_to, :resolve_base_url, to: :@helper
+    # delegate :add_base_url_to, to: :@helper
 
-    def initialize(image_url, resource, helper)
-      @image_url = image_url
+    def initialize(resource, current_organization)
       @resource = resource
-      @helper = helper
+      @current_organization = current_organization
     end
 
     # Resolves the image URL to be used for meta tags.
     #
     # @return [String] - The resolved image URL or the provided image URL.
     def resolve
-      determine_image_url.presence || @image_url
+      determine_image_url.presence
     end
 
     private
@@ -25,11 +24,7 @@ module Decidim
     #
     # @return [String] - A String of the absolute URL of the image.
     def determine_image_url
-      return add_base_url_to(@image_url) if @image_url.present?
-      return unless @resource
-
-      url = fetch_attachment_image_url || fetch_image_from_description || fetch_participatory_space_image_url || fetch_default_image_url
-      add_base_url_to(url) if url.present?
+      fetch_attachment_image_url || fetch_image_from_description || fetch_participatory_space_image_url || fetch_default_image_url
     end
 
     # Fetches the default homepage image URL.
@@ -37,7 +32,7 @@ module Decidim
     # @return [String, nil] - The URL of the homepage image or nil if not found.
     def fetch_default_image_url
       content_block = Decidim::ContentBlock.find_by(
-        organization: @resource.organization,
+        organization: @current_organization,
         manifest_name: :hero,
         scope_name: :homepage
       )
@@ -81,7 +76,7 @@ module Decidim
       html = @resource.try(:body) || @resource.try(:description) || @resource.try(:short_description)
       return unless html
 
-      html = @helper.translated_attribute(html).strip if html.is_a?(Hash)
+      html = translated_attribute(html).strip if html.is_a?(Hash)
       return if html.blank?
 
       doc = Nokogiri::HTML(html)

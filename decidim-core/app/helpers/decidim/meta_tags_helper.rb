@@ -16,7 +16,7 @@ module Decidim
       add_decidim_meta_description(tags[:description])
       add_decidim_meta_url(tags[:url])
       add_decidim_meta_twitter_handler(tags[:twitter_handler])
-      image_url = resolve_meta_image_url(tags[:image_url], resource)
+      image_url = tags[:image_url].presence || resolve_meta_image_url(resource)
       add_decidim_meta_image_url(add_base_url_to(image_url)) if image_url.present?
     end
 
@@ -130,12 +130,12 @@ module Decidim
     # This method creates a new instance of MetaImageUrlResolver,
     # which handles the logic for determining the most appropriate image URL.
     #
-    # @param [String, nil] image_url - The initial image URL provided in the tags.
     # @param [Object, nil] resource - The resource object that may contain the image.
     #
     # @return [String, nil] - The resolved image URL, or nil if no appropriate image URL is found.
-    def resolve_meta_image_url(image_url, resource)
-      MetaImageUrlResolver.new(image_url, resource, self).resolve
+    def resolve_meta_image_url(resource)
+      url = MetaImageUrlResolver.new(resource, current_organization).resolve
+      add_base_url_to(url) if url.present?
     end
   end
 end
