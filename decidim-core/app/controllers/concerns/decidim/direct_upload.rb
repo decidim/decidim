@@ -8,9 +8,10 @@ module Decidim
       include Decidim::NeedsOrganization
       skip_before_action :verify_organization
 
-      before_action :check_organization!
-      before_action :check_authenticated!
-      before_action :validate_direct_upload
+      before_action :check_organization!,
+                    :check_authenticated!,
+                    :check_user_belongs_to_organization,
+                    :validate_direct_upload
     end
 
     protected
@@ -44,6 +45,10 @@ module Decidim
 
     def check_authenticated!
       head :unauthorized if current_user.blank? && current_admin.blank?
+    end
+
+    def check_user_belongs_to_organization
+      head :unauthorized unless current_organization == current_user.organization
     end
 
     def allowed_extensions

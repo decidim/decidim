@@ -18,7 +18,7 @@ module Decidim
     private
 
     def remove_invalid_file
-      @form.blob.purge if @form.blob.present?
+      @form.blob.purge_later if @form.blob.present?
     end
   end
 end
