@@ -1,3 +1,11 @@
+/**
+ * This file controls the behavior of the |File| and |Link| tabs in the
+ * attachment form. It disables the |File| tab when a link is present and
+ * vice versa.
+ *
+ * Markup: decidim-admin/app/views/decidim/admin/attachments/_form.html.erb
+ */
+
 const getFileButton = (container) =>
   container.querySelector("button#trigger-file");
 const getLinkButton = (container) =>
