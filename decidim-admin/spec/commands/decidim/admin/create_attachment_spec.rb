@@ -21,6 +21,7 @@ module Decidim::Admin
         },
         file:,
         attachment_collection: nil,
+        current_user: user,
         weight: 0
       )
     end

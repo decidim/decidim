@@ -5,7 +5,7 @@ module Decidim
     # A command with all the business logic to add an attachment to a
     # participatory process.
     class CreateAttachment < Decidim::Command
-      delegate :user, to: :form
+      delegate :current_user, to: :form
       # Public: Initializes the command.
       #
       # form - A form object with the params.
@@ -27,7 +27,7 @@ module Decidim
         build_attachment
 
         if @attachment.valid?
-          Decidim.traceability.perform_action!(:create, Decidim::Attachment, @user) do
+          Decidim.traceability.perform_action!(:create, Decidim::Attachment, current_user) do
             @attachment.save!
             notify_followers
             broadcast(:ok)
