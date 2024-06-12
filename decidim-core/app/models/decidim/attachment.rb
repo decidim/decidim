@@ -115,7 +115,7 @@ module Decidim
     end
 
     def set_link_content_type_and_size
-      self.content_type = "decidim/link"
+      self.content_type = "text/uri-list"
       self.file_size = 0
     end
 
