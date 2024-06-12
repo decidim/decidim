@@ -32,11 +32,22 @@ module Decidim
       add_base_url_to(url) if url.present?
     end
 
-    # Fetches the default hero image URL if available.
+    # Fetches the default homepage image URL.
     #
-    # @return [String, nil] - The URL of the hero image or nil if not found.
+    # @return [String, nil] - The URL of the homepage image or nil if not found.
     def fetch_default_image_url
-      @resource.try(:attached_uploader, :hero_image).try(:path)
+      content_block = Decidim::ContentBlock.find_by(
+        organization: @resource.organization,
+        manifest_name: :hero,
+        scope_name: :homepage
+      )
+
+      return unless content_block
+
+      attachment = content_block.attachments.first
+      return unless attachment&.file&.attached?
+
+      Rails.application.routes.url_helpers.rails_blob_path(attachment.file, only_path: true)
     end
 
     # Fetches the URL of the first attachment image.
@@ -82,19 +93,17 @@ module Decidim
     #
     # @return [String, nil] - The URL of the participatory space image or nil if not found.
     def fetch_participatory_space_image_url
-      participatory_space = @resource.try(:participatory_space)
+      participatory_space = @resource&.participatory_space
       return unless participatory_space
 
-      attachment = find_image_attachment(participatory_space)
+      attachment = participatory_space.hero_image.attachment || participatory_space.banner_image.attachment
       return unless attachment
 
-      if attachment.file&.attached?
+      if participatory_space.hero_image.attached? || participatory_space.banner_image.attached?
         Rails.application.routes.url_helpers.rails_representation_url(
-          attachment.file.variant(resize_to_limit: [1200, 630]).processed,
+          attachment.variant(resize_to_limit: [1200, 630]).processed,
           only_path: true
         )
-      else
-        participatory_space.try(:attached_uploader, :hero_image).try(:path)
       end
     end
 
