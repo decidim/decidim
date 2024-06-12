@@ -58,6 +58,11 @@
       <% end %>
     <% end %>
   </div>
+  <div class="budget-summary__button-modal">
+    <button type="button" data-dialog-open="budget-modal-info" aria-haspopup="dialog" tabindex="0" class="button button__text button__xs">
+      <%= t("more_information", scope: "decidim.budgets.budget_information_modal") %>
+    </button>
+  </div>
   <div class="w-screen max-w-screen progressbox-fixed-wrapper" data-progressbox-fixed>
     <div class="gap-0 layout-item py-4 items-center budget-summary__progressbar">
       <div class="budget-summary__progressbox layout-item__main">
@@ -105,11 +110,6 @@
   </div>
 </div>
 
-<div class="budget-summary__button-modal">
-  <button type="button" data-dialog-open="budget-modal-info" aria-haspopup="dialog" tabindex="0" class="button button__text button__xs ml-2.5">
-    <%= t("more_information", scope: "decidim.budgets.budget_information_modal") %>
-  </button>
-</div>
 <div class="budget-summary__button-dropdown">
   <button id="dropdown-trigger-button-dropdown" data-component="dropdown" data-target="dropdown-menu-button-dropdown" class="budget-summary__button-dropdown_text">
     <%= t("more_information", scope: "decidim.budgets.budget_information_modal") %>
