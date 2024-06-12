@@ -28,7 +28,7 @@ module Decidim
             current_organization: organization
           )
         end
-        let(:command) { described_class.new(form, collection_for, user) }
+        let(:command) { described_class.new(form, collection_for) }
 
         describe "when the form is not valid" do
           before do
