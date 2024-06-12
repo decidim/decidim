@@ -15,7 +15,11 @@ module Decidim
               can_create_proposal_answer?
             end
             can_export_proposals?
-            valuator_can_unassign_valuator_from_proposals?
+
+            if user_is_context_valuator?
+              can_unassign_valuator_from_proposals?
+              can_assign_valuator_to_proposals?
+            end
 
             return permission_action
           end
@@ -49,7 +53,7 @@ module Decidim
           allow! if permission_action.subject == :proposals && permission_action.action == :split
 
           # Every user allowed by the space can assign proposals to a valuator
-          allow! if permission_action.subject == :proposals && permission_action.action == :assign_to_valuator
+          can_assign_valuator_to_proposals?
 
           # Every user allowed by the space can unassign a valuator from proposals
           can_unassign_valuator_from_proposals?
@@ -145,12 +149,20 @@ module Decidim
           toggle_allow(admin_proposal_answering_is_enabled?) if permission_action.subject == :proposal_answer
         end
 
+        def can_assign_valuator_to_proposals?
+          allow! if permission_action.subject == :proposals && permission_action.action == :assign_to_valuator
+        end
+
         def can_unassign_valuator_from_proposals?
           allow! if permission_action.subject == :proposals && permission_action.action == :unassign_from_valuator
         end
 
         def valuator_can_unassign_valuator_from_proposals?
-          can_unassign_valuator_from_proposals? if user == context.fetch(:valuator, nil)
+          can_unassign_valuator_from_proposals?
+        end
+
+        def user_is_context_valuator?
+          user == context.fetch(:valuator, nil)
         end
 
         def can_export_proposals?
