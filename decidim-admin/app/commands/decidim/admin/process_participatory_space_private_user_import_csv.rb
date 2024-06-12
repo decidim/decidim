@@ -6,16 +6,16 @@ module Decidim
   module Admin
     class ProcessParticipatorySpacePrivateUserImportCsv < Decidim::Command
       include Decidim::Admin::CustomImport
-      delegate :current_user, to: :form
 
       # Public: Initializes the command.
       #
       # form - the form object containing the uploaded file
       # current_user - the user performing the action
       # private_users_to - The private_users_to that will hold the user role
-      def initialize(form, private_users_to)
+      def initialize(form, private_users_to, current_user)
         @form = form
         @private_users_to = private_users_to
+        @current_user = current_user
       end
 
       # Executes the command. Broadcasts these events:
