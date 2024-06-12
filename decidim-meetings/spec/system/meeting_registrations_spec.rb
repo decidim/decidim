@@ -158,7 +158,7 @@ describe "Meeting registrations" do
 
         context "and the meeting is happening now" do
           before do
-            meeting.update!(start_time: Time.current - 1.hour, end_time: Time.current + 1.hour)
+            meeting.update!(start_time: 1.hour.ago, end_time: 1.hour.from_now)
           end
 
           it "does not show the registration button" do
