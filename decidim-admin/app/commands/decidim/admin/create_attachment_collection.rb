@@ -35,7 +35,7 @@ module Decidim
       def create_attachment_collection
         Decidim.traceability.create!(
           AttachmentCollection,
-          @user,
+          current_user,
           attributes
         )
       end

@@ -25,7 +25,8 @@ module Decidim
             form_params,
             collection_for:
           ).with_context(
-            current_organization: organization
+            current_organization: organization,
+            current_user: user
           )
         end
         let(:command) { described_class.new(form, collection_for) }
