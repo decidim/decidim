@@ -13,6 +13,13 @@
           <%= icon "award-line" %>
         </div>
         <div>
+          <% if proposal_sucessors["prev_item"].present? %>
+            <h4>PREV <%= link_to present(proposal_sucessors["prev_item"]).title(html_escape: true), proposal_path(proposal_sucessors["prev_item"]) %></h4>
+          <% end %>
+          <% if proposal_sucessors["next_item"].present? %>
+            <h4>NEXT <%= link_to present(proposal_sucessors["next_item"]).title(html_escape: true), proposal_path(proposal_sucessors["next_item"]) %></h4>
+          <% end %>
+
           <% coauthor_presenters_for(proposal).each do |presented_author| %>
             <li class="component__show_nav-author-title">
               <%= link_to_if(

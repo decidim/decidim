@@ -11,7 +11,7 @@ module Decidim
         helper Proposals::ApplicationHelper
         helper Decidim::Proposals::Admin::ProposalRankingsHelper
         helper Decidim::Messaging::ConversationHelper
-        helper_method :proposals, :query, :form_presenter, :proposal, :proposal_ids
+        helper_method :proposals, :query, :form_presenter, :proposal, :proposal_sucessors, :proposal_ids
         helper Proposals::Admin::ProposalBulkActionsHelper
 
         def index
@@ -156,6 +156,35 @@ module Decidim
 
         def proposals
           @proposals ||= filtered_collection
+        end
+
+        def proposal_sucessors
+          return if proposal.blank?
+
+          @proposal_sucessors ||= begin
+            query =
+              <<-SQL.squish
+                WITH
+                  collection AS (#{session_filtered_collection.to_sql}),
+                  sucessors AS (
+                    SELECT
+                      id,
+                      Lag(id, 1) OVER () prev_item,
+                      Lead(id, 1) OVER () next_item
+                    FROM
+                      collection
+                  )
+                SELECT
+                  prev_item,
+                  next_item
+                FROM
+                  sucessors
+                WHERE
+                  sucessors.id = #{proposal.id}
+              SQL
+
+            ActiveRecord::Base.connection.exec_query(query).first || {}
+          end.compact_blank.transform_values { |id| collection.find_by(id:) }
         end
 
         def proposal

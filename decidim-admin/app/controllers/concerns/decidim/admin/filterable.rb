@@ -60,7 +60,9 @@ module Decidim
         end
 
         def session_filtered_collection
-          base_query.ransack(session_filter_params, search_context: :admin, auth_object: current_user).result
+          query = base_query.ransack(session_filter_params, search_context: :admin, auth_object: current_user).result
+          # The limit reorders as pagination does
+          query.limit(query.count)
         end
 
         def filter_prefix_key
