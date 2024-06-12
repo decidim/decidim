@@ -34,18 +34,29 @@ module Decidim
 
     def update
       enforce_permission_to :accept, :user_group_invitations
-      flash[:alert] = t("group_invites.accept.error", scope: "decidim")
-      redirect_to profile_groups_path(current_user.nickname)
-      return
       AcceptGroupInvitation.call(inviting_user_group, current_user) do
         on(:ok) do
-          flash[:notice] = t("group_invites.accept.success", scope: "decidim")
-          redirect_to profile_groups_path(current_user.nickname)
+          respond_to do |format|
+            format.json do
+              render json: { message: t("group_invites.accept.success", scope: "decidim") }
+            end
+            format.all do
+              flash[:notice] = t("group_invites.accept.success", scope: "decidim")
+              redirect_to profile_groups_path(current_user.nickname)
+            end
+          end
         end
 
         on(:invalid) do
-          flash[:alert] = t("group_invites.accept.error", scope: "decidim")
-          redirect_to profile_groups_path(current_user.nickname)
+          respond_to do |format|
+            format.json do
+              render json: { message: t("group_invites.accept.error", scope: "decidim") }, status: :unprocessable_entity
+            end
+            format.all do
+              flash[:alert] = t("group_invites.accept.error", scope: "decidim")
+              redirect_to profile_groups_path(current_user.nickname)
+            end
+          end
         end
       end
     end
@@ -55,13 +66,27 @@ module Decidim
 
       RejectGroupInvitation.call(inviting_user_group, current_user) do
         on(:ok) do
-          flash[:notice] = t("group_invites.reject.success", scope: "decidim")
-          redirect_to profile_groups_path(current_user.nickname)
+          respond_to do |format|
+            format.json do
+              render json: { message: t("group_invites.reject.success", scope: "decidim") }
+            end
+            format.all do
+              flash[:notice] = t("group_invites.reject.success", scope: "decidim")
+              redirect_to profile_groups_path(current_user.nickname)
+            end
+          end
         end
 
         on(:invalid) do
-          flash[:alert] = t("group_invites.reject.error", scope: "decidim")
-          redirect_to profile_groups_path(current_user.nickname)
+          respond_to do |format|
+            format.json do
+              render json: { message: t("group_invites.reject.error", scope: "decidim") }, status: :unprocessable_entity
+            end
+            format.all do
+              flash[:alert] = t("group_invites.reject.error", scope: "decidim")
+              redirect_to profile_groups_path(current_user.nickname)
+            end
+          end
         end
       end
     end

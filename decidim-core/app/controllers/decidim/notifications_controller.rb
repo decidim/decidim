@@ -12,19 +12,14 @@ module Decidim
     def update
       notification = notifications.find(params[:id])
       enforce_permission_to(:update, :notification, notification:)
-      notification.set_action!("callout", flash.notice, class: "success") if flash.notice.present?
-      flash.discard
-      klass = "success"
-      text = flash.notice
-      if flash.alert.present?
-        klass = "alert"
-        text = flash.alert
-      elsif text.blank?
-        klass = "alert"
-        text = I18n.t("error", scope: "decidim.notifications.update")
-      end
 
-      render html: ActionController::Base.helpers.content_tag(:div, text, class: "callout #{klass}"), layout: false
+      text = params.dig(:notification, :message)
+      if text.present?
+        notification.set_action!("callout", text, { "class" => "success" })
+        render json: { message: text }
+      else
+        render json: { message: I18n.t("error", scope: "decidim.notifications.update") }, status: :unprocessable_entity
+      end
     end
 
     def destroy

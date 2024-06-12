@@ -40,7 +40,7 @@ module Decidim
 
     def set_action(type, data, options = nil)
       extra["action"] = { "type" => type, "data" => data }
-      extra["action"].merge(options) if options.present? && options.is_a?(Hash)
+      extra["action"].merge!(**options) if options.present? && options.is_a?(Hash)
     end
 
     def set_action!(type, data, options = nil)

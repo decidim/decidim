@@ -9,8 +9,17 @@ export default function(node = document) {
     return;
   }
 
-  const updateNotification = (action) => {
-    const panel = action.closest(".notification__snippet-actions")
+  const extractMessage = (detail) => {
+    return detail && detail.message || detail[0] && detail[0].message || detail[2] && detail[2].responseText || detail[0] || detail || "unknown error";
+  };
+
+  const resolvePanel = (panel, detail, klass) => {
+    const message = extractMessage(detail);
+    panel.innerHTML = `<div class="callout ${klass}">${message}</div>`;
+    panel.classList.remove("spinner-container");
+  };
+
+  const updateNotification = (action, panel, detail) => {
     fetch(action.dataset.notificationAfterAction, {
       method: "PATCH",
       headers: {
@@ -20,44 +29,35 @@ export default function(node = document) {
       body: JSON.stringify({
         notification: {
           id: action.dataset.notificationId,
-          action: action.dataset.notificationAction
+          action: action.dataset.notificationAction,
+          message: extractMessage(detail)
         }
       })
     }).then((response) => {
-      response.text().then((data) => {
-        panel.innerHTML = data
+      response.json().then((data) => {
+        if (response.ok) {
+          resolvePanel(panel, data, "success");
+        } else {
+          resolvePanel(panel, data, "alert");
+        }
       });
-      panel.classList.remove("spinner-container");
     });
   };
 
   actions.forEach((action) => {
     const panel = action.closest(".notification__snippet-actions")
-    action.addEventListener("ajax:beforeSend", (event) => {
-      console.log("ajax:beforeSend", event)
-      event.detail[0].onreadystatechange = function() {
-        if (this.readyState === this.DONE) {
-            console.log("DONE", this.responseURL, this)
-            this.abort() // This seems to stop the response
-            updateNotification(action);
-        }
-      };
+    action.addEventListener("ajax:beforeSend", () => {
       panel.classList.add("spinner-container");
       panel.querySelectorAll("[data-notification-action]").forEach((el) => {
         el.disabled = true;
       });
     });
-    action.addEventListener("ajax:success", () => {
-      console.log("ajax:success")
+    action.addEventListener("ajax:success", (event) => {
+      updateNotification(action, panel, event.detail);
     });
-    action.addEventListener("ajax:abort", () => {
-      console.log("ajax:abort")
-    });
-    action.addEventListener("ajax:error", () => {
-      console.log("ajax:error")
-    });
-    action.addEventListener("ajax:complete", () => {
-      console.log("ajax:complete")
+    action.addEventListener("ajax:error", (event) => {
+      resolvePanel(panel, event.detail, "alert");
+
     });
   });
 }
