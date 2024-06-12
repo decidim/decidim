@@ -6,7 +6,7 @@ module Decidim
   module NotificationActions
     class ButtonsCell < BaseCell
       def show
-        return unless data && data.respond_to?(:map)
+        return unless data.present? && data.respond_to?(:map)
 
         render :show
       end
@@ -14,10 +14,10 @@ module Decidim
       def buttons
         @buttons ||= data.map do |item|
           [
-            I18n.t(item["i18n_label"]),
+            item["label"].presence || I18n.t(item["i18n_label"]),
             item["url"],
             {
-              class: "button button__sm button__transparent-secondary",
+              class: "button button__sm #{class_for(item)}",
               remote: true,
               data: { "notification-action" => "button", "notification-after-action" => notification_path(model) }
             }
@@ -26,6 +26,12 @@ module Decidim
             button[2][:method] = item["method"] if item["method"].in?(%w(get patch put delete post))
           end
         end
+      end
+
+      private
+
+      def class_for(item)
+        (item["class"].presence || "button__transparent-secondary")
       end
     end
   end

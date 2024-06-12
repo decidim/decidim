@@ -30,9 +30,9 @@ module Decidim
       broadcast(:ok)
     end
 
-    private
+    attr_reader :form, :user_group, :invitation
 
-    attr_reader :form, :user_group
+    private
 
     def invite_user
       Decidim::UserGroupMembership.create!(
@@ -51,7 +51,7 @@ module Decidim
         extra: {
           user_group_name: user_group.name,
           user_group_nickname: user_group.nickname,
-          user_group_invitation: @invitation.id
+          membership_id: invitation.id
         }
       )
     end

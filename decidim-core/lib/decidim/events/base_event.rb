@@ -80,8 +80,8 @@ module Decidim
       # return the action for the notification (if any)
       # must return an array with 3 elements:
       #   1. the action cell (e.g. "buttons")
-      #   2. the action data (depens on the action cell)
-      #   3. a hashs of additional options for the cell (optional)
+      #   2. the action data (depends on the action cell)
+      #   3. a hash of additional options for the cell (optional)
       def action; end
 
       def organization

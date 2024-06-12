@@ -8,7 +8,7 @@ module Decidim
 
     let(:user_group) { create(:user_group, users: []) }
     let!(:membership) { create(:user_group_membership, user:, user_group:, role: :member) }
-    let(:extra) { { user_group_name: user_group.name, user_group_nickname: user_group.nickname } }
+    let(:extra) { { user_group_name: user_group.name, user_group_nickname: user_group.nickname, membership_id: membership.id } }
     let(:event_name) { "decidim.events.groups.invited_to_group" }
     let(:resource) { user_group }
     let(:resource_path) do
@@ -35,6 +35,48 @@ module Decidim
     describe "notification_title" do
       it "is generated correctly" do
         expect(subject.notification_title).to include(groups_tab_path)
+      end
+    end
+
+    describe "user_group_nickname" do
+      it "returns the user group nickname" do
+        expect(subject.user_group_nickname).to eq(user_group.nickname)
+      end
+    end
+
+    describe "user_group_name" do
+      it "returns the user group name" do
+        expect(subject.user_group_name).to eq(user_group.name)
+      end
+    end
+
+    describe "membership_id" do
+      it "returns the user group invitation" do
+        expect(subject.membership_id).to eq(membership.id)
+      end
+    end
+
+    describe "action" do
+      it "returns the action buttons" do
+        expect(subject.action).to eq(
+          [
+            "buttons",
+            [
+              {
+                url: Decidim::Core::Engine.routes.url_helpers.group_invite_path(user_group.nickname, membership.id),
+                icon: "check-line",
+                method: "patch",
+                i18n_label: "decidim.group_invites.accept_invitation"
+              },
+              {
+                url: Decidim::Core::Engine.routes.url_helpers.group_invite_path(user_group.nickname, membership.id),
+                icon: "close-circle-line",
+                method: "delete",
+                i18n_label: "decidim.group_invites.reject_invitation"
+              }
+            ]
+          ]
+        )
       end
     end
   end

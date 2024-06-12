@@ -30,8 +30,8 @@ module Decidim
       extra["user_group_name"]
     end
 
-    def user_group_invitation
-      extra["user_group_invitation"]
+    def membership_id
+      extra["membership_id"]
     end
 
     def action
@@ -39,13 +39,13 @@ module Decidim
         "buttons",
         [
           {
-            url: url_helpers.group_invite_path(user_group_nickname, user_group_invitation),
+            url: url_helpers.group_invite_path(user_group_nickname, membership_id),
             icon: "check-line",
             method: "patch",
             i18n_label: "decidim.group_invites.accept_invitation"
           },
           {
-            url: url_helpers.group_invite_path(user_group_nickname, user_group_invitation),
+            url: url_helpers.group_invite_path(user_group_nickname, membership_id),
             icon: "close-circle-line",
             method: "delete",
             i18n_label: "decidim.group_invites.reject_invitation"

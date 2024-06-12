@@ -34,7 +34,9 @@ module Decidim
 
     def update
       enforce_permission_to :accept, :user_group_invitations
-
+      flash[:alert] = t("group_invites.accept.error", scope: "decidim")
+      redirect_to profile_groups_path(current_user.nickname)
+      return
       AcceptGroupInvitation.call(inviting_user_group, current_user) do
         on(:ok) do
           flash[:notice] = t("group_invites.accept.success", scope: "decidim")

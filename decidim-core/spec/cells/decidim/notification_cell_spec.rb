@@ -9,9 +9,27 @@ describe Decidim::NotificationCell, type: :cell do
   let!(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization:) }
   let(:my_cell) { cell("decidim/notification", notification) }
-  let(:notification) { create(:notification, user:, resource:) }
+  let(:notification) { create(:notification, user:, resource:, extra:) }
   let(:component) { create(:component, manifest_name: "dummy", organization:) }
   let(:resource) { create(:dummy_resource, component:) }
+  let(:extra) do
+    { action: }
+  end
+  let(:action) { nil }
+
+  it "has not action associated" do
+    expect(my_cell.action).to be_nil
+    expect(my_cell.action_cell).to be_nil
+  end
+
+  context "when extra is nil" do
+    let(:extra) { nil }
+
+    it "has not action associated" do
+      expect(my_cell.action).to be_nil
+      expect(my_cell.action_cell).to be_nil
+    end
+  end
 
   context "when resource exists" do
     it "Resource title is present" do
@@ -36,6 +54,35 @@ describe Decidim::NotificationCell, type: :cell do
 
     it "does not render the resource" do
       expect(subject.to_s).to include("Content moderated")
+    end
+  end
+
+  context "when action exist" do
+    let(:action) do
+      {
+        "data" => data,
+        "type" => "callout"
+      }
+    end
+    let(:data) { "Some data" }
+
+    it "Action is present" do
+      expect(my_cell.action).to eq(action)
+      expect(my_cell.action_cell).to eq("decidim/notification_actions/callout")
+    end
+
+    context "and cell does not exist" do
+      let(:action) do
+        {
+          "data" => data,
+          "type" => "non_existent"
+        }
+      end
+
+      it "Action is present" do
+        expect(my_cell.action).to eq(action)
+        expect(my_cell.action_cell).to be_nil
+      end
     end
   end
 end
