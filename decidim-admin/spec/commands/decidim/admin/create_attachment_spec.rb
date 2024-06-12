@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin
   describe CreateAttachment do
-    subject { described_class.call(form, attached_to, user) }
+    subject { described_class.call(form, attached_to) }
     let(:user) { create(:user) }
     let(:form) do
       instance_double(
