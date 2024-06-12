@@ -13,6 +13,7 @@
           <%= icon "award-line" %>
         </div>
         <div>
+          <%= session.to_h.inspect %>
           <% if proposal_sucessors["prev_item"].present? %>
             <h4>PREV <%= link_to present(proposal_sucessors["prev_item"]).title(html_escape: true), proposal_path(proposal_sucessors["prev_item"]) %></h4>
           <% end %>
