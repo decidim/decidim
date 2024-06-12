@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  class AttachmentsUploadTabCell < Decidim::ViewModel
+  class AttachmentsFileTabCell < Decidim::ViewModel
     alias form model
 
     def show
