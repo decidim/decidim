@@ -1,4 +1,5 @@
 <% add_decidim_page_title(t(".title")) %>
+<%= append_stylesheet_pack_tag "participatory_texts_admin" %>
 
 <div class="item_show__header">
   <h1 class="item_show__header-title">
@@ -15,6 +16,7 @@
             <div class="row column">
               <p class="mt-3"><%= t(".info_1") %></p>
               <ul id="participatory-text" class="draggable-list js-connect js-list-actives mt-2.5 ml-2.5 mr-2.5"
+                  data-component="accordion"
                   data-accordion
                   data-sort-url="#"
                   data-multi-expand="true"
@@ -22,11 +24,13 @@
                 <%= form.fields_for(:proposals) do |prop_form| %>
                   <% proposal = @drafts[prop_form.index] %>
 
-                  <li class="py-4 draggable-content <%= proposal.article? ? "is-active" : nil %>" data-accordion-item draggable="true">
-                    <a href="#" class="font-bold mt-5"><%= preview_participatory_text_section_title(proposal) %>
+                  <li class="draggable-content is-active" data-accordion-item draggable="true">
+                    <a data-open="true" data-controls="article-<%= proposal.id %>">
+                      <%= icon "arrow-right-s-line" %>
+                      <%= preview_participatory_text_section_title(proposal) %>
                       <span><%= icon "menu-line", class: "fill-black" %></span>
                     </a>
-                    <div data-tab-content>
+                    <div data-tab-content id="article-<%= proposal.id %>">
                       <%= render "article-preview", { form: prop_form, proposal: } %>
                     </div>
                   </li>

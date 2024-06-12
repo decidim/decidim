@@ -46,6 +46,8 @@ describe "Admin manages organization" do
 
       expect(page).to have_no_content("There is an error in this field.")
       fill_in :organization_comments_max_length, with: ""
+      find_by_id("organization_rich_text_editor_in_public_views").click
+
       expect(page).to have_content("There is an error in this field.")
     end
 
