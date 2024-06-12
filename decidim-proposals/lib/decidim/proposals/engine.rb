@@ -91,21 +91,6 @@ module Decidim
         end
       end
 
-      # Subscribes to ActiveSupport::Notifications that may affect a Proposal.
-      initializer "decidim_proposals.subscribe_to_events" do
-        # when a proposal is linked from a result
-        event_name = "decidim.resourceable.included_proposals.created"
-        ActiveSupport::Notifications.subscribe event_name do |_name, _started, _finished, _unique_id, data|
-          payload = data[:this]
-          if payload[:from_type] == Decidim::Accountability::Result.name && payload[:to_type] == Proposal.name
-            proposal = Proposal.find(payload[:to_id])
-
-            proposal.assign_state("accepted")
-            proposal.update(state_published_at: Time.current)
-          end
-        end
-      end
-
       initializer "decidim_proposals.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Proposals::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Proposals::Engine.root}/app/views") # for proposal partials

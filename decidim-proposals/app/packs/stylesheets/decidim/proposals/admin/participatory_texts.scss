@@ -1,0 +1,23 @@
+#participatory-text {
+  li {
+    @apply py-4 hover:cursor-move;
+
+    a {
+      @apply font-bold flex;
+
+      > svg {
+        @apply text-2xl fill-black;
+      }
+
+      &[aria-expanded="true"] {
+        & > svg {
+          @apply rotate-90 transition-transform;
+        }
+      }
+
+      span {
+        @apply ml-auto;
+      }
+    }
+  }
+}

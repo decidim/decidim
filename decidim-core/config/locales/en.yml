@@ -361,6 +361,9 @@ en:
       document:
         download: Download file
       documents:
+        component_documents:
+          dummy: Dummy component documents
+          meetings: Meetings documents
         documents: Documents
         related_documents: Related documents
       photo:
