@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 module Decidim
+  # Resolves the most appropriate image URL for meta tags from a given resource within an organization.
+  # Searches in the following order: attachment images, images in resource description, participatory space images, and default content block images.
+  # Ensures the selected image is resized to 1200x630 pixels.
   class MetaImageUrlResolver
     include TranslatableAttributes
 
@@ -60,7 +63,7 @@ module Decidim
     #
     # @return [Decidim::Attachment, nil] - The first image attachment or nil if not found.
     def find_image_attachment(entity)
-      entity.try(:attachments)&.find_by(content_type: %w(image/jpeg image/png))
+      entity.try(:attachments)&.find { |a| a.content_type.in?(%w(image/jpeg image/png)) }
     end
 
     # Extracts the first image blob from the resource description.
@@ -73,12 +76,11 @@ module Decidim
       html = translated_attribute(html).strip if html.is_a?(Hash)
       return if html.blank?
 
-      doc = Nokogiri::HTML(html)
-      image_url = doc.css("img").map { |img| img["src"] }.first
-      return unless image_url
+      image_url = Nokogiri::HTML(html).css("img").first&.[]("src")
+      return if image_url.blank?
 
       blob_key = image_url.split("/").second_to_last
-      ActiveStorage::Blob.find_signed(blob_key)
+      ActiveStorage::Blob.find_signed(blob_key) if blob_key.present?
     end
 
     # Fetches the image blob from the participatory space.
@@ -88,7 +90,7 @@ module Decidim
       participatory_space = @resource&.participatory_space
       return unless participatory_space
 
-      participatory_space.hero_image.blob || participatory_space.banner_image.blob
+      participatory_space.hero_image&.blob || participatory_space.banner_image&.blob
     end
 
     # Resizes the image blob to the specified dimensions (1200x630) if it's larger.
