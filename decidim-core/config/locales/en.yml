@@ -361,6 +361,9 @@ en:
       document:
         download: Download file
       documents:
+        component_documents:
+          dummy: Dummy component documents
+          meetings: Meetings documents
         documents: Documents
         related_documents: Related documents
       photo:
@@ -1042,7 +1045,7 @@ en:
           content: "<p>In %{organization} you can participate and decide on different topics, through the spaces you see in the top menu: Processes, Assemblies, Initiatives, Consultations.</p> <p>Within each one you will find different options to participate: make proposals - individually or with other people-, take part in debates, prioritize projects to implement, attend face-to-face meetings and other actions.</p>\n"
           title: What can I do in %{organization}?
         description: Read more about %{organization}.
-        title: General Help
+        title: General
     last_activities:
       all: All activity types
       index:
@@ -1241,6 +1244,7 @@ en:
       no_notifications: No notifications yet.
       show:
         missing_event: Oops, this notification belongs to an item that is no longer available. You can discard it.
+        moderated: Content moderated
     notifications_digest_mailer:
       header:
         daily: Daily Notification Digest
@@ -1445,7 +1449,7 @@ en:
           past: Past
       filters_small_view:
         filter: Filter
-        filter_and_search: Filter and Search
+        filter_and_search: Filter and search
         filter_by: Filter by
       results:
         view_all: View all (%{count})
@@ -1932,9 +1936,9 @@ en:
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
         resources: Resources
         sign_up: Sign Up
-        terms_and_conditions: Terms and Conditions
+        terms_of_service: Terms of Service
       header:
-        log_in: Log in
+        log_in: Login
         main_menu: Main menu
         user_menu: User menu
       impersonation_warning:

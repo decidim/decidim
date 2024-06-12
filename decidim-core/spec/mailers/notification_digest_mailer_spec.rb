@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe NotificationsDigestMailer do
-    let(:organization) { create(:organization, name: "O'Connor") }
+    let(:organization) { create(:organization) }
     let(:user) { create(:user, name: "Sarah Connor", organization:) }
     let(:notification_ids) { [notification.id] }
     let(:notification) { create(:notification, user:, resource:) }

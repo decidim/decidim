@@ -3,7 +3,9 @@
 module Decidim
   module System
     # A command that will create default help pages for an organization.
-    class PopulateHelp < Decidim::Command
+    class CreateDefaultHelpPages < Decidim::Command
+      include Decidim::TranslatableAttributes
+
       # Public: Initializes the command.
       #
       # organization - An organization
@@ -17,16 +19,17 @@ module Decidim
       def call
         ActiveRecord::Base.transaction do
           topic = Decidim::StaticPageTopic.create!(
-            title: multi_translation("decidim.help.main_topic.title", organization: @organization.name),
-            description: multi_translation("decidim.help.main_topic.description", organization: @organization.name),
+            title: multi_translation("decidim.help.main_topic.title", organization: organization_name),
+            description: multi_translation("decidim.help.main_topic.description", organization: organization_name),
             organization: @organization,
+            show_in_footer: true,
             weight: 0
           )
 
           Decidim::StaticPage.create!(
             slug: "help",
-            title: multi_translation("decidim.help.main_topic.default_page.title", organization: @organization.name),
-            content: multi_translation("decidim.help.main_topic.default_page.content", organization: @organization.name),
+            title: multi_translation("decidim.help.main_topic.default_page.title", organization: organization_name),
+            content: multi_translation("decidim.help.main_topic.default_page.content", organization: organization_name),
             topic:,
             organization: @organization,
             weight: 0
@@ -51,6 +54,10 @@ module Decidim
 
       def multi_translation(key, **)
         Decidim::TranslationsHelper.multi_translation(key, @organization.available_locales, **)
+      end
+
+      def organization_name
+        translated_attribute(@organization.name)
       end
     end
   end

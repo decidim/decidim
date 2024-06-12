@@ -32,6 +32,10 @@ en:
           attributes:
             redirect_uri:
               must_be_ssl: The redirect URI must be a SSL URI
+        organization:
+          attributes:
+            password:
+              secret_key: You need to define the SECRET_KEY_BASE environment variable to be able to save this field
   decidim:
     system:
       actions:
@@ -140,6 +144,7 @@ en:
           show: Show advanced settings
         create:
           error: There was a problem creating a new organization.
+          error_invitation: There was a problem creating a new organization. Review your organization admin name.
           success_html: |
             <p>
               Organization successfully created.
@@ -247,7 +252,7 @@ en:
           fieldsets:
             sender: Sender
           instructions:
-            from_label: 'Email sender will be: "your-organization-name <your-organization@example.org>". Leave blank to use the ''Email address'' as label.'
+            from_label: 'Email sender will be: "your-organization-name <your-organization@example.org>". Leave blank to use the same name as the defined for the organization.'
           placeholder:
             from_email: your-organization@example.org
             from_label: your-organization-name

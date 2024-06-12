@@ -184,6 +184,11 @@ fr-CA:
         finished_message: Vous avez terminé le processus de vote. Merci de votre participation !
         highlighted_cta: Voter pour %{name}
         if_change_opinion: Si vous avez changé d’avis, vous pouvez
+        orders:
+          highest_cost: Coût le plus élevé
+          label: Classer les projets par
+          lowest_cost: Coût le moins élevé
+          random: Ordre aléatoire
         progress: Terminer le vote
         remove_vote: Retirer le vote
         show: Voir les projets

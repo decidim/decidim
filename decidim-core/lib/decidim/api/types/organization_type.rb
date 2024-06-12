@@ -5,7 +5,7 @@ module Decidim
     class OrganizationType < Decidim::Api::Types::BaseObject
       description "The current organization"
 
-      field :name, GraphQL::Types::String, "The name of the current organization", null: true
+      field :name, Decidim::Core::TranslatedFieldType, "The name of the current organization", null: true
 
       field :stats, [Core::StatisticType, { null: true }], description: "The statistics associated to this object", null: true
 

@@ -59,7 +59,6 @@ gl:
         deleted_user: Usuario eliminado
         edit: Editar
         edited: Editado
-        hide_replies: Ocultar respostas
         moderated_at: Comentario moderado o %{date}
         reply: Responder
         report:

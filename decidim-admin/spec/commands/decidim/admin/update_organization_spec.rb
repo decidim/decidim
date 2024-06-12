@@ -10,7 +10,7 @@ module Decidim::Admin
       let(:params) do
         {
           organization: {
-            name: "My super organization",
+            name: { en: "My super organization" },
             reference_prefix: "MSO",
             time_zone: "Hawaii",
             default_locale: "en",
@@ -48,7 +48,7 @@ module Decidim::Admin
           command.call
           organization.reload
 
-          expect(organization.name).not_to eq("My super organization")
+          expect(translated(organization.name)).not_to eq("My super organization")
         end
       end
 
@@ -74,7 +74,7 @@ module Decidim::Admin
           expect { command.call }.to broadcast(:ok)
           organization.reload
 
-          expect(organization.name).to eq("My super organization")
+          expect(translated(organization.name)).to eq("My super organization")
           expect(organization.rich_text_editor_in_public_views).to be(true)
           expect(organization.enable_machine_translations).to be(true)
         end

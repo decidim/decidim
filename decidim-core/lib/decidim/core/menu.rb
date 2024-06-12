@@ -10,12 +10,6 @@ module Decidim
                         decidim.root_path,
                         position: 1,
                         active: :exclusive
-
-          menu.add_item :pages,
-                        I18n.t("menu.help", scope: "decidim"),
-                        decidim.pages_path,
-                        position: 7,
-                        active: :inclusive
         end
       end
 

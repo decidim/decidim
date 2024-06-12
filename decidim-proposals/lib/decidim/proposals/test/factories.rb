@@ -163,10 +163,10 @@ FactoryBot.define do
       end
     end
 
-    trait :with_can_accumulate_supports_beyond_threshold do
+    trait :with_can_accumulate_votes_beyond_threshold do
       settings do
         {
-          can_accumulate_supports_beyond_threshold: true
+          can_accumulate_votes_beyond_threshold: true
         }
       end
     end
@@ -464,6 +464,12 @@ FactoryBot.define do
     trait :with_document do
       after :create do |proposal, evaluator|
         proposal.attachments << create(:attachment, :with_pdf, attached_to: proposal, skip_injection: evaluator.skip_injection)
+      end
+    end
+
+    trait :moderated do
+      after(:create) do |proposal, evaluator|
+        create(:moderation, reportable: proposal, hidden_at: 2.days.ago, skip_injection: evaluator.skip_injection)
       end
     end
   end

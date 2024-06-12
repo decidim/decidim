@@ -79,7 +79,6 @@ eu:
   decidim:
     admin:
       actions:
-        manage: Kudeatu
         new_initiative_type: Beste ekimen mota bat
         new_initiative_type_scope: Beste ekimen mota bat esparruan
       filters:
@@ -106,7 +105,6 @@ eu:
       menu:
         attachments: Eranskinak
         committee_members: Batzorde-kideak
-        components: Osagaiak
         information: informazioa
         initiative_type_scopes: Ekimen motaren esparruak
         initiatives: Ekimenak

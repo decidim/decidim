@@ -41,7 +41,6 @@ tr:
           against: Karşısında
           in_favor: Lehine
         deleted_user: Silinmiş katılımcı
-        hide_replies: Yanıtları gizle
         reply: Cevapla
         report:
           action: Rapor

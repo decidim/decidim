@@ -31,6 +31,10 @@ es-PY:
           attributes:
             redirect_uri:
               must_be_ssl: La URI de redirección debe ser una URI SSL
+        organization:
+          attributes:
+            password:
+              secret_key: Necesitas definir la variable de entorno SECRETA_KEY_BASE para poder guardar este campo
   decidim:
     system:
       actions:
@@ -245,7 +249,7 @@ es-PY:
           fieldsets:
             sender: Remitente
           instructions:
-            from_label: 'El remitente de correo electrónico será: "nombre-de-tu-organizacion <your-organization@example.org>". Déjalo en blanco para usar la ''dirección de correo electrónico'' como etiqueta.'
+            from_label: 'El remitente de correo electrónico será: "nombre-de-tu-organizacion <your-organization@example.org>". Déjalo en blanco para usar el mismo nombre que el ya definido en el nombre de la organización.'
           placeholder:
             from_email: tu-organizacion@example.org
             from_label: el-nombre-de-tu-organizacion

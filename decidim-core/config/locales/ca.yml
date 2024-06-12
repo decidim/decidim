@@ -296,10 +296,6 @@ ca:
         title:
           one: "%{count} esmena"
           other: "%{count} esmenes"
-      compare_draft:
-        continue: Continua
-        no_similars_found: No s’han trobat esmenes semblants.
-        title: Esmenes similars
       created:
         error: S'ha produït un error durant la creació de l’esmena.
         success: L'esborrany d’esmena ha estat creat amb èxit.
@@ -355,9 +351,7 @@ ca:
       wizard_step_form:
         steps:
           '1': Crea la teva esmena
-          '2': Compara la teva esmena
-          '3': Completa la teva esmena
-          '4': Publica la teva esmena
+          '2': Publica la teva esmena
     anonymous_user: Anònim
     application:
       document:
@@ -1040,7 +1034,7 @@ ca:
           content: "<p>A %{organization} pots participar i decidir sobre diferents temes, a través dels espais que veus al menú superior: Processos, Assemblees, Iniciatives, Consultes.</p> <p>Dins de cada un trobaràs diferents opcions per participar: fer propostes - a nivell individual o amb altres persones -, prendre part en debats, prioritzar projectes a executar, assistir a trobades presencials i altres accions.</p>\n"
           title: Què puc fer a %{organization}?
         description: Llegeix més sobre %{organization}.
-        title: Ajuda general
+        title: General
     last_activities:
       all: Tots els tipus d'activitats
       index:
@@ -1239,6 +1233,7 @@ ca:
       no_notifications: Encara no hi ha notificacions.
       show:
         missing_event: Vaja, aquesta notificació pertany a un element que ja no està disponible. Pots descartar-la.
+        moderated: Contingut moderat
     notifications_digest_mailer:
       header:
         daily: Resum diari de notificacions
@@ -1929,7 +1924,7 @@ ca:
         made_with_open_source: Web creada amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
         resources: Recursos
         sign_up: Registra't
-        terms_and_conditions: Termes i condicions
+        terms_of_service: Termes i condicions d'ús
       header:
         log_in: Entra
         main_menu: Menú principal

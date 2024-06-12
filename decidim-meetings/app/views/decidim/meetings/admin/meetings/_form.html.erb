@@ -80,7 +80,7 @@
 
       <div class="row column" id="meeting_registration_url">
         <%= form.text_field :registration_url, help_text: t(".registration_url_help") %>
-        <%= cell("decidim/announcement", t(".disclaimer", organization: current_component.organization.name), callout_class: "alert" ) %>
+        <%= cell("decidim/announcement", t(".disclaimer", organization: organization_name(current_component.organization)), callout_class: "alert" ) %>
       </div>
 
       <div class="row column" id="private_meeting">

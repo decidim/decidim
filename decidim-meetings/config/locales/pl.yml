@@ -29,15 +29,46 @@ pl:
         organizer_gid: Utwórz jako
         organizer_id: Organizator
         private_meeting: Prywatne spotkanie
+        registration_email_custom_content: Niestandardowa treści rejestracyjnego e-maila
         registration_form_enabled: Włączono formularz rejestracyjny
         registration_terms: Warunki rejestracji
+        registration_type: Typ rejestracji
         registration_url: Adres URL rejestracji
         registrations_enabled: Rejestracje włączone
+        reserved_slots: Zastrzeżone miejsca na to spotkanie
+        start_time: Godzina rozpoczęcia
         title: Tytuł
         transparent: Transparentny
         type_of_meeting: Typ
+      meeting_agenda:
+        title: Tytuł
+        visible: Widoczna
       meeting_agenda_items:
+        description: Opis
         duration: Czas trwania
+        title: Tytuł
+      meeting_registration_invite:
+        email: E-mail
+        name: Nazwa
+      validate_registration_code:
+        code: Kod
+    errors:
+      models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Ten adres URL nie może być osadzony na stronie spotkania lub wydarzenia na żywo.
+            online_meeting_url:
+              url_format: Adres URL musi być prawidłowy
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Czas trwania elementów przekracza czas trwania spotkania o %{count} minut.
+              too_many_minutes_child: Czas trwania elementów podrzędnych przekracza czas trwania elementu nadrzędnego "%{parent_title}" w porządku obrad o %{count} minut.
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Ten e-mail został już zaproszony.
     models:
       decidim/meetings/close_meeting_event: Spotkanie zakończone
       decidim/meetings/create_meeting_event: Spotkanie
@@ -65,22 +96,50 @@ pl:
   decidim:
     admin:
       filters:
+        accepted_at_not_null:
+          label: Zaakceptowano
+          values:
+            'false': Nie zaakceptowano
+            'true': Zaakceptowano
         meetings:
           category_id_eq:
             label: Kategoria
           closed_at_present:
             label: Państwo
             values:
+              'false': Otwarte
               'true': Zamknięte
           is_upcoming_true:
             label: Data
-          with_any_origin:
             values:
+              'false': Przeszłe
+              'true': Nadchodzące
+          scope_id_eq:
+            label: Zakres
+          with_any_origin:
+            label: Źródło
+            values:
+              official: Oficjalny
+              participants: Uczestnik
               user_group: Grupy użytkowników
           with_any_type:
             label: Rodzaj spotkania
             values:
+              hybrid: Hybrydowe
               in_person: Osobiste
+              online: Online
+        rejected_at_not_null:
+          label: Odrzucono
+          values:
+            'false': Nie odrzucono
+            'true': Odrzucono
+        search_placeholder:
+          user_name_or_user_email_cont: Szukaj po nazwie lub adresie e-mail
+        sent_at_not_null:
+          label: Wysłano
+          values:
+            'false': Nie wysłano
+            'true': Wysłano
       meeting_copies:
         create:
           error: Wystąpił błąd podczas duplikowania tego spotkania.
@@ -91,6 +150,7 @@ pl:
     components:
       meetings:
         actions:
+          comment: Skomentuj
           join: Dołącz
         name: Spotkania
         settings:
@@ -351,7 +411,6 @@ pl:
           body: Spotkanie <a href="%{meeting_path}">"%{meeting_title}"</a> oczekuje na zamknięcie. Dodaj raport z spotkania za pomocą przycisku "Zamknij spotkanie".
           greetings: Pozdrawiamy,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Witaj %{username},
-          subject: Teraz możesz zamknąć spotkanie z opublikowaniem raportu na platformie %{organization_name}
       conference_venues: Sale konferencyjne
       content_blocks:
         upcoming_meetings:
@@ -509,11 +568,22 @@ pl:
         questions:
           closed_question:
             question_results: Wyniki wyborów
+          index_admin:
+            edit: Edytuj w panelu administratora
+            question: Pytanie
+            received_answer: otrzymana odpowiedź
+            received_answers: otrzymane odpowiedzi
+            results: Wyniki
+            send: Wyślij
+            sent: Wysłano
           published_question:
             max_choices_alert: Wybrano zbyt wiele opcji
             question: Pytanie
             question_replied: Odpowiedziano na pytanie
             reply_question: Odpowiedz na pytanie
+      public_participants_list:
+        attending_organizations: Organizacje
+        attending_participants: Uczestnicy
       read_more: "(zobacz więcej)"
       registration_mailer:
         confirmation:
@@ -527,6 +597,7 @@ pl:
       registrations:
         create:
           invalid: Wystąpił błąd podczas dołączania do spotkania.
+          success: Dołączenie do spotkania się powiodło. Ponieważ jesteś zarejestrowany(a) na to spotkanie, otrzymasz powiadomienie, jeżeli pojawią się nowe informacje na jego temat.
         decline_invitation:
           invalid: Wystąpił błąd podczas próby odrzucenia zaproszenia.
           success: Zaproszenie zostało odrzucone.
@@ -540,6 +611,10 @@ pl:
       types:
         private_meeting: Prywatne spotkanie
         transparent: Transparentne
+        withdraw: Wycofany
+      withdraw:
+        error: Wystąpił błąd podczas wycofywania spotkania.
+        success: Spotkanie zostało pomyślnie wycofane.
     metrics:
       meetings:
         description: Liczba utworzonych spotkań
