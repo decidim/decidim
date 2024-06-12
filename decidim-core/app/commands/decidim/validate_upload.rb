@@ -18,8 +18,7 @@ module Decidim
     private
 
     def remove_invalid_file
-      blob = ActiveStorage::Blob.find_signed(@form.blob)
-      blob.purge if blob.present?
+      @form.blob.purge if @form.blob.present?
     end
   end
 end
