@@ -41,8 +41,7 @@ module Decidim
                 "https://docs.decidim.org/en/develop/services/activejob",
                 class: "underline text-primary",
                 target: "_blank",
-                rel: "nofollow noopener noreferrer"
-        )
+                rel: "nofollow noopener noreferrer")
       end
     end
   end
