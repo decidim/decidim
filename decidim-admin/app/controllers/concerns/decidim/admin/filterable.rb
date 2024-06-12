@@ -93,7 +93,7 @@ module Decidim
         end
 
         def session_filter_params
-          @session_filter_params ||= (session["admin_filters"] || {}).fetch(filter_prefix_key, {})
+          @session_filter_params ||= (session["admin_filters"] || {}).with_indifferent_access.fetch(filter_prefix_key, {})
         end
 
         # For injecting ransack params while keeping query params in links.
