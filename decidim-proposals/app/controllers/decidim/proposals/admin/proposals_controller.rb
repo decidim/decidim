@@ -14,6 +14,10 @@ module Decidim
         helper_method :proposals, :query, :form_presenter, :proposal, :proposal_ids
         helper Proposals::Admin::ProposalBulkActionsHelper
 
+        def index
+          check_admin_session_filters
+        end
+
         def show
           @notes_form = form(ProposalNoteForm).instance
           @answer_form = form(Admin::ProposalAnswerForm).from_model(proposal)

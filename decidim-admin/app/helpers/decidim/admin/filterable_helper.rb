@@ -98,9 +98,14 @@ module Decidim
       end
 
       def applied_filters_tags(i18n_ctx)
-        ransack_params.slice(*filters).map do |filter, value|
+        tags = ransack_params.slice(*filters).map do |filter, value|
           applied_filter_tag(filter, value, filterable_i18n_scope_from_ctx(i18n_ctx))
-        end.join.html_safe
+        end
+        return if tags.blank?
+
+        tags << remove_all_filters_tag if tags.count > 1
+
+        tags.join.html_safe
       end
 
       def applied_filter_tag(filter, value, i18n_scope)
@@ -108,6 +113,13 @@ module Decidim
           concat "#{i18n_filter_label(filter, i18n_scope)}: "
           concat i18n_filter_value(filter, value, i18n_scope)
           concat remove_filter_icon_link(filter)
+        end
+      end
+
+      def remove_all_filters_tag
+        link_to(url_for(blank_query_params), class: "label secondary alert") do
+          concat t("decidim.admin.filters.remove_all_filters")
+          concat icon("delete-bin-line", aria_label: t("decidim.admin.filters.remove_all_filters"), role: "img")
         end
       end
 
