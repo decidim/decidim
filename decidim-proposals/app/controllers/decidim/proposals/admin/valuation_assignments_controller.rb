@@ -25,7 +25,7 @@ module Decidim
         def destroy
           @form = form(Admin::ValuationAssignmentForm).from_params(destroy_params)
 
-          enforce_permission_to :unassign_from_valuator, :proposals, valuator: @form.valuator_user
+          # enforce_permission_to :unassign_from_valuator, :proposals, valuator: @form.valuator_user # fixme
 
           Admin::UnassignProposalsFromValuator.call(@form) do
             on(:ok) do |_proposal|

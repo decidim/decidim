@@ -4,32 +4,38 @@ module Decidim
   module Proposals
     module Admin
       class ValuationAssignmentForm < Decidim::Form
-        mimic :valuator_role
+        # mimic :valuator_role
 
         attribute :id, Integer
         attribute :proposal_ids, Array
+        attribute :valuator_role_ids, Array
 
-        validates :valuator_role, :proposals, :current_component, presence: true
+        validates :valuator_roles, :proposals, :current_component, presence: true
         validate :same_participatory_space
 
         def proposals
           @proposals ||= Decidim::Proposals::Proposal.where(component: current_component, id: proposal_ids).uniq
         end
 
-        def valuator_role
-          @valuator_role ||= current_component.participatory_space.user_roles(:valuator).find_by(id:)
+        def valuator_roles
+          @valuator_roles ||= current_component.participatory_space.user_roles(:valuator).where(id: valuator_role_ids)
         end
 
-        def valuator_user
-          return unless valuator_role
+        # def valuator_users
+        #   return unless valuator_roles
 
-          @valuator_user ||= valuator_role.user
-        end
+        #   @valuator_users ||= valuator_roles.user
+        # end
 
         def same_participatory_space
-          return if !valuator_role || !current_component
+          return if valuator_roles.empty? || !current_component
 
-          errors.add(:id, :invalid) if current_component.participatory_space != valuator_role.participatory_space
+          valuator_roles.each do |valuator_role|
+            if current_component.participatory_space != valuator_role.participatory_space
+              errors.add(:id, :invalid)
+              break
+            end
+          end
         end
       end
     end

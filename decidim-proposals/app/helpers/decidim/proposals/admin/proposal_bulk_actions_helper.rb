@@ -19,7 +19,7 @@ module Decidim
           select(:valuator_role, :id, options_for_select, prompt:)
         end
 
-        # Internal: A method to cache to queries to find the valuators for the
+        # A method to cache to queries to find the valuators for the
         # current space.
         def find_valuators_for_select(participatory_space)
           return @valuators_for_select if @valuators_for_select
