@@ -58,14 +58,14 @@ describe "Proposals", type: :system do
           fill_in :proposal_title, with: " "
           find_by_id("proposal_body").click
 
-          expect(page).to have_css(".form-error.is-visible", text: "There is an error in this field.")
+          expect(page).to have_css(".form-error.is-visible", text: "There's an error in this field.")
         end
 
         it "displays error when title is invalid" do
           fill_in :proposal_title, with: "invalid-title"
           find_by_id("proposal_body").click
 
-          expect(page).to have_css(".form-error.is-visible", text: "There is an error in this field")
+          expect(page).to have_css(".form-error.is-visible", text: "There's an error in this field")
         end
       end
 
@@ -74,14 +74,14 @@ describe "Proposals", type: :system do
           fill_in :proposal_title, with: " "
           find_by_id("proposal_title").click
 
-          expect(page).to have_no_css(".form-error.is-visible", text: "There is an error in this field.")
+          expect(page).to have_no_css(".form-error.is-visible", text: "There's an error in this field.")
         end
 
         it "does not display error when title is invalid" do
           fill_in :proposal_title, with: "invalid-title"
           find_by_id("proposal_title").click
 
-          expect(page).to have_no_css(".form-error.is-visible", text: "There is an error in this field")
+          expect(page).to have_no_css(".form-error.is-visible", text: "There's an error in this field")
         end
       end
     end
