@@ -126,18 +126,5 @@ module Decidim
       Rails.logger.error("Error processing image: #{e.message}")
       image_url
     end
-
-    # Checks if the image is already resized to the required dimensions.
-    #
-    # @param [String] image_url - The URL of the image to check.
-    #
-    # @return [Boolean] - True if the image is already resized, false otherwise.
-    def image_already_resized?(image_url)
-      blob = ActiveStorage::Blob.find_signed(image_url.split("/").last)
-      metadata = blob.metadata
-      metadata["width"] <= 1200 && metadata["height"] <= 630
-    rescue StandardError
-      false
-    end
   end
 end
