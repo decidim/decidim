@@ -127,9 +127,15 @@ en:
         new:
           create: Create
           title: New conference speaker.
+        publish:
+          invalid: There was a problem publishing this speaker.
+          success: Conference speaker successfully published.
         update:
           error: There was a problem updating this conference speaker.
           success: Conference speaker successfully updated.
+        unpublish:
+          invalid: There was a problem unpublishing this speaker.
+          success: Conference speaker successfully unpublished.
       conference_user_roles:
         create:
           error: There was a problem adding an admin to this conference.

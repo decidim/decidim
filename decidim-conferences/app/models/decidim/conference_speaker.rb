@@ -8,6 +8,7 @@ module Decidim
     include Decidim::Loggable
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
+    include Decidim::Publicable
 
     translatable_fields :position, :affiliation, :short_bio
 

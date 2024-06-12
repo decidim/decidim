@@ -74,6 +74,38 @@ module Decidim
           end
         end
 
+        def publish
+          enforce_permission_to(:update, :conference_speaker, speaker: conference_speaker)
+
+          Decidim::Conference::Admin::PublishConferenceSpeaker.call(conference_speaker, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("conference_speakers.publish.success", scope: "decidim.admin")
+              redirect_to conference_speakers_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("conference_speakers.publish.invalid", scope: "decidim.admin")
+              render action: "index"
+            end
+          end
+        end
+
+        def unpublish
+          enforce_permission_to(:update, :conference_speaker, speaker: conference_speaker)
+
+          Decidim::Conference::Admin::UnpublishConferenceSpeaker.call(conference_speaker, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("conference_speakers.unpublish.success", scope: "decidim.admin")
+              redirect_to conference_speakers_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("conference_speakers.unpublish.invalid", scope: "decidim.admin")
+              render action: "index"
+            end
+          end
+        end
+
         private
 
         def meetings_selected
