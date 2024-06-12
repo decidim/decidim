@@ -4,8 +4,6 @@ module Decidim
   module Proposals
     module Admin
       class ValuationAssignmentForm < Decidim::Form
-        # mimic :valuator_role
-
         attribute :id, Integer
         attribute :proposal_ids, Array
         attribute :valuator_role_ids, Array
@@ -20,12 +18,6 @@ module Decidim
         def valuator_roles
           @valuator_roles ||= current_component.participatory_space.user_roles(:valuator).where(id: valuator_role_ids)
         end
-
-        # def valuator_users
-        #   return unless valuator_roles
-
-        #   @valuator_users ||= valuator_roles.user
-        # end
 
         def same_participatory_space
           return if valuator_roles.empty? || !current_component

@@ -1,17 +1,13 @@
 <%= append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
-<%= append_javascript_pack_tag "decidim_proposals" %>
 
-<label class="w-full font-semibold" for="valuators_multiselect">
-  Assign to valuator
-  <select
-    id="valuator_role_ids"
-    name="valuator_role_ids[]"
-    placeholder="Filtrar"
-    class="w-full mt-2 js-valuator-multiselect"
-    multiple
-  >
-    <%= find_valuators_for_select(participatory_space).map do |option| %>
-      <option value="<%= option[1] %>"><%= option[0] %></option>
-    <% end %>
-  </select>
-</label>
+<select
+  id="valuator_role_ids"
+  name="valuator_role_ids[]"
+  placeholder="<%= t("decidim.proposals.admin.proposals.index.filter") %>"
+  class="w-full mt-2 js-valuator-multiselect"
+  multiple
+>
+  <%= find_valuators_for_select(participatory_space).map do |option| %>
+    <option value="<%= option[1] %>"><%= option[0] %></option>
+  <% end %>
+</select>

@@ -23,9 +23,11 @@ module Decidim
         end
 
         def destroy
-          @form = form(Admin::ValuationAssignmentForm).from_params(destroy_params)
+          @form = form(Admin::ValuationAssignmentForm).from_params(params)
 
-          # enforce_permission_to :unassign_from_valuator, :proposals, valuator: @form.valuator_user # fixme
+          @form.valuator_roles.each do |valuator_role|
+            enforce_permission_to :unassign_from_valuator, :proposals, valuator: valuator_role.user
+          end
 
           Admin::UnassignProposalsFromValuator.call(@form) do
             on(:ok) do |_proposal|
@@ -41,13 +43,6 @@ module Decidim
         end
 
         private
-
-        def destroy_params
-          {
-            id: params.dig(:valuator_role, :id) || params[:id],
-            proposal_ids: params[:proposal_ids] || [params[:proposal_id]]
-          }
-        end
 
         def skip_manage_component_permission
           true

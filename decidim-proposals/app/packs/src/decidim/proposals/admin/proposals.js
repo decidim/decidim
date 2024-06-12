@@ -89,16 +89,19 @@ $(() => {
     $("#js-bulk-actions-button").addClass("hide");
 
     $("#js-bulk-actions-dropdown ul li button").click(function (e) {
-      // e.preventDefault();
       $("#js-bulk-actions-dropdown").removeClass("is-open");
 
       let action = $(e.target).data("action");
+      const newActions = [
+        "assign-proposals-to-valuator",
+        "unassign-proposals-from-valuator"
+      ];
 
       if (!action) {
         return;
       }
 
-      if (action === "assign-proposals-to-valuator") {
+      if (newActions.includes(action)) {
         $(`#js-form-${action}`).submit(function () {
           $(".layout-content > div[data-callout-wrapper]").html("");
         });
