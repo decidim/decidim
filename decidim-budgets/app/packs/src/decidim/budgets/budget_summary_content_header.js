@@ -9,16 +9,13 @@ const isElementInViewport = (el) => {
     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
 };
-  
 document.addEventListener("DOMContentLoaded", () => {
   const budgetSummaryContentHeader = document.querySelector(".budget-summary__content__header");
-  
   if (budgetSummaryContentHeader) {
     if (isElementInViewport(budgetSummaryContentHeader)) {
       const budgetSummaryContent = document.querySelector(".budget-summary__content");
       const budgetSummaryProgressbox = document.querySelector(".budget-summary__progressbox");
       const budgetSummaryContentHeaderDescription = document.querySelector(".budget-summary__content__header--description");
-  
       if (budgetSummaryContent) {
         budgetSummaryContent.style.height = `${budgetSummaryProgressbox.offsetHeight + budgetSummaryContentHeaderDescription.offsetHeight}px`;
       }
