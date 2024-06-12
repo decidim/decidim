@@ -5,14 +5,14 @@ module Decidim
     # A command with all the business logic to add an attachment collection
     # to a participatory space.
     class CreateAttachmentCollection < Decidim::Command
+      delegate :current_user, to: :form
       # Public: Initializes the command.
       #
       # form - A form object with the params.
       # collection_for - The ActiveRecord::Base that will hold the collection
-      def initialize(form, collection_for, user)
+      def initialize(form, collection_for)
         @form = form
         @collection_for = collection_for
-        @user = user
       end
 
       # Executes the command. Broadcasts these events:
