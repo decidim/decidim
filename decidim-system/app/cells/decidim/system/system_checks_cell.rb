@@ -39,7 +39,10 @@ module Decidim
       def active_job_queue_link
         link_to(t("active_job_queue.decidim_documentation", scope: "decidim.system.system_checks"),
                 "https://docs.decidim.org/en/develop/services/activejob",
-                class: "underline")
+                class: "underline text-primary",
+                target: "_blank",
+                rel: "nofollow noopener noreferrer"
+        )
       end
     end
   end
