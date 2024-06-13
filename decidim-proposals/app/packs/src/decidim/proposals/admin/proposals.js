@@ -18,6 +18,8 @@ $(() => {
     const selectedProposalsNotPublishedAnswer = selectedProposalsNotPublishedAnswerCount();
     if (selectedProposals === 0) {
       $("#js-selected-proposals-count").text("")
+      $("#js-assign-proposals-to-valuator-actions").addClass("hide");
+      $("#js-unassign-proposals-from-valuator-actions").addClass("hide");
     } else {
       $("#js-selected-proposals-count").text(selectedProposals);
     }
