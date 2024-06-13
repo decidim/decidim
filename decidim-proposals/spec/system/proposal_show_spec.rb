@@ -101,18 +101,6 @@ describe "Show a Proposal" do
                body: { en: "This is my proposal and I want to upload attachments. <p><img src=\"#{description_image_path}\"></p>" })
       end
 
-      let(:description_image) do
-        ActiveStorage::Blob.create_and_upload!(
-          io: File.open(Decidim::Dev.asset("city3.jpeg")),
-          filename: "description_image.jpg",
-          content_type: "image/jpeg"
-        )
-      end
-
-      let(:description_image_path) { Rails.application.routes.url_helpers.rails_blob_path(description_image, only_path: true) }
-
-      let!(:content_block) { create(:content_block, organization:, manifest_name: :hero, scope_name: :homepage) }
-
       context "when the proposal has an attachment" do
         let!(:proposal_attachment) { create(:attachment, :with_image, attached_to: proposal, file: proposal_attachment_file) }
         let!(:proposal_attachment_file) { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
@@ -143,23 +131,6 @@ describe "Show a Proposal" do
       end
 
       context "when no images are present" do
-        let(:uploaded_image) do
-          ActiveStorage::Blob.create_and_upload!(
-            io: File.open(Decidim::Dev.asset("city2.jpeg")),
-            filename: "hero_image.jpeg",
-            content_type: "image/jpeg"
-          )
-        end
-
-        let(:images) do
-          {
-            "background_image" => uploaded_image.signed_id
-          }
-        end
-
-        let(:form_klass) { Decidim::Admin::ContentBlockForm }
-        let(:form) { form_klass.from_params(content_block: { images: }) }
-
         before do
           Decidim::Admin::ContentBlocks::UpdateContentBlock.new(form, content_block, :homepage).call
           proposal.update!(body: { en: "This is my proposal" })
