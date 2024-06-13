@@ -490,6 +490,19 @@ module Decidim
         end
       end
 
+      def actions_for_comment(comment)
+        return if comment.author.in?(authors)
+
+        [
+          {
+          label: "Mark as co-author", 
+          url: "/mark-as-coauthor",
+          icon: "user-add-line",
+          method: :patch
+          }
+        ]
+      end
+
       private
 
       def copied_from_other_component?

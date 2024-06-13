@@ -86,6 +86,23 @@ module Decidim
         options[:order] || "older"
       end
 
+      def actions
+        return unless model.comentable_actions
+
+        model.comentable_actions.map do |action|
+          [
+            "#{icon(action[:icon]) if action[:icon].present?}#{action[:label]}",
+            action[:url],
+            {
+              class: "dropdown__item"
+            }
+          ].tap do |link|
+            link[2][:method] = action[:method] if action[:method].present?
+            link[2][:remote] = action[:remote] if action[:remote].present?
+          end
+        end
+      end
+
       def reply_id
         "comment#{model.id}-reply"
       end

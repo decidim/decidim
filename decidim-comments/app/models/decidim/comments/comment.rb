@@ -207,6 +207,10 @@ module Decidim
         Decidim::ActionLog.where(resource: self).exists?(["extra @> ?", Arel.sql("{\"edit\":true}")])
       end
 
+      def comentable_actions
+        root_commentable.try(:actions_for_comment, self)
+      end
+
       private
 
       def body_length
