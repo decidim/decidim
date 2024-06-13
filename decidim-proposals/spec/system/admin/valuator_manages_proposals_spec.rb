@@ -47,7 +47,7 @@ describe "Valuator manages proposals" do
 
     it "can unassign themselves" do
       within "#js-form-unassign-proposals-from-valuator" do
-        select user.name, from: :valuator_role_id
+        tom_select("#unassign_valuator_role_ids", option_id: valuator_role.id)
         click_on(id: "js-submit-unassign-proposals-from-valuator")
       end
 
@@ -56,7 +56,7 @@ describe "Valuator manages proposals" do
 
     it "cannot unassign others" do
       within "#js-form-unassign-proposals-from-valuator" do
-        select another_user.name, from: :valuator_role_id
+        tom_select("#unassign_valuator_role_ids", option_id: another_valuator_role.id)
         click_on(id: "js-submit-unassign-proposals-from-valuator")
       end
 
