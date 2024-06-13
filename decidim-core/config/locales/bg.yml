@@ -1242,22 +1242,55 @@ bg:
       no_notifications: Още няма известия.
       show:
         missing_event: Упс, това известие принадлежи на съдържание, което вече не е налично. Можете да го подминете.
+        moderated: Съдържанието е модерирано
+    notifications_digest_mailer:
+      header:
+        daily: Ежедневно обобщение на известията
+        weekly: Седмично обобщение на известията
+      hello: Здравейте %{name},
+      intro:
+        daily: 'Това са известията от последния ден въз основа на активността, която следвате:'
+        weekly: 'Това са известията от последната седмица въз основа на активността, която следвате:'
+      outro: Получихте тези известия, защото следвате това съдържание или неговите автори. Можете да спрете да ги следвате от съответните им страници.
+      see_more: Вижте още известия
+      subject: Това е обобщение на Вашата поща
     notifications_settings:
       show:
+        administrators: Администратори
+        allow_public_contact: Разрешавам на всички да ми изпращат директни съобщения дори и ако не ги следвам.
+        allow_push_notifications: Получавайте насочени известия, за да разберете какво се случва, когато не сте на платформата. Можете да ги изключите по всяко време.
         direct_messages: Получавайте директни съобщения от всеки
+        email_on_moderations: Искам да получавам имейл всеки път, когато нещо или някой бъде докладван за модериране.
         everything_followed: Всичко, което следвам
         newsletter_notifications: Желая да получавам бюлетин
         newsletters: Бюлетин с новости
+        notification_settings:
+          close_meeting_reminder: Искам да получавам напомняния по имейл за непубликувани доклади от затворени срещи
+        notifications_sending_frequencies:
+          daily: Дневно
+          none: Няма
+          real_time: Реално време
+          weekly: Седмично
+        notifications_sending_frequency: Колко често искате да получавате имейл с известия?
         own_activity: Моята дейност, например когато някой коментира мое предложение или ме спомене
+        push_notifications: Изскачащи известия
+        push_notifications_reminder: За да получавате известия от платформата, първо трябва да ги разрешите в настройките на браузъра си.
         receive_notifications_about: Искам да получавам известия за
         update_notifications_settings: Запази промените
       update:
         error: Има проблем с обновяването на настройките Ви за известия.
         success: Настройките Ви за известия са обновени успешно.
+    offline:
+      name: Офлайн
+      show:
+        message_1: Изглежда, че в момента сте офлайн.
+        message_2: Моля, опитайте отново по-късно.
+        retry: Опитайте отново
     open_data:
       not_available_yet: Файловете с отворени данни все още не са налице. Опитайте отново след няколко минути.
     pad_iframe:
       disclaimer: Съдържанието в тази платформа, написано от участниците в нея изразява тяхното мнение. %{organization} не носи отговорност за това съдържание.
+      explanation: Използвайте този бележник, за да си водите съвместни бележки по време на срещата, така че по-лесно да изготвите протокола след това.
       pad: Платформа
     pages:
       home:
@@ -1271,15 +1304,18 @@ bg:
           proposals: Предложения
           proposals_explanation: Правете предложения, подкрепяйте съществуващите и обявете промените, които искате да видите.
         footer_sub_hero:
+          footer_sub_hero_body_html: Нека изградим по-отворено, прозрачно и задружно общество.<br /> Присъединете се, участвайте и решавайте.
           footer_sub_hero_headline: Добре дошли в платформата за сътрудничество %{organization}!
           register: Регистрация
         hero:
           participate: Участвайте
+          participate_title: Участвайте в процесите на платформата
           welcome: Добре дошли в %{organization}!
         statistics:
           headline: Текущо състояние на %{organization}
         sub_hero:
           register: Регистрация
+          register_title: Регистрирайте се, за да си създадете акаунт
       index:
         standalone_pages: Страници
         subheading: Придвижвайте се в помощта на %{name}
@@ -1289,6 +1325,16 @@ bg:
         metrics:
           headline: Индикатори
           link: Покажи всички индикатори
+      terms_of_service:
+        accept:
+          error: Възникна проблем при приемането на Условията за ползване.
+          success: Чудесно! Приехте административните условия за ползване.
+        form:
+          agreement: Съгласен съм и приемам тези условия
+          legend: Съгласете се с условията на услугата
+        refuse:
+          modal_body: Ако откажете, няма да можете да използвате платформата, но можете да <a href="%{download_your_data_path}">изтеглите данните си</a> и/или <a href="%{delete_path}">да изтриете вашия акаунт</a>.
+          modal_btn_continue: Приемам условията и продължавам
     profile:
       deleted: Изтрит участник
     profiles:
@@ -1356,25 +1402,57 @@ bg:
       results:
         view_all: Виж всички (%{count})
     shared:
+      confirm_modal:
+        title: Потвърждаване
+      embed:
+        title: Вградено видео съдържание
       extended_navigation_bar:
         more: Повече
         unfold: Разгъване
+      filter_form_help:
+        help: Формата по-долу филтрира резултатите от търсенето динамично, когато условията за търсене се променят.
+        skip: Прескачане към резултатите
       flag_modal:
         already_reported: Това съдържание вече е докладвано и ще бъде прегледано от администратор.
         close: Затвори
         description: Това съдържание неподходящо ли е?
+        does_not_belong: Съдържа незаконна дейност, заплахи за самоубийство, лична информация или нещо друго, което смятате, че не принадлежи на %{organization_name}.
+        hide: Скрий
+        hide_content: Скрий това съдържание
         offensive: Съдържа расизъм, сексизъм, злословия, лични атаки, заплахи за смърт, заявки за самоубийство или всякаква форма на омраза.
+        reason: Причина
         report: Доклад
         spam: Съдържа клик-байт, реклама, измами или скриптове.
         title: Съобщи за проблем
+      flag_user_modal:
+        already_reported: Това съдържание вече е докладвано и ще бъде прегледано от администратор.
+        block: Блокирай този участник
+        close: Затвори
+        description: Какво е неприемливо при този потребител?
+        does_not_belong: Съдържа незаконна дейност, заплахи за самоубийство, лична информация или нещо друго, което смятате, че не принадлежи на %{organization_name}.
+        hide: Скрийте цялото им съдържание
+        offensive: Съдържа расизъм, сексизъм, злословия, лични атаки, заплахи за смърт, заявки за самоубийство или всякаква форма на омраза.
+        report: Доклад
+        spam: Съдържа примамка за кликване, реклама, измами или скриптове.
+        title: Докладвайте за неподходящ потребител
       floating_help:
         help: Помощ
+      follow_button:
+        log_in_before_follow: Моля, влезте в профила си, преди да извършите това действие
       login_modal:
+        please_log_in: Моля влез в профила си
         sign_up: Регистрация
+      mentions_modal:
+        remove_recipient: Премахване на получател %{name}
       participatory_space_filters:
         filters:
+          area: Област
           areas: Райони
+          scope: Обхват
           select_an_area: Избери район
+      progress: Прогрес
+      public_participation:
+        public_participation: Показване на присъствието ми публично
       reference:
         reference: 'Справка: %{reference}'
       represent_user_group:
@@ -1384,16 +1462,36 @@ bg:
         label: 'Резултати на страница:'
         title: Изберете брой резултати на страница
       share_modal:
+        copy_share_link: Копиране
+        copy_share_link_clarification: Копиране на линка за споделяне в клипборда
+        copy_share_link_copied: Копирано!
+        copy_share_link_message: Връзката беше успешно копирана в клипборда.
         share: Сподели
         share_link: Сподели връзка
+        share_to: Сподели с %{service}
     statistics:
       comments_count: Коментари
+      endorsements_count: Одобрения
+      followers_count: Последователи
+      headline: Статистики
+      no_stats: Все още няма статистики.
+      pages_count: Страници
+      participants_count: Участници
+      users_count: Участници
+    tags:
+      filter_results_for_category: 'Филтриране на резултатите за категорията: %{resource}'
+      filter_results_for_scope: 'Филтриране на резултатите за обхвата: %{resource}'
+    translation_bar:
+      help_text: "<strong>Предупреждение:</strong> Възможно е съдържанието да е преведено автоматично и да не е 100 % точно."
+      show_original: Показване на оригиналния текст
+      show_translated: Показване на автоматично преведения текст
     user_activity:
       index:
         no_activities_warning: Този участник все още няма активности.
     user_contact_disabled: Този участник не приема директни съобщения.
     user_conversations:
       create:
+        error: Съобщението не можа да бъде създадено. Опитайте по-късно.
         existing_error: Съобщението не можа да бъде създадено. Разговорът вече съществува, моля опитайте отново сега.
         success: Разговорът започна успешно!
       index:
@@ -1408,10 +1506,19 @@ bg:
     user_interests:
       show:
         my_interests: Моите интереси
+        no_scopes: Тази организация все още няма обхват!
+        select_your_interests: Изберете темите, от които се интересувате, за да получавате свързани с тях събития в раздела „Хронология“ в профила си.
         update_my_interests: Обнови моите интереси
       update:
         error: Възникна проблем с обновяването на интересите Ви.
         success: Интересите Ви бяха успешно обновени.
+    user_report_mailer:
+      notify:
+        body_1: Потребителят %{user} е докладван от %{token}
+        body_2: 'Причина: %{reason}'
+        details: Подробности, предоставени от потребителя
+        greetings: Поздрав,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Здравейте %{admin},
     version:
       show:
         back_to_resource: Назад
@@ -1541,6 +1648,40 @@ bg:
   doorkeeper:
     scopes:
       public: Вашата публична информация.
+  editor:
+    inputDialog:
+      buttons:
+        cancel: Отказ
+        remove: Премахни
+        save: Запази
+      close: Затвори прозореца
+    toolbar:
+      control:
+        blockquote: Блок цитат
+        bold: Удебелен
+        bulletList: Неподреден списък
+        codeBlock: Блок код
+        common:
+          eraseStyles: Изтрий стиловете
+        hardBreak: Нов ред
+        heading: Стил на текста
+        image: Изображение
+        indent:
+          indent: Отстъп
+          outdent: Външно отместване
+        italic: Курсив
+        link: Линк
+        orderedList: Подреден списък
+        underline: Подчертаване
+        videoEmbed: Вградено видео
+      textStyle:
+        heading: Заглавие %level%
+        normal: Нормален
+    upload:
+      uploadedFile: Качен файл
+  emojis:
+    add_custom: Добавяне на имдивидуална емотиконка
+    button: Добави емотиконка
   errors:
     messages:
       confirmation_period_expired: трябва Ви потвърдят в рамките на %{period}, моля заявете отново
