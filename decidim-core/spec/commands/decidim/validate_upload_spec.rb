@@ -15,7 +15,8 @@ module Decidim
       end
       let(:invalid) { false }
       let(:errors) { [] }
-      let(:blob) { "foobar" }
+      let(:io) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+      let(:blob) { ActiveStorage::Blob.create_and_upload!(io: , filename: "city.jpeg") }
 
       describe "when form is valid" do
         it "broadcasts ok" do
@@ -33,12 +34,11 @@ module Decidim
         let(:errors) { ["File too dummy"] }
 
         it "broadcasts invalid" do
-          allow(ActiveStorage::Blob).to receive(:find_signed).with(blob).and_return(double(purge: true))
           expect { command.call }.to broadcast(:invalid, errors)
         end
 
         it "removes the invalid file" do
-          expect(ActiveStorage::Blob).to receive(:find_signed)
+          expect(blob).to receive(:purge_later)
           command.call
         end
       end
