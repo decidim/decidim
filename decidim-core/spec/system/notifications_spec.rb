@@ -160,7 +160,7 @@ describe "Notifications" do
     end
 
     context "when the request fails" do
-      let(:url) { "/i-donot-exist" }
+      let(:url) { "/i-do-not-exist" }
 
       before do
         allow(page.config).to receive(:raise_server_errors).and_return(false)
