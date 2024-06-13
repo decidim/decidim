@@ -810,10 +810,25 @@ bg:
           explanation: 'Указания за файла:'
           message_1: Трябва да е изображение или документ.
           message_2: Относно изображенията, препотъчваме използването на пейзажно-ориентирани изображения, системата изрязва изображението (при портретна ориентация).
+        icon:
+          explanation: 'Указания за иконата:'
+          message_1: Трябва да бъде квадратно изображение.
+          message_2: Препоръчителният размер за това изображение е 512x512 px.
         image:
+          explanation: 'Указания за изображението:'
           message_1: За предпочитане пейзажно-ориентирано изображение, което няма текст.
+          message_2: Функцията изрязва изображението.
+      file_validation:
+        allowed_file_extensions: 'Допустими файлови разширения: %{extensions}'
+        max_file_dimension: 'Максимални размери на файла: %{resolution} пиксела'
+        max_file_size: 'Максимален размер на файла: %{megabytes} MB'
+      files:
+        extension_allowlist: 'Приемливи формати: %{extensions}'
       upload:
         labels:
+          add_attachment: Прикачване на файл
+          add_file: Добави файл
+          add_image: Добавяне на изображение
           cancel: Отказ
           edit_image: Редактиране на изображение
           error: Грешка!
@@ -930,6 +945,7 @@ bg:
       no_user_groups: Не принадлежи към никоя група.
       roles:
         admin: Администратор
+        creator: Администратор
         member: Член
       update:
         error: Възникна проблем при обновяването на групата
@@ -948,15 +964,26 @@ bg:
       index:
         last_activity: Последна активност
         resource_type: Тип
+    links:
+      invalid_url: Невалиден URL
+      warning:
+        body_1: Вие сте на път да посетите външна връзка и бихме искали да внимавате по отношение на съдържанието на външния сайт.
+        body_2: Моля, проверете връзката, която ще посетите, и се уверете, че я разпознавате като безопасен сайт, преди да продължите.
+        cancel: Отказ
+        proceed: Продължи
+        title: Отворете външна връзка
     log:
       base_presenter:
         create: "%{user_name} създаде %{resource_name}"
         create_with_space: "%{user_name} създаде %{resource_name} в %{space_name}"
         delete: "%{user_name} изтри %{resource_name}"
         delete_with_space: "%{user_name} изтри %{resource_name} в %{space_name}"
+        publish_with_space: "%{user_name} публикува %{resource_name} в %{space_name}"
         unknown_action: "%{user_name} извърши действие на %{resource_name}"
         unknown_action_with_space: "%{user_name} извърши действие на %{resource_name} в %{space_name}"
+        unpublish_with_space: "%{user_name} преустанови публикуването на %{resource_name} от %{space_name}"
         update: "%{user_name} обнови %{resource_name}"
+        update_permissions_with_space: "%{user_name} актуализира правата на %{resource_name} в %{space_name}"
         update_with_space: "%{user_name} обнови %{resource_name} в %{space_name}"
       value_types:
         area_presenter:
@@ -1059,6 +1086,8 @@ bg:
         update:
           error: Съобщението не е изпратено, поради възникнала грешка. Моля, опитайте отново по-късно.
     metrics:
+      download:
+        csv: Изтегляне на данни (CSV)
       followers:
         description: Брой участници, които следват това пространство
         object: последователи
@@ -1116,8 +1145,16 @@ bg:
         greetings: Здравейте,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Здравейте,
         subject: Желаете ли да продължите да получавате подбрана информация от %{organization_name}?
+    notification_mailer:
+      event_received:
+        no_translation_available: За съжаление автоматичният превод не можа да бъде извлечен, когато имейлът е изпратен. Можете да проверите превода на оригиналния текст на следната връзка %{link}.
+        original_text: 'Оригинален текст:'
+        same_language: Съдържанието е публикувано на предпочитания от вас език (%{language}), поради което в този имейл не се показва автоматичен превод.
+        translated_text: 'Автоматично преведен текст:'
     notifications:
       no_notifications: Още няма известия.
+      show:
+        missing_event: Упс, това известие принадлежи на съдържание, което вече не е налично. Можете да го подминете.
     notifications_settings:
       show:
         allow_public_contact: Позволявам на всеки да ми изпраща директно съобщение, дори и да не го следвам.
