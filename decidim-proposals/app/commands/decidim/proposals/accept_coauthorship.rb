@@ -2,7 +2,7 @@
 
 module Decidim
   module Proposals
-    # A command with all the business logic when a user withdraws a new proposal.
+    # A command with all the business logic when a user accepts an invitation to be a coauthor of a proposal.
     class AcceptCoauthorship < Decidim::Command
       # Public: Initializes the command.
       #
@@ -18,7 +18,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid, together with the proposal.
-      # - :has_votes if the proposal already has votes or does not belong to current user.
+      # - :invalid if the coauthor is not valid.
       #
       # Returns nothing.
       def call
