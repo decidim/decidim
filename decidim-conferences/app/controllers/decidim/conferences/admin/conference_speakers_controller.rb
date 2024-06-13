@@ -80,7 +80,7 @@ module Decidim
           Decidim::Conference::Admin::PublishConferenceSpeaker.call(conference_speaker, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("conference_speakers.publish.success", scope: "decidim.admin")
-              redirect_to conference_speakers_path
+              redirect_to conference_speakers_path(current_conference)
             end
 
             on(:invalid) do
@@ -96,7 +96,7 @@ module Decidim
           Decidim::Conference::Admin::UnpublishConferenceSpeaker.call(conference_speaker, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("conference_speakers.unpublish.success", scope: "decidim.admin")
-              redirect_to conference_speakers_path
+              redirect_to conference_speakers_path(current_conference)
             end
 
             on(:invalid) do
