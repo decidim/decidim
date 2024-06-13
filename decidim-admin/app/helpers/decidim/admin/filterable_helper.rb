@@ -137,6 +137,10 @@ module Decidim
         i18n_scope += ".#{i18n_ctx}" if i18n_ctx
         i18n_scope
       end
+
+      def filtered_adjacent_paths(item, path_method)
+        adjacent_items(item).transform_values(&method(path_method))
+      end
     end
   end
 end

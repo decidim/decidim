@@ -27,7 +27,8 @@ module Decidim
                       :query_params_without,
                       :blank_query_params,
                       :ransack_params,
-                      :search_field_predicate
+                      :search_field_predicate,
+                      :adjacent_items
 
         delegate :categories, to: :current_component
         delegate :scopes, to: :current_organization
@@ -60,9 +61,36 @@ module Decidim
         end
 
         def session_filtered_collection
-          query = base_query.ransack(session_filter_params, search_context: :admin, auth_object: current_user).result
-          # The limit reorders as pagination does
-          query.limit(query.count)
+          @session_filtered_collection ||= begin
+            query = base_query.ransack(session_filter_params, search_context: :admin, auth_object: current_user).result
+            # The limit reorders as pagination does
+            query.limit(query.count)
+          end
+        end
+
+        def adjacent_items(item)
+          query =
+            <<-SQL.squish
+              WITH
+                collection AS (#{session_filtered_collection.to_sql}),
+                sucessors AS (
+                  SELECT
+                    id,
+                    Lag(id, 1) OVER () prev_item,
+                    Lead(id, 1) OVER () next_item
+                  FROM
+                    collection
+                )
+              SELECT
+                prev_item,
+                next_item
+              FROM
+                sucessors
+              WHERE
+                sucessors.id = #{item.id}
+            SQL
+
+          (ActiveRecord::Base.connection.exec_query(query).first || {}).compact_blank.transform_values { |id| collection.find_by(id:) }
         end
 
         def filter_prefix_key

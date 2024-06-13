@@ -1,6 +1,7 @@
 <% add_decidim_page_title(translated_attribute(proposal.title)) %>
 <div class="component__show">
   <div class="card">
+    <%= render partial: "decidim/admin/shared/adjacents_navigation", locals: { adjacents_paths: filtered_adjacent_paths(proposal, :proposal_path) } %>
     <div class="component__show_header">
       <h2 class="component__show_header-title">
         <%= decidim_html_escape(present(proposal).title).html_safe %>
@@ -13,13 +14,6 @@
           <%= icon "award-line" %>
         </div>
         <div>
-          <% if proposal_sucessors["prev_item"].present? %>
-            <h4>PREV <%= link_to present(proposal_sucessors["prev_item"]).title(html_escape: true), proposal_path(proposal_sucessors["prev_item"]) %></h4>
-          <% end %>
-          <% if proposal_sucessors["next_item"].present? %>
-            <h4>NEXT <%= link_to present(proposal_sucessors["next_item"]).title(html_escape: true), proposal_path(proposal_sucessors["next_item"]) %></h4>
-          <% end %>
-
           <% coauthor_presenters_for(proposal).each do |presented_author| %>
             <li class="component__show_nav-author-title">
               <%= link_to_if(
