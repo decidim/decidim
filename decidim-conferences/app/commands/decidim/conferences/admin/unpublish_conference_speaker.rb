@@ -8,7 +8,7 @@ module Decidim
       class UnpublishConferenceSpeaker < Decidim::Command
         # Public: Initializes the command.
         #
-        # conference_speaker - Decidim::Meetings::Meeting
+        # conference_speaker - Decidim::Conferences::Admin::ConferenceSpeaker
         # current_user - the user performing the action
         def initialize(conference_speaker, current_user)
           @conference_speaker = conference_speaker
