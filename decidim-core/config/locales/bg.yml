@@ -895,8 +895,25 @@ bg:
           explanation: 'Указания за файла:'
           message_1: Трябва да е изображение или документ.
           message_2: За изображения използвайте за предпочитане хоризонтални изображения, услугата изрязва изображението.
+        icon:
+          explanation: 'Указания за иконата:'
+          message_1: Трябва да бъде квадратно изображение.
+          message_2: Препоръчителният размер за това изображение е 512x512 px.
+        image:
+          explanation: 'Указания за изображението:'
+          message_1: За предпочитане пейзажно изображение, което няма текст.
+          message_2: Функцията изрязва изображението.
+      file_validation:
+        allowed_file_extensions: 'Допустими файлови разширения: %{extensions}'
+        max_file_dimension: 'Максимални размери на файла: %{resolution} пиксела'
+        max_file_size: 'Максимален размер на файла: %{megabytes} MB'
+      files:
+        extension_allowlist: 'Приемливи формати: %{extensions}'
       upload:
         labels:
+          add_attachment: Прикачване на файл
+          add_file: Добави файл
+          add_image: Добавяне на изображение
           edit_image: Редактиране на изображение
           error: Грешка!
           file_size_too_large: 'Размерът на файла е твърде голям! Максимален размер на файла: %{megabytes}MB'
@@ -978,20 +995,31 @@ bg:
       reject:
         error: Възникна проблем при отхвърлянето на заявката за присъединяване.
         success: Заявката за присъединяване е отхвърлена успешно.
+      remove:
+        error: Възникна проблем при премахването на участник от групата.
+        success: Участника е успешно премахнат от групата.
     groups:
       actions:
         are_you_sure: Сигурни ли сте?
+      create:
+        error: Възникна проблем при създаване на групата.
+        success: Групата създадена успешно.
       edit:
         edit_user_group: Редактирай група
         update_user_group: Обнови група
       form:
+        document_number_help: Не използвайте тирета или интервали.
         email_help: Ел. поща на вашата организация, асоциация, колектив, група и т.н.
         fill_in_for_verification: 'Попълнете тези полета, ако желаете вашата група да бъде проверена:'
         name_help: Име на вашата организация, асоциация, колектив, група и т.н.
         nickname_help: Псевдоним на вашата организация, асоциация, колектив, група и т.н.
+        phone_help: Не използвайте тирета или интервали.
       join:
+        error: Възникна проблем при присъединяването към групата.
         success: Заявката за присъединяване е създадена успешно. Администраторът ще прегледа вашата заявка, преди да ви приеме в групата.
       leave:
+        error: Възникна проблем при напускане на групата.
+        last_admin: Не можете да премахнете себе си от тази група, тъй като сте последният администратор. Направете друг член администратор, за да напуснете групата.
         success: Групата е напусната успешно.
       members:
         accept_or_reject_join_requests: 'Следните участници кандидатстват за присъединяване към групата. Приемете или отхвърлете техните заявки:'
@@ -1001,27 +1029,49 @@ bg:
         create_user_group: Създай група
         new_user_group: Нова група
         subtitle: Създайте група и поканете други участници да се присъединят, за да участват на колективно ниво.
+      no_user_groups: Все още не принадлежи към никоя група.
       roles:
         admin: Администратор
+        creator: Администратор
         member: Член
+      update:
+        error: Възникна проблем при обновяването на групата.
+        success: Групата е обновена успешно.
     help:
       main_topic:
         default_page:
           content: "<p> В %{organization} можете да участвате и да решавате различни теми в разделите, които виждате в горното меню: Процеси, събрания, инициативи, консултации.</p><p>В рамките на всяка от тях ще намерите различни опции за участие: предложения - поотделно или с други хора, участие в дебати, дайте приоритет на проектите за изпълнение, присъствайте на лични срещи и други действия. </p>\n"
           title: Какво мога да правя в %{organization}?
+        description: Прочетете повече за %{organization}.
+        title: Общи
     last_activities:
       all: Всички видове активност
       index:
         last_activity: Последна активност
+      name: Последни активности
+      no_activities_warning: Няма записи за показване за този тип дейност.
+    linked_resource_from:
+      included_in: Включено в(ъв)
+    links:
+      invalid_url: Невалиден URL
+      warning:
+        body_1: Вие сте на път да посетите външна връзка и бихме искали да внимавате по отношение на съдържанието на външния сайт.
+        body_2: Моля, проверете връзката, която ще посетите, и се уверете, че я разпознавате като безопасен сайт, преди да продължите.
+        cancel: Отказ
+        proceed: Продължи
+        title: Отворете външна връзка
     log:
       base_presenter:
         create: "%{user_name} създаде %{resource_name}"
         create_with_space: "%{user_name} създаде %{resource_name} в %{space_name}"
         delete: "%{user_name} изтри %{resource_name}"
         delete_with_space: "%{user_name} изтри %{resource_name} в %{space_name}"
+        publish_with_space: "%{user_name} публикува %{resource_name} в %{space_name}"
         unknown_action: "%{user_name} извърши действие на %{resource_name}"
         unknown_action_with_space: "%{user_name} извърши действие на %{resource_name} в %{space_name}"
+        unpublish_with_space: "%{user_name} преустанови публикуването на %{resource_name} от %{space_name}"
         update: "%{user_name} обнови %{resource_name}"
+        update_permissions_with_space: "%{user_name} актуализира правата на %{resource_name} в %{space_name}"
         update_with_space: "%{user_name} обнови %{resource_name} в %{space_name}"
       value_types:
         area_presenter:
@@ -1120,7 +1170,10 @@ bg:
         active: Активно
         finished: 'Приключило: %{end_date}'
         not_started: Още не е започнало
+        remaining: "Остават %{time_distance}"
     metrics:
+      download:
+        csv: Изтегляне на данни (CSV)
       followers:
         description: Брой участници, които следват това пространство
         object: последователи
@@ -1135,6 +1188,9 @@ bg:
         title: Участници
     newsletter_mailer:
       newsletter:
+        no_reply_notice: Този имейл е изпратен от имейл адрес за уведомяване, който не може да приема входящи имейли. Моля, не отговаряйте на това съобщение.
+        note: Получавате този имейл, защото сте абонирани за бюлетини за %{organization_name}. Можете да промените настройките на <a href="%{link}">страницата за известията си</a>.
+        see_on_website: Не виждате това писмо правилно? Вижте го на <a href="%{link}" target="_blank">сайта</a>.
         unsubscribe: За да се откажете от получаването на такъв тип писма <a href="%{link}" target="_blank" class="unsubscribe">Отпишете се</a>.
     newsletter_templates:
       basic_only_text:
@@ -1157,9 +1213,16 @@ bg:
         main_image: Основно изображение
     newsletters:
       unsubscribe:
+        check_subscription: За да зададете предпочитанията си, отидете в страницата <a href="%{link}" target="_blank">настройки</a>.
+        error: Възникна проблем при прекратяването на абонамента.
         success: Отписахте се успешно.
         token_error: Срокът на връзката е изтекъл.
         unsubscribe: Отписване
+    newsletters_opt_in:
+      unauthorized: Съжаляваме, този линк вече не е активен.
+      update:
+        error: Възникна проблем при запазването на настройките за бюлетина.
+        success: Настройките за бюлетина са успешно обновени.
     newsletters_opt_in_mailer:
       notify:
         body_1: Обработката на личните данни и тяхната защита стават все по-важни за всички нас. С новия Общ регламент за защита на данните (GDPR) от 25 май 2018 г. лицата имат по-добър контрол върху личните си данни. Поради тази причина се нуждаем от вашето съгласие, за да продължим да изпращаме подходяща информация за дейностите на %{organization_name}.
@@ -1169,8 +1232,16 @@ bg:
         greetings: Здравейте,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Здравейте,
         subject: Желаете ли да продължите да получавате подбрана информация от %{organization_name}?
+    notification_mailer:
+      event_received:
+        no_translation_available: За съжаление автоматичният превод не можа да бъде извлечен, когато имейлът е изпратен. Можете да проверите превода на оригиналния текст на следната връзка %{link}.
+        original_text: 'Оригинален текст:'
+        same_language: Съдържанието е публикувано на предпочитания от вас език (%{language}), поради което в този имейл не се показва автоматичен превод.
+        translated_text: 'Автоматично преведен текст:'
     notifications:
       no_notifications: Още няма известия.
+      show:
+        missing_event: Упс, това известие принадлежи на съдържание, което вече не е налично. Можете да го подминете.
     notifications_settings:
       show:
         direct_messages: Получавайте директни съобщения от всеки
