@@ -25,12 +25,11 @@ module Decidim
         return broadcast(:invalid) unless @coauthor
         return broadcast(:invalid) if @proposal.authors.include?(@coauthor)
 
-        extra = @notification.extra
-        extra.delete("uuid")
-        extra.delete("coauthor_id")
+        @notification.extra.delete("uuid")
+        @notification.extra.delete("coauthor_id")
         transaction do
           @proposal.add_coauthor(@coauthor)
-          @notification.update_column(:extra, extra)
+          @notification.save!
         end
 
         broadcast(:ok)

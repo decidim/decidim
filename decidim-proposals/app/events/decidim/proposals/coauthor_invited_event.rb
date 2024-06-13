@@ -4,7 +4,7 @@ module Decidim
   module Proposals
     class CoauthorInvitedEvent < Decidim::Events::SimpleEvent
       include Decidim::Events::CoauthorEvent
-      
+
       def action_cell
         "decidim/notification_actions/buttons" if coauthor
       end
@@ -35,7 +35,7 @@ module Decidim
       end
 
       def coauthor
-        @coauthor ||= Decidim::User.find_by(id: coauthor_id, organization: organization)
+        @coauthor ||= Decidim::User.find_by(id: coauthor_id, organization:)
       end
 
       private

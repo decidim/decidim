@@ -62,7 +62,7 @@ module Decidim
       end
 
       def coauthor
-        @coauthor ||= Decidim::User.find(params[:coauthor_id].presence || notification&.extra["coauthor_id"])
+        @coauthor ||= Decidim::User.find(params[:coauthor_id].presence || notification&.extra&.[]("coauthor_id"))
       end
 
       def proposal
