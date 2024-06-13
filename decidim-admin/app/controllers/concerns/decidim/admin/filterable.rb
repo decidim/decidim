@@ -73,7 +73,7 @@ module Decidim
             <<-SQL.squish
               WITH
                 collection AS (#{session_filtered_collection.to_sql}),
-                sucessors AS (
+                successors AS (
                   SELECT
                     id,
                     Lag(id, 1) OVER () prev_item,
@@ -85,9 +85,9 @@ module Decidim
                 prev_item,
                 next_item
               FROM
-                sucessors
+                successors
               WHERE
-                sucessors.id = #{item.id}
+                successors.id = #{item.id}
             SQL
 
           (ActiveRecord::Base.connection.exec_query(query).first || {}).compact_blank.transform_values { |id| collection.find_by(id:) }
