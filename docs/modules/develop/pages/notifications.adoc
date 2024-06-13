@@ -114,7 +114,7 @@ It is possible to render actions into the notifications area. These actions are 
 
 In order to add actions to your notification, you need to implement the methods `action_cell`, `action_data` in your event class. The `action_cell` method should return the name of the cell that will be rendered in the notification area. The `action_data` method should return the data that will be passed to the cell.
 
-Currently, there's only one action cell available, `Decidim::Notifications::Actions::ButtonCell`. This cell renders a list of buttons with the text and URL provided in the `action_data`. See the code for the `Decidim::InvitedToGroupEvent` to render actions that allow users to accept or reject a membership invitation to a group:
+Currently, there is only one action cell available, `Decidim::Notifications::Actions::ButtonCell`. This cell renders a list of buttons with the text and URL provided in the `action_data`. See the code for the `Decidim::InvitedToGroupEvent` to render actions that allow users to accept or reject a membership invitation to a group:
 
 [source,ruby]
 ----
