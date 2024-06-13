@@ -360,6 +360,9 @@ de:
       document:
         download: Datei herunterladen
       documents:
+        component_documents:
+          dummy: Platzhalter für Komponenten-Dokumente
+          meetings: Veranstaltungsdokumente
         documents: Dokumente
         related_documents: Zugehörige Dokumente
       photo:
