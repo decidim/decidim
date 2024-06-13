@@ -5,8 +5,7 @@
   name="valuator_role_ids[]"
   placeholder="<%= t("decidim.proposals.admin.proposals.index.filter") %>"
   class="w-full mt-2 js-valuator-multiselect"
-  multiple
->
+  multiple>
   <%= find_valuators_for_select(participatory_space).map do |option| %>
     <option value="<%= option[1] %>"><%= option[0] %></option>
   <% end %>
