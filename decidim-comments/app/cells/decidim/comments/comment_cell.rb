@@ -86,10 +86,10 @@ module Decidim
         options[:order] || "older"
       end
 
-      def actions
-        return unless model.comentable_actions
+      def extra_actions
+        return unless model.extra_actions
 
-        model.comentable_actions.map do |action|
+        model.extra_actions.map do |action|
           [
             "#{icon(action[:icon]) if action[:icon].present?}#{action[:label]}",
             action[:url],

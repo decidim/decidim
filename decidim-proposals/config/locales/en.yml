@@ -240,6 +240,14 @@ en:
             email_outro: You have received this notification because you can valuate the proposal.
             email_subject: Someone left a note on proposal %{resource_title}.
             notification_title: Someone has left a note on the proposal <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
+        coauthor_invited:
+          actions:
+            accept: Accept
+            decline: Decline
+          email_intro: 'You have been invited to be a co-author of the proposal "%{resource_title}". You can accept the invitation in this page:'
+          email_outro: You have received this notification because you have been invited to be a co-author of the proposal.
+          email_subject: You have been invited to be a co-author of the proposal "%{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name}</a> would like to invite you as a co-author of the proposal <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} has been accepted to access as a contributor of the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.'
           email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
@@ -386,6 +394,7 @@ en:
         edit_proposal: Edit proposal
         edit_proposal_state: Edit state
         import: Import proposals from another component
+        mark_as_coauthor: Mark as co-author
         new: New proposal
         new_proposal_state: New status
         participatory_texts: Participatory texts
@@ -732,6 +741,16 @@ en:
       destroy_draft:
         error: There was a problem deleting the collaborative draft.
         success: Proposal draft was successfully deleted.
+      invite_coauthors:
+        create:
+          error: There was a problem inviting the coauthor.
+          success: "%{author_name} successfully invited as coauthor."
+        destroy:
+          error: There was a problem declining the invitation.
+          success: The invitation has been declined.
+        update:
+          error: There was a problem accepting the invitation.
+          success: The invitation has been accepted.
       last_activity:
         new_proposal: 'New proposal:'
         proposal_updated: 'Proposal updated:'

@@ -495,10 +495,10 @@ module Decidim
 
         [
           {
-          label: "Mark as co-author", 
-          url: "/mark-as-coauthor",
+          label: I18n.t("decidim.proposals.actions.mark_as_coauthor"),
+          url: EngineRouter.main_proxy(component).proposal_invite_coauthors_path(proposal_id: id, coauthor_id: comment.author.id),
           icon: "user-add-line",
-          method: :patch
+          method: :post
           }
         ]
       end

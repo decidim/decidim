@@ -22,6 +22,7 @@ module Decidim
           end
           resource :proposal_vote, only: [:create, :destroy]
           resources :versions, only: [:show]
+          resources :invite_coauthors, only: [:index, :create, :update, :destroy]
         end
         resources :collaborative_drafts, except: [:destroy] do
           member do

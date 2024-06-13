@@ -1,0 +1,49 @@
+# frozen_string_literal: true
+
+module Decidim
+  module Proposals
+    # A command with all the business logic when a user withdraws a new proposal.
+    class InviteCoauthor < Decidim::Command
+      # Public: Initializes the command.
+      #
+      # proposal     - The proposal to add a coauthor to.
+      # coauthor - The user to invite as coauthor.
+      def initialize(proposal, coauthor)
+        @proposal = proposal
+        @coauthor = coauthor
+      end
+
+      # Executes the command. Broadcasts these events:
+      #
+      # - :ok when everything is valid, together with the proposal.
+      # - :has_votes if the proposal already has votes or does not belong to current user.
+      #
+      # Returns nothing.
+      def call
+        return broadcast(:invalid) unless @coauthor
+        return broadcast(:invalid) if @proposal.authors.include?(@coauthor)
+
+        transaction do
+          generate_notifications
+        end
+
+        broadcast(:ok)
+      end
+
+      private
+
+      def generate_notifications
+        Decidim::EventsManager.publish(
+          event: "decidim.events.proposals.coauthor_invited",
+          event_class: Decidim::Proposals::CoauthorInvitedEvent,
+          resource: @proposal,
+          affected_users: [@coauthor],
+          extra: {
+            coauthor_id: @coauthor.id,
+            uuid: "#{@proposal.organization.id}-#{SecureRandom.uuid}"
+          }
+        )
+      end
+    end
+  end
+end
