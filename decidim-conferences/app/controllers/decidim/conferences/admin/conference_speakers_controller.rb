@@ -77,7 +77,7 @@ module Decidim
         def publish
           enforce_permission_to(:update, :conference_speaker, speaker: conference_speaker)
 
-          Decidim::Conference::Admin::PublishConferenceSpeaker.call(conference_speaker, current_user) do
+          Decidim::Conferences::Admin::PublishConferenceSpeaker.call(conference_speaker, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("conference_speakers.publish.success", scope: "decidim.admin")
               redirect_to conference_speakers_path(current_conference)
@@ -93,7 +93,7 @@ module Decidim
         def unpublish
           enforce_permission_to(:update, :conference_speaker, speaker: conference_speaker)
 
-          Decidim::Conference::Admin::UnpublishConferenceSpeaker.call(conference_speaker, current_user) do
+          Decidim::Conferences::Admin::UnpublishConferenceSpeaker.call(conference_speaker, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("conference_speakers.unpublish.success", scope: "decidim.admin")
               redirect_to conference_speakers_path(current_conference)
