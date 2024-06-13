@@ -40,7 +40,7 @@ describe "Admin manages proposals valuators" do
     context "when submitting the form" do
       before do
         within "#js-form-assign-proposals-to-valuator" do
-          select valuator.name, from: :valuator_role_id
+          tom_select("#assign_valuator_role_ids", option_id: valuator_role.id)
           click_on(id: "js-submit-assign-proposals-to-valuator")
         end
       end
@@ -107,12 +107,12 @@ describe "Admin manages proposals valuators" do
     context "when submitting the form" do
       before do
         within "#js-form-unassign-proposals-from-valuator" do
-          select valuator.name, from: :valuator_role_id
+          tom_select("#unassign_valuator_role_ids", option_id: valuator_role.id)
           click_on(id: "js-submit-unassign-proposals-from-valuator")
         end
       end
 
-      it "unassigns the proposals to the valuator" do
+      it "unassigns the proposals from the valuator" do
         expect(page).to have_content("Valuator unassigned from proposals successfully")
 
         within "tr", text: translated(proposal.title) do

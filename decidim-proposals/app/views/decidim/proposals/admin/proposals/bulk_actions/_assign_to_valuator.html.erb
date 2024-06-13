@@ -6,9 +6,9 @@
       <% end %>
     </div>
 
-    <label class="w-full font-semibold" for="valuator_role_ids">
+    <label class="w-full font-semibold" for="assign_valuator_role_ids">
       <%= t("decidim.proposals.admin.proposals.index.assign_to_valuator") %>
-      <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/valuators_picker", locals: { participatory_space: current_participatory_space } %>
+      <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/valuators_picker", locals: { participatory_space: current_participatory_space, select_id: "assign_valuator_role_ids" } %>
     </label>
 
     <div class="flex justify-end gap-x-4 mt-2">

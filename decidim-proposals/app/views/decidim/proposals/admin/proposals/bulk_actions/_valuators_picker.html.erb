@@ -1,7 +1,7 @@
 <%= append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
 
 <select
-  id="valuator_role_ids"
+  id="<%= select_id %>"
   name="valuator_role_ids[]"
   placeholder="<%= t("decidim.proposals.admin.proposals.index.filter") %>"
   class="w-full mt-2 js-valuator-multiselect"
