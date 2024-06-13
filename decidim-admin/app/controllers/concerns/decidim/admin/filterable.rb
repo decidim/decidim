@@ -72,7 +72,7 @@ module Decidim
           query =
             <<-SQL.squish
               WITH
-                collection AS (#{session_filtered_collection.to_sql}),
+                collection AS (#{session_filtered_collection.select(:id).to_sql}),
                 successors AS (
                   SELECT
                     id,
