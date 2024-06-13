@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/meta_image_url_examples"
 
 describe "Show a Proposal" do
   include_context "with a component"
@@ -78,7 +79,7 @@ describe "Show a Proposal" do
       end
     end
 
-    context "when testing image hierarchy for meta tags" do
+    describe "testing image hierarchy for meta tags" do
       let(:organization) { create(:organization) }
       let(:manifest_name) { "proposals" }
       let!(:participatory_process) { create(:participatory_process, :with_steps, organization:, banner_image:, hero_image:) }
@@ -116,16 +117,14 @@ describe "Show a Proposal" do
         let!(:proposal_attachment) { create(:attachment, :with_image, attached_to: proposal, file: proposal_attachment_file) }
         let!(:proposal_attachment_file) { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
 
-        it "uses the attachment image if present" do
-          visit_proposal
-          expect(meta_image_url).to include(proposal_attachment.file.filename.to_s)
+        it_behaves_like "meta image url examples", "city2.jpeg" do
+          let(:resource) { proposal }
         end
       end
 
       context "when proposal attachment is not present and the description image is there" do
-        it "uses the description image if present" do
-          visit_proposal
-          expect(meta_image_url).to include(description_image.filename.to_s)
+        it_behaves_like "meta image url examples", "description_image.jpg" do
+          let(:resource) { proposal }
         end
       end
 
@@ -138,9 +137,8 @@ describe "Show a Proposal" do
           proposal.update!(body: { en: "This is my proposal and I want to upload attachments." })
         end
 
-        it "uses the participatory space image if no attachment or description image" do
-          visit_proposal
-          expect(meta_image_url).to include(participatory_space_attachment.file.filename.to_s)
+        it_behaves_like "meta image url examples", "city3.jpeg" do
+          let(:resource) { proposal }
         end
       end
 
@@ -148,7 +146,7 @@ describe "Show a Proposal" do
         let(:uploaded_image) do
           ActiveStorage::Blob.create_and_upload!(
             io: File.open(Decidim::Dev.asset("city2.jpeg")),
-            filename: "city2.jpeg",
+            filename: "hero_image.jpeg",
             content_type: "image/jpeg"
           )
         end
@@ -167,9 +165,8 @@ describe "Show a Proposal" do
           proposal.update!(body: { en: "This is my proposal" })
         end
 
-        it "uses the default image if no other images are present" do
-          visit_proposal
-          expect(meta_image_url).to include("city2.jpeg")
+        it_behaves_like "meta image url examples", "hero_image.jpeg" do
+          let(:resource) { proposal }
         end
       end
     end
