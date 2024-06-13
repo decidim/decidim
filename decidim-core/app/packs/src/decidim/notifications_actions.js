@@ -10,11 +10,10 @@ export default function(node = document) {
   }
 
   const extractMessage = (detail) => {
-    return detail && detail.message || detail[0] && detail[0].message || detail[2] && detail[2].responseText || detail[0] || detail || window.Decidim.config.get("notifications").action_error
+    return detail && detail.message || detail[0] && detail[0].message
   };
 
-  const resolvePanel = (panel, detail, klass) => {
-    const message = extractMessage(detail);
+  const resolvePanel = (panel, message, klass) => {
     panel.classList.remove("spinner-container");
     if (message) {
       panel.innerHTML = `<div class="callout ${klass}">${message}</div>`;
@@ -32,10 +31,10 @@ export default function(node = document) {
       });
     });
     action.addEventListener("ajax:success", (event) => {
-      resolvePanel(panel, event.detail, "success");
+      resolvePanel(panel, extractMessage(event.detail), "success");
     });
     action.addEventListener("ajax:error", (event) => {
-      resolvePanel(panel, event.detail, "alert");
+      resolvePanel(panel, extractMessage(event.detail) || window.Decidim.config.get("notifications").action_error, "alert");
     });
   });
 }

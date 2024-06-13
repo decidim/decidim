@@ -131,4 +131,47 @@ describe "Notifications" do
       expect(notification_text).to include("as a member of #{group.name} @#{group.nickname}")
     end
   end
+
+  context "when the notification event has an action" do
+    let(:url) { "/api?query=%7Bdecidim%20%7B%20version%20%7D%7D" }
+    let(:data) do
+      [
+        {
+          label: "Test button",
+          method: "post",
+          url:
+        }
+      ]
+    end
+
+    before do
+      # rubocop:disable RSpec/AnyInstance
+      allow_any_instance_of(Decidim::Dev::DummyResourceEvent).to receive(:action_cell).and_return("decidim/notification_actions/buttons")
+      allow_any_instance_of(Decidim::Dev::DummyResourceEvent).to receive(:action_data).and_return(data)
+      # rubocop:enable RSpec/AnyInstance
+      page.visit decidim.notifications_path
+    end
+
+    it "shows the notification with the action buttons" do
+      within "#notifications" do
+        click_on "Test button"
+        expect(page).to have_no_content("Test button")
+      end
+    end
+
+    context "when the request fails" do
+      let(:url) { "/i-dont-exist" }
+
+      before do
+        allow(page.config).to receive(:raise_server_errors).and_return(false)
+      end
+
+      it "shows an error message" do
+        within "#notifications" do
+          click_on "Test button"
+          expect(page).to have_content("There was a problem updating the notification")
+        end
+      end
+    end
+  end
 end
