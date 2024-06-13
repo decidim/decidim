@@ -136,7 +136,7 @@ describe "Show a Proposal" do
           proposal.update!(body: { en: "This is my proposal" })
         end
 
-        it_behaves_like "meta image url examples", "hero_image.jpeg" do
+        it_behaves_like "meta image url examples", "default_hero_image.jpeg" do
           let(:resource) { proposal }
         end
       end
