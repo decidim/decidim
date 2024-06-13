@@ -25,6 +25,22 @@ module Decidim
         redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path
       end
 
+      def cancel
+        # enforce_permission_to :invite_coauthor, :proposal, proposal:, coauthor:
+
+        CancelCoauthorship.call(proposal, coauthor) do
+          on(:ok) do
+            flash[:notice] = I18n.t("cancel.success", scope: "decidim.proposals.invite_coauthors", author_name: coauthor.name)
+          end
+
+          on(:invalid) do
+            flash[:alert] = I18n.t("cancel.error", scope: "decidim.proposals.invite_coauthors")
+          end
+        end
+
+        redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path
+      end
+
       # accept invitation
       def update
         # enforce_permission_to :be_coauthor, :proposal, proposal:, coauthor:

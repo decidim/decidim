@@ -493,14 +493,29 @@ module Decidim
       def actions_for_comment(comment)
         return if comment.author.in?(authors)
 
-        [
-          {
-            label: I18n.t("decidim.proposals.actions.mark_as_coauthor"),
-            url: EngineRouter.main_proxy(component).proposal_invite_coauthors_path(proposal_id: id, coauthor_id: comment.author.id),
-            icon: "user-add-line",
-            method: :post
-          }
-        ]
+        if coauthor_invitations_for(comment.author.id).any?
+          [
+            {
+              label: I18n.t("decidim.proposals.actions.cancel_coauthor_invitation"),
+              url: EngineRouter.main_proxy(component).cancel_proposal_invite_coauthors_path(proposal_id: id, coauthor_id: comment.author.id),
+              icon: "user-forbid-line",
+              method: :delete
+            }
+          ]
+        else
+          [
+            {
+              label: I18n.t("decidim.proposals.actions.mark_as_coauthor"),
+              url: EngineRouter.main_proxy(component).proposal_invite_coauthors_path(proposal_id: id, coauthor_id: comment.author.id),
+              icon: "user-add-line",
+              method: :post
+            }
+          ]
+        end
+      end
+
+      def coauthor_invitations_for(coauthor_id)
+        Decidim::Notification.where(event_class: "Decidim::Proposals::CoauthorInvitedEvent", resource: self).where("extra->>'coauthor_id' = ?", coauthor_id.to_s)
       end
 
       private

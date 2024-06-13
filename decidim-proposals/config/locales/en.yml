@@ -389,6 +389,7 @@ en:
     proposals:
       actions:
         answer_proposal: Answer proposal
+        cancel_coauthor_invitation: Cancel co-author invitation
         delete_proposal_state_confirm: Are you sure you want to delete this state?
         destroy: Delete state
         edit_proposal: Edit proposal
@@ -742,6 +743,9 @@ en:
         error: There was a problem deleting the collaborative draft.
         success: Proposal draft was successfully deleted.
       invite_coauthors:
+        cancel:
+          error: There was a problem canceling the coauthor invitation.
+          success: Coauthor invitation successfully canceled.
         create:
           error: There was a problem inviting the coauthor.
           success: "%{author_name} successfully invited as coauthor."
