@@ -108,6 +108,51 @@ All contents except the `email_greeting` use to require customization on each no
 
 Only the `notification_title` is generated in the event class. The rest of the contents are produced by the templates from the `resource` and the `notification` objects.
 
+=== Notification actions
+
+It is possible to render actions into the notifications area. These actions are typically one or more buttons that the user can click to perform an action related to the notification.
+
+In order to add actions to your notification, you need to implement the methods `action_cell`, `action_data` in your event class. The `action_cell` method should return the name of the cell that will be rendered in the notification area. The `action_data` method should return the data that will be passed to the cell.
+
+Currently, there's only one action cell available, `Decidim::Notifications::Actions::ButtonCell`. This cell renders a list of buttons with the text and URL provided in the `action_data`. See the code for the `Decidim::InvitedToGroupEvent` to render actions that allow users to accept or reject a membership invitation to a group:
+
+[source,ruby]
+----
+# decidim-core/app/events/decidim/invited_to_group_event.rb
+def membership_id
+  extra["membership_id"]
+end
+
+def invitation
+  @invitation ||= UserGroupMembership.find_by(user:, id: membership_id, role: "invited")
+end
+
+def action_cell
+  "decidim/notification_actions/buttons" if invitation
+end
+
+def action_data
+  [
+    {
+      url: url_helpers.group_invite_path(user_group_nickname, membership_id, format: :json),
+      icon: "check-line",
+      method: "patch",
+      i18n_label: "decidim.group_invites.accept_invitation"
+    },
+    {
+      url: url_helpers.group_invite_path(user_group_nickname, membership_id, format: :json),
+      icon: "close-circle-line",
+      method: "delete",
+      i18n_label: "decidim.group_invites.reject_invitation"
+    }
+  ]
+end
+----
+
+The previous code will render a couple of buttons to accept/reject the invitation but only if the UserGroupMembership is not accepted yet.
+
+Note that the cell returned is "decidim/notification_actions/buttons", if you want to use a custom cell, you should create it in your application and return it accordingly.
+
 == Testing notifications
 
 * Test that the event has been published (usually a command test)

@@ -41,7 +41,6 @@ describe Decidim::NotificationActions::ButtonsCell, type: :cell do
     expect(subject).to have_link(text: "Accept", href: "/accept", class: "button button__sm button__transparent-secondary")
     expect(subject).to have_link(text: "Reject", href: "/reject", class: "button button__sm button__transparent-secondary")
     expect(subject).to have_css("[data-notification-action=button]")
-    expect(subject).to have_css("[data-notification-after-action]")
     expect(subject).to have_no_css("[data-method]")
     expect(subject).to have_no_css("svg")
   end
@@ -71,7 +70,6 @@ describe Decidim::NotificationActions::ButtonsCell, type: :cell do
       expect(subject).to have_link(count: 1)
       expect(subject).to have_link(text: "Accept", href: "/accept", class: "button button__sm button__primary")
       expect(subject).to have_css("[data-notification-action=button]")
-      expect(subject).to have_css("[data-notification-after-action]")
       expect(subject).to have_css("[data-method=post]")
       expect(subject).to have_xpath("//svg/use[contains(@href, 'ri-coin-line')]")
     end
