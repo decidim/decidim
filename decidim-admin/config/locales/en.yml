@@ -966,7 +966,7 @@ en:
           help: These tokens are used to publicly share this unpublished resource to any user. They will be hidden when the resource is published. Click on the token's share icon to visit the shareable URL.
           title: Share tokens
       shared:
-        adjacents_navigation:
+        adjacent_navigation:
           next: Next
           next_title: Link to the next item
           previous: Previous
