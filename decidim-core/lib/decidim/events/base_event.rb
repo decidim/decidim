@@ -77,12 +77,20 @@ module Decidim
 
       def resource_text; end
 
-      # return the action for the notification (if any)
-      # must return an array with 3 elements:
-      #   1. the action cell (e.g. "buttons")
-      #   2. the action data (depends on the action cell)
-      #   3. a hash of additional options for the cell (optional)
-      def action; end
+      # the cell that will be used to render the action
+      # if nil is returned, no action will be rendered
+      # Make it return with "decidim/notification_actions/buttons" in your event implementation to render the buttons cell
+      def action_cell; end
+
+      # the data that will be passed to the action cell
+      # For the buttons cell, it should be an array of hashes with the following keys:
+      # - url: the URL to which the button will point
+      # - label: the label of the button (optional if i18n_label is present)
+      # - i18n_label: the i18n key of the label (optional if label is present)
+      # - icon: the icon of the button (optional)
+      # - method: the HTTP method of the request (optional)
+      # - class: the class of the button (optional)
+      def action_data; end
 
       def organization
         resource.try(:organization)

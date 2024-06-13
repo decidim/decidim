@@ -9,26 +9,13 @@ describe Decidim::NotificationCell, type: :cell do
   let!(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization:) }
   let(:my_cell) { cell("decidim/notification", notification) }
-  let(:notification) { create(:notification, user:, resource:, extra:) }
+  let(:notification) { create(:notification, user:, resource:) }
   let(:component) { create(:component, manifest_name: "dummy", organization:) }
   let(:resource) { create(:dummy_resource, component:) }
-  let(:extra) do
-    { action: }
-  end
-  let(:action) { nil }
 
-  it "has not action associated" do
-    expect(my_cell.action).to be_nil
+  it "has not action cell associated" do
+    expect(my_cell.action_class).to be_nil
     expect(my_cell.action_cell).to be_nil
-  end
-
-  context "when extra is nil" do
-    let(:extra) { nil }
-
-    it "has not action associated" do
-      expect(my_cell.action).to be_nil
-      expect(my_cell.action_cell).to be_nil
-    end
   end
 
   context "when resource exists" do
@@ -58,29 +45,22 @@ describe Decidim::NotificationCell, type: :cell do
   end
 
   context "when action exist" do
-    let(:action) do
-      {
-        "data" => data,
-        "type" => "callout"
-      }
+    let(:action_cell) { "decidim/notification_actions/buttons" }
+
+    before do
+      allow(notification.event_class_instance).to receive(:action_cell).and_return(action_cell)
+      allow(notification.event_class_instance).to receive(:action_data).and_return([{ url: "http://example.com", label: "Some label" }])
     end
-    let(:data) { "Some data" }
 
     it "Action is present" do
-      expect(my_cell.action).to eq(action)
-      expect(my_cell.action_cell).to eq("decidim/notification_actions/callout")
+      expect(my_cell.action_class).to eq("Decidim::NotificationActions::ButtonsCell")
+      expect(my_cell.action_cell).to eq("decidim/notification_actions/buttons")
     end
 
     context "and cell does not exist" do
-      let(:action) do
-        {
-          "data" => data,
-          "type" => "non_existent"
-        }
-      end
+      let(:action_cell) { "not_existing" }
 
       it "Action is present" do
-        expect(my_cell.action).to eq(action)
         expect(my_cell.action_cell).to be_nil
       end
     end

@@ -56,27 +56,40 @@ module Decidim
       end
     end
 
-    describe "action" do
-      it "returns the action buttons" do
-        expect(subject.action).to eq(
+    describe "action_data" do
+      it "returns the action data" do
+        expect(subject.action_data).to eq(
           [
-            "buttons",
-            [
-              {
-                url: Decidim::Core::Engine.routes.url_helpers.group_invite_path(user_group.nickname, membership.id),
-                icon: "check-line",
-                method: "patch",
-                i18n_label: "decidim.group_invites.accept_invitation"
-              },
-              {
-                url: Decidim::Core::Engine.routes.url_helpers.group_invite_path(user_group.nickname, membership.id),
-                icon: "close-circle-line",
-                method: "delete",
-                i18n_label: "decidim.group_invites.reject_invitation"
-              }
-            ]
+            {
+              url: Decidim::Core::Engine.routes.url_helpers.group_invite_path(user_group.nickname, membership.id, format: :json),
+              icon: "check-line",
+              method: "patch",
+              i18n_label: "decidim.group_invites.accept_invitation"
+            },
+            {
+              url: Decidim::Core::Engine.routes.url_helpers.group_invite_path(user_group.nickname, membership.id, format: :json),
+              icon: "close-circle-line",
+              method: "delete",
+              i18n_label: "decidim.group_invites.reject_invitation"
+            }
           ]
         )
+      end
+    end
+
+    describe "action_cell" do
+      context "when the membership exists" do
+        it "returns no cell" do
+          expect(subject.action_cell).to be_nil
+        end
+      end
+
+      context "when the membership is an invitation" do
+        let!(:membership) { create(:user_group_membership, user:, user_group:, role: :invited) }
+
+        it "returns the buttons cell" do
+          expect(subject.action_cell).to eq("decidim/notification_actions/buttons")
+        end
       end
     end
   end

@@ -9,19 +9,6 @@ module Decidim
       enforce_permission_to :read, :notification
     end
 
-    def update
-      notification = notifications.find(params[:id])
-      enforce_permission_to(:update, :notification, notification:)
-
-      text = params.dig(:notification, :message)
-      if text.present?
-        notification.set_action!("callout", text, { "class" => "success" })
-        render json: { message: text }
-      else
-        render json: { message: I18n.t("error", scope: "decidim.notifications.update") }, status: :unprocessable_entity
-      end
-    end
-
     def destroy
       notification = notifications.find(params[:id])
       enforce_permission_to(:destroy, :notification, notification:)

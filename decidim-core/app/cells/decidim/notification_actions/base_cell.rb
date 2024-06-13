@@ -6,7 +6,7 @@ module Decidim
   module NotificationActions
     class BaseCell < Decidim::NotificationCell
       def data
-        action && action["data"]
+        model&.event_class_instance&.action_data
       end
     end
   end

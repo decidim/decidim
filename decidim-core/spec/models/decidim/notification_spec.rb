@@ -86,32 +86,6 @@ module Decidim
 
       it "returns the event class instance" do
         expect(notification.event_class_instance).to be_a(Dev::DummyResourceEvent)
-        expect(notification.event_action).to be_nil
-      end
-
-      context "when the event returns an action" do
-        let(:action) { { "type" => "callout", "data" => "Some data" } }
-
-        before do
-          allow(notification.event_class_instance).to receive(:action).and_return(action)
-        end
-
-        it "returns the event class instance" do
-          expect(notification.event_class_instance).to be_a(Dev::DummyResourceEvent)
-          expect(notification.event_action).to eq(action)
-        end
-      end
-
-      context "when action is set" do
-        let(:action) { { "type" => "callout", "data" => "Some data" } }
-
-        before do
-          notification.set_action!(action["type"], action["data"])
-        end
-
-        it "returns the event class instance" do
-          expect(notification.extra["action"]).to eq(action)
-        end
       end
     end
   end

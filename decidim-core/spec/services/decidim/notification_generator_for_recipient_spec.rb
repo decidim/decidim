@@ -23,36 +23,10 @@ describe Decidim::NotificationGeneratorForRecipient do
       expect(notification.event_name).to eq event
       expect(notification.resource).to eq resource
       expect(notification.extra["received_as"]).to eq "affected_user"
-      expect(notification.extra["action"]).to be_nil
-      expect(notification.event_action).to be_nil
     end
 
     it "returns the generated notification" do
       expect(subject.generate).to eq(Decidim::Notification.last)
-    end
-
-    context "when the event class returns an action" do
-      let(:action) do
-        {
-          type: "dummy",
-          data: { foo: "bar" }
-        }
-      end
-
-      before do
-        # rubocop:disable RSpec/AnyInstance
-        allow_any_instance_of(event_class).to receive(:action).and_return(action)
-        # rubocop:enable RSpec/AnyInstance
-      end
-
-      it "sets the action in the notification" do
-        expect do
-          subject.generate
-        end.to change(Decidim::Notification, :count).by(1)
-        notification = Decidim::Notification.last
-
-        expect(notification.event_action).to eq action
-      end
     end
   end
 end

@@ -7,39 +7,36 @@ describe Decidim::NotificationActions::ButtonsCell, type: :cell do
 
   controller Decidim::PagesController
   let!(:organization) { create(:organization) }
-  let(:user) { create(:user, :confirmed, organization:) }
-  let(:my_cell) { cell("decidim/notification_actions/buttons", notification) }
-  let(:notification) { create(:notification, user:, resource:, extra:) }
-  let(:component) { create(:component, manifest_name: "dummy", organization:) }
-  let(:resource) { create(:dummy_resource, component:) }
-  let(:extra) do
-    { action: }
-  end
-  let(:action) do
-    {
-      "data" => data,
-      "type" => "buttons"
-    }
-  end
   let(:data) do
     [
       {
-        "label" => "Accept",
-        "url" => "/accept"
+        label: "Accept",
+        url: "/accept"
       },
       {
-        "label" => "Reject",
-        "url" => "/reject"
+        label: "Reject",
+        url: "/reject"
       }
     ]
+  end
+  let(:user) { create(:user, :confirmed, organization:) }
+  let(:my_cell) { cell("decidim/notification_actions/buttons", notification) }
+  let(:notification) { create(:notification, user:, resource:) }
+  let(:component) { create(:component, manifest_name: "dummy", organization:) }
+  let(:resource) { create(:dummy_resource, component:) }
+  let(:action_cell) { "decidim/notification_actions/buttons" }
+
+  before do
+    allow(notification.event_class_instance).to receive(:action_cell).and_return(action_cell)
+    allow(notification.event_class_instance).to receive(:action_data).and_return(data)
   end
 
   it "has a data associated" do
     expect(my_cell.data).to eq(data)
-    expect(my_cell.action).to eq(action)
+    expect(my_cell.action_cell).to eq(action_cell)
   end
 
-  it "renders the callout" do
+  it "renders the buttons" do
     expect(subject).to have_link(count: 2)
     expect(subject).to have_link(text: "Accept", href: "/accept", class: "button button__sm button__transparent-secondary")
     expect(subject).to have_link(text: "Reject", href: "/reject", class: "button button__sm button__transparent-secondary")
@@ -61,11 +58,11 @@ describe Decidim::NotificationActions::ButtonsCell, type: :cell do
     let(:data) do
       [
         {
-          "label" => "Accept",
-          "url" => "/accept",
-          "icon" => "coin-line",
-          "method" => "post",
-          "class" => "button__primary"
+          label: "Accept",
+          url: "/accept",
+          icon: "coin-line",
+          method: "post",
+          class: "button__primary"
         }
       ]
     end
@@ -84,8 +81,8 @@ describe Decidim::NotificationActions::ButtonsCell, type: :cell do
     let(:data) do
       [
         {
-          "i18n_label" => "decidim.menu.home",
-          "url" => "/home"
+          i18n_label: "decidim.menu.home",
+          url: "/home"
         }
       ]
     end
