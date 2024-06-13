@@ -21,14 +21,14 @@ module Decidim
     def validate_direct_upload
       return if current_admin.present?
 
-      render json: [errors: ["Foo bar"] ], status: :unprocessable_entity unless [
+      head :unprocessable_entity unless [
         maximum_allowed_size.try(:to_i) >= blob_args[:byte_size].try(:to_i),
         content_types.any? { |pattern| pattern.match?(blob_args[:content_type]) },
         content_types.any? { |pattern| pattern.match?(MiniMime.lookup_by_extension(extension)&.content_type) },
         allowed_extensions.any? { |pattern| pattern.match?(extension) }
       ].all?
     rescue NoMethodError
-      render json: [errors: ["Foo bar3 "] ], status: :unprocessable_entity
+      head :unprocessable_entity
     end
 
     def extension
@@ -49,7 +49,7 @@ module Decidim
 
     def check_user_belongs_to_organization
       return if current_admin.present?
-      
+
       head :unauthorized unless current_organization == current_user.organization
     end
 
