@@ -54,7 +54,7 @@ describe Decidim::MetaImageUrlResolver do
         )
       end
 
-      let(:participatory_space) { create(:participatory_process, organization: organization, hero_image: hero_image) }
+      let(:participatory_space) { create(:participatory_process, organization:, hero_image:) }
 
       before do
         allow(resource).to receive(:participatory_space).and_return(participatory_space)

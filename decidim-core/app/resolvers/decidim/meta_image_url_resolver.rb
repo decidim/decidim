@@ -26,7 +26,7 @@ module Decidim
     #
     # @return [ActiveStorage::Blob, nil] - The image blob or nil if no image is found.
     def determine_image_blob
-      blob_from_attachment_image || blob_from_description || blob_from_participatory_space || blob_from_content_blocks
+      blob_from_attachment_image || blob_from_description(@resource) || blob_from_participatory_space || blob_from_content_blocks
     end
 
     # Fetches the default homepage image blob.
@@ -69,8 +69,8 @@ module Decidim
     # Extracts the first image blob from the resource description.
     #
     # @return [ActiveStorage::Blob, nil] - The image blob or nil if not found.
-    def blob_from_description
-      html = @resource.try(:body) || @resource.try(:description) || @resource.try(:short_description)
+    def blob_from_description(resource)
+      html = resource.try(:body) || resource.try(:description) || resource.try(:short_description)
       return unless html
 
       html = translated_attribute(html).strip if html.is_a?(Hash)
@@ -87,10 +87,11 @@ module Decidim
     #
     # @return [ActiveStorage::Blob, nil] - The image blob or nil if not found.
     def blob_from_participatory_space
-      participatory_space = @resource&.participatory_space
+      participatory_space = @resource.try(:participatory_space)
       return unless participatory_space
 
-      participatory_space.hero_image&.blob || participatory_space.banner_image&.blob
+      blob = participatory_space.try(:hero_image).try(:blob) || participatory_space.try(:banner_image).try(:blob)
+      blob.presence || blob_from_description(participatory_space)
     end
 
     # Resizes the image blob to the specified dimensions (1200x630) if it's larger.

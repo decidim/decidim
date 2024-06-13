@@ -133,7 +133,7 @@ module Decidim
     # @param [Object, nil] resource - The resource object that may contain the image.
     #
     # @return [String, nil] - The resolved image URL, or nil if no appropriate image URL is found.
-    def resolve_meta_image_url(resource)
+    def resolve_meta_image_url(resource = nil)
       url = MetaImageUrlResolver.new(resource, current_organization).resolve
       add_base_url_to(url) if url.present?
     end
