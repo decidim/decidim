@@ -449,7 +449,7 @@ en:
       iframe_embed_type:
         embed_in_meeting_page: Embed in meeting page
         none: None
-        open_in_live_event_page: Open in live event page (with optional polls)
+        open_in_live_event_page: Open in live event page
         open_in_new_tab: Open URL in a new tab
       last_activity:
         meeting_updated: 'Meeting updated:'
