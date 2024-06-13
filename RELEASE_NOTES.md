@@ -181,6 +181,7 @@ bundle exec decidim:attachments:cleanup
 You can see more details about this change on PR [\#11851](https://github.com/decidim/decidim/pull/11851)
 
 ### 3.8. [[TITLE OF THE ACTION]]
+
 You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
 ## 4. Scheduled tasks

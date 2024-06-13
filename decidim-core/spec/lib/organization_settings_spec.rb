@@ -11,8 +11,8 @@ module Decidim
     let(:default_settings) do
       {
         "allowed_file_extensions" => {
-          "default" => %w(jpg jpeg png webp pdf rtf txt),
-          "admin" => %w(jpg jpeg png webp pdf doc docx xls xlsx ppt pptx ppx rtf txt odt ott odf otg ods ots csv json),
+          "default" => %w(jpg jpeg png webp pdf rtf txt md),
+          "admin" => %w(jpg jpeg png webp pdf doc docx xls xlsx ppt pptx ppx rtf txt odt ott odf otg ods ots csv json md),
           "image" => %w(jpg jpeg png webp)
         },
         "allowed_content_types" => {
@@ -20,6 +20,7 @@ module Decidim
             image/*
             application/pdf
             application/rtf
+            text/markdown
             text/plain
           ),
           "admin" => %w(
@@ -33,6 +34,7 @@ module Decidim
             application/pdf
             application/rtf
             application/json
+            text/markdown
             text/plain
             text/csv
           )
