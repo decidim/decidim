@@ -16,7 +16,7 @@ module Decidim
       let(:invalid) { false }
       let(:errors) { [] }
       let(:io) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
-      let(:blob) { ActiveStorage::Blob.create_and_upload!(io: , filename: "city.jpeg") }
+      let(:blob) { ActiveStorage::Blob.create_and_upload!(io:, filename: "city.jpeg") }
 
       describe "when form is valid" do
         it "broadcasts ok" do
