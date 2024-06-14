@@ -60,4 +60,33 @@ describe "Conference speakers" do
       end
     end
   end
+
+  context "when admin publish and unplublishes a speaker" do
+    let!(:conference_speakers) { create_list(:conference_speaker, 2, :published, conference:) }
+    let!(:user) { create(:user, :admin, :confirmed, organization:) }
+
+    before do
+      login_as user, scope: :user
+      visit decidim_admin.root_path
+      click_on "Conferences"
+      click_on "conference_title"
+      click_on "Speakers"
+    end
+
+    it "unpublishes conference speaker and then publishes again" do
+      within all(".table-list__actions").first do
+        expect(page).to have_link("Unpublish")
+        accept_confirm do
+          click_link_or_button "Unpublish"
+        end
+      end
+      expect(page).to have_content("Conference speaker successfully unpublished")
+
+      within all(".table-list__actions").first do
+        expect(page).to have_link("Publish")
+        click_link_or_button "Publish"
+      end
+      expect(page).to have_content("Conference speaker successfully published")
+    end
+  end
 end
