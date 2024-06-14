@@ -572,7 +572,7 @@ fr-CA:
         appearance: Apparence
         area_types: Types de périmètre d'assemblée
         areas: Zones d'application
-        components: Composants
+        components: Fonctionnalités
         configuration: Configuration
         content: Contenu signalé
         external_domain_whitelist: Domaines externes autorisés
