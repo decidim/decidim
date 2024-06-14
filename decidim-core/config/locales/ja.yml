@@ -864,6 +864,9 @@ ja:
     forms:
       attachment_link:
         explanation: 添付ファイルへのリンクのガイド
+        help_messages:
+          - 正しいURL形式のみ入力できます
+          - リンクは公開されているものでなければならないので、すべての参加者がアクセスできるようにしてください。
       errors:
         decidim/user:
           password: パスワードが短すぎます。
