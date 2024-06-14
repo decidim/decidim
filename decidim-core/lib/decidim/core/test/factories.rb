@@ -716,7 +716,7 @@ FactoryBot.define do
   factory :notification, class: "Decidim::Notification" do
     transient do
       skip_injection { false }
-      coauthor_id { nil}
+      coauthor_id { nil }
     end
     user do
       build(
