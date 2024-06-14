@@ -169,18 +169,29 @@ module Decidim
         end
       end
 
+      # Renders a form field that includes an integer input and a select dropdown for units.
+      #
+      # @param form (see #settings_attribute_input)
+      # @param attribute [Decidim::SettingsManifest::Attribute] The attribute to be rendered
+      # @param name (see #settings_attribute_input)
+      # @param i18n_scope (see #settings_attribute_input)
+      # @param options (see #settings_attribute_input)
+      # @option options [String] :label The label text for the field
+      # @return [ActiveSupport::SafeBuffer] Rendered form field
       def integer_with_units(form, attribute, name, i18n_scope, options)
-        html = form.number_field(name, options.merge(label: false, value: form.object.send(name).first, name: "#{form.field_name(name)}[0]"))
-        html << form.select(name,
-                            attribute.units.map { |unit| [t("#{name}_units.#{unit}", scope: i18n_scope), unit] },
-                            {
-                              label: false,
-                              value: form.object.send(name).second
-                            },
-                            {
-                              name: "#{form.field_name(name)}[1]"
-                            })
-        content_tag(:label, options[:label]) + content_tag(:div, html, class: "flex")
+        number_field_html = form.number_field(name, options.merge(label: false, value: form.object.send(name).first, name: "#{form.field_name(name)}[0]", style: "flex: 0 0 25%;"))
+        select_field_html = form.select(name,
+                                        attribute.units.map { |unit| [t("#{name}_units.#{unit}", scope: i18n_scope), unit] },
+                                        {
+                                          label: false,
+                                          value: form.object.send(name).second
+                                        },
+                                        {
+                                          name: "#{form.field_name(name)}[1]",
+                                          style: "flex: 1 1 75%;"
+                                        })
+
+        content_tag(:label, options[:label]) + content_tag(:div, number_field_html + select_field_html, class: "flex space-x-2 items-center")
       end
     end
   end
