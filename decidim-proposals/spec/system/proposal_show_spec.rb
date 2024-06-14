@@ -117,8 +117,7 @@ describe "Show a Proposal" do
       end
 
       context "when neither proposal attachment nor description image is present" do
-        let(:file) { Decidim::Dev.test_file("city3.jpeg", "image/jpeg") }
-        let!(:participatory_space_attachment) { create(:attachment, :with_image, attached_to: participatory_process, file:) }
+        let!(:participatory_space_attachment) { create(:attachment, :with_image, attached_to: participatory_process, file: hero_image) }
         let(:hero_image) { Decidim::Dev.test_file("city3.jpeg", "image/jpeg") }
 
         before do

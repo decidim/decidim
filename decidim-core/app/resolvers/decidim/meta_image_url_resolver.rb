@@ -94,7 +94,7 @@ module Decidim
       blob.presence || blob_from_description(participatory_space)
     end
 
-    # Resizes the image blob to the specified dimensions (1200x630) if it's larger.
+    # Resizes the image blob to the specified dimensions (1200x630) if it is larger.
     #
     # @param [ActiveStorage::Blob] blob - The image blob to be resized.
     #
