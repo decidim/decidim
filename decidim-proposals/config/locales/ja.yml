@@ -751,6 +751,9 @@ ja:
         buttons:
           amend: 修正
           comment: コメント
+      proposal_votes:
+        create:
+          error: 提案への投票中に問題が発生しました。
       proposals:
         dynamic_map_instructions:
           description: '「プレビュー」ボタンをクリックすると座標が更新されますが、アドレスは変更されません。'
@@ -782,11 +785,14 @@ ja:
           search: 検索
           state: ステータス
           type: タイプ
+          voted: 投票
         index:
           click_here: すべての提案を見る
           collaborative_drafts_list: 共同草案にアクセスする
           count:
             other: "%{count} の提案"
+          grid_mode: グリッドモード
+          list_mode: リストモード
           new_proposal: 新しい提案
           see_all: すべての提案を見る
           see_all_withdrawn: すべての撤回された提案を見る
@@ -799,6 +805,7 @@ ja:
           most_commented: コメントの多い順
           most_endorsed: オススメの多い順
           most_followed: フォローの多い順
+          most_voted: 得票数順
           random: ランダム
           recent: 新しい順
           with_more_authors: 起案者の多い順
@@ -834,13 +841,36 @@ ja:
           proposal_accepted_reason: 'この提案は以下の理由により承認されました:'
           proposal_in_evaluation_reason: この提案は評価されています
           proposal_rejected_reason: 'この提案は以下の理由により拒否されました:'
+          withdraw_btn_hint: 投票を受けていない限り、提案を取り消すことができます。 提案は削除されず、撤回された提案のリストに表示されます。
           withdraw_confirmation_html: この提案を撤回してもよろしいですか？<br><br><strong>この操作はキャンセルできません！</strong>
           withdraw_proposal: 提案を撤回する
         update:
           title: 提案を更新
+        vote_button:
+          already_voted: すでに投票済みです
+          already_voted_hover: 投票を撤回する
+          maximum_votes_reached: 投票上限に達しました
+          no_votes_remaining: 残りの投票はありません
+          vote: 投票
+          votes_blocked: 投票は無効です
+        votes_count:
+          count:
+            other: 投票
         voting_rules:
+          can_accumulate_votes_beyond_threshold:
+            description: 各提案は %{limit} 票を超えることができます
+          minimum_votes_per_user:
+            description: 異なる提案には、 %{votes} 票以上の票を配布する必要があります。
+            given_enough_votes: 十分な投票を行いました。
+            votes_remaining: あなたの投票が考慮されるためには、あと %{remaining_votes} 件の提案に投票する必要があります。
           proposal_limit:
             description: 最大 %{limit} 件の提案を作成できます。
+          threshold_per_proposal:
+            description: 提案が検証されるためには、 %{limit} 票に到達する必要があります。
+          title: '投票は以下のルールに従います：'
+          vote_limit:
+            description: '%{limit} 件までの提案に投票できます。'
+            votes: 残り %{number} 票
         wizard_aside:
           back: 戻る
           back_from_step_1: 提案に戻る
@@ -867,6 +897,9 @@ ja:
       versions:
         index:
           title: バージョン
+      withdraw:
+        errors:
+          has_votes: この提案はすでに投票されているため撤回できません。
     resource_links:
       copied_from_component:
         proposal_proposal: 関連する提案
