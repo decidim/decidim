@@ -71,15 +71,15 @@ describe "Conference speakers" do
       click_on "Conferences"
       click_on "conference_title"
       click_on "Speakers"
-    end
-
-    it "unpublishes conference speaker and then publishes again" do
       within all(".table-list__actions").first do
         expect(page).to have_link("Unpublish")
         accept_confirm do
           click_link_or_button "Unpublish"
         end
       end
+    end
+
+    it "gets a conference speaker unpublish and then publish again" do
       expect(page).to have_content("Conference speaker successfully unpublished")
 
       within all(".table-list__actions").first do
@@ -87,6 +87,16 @@ describe "Conference speakers" do
         click_link_or_button "Publish"
       end
       expect(page).to have_content("Conference speaker successfully published")
+    end
+
+    context "when visit conference public view" do
+      before do
+        visit decidim_conferences.conference_conference_speakers_path(conference)
+      end
+
+      it "displays only conference speaker mark ask published" do
+        expect(page).to have_css(".conference__speaker__item-name", count: 1)
+      end
     end
   end
 end
