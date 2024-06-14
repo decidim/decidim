@@ -345,6 +345,7 @@ ja:
     application:
       document:
         download: ファイルをダウンロード
+        visit_link: リンクを開く
       documents:
         component_documents:
           dummy: ダミーコンポーネントドキュメント
@@ -861,6 +862,8 @@ ja:
         button: フォローを停止
         error: リソースのフォローを解除する際に問題が発生しました。
     forms:
+      attachment_link:
+        explanation: 添付ファイルへのリンクのガイド
       errors:
         decidim/user:
           password: パスワードが短すぎます。
