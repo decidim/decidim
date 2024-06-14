@@ -360,6 +360,9 @@ fi-pl:
       document:
         download: Lataa tiedosto
       documents:
+        component_documents:
+          dummy: Esimerkkikomponentin asiakirjat
+          meetings: Tapaamisten asiakirjat
         documents: Asiakirjat
         related_documents: Liittyvät dokumentit
       photo:
@@ -1927,6 +1930,7 @@ fi-pl:
         sign_up: Rekisteröidy
         terms_of_service: Käyttöehdot
       header:
+        log_in: Kirjaudu sisään
         main_menu: Päävalikko
         user_menu: Käyttäjän valikko
       impersonation_warning:
