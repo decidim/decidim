@@ -61,7 +61,7 @@ describe "Conference speakers" do
     end
   end
 
-  context "when admin publish and unplublishes a speaker" do
+  context "when admin publish and unplublish a speaker" do
     let!(:conference_speakers) { create_list(:conference_speaker, 2, :published, conference:) }
     let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
