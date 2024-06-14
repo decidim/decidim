@@ -451,7 +451,7 @@ en:
           values:
             'false': Published
             'true': Unpublished
-        remove_all_filters: Remove all filters
+        remove_all: Remove all
         scope_id_eq:
           label: Scope
         search_label: Search
