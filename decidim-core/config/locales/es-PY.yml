@@ -360,6 +360,9 @@ es-PY:
       document:
         download: Descargar archivo
       documents:
+        component_documents:
+          dummy: Documentos de componentes ficticios
+          meetings: Documentos sobre encuentros
         documents: Documentos
         related_documents: Documentos relacionados
       photo:
