@@ -59,15 +59,14 @@ describe "Assemblies" do
     end
 
     context "when neither assembly attachment nor description image is present" do
-      let(:file) { Decidim::Dev.test_file("city3.jpeg", "image/jpeg") }
+      let(:file) { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
       let!(:assembly_hero_attachment) { create(:attachment, :with_image, attached_to: assembly, file:) }
-      let(:hero_image) { Decidim::Dev.test_file("city3.jpeg", "image/jpeg") }
 
       before do
-        assembly.update(hero_image:)
+        assembly.update(description: { en: "This is my assembly" })
       end
 
-      it_behaves_like "meta image url examples", "city3.jpeg" do
+      it_behaves_like "meta image url examples", "city2.jpeg" do
         let(:resource) { assembly }
       end
     end
