@@ -716,6 +716,7 @@ FactoryBot.define do
   factory :notification, class: "Decidim::Notification" do
     transient do
       skip_injection { false }
+      coauthor_id { nil}
     end
     user do
       build(
@@ -730,6 +731,17 @@ FactoryBot.define do
       {
         some_extra_data: "1"
       }
+    end
+
+    trait :proposal_coauthor_invite do
+      event_name { "decidim.proposals.coauthor_invited" }
+      event_class { "Decidim::Proposals::CoauthorInvitedEvent" }
+      extra do
+        {
+          uuid: SecureRandom.uuid,
+          coauthor_id: coauthor_id || create(:user, organization: resource.organization, skip_injection:).id
+        }
+      end
     end
   end
 

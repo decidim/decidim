@@ -10,7 +10,7 @@ module Decidim
       before_action :authenticate_user!
 
       def create
-        enforce_permission_to :invite_coauthor, :proposal, proposal:, coauthor:
+        enforce_permission_to :invite, :proposal_coauthor_invites, proposal:, coauthor:
 
         InviteCoauthor.call(proposal, coauthor) do
           on(:ok) do
@@ -26,7 +26,7 @@ module Decidim
       end
 
       def cancel
-        # enforce_permission_to :invite_coauthor, :proposal, proposal:, coauthor:
+        enforce_permission_to :cancel, :proposal_coauthor_invites, proposal:, coauthor:
 
         CancelCoauthorship.call(proposal, coauthor) do
           on(:ok) do
@@ -43,7 +43,7 @@ module Decidim
 
       # accept invitation
       def update
-        # enforce_permission_to :be_coauthor, :proposal, proposal:, coauthor:
+        enforce_permission_to :accept, :proposal_coauthor_invites, proposal:, coauthor:
 
         AcceptCoauthorship.call(proposal, coauthor, notification) do
           on(:ok) do
@@ -58,7 +58,7 @@ module Decidim
 
       # decline invitation
       def destroy
-        # enforce_permission_to :be_coauthor, :proposal, proposal:, coauthor:
+        enforce_permission_to :decline, :proposal_coauthor_invites, proposal:, coauthor:
 
         RejectCoauthorship.call(proposal, coauthor, notification) do
           on(:ok) do
@@ -74,7 +74,7 @@ module Decidim
       private
 
       def notification
-        @notification ||= Decidim::Notification.find_by("event_class = ? AND extra->>'uuid' = ?", "Decidim::Proposals::CoauthorInvitedEvent", params["id"])
+        @notification ||= Decidim::Notification.where(event_class: "Decidim::Proposals::CoauthorInvitedEvent", resource: proposal).find_by("extra->>'uuid' = ?", params["id"])
       end
 
       def coauthor
