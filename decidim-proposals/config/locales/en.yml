@@ -179,12 +179,17 @@ en:
             participatory_texts_enabled: Participatory texts enabled
             participatory_texts_enabled_readonly: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
             proposal_answering_enabled: Proposal answering enabled
-            proposal_edit_time_unit: Proposal editing time unit
+            # proposal_edit_time_unit: Proposal editing time unit
+            edit_time: Proposals can be edited by authors before this much time passes
+            edit_time_units:
+              days: Days
+              hours: Hours
+              minutes: Minutes
             proposal_edit_time_unit_options:
               days: Days
               hours: Hours
               minutes: Minutes
-            proposal_edit_time_value: Proposals can be edited by authors before this much time passes
+            # proposal_edit_time_value: Proposals can be edited by authors before this much time passes
             proposal_edit_time: Proposal editing
             proposal_edit_time_choices:
               infinite: Allow editing proposals for an infinite amount of time

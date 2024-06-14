@@ -91,6 +91,7 @@ module Decidim
       TYPES = {
         boolean: { klass: Boolean, default: false },
         integer: { klass: Integer, default: 0 },
+        integer_with_units: { klass: Array, default: [0,""] },
         string: { klass: String, default: nil },
         float: { klass: Float, default: nil },
         text: { klass: String, default: nil },
@@ -111,6 +112,7 @@ module Decidim
       attribute :required_for_authorization, Boolean, default: false
       attribute :readonly
       attribute :choices
+      attribute :units
       attribute :include_blank, Boolean, default: false
 
       validates :type, inclusion: { in: TYPES.keys }
@@ -125,6 +127,10 @@ module Decidim
 
       def build_choices
         choices.try(:call) || choices
+      end
+
+      def build_units
+        units.try(:call) || units
       end
 
       def readonly?(context)

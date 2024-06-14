@@ -16,7 +16,8 @@ module Decidim
         select: :select_field,
         scope: :scope_field,
         enum: :collection_radio_buttons,
-        time: :datetime_field
+        time: :datetime_field,
+        integer_with_units: :integer_with_units
       }.freeze
 
       # Renders a form field that matches a settings attribute's type.
@@ -58,6 +59,8 @@ module Decidim
             render_select_form_field(form, attribute, name, i18n_scope, options)
           elsif form_method == :scope_field
             scopes_select_field(form, name)
+          elsif form_method == :integer_with_units
+            integer_with_units(form, attribute, name, i18n_scope, options)
           else
             form.send(form_method, name, options)
           end
@@ -164,6 +167,20 @@ module Decidim
         choices.map do |choice|
           [t("#{name}_choices.#{choice}", scope: i18n_scope), choice]
         end
+      end
+
+      def integer_with_units(form, attribute, name, i18n_scope, options)
+        html = form.number_field(name, options.merge(label: false, value: form.object.send(name).first, name: "#{form.field_name(name)}[0]"))
+        html << form.select(name,
+                            attribute.units.map { |unit| [t("#{name}_units.#{unit}", scope: i18n_scope), unit] },
+                            {
+                              label: false,
+                              value: form.object.send(name).second
+                            },
+                            {
+                              name: "#{form.field_name(name)}[1]"
+                            })
+        content_tag(:label, options[:label]) + content_tag(:div, html, class: "flex")
       end
     end
   end
