@@ -74,10 +74,12 @@ ja:
           attributes:
             base:
               not_official: 公式ではありません
+              voted: 投票またはオススメを受けました
         proposals_split:
           attributes:
             base:
               not_official: 公式ではありません
+              voted: 投票またはオススメを受けました
     models:
       decidim/proposals/admin/update_proposal_category_event: 提案カテゴリが変更されました
       decidim/proposals/admin/update_proposal_scope_event: 提案範囲が変更されました
@@ -148,10 +150,13 @@ ja:
             amendments_wizard_help_text: 修正ウィザードのヘルプテキスト
             announcement: お知らせ
             attachments_allowed: 添付ファイルを許可
+            attachments_allowed_help: このオプションを有効にすると、提案はデフォルトでグリッドモードになり、最初の画像がカードに表示されるようになります。
+            can_accumulate_votes_beyond_threshold: しきい値以上の票を集めることができます
             collaborative_drafts_enabled: 共同草稿を有効にする
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
             default_sort_order: デフォルトの提案の並べ替え
+            default_sort_order_help: 投票が有効になっている場合、デフォルトでは提案はランダムにソートされます。投票がブロックされている場合、最も投票数が多い順に並べられます
             default_sort_order_options:
               default: デフォルト
               most_commented: コメントの多い順
@@ -183,6 +188,7 @@ ja:
             scope_id: スコープ
             scopes_enabled: スコープが有効
             threshold_per_proposal: 提案ごとのしきい値
+            vote_limit: 参加者ごとの投票制限
           step:
             amendment_creation_enabled: 修正の作成は有効です
             amendment_creation_enabled_help: 参加者は提案を修正できます。
@@ -202,11 +208,13 @@ ja:
             creation_enabled: 参加者は提案を作成できます
             creation_enabled_readonly: 参加テキスト機能を有効にするとこの設定は無効になります。 参加テキストとして提案をアップロードするには、参加テキストボタンをクリックし、指示に従ってください。
             default_sort_order: デフォルトの提案の並べ替え
+            default_sort_order_help: 投票が有効になっている場合、デフォルトでは提案はランダムにソートされます。投票がブロックされている場合、最も投票数が多い順に並べられます
             default_sort_order_options:
               default: デフォルト
               most_commented: コメントの多い順
               most_endorsed: オススメの多い順
               most_followed: フォローの多い順
+              most_voted: 得票数順
               random: ランダム
               recent: 新しい順
               with_more_authors: 起案者の多い順
@@ -216,6 +224,9 @@ ja:
             publish_answers_immediately: 提案の回答をすぐに公開
             publish_answers_immediately_help_html: 'これを有効にせずに提案に回答する場合、選択して公開アクションを使用して、手動で公開する必要があります。これがどのように機能するかの詳細については、<a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">提案の回答に関するドキュメントページ</a>を参照してください。'
             suggested_hashtags: 提案作成時に参加者に提案するハッシュタグ
+            votes_blocked: 投票をブロックしました
+            votes_enabled: 投票を有効にしました
+            votes_hidden: 投票を非表示にしました (投票が有効な場合、チェックを入れると投票数が非表示になります)
     events:
       proposals:
         admin:
@@ -302,7 +313,10 @@ ja:
           email_subject: '%{resource_title} の提案範囲が更新されました'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案スコープが管理者によって更新されました。
         voting_enabled:
+          email_intro: 'あなたは %{participatory_space_title} で提案に投票することができます! このページへの参加を開始します:'
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
+          email_subject: '%{participatory_space_title} の提案の投票が開始されました'
+          notification_title: <a href="%{resource_path}">提案の投票</a> が <a href="%{participatory_space_url}">%{participatory_space_title}</a> で開始されました
     gamification:
       badges:
         accepted_proposals:
@@ -319,7 +333,14 @@ ja:
         proposal_votes:
           conditions:
             - 閲覧し、他の人の提案を読んでいくつかの時間を過ごします
-            - 
+            - 気に入った提案に投票するか、興味深いものを見つけてください
+          description: このバッジは、他の人の提案に投票するときに付与されます。
+          description_another: この参加者は %{score} の提案に投票しました。
+          description_own: '%{score} の提案に投票しました。'
+          name: 提案の投票
+          next_level_in: 次のレベルに到達するには、 %{score} の提案に投票してください！
+          unearned_another: この参加者はまだどの提案にも投票していません。
+          unearned_own: あなたはまだ提案に投票していません。
         proposals:
           conditions:
             - 提出物を有効にして、興味のある参加スペースを選択してください
@@ -344,6 +365,10 @@ ja:
         description: 提案数
         object: 提案
         title: 提案
+      votes:
+        description: 提案への投票数
+        object: 投票
+        title: 投票
     participatory_spaces:
       highlighted_proposals:
         last: 最近の提案
@@ -523,6 +548,7 @@ ja:
             remove_assignment: 課題を削除
             remove_assignment_confirmation: この提案から評価者を削除してもよろしいですか？
             valuators: 評価者
+            votes_count: 投票数
           update_category:
             invalid: 'これらの提案は既に %{subject_name} カテゴリ: %{proposals} を持っています。'
             select_a_category: カテゴリを選択してください。
