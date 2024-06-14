@@ -5,9 +5,11 @@ module Decidim
     module Admin
       class ValuationAssignmentsController < Admin::ApplicationController
         def create
-          enforce_permission_to :assign_to_valuator, :proposals
-
           @form = form(Admin::ValuationAssignmentForm).from_params(params)
+
+          @form.proposals.each do |proposal|
+            enforce_permission_to :assign_to_valuator, :proposals, proposal:
+          end
 
           Admin::AssignProposalsToValuator.call(@form) do
             on(:ok) do |_proposal|
