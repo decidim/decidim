@@ -751,7 +751,7 @@ fi:
         email_subject: Kohteen %{resource_title} päivitys
       gamification:
         badge_earned:
-          email_intro: Onnittelut! Olet ansainnut <a href="%{resource_url}">%{badge_name} merkin</a> (taso %{current_level}).
+          email_intro: Onnittelut! Olet ansainnut kunniamerkin <a href="%{resource_url}">%{badge_name}</a> (taso %{current_level}).
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistunut toimintaan verkkosivustollamme.
           email_subject: 'Olet ansainnut uuden kunniamerkin: %{badge_name}!'
           notification_title: Onnittelut! Olet ansainnut <a href="%{resource_path}">kunniamerkin %{badge_name}</a> (taso %{current_level}).
