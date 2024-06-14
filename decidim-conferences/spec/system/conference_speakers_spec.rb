@@ -61,7 +61,7 @@ describe "Conference speakers" do
     end
   end
 
-  context "when admin publish and unplublish a speaker" do
+  context "when admin publishes and unpublishes a speaker" do
     let!(:conference_speakers) { create_list(:conference_speaker, 2, :published, conference:) }
     let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
@@ -79,7 +79,7 @@ describe "Conference speakers" do
       end
     end
 
-    it "gets a conference speaker unpublish and then publish again" do
+    it "gets a conference speaker unpublishes and then publishes again" do
       expect(page).to have_content("Conference speaker successfully unpublished")
 
       within all(".table-list__actions").first do
