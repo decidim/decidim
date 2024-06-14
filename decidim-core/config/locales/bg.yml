@@ -1352,22 +1352,42 @@ bg:
       inaccessible_message: Този профил е недостъпен поради нарушение на Правилата и условията за ползване!
     profiles:
       default_officialization_text_for_user_groups: Тази група е публично проверена, нейното име е потвърдено, че съответства на истинското и име.
+      default_officialization_text_for_users: Този участник е публично проверен, името му или ролята са потвърдени, че съответстват на истинските му име и роля.
       show:
         activity: Дейност
         badges: Значки
         conversations: Разговори
         followers: Последователи
         following: Следванния
+        group_admins: Управление на администраторите
+        group_members: Управление на членовете
         groups: Групи
         members: Членове
+        officialized: Официален участник
+        send_private_message: Изпрати лично съобщение
       sidebar:
         badges:
           info: Значките се заслужват чрез извършване на конкретна дейност в платформата.
           title: Значки
       user:
+        actions:
+          create_user_group: Създаване на група
+          disabled_message: Съобщение
+          edit_profile: Редактиране на профил
+          edit_user_group: Редактиране на профила на групата
+          invite_user: Покани участник
+          join_user_group: Заявка за присъединяване към група
+          leave_user_group: Напусни на групата
+          manage_user_group: Управление на групата
+          manage_user_group_admins: Управление на администраторите
+          manage_user_group_users: Управление на членовете
+          message: Съобщение
+          resend_email_confirmation_instructions: Изпрати отново инструкции за потвърждение
+        confirmation_instructions_sent: Изпратени са инструкции за потвърждение по имейл.
         create_user_group: Създай група
         edit_profile: Редактиране на профил
         edit_user_group: Редактиране профил на група
+        fill_in_email_to_confirm_it: Моля, попълнете електронната поща на групата си, за да я потвърдите.
         invite_user: Покани участник
         join_user_group: Заявка за присъединяване към група
         leave_user_group: Напусни на групата
@@ -1381,8 +1401,17 @@ bg:
         report_html: <p>Следното <a href="%{url}">съдържание</a> е скрито автоматично.</p>
         subject: Ресурсът е скрит автоматично
       report:
+        authors: Автори
+        content: Докладвано съдържание
+        content_original_language: Оригинален език на съдържанието
+        date: Докладвано на
+        details: Детайли
         hello: Здравейте %{name},
+        id: ID
+        participatory_space: Пространство за участници
+        reason: Причина
         report_html: <p>Следното <a href="%{url}">съдържание</a> беше докладвано.</p>
+        see_report: Вижте доклада
         subject: Ресурсът беше докладван
     reports:
       create:
@@ -1395,16 +1424,23 @@ bg:
       global: Обща сфера
       picker:
         cancel: Отказ
+        change: Промяна на избрания обхват
         choose: Избери
+        currently_selected: Текущ избран обхват
         title: Избери %{field}
       prompt: Изберете сфера
       scopes: Сфери
+      scopes_picker_input:
+        select_scope: 'Изберете обхват (понастоящем: %{current})'
     search:
+      name: Търсене
+      results: Резултати от търсенето
       results_found_for_term: '%{count} резултата от търсенето: "%{term}"'
       term_input_placeholder: Търсене
     searches:
       filters:
         jump_to: 'Отиди на:'
+        search: Търсене
         state:
           active: Активни
           all: Всички
@@ -1412,11 +1448,19 @@ bg:
           past: Минали
       filters_small_view:
         filter: Филтър
+        filter_and_search: Филтър и търсене
         filter_by: Филтър по
       results:
         view_all: Виж всички (%{count})
+    security:
+      selfxss_warning:
+        description: Тази функция на браузъра е предназначена за разработчици и не трябва да поставяте нищо тук, ако бъдете помолени да го направите. Поставянето на съдържание в този прозорец може да компрометира вашата поверителност и да даде на хакерите достъп до вашия акаунт.
+        title: Стоп!
     shared:
       confirm_modal:
+        cancel: Отказ
+        close_modal: Затвори прозореца
+        ok: ОК
         title: Потвърждаване
       embed:
         title: Вградено видео съдържание
@@ -1663,6 +1707,14 @@ bg:
     scopes:
       public: Вашата публична информация.
   editor:
+    extensions:
+      link:
+        targets:
+          blank: Нов Таб
+          default: По подразбиране (същият таб)
+      videoEmbed:
+        titleLabel: Заглавие
+        urlLabel: Видео URL
     inputDialog:
       buttons:
         cancel: Отказ
@@ -1697,9 +1749,16 @@ bg:
     button: Добави емотиконка
     categories:
       activities: Активности
+      animals-nature: Животни и природа
+      custom: Персонализиран
+      flags: Флагове
+      food-drink: Храна и напитки
+      objects: Обекти
       people-body: Хора и тяло
       recents: Наскоро използвани
       smileys-emotion: Усмивки и емоции
+      symbols: Символи
+      travel-places: Пътуване и забележителности
     error:
       load: Проблем при зареждане на емотиконки
     recents:
@@ -1713,13 +1772,21 @@ bg:
       not_found: Няма намерени резултати
   errors:
     messages:
+      allowed_file_content_types: 'разрешени са само файлове със следните разширения: %{types}'
+      already_confirmed: вече беше потвърдено, моля, опитайте да влезете
+      blank: не може да е празно
+      cannot_be_blank: не може да е празно
+      confirmation: не съвпада %{attribute}
       confirmation_period_expired: трябва Ви потвърдят в рамките на %{period}, моля заявете отново
       content_type_allowlist_error: типа файл не е валиден
+      cycle_detected: '"родителят" на обхват не може да бъде един от неговите "наследници"'
+      empty: не може да е празно
       expired: е изтекла, моля поискайте нова
       file_size_is_less_than_or_equal_to: размера на файла трябва да е по-малък или равен на %{count}
       invalid_time_zone: не е валидна часова зона
       long_words: съдържа думи, които са твърде дълги (над 35 знака)
       must_start_with_caps: трябва да започва с главна буква
+      nesting_too_deep: не може да е в подкатегория
       not_found: не може да бъде намерен. Регистрирахте ли се?
       not_locked: не беше заключена
       not_saved:
@@ -1727,17 +1794,41 @@ bg:
         other: 'При обработката на заявката Ви имаше няколко грешки:'
       too_many_marks: използва твърде много последователни препинателни знаци (напр. ! и ?)
       too_much_caps: използва твърде много главни букви (над 25% от текста)
+      too_short: е твърде кратък (под %{count} знака)
+      url_format: Този URL адрес е в неправилен формат
   forms:
+    correct_errors: Във формуляра има грешки, моля, коригирайте ги, за да продължите.
+    length_validator:
+      minimum:
+        one: Най-малко %{count} символ
+        other: Най-малко %{count} символа
     required: Задължително
+    required_explanation: "* Задължителните полета са обозначени със звездичка"
   invisible_captcha:
     sentence_for_humans: Ако сте човек, игнорирайте това поле
     timestamp_error_message: Извинете, това беше твърде бързо! Моля, изпратете отново.
   layouts:
     decidim:
+      announcements:
+        view_less: Покажи по-малко
+        view_more: Още информация
       data_consent:
         details:
           columns:
+            description: Описание
+            name: Име
+            service: Услуга
             type: Тип
+          items:
+            _session_id:
+              description: Позволява на уебсайтовете да запомнят потребители в рамките на уебсайт, когато се движат между уеб страници.
+              service: Този уебсайт
+            decidim-consent:
+              description: Съхранява информация за бисквитките, разрешени от потребителя на този уебсайт.
+              service: Този уебсайт
+            pwaInstallPromptSeen:
+              description: Съхранява състоянието, ако известието за инсталиране на прогресивно уеб приложение (PWA) вече е било видяно от потребителя.
+              service: Този уебсайт
       edit_link:
         edit: Редактирай
       footer:
@@ -1759,6 +1850,7 @@ bg:
         notifications: Известия
         profile: Моят профил
         public_profile: Моя публичен профил
+        title: Профилни линкове
       user_profile:
         account: Профил
         authorizations: Идентификация
@@ -1766,20 +1858,28 @@ bg:
         my_data: Моите данни
         my_interests: Моите интереси
         notifications_settings: Настройки на известията
+        profile: Профил
         title: Настройки за участника
         user_groups: Групи
   locale:
     name: български език
+    name_with_error: Английски (грешка!)
   password_validator:
+    denied: е отказано
     domain_included_in_password: е твърде подобно на името на домейна
     email_included_in_password: е твърде подобно на Вашата ел. поща
     fallback: не е валидно
     name_included_in_password: е твърде подобно на името Ви
+    nickname_included_in_password: е твърде близко до Вашия псевдоним
     not_enough_unique_characters: няма достатъчно различни букви
     password_not_allowed: не се допуска
+    password_repeated: не може да преизползвате стара парола
     password_too_common: твърде разпространен
     password_too_long: твърде дълъг
     password_too_short: твърде кратък
+  ransack:
+    predicates:
+      dtgt: след
   social_share_button:
     delicious: Delicious
     douban: Douban
