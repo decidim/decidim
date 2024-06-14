@@ -145,11 +145,11 @@ describe "Admin filters proposals" do
         expect(page).to have_no_content(translated(unanswered_proposal_with_scope2.title))
 
         within("[data-applied-filters-tags]") do
-          expect(page).to have_content("Remove all filters")
+          expect(page).to have_content("Remove all")
         end
 
         within("[data-applied-filters-tags]") do
-          click_on("Remove all filters")
+          click_on("Remove all")
         end
 
         expect(page).to have_content(translated(answered_proposal_with_scope1.title))
@@ -176,7 +176,7 @@ describe "Admin filters proposals" do
         within("[data-applied-filters-tags]") do
           expect(page).to have_content("Answered: Answered")
           expect(page).to have_content("Scope: Scope1")
-          expect(page).to have_content("Remove all filters")
+          expect(page).to have_content("Remove all")
         end
 
         filter_params = CGI.parse(URI.parse(page.current_url).query)
