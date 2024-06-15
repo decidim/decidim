@@ -1771,26 +1771,43 @@ bg:
         edit: Редактирай
       footer:
         cc_by_license: Лиценз Creative Commons
+        data_consent_settings: Настройки на бисквитките
+        decidim_logo: Лого на Civil Power
         download_open_data: Изтеглете файлове с отворени данни
         made_with_open_source: Уебсайта работи със <a target="_blank" href="https://github.com/decidim/decidim">свободен софтуер</a>.
       header:
         close_menu: Затвори менюто
+        main_menu: Главно меню
         navigation: Навигация
         sign_in: Влизане
         sign_up: Регистрация
+        user_menu: Потребителско меню
       impersonation_warning:
         close_session: Затвори сесия
         description_html: Вие управлявате участника <b>%{user_name}</b>.
         expire_time_html: Вашата сесия изтича след <b><span class="minutes">%{minutes}</span> минути</b>.
+      language_chooser:
+        choose_language: Избери език
       notifications_dashboard:
         mark_all_as_read: Маркирай всичко като прочетено
+        mark_as_read: Маркирай като прочетено
       offline_banner:
         cache_version_page: Уви! Вашата мрежа е офлайн. Това е предишна кеширана версия на страницата, която посещавате, възможно е съдържанието да не е актуално.
+      social_media_links:
+        facebook: "%{organization} във Facebook"
+        github: "%{organization} в GitHub"
+        instagram: "%{organization} в Instagram"
+        x: "%{organization} в Х"
+        youtube: "%{organization} в YouTube"
       timeout_modal:
+        body: Не сте били активни %{minutes} минути. Ако продължите да сте неактивни, автоматично ще излезете от системата за ваша собствена сигурност.
+        continue_session: Продължи сесията
         sign_out: Изход
+        title: Искате ли да продължите Вашата сесия?
       upload_modal:
         close_modal: Затвори прозореца
       user_menu:
+        account: 'Профил на потребител: %{name}'
         admin_dashboard: Администраторски панел
         conversations: Разговори
         notifications: Известия
