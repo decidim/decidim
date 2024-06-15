@@ -1,1 +1,8 @@
+---
 bg:
+  decidim:
+    design:
+      components:
+        accordions:
+          content_panel: Съдържание на панела
+          demo: Демо
