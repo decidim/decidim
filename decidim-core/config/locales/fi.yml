@@ -359,6 +359,7 @@ fi:
     application:
       document:
         download: Lataa tiedosto
+        visit_link: Avaa linkki
       documents:
         component_documents:
           dummy: Esimerkkikomponentin asiakirjat
@@ -879,6 +880,11 @@ fi:
         button: Lopeta seuranta
         error: Tämän kohteen seuraamisen lopettaminen epäonnistui.
     forms:
+      attachment_link:
+        explanation: Ohjeet liitetiedostojen linkeille
+        help_messages:
+          - Ainoastaan oikeanmuotoiset URL-osoitteet hyväksytään.
+          - Huomioi, että linkkien tulee olla julkisia, jotta kaikki osallistujat voivat käyttää niitä.
       errors:
         decidim/user:
           password: Salasana on liian lyhyt.
