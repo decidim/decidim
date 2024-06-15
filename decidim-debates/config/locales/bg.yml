@@ -85,6 +85,9 @@ bg:
         models:
           debate:
             name: Дебат
+      admin_log:
+        debate:
+          close: "%{user_name} затвори дебата %{resource_name} в пространството %{space_name}"
       debates:
         close_debate_modal:
           close: Затвори
