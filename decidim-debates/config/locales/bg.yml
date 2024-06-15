@@ -85,11 +85,76 @@ bg:
       admin_log:
         debate:
           close: "%{user_name} затвори дебата %{resource_name} в пространството %{space_name}"
+          create: "%{user_name} създаде дебата %{resource_name} в пространството %{space_name}"
+          update: "%{user_name} актуализира дебата %{resource_name} в пространството %{space_name}"
+      debate_m:
+        commented_time_ago: Коментирано преди %{time}
       debates:
+        close:
+          invalid: Възникна проблем при затварянето на дебата.
+          success: Дебатът беше затворен успешно.
+        close_debate_modal:
+          cancel: Отказ
+          description: Какво е обобщението или заключението на този дебат?
+          send: Затваряне на дебата
+        count:
+          debates_count:
+            one: "%{count} дебат"
+            other: "%{count} дебата"
+        create:
+          invalid: Възникна проблем при създаването на дебата.
+          success: Дебатът беше създаден успешно.
+        debates:
+          empty: Все още няма дебати.
+          empty_filters: Няма дебати с този критерий.
+        edit:
+          back: Назад
+          save: Запази промените
+          title: Редактиране на дебата
+        filters:
+          activity: Моята дейност
+          all: Всички
+          category: Категория
+          category_prompt: Изберете категория
+          commented: Коментирано
+          my_debates: Моите дебати
+          official: Официални
+          origin: Произход
+          participants: Участници
+          search: Търсене
+          state: Статус
+          state_values:
+            closed: Затворен
+            open: Отворен
+          user_group: Групи
+        form:
+          select_a_category: Моля, изберете категория
+        index:
+          new_debate: Нов дебат
+        new:
+          back: Назад
+          create: Създаване
+          title: Нов дебат
+        orders:
+          commented: Най-коментирани
+          label: Подреждане на дебатите по
+          random: Случаен ред
+          recent: Най-скорошни
+          updated: Скоро обновени
         show:
+          close_debate: Затваряне на дебата
+          debate_closed: Затворен
+          debate_conclusions_are: 'Дебатът беше затворен на %{date} със следните заключения:'
+          edit_conclusions: Редактиране на заключенията
+          edit_debate: Редактиране на дебата
           groups_count: Групи
+          open: Отворен дебат
           participants_count: Участници
+        update:
+          invalid: Възникна проблем при актуализирането на дебата.
+          success: Дебатът беше актуализиран успешно.
       last_activity:
+        debate_updated: 'Дебатът е актуализиран:'
         new_debate: 'Нов дебат:'
       models:
         debate:
