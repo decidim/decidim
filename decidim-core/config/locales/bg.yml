@@ -1879,6 +1879,9 @@ bg:
   ransack:
     predicates:
       dtgt: след
+      dtgteq: след или равно на
+      dtlt: преди
+      dtlteq: преди или равно на
   social_share_button:
     delicious: Delicious
     douban: Douban
@@ -1901,13 +1904,20 @@ bg:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
+    buttons:
+      close: Затвори
+      reset: Презареди
+      select: Избери
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"
@@ -1915,6 +1925,8 @@ bg:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      help:
+        time_format: 'Формат: чч:мм'
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
