@@ -6,3 +6,115 @@ bg:
         accordions:
           content_panel: Съдържание на панела
           demo: Демо
+          demo_description: В цялото приложение "акордеоните" се използват главно за показване/скриване на съдържание в раздели или за сгъване/разгъване на видими текстове.
+          description_accordions_html: '"Акордеоните" са функция на javascript, достъпна благодарение на външна библиотека, наречена %{link_code} a11y-accordion-component.'
+          github_source_html: Изходен код в GitHub %{github_link}
+          panel: Панел
+          title: '"Акордеони"'
+          trigger: Задействане
+          usage: Употреба
+          usage_p: '"Акордеонът" изисква поне три елемента'
+          usage_p_1_html: 1. Обвивка <code>div</code>, с атрибута на данните <code>data-component="accordion"</code>, над всички налични задействащи елементи и панели.
+          usage_p_2_html: 2. Задействащ елемент, с който потребителят може да действа (като бутон), сочещ към сгъваемия елемент чрез <code>data-controls="panel"</code>, където <i>panel</i> е <code>id </code> на панела.
+          usage_p_3_html: 3. Елемент с възможност за скриване, чийто <code>id</code> съвпада със стойността на контролите на данните, към която препраща задействащия елемент.
+        activities:
+          activities: Активности
+        address:
+          title: Адрес
+        announcement:
+          iam_an_announcement: Аз съм известие
+          this_is_the_body: Това е основното съдържание
+          this_is_the_title: Това е заглавието
+          title: Обявление
+        author:
+          title: Автор
+        buttons:
+          description_html: 'Бутоните се създават с помощта на различни комбинации от CSS класове: клас <code>button</code>, размер и цвят.'
+          title: Бутони
+        cards:
+          title: Карти
+        dialogs:
+          dialog_demo_description_html: Диалоговите прозорци или модалните компоненти се имплементират чрез помощника <code>decidim_modal</code>.
+          dialogs_description_html: Диалозите са функция на javascript, достъпна благодарение на външна библиотека, наречена <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component </a>.
+          tips_description: 'За да покажете сложен модал, съответстващ на стиловете, направете следното маркиране:'
+          tips_description_html: Обърнете внимание на <i>data-attributes</i> и <i>ids</i>. Например идентификаторът на <code>[data-dialog-title]</code> започва с <i>dialog-title</i> плюс <i>modal id</i>.
+          title: Диалогови прозорци
+          usage_description: Един диалогов прозорец изисква два елемента
+          usage_description_2_html: 2. Модален елемент, чийто <code>id</code> съвпада с целевата стойност на данните, към която препраща тригерът.
+          usage_description_html: 1. Елемент с действие от страна на потребителя с атрибут на данни <code>data-dialog-open="example"</code>, където example е <code>id</code> на модала.
+        follow:
+          title: Последване
+        forms:
+          disabled: Деактивирано
+          emojis: Емоджита
+          emojis_description: Работи само за текстово поле
+          errors: Грешки
+          errors_description: Не важи за избран
+          header_alert: Тази страница идва от наследен изглед. Съдържанието е остаряло.
+          help_texts: Помощни текстове
+          html_regular_inputs: HTML редовни входни данни
+          min_max_length: Мин/Макс дължина
+          min_max_length_description: Работи само за input type='text' и текстова област
+          multiselect: Мултиселекция
+          multiselect_description_html: Мултиселекциите са функция на javascript, достъпна благодарение на външна библиотека, наречена <a href="https://tom-select.js.org/" target="_blank" rel="noopener noreferrer">Tom Select</a>.
+          regular_inputs_description: 'Показва само общи типове, пълен наличен списък: дата, datetime-local, имейл, месец, номер, парола, търсене, телефон, текст, час, url, седмица'
+          textarea_required: задължителна текстова област
+          title: Форми
+        report:
+          title: Доклад
+        share:
+          title: Сподели
+        tab_panels:
+          title: Табове панели
+      foundations:
+        layout:
+          columns: Това е броят на колоните 10, 8 или 6.
+          description_layout_p1: За настолен компютър Civil Power използва мрежа от 12 колони с ограничен брой шаблони (конфигурации на мрежата) за различни видове съдържание. Целта е даден тип съдържание (начална страница, списък с елементи, отделен елемент) да има отличително оформление, така че потребителите да могат да разберат в какъв вид съдържание се намират само по общия вид на страницата.
+          description_layout_p2: Тези прости правила трябва да се следват, когато създавате нови модули или персонализирате съществуващи, така че сайтът на Civil Power да може да поддържа своята последователност.
+          desktop: Desktop
+          full_width: Пълна ширина
+          layout_list_1: 'Начална страница (на сайта, на пространство): пълна ширина'
+          layout_list_2: 'Списък с елементи (на интервали, на елементи в интервал и т.н.): ляво равнение'
+          layout_list_3: 'Индивидуален артикул (предложение, публикация в блог): центрирано, по избор с дясно равнение'
+          left_aside: Ляво равнение
+          mobile: Мобилно
+          not_required: Незадължително
+          properties: Свойства
+          right_aside: Дясно равнение
+          section_p_breakpoints: 'За да управляваме адаптивната максимална ширина на елементите, ние разчитаме на класа Tailwind „контейнер“ по подразбиране, който посочва следните точки на промяна:'
+          section_p_code: Когато внедрявате нови модули, имате някои помощници, които автоматично ви предоставят кода, необходим за настройка на HTML структурата. Трябва да използвате тези помощници, вместо директно да използвате div елементи с класове, така че да поддържате последователност.
+          section_p_code_html: Можете да намерите основните оформления в %{link_section_code}
+          section_p_desktop: Desktop мрежовата работна система се състои от 12 "разтегливи" колони с разстояние между колоните от 16px и ляво и дясно поле от 48px
+          section_p_mobile: Мобилната мрежова работна система се състои от 4 разтегливи колони с разстояние между колоните от 16px и ляво и дясно поле от 16px. За размери под 320px тези полета са зададени на 8px
+          section_p_tablet: Мрежовата работна система на таблета се състои от 8 разтегливи колони с разстояние между колоните от 16px и ляво и дясно поле от 24px
+          tablet: Таблет
+          title: Оформление
+        typography:
+          description: Тези насоки обобщават как да използвате типографията в Civil Power и служат като парапети за дизайнерите да проектират свободно, като имат предвид най-добрите типографски практики.
+          headings:
+            characters: Брой символи на ред
+            layout: Колони за оформление
+            size: Размер
+          title: Типография
+          typefaces_description_1: Civil Power използва Source Sans Pro като основен шрифт. Този шрифт поддържа 310 езика
+          typefaces_description_2: Тези шрифтове са лицензирани съгласно Open Font License
+      helpers:
+        accountability: Отговорност
+        accountability_cards_html: Използва се от карти <i>Проекти за отчетност</i>. Тази карта изисква активите на модула да се показват правилно, т.е. <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
+        activity: Активност
+        address_description: Клетката с адрес получава ресурс и търси геолокализируемите атрибути, за да изобрази конкретно маркиране.
+        address_description_2: В зависимост от вида на съдържанието, адресът може да бъде онлайн url. За такива случаи показаната информация е съвсем същата, но оформена така, че да пасне.
+        ally_link: a11y-dropdown-component
+        argument: Аргумент
+        assemblies: Събрания
+        assembly_g: Събрание G
+        assembly_s: Събрание S
+        avatar: Аватар
+        avatar_description: Използва се, когато има тесни пространства, където авторът е второстепенна информация.
+        background: Фон и граници
+        base: База
+        block_text: Използвайте блока extra_data
+        blog_cards_html: Използвано от <i>Блогове</i> карти
+        blogs: Блогове
+        budget_card_html: Използва се от карти <i>Бюджетни проекти</i>. Тази карта изисква активите на модула да се показват правилно, т.е. <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>
+        budgets: Бюджети
