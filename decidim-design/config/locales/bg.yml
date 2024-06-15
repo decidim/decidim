@@ -118,3 +118,37 @@ bg:
         blogs: Блогове
         budget_card_html: Използва се от карти <i>Бюджетни проекти</i>. Тази карта изисква активите на модула да се показват правилно, т.е. <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>
         budgets: Бюджети
+        callout_class: Клас на допълнително описание
+        callout_description: Този атрибут прилага статус към съобщението. По подразбиране той използва вторичен цвят.
+        card_g: Карта G
+        meeting_l: Среща L
+        meeting_s: Среща S
+        meetings: Срещи
+        meetings_html: Използвано от <i>Срещи</i> карти
+        metadata_items: Метадата елементи
+        metadata_text: Всеки ресурс дефинира свои собствени елементи от метаданни
+        participatory_process_g: Процес за участие G
+        participatory_process_group_g: Групa на процеса за участие G
+        participatory_process_group_s: Групa на процеса за участие S
+        participatory_process_s: Процес за участие S
+        participatory_processes: Процеси за участие
+        plain_text: Аз съм просто обикновен текст
+        plain_text_description: Можете да предоставите като първи аргумент както обикновен текст, така и хеш обект
+        plain_text_vs_hash: Oобикновен текст срещу Хаш
+        post_g: Пост G
+        post_l: Пост L
+        post_s: Пост S
+        project_l: Проект L
+        project_s: Проект S
+        proposal_l: Предложение L
+        proposal_s: Предложение S
+        proposals: Предложения
+        report_button: Бутон за докладване
+        report_usage_description: Бутонът за докладване стартира модален прозорец за маркиране на текущия ресурс.
+        result_l: Резултат L
+        rgba_code: RGBA код
+        search: Търсене
+        send: Изпрати
+        share_button: Бутон за споделяне
+        share_usage_description_html: Уверете се, че частичният <code>decidim/shared/share_modal</code> присъства в DOM. Тази част се поставя в оформлението на приложението.
+        sizes: Размери
