@@ -8,7 +8,6 @@ module Decidim
       # Initializes a JoinMeeting Command.
       #
       # meeting - The current instance of the meeting to be joined.
-      # user - The user joining the meeting.
       # form - A form object with params; can be a questionnaire.
       def initialize(meeting, form)
         @meeting = meeting
