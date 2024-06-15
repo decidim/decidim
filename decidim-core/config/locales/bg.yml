@@ -1932,19 +1932,51 @@ bg:
         edit: Редактирай
       footer:
         cc_by_license: Лиценз Creative Commons
+        data_consent_settings: Настройки на бисквитките
+        decidim_logo: Лого на Civil Power
+        decidim_title: Civil Power
         download_open_data: Изтеглете файлове с отворени данни
         log_in: Вход
         made_with_open_source: Уебсайта работи със <a target="_blank" href="https://github.com/decidim/decidim">свободен софтуер</a>.
+        resources: Ресурси
         sign_up: Регистрация
+        terms_of_service: Условия за ползване
+      header:
+        log_in: Вход
+        main_menu: Главно меню
+        user_menu: Потребителско меню
       impersonation_warning:
         close_session: Затвори сесия
         description_html: Вие управлявате участника <b>%{user_name}</b>.
         expire_time_html: Вашата сесия изтича след <b><span class="minutes">%{minutes}</span> минути</b>.
+      language_chooser:
+        choose_language: Избери език
       notifications_dashboard:
         mark_all_as_read: Маркирай всичко като прочетено
+        mark_as_read: Маркирай като прочетено
+      offline_banner:
+        cache_version_page: Опс! Вашата мрежа е офлайн. Това е предишна кеширана версия на страницата, която посещавате, възможно е съдържанието да не е актуално.
+      shared:
+        layout_item:
+          next: Следващ елемент
+          prev: Предишен елемент
+      social_media_links:
+        facebook: "%{organization} във Facebook"
+        github: "%{organization} в GitHub"
+        instagram: "%{organization} в Instagram"
+        x: "%{organization} в Х"
+        youtube: "%{organization} в YouTube"
+      timeout_modal:
+        body: Не сте били активни %{minutes} минути. Ако продължите да сте неактивни, автоматично ще излезете от системата за ваша собствена сигурност.
+        continue_session: Продължи сесията
+        log_out: Излизане
+        title: Искате ли да продължите Вашата сесия?
       user_menu:
+        account: 'Профил на потребител: %{name}'
         admin_dashboard: Администраторски панел
+        configuration: Конфигурация
         conversations: Разговори
+        log_out: Излизане
         notifications: Известия
         profile: Моят профил
         public_profile: Моя публичен профил
