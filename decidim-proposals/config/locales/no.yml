@@ -122,7 +122,6 @@
             comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
             default_sort_order: Standard sortering av forslag
             default_sort_order_options:
-              default: Standardverdi
               most_commented: Mest kommenterte
               most_endorsed: Mest påtegnet
               most_followed: Mest fulgte
@@ -168,7 +167,6 @@
             creation_enabled: Deltakerne kan opprette forslag
             default_sort_order: Standard sortering av forslag
             default_sort_order_options:
-              default: Standardverdi
               most_commented: Mest kommentert
               most_endorsed: Mest påtegnet
               most_followed: Mest fulgt
