@@ -144,7 +144,6 @@ lt:
             comments_max_length: Maksimalus komentarų ilgis (Palikite 0 kaip numatytą vertę)
             default_sort_order: Numatytas pasiūlymų rikiavimas
             default_sort_order_options:
-              default: Numatytasis
               most_commented: Labiausiai komentuojamas
               most_endorsed: Labiausiai pritarta
               most_followed: Labiausiai sekė
@@ -191,7 +190,6 @@ lt:
             creation_enabled_readonly: Šis nustatymas išjungiamas, kai suaktyvinate Dalyvaujančių Tekstų funkciją. Norėdami įkelti pasiūlymus kaip dalyvaujamąjį tekstą, spustelėkite mygtuką Dalyvaujantys Tekstai ir vadovaukitės instrukcijomis.
             default_sort_order: Numatytasis pasiūlymų rūšiavimas
             default_sort_order_options:
-              default: Numatytasis
               most_commented: Labiausiai komentuojamas
               most_endorsed: Labiausiai pritarta
               most_followed: Labiausiai sekamas
