@@ -137,7 +137,6 @@ sv:
             comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
             default_sort_order: Förvald produkt sortering
             default_sort_order_options:
-              default: Förinställt
               most_commented: Mest kommenterade
               most_endorsed: Mest instämda i
               most_followed: Mest följda
@@ -183,7 +182,6 @@ sv:
             creation_enabled: Deltagare kan skapa förslag
             default_sort_order: Förvald produkt sortering
             default_sort_order_options:
-              default: Förinställt
               most_commented: Mest kommenterade
               most_endorsed: Mest instämda i
               most_followed: Mest följda
