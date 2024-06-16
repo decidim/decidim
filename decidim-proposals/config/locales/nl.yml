@@ -110,7 +110,6 @@ nl:
             comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
             default_sort_order: Standaardsortering
             default_sort_order_options:
-              default: Standaard
               most_commented: Meeste reacties
               most_endorsed: Meest gesteund
               most_followed: Meest gevolgd
@@ -156,7 +155,6 @@ nl:
             creation_enabled: Gebruikers kunnen voorstellen maken
             default_sort_order: Standaardsortering
             default_sort_order_options:
-              default: Standaard
               most_commented: Meeste reacties
               most_endorsed: Meest gesteund
               most_followed: Meest gevolgd
