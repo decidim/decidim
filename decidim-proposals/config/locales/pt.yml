@@ -127,7 +127,6 @@ pt:
             comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
             default_sort_order: Ordenamento por defeitos das propostas
             default_sort_order_options:
-              default: Por defeito
               most_commented: Mais comentada
               most_endorsed: Mais apoiada
               most_followed: Mais seguida
@@ -172,7 +171,6 @@ pt:
             comments_blocked: Comentários bloqueados
             default_sort_order: Ordenamento por defeitos das propostas
             default_sort_order_options:
-              default: Por defeito
               most_commented: Mais comentada
               most_endorsed: Mais apoiada
               most_followed: Mais seguida
