@@ -160,9 +160,7 @@ fi:
             comments_enabled: Kommentit käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
             default_sort_order: Ehdotuksen oletusjärjestys
-            default_sort_order_help: Oletus tarkoittaa, että mikäli äänet ovat käytössä, ehdotukset näytetään satunnaisessa järjestyksessä ja mikäli äänet on estetty, niin ehdotukset järjestetään eniten ääniä saaneet ensin.
             default_sort_order_options:
-              default: Oletus
               most_commented: Eniten kommentoidut
               most_endorsed: Eniten suositellut
               most_followed: Eniten seuratut
@@ -212,9 +210,7 @@ fi:
             creation_enabled: Osallistujat voivat luoda ehdotuksia
             creation_enabled_readonly: Tämä asetus on pois päältä, kun olet ottanut ehdotusaineistot käyttöön. Voit ladata uusia ehdotusaineistoja siirtymällä ehdotusaineistot-osioon ja seuraamalla kyseisen osion ohjeistusta.
             default_sort_order: Ehdotuksen oletusjärjestys
-            default_sort_order_help: Oletus tarkoittaa, että mikäli äänet ovat käytössä, ehdotukset näytetään satunnaisessa järjestyksessä ja mikäli äänet on estetty, niin ehdotukset järjestetään eniten ääniä saaneet ensin.
             default_sort_order_options:
-              default: Oletus
               most_commented: Eniten kommentoidut
               most_endorsed: Eniten suositellut
               most_followed: Eniten seuratut
