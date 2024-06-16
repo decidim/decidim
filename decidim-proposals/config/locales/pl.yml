@@ -163,7 +163,6 @@ pl:
             comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
             default_sort_order: Domyślne sortowanie propozycji
             default_sort_order_options:
-              default: Domyślne
               most_commented: Najczęściej komentowane
               most_endorsed: Najbardziej popierane
               most_followed: Najczęściej obserwowane
