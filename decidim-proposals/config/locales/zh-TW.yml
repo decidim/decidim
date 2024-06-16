@@ -129,7 +129,6 @@ zh-TW:
             comments_max_length: 評論字數最大長度(若要使用預設值請輸入0)
             default_sort_order: 預設提案排序
             default_sort_order_options:
-              default: 預設值
               most_commented: 最多評論
               most_endorsed: 最多已連署
               most_followed: 最多追蹤者
@@ -176,7 +175,6 @@ zh-TW:
             creation_enabled_readonly: 啟用參與式文本功能後，此設置將被禁用。要將提案上傳為參與式文本，請點擊“參與式文本”按鈕，然後按照說明進行操作。
             default_sort_order: 預設提案排序
             default_sort_order_options:
-              default: 預設值
               most_commented: 最多評論
               most_endorsed: 最多已連署
               most_followed: 最多追蹤者
