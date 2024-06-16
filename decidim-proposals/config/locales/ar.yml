@@ -144,7 +144,6 @@ ar:
             comments_max_length: الحد الأقصى لطول التعليقات (اترك 0 لاستعمال القيمة الافتراضية)
             default_sort_order: التصنيف الافتراضي للاقتراح
             default_sort_order_options:
-              default: الافتراضي
               most_commented: صاحبة الأكثر تعليقات
               most_endorsed: صاحبة أكثر تأييدات
               most_followed: صاحبة أكثر متابعات
@@ -191,7 +190,6 @@ ar:
             creation_enabled_readonly: يتم تعطيل هذا الإعداد عند تفعيل وظيفة النصوص التشاركية. لتحميل الاقتراحات كنص تشاركي، يرجى النقر على زر النصوص التشاركية واتباع التعليمات.
             default_sort_order: التصنيف الافتراضي للاقتراح
             default_sort_order_options:
-              default: الافتراضي
               most_commented: صاحبة الأكثر تعليقات
               most_endorsed: صاحبة أكثر تأييدات
               most_followed: صاحبة أكثر متابعات
