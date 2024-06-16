@@ -212,8 +212,8 @@ describe "User creates meeting" do
             expect(page).to have_content(meeting_address)
             expect(page).to have_content(meeting_start_time.strftime(time_format))
             expect(page).to have_content(meeting_end_time.strftime(time_format))
-            expect(page).to have_css(".button", text: "Register")
-            expect(page).to have_selector("[data-author]", text: user_group.name)
+            expect(page).not_to have_css(".button", text: "Register")
+            expect(page).to have_css("[data-author]", text: user_group.name)
           end
         end
 

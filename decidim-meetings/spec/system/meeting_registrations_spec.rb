@@ -159,6 +159,18 @@ describe "Meeting registrations" do
           login_as user, scope: :user
         end
 
+        context "and the meeting is happening now" do
+          before do
+            meeting.update!(start_time: 1.hour.ago, end_time: 1.hour.from_now)
+          end
+
+          it "does not show the registration button" do
+            visit_meeting
+
+            expect(page).not_to have_css(".button", text: "Register")
+          end
+        end
+
         context "and they ARE NOT part of a verified user group" do
           it "they can join the meeting and automatically follow it" do
             visit_meeting
