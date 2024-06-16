@@ -160,9 +160,7 @@ es:
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
             default_sort_order: Ordenación por defecto de propuestas
-            default_sort_order_help: Por defecto significa que si los apoyos están habilitados, las propuestas se mostrarán en orden aleatorio, y si los apoyos están bloqueados, se ordenarán de más a menos apoyos.
             default_sort_order_options:
-              default: Por defecto
               most_commented: Más comentadas
               most_endorsed: Con más adhesiones
               most_followed: Más seguidas
@@ -212,9 +210,7 @@ es:
             creation_enabled: Las participantes pueden crear propuestas
             creation_enabled_readonly: Esta opción se desactiva cuando activas la funcionalidad de Textos Participativos. Para subir propuestas como texto participativo haz clic en el botón Textos Participativos y sigue las instrucciones.
             default_sort_order: Orden predeterminado de propuestas
-            default_sort_order_help: Por defecto significa que si los apoyos están habilitados, las propuestas se mostrarán en orden aleatorio, y si los apoyos están bloqueados, se ordenarán de más a menos apoyos.
             default_sort_order_options:
-              default: Por defecto
               most_commented: Más comentadas
               most_endorsed: Con más adhesiones
               most_followed: Más seguidas
