@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "foundation_rails_helper/form_builder"
+require_relative "../../app/helpers/decidim/sanitize_helper"
 
 module Decidim
   # This custom FormBuilder adds fields needed to deal with translatable fields,
@@ -9,6 +10,7 @@ module Decidim
     include ActionView::Context
     include Decidim::TranslatableAttributes
     include Decidim::Map::Autocomplete::FormBuilder
+    include Decidim::SanitizeHelper
 
     # Public: generates a check boxes input from a collection and adds help
     # text and errors.
@@ -192,11 +194,12 @@ module Decidim
       options.delete(:required)
       hashtaggable = options.delete(:hashtaggable)
       hidden_options = extract_validations(name, options).merge(options)
+      sanitized_value = sanitize_editor_value(object.send(name))
 
       content_tag(:div, class: "editor #{"hashtags__container" if hashtaggable}") do
         template = ""
         template += label(name, label_text + required_for_attribute(name)) if options.fetch(:label, true)
-        template += hidden_field(name, hidden_options)
+        template += hidden_field(name, hidden_options.merge(value: sanitized_value))
         template += content_tag(:div, nil, class: "editor-container #{"js-hashtags" if hashtaggable}", data: {
                                   toolbar: toolbar,
                                   disabled: options[:disabled],
@@ -940,6 +943,15 @@ module Decidim
       return object.send(attribute).record.class if klass.respond_to?(:record) && klass.record.present?
 
       object.class
+    end
+
+    # Private: Sanitize editor values to prevent malformed values being display in the
+    # WYSIWYG editor
+    #
+    def sanitize_editor_value(value)
+      sanitized_value = decidim_sanitize_editor_admin(value)
+
+      sanitized_value == %(<div class="ql-editor-display"></div>) ? "" : sanitized_value
     end
   end
 end
