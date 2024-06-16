@@ -120,7 +120,6 @@ gl:
             comments_enabled: Comentarios habilitados
             default_sort_order: Orde predefinido das propostas
             default_sort_order_options:
-              default: Predefinida
               most_commented: Máis comentadas
               most_endorsed: Máis apoios
               most_followed: Máis seguidas
@@ -147,7 +146,6 @@ gl:
             creation_enabled: Os participantes poden crear propostas
             default_sort_order: Orde predefinido das propostas
             default_sort_order_options:
-              default: Predefinida
               most_commented: Máis comentadas
               most_endorsed: Máis apoios
               most_followed: Máis seguidas
