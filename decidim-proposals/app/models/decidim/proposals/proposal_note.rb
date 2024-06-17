@@ -9,6 +9,8 @@ module Decidim
 
       belongs_to :proposal, foreign_key: "decidim_proposal_id", class_name: "Decidim::Proposals::Proposal", counter_cache: true
       belongs_to :author, foreign_key: "decidim_author_id", class_name: "Decidim::User"
+      has_many :children, foreign_key: "parent_id", class_name: "Decidim::Proposals::ProposalNote", inverse_of: :parent, dependent: :destroy
+      belongs_to :parent, class_name: "Decidim::Proposals::ProposalNote", inverse_of: :children, optional: true
 
       default_scope { order(created_at: :asc) }
 
