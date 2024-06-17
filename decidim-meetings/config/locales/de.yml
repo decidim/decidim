@@ -440,16 +440,13 @@ de:
       iframe_embed_type:
         embed_in_meeting_page: In Meeting-Seite einbetten
         none: Keiner
-        open_in_live_event_page: In Live-Event-Seite öffnen (mit optionalen Umfragen)
         open_in_new_tab: Link in neuem Tab öffnen
       last_activity:
         meeting_updated: 'Veranstaltung aktualisiert:'
         new_meeting: 'Neue Veranstaltung:'
       layouts:
         live_event:
-          administrate: Administrativ
           close: Schließen
-          questions: Fragen
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -589,12 +586,9 @@ de:
             title: Titel
       polls:
         questions:
-          closed_question:
-            question_results: Umfrageergebnisse
           index:
             empty_questions: Während dieses Treffens werden einige Fragen gesendet und Sie werden sie beantworten können. Sie werden hier angezeigt.
           index_admin:
-            admin_dashboard: Administrations-Dashboard
             edit: Im Adminbereich bearbeiten
             question: Frage
             received_answer: Antwort erhalten
