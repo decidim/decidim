@@ -445,7 +445,6 @@ de:
         new_meeting_at_html: "<span>Neue Veranstaltung unter %{link}</span>"
       layouts:
         live_event:
-          administrate: Administrativ
           close: Schließen
           questions: Fragen
       mailer:
