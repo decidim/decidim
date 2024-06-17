@@ -321,7 +321,6 @@ gl:
         new_meeting_at_html: "<span>Nova reunión en %{link}</span>"
       layouts:
         live_event:
-          administrate: Administrar
           close: pechar
           questions: Preguntas
       mailer:
