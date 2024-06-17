@@ -267,6 +267,21 @@ bg:
         tab_panels_usage_description_html: "<strong>активирано</strong>: <i>Boolean</i>. Условно изобразяване на раздела"
         tab_panels_usage_description_id_html: "<strong>id</strong>: <i>String</i>. Уникално ID"
         tab_panels_usage_description_rails_html: "<strong>method</strong>: <i>Symbol</i>. Всяка функция, която платформата (ruby on rails) може да интерпретира"
+        tab_panels_usage_description_remixicon_html: "<strong>icon</strong>: <i>String</i>. Remixicon key"
+        tab_panels_usage_description_tab_html: "<strong>text</strong>: <i>String</i> Заглавие на раздела"
+        tailwind: Tailwind name
+        text: Текст
+        transparent: Прозрачно
+        transparent_description: 'В случай на по-тъмен фон:'
+        types: Шрифтове
+        typography_texts: Типография и текстове
+        usage: Употреба
+        usage_background_1: Заден фон
+        usage_background_2: Избран фон на филтъра на сайдбара
+        usage_background_3: Цвят на иконата по подразбиране
+        usage_background_4: Линии и разделители
+        usage_background_5: Фон на футъра
+        usage_background_6: Фон на администраторския изглед
         usage_base_1: Главен навигационен компонент background\nNav менюта в началната страница и началната страница на пространството
         usage_base_2: Основен цвят за линкове и бутони
         usage_base_3: Графични орнаменти и акцент color\nCards и списък с бордър елементи при mouce over
