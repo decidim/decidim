@@ -434,16 +434,13 @@ ja:
       iframe_embed_type:
         embed_in_meeting_page: ミーティングページに埋め込む
         none: なし
-        open_in_live_event_page: 配信イベントページで開く (オプションの投票付き)
         open_in_new_tab: URLを新しいタブで開く
       last_activity:
         meeting_updated: '更新されたミーティング:'
         new_meeting: '新しいミーティング:'
       layouts:
         live_event:
-          administrate: 管理
           close: 閉じる
-          questions: 質問
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -581,12 +578,9 @@ ja:
             title: タイトル
       polls:
         questions:
-          closed_question:
-            question_results: 質問の結果
           index:
             empty_questions: このミーティングを通じて、いくつかの質問が送信され、回答することができます。質問はここに表示されます。
           index_admin:
-            admin_dashboard: 管理者ダッシュボード
             edit: 管理画面で編集
             question: 質問
             received_answer: 受理した回答
