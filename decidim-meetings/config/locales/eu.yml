@@ -440,16 +440,13 @@ eu:
       iframe_embed_type:
         embed_in_meeting_page: Topaketa-orrian txertatuta
         none: Bat ere ez
-        open_in_live_event_page: Ireki zuzeneko ekitaldi-orrian (inkesta aukeratuekin)
         open_in_new_tab: Ireki URL fitxa berri batean
       last_activity:
         meeting_updated: 'Topaketa eguneratua:'
         new_meeting: 'Beste topaketa bat:'
       layouts:
         live_event:
-          administrate: Administratu
           close: itxi
-          questions: Galderak
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -589,12 +586,9 @@ eu:
             title: Titulua
       polls:
         questions:
-          closed_question:
-            question_results: Galderaren emaitzak
           index:
             empty_questions: Topaketa honetan zehar, galdera batzuk bidaliko dira eta erantzun ahal izango dituzu. Hemen erakutsiko dira.
           index_admin:
-            admin_dashboard: Administrazio-panela
             edit: Editatu administrazio-panelean
             question: Galdera
             received_answer: jasotako erantzuna
