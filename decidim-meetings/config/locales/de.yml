@@ -146,6 +146,7 @@ de:
         actions:
           comment: Kommentar
           join: Beitreten
+          reply_poll: Umfrage beantworten
         name: Meetings
         settings:
           global:
@@ -362,6 +363,13 @@ de:
           update:
             invalid: Beim Aktualisieren der Veranstaltungsumfrage ist ein Problem aufgetreten.
             success: Veranstaltungsumfrage erfolgreich aktualisiert.
+        poll:
+          form:
+            announcement_html:
+              - Wenn eine Frage Antworten erhalten hat oder veröffentlicht/geschlossen wird, kann sie nicht mehr bearbeitet werden.
+              - Sie können jederzeit eine neue Frage hinzufügen.
+              - Die Umfrage wird geschlossen, wenn die Ergebnisse aller erstellten Fragen veröffentlicht wurden.
+              - Besuchen Sie die <a href='%{admin_link}'>Umfrageverwaltungsseite</a> um Fragen zu versenden oder Ergebnisse zu veröffentlichen.
         registrations:
           edit:
             save: Speichern
@@ -440,6 +448,7 @@ de:
       iframe_embed_type:
         embed_in_meeting_page: In Meeting-Seite einbetten
         none: Keiner
+        open_in_live_event_page: Auf laufender Veranstaltungsseite öffnen
         open_in_new_tab: Link in neuem Tab öffnen
       last_activity:
         meeting_updated: 'Veranstaltung aktualisiert:'
@@ -527,6 +536,8 @@ de:
           edit_close_meeting: Veranstaltungsbericht bearbeiten
           edit_meeting: Veranstaltung bearbeiten
           join_meeting: Veranstaltung beitreten
+          reply_poll: Umfrage beantworten
+          view_poll: Umfrage ansehen
         meetings:
           no_meetings_warning: Keine Veranstaltungen entsprechen Ihren Suchkriterien oder es ist keine Besprechung geplant.
           upcoming_meetings_warning: Momentan gibt es keine geplanten Besprechungen, aber hier finden Sie alle aufgelisteten Besprechungen.
@@ -585,7 +596,19 @@ de:
             start_time: Anfangsdatum
             title: Titel
       polls:
+        answers:
+          index:
+            administrate: Bearbeiten
+            title: Umfrage
+          index_admin:
+            back_to_meeting: Zurück zur Veranstaltung
+            title: Umfrage bearbeiten
+            view_poll: Umfrage ansehen
         questions:
+          closed_question:
+            announcement: Die Beantwortung dieser Frage wurde beendet.
+            question: Frage
+            question_results: Resultate
           index:
             empty_questions: Während dieses Treffens werden einige Fragen gesendet und Sie werden sie beantworten können. Sie werden hier angezeigt.
           index_admin:
@@ -596,6 +619,10 @@ de:
             results: Ergebnisse
             send: Senden
             sent: Gesendet
+            statuses:
+              closed: Ergebnisse gesendet (geschlossen)
+              published: Gesendet (offen)
+              unpublished: Ausstehender Versand
           published_question:
             max_choices_alert: Es wurden zu viele Auswahlmöglichkeiten ausgewählt
             question: Frage
