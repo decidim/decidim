@@ -21,7 +21,6 @@ de:
               too_long: ist zu lang
             choices:
               missing: sind nicht vollständig
-              too_many: sind zu viele
         questionnaire:
           request_invalid: Beim Bearbeiten der Anfrage ist ein Fehler aufgetreten. Bitte versuchen Sie es nochmal.
   decidim:
