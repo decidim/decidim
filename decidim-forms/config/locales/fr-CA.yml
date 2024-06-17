@@ -21,7 +21,6 @@ fr-CA:
               too_long: est trop long
             choices:
               missing: ne sont pas complets
-              too_many: sont trop nombreux
         questionnaire:
           request_invalid: Une erreur s'est produite. Veuillez réessayer.
   decidim:
