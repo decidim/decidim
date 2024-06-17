@@ -50,8 +50,8 @@ module Decidim
         #
         # @return [Decidim::Comments::Comment]
         def create_comment(resource, root_commentable = nil)
-          author = user
-          user_group = user_group(author)
+          author = random_user
+          user_group = random_user_group(author)
 
           params = {
             commentable: resource,
@@ -79,8 +79,8 @@ module Decidim
         # @return nil
         def create_votes(comment)
           rand(0..12).times do
-            author = user
-            user_group = user_group(author)
+            author = random_user
+            user_group = random_user_group(author)
 
             CommentVote.find_or_create_by(
               comment:,
@@ -92,11 +92,11 @@ module Decidim
           nil
         end
 
-        def user
-          Decidim::User.where(organization:).all.sample
+        def random_user
+          Decidim::User.where(organization:).not_deleted.not_blocked.confirmed.sample
         end
 
-        def user_group(user)
+        def random_user_group(user)
           [true, false].sample ? Decidim::UserGroups::ManageableUserGroups.for(user).verified.sample : nil
         end
       end
