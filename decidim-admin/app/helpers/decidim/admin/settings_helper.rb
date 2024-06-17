@@ -179,9 +179,12 @@ module Decidim
       # @option options [String] :label The label text for the field
       # @return [ActiveSupport::SafeBuffer] Rendered form field
       def integer_with_units(form, attribute, name, i18n_scope, options)
-        value = form.object.send(name).map(&:to_s)
+        value = form.object.send(name)
+
+        # value = [value["0"], value["1"]] if value.is_a?(Hash)
+
         number_value = value[0].to_i
-        unit_value = value[1]
+        unit_value = value[1].to_s
 
         number_field_html = form.number_field(name, options.merge(label: false,
                                                                   value: number_value,

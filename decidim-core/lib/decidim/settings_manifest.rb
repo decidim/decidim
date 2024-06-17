@@ -73,10 +73,10 @@ module Decidim
 
           next unless attribute.type == :integer_with_units
 
-          validates name, presence: true
           validate do
             value = send(name)
-            errors.add(name, :invalid) unless value.is_a?(Array) &&
+
+            errors.add(name, :invalid) unless value.is_a?(::Array) &&
                                               value.size == 2 &&
                                               value[0].is_a?(Integer) &&
                                               attribute.build_units.include?(value[1])
@@ -102,7 +102,7 @@ module Decidim
       TYPES = {
         boolean: { klass: Boolean, default: false },
         integer: { klass: Integer, default: 0 },
-        integer_with_units: { klass: Decidim::Attributes::IntegerWithUnits, default: [0, ""] },
+        integer_with_units: { klass: Decidim::Attributes::IntegerWithUnits, default: [5, "minutes"] },
         string: { klass: String, default: nil },
         float: { klass: Float, default: nil },
         text: { klass: String, default: nil },
@@ -133,7 +133,7 @@ module Decidim
       def validate_integer_with_units_structure
         return unless type == :integer_with_units
 
-        errors.add(:default, :invalid) unless default_value.is_a?(Array) &&
+        errors.add(:default, :invalid) unless default_value.is_a?(::Array) &&
                                               default_value.size == 2 &&
                                               default_value[0].is_a?(Integer) &&
                                               build_units.include?(default_value[1])
