@@ -356,6 +356,7 @@ ca:
     application:
       document:
         download: Descarregar fitxer
+        visit_link: Visita l'enllaç
       documents:
         component_documents:
           dummy: Documents sobre components ficticis
@@ -879,6 +880,11 @@ ca:
         button: Deixar de seguir
         error: S'ha produït un error en deixar de seguir aquest recurs.
     forms:
+      attachment_link:
+        explanation: Guia per enllaços adjunts
+        help_messages:
+          - Només s'accepten format d'URL correctes.
+          - Tingues en compte que els enllaços han de ser públics perquè tots els participants hi puguin accedir.
       errors:
         decidim/user:
           password: La contrasenya és massa curta.
