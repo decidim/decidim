@@ -31,7 +31,7 @@ describe Decidim::NotificationActions::ButtonsCell, type: :cell do
     allow(notification.event_class_instance).to receive(:action_data).and_return(data)
   end
 
-  it "has a data associated" do
+  it "has data associated" do
     expect(my_cell.data).to eq(data)
     expect(my_cell.action_cell).to eq(action_cell)
   end
