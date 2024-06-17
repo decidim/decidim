@@ -102,6 +102,7 @@ describe "Admin manages participatory processes", versioning: true do
         expect(page).to have_content("Phases")
         expect(page).to have_content("Introduction")
       end
+
       visit decidim_admin.root_path
       expect(page).to have_content("created the #{translated(attributes[:title])} participatory process")
     end
