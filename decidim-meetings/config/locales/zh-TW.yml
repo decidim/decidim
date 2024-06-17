@@ -431,7 +431,6 @@ zh-TW:
         new_meeting_at_html: "<span>在 %{link} 新增會議</span>"
       layouts:
         live_event:
-          administrate: 管理員
           close: 關閉
           questions: 問題
       mailer:
