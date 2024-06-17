@@ -457,7 +457,6 @@ cs:
         new_meeting_at_html: "<span>Nové setkání v %{link}</span>"
       layouts:
         live_event:
-          administrate: Spravovat
           close: zavřít
           questions: Otázky
       mailer:
