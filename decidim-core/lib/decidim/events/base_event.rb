@@ -77,9 +77,10 @@ module Decidim
 
       def resource_text; end
 
-      # the cell that will be used to render the action
-      # if nil is returned, no action will be rendered
-      # Make it return with "decidim/notification_actions/buttons" in your event implementation to render the buttons cell
+      # The cell that will be used to render the action or nil if not action needs to be rendered.
+      #
+      # @return [nil] - if no action needs to be rendered
+      # @return [String] - if String, it is the cell to be rendered. Make it return with "decidim/notification_actions/buttons" in your event implementation to render the buttons cell
       def action_cell; end
 
       # the data that will be passed to the action cell
