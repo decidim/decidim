@@ -13,6 +13,11 @@ describe Decidim::NotificationCell, type: :cell do
   let(:component) { create(:component, manifest_name: "dummy", organization:) }
   let(:resource) { create(:dummy_resource, component:) }
 
+  it "has not action cell associated" do
+    expect(my_cell.action_class).to be_nil
+    expect(my_cell.action_cell).to be_nil
+  end
+
   context "when resource exists" do
     it "Resource title is present" do
       expect(my_cell.notification_title).to include("An event occurred")
