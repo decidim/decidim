@@ -42,6 +42,8 @@ module Decidim
       private
 
       def validate_settings
+        # cast_integer_with_units_params
+
         return unless errors.empty? && settings_errors_empty? # Preserves errors from custom validation methods
 
         attributes.each do |key, value|
@@ -65,6 +67,20 @@ module Decidim
                          step_settings.each_value.map(&:errors).all?(&:empty?)
                        end
         validations.all?
+      end
+
+      def cast_integer_with_units_params
+        settings.manifest.attributes.each do |key, attribute_definition|
+          next unless attribute_definition&.type == :integer_with_units
+
+          value = settings[key]
+          next unless value.is_a?(Hash)
+
+          settings[key] = [
+            value["0"].to_i,
+            value["1"].to_s
+          ]
+        end
       end
     end
   end

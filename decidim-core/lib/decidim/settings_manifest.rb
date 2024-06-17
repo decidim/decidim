@@ -70,6 +70,17 @@ module Decidim
             validates name, presence: true if attribute.required
             validates name, inclusion: { in: attribute.build_choices } if attribute.type == :enum
           end
+
+          next unless attribute.type == :integer_with_units
+
+          validates name, presence: true
+          validate do
+            value = send(name)
+            errors.add(name, :invalid) unless value.is_a?(Array) &&
+                                              value.size == 2 &&
+                                              value[0].is_a?(Integer) &&
+                                              attribute.build_units.include?(value[1])
+          end
         end
       end
 
@@ -91,7 +102,7 @@ module Decidim
       TYPES = {
         boolean: { klass: Boolean, default: false },
         integer: { klass: Integer, default: 0 },
-        integer_with_units: { klass: Array, default: [0,""] },
+        integer_with_units: { klass: Decidim::Attributes::IntegerWithUnits, default: [0, ""] },
         string: { klass: String, default: nil },
         float: { klass: Float, default: nil },
         text: { klass: String, default: nil },
@@ -113,9 +124,20 @@ module Decidim
       attribute :readonly
       attribute :choices
       attribute :units
+      attribute :item_classes, Array, default: []
       attribute :include_blank, Boolean, default: false
 
       validates :type, inclusion: { in: TYPES.keys }
+      validate :validate_integer_with_units_structure
+
+      def validate_integer_with_units_structure
+        return unless type == :integer_with_units
+
+        errors.add(:default, :invalid) unless default_value.is_a?(Array) &&
+                                              default_value.size == 2 &&
+                                              default_value[0].is_a?(Integer) &&
+                                              build_units.include?(default_value[1])
+      end
 
       def type_class
         TYPES[type][:klass]

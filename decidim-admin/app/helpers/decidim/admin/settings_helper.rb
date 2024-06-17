@@ -179,17 +179,18 @@ module Decidim
       # @option options [String] :label The label text for the field
       # @return [ActiveSupport::SafeBuffer] Rendered form field
       def integer_with_units(form, attribute, name, i18n_scope, options)
-        number_field_html = form.number_field(name, options.merge(label: false, value: form.object.send(name).first, name: "#{form.field_name(name)}[0]", style: "flex: 0 0 25%;"))
+        value = form.object.send(name).map(&:to_s)
+        number_value = value[0].to_i
+        unit_value = value[1]
+
+        number_field_html = form.number_field(name, options.merge(label: false,
+                                                                  value: number_value,
+                                                                  name: "#{form.field_name(name)}[0]",
+                                                                  style: "flex: 0 0 25%;"))
         select_field_html = form.select(name,
-                                        attribute.units.map { |unit| [t("#{name}_units.#{unit}", scope: i18n_scope), unit] },
-                                        {
-                                          label: false,
-                                          value: form.object.send(name).second
-                                        },
-                                        {
-                                          name: "#{form.field_name(name)}[1]",
-                                          style: "flex: 1 1 75%;"
-                                        })
+                                        attribute.build_units.map { |unit| [t("#{name}_units.#{unit}", scope: i18n_scope), unit] },
+                                        { label: false, value: unit_value },
+                                        { name: "#{form.field_name(name)}[1]", style: "flex: 1 1 75%;" })
 
         content_tag(:label, options[:label]) + content_tag(:div, number_field_html + select_field_html, class: "flex space-x-2 items-center")
       end

@@ -476,8 +476,9 @@ module Decidim
         return true if draft?
         return true if component.settings.proposal_edit_time == "infinite"
 
-        time_value = component.settings.proposal_edit_time_value
-        time_unit = component.settings.proposal_edit_time_unit
+        edit_time = component.settings.edit_time
+        time_value = edit_time[0]
+        time_unit = edit_time[1]
 
         limit_time = case time_unit
                      when "minutes"
@@ -490,7 +491,6 @@ module Decidim
 
         Time.current < limit_time
       end
-
 
       def process_amendment_state_change!
         return withdraw! if amendment.withdrawn?
