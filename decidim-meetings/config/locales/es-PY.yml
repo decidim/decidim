@@ -445,6 +445,7 @@ es-PY:
         new_meeting_at_html: "<span>Nueva reunión en %{link}</span>"
       layouts:
         live_event:
+          administrate: Administrar
           close: cerrar
           questions: Preguntas
       mailer:
