@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-shared_examples "manage posts" do
+# we really need the audit_check variable, as it seems that a process admin should not be able to see the admin logs
+# Therefore, as long we do have the logs checks in this shared example, we need to have the config flag.
+shared_examples "manage posts" do |audit_check: true|
   it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='post-body-tabs']", "full" do
     before do
       within "tr", text: translated(post1.title) do
@@ -32,8 +34,10 @@ shared_examples "manage posts" do
       expect(page).to have_content(translated(author.name))
     end
 
-    visit decidim_admin.root_path
-    expect(page).to have_content("updated the #{translated(attributes[:title])} blog post")
+    if audit_check == true
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the #{translated(attributes[:title])} blog post")
+    end
   end
 
   it "creates a new post", versioning: true do
