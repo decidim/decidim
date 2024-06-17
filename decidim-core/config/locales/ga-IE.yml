@@ -38,8 +38,6 @@ ga:
       actions:
         cancel: Cealaigh
     amendments:
-      compare_draft:
-        continue: Lean ar aghaidh
       edit_draft:
         send: Réamhamharc
       emendation:

@@ -119,9 +119,6 @@ sk:
             proposal_length: Maximálna dĺžka návrhu
             proposal_limit: Limit návrhu na užívateľa
             proposal_wizard_step_1_help_text: Pomocný text Sprievodcu "Vytvoriť" návrh
-            proposal_wizard_step_2_help_text: Pomocný text Sprievodcu "Porovnať" návrhu
-            proposal_wizard_step_3_help_text: Pomocný text Sprievodcu "Dokončiť" návrh
-            proposal_wizard_step_4_help_text: Pomocný text Sprievodcu "Publikovať" návrh
             resources_permissions_enabled: Pre každý návrh možno nastaviť povolenia akcie
             threshold_per_proposal: Maximálny limit na návrh
             vote_limit: Počet hlasov na užívateľa
@@ -532,13 +529,6 @@ sk:
         create:
           error: Pri hlasovaní o návrhu došlo k chybám.
       proposals:
-        compare:
-          continue: Pokračovať
-          no_similars_found: Výborne! Neboli nájdené žiadne podobné návrhy
-          title: Podobné návrhy
-        complete:
-          send: Poslať
-          title: Dokončite svoj návrh
         edit:
           attachment_legend: "(Voliteľné) Pridanie prílohy"
           back: Zadná
@@ -642,9 +632,6 @@ sk:
           back: Zadná
         wizard_steps:
           step_1: Vytvorte svoj návrh
-          step_2: Porovnajte
-          step_3: Kompletné
-          step_4: Publikujte svoj návrh
       proposals_picker:
         choose_proposals: Zvoliť návrhy
       publish:

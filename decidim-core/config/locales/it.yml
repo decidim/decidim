@@ -166,10 +166,6 @@ it:
         error: Si è verificato un errore durante la modifica di questa risorsa.
         promote_button: Promuovi a %{model_name}
         promote_confirm_text: Sei sicuro di voler promuovere questa emendazione?
-      compare_draft:
-        continue: Prosegui
-        no_similars_found: Nessun emendamento simile trovato.
-        title: Emendamenti simili
       created:
         error: Si è verificato un errore durante la creazione della proposta di emendamento.
         success: La proposta di emendamento è stata creata con successo.
@@ -218,9 +214,6 @@ it:
       wizard_step_form:
         steps:
           '1': Crea il tuo emendamento
-          '2': Confronta il tuo emendamento
-          '3': Completa il tuo emendamento
-          '4': Pubblica il tuo emendamento
     anonymous_user: Anonimo
     application:
       document:
@@ -693,7 +686,6 @@ it:
         default_page:
           content: "<p>In %{organization} puoi partecipare e decidere su diversi argomenti, attraverso gli spazi che vedi nel menu in alto: Processi, Assemblee, Iniziative, Consultazioni.</p> <p>All'interno di ognuna troverai diverse opzioni per partecipare: fare proposte - individualmente o con altre persone-, prendere parte ai dibattiti, dare la priorità ai progetti da attuare, partecipare alle riunioni faccia a faccia e altre azioni.</p>\n"
           title: Cosa posso fare in %{organization}?
-        title: Aiuto generale
     last_activities:
       all: Tutti i tipi di attività
       index:

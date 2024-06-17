@@ -17,6 +17,7 @@ export default function generateTimePicker(input, row, formats) {
   const clock = document.createElement("button");
   clock.innerHTML = icon("time-line")
   clock.setAttribute("class", "datepicker__clock-button");
+  clock.setAttribute("type", "button");
 
   timeColumn.appendChild(time);
   timeColumn.appendChild(clock);
@@ -34,10 +35,12 @@ export default function generateTimePicker(input, row, formats) {
   const hourUp = document.createElement("button");
   hourUp.setAttribute("class", "datepicker__hour-up");
   hourUp.innerHTML = icon("arrow-drop-up-line", {class: "w-10 h-6 pr-1"});
+  hourUp.setAttribute("type", "button");
 
   const hourDown = document.createElement("button");
   hourDown.setAttribute("class", "datepicker__hour-down");
   hourDown.innerHTML = icon("arrow-drop-down-line", {class: "w-10 h-6 pr-1"});
+  hourDown.setAttribute("type", "button");
 
   hourColumn.appendChild(hours);
   hourColumn.appendChild(hourUp);
@@ -54,10 +57,12 @@ export default function generateTimePicker(input, row, formats) {
   const minuteUp = document.createElement("button");
   minuteUp.setAttribute("class", "datepicker__minute-up");
   minuteUp.innerHTML = icon("arrow-drop-up-line", {class: "w-10 h-6 pr-1"});
+  minuteUp.setAttribute("type", "button");
 
   const minuteDown = document.createElement("button");
   minuteDown.setAttribute("class", "datepicker__minute-down");
   minuteDown.innerHTML = icon("arrow-drop-down-line", {class: "w-10 h-6 pr-1"});
+  minuteDown.setAttribute("type", "button");
 
   minuteColumn.appendChild(minutes);
   minuteColumn.appendChild(minuteUp);
@@ -140,14 +145,17 @@ export default function generateTimePicker(input, row, formats) {
   const closeClock = document.createElement("button");
   closeClock.innerText = i18n.close;
   closeClock.setAttribute("class", "datepicker__close-clock button button__transparent-secondary button__xs");
+  closeClock.setAttribute("type", "button");
 
   const resetClock = document.createElement("button");
   resetClock.innerText = i18n.reset;
   resetClock.setAttribute("class", "datepicker__reset-clock button button__xs button__text-secondary");
+  resetClock.setAttribute("type", "button");
 
   const selectClock = document.createElement("button");
   selectClock.innerText = i18n.select;
   selectClock.setAttribute("class", "datepicker__select-clock button button__secondary button__xs");
+  selectClock.setAttribute("type", "button");
 
   timePicker.appendChild(resetClock);
   timePicker.appendChild(selectClock);

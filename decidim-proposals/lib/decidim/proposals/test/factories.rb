@@ -163,10 +163,10 @@ FactoryBot.define do
       end
     end
 
-    trait :with_can_accumulate_supports_beyond_threshold do
+    trait :with_can_accumulate_votes_beyond_threshold do
       settings do
         {
-          can_accumulate_supports_beyond_threshold: true
+          can_accumulate_votes_beyond_threshold: true
         }
       end
     end

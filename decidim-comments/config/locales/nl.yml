@@ -60,7 +60,6 @@ nl:
         deleted_user: Verwijderde deelnemer
         edit: Bewerk
         edited: Bewerkt
-        hide_replies: Antwoorden verbergen
         moderated_at: Reactie gemodereerd op %{date}
         reply: Antwoord
         report:

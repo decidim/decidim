@@ -39,6 +39,13 @@ module Decidim
             toggle_allow(can_close_meeting?)
           when :register
             toggle_allow(can_register_invitation_meeting?)
+          when :reply_poll
+            toggle_allow(can_reply_poll?)
+          end
+        when :poll
+          case permission_action.action
+          when :update
+            toggle_allow(can_update_poll?)
           end
         else
           return permission_action
@@ -110,6 +117,19 @@ module Decidim
       def can_register_invitation_meeting?
         meeting.can_register_invitation?(user) &&
           authorized?(:register, resource: meeting)
+      end
+
+      def can_reply_poll?
+        meeting.present? &&
+          meeting.poll.present? &&
+          authorized?(:reply_poll, resource: meeting)
+      end
+
+      def can_update_poll?
+        user.present? &&
+          user.admin? &&
+          meeting.present? &&
+          meeting.poll.present?
       end
 
       def can_answer_question?

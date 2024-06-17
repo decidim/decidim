@@ -391,7 +391,6 @@ zh-TW:
           body: 會議<a href="%{meeting_path}">"%{meeting_title}"</a>等待關閉，請使用“關閉會議”按鈕添加會議報告。
           greetings: 問候,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: 哈囉，%{username}！
-          subject: 您現在可以在 %{organization_name} 平台上透過報告結束您的會議。
       conference_venues: 會議場地
       content_blocks:
         upcoming_meetings:

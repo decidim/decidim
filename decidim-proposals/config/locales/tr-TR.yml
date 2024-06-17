@@ -147,9 +147,6 @@ tr:
             proposal_length: Maksimum teklif gövdesi uzunluğu
             proposal_limit: Katılımcı başına teklif sınırı
             proposal_wizard_step_1_help_text: Teklif sihirbazı "Oluştur" adımı yardım metni
-            proposal_wizard_step_2_help_text: Teklif sihirbazı "Karşılaştır" adımı yardım metni
-            proposal_wizard_step_3_help_text: Teklif sihirbazı "Tamamlandı" adımı yardım metni
-            proposal_wizard_step_4_help_text: Teklif sihirbazı "Yayınla" adımı yardım metni
             resources_permissions_enabled: Her teklif için işlem izinleri ayarlanabilir
             scope_id: Kapsam
             scopes_enabled: Kapsamlar etkinleştirildi
@@ -605,13 +602,6 @@ tr:
         create:
           error: Teklifi destekleyen bir sorun vardı.
       proposals:
-        compare:
-          continue: Devam et
-          no_similars_found: Aferin! Benzer teklif bulunamadı
-          title: Benzer teklifler
-        complete:
-          send: Gönder
-          title: Teklifinizi tamamlayın
         edit:
           attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
           back: Geri
@@ -711,15 +701,9 @@ tr:
         wizard_aside:
           back: Geri
           back_from_step_1: Teklifte geri dön
-          back_from_step_2: Tekliflere geri dön
-          back_from_step_3: Teklifleri karşılaştırmaya geri dön
-          back_from_step_4: Taslağı düzenlemeye dön
         wizard_steps:
           current_step: Geçerli adım
           step_1: Teklifinizi oluşturun
-          step_2: Karşılaştırmak
-          step_3: Tamamlayınız
-          step_4: Teklifinizi yayınlayın
           title: Teklif oluşturma adımları
       proposals_picker:
         choose_proposals: Teklifleri seçin

@@ -257,10 +257,6 @@ hu:
         promote_button: Kezdeményezze a %{model_name}
         promote_confirm_text: Biztos benne, hogy támogatni kívánja ezt a helyreigazítást?
         promote_help_text: Támogathatja ezt a helyesbítést, valamint közzéteheti azt független %{model_name} elemként.
-      compare_draft:
-        continue: Tovább
-        no_similars_found: Nem találtunk hasonló szövegjavítást.
-        title: Hasonló szövegjavítások
       created:
         error: A módosító javaslat tervezet létrehozása során hiba történt.
         success: A módosító javaslat tervezet sikeresen létrejött.
@@ -318,9 +314,6 @@ hu:
       wizard_step_form:
         steps:
           '1': Készítse el a módosítását
-          '2': Módosításod összehasonlítása
-          '3': Módosításod befejezése
-          '4': Módosításod publikálása
     anonymous_user: Névtelen
     application:
       document:
@@ -961,7 +954,6 @@ hu:
           content: "<p>Az %{organization} -ben részt vehetsz és dönthetsz különböző témákban a főmenüben megjelenő mezőkön keresztül: Folyamatok, Gyűlések, Kezdeményezések, Konzultációk.</p> <p>Mindegyikben megtalálja a különböző lehetőségeket a részvételre: készítsen javaslatokat - egyénileg vagy más emberekkel -, vegyél részt vitákban, fontold meg a végrehajtandó projekteket, vegyél részt személyes találkozókon és egyéb tevékenységekben.</p>\n"
           title: Mit tehetek a %{organization} szervezetben?
         description: További információ a %{organization} szervezetről.
-        title: Általános segítség
     last_activities:
       all: Valamennyi tevékenységtípus
       index:
@@ -1341,7 +1333,6 @@ hu:
           past: Múlt
       filters_small_view:
         filter: Szűrés
-        filter_and_search: Szűrés és keresés
         filter_by: 'Szűrés ez alapján:'
       results:
         view_all: Összes megtekintése (%{count})
@@ -1811,7 +1802,6 @@ hu:
         made_with_open_source: Az oldal <a target="_blank" href="https://github.com/decidim/decidim">nyílt forráskódú szoftverrel</a> készült.
         resources: Segédanyagok
         sign_up: Regisztráció
-        terms_and_conditions: Általános Szerződési Feltételek
       header:
         log_in: Bejelentkezés
         main_menu: Főmenü

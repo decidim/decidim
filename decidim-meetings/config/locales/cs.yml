@@ -435,7 +435,7 @@ cs:
           body: Schůzka <a href="%{meeting_path}">"%{meeting_title}"</a> čeká na ukončení. Přidejte prosím zprávu o schůzce pomocí tlačítka "Zavřít schůzku".
           greetings: Dobrý den,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Dobrý den %{username},
-          subject: Nyní můžete svou schůzku uzavřít se zprávou o platformě %{organization_name}
+          subject: Nyní můžete schůzku "%{meeting_title}" ukončit s hlášením
       conference_venues: Konferenční prostory
       content_blocks:
         upcoming_meetings:

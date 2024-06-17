@@ -167,16 +167,12 @@
         name: Ansvarlighet
         settings:
           global:
-            categories_label: Navn på "Kategorier"
             comments_enabled: Kommentarer aktivert
             comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
             display_progress_enabled: Vis fremgang
-            heading_leaf_level_results: Navn på "Prosjekter"
-            heading_parent_level_results: Navn på "Resultater"
             intro: Introduksjon
             scope_id: Tema
             scopes_enabled: Temaer aktivert
-            subcategories_label: Navn på "Underkategorier"
           step:
             comments_blocked: Kommentarer blokkert
     events:

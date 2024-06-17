@@ -62,7 +62,6 @@
   decidim:
     admin:
       actions:
-        manage: Administrer
         new_initiative_type: Ny intiativtype
       filters:
         initiatives:
@@ -84,7 +83,6 @@
       menu:
         attachments: Vedlegg
         committee_members: Utvalgets medlemmer
-        components: Komponenter
         information: Informasjon
         initiatives: Initiativer
         initiatives_settings: Innstillinger

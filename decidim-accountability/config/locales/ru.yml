@@ -131,13 +131,9 @@ ru:
         name: Отчетность
         settings:
           global:
-            categories_label: Название для "Категории"
             comments_enabled: Комментарии включены
             display_progress_enabled: Показывать ход выполнения
-            heading_leaf_level_results: Название для "Проекты"
-            heading_parent_level_results: Название для "Итоги"
             intro: Вступление
-            subcategories_label: Название для "Подкатегории"
           step:
             comments_blocked: Комментарии отключены
     events:

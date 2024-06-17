@@ -314,10 +314,6 @@ lt:
           few: "%{count} pataisos"
           many: "%{count} pataisos"
           other: "%{count} pataisos"
-      compare_draft:
-        continue: Tęsti
-        no_similars_found: Panašių pataisymų nerasta.
-        title: Panašūs pataisymai
       created:
         error: Kuriant pakeitimo juodraštį įvyko klaida.
         success: Pakeitimo juodraštis sukurtas.
@@ -373,9 +369,6 @@ lt:
       wizard_step_form:
         steps:
           '1': Sukurkite savo pataisą
-          '2': Palyginkite savo pataisą
-          '3': Užbaikite savo pataisą
-          '4': Paskalbkite savo pataisą
     anonymous_user: Anonimas
     application:
       document:
@@ -1044,7 +1037,6 @@ lt:
           content: "<p>%{organization} galite dalyvauti ir spręsti dėl įvairių temų pasinaudodami puslapiais, kuriuos matote viršutiniame meniu: „Procesai“, „Asamblėjos“, „Iniciatyvos“, „Konsultacijos“.</p> <p>Kiekviename iš jų rasite įvairių dalyvavimo galimybių: individualiai arba su kitais žmonėmis teikti pasiūlymus, dalyvauti diskusijose, nustatyti, kurie įgyvendintini projektai, yra prioritetiniai, dalyvauti tiesioginiuose susitikimuose ir kituose veiksmuose.</p>\n"
           title: Ką galiu daryti %{organization}?
         description: Daugiau informacijos apie %{organization}.
-        title: Bendroji Pagalba
     last_activities:
       all: Visos veiklos rūšys
       index:
@@ -1435,7 +1427,6 @@ lt:
           past: Praėję
       filters_small_view:
         filter: Filtruoti
-        filter_and_search: Filtruoti ir ieškoti
         filter_by: Filtruoti pagal
       results:
         view_all: Peržiūrėti viską (%{count})
@@ -1876,7 +1867,6 @@ lt:
         made_with_open_source: Interneto svetainė sukurta naudojant <a target="_blank" href="https://github.com/decidim/decidim">atvirą programinę įrangą</a>.
         resources: Ištekliai
         sign_up: Registruotis
-        terms_and_conditions: Nuostatos ir sąlygos
       header:
         main_menu: Pagrindinis meniu
         user_menu: Naudotojo meniu

@@ -324,10 +324,6 @@ cs:
           few: "%{count} pozměňovací návrhy"
           many: "%{count} pozměňovacích návrhů"
           other: "%{count} pozměňovacích návrhů"
-      compare_draft:
-        continue: Pokračovat
-        no_similars_found: Nebyly nalezeny žádné podobné vylepšení.
-        title: Podobná vylepšení
       created:
         error: Při vytváření pozměňovacího návrhu došlo k chybě.
         success: Pozměňovací návrh byl úspěšně vytvořen.
@@ -386,9 +382,6 @@ cs:
       wizard_step_form:
         steps:
           '1': Vytvořte svůj pozměňovací návrh
-          '2': Porovnejte váš pozměňovací návrh
-          '3': Dokončete váš pozměňovací návrh
-          '4': Zveřejněte svůj pozměňovací návrh
     anonymous_user: Anonymní
     application:
       document:
@@ -1082,7 +1075,6 @@ cs:
           content: "<p>v %{organization} se můžete zúčastnit a rozhodnout se o různých tématech přes místa, která vidíte v horním menu: procesy, shromáždění, iniciativy, konzultace.</p> <p>V rámci každé z nich najdete různé možnosti účasti: učinit návrhy - jednotlivě nebo s jinými lidmi -, účastnit se debat, upřednostňovat realizaci projektů, účastnit se osobních setkání a dalších akcí.</p>\n"
           title: Co mohu udělat v %{organization}?
         description: Přečtěte si více o %{organization}.
-        title: Obecná nápověda
     last_activities:
       all: Všechny typy aktivit
       index:
@@ -1485,7 +1477,6 @@ cs:
           past: Minulé
       filters_small_view:
         filter: Filtr
-        filter_and_search: Filtrovat a hledat
         filter_by: Filtrovat podle
       results:
         view_all: Zobrazit všechny (%{count})
@@ -1978,7 +1969,6 @@ cs:
         made_with_open_source: Webová stránka vytvořená s <a target="_blank" href="https://github.com/decidim/decidim">svobodným softwarem</a>.
         resources: Zdroje
         sign_up: Registrovat
-        terms_and_conditions: Podmínky používání
       header:
         log_in: Přihlásit
         main_menu: Hlavní menu

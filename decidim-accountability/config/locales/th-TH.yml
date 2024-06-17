@@ -1,1 +1,210 @@
 th:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: สถานะ
+        decidim_category_id: หมวดหมู่
+        decidim_scope_id: ขอบเขต
+        description: คำอธิบาย
+        end_date: วันสิ้นสุด
+        meetings_ids: รวมการประชุม
+        progress: ความคืบหน้า
+        project_ids: รวมโครงการ
+        proposals: รวมข้อเสนอ
+        start_date: วันที่เริ่มต้น
+        title: ชื่อ
+        updated_at: อัปเดตที่
+      status:
+        description: คำอธิบาย
+        key: สำคัญ
+        name: ชื่อ
+        progress: ความคืบหน้า
+      timeline_entry:
+        description: คำอธิบาย
+        entry_date: วันที่
+        title: ชื่อ
+    models:
+      decidim/accountability/proposal_linked_event: ข้อเสนอที่รวมอยู่ในผลลัพธ์
+      decidim/accountability/result_progress_updated_event: อัปเดตความคืบหน้าของผลลัพธ์แล้ว
+  activerecord:
+    models:
+      decidim/accountability/result:
+        other: ผลลัพธ์
+  decidim:
+    accountability:
+      actions:
+        attachment_collections: โฟลเดอร์
+        attachments: ไฟล์แนบ
+        confirm_destroy: คุณแน่ใจหรือไม่ว่าต้องการลบ %{name} นี้
+        destroy: ลบ
+        edit: แก้ไข
+        import: นำเข้าโครงการจากส่วนประกอบอื่น
+        import_csv: นำเข้าผลลัพธ์จากไฟล์ CSV
+        new_result: ผลลัพธ์ใหม่
+        new_status: สถานะใหม่
+        new_timeline_entry: รายการไทม์ไลน์ใหม่
+        preview: ดูตัวอย่าง
+        timeline_entries: วิวัฒนาการของโครงการ
+        title: การดำเนินการ
+      admin:
+        exports:
+          result_comments: ความคิดเห็น
+          results: ผลลัพธ์
+        import_results:
+          new:
+            download_export: ดาวน์โหลดการส่งออกด้วยรูปแบบ CSV
+            import: นำเข้า
+            info: |
+              <p>เราขอแนะนำให้คุณทำตามขั้นตอนเหล่านี้:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>สร้างสถานะสำหรับผลลัพธ์</a> ที่คุณต้องการเพิ่ม</li>
+              <li><a href='%{link_new_result}' target='_blank'>สร้างผลลัพธ์อย่างน้อยหนึ่งรายการด้วยตนเอง</a>ผ่านแผงการดูแลระบบนี้ก่อนที่จะใช้การนำเข้า เพื่อให้มีความเข้าใจที่ดีขึ้นเกี่ยวกับรูปแบบและสิ่งที่คุณต้องการ เพื่อกรอก</li>
+              <li>%{link_export_csv}</li>
+              <li>ทำการเปลี่ยนแปลงภายในเครื่อง คุณสามารถเปลี่ยนได้เฉพาะคอลัมน์ต่อไปนี้ของ CSV:
+                <ul>
+                <li><b>category/id:</b> รหัสสำหรับหมวดหมู่</li>
+                <li><b>ขอบเขต/id:</b> ID สำหรับขอบเขต</li>
+                <li><b>parent/id:</b> ID ของ parent (สำหรับผลลัพธ์ที่เกี่ยวข้อง) ไม่บังคับ</li>
+                <li><b>title/en:</b> ชื่อเรื่องเป็นภาษาอังกฤษ ขึ้นอยู่กับการกำหนดค่าภาษาแพลตฟอร์มของคุณ</li>
+                <li><b>description/en:</b> คำอธิบายเป็นภาษาอังกฤษ ขึ้นอยู่กับการกำหนดค่าภาษาแพลตฟอร์มของคุณ</li>
+                <li><b>start_date:</b> วันที่ผลลัพธ์เริ่มดำเนินการ (รูปแบบ YYYY-MM-DD)</li>
+                <li><b>end_date:</b> วันที่ผลลัพธ์สิ้นสุดการดำเนินการ (รูปแบบ YYYY-MM-DD)</li>
+                <li><b>status/id:</b> ID ของสถานะของผลลัพธ์นี้</li>
+                <li><b>ความคืบหน้า:</b> เปอร์เซ็นต์ (ตั้งแต่ 0 ถึง 100) ของการดำเนินการ</li>
+                <li><b>proposals_ids:</b> ID ภายในของข้อเสนอที่เกี่ยวข้อง (คั่นด้วยเครื่องหมายจุลภาค) จะถูกแปลงเป็น <span class='attribute-name'>proposal_url</span></li> โดยอัตโนมัติ
+                </ul>
+              </li>
+              </ol>
+            title: นำเข้าผลลัพธ์จากไฟล์ CSV
+        imports:
+          create:
+            invalid: เกิดปัญหาในการนำเข้าผลลัพธ์
+            success: ไฟล์ได้เริ่มนำเข้าแล้ว คุณจะได้รับอีเมลแจ้งผลการนำเข้าในอีกไม่กี่นาทีข้างหน้า
+        models:
+          result:
+            name: ผลลัพธ์
+          status:
+            name: สถานะ
+        projects_import:
+          create:
+            invalid: เกิดปัญหาในการนำเข้าโปรเจ็กต์ไปยังผลลัพธ์ โปรดปฏิบัติตามคำแนะนำอย่างละเอียด และตรวจสอบให้แน่ใจว่าคุณได้เลือกโปรเจ็กต์สำหรับนำไปใช้งาน
+          new:
+            create: นำเข้า
+            import_all_selected_projects: นำเข้าโครงการทั้งหมดที่เลือกเพื่อนำไปใช้งาน
+            new_items:
+              other: "โครงการที่เลือกจะถูกนำเข้า"
+            no_components: ไม่มีองค์ประกอบด้านงบประมาณในพื้นที่แบบมีส่วนร่วมนี้เพื่อนำเข้าโครงการเข้าสู่ผลลัพธ์d
+            origin_component_id: ส่วนประกอบต้นกำเนิด
+            select_component: เลือกส่วนประกอบ
+            success:
+              other: "มี 1 โปรเจ็กต์อยู่ในคิวที่จะนำเข้า คุณจะได้รับแจ้งทางอีเมลเมื่อดำเนินการเสร็จสิ้น"
+            title: นำเข้าโครงการจากส่วนประกอบอื่น
+        results:
+          create:
+            invalid: เกิดปัญหาในการสร้างผลลัพธ์นี้
+            success: สร้างผลลัพธ์สำเร็จแล้ว
+          destroy:
+            success: ลบผลลัพธ์เรียบร้อยแล้ว
+          edit:
+            title: แก้ไขผลลัพธ์
+            update: อัพเดทผลครับ
+          index:
+            title: ผลลัพธ์
+          new:
+            create: สร้างผลลัพธ์
+            title: ผลลัพธ์ใหม่
+          update:
+            invalid: เกิดปัญหาในการอัปเดตผลลัพธ์นี้
+            success: อัปเดตผลลัพธ์เรียบร้อยแล้ว
+        shared:
+          subnav:
+            statuses: สถานะ
+        statuses:
+          create:
+            invalid: เกิดปัญหาในการสร้างสถานะนี้
+            success: สร้างสถานะเรียบร้อยแล้ว
+          destroy:
+            success: ลบสถานะเรียบร้อยแล้ว
+          edit:
+            title: แก้ไขสถานะ
+            update: อัพเดตสถานะ
+          index:
+            title: สถานะ
+          new:
+            create: Create status
+            title: สถานะใหม่
+          update:
+            invalid: เกิดปัญหาในการอัปเดตสถานะนี้
+            success: อัปเดตสถานะสำเร็จแล้ว
+        timeline_entries:
+          create:
+            invalid: เกิดปัญหาในการสร้างรายการนี้
+      results:
+        home:
+          categories_label: หมวดหมู่
+          empty: ยังไม่มีผลลัพธ์
+          empty_filters: ไม่มีผลลัพธ์ตามเกณฑ์นี้
+          subcategories_label: หมวดหมู่ย่อย
+        home_header:
+          global_status: สถานะการดำเนินการทั่วโลก
+        nav_breadcrumb:
+          global: การดำเนินการระดับโลก
+        no_results: ไม่มีโครงการ
+        search:
+          search: ค้นหาการกระทำ
+        show:
+          stats:
+            back_to_resource: กลับไปหาผลลัพธ์
+        timeline:
+          title: วิวัฒนาการของโครงการ
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: หมวดหมู่
+          scope_id_eq:
+            label: ขอบเขต
+          status_id_eq:
+            label: สถานะ
+    components:
+      accountability:
+        actions:
+          comment: ความคิดเห็น
+        name: ความรับผิดชอบ
+        settings:
+          global:
+            comments_enabled: เปิดใช้งานความคิดเห็นแล้ว
+            comments_max_length: ความคิดเห็นความยาวสูงสุด (ปล่อยให้ 0 เป็นค่าเริ่มต้น)
+            display_progress_enabled: แสดงความคืบหน้า
+            intro: คำแนะนำ
+            scope_id: ขอบเขต
+            scopes_enabled: เปิดใช้งานขอบเขตแล้ว
+          step:
+            comments_blocked: ความคิดเห็นถูกบล็อก
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'ข้อเสนอ "%{proposal_title}" ถูกรวมไว้ในผลลัพธ์แล้ว คุณสามารถดูได้จากหน้านี้:'
+          email_outro: คุณได้รับการแจ้งเตือนนี้เนื่องจากคุณกำลังติดตาม "%{proposal_title}" คุณสามารถหยุดรับการแจ้งเตือนได้ตามลิงก์ก่อนหน้า
+          email_subject: การอัปเดตเป็น %{proposal_title}
+          notification_title: ข้อเสนอ <a href="%{proposal_path}">%{proposal_title}</a> ถูกรวมไว้ในผลลัพธ์ <a href="%{resource_path}">%{resource_title}</a> แล้ว
+        result_progress_updated:
+          email_intro: 'ผลลัพธ์ "%{resource_title}" ซึ่งรวมถึงข้อเสนอ "%{proposal_title}" ขณะนี้เสร็จสมบูรณ์แล้ว %{progress}% คุณสามารถดูได้จากหน้านี้:'
+          email_outro: คุณได้รับการแจ้งเตือนนี้เนื่องจากคุณกำลังติดตาม "%{proposal_title}" และข้อเสนอนี้รวมอยู่ในผลลัพธ์ "%{resource_title}" คุณสามารถหยุดรับการแจ้งเตือนได้ตามลิงก์ก่อนหน้า
+          email_subject: การอัปเดตความคืบหน้าของ %{resource_title}
+          notification_title: ผลลัพธ์ <a href="%{resource_path}">%{resource_title}</a> ซึ่งรวมถึงข้อเสนอ <a href="%{proposal_path}">%{proposal_title}</a> อยู่ในขณะนี้ %{ ความคืบหน้า}% เสร็จสมบูรณ์
+    metrics:
+      results:
+        description: จำนวนผลลัพธ์ที่สร้างขึ้น
+        object: ผลลัพธ์
+        title: ผลลัพธ์
+    participatory_spaces:
+      highlighted_results:
+        see_all: ดูผลทั้งหมด
+    resource_links:
+      included_projects:
+        result_project: โครงการที่รวมอยู่ในผลลัพธ์นี้
+      included_proposals:
+        result_proposal: โครงการที่รวมอยู่ในผลลัพธ์นี้
+    statistics:
+      results_count: ผลลัพธ์
