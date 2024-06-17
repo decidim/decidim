@@ -178,7 +178,7 @@ describe "Admin manages proposals states" do
 
         expect(page).to have_css("[data-announcement-preview]", style: "background-color: rgb(255, 252, 229); color: rgb(154, 103, 0); border-color: #9A6700/var(--tw-border-opacity);")
         within "[data-announcement-preview]" do
-          # text_copy.js implements a change event that updates the label. The fill_in_i18n is "changing" the fields, and the "ca" locale is the last one that one that's being changed
+          # text_copy.js implements a change event that updates the label. The fill_in_i18n is "changing" the fields, and the "ca" locale is the last one that one that is being changed
           expect(page).to have_content(translated(attributes[:announcement_title], locale: "ca"))
         end
         find("*[type=submit]").click
