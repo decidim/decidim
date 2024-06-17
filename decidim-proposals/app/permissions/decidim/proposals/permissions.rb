@@ -164,6 +164,7 @@ module Decidim
       def apply_proposal_coauthor_invites(permission_action)
         return toggle_allow(false) unless coauthor
         return toggle_allow(false) unless proposal
+        return toggle_allow(false) unless proposal.authors.include?(user)
 
         case permission_action.action
         when :invite
@@ -188,17 +189,12 @@ module Decidim
       end
 
       def valid_coauthor?
-        return false unless proposal.authors.include?(user)
-        return false if proposal.authors.include?(coauthor)
-        return false if coauthor&.blocked?
-        return false if coauthor&.deleted?
-        return false unless coauthor&.confirmed?
+        return false unless proposal.actions_for_author?(coauthor)
 
         coauthor_in_comments?
       end
 
       def can_be_coauthor?
-        return false if proposal.authors.include?(coauthor)
         return false unless user == coauthor
 
         proposal.coauthor_invitations_for(coauthor.id).any?
