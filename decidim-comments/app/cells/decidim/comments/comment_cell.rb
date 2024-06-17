@@ -99,6 +99,7 @@ module Decidim
           ].tap do |link|
             link[2][:method] = action[:method] if action[:method].present?
             link[2][:remote] = action[:remote] if action[:remote].present?
+            link[2][:data] = action[:data] if action[:data].present?
           end
         end
       end

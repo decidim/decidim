@@ -32,7 +32,7 @@ module Decidim
       end
 
       def resource_url
-        notifications_path
+        notifications_url(host: resource.organization.host)
       end
 
       private

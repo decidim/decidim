@@ -390,12 +390,14 @@ en:
       actions:
         answer_proposal: Answer proposal
         cancel_coauthor_invitation: Cancel co-author invitation
+        cancel_coauthor_invitation_confirm: Are you sure you want to cancel the co-author invitation?
         delete_proposal_state_confirm: Are you sure you want to delete this state?
         destroy: Delete state
         edit_proposal: Edit proposal
         edit_proposal_state: Edit state
         import: Import proposals from another component
         mark_as_coauthor: Mark as co-author
+        mark_as_coauthor_confirm: Are you sure you want to mark this user as a co-author? The receiver will receive a notification to accept or decline the invitation.
         new: New proposal
         new_proposal_state: New status
         participatory_texts: Participatory texts
