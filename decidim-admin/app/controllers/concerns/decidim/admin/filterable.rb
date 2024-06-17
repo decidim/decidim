@@ -68,6 +68,12 @@ module Decidim
           end
         end
 
+        # This method takes the query used by filter and selects the id of
+        # each item of the filtered collection (this extra select id avoids
+        # some errors where the SQL of the filtered collection query uses
+        # aliases and the id is not available in the result) and uses the lag
+        # and lead window functions which returns the previous and next ids in
+        # the query
         def adjacent_items(item)
           query =
             <<-SQL.squish
