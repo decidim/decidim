@@ -379,7 +379,6 @@ pt:
         new_meeting_at_html: "<span>Nova reunião em %{link}</span>"
       layouts:
         live_event:
-          administrate: Administradores
           close: Fechar
           questions: Pergunta
       mailer:
