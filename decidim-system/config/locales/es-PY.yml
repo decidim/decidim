@@ -67,6 +67,7 @@ es-PY:
         show:
           admins: Administradoras
           current_organizations: Organizaciones actuales
+          system_checks: Comprobación del sistema
       default_pages:
         placeholders:
           content: Agrega contenido significativo a la página estática de %{page} en el panel de admin.
@@ -268,6 +269,14 @@ es-PY:
         organizations_list:
           confirm_resend_invitation: '¿Seguro que quieres reenviar la invitación?'
           resend_invitation: Reenviar la invitación
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Documentación sobre Decidim
+          error: La cola de ActiveJob no está configurada. Esta no es una configuración recomendada para el entrono de producción. Leer más en %{error_extra}.
+          success: La cola de ActiveJob está configurada correctamente.
+        secret_key:
+          error: 'La clave secreta no está definida correctamente. Por favor, guárdala en la variable de entorno: SECRET_KEY_BASE, y reinicie el servidor: leer más en %{error_extra}.'
+          success: La clave secreta está configurada correctamente.
       titles:
         dashboard: Panel de control
         decidim: Decidim
