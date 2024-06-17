@@ -4,9 +4,10 @@ module Decidim
   module Proposals
     class CoauthorInvitedEvent < Decidim::Events::SimpleEvent
       include Decidim::Events::CoauthorEvent
+      include Decidim::Core::Engine.routes.url_helpers
 
       def action_cell
-        "decidim/notification_actions/buttons" if coauthor
+        "decidim/notification_actions/buttons" if uuid
       end
 
       def action_data
@@ -26,16 +27,12 @@ module Decidim
         ]
       end
 
-      def coauthor_id
-        extra["coauthor_id"]
-      end
-
       def uuid
         extra["uuid"]
       end
 
-      def coauthor
-        @coauthor ||= Decidim::User.find_by(id: coauthor_id, organization:)
+      def resource_url
+        notifications_path
       end
 
       private

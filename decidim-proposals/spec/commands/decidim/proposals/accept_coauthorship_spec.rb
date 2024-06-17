@@ -9,7 +9,7 @@ module Decidim
 
       let(:coauthor) { create(:user, organization: proposal.organization) }
       let(:notification) do
-        create(:notification, event_class: "Decidim::Proposals::CoauthorInvitedEvent", extra: { uuid: "some-uuid", coauthor_id: coauthor&.id, other: "Other data" })
+        create(:notification, event_class: "Decidim::Proposals::CoauthorInvitedEvent", user: coauthor, extra: { uuid: "some-uuid", other: "Other data" })
       end
 
       let(:command) { described_class.new(proposal, coauthor, notification) }

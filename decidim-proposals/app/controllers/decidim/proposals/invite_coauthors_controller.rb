@@ -43,9 +43,9 @@ module Decidim
 
       # accept invitation
       def update
-        enforce_permission_to :accept, :proposal_coauthor_invites, { proposal:, coauthor: }
+        enforce_permission_to :accept, :proposal_coauthor_invites, { proposal: }
 
-        AcceptCoauthorship.call(proposal, coauthor, notification) do
+        AcceptCoauthorship.call(proposal, current_user, notification) do
           on(:ok) do
             render json: { message: I18n.t("update.success", scope: "decidim.proposals.invite_coauthors") }
           end
@@ -58,9 +58,9 @@ module Decidim
 
       # decline invitation
       def destroy
-        enforce_permission_to :decline, :proposal_coauthor_invites, { proposal:, coauthor: }
+        enforce_permission_to :decline, :proposal_coauthor_invites, { proposal: }
 
-        RejectCoauthorship.call(proposal, coauthor, notification) do
+        RejectCoauthorship.call(proposal, current_user, notification) do
           on(:ok) do
             render json: { message: I18n.t("destroy.success", scope: "decidim.proposals.invite_coauthors") }
           end
@@ -78,7 +78,7 @@ module Decidim
       end
 
       def coauthor
-        @coauthor ||= Decidim::User.find(params[:coauthor_id].presence || notification&.extra&.[]("coauthor_id"))
+        @coauthor ||= Decidim::User.find(params[:coauthor_id])
       end
 
       def proposal

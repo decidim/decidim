@@ -272,7 +272,7 @@ module Decidim
 
       describe "#coauthor_invitations_for" do
         let!(:notification) do
-          create(:notification, event_class: "Decidim::Proposals::CoauthorInvitedEvent", resource: proposal, extra: { coauthor_id: coauthor.id })
+          create(:notification, event_class: "Decidim::Proposals::CoauthorInvitedEvent", resource: proposal, user: coauthor)
         end
         let(:coauthor) { create(:user, organization:) }
 
@@ -288,7 +288,7 @@ module Decidim
 
         context "when the user the notification is for another event" do
           let!(:notification) do
-            create(:notification, event_class: "Decidim::Proposals::AnotherEvent", resource: proposal, extra: { coauthor_id: coauthor.id })
+            create(:notification, event_class: "Decidim::Proposals::AnotherEvent", resource: proposal, user: coauthor)
           end
 
           it "returns empty" do
@@ -315,7 +315,7 @@ module Decidim
 
         context "when the author has already been invited" do
           let!(:notification) do
-            create(:notification, event_class: "Decidim::Proposals::CoauthorInvitedEvent", resource: proposal, extra: { coauthor_id: comment.author.id })
+            create(:notification, event_class: "Decidim::Proposals::CoauthorInvitedEvent", resource: proposal, user: comment.author)
           end
 
           it "returns actions to remove the co-author invitation" do

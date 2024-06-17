@@ -36,7 +36,6 @@ module Decidim
               resource: proposal,
               affected_users: [coauthor],
               extra: {
-                coauthor_id: coauthor.id,
                 uuid: "#{proposal.organization.id}-123"
               }
             )

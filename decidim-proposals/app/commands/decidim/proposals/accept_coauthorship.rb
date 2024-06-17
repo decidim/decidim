@@ -26,7 +26,6 @@ module Decidim
         return broadcast(:invalid) if @proposal.authors.include?(@coauthor)
 
         @notification.extra.delete("uuid")
-        @notification.extra.delete("coauthor_id")
         begin
           transaction do
             @proposal.add_coauthor(@coauthor)

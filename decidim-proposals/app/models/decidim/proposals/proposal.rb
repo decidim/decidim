@@ -524,8 +524,8 @@ module Decidim
         end
       end
 
-      def coauthor_invitations_for(coauthor_id)
-        Decidim::Notification.where(event_class: "Decidim::Proposals::CoauthorInvitedEvent", resource: self).where("extra->>'coauthor_id' = ?", coauthor_id.to_s)
+      def coauthor_invitations_for(user)
+        Decidim::Notification.where(event_class: "Decidim::Proposals::CoauthorInvitedEvent", resource: self, user:)
       end
 
       private

@@ -291,18 +291,18 @@ describe Decidim::Proposals::Permissions do
     it_behaves_like "coauthor is invitable"
 
     context "when a notification for the coauthor already exists" do
-      let!(:notification) { create(:notification, :proposal_coauthor_invite, coauthor_id: coauthor.id) }
+      let!(:notification) { create(:notification, :proposal_coauthor_invite, user: coauthor) }
 
       it { is_expected.to be true }
     end
 
     context "when notification exists for the same proposal" do
-      let!(:notification) { create(:notification, :proposal_coauthor_invite, coauthor_id: coauthor.id, resource: proposal) }
+      let!(:notification) { create(:notification, :proposal_coauthor_invite, user: coauthor, resource: proposal) }
 
       it { is_expected.to be false }
     end
 
-    context "when notification is for another coauthor" do
+    context "when notification is for another user" do
       let!(:notification) { create(:notification, :proposal_coauthor_invite, resource: proposal) }
 
       it { is_expected.to be true }
@@ -312,7 +312,7 @@ describe Decidim::Proposals::Permissions do
       let(:action) do
         { scope: :public, action: :cancel, subject: :proposal_coauthor_invites }
       end
-      let!(:notification) { create(:notification, :proposal_coauthor_invite, resource: proposal, coauthor_id: coauthor.id) }
+      let!(:notification) { create(:notification, :proposal_coauthor_invite, resource: proposal, user: coauthor) }
 
       it_behaves_like "coauthor is invitable"
     end
@@ -324,7 +324,7 @@ describe Decidim::Proposals::Permissions do
     end
     let(:user) { create(:user, :confirmed, organization: proposal.organization) }
     let(:coauthor) { user }
-    let!(:notification) { create(:notification, :proposal_coauthor_invite, resource: proposal, coauthor_id: coauthor.id) }
+    let!(:notification) { create(:notification, :proposal_coauthor_invite, resource: proposal, user: coauthor) }
 
     shared_examples "can accept coauthor" do
       it { is_expected.to be true }
@@ -350,7 +350,7 @@ describe Decidim::Proposals::Permissions do
       end
 
       context "when notification is not for the same proposal" do
-        let!(:notification) { create(:notification, :proposal_coauthor_invite, coauthor_id: coauthor.id) }
+        let!(:notification) { create(:notification, :proposal_coauthor_invite, user: coauthor) }
 
         it { is_expected.to be false }
       end
