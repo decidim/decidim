@@ -56,7 +56,7 @@
 
               <% if allowed_to? :update, :conference_speaker, speaker: speaker %>
                 <% if speaker.published? %>
-                  <%= icon_link_to "close-circle-line", unpublish_conference_speaker_path(current_conference, speaker.id), t("actions.unpublish", scope: "decidim.admin"), method: :put, class: "action-icon--unpublish", data: { confirm: t("actions.unpublish", scope: "decidim.admin") } %>
+                  <%= icon_link_to "close-circle-line", unpublish_conference_speaker_path(current_conference, speaker.id), t("actions.unpublish", scope: "decidim.admin"), method: :put, class: "action-icon--unpublish" %>
                 <% else %>
                   <%= icon_link_to "check-line", publish_conference_speaker_path(current_conference, speaker.id), t("actions.publish", scope: "decidim.admin"), method: :put, class: "action-icon--publish" %>
                 <% end %>

@@ -73,9 +73,7 @@ describe "Conference speakers" do
       click_on "Speakers"
       within all(".table-list__actions").first do
         expect(page).to have_link("Unpublish")
-        accept_confirm do
-          click_link_or_button "Unpublish"
-        end
+        click_link_or_button "Unpublish"
       end
     end
 
