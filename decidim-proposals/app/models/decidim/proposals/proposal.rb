@@ -490,18 +490,18 @@ module Decidim
         end
       end
 
-      def actions_for_author?(author)
-        return false unless authors.include?(author)
-        return false if author&.blocked?
-        return false if author&.deleted?
-        return false unless author&.confirmed?
+      def user_has_actions?(user)
+        return false if authors.include?(user)
+        return false if user&.blocked?
+        return false if user&.deleted?
+        return false unless user&.confirmed?
 
         true
       end
 
       def actions_for_comment(comment)
         return if comment.commentable != self
-        return unless actions_for_author?(comment.author)
+        return unless user_has_actions?(comment.author)
 
         if coauthor_invitations_for(comment.author.id).any?
           [

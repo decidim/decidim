@@ -298,7 +298,9 @@ module Decidim
       end
 
       describe "#actions_for_comment" do
-        let(:comment) { create(:comment, commentable: proposal) }
+        let(:proposal) { create(:proposal, component:) }
+        let(:author) { create(:user, :confirmed, organization: component.organization) }
+        let(:comment) { create(:comment, author:, commentable: proposal) }
 
         it "returns actions to invite the comment author as a co-author" do
           expect(proposal.actions_for_comment(comment)).to eq([

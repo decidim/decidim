@@ -39,7 +39,7 @@ module Decidim
       describe "email_outro" do
         it "is generated correctly" do
           expect(subject.email_outro)
-            .to eq("You have received this notification because the author of the proposal wants to reconize your contributions by inviting you to be a co-author.")
+            .to eq("You have received this notification because the author of the proposal wants to recognize your contributions by inviting you to be a co-author.")
         end
       end
 
