@@ -350,6 +350,7 @@ ignore_unused:
   - layouts.decidim.assemblies.promoted_assembly.take_part
   - versions.dropdown.option_*
   - decidim.meetings.meetings.filters.*
+  - decidim.meetings.polls.questions.index_admin.statuses.{closed,published,unpublished}
   - decidim.meetings.directory.meetings.index.space_type
   - decidim.authorization_modals.content.*
   - time.buttons.*

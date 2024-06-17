@@ -2,22 +2,22 @@
 
 require "spec_helper"
 
-describe "Meeting live event poll answer" do
+describe "Meeting poll answer" do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
-  let(:user2) do
+  let(:user) do
     create(:user,
            :confirmed,
            organization:)
   end
 
   let(:meeting) { create(:meeting, :published, :online, :live, component:) }
-  let(:meeting_live_event_path) do
-    decidim_participatory_process_meetings.meeting_live_event_path(
+  let(:meeting_path) do
+    decidim_participatory_process_meetings.meeting_path(
       participatory_process_slug: participatory_process.slug,
       component_id: component.id,
-      meeting_id: meeting.id
+      id: meeting.id
     )
   end
   let(:body_multiple_option_question) do
@@ -37,9 +37,13 @@ describe "Meeting live event poll answer" do
   let!(:poll) { create(:poll, meeting:) }
   let!(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
 
-  before do
-    login_as user, scope: :user
-    visit meeting_live_event_path
+  context "when there are no questions" do
+    it "does not show a link to reply poll" do
+      login_as user, scope: :user
+      visit meeting_path
+
+      expect(page).to have_no_content("Reply poll")
+    end
   end
 
   context "when all questions are unpublished" do
@@ -47,12 +51,16 @@ describe "Meeting live event poll answer" do
     let!(:question_single_option) { create(:meetings_poll_question, :unpublished, questionnaire:, body: body_single_option_question, question_type: "single_option") }
 
     before do
-      visit meeting_live_event_path
+      login_as user, scope: :user
+      visit meeting_path
+      within("[aria-label='aside']") do
+        click_link_or_button "Reply poll"
+      end
     end
 
     it "does not list any question" do
-      click_on "Questions (0)"
       expect(page.all(".meeting-polls__question--admin").size).to eq(0)
+      expect(page).to have_content("some questions will be sent")
     end
   end
 
@@ -61,11 +69,15 @@ describe "Meeting live event poll answer" do
     let!(:question_single_option) { create(:meetings_poll_question, :published, questionnaire:, body: body_single_option_question, question_type: "single_option") }
 
     before do
-      visit meeting_live_event_path
+      login_as user, scope: :user
+      visit meeting_path
+      within("[aria-label='aside']") do
+        click_link_or_button "Reply poll"
+      end
     end
 
     it "allows to reply a question" do
-      click_on "Questions (2)"
+      sleep(2)
       open_first_question
 
       check question_multiple_option.answer_options.first.body["en"]
@@ -75,7 +87,6 @@ describe "Meeting live event poll answer" do
     end
 
     it "does not allow selecting two single options" do
-      click_on "Questions (2)"
       find("details[data-question='#{question_single_option.id}']").click
 
       choose question_single_option.answer_options.first.body["en"]
@@ -88,14 +99,15 @@ describe "Meeting live event poll answer" do
     end
 
     it "does not allow selecting more than the maximum choices for multiple options" do
-      click_on "Questions (2)"
+      sleep(2)
       open_first_question
 
       check question_multiple_option.answer_options.first.body["en"]
       check question_multiple_option.answer_options.second.body["en"]
       check question_multiple_option.answer_options.third.body["en"]
 
-      expect(page).to have_content("There are too many choices selected")
+      click_on "Reply question"
+      expect(page).to have_content("You can choose a maximum of 2.")
     end
   end
 
@@ -105,11 +117,14 @@ describe "Meeting live event poll answer" do
     let!(:answer_choice_user1) { create(:meetings_poll_answer_choice, answer: answer_user1) }
 
     before do
-      visit meeting_live_event_path
+      login_as user, scope: :user
+      visit meeting_path
+      within("[aria-label='aside']") do
+        click_link_or_button "View poll"
+      end
     end
 
     it "shows the responses" do
-      click_on "Questions (1)"
       open_first_question
 
       expect(page).to have_content("0%")
@@ -124,6 +139,6 @@ describe "Meeting live event poll answer" do
   end
 
   def open_first_question
-    page.first(".meeting-polls__question").click
+    find(".meeting-polls__question", match: :first).click
   end
 end
