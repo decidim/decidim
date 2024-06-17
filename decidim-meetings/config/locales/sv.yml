@@ -419,7 +419,6 @@ sv:
         new_meeting_at_html: "<span>Nytt möte på %{link}</span>"
       layouts:
         live_event:
-          administrate: Administrera
           close: stäng
           questions: Frågor
       mailer:
