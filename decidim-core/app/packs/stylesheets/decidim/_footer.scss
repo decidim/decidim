@@ -3,7 +3,7 @@ footer {
     @apply bg-gray-4;
 
     &__top {
-      @apply flex flex-col lg:flex-row gap-8 container py-10;
+      @apply hidden flex flex-col lg:flex-row lg:block gap-8 container py-10;
     }
 
     &__down {
