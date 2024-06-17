@@ -232,7 +232,6 @@ end
 ----
 
 
-
 == Testing notifications
 
 * Test that the event has been published (usually a command test)
