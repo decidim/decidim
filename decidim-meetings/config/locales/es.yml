@@ -146,6 +146,7 @@ es:
         actions:
           comment: Comentar
           join: Unirse
+          reply_poll: Responder al sondeo/consulta en directo
         name: Encuentros
         settings:
           global:
@@ -362,6 +363,13 @@ es:
           update:
             invalid: Se ha producido un error al actualizar esta encuesta.
             success: Encuesta actualizada correctamente.
+        poll:
+          form:
+            announcement_html:
+              - Cuando una pregunta recibe respuestas o está publicada/cerrada, ya no se puede editar.
+              - Puedes añadir una pregunta en cualquier momento.
+              - El sondeo/consulta en directo se cerrará cuando se hayan publicado los resultados de todas las preguntas creadas.
+              - Visita la <a href='%{admin_link}'>página de administración de encuestas</a> para enviar preguntas y publicar resultados.
         registrations:
           edit:
             save: Guardar
@@ -440,6 +448,7 @@ es:
       iframe_embed_type:
         embed_in_meeting_page: Incrustar en la página del encuentro
         none: Ninguno
+        open_in_live_event_page: Abrir en la página del evento en directo
         open_in_new_tab: Abrir en nueva pestaña
       last_activity:
         meeting_updated: 'Encuentro actualizado:'
@@ -527,6 +536,8 @@ es:
           edit_close_meeting: Editar el informe del encuentro
           edit_meeting: Editar el encuentro
           join_meeting: Unirse al encuentro
+          reply_poll: Responder sondeo/consulta
+          view_poll: Ver sondeo/consulta
         meetings:
           no_meetings_warning: No hay encuentros que coincidan con tu búsqueda o no hay ningún encuentro programado.
           upcoming_meetings_warning: Actualmente no hay encuentros programados, pero puedes ver los anteriores.
@@ -585,7 +596,19 @@ es:
             start_time: Fecha de inicio
             title: Título
       polls:
+        answers:
+          index:
+            administrate: Administrar
+            title: Sondeo/Consulta en directo
+          index_admin:
+            back_to_meeting: Volver al encuentro
+            title: Administrar sondeo/consulta en directo
+            view_poll: Ver sondeo/consulta
         questions:
+          closed_question:
+            announcement: Se han cerrado las respuestas a esta pregunta.
+            question: Pregunta
+            question_results: Resultados
           index:
             empty_questions: A lo largo de este encuentro, se enviarán algunas preguntas y podrás responderlas. Se mostrarán aquí.
           index_admin:
@@ -596,6 +619,10 @@ es:
             results: Resultados
             send: Enviar
             sent: Enviada
+            statuses:
+              closed: Resultados enviados (cerrados)
+              published: Enviada (abierta)
+              unpublished: Pendiente de enviar
           published_question:
             max_choices_alert: Hay demasiadas opciones seleccionadas
             question: Pregunta
