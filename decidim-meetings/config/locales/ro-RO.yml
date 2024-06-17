@@ -391,7 +391,6 @@ ro:
         new_meeting: 'Ședință nouă:'
       layouts:
         live_event:
-          administrate: Administrează
           close: închide
           questions: Întrebări
       mailer:
