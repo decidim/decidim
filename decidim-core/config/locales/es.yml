@@ -356,6 +356,7 @@ es:
     application:
       document:
         download: Descargar archivo
+        visit_link: Visita el enlace
       documents:
         component_documents:
           dummy: Documentos de componentes ficticios
@@ -879,6 +880,11 @@ es:
         button: Dejar de seguir
         error: Se ha producido un error al dejar de seguir este recurso.
     forms:
+      attachment_link:
+        explanation: Guía para enlaces adjuntos
+        help_messages:
+          - Solo se aceptan formatos de URL correctos.
+          - Ten en cuenta que los enlaces deben ser públicos para que todos los participantes puedan acceder a ellos.
       errors:
         decidim/user:
           password: La contraseña es demasiado corta.
