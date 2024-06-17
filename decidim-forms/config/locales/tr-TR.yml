@@ -16,7 +16,6 @@ tr:
           attributes:
             choices:
               missing: tamamlanmadı
-              too_many: çok fazla
   decidim:
     forms:
       admin:
