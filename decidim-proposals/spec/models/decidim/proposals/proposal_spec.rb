@@ -269,6 +269,65 @@ module Decidim
           expect(results).to eq([assigned_proposal])
         end
       end
+
+      describe "#coauthor_invitations_for" do
+        let!(:notification) do
+          create(:notification, event_class: "Decidim::Proposals::CoauthorInvitedEvent", resource: proposal, extra: { coauthor_id: coauthor.id })
+        end
+        let(:coauthor) { create(:user, organization:) }
+
+        it "returns the coauthor invitations for the given user" do
+          expect(proposal.coauthor_invitations_for(coauthor.id)).to eq([notification])
+        end
+
+        context "when the user has not been invited" do
+          it "returns empty" do
+            expect(proposal.coauthor_invitations_for(create(:user).id)).to be_empty
+          end
+        end
+
+        context "when the user the notification is for another event" do
+          let!(:notification) do
+            create(:notification, event_class: "Decidim::Proposals::AnotherEvent", resource: proposal, extra: { coauthor_id: coauthor.id })
+          end
+
+          it "returns empty" do
+            expect(proposal.coauthor_invitations_for(coauthor.id)).to be_empty
+          end
+        end
+      end
+
+      describe "#actions_for_comment" do
+        let(:comment) { create(:comment, commentable: proposal) }
+
+        it "returns actions to invite the comment author as a co-author" do
+          expect(proposal.actions_for_comment(comment)).to eq([
+                                                                {
+                                                                  label: "Mark as co-author",
+                                                                  url: EngineRouter.main_proxy(component).proposal_invite_coauthors_path(proposal_id: proposal.id, coauthor_id: comment.author.id),
+                                                                  icon: "user-add-line",
+                                                                  method: :post
+                                                                }
+                                                              ])
+        end
+
+        context "when the author has already been invited" do
+          let!(:notification) do
+            create(:notification, event_class: "Decidim::Proposals::CoauthorInvitedEvent", resource: proposal, extra: { coauthor_id: comment.author.id })
+          end
+
+          it "returns actions to remove the co-author invitation" do
+            expect(proposal.actions_for_comment(comment)).to eq([
+                                                                  {
+                                                                    label: "Cancel co-author invitation",
+                                                                    url: EngineRouter.main_proxy(component).cancel_proposal_invite_coauthors_path(proposal_id: proposal.id, coauthor_id: comment.author.id),
+                                                                    icon: "user-forbid-line",
+                                                                    method: :delete
+                                                                  }
+                                                                ])
+          end
+        end
+      end
     end
   end
 end

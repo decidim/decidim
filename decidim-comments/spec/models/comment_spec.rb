@@ -322,6 +322,24 @@ module Decidim
           end
         end
       end
+
+      describe "#extra_actions" do
+        it "returns nil" do
+          expect(comment.extra_actions).to be_nil
+        end
+
+        context "when the root commentable provides actions" do
+          let(:actions) { "Some actions" }
+
+          before do
+            allow(commentable).to receive(:actions_for_comment).with(comment).and_return(actions)
+          end
+
+          it "returns the actions" do
+            expect(comment.extra_actions).to eq(actions)
+          end
+        end
+      end
     end
   end
 end

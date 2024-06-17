@@ -27,9 +27,13 @@ module Decidim
 
         @notification.extra.delete("uuid")
         @notification.extra.delete("coauthor_id")
-        transaction do
-          @proposal.add_coauthor(@coauthor)
-          @notification.save!
+        begin
+          transaction do
+            @proposal.add_coauthor(@coauthor)
+            @notification.save!
+          end
+        rescue ActiveRecord::RecordInvalid
+          return broadcast(:invalid)
         end
 
         broadcast(:ok)
