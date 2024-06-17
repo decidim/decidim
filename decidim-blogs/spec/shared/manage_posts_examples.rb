@@ -32,10 +32,8 @@ shared_examples "manage posts" do
       expect(page).to have_content(translated(author.name))
     end
 
-    if audit_check == true
-      visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(attributes[:title])} blog post")
-    end
+    visit decidim_admin.root_path
+    expect(page).to have_content("updated the #{translated(attributes[:title])} blog post")
   end
 
   it "creates a new post", versioning: true do
