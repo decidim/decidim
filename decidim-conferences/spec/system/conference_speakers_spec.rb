@@ -31,7 +31,7 @@ describe "Conference speakers" do
   end
 
   context "when there are some published conference speakers" do
-    let!(:conference_speakers) { create_list(:conference_speaker, 2, conference:) }
+    let!(:conference_speakers) { create_list(:conference_speaker, 2, :published, conference:) }
 
     before do
       visit decidim_conferences.conference_conference_speakers_path(conference)
