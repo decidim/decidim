@@ -263,9 +263,10 @@ bg:
         tab_panels_context_description: Този компонент на панела с раздели събира цялото свързано съдържание или други ресурси на основния показан елемент, за да спести вертикално пространство. Щракването върху раздела ще активира създадения панел за показване на съдържанието.
         tab_panels_context_description_html: Основно се използва в рамките на <i>layout_item</i> или <i>layout_center</i>, след основното съдържание на ресурса.
         tab_panels_usage_description: 'Този компонент получава масив от хешове и пренарежда изхода на всеки елемент в структура на панел с раздели. Налични свойства за всеки панел:'
-        tab_panels_usage_description_arguments_html: "<strong>args</strong>: <i>Масив</i>. Аргументи за предишния метод"
-        tab_panels_usage_description_html: "<strong>активирано</strong>: <i>Булев</i>. Условно изобразяване на раздела"
-        tab_panels_usage_description_id_html: "<strong>id</strong>: <i>Низ</i>. Уникален идентификатор"
+        tab_panels_usage_description_arguments_html: "<strong>args</strong>: <i>Array</i>. Аргументи за предишния метод"
+        tab_panels_usage_description_html: "<strong>активирано</strong>: <i>Boolean</i>. Условно изобразяване на раздела"
+        tab_panels_usage_description_id_html: "<strong>id</strong>: <i>String</i>. Уникално ID"
+        tab_panels_usage_description_rails_html: "<strong>method</strong>: <i>Symbol</i>. Всяка функция, която платформата (ruby on rails) може да интерпретира"
         usage_base_1: Главен навигационен компонент background\nNav менюта в началната страница и началната страница на пространството
         usage_base_2: Основен цвят за линкове и бутони
         usage_base_3: Графични орнаменти и акцент color\nCards и списък с бордър елементи при mouce over
