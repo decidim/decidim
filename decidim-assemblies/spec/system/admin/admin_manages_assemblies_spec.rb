@@ -93,6 +93,7 @@ describe "Admin manages assemblies" do
         expect(page).to have_current_path decidim_admin_assemblies.assemblies_path(q: { parent_id_eq: parent_assembly&.id })
         expect(page).to have_content(translated(attributes[:title]))
       end
+
       visit decidim_admin.root_path
       expect(page).to have_content("created the #{translated(attributes[:title])} assembly")
     end

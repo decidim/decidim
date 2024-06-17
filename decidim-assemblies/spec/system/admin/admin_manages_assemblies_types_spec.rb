@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages assemblies" do
+describe "Admin manages assemblies types" do
   let(:admin) { create(:user, :admin, :confirmed) }
   let(:organization) { admin.organization }
   let(:attributes) { attributes_for(:assemblies_type) }

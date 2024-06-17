@@ -19,7 +19,6 @@ describe Decidim::Proposals::AdminLog::ValueTypes::ProposalTitleBodyPresenter, t
       "es" => "My title in Spanish"
     }
   end
-  # let(:_helpers) { nil }
 
   describe "#present" do
     it "handles i18n fields" do
