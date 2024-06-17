@@ -48,7 +48,7 @@ describe Decidim::NotificationActions::ButtonsCell, type: :cell do
   context "when no data" do
     let(:data) { "" }
 
-    it "does not render the callout" do
+    it "does not render the buttons" do
       expect(subject.text).to be_blank
     end
   end
