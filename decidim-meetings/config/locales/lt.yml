@@ -451,7 +451,6 @@ lt:
         new_meeting_at_html: "<span>Naujas susirinkimas %{link}</span>"
       layouts:
         live_event:
-          administrate: Administruoti
           close: uždaryti
           questions: Klausimai
       mailer:
