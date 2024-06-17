@@ -38,7 +38,7 @@ describe "Admin edits proposals" do
 
       within_window preview_window do
         expect(page).to have_content(translated(attributes[:title]))
-        expect(page).to have_content(translated(attributes[:body]))
+        expect(page).to have_content(strip_tags(translated(attributes[:body])).strip)
       end
 
       expect(page).to have_admin_callout("successfully")
