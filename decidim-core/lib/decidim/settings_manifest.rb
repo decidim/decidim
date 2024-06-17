@@ -71,21 +71,26 @@ module Decidim
             validates name, inclusion: { in: attribute.build_choices } if attribute.type == :enum
           end
 
-          next unless attribute.type == :integer_with_units
-
-          validate do
-            value = send(name)
-
-            errors.add(name, :invalid) unless value.is_a?(::Array) &&
-                                              value.size == 2 &&
-                                              value[0].is_a?(Integer) &&
-                                              attribute.build_units.include?(value[1])
-          end
+          SettingsManifest.add_integer_with_units_validation(self, name, attribute) if attribute.type == :integer_with_units
         end
       end
 
       @schema.manifest = self
       @schema
+    end
+
+    def self.add_integer_with_units_validation(schema, name, attribute)
+      schema.class_eval do
+        validate do
+          value = send(name)
+          value = [value["0"].to_i, value["1"].to_s] if value.is_a?(::Hash)
+
+          errors.add(name, :invalid) unless value.is_a?(::Array) &&
+                                            value.size == 2 &&
+                                            value[0].is_a?(Integer) &&
+                                            attribute.build_units.include?(value[1])
+        end
+      end
     end
 
     def required_attributes_for_authorization

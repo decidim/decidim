@@ -145,8 +145,8 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
       it_behaves_like "has mandatory config setting", :minimum_votes_per_user
     end
 
-    context "when proposal_edit_before_minutes is empty" do
-      it_behaves_like "has mandatory config setting", :proposal_edit_before_minutes
+    context "when proposal_edit_time is empty" do
+      it_behaves_like "has mandatory config setting", :edit_time
     end
 
     context "when comments_max_length is empty" do
