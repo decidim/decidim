@@ -42,8 +42,6 @@ module Decidim
       private
 
       def validate_settings
-        # cast_integer_with_units_params
-
         return unless errors.empty? && settings_errors_empty? # Preserves errors from custom validation methods
 
         attributes.each do |key, value|

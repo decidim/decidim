@@ -181,8 +181,6 @@ module Decidim
       def integer_with_units(form, attribute, name, i18n_scope, options)
         value = form.object.send(name)
 
-        # value = [value["0"], value["1"]] if value.is_a?(Hash)
-
         number_value = value[0].to_i
         unit_value = value[1].to_s
 
