@@ -65,6 +65,7 @@ shared_examples "manage registration types examples" do
       within "#registration_types table" do
         expect(page).to have_content(translated(attributes[:title]))
       end
+
       visit decidim_admin.root_path
       expect(page).to have_content("updated the #{translated(registration_type.title)} registration type")
     end

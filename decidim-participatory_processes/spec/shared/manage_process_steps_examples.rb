@@ -82,6 +82,7 @@ shared_examples "manage process steps examples" do
       expect(page).to have_content(translated(attributes[:title]))
       click_on(translated(attributes[:title]))
     end
+
     visit decidim_admin.root_path
     expect(page).to have_content("updated the #{translated(attributes[:title])} phase in")
   end

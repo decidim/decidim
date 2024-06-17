@@ -72,6 +72,7 @@ shared_examples "manage process admins examples" do
       within "#process_admins table" do
         expect(page).to have_content("Administrator")
       end
+
       visit decidim_admin.root_path
       expect(page).to have_content("changed the role of the participant #{other_user.name} in the #{translated(participatory_process.title)} participatory process")
     end

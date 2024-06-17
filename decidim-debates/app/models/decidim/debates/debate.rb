@@ -56,7 +56,7 @@ module Decidim
       }
       scope_search_multi :with_any_state, [:open, :closed]
 
-      # Returns the presenter for this author, to be used in the views.
+      # Returns the presenter for this debate, to be used in the views.
       # Required by ResourceRenderer.
       def presenter
         Decidim::Debates::DebatePresenter.new(self)
