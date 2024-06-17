@@ -445,7 +445,6 @@ eu:
         new_meeting_at_html: "<span>Bilera berria %{link}</span>"
       layouts:
         live_event:
-          administrate: Administratu
           close: itxi
           questions: Galderak
       mailer:
