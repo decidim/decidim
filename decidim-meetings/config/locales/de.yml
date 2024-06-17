@@ -437,6 +437,7 @@ de:
         new_meeting: 'Neue Veranstaltung:'
       layouts:
         live_event:
+          administrate: Bearbeiten
           close: Schließen
           questions: Fragen
       mailer:
