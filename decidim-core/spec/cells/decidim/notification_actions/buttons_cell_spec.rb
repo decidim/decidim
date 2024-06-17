@@ -31,7 +31,7 @@ describe Decidim::NotificationActions::ButtonsCell, type: :cell do
     allow(notification.event_class_instance).to receive(:action_data).and_return(data)
   end
 
-  it "has a data associated" do
+  it "has data associated" do
     expect(my_cell.data).to eq(data)
     expect(my_cell.action_cell).to eq(action_cell)
   end
@@ -48,7 +48,7 @@ describe Decidim::NotificationActions::ButtonsCell, type: :cell do
   context "when no data" do
     let(:data) { "" }
 
-    it "does not render the callout" do
+    it "does not render the buttons" do
       expect(subject.text).to be_blank
     end
   end
@@ -66,7 +66,7 @@ describe Decidim::NotificationActions::ButtonsCell, type: :cell do
       ]
     end
 
-    it "renders the callout" do
+    it "renders the buttons" do
       expect(subject).to have_link(count: 1)
       expect(subject).to have_link(text: "Accept", href: "/accept", class: "button button__sm button__primary")
       expect(subject).to have_css("[data-notification-action=button]")
@@ -85,7 +85,7 @@ describe Decidim::NotificationActions::ButtonsCell, type: :cell do
       ]
     end
 
-    it "renders the callout" do
+    it "renders the button" do
       expect(subject).to have_link(text: "Home", href: "/home", class: "button button__sm button__transparent-secondary")
     end
   end

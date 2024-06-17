@@ -360,6 +360,7 @@ en:
     application:
       document:
         download: Download file
+        visit_link: Visit link
       documents:
         component_documents:
           dummy: Dummy component documents
@@ -887,6 +888,11 @@ en:
         button: Stop following
         error: There was a problem unfollowing this resource.
     forms:
+      attachment_link:
+        explanation: Guidance for attachment links
+        help_messages:
+        - Only correct URL formats are accepted.
+        - Please note that the links must be public so that all participants can access them.
       errors:
         decidim/user:
           password: The password is too short.

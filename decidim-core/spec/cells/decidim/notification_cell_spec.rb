@@ -13,11 +13,6 @@ describe Decidim::NotificationCell, type: :cell do
   let(:component) { create(:component, manifest_name: "dummy", organization:) }
   let(:resource) { create(:dummy_resource, component:) }
 
-  it "has not action cell associated" do
-    expect(my_cell.action_class).to be_nil
-    expect(my_cell.action_cell).to be_nil
-  end
-
   context "when resource exists" do
     it "Resource title is present" do
       expect(my_cell.notification_title).to include("An event occurred")
@@ -44,23 +39,25 @@ describe Decidim::NotificationCell, type: :cell do
     end
   end
 
-  context "when action exist" do
-    let(:action_cell) { "decidim/notification_actions/buttons" }
-
+  describe "#action_cell" do
     before do
       allow(notification.event_class_instance).to receive(:action_cell).and_return(action_cell)
       allow(notification.event_class_instance).to receive(:action_data).and_return([{ url: "http://example.com", label: "Some label" }])
     end
 
-    it "Action is present" do
-      expect(my_cell.action_class).to eq("Decidim::NotificationActions::ButtonsCell")
-      expect(my_cell.action_cell).to eq("decidim/notification_actions/buttons")
+    context "when action cell exists" do
+      let(:action_cell) { "decidim/notification_actions/buttons" }
+
+      it "is present" do
+        expect(my_cell.action_class).to eq("Decidim::NotificationActions::ButtonsCell")
+        expect(my_cell.action_cell).to eq("decidim/notification_actions/buttons")
+      end
     end
 
-    context "and cell does not exist" do
+    context "when action cell does not exist" do
       let(:action_cell) { "not_existing" }
 
-      it "Action is present" do
+      it "is not present" do
         expect(my_cell.action_cell).to be_nil
       end
     end

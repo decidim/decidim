@@ -4,15 +4,15 @@ module Decidim
   module Forms
     # This command is executed when the user answers a Questionnaire.
     class AnswerQuestionnaire < Decidim::Command
+      delegate :current_user, to: :form
       include ::Decidim::MultipleAttachmentsMethods
 
       # Initializes a AnswerQuestionnaire Command.
       #
       # form - The form from which to get the data.
       # questionnaire - The current instance of the questionnaire to be answered.
-      def initialize(form, current_user, questionnaire)
+      def initialize(form, questionnaire)
         @form = form
-        @current_user = current_user
         @questionnaire = questionnaire
       end
 
@@ -34,7 +34,7 @@ module Decidim
         end
       end
 
-      attr_reader :form, :questionnaire, :current_user
+      attr_reader :form, :questionnaire
 
       private
 
@@ -82,7 +82,7 @@ module Decidim
         Answer.transaction(requires_new: true) do
           form.responses_by_step.flatten.select(&:display_conditions_fulfilled?).each do |form_answer|
             answer = Answer.new(
-              user: @current_user,
+              user: current_user,
               questionnaire: @questionnaire,
               question: form_answer.question,
               body: form_answer.body,
