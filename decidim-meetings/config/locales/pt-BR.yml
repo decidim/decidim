@@ -437,7 +437,6 @@ pt-BR:
         new_meeting: 'Nova reunião:'
       layouts:
         live_event:
-          administrate: Administrar
           close: fechar
           questions: Perguntas
       mailer:
