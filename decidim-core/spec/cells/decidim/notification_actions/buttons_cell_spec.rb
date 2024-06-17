@@ -66,7 +66,7 @@ describe Decidim::NotificationActions::ButtonsCell, type: :cell do
       ]
     end
 
-    it "renders the callout" do
+    it "renders the buttons" do
       expect(subject).to have_link(count: 1)
       expect(subject).to have_link(text: "Accept", href: "/accept", class: "button button__sm button__primary")
       expect(subject).to have_css("[data-notification-action=button]")
