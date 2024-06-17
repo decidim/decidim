@@ -21,7 +21,6 @@ eu:
               too_long: luzeegia da
             choices:
               missing: ez dira osatu
-              too_many: gehiegi dira
         questionnaire:
           request_invalid: Errore bat egon da eskaera bidaltzean. Mesedez, saiatu berriro.
   decidim:
