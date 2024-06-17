@@ -86,9 +86,10 @@ $(() => {
 
     $("#js-bulk-actions-dropdown ul li button").click(function (e) {
       $("#js-bulk-actions-dropdown").removeClass("is-open");
+      hideBulkActionForms();
 
       let action = $(e.target).data("action");
-      const newActions = [
+      const panelActions = [
         "assign-proposals-to-valuator",
         "unassign-proposals-from-valuator"
       ];
@@ -97,7 +98,7 @@ $(() => {
         return;
       }
 
-      if (newActions.includes(action)) {
+      if (panelActions.includes(action)) {
         $(`#js-form-${action}`).submit(function () {
           $(".layout-content > div[data-callout-wrapper]").html("");
         });
