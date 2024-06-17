@@ -85,7 +85,7 @@ describe Decidim::NotificationActions::ButtonsCell, type: :cell do
       ]
     end
 
-    it "renders the callout" do
+    it "renders the button" do
       expect(subject).to have_link(text: "Home", href: "/home", class: "button button__sm button__transparent-secondary")
     end
   end
