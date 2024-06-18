@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="comment__content">
-    <%= simple_format proposal_note.body %>
+    <%= simple_format proposal_note.formatted_body %>
   </div>
   <% reply_id = "note#{proposal_note.id}-reply" %>
   <%= render partial: "decidim/proposals/admin/proposal_notes/proposal_note_reply", collection: proposal_note.replies %>

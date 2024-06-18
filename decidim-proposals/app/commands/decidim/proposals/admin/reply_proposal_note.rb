@@ -5,6 +5,8 @@ module Decidim
     module Admin
       # A command with all the business logic when an admin creates a private note proposal reply.
       class ReplyProposalNote < Decidim::Command
+        include ProposalNotesMethods
+
         # Public: Initializes the command.
         #
         # form   - A form object with the params.
@@ -26,6 +28,7 @@ module Decidim
 
           create_proposal_note_reply
           notify_admins_and_valuators
+          notify_mentioned_users
 
           broadcast(:ok, proposal_note)
         end
@@ -43,7 +46,7 @@ module Decidim
             ProposalNote,
             form.current_user,
             {
-              body: form.body,
+              body: rewritten_body,
               proposal:,
               parent:,
               author: form.current_user

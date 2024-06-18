@@ -22,6 +22,10 @@ module Decidim
       def reply?
         parent.present?
       end
+
+      def formatted_body
+        Decidim::ContentProcessor.render_without_format(body)
+      end
     end
   end
 end
