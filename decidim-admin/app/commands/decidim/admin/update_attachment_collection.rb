@@ -4,14 +4,14 @@ module Decidim
   module Admin
     # A command with all the business logic when updating an attachment collection.
     class UpdateAttachmentCollection < Decidim::Command
+      delegate :current_user, to: :form
       # Public: Initializes the command.
       #
       # attachment_collection - The AttachmentCollection to update
       # form - A form object with the params.
-      def initialize(attachment_collection, form, user)
+      def initialize(attachment_collection, form)
         @attachment_collection = attachment_collection
         @form = form
-        @user = user
       end
 
       # Executes the command. Broadcasts these events:
