@@ -87,6 +87,7 @@ describe "Meeting poll answer" do
     end
 
     it "does not allow selecting two single options" do
+      sleep(2)
       find("details[data-question='#{question_single_option.id}']").click
 
       choose question_single_option.answer_options.first.body["en"]
@@ -125,6 +126,7 @@ describe "Meeting poll answer" do
     end
 
     it "shows the responses" do
+      sleep(2)
       open_first_question
 
       expect(page).to have_content("0%")
