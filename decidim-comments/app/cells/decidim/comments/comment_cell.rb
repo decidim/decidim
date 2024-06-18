@@ -67,6 +67,7 @@ module Decidim
         hash.push(model.down_votes_count)
         hash.push(model.cache_key_with_version)
         hash.push(model.author.cache_key_with_version)
+        hash.push(extra_actions.to_s)
         @hash = hash.join(Decidim.cache_key_separator)
       end
 
