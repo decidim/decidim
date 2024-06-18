@@ -9,6 +9,7 @@ module Decidim
     include Traceable
 
     before_save :set_content_type_and_size, if: :attached?
+    before_validation :set_link_content_type_and_size, if: :link?
 
     translatable_fields :title, :description
     belongs_to :attachment_collection, class_name: "Decidim::AttachmentCollection", optional: true
@@ -61,15 +62,33 @@ module Decidim
       !photo?
     end
 
+    # Whether this attachment is a link or not.
+    #
+    # Returns Boolean.
+    def link?
+      link.present?
+    end
+
     # Which kind of file this is.
     #
     # Returns String.
     def file_type
-      url&.split(".")&.last&.downcase
+      if file?
+        url&.split(".")&.last&.downcase
+      elsif link?
+        "link"
+      end
     end
 
+    # The URL that points to the attachment
+    #
+    # Returns String.
     def url
-      attached_uploader(:file).path
+      if file?
+        attached_uploader(:file).path
+      elsif link?
+        link
+      end
     end
 
     # The URL to download the thumbnail of the file. Only works with images.
@@ -93,6 +112,11 @@ module Decidim
     def set_content_type_and_size
       self.content_type = file.content_type
       self.file_size = file.byte_size
+    end
+
+    def set_link_content_type_and_size
+      self.content_type = "text/uri-list"
+      self.file_size = 0
     end
 
     def self.log_presenter_class_for(_log)

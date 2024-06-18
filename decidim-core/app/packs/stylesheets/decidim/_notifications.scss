@@ -20,6 +20,10 @@
       @apply prose-a:font-semibold hover:prose-a:underline prose-a:text-secondary;
     }
 
+    &-actions {
+      @apply pt-4;
+    }
+
     &-resource {
       @apply text-sm text-gray-2 flex items-center gap-1;
 

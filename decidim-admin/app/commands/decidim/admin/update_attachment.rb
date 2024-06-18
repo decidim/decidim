@@ -44,13 +44,16 @@ module Decidim
         {
           title: form.title,
           file: form.file,
+          link: form.link,
           description: form.description,
-          weight: form.weight,
-          attachment_collection: form.attachment_collection
+          weight: form.weight
         }.merge(
           attachment_attributes(:file)
-        ).reject do |attribute, value|
-          value.blank? && attribute != :attachment_collection
+        ).compact_blank.merge(
+          attachment_collection: form.attachment_collection
+        ).tap do |attrs|
+          attrs[:file] = nil if form.link.present? && form.file.blank?
+          attrs[:link] = nil if form.file.present? && form.link.blank?
         end
       end
     end

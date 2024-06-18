@@ -8,16 +8,30 @@
     <% end %>
     <div class="card__list-metadata">
       <div><%= icon "file-text-line" %><%= document.file_type %></div>
-      <div><%= icon "scales-2-line" %><%= number_to_human_size(document.file_size) %></div>
+      <% if document.file? %>
+        <div><%= icon "scales-2-line" %><%= number_to_human_size(document.file_size) %></div>
+      <% end %>
     </div>
   </div>
-  <%= link_to document.url,
-              target: "_blank",
-              rel: "noopener noreferrer",
-              class: "button button__sm button__transparent-secondary flex-none",
-              title: t("decidim.application.document.download"),
-              data: { "external-link": false } do %>
-    <%= t("decidim.application.document.download") %>
-    <%= icon "download-line" %>
+  <% if document.file? %>
+    <%= link_to document.url,
+                target: "_blank",
+                rel: "noopener noreferrer",
+                class: "button button__sm button__transparent-secondary flex-none",
+                title: t("decidim.application.document.download"),
+                data: { "external-link": false } do %>
+      <%= t("decidim.application.document.download") %>
+      <%= icon "download-line" %>
+    <% end %>
+  <% else %>
+    <%= link_to document.url,
+                target: "_blank",
+                rel: "noopener noreferrer",
+                class: "button button__sm button__transparent-secondary flex-none",
+                title: t("decidim.application.document.visit_link"),
+                data: { "external-link": true } do %>
+      <%= t("decidim.application.document.visit_link") %>
+    <% end %>
+
   <% end %>
 </div>
