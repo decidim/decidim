@@ -9,7 +9,8 @@ module Decidim
     let(:valid) { true }
     let(:data) do
       {
-        email_on_moderations: true,
+        email_on_moderations: false,
+        email_on_assigned_proposals: false,
         newsletter_notifications_at: Time.current,
         direct_message_types: "followed-only",
         notification_settings: { close_meeting_reminder: "0" },
@@ -21,6 +22,7 @@ module Decidim
       double(
         notification_types: "none",
         email_on_moderations: data[:email_on_moderations],
+        email_on_assigned_proposals: data[:email_on_assigned_proposals],
         newsletter_notifications_at: data[:newsletter_notifications_at],
         direct_message_types: data[:direct_message_types],
         notification_settings: data[:notification_settings],
@@ -49,6 +51,8 @@ module Decidim
         expect(user.direct_message_types).to eq "followed-only"
         expect(user.notification_settings["close_meeting_reminder"]).to eq "0"
         expect(user.notifications_sending_frequency).to eq "weekly"
+        expect(user.email_on_moderations).to be_false
+        expect(user.email_on_assigned_proposals).to be_false
       end
     end
   end
