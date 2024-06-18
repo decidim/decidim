@@ -2,6 +2,7 @@
 
 shared_examples "manage assembly admins examples" do
   let(:other_user) { create :user, organization: organization, email: "my_email@example.org" }
+  let(:attributes) { attributes_for(:user, organization:) }
 
   let!(:assembly_admin) do
     create :assembly_admin,
@@ -23,12 +24,12 @@ shared_examples "manage assembly admins examples" do
     end
   end
 
-  it "creates a new assembly admin" do
+  it "creates a new assembly admin", versioning: true do
     find(".card-title a.new").click
 
     within ".new_assembly_user_role" do
       fill_in :assembly_user_role_email, with: other_user.email
-      fill_in :assembly_user_role_name, with: "John Doe"
+      fill_in :assembly_user_role_name, with: attributes[:name]
       select "Administrator", from: :assembly_user_role_role
 
       find("*[type=submit]").click
@@ -39,6 +40,9 @@ shared_examples "manage assembly admins examples" do
     within "#assembly_admins table" do
       expect(page).to have_content(other_user.email)
     end
+
+    visit decidim_admin.root_path
+    expect(page).to have_content("invited #{other_user.name} to the #{translated(assembly.title)} assembly")
   end
 
   describe "when managing different users" do
@@ -47,7 +51,7 @@ shared_examples "manage assembly admins examples" do
       visit current_path
     end
 
-    it "updates a assembly admin" do
+    it "updates a assembly admin", versioning: true do
       within "#assembly_admins" do
         within find("#assembly_admins tr", text: other_user.email) do
           click_link "Edit"
@@ -65,6 +69,8 @@ shared_examples "manage assembly admins examples" do
       within "#assembly_admins table" do
         expect(page).to have_content("Collaborator")
       end
+      visit decidim_admin.root_path
+      expect(page).to have_content("changed the role of #{other_user.name} in the #{translated(assembly.title)} assembly")
     end
 
     it "deletes a assembly_user_role" do

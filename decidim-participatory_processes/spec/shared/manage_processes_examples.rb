@@ -88,19 +88,25 @@ shared_examples "manage processes examples" do
   context "when updating a participatory process" do
     let(:image3_filename) { "city3.jpeg" }
     let(:image3_path) { Decidim::Dev.asset(image3_filename) }
+    let(:attributes) { attributes_for(:participatory_process, organization:) }
 
     before do
       click_link translated(participatory_process.title)
     end
 
     it "updates a participatory_process" do
-      fill_in_i18n(
-        :participatory_process_title,
-        "#participatory_process-title-tabs",
-        en: "My new title",
-        es: "Mi nuevo título",
-        ca: "El meu nou títol"
-      )
+      fill_in_i18n(:participatory_process_title, "#participatory_process-title-tabs", **attributes[:title].except("machine_translations"))
+      fill_in_i18n(:participatory_process_subtitle, "#participatory_process-subtitle-tabs", **attributes[:subtitle].except("machine_translations"))
+      fill_in_i18n_editor(:participatory_process_short_description, "#participatory_process-short_description-tabs", **attributes[:short_description].except("machine_translations"))
+      fill_in_i18n_editor(:participatory_process_description, "#participatory_process-description-tabs", **attributes[:description].except("machine_translations"))
+      fill_in_i18n_editor(:participatory_process_announcement, "#participatory_process-announcement-tabs", **attributes[:announcement].except("machine_translations"))
+      fill_in_i18n(:participatory_process_developer_group, "#participatory_process-developer_group-tabs", **attributes[:developer_group].except("machine_translations"))
+      fill_in_i18n(:participatory_process_local_area, "#participatory_process-local_area-tabs", **attributes[:local_area].except("machine_translations"))
+      fill_in_i18n(:participatory_process_meta_scope, "#participatory_process-meta_scope-tabs", **attributes[:meta_scope].except("machine_translations"))
+      fill_in_i18n(:participatory_process_target, "#participatory_process-target-tabs", **attributes[:target].except("machine_translations"))
+      fill_in_i18n(:participatory_process_participatory_scope, "#participatory_process-participatory_scope-tabs", **attributes[:participatory_scope].except("machine_translations"))
+      fill_in_i18n(:participatory_process_participatory_structure, "#participatory_process-participatory_structure-tabs", **attributes[:participatory_structure].except("machine_translations"))
+
       dynamically_attach_file(:participatory_process_banner_image, image3_path, remove_before: true)
 
       page.execute_script("$('#participatory_process_end_date').focus()")
@@ -113,9 +119,12 @@ shared_examples "manage processes examples" do
       expect(page).to have_admin_callout("successfully")
 
       within ".container" do
-        expect(page).to have_selector("input[value='My new title']")
+        expect(page).to have_selector("input[value='#{translated(attributes[:title])}']")
         expect(page).to have_css("img[src*='#{image3_filename}']")
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the #{translated(attributes[:title])} participatory process")
     end
   end
 

@@ -6,40 +6,57 @@ shared_examples "manage assemblies" do
     let(:image3_path) { Decidim::Dev.asset(image3_filename) }
 
     let(:assembly_parent_id_options) { page.find("#assembly_parent_id").find_all("option").map(&:value) }
+    let(:attributes) { attributes_for(:assembly, :with_content_blocks, organization:, blocks_manifests: [:announcement]) }
 
     before do
       click_link translated(assembly.title)
     end
 
     it "updates an assembly" do
-      fill_in_i18n(
-        :assembly_title,
-        "#assembly-title-tabs",
-        en: "My new title",
-        es: "Mi nuevo título",
-        ca: "El meu nou títol"
-      )
+      fill_in_i18n(:assembly_title, "#assembly-title-tabs", **attributes[:title].except("machine_translations"))
 
       dynamically_attach_file(:assembly_banner_image, image3_path, remove_before: true)
 
       within ".edit_assembly" do
         expect(assembly_parent_id_options).not_to include(assembly.id)
-        fill_in "assembly[creation_date]", with: Date.yesterday
-        fill_in "assembly[included_at]", with: Date.current
-        fill_in "assembly[duration]", with: Date.tomorrow
-        fill_in "assembly[closing_date]", with: Date.tomorrow
+        fill_in_i18n(:assembly_subtitle, "#assembly-subtitle-tabs", **attributes[:subtitle].except("machine_translations"))
+        fill_in_i18n_editor(:assembly_short_description, "#assembly-short_description-tabs", **attributes[:short_description].except("machine_translations"))
+        fill_in_i18n_editor(:assembly_description, "#assembly-description-tabs", **attributes[:description].except("machine_translations"))
+        fill_in_i18n_editor(:assembly_purpose_of_action, "#assembly-purpose_of_action-tabs", **attributes[:purpose_of_action].except("machine_translations"))
+        fill_in_i18n_editor(:assembly_composition, "#assembly-composition-tabs", **attributes[:composition].except("machine_translations"))
+        fill_in_i18n_editor(:assembly_internal_organisation, "#assembly-internal_organisation-tabs", **attributes[:internal_organisation].except("machine_translations"))
+        fill_in_i18n_editor(:assembly_announcement, "#assembly-announcement-tabs", **attributes[:announcement].except("machine_translations"))
+        fill_in_i18n_editor(:assembly_closing_date_reason, "#assembly-closing_date_reason-tabs", **attributes[:closing_date_reason].except("machine_translations"))
+
+        fill_in_i18n(:assembly_participatory_scope, "#assembly-participatory_scope-tabs", **attributes[:participatory_scope].except("machine_translations"))
+        fill_in_i18n(:assembly_participatory_structure, "#assembly-participatory_structure-tabs", **attributes[:participatory_structure].except("machine_translations"))
+        fill_in_i18n(:assembly_meta_scope, "#assembly-meta_scope-tabs", **attributes[:meta_scope].except("machine_translations"))
+        fill_in_i18n(:assembly_local_area, "#assembly-local_area-tabs", **attributes[:local_area].except("machine_translations"))
+        fill_in_i18n(:assembly_target, "#assembly-target-tabs", **attributes[:target].except("machine_translations"))
+
+        fill_in :assembly_creation_date_date, with: nil, fill_options: { clear: :backspace }
+        fill_in :assembly_included_at_date, with: nil, fill_options: { clear: :backspace }
+        fill_in :assembly_duration_date, with: nil, fill_options: { clear: :backspace }
+        fill_in :assembly_closing_date_date, with: nil, fill_options: { clear: :backspace }
+        fill_in_datepicker :assembly_creation_date_date, with: Date.yesterday.strftime("%d/%m/%Y")
+        fill_in_datepicker :assembly_included_at_date, with: Date.current.strftime("%d/%m/%Y")
+        fill_in_datepicker :assembly_duration_date, with: Date.tomorrow.strftime("%d/%m/%Y")
+        fill_in_datepicker :assembly_closing_date_date, with: Date.tomorrow.strftime("%d/%m/%Y")
         find("*[type=submit]").click
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within ".container" do
-        expect(page).to have_selector("input[value='My new title']")
+        expect(page).to have_selector("input[value='#{translated(attributes[:title])}']")
         expect(page).to have_css("img[src*='#{image3_filename}']")
         expect(page).to have_css("input[value='#{Date.yesterday}']")
         expect(page).to have_css("input[value='#{Date.current}']")
         expect(page).to have_css("input[value='#{Date.tomorrow}']", count: 2)
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the #{translated(attributes[:title])} assembly")
     end
   end
 

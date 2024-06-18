@@ -5,13 +5,12 @@ require "decidim/proposals/test/capybara_proposals_picker"
 
 describe "Admin manages projects", type: :system do
   let(:manifest_name) { "budgets" }
-  let(:budget) { create :budget, component: current_component }
+  let!(:budget) { create :budget, component: current_component }
   let!(:project) { create :project, budget: budget }
 
   include_context "when managing a component as an admin"
 
   before do
-    budget
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit_component_admin

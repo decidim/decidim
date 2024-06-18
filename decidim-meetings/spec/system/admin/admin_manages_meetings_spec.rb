@@ -10,6 +10,12 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:service_titles) { ["This is the first service", "This is the second service"] }
+  let(:base_date) { Time.new.utc }
+  let(:meeting_start_date) { base_date.strftime("%d/%m/%Y") }
+  let(:meeting_start_time) { base_date.utc.strftime("%H:%M") }
+  let(:meeting_end_date) { ((base_date + 2.days) + 1.month).strftime("%d/%m/%Y") }
+  let(:meeting_end_time) { (base_date + 4.hours).strftime("%H:%M") }
+  let(:attributes) { attributes_for(:meeting, component: current_component) }
 
   include_context "when managing a component as an admin"
 
@@ -153,13 +159,12 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     end
 
     within ".edit_meeting" do
-      fill_in_i18n(
-        :meeting_title,
-        "#meeting-title-tabs",
-        en: "My new title",
-        es: "Mi nuevo título",
-        ca: "El meu nou títol"
-      )
+      fill_in_i18n(:meeting_title, "#meeting-title-tabs", **attributes[:title].except("machine_translations"))
+
+      fill_in_i18n(:meeting_location, "#meeting-location-tabs", **attributes[:location].except("machine_translations"))
+      fill_in_i18n(:meeting_location_hints, "#meeting-location_hints-tabs", **attributes[:location_hints].except("machine_translations"))
+      fill_in_i18n_editor(:meeting_description, "#meeting-description-tabs", **attributes[:description].except("machine_translations"))
+
       fill_in_geocoding :meeting_address, with: address
 
       find("*[type=submit]").click
@@ -168,8 +173,11 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     expect(page).to have_admin_callout("successfully")
 
     within "table" do
-      expect(page).to have_content("My new title")
+      expect(page).to have_content(translated(attributes[:title]))
     end
+
+    visit decidim_admin.root_path
+    expect(page).to have_content("updated the #{translated(attributes[:title])} meeting on the")
   end
 
   it "sets registration enabled to true when registration type is on this platform" do
@@ -268,37 +276,13 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
   it "creates a new meeting", :slow, :serves_geocoding_autocomplete do # rubocop:disable RSpec/ExampleLength
     find(".card-title a.button").click
 
-    fill_in_i18n(
-      :meeting_title,
-      "#meeting-title-tabs",
-      en: "My meeting",
-      es: "Mi meeting",
-      ca: "El meu meeting"
-    )
+    fill_in_i18n(:meeting_title, "#meeting-title-tabs", **attributes[:title].except("machine_translations"))
 
     select "In person", from: :meeting_type_of_meeting
 
-    fill_in_i18n(
-      :meeting_location,
-      "#meeting-location-tabs",
-      en: "Location",
-      es: "Location",
-      ca: "Location"
-    )
-    fill_in_i18n(
-      :meeting_location_hints,
-      "#meeting-location_hints-tabs",
-      en: "Location hints",
-      es: "Location hints",
-      ca: "Location hints"
-    )
-    fill_in_i18n_editor(
-      :meeting_description,
-      "#meeting-description-tabs",
-      en: "A longer description",
-      es: "Descripción más larga",
-      ca: "Descripció més llarga"
-    )
+    fill_in_i18n(:meeting_location, "#meeting-location-tabs", **attributes[:location].except("machine_translations"))
+    fill_in_i18n(:meeting_location_hints, "#meeting-location_hints-tabs", **attributes[:location_hints].except("machine_translations"))
+    fill_in_i18n_editor(:meeting_description, "#meeting-description-tabs", **attributes[:description].except("machine_translations"))
 
     fill_in_geocoding :meeting_address, with: address
     fill_in_services
@@ -325,8 +309,11 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     expect(page).to have_admin_callout("successfully")
 
     within "table" do
-      expect(page).to have_content("My meeting")
+      expect(page).to have_content(translated(attributes[:title]))
     end
+
+    visit decidim_admin.root_path
+    expect(page).to have_content("created the #{translated(attributes[:title])} meeting on the")
   end
 
   context "when using the front-end geocoder", :serves_geocoding_autocomplete do

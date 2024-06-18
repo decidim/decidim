@@ -21,17 +21,13 @@ describe "Edit a page", type: :system do
       visit_component_admin
     end
 
+    let!(:attributes) { attributes_for(:static_page) }
+
     it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='page-body-tabs']", "full"
 
-    it "updates the page" do
-      new_body = {
-        en: "<p>New body</p>",
-        ca: "<p>Nou cos</p>",
-        es: "<p>Nuevo cuerpo</p>"
-      }
-
+    it "updates the page", versioning: true do
       within "form.edit_page" do
-        fill_in_i18n_editor(:page_body, "#page-body-tabs", new_body)
+        fill_in_i18n_editor(:page_body, "#page-body-tabs", **attributes[:content].except("machine_translations"))
         find("*[type=submit]").click
       end
 
@@ -39,7 +35,10 @@ describe "Edit a page", type: :system do
 
       visit_component
 
-      expect(page).to have_content("New body")
+      expect(page).to have_content(translated(component.name))
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the #{translated(component.name)} page")
     end
   end
 

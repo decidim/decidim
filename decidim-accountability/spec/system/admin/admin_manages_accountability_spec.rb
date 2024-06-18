@@ -34,4 +34,17 @@ describe "Admin manages accountability", type: :system do
 
     it_behaves_like "manage statuses"
   end
+
+  describe "timeline" do
+    before do
+      visit_component_admin
+      within "tr", text: translated(result.title) do
+        click_on "Project evolution"
+      end
+    end
+
+    let!(:timeline_entry) { create(:timeline_entry, result:) }
+
+    it_behaves_like "manage timeline"
+  end
 end
