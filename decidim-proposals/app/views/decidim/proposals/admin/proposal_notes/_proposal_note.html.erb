@@ -24,6 +24,6 @@
   </div>
 
   <div id="panel-<%= reply_id %>" class="add-comment" data-additional-reply>
-    <%= render partial: "decidim/proposals/admin/proposal_notes/reply_form", locals: { proposal_note: } %>
+    <%= render partial: "decidim/proposals/admin/proposal_notes/form", locals: { form_path: reply_proposal_proposal_note_path(proposal, proposal_note, @notes_form) } %>
   </div>
 </div>
