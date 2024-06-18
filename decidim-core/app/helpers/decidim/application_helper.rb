@@ -109,5 +109,9 @@ module Decidim
     def text_initials(name)
       name.split(/[\s.]+/).map(&:chr).slice(0, 2).join.upcase
     end
+
+    def add_body_classes(*class_names)
+      content_for :body_class, class_names.map { |class_name| " #{class_name.strip}" }.join
+    end
   end
 end

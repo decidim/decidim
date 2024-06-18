@@ -27,6 +27,8 @@ export default class PollComponent {
     this.pollingInterval = config.pollingInterval || 5000;
     this.mounted = false;
     this.questions = {};
+    this.questionsStatuses = {};
+    this.answersStatuses = {};
   }
 
   /**
@@ -92,6 +94,12 @@ export default class PollComponent {
     $("[data-question]", $parent).each((_i, el) => {
       const $el = $(el);
       const questionId = $el.data("question");
+      const elForm = $el.find("form");
+
+      this.questionsStatuses[questionId] = $el.data("status");
+      if (elForm.length > 0) {
+        this.answersStatuses[questionId] = Object.fromEntries(new FormData(elForm[0]));
+      }
       if ($el[0].open === true) {
         this.questions[questionId] = OPEN;
       } else {
@@ -124,11 +132,27 @@ export default class PollComponent {
     const questionId = $el.data("question");
     // Current question state
     const state = this.questions[questionId];
+    const questionStatus = this.questionsStatuses[questionId];
+    const answersStatuses = this.answersStatuses[questionId];
+
     // New questions have a special class
     if (!state) {
       $el.addClass("is-new");
     } else if (state === OPEN) {
       $el.prop(OPEN, true);
+    }
+
+    if ($el.data("status") === CLOSED && $el.data("status") !== questionStatus) {
+      $el.data("status", `${CLOSED}-new`);
+      document.getElementById(`closed-announcement-${questionId}`).hidden = false;
+    }
+
+    if (answersStatuses) {
+      for (const [key, value] of Object.entries(answersStatuses)) {
+        if (key.includes("[choices]")) {
+          $el.find(`[name='${key}'][value='${value}']`).prop("checked", true);
+        }
+      }
     }
   }
 
@@ -177,7 +201,7 @@ export default class PollComponent {
       });
     });
 
-    $.unique($(".js-check-box-collection").parents(".answer")).each((idx, el) => {
+    $.unique($(".js-check-box-collection").parents("[data-max-choices]")).each((idx, el) => {
       const maxChoices = $(el).data("max-choices");
       if (maxChoices) {
         createMaxChoicesAlertComponent({
