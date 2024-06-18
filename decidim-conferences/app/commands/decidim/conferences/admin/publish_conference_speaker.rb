@@ -4,7 +4,7 @@ module Decidim
   module Conferences
     module Admin
       # A command with all the business logic that publishes an
-      # existing conference speakers.
+      # existing conference speaker.
       class PublishConferenceSpeaker < Decidim::Command
         # Public: Initializes the command.
         #

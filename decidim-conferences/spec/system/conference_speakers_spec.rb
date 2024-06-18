@@ -61,39 +61,72 @@ describe "Conference speakers" do
     end
   end
 
-  context "when admin publishes and unpublishes a speaker" do
-    let!(:conference_speakers) { create_list(:conference_speaker, 2, :published, conference:) }
+  describe "publication of conference speakers" do
+    let!(:speaker1) { create(:conference_speaker, :published, conference:) }
+    let!(:speaker2) { create(:conference_speaker, conference:) }
+    let!(:speaker3) { create(:conference_speaker, conference:) }
     let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
     before do
       login_as user, scope: :user
-      visit decidim_admin.root_path
-      click_on "Conferences"
-      click_on "conference_title"
-      click_on "Speakers"
-      within all(".table-list__actions").first do
-        expect(page).to have_link("Unpublish")
-        click_link_or_button "Unpublish"
+      visit decidim_conferences.conference_conference_speakers_path(conference)
+    end
+
+    context "when there are some unpublished speakers" do
+      it "is not shown in the public list" do
+        within "#conference_speakers-grid" do
+          expect(page).to have_css("[data-conference-speaker]", count: 1)
+        end
+      end
+
+      it "publishes the speaker" do
+        visit decidim_admin.root_path
+        click_on "Conferences"
+        click_on "conference_title"
+        click_on "Speakers"
+
+        within all(".table-list__actions").first do
+          expect(page).to have_link("Publish")
+          click_link_or_button "Publish"
+        end
+
+        visit decidim_conferences.conference_conference_speakers_path(conference)
+
+        within "#conference_speakers-grid" do
+          expect(page).to have_css("[data-conference-speaker]", count: 2)
+        end
       end
     end
 
-    it "gets a conference speaker unpublishes and then publishes again" do
-      expect(page).to have_content("Conference speaker successfully unpublished")
-
-      within all(".table-list__actions").first do
-        expect(page).to have_link("Publish")
-        click_link_or_button "Publish"
-      end
-      expect(page).to have_content("Conference speaker successfully published")
-    end
-
-    context "when visit conference public view" do
+    context "when there are some published speakers" do
       before do
+        speaker2.update!(published_at: Time.current)
+        speaker3.update!(published_at: Time.current)
         visit decidim_conferences.conference_conference_speakers_path(conference)
       end
 
-      it "displays only conference speaker mark ask published" do
-        expect(page).to have_css(".conference__speaker__item-name", count: 1)
+      it "is shown in the public list" do
+        within "#conference_speakers-grid" do
+          expect(page).to have_css("[data-conference-speaker]", count: 3)
+        end
+      end
+
+      it "unpublishes the speaker" do
+        visit decidim_admin.root_path
+        click_on "Conferences"
+        click_on "conference_title"
+        click_on "Speakers"
+
+        within all(".table-list__actions").first do
+          expect(page).to have_link("Unpublish")
+          click_link_or_button "Unpublish"
+        end
+
+        visit decidim_conferences.conference_conference_speakers_path(conference)
+
+        within "#conference_speakers-grid" do
+          expect(page).to have_css("[data-conference-speaker]", count: 2)
+        end
       end
     end
   end

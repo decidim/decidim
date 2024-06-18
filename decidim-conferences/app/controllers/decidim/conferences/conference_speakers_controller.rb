@@ -8,7 +8,7 @@ module Decidim
       helper_method :collection, :conference
 
       def index
-        raise ActionController::RoutingError, "No speakers for this conference " if speakers.published.empty?
+        raise ActionController::RoutingError, "No speakers for this conference " if speakers.empty?
 
         enforce_permission_to :list, :speakers
       end

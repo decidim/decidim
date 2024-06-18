@@ -3,8 +3,8 @@
 module Decidim
   module Conferences
     module Admin
-      # A command with all the business logic that publishes an
-      # existing conference speakers.
+      # A command with all the business logic that unpublishes an
+      # existing conference speaker.
       class UnpublishConferenceSpeaker < Decidim::Command
         # Public: Initializes the command.
         #
