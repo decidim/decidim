@@ -37,7 +37,8 @@ module Decidim
           event: "decidim.events.proposals.coauthor_rejected_invite",
           event_class: Decidim::Proposals::CoauthorRejectedInviteEvent,
           resource: @proposal,
-          affected_users: @proposal.authors.reject { |author| author == @coauthor }
+          affected_users: @proposal.authors,
+          extra: { coauthor_id: @coauthor.id }
         )
 
         # notify the co-author of his own decision

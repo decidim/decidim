@@ -10,20 +10,23 @@ module Decidim
         I18n.t("notification_title", **i18n_options).html_safe
       end
 
-      def user_path
-        profile_path(user.nickname)
-      end
-
-      delegate :name, to: :user, prefix: true
-
       delegate :name, to: :author, prefix: true
+      delegate :name, to: :coauthor, prefix: true
 
       def author_path
         profile_path(author.nickname)
       end
 
+      def coauthor_path
+        profile_path(coauthor.nickname)
+      end
+
       def author
         resource.creator_author
+      end
+
+      def coauthor
+        Decidim::User.find_by(id: extra["coauthor_id"])
       end
 
       def i18n_scope
@@ -33,8 +36,8 @@ module Decidim
       def i18n_options
         {
           scope: i18n_scope,
-          user_name:,
-          user_path:,
+          coauthor_name:,
+          coauthor_path:,
           author_name:,
           author_path:,
           resource_path:,

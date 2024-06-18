@@ -40,20 +40,21 @@ module Decidim
       private
 
       def generate_notifications
+        # notify the author that the co-author has accepted the invitation
+        Decidim::EventsManager.publish(
+          event: "decidim.events.proposals.coauthor_accepted_invite",
+          event_class: Decidim::Proposals::CoauthorAcceptedInviteEvent,
+          resource: @proposal,
+          affected_users: @proposal.authors.reject { |author| author == @coauthor },
+          extra: { coauthor_id: @coauthor.id }
+        )
+
         # notify the co-author of the new co-authorship
         Decidim::EventsManager.publish(
           event: "decidim.events.proposals.accepted_coauthorship",
           event_class: Decidim::Proposals::AcceptedCoauthorshipEvent,
           resource: @proposal,
           affected_users: [@coauthor]
-        )
-
-        # notify the author that the co-author has accepted the invitation
-        Decidim::EventsManager.publish(
-          event: "decidim.events.proposals.coauthor_accepted_invite",
-          event_class: Decidim::Proposals::CoauthorAcceptedInviteEvent,
-          resource: @proposal,
-          affected_users: @proposal.authors.reject { |author| author == @coauthor }
         )
       end
     end

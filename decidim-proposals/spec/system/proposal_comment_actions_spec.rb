@@ -105,6 +105,7 @@ describe "Interact with commenters" do
         expect(page).to have_content("You have been added as a co-author of the proposal")
         expect(last_email).to be_nil
         expect(author_notification.event_class).to eq("Decidim::Proposals::CoauthorAcceptedInviteEvent")
+        expect(author_notification.extra["coauthor_id"]).to eq(commenter.id)
       end
     end
 
@@ -118,9 +119,10 @@ describe "Interact with commenters" do
 
         visit decidim.notifications_path
         expect(page).to have_no_content("would like to invite you as a co-author of the proposal")
-        expect(page).to have_content("You have declined the invtation from")
+        expect(page).to have_content("You have declined the invitation from")
         expect(last_email).to be_nil
         expect(author_notification.event_class).to eq("Decidim::Proposals::CoauthorRejectedInviteEvent")
+        expect(author_notification.extra["coauthor_id"]).to eq(commenter.id)
       end
     end
   end
