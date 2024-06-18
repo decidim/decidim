@@ -207,8 +207,8 @@ module Decidim
         Decidim::ActionLog.where(resource: self).exists?(["extra @> ?", Arel.sql("{\"edit\":true}")])
       end
 
-      def extra_actions
-        root_commentable.try(:actions_for_comment, self)
+      def extra_actions_for(current_user)
+        root_commentable.try(:actions_for_comment, self, current_user)
       end
 
       private

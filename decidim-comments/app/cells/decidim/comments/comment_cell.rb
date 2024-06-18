@@ -87,19 +87,22 @@ module Decidim
       end
 
       def extra_actions
-        return unless model.extra_actions
+        @extra_actions ||= begin
+          extra_actions = model.extra_actions_for(current_user)
+          next unless extra_actions
 
-        model.extra_actions.map do |action|
-          [
-            "#{icon(action[:icon]) if action[:icon].present?}#{action[:label]}",
-            action[:url],
-            {
-              class: "dropdown__item"
-            }
-          ].tap do |link|
-            link[2][:method] = action[:method] if action[:method].present?
-            link[2][:remote] = action[:remote] if action[:remote].present?
-            link[2][:data] = action[:data] if action[:data].present?
+          extra_actions.map do |action|
+            [
+              "#{icon(action[:icon]) if action[:icon].present?}#{action[:label]}",
+              action[:url],
+              {
+                class: "dropdown__item"
+              }
+            ].tap do |link|
+              link[2][:method] = action[:method] if action[:method].present?
+              link[2][:remote] = action[:remote] if action[:remote].present?
+              link[2][:data] = action[:data] if action[:data].present?
+            end
           end
         end
       end

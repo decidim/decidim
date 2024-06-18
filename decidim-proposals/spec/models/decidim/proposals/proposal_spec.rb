@@ -303,17 +303,23 @@ module Decidim
         let(:comment) { create(:comment, author:, commentable: proposal) }
 
         it "returns actions to invite the comment author as a co-author" do
-          expect(proposal.actions_for_comment(comment)).to eq([
-                                                                {
-                                                                  label: "Mark as co-author",
-                                                                  url: EngineRouter.main_proxy(component).proposal_invite_coauthors_path(proposal_id: proposal.id, id: comment.author.id),
-                                                                  icon: "user-add-line",
-                                                                  method: :post,
-                                                                  data: {
-                                                                    confirm: "Are you sure you want to mark this user as a co-author? The receiver will receive a notification to accept or decline the invitation."
-                                                                  }
-                                                                }
-                                                              ])
+          expect(proposal.actions_for_comment(comment, proposal.creator_author)).to eq([
+                                                                                         {
+                                                                                           label: "Mark as co-author",
+                                                                                           url: EngineRouter.main_proxy(component).proposal_invite_coauthors_path(proposal_id: proposal.id, id: comment.author.id),
+                                                                                           icon: "user-add-line",
+                                                                                           method: :post,
+                                                                                           data: {
+                                                                                             confirm: "Are you sure you want to mark this user as a co-author? The receiver will receive a notification to accept or decline the invitation."
+                                                                                           }
+                                                                                         }
+                                                                                       ])
+        end
+
+        context "when the requester user is not the author of the proposal" do
+          it "returns nil" do
+            expect(proposal.actions_for_comment(comment, create(:user))).to be_nil
+          end
         end
 
         context "when the author has already been invited" do
@@ -322,17 +328,23 @@ module Decidim
           end
 
           it "returns actions to remove the co-author invitation" do
-            expect(proposal.actions_for_comment(comment)).to eq([
-                                                                  {
-                                                                    label: "Cancel co-author invitation",
-                                                                    url: EngineRouter.main_proxy(component).cancel_proposal_invite_coauthors_path(proposal_id: proposal.id, id: comment.author.id),
-                                                                    icon: "user-forbid-line",
-                                                                    method: :delete,
-                                                                    data: {
-                                                                      confirm: "Are you sure you want to cancel the co-author invitation?"
-                                                                    }
-                                                                  }
-                                                                ])
+            expect(proposal.actions_for_comment(comment, proposal.creator_author)).to eq([
+                                                                                           {
+                                                                                             label: "Cancel co-author invitation",
+                                                                                             url: EngineRouter.main_proxy(component).cancel_proposal_invite_coauthors_path(proposal_id: proposal.id, id: comment.author.id),
+                                                                                             icon: "user-forbid-line",
+                                                                                             method: :delete,
+                                                                                             data: {
+                                                                                               confirm: "Are you sure you want to cancel the co-author invitation?"
+                                                                                             }
+                                                                                           }
+                                                                                         ])
+          end
+
+          context "when the requester user is not the author of the proposal" do
+            it "returns nil" do
+              expect(proposal.actions_for_comment(comment, create(:user))).to be_nil
+            end
           end
         end
       end

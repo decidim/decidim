@@ -499,8 +499,9 @@ module Decidim
         true
       end
 
-      def actions_for_comment(comment)
+      def actions_for_comment(comment, current_user)
         return if comment.commentable != self
+        return unless authors.include?(current_user)
         return unless user_has_actions?(comment.author)
 
         if coauthor_invitations_for(comment.author).any?
