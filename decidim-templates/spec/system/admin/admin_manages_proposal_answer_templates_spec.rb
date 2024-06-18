@@ -5,6 +5,11 @@ require "spec_helper"
 describe "Admin manages proposal answer templates" do
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:participatory_space) { create(:participatory_process, title: { en: "A participatory process" }, organization:) }
+  let!(:templatable) { create(:proposal_component, name: { en: description }, participatory_space:) }
+  let(:proposal_state_id) { Decidim::Proposals::ProposalState.find_by(component: templatable, token:).id }
+  let!(:template) { create(:template, target: :proposal_answer, organization:, templatable:, field_values:) }
+  let(:attributes) { attributes_for(:template, target: :proposal_answer, organization:, templatable:, field_values:) }
 
   before do
     switch_to_host(organization.host)
@@ -48,22 +53,18 @@ describe "Admin manages proposal answer templates" do
       end
     end
 
-    shared_examples "creates a new template with scopes" do |scope_name|
+    shared_examples "creates a new template with scopes", versioning: true do |scope_name|
       it "creates a new template" do
         within ".new_proposal_answer_template" do
           fill_in_i18n(
             :proposal_answer_template_name,
             "#proposal_answer_template-name-tabs",
-            en: "My template",
-            es: "Mi plantilla",
-            ca: "La meva plantilla"
+            **attributes[:name].except("machine_translations")
           )
           fill_in_i18n_editor(
             :proposal_answer_template_description,
             "#proposal_answer_template-description-tabs",
-            en: "Description",
-            es: "Descripción",
-            ca: "Descripció"
+            **attributes[:description].except("machine_translations")
           )
 
           choose "Not answered"
@@ -76,8 +77,12 @@ describe "Admin manages proposal answer templates" do
         expect(page).to have_current_path decidim_admin_templates.proposal_answer_templates_path
         within ".table-list" do
           expect(page).to have_i18n_content(scope_name)
-          expect(page).to have_content("My template")
+          expect(page).to have_content(translated(attributes[:name]))
         end
+      expect(page).to have_admin_callout("successfully")
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("created the #{translated(attributes[:name])} questionnaire template")
       end
     end
 
@@ -96,13 +101,12 @@ describe "Admin manages proposal answer templates" do
     end
 
     shared_examples "updates a template with scopes" do |scope_name|
-      it "updates a template" do
+      it "updates a template", versioning: true do
         fill_in_i18n(
           :proposal_answer_template_name,
           "#proposal_answer_template-name-tabs",
-          en: "My new name",
-          es: "Mi nuevo nombre",
-          ca: "El meu nou nom"
+          **attributes[:name].except("machine_translations"))
+          fill_in_i18n_editor(:proposal_answer_template_description, "#proposal_answer_template-description-tabs", **attributes[:description].except("machine_translations")
         )
 
         select scope_name, from: :proposal_answer_template_component_constraint
@@ -115,8 +119,12 @@ describe "Admin manages proposal answer templates" do
         expect(page).to have_current_path decidim_admin_templates.proposal_answer_templates_path
         within ".table-list" do
           expect(page).to have_i18n_content(scope_name)
-          expect(page).to have_content("My new name")
+          expect(page).to have_content(translated(attributes[:name]))
         end
+      expect(page).to have_admin_callout("successfully")
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the #{translated(attributes[:name])} questionnaire template")
       end
     end
 

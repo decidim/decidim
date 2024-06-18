@@ -2,6 +2,7 @@
 
 shared_examples "manage conference admins examples" do
   let(:other_user) { create(:user, organization:, email: "my_email@example.org") }
+  let(:attributes) { attributes_for(:user, organization:) }
 
   let!(:conference_admin) do
     create(:conference_admin,
@@ -25,12 +26,12 @@ shared_examples "manage conference admins examples" do
     end
   end
 
-  it "creates a new conference admin" do
+  it "creates a new conference admin", versioning: true do
     click_link "New conference admin"
 
     within ".new_conference_user_role" do
       fill_in :conference_user_role_email, with: other_user.email
-      fill_in :conference_user_role_name, with: "John Doe"
+      fill_in :conference_user_role_name, with: attributes[:name]
       select "Administrator", from: :conference_user_role_role
 
       find("*[type=submit]").click
@@ -41,6 +42,8 @@ shared_examples "manage conference admins examples" do
     within "#conference_admins table" do
       expect(page).to have_content(other_user.email)
     end
+    visit decidim_admin.root_path
+    expect(page).to have_content("invited #{other_user.name} to the #{translated(conference.title)} conference")
   end
 
   describe "when managing different users" do
@@ -49,7 +52,7 @@ shared_examples "manage conference admins examples" do
       visit current_path
     end
 
-    it "updates a conference admin" do
+    it "updates a conference admin", versioning: true do
       within "#conference_admins" do
         within find("#conference_admins tr", text: other_user.email) do
           click_link "Edit"
@@ -67,6 +70,8 @@ shared_examples "manage conference admins examples" do
       within "#conference_admins table" do
         expect(page).to have_content("Collaborator")
       end
+      visit decidim_admin.root_path
+      expect(page).to have_content("changed the role of #{other_user.name} in the #{translated(conference.title)} conference")
     end
 
     it "deletes a conference_user_role" do
