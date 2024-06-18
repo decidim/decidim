@@ -26,7 +26,19 @@ module Decidim
     #
     # @return [ActiveStorage::Blob, nil] - The image blob or nil if no image is found.
     def determine_image_blob
-      blob_from_attachment_image || blob_from_description(@resource) || blob_from_participatory_space || blob_from_content_blocks
+      blob_from_image_fields || blob_from_description(@resource) ||
+        blob_from_participatory_space || blob_from_attachment_image || blob_from_content_blocks
+    end
+
+    # Fetches the image blob from the resource's attached image fields.
+    #
+    # @return [ActiveStorage::Blob, nil] - The image blob or nil if not found.
+    def blob_from_image_fields
+      path = get_attached_uploader_path(@resource, [:hero_image, :banner_image])
+      return unless path
+
+      blob_key = extract_blob_key_from_path(path)
+      find_blob_by_key(blob_key)
     end
 
     # Fetches the default homepage image blob.
@@ -70,17 +82,26 @@ module Decidim
     #
     # @return [ActiveStorage::Blob, nil] - The image blob or nil if not found.
     def blob_from_description(resource)
-      html = resource.try(:body) || resource.try(:description) || resource.try(:short_description)
-      return unless html
+      html_fields = [resource.try(:body), resource.try(:description), resource.try(:short_description)]
 
-      html = translated_attribute(html).strip if html.is_a?(Hash)
-      return if html.blank?
+      html_fields.each do |html|
+        next unless html
 
-      image_url = Nokogiri::HTML(html).css("img").first&.[]("src")
-      return if image_url.blank?
+        html = translated_attribute(html).strip if html.is_a?(Hash)
+        next if html.blank?
 
-      blob_key = image_url.split("/").second_to_last
-      ActiveStorage::Blob.find_signed(blob_key) if blob_key.present?
+        image_element = Nokogiri::HTML(html).css("img").first
+        next unless image_element
+
+        image_url = image_element["src"]
+        next if image_url.blank?
+
+        blob_key = extract_blob_key_from_path(image_url)
+        blob = find_blob_by_key(blob_key)
+        return blob if blob.present?
+      end
+
+      nil
     end
 
     # Fetches the image blob from the participatory space.
@@ -104,6 +125,22 @@ module Decidim
 
       resized_variant = blob.variant(resize_to_limit: [1200, 630]).processed
       Rails.application.routes.url_helpers.rails_representation_url(resized_variant, only_path: true)
+    end
+
+    def get_attached_uploader_path(resource, image_types)
+      image_types.each do |image_type|
+        path = resource.attached_uploader(image_type)&.path
+        return path if path
+      end
+      nil
+    end
+
+    def extract_blob_key_from_path(path)
+      path.split("/").second_to_last
+    end
+
+    def find_blob_by_key(blob_key)
+      ActiveStorage::Blob.find_signed(blob_key) if blob_key.present?
     end
   end
 end
