@@ -16,6 +16,8 @@ module Decidim
 
         before_action :check_admin_session_filters, only: [:index]
 
+        def index; end
+
         def show
           @notes_form = form(ProposalNoteForm).instance
           @answer_form = form(Admin::ProposalAnswerForm).from_model(proposal)
