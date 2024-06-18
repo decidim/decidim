@@ -17,6 +17,10 @@ module Decidim
       def self.log_presenter_class_for(_log)
         Decidim::Proposals::AdminLog::ProposalNotePresenter
       end
+
+      def reply?
+        parent.present?
+      end
     end
   end
 end

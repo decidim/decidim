@@ -475,6 +475,9 @@ en:
             note: Note
             submit: Submit
           leave_your_note: Leave your note
+          reply:
+            error: There was a problem creating this proposal note reply.
+            success: Proposal note reply successfully created.
           title: Private notes
         proposal_states:
           create:
