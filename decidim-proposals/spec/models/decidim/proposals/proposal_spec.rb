@@ -322,6 +322,12 @@ module Decidim
           end
         end
 
+        context "when no requester" do
+          it "returns nil" do
+            expect(proposal.actions_for_comment(comment, nil)).to be_nil
+          end
+        end
+
         context "when the author has already been invited" do
           let!(:notification) do
             create(:notification, :proposal_coauthor_invite, resource: proposal, user: comment.author)
