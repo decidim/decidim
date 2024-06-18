@@ -8,8 +8,11 @@ module Decidim
       let!(:proposal) { create(:proposal) }
 
       let(:coauthor) { create(:user, organization: proposal.organization) }
-      let(:notification) do
-        create(:notification, :proposal_coauthor_invite, user: coauthor)
+      let!(:notification) do
+        create(:notification, :proposal_coauthor_invite, resource: proposal, user: coauthor)
+      end
+      let!(:another_notification) do
+        create(:notification, :proposal_coauthor_invite, resource: proposal)
       end
 
       let(:command) { described_class.new(proposal, coauthor) }
@@ -23,6 +26,35 @@ module Decidim
 
         it "broadcasts :ok" do
           expect { command.call }.to broadcast(:ok)
+        end
+
+        it "removes the notification" do
+          expect { command.call }.to change(Decidim::Notification, :count).by(-1)
+          expect(Decidim::Notification.all.to_a).to eq([another_notification])
+        end
+
+        it_behaves_like "fires an ActiveSupport::Notification event", "decidim.events.proposals.new_coauthorship"
+        it_behaves_like "fires an ActiveSupport::Notification event", "decidim.events.proposals.coauthor_accepted_invite"
+
+        it "notifies the coauthor and existing authors about the new coauthorship" do
+          expect(Decidim::EventsManager)
+            .to receive(:publish)
+            .with(
+              event: "decidim.events.proposals.coauthor_accepted_invite",
+              event_class: Decidim::Proposals::CoauthorAcceptedInviteEvent,
+              resource: proposal,
+              affected_users: proposal.authors.reject { |author| author == coauthor }
+            )
+          expect(Decidim::EventsManager)
+            .to receive(:publish)
+            .with(
+              event: "decidim.events.proposals.new_coauthorship",
+              event_class: Decidim::Proposals::NewCoauthorshipEvent,
+              resource: proposal,
+              affected_users: [coauthor]
+            )
+
+          command.call
         end
       end
 

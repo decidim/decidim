@@ -23,9 +23,33 @@ module Decidim
           expect { command.call }.to broadcast(:ok)
         end
 
-        it "removes the coauthor from the proposal" do
+        it "removes the notification" do
           expect { command.call }.to change(Decidim::Notification, :count).by(-1)
           expect(Decidim::Notification.all.to_a).to eq([another_notification])
+        end
+
+        it_behaves_like "fires an ActiveSupport::Notification event", "decidim.events.proposals.rejected_coauthorship"
+        it_behaves_like "fires an ActiveSupport::Notification event", "decidim.events.proposals.coauthor_rejected_invite"
+
+        it "notifies the coauthor and existing authors about the new coauthorship" do
+          expect(Decidim::EventsManager)
+            .to receive(:publish)
+            .with(
+              event: "decidim.events.proposals.coauthor_rejected_invite",
+              event_class: Decidim::Proposals::CoauthorRejectedInviteEvent,
+              resource: proposal,
+              affected_users: proposal.authors.reject { |author| author == coauthor }
+            )
+          expect(Decidim::EventsManager)
+            .to receive(:publish)
+            .with(
+              event: "decidim.events.proposals.rejected_coauthorship",
+              event_class: Decidim::Proposals::RejectedCoauthorshipEvent,
+              resource: proposal,
+              affected_users: [coauthor]
+            )
+
+          command.call
         end
       end
 

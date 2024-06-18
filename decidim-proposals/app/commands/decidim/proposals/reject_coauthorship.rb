@@ -24,8 +24,29 @@ module Decidim
         return broadcast(:invalid) if @proposal.authors.include?(@coauthor)
 
         @proposal.coauthor_invitations_for(@coauthor).destroy_all
+        generate_notifications
 
         broadcast(:ok)
+      end
+
+      private
+
+      def generate_notifications
+        # notify the author that the co-author has rejected the invitation
+        Decidim::EventsManager.publish(
+          event: "decidim.events.proposals.coauthor_rejected_invite",
+          event_class: Decidim::Proposals::CoauthorRejectedInviteEvent,
+          resource: @proposal,
+          affected_users: @proposal.authors.reject { |author| author == @coauthor }
+        )
+
+        # notify the co-author of his own decision
+        Decidim::EventsManager.publish(
+          event: "decidim.events.proposals.rejected_coauthorship",
+          event_class: Decidim::Proposals::RejectedCoauthorshipEvent,
+          resource: @proposal,
+          affected_users: [@coauthor]
+        )
       end
     end
   end

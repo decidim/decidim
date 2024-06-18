@@ -26,6 +26,7 @@ module Decidim
         begin
           transaction do
             @proposal.add_coauthor(@coauthor)
+            @proposal.coauthor_invitations_for(@coauthor).destroy_all
           end
 
           generate_notifications
