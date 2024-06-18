@@ -74,6 +74,46 @@
       .comment-reply {
         @apply p-4 rounded bg-white border border-gray rounded mt-4;
       }
+
+      .comment-actions {
+        @apply flex items-center gap-4;
+
+        .button[aria-expanded="false"] {
+          svg:first-of-type {
+            @apply block;
+          }
+
+          svg:last-of-type {
+            @apply hidden;
+          }
+
+          span:first-of-type {
+            @apply block;
+          }
+
+          span:last-of-type {
+            @apply hidden;
+          }
+        }
+
+        .button[aria-expanded="true"] {
+          svg:first-of-type {
+            @apply hidden;
+          }
+
+          svg:last-of-type {
+            @apply block;
+          }
+
+          span:first-of-type {
+            @apply hidden;
+          }
+
+          span:last-of-type {
+            @apply block;
+          }
+        }
+      }
     }
   }
 
