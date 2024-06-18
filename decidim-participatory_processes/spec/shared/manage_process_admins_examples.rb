@@ -2,6 +2,7 @@
 
 shared_examples "manage process admins examples" do
   let(:other_user) { create(:user, organization:, email: "my_email@example.org") }
+  let(:attributes) { attributes_for(:user, organization:) }
 
   let!(:process_admin) do
     create(:process_admin,
@@ -25,12 +26,12 @@ shared_examples "manage process admins examples" do
     end
   end
 
-  it "creates a new process admin" do
+  it "creates a new process admin", versioning: true do
     click_on "New process admin"
 
     within ".new_participatory_process_user_role" do
       fill_in :participatory_process_user_role_email, with: other_user.email
-      fill_in :participatory_process_user_role_name, with: "John Doe"
+      fill_in :participatory_process_user_role_name, with: attributes[:name]
       select "Administrator", from: :participatory_process_user_role_role
 
       find("*[type=submit]").click
@@ -41,6 +42,9 @@ shared_examples "manage process admins examples" do
     within "#process_admins table" do
       expect(page).to have_content(other_user.email)
     end
+
+    visit decidim_admin.root_path
+    expect(page).to have_content("invited the participant #{other_user.name} to the #{translated(participatory_process.title)} participatory process")
   end
 
   describe "when managing different users" do
@@ -50,7 +54,7 @@ shared_examples "manage process admins examples" do
       visit current_path
     end
 
-    it "updates a process admin" do
+    it "updates a process admin", versioning: true do
       within "#process_admins" do
         within "#process_admins tr", text: other_user.email do
           click_on "Edit"
@@ -68,6 +72,9 @@ shared_examples "manage process admins examples" do
       within "#process_admins table" do
         expect(page).to have_content("Administrator")
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("changed the role of the participant #{other_user.name} in the #{translated(participatory_process.title)} participatory process")
     end
 
     it "deletes a participatory_process_user_role" do
