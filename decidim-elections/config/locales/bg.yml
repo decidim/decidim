@@ -6,16 +6,65 @@ bg:
         description: Описание
         image: Изображение
         proposals: Свързани предложения
+        title: Заглавие
+      ballot_style:
+        code: Код
+      election:
+        description: Описание
+        end_time: Гласуването приключва на
+        start_time: Гласуването стартира на
+        title: Заглавие
+      monitoring_committee_member:
+        email: Имейл
+        name: Име
+      polling_officer:
+        email: Имейл
+        name: Име
+      polling_station:
+        address: Адрес
+        location: Местоположение
+        location_hints: Подсказки за местоположението
+        polling_station_managers: Управители
+        polling_station_president_id: Председател
+        title: Заглавие
+      question:
+        max_selections: Максимален брой селекции
+        min_selections: Нито една от горните опции
+        title: Заглавие
+      trustees_participatory_space:
+        user_id: Участник
       voting:
+        banner_image: Изображение на банера
+        census_contact_information: Контактна информация от преброяването
+        description: Описание
+        end_time: Гласуването приключи
+        introductory_image: Изображение за въведението
+        promoted: Промотирано
         scope_id: Обхват
+        show_check_census: Показване на страницата „проверка на преброяването“.
+        start_time: Гласуването започва
+        title: Заглавие
+        voting_type: Тип гласуване
     errors:
       models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Трябва да се прикрепи отново
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Трябва да се прикрепи отново
         trustee:
           attributes:
             name:
               cant_be_changed: не може да се променя
             public_key:
               cant_be_changed: не може да се променя
+        voting:
+          attributes:
+            voting_type:
+              inclusion: "%{value} не е валиден тип гласуване"
   activerecord:
     errors:
       models:
@@ -29,7 +78,39 @@ bg:
           attributes:
             polling_station_president:
               different_voting: Избирателният служител трябва да бъде в същото гласуване като избирателната секция
+    models:
+      decidim/elections/answer:
+        one: Отговор
+        other: Отговори
+      decidim/elections/election:
+        one: Избор
+        other: Избори
+      decidim/elections/question:
+        one: Въпрос
+        other: Въпроси
+      decidim/voting:
+        one: Гласуване
+        other: Гласувания
+      decidim/votings/census/dataset:
+        one: Архив от данни
+        other: Архиви от данни
+      decidim/votings/census/datum:
+        one: Данни
+        other: Данни
+      decidim/votings/polling_officer:
+        one: Член на избирателна комисия
+        other: Членове на избирателна комисия
+      decidim/votings/polling_station:
+        one: Избирателна секция
+        other: Избирателни секции
+      decidim/votings/voting:
+        one: Гласуване
+        other: Гласувания
   decidim:
+    admin:
+      filters:
+        officers_assigned_eq:
+          label: Служители
     elections:
       actions:
         new: Ново %{name}
@@ -44,8 +125,10 @@ bg:
           index:
             invalid_max_selections: Имате нужда от още %{missing_answers} отговора, за достигане на максималните селекции
           select:
+            enable: Маркирайте отговора като селектиран
             invalid: Възникна проблем при селектирането на този отговор
             success: Отговорът е селектиран успешно
+          selected: Селектирано
           unselect:
             invalid: Възникна проблем при отселектирането на този отговор
             success: Отговорът е отселектиран успешно
