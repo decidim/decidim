@@ -32,7 +32,7 @@ module Decidim
       describe "email_intro" do
         it "is generated correctly" do
           expect(subject.email_intro)
-            .to eq("You have been invited to be a co-author of the proposal \"#{resource_title}\". You can accept the invitation in this page:")
+            .to eq("You have been invited to be a co-author of the proposal \"#{resource_title}\". You can accept or decline the invitation in this page:")
         end
       end
 

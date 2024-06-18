@@ -37,10 +37,7 @@ module Decidim
           event: "decidim.events.proposals.coauthor_invited",
           event_class: Decidim::Proposals::CoauthorInvitedEvent,
           resource: @proposal,
-          affected_users: [@coauthor],
-          extra: {
-            uuid: "#{@proposal.organization.id}-#{SecureRandom.uuid}"
-          }
+          affected_users: [@coauthor]
         )
       end
     end

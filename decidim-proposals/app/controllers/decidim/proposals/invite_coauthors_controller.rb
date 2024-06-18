@@ -9,6 +9,7 @@ module Decidim
 
       before_action :authenticate_user!
 
+      # author invites coauthor
       def create
         enforce_permission_to :invite, :proposal_coauthor_invites, { proposal:, coauthor: }
 
@@ -25,6 +26,7 @@ module Decidim
         redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path
       end
 
+      # author cancels invitation
       def cancel
         enforce_permission_to :cancel, :proposal_coauthor_invites, { proposal:, coauthor: }
 
@@ -41,11 +43,11 @@ module Decidim
         redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path
       end
 
-      # accept invitation
+      # coauthor accepts invitation
       def update
-        enforce_permission_to :accept, :proposal_coauthor_invites, { proposal: }
+        enforce_permission_to :accept, :proposal_coauthor_invites, { proposal:, coauthor: }
 
-        AcceptCoauthorship.call(proposal, current_user, notification) do
+        AcceptCoauthorship.call(proposal, current_user) do
           on(:ok) do
             render json: { message: I18n.t("update.success", scope: "decidim.proposals.invite_coauthors") }
           end
@@ -56,11 +58,11 @@ module Decidim
         end
       end
 
-      # decline invitation
+      # coauthor declines invitation
       def destroy
-        enforce_permission_to :decline, :proposal_coauthor_invites, { proposal: }
+        enforce_permission_to :decline, :proposal_coauthor_invites, { proposal:, coauthor: }
 
-        RejectCoauthorship.call(proposal, current_user, notification) do
+        RejectCoauthorship.call(proposal, current_user) do
           on(:ok) do
             render json: { message: I18n.t("destroy.success", scope: "decidim.proposals.invite_coauthors") }
           end
@@ -73,12 +75,8 @@ module Decidim
 
       private
 
-      def notification
-        @notification ||= Decidim::Notification.where(event_class: "Decidim::Proposals::CoauthorInvitedEvent", resource: proposal).find_by("extra->>'uuid' = ?", params["id"])
-      end
-
       def coauthor
-        @coauthor ||= Decidim::User.find(params[:coauthor_id])
+        @coauthor ||= Decidim::User.find(params[:id])
       end
 
       def proposal

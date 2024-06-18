@@ -11,10 +11,6 @@ module Decidim
       let(:command) { described_class.new(proposal, coauthor) }
 
       describe "when the coauthor is valid" do
-        before do
-          allow(SecureRandom).to receive(:uuid).and_return("123")
-        end
-
         it "broadcasts :ok" do
           expect { command.call }.to broadcast(:ok)
         end
@@ -34,10 +30,7 @@ module Decidim
               event: "decidim.events.proposals.coauthor_invited",
               event_class: Decidim::Proposals::CoauthorInvitedEvent,
               resource: proposal,
-              affected_users: [coauthor],
-              extra: {
-                uuid: "#{proposal.organization.id}-123"
-              }
+              affected_users: [coauthor]
             )
 
           command.call

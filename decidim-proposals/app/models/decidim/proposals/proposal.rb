@@ -503,11 +503,11 @@ module Decidim
         return if comment.commentable != self
         return unless user_has_actions?(comment.author)
 
-        if coauthor_invitations_for(comment.author.id).any?
+        if coauthor_invitations_for(comment.author).any?
           [
             {
               label: I18n.t("decidim.proposals.actions.cancel_coauthor_invitation"),
-              url: EngineRouter.main_proxy(component).cancel_proposal_invite_coauthors_path(proposal_id: id, coauthor_id: comment.author.id),
+              url: EngineRouter.main_proxy(component).cancel_proposal_invite_coauthors_path(proposal_id: id, id: comment.author.id),
               icon: "user-forbid-line",
               method: :delete,
               data: { confirm: I18n.t("decidim.proposals.actions.cancel_coauthor_invitation_confirm") }
@@ -517,7 +517,7 @@ module Decidim
           [
             {
               label: I18n.t("decidim.proposals.actions.mark_as_coauthor"),
-              url: EngineRouter.main_proxy(component).proposal_invite_coauthors_path(proposal_id: id, coauthor_id: comment.author.id),
+              url: EngineRouter.main_proxy(component).proposal_invite_coauthors_path(proposal_id: id, id: comment.author.id),
               icon: "user-add-line",
               method: :post,
               data: { confirm: I18n.t("decidim.proposals.actions.mark_as_coauthor_confirm") }

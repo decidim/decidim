@@ -23,7 +23,7 @@ module Decidim
         return broadcast(:invalid) unless @coauthor
         return broadcast(:invalid) if @proposal.authors.include?(@coauthor)
 
-        @proposal.coauthor_invitations_for(@coauthor.id).destroy_all
+        @proposal.coauthor_invitations_for(@coauthor).destroy_all
 
         broadcast(:ok)
       end

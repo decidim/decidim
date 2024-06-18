@@ -9,21 +9,16 @@ module Decidim
 
       let(:coauthor) { create(:user, organization: proposal.organization) }
       let(:notification) do
-        create(:notification, event_class: "Decidim::Proposals::CoauthorInvitedEvent", user: coauthor, extra: { uuid: "some-uuid", other: "Other data" })
+        create(:notification, :proposal_coauthor_invite, user: coauthor)
       end
 
-      let(:command) { described_class.new(proposal, coauthor, notification) }
+      let(:command) { described_class.new(proposal, coauthor) }
 
       describe "when the coauthor is valid" do
         it "adds the coauthor to the proposal" do
           expect do
             command.call
           end.to change { proposal.coauthorships.count }.by(1)
-        end
-
-        it "deletes the extra data from the notification" do
-          command.call
-          expect(notification.extra).to eq({ "other" => "Other data" })
         end
 
         it "broadcasts :ok" do
@@ -65,6 +60,7 @@ module Decidim
 
       describe "when the coauthor is nil" do
         let(:coauthor) { nil }
+        let(:notification) { create(:notification, :proposal_coauthor_invite) }
 
         it "does not add the coauthor to the proposal" do
           expect do

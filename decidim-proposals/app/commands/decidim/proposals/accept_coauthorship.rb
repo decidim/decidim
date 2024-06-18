@@ -8,11 +8,9 @@ module Decidim
       #
       # proposal     - The proposal to add a coauthor to.
       # coauthor - The user to invite as coauthor.
-      # notification - The notification that triggered the command.
-      def initialize(proposal, coauthor, notification)
+      def initialize(proposal, coauthor)
         @proposal = proposal
         @coauthor = coauthor
-        @notification = notification
       end
 
       # Executes the command. Broadcasts these events:
@@ -25,17 +23,37 @@ module Decidim
         return broadcast(:invalid) unless @coauthor
         return broadcast(:invalid) if @proposal.authors.include?(@coauthor)
 
-        @notification.extra.delete("uuid")
         begin
           transaction do
             @proposal.add_coauthor(@coauthor)
-            @notification.save!
           end
+
+          generate_notifications
         rescue ActiveRecord::RecordInvalid
           return broadcast(:invalid)
         end
 
         broadcast(:ok)
+      end
+
+      private
+
+      def generate_notifications
+        # notify the co-author of the new co-authorship
+        Decidim::EventsManager.publish(
+          event: "decidim.events.proposals.new_coauthorship",
+          event_class: Decidim::Proposals::NewCoauthorshipEvent,
+          resource: @proposal,
+          affected_users: [@coauthor]
+        )
+
+        # notify the author that the co-author has accepted the invitation
+        Decidim::EventsManager.publish(
+          event: "decidim.events.proposals.coauthor_accepted_invite",
+          event_class: Decidim::Proposals::CoauthorAcceptedInviteEvent,
+          resource: @proposal,
+          affected_users: @proposal.authors.reject { |author| author == @coauthor }
+        )
       end
     end
   end

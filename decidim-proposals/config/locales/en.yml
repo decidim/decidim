@@ -244,7 +244,7 @@ en:
           actions:
             accept: Accept
             decline: Decline
-          email_intro: 'You have been invited to be a co-author of the proposal "%{resource_title}". You can accept the invitation in this page:'
+          email_intro: 'You have been invited to be a co-author of the proposal "%{resource_title}". You can accept or decline the invitation in this page:'
           email_outro: You have received this notification because the author of the proposal wants to recognize your contributions by becoming a co-author.
           email_subject: You have been invited to be a co-author of the proposal "%{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name}</a> would like to invite you as a co-author of the proposal <a href="%{resource_path}">%{resource_title}</a>.

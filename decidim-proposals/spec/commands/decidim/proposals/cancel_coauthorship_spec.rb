@@ -9,10 +9,10 @@ module Decidim
 
       let(:coauthor) { create(:user, organization: proposal.organization) }
       let!(:notification) do
-        create(:notification, event_class: "Decidim::Proposals::CoauthorInvitedEvent", user: coauthor, resource: proposal, extra: { uuid: "some-uuid", other: "Other data" })
+        create(:notification, :proposal_coauthor_invite, user: coauthor, resource: proposal)
       end
       let!(:another_notification) do
-        create(:notification, event_class: "Decidim::Proposals::CoauthorInvitedEvent", resource: proposal, extra: { uuid: "another-uuid", other: "Other data" })
+        create(:notification, :proposal_coauthor_invite, resource: proposal)
       end
 
       let(:command) { described_class.new(proposal, coauthor) }
@@ -30,6 +30,7 @@ module Decidim
 
       describe "when the coauthor is not valid" do
         let(:coauthor) { nil }
+        let(:notification) { create(:notification, :proposal_coauthor_invite, resource: proposal) }
 
         it "broadcasts :invalid" do
           expect { command.call }.to broadcast(:invalid)

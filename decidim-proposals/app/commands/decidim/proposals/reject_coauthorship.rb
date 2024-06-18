@@ -8,11 +8,9 @@ module Decidim
       #
       # proposal     - The proposal to add a coauthor to.
       # coauthor - The user to invite as coauthor.
-      # notification - The notification that triggered the command.
-      def initialize(proposal, coauthor, notification)
+      def initialize(proposal, coauthor)
         @proposal = proposal
         @coauthor = coauthor
-        @notification = notification
       end
 
       # Executes the command. Broadcasts these events:
@@ -25,7 +23,7 @@ module Decidim
         return broadcast(:invalid) unless @coauthor
         return broadcast(:invalid) if @proposal.authors.include?(@coauthor)
 
-        @notification.destroy!
+        @proposal.coauthor_invitations_for(@coauthor).destroy_all
 
         broadcast(:ok)
       end

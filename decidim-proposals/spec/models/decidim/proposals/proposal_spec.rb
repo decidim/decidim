@@ -277,12 +277,12 @@ module Decidim
         let(:coauthor) { create(:user, organization:) }
 
         it "returns the coauthor invitations for the given user" do
-          expect(proposal.coauthor_invitations_for(coauthor.id)).to eq([notification])
+          expect(proposal.coauthor_invitations_for(coauthor)).to eq([notification])
         end
 
         context "when the user has not been invited" do
           it "returns empty" do
-            expect(proposal.coauthor_invitations_for(create(:user).id)).to be_empty
+            expect(proposal.coauthor_invitations_for(create(:user))).to be_empty
           end
         end
 
@@ -292,7 +292,7 @@ module Decidim
           end
 
           it "returns empty" do
-            expect(proposal.coauthor_invitations_for(coauthor.id)).to be_empty
+            expect(proposal.coauthor_invitations_for(coauthor)).to be_empty
           end
         end
       end
@@ -306,9 +306,12 @@ module Decidim
           expect(proposal.actions_for_comment(comment)).to eq([
                                                                 {
                                                                   label: "Mark as co-author",
-                                                                  url: EngineRouter.main_proxy(component).proposal_invite_coauthors_path(proposal_id: proposal.id, coauthor_id: comment.author.id),
+                                                                  url: EngineRouter.main_proxy(component).proposal_invite_coauthors_path(proposal_id: proposal.id, id: comment.author.id),
                                                                   icon: "user-add-line",
-                                                                  method: :post
+                                                                  method: :post,
+                                                                  data: {
+                                                                    confirm: "Are you sure you want to mark this user as a co-author? The receiver will receive a notification to accept or decline the invitation."
+                                                                  }
                                                                 }
                                                               ])
         end
@@ -322,9 +325,12 @@ module Decidim
             expect(proposal.actions_for_comment(comment)).to eq([
                                                                   {
                                                                     label: "Cancel co-author invitation",
-                                                                    url: EngineRouter.main_proxy(component).cancel_proposal_invite_coauthors_path(proposal_id: proposal.id, coauthor_id: comment.author.id),
+                                                                    url: EngineRouter.main_proxy(component).cancel_proposal_invite_coauthors_path(proposal_id: proposal.id, id: comment.author.id),
                                                                     icon: "user-forbid-line",
-                                                                    method: :delete
+                                                                    method: :delete,
+                                                                    data: {
+                                                                      confirm: "Are you sure you want to cancel the co-author invitation?"
+                                                                    }
                                                                   }
                                                                 ])
           end

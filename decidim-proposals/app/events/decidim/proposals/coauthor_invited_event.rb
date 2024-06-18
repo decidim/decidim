@@ -7,7 +7,7 @@ module Decidim
       include Decidim::Core::Engine.routes.url_helpers
 
       def action_cell
-        "decidim/notification_actions/buttons" if uuid
+        "decidim/notification_actions/buttons" unless user_is_coauthor?
       end
 
       def action_data
@@ -27,18 +27,18 @@ module Decidim
         ]
       end
 
-      def uuid
-        extra["uuid"]
-      end
-
       def resource_url
-        notifications_url(host: resource.organization.host)
+        notifications_url(host: component.organization.host)
       end
 
       private
 
       def invite_path
-        @invite_path ||= EngineRouter.main_proxy(component).proposal_invite_coauthor_path(proposal_id: resource, id: uuid)
+        @invite_path ||= EngineRouter.main_proxy(component).proposal_invite_coauthor_path(proposal_id: resource, id: user.id)
+      end
+
+      def user_is_coauthor?
+        resource.authors.include?(user)
       end
     end
   end

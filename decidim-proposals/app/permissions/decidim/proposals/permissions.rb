@@ -180,7 +180,7 @@ module Decidim
       end
 
       def notification_already_sent?
-        @notification_already_sent ||= proposal.coauthor_invitations_for(coauthor&.id).any?
+        @notification_already_sent ||= proposal.coauthor_invitations_for(coauthor).any?
       end
 
       def coauthor_in_comments?
@@ -198,7 +198,7 @@ module Decidim
         return false unless user == coauthor
         return false unless proposal.user_has_actions?(coauthor)
 
-        proposal.coauthor_invitations_for(coauthor.id).any?
+        notification_already_sent?
       end
     end
   end
