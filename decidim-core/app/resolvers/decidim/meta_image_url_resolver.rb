@@ -26,8 +26,28 @@ module Decidim
     #
     # @return [ActiveStorage::Blob, nil] - The image blob or nil if no image is found.
     def determine_image_blob
-      blob_from_image_fields || blob_from_description(@resource) ||
-        blob_from_participatory_space || blob_from_attachment_image || blob_from_content_blocks
+      methods_with_args = [
+        { method: has_attached_fields? ? :blob_from_image_fields : :blob_from_attachment_image },
+        { method: :blob_from_description, args: [@resource] },
+        { method: :blob_from_participatory_space },
+        { method: :blob_from_content_blocks },
+        { method: has_attached_fields? ? :blob_from_attachment_image : nil }
+      ].compact
+
+      methods_with_args.each do |hash|
+        method = hash[:method]
+        args = hash[:args] || []
+        blob = send(method, *args)
+        return blob if blob.present?
+      end
+      nil
+    end
+
+    # Checks if the resource has attached fields like hero_image or banner_image.
+    #
+    # @return [Boolean] - True if the resource has attached fields, false otherwise.
+    def has_attached_fields?
+      @resource.respond_to?(:hero_image) || @resource.respond_to?(:banner_image)
     end
 
     # Fetches the image blob from the resource's attached image fields.
@@ -127,9 +147,15 @@ module Decidim
       Rails.application.routes.url_helpers.rails_representation_url(resized_variant, only_path: true)
     end
 
+    # Retrieves the path for the attached uploader of the specified image types.
+    #
+    # @param [Object] resource - The resource to search for attached uploaders.
+    # @param [Array<Symbol>] image_types - The types of images to search for.
+    #
+    # @return [String, nil] - The path of the attached uploader or nil if not found.
     def get_attached_uploader_path(resource, image_types)
       image_types.each do |image_type|
-        path = resource.attached_uploader(image_type)&.path
+        path = resource.try(:attached_uploader, image_type)&.path
         return path if path
       end
       nil
