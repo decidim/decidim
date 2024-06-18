@@ -478,6 +478,9 @@ en:
           reply:
             error: There was a problem creating this proposal note reply.
             success: Proposal note reply successfully created.
+          reply_form:
+            note: Note
+            submit: Submit
           title: Private notes
         proposal_states:
           create:

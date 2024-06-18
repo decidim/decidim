@@ -70,6 +70,10 @@
 
         background-color: rgba(255, 252, 238, 1);
       }
+
+      .comment-reply {
+        @apply p-4 rounded bg-white border border-gray rounded mt-4;
+      }
     }
   }
 

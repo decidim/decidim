@@ -7,23 +7,7 @@
   </button>
   <div id="panel-notes">
     <div class="component__show_notes-grid">
-      <% proposal.notes.each do |note| %>
-        <div class="comment">
-          <div class="comment__header">
-            <div>
-              <div>
-                <div class="author">
-                  <strong><span class="author__name"><%= note.author.name %></span></strong>
-                  <span><%= l note.created_at, format: :decidim_short %></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="comment__content">
-            <%= simple_format note.body %>
-          </div>
-        </div>
-      <% end %>
+      <%= render partial: "decidim/proposals/admin/proposal_notes/proposal_note", collection: proposal.notes.not_reply %>
     </div>
     <div class="card add-comment">
       <div class="card-divider">

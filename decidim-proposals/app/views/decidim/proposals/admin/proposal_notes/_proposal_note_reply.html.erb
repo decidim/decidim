@@ -1,0 +1,15 @@
+<div class="comment-reply">
+  <div class="comment__header">
+    <div>
+      <div>
+        <div class="author">
+          <strong><span class="author__name"><%= proposal_note_reply.author.name %></span></strong>
+          <span><%= l proposal_note_reply.created_at, format: :decidim_short %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="comment__content">
+    <%= simple_format proposal_note_reply.body %>
+  </div>
+</div>
