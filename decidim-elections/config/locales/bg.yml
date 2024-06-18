@@ -277,19 +277,61 @@ bg:
           update:
             invalid: Възникна проблем при актуализирането на %{trustee} Валидатор
             success: Валидатор %{trustee} е актуализиран успешно
+      admin_log:
+        election:
+          create: "%{user_name} създаде изборa %{resource_name} на %{space_name}"
+          delete: "%{user_name} изтри изборa %{resource_name} на %{space_name}"
       elections:
         election_log:
           not_published: Не публикувано
+          tally_title: Процес на преброяване
+          title: Регистър на избора
           verifiable_results:
+            checksum: 'File SHA256 checksum:'
             description:
               not_ready: Верифицираният файл от изборите и контролната сума SHA256 все още не са налични. Веднага щом резултатите бъдат публикувани, вие ще можете да проверите този избор.
+              ready: 'Тук имате възможност да потвърдите избора. Първо, трябва да изтеглите файла и да се уверите, че не е повреден. За да направите това, изпълнете следната команда и проверете дали изходът съответства на контролната сума:'
+            how_to_verify: 'След като изтеглите файла и се уверите, че е наред, можете да продължите да стартирате универсалния верификатор. Клонирайте <a href=''https://github.com/decidim/decidim-bulletin-board''>това хранилище</a> и от главната папка изпълнете следната команда:'
+            title: Потвърдете резултатите от изборите
+            verifiable_file: 'Изборен файл за проверка:'
+          verify: Провери избора
+          vote_description:
+            finished: Процесът на гласуване приключи.
+            not_started: Процесът на гласуване все още не е започнал.
+            started: Процесът на гласуване все още не е започнал.
+          vote_title: Процес на гласуване
+        filters:
+          active: Активно
+          all: Всички
+          date: Дата
+          finished: Приключило
+          upcoming: Предстоящо
         filters_small_view:
           close_modal: Затвори прозореца
           filter: Филтър
           filter_by: Филтрирай по
           unfold: Разгъване
+        preview:
+          available_answers: 'Налични орговори:'
+          description: 'Това са въпросите, които ще намерите в процеса на гласуване:'
+          title: Изборни въпроси
+        results:
+          description: 'Това са резултатите от гласуването за всеки въпрос:'
+          percentage: "%{count}%"
+          selected: Селектирано
+          title: Резултати от изборите
+          votes:
+            one: "%{count} глас"
+            other: "%{count} гласа"
         show:
+          action_button:
+            change_vote: Променете Вашия глас
+            vote: Започнете гласуването
+            vote_again: Гласувайте отново
           back: Активни избори
+          callout:
+            already_voted: Вие вече гласувахте на тези избори. Можете да промените гласа си или да го потвърдите.
+            pending_vote: Вашият глас се предава на сървъра.
       feedback:
         answer:
           spam_detected: Възникна проблем при попълването на отговорите във формуляра. Навярно сте били твърде бързи, бихте ли опитали отново?
@@ -376,6 +418,8 @@ bg:
           landing_page:
             description:
               name: Описание на гласуването
+        index:
+          not_published: Непубликувано
         landing_page:
           edit:
             active_content_blocks: Активни блокове със съдържание
@@ -510,6 +554,7 @@ bg:
             info: Трябва вече да сте получили кода си за достъп по пощата. В случай, че не разполагате с него, можете да го заявите тук
         elections_log:
           bb_status: Статус на изборите
+          election_log: Регистър на избора
         filters_small_view:
           close_modal: Затвори прозореца
           filter: Филтър
