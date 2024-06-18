@@ -68,6 +68,7 @@ en:
         show:
           admins: Admins
           current_organizations: Current organizations
+          system_checks: System checks
       default_pages:
         placeholders:
           content: Please add meaningful content to the %{page} static page on the admin dashboard.
@@ -269,6 +270,14 @@ en:
         organizations_list:
           confirm_resend_invitation: Are you sure you want to resend the invitation?
           resend_invitation: Resend invitation
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Decidim Documentation
+          error: The ActiveJob queue is not configured. This is not a recommended setup for production. Read more at %{error_extra}.
+          success: The ActiveJob queue is configured correctly.
+        secret_key:
+          error: 'The secret key is not defined correctly. Please save to the SECRET_KEY_BASE environment variable and restart the server: %{error_extra}'
+          success: The secret key is configured correctly.
       titles:
         dashboard: Dashboard
         decidim: Decidim

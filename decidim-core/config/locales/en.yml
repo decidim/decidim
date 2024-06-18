@@ -360,7 +360,11 @@ en:
     application:
       document:
         download: Download file
+        visit_link: Visit link
       documents:
+        component_documents:
+          dummy: Dummy component documents
+          meetings: Meetings documents
         documents: Documents
         related_documents: Related documents
       photo:
@@ -884,6 +888,11 @@ en:
         button: Stop following
         error: There was a problem unfollowing this resource.
     forms:
+      attachment_link:
+        explanation: Guidance for attachment links
+        help_messages:
+        - Only correct URL formats are accepted.
+        - Please note that the links must be public so that all participants can access them.
       errors:
         decidim/user:
           password: The password is too short.
@@ -1238,6 +1247,7 @@ en:
         same_language: The content has been posted in your preferred language (%{language}), this is why no automated translation is displayed in this email.
         translated_text: 'Automatically translated text:'
     notifications:
+      action_error: There was a problem updating the notifications.
       no_notifications: No notifications yet.
       show:
         missing_event: Oops, this notification belongs to an item that is no longer available. You can discard it.
@@ -1935,7 +1945,7 @@ en:
         sign_up: Sign Up
         terms_of_service: Terms of Service
       header:
-        log_in: Log in
+        log_in: Login
         main_menu: Main menu
         user_menu: User menu
       impersonation_warning:

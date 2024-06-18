@@ -17,6 +17,7 @@ export default function generateDatePicker(input, row, formats) {
   const calendar = document.createElement("button");
   calendar.innerHTML = icon("calendar-line");
   calendar.setAttribute("class", "datepicker__calendar-button");
+  calendar.setAttribute("type", "button");
 
   dateColumn.appendChild(date);
   dateColumn.appendChild(calendar);
@@ -35,11 +36,13 @@ export default function generateDatePicker(input, row, formats) {
   const closeCalendar = document.createElement("button");
   closeCalendar.innerText = i18n.close;
   closeCalendar.setAttribute("class", "datepicker__close-calendar button button__transparent-secondary button__xs");
+  closeCalendar.setAttribute("type", "button");
 
   const pickCalendar = document.createElement("button");
   pickCalendar.innerText = i18n.select;
   pickCalendar.setAttribute("class", "datepicker__pick-calendar button button__secondary button__xs");
   pickCalendar.setAttribute("disabled", true);
+  pickCalendar.setAttribute("type", "button");
 
   datePickerContainer.appendChild(pickCalendar);
   datePickerContainer.appendChild(closeCalendar);

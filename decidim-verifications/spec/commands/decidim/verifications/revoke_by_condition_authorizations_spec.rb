@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Verifications
   describe RevokeByConditionAuthorizations do
-    subject { described_class.new(organization, current_user, form) }
+    subject { described_class.new(organization, form) }
 
     let(:params) do
       {
@@ -12,9 +12,14 @@ module Decidim::Verifications
         before_date:
       }
     end
+
     let(:form) do
-      Decidim::Verifications::Admin::RevocationsBeforeDateForm.from_params(params)
+      Decidim::Verifications::Admin::RevocationsBeforeDateForm
+        .from_params(params)
+        .with_context(current_user:)
     end
+
+    let(:authorization) { create(:authorization, id: 9234) }
     let(:now) { Time.zone.now }
     let(:prev_week) { Time.zone.today.prev_week }
     let(:prev_month) { Time.zone.today.prev_month }

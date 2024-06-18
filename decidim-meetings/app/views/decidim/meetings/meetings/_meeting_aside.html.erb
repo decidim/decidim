@@ -1,3 +1,5 @@
+<%= render partial: "meeting_poll_actions" %>
+
 <% if meeting.can_be_joined_by?(current_user) || meeting.on_different_platform? %>
   <section class="layout-aside__section layout-aside__buttons">
     <%= cell "decidim/meetings/join_meeting_button", meeting, show_remaining_slots: true %>
