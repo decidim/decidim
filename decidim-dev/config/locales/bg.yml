@@ -15,6 +15,12 @@ bg:
       dummy:
         settings:
           global:
+            guided: Насочвано въвеждане
+            guided_help: Помощен текст
+            guided_readonly: Дезактивирано въвеждане
+            guided_rich: Насочвано широко въвеждане
+            guided_rich_help_html: HTML <strong>помощен</strong> текст
+            guided_rich_readonly_html: HTML <strong>помощен</strong> текст за дезакривирано въвеждане
             readonly_attribute: Само за четене атрибут
             test: А тест
             test_choices:
@@ -23,6 +29,7 @@ bg:
               c: В избор
             test_options:
               bar: Нещо1
+              baz: Baz
               foo: Нещо2
           step:
             endorsements_blocked: Одобряване забранено
@@ -30,6 +37,7 @@ bg:
             readonly_step_attribute: Само за четене стъпков атрибут
             test_options:
               bar: Нещо1
+              baz: Baz
               foo: Нещо2
     dummy:
       admin:
