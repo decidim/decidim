@@ -34,7 +34,7 @@ module Decidim
       def update_attachment_collection
         Decidim.traceability.update!(
           @attachment_collection,
-          @user,
+          current_user,
           attributes
         )
       end
