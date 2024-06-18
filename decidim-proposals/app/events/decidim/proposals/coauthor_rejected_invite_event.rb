@@ -2,7 +2,7 @@
 
 module Decidim
   module Proposals
-    class CoauthorRejectedInviteEvent < Decidim::Events::SimpleEvent
+    class CoauthorRejectedInviteEvent < CoauthorAcceptedInviteEvent
     end
   end
 end

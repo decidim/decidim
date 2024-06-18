@@ -33,7 +33,7 @@ module Decidim
           expect(Decidim::Notification.all.to_a).to eq([another_notification])
         end
 
-        it_behaves_like "fires an ActiveSupport::Notification event", "decidim.events.proposals.new_coauthorship"
+        it_behaves_like "fires an ActiveSupport::Notification event", "decidim.events.proposals.accepted_coauthorship"
         it_behaves_like "fires an ActiveSupport::Notification event", "decidim.events.proposals.coauthor_accepted_invite"
 
         it "notifies the coauthor and existing authors about the new coauthorship" do
@@ -48,8 +48,8 @@ module Decidim
           expect(Decidim::EventsManager)
             .to receive(:publish)
             .with(
-              event: "decidim.events.proposals.new_coauthorship",
-              event_class: Decidim::Proposals::NewCoauthorshipEvent,
+              event: "decidim.events.proposals.accepted_coauthorship",
+              event_class: Decidim::Proposals::AcceptedCoauthorshipEvent,
               resource: proposal,
               affected_users: [coauthor]
             )

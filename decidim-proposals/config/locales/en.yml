@@ -234,12 +234,16 @@ en:
             votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
     events:
       proposals:
+        accepted_coauthorship:
+          notification_title: You have been added as a co-author of the proposal <a href="%{resource_path}">%{resource_title}</a>.
         admin:
           proposal_note_created:
             email_intro: Someone has left a note on the proposal "%{resource_title}". Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.
             email_outro: You have received this notification because you can valuate the proposal.
             email_subject: Someone left a note on proposal %{resource_title}.
             notification_title: Someone has left a note on the proposal <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
+        coauthor_accepted_invite:
+          notification_title: <a href="%{user_path}">%{user_name}</a> has accepted your invitation to become a co-author of the proposal <a href="%{resource_path}">%{resource_title}</a>.
         coauthor_invited:
           actions:
             accept: Accept
@@ -248,6 +252,8 @@ en:
           email_outro: You have received this notification because the author of the proposal wants to recognize your contributions by becoming a co-author.
           email_subject: You have been invited to be a co-author of the proposal "%{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name}</a> would like to invite you as a co-author of the proposal <a href="%{resource_path}">%{resource_title}</a>.
+        coauthor_rejected_invite:
+          notification_title: <a href="%{user_path}">%{user_name}</a> has declined your invitation to become a co-author of the proposal <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} has been accepted to access as a contributor of the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.'
           email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
@@ -325,6 +331,8 @@ en:
           email_outro: You have received this notification because you are the author of the proposal.
           email_subject: The %{resource_title} proposal scope has been updated
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal scope has been updated by an admin.
+        rejected_coauthorship:
+          notification_title: You have declined the invtation from <a href="%{author_path}">%{author_name}</a> to become a co-author of the proposal <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
           email_intro: 'You can vote proposals in %{participatory_space_title}! Start participating in this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.

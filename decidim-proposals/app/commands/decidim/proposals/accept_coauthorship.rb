@@ -42,8 +42,8 @@ module Decidim
       def generate_notifications
         # notify the co-author of the new co-authorship
         Decidim::EventsManager.publish(
-          event: "decidim.events.proposals.new_coauthorship",
-          event_class: Decidim::Proposals::NewCoauthorshipEvent,
+          event: "decidim.events.proposals.accepted_coauthorship",
+          event_class: Decidim::Proposals::AcceptedCoauthorshipEvent,
           resource: @proposal,
           affected_users: [@coauthor]
         )

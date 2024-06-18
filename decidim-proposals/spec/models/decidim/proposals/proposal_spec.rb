@@ -272,7 +272,7 @@ module Decidim
 
       describe "#coauthor_invitations_for" do
         let!(:notification) do
-          create(:notification, event_class: "Decidim::Proposals::CoauthorInvitedEvent", resource: proposal, user: coauthor)
+          create(:notification, :proposal_coauthor_invite, resource: proposal, user: coauthor)
         end
         let(:coauthor) { create(:user, organization:) }
 
@@ -318,7 +318,7 @@ module Decidim
 
         context "when the author has already been invited" do
           let!(:notification) do
-            create(:notification, event_class: "Decidim::Proposals::CoauthorInvitedEvent", resource: proposal, user: comment.author)
+            create(:notification, :proposal_coauthor_invite, resource: proposal, user: comment.author)
           end
 
           it "returns actions to remove the co-author invitation" do
