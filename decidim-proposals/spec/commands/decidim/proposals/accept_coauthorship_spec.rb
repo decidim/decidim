@@ -43,7 +43,8 @@ module Decidim
               event: "decidim.events.proposals.coauthor_accepted_invite",
               event_class: Decidim::Proposals::CoauthorAcceptedInviteEvent,
               resource: proposal,
-              affected_users: proposal.authors.reject { |author| author == coauthor }
+              affected_users: proposal.authors.reject { |author| author == coauthor },
+              extra: { coauthor_id: coauthor.id }
             )
           expect(Decidim::EventsManager)
             .to receive(:publish)
