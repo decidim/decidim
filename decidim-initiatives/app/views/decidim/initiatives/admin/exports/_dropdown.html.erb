@@ -17,7 +17,7 @@
     <% %w(CSV JSON).each do |format| %>
       <%= link_to export_initiatives_path(format:, collection_ids:) do %>
         <li class="exports--format--<%= format.downcase %> exports--initiatives">
-          <%= t("decidim.admin.exports.export_as", name: t("decidim.initiatives.admin.exports.initiatives"), export_format: format.upcase)%>
+          <%= t("decidim.admin.exports.export_as", name: t("decidim.initiatives.admin.exports.initiatives"), export_format: format.upcase) %>
         </li>
       <% end %>
     <% end %>
