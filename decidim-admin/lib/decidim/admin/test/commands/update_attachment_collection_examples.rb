@@ -29,7 +29,7 @@ module Decidim
             current_organization: organization
           )
         end
-        let(:command) { described_class.new(attachment_collection, form, user) }
+        let(:command) { described_class.new(attachment_collection, form) }
 
         describe "when the form is not valid" do
           before do
