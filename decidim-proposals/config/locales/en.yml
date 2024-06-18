@@ -754,11 +754,11 @@ en:
         success: Proposal draft was successfully deleted.
       invite_coauthors:
         cancel:
-          error: There was a problem canceling the coauthor invitation.
-          success: Coauthor invitation successfully canceled.
+          error: There was a problem canceling the co-author invitation.
+          success: Co-author invitation successfully canceled.
         create:
-          error: There was a problem inviting the coauthor.
-          success: "%{author_name} successfully invited as coauthor."
+          error: There was a problem inviting the co-author.
+          success: "%{author_name} successfully invited as a co-author."
         destroy:
           error: There was a problem declining the invitation.
           success: The invitation has been declined.

@@ -738,13 +738,8 @@ FactoryBot.define do
     end
 
     trait :proposal_coauthor_invite do
-      event_name { "decidim.proposals.coauthor_invited" }
+      event_name { "decidim.events.proposals.coauthor_invited" }
       event_class { "Decidim::Proposals::CoauthorInvitedEvent" }
-      extra do
-        {
-          uuid: SecureRandom.uuid
-        }
-      end
     end
   end
 
