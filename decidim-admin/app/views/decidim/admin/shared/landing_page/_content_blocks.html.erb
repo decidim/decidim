@@ -12,7 +12,11 @@
         <div class="dropdown-pane" id="add-content-block-dropdown" data-dropdown data-auto-focus="true" data-close-on-click="true">
           <ul class="vertical menu add-components font-normal">
             <% available_manifests.each do |manifest| %>
-              <li><%= link_to t(manifest.public_name_key), resource_create_url(manifest.name), method: :post %></li>
+              <%= link_to resource_create_url(type: manifest.name), method: :post do %>
+                <li>
+                  <%= t(manifest.public_name_key) %>
+                </li>
+              <% end %>
             <% end %>
           </ul>
         </div>
