@@ -359,6 +359,7 @@ de:
     application:
       document:
         download: Datei herunterladen
+        visit_link: Link öffnen
       documents:
         component_documents:
           dummy: Platzhalter für Komponenten-Dokumente
@@ -884,6 +885,11 @@ de:
         button: Entfolgen
         error: Beim Entfolgen dieser Ressource ist ein Fehler aufgetreten.
     forms:
+      attachment_link:
+        explanation: Anleitung für Anhang-Links
+        help_messages:
+          - Nur korrekte URL-Formate werden akzeptiert.
+          - Bitte beachten Sie, dass die Links öffentlich sein müssen, damit alle Teilnehmer auf sie zugreifen können.
       errors:
         decidim/user:
           password: Das Passwort ist zu kurz.
@@ -1238,6 +1244,7 @@ de:
         same_language: Der Inhalt wurde in Ihrer bevorzugten Sprache (%{language}) veröffentlicht, daher wird in dieser E-Mail keine automatisierte Übersetzung angezeigt.
         translated_text: 'Automatisch übersetzter Text:'
     notifications:
+      action_error: Beim Aktualisieren der Benachrichtigungen ist ein Fehler aufgetreten.
       no_notifications: Noch keine Benachrichtigungen
       show:
         missing_event: Hoppla, diese Benachrichtigung gehört zu einem Artikel, der nicht mehr verfügbar ist. Du kannst sie verwerfen.
