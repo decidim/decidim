@@ -30,6 +30,14 @@ module Decidim
       )
     end
 
+    def action_class
+      @action ||= ("#{notification.event_class_instance.action_cell.camelize}Cell" if notification.event_class_instance.action_cell)
+    end
+
+    def action_cell
+      @action_cell ||= (notification.event_class_instance.action_cell if action_class&.safe_constantize)
+    end
+
     private
 
     def notification

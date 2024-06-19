@@ -267,6 +267,7 @@ FactoryBot.define do
     end
     token { :not_answered }
     title { generate_state_title(:not_answered, skip_injection:) }
+    announcement_title { generate_localized_title(:announcement_title, skip_injection:) }
     component { build(:proposal_component) }
     bg_color { Faker::Color.hex_color(:light) }
     text_color { Faker::Color.hex_color(:dark) }
@@ -496,7 +497,13 @@ FactoryBot.define do
     transient do
       skip_injection { false }
     end
-    body { Faker::Lorem.sentences(number: 3).join("\n") }
+    body do
+      if skip_injection
+        generate(:title)
+      else
+        "<script>alert(\"proposal_note_body\");</script> #{generate(:title)}"
+      end
+    end
     proposal { build(:proposal, skip_injection:) }
     author { build(:user, organization: proposal.organization, skip_injection:) }
   end

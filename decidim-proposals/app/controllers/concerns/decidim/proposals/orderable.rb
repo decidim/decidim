@@ -35,7 +35,7 @@ module Decidim
 
         def fetch_default_order
           default_order = current_settings.default_sort_order.presence || component_settings.default_sort_order
-          return order_by_default if default_order == "default"
+          return order_by_default if default_order == "automatic"
 
           possible_orders.include?(default_order) ? default_order : order_by_default
         end
