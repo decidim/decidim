@@ -615,7 +615,23 @@ bg:
           election: Избор
           register: Регистър
           vote_for: Глас за %{title}
+        messages:
+          invalid_token: Вашата сесия в кабината за гласуване не е валидна. Опитайте да гласувате отново.
+          not_allowed: Не можете да гласувате на тези избори в настоящия момент.
+        modal:
+          close: Затвори
+          proposal_header: 'Предложения:'
+        new:
+          answer_choices: Можете да избере до %{choices} отговора
+          more_information: Още информация
+          nota_option: Празно/ Нито едно от горните
+          preview_alert: Това е визуализация на кабината за гласуване.
+          question_steps: Въпрос %{current_step} от %{total_steps}
+          selections: "%{selected} от %{max_selections} селекции"
         onboarding_modal:
+          create_account: Създай профил
+          description: Искате ли да създадете нов акаунт в платформата? Ще можете да участвате в процесите и да бъдете активна част от организацията.
+          no_account: Не, благодаря.
           title: Нов сте в тази платформа?
         update:
           error: Възникна проблем при актуализирането на състоянието на гласуването. Моля, гласувайте отново.
@@ -650,6 +666,160 @@ bg:
           new_trustee:
             notification_title: Вие сте Валидатор на изборите <a href="%{participatory_space_url}">%{resource_name}</a>.
     votings:
+      admin:
+        ballot_styles:
+          index:
+            associated_census_data: Свързани записи от преброяването
+            explanation_callout: В "Стил на бюлетина" се определят какви въпроси ще бъдат представени на гласоподавателя в кабината. Можете да изберете кои въпроси от изборните компоненти на това гласуване принадлежат към дадена бюлетина. Кодът за "Стил на бюлетина" се използва за съпоставяне на гласоподавател от преброяването с бюлетината, която ще бъде представена в кабината. Не създавайте "Стил на бюлетина", ако винаги искате да представите всички въпроси.
+            title: Стилове на бюлетина
+          new:
+            create: Създаване
+            title: Създайте стил на бюлетина
+          update:
+            invalid: Възникна проблем при актуализирането на този "Стил на бюлетина"
+            success: Стилът на бюлетината е актуализиран успешно.
+        content_blocks:
+          attachments_and_folders:
+            name: Прикачени файлове и папки за гласуване
+          header:
+            name: Заглавка при гласуване
+          highlighted_votings:
+            max_results: Максимален брой елементи, които да се показват
+          html_block_1:
+            name: Гласуване html блок 1
+          html_block_2:
+            name: Гласуване html блок 2
+          html_block_3:
+            name: Гласуване html блок 3
+          main_data:
+            name: Заглавие и описание
+          metrics:
+            name: Метрики при гласуване
+          polling_stations:
+            name: Секции за гласуване
+          related_elections:
+            name: Избори за гласуване
+          stats:
+            name: Статистики за гласуване
+          timeline:
+            name: Хронология на гласуване
+        index:
+          published: Публикувано
+          unpublished: Непубликувано
+        menu:
+          votings: Гласувания
+          votings_submenu:
+            attachment_collections: Папки
+            attachment_files: Файлове
+            attachments: Прикачени файлове
+            ballot_styles: Стилове на бюлетина
+            census: Преброяване
+            components: Компоненти
+            info: Относно това гласуване
+            landing_page: Целева страница
+            monitoring_committee: Мониторингов комитет
+            monitoring_committee_election_results: Валидиране на резултатите
+            monitoring_committee_members: Членове
+            monitoring_committee_polling_station_closures: Валидация на сертификатите
+            monitoring_committee_verify_elections: Провери изборите
+            polling_officers: Членове на избирателна комисия
+            polling_stations: Избирателни секции
+            see_voting: Вижте гласуване
+        models:
+          ballot_style:
+            fields:
+              code: Код
+          monitoring_committee_member:
+            fields:
+              email: Имейл
+              name: Име
+          polling_officer:
+            fields:
+              email: Имейл
+              name: Име
+              polling_station: Избирателна секция (роля)
+          polling_station:
+            fields:
+              address: Адрес
+              polling_station_managers: Управители
+              polling_station_president: Председател
+              title: Заглавие
+          voting:
+            fields:
+              created_at: Създадено на
+              published: Публикувано
+        monitoring_committee_verify_elections:
+          index:
+            how_to_download: За да потвърдите избори, изтеглете неговия проверяем файл от таблицата по-горе.
+            how_to_run_verifier: 'След като изтеглите файла и се уверите, че е наред, можете да продължите да стартирате универсалния верификатор. Клонирайте <a href=''https://github.com/decidim/decidim-bulletin-board''>това хранилище</a> и от главната папка изпълнете следната команда:'
+            how_to_title: Как се проверява валидността на изборите
+            not_available: Не е налично все още
+            title: Избори
+        polling_officers:
+          create:
+            invalid: Възникна проблем при създаването на този член на избирателна комисия.
+            success: Успешно създаване на член на избирателна комисия.
+          destroy:
+            invalid: Възникна проблем при премахването на този член на избирателна комисия.
+            success: Успешно премахване на член на избирателна комисия.
+          form:
+            existing_user: Съществуващ участник
+            non_user: Поканете нов участник
+            select_user: Търсете по име, имейл, или псевдоним
+            user_type: Тип участник
+          index:
+            role_manager: управител
+            role_president: председател
+            title: Членове на избирателна комисия
+          new:
+            create: Създаване
+            title: Създаване на член на избирателна комисия
+          polling_officers_picker:
+            choose_polling_officers: Избор на член на избирателна комисия
+            no_polling_officers: Няма членове на избирателна комисия, които да съответстват на критериите Ви за търсене, или няма никакви членове.
+        polling_stations:
+          create:
+            invalid: Възникна проблем при създаването на тази избирателна секция.
+            success: Успешно създадена избирателна секция.
+          destroy:
+            invalid: Възникна проблем при изтриването на тази избирателна секция.
+            success: Успешно изтрита избирателна секция.
+          edit:
+            title: Редактиране на избирателната секция
+            update: Актуализация на избирателната секция
+          form:
+            address_help: 'Адрес: използва се от инструмента за геокодиране за намиране на местоположението'
+            location_help: 'Местоположение: съобщение, насочено към избирателите, в което се посочва точното място на избирателната секция'
+            location_hints_help: 'Съвети за местоположение: допълнителна информация. Пример: етажът на сградата, където се намира избирателната секция.'
+            polling_station_managers_help: 'Ръководители на избирателни секции: служителите, които ще действат като ръководители на избирателни секции. Уверете се, че служителите вече са създадени в Polling Officers и че вече не са назначени към друга избирателна секция'
+            polling_station_president_help: 'Председател на избирателна секция: служителят, който ще действа като председател на избирателна секция. Уверете се, че служителят вече е създаден в "Членове на избирателна секция" и че той вече не е назначен към друга избирателна секция'
+            select_president: Изберете член на ИК за председател на избирателната секция 
+          index:
+            title: Избирателни секции
+          new:
+            create: Създаване
+            title: Създаване на избирателна секция
+          update:
+            invalid: Възникна проблем при актуализирането на тази избирателна секция.
+            success: Успешно актуализирана избирателна секция.
+        titles:
+          votings: Гласувания
+        votings:
+          actions:
+            confirm_destroy: Сигурни ли сте?
+            destroy: Унищожи
+            new_voting: Ново пространство за гласуване
+          create:
+            invalid: Възникна проблем при създаването на това гласуване.
+            success: Гласуването е създадено успешно.
+          edit:
+            add_election_component: Нямате конфигурирани избори за това гласуване. Моля, добавете го в секцията Компоненти.
+            assign_missing_officers: Има избирателни секции без председател. Моля, задайте ги от раздел Избирателни секции.
+            update: Актуализация
+          form:
+            banner_image: Изображение на банера
+            census_contact_information: Контактна информация от преброяването
+            census_contact_information_help: Тази информация за контакт е за участник, който иска да съобщи за проблеми с преброяването. Това може да бъде имейл адрес, форма за контакт в друг сайт, анкета за посетители и др.
       polling_officer_zone:
         closures:
           certify:
