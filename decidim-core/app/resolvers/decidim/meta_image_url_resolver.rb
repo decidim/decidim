@@ -27,14 +27,17 @@ module Decidim
     # @return [ActiveStorage::Blob, nil] - The image blob or nil if no image is found.
     def determine_image_blob
       methods_with_args = [
-        { method: has_attached_fields? ? :blob_from_image_fields : :blob_from_attachment_image },
+        (has_attached_fields? ? { method: :blob_from_image_fields } : { method: :blob_from_attachment_image }),
         { method: :blob_from_description, args: [@resource] },
         { method: :blob_from_participatory_space },
-        { method: :blob_from_content_blocks },
-        { method: has_attached_fields? ? :blob_from_attachment_image : nil }
-      ].compact
+        { method: :blob_from_content_blocks }
+      ]
+
+      methods_with_args << { method: :blob_from_attachment_image } if has_attached_fields?
 
       methods_with_args.each do |hash|
+        next if hash[:method].nil?
+
         method = hash[:method]
         args = hash[:args] || []
         blob = send(method, *args)
