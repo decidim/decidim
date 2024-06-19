@@ -156,9 +156,7 @@ cs:
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
             default_sort_order: Výchozí řazení návrhu
-            default_sort_order_help: Výchozí znamená, že pokud jsou podporované funkce povoleny, budou návrhy zobrazeny náhodně, a pokud jsou podpory blokovány, pak budou seřazeny podle nejpodporovanější.
             default_sort_order_options:
-              default: Výchozí
               most_commented: Nejvíce komentované
               most_endorsed: Nejvíce schvalované
               most_followed: Nejvíce sledované
@@ -209,9 +207,7 @@ cs:
             creation_enabled: Účastníci mohou vytvářet návrhy
             creation_enabled_readonly: Toto nastavení je zakázáno, když aktivujete funkci Participativní texty. Chcete-li návrhy nahrát jako participativní text, klikněte na tlačítko Participativní texty a postupujte podle pokynů.
             default_sort_order: Výchozí řazení návrhu
-            default_sort_order_help: Ve výchozím nastavení to znamená, že pokud jsou podpory povoleny, budou návrhy zobrazeny náhodně seřazené, a pokud jsou podpory blokovány, budou seřazeny podle nejvíce podporovaných.
             default_sort_order_options:
-              default: Výchozí
               most_commented: Nejvíce komentované
               most_endorsed: Nejvíce schvalované
               most_followed: Nejvíce sledované
