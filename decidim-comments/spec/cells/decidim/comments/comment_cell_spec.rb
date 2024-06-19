@@ -233,7 +233,7 @@ module Decidim::Comments
       let(:actions) do
         [{
           label: "Poke comment",
-          url: "/pokeme"
+          url: "/poke"
         }]
       end
 

@@ -323,20 +323,20 @@ module Decidim
         end
       end
 
-      describe "#extra_actions" do
-        it "returns nil" do
-          expect(comment.extra_actions).to be_nil
+      describe "#extra_actions_for" do
+        it "returns blank" do
+          expect(comment.extra_actions_for(author)).to eq([])
         end
 
         context "when the root commentable provides actions" do
           let(:actions) { "Some actions" }
 
           before do
-            allow(commentable).to receive(:actions_for_comment).with(comment).and_return(actions)
+            allow(commentable).to receive(:actions_for_comment).with(comment, author).and_return(actions)
           end
 
           it "returns the actions" do
-            expect(comment.extra_actions).to eq(actions)
+            expect(comment.extra_actions_for(author)).to eq(actions)
           end
         end
       end

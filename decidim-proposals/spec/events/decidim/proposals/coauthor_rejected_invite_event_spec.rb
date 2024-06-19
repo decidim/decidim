@@ -5,8 +5,9 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe CoauthorRejectedInviteEvent do
+      include_context "when a simple event"
+
       let(:resource) { create(:proposal) }
-      let(:coauthor) { create(:user, organization: resource.organization) }
       let(:extra) do
         {
           "coauthor_id" => coauthor.id
@@ -19,8 +20,7 @@ module Decidim
       let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
       let(:resource_title) { decidim_sanitize_translated(resource.title) }
       let(:event_name) { "decidim.events.proposals.coauthor_rejected_invite" }
-
-      include_context "when a simple event"
+      let(:coauthor) { create(:user, organization: resource.organization) }
 
       it_behaves_like "a simple event notification"
       it_behaves_like "a notification event only"
