@@ -45,6 +45,7 @@ describe "User prints the initiative" do
           **attributes[:description].except("machine_translations")
         )
         submit_and_validate
+
         visit decidim_admin.root_path
         expect(page).to have_content("updated the #{translated(attributes[:title])} initiative")
       end

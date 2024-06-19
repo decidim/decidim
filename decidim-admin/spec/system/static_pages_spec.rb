@@ -191,6 +191,7 @@ describe "Content pages" do
       within ".card", text: topic.title[I18n.locale.to_s] do
         expect(page).to have_css("tr", text: translated(attributes[:title]))
       end
+
       visit decidim_admin.root_path
       expect(page).to have_content("created the #{translated(attributes[:title])} static page")
     end
@@ -238,6 +239,7 @@ describe "Content pages" do
         within ".card", text: topic.title[I18n.locale.to_s] do
           expect(page).to have_css("tr", text: translated(attributes[:title]))
         end
+
         visit decidim_admin.root_path
         expect(page).to have_content("updated the #{translated(attributes[:title])} static page")
       end

@@ -136,6 +136,7 @@ shared_examples "manage assembly components" do
       within ".default-step-settings" do
         expect(all("input[type=checkbox]").first).to be_checked
       end
+
       visit decidim_admin.root_path
       expect(page).to have_content("updated #{translated(attributes[:name])} in #{translated(assembly.title)}")
     end

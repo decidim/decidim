@@ -37,6 +37,7 @@ shared_examples "manage categories examples" do
     within "#categories table" do
       expect(page).to have_content(translated(attributes[:name]))
     end
+
     visit decidim_admin.root_path
     expect(page).to have_content("added the #{translated(attributes[:name])} category to the")
   end
@@ -63,6 +64,7 @@ shared_examples "manage categories examples" do
     within "#categories table" do
       expect(page).to have_content(translated(attributes[:name]))
     end
+
     visit decidim_admin.root_path
     expect(page).to have_content("updated the #{translated(attributes[:name])} category in the")
   end

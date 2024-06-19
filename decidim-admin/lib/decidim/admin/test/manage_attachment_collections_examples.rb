@@ -48,6 +48,7 @@ shared_examples "manage attachment collections examples" do
     within "#attachment_collections table" do
       expect(page).to have_content(translated(attributes[:name]))
     end
+
     visit decidim_admin.root_path
     expect(page).to have_content("created the #{translated(attributes[:name])} attachment collection")
   end
@@ -74,6 +75,7 @@ shared_examples "manage attachment collections examples" do
     within "#attachment_collections table" do
       expect(page).to have_content(translated(attributes[:name]))
     end
+
     visit decidim_admin.root_path
     expect(page).to have_content("updated the #{translated(attributes[:name])} attachment collection")
   end

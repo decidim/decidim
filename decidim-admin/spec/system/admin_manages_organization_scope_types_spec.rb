@@ -42,6 +42,7 @@ describe "Admin manages scope types" do
     within "table" do
       expect(page).to have_content(translated(attributes[:name]))
     end
+
     visit decidim_admin.root_path
     expect(page).to have_content("created the #{translated(attributes[:name])} scope type")
   end
@@ -84,6 +85,7 @@ describe "Admin manages scope types" do
       within "table" do
         expect(page).to have_content(translated(attributes[:name]))
       end
+
       visit decidim_admin.root_path
       expect(page).to have_content("updated the #{translated(attributes[:name])} scope type")
     end
