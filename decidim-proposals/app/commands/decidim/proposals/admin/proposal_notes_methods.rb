@@ -19,10 +19,14 @@ module Decidim
           @rewritten_body ||= parsed_body.rewrite
         end
 
-        def notify_mentioned_users
-          mentioned_users.each do |user|
-            #TODO: Add mentions notifications
+        def proposal_valuators
+          @proposal_valuators ||= Decidim::Proposals::ValuationAssignment.where(proposal:).filter_map do |assignment|
+            assignment.valuator unless assignment.valuator == form.current_user
           end
+        end
+
+        def admins
+          @admins ||= Decidim::User.org_admins_except_me(form.current_user).all
         end
       end
     end

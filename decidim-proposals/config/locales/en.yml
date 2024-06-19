@@ -240,6 +240,11 @@ en:
             email_outro: You have received this notification because you can valuate the proposal.
             email_subject: Someone left a note on proposal %{resource_title}.
             notification_title: Someone has left a note on the proposal <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
+          proposal_note_replied:
+            email_intro: Someone has left a reply to a note on the proposal "%{resource_title}". Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.
+            email_outro: You have received this notification because you are the author of the note or have been mentioned in it.
+            email_subject: Someone left a reply to a note on the proposal %{resource_title}.
+            notification_title: Someone has left a reply note on the proposal <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} has been accepted to access as a contributor of the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.'
           email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.

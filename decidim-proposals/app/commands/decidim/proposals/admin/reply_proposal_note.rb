@@ -27,8 +27,7 @@ module Decidim
           return broadcast(:invalid) if form.invalid? || invalid_parent?
 
           create_proposal_note_reply
-          notify_admins_and_valuators
-          notify_mentioned_users
+          notify_mentioned_or_parent_author
 
           broadcast(:ok, proposal_note)
         end
@@ -57,21 +56,18 @@ module Decidim
           )
         end
 
-        def notify_admins_and_valuators
-          # TODO: Notify mentioned users and note author
-          # affected_users = Decidim::User.org_admins_except_me(form.current_user).all
-          # # Only affects to author of the first note and tagged admins
-          # # affected_users =
-          # affected_users += Decidim::Proposals::ValuationAssignment.includes(valuator_role: :user).where.not(id: form.current_user.id).where(proposal:).map(&:valuator)
+        def notify_mentioned_or_parent_author
+          affected_users = mentioned_users.select do |user|
+            proposal_valuators.include?(user) || admins.exists?(user.id)
+          end
+          affected_users << parent.author unless form.current_user == parent.author
 
-          # data = {
-          #   event: "decidim.events.proposals.admin.proposal_note_reply_created",
-          #   event_class: Decidim::Proposals::Admin::ProposalNoteReplyCreatedEvent,
-          #   resource: parent,
-          #   affected_users:
-          # }
-
-          # Decidim::EventsManager.publish(**data)
+          Decidim::EventsManager.publish(
+            event: "decidim.events.proposals.admin.proposal_note_replied",
+            event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
+            resource: proposal,
+            affected_users:
+          )
         end
       end
     end
