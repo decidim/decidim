@@ -39,6 +39,9 @@ describe "Admin manages organization" do
 
       click_on "Update"
       expect(page).to have_content("updated successfully")
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the organization settings")
     end
 
     it "marks the comments_max_length as required" do
