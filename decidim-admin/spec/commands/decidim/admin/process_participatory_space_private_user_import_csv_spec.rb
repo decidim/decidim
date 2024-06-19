@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin
   describe ProcessParticipatorySpacePrivateUserImportCsv do
-    subject { described_class.new(form, private_users_to, current_user) }
+    subject { described_class.new(form, private_users_to) }
 
     let(:current_user) { create(:user, :admin, organization:) }
     let(:organization) { create(:organization) }
@@ -45,7 +45,7 @@ module Decidim::Admin
       end
 
       it "enqueues a job for each present value without BOM" do
-        expect(ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).with(email, kind_of(String), private_users_to)
+        expect(ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).with(email, kind_of(String), private_users_to, current_user)
 
         subject.call
       end
@@ -56,7 +56,7 @@ module Decidim::Admin
     end
 
     it "enqueues a job for each present value" do
-      expect(ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).twice.with(kind_of(String), kind_of(String), private_users_to)
+      expect(ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).twice.with(kind_of(String), kind_of(String), private_users_to, current_user)
 
       subject.call
     end
