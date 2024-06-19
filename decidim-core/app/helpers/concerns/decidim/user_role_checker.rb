@@ -8,6 +8,7 @@ module Decidim
     private
 
     def user_has_any_role?(user)
+      return false unless user
       return true if user.admin
       return true if user.roles.any?
       return true if participatory_process_user_role?(user)
