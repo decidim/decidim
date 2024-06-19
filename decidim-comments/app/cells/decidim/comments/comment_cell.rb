@@ -107,7 +107,7 @@ module Decidim
           end
         end
       end
-    
+
       def reply_id
         "comment#{model.id}-reply"
       end

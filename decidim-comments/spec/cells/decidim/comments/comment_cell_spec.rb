@@ -227,5 +227,28 @@ module Decidim::Comments
         end
       end
     end
+
+    describe "#extra_actions" do
+      let(:current_user) { create(:user, :confirmed, organization: component.organization) }
+      let(:actions) do
+        [{
+          label: "Poke comment",
+          url: "/pokeme"
+        }]
+      end
+
+      before do
+        allow(commentable).to receive(:actions_for_comment).with(comment, current_user).and_return(actions)
+      end
+
+      it "renders the extra actions" do
+        expect(subject).to have_css(".comment__actions button", text: "Poke comment")
+      end
+
+      it "generates a cache hash with the action data" do
+        hash = my_cell.send(:cache_hash)
+        expect(hash).to include(actions.to_s)
+      end
+    end
   end
 end
