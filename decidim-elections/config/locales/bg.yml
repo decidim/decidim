@@ -111,9 +111,54 @@ bg:
       filters:
         officers_assigned_eq:
           label: Служители
+          values:
+            assigned: Възложено
+            unassigned: Невъзложено
+        role_eq:
+          label: Роля
+          values:
+            manager: Управител
+            president: Председател
+            unassigned: Отнемане на възложеното
+        search_placeholder:
+          name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: Търсете в %{collection} по име/имейл/псевдоним или избирателна секция.
+          ? title_or_address_or_manager_name_or_manager_email_or_manager_nickname_or_president_name_or_president_email_or_president_nickname_cont
+          : Търсете в %{collection} по заглавие, адрес или име/имейл/псевдоним на служител.
+        signed_eq:
+          label: Подписано
+          values:
+            'false': Подписано
+            'true': Неподписано
+        validated_eq:
+          label: Валидирано
+          values:
+            'false': Валидирано
+            'true': Невалидирано
+    components:
+      elections:
+        actions:
+          vote: Глас
+        name: Избори
+        settings:
+          global:
+            announcement: Обявление
+          step:
+            announcement: Обявление
     elections:
       actions:
+        confirm_destroy: Сигурни ли сте?
+        destroy: Унищожи
+        edit: Редактирай
+        feedback: Обратна връзка на гласоподавателя
+        import: Импортиране на предложения в отговори
+        manage_answers: Управление на отговорите
+        manage_questions: Управление на въпросите
+        manage_steps: Управление на стъпките
         new: Ново %{name}
+        preview: Преглед
+        publish: Публикувай
+        title: Активности
+        unpublish: Отмяна на публикуването
       admin:
         answers:
           create:
@@ -122,9 +167,18 @@ bg:
           destroy:
             invalid: Възникна проблем при изтриването на този отговор
             success: Отговорът беше изтрит успешно
+          edit:
+            title: Редактиране на отговора
+            update: Актуализиране на отговора
           index:
             invalid_max_selections: Имате нужда от още %{missing_answers} отговора, за достигане на максималните селекции
+            title: Отговори
+          new:
+            create: Създаване на отговор
+            title: Нов отговор
+          not_selected: Не селектирано
           select:
+            disable: Отмяна на селекциата на отговора
             enable: Маркирайте отговора като селектиран
             invalid: Възникна проблем при селектирането на този отговор
             success: Отговорът е селектиран успешно
@@ -281,6 +335,12 @@ bg:
         election:
           create: "%{user_name} създаде изборa %{resource_name} на %{space_name}"
           delete: "%{user_name} изтри изборa %{resource_name} на %{space_name}"
+          end_vote: "%{user_name} приключи периода на гласуване за изборите %{resource_name} от %{space_name} на Информационното табло"
+          publish: "%{user_name} публикува избора %{resource_name} на %{space_name}"
+          publish_results: "%{user_name} публикува резултатите от изборите %{resource_name} от %{space_name} на Информационното табло"
+          report_missing_trustee: "%{user_name} съобщи за %{trustee_name} като липсващ довереник по време на преброяването за изборите %{resource_name} от %{space_name} на Информационното табло"
+          setup: "%{user_name} създаде избора %{resource_name} на %{space_name} на Информационното табло"
+          start_key_ceremony: "%{user_name} започна ключовата церемония за избора %{resource_name} на %{space_name} на Информационното табло"
       elections:
         election_log:
           not_published: Не публикувано
@@ -477,6 +537,9 @@ bg:
             invalid: Възникна проблем при актуализирането на тази избирателна секция
             success: Успешно актуализирана избирателна секция
         votings:
+          actions:
+            publish: Публикувай
+            unpublish: Отмяна на публикуването
           create:
             invalid: Възникна проблем при създаването на това гласуване
             success: Гласуването е създадено успешно
@@ -570,6 +633,7 @@ bg:
       votings_m:
         footer_button_text:
           participate: Участвайте
+          vote: Глас
   layouts:
     decidim:
       election_votes_header:
