@@ -43,9 +43,10 @@ describe "Assemblies" do
     let(:hero_image) { nil }
     let(:description) { { en: "Description <p><img src=\"#{description_image_path}\"></p>" } }
 
-    context "when the assembly has an attachment" do
+    context "when the assembly has an attachment only" do
       let!(:assembly_attachment) { create(:attachment, :with_image, attached_to: assembly, file: assembly_attachment_file) }
       let!(:assembly_attachment_file) { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
+      let(:description) { { en: "Description" } }
 
       it_behaves_like "meta image url examples", "city2.jpeg" do
         let(:resource) { assembly }
