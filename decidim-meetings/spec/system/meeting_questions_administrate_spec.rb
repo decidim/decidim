@@ -142,6 +142,7 @@ describe "Meeting poll administration" do
   end
 
   def open_first_question
+    expect(page).to have_css(".meeting-polls__question--admin", match: :first)
     find(".meeting-polls__question--admin", match: :first).click
   end
 end
