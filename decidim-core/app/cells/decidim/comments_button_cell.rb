@@ -2,6 +2,8 @@
 
 module Decidim
   class CommentsButtonCell < ButtonCell
+    include UserRoleChecker
+
     def show
       if options.has_key?(:display)
         return render if options[:display]
@@ -9,10 +11,16 @@ module Decidim
         return
       end
 
-      render if component_settings.comments_enabled? && !current_settings.try(:comments_blocked?)
+      render if comments_enabled?
     end
 
     private
+
+    def comments_enabled?
+      return true if user_has_any_role?(current_user)
+
+      component_settings.comments_enabled? && !current_settings.try(:comments_blocked?)
+    end
 
     def path
       "#comments"
