@@ -50,7 +50,7 @@ describe "Index Proposal Notes" do
       expect(page).to have_admin_callout("successfully")
 
       click_on "Private notes"
-      within ".component__show_notes-grid .comment:last-child" do
+      within "#panel-notes .comment:last-child" do
         expect(page).to have_content(decidim_sanitize_translated(attributes[:body]))
       end
 

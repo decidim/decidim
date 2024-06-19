@@ -1,19 +1,14 @@
+<% reply_id = "note#{proposal_note.id}-reply" %>
+
 <div class="comment">
-  <div class="comment__header">
-    <div>
-      <div>
-        <div class="author">
-          <strong><span class="author__name"><%= proposal_note.author.name %></span></strong>
-          <span><%= l proposal_note.created_at, format: :decidim_short %></span>
-        </div>
-      </div>
-    </div>
+  <div class="comment__header author">
+    <%= cell "decidim/author", present(proposal_note.author), from: proposal_note, context_actions: [:date] %>
   </div>
+
   <div class="comment__content">
     <%= simple_format proposal_note.formatted_body %>
   </div>
-  <% reply_id = "note#{proposal_note.id}-reply" %>
-  <%= render partial: "decidim/proposals/admin/proposal_notes/proposal_note_reply", collection: proposal_note.replies %>
+
   <div class="comment-actions">
     <button class="button button__sm button__text-secondary" data-controls="panel-<%= reply_id %>" id="panel-<%= reply_id %>-trigger">
       <%= icon "chat-1-line" %>
@@ -21,6 +16,10 @@
       <%= icon "close-circle-line" %>
       <span class="font-normal"><%= t("decidim.components.comment.cancel_reply") %></span>
     </button>
+  </div>
+
+  <div class="mt-6 space-y-2">
+    <%= render partial: "decidim/proposals/admin/proposal_notes/proposal_note_reply", collection: proposal_note.replies %>
   </div>
 
   <div id="panel-<%= reply_id %>" class="add-comment" data-additional-reply>

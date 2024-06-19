@@ -101,7 +101,7 @@ describe "Valuator manages proposals" do
       end
 
       click_on "Private notes"
-      within ".component__show_notes-grid .comment:last-child" do
+      within "#panel-notes .comment:last-child" do
         expect(page).to have_content("This is my note")
       end
     end

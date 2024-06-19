@@ -1,21 +1,13 @@
 <div class="component__show_notes" data-component="accordion" id="accordion-notes">
-  <button class="card-divider-button" data-controls="panel-notes" type="button">
+  <button type="button" class="card-divider-button" data-controls="panel-notes" data-open="true">
     <%= icon "arrow-right-s-line" %>
     <h2 class="card-title">
       <%= t("title", scope: "decidim.proposals.admin.proposal_notes") %>
     </h2>
   </button>
+
   <div id="panel-notes">
-    <div class="component__show_notes-grid">
-      <%= render partial: "decidim/proposals/admin/proposal_notes/proposal_note", collection: proposal.notes.not_reply %>
-    </div>
-    <div class="card add-comment">
-      <div class="card-divider">
-        <h2 class="card-title"><%= t("leave_your_note", scope: "decidim.proposals.admin.proposal_notes") %></h2>
-      </div>
-      <div class="card-section">
-        <%= render partial: "decidim/proposals/admin/proposal_notes/form", locals: { form_path: proposal_proposal_notes_path(proposal, @notes_form) } %>
-      </div>
-    </div>
+    <%= render partial: "decidim/proposals/admin/proposal_notes/proposal_note", collection: proposal.notes.not_reply %>
+    <%= render partial: "decidim/proposals/admin/proposal_notes/form", locals: { form_path: proposal_proposal_notes_path(proposal, @notes_form) } %>
   </div>
 </div>
