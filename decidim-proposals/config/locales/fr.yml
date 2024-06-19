@@ -148,9 +148,9 @@ fr:
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur maximum (en caractères) des commentaires (laisser 0 pour la valeur par défaut)
             default_sort_order: Tri des propositions par défaut
-            default_sort_order_help: L'option par défaut signifie que si les votes sont activés, les propositions seront affichées par ordre aléatoire, et si les votes sont bloqués, alors elles seront triées par nombre de votes.
+            default_sort_order_help: Automatique signifie que si les votes sont activés, les propositions seront affichées par ordre aléatoire, et si les votes sont bloqués, elles seront triées par ordre décroissant des votes.
             default_sort_order_options:
-              default: Par défaut
+              automatic: Automatique
               most_commented: Les plus commentées
               most_endorsed: Les plus soutenues
               most_followed: Les plus suivies
@@ -202,9 +202,9 @@ fr:
             creation_enabled: Les participants peuvent créer des propositions
             creation_enabled_readonly: Ce paramètre est désactivé lorsque vous activez la fonctionnalité Textes participatifs. Pour télécharger des propositions sous forme de texte participatif, cliquez sur le bouton Textes participatifs et suivez les instructions.
             default_sort_order: Tri des propositions par défaut
-            default_sort_order_help: L'option par défaut signifie que si les votes sont activés, les propositions seront affichées par ordre aléatoire, et si les votes sont bloqués, alors elles seront triées par nombre de votes.
+            default_sort_order_help: Automatique signifie que si les votes sont activés, les propositions seront affichées par ordre aléatoire, et si les votes sont bloqués, elles seront triées par ordre décroissant des votes.
             default_sort_order_options:
-              default: Par défaut
+              automatic: Automatique
               most_commented: Les plus commentées
               most_endorsed: Les plus soutenues
               most_followed: Les plus suivies
