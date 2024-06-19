@@ -820,10 +820,74 @@ bg:
             banner_image: Изображение на банера
             census_contact_information: Контактна информация от преброяването
             census_contact_information_help: Тази информация за контакт е за участник, който иска да съобщи за проблеми с преброяването. Това може да бъде имейл адрес, форма за контакт в друг сайт, анкета за посетители и др.
+            introductory_image: Изображение за въведението
+      census:
+        admin:
+          census:
+            generate_access_codes:
+              info_message_warn: Моля, проверете дали няма липсващи данни, защото са създадени %{data_count} записа и каченият файл %{file} имаше %{raw_count} реда.
+              launch_error: Проблем при стартирането на генератора за кодове на достъп
+              launch_success: Генерирането на кодове стартира.
+              start_over: Моля, изтрийте текущото преброяване и започнете отначало с подходящ CSV файл с валидни редове.
+            generating_access_codes:
+              info_message: "<strong>Моля, изчакайте</strong>, кодовете за достъп до гласуване се генерират (това може да отнеме няколко минути)..."
+            new:
+              file_help:
+                explanation: 'Указания за файла:'
+                message_1: Разрешени са само CSV (.csv) файлове.
+                message_2: Разделителят между колоните трябва да е точка и запетая (";").
+              has_ballot_styles_message: Вие настройвате стилове на бюлетини. Моля, уверете се, че полето „%{ballot_style_code_header}“ в CSV файла съответства на желания код на стила на бюлетината.
+              info_message: "<strong>Все още няма преброяване.</strong> Моля, използвайте формуляра по-долу, за да го създадете чрез импортиране на CSV файл."
+              missing_ballot_styles_message: 'Все още няма стил на бюлетина за това гласуване. Ако желаете да имате условни въпроси (т.е.: да представите на избирателя различни въпроси в зависимост от, напр. областта/региона на пребиваване), трябва да настроите <a href=%{ballot_styles_admin_path}>Стилове на бюлетина</a> П<strong>реди</strong> импортирането на преброяването. Ако искате да зададете едни и същи въпроси на всички избиратели, можете да продължите с процедурата за импортиране на преброяване.'
+              submit: Изпратете CSV
+              title: Създайте преброяването
+            show:
+              heading: Преброяване в пространството за гласуване
+            upload_info:
+              csv_example_with_ballot_style: 'Пример за файл<strong>с</strong> стилове на гласуване:'
+              csv_example_without_ballot_style: 'Пример за файл <strong>без</strong> стилове на гласуване:'
+              csv_header_after: Не включвайте последното поле ("%{ballot_style_code_header}"), ако не се нуждаете от стилове на гласуване/условни въпроси
+              csv_header_before: 'Файлът за преброяването трябва да бъде CSV файл със следната заглавка:'
+        document_types:
+          identification_number: ЕГН
+          passport: Паспорт/лична карта
+        export_mailer:
+          access_codes_export:
+            click_button: 'Щракнете върху следващата връзка, за да изтеглите данните за кодовете за достъп.<br/>Файлът ще бъде достъпен до %{date}.<br/>Ще ви трябва <a href="https://www.7-zip.org/ ">7-Zip</a> (за Windows), <a href="https://www.keka.io/en/">Keka</a> (за MacOS) или <a href="https: //peazip.github.io">PeaZip</a> (за Linux), за да го отворите. Парола: %{password}'
+            download: Сваляне
+            subject: Експортирането на кодовете за достъп до гласуване за %{voting_title} е налично
+        vote_flow:
+          already_voted_in_person: Този участник вече е гласувал лично и няма право на глас.
+          datum_not_found: Посочените данни не отговарят на нито един гласоподавател.
+      content_blocks:
+        highlighted_votings:
+          name: Акцентирани гласувания
+        landing_page:
+          polling_stations:
+            heading: Избирателни секции
+            no_polling_stations: Все още няма избирателни секции.
+      monitoring_committee_members:
+        actions:
+          confirm_destroy: Сигурни ли сте?
+          destroy: Изтрий
+          new: Нов член
+          title: Активности
+      pages:
+        home:
+          highlighted_votings:
+            active_spaces: Активно гласуване
+            see_all_spaces: Виж всички гласувания
       polling_officer_zone:
         closures:
+          back_to_polling_stations: Назад към секциите за гласуване
           certify:
             add_images: Добави изображения
+            error: Възникна грешка при прикачването на сертификата, моля, опитайте отново.
+            form_legend: Качете снимка на удостоверението за приключване на изборите
+            heading: Повторно преброяване на гласовете - Качване на сертификат
+            info_text: Моля, качете снимка на удостоверението за приключване на изборите.
+            submit: Качи сертификата
+            success: Сертификатът е качен успешно.
           edit:
             info_text: Моля, въведете общия брой отговори за всеки въпрос.
           show:
