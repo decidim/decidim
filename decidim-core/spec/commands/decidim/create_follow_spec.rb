@@ -8,7 +8,7 @@ module Decidim
     let!(:user1) { create(:user, organization:) }
     let!(:user2) { create(:user, organization:) }
 
-    let(:form) { double(followable: user2, invalid?: false) }
+    let(:form) { double(followable: user2, invalid?: false, current_user: user1) }
 
     it "creates a follow" do
       expect { described_class.new(form).call }.to broadcast(:ok)
