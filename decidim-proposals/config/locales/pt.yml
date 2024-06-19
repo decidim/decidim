@@ -137,9 +137,7 @@ pt:
             comments_enabled: Comentários ativados
             comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
             default_sort_order: Ordenamento por defeitos das propostas
-            default_sort_order_help: Por defeito significa que se os apoios estiverem activos as propostas serão ordenadas ao acaso, e se os apoios estiverem bloqueados serão ordenadas do maior para o menor número de apoios.
             default_sort_order_options:
-              default: Por defeito
               most_commented: Mais comentada
               most_endorsed: Mais apoiada
               most_followed: Mais seguida
@@ -188,9 +186,7 @@ pt:
             automatic_hashtags: Hashtags adicionados a todas as propostas
             comments_blocked: Comentários bloqueados
             default_sort_order: Ordenamento por defeitos das propostas
-            default_sort_order_help: Por defeito significa que se os apoios estiverem activos as propostas serão ordenadas ao acaso, e se os apoios estiverem bloqueados serão ordenadas do maior para o menor número de apoios.
             default_sort_order_options:
-              default: Por defeito
               most_commented: Mais comentada
               most_endorsed: Mais apoiada
               most_followed: Mais seguida
