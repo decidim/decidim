@@ -82,6 +82,7 @@ describe "Meeting poll administration" do
 
     it "allows to publish an unpublished question" do
       open_first_question
+      expect(page).to have_css(".meeting-polls__admin-action-question")
 
       within ".meeting-polls__admin-action-question" do
         click_on "Send"
@@ -123,6 +124,7 @@ describe "Meeting poll administration" do
 
     it "allows to close a published question" do
       open_first_question
+      expect(page).to have_css(".meeting-polls__admin-action-results")
 
       within ".meeting-polls__admin-action-results" do
         click_on "Send"
@@ -142,7 +144,7 @@ describe "Meeting poll administration" do
   end
 
   def open_first_question
-    expect(page).to have_css(".meeting-polls__question--admin", match: :first)
+    expect(page).to have_css(".meeting-polls__question--admin")
     find(".meeting-polls__question--admin", match: :first).click
   end
 end
