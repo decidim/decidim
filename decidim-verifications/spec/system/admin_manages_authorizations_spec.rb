@@ -43,7 +43,7 @@ describe "Admin manages authorizations users" do
       within ".sidebar-menu" do
         expect(page).to have_content("Identity documents")
         expect(page).to have_content("Organization's census")
-        expect(page).to have_no_content("Code by postal letter")
+        expect(page).not_to have_content("Code by postal letter")
       end
     end
 
@@ -51,7 +51,7 @@ describe "Admin manages authorizations users" do
       within ".item_show__wrapper" do
         expect(page).to have_content("Identity documents")
         expect(page).to have_content("Organization's census")
-        expect(page).to have_no_content("Code by postal letter")
+        expect(page).not_to have_content("Code by postal letter")
       end
     end
   end
@@ -61,17 +61,17 @@ describe "Admin manages authorizations users" do
 
     it "displays the menu entries" do
       within ".sidebar-menu" do
-        expect(page).to have_no_content("Identity documents")
-        expect(page).to have_no_content("Code by postal letter")
-        expect(page).to have_no_content("Organization's census")
+        expect(page).not_to have_content("Identity documents")
+        expect(page).not_to have_content("Code by postal letter")
+        expect(page).not_to have_content("Organization's census")
       end
     end
 
     it "displays main view entries" do
       within ".item_show__wrapper" do
-        expect(page).to have_no_content("Identity documents")
-        expect(page).to have_no_content("Code by postal letter")
-        expect(page).to have_no_content("Organization's census")
+        expect(page).not_to have_content("Identity documents")
+        expect(page).not_to have_content("Code by postal letter")
+        expect(page).not_to have_content("Organization's census")
       end
     end
   end
