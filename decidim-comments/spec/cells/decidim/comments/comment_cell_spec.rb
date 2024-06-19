@@ -242,7 +242,7 @@ module Decidim::Comments
       end
 
       it "renders the extra actions" do
-        expect(subject).to have_css(".comment__actions button", text: "Poke comment")
+        expect(subject).to have_link("Poke comment", href: "/poke")
       end
 
       it "generates a cache hash with the action data" do
