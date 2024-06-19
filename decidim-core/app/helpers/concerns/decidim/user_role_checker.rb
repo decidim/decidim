@@ -10,9 +10,9 @@ module Decidim
     def user_has_any_role?(user)
       return true if user.admin
       return true if user.roles.any?
-      return true if participatory_process_user_role?
-      return true if assembly_user_role?
-      return true if conference_user_role?
+      return true if participatory_process_user_role?(user)
+      return true if assembly_user_role?(user)
+      return true if conference_user_role?(user)
 
       false
     end
