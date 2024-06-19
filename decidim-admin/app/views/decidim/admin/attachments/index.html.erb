@@ -34,7 +34,7 @@
                 <%= attachment.file_type %>
               </td>
               <td>
-                <%= number_to_human_size(attachment.file_size) %>
+                <%= attachment.file? ? number_to_human_size(attachment.file_size) : "-" %>
               </td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :attachment, attachment: attachment %>

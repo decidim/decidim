@@ -139,26 +139,16 @@ shared_examples "manage projects" do
     end
   end
 
-  it "creates a new project", :slow do
+  let(:attributes) { attributes_for(:project) }
+
+  it "creates a new project", versioning: true do
     within ".bulk-actions-budgets" do
       click_on "New project"
     end
 
     within ".new_project" do
-      fill_in_i18n(
-        :project_title,
-        "#project-title-tabs",
-        en: "My project",
-        es: "Mi proyecto",
-        ca: "El meu projecte"
-      )
-      fill_in_i18n_editor(
-        :project_description,
-        "#project-description-tabs",
-        en: "A longer description",
-        es: "Descripción más larga",
-        ca: "Descripció més llarga"
-      )
+      fill_in_i18n(:project_title, "#project-title-tabs", **attributes[:title].except("machine_translations"))
+      fill_in_i18n_editor(:project_description, "#project-description-tabs", **attributes[:description].except("machine_translations"))
       fill_in :project_budget_amount, with: 22_000_000
 
       select translated(scope.name), from: :project_decidim_scope_id
@@ -170,8 +160,10 @@ shared_examples "manage projects" do
     expect(page).to have_admin_callout("successfully")
 
     within "table" do
-      expect(page).to have_content("My project")
+      expect(page).to have_content(translated(attributes[:title]))
     end
+    visit decidim_admin.root_path
+    expect(page).to have_content("created the #{translated(attributes[:title])} project")
   end
 
   context "when deleting a project" do
@@ -197,20 +189,16 @@ shared_examples "manage projects" do
   context "when having existing proposals" do
     let!(:proposal_component) { create(:proposal_component, participatory_space:) }
     let!(:proposals) { create_list(:proposal, 5, component: proposal_component) }
+    let(:attributes) { attributes_for(:project) }
 
-    it "updates a project" do
+    it "updates a project", versioning: true do
       within "tr", text: translated(project.title) do
         click_on "Edit"
       end
 
       within ".edit_project" do
-        fill_in_i18n(
-          :project_title,
-          "#project-title-tabs",
-          en: "My new title",
-          es: "Mi nuevo título",
-          ca: "El meu nou títol"
-        )
+        fill_in_i18n(:project_title, "#project-title-tabs", **attributes[:title].except("machine_translations"))
+        fill_in_i18n_editor(:project_description, "#project-description-tabs", **attributes[:description].except("machine_translations"))
 
         tom_select("#proposals_list", option_id: proposals.last(2).map(&:id))
 
@@ -220,8 +208,11 @@ shared_examples "manage projects" do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_content("My new title")
+        expect(page).to have_content(translated(attributes[:title]))
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the #{translated(attributes[:title])} project")
     end
 
     it "removes proposals from project", :slow do
