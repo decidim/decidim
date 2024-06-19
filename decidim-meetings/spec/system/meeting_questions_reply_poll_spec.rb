@@ -78,6 +78,7 @@ describe "Meeting poll answer" do
 
     it "allows to reply a question" do
       open_first_question
+      expect(page).to have_css("details[data-question='#{question_multiple_option.id}'] input[type='checkbox']:not([disabled])")
 
       check question_multiple_option.answer_options.first.body["en"]
       click_on "Reply question"
@@ -88,6 +89,7 @@ describe "Meeting poll answer" do
     it "does not allow selecting two single options" do
       expect(page).to have_css("details[data-question='#{question_single_option.id}']:not([disabled])")
       find("details[data-question='#{question_single_option.id}']").click
+      expect(page).to have_css("details[data-question='#{question_single_option.id}'] input[type='radio']:not([disabled])")
 
       choose question_single_option.answer_options.first.body["en"]
       choose question_single_option.answer_options.second.body["en"]
@@ -100,6 +102,7 @@ describe "Meeting poll answer" do
 
     it "does not allow selecting more than the maximum choices for multiple options" do
       open_first_question
+      expect(page).to have_css("details[data-question='#{question_multiple_option.id}'] input[type='checkbox']:not([disabled])")
 
       check question_multiple_option.answer_options.first.body["en"]
       check question_multiple_option.answer_options.second.body["en"]
