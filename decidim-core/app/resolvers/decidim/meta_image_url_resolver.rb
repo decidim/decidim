@@ -24,14 +24,17 @@ module Decidim
     #
     # @return [String, nil] - The resolved image blob or nil if no image is found.
     def resolve
-      resize_image_blob(blob) if blob.present?
+      return unless blob
+
+      resized_variant = blob.variant(resize_to_limit: [1200, 630]).processed
+      Rails.application.routes.url_helpers.rails_representation_url(resized_variant, only_path: true)
     end
 
     # Determines the image blob to be used for meta tags by following a hierarchy.
     #
     # @return [ActiveStorage::Blob, nil] - The image blob or nil if no image is found.
     def blob
-      blob_from_image_fields || blob_from_attachments || blob_from_description || blob_from_participatory_space || blob_from_content_blocks
+      @blob ||= blob_from_image_fields || blob_from_attachments || blob_from_description || blob_from_participatory_space || blob_from_content_blocks
     end
 
     private
@@ -109,18 +112,6 @@ module Decidim
         end
       end
       nil
-    end
-
-    # Resizes the image blob to the specified dimensions (1200x630) if it is larger.
-    #
-    # @param [ActiveStorage::Blob] blob - The image blob to be resized.
-    #
-    # @return [String] - The URL of the resized image.
-    def resize_image_blob(blob)
-      return unless blob
-
-      resized_variant = blob.variant(resize_to_limit: [1200, 630]).processed
-      Rails.application.routes.url_helpers.rails_representation_url(resized_variant, only_path: true)
     end
 
     def find_blob_by_key(blob_key)
