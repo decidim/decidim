@@ -78,7 +78,7 @@ describe "Meeting poll answer" do
 
     it "allows to reply a question" do
       open_first_question
-      expect(page).to have_css("details[data-question='#{question_multiple_option.id}'] input[type='checkbox']:not([disabled])", count: 3)
+      expect(page).to have_css("details[data-question='#{question_multiple_option.id}'] input[type='checkbox']:not([disabled])", visible: :visible, count: 3)
 
       check question_multiple_option.answer_options.first.body["en"]
       click_on "Reply question"
@@ -87,9 +87,9 @@ describe "Meeting poll answer" do
     end
 
     it "does not allow selecting two single options" do
-      expect(page).to have_css("details[data-question='#{question_single_option.id}']:not([disabled])")
+      expect(page).to have_css("details[data-question='#{question_single_option.id}']:not([disabled])", visible: :visible)
       find("details[data-question='#{question_single_option.id}']").click
-      expect(page).to have_css("details[data-question='#{question_single_option.id}'] input[type='radio']:not([disabled])", count: 3)
+      expect(page).to have_css("details[data-question='#{question_single_option.id}'] input[type='radio']:not([disabled])", visible: :visible, count: 3)
 
       choose question_single_option.answer_options.first.body["en"]
       choose question_single_option.answer_options.second.body["en"]
@@ -102,7 +102,7 @@ describe "Meeting poll answer" do
 
     it "does not allow selecting more than the maximum choices for multiple options" do
       open_first_question
-      expect(page).to have_css("details[data-question='#{question_multiple_option.id}'] input[type='checkbox']:not([disabled])", count: 3)
+      expect(page).to have_css("details[data-question='#{question_multiple_option.id}'] input[type='checkbox']:not([disabled])", visible: :visible, count: 3)
 
       check question_multiple_option.answer_options.first.body["en"]
       check question_multiple_option.answer_options.second.body["en"]
@@ -141,7 +141,7 @@ describe "Meeting poll answer" do
   end
 
   def open_first_question
-    expect(page).to have_css(".meeting-polls__question")
+    expect(page).to have_css(".meeting-polls__question:not([disabled])", visible: :visible)
     find(".meeting-polls__question", match: :first).click
   end
 end
