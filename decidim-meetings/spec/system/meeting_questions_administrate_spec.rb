@@ -62,6 +62,7 @@ describe "Meeting poll administration" do
     end
 
     it "list the questions in the Administrate section" do
+      expect(page).to have_css(".meeting-polls__question--admin", minimum: 1)
       expect(page.all(".meeting-polls__question--admin").size).to eq(2)
     end
 
