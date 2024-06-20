@@ -1,5 +1,5 @@
 #form-search-mobile {
-  @apply py-1.5 px-4 bg-gray-5 rounded-sm;
+  @apply py-1.5 px-4 bg-gray-5 rounded-lg border border-gray outline outline-1 outline-transparent;
 
   input[type="text"] {
     @apply bg-gray-5;
