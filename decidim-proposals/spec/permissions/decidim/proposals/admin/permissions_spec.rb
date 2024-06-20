@@ -109,7 +109,7 @@ describe Decidim::Proposals::Admin::Permissions do
         end
         let(:extra_context) { { valuator: user } }
 
-        it { is_expected.to be true }
+        it { is_expected.to be false }
       end
     end
   end

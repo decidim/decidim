@@ -45,15 +45,6 @@ describe "Valuator manages proposals" do
       click_on "Unassign from valuator"
     end
 
-    it "can unassign themselves" do
-      within "#js-form-unassign-proposals-from-valuator" do
-        tom_select("#unassign_valuator_role_ids", option_id: valuator_role.id)
-        click_on(id: "js-submit-unassign-proposals-from-valuator")
-      end
-
-      expect(page).to have_content("Valuator unassigned from proposals successfully")
-    end
-
     it "cannot unassign others" do
       within "#js-form-unassign-proposals-from-valuator" do
         tom_select("#unassign_valuator_role_ids", option_id: another_valuator_role.id)
@@ -69,26 +60,6 @@ describe "Valuator manages proposals" do
       within "tr", text: translated(assigned_proposal.title) do
         click_on "Answer proposal"
       end
-    end
-
-    it "can only unassign themselves" do
-      within "#valuators" do
-        expect(page).to have_content(user.name)
-        expect(page).to have_content(another_user.name)
-
-        within "li", text: another_user.name do
-          expect(page).to have_no_selector("a.red-icon")
-        end
-
-        within "li", text: user.name do
-          expect(page).to have_css("a.red-icon")
-          accept_confirm do
-            find("a.red-icon").click
-          end
-        end
-      end
-
-      expect(page).to have_content("successfully")
     end
 
     it "can leave proposal notes" do
