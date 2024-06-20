@@ -1956,10 +1956,6 @@ de:
         mark_as_read: Als gelesen markieren
       offline_banner:
         cache_version_page: Hoppla! Ihr Netzwerk ist offline. Dies ist eine zuvor gecachte Version der Seite, die Sie besuchen, möglicherweise ist der Inhalt nicht aktuell.
-      shared:
-        layout_item:
-          next: Nächstes Element
-          prev: Vorheriges Element
       social_media_links:
         facebook: "%{organization} auf Facebook"
         github: "%{organization} auf GitHub"
