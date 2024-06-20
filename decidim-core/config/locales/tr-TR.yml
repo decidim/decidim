@@ -1252,9 +1252,6 @@ tr:
       notifications_dashboard:
         mark_all_as_read: Tümünü okundu olarak işaretle
         mark_as_read: Okundu olarak işaretle
-      shared:
-        layout_item:
-          prev: Önceki
       social_media_links:
         facebook: "Facebook'ta %{organization}"
         github: "GitHub'da %{organization}"
