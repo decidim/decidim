@@ -2,9 +2,35 @@ bg:
   activemodel:
     attributes:
       initiative:
+        answer: Отговор
+        answer_url: URL на отговора
+        area_id: Област
+        decidim_scope_id: Обхват
         decidim_user_group_id: Автор
         description: Описание
+        hashtag: Хаштаг
         offline_votes: Лични подписи
+        offline_votes_for_scope: Лични подписи за %{scope_name}
+        scope_id: Обхват
+        signature_end_date: Край на периода на събиране на подписи
+        signature_start_date: Начало на периода на събиране на подписи
+        signature_type: Тип събиране на подписи
+        signature_type_values:
+          any: Смесено
+          offline: Лично
+          online: Онлайн
+        state: Статус
+        title: Заглавие
+        type_id: Тип
+      initiatives_committee_member:
+        user: Член на комисията
+      initiatives_settings:
+        initiatives_order: Ред
+      initiatives_type:
+        area_enabled: Разрешаване на авторите да избират областта за инициативата си
+        attachments_enabled: Разрешете прикачените файлове
+        banner_image: Изображение на банера
+        child_scope_threshold_enabled: Активиране на подписи за подобхват
   activerecord:
     models:
       decidim/initiative:
