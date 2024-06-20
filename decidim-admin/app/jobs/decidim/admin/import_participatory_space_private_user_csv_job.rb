@@ -4,6 +4,7 @@ module Decidim
   module Admin
     # Custom ApplicationJob scoped to the admin panel.
     #
+    #
     class ImportParticipatorySpacePrivateUserCsvJob < ApplicationJob
       queue_as :exports
 
