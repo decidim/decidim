@@ -146,6 +146,7 @@ eu:
         actions:
           comment: Iruzkina
           join: Parte hartu
+          reply_poll: Erantzun inkesta
         name: Topaketak
         settings:
           global:
@@ -362,6 +363,13 @@ eu:
           update:
             invalid: Arazo bat egon da topaketa-inkesta hau eguneratzean.
             success: Topaketaren inkesta zuzen eguneratua.
+        poll:
+          form:
+            announcement_html:
+              - Galdera batek erantzunak jasotzen dituenean edo argitaratuta/itxita dagoenean, jada ezin da editatu.
+              - 
+              - 
+              - 
         registrations:
           edit:
             save: Gorde
