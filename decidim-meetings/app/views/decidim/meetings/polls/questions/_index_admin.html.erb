@@ -1,39 +1,42 @@
-<div class="meeting-polls__admin-label"><%= t(".admin_dashboard") %></div>
-
 <% questionnaire.questions.includes([:questionnaire]).each do |question| %>
   <details class="meeting-polls__question meeting-polls__question--admin open" data-question="<%= question.id %>" <%= "open" if open_question == question.id %>>
-    <summary><%= t(".question") %></summary>
+    <summary>
+      <span><%= t(".question") %></span>
+      <span><%= t(question.status, scope: "decidim.meetings.polls.questions.index_admin.statuses") %></span>
+    </summary>
 
     <%= form_tag(meeting_polls_question_path(meeting, question), method: :patch, remote: true) do %>
+      <p class="h3"><%= translated_attribute(question.body) %></p>
+
+      <% if question.unpublished? %>
+        <%= link_to(
+          t(".edit"),
+          Decidim::EngineRouter.admin_proxy(meeting.component).edit_meeting_poll_path(meeting),
+          class: "button button__xs button__secondary mr-auto mt-2",
+          target: "_blank",
+          rel: "noopener noreferrer"
+        ) %>
+      <% end %>
+
       <div>
-        <p><%= translated_attribute(question.body) %></p>
-
-        <%= link_to t(".edit"), Decidim::EngineRouter.admin_proxy(meeting.component).edit_meeting_poll_path(meeting), target: "_blank", rel: "noopener noreferrer" %>
-
         <div class="meeting-polls__admin-action meeting-polls__admin-action-question">
-          <div><%= t(".question") %></div>
-          <div>
-            <% if question.unpublished? %>
-              <button class="button button__sm button__secondary"><%= t(".send") %></button>
-            <% else %>
-              <div><strong><%= t(".sent") %></strong></div>
-              <div><%= pluralize(question.answers_count, t(".received_answer"), t(".received_answers")) %></div>
-            <% end %>
-          </div>
+          <div class="h4"><%= t(".question") %><%= " · " + t(".sent") if question.published? %></div>
+
+          <% if question.unpublished? %>
+            <button class="button button__sm button__secondary"><%= t(".send") %></button>
+          <% else %>
+            <div><%= pluralize(question.answers_count, t(".received_answer"), t(".received_answers")) %></div>
+          <% end %>
         </div>
+
         <div class="meeting-polls__admin-action meeting-polls__admin-action-results">
-          <div><%= t(".results") %></div>
+          <div class="h4"><%= t(".results") %></div>
+
+          <button class="button button__sm button__secondary" <%= question.published? ? "" : "disabled" %>><%= question.closed? ? t(".sent") : t(".send") %></button>
+
           <div>
             <% unless question.unpublished? %>
               <%= cell "decidim/meetings/question_responses", question %>
-            <% end %>
-
-            <% if question.unpublished? %>
-              <button class="button button__sm button__secondary" disabled><%= t(".send") %></button>
-            <% elsif question.published? %>
-              <button class="button button__sm button__secondary"><%= t(".send") %></button>
-            <% elsif question.closed? %>
-              <div class="mt-1"><strong><%= t(".sent") %></strong></div>
             <% end %>
           </div>
         </div>

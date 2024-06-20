@@ -186,7 +186,7 @@ set in the admin zone related to a component action. As a result, a verification
 method will be allowed to change the authorization logic and the appearance based
 on the context where the authorization is being performed.
 
-For example, you can require authorization for supporting proposals in a participatory
+For example, you can require authorization for voting proposals in a participatory
 process, and also restrict it to users with postal codes 12345 and 12346. The
 [example authorization handler](https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/dummy_authorization_handler.rb)
 included in this module allows to do that. As an admin user, you should visit

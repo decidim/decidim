@@ -22,11 +22,13 @@ module Decidim::Admin
           es: "Una ciudad"
         },
         file:,
+        link:,
         attachment_collection: nil,
         weight: 2
       )
     end
     let(:file) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
+    let(:link) { "" }
 
     describe "when valid" do
       before do

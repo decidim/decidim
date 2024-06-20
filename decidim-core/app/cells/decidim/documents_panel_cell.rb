@@ -22,13 +22,21 @@ module Decidim
     alias resource model
 
     def show
-      return if documents.blank?
+      return if blank?
 
       render
     end
 
     def documents
       @documents ||= resource.try(:documents)
+    end
+
+    def components_collections
+      @components_collections ||= options[:components_collections] || []
+    end
+
+    def blank?
+      documents.blank? && components_collections.blank?
     end
   end
 end

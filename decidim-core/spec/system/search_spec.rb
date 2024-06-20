@@ -58,9 +58,8 @@ describe "Search" do
       driven_by(:iphone)
       switch_to_host(organization.host)
       visit decidim.root_path
-
       click_on(id: "dc-dialog-accept")
-      click_on(id: "dropdown-trigger-links-mobile-search")
+      click_on(id: "main-dropdown-summary-mobile")
     end
 
     it "shows the mobile version of the search form" do

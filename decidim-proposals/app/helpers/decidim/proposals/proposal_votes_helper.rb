@@ -39,8 +39,8 @@ module Decidim
       # Public: Checks if can accumulate more than maximum is enabled
       #
       # Returns true if enabled, false otherwise.
-      def can_accumulate_supports_beyond_threshold?
-        component_settings.can_accumulate_supports_beyond_threshold
+      def can_accumulate_votes_beyond_threshold?
+        component_settings.can_accumulate_votes_beyond_threshold
       end
 
       # Public: Checks if voting is enabled in this step.
