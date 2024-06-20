@@ -16,7 +16,6 @@ module Decidim
               can_assign_valuator_to_proposal?
             end
             can_export_proposals?
-            valuator_can_unassign_valuator_from_proposals?
 
             return permission_action
           end
@@ -152,10 +151,6 @@ module Decidim
 
         def can_assign_valuator_to_proposal?
           allow! if permission_action.subject == :proposals && permission_action.action == :assign_to_valuator
-        end
-
-        def valuator_can_unassign_valuator_from_proposals?
-          can_unassign_valuator_from_proposals? if user == context.fetch(:valuator, nil)
         end
 
         def can_export_proposals?
