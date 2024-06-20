@@ -437,6 +437,7 @@ eu:
         new_meeting: 'Beste topaketa bat:'
       layouts:
         live_event:
+          administrate: Administratu
           close: itxi
           questions: Galderak
       mailer:
