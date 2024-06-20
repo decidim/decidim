@@ -26,7 +26,7 @@ module Decidim
 
       def settings_attributes_mapping
         {
-          name: :string,
+          name: :i18n,
           default_locale: :locale,
           reference_prefix: :string,
           twitter_handler: :string,
