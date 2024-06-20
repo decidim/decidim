@@ -1,12 +1,64 @@
 ---
 bg:
   activemodel:
+    attributes:
+      close_meeting:
+        attendees_count: Брой на присъстващите
+        attending_organizations: Списък на присъствалите организации
+        audio_url: URL адрес на аудиото
+        closing_report: Минути
+        closing_visible: Е видимо
+        contributions_count: Брой приноси
+        proposal_ids: Предложения, създадени по време на срещата
+        video_url: Видео URL
+      meeting:
+        address: Адрес
+        available_slots: Налични места за тази среща
+        customize_registration_email: Персонализирайте имейла за регистрация
+        decidim_category_id: Категория
+        decidim_scope_id: Обхват
+        decidim_user_group_id: Потребителскa групa
+        description: Описание
+        end_time: Крайно време
+        id: ID
+        iframe_embed_type: Iframe вграден шрифт
+        location: Местоположение
+        location_hints: Подсказки за местоположението
+        online_meeting_url: URL адрес на онлайн среща
+        organizer_gid: Създаване като
+        organizer_id: Организатор
+        private_meeting: Частна среща
+        registration_email_custom_content: Регистрационен имейл с персонализирано съдържание
+        registration_form_enabled: Формулярът за регистрация е активиран
+        registration_terms: Условия за регистрация
+        registration_type: Тип регистрация
+        registration_url: URL за регистрация
+        registrations_enabled: Регистрациите са активирани
+        reserved_slots: Запазени места за тази среща
+        start_time: Начален час
+        title: Заглавие
+        transparent: Прозрачно
+        type_of_meeting: Тип
+      meeting_agenda:
+        title: Заглавие
+        visible: Видимо
+      meeting_agenda_items:
+        description: Описание
+        duration: Продължителност
+        title: Заглавие
+      meeting_registration_invite:
+        email: Имейл
+        name: Име
+      validate_registration_code:
+        code: Код
     errors:
       models:
         meeting:
           attributes:
             iframe_embed_type:
               not_embeddable: Този URL адрес не може да бъде вграден в страница за среща или събитие на живо
+            online_meeting_url:
+              url_format: Трябва да е валиден URL
         meeting_agenda:
           attributes:
             base:
@@ -21,12 +73,79 @@ bg:
       meeting_copies:
         new:
           select: Изберете кои данни искате да дублирате
+    components:
+      meetings:
+        settings:
+          global:
+            registration_code_enabled: Регистрационният код е активиран
+            resources_permissions_enabled: Разрешенията за действия могат да се задават за всяка среща
+            scope_id: Обхват
+            scopes_enabled: Обхватите са активирани
+            terms_and_conditions_url_for_meeting_creators: URL адрес за правила и условия за създатели на срещи
+          step:
+            announcement: Обявление
+            comments_blocked: Коментарите са блокирани
+            creation_enabled_for_participants: Създаването на срещи от участници е разрешено
+            creation_enabled_for_user_groups: Създаването на срещи от потребителски групи е разрешено
+    events:
+      meetings:
+        meeting_closed:
+          affected_user:
+            email_intro: 'Срещата Ви „%{resource_title}“ беше затворена. Можете да прочетете заключенията на страницата за нея:'
+            email_outro: Получавате това известие, защото организирахте срещата „%{resource_title}“.
+            email_subject: Срещата „%{resource_title}“ беше затворена
+            notification_title: Срещата <a href="%{resource_path}">%{resource_title}</a> беше затворена.
+          follower:
+            email_intro: 'Срещата „%{resource_title}“ беше затворена. Можете да прочетете заключенията на страницата за нея:'
+            email_outro: Получавате това известие, защото следвате срещата „%{resource_title}“. Можете да прекратите следването от предходната връзка.
+            email_subject: Срещата „%{resource_title}“ беше затворена
+            notification_title: Срещата <a href="%{resource_path}">%{resource_title}</a> беше затворена.
+        meeting_created:
+          button_text: Регистрирайте се за срещата
+          email_intro: Срещата „%{resource_title}“ беше добавена към пространството за участие „%{participatory_space_title}“, което следвате.
+          email_outro: Получавате това известие, защото следвате "%{participatory_space_title}". Може да премахнете следването чрез предходния линк.
+          email_subject: Беше добавена нова среща в(ъв) %{participatory_space_title}
+          notification_title: Срещата <a href="%{resource_path}">%{resource_title}</a> беше добавена в(ъв) %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Регистрацията Ви за срещата <a href="%{resource_url}">%{resource_title}</a> беше потвърдена. Регистрационният Ви код е %{registration_code}.
+        meeting_registrations_over_percentage:
+          email_intro: Предоставените места за срещата „%{resource_title}“ са над %{percentage} %.
+          email_outro: Получавате това известие, защото сте администратор на пространството за участие на срещата.
+          email_subject: Предоставените места за срещата „%{resource_title}“ са над %{percentage} %
+          notification_title: Предоставените места за срещата <a href="%{resource_path}">%{resource_title}</a> са над %{percentage} %.
+        meeting_updated:
+          email_intro: 'Срещата „%{resource_title}“ беше актуализирана. Можете да прочетете новата версия на страницата ѝ:'
+          email_outro: Получавате това известие, защото следвате срещата „%{resource_title}“. Можете да прекратите следването от предходната връзка.
+          email_subject: Срещата „%{resource_title}“ беше актуализирана
+          notification_title: Срещата <a href="%{resource_path}">%{resource_title}</a> беше актуализирана.
+        registration_code_validated:
+          email_intro: Регистрационният Ви код „{registration_code}“ за срещата „%{resource_title}“ беше валидиран.
+          email_outro: Получавате това известие, защото регистрационният Ви код за срещата „%{resource_title}“ беше валидиран.
+          email_subject: Регистрационният Ви код „{registration_code}“ за срещата „%{resource_title}“ беше валидиран
+          notification_title: Регистрационният Ви код „%{registration_code}“ за срещата <a href="%{resource_path}">%{resource_title}</a> беше валидиран.
+        registrations_enabled:
+          email_intro: 'Приемат се регистрации за срещата „%{resource_title}“. Можете да се регистрирате на страницата ѝ:'
+          email_outro: Получавате това известие, защото следвате срещата „%{resource_title}“. Можете да прекратите следването от предходната връзка.
+          email_subject: Приемат се регистрации за срещата „%{resource_title}“.
+          notification_title: Приемат се регистрации за срещата <a href="%{resource_path}">%{resource_title}</a>.
+        upcoming_meeting:
+          email_intro: Срещата „%{resource_title}“ ще започне след по-малко от 48 ч.
+          email_outro: Получавате това известие, защото следвате срещата „%{resource_title}“. Можете да прекратите следването от предходната връзка.
+          email_subject: Срещата „%{resource_title}“ ще започне след по-малко от 48 ч.
+          notification_title: Срещата <a href="%{resource_path}">%{resource_title}</a> ще започне след по-малко от 48 ч.
     forms:
       meetings:
         attendees_count_help_text: Не забравяйте да включите общия брой присъстващи на вашата среща, независимо дали те присъстват лично, онлайн или хибридно.
     gamification:
       badges:
         attended_meetings:
+          conditions:
+            - Регистрирайте се за срещите, които искате да посетите
+          description: Тази значка се предоставя, когато посетите няколко срещи на живо.
+          description_another: Този участник е посетил %{score} срещи.
+          description_own: Посетили сте %{score} срещи.
+          name: Посетени срещи
+          next_level_in: Посетете още %{score} срещи, за да достигнете следващото ниво!
           unearned_another: Този участник все още не е присъствал на нито една среща.
           unearned_own: Все още не сте присъствали на нито една среща.
     meetings:
@@ -44,22 +163,37 @@ bg:
             invalid: Възникна проблем при актуализирането на този дневен ред
             success: Дневният ред беше актуализиран успешно
         invites:
+          form:
+            select_user: Избор на участник
           index:
             filter_by: Филтрирай по
+            invite_attendee: Изпращане на покана на участника
+            invites: Покани
             registrations_disabled: Не можете да поканите присъстващи, защото регистрациите са изключени.
+        meeting_closes:
+          edit:
+            close: Затвори
+            title: Затваряне на срещата
         meetings:
           close:
             invalid: Възникна проблем при закриването на тази среща
             success: Срещата беше закрита успешно
           create:
             invalid: Възникна проблем при създаването на тази среща
+            success: Срещата е създадена успешно. Забележете, че това все още не е публикувано, трябва да го публикувате ръчно.
           destroy:
             invalid:
               proposals_count:
                 one: Срещата не може да бъде премахната, понеже има %{count} участник свързан с нея
                 other: Срещата не може да бъде премахната, понеже има %{count} участника свързани с нея
+            success: Срещата беше изтрита успешно
+          edit:
+            title: Редактиране на срещата
+            update: Актуализация
           form:
+            address_help: 'Адрес: използва се от инструмента за геокодиране за намиране на местоположението'
             disclaimer: 'Отказ от отговорност: Използвайки външна система за регистрация, вие сте наясно, че организаторите на %{organization} не носят отговорност за данните, предоставени от потребителите на външната услуга.'
+            show_embedded_iframe_help: 'Само няколко услуги позволяват вграждане в среща или събитие на живо от следните домейни: %{domains}'
           publish:
             invalid: Възникна проблем при публикуването на тази среща
             success: Срещата беше публикувана успешно
@@ -90,6 +224,8 @@ bg:
       meetings:
         calendar_modal:
           close_window: Затвори прозореца
+        filters:
+          scope: Обхват
         filters_small_view:
           close_modal: Затвори прозореца
           filter: Филтър
@@ -97,12 +233,15 @@ bg:
           unfold: Разгъване
         form:
           disclaimer: 'Отказ от отговорност: Използвайки външна система за регистрация, вие сте наясно, че организаторите на %{organization} не носят отговорност за данните, предоставени от потребителите на външната услуга.'
+          show_embedded_iframe_help: 'Само няколко услуги позволяват вграждане в среща или събитие на живо от следните домейни: %{domains}'
         meeting_minutes:
           related_information: Свързана информация
         meetings:
           no_meetings_warning: Няма срещи, които да съответстват на критериите Ви за търсене, или няма насрочени срещи.
         show:
           back: Обратно към списъка
+          close_meeting: Затваряне на срещата
+          edit_meeting: Редактиране на срещата
           view: Преглед
       meetings_map:
         view_meeting: Преглед на срещата
