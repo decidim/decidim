@@ -3,9 +3,45 @@ bg:
   activemodel:
     attributes:
       initiative:
+        answer: Отговор
+        answer_url: URL на отговора
+        area_id: Област
+        decidim_scope_id: Обхват
         decidim_user_group_id: Автор
         description: Описание
+        hashtag: Хаштаг
         offline_votes: Лични подписи
+        offline_votes_for_scope: Лични подписи за %{scope_name}
+        scope_id: Обхват
+        signature_end_date: Край на периода на събиране на подписи
+        signature_start_date: Начало на периода на събиране на подписи
+        signature_type: Тип събиране на подписи
+        signature_type_values:
+          any: Смесено
+          offline: Лично
+          online: Онлайн
+        state: Статус
+        title: Заглавие
+        type_id: Тип
+      initiatives_committee_member:
+        user: Член на комисията
+      initiatives_settings:
+        initiatives_order: Ред
+      initiatives_type:
+        area_enabled: Разрешаване на авторите да избират областта за инициативата си
+        attachments_enabled: Разрешете прикачените файлове
+        banner_image: Изображение на банера
+        child_scope_threshold_enabled: Активиране на подписи за подобхват
+        collect_user_extra_fields: Събиране на личните данни на участниците при подписване
+        comments_enabled: Включване на коментиране
+        custom_signature_end_date_enabled: Разрешаване на авторите да избират края на периода на събиране на подписи
+        description: Описание
+        document_number_authorization_handler: Разрешение за потвърждаване на номера на документа при подписване
+        extra_fields_legal_information: Правна информация относно събирането на лични данни
+        minimum_committee_members: Минимален брой членове на комисията
+        online_signature_enabled: Разрешено подписване онлайн
+        only_global_scope_enabled: Разрешете само създаването на инициативи за глобален обхват
+        promoting_committee_enabled: Разрешаване на комисия за популяризиране
   activerecord:
     models:
       decidim/initiative:
