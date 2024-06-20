@@ -142,6 +142,7 @@ describe "Meeting poll answer" do
 
   def open_first_question
     expect(page).to have_css(".meeting-polls__question:not([disabled])", visible: :visible)
+    sleep(2)
     find(".meeting-polls__question", match: :first).click
   end
 end
