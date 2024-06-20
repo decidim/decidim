@@ -1,6 +1,6 @@
 <div class="comment-reply">
-  <div class="comment__header author">
-    <%= cell "decidim/author", present(proposal_note_reply.author), from: proposal_note_reply, context_actions: [:date] %>
+  <div class="comment__header">
+    <%= cell "decidim/author", present(proposal_note_reply.author), from: proposal_note_reply, context_actions: [:date], tooltip: false %>
   </div>
 
   <div class="comment__content">
