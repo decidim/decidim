@@ -502,9 +502,78 @@ bg:
           callout:
             already_voted: Вие вече гласувахте на тези избори. Можете да промените гласа си или да го потвърдите.
             pending_vote: Вашият глас се предава на сървъра.
+            vote_rejected: Не беше възможно да се провери вашият глас. Моля, пуснете го отново.
+          election_log: Регистър на избора
+          preview: Преглед
+          verify:
+            already_voted: Вече гласувано?
+            verify_here: Проверете своя глас тук.
+            will_verify: Ще можете да потвърдите гласа си, след като изборите започнат.
+          voting_period_status:
+            finished: Гласуването започна на %{start_time} и приключи на %{end_time}
+            ongoing: 'Активно гласуване до: %{end_time}'
+            upcoming: Гласуването започва на %{end_time}
+      feedback:
+        answer:
+          invalid: Възникна проблем при изпращането на вашите отзиви.
+          spam_detected: Възникна проблем при попълването на отговорите във формуляра. Навярно сте били твърде бързи, бихте ли опитали отново?
+          success: Отзивът е изпратен успешно.
+      models:
+        answer:
+          fields:
+            proposals: Предложения
+            selected: Селектирано
+            title: Заглавие
+            votes: Гласове
+        election:
+          fields:
+            bb_status: Статус на Информационното табло
+            end_time: Приключва на
+            start_time: Започва в
+            title: Заглавие
+            verifiable_results_file_hash: Файлова контролна сума SHA256
+            verifiable_results_file_url: Проверяем изборен файл
+        question:
+          fields:
+            answers: Отговори
+            max_selections: Макс. селекции
+            title: Заглавие
+        trustees_participatory_space:
+          fields:
+            considered: разглеждан
+            email: Имейл
+            inactive: неактивен
+            name: Име
+            notification: Известието е изпратено на
+            public_key: Публичен ключ
+            status: Статус
+      orders:
+        label: Подреждане на изборите по
+        older: По-старо
+        recent: Скорошни
       trustee_zone:
         elections:
+          backup_modal:
+            description: Този избор се създава в Информационното табло. Много е важно всеки довереник, участващ в него, да създаде резервно копие на тези ключове и да ги съхранява на сигурно място. След това процесът продължава.
+            download_election_keys: Изтегляне на ключове
+            title: Резервни избирателни ключове за %{election}
           key_ceremony_steps:
+            back: Назад
+            description: Този избор се създава в Информационното табло. За да завършите този процес, е необходимо вашето участие като довереник.
+            keys:
+              create_election: Генериране на ключове
+              key_ceremony:
+                joint_election_key: Генериране на съвместен ключ
+                step_1: Публикуване на ключове
+            list:
+              status: Статус
+              task: Задача
+            process_warning: След като процесът започне, не трябва да излизате от тази страница, докато процесът не приключи. Ще отнеме няколко минути, тъй като всички довереници трябва да бъдат свързани, за да го изпълнят.
+            start: Старт
+            status:
+              completed: Завършено
+              pending: Чакащо
+              processing: Обработване
             title: Създайте избирателни ключове за %{election}
           restore_modal:
             description: Информационното табло има информация от вас като попечител за този избор. За да продължите процеса, първо качете архивния файл, генериран по време на предишната сесия.
@@ -748,6 +817,34 @@ bg:
             fields:
               created_at: Създадено на
               published: Публикувано
+              title: Заглавие
+        monitoring_committee_election_results:
+          actions:
+            title: Активности
+            view: Преглед
+          index:
+            title: Изберете избори, за които искате да видите резултатите
+          results:
+            bulletin_board: Информационно табло
+            election_totals: Суми от изборите
+            polling_stations: Избирателни секции
+            result_types:
+              blank_answers: Празни отговори
+              blank_ballots: Празни бюлетини
+              null_ballots: Нулеви бюлетини
+              total_ballots: Сума на бюлетините
+              valid_ballots: Валидни бюлетини
+            selected: Селектирано
+            title: Резултати от изборите <i>%{election_title}</i>
+            totals: Суми
+          show:
+            change_election: Смяна на изборите
+            publish_results: Публикувайте на резултатите
+            publishing: Публикуване на резултатите...
+          update:
+            invalid: Възникна проблем при публикуването на резултатите.
+            rejected: Публикуването на резултатите беше отхвърлено от Информационното табло. Опитайте отново или се свържете със системния администратор.
+            success: Резултатите бяха публикувани успешно.
         monitoring_committee_verify_elections:
           index:
             how_to_download: За да потвърдите избори, изтеглете неговия проверяем файл от таблицата по-горе.
