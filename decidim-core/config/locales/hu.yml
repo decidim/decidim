@@ -1816,10 +1816,6 @@ hu:
         mark_as_read: Megjelölés olvasottként
       offline_banner:
         cache_version_page: Upsz! Nem kapcsolódik az internetre. Most az oldal egy régebbi, eltárolt változatát látja, ami lehet, hogy nem teljesen friss.
-      shared:
-        layout_item:
-          next: Következő elem
-          prev: Előző elem
       social_media_links:
         facebook: "%{organization} a Facebookon"
         github: "%{organization} a GitHubon"
