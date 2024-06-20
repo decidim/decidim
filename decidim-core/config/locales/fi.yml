@@ -1950,10 +1950,6 @@ fi:
         mark_as_read: Merkitse luetuiksi
       offline_banner:
         cache_version_page: Hups! Verkkoyhteytesi on kytketty pois päältä. Tämä on aiemmin välimuistissa oleva versio vierailemasi sivusta, jonka sisältö ei välttämättä ole ajan tasalla.
-      shared:
-        layout_item:
-          next: Seuraava kohde
-          prev: Edellinen kohde
       social_media_links:
         facebook: "%{organization} Facebookissa"
         github: "%{organization} GitHubissa"
