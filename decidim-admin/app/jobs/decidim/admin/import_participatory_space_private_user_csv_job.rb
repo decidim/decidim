@@ -7,7 +7,7 @@ module Decidim
     class ImportParticipatorySpacePrivateUserCsvJob < ApplicationJob
       queue_as :exports
 
-      def perform(email, user_name, privatable_to, current_user)
+      def perform(email, user_name, privatable_to)
         return if email.blank? || user_name.blank?
 
         params = {
