@@ -84,8 +84,71 @@ bg:
             add_title_and_description: Добавете заглавие и описание
             already_answered_warning: Няколко потребители вече са попълнили въпросника, поради което не можете да промените въпросите в него.
             collapse: Свиване на всички въпроси
+            expand: Разгъване на всички въпроси
+            preview: Преглед
+            title: Редактирайте формуляра за %{questionnaire_for}
+            unpublished_warning: Формулярът не е публикуван. Можете да промените въпросите в него, но така ще се изтрият текущите въпроси.
+          matrix_row:
+            matrix_row: Ред
+            remove: Премахни
+            statement: Изявление
+          question:
+            add_answer_option: Добавяне на възможност за отговор
+            add_display_condition: Добавяне на условие за показване
+            add_display_condition_info: Запазете формуляра, за да конфигурирате условията за показване
+            add_matrix_row: Добавяне на ред
+            any: Някой
+            collapse: Свий
+            description: Описание
+            down: Надолу
+            expand: Разтваряне
+            question: Въпрос
+            remove: Премахни
+            statement: Изявление
+            up: Горе
+          separator:
+            down: Долу
+            remove: Премахни
+            separator: Разделител
+            up: Горе
+          title_and_description:
+            collapse: Свий
+            description: Описание
+            down: Долу
+            expand: Разтваряне
+            remove: Премахни
+            title: Заглавие
+            title_and_description: Заглавие и описание
+            up: Горе
+          update:
+            invalid: Възникна проблем при запазването на формуляра.
+            success: Формулярите бяха запазени успешно.
+      admin_log:
+        questionnaire:
+          update: "%{user_name} актуализира въпросника %{resource_name}"
+      errors:
+        answer:
+          body: Основният текст не може да бъде празен
+      images:
+        dimensions: "%{width} x %{height} пиксела"
+        processors:
+          resize_and_pad: Това изображение ще бъде преоразмерено и уплътнено до %{dimensions}.
+          resize_to_fit: Това изображение ще бъде преоразмерено и уплътнено до %{dimensions}.
+      question_types:
+        files: Файлове
+        long_answer: Дълъг отговор
+        matrix_multiple: Матрица (множество опции)
+        matrix_single: Матрица (единична опция)
+        multiple_option: Множество опции
+        short_answer: Кратък отговор
+        single_option: Единична опция
+        sorting: Сортиране
+        title_and_description: Заглавие и описание
+      questionnaire_answer_presenter:
+        download_attachment: Изтегляне на прикачени файлове
       questionnaires:
         answer:
+          invalid: Възникна проблем при попълването на отговорите във формуляра.
           max_choices_alert: Избрани са прекалено много варианти
           success: Отговорите са попълнени успешно във формуляра.
         question:
