@@ -1949,10 +1949,6 @@ ca:
         mark_as_read: Marcar com a llegit
       offline_banner:
         cache_version_page: Ostres! La teva xarxa està desconnectada. El que estàs veient és una versió prèvia de la pàgina desada a la memòria cau i podria ser que el contingut no estigui actualitzat.
-      shared:
-        layout_item:
-          next: Següent tema
-          prev: Tema anterior
       social_media_links:
         facebook: "%{organization} a Facebook"
         github: "%{organization} a GitHub"
