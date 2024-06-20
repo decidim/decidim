@@ -45,7 +45,7 @@ module Decidim::Admin
       end
 
       it "enqueues a job for each present value without BOM" do
-        expect(ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).with(email, kind_of(String), private_users_to, current_user)
+        expect(ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).with(email, kind_of(String), private_users_to)
 
         subject.call
       end
@@ -56,7 +56,7 @@ module Decidim::Admin
     end
 
     it "enqueues a job for each present value" do
-      expect(ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).twice.with(kind_of(String), kind_of(String), private_users_to, current_user)
+      expect(ImportParticipatorySpacePrivateUserCsvJob).to receive(:perform_later).twice.with(kind_of(String), kind_of(String), private_users_to)
 
       subject.call
     end
