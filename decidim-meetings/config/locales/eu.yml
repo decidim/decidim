@@ -367,9 +367,9 @@ eu:
           form:
             announcement_html:
               - Galdera batek erantzunak jasotzen dituenean edo argitaratuta/itxita dagoenean, jada ezin da editatu.
-              - 
-              - 
-              - 
+              - Edozein unetan gehitu ahal duzu galdera bat.
+              - Inkesta itxi egingo da sortutako galdera guztien emaitzak argitaratzen direnean.
+              - Bisitatu <a href='% {admin_link}'>inkestak administratzeko orria </a>, galderak bidali eta emaitzak argitaratzeko.
         registrations:
           edit:
             save: Gorde
@@ -448,6 +448,7 @@ eu:
       iframe_embed_type:
         embed_in_meeting_page: Topaketa-orrian txertatuta
         none: Bat ere ez
+        open_in_live_event_page: Ireki zuzeneko ekitaldiaren orrian
         open_in_new_tab: Ireki URL fitxa berri batean
       last_activity:
         meeting_updated: 'Topaketa eguneratua:'
@@ -535,6 +536,8 @@ eu:
           edit_close_meeting: Editatu topaketaren txostena
           edit_meeting: Editatu topaketa
           join_meeting: Izena eman
+          reply_poll: Erantzun inkesta
+          view_poll: Ikusi inkesta
         meetings:
           no_meetings_warning: Ez dago bilaketa-irizpidearekin bat datorren topaketarik, edo ez dago topaketa programaturik.
           upcoming_meetings_warning: Orain ez dago topaketa programaturik, baina aurreko topaketak ikus ditzakezu.
@@ -593,7 +596,19 @@ eu:
             start_time: Hasiera-data
             title: Titulua
       polls:
+        answers:
+          index:
+            administrate: Administratu
+            title: Inkesta
+          index_admin:
+            back_to_meeting: Itzuli topaketara
+            title: Administratu inkesta
+            view_poll: Ikusi inkesta
         questions:
+          closed_question:
+            announcement: Galdera honetarako erantzunak itxi egin dira.
+            question: Galdera
+            question_results: Emaitzak
           index:
             empty_questions: Topaketa honetan zehar, galdera batzuk bidaliko dira eta erantzun ahal izango dituzu. Hemen erakutsiko dira.
           index_admin:
@@ -604,6 +619,10 @@ eu:
             results: Emaitzak
             send: Bidali
             sent: Bidalita
+            statuses:
+              closed: Emaitzak bidalita (itxita)
+              published: Bidalita (zabalik)
+              unpublished: Bidaltzeko zain
           published_question:
             max_choices_alert: Aukera gehiegi hautatuta da
             question: Galdera
