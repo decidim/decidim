@@ -137,11 +137,11 @@ eu:
             create: Egoera sortu
             title: Beste egoera bat
           update:
-            invalid: Arazo bat egon da egoera hau eguneratzean.
-            success: Egoera zuzen eguneratua.
+            invalid: Arazoren bat gertatu da egoera hau sortzean.
+            success: Egoera ondo eguneratu da.
         timeline_entries:
           create:
-            invalid: Arazo bat egon da sarrera hau sortzean.
+            invalid: Arazoen bat gertatu da sarrera hau sortzean.
             success: Sarrera zuzen sortua.
           destroy:
             success: Sarrera behar bezala ezabatua.
