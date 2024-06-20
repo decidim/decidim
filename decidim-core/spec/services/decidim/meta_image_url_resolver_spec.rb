@@ -3,80 +3,89 @@
 require "spec_helper"
 
 describe Decidim::MetaImageUrlResolver do
-  subject { resolver }
+  subject { described_class.new(resource, organization).resolve }
 
   let(:organization) { create(:organization) }
-  let(:participatory_space) { create(:participatory_process, organization:) }
+  let(:hero_image) { nil }
+  let(:banner_image) { nil }
+  let(:avatar) { nil }
+  let(:participatory_space) { create(:assembly, organization:, hero_image:, banner_image:) }
   let(:component) { create(:proposal_component, :with_attachments_allowed, participatory_space:) }
-  let(:resource) { create(:proposal, component:) }
-  let(:resolver) { described_class.new(resource, organization) }
+  let!(:proposal) { create(:proposal, component:, body:) }
+  let(:description_image) do
+    ActiveStorage::Blob.create_and_upload!(
+      io: File.open(Decidim::Dev.asset("dni.jpg")),
+      filename: "description_image.jpg",
+      content_type: "image/jpeg"
+    )
+  end
+  let(:description_image_path) { Rails.application.routes.url_helpers.rails_blob_path(description_image, only_path: true) }
+  let(:body) do
+    { en: "<p><img src=\"#{description_image_path}\"></p>" }
+  end
+  let(:attachment_file) { Decidim::Dev.test_file("city3.jpeg", "image/jpeg") }
+  let!(:attachment) { create(:attachment, file: attachment_file, attached_to: proposal) }
+  let(:content_block) { create(:content_block, organization:, manifest_name: :hero, scope_name: :homepage) }
+  let(:block_attachment_file) { Decidim::Dev.test_file("icon.png", "image/png") }
+  let!(:user) { create(:user, organization:, avatar:) }
 
-  describe "#resolve" do
-    context "when attachment image is present" do
-      let(:attachment) { create(:attachment, :with_image, attached_to: resource) }
-
-      before do
-        allow(resource).to receive(:attachments).and_return([attachment])
-      end
-
-      it "returns the resized attachment image URL" do
-        expect(subject.resolve).to include(attachment.file.filename.to_s)
-      end
+  before do
+    if block_attachment_file
+      content_block.images_container.background_image = block_attachment_file
+      content_block.save
     end
+  end
 
-    context "when description image is present" do
-      let(:description_image) do
-        ActiveStorage::Blob.create_and_upload!(
-          io: File.open(Decidim::Dev.asset("city3.jpeg")),
-          filename: "city3.jpeg",
-          content_type: "image/jpeg"
-        )
-      end
+  shared_examples "direct images" do
+    let(:hero_image) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+    let(:banner_image) { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
 
-      let(:description_image_path) { Rails.application.routes.url_helpers.rails_blob_path(description_image, only_path: true) }
-      let(:html) { "<p><img src=\"#{description_image_path}\"></p>" }
+    it { is_expected.to end_with("/city.jpeg") }
 
-      before do
-        resource.update(body: { en: html })
-      end
+    context "and no hero_image" do
+      let(:hero_image) { nil }
 
-      it "returns the resized description image URL" do
-        expect(subject.resolve).to include(description_image.filename.to_s)
-      end
+      it { is_expected.to end_with("/city2.jpeg") }
     end
+  end
 
-    context "when participatory space image is present" do
-      let(:hero_image) do
-        ActiveStorage::Blob.create_and_upload!(
-          io: File.open(Decidim::Dev.asset("city2.jpeg")),
-          filename: "hero_image.jpeg",
-          content_type: "image/jpeg"
-        )
-      end
+  shared_examples "content block images" do
+    it { is_expected.to end_with("/icon.png") }
+  end
 
-      let(:participatory_space) { create(:participatory_process, organization:, hero_image:) }
+  context "when avatar image" do
+    let(:avatar) { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+    let(:resource) { user }
 
-      before do
-        allow(resource).to receive(:participatory_space).and_return(participatory_space)
-      end
+    it { is_expected.to end_with("/avatar.jpg") }
+  end
 
-      it "returns the resized participatory space image URL" do
-        expect(subject.resolve).to include(hero_image.filename.to_s)
-      end
-    end
+  context "when the resource has direct images" do
+    let(:resource) { participatory_space }
 
-    context "when content block image is present" do
-      let(:content_block) { create(:content_block, organization:, manifest_name: :hero, scope_name: :homepage) }
-      let(:attachment) { create(:attachment, :with_image, attached_to: content_block) }
+    it_behaves_like "direct images"
+    it_behaves_like "content block images"
+  end
 
-      before do
-        allow(Decidim::ContentBlock).to receive(:find_by).and_return(content_block)
-        allow(content_block).to receive(:attachments).and_return([attachment])
-      end
+  context "when no direct images attachment images are present" do
+    let(:resource) { proposal }
 
-      it "returns the resized content block image URL" do
-        expect(subject.resolve).to include(attachment.file.filename.to_s)
-      end
-    end
+    it { is_expected.to end_with("/city3.jpeg") }
+  end
+
+  context "when no attachments and description image is present" do
+    let(:resource) { proposal }
+    let(:attachment) { nil }
+
+    it { is_expected.to end_with("/description_image.jpg") }
+  end
+
+  context "when no previous images and belongs to a participatory space" do
+    let(:resource) { proposal }
+    let(:attachment) { nil }
+    let(:description_image_path) { "" }
+
+    it_behaves_like "direct images"
+    it_behaves_like "content block images"
   end
 end

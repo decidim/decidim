@@ -7,104 +7,60 @@ module Decidim
   class MetaImageUrlResolver
     include TranslatableAttributes
 
-    def initialize(resource, current_organization)
+    IMAGE_FIELDS = [:hero_image, :banner_image, :avatar].freeze
+    DESCRIPTION_FIELDS = [:body, :description, :short_description].freeze
+    CONTENT_BLOCK_TYPES = {
+      { manifest_name: :hero, scope_name: :homepage } => [:background_image]
+    }.freeze
+
+    def initialize(resource, organization)
       @resource = resource
-      @current_organization = current_organization
+      @organization = organization
     end
 
-    # Resolves the image URL to be used for meta tags.
+    attr_reader :resource, :organization
+
+    # Resolves the image blob to be used for meta tags.
     #
-    # @return [String, nil] - The resolved image URL or nil if no image is found.
+    # @return [String, nil] - The resolved image blob or nil if no image is found.
     def resolve
-      blob = determine_image_blob.presence
       resize_image_blob(blob) if blob.present?
     end
-
-    private
 
     # Determines the image blob to be used for meta tags by following a hierarchy.
     #
     # @return [ActiveStorage::Blob, nil] - The image blob or nil if no image is found.
-    def determine_image_blob
-      methods_with_args = [
-        (has_attached_fields? ? { method: :blob_from_image_fields } : { method: :blob_from_attachment_image }),
-        { method: :blob_from_description, args: [@resource] },
-        { method: :blob_from_participatory_space },
-        { method: :blob_from_content_blocks }
-      ]
-
-      methods_with_args << { method: :blob_from_attachment_image } if has_attached_fields?
-
-      methods_with_args.each do |hash|
-        next if hash[:method].nil?
-
-        method = hash[:method]
-        args = hash[:args] || []
-        blob = send(method, *args)
-        return blob if blob.present?
-      end
-      nil
+    def blob
+      blob_from_image_fields || blob_from_attachments || blob_from_description || blob_from_participatory_space || blob_from_content_blocks
     end
 
-    # Checks if the resource has attached fields like hero_image or banner_image.
-    #
-    # @return [Boolean] - True if the resource has attached fields, false otherwise.
-    def has_attached_fields?
-      @resource.respond_to?(:hero_image) || @resource.respond_to?(:banner_image)
-    end
+    private
 
     # Fetches the image blob from the resource's attached image fields.
     #
     # @return [ActiveStorage::Blob, nil] - The image blob or nil if not found.
     def blob_from_image_fields
-      path = get_attached_uploader_path(@resource, [:hero_image, :banner_image])
-      return unless path
+      IMAGE_FIELDS.each do |image_name|
+        next unless resource.respond_to?(image_name) && resource.respond_to?(:attached_uploader)
 
-      blob_key = extract_blob_key_from_path(path)
-      find_blob_by_key(blob_key)
-    end
-
-    # Fetches the default homepage image blob.
-    #
-    # @return [ActiveStorage::Blob, nil] - The image blob or nil if not found.
-    def blob_from_content_blocks
-      content_block = Decidim::ContentBlock.find_by(
-        organization: @current_organization,
-        manifest_name: :hero,
-        scope_name: :homepage
-      )
-
-      return unless content_block
-
-      attachment = content_block.attachments.first
-      return unless attachment&.file&.attached?
-
-      attachment.file.blob
+        blob = blob_from_attached_file(resource.send(image_name))
+        return blob if blob.present?
+      end
+      nil
     end
 
     # Fetches the first attachment image blob.
     #
     # @return [ActiveStorage::Blob, nil] - The image blob or nil if not found.
-    def blob_from_attachment_image
-      attachment = find_image_attachment(@resource)
-      return unless attachment&.file&.attached?
-
-      attachment.file.blob
-    end
-
-    # Finds the first image attachment for a given entity.
-    #
-    # @param [Object] entity - The entity to search for attachments.
-    #
-    # @return [Decidim::Attachment, nil] - The first image attachment or nil if not found.
-    def find_image_attachment(entity)
-      entity.try(:attachments)&.find { |a| a.content_type.in?(%w(image/jpeg image/png)) }
+    def blob_from_attachments
+      attachment = resource.try(:attachments)&.find { |a| a.content_type.in?(%w(image/jpeg image/png image/webp)) }
+      blob_from_attached_file(attachment&.file)
     end
 
     # Extracts the first image blob from the resource description.
     #
     # @return [ActiveStorage::Blob, nil] - The image blob or nil if not found.
-    def blob_from_description(resource)
+    def blob_from_description
       html_fields = [resource.try(:body), resource.try(:description), resource.try(:short_description)]
 
       html_fields.each do |html|
@@ -119,8 +75,7 @@ module Decidim
         image_url = image_element["src"]
         next if image_url.blank?
 
-        blob_key = extract_blob_key_from_path(image_url)
-        blob = find_blob_by_key(blob_key)
+        blob = find_blob_by_key(image_url.split("/").second_to_last)
         return blob if blob.present?
       end
 
@@ -131,11 +86,29 @@ module Decidim
     #
     # @return [ActiveStorage::Blob, nil] - The image blob or nil if not found.
     def blob_from_participatory_space
-      participatory_space = @resource.try(:participatory_space)
+      participatory_space = resource.try(:participatory_space)
       return unless participatory_space
 
-      blob = participatory_space.try(:hero_image).try(:blob) || participatory_space.try(:banner_image).try(:blob)
-      blob.presence || blob_from_description(participatory_space)
+      MetaImageUrlResolver.new(participatory_space, organization).blob
+    end
+
+    # Fetches the default homepage image blob.
+    #
+    # @return [ActiveStorage::Blob, nil] - The image blob or nil if not found.
+    def blob_from_content_blocks
+      CONTENT_BLOCK_TYPES.each do |type, image_names|
+        Decidim::ContentBlock.where(type.merge(organization:)).find_each do |content_block|
+          next unless content_block.respond_to?(:images_container)
+
+          image_names.each do |image_name|
+            next unless content_block.images_container.respond_to?(image_name)
+
+            blob = blob_from_attached_file(content_block.images_container.send(image_name))
+            return blob if blob.present?
+          end
+        end
+      end
+      nil
     end
 
     # Resizes the image blob to the specified dimensions (1200x630) if it is larger.
@@ -150,26 +123,14 @@ module Decidim
       Rails.application.routes.url_helpers.rails_representation_url(resized_variant, only_path: true)
     end
 
-    # Retrieves the path for the attached uploader of the specified image types.
-    #
-    # @param [Object] resource - The resource to search for attached uploaders.
-    # @param [Array<Symbol>] image_types - The types of images to search for.
-    #
-    # @return [String, nil] - The path of the attached uploader or nil if not found.
-    def get_attached_uploader_path(resource, image_types)
-      image_types.each do |image_type|
-        path = resource.try(:attached_uploader, image_type)&.path
-        return path if path
-      end
-      nil
-    end
-
-    def extract_blob_key_from_path(path)
-      path.split("/").second_to_last
-    end
-
     def find_blob_by_key(blob_key)
       ActiveStorage::Blob.find_signed(blob_key) if blob_key.present?
+    end
+
+    def blob_from_attached_file(file)
+      return unless file&.attached?
+
+      file.blob
     end
   end
 end
