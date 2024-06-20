@@ -132,6 +132,8 @@ pl:
         new:
           create: Utwórz
           title: Nowy prelegent konferencyjny.
+        publish:
+          invalid: Podczas publikowania tego zespołu wystąpił błąd.
         update:
           error: Wystąpił błąd podczas aktualizacji prelegenta konferencji.
           success: Prelegent zaktualizowany pomyślnie.
