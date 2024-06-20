@@ -7,6 +7,7 @@ end
 
 describe "Admin manages newsletters", type: :system do
   let(:organization) { create(:organization) }
+  let!(:attributes) { attributes_for(:newsletter, organization:) }
   let(:user) { create(:user, :admin, :confirmed, name: "Sarah Kerrigan", organization: organization) }
   let!(:deliverable_users) { create_list(:user, 5, :confirmed, newsletter_notifications_at: Time.current, organization: organization) }
 
@@ -43,9 +44,7 @@ describe "Admin manages newsletters", type: :system do
         fill_in_i18n(
           :newsletter_subject,
           "#newsletter-subject-tabs",
-          en: "A fancy newsletter for %{name}",
-          es: "Un correo electrónico muy chulo para %{name}",
-          ca: "Un correu electrònic flipant per a %{name}"
+          **attributes[:subject].except("machine_translations")
         )
 
         fill_in_i18n_editor(
@@ -84,7 +83,10 @@ describe "Admin manages newsletters", type: :system do
       end
 
       expect(page).to have_content("Preview")
-      expect(page).to have_content("A fancy newsletter for #{user.name}")
+      expect(page).to have_content(translated(attributes[:subject]))
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("created the #{translated(attributes[:subject])} newsletter")
     end
   end
 
@@ -128,9 +130,7 @@ describe "Admin manages newsletters", type: :system do
         fill_in_i18n(
           :newsletter_subject,
           "#newsletter-subject-tabs",
-          en: "A fancy newsletter",
-          es: "Un correo electrónico muy chulo",
-          ca: "Un correu electrònic flipant"
+          **attributes[:subject].except("machine_translations")
         )
 
         fill_in_i18n_editor(
@@ -145,7 +145,10 @@ describe "Admin manages newsletters", type: :system do
       end
 
       expect(page).to have_content("Preview")
-      expect(page).to have_content("A fancy newsletter")
+      expect(page).to have_content(translated(attributes[:subject]))
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the #{translated(attributes[:subject])} newsletter")
     end
   end
 

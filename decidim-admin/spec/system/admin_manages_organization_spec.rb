@@ -6,6 +6,7 @@ describe "Admin manages organization", type: :system do
   include ActionView::Helpers::SanitizeHelper
 
   let(:organization) { create(:organization) }
+  let(:attributes) { attributes_for(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization: organization) }
 
   before do
@@ -17,7 +18,7 @@ describe "Admin manages organization", type: :system do
     it "updates the values from the form" do
       visit decidim_admin.edit_organization_path
 
-      fill_in "Name", with: "My super-uber organization"
+      fill_in_i18n :organization_name, "#organization-name-tabs", **attributes[:name].except("machine_translations")
 
       %w(X Facebook Instagram YouTube GitHub).each do |network|
         within "#organization_social_handlers" do
@@ -38,6 +39,9 @@ describe "Admin manages organization", type: :system do
 
       click_button "Update"
       expect(page).to have_content("updated successfully")
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the organization settings")
     end
 
     it "marks the comments_max_length as required" do

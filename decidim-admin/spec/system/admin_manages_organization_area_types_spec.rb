@@ -5,6 +5,7 @@ require "spec_helper"
 describe "Admin manages area types", type: :system do
   let(:admin) { create :user, :admin, :confirmed }
   let(:organization) { admin.organization }
+  let(:attributes) { attributes_for(:area_type) }
 
   before do
     switch_to_host(organization.host)
@@ -23,17 +24,13 @@ describe "Admin manages area types", type: :system do
       fill_in_i18n(
         :area_type_name,
         "#area_type-name-tabs",
-        en: "Sectorial en",
-        es: "Sectorial es",
-        ca: "Sectorial ca"
+        **attributes[:name].except("machine_translations")
       )
 
       fill_in_i18n(
         :area_type_plural,
         "#area_type-plural-tabs",
-        en: "Sectorials en",
-        es: "Sectoriales es",
-        ca: "Sectorials ca"
+        **attributes[:plural].except("machine_translations")
       )
 
       find("*[type=submit]").click
@@ -42,8 +39,11 @@ describe "Admin manages area types", type: :system do
     expect(page).to have_admin_callout("successfully")
 
     within "table" do
-      expect(page).to have_content("Sectorial en")
+      expect(page).to have_content(translated(attributes[:name]))
     end
+
+    visit decidim_admin.root_path
+    expect(page).to have_content("created the #{translated(attributes[:name])} area type")
   end
 
   context "with existing area_types" do
@@ -68,13 +68,13 @@ describe "Admin manages area types", type: :system do
         fill_in_i18n(
           :area_type_name,
           "#area_type-name-tabs",
-          en: "Not Sectorial en"
+          **attributes[:name].except("machine_translations")
         )
 
         fill_in_i18n(
           :area_type_plural,
           "#area_type-plural-tabs",
-          en: "This is the new pluarl"
+          **attributes[:plural].except("machine_translations")
         )
         find("*[type=submit]").click
       end
@@ -82,8 +82,11 @@ describe "Admin manages area types", type: :system do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_content("Not Sectorial en")
+        expect(page).to have_content(translated(attributes[:name]))
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the #{translated(attributes[:name])} area type")
     end
 
     it "can delete them" do

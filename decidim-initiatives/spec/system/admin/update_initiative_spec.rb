@@ -15,6 +15,8 @@ describe "User prints the initiative", type: :system do
 
   context "when initiative update" do
     context "and user is admin" do
+      let(:attributes) { attributes_for(:initiative, organization:) }
+
       before do
         switch_to_host(organization.host)
         login_as user, scope: :user
@@ -27,6 +29,25 @@ describe "User prints the initiative", type: :system do
           fill_in :initiative_hashtag, with: "#hashtag"
         end
         submit_and_validate
+      end
+
+      it "updates the initiative" do
+        page.find(".action-icon--edit").click
+
+        fill_in_i18n(
+          :initiative_title,
+          "#initiative-title-tabs",
+          **attributes[:title].except("machine_translations")
+        )
+        fill_in_i18n_editor(
+          :initiative_description,
+          "#initiative-description-tabs",
+          **attributes[:description].except("machine_translations")
+        )
+        submit_and_validate
+
+        visit decidim_admin.root_path
+        expect(page).to have_content("updated the #{translated(attributes[:title])} initiative")
       end
 
       context "when initiative is in created state" do

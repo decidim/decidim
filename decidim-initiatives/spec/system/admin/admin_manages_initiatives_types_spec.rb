@@ -6,6 +6,7 @@ describe "Admin manages initiatives types", type: :system do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization: organization) }
   let!(:initiatives_type) { create(:initiatives_type, organization: organization) }
+  let(:attributes) { attributes_for(:initiatives_type) }
 
   before do
     switch_to_host(organization.host)
@@ -26,13 +27,13 @@ describe "Admin manages initiatives types", type: :system do
       fill_in_i18n(
         :initiatives_type_title,
         "#initiatives_type-title-tabs",
-        en: "My initiative type"
+        **attributes[:title].except("machine_translations")
       )
 
       fill_in_i18n_editor(
         :initiatives_type_description,
         "#initiatives_type-description-tabs",
-        en: "A longer description"
+        **attributes[:description].except("machine_translations")
       )
 
       select("Online", from: "Signature type")
@@ -41,9 +42,10 @@ describe "Admin manages initiatives types", type: :system do
 
       click_button "Create"
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("A new initiative type has been successfully created")
-      end
+      expect(page).to have_admin_callout("A new initiative type has been successfully created")
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("created the #{translated(attributes[:title])} initiatives type")
     end
   end
 
@@ -56,7 +58,12 @@ describe "Admin manages initiatives types", type: :system do
       fill_in_i18n(
         :initiatives_type_title,
         "#initiatives_type-title-tabs",
-        en: "My updated initiative type"
+        **attributes[:title].except("machine_translations")
+      )
+      fill_in_i18n_editor(
+        :initiatives_type_description,
+        "#initiatives_type-description-tabs",
+        **attributes[:description].except("machine_translations")
       )
 
       select("Mixed", from: "Signature type")
@@ -68,9 +75,10 @@ describe "Admin manages initiatives types", type: :system do
 
       click_button "Update"
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("The initiative type has been successfully updated")
-      end
+      expect(page).to have_admin_callout("The initiative type has been successfully updated")
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the #{translated(attributes[:title])} initiatives type")
     end
   end
 
