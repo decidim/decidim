@@ -1956,10 +1956,6 @@ bg:
         mark_as_read: Маркирай като прочетено
       offline_banner:
         cache_version_page: Опс! Вашата мрежа е офлайн. Това е предишна кеширана версия на страницата, която посещавате, възможно е съдържанието да не е актуално.
-      shared:
-        layout_item:
-          next: Следващ елемент
-          prev: Предишен елемент
       social_media_links:
         facebook: "%{organization} във Facebook"
         github: "%{organization} в GitHub"
