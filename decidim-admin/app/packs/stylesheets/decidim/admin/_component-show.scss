@@ -73,6 +73,10 @@
       @apply bg-white;
     }
 
+    .comment__content a {
+      @apply text-secondary;
+    }
+
     .comment-actions {
       @apply flex items-center gap-4;
 
@@ -124,6 +128,7 @@
         @apply mt-2;
       }
     }
+
   }
 
   .card-divider-button {
