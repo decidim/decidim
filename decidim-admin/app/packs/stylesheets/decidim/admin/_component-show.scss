@@ -73,8 +73,12 @@
       @apply bg-white;
     }
 
-    .comment__content a {
-      @apply text-secondary;
+    .comment__content {
+      @apply space-y-4;
+
+      a {
+        @apply text-secondary;
+      }
     }
 
     .comment-actions {
