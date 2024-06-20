@@ -36,7 +36,7 @@ module Decidim
 
       def process_csv
         process_import_file(@form.file) do |(email, user_name)|
-          ImportParticipatorySpacePrivateUserCsvJob.perform_later(email, user_name, @private_users_to, current_user) if email.present? && user_name.present?
+          ImportParticipatorySpacePrivateUserCsvJob.perform_later(email, user_name, @private_users_to) if email.present? && user_name.present?
         end
       end
     end
