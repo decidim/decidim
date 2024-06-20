@@ -11,6 +11,8 @@ module Decidim
       include_context "with a graphql class type"
 
       let(:model) { create(:conference) }
+      let!(:published_speaker) { create(:conference_speaker, :published, conference: model) }
+      let!(:unpublished_speaker) { create(:conference_speaker, conference: model) }
 
       include_examples "attachable interface"
       include_examples "categories container interface"
@@ -188,6 +190,14 @@ module Decidim
 
         it "returns all the required fields" do
           expect(response["registrationTerms"]["translation"]).to eq(model.registration_terms["en"])
+        end
+      end
+
+      describe "speakers" do
+        let(:query) { " { speakers { fullName } } " }
+
+        it "returns the list of published speakers" do
+          expect(response["speakers"].count).to eq(1)
         end
       end
     end
