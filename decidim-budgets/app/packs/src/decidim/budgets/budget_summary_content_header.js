@@ -1,5 +1,5 @@
 // This script aims to dynamically adjust the height of the .budget-summary__content element based on the heights of two of its child elements,
-// but only when .budget-summary__content__header is within the viewport.
+// but only when .budget-summary__content__header is within the viewport in mobile.
 const isElementInViewport = (el) => {
   const rect = el.getBoundingClientRect();
   return (
