@@ -12,10 +12,14 @@ module Decidim
       alias result model
 
       def show
-        render
+        render template
       end
 
       private
+
+      def template
+        @template ||= options[:template] || :show
+      end
 
       def title
         decidim_escape_translated result.title
@@ -32,12 +36,12 @@ module Decidim
       def tab_panel_items
         [
           {
-            enabled: children.any?,
-            id: "list",
+            enabled: timeline_entries.any?,
+            id: "timeline_entries",
             text: t("decidim.accountability.results.timeline.title"),
             icon: "route-line",
             method: :cell,
-            args: ["decidim/accountability/results", result.children]
+            args: ["decidim/accountability/project", result, { template: :timeline }]
           },
           {
             enabled: result.linked_resources(:proposals, "included_proposals").present?,
