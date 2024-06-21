@@ -290,7 +290,7 @@ describe "Explore results", :versioning do
         end
       end
 
-      context "when a proposal has comments" do
+      context "when a result has comments" do
         let(:result) { results.first }
         let(:author) { create(:user, :confirmed, organization: component.organization) }
         let!(:comments) { create_list(:comment, 3, commentable: result) }
