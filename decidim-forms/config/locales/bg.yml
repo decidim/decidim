@@ -22,6 +22,7 @@ bg:
               too_long: твърде дълъг
             choices:
               missing: не са завършени
+              too_many: са твърде много
         questionnaire:
           request_invalid: Възникна грешка при обработката на заявката. Моля, опитайте отново
   decidim:
