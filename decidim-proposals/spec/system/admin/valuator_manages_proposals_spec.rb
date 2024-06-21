@@ -42,16 +42,10 @@ describe "Valuator manages proposals" do
       end
 
       click_on "Actions"
-      click_on "Unassign from valuator"
     end
 
     it "cannot unassign others" do
-      within "#js-form-unassign-proposals-from-valuator" do
-        tom_select("#unassign_valuator_role_ids", option_id: another_valuator_role.id)
-        click_on(id: "js-submit-unassign-proposals-from-valuator")
-      end
-
-      expect(page).to have_content("You are not authorized to perform this action")
+      expect(page).to have_no_content("Unassign from valuator")
     end
   end
 
