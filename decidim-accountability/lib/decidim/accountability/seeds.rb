@@ -4,7 +4,7 @@ require "decidim/components/namer"
 
 module Decidim
   module Accountability
-    class Seeds
+    class Seeds < Decidim::Seeds
       attr_reader :participatory_space
 
       def initialize(participatory_space:)
@@ -12,11 +12,6 @@ module Decidim
       end
 
       def call
-        admin_user = Decidim::User.find_by(
-          organization: participatory_space.organization,
-          email: "admin@example.org"
-        )
-
         params = {
           name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :accountability).i18n_name,
           manifest_name: :accountability,
