@@ -353,11 +353,13 @@ describe "Participatory Processes" do
           end
 
           context "and the process statistics are enabled" do
-            let(:blocks_manifests) { [:stats] }
+            let(:blocks_manifests) { [:hero, :stats] }
 
             it "the stats for those components are visible" do
               expect(page).to have_css("[data-statistic]", count: 3)
             end
+
+            it_behaves_like "accessible page"
           end
 
           context "and the process statistics are not enabled" do
