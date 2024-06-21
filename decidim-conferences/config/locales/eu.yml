@@ -128,10 +128,10 @@ eu:
           title: Beste hizlari bat.
         publish:
           invalid: Arazo bat izan zen hizlari hau argitaratzean.
-          success: Hizlari arrakastaz argitaratutako hitzaldi batean.
+          success: Hizlaria behar bezala argitaratua.
         unpublish:
-          invalid: Arazo bat izan zen hizlari honen argitalpena ezabatzean.
-          success: Hitzaldi baten hizlariaren agitarapena ondo ezabatu da.
+          invalid: Arazo bat izan da hizlari hau despublikatzean.
+          success: Hizlaria behar bezala despublikatua.
         update:
           error: Arazo bat egon da hizlari hau eguneratzean.
           success: Hizlaria zuzen eguneratua hitzaldi honetarako.
