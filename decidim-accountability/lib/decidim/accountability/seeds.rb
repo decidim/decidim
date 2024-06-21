@@ -14,13 +14,7 @@ module Decidim
       def call
         component = create_component!
 
-        5.times do |i|
-          Decidim::Accountability::Status.create!(
-            component:,
-            name: Decidim::Faker::Localized.word,
-            key: "status_#{i}"
-          )
-        end
+        create_statuses!(component:)
 
         3.times do
           parent_category = participatory_space.categories.sample
@@ -103,6 +97,16 @@ module Decidim
 
         component = Decidim.traceability.perform_action!("publish", Decidim::Component, admin_user, visibility: "all") do
           Decidim::Component.create!(params)
+        end
+      end
+
+      def create_statuses!(component:)
+        5.times do |i|
+          Decidim::Accountability::Status.create!(
+            component:,
+            name: Decidim::Faker::Localized.word,
+            key: "status_#{i}"
+          )
         end
       end
     end
