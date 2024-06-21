@@ -33,7 +33,8 @@ module Decidim
             tertiary: form.tertiary_color,
             success: form.success_color,
             warning: form.warning_color,
-            alert: form.alert_color
+            alert: form.alert_color,
+            theme: form.theme_color
           }.compact_blank
         }
       end

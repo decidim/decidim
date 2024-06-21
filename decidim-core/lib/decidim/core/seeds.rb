@@ -123,7 +123,8 @@ module Decidim
           secondary: secondary_color,
           tertiary: tertiary_color,
           success: "#28a745",
-          warning: "#ffb703"
+          warning: "#ffb703",
+          theme: "#ef604d"
         }
 
         Decidim::Organization.first || Decidim::Organization.create!(
