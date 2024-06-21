@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe "ParticipatoryProcess Participatory Space" do
-    let(:command) { Decidim::DestroyAccount.new(user, form) }
+    let(:command) { Decidim::DestroyAccount.new(form) }
 
     let(:user) { create(:user, :confirmed) }
     let(:valid) { true }
