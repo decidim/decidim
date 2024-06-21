@@ -71,6 +71,7 @@ bg:
         deleted_user: Изтрит участник
         edit: Редактирай
         edited: Редактирано
+        hide_replies: Скриване на отговорите
         moderated_at: Коментарът е модериран на %{date}
         reply: Отговори
         report:
