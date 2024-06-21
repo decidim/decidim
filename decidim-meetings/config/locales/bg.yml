@@ -132,6 +132,13 @@ bg:
         name: Срещи
         settings:
           global:
+            announcement: Обявление
+            comments_enabled: Коментарите са активирани
+            comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
+            creation_enabled_for_participants: Участниците могат да създават срещи
+            default_registration_terms: Условия за регистрация по подразбиране
+            enable_pads_creation: Активирай създаване на бележки
+            maps_enabled: Картите са активирани
             registration_code_enabled: Регистрационният код е активиран
             resources_permissions_enabled: Разрешенията за действия могат да се задават за всяка среща
             scope_id: Обхват
@@ -209,6 +216,7 @@ bg:
           proposals_count:
             one: 'Срещата не може да бъде премахната, понеже има %{count} участник свързан с нея:'
             other: 'Срещата не може да бъде премахната, понеже има %{count} участника свързани с нея:'
+        new: Нова среща
       admin:
         agenda:
           create:
@@ -223,11 +231,13 @@ bg:
           index:
             filter:
               accepted: Прието
+              all: Всички
               rejected: Отхвърлено
             filter_by: Филтрирай по
             invite_attendee: Изпращане на покана на участника
             invites: Покани
             registrations_disabled: Не можете да поканите присъстващи, защото регистрациите са изключени.
+            search: Търсене
         meeting_closes:
           edit:
             close: Затвори
@@ -251,10 +261,32 @@ bg:
           form:
             address_help: 'Адрес: използва се от инструмента за геокодиране за намиране на местоположението'
             disclaimer: 'Отказ от отговорност: Използвайки външна система за регистрация, вие сте наясно, че организаторите на %{organization} не носят отговорност за данните, предоставени от потребителите на външната услуга.'
+            location_help: 'Местоположение: съобщение за потребителите, подсказващо мястото на срещата'
+            location_hints_help: 'Съвети за местоположение: допълнителна информация. Пример: етажът на сградата, ако е лична среща, или паролата за среща, ако е онлайн среща с ограничен достъп.'
+            online_meeting_url_help: 'Връзка: позволява на участниците да се свързват директно с вашата среща'
+            registration_url_help: 'Линк: позволете на участниците да отидат на външната услуга, която използвате за регистрации'
+            select_a_meeting_type: Моля, изберете тип среща
+            select_a_registration_type: Моля, изберете тип регистрация
+            select_an_iframe_access_level: Моля, изберете ниво на достъп до iframe
             show_embedded_iframe_help: 'Само няколко услуги позволяват вграждане в среща или събитие на живо от следните домейни: %{domains}'
+          index:
+            title: Срещи
+          new:
+            create: Създаване
+            title: Създаване на среща
           publish:
             invalid: Възникна проблем при публикуването на тази среща
             success: Срещата беше публикувана успешно
+          service:
+            description: Описание
+            down: Долу
+            remove: Премахни
+            service: Услуга
+            title: Заглавие
+            up: Горе
+          services:
+            add_service: Добавяне на услуга
+            services: Услуги
           unpublish:
             invalid: Възникна проблем при отмяната на публикуването на тази среща
             success: Публикуването на срещата беше успешно отменено
@@ -262,6 +294,8 @@ bg:
             invalid: Възникна проблем при актуализирането на тази среща
             success: Срещата беше актуализирана успешно
         meetings_poll:
+          form:
+            title: Редактиране на анкетния въпросник за %{questionnaire_for}
           update:
             invalid: Възникна проблем при актуализирането на тази анкета за среща
             success: Анкетата за среща бе актуализирана успешно
@@ -269,13 +303,42 @@ bg:
           meeting:
             name: Среща
         registrations:
+          edit:
+            save: Запази
+            validate: Потвърди
+            validate_registration_code: Валидиране на регистрационния код
           form:
+            available_slots_help: Оставете 0, ако разполагате с неограничен брой места.
+            invites: Покани
+            recommendation_message: От съображения за поверителност Ви препоръчваме да изтриете този формуляр за участие, когато вече нямате нужда от него. По подразбиране срокът е 3 месеца след приключването на срещата.
+            registration_email_help: Този текст ще се появи в средата на имейла за потвърждение на регистрацията. Точно след регистрационния код.
+            registration_form: Формуляр за регистрация
+            registrations_count:
+              one: Осъществена е %{count} регистрация.
+              other: Осъществени са %{count} регистрации.
             reserved_slots_help: Оставете 0, ако не разполагате с резервирани места
+            reserved_slots_less_than: Броят трябва да е по-малък или равен на %{count}
+            title: Регистрации
+          update:
+            invalid: Възникна проблем при запазването на настройките за регистрация.
+            success: Настройките за регистрация бяха запазени успешно.
+          validate_registration_code:
+            invalid: Регистрационният код е невалиден.
+            success: Регистрационният код беше валидиран успешно.
+      admin_log:
+        invite:
+          create: "%{user_name} покани %{attendee_name} да се присъедини към срещата %{resource_name} в пространството %{space_name}"
+          deleted: "%{user_name} отмени поканата на %{attendee_name} да се присъедини към срещата %{resource_name} в пространството %{space_name}"
+          update: "%{user_name} покани %{attendee_name} да се присъедини към срещата %{resource_name} в пространството %{space_name}"
+      application_helper:
+        filter_scope_values:
+          all: Всички
       calendar_modal:
         close_window: Затвори прозореца
         copy_calendar_url_explanation: Моля, обърнете внимание, че експортирате селекция от срещи, тъй като има активни филтри. Ако искате да ги експортирате всички, първо нулирайте всички филтри.
       content_blocks:
         upcoming_meetings:
+          upcoming_meetings: Предстоящи срещи
           view_all_meetings: Виж всички
       last_activity:
         meeting_updated_at_html: "<span>Срещата беше актуализирана на: %{link}</span>"
@@ -285,39 +348,150 @@ bg:
       meetings:
         calendar_modal:
           close_window: Затвори прозореца
+        edit:
+          back: Назад
+          title: Редактиране на срещата Ви
+          update: Актуализация
         filters:
+          activity: Моята дейност
+          all: Всички
+          category: Категория
+          date: Дата
+          date_values:
+            all: Всички
+            past: Минали
+            upcoming: Предстоящо
+          my_meetings: Моите срещи
+          origin: Произход
+          origin_values:
+            all: Всички
+            official: Официални
+            participants: Участници
+            user_groups: Групи
           scope: Обхват
+          search: Търсене
+          type: Тип
+          type_values:
+            all: Всички
+            hybrid: Хибрид
+            in_person: Лично
+            online: Онлайн
         filters_small_view:
           close_modal: Затвори прозореца
           filter: Филтър
           filter_by: Филтрирай по
           unfold: Разгъване
         form:
+          address_help: 'Адрес: използва се от инструмента за геокодиране за намиране на местоположението'
+          available_slots_help: Оставете 0, ако разполагате с неограничен брой места
+          create_as: Създаване на среща като
           disclaimer: 'Отказ от отговорност: Използвайки външна система за регистрация, вие сте наясно, че организаторите на %{organization} не носят отговорност за данните, предоставени от потребителите на външната услуга.'
+          location_help: 'Местоположение: съобщение за потребителите, подсказващо мястото на срещата'
+          location_hints_help: 'Съвети за местоположение: допълнителна информация. Пример: етажът на сградата, ако е лична среща, или паролата за среща, ако е онлайн среща с ограничен достъп.'
+          online_meeting_url_help: 'Връзка: позволява на участниците да се свързват директно с вашата среща'
+          registration_url_help: 'Линк: позволете на участниците да отидат на външната услуга, която използвате за регистрации'
+          select_a_category: Моля, изберете категория
+          select_a_meeting_type: Моля, изберете тип среща
+          select_a_registration_type: Моля, изберете тип регистрация
+          select_an_iframe_access_level: Моля, изберете ниво на достъп до iframe
           show_embedded_iframe_help: 'Само няколко услуги позволяват вграждане в среща или събитие на живо от следните домейни: %{domains}'
+        index:
+          click_here: Виж всички срещи
+          new_meeting: Нова среща
+          see_all: Виж всички срещи
+          see_all_withdrawn: Вижте всички оттеглени срещи
+          text_banner: Разглеждате списъка с оттеглени от авторите срещи. %{go_back_link}.
         meeting_minutes:
           related_information: Свързана информация
         meetings:
           no_meetings_warning: Няма срещи, които да съответстват на критериите Ви за търсене, или няма насрочени срещи.
+          upcoming_meetings_warning: Понастоящем няма насрочени срещи, но тук можете да намерите изброени всички минали срещи.
+        new:
+          back: Назад
+          create: Създаване
         show:
           back: Обратно към списъка
           close_meeting: Затваряне на срещата
+          date: Дата
+          edit_close_meeting: Редактиране на отчета за срещата
           edit_meeting: Редактиране на срещата
+          join: Присъединяване към срещата
           view: Преглед
       meetings_map:
         view_meeting: Преглед на срещата
+      polls:
+        questions:
+          index_admin:
+            received_answer: получен отговор
+            received_answers: получени отговори
+            results: Резултати
+            send: Изпрати
+            sent: Изпратено
+          published_question:
+            max_choices_alert: Избрани са прекалено много варианти
+            question: Въпрос
+            question_replied: Въпросът е отговорен
+            reply_question: Отговорете на въпроса
       public_participants_list:
         attending_participants: Присъстващи участници
+        hidden_participants_count:
+          one: и още %{count} човек
+          other: и още %{count} души
+      read_more: "(прочетете повече)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Регистрацията Ви за срещата <a href="%{url}">%{title}</a> беше потвърдена.
+          details: Ще намерите подробности за срещата в прикачения файл.
+          registration_code: Вашият регистрационен код е %{code}.
+      registration_type:
+        on_different_platform: На различна платформа
+        on_this_platform: На тази платформа
+        registration_disabled: Регистрацията е деактивирана
       registrations:
         create:
+          invalid: Имаше проблем с присъединяването към тази среща.
           success: Присъединихте се успешно към срещата. Тъй като се регистрирахте за тази среща, ще бъдете уведомявани за всички нейни актуализации.
+        decline_invitation:
+          invalid: Възникна проблем при отхвърлянето на поканата.
+          success: Отхвърлихте успешно поканата.
+        destroy:
+          invalid: Възникна проблем при напускането на тази среща.
+          success: Напуснахте успешно срещата.
+      type_of_meeting:
+        hybrid: Хибрид
+        in_person: Лично
+        online: Онлайн
+      types:
+        private_meeting: Частна среща
+        transparent: Прозрачно
+        withdraw: Оттеглено
       versions:
         back_to_resource: Връщане назад към срещата
       withdraw:
         error: Възникна грешка при оттеглянето на срещата
         success: Срещата е оттеглена успешно
+    metrics:
+      meetings:
+        description: Брой създадени срещи
+        object: срещи
+        title: Срещи
     participatory_spaces:
       highlighted_meetings:
+        past_meetings: Минали срещи
         see_all: Виж всички срещи (%{count})
+        upcoming_meetings: Предстоящи срещи
       upcoming_meeting_for_card:
         upcoming_meeting: Предстояща среща
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'Свързани резултати:'
+        result_meeting: 'Свързани срещи:'
+      proposals_from_meeting:
+        meeting_proposal: 'Свързани предложения:'
+        proposal_meeting: 'Свързани срещи:'
+    statistics:
+      meetings_count: Срещи
+  devise:
+    mailer:
+      join_meeting:
+        subject: Покана за присъединяване към среща
