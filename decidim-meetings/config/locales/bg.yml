@@ -70,11 +70,75 @@ bg:
           attributes:
             email:
               already_invited: На този имейл вече е изпратена покана.
+    models:
+      decidim/meetings/close_meeting_event: Срещата е затворена
+      decidim/meetings/create_meeting_event: Среща
+      decidim/meetings/meeting_registrations_enabled_event: Регистрациите са активирани
+      decidim/meetings/meeting_registrations_over_percentage_event: Ограничение на регистрациите
+      decidim/meetings/upcoming_meeting_event: Предстояща среща
+      decidim/meetings/update_meeting_event: Срещата е актуализирана
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Среща
+        other: Срещи
+      decidim/meetings/minutes:
+        one: Минута
+        other: Минути
+      decidim/meetings/registration:
+        one: Регистрация
+        other: Регистрации
   decidim:
+    admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Категория
+          closed_at_present:
+            label: Състояние
+            values:
+              'false': Отворен
+              'true': Затворен
+          is_upcoming_true:
+            label: Дата
+            values:
+              'false': Минали
+              'true': Предстоящо
+          scope_id_eq:
+            label: Обхват
+          with_any_origin:
+            label: Произход
+            values:
+              official: Официални
+              participants: Участник
+              user_group: Потребителски групи
+          with_any_type:
+            label: Тип на срещата
+            values:
+              hybrid: Хибрид
+              in_person: Лично
+              online: Онлайн
+      meeting_copies:
+        create:
+          error: Възникна проблем при дублирането на тази среща.
+          success: Срещата беше дублирана успешно.
+        new:
+          copy: Копиране
+          title: Дублиране на срещата
     components:
       meetings:
+        actions:
+          comment: Коментар
+          join: Присъединяване
+        name: Срещи
         settings:
           global:
+            announcement: Обявление
+            comments_enabled: Коментарите са активирани
+            comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
+            creation_enabled_for_participants: Участниците могат да създават срещи
+            default_registration_terms: Условия за регистрация по подразбиране
+            enable_pads_creation: Активирай създаване на бележки
             registration_code_enabled: Регистрационният код е активиран
             resources_permissions_enabled: Разрешенията за действия могат да се задават за всяка среща
             scope_id: Обхват
@@ -155,6 +219,9 @@ bg:
           form:
             select_user: Избор на участник
           index:
+            filter:
+              accepted: Прието
+              rejected: Отхвърлено
             invite_attendee: Изпращане на покана на участника
             invites: Покани
             registrations_disabled: Не можете да поканите участник, защото регистрациите са изключени.
