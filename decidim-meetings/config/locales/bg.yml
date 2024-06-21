@@ -69,9 +69,83 @@ bg:
           attributes:
             email:
               already_invited: На този имейл вече е изпратена покана.
+    models:
+      decidim/meetings/close_meeting_event: Срещата е затворена
+      decidim/meetings/create_meeting_event: Среща
+      decidim/meetings/meeting_registrations_enabled_event: Регистрациите са активирани
+      decidim/meetings/meeting_registrations_over_percentage_event: Ограничение на регистрациите
+      decidim/meetings/upcoming_meeting_event: Предстояща среща
+      decidim/meetings/update_meeting_event: Срещата е актуализирана
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Среща
+        other: Срещи
+      decidim/meetings/minutes:
+        one: Минута
+        other: Минути
+      decidim/meetings/registration:
+        one: Регистрация
+        other: Регистрации
   decidim:
+    admin:
+      filters:
+        accepted_at_not_null:
+          label: Прието
+          values:
+            'false': Не се приема
+            'true': Прието
+        meetings:
+          category_id_eq:
+            label: Категория
+          closed_at_present:
+            label: Състояние
+            values:
+              'false': Отворен
+              'true': Затворен
+          is_upcoming_true:
+            label: Дата
+            values:
+              'false': Минали
+              'true': Предстоящо
+          scope_id_eq:
+            label: Обхват
+          with_any_origin:
+            label: Произход
+            values:
+              official: Официални
+              participants: Участник
+              user_group: Потребителски групи
+          with_any_type:
+            label: Тип на срещата
+            values:
+              hybrid: Хибрид
+              in_person: Лично
+              online: Онлайн
+        rejected_at_not_null:
+          label: Отхвърлено
+          values:
+            'false': Не е отхвърлено
+            'true': Отхвърлено
+        search_placeholder:
+          user_name_or_user_email_cont: Търси по име или имейл
+        sent_at_not_null:
+          label: Изпратено
+          values:
+            'false': Не е изпратено
+            'true': Изпратено
+      meeting_copies:
+        create:
+          error: Възникна проблем при дублирането на тази среща.
+          success: Срещата беше дублирана успешно.
+        new:
+          copy: Копиране
+          title: Дублиране на срещата
     components:
       meetings:
+        actions:
+          comment: Коментар
+          join: Присъединяване
         settings:
           global:
             registration_code_enabled: Регистрационният код е активиран
