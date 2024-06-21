@@ -285,6 +285,7 @@ bg:
               accepted: Прието
               all: Всички
               rejected: Отхвърлено
+              sent: Изпратено
             filter_by: Филтрирай по
             invite_attendee: Изпращане на покана на участника
             invites: Покани
@@ -436,14 +437,43 @@ bg:
       iframe_embed_type:
         embed_in_meeting_page: Вграждане в страницата на срещата
         none: Няма
+        open_in_new_tab: Отваряне в страницата на събитието на живо
       last_activity:
         meeting_updated_at_html: "<span>Срещата беше актуализирана на: %{link}</span>"
         new_meeting_at_html: "<span>Нова среща на %{link}</span>"
+      layouts:
+        live_event:
+          administrate: Администриране
+          close: затваряне
+      mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Покана за присъединяване към среща
+        registration_mailer:
+          confirmation:
+            subject: Регистрацията Ви за срещата е потвърдена
       meeting:
         not_allowed: Нямате разрешение да разглеждате тази среща
+      meeting_closes:
+        edit:
+          back: Назад
+          close: Затваряне на срещата
+          title: Затваряне на срещата
       meetings:
         calendar_modal:
+          add_to_calendar: Добавяне в календара
+          apple: Добавете към календара на Apple
           close_window: Затвори прозореца
+          full_details_html: За пълни подробности посетете %{link}
+          google: Добави към Google календар
+          outlook: Добавяне към календара на Outlook
+        count:
+          meetings_count:
+            one: "%{count} среща"
+            other: "%{count} срещи"
+        create:
+          invalid: Възникна проблем при създаването на тази среща.
+          success: Създадохте успешно срещата.
         edit:
           back: Назад
           title: Редактиране на срещата Ви
@@ -505,19 +535,72 @@ bg:
         new:
           back: Назад
           create: Създаване
+          title: Създайте среща
+        registration_confirm:
+          cancel: Отказ
+          confirm: Потвърждаване
         show:
+          attendees: Брой участници
           back: Обратно към списъка
           close_meeting: Затваряне на срещата
+          contributions: Брой приноси
           date: Дата
           edit_close_meeting: Редактиране на отчета за срещата
           edit_meeting: Редактиране на срещата
           join: Присъединяване към срещата
+          leave: Отменете регистрацията си
+          leave_confirmation: Сигурни ли сте, че искате да отмените регистрацията си за тази среща?
+          link_available_soon: Връзката ще бъде достъпна скоро
+          link_closed: Връзката за присъединяване към срещата ще бъде достъпна няколко минути преди нейното начало
+          live_event: Тази среща се провежда в момента
+          meeting_minutes: Протокол за срещата
+          micro_camera_permissions_warning: Когато щракнете върху бутона по-долу, ще бъдете помолени за разрешения за микрофон и/или камера и ще се присъедините към видеоконференцията
+          no_slots_available: Няма свободни места
+          organizations: Присъстващи организации
+          registration_code_help_text: Вашият регистрационен код
+          registration_state:
+            validated: ВАЛИДИРАНО
+            validation_pending: ОЧАКВА ВАЛИДИРАНЕ
+          remaining_slots:
+            one: "%{count} оставащо място"
+            other: "%{count} оставащи места"
           view: Преглед
+          visit_finished: Вижте миналата среща
+          withdraw_btn_hint: Можете да отмените срещата си, ако промените решението си. Срещата не се изтрива, тя ще се появи в списъка с оттеглени срещи.
+          withdraw_confirmation_html: Сигурни ли сте, че искате да отмените тази среща?<br><br><strong>Това действие не може да бъде отменено!</strong>
+          withdraw_meeting: Оттегляне на срещата
+        update:
+          invalid: Възникна проблем при актуализирането на срещата.
+          success: Актуализирахте успешно срещата.
       meetings_map:
         view_meeting: Преглед на срещата
+      models:
+        invite:
+          fields:
+            email: Имейл
+            name: Име
+            sent_at: Изпратено в
+            status: Статус
+          status:
+            accepted: Приета (%{at})
+            rejected: Отхвърлена (%{at})
+            sent: Изпратено
+        meeting:
+          fields:
+            closed: Затворен
+            end_time: Крайна дата
+            id: ID
+            map: Карта
+            official_meeting: Официална среща
+            start_time: Начална дата
+            title: Заглавие
       polls:
         questions:
+          index:
+            empty_questions: По време на тази среща ще бъдат изпратени някои въпроси и вие ще можете да отговорите на тях. Те ще бъдат показани тук.
           index_admin:
+            edit: Редактирайте в админ панела
+            question: Въпрос
             received_answer: получен отговор
             received_answers: получени отговори
             results: Резултати
