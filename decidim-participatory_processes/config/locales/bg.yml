@@ -12,12 +12,72 @@ bg:
         decidim_area_id: Район
         description: Описание
         developer_group: Група за популяризиране
+        document: Документ
         domain: Домейн
         end_date: Крайна дата
         hashtag: Хаштаг
         hero_image: Изображение за начална страница
+        import_attachments: Импортиране на прикачени файлове
+        import_categories: Импортиране на категории
+        import_components: Импортиране на компоненти
+        import_steps: Стъпки за импортиране
         local_area: Район на организацията
         meta_scope: Метаданни сфера
+        participatory_process_group_id: Група процеси
+        participatory_process_type_id: Тип на процесите
+        participatory_scope: Какво е решено
+        participatory_structure: Как е решено
+        private_space: Частен процес
+        promoted: Промотирано
+        published_at: Публикувано на
+        related_process_ids: Свързани процеси
+        scope_id: Обхват
+        scope_type_max_depth_id: Дълбочина на филтъра за обхвата
+        scopes_enabled: Обхватите са активирани
+        short_description: Кратко описание
+        show_metrics: Показване на показатели
+        show_statistics: Покажи статистиките
+        slug: Съкратен URL
+        start_date: Начална дата
+        subtitle: Подзаглавие
+        target: Кой участва
+        title: Заглавие
+        weight: Подредба на позиция
+      participatory_process_group:
+        description: Описание
+        developer_group: Група за популяризиране
+        group_url: Уебсайт
+        hashtag: Хаштаг
+        hero_image: Изображение
+        local_area: Област на организацията
+        meta_scope: Метаданни за обхвата
+        participatory_process_ids: Свързани процеси
+        participatory_scope: Какво е решено
+        participatory_structure: Как е решено
+        target: Кой участва
+        title: Заглавие
+      participatory_process_step:
+        cta_path: Път на фразата, подтикваща към действие
+        cta_text: Текст на призива към действие
+        description: Описание
+        end_date: Крайна дата
+        short_description: Кратко описание
+        start_date: Начална дата
+        title: Заглавие
+      participatory_process_type:
+        title: Заглавие
+      participatory_process_user_role:
+        email: Имейл
+        name: Име
+        role: Роля
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              allowed_file_content_types: 'Невалиден файлов формат. Позволени са само файлове със следните разширения: %{types}'
+    models:
+      decidim/participatory_process_step_activated_event: Фазата е активирана
   decidim:
     admin:
       actions:
@@ -28,18 +88,102 @@ bg:
         participatory_process:
           fields:
             promoted: Акцентирано
+        participatory_process_step:
+          name: Фаза на процес на участие
+        participatory_process_type:
+          fields:
+            created_at: Създадено на
+            title: Заглавие
+          name: Вид на процеса
+        participatory_process_user_role:
+          fields:
+            email: Имейл
+            name: Име
+            role: Роля
+          name: Администратор на процес на участие
+          roles:
+            admin: Администратор
+            collaborator: Сътрудник
+            moderator: Модератор
+            valuator: Оценител
+        user:
+          fields:
+            invitation_accepted_at: 'Поканата е приета на:'
+            invitation_sent_at: Поканата е изпратена на
+      participatory_process_copies:
+        new:
+          copy: Копиране
+          select: Изберете кои данни искате да дублирате
+          title: Дублиране на процеси на участие
       participatory_process_group_landing_page:
         edit:
           active_content_blocks: Активни блокове със съдържание
           inactive_content_blocks: Неактивни блокове със съдържание
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Актуализация
+      participatory_process_groups:
+        destroy:
+          error: Възникна грешка при премахването на групата на процеса на участие.
+          success: Групата на процеса на участие беше изтрита успешно.
+        edit:
+          title: Редактиране на групата на процеса
+          update: Актуализация
+        new:
+          create: Създаване
+          title: Нова група на процеса
+        update:
+          error: Възникна проблем при актуализирането на тази група на процеса на участие.
+          success: Групата на процеса на участие беше актуализирана успешно.
+      participatory_process_imports:
+        create:
+          error: Възникна проблем при импортирането на този процес на участие.
+          success: Процесът на участие беше импортиран успешно.
+        new:
+          import: Импортиране
+          select: Изберете кои данни искате да импортирате
+          title: Импортиране на процес на участие
+      participatory_process_publications:
+        create:
+          error: Възникна проблем при публикуването на този процес на участие.
+          success: Процесът на участие беше публикуван успешно.
+        destroy:
+          error: Възникна проблем при премахването на публикацията на този процес на участие.
+          success: Публикацията на процеса на участие беше премахната успешно.
+      participatory_process_step_activations:
+        create:
+          error: Възникна проблем при активирането на този етап на процеса на участие.
+          success: Групата на процеса на участие беше активирана успешно.
       participatory_process_steps:
+        create:
+          error: Възникна проблем при създаването на нов етап на процеса на участие.
+          success: Етапът на процеса на участие беше създаден успешно.
+        default_title: Въведение
         destroy:
           error:
             active_step: Не може да изтриете активна фаза.
             last_step: Не може да изтриете последната фаза от процеса.
+          success: Етапът на процеса на участие беше изтрит успешно.
+        edit:
+          title: Редактиране на етап на процес на участие
+          update: Актуализация
+        index:
+          steps_title: Етапи
+        new:
+          create: Създаване
+          title: Нов етап на процес на участие
+        ordering:
+          error: Възникна проблем при промяната на реда на тези етапи на процеса на участие.
+      participatory_process_types:
+        form:
+          title: Заглавие
       participatory_processes:
         index:
           not_published: Не публикувано
+    admin_log:
+      participatory_process_step:
+        activate: "%{user_name} активира етапа %{resource_name} в процеса на участие %{space_name}"
+        create: "%{user_name} създаде етапа %{resource_name} в процеса на участие %{space_name}"
     log:
       value_types:
         participatory_process_type_presenter:
@@ -49,6 +193,10 @@ bg:
         related_assemblies: Свързани събрания
     participatory_process_groups:
       content_blocks:
+        metadata:
+          participatory_scope: Какво е решено
+          participatory_structure: Как е решено
+          target: Кой участва
         title:
           name: Заглавие, описание и хаштаг
     participatory_process_steps:
@@ -75,6 +223,11 @@ bg:
         dates: Дати
         developer_group: Група за популяризиране
         end_date: Крайна дата
+        participatory_scope: Какво е решено
+        participatory_structure: Как е решено
+        scope: Обхват
+        start_date: Начална дата
+        target: Кой участва
         unspecified: Неопределено
   layouts:
     decidim:
