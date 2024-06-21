@@ -24,4 +24,5 @@ function updateEndorsementBlock() {
   } else {
     $endorsementIdentitiesButton[0].innerHTML = '<%= j(cell("decidim/endorsement_buttons", resource).button_content).strip.html_safe %>';
   }
+  document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $endorsementBlock[0] }));
 }
