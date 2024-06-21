@@ -20,52 +20,7 @@ module Decidim
           categories = create_categories!
 
           categories.each do |category|
-            result = Decidim.traceability.create!(
-              Decidim::Accountability::Result,
-              admin_user,
-              {
-                component:,
-                scope: participatory_space.organization.scopes.sample,
-                category:,
-                title: Decidim::Faker::Localized.sentence(word_count: 2),
-                description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-                  Decidim::Faker::Localized.paragraph(sentence_count: 3)
-                end
-              },
-              visibility: "all"
-            )
-
-            Decidim::Comments::Seed.comments_for(result)
-
-            3.times do
-              child_result = Decidim.traceability.create!(
-                Decidim::Accountability::Result,
-                admin_user,
-                {
-                  component:,
-                  parent: result,
-                  start_date: Time.zone.today,
-                  end_date: Time.zone.today + 10,
-                  status: Decidim::Accountability::Status.all.sample,
-                  progress: rand(1..100),
-                  title: Decidim::Faker::Localized.sentence(word_count: 2),
-                  description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-                    Decidim::Faker::Localized.paragraph(sentence_count: 3)
-                  end
-                },
-                visibility: "all"
-              )
-
-              rand(0..5).times do |i|
-                child_result.timeline_entries.create!(
-                  entry_date: child_result.start_date + i.days,
-                  title: Decidim::Faker::Localized.sentence(word_count: 2),
-                  description: Decidim::Faker::Localized.paragraph(sentence_count: 1)
-                )
-              end
-
-              Decidim::Comments::Seed.comments_for(child_result)
-            end
+            result = create_result!(component:, category:)
           end
         end
       end
@@ -114,6 +69,55 @@ module Decidim
         end
 
         categories
+      end
+
+      def create_result!(component:, category:)
+        result = Decidim.traceability.create!(
+          Decidim::Accountability::Result,
+          admin_user,
+          {
+            component:,
+            scope: participatory_space.organization.scopes.sample,
+            category:,
+            title: Decidim::Faker::Localized.sentence(word_count: 2),
+            description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+              Decidim::Faker::Localized.paragraph(sentence_count: 3)
+            end
+          },
+          visibility: "all"
+        )
+
+        Decidim::Comments::Seed.comments_for(result)
+
+        3.times do
+          child_result = Decidim.traceability.create!(
+            Decidim::Accountability::Result,
+            admin_user,
+            {
+              component:,
+              parent: result,
+              start_date: Time.zone.today,
+              end_date: Time.zone.today + 10,
+              status: Decidim::Accountability::Status.all.sample,
+              progress: rand(1..100),
+              title: Decidim::Faker::Localized.sentence(word_count: 2),
+              description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+                Decidim::Faker::Localized.paragraph(sentence_count: 3)
+              end
+            },
+            visibility: "all"
+          )
+
+          rand(0..5).times do |i|
+            child_result.timeline_entries.create!(
+              entry_date: child_result.start_date + i.days,
+              title: Decidim::Faker::Localized.sentence(word_count: 2),
+              description: Decidim::Faker::Localized.paragraph(sentence_count: 1)
+            )
+          end
+
+          Decidim::Comments::Seed.comments_for(child_result)
+        end
       end
     end
   end
