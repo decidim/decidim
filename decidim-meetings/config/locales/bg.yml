@@ -276,6 +276,10 @@ bg:
             success: Участникът беше поканен успешно да се присъедини към срещата.
           form:
             attendee_type: Тип присъстващ
+            existing_user: Съществуващ участник
+            invite: Покани
+            invite_explanation: Участникът ще бъде поканен да се присъедини към срещата, както и към организацията.
+            non_user: Несъществуващ участник
             select_user: Избор на участник
           index:
             filter:
@@ -375,6 +379,55 @@ bg:
           create: "%{user_name} покани %{attendee_name} да се присъедини към срещата %{resource_name} в пространството %{space_name}"
           deleted: "%{user_name} отмени поканата на %{attendee_name} да се присъедини към срещата %{resource_name} в пространството %{space_name}"
           update: "%{user_name} покани %{attendee_name} да се присъедини към срещата %{resource_name} в пространството %{space_name}"
+        meeting:
+          close: "%{user_name} затвори срещата %{resource_name} в пространството %{space_name}"
+          create: "%{user_name} създаде срещата %{resource_name} в пространството %{space_name}"
+          delete: "%{user_name} изтри срещата %{resource_name} в пространството %{space_name}"
+          export_registrations: "%{user_name} експортира регистрациите за срещата %{resource_name} в пространството %{space_name}"
+          update: "%{user_name} актуализира срещата %{resource_name} в пространството %{space_name}"
+          value_types:
+            organizer_presenter:
+              not_found: 'Организаторът не беше намерен в базата данни (Идент. №: %{id})'
+        questionnaire:
+          update: "%{user_name} актуализира въпросника за срещата %{meeting_name}"
+      application_helper:
+        filter_category_values:
+          all: Всички
+        filter_meeting_space_values:
+          all: Всички
+      calendar:
+        meeting_to_event:
+          read_more: Прочетете повече за тази среща
+      calendar_modal:
+        calendar_url: URL на календар
+        copy_calendar_url: Копиране
+        copy_calendar_url_clarification: Копирайте URL адреса на календара в клипборда
+        copy_calendar_url_copied: Копирано!
+        copy_calendar_url_description: Можете да видите всички публикувани срещи във вашето календарно приложение или доставчик. Копирайте и поставете този URL адрес в календара си, като използвате опцията „Добавяне на нов календар от URL адрес“.
+        copy_calendar_url_explanation: Моля, обърнете внимание, че експортирате селекция от срещи, тъй като има активни филтри. Ако искате да ги експортирате всички, първо нулирайте всички филтри.
+        copy_calendar_url_message: URL адресът бе успешно копиран в клипборда.
+        export_calendar: Експортиране на календара
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: Срещата <a href="%{meeting_path}">"%{meeting_title}"</a> предстои да бъде затворена. Моля, добавете отчет за срещата, като използвате бутона "Затвори срещата".
+          greetings: Поздрав,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Здравейте %{username},
+      conference_venues: Места за провеждане на конференции
+      content_blocks:
+        upcoming_meetings:
+          name: Предстоящи срещи
+      directory:
+        meetings:
+          index:
+            meetings: Срещи
+            space_type: Пространство за участници
+      iframe_access_level:
+        all: Всички посетители
+        registered: Регистрирани участници в тази среща
+        signed_in: Само регистрирани участници
+      iframe_embed_type:
+        embed_in_meeting_page: Вграждане в страницата на срещата
+        none: Няма
       meetings:
         edit:
           back: Назад
