@@ -293,6 +293,10 @@ bg:
             success: Участникът беше поканен успешно да се присъедини към срещата.
           form:
             attendee_type: Тип присъстващ
+            existing_user: Съществуващ участник
+            invite: Покани
+            invite_explanation: Участникът ще бъде поканен да се присъедини към срещата, както и към организацията.
+            non_user: Несъществуващ участник
             select_user: Избор на участник
           index:
             invite_attendee: Изпращане на покана на участника
@@ -394,6 +398,25 @@ bg:
           create: "%{user_name} покани %{attendee_name} да се присъедини към срещата %{resource_name} в пространството %{space_name}"
           deleted: "%{user_name} отмени поканата на %{attendee_name} да се присъедини към срещата %{resource_name} в пространството %{space_name}"
           update: "%{user_name} покани %{attendee_name} да се присъедини към срещата %{resource_name} в пространството %{space_name}"
+        meeting:
+          close: "%{user_name} затвори срещата %{resource_name} в пространството %{space_name}"
+          create: "%{user_name} създаде срещата %{resource_name} в пространството %{space_name}"
+          delete: "%{user_name} изтри срещата %{resource_name} в пространството %{space_name}"
+          export_registrations: "%{user_name} експортира регистрациите за срещата %{resource_name} в пространството %{space_name}"
+          update: "%{user_name} актуализира срещата %{resource_name} в пространството %{space_name}"
+          value_types:
+            organizer_presenter:
+              not_found: 'Организаторът не беше намерен в базата данни (Идент. №: %{id})'
+        questionnaire:
+          update: "%{user_name} актуализира въпросника за срещата %{meeting_name}"
+      application_helper:
+        filter_category_values:
+          all: Всички
+        filter_meeting_space_values:
+          all: Всички
+      calendar:
+        meeting_to_event:
+          read_more: Прочетете повече за тази среща
       meetings:
         edit:
           back: Назад
