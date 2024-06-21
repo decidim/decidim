@@ -409,6 +409,7 @@ bg:
         participatory_process_groups:
           form:
             metadata: Метаданни
+            title: Основна информация
             visibility: Видимост
         participatory_process_imports:
           form:
@@ -425,21 +426,56 @@ bg:
             filters: Филтри
             images: Изображения
             metadata: Метаданни
+            other: Друго
+            related_processes: Свързани процеси
+            scope_type_max_depth_help: Ограничете дълбочината на филтъра за обхвата; Филтърът ще извежда данни от общото положение до избрания тип обхват.
+            select_an_area: Изберете област
+            select_participatory_process_type: Изберете тип процес
+            select_process_group: Изберете група на процеса
             slug_help: 'Съкратените URL се използват за генериране на URL адреси, които сочат към този процес. Приема само букви, цифри и тирета и трябва да започва с буква. Пример: %{url}'
+            title: Основна информация
             visbility: Видимост
+      content_blocks:
+        highlighted_processes:
+          name: Акцентирани процеси
+      index:
+        title: Процеси на участие
+      last_activity:
+        new_participatory_process: Нов процес на участие
       pages:
         home:
           highlighted_processes:
+            active_processes: Активни процеси
             active_step: Активна фаза
             more_information: Още информация
             participate: Участвайте
             participate_in: Участие в процеса %{resource_name}
             processes_button_title: Връзка към страницата „Процеси“, на която се показват всички процеси
+            see_all_processes: Вижте всички процеси
+      participatory_process_steps:
+        index:
+          back_to_process: Назад към страницата на процеса
       participatory_processes:
         filters:
+          all_types: Всички типове
+          counters:
+            active:
+              one: 1 активен процес
+              other: "%{count} активни процеса"
+            all:
+              one: 1 процес
+              other: "%{count} процеса"
+            past:
+              one: 1 предишен процес
+              other: "%{count} предишни процеси"
+            upcoming:
+              one: 1 предстоящ процес
+              other: "%{count} предстоящи процеса"
           explanations:
             no_active: Няма активни процеси
             no_active_nor_upcoming: Няма активни или предстоящи процеси
+            no_active_nor_upcoming_callout: Няма активни или предстоящи процеси. Тук можете да намерите списък на миналите такива.
+          filter_by: Покажи
           names:
             active: Активно
             all: Всички
@@ -456,6 +492,7 @@ bg:
         dates: Дати
         developer_group: Група за популяризиране
         end_date: Крайна дата
+        local_area: Област на организацията
         participatory_scope: Какво е решено
         participatory_structure: Как е решено
         private_space: Това е частен процес
