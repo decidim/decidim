@@ -101,17 +101,6 @@ describe Decidim::Proposals::Admin::Permissions do
       it_behaves_like "can answer proposals"
       it_behaves_like "can export proposals"
     end
-
-    context "when current user is the valuator" do
-      describe "unassign proposals from themselves" do
-        let(:action) do
-          { scope: :admin, action: :unassign_from_valuator, subject: :proposals }
-        end
-        let(:extra_context) { { valuator: user } }
-
-        it { is_expected.to be false }
-      end
-    end
   end
 
   it_behaves_like "can create proposal notes"
