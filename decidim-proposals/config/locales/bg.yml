@@ -776,8 +776,11 @@ bg:
       proposals:
         compare:
           continue: Продължи
+          no_similars_found: Браво! Не бяха намерени подобни предложения
+          title: Подобни предложения
         complete:
           send: Изпрати
+          title: Завършете предложението си
         count:
           proposals_count:
             one: "%{count} предложение"
@@ -922,19 +925,32 @@ bg:
             description: За да бъдат валидирани, предложенията трябва да съберат %{limit} подкрепяния
           title: 'За подкрепата се прилагат следните правила:'
           vote_limit:
+            description: Можете да подкрепите до %{limit} предложения.
             left: Оставащи
             votes: Подкрепа
         wizard_aside:
+          back: Назад
+          back_from_step_1: Назад към предложенията
+          back_from_step_2: Назад към предложенията
+          back_from_step_3: Назад към сравнението на предложенията
+          back_from_step_4: Назад към редактирането на чернова
           info: Вие създавате <strong>предложение</strong>.
         wizard_steps:
+          current_step: Текуща стъпка
           see_steps: вижте стъпките
+          step_1: Създайте Ваше предложение
+          step_2: Сравнете
+          step_3: Завършено
           step_4: Публикувайте предложението си
           step_of: Стъпка %{current_step_num} от общо %{total_steps}
+          title: Стъпки за създаване на предложение
       proposals_picker:
+        choose_proposals: Избор на предложения
         close: Затвори
         more_proposals: Има още %{number} предложения. Прецизирайте търсенето си, за да ги намерите.
         no_proposals: Няма предложения, които да съответстват на критериите Ви за търсене, или няма никакви предложения.
       publish:
+        error: Възникна проблем при публикуването на предложението.
         success: Предложението беше публикувано успешно.
       publish_answers:
         success: Отговорите на предложението бяха публикувани успешно.
@@ -951,6 +967,9 @@ bg:
           title: Версии
         proposals:
           back_to_resource: Обратно към предложението
+      withdraw:
+        errors:
+          has_supports: Това предложение не може да бъде оттеглено, защото вече има подкрепа.
     resource_links:
       copied_from_component:
         proposal_proposal: Свързани предложения
