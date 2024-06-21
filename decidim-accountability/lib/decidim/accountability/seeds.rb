@@ -12,21 +12,7 @@ module Decidim
       end
 
       def call
-        params = {
-          name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :accountability).i18n_name,
-          manifest_name: :accountability,
-          published_at: Time.current,
-          participatory_space:,
-          settings: {
-            intro: Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(word_count: 4) },
-            scopes_enabled: true,
-            scope_id: participatory_space.scope&.id
-          }
-        }
-
-        component = Decidim.traceability.perform_action!("publish", Decidim::Component, admin_user, visibility: "all") do
-          Decidim::Component.create!(params)
-        end
+        component = create_component!
 
         5.times do |i|
           Decidim::Accountability::Status.create!(
@@ -99,6 +85,24 @@ module Decidim
               Decidim::Comments::Seed.comments_for(child_result)
             end
           end
+        end
+      end
+
+      def create_component!
+        params = {
+          name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :accountability).i18n_name,
+          manifest_name: :accountability,
+          published_at: Time.current,
+          participatory_space:,
+          settings: {
+            intro: Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(word_count: 4) },
+            scopes_enabled: true,
+            scope_id: participatory_space.scope&.id
+          }
+        }
+
+        component = Decidim.traceability.perform_action!("publish", Decidim::Component, admin_user, visibility: "all") do
+          Decidim::Component.create!(params)
         end
       end
     end
