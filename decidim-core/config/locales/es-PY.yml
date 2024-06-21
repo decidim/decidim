@@ -1242,6 +1242,7 @@ es-PY:
         same_language: El contenido ha sido publicado en tu idioma preferido (%{language}), por eso no se muestra ninguna traducción automática en este correo electrónico.
         translated_text: 'Texto traducido automáticamente:'
     notifications:
+      action_error: Se ha producido un error al actualizar las notificaciones.
       no_notifications: No hay notificaciones aún.
       show:
         missing_event: Vaya, esta notificación pertenece a un elemento que ya no está disponible. Puedes descartarla.
