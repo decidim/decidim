@@ -21,4 +21,11 @@ describe "Comments", type: :system do
   end
 
   include_examples "comments"
+
+  context "with comments blocked" do
+    let!(:component) { create(:proposal_component, participatory_space:, organization:) }
+    let(:participatory_space) { create(:participatory_process, :with_steps, organization:) }
+
+    include_examples "comments blocked"
+  end
 end

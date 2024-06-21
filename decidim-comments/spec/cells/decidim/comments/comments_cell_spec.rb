@@ -102,7 +102,7 @@ module Decidim::Comments
           before do
             comment # Create the comment before disabling comments
             allow(commentable).to receive(:accepts_new_comments?).and_return(false)
-            allow(commentable).to receive(:user_allowed_to_comment?).with(current_user).and_return(false)
+            allow(commentable).to receive(:user_allowed_to_comment?).with(current_user).and_return(true)
           end
 
           it "renders the comments blocked warning" do
