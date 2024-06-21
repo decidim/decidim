@@ -74,10 +74,12 @@ bg:
           attributes:
             base:
               not_official: Не са официални
+              voted: Получили са гласове или одобрения
         proposals_split:
           attributes:
             base:
               not_official: Не са официални
+              voted: Получили са гласове или одобрения
     models:
       decidim/proposals/admin/update_proposal_category_event: Категорията на предложението е променена
       decidim/proposals/admin/update_proposal_scope_event: Сферата на предложението е променена
@@ -97,6 +99,9 @@ bg:
       decidim/proposals/proposal_note:
         one: Бележка
         other: Бележки
+      decidim/proposals/proposal_vote:
+        one: Глас
+        other: Гласове
   decidim:
     admin:
       filters:
@@ -138,6 +143,7 @@ bg:
           comment: Коментар
           create: Създай
           endorse: Одобри
+          vote: Глас
           vote_comment: Оцени коментара
           withdraw: Оттегляне
         name: Предложения
@@ -148,18 +154,24 @@ bg:
             amendments_wizard_help_text: Помощен текст на съветника за изменения
             announcement: Обявление
             attachments_allowed: Позволи прикачвания
+            attachments_allowed_help: Като активирате тази опция, предложенията ще бъдат в режим на мрежа по подразбиране и първото изображение ще се появи на картата.
+            can_accumulate_votes_beyond_threshold: Може да натрупва гласове над прага
             collaborative_drafts_enabled: Съвместните чернови са разрешени
             comments_enabled: Коментарите са разрешени
             comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
             default_sort_order: Сортиране на предложения по подразбиране
+            default_sort_order_help: Автоматично означава, че ако гласовете са активирани, предложенията ще се показват сортирани на случаен принцип, а ако гласовете са блокирани, тогава те ще бъдат сортирани по най-гласуваните.
             default_sort_order_options:
+              automatic: Автоматично
               most_commented: Най-коментирани
               most_endorsed: Най-препоръчвани
               most_followed: Най-следвани
+              most_voted: Най-гласувани
               random: Произволно
               recent: Скорошни
               with_more_authors: С повече автори
             geocoding_enabled: Координатите са разрешени
+            minimum_votes_per_user: Минимален брой гласове на потребител
             new_proposal_body_template: Шаблон за основен текст на предложение
             new_proposal_body_template_help: Можете да зададете текст по подразбиране за нови предложения
             new_proposal_help_text: Нов помощен текст на предложение
@@ -180,6 +192,7 @@ bg:
             scope_id: Обхват
             scopes_enabled: Обхватите са активирани
             threshold_per_proposal: Праг за предложенията
+            vote_limit: Лимит за гласуване на участник
           step:
             amendment_creation_enabled: Създаване на поправки разрешено
             amendment_creation_enabled_help: Участникът може да изменя предложенията.
@@ -199,10 +212,13 @@ bg:
             creation_enabled: Участниците могат да създават предложения
             creation_enabled_readonly: Тази настройка е деактивирана, когато активирате функцията "Текстове за участие". За да качите предложения като текст за участие, щракнете върху бутона "Текстове за участие" и следвайте инструкциите.
             default_sort_order: Сортиране на предложения по подразбиране
+            default_sort_order_help: Автоматично означава, че ако гласовете са активирани, предложенията ще се показват сортирани на случаен принцип, а ако гласовете са блокирани, тогава те ще бъдат сортирани по най-гласуваните.
             default_sort_order_options:
+              automatic: Автоматично
               most_commented: Най-коментирани
               most_endorsed: Най-препоръчвани
               most_followed: Най-следвани
+              most_voted: Най-гласувани
               random: Произволно
               recent: Скорошни
               with_more_authors: С повече автори
@@ -212,6 +228,9 @@ bg:
             publish_answers_immediately: Публикувай отговорите на предложения незабавно
             publish_answers_immediately_help_html: 'Имайте предвид, че ако отговорите на някое предложение, без тази активация, ще трябва да го публикувате ръчно, като го изберете и използвате действието за публикуване. За повече информация как работи това вижте <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">страницата с документация за отговорите на предложенията</a >.'
             suggested_hashtags: Предлагай хаштаг на участниците когато създават предложения
+            votes_blocked: Гласовете са блокирани
+            votes_enabled: Гласовете са активирани
+            votes_hidden: Скрити гласове (ако гласовете са активирани, отметката ще скрие броя на гласовете)
     events:
       proposals:
         admin:
@@ -298,7 +317,10 @@ bg:
           email_subject: Обхватът на предложението %{resource_title} беше актуализиран
           notification_title: Обхватът на предложението <a href="%{resource_path}">%{resource_title}</a> беше актуализиран от администратор.
         voting_enabled:
+          email_intro: 'Можете да гласувате за предложения в %{participatory_space_title}! Започнете да участвате в тази страница:'
           email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предходния линк.
+          email_subject: Започна гласуването на предложения за %{participatory_space_title}
+          notification_title: Вече можете да започнете <a href="%{resource_path}">гласуване на предложения</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -315,7 +337,14 @@ bg:
         proposal_votes:
           conditions:
             - Разгледайте и прекарайте известно време, за да се запознаете с предложенията на други хора
-            - 
+            - Гласувайте за предложенията, които харесвате или намирате за интересни
+          description: Тази значка се предоставя, когато гласувате за предложения на други хора.
+          description_another: Този участник е гласувал за %{score} предложения.
+          description_own: Вие гласувахте за %{score} предложения.
+          name: Гласове за предложения
+          next_level_in: Гласувайте за още %{score} предложения, за да достигнете следващото ниво!
+          unearned_another: Този участник все още не е гласувал за нито едно предложение.
+          unearned_own: Все още не сте гласували за нито едно предложение.
         proposals:
           conditions:
             - Изберете пространството за участие, което ви интересува, с подаване на активни предложения
@@ -340,6 +369,10 @@ bg:
         description: Брой предложения
         object: предложения
         title: Предложения
+      votes:
+        description: Брой гласове за предложения
+        object: гласове
+        title: Гласове
     participatory_spaces:
       highlighted_proposals:
         last: Позледни предложения
@@ -522,6 +555,7 @@ bg:
             remove_assignment: Премахване на възлагане
             remove_assignment_confirmation: Наистина ли искате да премахнете оценителя от това предложение?
             valuators: Оценители
+            votes_count: Брой гласове
           update_category:
             invalid: 'Тези предложения вече имат категорията %{subject_name}: %{proposals}.'
             select_a_category: Моля, изберете категория.
@@ -726,6 +760,9 @@ bg:
         buttons:
           amend: Изменение
           comment: Коментар
+      proposal_votes:
+        create:
+          error: Имаше проблем с гласуването на предложението.
       proposals:
         dynamic_map_instructions:
           description: Координатите ще бъдат актуализирани, когато щракнете върху бутона "преглед". Адресът обаче не се променя.
@@ -757,12 +794,15 @@ bg:
           search: Търсене
           state: Статус
           type: Тип
+          voted: Гласувано
         index:
           click_here: Виж всички предложения
           collaborative_drafts_list: Достъп до съвместни чернови
           count:
             one: "%{count} предложение"
             other: "%{count} предложения"
+          grid_mode: Режим на мрежата
+          list_mode: Режим на списък
           new_proposal: Ново предложение
           see_all: Виж всички предложения
           see_all_withdrawn: Вижте всички оттеглени предложения
@@ -775,6 +815,7 @@ bg:
           most_commented: Най-коментирани
           most_endorsed: Най-препоръчвани
           most_followed: Най-следвани
+          most_voted: Най-гласувани
           random: Произволно
           recent: Скорошни
           with_more_authors: С повече автори
@@ -812,14 +853,51 @@ bg:
           proposal_accepted_reason: 'Това предложение е прието, защото:'
           proposal_in_evaluation_reason: Това предложение е в процес на оценяване
           proposal_rejected_reason: 'Това предложение е отхвърлено, защото:'
+          withdraw_btn_hint: Там можете да оттеглите предложението си, ако промените решението си, стига да не сте получили нито един глас. Предложението не се изтрива, то ще се появи в списъка с оттеглени предложения. беше проблем с гласуването на предложението.
           withdraw_confirmation_html: Наистина ли искате да оттеглите това предложение?<br><br><strong>Това действие не може да се отмени!</strong>
           withdraw_proposal: Оттегляне на предложението
         update:
           title: Актуализиране на предложението
+        vote_button:
+          already_voted: Вече гласувано
+          already_voted_hover: Оттегляне на гласа
+          maximum_votes_reached: Лимитът за гласуване е достигнат
+          no_votes_remaining: Няма останали гласове
+          vote: Глас
+          votes_blocked: Гласуването е деактивирано
+        votes_count:
+          count:
+            one: Глас
+            other: Гласове
         voting_rules:
+          can_accumulate_votes_beyond_threshold:
+            description: Всяко предложение може да събере повече от %{limit} гласа
+          minimum_votes_per_user:
+            description: Трябва да разпределите минимум %{votes} гласа между различните предложения.
+            given_enough_votes: Дадохте достатъчно гласове.
+            votes_remaining: Трябва да гласувате за още %{remaining_votes} предложения, за да бъдат взети под внимание вашите гласове.
           proposal_limit:
             description: Можете да създадете до %{limit} предложения.
+          threshold_per_proposal:
+            description: За да бъдат валидирани, предложенията трябва да достигнат %{limit} гласа.
+          title: 'За гласуването се прилагат следните правила:'
+          vote_limit:
+            description: Можете да гласувате до %{limit} предложения.
+            votes: Оставащи %{number} гласа
+        wizard_aside:
+          back: Назад
+          back_from_step_1: Назад към предложенията
+          back_from_step_2: Назад към редактирането
+        wizard_steps:
+          current_step: Текуща стъпка
+          step_1: Създайте Ваше предложение
+          step_2: Публикувайте предложението си
+          title: Стъпки за създаване на предложение
+      proposals_picker:
+        choose_proposals: Избор на предложения
+        no_proposals: Няма предложения, отговарящи на вашите критерии за търсене или няма предложения.
       publish:
+        error: Възникна проблем при публикуването на предложението.
         success: Предложението беше публикувано успешно.
       publish_answers:
         success: Отговорите на предложението бяха публикувани успешно.
@@ -832,6 +910,9 @@ bg:
       versions:
         index:
           title: Версии
+      withdraw:
+        errors:
+          has_votes: Това предложение не може да бъде оттеглено, защото вече има гласове.
     resource_links:
       copied_from_component:
         proposal_proposal: Свързани предложения
@@ -843,3 +924,4 @@ bg:
     statistics:
       proposals_accepted: Приети предложения
       proposals_count: Предложения
+      votes_count: Гласове
