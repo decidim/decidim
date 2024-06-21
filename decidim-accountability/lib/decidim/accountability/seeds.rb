@@ -17,19 +17,7 @@ module Decidim
         create_statuses!(component:)
 
         3.times do
-          parent_category = participatory_space.categories.sample
-          categories = [parent_category]
-
-          2.times do
-            categories << Decidim::Category.create!(
-              name: Decidim::Faker::Localized.sentence(word_count: 5),
-              description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-                Decidim::Faker::Localized.paragraph(sentence_count: 3)
-              end,
-              parent: parent_category,
-              participatory_space:
-            )
-          end
+          categories = create_categories!
 
           categories.each do |category|
             result = Decidim.traceability.create!(
@@ -108,6 +96,24 @@ module Decidim
             key: "status_#{i}"
           )
         end
+      end
+
+      def create_categories!
+        parent_category = participatory_space.categories.sample
+        categories = [parent_category]
+
+        2.times do
+          categories << Decidim::Category.create!(
+            name: Decidim::Faker::Localized.sentence(word_count: 5),
+            description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+              Decidim::Faker::Localized.paragraph(sentence_count: 3)
+            end,
+            parent: parent_category,
+            participatory_space:
+          )
+        end
+
+        categories
       end
     end
   end
