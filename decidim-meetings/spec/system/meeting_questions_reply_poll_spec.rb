@@ -88,6 +88,7 @@ describe "Meeting poll answer" do
 
     it "does not allow selecting two single options" do
       expect(page).to have_css("details[data-question='#{question_single_option.id}']:not([disabled])", visible: :visible)
+      sleep(2)
       find("details[data-question='#{question_single_option.id}']").click
       expect(page).to have_css("details[data-question='#{question_single_option.id}'] input[type='radio']:not([disabled])", visible: :visible, count: 3)
 
