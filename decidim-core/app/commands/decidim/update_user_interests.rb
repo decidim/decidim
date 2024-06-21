@@ -3,12 +3,11 @@
 module Decidim
   # This command updates the user's interests.
   class UpdateUserInterests < Decidim::Command
+    delegate :current_user, to: :form
     # Updates a user's interests.
     #
-    # user - The user to be updated.
     # form - The form with the data.
-    def initialize(user, form)
-      @user = user
+    def initialize(form)
       @form = form
     end
 
@@ -16,16 +15,18 @@ module Decidim
       return broadcast(:invalid) unless @form.valid?
 
       update_interests
-      @user.save!
+      current_user.save!
 
       broadcast(:ok)
     end
 
     private
 
+    attr_reader :form
+
     def update_interests
-      @user.extended_data ||= {}
-      @user.extended_data["interested_scopes"] = selected_scopes_ids
+      current_user.extended_data ||= {}
+      current_user.extended_data["interested_scopes"] = selected_scopes_ids
     end
 
     def selected_scopes_ids
