@@ -4,6 +4,7 @@ module Decidim
   # This command updates the user's interests.
   class UpdateUserInterests < Decidim::Command
     delegate :current_user, to: :form
+
     # Updates a user's interests.
     #
     # form - The form with the data.

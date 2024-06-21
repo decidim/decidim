@@ -4,9 +4,9 @@ module Decidim
   # Decidim command updates user's password
   class UpdatePassword < Decidim::Command
     delegate :current_user, to: :form
+
     # Updates a user's password.
     #
-    # user - The user to be updated.
     # form - The form with the data.
     def initialize(form)
       @form = form

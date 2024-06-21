@@ -4,6 +4,7 @@ module Decidim
   # A command with all the business logic for when a user starts following a resource.
   class CreateFollow < Decidim::Command
     delegate :current_user, to: :form
+
     # Public: Initializes the command.
     #
     # form         - A form object with the params.

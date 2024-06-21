@@ -8,7 +8,7 @@ module Decidim
 
       # Public: Initializes the command.
       #
-      # form         - A form object with the params.
+      # form - A form object with the params.
       def initialize(form)
         @form = form
         @amendment = form.amendment

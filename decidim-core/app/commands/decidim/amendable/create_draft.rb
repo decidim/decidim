@@ -5,9 +5,10 @@ module Decidim
     # A command with all the business logic when a user starts amending a resource.
     class CreateDraft < Decidim::Command
       delegate :current_user, to: :form
+
       # Public: Initializes the command.
       #
-      # form         - A form object with the params.
+      # form - A form object with the params.
       def initialize(form)
         @form = form
         @amendable = form.amendable

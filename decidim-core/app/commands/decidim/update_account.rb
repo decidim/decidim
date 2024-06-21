@@ -7,7 +7,6 @@ module Decidim
 
     # Updates a user's account.
     #
-    # user - The user to be updated.
     # form - The form with the data.
     def initialize(form)
       @form = form

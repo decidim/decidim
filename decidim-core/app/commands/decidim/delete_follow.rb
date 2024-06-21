@@ -4,6 +4,7 @@ module Decidim
   # A command with all the business logic for when a user stops following a resource.
   class DeleteFollow < Decidim::Command
     delegate :current_user, to: :form
+
     # Public: Initializes the command.
     #
     # form         - A form object with the params.
