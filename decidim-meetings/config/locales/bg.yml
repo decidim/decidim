@@ -226,15 +226,73 @@ bg:
           description_own: Посетили сте %{score} срещи.
           name: Посетени срещи
           next_level_in: Посетете още %{score} срещи, за да достигнете следващото ниво!
+          unearned_another: Този участник все още не е присъствал на никоя среща.
+          unearned_own: Все още не сте присъствали на никоя среща.
     meetings:
       actions:
+        agenda: Дневен ред
+        attachment_collections: Папки
+        attachments: Прикачени файлове
+        close: Затвори
+        confirm_destroy: Наистина ли искате да изтриете тази среща?
+        destroy: Изтрий
+        edit: Редактирай
         invalid_destroy:
           proposals_count:
             one: 'Срещата не може да бъде премахната, понеже има %{count} участник свързан с нея:'
             other: 'Срещата не може да бъде премахната, понеже има %{count} участника свързани с нея:'
+        manage_poll: Управление на анкетата
+        new_meeting: Нова среща
+        preview: Преглед
+        registrations: Регистрации
+        title: Активности
       admin:
-        invites:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Добавяне на подточка от дневния ред
+            agenda_item: Точка от дневния ред
+            agenda_item_children: Подточки от дневния ред
+            down: Долу
+            remove: Премахни
+            up: Горе
+          agenda_item_child:
+            agenda_item_child: Подточка от дневния ред
+            down: Долу
+            remove: Премахни
+            up: Горе
+          create:
+            invalid: Възникна проблем при създаването на този дневен ред.
+            success: Дневният ред беше създаден успешно.
+          edit:
+            title: Редактиране на дневния ред
+            update: Актуализация
           form:
+            add_agenda_item: Добавяне на точка от дневния ред
+            agenda_items: Точки от дневния ред
+            end_date: Крайна дата
+            start_date: Начална дата
+          new:
+            create: Създаване
+            title: Нов дневен ред
+          update:
+            invalid: Възникна проблем при актуализирането на този дневен ред.
+            success: Дневният ред беше актуализиран успешно.
+        exports:
+          answers: Отговори
+          meeting_comments: Коментари
+          meetings: Срещи
+          registrations:
+        invite_join_meeting_mailer:
+          invite:
+            decline: Откажи поканата
+            invited_you_to_join_a_meeting: "%{invited_by} Ви покани да се присъедините към среща в(ъв) %{application}. Можете да откажете или да приемете чрез връзките по-долу."
+            join: Присъединяване към срещата „%{meeting_title}“
+        invites:
+          create:
+            error: Възникна проблем при изпращането на покана на участника да се присъедини към срещата.
+            success: Участникът беше поканен успешно да се присъедини към срещата.
+          form:
+            attendee_type: Тип присъстващ
             select_user: Избор на участник
           index:
             invite_attendee: Изпращане на покана на участника
