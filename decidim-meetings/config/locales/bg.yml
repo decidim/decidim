@@ -419,6 +419,7 @@ bg:
           body: Срещата <a href="%{meeting_path}">"%{meeting_title}"</a> предстои да бъде затворена. Моля, добавете отчет за срещата, като използвате бутона "Затвори срещата".
           greetings: Поздрав,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Здравейте %{username},
+          subject: Вече можете да затворите срещата си с отчет в платформата %{organization_name}
       conference_venues: Места за провеждане на конференции
       content_blocks:
         upcoming_meetings:
@@ -437,6 +438,7 @@ bg:
       iframe_embed_type:
         embed_in_meeting_page: Вграждане в страницата на срещата
         none: Няма
+        open_in_live_event_page: Отваряне в страницата на събитието на живо (с незадължителни анкети)
         open_in_new_tab: Отваряне в страницата на събитието на живо
       last_activity:
         meeting_updated_at_html: "<span>Срещата беше актуализирана на: %{link}</span>"
@@ -445,6 +447,7 @@ bg:
         live_event:
           administrate: Администриране
           close: затваряне
+          questions: Въпроси
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -596,9 +599,12 @@ bg:
             title: Заглавие
       polls:
         questions:
+          closed_question:
+            question_results: Резултати от въпроси
           index:
             empty_questions: По време на тази среща ще бъдат изпратени някои въпроси и вие ще можете да отговорите на тях. Те ще бъдат показани тук.
           index_admin:
+            admin_dashboard: Администраторско табло
             edit: Редактирайте в админ панела
             question: Въпрос
             received_answer: получен отговор
