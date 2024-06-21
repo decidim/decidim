@@ -78,17 +78,76 @@ bg:
               allowed_file_content_types: 'Невалиден файлов формат. Позволени са само файлове със следните разширения: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Фазата е активирана
+      decidim/participatory_process_step_changed_event: Променена фаза
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Процес на участие
+        other: Процеси на участие
+      decidim/participatory_process_group:
+        one: Група на процеса за участие
+        other: Групи на процеса за участие
+      decidim/participatory_process_step:
+        one: Фаза
+        other: Фази
   decidim:
     admin:
       actions:
+        activate: Активиране
+        configure: Конфигуриране
+        confirm_destroy: Потвърждаване за изтриване
+        destroy: Изтрий
+        duplicate: Дубликирай
+        edit: Редактирай
         filter:
           all_processes: Показване на всички процеси
           process_groups: Групи процеси
+        import_process: Импортиране
+        new_process: Нов процес
+        new_process_group: Нова група на процеса
+        new_process_step: Нова фаза
+        new_process_type: Нов тип процес
+        new_process_user_role: Нов администратор на процес
+        preview: Преглед
+        publish: Публикувай
+        resend_invitation: Изпратете отново покана
+        unpublish: Отмяна на публикуването
+      menu:
+        participatory_process_groups: Групи процеси
+        participatory_process_groups_submenu:
+          info: Информация
+          landing_page: Целева страница
+        participatory_process_types: Типове процеси
+        participatory_processes: Процеси
+        participatory_processes_submenu:
+          attachment_collections: Папки
+          attachment_files: Файлове
+          attachments: Прикачени файлове
+          categories: Категории
+          components: Компоненти
+          info: Информация
+          moderations: Модерации
+          private_users: Частни участници
+          process_admins: Администратори на процеси
+          steps: Фази
       models:
         participatory_process:
           fields:
+            created_at: Създадено на
+            private: Частни
             promoted: Акцентирано
+            published: Публикувано
+            title: Заглавие
+          name: Процес на участие
+        participatory_process_group:
+          fields:
+            title: Заглавие
+          name: Група на процеса
         participatory_process_step:
+          fields:
+            end_date: Крайна дата
+            start_date: Начална дата
+            title: Заглавие
           name: Фаза на процес на участие
         participatory_process_type:
           fields:
@@ -174,35 +233,200 @@ bg:
           title: Нов етап на процес на участие
         ordering:
           error: Възникна проблем при промяната на реда на тези етапи на процеса на участие.
+        update:
+          error: Възникна проблем при актуализирането на тази фаза от процеса на участие.
+          success: Фазата на участие е актуализирана успешно.
       participatory_process_types:
+        create:
+          error: Възникна проблем при създаването на нов тип процес.
+          success: Типът процес е създаден успешно.
+        destroy:
+          success: Типът процес е изтрит успешно.
+        edit:
+          title: Редактиране на типа процес
+          update: Актуализация
         form:
           title: Заглавие
+        new:
+          create: Създаване
+          title: Нов тип процес
+        update:
+          error: Възникна проблем при актуализирането на този тип процес.
+          success: Типът процес е актуализиран успешно.
+      participatory_process_user_roles:
+        create:
+          error: Възникна проблем при добавянето на участник за този процес на участие.
+          success: Администраторът успешно е добавен към този процес на участие.
+        destroy:
+          success: Администраторът успешно премахнат от този процес на участие.
+        edit:
+          title: Актуализиране на администратора на процеса на участие
+          update: Актуализация
+        index:
+          process_admins_title: Администратори на процес на участие
+        new:
+          create: Създаване
+          title: Нов администратор на процес на участие
+        update:
+          error: Възникна проблем при актуализирането на администратор за този процес на участие.
+          success: Администраторът беше актуализиран успешно за този процес на участие.
       participatory_processes:
+        create:
+          error: Възникна проблем при създаването на нов процес на участие.
+          success: Процесът на участие е създаден успешно. Конфигурирайте сега неговите фази.
+        edit:
+          update: Актуализация
         index:
           not_published: Не публикувано
+          private: Частни
+          public: Публично
+          published: Публикувано
+        new:
+          create: Създаване
+          title: Нов процес на участие
+        update:
+          error: Възникна проблем при актуализирането на този процес на участие.
+          success: Процесът на участие беше актуализиран успешно.
+      participatory_processes_copies:
+        create:
+          error: Възникна проблем при дублирането на този процес на участие.
+          success: Процесът на участие беше дублиран успешно.
+      participatory_processes_group:
+        create:
+          error: Възникна проблем при създаването на нова група на процеса на участие.
+          success: Групата на процеса на участие беше създадена успешно.
+      titles:
+        participatory_process_groups: Групи на процеса за участие
+        participatory_process_types: Типове процеси на участие
+        participatory_processes: Процеси на участие
+      users:
+        resend_invitation:
+          error: Възникна проблем при повторното изпращане на поканата.
+          success: Поканата беше изпратена повторно успешно.
     admin_log:
+      participatory_process:
+        create: "%{user_name} създаде процеса на участие %{resource_name}"
+        duplicate: "%{user_name} дублира процеса на участие %{resource_name}"
+        export: "%{user_name} експортира процеса на участие %{resource_name}"
+        import: "%{user_name} импортира процеса на участие %{resource_name}"
+        publish: "%{user_name} публикува процеса на участие %{resource_name}"
+        unpublish: "%{user_name} премахна публикацията на процеса на участие %{resource_name}"
+        update: "%{user_name} актуализира процеса на участие %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} създаде групата на процеса на участие %{resource_name}"
+        update: "%{user_name} актуализира групата на процеса на участие %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} активира етапа %{resource_name} в процеса на участие %{space_name}"
         create: "%{user_name} създаде етапа %{resource_name} в процеса на участие %{space_name}"
+        delete: "%{user_name} изтри фазата %{resource_name} в процеса на участие %{space_name}"
+        update: "%{user_name} актуализира фазата %{resource_name} в процеса на участие %{space_name}"
+      participatory_process_type:
+        create: "%{user_name} създаде %{resource_name} тип процес на участие"
+        delete: "%{user_name} изтри типа процес на участие %{resource_name}"
+        update: "%{user_name} актуализира %{resource_name} тип процес на участие"
+      participatory_process_user_role:
+        create: "%{user_name} покани участника %{resource_name} в процеса на участие %{space_name}"
+        delete: "%{user_name} премахна участника %{resource_name} от процеса на участие %{space_name}"
+        update: "%{user_name} промени ролята на участника %{resource_name} в процеса на участие %{space_name}"
+    events:
+      participatory_process:
+        role_assigned:
+          email_intro: Назначени сте като %{role} за процес на участие „%{resource_title}“.
+          email_outro: Получавате това известие, защото сте %{role} на процеса на участие „%{resource_title}“.
+          email_subject: Назначени сте като %{role} за „%{resource_title}“.
+          notification_title: Назначени сте като %{role} за процес на участие <a href="%{resource_url}">%{resource_title}</a>.
+        step_activated:
+          email_intro: 'Фазата %{resource_title} вече е активна за %{participatory_space_title}. Можете да го видите от тази страница:'
+          email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предходния линк.
+          email_subject: Актуализиране на %{participatory_space_title}
+          notification_title: Фазата %{resource_title} вече е активна за <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'Фазата %{resource_title} вече е активна за <a href="%{resource_path}">%{participatory_space_title}</a>:'
+          email_outro: Датите за фазата %{resource_title} в %{participatory_space_title} са актуализирани. Можете да го видите от тази страница.
+          email_subject: Актуализация на %{participatory_space_title}
+          notification_title: Датите за фазата <a href="%{resource_path}">%{resource_title}</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a> са актуализирани.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p><strong>Процесът на участие</strong> е поредица от дейности на участие (напр. първо попълване на анкета, след това даване на предложения, обсъждането им на лични или виртуални срещи и накрая приоритизирането им) с цел за дефиниране и вземане на решение по конкретна тема.</p> <p>Примери за процеси на участие са: процес на избиране на членове на комисия (където кандидатурите първо се представят, след това се обсъждат и накрая се избира кандидатура), бюджети на участието (където се правят предложения, оценяват се икономически и се гласува с наличните пари), процес на стратегическо планиране, съвместно изготвяне на регламент или норма, проектиране на градско пространство или изготвяне на план за обществена политика.</p>"
+          page: "<p><strong>Процесът на участие</strong> е поредица от дейности на участие (напр. първо попълване на анкета, след това даване на предложения, обсъждането им на лични или виртуални срещи и накрая приоритизирането им) с цел за дефиниране и вземане на решение по конкретна тема.</p> <p>Примери за процеси на участие са: процес на избиране на членове на комисия (където кандидатурите първо се представят, след това се обсъждат и накрая се избира кандидатура), бюджети на участието (където се правят предложения, оценяват се икономически и се гласува с наличните пари), процес на стратегическо планиране, съвместно изготвяне на регламент или норма, проектиране на градско пространство или изготвяне на план за обществена политика.</p>"
+          title: Какво е процес на участие?
     log:
       value_types:
         participatory_process_type_presenter:
           not_found: 'Типът на процеса не бе намерен в базата данни (Идент. №: %{id})'
+    menu:
+      processes: Процеси
+    metrics:
+      participatory_processes:
+        description: Брой на процесите на участие в тази организация
+        object: процеси на участие
+        title: Процеси на участие
     participatory_process:
       show:
         related_assemblies: Свързани събрания
     participatory_process_groups:
       content_blocks:
+        html_1:
+          name: Първи HTML блок
+        html_2:
+          name: Втори HTML блок
+        html_3:
+          name: Трети HTML блок
         metadata:
+          developer_group: Промотирано от
+          name: Метаданни
           participatory_scope: Какво е решено
           participatory_structure: Как е решено
           target: Кой участва
+        participatory_processes:
+          name: Процеси на участие
+        stats:
+          name: Статистики
         title:
+          meta_scope: Обхват
           name: Заглавие, описание и хаштаг
+          participatory_processes:
+            one: 1 процес
+            other: "%{count} процеса"
+      show:
+        title: Групи на процеса за участие
     participatory_process_steps:
       index:
+        process_steps: Фази на процеса
         title: Фази на процес за участие
     participatory_processes:
+      admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Максимален брой елементи, които да се показват
+        new_import:
+          accepted_types:
+            json: JSON
+        participatory_process_copies:
+          form:
+            slug_help: 'Съкратените URL се използват за генериране на URL адреси, които сочат към този процес. Приема само букви, цифри и тирета и трябва да започва с буква. Пример: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Метаданни
+            visibility: Видимост
+        participatory_process_imports:
+          form:
+            document_legend: Добавяне на документ
+            slug_help: 'Съкратените URL се използват за генериране на URL адреси, които сочат към този процес. Приема само букви, цифри и тирета и трябва да започва с буква. Пример: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Използвайте частични пътища, а не пълни URL адреси тук. Приема букви, цифри, тирета и наклонени черти и трябва да започва с буква. Ако не е зададено, бутонът няма да се показва. Пример: %{url}'
+            cta_text_help: Ако не бъде настроен, бутонът няма да се показва.
+        participatory_processes:
+          form:
+            announcement_help: Текстът, който въведете тук, ще се показва на потребителите под информацията за процеса.
+            duration: Продължителност
+            filters: Филтри
+            images: Изображения
+            metadata: Метаданни
+            slug_help: 'Съкратените URL се използват за генериране на URL адреси, които сочат към този процес. Приема само букви, цифри и тирета и трябва да започва с буква. Пример: %{url}'
+            visbility: Видимост
       pages:
         home:
           highlighted_processes:
@@ -216,30 +440,62 @@ bg:
           explanations:
             no_active: Няма активни процеси
             no_active_nor_upcoming: Няма активни или предстоящи процеси
+          names:
+            active: Активно
+            all: Всички
+            past: Минали
+            upcoming: Предстоящо
+          see: Виж
         index:
           loading: Зареждане на резултати...
+        show:
+          title: Относно този процес
       show:
         area: Район
+        belongs_to_group: Този процес принадлежи на
         dates: Дати
         developer_group: Група за популяризиране
         end_date: Крайна дата
         participatory_scope: Какво е решено
         participatory_structure: Как е решено
+        private_space: Това е частен процес
+        related_processes: Свързани процеси
         scope: Обхват
         start_date: Начална дата
         target: Кой участва
         unspecified: Неопределено
+    statistics:
+      processes_count: Процеси
   layouts:
     decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Разглеждане
+          browse_resource: Разглеждане на група на процеса %{resource_name}
+          processes_count: 'Процеса:'
       participatory_process_widgets:
         show:
           active_step: Активна фаза
+          take_part: Участвайте
       participatory_processes:
+        index:
+          promoted_processes: Акцентирани процеси
         participatory_process:
           active_step: 'Текуща фаза:'
+          more_info: Повече информация
+          more_info_about: Повече информация за процеса %{resource_name}
+          take_part: Участвайте
+          take_part_in: Участвайте в процеса %{resource_name}
         promoted_process:
           active_step: 'Текуща фаза:'
+          more_info: Повече информация
+          more_info_about: Повече информация за процеса %{resource_name}
+          take_part: Участвайте
+          take_part_in: Участвайте в процеса %{resource_name}
+        promoted_process_group:
+          more_info: Повече информация
       process_header_steps:
         step: Фаза %{current} от общо %{total}
+        view_steps: Фази на процеса
       process_navigation:
         process_menu_item: Процесът
