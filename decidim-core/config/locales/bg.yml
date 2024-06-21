@@ -1933,6 +1933,7 @@ bg:
         made_with_open_source: Уебсайта работи със <a target="_blank" href="https://github.com/decidim/decidim">свободен софтуер</a>.
         resources: Ресурси
         sign_up: Регистрация
+        terms_and_conditions: Правила и условия
       header:
         log_in: Вход
         main_menu: Главно меню
