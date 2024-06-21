@@ -351,7 +351,7 @@ describe "Proposals" do
       let(:proposal) { proposals.first }
 
       before do
-        Decidim::DestroyAccount.call(proposal.creator_author, Decidim::DeleteAccountForm.from_params({}))
+        Decidim::DestroyAccount.call(Decidim::DeleteAccountForm.from_params({}))
       end
 
       it "the user is displayed as a deleted user" do
