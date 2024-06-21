@@ -20,7 +20,7 @@ module Decidim
           categories = create_categories!
 
           categories.each do |category|
-            result = create_result!(component:, category:)
+            create_result!(component:, category:)
           end
         end
       end
@@ -38,7 +38,7 @@ module Decidim
           }
         }
 
-        component = Decidim.traceability.perform_action!("publish", Decidim::Component, admin_user, visibility: "all") do
+        Decidim.traceability.perform_action!("publish", Decidim::Component, admin_user, visibility: "all") do
           Decidim::Component.create!(params)
         end
       end
