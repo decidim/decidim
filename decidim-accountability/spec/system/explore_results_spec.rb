@@ -306,6 +306,25 @@ describe "Explore results", :versioning do
         end
       end
 
+      context "with timeline entries" do
+        let!(:timeline_entries) { create_list(:timeline_entry, 3, result:) }
+        let(:timeline_entry) { timeline_entries.first }
+
+        before do
+          visit current_path
+        end
+
+        it "shows the tab" do
+          expect(page).to have_content("Project evolution")
+        end
+
+        it "shows the timeline entry" do
+          expect(page).to have_content(decidim_sanitize_translated(timeline_entry.title))
+          expect(page).to have_content(I18n.l(timeline_entry.entry_date, format: :decidim_short))
+          expect(page).to have_content(decidim_sanitize_translated(timeline_entry.description))
+        end
+      end
+
       context "with linked proposals" do
         let(:proposal_component) do
           create(:component, manifest_name: :proposals, participatory_space: result.component.participatory_space)
