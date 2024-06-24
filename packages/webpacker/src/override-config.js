@@ -62,9 +62,11 @@ const overrideSassRule = (modifyConfig) => {
 }
 
 const addExternalResources = (modifyConfig) => {
+  const leafletPath = path.dirname(require.resolve("leaflet"));
+
   // Needed for Leaflet CSS to load its images correctly.
   // See https://github.com/Leaflet/Leaflet/issues/4849 for further info
-  modifyConfig.resolve.modules.push("node_modules/leaflet/dist");
+  modifyConfig.resolve.modules.push(leafletPath);
 
   return modifyConfig;
 }
