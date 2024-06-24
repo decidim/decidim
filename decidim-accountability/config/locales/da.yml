@@ -128,15 +128,7 @@ da:
           search: Søg efter handlinger
         show:
           stats:
-            attendees: Mødedeltagere
             back_to_resource: Tilbage til resultater
-            comments: Kommentarer
-            contributions: Bidrag
-            last_edited_by: Sidst redigeret af
-            last_updated_at: Senest opdateret den
-            meetings: Møder
-            proposals: Forslag
-            votes: Støtter
         timeline:
           title: Projektets udvikling
     components:
@@ -144,16 +136,12 @@ da:
         name: Ansvarlighed
         settings:
           global:
-            categories_label: Navn for "kategorier"
             comments_enabled: Kommentarer aktiveret
             comments_max_length: Kommentarer maks. længde (Leave 0 for standardværdi)
             display_progress_enabled: Vis fremskridt
-            heading_leaf_level_results: Navn for "Projekter"
-            heading_parent_level_results: Navn for "Resultater"
             intro: Intro
             scope_id: Omfang
             scopes_enabled: Omfang aktiveret
-            subcategories_label: Navn for "Underkategorier"
     resource_links:
       included_proposals:
         result_proposal: Forslag i dette resultat

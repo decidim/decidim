@@ -4,3 +4,9 @@ bg:
       conference:
         assemblies_ids: Свързани събрания
         banner_image: Банер изображение
+  decidim:
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            active_spaces: Активни конференции

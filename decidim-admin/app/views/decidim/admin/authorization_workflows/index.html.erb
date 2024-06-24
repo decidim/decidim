@@ -18,20 +18,38 @@
       <thead>
         <tr>
           <th><%= t("decidim.authorization_handlers.name") %></th>
-          <th><%= t("decidim.authorization_handlers.help") %></th>
+          <th class="!text-left"><%= t("decidim.authorization_handlers.help") %></th>
         </tr>
       </thead>
       <tbody>
         <% @workflows.each do |manifest| %>
           <tr>
             <% workflow = Decidim::Verifications::Adapter.new(manifest) %>
-            <td><%= link_to workflow.fullname, workflow.admin_root_path %></td>
             <td>
-              <ul>
-                <% t("decidim.authorization_handlers.admin.#{workflow.key}.help").each do |tip| %>
-                  <li><%= tip %></li>
-                <% end %>
-              </ul>
+              <% if workflow.has_admin_root_path? %>
+                <%= link_to workflow.fullname, workflow.admin_root_path %>
+              <% else %>
+                <%= workflow.fullname %>
+              <% end %>
+            </td>
+            <td class="!text-left">
+              <% i18n_key = "decidim.authorization_handlers.admin.#{workflow.key}.help" %>
+              <% if I18n.exists?(i18n_key, current_locale) %>
+                <ul class="list-decimal ml-4">
+                  <% t(i18n_key).each do |tip| %>
+                    <li><%= tip %></li>
+                  <% end %>
+                </ul>
+              <% else %>
+                <div class="flash warning">
+                  <ul>
+                    <% default_help = t("decidim.authorization_handlers.admin.default.help", authorization_handler: i18n_key) %>
+                    <% default_help.each do |tip| %>
+                      <li><%= tip %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
             </td>
           </tr>
         <% end %>

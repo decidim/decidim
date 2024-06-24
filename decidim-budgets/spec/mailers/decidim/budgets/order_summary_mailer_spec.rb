@@ -19,7 +19,7 @@ module Decidim::Budgets
         end
 
         it "includes the organization data" do
-          expect(mail.body.encoded).to include(user.organization.name)
+          expect(mail.body.encoded).to include(translated(user.organization.name))
         end
 
         it "includes the budget title" do

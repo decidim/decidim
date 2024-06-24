@@ -82,7 +82,6 @@ tr:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: '%{collection} ''ı başlık, açıklama, kimlik veya yazar adına göre arayın.'
       menu:
-        components: Bileşenler
         information: Bilgi
         initiatives: Girişimler
         initiatives_types: Girişim türleri
@@ -411,7 +410,6 @@ tr:
           other: " imzalar"
         vote_cabin:
           already_voted: Zaten imzalanmış
-          supports_required: "%{total_supports} imza gerekli"
           verification_required: Girişimi imzalamak için hesabınızı doğrulayın
           vote: İmza
           votes_blocked: İmzalama devre dışı

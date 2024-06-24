@@ -1,7 +1,38 @@
 bg:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Заглавие
       assembly:
+        announcement: Обявление
         area_id: Район
         assembly_type: Тип събрание
         assembly_type_other: Друг тип събрание
+        banner_image: Изображение на банера
+        closing_date: Дата на затваряне
+        closing_date_reason: Причина за датата на затваряне
+        composition: Състав
+        copy_categories: Копиране на категориите
+        copy_components: Копиране на компонентите
+        copy_features: Копиране на функциите
+        created_by: Създадено от
+        created_by_other: Създадено от друг
+        creation_date: Дата на създаване
+        decidim_area_id: Област
+        decidim_assemblies_type_id: Тип събрание
+        decidim_scope_id: Обхват
+        description: Описание
+        developer_group: Група за популяризиране
+        document: Документ
+        domain: Домейн
+        duration: Продължителност
+        facebook: Facebook
+        github: GitHub
+        hashtag: Хаштаг
+        hero_image: Изображение за начална страница
+  decidim:
+    assemblies:
+      assemblies:
+        filters:
+          names:
+            all: Всички

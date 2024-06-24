@@ -1,5 +1,5 @@
 <% add_decidim_page_title(t("titles.panel", scope: "decidim.admin")) %>
-<% add_decidim_page_title(current_organization.name) %>
+<% add_decidim_page_title(current_organization_name) %>
 <!doctype html>
 <html class="no-js" lang="<%= I18n.locale %>" dir="<%= rtl_direction %>">
   <head>
@@ -21,9 +21,9 @@
         </div>
         <div class="relative md:flex grow min-h-max w-full">
           <div class="layout-nav">
-            <%= link_to decidim_admin.root_path, class: "logo hidden md:block", data: { "external-link": false }, aria: { label: t("decidim.accessibility.logo", organization: current_organization.name) } do %>
+            <%= link_to decidim_admin.root_path, class: "logo hidden md:block", data: { "external-link": false }, aria: { label: t("decidim.accessibility.logo", organization: current_organization_name) } do %>
               <% if current_organization.logo.present? %>
-                <%= image_tag current_organization.attached_uploader(:logo).url, alt: current_organization.name %>
+                <%= image_tag current_organization.attached_uploader(:logo).url, alt: current_organization_name %>
               <% else %>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 134 109">
                   <g fill="#fff">

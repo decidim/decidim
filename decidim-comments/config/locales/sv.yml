@@ -62,7 +62,6 @@ sv:
         deleted_user: Raderad deltagare
         edit: Redigera
         edited: Redigerad
-        hide_replies: Göm svar
         moderated_at: Kommentar modererad den %{date}
         reply: Svara
         report:

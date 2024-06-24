@@ -11,7 +11,10 @@ module Decidim
       def call
         print "Creating seeds for decidim-core...\n" unless Rails.env.test? # rubocop:disable Rails/Output
 
+        Rails.application.reloader.reload! if Rails.application.reloader.check!
         reset_column_information
+
+        ActiveJob::Base.queue_adapter = :inline
 
         organization = create_organization!
 
@@ -87,6 +90,8 @@ module Decidim
         settings = welcome_text.inject(settings) { |acc, (k, v)| acc.update("welcome_text_#{k}" => v) }
         hero_content_block.settings = settings
         hero_content_block.save!
+
+        create_user_report!(reportable: Decidim::User.take, current_user: Decidim::User.take)
       end
 
       def reset_column_information
@@ -122,7 +127,7 @@ module Decidim
         }
 
         Decidim::Organization.first || Decidim::Organization.create!(
-          name: ::Faker::Company.name,
+          name: Decidim::Faker::Localized.company,
           twitter_handler: ::Faker::Hipster.word,
           facebook_handler: ::Faker::Hipster.word,
           instagram_handler: ::Faker::Hipster.word,

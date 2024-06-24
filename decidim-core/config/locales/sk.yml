@@ -155,10 +155,6 @@ sk:
         error: Pri zmene tohto zdroja sa vyskytla chyba.
         promote_button: Propagujte na %{model_name}
         promote_confirm_text: Naozaj chcete túto emisiu podporiť?
-      compare_draft:
-        continue: Pokračovať
-        no_similars_found: Neboli nájdené žiadne podobné vylepšenie.
-        title: Podobná vylepšenia
       created:
         error: Pri vytváraní pozmeňovacieho návrhu došlo k chybe.
         success: Pozmeňovací návrh bol úspešne vytvorený.
@@ -204,9 +200,6 @@ sk:
       wizard_step_form:
         steps:
           '1': Vytvorte svoj pozmeňovací návrh
-          '2': Porovnajte váš pozmeňovací návrh
-          '3': Dokončite váš pozmeňovací návrh
-          '4': Zverejniť svoj pozmeňovací návrh
     anonymous_user: Anonymné
     application:
       document:
@@ -623,7 +616,6 @@ sk:
         default_page:
           content: "<p>V %{organization} sa môžete zúčastniť a rozhodnúť sa o rôznych témach cez miesta, ktoré vidíte v hornom menu: procesy, zhromaždenie, iniciatívy, konzultácie. </ p> <p> V rámci každej z nich nájdete rôzne možnosti účasti: urobiť návrhy - jednotlivo alebo s inými ľuďmi -, zúčastňovať sa na diskusiách, uprednostňovať realizáciu projektov, zúčastniť sa osobných stretnutí a ďalších akcií. </p>"
           title: Čo môžem robiť v %{organization}?
-        title: Všeobecná nápoveda
     last_activities:
       all: Všetky typy aktivit
       index:

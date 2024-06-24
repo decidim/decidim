@@ -463,9 +463,9 @@ describe "Filter Proposals", :slow do
           visit_component
         end
 
-        it "can be filtered by supported" do
+        it "can be filtered by voted" do
           within "form.new_filter" do
-            expect(page).to have_content(/Supported/i)
+            expect(page).to have_content(/Voted/i)
           end
         end
 
@@ -484,9 +484,9 @@ describe "Filter Proposals", :slow do
           visit_component
         end
 
-        it "cannot be filtered by supported" do
+        it "cannot be filtered by voted" do
           within "form.new_filter" do
-            expect(page).to have_no_content(/Supported/i)
+            expect(page).to have_no_content(/Voted/i)
           end
         end
       end

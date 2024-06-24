@@ -11,7 +11,7 @@ module Decidim
 
         @form = form(Decidim::Forms::QuestionnaireForm).from_params(params, session_token:)
 
-        JoinMeeting.call(meeting, current_user, @form) do
+        JoinMeeting.call(meeting, @form) do
           on(:ok) do
             flash[:notice] = I18n.t("registrations.create.success", scope: "decidim.meetings")
             redirect_to after_answer_path
@@ -32,9 +32,9 @@ module Decidim
       def create
         enforce_permission_to(:register, :meeting, meeting:)
 
-        @form = JoinMeetingForm.from_params(params)
+        @form = JoinMeetingForm.from_params(params).with_context(current_user:)
 
-        JoinMeeting.call(meeting, current_user, @form) do
+        JoinMeeting.call(meeting, @form) do
           on(:ok) do
             flash[:notice] = I18n.t("registrations.create.success", scope: "decidim.meetings")
             redirect_after_path

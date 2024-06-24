@@ -186,9 +186,7 @@ es:
             proposal_length: Longitud máxima del cuerpo de la propuesta
             proposal_limit: Límite de propuestas por participante
             proposal_wizard_step_1_help_text: Texto de ayuda para el paso "Crear" del asistente de propuestas
-            proposal_wizard_step_2_help_text: Texto de ayuda para el paso "Comparar" del asistente de propuestas
-            proposal_wizard_step_3_help_text: Texto de ayuda para el paso "Comparar" del asistente de propuestas
-            proposal_wizard_step_4_help_text: Texto de ayuda para el paso "Publicar" del asistente de propuestas
+            proposal_wizard_step_2_help_text: Texto de ayuda para el paso "Publicar" del asistente de propuestas
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada propuesta
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
@@ -247,22 +245,22 @@ es:
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sido <strong>aceptada para acceder como contribuidora</strong> del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
           email_intro: 'Se ha denegado que %{requester_name} acceda como contribuidora del borrador colaborativo <a href="%{resource_url}">%{resource_title}</a>.'
-          email_outro: Has recibido esta notificación porque eres una contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Has recibido esta notificación porque has contribuido en la propuesta "<a href="%{resource_url}">%{resource_title}</a>".
           email_subject: "%{requester_name} ha sido rechazado para acceder como contribuidora del borrador colaborativo %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ha sido <strong>rechazado para acceder como contribuidora</strong> del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} ha solicitado acceso como contribuidora. Puede <strong>aceptar o rechazar la solicitud</strong> de la página de borrador colaborativo de <a href="%{resource_url}">%{resource_title}</a>.'
-          email_outro: Has recibido esta notificación porque eres contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Has recibido esta notificación porque has contribuido en la propuesta "<a href="%{resource_url}">%{resource_title}</a>".
           email_subject: "%{requester_name} ha solicitado acceso para contribuir a %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> solicitó acceso para contribuir al borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>. Por favor, <strong>acepta o rechaza la solicitud</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: Has sido aceptada para acceder como contribuidora del borrador colaborativo <a href="%{resource_url}">%{resource_title}</a>.
-          email_outro: Has recibido esta notificación porque has solicitado ser contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Has recibido esta notificación porque has solicitado contribuir en la propuesta "<a href="%{resource_url}">%{resource_title}</a>".
           email_subject: Has sido aceptada como contribuidora de %{resource_title}.
           notification_title: Has sido aceptada <strong>acceder como contribuidora</strong> del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
           email_intro: Ha sido rechazada para acceder como contribuidora del borrador colaborativo <a href="%{resource_url}">%{resource_title}</a>.
-          email_outro: Has recibido esta notificación porque has solicitado ser contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Has recibido esta notificación porque has solicitado contribuir en la propuesta "<a href="%{resource_url}">%{resource_title}</a>".
           email_subject: Has sido rechazada como contribuidora de %{resource_title}.
           notification_title: Has sido <strong>rechazada como contribuidora</strong> del borrador colaborativo <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
@@ -282,7 +280,7 @@ es:
           notification_title: Ahora puedes empezar a <a href="%{resource_path}">adherirte propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_url}"> en este espacio</a> en los comentarios.
-          email_outro: Has recibido esta notificación porque eres autora de "%{resource_title}".
+          email_outro: Has recibido esta notificación porque presentaste la propuesta "%{resource_title}".
           email_subject: Tu propuesta "%{mentioned_proposal_title}" ha sido mencionada
           notification_title: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_path}">en este espacio</a> en los comentarios.
         proposal_published:
@@ -291,20 +289,20 @@ es:
           email_subject: Nueva propuesta "%{resource_title}" de %{author_nickname}
           notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido publicada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
-          email_intro: La propuesta "%{resource_title}" se ha añadido en "%{participatory_space_title}", que estás siguiendo.
-          email_outro: Recibiste esta notificación porque estás siguiendo "%{participatory_space_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_intro: La propuesta "%{resource_title}" se ha añadido en el espacio "%{participatory_space_title}", que estás siguiendo.
+          email_outro: Recibiste esta notificación porque estás siguiendo el espacio "%{participatory_space_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Nueva propuesta "%{resource_title}" añadida a %{participatory_space_title}
           notification_title: '%{author} ha añadido la propuesta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}.'
           notification_title_official: Se ha añadido la propuesta oficial <a href="%{resource_path}">%{resource_title}</a> en %{participatory_space_title}.
         proposal_state_changed:
           affected_user:
             email_intro: 'La propuesta "%{resource_title}" ha cambiado su estado a "%{state}". Puedes leer la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque eres autora de "%{resource_title}".
+            email_outro: Has recibido esta notificación porque presentaste la propuesta "%{resource_title}".
             email_subject: Tu propuesta ha cambiado su estado (%{state})
             notification_title: Tu propuesta <a href="%{resource_path}">%{resource_title}</a> ha cambiado su estado a "%{state}".
           follower:
             email_intro: 'La propuesta "%{resource_title}" ha cambiado su estado a "%{state}". Puedes leer la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque estás siguiendo "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+            email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
             email_subject: Una propuesta que sigues ha cambiado su estado (%{state})
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha cambiado su estado a "%{state}".
         proposal_update_category:
@@ -765,13 +763,6 @@ es:
         create:
           error: Se ha producido un error al apoyar la propuesta.
       proposals:
-        compare:
-          continue: Continuar
-          no_similars_found: '¡Bien hecho! No se encontraron propuestas similares'
-          title: Propuestas similares
-        complete:
-          send: Enviar
-          title: Completa tu propuesta
         dynamic_map_instructions:
           description: Las coordenadas se actualizarán cuando hagas clic en el botón 'previsualizar'. Sin embargo, la dirección no cambia.
           instructions: Puedes mover la ubicación en el mapa.
@@ -788,6 +779,8 @@ es:
           discard_confirmation: '¿Estás seguro que quieres descartar este borrador de propuesta?'
           send: Previsualizar
           title: Editar el borrador de la propuesta
+        edit_form_fields:
+          marker_added: Marcador añadido al mapa.
         filters:
           activity: Mi actividad
           all: Todo
@@ -891,15 +884,11 @@ es:
         wizard_aside:
           back: Volver
           back_from_step_1: Volver a propuestas
-          back_from_step_2: Volver a propuestas
-          back_from_step_3: Volver a comparar propuestas
-          back_from_step_4: Volver a editar borrador
+          back_from_step_2: Volver a la edición
         wizard_steps:
           current_step: Paso actual
           step_1: Crear tu propuesta
-          step_2: Comparar
-          step_3: Completar
-          step_4: Publicar tu propuesta
+          step_2: Publica tu propuesta
           title: Pasos de creación de una propuesta
       proposals_picker:
         choose_proposals: Elegir propuestas

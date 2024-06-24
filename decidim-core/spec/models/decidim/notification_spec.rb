@@ -79,5 +79,14 @@ module Decidim
         expect(subject).to eq(correct_notifications)
       end
     end
+
+    describe "#event_class_instance" do
+      let(:resource) { create(:dummy_resource) }
+      let(:notification) { create(:notification, resource:) }
+
+      it "returns the event class instance" do
+        expect(notification.event_class_instance).to be_a(Dev::DummyResourceEvent)
+      end
+    end
   end
 end

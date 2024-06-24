@@ -66,9 +66,15 @@ ja:
           title: タブパネル
         tooltips:
           demo: デモ
+          demo_description: このコンポーネントを動作させるには、要素にカーソルを合わせる必要があります。
+          description: ツールチップは、ユーザーがマウスをかざすとその項目についての追加情報を表示するコンポーネントです。
           github_source_html: GitHub %{github_link} のソース コード
           title: ツールチップ
           usage: 使い方
+          usage_p: 'ツールチップを使うには、`with_tooltip` ヘルパーを三つの引数とともに使用する必要があります:'
+          usage_p_1_html: 1. ツールチップの値を持つ文字列。このページの例では「Hello world」です。
+          usage_p_2_html: 2. ツールチップを表示する位置を指定するシンボルを持つオプショナルなクラス。 指定可能な値は <code>:top</code>、 <code>:bottom</code>、 <code>:right</code>、または <code>:left</code> です。
+          usage_p_3_html: 3. ユーザーがマウスをかざす必要がある文字列を含むブロック。
       foundations:
         accessibility:
           accessibility_labels: アクセシビリティラベル

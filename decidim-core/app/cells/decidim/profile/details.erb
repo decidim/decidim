@@ -9,7 +9,7 @@
         <%= icon detail[:icon] %>
         <span>
           <% if detail[:url].present? %>
-            <%= link_to(detail[:url], detail[:text]) %>
+            <%= link_to(detail[:url], detail[:text], rel: "nofollow noopener noreferrer") %>
           <% else %>
             <%= detail[:text] %>
           <% end %>

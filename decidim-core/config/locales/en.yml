@@ -297,10 +297,6 @@ en:
         title:
           one: "%{count} amendment"
           other: "%{count} amendments"
-      compare_draft:
-        continue: Continue
-        no_similars_found: No similar emendations found.
-        title: Similar Emendations
       created:
         error: An error ocurred while creating the amendment draft.
         success: Amendment draft has been created successfully.
@@ -359,14 +355,16 @@ en:
       wizard_step_form:
         steps:
           '1': Create your amendment
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': Publish your amendment
     anonymous_user: Anonymous
     application:
       document:
         download: Download file
+        visit_link: Visit link
       documents:
+        component_documents:
+          dummy: Dummy component documents
+          meetings: Meetings documents
         documents: Documents
         related_documents: Related documents
       photo:
@@ -890,6 +888,11 @@ en:
         button: Stop following
         error: There was a problem unfollowing this resource.
     forms:
+      attachment_link:
+        explanation: Guidance for attachment links
+        help_messages:
+        - Only correct URL formats are accepted.
+        - Please note that the links must be public so that all participants can access them.
       errors:
         decidim/user:
           password: The password is too short.
@@ -1048,7 +1051,7 @@ en:
           content: "<p>In %{organization} you can participate and decide on different topics, through the spaces you see in the top menu: Processes, Assemblies, Initiatives, Consultations.</p> <p>Within each one you will find different options to participate: make proposals - individually or with other people-, take part in debates, prioritize projects to implement, attend face-to-face meetings and other actions.</p>\n"
           title: What can I do in %{organization}?
         description: Read more about %{organization}.
-        title: General Help
+        title: General
     last_activities:
       all: All activity types
       index:
@@ -1244,9 +1247,11 @@ en:
         same_language: The content has been posted in your preferred language (%{language}), this is why no automated translation is displayed in this email.
         translated_text: 'Automatically translated text:'
     notifications:
+      action_error: There was a problem updating the notifications.
       no_notifications: No notifications yet.
       show:
         missing_event: Oops, this notification belongs to an item that is no longer available. You can discard it.
+        moderated: Content moderated
     notifications_digest_mailer:
       header:
         daily: Daily Notification Digest
@@ -1451,7 +1456,7 @@ en:
           past: Past
       filters_small_view:
         filter: Filter
-        filter_and_search: Filter and Search
+        filter_and_search: Filter and search
         filter_by: Filter by
       results:
         view_all: View all (%{count})
@@ -1938,9 +1943,9 @@ en:
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
         resources: Resources
         sign_up: Sign Up
-        terms_and_conditions: Terms and Conditions
+        terms_of_service: Terms of Service
       header:
-        log_in: Log in
+        log_in: Login
         main_menu: Main menu
         user_menu: User menu
       impersonation_warning:
@@ -1954,10 +1959,6 @@ en:
         mark_as_read: Mark as read
       offline_banner:
         cache_version_page: Oooops! Your network is offline. This is a previously cached version of the page you are visiting, perhaps the content is not up to date.
-      shared:
-        layout_item:
-          next: Next item
-          prev: Previous item
       social_media_links:
         facebook: "%{organization} at Facebook"
         github: "%{organization} at GitHub"

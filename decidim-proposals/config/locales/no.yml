@@ -155,9 +155,6 @@
             proposal_length: Maksimal forslagstekst lengde
             proposal_limit: Forslagsgrense per deltaker
             proposal_wizard_step_1_help_text: Forslags veiviseren "Opprett" trinn-hjelpeteksten
-            proposal_wizard_step_2_help_text: Forslags veiviseren "Sammenlign" trinn-hjelpeteksten
-            proposal_wizard_step_3_help_text: Forslags veiviseren "Fullfør " trinn-hjelpeteksten
-            proposal_wizard_step_4_help_text: Forslags veiviseren "Publiser" trinn-hjelpeteksten
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert forslag
             scope_id: Tema
             scopes_enabled: Aktiverte temaer
@@ -570,13 +567,6 @@
         create:
           error: Det oppstod et problem med å støtte forslaget.
       proposals:
-        compare:
-          continue: Fortsett
-          no_similars_found: Bra gjort! Ingen lignende forslag ble funnet
-          title: Lignende forslag
-        complete:
-          send: Send
-          title: Fullfør forslaget
         edit:
           attachment_legend: "(Valgfritt) Legg til et vedlegg"
           back: Tilbake
@@ -680,15 +670,9 @@
         wizard_aside:
           back: Tilbake
           back_from_step_1: Tilbake til forslag
-          back_from_step_2: Tilbake til forslag
-          back_from_step_3: Tilbake til sammenlign forslag
-          back_from_step_4: Tilbake til redigering av utkast
         wizard_steps:
           current_step: Gjeldende trinn
           step_1: Opprett ditt forslag
-          step_2: Sammenlign
-          step_3: Fullført
-          step_4: Publiser forslaget ditt
           title: Trinn for opprettelse av forslag
       proposals_picker:
         choose_proposals: Velg forslag

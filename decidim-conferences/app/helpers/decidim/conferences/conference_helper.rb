@@ -5,6 +5,7 @@ module Decidim
   module Conferences
     module ConferenceHelper
       include PaginateHelper
+      include Decidim::AttachmentsHelper
 
       # Renders the dates of a conference
       #
@@ -18,7 +19,7 @@ module Decidim
       #
       def conference_nav_items(participatory_space)
         [].tap do |items|
-          if participatory_space.speakers.exists?
+          if participatory_space.speakers.published.exists?
             items << {
               name: t("layouts.decidim.conferences_nav.conference_speaker_menu_item"),
               url: decidim_conferences.conference_conference_speakers_path(participatory_space)

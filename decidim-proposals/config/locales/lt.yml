@@ -179,9 +179,6 @@ lt:
             proposal_length: Ilgiausia įmanoma pasiūlymo pagrindinė dalis
             proposal_limit: Pasiūlymų skaičiaus limitas vienam dalyviui
             proposal_wizard_step_1_help_text: Pasiūlymo vedlio etapo „Sukurti“ pagalbos tekstas
-            proposal_wizard_step_2_help_text: Pasiūlymo vedlio etapo „Palyginti“ pagalbos tekstas
-            proposal_wizard_step_3_help_text: Pasiūlymo vedlio etapo „Užbaigti“ pagalbos tekstas
-            proposal_wizard_step_4_help_text: Pasiūlymo vedlio etapo „Paskelbti“ pagalbos tekstas
             resources_permissions_enabled: Kiekvienam pasiūlymui galima nustatyti leistinus veiksmus
             scope_id: Apimtis
             scopes_enabled: Sritys įjungtos
@@ -724,13 +721,6 @@ lt:
         create:
           error: Išreiškiant paramą pasiūlymui įvyko klaidų.
       proposals:
-        compare:
-          continue: Tęsti
-          no_similars_found: Puiku! Panašių pasiūlymų nerasta
-          title: Panašūs Pasiūlymai
-        complete:
-          send: Siųsti
-          title: Užbaikite savo pasiūlymą
         dynamic_map_instructions:
           description: Koordinatės bus atnaujintos paspaudus mygtuką „Peržiūrėti“. Tačiau adresas nesikeičia.
           instructions: Galite perkelti tašką žemėlapyje.
@@ -858,15 +848,9 @@ lt:
         wizard_aside:
           back: Grįžti
           back_from_step_1: Grįžti į pasiūlymus
-          back_from_step_2: Grįžti į pasiūlymus
-          back_from_step_3: Grįžti į pasiūlymų palyginimą
-          back_from_step_4: Grįžti į juodraščio redagavimą
         wizard_steps:
           current_step: Dabartinis veiksmas
           step_1: Sukurkite savo pasiūlymą
-          step_2: Palyginti
-          step_3: Baigti
-          step_4: Paskelbkite savo pasiūlymą
           title: Pasiūlymo sukūrimo etapai
       proposals_picker:
         choose_proposals: Pasirinkti pasiūlymus

@@ -135,15 +135,7 @@ sk:
           search: Hľadať akcie
         show:
           stats:
-            attendees: Účastníci
             back_to_resource: Naspať na výsledky
-            comments: Komentáre
-            contributions: Príspevky
-            last_edited_by: Naposledy editoval
-            last_updated_at: Naposledy aktualizované
-            meetings: Stretnutia
-            proposals: Návrhy
-            votes: Podporenia
         timeline:
           title: Vývoj projektu
     components:
@@ -151,13 +143,9 @@ sk:
         name: Zodpovednosť
         settings:
           global:
-            categories_label: Meno pre "Kategórie"
             comments_enabled: Komentáre povolené
             display_progress_enabled: Zobraziť priebeh
-            heading_leaf_level_results: Meno pre "Projekty"
-            heading_parent_level_results: Meno pre "Výsledky"
             intro: Úvod
-            subcategories_label: Názov pre "Podkategórie"
           step:
             comments_blocked: Zablokované komentáre
     events:

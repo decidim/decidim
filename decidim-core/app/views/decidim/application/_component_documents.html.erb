@@ -1,0 +1,4 @@
+<% documents = collection.documents_visible_for(current_user) %>
+<% if documents.any? %>
+  <%= render partial: "decidim/application/collection", formats: [:html], locals: { attachment_collection: collection, documents: } %>
+<% end %>

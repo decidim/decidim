@@ -330,7 +330,6 @@ nl:
           body: De vergadering <a href="%{meeting_path}">"%{meeting_title}"</a> is in behandeling om te worden gesloten. Voeg een verslag van de vergadering toe via de knop "Sluiten".
           greetings: Groeten,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Hallo %{username},
-          subject: Je kunt je vergadering nu sluiten op het %{organization_name} platform met een verslag
       conference_venues: Vergaderlocaties
       content_blocks:
         upcoming_meetings:

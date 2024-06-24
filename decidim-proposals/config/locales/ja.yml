@@ -182,9 +182,7 @@ ja:
             proposal_length: 提案本文の最大長
             proposal_limit: 参加者ごとの提案数制限
             proposal_wizard_step_1_help_text: 提案ウィザード "作成" ステップヘルプ テキスト
-            proposal_wizard_step_2_help_text: 提案ウィザード "比較" ステップヘルプテキスト
-            proposal_wizard_step_3_help_text: 提案ウィザード「完了」ステップヘルプテキスト
-            proposal_wizard_step_4_help_text: 提案ウィザード "公開" ステップヘルプ テキスト
+            proposal_wizard_step_2_help_text: 提案ウィザード "公開" ステップヘルプ テキスト
             resources_permissions_enabled: アクションの権限を提案ごとに設定する
             scope_id: スコープ
             scopes_enabled: スコープが有効
@@ -756,13 +754,6 @@ ja:
         create:
           error: その提案を支持するのに問題があった。
       proposals:
-        compare:
-          continue: 続ける
-          no_similars_found: よくできました！同様の提案は見つかりませんでした
-          title: 類似の提案
-        complete:
-          send: 送信
-          title: 提案を完了する
         dynamic_map_instructions:
           description: '「プレビュー」ボタンをクリックすると座標が更新されますが、アドレスは変更されません。'
           instructions: 地図上のポイントを移動できます。
@@ -779,6 +770,8 @@ ja:
           discard_confirmation: この提案の下書きを破棄してもよろしいですか？
           send: プレビュー
           title: 提案の草案を編集
+        edit_form_fields:
+          marker_added: マーカーがマップに追加されました。
         filters:
           activity: 参加したもの
           all: すべて
@@ -878,15 +871,11 @@ ja:
         wizard_aside:
           back: 戻る
           back_from_step_1: 提案に戻る
-          back_from_step_2: 提案に戻る
-          back_from_step_3: 提案の比較に戻る
-          back_from_step_4: 下書き編集に戻る
+          back_from_step_2:
         wizard_steps:
           current_step: 現在のステップ
           step_1: 提案を作成
-          step_2: 比較
-          step_3: Complete
-          step_4: 提案を公開
+          step_2: 提案の公開
           title: 提案の作成手順
       proposals_picker:
         choose_proposals: 提案を選択

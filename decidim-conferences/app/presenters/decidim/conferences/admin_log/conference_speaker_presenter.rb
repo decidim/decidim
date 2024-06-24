@@ -26,7 +26,8 @@ module Decidim
             position: "Decidim::Conferences::AdminLog::ValueTypes::SpeakerPositionPresenter",
             position_other: :string,
             weight: :integer,
-            ceased_date: :date
+            ceased_date: :date,
+            published_at: :date
           }
         end
 

@@ -171,7 +171,7 @@ ca:
             email_intro: |-
               Hola,
               S'ha creat un nou debat "%{resource_title}" a l'espai participatiu %{participatory_space_title}, dona-hi una ullada i contribueix-hi:
-            email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions des de l'enllaç anterior.
+            email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions des de l'enllaç anterior.
             email_subject: Nou debat "%{resource_title}" a %{participatory_space_title}
             notification_title: S'ha creat el debat <a href="%{resource_path}">%{resource_title}</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
           user_followers:
@@ -183,12 +183,12 @@ ca:
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creat el debat <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'La creació de debats ja no està activa a %{participatory_space_title}. Encara pots participar en debats oberts des d''aquesta pàgina:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: S'ha desactivat la creació de debats a %{participatory_space_title}
           notification_title: La creació de debats està deshabilitada a l'espai <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
           email_intro: 'Ja pots crear nous debats a %{participatory_space_title}! Comença a participar en aquesta pàgina:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Els debats ja estan disponibles a %{participatory_space_title}
           notification_title: Ara pots començar <a href="%{resource_path}">nous debats</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         debate_closed:

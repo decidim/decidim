@@ -75,6 +75,42 @@ shared_examples "manage attachments examples" do
       end
     end
 
+    it "can add attachments with a link to a process" do
+      click_on "New attachment"
+
+      within ".new_attachment" do
+        fill_in_i18n(
+          :attachment_title,
+          "#attachment-title-tabs",
+          en: "Very Important Document",
+          es: "Documento Muy Importante",
+          ca: "Document Molt Important"
+        )
+
+        fill_in_i18n(
+          :attachment_description,
+          "#attachment-description-tabs",
+          en: "This document contains important information",
+          es: "Este documento contiene información importante",
+          ca: "Aquest document conté informació important"
+        )
+      end
+
+      within ".new_attachment" do
+        find_by_id("trigger-link").click
+
+        fill_in "attachment[link]", with: "https://example.com/docs.pdf"
+
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      within "#attachments table" do
+        expect(page).to have_text("Very Important Document")
+      end
+    end
+
     it "can add attachments within a collection to a process" do
       click_on "New attachment"
 

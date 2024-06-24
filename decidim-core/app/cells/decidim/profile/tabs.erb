@@ -1,6 +1,7 @@
 <% tab_items.each do |tab_item| %>
-  <li class="profile__tab<%= " is-active" if is_active_link?(tab_item[:path]) %>">
-    <%= link_to tab_item[:path], title: tab_item[:text], class: "profile__tab-item" do %>
+  <% active_link = is_active_link?(tab_item[:path]) %>
+  <li class="profile__tab<%= " is-active" if active_link %>">
+    <%= link_to tab_item[:path], title: tab_item[:text], class: "profile__tab-item", aria: { current: active_link ? "page" : nil } do %>
       <%= icon tab_item[:icon] %>
       <span><%= tab_item[:text] %></span>
       <% if tab_item[:count].present? %>

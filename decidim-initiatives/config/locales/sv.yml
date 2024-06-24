@@ -73,7 +73,6 @@ sv:
   decidim:
     admin:
       actions:
-        manage: Hantera
         new_initiative_type: Ny initiativtyp
       filters:
         initiatives:
@@ -94,7 +93,6 @@ sv:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Sök %{collection} med titel, beskrivning, ID eller författarnamn.
       menu:
         attachments: Bilagor
-        components: Komponenter
         information: Information
         initiatives: Initiativ
         initiatives_settings: Inställningar
@@ -427,7 +425,6 @@ sv:
           other: " underskrifter"
         vote_cabin:
           already_voted: Redan undertecknad
-          supports_required: "%{total_supports} underskrifter krävs"
           verification_required: Verifiera ditt konto för att skriva under initiativet
           vote: Signera
           votes_blocked: Underskrifter är avaktiverade

@@ -47,13 +47,13 @@ module Decidim
       context "when no ids is nil" do
         let(:ids) { nil }
 
-        it { is_expected.to eq ApplicationRecord.none }
+        it { is_expected.to eq ApplicationRecord.none.to_a }
       end
 
       context "when no ids is an empty list" do
         let(:ids) { [] }
 
-        it { is_expected.to eq ApplicationRecord.none }
+        it { is_expected.to eq ApplicationRecord.none.to_a }
       end
 
       context "with a list of ids" do

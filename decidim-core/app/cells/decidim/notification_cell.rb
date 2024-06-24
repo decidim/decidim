@@ -7,7 +7,11 @@ module Decidim
     include Decidim::Core::Engine.routes.url_helpers
 
     def show
-      render :show
+      if notification.event_class_instance.try(:hidden_resource?)
+        render :moderated
+      else
+        render :show
+      end
     end
 
     def notification_title
@@ -24,6 +28,14 @@ module Decidim
         decidim_escape_translated(participatory_space.title),
         resource_locator(participatory_space).path
       )
+    end
+
+    def action_class
+      @action ||= ("#{notification.event_class_instance.action_cell.camelize}Cell" if notification.event_class_instance.action_cell)
+    end
+
+    def action_cell
+      @action_cell ||= (notification.event_class_instance.action_cell if action_class&.safe_constantize)
     end
 
     private

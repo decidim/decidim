@@ -355,8 +355,8 @@ module Decidim
       # Public: Can accumulate more votes than maximum for this proposal.
       #
       # Returns true if can accumulate, false otherwise
-      def can_accumulate_supports_beyond_threshold
-        component.settings.can_accumulate_supports_beyond_threshold
+      def can_accumulate_votes_beyond_threshold
+        component.settings.can_accumulate_votes_beyond_threshold
       end
 
       # Checks whether the user can edit the given proposal.

@@ -25,6 +25,8 @@ eu:
         destroy:
           success: Txantiloia zuzen ezabatua.
         empty: Oraindik ez dago txantiloirik.
+        fetch:
+          error: Ezin da plantilla hau aurkitu. Kargatu orria, mesedez.
         missing_resource: "(baliabide galdua)"
         update:
           error: Arazo bat egon da eztabaida hau eguneratzean.

@@ -56,6 +56,12 @@ module Decidim
       }
       scope_search_multi :with_any_state, [:open, :closed]
 
+      # Returns the presenter for this debate, to be used in the views.
+      # Required by ResourceRenderer.
+      def presenter
+        Decidim::Debates::DebatePresenter.new(self)
+      end
+
       def self.log_presenter_class_for(_log)
         Decidim::Debates::AdminLog::DebatePresenter
       end
@@ -80,7 +86,7 @@ module Decidim
 
       # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
       def reported_searchable_content_extras
-        [normalized_author.name]
+        [author_name]
       end
 
       # Public: Calculates whether the current debate is an AMA-styled one or not.

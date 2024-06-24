@@ -1,1 +1,41 @@
 sq:
+  decidim:
+    components:
+      add_comment_form:
+        form:
+          submit_reply: Publiko përgjigje
+          submit_root_comment: Publiko koment
+          user_group_id:
+            label: Komento si
+        opinion:
+          label: Mendimi jot mbi këtë temë
+          negative: Negativ
+          negative_selected: Mendimi jot mbi këtë temë është negativ
+          neutral: Neutral
+          neutral_selected: Mendimi jot mbi këtë temë është neutral
+          positive: Pozitiv
+          positive_selected: Mendimi jot mbi këtë temë është pozitiv
+        remaining_characters: "%{count} karaktere të mbetura"
+        remaining_characters_1: "%{count} karakter i mbetur"
+        title: Shto komentin tënd
+      comment:
+        alignment:
+          against: Kundër
+          in_favor: Pro
+        cancel_reply: Anullo përgjigje
+        confirm_destroy: A je i sigurt që do ta fshish këtë koment?
+        delete: Fshi
+        deleted_at: Komenti u fshi në datën %{date}
+        edit: Përpuno
+        edited: Ndryshuar
+        moderated_at: Komenti u moderua në datën %{date}
+        reply: Përgjigju
+        report:
+          action: Raporto
+          already_reported: Kjo përmbajtje është raportuar nga të tjerë dhe do rishikohet nga administratorët.
+          close: Mbyll
+          description: Përmbajtje e papërshtatshme?
+          details: Komente të tjera
+          reasons:
+            does_not_belong: Përmban aktivitete të paligjshme, kërcënime për vetëvrasje, informacion personal apo diçka tjetër që mendon se nuk i përket %{organization_name}.
+            offensive: Përmban racizëm, seksizëm, ofendime, sulme personale, kërcënime me vdekje, shtyrje për vetëvrasje apo forma të tjera të gjuhës së urrejtjes.

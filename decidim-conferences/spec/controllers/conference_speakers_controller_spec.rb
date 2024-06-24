@@ -30,8 +30,8 @@ module Decidim
         end
 
         context "when conference has speakers" do
-          let!(:speaker1) { create(:conference_speaker, conference:) }
-          let!(:speaker2) { create(:conference_speaker, conference:) }
+          let!(:speaker1) { create(:conference_speaker, :published, conference:) }
+          let!(:speaker2) { create(:conference_speaker, :published, conference:) }
           let!(:non_speaker) { create(:conference_speaker) }
 
           context "when user has permissions" do

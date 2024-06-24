@@ -234,15 +234,7 @@ pl:
           search: Szukaj działań
         show:
           stats:
-            attendees: Uczestnicy
             back_to_resource: Wróć do wyniku
-            comments: Komentarze
-            contributions: Wkład
-            last_edited_by: Ostatnio edytowane przez
-            last_updated_at: Ostatnia aktualizacja
-            meetings: Spotkania
-            proposals: Propozycje
-            votes: Wsparcia
         timeline:
           title: Rozwój projektu
     admin:
@@ -261,16 +253,12 @@ pl:
         name: Rozliczenie
         settings:
           global:
-            categories_label: Nagłówek dla "Kategorii"
             comments_enabled: Komentarze włączone
             comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
             display_progress_enabled: Wyświetl postęp
-            heading_leaf_level_results: Nagłówek dla "Projektów"
-            heading_parent_level_results: Nagłówek dla "Wyników"
             intro: Wprowadzenie
             scope_id: Zakres
             scopes_enabled: Zakresy włączone
-            subcategories_label: Nagłówek dla "Podkategorii"
           step:
             comments_blocked: Komentarze zablokowane
     events:
