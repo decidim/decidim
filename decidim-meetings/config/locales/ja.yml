@@ -143,6 +143,7 @@ ja:
         actions:
           comment: コメント
           join: 参加する
+          reply_poll: 投票
         name: ミーティング
         settings:
           global:
@@ -357,6 +358,13 @@ ja:
           update:
             invalid: このミーティングの投票の更新に問題がありました．
             success: ミーティングの投票を更新しました。
+        poll:
+          form:
+            announcement_html:
+              - 質問が回答を受信または公開/閉じた場合、編集できなくなります。
+              - 質問はいつでも追加できます。
+              - 作成されたすべての質問の結果が公開されると、投票は終了します。
+              - 質問を送信し、結果を公開するには、 <a href='%{admin_link}'>投票管理ページ</a> にアクセスしてください。
         registrations:
           edit:
             save: 保存
@@ -434,6 +442,7 @@ ja:
       iframe_embed_type:
         embed_in_meeting_page: ミーティングページに埋め込む
         none: なし
+        open_in_live_event_page: ライブイベントページで開く
         open_in_new_tab: URLを新しいタブで開く
       last_activity:
         meeting_updated: '更新されたミーティング:'
@@ -520,6 +529,8 @@ ja:
           edit_close_meeting: ミーティングレポートを編集
           edit_meeting: ミーティングを編集
           join_meeting: ミーティングに参加
+          reply_poll: 投票
+          view_poll: 投票を表示
         meetings:
           no_meetings_warning: 検索条件に一致するミーティングがないか，予定されているミーティングがありません．
           upcoming_meetings_warning: 現在、スケジュールされたミーティングはありませんが、ここではリストされた過去のミーティングをすべて見つけることができます。
@@ -577,7 +588,19 @@ ja:
             start_time: 開始日
             title: タイトル
       polls:
+        answers:
+          index:
+            administrate: 管理
+            title: 投票
+          index_admin:
+            back_to_meeting: ミーティングに戻る
+            title: 投票を管理
+            view_poll: 投票を表示
         questions:
+          closed_question:
+            announcement: この質問への回答はクローズされました。
+            question: 質問
+            question_results: 結果
           index:
             empty_questions: このミーティングを通じて、いくつかの質問が送信され、回答することができます。質問はここに表示されます。
           index_admin:
@@ -588,6 +611,10 @@ ja:
             results: 結果
             send: 送信
             sent: 送信済み
+            statuses:
+              closed: 結果送信済（終了）
+              published: 送信済 (受付中)
+              unpublished: 送信待ち
           published_question:
             max_choices_alert: 選択された選択肢が多すぎます
             question: 質問
