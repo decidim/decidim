@@ -67,6 +67,7 @@ ja:
         show:
           admins: 管理者
           current_organizations: 現在の組織
+          system_checks: システムチェック
       default_pages:
         placeholders:
           content: 管理ダッシュボードの %{page} 静的ページに意味のあるコンテンツを追加してください。
@@ -266,6 +267,14 @@ ja:
         organizations_list:
           confirm_resend_invitation: 招待を再送信してもよろしいですか？
           resend_invitation: 招待を再送信する
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Decidimドキュメント
+          error: ActiveJob キューが設定されていません。これは本番環境では推奨されるセットアップではありません。詳細は %{error_extra} をご覧ください。
+          success: ActiveJob キューが正しく設定されています。
+        secret_key:
+          error: 'シークレットキーが正しく定義されていません。環境変数 SECRET_KEY_BASE に保存し、サーバーを再起動してください: %{error_extra}'
+          success: 秘密鍵が正しく設定されています。
       titles:
         dashboard: ダッシュボード
         decidim: Decidim
