@@ -8,6 +8,7 @@ module Decidim
     class StatusCell < Decidim::ViewModel
       include Decidim::Accountability::ApplicationHelper
       include Decidim::Accountability::BreadcrumbHelper
+      include ActionView::Helpers::NumberHelper
 
       def show
         return unless render?
@@ -74,12 +75,7 @@ module Decidim
       end
 
       def heading_parent_level_results(count)
-        text = translated_attribute(component_settings.heading_parent_level_results).presence
-        if text
-          pluralize(count, text)
-        else
-          t("results.count.results_count", scope: "decidim.accountability", count:)
-        end
+        t("results.count.results_count", scope: "decidim.accountability", count:)
       end
 
       def render_count

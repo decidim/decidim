@@ -144,6 +144,7 @@ de:
       external_link: Externer Link
       front_page_link: Zur Startseite gehen
       logo: "Offizielles Logo von %{organization}"
+      opens_in_new_tab: In neuem Tab öffnen
       skip_button: Zu Hauptinhalten überspringen
     account:
       blocked: Dieses Konto wurde wegen Verletzung der Nutzungsbedingungen gesperrt
@@ -295,10 +296,6 @@ de:
         title:
           one: "%{count} Anpassung"
           other: "%{count} Anpassungen"
-      compare_draft:
-        continue: Fortfahren
-        no_similars_found: Keine ähnlichen Entwürfe gefunden.
-        title: Ähnliche Entwürfe
       created:
         error: Beim Erstellen des Änderungsvorschlags ist ein Fehler aufgetreten.
         success: Der Änderungsvorschlag wurde erfolgreich erstellt.
@@ -357,9 +354,7 @@ de:
       wizard_step_form:
         steps:
           '1': Erstellen Sie Ihre Änderung
-          '2': Vergleichen Sie Ihren Änderungsvorschlag
-          '3': Vervollständigen Sie Ihren Änderungsvorschlag
-          '4': Veröffentlichen Sie Ihren Änderungsvorschlag
+          '2': Änderung veröffentlichen
     anonymous_user: Anonym
     application:
       document:
@@ -1044,7 +1039,7 @@ de:
           content: "<p>In %{organization} können Sie durch die Felder, die Sie im oberen Menü sehen, an verschiedenen Themen teilnehmen: Prozesse, Gremien, Initiativen, Beratungen.</p> <p>In jedem Bereich finden Sie verschiedene Optionen für die Teilnahme: Vorschläge machen - einzeln oder mit anderen -, an Debatten teilnehmen, Prioritäten für umzusetzende Projekte setzen, persönliche Treffen und andere Aktionen besuchen.</p>\n"
           title: Was kann ich in %{organization} tun?
         description: Mehr lesen über %{organization}.
-        title: Allgemeine Hilfe
+        title: Allgemein
     last_activities:
       all: Alle Aktivitätstypen
       index:
@@ -1243,6 +1238,7 @@ de:
       no_notifications: Noch keine Benachrichtigungen
       show:
         missing_event: Hoppla, diese Benachrichtigung gehört zu einem Artikel, der nicht mehr verfügbar ist. Du kannst sie verwerfen.
+        moderated: Inhalt moderiert
     notifications_digest_mailer:
       header:
         daily: Tägliche Zusammenfassung
@@ -1934,7 +1930,7 @@ de:
         made_with_open_source: Website mit <a target="_blank" href="https://github.com/decidim/decidim">freier Software erstellt</a>.
         resources: Ressourcen
         sign_up: Registrieren
-        terms_and_conditions: Nutzungsbedingungen
+        terms_of_service: Nutzungsbedingungen
       header:
         log_in: Anmelden
         main_menu: Hauptmenü

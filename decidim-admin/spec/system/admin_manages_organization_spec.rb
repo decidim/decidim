@@ -6,6 +6,7 @@ describe "Admin manages organization" do
   include ActionView::Helpers::SanitizeHelper
 
   let(:organization) { create(:organization) }
+  let(:attributes) { attributes_for(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
 
   before do
@@ -17,7 +18,7 @@ describe "Admin manages organization" do
     it "updates the values from the form" do
       visit decidim_admin.edit_organization_path
 
-      fill_in "Name", with: "My super-uber organization"
+      fill_in_i18n :organization_name, "#organization-name-tabs", **attributes[:name].except("machine_translations")
 
       %w(X Facebook Instagram YouTube GitHub).each do |network|
         within "#organization_social_handlers" do
@@ -38,6 +39,9 @@ describe "Admin manages organization" do
 
       click_on "Update"
       expect(page).to have_content("updated successfully")
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the organization settings")
     end
 
     it "marks the comments_max_length as required" do
@@ -46,6 +50,8 @@ describe "Admin manages organization" do
 
       expect(page).to have_no_content("There is an error in this field.")
       fill_in :organization_comments_max_length, with: ""
+      find_by_id("organization_rich_text_editor_in_public_views").click
+
       expect(page).to have_content("There is an error in this field.")
     end
 
@@ -467,7 +473,7 @@ describe "Admin manages organization" do
         let(:parsed_content) do
           cnt = <<~HTML
             <p>testing</p>
-            <p><strong>foo</strong><br><a target="_blank" href="https://www.decidim.org/"><u>link</u></a></p>
+            <p><strong>foo</strong><br><a target="_blank" href="https://www.decidim.org/">link</a></p>
             <p><br></p>
           HTML
 

@@ -85,9 +85,6 @@ id:
             proposal_length: Panjang badan proposal maksimum
             proposal_limit: Batas proposal per pengguna
             proposal_wizard_step_1_help_text: Panduan proposal "Buat" teks bantuan langkah
-            proposal_wizard_step_2_help_text: Proposal wizard "Bandingkan" langkah bantuan teks
-            proposal_wizard_step_3_help_text: Panduan proposal, selesaikan langkah bantuan teks
-            proposal_wizard_step_4_help_text: Panduan proposal "Publikasikan" langkah bantuan teks
             resources_permissions_enabled: Izin tindakan dapat diatur untuk setiap proposal
             threshold_per_proposal: Ambang batas per proposal
             vote_limit: Batas suara per pengguna
@@ -438,13 +435,6 @@ id:
         create:
           error: Ada kesalahan saat memilih proposal.
       proposals:
-        compare:
-          continue: Terus
-          no_similars_found: Sudah selesai dilakukan dengan baik! Tidak ada proposal serupa yang ditemukan
-          title: Proposal serupa
-        complete:
-          send: Kirim
-          title: Selesaikan proposal Anda
         edit:
           attachment_legend: "(Opsional) Tambahkan lampiran"
           back: Kembali
@@ -523,9 +513,6 @@ id:
           back: Kembali
         wizard_steps:
           step_1: Buat proposal Anda
-          step_2: Membandingkan
-          step_3: Lengkap
-          step_4: Publikasikan proposal Anda
       publish:
         error: Sudah ada kesalahan saat memublikasikan proposal.
         success: Proposal berhasil diterbitkan.

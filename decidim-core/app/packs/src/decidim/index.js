@@ -47,7 +47,10 @@ import "src/decidim/impersonation"
 import "src/decidim/gallery"
 import "src/decidim/direct_uploads/upload_field"
 import "src/decidim/data_consent"
+import "src/decidim/abide_form_validator_fixer"
 import "src/decidim/sw"
+import "src/decidim/sticky_header"
+import "src/decidim/attachments"
 
 // local deps that require initialization
 import formDatePicker from "src/decidim/datepicker/form_datepicker"
@@ -62,6 +65,7 @@ import addInputEmoji, { EmojiButton } from "src/decidim/input_emoji"
 import FocusGuard from "src/decidim/focus_guard"
 import backToListLink from "src/decidim/back_to_list"
 import markAsReadNotifications from "src/decidim/notifications"
+import handleNotificationActions from "src/decidim/notifications_actions"
 import RemoteModal from "src/decidim/remote_modal"
 import selectActiveIdentity from "src/decidim/identity_selector_dialog"
 import createTooltip from "src/decidim/tooltips"
@@ -90,6 +94,33 @@ window.Decidim = window.Decidim || {
 
 window.morphdom = morphdom
 
+// REDESIGN_PENDING: deprecated
+window.initFoundation = (element) => {
+  $(element).foundation();
+
+  // Fix compatibility issue with the `a11y-accordion-component` package that
+  // uses the `data-open` attribute to indicate the open state for the accordion
+  // trigger.
+  //
+  // In Foundation, these listeners are initiated on the document node always,
+  // regardless of the element for which foundation is initiated. Therefore, we
+  // need the document node here instead of the `element` passed to this
+  // function.
+  const $document = $(document);
+
+  $document.off("click.zf.trigger", window.Foundation.Triggers.Listeners.Basic.openListener);
+  $document.on("click.zf.trigger", "[data-open]", (ev, ...restArgs) => {
+    // Do not apply for the accordion triggers.
+    const accordion = ev.currentTarget?.closest("[data-component='accordion']");
+    if (accordion) {
+      return;
+    }
+
+    // Otherwise call the original implementation
+    Reflect.apply(window.Foundation.Triggers.Listeners.Basic.openListener, ev.currentTarget, [ev, ...restArgs]);
+  });
+};
+
 Rails.start()
 
 /**
@@ -104,7 +135,7 @@ const initializer = (element = document) => {
   window.focusGuard = window.focusGuard || new FocusGuard(document.body);
 
   // REDESIGN_PENDING: deprecated
-  $(element).foundation();
+  window.initFoundation(element);
 
   svg4everybody();
 
@@ -142,6 +173,7 @@ const initializer = (element = document) => {
   backToListLink(element.querySelectorAll(".js-back-to-list"));
 
   markAsReadNotifications(element)
+  handleNotificationActions(element)
 
   scrollToLastChild(element)
 

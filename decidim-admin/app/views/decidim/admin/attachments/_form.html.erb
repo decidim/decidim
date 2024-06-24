@@ -17,8 +17,27 @@
         <%= form.select :attachment_collection_id, @form.attachment_collections.map { |c| [translated_attribute(c.name), c.id] }, include_blank: true %>
       </div>
 
-      <div class="row column">
-        <%= form.upload :file, button_class: "button button__sm button__transparent-secondary" %>
+      <div class="p-6" data-file-or-link-tabs-controller>
+        <%= cell "decidim/tab_panels", [
+          {
+            enabled: true,
+            id: "file",
+            text: "Upload file",
+            icon: "file-upload-line",
+            method: :cell,
+            selected: form.object.file.present?,
+            args: ["/decidim/attachments_file_tab", form]
+          },
+          {
+            enabled: true,
+            id: "link",
+            text: "Link",
+            icon: "link",
+            method: :cell,
+            selected: form.object.link.present?,
+            args: ["/decidim/attachments_link_tab", form]
+          }
+        ] %>
       </div>
     </div>
   </div>

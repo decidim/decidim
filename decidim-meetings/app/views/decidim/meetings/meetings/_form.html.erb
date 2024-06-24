@@ -80,7 +80,7 @@
 
 <div id="meeting_registration_url">
   <%= form.text_field :registration_url, help_text: t(".registration_url_help") %>
-  <label><%= t(".disclaimer", organization: current_component.organization.name) %></label><br>
+  <label><%= t(".disclaimer", organization: organization_name(current_component.organization)) %></label><br>
 </div>
 
 <div>

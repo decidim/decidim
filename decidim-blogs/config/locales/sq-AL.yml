@@ -1,1 +1,97 @@
 sq:
+  activemodel:
+    attributes:
+      post:
+        body: Përmbajtja
+        decidim_author_id: Autor
+        published_at: Koha e publikimit
+        title: Titulli
+    models:
+      decidim/blogs/create_post_event: Postim i ri
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Postim
+        other: Postimet
+  decidim:
+    blogs:
+      actions:
+        author_id: Krijo postimin si
+        confirm_destroy: Je i sigurt që dëshiron ta fshish këtë postim?
+        destroy: Fshij
+        edit: Përpuno
+        new: Postim i ri
+        title: Veprime
+      admin:
+        posts:
+          create:
+            invalid: Ndodhi një gabim gjatë krijimit të këtij postimi.
+            success: Postimi u krijua me sukses.
+          destroy:
+            success: Postimi u fshi me sukses.
+          edit:
+            save: Përditëso
+            title: Përpuno postimin
+          index:
+            not_published_yet: Nuk është publikuar ende.
+            title: Postimet
+          new:
+            create: Krijo
+            title: Krijo postimin
+          update:
+            invalid: Ndodhi një problem gjatë krijimit të këtij postimi.
+            success: Postimi u ruajt me sukses.
+      admin_log:
+        post:
+          create: "%{user_name} krijoi postimin %{resource_name} në %{space_name}"
+          delete: "%{user_name} fshiu postimin %{resource_name} nga %{space_name}"
+          update: "%{user_name} përditësoi postimin %{resource_name} në %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Publikuar së fundi
+          name: Postimet
+          see_all: Shiko të gjitha postimet
+      last_activity:
+        new_post: 'Postim i ri:'
+      models:
+        post:
+          fields:
+            author: Autor
+            body: Përmbajtja
+            official_blog_post: Postimi zyrtar
+            published_at: Koha e publikimit
+            title: Titulli
+      posts:
+        index:
+          count:
+            one: "%{count} postim"
+            other: "%{count} postime"
+          empty: Nuk ka ende postime.
+    components:
+      blogs:
+        actions:
+          comment: Koment
+          create: Krijo
+          destroy: Fshij
+          endorse: Mirato
+          update: Përditëso
+        name: Blog
+        settings:
+          global:
+            announcement: Njoftim
+            comments_enabled: Komentet janë aktivizuar
+            comments_max_length: Gjatësia maksimale e komenteve (Lëre 0 për vlerën e paracaktuar)
+          step:
+            announcement: Njoftim
+            comments_blocked: Komentet të bllokuara
+            endorsements_blocked: Mbështetjet të bllokuara
+            endorsements_enabled: Mbështetjet të aktivizuara
+    events:
+      blogs:
+        post_created:
+          email_intro: Postimi "%{resource_title}" është publikuar në "%{participatory_space_title}" që ju po ndiqni.
+          email_outro: Ju e keni marrë këtë njoftim sepse po ndiqni %{participatory_space_title}. Mund t'i ndaloni njoftimet me anë të linkut të mëparshëm.
+          email_subject: Postimi i ri i publikuar në %{participatory_space_title}
+          notification_title: Postimi <a href="%{resource_path}">%{resource_title}</a> është publikuar në %{participatory_space_title}
+    statistics:
+      posts_count: Postimet

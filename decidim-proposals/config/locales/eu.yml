@@ -186,9 +186,7 @@ eu:
             proposal_length: Proposamen-testuaren gehieneko luzera
             proposal_limit: Proposamen-muga erabiltzaile bakoitzeko
             proposal_wizard_step_1_help_text: Proposamen laguntzailea "Sortu" urrats laguntza testua
-            proposal_wizard_step_2_help_text: Proposamen laguntzailea "Konparatu" urrats laguntza testua
-            proposal_wizard_step_3_help_text: Proposamen laguntzailea "Bete" urrats laguntza testua
-            proposal_wizard_step_4_help_text: Proposamen laguntzailea "Argitaratu" urrats laguntza testua
+            proposal_wizard_step_2_help_text: Proposamen laguntzailea "Argitaratu" urrats-laguntza testua
             resources_permissions_enabled: Ekintza-baimenak proposamen bakoitzerako ezarri daitezke
             scope_id: Esparrua
             scopes_enabled: Esparruak gaituta
@@ -766,13 +764,6 @@ eu:
         create:
           error: Arazo bat egon da proposamena bozkatzean.
       proposals:
-        compare:
-          continue: Jarraitu
-          no_similars_found: Ongi egina! Ez da antzeko proposamenik aurkitu
-          title: Antzeko proposamenak
-        complete:
-          send: Bidali
-          title: Osatu zue proposamena
         dynamic_map_instructions:
           description: Koordenatuak eguneratu egingo dira 'aurrebistaratu' botoian klik egiten duzunean. Baina helbidea ez da aldatzen.
           instructions: Kokapena mugitu ahal duzu mapan.
@@ -789,6 +780,8 @@ eu:
           discard_confirmation: Ziur zaude proposamenaren zirriborroa baztertu nahi duzula?
           send: Aurreikusi
           title: Editatu proposamenaren zirriborroa
+        edit_form_fields:
+          marker_added: Markatzailea mapan gehitua.
         filters:
           activity: Nire jarduera
           all: Guztiak
@@ -892,15 +885,11 @@ eu:
         wizard_aside:
           back: Atzera
           back_from_step_1: Itzuli proposamenetara
-          back_from_step_2: Itzuli proposamenetara
-          back_from_step_3: Alderatu berriro proposamenak
-          back_from_step_4: Editatu berriro zirriborroa
+          back_from_step_2: Itzuli editatzera
         wizard_steps:
           current_step: Oraingo fasea
           step_1: Sortu zure proposamena
-          step_2: Alderatu
-          step_3: Osatu
-          step_4: Argitaratu zure proposamena
+          step_2: Argitaratu zure proposamena
           title: Proposamen bat sortzeko urratsak
       proposals_picker:
         choose_proposals: Hautatu proposamenak

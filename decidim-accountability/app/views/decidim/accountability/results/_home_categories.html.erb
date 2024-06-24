@@ -9,12 +9,12 @@
     ) %>
 
     <div>
-      <span class="accountability__grid-title"><%= categories_label %></span>
+      <span class="accountability__grid-title"><%= t("results.home.categories_label", scope: "decidim.accountability") %></span>
       <%= subelements.call %>
     </div>
 
     <div>
-      <span class="accountability__grid-title"><%= subcategories_label %></span>
+      <span class="accountability__grid-title"><%= t("results.home.subcategories_label", scope: "decidim.accountability") %></span>
         <% if subelements.has_results? %>
           <div class="accountability__subgrid">
             <% category.subcategories.each do |subcategory| %>

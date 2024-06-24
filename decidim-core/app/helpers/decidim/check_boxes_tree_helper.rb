@@ -16,8 +16,7 @@ module Decidim
         include_hidden: false,
         label_options: {
           "data-children-checkbox": parent_id,
-          value:,
-          class: "filter"
+          value:
         }
       }
       options.merge!(checkbox_options)

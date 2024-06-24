@@ -367,7 +367,6 @@ ar:
           body: الاجتماع <a href="%{meeting_path}">"%{meeting_title}"</a> في انتظار إغلاقه. الرجاء إضافة تقرير عن الاجتماع باستخدام زر "إغلاق الاجتماع".
           greetings: تحيات,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: مرحبا %{username}،
-          subject: يمكنك الآن إغلاق اجتماعك بتقديم تقرير على منصة %{organization_name}
       conference_venues: أماكن المؤتمر
       content_blocks:
         upcoming_meetings:

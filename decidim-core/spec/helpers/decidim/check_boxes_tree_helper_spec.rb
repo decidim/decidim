@@ -39,7 +39,7 @@ module Decidim
             data: { checkboxes_tree: "with_any_whatever_" },
             include_hidden: false,
             label: "<span>All</span>",
-            label_options: { class: "filter", "data-global-checkbox": "", value: "" },
+            label_options: { "data-global-checkbox": "", value: "" },
             multiple: true,
             value: ""
           }
@@ -69,7 +69,7 @@ module Decidim
             label: "<span>An option</span>",
             multiple: true,
             include_hidden: false,
-            label_options: { "data-children-checkbox": "with_any_whatever_", value: "an_option", class: "filter" }
+            label_options: { "data-children-checkbox": "with_any_whatever_", value: "an_option" }
           }
         end
 

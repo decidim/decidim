@@ -52,7 +52,7 @@ You should now setup your database:
 
 [source,console]
 ----
-bin/rails db:create db:migrate db:seed
+bin/rails db:create db:migrate assets:precompile db:seed
 ----
 
 This will also create some example data through the seeds so that you can start testing the application straight away. The following table contains some example user accounts that you can start testing the system with.

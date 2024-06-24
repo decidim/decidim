@@ -1,8 +1,6 @@
 sr:
   decidim:
     components:
-      comment:
-        hide_replies: Sakrij odgovore
       comments:
         comment_details_title: Detalji o komentaru
         single_comment_warning_title: Vidite samo jedan komentar

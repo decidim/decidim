@@ -85,7 +85,6 @@ cs:
   decidim:
     admin:
       actions:
-        manage: Spravovat
         new_initiative_type: Nový typ iniciativy
         new_initiative_type_scope: Nový typ rozsahu iniciativy
       filters:
@@ -112,7 +111,6 @@ cs:
       menu:
         attachments: Přílohy
         committee_members: Členové výboru
-        components: Komponenty
         information: Informace
         initiative_type_scopes: Typy oblasti působnosti iniciativy
         initiatives: Iniciativy
@@ -555,7 +553,6 @@ cs:
           other: " podpisy"
         vote_cabin:
           already_voted: Již jste podepsal
-          supports_required: "Vyžaduje %{total_supports} podpisů"
           verification_required: Ověřte svůj účet, abyste podepsali iniciativu
           vote: Podepsat
           votes_blocked: Podpis zakázán

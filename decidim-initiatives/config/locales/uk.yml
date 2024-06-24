@@ -39,10 +39,8 @@ uk:
   decidim:
     admin:
       actions:
-        manage: Керувати
         new_initiative_type: Додати різновид почину
       menu:
-        components: Складові
         information: Відомості
         initiatives: Почини
         initiatives_types: Різновиди починів
@@ -217,7 +215,6 @@ uk:
           other: " підписів"
         vote_cabin:
           already_voted: Вже підписалися
-          supports_required: "Необхідно %{total_supports} підписів"
           vote: Підписати
           votes_blocked: Підписування вимкнене
         votes_count:

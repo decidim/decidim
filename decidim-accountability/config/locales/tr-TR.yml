@@ -225,15 +225,7 @@ tr:
           search: İşlemleri ara
         show:
           stats:
-            attendees: Katılımcılar
             back_to_resource: Sonuca geri dön
-            comments: Yorumlar
-            contributions: Katılımlar
-            last_edited_by: Son düzenleyen
-            last_updated_at: Son güncelleme
-            meetings: Toplantılar
-            proposals: Teklifler
-            votes: Destekler
         timeline:
           title: Proje gelişimi
     admin:
@@ -252,16 +244,12 @@ tr:
         name: Sorumluluk
         settings:
           global:
-            categories_label: '"Kategoriler" için isim'
             comments_enabled: Yorumlar etkin
             comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
             display_progress_enabled: İlerlemeyi göster
-            heading_leaf_level_results: '"Projeler" için isim'
-            heading_parent_level_results: '"Sonuçların" Adı'
             intro: Tanıtım
             scope_id: Kapsam
             scopes_enabled: Kapsamlar etkinleştirildi
-            subcategories_label: '"Alt kategoriler" için isim'
           step:
             comments_blocked: Yorumlar engellendi
     events:

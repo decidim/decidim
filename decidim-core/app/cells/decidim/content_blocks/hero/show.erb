@@ -2,7 +2,7 @@
   <div class="hero">
     <h1 class="hero__title">
       <% if translated_welcome_text.blank? %>
-        <%= t("decidim.pages.home.hero.welcome", organization: current_organization.name) %>
+        <%= t("decidim.pages.home.hero.welcome", organization: current_organization_name) %>
       <% else %>
         <%= decidim_sanitize_admin translated_welcome_text %>
       <% end %>

@@ -4,19 +4,18 @@ module Decidim
   module Admin
     # Delivers the newsletter to its recipients.
     class DeliverNewsletter < Decidim::Command
+      delegate :current_user, to: :form
       # Initializes the command.
       #
       # newsletter - The newsletter to deliver.
       # form - A form object with the params.
-      # user - the Decidim::User that delivers the newsletter
-      def initialize(newsletter, form, user)
+      def initialize(newsletter, form)
         @newsletter = newsletter
         @form = form
-        @user = user
       end
 
       def call
-        return broadcast(:invalid) if @form.send_to_all_users && !@user.admin?
+        return broadcast(:invalid) if @form.send_to_all_users && !current_user.admin?
         return broadcast(:invalid) unless @form.valid?
         return broadcast(:invalid) if @newsletter.sent?
         return broadcast(:no_recipients) if recipients.blank?
@@ -36,7 +35,7 @@ module Decidim
         Decidim.traceability.perform_action!(
           "deliver",
           @newsletter,
-          @user
+          current_user
         ) do
           NewsletterJob.perform_later(@newsletter, @form.as_json, recipients.map(&:id))
         end

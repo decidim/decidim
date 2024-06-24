@@ -76,7 +76,6 @@ hu:
   decidim:
     admin:
       actions:
-        manage: Kezelés
         new_initiative_type: Új kezdeményezés típusa
       filters:
         initiatives:
@@ -101,7 +100,6 @@ hu:
       menu:
         attachments: Csatolmányok
         committee_members: Bizottsági tagok
-        components: Elemek
         information: Információ
         initiatives: Kezdeményezések
         initiatives_settings: Beállítások
@@ -501,7 +499,6 @@ hu:
           other: " aláírások"
         vote_cabin:
           already_voted: Már aláírtad
-          supports_required: "%{total_supports} aláírás szükséges"
           verification_required: Ellenőrizze fiókját, hogy aláírja a kezdeményezést
           vote: Aláírás
           votes_blocked: Aláírás letiltva

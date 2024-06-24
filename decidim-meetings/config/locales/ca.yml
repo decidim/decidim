@@ -182,14 +182,14 @@ ca:
         meeting_created:
           button_text: Inscriu-te a la trobada
           email_intro: S'ha afegit la trobada "%{resource_title}" a l'espai "%{participatory_space_title}" que estàs seguint.
-          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
           email_subject: Nova trobada afegida a  %{participatory_space_title}
           notification_title: S'ha afegit la trobada <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
         meeting_registration_confirmed:
           notification_title: S'ha confirmat el teu registre per a la trobada <a href="%{resource_url}">%{resource_title}</a>. El teu codi de registre és %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Les inscripcions per la trobada "%{resource_title}" superen el %{percentage}%.
-          email_outro: Has rebut aquesta notificació perquè ets administradora de l'espai participatiu de la trobada.
+          email_outro: Has rebut aquesta notificació perquè administres l'espai participatiu de la trobada.
           email_subject: Les inscripcions per la trobada "%{resource_title}" superen el %{percentage}%
           notification_title: Les inscripcions per la trobada <a href="%{resource_path}">%{resource_title}</a> superen el %{percentage}%.
         meeting_updated:
@@ -423,7 +423,7 @@ ca:
           body: La trobada <a href="%{meeting_path}">"%{meeting_title}"</a> està pendent de tancar-se. Si us plau, afegiu un informe de la reunió fent servir el botó "Tancar trobada".
           greetings: Hola,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Hola %{username},
-          subject: Ara pots tancar la trobada amb un informe a la plataforma %{organization_name}
+          subject: Ara pots tancar el "%{meeting_title}" amb un informe
       conference_venues: Seus de les jornades
       content_blocks:
         upcoming_meetings:

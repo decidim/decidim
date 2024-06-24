@@ -144,15 +144,7 @@ it:
           search: Cerca azioni
         show:
           stats:
-            attendees: Partecipanti
             back_to_resource: Torna al risultato
-            comments: Commenti
-            contributions: Contributi
-            last_edited_by: Ultima modifica del
-            last_updated_at: Ultimo aggiornamento alle
-            meetings: Riunioni
-            proposals: Proposte
-            votes: Voti
         timeline:
           title: Evoluzione del progetto
     admin:
@@ -171,16 +163,12 @@ it:
         name: Accountability
         settings:
           global:
-            categories_label: Nome per "Categorie"
             comments_enabled: Commenti abilitati
             comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
             display_progress_enabled: Mostra avanzamento
-            heading_leaf_level_results: Nome per "Progetti"
-            heading_parent_level_results: Nome per "Risultati"
             intro: Introduzione
             scope_id: Ambito
             scopes_enabled: Ambiti abilitati
-            subcategories_label: Nome per "Sottocategorie"
           step:
             comments_blocked: Commenti bloccati
     events:

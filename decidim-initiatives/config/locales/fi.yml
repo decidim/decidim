@@ -79,7 +79,6 @@ fi:
   decidim:
     admin:
       actions:
-        manage: Hallinnoi
         new_initiative_type: Uusi aloitetyyppi
         new_initiative_type_scope: Uusi aloitetyypin teema
       filters:
@@ -106,7 +105,6 @@ fi:
       menu:
         attachments: Liitteet
         committee_members: Komitean jäsenet
-        components: Komponentit
         information: Tiedot
         initiative_type_scopes: Aloitetyypin teemat
         initiatives: Aloitteet
@@ -541,7 +539,6 @@ fi:
           other: " allekirjoitusta"
         vote_cabin:
           already_voted: Allekirjoitettu aikaisemmin
-          supports_required: "%{total_supports} allekirjoitusta vaaditaan"
           verification_required: Vahvista tilisi allekirjoittaaksesi aloitteen
           vote: Allekirjoita
           votes_blocked: Allekirjoitus poistettu käytöstä

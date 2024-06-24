@@ -62,7 +62,6 @@ pt:
   decidim:
     admin:
       actions:
-        manage: Gerir
         new_initiative_type: Novo tipo de iniciativa
       filters:
         initiatives:
@@ -84,7 +83,6 @@ pt:
       menu:
         attachments: Anexos
         committee_members: Membros do Comité
-        components: Componentes
         information: Informação
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
@@ -438,7 +436,6 @@ pt:
           other: " assinaturas"
         vote_cabin:
           already_voted: Já assinou
-          supports_required: "%{total_supports} assinaturas necessárias"
           verification_required: Verifique a sua conta para assinar a iniciativa
           vote: Assinar
           votes_blocked: Assinatura desativada

@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe UserReportMailer do
-    let(:organization) { create(:organization, name: "Test Organization") }
+    let(:organization) { create(:organization, name: { en: "Test Organization" }) }
     let(:admin) { create(:user, :admin, organization:) }
     let(:reporter) { create(:user, :confirmed, organization:) }
     let(:moderation) { create(:user_moderation, user:) }

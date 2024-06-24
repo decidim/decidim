@@ -125,9 +125,6 @@ zh-CN:
             proposal_length: 最大建议体长度
             proposal_limit: 每个参与者的建议限制
             proposal_wizard_step_1_help_text: 建议向导“创建”步骤帮助文本
-            proposal_wizard_step_2_help_text: 建议向导“Compare”步骤帮助文本
-            proposal_wizard_step_3_help_text: 建议向导“完成”步骤帮助文本
-            proposal_wizard_step_4_help_text: 建议向导"发布"步骤帮助文本
             resources_permissions_enabled: 每个提案都可以设置动作权限
             scope_id: 范围
             scopes_enabled: 范围已启用
@@ -534,13 +531,6 @@ zh-CN:
         create:
           error: 有一个问题支持这项提议。
       proposals:
-        compare:
-          continue: 继续
-          no_similars_found: 干得好！没有找到类似的建议
-          title: 类似的提议
-        complete:
-          send: 发送
-          title: 完成您的提议
         edit:
           attachment_legend: "(可选) 添加附件"
           back: 后退
@@ -634,15 +624,9 @@ zh-CN:
         wizard_aside:
           back: 后退
           back_from_step_1: 回到提议
-          back_from_step_2: 回到提议
-          back_from_step_3: 返回比较提案
-          back_from_step_4: 返回编辑草稿
         wizard_steps:
           current_step: 当前步骤
           step_1: 创建您的提议
-          step_2: 比较
-          step_3: Complete
-          step_4: 发布您的提议
           title: 建议创建步骤
       proposals_picker:
         choose_proposals: 选择建议

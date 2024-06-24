@@ -32,7 +32,11 @@ module Decidim
           resource :live_event, only: :show
           namespace :polls do
             resources :questions, only: [:index, :update]
-            resources :answers, only: [:index, :create]
+            resources :answers, only: [:index, :create] do
+              collection do
+                get :admin
+              end
+            end
           end
         end
         scope "/meetings" do

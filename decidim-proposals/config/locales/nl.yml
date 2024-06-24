@@ -142,9 +142,6 @@ nl:
             proposal_length: Maximum aantal tekens voor een voorstel
             proposal_limit: Beperking van het aantal voorstellen per gebruiker
             proposal_wizard_step_1_help_text: Helptekst "Maak" bij het maken van een nieuw voorstel
-            proposal_wizard_step_2_help_text: Helptekst "Vergelijk" bij het maken van een nieuw voorstel
-            proposal_wizard_step_3_help_text: Voorstel wizard "Complete" stap helptekst
-            proposal_wizard_step_4_help_text: Helptekst "Publiceren" bij het maken van een nieuw voorstel
             resources_permissions_enabled: Actiemachtigingen kunnen voor elk voorstel worden ingesteld
             scope_id: Scope
             scopes_enabled: Scopes ingeschakeld
@@ -589,13 +586,6 @@ nl:
         create:
           error: Er zijn fouten geweest bij het stemmen van het voorstel.
       proposals:
-        compare:
-          continue: Doorgaan met
-          no_similars_found: Goed gedaan! Geen vergelijkbare voorstellen gevonden
-          title: Vergelijkbare voorstellen
-        complete:
-          send: Verzenden
-          title: Maak uw voorstel af
         dynamic_map_instructions:
           description: De coördinaten worden bijgewerkt bij het klikken op de 'preview' knop. Het adres verandert echter niet.
           instructions: Je kunt het punt op de kaart verplaatsen.
@@ -701,15 +691,9 @@ nl:
         wizard_aside:
           back: Terug
           back_from_step_1: Terug naar voorstellen
-          back_from_step_2: Terug naar voorstellen
-          back_from_step_3: Terug naar de vergelijking
-          back_from_step_4: Terug naar het ontwerp bewerken
         wizard_steps:
           current_step: Huidige stap
           step_1: Maak je voorstel
-          step_2: Vergelijk
-          step_3: Compleet
-          step_4: Publiceer uw voorstel
           title: Voorstel creatie stappen
       proposals_picker:
         choose_proposals: Kies voorstellen

@@ -144,6 +144,7 @@ es-MX:
       external_link: Enlace externo
       front_page_link: Ir a la página principal
       logo: "Logo oficial de %{organization}"
+      opens_in_new_tab: Abrir en una pestaña nueva
       skip_button: Saltar al contenido principal
     account:
       blocked: Esta cuenta ha sido bloqueada por una violación de los términos y condiciones de uso
@@ -295,10 +296,6 @@ es-MX:
         title:
           one: "%{count} enmienda"
           other: "%{count} enmiendas"
-      compare_draft:
-        continue: Continuar
-        no_similars_found: No se encontraron enmiendas similares.
-        title: Enmiendas similares
       created:
         error: Se ha producido un error al crear la enmienda.
         success: La enmienda se ha creado correctamente.
@@ -357,9 +354,7 @@ es-MX:
       wizard_step_form:
         steps:
           '1': Crea tu enmienda
-          '2': Compara tu enmienda
-          '3': Completa tu enmienda
-          '4': Publicar tu enmienda
+          '2': Publica tu enmienda
     anonymous_user: Anónimo
     application:
       document:
@@ -1042,7 +1037,7 @@ es-MX:
           content: "<p>En %{organization} puedes participar y decidir sobre diferentes temas, a través de los espacios que ves en el menú superior: Procesos, Asambleas, Iniciativas, Consultas.</p> <p>Dentro de cada uno encontrarás diferentes opciones para participar: hacer propuestas - a nivel individual o con otras personas -, tomar parte en debates, priorizar proyectos a ejecutar, asistir a encuentros presenciales y otras acciones.</p>\n"
           title: '¿Qué puedo hacer en %{organization}?'
         description: Lee más sobre %{organization}.
-        title: Ayuda general
+        title: General
     last_activities:
       all: Todos los tipos de actividad
       index:
@@ -1241,6 +1236,7 @@ es-MX:
       no_notifications: No hay notificaciones aún.
       show:
         missing_event: Vaya, esta notificación pertenece a un elemento que ya no está disponible. Puedes descartarla.
+        moderated: Contenido moderado
     notifications_digest_mailer:
       header:
         daily: Resumen diario de notificaciones
@@ -1931,7 +1927,7 @@ es-MX:
         made_with_open_source: Sitio web creado con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
         resources: Recursos
         sign_up: Regístrate
-        terms_and_conditions: Términos y condiciones
+        terms_of_service: Términos y condiciones de uso
       header:
         log_in: Entra
         main_menu: Menú principal
@@ -2054,6 +2050,7 @@ es-MX:
       long_with_particles: "%d de %B del %Y a las %Hh%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Supresiones

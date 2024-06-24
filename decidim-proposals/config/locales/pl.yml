@@ -32,16 +32,33 @@ pl:
         execution_period: Okres wykonawczy
       proposal_state:
         announcement_title: Nagłówek odpowiedzi
+        bg_color: Kolor tła
+        colors:
+          blue: Niebieski
+          gray: Szary
+          green: Zielony
+          orange: Pomarańczowy
+          pink: Różowy
+          purple: Fioletowy
+          red: Czerwony
+          yellow: Żółty
+        text_color: Kolor tekstu
       proposals_copy:
+        copy_proposals: Rozumiem, że spowoduje to zaimportowanie wszystkich propozycji z wybranego komponentu do obecnego i że nie można cofnąć tej operacji.
         origin_component_id: Komponent z którego kopiuję propozycję
       proposals_import:
         import_proposals: Importuj propozycje
+        keep_answers: Zachowaj stan i odpowiedzi
         keep_authors: Zachowaj oryginalnych autorów
       valuation_assignment:
         admin_log:
           valuator_role_id: Imię weryfikatora
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              allowed_file_content_types: 'Nieprawidłowy typ dokumentu. Dozwolone są tylko pliki z następującymi rozszerzeniami: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -57,9 +74,11 @@ pl:
           attributes:
             base:
               not_official: Nieoficjalne
+              supported: Otrzymano wsparcie lub poparcie
         proposals_split:
           attributes:
             base:
+              not_official: Nie są oficjalne
               supported: Otrzymano wsparcie lub potwierdzenia
     models:
       decidim/proposals/admin/update_proposal_category_event: Zmieniono kategorię propozycji
@@ -111,12 +130,18 @@ pl:
             values:
               accepted: Zaakceptowano
               evaluating: Ocena
+              not_answered: Bez odpowiedzi
               published: Opublikowano
               rejected: Odrzucono
               validating: Walidacja techniczna
               withdrawn: Wycofaj
           valuator_role_ids_has:
             label: Przypisano do weryfikatora
+          with_any_state:
+            label: Z odpowiedziami
+            values:
+              state_not_published: Bez odpowiedzi
+              state_published: Z odpowiedziami
         search_placeholder:
           id_string_or_title_cont: Wyszukaj %{collection} według ID lub tytułu.
     components:
@@ -141,6 +166,17 @@ pl:
             collaborative_drafts_enabled: Zezwalaj na wspólne szkice
             comments_enabled: Komentarze włączone
             comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
+            default_sort_order: Domyślne sortowanie propozycji
+            default_sort_order_help: Domyślnie oznacza, że jeśli wsparcie jest włączone, propozycje będą wyświetlane w kolejności losowej, a jeśli wsparcie jest zablokowane, zostaną posortowane według najbardziej popieranych.
+            default_sort_order_options:
+              default: Domyślne
+              most_commented: Najczęściej komentowane
+              most_endorsed: Najbardziej popierane
+              most_followed: Najczęściej obserwowane
+              most_voted: Najbardziej wspierane
+              random: Losowo
+              recent: Ostatnie
+              with_more_authors: Z większą liczbą autorów
             geocoding_enabled: Włączono geokodowanie
             minimum_votes_per_user: Minimalna liczba wsparć na użytkownika
             new_proposal_body_template: Szablon treści nowej propozycji
@@ -158,9 +194,7 @@ pl:
             proposal_length: Maksymalna długość treści propozycji
             proposal_limit: Limit propozycji na użytkownika
             proposal_wizard_step_1_help_text: 'Tekst pomocy Kreatora - krok: "Utwórz"'
-            proposal_wizard_step_2_help_text: 'Tekst pomocy Kreatora - krok: "Porównaj"'
-            proposal_wizard_step_3_help_text: 'Tekst pomocy Kreatora - krok: "Dokończ"'
-            proposal_wizard_step_4_help_text: 'Tekst pomocy Kreatora - krok: "Publikuj"'
+            proposal_wizard_step_2_help_text: Tekst pomocy kroku „Opublikuj” kreatora propozycji
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdej propozycji
             scope_id: Zakres
             scopes_enabled: Zakresy włączone
@@ -182,6 +216,9 @@ pl:
             answers_with_costs: Zezwalaj na koszty w odpowiedziach na propozycje
             automatic_hashtags: Hashtagi dodane do wszystkich propozycji
             comments_blocked: Komentarze zablokowane
+            creation_enabled: Uczestnicy mogą tworzyć propozycje
+            creation_enabled_readonly: To ustawienie jest wyłączone, gdy aktywujesz funkcjonalność tekstów partycypacyjnych. Aby przesłać propozycje jako tekst partycypacyjny, kliknij przycisk "Tekst partycypacyjny" i postępuj zgodnie z instrukcjami.
+            default_sort_order: Domyślne sortowanie propozycji
             default_sort_order_options:
               most_voted: Najwiecej wsparć
             endorsements_blocked: Rekomendacje zostały zablokowane
@@ -652,12 +689,18 @@ pl:
           back_from_collaborative_draft: Powrót do wspólnych szkiców
         wizard_header:
           title: Utwórz swój wspólny szkic
+      content_blocks:
+        highlighted_proposals:
+          name: Propozycje
       create:
         error: Podczas zapisywania propozycji wystąpił błąd.
         success: Propozycja została utworzona. Zapisano jako szkic.
       destroy_draft:
         error: Wystąpił błąd podczas usuwania wspólnego szkicu.
         success: Szkic propozycji został usunięty.
+      last_activity:
+        new_proposal: 'Nowa propozycja:'
+        proposal_updated: 'Propozycja zaktualizowana:'
       models:
         proposal:
           fields:
@@ -677,6 +720,8 @@ pl:
         proposal_state:
           css_class: klasa CSS
           title: Status
+      new:
+        limit_reached: Nie możesz tworzyć nowych propozycji, ponieważ limit został przekroczony.
       participatory_text_proposal:
         alternative_title: W tej chwili nie ma żadnych kolektywnych legislacji
         buttons:
@@ -686,16 +731,14 @@ pl:
         create:
           error: Podczas próby poparcia propozycji wystąpił błąd.
       proposals:
-        compare:
-          continue: Dalej
-          no_similars_found: Dobra robota! Nie znaleziono podobnych propozycji
-          title: Podobne propozycje
-        complete:
-          send: Wyślij
-          title: Uzupełnij swoją propozycję
+        dynamic_map_instructions:
+          description: Współrzędne zostaną zaktualizowane po kliknięciu przycisku 'podgląd'. Jednakże adres nie ulegnie zmianie.
+          instructions: Możesz przenieść punkt na mapie.
         edit:
+          add_documents: Dodaj dokumenty
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
+          edit_documents: Edytuj dokumenty
           select_a_category: Wybierz kategorię
           send: Wyślij
           title: Edytuj propozycję
@@ -704,6 +747,8 @@ pl:
           discard_confirmation: Czy na pewno chcesz porzucić ten szkic propozycji?
           send: Podgląd
           title: Edytuj szkic propozycji
+        edit_form_fields:
+          marker_added: Znacznik dodany do mapy.
         filters:
           activity: Moja aktywność
           all: Wszystko
@@ -718,6 +763,7 @@ pl:
           type: Typ
           voted: Wsparte
         index:
+          click_here: Zobacz wszystkie propozycje
           collaborative_drafts_list: Wspólne szkice
           count:
             one: "%{count} propozycja"
@@ -725,9 +771,12 @@ pl:
             many: "%{count} propozycji"
             other: "%{count} propozycji"
           new_proposal: Nowa propozycja
+          see_all: Zobacz wszystkie propozycje
           see_all_withdrawn: Zobacz wszystkie wycofane propozycje
+          text_banner: Oglądasz listę propozycji wycofanych przez ich autorów. %{go_back_link}.
         new:
           send: Dalej
+          title: Utwórz swoją propozycję
         orders:
           label: 'Sortuj propozycje według:'
           most_commented: Najczęściej komentowane
@@ -737,6 +786,9 @@ pl:
           random: Losowo
           recent: Najnowsze
           with_more_authors: Z większą liczbą autorów
+        participatory_texts:
+          view_index:
+            document_index: Indeks dokumentu
         placeholder:
           address: ul. Żeromskiego 31, 81-346 Gdynia
         preview:
@@ -750,6 +802,9 @@ pl:
             other: Będziesz mógł edytować tę propozycję w ciągu %{count} minut po jej opublikowaniu. Gdy ten czas minie nie będzie można edytować propozycji.
           publish: Publikuj
           title: Opublikuj swoją propozycję
+        proposals:
+          empty: Nie ma jeszcze żadnych propozycji.
+          empty_filters: Brak propozycji spełniającej te kryteria.
         show:
           answer: Odpowiedź
           changes_at_title: Poprawka do „%{title}”
@@ -792,9 +847,12 @@ pl:
             description: Każda propozycja może zebrać więcej niż wynosi limit wsparć %{limit}
           minimum_votes_per_user:
             description: Musisz rozdzielić co najmniej %{votes} wsparć pomiędzy różne propozycje.
+            given_enough_votes: Udzieliłeś wystarczającej ilości wsparcia.
             supports_remaining: Musisz wesprzeć %{remaining_votes} dodatkowych propozycji, aby Twoje głosy zostały policzone.
           proposal_limit:
             description: Możesz utworzyć maksymalnie %{limit} propozycji.
+          threshold_per_proposal:
+            description: Aby zostać zaakceptowanym, propozycje muszą otrzymać %{limit} wsparć.
           title: 'Wspieranie podlega następującym zasadom:'
           vote_limit:
             description: Możesz wesprzeć maksymalnie %{limit} propozycji.
@@ -802,18 +860,15 @@ pl:
         wizard_aside:
           back: Wróć
           back_from_step_1: Wróć do propozycji
-          back_from_step_2: Wróć do propozycji
-          back_from_step_3: Powrót do porównania propozycji
-          back_from_step_4: Wróć do edycji szkicu
+          back_from_step_2: Powrót do edycji
         wizard_steps:
           current_step: Bieżący krok
           step_1: Utwórz swoją propozycję
-          step_2: Porównaj
-          step_3: Kompletny
-          step_4: Opublikuj swoją propozycję
+          step_2: Opublikuj swoją propozycję
           title: Kroki tworzenia propozycji
       proposals_picker:
         choose_proposals: Wybierz propozycje
+        no_proposals: Żadna propozycja nie spełnia kryteriów wyszukiwania lub nie ma żadnych propozycji.
       publish:
         error: Podczas publikowania propozycji wystąpił błąd.
         success: Propozycja została opublikowana.
@@ -828,6 +883,9 @@ pl:
       versions:
         index:
           title: Wersje
+      withdraw:
+        errors:
+          has_supports: Tej propozycji nie można wycofać, ponieważ oddano już na nią głosy poparcia.
     resource_links:
       copied_from_component:
         proposal_proposal: Powiązane propozycje
@@ -839,3 +897,4 @@ pl:
     statistics:
       proposals_accepted: Przyjęte propozycje
       proposals_count: Propozycje
+      supports_count: Głosy poparcia

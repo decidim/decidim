@@ -64,13 +64,15 @@ eu:
           against: Aurka
           in_favor: Alde
         cancel_reply: Ezeztatu erantzuna
+        comment_label: Iruzkindu %{comment_id}
+        comment_label_reply: Iruzkindu %{comment_id} (erantzun %{parent_comment_id} iruzkinei)
         confirm_destroy: Ziur zaude iruzkin hau ezabatu nahi duzula?
+        controls_label: Iruzkindu kontrolak
         delete: Ezabatu
         deleted_at: Iruzkina ezabatu da data honetan %{date}
         deleted_user: Parte-hartzailea ezabatua
         edit: Editatu
         edited: Editatuta
-        hide_replies: Ezkutatu erantzunak
         moderated_at: Iruzkina %{date}-an moderatu egin da
         reply: Erantzuna
         report:

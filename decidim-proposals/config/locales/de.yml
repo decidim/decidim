@@ -186,9 +186,7 @@ de:
             proposal_length: Maximale Länge des Haupttextes
             proposal_limit: Vorschlagslimit pro Benutzer
             proposal_wizard_step_1_help_text: Hilfetext "Erstellen"-Schritt im Vorschlagsassistenten
-            proposal_wizard_step_2_help_text: Hilfetext "Vergleichen"-Schritt im Vorschlagsassistenten
-            proposal_wizard_step_3_help_text: Hilfetext "Fertigstellen"-Schritt im Vorschlagsassistenten
-            proposal_wizard_step_4_help_text: Hilfetext "Veröffentlichen"-Schritt im Vorschlagsassistenten
+            proposal_wizard_step_2_help_text: Hilfetext "Veröffentlichen"-Schritt im Vorschlagsassistenten
             resources_permissions_enabled: Berechtigungen können für jeden Vorschlag festgelegt werden
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
@@ -765,13 +763,6 @@ de:
         create:
           error: Es gab Fehler bei der Abstimmung des Vorschlags.
       proposals:
-        compare:
-          continue: Fortsetzen
-          no_similars_found: Gut gemacht! Keine ähnlichen Vorschläge gefunden
-          title: Ähnliche Vorschläge
-        complete:
-          send: Senden
-          title: Vorschlag vervollständigen
         dynamic_map_instructions:
           description: Die Koordinaten werden aktualisiert, wenn Sie auf "Vorschau" klicken. Die angegebene Adresse wird sich jedoch nicht ändern.
           instructions: Sie können den Punkt auf der Karte verschieben.
@@ -788,6 +779,8 @@ de:
           discard_confirmation: Möchten Sie diesen Vorschlagsentwurf wirklich verwerfen?
           send: Vorschau
           title: Vorschlagsentwurf bearbeiten
+        edit_form_fields:
+          marker_added: Markierung zur Karte hinzugefügt.
         filters:
           activity: Meine Aktivität
           all: Alle
@@ -891,15 +884,11 @@ de:
         wizard_aside:
           back: Zurück
           back_from_step_1: Zurück zu Vorschlägen
-          back_from_step_2: Zurück zu Vorschlägen
-          back_from_step_3: Zurück zum Vergleich von Vorschlägen
-          back_from_step_4: Zurück zum Entwurf bearbeiten
+          back_from_step_2: Zurück zum Bearbeiten
         wizard_steps:
           current_step: Aktueller Schritt
           step_1: Vorschlag erstellen
-          step_2: Vergleichen
-          step_3: Abschließen
-          step_4: Vorschlag veröffentlichen
+          step_2: Vorschlag veröffentlichen
           title: Schritten zur Erstellung von Vorschlägen
       proposals_picker:
         choose_proposals: Vorschläge auswählen
