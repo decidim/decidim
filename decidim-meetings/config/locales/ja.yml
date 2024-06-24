@@ -431,6 +431,7 @@ ja:
         new_meeting: '新しいミーティング:'
       layouts:
         live_event:
+          administrate: 管理
           close: 閉じる
           questions: 質問
       mailer:
