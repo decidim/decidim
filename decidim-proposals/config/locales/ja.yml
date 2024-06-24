@@ -156,7 +156,9 @@ ja:
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
             default_sort_order: デフォルトの提案の並べ替え
+            default_sort_order_help: '「自動」にすると、投票が有効になっている間、提案はランダムにソートされます。 投票がブロックされると、最も投票数が多い順に並べられます'
             default_sort_order_options:
+              automatic: 自動
               most_commented: コメントの多い順
               most_endorsed: オススメの多い順
               most_followed: フォローの多い順
@@ -206,7 +208,9 @@ ja:
             creation_enabled: 参加者は提案を作成できます
             creation_enabled_readonly: 参加テキスト機能を有効にするとこの設定は無効になります。 参加テキストとして提案をアップロードするには、参加テキストボタンをクリックし、指示に従ってください。
             default_sort_order: デフォルトの提案の並べ替え
+            default_sort_order_help: '「自動」にすると、投票が有効になっている間、提案はランダムにソートされます。 投票がブロックされると、最も投票数が多い順に並べられます'
             default_sort_order_options:
+              automatic: 自動
               most_commented: コメントの多い順
               most_endorsed: オススメの多い順
               most_followed: フォローの多い順
