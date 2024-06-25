@@ -50,16 +50,16 @@ module Decidim
     end
 
     def destroy_user_group_memberships
-      Decidim::UserGroupMembership.where(user: current_user).destroy_all
+      Decidim::UserGroupMembership.where(current_user: user).destroy_all
     end
 
     def destroy_follows
       Decidim::Follow.where(followable: current_user).destroy_all
-      Decidim::Follow.where(user: current_user).destroy_all
+      Decidim::Follow.where(current_user: user).destroy_all
     end
 
     def destroy_participatory_space_private_user
-      Decidim::ParticipatorySpacePrivateUser.where(user: current_user).destroy_all
+      Decidim::ParticipatorySpacePrivateUser.where(current_user: user).destroy_all
     end
 
     def delegate_destroy_to_participatory_spaces
