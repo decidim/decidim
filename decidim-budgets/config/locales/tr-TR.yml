@@ -80,7 +80,6 @@ tr:
         back_to: '%{component_name} öğesine geri dön'
         close_modal: Pencereyi kapat
         continue: Devam et
-        more_information: Daha fazla bilgi
       budgets_list:
         cancel_order:
           more_than_one: '%{name} üzerindeki oyunuzu silin ve baştan başlayın'
