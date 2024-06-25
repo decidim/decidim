@@ -171,7 +171,6 @@ bg:
         back_to: Назад към %{component_name}
         close_modal: Затвори прозореца
         continue: Продължи
-        more_information: Още информация
       budgets_list:
         budgets: Бюджети
         cancel_order:
