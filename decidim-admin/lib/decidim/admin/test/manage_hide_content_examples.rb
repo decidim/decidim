@@ -54,6 +54,10 @@ shared_examples "hideable resource during block" do
       click_on I18n.t("decidim.admin.block_user.new.action")
 
       expect(content.reload).to be_hidden
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("blocked user")
+      expect(page).to have_content("hid a resource of type")
     end
   end
 end

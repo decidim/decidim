@@ -221,7 +221,28 @@ bin/rails db:drop db:create db:migrate assets:precompile db:seed
 
 You can see more details about this change on PR [\#12828](https://github.com/decidim/decidim/pull/12828)
 
-### 5.3. [[TITLE OF THE CHANGE]]
+### 5.3. Verifications need a help text
+
+In order to explain better to administrators what authorizations they have available we have added a new internationalization (i18n) key to the verifications workflows.
+
+If you have a custom authorization handler, you need to add the help text to the `config/locales/en.yml` file, where `en.yml` is the locale file for the language you are using.
+
+For instance, for the SMS authorization handler, you need to add the following key:
+
+```yaml
+en:
+  decidim:
+    authorization_handlers:
+      admin:
+        sms:
+          help:
+          - This is the help text for the SMS authorization handler
+          - This is the second line of the help text
+```
+
+You can see more details about this change on PR [\#13029](https://github.com/decidim/decidim/pull/13029)
+
+### 5.4. [[TITLE OF THE CHANGE]]
 
 In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
 

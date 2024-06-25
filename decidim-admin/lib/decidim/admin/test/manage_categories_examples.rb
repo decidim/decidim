@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "manage categories examples" do
+  let(:attributes) { attributes_for(:category) }
   it "lists all the categories for the process" do
     within "#categories table" do
       expect(page).to have_content(translated(category.name, locale: :en))
@@ -25,9 +26,7 @@ shared_examples "manage categories examples" do
       fill_in_i18n(
         :category_name,
         "#category-name-tabs",
-        en: "My category",
-        es: "Mi categoría",
-        ca: "La meva categoria"
+        **attributes[:name].except("machine_translations")
       )
 
       find("*[type=submit]").click
@@ -36,8 +35,11 @@ shared_examples "manage categories examples" do
     expect(page).to have_admin_callout("successfully")
 
     within "#categories table" do
-      expect(page).to have_content("My category")
+      expect(page).to have_content(translated(attributes[:name]))
     end
+
+    visit decidim_admin.root_path
+    expect(page).to have_content("added the #{translated(attributes[:name])} category to the")
   end
 
   it "updates a category" do
@@ -51,9 +53,7 @@ shared_examples "manage categories examples" do
       fill_in_i18n(
         :category_name,
         "#category-name-tabs",
-        en: "My new name",
-        es: "Mi nuevo nombre",
-        ca: "El meu nou nom"
+        **attributes[:name].except("machine_translations")
       )
 
       find("*[type=submit]").click
@@ -62,8 +62,11 @@ shared_examples "manage categories examples" do
     expect(page).to have_admin_callout("successfully")
 
     within "#categories table" do
-      expect(page).to have_content("My new name")
+      expect(page).to have_content(translated(attributes[:name]))
     end
+
+    visit decidim_admin.root_path
+    expect(page).to have_content("updated the #{translated(attributes[:name])} category in the")
   end
 
   context "when deleting a category" do

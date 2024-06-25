@@ -17,7 +17,7 @@ describe "Admin manages authorizations users" do
   end
 
   context "when multiple authorization handlers are available" do
-    let(:available_authorizations) { %w(id_documents postal_letter csv_census) }
+    let(:available_authorizations) { %w(id_documents postal_letter csv_census dummy_authorization_handler another_dummy_authorization_handler sms) }
 
     it "displays the menu entries" do
       within ".sidebar-menu" do
@@ -32,6 +32,9 @@ describe "Admin manages authorizations users" do
         expect(page).to have_content("Identity documents")
         expect(page).to have_content("Code by postal letter")
         expect(page).to have_content("Organization's census")
+        expect(page).to have_content("Example authorization")
+        expect(page).to have_content("Another example authorization")
+        expect(page).to have_content("Code by SMS")
       end
     end
   end
@@ -52,6 +55,9 @@ describe "Admin manages authorizations users" do
         expect(page).to have_content("Identity documents")
         expect(page).to have_content("Organization's census")
         expect(page).to have_no_content("Code by postal letter")
+        expect(page).to have_no_content("Example authorization")
+        expect(page).to have_no_content("Another example authorization")
+        expect(page).to have_no_content("Code by SMS")
       end
     end
   end
@@ -72,6 +78,9 @@ describe "Admin manages authorizations users" do
         expect(page).to have_no_content("Identity documents")
         expect(page).to have_no_content("Code by postal letter")
         expect(page).to have_no_content("Organization's census")
+        expect(page).to have_no_content("Example authorization")
+        expect(page).to have_no_content("Another example authorization")
+        expect(page).to have_no_content("Code by SMS")
       end
     end
   end

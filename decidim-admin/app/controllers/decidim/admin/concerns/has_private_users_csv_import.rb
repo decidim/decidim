@@ -26,7 +26,7 @@ module Decidim
             enforce_permission_to :csv_import, :space_private_user
             @form = form(ParticipatorySpacePrivateUserCsvImportForm).from_params(params, privatable_to:)
 
-            ProcessParticipatorySpacePrivateUserImportCsv.call(@form, current_user, current_participatory_space) do
+            ProcessParticipatorySpacePrivateUserImportCsv.call(@form, current_participatory_space) do
               on(:ok) do
                 flash[:notice] = I18n.t("participatory_space_private_users_csv_imports.create.success", scope: "decidim.admin")
                 redirect_to after_import_path

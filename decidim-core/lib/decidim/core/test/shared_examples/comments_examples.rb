@@ -1014,7 +1014,7 @@ shared_examples "comments blocked" do
 
       it "shows a message indicating that comments are disabled" do
         visit resource_path
-        expect(page).to have_content("Comments are currently disabled, only administrators can reply or post new ones.")
+        expect(page).to have_content("Comments are disabled at this time")
         expect(page).to have_no_content("You need to be verified to comment at this moment")
       end
     end
@@ -1039,7 +1039,7 @@ shared_examples "comments blocked" do
 
       it "shows a message indicating that comments are disabled" do
         visit resource_path
-        expect(page).to have_content("Comments are currently disabled, only administrators can reply or post new ones.")
+        expect(page).to have_content("Comments are disabled at this time")
         expect(page).to have_no_content("You need to be verified to comment at this moment")
       end
     end
