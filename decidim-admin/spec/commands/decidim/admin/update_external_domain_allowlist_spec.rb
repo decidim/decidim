@@ -6,8 +6,8 @@ module Decidim::Admin
   describe UpdateExternalDomainAllowlist do
     let(:organization) { create(:organization, external_domain_allowlist: []) }
     let(:user) { create(:user, organization:) }
-    let(:form) { Decidim::Admin::OrganizationExternalDomainAllowlistForm.from_params(attributes) }
-    let(:command) { described_class.new(form, organization, user) }
+    let(:form) { Decidim::Admin::OrganizationExternalDomainAllowlistForm.from_params(attributes).with_context(current_user: user) }
+    let(:command) { described_class.new(form, organization) }
     let(:domains) { ["erabaki.pamplona.es", "osallistu.hel.fi", "codefor.fr"] }
     let(:attributes) do
       {
