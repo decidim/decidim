@@ -13,7 +13,7 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 .. Configure *redirection from HTTP to HTTPS* on your web server.
 .. Configure your *Certificate Authority Authorization* (CAA) DNS records
 .. Install complete *Certificate Chains* if it is needed for your provider
-.. Use current SSL/TLS Protocols (*TLS 1.2 or 1.3*)
+.. Use [current SSL/TLS Protocols](https://stellastra.com/cipher-suite) (*TLS 1.2 or 1.3*)
 .. If you add new static files, be careful of not introducing *mixed content*
 .. Use the *https://www.ssllabs.com/ssltest/[SSL Server Test]* and follow their recommendations
 . Configure your *SMTP* server.
