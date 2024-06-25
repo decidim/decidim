@@ -171,7 +171,6 @@ fr-CA:
         back_to: Retour à %{component_name}
         close_modal: Fermer la fenêtre de dialogue
         continue: Continuer
-        more_information: Plus d'information
       budgets_list:
         budgets: Budgets
         cancel_order:
