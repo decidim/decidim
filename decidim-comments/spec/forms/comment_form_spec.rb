@@ -104,10 +104,10 @@ module Decidim
         end
 
         context "when commentable can have comments" do
-          let(:commentable) { create(:dummy_resource, accepts_new_comments?: true) }
+          let(:commentable) { create(:dummy_resource, accepts_new_comments?: false) }
 
-          it "allows only administrator comments" do
-            allow(component).to receive(:current_user).and_return(double(:user, roles: ["admin"]))
+          it "allows comments if user has any role" do
+            allow(component).to receive(:current_user).and_return(double(:user, roles: []))
             expect(subject.send(:commentable_can_have_comments)).to be_nil
           end
         end
