@@ -57,9 +57,7 @@ module Decidim
         end
 
         def notify_mentioned_or_parent_author
-          affected_users = mentioned_users.select do |user|
-            proposal_valuators.include?(user) || admins.exists?(user.id)
-          end
+          affected_users = mentioned_admins_or_valuators
           affected_users << parent.author unless form.current_user == parent.author
 
           Decidim::EventsManager.publish(

@@ -28,6 +28,20 @@ module Decidim
         def admins
           @admins ||= Decidim::User.org_admins_except_me(form.current_user).all
         end
+
+        def space_admins
+          @space_admins ||= proposal.participatory_space.user_roles("admin").includes(:user).filter_map do |role|
+            role.user unless role.user == form.current_user
+          end
+        end
+
+        def mentioned_admins_or_valuators
+          mentioned_users.select do |user|
+            admins.exists?(user.id) ||
+              space_admins.include?(user) ||
+              proposal_valuators.include?(user)
+          end
+        end
       end
     end
   end

@@ -26,7 +26,7 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           create_proposal_note
-          notify_admins_and_valuators
+          notify_mentioned
 
           broadcast(:ok, proposal_note)
         end
@@ -50,12 +50,12 @@ module Decidim
           )
         end
 
-        def notify_admins_and_valuators
+        def notify_mentioned
           Decidim::EventsManager.publish(
             event: "decidim.events.proposals.admin.proposal_note_created",
             event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
             resource: proposal,
-            affected_users: admins + proposal_valuators
+            affected_users: mentioned_admins_or_valuators
           )
         end
       end
