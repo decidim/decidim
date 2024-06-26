@@ -51,11 +51,15 @@ module Decidim
         end
 
         def notify_mentioned
+          affected_users = mentioned_admins_or_valuators
+
+          return if affected_users.blank?
+
           Decidim::EventsManager.publish(
             event: "decidim.events.proposals.admin.proposal_note_created",
             event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
             resource: proposal,
-            affected_users: mentioned_admins_or_valuators
+            affected_users:
           )
         end
       end

@@ -60,6 +60,8 @@ module Decidim
           affected_users = mentioned_admins_or_valuators
           affected_users << parent.author unless form.current_user == parent.author
 
+          return if affected_users.blank?
+
           Decidim::EventsManager.publish(
             event: "decidim.events.proposals.admin.proposal_note_replied",
             event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
