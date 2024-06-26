@@ -142,6 +142,12 @@ describe "Invite process administrator" do
       end
     end
 
+    it "selects the user role in the form" do
+      edit_user(administrator.name)
+
+      expect(page).to have_select("Role", selected: "Administrator")
+    end
+
     context "when user exists in the organization" do
       before do
         perform_enqueued_jobs { invite_user }

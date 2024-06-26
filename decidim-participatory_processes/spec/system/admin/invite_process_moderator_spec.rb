@@ -71,5 +71,11 @@ describe "Invite process moderator" do
         expect(page).to have_css("span.process-title-content-breadcrumb", text: "Moderations")
       end
     end
+
+    it "selects the user role in the form" do
+      edit_user(moderator.name)
+
+      expect(page).to have_select("Role", selected: "Moderator")
+    end
   end
 end

@@ -60,5 +60,11 @@ describe "Invite process collaborator" do
         expect(page).to have_i18n_content(participatory_process.title)
       end
     end
+
+    it "selects the user role in the form" do
+      edit_user(collaborator.name)
+
+      expect(page).to have_select("Role", selected: "Collaborator")
+    end
   end
 end

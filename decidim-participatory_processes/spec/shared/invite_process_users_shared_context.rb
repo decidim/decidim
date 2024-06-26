@@ -21,4 +21,14 @@ shared_context "when inviting process users" do
     click_on "Create"
     logout :user
   end
+
+  def edit_user(username)
+    login_as user, scope: :user
+
+    visit decidim_admin_participatory_processes.participatory_process_user_roles_path(participatory_process)
+
+    within "tr", text: username do
+      click_on "Edit"
+    end
+  end
 end
