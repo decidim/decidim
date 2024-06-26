@@ -1043,13 +1043,14 @@ shared_examples "comments blocked" do
         expect(page).to have_no_content("You need to be verified to comment at this moment")
       end
 
-      context "when comments are blocked and the user is an administrator" do
-        let!(:user) { create(:user, :admin, :confirmed, organization:) }
-
-        before do
-          login_as user, scope: :user
-          visit resource_path
+      shared_examples "can answer comments" do
+        context "and the user is an administrator" do
+          it_behaves_like "can answer comments"
         end
+      end
+
+      context "when the user is an administrator" do
+        let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
         it "can answer comments" do
           visit resource_path
@@ -1070,15 +1071,5 @@ shared_examples "comments blocked" do
         end
       end
     end
-  end
-end
-
-shared_examples "can answer comments" do
-  context "and the user is an administrator" do
-    it_behaves_like "can answer comments"
-  end
-
-  context "and the user has a role" do
-    it_behaves_like "can ansser comments"
   end
 end

@@ -106,23 +106,28 @@ module Decidim
         end
       end
 
+      shared_examples "allows commenting" do
+        it "allows commenting" do
+          expect(subject.send(:commentable_can_have_comments)).to be_nil
+          expect(subject).to be_valid
+        end
+      end
+
       describe "#comentable_can_have_comments" do
+        before do
+          allow(subject).to receive(:current_user).and_return(current_user)
+        end
+
         context "when user is admin" do
           let(:current_user) { admin_user }
 
-          it "allows commenting" do
-            expect(subject.send(:commentable_can_have_comments)).to be_nil
-            expect(subject).to be_valid
-          end
+          it_behaves_like "allows commenting"
         end
 
         context "when user is user manager" do
           let(:current_user) { user_manager }
 
-          it "allows commenting" do
-            expect(subject.send(:commentable_can_have_comments)).to be_nil
-            expect(subject).to be_valid
-          end
+          it_behaves_like "allows commenting"
         end
       end
     end
