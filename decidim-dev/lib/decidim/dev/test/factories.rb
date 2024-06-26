@@ -17,6 +17,7 @@ FactoryBot.define do
       users { nil }
       # user_groups correspondence to users is by sorting order
       user_groups { [] }
+      accepts_new_comments? { true }
     end
     title { generate_localized_title(:dummy_resource_title, skip_injection:) }
     component { create(:dummy_component, skip_injection:) }

@@ -102,6 +102,15 @@ module Decidim
             expect(subject.max_length).to eq(organization.comments_max_length)
           end
         end
+
+        context "when commentable can have comments" do
+          let(:commentable) { create(:dummy_resource, accepts_new_comments?: true) }
+
+          it "allows only administrator comments" do
+            allow(component).to receive(:current_user).and_return(double(:user, roles: ["admin"]))
+            expect(subject.send(:commentable_can_have_comments)).to be_nil
+          end
+        end
       end
     end
   end
