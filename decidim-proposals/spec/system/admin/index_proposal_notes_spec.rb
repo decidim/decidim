@@ -29,6 +29,7 @@ describe "Index Proposal Notes" do
     within "tr", text: translated(proposal.title) do
       click_on "Answer proposal"
     end
+    click_on "Private notes"
   end
 
   it "shows proposal notes for the current proposal" do
@@ -48,6 +49,8 @@ describe "Index Proposal Notes" do
       end
 
       expect(page).to have_admin_callout("successfully")
+
+      click_on "Private notes"
 
       within "#panel-notes .comment:last-of-type" do
         expect(page).to have_content(decidim_sanitize_translated(attributes[:body]))
@@ -82,6 +85,8 @@ describe "Index Proposal Notes" do
     end
 
     expect(page).to have_admin_callout("successfully")
+
+    click_on "Private notes"
 
     within("div.comment", text: decidim_sanitize_translated(proposal_note.body)) do
       expect(page).to have_content(decidim_sanitize_translated(attributes[:body]))
