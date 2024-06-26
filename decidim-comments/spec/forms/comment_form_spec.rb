@@ -15,13 +15,15 @@ module Decidim
       end
 
       let(:organization) { create(:organization) }
+      let(:admin_user) { create(:user, :admin, :confirmed, organization:) }
+      let(:user_manager) { create(:user, :user_manager, :confirmed, organization:) }
       let!(:component) { create(:component, organization:) }
       let(:body) { "This is a new comment" }
       let(:alignment) { 1 }
       let(:user_group) { create(:user_group, :verified) }
       let(:user_group_id) { user_group.id }
 
-      let(:commentable) { create(:dummy_resource) }
+      let(:commentable) { create(:dummy_resource, accepts_new_comments?: false) }
 
       let(:attributes) do
         {
@@ -102,13 +104,24 @@ module Decidim
             expect(subject.max_length).to eq(organization.comments_max_length)
           end
         end
+      end
 
-        context "when commentable can have comments" do
-          let(:commentable) { create(:dummy_resource, accepts_new_comments?: false) }
+      describe "#comentable_can_have_comments" do
+        context "when user is admin" do
+          let(:current_user) { admin_user }
 
-          it "allows comments if user has any role" do
-            allow(component).to receive(:current_user).and_return(double(:user, roles: []))
+          it "allows commenting" do
             expect(subject.send(:commentable_can_have_comments)).to be_nil
+            expect(subject).to be_valid
+          end
+        end
+
+        context "when user is user manager" do
+          let(:current_user) { user_manager }
+
+          it "allows commenting" do
+            expect(subject.send(:commentable_can_have_comments)).to be_nil
+            expect(subject).to be_valid
           end
         end
       end
