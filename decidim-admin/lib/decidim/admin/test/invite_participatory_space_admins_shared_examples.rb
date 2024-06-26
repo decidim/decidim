@@ -10,7 +10,7 @@ shared_examples "inviting participatory space admins" do
       within_admin_sidebar_menu do
         expect(page).to have_content(about_this_space_label)
         expect(page).to have_content("Landing page")
-        expect(page).to have_content("Phases")
+        expect(page).to have_content("Phases") if participatory_space.is_a?(Decidim::ParticipatoryProcess)
         expect(page).to have_content("Components")
         expect(page).to have_content("Categories")
         expect(page).to have_content("Attachments")
@@ -26,7 +26,7 @@ shared_examples "inviting participatory space admins" do
       within_admin_sidebar_menu do
         expect(page).to have_content(about_this_space_label)
         expect(page).to have_content("Landing page")
-        expect(page).to have_content("Phases")
+        expect(page).to have_content("Phases") if participatory_space.is_a?(Decidim::ParticipatoryProcess)
         expect(page).to have_content("Components")
         expect(page).to have_content("Categories")
         expect(page).to have_content("Attachments")
