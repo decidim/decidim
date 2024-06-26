@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "inviting participatory space admins" do
+shared_examples "inviting participatory space admins" do |check_private_space: true, check_landing_page: true|
   before do
     switch_to_host organization.host
   end
@@ -9,13 +9,13 @@ shared_examples "inviting participatory space admins" do
     it "can access all sections" do
       within_admin_sidebar_menu do
         expect(page).to have_content(about_this_space_label)
-        expect(page).to have_content("Landing page")
+        expect(page).to have_content("Landing page") if check_landing_page
         expect(page).to have_content("Phases") if participatory_space.is_a?(Decidim::ParticipatoryProcess)
         expect(page).to have_content("Components")
         expect(page).to have_content("Categories")
         expect(page).to have_content("Attachments")
         expect(page).to have_content(space_admins_label)
-        expect(page).to have_no_content("Private participants")
+        expect(page).to have_no_content("Private participants") if participatory_space.respond_to?(:private_space)
         expect(page).to have_content("Moderations")
       end
     end
@@ -25,13 +25,13 @@ shared_examples "inviting participatory space admins" do
     it "can access all sections" do
       within_admin_sidebar_menu do
         expect(page).to have_content(about_this_space_label)
-        expect(page).to have_content("Landing page")
+        expect(page).to have_content("Landing page") if check_landing_page
         expect(page).to have_content("Phases") if participatory_space.is_a?(Decidim::ParticipatoryProcess)
         expect(page).to have_content("Components")
         expect(page).to have_content("Categories")
         expect(page).to have_content("Attachments")
         expect(page).to have_content(space_admins_label)
-        expect(page).to have_content("Private participants")
+        expect(page).to have_content("Private participants") if participatory_space.respond_to?(:private_space)
         expect(page).to have_content("Moderations")
       end
     end
@@ -101,10 +101,12 @@ shared_examples "inviting participatory space admins" do
         it_behaves_like "sees public space menu"
       end
 
-      context "and is a private space" do
-        let(:participatory_space) { private_participatory_space }
+      if check_private_space
+        context "and is a private space" do
+          let(:participatory_space) { private_participatory_space }
 
-        it_behaves_like "sees private space menu"
+          it_behaves_like "sees private space menu"
+        end
       end
     end
   end
@@ -164,10 +166,12 @@ shared_examples "inviting participatory space admins" do
         it_behaves_like "sees public space menu"
       end
 
-      context "and is a private space" do
-        let(:participatory_space) { private_participatory_space }
+      if check_private_space
+        context "and is a private space" do
+          let(:participatory_space) { private_participatory_space }
 
-        it_behaves_like "sees private space menu"
+          it_behaves_like "sees private space menu"
+        end
       end
     end
   end
