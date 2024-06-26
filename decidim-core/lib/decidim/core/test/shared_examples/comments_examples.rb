@@ -1044,4 +1044,41 @@ shared_examples "comments blocked" do
       end
     end
   end
+
+  context "when authenticated administrator" do
+    let!(:organization) { create(:organization) }
+    let!(:user) { create(:user, :admin, :confirmed, organization:) }
+    let!(:comments) { create_list(:comment, 3, commentable:) }
+
+    before do
+      login_as user, scope: :user
+      visit resource_path
+    end
+
+    context "when comments are blocked" do
+      let(:active_step_id) { component.participatory_space.active_step.id }
+
+      before do
+        component.update!(step_settings: { active_step_id => { comments_blocked: true } })
+      end
+
+      it "allows admin to answer closed comments" do
+        visit resource_path
+        expect(page).to have_link("Comment")
+        page.find("a", text: "Comment").click
+        fill_in "Comment", with: "Test admin commenting in a closed comment."
+        click_on "Publish comment"
+        expect(page).to have_content("Test admin commenting in a closed comment.")
+
+        expect(page).to have_button("Reply")
+        first("button", text: "Reply").click
+        expect(page).to have_css(".comment-thread")
+        within first(".comment-thread") do
+          fill_in "Comment", with: "Test admin replying a closed comment."
+          click_on "Publish reply"
+        end
+        expect(page).to have_content("Test admin replying a closed comment.")
+      end
+    end
+  end
 end

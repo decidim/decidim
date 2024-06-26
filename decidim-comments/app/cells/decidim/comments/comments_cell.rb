@@ -8,7 +8,7 @@ module Decidim
       delegate :user_signed_in?, to: :controller
 
       def add_comment
-        render :add_comment if show_comments?
+        render :add_comment if can_add_comments?
       end
 
       def single_comment_warning
@@ -39,7 +39,7 @@ module Decidim
 
       private
 
-      def show_comments?
+      def can_add_comments?
         return true if user_has_any_role?(current_user)
         return if single_comment?
         return if comments_blocked?

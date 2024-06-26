@@ -5,9 +5,9 @@ module Decidim
     # Shared behaviour for signed_in admins that require the latest TOS accepted
     module NeedsAdminTosAccepted
       extend ActiveSupport::Concern
+      include UserRoleChecker
 
       included do
-        include UserRoleChecker
         before_action :tos_accepted_by_admin
       end
 
