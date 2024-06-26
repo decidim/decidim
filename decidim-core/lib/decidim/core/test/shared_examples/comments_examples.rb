@@ -1044,15 +1044,7 @@ shared_examples "comments blocked" do
       end
 
       shared_examples "can answer comments" do
-        context "and the user is an administrator" do
-          it_behaves_like "can answer comments"
-        end
-      end
-
-      context "when the user is an administrator" do
-        let!(:user) { create(:user, :admin, :confirmed, organization:) }
-
-        it "can answer comments" do
+        it "can answer" do
           visit resource_path
           expect(page).to have_link("Comment")
           page.find("a", text: "Comment").click
@@ -1069,6 +1061,12 @@ shared_examples "comments blocked" do
           end
           expect(page).to have_content("Test admin replying a closed comment.")
         end
+      end
+
+      context "when the user is an administrator" do
+        let!(:user) { create(:user, :admin, :confirmed, organization:) }
+
+        it_behaves_like "can answer comments"
       end
     end
   end
