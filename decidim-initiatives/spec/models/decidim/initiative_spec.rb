@@ -137,7 +137,7 @@ module Decidim
           expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_state_change)
             .at_least(:once)
             .and_return(message_delivery)
-          validating_initiative.published!
+          validating_initiative.publish!
         end
 
         it "Discard is notified by email" do

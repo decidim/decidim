@@ -92,7 +92,7 @@ en:
               accepted: Enough signatures
               created: Created
               discarded: Discarded
-              published: Published
+              open: Open
               rejected: Not enough signatures
               validating: Technical validation
           type_id_eq:
@@ -326,7 +326,7 @@ en:
         accepted: Enough signatures
         created: Created
         discarded: Discarded
-        published: Published
+        open: Open
         rejected: Not enough signatures
         validating: Technical validation
       application_helper:
@@ -575,7 +575,7 @@ en:
           accepted: Enough signatures
           created: Created
           discarded: Discarded
-          published: Published
+          open: Open
           rejected: Not enough signatures
           validating: Technical validation
       states:

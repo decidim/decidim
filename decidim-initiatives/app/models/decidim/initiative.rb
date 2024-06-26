@@ -63,7 +63,7 @@ module Decidim
              as: :participatory_space
 
     enum signature_type: [:online, :offline, :any], _suffix: true
-    enum state: [:created, :validating, :discarded, :published, :rejected, :accepted]
+    enum state: [:created, :validating, :discarded, :open, :rejected, :accepted]
 
     validates :title, :description, :state, :signature_type, presence: true
     validates :hashtag,
@@ -72,8 +72,8 @@ module Decidim
     validate :signature_type_allowed
 
     scope :open, lambda {
-      where.not(state: [:discarded, :rejected, :accepted, :created])
-           .currently_signable
+      where(state: [:open])
+        .currently_signable
     }
     scope :closed, lambda {
       where(state: [:discarded, :rejected, :accepted])
@@ -254,7 +254,7 @@ module Decidim
 
       update(
         published_at: Time.current,
-        state: "published",
+        state: "open",
         signature_start_date: Date.current,
         signature_end_date: signature_end_date || (Date.current + Decidim::Initiatives.default_signature_time_period_length)
       )

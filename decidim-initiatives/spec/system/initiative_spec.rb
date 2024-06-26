@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Initiative" do
   let(:organization) { create(:organization) }
-  let(:state) { :published }
+  let(:state) { :open }
   let(:base_initiative) do
     create(:initiative, organization:, state:)
   end
@@ -181,8 +181,8 @@ describe "Initiative" do
         it_behaves_like "initiative does not show send to technical validation"
       end
 
-      context "when initiative state is published" do
-        let(:state) { :published }
+      context "when initiative state is open" do
+        let(:state) { :open }
 
         it_behaves_like "initiative does not show send to technical validation"
       end
