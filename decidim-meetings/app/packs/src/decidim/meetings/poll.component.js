@@ -24,7 +24,7 @@ export default class PollComponent {
     this.$element = $element;
     this.$counter = $counter;
     this.questionsUrl = config.questionsUrl;
-    this.pollingInterval = config.pollingInterval || 5000;
+    this.pollingInterval = config.pollingInterval || 10000;
     this.mounted = false;
     this.questions = {};
     this.questionsStatuses = {};
@@ -68,6 +68,8 @@ export default class PollComponent {
    * @returns {Void} - Returns nothing
    */
   _fetchQuestions() {
+    $("#content").addClass("spinner-container")
+
     // Store current questions state (open / closed) before overwriting them with the Ajax call
     // response.
     this._storeQuestionState(this.$element);
@@ -81,6 +83,8 @@ export default class PollComponent {
       this._setQuestionsState(this.$element);
       this._pollQuestions();
       this._addValidations();
+
+      $("#content").removeClass("spinner-container")
     });
   }
 

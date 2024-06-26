@@ -24,6 +24,7 @@ module Decidim::Admin
         file:,
         link:,
         attachment_collection: nil,
+        current_user: user,
         weight: 2
       )
     end
@@ -37,7 +38,7 @@ module Decidim::Admin
 
       it "broadcasts :ok and updates the attachment" do
         expect do
-          described_class.call(attachment, form, user)
+          described_class.call(attachment, form)
         end.to broadcast(:ok)
 
         expect(attachment["title"]["en"]).to eq("An image")
@@ -50,7 +51,7 @@ module Decidim::Admin
           .with(:update, attachment, user, {})
           .and_call_original
 
-        expect { described_class.call(attachment, form, user) }.to change(Decidim::ActionLog, :count)
+        expect { described_class.call(attachment, form) }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
         expect(action_log.action).to eq("update")
         expect(action_log.version).to be_present
@@ -64,7 +65,7 @@ module Decidim::Admin
 
       it "does not update the component" do
         expect do
-          described_class.call(attachment, form, user)
+          described_class.call(attachment, form)
         end.to broadcast(:invalid)
 
         attachment.reload

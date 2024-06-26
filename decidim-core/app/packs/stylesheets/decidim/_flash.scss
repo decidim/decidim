@@ -12,7 +12,7 @@
   }
 
   &__message {
-    @apply text-black font-medium text-md;
+    @apply text-black font-medium text-md flex-col;
 
     a {
       @apply underline text-secondary;

@@ -8,15 +8,14 @@ module Decidim
     # will be invited to the application and will lose the managed flag
     # so the user cannot be impersonated anymore.
     class PromoteManagedUser < Decidim::Command
+      delegate :current_user, to: :form
       # Public: Initializes the command.
       #
       # form         - A form object with the params.
       # user         - The user to promote
-      # promoted_by  - The user performing the operation
-      def initialize(form, user, promoted_by)
+      def initialize(form, user)
         @form = form
         @user = user
-        @promoted_by = promoted_by
       end
 
       # Executes the command. Broadcasts these events:
@@ -35,7 +34,7 @@ module Decidim
         broadcast(:ok)
       end
 
-      attr_reader :form, :user, :promoted_by
+      attr_reader :form, :user
 
       private
 
@@ -46,7 +45,7 @@ module Decidim
       end
 
       def invite_user
-        user.invite!(promoted_by)
+        user.invite!(current_user)
       end
 
       def email_already_exists?

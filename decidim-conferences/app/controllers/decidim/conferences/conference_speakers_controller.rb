@@ -16,7 +16,7 @@ module Decidim
       private
 
       def speakers
-        @speakers ||= current_participatory_space.speakers
+        @speakers ||= current_participatory_space.speakers.published
       end
 
       alias collection speakers

@@ -4,17 +4,16 @@ module Decidim
   module Admin
     # Updates the newsletter given form data.
     class UpdateNewsletter < Decidim::Command
+      delegate :current_user, to: :form
       # Initializes the command.
       #
       # newsletter - The Newsletter to update.
       # form       - The form object containing the data to update.
-      # user       - The user that updates the newsletter.
-      def initialize(newsletter, form, user)
+      def initialize(newsletter, form)
         @newsletter = newsletter
         @content_block = newsletter.template
         @form = form
-        @user = user
-        @organization = user.organization
+        @organization = form.current_organization
       end
 
       def call
@@ -32,19 +31,20 @@ module Decidim
 
       private
 
-      attr_reader :user, :newsletter, :content_block, :organization, :form
+      attr_reader :newsletter, :content_block, :organization, :form
 
       def update_newsletter
+        # pp current_user.inspect
         @newsletter = Decidim.traceability.update!(
           newsletter,
-          user,
+          current_user,
           subject: form.subject,
-          author: user
+          author: current_user
         )
       end
 
       def update_content_block
-        ContentBlocks::UpdateContentBlock.call(form, content_block, user) do
+        ContentBlocks::UpdateContentBlock.call(form, content_block, current_user) do
           on(:ok) do |content_block|
             @content_block = content_block
           end
