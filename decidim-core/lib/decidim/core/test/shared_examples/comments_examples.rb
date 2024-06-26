@@ -1068,6 +1068,19 @@ shared_examples "comments blocked" do
 
         it_behaves_like "can answer comments"
       end
+
+      context "when the user has a role of user manager" do
+        let!(:user) { create(:user, :user_manager, :confirmed, organization:) }
+
+        it_behaves_like "can answer comments"
+      end
+
+      context "when the user has an evaluator role" do
+        let!(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
+        let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process:) }
+
+        it_behaves_like "can answer comments"
+      end
     end
   end
 end

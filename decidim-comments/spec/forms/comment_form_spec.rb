@@ -10,11 +10,13 @@ module Decidim
           attributes
         ).with_context(
           current_organization: organization,
-          current_component: component
+          current_component: component,
+          current_user: user
         )
       end
 
       let(:organization) { create(:organization) }
+      let(:user) { create(:user, :confirmed, organization:) }
       let(:admin_user) { create(:user, :admin, :confirmed, organization:) }
       let(:user_manager) { create(:user, :user_manager, :confirmed, organization:) }
       let!(:component) { create(:component, organization:) }
@@ -23,7 +25,7 @@ module Decidim
       let(:user_group) { create(:user_group, :verified) }
       let(:user_group_id) { user_group.id }
 
-      let(:commentable) { create(:dummy_resource, accepts_new_comments?: false) }
+      let(:commentable) { create(:dummy_resource) }
 
       let(:attributes) do
         {
@@ -114,10 +116,6 @@ module Decidim
       end
 
       describe "#commentable_can_have_comments" do
-        before do
-          allow(subject).to receive(:current_user).and_return(current_user)
-        end
-
         context "when user is admin" do
           let(:current_user) { admin_user }
 
