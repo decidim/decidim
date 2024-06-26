@@ -22,10 +22,15 @@ module Decidim
         end
 
         describe "when the template is valid" do
-          let(:destination_questionnaire) do
-            events = described_class.call(template, user)
+          let(:events) { described_class.call(template, user) }
+          let(:destination_questionnaire) { events[:ok].templatable }
+
+          it "returns an event with :ok key" do
             expect(events).to have_key(:ok)
-            events[:ok].templatable
+          end
+
+          it "assigns the correct templatable to destination_questionnaire" do
+            expect(destination_questionnaire).to eq(events[:ok].templatable)
           end
 
           it "applies template attributes to the questionnaire" do
