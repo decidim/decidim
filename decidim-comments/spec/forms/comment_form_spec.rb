@@ -113,7 +113,7 @@ module Decidim
         end
       end
 
-      describe "#comentable_can_have_comments" do
+      describe "#commentable_can_have_comments" do
         before do
           allow(subject).to receive(:current_user).and_return(current_user)
         end
