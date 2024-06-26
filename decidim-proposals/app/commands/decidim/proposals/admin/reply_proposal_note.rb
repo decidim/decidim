@@ -58,7 +58,7 @@ module Decidim
 
         def notify_mentioned_or_parent_author
           affected_users = mentioned_admins_or_valuators
-          affected_users << parent.author unless form.current_user == parent.author
+          affected_users << parent.author unless affected_users.include?(parent.author) || form.current_user == parent.author
 
           return if affected_users.blank?
 
