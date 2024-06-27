@@ -92,6 +92,7 @@ uk:
       actions:
         add: Додати
         browse: Переглянути
+        manage: Керувати
         permissions: Права
         reject: Відхилити
         verify: Підтвердити

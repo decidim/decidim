@@ -74,6 +74,9 @@ fr-CA:
         deleted_user: Utilisateur supprimé
         edit: Modifier
         edited: Modifié
+        hide_replies:
+          one: Masquer la réponse
+          other: Masquer {count} réponses
         moderated_at: Commentaire modéré le %{date}
         reply: Répondre
         report:

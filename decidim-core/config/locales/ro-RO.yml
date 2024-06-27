@@ -478,6 +478,7 @@ ro:
       registrations:
         new:
           already_have_an_account?: Ai deja un cont?
+          log_in: Autentificare
           newsletter: Primește un buletin informativ ocazional cu informații relevante
           newsletter_title: Drepturi privind contactele
           sign_up: Înscrie-te
@@ -1347,10 +1348,14 @@ ro:
       signed_up_but_unconfirmed: Un mesaj cu un link de confirmare a fost trimis la adresa ta de e-mail. Te rugăm să urmezi link-ul pentru a-ți activa contul.
       update_needs_confirmation: Ți-ai actualizat contul cu succes, dar trebuie să verificăm noua ta adresă de e-mail. Vă rugăm să verificați adresa de e-mail și să urmați link-ul de confirmare pentru a confirma noua dvs. adresă de e-mail.
       updated: Contul dvs. a fost actualizat cu succes.
+    sessions:
+      new:
+        log_in: Autentificare
     shared:
       links:
         back: Înapoi
         forgot_your_password: Ți-ai uitat parola?
+        log_in: Autentificare
         sign_up: Înscrie-te
       minimum_password_length:
         one: "(minim%{count} caracter)"
@@ -1405,9 +1410,11 @@ ro:
         cc_by_license: Licență Creative Commons
         decidim_logo: Logo decidim
         download_open_data: Descarcă fișierele de date deschise
+        log_in: Autentificare
         made_with_open_source: Site web creat cu <a target="_blank" href="https://github.com/decidim/decidim">software gratuit</a>.
         sign_up: Înscrie-te
       header:
+        log_in: Autentificare
         main_menu: Meniul principal
         user_menu: Meniu utilizator
       impersonation_warning:

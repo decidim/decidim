@@ -320,7 +320,6 @@ it:
             space_type: Spazio partecipativo
       layouts:
         live_event:
-          administrate: Amministra
           close: chiudi
           questions: Domande
       mailer:

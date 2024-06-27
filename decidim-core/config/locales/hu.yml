@@ -1344,7 +1344,6 @@ hu:
           past: Múlt
       filters_small_view:
         filter: Szűrés
-        filter_and_search: Szűrés és keresés
         filter_by: 'Szűrés ez alapján:'
       results:
         view_all: Összes megtekintése (%{count})

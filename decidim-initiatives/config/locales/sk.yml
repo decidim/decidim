@@ -54,10 +54,8 @@ sk:
   decidim:
     admin:
       actions:
-        manage: Správa
         new_initiative_type: Nový typ iniciatívy
       menu:
-        components: Komponenty
         information: Informácie
         initiatives: Iniciatívy
         initiatives_types: Typy iniciatív

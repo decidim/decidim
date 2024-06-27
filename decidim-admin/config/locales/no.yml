@@ -151,6 +151,7 @@
         export: Eksporter alt
         export-selection: Eksporter valg
         import: Importer
+        manage: Administrer
         newsletter:
           new: Nytt nyhetsbrev
         participatory_space_private_user:

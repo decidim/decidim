@@ -335,7 +335,6 @@
         open_in_live_event_page: Åpne på siden for direktearrangement (med valgfri meningsmåling)
       layouts:
         live_event:
-          administrate: Administrere
           close: lukk
           questions: Spørsmål
       mailer:

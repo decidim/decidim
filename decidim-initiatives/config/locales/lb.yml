@@ -63,7 +63,6 @@ lb:
   decidim:
     admin:
       actions:
-        manage: Verwalten
         new_initiative_type: Neuer Initiativentyp
       filters:
         initiatives:
@@ -85,7 +84,6 @@ lb:
       menu:
         attachments: Anhänge
         committee_members: Ausschussmitglieder
-        components: Komponenten
         information: Information
         initiatives: Initiativen
         initiatives_types: Arten von Initiativen

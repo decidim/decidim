@@ -156,9 +156,7 @@ lt:
             comments_enabled: Komentarai įjungti
             comments_max_length: Maksimalus komentarų ilgis (Palikite 0 kaip numatytą vertę)
             default_sort_order: Numatytas pasiūlymų rikiavimas
-            default_sort_order_help: Numatytasis reiškia, kad įjungus paramą, pasiūlymai bus surūšiuotjami atsitiktine tvarka, o jeigu paramos blokuojamos – pagal labiausiai palaikomus.
             default_sort_order_options:
-              default: Numatytasis
               most_commented: Labiausiai komentuojamas
               most_endorsed: Labiausiai pritarta
               most_followed: Labiausiai sekė
@@ -209,9 +207,7 @@ lt:
             creation_enabled: Dalyviai gali kurti pasiūlymus
             creation_enabled_readonly: Šis nustatymas išjungiamas, kai suaktyvinate Dalyvaujančių Tekstų funkciją. Norėdami įkelti pasiūlymus kaip dalyvaujamąjį tekstą, spustelėkite mygtuką Dalyvaujantys Tekstai ir vadovaukitės instrukcijomis.
             default_sort_order: Numatytasis pasiūlymų rūšiavimas
-            default_sort_order_help: Numatytasis reiškia, kad įjungus palaikymus pasiūlymai bus rodomi surūšiuoti atsitiktine tvarka, o jei palaikymai yra blokuojami – pagal labiausiai palaikomus.
             default_sort_order_options:
-              default: Numatytasis
               most_commented: Labiausiai komentuojamas
               most_endorsed: Labiausiai pritarta
               most_followed: Labiausiai sekamas

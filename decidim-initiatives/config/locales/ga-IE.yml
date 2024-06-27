@@ -26,8 +26,6 @@ ga:
         other: Coistí
   decidim:
     admin:
-      actions:
-        manage: Bainistigh
       filters:
         initiatives:
           decidim_area_id_eq:

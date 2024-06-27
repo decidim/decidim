@@ -361,7 +361,6 @@ sv:
         new_meeting: 'Nytt möte:'
       layouts:
         live_event:
-          administrate: Administrera
           close: stäng
           questions: Frågor
       mailer:

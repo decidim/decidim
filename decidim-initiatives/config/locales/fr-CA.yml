@@ -80,7 +80,6 @@ fr-CA:
   decidim:
     admin:
       actions:
-        manage: Gérer
         new_initiative_type: Nouveau type d'initiative
         new_initiative_type_scope: Nouveau secteur du type de pétition
       filters:
@@ -107,7 +106,6 @@ fr-CA:
       menu:
         attachments: Pièces jointes
         committee_members: Membres de comité
-        components: Fonctionnalités
         information: Informations
         initiative_type_scopes: Secteurs du type de pétition
         initiatives: Pétitions

@@ -20,10 +20,7 @@ is:
         name: Heill heiti
   decidim:
     admin:
-      actions:
-        manage: Stjórna
       menu:
-        components: Hluti
         information: Upplýsingar
         initiatives: Frumkvæði
         initiatives_types: Frumgerð tegundir

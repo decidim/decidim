@@ -170,6 +170,7 @@ sv:
         export: Exportera alla
         export-selection: Exportera markering
         import: Importera
+        manage: Hantera
         newsletter:
           new: Nytt nyhetsbrev
         participatory_space_private_user:

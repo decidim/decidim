@@ -6,8 +6,6 @@ sl:
         decidim_user_group_id: Avtor
   decidim:
     admin:
-      actions:
-        manage: Uredi
       filters:
         initiatives:
           decidim_area_id_eq:

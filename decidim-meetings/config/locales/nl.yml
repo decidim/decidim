@@ -356,7 +356,6 @@ nl:
         open_in_new_tab: Open link in een nieuw tabblad
       layouts:
         live_event:
-          administrate: Beheer
           close: sluit
           questions: Vragen
       mailer:

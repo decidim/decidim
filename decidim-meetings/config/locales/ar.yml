@@ -396,7 +396,6 @@ ar:
         new_meeting: 'اجتماع جديد:'
       layouts:
         live_event:
-          administrate: إدارة
           close: إغلاق
           questions: الأسئلة
       mailer:
