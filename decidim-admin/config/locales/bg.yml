@@ -2,7 +2,7 @@ bg:
   activemodel:
     attributes:
       area:
-        area_type: Тип район
+        area_type: Тип област
         name: Име
         organization: Организация
       area_type:
@@ -570,6 +570,7 @@ bg:
         appearance: Външен вид
         area_types: Типове области
         areas: Области
+        components: Компоненти
         configuration: Конфигурация
         content: Докладвано съдържание
         external_domain_allowlist: Лист с позволени външни домейни

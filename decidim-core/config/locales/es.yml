@@ -356,7 +356,11 @@ es:
     application:
       document:
         download: Descargar archivo
+        visit_link: Visita el enlace
       documents:
+        component_documents:
+          dummy: Documentos de componentes ficticios
+          meetings: Documentos sobre encuentros
         documents: Documentos
         related_documents: Documentos relacionados
       photo:
@@ -876,6 +880,11 @@ es:
         button: Dejar de seguir
         error: Se ha producido un error al dejar de seguir este recurso.
     forms:
+      attachment_link:
+        explanation: Guía para enlaces adjuntos
+        help_messages:
+          - Solo se aceptan formatos de URL correctos.
+          - Ten en cuenta que los enlaces deben ser públicos para que todos los participantes puedan acceder a ellos.
       errors:
         decidim/user:
           password: La contraseña es demasiado corta.
@@ -1230,6 +1239,7 @@ es:
         same_language: El contenido ha sido publicado en tu idioma preferido (%{language}), por eso no se muestra ninguna traducción automática en este correo electrónico.
         translated_text: 'Texto traducido automáticamente:'
     notifications:
+      action_error: Se ha producido un error al actualizar las notificaciones.
       no_notifications: Aún no hay notificaciones.
       show:
         missing_event: Vaya, esta notificación pertenece a un elemento que ya no está disponible. Puedes descartarla.
@@ -1926,7 +1936,7 @@ es:
         sign_up: Regístrate
         terms_of_service: Términos y condiciones de uso
       header:
-        log_in: Entra
+        log_in: Iniciar sesión
         main_menu: Menú principal
         user_menu: Menú de usuario
       impersonation_warning:
@@ -1940,10 +1950,6 @@ es:
         mark_as_read: Marcar como leído
       offline_banner:
         cache_version_page: '¡Ups! Tu red está desconectada. Esta es una versión previa en caché de la página que estás visitando, quizás el contenido no está actualizado.'
-      shared:
-        layout_item:
-          next: Siguiente tema
-          prev: Tema anterior
       social_media_links:
         facebook: "%{organization} en Facebook"
         github: "%{organization} en GitHub"

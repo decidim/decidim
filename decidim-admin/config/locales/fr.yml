@@ -570,6 +570,7 @@ fr:
         appearance: Apparence
         area_types: Types de périmètre d'assemblée
         areas: Périmètres d'assemblée
+        components: Fonctionnalités
         configuration: Configuration
         content: Contenu signalé
         external_domain_allowlist: Domaines externes autorisés

@@ -110,7 +110,6 @@ ga:
       layouts:
         live_event:
           close: dún
-          questions: Ceisteanna
       meeting_closes:
         edit:
           back: Ar Ais

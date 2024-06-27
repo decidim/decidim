@@ -56,10 +56,24 @@ fr:
         grant_id_documents_offline_verification: "%{user_name} a vérifié %{resource_name} au moyen d’une vérification de documents d’identité hors ligne"
     authorization_handlers:
       admin:
+        another_dummy_authorization_handler:
+          help:
+            - Un exemple de gestionnaire d'autorisation pour que les développeurs puissent comprendre comment une simple vérification fonctionne.
+            - Il est destiné aux développeurs afin qu'ils puissent comprendre comment implémenter leur propre système de vérification.
+            - Obtenir une vérification en saisissant un numéro de passeport commençant par "A".
         csv_census:
           help:
             - Les administrateurs téléchargent un fichier CSV avec les emails des participants acceptés.
             - Seuls les participants avec un email dans ce fichier CSV peuvent être vérifiés.
+        default:
+          help:
+            - L'aide du gestionnaire d'autorisation n'est pas définie.
+            - Un développeur a besoin de définir l'aide dans la clé de traduction (i18n) "%{authorization_handler}"
+        dummy_authorization_handler:
+          help:
+            - Un exemple de gestionnaire d'autorisation pour que les développeurs puissent comprendre comment une simple vérification fonctionne.
+            - Il est destiné aux développeurs afin qu'ils puissent comprendre comment implémenter leur propre système de vérification.
+            - Obtenir une vérification en saisissant un numéro de document se terminant par "X".
         id_documents:
           help:
             - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
@@ -72,6 +86,11 @@ fr:
             - Vous envoyez la lettre à leur adresse avec le code de vérification.
             - Vous marquez la lettre comme envoyée.
             - Une fois que vous avez coché la lettre, l'utilisateur sera en mesure de présenter le code et d'être vérifié.
+        sms:
+          help:
+            - Les participants demandent l'envoi d'un code de vérification sur leur téléphone.
+            - Ils doivent introduire le code pour être vérifiés.
+            - S'ils ne reçoivent pas le code, ils peuvent le demander à nouveau.
       csv_census:
         explanation: Faites-vous vérifier en utilisant le recensement de l'organisation.
         name: Recensement de l'organisation

@@ -570,6 +570,7 @@ es-PY:
         appearance: Apariencia
         area_types: Tipos de área
         areas: Áreas
+        components: Componentes
         configuration: Configuración
         content: Contenido reportado
         external_domain_allowlist: Dominios externos permitidos

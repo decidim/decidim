@@ -67,6 +67,7 @@ de:
         show:
           admins: Admins
           current_organizations: Aktuelle Organisationen
+          system_checks: System-Prüfung
       default_pages:
         placeholders:
           content: Fügen Sie der statischen Seite %{page} im Admin-Dashboard sinnvollen Inhalt hinzu.
@@ -142,6 +143,7 @@ de:
           show: Zeige erweiterte Einstellungen
         create:
           error: Beim Erstellen einer neuen Organisation ist ein Fehler aufgetreten.
+          error_invitation: Es gab ein Problem beim Erstellen einer neuen Organisation. Überprüfen Sie den Administratornamen Ihrer Organisation.
           success_html: |
             <p>
               Organisation erfolgreich erstellt.
@@ -259,6 +261,14 @@ de:
         organizations_list:
           confirm_resend_invitation: Sind Sie sicher, das Sie die Einladung erneut senden möchten?
           resend_invitation: Einladung erneut senden
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Decidim-Dokumentation
+          error: Die ActiveJob-Warteschlange ist nicht konfiguriert. Dies ist kein empfohlenes Setup für die Produktion. Lesen Sie mehr unter %{error_extra}.
+          success: Die ActiveJob-Warteschlange ist korrekt konfiguriert.
+        secret_key:
+          error: 'Der geheime Schlüssel ist nicht korrekt definiert. Bitte speichern Sie ihn in der SECRET_KEY_BASE Umgebungsvariable und starten Sie den Server neu: %{error_extra}'
+          success: Der geheime Schlüssel ist korrekt konfiguriert.
       titles:
         dashboard: Instrumententafel
         decidim: Decidim

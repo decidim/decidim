@@ -55,6 +55,8 @@ ca:
           html_regular_inputs: Entrades HTML habituals
           min_max_length: Longitud Mín/Màx
           min_max_length_description: Només funcioan en entrades tipus text i àrea de text
+          multiselect: Selecció múltiple
+          multiselect_description_html: Les seleccions múltiples són una característica JavaScript disponibles gràcies a una llibreria externa anomenada <a href="https://tom-select.js.org/" target="_blank" rel="noopener noreferrer">"Tom Select"</a>.
           regular_inputs_description: 'Només mostra tipus comuns, llista completa disponible: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
           textarea_required: àrea de text requerida
           title: Formularis
