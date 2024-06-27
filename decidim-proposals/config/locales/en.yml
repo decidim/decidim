@@ -518,7 +518,7 @@ en:
             cancel: Cancel
             change_category: Change category
             change_scope: Change scope
-            filter: Filter
+            filter: Select one or more valuators
             merge: Merge into a new one
             merge_button: Merge
             publish: Publish
