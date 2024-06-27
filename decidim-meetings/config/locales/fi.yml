@@ -621,6 +621,8 @@ fi:
             sent: Lähetetty
             statuses:
               closed: Tulokset lähetetty (suljettu)
+              published: Lähetetty (avoin)
+              unpublished: Odottaa lähetystä
           published_question:
             max_choices_alert: Liian monta vaihtoehtoa on valittu
             question: Kysymys
