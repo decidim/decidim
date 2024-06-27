@@ -498,6 +498,7 @@ en:
         proposals:
           answer:
             invalid: There has been a problem answering this proposal.
+            missing_cost_data: Please fill in the required cost field for all selected proposals.
             success: Proposal successfully answered.
           create:
             invalid: There has been a problem creating this proposal.
@@ -516,6 +517,7 @@ en:
             assign_to_valuator: Assign to valuator
             assign_to_valuator_button: Assign
             cancel: Cancel
+            change_answer_status: Change status and answer
             change_category: Change category
             change_scope: Change scope
             merge: Merge into a new one

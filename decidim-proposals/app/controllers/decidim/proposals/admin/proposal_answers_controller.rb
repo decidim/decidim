@@ -35,6 +35,29 @@ module Decidim
           end
         end
 
+        def update_multiple_answers
+          enforce_permission_to(:create, :proposal_answer)
+
+          if missing_cost_data?(proposals)
+            flash[:alert] = t("proposals.answer.missing_cost_data", scope: "decidim.proposals.admin")
+            respond_to do |format|
+              format.html { redirect_back fallback_location: EngineRouter.admin_proxy(current_component).root_path }
+              format.js { render js: "window.location = '#{EngineRouter.admin_proxy(current_component).root_path}'" }
+            end
+            return
+          end
+
+          proposals.each do |proposal|
+            ProposalAnswerJob.perform_later(proposal.id, bulk_answer_form(proposal).attributes, current_component)
+          end
+
+          flash[:notice] = I18n.t("proposals.answer.success", scope: "decidim.proposals.admin")
+          respond_to do |format|
+            format.html { redirect_back fallback_location: EngineRouter.admin_proxy(current_component).root_path }
+            format.js { render js: "window.location = '#{EngineRouter.admin_proxy(current_component).root_path}'" }
+          end
+        end
+
         private
 
         def skip_manage_component_permission
@@ -43,6 +66,47 @@ module Decidim
 
         def proposal
           @proposal ||= Proposal.where(component: current_component).find(params[:id])
+        end
+
+        def proposals
+          @proposals ||= Proposal.where(component: current_component).where(id: params[:proposal_ids])
+        end
+
+        def template
+          @template ||= Decidim::Templates::Template.find(params[:template][:template_id])
+        end
+
+        def bulk_answer_form(proposal)
+          @bulk_answer_form ||= ProposalAnswerForm.from_params(prepare_answer_form_params(template, proposal, current_user)).with_context(current_component:)
+        end
+
+        def prepare_answer_form_params(template, proposal, current_user)
+          answer_form_params = {
+            answer: translated_attribute(template.description),
+            internal_state: Decidim::Proposals::ProposalState.find(template.field_values["proposal_state_id"]).token,
+            current_user:
+          }
+
+          if current_component.current_settings.answers_with_costs?
+            [:cost, :cost_report, :execution_period].each do |field|
+              value = proposal.send(field)
+              answer_form_params[field] = translated_attribute(value) if value.present?
+            end
+          end
+
+          answer_form_params
+        end
+
+        def missing_cost_data?(proposals)
+          proposals.each do |proposal|
+            if bulk_answer_form(proposal).costs_required? &&
+               (proposal.cost.blank? ||
+                 translated_attribute(proposal.cost_report).blank? ||
+                 translated_attribute(proposal.execution_period).blank?)
+              return true
+            end
+          end
+          false
         end
       end
     end

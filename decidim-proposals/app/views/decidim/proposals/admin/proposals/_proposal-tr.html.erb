@@ -1,4 +1,6 @@
-<tr data-id="<%= proposal.id %>" <%= "data-published-state=false" if proposal.answered? && !proposal.published_state? %>>
+<tr data-id="<%= proposal.id %>"
+    data-allow-answer="<%= allowed_to?(:create, :proposal_answer, proposal:) && !proposal.emendation? %>"
+    <%= "data-published-state=false" if proposal.answered? && !proposal.published_state? %>>
   <td>
     <%= check_box_tag "proposal_ids_s[]", proposal.id, false, class: "js-check-all-proposal js-proposal-list-check  js-proposal-id-#{proposal.id}" %><br>
   </td>
