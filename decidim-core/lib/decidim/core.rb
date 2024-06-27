@@ -53,6 +53,8 @@ module Decidim
   autoload :Menu, "decidim/menu"
   autoload :MenuItem, "decidim/menu_item"
   autoload :MenuRegistry, "decidim/menu_registry"
+  autoload :AdminFilter, "decidim/admin_filter"
+  autoload :AdminFiltersRegistry, "decidim/admin_filters_registry"
   autoload :ManifestRegistry, "decidim/manifest_registry"
   autoload :AssetRouter, "decidim/asset_router"
   autoload :EngineRouter, "decidim/engine_router"
@@ -762,6 +764,10 @@ module Decidim
 
   def self.icons
     @icons ||= Decidim::IconRegistry.new
+  end
+
+  def self.admin_filter(name, &)
+    AdminFiltersRegistry.register(name.to_sym, &)
   end
 
   # Public: Stores an instance of ViewHooks
