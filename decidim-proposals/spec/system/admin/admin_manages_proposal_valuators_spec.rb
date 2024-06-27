@@ -12,6 +12,8 @@ describe "Admin manages proposals valuators" do
   end
   let!(:valuator) { create(:user, organization:) }
   let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user: valuator, participatory_process:) }
+  let!(:other_valuator) { create(:user, organization:) }
+  let!(:other_valuator_role) { create(:participatory_process_user_role, role: :valuator, user: other_valuator, participatory_process:) }
 
   include Decidim::ComponentPathHelper
 
@@ -50,6 +52,36 @@ describe "Admin manages proposals valuators" do
 
         within "tr", text: translated(proposal.title) do
           expect(page).to have_css("td.valuators-count", text: 1)
+        end
+      end
+    end
+  end
+
+  context "when assigning to multiple valuators" do
+    before do
+      visit current_path
+
+      within "tr", text: translated(proposal.title) do
+        page.first(".js-proposal-list-check").set(true)
+      end
+
+      click_on "Actions"
+      click_on "Assign to valuator"
+    end
+
+    context "when submitting the form" do
+      before do
+        within "#js-form-assign-proposals-to-valuator" do
+          tom_select("#assign_valuator_role_ids", option_id: [valuator_role.id, other_valuator_role.id])
+          click_on(id: "js-submit-assign-proposals-to-valuator")
+        end
+      end
+
+      it "assigns the proposals to the valuator" do
+        expect(page).to have_content("Proposals assigned to a valuator successfully")
+
+        within "tr", text: translated(proposal.title) do
+          expect(page).to have_css("td.valuators-count", text: 2)
         end
       end
     end
@@ -108,6 +140,41 @@ describe "Admin manages proposals valuators" do
       before do
         within "#js-form-unassign-proposals-from-valuator" do
           tom_select("#unassign_valuator_role_ids", option_id: valuator_role.id)
+          click_on(id: "js-submit-unassign-proposals-from-valuator")
+        end
+      end
+
+      it "unassigns the proposals from the valuator" do
+        expect(page).to have_content("Valuator unassigned from proposals successfully")
+
+        within "tr", text: translated(proposal.title) do
+          expect(page).to have_css("td.valuators-count", text: 0)
+        end
+      end
+    end
+  end
+
+  context "when unassigning multiple valuators from a proposal from the proposals index page" do
+    let(:assigned_proposal) { proposal }
+
+    before do
+      create(:valuation_assignment, proposal:, valuator_role:)
+      create(:valuation_assignment, proposal:, valuator_role: other_valuator_role)
+
+      visit current_path
+
+      within "tr", text: translated(proposal.title) do
+        page.first(".js-proposal-list-check").set(true)
+      end
+
+      click_on "Actions"
+      click_on "Unassign from valuator"
+    end
+
+    context "when submitting the form" do
+      before do
+        within "#js-form-unassign-proposals-from-valuator" do
+          tom_select("#unassign_valuator_role_ids", option_id: [valuator_role.id, other_valuator_role.id])
           click_on(id: "js-submit-unassign-proposals-from-valuator")
         end
       end
