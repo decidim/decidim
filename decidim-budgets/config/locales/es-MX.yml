@@ -168,6 +168,7 @@ es-MX:
         back_to: Volver a %{component_name}
         close_modal: Cierra el modal
         continue: Continuar
+        more_information: Más información sobre el presupuesto
       budgets_list:
         budgets: Presupuestos
         cancel_order:
