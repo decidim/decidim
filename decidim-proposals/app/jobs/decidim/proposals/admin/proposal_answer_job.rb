@@ -8,7 +8,7 @@ module Decidim
 
         def perform(proposal_id, answer_form_params, current_component)
           proposal = Decidim::Proposals::Proposal.find(proposal_id)
-          answer_form = ProposalAnswerForm.from_params(answer_form_params).with_context(current_component:)
+          answer_form = ProposalAnswerForm.from_params(answer_form_params).with_context(current_component:, current_organization: current_component.organization)
 
           Admin::AnswerProposal.call(answer_form, proposal) do
             on(:ok) { Rails.logger.info "Proposal #{proposal.id} answered successfully." }
