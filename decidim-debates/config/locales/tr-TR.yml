@@ -106,6 +106,9 @@ tr:
           success: Tartışma başarıyla oluşturuldu.
         debate:
           participate: Katıl
+        debates:
+          empty: Henüz herhangi bir tartışma yok.
+          empty_filters: Bu kritere uyan bir tartışma yok.
         edit:
           back: Geri
           save: Değişiklikleri kaydet

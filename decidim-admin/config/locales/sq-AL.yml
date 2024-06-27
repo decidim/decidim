@@ -58,6 +58,10 @@ sq:
         from: Adresa email e dërguesit
         github_handler: Emri i përdoruesit Github
         highlight_color: Theksim
+        highlighted_content_banner_action_subtitle: Nëntitull i butonit të veprimit
+        highlighted_content_banner_action_title: Titulli i butonit të veprimit
+        highlighted_content_banner_action_url: URL e butonit të veprimit
+        highlighted_content_banner_enabled: Shfaq banerin e theksuar të përmbajtjes
         highlighted_content_banner_image: Imazhi
         highlighted_content_banner_short_description: Përshkrim i shkurtër
         highlighted_content_banner_title: Titulli
@@ -106,24 +110,359 @@ sq:
         organization: Organizata
         slug: Slug i adresës URL
         title: Titulli
+        topic_id: Temë
+        weight: Rendit pozicionet
+      static_page_topic:
+        description: Përshkrimi
+        title: Titulli
+        weight: Rendit pozicionet
+      user_group_csv_verification:
+        file: Skeda
+    errors:
+      models:
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Skedar imazhi i pavlefshëm
+            official_img_header:
+              allowed_file_content_types: Skedar imazhi i pavlefshëm
   activerecord:
     attributes:
       decidim/static_page:
         content: Përmbajtje
         slug: Slug i adresës URL
         title: Titulli
+      doorkeeper/application:
+        authorize_url: Autorizo URL
+        client_secret: Sekreti i klientit
+        organization_name: Emri i organizatës
+        organization_url: URL e organizatës
+        redirect_uri: Ridrejto URL-të
+        site: Faqe interneti
   decidim:
     admin:
+      actions:
+        add: Shto
+        attachment:
+          new: Shtojcë e re
+        browse: Shfleto
+        category:
+          new: Kategoria e re
+        export: Eksporto të gjitha
+        import: Importo
+        newsletter:
+          new: Newsletter i ri
+        per_page: Për faqe
+        permissions: Lejet
+        reject: Refuzo
+        share: Shpërndaj
+        user:
+          new: Administrator i ri
+        verify: Verifiko
+      admin_terms_of_use:
+        actions:
+          accept: Pranoj kushtet
+          refuse: Refuzoj kushtet e administratorit
+      area_types:
+        edit:
+          update: Përditëso
+      areas:
+        edit:
+          title: Përditëso zonën
+          update: Përditëso
+        new:
+          create: Krijo zonën
+      attachment_collections:
+        new:
+          create: Krijo
+          title: Dojse e re
+        update:
+          error: Ndodhi një gabim gjatë përditësimit të kësaj dosjeje.
+          success: Dosja u përditësua me sukses.
+      attachments:
+        edit:
+          update: Përditëso
+        index:
+          attachments_title: Skedat e bashkëlidhura
+        new:
+          create: Krijo bashkangjitje
+      autocomplete:
+        no_results: Nuk u gjetën rezultate
+      block_user:
+        new:
+          action: Blloko llogarinë dhe dërgo arsyen
+          justification: Arsye
+          title: Blloko përdoruesin %{name}
+      categories:
+        create:
+          error: Ndodhi një gabim gjatë krijimit të kësaj kategorie.
+          success: Kategoria u krijua me sukses.
+        destroy:
+          success: Kategoria u fshi me sukses.
+        edit:
+          title: Përpuno kategoritë
+          update: Përditëso
+        index:
+          categories_title: Kategoritë
+        new:
+          create: Krijo kategori
+          title: Kategori e re
+        update:
+          error: Ndodhi një gabim gjatë përditësimit të kësaj kategorie.
+          success: Kategoria u përditësua me sukses.
+      component_permissions:
+        update:
+          success: Të drejtat u përditësuan me sukses.
+      components:
+        edit:
+          update: Përditëso
+        index:
+          headers:
+            actions: Veprimet
+        title: Komponentet
+      conflicts:
+        attempts: Tentativa
+        'false': 'Jo'
+        solved: Është zgjidhur
+        transfer:
+          email: Email
+          name: Emri
+          reason: Arsyeja
+          title: Transfero
+        'true': 'Po'
+        user_name: Perdoruesit
+      exports:
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
+      filters:
+        category_id_eq:
+          label: Kategori
+        filter_label: Filtra
+        invitation_accepted_at_present:
+          label: Ftesa u pranua
+          values:
+            'false': 'Jo'
+            'true': 'Po'
+        last_sign_in_at_present:
+          values:
+            'false': 'Jo'
+            'true': 'Po'
+        moderated_users:
+          reports_reason_eq:
+            label: Arsyeja e raportimit
+            values:
+              does_not_belong: Nuk përket
+              offensive: Ofenduese
+              spam: Spam
+        moderations:
+          reportable_type_string_eq:
+            label: Tipi
+        officialized_at_null:
+          label: Gjendja
+        participatory_space_private_users:
+          user_invitation_accepted_at_not_null:
+            label: Ftesa u pranua
+            values:
+              'false': E papranuar
+              'true': Pranuar
+          user_invitation_sent_at_not_null:
+            label: Ftesa u dërguan
+            values:
+              'false': Nuk është dërguar
+              'true': Dërguar
+        private_space_eq:
+          label: Private
+          values:
+            'false': Publike
+            'true': Private
+        published_at_null:
+          label: Publikuar
+          values:
+            'false': Publikuar
+            'true': E papublikuar
+        scope_id_eq:
+          label: Qëllimi
+        search_label: Kërko
+        state_eq:
+          label: Gjendja
+          values:
+            all: Të gjitha
+            pending: Në pritje
+            rejected: Refuzuar
+            verified: Verifikuar
+      forms:
+        file_help:
+          import:
+            message_1: Skedat CSV, JSON dhe Excel (.xlsx) janë të suportuara
+      impersonations:
+        form:
+          authorization_method: Mënyra e autorizimit
+          name: Emri
+          reason: Arsyeja
+        new:
+          impersonate: Hiqet si dikush
+      imports:
+        and: dhe
+        new:
+          accepted_mime_types:
+            csv: CSV
+            json: JSON
+            xlsx: Excel (.xlsx)
+          actions:
+            back: Prapa
+          import: Importo
+      managed_users:
+        promotions:
+          new:
+            promote: Promovo
+      menu:
+        admins: Administratorët
+        appearance: Pamja
+        area_types: Lloji i zonës
+        areas: Zonat
+        configuration: Konfigurimi
+        dashboard: Paneli
+        homepage: Kryefaqja
+        newsletters: Buletinet
+        participants: Pjesëmarrësit
+        scopes: Fushëveprimet
+        settings: Cilësimet
+        static_pages: Faqet
+        user_groups: Grupet
+        users: Pjesëmarrësit
+      metrics:
+        metrics:
+          see_more_metrics: Shiko më shumë të dhëna
       models:
+        area:
+          fields:
+            area_type: Lloji i zonës
+            name: Emri
+        area_type:
+          fields:
+            name: Emri
+            plural: Shumës
+        attachment:
+          fields:
+            collection: Dosje
+            content_type: Lloji
+            file_size: Madhësia
+            title: Titulli
+          name: Bashkëngjitje
+        attachment_collection:
+          name: Dosje
+        category:
+          name: Kategori
+        impersonation_log:
+          fields:
+            admin: Administrator
+            expired_at: Skaduar më
+            reason: Arsyeja
+            user: Pjesëmarrës
+        newsletter:
+          fields:
+            created_at: Krijuar më
+            progress: Ecuria
+            sent_to: Dërguar drejt
+            subject: Subjekt
+          name: Buletin
+        scope:
+          fields:
+            name: Emri
+        scope_type:
+          fields:
+            name: Emri
+            plural: Shumës
         share_token:
           fields:
+            created_at: Krijuar më
+            expires_at: Skadon më
             last_used_at: Hera e fundit që u përdor
             times_used: Sa herë është përdorur
+            token: Token
+      moderated_users:
+        index:
+          reason: Arsyeja
+        report:
+          reasons:
+            does_not_belong: Nuk përket
+            offensive: Ofenduese
+            spam: Spam
+        tabs:
+          blocked: Bllokuar
+      moderations:
+        index:
+          title: Përmbajtje e raportuar
+        report:
+          reasons:
+            does_not_belong: Nuk përket
+            offensive: Ofenduese
+            spam: Spam
+        reports:
+          index:
+            author: Autor(ët)
+            content_original_language: Gjuha origjinale e përmbajtjes
+            reported_content: Përmbajtje e raportuar
+          show:
+            report_reason: Arsyeja
+            title: Detajet e raportit
+      newsletter_templates:
+        index:
+          preview_template: Parapamje
+          title: Shabllonet e newsletter
+          use_template: Përdor këtë shabllon
+        show:
+          use_template: Përdor këtë shabllon
       newsletters:
+        create:
+          error: Ndodhi një gabim gjatë krijimit të newsletter.
+          success: Newsletter u krijua me sukses. Të lutem, verifikoje para se ta dërgosh.
+        deliver:
+          error: Ndodhi një gabim gjatë dërgimit të newsletter.
+          success: Newsletter u dërgua me sukses.
+        destroy:
+          success: Newsletter u shkatërrua me sukses.
+        edit:
+          save_and_preview: Ruaj dhe parashiko
+          title: Përpuno newsletter
+        index:
+          all: të gjitha
+          all_users: 'Të gjithë përdoruesit '
+          and: 'dhe '
+          confirm_delete: A je i sigurt që do ta fshish këtë newsletter?
+          followers: 'ndjekësit '
+          has_been_sent_to: 'I është dërguar: '
+          not_sent: Nuk është dërguar
+          participants: 'pjesëmarrësit '
+          subscribed_count: 'Abonuar:'
+          title: Newsletters
+        new:
+          save: Ruaj
+          title: Buletin i ri
         select_recipients_to_deliver:
+          all_spaces: Të gjitha
+          all_users_help: Dërgo buletinin te të gjithë përdoruesit e konfirmuar.
+          confirm_deliver: A je i sigurt që do ta dërgosh këtë buletin? Veprimi nuk mund të anulohet.
+          deliver: Dërgo buletinin
+          none: Asnjë
           send_to_all_users: Dërgo të gjithë përdoruesve
           send_to_followers: Dërgo ndjekësve
           send_to_participants: Dërgo pjesëmarrësve
+        show:
+          preview: Parapamje
+          subject: Tema
+      officializations:
+        index:
+          actions: Veprimet
+          block: Blloko përdoruesin
+          created_at: Krijuar më
+          name: Emri
+          nickname: Nofka
+          reports: Raportet
+          status: Statusi
       organization:
         form:
           social_handlers: Rrjetet sociale
@@ -131,3 +470,76 @@ sq:
         form:
           colors:
             colors_title: Ngjyrat e organizatës
+      organization_external_domain_whitelist:
+        edit:
+          update: Përditëso
+      organization_homepage_content_blocks:
+        edit:
+          update: Përditëso
+      resource_permissions:
+        edit:
+          title: Github
+      scope_types:
+        edit:
+          update: Përditëso
+      scopes:
+        edit:
+          update: Përditëso
+      share_tokens:
+        actions:
+          destroy: Fshi
+          share: Shpërndaj
+      static_page_topics:
+        edit:
+          title: Përpuno temën
+          update: Përditëso temën
+        new:
+          create: Krijo temën
+          title: Temë e re
+      static_pages:
+        edit:
+          title: Përpuno faqen
+          update: Përditëso
+        topic:
+          edit: Përpuno temën
+      titles:
+        dashboard: Paneli
+        pages: Faqet
+        panel: Administrator
+        participants: Pjesëmarrësit
+        static_pages: Faqet
+        statistics: Aktiviteti
+        user_groups: Grupet
+        users: Administratorët
+      user_groups_csv_verifications:
+        new:
+          upload: Ngarko
+      users:
+        form:
+          email: Email
+          name: Emri
+          role: Roli
+        new:
+          create: Fto
+      users_statistics:
+        users_count:
+          admins: Administratorët
+          last_day: Dita e fundit
+          last_month: Muaji i kaluar
+          last_week: Java e kaluar
+          participants: Pjesëmarrësit
+    moderations:
+      models:
+        moderation:
+          fields:
+            reportable_type: Lloji
+            reports: Raportet
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Buletinet
+        settings:
+          title: Cilësimet
+        users:
+          title: Pjesëmarrësit

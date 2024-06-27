@@ -3,7 +3,7 @@ bg:
   activemodel:
     attributes:
       area:
-        area_type: Тип район
+        area_type: Тип област
         name: Име
         organization: Организация
       area_type:
@@ -60,8 +60,8 @@ bg:
         github_handler: Манипулатор на GitHub
         header_snippets: Части на HTML заглавката
         highlight_alternative_color: Подчертаване, алтернативен
-        highlight_color: Подчертване
-        highlighted_content_banner_action_subtitle: Поднадпис на бутон за действие
+        highlight_color: Акцентирано
+        highlighted_content_banner_action_subtitle: Подзаглавие на бутон за действие
         highlighted_content_banner_action_title: Надпис на бутон за действие
         highlighted_content_banner_action_url: Адрес на бутон за действие
         highlighted_content_banner_enabled: Показвай банер на подчертано съдържание
@@ -340,21 +340,62 @@ bg:
           title: 'Добавяне на компонент: %{name}'
         publish:
           success: Компонентът беше публикуван успешно.
+        title: Компоненти
+        unpublish:
+          success: Публикацията на компонента беше премахната успешно.
+        update:
+          error: Възникна проблем при актуализирането на този компонент.
+          success: Компонентът беше актуализиран успешно.
       conflicts:
+        attempts: Опити
+        'false': 'Не'
+        managed_user_name: Управляван потребител
+        solved: Разрешен случай
+        title: Проверка на конфликти
         transfer:
+          email: Имейл
           error: Възникна проблем при прехвърлянето на текущия участник към управляван участник.
+          name: Име
+          reason: Причина
+          success: Текущият трансфер е завършен успешно.
+          title: Трансфер
+        'true': 'Да'
+        user_name: Потребител
       dashboard:
         show:
+          view_more_logs: Преглед на още регистри
           welcome: Добре дошли в Административния панел.
       domain_whitelist:
+        form:
+          domain_too_short: Домейнът е твърде кратък
         update:
           error: Неуспешно актуализиране на белия списък на домейни
           success: Белият списък на домейни е актуализиран успешно
       exports:
+        export_as: "%{name} като %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: Заявеното от Вас експортиране е в процес. Ще получите имейл, когато приключи.
       filters:
+        category_id_eq:
+          label: Категория
+        filter_label: Филтър
+        invitation_accepted_at_present:
+          label: Поканата е приета
+          values:
+            'false': 'Не'
+            'true': 'Да'
+        last_sign_in_at_present:
+          label: Влизал някога
+          values:
+            'false': 'Не'
+            'true': 'Да'
         moderated_users:
           reports_reason_eq:
+            label: Причина за докладването
             values:
               does_not_belong: Не принадлежи
               offensive: Обидно
@@ -506,6 +547,7 @@ bg:
         area_types: Типове области
         areas: Области
         configuration: Конфигурация
+        dashboard: Контролен панел
         external_domain_whitelist: Лист с позволени външни домейни
         help_sections: Помощни раздели
         homepage: Начална страница
@@ -584,9 +626,73 @@ bg:
         user:
           fields:
             created_at: Дата на създаване
+            email: Имейл
             last_sign_in_at: Дата на последно влизане
+            name: Име
+            role: Роля
+            roles:
+              admin: Администратор
+              user_manager: Мениджър на участника
+          name: Участник
+        user_group:
+          fields:
+            actions: Активности
+            created_at: Създадено на
+            document_number: Номер на документ
+            name: Име
+            phone: Телефон
+            state: Състояние
+            users_count: Брой участници
+      moderated_users:
+        index:
+          actions:
+            block: Блокиране на потребител
+            title: Активности
+            unblock: Разблокирай потребител
+            unreport: Отмяна на доклада
+          name: Име
+          nickname: Псевдоним
+          reason: Причина
+          reports: Брой доклади
+          title: Докладвани участници
+        report:
+          reasons:
+            does_not_belong: Не принадлежи
+            offensive: Обидно
+            spam: Спам
+        tabs:
+          blocked: Блокирано
+          unblocked: Не блокирано
+      moderations:
+        index:
+          title: Докладвано съдържание
+        report:
+          reasons:
+            does_not_belong: Не принадлежи
+            offensive: Обидно
+            spam: Спам
+        reports:
+          index:
+            author: Автор(и)
+            callout_html: Съдържание се появява в панела за модериране, когато е сигнализирано от потребител (може да бъде всеки с регистриран акаунт) чрез щракване върху флага %{icon} до елемента.
+            content_original_language: Оригинален език на съдържанието
+            participatory_space: Пространство за участници
+            reported_content: Докладвано съдържание
+            see_current: Вижте текущото
+            see_original: Вижте оригиналното
+            title: Доклади за модериране
+          show:
+            report_details: Подробности за причината
+            report_language: Език на доклада
+            report_reason: Причина
+            title: Детайли на доклада
       newsletter_templates:
+        index:
+          preview_template: Преглед
+          title: Шаблони за бюлетин
+          use_template: Използване на този шаблон
         show:
+          preview: 'Визуализация на шаблона: %{template_name}'
           use_template: Използване на този шаблон
       newsletters:
         create:
@@ -707,6 +813,9 @@ bg:
             colors_title: Цветове на организацията
             colors_warning_html: Внимание! Промяната на тези цветове може да наруши контрастите на достъпността. Можете да проверите контраста на Вашия избор с <a href="%{link}">WebAIM Contrast Checker</a> или други подобни инструменти.
             header_snippets_help: Използвайте това поле, за да добавите нещо в HTML заглавието. Най-често се използва за интеграция на външни услуги, които изискват допълнителни JavaScript или CSS. Освен това, можете да го ползвате за добавяне на допълнителни метатагове в HTML. Обърнете внимание, че ще се визуализира само в публичните страници, но не и в администраторския раздел.
+          cta_button_path_help: 'Можете да презапишете къде да води бутонът, призоваващ към действие, на началната страница. Тук използвайте частични пътища, а не пълни URL адреси. Допуска се използването на букви, цифри, тирета, наклонени черти и пътят трябва да започва с буква. Бутонът, призоваващ към действие, се показва на началната страница между текста за добре дошли и описанието. Пример: %{url}'
+          cta_button_text_help: Можете да презапишете текста на бутона, призоваващ към действие, в началната страница за всеки наличен език във вашата организация. Ако не е зададено, ще се използва стойността по подразбиране. Бутонът, призоваващ към действие, се показва на началната страница между текста за добре дошли и описанието.
+          homepage_appearance_title: Редактиране на външния вид на началната страница
           homepage_highlighted_content_banner_title: Банер с подчертано съдържание
           images:
             layout_appearance_title: Редактиране външния вид шаблона
@@ -723,6 +832,10 @@ bg:
         form:
           add: Добави към белия списък
           title: Бял списък с външни домейни
+      organization_homepage:
+        edit:
+          active_content_blocks: Активни блокове със съдържание
+          inactive_content_blocks: Неактивни блокове със съдържание
       organization_homepage_content_blocks:
         edit:
           update: Актуализация
@@ -792,26 +905,83 @@ bg:
           success: Обхватът беше създаден успешно.
         destroy:
           success: Обхватът беше премахнат успешно
+        edit:
+          title: Редактиране на обхвата
+          update: Актуализация
+        new:
+          create: Създаване на обхват
+          title: Нов обхват
+        no_scopes: На това ниво няма обхвати.
+        update:
+          error: Възникна проблем при актуализирането на този обхват.
+          success: Обхватът беше актуализиран успешно
       share_tokens:
+        actions:
+          confirm_destroy: Наистина ли искате да изтриете този маркер?
+          destroy: Изтрий
+          share: Сподели
+        destroy:
+          error: Възникна проблем при премахването на маркера.
+          success: Маркерът беше премахнат успешно.
         share_tokens:
           empty: Няма активни маркери
+          help: Маркерите се използват за публично споделяне на този непубликуван ресурс с всеки потребител. Те ще бъдат скрити, след като ресурсът бъде публикуван. Щракнете върху иконата за споделяне на маркера, за да посетите URL адреса с възможност за споделяне.
+          title: Споделяне на маркери
       shared:
         gallery:
+          add_images: Добави изображения
           delete_image: Изтриване на изображение
+          edit_images: Редактиране на изображения
+          gallery_legend: Добавяне на галерия с изображения (незадължително)
       static_page_topics:
+        create:
+          error: Възникна проблем при създаването на нова тема.
+          success: Темата беше създадена успешно.
         destroy:
           success: Темата беше премахната успешно
+        edit:
+          title: Редактиране на темата
+          update: Актуализиране на темата
+        new:
+          create: Създаване на тема
+          title: Нова тема
+        update:
+          error: Възникна проблем при актуализирането на тази тема.
+          success: Темата беше актуализирана успешно
       static_pages:
+        actions:
+          view: Преглед на публичната страница
+        create:
+          error: Възникна проблем при създаването на нова страница.
+          success: Страницата беше създадена успешно.
+        destroy:
+          success: Страницата беше премахната успешно
         edit:
           changed_notably_help: Ако бъде поставена отметка, участниците ще получат известие да приемат новите Правила и условия за ползване.
+          title: Редактиране на страница
+          update: Актуализация
+        form:
+          none: Няма
+          slug_help: 'Използвайте частични пътища, а не пълни URL адреси тук. Приема букви, цифри, тирета и наклонени черти и трябва да започва с буква. Пример: %{url}'
         index:
           last_notable_change: Последна значима промяна
+        new:
+          create: Създаване на страница
+          title: Нова страница
         topic:
           destroy: Премахни темата
+          edit: Редактиране на темата
           empty: Няма страници с тази тема
+          without_topic: Страници без тема
         update:
+          error: Възникна проблем при актуализирането на тази страница.
           success: Страницата беше актуализирана успешно
       titles:
+        admin_log: Администраторски регистри
+        area_types: Типове области
+        areas: Области
+        authorization_workflows: Методи за проверка
+        dashboard: Контролен панел
         edit_external_domains: Бял списък с външни домейни
         edit_organization_appearance: Редактиране на външния вид на началната страница
         impersonatable_users: Управляеми участници
@@ -870,6 +1040,7 @@ bg:
           last_week: Последната седмица
           no_users_count_statistics_yet: Все още няма статистика за броя на потребителите
           participants: Участници
+      view_public_page: Преглед на публичната страница
     forms:
       errors:
         impersonate_user:
@@ -883,13 +1054,48 @@ bg:
         title: Докладвани потребители
       user_reports:
         object: доклади на потребители
+        title: Доклади на потребители
     moderations:
+      actions:
+        expand: Разтваряне
+        hidden: Скрито
+        hide: Скриване
+        not_hidden: Не скрито
+        title: Активности
+        unhide: Разкриване
+        unreport: Отмяна на доклада
+      admin:
+        reportable:
+          hide:
+            invalid: Възникна проблем при скриването на ресурса.
+            success: Ресурсът беше скрит успешно.
+          unhide:
+            invalid: Възникна проблем при разкриването на ресурса.
+            success: Ресурсът беше успешно разкрит.
+          unreport:
+            invalid: Възникна проблем при отмяната на докладването на ресурса.
+            success: Докладването на ресурса беше отменено успешно.
       models:
         moderation:
           fields:
             created_at: Дата на създаване
+            deleted_resource: Изтрит ресурс
+            hidden_at: Скрито на
+            participatory_space: Пространство за участници
             report_count: Брой
+            reportable_id: ID
+            reportable_type: Тип
+            reported_content_url: URL на докладваното съдържание
             reports: Доклади
+            visit_url: Посетете URL адреса
+        report:
+          fields:
+            details: Подробности за причината
+            locale: Език
+            reason: Причина
+  errors:
+    messages:
+      invalid_json: Невалиден JSON
   layouts:
     decidim:
       admin:

@@ -315,6 +315,9 @@ tr:
       application_helper:
         filter_scope_values:
           all: Tümü
+      calendar:
+        meeting_to_event:
+          read_more: Bu toplantı hakkında daha fazlasını okuyun
       calendar_modal:
         calendar_url: Takvim URL'si
         close_window: Pencereyi kapat

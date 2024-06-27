@@ -32,6 +32,10 @@ es:
           attributes:
             redirect_uri:
               must_be_ssl: La URI de redirección debe ser una URI SSL
+        organization:
+          attributes:
+            password:
+              secret_key: Necesitas definir la variable de entorno SECRETA_KEY_BASE para poder guardar este campo
   decidim:
     system:
       actions:
@@ -139,6 +143,7 @@ es:
           show: Mostrar configuración avanzada
         create:
           error: Se ha producido un error al crear una nueva organización.
+          error_invitation: Hubo un problema al crear una nueva organización. Revisa el nombre de la administradora de la organización.
           success: Organización creada correctamente.
         edit:
           secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea
@@ -192,7 +197,7 @@ es:
           fieldsets:
             sender: Remitente
           instructions:
-            from_label: 'El remitente de correo electrónico será: "su-nombre de organización <your-organization@example.org>". Déjalo en blanco para usar el campo ''Dirección de correo electrónico'' como etiqueta'
+            from_label: 'El remitente de correo electrónico será: "nombre-de-tu-organizacion <your-organization@example.org>". Déjalo en blanco para usar el mismo nombre que el ya definido en el nombre de la organización.'
           placeholder:
             from_email: tu-organizacion@example.org
             from_label: el-nombre-de-tu-organizacion

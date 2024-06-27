@@ -442,10 +442,10 @@ de:
         open_in_new_tab: Link in neuem Tab öffnen
       last_activity:
         meeting_updated_at_html: "<span>Besprechung aktualisiert unter %{link}</span>"
-        new_meeting_at_html: "<span>Neues Treffen um %{link}</span>"
+        new_meeting_at_html: "<span>Neue Veranstaltung unter %{link}</span>"
       layouts:
         live_event:
-          administrate: Administrativ
+          administrate: Bearbeiten
           close: Schließen
           questions: Fragen
       mailer:

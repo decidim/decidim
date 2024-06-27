@@ -171,8 +171,6 @@ zh-TW:
         smtp_settings:
           fieldsets:
             sender: 寄件者
-          instructions:
-            from_label: '郵件發送者將會是："您的組織名稱 <your-organization@example.org>"。若要使用「電子郵件地址」作為標籤，請留空'
           placeholder:
             from_email: your-organization@example.org
             from_label: 你的組織名稱

@@ -2,13 +2,57 @@
 bg:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Обхват
+        description: Описание
+        title: Заглавие
+        total_budget: Общ бюджет
+        weight: Подредба на позиция
       project:
+        budget_amount: Бюджетна сума
         decidim_category_id: Категория
         decidim_scope_id: Сфера
+        description: Описание
+        proposal_ids: Свързани предложения
+        proposals: Предложения
+        selected: Избран за изпълнение
+        title: Заглавие
+      proposals_import:
+        scope_id: Обхват
+  activerecord:
+    models:
+      decidim/budgets/budget:
+        one: Бюджет
+        other: Бюджети
+      decidim/budgets/project:
+        one: Проект
+        other: Проекти
   decidim:
+    admin:
+      filters:
+        projects:
+          category_id_eq:
+            label: Категория
+          scope_id_eq:
+            label: Обхват
+          selected_at_null:
+            label: Избрани
+            values:
+              'false': Избран за изпълнение
+              'true': Не избран за изпълнение
     budgets:
       actions:
+        attachment_collections: Папки
+        attachments: Прикачени файлове
+        confirm_destroy: Сигурни ли сте, че искате да изтриете този проект?
+        destroy: Изтрий
+        edit: Редактирай
+        edit_projects: Обедини проекти
+        import: Импортиране на предложения в проекти
         new: Ново %{name}
+        preview: Преглед
+        send_voting_reminders: Изпращайте напомняния за гласуване
+        title: Активности
       admin:
         budgets:
           create:
@@ -17,62 +61,175 @@ bg:
           destroy:
             invalid: Възникна проблем при изтриването на този бюджет
             success: Бюджетът беше изтрит успешно
+          edit:
+            title: Редактиране на бюджет
+            update: Актуализиране на бюджета
+          index:
+            finished_orders: Приключили гласувания
+            pending_orders: Предстоящи гласувания
+            title: Бюджети
+            users_with_finished_orders: Потребители с приключили гласувания
+            users_with_pending_orders: Потребители с чакащи гласувания
+          new:
+            create: Създаване на бюджет
+            title: Нов бюджет
           update:
             invalid: Възникна проблем при актуализирането на този бюджет
             success: Бюджетът беше актуализиран успешно
+        exports:
+          projects: Проекти
+        models:
+          budget:
+            name: Бюджет
+          project:
+            name: Проект
         projects:
           create:
             invalid: Възникна проблем при създаването на този проект
             success: Проектът беше създаден успешно
           destroy:
             success: Проектът беше изтрит успешно
+          edit:
+            title: Редактиране на проект
+            update: Актуализация
+          index:
+            actions: Активности
+            cancel: Отказ
+            change_category: Промяна на категория
+            change_scope: Промяна на обхвата
+            change_selected: Промяна на избраното състояние
+            deselect_implementation: Премахване на избора от внедряване
+            finished_orders: Приключили гласувания
+            pending_orders: Предстоящи гласувания
+            select_for_implementation: Избрано за внедряване
+            selected: Избрани
+            selected_options:
+              'no': 'Не'
+              'yes': 'Да'
+            title: Проекти
+            update: Актуализация
+            update_scope_button: Актуализиране на обхвата
+          new:
+            create: Създаване
+            title: Нов проект
           update:
             invalid: Възникна проблем при актуализирането на този проект
             success: Проектът беше актуализиран успешно
           update_category:
+            invalid: 'Тези проекти вече имат категория %{subject_name}: %{projects}.'
             select_a_category: Моля, изберете категория
             select_a_project: Моля, изберете проект
+            success: 'Проектите са актуализирани успешно до категорията %{subject_name}: %{projects}.'
           update_scope:
+            invalid: 'Тези проекти вече са имали %{subject_name} обхват: %{projects}.'
             select_a_project: Моля, изберете проект
             select_a_scope: Моля, изберете обхват
+            success: 'Проектите са актуализирани успешно до %{subject_name} обхват: %{projects}.'
           update_selected:
+            invalid:
+              selected: 'Тези проекти вече бяха селектирани за внедряване: %{projects}.'
+              unselected: 'Тези проекти вече бяха премахнати от селекцията за внедряване: %{projects}.'
             select_a_project: Моля, изберете проект
             select_a_selection: Моля, изберете състояние на внедряване
+            success:
+              selected: 'Тези проекти бяха успешно селектирани за внедряване: %{projects}.'
+              unselected: 'Тези проекти бяха успешно премахнати от селекцията за внедряване: %{projects}.'
         proposals_imports:
           create:
             invalid: Възникна проблем при импортирането на предложенията в проектите
             success: "%{number} предложения бяха импортирани успешно в проекти"
           new:
+            create: Импортиране на предложения в проекти
+            default_budget: Бюджет по подразбиране
+            import_all_accepted_proposals: Импортиране на всички приети предложения
+            no_components: Няма други компоненти на предложения в това пространство за участие за импортиране на предложенията в проекти.
+            origin_component_id: Компонент за произход
+            select_component: Моля, изберете компонент
             title: Импортиране на предложения
+        reminders:
+          orders:
+            description: Потребителите ще получат имейл с връзки към бюджетите, където имат чакащи заявки.
+            title:
+              one: На път сте да изпратите напомняне по имейл до %{count} потребител
+              other: На път сте да изпратите напомняне по имейл до %{count} потребители
+      admin_log:
+        budget:
+          create: "%{user_name} създаде бюджета %{resource_name} в пространството %{space_name}"
+          delete: "%{user_name} изтри бюджета %{resource_name} в пространството %{space_name}"
+          update: "%{user_name} актуализира бюджета %{resource_name} в пространството %{space_name}"
+        project:
+          create: "%{user_name} създаде проекта %{resource_name} в пространството %{space_name}"
+          delete: "%{user_name} изтри проекта %{resource_name} в пространството %{space_name}"
+          update: "%{user_name} актуализира проекта %{resource_name} в пространството %{space_name}"
       budget:
         view: Преглед на всички бюджетни проекти
+      budget_information_modal:
+        back_to: Назад към %{component_name}
+        close_modal: Затвори прозореца
+        continue: Продължи
+        more_information: Още информация
       budget_list_item:
         voting_finished: Вие гласувахте този бюджет
         voting_started: Вие започнахте да гласувате за този бюджет
       budgets_list:
+        cancel_order:
+          more_than_one: да изтриете гласа си за %{name} и да започнете отначало
+          only_one: изтрийте гласа си и започнете отначало.
         finished_message: Завършихте процеса на гласуване. Благодарим Ви за участието!
+        highlighted_cta: Гласуване за %{name}
         if_change_opinion: Ако сте размислили, имате възможност
         my_budgets: Моите бюджети
+        progress: Завършете гласуването
+        show: Вижте проектите
+        vote: Гласувай
         voted_on: Гласувахте на %{links}
       last_activity:
         new_vote_at_html: "<span>Ново бюджетно гласуване на %{link}</span>"
       limit_announcement:
         cant_vote: Не можете да гласувате за този бюджет. <a href="%{landing_path}">Опитайте с друг бюджет</a>.
+        limit_reached: Имате активни гласувания в(ъв) %{links}. За да гласувате за този бюджет, трябва <a href="%{landing_path}">да изтриете гласуването си и да започнете отначало</a>.
       models:
+        budget:
+          fields:
+            name: Име
+            projects_count: Брой проекти
+            total_budget: Общ бюджет
         project:
           fields:
+            category: Категория
+            id: ID
             scope: Сфера
+            title: Заглавие
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Избраните от Вас проекти са:'
+          subject: Гласувахте в пространството за участие %{space_name}
+          voted_on_space: Гласувахте за бюджета %{budget_name} за пространството за участие %{space_name}.
+          voted_on_space_with_scope: Гласувахте за бюджета %{budget_name} за пространството за участие %{space_name} в(ъв) %{scope_name} (%{scope_type}).
       projects:
+        budget_confirm:
+          are_you_sure: Ако размислите, може да промените гласа си по-късно.
+          cancel: Отказ
+          confirm: Потвърди
+          description: Това са проектите, които сте избрали да са част от бюджета.
+          title: Потвърждаване на гласуването
         budget_excess:
           budget_excess:
             description: Този проект надвишава максималния бюджет и не може да бъде добавен. Ако искате, можете да изтриете проект, който вече сте избрали, за да може да се гласува отново, според вашите предпочитания.
+            title: Максималният бюджет е надвишен
           close: Затвори
           description: Този проект надвишава максималния бюджет и не може да бъде добавен. Ако искате, можете да изтриете проект, който вече сте избрали, за да може да се гласува отново, според вашите предпочитания.
+          ok: ОК
+          projects_excess:
+            description: Този проект надхвърля максималния брой проекти и не може да бъде добавен. Ако искате, можете да изтриете проект, който вече сте избрали, за да можете да гласувате отново според вашите предпочитания.
+            title: Максималният брой проекти е надвишен
         budget_summary:
+          are_you_sure: Сигурен ли сте, че искате да отмените гласа си?
           assigned: 'Възложен:'
           cancel_order: изтрийте гласа си и започнете отначало
           checked_out:
             description: Вече сте гласували за бюджета. Ако сте размислили, имате възможност %{cancel_link}.
+            title: Гласуването за бюджета приключи
           minimum_projects_rule:
             description: За кои проекти смятате, че трябва да осигурим бюджет? Изберете най-малко %{minimum_number} желани от Вас проекта и гласувайте, според предпочитанията си за дефиниране на бюджета.
             instruction: "<li>Изберете поне %{minimum_number} желани от Вас проекта и гласувайте, според предпочитанията си за дефиниране на бюджета.</li>"
@@ -85,41 +242,135 @@ bg:
           rules:
             title: Бюджетни правила
           title: Вие решавате бюджета
+          total_budget: Общ бюджет
           total_projects: Общ брой гласове
           vote_threshold_percent_rule:
             description: За кои проекти смятате, че трябва да осигурим бюджет? Присъеденете най-малко %{minimum_budget} към желаните от Вас проекти и гласувайте, според предпочитанията си за дефиниране на бюджета.
             instruction: "<li>Присъеденете поне %{minimum_budget} към желаните от вас проекти и гласувайте, според предпочитанията си за дефиниране на бюджета.</li>"
+        count:
+          projects_count:
+            one: 1 проект
+            other: "%{count} проекти"
+        exit_modal:
+          cancel: Върнете се към гласуването
+          close_modal: Затвори прозореца
+          exit: Изход от гласуването
+          message: Вашият глас не е регистриран, защото все още не сте завършили процеса на гласуване. Сигурни ли сте, че искате да излезете от гласуването?
+          title: Все още не сте гласували
+        filters:
+          category: Категория
+          scope: Обхват
+          search: Търсене
+          status: Статус
+          status_values:
+            all: Всички
+            not_selected: Не селектирано
+            selected: Селектирано
         filters_small_view:
+          close_modal: Затвори прозореца
           filter: Филтър
           filter_by: Филтрирай по
           unfold: Разгъване
         index:
           view_project: Преглед на проекта
+        order_progress:
+          vote: Гласувай
         order_selected_projects:
           remove: Премахни
           selected_projects:
             one: избран проект
             other: избрани проекти
           view: Преглед
+        orders:
+          highest_cost: Най-висока стойност
+          label: Подреждане на проектите по
+          lowest_cost: Най-ниска стойност
+          most_voted: Най-гласувани
+          random: Случаен ред
+          selected: Селектирано
         project:
           add: Добавяне на проект %{resource_name} към Вашето гласуване
           remove: Премахване на проекта %{resource_name} от Вашето гласуване
+          selected: Селектирано
           view: Преглед
+          votes:
+            one: глас
+            other: гласове
+          you_voted: Ти гласува за това
         project_budget_button:
           add: Добавяне към гласуването Ви
           add_descriptive: Добавяне на проект %{resource_name} към Вашето гласуване
           added: Добавено към Вашето гласуване
           added_descriptive: Проектът %{resource_name} е добавен към Вашето гласуване
+        projects_for: Проекти за %{name}
         show:
+          budget: Бюджет
           view_all_projects: Преглед на всички проекти
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: 'Области, в които имате незавършено гласуване:'
+          email_intro: Започнахте гласуването за бюджет на участието, но не сте го завършили.
+          email_link: Преминете към продължаване на гласуването
+          email_outro: Моля, не забравяйте да завършите гласуването. За да гласувате, първо трябва да изберете предложението или предложенията, за които искате да гласувате и след това да потвърдите гласа си с бутона „Гласувай“.
+          email_subject:
+            one: Имате незавършено гласуване в гласуването за бюджет на участието
+            other: Имате незавършени гласувания в гласуването за бюджет на участието
     components:
       budgets:
+        actions:
+          comment: Коментар
+          vote: Гласувай
+        name: Бюджети
         settings:
           global:
+            announcement: Обявление
+            comments_enabled: Коментарите са активирани
+            comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
             form:
               errors:
                 budget_voting_rule_only_one: Трябва да бъде активирано само едно правило за гласуване
                 budget_voting_rule_required: Изисква се едно правило за гласуване
+            geocoding_enabled: Координатите са активирани
+            landing_page_content: Целева страница на „Бюджети“
+            more_information_modal: Диалогов прозорец за повече информация
+            projects_per_page: Проекти на страница
+            resources_permissions_enabled: Права за действия могат да се задават за всеки проект
+            scope_id: Обхват
+            scopes_enabled: Обхватите са активирани
+            title: Заглавие
+            total_budget: Общ бюджет
+            vote_minimum_budget_projects_number: Минимален брой проекти за гласуване
+            vote_rule_minimum_budget_projects_enabled: 'Активиране на правило: Минимален брой проекти, за които да се гласува'
+            vote_rule_selected_projects_enabled: 'Активиране на правило: Минимален и максимален брой проекти за гласуване'
+            vote_rule_threshold_percent_enabled: 'Активиране на правило: Минимален процент на бюджета'
+            vote_selected_projects_maximum: Максимален брой проекти за избор
+            vote_selected_projects_minimum: Минимален брой проекти за избор
+            vote_threshold_percent: Процент на прага на гласовете
+            workflow: Работния процес
+            workflow_choices:
+              all: 'Гласувайте във всички: позволява на участниците да гласуват във всички бюджети.'
+              one: 'Гласувайте в един: позволява на участниците да гласуват във всеки бюджет, но само за един.'
+          step:
+            announcement: Обявление
+            comments_blocked: Коментарите са блокирани
+            highlighted_heading: Акцентирано заглавие
+            landing_page_content: Целева страница на „Бюджети“
+            list_heading: Заглавие на списъка
+            more_information_modal: Диалогов прозорец за повече информация
+            show_votes: Показване на гласовете
+            title: Заглавие
+            votes: Гласуване
+            votes_choices:
+              disabled: Гласуването е деактивирано
+              enabled: Гласуването е активирано
+              finished: Гласуването е приключило
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'Бюджетът %{resource_title} вече е активен за %{participatory_space_title}. Можете да го видите от тази страница:'
+          email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предходния линк.
+          email_subject: Бюджетът %{resource_title} вече е активен за %{participatory_space_title}.
+          notification_title: Бюджетът <a href="%{resource_path}">%{resource_title}</a> вече е активен за %{participatory_space_title}.
     orders:
       checkout:
         error: Възникна проблем при обработването на Вашия глас
@@ -127,3 +378,11 @@ bg:
       destroy:
         error: Възникна проблем при отмяната на гласа Ви
         success: Вашият глас беше отменен успешно
+    resource_links:
+      included_proposals:
+        project_proposal: Предложения, включени в този проект
+    statistics:
+      orders_count: Подкрепа
+      projects_count: Проекти
+  index:
+    confirmed_orders_count: Брой гласове

@@ -419,7 +419,6 @@ hu:
         new_meeting_at_html: "<span>Új találkozó %{link}</span>kor"
       layouts:
         live_event:
-          administrate: Admin
           close: bezár
           questions: Kérdések
       mailer:

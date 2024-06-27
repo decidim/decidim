@@ -117,6 +117,7 @@ tr:
       organizations:
         create:
           error: Yeni bir organizasyon oluştururken bir sorun oluştu.
+          error_invitation: Yeni bir kuruluş oluşturulurken bir sorun oluştu. Kuruluşunuzun yönetici adını gözden geçirin.
           success: Kuruluş başarıyla oluşturuldu.
         edit:
           secondary_hosts_hint: Her birini yeni bir satıra girin
@@ -164,7 +165,7 @@ tr:
           fieldsets:
             sender: Gönderen
           instructions:
-            from_label: 'E-posta göndereni: "your-organization-name <your-organization@example.org>" olacaktır. ''E-posta adresini'' etiket olarak kullanmak için boş bırakın'
+            from_label: 'E-posta göndereni "kuruluşunuzun-adı <kuruluşunuz@example.org>". Kuruluş için tanımlananla aynı adı kullanmak için boş bırakın.'
           placeholder:
             from_email: your-organization@example.org
             from_label: your-organization-name

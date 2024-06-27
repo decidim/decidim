@@ -379,7 +379,6 @@ it:
         new_meeting_at_html: "<span>Nuovo incontro al %{link}</span>"
       layouts:
         live_event:
-          administrate: Amministra
           close: chiudi
           questions: Domande
       mailer:

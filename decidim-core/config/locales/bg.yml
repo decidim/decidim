@@ -4,6 +4,10 @@ bg:
     attributes:
       account:
         delete_reason: Причина за изтриване на Вашия профил
+      common:
+        created_at: Създадено на
+      conversation:
+        body: Основно съдържание
       group:
         about: Относно
         avatar: Аватар
@@ -12,11 +16,14 @@ bg:
         name: Име
         nickname: Псевдоним
         phone: Телефон
+      message:
+        body: Основно съдържание
       report:
         details: Забележки
       user:
         about: Относно
         email: Вашата ел. поща
+        locale: Локално
         name: Вашето име
         nickname: Псевдоним
         password: Парола
@@ -30,11 +37,17 @@ bg:
       decidim/demoted_membership: Вече не сте администратор в групата
       decidim/gamification/badge_earned_event: Получихте значка
       decidim/gamification/level_up_event: Повишихте нивото си
+      decidim/invited_to_group_event: Поканен в групата
       decidim/join_request_accepted_event: Заявката за присъединяване е приета
       decidim/join_request_rejected_event: Заявката за присъединяване е отхвърлена
       decidim/profile_updated_event: Профилът е обновен
       decidim/promote_to_admin: Назначен за администратор на групата
+      decidim/promoted_to_admin_event: Назначен за администратор на групата
       decidim/removed_from_group: Премахнат от групата
+      decidim/resource_endorsed_event: Съдържанието е одобрено
+      decidim/resource_hidden_event: Съдържанието е скрито
+      decidim/user_group_created_event: Потребителска група е създадена
+      decidim/welcome_notification_event: Приветствено съобщение
   activerecord:
     attributes:
       decidim/user:
@@ -62,7 +75,10 @@ bg:
     'true': 'Да'
   carrierwave:
     errors:
+      file_cannot_be_processed: Файлът не може да бъде обработен
+      file_resolution_too_large: Разделителната способност на файла е твърде голяма
       file_size_too_large: Размерът на файла е твърде голям
+      not_inside_organization: Файлът не е прикачен към никоя организация.
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -70,8 +86,40 @@ bg:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: около 1 час
+        other: около %{count} часа
+      about_x_months:
+        one: около 1 месец
+        other: около %{count} месеца
+      half_a_minute: половин минута
+      less_than_x_minutes:
+        one: по-малко от минута
+        other: по-малко от %{count} минути
+      less_than_x_seconds:
+        one: по-малко от секунда
+        other: по-малко от %{count} секунди
+      x_days:
+        one: 1 ден
+        other: "%{count} дни"
+      x_hours:
+        one: 1 час
+        other: "%{count} часа"
+      x_minutes:
+        one: 1 минута
+        other: "%{count} минути"
+      x_months:
+        one: 1 месец
+        other: "%{count} месеца"
+      x_seconds:
+        one: 1 секунда
+        other: "%{count} секунди"
   decidim:
     accessibility:
+      external_link: Външна връзка
+      front_page_link: Отидете на начална страница
       logo: "Официално лого на %{organization}"
       skip_button: Към съдържанието
     account:
@@ -92,7 +140,14 @@ bg:
         notice: Свалянето на Вашите данни е в процес. Ще получите ел. писмо когато приключи.
       email_change:
         body1: Изпратихме имейл на %{unconfirmed_email}, за да потвърдим новия ви имейл адрес.
+        body2: Трябва ли да изпратим отново имейла за потвърждение? %{resend_link} или %{cancel_link}.
+        cancel: отказ
+        cancel_error: Промяната на имейла не можа да бъде отменена.
+        cancel_successfully: Промяната на имейла бе отменена успешно.
+        resend_error: Неуспешно изпращане на имейл за потвърждение.
         resend_successfully: Имейлът за потвърждение е препратен успешно на %{unconfirmed_email}
+        send_again: Изпрати отново
+        title: Проверка за промяна на имейл
       show:
         available_locales_helper: Изберете езика, който искате да използвате, за да разглеждате и получавате известия в платформата
         change_password: Смяна на паролата
@@ -106,16 +161,44 @@ bg:
         cancel: Отказ
       password_change:
         alert: Трябва да промените паролата си, за да продължите по-нататък
+        notification: Администраторите трябва да сменят паролата си на всеки %{days} дни.
     admin_log:
       area:
         create: "%{user_name} създаде район %{resource_name}"
         delete: "%{user_name} изтри район %{resource_name}"
         update: "%{user_name} обнови район %{resource_name}"
+      area_type:
+        create: "%{user_name} създаде тип област %{resource_name}"
+        delete: "%{user_name} изтри тип област %{resource_name}"
+        update: "%{user_name} актуализира типа област %{resource_name}"
+      attachment:
+        create: "%{user_name} създаде прикачения файл %{resource_name}"
+        delete: "%{user_name} изтри прикачения файл %{resource_name}"
+        update: "%{user_name} актуализира прикачения файл %{resource_name}"
+      attachment_collection:
+        create: "%{user_name} създаде колекцията от прикачени файлове %{resource_name}"
+        delete: "%{user_name} създаде колекцията от прикачени файлове %{resource_name}"
+        update: "%{user_name} актуализира колекцията от прикачени файлове %{resource_name}"
+      category:
+        create: "%{user_name} добави категорията %{resource_name} към пространството %{space_name}"
+        delete: "%{user_name} изтри категорията %{resource_name} от пространството %{space_name}"
+        update: "%{user_name} актуализира категорията %{resource_name} в пространството %{space_name}"
       component:
         create: "%{user_name} добави компонента %{resource_name} към пространството %{space_name}"
         delete: "%{user_name} премахна компонента %{resource_name} от пространството %{space_name}"
+        export_component: "%{user_name} експортира %{resource_name} %{component_name} в %{space_name} като %{format_name}"
         publish: "%{user_name} публикува компонента %{resource_name} в пространството %{space_name}"
         unpublish: "%{user_name} отпубликува компонента %{resource_name} от пространството %{space_name}"
+        update_permissions_with_space: "%{user_name} актуализира разрешенията на %{resource_name} в %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} актуализира раздела за помощ на %{resource_name}"
+      helpers:
+        answers: отговори
+        comments: коментари
+        projects: проекти
+        results: резултати
+      impersonation_log:
+        manage: "%{user_name} управлява %{resource_name}, защото %{reason}"
       moderation:
         hide: "%{user_name} скри ресурс от типа %{resource_type} в пространството %{space_name}"
         unreport: "%{user_name} отдокладва ресурс от типа %{resource_type} в пространството %{space_name}"
@@ -130,8 +213,10 @@ bg:
         update: "%{user_name} обнови OAuth приложението %{resource_name}"
       organization:
         update: "%{user_name} обнови настройките на организацията"
+        update_external_domain: "%{user_name} актуализира външните домейни на организацията"
       participatory_space_private_user:
         create: "%{user_name} покани %{resource_name} да бъде частен участник"
+        create_via_csv: "%{user_name} покани %{resource_name} чрез CSV да бъде частен участник"
         delete: "%{user_name} премахна участника %{resource_name} като частен"
       scope:
         create: "%{user_name} създаде сферата %{resource_name}"
@@ -140,22 +225,36 @@ bg:
         delete_with_parent: "%{user_name} изтри сферата %{resource_name} в родителската сфера %{parent_scope}"
         update: "%{user_name} обнови сферата %{resource_name}"
         update_with_parent: "%{user_name} обнови сферата %{resource_name} в родителската сфера %{parent_scope}"
+      scope_type:
+        create: "%{user_name} създаде тип обхват %{resource_name}"
+        delete: "%{user_name} изтри типа обхват %{resource_name}"
+        update: "%{user_name} актуализира типа обхват на %{resource_name}"
       static_page:
         create: "%{user_name} създаде статичната страница %{resource_name}"
         delete: "%{user_name} изтри статичната страница %{resource_name}"
         update: "%{user_name} обнови статичната страница %{resource_name}"
       user:
+        block: "%{user_name} блокира потребител %{resource_name}"
         invite: "%{user_name} покани участника %{resource_name} за роля: %{role}"
         officialize: "%{user_name} присвои официален статус на участника %{resource_name}"
+        promote: "%{user_name} повиши %{resource_name}"
         remove_from_admin: "%{user_name} премахна участника %{resource_name} за роля: %{role}"
         show_email: "%{user_name} получи ел. поща от участника %{resource_name}"
+        transfer: "%{user_name} прехвърли участника %{resource_name}"
+        unblock: "%{user_name} деблокира потребител %{resource_name}"
         unofficialize: "%{user_name} премахна официалния статус на участника %{resource_name}"
       user_group:
+        block: "%{user_name} блокира потребителска група %{resource_name}"
         reject: "%{user_name} отхвърли потвърждението на група участници %{resource_name}"
+        unblock: "%{user_name} отблокира потребителска група %{resource_name}"
         verify: "%{user_name} провери групата %{resource_name}"
         verify_via_csv: "%{user_name} провери групата %{resource_name} чрез CSV файл"
+      user_moderation:
+        unreport: "%{user_name} отмени %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>ПРАВИЛА НА АДМИНИСТРАТОРА</h2><p>Надяваме се, че сте получили указания от местния системен администратор. Обикновено се свеждат до тези три неща:</p><ol><li>Уважавайте личното пространство на другите.</li><li>Мисли, преди да натиснеш.</li><li>С големите права идва голямата отговорност.</li></ol>"
+    alert:
+      dismiss: Отхвърляне на известието
     amendments:
       accepted:
         error: Възникна грешка при одобряване на поправката.
@@ -233,6 +332,7 @@ bg:
           '1': Създайте Ваша поправка
           '2': Сравнете Вашите поправки
           '3': Завършете Вашите поправки
+          '4': Публикувайте своето изменение
     anonymous_user: Анонимен
     application:
       collection:
@@ -248,6 +348,7 @@ bg:
       photos:
         related_photos: Свързани изображения
     author:
+      avatar: 'Аватар: %{name}'
       avatar_multiuser: Аватар за множество потребители
       comments:
         one: коментар
@@ -255,6 +356,7 @@ bg:
       endorsements:
         one: одобряване
         other: одобрявания
+      official_author: Официално
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Преминете проверка, като въведете номер на паспорт започващ с "A"
@@ -265,11 +367,16 @@ bg:
       dummy_authorization_handler:
         explanation: Преминете проверка, като въведете номер на документ завършващ с "X"
         fields:
+          allowed_postal_codes: Позволени пощенски кодове (разделени със запетаи)
+          allowed_scope_id: Разрешен обхват
           document_number: Номер на документ
           postal_code: Пощенски код
+          scope_id: Обхват
         name: Примерна идентификация
       dummy_authorization_workflow:
         name: Макет на процедура за идентификация
+      errors:
+        duplicate_authorization: Участник вече е оторизиран със същите данни. Администратор ще се свърже с вас, за да потвърди данните ви.
       expired_at: Изтече на %{timestamp}
       expires_at: Изтича на %{timestamp}
       foo_authorization:
@@ -315,6 +422,15 @@ bg:
           explanation_html: За да изпълните това действие, първо се идентифицирайте, но преди това потвърдете вашата ел. поща <strong>%{email}</strong>.
           request_confirmation_instructions: Заявка на инструкции за потвърждение
           title: Потвърдете Вашата ел. поща
+      show:
+        close_modal: Затвори прозореца
+    block_user_mailer:
+      notify:
+        body_1: Вашият акаунт беше блокиран.
+        body_2: 'Причина: %{justification}'
+        greetings: Поздрав,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Здравейте,
+        subject: Вашият акаунт беше блокиран от %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: и още %{count}
@@ -331,6 +447,7 @@ bg:
           debate: Дискусия
           initiative: Инициатива
           meeting: Среща
+          order: Бюджетно гласуване
           post: Публикация
           proposal: Предложение
           question: Въпрос
@@ -344,11 +461,14 @@ bg:
           global:
             amendments_enabled: Поправки разрешени
             comments_enabled: Коментари разрешени
+            comments_max_length: Максимална дължина на коментарите
             dummy_global_attribute1: Макетен атрибут 1
             dummy_global_attribute2: Макетен атрибут 2
             dummy_global_translatable_text: Макетен преводим текст
             enable_pads_creation: Активирай създаване на бележки
             resources_permissions_enabled: Разрешения за ресурс включени
+            scope_id: Обхват
+            scopes_enabled: Обхватите са активирани
           step:
             amendment_creation_enabled: Създаване на поправки разрешено
             amendment_promotion_enabled: Популяризиране на поправки разрешено
@@ -360,6 +480,13 @@ bg:
             dummy_step_translatable_text: Преводим текст на макетната стъпка
     contact: Контакт
     content_blocks:
+      cta:
+        name: Изображение, текст и бутон с призив към действие
+      cta_settings_form:
+        background_image: Фоново изображение
+        button_text: Призив към действие (Call To Action) текст
+        button_url: Призив към действие (Call To Action) URL
+        description: Описание
       footer_sub_hero:
         name: Долен колонтитул на под-геройския банер
       hero:
@@ -369,6 +496,11 @@ bg:
         welcome_text: Поздравителен текст
       highlighted_content_banner:
         name: Банер на откроеното съдържание
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Сортирайте елементите по:'
+          random: Произволно
+          recent: Най-скорошни
       how_to_participate:
         name: Как да участвам
       html:
@@ -396,14 +528,19 @@ bg:
           email_already_exists: Друг профил използва същия адрес за ел. поща
         new:
           complete_profile: Завърши профила
+          nickname_help: Вашият псевдоним в %{organization}. Може да съдържа само букви, цифри, „-“ и „_“.
           sign_up: Моля, завършете профила си
           subtitle: Попълнете формуляра за да завършите регистрацията
           username_help: Публичното име ще се показва във Вашите публикации. Ако желаете анонимност, изберете го произволно.
       registrations:
+        create:
+          error: Възникна проблем при създаването на Вашия профил.
         new:
           already_have_an_account?: Вече имате профил?
           newsletter: Получавайте извънреден бюлетин с подходяща информация
           newsletter_title: Разрешение за контакт с Вас
+          nickname_help: Вашият псевдоним в %{organization}. Може да съдържа само букви, цифри, „-“ и „_“.
+          sign_in: Вход
           sign_up: Регистрация
           sign_up_as:
             legend: Регистрация като
@@ -424,6 +561,8 @@ bg:
         newsletter_modal:
           buttons:
             check: Маркирай и продължи
+            close_modal: Затвори прозореца
+            uncheck: Продължаване без отметка
           notice: |-
             <p>Наистина ли не желаете да получавате писма с новини за дейностите в платформата?<br> Още веднъж преценете, дали да не поставите отметка по-долу.<br> Важно е понякога да получавате актуална информация. Винаги можете да се откажете от страницата с настройки.</p> <p>Когато това поле не е маркирано, може да пропуснете възможности за съвместна работа.<br> Ако все пак не желаете да Ви информираме за общите ни дела, уважаваме Вашето решение.</p> <p>Благодарим Ви, че прочетохте това!</p>
           title: Известия за новости
@@ -455,7 +594,9 @@ bg:
       create:
         error: Грешка при качването на изображението
         success: Изображението е качено успешно
+      drag_and_drop_help: Добавете изображения чрез плъзгане и пускане или поставяне (paste).
     endorsable:
+      endorsements: Одобрения
       endorsements_count: Брой одобрения
     endorsement_buttons_cell:
       already_endorsed: Одобрен
@@ -596,6 +737,14 @@ bg:
         notification_body: Коригирахме начина, по който се използват прякорите, така че да няма дублиращи се имена и затова премахнахме правилото за чувствителност към главни и малки букви. <br/> Вашият псевдоним е създаден след друг със същото име, така че автоматично го преименувахме. Можете да го промените от <a href="%{link_to_account_settings}">настройките на вашия акаунт</a>.
       notification_event:
         notification_title: Настъпи събитие в <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: Администратор премахна вашия %{resource_type}, защото е докладван като %{report_reasons}.
+          email_outro: Получихте това известие, защото вие сте авторът на премахнатото съдържание.
+          email_subject: Вашият %{resource_type} е премахнат
+          notification_title: |-
+            Администратор премахна вашия %{resource_type}, защото е докладван като %{report_reasons}.</br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, когото следвате, одобри "%{resource_title}" Ако представлява интерес за вас, проверете и участвайте:'
         email_outro: Получавате това известие, защото следвате %{endorser_nickname}. Може да прекратите известията чрез предната връзка.
@@ -607,8 +756,14 @@ bg:
           email_outro: Получавате това известие, защото следвате %{nickname}. Може да прекратите известията чрез предната връзка.
           email_subject: "%{nickname} обнови своя профил"
           notification_title: Профилната <a href="%{resource_path}">страница</a> на %{name} (%{nickname}), който следвате е обновена.
+        user_officialized:
+          email_intro: Участник %{name} (%{nickname}) е официален.
+          email_outro: Получихте това известие, защото сте администратор на организацията.
+          email_subject: "%{name} е официализиран"
+          notification_title: Участник %{name} (%{nickname}) е официализиран.
     export_mailer:
       download_your_data_export:
+        click_button: 'Щракнете върху следващата връзка, за да изтеглите вашите данни.<br/>Файлът ще бъде достъпен до %{date}.<br/>Ще ви трябва <a href="https://www.7-zip.org/"> 7-Zip</a> (за Windows), <a href="https://www.keka.io/en/">Keka</a> (за MacOS) или <a href="https:// peazip.github.io">PeaZip</a> (за Linux), за да го отворите. Парола: %{password}'
         download: Сваляне
       export:
         ready: Ще намерите като прикачен файл, компресирана версия на Вашия експорт.
@@ -631,9 +786,13 @@ bg:
       title: Отпечатък
       value: Стойност
     followers:
+      followers_count:
+        one: "%{count} последовател"
+        other: "%{count} последователи"
       no_followers: Все още няма последователи.
     following:
       no_followings: Все още не следвате никой или нищо.
+      non_public_followings: Някои от последваните ресурси не са публични.
     follows:
       create:
         button: Следвай
@@ -652,15 +811,43 @@ bg:
         error: В това поле има грешка.
       file_help:
         file:
+          explanation: 'Указания за файла:'
+          message_1: Трябва да е изображение или документ.
           message_2: Относно изображенията, препотъчваме използването на пейзажно-ориентирани изображения, системата изрязва изображението (при портретна ориентация).
+        icon:
+          explanation: 'Указания за иконата:'
+          message_1: Трябва да бъде квадратно изображение.
+          message_2: Препоръчителният размер за това изображение е 512x512 px.
         image:
+          explanation: 'Указания за изображението:'
           message_1: За предпочитане пейзажно-ориентирано изображение, което няма текст.
+          message_2: Функцията изрязва изображението.
+      file_validation:
+        allowed_file_extensions: 'Допустими файлови разширения: %{extensions}'
+        max_file_dimension: 'Максимални размери на файла: %{resolution} пиксела'
+        max_file_size: 'Максимален размер на файла: %{megabytes} MB'
+      files:
+        extension_allowlist: 'Приемливи формати: %{extensions}'
       upload:
         labels:
+          add_attachment: Прикачване на файл
+          add_file: Добави файл
+          add_image: Добавяне на изображение
           cancel: Отказ
+          edit_image: Редактиране на изображение
+          error: Грешка!
+          file_size_too_large: 'Размерът на файла е твърде голям! Максимален размер на файла: %{megabytes}MB'
+          remove: Премахни
+          replace: Замени
           save: Запази
+          title: Заглавие
+          title_required: Заглавието е задължително!
+          uploaded: Качено
+          validating: Валидиране...
+          validation_error: Грешка при валидирането!
       upload_help:
         dropzone: Тук пуснете файлове с влачене или просто щракнете за избор на файл за качване
+        explanation: Насоки за %{attribute}
     gamification:
       all_badges_link: Виж всички достъпни значки.
       badges:
@@ -762,6 +949,7 @@ bg:
       no_user_groups: Не принадлежи към никоя група.
       roles:
         admin: Администратор
+        creator: Администратор
         member: Член
       update:
         error: Възникна проблем при обновяването на групата
@@ -780,15 +968,27 @@ bg:
       index:
         last_activity: Последна активност
         resource_type: Тип
+    links:
+      invalid_url: Невалиден URL
+      warning:
+        body_1: Вие сте на път да посетите външна връзка и бихме искали да внимавате по отношение на съдържанието на външния сайт.
+        body_2: Моля, проверете връзката, която ще посетите, и се уверете, че я разпознавате като безопасен сайт, преди да продължите.
+        cancel: Отказ
+        close_modal: Затвори прозореца
+        proceed: Продължи
+        title: Отворете външна връзка
     log:
       base_presenter:
         create: "%{user_name} създаде %{resource_name}"
         create_with_space: "%{user_name} създаде %{resource_name} в %{space_name}"
         delete: "%{user_name} изтри %{resource_name}"
         delete_with_space: "%{user_name} изтри %{resource_name} в %{space_name}"
+        publish_with_space: "%{user_name} публикува %{resource_name} в %{space_name}"
         unknown_action: "%{user_name} извърши действие на %{resource_name}"
         unknown_action_with_space: "%{user_name} извърши действие на %{resource_name} в %{space_name}"
+        unpublish_with_space: "%{user_name} преустанови публикуването на %{resource_name} от %{space_name}"
         update: "%{user_name} обнови %{resource_name}"
+        update_permissions_with_space: "%{user_name} актуализира правата на %{resource_name} в %{space_name}"
         update_with_space: "%{user_name} обнови %{resource_name} в %{space_name}"
       value_types:
         area_presenter:
@@ -801,6 +1001,13 @@ bg:
           not_found: 'Типа сфера липсва в базата данни (ID: %{id})'
     managed_users:
       expired_session: Текущата сесия на участника като администратор е изтекла.
+    map:
+      dynamic:
+        screen_reader_explanation: Следващият елемент е карта, която представя елементите на тази страница като точки от картата. Елементът може да се използва с екранен четец, но може да е труден за разбиране.
+        skip_button: Пропускане на картата
+      static:
+        latlng_text: 'географска ширина: %{latitude}, географска дължина: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Тази група все още няма членове.
     menu:
@@ -853,8 +1060,14 @@ bg:
           show: Показване на разговора с %{sender}
         create:
           error: Разговора не започна. Опитайте по-късно
+        error_modal:
+          close: Затвори прозореца
+          correct_errors: Моля, коригирайте грешките и опитайте отново.
+          intro: 'Имаше следните грешки с вашето съобщение:'
+          ok: ОК
         index:
           ago: преди
+          close: Затвори прозореца
           from: Oт
           groups: Моите Групи
           last_message: Последно съобщение
@@ -868,8 +1081,10 @@ bg:
           send: Изпрати
           title: Отговори
         show:
+          back: Назад към всички разговори
           chat_with: Разговор с
           deleted_accounts: Не можете да водите разговор с изтрити акаунти.
+          not_allowed: Този участник не приема директни съобщения.
           title: Разговор с %{usernames}
         start:
           send: Изпрати
@@ -877,6 +1092,8 @@ bg:
         update:
           error: Съобщението не е изпратено, поради възникнала грешка. Моля, опитайте отново по-късно.
     metrics:
+      download:
+        csv: Изтегляне на данни (CSV)
       followers:
         description: Брой участници, които следват това пространство
         object: последователи
@@ -934,17 +1151,47 @@ bg:
         greetings: Здравейте,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Здравейте,
         subject: Желаете ли да продължите да получавате подбрана информация от %{organization_name}?
+    notification_mailer:
+      event_received:
+        no_translation_available: За съжаление автоматичният превод не можа да бъде извлечен, когато имейлът е изпратен. Можете да проверите превода на оригиналния текст на следната връзка %{link}.
+        original_text: 'Оригинален текст:'
+        same_language: Съдържанието е публикувано на предпочитания от вас език (%{language}), поради което в този имейл не се показва автоматичен превод.
+        translated_text: 'Автоматично преведен текст:'
     notifications:
       no_notifications: Още няма известия.
+      show:
+        missing_event: Упс, това известие принадлежи на съдържание, което вече не е налично. Можете да го подминете.
+    notifications_digest_mailer:
+      header:
+        daily: Ежедневно обобщение на известията
+        weekly: Седмично обобщение на известията
+      hello: Здравейте %{name},
+      intro:
+        daily: 'Това са известията от последния ден въз основа на активността, която следвате:'
+        weekly: 'Това са известията от последната седмица въз основа на активността, която следвате:'
+      outro: Получихте тези известия, защото следвате това съдържание или неговите автори. Можете да спрете да ги следвате от съответните им страници.
+      see_more: Вижте още известия
+      subject: Това е обобщение на Вашата поща
     notifications_settings:
       show:
+        administrators: Администратори
         allow_public_contact: Позволявам на всеки да ми изпраща директно съобщение, дори и да не го следвам.
         allow_push_notifications: Получавайте насочени известия, за да разберете какво се случва, когато не сте на платформата. Можете да ги изключите по всяко време.
         direct_messages: Получавайте директни съобщения от всеки
+        email_on_moderations: Искам да получавам имейл всеки път, когато нещо или някой бъде докладван за модериране.
         everything_followed: Всичко, което следвам
         newsletter_notifications: Желая да получавам бюлетин
         newsletters: Бюлетин с новости
+        notification_settings:
+          close_meeting_reminder: Искам да получавам напомняния по имейл за непубликувани доклади от затворени срещи
+        notifications_sending_frequencies:
+          daily: Дневно
+          none: Няма
+          real_time: Реално време
+          weekly: Седмично
+        notifications_sending_frequency: Колко често искате да получавате имейл с известия?
         own_activity: Моята дейност, например когато някой коментира мое предложение или ме спомене
+        push_notifications: Изскачащи известия
         push_notifications_reminder: За да получавате известия от платформата, първо трябва да ги разрешите в настройките на браузъра си.
         receive_notifications_about: Искам да получавам известия за
         update_notifications_settings: Запази промените
@@ -954,6 +1201,7 @@ bg:
     offline:
       show:
         message: Изглежда, че в момента сте офлайн. Моля, опитайте отново по-късно.
+        retry: Опитайте отново
     open_data:
       not_available_yet: Файловете с отворени данни все още не са налице. Опитайте отново след няколко минути.
     own_user_groups:
@@ -977,6 +1225,7 @@ bg:
           proposals: Предложения
           proposals_explanation: Правете предложения, подкрепяйте съществуващите и обявете промените, които искате да видите.
         footer_sub_hero:
+          footer_sub_hero_body: Нека изградим по-отворено, прозрачно и задружно общество.<br /> Присъединете се, участвайте и решавайте.
           footer_sub_hero_headline: Добре дошли в платформата за сътрудничество %{organization}!
           register: Регистрация
         hero:
@@ -1003,14 +1252,19 @@ bg:
           error: Възникна проблем при приемането на общите условия.
           success: Чудесно! Вие приехте общите условия.
         form:
+          agreement: Съгласен съм и приемам тези условия
           legend: Съгласявам се с общите условия за ползване
         refuse:
           modal_body: Ако откажете, няма да можете да използвате платформата, но можете да <a href="%{download_your_data_path}">изтеглите данните си</a> и/или <a href="%{delete_path}">да изтриете вашия акаунт</a>.
+          modal_btn_continue: Приемам условията и продължавам
           modal_btn_exit: Ще ги прегледам по-късно
+          modal_button: Отказвам условията
+          modal_close: Затвори прозореца
           modal_title: Наистина ли отказвате обновените Общи условия?
         required_review:
           alert: Обновихме нашите Общи условия, моля прегледайте ги.
           body: Моля, отделете време за да прегледате обновените Общи условия. В противен случай не може да използвате платформата.
+          title: 'Задължително: Прегледайте обновените Условия за ползване'
     participatory_space_private_users:
       not_allowed: Нямате права да преглеждате това съдържание
     passwords:
@@ -1032,6 +1286,8 @@ bg:
         following: Следванния
         groups: Групи
         members: Членове
+        officialized: Официален участник
+        send_private_message: Изпрати лично съобщение
         timeline: Хронология
         view_full_profile: Виж пълния профил
       sidebar:
@@ -1057,8 +1313,17 @@ bg:
         report_html: <p>Следното <a href="%{url}">съдържание</a> е скрито автоматично.</p>
         subject: Ресурсът е скрит автоматично
       report:
+        authors: Автори
+        content: Докладвано съдържание
+        content_original_language: Оригинален език на съдържанието
+        date: Докладвано на
+        details: Детайли
         hello: Здравейте %{name},
+        id: ID
+        participatory_space: Пространство за участници
+        reason: Причина
         report_html: <p>Следното <a href="%{url}">съдържание</a> беше докладвано.</p>
+        see_report: Вижте доклада
         subject: Ресурсът беше докладван
     reports:
       create:
@@ -1071,11 +1336,16 @@ bg:
       global: Обща сфера
       picker:
         cancel: Отказ
+        change: Промяна на избрания обхват
         choose: Избери
+        currently_selected: Текущ избран обхват
         title: Избери %{field}
       prompt: Изберете сфера
       scopes: Сфери
+      scopes_picker_input:
+        select_scope: 'Изберете обхват (понастоящем: %{current})'
     search:
+      results: Резултати от търсенето
       results_found_for_term: '%{count} резултата от търсенето: "%{term}"'
       term_input_placeholder: Търсене
     searches:
@@ -1088,6 +1358,7 @@ bg:
           future: Бъдещи
           past: Минали
       filters_small_view:
+        close_modal: Затвори прозореца
         filter: Филтър
         filter_by: Филтър по
         unfold: Разгъване
@@ -1096,7 +1367,16 @@ bg:
           one: "%{count} резултат"
           other: "%{count} резултата"
         view_all: Виж всички (%{count})
+    security:
+      selfxss_warning:
+        description: Тази функция на браузъра е предназначена за разработчици и не трябва да поставяте нищо тук, ако бъдете помолени да го направите. Поставянето на съдържание в този прозорец може да компрометира вашата поверителност и да даде на хакерите достъп до вашия акаунт.
+        title: Стоп!
     shared:
+      confirm_modal:
+        cancel: Отказ
+        close_modal: Затвори прозореца
+        ok: ОК
+        title: Потвърждаване
       embed_modal:
         close_window: Затвори прозореца
         embed: Моля, поставете този код във вашата страница
@@ -1104,29 +1384,45 @@ bg:
       extended_navigation_bar:
         more: Повече
         unfold: Разгъване
+      filter_form_help:
+        help: Формата по-долу филтрира резултатите от търсенето динамично, когато условията за търсене се променят.
+        skip: Прескачане към резултатите
       flag_modal:
         already_reported: Това съдържание вече е докладвано и ще бъде прегледано от администратор.
         close: Затвори
         description: Това съдържание неподходящо ли е?
         does_not_belong: Съдържа незаконна дейност, заявка за самоубийство, лични сведения или друго недопустимо според Вас, за %{organization_name}.
         offensive: Съдържа расизъм, сексизъм, злословия, лични атаки, заплахи за смърт, заявки за самоубийство или всякаква форма на омраза.
+        reason: Причина
         report: Доклад
         spam: Съдържа клик-байт, реклама, измами или скриптове.
         title: Съобщи за проблем
       flag_user_modal:
+        already_reported: Това съдържание вече е докладвано и ще бъде прегледано от администратор.
+        close: Затвори
+        description: Какво е неприемливо при този потребител?
         does_not_belong: Съдържа незаконни дейности, заплахи за самоубийство, лична информация или нещо друго, което считате, че е неподходящо за %{organization_name}.
+        offensive: Съдържа расизъм, сексизъм, злословия, лични атаки, заплахи за смърт, заявки за самоубийство или всякаква форма на омраза.
+        report: Доклад
+        spam: Съдържа примамка за кликване, реклама, измами или скриптове.
+        title: Докладвайте за неподходящ потребител
       floating_help:
         close: Затваряне на помощта
         help: Помощ
       follow_button:
         sign_in_before_follow: Моля влезте, преди да извършите това действие
       login_modal:
+        close_modal: Затвори прозореца
         please_sign_in: Моля, влезте
         sign_up: Регистрация
+      mentions_modal:
+        remove_recipient: Премахване на получател %{name}
       participatory_space_filters:
         filters:
           areas: Райони
           select_an_area: Избери район
+      public_participation:
+        public_participation: Показване на присъствието ми публично
       reference:
         reference: 'Справка: %{reference}'
       represent_user_group:
@@ -1137,10 +1433,28 @@ bg:
         title: Изберете брой резултати на страница
       share_modal:
         close_window: Затвори прозореца
+        copy_share_link: Копиране
+        copy_share_link_clarification: Копиране на линка за споделяне в клипборда
+        copy_share_link_copied: Копирано!
+        copy_share_link_message: Връзката беше успешно копирана в клипборда.
         share: Сподели
         share_link: Сподели връзка
     statistics:
       comments_count: Коментари
+      endorsements_count: Одобрения
+      followers_count: Последователи
+      headline: Статистики
+      no_stats: Все още няма статистики.
+      pages_count: Страници
+      participants_count: Участници
+      users_count: Участници
+    tags:
+      filter_results_for_category: 'Филтриране на резултатите за категорията: %{resource}'
+      filter_results_for_scope: 'Филтриране на резултатите за обхвата: %{resource}'
+    translation_bar:
+      help_text: "<strong>Предупреждение:</strong> Възможно е съдържанието да е преведено автоматично и да не е 100 % точно."
+      show_original: Показване на оригиналния текст
+      show_translated: Показване на автоматично преведения текст
     user_activity:
       index:
         no_activities_warning: Този участник все още няма активности.
@@ -1186,6 +1500,14 @@ bg:
       update:
         error: Възникна проблем с обновяването на интересите Ви.
         success: Интересите Ви бяха успешно обновени.
+    user_report_mailer:
+      notify:
+        body_1: Потребителят %{user} е докладван от %{token}
+        body_2: 'Причина: %{reason}'
+        details: Подробности, предоставени от потребителя
+        greetings: Поздрав,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Здравейте %{admin},
+        subject: Докладван е нов потребител в %{organization_name}
     version:
       show:
         back_to_resource: Назад
@@ -1243,6 +1565,7 @@ bg:
     invitations:
       edit:
         header: Завършете създаването на профила си
+        nickname_help: Вашият псевдоним в %{organization}. Може да съдържа само букви, цифри, „-“ и „_“.
         submit_button: Запази
         subtitle: Ако приемате поканата, моля задайте своя псевдоним и парола.
       invitation_removed: Поканата Ви беше премахната.
@@ -1313,6 +1636,7 @@ bg:
         new_password: Нова парола
         password_help: "Минимум %{minimun_characters} символа, не трябва да са разпространени (например, 123456) и трябва да са различни от вашите име и ел. поща."
         password_help_admin: "Минимум %{minimun_characters} символа, не трябва да са разпространени (например, 123456) и трябва да са различни от вашите име и ел. поща."
+        title: Промяна на паролата
       new:
         forgot_your_password: Забравили сте паролата си?
         send_me_reset_password_instructions: Изпрати ми инструкции за възстановяване на паролата
@@ -1333,6 +1657,8 @@ bg:
       updated: Профилът Ви беше обновен успешно.
     sessions:
       already_signed_out: Излязохте успешно.
+      new:
+        sign_in: Вход
       signed_in: Влязохте успешно.
       signed_out: Излязохте успешно.
     shared:
@@ -1341,6 +1667,7 @@ bg:
         didn_t_receive_confirmation_instructions: Не получихте инструкции за потвърждение?
         didn_t_receive_unlock_instructions: Не получихте инструкции за отключване?
         forgot_your_password: Забравили сте паролата си?
+        sign_in: Вход
         sign_in_with_provider: Влез със %{provider}
         sign_up: Регистрация
       minimum_password_length:
@@ -1357,6 +1684,7 @@ bg:
       public: Вашата публична информация.
   errors:
     messages:
+      allowed_file_content_types: 'разрешени са само файлове със следните разширения: %{types}'
       already_confirmed: вече сте потвърдени, опитайте да влезете
       confirmation_period_expired: трябва Ви потвърдят в рамките на %{period}, моля заявете отново
       content_type_allowlist_error: типа файл не е валиден
@@ -1375,8 +1703,16 @@ bg:
       password_confirmation_message: 'Написаното в „Потвърдете паролата си“ не съответства на паролата'
       too_many_marks: използва твърде много последователни препинателни знаци (напр. ! и ?)
       too_much_caps: използва твърде много главни букви (над 25% от текста)
+      too_short: е твърде кратък (под %{count} знака)
+      url_format: Този URL адрес е в неправилен формат
   forms:
+    correct_errors: Във формуляра има грешки, моля, коригирайте ги, за да продължите.
+    length_validator:
+      minimum:
+        one: Най-малко %{count} символ
+        other: Най-малко %{count} символа
     required: Задължително
+    required_explanation: "* Задължителните полета са обозначени със звездичка"
   invisible_captcha:
     sentence_for_humans: Ако сте човек, игнорирайте това поле
     timestamp_error_message: Извинете, това беше твърде бързо! Моля, изпратете отново.
@@ -1385,34 +1721,100 @@ bg:
       data_consent:
         details:
           columns:
+            description: Описание
+            name: Име
+            service: Услуга
             type: Тип
+          items:
+            _session_id:
+              description: Позволява на уебсайтовете да запомнят потребители в рамките на уебсайт, когато се движат между уеб страници.
+              service: Този уебсайт
+            decidim-consent:
+              description: Съхранява информация за бисквитките, разрешени от потребителя на този уебсайт.
+              service: Този уебсайт
+            pwaInstallPromptSeen:
+              description: Съхранява състоянието, ако известието за инсталиране на прогресивно уеб приложение (PWA) вече е било видяно от потребителя.
+              service: Този уебсайт
+          types:
+            cookie: Бисквитка (Cookie)
+            local_storage: Локално съхранение
+        dialog:
+          accept_all: Приемане на всичко
+          accept_only_essential: Приемане на само необходимото
+          description: Ние използваме бисквитки на нашия уебсайт, за да подобрим ефективността и съдържанието на сайта. Бисквитките ни позволяват да предоставим по-индивидуално потребителско изживяване и социални медийни канали.
+          settings: Настройки
+          title: Информация за бисквитките, използвани на уебсайта
+        modal:
+          accept_all: Приемане на всичко
+          accept_only_essential: Приемане на само необходимото
+          analytics:
+            description: Тези бисквитки се използват за измерване и анализ на аудиторията на уебсайта, за да помогнат за подобряването на уебсайта.
+            title: Анализи и статистики
+          description: Ние използваме бисквитки, за да гарантираме основните функции на уебсайта и да подобрим вашето онлайн изживяване. Можете да конфигурирате и приемете използването на бисквитките и да промените вашите опции за съгласие по всяко време.
+          essential:
+            description: Тези бисквитки позволяват ключова функционалност на уебсайта и помагат за защитата на неговите потребители. Те се записват автоматично в браузъра и не могат да бъдат деактивирани.
+            title: Съществено
+          marketing:
+            description: Тези бисквитки събират информация за това как използвате уебсайта и могат да бъдат използвани, за да ви предоставят по-персонализиран маркетинг в различните уебсайтове, които използвате.
+            title: Маркетинг
+          preferences:
+            description: Тези бисквитки позволяват на уебсайта да запомни изборите, които сте направили в миналото на този уебсайт, за да осигури по-персонализирано изживяване за потребителите на уебсайта.
+            title: Предпочитания
+          save_settings: Запис на настройките
+          title: Настройки на бисквитките
+          toggle: Превключване на %{consent_category}
+        warning:
+          all_categories: всички бисквитки
+          change_settings: Промени настройките на бисквитките
+          consent_required: Необходимо е да активирате %{categories}, за да разгледате съдържанието.
       edit_link:
         edit: Редактирай
       footer:
+        cc_by_license: Лиценз Creative Commons
+        data_consent_settings: Настройки на бисквитките
+        decidim_logo: Лого на Civil Power
         download_open_data: Изтеглете файлове с отворени данни
         made_with_open_source: Уебсайта работи със <a target="_blank" href="https://github.com/decidim/decidim">свободен софтуер</a>.
       header:
         close_menu: Затвори менюто
+        main_menu: Главно меню
         navigation: Навигация
         sign_in: Влизане
         sign_up: Регистрация
+        user_menu: Потребителско меню
       impersonation_warning:
         close_session: Затвори сесия
         description_html: Вие управлявате участника <b>%{user_name}</b>.
         expire_time_html: Вашата сесия изтича след <b><span class="minutes">%{minutes}</span> минути</b>.
+      language_chooser:
+        choose_language: Избери език
       notifications_dashboard:
         mark_all_as_read: Маркирай всичко като прочетено
+        mark_as_read: Маркирай като прочетено
       offline_banner:
         cache_version_page: Уви! Вашата мрежа е офлайн. Това е предишна кеширана версия на страницата, която посещавате, възможно е съдържанието да не е актуално.
+      social_media_links:
+        facebook: "%{organization} във Facebook"
+        github: "%{organization} в GitHub"
+        instagram: "%{organization} в Instagram"
+        x: "%{organization} в Х"
+        youtube: "%{organization} в YouTube"
       timeout_modal:
+        body: Не сте били активни %{minutes} минути. Ако продължите да сте неактивни, автоматично ще излезете от системата за ваша собствена сигурност.
+        continue_session: Продължи сесията
         sign_out: Изход
+        title: Искате ли да продължите Вашата сесия?
+      upload_modal:
+        close_modal: Затвори прозореца
       user_menu:
+        account: 'Профил на потребител: %{name}'
         admin_dashboard: Администраторски панел
         conversations: Разговори
         notifications: Известия
         profile: Моят профил
         public_profile: Моя публичен профил
         sign_out: Изход
+        title: Профилни линкове
       user_profile:
         account: Профил
         authorizations: Идентификация
@@ -1426,14 +1828,17 @@ bg:
         see_more: Виж още
   locale:
     name: български език
+    name_with_error: Английски (грешка!)
   password_validator:
     blacklisted: е в черния списък
     domain_included_in_password: е твърде подобно на името на домейна
     email_included_in_password: е твърде подобно на Вашата ел. поща
     fallback: не е валидно
     name_included_in_password: е твърде подобно на името Ви
+    nickname_included_in_password: е твърде близко до Вашия псевдоним
     not_enough_unique_characters: няма достатъчно различни букви
     password_not_allowed: не се допуска
+    password_repeated: не може да преизползвате стара парола
     password_too_common: твърде разпространен
     password_too_long: твърде дълъг
     password_too_short: твърде кратък
@@ -1459,6 +1864,7 @@ bg:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
@@ -1466,6 +1872,8 @@ bg:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"
@@ -1497,6 +1905,7 @@ bg:
       last_title: Връзка към последната страница
       next: Следваща &rsaquo;
       next_title: Връзка към следващата страница
+      pagination: Страниране
       previous: "&lsaquo; Предна"
       previous_title: Връзка към предходната страница
       title: 'Страница номер: '

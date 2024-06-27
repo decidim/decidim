@@ -356,6 +356,7 @@ ru:
           vote_limit:
             description: Вы можете проголосовать до %{limit} предложений.
             left: Осталось
+            votes: Голоса
         wizard_aside:
           back: Вернуться
           info: Вы создаете <strong>предложение</strong>.

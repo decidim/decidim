@@ -108,8 +108,6 @@ nl:
         smtp_settings:
           fieldsets:
             sender: Afzender
-          instructions:
-            from_label: 'E-mail afzender zal zijn: "jouw-organisatie naam <your-organization@example.org>". Laat leeg om ''E-mailadres'' te gebruiken als label'
           placeholder:
             from_label: jouw-organisatienaam
         update:

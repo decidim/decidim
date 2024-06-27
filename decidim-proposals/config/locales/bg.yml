@@ -735,6 +735,9 @@ bg:
       create:
         error: Възникна проблем при запазването на предложението.
         success: Предложението беше създадено успешно. Запазено като чернова.
+      destroy_draft:
+        error: Възникна проблем при изтриването на съвместната чернова.
+        success: Черновата на предложението беше изтрита успешно.
       last_activity:
         new_proposal_at_html: "<span>Ново предложение на адрес: %{link}</span>"
         proposal_updated_at_html: "<span>Предложение беше актуализирано на: %{link}</span>"
@@ -742,22 +745,78 @@ bg:
         collaborative_draft:
           fields:
             authors: Автори
+            comments: Коментари
             contributions: Добавки
+        proposal:
+          fields:
+            category: Категория
+            comments: Коментари
+            id: ID
+            notes: Бележки
+            official_proposal: Официално предложение
+            published_answer: Публикуван отговор
+            published_at: Публикувано на
+            scope: Обхват
+            state: Статус
+            title: Заглавие
+            valuator: Оценител
+            valuators: Оценители
+            votes: Гласове
       new:
         limit_reached: Не можете да създавате нови предложения, докато сте надхвърлили ограничението.
+      participatory_text_proposal:
+        alternative_title: Понастоящем няма текстове за участие
+        buttons:
+          amend: Изменение
+          comment: Коментар
+          comments: Коментари
+      proposal_votes:
+        create:
+          error: Възникна проблем при подкрепянето на предложението.
       proposals:
         compare:
           continue: Продължи
+          no_similars_found: Браво! Не бяха намерени подобни предложения
+          title: Подобни предложения
         complete:
           send: Изпрати
+          title: Завършете предложението си
         count:
           proposals_count:
             one: "%{count} предложение"
             other: "%{count} предложения"
+        dynamic_map_instructions:
+          description: Координатите ще бъдат актуализирани, когато щракнете върху бутона "преглед". Адресът обаче не се променя.
+          instructions: Можете да преместите точката на картата.
         edit:
+          add_documents: Добавяне на документи
           add_image: Добавяне на изображение
+          attachment_legend: "(Незадължително) Добавяне на прикачен файл"
+          back: Назад
+          edit_documents: Редактиране на документ
           edit_image: Редактиране на изображение
           gallery_legend: "(Незадължително) Добавете изображение към картата с предложението"
+          select_a_category: Моля, изберете категория
+          send: Изпрати
+          title: Редактиране на предложение
+        edit_draft:
+          discard: Отхвърляне на черновата
+          discard_confirmation: Наистина ли искате да отхвърлите черновата на това предложение?
+          send: Преглед
+          title: Редактиране на черновата на предложението
+        filters:
+          activity: Моята дейност
+          all: Всички
+          amendment_type: Тип
+          category: Категория
+          my_proposals: Моите предложения
+          origin: Произход
+          related_to: Свързано с
+          scope: Обхват
+          search: Търсене
+          state: Статус
+          type: Тип
+          voted: Подкрепено
         filters_small_view:
           close_modal: Затвори прозореца
           filter: Филтър
@@ -797,6 +856,12 @@ bg:
         preview:
           announcement_body: Вашето предложение е запазено като чернова. Трябва да се публикува, за да се появи на сайта.
           announcement_title: Вашето предложение все още не е публикувано
+          modify: Промяна на предложението
+          proposal_edit_before_minutes:
+            one: Ще можете да редактирате това предложение в рамките на една минута, след като бъде публикувано. След като този времеви прозорец изтече, повече няма да можете да редактирате предложението.
+            other: Ще можете да редактирате това предложение в рамките на %{count} минути, след като бъде публикувано. След като този времеви прозорец изтече, повече няма да можете да редактирате предложението.
+          publish: Публикувай
+          title: Публикувайте предложението си
         proposal:
           creation_date: 'Създадено на:'
           view_proposal: Преглед на предложението
@@ -804,36 +869,116 @@ bg:
           empty: Все още няма предложение
           empty_filters: Няма предложение, което да отговаря на тези критерии
         show:
+          answer: Отговор
           back_to: Назад към
           back_to_list: Назад към списъка
+          changes_at_title: Изменение на „%{title}“
+          comments: Коментари
+          edit_proposal: Редактиране на предложение
           endorsements_list: Списък с одобрения
+          estimated_cost: Предвидени разходи
+          hidden_endorsers_count:
+            one: и още %{count} човек
+            other: и още %{count} души
+          link_to_collaborative_draft_help_text: Това предложение е резултат от съвместна чернова. Прегледайте хронологията
+          link_to_collaborative_draft_text: Вижте съвместната чернова
+          link_to_promoted_emendation_help_text: Това предложение е допринасяща поправка
+          link_to_promoted_emendation_text: Вижте отхвърлената поправка.
+          link_to_proposal_from_emendation_help_text: Това е отхвърлена поправка
+          link_to_proposal_from_emendation_text: Вижте предложението
+          proposal_accepted_reason: 'Това предложение е прието, защото:'
+          proposal_in_evaluation_reason: Това предложение е в процес на оценяване
+          proposal_rejected_reason: 'Това предложение е отхвърлено, защото:'
           read_less: Виж по-малко
           read_more: Прочетете повече
           report: Отчет
+          withdraw_btn_hint: Можете да оттеглите предложението си, ако размислите, стига вече да не сте получили подкрепа. Предложението не се изтрива, а ще се показва в списъка с оттеглените предложения.
+          withdraw_confirmation_html: Наистина ли искате да оттеглите това предложение?<br><br><strong>Това действие не може да се отмени!</strong>
+          withdraw_proposal: Оттегляне на предложението
         tags:
           changed_from: "(променено от предишното <u>%{previous_name}</u> от администратор)"
+        update:
+          title: Актуализиране на предложението
+        vote_button:
+          already_voted: Вече подкрепено
+          already_voted_hover: Оттегляне на подкрепата
+          maximum_votes_reached: Достигнато е ограничението за подкрепа
+          no_votes_remaining: Не можете да подкрепяте повече
+          vote: Подкрепа
+          votes_blocked: Подкрепянията са забранени
         votes_count:
+          count:
+            one: Подкрепа
+            other: Подкрепа
           most_popular_proposal: Най-популярно предложение
           need_more_votes: Има нужда от повече подкрепяния
         voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Всяко предложение може да събере повече от %{limit} подкрепяния
           minimum_votes_per_user:
+            description: Трябва да разпределите най-малко %{votes} подкрепяния между различните предложения.
             given_enough_votes: Предоставили сте достатъчно подкрепяния.
+            supports_remaining: Трябва да подкрепите още %{remaining_votes} предложения, за да бъде взета предвид подкрепата Ви.
+          proposal_limit:
+            description: Можете да създадете до %{limit} предложения.
           threshold_per_proposal:
             description: За да бъдат валидирани, предложенията трябва да съберат %{limit} подкрепяния
+          title: 'За подкрепата се прилагат следните правила:'
           vote_limit:
+            description: Можете да подкрепите до %{limit} предложения.
             left: Оставащи
             votes: Подкрепа
         wizard_aside:
+          back: Назад
+          back_from_step_1: Назад към предложенията
+          back_from_step_2: Назад към предложенията
+          back_from_step_3: Назад към сравнението на предложенията
+          back_from_step_4: Назад към редактирането на чернова
           info: Вие създавате <strong>предложение</strong>.
         wizard_steps:
+          current_step: Текуща стъпка
           see_steps: вижте стъпките
+          step_1: Създайте Ваше предложение
+          step_2: Сравнете
+          step_3: Завършено
+          step_4: Публикувайте предложението си
           step_of: Стъпка %{current_step_num} от общо %{total_steps}
+          title: Стъпки за създаване на предложение
       proposals_picker:
+        choose_proposals: Избор на предложения
         close: Затвори
         more_proposals: Има още %{number} предложения. Прецизирайте търсенето си, за да ги намерите.
         no_proposals: Няма предложения, които да съответстват на критериите Ви за търсене, или няма никакви предложения.
+      publish:
+        error: Възникна проблем при публикуването на предложението.
+        success: Предложението беше публикувано успешно.
+      publish_answers:
+        success: Отговорите на предложението бяха публикувани успешно.
+      update:
+        error: Възникна проблем при запазването на предложението.
+        success: Предложението беше актуализирано успешно.
+      update_draft:
+        error: Възникна проблем при запазването на съвместната чернова.
+        success: Черновата на предложението беше актуализирана успешно.
       versions:
         collaborative_drafts:
           back_to_resource: Обратно към съвместната чернова
+        index:
+          title: Версии
         proposals:
           back_to_resource: Обратно към предложението
+      withdraw:
+        errors:
+          has_supports: Това предложение не може да бъде оттеглено, защото вече има подкрепа.
+    resource_links:
+      copied_from_component:
+        proposal_proposal: Свързани предложения
+      included_projects:
+        project_result: 'Резултати, които се показват в този проект:'
+      included_proposals:
+        proposal_project: 'Предложение, което се показва в тези проекти:'
+        proposal_result: 'Предложение, което се показва в тези резултати:'
+    statistics:
+      proposals_accepted: Приети предложения
+      proposals_count: Предложения
+      supports_count: Подкрепа

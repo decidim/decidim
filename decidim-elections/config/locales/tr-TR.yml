@@ -317,6 +317,7 @@ tr:
           continue: Sonraki
       warnings:
         no_elections_warning: Arama kriterlerinize uyan seçim yok veya planlanmış bir seçim yok.
+        no_scheduled_elections_warning: Şu anda planlanmış bir seçim yok, ancak burada geçmiş seçimlerin tamamını listelenmiş olarak bulabilirsiniz.
     events:
       elections:
         election_published:
@@ -377,6 +378,8 @@ tr:
             see_all_votings: Tüm Oylamaları Görün
       polling_officer_zone:
         closures:
+          certify:
+            form_legend: Seçim Kapatma Belgesinin resmini yükleyin
           new:
             modal_ballots_count_error:
               close_modal: Kapat

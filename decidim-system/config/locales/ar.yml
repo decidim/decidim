@@ -169,8 +169,6 @@ ar:
         smtp_settings:
           fieldsets:
             sender: المُرسِل
-          instructions:
-            from_label: 'مرسل البريد الإلكتروني سيكون هو: "اسم منظمتك <your-organization@example.org>". اتركه فارغاً لاستخدام "عنوان البريد الإلكتروني" كتسمية'
           placeholder:
             from_email: your-organization@example.org
             from_label: اسم منظمتك
