@@ -171,6 +171,7 @@ fi:
         back_to: Takaisin %{component_name}
         close_modal: Sulje ikkuna
         continue: Jatka
+        more_information: Lisätietoja budjetista
       budgets_list:
         budgets: Budjetit
         cancel_order:
