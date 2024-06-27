@@ -21,7 +21,6 @@ module Decidim
         csv_path = "/admin/participatory_processes/#{component.participatory_space.slug}/components/#{component.id}/exports.CSV?id=dummies"
         link = subject.at_css("a[href='#{csv_path}'][data-method='post']")
 
-        expect(link).not_to be_nil
         expect(link["href"]).to eq(csv_path)
         expect(link["data-method"]).to eq("post")
       end
