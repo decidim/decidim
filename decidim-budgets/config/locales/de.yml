@@ -171,6 +171,7 @@ de:
         back_to: Zurück zu %{component_name}
         close_modal: Dialog schließen
         continue: Weiter
+        more_information: Weitere Informationen zum Budget
       budgets_list:
         budgets: Budgets
         cancel_order:
