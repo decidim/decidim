@@ -450,6 +450,7 @@ de:
           values:
             'false': Veröffentlicht
             'true': Unveröffentlicht
+        remove_all: Alle entfernen
         scope_id_eq:
           label: Themenbereich
         search_label: Suche
@@ -964,6 +965,11 @@ de:
           help: Diese Token werden verwendet, um diese unveröffentlichte Ressource öffentlich an jeden Benutzer weiterzugeben. Sie werden ausgeblendet, wenn das Werk veröffentlicht wird. Klicken Sie auf das Teilen-Symbol des Tokens um die teilbare URL zu besuchen.
           title: Token teilen
       shared:
+        adjacent_navigation:
+          next: Weiter
+          next_title: Nächstes Element
+          previous: Zurück
+          previous_title: Vorheriges Element
         gallery:
           add_images: Bilder hinzufügen
           edit_images: Bilder bearbeiten
