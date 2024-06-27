@@ -40,10 +40,8 @@ module Decidim
 
           if missing_cost_data?(proposals)
             flash[:alert] = t("proposals.answer.missing_cost_data", scope: "decidim.proposals.admin")
-            respond_to do |format|
-              format.html { redirect_back fallback_location: EngineRouter.admin_proxy(current_component).root_path }
-              format.js { render js: "window.location = '#{EngineRouter.admin_proxy(current_component).root_path}'" }
-            end
+            redirect_to EngineRouter.admin_proxy(current_component).root_path
+
             return
           end
 
@@ -52,10 +50,7 @@ module Decidim
           end
 
           flash[:notice] = I18n.t("proposals.answer.success", scope: "decidim.proposals.admin")
-          respond_to do |format|
-            format.html { redirect_back fallback_location: EngineRouter.admin_proxy(current_component).root_path }
-            format.js { render js: "window.location = '#{EngineRouter.admin_proxy(current_component).root_path}'" }
-          end
+          redirect_to EngineRouter.admin_proxy(current_component).root_path
         end
 
         private
