@@ -69,7 +69,7 @@ fi:
             - Jos et voi nähdä tietoja selvästi tai et voi saada niitä vahvistettua, voit hylätä pyynnön, jolloin käyttäjä voi korjata sitä.
         postal_letter:
           help:
-            - Käyttäjät pyytävät lähettämään vahvistuskoodin heidän postiosoitteeseensa.
+            - Osallistujat pyytävät lähettämään vahvistuskoodin heidän postiosoitteeseensa.
             - Lähetät kirjeen heidän osoitteeseensa, mikä sisältää vahvistuskoodin.
             - Sinä merkitset kirjeen lähetetyksi.
             - Kun olet merkinnyt kirjeen lähetetyksi, käyttäjä voi syöttää koodin ja vahvistaa tilinsä.
