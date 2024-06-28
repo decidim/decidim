@@ -103,7 +103,7 @@ module Decidim
           visibility: "all"
         ) do
           proposal = Decidim::Proposals::Proposal.new(params)
-          meeting_component = participatory_space.components.find_by(manifest_name: "meetings")
+          n = 3 if n == 2 && !Decidim.module_installed?(:meetings)
 
           coauthor = case n
                      when 0
@@ -111,6 +111,8 @@ module Decidim
                      when 1
                        Decidim::UserGroup.where(organization:).sample
                      when 2
+                       meeting_component = participatory_space.components.find_by(manifest_name: "meetings")
+
                        Decidim::Meetings::Meeting.where(component: meeting_component).sample
                      else
                        organization
