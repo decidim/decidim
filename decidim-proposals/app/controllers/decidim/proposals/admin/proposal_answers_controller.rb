@@ -94,12 +94,7 @@ module Decidim
 
         def missing_cost_data?(proposals)
           proposals.each do |proposal|
-            if bulk_answer_form(proposal).costs_required? &&
-               (proposal.cost.blank? ||
-                 translated_attribute(proposal.cost_report).blank? ||
-                 translated_attribute(proposal.execution_period).blank?)
-              return true
-            end
+            return true if bulk_answer_form(proposal).costs_required? && proposal.cost.blank?
           end
           false
         end
