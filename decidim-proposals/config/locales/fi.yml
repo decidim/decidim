@@ -521,6 +521,7 @@ fi:
             publish: Julkaise
             publish_answers: Julkaise vastaukset
             select_component: Valitse komponentti
+            select_valuators: Valitse yksi tai useampi arvioija
             selected: valittu
             split: Jaa ehdotuksia
             split_button: Jaa
