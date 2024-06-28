@@ -13,7 +13,7 @@ module Decidim
 
           private
 
-          delegate :filters, :filters_with_values, to: :filter_config
+          delegate :filters, :dynamically_translated_filters, :filters_with_values, to: :filter_config
 
           # Comment about participatory_texts_enabled.
           def base_query
@@ -34,12 +34,6 @@ module Decidim
 
           def filter_config
             @filter_config ||= Decidim::AdminFilter.new(:proposals).build_for(self)
-          end
-
-          # Cannot user `super` here, because it does not belong to a superclass
-          # but to a concern.
-          def dynamically_translated_filters
-            [:scope_id_eq, :category_id_eq, :valuator_role_ids_has, :proposal_state_id_eq, :state_eq]
           end
 
           def translated_state_eq(state)

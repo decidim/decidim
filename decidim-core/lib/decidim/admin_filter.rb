@@ -5,16 +5,21 @@ module Decidim
   # This class handles all logic regarding registering filters
   #
   class AdminFilter
-    attr_accessor :filters, :filters_with_values
+    attr_accessor :filters, :dynamically_translated_filters, :filters_with_values
 
     def initialize(name)
       @name = name
       @filters = []
+      @dynamically_translated_filters = []
       @filters_with_values = {}
     end
 
     def add_filters(*filters)
       @filters += filters
+    end
+
+    def add_dynamically_translated_filters(*filters)
+      @dynamically_translated_filters += filters
     end
 
     def add_filters_with_values(**items)

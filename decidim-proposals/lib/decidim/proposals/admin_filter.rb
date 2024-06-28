@@ -22,6 +22,14 @@ module Decidim
             category_id_eq: category_ids_hash(categories.first_class),
             valuator_role_ids_has: valuator_role_ids
           )
+
+          configuration.add_dynamically_translated_filters(
+            :scope_id_eq,
+            :category_id_eq,
+            :valuator_role_ids_has,
+            :proposal_state_id_eq,
+            :state_eq
+          )
         end
       end
     end
