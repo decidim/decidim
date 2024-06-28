@@ -30,9 +30,431 @@ bg:
         github: GitHub
         hashtag: Хаштаг
         hero_image: Изображение за начална страница
+        import_attachments: Импортиране на прикачени файлове
+        import_categories: Импортиране на категории
+        import_components: Импортиране на компоненти
+        included_at: Включено в(ъв)
+        instagram: Instagram
+        internal_organisation: Вътрешна организация
+        is_transparent: Е прозрачно
+        local_area: Област на организацията
+        meta_scope: Метаданни за обхвата
+        parent_id: Родителско събрание
+        participatory_processes_ids: Свързани процеси за участие
+        participatory_scope: Какво е решено
+        participatory_structure: Как е решено
+        private_space: Частно пространство
+        promoted: Акцентирано
+        published_at: Публикувано на
+        purpose_of_action: Цел на действието
+        scope_id: Обхват
+        scopes_enabled: Обхватите са активирани
+        short_description: Кратко описание
+        show_statistics: Покажи статистиката
+        slug: Съкратен URL
+        special_features: Специални функции
+        subtitle: Подзаглавие
+        target: Кой участва
+        title: Заглавие
+        twitter: X
+        weight: Подредба на позиция
+        youtube: YouTube
+      assembly_member:
+        birthday: Рождена дата
+        birthplace: Място на раждане
+        ceased_date: Дата на прекратяване
+        designation_date: Дата на обозначаване
+        full_name: Пълно име
+        gender: Пол
+        non_user_avatar: Аватар
+        position: Длъжност
+        user_id: Потребител или група
+        weight: Подредба на позиция
+      assembly_user_role:
+        email: Имейл
+        name: Име
+        role: Роля
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Невалиден файлов формат. Позволени са само файлове със следните разширения: %{types}.'
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Събрание
+        other: Събрания
+      decidim/assembly_member:
+        one: Член на събранието
+        other: Членове на събранието
+      decidim/assembly_user_role:
+        one: Потребителска роля в събранието
+        other: Потребителски роли в събранието
   decidim:
-    assemblies:
+    admin:
+      actions:
+        import_assembly: Импортиране
+        new_assembly: Ново събрание
+        new_assembly_member: Нов член на събранието
+        new_assembly_type: Нов тип събрание
+        new_assembly_user_role: Нов администратор на събранието
       assemblies:
+        create:
+          error: Възникна проблем при създаването на ново събрание.
+          success: Събранието беше създадено успешно.
+        edit:
+          update: Актуализация
+        index:
+          private: Частни
+          public: Публични
+          published: Публикувано
+          unpublished: Непубликувано
+        new:
+          create: Създаване
+          title: Ново събрание
+        update:
+          error: Възникна проблем при актуализирането на това събрание.
+          success: Събранието беше актуализирано успешно.
+      assemblies_copies:
+        create:
+          error: Възникна проблем при дублирането на това събрание.
+          success: Събранието беше дублирано успешно.
+      assemblies_types:
+        create:
+          error: Възникна проблем при създаването на нов тип събрание.
+          success: Типът събрание беше създаден успешно.
+        destroy:
+          success: Типът събрание беше изтрит успешно.
+        new:
+          create: Създаване
+          title: Нов тип събрание
+        update:
+          error: Възникна проблем при актуализирането на този тип събрание.
+          success: Типът на събранието беше актуализиран успешно.
+      assembly_copies:
+        new:
+          copy: Копиране
+          select: Изберете кои данни искате да дублирате
+          title: Дублиране на събрание
+      assembly_imports:
+        create:
+          error: Възникна проблем при импортирането на това събрание.
+          success: Събранието беше импортирано успешно.
+        new:
+          import: Импортиране
+          select: Изберете кои данни искате да импортирате
+          title: Импортиране на събрание
+      assembly_members:
+        create:
+          error: Възникна проблем при добавянето на член за това събрание.
+          success: Членът беше добавен успешно за това събрание.
+        destroy:
+          success: Членът беше изтрит успешно за това събрание.
+        edit:
+          title: Актуализиране на член на събранието
+          update: Актуализация
+        index:
+          assembly_members_title: Членове на събранието
+        new:
+          create: Създаване
+          title: Нов член на събранието
+        update:
+          error: Възникна проблем при актуализирането на члена за това събрание.
+          success: Членът беше актуализиран успешно за това събрание.
+      assembly_publications:
+        create:
+          error: Възникна проблем при публикуването на това събрание.
+          success: Събранието беше публикувано успешно.
+        destroy:
+          error: Възникна проблем при премахването на публикацията за това събрание.
+          success: Публикацията на събранието беше премахната успешно.
+      assembly_user_roles:
+        create:
+          error: Възникна проблем при добавянето на администратор за това събрание.
+          success: Администраторът беше добавен успешно към това събрание.
+        destroy:
+          success: Администраторът беше премахнат успешно от това събрание.
+        edit:
+          title: Актуализиране на администратора на събранието
+          update: Актуализация
+        index:
+          assembly_admins_title: Администратори на събранието
+        new:
+          create: Създаване
+          title: Нов администратор на събранието
+        update:
+          error: Възникна проблем при актуализирането на администратор за това събрание.
+          success: Администраторът беше актуализиран успешно за това събрание.
+      filters:
+        ceased_date_not_null:
+          label: Прекратено
+          values:
+            'false': Не е прекратено
+            'true': Прекратено
+        decidim_assemblies_type_id_eq:
+          label: Тип събрание
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: Търсене по име или псевдоним
+      menu:
+        assemblies: Събрания
+        assemblies_submenu:
+          assembly_admins: Администратори на събранието
+          assembly_members: Членове
+          attachment_collections: Папки
+          attachment_files: Файлове
+          attachments: Прикачени файлове
+          categories: Категории
+          components: Компоненти
+          info: Относно това събрание
+          landing_page: Целева страница
+          moderations: Модерации
+          private_users: Частни потребители
+          see_assembly: Вижте събранието
+        assemblies_types: Типове събрания
+      models:
+        assemblies_types:
+          fields:
+            created_at: Създадено на
+            title: Заглавие
+        assembly:
+          fields:
+            actions: Активности
+            created_at: Създадено на
+            private: Частни
+            promoted: Акцентирано
+            published: Публикувано
+            title: Заглавие
+          name: Събрание
+        assembly_member:
+          fields:
+            ceased_date: Дата на прекратяване
+            designation_date: Дата на обозначаване
+            full_name: Име
+            position: Длъжност
+          name: Член
+          positions:
+            other: Друго
+            president: Президент
+            secretary: Секретар
+            vice_president: Вицепрезидент
+        assembly_user_role:
+          fields:
+            email: Имейл
+            name: Име
+            role: Роля
+          name: Администратор на събрание
+          roles:
+            admin: Администратор
+            collaborator: Сътрудник
+            moderator: Модератор
+            valuator: Оценител
+      titles:
+        assemblies: Събрания
+        assemblies_types: Типове събрания
+    admin_log:
+      assembly:
+        create: "%{user_name} създаде събранието %{resource_name}"
+        duplicate: "%{user_name} дублира събранието %{resource_name}"
+        export: "%{user_name} експортна събранието %{resource_name}"
+        import: "%{user_name} импортира събранието %{resource_name}"
+        publish: "%{user_name} публикува събранието %{resource_name}"
+        unpublish: "%{user_name} премахна публикацията на събранието %{resource_name}"
+        update: "%{user_name} актуализира събранието %{resource_name}"
+      assembly_member:
+        create: "%{user_name} създаде члена %{resource_name} в събранието %{space_name}"
+        delete: "%{user_name} премахна члена %{resource_name} от събранието %{space_name}"
+        update: "%{user_name} актуализира члена %{resource_name} в събранието %{space_name}"
+      assembly_setting:
+        update: "%{user_name} актуализира настройките за събранията"
+      assembly_type:
+        create: "%{user_name} създаде типа събрание %{resource_name}"
+        delete: "%{user_name} премахна типа събрание %{resource_name}"
+        publish: "%{user_name} публикува типа събрание %{resource_name}"
+        unpublish: "%{user_name} премахна публикацията на типа събрание %{resource_name}"
+        update: "%{user_name} актуализира типа събрание %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} покани %{resource_name} в събранието %{space_name}"
+        delete: "%{user_name} премахна участника %{resource_name} от събранието %{space_name}"
+        update: "%{user_name} промени ролята на %{resource_name} в събранието %{space_name}"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            announcement_help: Текстът, който въвеждате тук, ще бъде показан на потребителя точно под информацията за събранието.
+            duration: Продължителност
+            duration_help: Ако продължителността на това събрание е ограничена, изберете крайната дата. В противен случай ще се показва като неограничено във времето.
+            filters: Филтри
+            images: Изображения
+            included_at_help: Изберете датата, на която този модул е ​​добавен към платформата. Не е задължително да е същата като датата на създаване.
+            metadata: Метаданни
+            other: Друго
+            select_a_created_by: Изберете „Създадено от“
+            select_an_area: Изберете област
+            select_an_assembly_type: Изберете тип събрание
+            select_parent_assembly: Изберете родителско събрание
+            slug_help_html: 'Използват се променливи полета в URL адреса, за да се генерират URL адреси, които водят към това събрание. Допуска се използването само на букви, цифри и тирета и адресът трябва да започва с буква. Пример: %{url}'
+            social_handlers: Социални мрежи
+            title: Основна информация
+            visibility: Видимост
+        assemblies_types:
+          form:
+            title: Редактиране на типа събрание
+        assembly_copies:
+          form:
+            slug_help_html: 'Използват се променливи полета в URL адреса, за да се генерират URL адреси, които водят към това събрание. Допуска се използването само на букви, цифри и тирета и адресът трябва да започва с буква. Пример: %{url}'
+        assembly_imports:
+          form:
+            slug_help_html: 'Използват се променливи полета в URL адреса, за да се генерират URL адреси, които водят към това събрание. Допуска се използването само на букви, цифри и тирета и адресът трябва да започва с буква. Пример: %{url}'
+        assembly_members:
+          form:
+            existing_user: Съществуващ участник
+            explanation: 'Указания за изображението:'
+            image_guide: За предпочитане е портретно (вертикално) изображение без текст.
+            non_user: Не е участник
+            non_user_avatar_help: Трябва да получите съгласието на лицата, преди да ги публикувате като членове.
+            select_a_position: Изберете длъжност
+            select_user: Изберете участник
+            user_type: Тип участник
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Максимален брой елементи, които да се показват
+        new_import:
+          accepted_types:
+            json: JSON
+      assemblies:
+        description:
+          area_name: Област
+          closing_date: Дата на затваряне
+          created_by: Създадено от
+          creation_date: Дата на създаване
+          data: Дата на събранието
+          developer_group: Група за популяризиране
+          duration: Продължителност
+          included_at: Включено в(ъв)
+          indefinite_duration: Неопределено
+          local_area: Област на организацията
+          meta_scope: Обхват
+          participatory_scope: Какво е решено
+          participatory_structure: Как е решено
+          target: Кой участва
+          title: Относно това събрание
         filters:
           names:
             all: Всички
+          type: Тип
+        show:
+          title: Относно това събрание
+      assembly_members:
+        index:
+          members: Членове
+      assembly_types:
+        commission: Комисия
+        consultative_advisory: Консултативно/Съветнически
+        executive: Изпълнителен директор
+        government: Правителство
+        others: Други
+        participatory: Съучастие
+        working_group: Работна група
+      content_blocks:
+        children_assemblies:
+          name: Събрания
+        dates_metadata:
+          name: Метаданни за дати
+        extra_data:
+          name: Тип и продължителност
+        highlighted_assemblies:
+          name: Акцентирани събрания
+        related_assemblies:
+          name: Свързани събрания
+      created_by:
+        city_council: Общински съвет
+        others: Други
+        public: Публично
+      filter:
+        all: Всички типове
+        commission: Комисия
+        consultative_advisory: Консултативно/Съветнически
+        executive: Изпълнителен директор
+        government: Правителство
+        help: 'Покажи:'
+        others: Други
+        participatory: Съучастие
+        working_group: Работна група
+      index:
+        title: Събрания
+      last_activity:
+        new_assembly: 'Ново събрание:'
+      pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Активни събрания
+            see_all_spaces: Вижте всички събрания
+        user_profile:
+          member_of:
+            member_of: Член на
+      show:
+        assembly_type: Тип събрание
+        duration: Продължителност
+        private_space: Това е частно събрание
+        social_networks_title: Посетете събранието на
+    assembly_members:
+      assembly_member:
+        designated_on: Обозначено на
+      index:
+        title: Членове
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Администратор на събранието <a href="%{resource_url}">%{resource_name}</a> Ви добави като един от членовете му.
+          email_outro: Получихте това известие, защото бяхте поканени на събрание. Проверете <a href="%{resource_url}">страницата за сглобяване</a>, за да допринесете!
+          email_subject: Получихте покана да станете член на събранието %{resource_name}!
+          notification_title: Бяхте регистрирани като член на събранието <a href="%{resource_path}">%{resource_name}</a>. Посетете <a href="%{resource_path}">страницата на събранието,</a> за да допринесете!
+      assembly:
+        role_assigned:
+          email_intro: Получихте ролята на %{role} за събранието „%{resource_title}“.
+          email_outro: Получавате това известие, защото сте %{role} на събранието „%{resource_title}“.
+          email_subject: Получихте ролята на %{role} за „%{resource_title}“.
+          notification_title: Получихте ролята на %{role} за събранието <a href="%{resource_url}">%{resource_title}</a>.
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p><strong>Събрание</strong> е група от членове на организация, които се срещат периодично, за да взимат решения за конкретна област или обхват на организацията.</p> <p>Събранията провеждат срещи, като някои са частни, а други са със свободен достъп. Ако са със свободен достъп, е възможно да участвате в тях (например: да присъствате, ако капацитетът го позволява, да добавяте точки към дневния ред или да коментирате предложенията или решенията на въпросния орган).</p> <p>Примери: Общо събрание (което заседава веднъж годишно, за да определи чрез гласуване основните насоки на действие на организацията, както и изпълнителните ѝ органи), консултативен съвет по въпросите на равенството (който заседава веднъж на всеки два месеца, за да изготвя предложения за подобряване на взаимоотношенията между половете в организацията), комисия за оценяване (която заседава всеки месец с цел наблюдение на определен процес) или гаранционен орган (който събира данни за инциденти, злоупотреби или предложения за подобряване на процедурите за взимане на решения) — всички те са примери за събрания.</p>\n"
+          page: "<p><strong>Събрание</strong> е група от членове на организация, които се срещат периодично, за да взимат решения за конкретна област или обхват на организацията.</p> <p>Събранията провеждат срещи, като някои са частни, а други са със свободен достъп. Ако са със свободен достъп, е възможно да участвате в тях (например: да присъствате, ако капацитетът го позволява, да добавяте точки към дневния ред или да коментирате предложенията или решенията на въпросния орган).</p> <p>Примери: Общо събрание (което заседава веднъж годишно, за да определи чрез гласуване основните насоки на действие на организацията, както и изпълнителните ѝ органи), консултативен съвет по въпросите на равенството (който заседава веднъж на всеки два месеца, за да изготвя предложения за подобряване на взаимоотношенията между половете в организацията), комисия за оценяване (която заседава всеки месец с цел наблюдение на определен процес) или гаранционен орган (който събира данни за инциденти, злоупотреби или предложения за подобряване на процедурите за взимане на решения) — всички те са примери за събрания.</p>\n"
+          title: Какво представляват събранията?
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Събранието не беше намерено в базата данни (Идент. №: %{id})'
+        assembly_type_presenter:
+          not_found: 'Типът събрание не бе намерен в базата данни (Идент. №: %{id})'
+    menu:
+      assemblies: Събрания
+    metrics:
+      assemblies:
+        description: Брой на създадените събрания
+        object: събрания
+        title: Събрания
+    participatory_processes:
+      show:
+        related_assemblies: Свързани събрания
+    statistics:
+      assemblies_count: Събрания
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          more_info: Още информация
+          take_part: Участвайте
+        index:
+          promoted_assemblies: Акцентирани събрания
+        metadata:
+          children_item:
+            one: "%{count} събрание"
+            other: "%{count} събрания"
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} събрания"
+            other: "%{count} събрания"
+      assembly_navigation:
+        assembly_member_menu_item: Членове

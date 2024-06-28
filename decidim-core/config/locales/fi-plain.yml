@@ -359,7 +359,11 @@ fi-pl:
     application:
       document:
         download: Lataa tiedosto
+        visit_link: Avaa linkki
       documents:
+        component_documents:
+          dummy: Esimerkkikomponentin asiakirjat
+          meetings: Tapaamisten asiakirjat
         documents: Asiakirjat
         related_documents: Liittyvät dokumentit
       photo:
@@ -876,6 +880,11 @@ fi-pl:
         button: Lopeta seuranta
         error: Tämän kohteen seuraamisen lopetuksessa tapahtui virhe.
     forms:
+      attachment_link:
+        explanation: Ohjeet liitetiedostojen linkeille
+        help_messages:
+          - Ainoastaan oikeanmuotoiset URL-osoitteet hyväksytään.
+          - Huomioi, että linkkien tulee olla julkisia, jotta kaikki osallistujat voivat käyttää niitä.
       errors:
         decidim/user:
           password: Salasana on liian lyhyt.
@@ -1438,6 +1447,7 @@ fi-pl:
           past: Menneet
       filters_small_view:
         filter: Suodata
+        filter_and_search: Suodatus ja haku
         filter_by: Suodata
       results:
         view_all: Näytä kaikki (%{count})
@@ -1940,10 +1950,6 @@ fi-pl:
         mark_as_read: Merkitse luetuiksi
       offline_banner:
         cache_version_page: Hups! Verkkoyhteytesi on kytketty pois päältä. Tämä on aiemmin välimuistissa oleva versio vierailemasi sivusta, jonka sisältö ei välttämättä ole ajan tasalla.
-      shared:
-        layout_item:
-          next: Seuraava kohde
-          prev: Edellinen kohde
       social_media_links:
         facebook: "%{organization} Facebookissa"
         github: "%{organization} GitHubissa"

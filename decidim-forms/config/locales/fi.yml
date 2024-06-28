@@ -21,7 +21,6 @@ fi:
               too_long: liian pitkä
             choices:
               missing: ovat puutteellisia
-              too_many: liian monta
         questionnaire:
           request_invalid: Pyynnön käsittely ei onnistunut. Yritä uudestaan myöhemmin.
   decidim:

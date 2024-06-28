@@ -126,6 +126,12 @@ es-MX:
         new:
           create: Crear
           title: Nuevo ponente.
+        publish:
+          invalid: Se ha producido un error al publicar esta ponente.
+          success: Ponente de la jornada actualizada correctamente.
+        unpublish:
+          invalid: Se ha producido un error al despublicar esta ponente.
+          success: Ponente de la jornada despublicada correctamente.
         update:
           error: Hubo un error al actualizar el ponente en esta conferencia.
           success: Ponente actualizado con éxito en esta conferencia.

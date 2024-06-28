@@ -330,6 +330,7 @@ lv:
       registrations:
         new:
           already_have_an_account?: Jums jau ir konts?
+          log_in: Pieteikties
           newsletter: Saņemiet neregulāru informatīvo biļetenu ar būtisko informāciju
           newsletter_title: Atļauja sazināties
           sign_up: Reģistrēties
@@ -1003,10 +1004,14 @@ lv:
       signed_up_but_unconfirmed: Uz jūsu e-pasta adresi ir nosūtīts ziņojums ar apstiprinājuma saiti. Lūdzu, izmantojiet saiti, lai aktivizētu savu kontu.
       update_needs_confirmation: Jūs veiksmīgi atjauninājāt kontu, taču mums ir jāpārbauda jūsu jaunā e-pasta adrese. Lūdzu, pārbaudiet savu e-pastu un izmantojiet apstiprināšanas saiti, lai apstiprinātu jauno e-pasta adresi.
       updated: Jūsu konts tika veiksmīgi atjaunināts.
+    sessions:
+      new:
+        log_in: Pieteikties
     shared:
       links:
         back: Atpakaļ
         forgot_your_password: Aizmirsāt paroli?
+        log_in: Pieteikties
         sign_up: Reģistrēties
       minimum_password_length:
         zero: "(vismaz %{count} rakstzīmes)"
@@ -1050,6 +1055,7 @@ lv:
         edit: Labot
       footer:
         download_open_data: Lejupielādējiet atvērto datu failus
+        log_in: Pieteikties
         made_with_open_source: Vietne, kas izveidota ar <a target="_blank" href="https://github.com/decidim/decidim"> bezmaksas programmatūru </a>.
         sign_up: Reģistrēties
       impersonation_warning:

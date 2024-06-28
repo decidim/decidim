@@ -359,7 +359,11 @@ de:
     application:
       document:
         download: Datei herunterladen
+        visit_link: Link öffnen
       documents:
+        component_documents:
+          dummy: Platzhalter für Komponenten-Dokumente
+          meetings: Veranstaltungsdokumente
         documents: Dokumente
         related_documents: Zugehörige Dokumente
       photo:
@@ -881,6 +885,11 @@ de:
         button: Entfolgen
         error: Beim Entfolgen dieser Ressource ist ein Fehler aufgetreten.
     forms:
+      attachment_link:
+        explanation: Anleitung für Anhang-Links
+        help_messages:
+          - Nur korrekte URL-Formate werden akzeptiert.
+          - Bitte beachten Sie, dass die Links öffentlich sein müssen, damit alle Teilnehmer auf sie zugreifen können.
       errors:
         decidim/user:
           password: Das Passwort ist zu kurz.
@@ -1235,6 +1244,7 @@ de:
         same_language: Der Inhalt wurde in Ihrer bevorzugten Sprache (%{language}) veröffentlicht, daher wird in dieser E-Mail keine automatisierte Übersetzung angezeigt.
         translated_text: 'Automatisch übersetzter Text:'
     notifications:
+      action_error: Beim Aktualisieren der Benachrichtigungen ist ein Fehler aufgetreten.
       no_notifications: Noch keine Benachrichtigungen
       show:
         missing_event: Hoppla, diese Benachrichtigung gehört zu einem Artikel, der nicht mehr verfügbar ist. Du kannst sie verwerfen.
@@ -1932,7 +1942,7 @@ de:
         sign_up: Registrieren
         terms_of_service: Nutzungsbedingungen
       header:
-        log_in: Anmelden
+        log_in: Anmeldung
         main_menu: Hauptmenü
         user_menu: Benutzer-Menü
       impersonation_warning:
@@ -1946,10 +1956,6 @@ de:
         mark_as_read: Als gelesen markieren
       offline_banner:
         cache_version_page: Hoppla! Ihr Netzwerk ist offline. Dies ist eine zuvor gecachte Version der Seite, die Sie besuchen, möglicherweise ist der Inhalt nicht aktuell.
-      shared:
-        layout_item:
-          next: Nächstes Element
-          prev: Vorheriges Element
       social_media_links:
         facebook: "%{organization} auf Facebook"
         github: "%{organization} auf GitHub"

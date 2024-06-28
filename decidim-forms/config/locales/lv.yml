@@ -14,7 +14,6 @@ lv:
           attributes:
             choices:
               missing: nav pabeigti
-              too_many: ir par daudz
   decidim:
     forms:
       admin:

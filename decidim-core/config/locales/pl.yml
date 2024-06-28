@@ -1921,7 +1921,6 @@ pl:
         resources: Zasoby
         sign_up: Zarejestruj się
       header:
-        log_in: Zaloguj się
         main_menu: Menu główne
         user_menu: Menu użytkownika
       impersonation_warning:
@@ -1935,10 +1934,6 @@ pl:
         mark_as_read: Oznacz jako przeczytane
       offline_banner:
         cache_version_page: Oooops! Twoja sieć jest offline. Jest to poprzednio buforowana wersja strony, którą odwiedzasz, być może zawartość nie jest aktualna.
-      shared:
-        layout_item:
-          next: Następny element
-          prev: Poprzedni element
       social_media_links:
         facebook: "%{organization} na Facebooku"
         github: "%{organization} na GitHubie"

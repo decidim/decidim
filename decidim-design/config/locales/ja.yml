@@ -55,6 +55,8 @@ ja:
           html_regular_inputs: HTML 通常入力
           min_max_length: 最小/最大の長さ
           min_max_length_description: Input type='text' と textareaでのみ動作します
+          multiselect: 複数選択
+          multiselect_description_html: 複数選択は<a href="https://tom-select.js.org/" target="_blank" rel="noopener noreferrer">Tom Select</a> と呼ばれる外部ライブラリを使って実現されているjavascriptの機能です。
           regular_inputs_description: '共通のタイプのみを表示します。利用可能な全リストは以下の通りです: date、datetime-local、email、month、number、password、search、tel、text、time、url、week'
           textarea_required: テキストエリアが必要です
           title: フォーム

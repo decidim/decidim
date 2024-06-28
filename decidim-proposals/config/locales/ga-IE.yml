@@ -53,7 +53,6 @@ ga:
           comment: Tabhair Trácht
           create: Cruthaigh
           endorse: Formhuinigh
-          vote: Tacaigh le
         name: Moltaí
         settings:
           global:
@@ -74,9 +73,6 @@ ga:
       proposals:
         object: moltaí
         title: Moltaí
-      votes:
-        object: tacaíochtaí
-        title: Tacaíochtaí
     proposals:
       actions:
         title: Gníomhartha
@@ -215,11 +211,6 @@ ga:
           publish: Foilsigh
         show:
           answer: Freagra
-        vote_button:
-          vote: Tacaigh le
-        voting_rules:
-          vote_limit:
-            votes: Tacaíochtaí
         wizard_aside:
           back: Ar Ais
       versions:
@@ -227,4 +218,4 @@ ga:
           title: Leaganacha
     statistics:
       proposals_count: Moltaí
-      supports_count: Tacaíochtaí
+      votes_count: Vótaí

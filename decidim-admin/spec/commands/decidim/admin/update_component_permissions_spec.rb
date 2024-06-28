@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin
   describe UpdateComponentPermissions do
-    subject(:command) { described_class.call(form, component, resource, user) }
+    subject(:command) { described_class.call(form, component, resource) }
 
     let(:organization) { create(:organization, available_authorizations: ["dummy"]) }
     let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
@@ -48,7 +48,8 @@ module Decidim::Admin
             authorization_handlers_names: ["dummy"],
             authorization_handlers_options: { "dummy" => { "perry" => "mason" } }
           )
-        }
+        },
+        current_user: user
       )
     end
 

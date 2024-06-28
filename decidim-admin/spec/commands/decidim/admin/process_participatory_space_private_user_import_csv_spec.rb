@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin
   describe ProcessParticipatorySpacePrivateUserImportCsv do
-    subject { described_class.new(form, current_user, private_users_to) }
+    subject { described_class.new(form, private_users_to) }
 
     let(:current_user) { create(:user, :admin, organization:) }
     let(:organization) { create(:organization) }

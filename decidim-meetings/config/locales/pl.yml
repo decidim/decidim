@@ -427,16 +427,13 @@ pl:
       iframe_embed_type:
         embed_in_meeting_page: Osadź na stronie spotkania
         none: Żaden
-        open_in_live_event_page: Otwórz stronę wydarzenia na żywo (z opcjonalnymi ankietami)
         open_in_new_tab: Otwórz odnośnik w nowej zakładce
       last_activity:
         meeting_updated: 'Spotkanie zaktualizowane:'
         new_meeting: 'Nowe spotkanie:'
       layouts:
         live_event:
-          administrate: Administruj
           close: zamknij
-          questions: Pytania
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -566,8 +563,6 @@ pl:
             title: Tytuł
       polls:
         questions:
-          closed_question:
-            question_results: Wyniki wyborów
           index_admin:
             edit: Edytuj w panelu administratora
             question: Pytanie

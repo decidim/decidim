@@ -382,6 +382,7 @@ lb:
       registrations:
         new:
           already_have_an_account?: Hues du schonn en Kont?
+          log_in: Umelden
           newsletter: Heiansdo en Newsletter mat relevanten Informatiounen zougeschéckt kréien
           newsletter_title: Erlabnis Kontakt opzehuelen
           sign_up: Registréieren
@@ -1170,10 +1171,14 @@ lb:
       signed_up_but_unconfirmed: Du krus eng Noriicht op den Email-Adress geschéckt. Klick do op de Link, fir däin Kont ze aktivéieren.
       update_needs_confirmation: Du hues däin Kont aktivéiert, mir kontrolléieren deng Email-Adress. W. e. g. iwwerpréif deng Email-Agäng an klick do op de Link fir deng nei Adress ze bestätegen.
       updated: Däin Kont gouf aktualiséiert.
+    sessions:
+      new:
+        log_in: Umelden
     shared:
       links:
         back: Zréck
         forgot_your_password: Passwuert vergiess?
+        log_in: Umelden
         sign_up: Registréieren
       minimum_password_length:
         one: "(%{count} Minimum Zeechen)"
@@ -1225,6 +1230,7 @@ lb:
         cc_by_license: Creative Commons Lizenz
         decidim_logo: Decidim-Logo
         download_open_data: Open Data Dateien eroflueden
+        log_in: Umelden
         made_with_open_source: Website mat <a target="_blank" href="https://github.com/decidim/decidim">fräi Software erstallt</a>.
         sign_up: Registréieren
       header:
