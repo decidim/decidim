@@ -4,7 +4,9 @@
   <h2 class="h4 mb-4"><%= t("layouts.decidim.footer.resources") %></h2>
   <ul class="space-y-4 break-inside-avoid">
     <li class="font-semibold underline"><%= link_to t("decidim.profiles.show.activity"), decidim.last_activities_path %></li>
-    <li class="font-semibold underline"><%= link_to t("decidim.pages.home.extended.meetings"), Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path %></li>
+    <% if Decidim.module_installed?(:meetings) %>
+      <li class="font-semibold underline"><%= link_to t("decidim.pages.home.extended.meetings"), Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path %></li>
+    <% end %>
     <li class="font-semibold underline"><%= link_to t("layouts.decidim.footer.download_open_data"), decidim.open_data_download_path %></li>
   </ul>
 </nav>
