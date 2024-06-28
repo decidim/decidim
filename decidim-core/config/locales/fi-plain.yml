@@ -1239,6 +1239,7 @@ fi-pl:
         same_language: Sisältö on lisätty toivomallasi kielellä (%{language}), minkä takia tässä viestissä ei näytetä automaattista käännöstä.
         translated_text: 'Automaattisesti käännetty teksti:'
     notifications:
+      action_error: Ilmoitusasetusten päivitys epäonnistui.
       no_notifications: Ei vielä ilmoituksia.
       show:
         missing_event: Hups, tämä ilmoitus kuuluu kohteeseen, joka ei ole enää käytettävissä. Voit merkitä sen luetuksi.
