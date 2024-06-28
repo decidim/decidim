@@ -67,6 +67,7 @@ fi-pl:
         show:
           admins: Hallintakäyttäjät
           current_organizations: Nykyiset organisaatiot
+          system_checks: Järjestelmän tarkastukset
       default_pages:
         placeholders:
           content: Lisää merkityksellistä sisältöä staattiselle sivulle %{page} hallintapaneelista.
@@ -267,6 +268,14 @@ fi-pl:
         organizations_list:
           confirm_resend_invitation: Haluatko varmasti lähettää kutsun uudelleen?
           resend_invitation: Lähetä kutsu uudelleen
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Decidimin dokumentaatio
+          error: ActiveJob-jonoa ei ole määritetty. Tätä ei suositella tuotantoympäristöissä. Lue lisää %{error_extra}.
+          success: ActiveJob-jono on määritetty oikein.
+        secret_key:
+          error: 'Salainen avain ei ole määritelty oikein. Lisää arvo ympäristömuuttujaan SECRET_KEY_BASE ja käynnistä palvelin uudestaan: %{error_extra}'
+          success: Salainen avain on määritetty oikein.
       titles:
         dashboard: Hallintapaneeli
         decidim: Decidim
