@@ -5,8 +5,10 @@
 </div>
 <div class="main-bar__links-desktop__item-wrapper">
   <div>
-    <%= link_to Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path, class: "main-bar__links-desktop__item", "aria-label": t("decidim.pages.home.extended.meetings") do %>
-      <%= icon "road-map-line" %><span><%= t("decidim.pages.home.extended.meetings") %></span>
+    <% if Decidim.module_installed?(:meetings) %>
+      <%= link_to Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path, class: "main-bar__links-desktop__item", "aria-label": t("decidim.pages.home.extended.meetings") do %>
+        <%= icon "road-map-line" %><span><%= t("decidim.pages.home.extended.meetings") %></span>
+      <% end %>
     <% end %>
   </div>
   <div>
