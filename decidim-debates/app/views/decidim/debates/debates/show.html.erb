@@ -1,8 +1,8 @@
-<% add_decidim_meta_tags({
-                           description: translated_attribute(debate.description),
-                           title: present(debate).title,
-                           url: debate_url(debate.id)
-                         }, debate) %>
+<% add_decidim_meta_tags(
+  description: translated_attribute(debate.description),
+  title: present(debate).title,
+  url: debate_url(debate.id),
+  resource: debate) %>
 
 <%
 edit_link(
