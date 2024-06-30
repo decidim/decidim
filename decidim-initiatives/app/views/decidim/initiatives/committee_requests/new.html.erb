@@ -3,7 +3,7 @@
   description: translated_attribute(current_initiative.description),
   title: translated_attribute(current_initiative.title),
   url: initiative_url(current_initiative.id),
-  resource:current_initiative) %>
+  resource: current_initiative) %>
 
 <% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
 <% provide :meta_image_url, current_initiative.type.attached_uploader(:banner_image).path %>
