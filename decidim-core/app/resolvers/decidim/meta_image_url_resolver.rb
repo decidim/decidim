@@ -8,7 +8,7 @@ module Decidim
     include TranslatableAttributes
 
     IMAGE_FIELDS = [:hero_image, :banner_image, :avatar].freeze
-    DESCRIPTION_FIELDS = [:body, :description, :short_description].freeze
+    DESCRIPTION_FIELDS = [:body, :description, :short_description, :additional_info].freeze
     CONTENT_BLOCK_TYPES = {
       { manifest_name: :hero, scope_name: :homepage } => [:background_image]
     }.freeze

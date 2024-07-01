@@ -1,3 +1,9 @@
+<% add_decidim_meta_tags(
+  description: present(current_component.participatory_space).try(:description),
+  title: present(current_component).name,
+  url: sortitions_url,
+  resource: current_component) %>
+
 <% add_decidim_page_title component_name %>
 
 <% content_for :aside do %>

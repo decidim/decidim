@@ -1,3 +1,9 @@
+<% add_decidim_meta_tags(
+  description: present(current_component.participatory_space).try(:description),
+  title: present(current_component).name,
+  url: proposals_url,
+  resource: current_component) %>
+
 <% add_decidim_page_title(t("name", scope: "decidim.components.proposals")) %>
 
 <% append_stylesheet_pack_tag "decidim_proposals", media: "all" %>

@@ -3,6 +3,8 @@
 require "spec_helper"
 
 def visit_resource
+  return visit resource if resource.is_a?(String)
+
   return visit decidim.root_path if resource.is_a?(Decidim::Organization)
 
   visit resource_locator(resource).path

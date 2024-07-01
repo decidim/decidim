@@ -5,9 +5,9 @@ require "decidim/core/test/shared_examples/social_share_examples"
 
 describe "Social shares" do
   let(:organization) { create(:organization) }
-  let(:resource) { create(:conference, organization:, description:, short_description:, hero_image:, banner_image:) }
+  let(:conference) { create(:conference, organization:, description:, short_description:, hero_image:, banner_image:) }
   let(:content_block) { create(:content_block, organization:, manifest_name: :hero, scope_name: :homepage) }
-  let!(:attachment) { create(:attachment, :with_image, attached_to: resource, file: attachment_file) }
+  let!(:attachment) { create(:attachment, :with_image, attached_to: conference, file: attachment_file) }
   let(:description) { { en: "Description <p><img src=\"#{description_image_path}\"></p>" } }
   let(:short_description) { { en: "Description <p><img src=\"#{short_description_image_path}\"></p>" } }
   let(:banner_image) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
@@ -30,6 +30,7 @@ describe "Social shares" do
     )
   end
   let(:block_attachment_file) { Decidim::Dev.test_file("icon.png", "image/png") }
+  let(:resource) { conference }
 
   before do
     if content_block
@@ -86,5 +87,11 @@ describe "Social shares" do
     let(:content_block) { nil }
 
     it_behaves_like "a empty social share meta tag"
+  end
+
+  context "when listing all conferences" do
+    let(:resource) { decidim_conferences.conferences_path }
+
+    it_behaves_like "a social share meta tag", "icon.png"
   end
 end
