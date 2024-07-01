@@ -30,10 +30,12 @@ jobs:
       fail-fast: false
       matrix:
         test:
-          - command: bundle exec parallel_test --type rspec --pattern spec/ --exclude-pattern spec/system
+          - command: bundle exec parallel_test --type rspec --pattern spec/ --exclude-pattern 'spec/(system|lib)'
             name: "Tests without system specs"
-          - command: bundle exec parallel_test --type rspec --pattern spec/lib
+          - command: bundle exec parallel_test --type rspec --pattern spec/lib --exclude-pattern spec/system
             name: "Lib specs"
+          - command: bundle exec parallel_test --type rspec --pattern spec/ --exclude-pattern spec/lib
+            name: "Tests with system specs"
     needs: build_app
     name: ${{ matrix.test.name }}
     uses: ./.github/workflows/test_app.yml
