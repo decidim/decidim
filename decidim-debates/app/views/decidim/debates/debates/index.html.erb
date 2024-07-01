@@ -1,6 +1,6 @@
 <% add_decidim_meta_tags(
-  description: present(current_component.participatory_space).try(:description),
-  title: present(current_component).name,
+  description: translated_attribute(current_component.participatory_space.try(:description)),
+  title: translated_attribute(current_component.name),
   url: debates_url,
   resource: current_component) %>
 

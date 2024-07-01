@@ -38,7 +38,7 @@ describe "Social shares" do
     it_behaves_like "a social share meta tag", "city2.jpeg"
   end
 
-  context "when listing all debatess" do
+  context "when listing all debates" do
     let(:resource) { main_component_path(component) }
 
     it_behaves_like "a social share meta tag", "city2.jpeg"
