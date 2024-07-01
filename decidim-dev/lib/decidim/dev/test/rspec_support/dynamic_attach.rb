@@ -23,7 +23,7 @@ module Capybara
           expect(page).to have_content(filename.first(12)) if front_interface
         end
         all(title_input(front_interface)).last.set(options[:title]) if options.has_key?(:title)
-        click_on(front_interface = "Save") unless options[:keep_modal_open]
+        click_on("Save") unless options[:keep_modal_open]
       end
     end
 
