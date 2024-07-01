@@ -320,13 +320,13 @@ describe "ProfileConversations" do
         end
 
         it "has disabled submit button" do
-          expect(page).to have_button("Save", disabled: true)
+          expect(page).to have_button("Next", disabled: true)
         end
 
         it "enables submit button after selecting interlocutor" do
           find_by_id("add_conversation_users").fill_in with: "@#{interlocutor.nickname}"
           find_by_id("autoComplete_result_0").click
-          expect(page).to have_button("Save", disabled: false)
+          expect(page).to have_button("Next", disabled: false)
         end
       end
     end
