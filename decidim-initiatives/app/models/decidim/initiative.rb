@@ -184,26 +184,6 @@ module Decidim
       decidim_user_group_id.nil?
     end
 
-    # Public: check if an initiative is open
-    #
-    # Returns a Boolean
-    def open?
-      !closed?
-    end
-
-    # Public: Checks if an initiative is closed. An initiative is closed when
-    # at least one of the following conditions is true:
-    #
-    # * It has been discarded.
-    # * It has been rejected.
-    # * It has been accepted.
-    # * Signature collection period has finished.
-    #
-    # Returns a Boolean
-    def closed?
-      discarded? || rejected? || accepted? || !votes_enabled?
-    end
-
     # Public: Returns the author name. If it has been created by an organization it will
     # return the organization's name. Otherwise it will return author's name.
     #
