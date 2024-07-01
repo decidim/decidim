@@ -39,7 +39,9 @@ edit_link(
     <% end %>
 
     <section class="layout-aside__section">
-      <%= render partial: "progress_bar" %>
+      <% unless current_initiative.validating? %>
+        <%= render partial: "progress_bar" %>
+      <% end %>
     </section>
 
     <section class="layout-aside__section">
