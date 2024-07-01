@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/core/test/shared_examples/meta_image_url_examples"
 
 describe "Show a Proposal" do
   include_context "with a component"
@@ -10,12 +9,6 @@ describe "Show a Proposal" do
 
   def visit_proposal
     visit resource_locator(proposal).path
-  end
-
-  def meta_image_url
-    find('meta[property="og:image"]', visible: false)[:content]
-  rescue Capybara::ElementNotFound
-    nil
   end
 
   describe "proposal show" do
