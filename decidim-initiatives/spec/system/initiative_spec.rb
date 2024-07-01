@@ -170,6 +170,7 @@ describe "Initiative" do
         let(:state) { :validating }
 
         it { expect(page).to have_no_link("Edit") }
+
         it_behaves_like "initiative does not show send to technical validation"
       end
 
