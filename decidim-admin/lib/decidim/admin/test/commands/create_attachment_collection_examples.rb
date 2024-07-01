@@ -25,10 +25,11 @@ module Decidim
             form_params,
             collection_for:
           ).with_context(
-            current_organization: organization
+            current_organization: organization,
+            current_user: user
           )
         end
-        let(:command) { described_class.new(form, collection_for, user) }
+        let(:command) { described_class.new(form, collection_for) }
 
         describe "when the form is not valid" do
           before do

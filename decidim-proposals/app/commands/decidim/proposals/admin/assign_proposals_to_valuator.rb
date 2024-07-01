@@ -35,24 +35,26 @@ module Decidim
         def assign_proposals
           transaction do
             form.proposals.flat_map do |proposal|
-              find_assignment(proposal) || assign_proposal(proposal)
+              form.valuator_roles.each do |valuator_role|
+                find_assignment(proposal, valuator_role) || assign_proposal(proposal, valuator_role)
+              end
             end
           end
         end
 
-        def find_assignment(proposal)
+        def find_assignment(proposal, valuator_role)
           Decidim::Proposals::ValuationAssignment.find_by(
             proposal:,
-            valuator_role: form.valuator_role
+            valuator_role:
           )
         end
 
-        def assign_proposal(proposal)
+        def assign_proposal(proposal, valuator_role)
           Decidim.traceability.create!(
             Decidim::Proposals::ValuationAssignment,
             form.current_user,
             proposal:,
-            valuator_role: form.valuator_role
+            valuator_role:
           )
         end
       end

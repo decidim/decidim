@@ -353,13 +353,10 @@ hu:
       iframe_embed_type:
         embed_in_meeting_page: Beágyazás az értekezlet oldalába
         none: Nincs
-        open_in_live_event_page: Megnyitás az élő esemény oldalán (opcionális szavazásokkal)
         open_in_new_tab: Megnyitás új fülön
       layouts:
         live_event:
-          administrate: Admin
           close: bezár
-          questions: Kérdések
       mailer:
         invite_join_meeting_mailer:
           invite:

@@ -22,30 +22,29 @@
     <div class="budget-summary__progressbar">
       <div class="budget-progress" role="progressbar" aria-label="<%= t("budget", scope: "decidim.budgets.projects.order_progress") %>" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %> %" aria-valuemin="0" aria-valuemax="100">
         <div class="budget-summary__progressbar--minimum" style="width: <%= current_order_budget_percent_minimum %>%">
-          <span class="progress-meter--minimum-mark"></span>
         </div>
         <div class="budget-summary__progressbar--meter" style="width: <%= current_order_budget_percent %>%"> </div>
       </div>
       <div class="budget-summary__progressbar-marks">
         <span class="budget-summary__progressbar-legend" style="width: <%= current_order_budget_percent_minimum %>%;">
-          <%= t("assigned", scope: "decidim.budgets.projects.order_progress") %>
           <strong id="order-total-budget<%= "-responsive" if responsive %>" class="budget-summary__progressbar-legend-strong">
             <%= render partial: "decidim/budgets/projects/order_total_budget" %>
           </strong>
+          <%= t("assigned", scope: "decidim.budgets.projects.order_progress") %>
         </span>
         <% if current_order.minimum_budget > 0 %>
           <span class="budget-summary__progressbar-legend budget-summary__progressbar-marks_center">
-            <%= t("minimum", scope: "decidim.budgets.projects.order_progress") %>
             <strong class="budget-summary__progressbar-legend-strong">
               <%= budget_to_currency(current_order.minimum_budget) %>
             </strong>
+            <%= t("minimum", scope: "decidim.budgets.projects.order_progress") %>
           </span>
         <% end %>
         <%= render partial: "decidim/budgets/projects/order_progress_progressbar_marks_right" %>
       </div>
     </div>
   </div>
-  <div class="budget-summary__progressbox-buttons">
+  <div class="budget-summary__progressbox-buttons layout-aside__ctas-buttons" data-sticky-buttons>
     <% if !current_order_checked_out? && voting_open? %>
       <button class="button button__secondary button__lg w-full" data-dialog-open="budget-confirm" <%= budget_confirm_disabled_attr %>>
         <%= t("vote", scope: "decidim.budgets.projects.budget_summary") %>
@@ -69,7 +68,6 @@
       <div class="budget-summary__progressbox layout-item__main">
         <div class="budget-progress relative" role="progressbar" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %>%" aria-valuemin="0" aria-valuemax="100">
           <div class="budget-summary__progressbar--minimum" style="width: <%= current_order_budget_percent_minimum %>%">
-            <span class="progress-meter--minimum-mark"></span>
           </div>
           <div class="budget-summary__progressbar--meter" style="width: <%= current_order_budget_percent %>%">
           </div>
@@ -92,7 +90,7 @@
           <%= render partial: "decidim/budgets/projects/order_progress_progressbar_marks_right" %>
         </div>
       </div>
-      <div class="layout-item__aside budget-summary__progressbox-buttons">
+      <div class="layout-item__aside budget-summary__progressbox-buttons hidden lg:block">
         <% if !current_order_checked_out? && voting_open? %>
           <button class="button button__secondary button__lg mt-2 md:mt-0 w-full" data-dialog-open="budget-confirm" <%= budget_confirm_disabled_attr %>>
             <span>
@@ -110,4 +108,15 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="budget-summary__button-dropdown">
+  <button id="dropdown-trigger-button-dropdown" data-component="dropdown" data-target="dropdown-menu-button-dropdown" class="budget-summary__button-dropdown_text">
+    <%= t("more_information", scope: "decidim.budgets.budget_information_modal") %>
+    <%= icon "arrow-down-s-line" %>
+    <%= icon "arrow-up-s-line" %>
+  </button>
+  <p id="dropdown-menu-button-dropdown">
+    <%= cell("decidim/budgets/budget_information_modal", @budget).call(:more_information) %>
+  </p>
 </div>

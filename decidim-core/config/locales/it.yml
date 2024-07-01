@@ -382,6 +382,7 @@ it:
       registrations:
         new:
           already_have_an_account?: Hai già un account?
+          log_in: Accedi
           newsletter: Ricevi una newsletter occasionale con informazioni pertinenti
           newsletter_title: Autorizzazione di contatto
           sign_up: Registrati
@@ -1182,10 +1183,14 @@ it:
       signed_up_but_unconfirmed: Un messaggio con un link di conferma è stato inviato al tuo indirizzo email. Segui il link per attivare il tuo account.
       update_needs_confirmation: Hai aggiornato correttamente il tuo account, ma dobbiamo verificare il tuo nuovo indirizzo email. Controlla la tua email e segui il link di conferma per confermare il tuo nuovo indirizzo email.
       updated: Il tuo account è stato aggiornato correttamente.
+    sessions:
+      new:
+        log_in: Accedi
     shared:
       links:
         back: Indietro
         forgot_your_password: Hai dimenticato la password?
+        log_in: Accedi
         sign_up: Iscriviti
       minimum_password_length:
         one: "(Minimo%{count} caratteri)"
@@ -1237,6 +1242,7 @@ it:
         cc_by_license: Licenza Creative Commons
         decidim_logo: Logo Decidim
         download_open_data: Scarica i file Open Data
+        log_in: Accedi
         made_with_open_source: Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.
         sign_up: Registrati
       header:

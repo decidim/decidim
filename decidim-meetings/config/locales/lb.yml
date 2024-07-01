@@ -255,7 +255,6 @@ lb:
       layouts:
         live_event:
           close: schließen
-          questions: Fragen
       mailer:
         invite_join_meeting_mailer:
           invite:

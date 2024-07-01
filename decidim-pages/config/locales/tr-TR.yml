@@ -28,3 +28,5 @@ tr:
           update:
             invalid: Sayfa kaydedilirken bir sorun oluştu.
             success: Sayfa başarıyla kaydedildi.
+      show:
+        empty: Bu sayfada henüz içerik bulunmamaktadır.

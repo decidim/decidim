@@ -74,12 +74,10 @@ cs:
           attributes:
             base:
               not_official: Nejsou oficiální
-              supported: Obdrželi podporu nebo potvrzení
         proposals_split:
           attributes:
             base:
               not_official: Nejsou oficiální
-              supported: Obdrželi podporu nebo potvrzení
     models:
       decidim/proposals/admin/update_proposal_category_event: Kategorie nabídky se změnila
       decidim/proposals/admin/update_proposal_scope_event: Rozsah návrhu se změnil
@@ -105,11 +103,6 @@ cs:
         few: Poznámky
         many: Poznámky
         other: Poznámky
-      decidim/proposals/proposal_vote:
-        one: Hlasování
-        few: Hlasy
-        many: Hlasy
-        other: Hlasy
   decidim:
     admin:
       filters:
@@ -151,7 +144,6 @@ cs:
           comment: Komentář
           create: Vytvořit
           endorse: Schválit
-          vote: Hlasování
           vote_comment: Komentář hlasování
           withdraw: Ustoupit
         name: Návrhy
@@ -162,23 +154,18 @@ cs:
             amendments_wizard_help_text: Nápověda průvodce k Pozměňovacím návrhům
             announcement: Oznámení
             attachments_allowed: Povolit přílohy
-            can_accumulate_supports_beyond_threshold: Mohou hromadit podpory za prahem
             collaborative_drafts_enabled: Společné koncepty povoleny
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
             default_sort_order: Výchozí řazení návrhu
-            default_sort_order_help: Výchozí znamená, že pokud jsou podporované funkce povoleny, budou návrhy zobrazeny náhodně, a pokud jsou podpory blokovány, pak budou seřazeny podle nejpodporovanější.
             default_sort_order_options:
-              default: Výchozí
               most_commented: Nejvíce komentované
               most_endorsed: Nejvíce schvalované
               most_followed: Nejvíce sledované
-              most_voted: Nejvíce podporované
               random: Náhodně
               recent: Nedávné
               with_more_authors: S více autory
             geocoding_enabled: Geokódování povoleno
-            minimum_votes_per_user: Minimální počet hlasů na uživatele
             new_proposal_body_template: Šablona těla nového návrhu
             new_proposal_body_template_help: Můžete definovat předem vyplněný text, který budou mít nové návrhy
             new_proposal_help_text: Nový text nápovědy návrhu
@@ -198,7 +185,6 @@ cs:
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
             threshold_per_proposal: Prah na návrh
-            vote_limit: Počet hlasů na uživatele
           step:
             amendment_creation_enabled: Umožnit pozměnění a doplnění
             amendment_creation_enabled_help: Účastníci mohou pozměňovat návrhy.
@@ -218,13 +204,10 @@ cs:
             creation_enabled: Účastníci mohou vytvářet návrhy
             creation_enabled_readonly: Toto nastavení je zakázáno, když aktivujete funkci Participativní texty. Chcete-li návrhy nahrát jako participativní text, klikněte na tlačítko Participativní texty a postupujte podle pokynů.
             default_sort_order: Výchozí řazení návrhu
-            default_sort_order_help: Ve výchozím nastavení to znamená, že pokud jsou podpory povoleny, budou návrhy zobrazeny náhodně seřazené, a pokud jsou podpory blokovány, budou seřazeny podle nejvíce podporovaných.
             default_sort_order_options:
-              default: Výchozí
               most_commented: Nejvíce komentované
               most_endorsed: Nejvíce schvalované
               most_followed: Nejvíce sledované
-              most_voted: Nejvíce podporované
               random: Náhodně
               recent: Nedávné
               with_more_authors: S více autory
@@ -234,9 +217,6 @@ cs:
             publish_answers_immediately: Okamžitě publikovat odpovědi návrhu
             publish_answers_immediately_help_html: 'Mějte na paměti, že pokud odpovíte na jakýkoli návrh bez tohoto povolení, budete je muset publikovat ručně jejich výběrem a použitím publikační akce. Více informací o tom, jak to funguje, naleznete na <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">stránce odpovědi návrhů</a>.'
             suggested_hashtags: Hashtagy navržené uživatelům pro nové návrhy
-            votes_blocked: Hlasování bylo blokováno
-            votes_enabled: Hlasování povoleno
-            votes_hidden: Hlasy skryté (pokud jsou povoleny hlasy, při kontrole se skryje počet hlasů)
     events:
       proposals:
         admin:
@@ -323,10 +303,7 @@ cs:
           email_subject: Rámec návrhu %{resource_title} byl aktualizován
           notification_title: Rozsah návrhu <a href="%{resource_path}">%{resource_title}</a> byl aktualizován správcem.
         voting_enabled:
-          email_intro: 'Můžete hlasovat návrhy v %{participatory_space_title}! Začněte se účastnit této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
-          email_subject: Hlasování návrhů bylo zahájeno na úrovni %{participatory_space_title}
-          notification_title: Nyní můžete zahájit <a href="%{resource_path}">hlasování</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -343,14 +320,7 @@ cs:
         proposal_votes:
           conditions:
             - Procházejte a strávte nějaký čas čtením nápadů jiných lidí
-            - Podpořte návrhy, které se vám líbí nebo které jsou zajímavé
-          description: Tento odznak je udělen při podpoře návrhů jiných lidí.
-          description_another: Tento uživatel podpořil %{score} návrhů.
-          description_own: Podpořili jste %{score} návrhů.
-          name: Podpora návrhů
-          next_level_in: Poskytněte podporu %{score} dalších návrhů, abyste dosáhli další úrovně!
-          unearned_another: Tento uživatel zatím nepodpořil žádné návrhy.
-          unearned_own: Zatím jste nepodpořili žádné návrhy.
+            - 
         proposals:
           conditions:
             - Zvolte participační prostor pro účast vašeho zájmu s povoleným podáním návrhů
@@ -375,10 +345,6 @@ cs:
         description: Počet vytvořených návrhů
         object: návrhy
         title: Návrhy
-      votes:
-        description: Počet hlasů vygenerovaných v návrzích uživatelů
-        object: hlasů
-        title: Hlasy
     participatory_spaces:
       highlighted_proposals:
         last: Poslední návrhy
@@ -567,7 +533,6 @@ cs:
             remove_assignment: Odstranit přiřazení
             remove_assignment_confirmation: Jste si jisti, že chcete odstranit hodnotitele z tohoto návrhu?
             valuators: Hodnotitelé
-            votes_count: Počet hlasů
           update_category:
             invalid: 'Tyto návrhy se již jmenují %{subject_name} v kategorii: %{proposals}.'
             select_a_category: Vyberte kategorii.
@@ -776,9 +741,6 @@ cs:
         buttons:
           amend: Pozměnit
           comment: Komentář
-      proposal_votes:
-        create:
-          error: Při hlasování o návrhu došlo k chybám.
       proposals:
         dynamic_map_instructions:
           description: Souřadnice budou aktualizovány po kliknutí na tlačítko 'náhled'. Adresa se však nemění.
@@ -810,7 +772,6 @@ cs:
           search: Vyhledávání
           state: Stav
           type: Typ
-          voted: Hlasoval
         index:
           click_here: Zobrazit všechny návrhy
           collaborative_drafts_list: Přístup ke konceptům spolupráce
@@ -831,7 +792,6 @@ cs:
           most_commented: Nejvíce komentované
           most_endorsed: Nejvíce schválené
           most_followed: Nejvíce sledované
-          most_voted: Nejvíce podporované
           random: Náhodně
           recent: Nedávné
           with_more_authors: S více autory
@@ -873,39 +833,13 @@ cs:
           proposal_accepted_reason: 'Tento návrh byl přijat, protože:'
           proposal_in_evaluation_reason: Tento návrh se hodnotí
           proposal_rejected_reason: 'Tento návrh byl zamítnut, protože:'
-          withdraw_btn_hint: Pokud změníte názor, můžete svůj návrh stáhnout, pokud jste nedostali žádnou podporu. Návrh není zrušen, objeví se v seznamu stažených návrhů.
           withdraw_confirmation_html: Jste si jisti, že chcete stáhnout tento návrh?<br><br><strong>Tuto akci nelze zrušit!</strong>
           withdraw_proposal: Návrh stáhnout
         update:
           title: Aktualizovat návrh
-        vote_button:
-          already_voted: Již bylo hlasováno
-          already_voted_hover: Zavolejte
-          maximum_votes_reached: Dosáhla se omezení hlasování
-          no_votes_remaining: Žádné zbývající hlasy
-          vote: Hlasování
-          votes_blocked: Hlasování je zakázáno
-        votes_count:
-          count:
-            one: Podpora
-            few: Podpory
-            many: Podpor
-            other: Podpor
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: Každý návrh může akumulovat více než %{limit} podpor
-          minimum_votes_per_user:
-            description: Musíte rozdělit minimálně %{votes} hlasů mezi různé návrhy.
-            given_enough_votes: Poskytli jste dostatek podpor.
-            supports_remaining: Musíte hlasovat o dalších %{remaining_votes} návrzích, aby se vaše hlasy zohlednily.
           proposal_limit:
             description: Můžete vytvořit až %{limit} návrhů.
-          threshold_per_proposal:
-            description: Aby mohly být návrhy potvrzeny, musí dosáhnout %{limit} podpor.
-          title: 'Hlasování podléhá těmto pravidlům:'
-          vote_limit:
-            description: Můžete hlasovat až pro %{limit} návrhů.
-            votes: Hlasy
         wizard_aside:
           back: Zadní
           back_from_step_1: Zpět k návrhům
@@ -932,9 +866,6 @@ cs:
       versions:
         index:
           title: Verze
-      withdraw:
-        errors:
-          has_supports: Tento návrh nemůže být stažen, protože již získal hlasy pro.
     resource_links:
       copied_from_component:
         proposal_proposal: Související návrhy
@@ -946,4 +877,4 @@ cs:
     statistics:
       proposals_accepted: Přijaté návrhy
       proposals_count: Návrhy
-      supports_count: Podpory
+      votes_count: Hlasy

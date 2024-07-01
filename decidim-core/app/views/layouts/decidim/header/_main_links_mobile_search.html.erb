@@ -1,0 +1,13 @@
+<div id="dropdown-menu-search-mobile" class="main-bar__links-mobile__search" aria-hidden="true">
+  <div class="main-bar">
+    <div class="main-bar__logo">
+      <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
+    </div>
+
+    <div>
+      <div class="main-bar__links-mobile__trigger" onclick="document.querySelector('#dropdown-trigger-links-mobile-search').click();">
+        <%= icon "close-line" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -26,7 +26,6 @@ is-IS:
           global:
             announcement: Tilkynning
             attachments_allowed: Leyfa viðhengi
-            can_accumulate_supports_beyond_threshold: Getur safnað stuðning fyrirfram þröskuld
             comments_enabled: Athugasemdir virkt
             geocoding_enabled: Geocoding virkt
             new_proposal_help_text: Ný tillaga hjálpartexta
@@ -175,11 +174,8 @@ is-IS:
           proposal_accepted_reason: 'Þessi tillaga hefur verið samþykkt vegna þess að:'
           proposal_in_evaluation_reason: Þessi tillaga er metin
           proposal_rejected_reason: 'Þessi tillaga hefur verið hafnað vegna þess að:'
-          withdraw_btn_hint: Þú getur afturkallað tillöguna þína ef þú skiptir um skoðun, svo lengi sem þú hefur ekki fengið stuðning. Tillagan er ekki eytt, hún mun birtast á lista yfir afturkallað tillögur.
           withdraw_proposal: Afturkalla tillögu
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: Hver tillaga getur safnast meira en %{limit} styður
           proposal_limit:
             description: Þú getur búið til allt að %{limit} tillögur.
         wizard_aside:

@@ -350,15 +350,12 @@ sv:
       iframe_embed_type:
         embed_in_meeting_page: Bädda in på mötessidan
         none: Ingen
-        open_in_live_event_page: Öppna i live event sida (med valfria omröstningar)
         open_in_new_tab: Öppna länk i ny flik
       last_activity:
         new_meeting: 'Nytt möte:'
       layouts:
         live_event:
-          administrate: Administrera
           close: stäng
-          questions: Frågor
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -490,12 +487,9 @@ sv:
             title: Titel
       polls:
         questions:
-          closed_question:
-            question_results: Resultat
           index:
             empty_questions: Under hela mötet kommer några frågor att skickas och du kommer kunna svara på dem. De kommer att visas här.
           index_admin:
-            admin_dashboard: Adminpanel
             question: Fråga
             received_answer: mottaget svar
             received_answers: mottagna svar

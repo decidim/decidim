@@ -55,6 +55,8 @@ de:
           html_regular_inputs: Reguläre HTML-Eingaben
           min_max_length: Min / max Länge
           min_max_length_description: Funktioniert nur für input type='text' und 'textarea'
+          multiselect: Mehrfachauswahl
+          multiselect_description_html: Die Mehrfachauswahl ist eine Javascript-Funktion, die dank einer externen Bibliothek namens <a href="https://tom-select.js.org/" target="_blank" rel="noopener noreferrer">Tom Select</a> verfügbar ist.
           regular_inputs_description: 'Zeigt nur gängige Typen an, volle verfügbare Liste: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
           textarea_required: textarea erforderlich
           title: Formulare

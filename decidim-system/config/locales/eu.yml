@@ -67,6 +67,7 @@ eu:
         show:
           admins: Administratzaileak
           current_organizations: Uneko antolatzaileak
+          system_checks: Sistemaren egiaztapenak
       default_pages:
         placeholders:
           content: Mesedez, gehitu eduki adierazgarria %{page} (a) ren orri estatikoaren administrazio-panelean.
@@ -142,6 +143,7 @@ eu:
           show: Erakutsi aukera aurreratua
         create:
           error: Errorea izan da antolatzaile berri bat sortzean.
+          error_invitation: Arazo bat sortu da erakunde berri bat sortzean. Berrikusi erakundearen administratzailearen izena.
           success_html: |
             <p>
             Arrakastaz sortutako erakundea.
@@ -268,6 +270,14 @@ eu:
         organizations_list:
           confirm_resend_invitation: Ziur zaude gonbidapena birbidali nahi duzula?
           resend_invitation: Birbidali gonbidapena
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Dokumentazioa Decidimez
+          error: 'ActiveJob ilara ez dago konfiguratuta. Hau ez da ekoizpenerako gomendatutako muntaia. Irakurri gehiago hemen: % {error_extra}.'
+          success: ActiveJob ilara behar bezala konfiguratuta dago.
+        secret_key:
+          error: 'Gako sekretua ez dago ondo definituta. Gorde, mesedez, SECRET_KEY_BASE aldagaia eta berrabiarazi zerbitzaria: % {error_extra}'
+          success: Gako sekretua behar bezala konfiguratuta dago.
       titles:
         dashboard: Kontrol-panela
         decidim: Decidim

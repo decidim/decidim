@@ -55,6 +55,8 @@ es:
           html_regular_inputs: Entradas HTML habituales
           min_max_length: Longitud Mín/Máx
           min_max_length_description: Solo funciona en entradas de tipo texto y área de texto
+          multiselect: Selección múltiple
+          multiselect_description_html: Les selecciones múltiples son una característica JavaScript disponibles gracias a una librería externa llamada <a href="https://tom-select.js.org/" target="_blank" rel="noopener noreferrer">"Tom Select"</ a>.
           regular_inputs_description: 'Solo muestra tipos comunes, lista completa disponible: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
           textarea_required: área de texto requerida
           title: Formularios
