@@ -30,6 +30,10 @@ describe "Social shares" do
     )
   end
   let(:block_attachment_file) { Decidim::Dev.test_file("icon.png", "image/png") }
+  let(:component) { create(:component, manifest_name: :meetings, participatory_space: conference) }
+  let!(:conference_speakers) { create_list(:conference_speaker, 3, :with_meeting, :published, skip_injection: true, conference:, meetings_component: component) }
+  let!(:registration_types) { create_list(:registration_type, 2, conference:) }
+
   let(:resource) { conference }
 
   before do
@@ -93,5 +97,29 @@ describe "Social shares" do
     let(:resource) { decidim_conferences.conferences_path }
 
     it_behaves_like "a social share meta tag", "icon.png"
+  end
+
+  context "when visiting the conference program" do
+    let(:resource) { decidim_conferences.conference_conference_program_path(conference, component) }
+
+    it_behaves_like "a social share meta tag", "city2.jpeg"
+  end
+
+  context "when visiting the conference speakers" do
+    let(:resource) { decidim_conferences.conference_conference_speakers_path(conference, component) }
+
+    it_behaves_like "a social share meta tag", "city2.jpeg"
+  end
+
+  context "when visiting the media page" do
+    let(:resource) { decidim_conferences.conference_media_path(conference, component) }
+
+    it_behaves_like "a social share meta tag", "city2.jpeg"
+  end
+
+  context "when visiting registration types" do
+    let(:resource) { decidim_conferences.conference_registration_types_path(conference, component) }
+
+    it_behaves_like "a social share meta tag", "city2.jpeg"
   end
 end
