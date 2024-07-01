@@ -11,12 +11,12 @@ module Decidim
     # @param [Object, nil] resource - The resource object that may contain the image.
     #
     # @return [nil]
-    def add_decidim_meta_tags(tags, resource = nil)
+    def add_decidim_meta_tags(tags)
       add_decidim_page_title(tags[:title])
       add_decidim_meta_description(tags[:description])
       add_decidim_meta_url(tags[:url])
       add_decidim_meta_twitter_handler(tags[:twitter_handler])
-      image_url = tags[:image_url].presence || resolve_meta_image_url(resource)
+      image_url = tags[:image_url].presence || resolve_meta_image_url(tags[:resource])
       add_decidim_meta_image_url(add_base_url_to(image_url)) if image_url.present?
     end
 
@@ -133,7 +133,7 @@ module Decidim
     # @param [Object, nil] resource - The resource object that may contain the image.
     #
     # @return [String, nil] - The resolved image URL, or nil if no appropriate image URL is found.
-    def resolve_meta_image_url(resource = nil)
+    def resolve_meta_image_url(resource)
       url = MetaImageUrlResolver.new(resource, current_organization).resolve
       add_base_url_to(url) if url.present?
     end

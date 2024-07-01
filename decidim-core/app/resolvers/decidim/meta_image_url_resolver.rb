@@ -64,9 +64,8 @@ module Decidim
     #
     # @return [ActiveStorage::Blob, nil] - The image blob or nil if not found.
     def blob_from_description
-      html_fields = [resource.try(:body), resource.try(:description), resource.try(:short_description)]
-
-      html_fields.each do |html|
+      DESCRIPTION_FIELDS.each do |field|
+        html = resource.try(field)
         next unless html
 
         html = translated_attribute(html).strip if html.is_a?(Hash)
