@@ -449,6 +449,7 @@ ja:
           values:
             'false': 公開済み
             'true': 未公開
+        remove_all: すべて削除
         scope_id_eq:
           label: スコープ
         search_label: 検索
@@ -958,6 +959,11 @@ ja:
           help: これらのトークンは、公開されていないリソースをすべてのユーザーに公開するために使用されます。 リソースが公開されると、それらは非表示になります。共有可能なURLにアクセスするにはトークンの共有アイコンをクリックしてください。
           title: トークンを共有
       shared:
+        adjacent_navigation:
+          next: 次へ
+          next_title: 次のアイテム
+          previous: 前へ
+          previous_title: 前のアイテム
         gallery:
           add_images: 画像を追加
           edit_images: 画像を編集
