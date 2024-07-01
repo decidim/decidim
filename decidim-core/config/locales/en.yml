@@ -928,6 +928,7 @@ en:
           filename: Filename
           remove: Remove
           replace: Replace
+          save: Save
           title: Title
           title_required: Title is required!
           uploaded: Uploaded
@@ -1157,7 +1158,6 @@ en:
         index:
           new_conversation: New conversation
           no_conversations: You have no conversations yet.
-          save: Save
           title: Conversations
         reply_form:
           placeholder: Your reply...
