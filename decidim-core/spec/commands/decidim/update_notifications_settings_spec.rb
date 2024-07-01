@@ -51,8 +51,8 @@ module Decidim
         expect(user.direct_message_types).to eq "followed-only"
         expect(user.notification_settings["close_meeting_reminder"]).to eq "0"
         expect(user.notifications_sending_frequency).to eq "weekly"
-        expect(user.email_on_moderations).to be_false
-        expect(user.email_on_assigned_proposals).to be_false
+        expect(user.email_on_moderations).to be(false)
+        expect(user.email_on_assigned_proposals).to be(false)
       end
     end
   end
