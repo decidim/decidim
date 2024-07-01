@@ -59,7 +59,6 @@ ar:
       actions:
         new_initiative_type: نوع المبادرة الجديدة
       menu:
-        components: المكونات
         information: معلومات
         initiatives: المبادرات
         initiatives_settings: الإعدادات

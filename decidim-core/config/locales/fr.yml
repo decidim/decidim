@@ -296,10 +296,6 @@ fr:
         title:
           one: "%{count} amendement"
           other: "%{count} amendements"
-      compare_draft:
-        continue: Continuer
-        no_similars_found: Aucune modification similaire trouvé.
-        title: Modifications similaires
       created:
         error: Une erreur s’est produite lors de la création du projet d'amendement.
         success: Le projet d'amendement a été créé avec succès.
@@ -358,14 +354,15 @@ fr:
       wizard_step_form:
         steps:
           '1': Créez votre amendement
-          '2': Comparez votre amendement
-          '3': Complétez votre amendement
-          '4': Publier votre amendement
+          '2': Publier votre amendement
     anonymous_user: Anonyme
     application:
       document:
         download: Télécharger le fichier
       documents:
+        component_documents:
+          dummy: Documents de fonctionnalité factices
+          meetings: Documents de réunions
         documents: Documents
         related_documents: Documents à consulter
       photo:
@@ -814,7 +811,7 @@ fr:
           email_subject: Un groupe d'utilisateurs viens de mettre à jour son profil
           notification_title: Le groupe d'utilisateurs %{user_group_name} a mis à jour son profil, le laissant non vérifié. Vous pouvez maintenant le vérifier dans le <a href="%{groups_admin_path}">panneau d'administration</a>.
       nickname_event:
-        notification_body: Nous avons corrigé la façon dont les pseudonymes sont utilisés pour qu'il n'y ait pas de doublons, quelque soit l'utilisation de majuscules et/ou de minuscules. <br/> Votre pseudonyme a été créé après un autre qui était identique, nous l'avons donc automatiquement renommé. Vous pouvez le modifier depuis <a href="%{link_to_account_settings}">les paramètres de votre compte</a>.
+        notification_body: Nous avons corrigé la façon dont les pseudonymes sont utilisés pour qu'il n'y ait pas de doublons, et c'est pourquoi nous avons supprimé la distinction entre les majuscules et les minuscules. <br/> Votre pseudonyme a été créé après un autre qui était identique, nous l'avons donc automatiquement modifié. Vous pouvez le modifier depuis <a href="%{link_to_account_settings}">les paramètres de votre compte</a>.
       notification_event:
         notification_title: Un événement a eu lieu sur <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -881,7 +878,7 @@ fr:
       create:
         button: Suivre
         error: Une erreur s'est produite lors du traitement de votre demande de suivre ce contenu.
-        participatory_space: Suivre <span>%{resource_name}</span>
+        participatory_space: Déjà abonné à <span>%{resource_name}</span>
       destroy:
         button: Ne plus suivre
         error: Une erreur s'est produite lors du traitement de votre demande de ne plus suivre ce contenu.
@@ -1044,7 +1041,7 @@ fr:
           content: "<p>Sur %{organization} vous pouvez participer et décider sur différents sujets grâce aux espaces que vous voyez dans le menu principal: Processus, Assemblées, Pétitions, Consultations.</p> <p>Au sein de chacune d’elles, vous trouverez différentes options de participation: faites des propositions - individuellement ou avec d’autres personnes -, participez aux débats, accordez la priorité aux projets à mettre en œuvre, participez aux réunions en personne et autres actions.</p>\n"
           title: Que puis-je faire sur la plateforme %{organization} ?
         description: En savoir plus sur %{organization}.
-        title: Aide générale
+        title: Général
     last_activities:
       all: Tous les types d'activité
       index:
@@ -1240,9 +1237,11 @@ fr:
         same_language: Le contenu a été publié dans votre langue préférée (%{language}), c'est pourquoi aucune traduction automatique n'est affichée dans cet e-mail.
         translated_text: 'Traduction automatique du texte :'
     notifications:
+      action_error: Un problème est survenu lors de la mise à jour des notifications.
       no_notifications: Il n'y a pas encore de notifications.
       show:
         missing_event: Oups, cette notification est liée à un élément qui n'est plus disponible. Vous pouvez la supprimer.
+        moderated: Contenu modéré
     notifications_digest_mailer:
       header:
         daily: Résumé quotidien des notifications
@@ -1933,9 +1932,9 @@ fr:
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
         resources: Ressources
         sign_up: Créer un compte
-        terms_and_conditions: Conditions générales
+        terms_of_service: Conditions d'utilisation
       header:
-        log_in: Se connecter
+        log_in: Connexion
         main_menu: Menu principal
         user_menu: Menu utilisateur
       impersonation_warning:
@@ -1949,10 +1948,6 @@ fr:
         mark_as_read: Marquer comme lu
       offline_banner:
         cache_version_page: Désolé ! Votre réseau est hors ligne. Il s'agit d'une version antérieurement mise en cache de la page que vous visitez, dont le contenu n'est peut-être pas à jour.
-      shared:
-        layout_item:
-          next: Élément suivant
-          prev: Élément précédent
       social_media_links:
         facebook: "%{organization} sur Facebook"
         github: "%{organization} sur GitHub"

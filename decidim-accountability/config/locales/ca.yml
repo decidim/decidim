@@ -253,16 +253,12 @@ ca:
         name: Seguiment
         settings:
           global:
-            categories_label: Nom per a "Categories"
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
             display_progress_enabled: Mostrar el progrés
-            heading_leaf_level_results: Nom per a "Projectes"
-            heading_parent_level_results: Nom per a "Resultats"
             intro: Introducció
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
-            subcategories_label: Nom per a "Subcategories"
           step:
             comments_blocked: Comentaris bloquejats
     events:

@@ -152,15 +152,11 @@ is-IS:
         name: Ábyrgð
         settings:
           global:
-            categories_label: Nafn fyrir "Flokkar"
             comments_enabled: Athugasemdir virkt
             display_progress_enabled: Sýna framfarir
-            heading_leaf_level_results: Nafn fyrir "Verkefni"
-            heading_parent_level_results: Nafn fyrir "Úrslit"
             intro: Intro
             scope_id: Gildissvið
             scopes_enabled: Umfang virkt
-            subcategories_label: Nafn fyrir "undirflokka"
           step:
             comments_blocked: Athugasemdir læst
     events:

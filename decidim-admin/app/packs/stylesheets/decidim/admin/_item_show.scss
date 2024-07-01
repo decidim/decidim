@@ -16,6 +16,14 @@
       @apply font-normal;
     }
   }
+
+  &--with-action-options {
+    @apply flex-row flex-wrap;
+  }
+
+  &__action-options {
+    @apply flex bg-background p-8 w-full mt-4 w-full;
+  }
 }
 
 .item_show__content {

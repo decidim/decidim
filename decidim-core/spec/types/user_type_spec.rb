@@ -87,10 +87,10 @@ module Decidim
       end
 
       describe "organizationName" do
-        let(:query) { "{ organizationName }" }
+        let(:query) { '{ organizationName { translation(locale: "en") } } ' }
 
         it "returns the user's organization name" do
-          expect(response).to include("organizationName" => model.organization.name)
+          expect(response["organizationName"]["translation"]).to eq(translated(model.organization.name))
         end
       end
 

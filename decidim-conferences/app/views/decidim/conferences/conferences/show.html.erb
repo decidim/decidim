@@ -24,12 +24,12 @@ edit_link(
 
   <%= content_for :aside do %>
     <div class="conference__nav-container">
-      <button id="dropdown-trigger-conference" data-component="dropdown" data-target="dropdown-menu-conference" data-auto-close="true" data-disabled-md="true" data-scroll-to-menu="true">
+      <button id="dropdown-trigger-conference" data-component="dropdown" data-target="dropdown-menu-conference" data-auto-close="true" data-scroll-to-menu="true">
         <span><%= t("decidim.searches.filters.jump_to") %></span>
         <%= icon "arrow-down-s-line" %>
         <%= icon "arrow-up-s-line" %>
       </button>
-      <ul id="dropdown-menu-conference" class="conference__nav">
+      <ul id="dropdown-menu-conference" class="conference__nav" aria-hidden="true">
         <%= render partial: "layouts/decidim/conferences/conference_nav_item", collection: conference_nav_items(current_participatory_space), as: :item %>
       </ul>
     </div>
@@ -37,7 +37,8 @@ edit_link(
 
   <%= render partial: "conference_hero" %>
 
-  <%= render layout: "layouts/decidim/shared/layout_two_col", locals: { reverse: true, main_enabled: false } do %>
+  <% layout_style = conference_nav_items(current_participatory_space).any? ? "layout_two_col" : "layout_center" %>
+  <%= render layout: "layouts/decidim/shared/#{layout_style}", locals: { reverse: true, main_enabled: false, columns: 10 } do %>
 
     <%= participatory_space_floating_help %>
 

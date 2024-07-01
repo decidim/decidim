@@ -31,6 +31,10 @@ fr-CA:
           attributes:
             redirect_uri:
               must_be_ssl: L'URI de redirection doit être une URI SSL
+        organization:
+          attributes:
+            password:
+              secret_key: Vous devez définir la variable d'environnement SECRET_KEY_BASE pour pouvoir enregistrer ce champ
   decidim:
     system:
       actions:
@@ -63,6 +67,7 @@ fr-CA:
         show:
           admins: Administrateurs
           current_organizations: Organisations actuelles
+          system_checks: Vérifications du système
       default_pages:
         placeholders:
           content: Ajoutez un contenu pertinent à la page %{page} en allant sur l'interface d'administration.
@@ -138,6 +143,7 @@ fr-CA:
           show: Afficher les paramètres avancés
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle organisation.
+          error_invitation: Il y a eu un problème lors de la création d'une nouvelle organisation. Vérifiez le nom de l'administrateur de votre organisation.
           success_html: |
             <p>
               Organisation créée avec succès. 
@@ -245,7 +251,7 @@ fr-CA:
           fieldsets:
             sender: Expéditeur
           instructions:
-            from_label: 'L''expéditeur du mail sera "nom-de-votre-organisation <your-organization@exemple.org>". Laissez le champ vide pour utiliser la valeur de ''Adresse email'' comme label.'
+            from_label: 'L''expéditeur de l''e-mail sera : "nom-de-votre-organisation <votre-organisation@example.org>". Laissez vide pour utiliser le même nom que celui défini pour l''organisation.'
           placeholder:
             from_email: votre-organisation@exemple.org
             from_label: nom-de-votre-organisation
@@ -263,6 +269,14 @@ fr-CA:
         organizations_list:
           confirm_resend_invitation: Êtes-vous sûr de vouloir renvoyer l'invitation ?
           resend_invitation: Renvoyer l'invitation
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Documentation de Decidim
+          error: La file d'attente ActiveJob n'est pas configurée. Ce n'est pas une configuration recommandée pour de la production. En savoir plus sur %{error_extra}.
+          success: La file d'attente ActiveJob est correctement configurée.
+        secret_key:
+          error: 'La clé secrète n''est pas définie correctement. Veuillez l''enregistrer dans la variable d''environnement SECRET_KEY_BASE et redémarrer le serveur : %{error_extra}'
+          success: La clé secrète est correctement configurée.
       titles:
         dashboard: Tableau de bord
         decidim: Decidim

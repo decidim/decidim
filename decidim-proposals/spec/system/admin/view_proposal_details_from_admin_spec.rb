@@ -92,23 +92,23 @@ describe "Admin views proposal details from admin" do
     end
   end
 
-  describe "with supports" do
+  describe "with votes" do
     before do
       create_list(:proposal_vote, 2, proposal:)
     end
 
-    it "shows the number of supports" do
+    it "shows the number of votes" do
       go_to_admin_proposal_page(proposal)
 
-      expect(page).to have_css("[data-supports] [data-count]", text: "2")
+      expect(page).to have_css("[data-votes] [data-count]", text: "2")
     end
 
-    it "shows the ranking by supports" do
+    it "shows the ranking by votes" do
       another_proposal = create(:proposal, component:)
       create(:proposal_vote, proposal: another_proposal)
       go_to_admin_proposal_page(proposal)
 
-      expect(page).to have_css("[data-supports] [data-ranking]", text: "1 of ")
+      expect(page).to have_css("[data-votes] [data-ranking]", text: "1 of ")
     end
   end
 

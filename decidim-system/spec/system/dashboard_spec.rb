@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Organizations" do
   let(:admin) { create(:admin, email: "system@example.org") }
-  let(:organization) { create(:organization, name: "Citizen Corp") }
+  let(:organization) { create(:organization, name: { ca: "", en: "Citizen Corp", es: "" }) }
 
   context "when an admin authenticated" do
     before do

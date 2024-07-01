@@ -53,6 +53,12 @@ module Decidim
         end
 
         context "when the form is valid" do
+          let(:invitation_id) { 123 }
+
+          before do
+            allow(command).to receive(:invitation).and_return(double(id: invitation_id))
+          end
+
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
           end
@@ -76,7 +82,8 @@ module Decidim
                 affected_users: [user],
                 extra: {
                   user_group_name: user_group.name,
-                  user_group_nickname: user_group.nickname
+                  user_group_nickname: user_group.nickname,
+                  membership_id: invitation_id
                 }
               )
             )

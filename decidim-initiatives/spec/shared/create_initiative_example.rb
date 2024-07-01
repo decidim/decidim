@@ -3,13 +3,14 @@
 shared_examples "create an initiative" do
   let(:initiative_type) { create(:initiatives_type) }
   let(:scoped_type) { create(:initiatives_type_scope, type: initiative_type) }
-  let(:author) { create(:user, :confirmed, organization: initiative_type.organization) }
+  let(:current_user) { create(:user, :confirmed, organization: initiative_type.organization) }
   let(:form) do
     form_klass
       .from_params(form_params)
       .with_context(
         current_organization: initiative_type.organization,
-        initiative_type:
+        initiative_type:,
+        current_user:
       )
   end
   let(:uploaded_files) { [] }
@@ -29,7 +30,7 @@ shared_examples "create an initiative" do
       }
     end
 
-    let(:command) { described_class.new(form, author) }
+    let(:command) { described_class.new(form) }
 
     describe "when the form is not valid" do
       before do
@@ -62,7 +63,7 @@ shared_examples "create an initiative" do
         command.call
         initiative = Decidim::Initiative.last
 
-        expect(initiative.author).to eq(author)
+        expect(initiative.author).to eq(current_user)
       end
 
       it "Default state is created" do
@@ -99,7 +100,7 @@ shared_examples "create an initiative" do
         command.call
         initiative = Decidim::Initiative.last
 
-        expect(initiative.committee_members.accepted.where(user: author)).to exist
+        expect(initiative.committee_members.accepted.where(user: current_user)).to exist
       end
 
       context "when the initiative type does not enable custom signature end date" do

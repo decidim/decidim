@@ -79,7 +79,6 @@ ca:
   decidim:
     admin:
       actions:
-        manage: Gestionar
         new_initiative_type: Nou tipus d'iniciativa
         new_initiative_type_scope: Afegir àmbit del tipus d'iniciativa
       filters:
@@ -106,7 +105,6 @@ ca:
       menu:
         attachments: Adjunts
         committee_members: Membres de la comissió
-        components: Components
         information: Informació
         initiative_type_scopes: Àmbits del tipus d'iniciativa
         initiatives: Iniciatives

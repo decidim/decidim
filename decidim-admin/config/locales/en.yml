@@ -188,6 +188,7 @@ en:
         export: Export all
         export-selection: Export selection
         import: Import
+        manage: Manage
         newsletter:
           new: New newsletter
         participatory_space_private_user:
@@ -450,6 +451,7 @@ en:
           values:
             'false': Published
             'true': Unpublished
+        remove_all: Remove all
         scope_id_eq:
           label: Scope
         search_label: Search
@@ -570,6 +572,7 @@ en:
         appearance: Appearance
         area_types: Area types
         areas: Areas
+        components: Components
         configuration: Configuration
         content: Reported content
         external_domain_allowlist: Allowed external domains
@@ -963,6 +966,11 @@ en:
           help: These tokens are used to publicly share this unpublished resource to any user. They will be hidden when the resource is published. Click on the token's share icon to visit the shareable URL.
           title: Share tokens
       shared:
+        adjacent_navigation:
+          next: Next
+          next_title: Next item
+          previous: Previous
+          previous_title: Previous item
         gallery:
           add_images: Add images
           edit_images: Edit images

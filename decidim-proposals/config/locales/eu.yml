@@ -74,12 +74,12 @@ eu:
           attributes:
             base:
               not_official: Ez dira ofizialak
-              supported: Laguntza edo basesak jaso izana
+              voted: Botoak edo atxikimenduak jaso izana
         proposals_split:
           attributes:
             base:
               not_official: Ez dira ofizialak
-              supported: Laguntza edo basesak jaso izana
+              voted: Botoak edo atxikimenduak jaso izana
     models:
       decidim/proposals/admin/update_proposal_category_event: Proposamen kategoria aldatu da
       decidim/proposals/admin/update_proposal_scope_event: Proposamen-eremua aldatuta
@@ -99,9 +99,6 @@ eu:
       decidim/proposals/proposal_note:
         one: Ohar
         other: Oharrak
-      decidim/proposals/proposal_vote:
-        one: Bozka
-        other: Bozkak
   decidim:
     admin:
       filters:
@@ -143,7 +140,7 @@ eu:
           comment: Iruzkina
           create: Sortu
           endorse: Atxikitu
-          vote: Bozkatu
+          vote: Eman botoa
           vote_comment: Bozkatu iruzkina
           withdraw: Kendu
         name: Proposamenak
@@ -154,23 +151,24 @@ eu:
             amendments_wizard_help_text: Zuzenketen testu-laguntzailea
             announcement: Jakinarazpena
             attachments_allowed: Onartu eranskinak
-            can_accumulate_supports_beyond_threshold: Babesak metatu ditzake atalasetik haratago
+            attachments_allowed_help: Aukera hori gaituta, proposamenak lehenetsita lauki moduan erakutsiko dira, eta lehen irudia txartelean agertuko da.
+            can_accumulate_votes_beyond_threshold: Botoak metatu ditzake atalasetik haratago
             collaborative_drafts_enabled: Lankidetza zirriborroak gaituta
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
             default_sort_order: Proposamenen hurrenkera lehenetsia
-            default_sort_order_help: Lehenetsita, esan nahi du euskarriak aktibatuta badaude, proposamenak ausaz ordenatuta erakutsiko direla, eta euskarriak blokeatuta badaude, euskarririk euskarrienaren arabera ordenatuko direla.
+            default_sort_order_help: Automatikoak esan nahi du, botoak gaituta badaude, proposamenak ausaz ordenatuta agertuko direla, eta botoak blokeatuta badaude, bozkatuenaren arabera ordenatuko direla.
             default_sort_order_options:
-              default: Lehenetsita
+              automatic: Automatikoa
               most_commented: Iruzkin gehien dituztenak
               most_endorsed: Aldeko boto gehien dituztenak
               most_followed: Jarraitzaile gehien dituztenak
-              most_voted: Aldeko boto gehien dituztenak
+              most_voted: Bozkatuenak
               random: Ausazkoa
               recent: Azkenak
               with_more_authors: Egile gehiagorekin
             geocoding_enabled: Geokodifikazioa gaituta dago
-            minimum_votes_per_user: Erabiltzaile bakoitzeko gutxieneko botoak
+            minimum_votes_per_user: Gutxieneko botoak erabiltzaile bakoitzeko
             new_proposal_body_template: Plantilla proposamen berriaren testurako
             new_proposal_body_template_help: Proposamen berriek izango duten testu aurredefinitua zehaztu ahal duzu
             new_proposal_help_text: Proposamen berriaren laguntza testua
@@ -186,14 +184,12 @@ eu:
             proposal_length: Proposamen-testuaren gehieneko luzera
             proposal_limit: Proposamen-muga erabiltzaile bakoitzeko
             proposal_wizard_step_1_help_text: Proposamen laguntzailea "Sortu" urrats laguntza testua
-            proposal_wizard_step_2_help_text: Proposamen laguntzailea "Konparatu" urrats laguntza testua
-            proposal_wizard_step_3_help_text: Proposamen laguntzailea "Bete" urrats laguntza testua
-            proposal_wizard_step_4_help_text: Proposamen laguntzailea "Argitaratu" urrats laguntza testua
+            proposal_wizard_step_2_help_text: Proposamen laguntzailea "Argitaratu" urrats-laguntza testua
             resources_permissions_enabled: Ekintza-baimenak proposamen bakoitzerako ezarri daitezke
             scope_id: Esparrua
             scopes_enabled: Esparruak gaituta
             threshold_per_proposal: Proposamen bakoitzeko atalasea
-            vote_limit: Partaide bakoitzeko botoen muga
+            vote_limit: Botoen muga partaide bakoitzeko
           step:
             amendment_creation_enabled: Zuzenketa sortzea aktibatuta
             amendment_creation_enabled_help: Parte-hartzaileak proposamenak alda ditzake.
@@ -213,13 +209,13 @@ eu:
             creation_enabled: Parte-hartzaileek eztabaidak sor ditzakete
             creation_enabled_readonly: Aukera hori desaktibatu egiten da Testuen Parte-hartzaile funtzionaltasuna aktibatzean. Testu parte-hartzaile gisa proposamenak kargatzeko, egin klik Testu parte-hartzaileak botoian eta jarraitu jarraibideak.
             default_sort_order: Proposamenen hurrenkera lehenetsia
-            default_sort_order_help: Besterik adierazi ezean, botoak gaituta badaude, proposamenak ausaz ordenatuta agertuko dira, eta botoak blokeatuta badaude, bozkatuenaren arabera ordenatuko dira.
+            default_sort_order_help: Automatikoak esan nahi du, botoak gaituta badaude, proposamenak ausaz ordenatuta agertuko direla, eta botoak blokeatuta badaude, bozkatuenaren arabera ordenatuko direla.
             default_sort_order_options:
-              default: Lehenetsita
+              automatic: Automatikoa
               most_commented: Iruzkin gehien dituztenak
               most_endorsed: Aldeko boto gehien dituztenak
               most_followed: Jarraitzaile gehien dituztenak
-              most_voted: Aldeko boto gehien dituztenak
+              most_voted: Bozkatuenak
               random: Ausazkoa
               recent: Berrienak
               with_more_authors: Egile gehiagorekin
@@ -229,9 +225,9 @@ eu:
             publish_answers_immediately: Argitaratu berehala proposamen erantzunak
             publish_answers_immediately_help_html: 'Kontuz, proposamenen bati erantzuten badiozu hau gabe, eskuz argitaratu beharko dituzu, aukeratuz eta argitaratzeko ekintza erabiliz. Nola funtzionatzen duen jakiteko, ikus <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank"> proposals'' answers documentation page</a>proposamenen erantzunen dokumentazio-orria.'
             suggested_hashtags: Traolek erabiltzaileei proposamen berriak proposatu dizkie
-            votes_blocked: Botoak blokeatuta
-            votes_enabled: Botoak gaituta
-            votes_hidden: Botoak ezkutatuta (bozkak gaituta badadaude, hau egiaztatuz bozka kopurua ezkutatuko da)
+            votes_blocked: Botoiak blokeatuta
+            votes_enabled: Botoiak gaituta
+            votes_hidden: Boto ezkutuak (botoak gaituta badaude, hau markatuz boto kopurua ezkutuan geratuko da)
     events:
       proposals:
         admin:
@@ -318,10 +314,10 @@ eu:
           email_subject: '%{resource_title} proposamenaren esparrua eguneratu egin da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren eremua administratzaile batek eguneratu du.
         voting_enabled:
-          email_intro: 'Proposamenak bozkatu ditzakezu %{participatory_space_title}-n! Hasi parte hartzen ondorengo orrian:'
+          email_intro: 'Proposamenak bozkatu ditzakezuhemen: % {participatory_space_title} Hasi orri honetan parte hartzen:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen duzulako. Jakinarazpenak jasotzeari uti ahal diozu aurreko estekan.
-          email_subject: Proposamenetarako bozketak hasi dira hemen %{participatory_space_title}
-          notification_title: Orain has dezakezu <a href="%{resource_path}">bozka-proposamena hemen:</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_subject: 'Proposamenak bozkatzen hasi dira hemen: % {partizipatory_space_title}'
+          notification_title: 'Orain has zaitezke <a href="%{resource_path}">proposamena bozkatzen hemen: s</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>'
     gamification:
       badges:
         accepted_proposals:
@@ -338,14 +334,14 @@ eu:
         proposal_votes:
           conditions:
             - Nabigatu eta irakurri besteen proposamenak
-            - Eman babesa gustatzen zaizkizun edo interesgarriak iruditzen zaizkizun proposamenei
-          description: Garaikur hori beste pertsona batzuen proposamenak bozkatzen dituzunean ematen da.
-          description_another: Erabiltzaile honek %{score} proposamen onartu ditu.
-          description_own: '%{score} proposameni man diezu babesa.'
-          name: Proposamenaren aldeko botoak
-          next_level_in: Eman babesa % {score} proposamen gehiagori hurrengo mailara iristeko!
-          unearned_another: Parte-hartzaile honek oraindik ez dio babesik eman proposamen bati ere.
-          unearned_own: Oraindik ez duzu proposamen bat ere babestu.
+            - Bozkatu gustuko dituzun edo interesgarriak iruditzen zaizkizun proposamenak
+          description: Bereizgarri hau ematen da beste pertsona batzuen proposmenak bozkatzen dituzunean.
+          description_another: Parte-hartzaile honek %{score} proposamen bozkatu ditu.
+          description_own: '%{score} proposamen bozkatu dituzu.'
+          name: Proposamenak bozkatuak
+          next_level_in: Bozkatu %{score} proposamen gehiago hurrengo mailara iristeko!
+          unearned_another: Parte-hartzaile honek oraindik ez du proposamenik bozkatu.
+          unearned_own: Oraindik ez duzu proposamenik bozkatu.
         proposals:
           conditions:
             - Aukeratu zure interesekoa den parte hartzeko gunea, gaitutako proposamenak aurkeztuta
@@ -371,9 +367,9 @@ eu:
         object: proposamenak
         title: Proposamenak
       votes:
-        description: Proposamenen babes kopurua
+        description: Zenbat boto proposamenei
         object: botoak
-        title: Babesak
+        title: Botoak
     participatory_spaces:
       highlighted_proposals:
         last: Azken proposamenak
@@ -557,7 +553,7 @@ eu:
             remove_assignment: Desegin esleipena
             remove_assignment_confirmation: Ziur zaude proposamen honen ebaluatzailea desesleitu nahi duzula?
             valuators: Ebaluatzaileak
-            votes_count: Botoen zenbaketa
+            votes_count: Boto kopurua
           update_category:
             invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} kategoria.'
             select_a_category: Mesedez, hautatu kategoria bat.
@@ -766,13 +762,6 @@ eu:
         create:
           error: Arazo bat egon da proposamena bozkatzean.
       proposals:
-        compare:
-          continue: Jarraitu
-          no_similars_found: Ongi egina! Ez da antzeko proposamenik aurkitu
-          title: Antzeko proposamenak
-        complete:
-          send: Bidali
-          title: Osatu zue proposamena
         dynamic_map_instructions:
           description: Koordenatuak eguneratu egingo dira 'aurrebistaratu' botoian klik egiten duzunean. Baina helbidea ez da aldatzen.
           instructions: Kokapena mugitu ahal duzu mapan.
@@ -810,6 +799,8 @@ eu:
           count:
             one: "%{count} proposamen"
             other: "%{count} proposamen"
+          grid_mode: Lauki-forma modua
+          list_mode: Zerrenda modua
           new_proposal: Beste proposamen bat
           see_all: Ikusi proposamen guztiak
           see_all_withdrawn: Ikusi erretiratutako proposamen guztiak
@@ -822,7 +813,7 @@ eu:
           most_commented: Iruzkin gehien dituztenak
           most_endorsed: Aldeko boto gehien dituztenak
           most_followed: Jarraitzaile gehien dituztenak
-          most_voted: Aldeko boto gehien dituztenak
+          most_voted: Bozkatuenak
           random: Ausazko ordena
           recent: Berrienak
           with_more_authors: Egile gehiagorekin
@@ -860,49 +851,41 @@ eu:
           proposal_accepted_reason: 'Proposamen hau onartu da arrazoi hauengatik:'
           proposal_in_evaluation_reason: Proposamen hau ebaluatzen ari da
           proposal_rejected_reason: 'Proposamen hau baztertu da arrazoi hauengatik:'
-          withdraw_btn_hint: Zure proposamena atzera bota dezakezu iritziz aldatzen baduzu, babesik jaso ez duzun bitartean. Proposamena ez da ezabatzen, baztertutako proposamenen zerrendan agertuko da.
+          withdraw_btn_hint: Zure proposamena atzera bota dezakezu iritziz aldatzen baduzu, botorik jaso ez baduzu. Proposamena ez da ezabatzen, baztertutako proposamenen zerrendan agertuko da.
           withdraw_confirmation_html: Ziur zaude proposamen hau kendu nahi duzula? <br><br><strong>Ekintza hau ezin da desegin!</strong>
           withdraw_proposal: Ezabatu proposamena
         update:
           title: Eguneratu proposamena
         vote_button:
           already_voted: Bozkatuta duzu
-          already_voted_hover: Bozka kendu
-          maximum_votes_reached: Bozken mugara iritsi da
-          no_votes_remaining: Ez da botorik gelditzen
+          already_voted_hover: Kendu botoa
+          maximum_votes_reached: Botoen muga lortua
+          no_votes_remaining: Ez da gelditzen botorik
           vote: Proiektuaren alde egin
           votes_blocked: Bozketa desaktibatu da
-        votes_count:
-          count:
-            one: Eman babesa
-            other: Babesak
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: Proposamen bakoitzak %{limit} babes baino gehiago jaso dezake
+          can_accumulate_votes_beyond_threshold:
+            description: Proposamen bakoitzak %{limit} boto baino gehiago jaso dezake
           minimum_votes_per_user:
-            description: Gutxienez %{votes} babes banatu behar dituzu proposamen desberdinen artean.
-            given_enough_votes: Nahiko babes eman dituzu.
-            supports_remaining: '%{remaining_votes} boto gehiago proposatu behar dituzu zure botoak kontuan hartzeko.'
+            description: Gutxienez %{votes} boto banatu behar dituzu proposamen desberdinen artean.
+            given_enough_votes: Boto gehiegi eman dituzu.
+            votes_remaining: '%{remaining_votes} boto gehiago eman behar dizkiezu proposamenei zure botoak kontuan har daitezen.'
           proposal_limit:
             description: '%{limit} proposamen sortu ditzakezu.'
           threshold_per_proposal:
-            description: Proposamenak baliozkotu ahal izateko, %{limit} babesetara iritsi behar da.
-          title: 'Babesek arau hauek bete behar dituzte:'
+            description: Proposamenak baliagarriak izan daitezen, %{limit} boto izatera iritsi behar da.
+          title: 'Botoek arau hauek bete behar dituzte:'
           vote_limit:
-            description: '%{limit} proposameni eman ahal diozu babesa.'
-            votes: Babesak
+            description: Gehienez, %{limit} proposamen bozkatu ahal dituzu.
+            votes: Gainerako % {kopurua} boto
         wizard_aside:
           back: Atzera
           back_from_step_1: Itzuli proposamenetara
-          back_from_step_2: Itzuli proposamenetara
-          back_from_step_3: Alderatu berriro proposamenak
-          back_from_step_4: Editatu berriro zirriborroa
+          back_from_step_2: Itzuli editatzera
         wizard_steps:
           current_step: Oraingo fasea
           step_1: Sortu zure proposamena
-          step_2: Alderatu
-          step_3: Osatu
-          step_4: Argitaratu zure proposamena
+          step_2: Argitaratu zure proposamena
           title: Proposamen bat sortzeko urratsak
       proposals_picker:
         choose_proposals: Hautatu proposamenak
@@ -923,7 +906,7 @@ eu:
           title: Bertsioak
       withdraw:
         errors:
-          has_supports: Proposamen hau ezin da bertan behera utzi, dagoeneko babesa duelako.
+          has_votes: Proposamen hau ezin da kendu dagoeneko botoak duelako.
     resource_links:
       copied_from_component:
         proposal_proposal: Lotutako proposamenak
@@ -935,4 +918,4 @@ eu:
     statistics:
       proposals_accepted: Onartutako proposamenak
       proposals_count: Proposamenak
-      supports_count: Aldeko botoak
+      votes_count: Botoak

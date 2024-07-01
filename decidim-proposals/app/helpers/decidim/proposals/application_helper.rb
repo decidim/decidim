@@ -145,12 +145,12 @@ module Decidim
       end
 
       def show_voting_rules?
-        return false unless votes_enabled?
+        return false if !votes_enabled? || current_settings.votes_blocked?
 
         return true if vote_limit_enabled?
         return true if threshold_per_proposal_enabled?
         return true if proposal_limit_enabled?
-        return true if can_accumulate_supports_beyond_threshold?
+        return true if can_accumulate_votes_beyond_threshold?
         return true if minimum_votes_per_user_enabled?
       end
 

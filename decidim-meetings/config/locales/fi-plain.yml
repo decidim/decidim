@@ -423,7 +423,7 @@ fi-pl:
           body: Tapaaminen <a href="%{meeting_path}">"%{meeting_title}"</a> odottaa sulkemista. Ole hyvä ja kirjoita raportti tapaamisesta käyttämällä "Sulje tapaaminen" -painiketta.
           greetings: Terveisin,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Hei %{username},
-          subject: Voit nyt sulkea tapaamisesi kirjoittamalla siitä raportin alustalla %{organization_name}
+          subject: Voit nyt sulkea tapaamisen "%{meeting_title}" kirjoittamalla siitä raportin
       conference_venues: Tapahtumapaikat
       content_blocks:
         upcoming_meetings:
@@ -440,16 +440,13 @@ fi-pl:
       iframe_embed_type:
         embed_in_meeting_page: Upota tapaamisen sivulle
         none: Ei mitään
-        open_in_live_event_page: Avaa upotus tapahtuman sivulla reaaliajassa (liitä vapaaehtoisia mielipidekyselyjä)
         open_in_new_tab: Avaa uudessa välilehdessä
       last_activity:
         meeting_updated: 'Tapaamista on päivitetty:'
         new_meeting: 'Uusi tapaaminen:'
       layouts:
         live_event:
-          administrate: Hallinnoi
           close: sulje
-          questions: Kysymykset
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -589,12 +586,9 @@ fi-pl:
             title: Otsikko
       polls:
         questions:
-          closed_question:
-            question_results: Kysymyksen tulokset
           index:
             empty_questions: Tämän tapaamisen aikana esitetään kysymyksiä, joihin voit vastata. Kysymykset näytetään tässä.
           index_admin:
-            admin_dashboard: Hallintapaneeli
             edit: Muokkaa hallintapaneelissa
             question: Kysymys
             received_answer: vastaus

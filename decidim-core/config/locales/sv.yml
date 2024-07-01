@@ -225,10 +225,6 @@ sv:
         error: Det gick inte att ändra resursen.
         promote_button: Gör till %{model_name}
         promote_confirm_text: Vill du stötta detta ändringsförslag?
-      compare_draft:
-        continue: Fortsätt
-        no_similars_found: Hittade inga liknande ändringsförslag.
-        title: Liknande ändringsförslag
       created:
         error: Ett fel uppstod när ändringsutkastet skulle skapas.
         success: Skapade utkast till ändringsförslag.
@@ -277,9 +273,6 @@ sv:
       wizard_step_form:
         steps:
           '1': Skapa ändringsförslag
-          '2': Jämför ändringsförslag
-          '3': Slutför ändringsförslaget
-          '4': Publicera ändringsförslaget
     anonymous_user: Anonym
     application:
       document:
@@ -484,6 +477,7 @@ sv:
       registrations:
         new:
           already_have_an_account?: Har du redan ett konto?
+          log_in: Logga in
           newsletter: Få enstaka nyhetsbrev med relevant information
           newsletter_title: Kontakttillstånd
           sign_up: Registrera dig
@@ -825,7 +819,6 @@ sv:
         default_page:
           content: "<p>I %{organization} kan du delta och besluta om olika ämnen genom de områden som visas i toppmenyn: dialoger, grupper, initiativ och konsultationer.</p> <p>Inom varje område kan du delta på olika sätt: lämna förslag – enskilt eller med andra människor – delta i debatter, prioritera projekt att genomföra, delta i möten och andra åtgärder.</p>\n"
           title: Vad kan jag göra i %{organization}?
-        title: Allmän hjälp
     last_activities:
       all: Alla aktivitetstyper
       index:
@@ -1359,10 +1352,14 @@ sv:
       signed_up_but_unconfirmed: Ett meddelande med en bekräftelselänk har skickats till din e-postadress. Aktivera kontot genom att följa länken.
       update_needs_confirmation: Kontot har uppdaterats, men vi måste verifiera din nya e-postadress. Kontrollera din e-post och följ länken som bekräftar din nya e-postadress.
       updated: Ditt konto har uppdaterats.
+    sessions:
+      new:
+        log_in: Logga in
     shared:
       links:
         back: Tillbaka
         forgot_your_password: Glömt ditt lösenord?
+        log_in: Logga in
         sign_up: Registrera dig
       minimum_password_length:
         one: "(minst %{count} tecken)"
@@ -1508,6 +1505,7 @@ sv:
         decidim_logo: Decidim logotyp
         decidim_title: Decidim
         download_open_data: Hämta öppna datafiler
+        log_in: Logga in
         made_with_open_source: Webbplats skapad med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
         resources: Resurser
         sign_up: Registrera

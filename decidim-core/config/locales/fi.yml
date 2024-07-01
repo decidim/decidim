@@ -296,10 +296,6 @@ fi:
         title:
           one: "%{count} muutos"
           other: "%{count} muutosta"
-      compare_draft:
-        continue: Jatka
-        no_similars_found: Samankaltaisia muutoksia ei löytynyt.
-        title: Samankaltaiset muutokset
       created:
         error: Muutosluonnoksen lisäys epäonnistui.
         success: Muutosluonnoksen lisäys onnistui.
@@ -358,14 +354,16 @@ fi:
       wizard_step_form:
         steps:
           '1': Luo muutos
-          '2': Vertaile muutostasi
-          '3': Viimeistele muutoksesi
-          '4': Julkaise muutoksesi
+          '2': Julkaise muutoksesi
     anonymous_user: Anonyymi
     application:
       document:
         download: Lataa tiedosto
+        visit_link: Avaa linkki
       documents:
+        component_documents:
+          dummy: Esimerkkikomponentin asiakirjat
+          meetings: Tapaamisten asiakirjat
         documents: Asiakirjat
         related_documents: Liittyvät dokumentit
       photo:
@@ -755,7 +753,7 @@ fi:
         email_subject: Kohteen %{resource_title} päivitys
       gamification:
         badge_earned:
-          email_intro: Onnittelut! Olet ansainnut <a href="%{resource_url}">%{badge_name} merkin</a> (taso %{current_level}).
+          email_intro: Onnittelut! Olet ansainnut kunniamerkin <a href="%{resource_url}">%{badge_name}</a> (taso %{current_level}).
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistunut toimintaan verkkosivustollamme.
           email_subject: 'Olet ansainnut uuden kunniamerkin: %{badge_name}!'
           notification_title: Onnittelut! Olet ansainnut <a href="%{resource_path}">kunniamerkin %{badge_name}</a> (taso %{current_level}).
@@ -882,6 +880,11 @@ fi:
         button: Lopeta seuranta
         error: Tämän kohteen seuraamisen lopettaminen epäonnistui.
     forms:
+      attachment_link:
+        explanation: Ohjeet liitetiedostojen linkeille
+        help_messages:
+          - Ainoastaan oikeanmuotoiset URL-osoitteet hyväksytään.
+          - Huomioi, että linkkien tulee olla julkisia, jotta kaikki osallistujat voivat käyttää niitä.
       errors:
         decidim/user:
           password: Salasana on liian lyhyt.
@@ -891,7 +894,7 @@ fi:
         file:
           explanation: 'Tiedoston ohjeistus:'
           message_1: On oltava kuva tai asiakirja.
-          message_2: Kuvina käytä mieluiten vaakasuintaisia kuvia, palvelu rajaa kuvaa.
+          message_2: Kuvina käytä mieluiten vaakasuuntaisia kuvia, palvelu rajaa kuvaa.
         icon:
           explanation: 'Kuvakkeen ohjeistus:'
           message_1: On oltava neliömuotoinen kuva.
@@ -1040,7 +1043,7 @@ fi:
           content: "<p>Palvelussa %{organization} voit osallistua ja päättää eri aiheista ylävalikossa näkyvien osallistumistilojen kautta: prosessit, ryhmät, aloitteet ja kuulemiset.</p> <p>Jokaisessa tilassa voit osallistua: tehdä ehdotuksia - itsenäisesti tai muiden ihmisten kanssa, osallistua keskusteluihin, priorisoida toteutettavia hankkeita sekä osallistua tapaamisiin ja muihin toimiin.</p>\n"
           title: Mitä voin tehdä palvelussa %{organization}?
         description: Lue lisää palvelusta %{organization}.
-        title: Yleisiä ohjeita
+        title: Yleiset asiat
     last_activities:
       all: Kaikki toimintatyypit
       index:
@@ -1239,6 +1242,7 @@ fi:
       no_notifications: Ei vielä ilmoituksia.
       show:
         missing_event: Hups, tämä ilmoitus kuuluu kohteeseen, joka ei ole enää käytettävissä. Voit merkitä sen luetuksi.
+        moderated: Sisältö moderoitu
     notifications_digest_mailer:
       header:
         daily: Päivittäinen ilmoitusyhteenveto
@@ -1443,7 +1447,7 @@ fi:
           past: Menneet
       filters_small_view:
         filter: Suodata
-        filter_and_search: Suodata ja hae
+        filter_and_search: Suodatus ja haku
         filter_by: Suodata
       results:
         view_all: Näytä kaikki (%{count})
@@ -1930,7 +1934,7 @@ fi:
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
         resources: Resurssit
         sign_up: Luo oma käyttäjätili
-        terms_and_conditions: Käyttöehdot
+        terms_of_service: Käyttöehdot
       header:
         log_in: Kirjaudu sisään
         main_menu: Päävalikko
@@ -1946,10 +1950,6 @@ fi:
         mark_as_read: Merkitse luetuiksi
       offline_banner:
         cache_version_page: Hups! Verkkoyhteytesi on kytketty pois päältä. Tämä on aiemmin välimuistissa oleva versio vierailemasi sivusta, jonka sisältö ei välttämättä ole ajan tasalla.
-      shared:
-        layout_item:
-          next: Seuraava kohde
-          prev: Edellinen kohde
       social_media_links:
         facebook: "%{organization} Facebookissa"
         github: "%{organization} GitHubissa"

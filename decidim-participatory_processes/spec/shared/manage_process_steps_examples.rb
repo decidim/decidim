@@ -9,6 +9,7 @@ shared_examples "manage process steps examples" do
       active:
     )
   end
+  let(:attributes) { attributes_for(:participatory_process_step, participatory_process:) }
 
   before do
     switch_to_host(organization.host)
@@ -23,23 +24,20 @@ shared_examples "manage process steps examples" do
     before { click_on "New phase" }
   end
 
-  it "creates a new participatory_process" do
+  it "creates a new participatory_process", versioning: true do
     click_on "New phase"
 
     fill_in_i18n(
       :participatory_process_step_title,
       "#participatory_process_step-title-tabs",
-      en: "My participatory process step",
-      es: "Mi fase de proceso participativo",
-      ca: "La meva fase de procés participatiu"
+      **attributes[:title].except("machine_translations")
     )
     fill_in_i18n_editor(
       :participatory_process_step_description,
       "#participatory_process_step-description-tabs",
-      en: "A longer description",
-      es: "Descripción más larga",
-      ca: "Descripció més llarga"
+      **attributes[:description].except("machine_translations")
     )
+    fill_in_i18n(:participatory_process_step_cta_text, "#participatory_process_step-cta_text-tabs", **attributes[:cta_text].except("machine_translations"))
 
     find_by_id("participatory_process_step_start_date_date").click
 
@@ -55,13 +53,15 @@ shared_examples "manage process steps examples" do
     expect(page).to have_admin_callout("successfully")
 
     within "#steps table" do
-      expect(page).to have_content("My participatory process step")
+      expect(page).to have_content(translated(attributes[:title]))
       expect(page).to have_content("#{Time.new.utc.day},")
       expect(page).to have_content("#{(Time.new.utc + 2.days).day},")
     end
+    visit decidim_admin.root_path
+    expect(page).to have_content("created the #{translated(attributes[:title])} phase in")
   end
 
-  it "updates a participatory_process_step" do
+  it "updates a participatory_process_step", versioning: true do
     within "#steps" do
       within "tr", text: translated(process_step.title) do
         click_on "Edit"
@@ -69,13 +69,9 @@ shared_examples "manage process steps examples" do
     end
 
     within ".edit_participatory_process_step" do
-      fill_in_i18n(
-        :participatory_process_step_title,
-        "#participatory_process_step-title-tabs",
-        en: "My new title",
-        es: "Mi nuevo título",
-        ca: "El meu nou títol"
-      )
+      fill_in_i18n(:participatory_process_step_title, "#participatory_process_step-title-tabs", **attributes[:title].except("machine_translations"))
+      fill_in_i18n_editor(:participatory_process_step_description, "#participatory_process_step-description-tabs", **attributes[:description].except("machine_translations"))
+      fill_in_i18n(:participatory_process_step_cta_text, "#participatory_process_step-cta_text-tabs", **attributes[:cta_text].except("machine_translations"))
 
       find("*[type=submit]").click
     end
@@ -83,9 +79,12 @@ shared_examples "manage process steps examples" do
     expect(page).to have_admin_callout("successfully")
 
     within "#steps table" do
-      expect(page).to have_content("My new title")
-      click_on("My new title")
+      expect(page).to have_content(translated(attributes[:title]))
+      click_on(translated(attributes[:title]))
     end
+
+    visit decidim_admin.root_path
+    expect(page).to have_content("updated the #{translated(attributes[:title])} phase in")
   end
 
   context "when deleting a participatory process step" do

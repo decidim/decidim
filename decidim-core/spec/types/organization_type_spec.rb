@@ -15,10 +15,10 @@ module Decidim
       end
 
       describe "name" do
-        let(:query) { "{ name }" }
+        let(:query) { %({ name { translation(locale: "en") }}) }
 
         it "returns the organization's name" do
-          expect(response).to eq("name" => model.name)
+          expect(response["name"]["translation"]).to eq(translated(model.name))
         end
       end
 

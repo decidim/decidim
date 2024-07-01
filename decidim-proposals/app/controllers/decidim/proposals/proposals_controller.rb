@@ -7,6 +7,7 @@ module Decidim
       helper ProposalWizardHelper
       helper ParticipatoryTextsHelper
       helper UserGroupHelper
+      helper Decidim::Admin::IconLinkHelper
       include Decidim::ApplicationHelper
       include Flaggable
       include Withdrawable
@@ -22,6 +23,7 @@ module Decidim
       before_action :ensure_is_draft, only: [:preview, :publish, :edit_draft, :update_draft, :destroy_draft]
       before_action :set_proposal, only: [:show, :edit, :update, :withdraw]
       before_action :edit_form, only: [:edit_draft, :edit]
+      before_action :set_view_mode, only: [:index]
 
       before_action :set_participatory_text
 
@@ -186,8 +188,8 @@ module Decidim
             flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
             redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
           end
-          on(:has_supports) do
-            flash[:alert] = I18n.t("proposals.withdraw.errors.has_supports", scope: "decidim")
+          on(:has_votes) do
+            flash[:alert] = I18n.t("proposals.withdraw.errors.has_votes", scope: "decidim")
             redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
           end
         end
@@ -316,6 +318,15 @@ module Decidim
             args: ["decidim/linked_resources_for", @proposal, { type: :proposals, link_name: "copied_from_component" }]
           }
         ] + attachments_tab_panel_items(@proposal)
+      end
+
+      def set_view_mode
+        @view_mode ||= params[:view_mode] || session[:view_mode] || default_view_mode
+        session[:view_mode] = @view_mode
+      end
+
+      def default_view_mode
+        @default_view_mode ||= current_component.settings.attachments_allowed? ? "grid" : "list"
       end
     end
   end

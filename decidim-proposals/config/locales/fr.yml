@@ -74,12 +74,12 @@ fr:
           attributes:
             base:
               not_official: Non officiels
-              supported: A reçu des votes ou des soutiens
+              voted: A reçu des votes ou des soutiens
         proposals_split:
           attributes:
             base:
               not_official: Non officiels
-              supported: A reçu des votes ou des soutiens
+              voted: A reçu des votes ou des soutiens
     models:
       decidim/proposals/admin/update_proposal_category_event: Catégorie de proposition modifiée
       decidim/proposals/admin/update_proposal_scope_event: La portée de la proposition a été modifiée
@@ -154,14 +154,15 @@ fr:
             amendments_wizard_help_text: Texte d'aide de l'assistant
             announcement: Annonce
             attachments_allowed: Autoriser les pièces jointes
-            can_accumulate_supports_beyond_threshold: Peut accumuler des votes au-delà du seuil
+            attachments_allowed_help: En activant cette option, les propositions seront en mode grille par défaut, et la première image liée à la proposition apparaîtra sur la carte.
+            can_accumulate_votes_beyond_threshold: Peut accumuler des votes au-delà du seuil
             collaborative_drafts_enabled: Brouillons collaboratifs activés
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur maximum (en caractères) des commentaires (laisser 0 pour la valeur par défaut)
             default_sort_order: Tri des propositions par défaut
-            default_sort_order_help: L'option par défaut signifie que si les votes sont activés, les propositions seront affichées par ordre aléatoire, et si les votes sont bloqués, alors elles seront triées par nombre de votes.
+            default_sort_order_help: Automatique signifie que si les votes sont activés, les propositions seront affichées par ordre aléatoire, et si les votes sont bloqués, elles seront triées par ordre décroissant des votes.
             default_sort_order_options:
-              default: Par défaut
+              automatic: Automatique
               most_commented: Les plus commentées
               most_endorsed: Les plus soutenues
               most_followed: Les plus suivies
@@ -186,9 +187,7 @@ fr:
             proposal_length: Nombre maximum de caractères du corps de la proposition
             proposal_limit: Limite de proposition par utilisateur
             proposal_wizard_step_1_help_text: Texte d'aide à l'étape "Créer" de la création de proposition
-            proposal_wizard_step_2_help_text: Texte d'aide à l'étape "Comparer" de la création de proposition
-            proposal_wizard_step_3_help_text: Texte d'aide à l'étape "Compléter" de la création de proposition
-            proposal_wizard_step_4_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
+            proposal_wizard_step_2_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque proposition
             scope_id: Secteur
             scopes_enabled: Secteurs activés
@@ -213,9 +212,9 @@ fr:
             creation_enabled: Les participants peuvent créer des propositions
             creation_enabled_readonly: Ce paramètre est désactivé lorsque vous activez la fonctionnalité Textes participatifs. Pour télécharger des propositions sous forme de texte participatif, cliquez sur le bouton Textes participatifs et suivez les instructions.
             default_sort_order: Tri des propositions par défaut
-            default_sort_order_help: L'option par défaut signifie que si les votes sont activés, les propositions seront affichées par ordre aléatoire, et si les votes sont bloqués, alors elles seront triées par nombre de votes.
+            default_sort_order_help: Automatique signifie que si les votes sont activés, les propositions seront affichées par ordre aléatoire, et si les votes sont bloqués, elles seront triées par ordre décroissant des votes.
             default_sort_order_options:
-              default: Par défaut
+              automatic: Automatique
               most_commented: Les plus commentées
               most_endorsed: Les plus soutenues
               most_followed: Les plus suivies
@@ -229,7 +228,7 @@ fr:
             publish_answers_immediately: Publier immédiatement les réponses à la proposition
             publish_answers_immediately_help_html: "Notez que si vous répondez à une proposition sans que cette case soit activée, vous devrez publier la réponse manuellement en sélectionnant la proposition et en utilisant l'action de publication.\nPour plus d'informations sur le fonctionnement de cette action, voir <a href=\"https://docs.decidim.org/en/admin/components/proposals/answers#_publication\" target=\"_blank\">la page de documentation sur les réponses aux propositions</a>."
             suggested_hashtags: Hashtags suggérés aux utilisateurs pour de nouvelles propositions
-            votes_blocked: Bloquer les votes
+            votes_blocked: Votes bloqués
             votes_enabled: Activer le module de vote simple
             votes_hidden: Cacher les votes (si le module de votes est activé, le décompte des votes sera caché)
     events:
@@ -318,9 +317,9 @@ fr:
           email_subject: La portée de la proposition %{resource_title} a été mise à jour
           notification_title: La portée de la proposition <a href="%{resource_path}">%{resource_title}</a> a été mise à jour par un administrateur.
         voting_enabled:
-          email_intro: 'Vous pouvez voter pour les propositions de %{participatory_space_title} ! Participez ici :'
+          email_intro: 'Vous pouvez soutenir les propositions de %{participatory_space_title} ! Participez ici :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
-          email_subject: Vous pouvez désormais voter les propositions dans %{participatory_space_title}
+          email_subject: Vous pouvez désormais voter pour les propositions dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant commencer <a href="%{resource_path}">à voter pour les propositions</a> de <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
@@ -371,7 +370,7 @@ fr:
         object: propositions
         title: Propositions
       votes:
-        description: Nombre de votes générés dans les propositions par les utilisateurs
+        description: Nombre de votes sur des propositions
         object: votes
         title: Votes
     participatory_spaces:
@@ -763,15 +762,8 @@ fr:
           comment: Commentaire
       proposal_votes:
         create:
-          error: Des erreurs se sont produites lors du vote pour la proposition.
+          error: Il y a eu un problème lors du vote de la proposition.
       proposals:
-        compare:
-          continue: Continuer
-          no_similars_found: Bien joué ! Aucune proposition similaire n'a été trouvée
-          title: Propositions similaires
-        complete:
-          send: Envoyer
-          title: Complétez votre proposition
         dynamic_map_instructions:
           description: Les coordonnées seront mises à jour en cliquant sur le bouton 'Aperçu'. Cependant, l'adresse ne change pas.
           instructions: Vous pouvez déplacer le point sur la carte.
@@ -809,6 +801,8 @@ fr:
           count:
             one: "%{count} proposition"
             other: "%{count} propositions"
+          grid_mode: Vue grille
+          list_mode: Vue liste
           new_proposal: Nouvelle proposition
           see_all: Voir toutes les propositions
           see_all_withdrawn: Voir toutes les propositions retirées
@@ -859,7 +853,7 @@ fr:
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
           proposal_rejected_reason: 'Cette proposition n''a pas été retenue parce que :'
-          withdraw_btn_hint: Si vous changez d'avis et tant que votre proposition n'a pas reçu de vote, commentaire et/ou soutien, vous pouvez toujours la retirer. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
+          withdraw_btn_hint: Si vous changez d'avis et tant que votre proposition n'a pas reçu de vote, vous pouvez toujours la retirer. Cette dernière ne sera pas supprimée, mais elle apparaîtra dans la liste des propositions retirées.
           withdraw_confirmation_html: Êtes-vous sûr de vouloir retirer cette proposition ?<br><br><strong>Cette action ne peut pas être annulée !</strong>
           withdraw_proposal: Retirer la proposition
         update:
@@ -869,39 +863,35 @@ fr:
           already_voted_hover: Retirer le vote
           maximum_votes_reached: Nombre maximum de votes atteint
           no_votes_remaining: Aucun vote restant
-          vote: Voter
+          vote: Soutenir
           votes_blocked: Votes désactivés
         votes_count:
           count:
-            one: VOTE
-            other: VOTES
+            one: Vote
+            other: Votes
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: Chaque proposition doit rassembler plus de %{limit} votes
+          can_accumulate_votes_beyond_threshold:
+            description: Chaque proposition peut accumuler plus de %{limit} votes
           minimum_votes_per_user:
             description: Vous devez répartir un minimum de %{votes} voix entre différentes propositions.
             given_enough_votes: Vous avez attribué suffisamment de votes.
-            supports_remaining: Vous devez voter pour %{remaining_votes} proposition(s) supplémentaire(s) pour que vos votes soient pris en compte.
+            votes_remaining: Vous devez voter pour %{remaining_votes} propositions supplémentaires pour que vos votes soient pris en compte.
           proposal_limit:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
           threshold_per_proposal:
             description: Pour être acceptées, les propositions doivent atteindre %{limit} votes.
-          title: 'La participation est soumise aux règles suivantes :'
+          title: 'Les votes sont soumis aux règles suivantes :'
           vote_limit:
             description: Vous pouvez voter pour %{limit} propositions au maximum.
             votes: '%{number} votes restants'
         wizard_aside:
           back: Retour
           back_from_step_1: Retour aux propositions
-          back_from_step_2: Retour aux propositions
-          back_from_step_3: Retour à la comparaison des propositions
-          back_from_step_4: Retour à l'édition du brouillon
+          back_from_step_2: Retour à l'édition
         wizard_steps:
           current_step: Étape actuelle
           step_1: Créer une proposition
-          step_2: Comparer aux autres propositions
-          step_3: Compléter votre proposition
-          step_4: Publier votre proposition
+          step_2: Publier votre proposition
           title: Étapes de création de proposition
       proposals_picker:
         choose_proposals: Choisir les propositions
@@ -922,7 +912,7 @@ fr:
           title: Versions
       withdraw:
         errors:
-          has_supports: Cette proposition ne peut pas être retirée car elle comporte déjà des votes.
+          has_votes: Cette proposition ne peut pas être retirée, car elle a déjà reçu des votes.
     resource_links:
       copied_from_component:
         proposal_proposal: Propositions associées
@@ -934,4 +924,4 @@ fr:
     statistics:
       proposals_accepted: Propositions acceptées
       proposals_count: Propositions
-      supports_count: Votes
+      votes_count: Votes

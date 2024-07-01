@@ -166,10 +166,6 @@ lb:
         error: Beim Änneren vun dëser Ressource ass e Feeler opgetrueden.
         promote_button: Zu engem %{model_name} befërderen
         promote_confirm_text: Möchten Sie diese Erweiterung wirklich fördern?
-      compare_draft:
-        continue: Weider
-        no_similars_found: Keine ähnlichen Entwürfe gefunden.
-        title: Änlech Entwërf
       created:
         error: Beim Erstellen des Änderungsvorschlags ist ein Fehler aufgetreten.
         success: D'Ännerung gouf ugeholl.
@@ -218,9 +214,6 @@ lb:
       wizard_step_form:
         steps:
           '1': Erstell deng Ännerung
-          '2': Vergläich deng Ännerungsvirschléi
-          '3': Vervollstänneg deng Ännerungsvirschléi
-          '4': Verëffentlech deng Ännerungsvirschléi
     anonymous_user: Anonym
     application:
       document:
@@ -389,6 +382,7 @@ lb:
       registrations:
         new:
           already_have_an_account?: Hues du schonn en Kont?
+          log_in: Umelden
           newsletter: Heiansdo en Newsletter mat relevanten Informatiounen zougeschéckt kréien
           newsletter_title: Erlabnis Kontakt opzehuelen
           sign_up: Registréieren
@@ -687,7 +681,6 @@ lb:
         default_page:
           content: "<p>An der %{organization} kanns de, mëttels de Felder aus dem ieweschten Menü déi Themen-Beräicher entscheeden an erauswielen bei deenen s'de wëlls matmaachen: Prozesser, Gremien, Initiativen, Berodungen.</p> <p>An all Beräich fënns de verschidden Optiounen fir d'Matmaachen: Virschléi maachen - eleng oder mat aneren -, bei Debatten matmaachen, Prioritéiten setzen fir Projeten ëmzesetzen, un perséinlechen Treffen an aneren Aktiounen deelhuelen.</p>\n"
           title: Wat kann ech an der %{organization} maachen?
-        title: Allgemeng Hëllef
     last_activities:
       all: All Zorten vun Aktivitéit
       index:
@@ -1178,10 +1171,14 @@ lb:
       signed_up_but_unconfirmed: Du krus eng Noriicht op den Email-Adress geschéckt. Klick do op de Link, fir däin Kont ze aktivéieren.
       update_needs_confirmation: Du hues däin Kont aktivéiert, mir kontrolléieren deng Email-Adress. W. e. g. iwwerpréif deng Email-Agäng an klick do op de Link fir deng nei Adress ze bestätegen.
       updated: Däin Kont gouf aktualiséiert.
+    sessions:
+      new:
+        log_in: Umelden
     shared:
       links:
         back: Zréck
         forgot_your_password: Passwuert vergiess?
+        log_in: Umelden
         sign_up: Registréieren
       minimum_password_length:
         one: "(%{count} Minimum Zeechen)"
@@ -1233,6 +1230,7 @@ lb:
         cc_by_license: Creative Commons Lizenz
         decidim_logo: Decidim-Logo
         download_open_data: Open Data Dateien eroflueden
+        log_in: Umelden
         made_with_open_source: Website mat <a target="_blank" href="https://github.com/decidim/decidim">fräi Software erstallt</a>.
         sign_up: Registréieren
       header:

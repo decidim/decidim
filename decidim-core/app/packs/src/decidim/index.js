@@ -47,7 +47,10 @@ import "src/decidim/impersonation"
 import "src/decidim/gallery"
 import "src/decidim/direct_uploads/upload_field"
 import "src/decidim/data_consent"
+import "src/decidim/abide_form_validator_fixer"
 import "src/decidim/sw"
+import "src/decidim/sticky_header"
+import "src/decidim/attachments"
 
 // local deps that require initialization
 import formDatePicker from "src/decidim/datepicker/form_datepicker"
@@ -62,6 +65,7 @@ import addInputEmoji, { EmojiButton } from "src/decidim/input_emoji"
 import FocusGuard from "src/decidim/focus_guard"
 import backToListLink from "src/decidim/back_to_list"
 import markAsReadNotifications from "src/decidim/notifications"
+import handleNotificationActions from "src/decidim/notifications_actions"
 import RemoteModal from "src/decidim/remote_modal"
 import selectActiveIdentity from "src/decidim/identity_selector_dialog"
 import createTooltip from "src/decidim/tooltips"
@@ -169,6 +173,7 @@ const initializer = (element = document) => {
   backToListLink(element.querySelectorAll(".js-back-to-list"));
 
   markAsReadNotifications(element)
+  handleNotificationActions(element)
 
   scrollToLastChild(element)
 

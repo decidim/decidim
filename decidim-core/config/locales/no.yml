@@ -175,10 +175,6 @@
         error: Det oppsto feil under endringen av denne resurssen.
         promote_button: Promoter til %{model_name}
         promote_confirm_text: Er du sikker på at du vil forfremme denne emendasjonen?
-      compare_draft:
-        continue: Fortsett
-        no_similars_found: Ingen like emendasjoner funnet.
-        title: Lignende Emendasjoner
       created:
         error: En feil oppstod mens du lagde endrings utkast.
         success: Endrings utkastet har blitt opprettet.
@@ -224,9 +220,6 @@
       wizard_step_form:
         steps:
           '1': Opprett endringen din
-          '2': Sammenlign endringen din
-          '3': Fullfør endringen din
-          '4': Publiser endringen din
     anonymous_user: Anonym
     application:
       document:
@@ -395,6 +388,7 @@
       registrations:
         new:
           already_have_an_account?: Har du allerede en bruker?
+          log_in: Logg inn
           newsletter: Motta et sporadisk nyhetsbrev med relevant informasjon
           newsletter_title: Kontakt tillatelse
           sign_up: Registrer deg
@@ -701,7 +695,6 @@
         default_page:
           content: "<p>I %{organization} kan du delta og bestemme forskjellige temaer gjennom mellomrommene du ser i toppmenyen: Prosesser, Forsamlinger, Initiativer, Konsultasjoner.</p> <p>Innenfor hver enkelt finner du forskjellige alternativer for å delta: lage forslag - hver for seg eller med andre mennesker-, delta i debatter, prioritere prosjekter for å implementere, delta på ansikt-til-ansikt møter og andre handlinger.</p>\n"
           title: Hva kan jeg gjøre i %{organization}?
-        title: Generell hjelp
     last_activities:
       all: Alle aktivitetstyper
       index:
@@ -1201,10 +1194,14 @@
       signed_up_but_unconfirmed: En melding med en bekreftelseslink er sendt til din e-postadresse. Følg lenken for å aktivere kontoen din.
       update_needs_confirmation: Du har oppdatert kontoen, men vi trenger å bekrefte din nye e-postadresse. Sjekk din e-post og følg lenken for å bekrefte din nye e-postadresse.
       updated: Kontoen din er oppdatert.
+    sessions:
+      new:
+        log_in: Logg inn
     shared:
       links:
         back: Tilbake
         forgot_your_password: Glemt ditt passord?
+        log_in: Logg inn
         sign_up: Registrer deg
       minimum_password_length:
         one: "(%{count} karakter minimum)"
@@ -1256,6 +1253,7 @@
         cc_by_license: Creative Commons lisens
         decidim_logo: Decidim logo
         download_open_data: Last ned Åpen Data filer
+        log_in: Logg inn
         made_with_open_source: Nettsted laget med <a target="_blank" href="https://github.com/decidim/decidim">fri programvare</a>.
         sign_up: Registrer deg
       header:

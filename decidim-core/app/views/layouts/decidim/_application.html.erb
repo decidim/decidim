@@ -6,7 +6,7 @@
     <%= render partial: "layouts/decidim/head" %>
   </head>
 
-  <body class="text-black text-md form-defaults">
+  <body class="text-black text-md form-defaults<%= yield (:body_class) %>">
     <!--noindex--><!--googleoff: all-->
     <%= link_to t("skip_button", scope: "decidim.accessibility"), "#content", class: "layout-container__skip" %>
     <%= cell("decidim/data_consent", current_organization) %>

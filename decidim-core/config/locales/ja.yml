@@ -282,10 +282,6 @@ ja:
       amendments:
         title:
           other: "%{count} 件の修正"
-      compare_draft:
-        continue: 続ける
-        no_similars_found: 似たような表現は見つかりません。
-        title: 似たような訂正
       created:
         error: 修正案の作成中にエラーが発生しました。
         success: 修正案が正常に作成されました。
@@ -344,14 +340,16 @@ ja:
       wizard_step_form:
         steps:
           '1': 修正を作成する
-          '2': 修正内容を比較
-          '3': 修正を完了する
-          '4': 修正内容を公開
+          '2': 修正を公開
     anonymous_user: 匿名です
     application:
       document:
         download: ファイルをダウンロード
+        visit_link: リンクを開く
       documents:
+        component_documents:
+          dummy: ダミーコンポーネントドキュメント
+          meetings: ミーティングドキュメント
         documents: ドキュメント
         related_documents: 関連ドキュメント
       photo:
@@ -864,6 +862,11 @@ ja:
         button: フォローを停止
         error: リソースのフォローを解除する際に問題が発生しました。
     forms:
+      attachment_link:
+        explanation: 添付ファイルへのリンクのガイド
+        help_messages:
+          - 正しいURL形式のみ入力できます
+          - リンクは公開されているものでなければならないので、すべての参加者がアクセスできるようにしてください。
       errors:
         decidim/user:
           password: パスワードが短すぎます。
@@ -1022,7 +1025,7 @@ ja:
           content: "<p>%{organization} では、トップメニューにあるスペース（参加型プロセスや参加スペース、取り組み、議案）から、さまざまなトピックに参加したり、決定したりすることができます。</p> <p>それぞれのスペースには、参加するためのさまざまなオプションが用意されています: （個人または他の人と一緒に）提案をする 、ディベートに参加する、実施するプロジェクトの優先順位を決める、対面ミーティングに出席する、その他のアクションを行う等。</p>\n"
           title: '%{organization} で何ができますか？'
         description: '%{organization} についてもっと読む'
-        title: 一般的なヘルプ
+        title: 全般
     last_activities:
       all: すべてのアクティビティ種別
       index:
@@ -1218,9 +1221,11 @@ ja:
         same_language: コンテンツはあなたの設定された言語(%{language}) で投稿されました。このため、このメールには自動翻訳は表示されません。
         translated_text: '自動翻訳されたテキスト:'
     notifications:
+      action_error: 通知の更新中に問題が発生しました。
       no_notifications: まだ通知はありません。
       show:
         missing_event: この通知は利用できなくなった要素に属しています。破棄してください。
+        moderated: モデレートされたコンテンツ
     notifications_digest_mailer:
       header:
         daily: 日次の通知のダイジェスト
@@ -1908,7 +1913,7 @@ ja:
         made_with_open_source: このサイトは <a target="_blank" href="https://github.com/decidim/decidim">フリーソフトウェア</a>で作られています。
         resources: リソース
         sign_up: 新規登録
-        terms_and_conditions: 利用規約
+        terms_of_service: 利用規約
       header:
         log_in: ログイン
         main_menu: メインメニュー
@@ -1924,10 +1929,6 @@ ja:
         mark_as_read: 既読にする
       offline_banner:
         cache_version_page: 注意：あなたのネットワークはオフラインです。これは以前にアクセスしているページのキャッシュされたバージョンです。おそらくコンテンツが最新ではありません。
-      shared:
-        layout_item:
-          next: 次のアイテム
-          prev: 前のアイテム
       social_media_links:
         facebook: "Facebook の %{organization}"
         github: "GitHub の %{organization}"

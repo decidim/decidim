@@ -166,10 +166,6 @@ pt:
         error: Ocorreu um erro ao modificar este recurso.
         promote_button: Promover a %{model_name}
         promote_confirm_text: Tem a certeza de que deseja promover esta retificação?
-      compare_draft:
-        continue: Continuar
-        no_similars_found: Não foram encontradas retificações semelhantes.
-        title: Retificações Semelhantes
       created:
         error: Ocorreu um erro ao criar o rascunho da modificação.
         success: O rascunho da modificação foi criado corretamente.
@@ -217,9 +213,6 @@ pt:
       wizard_step_form:
         steps:
           '1': Criar a sua modificação
-          '2': Comparar a sua modificação
-          '3': Concluir a sua modificação
-          '4': Publicar a sua modificação
     anonymous_user: Anônimo
     application:
       document:
@@ -388,6 +381,7 @@ pt:
       registrations:
         new:
           already_have_an_account?: Já tem uma conta?
+          log_in: Entrar
           newsletter: Receber um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contacto
           sign_up: Inscreva-se
@@ -690,7 +684,6 @@ pt:
         default_page:
           content: "<p>Em %{organization} pode participar e decidir sobre diferentes tópicos, através dos espaços que vê no menu superior: Processos, Reuniões, Iniciativas, Consultas.</p> <p>Dentro de cada um encontrará diferentes opções para participar: fazer propostas - individualmente ou com outras pessoas -, participar em debates, priorizar projetos a serem implementados, participar em reuniões presenciais e outras ações.</p>\n"
           title: O que posso fazer em %{organization}?
-        title: Ajuda Geral
     last_activities:
       all: Todos os tipos de atividade
       index:
@@ -1181,10 +1174,14 @@ pt:
       signed_up_but_unconfirmed: Uma mensagem com uma hiperligação de confirmação foi enviada para o seu endereço de e-mail. Por favor, siga a hiperligação para ativar a sua conta.
       update_needs_confirmation: Atualizou a sua conta corretamente, mas precisamos de confirmar o seu novo endereço de e-mail. Por favor, verifique o seu e-mail e siga a hiperligação de confirmação para confirmar o seu novo endereço de e-mail.
       updated: A sua conta foi atualizada corretamente.
+    sessions:
+      new:
+        log_in: Entrar
     shared:
       links:
         back: Retroceder
         forgot_your_password: Esqueceu a sua palavra-passe?
+        log_in: Entrar
         sign_up: Inscrever-se
       minimum_password_length:
         one: "(%{count} carácter no mínimo)"
@@ -1236,6 +1233,7 @@ pt:
         cc_by_license: Licença Creative Commons
         decidim_logo: Logótipo do Decidim
         download_open_data: Transferir ficheiros Open Data
+        log_in: Entrar
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
         sign_up: Inscrever-se
       header:

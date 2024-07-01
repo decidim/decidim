@@ -26,6 +26,7 @@ module Decidim
       def coordinates
         [object.latitude, object.longitude]
       end
+
       field :reference, GraphQL::Types::String, "This proposal's unique reference", null: true
       field :state, GraphQL::Types::String, "The answer status in which proposal is in", null: true
       field :answer, Decidim::Core::TranslatedFieldType, "The answer feedback for the status for this proposal", null: true

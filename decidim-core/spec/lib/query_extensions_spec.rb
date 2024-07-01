@@ -40,10 +40,10 @@ module Decidim
       end
 
       describe "organization" do
-        let(:query) { %({ organization { name }}) }
+        let(:query) { %({ organization { name { translation(locale: "en") } }}) }
 
         it "returns the current organization" do
-          expect(response["organization"]["name"]).to eq(current_organization.name.to_s)
+          expect(response["organization"]["name"]["translation"]).to eq(translated(current_organization.name))
         end
       end
 

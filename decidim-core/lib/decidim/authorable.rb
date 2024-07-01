@@ -7,6 +7,7 @@ module Decidim
   # this latest case the Coauthorable concern should be used instead of Authorable.
   module Authorable
     extend ActiveSupport::Concern
+    include Decidim::TranslatableAttributes
 
     included do
       belongs_to :author, polymorphic: true, foreign_key: "decidim_author_id", foreign_type: "decidim_author_type"
@@ -84,6 +85,10 @@ module Decidim
       # Returns a boolean.
       def official?
         decidim_author_type == Decidim::Organization.name
+      end
+
+      def author_name
+        translated_attribute(normalized_author.name)
       end
 
       private

@@ -64,13 +64,18 @@ es:
           against: En contra
           in_favor: A favor
         cancel_reply: Cancelar respuesta
+        comment_label: Comentario %{comment_id}
+        comment_label_reply: Comentario %{comment_id} (responder al comentario %{parent_comment_id})
         confirm_destroy: '¿Seguro que quieres eliminar este comentario?'
+        controls_label: Controles de comentarios
         delete: Eliminar
         deleted_at: Comentario eliminado el %{date}
         deleted_user: Participante eliminada
         edit: Editar
         edited: Editado
-        hide_replies: Ocultar respuestas
+        hide_replies:
+          one: Ocultar la respuesta
+          other: Ocultar %{count} respuestas
         moderated_at: Comentario moderado el %{date}
         reply: Respuesta
         report:

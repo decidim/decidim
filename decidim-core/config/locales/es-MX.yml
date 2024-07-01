@@ -296,10 +296,6 @@ es-MX:
         title:
           one: "%{count} enmienda"
           other: "%{count} enmiendas"
-      compare_draft:
-        continue: Continuar
-        no_similars_found: No se encontraron enmiendas similares.
-        title: Enmiendas similares
       created:
         error: Se ha producido un error al crear la enmienda.
         success: La enmienda se ha creado correctamente.
@@ -358,14 +354,16 @@ es-MX:
       wizard_step_form:
         steps:
           '1': Crea tu enmienda
-          '2': Compara tu enmienda
-          '3': Completa tu enmienda
-          '4': Publicar tu enmienda
+          '2': Publica tu enmienda
     anonymous_user: Anónimo
     application:
       document:
         download: Descargar archivo
+        visit_link: Visita el enlace
       documents:
+        component_documents:
+          dummy: Documentos de componentes ficticios
+          meetings: Documentos sobre encuentros
         documents: Documentos
         related_documents: Documentos relacionados
       photo:
@@ -885,6 +883,11 @@ es-MX:
         button: Dejar de seguir
         error: Ha habido un error dejando de seguir este recurso.
     forms:
+      attachment_link:
+        explanation: Guía para enlaces adjuntos
+        help_messages:
+          - Solo se aceptan formatos de URL correctos.
+          - Ten en cuenta que los enlaces deben ser públicos para que todos los participantes puedan acceder a ellos.
       errors:
         decidim/user:
           password: La contraseña es demasiado corta.
@@ -1043,7 +1046,7 @@ es-MX:
           content: "<p>En %{organization} puedes participar y decidir sobre diferentes temas, a través de los espacios que ves en el menú superior: Procesos, Asambleas, Iniciativas, Consultas.</p> <p>Dentro de cada uno encontrarás diferentes opciones para participar: hacer propuestas - a nivel individual o con otras personas -, tomar parte en debates, priorizar proyectos a ejecutar, asistir a encuentros presenciales y otras acciones.</p>\n"
           title: '¿Qué puedo hacer en %{organization}?'
         description: Lee más sobre %{organization}.
-        title: Ayuda general
+        title: General
     last_activities:
       all: Todos los tipos de actividad
       index:
@@ -1239,9 +1242,11 @@ es-MX:
         same_language: El contenido ha sido publicado en tu idioma preferido (%{language}), por eso no se muestra ninguna traducción automática en este correo electrónico.
         translated_text: 'Texto traducido automáticamente:'
     notifications:
+      action_error: Se ha producido un error al actualizar las notificaciones.
       no_notifications: No hay notificaciones aún.
       show:
         missing_event: Vaya, esta notificación pertenece a un elemento que ya no está disponible. Puedes descartarla.
+        moderated: Contenido moderado
     notifications_digest_mailer:
       header:
         daily: Resumen diario de notificaciones
@@ -1932,9 +1937,9 @@ es-MX:
         made_with_open_source: Sitio web creado con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
         resources: Recursos
         sign_up: Regístrate
-        terms_and_conditions: Términos y condiciones
+        terms_of_service: Términos y condiciones de uso
       header:
-        log_in: Entra
+        log_in: Iniciar sesión
         main_menu: Menú principal
         user_menu: Menú de usuario
       impersonation_warning:
@@ -1948,10 +1953,6 @@ es-MX:
         mark_as_read: Marcar como leído
       offline_banner:
         cache_version_page: '¡Ups! Tu red está desconectada. Esta es una versión previa en caché de la página que estás visitando, quizás el contenido no está actualizado.'
-      shared:
-        layout_item:
-          next: Siguiente tema
-          prev: Tema anterior
       social_media_links:
         facebook: "%{organization} en Facebook"
         github: "%{organization} en GitHub"

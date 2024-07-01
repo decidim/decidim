@@ -358,7 +358,7 @@ module Decidim
 
       it "sends the email" do
         expect(last_email.to).to eq([user.email])
-        expect(last_email.subject).to eq("Thanks for joining #{organization.name}!")
+        expect(last_email.subject).to eq("Thanks for joining #{translated(organization.name)}!")
       end
 
       context "when the organization does not send welcome notifications" do

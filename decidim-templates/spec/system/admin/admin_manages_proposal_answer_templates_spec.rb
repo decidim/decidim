@@ -12,6 +12,7 @@ describe "Admin manages proposal answer templates" do
   let!(:templatable) { create(:proposal_component, name: { en: description }, participatory_space:) }
   let(:proposal_state_id) { Decidim::Proposals::ProposalState.find_by(component: templatable, token:).id }
   let!(:template) { create(:template, target: :proposal_answer, organization:, templatable:, field_values:) }
+  let(:attributes) { attributes_for(:template, target: :proposal_answer, organization:, templatable:, field_values:) }
 
   before do
     switch_to_host(organization.host)
@@ -41,26 +42,14 @@ describe "Admin manages proposal answer templates" do
       end
     end
 
-    it "creates a new template" do
+    it "creates a new template", versioning: true do
       within ".new_proposal_answer_template" do
         select "Participatory process: A participatory process > A component", from: :proposal_answer_template_component_constraint
       end
 
       within ".new_proposal_answer_template" do
-        fill_in_i18n(
-          :proposal_answer_template_name,
-          "#proposal_answer_template-name-tabs",
-          en: "My template",
-          es: "Mi plantilla",
-          ca: "La meva plantilla"
-        )
-        fill_in_i18n_editor(
-          :proposal_answer_template_description,
-          "#proposal_answer_template-description-tabs",
-          en: "Description",
-          es: "Descripción",
-          ca: "Descripció"
-        )
+        fill_in_i18n(:proposal_answer_template_name, "#proposal_answer_template-name-tabs", **attributes[:name].except("machine_translations"))
+        fill_in_i18n_editor(:proposal_answer_template_description, "#proposal_answer_template-description-tabs", **attributes[:description].except("machine_translations"))
 
         choose "Accepted"
 
@@ -71,8 +60,12 @@ describe "Admin manages proposal answer templates" do
       expect(page).to have_current_path decidim_admin_templates.proposal_answer_templates_path
       within ".table-list" do
         expect(page).to have_i18n_content("Participatory process: A participatory process > A component")
-        expect(page).to have_content("My template")
+        expect(page).to have_content(translated(attributes[:name]))
       end
+      expect(page).to have_admin_callout("successfully")
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("created the #{translated(attributes[:name])} questionnaire template")
     end
   end
 
@@ -82,14 +75,9 @@ describe "Admin manages proposal answer templates" do
       click_on translated(template.name)
     end
 
-    it "updates a template" do
-      fill_in_i18n(
-        :proposal_answer_template_name,
-        "#proposal_answer_template-name-tabs",
-        en: "My new name",
-        es: "Mi nuevo nombre",
-        ca: "El meu nou nom"
-      )
+    it "updates a template", versioning: true do
+      fill_in_i18n(:proposal_answer_template_name, "#proposal_answer_template-name-tabs", **attributes[:name].except("machine_translations"))
+      fill_in_i18n_editor(:proposal_answer_template_description, "#proposal_answer_template-description-tabs", **attributes[:description].except("machine_translations"))
 
       within ".edit_proposal_answer_template" do
         page.find("*[type=submit]").click
@@ -99,8 +87,12 @@ describe "Admin manages proposal answer templates" do
       expect(page).to have_current_path decidim_admin_templates.proposal_answer_templates_path
       within ".table-list" do
         expect(page).to have_i18n_content("Participatory process: A participatory process > A component")
-        expect(page).to have_content("My new name")
+        expect(page).to have_content(translated(attributes[:name]))
       end
+      expect(page).to have_admin_callout("successfully")
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the #{translated(attributes[:name])} questionnaire template")
     end
   end
 
@@ -226,7 +218,7 @@ describe "Admin manages proposal answer templates" do
         it "changes it with the organization name" do
           within ".edit_proposal_answer" do
             select template.name["en"], from: :proposal_answer_template_chooser
-            expect(page).to have_content("Some meaningful answer with the #{organization.name}")
+            expect(page).to have_content("Some meaningful answer with the #{translated(organization.name)}")
           end
         end
       end

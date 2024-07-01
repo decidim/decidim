@@ -171,7 +171,6 @@ fi-pl:
         back_to: Takaisin %{component_name}
         close_modal: Sulje ikkuna
         continue: Jatka
-        more_information: Lisätietoa
       budgets_list:
         budgets: Budjetit
         cancel_order:
@@ -184,6 +183,11 @@ fi-pl:
         finished_message: Olet äänestänyt. Kiitos osallistumisestasi!
         highlighted_cta: Äänestä budjetista %{name}
         if_change_opinion: Jos olet muuttanut mieltäsi, voit
+        orders:
+          highest_cost: Kallein ensin
+          label: Järjestä budjetit
+          lowest_cost: Edullisin ensin
+          random: Satunnainen järjestys
         progress: Viimeistele äänestys
         remove_vote: Poista ääni
         show: Näytä projektit

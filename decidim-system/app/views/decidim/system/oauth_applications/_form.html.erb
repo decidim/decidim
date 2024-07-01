@@ -2,7 +2,7 @@
   <%= form.text_field :name %>
   <%= form.text_field :redirect_uri %>
   <%= form.select :decidim_organization_id,
-                  Decidim::Organization.pluck(:name, :id),
+                  Decidim::Organization.all.map { |o| [organization_name(o), o.id] },
                   { include_blank: t(".select_organization") },
                   { multiple: false } %>
   <%= form.text_field :organization_name %>

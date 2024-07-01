@@ -14,7 +14,6 @@ gl:
           attributes:
             choices:
               missing: non están completos
-              too_many: son demasiados
   decidim:
     forms:
       admin:

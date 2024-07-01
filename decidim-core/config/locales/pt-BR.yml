@@ -280,10 +280,6 @@ pt-BR:
         title:
           one: "%{count} comentário"
           other: "%{count} comentários"
-      compare_draft:
-        continue: Continuar
-        no_similars_found: Não foram encontradas emendas similares.
-        title: Emendas similares
       created:
         error: Ocorreu um erro ao criar o rascunho da alteração.
         success: A proposta de alteração foi criada com êxito.
@@ -333,9 +329,6 @@ pt-BR:
       wizard_step_form:
         steps:
           '1': Crie sua emenda
-          '2': Compare sua alteração
-          '3': Completar sua alteração
-          '4': Publique sua alteração
     anonymous_user: Anônimo
     application:
       document:
@@ -927,7 +920,6 @@ pt-BR:
         default_page:
           content: "<p>Em %{organization} você pode participar e decidir sobre diferentes tópicos, através dos espaços que você vê no menu superior: Processos, Assembleias, Iniciativas, Consultas.</p> <p>Dentro de cada um você encontrará diferentes opções para participar: fazer propostas - individualmente ou com outras pessoas -, participar de debates, priorizar projetos a serem implementados, participar de reuniões presenciais e outras ações.</p>\n"
           title: O que posso fazer em %{organization}?
-        title: Ajuda Geral
     last_activities:
       all: Todos os tipos de atividade
       index:
@@ -1592,9 +1584,7 @@ pt-BR:
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
         resources: Recursos
         sign_up: Cadastre-se
-        terms_and_conditions: Termos e Condições
       header:
-        log_in: Iniciar sessão
         main_menu: Menu principal
         user_menu: Menu de usuários
       impersonation_warning:

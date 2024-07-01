@@ -165,6 +165,10 @@ FactoryBot.define do
                                                                            skip_injection: evaluator.skip_injection)
       end
     end
+
+    trait :published do
+      published_at { Time.current }
+    end
   end
 
   factory :conference_speaker_conference_meeting, class: "Decidim::ConferenceSpeakerConferenceMeeting" do

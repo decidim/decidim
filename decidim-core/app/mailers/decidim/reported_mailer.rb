@@ -4,7 +4,6 @@ module Decidim
   # A custom mailer for sending notifications to an admin when a report is created.
   class ReportedMailer < Decidim::ApplicationMailer
     helper Decidim::ResourceHelper
-    helper Decidim::TranslationsHelper
 
     helper_method :reported_content_url, :report_url, :manage_moderations_url, :author_profile_url, :reported_content_cell
 
