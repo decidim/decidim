@@ -1157,6 +1157,7 @@ en:
           ok: OK
         index:
           new_conversation: New conversation
+          next: Next
           no_conversations: You have no conversations yet.
           title: Conversations
         reply_form:
