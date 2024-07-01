@@ -17,6 +17,8 @@ module Decidim
         helper Decidim::Initiatives::InitiativeHelper
         helper Decidim::Initiatives::SignatureTypeOptionsHelper
 
+        helper_method :show_initiative_type_callout?
+
         # GET /admin/initiatives
         def index
           enforce_permission_to :list, :initiative
@@ -182,6 +184,10 @@ module Decidim
         end
 
         private
+
+        def show_initiative_type_callout?
+          Decidim::InitiativesType.where(organization: current_organization).all.empty?
+        end
 
         def collection
           @collection ||= ManageableInitiatives.for(current_user)

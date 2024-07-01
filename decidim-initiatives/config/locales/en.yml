@@ -237,6 +237,10 @@ en:
               most_recent: Most recent
         exports:
           initiatives: Initiatives
+        index:
+          initiatives_types:
+            alert_html: <p>You must create at least one initiative type so participants can start creating initiatives.</p><p> %{link}</p>
+            button: New initiative type
         initiatives:
           edit:
             accept: Accept initiative
