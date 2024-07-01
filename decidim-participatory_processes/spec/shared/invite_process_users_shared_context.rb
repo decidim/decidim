@@ -5,7 +5,6 @@ shared_context "when inviting process users" do
   let(:organization) { participatory_process.organization }
   let(:user) { create(:user, :admin, :confirmed, organization: participatory_process.organization) }
   let(:email) { "this_email_does_not_exist@example.org" }
-  let(:role) { "Moderator" }
 
   def invite_user
     login_as user, scope: :user

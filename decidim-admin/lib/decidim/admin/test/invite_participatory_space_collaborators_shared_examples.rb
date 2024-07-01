@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 shared_examples "inviting participatory space collaborators" do
+  let(:role) { "Collaborator" }
+
   before do
     switch_to_host organization.host
   end

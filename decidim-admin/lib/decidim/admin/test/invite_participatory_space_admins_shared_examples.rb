@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 shared_examples "inviting participatory space admins" do |check_private_space: true, check_landing_page: true|
+  let(:role) { "Administrator" }
+
   before do
     switch_to_host organization.host
   end
