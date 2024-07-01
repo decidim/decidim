@@ -24,10 +24,6 @@ header {
     @apply mt-28 md:mt-0;
   }
 
-  #menu-bar-container {
-    @apply mt-24 md:mt-0;
-  }
-
   &.with-admin-bar {
     #flash-messages-container {
       @apply mt-40 md:mt-0;
