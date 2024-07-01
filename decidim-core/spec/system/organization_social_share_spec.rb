@@ -41,4 +41,6 @@ describe "Social shares" do
 
     it_behaves_like "a empty social share meta tag"
   end
+
+  # TODO: visit a page
 end

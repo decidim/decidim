@@ -7,10 +7,10 @@ describe "Social shares" do
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, hero_image:, organization:) }
   let(:hero_image) { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
-  let(:component) { create(:sortition_component, participatory_space: participatory_process) }
-  let(:sortition) { create(:sortition, component:, additional_info:) }
+  let(:component) { create(:debates_component, participatory_space: participatory_process) }
+  let(:debate) { create(:debate, component:, description:) }
   let(:content_block) { create(:content_block, organization:, manifest_name: :hero, scope_name: :homepage) }
-  let(:additional_info) { { en: "Description <p><img src=\"#{description_image_path}\"></p>" } }
+  let(:description) { { en: "Description <p><img src=\"#{description_image_path}\"></p>" } }
   let(:description_image_path) { Rails.application.routes.url_helpers.rails_blob_path(description_image, only_path: true) }
   let(:description_image) do
     ActiveStorage::Blob.create_and_upload!(
@@ -20,7 +20,7 @@ describe "Social shares" do
     )
   end
   let(:block_attachment_file) { Decidim::Dev.test_file("icon.png", "image/png") }
-  let(:resource) { sortition }
+  let(:resource) { debate }
 
   before do
     if content_block
@@ -32,14 +32,13 @@ describe "Social shares" do
 
   it_behaves_like "a social share meta tag", "description_image.jpg"
 
-  context "when no description image" do
-    let(:additional_info) { nil }
+  context "when no description images" do
     let(:description_image_path) { "" }
 
     it_behaves_like "a social share meta tag", "city2.jpeg"
   end
 
-  context "when listing all sortitions" do
+  context "when listing all debatess" do
     let(:resource) { main_component_path(component) }
 
     it_behaves_like "a social share meta tag", "city2.jpeg"
