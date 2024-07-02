@@ -26,15 +26,11 @@ module Decidim
         alias state internal_state
 
         def costs_required?
-          costs_enabled? && state == "accepted"
+          costs_enabled? && state.start_with?("accepted")
         end
 
         def publish_answer?
           component.current_settings.publish_answers_immediately?
-        end
-
-        def component
-          context[:current_component]
         end
 
         private

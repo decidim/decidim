@@ -73,7 +73,7 @@ module Decidim
         end
 
         def bulk_answer_form(proposal)
-          @bulk_answer_form ||= ProposalAnswerForm.from_params(prepare_answer_form_params(template, proposal, current_user)).with_context(current_component:, current_organization:)
+          @bulk_answer_form ||= form(ProposalAnswerForm).from_params(prepare_answer_form_params(template, proposal, current_user))
         end
 
         def prepare_answer_form_params(template, proposal, current_user)
