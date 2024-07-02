@@ -11,12 +11,12 @@ module Decidim
         ).with_context(
           current_organization: organization,
           current_component: component,
-          current_user: user
+          current_user:
         )
       end
 
       let(:organization) { create(:organization) }
-      let(:user) { create(:user, :confirmed, organization:) }
+      let(:normal_user) { create(:user, :confirmed, organization:) }
       let(:admin_user) { create(:user, :admin, :confirmed, organization:) }
       let(:user_manager) { create(:user, :user_manager, :confirmed, organization:) }
       let!(:component) { create(:component, organization:) }
@@ -110,7 +110,7 @@ module Decidim
 
       shared_examples "allows commenting" do
         it "allows commenting" do
-          expect(subject.send(:commentable_can_have_comments)).to be_nil
+          expect(subject.errors[:commentable]).to be_empty
           expect(subject).to be_valid
         end
       end
@@ -126,6 +126,16 @@ module Decidim
           let(:current_user) { user_manager }
 
           it_behaves_like "allows commenting"
+        end
+
+        context "when user is a normal user" do
+          let!(:current_user) { normal_user }
+          let!(:commentable) { create(:dummy_resource, accepts_new_comments?: true) }
+
+          it "does not allow commenting" do
+            expect(subject.errors[:commentable]).not_to be_empty
+            expect(subject.errors[:commentable]).to include("Commentable cannot have comments")
+          end
         end
       end
     end
