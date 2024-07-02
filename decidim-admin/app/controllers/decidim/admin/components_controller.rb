@@ -119,11 +119,36 @@ module Decidim
         end
       end
 
+      def menu_hidden
+        @component = query_scope.find(params[:id])
+        enforce_permission_to :publish, :component, component: @component
+
+        MenuHiddenComponent.call(@component, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("components.menu_hidden.success", scope: "decidim.admin")
+            redirect_to action: :index
+          end
+        end
+      end
+
       def share
         @component = query_scope.find(params[:id])
         share_token = @component.share_tokens.create!(user: current_user, organization: current_organization)
 
         redirect_to share_token.url
+      end
+
+      def reorder
+        enforce_permission_to :reorder, :component
+
+        ReorderComponents.call(current_participatory_space.components, params[:order_ids]) do
+          on(:ok) do
+            head :ok
+          end
+          on(:invalid) do
+            head :bad_request
+          end
+        end
       end
 
       private

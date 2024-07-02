@@ -59,7 +59,10 @@ module Decidim
 
       # Items to display in the navigation of a process
       def process_nav_items(participatory_space)
-        components = participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
+        components = participatory_space
+          .components
+          .published.or(Decidim::Component.where(id: try(:current_component)))
+          .where(visible: true)
 
         components.map do |component|
           {

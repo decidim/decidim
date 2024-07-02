@@ -1,0 +1,9 @@
+<% if component.published? %>
+  <% if component.visible? %>
+    <strong class="label success">Published</strong>
+  <% else %>
+    <strong class="label warning">Menu hidden</strong>
+  <% end %>
+<% else %>
+  <strong class="label alert">Unpublished</strong>
+<% end %>

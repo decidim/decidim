@@ -24,6 +24,13 @@ module Decidim
             participatory_space: participatory_process
           )
         end
+        let(:other_component) do
+          create(
+            :component,
+            manifest_name: :dummy,
+            participatory_space: participatory_process
+          )
+        end
 
         before do
           request.env["decidim.current_organization"] = organization
@@ -52,6 +59,16 @@ module Decidim
             patch :update, params: { participatory_process_slug: participatory_process.slug, id: component.id, component: component_params }
 
             expect(response).to redirect_to components_path
+          end
+        end
+
+        describe "PUT reorder" do
+          it "reorders the components" do
+            expect([component.id, other_component.id]).to eq(participatory_process.components.pluck(:id))
+
+            put :reorder, params: { participatory_process_slug: participatory_process.slug, order_ids: [other_component.id, component.id] }
+
+            expect([other_component.id, component.id]).to eq(participatory_process.components.pluck(:id))
           end
         end
       end

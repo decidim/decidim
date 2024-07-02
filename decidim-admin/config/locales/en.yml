@@ -335,8 +335,10 @@ en:
           headers:
             actions: Actions
             name: Component name
-            scope: Component scope
             type: Component type
+            visibility: Visibility
+        menu_hidden:
+          success: The component has been successfully menu hidden.
         new:
           add: Add component
           title: 'Add component: %{name}'
