@@ -2,7 +2,6 @@
   description: translated_attribute(current_initiative.description),
   title: translated_attribute(current_initiative.title),
   url: initiative_url(current_initiative.id),
-  image_url: current_initiative.type.attached_uploader(:banner_image).path,
   resource: current_initiative) %>
 
 <%
