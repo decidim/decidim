@@ -186,7 +186,7 @@ header {
         }
 
         svg + span {
-          @apply text-sm first-letter:uppercase pr-4;
+          @apply text-sm first-letter:uppercase pr-4 w-16;
         }
       }
     }
