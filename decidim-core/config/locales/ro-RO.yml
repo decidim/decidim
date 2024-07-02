@@ -725,6 +725,7 @@ ro:
           filename: Nume fișier
           remove: Șterge
           replace: Înlocuiește
+          save: Salvează
           title: Titlu
           title_required: Titlul este obligatoriu!
         select_file: Selectaţi fişierul
