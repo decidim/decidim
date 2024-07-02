@@ -31,18 +31,14 @@
     @apply w-full relative;
 
     #results {
-      @apply absolute max-h-[225px] top-full left-0 right-0 p-0 my-2 rounded z-50 overflow-y-scroll bg-white;
-
-      border: 1px solid rgba(33, 33, 33, 0.1);
+      @apply absolute max-h-[225px] top-full left-0 right-0 p-0 my-2 rounded z-50 overflow-y-scroll bg-white border border-gray-3;
 
       li {
         @apply flex items-center gap-2 cursor-pointer px-4 py-2;
       }
 
       li:hover {
-        @apply cursor-pointer;
-
-        background-color: rgba(123, 123, 123, 0.1);
+        @apply cursor-pointer bg-background;
       }
 
       img {
