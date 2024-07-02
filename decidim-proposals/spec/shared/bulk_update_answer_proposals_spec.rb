@@ -11,12 +11,6 @@ shared_examples "bulk update answer proposals" do
   let!(:template) { create(:template, target: :proposal_answer, templatable: proposal_component, field_values: { "proposal_state_id" => evaluating_state.id }) }
   let!(:answer_with_cost_template) { create(:template, target: :proposal_answer, templatable: proposal_component, field_values: { "proposal_state_id" => accepted_state.id }) }
 
-  let(:cleaned_params) do
-    answer_form_params.transform_values do |value|
-      value.is_a?(String) ? value.gsub(%r{<script.*?>.*?</script>}, "").strip : value
-    end
-  end
-
   context "when selecting proposals" do
     let!(:proposal_component) { current_component }
 
@@ -119,7 +113,6 @@ shared_examples "bulk update answer proposals" do
       context "when cost is not provided" do
 
         before do
-          allow_any_instance_of(Decidim::Proposals::Proposal).to receive(:internal_state).and_return("accepted")
           page.find_by_id("proposals_bulk", class: "js-check-all").set(false)
           page.find(".js-proposal-id-#{proposal_without_cost.id}").set(true)
           click_on "Actions"
@@ -131,9 +124,6 @@ shared_examples "bulk update answer proposals" do
         end
 
         it "shows a missing cost data alert" do
-          puts "Proposal without cost: #{proposal_without_cost.id}"
-          puts "cost: #{proposal_without_cost.cost}"
-          puts "cost_enabled: #{proposal_component.current_settings.answers_with_costs?}"
           expect(page).to have_content("Please fill in the required cost field for all selected proposals.")
         end
       end
