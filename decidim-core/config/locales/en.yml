@@ -596,8 +596,8 @@ en:
           log_in: Log in
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
-          sign_up: Sign up
-          subtitle: Sign up to participate in discussions and support proposals.
+          sign_up: Create an account
+          subtitle: Create an account to participate in the platform.
           terms: the terms of service
           tos_agreement: By signing up you agree to %{link}.
           tos_title: Terms of Service
@@ -607,7 +607,7 @@ en:
           are_you_new?: New to the platform?
           register: Create an account
           sign_in_disabled: You can access with an external account.
-          sign_up_disabled: Sign up is disabled, you can use an existing account to access.
+          sign_up_disabled: Account creation is disabled, you can use an existing account to access.
         user:
           timed_out: You were inactive for too long and you have been automatically logged out from the service. If you would like to continue using the service, please log in again.
       shared:
@@ -1324,7 +1324,7 @@ en:
           headline: Current state of %{organization}
         sub_hero:
           register: Register
-          register_title: Sign up to create an account
+          register_title: Create an account
       index:
         standalone_pages: Pages
         subheading: Navigate through the help pages of %{name}
@@ -1507,7 +1507,7 @@ en:
         log_in_before_follow: Please log in before performing this action
       login_modal:
         please_log_in: Please log in
-        sign_up: Sign up
+        sign_up: Create an account
       mentions_modal:
         remove_recipient: Remove recipient %{name}
       participatory_space_filters:
@@ -1722,7 +1722,7 @@ en:
     registrations:
       destroyed: Your account has been successfully cancelled. We hope to see you again soon.
       new:
-        sign_up: Sign up
+        sign_up: Create an account
       signed_up: Welcome! You have signed up successfully.
       signed_up_but_inactive: You have signed up successfully. However, we could not sign you in because your account is not yet activated.
       signed_up_but_locked: You have signed up successfully. However, we could not sign you in because your account is locked.
@@ -1743,7 +1743,7 @@ en:
         forgot_your_password: Forgot your password?
         log_in: Log in
         log_in_with_provider: Log in with %{provider}
-        sign_up: Sign up
+        sign_up: Create an account
       minimum_password_length:
         one: "(%{count} character minimum)"
         other: "(%{count} characters minimum)"
