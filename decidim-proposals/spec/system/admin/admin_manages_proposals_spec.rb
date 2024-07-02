@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/templates/test/factories"
 
 describe "Admin manages proposals" do
   let(:manifest_name) { "proposals" }
@@ -25,6 +26,7 @@ describe "Admin manages proposals" do
   it_behaves_like "merge proposals"
   it_behaves_like "split proposals"
   it_behaves_like "publish answers"
+  it_behaves_like "bulk update answer proposals"
 
   it_behaves_like "sorted moderations" do
     let!(:reportables) { create_list(:proposal, 17, component: current_component) }

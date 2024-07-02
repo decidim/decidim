@@ -500,6 +500,7 @@ en:
             invalid: There has been a problem answering this proposal.
             missing_cost_data: Please fill in the required cost field for all selected proposals.
             success: Proposal successfully answered.
+            success_bulk_update: The proposals have been queued for answer update.
           create:
             invalid: There has been a problem creating this proposal.
             success: Proposal successfully created.

@@ -29,6 +29,14 @@ FactoryBot.define do
       Decidim::Proposals.create_default_states!(proposal_component, nil, with_traceability: false)
     end
 
+    trait :with_costs_enabled do
+      step_settings do
+        {
+          participatory_space.active_step.id => { answers_with_costs: true }
+        }
+      end
+    end
+
     trait :with_endorsements_enabled do
       step_settings do
         {

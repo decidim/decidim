@@ -46,10 +46,11 @@ module Decidim
           end
 
           proposals.each do |proposal|
+            enforce_permission_to(:create, :proposal_answer, proposal: proposal)
             ProposalAnswerJob.perform_later(proposal.id, bulk_answer_form(proposal).attributes, current_component)
           end
 
-          flash[:notice] = I18n.t("proposals.answer.success", scope: "decidim.proposals.admin")
+          flash[:notice] = I18n.t("proposals.answer.success_bulk_update", scope: "decidim.proposals.admin")
           redirect_to EngineRouter.admin_proxy(current_component).root_path
         end
 
