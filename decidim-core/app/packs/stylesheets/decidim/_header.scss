@@ -77,6 +77,10 @@ header {
       }
     }
 
+    &__menu-mobile {
+      @apply lg:hidden flex flex-row-reverse items-center;
+    }
+
     &__links-desktop,
     > *:last-child {
       @apply col-span-1 md:col-start-8 lg:col-start-8 lg:col-span-5 justify-self-end;
