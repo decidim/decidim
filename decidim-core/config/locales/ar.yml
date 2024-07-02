@@ -1589,7 +1589,6 @@ ar:
         resources: الموارد
         sign_up: انشئ حسابًا
       header:
-        log_in: تسجيل الدخول
         main_menu: القائمة الرئيسية
         user_menu: قائمة المستخدم
       impersonation_warning:

@@ -74,12 +74,12 @@ pl:
           attributes:
             base:
               not_official: Nieoficjalne
-              supported: Otrzymano wsparcie lub poparcie
+              voted: Otrzymano głosy lub potwierdzenia
         proposals_split:
           attributes:
             base:
               not_official: Nie są oficjalne
-              supported: Otrzymano wsparcie lub potwierdzenia
+              voted: Otrzymano głosy lub potwierdzenia
     models:
       decidim/proposals/admin/update_proposal_category_event: Zmieniono kategorię propozycji
       decidim/proposals/admin/update_proposal_scope_event: Zmieniono zakres propozycji
@@ -105,11 +105,6 @@ pl:
         few: Uwagi
         many: Uwag
         other: Uwagi
-      decidim/proposals/proposal_vote:
-        one: Wsparcie
-        few: Wsparcia
-        many: Wsparć
-        other: Wsparcia
   decidim:
     admin:
       filters:
@@ -151,7 +146,7 @@ pl:
           comment: Skomentuj
           create: Tworzenie
           endorse: Rekomendacje
-          vote: Wspieranie
+          vote: Głosuj
           vote_comment: Poprzyj komentarz
           withdraw: Wycofywanie
         name: Propozycje
@@ -162,23 +157,19 @@ pl:
             amendments_wizard_help_text: Tekst pomocy Kreatora poprawek
             announcement: Ogłoszenie
             attachments_allowed: Zezwalaj na załączniki
-            can_accumulate_supports_beyond_threshold: Może gromadzić wsparcia po przekroczeniu progu
+            attachments_allowed_help: Gdy ta opcja jest włączona, propozycje będą domyślne dla trybu siatkowego, a pierwszy obraz pojawi się na karcie.
             collaborative_drafts_enabled: Zezwalaj na wspólne szkice
             comments_enabled: Komentarze włączone
             comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
             default_sort_order: Domyślne sortowanie propozycji
-            default_sort_order_help: Domyślnie oznacza, że jeśli wsparcie jest włączone, propozycje będą wyświetlane w kolejności losowej, a jeśli wsparcie jest zablokowane, zostaną posortowane według najbardziej popieranych.
             default_sort_order_options:
-              default: Domyślne
               most_commented: Najczęściej komentowane
               most_endorsed: Najbardziej popierane
               most_followed: Najczęściej obserwowane
-              most_voted: Najbardziej wspierane
               random: Losowo
               recent: Ostatnie
               with_more_authors: Z większą liczbą autorów
             geocoding_enabled: Włączono geokodowanie
-            minimum_votes_per_user: Minimalna liczba wsparć na użytkownika
             new_proposal_body_template: Szablon treści nowej propozycji
             new_proposal_body_template_help: Możesz zdefiniować częściowo wypełnioną treść nowej propozycji
             new_proposal_help_text: Nowy tekst pomocy dla propozycji
@@ -199,7 +190,6 @@ pl:
             scope_id: Zakres
             scopes_enabled: Zakresy włączone
             threshold_per_proposal: Próg poparcia dla propozycji
-            vote_limit: Limit możliwych wsparć na użytkownika
           step:
             amendment_creation_enabled: Można tworzyć poprawki
             amendment_creation_enabled_help: Uczestnik może wnosić poprawki do propozycji.
@@ -219,16 +209,13 @@ pl:
             creation_enabled: Uczestnicy mogą tworzyć propozycje
             creation_enabled_readonly: To ustawienie jest wyłączone, gdy aktywujesz funkcjonalność tekstów partycypacyjnych. Aby przesłać propozycje jako tekst partycypacyjny, kliknij przycisk "Tekst partycypacyjny" i postępuj zgodnie z instrukcjami.
             default_sort_order: Domyślne sortowanie propozycji
-            default_sort_order_options:
-              most_voted: Najwiecej wsparć
             endorsements_blocked: Rekomendacje zostały zablokowane
             endorsements_enabled: Rekomendacje włączone
             proposal_answering_enabled: Włączono odpowiadanie na propozycję
             publish_answers_immediately: Natychmiast publikuj odpowiedzi na propozycje
             suggested_hashtags: Hashtagi sugerowane użytkownikom dodającym nowe propozycje
-            votes_blocked: Wspieranie zablokowane
-            votes_enabled: Wspieranie włączone
-            votes_hidden: Wsparcia są ukryte (jeśli wsparcia są włączone, zaznaczenie tego ukryje liczbę wsparć)
+            votes_blocked: Głosy zablokowane
+            votes_enabled: Głosowanie włączone
     events:
       proposals:
         admin:
@@ -301,10 +288,7 @@ pl:
           email_subject: Zaktualizowano zakres propozycji %{resource_title}
           notification_title: Administrator zaktualizował zakres propozycji <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
-          email_intro: 'Możesz wspierać propozycje w %{participatory_space_title}! Dołącz na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
-          email_subject: Rozpoczęto zbieranie wsparcia dla propozycji w przestrzeni %{participatory_space_title}
-          notification_title: Możesz teraz zacząć <a href="%{resource_path}">wspierać propozycje</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -321,14 +305,7 @@ pl:
         proposal_votes:
           conditions:
             - Przeglądaj i poświęć trochę czasu na czytanie propozycji innych osób
-            - Wspieraj propozycje, które lubisz lub które są dla Ciebie interesujące
-          description: Ta odznaka jest przyznawana, gdy wspierasz propozycje innych osób.
-          description_another: Ten użytkownik udzielił wsparcia propozycjom w liczbie %{score}.
-          description_own: Udzieliłeś wsparcia propozycjom w liczbie %{score}.
-          name: Wsparcia propozycji
-          next_level_in: Wesprzyj %{score} innych propozycji, aby awansować na kolejny poziom!
-          unearned_another: Ten uczestnik nie wsparł jeszcze żadnych propozycji.
-          unearned_own: Nie udzielałeś jeszcze wsparcia żadnym propozycjom.
+            - 
         proposals:
           conditions:
             - Wybierz przestrzeń partycypacyjną, która Cię interesuje, z możliwością dodawania propozycji
@@ -353,10 +330,6 @@ pl:
         description: Liczba propozycji
         object: propozycje
         title: Propozycje
-      votes:
-        description: Liczba uzyskanych wsparć dla propozycji
-        object: wsparcia
-        title: Wsparcia
     participatory_spaces:
       highlighted_proposals:
         last: Ostatnie propozycje
@@ -538,7 +511,6 @@ pl:
             remove_assignment: Usuń zadanie
             remove_assignment_confirmation: Czy na pewno chcesz usunąć przypisanie weryfikatora z tej propozycji?
             valuators: Weryfikatorzy
-            votes_count: Liczba wsparć
           update_category:
             invalid: 'Następujące propozycje miały już kategorię %{subject_name}: %{proposals}.'
             select_a_category: Proszę wybrać kategorię.
@@ -727,9 +699,6 @@ pl:
         buttons:
           amend: Dodaj poprawkę
           comment: Skomentuj
-      proposal_votes:
-        create:
-          error: Podczas próby poparcia propozycji wystąpił błąd.
       proposals:
         dynamic_map_instructions:
           description: Współrzędne zostaną zaktualizowane po kliknięciu przycisku 'podgląd'. Jednakże adres nie ulegnie zmianie.
@@ -761,7 +730,7 @@ pl:
           search: Szukaj
           state: Status
           type: Typ
-          voted: Wsparte
+          voted: Głosował
         index:
           click_here: Zobacz wszystkie propozycje
           collaborative_drafts_list: Wspólne szkice
@@ -770,6 +739,8 @@ pl:
             few: "%{count} propozycji"
             many: "%{count} propozycji"
             other: "%{count} propozycji"
+          grid_mode: Tryb siatkowy
+          list_mode: Tryb listy
           new_proposal: Nowa propozycja
           see_all: Zobacz wszystkie propozycje
           see_all_withdrawn: Zobacz wszystkie wycofane propozycje
@@ -782,7 +753,7 @@ pl:
           most_commented: Najczęściej komentowane
           most_endorsed: Najbardziej rekomendowane
           most_followed: Najczęściej obserwowane
-          most_voted: Najczęściej wspierane
+          most_voted: Większość głosów
           random: Losowo
           recent: Najnowsze
           with_more_authors: Z większą liczbą autorów
@@ -824,39 +795,18 @@ pl:
           proposal_accepted_reason: 'Ta propozycja została zaakceptowana, ponieważ:'
           proposal_in_evaluation_reason: Ta propozycja jest oceniana
           proposal_rejected_reason: 'Ta propozycja została odrzucona, ponieważ:'
-          withdraw_btn_hint: Możesz wycofać swoją propozycję, jeśli zmienisz zdanie, o ile nie otrzymałeś żadnego wsparcia. Propozycja nie zostanie usunięta, pojawi się na liście wycofanych propozycji.
           withdraw_confirmation_html: Czy na pewno chcesz wycofać tę propozycję?<br><br><strong>Tej akcji nie można anulować!</strong>
           withdraw_proposal: Wycofaj propozycję
         update:
           title: Aktualizuj propozycję
         vote_button:
-          already_voted: Już wsparto
-          already_voted_hover: Cofnij wsparcie
-          maximum_votes_reached: Osiągnięto limit wsparć
-          no_votes_remaining: Brak wsparć
-          vote: Wesprzyj
-          votes_blocked: Wspieranie zostało wyłączone
-        votes_count:
-          count:
-            one: Wsparcie
-            few: Wsparć
-            many: Wsparcia
-            other: Wsparcia
+          already_voted: Już głosował
+          no_votes_remaining: Brak głosów
+          vote: Głosować
+          votes_blocked: Głosowanie zostało wyłączone
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: Każda propozycja może zebrać więcej niż wynosi limit wsparć %{limit}
-          minimum_votes_per_user:
-            description: Musisz rozdzielić co najmniej %{votes} wsparć pomiędzy różne propozycje.
-            given_enough_votes: Udzieliłeś wystarczającej ilości wsparcia.
-            supports_remaining: Musisz wesprzeć %{remaining_votes} dodatkowych propozycji, aby Twoje głosy zostały policzone.
           proposal_limit:
             description: Możesz utworzyć maksymalnie %{limit} propozycji.
-          threshold_per_proposal:
-            description: Aby zostać zaakceptowanym, propozycje muszą otrzymać %{limit} wsparć.
-          title: 'Wspieranie podlega następującym zasadom:'
-          vote_limit:
-            description: Możesz wesprzeć maksymalnie %{limit} propozycji.
-            votes: Wsparcia
         wizard_aside:
           back: Wróć
           back_from_step_1: Wróć do propozycji
@@ -883,9 +833,6 @@ pl:
       versions:
         index:
           title: Wersje
-      withdraw:
-        errors:
-          has_supports: Tej propozycji nie można wycofać, ponieważ oddano już na nią głosy poparcia.
     resource_links:
       copied_from_component:
         proposal_proposal: Powiązane propozycje
@@ -897,4 +844,4 @@ pl:
     statistics:
       proposals_accepted: Przyjęte propozycje
       proposals_count: Propozycje
-      supports_count: Głosy poparcia
+      votes_count: Głosy

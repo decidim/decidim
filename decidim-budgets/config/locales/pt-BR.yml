@@ -165,7 +165,6 @@ pt-BR:
         back_to: Voltar para %{component_name}
         close_modal: Fechar modal
         continue: Continuar
-        more_information: Mais informação
       budgets_list:
         cancel_order:
           more_than_one: exclua seu voto em %{name} e comece de novo

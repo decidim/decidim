@@ -167,7 +167,6 @@ pl:
         back_to: Wróć do %{component_name}
         close_modal: Zamknij okno
         continue: Dalej
-        more_information: Więcej informacji
       budgets_list:
         budgets: Budżety
         cancel_order:

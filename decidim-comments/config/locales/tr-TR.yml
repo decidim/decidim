@@ -40,6 +40,9 @@ tr:
         alignment:
           against: Karşısında
           in_favor: Lehine
+        comment_label: Yorum %{comment_id}
+        comment_label_reply: Yorum %{comment_id} (Yoruma Yanıt %{parent_comment_id})
+        controls_label: Yorum Kontrolü
         deleted_user: Silinmiş katılımcı
         reply: Cevapla
         report:

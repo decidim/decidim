@@ -146,6 +146,7 @@ ca:
         actions:
           comment: Comentar
           join: Inscriu-t'hi
+          reply_poll: Respondre el sondeig/consulta en directe
         name: Trobades
         settings:
           global:
@@ -362,6 +363,13 @@ ca:
           update:
             invalid: Hi ha hagut un problema en actualitzar aquesta enquesta.
             success: Enquesta actualitzada correctament.
+        poll:
+          form:
+            announcement_html:
+              - Quan una pregunta rep respostes o està publicada/tancada, ja no es pot seguir editant.
+              - Pots afegir una pregunta en qualsevol moment.
+              - El sondeig/la consulta en directe es tancarà quan es publiquin els resultats de totes les preguntes creades.
+              - Visita la <a href='%{admin_link}'>pàgina d'administració d'enquestes</a> per enviar preguntes i publicar resultats.
         registrations:
           edit:
             save: Desa
@@ -440,16 +448,14 @@ ca:
       iframe_embed_type:
         embed_in_meeting_page: Incrustar a la pàgina de la trobada
         none: Cap
-        open_in_live_event_page: Obrir a la pàgina de l'esdeveniment en directe (amb opció d'enquestes)
+        open_in_live_event_page: Obrir a la pàgina de l'esdeveniment en directe
         open_in_new_tab: Obrir en una nova pestanya
       last_activity:
         meeting_updated: 'Trobada actualitzada:'
         new_meeting: 'Nova trobada:'
       layouts:
         live_event:
-          administrate: Administrar
           close: tancar
-          questions: Preguntes
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -530,6 +536,8 @@ ca:
           edit_close_meeting: Editar l'informe de la trobada
           edit_meeting: Editar la trobada
           join_meeting: Unir-se a la trobada
+          reply_poll: Respondre sondeig/consulta
+          view_poll: Veure sondeig/consulta
         meetings:
           no_meetings_warning: No hi ha trobades que coincideixin amb la teva cerca o no hi ha cap trobada programada.
           upcoming_meetings_warning: Actualment no hi ha trobades programades, però pots veure les anteriors.
@@ -588,13 +596,22 @@ ca:
             start_time: Data d'inici
             title: Títol
       polls:
+        answers:
+          index:
+            administrate: Administrar
+            title: Sondeig/Consulta en directe
+          index_admin:
+            back_to_meeting: Tornar a la trobada
+            title: Administrar sondeig/consulta en directe
+            view_poll: Veure sondeig/consulta
         questions:
           closed_question:
-            question_results: Resultats de la pregunta
+            announcement: S'han tancat les respostes a aquesta pregunta.
+            question: Pregunta
+            question_results: Resultats
           index:
             empty_questions: Al llarg d'aquesta trobada, s'enviaran algunes preguntes i podràs respondre-les. Es mostraran aquí.
           index_admin:
-            admin_dashboard: Panell d'administració
             edit: Editar al panell d'administració
             question: Pregunta
             received_answer: resposta rebuda
@@ -602,6 +619,10 @@ ca:
             results: Resultats
             send: Enviar
             sent: Enviades
+            statuses:
+              closed: Resultats enviats (tancats)
+              published: Enviada (oberta)
+              unpublished: Pendent d'enviar
           published_question:
             max_choices_alert: Hi ha massa opcions seleccionades
             question: Pregunta

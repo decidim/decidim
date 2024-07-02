@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "decidim/meetings"
-
 Decidim.register_component(:proposals) do |component|
   component.engine = Decidim::Proposals::Engine
   component.admin_engine = Decidim::Proposals::AdminEngine

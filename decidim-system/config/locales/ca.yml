@@ -67,6 +67,7 @@ ca:
         show:
           admins: Administradores
           current_organizations: Organitzacions actuals
+          system_checks: Comprovació del sistema
       default_pages:
         placeholders:
           content: Si us plau, afegeix contingut significatiu a la pàgina estàtica de %{page} dins el panell d'administració.
@@ -142,6 +143,7 @@ ca:
           show: Mostra la configuració avançada
         create:
           error: S'ha produït un error en crear una nova organització.
+          error_invitation: Hi ha hagut un problema en crear una nova organització. Revisa el nom de l'administradora de l'organització.
           success_html: |
             <p>
             Organitzció creada correctament.
@@ -266,6 +268,14 @@ ca:
         organizations_list:
           confirm_resend_invitation: Segur que vols reenviar la invitació?
           resend_invitation: Reenviar la invitació
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Documentació sobre Decidim
+          error: La cua d'ActiveJob no està configurada. Aquesta no és una configuració recomanable per l'entorn de producció. Llegir més a %{error_extra}.
+          success: La cua d'ActiveJob està configurada correctament.
+        secret_key:
+          error: 'La clau secreta no està definida correctament. Si us plau, guarda-la a la variable d''entorn: SECRET_KEY_BASE, i reinicia el servidor: llegir més a %{error_extra}.'
+          success: La clau secreta està configurada correctament.
       titles:
         dashboard: Tauler de control
         decidim: Decidim

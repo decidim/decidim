@@ -356,7 +356,11 @@ ca:
     application:
       document:
         download: Descarregar fitxer
+        visit_link: Visita l'enllaç
       documents:
+        component_documents:
+          dummy: Documents sobre components ficticis
+          meetings: Documents sobre trobades
         documents: Documents
         related_documents: Documents relacionats
       photo:
@@ -876,6 +880,11 @@ ca:
         button: Deixar de seguir
         error: S'ha produït un error en deixar de seguir aquest recurs.
     forms:
+      attachment_link:
+        explanation: Guia per enllaços adjunts
+        help_messages:
+          - Només s'accepten format d'URL correctes.
+          - Tingues en compte que els enllaços han de ser públics perquè tots els participants hi puguin accedir.
       errors:
         decidim/user:
           password: La contrasenya és massa curta.
@@ -1230,6 +1239,7 @@ ca:
         same_language: El contingut s'ha publicat en la teva llengua de preferència (%{language}), és per això que no es mostra cap traducció automàtica en aquest correu electrònic.
         translated_text: 'Text de la traducció automàtica:'
     notifications:
+      action_error: S'ha produït un error en actualitzar les notificacions.
       no_notifications: Encara no hi ha notificacions.
       show:
         missing_event: Vaja, aquesta notificació pertany a un element que ja no està disponible. Pots descartar-la.
@@ -1926,7 +1936,7 @@ ca:
         sign_up: Registra't
         terms_of_service: Termes i condicions d'ús
       header:
-        log_in: Entra
+        log_in: Iniciar sessió
         main_menu: Menú principal
         user_menu: Menú d'usuari
       impersonation_warning:
@@ -1940,10 +1950,6 @@ ca:
         mark_as_read: Marcar com a llegit
       offline_banner:
         cache_version_page: Ostres! La teva xarxa està desconnectada. El que estàs veient és una versió prèvia de la pàgina desada a la memòria cau i podria ser que el contingut no estigui actualitzat.
-      shared:
-        layout_item:
-          next: Següent tema
-          prev: Tema anterior
       social_media_links:
         facebook: "%{organization} a Facebook"
         github: "%{organization} a GitHub"
