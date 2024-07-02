@@ -32,22 +32,15 @@ describe "Social shares" do
     switch_to_host(organization.host)
   end
 
-  it_behaves_like "a social share meta tag", "city.jpeg"
-  context "when no direct images" do
-    let(:banner_image) { nil }
+  it_behaves_like "a social share meta tag", "city3.jpeg"
 
-    it_behaves_like "a social share meta tag", "city3.jpeg"
-  end
-
-  context "when no attachments nor direct images" do
-    let(:banner_image) { nil }
+  context "when no attachments" do
     let(:attachment) { nil }
 
     it_behaves_like "a social share meta tag", "description_image.jpg"
   end
 
-  context "when no attachments, description image or direct images" do
-    let(:banner_image) { nil }
+  context "when no attachments, description image" do
     let(:attachment) { nil }
     let(:description_image_path) { "" }
 
