@@ -923,6 +923,7 @@ es-PY:
           filename: Nombre del archivo
           remove: Eliminar
           replace: Reemplazar
+          save: Guardar
           title: Título
           title_required: '¡Se requiere un título!'
           uploaded: Subido
