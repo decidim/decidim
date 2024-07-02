@@ -1030,6 +1030,26 @@ shared_examples "comments blocked" do
       visit resource_path
     end
 
+    shared_examples "can answer comments" do
+      it "can answer" do
+        visit resource_path
+        expect(page).to have_link("Comment")
+        page.find("a", text: "Comment").click
+        fill_in "Comment", with: "Test admin commenting in a closed comment."
+        click_on "Publish comment"
+        expect(page).to have_content("Test admin commenting in a closed comment.")
+
+        expect(page).to have_button("Reply")
+        first("button", text: "Reply").click
+        expect(page).to have_css(".comment-thread")
+        within first(".comment-thread") do
+          fill_in "Comment", with: "Test admin replying a closed comment."
+          click_on "Publish reply"
+        end
+        expect(page).to have_content("Test admin replying a closed comment.")
+      end
+    end
+
     context "when comments are blocked" do
       let(:active_step_id) { component.participatory_space.active_step.id }
 
@@ -1041,26 +1061,6 @@ shared_examples "comments blocked" do
         visit resource_path
         expect(page).to have_content("Comments are currently disabled, only administrators can reply or post new ones.")
         expect(page).to have_no_content("You need to be verified to comment at this moment")
-      end
-
-      shared_examples "can answer comments" do
-        it "can answer" do
-          visit resource_path
-          expect(page).to have_link("Comment")
-          page.find("a", text: "Comment").click
-          fill_in "Comment", with: "Test admin commenting in a closed comment."
-          click_on "Publish comment"
-          expect(page).to have_content("Test admin commenting in a closed comment.")
-
-          expect(page).to have_button("Reply")
-          first("button", text: "Reply").click
-          expect(page).to have_css(".comment-thread")
-          within first(".comment-thread") do
-            fill_in "Comment", with: "Test admin replying a closed comment."
-            click_on "Publish reply"
-          end
-          expect(page).to have_content("Test admin replying a closed comment.")
-        end
       end
 
       context "when the user is an administrator" do

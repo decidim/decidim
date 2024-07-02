@@ -22,6 +22,7 @@ FactoryBot.define do
     component { create(:dummy_component, skip_injection:) }
     author { create(:user, :confirmed, organization: component.organization, skip_injection:) }
     scope { create(:scope, organization: component.organization, skip_injection:) }
+
     trait :published do
       published_at { Time.current }
     end
