@@ -742,6 +742,7 @@ sv:
           filename: Filnamn
           remove: Ta bort
           replace: Ersätt
+          save: Spara
           title: Titel
           title_required: Titel krävs!
           uploaded: Uppladdad
