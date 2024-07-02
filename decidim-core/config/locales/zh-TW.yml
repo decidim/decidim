@@ -802,6 +802,7 @@ zh-TW:
           filename: 檔案名稱
           remove: 移除
           replace: 替換
+          save: 儲存
           title: 標題
           title_required: 標題為必填欄位！
           uploaded: 已上傳
