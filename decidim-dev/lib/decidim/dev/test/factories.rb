@@ -17,13 +17,11 @@ FactoryBot.define do
       users { nil }
       # user_groups correspondence to users is by sorting order
       user_groups { [] }
-      accepts_new_comments? { false }
     end
     title { generate_localized_title(:dummy_resource_title, skip_injection:) }
     component { create(:dummy_component, skip_injection:) }
     author { create(:user, :confirmed, organization: component.organization, skip_injection:) }
     scope { create(:scope, organization: component.organization, skip_injection:) }
-
     trait :published do
       published_at { Time.current }
     end
