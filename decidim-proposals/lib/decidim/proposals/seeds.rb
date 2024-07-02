@@ -69,6 +69,7 @@ module Decidim
         end
       end
 
+      # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
       def create_proposal!(component:)
         n = rand(5)
         state, answer, state_published_at = if n > 3
@@ -122,6 +123,7 @@ module Decidim
           proposal
         end
       end
+      # rubocop:enable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
 
       def random_nickname
         "#{::Faker::Twitter.unique.screen_name}-#{SecureRandom.hex(4)}"[0, 20]
