@@ -952,6 +952,7 @@ cs:
           filename: Název souboru
           remove: Odebrat
           replace: Nahradit
+          save: Uložit
           title: Název
           title_required: Název je povinný!
           uploaded: Nahráno
