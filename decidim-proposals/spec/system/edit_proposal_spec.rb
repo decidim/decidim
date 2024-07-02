@@ -76,7 +76,7 @@ describe "Edit proposals" do
             within "[data-filename='Exampledocument.pdf']" do
               click_button("Remove")
             end
-            click_button "Next"
+            click_button "Save"
           end
 
           click_button "Send"
@@ -101,7 +101,7 @@ describe "Edit proposals" do
               within "[data-filename='Exampledocument.pdf']" do
                 find("input[type='text']").set(attachment_file_title)
               end
-              click_button "Next"
+              click_button "Save"
             end
             click_button "Send"
             expect(page).to have_selector("[data-alert-box].success")
@@ -126,7 +126,7 @@ describe "Edit proposals" do
             expect(page).to have_content("Required fields are marked with an asterisk")
             click_button("Edit documents")
             within "[data-dialog]" do
-              click_button("Next")
+              click_button("Save")
             end
             click_button("Send")
             expect(page).to have_content("Proposal successfully updated.")
@@ -148,7 +148,7 @@ describe "Edit proposals" do
             expect(page).to have_content("Required fields are marked with an asterisk")
             click_button("Edit documents")
             within "[data-dialog]" do
-              click_button("Next")
+              click_button("Save")
             end
             click_button("Send")
             expect(page).to have_content("Proposal successfully updated.")

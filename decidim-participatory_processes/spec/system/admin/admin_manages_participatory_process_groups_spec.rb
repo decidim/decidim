@@ -162,7 +162,7 @@ describe "Admin manages participatory process groups" do
       end
 
       click_button "Remove"
-      click_button "Next"
+      click_button "Save"
 
       click_button "Update"
 
