@@ -831,6 +831,7 @@ hu:
           filename: Fájlnév
           remove: Eltávolítás
           replace: Csere
+          save: Mentés
           title: Cím
           title_required: A cím megadása kötelező!
           uploaded: Feltöltve
