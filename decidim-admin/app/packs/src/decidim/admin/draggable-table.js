@@ -6,7 +6,9 @@ $(() => {
     onSortUpdate: ($children) => {
       const children = $children.toArray();
 
-      if (children.length === 0) return;
+      if (children.length === 0) {
+        return;
+      }
 
       const parent = children[0].parentNode;
       const sortUrl = parent.dataset.sortUrl;
