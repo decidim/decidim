@@ -7,6 +7,7 @@ module Decidim
       include FormFactory
       include Decidim::DeviseControllers
       include Decidim::DeviseAuthenticationMethods
+      include NeedsTosAccepted
 
       def new
         @form = form(OmniauthRegistrationForm).from_params(params[:user])

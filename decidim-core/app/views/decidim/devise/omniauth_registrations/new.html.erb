@@ -22,6 +22,8 @@
 
       <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
 
+      <%= render partial: "decidim/devise/shared/tos_fields" %>
+
       <%= f.hidden_field :uid %>
       <%= f.hidden_field :provider %>
       <%= f.hidden_field :oauth_signature %>
