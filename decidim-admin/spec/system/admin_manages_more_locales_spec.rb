@@ -60,6 +60,7 @@ describe "Admin language selector" do
       locales = %w(en ro es ca it fi)
       I18n.available_locales = locales
       Decidim.available_locales = locales
+      I18n.backend.reload!
       locales
     end
 
