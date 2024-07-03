@@ -216,6 +216,21 @@ shared_examples "manage conference components" do
     context "when the component is published" do
       let(:published_at) { Time.current }
 
+      it "menu hiddens the component" do
+        within ".component-#{component.id}" do
+          click_on "Menu hidden"
+        end
+
+        within ".component-#{component.id}" do
+          expect(page).to have_css(".action-icon--menu-hidden")
+        end
+      end
+    end
+
+    context "when the component is menu hidden" do
+      let(:published_at) { Time.current }
+      let(:visible) { false }
+
       it "unpublishes the component" do
         within ".component-#{component.id}" do
           click_on "Unpublish"

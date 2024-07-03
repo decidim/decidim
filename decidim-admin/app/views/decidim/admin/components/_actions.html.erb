@@ -20,7 +20,7 @@
     <% if component.visible? %>
       <%= icon_link_to "eye-close", url_for(action: :menu_hidden, id: component, controller: "components"), t("actions.menu_hidden", scope: "decidim.admin"), class: "action-icon--unpublish", method: :put %>
     <% else %>
-      <%= icon_link_to "close-circle-line", url_for(action: :unpublish, id: component, controller: "components"), t("actions.unpublish", scope: "decidim.admin"), class: "action-icon--unpublish", method: :put %>
+      <%= icon_link_to "close-circle-line", url_for(action: :unpublish, id: component, controller: "components"), t("actions.unpublish", scope: "decidim.admin"), class: "action-icon--menu-hidden", method: :put %>
     <% end %>
   <% else %>
     <%= icon_link_to "check-line", url_for(action: :publish, id: component, controller: "components"), t("actions.publish", scope: "decidim.admin"), class: "action-icon--publish", method: :put %>
