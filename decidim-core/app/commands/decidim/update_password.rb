@@ -3,7 +3,7 @@
 module Decidim
   # Decidim command updates user's password
   class UpdatePassword < Decidim::Command
-    delegate :current_user, to: :form, prefix: :current_user
+    delegate :current_user, to: :form
 
     # Updates a user's password.
     #
