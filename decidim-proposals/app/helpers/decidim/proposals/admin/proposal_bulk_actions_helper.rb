@@ -18,7 +18,7 @@ module Decidim
           options_for_select = find_templates_for_select(component)
           select(:template, :template_id, options_for_select, prompt:, id:)
         end
-        
+
         def find_templates_for_select(component)
           return @templates_for_select if @templates_for_select
 

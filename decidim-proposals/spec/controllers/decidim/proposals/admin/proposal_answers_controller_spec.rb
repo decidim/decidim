@@ -38,9 +38,9 @@ describe Decidim::Proposals::Admin::ProposalAnswersController do
     it "enqueues ProposalAnswerJob for each proposal and redirects" do
       allow(form_double).to receive(:costs_required?).and_return(false)
 
-      expect {
+      expect do
         post :update_multiple_answers, params: multiple_params
-      }.to have_enqueued_job(Decidim::Proposals::Admin::ProposalAnswerJob).with(proposal.id, anything, component)
+      end.to have_enqueued_job(Decidim::Proposals::Admin::ProposalAnswerJob).with(proposal.id, anything, component)
 
       expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).root_path)
       expect(flash[:notice]).to eq(I18n.t("proposals.answer.success", scope: "decidim.proposals.admin"))
@@ -66,9 +66,9 @@ describe Decidim::Proposals::Admin::ProposalAnswersController do
       end
 
       it "enqueues ProposalAnswerJob for each proposal and redirects without checking cost data" do
-        expect {
+        expect do
           post :update_multiple_answers, params: multiple_params
-        }.to have_enqueued_job(Decidim::Proposals::Admin::ProposalAnswerJob).with(proposal.id, anything, component)
+        end.to have_enqueued_job(Decidim::Proposals::Admin::ProposalAnswerJob).with(proposal.id, anything, component)
 
         expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).root_path)
         expect(flash[:notice]).to eq(I18n.t("proposals.answer.success", scope: "decidim.proposals.admin"))

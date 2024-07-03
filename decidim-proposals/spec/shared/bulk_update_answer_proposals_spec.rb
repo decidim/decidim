@@ -5,7 +5,7 @@ shared_examples "bulk update answer proposals" do
   let!(:accepted_state) { create(:proposal_state, :accepted, component: proposal_component, token: :accepted) }
   let!(:amendable) { create(:proposal, component: proposal_component) }
   let!(:emendation) { create(:proposal, component: proposal_component) }
-  let!(:amendment) { create(:amendment, amendable: amendable, emendation: emendation, amender: emendation.creator_author) }
+  let!(:amendment) { create(:amendment, amendable:, emendation:, amender: emendation.creator_author) }
   let!(:proposal_without_permission) { emendation }
   let!(:proposals_with_permission) { create_list(:proposal, 2, component: proposal_component) }
   let!(:template) { create(:template, target: :proposal_answer, templatable: proposal_component, field_values: { "proposal_state_id" => evaluating_state.id }) }
@@ -111,7 +111,6 @@ shared_examples "bulk update answer proposals" do
       end
 
       context "when cost is not provided" do
-
         before do
           page.find_by_id("proposals_bulk", class: "js-check-all").set(false)
           page.find(".js-proposal-id-#{proposal_without_cost.id}").set(true)
