@@ -32,7 +32,7 @@ namespace :decidim do
           else
             puts " #{index}/#{users_count} !! [#{user_id}] DELETING USER"
             log.info " #{index}/#{users_count} !! [#{user_id}] DELETING USER"
-            Decidim::DestroyAccount.call(user, Decidim::DeleteAccountForm.from_params({})) # Delete user!
+            Decidim::DestroyAccount.call(Decidim::DeleteAccountForm.from_params({}).with_context({current_user: user})) # Delete user!
           end
         else
           puts " #{index}/#{users_count} - [#{user_id}] User not found"

@@ -17,7 +17,8 @@ module Decidim
     let(:form) do
       form = double(
         delete_reason: data[:delete_reason],
-        valid?: valid
+        valid?: valid,
+        current_user: user
       )
 
       form
