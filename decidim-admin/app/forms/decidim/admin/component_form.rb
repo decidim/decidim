@@ -66,20 +66,6 @@ module Decidim
                        end
         validations.all?
       end
-
-      def cast_integer_with_units_params
-        settings.manifest.attributes.each do |key, attribute_definition|
-          next unless attribute_definition&.type == :integer_with_units
-
-          value = settings[key]
-          next unless value.is_a?(Hash)
-
-          settings[key] = [
-            value["0"].to_i,
-            value["1"].to_s
-          ]
-        end
-      end
     end
   end
 end

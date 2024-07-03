@@ -476,9 +476,7 @@ module Decidim
         return true if draft?
         return true if component.settings.proposal_edit_time == "infinite"
 
-        edit_time = component.settings.edit_time
-        time_value = edit_time[0]
-        time_unit = edit_time[1]
+        time_value, time_unit = component.settings.edit_time
 
         limit_time = case time_unit
                      when "minutes"
