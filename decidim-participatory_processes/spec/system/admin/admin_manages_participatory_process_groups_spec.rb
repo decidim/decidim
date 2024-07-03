@@ -137,7 +137,7 @@ describe "Admin manages participatory process groups" do
       end
 
       click_on "Remove"
-      click_on "Next"
+      click_on "Save"
 
       click_on "Update"
 

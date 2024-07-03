@@ -81,7 +81,7 @@ module Decidim
 
         oauth_application.organization_logo.attach(io: File.open(File.join(seeds_root, "homepage_image.jpg")), filename: "organization_logo.jpg", content_type: "image/jpeg")
 
-        Decidim::System::CreateDefaultContentBlocks.call(organization)
+        Decidim::ContentBlocksCreator.new(organization).create_default!
 
         hero_content_block = Decidim::ContentBlock.find_by(organization:, manifest_name: :hero, scope_name: :homepage)
         hero_content_block.images_container.background_image = create_blob!(seeds_file: "homepage_image.jpg", filename: "homepage_image.jpg", content_type: "image/jpeg")

@@ -21,7 +21,6 @@ it:
               too_long: è troppo lungo
             choices:
               missing: non sono completi
-              too_many: sono troppi
   decidim:
     forms:
       admin:

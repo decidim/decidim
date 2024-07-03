@@ -46,6 +46,11 @@ pl:
           title: Obserwuj
         forms:
           disabled: Nieaktywny
+          emojis: Emotikony
+          emojis_description: Działa tylko w polu tekstowym
+          errors: Błędy
+          help_texts: Teksty pomocy
+          textarea_required: Wymagane pole tekstowe
         tooltips:
           demo: Wersja demonstracyjna
           demo_description: Aby ten komponent działał, uczestnik musi najechać kursorem na element.
@@ -128,6 +133,7 @@ pl:
         conferences: Konferencje
         context: Kontekst
         context_description: Ta komórka wyświetla informacje o użytkowniku. Jest to wizualna pomoc w identyfikacji twórcy zasobów/treści. Najechanie myszą wyświetla podpowiedź z dalszymi informacjami i linkami do jego lub jej profilu.
+        disabled: Wyłączony
         form_elements: Elementy formularza
         hex_code: Kod szesnastkowy
         main_colors: Kolory główne

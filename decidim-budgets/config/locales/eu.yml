@@ -168,7 +168,6 @@ eu:
         back_to: Itzuli hona %{component_name}
         close_modal: Itxi modala
         continue: Jarraitu
-        more_information: Informazio gehiago
       budgets_list:
         budgets: Aurrekontuak
         cancel_order:

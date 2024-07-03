@@ -136,6 +136,7 @@ module Decidim
 
       def random_coauthor
         n = rand(5)
+        n = 3 if n == 2 && !Decidim.module_installed?(:meetings)
 
         case n
         when 0

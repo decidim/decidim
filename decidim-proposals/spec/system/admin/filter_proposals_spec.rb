@@ -115,6 +115,104 @@ describe "Admin filters proposals" do
     end
   end
 
+  context "when filtering by multiple filters" do
+    let!(:scope1) { create(:scope, organization:, name: { "en" => "Scope1" }) }
+    let!(:scope2) { create(:scope, organization:, name: { "en" => "Scope2" }) }
+    let!(:answered_proposal_with_scope1) { create(:proposal, :with_answer, component:, scope: scope1) }
+    let!(:unanswered_proposal_with_scope1) { create(:proposal, component:, scope: scope1) }
+    let!(:answered_proposal_with_scope2) { create(:proposal, :with_answer, component:, scope: scope2) }
+    let!(:unanswered_proposal_with_scope2) { create(:proposal, component:, scope: scope2) }
+
+    before do
+      apply_filter("Answered", "Answered")
+      visit_component_admin
+    end
+
+    it_behaves_like "a filtered collection", options: "Scope", filter: "Scope1" do
+      let(:in_filter) { translated(answered_proposal_with_scope1.title) }
+      let(:not_in_filter) { translated(answered_proposal_with_scope2.title) }
+    end
+
+    context "when multiple filters are checked" do
+      before do
+        apply_filter("Scope", "Scope1")
+      end
+
+      it "has a link to remove all filters" do
+        expect(page).to have_content(translated(answered_proposal_with_scope1.title))
+        expect(page).to have_no_content(translated(unanswered_proposal_with_scope1.title))
+        expect(page).to have_no_content(translated(answered_proposal_with_scope2.title))
+        expect(page).to have_no_content(translated(unanswered_proposal_with_scope2.title))
+
+        within("[data-applied-filters-tags]") do
+          expect(page).to have_content("Remove all")
+        end
+
+        within("[data-applied-filters-tags]") do
+          click_on("Remove all")
+        end
+
+        expect(page).to have_content(translated(answered_proposal_with_scope1.title))
+        expect(page).to have_content(translated(unanswered_proposal_with_scope1.title))
+        expect(page).to have_content(translated(answered_proposal_with_scope2.title))
+        expect(page).to have_content(translated(unanswered_proposal_with_scope2.title))
+        expect(page).to have_css("[data-applied-filters-tags]", exact_text: "")
+      end
+
+      it "stores the filters in the session and recovers it when visiting the component page" do
+        within("tr[data-id='#{answered_proposal_with_scope1.id}']") do
+          click_on("Answer proposal")
+        end
+
+        within "form.edit_proposal_answer" do
+          fill_in_i18n_editor(
+            :proposal_answer_answer,
+            "#proposal_answer-answer-tabs",
+            en: "An answer does not change the filters"
+          )
+          click_on "Answer"
+        end
+
+        within("[data-applied-filters-tags]") do
+          expect(page).to have_content("Answered: Answered")
+          expect(page).to have_content("Scope: Scope1")
+          expect(page).to have_content("Remove all")
+        end
+
+        filter_params = CGI.parse(URI.parse(page.current_url).query)
+        expect(filter_params["q[scope_id_eq]"]).to eq([scope1.id.to_s])
+        expect(filter_params["q[with_any_state]"]).to eq(["state_published"])
+      end
+    end
+
+    context "when the admin visits a proposal from a filtered list" do
+      let!(:other_proposal_with_scope2) { create(:proposal, :with_answer, component:, scope: scope2) }
+
+      before { visit_component_admin }
+
+      it "can navigate through the proposals of the filtered list" do
+        ids = find_all("tr[data-id]").map { |node| node["data-id"].to_i }
+
+        within("tr[data-id='#{ids[0]}']") do
+          click_on("Answer proposal")
+        end
+
+        expect(page).to have_no_link("Previous")
+        expect(page).to have_link("Next", href: %r{/manage/proposals/#{ids[1]}$})
+
+        click_on("Next")
+
+        expect(page).to have_link("Previous", href: %r{/manage/proposals/#{ids[0]}$})
+        expect(page).to have_link("Next", href: %r{/manage/proposals/#{ids[2]}$})
+
+        click_on("Next")
+
+        expect(page).to have_link("Previous", href: %r{/manage/proposals/#{ids[1]}$})
+        expect(page).to have_no_link("Next")
+      end
+    end
+  end
+
   context "when searching by ID or title" do
     let!(:proposal1) { create(:proposal, component:) }
     let!(:proposal2) { create(:proposal, component:) }

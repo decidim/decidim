@@ -2,6 +2,8 @@
 /* eslint no-unused-vars: 0 */
 /* eslint id-length: ["error", { "exceptions": ["e"] }] */
 
+import TomSelect from "tom-select/dist/cjs/tom-select.popular";
+
 $(() => {
   const selectedProposalsCount = function() {
     return $(".table-list .js-check-all-proposal:checked").length
@@ -22,6 +24,8 @@ $(() => {
 
     if (selectedProposals === 0) {
       $("#js-selected-proposals-count").text("")
+      $("#js-assign-proposals-to-valuator-actions").addClass("hide");
+      $("#js-unassign-proposals-from-valuator-actions").addClass("hide");
     } else {
       $("#js-selected-proposals-count").text(selectedProposals);
     }
@@ -93,20 +97,36 @@ $(() => {
     hideBulkActionForms();
     $("#js-bulk-actions-button").addClass("hide");
 
-    $("#js-bulk-actions-dropdown ul li button").click(function(e) {
-      e.preventDefault();
-      let action = $(e.target).data("action");
+    $("#js-bulk-actions-dropdown ul li button").click(function (e) {
+      $("#js-bulk-actions-dropdown").removeClass("is-open");
+      hideBulkActionForms();
 
-      if (action) {
-        $(`#js-form-${action}`).submit(function() {
+      let action = $(e.target).data("action");
+      const panelActions = [
+        "assign-proposals-to-valuator",
+        "unassign-proposals-from-valuator"
+      ];
+
+      if (!action) {
+        return;
+      }
+
+      if (panelActions.includes(action)) {
+        $(`#js-form-${action}`).submit(function () {
           $(".layout-content > div[data-callout-wrapper]").html("");
-        })
+        });
+
+        $(`#js-${action}-actions`).removeClass("hide");
+      } else {
+        $(`#js-form-${action}`).submit(function () {
+          $(".layout-content > div[data-callout-wrapper]").html("");
+        });
 
         $(`#js-${action}-actions`).removeClass("hide");
         hideBulkActionsButton(true);
         hideOtherActionsButtons();
       }
-    })
+    });
 
     // select all checkboxes
     $(".js-check-all").change(function() {
@@ -160,4 +180,19 @@ $(() => {
       showOtherActionsButtons();
     });
   }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const valuatorMultiselectContainers = document.querySelectorAll(
+    ".js-valuator-multiselect"
+  );
+
+  valuatorMultiselectContainers.forEach((container) => {
+    const config = {
+      plugins: ["remove_button", "dropdown_input"],
+      allowEmptyOption: true
+    };
+
+    return new TomSelect(container, config);
+  });
 });

@@ -21,7 +21,6 @@
               too_long: er for lang
             choices:
               missing: er ikke fullstendig
-              too_many: er for mange
   decidim:
     forms:
       admin:

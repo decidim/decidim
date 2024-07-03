@@ -42,11 +42,13 @@
           <%= t("decidim.proposals.admin.proposals.index.assign_to_valuator") %>
         </button>
       </li>
-      <li>
-        <button type="button" data-action="unassign-proposals-from-valuator">
-          <%= t("decidim.proposals.admin.proposals.index.unassign_from_valuator") %>
-        </button>
-      </li>
+      <% if allowed_to? :unassign_from_valuator, :proposals, valuator: current_user %>
+        <li>
+          <button type="button" data-action="unassign-proposals-from-valuator">
+            <%= t("decidim.proposals.admin.proposals.index.unassign_from_valuator") %>
+          </button>
+        </li>
+      <% end %>
       <li>
         <button type="button" data-action="change-answer-status">
           <%= t("decidim.proposals.admin.proposals.index.change_answer_status") %>
