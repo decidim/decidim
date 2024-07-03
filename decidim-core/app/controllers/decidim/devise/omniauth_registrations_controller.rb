@@ -38,6 +38,7 @@ module Decidim
           end
 
           on(:need_tos) do
+            set_flash_message :alert, :need_tos if @form.valid_tos?
             session[:verified_email] = verified_email
             render :new_tos_fields
           end

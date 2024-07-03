@@ -716,7 +716,12 @@ describe "Authentication" do
 
           find(".login__omniauth-button.button--facebook").click
 
-          expect(page).to have_content("Successfully")
+          expect(page).to have_content("Finish sign up")
+
+          check :registration_user_tos_agreement
+          check :registration_user_newsletter
+          click_on "Sign up"
+
           expect_user_logged
         end
       end

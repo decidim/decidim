@@ -1705,6 +1705,7 @@ en:
         subject: Unlock instructions
     omniauth_callbacks:
       failure: Could not authenticate you from %{kind} because "%{reason}".
+      need_tos: Terms of service must be accepted in order to sign up.
       success: Successfully authenticated from %{kind} account.
     passwords:
       edit:

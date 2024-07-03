@@ -28,5 +28,17 @@ module Decidim
     def normalized_nickname
       UserBaseEntity.nicknamize(nickname || name, organization: current_organization)
     end
+
+    def newsletter_at
+      return nil unless newsletter?
+
+      Time.current
+    end
+
+    def valid_tos?
+      return if tos_agreement.nil?
+
+      errors.add :tos_agreement, :accepted
+    end
   end
 end

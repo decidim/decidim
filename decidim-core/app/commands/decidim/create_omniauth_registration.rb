@@ -127,7 +127,10 @@ module Decidim
         name: form.name,
         nickname: form.normalized_nickname,
         avatar_url: form.avatar_url,
-        raw_data: form.raw_data
+        raw_data: form.raw_data,
+        tos_agreement: form.tos_agreement,
+        newsletter_notifications_at: form.newsletter_at,
+        accepted_tos_version: form.current_organization.tos_version
       )
     end
   end
