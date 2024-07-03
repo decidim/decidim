@@ -59,7 +59,7 @@ module Decidim
     end
 
     def destroy_participatory_space_private_user
-      Decidim::ParticipatorySpacePrivateUser.where(current_user: user).destroy_all
+      Decidim::ParticipatorySpacePrivateUser.where(current_user: ).destroy_all
     end
 
     def delegate_destroy_to_participatory_spaces
