@@ -588,6 +588,9 @@ en:
           sign_up: Please complete your profile
           subtitle: Please fill in the following form in order to complete the sign up
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
+        new_tos_fields:
+          sign_up: Sign up
+          sign_up_title: Finish sign up
       registrations:
         create:
           error: There was a problem creating your account.

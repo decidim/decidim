@@ -37,6 +37,11 @@ module Decidim
             render :new
           end
 
+          on(:need_tos) do
+            session[:verified_email] = verified_email
+            render :new_tos_fields
+          end
+
           on(:error) do |user|
             if user.errors[:email]
               set_flash_message :alert, :failure, kind: @form.provider.capitalize, reason: t("decidim.devise.omniauth_registrations.create.email_already_exists")
@@ -76,7 +81,7 @@ module Decidim
       end
 
       def verified_email
-        @verified_email ||= oauth_data.dig(:info, :email)
+        @verified_email ||= oauth_data.dig(:info, :email).presence || session[:verified_email]
       end
 
       def oauth_hash

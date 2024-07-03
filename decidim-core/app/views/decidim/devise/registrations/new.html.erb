@@ -40,7 +40,7 @@
       <%= render partial: "decidim/account/password_fields", locals: { form: f, user: :user } %>
     </div>
 
-    <%= render partial: "decidim/devise/shared/tos_fields" %>
+    <%= render partial: "decidim/devise/shared/tos_fields", locals: { form: f, user: :user } %>
 
     <div class="form__wrapper-block">
       <button type="submit" class="button button__lg button__secondary">

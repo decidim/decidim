@@ -37,7 +37,7 @@ module Decidim
 
         broadcast(:ok, @user)
       rescue NeedTosAcceptance
-        broadcast(:ok, @user)
+        broadcast(:need_tos, @user)
       rescue ActiveRecord::RecordInvalid => e
         broadcast(:error, e.record)
       end
@@ -72,10 +72,10 @@ module Decidim
         end
         @user.skip_confirmation! if verified_email
 
-        raise NeedTosAcceptance
+        @user.tos_agreement = form.tos_agreement
+        raise NeedTosAcceptance if @user.tos_agreement.blank?
       end
 
-      # @user.tos_agreement = "1"
       @user.save!
     end
 
