@@ -30,17 +30,17 @@ module Decidim
         end
 
         def publish_answer?
-          component.current_settings.publish_answers_immediately?
+          current_component.current_settings.publish_answers_immediately?
         end
 
         private
 
         def proposal_states
-          Decidim::Proposals::ProposalState.where(component:).pluck(:token).map(&:to_s) + ["not_answered"]
+          Decidim::Proposals::ProposalState.where(component: current_component).pluck(:token).map(&:to_s) + ["not_answered"]
         end
 
         def costs_enabled?
-          component.current_settings.answers_with_costs?
+          current_component.current_settings.answers_with_costs?
         end
       end
     end

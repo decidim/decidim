@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# Добавьте проверку с использованием ActionView::Base.full_sanitizer
 
 shared_examples "bulk update answer proposals" do
   let!(:evaluating_state) { create(:proposal_state, :evaluating, component: proposal_component) }
@@ -10,10 +10,28 @@ shared_examples "bulk update answer proposals" do
   let!(:proposals_with_permission) { create_list(:proposal, 2, component: proposal_component) }
   let!(:template) { create(:template, target: :proposal_answer, templatable: proposal_component, field_values: { "proposal_state_id" => evaluating_state.id }) }
   let!(:answer_with_cost_template) { create(:template, target: :proposal_answer, templatable: proposal_component, field_values: { "proposal_state_id" => accepted_state.id }) }
+  let(:proposal_component) { current_component }
+  let(:apply_template_button) { "Apply answer template" }
+
+  context "when no templates are available" do
+    before do
+      Decidim::Templates::Template.where(templatable: current_component).destroy_all
+      visit current_path
+    end
+
+    it "shows no templates message" do
+      page.find(".js-check-all").set(false)
+      proposals_with_permission.each do |proposal|
+        page.find(".js-proposal-id-#{proposal.id}").set(true)
+      end
+
+      click_on "Actions"
+      click_on apply_template_button
+      expect(page).to have_content("No templates available")
+    end
+  end
 
   context "when selecting proposals" do
-    let!(:proposal_component) { current_component }
-
     context "when clicking the bulk action button" do
       before do
         visit current_path
@@ -22,14 +40,14 @@ shared_examples "bulk update answer proposals" do
       end
 
       it "shows the change action option if proposals have permission" do
-        expect(page).to have_button("Change status and answer")
+        expect(page).to have_button("Apply answer template")
       end
 
       it "does not show the change action option if proposals do not have permission" do
         page.find(".js-check-all").set(false)
         page.find(".js-proposal-id-#{proposal_without_permission.id}").set(true)
         click_on "Actions"
-        expect(page).to have_no_button("Change status and answer")
+        expect(page).to have_no_button(apply_template_button)
       end
     end
 
@@ -41,7 +59,7 @@ shared_examples "bulk update answer proposals" do
           page.find(".js-proposal-id-#{proposal.id}").set(true)
         end
         click_on "Actions"
-        click_on "Change status and answer"
+        click_on apply_template_button
       end
 
       it "shows the template select" do
@@ -49,21 +67,22 @@ shared_examples "bulk update answer proposals" do
       end
 
       it "shows an update button" do
-        expect(page).to have_button(id: "js-submit-change-answer-status", text: "Update", count: 1)
+        expect(page).to have_button(id: "js-submit-apply-answer-template", text: "Update", count: 1)
       end
 
       context "when submitting the form" do
         before do
-          within "#js-form-change-answer-status" do
+          within "#js-form-apply-answer-template" do
             select translated(answer_with_cost_template.name), from: :template_template_id
             perform_enqueued_jobs do
               click_on "Update"
             end
           end
+          page.driver.browser.switch_to.alert.accept
         end
 
         it "changes the status and answer of the selected proposals" do
-          expect(page).to have_content("The proposals have been queued for answer update.")
+          expect(page).to have_content("The proposals will be answered using the template")
 
           proposals_with_permission.each do |proposal|
             expect(page).to have_css("tr[data-id='#{proposal.id}']", text: translated(accepted_state.title))
@@ -92,19 +111,21 @@ shared_examples "bulk update answer proposals" do
           page.find(".js-proposal-id-#{proposal_with_cost.id}").set(true)
 
           click_on "Actions"
-          click_on "Change status and answer"
+          click_on apply_template_button
 
-          within "#js-form-change-answer-status" do
+          within "#js-form-apply-answer-template" do
             select translated(answer_with_cost_template.name), from: :template_template_id
             perform_enqueued_jobs do
               click_on "Update"
             end
             sleep 1
           end
+
+          page.driver.browser.switch_to.alert.accept
         end
 
         it "changes the status and answer of the selected proposals" do
-          expect(page).to have_content("The proposals have been queued for answer update.")
+          expect(page).to have_content("The proposals will be answered using the template")
 
           expect(page).to have_css("tr[data-id='#{proposal_with_cost.id}']", text: translated(accepted_state.title))
         end
@@ -115,8 +136,8 @@ shared_examples "bulk update answer proposals" do
           page.find_by_id("proposals_bulk", class: "js-check-all").set(false)
           page.find(".js-proposal-id-#{proposal_without_cost.id}").set(true)
           click_on "Actions"
-          click_on "Change status and answer"
-          within "#js-form-change-answer-status" do
+          click_on apply_template_button
+          within "#js-form-apply-answer-template" do
             select translated(answer_with_cost_template.name), from: :template_template_id
             perform_enqueued_jobs { click_on "Update" }
           end

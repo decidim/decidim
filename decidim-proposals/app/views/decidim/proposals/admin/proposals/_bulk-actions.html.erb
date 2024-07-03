@@ -31,4 +31,4 @@
 <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/merge" %>
 <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/split" %>
 <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/publish_answers" %>
-<%= render partial: "decidim/proposals/admin/proposals/bulk_actions/change_answer_status" %>
+<%= render partial: "decidim/proposals/admin/proposals/bulk_actions/apply_answer_template", locals: { templates: find_templates_for_select(current_component) } %>

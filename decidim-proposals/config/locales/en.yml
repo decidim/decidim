@@ -500,7 +500,9 @@ en:
             invalid: There has been a problem answering this proposal.
             missing_cost_data: Please fill in the required cost field for all selected proposals.
             success: Proposal successfully answered.
-            success_bulk_update: The proposals have been queued for answer update.
+            success_bulk_update: The proposals will be answered using the template
+              "%{name}". Please wait a few minutes and refresh the page to see the
+              updates.
           create:
             invalid: There has been a problem creating this proposal.
             success: Proposal successfully created.
@@ -515,14 +517,15 @@ en:
             select_a_meeting: Select a meeting
           index:
             actions: Actions
+            apply_answer_template: Apply answer template
             assign_to_valuator: Assign to valuator
             assign_to_valuator_button: Assign
             cancel: Cancel
-            change_answer_status: Change status and answer
             change_category: Change category
             change_scope: Change scope
             merge: Merge into a new one
             merge_button: Merge
+            no_templates_available: No templates available
             publish: Publish
             publish_answers: Publish answers
             select_component: Select a component

@@ -44,10 +44,10 @@ $(() => {
     }
 
     if (allowAnswerProposals > 0) {
-      $('button[data-action="change-answer-status"]').parent().show();
-      $("#js-form-change-answer-status-number").text(allowAnswerProposals);
+      $('button[data-action="apply-answer-template"]').parent().show();
+      $("#js-form-apply-answer-template-number").text(allowAnswerProposals);
     } else {
-      $('button[data-action="change-answer-status"]').parent().hide();
+      $('button[data-action="apply-answer-template"]').parent().hide();
     }
   }
 

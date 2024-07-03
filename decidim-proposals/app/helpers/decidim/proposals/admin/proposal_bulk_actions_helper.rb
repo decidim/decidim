@@ -20,6 +20,7 @@ module Decidim
         end
 
         def find_templates_for_select(component)
+          return [] unless Decidim.module_installed? :templates
           return @templates_for_select if @templates_for_select
 
           templates = Decidim::Templates::Template.where(

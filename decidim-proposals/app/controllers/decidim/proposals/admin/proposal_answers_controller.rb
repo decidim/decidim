@@ -38,7 +38,7 @@ module Decidim
         def update_multiple_answers
           enforce_permission_to(:create, :proposal_answer)
 
-          if missing_cost_data?(proposals)
+          if answer_forms_invalid?(proposals)
             flash[:alert] = t("proposals.answer.missing_cost_data", scope: "decidim.proposals.admin")
             redirect_to EngineRouter.admin_proxy(current_component).root_path
 
@@ -50,7 +50,7 @@ module Decidim
             ProposalAnswerJob.perform_later(proposal.id, bulk_answer_form(proposal).attributes, current_component)
           end
 
-          flash[:notice] = I18n.t("proposals.answer.success_bulk_update", scope: "decidim.proposals.admin")
+          flash[:notice] = I18n.t("proposals.answer.success_bulk_update", scope: "decidim.proposals.admin", name: translated_attribute(template.name))
           redirect_to EngineRouter.admin_proxy(current_component).root_path
         end
 
@@ -69,6 +69,8 @@ module Decidim
         end
 
         def template
+          return unless templates_available?
+
           @template ||= Decidim::Templates::Template.find(params[:template][:template_id])
         end
 
@@ -93,11 +95,12 @@ module Decidim
           answer_form_params
         end
 
-        def missing_cost_data?(proposals)
-          proposals.each do |proposal|
-            return true if bulk_answer_form(proposal).costs_required? && proposal.cost.blank?
-          end
-          false
+        def answer_forms_invalid?(proposals)
+          proposals.any? { |proposal| !bulk_answer_form(proposal).valid? }
+        end
+
+        def templates_available?
+          Decidim.module_installed?(:templates) && Decidim::Templates::Template.exists?(templatable: current_component)
         end
       end
     end

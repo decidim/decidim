@@ -11,7 +11,7 @@ describe Decidim::Proposals::Admin::ProposalAnswersController do
   let(:proposal) { create(:proposal, component:) }
   let(:proposal_state) { create(:proposal_state, component:) }
   let(:template) { create(:template, target: :proposal_answer, templatable: component, field_values: { "proposal_state_id" => proposal_state.id }) }
-  let(:form_double) { Decidim::Proposals::Admin::ProposalAnswerForm.from_params({}) }
+  let(:form_double) { Decidim::Proposals::Admin::ProposalAnswerForm.from_params({ "internal_state" => proposal_state.token }) }
 
   before do
     sign_in user
@@ -32,7 +32,7 @@ describe Decidim::Proposals::Admin::ProposalAnswersController do
       )
 
       allow(controller).to receive(:proposals_path).and_return("/proposals")
-      allow(form_double).to receive(:attributes).and_return({ "answer" => "Test answer" })
+      allow(form_double).to receive(:attributes).and_return({ "answer" => "Test answer", "internal_state" => proposal_state.token })
     end
 
     it "enqueues ProposalAnswerJob for each proposal and redirects" do
@@ -43,7 +43,7 @@ describe Decidim::Proposals::Admin::ProposalAnswersController do
       end.to have_enqueued_job(Decidim::Proposals::Admin::ProposalAnswerJob).with(proposal.id, anything, component)
 
       expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).root_path)
-      expect(flash[:notice]).to eq(I18n.t("proposals.answer.success", scope: "decidim.proposals.admin"))
+      expect(flash[:notice]).to eq(I18n.t("proposals.answer.success_bulk_update", scope: "decidim.proposals.admin", name: translated_attribute(template.name)))
     end
 
     context "when cost data is required" do
@@ -71,7 +71,7 @@ describe Decidim::Proposals::Admin::ProposalAnswersController do
         end.to have_enqueued_job(Decidim::Proposals::Admin::ProposalAnswerJob).with(proposal.id, anything, component)
 
         expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).root_path)
-        expect(flash[:notice]).to eq(I18n.t("proposals.answer.success", scope: "decidim.proposals.admin"))
+        expect(flash[:notice]).to eq(I18n.t("proposals.answer.success_bulk_update", scope: "decidim.proposals.admin", name: translated_attribute(template.name)))
       end
     end
   end
