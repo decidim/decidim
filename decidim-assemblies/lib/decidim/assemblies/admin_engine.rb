@@ -47,11 +47,15 @@ module Decidim
           resources :categories, except: [:show]
 
           resources :components do
+            collection do
+              put :reorder
+            end
             resource :permissions, controller: "component_permissions"
             member do
               put :publish
               put :unpublish
               get :share
+              put :menu_hidden
             end
             resources :exports, only: :create
             resources :imports, only: [:new, :create] do

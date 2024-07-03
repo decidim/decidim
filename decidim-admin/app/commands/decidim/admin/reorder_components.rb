@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Decidim
   module Admin
     # A command that reorders a collection of content blocks
@@ -36,7 +38,7 @@ module Decidim
       def reorder_components
         transaction do
           order.each_with_index do |id, index|
-            component = components.find_by(id: id)
+            component = components.find_by(id:)
             component.update!(weight: index + 1) if component.present?
           end
         end
