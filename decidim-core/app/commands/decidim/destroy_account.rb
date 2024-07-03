@@ -3,7 +3,7 @@
 module Decidim
   # This command destroys the user's account.
   class DestroyAccount < Decidim::Command
-    delegate :current_user, to: :form, prefix: :current_user
+    delegate :current_user, to: :form
 
     # Destroy a user's account.
     #
