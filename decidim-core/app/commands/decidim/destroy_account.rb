@@ -50,7 +50,7 @@ module Decidim
     end
 
     def destroy_user_group_memberships
-      Decidim::UserGroupMembership.where(current_user:).destroy_all
+      Decidim::UserGroupMembership.where(user: current_user).destroy_all
     end
 
     def destroy_follows
