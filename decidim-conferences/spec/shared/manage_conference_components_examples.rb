@@ -170,10 +170,11 @@ shared_examples "manage conference components" do
 
   describe "publish and unpublish a component" do
     let!(:component) do
-      create(:component, participatory_space: conference, published_at:)
+      create(:component, participatory_space: conference, published_at:, visible:)
     end
 
     let(:published_at) { nil }
+    let(:visible) { true }
 
     before do
       visit decidim_admin_conferences.components_path(conference)
@@ -216,7 +217,7 @@ shared_examples "manage conference components" do
     context "when the component is published" do
       let(:published_at) { Time.current }
 
-      it "menu hiddens the component" do
+      it "menu hidden the component" do
         within ".component-#{component.id}" do
           click_on "Menu hidden"
         end

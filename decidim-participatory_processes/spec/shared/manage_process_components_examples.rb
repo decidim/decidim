@@ -352,7 +352,7 @@ shared_examples "manage process components" do
         expect(page).to have_no_content("Share tokens")
       end
 
-      it "menu hiddens the component" do
+      it "menu hidden the component" do
         within ".component-#{component.id}" do
           click_on "Menu hidden"
         end

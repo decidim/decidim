@@ -209,7 +209,7 @@ shared_examples "assembly admin manage assembly components" do
     context "when the component is published" do
       let(:published_at) { Time.current }
 
-      it "menu hiddens the component" do
+      it "menu hidden the component" do
         within ".component-#{component.id}" do
           click_on "Menu hidden"
         end

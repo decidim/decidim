@@ -170,10 +170,11 @@ shared_examples "manage assembly components" do
 
   describe "publish and unpublish a component" do
     let!(:component) do
-      create(:component, participatory_space: assembly, published_at:)
+      create(:component, participatory_space: assembly, published_at:, visible:)
     end
 
     let(:published_at) { nil }
+    let(:visible) { true }
 
     before do
       visit decidim_admin_assemblies.components_path(assembly)
@@ -216,7 +217,7 @@ shared_examples "manage assembly components" do
     context "when the component is published" do
       let(:published_at) { Time.current }
 
-      it "menu hiddens the component" do
+      it "menu hidden the component" do
         within ".component-#{component.id}" do
           click_on "Menu hidden"
         end
