@@ -102,6 +102,10 @@ describe "Authentication" do
 
           find(".login__omniauth-button.button--facebook").click
 
+          check :registration_user_tos_agreement
+          click_on("Sign up")
+          click_on("Keep unchecked")
+
           expect(page).to have_content("Successfully")
           expect_user_logged
         end
@@ -163,6 +167,8 @@ describe "Authentication" do
 
             within ".new_user" do
               fill_in :registration_user_email, with: "user@from-twitter.com"
+              check :registration_user_tos_agreement
+              check :registration_user_newsletter
               find("*[type=submit]").click
             end
 
