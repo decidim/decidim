@@ -569,7 +569,7 @@ en:
         name: Sub hero banner
     core:
       actions:
-        login_before_access: Please, login with your account before access.
+        login_before_access: Please, log in with your account before access.
         unauthorized: You are not authorized to perform this action.
       application_helper:
         filter_area_values:

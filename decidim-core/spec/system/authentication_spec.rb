@@ -328,7 +328,7 @@ describe "Authentication" do
         expect_current_user_to_be(user)
       end
 
-      context "when email validation is triggered in login form" do
+      context "when email validation is triggered in the log in form" do
         before do
           click_on("Log in", match: :first)
         end
@@ -472,7 +472,7 @@ describe "Authentication" do
       Devise.maximum_attempts = 3
       let!(:maximum_attempts) { Devise.maximum_attempts }
 
-      describe "when attempting to login with failing password" do
+      describe "when attempting to log in with failing password" do
         describe "before locking" do
           before do
             visit decidim.root_path
