@@ -129,7 +129,6 @@ module Decidim
       attribute :readonly
       attribute :choices
       attribute :units
-      attribute :item_classes, Array, default: []
       attribute :include_blank, Boolean, default: false
 
       validates :type, inclusion: { in: TYPES.keys }
