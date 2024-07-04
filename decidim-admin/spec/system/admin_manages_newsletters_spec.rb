@@ -7,7 +7,7 @@ end
 
 describe "Admin manages newsletters", type: :system do
   let(:organization) { create(:organization) }
-  let!(:attributes) { attributes_for(:newsletter, organization:) }
+  let!(:attributes) { attributes_for(:newsletter, organization: organization) }
   let(:user) { create(:user, :admin, :confirmed, name: "Sarah Kerrigan", organization: organization) }
   let!(:deliverable_users) { create_list(:user, 5, :confirmed, newsletter_notifications_at: Time.current, organization: organization) }
 

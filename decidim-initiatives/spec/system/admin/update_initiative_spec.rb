@@ -15,7 +15,7 @@ describe "User prints the initiative", type: :system do
 
   context "when initiative update" do
     context "and user is admin" do
-      let(:attributes) { attributes_for(:initiative, organization:) }
+      let(:attributes) { attributes_for(:initiative, organization: organization) }
 
       before do
         switch_to_host(organization.host)
