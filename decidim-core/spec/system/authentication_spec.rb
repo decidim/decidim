@@ -78,6 +78,7 @@ describe "Authentication" do
           uid: "123545",
           info: {
             email: "user@from-facebook.com",
+            nickname: "unique_user",
             name: "Facebook User"
           }
         )
@@ -185,6 +186,10 @@ describe "Authentication" do
           click_on("Sign Up")
           find(".login__omniauth-button.button--x").click
 
+          check :registration_user_tos_agreement
+          check :registration_user_newsletter
+          click_on "Sign up"
+
           expect_user_logged
         end
       end
@@ -197,6 +202,7 @@ describe "Authentication" do
           uid: "123545",
           info: {
             name: "Google User",
+            nickname: "google_user",
             email: "user@from-google.com"
           }
         )
@@ -220,6 +226,9 @@ describe "Authentication" do
         click_on("Sign Up")
 
         click_on "Log in with Google"
+        check :registration_user_tos_agreement
+        check :registration_user_newsletter
+        click_on "Sign up"
 
         expect_user_logged
       end
@@ -697,6 +706,7 @@ describe "Authentication" do
         info: {
           email: user.email,
           name: "Facebook User",
+          nickname: "facebook_user",
           verified: true
         }
       )
