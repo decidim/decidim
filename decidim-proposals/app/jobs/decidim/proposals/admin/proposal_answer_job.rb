@@ -6,9 +6,8 @@ module Decidim
       class ProposalAnswerJob < ApplicationJob
         queue_as :default
 
-        def perform(proposal_id, answer_form_params, current_component)
-          proposal = Decidim::Proposals::Proposal.find(proposal_id)
-          answer_form = ProposalAnswerForm.from_params(answer_form_params).with_context(current_component:, current_organization: current_component.organization)
+        def perform(proposal, attributes, context)
+          answer_form = ProposalAnswerForm.from_params(attributes).with_context(**context)
 
           Admin::AnswerProposal.call(answer_form, proposal) do
             on(:ok) { Rails.logger.info "Proposal #{proposal.id} answered successfully." }

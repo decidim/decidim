@@ -3,75 +3,116 @@
 require "spec_helper"
 require "decidim/templates/test/factories"
 
-describe Decidim::Proposals::Admin::ProposalAnswersController do
-  routes { Decidim::Proposals::AdminEngine.routes }
+module Decidim
+  module Proposals
+    module Admin
+      describe ProposalAnswersController do
+        routes { Decidim::Proposals::AdminEngine.routes }
 
-  let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
-  let(:component) { create(:proposal_component, :with_creation_enabled, :with_attachments_allowed) }
-  let(:proposal) { create(:proposal, component:) }
-  let(:proposal_state) { create(:proposal_state, component:) }
-  let(:template) { create(:template, target: :proposal_answer, templatable: component, field_values: { "proposal_state_id" => proposal_state.id }) }
-  let(:form_double) { Decidim::Proposals::Admin::ProposalAnswerForm.from_params({ "internal_state" => proposal_state.token }) }
+        let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
+        let(:component) { create(:proposal_component, :with_creation_enabled, :with_attachments_allowed) }
+        let!(:emendation) { create(:proposal, component:) }
+        let!(:amendment) { create(:amendment, amendable: proposal2, emendation:) }
+        let(:proposal1) { create(:proposal, cost: nil, component:, proposal_state: nil) }
+        let(:proposal2) { create(:proposal, cost: nil, component:, proposal_state: nil) }
+        let(:proposal_state) { create(:proposal_state, component:) }
+        let(:template) { create(:template, skip_injection: true, target: :proposal_answer, templatable: component, field_values: { "proposal_state_id" => proposal_state.id }) }
+        let(:proposal_ids) { [proposal1.id, proposal2.id] }
+        let(:params) do
+          {
+            proposal_ids:, template: { template_id: template.id }
+          }
+        end
+        let(:context) do
+          {
+            current_organization: component.organization,
+            current_component: component,
+            current_user: user
+          }
+        end
 
-  before do
-    sign_in user
-    request.env["decidim.current_organization"] = component.organization
-    request.env["decidim.current_component"] = component
+        before do
+          sign_in user
+          request.env["decidim.current_organization"] = component.organization
+          request.env["decidim.current_component"] = component
+        end
 
-    allow(Decidim::Proposals::Admin::ProposalAnswerForm).to receive(:from_params).and_return(form_double)
-    allow(form_double).to receive(:with_context).and_return(form_double)
-  end
+        describe "POST update_multiple_answers" do
+          it "enqueues ProposalAnswerJob for each proposal and redirects" do
+            expect { post :update_multiple_answers, params: }.to have_enqueued_job(ProposalAnswerJob).exactly(2).times
 
-  describe "POST update_multiple_answers" do
-    let(:proposal_ids) { [proposal.id] }
-    let(:multiple_params) { { proposal_ids:, template: { template_id: template.id } } }
+            expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).root_path)
+            expect(flash[:notice]).to include("2 proposals will be answered using the template \"#{template.name["en"]}\".")
+            expect(flash[:alert]).to be_nil
+          end
 
-    before do
-      component.update!(
-        settings: { answers_with_costs: true }
-      )
+          context "when some proposal fails" do
+            before do
+              valid = false
+              # rubocop:disable RSpec/AnyInstance
+              allow_any_instance_of(Decidim::Proposals::Admin::ProposalAnswerForm).to receive(:valid?) do |_arg|
+                valid = !valid
+              end
+              # rubocop:enable RSpec/AnyInstance
+            end
 
-      allow(controller).to receive(:proposals_path).and_return("/proposals")
-      allow(form_double).to receive(:attributes).and_return({ "answer" => "Test answer", "internal_state" => proposal_state.token })
-    end
+            it "enqueues ProposalAnswerJob once and redirects" do
+              expect { post :update_multiple_answers, params: }.to have_enqueued_job(ProposalAnswerJob).exactly(1).times
 
-    it "enqueues ProposalAnswerJob for each proposal and redirects" do
-      allow(form_double).to receive(:costs_required?).and_return(false)
+              expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).root_path)
+              expect(flash[:notice]).to include("1 proposals will be answered using the template \"#{template.name["en"]}\".")
+              expect(flash[:alert]).to include("Proposals with IDs [#{proposal2.id}] could not be answered due errors applying the template \"#{template.name["en"]}\".")
+            end
+          end
 
-      expect do
-        post :update_multiple_answers, params: multiple_params
-      end.to have_enqueued_job(Decidim::Proposals::Admin::ProposalAnswerJob).with(proposal.id, anything, component)
+          context "when proposal is an emendation" do
+            let(:proposal1) { emendation }
 
-      expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).root_path)
-      expect(flash[:notice]).to eq(I18n.t("proposals.answer.success_bulk_update", scope: "decidim.proposals.admin", name: translated_attribute(template.name)))
-    end
+            it "enqueues ProposalAnswerJob once and redirects" do
+              expect { post :update_multiple_answers, params: }.to have_enqueued_job(ProposalAnswerJob).exactly(1).times
 
-    context "when cost data is required" do
-      before do
-        allow(form_double).to receive(:costs_required?).and_return(true)
-        proposal.update!(cost: nil)
-      end
+              expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).root_path)
+              expect(flash[:notice]).to include("1 proposals will be answered using the template \"#{template.name["en"]}\".")
+              expect(flash[:alert]).to include("Proposals with IDs [#{proposal1.id}] could not be answered due errors applying the template \"#{template.name["en"]}\".")
+            end
+          end
 
-      it "redirects with an alert" do
-        post :update_multiple_answers, params: multiple_params
+          context "when cost is required" do
+            before do
+              component.update!(
+                step_settings: {
+                  component.participatory_space.active_step.id => {
+                    answers_with_costs: true
+                  }
+                }
+              )
+            end
 
-        expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).root_path)
-        expect(flash[:alert]).to eq(I18n.t("proposals.answer.missing_cost_data", scope: "decidim.proposals.admin"))
-      end
-    end
+            let(:proposal_state) { Decidim::Proposals::ProposalState.find_by(token: :accepted) }
 
-    context "when cost data is not required" do
-      before do
-        allow(form_double).to receive(:costs_required?).and_return(false)
-      end
+            it "redirects with an alert" do
+              expect { post :update_multiple_answers, params: }.not_to have_enqueued_job(ProposalAnswerJob)
 
-      it "enqueues ProposalAnswerJob for each proposal and redirects without checking cost data" do
-        expect do
-          post :update_multiple_answers, params: multiple_params
-        end.to have_enqueued_job(Decidim::Proposals::Admin::ProposalAnswerJob).with(proposal.id, anything, component)
+              expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).root_path)
+              expect(flash[:alert]).to include("Proposals with IDs [#{proposal1.id}, #{proposal2.id}] could not be answered due errors applying the template \"#{template.name["en"]}\".")
+              expect(flash[:notice]).to be_nil
+            end
+          end
 
-        expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).root_path)
-        expect(flash[:notice]).to eq(I18n.t("proposals.answer.success_bulk_update", scope: "decidim.proposals.admin", name: translated_attribute(template.name)))
+          context "when templates is not installed" do
+            before do
+              allow(Decidim).to receive(:module_installed?).with(:templates).and_return(false)
+            end
+
+            it "redirects with an alert" do
+              expect { post :update_multiple_answers, params: }.not_to have_enqueued_job(ProposalAnswerJob)
+
+              expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).root_path)
+              expect(flash[:alert]).to include("Proposals with IDs [#{proposal1.id}, #{proposal2.id}] could not be answered due errors")
+              expect(flash[:notice]).to be_nil
+            end
+          end
+        end
       end
     end
   end

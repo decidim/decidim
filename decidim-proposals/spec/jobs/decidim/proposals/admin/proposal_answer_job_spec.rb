@@ -3,10 +3,14 @@
 require "spec_helper"
 
 describe Decidim::Proposals::Admin::ProposalAnswerJob do
+  subject { described_class }
+
   let(:component) { create(:proposal_component, :with_creation_enabled) }
-  let(:initial_state) { create(:proposal_state, component:, token: "initial_state") }
-  let(:proposal) { create(:proposal, component:, proposal_state: initial_state) }
-  let(:proposal_state) do
+  let(:organization) { component.organization }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:old_state) { create(:proposal_state, component:, token: "old_state") }
+  let(:proposal) { create(:proposal, component:, proposal_state: old_state) }
+  let(:new_state) do
     create(
       :proposal_state,
       title: { en: "Custom state" },
@@ -15,60 +19,43 @@ describe Decidim::Proposals::Admin::ProposalAnswerJob do
     )
   end
 
-  let(:answer_form_params) do
+  let(:attributes) do
     {
       "answer" => { "en" => "Test answer" },
-      "internal_state" => proposal_state.token,
-      "cost" => "1000",
-      "cost_report" => { "en" => "Cost report" },
-      "execution_period" => { "en" => "Execution period" }
+      "internal_state" => new_state.token
+    }
+  end
+
+  let(:context) do
+    {
+      current_organization: organization,
+      current_component: component,
+      current_user: user
     }
   end
 
   describe "#perform" do
-    context "when the answer is valid" do
-      before do
-        allow(Decidim::Proposals::Admin::AnswerProposal).to receive(:call) do |form, proposal|
-          proposal.update!(answer: form.answer, proposal_state:)
-          double(success?: true, invalid?: false)
-        end
-      end
+    before do
+      subject.perform_now(proposal, attributes, context)
+      proposal.reload
+    end
 
-      it "updates the proposal answer" do
-        described_class.perform_now(proposal.id, answer_form_params, component)
-        proposal.reload
-
-        expect(proposal.answer).to eq({ "en" => "Test answer" })
-      end
-
-      it "updates the proposal state" do
-        described_class.perform_now(proposal.id, answer_form_params, component)
-        proposal.reload
-
-        expect(proposal.proposal_state).to eq(proposal_state)
-      end
+    it "updates the proposal answer" do
+      expect(proposal.answer).to eq({ "en" => "Test answer" })
+      expect(proposal.proposal_state).to eq(new_state)
     end
 
     context "when the answer is invalid" do
-      let(:original_answer) { proposal.answer }
-      let(:original_proposal_state) { proposal.proposal_state }
-
-      before do
-        allow(Decidim::Proposals::Admin::AnswerProposal).to receive(:call).and_return(double(success?: false, invalid?: true))
+      let(:attributes) do
+        {
+          "answer" => { "en" => "Test answer" },
+          "internal_state" => "a-state-that-does-not-exist"
+        }
       end
 
       it "does not update the proposal answer" do
-        described_class.perform_now(proposal.id, answer_form_params, component)
-        proposal.reload
-
-        expect(proposal.answer).to eq(original_answer)
-      end
-
-      it "does not update the proposal state" do
-        described_class.perform_now(proposal.id, answer_form_params, component)
-        proposal.reload
-
-        expect(proposal.proposal_state).to eq(original_proposal_state)
+        expect(proposal.answer).not_to eq({ "en" => "Test answer" })
+        expect(proposal.proposal_state).not_to eq(new_state)
       end
     end
   end

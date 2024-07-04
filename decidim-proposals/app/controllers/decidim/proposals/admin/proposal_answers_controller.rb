@@ -5,6 +5,8 @@ module Decidim
     module Admin
       # This controller allows admins to answer proposals in a participatory process.
       class ProposalAnswersController < Admin::ApplicationController
+        include ActionView::Helpers::SanitizeHelper
+
         helper_method :proposal
 
         helper Proposals::ApplicationHelper
@@ -14,13 +16,13 @@ module Decidim
 
         def edit
           enforce_permission_to(:create, :proposal_answer, proposal:)
-          @form = form(Admin::ProposalAnswerForm).from_model(proposal)
+          @form = form(ProposalAnswerForm).from_model(proposal)
         end
 
         def update
           enforce_permission_to(:create, :proposal_answer, proposal:)
           @notes_form = form(ProposalNoteForm).instance
-          @answer_form = form(Admin::ProposalAnswerForm).from_params(params)
+          @answer_form = form(ProposalAnswerForm).from_params(params)
 
           Admin::AnswerProposal.call(@answer_form, proposal) do
             on(:ok) do
@@ -36,21 +38,28 @@ module Decidim
         end
 
         def update_multiple_answers
-          enforce_permission_to(:create, :proposal_answer)
-
-          if answer_forms_invalid?(proposals)
-            flash[:alert] = t("proposals.answer.missing_cost_data", scope: "decidim.proposals.admin")
-            redirect_to EngineRouter.admin_proxy(current_component).root_path
-
-            return
-          end
-
+          valid_proposals = []
+          failed_proposals = []
           proposals.each do |proposal|
-            enforce_permission_to(:create, :proposal_answer, proposal:)
-            ProposalAnswerJob.perform_later(proposal.id, bulk_answer_form(proposal).attributes, current_component)
+            if allowed_to?(:create, :proposal_answer, proposal:) && answer_form.valid? && !proposal.emendation?
+              valid_proposals << proposal.id
+              ProposalAnswerJob.perform_later(proposal, answer_form.attributes, { current_organization:, current_component:, current_user: })
+            else
+              failed_proposals << proposal.id
+            end
           end
 
-          flash[:notice] = I18n.t("proposals.answer.success_bulk_update", scope: "decidim.proposals.admin", name: translated_attribute(template.name))
+          if failed_proposals.any?
+            flash[:alert] =
+              t("proposals.answer.bulk_answer_error", scope: "decidim.proposals.admin", template: strip_tags(translated_attribute(template&.name)),
+                                                      proposals: failed_proposals.join(", "))
+          end
+          if valid_proposals.any?
+            flash[:notice] =
+              I18n.t("proposals.answer.bulk_answer_success", scope: "decidim.proposals.admin", template: strip_tags(translated_attribute(template&.name)),
+                                                             count: valid_proposals.count)
+          end
+
           redirect_to EngineRouter.admin_proxy(current_component).root_path
         end
 
@@ -69,38 +78,17 @@ module Decidim
         end
 
         def template
-          return unless templates_available?
+          return unless Decidim.module_installed?(:templates)
 
-          @template ||= Decidim::Templates::Template.find(params[:template][:template_id])
+          @template ||= Decidim::Templates::Template.find_by(id: params[:template][:template_id])
         end
 
-        def bulk_answer_form(proposal)
-          @bulk_answer_form ||= form(ProposalAnswerForm).from_params(prepare_answer_form_params(template, proposal, current_user))
+        def answer_form
+          @answer_form ||= form(ProposalAnswerForm).from_params(answer: template&.description, internal_state: proposal_state&.token)
         end
 
-        def prepare_answer_form_params(template, proposal, current_user)
-          answer_form_params = {
-            answer: translated_attribute(template.description),
-            internal_state: Decidim::Proposals::ProposalState.find(template.field_values["proposal_state_id"]).token,
-            current_user:
-          }
-
-          if current_component.current_settings.answers_with_costs?
-            [:cost, :cost_report, :execution_period].each do |field|
-              value = proposal.send(field)
-              answer_form_params[field] = translated_attribute(value) if value.present?
-            end
-          end
-
-          answer_form_params
-        end
-
-        def answer_forms_invalid?(proposals)
-          proposals.any? { |proposal| !bulk_answer_form(proposal).valid? }
-        end
-
-        def templates_available?
-          Decidim.module_installed?(:templates) && Decidim::Templates::Template.exists?(templatable: current_component)
+        def proposal_state
+          @proposal_state ||= Decidim::Proposals::ProposalState.find_by(id: template&.field_values&.dig("proposal_state_id"))
         end
       end
     end

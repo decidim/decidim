@@ -26,7 +26,7 @@ module Decidim
         alias state internal_state
 
         def costs_required?
-          costs_enabled? && state.start_with?("accepted")
+          costs_enabled? && state == "accepted"
         end
 
         def publish_answer?
