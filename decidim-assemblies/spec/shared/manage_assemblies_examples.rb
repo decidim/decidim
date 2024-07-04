@@ -6,7 +6,7 @@ shared_examples "manage assemblies" do
     let(:image3_path) { Decidim::Dev.asset(image3_filename) }
 
     let(:assembly_parent_id_options) { page.find("#assembly_parent_id").find_all("option").map(&:value) }
-    let(:attributes) { attributes_for(:assembly, :with_content_blocks, organization:, blocks_manifests: [:announcement]) }
+    let(:attributes) { attributes_for(:assembly, :with_content_blocks, organization: organization, blocks_manifests: [:announcement]) }
 
     before do
       click_link translated(assembly.title)

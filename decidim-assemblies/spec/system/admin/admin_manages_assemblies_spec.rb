@@ -14,7 +14,7 @@ describe "Admin manages assemblies", type: :system do
 
     let(:image2_filename) { "city2.jpeg" }
     let(:image2_path) { Decidim::Dev.asset(image2_filename) }
-    let(:attributes) { attributes_for(:assembly, :with_content_blocks, organization:, blocks_manifests: [:announcement]) }
+    let(:attributes) { attributes_for(:assembly, :with_content_blocks, organization: organization, blocks_manifests: [:announcement]) }
 
     before do
       click_link "New assembly"

@@ -2,7 +2,7 @@
 
 shared_examples "manage assembly admins examples" do
   let(:other_user) { create :user, organization: organization, email: "my_email@example.org" }
-  let(:attributes) { attributes_for(:user, organization:) }
+  let(:attributes) { attributes_for(:user, organization: organization) }
 
   let!(:assembly_admin) do
     create :assembly_admin,

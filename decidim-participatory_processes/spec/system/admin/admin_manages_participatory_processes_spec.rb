@@ -24,7 +24,7 @@ describe "Admin manages participatory processes", versioning: true, type: :syste
 
     let(:image2_filename) { "city2.jpeg" }
     let(:image2_path) { Decidim::Dev.asset(image2_filename) }
-    let(:attributes) { attributes_for(:participatory_process, organization:) }
+    let(:attributes) { attributes_for(:participatory_process, organization: organization) }
 
     before do
       click_link "New process"

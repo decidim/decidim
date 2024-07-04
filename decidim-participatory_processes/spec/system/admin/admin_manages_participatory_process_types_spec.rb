@@ -8,7 +8,7 @@ describe "Admin manages participatory process types", type: :system do
   let!(:participatory_processes) do
     create_list(:participatory_process, 3, organization: organization)
   end
-  let(:attributes) { attributes_for(:participatory_process_type, organization:) }
+  let(:attributes) { attributes_for(:participatory_process_type, organization: organization) }
 
   describe "Managing participatory process types" do
     before do

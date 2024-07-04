@@ -10,7 +10,7 @@ shared_examples "manage assembly members examples" do
 
   context "without existing user" do
     let!(:assembly_member) { create(:assembly_member, assembly: assembly) }
-    let(:attributes) { attributes_for(:assembly_member, assembly:) }
+    let(:attributes) { attributes_for(:assembly_member, assembly: assembly) }
 
     it "creates a new assembly member", versioning: true do
       find(".card-title a.new").click
@@ -102,7 +102,7 @@ shared_examples "manage assembly members examples" do
 
   describe "when managing other assembly members" do
     let!(:assembly_member) { create(:assembly_member, assembly: assembly) }
-    let(:attributes) { attributes_for(:assembly_member, assembly:) }
+    let(:attributes) { attributes_for(:assembly_member, assembly: assembly) }
 
     before do
       visit current_path

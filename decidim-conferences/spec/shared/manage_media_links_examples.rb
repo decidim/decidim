@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "manage media links examples" do
-  let!(:attributes) { attributes_for(:media_link, conference:) }
+  let!(:attributes) { attributes_for(:media_link, conference: conference) }
 
   before do
     switch_to_host(organization.host)

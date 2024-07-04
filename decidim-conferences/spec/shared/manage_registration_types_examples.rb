@@ -2,7 +2,7 @@
 
 shared_examples "manage registration types examples" do
   let!(:registration_type) { create(:registration_type, conference: conference) }
-  let(:attributes) { attributes_for(:registration_type, conference:) }
+  let(:attributes) { attributes_for(:registration_type, conference: conference) }
 
   before do
     switch_to_host(organization.host)

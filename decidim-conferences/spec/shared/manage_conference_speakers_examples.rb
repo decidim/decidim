@@ -2,7 +2,7 @@
 
 shared_examples "manage conference speakers examples" do
   let!(:conference_speaker) { create(:conference_speaker, conference: conference) }
-  let(:attributes) { attributes_for(:conference_speaker, conference:) }
+  let(:attributes) { attributes_for(:conference_speaker, conference: conference) }
 
   before do
     switch_to_host(organization.host)

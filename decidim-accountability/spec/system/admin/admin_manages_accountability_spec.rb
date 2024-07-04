@@ -43,7 +43,7 @@ describe "Admin manages accountability", type: :system do
       end
     end
 
-    let!(:timeline_entry) { create(:timeline_entry, result:) }
+    let!(:timeline_entry) { create(:timeline_entry, result: result) }
 
     it_behaves_like "manage timeline"
   end

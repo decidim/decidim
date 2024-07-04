@@ -273,7 +273,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     expect(page).to have_current_path(meeting_path)
   end
 
-  it "creates a new meeting", :slow, :serves_geocoding_autocomplete do # rubocop:disable RSpec/ExampleLength
+  it "creates a new meeting", :slow, :serves_geocoding_autocomplete do
     find(".card-title a.button").click
 
     fill_in_i18n(:meeting_title, "#meeting-title-tabs", **attributes[:title].except("machine_translations"))

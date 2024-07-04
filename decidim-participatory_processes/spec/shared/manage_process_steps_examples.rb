@@ -9,7 +9,7 @@ shared_examples "manage process steps examples" do
       active: active
     )
   end
-  let(:attributes) { attributes_for(:participatory_process_step, participatory_process:) }
+  let(:attributes) { attributes_for(:participatory_process_step, participatory_process: participatory_process) }
 
   before do
     switch_to_host(organization.host)

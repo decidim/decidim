@@ -8,7 +8,7 @@ describe "Admin manages participatory process groups", type: :system do
   let!(:participatory_processes) do
     create_list(:participatory_process, 3, organization: organization)
   end
-  let(:attributes) { attributes_for(:participatory_process_group, organization:) }
+  let(:attributes) { attributes_for(:participatory_process_group, organization: organization) }
   let(:image1_filename) { "city.jpeg" }
   let(:image1_path) { Decidim::Dev.asset(image1_filename) }
 

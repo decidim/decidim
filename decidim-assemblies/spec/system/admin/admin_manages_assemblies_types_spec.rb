@@ -20,7 +20,7 @@ describe "Admin manages assemblies types", type: :system do
       click_link "New assembly type"
 
       within ".new_assembly_type" do
-        fill_in_i18n :assemblies_type_title, "#assemblies_type-title-tabs", **attributes[:title].except("machine_translations"))
+        fill_in_i18n :assemblies_type_title, "#assemblies_type-title-tabs", **attributes[:title].except("machine_translations")
         find("*[type=submit]").click
       end
 

@@ -88,7 +88,7 @@ shared_examples "manage processes examples" do
   context "when updating a participatory process" do
     let(:image3_filename) { "city3.jpeg" }
     let(:image3_path) { Decidim::Dev.asset(image3_filename) }
-    let(:attributes) { attributes_for(:participatory_process, organization:) }
+    let(:attributes) { attributes_for(:participatory_process, organization: organization) }
 
     before do
       click_link translated(participatory_process.title)

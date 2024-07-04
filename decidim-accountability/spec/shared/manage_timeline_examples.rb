@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.shared_examples "manage timeline" do
-  let(:attributes) { attributes_for(:timeline_entry, result:) }
+  let(:attributes) { attributes_for(:timeline_entry, result: result) }
 
   it "updates a timeline entry", versioning: true do
     visit current_path
