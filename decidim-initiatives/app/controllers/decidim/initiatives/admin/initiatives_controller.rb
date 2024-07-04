@@ -186,7 +186,7 @@ module Decidim
         private
 
         def show_initiative_type_callout?
-          Decidim::InitiativesType.where(organization: current_organization).all.empty?
+          Decidim::InitiativesType.where(organization: current_organization).none?
         end
 
         def collection
