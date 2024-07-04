@@ -78,7 +78,7 @@ describe "Authentication" do
           uid: "123545",
           info: {
             email: "user@from-facebook.com",
-            nickname: "unique_user",
+            nickname: "facebook_user",
             name: "Facebook User"
           }
         )
@@ -109,6 +109,34 @@ describe "Authentication" do
 
           expect(page).to have_content("Successfully")
           expect_user_logged
+        end
+      end
+
+      context "when user did not fill one of the fields" do
+        let!(:omniauth_hash) do
+          OmniAuth::AuthHash.new(
+            provider: "developer",
+            uid: "123545",
+            info: {
+              nickname: "developer_user",
+              name: "Developer User"
+            }
+          )
+        end
+
+        it "has to complete the account profile" do
+          click_on("Log in")
+
+          find(".login__omniauth-button.button--facebook").click
+          expect(page).to have_content("Please complete your profile")
+          expect(page).to have_content("cannot be blank")
+
+          fill_in "Your email", with: "user@from-developer.com"
+          page.find_by_id("registration_user_tos_agreement").check
+          page.find_by_id("registration_user_newsletter").check
+          click_on "Complete profile"
+
+          expect(page).to have_content("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
         end
       end
     end
