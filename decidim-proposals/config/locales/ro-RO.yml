@@ -141,9 +141,7 @@ ro:
             comments_enabled: Comentariile au fost activate
             comments_max_length: Număr maxim de caractere a comentariilor (păstrează 0 pentru valoarea implicită)
             default_sort_order: Mod implicit de sortare a propunerilor
-            default_sort_order_help: Implicit înseamnă că dacă este activată votarea, propunerile vor fi afișate aleatoriu, și dacă votarea este blocată, atunci vor fi sortate în funcție de cele mai multe voturi.
             default_sort_order_options:
-              default: Implicit
               most_commented: Cele mai comentate
               most_endorsed: Cele mai susținute
               most_followed: Cele mai urmărite
@@ -194,9 +192,7 @@ ro:
             comments_blocked: Comentarii blocate
             creation_enabled: Participantul poate crea propuneri
             default_sort_order: Mod implicit de sortare a propunerilor
-            default_sort_order_help: Implicit înseamnă că dacă este activată votarea, propunerile vor fi afișate aleatoriu, și dacă votarea este blocată, atunci vor fi sortate în funcție de cele mai multe voturi.
             default_sort_order_options:
-              default: Implicit
               most_commented: Cele mai comentate
               most_endorsed: Cele mai susținute
               most_followed: Cele mai urmărite

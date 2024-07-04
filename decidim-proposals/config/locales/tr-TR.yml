@@ -138,6 +138,7 @@ tr:
             proposal_wizard_step_1_help_text: Teklif sihirbazı "Oluştur" adımı yardım metni
             proposal_wizard_step_2_help_text: Teklif sihirbazı "Karşılaştır" adımı yardım metni
             proposal_wizard_step_3_help_text: Teklif sihirbazı "Tamamlandı" adımı yardım metni
+            proposal_wizard_step_4_help_text: Teklif "Yayınlama"  sihirbazı  yardım metni
             resources_permissions_enabled: Her teklif için işlem izinleri ayarlanabilir
             scope_id: Kapsam
             scopes_enabled: Kapsamlar etkinleştirildi
@@ -349,6 +350,7 @@ tr:
               md: Markdown
               odt: ODT
             bottom_hint: "(Belge bölümlerini önizleyebilir ve sıralayabilirsiniz)"
+            document_legend: '2 Mb''tan küçük bir belge ekleyin; 3 seviyeye kadar olan her bölüm tekliflere ayrıştırılacaktır. Desteklenen formatlar şunlardır: %{valid_mime_types}'
             title: BELGE EKLE
             upload_document: Belge yükle
           sections:

@@ -55,7 +55,7 @@ describe "User creates meeting" do
         let(:meeting_address) { "Some address" }
         let(:latitude) { 40.1234 }
         let(:longitude) { 2.1234 }
-        let!(:meeting_start_time) { 2.days.from_now }
+        let(:meeting_start_time) { Time.new.utc }
         let(:meeting_end_time) { meeting_start_time + 4.hours }
         let(:meeting_available_slots) { 30 }
         let(:meeting_registration_terms) { "These are the registration terms for this meeting" }
@@ -212,8 +212,8 @@ describe "User creates meeting" do
             expect(page).to have_content(meeting_address)
             expect(page).to have_content(meeting_start_time.strftime(time_format))
             expect(page).to have_content(meeting_end_time.strftime(time_format))
-            expect(page).to have_css(".button", text: "Register")
-            expect(page).to have_selector("[data-author]", text: user_group.name)
+            expect(page).not_to have_css(".button", text: "Register")
+            expect(page).to have_css("[data-author]", text: user_group.name)
           end
         end
 

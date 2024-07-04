@@ -151,6 +151,7 @@ pt:
         export: Exportar tudo
         export-selection: Exportar selecção
         import: Importar
+        manage: Gerir
         newsletter:
           new: Novo boletim informativo
         participatory_space_private_user:

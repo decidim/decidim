@@ -389,6 +389,7 @@ nl:
       registrations:
         new:
           already_have_an_account?: Heb je al een account?
+          log_in: Aanmelden
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
           newsletter_title: Contact toestemming
           sign_up: Registratie
@@ -1175,10 +1176,14 @@ nl:
       signed_up_but_unconfirmed: Een bericht met een bevestigingslink is verzonden naar je e-mailadres. Volg de link om je account te activeren.
       update_needs_confirmation: Je hebt je account bijgewerkt, maar we moeten je nieuwe e-mailadres verifiëren. Controleer uw e-mail en volg de bevestigingslink om uw nieuwe e-mailadres te bevestigen.
       updated: Uw account is succesvol bijgewerkt.
+    sessions:
+      new:
+        log_in: Aanmelden
     shared:
       links:
         back: Terug
         forgot_your_password: Uw wachtwoord vergeten?
+        log_in: Aanmelden
         sign_up: Registreren
       minimum_password_length:
         one: "(Minimaal%{count} tekens)"
@@ -1241,9 +1246,11 @@ nl:
         cc_by_license: Creative Commons-licentie
         decidim_logo: Logo Decidimmen
         download_open_data: Download Open Data-bestanden
+        log_in: Aanmelden
         made_with_open_source: Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.
         sign_up: Registreren
       header:
+        log_in: Aanmelden
         main_menu: Hoofdmenu
         user_menu: Gebruikersmenu
       impersonation_warning:

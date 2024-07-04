@@ -60,7 +60,6 @@ nl:
   decidim:
     admin:
       actions:
-        manage: Beheer
         new_initiative_type: Nieuw initiatiefstype
       filters:
         search_placeholder:
@@ -68,7 +67,6 @@ nl:
       menu:
         attachments: Bijlagen
         committee_members: Commissieleden
-        components: Onderdelen
         information: Informatie
         initiatives: Initiatieven
         initiatives_types: Initiatieftypes

@@ -440,7 +440,6 @@ lt:
         new_meeting: 'Naujas susitikimas:'
       layouts:
         live_event:
-          administrate: Administruoti
           close: uždaryti
           questions: Klausimai
       mailer:

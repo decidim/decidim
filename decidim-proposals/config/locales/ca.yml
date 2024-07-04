@@ -150,7 +150,7 @@ ca:
             default_sort_order: Ordre de propostes per defecte
             default_sort_order_help: '''Per defecte'' vol dir que si els suports estan habilitats, les propostes es mostraran aleatòriament, i si els suports estan bloquejats, aleshores es mostraran de més a menys suports.'
             default_sort_order_options:
-              default: Per defecte
+              automatic: Per defecte
               most_commented: Més comentades
               most_endorsed: Amb més adhesions
               most_followed: Amb més seguidores
@@ -204,7 +204,7 @@ ca:
             default_sort_order: Ordre per defecte de propostes
             default_sort_order_help: '''Per defecte'' vol dir que si els suports estan habilitats, les propostes es mostraran aleatòriament, i si els suports estan bloquejats, aleshores es mostraran de més a menys suports.'
             default_sort_order_options:
-              default: Per defecte
+              automatic: Per defecte
               most_commented: Més comentades
               most_endorsed: Amb més adhesions
               most_followed: Amb més seguidores
@@ -602,14 +602,14 @@ ca:
         withdrawn: Retirada
       application_helper:
         filter_origin_values:
-          all: Totes
+          all: Tots
           meetings: Trobades
           official: Oficial
           participants: Participants
           user_groups: Grups
         filter_state_values:
           accepted: Acceptada
-          all: Totes
+          all: Tots
           evaluating: En avaluació
           not_answered: No resposta
           rejected: Rebutjada
@@ -647,7 +647,7 @@ ca:
         empty: Encara no hi ha cap esborrany col·laboratiu
         empty_filters: No hi ha cap esborrany col·laboratiu amb aquest criteri
         filters:
-          all: Todas
+          all: Tots
           amendment: Esmenes
           category: Categoria
           open: Obert
@@ -781,7 +781,7 @@ ca:
           title: Edició l'esborrany de proposta
         filters:
           activity: La meva activitat
-          all: Tots
+          all: Totes
           amendment_type: Tipus
           category: Categoria
           my_proposals: Les meves propostes

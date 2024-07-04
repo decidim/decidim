@@ -119,9 +119,7 @@ nl:
             comments_enabled: Reacties ingeschakeld
             comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
             default_sort_order: Standaardsortering
-            default_sort_order_help: Standaardsortering betekent dat als de ondersteuning is ingeschakeld, de voorstellen willekeurig worden weergegeven. Als de ondersteuning geblokkeerd is, zullen ze gesorteerd worden op de meest ondersteunde manier.
             default_sort_order_options:
-              default: Standaard
               most_commented: Meeste reacties
               most_endorsed: Meest gesteund
               most_followed: Meest gevolgd
@@ -171,9 +169,7 @@ nl:
             comments_blocked: Reacties geblokkeerd
             creation_enabled: Gebruikers kunnen voorstellen maken
             default_sort_order: Standaardsortering
-            default_sort_order_help: Standaardsortering betekent dat als de ondersteuning is ingeschakeld, de voorstellen willekeurig worden weergegeven. Als de ondersteuning geblokkeerd is, zullen ze gesorteerd worden op de meest ondersteunde manier.
             default_sort_order_options:
-              default: Standaard
               most_commented: Meeste reacties
               most_endorsed: Meest gesteund
               most_followed: Meest gevolgd

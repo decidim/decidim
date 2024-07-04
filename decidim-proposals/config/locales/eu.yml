@@ -148,9 +148,9 @@ eu:
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
             default_sort_order: Proposamenen hurrenkera lehenetsia
-            default_sort_order_help: Lehenetsita, esan nahi du euskarriak aktibatuta badaude, proposamenak ausaz ordenatuta erakutsiko direla, eta euskarriak blokeatuta badaude, euskarririk euskarrienaren arabera ordenatuko direla.
+            default_sort_order_help: Automatikoak esan nahi du, botoak gaituta badaude, proposamenak ausaz ordenatuta agertuko direla, eta botoak blokeatuta badaude, bozkatuenaren arabera ordenatuko direla.
             default_sort_order_options:
-              default: Lehenetsita
+              automatic: Automatikoa
               most_commented: Iruzkin gehien dituztenak
               most_endorsed: Aldeko boto gehien dituztenak
               most_followed: Jarraitzaile gehien dituztenak
@@ -202,9 +202,9 @@ eu:
             creation_enabled: Parte-hartzaileek eztabaidak sor ditzakete
             creation_enabled_readonly: Aukera hori desaktibatu egiten da Testuen Parte-hartzaile funtzionaltasuna aktibatzean. Testu parte-hartzaile gisa proposamenak kargatzeko, egin klik Testu parte-hartzaileak botoian eta jarraitu jarraibideak.
             default_sort_order: Proposamenen hurrenkera lehenetsia
-            default_sort_order_help: Besterik adierazi ezean, botoak gaituta badaude, proposamenak ausaz ordenatuta agertuko dira, eta botoak blokeatuta badaude, bozkatuenaren arabera ordenatuko dira.
+            default_sort_order_help: Automatikoak esan nahi du, botoak gaituta badaude, proposamenak ausaz ordenatuta agertuko direla, eta botoak blokeatuta badaude, bozkatuenaren arabera ordenatuko direla.
             default_sort_order_options:
-              default: Lehenetsita
+              automatic: Automatikoa
               most_commented: Iruzkin gehien dituztenak
               most_endorsed: Aldeko boto gehien dituztenak
               most_followed: Jarraitzaile gehien dituztenak
@@ -867,7 +867,7 @@ eu:
             other: Babesak
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Proposamen bakoitzak %{limit} babes baino gehiago jaso dezake
+            description: Proposamen bakoitzak %{limit} babes baino gehiagotan jaso dezake
           minimum_votes_per_user:
             description: Gutxienez %{votes} babes banatu behar dituzu proposamen desberdinen artean.
             given_enough_votes: Nahiko babes eman dituzu.

@@ -99,6 +99,9 @@ tr:
         create:
           invalid: Tartışmayı oluştururken bir sorun oluştu.
           success: Tartışma başarıyla oluşturuldu.
+        debates:
+          empty: Henüz herhangi bir tartışma yok.
+          empty_filters: Bu kritere uyan bir tartışma yok.
         edit:
           back: Geri
           save: Değişiklikleri kaydet

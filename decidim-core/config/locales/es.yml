@@ -1235,6 +1235,7 @@ es:
       no_notifications: Aún no hay notificaciones.
       show:
         missing_event: Vaya, esta notificación pertenece a un elemento que ya no está disponible. Puedes descartarla.
+        moderated: Contenido moderado
     notifications_digest_mailer:
       header:
         daily: Resumen diario de notificaciones

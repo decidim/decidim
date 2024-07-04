@@ -188,6 +188,7 @@ pl:
         export: Eksportuj wszystko
         export-selection: Eksportuj wybrane
         import: Importuj
+        manage: Zarządzanie
         newsletter:
           new: Nowy newsletter
         participatory_space_private_user:

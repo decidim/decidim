@@ -185,6 +185,11 @@ de:
         finished_message: Sie haben den Abstimmungsprozess beendet. Vielen Dank für Ihre Teilnahme!
         highlighted_cta: Über %{name} abstimmen
         if_change_opinion: Wenn Sie ihr Meinung geändert haben, können Sie
+        orders:
+          highest_cost: Höchste Kosten
+          label: Budgets sortieren nach
+          lowest_cost: Niedrigste Kosten
+          random: Zufällige Reihenfolge
         progress: Abstimmung beenden
         remove_vote: Stimme entfernen
         show: Projekte ansehen
