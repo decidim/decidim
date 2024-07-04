@@ -18,7 +18,7 @@ describe "Admin manages organization" do
     it "updates the values from the form" do
       visit decidim_admin.edit_organization_path
 
-      fill_in_i18n :organization_name, "#organization-name-tabs", **attributes[:name].except("machine_translations")
+      fill_in :organization_name, with: attributes[:name]
 
       %w(X Facebook Instagram YouTube GitHub).each do |network|
         within "#organization_social_handlers" do
