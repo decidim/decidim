@@ -10,8 +10,9 @@ module Decidim
       include_context "with a graphql class type"
       let(:type_class) { Decidim::Api::QueryType }
 
+      let!(:current_user) { nil }
       let(:user) { create(:user, :confirmed, organization: current_organization) }
-      let(:user_group) { create(:user_group, :confirmed, organization: current_organization) }
+      let(:user_group) { create(:user_group, :confirmed, :verified, organization: current_organization) }
       let!(:models) { [user, user_group] }
 
       context "when no filters are applied" do
@@ -35,7 +36,7 @@ module Decidim
 
       context "when user or groups are not confirmed" do
         let(:user) { create(:user, organization: current_organization) }
-        let(:user_group) { create(:user_group, organization: current_organization) }
+        let(:user_group) { create(:user_group, :verified, organization: current_organization) }
         let(:query) { %({ users { id } }) }
 
         it "returns all the types" do
@@ -55,6 +56,24 @@ module Decidim
 
         context "when user is blocked" do
           let(:user) { create(:user, :blocked, :confirmed, organization: current_organization) }
+
+          it "does not returns all the types" do
+            users = response["users"]
+            expect(users).to eq([])
+          end
+        end
+
+        context "when user has not accepted TOS" do
+          let(:user) { create(:user, :confirmed, accepted_tos_version: nil, organization: current_organization) }
+
+          it "does not returns all the types" do
+            users = response["users"]
+            expect(users).to eq([])
+          end
+        end
+
+        context "when user is deleted" do
+          let(:user) { create(:user, :confirmed, :deleted, organization: current_organization) }
 
           it "does not returns all the types" do
             users = response["users"]
@@ -84,7 +103,7 @@ module Decidim
       context "when searching fragments" do
         let!(:user1) { create(:user, :confirmed, nickname: "_foo_user_1", name: "FooBar User 1", organization: current_organization) }
         let!(:user2) { create(:user, nickname: "_foo_user_2", name: "FooBar User 2", organization: current_organization) }
-        let!(:user3) { create(:user_group, :confirmed, nickname: "_bar_user_3", name: "FooBar User 3", organization: current_organization) }
+        let!(:user3) { create(:user_group, :confirmed, :verified, nickname: "_bar_user_3", name: "FooBar User 3", organization: current_organization) }
         let!(:user4) { create(:user, :confirmed, nickname: "_foo_user_4", name: "FooBar User 4") }
         let!(:user5) { create(:user, :confirmed, nickname: "_foo_user_5", name: "FooBar User 5", organization: current_organization) }
         let!(:user6) { create(:user, :confirmed, nickname: "_foo_user_6", name: "FooBar User 6", organization: current_organization) }

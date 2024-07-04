@@ -21,18 +21,69 @@ module Decidim
 
     # Regex for name & nickname format validations
     REGEXP_NAME = /\A(?!.*[<>?%&\^*#@()\[\]=+:;"{}\\|])/
+    REGEXP_NICKNAME = /\A[\w-]+\z/
 
     has_one_attached :avatar
     validates_avatar :avatar, uploader: Decidim::AvatarUploader
 
     validates :name, format: { with: REGEXP_NAME }
+    validates :nickname,
+              presence: true,
+              format: { with: REGEXP_NICKNAME },
+              length: { maximum: Decidim::UserBaseEntity.nickname_max_length },
+              if: -> { validate_nickname_and_email? }
+    validates :nickname, uniqueness: { scope: :organization }, if: -> { validate_nickname_and_email? && nickname.present? }
+    validates :email, uniqueness: { scope: :organization }, if: -> { validate_nickname_and_email? && email.present? }
 
     scope :confirmed, -> { where.not(confirmed_at: nil) }
     scope :not_confirmed, -> { where(confirmed_at: nil) }
 
+    # Visible user entities (users or groups) are those that should appear
+    # publicly on the platform, such as on their personal profile page, the
+    # GraphQL API or other places where the user may appear.
+    scope :visible, lambda {
+      profile_published.not_blocked.merge(
+        Decidim::User.tos_accepted.or(Decidim::UserGroup.verified)
+      )
+    }
+
+    # User entities (user groups) that have their profile visible on the
+    # platform from the user's own perspective. This includes also blocked users
+    # because the decision to hide their profile has been made by someone else.
+    scope :profile_published, -> { confirmed.where(deleted_at: nil, managed: false) }
+
     scope :blocked, -> { where(blocked: true) }
     scope :not_blocked, -> { where(blocked: false) }
     scope :available, -> { where(deleted_at: nil, blocked: false, managed: false) }
+
+    def validate_nickname_and_email?
+      return false if managed?
+      return false if deleted_at.present?
+
+      true
+    end
+
+    def visible?
+      return false if blocked?
+
+      profile_published?
+    end
+
+    # Note that the blocked users have the profile published on purpose for the
+    # admin users to be able access those profiles e.g. for inspecting the
+    # user's activity on the platform.
+    def profile_published?
+      return false if managed?
+      return false if deleted_at.present?
+
+      confirmed_at.present?
+    end
+
+    # This will hide the resource from the search index when the resource is not
+    # public and when the resource is searchable (i.e. `Decidim::User`).
+    def hidden?
+      !visible?
+    end
 
     # Public: Returns a collection with all the public entities this user is following.
     #

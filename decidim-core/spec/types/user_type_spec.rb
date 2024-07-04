@@ -8,7 +8,7 @@ module Decidim
     describe UserType, type: :graphql do
       include_context "with a graphql class type"
 
-      let(:model) { create(:user) }
+      let(:model) { create(:user, :confirmed) }
 
       describe "name" do
         let(:query) { "{ name }" }
@@ -30,7 +30,7 @@ module Decidim
         let(:query) { "{ badge }" }
 
         context "when the user is officialized" do
-          let(:model) { create(:user, :officialized) }
+          let(:model) { create(:user, :confirmed, :officialized) }
 
           it "returns the icon to use for the verification badge" do
             expect(response).to include("badge" => "verified-badge")
@@ -38,7 +38,7 @@ module Decidim
         end
 
         context "when the user is not officialized" do
-          let(:model) { create(:user) }
+          let(:model) { create(:user, :confirmed) }
 
           it "returns empty" do
             expect(response).to include("badge" => "")
@@ -62,10 +62,10 @@ module Decidim
         end
 
         context "when user is deleted" do
-          let(:model) { create(:user, :deleted) }
+          let(:model) { create(:user, :confirmed, :deleted) }
 
           it "returns empty" do
-            expect(response).to include("profilePath" => "")
+            expect(response).to include("profilePath" => "/")
           end
         end
       end
@@ -78,7 +78,7 @@ module Decidim
         end
 
         context "when user direct messages disabled" do
-          let(:model) { create(:user, direct_message_types: "followed-only") }
+          let(:model) { create(:user, :confirmed, direct_message_types: "followed-only") }
 
           it "returns the direct_messages status" do
             expect(response).to include("directMessagesEnabled" => "false")

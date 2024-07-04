@@ -59,7 +59,7 @@ describe "Profile" do
     end
 
     context "and user officialized the standard way" do
-      let(:user) { create(:user, :officialized, officialized_as: nil) }
+      let(:user) { create(:user, :confirmed, :officialized, officialized_as: nil) }
 
       it "shows officialization status" do
         expect(page).to have_content("Official participant")
@@ -68,7 +68,7 @@ describe "Profile" do
 
     context "and user officialized with a custom badge" do
       let(:user) do
-        create(:user, :officialized, officialized_as: { "en" => "Major of Barcelona" })
+        create(:user, :confirmed, :officialized, officialized_as: { "en" => "Major of Barcelona" })
       end
 
       it "shows officialization status" do
@@ -83,9 +83,9 @@ describe "Profile" do
     end
 
     context "when displaying followers and following" do
-      let(:other_user) { create(:user, organization: user.organization) }
-      let(:user_to_follow) { create(:user, organization: user.organization) }
-      let(:user_group) { create(:user_group, organization: user.organization) }
+      let(:other_user) { create(:user, :confirmed, organization: user.organization) }
+      let(:user_to_follow) { create(:user, :confirmed, organization: user.organization) }
+      let(:user_group) { create(:user_group, :confirmed, :verified, organization: user.organization) }
       let(:public_resource) { create(:dummy_resource, :published) }
 
       before do
@@ -148,7 +148,7 @@ describe "Profile" do
       end
 
       context "when the user follows a blocked user" do
-        let(:blocked_user) { create(:user, :blocked) }
+        let(:blocked_user) { create(:user, :confirmed, :blocked) }
 
         before do
           create(:follow, user:, followable: blocked_user)
@@ -167,7 +167,7 @@ describe "Profile" do
       end
 
       context "when the user is followed by a blocked user" do
-        let(:blocked_user) { create(:user, :blocked) }
+        let(:blocked_user) { create(:user, :confirmed, :blocked) }
 
         before do
           create(:follow, user: blocked_user, followable: user)
@@ -209,8 +209,8 @@ describe "Profile" do
     end
 
     context "when belonging to user groups" do
-      let!(:accepted_user_group) { create(:user_group, users: [user], organization: user.organization) }
-      let!(:pending_user_group) { create(:user_group, users: [], organization: user.organization) }
+      let!(:accepted_user_group) { create(:user_group, :confirmed, :verified, users: [user], organization: user.organization) }
+      let!(:pending_user_group) { create(:user_group, :confirmed, :verified, users: [], organization: user.organization) }
       let!(:pending_membership) { create(:user_group_membership, user_group: pending_user_group, user:, role: "requested") }
 
       before do

@@ -9,7 +9,9 @@ module Decidim
       field :user, UserType, "The current user", null: true
 
       def user
-        object
+        return unless object
+
+        Decidim::PersonalUserPresenter.new(object)
       end
 
       field :verified_user_groups, [UserGroupType], "The current user verified user groups", null: false

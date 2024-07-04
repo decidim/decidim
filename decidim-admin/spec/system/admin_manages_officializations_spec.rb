@@ -170,7 +170,7 @@ describe "Admin manages officializations" do
   end
 
   describe "contacting the user" do
-    let!(:user) { create(:user, organization:) }
+    let!(:user) { create(:user, :confirmed, organization:) }
 
     before do
       within_admin_sidebar_menu do
@@ -187,7 +187,7 @@ describe "Admin manages officializations" do
   end
 
   describe "clicking on user name" do
-    let!(:user) { create(:user, organization:) }
+    let!(:user) { create(:user, :confirmed, organization:) }
 
     before do
       within_admin_sidebar_menu do
@@ -207,7 +207,7 @@ describe "Admin manages officializations" do
   end
 
   describe "clicking on user nickname" do
-    let!(:user) { create(:user, organization:) }
+    let!(:user) { create(:user, :confirmed, organization:) }
 
     before do
       within_admin_sidebar_menu do

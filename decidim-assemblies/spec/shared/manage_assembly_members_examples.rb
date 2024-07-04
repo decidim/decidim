@@ -48,7 +48,7 @@ shared_examples "manage assembly members examples" do
   end
 
   context "with existing user" do
-    let!(:member_user) { create(:user, organization: assembly.organization) }
+    let!(:member_user) { create(:user, :confirmed, organization: assembly.organization) }
 
     it "creates a new assembly member" do
       click_on "New assembly member"
@@ -74,7 +74,7 @@ shared_examples "manage assembly members examples" do
   end
 
   context "with existing user group" do
-    let!(:member_organization) { create(:user_group, :verified, organization: assembly.organization) }
+    let!(:member_organization) { create(:user_group, :confirmed, :verified, organization: assembly.organization) }
 
     it "creates a new assembly member" do
       click_on "New assembly member"

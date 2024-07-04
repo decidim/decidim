@@ -7,7 +7,7 @@ module Decidim
     module Admin
       describe DestroySortition do
         let(:organization) { create(:organization) }
-        let(:admin) { create(:user, :admin, organization:) }
+        let(:admin) { create(:user, :confirmed, :admin, organization:) }
         let(:participatory_process) { create(:participatory_process, organization:) }
         let(:sortition_component) { create(:sortition_component, participatory_space: participatory_process) }
         let(:sortition) { create(:sortition, component: sortition_component) }

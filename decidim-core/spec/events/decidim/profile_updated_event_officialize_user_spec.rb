@@ -6,7 +6,7 @@ describe Decidim::ProfileUpdatedEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.users.user_officialized" }
-  let(:resource) { create(:user) }
+  let(:resource) { create(:user, :confirmed) }
   let(:author) { resource }
   let(:email_subject) { "#{resource.name} has been officialized" }
   let(:email_intro) { "Participant #{resource.name} (@#{resource.nickname}) has been officialized." }

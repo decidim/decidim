@@ -20,7 +20,7 @@ module Decidim
       it { is_expected.to eq "Full name" }
 
       context "when member is an existing user" do
-        let(:user) { build(:user, name: "Julia G.", nickname: "julia_g") }
+        let(:user) { build(:user, :confirmed, name: "Julia G.", nickname: "julia_g") }
         let(:assembly_member) { build(:assembly_member, full_name: "Full name", user:) }
 
         it { is_expected.to eq "Julia G." }
@@ -33,7 +33,7 @@ module Decidim
       it { is_expected.to be_nil }
 
       context "when member is an existing user" do
-        let(:user) { build(:user, name: "Julia G.", nickname: "julia_g") }
+        let(:user) { build(:user, :confirmed, name: "Julia G.", nickname: "julia_g") }
         let(:assembly_member) { build(:assembly_member, full_name: "Full name", user:) }
 
         it { is_expected.to eq "@julia_g" }

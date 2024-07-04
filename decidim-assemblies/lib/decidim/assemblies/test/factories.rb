@@ -210,7 +210,7 @@ FactoryBot.define do
     end
 
     trait :with_user do
-      user { create(:user, organization: assembly.organization, skip_injection:) }
+      user { create(:user, :confirmed, organization: assembly.organization, skip_injection:) }
     end
   end
 end

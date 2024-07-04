@@ -7,12 +7,12 @@ describe Decidim::UserGroups::AcceptedUsers do
 
   let(:organization) { create(:organization) }
 
-  let!(:creator_user) { create(:user, organization:) }
-  let!(:admin_user) { create(:user, organization:) }
-  let!(:member_user) { create(:user, organization:) }
-  let!(:requested_user) { create(:user, organization:) }
+  let!(:creator_user) { create(:user, :confirmed, organization:) }
+  let!(:admin_user) { create(:user, :confirmed, organization:) }
+  let!(:member_user) { create(:user, :confirmed, organization:) }
+  let!(:requested_user) { create(:user, :confirmed, organization:) }
 
-  let!(:user_group) { create(:user_group, organization:, users: []) }
+  let!(:user_group) { create(:user_group, :confirmed, :verified, organization:, users: []) }
 
   before do
     create(:user_group_membership, user: creator_user, user_group:, role: :creator)

@@ -24,6 +24,7 @@ module Decidim
 
       describe "stats" do
         let(:query) { %({ stats { name value } }) }
+        let!(:current_user) { nil }
         let!(:confirmed_users) { create_list(:user, 5, :confirmed, organization: model) }
         let!(:unconfirmed_users) { create_list(:user, 2, organization: model) }
 

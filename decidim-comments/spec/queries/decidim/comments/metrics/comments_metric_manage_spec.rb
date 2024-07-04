@@ -7,7 +7,7 @@ describe Decidim::Comments::Metrics::CommentsMetricManage do
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:component) { create(:component, participatory_space: participatory_process) }
   let(:commentable) { create(:dummy_resource, component:) }
-  let(:author) { create(:user, organization:) }
+  let(:author) { create(:user, :confirmed, organization:) }
   let(:day) { Time.zone.yesterday }
   let!(:comments) { create_list(:comment, 5, created_at: day, author:, commentable:) }
   let!(:old_comments) { create_list(:comment, 5, created_at: day - 1.week, author:, commentable:) }

@@ -8,7 +8,7 @@ module Decidim
     describe UserGroupType, type: :graphql do
       include_context "with a graphql class type"
 
-      let(:model) { create(:user_group) }
+      let(:model) { create(:user_group, :confirmed, :verified) }
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -54,7 +54,7 @@ module Decidim
         let(:query) { "{ badge }" }
 
         context "when the user group is verified" do
-          let(:model) { create(:user_group, :verified) }
+          let(:model) { create(:user_group, :confirmed, :verified) }
 
           it "returns the icon to use for the verification badge" do
             expect(response).to include("badge" => "verified-badge")
@@ -62,7 +62,7 @@ module Decidim
         end
 
         context "when the user group is not verified" do
-          let(:model) { create(:user_group, :rejected) }
+          let(:model) { create(:user_group, :confirmed, :rejected) }
 
           it "returns empty" do
             expect(response).to include("badge" => "")

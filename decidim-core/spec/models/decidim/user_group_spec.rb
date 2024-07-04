@@ -20,8 +20,8 @@ module Decidim
     end
 
     it "has an association of users" do
-      subject.users << create(:user)
-      subject.users << create(:user)
+      subject.users << create(:user, :confirmed)
+      subject.users << create(:user, :confirmed)
       expect(subject.users.count).to eq(2)
     end
 
@@ -39,6 +39,36 @@ module Decidim
           expect(UserGroup.rejected.count).to eq(1)
         end
       end
+    end
+
+    it_behaves_like "profile visibility" do
+      let(:profile) { build(:user_group, :verified) }
+    end
+
+    shared_examples "user group visibility" do
+      context "with a verified group" do
+        let(:user_group) { create(:user_group, :confirmed, :verified) }
+
+        it { is_expected.to be(true) }
+      end
+
+      context "with an unverified group" do
+        let(:user_group) { create(:user_group, :confirmed) }
+
+        it { is_expected.to be(false) }
+      end
+    end
+
+    describe "#profile_published?" do
+      subject { user_group.profile_published? }
+
+      include_examples "user group visibility"
+    end
+
+    describe "#visible?" do
+      subject { user_group.visible? }
+
+      include_examples "user group visibility"
     end
 
     describe "validations" do

@@ -21,7 +21,7 @@ module Decidim
 
       describe "call" do
         context "when the user is not a coauthor" do
-          let(:current_user) { create(:user, organization: component.organization) }
+          let(:current_user) { create(:user, :confirmed, organization: component.organization) }
 
           it "broadcasts invalid" do
             expect(collaborative_draft.authored_by?(current_user)).to be(false)

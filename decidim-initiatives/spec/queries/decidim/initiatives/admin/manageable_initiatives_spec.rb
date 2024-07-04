@@ -10,9 +10,9 @@ module Decidim
 
         let!(:organization) { create(:organization) }
 
-        let!(:author) { create(:user, organization:) }
-        let!(:promoter) { create(:user, organization:) }
-        let!(:admin) { create(:user, :admin, organization:) }
+        let!(:author) { create(:user, :confirmed, organization:) }
+        let!(:promoter) { create(:user, :confirmed, organization:) }
+        let!(:admin) { create(:user, :confirmed, :admin, organization:) }
 
         let!(:author_initiatives) do
           create_list(:initiative, 3, organization:, author:)

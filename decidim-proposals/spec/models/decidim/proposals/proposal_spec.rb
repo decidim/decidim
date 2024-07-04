@@ -40,7 +40,7 @@ module Decidim
       end
 
       describe "#voted_by?" do
-        let(:user) { create(:user, organization: subject.organization) }
+        let(:user) { create(:user, :confirmed, organization: subject.organization) }
 
         it "returns false if the proposal is not voted by the given user" do
           expect(subject).not_to be_voted_by(user)
@@ -119,7 +119,7 @@ module Decidim
       end
 
       describe "#editable_by?" do
-        let(:author) { create(:user, organization:) }
+        let(:author) { create(:user, :confirmed, organization:) }
 
         context "when user is author" do
           let(:proposal) { create(:proposal, component:, users: [author], updated_at: Time.current) }
@@ -142,7 +142,7 @@ module Decidim
         end
 
         context "when proposal is from user group and user is admin" do
-          let(:user_group) { create(:user_group, :verified, users: [author], organization: author.organization) }
+          let(:user_group) { create(:user_group, :confirmed, :verified, users: [author], organization: author.organization) }
           let(:proposal) { create(:proposal, component:, updated_at: Time.current, users: [author], user_groups: [user_group]) }
 
           it { is_expected.to be_editable_by(author) }
@@ -197,7 +197,7 @@ module Decidim
       end
 
       describe "#withdrawable_by" do
-        let(:author) { create(:user, organization:) }
+        let(:author) { create(:user, :confirmed, organization:) }
 
         context "when user is author" do
           let(:proposal) { create(:proposal, component:, users: [author], created_at: Time.current) }
@@ -206,14 +206,14 @@ module Decidim
         end
 
         context "when user is admin" do
-          let(:admin) { build(:user, :admin, organization:) }
+          let(:admin) { build(:user, :confirmed, :admin, organization:) }
           let(:proposal) { build(:proposal, component:, users: [author], created_at: Time.current) }
 
           it { is_expected.not_to be_withdrawable_by(admin) }
         end
 
         context "when user is not the author" do
-          let(:someone_else) { build(:user, organization:) }
+          let(:someone_else) { build(:user, :confirmed, organization:) }
           let(:proposal) { build(:proposal, component:, users: [author], created_at: Time.current) }
 
           it { is_expected.not_to be_withdrawable_by(someone_else) }
@@ -257,7 +257,7 @@ module Decidim
       end
 
       describe "#with_valuation_assigned_to" do
-        let(:user) { create(:user, organization:) }
+        let(:user) { create(:user, :confirmed, organization:) }
         let(:space) { component.participatory_space }
         let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process: space) }
         let(:assigned_proposal) { create(:proposal, component:) }

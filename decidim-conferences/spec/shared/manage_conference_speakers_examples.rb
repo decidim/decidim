@@ -44,7 +44,7 @@ shared_examples "manage conference speakers examples" do
   end
 
   context "with existing user" do
-    let!(:speaker_user) { create(:user, organization: conference.organization) }
+    let!(:speaker_user) { create(:user, :confirmed, organization: conference.organization) }
 
     it "creates a new conference speaker" do
       click_on "New speaker"

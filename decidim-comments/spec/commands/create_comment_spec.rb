@@ -118,7 +118,7 @@ module Decidim
           end
 
           context "and comment contains a user mention" do
-            let(:mentioned_user) { create(:user, organization:) }
+            let(:mentioned_user) { create(:user, :confirmed, organization:) }
             let(:parser_context) { { current_organization: organization } }
             let(:body) { ::Faker::Lorem.paragraph + " @#{mentioned_user.nickname}" }
 
@@ -154,7 +154,7 @@ module Decidim
           end
 
           context "and comment contains a group mention" do
-            let(:mentioned_group) { create(:user_group, organization:) }
+            let(:mentioned_group) { create(:user_group, :confirmed, :verified, organization:) }
             let(:parser_context) { { current_organization: organization } }
             let(:body) { ::Faker::Lorem.paragraph + " @#{mentioned_group.nickname}" }
 

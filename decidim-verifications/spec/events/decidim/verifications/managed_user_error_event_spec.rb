@@ -24,9 +24,5 @@ describe Decidim::Verifications::ManagedUserErrorEvent do
     it "includes managed_user_name" do
       expect(subject.default_i18n_options[:managed_user_name]).to eq(resource.managed_user.name)
     end
-
-    it "includes managed_user_profile" do
-      expect(subject.default_i18n_options[:managed_user_path]).to eq("/profiles/#{resource.managed_user.nickname}")
-    end
   end
 end

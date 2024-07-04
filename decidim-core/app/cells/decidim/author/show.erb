@@ -1,4 +1,4 @@
-<% data = has_tooltip? ? { tooltip: render(:profile_minicard).html_safe } : nil %>
+<% data = has_tooltip? ? { tooltip: profile_minicard.html_safe } : nil %>
 <span class="author" data-author>
   <%= content_tag :span, class: "author__container#{" is-compact" if layout == :compact}", data: do %>
     <% if layout == :compact %>

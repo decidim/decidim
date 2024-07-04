@@ -14,8 +14,8 @@ module Decidim
           body: resource.body.values.first,
           locale: resource.body.keys.first,
           author: {
-            id: resource.author.id,
-            name: resource.author.name
+            id: resource.author&.id,
+            name: resource.author&.name
           },
           alignment: resource.alignment,
           depth: resource.depth,

@@ -74,7 +74,7 @@ describe "show" do
       let(:last_comment) { Decidim::Comments::Comment.last }
 
       before do
-        group = create(:user_group, organization: debate.organization)
+        group = create(:user_group, :confirmed, :verified, organization: debate.organization)
         create(:comment, commentable: debate, author: group)
         create(:comment, commentable: debate)
 

@@ -19,7 +19,7 @@ module Decidim
         end
 
         context "when the author is a user" do
-          let(:author) { create(:user, organization: commentable.organization) }
+          let(:author) { create(:user, :confirmed, organization: commentable.organization) }
           let(:user_group) { nil }
 
           it "returns the user" do
@@ -28,7 +28,7 @@ module Decidim
         end
 
         context "when the author is a user group" do
-          let(:user_group) { create(:user_group, :verified, organization: commentable.organization, users: [create(:user, organization: commentable.organization)]) }
+          let(:user_group) { create(:user_group, :confirmed, :verified, organization: commentable.organization, users: [create(:user, :confirmed, organization: commentable.organization)]) }
           let(:author) { user_group.managers.first }
 
           it "returns the user" do

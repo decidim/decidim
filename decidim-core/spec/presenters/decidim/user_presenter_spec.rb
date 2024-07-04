@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   describe UserPresenter, type: :helper do
     let(:presenter) { described_class.new(user) }
-    let(:user) { build(:user) }
+    let(:user) { build(:user, :confirmed) }
 
     describe "#nickname" do
       subject { presenter.nickname }
@@ -62,7 +62,7 @@ module Decidim
     end
 
     context "when user is officialized" do
-      let(:user) { build(:user, :officialized) }
+      let(:user) { build(:user, :confirmed, :officialized) }
 
       describe "#badge" do
         subject { presenter.badge }
@@ -78,12 +78,12 @@ module Decidim
     end
 
     context "when user is deleted" do
-      let(:user) { build(:user, :deleted) }
+      let(:user) { build(:user, :confirmed, :deleted) }
 
       describe "#profile_path" do
         subject { presenter.profile_path }
 
-        it { is_expected.to eq("") }
+        it { is_expected.to eq("/") }
       end
     end
 
@@ -96,7 +96,7 @@ module Decidim
     end
 
     context "when user is a group" do
-      let(:user) { build(:user_group) }
+      let(:user) { build(:user_group, :confirmed, :verified) }
 
       describe "#profile_path" do
         subject { presenter.profile_path }

@@ -586,7 +586,7 @@ describe "Proposals" do
       let!(:most_endorsed_proposal) { create(:proposal, component:, created_at: 1.month.ago) }
       let!(:endorsements) do
         3.times.collect do
-          create(:endorsement, resource: most_endorsed_proposal, author: build(:user, organization:))
+          create(:endorsement, resource: most_endorsed_proposal, author: build(:user, :confirmed, organization:))
         end
       end
       let!(:less_endorsed_proposal) { create(:proposal, component:) }

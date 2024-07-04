@@ -8,8 +8,8 @@ module Decidim
       describe "call" do
         let(:component) { create(:proposal_component) }
         let(:organization) { component.organization }
-        let!(:current_user) { create(:user, organization:) }
-        let(:follower) { create(:user, organization:) }
+        let!(:current_user) { create(:user, :confirmed, organization:) }
+        let(:follower) { create(:user, :confirmed, organization:) }
         let(:proposal_draft) { create(:proposal, :draft, component:, users: [current_user]) }
         let!(:follow) { create(:follow, followable: current_user, user: follower) }
 
@@ -33,7 +33,7 @@ module Decidim
           end
 
           it "notifies the proposal is published" do
-            other_follower = create(:user, organization:)
+            other_follower = create(:user, :confirmed, organization:)
             create(:follow, followable: component.participatory_space, user: follower)
             create(:follow, followable: component.participatory_space, user: other_follower)
 

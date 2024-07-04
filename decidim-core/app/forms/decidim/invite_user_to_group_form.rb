@@ -11,7 +11,7 @@ module Decidim
     validate :user_exists
 
     def user
-      @user ||= Decidim::User.find_by(nickname: clean_nickname, organization: current_organization)
+      @user ||= Decidim::User.visible.find_by(nickname: clean_nickname, organization: current_organization)
     end
 
     private

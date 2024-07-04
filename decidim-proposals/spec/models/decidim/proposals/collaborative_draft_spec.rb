@@ -35,7 +35,7 @@ module Decidim
       end
 
       describe "#editable_by?" do
-        let(:author) { create(:user, organization:) }
+        let(:author) { create(:user, :confirmed, organization:) }
 
         context "when user is author" do
           let(:collaborative_draft) do
@@ -48,7 +48,7 @@ module Decidim
         end
 
         context "when created from user group and user is admin" do
-          let(:user_group) { create(:user_group, :verified, users: [author], organization: author.organization) }
+          let(:user_group) { create(:user_group, :confirmed, :verified, users: [author], organization: author.organization) }
           let(:collaborative_draft) do
             cd = create(:collaborative_draft, component:, updated_at: Time.current)
             Decidim::Coauthorship.create(author:, decidim_user_group_id: user_group.id, coauthorable: cd)

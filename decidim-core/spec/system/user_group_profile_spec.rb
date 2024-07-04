@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "User group profile" do
   let(:user) { create(:user, :confirmed) }
-  let(:user_group) { create(:user_group, :confirmed, users: [user], organization: user.organization) }
+  let(:user_group) { create(:user_group, :confirmed, :verified, users: [user], organization: user.organization) }
 
   before do
     switch_to_host(user_group.organization.host)
@@ -38,7 +38,7 @@ describe "User group profile" do
     end
 
     context "when displaying followers" do
-      let(:other_user) { create(:user, organization: user_group.organization) }
+      let(:other_user) { create(:user, :confirmed, organization: user_group.organization) }
 
       before do
         create(:follow, user: other_user, followable: user_group)
@@ -57,7 +57,7 @@ describe "User group profile" do
     end
 
     context "when displaying members" do
-      let!(:pending_user) { create(:user, organization: user.organization) }
+      let!(:pending_user) { create(:user, :confirmed, organization: user.organization) }
       let!(:pending_membership) { create(:user_group_membership, user_group:, user: pending_user, role: "requested") }
 
       it "lists the members" do

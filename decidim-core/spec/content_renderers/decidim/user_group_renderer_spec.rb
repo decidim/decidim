@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe ContentRenderers::UserGroupRenderer do
-    let(:user_group) { create(:user_group, :confirmed) }
+    let(:user_group) { create(:user_group, :confirmed, :verified) }
     let(:renderer) { described_class.new(content) }
     let(:presenter) { Decidim::UserGroupPresenter.new(user_group) }
     let(:profile_url) { "http://#{user_group.organization.host}:#{Capybara.server_port}/profiles/#{user_group.nickname}" }

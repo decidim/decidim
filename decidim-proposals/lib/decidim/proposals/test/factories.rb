@@ -356,7 +356,7 @@ FactoryBot.define do
     trait :participant_author do
       after :build do |proposal, evaluator|
         proposal.coauthorships.clear
-        user = build(:user, organization: proposal.component.participatory_space.organization, skip_injection: evaluator.skip_injection)
+        user = build(:user, :confirmed, organization: proposal.component.participatory_space.organization, skip_injection: evaluator.skip_injection)
         proposal.coauthorships.build(author: user)
       end
     end
@@ -364,8 +364,8 @@ FactoryBot.define do
     trait :user_group_author do
       after :build do |proposal, evaluator|
         proposal.coauthorships.clear
-        user = create(:user, organization: proposal.component.participatory_space.organization, skip_injection: evaluator.skip_injection)
-        user_group = create(:user_group, :verified, organization: user.organization, users: [user], skip_injection: evaluator.skip_injection)
+        user = create(:user, :confirmed, organization: proposal.component.participatory_space.organization, skip_injection: evaluator.skip_injection)
+        user_group = create(:user_group, :confirmed, :verified, organization: user.organization, users: [user], skip_injection: evaluator.skip_injection)
         proposal.coauthorships.build(author: user, user_group:)
       end
     end
@@ -444,7 +444,7 @@ FactoryBot.define do
     trait :with_endorsements do
       after :create do |proposal, evaluator|
         5.times.collect do
-          create(:endorsement, resource: proposal, author: build(:user, organization: proposal.participatory_space.organization, skip_injection: evaluator.skip_injection),
+          create(:endorsement, resource: proposal, author: build(:user, :confirmed, organization: proposal.participatory_space.organization, skip_injection: evaluator.skip_injection),
                                skip_injection: evaluator.skip_injection)
         end
       end
@@ -480,7 +480,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     proposal { build(:proposal, skip_injection:) }
-    author { build(:user, organization: proposal.organization, skip_injection:) }
+    author { build(:user, :confirmed, organization: proposal.organization, skip_injection:) }
   end
 
   factory :proposal_amendment, class: "Decidim::Amendment" do
@@ -489,7 +489,7 @@ FactoryBot.define do
     end
     amendable { build(:proposal, skip_injection:) }
     emendation { build(:proposal, component: amendable.component, skip_injection:) }
-    amender { build(:user, organization: amendable.component.participatory_space.organization, skip_injection:) }
+    amender { build(:user, :confirmed, organization: amendable.component.participatory_space.organization, skip_injection:) }
     state { Decidim::Amendment::STATES.keys.sample }
   end
 
@@ -505,7 +505,7 @@ FactoryBot.define do
       end
     end
     proposal { build(:proposal, skip_injection:) }
-    author { build(:user, organization: proposal.organization, skip_injection:) }
+    author { build(:user, :confirmed, organization: proposal.organization, skip_injection:) }
   end
 
   factory :collaborative_draft, class: "Decidim::Proposals::CollaborativeDraft" do
@@ -524,7 +524,7 @@ FactoryBot.define do
 
     after(:build) do |collaborative_draft, evaluator|
       if collaborative_draft.component
-        users = evaluator.users || [create(:user, organization: collaborative_draft.component.participatory_space.organization, skip_injection: evaluator.skip_injection)]
+        users = evaluator.users || [create(:user, :confirmed, organization: collaborative_draft.component.participatory_space.organization, skip_injection: evaluator.skip_injection)]
         users.each_with_index do |user, idx|
           user_group = evaluator.user_groups[idx]
           collaborative_draft.coauthorships.build(author: user, user_group:)
@@ -535,7 +535,7 @@ FactoryBot.define do
     trait :participant_author do
       after :build do |draft, evaluator|
         draft.coauthorships.clear
-        user = build(:user, organization: draft.component.participatory_space.organization, skip_injection: evaluator.skip_injection)
+        user = build(:user, :confirmed, organization: draft.component.participatory_space.organization, skip_injection: evaluator.skip_injection)
         draft.coauthorships.build(author: user)
       end
     end

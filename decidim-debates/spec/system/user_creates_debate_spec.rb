@@ -57,7 +57,7 @@ describe "User creates debate" do
         end
 
         context "when creating as a user group" do
-          let!(:user_group) { create(:user_group, :verified, organization:, users: [user]) }
+          let!(:user_group) { create(:user_group, :confirmed, :verified, organization:, users: [user]) }
 
           it "creates a new debate", :slow do
             visit_component

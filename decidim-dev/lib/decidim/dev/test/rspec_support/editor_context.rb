@@ -5,8 +5,8 @@ shared_context "with editor content containing hashtags and mentions" do
   let(:hashtag2) { create(:hashtag, organization:) }
   let(:user) { create(:user, :confirmed, organization:) }
   let(:user2) { create(:user, :confirmed, organization:) }
-  let(:user_group) { create(:user_group, :confirmed, organization:) }
-  let(:user_group2) { create(:user_group, :confirmed, organization:) }
+  let(:user_group) { create(:user_group, :confirmed, :verified, organization:) }
+  let(:user_group2) { create(:user_group, :confirmed, :verified, organization:) }
 
   let(:html) do
     <<~HTML

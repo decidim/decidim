@@ -6,7 +6,7 @@ describe Decidim::ProfileUpdatedEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.users.profile_updated" }
-  let(:resource) { create(:user) }
+  let(:resource) { create(:user, :confirmed) }
   let(:author) { resource }
   let(:email_subject) { "@#{resource.nickname} updated their profile" }
   let(:email_intro) { "The <a href=\"#{author_presenter.profile_url}\">profile page</a> of #{resource.name} (@#{resource.nickname}), who you are following, has been updated." }
