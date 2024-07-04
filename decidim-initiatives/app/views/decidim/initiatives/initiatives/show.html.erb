@@ -22,27 +22,29 @@ edit_link(
         </section>
       <% end %>
     <% else %>
-      <section class="layout-aside__section layout-aside__buttons">
-        <% if allowed_to? :edit, :initiative, initiative: current_initiative %>
-          <%= link_to t(".edit"),
-                      edit_initiative_path(current_initiative),
-                      class: "button button__xl w-full button__secondary" %>
-        <% end %>
+      <% if allowed_to?(:edit, :initiative, initiative: current_initiative) || allowed_to?(:send_to_technical_validation, :initiative, initiative: current_initiative) %>
+        <section class="layout-aside__section layout-aside__buttons">
+          <% if allowed_to? :edit, :initiative, initiative: current_initiative %>
+            <%= link_to t(".edit"),
+                        edit_initiative_path(current_initiative),
+                        class: "button button__xl w-full button__secondary" %>
+          <% end %>
 
-        <% if allowed_to? :send_to_technical_validation, :initiative, initiative: current_initiative %>
-          <%= link_to t(".send_to_technical_validation"),
-                      send_to_technical_validation_initiative_path(current_initiative),
-                      class: "button button__xl w-full button__secondary mt-4",
-                      data: { confirm: t(".confirm") } %>
-        <% end %>
-      </section>
+          <% if allowed_to? :send_to_technical_validation, :initiative, initiative: current_initiative %>
+            <%= link_to t(".send_to_technical_validation"),
+                        send_to_technical_validation_initiative_path(current_initiative),
+                        class: "button button__xl w-full button__secondary mt-4",
+                        data: { confirm: t(".confirm") } %>
+          <% end %>
+        </section>
+      <% end %>
     <% end %>
 
-    <section class="layout-aside__section">
-      <% unless current_initiative.validating? %>
+    <% unless current_initiative.validating? %>
+      <section class="layout-aside__section">
         <%= render partial: "progress_bar" %>
-      <% end %>
-    </section>
+      </section>
+    <% end %>
 
     <section class="layout-aside__section">
       <%= cell("decidim/nav_links", initiative_nav_items(current_initiative)) %>
