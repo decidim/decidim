@@ -158,6 +158,8 @@ describe "Participatory Process Groups" do
           expect(page).to have_selector("[data-process-hero]")
         end
       end
+
+      it_behaves_like "accessible page"
     end
 
     context "when the proposals block is enabled" do
