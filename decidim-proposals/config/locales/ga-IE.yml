@@ -30,6 +30,12 @@ ga:
         few: Moltaí
         many: Moltaí
         other: Moltaí
+      decidim/proposals/proposal_vote:
+        one: Tacaíocht
+        two: Tacaíochtaí
+        few: Tacaíochtaí
+        many: Tacaíochtaí
+        other: Tacaíochtaí
   decidim:
     admin:
       filters:

@@ -188,6 +188,7 @@ fi:
         export: Vie kaikki
         export-selection: Vie valitut
         import: Tuo
+        manage: Hallitse
         newsletter:
           new: Uusi uutiskirje
         participatory_space_private_user:
@@ -571,6 +572,7 @@ fi:
         appearance: Ulkoasu
         area_types: Aluetyypit
         areas: Alueet
+        components: Komponentit
         configuration: Asetukset
         content: Ilmoitettu sisältö
         external_domain_whitelist: Sallitut ulkoiset verkko-osoitteet

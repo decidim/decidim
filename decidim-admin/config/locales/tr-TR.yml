@@ -131,6 +131,7 @@ tr:
       actions:
         add: Eklemek
         browse: Araştır
+        manage: yönetme
         per_page: Sayfa başına
         permissions: İzinler
         reject: reddetmek

@@ -420,7 +420,6 @@ zh-TW:
         new_meeting: '新會議:'
       layouts:
         live_event:
-          administrate: 管理員
           close: 關閉
           questions: 問題
       mailer:

@@ -80,7 +80,6 @@ es-MX:
   decidim:
     admin:
       actions:
-        manage: Gestionar
         new_initiative_type: Nuevo tipo de iniciativa
         new_initiative_type_scope: Añadir ámbito del tipo de iniciativa
       filters:
@@ -107,7 +106,6 @@ es-MX:
       menu:
         attachments: Adjuntos
         committee_members: Miembros de la comisión
-        components: Componentes
         information: Información
         initiative_type_scopes: Ámbitos del tipo de iniciativa
         initiatives: Iniciativas

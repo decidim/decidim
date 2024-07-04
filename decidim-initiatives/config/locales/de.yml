@@ -80,7 +80,6 @@ de:
   decidim:
     admin:
       actions:
-        manage: Verwalten
         new_initiative_type: Neuer Initiativentyp
         new_initiative_type_scope: Neuer Initiativentyp
       filters:
@@ -107,7 +106,6 @@ de:
       menu:
         attachments: Anhänge
         committee_members: Ausschussmitglieder
-        components: Komponenten
         information: Information
         initiative_type_scopes: Initiativentyp
         initiatives: Initiativen

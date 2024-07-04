@@ -77,7 +77,6 @@ ja:
   decidim:
     admin:
       actions:
-        manage: 管理
         new_initiative_type: 新しいイニシアチブ種別
         new_initiative_type_scope: 新しいイニシアチブ種別のスコープ
       filters:
@@ -104,7 +103,6 @@ ja:
       menu:
         attachments: 添付ファイル
         committee_members: 委員会メンバー
-        components: コンポーネント
         information: 情報
         initiative_type_scopes: イニシアチブ種別のスコープ
         initiatives: イニシアチブ

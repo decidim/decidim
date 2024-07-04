@@ -320,7 +320,6 @@ pt:
             space_type: Espaço participativo
       layouts:
         live_event:
-          administrate: Administradores
           close: Fechar
           questions: Pergunta
       mailer:

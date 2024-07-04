@@ -183,6 +183,7 @@ lt:
         export: Eksportuoti viską
         export-selection: Eksportuoti pasirinktą
         import: Importuoti
+        manage: Valdyti
         newsletter:
           new: Naujas naujienlaiškis
         participatory_space_private_user:
@@ -553,6 +554,7 @@ lt:
         appearance: Išvaizda
         area_types: Erdvės tipas
         areas: Erdvės
+        components: Komponentai
         configuration: Konfigūracija
         content: Turinys, apie kurį pranešta
         help_sections: Pagalbos skyrius

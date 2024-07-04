@@ -151,6 +151,7 @@ it:
         export: Esporta tutto
         export-selection: Esporta selezione
         import: Importazione
+        manage: Gestisci
         newsletter:
           new: Nuova newsletter
         participatory_space_private_user:
@@ -432,6 +433,7 @@ it:
         appearance: Aspetto
         area_types: Tipi di ambito territoriale
         areas: Ambiti territoriali
+        components: Componenti
         configuration: Configurazione
         help_sections: Sezioni di Aiuto
         homepage: Homepage

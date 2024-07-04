@@ -130,9 +130,7 @@ gl:
             collaborative_drafts_enabled: Esquemas colaborativos habilitados
             comments_enabled: Comentarios habilitados
             default_sort_order: Orde predefinido das propostas
-            default_sort_order_help: Predefinido significa que se os apoios están activos, as propostas amosaranse ordenadas ao chou e se están bloqueados, entón serán ordenados de máis a menos apoios.
             default_sort_order_options:
-              default: Predefinida
               most_commented: Máis comentadas
               most_endorsed: Máis apoios
               most_followed: Máis seguidas
@@ -163,9 +161,7 @@ gl:
             comments_blocked: Comentarios bloqueados
             creation_enabled: Os participantes poden crear propostas
             default_sort_order: Orde predefinido das propostas
-            default_sort_order_help: Predefinido significa que se os apoios están activos, as propostas amosaranse ordenadas ao chou e se están bloqueados, entón serán ordenados de máis a menos apoios.
             default_sort_order_options:
-              default: Predefinida
               most_commented: Máis comentadas
               most_endorsed: Máis apoios
               most_followed: Máis seguidas

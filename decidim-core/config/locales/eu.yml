@@ -1225,6 +1225,7 @@ eu:
       no_notifications: Oraindik ez dago jakinarazpenik.
       show:
         missing_event: Aiba, jakinarazpen hau dagoeneko eskuragarri ez dagoen item batena da. Baztertu dezakezu.
+        moderated: Eduki moderatua
     notifications_digest_mailer:
       header:
         daily: Jakinarazpenen eguneroko laburpena
@@ -1911,13 +1912,13 @@ eu:
         decidim_logo: Decidim-en logoa
         decidim_title: Decidim
         download_open_data: Deskargatu Open Data fitxategiak
-        log_in: Sartu
+        log_in: Hasi saioa
         made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.
         resources: Baliabideak
         sign_up: Erregistratu
         terms_and_conditions: Terminoak eta baldintzak
       header:
-        log_in: Sartu
+        log_in: Hasi saioa
         main_menu: Menu nagusia
         user_menu: Erabiltzailearen menua
       impersonation_warning:

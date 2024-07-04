@@ -424,7 +424,6 @@ el:
         new_meeting: 'Νέα συνάντηση:'
       layouts:
         live_event:
-          administrate: Διαχειριστείτε
           close: κλείσιμο
           questions: Ερωτήσεις
       mailer:

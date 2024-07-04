@@ -89,6 +89,8 @@ tr:
           cancelled: İptal edildi
           category: Kategori
           state: Statü
+        index:
+          empty: Henüz bir sıralama yok.
         linked_sortitions:
           selected_proposals: Seçili teklifler
         orders:

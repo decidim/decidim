@@ -110,6 +110,26 @@ tr:
       organizations:
         create:
           error: Yeni bir organizasyon oluştururken bir sorun oluştu.
+          error_invitation: Yeni bir kuruluş oluşturulurken bir sorun oluştu. Kuruluşunuzun yönetici adını gözden geçirin.
+        csp_settings:
+          default_src_hint: |
+            Default-src yönergesi, JavaScript, Görseller, CSS, Yazı Tipleri, AJAX istekleri, Çerçeveler, HTML5 Medya gibi içeriklerin yüklenmesine ilişkin varsayılan politikadır.
+            Platform "'self' 'unsafe-inline'" ekleyecektir, ancak daha fazlasını eklemenize olanak tanır. Emin değilseniz boş bırakın.
+          font_src_hint: |
+            Font-src yönergesi @font-face kullanılarak yüklenebilecek URL'leri kısıtlar.
+            Platform 'kendini' ekleyecektir ancak daha fazlasını eklemenize olanak tanır. Emin değilseniz boş bırakın.
+          frame_src_hint: |
+            Frame-src yönergesi <frame>, <iframe> ve <object> öğeleri kullanılarak yüklenebilecek URL'leri kısıtlar.
+            Platform 'kendini' ekleyecektir ancak daha fazlasını eklemenize olanak tanır. Emin değilseniz boş bırakın.
+          media_src_hint: |
+            Media-src yönergesi <video>, <audio> ve <source> öğeleri kullanılarak yüklenebilecek URL'leri kısıtlar.
+            Platform 'kendini' ekleyecektir ancak daha fazlasını eklemenize olanak tanır. Emin değilseniz boş bırakın.
+          script_src_hint: |
+            Script-src yönergesi <script> öğeleri kullanılarak yüklenebilecek URL'leri kısıtlar.
+            Platform "'self' 'unsafe-inline' 'unsafe-eval'" ekleyecektir, ancak daha fazlasını eklemenize olanak tanır. Emin değilseniz boş bırakın.
+          style_src_hint: |
+            Style-src yönergesi <style> öğeleri kullanılarak yüklenebilecek URL'leri kısıtlar.
+            Platform "'self' 'unsafe-inline'" ekleyecektir, ancak daha fazlasını eklemenize olanak tanır. Emin değilseniz boş bırakın.
         edit:
           secondary_hosts_hint: Her birini yeni bir satıra girin
         file_upload_settings:
@@ -155,6 +175,8 @@ tr:
         smtp_settings:
           fieldsets:
             sender: Gönderen
+          instructions:
+            from_label: 'E-posta göndereni "kuruluşunuzun-adı <kuruluşunuz@example.org>". Kuruluş için tanımlananla aynı adı kullanmak için boş bırakın.'
           placeholder:
             from_email: your-organization@example.org
             from_label: your-organization-name
