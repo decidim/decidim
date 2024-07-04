@@ -3,11 +3,12 @@
 require "spec_helper"
 
 describe "Admin manages proposal answer templates" do
+  let(:description) { "A component" }
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:participatory_space) { create(:participatory_process, title: { en: "A participatory process" }, organization:) }
   let!(:templatable) { create(:proposal_component, name: { en: description }, participatory_space:) }
-  let(:proposal_state_id) { Decidim::Proposals::ProposalState.find_by(component: templatable, token:).id }
+  let(:field_values) { { internal_state: "not_answered" } }
   let!(:template) { create(:template, target: :proposal_answer, organization:, templatable:, field_values:) }
   let(:attributes) { attributes_for(:template, target: :proposal_answer, organization:, templatable:, field_values:) }
 
@@ -44,9 +45,6 @@ describe "Admin manages proposal answer templates" do
   end
 
   describe "creating a proposal_answer_template" do
-    let(:participatory_process) { create(:participatory_process, title: { en: "A participatory process" }, organization:) }
-    let!(:proposals_component) { create(:component, manifest_name: :proposals, name: { en: "A component" }, participatory_space: participatory_process) }
-
     before do
       within ".layout-content" do
         click_link("New")
@@ -79,10 +77,10 @@ describe "Admin manages proposal answer templates" do
           expect(page).to have_i18n_content(scope_name)
           expect(page).to have_content(translated(attributes[:name]))
         end
-      expect(page).to have_admin_callout("successfully")
+        expect(page).to have_admin_callout("successfully")
 
-      visit decidim_admin.root_path
-      expect(page).to have_content("created the #{translated(attributes[:name])} questionnaire template")
+        visit decidim_admin.root_path
+        expect(page).to have_content("created the #{translated(attributes[:name])} questionnaire template")
       end
     end
 
@@ -92,8 +90,6 @@ describe "Admin manages proposal answer templates" do
 
   describe "updating a template" do
     let!(:template) { create(:template, :proposal_answer, organization:) }
-    let(:participatory_process) { create(:participatory_process, title: { en: "A participatory process" }, organization:) }
-    let!(:proposals_component) { create(:component, manifest_name: :proposals, name: { en: "A component" }, participatory_space: participatory_process) }
 
     before do
       visit decidim_admin_templates.proposal_answer_templates_path
@@ -105,9 +101,9 @@ describe "Admin manages proposal answer templates" do
         fill_in_i18n(
           :proposal_answer_template_name,
           "#proposal_answer_template-name-tabs",
-          **attributes[:name].except("machine_translations"))
-          fill_in_i18n_editor(:proposal_answer_template_description, "#proposal_answer_template-description-tabs", **attributes[:description].except("machine_translations")
+          **attributes[:name].except("machine_translations")
         )
+        fill_in_i18n_editor(:proposal_answer_template_description, "#proposal_answer_template-description-tabs", **attributes[:description].except("machine_translations"))
 
         select scope_name, from: :proposal_answer_template_component_constraint
 
@@ -121,10 +117,10 @@ describe "Admin manages proposal answer templates" do
           expect(page).to have_i18n_content(scope_name)
           expect(page).to have_content(translated(attributes[:name]))
         end
-      expect(page).to have_admin_callout("successfully")
+        expect(page).to have_admin_callout("successfully")
 
-      visit decidim_admin.root_path
-      expect(page).to have_content("updated the #{translated(attributes[:name])} questionnaire template")
+        visit decidim_admin.root_path
+        expect(page).to have_content("updated the #{translated(attributes[:name])} questionnaire template")
       end
     end
 
