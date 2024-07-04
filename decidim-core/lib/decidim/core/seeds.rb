@@ -118,12 +118,9 @@ module Decidim
         ].sample
 
         colors = {
-          alert: "#e7131a",
           primary: primary_color,
           secondary: secondary_color,
-          tertiary: tertiary_color,
-          success: "#28a745",
-          warning: "#ffb703"
+          tertiary: tertiary_color
         }
 
         Decidim::Organization.first || Decidim::Organization.create!(
