@@ -4,4 +4,173 @@ bg:
     models:
       decidim/comments/comment_by_followed_user_event: Коментар
       decidim/comments/comment_created_event: Коментар
+      decidim/comments/comment_upvoted_event: Коментарът е одобрен
       decidim/comments/reply_created_event: Отговор на коментар
+      decidim/comments/user_group_mentioned_event: Споменаване
+      decidim/comments/user_mentioned_event: Споменаване
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Коментар
+        other: Коментари
+      decidim/comments/comment_vote:
+        one: Глас
+        other: Гласове
+  decidim:
+    comments:
+      admin:
+        shared:
+          availability_fields:
+            enabled: Коментарите са активирани
+            end_time: Коментарите са активирани до
+            start_time: Коментарите са активирани от
+      comments:
+        create:
+          error: Възникна проблем при създаването на коментара.
+        delete:
+          error: Коментарът не може да бъде изтрит.
+        update:
+          error: Възникна проблем при актуализирането на коментара.
+      comments_title: Коментар
+      last_activity:
+        new_comment: 'Нов коментар:'
+      votes:
+        create:
+          error: Възникна проблем с гласуването за коментара.
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Влезте в профила си</a> или <a href="%{sign_up_url}">се регистрирайте</a>, за да добавите Вашия коментар.
+        form:
+          body:
+            label: Коментар
+            placeholder: Какво мислите за това?
+          form_error: Текстът е задължителен и не може да е по-дълъг от %{length} символа.
+          submit_reply: Публикуване на отговор
+          submit_root_comment: Публикуване на коментар
+          user_group_id:
+            label: Коментирайте като
+        opinion:
+          label: Вашето мнение по тази тема
+          negative: Негативно
+          negative_selected: Вашето мнение по тази тема е негативно
+          neutral: Неутрално
+          neutral_selected: Вашето мнение по тази тема е неутрално
+          positive: Позитивно
+          positive_selected: Вашето мнение по тази тема е позитивно
+        remaining_characters: "Оставащи символи: %{count}"
+        remaining_characters_1: "%{count} оставащ символ"
+        title: Добавете Вашия коментар
+      comment:
+        alignment:
+          against: Против
+          in_favor: Подкрепям
+        cancel_reply: Отказ от отговор
+        comment_label: Коментар %{comment_id}
+        comment_label_reply: Коментар %{comment_id} (отговор на коментар %{parent_comment_id})
+        confirm_destroy: Сигурни ли сте, че искате да изтриете този коментар?
+        controls_label: Контроли за коментари
+        delete: Изтрий
+        deleted_at: Коментарът е изтрит на %{date}
+        deleted_user: Изтрит участник
+        edit: Редактирай
+        edited: Редактирано
+        hide_replies:
+          one: Скриване на отговора
+          other: Скриване на %{count} отговора
+        moderated_at: Коментарът е модериран на %{date}
+        reply: Отговори
+        report:
+          action: Доклад
+          already_reported: Това съдържание вече е докладвано и ще бъде прегледано от администратор.
+          close: Затвори
+          description: Това съдържание неподходящо ли е?
+          details: Допълнителни коментари
+          reasons:
+            does_not_belong: Съдържа незаконна дейност, заплахи за самоубийство, лична информация или нещо друго, което смятате, че не принадлежи на %{organization_name}.
+            offensive: Съдържа расизъм, сексизъм, злословия, лични атаки, заплахи за смърт, заявки за самоубийство или всякаква форма на омраза.
+            spam: Съдържа примамка за кликване, реклама, измами или скриптове.
+          title: Докладване за неподходящо съдържание
+        show_replies:
+          one: Показване на отговора
+          other: Показване на %{count} отговора
+        single_comment_link_title: Вземете линка
+      comment_order_selector:
+        order:
+          best_rated: С най-висока оценка
+          most_discussed: Най-обсъждани
+          older: По-старо
+          recent: Скорошни
+        title: 'Подреди по:'
+      comments:
+        blocked_comments_for_unauthorized_user_warning: Трябва да сте верифицирани, за да коментирате в този момент, но можете да прочетете предишните.
+        blocked_comments_for_user_warning: Понастоящем не можете да коментирате, но можете да прочетете предходните коментари.
+        blocked_comments_warning: Коментарите в момента са деактивирани, но можете да прочетете предишните.
+        comment_details_title: Детайли за коментара
+        loading: Коментарите се зареждат...
+        single_comment_warning: <a href="%{url}">Вижте всички коментари</a>
+        single_comment_warning_title: Виждате единичен коментар
+        title:
+          one: "%{count} коментар"
+          other: "%{count} коментари"
+      down_vote_button:
+        text: Не съм съгласен с този коментар
+      edit_comment_modal_form:
+        close: Затвори
+        form:
+          body:
+            label: Коментар
+            placeholder: Какво мислите за това?
+          submit: Изпрати
+        title: Редактирайте Вашия коментар
+      up_vote_button:
+        text: Съгласен съм с този коментар
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} остави коментар в %{resource_title}. Можете да го прочетете на тази страница:"
+          email_outro: Получихте това известие, защото следвате %{author_name}. Можете да спрете да следвате този потребител от страницата на неговия профил.
+          email_subject: Има нов коментар от %{author_name} в(ъв) %{resource_title}
+          notification_title: Има нов коментар от <a href="%{author_path}">%{author_name} %{author_nickname}</a> в(ъв) <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_intro: 'Групата %{author_name} остави коментар в(ъв) %{resource_title}. Можете да го прочетете на следната страница:'
+          email_outro: Получавате това известие, защото следвате %{author_name}. Можете да спрете да следвате тази група от страницата на профила ѝ.
+          email_subject: Има нов коментар от %{author_name} в(ъв) %{resource_title}
+          notification_title: Има нов коментар от <a href="%{author_path}">%{author_name} %{author_nickname}</a> в(ъв) <a href="%{resource_path}">%{resource_title}</a>.
+        comment_created:
+          email_intro: "%{resource_title} получи коментар. Можете да прочетете коментара на тази страница:"
+          email_outro: Получавате това известие, защото следвате „%{resource_title}“ или неговия автор. Можете да прекратите следването от предходната връзка.
+          email_subject: Има нов коментар от %{author_name} по %{resource_title}
+          notification_title: Има нов коментар от <a href="%{author_path}">%{author_name} %{author_nickname}</a> по <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: Вашият коментар в „%{resource_title}“ беше гласуван против. Вече има общо %{upvotes} гласа за и %{downvotes} гласа против.
+          email_outro: Получихте това известие, защото вие сте авторът на този коментар.
+          email_subject: Вашият коментар в „%{resource_title}“ беше гласуван против.
+          notification_title: Вашият <a href="%{resource_path}">коментар</a> в „%{resource_title}“ беше гласуван против. Вече има общо %{upvotes} гласа за и %{downvotes} гласа против.
+        comment_upvoted:
+          email_intro: Коментарът ви в „%{resource_title}“ беше гласуван в подкрепа. Вече има общо %{upvotes} гласа за и %{downvotes} гласа против.
+          email_outro: Получихте това известие, защото вие сте авторът на този коментар.
+          email_subject: Коментарът ви в „%{resource_title}“ беше гласуван в подкрепа.
+          notification_title: Вашият <a href="%{resource_path}">коментар</a> в „%{resource_title}“ получи положителен глас. Вече има общо %{upvotes} гласа за и %{downvotes} гласа против.
+        reply_created:
+          email_intro: "%{author_name} отговори на вашия коментар в %{resource_title}. Можете да го прочетете на тази страница:"
+          email_outro: Получавате това известие, защото някой отговори на коментара Ви.
+          email_subject: "%{author_name} отговори на коментара Ви по %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> отговори на коментара Ви по <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: Група, към която принадлежите, беше спомената
+          email_outro: Получавате това известие, защото сте член на групата %{group_name}, която беше спомената в(ъв) %{resource_title}.
+          email_subject: Бяхте споменати в(ъв) %{resource_title} като член на %{group_name}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> Ви спомена в(ъв) <a href="%{resource_path}">%{resource_title}</a> като член на <a href="%{group_path}">%{group_name} %{group_nickname}</a>
+        user_mentioned:
+          email_intro: Бяхте споменати
+          email_outro: Получавате това известие, защото бяхте споменати в(ъв) %{resource_title}.
+          email_subject: Бяхте споменати в(ъв) %{resource_title}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> Ви спомена в(ъв) <a href="%{resource_path}">%{resource_title}</a>
+    metrics:
+      comments:
+        description: Брой коментари генерирани от участници
+        object: коментари
+        title: Коментари
+  errors:
+    messages:
+      cannot_have_comments: не може да има коментари

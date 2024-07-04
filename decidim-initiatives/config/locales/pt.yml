@@ -63,7 +63,6 @@ pt:
   decidim:
     admin:
       actions:
-        manage: Gerir
         new_initiative_type: Novo tipo de iniciativa
       filters:
         initiatives:
@@ -85,7 +84,6 @@ pt:
       menu:
         attachments: Anexos
         committee_members: Membros do Comité
-        components: Componentes
         information: Informação
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa

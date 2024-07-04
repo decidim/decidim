@@ -71,6 +71,7 @@ tr:
     accessibility:
       external_link: Dış bağlantı
       logo: "%{organization} resmi logosu"
+      opens_in_new_tab: Yeni Seçmede Aç
       skip_button: Ana içeriğe geç
     account:
       delete:
@@ -214,6 +215,7 @@ tr:
           '1': Değişikliğinizi oluşturun
           '2': Değişikliğinizi karşılaştırın
           '3': Değişikliğinizi tamamlayın
+          '4': Değişikliğinizi yayınlayın
     anonymous_user: Anonim
     application:
       document:
@@ -415,6 +417,7 @@ tr:
           hide_password: Şifrenizi Gizleyin
           show_password: Şifreyi Göster
           shown_password: Şifreniz Gösteriliyor
+        placeholder_email: selam@example.org
     doorkeeper:
       authorizations:
         new:
@@ -745,6 +748,7 @@ tr:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
           greeting: Merhaba, %{recipient}!
           intro: "%{manager}, %{group} adına yeni bir görüşme başlattı. Görmek için buraya tıklayın:"
+          outro: Platformun tadını çıkarın!
           subject: "%{manager}, %{group} olarak yeni bir görüşme başlattı"
         comanagers_new_message:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
@@ -754,20 +758,24 @@ tr:
         new_conversation:
           greeting: Merhaba %{recipient}!
           intro: "%{sender} sizinle yeni bir sohbet başlattı. Görmek için buraya tıklayın:"
+          outro: Platformun tadını çıkarın!
           subject: "%{sender} sizinle bir konuşma başlattı"
         new_group_conversation:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
           greeting: Merhaba, %{recipient}!
           intro: "%{sender}, %{group} adına yeni bir görüşme başlattı. Görmek için buraya tıklayın:"
+          outro: Platformun tadını çıkarın!
           subject: "%{sender}, %{group} olarak yeni bir görüşme başlattı"
         new_group_message:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
           greeting: Merhaba, %{recipient}!
           intro: "%{sender}, %{group} grubuyla bir görüşmede yeni mesajlar yayınladı. Görmek için buraya tıklayın:"
+          outro: Platformun tadını çıkarın!
           subject: "%{group}, %{sender} adlı kişiden yeni mesajlar aldı"
         new_message:
           greeting: Merhaba %{recipient}!
           intro: "%{sender}, konuşmanıza yeni mesajlar gönderdi. Görmek için buraya tıklayın:"
+          outro: Platformun tadını çıkarın!
           subject: '%{sender}, size yeni mesaj gönderdi'
       conversations:
         add_conversation_users:
@@ -843,6 +851,8 @@ tr:
         subject: '%{organization_name} ile ilgili bilgileri almaya devam etmek istiyor musunuz?'
     notifications:
       no_notifications: Henüz bildirim yok.
+      show:
+        moderated: İçerik Denetlendi
     notifications_settings:
       show:
         direct_messages: Herkesten doğrudan mesaj alın
@@ -1018,6 +1028,7 @@ tr:
         filters:
           areas: alanlar
           select_an_area: Bir bölge seçin
+      progress: "Süreç\nİlerleme"
       reference:
         reference: 'Referans: %{reference}'
       represent_user_group:
@@ -1181,13 +1192,13 @@ tr:
     sessions:
       already_signed_out: Başarıyla Çıkış Yapıldı
       new:
-        log_in: Giriş Yapın
+        log_in: "Giriş \nGiriş Yapın "
       signed_out:
     shared:
       links:
         back: Geri
         forgot_your_password: Parolanızı mı unuttunuz?
-        log_in: Giriş Yapın
+        log_in: "Giriş \nGiriş Yapın "
         log_in_with_provider: '%{provider} ile giriş yapın'
         sign_up: kaydol
       minimum_password_length:
@@ -1228,6 +1239,8 @@ tr:
     timestamp_error_message: Üzgünüm, bu çok hızlıydı! Lütfen yeniden gönderin.
   layouts:
     decidim:
+      announcements:
+        view_less: Daha Az Göster
       data_consent:
         details:
           columns:
@@ -1238,11 +1251,11 @@ tr:
         cc_by_license: Kar Amaçsız Lisanslama (Creative Commons License)
         decidim_logo: Decidim Logo
         download_open_data: Açık Veri dosyalarını indir
-        log_in: Giriş Yapın
+        log_in: "Giriş \nGiriş Yapın "
         made_with_open_source: Web sitesi <a target="_blank" href="https://github.com/decidim/decidim">ücretsiz yazılımla yapılmıştır</a>.
         sign_up: Kaydol
       header:
-        log_in: Giriş Yapın
+        log_in: "Giriş \nGiriş Yapın "
       impersonation_warning:
         close_session: Oturumu kapat
         description_html: Kullanıcının kimliğine bürünüyorsunuz <b>%{user_name}</b>.
@@ -1252,6 +1265,9 @@ tr:
       notifications_dashboard:
         mark_all_as_read: Tümünü okundu olarak işaretle
         mark_as_read: Okundu olarak işaretle
+      shared:
+        layout_item:
+          prev: Önceki
       social_media_links:
         facebook: "Facebook'ta %{organization}"
         github: "GitHub'da %{organization}"
@@ -1331,6 +1347,7 @@ tr:
       long_dashed: "%Y-%m-%d %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)\n%Gün-%Ay-%Yıl %Saat:%Dakika %p %Zone (GMT %:z)"
   versions:
     directions:
       left: Silme
@@ -1342,6 +1359,7 @@ tr:
       option_split: Yan yana
       option_unescaped: Yakalandı
       option_unified: Birleşik
+      toggle: Görünümü değiştir
   views:
     pagination:
       next_title: Sonraki sayfaya git

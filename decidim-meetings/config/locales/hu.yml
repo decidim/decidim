@@ -363,7 +363,6 @@ hu:
         open_in_new_tab: Megnyitás új fülön
       layouts:
         live_event:
-          administrate: Admin
           close: bezár
           questions: Kérdések
       mailer:

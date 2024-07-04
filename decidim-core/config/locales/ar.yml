@@ -1226,7 +1226,6 @@ ar:
           past: الماضي
       filters_small_view:
         filter: منقي
-        filter_and_search: التصفية والبحث
         filter_by: مصنف بواسطة
       results:
         view_all: عرض الكل (%{count})
@@ -1454,7 +1453,6 @@ ar:
       links:
         back: الى الخلف
         forgot_your_password: نسيت رقمك السري؟
-        log_in: تسجيل الدخول
         log_in_with_provider: تسجيل الدخول باستخدام %{provider}
         sign_up: انشئ حسابًا
       minimum_password_length:
@@ -1615,13 +1613,11 @@ ar:
         decidim_logo: شعار Decidim
         decidim_title: Decidim
         download_open_data: تحميل ملفات البيانات المفتوحة
-        log_in: تسجيل الدخول
         made_with_open_source: موقع تم إنشاؤه <a target="_blank" href="https://github.com/decidim/decidim">بالبرمجيات الحرة</a>.
         resources: الموارد
         sign_up: انشئ حسابًا
         terms_and_conditions: الشروط والأحكام
       header:
-        log_in: تسجيل الدخول
         main_menu: القائمة الرئيسية
         user_menu: قائمة المستخدم
       impersonation_warning:

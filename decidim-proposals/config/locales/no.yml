@@ -132,9 +132,7 @@
             comments_enabled: Kommentarer aktivert
             comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
             default_sort_order: Standard sortering av forslag
-            default_sort_order_help: Standardverdien betyr at hvis støtte er aktivert, vil forslagene bli vist i tilfeldig rekkefølge og hvis støttene er blokkert, vil de bli sortert etter de mest støttede forslagene.
             default_sort_order_options:
-              default: Standardverdi
               most_commented: Mest kommenterte
               most_endorsed: Mest påtegnet
               most_followed: Mest fulgte
@@ -184,9 +182,7 @@
             comments_blocked: Kommentarer blokkert
             creation_enabled: Deltakerne kan opprette forslag
             default_sort_order: Standard sortering av forslag
-            default_sort_order_help: Standard betyr at hvis støttene er aktivert, vil forslagene bli vist i tilfeldig rekkefølge, og hvis støttene er blokkert, vil de bli sortert etter de mest støttede støttene.
             default_sort_order_options:
-              default: Standardverdi
               most_commented: Mest kommentert
               most_endorsed: Mest påtegnet
               most_followed: Mest fulgt

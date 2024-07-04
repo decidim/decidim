@@ -188,6 +188,7 @@ es-PY:
         export: Exportar todo
         export-selection: Exportar selección
         import: Importar
+        manage: Gestionar
         newsletter:
           new: Nuevo boletín
         participatory_space_private_user:
@@ -571,6 +572,7 @@ es-PY:
         appearance: Apariencia
         area_types: Tipos de área
         areas: Áreas
+        components: Componentes
         configuration: Configuración
         content: Contenido reportado
         external_domain_whitelist: Dominios externos permitidos

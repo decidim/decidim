@@ -188,6 +188,7 @@ cs:
         export: Exportovat vše
         export-selection: Exportovat výběr
         import: Importovat
+        manage: Spravovat
         newsletter:
           new: Nový zpravodaj
         participatory_space_private_user:

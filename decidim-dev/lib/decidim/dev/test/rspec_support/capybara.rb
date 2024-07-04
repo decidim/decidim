@@ -121,6 +121,7 @@ end
 Capybara.server = :puma, server_options
 
 Capybara.server_errors = [SyntaxError, StandardError]
+Capybara.save_path = Rails.root.join("tmp/screenshots")
 
 Capybara.default_max_wait_time = 10
 

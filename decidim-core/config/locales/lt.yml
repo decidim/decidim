@@ -614,6 +614,7 @@ lt:
       registrations:
         new:
           already_have_an_account?: Jau turite paskyrą?
+          log_in: Prisijungti
           newsletter: Kartais gauti naujienlaiškį su aktualia informacija
           newsletter_title: Leidimas susisiekti
           sign_up: Užsiregistruoti
@@ -1447,7 +1448,6 @@ lt:
           past: Praėję
       filters_small_view:
         filter: Filtruoti
-        filter_and_search: Filtruoti ir ieškoti
         filter_by: Filtruoti pagal
       results:
         view_all: Peržiūrėti viską (%{count})
@@ -1700,12 +1700,16 @@ lt:
       signed_up_but_unconfirmed: Žinutė su patvirtinimo nuoroda buvo išsiųsta į jūsų el. paštą. Prašome sekite nuorodą norėdami aktyvuoti paskyrą.
       update_needs_confirmation: Sėkmingai atnaujinote paskyrą, bet turime patvirtinti jūsų naują el. pašto adresą. Prašome patikrinkite savo el. paštą ir spustelėkite patvirtinimo nuorodą.
       updated: Jūsų paskyra atnaujinta.
+    sessions:
+      new:
+        log_in: Prisijungti
     shared:
       links:
         back: Atgal
         didn_t_receive_confirmation_instructions: Negavote patvirtinimo nurodymų?
         didn_t_receive_unlock_instructions: Negavote atblokavimo nurodymų?
         forgot_your_password: Pamiršote savo slaptažodį?
+        log_in: Prisijungti
         sign_up: Užsiregistruoti
       minimum_password_length:
         one: "(bent %{count} simbolis)"
@@ -1900,11 +1904,13 @@ lt:
         decidim_logo: '„Decidim“ logotipas'
         decidim_title: Decidim
         download_open_data: Parsisiųsti atvirųjų duomenų rinkmenas
+        log_in: Prisijungti
         made_with_open_source: Interneto svetainė sukurta naudojant <a target="_blank" href="https://github.com/decidim/decidim">atvirą programinę įrangą</a>.
         resources: Ištekliai
         sign_up: Registruotis
         terms_and_conditions: Nuostatos ir sąlygos
       header:
+        log_in: Prisijungti
         main_menu: Pagrindinis meniu
         user_menu: Naudotojo meniu
       impersonation_warning:

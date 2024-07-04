@@ -143,6 +143,7 @@ ca:
           show: Mostra la configuració avançada
         create:
           error: S'ha produït un error en crear una nova organització.
+          error_invitation: Hi ha hagut un problema en crear una nova organització. Revisa el nom de l'administradora de l'organització.
           success_html: |
             <p>
             Organitzció creada correctament.

@@ -62,13 +62,11 @@ lv:
   decidim:
     admin:
       actions:
-        manage: Pārvaldīt
         new_initiative_type: Jauns iniciatīvas veids
       filters:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Meklēt %{collection} pēc nosaukuma, apraksta, ID vai autora vārda.
       menu:
-        components: Komponenti
         information: Informācija
         initiatives: Iniciatīvas
         initiatives_types: Iniciatīvu veidi
