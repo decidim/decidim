@@ -13,7 +13,7 @@ describe "Admin manages participatory space private users via csv import" do
     login_as user, scope: :user
     visit decidim_admin_assemblies.edit_assembly_path(assembly)
     within_admin_sidebar_menu do
-      click_link "Private users"
+      click_link "Private participants"
     end
     click_link "Import via CSV"
   end
