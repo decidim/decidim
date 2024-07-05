@@ -159,7 +159,7 @@ describe "Admin manages proposals states" do
     end
 
     it "updates the label and announcement previews" do
-      within "tr", text: translated(state.title) do
+      within "tr", text: translated(proposal_state.title) do
         click_on "Edit"
       end
 
