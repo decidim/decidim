@@ -179,7 +179,6 @@ it:
           categories: Categorie
           components: Componenti
           moderations: Moderazione
-          private_users: Utenti privati
         assemblies_types: Tipi di assemblea
       models:
         assemblies_types:
