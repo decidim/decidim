@@ -23,7 +23,7 @@ shared_examples "manage registration types examples" do
     end
 
     it "creates a conference registration types", versioning: true do
-      click_on "New registration type"
+      click_on "New Registration type"
 
       within ".new_registration_type" do
         fill_in_i18n(:conference_registration_type_title, "#conference_registration_type-title-tabs", **attributes[:title].except("machine_translations"))

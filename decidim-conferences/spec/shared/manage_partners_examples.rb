@@ -26,7 +26,7 @@ shared_examples "manage partners examples" do
     end
 
     it "creates a conference partner", versioning: true do
-      click_on "New partner"
+      click_on "New Partner"
       dynamically_attach_file(:conference_partner_logo, image1_path)
 
       within ".new_partner" do

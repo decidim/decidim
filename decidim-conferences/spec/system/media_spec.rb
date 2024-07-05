@@ -86,7 +86,7 @@ describe "Conferences", type: :system do
 
     it "shows them ordered" do
       within "div.wrapper .documents" do
-        expect(decidim_escape_translated(first_document.title).gsub("&quot;", "\"")).to appear_before(decidim_escape_translated(last_document.title).gsub("&quot;", "\""))
+        expect(decidim_escape_translated(first_document.title).gsub("&#39;", "\'")).to appear_before(decidim_escape_translated(last_document.title).gsub("&#39;", "\'"))
       end
 
       within "div.wrapper .images" do
