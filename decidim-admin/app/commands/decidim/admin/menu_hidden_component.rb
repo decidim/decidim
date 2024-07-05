@@ -15,7 +15,7 @@ module Decidim
 
       # Public: Publishes the Component.
       #
-      # Broadcasts :ok if published, :invalid otherwise.
+      # Broadcasts :ok if disabled visibility, :invalid otherwise.
       def call
         component.update!(visible: false)
 

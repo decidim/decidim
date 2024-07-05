@@ -2,8 +2,7 @@
 
 module Decidim
   module Admin
-    # A command that reorders a collection of content blocks
-    # the ones that might be missing.
+    # A command that reorders a collection of components
     class ReorderComponents < Decidim::Command
       # Public: Initializes the command.
       #
