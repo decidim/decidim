@@ -31,7 +31,7 @@ module Decidim
       attr_reader :components, :order
 
       def valid_params?
-        order.present? && components.present? && order.size == components.size
+        order.present? && components.present?
       end
 
       def reorder_components
