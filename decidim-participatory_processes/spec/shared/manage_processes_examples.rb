@@ -119,7 +119,7 @@ shared_examples "manage processes examples" do
       expect(page).to have_admin_callout("successfully")
 
       within ".container" do
-        expect(page).to have_selector("input[value='#{translated(attributes[:title])}']")
+        expect(page).to have_selector(%{input[value="#{translated(attributes[:title])}"]})
         expect(page).to have_css("img[src*='#{image3_filename}']")
       end
 

@@ -35,7 +35,7 @@ describe "Edit a page", type: :system do
 
       visit_component
 
-      expect(page).to have_content(translated(component.name))
+      expect(page).to have_content(translated(component.name).upcase)
 
       visit decidim_admin.root_path
       expect(page).to have_content("updated the #{translated(component.name)} page")
