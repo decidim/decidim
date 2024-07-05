@@ -209,7 +209,6 @@ ca:
           info: Sobre aquesta assemblea
           landing_page: Pàgina d'inici
           moderations: Moderacions
-          private_users: Participants privades
           see_assembly: Veure l'assemblea
         assemblies_types: Tipus d'assemblees
       models:
