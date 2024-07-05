@@ -39,9 +39,9 @@ shared_examples_for "has attachment collections" do
 
     it "shows them ordered" do
       within ".attachments .documents" do
-        expect(decidim_escape_translated(first_attachment_collection.name).gsub("&quot;",
-                                                                                "\"")).to appear_before(decidim_escape_translated(last_attachment_collection.name).gsub("&quot;",
-                                                                                                                                                                        "\""))
+        expect(decidim_escape_translated(first_attachment_collection.name).gsub("&#39;",
+                                                                                "\'")).to appear_before(decidim_escape_translated(last_attachment_collection.name).gsub("&#39;",
+                                                                                                                                                                        "\'"))
       end
     end
   end
