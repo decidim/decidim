@@ -188,7 +188,6 @@ tr:
           categories: Kategoriler
           components: Bileşenler
           moderations: Yönetim
-          private_users: Özel kullanıcılar
         assemblies_types: Kurul türü
       models:
         assemblies_types:
