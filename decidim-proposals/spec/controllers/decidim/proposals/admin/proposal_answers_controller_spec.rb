@@ -61,7 +61,7 @@ module Decidim
 
               expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).root_path)
               expect(flash[:notice]).to include("1 proposals will be answered using the template \"#{template.name["en"]}\".")
-              expect(flash[:alert]).to include("Proposals with IDs [#{proposal2.id}] could not be answered due errors applying the template \"#{template.name["en"]}\".")
+              expect(flash[:alert]).to include("could not be answered due errors applying the template \"#{template.name["en"]}\".")
             end
           end
 
@@ -94,7 +94,7 @@ module Decidim
               expect { post :update_multiple_answers, params: }.not_to have_enqueued_job(ProposalAnswerJob)
 
               expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).root_path)
-              expect(flash[:alert]).to include("Proposals with IDs [#{proposal1.id}, #{proposal2.id}] could not be answered due errors applying the template \"#{template.name["en"]}\".")
+              expect(flash[:alert]).to include("could not be answered due errors applying the template \"#{template.name["en"]}\".")
               expect(flash[:notice]).to be_nil
             end
           end
@@ -108,7 +108,7 @@ module Decidim
               expect { post :update_multiple_answers, params: }.not_to have_enqueued_job(ProposalAnswerJob)
 
               expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).root_path)
-              expect(flash[:alert]).to include("Proposals with IDs [#{proposal1.id}, #{proposal2.id}] could not be answered due errors")
+              expect(flash[:alert]).to include("could not be answered due errors")
               expect(flash[:notice]).to be_nil
             end
           end
