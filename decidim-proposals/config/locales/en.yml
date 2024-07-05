@@ -500,7 +500,6 @@ en:
             bulk_answer_error: Proposals with IDs [%{proposals}] could not be answered due errors applying the template "%{template}". You can check that the answer template matches the expected format for this component by applying it individually.
             bulk_answer_success: '%{count} proposals will be answered using the template "%{template}". Please wait a few minutes and refresh the page to see the updates.'
             invalid: There has been a problem answering this proposal.
-            missing_cost_data: Please fill in the required cost field for all selected proposals.
             success: Proposal successfully answered.
           create:
             invalid: There has been a problem creating this proposal.
