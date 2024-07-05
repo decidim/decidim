@@ -6,7 +6,7 @@ shared_examples "manage assemblies" do
     let(:image3_path) { Decidim::Dev.asset(image3_filename) }
 
     let(:assembly_parent_id_options) { page.find("#assembly_parent_id").find_all("option").map(&:value) }
-    let(:attributes) { attributes_for(:assembly, :with_content_blocks, organization: organization, blocks_manifests: [:announcement]) }
+    let(:attributes) { attributes_for(:assembly, organization: organization) }
 
     before do
       click_link translated(assembly.title)
@@ -34,21 +34,17 @@ shared_examples "manage assemblies" do
         fill_in_i18n(:assembly_local_area, "#assembly-local_area-tabs", **attributes[:local_area].except("machine_translations"))
         fill_in_i18n(:assembly_target, "#assembly-target-tabs", **attributes[:target].except("machine_translations"))
 
-        fill_in :assembly_creation_date_date, with: nil, fill_options: { clear: :backspace }
-        fill_in :assembly_included_at_date, with: nil, fill_options: { clear: :backspace }
-        fill_in :assembly_duration_date, with: nil, fill_options: { clear: :backspace }
-        fill_in :assembly_closing_date_date, with: nil, fill_options: { clear: :backspace }
-        fill_in_datepicker :assembly_creation_date_date, with: Date.yesterday.strftime("%d/%m/%Y")
-        fill_in_datepicker :assembly_included_at_date, with: Date.current.strftime("%d/%m/%Y")
-        fill_in_datepicker :assembly_duration_date, with: Date.tomorrow.strftime("%d/%m/%Y")
-        fill_in_datepicker :assembly_closing_date_date, with: Date.tomorrow.strftime("%d/%m/%Y")
+        fill_in :assembly_creation_date, with: Date.yesterday.strftime("%d/%m/%Y"), fill_options: { clear: :backspace }
+        fill_in :assembly_included_at, with: Date.current.strftime("%d/%m/%Y"), fill_options: { clear: :backspace }
+        fill_in :assembly_duration, with: Date.tomorrow.strftime("%d/%m/%Y"), fill_options: { clear: :backspace }
+        fill_in :assembly_closing_date, with: Date.tomorrow.strftime("%d/%m/%Y"), fill_options: { clear: :backspace }
         find("*[type=submit]").click
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within ".container" do
-        expect(page).to have_selector("input[value='#{translated(attributes[:title])}']")
+        expect(page).to have_selector(%(input[value="#{translated(attributes[:title])}"]))
         expect(page).to have_css("img[src*='#{image3_filename}']")
         expect(page).to have_css("input[value='#{Date.yesterday}']")
         expect(page).to have_css("input[value='#{Date.current}']")
