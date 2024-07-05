@@ -1704,8 +1704,8 @@ en:
         message: Your account has been locked due to an excessive amount of unsuccessful log in attempts.
         subject: Unlock instructions
     omniauth_callbacks:
+      add_tos_errors: Terms of service must be accepted in order to sign up.
       failure: Could not authenticate you from %{kind} because "%{reason}".
-      need_tos: Terms of service must be accepted in order to sign up.
       success: Successfully authenticated from %{kind} account.
     passwords:
       edit:

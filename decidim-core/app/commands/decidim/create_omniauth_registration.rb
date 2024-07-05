@@ -37,7 +37,7 @@ module Decidim
 
         broadcast(:ok, @user)
       rescue NeedTosAcceptance
-        broadcast(:need_tos, @user)
+        broadcast(:add_tos_errors, @user)
       rescue ActiveRecord::RecordInvalid => e
         broadcast(:error, e.record)
       end
