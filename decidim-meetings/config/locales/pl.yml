@@ -456,6 +456,7 @@ pl:
         new_meeting_at_html: "<span>Nowe spotkanie %{link}</span>"
       layouts:
         live_event:
+          administrate: Administruj
           close: zamknij
           questions: Pytania
       mailer:
@@ -575,6 +576,7 @@ pl:
             many: "Pozostało %{count} miejsc"
             other: "Pozostało %{count} miejsc"
           view: Zobacz
+          withdraw_meeting: Wycofaj spotkanie
         update:
           invalid: Wystąpił błąd podczas aktualizowania spotkania.
           success: Spotkanie zostało zaktualizowane.
@@ -595,6 +597,7 @@ pl:
           fields:
             closed: Zakończone
             end_time: Data zakończenia
+            id: Numer ID
             map: Mapa
             official_meeting: Spotkanie oficjalne
             start_time: Data rozpoczęcia
@@ -603,6 +606,8 @@ pl:
         questions:
           closed_question:
             question_results: Wyniki wyborów
+          index:
+            empty_questions: Podczas tego spotkania niektóre pytania zostaną wysłane i będziesz mógł na nie odpowiedzieć. Będą one wyświetlane tutaj.
           index_admin:
             edit: Edytuj w panelu administratora
             question: Pytanie
