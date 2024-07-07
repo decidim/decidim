@@ -268,6 +268,7 @@ pl:
             invalid: Wystąpił błąd podczas aktualizowania tego programu
             success: Program został zaktualizowany
         exports:
+          answers: Odpowiedzi
           meeting_comments: Komentarze
           meetings: Spotkania
           registrations: Rejestracje
@@ -561,9 +562,16 @@ pl:
           close_meeting: Zamknij spotkanie
           contributions: Liczba wsparć
           date: Data
+          edit_close_meeting: Edytuj raport ze spotkania
           edit_meeting: Edytuj spotkanie
+          join: Dołącz do spotkania
           leave: Anuluj swoją rejestrację
+          leave_confirmation: Czy na pewno chcesz anulować rejestrację na to spotkanie?
+          link_available_soon: Link dostępny wkrótce
+          link_closed: Link do dołączenia do spotkania będzie dostępny na kilka minut przed jego uruchomieniem
+          live_event: To spotkanie ma teraz miejsce
           meeting_minutes: Protokół ze spotkania
+          micro_camera_permissions_warning: Gdy klikniesz poniższy przycisk, zostaniesz poproszony(a) o uprawnienia mikrofonu i/lub kamery i dołączysz do wideokonferencji
           no_slots_available: Brak dostępnych miejsc
           organizations: Organizacje biorące udział
           registration_code_help_text: Twój kod rejestracyjny
@@ -576,6 +584,9 @@ pl:
             many: "Pozostało %{count} miejsc"
             other: "Pozostało %{count} miejsc"
           view: Zobacz
+          visit_finished: Zobacz poprzednie spotkanie
+          withdraw_btn_hint: Możesz wycofać swoje spotkanie, jeśli zmienisz zdanie. Spotkanie nie zostanie usunięte, pojawi się na liście wycofanych spotkań.
+          withdraw_confirmation_html: Czy na pewno chcesz wycofać to spotkanie?<br><br><strong>Tej akcji nie można anulować!</strong>
           withdraw_meeting: Wycofaj spotkanie
         update:
           invalid: Wystąpił błąd podczas aktualizowania spotkania.
