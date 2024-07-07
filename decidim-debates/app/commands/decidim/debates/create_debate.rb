@@ -76,7 +76,7 @@ module Decidim
         follow_form = Decidim::FollowForm
                       .from_params(followable_gid: resource.to_signed_global_id.to_s)
                       .with_context(current_user: resource.author)
-        Decidim::CreateFollow.call(follow_form, resource.author)
+        Decidim::CreateFollow.call(follow_form)
       end
     end
   end
