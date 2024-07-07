@@ -344,7 +344,11 @@ pl:
     application:
       document:
         download: Pobierz plik
+        visit_link: Odwiedź link
       documents:
+        component_documents:
+          dummy: Dokumenty komponentu dummy
+          meetings: Dokumenty spotkań
         documents: Dokumenty
         related_documents: Materiały
       photo:
@@ -868,6 +872,11 @@ pl:
         button: Przestań obserwować
         error: Nastąpił błąd podczas cofania obserwowania tego zasobu.
     forms:
+      attachment_link:
+        explanation: Wytyczne dotyczące linków do załącznika
+        help_messages:
+          - Akceptowane są tylko poprawne formaty URL.
+          - Pamiętaj, że linki muszą być publiczne, aby wszyscy uczestnicy mieli do nich dostęp.
       errors:
         decidim/user:
           password: Hasło jest za krótkie.
@@ -903,6 +912,7 @@ pl:
           filename: Nazwa pliku
           remove: Usuń
           replace: Zamień
+          save: Zapisz
           title: Tytuł
           title_required: Tytul jest obowiazkowy!
           uploaded: Przesłano
@@ -1026,6 +1036,7 @@ pl:
           content: "<p>W %{organization} możesz brać udział i decydować o różnych tematach, poprzez przestrzenie widoczne w górnym menu: Procesy, Zespoły, Inicjatywy, Konsultacje.</p> <p>W ramach każdego z nich znajdziesz różne opcje uczestnictwa: składanie propozycji - indywidualnie lub wspólnie z innymi osobami - uczestnictwo w debatach, nadawanie priorytetów projektom do realizacji, uczestnictwo w spotkaniach twarzą w twarz i inne działania.</p>\n"
           title: Co mogę zrobić w %{organization}?
         description: Przeczytaj więcej o %{organization}.
+        title: Ogólne
     last_activities:
       all: Wszystkie typy aktywności
       index:
@@ -1221,9 +1232,11 @@ pl:
         same_language: Treść została zamieszczona w preferowanym przez Ciebie języku (%{language}), dlatego w tej wiadomości e-mail nie wyświetlono żadnego automatycznego tłumaczenia.
         translated_text: 'Automatycznie przetłumaczony tekst:'
     notifications:
+      action_error: Wystąpił problem z aktualizacją powiadomień.
       no_notifications: Brak powiadomień.
       show:
         missing_event: Ups, to powiadomienie należy do elementu, który nie jest już dostępny. Możesz je odrzucić.
+        moderated: Zawartość moderowana
     notifications_digest_mailer:
       header:
         daily: Podsumowanie codziennych powiadomień
@@ -1428,6 +1441,7 @@ pl:
           past: Przeszły
       filters_small_view:
         filter: Filtr
+        filter_and_search: Filtruj i szukaj
         filter_by: Filtruj według
       results:
         view_all: Zobacz wszystko (%{count})
@@ -1920,7 +1934,9 @@ pl:
         made_with_open_source: Strona internetowa powstała z użyciem <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
         resources: Zasoby
         sign_up: Zarejestruj się
+        terms_of_service: Regulamin świadczenia usług
       header:
+        log_in: Logowanie
         main_menu: Menu główne
         user_menu: Menu użytkownika
       impersonation_warning:
