@@ -178,6 +178,11 @@ pl:
         finished_message: Zakończyłeś proces głosowania. Dziękujemy za udział!
         highlighted_cta: Głosuj na %{name}
         if_change_opinion: W przypadku zmiany zdania można
+        orders:
+          highest_cost: Najwyższy koszt
+          label: Sortuj budżety według
+          lowest_cost: Najniższy koszt
+          random: Kolejność losowa
         progress: Zakończ głosowanie
         remove_vote: Usuń głos
         show: Zobacz projekty
