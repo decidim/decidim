@@ -202,6 +202,9 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie spotkania kliknij w przycisk obserwowania.
           email_subject: Spotkanie "%{resource_title}" rozpocznie się za mniej niż 48 godzin.
           notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> rozpocznie się za mniej niż 48 godzin.
+    forms:
+      meetings:
+        attendees_count_help_text: Nie zapomnij podać całkowitej liczby uczestników spotkania, niezależnie od jego formy — osobistej, online lub hybrydowej.
     gamification:
       badges:
         attended_meetings:
@@ -212,6 +215,7 @@ pl:
           description_own: Uczestniczyłeś w %{score} spotkaniach.
           name: Spotkania w których uczestniczyłeś/-łaś
           next_level_in: Weź udział jeszcze w %{score} spotkaniach, aby awansować na kolejny poziom!
+          unearned_another: Ten użytkownik nie uczestniczył jeszcze w żadnym spotkaniu.
     meetings:
       actions:
         agenda: Program
@@ -425,6 +429,7 @@ pl:
         new_meeting: 'Nowe spotkanie:'
       layouts:
         live_event:
+          administrate: Administruj
           close: zamknij
           questions: Pytania
       mailer:
@@ -532,6 +537,7 @@ pl:
             few: "Pozostało %{count} miejsc"
             many: "Pozostało %{count} miejsc"
             other: "Pozostało %{count} miejsc"
+          withdraw_meeting: Wycofaj spotkanie
         update:
           invalid: Wystąpił błąd podczas aktualizowania spotkania.
           success: Spotkanie zostało zaktualizowane.
@@ -550,6 +556,7 @@ pl:
           fields:
             closed: Zakończone
             end_time: Data zakończenia
+            id: Numer ID
             map: Mapa
             official_meeting: Spotkanie oficjalne
             start_time: Data rozpoczęcia
@@ -558,6 +565,8 @@ pl:
         questions:
           closed_question:
             question_results: Wyniki wyborów
+          index:
+            empty_questions: Podczas tego spotkania niektóre pytania zostaną wysłane i będziesz mógł na nie odpowiedzieć. Będą one wyświetlane tutaj.
           index_admin:
             edit: Edytuj w panelu administratora
             question: Pytanie
