@@ -320,7 +320,10 @@ pl:
           email_subject: Zaktualizowano zakres propozycji %{resource_title}
           notification_title: Administrator zaktualizował zakres propozycji <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
+          email_intro: 'Możesz głosować na propozycje w %{participatory_space_title}! Zacznij uczestniczyć na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
+          email_subject: Rozpoczęto zbieranie głosów dla propozycji w przestrzeni %{participatory_space_title}
+          notification_title: Możesz teraz rozpocząć <a href="%{resource_path}">oddawanie głosów poparcia dla propozycji</a> w przestrzeni <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
