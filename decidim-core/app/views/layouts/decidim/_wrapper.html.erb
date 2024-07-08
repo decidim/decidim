@@ -13,6 +13,9 @@ end
 <div class="layout-container">
   <header <%= "class=with-admin-bar" if current_user&.admin %>>
     <div id="sticky-header-container" data-sticky-header>
+      <%= render partial: "layouts/decidim/impersonation_warning" %>
+      <%= render partial: "layouts/decidim/omnipresent_banner" %>
+      <%= render partial: "layouts/decidim/offline_banner" %>
       <%= render partial: "layouts/decidim/admin_links" if current_user&.admin %>
       <%= render partial: "layouts/decidim/header/main" %>
     </div>
