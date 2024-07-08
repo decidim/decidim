@@ -920,6 +920,7 @@ en:
           filename: Filename
           remove: Remove
           replace: Replace
+          save: Save
           title: Title
           title_required: Title is required!
           uploaded: Uploaded

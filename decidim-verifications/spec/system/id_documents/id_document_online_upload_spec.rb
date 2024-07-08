@@ -38,7 +38,7 @@ describe "Identity document online upload" do
     )
 
     expect(page).to have_content("Validation error!")
-    expect(page).to have_css("button[disabled]", text: "Next")
+    expect(page).to have_css("button[disabled]", text: "Save")
   end
 
   private
