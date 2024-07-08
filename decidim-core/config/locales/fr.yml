@@ -917,6 +917,7 @@ fr:
           filename: Nom du fichier
           remove: Supprimer
           replace: Remplacer
+          save: Sauvegarder
           title: Titre
           title_required: Le titre est requis !
           uploaded: Téléchargé
