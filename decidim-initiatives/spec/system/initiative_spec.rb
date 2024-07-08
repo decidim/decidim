@@ -209,7 +209,7 @@ describe "Initiative", type: :system do
     end
 
     describe "follow button" do
-      let!(:user) { create(:user, :confirmed, organization:) }
+      let!(:user) { create(:user, :confirmed, organization: organization) }
       let(:followable) { initiative }
       let(:followable_path) { decidim_initiatives.initiative_path(initiative) }
 
