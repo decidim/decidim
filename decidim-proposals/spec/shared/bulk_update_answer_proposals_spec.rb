@@ -38,6 +38,25 @@ shared_examples "bulk update answer proposals" do
     end
   end
 
+  context "when the proposal is official" do
+    let!(:proposal) { create(:proposal, :official, component: current_component) }
+
+    it "applies the template" do
+      expect(proposal.proposal_state).not_to eq(state)
+      click_on "Apply answer template"
+      expect(page).to have_css("#template_template_id", count: 1)
+      select translated(template.name), from: :template_template_id
+      perform_enqueued_jobs do
+        click_on "Update"
+      end
+
+      expect(page).to have_content("4 proposals will be answered using the template")
+      expect(page).to have_content("Proposals with IDs [#{emendation.id}] could not be answered due errors applying the template")
+      expect(proposal.reload.proposal_state).to eq(state)
+      expect(proposal.answer["en"]).to include("Hi #{organization.name["en"]}, this proposal will be implemented in #{organization.name["en"]}. Signed: #{user.name}")
+    end
+  end
+
   context "when selected proposals are not answerable" do
     before do
       page.find(".js-check-all").set(false)

@@ -20,7 +20,8 @@ module Decidim
           end
 
           def author_name(proposal)
-            proposal.creator_author.try(:title) || proposal.creator_author.try(:name)
+            name = proposal.creator_author.try(:title) || proposal.creator_author.try(:name)
+            name.is_a?(Hash) ? translated_attribute(name) : name
           end
         end
       end
