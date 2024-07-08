@@ -209,6 +209,7 @@ es-MX:
           info: Acerca de esta asamblea
           landing_page: Página de inicio
           moderations: Moderaciones
+          private_users: Participantes privadas
           see_assembly: Ver la asamblea
         assemblies_types: Tipos de asamblea
       models:
