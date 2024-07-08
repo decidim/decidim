@@ -193,7 +193,6 @@ el:
           categories: Κατηγορίες
           components: Στοιχεία
           moderations: Εποπτεύσεις
-          private_users: Ιδιωτικοί χρήστες
         assemblies_types: Τύποι συνέλευσης
       models:
         assemblies_types:
