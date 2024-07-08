@@ -169,7 +169,7 @@ describe "Initiative" do
       context "when initiative state is validating" do
         let(:state) { :validating }
 
-        it { expect(page).to have_no_link("Edit") }
+        it { expect(page).not_to have_link("Edit") }
 
         it_behaves_like "initiative does not show send to technical validation"
       end
