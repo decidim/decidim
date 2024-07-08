@@ -492,6 +492,7 @@ gl:
           error: Erro!
           remove: Eliminar
           replace: Substituír
+          save: Gardar
           title: Título
           title_required: O título é obrigatorio!
           uploaded: Cargado
