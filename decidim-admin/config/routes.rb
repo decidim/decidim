@@ -122,6 +122,8 @@ Decidim::Admin::Engine.routes.draw do
 
     resources :conflicts, only: [:index, :edit, :update], controller: "conflicts"
 
+    resources :taxonomies, only: [:index, :new, :create, :edit, :update, :destroy]
+
     root to: "dashboard#show"
   end
 end

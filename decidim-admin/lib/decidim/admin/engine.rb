@@ -67,6 +67,7 @@ module Decidim
         Decidim::Admin::Menu.register_admin_areas_menu!
         Decidim::Admin::Menu.register_admin_settings_menu!
         Decidim::Admin::Menu.register_admin_menu!
+        Decidim::Admin::Menu.register_admin_taxonomies_menu!
       end
 
       initializer "decidim_admin.add_cells_view_paths" do

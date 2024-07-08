@@ -1,0 +1,15 @@
+<div class="form__wrapper">
+  <div class="card pt-4">
+    <div class="card-section">
+      <div class="row column">
+        <%= form.translated :text_field, :name,autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :name } %>
+      </div>
+      <div class="row column">
+        <%= form.number_field :weight, class: "form-control", placeholder: t("decidim.admin.taxonomies.weight_placeholder") %>
+      </div>
+      <div class="row column">
+        <%= form.select :parent_id, options_for_select(parent_options), include_blank: true, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+</div>
