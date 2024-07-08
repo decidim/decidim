@@ -16,7 +16,7 @@ module Decidim
     def update
       enforce_permission_to(:update, :user, current_user:)
       @account = form(AccountForm).from_params(account_params)
-      UpdateAccount.call(current_user, @account) do
+      UpdateAccount.call(@account) do
         on(:ok) do |email_is_unconfirmed|
           flash[:notice] = if email_is_unconfirmed
                              t("account.update.success_with_email_confirmation", scope: "decidim")
@@ -45,7 +45,7 @@ module Decidim
       enforce_permission_to(:delete, :user, current_user:)
       @form = form(DeleteAccountForm).from_params(params)
 
-      DestroyAccount.call(current_user, @form) do
+      DestroyAccount.call(@form) do
         on(:ok) do
           sign_out(current_user)
           flash[:notice] = t("account.destroy.success", scope: "decidim")
