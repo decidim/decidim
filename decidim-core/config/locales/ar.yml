@@ -808,6 +808,7 @@ ar:
           filename: اسم الملف
           remove: حذف
           replace: إستبدال
+          save: حفظ
           title: العنوان
           title_required: العنوان مطلوب!
           uploaded: تم التحميل
