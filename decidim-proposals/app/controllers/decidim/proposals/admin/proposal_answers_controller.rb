@@ -6,6 +6,7 @@ module Decidim
       # This controller allows admins to answer proposals in a participatory process.
       class ProposalAnswersController < Admin::ApplicationController
         include ActionView::Helpers::SanitizeHelper
+        include Decidim::Proposals::Admin::NeedsInterpolations
 
         helper_method :proposal
 
@@ -41,9 +42,10 @@ module Decidim
           valid_proposals = []
           failed_proposals = []
           proposals.each do |proposal|
-            if allowed_to?(:create, :proposal_answer, proposal:) && answer_form.valid? && !proposal.emendation?
+            proposal_answer_form = answer_form(proposal)
+            if allowed_to?(:create, :proposal_answer, proposal:) && proposal_answer_form.valid? && !proposal.emendation?
               valid_proposals << proposal.id
-              ProposalAnswerJob.perform_later(proposal, answer_form.attributes, { current_organization:, current_component:, current_user: })
+              ProposalAnswerJob.perform_later(proposal, proposal_answer_form.attributes, { current_organization:, current_component:, current_user: })
             else
               failed_proposals << proposal.id
             end
@@ -83,8 +85,8 @@ module Decidim
           @template ||= Decidim::Templates::Template.find_by(id: params[:template][:template_id])
         end
 
-        def answer_form
-          @answer_form ||= form(ProposalAnswerForm).from_params(answer: template&.description, internal_state: proposal_state&.token)
+        def answer_form(proposal)
+          form(ProposalAnswerForm).from_params(answer: populate_interpolations(template&.description, proposal), internal_state: proposal_state&.token)
         end
 
         def proposal_state

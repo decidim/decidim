@@ -5,9 +5,12 @@ shared_examples "bulk update answer proposals" do
   let!(:proposal) { create(:proposal, cost: nil, component: current_component) }
   let!(:emendation) { create(:proposal, component: current_component) }
   let!(:amendment) { create(:amendment, amendable: proposal, emendation:) }
-  let!(:template) { create(:template, target: :proposal_answer, templatable: current_component, field_values:) }
+  let!(:template) { create(:template, target: :proposal_answer, templatable: current_component, description:, field_values:) }
   let(:field_values) do
     { "proposal_state_id" => state.id }
+  end
+  let(:description) do
+    { en: "Hi %{name}, this proposal will be implemented in %{organization}. Signed: %{admin}" }
   end
 
   before do
@@ -28,8 +31,10 @@ shared_examples "bulk update answer proposals" do
     expect(page).to have_content("4 proposals will be answered using the template")
     expect(page).to have_content("Proposals with IDs [#{emendation.id}] could not be answered due errors applying the template")
     expect(proposal.reload.proposal_state).to eq(state)
+    expect(proposal.answer["en"]).to include("Hi #{proposal.creator_author.name}, this proposal will be implemented in #{organization.name["en"]}. Signed: #{user.name}")
     reportables.each do |reportable|
       expect(reportable.reload.proposal_state).to eq(state)
+      expect(reportable.answer["en"]).to include("Hi #{reportable.creator_author.name}, this proposal will be implemented in #{organization.name["en"]}. Signed: #{user.name}")
     end
   end
 
