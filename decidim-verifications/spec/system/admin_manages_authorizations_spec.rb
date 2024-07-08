@@ -11,7 +11,7 @@ describe "Admin manages authorizations users", type: :system do
 
     visit decidim_admin.root_path
     click_on "Participants"
-    within_admin_sidebar_menu do
+    within ".secondary-nav" do
       click_on "Authorizations"
     end
   end
@@ -20,7 +20,7 @@ describe "Admin manages authorizations users", type: :system do
     let(:available_authorizations) { %w(id_documents postal_letter csv_census) }
 
     it "displays the menu entries" do
-      within ".sidebar-menu" do
+      within ".secondary-nav" do
         expect(page).to have_content("Identity documents")
         expect(page).to have_content("Code by postal letter")
         expect(page).to have_content("Organization's census")
@@ -28,7 +28,7 @@ describe "Admin manages authorizations users", type: :system do
     end
 
     it "displays main view entries" do
-      within ".item_show__wrapper" do
+      within ".layout-content" do
         expect(page).to have_content("Identity documents")
         expect(page).to have_content("Code by postal letter")
         expect(page).to have_content("Organization's census")
@@ -40,7 +40,7 @@ describe "Admin manages authorizations users", type: :system do
     let(:available_authorizations) { %w(id_documents csv_census) }
 
     it "displays the menu entries" do
-      within ".sidebar-menu" do
+      within ".secondary-nav" do
         expect(page).to have_content("Identity documents")
         expect(page).to have_content("Organization's census")
         expect(page).to have_no_content("Code by postal letter")
@@ -48,7 +48,7 @@ describe "Admin manages authorizations users", type: :system do
     end
 
     it "displays main view entries" do
-      within ".item_show__wrapper" do
+      within ".layout-content" do
         expect(page).to have_content("Identity documents")
         expect(page).to have_content("Organization's census")
         expect(page).to have_no_content("Code by postal letter")
@@ -60,7 +60,7 @@ describe "Admin manages authorizations users", type: :system do
     let(:available_authorizations) { [] }
 
     it "displays the menu entries" do
-      within ".sidebar-menu" do
+      within ".secondary-nav" do
         expect(page).to have_no_content("Identity documents")
         expect(page).to have_no_content("Code by postal letter")
         expect(page).to have_no_content("Organization's census")
@@ -68,7 +68,7 @@ describe "Admin manages authorizations users", type: :system do
     end
 
     it "displays main view entries" do
-      within ".item_show__wrapper" do
+      within ".layout-content" do
         expect(page).to have_no_content("Identity documents")
         expect(page).to have_no_content("Code by postal letter")
         expect(page).to have_no_content("Organization's census")
