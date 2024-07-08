@@ -198,7 +198,6 @@ sq:
           info: Rreth asamblesë
           landing_page: Faqja hyrëse
           moderations: Moderimet
-          private_users: Përdoruesit privatë
           see_assembly: Shiko asamblenë
         assemblies_types: Tipet e asambleve
       models:
