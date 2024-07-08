@@ -53,12 +53,10 @@
           attributes:
             base:
               not_official: Er ikke offisiell
-              supported: Har mottatt støtte eller påtegninger
         proposals_split:
           attributes:
             base:
               not_official: Er ikke offisiell
-              supported: Har mottatt støtte eller påtegninger
     models:
       decidim/proposals/admin/update_proposal_category_event: Forslags kategorien ble endret
       decidim/proposals/admin/update_proposal_scope_event: Forslagstema er endret
@@ -78,9 +76,6 @@
       decidim/proposals/proposal_note:
         one: Merk
         other: Merknader
-      decidim/proposals/proposal_vote:
-        one: Støtte
-        other: Støttere
   decidim:
     admin:
       filters:
@@ -112,7 +107,6 @@
           comment: Kommentar
           create: Opprett
           endorse: Påtegne
-          vote: Støtte
           vote_comment: Stem på kommentar
           withdraw: Trekk tilbake
         name: Forslag
@@ -123,23 +117,18 @@
             amendments_wizard_help_text: Endrings Veiviser hjelpetekst
             announcement: Kunngjøring
             attachments_allowed: Tillat vedlegg
-            can_accumulate_supports_beyond_threshold: Kan samle støtter utover terskelen
             collaborative_drafts_enabled: Samarbeids utkaster aktivert
             comments_enabled: Kommentarer aktivert
             comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
             default_sort_order: Standard sortering av forslag
-            default_sort_order_help: Standardverdien betyr at hvis støtte er aktivert, vil forslagene bli vist i tilfeldig rekkefølge og hvis støttene er blokkert, vil de bli sortert etter de mest støttede forslagene.
             default_sort_order_options:
-              default: Standardverdi
               most_commented: Mest kommenterte
               most_endorsed: Mest påtegnet
               most_followed: Mest fulgte
-              most_voted: Mest støttet
               random: Tilfeldig
               recent: Nylig
               with_more_authors: Med flere forfattere
             geocoding_enabled: Geokoding aktivert
-            minimum_votes_per_user: Minimum støtter per bruker
             new_proposal_body_template: Nytt forslag korppsmal
             new_proposal_body_template_help: Du kan definere forhåndsutfylt tekst som de nye forslagene vil ha
             new_proposal_help_text: Ny forslag hjelpetekst
@@ -159,7 +148,6 @@
             scope_id: Tema
             scopes_enabled: Aktiverte temaer
             threshold_per_proposal: Terskel per forslag
-            vote_limit: Støttegrense per deltaker
           step:
             amendment_creation_enabled: Oppretting av endringer aktivert
             amendment_creation_enabled_help: Deltakeren kan endre forslag.
@@ -178,13 +166,10 @@
             comments_blocked: Kommentarer blokkert
             creation_enabled: Deltakerne kan opprette forslag
             default_sort_order: Standard sortering av forslag
-            default_sort_order_help: Standard betyr at hvis støttene er aktivert, vil forslagene bli vist i tilfeldig rekkefølge, og hvis støttene er blokkert, vil de bli sortert etter de mest støttede støttene.
             default_sort_order_options:
-              default: Standardverdi
               most_commented: Mest kommentert
               most_endorsed: Mest påtegnet
               most_followed: Mest fulgt
-              most_voted: Mest støttet
               random: Tilfeldig
               recent: Nylig
               with_more_authors: Med flere forfattere
@@ -193,9 +178,6 @@
             proposal_answering_enabled: Forslags besvaring aktivert
             publish_answers_immediately: Publiser svar på forslag umiddelbart
             suggested_hashtags: Hashtagger foreslått til deltakere for nye forslag
-            votes_blocked: Støtter blokkert
-            votes_enabled: Støtter aktivert
-            votes_hidden: Støtter skjult (hvis støtter er aktivert, sjekke du av dette vil det skjule antall støtter)
     events:
       proposals:
         collaborative_draft_access_accepted:
@@ -245,10 +227,7 @@
         proposal_update_scope:
           email_outro: Du har mottatt denne varslingen fordi du er forfatteren av forslaget.
         voting_enabled:
-          email_intro: 'Du kan støtte forslag i %{participatory_space_title}! Begynn å delta på denne siden:'
           email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
-          email_subject: Forslags støtte har startet for %{participatory_space_title}
-          notification_title: Du kan nå begynne å <a href="%{resource_path}">støtte forslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -265,13 +244,7 @@
         proposal_votes:
           conditions:
             - Bla gjennom og bruk litt tid på å lese andres forslag
-            - Gi støtte til forslagene du liker eller finner interessante
-          description: Dette merket tildeles når du støtter andres forslag.
-          description_another: Denne deltakeren har gitt støtte til %{score} forslag.
-          description_own: Du har gitt støtte til %{score} forslag.
-          name: Forslags støtter
-          next_level_in: Gi støtte til %{score} flere forslag for å nå neste nivå!
-          unearned_own: Du har ikke gitt støtte til noen forslag ennå.
+            - 
         proposals:
           conditions:
             - Velg deltaker området for interessen din når innsending av forslag er aktivert
@@ -295,10 +268,6 @@
         description: Antall forslag
         object: forslag
         title: Forslag
-      votes:
-        description: Antall støtter til forslag
-        object: støtter
-        title: Støtter
     participatory_spaces:
       highlighted_proposals:
         see_all: Vis alle (%{count})
@@ -414,7 +383,6 @@
             photos: Bilder
             ranking: "%{ranking} av %{total}"
             related_meetings: Relaterte møter
-            votes_count: Støtter antall
         proposals_imports:
           new:
             create: Importer forslag
@@ -563,9 +531,6 @@
         buttons:
           amend: Endre
           comment: Kommentar
-      proposal_votes:
-        create:
-          error: Det oppstod et problem med å støtte forslaget.
       proposals:
         edit:
           attachment_legend: "(Valgfritt) Legg til et vedlegg"
@@ -590,7 +555,6 @@
           search: Søk
           state: Status
           type: Type
-          voted: Støttet
         index:
           collaborative_drafts_list: Lag utkast sammen med andre
           count:
@@ -607,7 +571,6 @@
           most_commented: Flest kommentarer
           most_endorsed: Mest påtegnet
           most_followed: Mest fulgte
-          most_voted: Mest støttet
           random: Tilfeldig
           recent: Nylig
           with_more_authors: Med flere forfattere
@@ -639,34 +602,13 @@
           proposal_accepted_reason: 'Dette forslaget ble akseptert fordi:'
           proposal_in_evaluation_reason: Dette forslaget blir evaluert
           proposal_rejected_reason: 'Dette forslaget ble avvist fordi:'
-          withdraw_btn_hint: Du kan trekke tilbake forslaget ditt hvis du ombestemmer deg, så lenge du ikke har fått noe støtte. Forslaget er ikke slettet, den vil vises i listen av tilbaketrukne forslag.
           withdraw_confirmation_html: Er du sikker på at du vil trekke tilbake dette forslaget?<br><br><strong>Denne handlingen kan ikke avbrytes!</strong>
           withdraw_proposal: Trekk tilbake forslag
         update:
           title: Oppdater forslag
-        vote_button:
-          already_voted: Støttet allerede
-          already_voted_hover: Trekk tilbake støtte
-          maximum_votes_reached: Støttegrense nådd
-          no_votes_remaining: Ingen støtter igjen
-          vote: Støtte
-          votes_blocked: Støtter deaktivert
-        votes_count:
-          count:
-            one: STØTTE
-            other: STØTTERE
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: Hvert forslag kan samle mer enn %{limit} støtter
-          minimum_votes_per_user:
-            description: Du må gi ut minimum %{votes} støtter mellom forskjellige forslag.
-            supports_remaining: Du må støtte %{remaining_votes} flere forslag for at støttene dine som skal tas i betraktning.
           proposal_limit:
             description: Du kan lage opptil %{limit} forslag.
-          title: 'Støtter er underlagt følgende regler:'
-          vote_limit:
-            description: Du kan støtte opptil %{limit} forslag.
-            votes: Støtter
         wizard_aside:
           back: Tilbake
           back_from_step_1: Tilbake til forslag
@@ -699,4 +641,4 @@
     statistics:
       proposals_accepted: Godkjente forslag
       proposals_count: Forslag
-      supports_count: Støtter
+      votes_count: Stemmer

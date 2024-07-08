@@ -3,12 +3,12 @@
 module Decidim
   # This command destroys the user's account.
   class DestroyAccount < Decidim::Command
+    delegate :current_user, to: :form
+
     # Destroy a user's account.
     #
-    # user - The user to be updated.
     # form - The form with the data.
-    def initialize(user, form)
-      @user = user
+    def initialize(form)
       @form = form
     end
 
@@ -29,40 +29,42 @@ module Decidim
 
     private
 
-    def destroy_user_account!
-      @user.invalidate_all_sessions!
+    attr_reader :form
 
-      @user.name = ""
-      @user.nickname = ""
-      @user.email = ""
-      @user.delete_reason = @form.delete_reason
-      @user.admin = false if @user.admin?
-      @user.deleted_at = Time.current
-      @user.skip_reconfirmation!
-      @user.avatar.purge
-      @user.save!
+    def destroy_user_account!
+      current_user.invalidate_all_sessions!
+
+      current_user.name = ""
+      current_user.nickname = ""
+      current_user.email = ""
+      current_user.delete_reason = @form.delete_reason
+      current_user.admin = false if current_user.admin?
+      current_user.deleted_at = Time.current
+      current_user.skip_reconfirmation!
+      current_user.avatar.purge
+      current_user.save!
     end
 
     def destroy_user_identities
-      @user.identities.destroy_all
+      current_user.identities.destroy_all
     end
 
     def destroy_user_group_memberships
-      Decidim::UserGroupMembership.where(user: @user).destroy_all
+      Decidim::UserGroupMembership.where(user: current_user).destroy_all
     end
 
     def destroy_follows
-      Decidim::Follow.where(followable: @user).destroy_all
-      Decidim::Follow.where(user: @user).destroy_all
+      Decidim::Follow.where(followable: current_user).destroy_all
+      Decidim::Follow.where(user: current_user).destroy_all
     end
 
     def destroy_participatory_space_private_user
-      Decidim::ParticipatorySpacePrivateUser.where(user: @user).destroy_all
+      Decidim::ParticipatorySpacePrivateUser.where(user: current_user).destroy_all
     end
 
     def delegate_destroy_to_participatory_spaces
       Decidim.participatory_space_manifests.each do |space_manifest|
-        space_manifest.invoke_on_destroy_account(@user)
+        space_manifest.invoke_on_destroy_account(current_user)
       end
     end
   end

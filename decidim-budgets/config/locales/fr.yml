@@ -171,7 +171,7 @@ fr:
         back_to: Retour à %{component_name}
         close_modal: Fermer la fenêtre de dialogue
         continue: Continuer
-        more_information: Plus d'information
+        more_information: Plus d'informations sur le budget
       budgets_list:
         budgets: Budgets
         cancel_order:
@@ -185,9 +185,9 @@ fr:
         highlighted_cta: Voter pour %{name}
         if_change_opinion: Si vous avez changé d’avis, vous pouvez
         orders:
-          highest_cost: Coût le plus élevé
-          label: Classer les projets par
-          lowest_cost: Coût le moins élevé
+          highest_cost: Coût décroissant
+          label: Trier les budgets par
+          lowest_cost: Coût croissant
           random: Ordre aléatoire
         progress: Terminer le vote
         remove_vote: Retirer le vote

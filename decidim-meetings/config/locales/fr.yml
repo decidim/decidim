@@ -146,6 +146,7 @@ fr:
         actions:
           comment: Commenter
           join: Rejoindre
+          reply_poll: Répondre au sondage
         name: Rencontres
         settings:
           global:
@@ -362,6 +363,13 @@ fr:
           update:
             invalid: Une erreur s'est produite lors de la mise à jour du sondage de la rencontre.
             success: Sondage de rencontre mis à jour avec succès.
+        poll:
+          form:
+            announcement_html:
+              - Lorsqu'une question reçoit des réponses ou est publiée/fermée, elle ne peut plus être modifiée.
+              - Vous pouvez ajouter une question à tout moment.
+              - Le sondage sera fermé lorsque les résultats de toutes les questions créées auront été publiés.
+              - Visitez la <a href='%{admin_link}'>page d'administration du sondage</a> pour envoyer des questions et publier des résultats.
         registrations:
           edit:
             save: Sauvegarder
@@ -423,7 +431,7 @@ fr:
           body: La réunion <a href="%{meeting_path}">"%{meeting_title}"</a> est en attente de fermeture. Veuillez ajouter un compte-rendu de la réunion en utilisant le bouton "Fermer la réunion".
           greetings: Cordialement, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Bonjour %{username},
-          subject: Vous pouvez maintenant fermer la réunion "%{meeting_title}" et y ajouter un compte rendu
+          subject: Vous pouvez maintenant fermer la rencontre "%{meeting_title}" et y ajouter un compte rendu
       conference_venues: Salles de conférence
       content_blocks:
         upcoming_meetings:
@@ -440,16 +448,14 @@ fr:
       iframe_embed_type:
         embed_in_meeting_page: Intégrer à la page de la rencontre
         none: Aucun
-        open_in_live_event_page: Ouvrir dans la page de l'événement en direct (avec sondages facultatifs)
+        open_in_live_event_page: Ouvrir dans la page de l'événement en direct
         open_in_new_tab: Ouvrir le lien dans un nouvel onglet
       last_activity:
         meeting_updated: 'Rencontre mise à jour :'
         new_meeting: 'Nouvelle rencontre :'
       layouts:
         live_event:
-          administrate: Administrer
           close: fermer
-          questions: Questions
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -530,6 +536,8 @@ fr:
           edit_close_meeting: Modifier le compte-rendu de la rencontre
           edit_meeting: Modifier la rencontre
           join_meeting: Participer à la rencontre
+          reply_poll: Répondre au sondage
+          view_poll: Voir le sondage
         meetings:
           no_meetings_warning: Aucune rencontre ne correspond à vos critères de recherche ou aucune rencontre n'a été créée.
           upcoming_meetings_warning: À l'heure actuelle, il n'y a pas de rencontres planifiées. Ici vous trouverez une liste de toutes les rencontres passées.
@@ -588,13 +596,22 @@ fr:
             start_time: Date de début
             title: Titre
       polls:
+        answers:
+          index:
+            administrate: Administrer
+            title: Sondage
+          index_admin:
+            back_to_meeting: Revenir à la rencontre
+            title: Administrer le sondage
+            view_poll: Voir le sondage
         questions:
           closed_question:
-            question_results: Résultats du sondage
+            announcement: Les réponses à cette question sont closes.
+            question: Question
+            question_results: Résultats
           index:
             empty_questions: Tout au long de cette rencontre, certaines questions seront envoyées et vous pourrez y répondre. Elles seront affichées ici.
           index_admin:
-            admin_dashboard: Administration du sondage
             edit: Modifier dans le panneau d'administration
             question: Question
             received_answer: réponse reçue
@@ -602,6 +619,10 @@ fr:
             results: Résultats
             send: Publier
             sent: Publiée
+            statuses:
+              closed: Résultats envoyés (fermés)
+              published: Envoyé (ouvert)
+              unpublished: En attente d'être envoyé
           published_question:
             max_choices_alert: Vous avez sélectionné trop de choix
             question: Question

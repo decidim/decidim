@@ -1,5 +1,11 @@
 bg:
   activemodel:
+    attributes:
+      post:
+        body: Основен текст
+        decidim_author_id: Автор
+        published_at: Час на публикуване
+        title: Заглавие
     models:
       decidim/blogs/create_post_event: Нова блог публикация
   activerecord:
@@ -10,4 +16,82 @@ bg:
   decidim:
     blogs:
       actions:
+        author_id: Създаване на публикация като
         confirm_destroy: Сигурни ли сте, че желаете да изтриете тази публикация?
+        destroy: Изтрий
+        edit: Редактирай
+        new: Нова публикация
+        title: Активности
+      admin:
+        posts:
+          create:
+            invalid: Възникна проблем при създаването на тази публикация.
+            success: Публикацията беше създадена успешно.
+          destroy:
+            success: Публикацията беше изтрита успешно.
+          edit:
+            save: Актуализация
+            title: Редактиране на поста
+          index:
+            not_published_yet: Не публикувано все още.
+            title: Публикации
+          new:
+            create: Създаване
+            title: Създай публикация
+          update:
+            invalid: Възникна проблем при запазването на публикацията.
+            success: Публикацията беше запазена успешно.
+      admin_log:
+        post:
+          create: "%{user_name} създаде публикацията в блога %{resource_name} в %{space_name}"
+          delete: "%{user_name} изтри публикацията в блога %{resource_name} от %{space_name}"
+          update: "%{user_name} актуализира публикацията в блога %{resource_name} в %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Последно публикувано
+          name: Публикации
+          see_all: Виж всички публикации
+      last_activity:
+        new_post: 'Нова публикация:'
+      models:
+        post:
+          fields:
+            author: Автор
+            body: Основен текст
+            official_blog_post: Официална публикация
+            published_at: Час на публикуване
+            title: Заглавие
+      posts:
+        index:
+          count:
+            one: "%{count} публикация"
+            other: "%{count} публикации"
+          empty: Все още няма постове.
+    components:
+      blogs:
+        actions:
+          comment: Коментар
+          create: Създаване
+          destroy: Изтрий
+          endorse: Подкрепете
+          update: Актуализация
+        name: Блог
+        settings:
+          global:
+            announcement: Обявление
+            comments_enabled: Коментарите са разрешени
+            comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
+          step:
+            announcement: Обявление
+            comments_blocked: Коментарите са блокирани
+            endorsements_blocked: Подкрепата е блокирана
+            endorsements_enabled: Подкрепата е активирана
+    events:
+      blogs:
+        post_created:
+          email_intro: Публикацията „%{resource_title}“ е публикувана в(ъв)%{participatory_space_title}“, което следвате.
+          email_outro: Получавате това известие, защото следвате "%{participatory_space_title}". Може да премахнете следването чрез предходния линк.
+          email_subject: Публикувана е нова публикация в(ъв) %{participatory_space_title}
+          notification_title: Публикацията <a href="%{resource_path}">%{resource_title}</a> е публикувана в(ъв) %{participatory_space_title}
+    statistics:
+      posts_count: Постове

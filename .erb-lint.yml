@@ -155,7 +155,6 @@ linters:
           - bio-extended
           - block-banner
           - bootstrap-tagsinput
-          - bottom
           - box__search
           - breadcrumb--separator
           - breadcrumbs
@@ -832,7 +831,6 @@ linters:
           - large-up-8
           - last-sorted
           - lead
-          - left
           - legal_text
           - legend
           - letter_spaced
@@ -1505,7 +1503,6 @@ linters:
           - reveal__list
           - reveal__title
           - reveal__trigger
-          - right
           - rowchart
           - scope-filters
           - scope-picker
@@ -1905,7 +1902,6 @@ linters:
           - toggle-show
           - tooltip
           - tooltip-content
-          - top
           - top-bar
           - top-bar-left
           - top-bar-right

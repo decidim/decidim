@@ -126,6 +126,12 @@ es-PY:
         new:
           create: Crear
           title: Nuevo conferenciante.
+        publish:
+          invalid: Se ha producido un error al publicar esta ponente.
+          success: Ponente de la jornada actualizada correctamente.
+        unpublish:
+          invalid: Se ha producido un error al despublicar esta ponente.
+          success: Ponente de la jornada despublicada correctamente.
         update:
           error: Hubo un error al actualizar el altavoz de esta conferencia.
           success: Altavoz actualizado con éxito para esta conferencia.

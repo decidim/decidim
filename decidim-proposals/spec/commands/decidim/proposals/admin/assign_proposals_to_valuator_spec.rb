@@ -13,13 +13,14 @@ module Decidim
           let(:organization) { space.organization }
           let(:user) { create(:user, organization:) }
           let(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process: space) }
+          let(:valuator_roles) { [valuator_role] }
           let(:form) do
             instance_double(
               ValuationAssignmentForm,
               current_user: user,
               current_component:,
               current_organization: current_component.organization,
-              valuator_role:,
+              valuator_roles:,
               proposals: [proposal],
               valid?: valid
             )

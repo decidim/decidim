@@ -21,7 +21,6 @@ pt:
               too_long: é demasiado longo
             choices:
               missing: não estão completos
-              too_many: são demasiados
   decidim:
     forms:
       admin:
