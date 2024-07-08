@@ -190,7 +190,6 @@ zh-TW:
           categories: 類別
           components: 元件
           moderations: 版主
-          private_users: 私人使用者
         assemblies_types: 大會類型
       models:
         assemblies_types:
