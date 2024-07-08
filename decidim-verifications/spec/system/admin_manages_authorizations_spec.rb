@@ -2,8 +2,8 @@
 
 require "spec_helper"
 describe "Admin manages authorizations users" do
-  let!(:organization) { create(:organization, available_authorizations:) }
-  let!(:admin) { create(:user, :admin, :confirmed, organization:) }
+  let!(:organization) { create(:organization, available_authorizations: available_authorizations) }
+  let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
 
   before do
     switch_to_host(organization.host)
