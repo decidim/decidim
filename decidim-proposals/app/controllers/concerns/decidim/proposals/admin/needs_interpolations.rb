@@ -10,13 +10,23 @@ module Decidim
 
         included do
           def populate_interpolations(text, proposal)
-            text.to_h do |language, value|
-              value = value.gsub("%{organization}", translated_attribute(proposal.organization.name))
-              value = value.gsub("%{name}", author_name(proposal))
-              value = value.gsub("%{admin}", current_user.name)
+            return populate_string_interpolations(text, proposal) if text.is_a?(String)
 
-              [language, value]
+            populate_hash_interpolations(text, proposal)
+          end
+
+          def populate_hash_interpolations(hash, proposal)
+            return hash unless hash.is_a?(Hash)
+
+            hash.transform_values do |value|
+              value.is_a?(String) ? populate_string_interpolations(value, proposal) : populate_hash_interpolations(value, proposal)
             end
+          end
+
+          def populate_string_interpolations(value, proposal)
+            value = value.gsub("%{organization}", translated_attribute(proposal.organization.name))
+            value = value.gsub("%{name}", author_name(proposal))
+            value.gsub("%{admin}", current_user.name)
           end
 
           def author_name(proposal)
