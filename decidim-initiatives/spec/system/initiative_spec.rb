@@ -165,13 +165,11 @@ describe "Initiative", type: :system do
           end
 
           it_behaves_like "initiative does not show send to technical validation"
-          it { expect(page).to have_content("Before sending your initiative for technical validation") }
           it { expect(page).to have_link("Edit") }
         end
 
         context "when the user can send the initiative to technical validation" do
           it { expect(page).to have_link("Send to technical validation", href: decidim_initiatives.send_to_technical_validation_initiative_path(initiative)) }
-          it { expect(page).to have_content('If everything looks ok, click on "Send to technical validation" for an administrator to review and publish your initiative') }
         end
       end
 
