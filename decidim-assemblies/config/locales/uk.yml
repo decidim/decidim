@@ -159,7 +159,6 @@ uk:
           categories: Категорії
           components: Складові
           moderations: Дії з модерації
-          private_users: Приватні учасники
       models:
         assemblies_types:
           fields:
