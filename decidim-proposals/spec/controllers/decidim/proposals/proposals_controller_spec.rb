@@ -104,6 +104,16 @@ module Decidim
         end
       end
 
+      context "when user is not logged in" do
+        let(:component) { create(:proposal_component, :with_creation_enabled) }
+
+        it "redirects to the login page" do
+          get(:new)
+          expect(response).to have_http_status(:found)
+          expect(response.body).to have_text("You are being redirected")
+        end
+      end
+
       describe "POST create" do
         before { sign_in user }
 
