@@ -210,7 +210,6 @@ fi:
           info: Tietoa tästä ryhmästä
           landing_page: Laskeutumissivu
           moderations: Moderoinnit
-          private_users: Yksityiset käyttäjät
           see_assembly: Näytä ryhmä
         assemblies_types: Ryhmien tyypit
       models:
