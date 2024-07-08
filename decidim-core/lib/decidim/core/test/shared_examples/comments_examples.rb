@@ -151,7 +151,7 @@ shared_examples "comments" do
       before do
         organization.available_authorizations = ["dummy_authorization_handler"]
         organization.save!
-        commentable.create_resource_permission(permissions:)
+        commentable.create_resource_permission(permissions: permissions)
         allow(commentable).to receive(:user_allowed_to_comment?).with(user).and_return(false)
         allow(commentable).to receive(:user_authorized_to_comment?).with(user).and_return(true)
       end
@@ -943,8 +943,8 @@ shared_examples "comments blocked" do
 
   context "when authenticated" do
     let!(:organization) { create(:organization) }
-    let!(:user) { create(:user, :confirmed, organization:) }
-    let!(:comments) { create_list(:comment, 3, commentable:) }
+    let!(:user) { create(:user, :confirmed, organization: organization) }
+    let!(:comments) { create_list(:comment, 3, commentable: commentable) }
 
     before do
       login_as user, scope: :user

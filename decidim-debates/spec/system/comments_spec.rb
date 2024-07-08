@@ -11,8 +11,8 @@ describe "Comments", type: :system, perform_enqueued: true do
   include_examples "comments"
 
   context "with comments blocked" do
-    let!(:component) { create(:debates_component, participatory_space:, organization:) }
-    let(:participatory_space) { create(:participatory_process, :with_steps, organization:) }
+    let!(:component) { create(:debates_component, participatory_space: participatory_space, organization: organization) }
+    let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
 
     include_examples "comments blocked"
   end
