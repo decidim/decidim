@@ -179,7 +179,6 @@ nl:
           categories: Categorieën
           components: Onderdelen
           moderations: Moderaties
-          private_users: Particuliere gebruikers
         assemblies_types: Soorten groepen
       models:
         assemblies_types:
