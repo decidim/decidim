@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 shared_examples "manage media links examples" do
+  let!(:attributes) { attributes_for(:media_link, conference:) }
+
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
@@ -15,16 +17,10 @@ shared_examples "manage media links examples" do
       click_link "New media link"
     end
 
-    it "creates a new media link" do
+    it "creates a new media link", versioning: true do
       within "[data-content]" do
         within ".new_media_link" do
-          fill_in_i18n(
-            :conference_media_link_title,
-            "#conference_media_link-title-tabs",
-            en: "Media Link en",
-            es: "Media Link es",
-            ca: "Media Link ca"
-          )
+          fill_in_i18n(:conference_media_link_title, "#conference_media_link-title-tabs", **attributes[:title].except("machine_translations"))
 
           fill_in :conference_media_link_link, with: "https://decidim.org"
           fill_in :conference_media_link_weight, with: 2
@@ -38,8 +34,11 @@ shared_examples "manage media links examples" do
 
       within "[data-content]" do
         expect(page).to have_current_path decidim_admin_conferences.conference_media_links_path(conference)
-        expect(page).to have_content("Media Link en")
+        expect(page).to have_content(translated(attributes[:title]))
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("created the #{translated(attributes[:title])} media link")
     end
   end
 
@@ -56,19 +55,13 @@ shared_examples "manage media links examples" do
       end
     end
 
-    it "updates a conference media links" do
+    it "updates a conference media links", versioning: true do
       within find("#media_links tr", text: translated(media_link.title)) do
         click_link "Edit"
       end
 
       within ".edit_media_link" do
-        fill_in_i18n(
-          :conference_media_link_title,
-          "#conference_media_link-title-tabs",
-          en: "Media Link update en",
-          es: "Media Link update es",
-          ca: "Media Link update ca"
-        )
+        fill_in_i18n(:conference_media_link_title, "#conference_media_link-title-tabs", **attributes[:title].except("machine_translations"))
 
         fill_in :conference_media_link_link, with: "https://decidim.org"
         fill_in :conference_media_link_weight, with: 2
@@ -81,8 +74,10 @@ shared_examples "manage media links examples" do
       expect(page).to have_current_path decidim_admin_conferences.conference_media_links_path(conference)
 
       within "#media_links table" do
-        expect(page).to have_content("Media Link update en")
+        expect(page).to have_content(translated(attributes[:title]))
       end
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the #{translated(media_link.title)} media link")
     end
 
     it "deletes the conference media link" do

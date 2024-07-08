@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Proposals::Log::ResourcePresenter, type: :helper do
+describe Decidim::Log::ResourcePresenter, type: :helper do
   let(:presenter) { described_class.new(resource, helper, extra) }
   let(:resource) { create(:proposal, title: Faker::Book.unique.title) }
   let(:extra) do
@@ -11,11 +11,6 @@ describe Decidim::Proposals::Log::ResourcePresenter, type: :helper do
     }
   end
   let(:resource_path) { Decidim::ResourceLocatorPresenter.new(resource).path }
-
-  before do
-    helper.extend(Decidim::ApplicationHelper)
-    helper.extend(Decidim::TranslationsHelper)
-  end
 
   context "when the resource exists" do
     it "links to its public page with the name of the proposal" do

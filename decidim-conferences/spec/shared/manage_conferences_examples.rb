@@ -7,6 +7,7 @@ shared_examples "manage conferences" do
 
     let(:image2_filename) { "city2.jpeg" }
     let(:image2_path) { Decidim::Dev.asset(image2_filename) }
+    let(:attributes) { attributes_for(:conference) }
 
     before do
       click_link "New conference"
@@ -17,36 +18,13 @@ shared_examples "manage conferences" do
     end
     it_behaves_like "having a rich text editor for field", "#conference_registrations_terms", "content"
 
-    it "creates a new conference" do
+    it "creates a new conference", versioning: true do
       within ".new_conference" do
-        fill_in_i18n(
-          :conference_title,
-          "#conference-title-tabs",
-          en: "My conference",
-          es: "Mi proceso participativo",
-          ca: "El meu procés participatiu"
-        )
-        fill_in_i18n(
-          :conference_slogan,
-          "#conference-slogan-tabs",
-          en: "Slogan",
-          es: "Eslogan",
-          ca: "Eslógan"
-        )
-        fill_in_i18n_editor(
-          :conference_short_description,
-          "#conference-short_description-tabs",
-          en: "Short description",
-          es: "Descripción corta",
-          ca: "Descripció curta"
-        )
-        fill_in_i18n_editor(
-          :conference_description,
-          "#conference-description-tabs",
-          en: "A longer description",
-          es: "Descripción más larga",
-          ca: "Descripció més llarga"
-        )
+        fill_in_i18n(:conference_title, "#conference-title-tabs", **attributes[:title].except("machine_translations"))
+        fill_in_i18n(:conference_slogan, "#conference-slogan-tabs", **attributes[:slogan].except("machine_translations"))
+        fill_in_i18n_editor(:conference_short_description, "#conference-short_description-tabs", **attributes[:short_description].except("machine_translations"))
+        fill_in_i18n_editor(:conference_description, "#conference-description-tabs", **attributes[:description].except("machine_translations"))
+        fill_in_i18n_editor(:conference_objectives, "#conference-objectives-tabs", **attributes[:objectives].except("machine_translations"))
 
         fill_in :conference_weight, with: 1
         fill_in :conference_slug, with: "slug"
@@ -67,14 +45,18 @@ shared_examples "manage conferences" do
 
       within "[data-content]" do
         expect(page).to have_current_path decidim_admin_conferences.conferences_path
-        expect(page).to have_content("My conference")
+        expect(page).to have_content(translated(attributes[:title]))
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("created the #{translated(attributes[:title])} conference")
     end
   end
 
   describe "updating a conference" do
     let(:image3_filename) { "city3.jpeg" }
     let(:image3_path) { Decidim::Dev.asset(image3_filename) }
+    let(:attributes) { attributes_for(:conference) }
 
     before do
       within find("tr", text: translated(conference.title)) do
@@ -82,26 +64,27 @@ shared_examples "manage conferences" do
       end
     end
 
-    it "updates a conference" do
-      fill_in_i18n(
-        :conference_title,
-        "#conference-title-tabs",
-        en: "My new title",
-        es: "Mi nuevo título",
-        ca: "El meu nou títol"
-      )
+    it "updates a conference", versioning: true do
       dynamically_attach_file(:conference_banner_image, image3_path, remove_before: true)
 
       within ".edit_conference" do
+        fill_in_i18n(:conference_title, "#conference-title-tabs", **attributes[:title].except("machine_translations"))
+        fill_in_i18n(:conference_slogan, "#conference-slogan-tabs", **attributes[:slogan].except("machine_translations"))
+        fill_in_i18n_editor(:conference_short_description, "#conference-short_description-tabs", **attributes[:short_description].except("machine_translations"))
+        fill_in_i18n_editor(:conference_description, "#conference-description-tabs", **attributes[:description].except("machine_translations"))
+        fill_in_i18n_editor(:conference_objectives, "#conference-objectives-tabs", **attributes[:objectives].except("machine_translations"))
         find("*[type=submit]").click
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "[data-content]" do
-        expect(page).to have_selector("input[value='My new title']")
+        expect(page).to have_selector("input[value='#{translated(attributes[:title])}']")
         expect(page).to have_css("img[src*='#{image3_filename}']")
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the #{translated(attributes[:title])} conference")
     end
   end
 

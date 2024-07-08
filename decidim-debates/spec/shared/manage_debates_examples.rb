@@ -2,6 +2,7 @@
 
 RSpec.shared_examples "manage debates" do
   let!(:debate) { create(:debate, category:, component: current_component) }
+  let(:attributes) { attributes_for(:debate, :closed, component: current_component) }
 
   before { visit_component_admin }
 
@@ -39,19 +40,15 @@ RSpec.shared_examples "manage debates" do
   end
 
   describe "updating a debate" do
-    it "updates a debate" do
+    it "updates a debate", versioning: true do
       within find("tr", text: translated(debate.title)) do
         page.find(".action-icon--edit").click
       end
 
       within ".edit_debate" do
-        fill_in_i18n(
-          :debate_title,
-          "#debate-title-tabs",
-          en: "My new title",
-          es: "Mi nuevo título",
-          ca: "El meu nou títol"
-        )
+        fill_in_i18n(:debate_title, "#debate-title-tabs", **attributes[:title].except("machine_translations"))
+        fill_in_i18n_editor(:debate_description, "#debate-description-tabs", **attributes[:description].except("machine_translations"))
+        fill_in_i18n_editor(:debate_instructions, "#debate-instructions-tabs", **attributes[:instructions].except("machine_translations"))
 
         find("*[type=submit]").click
       end
@@ -59,8 +56,11 @@ RSpec.shared_examples "manage debates" do
       expect(page).to have_admin_callout "Debate successfully updated"
 
       within "table" do
-        expect(page).to have_content("My new title")
+        expect(page).to have_content(translated(attributes[:title]))
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the #{translated(attributes[:title])} debate on the")
     end
 
     context "when the debate has an author" do
@@ -88,31 +88,13 @@ RSpec.shared_examples "manage debates" do
     end
   end
 
-  it "creates a new finite debate" do
+  it "creates a new finite debate", versioning: true do
     click_link "New debate"
 
     within ".new_debate" do
-      fill_in_i18n(
-        :debate_title,
-        "#debate-title-tabs",
-        en: "My debate",
-        es: "Mi debate",
-        ca: "El meu debat"
-      )
-      fill_in_i18n_editor(
-        :debate_description,
-        "#debate-description-tabs",
-        en: "Long description",
-        es: "Descripción más larga",
-        ca: "Descripció més llarga"
-      )
-      fill_in_i18n_editor(
-        :debate_instructions,
-        "#debate-instructions-tabs",
-        en: "Long instructions",
-        es: "Instrucciones más largas",
-        ca: "Instruccions més llargues"
-      )
+      fill_in_i18n(:debate_title, "#debate-title-tabs", **attributes[:title].except("machine_translations"))
+      fill_in_i18n_editor(:debate_description, "#debate-description-tabs", **attributes[:description].except("machine_translations"))
+      fill_in_i18n_editor(:debate_instructions, "#debate-instructions-tabs", **attributes[:instructions].except("machine_translations"))
 
       choose "Finite"
     end
@@ -129,35 +111,20 @@ RSpec.shared_examples "manage debates" do
     expect(page).to have_admin_callout "Debate successfully created"
 
     within "table" do
-      expect(page).to have_content("My debate")
+      expect(page).to have_content(translated(attributes[:title]))
     end
+
+    visit decidim_admin.root_path
+    expect(page).to have_content("created the #{translated(attributes[:title])} debate on the")
   end
 
   it "creates a new open debate" do
     click_link "New debate"
 
     within ".new_debate" do
-      fill_in_i18n(
-        :debate_title,
-        "#debate-title-tabs",
-        en: "My debate",
-        es: "Mi debate",
-        ca: "El meu debat"
-      )
-      fill_in_i18n_editor(
-        :debate_description,
-        "#debate-description-tabs",
-        en: "Long description",
-        es: "Descripción más larga",
-        ca: "Descripció més llarga"
-      )
-      fill_in_i18n_editor(
-        :debate_instructions,
-        "#debate-instructions-tabs",
-        en: "Long instructions",
-        es: "Instrucciones más largas",
-        ca: "Instruccions més llargues"
-      )
+      fill_in_i18n(:debate_title, "#debate-title-tabs", **attributes[:title].except("machine_translations"))
+      fill_in_i18n_editor(:debate_description, "#debate-description-tabs", **attributes[:description].except("machine_translations"))
+      fill_in_i18n_editor(:debate_instructions, "#debate-instructions-tabs", **attributes[:instructions].except("machine_translations"))
 
       choose "Open"
     end
@@ -174,8 +141,11 @@ RSpec.shared_examples "manage debates" do
     expect(page).to have_admin_callout "Debate successfully created"
 
     within "table" do
-      expect(page).to have_content("My debate")
+      expect(page).to have_content(translated(attributes[:title]))
     end
+
+    visit decidim_admin.root_path
+    expect(page).to have_content("created the #{translated(attributes[:title])} debate on the")
   end
 
   describe "deleting a debate" do
@@ -210,20 +180,14 @@ RSpec.shared_examples "manage debates" do
     end
   end
 
-  describe "closing a debate" do
+  describe "closing a debate", versioning: true do
     it "closes a debate" do
       within find("tr", text: translated(debate.title)) do
         page.find(".action-icon--close").click
       end
 
       within ".edit_close_debate" do
-        fill_in_i18n_editor(
-          :debate_conclusions,
-          "#debate-conclusions-tabs",
-          en: "The debate was great",
-          es: "El debate fué genial",
-          ca: "El debat ha anat molt bé"
-        )
+        fill_in_i18n_editor(:debate_conclusions, "#debate-conclusions-tabs", **attributes[:conclusions].except("machine_translations"))
 
         find("*[type=submit]").click
       end
@@ -237,7 +201,10 @@ RSpec.shared_examples "manage debates" do
         end
       end
 
-      expect(page).to have_content("The debate was great")
+      expect(page).to have_content(strip_tags(translated(attributes[:conclusions])).strip)
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("performed some action on #{translated(debate.title)} in")
     end
 
     context "when the debate has an author" do
