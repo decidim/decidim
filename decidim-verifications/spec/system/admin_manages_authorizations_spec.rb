@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-describe "Admin manages authorizations users" do
+describe "Admin manages authorizations users", type: :system do
   let!(:organization) { create(:organization, available_authorizations: available_authorizations) }
   let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
 
