@@ -14,6 +14,17 @@ module Decidim
         end
       end
 
+      def self.register_mobile_menu!
+        Decidim.menu :mobile_menu do |menu|
+          menu.add_item :initiatives,
+                        I18n.t("menu.initiatives", scope: "decidim"),
+                        decidim_initiatives.initiatives_path,
+                        position: 2.4,
+                        active: %r{^/(initiatives|create_initiative)},
+                        if: !Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
+        end
+      end
+
       def self.register_home_content_block_menu!
         Decidim.menu :home_content_block_menu do |menu|
           menu.add_item :initiatives,
