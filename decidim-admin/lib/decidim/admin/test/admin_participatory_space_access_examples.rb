@@ -15,6 +15,23 @@ shared_examples "showing the unauthorized error message" do
   end
 end
 
+shared_examples "admin participatory space edit button" do
+  context "and visits the participatory space public page" do
+    before do
+      switch_to_host(organization.host)
+      login_as role, scope: :user
+    end
+
+    it "shows the admin bar with the Edit button" do
+      visit participatory_space_path
+
+      within "#admin-bar" do
+        expect(page).to have_link("Edit", href: target_path)
+      end
+    end
+  end
+end
+
 shared_examples "admin participatory space access" do
   before do
     switch_to_host(organization.host)
