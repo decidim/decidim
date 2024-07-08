@@ -913,6 +913,7 @@ fi:
           filename: Tiedoston nimi
           remove: Poista
           replace: Korvaa
+          save: Tallenna
           title: Tiedosto-otsikko
           title_required: Tiedosto-otsikko tarvitaan!
           uploaded: Ladattu
