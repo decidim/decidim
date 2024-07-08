@@ -32,7 +32,7 @@ describe Decidim::NotificationCell, type: :cell do
   end
 
   context "when resource is moderated" do
-    let!(:resource) { create(:dummy_resource, :moderated, component:) }
+    let!(:resource) { create(:dummy_resource, :moderated, component: component) }
 
     it "does not render the resource" do
       expect(subject.to_s).to include("Content moderated")

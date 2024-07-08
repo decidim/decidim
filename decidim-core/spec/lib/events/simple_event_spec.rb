@@ -6,10 +6,9 @@ module Decidim
   describe Events::SimpleEvent do
     let(:user) { build(:user) }
 
-
-      subject do
-        described_class.new(
-          resource: resource,
+    subject do
+      described_class.new(
+        resource: resource,
         event_name: "some.event",
         user: user,
         extra: {}
