@@ -309,15 +309,15 @@ module Decidim
       end
 
       def profile_url(nickname)
-        Decidim::Core::Engine.routes.url_helpers.profile_url(nickname, host:)
+        Decidim::Core::Engine.routes.url_helpers.profile_url(nickname, host: host)
       end
 
       def meeting_url(meeting)
-        Decidim::EngineRouter.main_proxy(meeting.component).meeting_url(id: meeting.id, host:)
+        Decidim::EngineRouter.main_proxy(meeting.component).meeting_url(id: meeting.id, host: host)
       end
 
       def root_url
-        Decidim::Core::Engine.routes.url_helpers.root_url(host:)
+        Decidim::Core::Engine.routes.url_helpers.root_url(host: host)
       end
 
       def host
