@@ -11,7 +11,7 @@ describe "Search comments", type: :system do
   let(:hashtag) { "#decidim" }
 
   before do
-    comment = create(:comment, body: "FooBar", commentable:)
+    comment = create(:comment, body: "FooBar", commentable: commentable)
     searchables << comment
 
     hashtag_comment = create(:comment, body: "A comment with a hashtag #{hashtag}", commentable: commentable)
