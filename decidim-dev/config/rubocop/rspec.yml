@@ -27,6 +27,7 @@ RSpec/ContextWording:
 RSpec/DescribeClass:
   Exclude:
     - spec/gemfiles_spec.rb
+    - spec/gemspecs_spec.rb
     - spec/webpacker_spec.rb
     - spec/version_files_spec.rb
     - spec/spellcheck_spec.rb
