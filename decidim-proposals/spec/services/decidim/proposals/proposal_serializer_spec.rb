@@ -52,7 +52,7 @@ module Decidim
             let!(:proposal) { create(:proposal, :official) }
 
             before do
-              component.participatory_space.organization.update!(name: { en: "My organization" })
+              component.participatory_space.organization.update!(name: "My organization")
               proposal.reload
             end
 
