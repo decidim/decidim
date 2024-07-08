@@ -31,6 +31,16 @@ shared_examples "admin participatory space access" do
   context "when the user has the role" do
     let(:user) { role }
 
+    context "and visits the root path" do
+      it "shows the admin bar" do
+        visit decidim.root_path
+
+        within "#admin-bar" do
+          expect(page).to have_link("Admin dashboard", href: "/admin/")
+        end
+      end
+    end
+
     context "and has permission" do
       before do
         visit target_path
