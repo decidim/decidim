@@ -210,7 +210,6 @@ eu:
           info: Batzar honi buruz
           landing_page: Hasierako orria
           moderations: Moderazioak
-          private_users: Erabiltzaile pribatuak
           see_assembly: Ikusi batzarra
         assemblies_types: Batzar motak
       models:
