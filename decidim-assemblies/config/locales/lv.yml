@@ -163,7 +163,6 @@ lv:
           categories: Kategorijas
           components: Komponenti
           moderations: Moderācijas
-          private_users: Privāti lietotāji
         assemblies_types: Asambleju veidi
       models:
         assemblies_types:
