@@ -905,6 +905,7 @@ pl:
           filename: Nazwa pliku
           remove: Usuń
           replace: Zamień
+          save: Zapisz
           title: Tytuł
           title_required: Tytul jest obowiazkowy!
           uploaded: Przesłano
