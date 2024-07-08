@@ -207,7 +207,7 @@ ja:
           info: この参加スペースについて
           landing_page: ランディングページ
           moderations: モデレーション
-          private_users: プライベートユーザー
+          private_users: プライベート参加者
           see_assembly: 参加スペースを見る
         assemblies_types: 参加スペース種別
       models:
