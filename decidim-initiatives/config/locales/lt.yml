@@ -290,7 +290,6 @@ lt:
         initiatives_types:
           create:
             error: Įvyko klaida.
-            success: Naujas iniciatyvos tipas sukurtas.
           destroy:
             success: Iniciatyvos tipas sėkmingai pašalintas.
           edit:
