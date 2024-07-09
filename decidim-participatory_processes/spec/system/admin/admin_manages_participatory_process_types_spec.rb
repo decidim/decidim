@@ -8,6 +8,7 @@ describe "Admin manages participatory process types", type: :system do
   let!(:participatory_processes) do
     create_list(:participatory_process, 3, organization: organization)
   end
+  let(:attributes) { attributes_for(:participatory_process_type, organization: organization) }
 
   describe "Managing participatory process types" do
     before do
@@ -16,25 +17,23 @@ describe "Admin manages participatory process types", type: :system do
       visit decidim_admin_participatory_processes.participatory_process_types_path
     end
 
-    it "can create new participatory process types" do
+    it "can create new participatory process types", versioning: true do
       click_link "New process type"
 
       within ".new_participatory_process_type" do
-        fill_in_i18n(
-          :participatory_process_type_title,
-          "#participatory_process_type-title-tabs",
-          en: "My participatory process type",
-          es: "Mi tipo de proceso participativo",
-          ca: "El meu tipus de procés participatiu "
-        )
+        fill_in_i18n(:participatory_process_type_title, "#participatory_process_type-title-tabs", **attributes[:title].except("machine_translations"))
+
         find("*[type=submit]").click
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_content("My participatory process type")
+        expect(page).to have_content(translated(attributes[:title]))
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("created the #{translated(attributes[:title])} participatory process type")
     end
 
     context "with existing participatory process types" do
@@ -56,21 +55,19 @@ describe "Admin manages participatory process types", type: :system do
         end
 
         within ".edit_participatory_process_type" do
-          fill_in_i18n(
-            :participatory_process_type_title,
-            "#participatory_process_type-title-tabs",
-            en: "Another participatory process type",
-            es: "Otro tipo de proceso participativo",
-            ca: "Un altre tipus de procés participatiu"
-          )
+          fill_in_i18n(:participatory_process_type_title, "#participatory_process_type-title-tabs", **attributes[:title].except("machine_translations"))
+
           find("*[type=submit]").click
         end
 
         expect(page).to have_admin_callout("successfully")
 
         within "table" do
-          expect(page).to have_content("Another participatory process type")
+          expect(page).to have_content(translated(attributes[:title]))
         end
+
+        visit decidim_admin.root_path
+        expect(page).to have_content("updated the #{translated(attributes[:title])} participatory process type")
       end
 
       it "can delete them" do

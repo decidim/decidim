@@ -124,6 +124,7 @@ FactoryBot.define do
     end
     title { generate_localized_title(:participatory_process_step_title, skip_injection: skip_injection) }
     description { generate_localized_description(:participatory_process_step_description, skip_injection: skip_injection) }
+    cta_text { generate_localized_description(:participatory_process_step_cta_text, skip_injection: skip_injection) }
     start_date { 1.month.ago }
     end_date { 2.months.from_now }
     position { nil }
