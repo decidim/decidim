@@ -2,13 +2,17 @@
   <div class="card pt-4">
     <div class="card-section">
       <div class="row column">
-        <%= form.translated :text_field, :name,autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :name } %>
+        <%= form.translated :text_field, :name, autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :name } %>
       </div>
       <div class="row column">
         <%= form.number_field :weight, class: "form-control", placeholder: t("decidim.admin.taxonomies.weight_placeholder") %>
       </div>
       <div class="row column">
-        <%= form.select :parent_id, options_for_select(parent_options), include_blank: true, class: "form-control" %>
+        <% if taxonomy && taxonomy.parent.present? %>
+          <p><%= t("decidim.admin.taxonomies.current_parent") %>: <%= translated_attribute(taxonomy.parent.name) %></p>
+        <% end %>
+        <%= form.select :parent_id, options_for_select(defined?(taxonomy) ? parent_options(taxonomy) : parent_options, selected: taxonomy&.parent_id), { include_blank: t("decidim.admin.taxonomies.no_parent") }, class: "form-control" %>
+      </div>
       </div>
     </div>
   </div>

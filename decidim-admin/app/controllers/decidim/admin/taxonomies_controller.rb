@@ -5,7 +5,7 @@ module Decidim
     class TaxonomiesController < Decidim::Admin::ApplicationController
       layout "decidim/admin/settings"
 
-      helper_method :taxonomies, :parent_options
+      helper_method :taxonomies, :parent_options, :taxonomy
 
       def index; end
 
@@ -82,8 +82,11 @@ module Decidim
         @taxonomy ||= Decidim::Taxonomy.find(params[:id])
       end
 
-      def parent_options
-        @parent_options ||= Decidim::Taxonomy.where(decidim_organization_id: current_organization.id).map do |taxonomy|
+      def parent_options(current_taxonomy = nil)
+        options = Decidim::Taxonomy.where(decidim_organization_id: current_organization.id)
+        options = options.where.not(id: current_taxonomy.id) if current_taxonomy.present?
+
+        options.map do |taxonomy|
           [translated_attribute(taxonomy.name), taxonomy.id]
         end
       end

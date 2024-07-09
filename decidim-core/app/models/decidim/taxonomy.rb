@@ -25,8 +25,8 @@ module Decidim
              class_name: "Decidim::Taxonomy",
              dependent: :destroy
 
-    has_many :taxonomy_filters, foreign_key: "taxonomy_id", class_name: "Decidim::TaxonomyFilter", dependent: :destroy
-    has_many :taxonomizations, foreign_key: "taxonomy_id", class_name: "Decidim::Taxonomization", dependent: :destroy
+    has_many :taxonomy_filters, class_name: "Decidim::TaxonomyFilter", dependent: :destroy
+    has_many :taxonomizations, class_name: "Decidim::Taxonomization", dependent: :destroy
 
     validates :name, presence: true
 

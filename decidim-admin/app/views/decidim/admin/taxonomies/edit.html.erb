@@ -1,12 +1,12 @@
-<% add_decidim_page_title(t(".title")) %>
+<% add_decidim_page_title(t(".title", taxonomy_name: translated_attribute(taxonomy.name))) %>
 <div class="item_show__header">
   <h1 class="item_show__header-title">
-    <%= t ".title" %>
+    <%= t(".title", taxonomy_name: translated_attribute(taxonomy.name)) %>
   </h1>
 </div>
 <div class="item__edit-form">
   <%= decidim_form_for(@form, html: { class: "form-defaults form edit_taxonomy_" }) do |f| %>
-    <%= render partial: "form", object: f %>
+    <%= render partial: "form", object: f, locals: { taxonomy: taxonomy } %>
     <div class="item__edit-sticky">
       <div class="item__edit-sticky-container">
         <%= f.submit t(".update"), class: "button button__sm button__secondary" %>
