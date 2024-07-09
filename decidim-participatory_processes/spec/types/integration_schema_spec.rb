@@ -23,7 +23,6 @@ describe "Decidim::Api::QueryType" do
           type
           thumbnail
         }
-        bannerImage
         categories{
           id
           name{
@@ -159,7 +158,6 @@ describe "Decidim::Api::QueryType" do
         "translation" => participatory_process.announcement[locale]
       },
       "attachments" => [],
-      "bannerImage" => participatory_process.attached_uploader(:banner_image).path.sub(Rails.public_path.to_s, ""),
       "categories" => [],
       "components" => components,
       "createdAt" => participatory_process.created_at.iso8601.to_s.gsub("Z", "+00:00"),

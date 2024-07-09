@@ -22,7 +22,6 @@ FactoryBot.define do
     description { generate_localized_description(:participatory_process_description, skip_injection:) }
     organization
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after organization
-    banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") } # Keep after organization
     published_at { Time.current }
     meta_scope { generate_localized_word(:participatory_process_meta_scope, skip_injection:) }
     developer_group { generate_localized_title(:participatory_process_developer_group, skip_injection:) }

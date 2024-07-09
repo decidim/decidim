@@ -48,7 +48,6 @@ module Decidim
             participatory_process_type: import_participatory_process_type(attributes["participatory_process_type"])
           )
           @imported_process.attached_uploader(:hero_image).remote_url = attributes["remote_hero_image_url"] if attributes["remote_hero_image_url"].present?
-          @imported_process.attached_uploader(:banner_image).remote_url = attributes["remote_banner_image_url"] if attributes["remote_banner_image_url"].present?
 
           @imported_process.save!
           @imported_process
