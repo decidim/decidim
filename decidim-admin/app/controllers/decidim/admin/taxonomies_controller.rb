@@ -3,11 +3,17 @@
 module Decidim
   module Admin
     class TaxonomiesController < Decidim::Admin::ApplicationController
+      include Decidim::Admin::Filterable
+
       layout "decidim/admin/settings"
 
       helper_method :taxonomies, :parent_options, :taxonomy
 
-      def index; end
+      def index
+        @query = base_query.ransack(params[:q])
+        @taxonomies = @query.result
+        @taxonomies = @taxonomies.search_by_name(params.dig(:q, :name_cont)) if params.dig(:q, :name_cont).present?
+      end
 
       def new
         enforce_permission_to :create, :taxonomy
@@ -89,6 +95,10 @@ module Decidim
         options.map do |taxonomy|
           [translated_attribute(taxonomy.name), taxonomy.id]
         end
+      end
+
+      def base_query
+        Decidim::Taxonomy.where(organization: current_organization)
       end
     end
   end

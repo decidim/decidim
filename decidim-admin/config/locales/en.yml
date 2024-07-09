@@ -468,6 +468,9 @@ en:
             pending: Pending
             rejected: Rejected
             verified: Verified
+        taxonomies:
+          taxonomy_id_eq:
+            label: Taxonomy
       forms:
         file_help:
           import:
@@ -1031,6 +1034,8 @@ en:
         edit:
           title: Edit taxonomy "%{taxonomy_name}"
           update: Update
+        filters:
+          search_placeholder: Search taxonomies
         name: Name
         new:
           create: Create taxonomy

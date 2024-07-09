@@ -25,11 +25,21 @@ module Decidim
              class_name: "Decidim::Taxonomy",
              dependent: :destroy
 
-    has_many :taxonomy_filters, class_name: "Decidim::TaxonomyFilter", dependent: :destroy
-    has_many :taxonomizations, class_name: "Decidim::Taxonomization", dependent: :destroy
+    has_many :taxonomy_filters, class_name: "Decidim::TaxonomyFilter", dependent: :restrict_with_error
+    has_many :taxonomizations, class_name: "Decidim::Taxonomization", dependent: :restrict_with_error
 
     validates :name, presence: true
 
     default_scope { order(:weight) }
+
+    ransacker_i18n :name
+
+    def self.ransackable_scopes(_auth_object = nil)
+      [:search_by_name]
+    end
+
+    scope :search_by_name, lambda { |name|
+      where("name ->> ? ILIKE ?", I18n.locale.to_s, "%#{name}%")
+    }
   end
 end
