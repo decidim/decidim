@@ -233,6 +233,10 @@ ja:
               most_recent: 新着順
         exports:
           initiatives: イニシアチブ
+        index:
+          initiatives_types:
+            alert_html: "<p>参加者がイニシアチブを作成できるように、少なくとも1つのイニシアチブ種別を作成する必要があります。</p><p> %{link}</p>"
+            button: 新しいイニシアチブ種別
         initiatives:
           edit:
             accept: イニシアチブを承認する
@@ -273,7 +277,7 @@ ja:
         initiatives_type_scopes:
           create:
             error: エラーが発生しました。
-            success: 指定されたイニシアチブタイプの新しいスコープが作成されました。
+            success: 指定されたイニシアチブ種別の新しいスコープが作成されました。
           destroy:
             success: スコープを削除しました。
           edit:
@@ -288,8 +292,9 @@ ja:
         initiatives_types:
           create:
             error: エラーが発生しました。
+            success: 新しいイニシアチブ種別を作成しました。このイニシアチブ種別を使用するには、少なくとも 1 つのスコープを定義する必要があります。
           destroy:
-            success: イニシアチブタイプを削除しました。
+            success: イニシアチブ種別を削除しました。
           edit:
             update: 更新
           form:
@@ -304,7 +309,7 @@ ja:
             title: 新しいイニシアチブ種別
           update:
             error: エラーが発生しました。
-            success: イニシアチブタイプを更新しました。
+            success: イニシアチブ種別を更新しました。
       admin_log:
         initiative:
           publish: "%{user_name} が %{resource_name} イニシアチブを公開しました"
@@ -314,9 +319,9 @@ ja:
         initiatives_settings:
           update: "%{user_name} がイニシアチブの設定を更新しました"
         initiatives_type:
-          create: "%{user_name} が %{resource_name} イニシアチブタイプを作成しました"
-          delete: "%{user_name} が %{resource_name} イニシアチブタイプを削除しました"
-          update: "%{user_name} は %{resource_name} イニシアチブタイプを更新しました"
+          create: "%{user_name} が %{resource_name} イニシアチブ種別を作成しました"
+          delete: "%{user_name} が %{resource_name} イニシアチブ種別を削除しました"
+          update: "%{user_name} は %{resource_name} イニシアチブ種別を更新しました"
       admin_states:
         accepted: 十分な署名
         created: 作成済み
