@@ -10,7 +10,7 @@ module Decidim
                         decidim_initiatives.initiatives_path,
                         position: 2.4,
                         active: %r{^/(initiatives|create_initiative)},
-                        if: !Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
+                        if: Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).any?
         end
       end
 
@@ -32,7 +32,7 @@ module Decidim
                         decidim_initiatives.initiatives_path,
                         position: 30,
                         active: :inclusive,
-                        if: !Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).all.empty?
+                        if: Decidim::InitiativesType.joins(:scopes).where(organization: current_organization).any?
         end
       end
 
