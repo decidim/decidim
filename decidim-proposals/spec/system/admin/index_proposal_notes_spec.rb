@@ -9,6 +9,7 @@ describe "Index Proposal Notes", type: :system do
   let(:manifest_name) { "proposals" }
   let(:proposal) { create(:proposal, component: component) }
   let(:participatory_space) { component.participatory_space }
+  let(:attributes) { attributes_for(:proposal_note) }
 
   let(:body) { "New awesome body" }
   let(:proposal_notes_count) { 5 }
@@ -32,15 +33,15 @@ describe "Index Proposal Notes", type: :system do
   it "shows proposal notes for the current proposal" do
     proposal_notes.each do |proposal_note|
       expect(page).to have_content(proposal_note.author.name)
-      expect(page).to have_content(proposal_note.body)
+      expect(page).to have_content(decidim_sanitize_translated(proposal_note.body))
     end
     expect(page).to have_selector("form")
   end
 
   context "when the form has a text inside body" do
-    it "creates a proposal note", :slow do
+    it "creates a proposal note", versioning: true do
       within ".new_proposal_note" do
-        fill_in :proposal_note_body, with: body
+        fill_in :proposal_note_body, with: attributes[:body]
 
         find("*[type=submit]").click
       end
@@ -48,8 +49,11 @@ describe "Index Proposal Notes", type: :system do
       expect(page).to have_admin_callout("successfully")
 
       within ".comment-thread .card:last-child" do
-        expect(page).to have_content("New awesome body")
+        expect(page).to have_content(decidim_sanitize_translated(attributes[:body]))
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("left a private note on the #{translated(proposal.title)} proposal")
     end
   end
 

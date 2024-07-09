@@ -36,7 +36,7 @@
               <div class="tabs-panel <%= "is-active" if type == default_type %>" id="<%= "initiativeType#{type.id}" %>">
                 <h2 class="section-heading"><%= translated_attribute(type.title) %></h2>
                 <div>
-                  <%= decidim_escape_translated(type.description) %>
+                  <%= decidim_sanitize_admin(translated_attribute(type.description)) %>
                 </div>
                 <br>
                 <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { id: "new_initiative_#{type.id}", class: "form select-initiative_type-form" }) do |f| %>

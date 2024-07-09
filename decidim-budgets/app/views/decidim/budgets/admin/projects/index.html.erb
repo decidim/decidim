@@ -3,7 +3,7 @@
   <div class="card-divider">
     <h2 class="card-title flex--sbc">
       <div>
-        <%= link_to decidim_escape_translated(budget.title), budgets_path %> &gt;
+        <%= link_to decidim_escape_translated(budget.title).html_safe, budgets_path %> &gt;
         <%= t(".title") %>
         <span id="js-selected-resources-count" class="component-counter component-counter--inline" title="<%= t("decidim.budgets.admin.projects.index.selected") %>"></span>
       </div>

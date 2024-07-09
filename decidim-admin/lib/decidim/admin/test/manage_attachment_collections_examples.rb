@@ -19,9 +19,9 @@ shared_examples "manage attachment collections examples" do
       click_link translated(attachment_collection.name, locale: :en)
     end
 
-    expect(page).to have_selector("input#attachment_collection_name_en[value='#{translated(attachment_collection.name, locale: :en)}']")
-    expect(page).to have_selector("input#attachment_collection_weight[value='#{attachment_collection.weight}']")
-    expect(page).to have_selector("input#attachment_collection_description_en[value='#{translated(attachment_collection.description, locale: :en)}']")
+    expect(page).to have_selector(%(input#attachment_collection_name_en[value="#{translated(attachment_collection.name, locale: :en)}"]))
+    expect(page).to have_selector(%(input#attachment_collection_weight[value="#{attachment_collection.weight}"]))
+    expect(page).to have_selector(%(input#attachment_collection_description_en[value="#{translated(attachment_collection.description, locale: :en)}"]))
   end
 
   it "can add attachment collections to a process" do

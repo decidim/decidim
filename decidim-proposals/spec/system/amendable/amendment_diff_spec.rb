@@ -133,14 +133,14 @@ describe "Amendment Diff", versioning: true, type: :system do
     end
 
     context "and the proposal author is reviewing an emendation to their proposal before accepting it" do
-      let(:user) { proposal.creator_author }
+      let!(:user) { proposal.creator_author }
 
       before do
         proposal.update(title: { en: "Updated long enough title" }, body: { en: "Updated one liner body" })
         # The last version of the emendation should hold the amending attribute values.
         emendation.update(title: { en: "Amended long enough title" }, body: { en: "Amended one liner body" })
-        visit emendation_path
         login_as user, scope: :user
+        visit emendation_path
         visit decidim.review_amend_path(amendment)
       end
 

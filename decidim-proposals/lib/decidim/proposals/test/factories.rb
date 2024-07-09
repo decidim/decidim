@@ -433,7 +433,13 @@ FactoryBot.define do
     transient do
       skip_injection { false }
     end
-    body { Faker::Lorem.sentences(number: 3).join("\n") }
+    body do
+      if skip_injection
+        generate(:title)
+      else
+        "<script>alert(\"proposal_note_body\");</script> #{generate(:title)}"
+      end
+    end
     proposal { build(:proposal, skip_injection: skip_injection) }
     author { build(:user, organization: proposal.organization, skip_injection: skip_injection) }
   end

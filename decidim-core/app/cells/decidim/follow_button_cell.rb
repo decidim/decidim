@@ -46,7 +46,7 @@ module Decidim
 
     def render_screen_reader_title_for(resource)
       content_tag :span, class: "show-for-sr" do
-        decidim_html_escape(resource_title(resource))
+        decidim_sanitize_translated(resource_title(resource))
       end
     end
 

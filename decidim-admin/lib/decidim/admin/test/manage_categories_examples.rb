@@ -13,7 +13,7 @@ shared_examples "manage categories examples" do
       click_link translated(category.name, locale: :en)
     end
 
-    expect(page).to have_selector("input#category_name_en[value='#{translated(category.name, locale: :en)}']")
+    expect(page).to have_selector(%(input#category_name_en[value="#{translated(category.name, locale: :en)}"]))
     expect(page).to have_selector("input#category_weight[value='#{category.weight}']")
 
     expect(page).to have_selector("select#category_parent_id")
