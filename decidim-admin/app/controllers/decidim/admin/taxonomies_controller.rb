@@ -3,55 +3,71 @@
 module Decidim
   module Admin
     class TaxonomiesController < Decidim::Admin::ApplicationController
-      include Decidim::Admin::Concerns::HasTabbedMenu
       layout "decidim/admin/settings"
-
-      add_breadcrumb_item_from_menu :admin_settings_menu
 
       helper_method :taxonomies, :parent_options
 
       def index; end
 
       def new
-        # enforce_permission_to :create, :taxonomy
+        enforce_permission_to :create, :taxonomy
+
         @form = form(Decidim::Admin::TaxonomyForm).instance
       end
 
-      def edit
-        # enforce_permission_to :update, :taxonomy
-        @form = form(Decidim::Admin::TaxonomyForm).from_model(taxonomy)
-      end
+      def create
+        enforce_permission_to :create, :taxonomy
 
-      def update
-        # enforce_permission_to :update, :taxonomy
         @form = form(Decidim::Admin::TaxonomyForm).from_params(params)
 
-        UpdateTaxonomy.call(@form, taxonomy) do
+        CreateTaxonomy.call(@form, current_organization) do
           on(:ok) do |taxonomy|
-            flash[:notice] = I18n.t("taxonomies.update.success", scope: "decidim.taxonomies")
+            flash[:notice] = I18n.t("create.success", scope: "decidim.admin.taxonomies")
             redirect_to taxonomies_path(taxonomy)
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("taxonomies.update.invalid", scope: "decidim.taxonomies")
+            flash.now[:alert] = I18n.t("create.invalid", scope: "decidim.admin.taxonomies")
+            render action: "new"
+          end
+        end
+      end
+
+      def edit
+        enforce_permission_to :update, :taxonomy
+        @form = form(Decidim::Admin::TaxonomyForm).from_model(taxonomy)
+      end
+
+      def update
+        enforce_permission_to :update, :taxonomy
+
+        @form = form(Decidim::Admin::TaxonomyForm).from_params(params)
+
+        UpdateTaxonomy.call(@form, taxonomy) do
+          on(:ok) do |taxonomy|
+            flash[:notice] = I18n.t("update.success", scope: "decidim.admin.taxonomies")
+            redirect_to taxonomies_path(taxonomy)
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("update.invalid", scope: "decidim.admin.taxonomies")
             render action: "edit"
           end
         end
       end
 
-      def create
-        # enforce_permission_to :create, :taxonomy
-        @form = form(Decidim::Admin::TaxonomyForm).from_params(params)
+      def destroy
+        enforce_permission_to :destroy, :taxonomy
 
-        CreateTaxonomy.call(@form, current_organization) do
-          on(:ok) do |taxonomy|
-            flash[:notice] = I18n.t("taxonomies.create.success", scope: "decidim.taxonomies")
-            redirect_to taxonomies_path(taxonomy)
+        DestroyTaxonomy.call(taxonomy, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("destroy.success", scope: "decidim.admin.taxonomies")
+            redirect_to taxonomies_path
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("taxonomies.create.invalid", scope: "decidim.taxonomies")
-            render action: "new"
+            flash.now[:alert] = I18n.t("destroy.invalid", scope: "decidim.admin.taxonomies")
+            redirect_to taxonomies_path
           end
         end
       end
@@ -71,8 +87,6 @@ module Decidim
           [translated_attribute(taxonomy.name), taxonomy.id]
         end
       end
-
-      def tab_menu_name = :admin_taxonomies_menu
     end
   end
 end

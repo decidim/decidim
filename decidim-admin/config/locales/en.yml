@@ -1021,6 +1021,12 @@ en:
       taxonomies:
         actions: Actions
         amount: Amount
+        create:
+          error: There was a problem creating this taxonomy.
+          success: Taxonomy created successfully.
+        destroy:
+          error: There was a problem destroying this taxonomy.
+          success: Taxonomy successfully destroyed.
         edit:
           title: Edit taxonomy
           update: Update
