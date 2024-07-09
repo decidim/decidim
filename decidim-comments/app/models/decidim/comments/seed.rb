@@ -79,14 +79,12 @@ module Decidim
         # @return nil
         def create_votes(comment)
           rand(0..12).times do
-            author = random_user
-            user_group = random_user_group(author)
+            user = random_user
+            user_group = random_user_group(user)
+            author = [user, user_group].compact.sample
+            next if CommentVote.where(comment:, author:).any?
 
-            CommentVote.find_or_create_by(
-              comment:,
-              author: [author, user_group].compact.sample,
-              weight: [1, -1].sample
-            )
+            CommentVote.create!(comment:, author:, weight: [1, -1].sample)
           end
 
           nil
