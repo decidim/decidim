@@ -297,7 +297,6 @@ cs:
         initiatives_types:
           create:
             error: Došlo k chybě.
-            success: Nový druh iniciativy byl úspěšně vytvořen
           destroy:
             success: Druh iniciativy byl úspěšně odstraněn.
           edit:
