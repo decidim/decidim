@@ -13,7 +13,7 @@
           <ul class="vertical menu add-components font-normal">
             <% available_manifests.each do |manifest| %>
               <%= link_to resource_create_url(type: manifest.name), method: :post do %>
-                <li>
+                <li class="content-block-dropdown">
                   <%= t(manifest.public_name_key) %>
                 </li>
               <% end %>
