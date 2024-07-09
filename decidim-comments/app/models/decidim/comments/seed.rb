@@ -31,9 +31,8 @@ module Decidim
 
             next if [true, false].sample
 
-            [comment1, comment2].compact.each do |comment|
-              create_votes(comment)
-            end
+            create_votes(comment1) if comment1
+            create_votes(comment2) if comment2
           end
         end
 
