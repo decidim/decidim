@@ -291,7 +291,6 @@ ca:
         initiatives_types:
           create:
             error: S'ha produït un error.
-            success: S'ha creat correctament un nou tipus d'iniciativa.
           destroy:
             success: S'ha eliminat correctament el tipus d'iniciativa.
           edit:
