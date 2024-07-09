@@ -291,7 +291,6 @@ de:
         initiatives_types:
           create:
             error: Ein Fehler ist aufgetreten.
-            success: Ein neuer Initiativentyp wurde erfolgreich erstellt.
           destroy:
             success: Der Initiativentyp wurde erfolgreich entfernt.
           edit:
