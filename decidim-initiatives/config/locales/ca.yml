@@ -236,6 +236,10 @@ ca:
               most_recent: Més recents
         exports:
           initiatives: Iniciatives
+        index:
+          initiatives_types:
+            alert_html: "<p>Has de crear com a mínim un tipus d'iniciativa per tal que les participants puguin començar a crear les seves iniciatives.</p><p>%{link}</p>"
+            button: Nou tipus d'iniciativa
         initiatives:
           edit:
             accept: Accepta la iniciativa
@@ -291,6 +295,7 @@ ca:
         initiatives_types:
           create:
             error: S'ha produït un error.
+            success: S'ha creat amb èxit un nou tipus d'iniciativa. Has de definir com a mínim un àmbit per aquest tipus d'iniciativa perquè es pugui fer servir.
           destroy:
             success: S'ha eliminat correctament el tipus d'iniciativa.
           edit:
