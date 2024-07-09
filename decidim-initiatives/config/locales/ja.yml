@@ -288,7 +288,6 @@ ja:
         initiatives_types:
           create:
             error: エラーが発生しました。
-            success: 新しいイニシアチブタイプが正常に作成されました。
           destroy:
             success: イニシアチブタイプを削除しました。
           edit:
