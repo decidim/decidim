@@ -327,6 +327,7 @@ describe "Explore results", :versioning do
 
       context "with subresults" do
         let!(:subresults) { create_list(:result, 3, component:, parent: result) }
+        let(:first_subresult) { subresults.first }
 
         before do
           visit current_path
@@ -340,6 +341,16 @@ describe "Explore results", :versioning do
           subresults.each do |subresult|
             expect(page).to have_content(translated(subresult.title))
           end
+        end
+
+        it "the result is mentioned in the subresult page" do
+          click_on translated(first_subresult.title)
+          expect(page).to have_i18n_content(result.title)
+        end
+
+        it "a banner links back to the result" do
+          click_on translated(first_subresult.title)
+          expect(page).to have_content(translated(result.title))
         end
       end
 
