@@ -565,7 +565,6 @@ ca:
         name: Banner de sub-heros
     core:
       actions:
-        login_before_access: Si us plau, inicia sessió amb el teu compte abans d'accedir.
         unauthorized: No tens autorització per realitzar aquesta acció.
       application_helper:
         filter_area_values:
@@ -582,7 +581,6 @@ ca:
           complete_profile: Completa el perfil
           nickname_help: El teu àlies a %{organization}. Només pot contenir lletres, números, '-' and '_'.
           sign_up: Si us plau, completa el teu perfil
-          subtitle: Si us plau, omple el següent formulari per tal de completar la teva inscripció
           username_help: Nom públic que apareix als teus missatges. Amb l'objectiu de garantir l'anonimat, pot ser qualsevol nom.
       registrations:
         create:
@@ -592,8 +590,6 @@ ca:
           log_in: Entra
           newsletter: Vull rebre un butlletí ocasional amb informació rellevant
           newsletter_title: Permís de contacte
-          sign_up: Registra't
-          subtitle: Crea un compte per poder participar en els debats i donar suport a les propostes.
           terms: els termes i condicions d'ús
           tos_agreement: En registrar-te acceptes %{link}.
           tos_title: Termes del servei
@@ -603,7 +599,6 @@ ca:
           are_you_new?: Ets nova a la plataforma?
           register: Crea't un compte
           sign_in_disabled: Pots accedir amb un compte extern.
-          sign_up_disabled: El registre està deshabilitat, pots fer servir un compte existent per accedir-hi.
         user:
           timed_out: Has estat sense activitat durant massa temps i la teva sessió s'ha tancat automàticament. Si vols continuar participant, torna a iniciar sessió.
       shared:
@@ -1317,7 +1312,6 @@ ca:
           headline: Estat actual de %{organization}
         sub_hero:
           register: Registra't
-          register_title: Registra't per crear un compte
       index:
         standalone_pages: Pàgines
         subheading: Navega per les pàgines d'ajuda de %{name}
@@ -1500,7 +1494,6 @@ ca:
         log_in_before_follow: Si us plau, inicia sessió abans de realitzar aquesta acció
       login_modal:
         please_log_in: Si us plau, inicia la sessió
-        sign_up: Registra't
       mentions_modal:
         remove_recipient: Eliminar destinatària %{name}
       participatory_space_filters:
@@ -1627,7 +1620,6 @@ ca:
       locked: El teu compte està bloquejat.
       not_found_in_database: El %{authentication_keys} o la contrasenya no són vàlids.
       timeout: La teva sessió ha expirat. Si us plau, torna a iniciar-la per continuar.
-      unauthenticated: Cal iniciar sessió o registrar-te abans de continuar.
     invitations:
       edit:
         header: Acabar de crear el teu compte
@@ -1713,8 +1705,6 @@ ca:
       updated_not_active: La teva contrasenya s'ha modificat correctament.
     registrations:
       destroyed: El teu compte s'ha cancel·lat correctament. Esperem tornar-te a veure aviat.
-      new:
-        sign_up: Registra't
       signed_up: Benvinguda! Has iniciat la sessió amb èxit.
       signed_up_but_inactive: Has iniciat la sessió amb èxit. Tanmateix, no hem pogut iniciar la sessió perquè el teu compte encara no està activat.
       signed_up_but_locked: T'has registrat amb èxit. Tanmateix, no has pogut iniciar la sessió perquè el teu compte està bloquejat.
@@ -1735,7 +1725,6 @@ ca:
         forgot_your_password: Has oblidat la teva contrasenya?
         log_in: Entra
         log_in_with_provider: Inicia sessió amb %{provider}
-        sign_up: Registra't
       minimum_password_length:
         one: "(Mínim de%{count} caràcters)"
         other: "(Mínim de%{count} caràcters)"
@@ -1849,7 +1838,6 @@ ca:
       long_words: conté paraules massa llargues (més de 35 caràcters)
       must_start_with_caps: ha de començar amb una lletra majúscula
       nesting_too_deep: no pot estar dins d'una subcategoria
-      not_found: No es pot trobar. Us heu inscrit prèviament?
       not_locked: No estava bloquejat
       not_saved:
         one: 'S''ha produït un error en processar la teva sol·licitud:'
@@ -1934,10 +1922,9 @@ ca:
         log_in: Entra
         made_with_open_source: Web creada amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
         resources: Recursos
-        sign_up: Registra't
         terms_of_service: Termes i condicions d'ús
       header:
-        log_in: Iniciar sessió
+        log_in: Entra
         main_menu: Menú principal
         user_menu: Menú d'usuari
       impersonation_warning:
