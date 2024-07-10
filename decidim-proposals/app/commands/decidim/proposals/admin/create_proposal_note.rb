@@ -56,10 +56,11 @@ module Decidim
           return if affected_users.blank?
 
           Decidim::EventsManager.publish(
-            event: "decidim.events.proposals.admin.proposal_note_created",
+            event: "decidim.events.proposals.admin.proposal_note_mentioned",
             event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
             resource: proposal,
-            affected_users:
+            affected_users:,
+            extra: { note_author_id: form.current_user.id }
           )
         end
       end
