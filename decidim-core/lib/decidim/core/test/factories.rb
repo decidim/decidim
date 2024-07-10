@@ -627,12 +627,12 @@ FactoryBot.define do
     organization
   end
 
-  factory :taxonomy, class: 'Decidim::Taxonomy' do
+  factory :taxonomy, class: "Decidim::Taxonomy" do
     name { Decidim::Faker::Localized.literal(generate(:name)) }
-    association :organization, factory: :organization
+    association :organization
 
     trait :with_parent do
-      association :parent, factory: :taxonomy, organization: organization
+      association :parent, factory: :taxonomy, organization:
     end
   end
 

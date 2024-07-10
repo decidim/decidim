@@ -46,11 +46,11 @@
             <td role="cell"><%= taxonomy.children.count %></td>
             <td class="table-list__actions" role="cell">
               <% if allowed_to? :update, :taxonomy, taxonomy: taxonomy %>
-                <%= link_to icon("pencil-line"), [:edit, taxonomy], class: "action-icon--edit", method: :get, data: {}, aria: { label: t("actions.edit", scope: "decidim.admin") } %>
+                <%= icon_link_to "pencil-line", [:edit, taxonomy], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
               <% end %>
 
               <% if allowed_to? :destroy, :taxonomy, taxonomy: taxonomy %>
-                <%= link_to icon("delete-bin-line"), taxonomy, method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") }, aria: { label: t("actions.destroy", scope: "decidim.admin") } %>
+                <%= icon_link_to "delete-bin-line", taxonomy, t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
               <% end %>
             </td>
           </tr>

@@ -39,7 +39,7 @@ module Decidim::Admin
       end
 
       it "updates the name of the taxonomy" do
-        expect(taxonomy.name['en']).to eq("New name")
+        expect(taxonomy.name["en"]).to eq("New name")
       end
 
       it "updates the weight of the taxonomy" do

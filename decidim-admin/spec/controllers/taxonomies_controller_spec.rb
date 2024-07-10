@@ -83,11 +83,6 @@ module Decidim
           patch :update, params: valid_params
           taxonomy.reload
 
-          # Отладочное сообщение
-          puts "Attributes after update: #{taxonomy.attributes}"
-          puts "Errors: #{taxonomy.errors.full_messages}"
-          puts "Expected: 'Updated Taxonomy', Got: #{taxonomy.name['en']}"
-
           expect(taxonomy.name["en"]).to eq("Updated Taxonomy")
         end
 
