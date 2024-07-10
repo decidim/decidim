@@ -83,7 +83,6 @@ pl:
             did_not_receive_unlock_instructions?: Nie dotarła instrukcja odblokowania?
             forgot_your_password?: Nie pamiętasz hasła?
             log_in: Zaloguj się
-            sign_up: Zarejestruj się
       menu:
         admins: Administratorzy
         dashboard: Panel
@@ -255,8 +254,6 @@ pl:
           success: Organizacja została zaktualizowana.
         users_registration_mode:
           disabled: Dostęp można uzyskać tylko za pomocą kont zewnętrznych
-          enabled: Zezwalaj użytkownikom na rejestrację i logowanie
-          existing: Nie zezwalaj uczestnikom na rejestrację, ale zezwalaj obecnym uczestnikom na logowanie
       shared:
         notices:
           no_organization_warning_html: Aby rozpocząć, musisz utworzyć organizację. Przed kontynuowaniem przeczytaj %{guide}.
