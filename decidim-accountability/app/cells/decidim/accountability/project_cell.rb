@@ -44,6 +44,14 @@ module Decidim
             args: ["decidim/accountability/project", result, { template: :timeline }]
           },
           {
+            enabled: children.any?,
+            id: "included_results",
+            text: t("activemodel.attributes.result.subresults"),
+            icon: "briefcase-2-line",
+            method: :cell,
+            args: ["decidim/accountability/results", result.children]
+          },
+          {
             enabled: result.linked_resources(:proposals, "included_proposals").present?,
             id: "included_proposals",
             text: t("activemodel.attributes.result.proposals"),

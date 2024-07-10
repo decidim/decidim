@@ -325,6 +325,24 @@ describe "Explore results", :versioning do
         end
       end
 
+      context "with subresults" do
+        let!(:subresults) { create_list(:result, 3, component:, parent: result) }
+
+        before do
+          visit current_path
+        end
+
+        it "shows the tab" do
+          expect(page).to have_content("Subresults")
+        end
+
+        it "shows subresults" do
+          subresults.each do |subresult|
+            expect(page).to have_content(translated(subresult.title))
+          end
+        end
+      end
+
       context "with linked proposals" do
         let(:proposal_component) do
           create(:component, manifest_name: :proposals, participatory_space: result.component.participatory_space)
