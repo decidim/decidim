@@ -568,7 +568,6 @@ es-MX:
         name: Banner de sub-hero
     core:
       actions:
-        login_before_access: Por favor, inicia sesión con tu cuenta antes de acceder.
         unauthorized: No tienes autorización para realizar esta acción.
       application_helper:
         filter_area_values:
@@ -585,7 +584,6 @@ es-MX:
           complete_profile: Completar perfil
           nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
           sign_up: Por favor, completa tu perfil
-          subtitle: Por favor, rellena el siguiente formulario con el fin de completar la inscripción
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         create:
@@ -595,8 +593,6 @@ es-MX:
           log_in: Entra
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
-          sign_up: Regístrate
-          subtitle: Crea una cuenta para poder participar en los debates y apoyar las propuestas.
           terms: los términos y condiciones de uso
           tos_agreement: Al registrarte aceptas %{link}.
           tos_title: Términos de servicio
@@ -606,7 +602,6 @@ es-MX:
           are_you_new?: '¿Eres nuevo en la plataforma?'
           register: Créate una cuenta
           sign_in_disabled: Puedes acceder con una cuenta externa.
-          sign_up_disabled: El registro está deshabilitado, puedes usar una cuenta existente para acceder.
         user:
           timed_out: Has estado sin actividad durante demasiado tiempo y tu sesión se ha cerrado automáticamente. Si quieres seguir participando, inicia sesión de nuevo.
       shared:
@@ -1320,7 +1315,6 @@ es-MX:
           headline: Estado actual de %{organization}
         sub_hero:
           register: Regístrate
-          register_title: Inicia sesión o crea una cuenta
       index:
         standalone_pages: Páginas
         subheading: Navegar por las páginas de ayuda de %{name}
@@ -1503,7 +1497,6 @@ es-MX:
         log_in_before_follow: Pro favor, inicia sesión antes de realizar esta acción
       login_modal:
         please_log_in: Por favor, inicia la sesión
-        sign_up: Regístrate
       mentions_modal:
         remove_recipient: Eliminar destinataria %{name}
       participatory_space_filters:
@@ -1630,7 +1623,6 @@ es-MX:
       locked: Tu cuenta está bloqueada.
       not_found_in_database: '%{authentication_keys} o contraseña inválida.'
       timeout: Tu sesión expiró. Por favor, vuelve a iniciarla para continuar.
-      unauthenticated: Debes iniciar sesión o registrarte antes de continuar.
     invitations:
       edit:
         header: Termina de crear tu cuenta
@@ -1716,8 +1708,6 @@ es-MX:
       updated_not_active: Tu contraseña ha sido cambiada con éxito.
     registrations:
       destroyed: '¡Adiós! Tu cuenta ha sido cancelada exitosamente. Esperamos volverte a ver pronto.'
-      new:
-        sign_up: Regístrate
       signed_up: '¡Bienvenido/a! Te has registrado con éxito.'
       signed_up_but_inactive: Te has registrado con éxito. Sin embargo, no pudimos iniciar sesión porque tu cuenta aún no está activada.
       signed_up_but_locked: Te has registrado con éxito. Sin embargo, no pudimos iniciar sesión porque tu cuenta está bloqueada.
@@ -1738,7 +1728,6 @@ es-MX:
         forgot_your_password: '¿Olvidaste tu contraseña?'
         log_in: Entra
         log_in_with_provider: Inicia sesión con %{provider}
-        sign_up: Regístrate
       minimum_password_length:
         one: "(%{count} caracteres como mínimo)"
         other: "(%{count} caracteres como mínimo)"
@@ -1852,7 +1841,6 @@ es-MX:
       long_words: Contiene palabras que son demasiado largas (más de 35 caracteres)
       must_start_with_caps: Debe comenzar con una letra mayúscula
       nesting_too_deep: no puede estar dentro de una subcategoría
-      not_found: no se pudo encontrar. ¿Te has registrado previamente?
       not_locked: No estaba bloqueado
       not_saved:
         one: 'Se ha producido un error procesando tu solicitud:'
@@ -1937,10 +1925,9 @@ es-MX:
         log_in: Entra
         made_with_open_source: Sitio web creado con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
         resources: Recursos
-        sign_up: Regístrate
         terms_of_service: Términos y condiciones de uso
       header:
-        log_in: Iniciar sesión
+        log_in: Entra
         main_menu: Menú principal
         user_menu: Menú de usuario
       impersonation_warning:
