@@ -28,6 +28,18 @@ describe "Admin manages global moderations", type: :system do
 
   it_behaves_like "manage moderations" do
     let(:moderations_link_text) { "Global moderations" }
+
+    it "user can hide a resource" do
+      within "tr[data-id=\"#{moderation.id}\"]" do
+        click_link "Hide"
+      end
+
+      expect(page).to have_admin_callout("Resource successfully hidden")
+      expect(page).to have_no_content(moderation.reportable.reported_content_url)
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("hid a resource of type")
+    end
   end
 
   it_behaves_like "sorted moderations" do
