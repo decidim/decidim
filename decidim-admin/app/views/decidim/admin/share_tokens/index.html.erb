@@ -1,7 +1,7 @@
 <div class="share_tokens">
   <div class="card-divider">
     <h2 class="item_show__header-title">
-      <%= t ".title" %>
+      <%= t(".title", component_name: translated_attribute(component.name)) %>
       <a class="button button__sm button__secondary" href="<%= new_component_share_token_path %>"><%= icon "add-line" %><%= t("index.new_share_token_button", scope: "decidim.admin.share_tokens") %></a>
     </h2>
   </div>
