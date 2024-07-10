@@ -629,7 +629,8 @@ FactoryBot.define do
 
   factory :taxonomy, class: "Decidim::Taxonomy" do
     name { Decidim::Faker::Localized.literal(generate(:name)) }
-    association :organization
+    weight { 1 }
+    organization
 
     trait :with_parent do
       association :parent, factory: :taxonomy, organization:
