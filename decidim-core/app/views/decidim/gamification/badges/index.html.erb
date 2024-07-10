@@ -1,40 +1,41 @@
-<div class="wrapper">
-  <div class="row column mb-m">
-    <h1><%= t ".title" %></h1>
-    <p>
-      <%= t ".page_description" %>
+<% add_decidim_meta_tags(
+  title: t(".title"),
+  description: t(".page_description")
+) %>
+
+<main class="layout-1col cols-10">
+
+  <header class="text-center py-10">
+    <h1 class="title-decorator inline-block text-left mb-12">
+      <%= t ".title" %>
+    </h1>
+    <p class="text-lg text-gray-2">
+    <%= t ".page_description" %>
     </p>
-  </div>
+  </header>
+
   <% @badges.each do |badge| %>
-    <div class="row column mb-m">
-      <div class="column medium-2">
-        <div class="card card--badge absolutes">
-          <div class="card__content">
-            <div class="card__header">
-              <div class="badge-container">
-                <%= image_tag badge.image %>
-              </div>
-            </div>
-            <div class="card__text text-center">
-              <strong><%= badge.translated_name %></strong>
-            </div>
+    <div class="mb-12">
+      <h2 class="h4 mb-4"><%= t ".badge_title", name: badge.translated_name %></h2>
+      <div class="grid grid-cols-10 text-gray-2 leading-relaxed">
+        <div class="col-span-2">
+          <div class="flex justify-center items-center">
+            <%= image_tag badge.image, class: "w-32", alt: badge.translated_name %>
+          </div>
+          <div class="text-center mt-4">
+            <strong><%= badge.translated_name %></strong>
           </div>
         </div>
-      </div>
-      <div class="column medium-10">
-        <h6>
-          <strong><%= t ".badge_title", name: badge.translated_name %></strong>
-        </h6>
-        <p><%= badge.description(current_organization.name) %></p>
-        <h6>
-          <strong><%= t ".how" %></strong>
-        </h6>
-        <ol>
-          <% badge.conditions.each do |condition| %>
-            <li><%= condition %></li>
-          <% end %>
-        </ol>
+        <div class="col-span-7 ml-2">
+          <p><%= badge.description(current_organization_name) %></p>
+          <p class="mt-4"><strong><%= t ".how" %></strong></p>
+          <ol class="list-decimal">
+            <% badge.conditions.each do |condition| %>
+              <li><%= condition %></li>
+            <% end %>
+          </ol>
+        </div>
       </div>
     </div>
   <% end %>
-</div>
+</main>
