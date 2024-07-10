@@ -114,13 +114,4 @@
       </div>
     </div>
   <% end %>
-  <% if component && component.persisted? && !component.published? %>
-    <div class="card" data-component="accordion" id="accordion-share_tokens">
-      <div id="panel-share_tokens" class="card-section">
-        <div class="row column">
-            <%= render partial: "decidim/admin/share_tokens/share_tokens", locals: { share_tokens: form.object.share_tokens } %>
-        </div>
-      </div>
-    </div>
-  <% end %>
 </div>
