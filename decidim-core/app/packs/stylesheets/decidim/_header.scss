@@ -24,10 +24,6 @@ header {
     @apply mt-28 md:mt-0;
   }
 
-  #menu-bar-container {
-    @apply mt-24 md:mt-0;
-  }
-
   &.with-admin-bar {
     #flash-messages-container {
       @apply mt-40 md:mt-0;
@@ -372,7 +368,7 @@ header {
     }
 
     &__main-dropdown {
-      @apply bg-white divide-y divide-gray-3 rounded-b shadow-lg text-black w-full lg:w-[1280px];
+      @apply bg-white divide-y divide-gray-3 rounded-b shadow-lg text-black w-full lg:w-[1280px] h-screen md:h-auto;
 
       &__bottom,
       &__top {

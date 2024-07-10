@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe UpdateUserInterests do
-    let(:command) { described_class.new(user, form) }
+    let(:command) { described_class.new(form) }
     let(:user) { create(:user) }
     let(:interested_scope) { create(:scope, organization: user.organization) }
     let(:ignored_scope) { create(:scope, organization: user.organization) }
@@ -25,7 +25,7 @@ module Decidim
     end
 
     let(:form) do
-      Decidim::UserInterestsForm.from_params(user: data)
+      Decidim::UserInterestsForm.from_params(user: data).with_context(current_user: user)
     end
 
     context "when invalid" do

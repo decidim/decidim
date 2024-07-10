@@ -14,7 +14,7 @@ module Decidim
       enforce_permission_to(:update, :user, current_user:)
       @user_interests = form(UserInterestsForm).from_params(params)
 
-      UpdateUserInterests.call(current_user, @user_interests) do
+      UpdateUserInterests.call(@user_interests) do
         on(:ok) do
           flash.keep[:notice] = t("user_interests.update.success", scope: "decidim")
         end

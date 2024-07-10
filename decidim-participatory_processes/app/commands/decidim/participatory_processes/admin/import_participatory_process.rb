@@ -67,7 +67,7 @@ module Decidim
                      current_user: admin
                    )
 
-            Decidim::CreateFollow.new(form, admin).call
+            Decidim::CreateFollow.new(form).call
           end
         end
       end

@@ -14,6 +14,17 @@ module Decidim
         end
       end
 
+      def self.register_mobile_menu!
+        Decidim.menu :mobile_menu do |menu|
+          menu.add_item :conferences,
+                        I18n.t("menu.conferences", scope: "decidim"),
+                        decidim_conferences.conferences_path,
+                        position: 2.8,
+                        if: Decidim::Conference.where(organization: current_organization).published.any?,
+                        active: :inclusive
+        end
+      end
+
       def self.register_home_content_block_menu!
         Decidim.menu :home_content_block_menu do |menu|
           menu.add_item :conferences,
