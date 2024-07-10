@@ -72,6 +72,8 @@ describe "Organization Areas", type: :system do
         within "table" do
           expect(page).to have_content(translated(attributes[:name]))
         end
+
+        visit decidim_admin.root_path
         expect(page).to have_content("updated the #{translated(attributes[:name])} area")
       end
 
