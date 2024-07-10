@@ -646,6 +646,7 @@ en:
             created_at: Created at
             expires_at: Expires at
             last_used_at: Last time used
+            registered_only: Registered only?
             times_used: Times used
             token: Token
             user: Created by
@@ -956,11 +957,18 @@ en:
       share_tokens:
         actions:
           confirm_destroy: Are you sure you want to delete this token?
+          copy_link: Copy link
           destroy: Delete
-          share: Share
+          edit: Edit
+          preview: Preview
         destroy:
           error: There was a problem destroying the token.
           success: Token destroyed successfully.
+        index:
+          new_share_token_button: New token
+          title: 'Sharing tokens for component: Proposals
+
+            '
         share_tokens:
           empty: There are no active tokens.
           help: These tokens are used to publicly share this unpublished resource to any user. They will be hidden when the resource is published. Click on the token's share icon to visit the shareable URL.

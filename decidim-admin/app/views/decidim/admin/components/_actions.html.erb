@@ -4,8 +4,8 @@
   <span class="action-space icon"></span>
 <% end %>
 
-<% if allowed_to? :share, :component, component: component %>
-  <%= icon_link_to "share-line", url_for(action: :share, id: component, controller: "components"), t("actions.share", scope: "decidim.admin"), target: :blank, class: "action-icon--share" %>
+<% if component.manifest.admin_engine %>
+  <%= icon_link_to "share-line", share_tokens_path(component), t("actions.share", scope: "decidim.admin"), target: :blank, class: "action-icon--share" %>
 <% else %>
   <span class="action-space icon"></span>
 <% end %>
