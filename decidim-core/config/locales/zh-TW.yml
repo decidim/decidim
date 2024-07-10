@@ -488,7 +488,6 @@ zh-TW:
         name: 子英雄橫幅
     core:
       actions:
-        login_before_access: 請先登入您的帳戶再進行訪問.
         unauthorized: 您無權限執行此操作.
     devise:
       omniauth_registrations:
@@ -498,7 +497,6 @@ zh-TW:
           complete_profile: 完成個人檔案
           nickname_help: 在 %{organization} 中的別名。只能包含字母、數字、'-' 和 '_'。
           sign_up: 請完成您的個人檔案
-          subtitle: 請填寫以下表單以完成註冊。
           username_help: 在您的帖子中顯示的公開名稱。為確保匿名性，可以是任何名稱。
       registrations:
         new:
@@ -506,8 +504,6 @@ zh-TW:
           log_in: 登入
           newsletter: 偶爾收到包含相關信息的時事通訊。
           newsletter_title: 聯絡人權限
-          sign_up: 註冊登記
-          subtitle: 註冊以參與討論並支持提案。
           terms: 此服務條款
           tos_agreement: 通過註冊，您同意遵守 %{link}。
           tos_title: 服務條款
@@ -517,7 +513,6 @@ zh-TW:
           are_you_new?: 是第一次使用這個平台嗎？
           register: 建立一個帳號
           sign_in_disabled: 你可以使用外部帳戶登入。
-          sign_up_disabled: 註冊已停用，您可以使用現有帳戶來登入。
       shared:
         newsletter_modal:
           buttons:
@@ -1174,7 +1169,6 @@ zh-TW:
           headline: '%{organization} 的目前狀態'
         sub_hero:
           register: 註冊
-          register_title: 註冊以創建帳戶
       index:
         standalone_pages: 頁
         subheading: 瀏覽 %{name} 的幫助頁面
@@ -1342,8 +1336,6 @@ zh-TW:
         title: 舉報不適當的使用者
       floating_help:
         help: 幫助
-      login_modal:
-        sign_up: 註冊登記
       mentions_modal:
         remove_recipient: 移除收件人 %{name}。
       participatory_space_filters:
@@ -1538,8 +1530,6 @@ zh-TW:
       updated_not_active: 您的密碼已變更成功。
     registrations:
       destroyed: 您的帳號已成功取消，期待再相逢。
-      new:
-        sign_up: 註冊登記
       signed_up: 歡迎！您已成功註冊。
       signed_up_but_inactive: 您已註冊成功，但由於您的帳號尚未啟用，我們暫時無法讓您登入。
       signed_up_but_locked: 你已成功註冊。然而，由於你的賬戶被鎖，我們無法讓你登入。
@@ -1556,7 +1546,6 @@ zh-TW:
         didn_t_receive_unlock_instructions: 沒有收到解鎖說明？
         forgot_your_password: 忘記密碼了嗎？
         log_in: 登入
-        sign_up: 註冊登記
       minimum_password_length:
         other: "One\n(最少%{count} 個字符)\n\nOther\n(最少%{count} 個字符)"
     unlocks:
@@ -1590,7 +1579,6 @@ zh-TW:
       long_words: 包含過長的單詞(超過35個字符)
       must_start_with_caps: 必須以大寫字母開頭
       nesting_too_deep: 不能被放置在子類別中。
-      not_found: 找不到該項目。您之前註冊過嗎？
       not_locked: 未被鎖定
       not_saved:
         other: "One\n在處理您的請求時發生了錯誤:\n\nOther\n在處理您的請求時出現了多個錯誤:"
@@ -1667,8 +1655,8 @@ zh-TW:
         download_open_data: 下載開放數據檔案
         log_in: 登入
         made_with_open_source: 使用<a target="_blank" href="https://github.com/decidim/decidim">自由軟體</a>建立的網站。
-        sign_up: 註冊
       header:
+        log_in: 登入
         main_menu: 主選單
         user_menu: 使用者選單
       impersonation_warning:
