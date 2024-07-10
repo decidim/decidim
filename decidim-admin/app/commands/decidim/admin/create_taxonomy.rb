@@ -5,33 +5,11 @@ module Decidim
     # A command with all the business logic to create a taxonomy.
     # This command is called from the controller.
     class CreateTaxonomy < Decidim::Commands::CreateResource
-      # Public: Initializes the command.
-      # form - A form object with the params.
-      def initialize(form, organization)
-        @form = form
-        @organization = organization
-      end
+      fetch_form_attributes :name, :organization, :parent_id, :weight
 
-      def call
-        return broadcast(:invalid) if @form.invalid?
+      protected
 
-        taxonomy = create_taxonomy
-
-        broadcast(:ok, taxonomy)
-      end
-
-      private
-
-      attr_reader :form, :organization
-
-      def create_taxonomy
-        Decidim::Taxonomy.create!(
-          name: form.name,
-          parent_id: form.parent_id,
-          weight: form.weight,
-          organization:
-        )
-      end
+      def resource_class = Decidim::Taxonomy
     end
   end
 end

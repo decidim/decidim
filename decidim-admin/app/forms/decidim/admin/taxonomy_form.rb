@@ -6,15 +6,19 @@ module Decidim
     class TaxonomyForm < Decidim::Form
       include Decidim::TranslatableAttributes
 
-      translatable_attribute :name, String do |field, _locale|
-        validates field, length: { in: 5..15 }, if: proc { |resource| resource.send(field).present? }
-      end
+      mimic :taxonomy
+
+      translatable_attribute :name, String
 
       attribute :parent_id, Integer
       attribute :weight, Integer
+      attribute :organization, Decidim::Organization
 
-      validates :name, presence: true
-      validates :weight, numericality: { only_integer: true }
+      validates :name, translatable_presence: true
+      validates :weight, numericality: { oonly_integer: true, greater_than_or_equal_to: 0 }
+      validates :organization, presence: true
+
+      alias organization current_organization
     end
   end
 end

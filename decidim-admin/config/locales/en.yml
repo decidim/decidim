@@ -1026,6 +1026,7 @@ en:
         amount: Amount
         create:
           error: There was a problem creating this taxonomy.
+          invalid: There was a problem creating this taxonomy.
           success: Taxonomy created successfully.
         current_parent: Current parent
         destroy:

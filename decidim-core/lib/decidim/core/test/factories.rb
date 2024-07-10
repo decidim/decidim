@@ -627,6 +627,15 @@ FactoryBot.define do
     organization
   end
 
+  factory :taxonomy, class: 'Decidim::Taxonomy' do
+    name { Decidim::Faker::Localized.literal(generate(:name)) }
+    association :organization, factory: :organization
+
+    trait :with_parent do
+      association :parent, factory: :taxonomy, organization: organization
+    end
+  end
+
   factory :coauthorship, class: "Decidim::Coauthorship" do
     transient do
       skip_injection { false }

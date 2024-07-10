@@ -26,7 +26,7 @@ module Decidim
 
         @form = form(Decidim::Admin::TaxonomyForm).from_params(params)
 
-        CreateTaxonomy.call(@form, current_organization) do
+        CreateTaxonomy.call(@form) do
           on(:ok) do |taxonomy|
             flash[:notice] = I18n.t("create.success", scope: "decidim.admin.taxonomies")
             redirect_to taxonomies_path(taxonomy)
