@@ -40,10 +40,11 @@ module Decidim
                 .once
                 .ordered
                 .with(
-                  event: "decidim.events.proposals.admin.proposal_note_created",
+                  event: "decidim.events.proposals.admin.proposal_note_mentioned",
                   event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
                   resource: proposal,
-                  affected_users: a_collection_containing_exactly(another_admin, participatory_space_admin, valuator)
+                  affected_users: a_collection_containing_exactly(another_admin, participatory_space_admin, valuator),
+                  extra: { note_author_id: form.current_user.id }
                 )
 
               command.call

@@ -23,7 +23,8 @@ module Decidim
                   event: "decidim.events.proposals.admin.proposal_note_replied",
                   event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
                   resource: proposal,
-                  affected_users: a_collection_containing_exactly(another_admin)
+                  affected_users: a_collection_containing_exactly(another_admin),
+                  extra: { note_author_id: form.current_user.id }
                 )
 
               command.call
@@ -42,7 +43,19 @@ module Decidim
                   event: "decidim.events.proposals.admin.proposal_note_replied",
                   event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
                   resource: proposal,
-                  affected_users: a_collection_containing_exactly(participatory_space_admin, valuator, another_admin)
+                  affected_users: a_collection_containing_exactly(another_admin),
+                  extra: { note_author_id: form.current_user.id }
+                )
+              expect(Decidim::EventsManager)
+                .to receive(:publish)
+                .once
+                .ordered
+                .with(
+                  event: "decidim.events.proposals.admin.proposal_note_mentioned",
+                  event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
+                  resource: proposal,
+                  affected_users: a_collection_containing_exactly(participatory_space_admin, valuator),
+                  extra: { note_author_id: form.current_user.id }
                 )
 
               command.call
@@ -61,7 +74,8 @@ module Decidim
                   event: "decidim.events.proposals.admin.proposal_note_replied",
                   event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
                   resource: proposal,
-                  affected_users: a_collection_containing_exactly(another_admin)
+                  affected_users: a_collection_containing_exactly(another_admin),
+                  extra: { note_author_id: form.current_user.id }
                 )
 
               command.call
