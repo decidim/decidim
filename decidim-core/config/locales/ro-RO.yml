@@ -463,7 +463,6 @@ ro:
           complete_profile: Profil complet
           nickname_help: Pseudonimul tău în %{organization}. Poate conține doar litere, numere, '-' și '_'.
           sign_up: Completează-ţi profilul
-          subtitle: Te rugăm să completezi următorul formular pentru a finaliza înregistrarea
           username_help: Numele public care apare pe posturi. Pentru a garanta anonimitatea, poate fi orice nume.
       registrations:
         new:
@@ -471,8 +470,6 @@ ro:
           log_in: Autentificare
           newsletter: Primește un buletin informativ ocazional cu informații relevante
           newsletter_title: Drepturi privind contactele
-          sign_up: Înscrie-te
-          subtitle: Înscrie-te pentru a participa la discuții și pentru a vota propuneri.
           tos_agreement: Prin înregistrare ești de acord cu %{link}.
           tos_title: Condiții de utilizare
           username_help: Numele public care apare pe postări. Pentru a garanta anonimitatea, poate fi orice nume.
@@ -1019,7 +1016,6 @@ ro:
           headline: Starea curentă a %{organization}
         sub_hero:
           register: Inregistrare
-          register_title: Înregistrează-te pentru a crea un cont
       index:
         standalone_pages: Pagini
         subheading: Navigați prin paginile de ajutor ale %{name}
@@ -1153,8 +1149,6 @@ ro:
         title: Raportează un utilizator nepotrivit
       floating_help:
         help: Ajutor
-      login_modal:
-        sign_up: Înscrie-te
       participatory_space_filters:
         filters:
           areas: Zone
@@ -1324,8 +1318,6 @@ ro:
       updated_not_active: Parola dvs. a fost schimbată cu succes.
     registrations:
       destroyed: Contul tău a fost anulat cu succes. Sperăm să te revedem în curând.
-      new:
-        sign_up: Înscrie-te
       signed_up: Bine ați venit! V-ați înregistrat cu succes.
       signed_up_but_inactive: V-ați înregistrat cu succes. Cu toate acestea, nu vă putem conecta deoarece contul dvs. nu este încă activat.
       signed_up_but_locked: V-ați înregistrat cu succes. Cu toate acestea, nu vă putem conecta deoarece contul dvs. este blocat.
@@ -1340,7 +1332,6 @@ ro:
         back: Înapoi
         forgot_your_password: Ți-ai uitat parola?
         log_in: Autentificare
-        sign_up: Înscrie-te
       minimum_password_length:
         one: "(minim%{count} caracter)"
         few: "(minim%{count} caractere)"
@@ -1362,7 +1353,6 @@ ro:
       invalid_time_zone: nu este un fus orar valid
       long_words: conține cuvinte care sunt prea lungi (peste 35 de caractere)
       must_start_with_caps: trebuie să înceapă cu o majusculă
-      not_found: nu a putut fi găsit. V-ați înscris anterior?
       not_locked: nu a fost blocat
       not_saved:
         one: 'A apărut o eroare la procesarea cererii tale:'
@@ -1396,8 +1386,8 @@ ro:
         download_open_data: Descarcă fișierele de date deschise
         log_in: Autentificare
         made_with_open_source: Site web creat cu <a target="_blank" href="https://github.com/decidim/decidim">software gratuit</a>.
-        sign_up: Înscrie-te
       header:
+        log_in: Autentificare
         main_menu: Meniul principal
         user_menu: Meniu utilizator
       impersonation_warning:
