@@ -605,6 +605,12 @@ FactoryBot.define do
         end
       end
     end
+
+    trait :moderated do
+      after(:create) do |resource, evaluator|
+        create(:moderation, reportable: resource, hidden_at: 2.days.ago, skip_injection: evaluator.skip_injection)
+      end
+    end
   end
 
   factory :nested_dummy_resource, class: "Decidim::DummyResources::NestedDummyResource" do

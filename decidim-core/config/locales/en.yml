@@ -1171,6 +1171,7 @@ en:
       no_notifications: No notifications yet.
       show:
         missing_event: Oops, this notification belongs to an item that is no longer available. You can discard it.
+        moderated: Content moderated
     notifications_digest_mailer:
       header:
         daily: Daily Notification Digest

@@ -409,6 +409,12 @@ FactoryBot.define do
         proposal.attachments << create(:attachment, :with_pdf, attached_to: proposal, skip_injection: evaluator.skip_injection)
       end
     end
+
+    trait :moderated do
+      after(:create) do |proposal, evaluator|
+        create(:moderation, reportable: proposal, hidden_at: 2.days.ago, skip_injection: evaluator.skip_injection)
+      end
+    end
   end
 
   factory :proposal_vote, class: "Decidim::Proposals::ProposalVote" do

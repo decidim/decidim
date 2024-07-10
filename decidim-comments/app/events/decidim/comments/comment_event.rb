@@ -15,6 +15,10 @@ module Decidim
           Decidim::ContentProcessor.render(sanitize_content(render_markdown(translated_body)), "div")
         end
 
+        def hidden_resource?
+          super || (comment.respond_to?(:hidden?) && comment.hidden?)
+        end
+
         def author
           comment.normalized_author
         end
