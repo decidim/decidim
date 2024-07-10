@@ -1025,12 +1025,11 @@ en:
         actions: Actions
         amount: Amount
         create:
-          error: There was a problem creating this taxonomy.
           invalid: There was a problem creating this taxonomy.
           success: Taxonomy created successfully.
         current_parent: Current parent
         destroy:
-          error: There was a problem destroying this taxonomy.
+          invalid: There was a problem destroying this taxonomy.
           success: Taxonomy successfully destroyed.
         edit:
           title: Edit taxonomy "%{taxonomy_name}"
@@ -1043,9 +1042,8 @@ en:
           title: New taxonomy
         no_parent: No parent
         no_taxonomies: No taxonomies
-        search_placeholder: Search taxonomies
         update:
-          error: There was a problem updating this taxonomy.
+          invalid: There was a problem updating this taxonomy.
           success: Taxonomy updated successfully.
         weight_placeholder: Weight
       titles:
