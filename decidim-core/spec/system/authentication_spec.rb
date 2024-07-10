@@ -144,6 +144,7 @@ describe "Authentication" do
 
           expect(page).to have_content("Successfully")
           expect(page).to have_content("Please complete your profile")
+          expect(page).to have_content("Please fill in the following form in order to complete the account creation")
 
           within ".new_user" do
             fill_in :registration_user_email, with: "user@from-twitter.com"
