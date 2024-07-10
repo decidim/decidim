@@ -84,6 +84,9 @@ shared_examples "manage moderations" do
 
       expect(page).to have_admin_callout("Resource successfully hidden")
       expect(page).to have_no_content(moderation.reportable.reported_content_url)
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("hid a resource of type")
     end
 
     it "user can sort by report count" do
