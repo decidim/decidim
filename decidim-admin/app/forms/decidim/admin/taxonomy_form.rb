@@ -15,7 +15,7 @@ module Decidim
       attribute :organization, Decidim::Organization
 
       validates :name, translatable_presence: true
-      validates :weight, numericality: { oonly_integer: true, greater_than_or_equal_to: 0 }
+      validates :weight, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
       validates :organization, presence: true
 
       alias organization current_organization
