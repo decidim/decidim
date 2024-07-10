@@ -586,7 +586,7 @@ en:
           complete_profile: Complete profile
           nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
           sign_up: Please complete your profile
-          subtitle: Please fill in the following form in order to complete the sign up
+          subtitle: Please fill in the following form in order to complete the account creation
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       registrations:
         create:
@@ -1635,7 +1635,7 @@ en:
       locked: Your account is locked.
       not_found_in_database: Invalid %{authentication_keys} or password.
       timeout: Your session expired. Please log in again to continue.
-      unauthenticated: You need to log in or sign up before continuing.
+      unauthenticated: You need to log in or create an account before continuing.
     invitations:
       edit:
         header: Finish creating your account
@@ -1858,7 +1858,7 @@ en:
       long_words: contains words that are too long (over 35 characters)
       must_start_with_caps: must start with a capital letter
       nesting_too_deep: cannot be inside of a subcategory
-      not_found: could not be found. Did you sign up previously?
+      not_found: could not be found. Have you created an account previously?
       not_locked: was not locked
       not_saved:
         one: 'There''s been an error processing your request:'

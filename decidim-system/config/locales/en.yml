@@ -89,7 +89,7 @@ en:
             did_not_receive_unlock_instructions?: Did not receive unlock instructions?
             forgot_your_password?: Forgot your password?
             log_in: Log in
-            sign_up: Sign up
+            sign_up: Create an account
       menu:
         admins: Admins
         dashboard: Dashboard
