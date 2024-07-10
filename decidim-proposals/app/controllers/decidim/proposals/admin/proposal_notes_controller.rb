@@ -8,8 +8,8 @@ module Decidim
         helper_method :proposal
 
         def reply
-          parent_note = proposal.notes.find(params[:id])
           enforce_permission_to(:create, :proposal_note, proposal:)
+          parent_note = proposal.notes.find(params[:id])
           @form = form(ProposalNoteForm).from_params(params)
 
           ReplyProposalNote.call(@form, parent_note) do
