@@ -109,8 +109,6 @@ describe "Decidim::Api::QueryType" do
         shortDescription {
             translation(locale: "#{locale}")
           }
-        showMetrics
-        showStatistics
         slug
         startDate
         steps {
@@ -181,8 +179,6 @@ describe "Decidim::Api::QueryType" do
       "scope" => participatory_process.scope,
       "scopesEnabled" => participatory_process.scopes_enabled,
       "shortDescription" => { "translation" => participatory_process.short_description[locale] },
-      "showMetrics" => participatory_process.show_metrics,
-      "showStatistics" => participatory_process.show_statistics,
       "slug" => participatory_process.slug,
       "startDate" => participatory_process.start_date.to_s,
       "steps" => participatory_process.steps.to_a,

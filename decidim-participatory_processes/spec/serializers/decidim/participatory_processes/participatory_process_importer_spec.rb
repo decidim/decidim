@@ -76,8 +76,6 @@ module Decidim::ParticipatoryProcesses
         expect(subject.end_date).to eq(Date.parse(import_data["end_date"]))
         expect(subject.announcement).to eq(import_data["announcement"])
         expect(subject.private_space).to eq(import_data["private_space"])
-        expect(subject.show_metrics).to eq(import_data["show_metrics"])
-        expect(subject.show_statistics).to eq(import_data["show_statistics"])
         expect(subject.participatory_process_group).to be_a(Decidim::ParticipatoryProcessGroup)
       end
 
