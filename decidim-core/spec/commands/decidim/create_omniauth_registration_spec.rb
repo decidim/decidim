@@ -102,6 +102,16 @@ module Decidim
 
             expect(ActiveSupport::Notifications)
               .to receive(:publish)
+              .with("decidim.events.core.welcome_notification",
+                    affected_users: [user],
+                    event_class: "Decidim::WelcomeNotificationEvent",
+                    extra: { force_email: true },
+                    followers: [user],
+                    force_send: false,
+                    resource: user)
+
+            expect(ActiveSupport::Notifications)
+              .to receive(:publish)
               .with(
                 "decidim.user.omniauth_registration",
                 user_id: user.id,
