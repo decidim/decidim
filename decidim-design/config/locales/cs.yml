@@ -139,6 +139,7 @@ cs:
           typefaces_description_1: Decidim používá Source Sans Pro jako primární typ. Tento typ podporuje 310 jazyků
           typefaces_description_2: Tato písma jsou licencována pod Open Font License
       helpers:
+        accountability: Odpovědnost
         activity: Aktivita
         argument: Parametr
         assemblies: Shromáždění
