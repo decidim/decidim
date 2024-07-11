@@ -63,6 +63,7 @@ cs:
         show:
           admins: Administrátoři
           current_organizations: Aktuální organizace
+          system_checks: Kontroly systému
       default_pages:
         placeholders:
           content: Přidejte smysluplný obsah na statickou stránku %{page} na ovládacím panelu administrátora.
