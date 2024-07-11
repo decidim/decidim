@@ -88,6 +88,7 @@ de:
             did_not_receive_unlock_instructions?: Anweisungen zum Entsperren nicht erhalten?
             forgot_your_password?: Haben Sie Ihr Passwort vergessen?
             log_in: Anmelden
+            sign_up: Konto erstellen
       menu:
         admins: Admins
         dashboard: Instrumententafel
@@ -251,6 +252,8 @@ de:
           success: Die Organisation wurde erfolgreich aktualisiert.
         users_registration_mode:
           disabled: Der Zugriff kann nur mit externen Konten erfolgen
+          enabled: Erlauben Sie es den Teilnehmenden, sich zu registrieren und anzumelden
+          existing: Teilnehmende können sich nicht neu registrieren, bestehende Teilnehmende können sich aber weiterhin anmelden
       shared:
         notices:
           no_organization_warning_html: Sie müssen eine Organisation erstellen, um zu beginnen. Stellen Sie sicher, dass Sie %{guide} lesen, bevor Sie fortfahren.
