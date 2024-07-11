@@ -236,6 +236,10 @@ de:
               most_recent: Neueste zuerst
         exports:
           initiatives: Initiativen
+        index:
+          initiatives_types:
+            alert_html: "<p>Sie müssen mindestens einen Initiativentyp erstellen, damit die Teilnehmenden Initiativen erstellen können.</p><p> %{link}</p>"
+            button: Neuer Initiativentyp
         initiatives:
           edit:
             accept: Initiative akzeptieren
@@ -291,6 +295,7 @@ de:
         initiatives_types:
           create:
             error: Ein Fehler ist aufgetreten.
+            success: Ein neuer Initiativentyp wurde erfolgreich erstellt. Sie müssen mindestens einen Bereich für diese Initiative festlegen, damit er genutzt werden kann.
           destroy:
             success: Der Initiativentyp wurde erfolgreich entfernt.
           edit:
