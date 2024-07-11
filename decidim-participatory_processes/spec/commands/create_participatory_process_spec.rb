@@ -51,7 +51,6 @@ module Decidim::ParticipatoryProcesses
         related_process_ids:,
         participatory_process_group:,
         participatory_process_type:,
-        show_statistics: false,
         show_metrics: false,
         announcement: { en: "message" }
       )
