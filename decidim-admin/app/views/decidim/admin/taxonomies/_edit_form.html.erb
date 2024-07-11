@@ -1,0 +1,29 @@
+<div class="form__wrapper">
+  <div class="card pt-4">
+    <div class="card-section">
+      <div class="row column">
+        <%= form.translated :text_field, :name, autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :name } %>
+      </div>
+      <% if taxonomy.parent.present? %>
+        <div class="row column">
+          <p><%= t("decidim.admin.taxonomies.current_parent") %>: <%= translated_attribute(taxonomy.parent.name) %></p>
+        </div>
+      <% end %>
+      <div class="row column">
+        <%= form.select :parent_id, options_for_select(parent_options, selected: taxonomy&.parent_id), { include_blank: t("decidim.admin.taxonomies.no_parent") }, class: "form-control" %>
+      </div>
+      <div class="row column">
+        <%= form.hidden_field :weight, value: taxonomy.weight %>
+      </div>
+      <% if taxonomy.children.any? %>
+        <%= render partial: "table", locals: { taxonomies: child_taxonomies(taxonomy) } %>
+      <% end %>
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= form.submit t("edit.update", scope: "decidim.admin.taxonomies"), class: "button button__sm button__secondary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
