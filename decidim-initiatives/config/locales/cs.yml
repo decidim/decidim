@@ -242,6 +242,9 @@ cs:
               most_recent: Nejnovější
         exports:
           initiatives: Iniciativy
+        index:
+          initiatives_types:
+            button: Nový typ iniciativy
         initiatives:
           edit:
             accept: Přijmout iniciativu
@@ -297,6 +300,7 @@ cs:
         initiatives_types:
           create:
             error: Došlo k chybě.
+            success: Byl úspěšně vytvořen nový typ iniciativy. Musíte definovat alespoň jeden rozsah pro tento typ iniciativy, aby mohl být použit.
           destroy:
             success: Druh iniciativy byl úspěšně odstraněn.
           edit:

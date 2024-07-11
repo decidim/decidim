@@ -177,6 +177,7 @@ cs:
         back_to: Zpět na %{component_name}
         close_modal: Zavřít okno
         continue: Pokračovat
+        more_information: Více informací o rozpočtu
       budgets_list:
         budgets: Rozpočty
         cancel_order:

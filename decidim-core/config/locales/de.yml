@@ -568,6 +568,7 @@ de:
         name: Banner unter dem Hauptbild (Beschreibungstext)
     core:
       actions:
+        login_before_access: Bitte melden Sie sich mit Ihrem Konto an, um auf diese Seite zuzugreifen.
         unauthorized: Sie sind nicht berechtigt, diese Aktion auszuführen.
       application_helper:
         filter_area_values:
@@ -584,6 +585,7 @@ de:
           complete_profile: Profil vervollständingen
           nickname_help: Ihr Pseudonym in %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
           sign_up: Bitte vervollständigen Sie Ihr Profil
+          subtitle: Bitte füllen Sie das folgende Formular aus, um die Kontoerstellung abzuschließen
           username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
       registrations:
         create:
@@ -593,6 +595,8 @@ de:
           log_in: Anmelden
           newsletter: Gelegentlich einen Newsletter mit relevanten Informationen erhalten
           newsletter_title: Kontakterlaubnis
+          sign_up: Konto erstellen
+          subtitle: Erstellen Sie ein Konto, um auf der Plattform teilzunehmen.
           terms: die Nutzungsbedingungen
           tos_agreement: Mit der Anmeldung stimmen Sie %{link} zu.
           tos_title: Nutzungsbedingungen
@@ -602,6 +606,7 @@ de:
           are_you_new?: Neu auf der Plattform?
           register: Konto erstellen
           sign_in_disabled: Sie können mit einem externen Konto darauf zugreifen.
+          sign_up_disabled: Registrierungen sind deaktiviert. Verwenden Sie ein bestehendes Konto für den Zugriff.
         user:
           timed_out: Sie waren zu lange inaktiv und wurden automatisch abgemeldet. Wenn Sie den Dienst weiterhin nutzen möchten, melden Sie sich bitte erneut an.
       shared:
@@ -1317,6 +1322,7 @@ de:
           headline: Aktueller Status von %{organization}
         sub_hero:
           register: Registrieren
+          register_title: Konto erstellen
       index:
         standalone_pages: Seiten
         subheading: Navigieren Sie durch die Hilfeseiten von %{name}
@@ -1499,6 +1505,7 @@ de:
         log_in_before_follow: Bitte melden Sie sich an, bevor Sie diese Aktion durchführen
       login_modal:
         please_log_in: Bitte melden Sie sich an
+        sign_up: Konto erstellen
       mentions_modal:
         remove_recipient: Empfänger %{name} entfernen
       participatory_space_filters:
@@ -1625,6 +1632,7 @@ de:
       locked: Dein Konto ist gesperrt.
       not_found_in_database: Ungültige %{authentication_keys} oder Passwort
       timeout: Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an, um fortzufahren.
+      unauthenticated: Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren können.
     invitations:
       edit:
         header: Beenden Sie die Erstellung Ihres Kontos
@@ -1711,6 +1719,8 @@ de:
       updated_not_active: Ihr Passwort wurde erfolgreich geändert.
     registrations:
       destroyed: Tschüss! Ihr Konto wurde erfolgreich storniert. Wir hoffen, Sie bald wieder zu sehen.
+      new:
+        sign_up: Konto erstellen
       signed_up: Herzlich willkommen! Sie haben sich erfolgreich angemeldet.
       signed_up_but_inactive: Sie haben sich erfolgreich angemeldet. Wir konnten Sie jedoch nicht anmelden, weil Ihr Konto noch nicht aktiviert wurde.
       signed_up_but_locked: Sie haben sich erfolgreich angemeldet. Wir konnten Sie jedoch nicht anmelden, weil Ihr Konto gesperrt ist.
@@ -1731,6 +1741,7 @@ de:
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
         log_in: Anmelden
         log_in_with_provider: Anmelden über %{provider}
+        sign_up: Konto erstellen
       minimum_password_length:
         one: "(%{count} Zeichen Minimum)"
         other: "(%{count} Zeichen Minimum)"
@@ -1844,6 +1855,7 @@ de:
       long_words: enthält zu lange Wörter (über 35 Zeichen)
       must_start_with_caps: muss mit einem Großbuchstaben beginnen
       nesting_too_deep: kann nicht innerhalb einer Unterkategorie sein
+      not_found: konnte nicht gefunden werden. Haben Sie bereits ein Konto erstellt?
       not_locked: war nicht gesperrt
       not_saved:
         one: 'Bei der Bearbeitung Ihrer Anfrage ist ein Fehler aufgetreten:'
@@ -1928,6 +1940,7 @@ de:
         log_in: Anmelden
         made_with_open_source: Website mit <a target="_blank" href="https://github.com/decidim/decidim">freier Software erstellt</a>.
         resources: Ressourcen
+        sign_up: Konto erstellen
         terms_of_service: Nutzungsbedingungen
       header:
         log_in: Anmelden

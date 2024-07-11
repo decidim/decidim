@@ -565,6 +565,7 @@ es:
         name: Banner de sub-hero
     core:
       actions:
+        login_before_access: Por favor, inicia sesión con tu cuenta antes de acceder.
         unauthorized: No tienes autorización para realizar esta acción.
       application_helper:
         filter_area_values:
@@ -581,6 +582,7 @@ es:
           complete_profile: Completa el perfil
           nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
           sign_up: Por favor, completa tu perfil
+          subtitle: Por favor, rellena el siguiente formulario para completar la creación de la cuenta
           username_help: Nombre público que aparece en tus aportaciones. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         create:
@@ -590,6 +592,8 @@ es:
           log_in: Entra
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
+          sign_up: Crea una cuenta
+          subtitle: Crea una cuenta para participar en la plataforma.
           terms: los términos y condiciones de uso
           tos_agreement: Al registrarte aceptas %{link}.
           tos_title: Términos de servicio
@@ -599,6 +603,7 @@ es:
           are_you_new?: '¿Eres nueva en la plataforma?'
           register: Créate una cuenta
           sign_in_disabled: Puedes acceder con una cuenta externa.
+          sign_up_disabled: La creación de cuentas está deshabilitada, puedes utilizar una cuenta existente para acceder.
         user:
           timed_out: Has estado sin actividad durante demasiado tiempo y tu sesión se ha cerrado automáticamente. Si quieres seguir participando, inicia sesión de nuevo.
       shared:
@@ -1312,6 +1317,7 @@ es:
           headline: Estado actual de %{organization}
         sub_hero:
           register: Regístrate
+          register_title: Crea una cuenta
       index:
         standalone_pages: Páginas
         subheading: Navegar por las páginas de ayuda de %{name}
@@ -1494,6 +1500,7 @@ es:
         log_in_before_follow: Pro favor, inicia sesión antes de realizar esta acción
       login_modal:
         please_log_in: Por favor, inicia la sesión
+        sign_up: Crea una cuenta
       mentions_modal:
         remove_recipient: Eliminar destinataria %{name}
       participatory_space_filters:
@@ -1620,6 +1627,7 @@ es:
       locked: Tu cuenta está bloqueada.
       not_found_in_database: '%{authentication_keys} o contraseña no son válidos.'
       timeout: Tu sesión expiró. Por favor, vuelve a iniciarla para continuar.
+      unauthenticated: Debes iniciar sesión o crear una cuenta antes de continuar.
     invitations:
       edit:
         header: Termina de crear tu cuenta
@@ -1705,6 +1713,8 @@ es:
       updated_not_active: Tu contraseña se ha modificado correctamente.
     registrations:
       destroyed: Tu cuenta se ha cancelado correctamente. Esperamos volver a verte pronto.
+      new:
+        sign_up: Crea una cuenta
       signed_up: '¡Bienvenida! Te has registrado con éxito.'
       signed_up_but_inactive: Te has registrado con éxito. Sin embargo, no has podido iniciar la sesión sesión porque tu cuenta está bloqueada.
       signed_up_but_locked: Te has registrado con éxito. Sin embargo, no pudimos iniciar sesión porque tu cuenta está bloqueada.
@@ -1725,6 +1735,7 @@ es:
         forgot_your_password: '¿Olvidaste tu contraseña?'
         log_in: Entra
         log_in_with_provider: Inicia sesión con %{provider}
+        sign_up: Crea una cuenta
       minimum_password_length:
         one: "(%{count} caracteres como mínimo)"
         other: "(%{count} caracteres como mínimo)"
@@ -1838,6 +1849,7 @@ es:
       long_words: contiene palabras demasiado largas (más de 35 caracteres)
       must_start_with_caps: debe comenzar con una letra mayúscula
       nesting_too_deep: no puede estar dentro de una subcategoría
+      not_found: no se pudo encontrar. ¿Has creado una cuenta anteriormente?
       not_locked: No estaba bloqueado
       not_saved:
         one: 'Se ha producido un error procesando tu solicitud:'
@@ -1922,6 +1934,7 @@ es:
         log_in: Entra
         made_with_open_source: Web creada con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
         resources: Recursos
+        sign_up: Crea una cuenta
         terms_of_service: Términos y condiciones de uso
       header:
         log_in: Entra

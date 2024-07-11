@@ -63,6 +63,7 @@ cs:
         show:
           admins: Administrátoři
           current_organizations: Aktuální organizace
+          system_checks: Kontroly systému
       default_pages:
         placeholders:
           content: Přidejte smysluplný obsah na statickou stránku %{page} na ovládacím panelu administrátora.
@@ -83,6 +84,7 @@ cs:
             did_not_receive_unlock_instructions?: Neobdrželi jste instrukce pro odemknutí?
             forgot_your_password?: Zapomněli jste heslo?
             log_in: Přihlásit se
+            sign_up: Vytvořit účet
       menu:
         admins: Správci
         dashboard: Ovládací panel
@@ -260,6 +262,9 @@ cs:
         organizations_list:
           confirm_resend_invitation: Opravdu chcete znovu odeslat pozvánku?
           resend_invitation: Znovu odeslat pozvánku
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Dokumentace Decidim
       titles:
         dashboard: Ovládací panel
         decidim: Decidim
