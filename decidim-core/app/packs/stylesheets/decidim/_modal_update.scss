@@ -28,9 +28,7 @@
           @apply w-24 flex-none flex justify-center;
         }
 
-        img:not([src^="data:image"]):not(
-            [src^="data:application/octet-stream"]
-          ) {
+        img[src="data:,"] {
           @apply hidden;
         }
 
