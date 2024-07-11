@@ -93,7 +93,9 @@ module Decidim
         end
 
         def random_user
-          Decidim::User.where(organization:).not_deleted.not_blocked.confirmed.sample
+          user = Decidim::User.where(organization:).not_deleted.not_blocked.confirmed.sample
+
+          user.valid? ? user : random_user
         end
 
         def random_user_group(user)
