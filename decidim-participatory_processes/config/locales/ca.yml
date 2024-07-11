@@ -4,7 +4,6 @@ ca:
       participatory_process:
         announcement: Avís
         area_id: Àrea
-        banner_image: Imatge de bàner
         copy_categories: Copiar les categories
         copy_components: Copiar els components
         copy_steps: Copiar les fases
