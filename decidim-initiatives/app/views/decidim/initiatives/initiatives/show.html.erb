@@ -1,17 +1,17 @@
 <% add_decidim_meta_tags({
-                           image_url: current_initiative.type.attached_uploader(:banner_image).path,
-                           description: translated_attribute(current_initiative.description),
-                           title: translated_attribute(current_initiative.title),
-                           url: initiative_url(current_initiative.id),
-                           twitter_handler: current_organization.twitter_handler
-                         }) %>
+   image_url: current_initiative.type.attached_uploader(:banner_image).path,
+   description: translated_attribute(current_initiative.description),
+   title: translated_attribute(current_initiative.title),
+   url: initiative_url(current_initiative.id),
+   twitter_handler: current_organization.twitter_handler
+}) %>
 
 <%
-  edit_link(
-    resource_locator(current_participatory_space).edit,
-    :read,
-    :initiative
-  )
+edit_link(
+  resource_locator(current_participatory_space).edit,
+  :read,
+  :initiative
+)
 %>
 
 <%= participatory_space_floating_help %>
@@ -50,9 +50,9 @@
                         class: "button expanded" %>
           <% end %>
           <%= render partial: "send_to_technical_validation", locals: {
-            title: t(".send_to_technical_validation"),
-            confirm: t(".confirm")
-          } %>
+                                                                title: t(".send_to_technical_validation"),
+                                                                confirm: t(".confirm")
+                                                              } %>
           <%= link_to t(".print"), print_initiative_path(current_initiative), class: "link action-print" %>
         <% end %>
 
