@@ -59,7 +59,10 @@ module Decidim
           allow! if permission_action.subject == :help_sections
           allow! if permission_action.subject == :share_token
           allow! if permission_action.subject == :reminder
-          allow! if permission_action.subject == :taxonomy
+
+          if permission_action.subject == :taxonomy
+            permission_action.action == :destroy ? allow_destroy_taxonomy? : allow!
+          end
         end
 
         permission_action
@@ -253,6 +256,14 @@ module Decidim
 
       def available_authorization_handlers?
         user.organization.available_authorization_handlers.any?
+      end
+
+      def allow_destroy_taxonomy?
+        return unless permission_action.action == :destroy
+
+        taxonomy = context.fetch(:taxonomy, nil)
+
+        taxonomy.children.any? ? disallow! : allow!
       end
     end
   end

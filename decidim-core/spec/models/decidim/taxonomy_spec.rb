@@ -9,7 +9,7 @@ module Decidim
     let(:organization) { create(:organization) }
     let(:parent) { create(:taxonomy, organization:) }
 
-    context "when everything ok" do
+    context "when everything is ok" do
       let(:taxonomy_name) { { en: "Test Taxonomy" } }
 
       it "is valid with valid attributes" do
@@ -35,15 +35,41 @@ module Decidim
     end
 
     context "when managing associations" do
-      let!(:child_taxonomy) { create(:taxonomy, parent: taxonomy, organization:) }
       let(:taxonomy_name) { { en: "Test Taxonomy" } }
 
-      it "can belong to a parent taxonomy" do
-        expect(taxonomy.parent).to eq(parent)
+      context "with children" do
+        let!(:child_taxonomy) { create(:taxonomy, parent: taxonomy, organization:) }
+
+        it "can belong to a parent taxonomy" do
+          expect(taxonomy.parent).to eq(parent)
+        end
+
+        it "can have many children taxonomies" do
+          expect(taxonomy.children).to include(child_taxonomy)
+        end
+
+        it "cannot be deleted if it has children" do
+          expect { taxonomy.destroy }.not_to change(Decidim::Taxonomy, :count)
+          expect(taxonomy.errors[:base]).to include("Cannot delete record because dependent children exist")
+        end
       end
 
-      it "can have many children taxonomies" do
-        expect(taxonomy.children).to include(child_taxonomy)
+      context "with filters" do
+        let!(:taxonomy_filter) { create(:taxonomy_filter, taxonomy:) }
+
+        it "cannot be deleted if it has filters" do
+          expect { taxonomy.destroy }.not_to change(Decidim::Taxonomy, :count)
+          expect(taxonomy.errors[:base]).to include("Cannot delete record because dependent taxonomy filters exist")
+        end
+      end
+
+      context "with taxonomizations" do
+        let!(:taxonomization) { create(:taxonomization, taxonomy:) }
+
+        it "cannot be deleted if it has taxonomizations" do
+          expect { taxonomy.destroy }.not_to change(Decidim::Taxonomy, :count)
+          expect(taxonomy.errors[:base]).to include("Cannot delete record because dependent taxonomizations exist")
+        end
       end
     end
 

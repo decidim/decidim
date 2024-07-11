@@ -5,7 +5,7 @@
         <%= form.translated :text_field, :name, autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :name } %>
       </div>
       <div class="row column">
-        <%= form.number_field :weight, class: "form-control", placeholder: t("decidim.admin.taxonomies.weight_placeholder") %>
+        <%= form.number_field :weight, value: form.object.weight || 0, class: "form-control", placeholder: t("decidim.admin.taxonomies.weight_placeholder") %>
       </div>
       <div class="row column">
         <% if taxonomy && taxonomy.parent.present? %>

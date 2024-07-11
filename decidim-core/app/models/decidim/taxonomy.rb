@@ -23,12 +23,13 @@ module Decidim
     has_many :children,
              foreign_key: "parent_id",
              class_name: "Decidim::Taxonomy",
-             dependent: :destroy
+             dependent: :restrict_with_error
 
     has_many :taxonomy_filters, class_name: "Decidim::TaxonomyFilter", dependent: :restrict_with_error
     has_many :taxonomizations, class_name: "Decidim::Taxonomization", dependent: :restrict_with_error
 
     validates :name, presence: true
+    validates :weight, numericality: { greater_than_or_equal_to: 0 }
 
     default_scope { order(:weight) }
 
