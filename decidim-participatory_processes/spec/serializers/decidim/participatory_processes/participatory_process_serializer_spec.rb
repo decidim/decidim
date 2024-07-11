@@ -25,7 +25,6 @@ module Decidim::ParticipatoryProcesses
         expect(subject.serialize).to include(start_date: resource.start_date)
         expect(subject.serialize).to include(end_date: resource.end_date)
         expect(subject.serialize).to include(remote_hero_image_url: Decidim::ParticipatoryProcesses::ParticipatoryProcessPresenter.new(resource).hero_image_url)
-        expect(subject.serialize).to include(remote_banner_image_url: Decidim::ParticipatoryProcesses::ParticipatoryProcessPresenter.new(resource).banner_image_url)
         expect(subject.serialize).to include(developer_group: resource.developer_group)
         expect(subject.serialize).to include(local_area: resource.local_area)
         expect(subject.serialize).to include(meta_scope: resource.meta_scope)

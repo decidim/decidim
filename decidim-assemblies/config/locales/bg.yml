@@ -209,7 +209,6 @@ bg:
           info: Относно това събрание
           landing_page: Целева страница
           moderations: Модерации
-          private_users: Частни потребители
           see_assembly: Вижте събранието
         assemblies_types: Типове събрания
       models:

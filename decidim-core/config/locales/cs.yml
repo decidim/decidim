@@ -597,7 +597,6 @@ cs:
         name: Pruh pod hlavním pruhem
     core:
       actions:
-        login_before_access: Před přístupem se prosím přihlaste pomocí svého účtu.
         unauthorized: Nemáte oprávnění k provedení této akce.
       application_helper:
         filter_area_values:
@@ -614,7 +613,6 @@ cs:
           complete_profile: Dokončit profil
           nickname_help: Váš alias v %{organization}. Může obsahovat pouze písmena, číslice, '-' a '_'.
           sign_up: Prosím, vyplňte svůj profil
-          subtitle: Pro dokončení registrace vyplňte prosím následující formulář
           username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakékoliv jméno.
       registrations:
         create:
@@ -624,8 +622,6 @@ cs:
           log_in: Přihlásit
           newsletter: Chci dostávat příležitostný zpravodaj s relevantními informacemi
           newsletter_title: Povolení kontaktu
-          sign_up: Zaregistrovat se
-          subtitle: Registrujte se, abyste se mohli účastnit Diskusí a podpořit Návrhy.
           terms: podmínky poskytování služeb
           tos_agreement: Přihlášením souhlasíte s %{link}.
           tos_title: Smluvní podmínky
@@ -635,7 +631,6 @@ cs:
           are_you_new?: Jste na platformě poprvé?
           register: Vytvořit účet
           sign_in_disabled: Můžete přistupovat pomocí externího účtu.
-          sign_up_disabled: Registrace je zakázána, můžete použít existující účet k přístupu.
         user:
           timed_out: Byli jste neaktivní příliš dlouho a byli jste automaticky odhlášeni ze služby. Pokud chcete pokračovat v používání služby, přihlaste se prosím znovu.
       shared:
@@ -952,6 +947,7 @@ cs:
           filename: Název souboru
           remove: Odebrat
           replace: Nahradit
+          save: Uložit
           title: Název
           title_required: Název je povinný!
           uploaded: Nahráno
@@ -1345,7 +1341,6 @@ cs:
           headline: Aktuální stav %{organization}
         sub_hero:
           register: Registrovat
-          register_title: Zaregistrujte se pro vytvoření účtu
       index:
         standalone_pages: Stránky
         subheading: Procházejte stránky nápovědy %{name}
@@ -1527,7 +1522,6 @@ cs:
         log_in_before_follow: Před provedením této akce se přihlaste
       login_modal:
         please_log_in: Přihlaste se
-        sign_up: Přihlásit se
       mentions_modal:
         remove_recipient: Odebrat příjemce %{name}
       participatory_space_filters:
@@ -1654,7 +1648,6 @@ cs:
       locked: Váš účet je uzamčen.
       not_found_in_database: Neplatný %{authentication_keys} nebo heslo.
       timeout: Vaše relace vypršela. Chcete-li pokračovat, přihlaste se znovu.
-      unauthenticated: Před pokračováním se musíte přihlásit nebo se zaregistrovat.
     invitations:
       edit:
         header: Dokončete vytvoření účtu
@@ -1741,8 +1734,6 @@ cs:
       updated_not_active: Vaše heslo bylo úspěšně změněno.
     registrations:
       destroyed: Sbohem! Váš účet byl úspěšně zrušen. Doufáme, že vás brzy uvidíme.
-      new:
-        sign_up: Přihlásit se
       signed_up: Vítejte! Úspěšně jste se zaregistrovali.
       signed_up_but_inactive: Úspěšně jste se zaregistrovali. Nemohli jsme vás však přihlásit, protože váš účet ještě není aktivován.
       signed_up_but_locked: Úspěšně jste se zaregistrovali. Nemohli jsme vás však přihlásit, protože váš účet je uzamčen.
@@ -1763,7 +1754,6 @@ cs:
         forgot_your_password: Zapomněli jste heslo?
         log_in: Přihlásit
         log_in_with_provider: Přihlásit se pomocí %{provider}
-        sign_up: Zaregistrovat se
       minimum_password_length:
         one: "(Minimálně%{count} znaků)"
         few: "(Minimálně%{count} znaků)"
@@ -1879,7 +1869,6 @@ cs:
       long_words: obsahuje slova, která jsou příliš dlouhá (přes 35 znaků)
       must_start_with_caps: musí začínat velkým písmenem
       nesting_too_deep: nemůže být uvnitř podkategorie
-      not_found: nemůže být nalezeno. Zaregistrovali jste se dříve?
       not_locked: nebyl uzamčen
       not_saved:
         one: 'Při zpracování vašeho požadavku došlo k chybě:'
@@ -1968,8 +1957,8 @@ cs:
         log_in: Přihlásit
         made_with_open_source: Webová stránka vytvořená s <a target="_blank" href="https://github.com/decidim/decidim">svobodným softwarem</a>.
         resources: Zdroje
-        sign_up: Registrovat
       header:
+        log_in: Přihlásit
         main_menu: Hlavní menu
         user_menu: Uživatelské Menu
       impersonation_warning:

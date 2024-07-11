@@ -196,7 +196,6 @@ ro:
           components: Componente
           landing_page: Pagina principală
           moderations: Moderări
-          private_users: Utilizatori privați
         assemblies_types: Tipuri de grupuri de lucru
       models:
         assemblies_types:

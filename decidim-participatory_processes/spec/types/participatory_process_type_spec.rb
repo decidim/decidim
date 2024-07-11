@@ -111,14 +111,6 @@ module Decidim
         end
       end
 
-      describe "bannerImage" do
-        let(:query) { "{ bannerImage }" }
-
-        it "returns the banner image of the process" do
-          expect(response["bannerImage"]).to eq(model.attached_uploader(:banner_image).path)
-        end
-      end
-
       describe "heroImage" do
         let(:query) { "{ heroImage }" }
 

@@ -291,7 +291,6 @@ fi:
         initiatives_types:
           create:
             error: Tapahtui virhe.
-            success: Uuden aloitetyypin luonti onnistui.
           destroy:
             success: Aloitetyypin poisto onnistui.
           edit:

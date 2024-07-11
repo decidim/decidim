@@ -378,7 +378,6 @@ tr:
           complete_profile: Profilini tamamla
           nickname_help: Takma adınız %{organization}. Yalnızca harf, rakam, "-" ve "_" içerebilir.
           sign_up: Lütfen profilinizi tamamlayın
-          subtitle: Kayıt işlemini tamamlamak için lütfen aşağıdaki formu doldurunuz.
           username_help: Gönderilerinizde görünen genel ad. Anonimliği garanti etmek amacıyla herhangi bir isim olabilir.
       registrations:
         new:
@@ -386,8 +385,6 @@ tr:
           log_in: "Giriş \nGiriş Yapın "
           newsletter: Ara sıra ilgili bilgileri içeren bir haber bülteni alın
           newsletter_title: İletişim izni
-          sign_up: kaydol
-          subtitle: Tartışmalara katılmak ve teklifleri desteklemek için kaydolun.
           tos_agreement: Kaydolarak %{link}kabul ediyorsunuz.
           tos_title: Kullanım Şartları
           username_help: Yayınlarınızda görünen genel ad. Anonimlik garantilemek amacıyla herhangi bir isim olabilir.
@@ -1011,7 +1008,6 @@ tr:
         log_in_before_follow: Bu İşlemi gerçekleştirmeden önce lütfen giriş yapın
       login_modal:
         please_log_in: Lütfen Giriş Yapın
-        sign_up: kaydol
       participatory_space_filters:
         filters:
           areas: alanlar
@@ -1103,7 +1099,6 @@ tr:
       locked: Hesabınız kilitli.
       not_found_in_database: '%{authentication_keys} veya şifre geçersiz.'
       timeout: Oturumunuzun süresi doldu. Devam etmek için lütfen tekrar giriş yapın.
-      unauthenticated: Devam etmeden önce giriş yapmanız veya kaydolmanız gerekmektedir.
     invitations:
       edit:
         header: Hesabınızı oluşturmayı bitirin
@@ -1169,8 +1164,6 @@ tr:
       updated_not_active: Şifreniz başarıyla değiştirildi.
     registrations:
       destroyed: Hoşçakal! Hesabınız başarıyla iptal edildi. Kısa süre sonra tekrar görmeyi umuyoruz.
-      new:
-        sign_up: kaydol
       signed_up: Hoşgeldiniz! Başarıyla kaydoldunuz.
       signed_up_but_inactive: Başarıyla kaydoldunuz. Ancak, hesabınız henüz aktif olmadığından sizi oturum açamadık.
       signed_up_but_locked: Başarıyla kaydoldunuz. Ancak, hesabınız kilitlendiğinden sizi oturum açamadık.
@@ -1188,7 +1181,6 @@ tr:
         forgot_your_password: Parolanızı mı unuttunuz?
         log_in: Giriş Yapın
         log_in_with_provider: '%{provider} ile giriş yapın'
-        sign_up: kaydol
       minimum_password_length:
         one: "(En az%{count} karakter)"
         other: "(En az%{count} karakter)"
@@ -1211,7 +1203,6 @@ tr:
       invalid_time_zone: geçerli bir zaman değil
       long_words: çok uzun kelimeler içeriyor (35 karakterden fazla)
       must_start_with_caps: büyük harfle başlamalıdır
-      not_found: bulunamadı. Daha önce üye oldunuz mu?
       not_locked: kilitli değildi
       not_saved:
         one: 'İsteğiniz işlenirken bir hata oluştu:'
@@ -1241,8 +1232,9 @@ tr:
         download_open_data: Açık Veri dosyalarını indir
         log_in: Giriş Yapın
         made_with_open_source: Web sitesi <a target="_blank" href="https://github.com/decidim/decidim">ücretsiz yazılımla yapılmıştır</a>.
-        sign_up: Kaydol
         terms_of_service: Hizmet Kullanım Koşulları
+      header:
+        log_in: "Giriş \nGiriş Yapın "
       impersonation_warning:
         close_session: Oturumu kapat
         description_html: Kullanıcının kimliğine bürünüyorsunuz <b>%{user_name}</b>.

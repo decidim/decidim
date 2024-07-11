@@ -157,7 +157,6 @@ bg:
           answer_questionnaire:
             already_have_an_account?: Вече имате профил?
             are_you_new?: Нов потребител?
-            sign_in_description: Влезте, за да участвате в анкетата
             sign_up_description: Създайте акаунт на участник, за да участвате в анкетата
             title: Попълване на отговори във формуляра
           current_step: Стъпка %{step}
