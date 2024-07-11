@@ -28,7 +28,6 @@ module Decidim
           start_date: participatory_process.start_date,
           end_date: participatory_process.end_date,
           remote_hero_image_url: Decidim::ParticipatoryProcesses::ParticipatoryProcessPresenter.new(participatory_process).hero_image_url,
-          remote_banner_image_url: Decidim::ParticipatoryProcesses::ParticipatoryProcessPresenter.new(participatory_process).banner_image_url,
           developer_group: participatory_process.developer_group,
           local_area: participatory_process.local_area,
           meta_scope: participatory_process.meta_scope,

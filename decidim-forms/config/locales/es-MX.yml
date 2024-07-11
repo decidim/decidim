@@ -157,7 +157,6 @@ es-MX:
           answer_questionnaire:
             already_have_an_account?: '¿Ya tienes una cuenta?'
             are_you_new?: '¿Eres una nueva usuaria?'
-            sign_in_description: Inicia tu sesión para responder la encuesta
             sign_up_description: Crea una cuenta de participante para realizar la encuesta
             title: Responde al cuestionario
           current_step: Paso %{step}

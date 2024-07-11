@@ -24,7 +24,6 @@ module Decidim
       field :start_date, Decidim::Core::DateType, "This participatory process' start date.", null: true
       field :end_date, Decidim::Core::DateType, "This participatory process' end date.", null: true
 
-      field :banner_image, GraphQL::Types::String, "The banner image for this participatory process", null: true
       field :hero_image, GraphQL::Types::String, "The hero image for this participatory process", null: true
       field :promoted, GraphQL::Types::Boolean, "If this participatory process is promoted (therefore in the homepage)", null: true
       field :developer_group, Decidim::Core::TranslatedFieldType, "The promoter group of this participatory process.", null: true
@@ -43,10 +42,6 @@ module Decidim
       field :participatory_process_group, Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupType,
             null: true,
             description: "The participatory process group in which this process belong to"
-
-      def banner_image
-        object.attached_uploader(:banner_image).path
-      end
 
       def hero_image
         object.attached_uploader(:hero_image).path

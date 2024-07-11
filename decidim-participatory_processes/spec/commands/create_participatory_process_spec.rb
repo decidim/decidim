@@ -16,7 +16,6 @@ module Decidim::ParticipatoryProcesses
     let(:related_process_ids) { [] }
     let(:weight) { 1 }
     let(:hero_image) { nil }
-    let(:banner_image) { nil }
     let(:form) do
       instance_double(
         Admin::ParticipatoryProcessForm,
@@ -28,7 +27,6 @@ module Decidim::ParticipatoryProcesses
         hashtag: "hashtag",
         meta_scope: { en: "meta scope" },
         hero_image:,
-        banner_image:,
         promoted: nil,
         developer_group: { en: "developer group" },
         local_area: { en: "local" },
@@ -72,7 +70,6 @@ module Decidim::ParticipatoryProcesses
           content_type: "image/jpeg"
         )
       end
-      let(:banner_image) { hero_image }
 
       before do
         allow(Decidim::ActionLogger).to receive(:log).and_return(true)
@@ -84,7 +81,6 @@ module Decidim::ParticipatoryProcesses
 
       it "adds errors to the form" do
         expect(errors).to receive(:add).with(:hero_image, "File resolution is too large")
-        expect(errors).to receive(:add).with(:banner_image, "File resolution is too large")
         subject.call
       end
     end
