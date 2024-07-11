@@ -1484,6 +1484,7 @@ cs:
           past: Minulé
       filters_small_view:
         filter: Filtr
+        filter_and_search: Filtrovat a hledat
         filter_by: Filtrovat podle
       results:
         view_all: Zobrazit všechny (%{count})
