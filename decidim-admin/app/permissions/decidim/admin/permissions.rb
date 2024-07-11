@@ -263,7 +263,11 @@ module Decidim
 
         taxonomy = context.fetch(:taxonomy, nil)
 
-        taxonomy.children.any? ? disallow! : allow!
+        if taxonomy && (taxonomy.children.exists? || taxonomy.taxonomy_filters.exists? || taxonomy.taxonomizations.exists?)
+          disallow!
+        else
+          allow!
+        end
       end
     end
   end

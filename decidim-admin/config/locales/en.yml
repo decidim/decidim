@@ -1024,6 +1024,7 @@ en:
       taxonomies:
         actions: Actions
         amount: Amount
+        children: Children
         create:
           invalid: There was a problem creating this taxonomy.
           success: Taxonomy created successfully.
@@ -1032,10 +1033,12 @@ en:
           invalid: There was a problem destroying this taxonomy.
           success: Taxonomy successfully destroyed.
         edit:
-          title: Edit taxonomy "%{taxonomy_name}"
+          title: Items in "%{taxonomy_name}"
           update: Update
         filters:
           search_placeholder: Search taxonomies
+        index:
+          description: A taxonomy filters allows participants to sort and filter processes based on a taxonomy. For example, add taxonomy filters to classify process by geographicalscope.
         name: Name
         new:
           create: Create taxonomy

@@ -7,7 +7,7 @@ module Decidim
 
       layout "decidim/admin/settings"
 
-      helper_method :taxonomies, :parent_options, :taxonomy
+      helper_method :taxonomies, :parent_options, :taxonomy, :root_taxonomies, :child_taxonomies
 
       def index
         @query = base_query.ransack(params[:q])
@@ -82,6 +82,14 @@ module Decidim
 
       def taxonomies
         @taxonomies ||= Decidim::Taxonomy.where(organization: current_organization)
+      end
+
+      def root_taxonomies
+        @root_taxonomies ||= Decidim::Taxonomy.where(organization: current_organization, parent_id: nil)
+      end
+
+      def child_taxonomies(parent_id)
+        Decidim::Taxonomy.where(organization: current_organization, parent_id: parent_id)
       end
 
       def taxonomy

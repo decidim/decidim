@@ -637,12 +637,12 @@ FactoryBot.define do
     end
   end
 
-  factory :taxonomy_filter, class: 'Decidim::TaxonomyFilter' do
+  factory :taxonomy_filter, class: "Decidim::TaxonomyFilter" do
     taxonomy
     filterable { association(:proposal_component) }
   end
 
-  factory :taxonomization, class: 'Decidim::Taxonomization' do
+  factory :taxonomization, class: "Decidim::Taxonomization" do
     taxonomy
     taxonomizable { association(:proposal) }
   end
