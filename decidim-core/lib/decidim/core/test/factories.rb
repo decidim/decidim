@@ -633,7 +633,7 @@ FactoryBot.define do
     organization
 
     trait :with_parent do
-      association :parent, factory: :taxonomy, organization:
+      association :parent, factory: :taxonomy
     end
   end
 
