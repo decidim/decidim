@@ -215,7 +215,7 @@ pl:
           info: O tym zgromadzeniu
           landing_page: Strona startowa
           moderations: Moderacje
-          private_users: Prywatni użytkownicy
+          private_users: Uczestnicy prywatni
           see_assembly: Zobacz zgromadzenie
         assemblies_types: Typy zespołów
       models:

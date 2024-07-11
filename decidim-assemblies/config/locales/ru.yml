@@ -158,7 +158,6 @@ ru:
           categories: Категории
           components: Составляющие
           moderations: Действия по модерации
-          private_users: Частные участники
       models:
         assemblies_types:
           fields:
