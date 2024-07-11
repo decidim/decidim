@@ -157,7 +157,6 @@ ca:
           answer_questionnaire:
             already_have_an_account?: Ja tens un compte?
             are_you_new?: Ets una nova usuària?
-            sign_in_description: Inicia la teva sessió per respondre l'enquesta
             sign_up_description: Crea un compte de participant per a respondre l'enquesta
             title: Respon el formulari
           current_step: Pas %{step}

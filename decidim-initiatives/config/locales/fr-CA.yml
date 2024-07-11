@@ -291,7 +291,6 @@ fr-CA:
         initiatives_types:
           create:
             error: Une erreur est survenue.
-            success: Un nouveau type de pétition a été créé avec succès.
           destroy:
             success: Le type de pétition a été supprimé avec succès.
           edit:

@@ -41,8 +41,7 @@ module Decidim::ParticipatoryProcesses
       end
       let(:attachment_params) do
         {
-          hero_image: my_process.hero_image.blob,
-          banner_image: my_process.banner_image.blob
+          hero_image: my_process.hero_image.blob
         }
       end
       let(:user) { create(:user, :admin, :confirmed, organization: my_process.organization) }
@@ -80,7 +79,6 @@ module Decidim::ParticipatoryProcesses
           allow(form).to receive(:invalid?).and_return(false)
           expect(my_process).to receive(:valid?).at_least(:once).and_return(false)
           my_process.errors.add(:hero_image, "File resolution is too large")
-          my_process.errors.add(:banner_image, "File resolution is too large")
         end
 
         it "broadcasts invalid" do
@@ -91,7 +89,6 @@ module Decidim::ParticipatoryProcesses
           command.call
 
           expect(form.errors[:hero_image]).not_to be_empty
-          expect(form.errors[:banner_image]).not_to be_empty
         end
       end
 
@@ -128,40 +125,6 @@ module Decidim::ParticipatoryProcesses
 
             linked_processes = my_process.linked_participatory_space_resources(:participatory_process, "related_processes")
             expect(linked_processes).to contain_exactly(another_process)
-          end
-        end
-
-        context "when no homepage image is set" do
-          let(:attachment_params) do
-            {
-              banner_image: my_process.banner_image.blob
-            }
-          end
-
-          it "does not replace the homepage image" do
-            expect(my_process).not_to receive(:hero_image=)
-
-            command.call
-            my_process.reload
-
-            expect(my_process.hero_image.attached?).to be true
-          end
-        end
-
-        context "when no banner image is set" do
-          let(:attachment_params) do
-            {
-              hero_image: my_process.hero_image.blob
-            }
-          end
-
-          it "does not replace the banner image" do
-            expect(my_process).not_to receive(:banner_image=)
-
-            command.call
-            my_process.reload
-
-            expect(my_process.banner_image.attached?).to be true
           end
         end
       end

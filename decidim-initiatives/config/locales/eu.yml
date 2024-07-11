@@ -291,7 +291,6 @@ eu:
         initiatives_types:
           create:
             error: Errore bat egon da.
-            success: Beste ekimen mota bat zuzen sortu da.
           destroy:
             success: Ekimen mota zuzen kendu da.
           edit:

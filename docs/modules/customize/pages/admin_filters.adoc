@@ -1,0 +1,32 @@
+= Admin filters
+
+Filters in admin panels are defined with a common Filterable concern and each one defines a series of methods defining the different available filters, the options for each one, etc.
+
+Decidim provides an Api to manage and add custom elements to each admin filter defined in the application. Each defined filter can be accessed by a unique symbol and provides the methods `add_filters` and `add_dynamically_translated_filters` which allows us to add new items to the respective `filters` and `dynamically_translated` arrays provided by the filter registry and `add_filters_with_values` which allows us to merge new items into the `filters_with_values` hash also provided by the registry.
+
+Note that those methods are called at filter rendering time, so all methods provided by the controller and the concern filterable are available to evaluate when defining new elements
+
+For example, to add new filter to proposals index:
+
+[source,ruby]
+....
+Decidim.admin_filter(:proposals) do |filter|
+  # An example of how to access to the context. In this case the custom
+  # filter is only enabled for valuators of the space
+  if current_participatory_space.user_roles(:valuator).where(user: current_user).exists?
+    filter.add_filters(:custom_new_filter)
+    filter.add_filters_with_values(custom_new_filter: %w(custom_new_value_1 custom_new_value_2))
+  end
+end
+....
+
+The filter registry definition block is called from the proposals filterable concern in this way:
+
+[source,ruby]
+....
+delegate :filters, :dynamically_translated_filters, :filters_with_values, to: :filter_config
+
+def filter_config
+  @filter_config ||= Decidim::AdminFilter.new(:proposals).build_for(self)
+end
+....

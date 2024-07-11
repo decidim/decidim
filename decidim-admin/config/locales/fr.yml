@@ -450,6 +450,7 @@ fr:
           values:
             'false': Publié
             'true': Dépublié
+        remove_all: Tout supprimer
         scope_id_eq:
           label: Secteur
         search_label: Rechercher
@@ -964,6 +965,11 @@ fr:
           help: Ces jetons sont utilisés pour partager cette ressource non publiée à n'importe quel utilisateur. Ils seront cachés dès que la ressource sera publiée. Cliquez sur l'icône du jeton pour visiter l'URL partageable.
           title: Partager les jetons
       shared:
+        adjacent_navigation:
+          next: Suivant
+          next_title: Élément suivant
+          previous: Précédent
+          previous_title: Élément précédent
         gallery:
           add_images: Ajouter des images
           edit_images: Modifier les images

@@ -199,7 +199,6 @@ ar:
           categories: الفئات
           components: المكونات
           moderations: الإعتدال
-          private_users: المستخدمون الخاصون
         assemblies_types: نوع التجمّعات
       models:
         assemblies_types:

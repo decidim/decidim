@@ -522,6 +522,7 @@ es-PY:
             publish: Publicar
             publish_answers: Publicar respuestas
             select_component: Seleccione un componente
+            select_valuators: Selecciona una o más evaluadoras
             selected: seleccionado
             split: Propuestas divididas
             split_button: División

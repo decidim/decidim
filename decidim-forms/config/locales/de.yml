@@ -157,7 +157,6 @@ de:
           answer_questionnaire:
             already_have_an_account?: Haben Sie bereits ein Konto?
             are_you_new?: Neue Teilnehmer*in?
-            sign_in_description: Melden Sie sich an, um an der Umfrage teilzunehmen
             sign_up_description: Erstellen Sie ein Nutzendenkonto, um an der Umfrage teilzunehmen
             title: Beantworten Sie den Fragebogen
           current_step: Schritt %{step}

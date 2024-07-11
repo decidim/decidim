@@ -522,6 +522,7 @@ es:
             publish: Publicar
             publish_answers: Publicar respuestas
             select_component: Selecciona un componente
+            select_valuators: Selecciona una o más evaluadoras
             selected: seleccionado
             split: Dividir propuestas
             split_button: Dividir

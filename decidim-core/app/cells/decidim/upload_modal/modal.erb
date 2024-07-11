@@ -37,10 +37,10 @@
             <%= icon "upload-cloud-2-line", class: "w-8 h-8 text-gray fill-current" %>
             <%= t("decidim.forms.upload_help.dropzone") %>
           </span>
-          <button class="button button__sm button__secondary" data-select-file-button>
+          <label class="button button__sm button__secondary" for="files-<%= modal_id %>">
             <span><%= t("decidim.forms.upload.select_file") %></span>
             <%= icon "arrow-right-line", class: "fill-current" %>
-          </button>
+          </label>
         </div>
       </div>
     </div>
