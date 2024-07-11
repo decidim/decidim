@@ -64,7 +64,7 @@ module Decidim
       end
 
       it "does not enforce signature type if the type was updated" do
-        initiative = build(:initiative, :published, organization:, scoped_type: online_allowed_scope, signature_type: "online")
+        initiative = build(:initiative, organization:, scoped_type: online_allowed_scope, signature_type: "online")
 
         expect(initiative.save).to be_truthy
 
