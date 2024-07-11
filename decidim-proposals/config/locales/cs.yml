@@ -209,6 +209,7 @@ cs:
             creation_enabled_readonly: Toto nastavení je zakázáno, když aktivujete funkci Participativní texty. Chcete-li návrhy nahrát jako participativní text, klikněte na tlačítko Participativní texty a postupujte podle pokynů.
             default_sort_order: Výchozí řazení návrhu
             default_sort_order_options:
+              automatic: Automaticky
               most_commented: Nejvíce komentované
               most_endorsed: Nejvíce schvalované
               most_followed: Nejvíce sledované
