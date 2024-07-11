@@ -37,8 +37,6 @@ module Decidim::ParticipatoryProcesses
           "announcement" => Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
           "private_space" => false,
           "scopes_enabled" => false,
-          "show_metrics" => false,
-          "show_statistics" => false,
           "participatory_process_group" => group_data,
           "participatory_process_type" => type_data
         }

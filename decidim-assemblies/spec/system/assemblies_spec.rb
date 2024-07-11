@@ -5,7 +5,6 @@ require "decidim/core/test/shared_examples/has_contextual_help"
 
 describe "Assemblies" do
   let(:organization) { create(:organization) }
-  let(:show_statistics) { true }
 
   let(:description) { { en: "Description", ca: "Descripció", es: "Descripción" } }
   let(:short_description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
@@ -25,7 +24,6 @@ describe "Assemblies" do
       internal_organisation:,
       composition:,
       closing_date_reason:,
-      show_statistics:,
       blocks_manifests:
     )
   end

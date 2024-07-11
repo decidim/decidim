@@ -42,8 +42,6 @@ module Decidim
             announcement: attributes["announcement"],
             private_space: attributes["private_space"],
             scopes_enabled: attributes["scopes_enabled"],
-            show_metrics: attributes["show_metrics"],
-            show_statistics: attributes["show_statistics"],
             participatory_process_group: import_process_group(attributes["participatory_process_group"]),
             participatory_process_type: import_participatory_process_type(attributes["participatory_process_type"])
           )

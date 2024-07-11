@@ -33,8 +33,6 @@ module Decidim::ParticipatoryProcesses
             area: my_process.area,
             errors: my_process.errors,
             participatory_process_group: my_process.participatory_process_group,
-            show_metrics: my_process.show_metrics,
-            show_statistics: my_process.show_statistics,
             private_space: my_process.private_space
           }.merge(attachment_params)
         }

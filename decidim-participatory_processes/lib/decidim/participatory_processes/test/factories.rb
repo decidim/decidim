@@ -32,7 +32,6 @@ FactoryBot.define do
     participatory_structure { generate_localized_title(:participatory_process_participatory_structure, skip_injection:) }
     announcement { generate_localized_title(:participatory_process_announcement, skip_injection:) }
     show_metrics { true }
-    show_statistics { true }
     private_space { false }
     start_date { Date.current }
     end_date { 2.months.from_now }

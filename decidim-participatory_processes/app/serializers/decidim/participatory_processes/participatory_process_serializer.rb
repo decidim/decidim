@@ -52,8 +52,6 @@ module Decidim
           private_space: participatory_process.private_space,
           promoted: participatory_process.promoted,
           scopes_enabled: participatory_process.scopes_enabled,
-          show_metrics: participatory_process.show_metrics,
-          show_statistics: participatory_process.show_statistics,
           participatory_process_type: {
             id: participatory_process.participatory_process_type.try(:id),
             title: participatory_process.participatory_process_type.try(:title) || empty_translatable
