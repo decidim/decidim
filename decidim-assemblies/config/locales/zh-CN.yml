@@ -170,7 +170,6 @@ zh-CN:
           categories: 类别管理
           components: 组件
           moderations: 版面
-          private_users: 私人用户
         assemblies_types: 程序集类型
       models:
         assemblies_types:

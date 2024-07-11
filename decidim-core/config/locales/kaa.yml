@@ -1,5 +1,10 @@
 ---
 kaa:
+  decidim:
+    forms:
+      upload:
+        labels:
+          save: Saqlaw
   devise:
     invitations:
       edit:

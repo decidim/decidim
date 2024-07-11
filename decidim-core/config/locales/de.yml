@@ -918,6 +918,7 @@ de:
           filename: Dateiname
           remove: Entfernen
           replace: Ersetzen
+          save: Speichern
           title: Titel
           title_required: Titel ist erforderlich!
           uploaded: Hochgeladen

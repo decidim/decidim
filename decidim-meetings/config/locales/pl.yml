@@ -202,6 +202,9 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie spotkania kliknij w przycisk obserwowania.
           email_subject: Spotkanie "%{resource_title}" rozpocznie się za mniej niż 48 godzin.
           notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> rozpocznie się za mniej niż 48 godzin.
+    forms:
+      meetings:
+        attendees_count_help_text: Nie zapomnij podać całkowitej liczby uczestników spotkania, niezależnie od jego formy — osobistej, online lub hybrydowej.
     gamification:
       badges:
         attended_meetings:
@@ -212,6 +215,8 @@ pl:
           description_own: Uczestniczyłeś w %{score} spotkaniach.
           name: Spotkania w których uczestniczyłeś/-łaś
           next_level_in: Weź udział jeszcze w %{score} spotkaniach, aby awansować na kolejny poziom!
+          unearned_another: Ten użytkownik nie uczestniczył jeszcze w żadnym spotkaniu.
+          unearned_own: Nie brałeś(aś) jeszcze udziału w żadnych spotkaniach.
     meetings:
       actions:
         agenda: Program
@@ -228,6 +233,7 @@ pl:
             many: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji:'
             other: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji:'
         manage_poll: Zarządzaj głosowaniem
+        new_meeting: Nowe spotkanie
         preview: Podgląd
         registrations: Rejestracje
         title: Działania
@@ -245,6 +251,9 @@ pl:
             down: Na dół
             remove: Usuń
             up: W górę
+          create:
+            invalid: Przy tworzeniu tego porządku obrad pojawił się problem.
+            success: Utworzenie porządku obrad się powiodło.
           edit:
             title: Edytuj program
             update: Aktualizuj
@@ -256,7 +265,11 @@ pl:
           new:
             create: Utwórz
             title: Nowy program
+          update:
+            invalid: Przy aktualizacji tego porządku obrad pojawił się problem.
+            success: Aktualizacja porządku obrad się powiodła.
         exports:
+          answers: Odpowiedzi
           meeting_comments: Komentarze
           meetings: Spotkania
           registrations: Rejestracje
@@ -284,13 +297,18 @@ pl:
               sent: Wysłano
             invite_attendee: Zaproś uczestnika
             invites: Zaproszeni
+            registrations_disabled: Nie można zaprosić uczestnika, ponieważ rejestracja jest wyłączona.
             search: Szukaj
         meeting_closes:
           edit:
             close: Zamknij
             title: Zamknij spotkanie
         meetings:
+          close:
+            invalid: Wystąpił problem podczas zamykania tego spotkania.
+            success: Spotkanie zostało zamknięte.
           create:
+            invalid: Podczas tworzenia tego spotkania wystąpił błąd.
             success: Spotkanie zostało utworzone. Zauważ, że jest ono nieopublikowane, musisz je opublikować ręcznie.
           destroy:
             success: Spotkanie zostało pomyślnie usunięte
@@ -425,6 +443,7 @@ pl:
         new_meeting: 'Nowe spotkanie:'
       layouts:
         live_event:
+          administrate: Administruj
           close: zamknij
           questions: Pytania
       mailer:
@@ -506,7 +525,11 @@ pl:
           text_banner: Oglądasz listę spotkań wycofanych przez ich autorów. %{go_back_link}.
         meeting:
           close_meeting: Zamknij spotkanie
+          edit_close_meeting: Edytuj raport ze spotkania
+          edit_meeting: Edytuj spotkanie
+          join_meeting: Dołącz do spotkania
         meetings:
+          no_meetings_warning: Żadne spotkanie nie spełnia kryteriów wyszukiwania lub nie zaplanowano żadnych spotkań.
           upcoming_meetings_warning: Obecnie nie ma żadnych zaplanowanych spotkań, ale możesz zobaczyć wszystkie przeszłe.
         new:
           back: Wróć
@@ -520,7 +543,12 @@ pl:
           contributions: Liczba wsparć
           join: Dołącz do spotkania
           leave: Anuluj swoją rejestrację
+          leave_confirmation: Czy na pewno chcesz anulować rejestrację na to spotkanie?
+          link_available_soon: Link dostępny wkrótce
+          link_closed: Link do dołączenia do spotkania będzie dostępny na kilka minut przed jego uruchomieniem
+          live_event: To spotkanie ma teraz miejsce
           meeting_minutes: Protokół ze spotkania
+          micro_camera_permissions_warning: Gdy klikniesz poniższy przycisk, zostaniesz poproszony(a) o uprawnienia mikrofonu i/lub kamery i dołączysz do wideokonferencji
           no_slots_available: Brak dostępnych miejsc
           organizations: Organizacje biorące udział
           registration_code_help_text: Twój kod rejestracyjny
@@ -532,6 +560,10 @@ pl:
             few: "Pozostało %{count} miejsc"
             many: "Pozostało %{count} miejsc"
             other: "Pozostało %{count} miejsc"
+          visit_finished: Zobacz poprzednie spotkanie
+          withdraw_btn_hint: Możesz wycofać swoje spotkanie, jeśli zmienisz zdanie. Spotkanie nie zostanie usunięte, pojawi się na liście wycofanych spotkań.
+          withdraw_confirmation_html: Czy na pewno chcesz wycofać to spotkanie?<br><br><strong>Tej akcji nie można anulować!</strong>
+          withdraw_meeting: Wycofaj spotkanie
         update:
           invalid: Wystąpił błąd podczas aktualizowania spotkania.
           success: Spotkanie zostało zaktualizowane.
@@ -550,6 +582,7 @@ pl:
           fields:
             closed: Zakończone
             end_time: Data zakończenia
+            id: Numer ID
             map: Mapa
             official_meeting: Spotkanie oficjalne
             start_time: Data rozpoczęcia
@@ -558,6 +591,8 @@ pl:
         questions:
           closed_question:
             question_results: Wyniki wyborów
+          index:
+            empty_questions: Podczas tego spotkania niektóre pytania zostaną wysłane i będziesz mógł na nie odpowiedzieć. Będą one wyświetlane tutaj.
           index_admin:
             edit: Edytuj w panelu administratora
             question: Pytanie

@@ -905,6 +905,7 @@ pl:
           filename: Nazwa pliku
           remove: Usuń
           replace: Zamień
+          save: Zapisz
           title: Tytuł
           title_required: Tytul jest obowiazkowy!
           uploaded: Przesłano
@@ -1227,6 +1228,7 @@ pl:
       no_notifications: Brak powiadomień.
       show:
         missing_event: Ups, to powiadomienie należy do elementu, który nie jest już dostępny. Możesz je odrzucić.
+        moderated: Zawartość moderowana
     notifications_digest_mailer:
       header:
         daily: Podsumowanie codziennych powiadomień
@@ -1433,6 +1435,7 @@ pl:
           past: Przeszły
       filters_small_view:
         filter: Filtr
+        filter_and_search: Filtruj i szukaj
         filter_by: Filtruj według
       results:
         view_all: Zobacz wszystko (%{count})

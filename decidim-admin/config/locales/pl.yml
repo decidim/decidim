@@ -577,6 +577,7 @@ pl:
         appearance: Wygląd
         area_types: Typy kategorii
         areas: Kategorie
+        components: Komponenty
         configuration: Konfiguracja
         content: Zgłoszona zawartość
         external_domain_whitelist: Dozwolone domeny zewnętrzne

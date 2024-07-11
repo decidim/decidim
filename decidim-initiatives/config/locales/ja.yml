@@ -274,7 +274,7 @@ ja:
         initiatives_type_scopes:
           create:
             error: エラーが発生しました。
-            success: 指定されたイニシアチブタイプの新しいスコープが作成されました。
+            success: 指定されたイニシアチブ種別の新しいスコープが作成されました。
           destroy:
             success: スコープを削除しました。
           edit:
@@ -291,7 +291,7 @@ ja:
             error: エラーが発生しました。
             success: 新しいイニシアチブタイプが正常に作成されました。
           destroy:
-            success: イニシアチブタイプを削除しました。
+            success: イニシアチブ種別を削除しました。
           edit:
             update: 更新
           form:
@@ -306,7 +306,7 @@ ja:
             title: 新しいイニシアチブ種別
           update:
             error: エラーが発生しました。
-            success: イニシアチブタイプを更新しました。
+            success: イニシアチブ種別を更新しました。
       admin_log:
         initiative:
           publish: "%{user_name} が %{resource_name} イニシアチブを公開しました"
@@ -316,9 +316,9 @@ ja:
         initiatives_settings:
           update: "%{user_name} がイニシアチブの設定を更新しました"
         initiatives_type:
-          create: "%{user_name} が %{resource_name} イニシアチブタイプを作成しました"
-          delete: "%{user_name} が %{resource_name} イニシアチブタイプを削除しました"
-          update: "%{user_name} は %{resource_name} イニシアチブタイプを更新しました"
+          create: "%{user_name} が %{resource_name} イニシアチブ種別を作成しました"
+          delete: "%{user_name} が %{resource_name} イニシアチブ種別を削除しました"
+          update: "%{user_name} は %{resource_name} イニシアチブ種別を更新しました"
       admin_states:
         accepted: 十分な署名
         created: 作成済み

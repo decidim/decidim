@@ -175,7 +175,6 @@ lb:
           categories: Kategorien
           components: Komponenten
           moderations: Moderationen
-          private_users: Private Benutzer
         assemblies_types: Versammlungstypen
       models:
         assemblies_types:

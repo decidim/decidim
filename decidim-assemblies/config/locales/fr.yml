@@ -210,7 +210,7 @@ fr:
           info: À propos de cette assemblée
           landing_page: Page d'accueil
           moderations: Modérations
-          private_users: Utilisateurs privés
+          private_users: Participants privés
           see_assembly: Voir l'assemblée
         assemblies_types: Types d'assemblée
       models:

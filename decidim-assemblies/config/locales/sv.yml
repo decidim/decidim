@@ -185,7 +185,6 @@ sv:
           categories: Kategorier
           components: Komponenter
           moderations: Moderering
-          private_users: Privata användare
         assemblies_types: Typer av grupper
       models:
         assemblies_types:

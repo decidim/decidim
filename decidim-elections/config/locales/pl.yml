@@ -124,16 +124,24 @@ pl:
         manage_answers: Zarządzaj odpowiedziami
         manage_questions: Zarządzaj pytaniami
         manage_steps: Zarządzaj krokami
+        new_trustee: Nowy mąż (osoba) zaufania
         preview: Podgląd
         publish: Opublikuj
         title: Działania
         unpublish: Cofnij publikację
       admin:
         answers:
+          create:
+            invalid: Wystąpił błąd podczas tworzenia tej odpowiedzi.
+            success: Odpowiedź została utworzona.
+          destroy:
+            invalid: Wystąpił błąd podczas usuwania tej odpowiedzi.
+            success: Odpowiedź została usunięta.
           edit:
             title: Edytuj odpowiedź
             update: Aktualizuj odpowiedź
           index:
+            invalid_max_selections: Potrzebujesz jeszcze %{missing_answers} odpowiedzi, aby osiągnąć maksymalną liczbę opcji do wybrania.
             title: Odpowiedzi
           new:
             create: Utwórz odpowiedź
@@ -142,11 +150,27 @@ pl:
           select:
             disable: Odznacz odpowiedź
             enable: Zaznacz odpowiedź
+            invalid: Wystąpił błąd z przy wybieraniu tej odpowiedzi.
+            success: Zaznaczono odpowiedź.
           selected: Wybrane
+          unselect:
+            invalid: Wystąpił problem z odznaczaniem tej odpowiedzi.
+            success: Usunięto zaznaczenie odpowiedzi.
+          update:
+            invalid: Wystąpił błąd podczas aktualizowania tej odpowiedzi.
+            success: Odpowiedź została zaktualizowana.
         elections:
+          create:
+            invalid: Wystąpił błąd podczas tworzenia tych wyborów.
+            success: Wybory zostały pomyślnie utworzone.
+          destroy:
+            invalid: Wystąpił błąd podczas usuwania tych wyborów.
+            success: Wybory zostały pomyślnie usunięte.
           edit:
             title: Edytuj wybory
             update: Aktualizuj wybory
+          form:
+            organization_time_zone: Sprawdź, czy strefa czasowa organizacji jest poprawna w ustawieniach organizacji. Obecna konfiguracja to %{time_zone} (%{time}).
           index:
             no_bulletin_board: Brak skonfigurowanego <a href="https://github.com/decidim/decidim-bulletin-board">serwera tablicy danych wyborczych</a>, który jest potrzebny do korzystania z tego modułu. Zadanie to powinno być wykonane przez administratora systemu.
             title: Wybory
@@ -321,11 +345,30 @@ pl:
             title: Nowy mąż (osoba) zaufania
           update:
             invalid: Wystąpił problem z aktualizacją powiernika %{trustee}.
+            success: Mąż (osoba) zaufania %{trustee} został pomyślnie zaktualizowany.
       admin_log:
         election:
+          create: "%{user_name} opublikował(a) wybory %{resource_name} w %{space_name}"
+          delete: "Użytkownik %{user_name} usunął wybory %{resource_name} w %{space_name}"
+          end_vote: "Użytkownik %{user_name} zakończył okres głosowania dla wyborów %{resource_name} w %{space_name} na tablicy Biuletynu"
           publish: "%{user_name} opublikował(a) wybory %{resource_name} w %{space_name}"
           publish_results: "%{user_name} opublikował wyniki głosowania w %{resource_name} w %{space_name} na tablicy ogłoszeń"
+          report_missing_trustee: "Użytkownik %{user_name} zgłosił %{trustee_name} jako brakującego powiernika podczas procesu ustalania wyników dla wyborów %{resource_name} w %{space_name} na tablicy Biuletynu"
+          setup: "Użytkownik %{user_name} utworzył wybory %{resource_name} w %{space_name} na tablicy Biuletynu"
+          start_key_ceremony: "Użytkownik %{user_name} rozpoczął kluczową ceremonię wyborów %{resource_name} w %{space_name} na tablicy Biuletynu"
+          start_tally: "Użytkownik %{user_name} rozpoczął proces ustalania wyniku dla wyborów %{resource_name} w %{space_name} na tablicy Biuletynu"
+          start_vote: "Użytkownik %{user_name} rozpoczął okres głosowania nad %{resource_name} w %{space_name} na tablicy Biuletynu"
           unpublish: "%{user_name} cofnął/cofnęła publikację wyborów %{resource_name} w %{space_name}"
+          update: "%{user_name} zaktualizował(a) wybory %{resource_name} w %{space_name}"
+        trustee:
+          create: "%{user_name} przypisał(a) użytkownika %{trustee_user} jako powiernika (osobę zaufania)"
+      connection:
+        failed:
+          modal:
+            close: Zamknij
+            communication_lost: Niestety, wygląda na to, że komunikacja z serwerem głosowania (Biuletynem) została utracona.<br>Może być tak, że połączenie z Internetem jest wadliwe lub że serwer docelowy jest zbyt zajęty.<br>Możesz spróbować później lub skontaktować się ze wsparciem, jeśli problem będzie dalej występował.
+            generic_error: Niestety, wystąpił nieznany błąd. Prawdopodobnie Twoja przeglądarka nie jest obsługiwana lub używasz trybu "incognito" lub "prywatnego", który nie jest obsługiwany.
+            title: Coś poszło nie tak
       election_m:
         badge_name:
           finished: Zakończone
@@ -382,9 +425,11 @@ pl:
             started: Proce ustalania wyniku głosowania rozpoczął się.
           tally_title: Proces ustalania wyniku głosowania
           title: Dziennik zdarzeń wyborczych
+          unpublished: Nieopublikowany
           verifiable_results:
             checksum: 'Suma kontrolna SHA256 pliku:'
             description:
+              not_ready: Weryfikowalny plik wyborczy i suma kontrolna SHA256 nie są jeszcze dostępne. Jak tylko wyniki zostaną opublikowane, będziesz mógł (mogła) zweryfikować te wybory.
               ready: 'Możesz tutaj skorzystać z opcji sprawdzenia wyborów. Aby to uczynić, pobierz wpierw plik i upewnij się, że nie został uszkodzony. Użyj następującego polecenia aby sprawdzić czy wynik jest zgodny z sumą kontrolną:'
             how_to_verify: 'Po pobraniu pliku i upewnieniu się, że plik jest w porządku, możesz przejść do uruchomienia uniwersalnego weryfikatora. Sklonuj <a href=''https://github.com/decidim/decidim-bulletin-board''>to repozytorium</a> i wykonaj następujące polecenie z katalogu root:'
             title: Zweryfikuj wyniki wyborów
@@ -398,6 +443,7 @@ pl:
         filters:
           active: Aktywne
           all: Wszystkie
+          date: Data
           finished: Zakończone
           upcoming: Nadchodzące
         preview:
@@ -436,6 +482,7 @@ pl:
       feedback:
         answer:
           invalid: Wystąpił błąd podczas wysyłania Twojej opinii.
+          spam_detected: Wystąpił problem z odpowiedzią na formularz. Może byłeś(aś) zbyt szybki(a), czy możesz spróbować ponownie?
           success: Opinia została wysłana.
       models:
         answer:
@@ -499,13 +546,26 @@ pl:
             title: Przywróć klucze dla wyborów %{election}
             upload_election_keys: Prześlij klucze wyborcze
           tally_started_steps:
+            back: Powrót
             description: Wyniki tego głosowania są generowane na Tablicy danych wyborczych. Aby zakończyć ten proces niezbędne jest twoje uczestnictwo jako męża (osoby) zaufania.
             keys:
               end_tally: Zakończono proces ustalania wyniku głosowania
               tally:
                 cast: Suma oddanych głosów
                 share: Udostępnij ustalony wynik głosowania
+            list:
+              status: Status
+              task: Zadanie
+            process_warning: Po rozpoczęciu procesu nie powinieneś (nie powinnaś) opuszczać tej strony do czasu jego zakończenia. Zajmie to kilka minut, ponieważ wszyscy mężowie (osoby) zaufania powinni być podłączeni w celu jego ukończenia.
+            start: Rozpocznij
+            status:
+              completed: Zakończono
+              pending: Oczekujące
+              processing: Przetwarzanie
             title: Wynik głosowania dla %{election}
+          update:
+            error: Status wyborów nie został zaktualizowany.
+            success: 'Status wyborów to: %{status}.'
         menu:
           trustee_zone: Strefa mężów (osób) zaufania
         no_bulletin_board:
@@ -531,11 +591,15 @@ pl:
               generate_legend: Musisz utworzyć parę kluczy identyfikacyjnych do udziału w głosowaniu jako mąż (osoba) zaufania.
               generate_legend_1: Po kliknięciu przycisku powinieneś pobrać plik z utworzonymi kluczami identyfikacyjnymi.
               generate_legend_2: Skopiuj pobrany plik na puste urządzenia USB
+              generate_legend_3: Upewnij się, że Twój komputer nie ma kopii pliku (np. sprawdź foldery Pobrane i Pulpit).
               generate_legend_4: Utwórz kolejną kopię pliku na innym urządzeniu zewnętrznym i przechowuj go w bezpiecznym miejscu.
               submit: Prześlij
+              submit_legend: Po wykonaniu wszystkich opisanych powyżej kroków zakończ proces wysyłania publicznego klucza identyfikacyjnego do serwera.
               submit_title: Prześlij publiczny klucz identyfikacyjny
               title: Klucze identyfikacyjne męża (osoby) zaufania
               upload: Prześlij swoje klucze identyfikacyjne
+              upload_error:
+                invalid_format: Wgrany plik nie zawiera żadnego klucza identyfikacyjnego.
             not_supported_browser_title: Aktualizuj przeglądarkę by działać jako mąż (osoba) zaufania
           update:
             success: Twój publiczny klucz identyfikacyjny został zapisany.
@@ -898,6 +962,12 @@ pl:
             create: Utwórz
             title: Nowe głosowanie
       admin_log:
+        polling_officer:
+          delete: "Użytkownik %{user_name} cofnął przypisanie użytkownika %{polling_officer_user} jako oficera do ankiet w przestrzeni %{space_name}"
+        polling_station:
+          create: "Użytkownik %{user_name} utworzył lokal wyborczy %{resource_name} w przestrzeni %{space_name}"
+          delete: "Użytkownik %{user_name} usunął lokal wyborczy %{resource_name} w przestrzeni %{space_name}"
+          update: "Użytkownik %{user_name} zaktualizował lokal wyborczy %{resource_name} w przestrzeni %{space_name}"
         voting:
           create: "%{user_name} utworzył(a) głosowanie %{resource_name}"
           publish: "%{user_name} opublikował(a) głosowanie %{resource_name}"
@@ -907,16 +977,30 @@ pl:
           census:
             create:
               invalid: Wystąpił błąd przy przesyłaniu listy wyborców. Spróbuj ponownie później.
+              invalid_csv_header: Nagłówki CSV są brakujące lub nie są poprawne — należy uważnie przeczytać instrukcję.
+            creating_data:
+              info_message: "<strong>Poczekaj</strong>, przetworzono %{processed_count} z %{raw_count} wierszy z pliku %{file} (może to potrwać kilka minut)."
             delete:
               button: Usuń wszystkie dane listy wyborców
+              confirm: Usunięcie wszystkich danych spisu nie może zostać cofnięte. Czy na pewno chcesz kontynuować?
             destroy:
               error: Wystąpił błąd przy usuwaniu listy wyborców. Spróbuj ponownie później.
+              success: Usunięto dane listy wyborców (spisu).
             export_access_codes:
               button: Eksportuj kody dostępu do głosowania
               callout: Możesz teraz przejść do eksportu kodów dostępu. Można to zrobić tylko raz. Po uruchomieniu eksportu, otrzymasz e-mail z instrukcjami na adres <strong>%{email}</strong>
               confirm: Możesz wyeksportować kody dostępu tylko raz. Upewnij się, że masz dostęp do konta e-mail <strong>%{email}</strong>.
+              file_not_exist: Ten plik nie istnieje.
+              launch_error: Problem z uruchomieniem eksportu kodów dostępu.
+              launch_success: Rozpoczęto eksport kodów dostępu. Wkrótce otrzymasz e-mail na %{email}.
+            exporting_access_codes:
+              info_message: "<strong>Poczekaj</strong>, eksport jest przygotowywany, wkrótce otrzymasz go na %{email} (może to potrwać kilka minut)."
             freeze:
               callout: Lista wyborców została zamknięta i nie może być już zmieniania.
+              help_html: |
+                Dane spisu zostały przesłane, kody wygenerowane i wyeksportowane pomyślnie.<br>
+                <strong>Jesteś teraz gotowy(a) do rozpoczęcia wyborów.</strong><br>
+                Użyj eksportowanego pliku CSV z indywidualnymi kodami, aby rozpowszechniać go według Twojego spisu za pomocą własnych środków lub aktywować zakładkę "Czy mogę głosować", aby umożliwić każdemu pobranie tego kodu za pomocą własnych danych spisu.
             generate_access_codes:
               button: Utwórz kody dostępu do głosowania
               callout: Teraz możesz utworzyć kody dostępu. Pamiętaj, że po utworzeniu tych kodów nie będziesz mógł już zmieniać listy wyborców.
@@ -925,6 +1009,9 @@ pl:
               info_message_warn: Sprawdź, czy nie brakuje żadnych danych, ponieważ utworzono %{data_count} rekordów, a przesłany plik %{file} miał %{raw_count} wierszy.
               launch_error: Wystąpił błąd przy uruchomieniu tworzenia kodów dostępu
               launch_success: Uruchomiono tworzenie kodów.
+              start_over: Usuń bieżący spis i zacznij ponownie z poprawnym plikiem CSV z poprawnymi wierszami.
+            generating_access_codes:
+              info_message: "<strong>Proszę czekać</strong>, kody dostępu do głosowania są generowane (może to potrwać kilka minut)..."
             new:
               file_help:
                 explanation: 'Wytyczne dotyczące pliku:'
@@ -933,6 +1020,7 @@ pl:
               has_ballot_styles_message: Ustawiono rodzaje kart wyborczych. Upewnij się, że pole "%{ballot_style_code_header}" w CSV odpowiada żądanemu kodowi rodzaju karty wyborczej.
               info_message: "<strong>Nie ma jeszcze listy wyborców.</strong> Użyj poniższego formularza, aby utworzyć ją i zaimportować dane z pliku CSV."
               missing_ballot_styles_message: 'Nie skonfigurowano jeszcze rodzajów kart wyborczych w tym głosowaniu. Jeśli chcesz mieć pytania warunkowe (i..: przedstawiać wyborcy różne pytania w zależności od np. okręg/region zamieszkania), musisz skonfigurować <a href=%{ballot_styles_admin_path}>Rodzaje kart wyborczych</a> <strong>przed</strong> zaimportowaniem listy wyborców. Jeśli chcecie przedstawić wszystkim wyborcom te same pytania, możesz kontynuować procedurę importu listy wyborców.'
+              submit: Prześlij plik CSV
               title: Utwórz listę wyborców
             show:
               heading: Lista wyborców w przestrzeni głosowania
@@ -942,6 +1030,7 @@ pl:
               csv_header_after: Pozostaw ostatnie pole puste ("%{ballot_style_code_header}") jeśli nie potrzebujesz ustawiać rodzajów kart wyborczych/pytań warunkowych
               csv_header_before: 'Plik listy wyborców musi być plikiem CSV z następującym nagłówkiem:'
         document_types:
+          identification_number: Numer identyfikacyjny
           passport: Paszport
         export_mailer:
           access_codes_export:

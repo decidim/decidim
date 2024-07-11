@@ -932,6 +932,7 @@ lt:
           filename: Rinkmenos pavadinimas
           remove: Pašalinti
           replace: Pakeisti
+          save: Išsaugoti
           title: Pavadinimas
           title_required: Reikalingas pavadinimas!
           uploaded: Įkelta

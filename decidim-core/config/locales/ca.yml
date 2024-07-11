@@ -913,6 +913,7 @@ ca:
           filename: Nom del fitxer
           remove: Eliminar
           replace: Reemplaçar
+          save: Desar
           title: Títol
           title_required: Un títol és necessari!
           uploaded: Pujat

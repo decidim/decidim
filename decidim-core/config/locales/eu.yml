@@ -903,6 +903,7 @@ eu:
           filename: Fitxategiaren izena
           remove: Kendu
           replace: Ordezkatu
+          save: Gorde
           title: Izenburua
           title_required: Izenburua behar da!
           uploaded: Igota

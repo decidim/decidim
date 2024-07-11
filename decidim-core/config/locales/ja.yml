@@ -895,6 +895,7 @@ ja:
           filename: ファイル名
           remove: 削除
           replace: 置換
+          save: 保存
           title: タイトル
           title_required: タイトルが必要です
           uploaded: アップロード済

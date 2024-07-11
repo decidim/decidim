@@ -179,7 +179,6 @@ pt:
           categories: Categorias
           components: Componentes
           moderations: Moderação
-          private_users: Utilizadores privados
         assemblies_types: Tipos de reuniões
       models:
         assemblies_types:

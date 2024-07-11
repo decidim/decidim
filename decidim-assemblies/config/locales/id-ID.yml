@@ -151,7 +151,6 @@ id:
           categories: Kategori
           components: Komponen
           moderations: Moderasi
-          private_users: Pengguna pribadi
       models:
         assemblies_types:
           fields:
