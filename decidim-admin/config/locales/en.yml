@@ -964,6 +964,11 @@ en:
         destroy:
           error: There was a problem destroying the token.
           success: Token destroyed successfully.
+        form:
+          custom: Custom
+          custom_expiration: Custom expiration
+          expires_at: Expires at
+          never_expire: Never
         index:
           back_to_share_tokens: Back to share tokens
           new_share_token_button: New token
