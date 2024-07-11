@@ -137,6 +137,7 @@ describe "Content pages", type: :system do
 
   describe "Managing pages" do
     let!(:topic) { create(:static_page_topic, organization: organization) }
+    let(:attributes) { attributes_for(:static_page) }
 
     before do
       login_as admin, scope: :user
@@ -163,17 +164,13 @@ describe "Content pages", type: :system do
         fill_in_i18n(
           :static_page_title,
           "#static_page-title-tabs",
-          en: "Welcome to Decidim",
-          es: "Te damos la bienvendida a Decidim",
-          ca: "Et donem la benvinguda a Decidim"
+          **attributes[:title].except("machine_translations")
         )
 
         fill_in_i18n_editor(
           :static_page_content,
           "#static_page-content-tabs",
-          en: "<p>Some HTML content</p>",
-          es: "<p>Contenido HTML</p>",
-          ca: "<p>Contingut HTML</p>"
+          **attributes[:content].except("machine_translations")
         )
 
         select topic.title[I18n.locale.to_s], from: "Topic"
@@ -183,8 +180,11 @@ describe "Content pages", type: :system do
       expect(page).to have_admin_callout("successfully")
 
       within find(".card", text: topic.title[I18n.locale.to_s]) do
-        expect(page).to have_css("tr", text: "Welcome to Decidim")
+        expect(page).to have_css("tr", text: translated(attributes[:title]))
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("created the #{translated(attributes[:title])} static page")
     end
 
     context "with existing pages" do
@@ -214,12 +214,12 @@ describe "Content pages", type: :system do
           fill_in_i18n(
             :static_page_title,
             "#static_page-title-tabs",
-            en: "Not welcomed anymore"
+            **attributes[:title].except("machine_translations")
           )
           fill_in_i18n_editor(
             :static_page_content,
             "#static_page-content-tabs",
-            en: "This is the new <strong>content</strong>"
+            **attributes[:content].except("machine_translations")
           )
           select topic.title[I18n.locale.to_s], from: "Topic"
           find("*[type=submit]").click
@@ -228,8 +228,11 @@ describe "Content pages", type: :system do
         expect(page).to have_admin_callout("successfully")
 
         within find(".card", text: topic.title[I18n.locale.to_s]) do
-          expect(page).to have_css("tr", text: "Not welcomed anymore")
+          expect(page).to have_css("tr", text: translated(attributes[:title]))
         end
+
+        visit decidim_admin.root_path
+        expect(page).to have_content("updated the #{translated(attributes[:title])} static page")
       end
 
       it "can delete them" do

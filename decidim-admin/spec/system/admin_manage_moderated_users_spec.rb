@@ -176,5 +176,27 @@ describe "Admin manages moderated users", type: :system do
 
       it_behaves_like "a paginated collection", url: true
     end
+
+    context "when the user is blocked" do
+      let!(:first_user) { create(:user, :confirmed, organization: organization) }
+
+      before do
+        visit decidim_admin.moderated_users_path
+      end
+
+      it "displays the proper log" do
+        within find("tr", text: first_user.name) do
+          click_link "Block"
+        end
+        fill_in :block_user_justification, with: "This user is a spammer" * 2 # to have at least 15 chars
+
+        click_on I18n.t("decidim.admin.block_user.new.action")
+
+        expect(first_user.reload).to be_blocked
+
+        visit decidim_admin.root_path
+        expect(page).to have_content("blocked user")
+      end
+    end
   end
 end

@@ -30,6 +30,9 @@ describe "Admin manages help sections", type: :system do
 
       help_content = Decidim::ContextualHelpSection.find_content(organization, :participatory_processes)
       expect(help_content).to include("en" => "<p>Well hello!</p>")
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the Participatory processes help section")
     end
 
     it "destroys the section when it is empty" do
