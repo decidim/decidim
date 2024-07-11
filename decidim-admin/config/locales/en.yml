@@ -965,8 +965,12 @@ en:
           error: There was a problem destroying the token.
           success: Token destroyed successfully.
         index:
+          back_to_share_tokens: Back to share tokens
           new_share_token_button: New token
           title: 'Sharing tokens for component: %{component_name}'
+        new:
+          create: Create
+          title: 'New sharing tokens for component: %{component_name}'
         share_tokens:
           empty: There are no active tokens.
           help: These tokens are used to publicly share this unpublished resource to any user. They will be hidden when the resource is published. Click on the token's share icon to visit the shareable URL.

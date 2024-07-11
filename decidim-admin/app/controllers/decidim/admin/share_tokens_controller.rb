@@ -8,6 +8,26 @@ module Decidim
 
       def index; end
 
+      def new
+        @form = form(ShareTokenForm).instance
+      end
+
+      def create
+        @form = form(ShareTokenForm).from_params(params)
+
+        CreateShareToken.call(@form, share) do
+          on(:ok) do
+            flash[:notice] = I18n.t("share_tokens.create.success", scope: "decidim.admin")
+            redirect_to code_group_codes_path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("share_tokens.create.invalid", scope: "decidim.admin")
+            render action: "new"
+          end
+        end
+      end
+
       def destroy
         enforce_permission_to(:destroy, :share_token, share_token:)
 
