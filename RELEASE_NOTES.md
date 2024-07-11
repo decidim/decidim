@@ -53,6 +53,14 @@ We have removed the ability to customize the labels from the Accountability comp
 
 You can read more about this change on PR [#12853](https://github.com/decidim/decidim/pull/12853).
 
+## 2.4 Removal of useless fields
+
+We are removing some useless fields that are leftovers from the Redesign.
+
+For the moment we are leaving the information in your database in case that you want to save it, but in v0.30 these fields we'll be fully removed.
+
+- participatory process table: banner_image. You can read more about this change on PR [#13119](https://github.com/decidim/decidim/pull/13119).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.

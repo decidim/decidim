@@ -16,7 +16,6 @@ zh-CN:
           attributes:
             choices:
               missing: 不完成
-              too_many: 太多了
   decidim:
     forms:
       admin:

@@ -281,7 +281,6 @@ zh-TW:
         initiatives_types:
           create:
             error: 出現了一個錯誤.
-            success: 一個新的倡議類型已成功更新.
           destroy:
             success: 該倡議類型已成功刪除.
           edit:

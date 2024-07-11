@@ -345,7 +345,11 @@ ja:
     application:
       document:
         download: ファイルをダウンロード
+        visit_link: リンクを開く
       documents:
+        component_documents:
+          dummy: ダミーコンポーネントドキュメント
+          meetings: ミーティングドキュメント
         documents: ドキュメント
         related_documents: 関連ドキュメント
       photo:
@@ -547,7 +551,6 @@ ja:
         name: サブヒーローバナー
     core:
       actions:
-        login_before_access: アクセスする前に、あなたのアカウントでログインしてください。
         unauthorized: この操作を実行する権限がありません。
       application_helper:
         filter_area_values:
@@ -564,7 +567,6 @@ ja:
           complete_profile: プロファイルを完了
           nickname_help: '%{organization} でのニックネームです。文字、数字、''-'' および ''_'' のみを使用できます。'
           sign_up: プロフィールを完成してください
-          subtitle: ユーザ登録を完了するには、次のフォームに記入してください
           username_help: 投稿に表示される公表名。匿名性を保証する目的で、任意の名前にすることができます。
       registrations:
         create:
@@ -574,8 +576,6 @@ ja:
           log_in: ログイン
           newsletter: 関連するお知らせを受け取る
           newsletter_title: ニュースレターを受け取る
-          sign_up: 新規登録
-          subtitle: 参加するにはユーザ登録をしてください。
           terms: 利用規約
           tos_agreement: ユーザ登録することで、 %{link} に同意したことになります。
           tos_title: 利用規約
@@ -585,7 +585,6 @@ ja:
           are_you_new?: プラットフォームは初めてですか？
           register: アカウントを作成
           sign_in_disabled: 外部アカウントでアクセスできます。
-          sign_up_disabled: 新規登録は無効になっています。既存のアカウントを使用してアクセスすることができます。
         user:
           timed_out: 長時間非アクティブであり、自動的にサービスからログアウトされました。 引き続きサービスをご利用いただく場合は、再度ログインしてください。
       shared:
@@ -858,6 +857,11 @@ ja:
         button: フォローを停止
         error: リソースのフォローを解除する際に問題が発生しました。
     forms:
+      attachment_link:
+        explanation: 添付ファイルへのリンクのガイド
+        help_messages:
+          - 正しいURL形式のみ入力できます
+          - リンクは公開されているものでなければならないので、すべての参加者がアクセスできるようにしてください。
       errors:
         decidim/user:
           password: パスワードが短すぎます。
@@ -893,6 +897,7 @@ ja:
           filename: ファイル名
           remove: 削除
           replace: 置換
+          save: 保存
           title: タイトル
           title_required: タイトルが必要です
           uploaded: アップロード済
@@ -1212,6 +1217,7 @@ ja:
         same_language: コンテンツはあなたの設定された言語(%{language}) で投稿されました。このため、このメールには自動翻訳は表示されません。
         translated_text: '自動翻訳されたテキスト:'
     notifications:
+      action_error: 通知の更新中に問題が発生しました。
       no_notifications: まだ通知はありません。
       show:
         missing_event: この通知は利用できなくなった要素に属しています。破棄してください。
@@ -1288,7 +1294,6 @@ ja:
           headline: '%{organization} の現在の状態'
         sub_hero:
           register: 登録
-          register_title: サインアップしてアカウントを作成
       index:
         standalone_pages: ページ
         subheading: '%{name} のヘルプページをナビゲートします'
@@ -1471,7 +1476,6 @@ ja:
         log_in_before_follow: このアクションを実行する前にログインしてください
       login_modal:
         please_log_in: ログインしてください
-        sign_up: 新規登録
       mentions_modal:
         remove_recipient: 受信者 %{name} を削除
       participatory_space_filters:
@@ -1598,7 +1602,6 @@ ja:
       locked: あなたのアカウントはロックされています。
       not_found_in_database: '%{authentication_keys} またはパスワードが無効です。'
       timeout: セッションの有効期限が切れました。再度ログインしてください。
-      unauthenticated: 続行する前にログインまたはサインアップする必要があります。
     invitations:
       edit:
         header: アカウントの作成を完了する
@@ -1684,8 +1687,6 @@ ja:
       updated_not_active: パスワードが正常に変更されました。
     registrations:
       destroyed: お客様のアカウントは正常にキャンセルされました。しばらくお待ちください。
-      new:
-        sign_up: 新規登録
       signed_up: ようこそ！正常に登録完了しました。
       signed_up_but_inactive: 登録が完了しました。ただし、アカウントが有効化されていないため、ログインできませんでした。
       signed_up_but_locked: 登録完了しましたが、アカウントがロックされているため、ログインできませんでした。
@@ -1706,7 +1707,6 @@ ja:
         forgot_your_password: パスワードをお忘れですか？
         log_in: ログイン
         log_in_with_provider: '%{provider} でログイン'
-        sign_up: 新規登録
       minimum_password_length:
         other: "(%{count} 文字以上)"
     unlocks:
@@ -1819,7 +1819,6 @@ ja:
       long_words: には長すぎる単語が含まれています（35文字以上）
       must_start_with_caps: 先頭は大文字でなければなりません
       nesting_too_deep: サブカテゴリ内にすることはできません
-      not_found: 見つかりませんでした。以前に登録しましたか？
       not_locked: ロックされていません
       not_saved:
         other: 'リクエストの処理中に複数のエラーが発生しました:'
@@ -1902,7 +1901,6 @@ ja:
         log_in: ログイン
         made_with_open_source: このサイトは <a target="_blank" href="https://github.com/decidim/decidim">フリーソフトウェア</a>で作られています。
         resources: リソース
-        sign_up: 新規登録
         terms_of_service: 利用規約
       header:
         log_in: ログイン
@@ -1919,10 +1917,6 @@ ja:
         mark_as_read: 既読にする
       offline_banner:
         cache_version_page: 注意：あなたのネットワークはオフラインです。これは以前にアクセスしているページのキャッシュされたバージョンです。おそらくコンテンツが最新ではありません。
-      shared:
-        layout_item:
-          next: 次のアイテム
-          prev: 前のアイテム
       social_media_links:
         facebook: "Facebook の %{organization}"
         github: "GitHub の %{organization}"

@@ -38,7 +38,6 @@ fr-CA:
           error: Une erreur s'est produite lors du vote sur le commentaire.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Connectez-vous avec votre compte</a> ou <a href="%{sign_up_url}"> inscrivez-vous </a> pour ajouter votre commentaire.
         form:
           body:
             label: Commentaire
@@ -73,6 +72,9 @@ fr-CA:
         deleted_user: Utilisateur supprimé
         edit: Modifier
         edited: Modifié
+        hide_replies:
+          one: Masquer la réponse
+          other: Masquer {count} réponses
         moderated_at: Commentaire modéré le %{date}
         reply: Répondre
         report:

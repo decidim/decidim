@@ -1,7 +1,7 @@
 <%= render partial: "meeting_poll_actions" %>
 
 <% if meeting.can_be_joined_by?(current_user) || meeting.on_different_platform? %>
-  <section class="layout-aside__section layout-aside__buttons">
+  <section class="layout-aside__section layout-aside__buttons layout-aside__ctas-buttons" data-sticky-buttons>
     <%= cell "decidim/meetings/join_meeting_button", meeting, show_remaining_slots: true %>
   </section>
 <% end %>
@@ -34,7 +34,6 @@
             data: { confirm: t("withdraw_confirmation_html", scope: "decidim.meetings.meetings.show") }
           ) do %>
           <span><%= t("withdraw_meeting", scope:"decidim.meetings.meetings.show") %></span>
-          <%= icon "pencil-line" %>
       <% end %>
     <% end %>
   </section>

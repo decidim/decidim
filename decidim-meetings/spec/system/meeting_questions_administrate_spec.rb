@@ -62,7 +62,7 @@ describe "Meeting poll administration" do
     end
 
     it "list the questions in the Administrate section" do
-      expect(page.all(".meeting-polls__question--admin").size).to eq(2)
+      expect(page.all(".meeting-polls__question--admin:not([disabled])", visible: :visible).size).to eq(2)
     end
 
     it "shows the status of each question" do
@@ -82,6 +82,7 @@ describe "Meeting poll administration" do
 
     it "allows to publish an unpublished question" do
       open_first_question
+      expect(page).to have_css(".meeting-polls__admin-action-question:not([disabled])", visible: :visible)
 
       within ".meeting-polls__admin-action-question" do
         click_on "Send"
@@ -123,6 +124,7 @@ describe "Meeting poll administration" do
 
     it "allows to close a published question" do
       open_first_question
+      expect(page).to have_css(".meeting-polls__admin-action-results:not([disabled])", visible: :visible)
 
       within ".meeting-polls__admin-action-results" do
         click_on "Send"
@@ -142,7 +144,8 @@ describe "Meeting poll administration" do
   end
 
   def open_first_question
-    expect(page).to have_css(".meeting-polls__question--admin", match: :first)
+    expect(page).to have_css(".meeting-polls__question--admin:not([disabled])", visible: :visible)
+    sleep(2)
     find(".meeting-polls__question--admin", match: :first).click
   end
 end

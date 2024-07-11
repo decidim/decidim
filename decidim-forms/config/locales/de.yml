@@ -21,7 +21,7 @@ de:
               too_long: ist zu lang
             choices:
               missing: sind nicht vollständig
-              too_many: sind zu viele
+              too_many: Sie können ein Maximum von %{count} auswählen.
         questionnaire:
           request_invalid: Beim Bearbeiten der Anfrage ist ein Fehler aufgetreten. Bitte versuchen Sie es nochmal.
   decidim:
@@ -157,7 +157,6 @@ de:
           answer_questionnaire:
             already_have_an_account?: Haben Sie bereits ein Konto?
             are_you_new?: Neue Teilnehmer*in?
-            sign_in_description: Melden Sie sich an, um an der Umfrage teilzunehmen
             sign_up_description: Erstellen Sie ein Nutzendenkonto, um an der Umfrage teilzunehmen
             title: Beantworten Sie den Fragebogen
           current_step: Schritt %{step}

@@ -209,7 +209,6 @@ de:
           info: Über dieses Gremium
           landing_page: Startseite
           moderations: Moderationen
-          private_users: Private Benutzer
           see_assembly: Gremium ansehen
         assemblies_types: Versammlungstypen
       models:

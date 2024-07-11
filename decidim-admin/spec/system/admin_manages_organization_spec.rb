@@ -473,7 +473,7 @@ describe "Admin manages organization" do
         let(:parsed_content) do
           cnt = <<~HTML
             <p>testing</p>
-            <p><strong>foo</strong><br><a target="_blank" href="https://www.decidim.org/">link</a></p>
+            <p><strong>foo</strong><br><a target="_blank" href="https://www.decidim.org/"><u>link</u></a></p>
             <p><br></p>
           HTML
 

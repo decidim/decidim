@@ -67,6 +67,7 @@ fr:
         show:
           admins: Administrateurs
           current_organizations: Organisations actuelles
+          system_checks: Vérifications du système
       default_pages:
         placeholders:
           content: Ajoutez un contenu pertinent à la page %{page} en allant sur l'interface d'administration.
@@ -87,7 +88,6 @@ fr:
             did_not_receive_unlock_instructions?: Vous n’avez pas reçu les instructions de déverrouillage ?
             forgot_your_password?: Mot de passe oublié ?
             log_in: Se connecter
-            sign_up: S'inscrire
       menu:
         admins: Administrateurs
         dashboard: Tableau de bord
@@ -142,6 +142,7 @@ fr:
           show: Afficher les paramètres avancés
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle organisation.
+          error_invitation: Il y a eu un problème lors de la création d'une nouvelle organisation. Vérifiez le nom de l'administrateur de votre organisation.
           success_html: |
             <p>
               Organisation créée avec succès. 
@@ -258,8 +259,6 @@ fr:
           success: Organisation mise à jour avec succès.
         users_registration_mode:
           disabled: L'accès n'est possible qu'avec des comptes externes
-          enabled: Autoriser les utilisateurs à se créer un compte et à s'identifier
-          existing: Ne pas autoriser les participants à s'inscrire, mais autoriser les participants existants à se connecter
       shared:
         notices:
           no_organization_warning_html: Vous devez créer une organisation pour démarrer. Assurez-vous de lire %{guide} avant de continuer.
@@ -267,6 +266,14 @@ fr:
         organizations_list:
           confirm_resend_invitation: Êtes-vous sûr de vouloir renvoyer l'invitation ?
           resend_invitation: Renvoyer l'invitation
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Documentation de Decidim
+          error: La file d'attente ActiveJob n'est pas configurée. Ce n'est pas une configuration recommandée pour de la production. En savoir plus sur %{error_extra}.
+          success: La file d'attente ActiveJob est correctement configurée.
+        secret_key:
+          error: 'La clé secrète n''est pas définie correctement. Veuillez l''enregistrer dans la variable d''environnement SECRET_KEY_BASE et redémarrer le serveur : %{error_extra}'
+          success: La clé secrète est correctement configurée.
       titles:
         dashboard: Tableau de bord
         decidim: Decidim

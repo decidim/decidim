@@ -83,7 +83,6 @@ cs:
             did_not_receive_unlock_instructions?: Neobdrželi jste instrukce pro odemknutí?
             forgot_your_password?: Zapomněli jste heslo?
             log_in: Přihlásit se
-            sign_up: Zaregistrovat se
       menu:
         admins: Správci
         dashboard: Ovládací panel
@@ -254,8 +253,6 @@ cs:
           success: Organizace byla úspěšně aktualizována.
         users_registration_mode:
           disabled: Přístup lze provádět pouze s externími účty
-          enabled: Umožnit uživatelům registraci a přihlášení
-          existing: Neumožnit účastníkům registraci, ale umožnit stávajícím účastníkům přihlášení
       shared:
         notices:
           no_organization_warning_html: Abyste mohli začít, musíte vytvořit organizaci. Před pokračováním se ujistěte, že jste si přečetli %{guide}.

@@ -153,7 +153,7 @@ The command asks for an email and a password. For security, the password will no
 
 This will create a system user with the email and password you provided. We recommend using a random password generator and saving it to a password manager, so you have a more secure credentials.
 
-After this, visit the `/system` panel and login with the email and passwords you just entered and create your organization. Now you are ready to setup your organization and after that you are done! 🎉
+After this, visit the `/system` panel and log in with the email and passwords you just entered and create your organization. Now you are ready to setup your organization and after that you are done! 🎉
 
 === What are organizations?
 

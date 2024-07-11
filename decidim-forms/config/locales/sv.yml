@@ -21,7 +21,6 @@ sv:
               too_long: är för långt
             choices:
               missing: är inte fullständiga
-              too_many: är för många
   decidim:
     forms:
       admin:

@@ -322,15 +322,12 @@ zh-CN:
         new:
           complete_profile: 完整资料
           sign_up: 请填写您的个人资料
-          subtitle: 请填写以下表单以完成注册
           username_help: 在您的帖子上出现的公共名称。为了保证匿名，可以使用任何名称。
       registrations:
         new:
           already_have_an_account?: 已经有一个帐户？
           newsletter: 接收附带相关信息的时事通讯
           newsletter_title: 联系人权限
-          sign_up: 注册
-          subtitle: 注册参加讨论和支持建议。
           tos_agreement: 通过注册您同意 %{link}。
           tos_title: 服务条款
           username_help: 在您的帖子上出现的公共名称。为了保证匿名，可以使用任何名称。
@@ -905,8 +902,6 @@ zh-CN:
         title: 报告不恰当的内容
       floating_help:
         help: 帮助
-      login_modal:
-        sign_up: 注册
       participatory_space_filters:
         filters:
           areas: 地区
@@ -1053,8 +1048,6 @@ zh-CN:
       updated_not_active: 您的密码已成功更改。
     registrations:
       destroyed: 您的帐户已成功取消。我们希望很快再见到您。
-      new:
-        sign_up: 注册
       signed_up: 欢迎！您已成功注册。
       signed_up_but_inactive: 您已成功注册。但我们无法登录，因为您的帐户尚未激活。
       signed_up_but_locked: 您已成功注册。但我们无法登录，因为您的帐户已被锁定。
@@ -1065,7 +1058,6 @@ zh-CN:
       links:
         back: 后退
         forgot_your_password: 忘记密码？
-        sign_up: 注册
       minimum_password_length:
         other: "(%{count} 个字符最小)"
     unlocks:
@@ -1085,7 +1077,6 @@ zh-CN:
       invalid_time_zone: 不是有效的时区
       long_words: 包含过长的单词 (超过 35 个字符)
       must_start_with_caps: 必须以大写字母开始
-      not_found: 找不到。您以前注册过吗？
       not_locked: 未锁定
       not_saved:
         other: '处理您的请求时发生多个错误：'
@@ -1111,7 +1102,6 @@ zh-CN:
         decidim_logo: 解码徽标
         download_open_data: 下载打开的数据文件
         made_with_open_source: 使用 <a target="_blank" href="https://github.com/decidim/decidim">免费软件</a> 创建的网站。
-        sign_up: 注册
       impersonation_warning:
         close_session: 关闭会话
         description_html: 您正在管理参与者 <b>%{user_name}</b>

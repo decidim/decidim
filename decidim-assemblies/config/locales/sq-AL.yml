@@ -8,10 +8,13 @@ sq:
         area_id: Zona
         assembly_type: Lloji i asamblesë
         assembly_type_other: Lloji i asamblesë tjetër
+        banner_image: Imazhi ballor
         closing_date: Data e mbylljes
         closing_date_reason: Arsyeja e datës së mbylljes
         composition: Përbërja
         copy_categories: Kopjo kategoritë
+        copy_components: Kopjo komponentet
+        copy_features: Kopjo veçoritë
         created_by: Krijuar nga
         created_by_other: Krijuar nga tjetër
         creation_date: Data e krijimit
@@ -36,6 +39,7 @@ sq:
         is_transparent: Është transparente
         local_area: Zona e organizatës
         parent_id: Asambleja e përgjithshme
+        participatory_processes_ids: Procese pjesëmarrëse të përafërta
         participatory_scope: Çfarë u vendos
         participatory_structure: Si u vendos
         private_space: Hapësirë private
@@ -52,16 +56,335 @@ sq:
         target: Kush merr pjesë
         title: Titulli
         twitter: X
+        weight: Pozicioni në rradhë
         youtube: YouTube
       assembly_member:
         birthday: Datëlindje
         birthplace: Vendi i lindjes
+        ceased_date: Data e përfundimit
+        designation_date: Data e dezignimit
         full_name: Emri i plotë
         gender: Gjinia
         non_user_avatar: Avatar
         position: Pozicioni
         user_id: Perdorues ose grup
+        weight: Pozicioni në rradhë
       assembly_user_role:
         email: Email
         name: Emri
         role: Roli
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Tip i pavlefshëm dokumenti. Lejohen vetëm prapashtesat e listuara: %{types}.'
+  decidim:
+    admin:
+      actions:
+        import_assembly: Importo
+        new_assembly: Asamble e re
+        new_assembly_member: Anëtar i ri asambleje
+        new_assembly_type: Tip i ri asambleje
+        new_assembly_user_role: Administrator i ri asambleje
+      assemblies:
+        create:
+          error: Ndodhi një gabim gjatë krijimit të asamblesë.
+          success: Asambleja u krijua me sukses.
+        edit:
+          update: Përditëso
+        index:
+          private: Private
+          public: Publike
+          published: E publikuar
+          unpublished: E papublikuar
+        new:
+          create: Krijo
+          title: Asamble e re
+        update:
+          error: Ndodhi një gabim gjatë përditësimit të asamblesë.
+          success: Asambleja u përditësua me sukses.
+      assemblies_copies:
+        create:
+          error: Ndodhi një gabim gjatë duplikimit të asamblesë.
+          success: Asambleja e duplikua me sukses.
+      assemblies_types:
+        create:
+          error: Ndodhi një gabim gjatë krijimit të tipit të ri të asamblesë.
+          success: Tipi i asamblesë u krijua me sukses.
+        destroy:
+          success: Tipi i asamblesë u fshi me sukses.
+        new:
+          create: Krijo
+          title: Tip i ri asambleje
+        update:
+          error: Ndodhi një gabim gjatë përditësimit të tipit të asamblesë.
+          success: Tipi i asamblesë u përditësua me sukses.
+      assembly_copies:
+        new:
+          copy: Kopjo
+          select: Zgjidh cilën të dhënë dëshiron të duplikosh
+          title: Dupliko asamblenë
+      assembly_imports:
+        create:
+          error: Ndodhi një gabim gjatë importimit të asamblesë.
+          success: Asambleja u importua me sukses.
+        new:
+          import: Importo
+          select: Zgjidh të dhënat që dëshiron të importosh
+          title: Importo asamblenë
+      assembly_members:
+        create:
+          error: Ndodhi një gabim gjatë shtimit të anëtarit të asamblesë.
+          success: Anëtari i asamblesl u krijua me sukses.
+        destroy:
+          success: Anëtari i asamblesë u fshi me sukses.
+        edit:
+          title: Përditëso anëtarin e asamblesë
+          update: Përditëso
+        index:
+          assembly_members_title: Anëtarët e asamblesë
+        new:
+          create: Krijo
+          title: Anëtar i ri asambleje
+        update:
+          error: Ndodhi një gabim gjatë përditësimit të anëtarit të asamblesë.
+          success: Anëtari i asamblesë u përditësuar me sukses.
+      assembly_publications:
+        create:
+          error: Ndodhi një gabim gjatë publikimit të asamblesë.
+          success: Asambleja u publikua me sukses.
+        destroy:
+          error: Ndodhi një gabim gjatë çpublikimit të asamblesë.
+          success: Asambleja u çpublikua me sukses.
+      assembly_user_roles:
+        create:
+          error: Ndodhi një gabim gjatë shtimit të administratorit të asamblesë.
+          success: Administratori i asamblesë u shtua me sukses.
+        destroy:
+          success: Administratori i asamblesë u hoq me sukses.
+        edit:
+          title: Përditëso administratorin e asamblesë
+          update: Përditëso
+        index:
+          assembly_admins_title: Administratorët e asamblesë
+        new:
+          create: Krijo
+          title: Administrator i ri i asamblesë
+        update:
+          error: Ndodhi një gabim gjatë përditësimit të administratorit të asamblesë.
+          success: Administratori i asamblesë u përditësua me sukses.
+      filters:
+        ceased_date_not_null:
+          label: Përfunduar
+          values:
+            'false': E papërfunduar
+            'true': Përfunduar
+        decidim_assemblies_type_id_eq:
+          label: Tipi i asamblesë
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: Kërko me emër ose nofkë
+      menu:
+        assemblies: Asambletë
+        assemblies_submenu:
+          assembly_admins: Administratorët e asamblesë
+          assembly_members: Anëtarët
+          attachment_collections: Skedarët
+          attachment_files: Skedat
+          attachments: Skedat e bashkëlidhura
+          categories: Kategoritë
+          components: Komponentet
+          info: Rreth asamblesë
+          landing_page: Faqja hyrëse
+          moderations: Moderimet
+          see_assembly: Shiko asamblenë
+        assemblies_types: Tipet e asambleve
+      models:
+        assemblies_types:
+          fields:
+            created_at: Krijuar më
+            title: Titulli
+        assembly:
+          fields:
+            actions: Veprimet
+            created_at: Krijuar më
+            private: Private
+            promoted: Në pah
+            published: E publikuar
+            title: Titulli
+          name: Asambleja
+        assembly_member:
+          fields:
+            ceased_date: Data e përfundimit
+            designation_date: Data e dezignimit
+            full_name: Emri
+            position: Pozicioni
+          name: Anëtar
+          positions:
+            other: Tjetër
+            president: Presidenti/ja
+            secretary: Sekretari/ja
+            vice_president: Zëvendës presidenti/ja
+        assembly_user_role:
+          fields:
+            email: Email
+            name: Emri
+            role: Roli
+          name: Administratori/ja i/e asamblesë
+          roles:
+            admin: Administrator
+            collaborator: Bashkëpunëtor/e
+            moderator: Moderator/e
+            valuator: Vlerësues/e
+      titles:
+        assemblies: Asambletë
+        assemblies_types: Tipet e asambleve
+    admin_log:
+      assembly:
+        create: "%{user_name} krijoi asamblenë %{resource_name}"
+        duplicate: "%{user_name} duplikoi asamblenë %{resource_name}"
+        export: "%{user_name} eksportoi asamblenë %{resource_name}"
+        import: "%{user_name} importoi asamblenë %{resource_name}"
+        publish: "%{user_name} publikoi asamblenë %{resource_name}"
+        unpublish: "%{user_name} çpublikoi asamblenë %{resource_name}"
+        update: "%{user_name} përditësoi asamblenë %{resource_name}"
+      assembly_member:
+        create: "%{user_name} krijoi përdoruesin %{resource_name} në asamblenë %{space_name}"
+        delete: "%{user_name} hoqi përdoruesin %{resource_name} në asamblenë %{space_name}"
+        update: "%{user_name} përditësoi përdoruesin %{resource_name} në asamblenë %{space_name}"
+      assembly_setting:
+        update: "%{user_name} përditësoi konfigurimet e asamblesë"
+      assembly_type:
+        create: "%{user_name} krijoi tipin e asamblesë %{resource_name}"
+        delete: "%{user_name} hoqi tipin e asamblesë %{resource_name}"
+        publish: "%{user_name} publikoi tipin e asamblesë %{resource_name}"
+        unpublish: "%{user_name} çpublikoi tipin e asamblesë %{resource_name}"
+        update: "%{user_name} përditësoi tipin e asamblesë %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} ftoi %{resource_name} në asamblenë %{space_name}"
+        delete: "%{user_name} hoqi pjesëmarrësin %{resource_name} nga asambleja %{space_name}"
+        update: "%{user_name} ndryshoi rolin e %{resource_name} në asamblenë %{space_name}"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            announcement_help: Teksti që vendosni këtu do i shfaqet përdoruesit nën informacionin e asamblesë.
+            duration: Kohëzgjatja
+            duration_help: Nëse kohëzgjatja e asamblesë është e kufizuar, zgjidh datën e përfundimit. Përndryshe, do shfaqet si e papërcaktuar.
+            filters: Filtrat
+            images: Imazhet
+            included_at_help: Zgjidh datën e shtimit të asamblesë në platformë. Nuk ka pse të jetë e njejtë me datën e krijimit.
+            metadata: Metadata
+            other: Të tjera
+            select_a_created_by: Zgjidh krijuesin
+            select_an_area: Zgjidh një sektor
+            select_an_assembly_type: Zgjidh një tip asambleje
+            select_parent_assembly: Zgjidh asamblenë prind
+            slug_help_html: 'Për gjenerimin e URL së kësaj asambleje përdoren URL slugs. Pranohen vetëm gërma, numra dhe viza horizontale, dhe duhet të fillojë me gërmë. Shembull: %{url}'
+            social_handlers: Rrjete sociale
+            title: Informacion i përgjithshëm
+            visibility: Vizibiliteti
+        assemblies_types:
+          form:
+            title: Modifiko tipin e asamblesë
+        assembly_copies:
+          form:
+            slug_help_html: 'Për gjenerimin e URL së kësaj asambleje përdoren URL slugs. Pranohen vetëm gërma, numra dhe viza horizontale, dhe duhet të fillojë me gërmë. Shembull: %{url}'
+        assembly_imports:
+          form:
+            slug_help_html: 'Për gjenerimin e URL së kësaj asambleje përdoren URL slugs. Pranohen vetëm gërma, numra dhe viza horizontale, dhe duhet të fillojë me gërmë. Shembull: %{url}'
+        assembly_members:
+          form:
+            existing_user: Pjesëmarrës ekzistues
+            explanation: 'Udhëzime për imazhin:'
+            image_guide: Preferohet imazh me format portret (vertikal) pa tekst.
+            non_user: Mospjesëmarrës
+            non_user_avatar_help: Duhet të marrësh pëlqimin e personit para se ta publikosh si anëtar.
+            select_a_position: Zgjidh një pozicion
+            select_user: Zgjidh një pjesëmarrës
+            user_type: Lloji i pjesëmarrësit
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Numri maksimal i elementeve që do shfaqen
+        new_import:
+          accepted_types:
+            json: JSON
+      assemblies:
+        description:
+          area_name: Sektori
+          closing_date: Data e mbylljes
+          created_by: Krijuar nga
+          creation_date: Data e krijimit
+          data: Të dhënat e asamblesë
+          developer_group: Grupi promovues
+          duration: Kohëzgjatja
+          included_at: Përfshirë në
+          indefinite_duration: E pacaktuar
+          local_area: Sektori i organizatës
+          meta_scope: Fushëveprimi
+          participatory_scope: Çfarë do vendoset
+          participatory_structure: Si do vendoset
+          target: Kush merr pjesë
+          title: Rreth asamblesë
+        filters:
+          type: Tipi
+        show:
+          title: Rreth asamblesë
+      assembly_members:
+        index:
+          members: Anëtarët
+      assembly_types:
+        commission: Komisioni
+        consultative_advisory: Këshilluese
+        executive: Ekzekutive
+        government: Qeverisja
+        others: Tjetër
+        participatory: Pjesëmarrëse
+        working_group: Grup pune
+      content_blocks:
+        children_assemblies:
+          name: Asambletë
+        dates_metadata:
+          name: Metadatat e datave
+        extra_data:
+          name: Tipi dhe kohëzgjatja
+        highlighted_assemblies:
+          name: Asambletë në pah
+        related_assemblies:
+          name: Asambletë e ngjashme
+      created_by:
+        city_council: Këshilli bashkiak
+        others: Të tjerët
+        public: Publiku
+      filter:
+        all: Gjithë tipet
+        commission: Komisioni
+        consultative_advisory: Këshilluese
+        executive: Ekzekutive
+        government: Qeverisja
+        help: 'Shfaq:'
+        others: Të tjera
+        participatory: Pjesëmarrëse
+        working_group: Grup pune
+      index:
+        title: Asambletë
+      last_activity:
+        new_assembly: 'Asamble e re:'
+      pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Asambletë aktive
+            see_all_spaces: Shiko gjithë asambletë
+        user_profile:
+          member_of:
+            member_of: Anëtar i
+      show:
+        assembly_type: Tipi i asamblesë
+        duration: Kohëzgjatja
+        private_space: Kjo është asamble private
+        social_networks_title: Vizito asamblenë në
+    assembly_members:
+      assembly_member:
+        designated_on: Caktuar më
+      index:
+        title: Anëtarët

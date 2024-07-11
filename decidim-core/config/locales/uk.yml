@@ -195,15 +195,13 @@ uk:
         new:
           complete_profile: Заповнити профіль
           sign_up: Будь ласка, заповніть свій профіль
-          subtitle: Щоб завершити реєстрацію, заповніть наступну форму
           username_help: Загальнодоступне ім'я, яке відображається у ваших дописах. З метою гарантування анонімності, може бути будь-яким.
       registrations:
         new:
           already_have_an_account?: Вже маєте обліковий запис?
+          log_in: Увійти
           newsletter: Отримувати іноді розсилання зі свіжими новинами
           newsletter_title: Дозвіл на зв'язок
-          sign_up: Зареєструватися
-          subtitle: Зареєструйтесь, щоб брати участь у обговореннях та підтримувати пропозиції.
           tos_agreement: Реєструючись, ви приймаєте %{link}.
           tos_title: Умови участі
           username_help: Загальнодоступне ім'я, яке відображається у ваших дописах. З метою гарантування анонімності, може бути будь-яким.
@@ -434,8 +432,6 @@ uk:
         report: Поскаржитись
         spam: Містить клацоловки (маніпулятивно-сенсаційні заголовки), рекламу, афери або лохотрони.
         title: Поскаржитись на ускладнення
-      login_modal:
-        sign_up: Зареєструватися
       reference:
         reference: 'Посилання на джерело: %{reference}'
       results_per_page:
@@ -471,6 +467,12 @@ uk:
     passwords:
       edit:
         new_password: Пароль
+    sessions:
+      new:
+        log_in: Увійти
+    shared:
+      links:
+        log_in: Увійти
   doorkeeper:
     scopes:
       public: Оприлюднені відомості про вас.
@@ -488,8 +490,10 @@ uk:
       edit_link:
         edit: Редагувати
       footer:
+        log_in: Увійти
         made_with_open_source: Цей веб-сайт створено за допомогою <a target="_blank" href="https://github.com/decidim/decidim">безкоштовного програмного забезпечення</a>.
-        sign_up: Зареєструватися
+      header:
+        log_in: Увійти
       impersonation_warning:
         close_session: Завершити сеанс
         description_html: Ви виступаєте в ролі учасника <b>%{user_name}</b>.

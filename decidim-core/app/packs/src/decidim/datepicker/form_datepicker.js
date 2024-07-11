@@ -1,5 +1,5 @@
 /* eslint-disable require-jsdoc */
-import { WcDatepicker } from "wc-datepicker/dist/components/wc-datepicker";
+import { defineCustomElements } from "wc-datepicker/dist/loader";
 import generateDatePicker from "src/decidim/datepicker/generate_datepicker";
 import generateTimePicker from "src/decidim/datepicker/generate_timepicker";
 import { formatInputDate, formatInputTime } from "src/decidim/datepicker/datepicker_functions";
@@ -14,7 +14,7 @@ export default function formDatePicker(input) {
   const formats = { order: i18nDate.order, separator: i18nDate.separator, time: i18nTime.clock_format || 24 }
 
   if (!customElements.get("wc-datepicker")) {
-    customElements.define("wc-datepicker", WcDatepicker);
+    defineCustomElements();
   };
 
   if (!input.id) {

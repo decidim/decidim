@@ -12,7 +12,7 @@ module Decidim
     let(:form) { double(follow:, invalid?: false) }
 
     it "destroys a follow" do
-      expect { described_class.new(form, user1).call }.to broadcast(:ok)
+      expect { described_class.new(form).call }.to broadcast(:ok)
 
       expect(user2.reload.followers).not_to include(user1)
       expect(user2.follows_count).to eq(0)
@@ -25,7 +25,7 @@ module Decidim
       end
 
       it "decrements the user's score" do
-        described_class.new(form, user1).call
+        described_class.new(form).call
 
         expect(Decidim::Gamification.status_for(user1, :followers).score).to eq(10)
         expect(Decidim::Gamification.status_for(user2, :followers).score).to eq(9)
