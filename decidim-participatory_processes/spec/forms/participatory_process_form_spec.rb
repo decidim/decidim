@@ -59,7 +59,6 @@ module Decidim
               "short_description_es" => short_description[:es],
               "short_description_ca" => short_description[:ca],
               "hero_image" => attachment,
-              "banner_image" => attachment,
               "slug" => slug,
               "show_metrics" => show_metrics,
               "show_statistics" => show_statistics
@@ -71,7 +70,7 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
-        context "when banner_image is too big" do
+        context "when hero_image is too big" do
           before do
             organization.settings.tap do |settings|
               settings.upload.maximum_file_size.default = 5
