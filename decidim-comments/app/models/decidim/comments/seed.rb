@@ -99,7 +99,10 @@ module Decidim
         end
 
         def random_user_group(user)
-          [true, false].sample ? Decidim::UserGroups::ManageableUserGroups.for(user).verified.sample : nil
+          user_group = Decidim::UserGroups::ManageableUserGroups.for(user).verified.sample
+          return nil unless user_group&.valid?
+
+          [true, false].sample ? user_group : nil
         end
       end
     end
