@@ -42,9 +42,9 @@ es:
         edit: Editar
         import: Importar proyectos desde otro componente
         import_csv: Importar resultados desde un archivo CSV
-        new_result: Añadir resultado
-        new_status: Añadir estado
-        new_timeline_entry: Añadir entrada de la cronología
+        new_result: Nuevo resultado
+        new_status: Nuevo estado
+        new_timeline_entry: Nueva entrada de cronología
         preview: Previsualizar
         timeline_entries: Evolución del proyecto
         title: Acciones

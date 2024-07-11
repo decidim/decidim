@@ -577,6 +577,7 @@ cs:
         appearance: Vzhled
         area_types: Typy oblastí
         areas: Oblasti
+        components: Komponenty
         configuration: Konfigurace
         content: Nahlášený obsah
         external_domain_whitelist: Povolené externí domény
