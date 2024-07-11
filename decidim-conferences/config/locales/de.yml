@@ -129,6 +129,9 @@ de:
         publish:
           invalid: Beim Veröffentlichen dieser RednerIn ist ein Problem aufgetreten.
           success: KonferenzrednerIn erfolgreich veröffentlicht.
+        unpublish:
+          invalid: Beim Veröffentlichen dieses Redners ist ein Problem aufgetreten.
+          success: Die Veröffentlichung des Redners wurde für diese Konferenz erfolgreich zurückgezogen.
         update:
           error: Beim Aktualisieren des Sprechers für diese Konferenz ist ein Fehler aufgetreten.
           success: Der Sprecher wurde für diese Konferenz erfolgreich aktualisiert.
