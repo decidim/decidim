@@ -388,6 +388,8 @@ cs:
         download: Stáhnout soubor
         visit_link: Navštívit odkaz
       documents:
+        component_documents:
+          meetings: Dokumenty ze schůzky
         documents: Dokumenty
         related_documents: Související dokumenty
       photo:
@@ -598,6 +600,7 @@ cs:
         name: Pruh pod hlavním pruhem
     core:
       actions:
+        login_before_access: Před přístupem se prosím přihlaste pomocí svého účtu.
         unauthorized: Nemáte oprávnění k provedení této akce.
       application_helper:
         filter_area_values:
