@@ -1,43 +1,41 @@
-<div class="share_tokens">
-  <div class="card-divider">
+<div class="card share_tokens">
+  <div class="item_show__header">
     <h2 class="item_show__header-title">
       <%= t(".title", component_name: translated_attribute(component.name)) %>
       <a class="button button__sm button__secondary" href="<%= new_component_share_token_path %>"><%= icon "add-line" %><%= t("index.new_share_token_button", scope: "decidim.admin.share_tokens") %></a>
     </h2>
   </div>
-  <div class="card-section">
-    <% if share_tokens.any? %>
-      <div class="table-scroll">
-        <table class="table-list">
-          <thead>
+  <% if share_tokens.any? %>
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.share_token.fields.token", scope: "decidim.admin") %></th>
+            <th><%= t("models.share_token.fields.expires_at", scope: "decidim.admin") %></th>
+            <th><%= t("models.share_token.fields.registered_only", scope: "decidim.admin") %></th>
+            <th><%= t("models.share_token.fields.times_used", scope: "decidim.admin") %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% share_tokens.each do |share_token| %>
             <tr>
-              <th><%= t("models.share_token.fields.token", scope: "decidim.admin") %></th>
-              <th><%= t("models.share_token.fields.expires_at", scope: "decidim.admin") %></th>
-              <th><%= t("models.share_token.fields.registered_only", scope: "decidim.admin") %></th>
-              <th><%= t("models.share_token.fields.times_used", scope: "decidim.admin") %></th>
-              <th></th>
+              <td><%= share_token.token %></td>
+              <td><%= l share_token.expires_at, format: :short if share_token.expires_at.present? %></td>
+              <td></td>
+              <td><%= share_token.times_used %></td>
+              <td class="table-list__actions">
+                <%= icon_link_to "pencil-line", share_token.url, t("actions.edit", scope: "decidim.admin.share_tokens"), class: "action-icon--edit", target: :blank %>
+                <%= icon_link_to "file-copy-line", share_token.url, t("actions.copy_link", scope: "decidim.admin.share_tokens"), class: "action-icon--share", target: :blank %>
+                <%= icon_link_to "eye-line", share_token.url, t("actions.preview", scope: "decidim.admin.share_tokens"), class: "action-icon--preview", target: :blank %>
+                <%= icon_link_to "delete-bin-line", share_token_path(component, id: share_token ), t("actions.destroy", scope: "decidim.admin.share_tokens"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin.share_tokens") } %>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            <% share_tokens.each do |share_token| %>
-              <tr>
-                <td><%= share_token.token %></td>
-                <td><%= l share_token.expires_at, format: :short if share_token.expires_at.present? %></td>
-                <td></td>
-                <td><%= share_token.times_used %></td>
-                <td class="table-list__actions">
-                  <%= icon_link_to "pencil-line", share_token.url, t("actions.edit", scope: "decidim.admin.share_tokens"), class: "action-icon--edit", target: :blank %>
-                  <%= icon_link_to "file-copy-line", share_token.url, t("actions.copy_link", scope: "decidim.admin.share_tokens"), class: "action-icon--share", target: :blank %>
-                  <%= icon_link_to "eye-line", share_token.url, t("actions.preview", scope: "decidim.admin.share_tokens"), class: "action-icon--preview", target: :blank %>
-                  <%= icon_link_to "delete-bin-line", share_token_path(component, id: share_token ), t("actions.destroy", scope: "decidim.admin.share_tokens"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin.share_tokens") } %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    <% else %>
-      <p><%= t ".empty" %></p>
-    <% end %>
-  </div>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% else %>
+    <p><%= t ".empty" %></p>
+  <% end %>
 </div>
