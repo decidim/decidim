@@ -73,6 +73,8 @@ module Decidim
 
       @user.tos_agreement = "1"
       @user.save!
+
+      @user.after_confirmation if verified_email
     end
 
     def create_identity
