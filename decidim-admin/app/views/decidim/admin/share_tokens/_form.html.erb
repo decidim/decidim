@@ -1,10 +1,46 @@
 <div class="form__wrapper">
   <div class="card pt-4">
     <div class="row column">
-      <%= form.text_field :token, aria: { label: :token }, style: "text-transform: uppercase" %>
+      <%= form.text_field :token, aria: { label: :token }, class: "form-input" %>
     </div>
     <div class="row column">
-      <%= form.datetime_field :expires_at, aria: { label: :expires_at } %>
+      <div class="flex items-center space-x-4">
+        <div class="flex items-center">
+          <%= form.radio_button :no_expiration, true, id: "expires_never", checked: form.object.no_expiration %>
+          <%= form.label :no_expiration, "Never expire", for: "expires_never" %>
+        </div>
+        
+        <div class="flex items-center">
+          <%= form.radio_button :no_expiration, false, id: "expires_custom", checked: !form.object.no_expiration %>
+          <%= form.label :no_expiration, "Custom", for: "expires_custom" %>
+        </div>
+      </div>
+      
+      <div id="expires_at_field_wrapper" class="<%= form.object.no_expiration ? "hidden" : "" %> mt-4">
+        <%= form.datetime_field :expires_at, aria: { label: :expires_at } %>
+      </div>
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const expiresNever = document.getElementById("expires_never");
+    const expiresCustom = document.getElementById("expires_custom");
+    const expiresAtFieldWrapper = document.getElementById("expires_at_field_wrapper");
+
+    const toggleExpiresAtField = () => {
+      if (expiresCustom.checked) {
+        expiresAtFieldWrapper.classList.remove("hidden");
+      } else {
+        expiresAtFieldWrapper.classList.add("hidden");
+        expiresAtFieldWrapper.querySelector("input[name='share_token[expires_at]']").value = "";
+      }
+    };
+
+    expiresNever.addEventListener("change", toggleExpiresAtField);
+    expiresCustom.addEventListener("change", toggleExpiresAtField);
+
+    toggleExpiresAtField();
+  });
+</script>
