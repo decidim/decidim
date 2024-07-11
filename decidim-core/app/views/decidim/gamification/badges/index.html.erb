@@ -27,7 +27,7 @@
           </div>
         </div>
         <div class="col-span-7 ml-2">
-          <p><%= badge.description(current_organization_name) %></p>
+          <p><%= badge.description(current_organization.name) %></p>
           <p class="mt-4"><strong><%= t ".how" %></strong></p>
           <ol class="list-decimal">
             <% badge.conditions.each do |condition| %>
