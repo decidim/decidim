@@ -867,6 +867,7 @@ pl:
         new:
           destroy:
             button: Usuń wszystkich prywatnych uczestników
+            confirm: Czy na pewno chcesz usunąć wszystkich prywatnych uczestników? Tej akcji nie można cofnąć, nie będziesz mógł (mogła) ich odzyskać.
             empty: Nie masz żadnych uczestników prywatnych.
             explanation: Masz %{count} uczestników prywatnych.
             title: Usuń prywatnych uczestników

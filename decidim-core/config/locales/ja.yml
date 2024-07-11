@@ -1149,6 +1149,7 @@ ja:
       no_notifications: まだ通知はありません。
       show:
         missing_event: この通知は利用できなくなった要素に属しています。破棄してください。
+        moderated: モデレートされたコンテンツ
     notifications_digest_mailer:
       header:
         daily: 日次の通知のダイジェスト

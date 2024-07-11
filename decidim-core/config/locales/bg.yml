@@ -1161,6 +1161,7 @@ bg:
       no_notifications: Още няма известия.
       show:
         missing_event: Упс, това известие принадлежи на съдържание, което вече не е налично. Можете да го подминете.
+        moderated: Съдържанието е модерирано
     notifications_digest_mailer:
       header:
         daily: Ежедневно обобщение на известията

@@ -998,6 +998,8 @@ tr:
         subject: '%{organization_name} ile ilgili bilgileri almaya devam etmek istiyor musunuz?'
     notifications:
       no_notifications: Henüz bildirim yok.
+      show:
+        moderated: İçerik Denetlendi
     notifications_settings:
       show:
         allow_public_contact: Takip etmesem bile herkesin bana doğrudan mesaj göndermesine izin ver.

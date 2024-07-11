@@ -116,14 +116,19 @@ pl:
             success: Zaktualizowano projekt
           update_category:
             invalid: 'Te projekty już miały kategorię %{subject_name}: %{projects}.'
+            select_a_category: Proszę wybrać kategorię
+            select_a_project: Proszę wybrać projekt
             success: 'Projekty zostały zaktualizowane do kategorii %{subject_name}: %{projects}.'
           update_scope:
             invalid: 'Te projekty już miały zakres %{subject_name}: %{projects}.'
+            select_a_project: Proszę wybrać projekt
+            select_a_scope: Proszę wybrać zakres
             success: 'Projekty zostały zaktualizowane do zakresu o nazwie %{subject_name}: %{projects}.'
           update_selected:
             invalid:
               selected: 'Te projekty zostały już wybrane do wdrożenia: %{projects}.'
               unselected: 'Te projekty zostały już odznaczone od wdrożenia: %{projects}.'
+            select_a_project: Proszę wybrać projekt
             select_a_selection: Wybierz status implementacji
             success:
               selected: 'Te projekty zostały pomyślnie wybrane do wdrożenia: %{projects}.'
