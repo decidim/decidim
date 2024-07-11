@@ -87,6 +87,9 @@ module Decidim
           end
 
           nil
+
+        rescue ActiveRecord::AssociationTypeMismatch
+          nil # in case there is a mismatch, we ignore the error as it is not important for the seeding
         end
 
         def random_user
