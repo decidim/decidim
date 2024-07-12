@@ -106,7 +106,7 @@ module Decidim
                     affected_users: [user],
                     event_class: "Decidim::WelcomeNotificationEvent",
                     extra: { force_email: true },
-                    followers: [user],
+                    followers: [],
                     force_send: false,
                     resource: user)
 
