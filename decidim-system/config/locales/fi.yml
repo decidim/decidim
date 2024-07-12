@@ -67,6 +67,7 @@ fi:
         show:
           admins: Hallintakäyttäjät
           current_organizations: Nykyiset organisaatiot
+          system_checks: Järjestelmän tarkastukset
       default_pages:
         placeholders:
           content: Lisää merkityksellistä sisältöä staattiselle sivulle %{page} hallintapaneelista.
@@ -87,7 +88,7 @@ fi:
             did_not_receive_unlock_instructions?: Etkö saanut ohjeita tilin lukituksen poistoon?
             forgot_your_password?: Unohditko salasanasi?
             log_in: Kirjaudu sisään
-            sign_up: Rekisteröidy
+            sign_up: Luo tili
       menu:
         admins: Hallinnoijat
         dashboard: Hallintapaneeli
@@ -258,8 +259,8 @@ fi:
           success: Organisaation päivitys onnistui.
         users_registration_mode:
           disabled: Pääsy alustalle ainoastaan ulkoisilla tileillä
-          enabled: Salli rekisteröityminen ja sisäänkirjautuminen käyttäjille
-          existing: Älä anna osallistujien rekisteröityä, mutta salli olemassa olevien osallistujien kirjautua sisään
+          enabled: Salli osallistujien luoda käyttäjätilejä ja kirjautua sisään
+          existing: Älä salli osallistujien käyttäjätilien luontia, mutta salli olemassa olevien osallistujien sisäänkirjautuminen
       shared:
         notices:
           no_organization_warning_html: Sinun on luotava organisaatio päästäksesi alkuun. Muista lukea %{guide} ennen jatkamista.
@@ -267,6 +268,14 @@ fi:
         organizations_list:
           confirm_resend_invitation: Haluatko varmasti lähettää kutsun uudelleen?
           resend_invitation: Lähetä kutsu uudelleen
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Decidimin dokumentaatio
+          error: ActiveJob-jonoa ei ole määritetty. Tätä ei suositella tuotantoympäristöissä. Lue lisää %{error_extra}.
+          success: ActiveJob-jono on määritetty oikein.
+        secret_key:
+          error: 'Salainen avain ei ole määritelty oikein. Lisää arvo ympäristömuuttujaan SECRET_KEY_BASE ja käynnistä palvelin uudestaan: %{error_extra}'
+          success: Salainen avain on määritetty oikein.
       titles:
         dashboard: Hallintapaneeli
         decidim: Decidim

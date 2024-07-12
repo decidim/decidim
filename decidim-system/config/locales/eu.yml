@@ -88,7 +88,6 @@ eu:
             did_not_receive_unlock_instructions?: Ez duzu desblokeatzeko instrukziorik jaso?
             forgot_your_password?: Pasahitza ahaztu duzu?
             log_in: Hasi saioa
-            sign_up: Erregistratu
       menu:
         admins: Administratzaileak
         dashboard: Kontrol-panela
@@ -261,8 +260,6 @@ eu:
           success: Erakundea zuzen eguneratu da.
         users_registration_mode:
           disabled: Sarbidea soilik kanpoko kontuekin egin daiteke
-          enabled: Baimendu erabiltzaileei erregistratzea eta saioa hasteko
-          existing: Ez utzi parte-hartzaile gehiagori erregistratzen, baina utzi existitzen diren parte-hartzaileei saioa hasten
       shared:
         notices:
           no_organization_warning_html: Hasteko erakunde bat sortu behar duzu. Jarraitu aurretik ziurta zaitez %{guide} irakurri duzula.

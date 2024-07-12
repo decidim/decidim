@@ -291,7 +291,6 @@ bg:
         initiatives_types:
           create:
             error: Възникна грешка.
-            success: Успешно е създаден нов тип инициатива.
           destroy:
             success: Типът инициатива беше премахнат успешно.
           edit:

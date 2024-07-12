@@ -4,7 +4,6 @@ tr:
       participatory_process:
         announcement: duyuru
         area_id: alan
-        banner_image: Banner resmi
         copy_categories: Kategorileri kopyala
         copy_components: Bileşenleri kopyala
         copy_steps: Adımları kopyala

@@ -158,18 +158,23 @@ pl:
             announcement: Ogłoszenie
             attachments_allowed: Zezwalaj na załączniki
             attachments_allowed_help: Gdy ta opcja jest włączona, propozycje będą domyślne dla trybu siatkowego, a pierwszy obraz pojawi się na karcie.
+            can_accumulate_votes_beyond_threshold: Może gromadzić głosy powyżej progu
             collaborative_drafts_enabled: Zezwalaj na wspólne szkice
             comments_enabled: Komentarze włączone
             comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
             default_sort_order: Domyślne sortowanie propozycji
+            default_sort_order_help: Automatycznie oznacza, że jeśli głosy są włączone, propozycje będą wyświetlane w losowej kolejności i jeśli głosy zostaną zablokowane, zostaną posortowane według tych z największą ilością głosów.
             default_sort_order_options:
+              automatic: Automatyczne
               most_commented: Najczęściej komentowane
               most_endorsed: Najbardziej popierane
               most_followed: Najczęściej obserwowane
+              most_voted: Z największą liczbą głosów
               random: Losowo
               recent: Ostatnie
               with_more_authors: Z większą liczbą autorów
             geocoding_enabled: Włączono geokodowanie
+            minimum_votes_per_user: Minimalna liczba głosów na użytkownika
             new_proposal_body_template: Szablon treści nowej propozycji
             new_proposal_body_template_help: Możesz zdefiniować częściowo wypełnioną treść nowej propozycji
             new_proposal_help_text: Nowy tekst pomocy dla propozycji
@@ -190,6 +195,7 @@ pl:
             scope_id: Zakres
             scopes_enabled: Zakresy włączone
             threshold_per_proposal: Próg poparcia dla propozycji
+            vote_limit: Limit głosów na uczestnika
           step:
             amendment_creation_enabled: Można tworzyć poprawki
             amendment_creation_enabled_help: Uczestnik może wnosić poprawki do propozycji.
@@ -209,35 +215,61 @@ pl:
             creation_enabled: Uczestnicy mogą tworzyć propozycje
             creation_enabled_readonly: To ustawienie jest wyłączone, gdy aktywujesz funkcjonalność tekstów partycypacyjnych. Aby przesłać propozycje jako tekst partycypacyjny, kliknij przycisk "Tekst partycypacyjny" i postępuj zgodnie z instrukcjami.
             default_sort_order: Domyślne sortowanie propozycji
+            default_sort_order_help: Automatycznie oznacza, że jeśli głosy są włączone, propozycje będą wyświetlane w losowej kolejności i jeśli głosy zostaną zablokowane, zostaną posortowane według tych z największą ilością głosów.
+            default_sort_order_options:
+              automatic: Automatyczne
+              most_commented: Najczęściej komentowane
+              most_endorsed: Najbardziej popierane
+              most_followed: Najczęściej obserwowane
+              most_voted: Z największą liczbą głosów
+              random: Losowo
+              recent: Ostatnie
+              with_more_authors: Z większą liczbą autorów
             endorsements_blocked: Rekomendacje zostały zablokowane
             endorsements_enabled: Rekomendacje włączone
             proposal_answering_enabled: Włączono odpowiadanie na propozycję
             publish_answers_immediately: Natychmiast publikuj odpowiedzi na propozycje
+            publish_answers_immediately_help_html: 'Pamiętaj, że jeśli odpowiesz na dowolną propozycję bez włączonej tej opcji, musisz ją opublikować ręcznie, wybierając ją i korzystając z akcji do publikacji. Aby uzyskać więcej informacji na temat tego, jak to działa, zobacz stronę <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">z dokumentacją odpowiedzi na propozycje</a>.'
             suggested_hashtags: Hashtagi sugerowane użytkownikom dodającym nowe propozycje
             votes_blocked: Głosy zablokowane
             votes_enabled: Głosowanie włączone
+            votes_hidden: Ukryte głosy (jeśli głosy są włączone, sprawdzenie to ukryje liczbę głosów)
     events:
       proposals:
         admin:
           proposal_note_created:
+            email_intro: Ktoś zostawił notatkę do propozycji „%{resource_title}”. Sprawdź ją w <a href="%{admin_proposal_info_url}">panelu administratora</a>.
             email_outro: Otrzymujesz to powiadomienie, ponieważ możesz weryfikować propozycję.
             email_subject: Ktoś zostawił notatkę do propozycji %{resource_title}.
+            notification_title: Ktoś zostawił notatkę do propozycji <a href="%{resource_path}">%{resource_title}</a>. Sprawdź ją w <a href="%{admin_proposal_info_path}">panelu administratora</a>.
         collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} otrzymał(a) dostęp jako współtwórca wspólnego szkicu <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: Otrzymujesz to powiadomienie, ponieważ współpracujesz przy dokumencie <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} otrzymał(a) dostęp jako współtwórca %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> otrzymał(a) <strong>dostęp jako współtwórca</strong> wspólnego szkicu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
+          email_intro: 'Nie przyznano Ci dostępu jako osobie uczestniczącej w tworzeniu wspólnego projektu dokumentu <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Otrzymujesz to powiadomienie, ponieważ współpracujesz przy dokumencie <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} nie otrzymał(a) dostępu jako współtwórca wspólnego szkicu %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>nie otrzymał(a) dostępu jako współtwórca</strong> wspólnego szkicu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
+          email_intro: '%{requester_name} poprosił(a) o dostęp jako współtwórca. Możesz <strong>zaakceptować lub odrzucić prośbę</strong> na stronie wspólnego szkicu <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: Otrzymujesz to powiadomienie, ponieważ współpracujesz przy dokumencie <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} prosi o dostęp do współtworzenia %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> prosi o dostęp do współtworzenia wspólnego szkicu <a href="%{resource_path}">%{resource_title}</a>. <strong>Zaakceptuj lub odrzuć prośbę</strong>.
         collaborative_draft_access_requester_accepted:
+          email_intro: Zostałeś zaakceptowany(a) jako współtwórca wspólnego szkicu <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Otrzymujesz to powiadomienie, ponieważ chcesz współpracować przy <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Zostałeś zaakceptowany jak współtwórca %{resource_title}.
           notification_title: Otrzymałeś <strong>zgodę na dostęp jako współtwórca</strong> wspólnego szkicu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
+          email_intro: Nie otrzymałeś(aś) dostępu jako współtwórca wspólnego szkicu <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Otrzymujesz to powiadomienie, ponieważ chcesz współpracować przy <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Zostałeś odrzucony jako współtwórca %{resource_title}.
           notification_title: <strong>Nie otrzymałeś dostępu jako współtwórca</strong> wspólnego szkicu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> wycofał(a) wspólny szkic <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Otrzymujesz to powiadomienie, ponieważ współpracujesz przy dokumencie <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} wycofał(a) wspólny szkic %{resource_title}."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>wycofał(a)</strong> wspólny szkic <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
@@ -288,7 +320,10 @@ pl:
           email_subject: Zaktualizowano zakres propozycji %{resource_title}
           notification_title: Administrator zaktualizował zakres propozycji <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
+          email_intro: 'Możesz głosować na propozycje w %{participatory_space_title}! Zacznij uczestniczyć na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
+          email_subject: Rozpoczęto zbieranie głosów dla propozycji w przestrzeni %{participatory_space_title}
+          notification_title: Możesz teraz rozpocząć <a href="%{resource_path}">oddawanie głosów poparcia dla propozycji</a> w przestrzeni <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:

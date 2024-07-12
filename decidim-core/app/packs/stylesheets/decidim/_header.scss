@@ -24,10 +24,6 @@ header {
     @apply mt-28 md:mt-0 px-44;
   }
 
-  #menu-bar-container {
-    @apply mt-24 md:mt-0;
-  }
-
   &.with-admin-bar {
     #flash-messages-container {
       @apply mt-40 md:mt-0;
@@ -75,6 +71,10 @@ header {
       button[type="submit"] {
         @apply absolute ltr:right-2 rtl:left-2 inset-y-2 text-secondary;
       }
+    }
+
+    &__menu-mobile {
+      @apply lg:hidden flex flex-row-reverse items-center;
     }
 
     &__links-desktop,
@@ -182,7 +182,7 @@ header {
         }
 
         svg + span {
-          @apply text-sm first-letter:uppercase pr-4;
+          @apply text-sm first-letter:uppercase pr-4 w-16;
         }
       }
     }
@@ -372,7 +372,7 @@ header {
     }
 
     &__main-dropdown {
-      @apply bg-white divide-y divide-gray-3 rounded-b shadow-lg text-black w-full lg:w-[1280px];
+      @apply bg-white divide-y divide-gray-3 rounded-b shadow-lg text-black w-full lg:w-[1280px] h-screen md:h-auto;
 
       &__bottom,
       &__top {

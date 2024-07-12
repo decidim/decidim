@@ -209,7 +209,7 @@ fi-pl:
           info: Tietoa tästä ryhmästä
           landing_page: Laskeutumissivu
           moderations: Moderoinnit
-          private_users: Yksityiset käyttäjät
+          private_users: Yksityiset osallistujat
           see_assembly: Näytä ryhmä
         assemblies_types: Ryhmien tyypit
       models:

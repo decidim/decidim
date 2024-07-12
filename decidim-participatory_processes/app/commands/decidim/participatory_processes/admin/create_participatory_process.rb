@@ -6,7 +6,7 @@ module Decidim
       # A command with all the business logic when creating a new participatory
       # process in the system.
       class CreateParticipatoryProcess < Decidim::Commands::CreateResource
-        fetch_file_attributes :hero_image, :banner_image
+        fetch_file_attributes :hero_image
 
         fetch_form_attributes :organization, :title, :subtitle, :weight, :slug, :hashtag, :description,
                               :short_description, :promoted, :scopes_enabled, :scope, :show_statistics, :announcement,
