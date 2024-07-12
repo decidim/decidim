@@ -643,6 +643,7 @@ en:
             plural: Plural
         share_token:
           fields:
+            actions: Actions
             created_at: Created at
             expires_at: Expires at
             last_used_at: Last time used
