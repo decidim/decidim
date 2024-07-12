@@ -59,7 +59,7 @@ es:
             invalid: Se ha producido un error al crear este proyecto.
             success: Presupuesto creado correctamente.
           destroy:
-            invalid: Hubo un problema al eliminar este presupuesto.
+            invalid: Se ha producido un error al eliminar este presupuesto.
             success: Presupuesto eliminado correctamente.
           edit:
             title: Editar presupuesto
@@ -74,7 +74,7 @@ es:
             create: Crear presupuesto
             title: Nuevo presupuesto
           update:
-            invalid: Se ha producido un problema al actualizar este presupuesto.
+            invalid: Se ha producido un error al actualizar este presupuesto.
             success: Presupuesto actualizado correctamente.
         exports:
           projects: Proyectos
@@ -134,9 +134,9 @@ es:
           update_selected:
             invalid:
               selected: 'Estos proyectos ya han sido seleccionados para ser implementados: %{projects}.'
-              unselected: 'Estos proyectos ya han sido deseleccionados de ser implementados: %{projects}.'
+              unselected: 'Estos proyectos ya han sido deseleccionados para ser implementados: %{projects}.'
             select_a_project: Por favor, selecciona un proyecto.
-            select_a_selection: Por favor, seleccione un estado de implementación.
+            select_a_selection: Por favor, selecciona un estado de implementación.
             success:
               selected: 'Estos proyectos fueron seleccionados con éxito para ser implementados: %{projects}.'
               unselected: 'Estos proyectos fueron deseleccionados con éxito para ser implementados: %{projects}.'
@@ -194,7 +194,7 @@ es:
         show: Ver proyectos
         vote: Votar
         voted_budgets: Presupuestos votados
-        voted_on: Has votado a %{links}.
+        voted_on: Has votado %{links}.
       last_activity:
         new_vote_at: Nueva votación presupuestaria en
       limit_announcement:
