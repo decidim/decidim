@@ -94,7 +94,7 @@ es:
         new_conference_user_role: Añadir administradora
         new_media_link: Añadir enlace multimedia
         new_partner: Añadir colaboradora
-        new_registration_type: Añadir tipo de registro
+        new_registration_type: Añadir tipo de inscripción
         new_speaker: Añadir ponente
         send_diplomas: Enviar certificados de asistencia
       conference_copies:
@@ -199,7 +199,7 @@ es:
           conference_invites: Invita
           conference_speakers: Ponentes
           diploma: Certificado de asistencia
-          info: Acerca de esta jornada
+          info: Acerca de esta conferencia
           media_links: Enlaces multimedia
           moderations: Moderaciones
           partners: Colaboradoras
@@ -357,7 +357,7 @@ es:
             invites: Invita
             search: Buscar
           new:
-            explanation: La participante será invitada a unirse a la jornada. Si su correo electrónico no está registrado, también será invitada a unirse a la organización.
+            explanation: La participante será invitada a unirse a la conferencia. Si su correo electrónico no está registrado, también será invitada a unirse a la organización.
             invite: Invitar
             new_invite: Invitar participante
         conference_registrations:
@@ -433,11 +433,11 @@ es:
         create:
           invalid: Se ha producido un error al inscribirte a esta jornada.
           success: Te has inscrito a la jornada correctamente.
-          unauthorized: Necesitas iniciar tu sesión antes de registrarse en la jornada.
+          unauthorized: Debes iniciar sesión antes de inscribirte en la conferencia.
         decline_invitation:
           invalid: Se ha producido un error al declinar la invitación.
           success: Has declinado la invitación correctamente.
-          unauthorized: Necesitas iniciar tu sesión antes de rechazar la invitación.
+          unauthorized: Debes iniciar sesión antes de rechazar la invitación.
         destroy:
           invalid: Se ha producido un error al abandonar esta jornada.
           success: Has abandonado la jornada correctamente.
@@ -464,11 +464,11 @@ es:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           are_you_new?: '¿Aún no eres participante?'
           login_as: Has iniciado sesión como %{name} <%{email}>
-          make_conference_registration: Inscríbete en la jornada
+          make_conference_registration: Inscríbete en la conferencia
           manage_registration: Gestionar inscripciones
           register: Inscripciones
           sign_in_description: Inicia sesión para inscribirte en la conferencia
-          sign_up_description: Crea una cuenta de participante para inscribirte en la jornada
+          sign_up_description: Crea una cuenta para inscribirte en la conferencia
       content_blocks:
         highlighted_conferences:
           name: Jornadas destacadas
@@ -477,9 +477,9 @@ es:
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: Se ha confirmado tu inscripción a la jornada.
+            subject: Se ha confirmado tu inscripción en la conferencia.
           pending_validation:
-            subject: Tu inscripción a la jornada está pendiente de confirmación.
+            subject: Tu inscripción en la conferencia está pendiente de confirmación.
         invite_join_conference_mailer:
           invite:
             subject: Invitación para unirse a una jornada
@@ -511,7 +511,7 @@ es:
         home:
           highlighted_conferences:
             active_spaces: Jornadas activas
-            see_all_spaces: Ver todas las jornadas
+            see_all_spaces: Ver todas las conferencias
       registration_types:
         index:
           choose_an_option: 'Elige tu tipo de inscripción:'
@@ -564,7 +564,7 @@ es:
     log:
       value_types:
         conference_presenter:
-          not_found: 'La jornada no se ha encontrado en la base de datos (ID: %{id}).'
+          not_found: 'La conferencia no se ha encontrado en la base de datos (ID: %{id}).'
     media:
       index:
         description: Enlaces sobre esta conferencia
