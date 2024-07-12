@@ -962,6 +962,9 @@ en:
           destroy: Delete
           edit: Edit
           preview: Preview
+        create:
+          invalid: There was a problem generating the token.
+          success: Token generated successfully.
         destroy:
           error: There was a problem destroying the token.
           success: Token destroyed successfully.

@@ -14,7 +14,7 @@ module Decidim
       validates :expires_at, presence: true, if: ->(form) { form.no_expiration.blank? }
 
       def token
-        attributes[:token].to_s.upcase
+        super.upcase if super.present?
       end
 
       def expires_at

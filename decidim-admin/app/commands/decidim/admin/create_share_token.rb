@@ -2,22 +2,14 @@
 
 module Decidim
   module Admin
-    class CreateShareToken < Decidim::Command
-      def initialize(form, share_token)
-        @form = form
-        @share_token = share_token
-      end
+    # A command with all the business logic to create a taxonomy.
+    # This command is called from the controller.
+    class CreateShareToken < Decidim::Commands::CreateResource
+      fetch_form_attributes :token, :expires_at, :organization
 
-      def call
-        return broadcast(:invalid) if form.invalid?
+      protected
 
-        ShareToken.create!(component: share_token, token: form.token)
-        broadcast(:ok)
-      end
-
-      private
-
-      attr_reader :form, :share_token
+      def resource_class = Decidim::ShareToken
     end
   end
 end

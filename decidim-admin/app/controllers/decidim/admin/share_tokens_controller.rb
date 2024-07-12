@@ -15,7 +15,7 @@ module Decidim
       def create
         @form = form(ShareTokenForm).from_params(params)
 
-        CreateShareToken.call(@form, share_token) do
+        CreateShareToken.call(@form) do
           on(:ok) do
             flash[:notice] = I18n.t("share_tokens.create.success", scope: "decidim.admin")
             redirect_to share_tokens_path(component)
