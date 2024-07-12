@@ -156,6 +156,7 @@ cs:
           answer_questionnaire:
             already_have_an_account?: Již máte účet?
             are_you_new?: Nový uživatel?
+            sign_in_description: Přihlaste se k provedení průzkumu
             sign_up_description: Vytvořit uživatelský účet k provedení průzkumu
             title: Odpovězte na dotazník
           current_step: Krok %{step}

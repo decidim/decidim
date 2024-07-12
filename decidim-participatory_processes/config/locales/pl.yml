@@ -4,7 +4,6 @@ pl:
       participatory_process:
         announcement: Ogłoszenie
         area_id: Kategoria
-        banner_image: Baner
         copy_categories: Kopiuj kategorie
         copy_components: Kopiuj komponenty
         copy_steps: Skopiuj etapy
