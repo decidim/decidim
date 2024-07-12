@@ -13,6 +13,7 @@ es-MX:
         project_ids: Proyectos incluidos
         proposals: Propuestas incluidas
         start_date: Inicio
+        subresults: Subresultados
         title: Título
         updated_at: Actualizado en
       status:
@@ -42,9 +43,9 @@ es-MX:
         edit: Editar
         import: Importar proyectos desde otro componente
         import_csv: Importar resultados desde un archivo CSV
-        new_result: Añadir resultado
-        new_status: Añadir estado
-        new_timeline_entry: Añadir entrada de la cronología
+        new_result: Nuevo resultado
+        new_status: Nuevo estado
+        new_timeline_entry: Nueva entrada de cronología
         preview: Previsualizar
         timeline_entries: Evolución del proyecto
         title: Acciones
@@ -224,7 +225,7 @@ es-MX:
         home:
           categories_label: Categorías
           empty: Aún no hay ningún resultado.
-          empty_filters: No hay ningún resultado con este criterio.
+          empty_filters: No hay resultados con estos criterios.
           subcategories_label: Subcategorías
         home_header:
           global_status: Estado de ejecución global

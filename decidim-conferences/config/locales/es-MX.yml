@@ -94,7 +94,7 @@ es-MX:
         new_conference_user_role: Añadir administradora
         new_media_link: Añadir enlace multimedia
         new_partner: Añadir colaboradora
-        new_registration_type: Añadir tipo de registro
+        new_registration_type: Añadir tipo de inscripción
         new_speaker: Añadir ponente
         send_diplomas: Enviar certificados de asistencia.
       conference_copies:
@@ -199,7 +199,7 @@ es-MX:
           conference_invites: Invita
           conference_speakers: Ponentes
           diploma: Certificado de asistencia
-          info: Acerca de esta jornada
+          info: Acerca de esta conferencia
           media_links: Enlaces multimedia
           moderations: Moderaciones
           partners: Colaboradores
@@ -433,11 +433,11 @@ es-MX:
         create:
           invalid: Ha habido un problema al unirse a esta conferencia.
           success: Te has unido a la conferencia con éxito.
-          unauthorized: Necesitas iniciar tu sesión antes de registrarse en la jornada.
+          unauthorized: Debes iniciar sesión antes de inscribirte en la conferencia.
         decline_invitation:
           invalid: Ha habido un problema al rechazar la invitación.
           success: Has rechazado la invitación con éxito.
-          unauthorized: Necesitas iniciar tu sesión antes de rechazar la invitación.
+          unauthorized: Debes iniciar sesión antes de rechazar la invitación.
         destroy:
           invalid: Ha habido un problema al abandonar esta conferencia.
           success: Has abandonado la conferencia con éxito.
@@ -468,7 +468,7 @@ es-MX:
           manage_registration: Gestionar inscripciones
           register: Inscripciones
           sign_in_description: Inicia sesión para inscribirte en la conferencia
-          sign_up_description: Crea una cuenta de participante para inscribirte en la jornada
+          sign_up_description: Crea una cuenta para inscribirte en la conferencia
       content_blocks:
         highlighted_conferences:
           name: Conferencias destacadas
@@ -511,7 +511,7 @@ es-MX:
         home:
           highlighted_conferences:
             active_spaces: Conferencias activas
-            see_all_spaces: Ver todas las jornadas
+            see_all_spaces: Ver todas las conferencias
       registration_types:
         index:
           choose_an_option: 'Elige tu tipo de inscripción:'

@@ -181,7 +181,7 @@ es:
         attachment:
           new: Nuevo archivo adjunto
         attachment_collection:
-          new: Nueva colección de archivos adjuntos
+          new: Nueva carpeta de archivos adjuntos
         browse: Explorar
         category:
           new: Nueva categoría
@@ -196,14 +196,14 @@ es:
         per_page: Por página
         permissions: Permisos
         reject: Rechazar
-        send_me_a_test_email: Enviarme un correo electrónico de prueba
+        send_me_a_test_email: Envíame un correo electrónico de prueba
         share: Compartir
         user:
           new: Nueva administradora
         verify: Verificar
       admin_terms_of_service:
         accept:
-          error: Ha habido un error al aceptar los Términos y Condiciones de administración.
+          error: Ha habido un error al aceptar los términos de servicio de administración.
           success: '¡Genial! Has aceptado los términos del servicio de administración.'
         actions:
           accept: Estoy de acuerdo con los términos
@@ -849,10 +849,10 @@ es:
             saturation: Saturación
             title: Selector de color
             update_suggested_colors: Actualizar a los colores sugeridos
-          cta_button_path_help_html: 'Puedes redirigir la dirección donde enlaza el Botón de Acción principal de la página de inicio donde desees. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El Botón de Acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
+          cta_button_path_help_html: 'Puedes redirigir la dirección donde enlaza el botón de acción principal de la página de inicio donde desees. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
           cta_button_text_help: Puedes sobrescribir el texto del botón de acción principal en la página de inicio para cada idioma disponible en tu organización. Si no está configurado, se usará el valor predeterminado. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción.
           header_snippets:
-            header_snippets_help_html: Utiliza este campo para añadir cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieren JavaScript o CSS adicionales. También, puedes usarlo para añadir meta-etiquetas extra al HTML. Ten en cuenta que esto sólo será renderizado en páginas públicas, no en la sección de administración. Si el código interactúa con APIs externas o no cumple con las pautas de seguridad de la aplicación, será necesario cambiar la Política de Seguridad del Contenido. Lea más sobre <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">en el sitio de documentación</a>.
+            header_snippets_help_html: Utiliza este campo para añadir cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieren JavaScript o CSS adicionales. También, puedes usarlo para añadir meta-etiquetas extra al HTML. Ten en cuenta que esto sólo será renderizado en páginas públicas, no en la sección de administración. Si el código interactúa con APIs externas o no cumple con las pautas de seguridad de la aplicación, será necesario cambiar la Política de Seguridad del Contenido. Lee más sobre esto <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">en el sitio de documentación</a>.
             title: Fragmentos de código HTML de cabecera
           homepage_appearance_title: Editar apariencia de página de inicio
           homepage_highlighted_content_banner_title: Banner de contenido resaltado
@@ -933,7 +933,7 @@ es:
           update: Actualizar
         new:
           create: Crear tipo de ámbito
-          title: Nuevo ámbito
+          title: Nuevo tipo de ámbito
         update:
           error: Se ha producido un error al actualizar este tipo de ámbito.
           success: Tipo de ámbito actualizado correctamente
@@ -994,7 +994,7 @@ es:
         destroy:
           success: La página se ha eliminado correctamente.
         edit:
-          changed_notably_help: Si se marca, se notificará a las participantes para que acepten los nuevos términos y condiciones de uso.
+          changed_notably_help: Si se marca, se notificará a las participantes para que acepten los nuevos términos de servicio.
           last_notable_change: 'Último cambio notable: %{tos_version_formatted}'
           title: Editar página
           update: Actualizar
@@ -1037,7 +1037,7 @@ es:
       user_group:
         csv_verify:
           invalid: Se produjo un error al leer el archivo CSV.
-          success: El archivo CSV cargado correctamente, estamos verificando los grupos que coinciden con los criterios. Esto puede tardar un poco.
+          success: El archivo CSV se ha cargado correctamente, estamos verificando que los grupos coincidan con los criterios. Esto puede tardar un poco.
         reject:
           invalid: Se ha producido un error al rechazar este grupo.
           success: Grupo rechazado correctamente.

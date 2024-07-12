@@ -13,6 +13,7 @@ de:
         project_ids: Enthaltene Projekte
         proposals: Enthaltene Vorschläge
         start_date: Startdatum
+        subresults: Teilergebnisse
         title: Titel
         updated_at: Aktualisiert am
       status:
