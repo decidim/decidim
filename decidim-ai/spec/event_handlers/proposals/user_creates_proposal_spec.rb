@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "User creates proposal", type: :system do
   let(:form) do
-    Decidim::Proposals::ProposalWizardCreateStepForm.from_params(
+    Decidim::Proposals::ProposalForm.from_params(
       title:,
       body:,
       user_group_id: user_group.try(:id)

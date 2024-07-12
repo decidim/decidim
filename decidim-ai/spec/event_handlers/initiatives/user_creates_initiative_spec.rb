@@ -17,10 +17,11 @@ describe "User creates debate", type: :system do
     ).with_context(
       current_organization: organization,
       current_component: nil,
+      current_user: author,
       initiative_type: initiatives_type
     )
   end
-  let(:command) { Decidim::Initiatives::CreateInitiative.new(form, author) }
+  let(:command) { Decidim::Initiatives::CreateInitiative.new(form) }
 
   include_examples "initiatives spam analysis"
 end

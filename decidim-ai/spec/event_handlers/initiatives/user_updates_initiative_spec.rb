@@ -13,10 +13,11 @@ describe "User updates meeting", type: :system do
       attachment: nil
     ).with_context(
       current_organization: organization,
-      initiative_type: initiative&.type
+      initiative_type: initiative&.type,
+      current_user: author
     )
   end
-  let(:command) { Decidim::Initiatives::UpdateInitiative.new(initiative, form, author) }
+  let(:command) { Decidim::Initiatives::UpdateInitiative.new(initiative, form) }
 
   context "when initiative is published" do
     include_examples "initiatives spam analysis" do

@@ -45,7 +45,7 @@ describe "User changes own data", type: :system do
   let!(:system_user) { create(:user, :confirmed, email: Decidim::Ai.reporting_user_email, organization:) }
 
   let(:user) { create(:user, :confirmed, about: "Some description about me, that is not going to be very easily blocked.", organization:) }
-  let(:command) { Decidim::UpdateAccount.new(user, form) }
+  let(:command) { Decidim::UpdateAccount.new(form) }
 
   let(:form) do
     Decidim::AccountForm.from_params(**data).with_context(current_organization: organization, current_user: user)

@@ -17,10 +17,11 @@ describe "User creates comment", type: :system do
     Decidim::Comments::CommentForm.from_params(
       form_params
     ).with_context(
-      current_organization: organization
+      current_organization: organization,
+      current_user: author
     )
   end
-  let(:command) { Decidim::Comments::CreateComment.new(form, author) }
+  let(:command) { Decidim::Comments::CreateComment.new(form) }
 
   include_examples "comments spam analysis"
 end

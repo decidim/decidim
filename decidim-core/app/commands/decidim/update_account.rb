@@ -38,7 +38,7 @@ module Decidim
     protected
 
     def event_arguments
-      { resource: @user }
+      { resource: current_user }
     end
 
     private

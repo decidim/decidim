@@ -15,10 +15,11 @@ describe "User updates comment", type: :system do
     Decidim::Comments::CommentForm.from_params(
       form_params
     ).with_context(
-      current_organization: organization
+      current_organization: organization,
+      current_user: author
     )
   end
-  let(:command) { Decidim::Comments::UpdateComment.new(comment, author, form) }
+  let(:command) { Decidim::Comments::UpdateComment.new(comment, form) }
 
   include_examples "comments spam analysis" do
     let(:comment) { create(:comment, author:, commentable:) }

@@ -32,7 +32,7 @@ describe "User updates meeting", type: :system do
       iframe_access_level: "all"
     )
   end
-  let(:command) { Decidim::Meetings::UpdateMeeting.new(form, author, meeting) }
+  let(:command) { Decidim::Meetings::UpdateMeeting.new(form, meeting) }
 
   include_examples "meetings spam analysis" do
     let!(:meeting) do

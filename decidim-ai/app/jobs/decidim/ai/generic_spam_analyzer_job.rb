@@ -18,13 +18,13 @@ module Decidim
 
         return unless overall_score >= Decidim::Ai.spam_threshold
 
-        Decidim::CreateReport.call(form, reportable, reporting_user)
+        Decidim::CreateReport.call(form, reportable)
       end
 
       private
 
       def form
-        @form ||= Decidim::ReportForm.new(reason: "spam", details: classifier.classification_log)
+        @form ||= Decidim::ReportForm.new(reason: "spam", details: classifier.classification_log).with_context(current_user: reporting_user)
       end
 
       def reporting_user
