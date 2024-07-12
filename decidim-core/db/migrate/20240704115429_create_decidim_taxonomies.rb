@@ -6,7 +6,7 @@ class CreateDecidimTaxonomies < ActiveRecord::Migration[7.0]
       t.jsonb :name, null: false, default: {}
       t.integer :decidim_organization_id, null: false
       t.integer :parent_id
-      t.integer :weight, default: 0
+      t.integer :weight
       t.timestamps
     end
 

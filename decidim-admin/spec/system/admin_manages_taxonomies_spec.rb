@@ -17,7 +17,7 @@ describe "Admin manages taxonomies" do
     expect(page).to have_content("Taxonomies")
   end
 
-  context "when admin creates a new taxonomy" do
+  context "when creating a new taxonomy" do
     before do
       click_on "Create taxonomy"
       fill_in_i18n(
@@ -38,7 +38,7 @@ describe "Admin manages taxonomies" do
     end
   end
 
-  context "when admin creates a new taxonomy with invalid data" do
+  context "when creating a new taxonomy with invalid data" do
     before do
       click_on "Create taxonomy"
       fill_in_i18n(
@@ -55,7 +55,7 @@ describe "Admin manages taxonomies" do
     end
   end
 
-  context "when admin creates a new taxonomy with negative weight" do
+  context "when creating a new taxonomy with negative weight" do
     before do
       click_on "Create taxonomy"
       fill_in_i18n(
@@ -72,7 +72,7 @@ describe "Admin manages taxonomies" do
     end
   end
 
-  context "when admin edits a taxonomy" do
+  context "when editing a taxonomy" do
     let!(:taxonomy) { create(:taxonomy, organization:) }
 
     before do
@@ -96,7 +96,7 @@ describe "Admin manages taxonomies" do
     end
   end
 
-  context "when admin deletes a taxonomy" do
+  context "when deleting a taxonomy" do
     let!(:taxonomy) { create(:taxonomy, organization:) }
 
     before do
@@ -110,6 +110,40 @@ describe "Admin manages taxonomies" do
 
     it "deletes the taxonomy" do
       expect(page).to have_no_content(taxonomy.name)
+    end
+  end
+
+  context "when reordering root taxonomies" do
+    let!(:taxonomy1) { create(:taxonomy, name: { en: "Tax 1" }, organization:, weight: 1) }
+    let!(:taxonomy2) { create(:taxonomy, name: { en: "Tax 2" }, organization:, weight: 2) }
+    let!(:taxonomy3) { create(:taxonomy, name: { en: "Tax 3" }, organization:, weight: 3) }
+
+    before do
+      visit decidim_admin.taxonomies_path
+    end
+
+    it "reorders the taxonomies" do
+      within first(".js-list-available tr") do
+        expect(page).to have_content(translated(taxonomy1.name))
+      end
+      within all(".js-list-available tr")[1] do
+        expect(page).to have_content(translated(taxonomy2.name))
+      end
+      within all(".js-list-available tr").last do
+        expect(page).to have_content(translated(taxonomy3.name))
+      end
+
+      first(".js-list-available tr").drag_to(all(".js-list-available tr").last)
+
+      within first(".js-list-available tr") do
+        expect(page).to have_content(translated(taxonomy2.name))
+      end
+      within all(".js-list-available tr")[1] do
+        expect(page).to have_content(translated(taxonomy1.name))
+      end
+      within all(".js-list-available tr").last do
+        expect(page).to have_content(translated(taxonomy3.name))
+      end
     end
   end
 

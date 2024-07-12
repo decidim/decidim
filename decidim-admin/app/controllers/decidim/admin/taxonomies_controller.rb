@@ -25,7 +25,6 @@ module Decidim
         enforce_permission_to :create, :taxonomy
 
         @form = form(Decidim::Admin::TaxonomyForm).from_params(params)
-
         CreateTaxonomy.call(@form) do
           on(:ok) do |taxonomy|
             flash[:notice] = I18n.t("create.success", scope: "decidim.admin.taxonomies")

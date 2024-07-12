@@ -41,7 +41,7 @@ module Decidim
 
       def reset_weights
         # rubocop:disable Rails/SkipsModelValidations
-        collection.where.not(weight: nil).update_all(weight: nil)
+        collection.where.not(weight: nil).where(id: order).update_all(weight: nil)
         # rubocop:enable Rails/SkipsModelValidations
       end
 

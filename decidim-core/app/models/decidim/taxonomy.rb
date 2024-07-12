@@ -9,6 +9,8 @@ module Decidim
     include Decidim::FilterableResource
     include Decidim::Traceable
 
+    after_initialize :set_default_weight
+
     translatable_fields :name
 
     belongs_to :organization,
@@ -42,5 +44,11 @@ module Decidim
     scope :search_by_name, lambda { |name|
       where("name ->> ? ILIKE ?", I18n.locale.to_s, "%#{name}%")
     }
+
+    private
+
+    def set_default_weight
+      self.weight ||= Taxonomy.where(parent_id:).count
+    end
   end
 end
