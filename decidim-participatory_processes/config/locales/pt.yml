@@ -4,7 +4,6 @@ pt:
       participatory_process:
         announcement: Anúncio
         area_id: Área
-        banner_image: Imagem da faixa
         copy_categories: Copiar categorias
         copy_components: Copiar componentes
         copy_steps: Copiar passos

@@ -4,7 +4,6 @@ cs:
       participatory_process:
         announcement: Oznámení
         area_id: Oblast
-        banner_image: Obrázek banneru
         copy_categories: Kopírovat kategorie
         copy_components: Kopírování komponent
         copy_steps: Kopírování kroků
