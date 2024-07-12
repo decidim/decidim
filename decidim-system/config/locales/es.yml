@@ -260,8 +260,6 @@ es:
           success: Organización actualizada correctamente.
         users_registration_mode:
           disabled: Solo se puede acceder desde cuentas externas
-          enabled: Permitir a las participantes crear una cuenta e iniciar sesión
-          existing: No permitir a las participantes crear una cuenta, pero permitir que las participantes existentes inicien sesión
       shared:
         notices:
           no_organization_warning_html: Debes crear una organización para comenzar. Asegúrate de leer %{guide} antes de continuar.
