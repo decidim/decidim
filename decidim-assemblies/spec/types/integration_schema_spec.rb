@@ -343,7 +343,6 @@ describe "Decidim::Api::QueryType" do
         shortDescription {
           translation(locale:"#{locale}")
         }
-        showStatistics
         slug
         specialFeatures {
           translation(locale:"#{locale}")
