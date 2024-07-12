@@ -13,6 +13,7 @@ es:
         project_ids: Proyectos incluidos
         proposals: Propuestas incluidas
         start_date: Fecha de inicio
+        subresults: Subresultados
         title: Título
         updated_at: Actualizado el
       status:
@@ -100,7 +101,7 @@ es:
             origin_component_id: Componente de origen
             select_component: Selecciona un componente
             success:
-              one: Hay un proyecto para ser importado. Se notificará por correo electrónico, cuando se complete la importación.
+              one: Hay 1 proyecto para ser importado. Se notificará por correo electrónico, cuando se complete la importación.
               other: "Hay %{count} proyectos para ser importados. Se notificará por correo electrónico, cuando se complete la importación."
             title: Importar proyectos desde otro componente
         results:
@@ -156,7 +157,7 @@ es:
             title: Nuevo elemento
           update:
             invalid: Se ha producido un error al actualizar esta entrada.
-            success: Entrada actualixadada correctamente.
+            success: Entrada actualizada correctamente.
       admin_log:
         result:
           create: "%{user_name} creó el resultado %{resource_name} en %{space_name}"
@@ -224,7 +225,7 @@ es:
         home:
           categories_label: Categorías
           empty: Aún no hay ningún resultado.
-          empty_filters: No hay ningún resultado con este criterio.
+          empty_filters: No hay resultados con estos criterios.
           subcategories_label: Subcategorías
         home_header:
           global_status: Estado de ejecución global
