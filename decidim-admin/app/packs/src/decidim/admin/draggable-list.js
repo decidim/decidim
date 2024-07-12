@@ -3,7 +3,6 @@ import createSortList from "src/decidim/admin/sort_list.component"
 
 export default function createSortableList(lists) {
   createSortList(lists, {
-    handle: "li",
     forcePlaceholderSize: true,
     acceptFrom: ".js-connect"
   })

@@ -8,19 +8,22 @@
       <th scope="col" role="columnheader"><%= t("decidim.admin.taxonomies.actions") %></th>
     </tr>
     </thead>
-    <tbody class="draggable-list js-connect js-list-available" data-sort-url="<%= taxonomies_path %>" role="rowgroup">
+    <tbody class="draggable-list js-connect js-list-available" data-sort-url="<%= reorder_taxonomies_path %>" role="rowgroup">
     <% taxonomies.each do |taxonomy| %>
-      <tr class="draggable-item" data-content-block-id="<%= taxonomy.id %>" draggable="true" role="row">
+      <tr class="draggable-item" data-taxonomy-id="<%= taxonomy.id %>" draggable="true" role="row">
         <td role="cell"><%== icon("drag-move-2-fill") %></td>
         <td class="!text-left" role="cell"><%= translated_attribute(taxonomy.name) %></td>
         <td role="cell"><%= taxonomy.children.count %></td>
         <td class="table-list__actions" role="cell">
           <% if allowed_to? :update, :taxonomy, taxonomy: taxonomy %>
             <%= icon_link_to "pencil-line", [:edit, taxonomy], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
+          <% else %>
+            <span class="action-space icon inline-block"></span>
           <% end %>
-
           <% if allowed_to? :destroy, :taxonomy, taxonomy: taxonomy %>
             <%= icon_link_to "delete-bin-line", taxonomy, t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+          <% else %>
+            <span class="action-space icon inline-block"></span>
           <% end %>
         </td>
       </tr>
@@ -28,3 +31,20 @@
     </tbody>
   </table>
 </div>
+
+<script>
+  document.addEventListener("dragend", function (event) {
+    const items = Array.prototype.slice.call(document.querySelectorAll(".draggable-item"));
+    const itemsId = items.map(item => item.dataset.taxonomyId);
+    console.log("dragend", event, "items", itemsId);
+
+    fetch(document.querySelector(".js-list-available").dataset.sortUrl, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').getAttribute("content")
+      },
+      body: JSON.stringify({ ids_order: itemsId })
+    });
+  });
+</script>

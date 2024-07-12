@@ -78,6 +78,20 @@ module Decidim
         end
       end
 
+      def reorder
+        enforce_permission_to :update, :taxonomy
+
+        ReorderTaxonomies.call(current_organization, params[:ids_order]) do
+          on(:ok) do
+            head :ok
+          end
+
+          on(:invalid) do
+            head :bad_request
+          end
+        end
+      end
+
       private
 
       def taxonomies
@@ -89,7 +103,7 @@ module Decidim
       end
 
       def child_taxonomies(parent_id)
-        Decidim::Taxonomy.where(organization: current_organization, parent_id: parent_id)
+        Decidim::Taxonomy.where(organization: current_organization, parent_id:)
       end
 
       def taxonomy
