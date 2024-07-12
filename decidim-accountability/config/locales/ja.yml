@@ -13,6 +13,7 @@ ja:
         project_ids: 含まれるプロジェクト
         proposals: 含まれる提案
         start_date: 開始日
+        subresults: 結果（サブ）
         title: タイトル
         updated_at: 更新日時
       status:
