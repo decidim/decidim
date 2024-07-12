@@ -79,7 +79,7 @@ es:
         assembly:
           attributes:
             document:
-              allowed_file_content_types: 'Tipo de documento no válido. Sólo se permiten archivos con las siguientes extensiones: %{types}.'
+              allowed_file_content_types: 'Tipo de documento no válido. Solo se permiten archivos con las siguientes extensiones: %{types}.'
   activerecord:
     models:
       decidim/assembly:
