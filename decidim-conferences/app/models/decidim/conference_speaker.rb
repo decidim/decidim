@@ -8,6 +8,7 @@ module Decidim
     include Decidim::Loggable
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
+    include Decidim::Publicable
 
     translatable_fields :position, :affiliation, :short_bio
 
@@ -17,6 +18,7 @@ module Decidim
     has_many :conference_meetings, through: :conference_speaker_conference_meetings, class_name: "Decidim::ConferenceMeeting"
 
     default_scope { order(full_name: :asc, created_at: :asc) }
+    scope :published, -> { where.not(published_at: nil) }
 
     has_one_attached :avatar
     validates_avatar :avatar, uploader: Decidim::AvatarUploader

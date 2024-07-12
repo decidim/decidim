@@ -156,6 +156,7 @@ module Decidim
 
         # Attachments
         Decidim.icons.register(name: "file-text-line", icon: "file-text-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "file-upload-line", icon: "file-upload-line", category: "documents", description: "File upload", engine: :core)
         Decidim.icons.register(name: "scales-2-line", icon: "scales-2-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "image-line", icon: "image-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "error-warning-line", icon: "error-warning-line", category: "system", description: "", engine: :core)
@@ -380,6 +381,7 @@ module Decidim
 
       initializer "decidim_core.menu" do
         Decidim::Core::Menu.register_menu!
+        Decidim::Core::Menu.register_mobile_menu!
         Decidim::Core::Menu.register_user_menu!
       end
 

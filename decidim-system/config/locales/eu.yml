@@ -31,6 +31,10 @@ eu:
           attributes:
             redirect_uri:
               must_be_ssl: Berbideratzeko URIa URI SSL izan behar da
+        organization:
+          attributes:
+            password:
+              secret_key: SECRET_KEY_BASE ingurunearen aldagaia definitu behar duzu eremu hau gorde ahal izateko
   decidim:
     system:
       actions:
@@ -63,6 +67,7 @@ eu:
         show:
           admins: Administratzaileak
           current_organizations: Uneko antolatzaileak
+          system_checks: Sistemaren egiaztapenak
       default_pages:
         placeholders:
           content: Mesedez, gehitu eduki adierazgarria %{page} (a) ren orri estatikoaren administrazio-panelean.
@@ -83,7 +88,6 @@ eu:
             did_not_receive_unlock_instructions?: Ez duzu desblokeatzeko instrukziorik jaso?
             forgot_your_password?: Pasahitza ahaztu duzu?
             log_in: Hasi saioa
-            sign_up: Erregistratu
       menu:
         admins: Administratzaileak
         dashboard: Kontrol-panela
@@ -138,6 +142,7 @@ eu:
           show: Erakutsi aukera aurreratua
         create:
           error: Errorea izan da antolatzaile berri bat sortzean.
+          error_invitation: Arazo bat sortu da erakunde berri bat sortzean. Berrikusi erakundearen administratzailearen izena.
           success_html: |
             <p>
             Arrakastaz sortutako erakundea.
@@ -246,7 +251,7 @@ eu:
           fieldsets:
             sender: Bidaltzailea
           instructions:
-            from_label: 'Posta elektronikoaren bidaltzailea honako hau izango da: "Erakundearen izena < your-organization@example.org>". Utzi hutsik ''Helbide elektronikoa'' eremua etiketa gisa erabiltzeko.'
+            from_label: 'Posta elektronikoaren bidaltzailea hau izango da: "your-organization-name <your-organization@example.org>". Utzi hutsik erakunderako zehaztutako izen bera erabiltzeko.'
           placeholder:
             from_email: zure-erakundea@example.org
             from_label: erakundearen izena
@@ -255,8 +260,6 @@ eu:
           success: Erakundea zuzen eguneratu da.
         users_registration_mode:
           disabled: Sarbidea soilik kanpoko kontuekin egin daiteke
-          enabled: Baimendu erabiltzaileei erregistratzea eta saioa hasteko
-          existing: Ez utzi parte-hartzaile gehiagori erregistratzen, baina utzi existitzen diren parte-hartzaileei saioa hasten
       shared:
         notices:
           no_organization_warning_html: Hasteko erakunde bat sortu behar duzu. Jarraitu aurretik ziurta zaitez %{guide} irakurri duzula.
@@ -264,6 +267,14 @@ eu:
         organizations_list:
           confirm_resend_invitation: Ziur zaude gonbidapena birbidali nahi duzula?
           resend_invitation: Birbidali gonbidapena
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Dokumentazioa Decidimez
+          error: 'ActiveJob ilara ez dago konfiguratuta. Hau ez da ekoizpenerako gomendatutako muntaia. Irakurri gehiago hemen: % {error_extra}.'
+          success: ActiveJob ilara behar bezala konfiguratuta dago.
+        secret_key:
+          error: 'Gako sekretua ez dago ondo definituta. Gorde, mesedez, SECRET_KEY_BASE aldagaia eta berrabiarazi zerbitzaria: % {error_extra}'
+          success: Gako sekretua behar bezala konfiguratuta dago.
       titles:
         dashboard: Kontrol-panela
         decidim: Decidim

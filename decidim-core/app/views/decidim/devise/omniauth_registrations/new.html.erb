@@ -18,7 +18,7 @@
     <div class="form__wrapper">
       <%= f.text_field :name, help_text: t("decidim.devise.omniauth_registrations.new.username_help"), autocomplete: "name", placeholder: "John Doe" %>
 
-      <%= f.text_field :nickname, help_text: t("decidim.devise.omniauth_registrations.new.nickname_help", organization: current_organization.name), autocomplete: "nickname", placeholder: "johndoe" %>
+      <%= f.text_field :nickname, help_text: t("decidim.devise.omniauth_registrations.new.nickname_help", organization: current_organization_name), autocomplete: "nickname", placeholder: "johndoe" %>
 
       <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
 

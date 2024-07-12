@@ -38,7 +38,7 @@ es:
           error: Se ha producido un error al votar el comentario.
     components:
       add_comment_form:
-        account_message: Para añadir un comentario, <a href="%{sign_in_url}">inicia tu sesión </a> o <a href="%{sign_up_url}">regístrate</a>.
+        account_message: <a href="%{sign_in_url}">Inicia sesión</a> o <a href="%{sign_up_url}">crea una cuenta</a> para añadir tu comentario.
         form:
           body:
             label: Comentario
@@ -64,13 +64,18 @@ es:
           against: En contra
           in_favor: A favor
         cancel_reply: Cancelar respuesta
+        comment_label: Comentario %{comment_id}
+        comment_label_reply: Comentario %{comment_id} (responder al comentario %{parent_comment_id})
         confirm_destroy: '¿Seguro que quieres eliminar este comentario?'
+        controls_label: Controles de comentarios
         delete: Eliminar
         deleted_at: Comentario eliminado el %{date}
         deleted_user: Participante eliminada
         edit: Editar
         edited: Editado
-        hide_replies: Ocultar respuestas
+        hide_replies:
+          one: Ocultar la respuesta
+          other: Ocultar %{count} respuestas
         moderated_at: Comentario moderado el %{date}
         reply: Respuesta
         report:

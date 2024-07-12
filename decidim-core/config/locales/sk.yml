@@ -155,10 +155,6 @@ sk:
         error: Pri zmene tohto zdroja sa vyskytla chyba.
         promote_button: Propagujte na %{model_name}
         promote_confirm_text: Naozaj chcete túto emisiu podporiť?
-      compare_draft:
-        continue: Pokračovať
-        no_similars_found: Neboli nájdené žiadne podobné vylepšenie.
-        title: Podobná vylepšenia
       created:
         error: Pri vytváraní pozmeňovacieho návrhu došlo k chybe.
         success: Pozmeňovací návrh bol úspešne vytvorený.
@@ -204,9 +200,6 @@ sk:
       wizard_step_form:
         steps:
           '1': Vytvorte svoj pozmeňovací návrh
-          '2': Porovnajte váš pozmeňovací návrh
-          '3': Dokončite váš pozmeňovací návrh
-          '4': Zverejniť svoj pozmeňovací návrh
     anonymous_user: Anonymné
     application:
       document:
@@ -347,15 +340,13 @@ sk:
         new:
           complete_profile: Kompletné profil
           sign_up: Prosím, vyplňte svoj profil
-          subtitle: Pre dokončenie registrácie vyplňte prosím nasledujúci formulár
           username_help: Verejné meno, ktoré sa zobrazí vo vašich príspevkoch. S cieľom zaručiť anonymitu môže byť akékoľvek meno.
       registrations:
         new:
           already_have_an_account?: Už máte účet?
+          log_in: Prihlásiť sa
           newsletter: Dostávajte príležitostný spravodajca s relevantnými informáciami
           newsletter_title: Povolenie kontaktu
-          sign_up: Zaregistrovať sa
-          subtitle: Registrujte sa, aby ste sa zúčastnili diskusií a návrhov podpory.
           tos_agreement: Prihlásením súhlasíte s%{link}.
           tos_title: Podmienky používania
           username_help: Verejné meno, ktoré sa zobrazí vo vašich príspevkoch. S cieľom zaručiť anonymitu to môže byť akékoľvek meno.
@@ -623,7 +614,6 @@ sk:
         default_page:
           content: "<p>V %{organization} sa môžete zúčastniť a rozhodnúť sa o rôznych témach cez miesta, ktoré vidíte v hornom menu: procesy, zhromaždenie, iniciatívy, konzultácie. </ p> <p> V rámci každej z nich nájdete rôzne možnosti účasti: urobiť návrhy - jednotlivo alebo s inými ľuďmi -, zúčastňovať sa na diskusiách, uprednostňovať realizáciu projektov, zúčastniť sa osobných stretnutí a ďalších akcií. </p>"
           title: Čo môžem robiť v %{organization}?
-        title: Všeobecná nápoveda
     last_activities:
       all: Všetky typy aktivit
       index:
@@ -854,8 +844,6 @@ sk:
         title: Nahlásiť problém
       floating_help:
         help: Pomoc
-      login_modal:
-        sign_up: Prihlásiť sa
       participatory_space_filters:
         filters:
           areas: Oblasti
@@ -971,19 +959,20 @@ sk:
       updated_not_active: Vaše heslo bolo úspešne zmenené.
     registrations:
       destroyed: Zbohom! Váš účet bol úspešne zrušený. Dúfame, že vás čoskoro uvidíme.
-      new:
-        sign_up: Prihlásiť sa
       signed_up: Vitajte! Úspešne ste sa zaregistrovali.
       signed_up_but_inactive: Úspešne ste sa zaregistrovali. Nemohli sme vás však prihlásiť, pretože váš účet ešte nie je aktivovaný.
       signed_up_but_locked: Úspešne ste sa zaregistrovali. Nemohli sme vás však prihlásiť, pretože váš účet je uzamknutý.
       signed_up_but_unconfirmed: Na vašu e-mailovú adresu bola odoslaná správa s potvrdzujúcim odkazom. Kliknutím na odkaz aktivujte svoj účet.
       update_needs_confirmation: Účet ste úspešne aktualizovali, ale musíme overiť novú e-mailovú adresu. Skontrolujte e-mail a potvrďte novú e-mailovú adresu.
       updated: Účet bol úspešne aktualizovaný.
+    sessions:
+      new:
+        log_in: Prihlásiť sa
     shared:
       links:
         back: Späť
         forgot_your_password: Zabudli ste heslo?
-        sign_up: Prihlásiť sa
+        log_in: Prihlásiť sa
       minimum_password_length:
         one: "(Minimálne %{count} znakov)"
         few: "(Minimálne %{count} znakov)"
@@ -1006,7 +995,6 @@ sk:
       invalid_time_zone: nie je platná časová zóna
       long_words: obsahuje slová, ktoré sú príliš dlhé (cez 35 znakov)
       must_start_with_caps: musí začínať veľkým písmenom
-      not_found: nemôže byť nájdené. Zaregistrovali ste sa predtým?
       not_locked: nebola zamknutá
       not_saved:
         one: 'Pri spracovaní vašej požiadavky došlo k chybe:'
@@ -1030,8 +1018,10 @@ sk:
         edit: Upraviť
       footer:
         download_open_data: Stiahnite si súbory s otvorenými dátami
+        log_in: Prihlásiť sa
         made_with_open_source: Webová stránka vytvorená s <a target="_blank" href="https://github.com/decidim/decidim"> slobodným softvérom </a>.
-        sign_up: Registrovať
+      header:
+        log_in: Prihlásiť sa
       impersonation_warning:
         close_session: Zatvoriť sedenie
         description_html: Spravujete účastníka <b>%{user_name} </ b>.

@@ -38,7 +38,7 @@ fi-pl:
           error: Äänestettäessä kommenttia tapahtui virhe.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Kirjaudu tilillesi</a> tai <a href="%{sign_up_url}">rekisteröidy</a> kommentoidaksesi.
+        account_message: <a href="%{sign_in_url}">Kirjaudu tilillesi</a> tai <a href="%{sign_up_url}">luo tili</a> kommentoidaksesi.
         form:
           body:
             label: Kommentti
@@ -64,13 +64,18 @@ fi-pl:
           against: Vastaan
           in_favor: Puolesta
         cancel_reply: Peruuta vastaus
+        comment_label: Kommentti %{comment_id}
+        comment_label_reply: Kommentti %{comment_id} (vastauksena kommenttiin %{parent_comment_id})
         confirm_destroy: Haluatko varmasti poistaa tämän kommentin?
+        controls_label: Kommenttien hallinta
         delete: Poista
         deleted_at: Kommentti poistettu %{date}
         deleted_user: Poistettu käyttäjä
         edit: Muokkaa
         edited: Muokattu
-        hide_replies: Piilota vastaukset
+        hide_replies:
+          one: Piilota vastaus
+          other: Piilota %{count} vastausta
         moderated_at: Kommentti moderoitu %{date}
         reply: Vastaa
         report:

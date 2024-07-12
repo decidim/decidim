@@ -16,11 +16,11 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid, together with the proposal.
-      # - :has_supports if the proposal already has supports or does not belong to current user.
+      # - :has_votes if the proposal already has votes or does not belong to current user.
       #
       # Returns nothing.
       def call
-        return broadcast(:has_supports) if @proposal.votes.any?
+        return broadcast(:has_votes) if @proposal.votes.any?
 
         transaction do
           @proposal.withdraw!

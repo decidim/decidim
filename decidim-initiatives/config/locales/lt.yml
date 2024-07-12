@@ -85,7 +85,6 @@ lt:
   decidim:
     admin:
       actions:
-        manage: Valdyti
         new_initiative_type: Naujas iniciatyvos tipas
       filters:
         initiatives:
@@ -110,7 +109,6 @@ lt:
       menu:
         attachments: Priedai
         committee_members: Komiteto nariai
-        components: Komponentai
         information: Informacija
         initiatives: Iniciatyvos
         initiatives_settings: Nustatymai
@@ -292,7 +290,6 @@ lt:
         initiatives_types:
           create:
             error: Įvyko klaida.
-            success: Naujas iniciatyvos tipas sukurtas.
           destroy:
             success: Iniciatyvos tipas sėkmingai pašalintas.
           edit:

@@ -55,6 +55,8 @@ eu:
           html_regular_inputs: HTML input erregularrak
           min_max_length: Luzera min - max
           min_max_length_description: Testu motako sarreretan eta testu eremuan soilik funtzionatzen du
+          multiselect: Hautaketa anitza
+          multiselect_description_html: Hautaketa anitzak javascript funtzioa dira <a href="https://tom-select.js.org/" target="_blank" rel="noopener noreferrer">Tom Select</a>. izeneko kanpoko liburutegi bati esker.
           regular_inputs_description: 'Mota arruntak baino ez ditu erakusten ditu, eskuragarri dagoen zerrenda osoa: data, tokiko ordua, posta elektronikoa, hilabetea, zenbakia, pasahitza, bilaketa, tel., testua, ordua, url, astea'
           textarea_required: eskatutako testu-eremua
           title: Inprimakiak

@@ -79,7 +79,6 @@ fi-pl:
   decidim:
     admin:
       actions:
-        manage: Hallitse
         new_initiative_type: Uusi aloitetyyppi
         new_initiative_type_scope: Uusi aloitetyypin teema
       filters:
@@ -106,7 +105,6 @@ fi-pl:
       menu:
         attachments: Liitteet
         committee_members: Komitean jäsenet
-        components: Komponentit
         information: Tiedot
         initiative_type_scopes: Aloitetyypin teemat
         initiatives: Aloitteet
@@ -238,6 +236,10 @@ fi-pl:
               most_recent: Uusimmat
         exports:
           initiatives: Aloitteet
+        index:
+          initiatives_types:
+            alert_html: "<p>Sinun tulee luoda vähintään yksi aloitetyyppi, jotta osallistujat voivat luoda aloitteita.</p><p>%{link}</p>"
+            button: Uusi aloitetyyppi
         initiatives:
           edit:
             accept: Hyväksy aloite
@@ -293,7 +295,7 @@ fi-pl:
         initiatives_types:
           create:
             error: Tapahtui virhe.
-            success: Uuden aloitetyypin luonti onnistui.
+            success: Uuden aloitetyypin luonti onnistui. Sinun on määritettävä vähintään yksi teema tälle aloitetyypille, jotta sitä voi käyttää.
           destroy:
             success: Aloitetyypin poisto onnistui.
           edit:

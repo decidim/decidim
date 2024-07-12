@@ -76,7 +76,6 @@ hu:
   decidim:
     admin:
       actions:
-        manage: Kezelés
         new_initiative_type: Új kezdeményezés típusa
       filters:
         initiatives:
@@ -101,7 +100,6 @@ hu:
       menu:
         attachments: Csatolmányok
         committee_members: Bizottsági tagok
-        components: Elemek
         information: Információ
         initiatives: Kezdeményezések
         initiatives_settings: Beállítások
@@ -283,7 +281,6 @@ hu:
         initiatives_types:
           create:
             error: Hiba történt.
-            success: Az új kezdeményezéstípus létrehozása sikeres.
           destroy:
             success: A kezdeményezéstípus eltávolítása sikeres.
           edit:

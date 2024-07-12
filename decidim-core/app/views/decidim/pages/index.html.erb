@@ -8,13 +8,12 @@ edit_link(
 %>
 
 <%= render layout:"layouts/decidim/shared/layout_center", locals: { columns: 8 } do %>
-
   <div class="text-center py-10">
     <h1 class="title-decorator inline-block text-left mb-12">
       <%= t "decidim.pages.index.title" %>
     </h1>
     <p class="text-lg text-gray-2">
-      <%= t("decidim.pages.index.subheading", name: current_organization.name) %>
+      <%= t("decidim.pages.index.subheading", name: current_organization_name) %>
     </p>
   </div>
 

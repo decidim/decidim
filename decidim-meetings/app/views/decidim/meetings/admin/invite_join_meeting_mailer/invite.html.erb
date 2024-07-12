@@ -1,7 +1,9 @@
 <p class="email-greeting"><%= t("devise.mailer.invitation_instructions.hello", email: @user.name) %></p>
 
 <p class="email-instructions">
-  <%= t ".invited_you_to_join_a_meeting", invited_by: @invited_by.name, application: @user.organization.name %>
+  <%= t ".invited_you_to_join_a_meeting",
+        invited_by: @invited_by.name,
+        application: translated_attribute(@user.organization.name) %>
 </p>
 
 <p class="email-button email-button__cta cta-decline">

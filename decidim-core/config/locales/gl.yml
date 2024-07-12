@@ -277,15 +277,12 @@ gl:
         new:
           complete_profile: Perfil completo
           sign_up: Completa o teu perfil
-          subtitle: Encha o seguinte formulario para completar o rexistro
           username_help: Nome público que aparece nas túas publicacións. Co obxectivo de garantir o anonimato, pode ser calquera nome.
       registrations:
         new:
           already_have_an_account?: Xa ten unha conta?
           newsletter: Recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
-          sign_up: Rexistrarse
-          subtitle: Rexístrate para participar en discusións e propostas de apoio.
           tos_agreement: Ao rexistrarte, aceptas %{link}.
           tos_title: Condicións de servicio
           username_help: Nome público que aparece nas túas publicacións. Co obxectivo de garantir o anonimato, pode ser calquera nome.
@@ -486,6 +483,7 @@ gl:
           error: Erro!
           remove: Eliminar
           replace: Substituír
+          save: Gardar
           title: Título
           title_required: O título é obrigatorio!
           uploaded: Cargado
@@ -563,7 +561,6 @@ gl:
         default_page:
           content: "<p>En %{organization} podes participar e decidir sobre diferentes temas, a través dos espazos que ves no menú superior: Procesos, Asembleas, Iniciativas, Consultas.</p> <p>Dentro de cada unha, atoparás diferentes opcións para participar: facer propostas, individualmente ou con outras persoas, participar nos debates, priorizar os proxectos a implementar, asistir a reunións cara a cara e outras accións.</p>\n"
           title: Que podo facer en %{organization}?
-        title: Axuda xeral
     last_activities:
       all: Todos os tipos de actividade
       index:
@@ -695,7 +692,6 @@ gl:
           headline: Estado actual de %{organization}
         sub_hero:
           register: Rexistrarse
-          register_title: Rexistrarse para crear unha conta
       index:
         standalone_pages: Páxinas
         subheading: Navega polas páxinas de axuda de %{name}
@@ -782,8 +778,6 @@ gl:
         title: Informar dun problema
       floating_help:
         help: Axuda
-      login_modal:
-        sign_up: Rexistrarse
       mentions_modal:
         remove_recipient: Eliminar o destinatario %{name}
       participatory_space_filters:
@@ -909,8 +903,6 @@ gl:
       updated_not_active: O seu contrasinal modificouse con éxito.
     registrations:
       destroyed: Adeus! Cancelouse correctamente a túa conta. Esperamos volver a ver de novo.
-      new:
-        sign_up: Rexistrarse
       signed_up: Benvido! Rexistráches con éxito.
       signed_up_but_inactive: Rexistráches con éxito. Non obstante, non puidemos iniciar sesión porque a túa conta aínda non está activada.
       signed_up_but_locked: Rexistráches con éxito. Non obstante, non puidemos iniciar sesión porque a túa conta está bloqueada.
@@ -921,7 +913,6 @@ gl:
       links:
         back: De volta
         forgot_your_password: Esqueceu o contrasinal?
-        sign_up: Rexistrarse
       minimum_password_length:
         one: "(Mínimo de%{count} caracteres)"
         other: "(Mínimo de%{count} caracteres)"
@@ -964,7 +955,6 @@ gl:
       footer:
         download_open_data: Descargar ficheiros Open Data
         made_with_open_source: Sitio web feito con <a target="_blank" href="https://github.com/decidim/decidim"> software libre</a>.
-        sign_up: Rexistrarse
       header:
         main_menu: Menú principal
         user_menu: Menú de usuario

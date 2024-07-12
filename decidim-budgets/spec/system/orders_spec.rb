@@ -109,7 +109,7 @@ describe "Orders" do
 
         it "displays total budget" do
           within ".budget-summary", match: :first do
-            expect(page).to have_content("Budget\n€0")
+            expect(page).to have_content("€0\nBudget")
           end
         end
       end
@@ -129,7 +129,7 @@ describe "Orders" do
           expect(page).to have_css ".budget-list__data--added", count: 1
 
           within ".budget-summary__progressbar-marks", match: :first do
-            expect(page).to have_content(/Assigned\s€25,000,000/)
+            expect(page).to have_content(/€25,000,000\sAssigned/)
           end
           within ".budget__list--header" do
             expect(page).to have_content(/Added\s1/)
@@ -162,7 +162,7 @@ describe "Orders" do
           expect(page).to have_css ".budget-list__data--added", count: 1
 
           within ".budget-summary__progressbar-marks", match: :first do
-            expect(page).to have_content(/Assigned\s€25,000,000/)
+            expect(page).to have_content(/€25,000,000\sAssigned/)
           end
           within ".budget__list--header" do
             expect(page).to have_content(/Added\s1/)
@@ -278,7 +278,7 @@ describe "Orders" do
         visit_budget
 
         within ".budget-summary__progressbar-marks", match: :first do
-          expect(page).to have_content(/Assigned\s€25,000,000/)
+          expect(page).to have_content(/€25,000,000\sAssigned/)
         end
         within ".budget__list--header" do
           expect(page).to have_content(/Added\s1/)
@@ -289,7 +289,7 @@ describe "Orders" do
         end
 
         within ".budget-summary__progressbar-marks", match: :first do
-          expect(page).to have_content(/Assigned\s€0/)
+          expect(page).to have_content(/€0\sAssigned/)
         end
         within ".budget__list--header" do
           expect(page).to have_content(/Added\s0/)
@@ -305,7 +305,7 @@ describe "Orders" do
 
         expect(page).to have_content "€25,000,000"
 
-        page.find("header a", text: organization.name).click
+        page.find("header a", text: translated(organization.name)).click
 
         expect(page).to have_content "You have not yet voted"
 
@@ -671,14 +671,14 @@ describe "Orders" do
         end
       end
 
-      context "with supports enabled" do
+      context "with votes enabled" do
         let(:proposal_component) do
           create(:proposal_component, :with_votes_enabled, participatory_space: project.component.participatory_space)
         end
 
         let(:proposals) { create_list(:proposal, 1, :with_votes, component: proposal_component) }
 
-        it "does not show the amount of supports" do
+        it "does not show the amount of votes" do
           visit_budget
           click_on translated(project.title)
 

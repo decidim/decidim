@@ -10,13 +10,12 @@ module Decidim
       include ::Decidim::MultipleAttachmentsMethods
       include ::Decidim::GalleryMethods
 
+      delegate :current_user, to: :form
       # Public: Initializes the command.
       #
       # form - A form object with the params.
-      # current_user - Current user.
-      def initialize(form, current_user)
+      def initialize(form)
         @form = form
-        @current_user = current_user
       end
 
       # Executes the command. Broadcasts these events:
@@ -61,7 +60,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :current_user, :attachment, :initiative
+      attr_reader :form, :attachment, :initiative
 
       # Creates the initiative and all default components
       def create_initiative
@@ -150,7 +149,7 @@ module Decidim
                  current_user:
                )
 
-        Decidim::CreateFollow.new(form, current_user).call
+        Decidim::CreateFollow.new(form).call
       end
 
       def add_author_as_committee_member(initiative)
@@ -161,7 +160,7 @@ module Decidim
                  current_user:
                )
 
-        Decidim::Initiatives::SpawnCommitteeRequest.new(form, current_user).call
+        Decidim::Initiatives::SpawnCommitteeRequest.new(form).call
       end
     end
   end

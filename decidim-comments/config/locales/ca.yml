@@ -38,7 +38,6 @@ ca:
           error: S'ha produït un error en votar el comentari.
     components:
       add_comment_form:
-        account_message: Per afegir un comentari, <a href="%{sign_in_url}">inicia la teva sessió</a> o <a href="%{sign_up_url}">registra't</a>.
         form:
           body:
             label: Comentari
@@ -64,13 +63,18 @@ ca:
           against: En contra
           in_favor: A favor
         cancel_reply: Cancel·lar resposta
+        comment_label: Comentari %{comment_id}
+        comment_label_reply: Comentari %{comment_id} (respon al comentari %{parent_comment_id})
         confirm_destroy: Segur que vols esborrar aquest comentari?
+        controls_label: Controls de comentaris
         delete: Esborrar
         deleted_at: Comentari esborrat el %{date}
         deleted_user: Participant eliminada
         edit: Editar
         edited: Editat
-        hide_replies: Oculta les respostes
+        hide_replies:
+          one: Amagar resposta
+          other: Amagar %{count} respostes
         moderated_at: Comentari moderat el %{date}
         reply: Respondre
         report:

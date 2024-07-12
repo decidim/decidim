@@ -39,7 +39,7 @@ module Decidim
           }
         end
         let(:command) do
-          described_class.new(initiative, form, initiative.author)
+          described_class.new(initiative, form)
         end
 
         describe "when the form is not valid" do

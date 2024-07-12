@@ -16,7 +16,7 @@ describe "Menu" do
     end
 
     it "switches the active option" do
-      expect(page).to have_css(".menu-bar__breadcrumb-desktop__dropdown-trigger", text: "Help")
+      expect(page).to have_css(".menu-bar__breadcrumb-desktop__dropdown-trigger", text: "Home")
     end
 
     context "and clicking on a subpage of that entry" do
@@ -29,7 +29,27 @@ describe "Menu" do
       end
 
       it "preserves the active option" do
-        expect(page).to have_css(".menu-bar__breadcrumb-desktop__dropdown-trigger", text: "Help")
+        expect(page).to have_css(".menu-bar__breadcrumb-desktop__dropdown-trigger", text: "Home")
+      end
+    end
+  end
+
+  context "when the device is mobile" do
+    let!(:participatory_space) { create(:participatory_process, organization:) }
+
+    before do
+      driven_by(:iphone)
+      switch_to_host(organization.host)
+      visit decidim.root_path
+    end
+
+    it "shows the mobile menu" do
+      click_on(id: "main-dropdown-summary-mobile")
+
+      within "#breadcrumb-main-dropdown-mobile" do
+        expect(page).to have_link("Home", href: "/")
+        expect(page).to have_link("Processes", href: "/processes")
+        expect(page).to have_link("Help", href: "/pages")
       end
     end
   end

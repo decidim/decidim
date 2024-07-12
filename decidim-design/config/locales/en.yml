@@ -55,6 +55,8 @@ en:
           html_regular_inputs: HTML regular inputs
           min_max_length: Min/Max length
           min_max_length_description: Only works for input type='text' and textarea
+          multiselect: Multiselect
+          multiselect_description_html: Multiselects are a javascript feature available thanks to an external library called <a href="https://tom-select.js.org/" target="_blank" rel="noopener noreferrer">Tom Select</a>.
           regular_inputs_description: 'Only displays common types, full available list: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
           textarea_required: textarea required
           title: Forms

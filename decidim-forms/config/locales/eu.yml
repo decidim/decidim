@@ -21,7 +21,7 @@ eu:
               too_long: luzeegia da
             choices:
               missing: ez dira osatu
-              too_many: gehiegi dira
+              too_many: Gehienez, %{count} aukeratu ahal duzu.
         questionnaire:
           request_invalid: Errore bat egon da eskaera bidaltzean. Mesedez, saiatu berriro.
   decidim:
@@ -157,7 +157,6 @@ eu:
           answer_questionnaire:
             already_have_an_account?: Baduzu kontu bat?
             are_you_new?: Erabiltzaile berria?
-            sign_in_description: Hasi saioa inkesta egiteko
             sign_up_description: Sortu parte-hartzaileen kontua inkesta egiteko
             title: Erantzun formularioa
           current_step: '%{step} urratsa'

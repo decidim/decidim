@@ -166,10 +166,6 @@ pt:
         error: Ocorreu um erro ao modificar este recurso.
         promote_button: Promover a %{model_name}
         promote_confirm_text: Tem a certeza de que deseja promover esta retificação?
-      compare_draft:
-        continue: Continuar
-        no_similars_found: Não foram encontradas retificações semelhantes.
-        title: Retificações Semelhantes
       created:
         error: Ocorreu um erro ao criar o rascunho da modificação.
         success: O rascunho da modificação foi criado corretamente.
@@ -217,9 +213,6 @@ pt:
       wizard_step_form:
         steps:
           '1': Criar a sua modificação
-          '2': Comparar a sua modificação
-          '3': Concluir a sua modificação
-          '4': Publicar a sua modificação
     anonymous_user: Anônimo
     application:
       document:
@@ -383,15 +376,13 @@ pt:
           complete_profile: Complete o seu perfil
           nickname_help: A sua alcunha em %{organization}. Só pode conter letras, números, “-”, e “_”
           sign_up: Por favor, complete o seu perfil
-          subtitle: Por favor, preencha o seguinte formulário para completar a inscrição
           username_help: Nome público que aparece nas suas publicações. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
       registrations:
         new:
           already_have_an_account?: Já tem uma conta?
+          log_in: Entrar
           newsletter: Receber um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contacto
-          sign_up: Inscreva-se
-          subtitle: Inscreva-se para participar em discussões e propostas de suporte.
           tos_agreement: Ao se inscrever, aceita %{link}.
           tos_title: Termos de Serviço
           username_help: Nome público que aparece nas suas publicações. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
@@ -690,7 +681,6 @@ pt:
         default_page:
           content: "<p>Em %{organization} pode participar e decidir sobre diferentes tópicos, através dos espaços que vê no menu superior: Processos, Reuniões, Iniciativas, Consultas.</p> <p>Dentro de cada um encontrará diferentes opções para participar: fazer propostas - individualmente ou com outras pessoas -, participar em debates, priorizar projetos a serem implementados, participar em reuniões presenciais e outras ações.</p>\n"
           title: O que posso fazer em %{organization}?
-        title: Ajuda Geral
     last_activities:
       all: Todos os tipos de atividade
       index:
@@ -878,7 +868,6 @@ pt:
           headline: Estado atual de %{organization}
         sub_hero:
           register: Registar
-          register_title: Registe-se para criar conta
       index:
         standalone_pages: Páginas
         subheading: Navegar pelas páginas de ajuda de %{name}
@@ -1005,8 +994,6 @@ pt:
         title: Denunciar utilizador inapropriado
       floating_help:
         help: Ajuda
-      login_modal:
-        sign_up: Inscrever-se
       participatory_space_filters:
         filters:
           areas: Áreas
@@ -1173,19 +1160,20 @@ pt:
       updated_not_active: A sua palavra-passe foi modificada corretamente.
     registrations:
       destroyed: A sua conta foi cancelada corretamente. Esperamos vê-lo(a) novamente em breve.
-      new:
-        sign_up: Inscrever-se
       signed_up: Bem-vindo(a)! Inscreveu-se corretamente.
       signed_up_but_inactive: Inscreveu-se corretamente. No entanto, não pudemos iniciar a sua sessão porque a sua conta ainda não está ativa.
       signed_up_but_locked: Inscreveu-se corretamente. No entanto, não pudemos iniciar a sua sessão porque a sua conta está bloqueada.
       signed_up_but_unconfirmed: Uma mensagem com uma hiperligação de confirmação foi enviada para o seu endereço de e-mail. Por favor, siga a hiperligação para ativar a sua conta.
       update_needs_confirmation: Atualizou a sua conta corretamente, mas precisamos de confirmar o seu novo endereço de e-mail. Por favor, verifique o seu e-mail e siga a hiperligação de confirmação para confirmar o seu novo endereço de e-mail.
       updated: A sua conta foi atualizada corretamente.
+    sessions:
+      new:
+        log_in: Entrar
     shared:
       links:
         back: Retroceder
         forgot_your_password: Esqueceu a sua palavra-passe?
-        sign_up: Inscrever-se
+        log_in: Entrar
       minimum_password_length:
         one: "(%{count} carácter no mínimo)"
         other: "(%{count} caracteres no mínimo)"
@@ -1206,7 +1194,6 @@ pt:
       invalid_time_zone: não é um fuso horário válido
       long_words: contém palavras muito longas (acima de 35 caracteres)
       must_start_with_caps: deve começar com uma letra maiúscula
-      not_found: não foi encontrado(a). Já se inscreveu anteriormente?
       not_locked: não estava bloqueado
       not_saved:
         one: 'Ocorreu um erro ao processar o seu pedido:'
@@ -1236,9 +1223,10 @@ pt:
         cc_by_license: Licença Creative Commons
         decidim_logo: Logótipo do Decidim
         download_open_data: Transferir ficheiros Open Data
+        log_in: Entrar
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
-        sign_up: Inscrever-se
       header:
+        log_in: Entrar
         main_menu: Menu principal
         user_menu: Menu de utilizador
       impersonation_warning:

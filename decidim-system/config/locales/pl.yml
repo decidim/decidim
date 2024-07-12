@@ -37,11 +37,17 @@ pl:
         confirm_destroy: Czy na pewno chcesz to usunąć?
         destroy: Usuń
         edit: Edytuj
+        new_admin: Nowy administrator
+        new_oauth_application: Nowa aplikacja OAuth
+        new_organization: Nowa organizacja
         save: Zapisz
         title: Działania
       admins:
         create:
           error: Podczas tworzenia nowego administratora wystąpił błąd.
+          success: Administrator został utworzony.
+        destroy:
+          success: Administrator został usunięty.
         edit:
           title: Edytuj administratora
           update: Aktualizuj
@@ -52,10 +58,31 @@ pl:
           title: Nowy administrator
         update:
           error: Podczas aktualizowania tego administratora wystąpił błąd.
+          success: Administrator został zaktualizowany.
+      dashboard:
+        show:
+          admins: Administratorzy
+          current_organizations: Bieżące organizacje
       default_pages:
         placeholders:
           content: Proszę dodać istotne treści do strony statycznej %{page} w panelu administratora.
+          summary: Prosimy o dodanie merytorycznej treści na stronie statycznej %{page} w panelu admina.
           title: Domyślny tytuł dla %{page}
+        terms-of-service: Warunki korzystania z usługi
+      devise:
+        passwords:
+          edit:
+            change_your_password: Zmień swoje hasło
+            minimum_characters: "(Minimum %{minimum} znaków)"
+          new:
+            forgot_your_password: Zapomniałeś hasła
+            send_me_reset_password_instructions: Wyślij mi instrukcje resetowania hasła
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Nie otrzymałeś(aś) instrukcji potwierdzenia?
+            did_not_receive_unlock_instructions?: Nie dotarła instrukcja odblokowania?
+            forgot_your_password?: Nie pamiętasz hasła?
+            log_in: Zaloguj się
       menu:
         admins: Administratorzy
         dashboard: Panel
@@ -77,6 +104,7 @@ pl:
           actions:
             save_and_invite: Utwórz organizację i zaproś administratora
           fields:
+            content_security_policy: Polityka bezpieczeństwa treści
             created_at: Utworzono
             file_upload_settings: Ustawienia przesyłania pliku
             name: Nazwa
@@ -104,10 +132,66 @@ pl:
           error: Wystąpił błąd podczas aktualizowania tej aplikacji.
           success: Aplikacja została zaktualizowana.
       organizations:
+        advanced_settings:
+          hide: Ukryj ustawienia zaawansowane
+          show: Pokaż ustawienia zaawansowane
         create:
           error: Podczas tworzenia nowej organizacji wystąpił błąd.
+          error_invitation: Wystąpił problem podczas tworzenia nowej organizacji. Przejrzyj nazwę administratora organizacji.
+          success_html: |
+            <p>
+              Organizacja utworzona pomyślnie.
+            </p>
+            <ol>
+              <li>Być może będziesz musiał(a) zaktualizować swój kod aplikacji, jako że aby zezwolić na żądania do %{host} musisz dodać następujące informacje do konfiguracji środowiska
+              (<code>config/environment/production.rb</code>) lub twój <code>config/application.rb</code>:
+                <p> config.hosts << "%{host}" </p>
+              </li>
+              <li>
+                Jak to zostanie zrobione, będziesz mieć dostęp do swojej platformy przez <a href="http://%{host}">http://%{host}</a>
+              </li>
+              <li>
+                Wysłaliśmy wiadomość e-mail na <b>%{email}</b>, którą musisz potwierdzić.
+              </li>
+            </ol>
+        csp_settings:
+          connect_src: Połącz src
+          connect_src_hint: |
+            Dyrektywa connect-src ogranicza adresy URL, które mogą być załadowane przy użyciu elementów <script>.
+            Platforma doda 'self', ale pozwala Ci dodać więcej. Pozostaw puste, jeśli nie masz pewności.
+          default_src: Domyślne src
+          default_src_hint: |
+            Dyrektywa default-src jest domyślną polityką ładowania treści takich jak JavaScript, obrazy, CSS, czcionki, żądania AJAX, ramki, media HTML5.
+            Platforma doda "self" "unsafe-inline", ale pozwala Ci dodać więcej. Pozostaw puste, jeśli nie masz pewności.
+          font_src: Czcionka src
+          font_src_hint: |
+            Dyrektywa font-src ogranicza adresy URL, które można załadować za pomocą @font-face.
+            Platforma doda 'self', ale pozwala Ci dodać więcej. Pozostaw puste, jeśli nie masz pewności.
+          frame_src: Ramka src
+          frame_src_hint: |
+            Dyrektywa frame-src ogranicza adresy URL, które mogą być załadowane przy użyciu elementów <frame>, <iframe> i <object>.
+            Platforma doda 'self', ale pozwala Ci dodać więcej. Pozostaw puste, jeśli nie masz pewności.
+          img_src: Img src
+          img_src_hint: |
+            Dyrektywa img-src ogranicza adresy URL, które mogą być załadowane przy użyciu elementów <img>, <image>, <picture> i <svg>.
+            Platforma doda 'self', ale pozwala Ci dodać więcej. Pozostaw puste, jeśli nie masz pewności.
+          media_src: Media src
+          media_src_hint: |
+            Dyrektywa media-src ogranicza adresy URL, które mogą być ładowane przy użyciu elementów <video>, <audio> i <source>.
+            Platforma doda 'self', ale pozwala Ci dodać więcej. Pozostaw puste, jeśli nie masz pewności.
+          script_src: Script src
+          script_src_hint: |
+            Dyrektywa script-src ogranicza adresy URL, które mogą być załadowane przy użyciu elementów <script>.
+            Platforma doda "'self' 'unsafe-inline' 'unsafe-eval'", ale pozwala Ci dodać więcej. Zostaw puste, jeśli nie masz pewności.
+          style_src: Style src
+          style_src_hint: |
+            Dyrektywa style-src ogranicza adresy URL, które mogą być załadowane przy użyciu elementów <style>.
+            Platforma doda "self" "unsafe-inline", ale pozwala ci dodać więcej. Pozostaw puste, jeśli nie masz pewności.
         edit:
+          confirm_resend_invitation: Czy na pewno wysłać ponownie zaproszenie?
+          resend_invitation: Wyślij ponownie zaproszenie
           secondary_hosts_hint: Wpisz każdy z nich w nowej linii
+          title: Edytuj organizację
         file_upload_settings:
           content_types:
             admin_hint: Te typy plików są dozwolone dla przesyłania w sekcji administracyjnej. Administratorzy powinni być świadomi zagrożeń związanych z przesyłaniem niektórych formatów dokumentów, więc możesz oczekiwać, że będą ostrożni przy przesyłaniu plików.
@@ -129,6 +213,12 @@ pl:
         index:
           title: Organizacje
         new:
+          default: Domyślne?
+          enabled: Włączone
+          locale: Ustawienie regionalne
+          organization_admin_email_hint: Wyślemy wiadomość e-mail na ten adres, dzięki czemu będziesz mógł (mogła) go potwierdzić i skonfigurować hasło.
+          reference_prefix_hint: Prefiks referencyjny jest używany do jednoznacznej identyfikacji zasobów we wszystkich organizacjach.
+          secondary_hosts_hint: Wprowadź każdy z nich w nowej linii.
           title: Nowa organizacja
         omniauth_settings:
           decidim:
@@ -148,9 +238,14 @@ pl:
           twitter:
             api_key: Klucz API
             api_secret: Sekret API
+        resend_invitation:
+          error: Podczas wysyłania zaproszenia wystąpił problem.
+          success: Zaproszenie pomyślnie wysłane.
         smtp_settings:
           fieldsets:
             sender: Nadawca
+          instructions:
+            from_label: 'Nadawcą wiadomości e-mail będzie: "twoja-nazwa-organizacji <twoja-organizacja@przyklad.org>". Pozostaw puste, aby użyć tego samego, co zostało zdefiniowane dla organizacji.'
           placeholder:
             from_email: twoja-organizacja@przyklad.org
             from_label: twoja-nazwa-organizacji
@@ -159,10 +254,26 @@ pl:
           success: Organizacja została zaktualizowana.
         users_registration_mode:
           disabled: Dostęp można uzyskać tylko za pomocą kont zewnętrznych
-          enabled: Zezwalaj użytkownikom na rejestrację i logowanie
       shared:
         notices:
           no_organization_warning_html: Aby rozpocząć, musisz utworzyć organizację. Przed kontynuowaniem przeczytaj %{guide}.
           our_getting_started_guide: nasz przewodnik
+        organizations_list:
+          confirm_resend_invitation: Czy na pewno wysłać ponownie zaproszenie?
+          resend_invitation: Wyślij ponownie zaproszenie
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Dokumentacja Decidim
+          error: Kolejka ActiveJob nie jest skonfigurowana. Nie jest to zalecana konfiguracja dla produkcji. Przeczytaj więcej na %{error_extra}.
+          success: Kolejka ActiveJob jest skonfigurowana poprawnie.
+        secret_key:
+          error: 'Tajny klucz nie jest poprawnie zdefiniowany. Zapisz do zmiennej środowiskowej SECRET_KEY_BASE i zrestartuj serwer: %{error_extra}'
+          success: Sekretny klucz jest skonfigurowany poprawnie.
       titles:
         dashboard: Panel
+        decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Wyloguj się

@@ -33,6 +33,42 @@
   }
 }
 
+[data-target="dropdown-menu-language-chooser"] {
+  & > span {
+    @apply block font-semibold text-black text-xs;
+  }
+
+  > svg {
+    @apply w-5 h-6 flex-none text-xs font-normal text-black fill-current;
+  }
+
+  & > ul {
+    @apply w-6 bg-gray;
+
+    > li {
+      @apply w-6 bg-gray;
+    }
+  }
+}
+
+[data-target="dropdown-menu-language-chooser-mobile"] {
+  & > span {
+    @apply block text-black font-normal text-sm;
+  }
+
+  > svg {
+    @apply w-5 h-6 flex-none text-xs font-normal text-black fill-current;
+  }
+
+  & > ul {
+    @apply w-6 bg-gray;
+
+    > li {
+      @apply w-6 bg-gray;
+    }
+  }
+}
+
 .dropdown {
   @apply absolute border-2 border-gray-3 rounded min-w-max p-4 drop-shadow-md text-left z-10;
 

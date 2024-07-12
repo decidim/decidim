@@ -83,7 +83,6 @@ pt:
         back_to: Voltar para %{component_name}
         close_modal: Fechar o modal
         continue: Continuar
-        more_information: Mais informação
       budgets_list:
         cancel_order:
           more_than_one: apague o seu voto em %{name} e comece de novo

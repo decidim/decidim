@@ -15,7 +15,6 @@ ar:
           attributes:
             choices:
               missing: ليست كاملة
-              too_many: كثير جدا
   decidim:
     forms:
       admin:

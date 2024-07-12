@@ -105,6 +105,16 @@ module Decidim
         end
       end
 
+      context "when user is not logged in" do
+        let(:component) { create(:proposal_component, :with_creation_enabled) }
+
+        it "redirects to the login page" do
+          get(:new)
+          expect(response).to have_http_status(:found)
+          expect(response.body).to have_text("You are being redirected")
+        end
+      end
+
       describe "POST create" do
         before { sign_in user }
 
@@ -207,20 +217,6 @@ module Decidim
           end
         end
 
-        context "when you try to complete a proposal created by another user" do
-          it "will not render the complete page" do
-            get(:complete, params:)
-            expect(subject).not_to render_template(:complete)
-          end
-        end
-
-        context "when you try to compare a proposal created by another user" do
-          it "will not render the compare page" do
-            get(:compare, params:)
-            expect(subject).not_to render_template(:compare)
-          end
-        end
-
         context "when you try to publish a proposal created by another user" do
           it "will not render the publish page" do
             post(:publish, params:)
@@ -246,13 +242,13 @@ module Decidim
             expect(proposal).to be_withdrawn
           end
 
-          context "and the proposal already has supports" do
+          context "and the proposal already has votes" do
             let(:proposal) { create(:proposal, :with_votes, component:, users: [user]) }
 
             it "is not able to withdraw the proposal" do
               put :withdraw, params: params.merge(id: proposal.id)
 
-              expect(flash[:alert]).to eq("This proposal cannot be withdrawn because it already has supports.")
+              expect(flash[:alert]).to eq("This proposal cannot be withdrawn because it already has votes.")
               expect(response).to have_http_status(:found)
               proposal.reload
               expect(proposal).not_to be_withdrawn
@@ -264,7 +260,7 @@ module Decidim
           let(:current_user) { create(:user, :confirmed, organization: component.organization) }
           let(:proposal) { create(:proposal, component:, users: [current_user]) }
 
-          context "and the proposal has no supports" do
+          context "and the proposal has no votes" do
             it "is not able to withdraw the proposal" do
               expect(WithdrawProposal).not_to receive(:call)
 

@@ -8,15 +8,15 @@ module Decidim
       include ::Decidim::MultipleAttachmentsMethods
       include ::Decidim::GalleryMethods
       include CurrentLocale
+      delegate :current_user, to: :form
 
       # Public: Initializes the command.
       #
       # initiative - Decidim::Initiative
       # form       - A form object with the params.
-      def initialize(initiative, form, current_user)
+      def initialize(initiative, form)
         @form = form
         @initiative = initiative
-        @current_user = current_user
         @attached_to = initiative
       end
 
@@ -71,7 +71,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :initiative, :current_user
+      attr_reader :form, :initiative
 
       def attributes
         attrs = {

@@ -2,9 +2,6 @@
 
 module Decidim
   class NewsletterMailer < ApplicationMailer
-    helper Decidim::SanitizeHelper
-    helper Decidim::TranslationsHelper
-
     include Decidim::NewslettersHelper
 
     layout "decidim/newsletter_base"

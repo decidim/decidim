@@ -11,7 +11,10 @@ module Decidim
       def call
         print "Creating seeds for decidim-core...\n" unless Rails.env.test? # rubocop:disable Rails/Output
 
+        Rails.application.reloader.reload! if Rails.application.reloader.check!
         reset_column_information
+
+        ActiveJob::Base.queue_adapter = :inline
 
         organization = create_organization!
 
@@ -78,7 +81,7 @@ module Decidim
 
         oauth_application.organization_logo.attach(io: File.open(File.join(seeds_root, "homepage_image.jpg")), filename: "organization_logo.jpg", content_type: "image/jpeg")
 
-        Decidim::System::CreateDefaultContentBlocks.call(organization)
+        Decidim::ContentBlocksCreator.new(organization).create_default!
 
         hero_content_block = Decidim::ContentBlock.find_by(organization:, manifest_name: :hero, scope_name: :homepage)
         hero_content_block.images_container.background_image = create_blob!(seeds_file: "homepage_image.jpg", filename: "homepage_image.jpg", content_type: "image/jpeg")
@@ -115,16 +118,13 @@ module Decidim
         ].sample
 
         colors = {
-          alert: "#e7131a",
           primary: primary_color,
           secondary: secondary_color,
-          tertiary: tertiary_color,
-          success: "#28a745",
-          warning: "#ffb703"
+          tertiary: tertiary_color
         }
 
         Decidim::Organization.first || Decidim::Organization.create!(
-          name: ::Faker::Company.name,
+          name: Decidim::Faker::Localized.company,
           twitter_handler: ::Faker::Hipster.word,
           facebook_handler: ::Faker::Hipster.word,
           instagram_handler: ::Faker::Hipster.word,

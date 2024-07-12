@@ -42,7 +42,6 @@ pl:
           error: Podczas dodawania komentarza wystąpił błąd.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Zaloguj się na swoje konto</a> lub <a href="%{sign_up_url}">zarejestruj się</a>, aby dodać swój komentarz.
         form:
           body:
             label: Komentarz
@@ -68,13 +67,15 @@ pl:
           against: Negatywny
           in_favor: Pozytywny
         cancel_reply: Anuluj odpowiedź
+        comment_label: Komentarz %{comment_id}
+        comment_label_reply: Komentarz %{comment_id} (odpowiedź na komentarz %{parent_comment_id})
         confirm_destroy: Czy na pewno chcesz usunąć ten komentarz?
+        controls_label: Kontrolki komentarzy
         delete: Usuń
         deleted_at: Komentarz usunięty %{date}
         deleted_user: Usunięty użytkownik
         edit: Edytuj
         edited: Edytowany
-        hide_replies: Ukryj odpowiedzi
         moderated_at: Komentarz moderowany dnia %{date}
         reply: Odpowiedz
         report:

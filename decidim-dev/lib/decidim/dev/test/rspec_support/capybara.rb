@@ -32,13 +32,23 @@ end
 1.step do
   port = rand(5000..6999)
   begin
-    Socket.tcp("127.0.0.1", port, connect_timeout: 5).close
-    warn "Port #{port} is already in use, trying another one."
-  rescue Errno::ECONNREFUSED
-    # When connection is refused, the port is available for use.
-    Capybara.server_port = port
+    redis = Redis.new
+    reserved_ports = (redis.get("decidim_test_capybara_reserved_ports") || "").split(",").map(&:to_i)
+    unless reserved_ports.include?(port)
+      reserved_ports << port
+      if ParallelTests.last_process?
+        redis.del("decidim_test_capybara_reserved_ports")
+      else
+        redis.set("decidim_test_capybara_reserved_ports", reserved_ports.sort.join(","))
+      end
+      break
+    end
+  rescue Redis::CannotConnectError
+    # Redis is not available
     break
   end
+ensure
+  Capybara.server_port = port
 end
 
 Capybara.register_driver :headless_chrome do |app|
@@ -122,6 +132,7 @@ end
 Capybara.server = :puma, server_options
 
 Capybara.server_errors = [SyntaxError, StandardError]
+Capybara.save_path = Rails.root.join("tmp/screenshots")
 
 Capybara.default_max_wait_time = 10
 

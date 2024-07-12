@@ -168,7 +168,7 @@ ja:
         back_to: '%{component_name} に戻る'
         close_modal: ウィンドウを閉じる
         continue: 続行
-        more_information: 詳細情報
+        more_information: 予算に関する詳細情報
       budgets_list:
         budgets: 予算
         cancel_order:
@@ -180,6 +180,11 @@ ja:
         finished_message: 投票プロセスが終了しました。ご参加ありがとうございます！
         highlighted_cta: '%{name} に投票'
         if_change_opinion: 'もし気が変わった場合は、以下を行うことができます:'
+        orders:
+          highest_cost: 価格が高い順
+          label: 予算の並び順
+          lowest_cost: 価格が低い順
+          random: ランダム
         progress: 投票を終了
         remove_vote: 投票を削除
         show: プロジェクトを表示

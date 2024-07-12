@@ -13,8 +13,6 @@ module Decidim
       routes do
         resources :proposals, except: [:destroy] do
           member do
-            get :compare
-            get :complete
             get :edit_draft
             patch :update_draft
             get :preview
@@ -57,6 +55,7 @@ module Decidim
         Decidim.icons.register(name: "arrow-right-s-fill", icon: "arrow-right-s-fill", category: "system", description: "", engine: :proposals)
         Decidim.icons.register(name: "bar-chart-2-line", icon: "bar-chart-2-line", category: "system", description: "", engine: :proposals)
         Decidim.icons.register(name: "scales-line", icon: "scales-line", category: "system", description: "", engine: :proposals)
+        Decidim.icons.register(name: "layout-grid-fill", icon: "layout-grid-fill", category: "system", description: "", engine: :proposals)
       end
 
       initializer "decidim_proposals.content_processors" do |_app|
@@ -88,21 +87,6 @@ module Decidim
           Decidim::Comments::CommentCreation.subscribe do |data|
             proposals = data.dig(:metadatas, :proposal).try(:linked_proposals)
             Decidim::Proposals::NotifyProposalsMentionedJob.perform_later(data[:comment_id], proposals) if proposals
-          end
-        end
-      end
-
-      # Subscribes to ActiveSupport::Notifications that may affect a Proposal.
-      initializer "decidim_proposals.subscribe_to_events" do
-        # when a proposal is linked from a result
-        event_name = "decidim.resourceable.included_proposals.created"
-        ActiveSupport::Notifications.subscribe event_name do |_name, _started, _finished, _unique_id, data|
-          payload = data[:this]
-          if payload[:from_type] == Decidim::Accountability::Result.name && payload[:to_type] == Proposal.name
-            proposal = Proposal.find(payload[:to_id])
-
-            proposal.assign_state("accepted")
-            proposal.update(state_published_at: Time.current)
           end
         end
       end

@@ -148,13 +148,13 @@ describe "Homepage" do
       end
 
       it "welcomes the user" do
-        expect(page).to have_content(organization.name)
+        expect(page).to have_content(translated(organization.name))
       end
 
       context "when there are static pages" do
-        let!(:static_page1) { create(:static_page, organization:, show_in_footer: true) }
-        let!(:static_page2) { create(:static_page, organization:, show_in_footer: true) }
-        let!(:static_page3) { create(:static_page, organization:, show_in_footer: false) }
+        let!(:static_page1) { create(:static_page, :with_topic, organization:) }
+        let!(:static_page2) { create(:static_page, :with_topic, organization:) }
+        let!(:static_page3) { create(:static_page, :with_topic, organization:) }
 
         before do
           visit current_path
@@ -163,13 +163,13 @@ describe "Homepage" do
         it "includes links to them" do
           within "footer" do
             [static_page1, static_page2].each do |static_page|
-              expect(page).to have_content(static_page.title["en"])
+              expect(page).to have_content(static_page.topic.title["en"])
             end
 
             expect(page).to have_no_content(static_page3.title["en"])
           end
 
-          click_on static_page1.title["en"]
+          click_on static_page1.topic.title["en"]
           expect(page).to have_i18n_content(static_page1.title)
 
           expect(page).to have_i18n_content(static_page1.content, strip_tags: true)
@@ -179,7 +179,7 @@ describe "Homepage" do
           expect(page).to have_css("#footer_sub_hero")
 
           within "#footer_sub_hero" do
-            expect(page).to have_content(organization.name)
+            expect(page).to have_content(translated(organization.name))
           end
         end
 
@@ -192,33 +192,32 @@ describe "Homepage" do
             )
           end
           let(:user) { nil }
-          let!(:static_page1) { create(:static_page, organization:, show_in_footer: true, allow_public_access: true) }
-          let!(:static_page_topic1) { create(:static_page_topic, organization:, show_in_footer: true) }
+          let!(:static_page1) { create(:static_page, :with_topic, organization:, allow_public_access: true) }
+          let!(:static_page_topic1) { create(:static_page, :with_topic, organization:, allow_public_access: true) }
           let!(:static_page_topic1_page1) do
             create(
               :static_page,
+              :with_topic,
               organization:,
-              topic: static_page_topic1,
               weight: 0,
-              show_in_footer: true,
               allow_public_access: false
             )
           end
           let!(:static_page_topic1_page2) do
             create(
               :static_page,
+              :with_topic,
               organization:,
-              topic: static_page_topic1,
               weight: 1,
-              show_in_footer: true,
               allow_public_access: true
             )
           end
-          let!(:static_page_topic2) { create(:static_page_topic, organization:, show_in_footer: true) }
-          let!(:static_page_topic2_page1) { create(:static_page, organization:, topic: static_page_topic2, weight: 0, show_in_footer: true) }
-          let!(:static_page_topic2_page2) { create(:static_page, organization:, topic: static_page_topic2, weight: 1) }
-          let!(:static_page_topic3) { create(:static_page_topic, organization:) }
-          let!(:static_page_topic3_page1) { create(:static_page, organization:, topic: static_page_topic3) }
+          let!(:static_page2) { create(:static_page, :with_topic, organization:, allow_public_access: false) }
+          let!(:static_page_topic2) { create(:static_page, :with_topic, organization:) }
+          let!(:static_page_topic2_page1) { create(:static_page, :with_topic, organization:, weight: 0) }
+          let!(:static_page_topic2_page2) { create(:static_page, :with_topic, organization:, weight: 1) }
+          let!(:static_page_topic3) { create(:static_page_topic) }
+          let!(:static_page_topic3_page1) { create(:static_page, :with_topic, organization:) }
 
           # Re-visit required for the added pages and topics to be visible and
           # to sign in the user when it is defined.
@@ -229,17 +228,16 @@ describe "Homepage" do
 
           it "displays only publicly accessible pages and topics with pages configured to be shown in the footer" do
             within "footer" do
-              expect(page).to have_content(static_page1.title["en"])
-              expect(page).to have_no_content(static_page2.title["en"])
+              expect(page).to have_content(static_page1.topic.title["en"])
               expect(page).to have_no_content(static_page3.title["en"])
-              expect(page).to have_content(static_page_topic1.title["en"])
+              expect(page).to have_content(static_page_topic1.topic.title["en"])
               expect(page).to have_no_content(static_page_topic1_page1.title["en"])
-              expect(page).to have_content(static_page_topic1_page2.title["en"])
+              expect(page).to have_content(static_page_topic1_page2.topic.title["en"])
               expect(page).to have_no_content(static_page_topic2.title["en"])
               expect(page).to have_no_content(static_page_topic3.title["en"])
 
               expect(page).to have_link(
-                static_page_topic1_page2.title["en"],
+                static_page_topic1_page2.topic.title["en"],
                 href: "/pages/#{static_page_topic1_page2.slug}"
               )
               expect(page).to have_no_link(
@@ -255,27 +253,27 @@ describe "Homepage" do
             it_behaves_like "accessible page"
 
             it "displays all pages and topics with pages in footer that are configured to display in footer" do
-              expect(page).to have_content(static_page1.title["en"])
-              expect(page).to have_content(static_page2.title["en"])
+              expect(page).to have_content(static_page1.topic.title["en"])
+              expect(page).to have_content(static_page2.topic.title["en"])
               expect(page).to have_no_content(static_page3.title["en"])
-              expect(page).to have_content(static_page_topic1.title["en"])
-              expect(page).to have_content(static_page_topic1_page1.title["en"])
-              expect(page).to have_content(static_page_topic1_page2.title["en"])
-              expect(page).to have_content(static_page_topic2.title["en"])
-              expect(page).to have_content(static_page_topic2_page1.title["en"])
+              expect(page).to have_content(static_page_topic1.topic.title["en"])
+              expect(page).to have_content(static_page_topic1_page1.topic.title["en"])
+              expect(page).to have_content(static_page_topic1_page2.topic.title["en"])
+              expect(page).to have_content(static_page_topic2.topic.title["en"])
+              expect(page).to have_content(static_page_topic2_page1.topic.title["en"])
               expect(page).to have_no_content(static_page_topic2_page2.title["en"])
               expect(page).to have_no_content(static_page_topic3.title["en"])
 
               expect(page).to have_link(
-                static_page_topic1_page2.title["en"],
+                static_page_topic1_page2.topic.title["en"],
                 href: "/pages/#{static_page_topic1_page2.slug}"
               )
               expect(page).to have_link(
-                static_page_topic1_page1.title["en"],
+                static_page_topic1_page1.topic.title["en"],
                 href: "/pages/#{static_page_topic1_page1.slug}"
               )
               expect(page).to have_link(
-                static_page_topic2_page1.title["en"],
+                static_page_topic2_page1.topic.title["en"],
                 href: "/pages/#{static_page_topic2_page1.slug}"
               )
               expect(page).to have_no_link(
@@ -351,7 +349,7 @@ describe "Homepage" do
           let(:organization) { create(:organization) }
 
           it "does not show the statistics block" do
-            expect(page).to have_no_content("Current state of #{organization.name}")
+            expect(page).to have_no_content("Current state of #{translated(organization.name)}")
           end
         end
 
@@ -365,7 +363,7 @@ describe "Homepage" do
 
           it "shows the statistics block" do
             within "#statistics" do
-              expect(page).to have_content("Current state of #{organization.name}")
+              expect(page).to have_content("Current state of #{translated(organization.name)}")
               expect(page).to have_content("Processes")
               expect(page).to have_content("Participants")
             end

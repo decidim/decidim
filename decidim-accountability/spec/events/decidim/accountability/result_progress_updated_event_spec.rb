@@ -64,4 +64,22 @@ describe Decidim::Accountability::ResultProgressUpdatedEvent do
       expect(subject.resource_text).to eq translated(resource.description)
     end
   end
+
+  describe "hidden_resource?" do
+    context "when resource is not moderated" do
+      let(:resource) { create(:proposal) }
+
+      it "returns false" do
+        expect(subject.hidden_resource?).to be false
+      end
+    end
+
+    context "when resource is moderated" do
+      let(:resource) { create(:proposal, :moderated) }
+
+      it "returns true" do
+        expect(subject.hidden_resource?).to be true
+      end
+    end
+  end
 end

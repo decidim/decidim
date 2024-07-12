@@ -296,10 +296,6 @@ de:
         title:
           one: "%{count} Anpassung"
           other: "%{count} Anpassungen"
-      compare_draft:
-        continue: Fortfahren
-        no_similars_found: Keine ähnlichen Entwürfe gefunden.
-        title: Ähnliche Entwürfe
       created:
         error: Beim Erstellen des Änderungsvorschlags ist ein Fehler aufgetreten.
         success: Der Änderungsvorschlag wurde erfolgreich erstellt.
@@ -358,14 +354,16 @@ de:
       wizard_step_form:
         steps:
           '1': Erstellen Sie Ihre Änderung
-          '2': Vergleichen Sie Ihren Änderungsvorschlag
-          '3': Vervollständigen Sie Ihren Änderungsvorschlag
-          '4': Veröffentlichen Sie Ihren Änderungsvorschlag
+          '2': Änderung veröffentlichen
     anonymous_user: Anonym
     application:
       document:
         download: Datei herunterladen
+        visit_link: Link öffnen
       documents:
+        component_documents:
+          dummy: Platzhalter für Komponenten-Dokumente
+          meetings: Veranstaltungsdokumente
         documents: Dokumente
         related_documents: Zugehörige Dokumente
       photo:
@@ -587,7 +585,7 @@ de:
           complete_profile: Profil vervollständingen
           nickname_help: Ihr Pseudonym in %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
           sign_up: Bitte vervollständigen Sie Ihr Profil
-          subtitle: Bitte füllen Sie das folgende Formular aus, um die Anmeldung abzuschließen
+          subtitle: Bitte füllen Sie das folgende Formular aus, um die Kontoerstellung abzuschließen
           username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
       registrations:
         create:
@@ -597,8 +595,8 @@ de:
           log_in: Anmelden
           newsletter: Gelegentlich einen Newsletter mit relevanten Informationen erhalten
           newsletter_title: Kontakterlaubnis
-          sign_up: Registrieren
-          subtitle: Registrieren Sie sich, um an Diskussionen teilzunehmen und Vorschläge zu unterstützen.
+          sign_up: Konto erstellen
+          subtitle: Erstellen Sie ein Konto, um auf der Plattform teilzunehmen.
           terms: die Nutzungsbedingungen
           tos_agreement: Mit der Anmeldung stimmen Sie %{link} zu.
           tos_title: Nutzungsbedingungen
@@ -887,6 +885,11 @@ de:
         button: Entfolgen
         error: Beim Entfolgen dieser Ressource ist ein Fehler aufgetreten.
     forms:
+      attachment_link:
+        explanation: Anleitung für Anhang-Links
+        help_messages:
+          - Nur korrekte URL-Formate werden akzeptiert.
+          - Bitte beachten Sie, dass die Links öffentlich sein müssen, damit alle Teilnehmer auf sie zugreifen können.
       errors:
         decidim/user:
           password: Das Passwort ist zu kurz.
@@ -922,6 +925,7 @@ de:
           filename: Dateiname
           remove: Entfernen
           replace: Ersetzen
+          save: Speichern
           title: Titel
           title_required: Titel ist erforderlich!
           uploaded: Hochgeladen
@@ -1045,7 +1049,7 @@ de:
           content: "<p>In %{organization} können Sie durch die Felder, die Sie im oberen Menü sehen, an verschiedenen Themen teilnehmen: Prozesse, Gremien, Initiativen, Beratungen.</p> <p>In jedem Bereich finden Sie verschiedene Optionen für die Teilnahme: Vorschläge machen - einzeln oder mit anderen -, an Debatten teilnehmen, Prioritäten für umzusetzende Projekte setzen, persönliche Treffen und andere Aktionen besuchen.</p>\n"
           title: Was kann ich in %{organization} tun?
         description: Mehr lesen über %{organization}.
-        title: Allgemeine Hilfe
+        title: Allgemein
     last_activities:
       all: Alle Aktivitätstypen
       index:
@@ -1241,9 +1245,11 @@ de:
         same_language: Der Inhalt wurde in Ihrer bevorzugten Sprache (%{language}) veröffentlicht, daher wird in dieser E-Mail keine automatisierte Übersetzung angezeigt.
         translated_text: 'Automatisch übersetzter Text:'
     notifications:
+      action_error: Beim Aktualisieren der Benachrichtigungen ist ein Fehler aufgetreten.
       no_notifications: Noch keine Benachrichtigungen
       show:
         missing_event: Hoppla, diese Benachrichtigung gehört zu einem Artikel, der nicht mehr verfügbar ist. Du kannst sie verwerfen.
+        moderated: Inhalt moderiert
     notifications_digest_mailer:
       header:
         daily: Tägliche Zusammenfassung
@@ -1316,7 +1322,7 @@ de:
           headline: Aktueller Status von %{organization}
         sub_hero:
           register: Registrieren
-          register_title: Registrieren Sie sich um ein Konto anzulegen
+          register_title: Konto erstellen
       index:
         standalone_pages: Seiten
         subheading: Navigieren Sie durch die Hilfeseiten von %{name}
@@ -1499,7 +1505,7 @@ de:
         log_in_before_follow: Bitte melden Sie sich an, bevor Sie diese Aktion durchführen
       login_modal:
         please_log_in: Bitte melden Sie sich an
-        sign_up: Registrieren
+        sign_up: Konto erstellen
       mentions_modal:
         remove_recipient: Empfänger %{name} entfernen
       participatory_space_filters:
@@ -1626,7 +1632,7 @@ de:
       locked: Dein Konto ist gesperrt.
       not_found_in_database: Ungültige %{authentication_keys} oder Passwort
       timeout: Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an, um fortzufahren.
-      unauthenticated: Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren.
+      unauthenticated: Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren können.
     invitations:
       edit:
         header: Beenden Sie die Erstellung Ihres Kontos
@@ -1714,7 +1720,7 @@ de:
     registrations:
       destroyed: Tschüss! Ihr Konto wurde erfolgreich storniert. Wir hoffen, Sie bald wieder zu sehen.
       new:
-        sign_up: Registrieren
+        sign_up: Konto erstellen
       signed_up: Herzlich willkommen! Sie haben sich erfolgreich angemeldet.
       signed_up_but_inactive: Sie haben sich erfolgreich angemeldet. Wir konnten Sie jedoch nicht anmelden, weil Ihr Konto noch nicht aktiviert wurde.
       signed_up_but_locked: Sie haben sich erfolgreich angemeldet. Wir konnten Sie jedoch nicht anmelden, weil Ihr Konto gesperrt ist.
@@ -1735,7 +1741,7 @@ de:
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
         log_in: Anmelden
         log_in_with_provider: Anmelden über %{provider}
-        sign_up: Registrieren
+        sign_up: Konto erstellen
       minimum_password_length:
         one: "(%{count} Zeichen Minimum)"
         other: "(%{count} Zeichen Minimum)"
@@ -1849,7 +1855,7 @@ de:
       long_words: enthält zu lange Wörter (über 35 Zeichen)
       must_start_with_caps: muss mit einem Großbuchstaben beginnen
       nesting_too_deep: kann nicht innerhalb einer Unterkategorie sein
-      not_found: konnte nicht gefunden werden. Haben Sie sich vorher angemeldet?
+      not_found: konnte nicht gefunden werden. Haben Sie bereits ein Konto erstellt?
       not_locked: war nicht gesperrt
       not_saved:
         one: 'Bei der Bearbeitung Ihrer Anfrage ist ein Fehler aufgetreten:'
@@ -1934,8 +1940,8 @@ de:
         log_in: Anmelden
         made_with_open_source: Website mit <a target="_blank" href="https://github.com/decidim/decidim">freier Software erstellt</a>.
         resources: Ressourcen
-        sign_up: Registrieren
-        terms_and_conditions: Nutzungsbedingungen
+        sign_up: Konto erstellen
+        terms_of_service: Nutzungsbedingungen
       header:
         log_in: Anmelden
         main_menu: Hauptmenü
@@ -1951,10 +1957,6 @@ de:
         mark_as_read: Als gelesen markieren
       offline_banner:
         cache_version_page: Hoppla! Ihr Netzwerk ist offline. Dies ist eine zuvor gecachte Version der Seite, die Sie besuchen, möglicherweise ist der Inhalt nicht aktuell.
-      shared:
-        layout_item:
-          next: Nächstes Element
-          prev: Vorheriges Element
       social_media_links:
         facebook: "%{organization} auf Facebook"
         github: "%{organization} auf GitHub"

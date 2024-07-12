@@ -2,8 +2,13 @@ pl:
   activemodel:
     attributes:
       initiative:
+        answer: Odpowiedź
+        answer_url: Adres URL odpowiedzi
+        area_id: Obszar
+        decidim_scope_id: Zakres
         decidim_user_group_id: Autor
         description: Opis
+        hashtag: Hashtag
         offline_votes: Podpisy na piśmie
         offline_votes_for_scope: Podpisy dla %{scope_name}
         scope_id: Zakres
@@ -16,14 +21,18 @@ pl:
           online: Online
         state: Stan
         title: Tytuł
+        type_id: Typ
       initiatives_committee_member:
         user: Członek Komisji
+      initiatives_settings:
+        initiatives_order: Kolejność
       initiatives_type:
         area_enabled: Pozwól autorom na wybór kategorii dla ich inicjatyw
         attachments_enabled: Pozwól na załączniki
         banner_image: Baner
         child_scope_threshold_enabled: Włącz podpisy dla elementów podrzędnych
         collect_user_extra_fields: Zbierz dane osobowe użytkowników przy zbiórce podpisów
+        comments_enabled: Włącz komentarze
         custom_signature_end_date_enabled: Pozwól autorom na wybór końca okresu zbierania podpisów
         description: Opis
         document_number_authorization_handler: Zezwolenie na weryfikację numeru dokumentu przy zbiórce podpisów
@@ -32,9 +41,13 @@ pl:
         online_signature_enabled: Pozwól na podpisy online
         only_global_scope_enabled: Pozwól tylko na tworzenie inicjatyw o zasięgu globalnym
         promoting_committee_enabled: Włącz komitet organizacyjny
+        signature_type: Typ podpisu
         title: Tytuł
         undo_online_signatures_enabled: Pozwól użytkownikom na wycofanie ich podpisów online
         validate_sms_code_on_votes: Dodaj krok weryfikacji kodem SMS przy zbiórce podpisów
+      initiatives_type_scope:
+        decidim_scopes_id: Zakresy
+        supports_required: Wymagane wsparcie
       initiatives_vote:
         date_of_birth: Data urodzenia
         document_number: Numer dokumentu
@@ -51,6 +64,7 @@ pl:
             attachment:
               file: Nieprawidłowy plik
               needs_to_be_reattached: Załącz ponownie
+              title: Tytuł nie powinien być pusty
   activerecord:
     models:
       decidim/initiative:
@@ -71,8 +85,8 @@ pl:
   decidim:
     admin:
       actions:
-        manage: Zarządzanie
         new_initiative_type: Nowy typ inicjatywy
+        new_initiative_type_scope: Zakres nowego typu inicjatywy
       filters:
         initiatives:
           decidim_area_id_eq:
@@ -90,12 +104,21 @@ pl:
             label: Typ
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Wyszukaj %{collection} według tytułu, opisu, ID lub nazwy autora.
+      initiatives_settings:
+        update:
+          error: Wystąpił błąd.
+          success: Ustawienia inicjatyw zostały pomyślnie zaktualizowane.
       menu:
         attachments: Załączniki
         committee_members: Członkowie Komitetu
-        components: Komponenty
         information: Informacja
+        initiative_type_scopes: Zakresy typu inicjatywy
         initiatives: Inicjatywy
+        initiatives_menu:
+          see_initiative: Zobacz inicjatywę
+        initiatives_settings: Ustawienia
+        initiatives_submenu:
+          info: O tej inicjatywie
         initiatives_types: Typy inicjatyw
         moderations: Moderacja
       models:
@@ -177,8 +200,10 @@ pl:
             - Postępuj zgodnie z instrukcjami, aby utworzyć nową inicjatywę
           description: Ta odznaka jest przyznawana, gdy tworzysz nowe inicjatywy, współpracując z innymi, aby je zrealizować.
           description_another: Ten użytkownik posiada %{score} opublikowanych inicjatyw.
+          description_own: Masz %{score} opublikowanych inicjatyw.
           name: Opublikowane inicjatywy
           next_level_in: Uzyskaj %{score} kolejnych opublikowanych inicjatyw, aby awansować na następny poziom!
+          unearned_another: Ten uczestnik nie opublikował jeszcze żadnych inicjatyw.
           unearned_own: Nie ma jeszcze żadnych opublikowanych inicjatyw.
     help:
       participatory_spaces:
@@ -204,6 +229,8 @@ pl:
           index:
             approve: Zatwierdź
             confirm_revoke: Jesteś pewny?
+            invite_to_committee_help: Udostępnij ten link, aby zaprosić innych uczestników do komitetu promocyjnego.
+            no_members_yet: W komitecie promocyjnym nie ma członków.
             revoke: Odwołaj
             title: Członkowie komitetu
         content_blocks:
@@ -225,6 +252,7 @@ pl:
             export_votes: Eksport podpisów
             reject: Odrzuć inicjatywę
             send_to_technical_validation: Wyślij do weryfikacji technicznej
+            success: Inicjatywa została wysłana do weryfikacji technicznej.
             update: Aktualizuj
           form:
             settings: Ustawienia
@@ -238,14 +266,39 @@ pl:
             edit: Edytuj
             new: Nowy
             photos: Zdjęcia
+          update:
+            error: Wystąpił błąd.
+            success: Inicjatywa została zaktualizowana.
+        initiatives_settings:
+          edit:
+            update: Aktualizuj
+          form:
+            comments: Najczęściej komentowane
+            date: Najnowsze
+            publication_date: Ostatnio opublikowane
+            random: Losowo
+            signatures: Najczęściej podpisane
+            title: Ustawienia dla inicjatyw
         initiatives_type_scopes:
+          create:
+            error: Wystąpił błąd.
+            success: Utworzono nowy zakres dla danego typu inicjatywy.
+          destroy:
+            success: Zakres został pomyślnie usunięty.
           edit:
             title: Edytuj zakres typu inicjatywy
             update: Aktualizuj
           new:
             create: Utwórz
             title: Utwórz zakres typu inicjatywy
+          update:
+            error: Wystąpił błąd.
+            success: Zakres został zaktualizowany.
         initiatives_types:
+          create:
+            error: Wystąpił błąd.
+          destroy:
+            success: Typ inicjatywy został usunięty.
           edit:
             update: Aktualizuj
           form:

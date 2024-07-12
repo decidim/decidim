@@ -53,10 +53,11 @@ module Decidim
         form = Decidim::Comments::CommentForm.from_params(
           params.merge(commentable: comment.commentable)
         ).with_context(
+          current_user:,
           current_organization:
         )
 
-        Decidim::Comments::UpdateComment.call(comment, current_user, form) do
+        Decidim::Comments::UpdateComment.call(comment, form) do
           on(:ok) do
             respond_to do |format|
               format.js { render :update }
@@ -78,9 +79,10 @@ module Decidim
           params.merge(commentable:)
         ).with_context(
           current_organization:,
-          current_component:
+          current_component:,
+          current_user:
         )
-        Decidim::Comments::CreateComment.call(form, current_user) do
+        Decidim::Comments::CreateComment.call(form) do
           on(:ok) do |comment|
             handle_success(comment)
             respond_to do |format|

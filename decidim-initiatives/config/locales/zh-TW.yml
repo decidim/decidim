@@ -76,7 +76,6 @@ zh-TW:
   decidim:
     admin:
       actions:
-        manage: 管理
         new_initiative_type: 新的倡議類型
       filters:
         initiatives:
@@ -101,7 +100,6 @@ zh-TW:
       menu:
         attachments: 附件
         committee_members: 委員會成員
-        components: 组件
         information: 資訊
         initiatives: 倡議
         initiatives_settings: 設定
@@ -283,7 +281,6 @@ zh-TW:
         initiatives_types:
           create:
             error: 出現了一個錯誤.
-            success: 一個新的倡議類型已成功更新.
           destroy:
             success: 該倡議類型已成功刪除.
           edit:

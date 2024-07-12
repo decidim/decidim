@@ -14,8 +14,8 @@
           <li><%= t(".threshold_per_proposal.description", limit: threshold_per_proposal) %></li>
         <% end %>
 
-        <% if can_accumulate_supports_beyond_threshold? %>
-          <li><%= t(".can_accumulate_supports_beyond_threshold.description", limit: threshold_per_proposal) %></li>
+        <% if can_accumulate_votes_beyond_threshold? %>
+          <li><%= t(".can_accumulate_votes_beyond_threshold.description", limit: threshold_per_proposal) %></li>
         <% end %>
 
         <% if minimum_votes_per_user_enabled? %>
@@ -24,7 +24,7 @@
             <% if votes_given >= minimum_votes_per_user %>
               <%= t(".minimum_votes_per_user.given_enough_votes") %>
             <% else %>
-              <%= t(".minimum_votes_per_user.supports_remaining", remaining_votes: minimum_votes_per_user - votes_given) %>
+              <%= t(".minimum_votes_per_user.votes_remaining", remaining_votes: minimum_votes_per_user - votes_given) %>
             <% end %>
           </li>
         <% end %>

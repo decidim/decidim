@@ -24,8 +24,8 @@ module Decidim
         @answer ||= Decidim::Meetings::Answer.find_by(decidim_user_id: current_user.id, decidim_question_id: question_id) if current_user
       end
 
-      def label(idx)
-        base = "#{idx + 1}. #{translated_attribute(question.body)}"
+      def label
+        base = translated_attribute(question.body)
         base += " (#{max_choices_label})" if question.max_choices
         base
       end
@@ -43,13 +43,13 @@ module Decidim
       end
 
       def selected_choices
-        choices.select(&:body)
+        choices.select(&:answer_option_id)
       end
 
       private
 
       def max_choices
-        errors.add(:choices, :too_many) if selected_choices.size > question.max_choices
+        errors.add(:choices, :too_many, count: question.max_choices) if selected_choices.size > question.max_choices
       end
 
       def mandatory_label

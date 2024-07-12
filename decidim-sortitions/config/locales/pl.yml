@@ -21,6 +21,8 @@ pl:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Skomentuj
         name: Wybory losowe
         settings:
           global:
@@ -38,6 +40,7 @@ pl:
         actions:
           destroy: Anuluj wybór losowy
           edit: Edytuj
+          new_sortition: Nowy wybór przez losowanie
           show: Szczegóły dotyczące wyboru losowego
         models:
           sortition:
@@ -58,6 +61,10 @@ pl:
             title: Anulowanie wyboru losowego
           create:
             error: Wystąpił błąd podczas tworzenia nowego wyboru losowego.
+            success: Wybór losowy został utworzony.
+          destroy:
+            error: Nie można anulować wyboru przez losowanie.
+            success: Wybór losowy został anulowany.
           edit:
             title: Zaktualizuj informacje o wyborze losowym
             update: Aktualizuj
@@ -67,12 +74,14 @@ pl:
           index:
             title: Wybór losowy
           new:
+            confirm: Naciśnięcie przycisku dalej sprawi, że platforma zapisze datę i godzinę (z dokładnością do sekund) wraz z wynikiem rzutu kostką. Informacje te zostaną wykorzystane do dokonania losowego wyboru. Nie można cofnąć tej operacji; po kliknięciu przycisku wynik losowania zostanie opublikowany wraz z danymi wpisanymi w formularzu i nie będzie można modyfikować jego treści. Prosimy o uważne sprawdzenie jego treści.
             create: Utwórz
             title: Nowy wybór losowy
           show:
             selected_proposals: Propozycje wskazane do losowania
           update:
             error: Wystąpił błąd podczas aktualizacji wyboru losowego.
+            success: Wybór losowy został zaktualizowany.
       admin_log:
         sortition:
           create: "%{user_name} utworzył(a) wybór losowy %{resource_name} w %{space_name}"
@@ -91,6 +100,8 @@ pl:
           cancelled: Anulowane
           category: Kategoria
           state: Status
+        index:
+          empty: Nie ma jeszcze żadnych wyborów przez losowanie.
         linked_sortitions:
           selected_proposals: Wybrane propozycje
         orders:
@@ -134,3 +145,5 @@ pl:
             few: "%{count} wyborów losowych"
             many: "%{count} wybory losowe"
             other: "%{count} wybory losowe"
+    statistics:
+      sortitions_count: Wybory przez losowanie

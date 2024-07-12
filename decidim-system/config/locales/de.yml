@@ -31,6 +31,10 @@ de:
           attributes:
             redirect_uri:
               must_be_ssl: Der Umleitungs-URI muss ein SSL-URI sein
+        organization:
+          attributes:
+            password:
+              secret_key: Sie müssen die SECRET_KEY_BASE Umgebungsvariable definieren, um dieses Feld speichern zu können
   decidim:
     system:
       actions:
@@ -63,6 +67,7 @@ de:
         show:
           admins: Admins
           current_organizations: Aktuelle Organisationen
+          system_checks: System-Prüfung
       default_pages:
         placeholders:
           content: Fügen Sie der statischen Seite %{page} im Admin-Dashboard sinnvollen Inhalt hinzu.
@@ -83,7 +88,7 @@ de:
             did_not_receive_unlock_instructions?: Anweisungen zum Entsperren nicht erhalten?
             forgot_your_password?: Haben Sie Ihr Passwort vergessen?
             log_in: Anmelden
-            sign_up: Registrieren
+            sign_up: Konto erstellen
       menu:
         admins: Admins
         dashboard: Instrumententafel
@@ -138,6 +143,7 @@ de:
           show: Zeige erweiterte Einstellungen
         create:
           error: Beim Erstellen einer neuen Organisation ist ein Fehler aufgetreten.
+          error_invitation: Es gab ein Problem beim Erstellen einer neuen Organisation. Überprüfen Sie den Administratornamen Ihrer Organisation.
           success_html: |
             <p>
               Organisation erfolgreich erstellt.
@@ -237,7 +243,7 @@ de:
           fieldsets:
             sender: Absender
           instructions:
-            from_label: 'E-Mail-Absender lautet: "Ihr-Organisationsname <your-organization@example.org>". Leer lassen, um die E-Mail-Adresse als Absender zu verwenden.'
+            from_label: 'E-Mail-Absender lautet: "Ihre-Organisation <ihre-organisation@example.org>". Leer lassen, um die E-Mail-Adresse als Absender zu verwenden.'
           placeholder:
             from_email: deine-organisation@example.org
             from_label: name-ihrer-organisation
@@ -246,8 +252,8 @@ de:
           success: Die Organisation wurde erfolgreich aktualisiert.
         users_registration_mode:
           disabled: Der Zugriff kann nur mit externen Konten erfolgen
-          enabled: Benutzern erlauben, sich zu registrieren und sich anzumelden
-          existing: Teilnehmende können sich nicht neu registrieren, bestehende teilnehmende sich aber weiterhin anmelden
+          enabled: Erlauben Sie es den Teilnehmenden, sich zu registrieren und anzumelden
+          existing: Teilnehmende können sich nicht neu registrieren, bestehende Teilnehmende können sich aber weiterhin anmelden
       shared:
         notices:
           no_organization_warning_html: Sie müssen eine Organisation erstellen, um zu beginnen. Stellen Sie sicher, dass Sie %{guide} lesen, bevor Sie fortfahren.
@@ -255,6 +261,14 @@ de:
         organizations_list:
           confirm_resend_invitation: Sind Sie sicher, das Sie die Einladung erneut senden möchten?
           resend_invitation: Einladung erneut senden
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Decidim-Dokumentation
+          error: Die ActiveJob-Warteschlange ist nicht konfiguriert. Dies ist kein empfohlenes Setup für die Produktion. Lesen Sie mehr unter %{error_extra}.
+          success: Die ActiveJob-Warteschlange ist korrekt konfiguriert.
+        secret_key:
+          error: 'Der geheime Schlüssel ist nicht korrekt definiert. Bitte speichern Sie ihn in der SECRET_KEY_BASE Umgebungsvariable und starten Sie den Server neu: %{error_extra}'
+          success: Der geheime Schlüssel ist korrekt konfiguriert.
       titles:
         dashboard: Instrumententafel
         decidim: Decidim

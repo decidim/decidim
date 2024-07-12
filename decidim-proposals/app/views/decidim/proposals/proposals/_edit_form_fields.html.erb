@@ -1,8 +1,9 @@
+<% new_proposal ||= false %>
 <%= form.text_field :title, class: "js-hashtags", value: form_presenter.title %>
 
 <%= text_editor_for_proposal_body(form) %>
 
-<% if @form.component_automatic_hashtags.any? %>
+<% if !new_proposal && @form.component_automatic_hashtags.any? %>
   <%= field_set_tag form.label(:automatic_hashtags, nil, for: nil) do %>
     <% @form.component_automatic_hashtags.each do |hashtag| %>
       <%= form.check_box "", checked: true, disabled: true, label: "##{hashtag}", label_options: { class: "form__wrapper-checkbox-label" } %>
@@ -10,7 +11,7 @@
   <% end %>
 <% end %>
 
-<% if @form.component_suggested_hashtags.any? %>
+<% if !new_proposal && @form.component_suggested_hashtags.any? %>
   <%= field_set_tag form.label(:suggested_hashtags, nil, for: nil) do %>
     <%= form.collection_check_boxes :suggested_hashtags, @form.component_suggested_hashtags.map { |hashtag| [hashtag.downcase, "##{hashtag}"] }, :first, :last, { legend_title: "hey ho" } do |option|
           option.label(class: "form__wrapper-checkbox-label") { option.check_box(checked: @form.suggested_hashtag_checked?(option.value)) + option.text }
@@ -31,7 +32,7 @@
     <p class="help-text">
       <%= t("instructions", scope: "decidim.proposals.proposals.dynamic_map_instructions") %> <%= t("description", scope: "decidim.proposals.proposals.dynamic_map_instructions") %>
     </p>
-    <%= dynamic_map_for proposal_preview_data_for_map(@proposal) %>
+    <%= dynamic_map_for proposal_preview_data_for_map(@proposal) unless new_proposal %>
   </div>
 <% end %>
 
@@ -43,7 +44,7 @@
   <%= scopes_select_field form, :scope_id, root: current_component.scope %>
 <% end %>
 
-<% if component_settings.attachments_allowed? && @proposal %>
+<% if component_settings.attachments_allowed? && (new_proposal || @proposal) %>
   <%= form.attachment :documents,
                       multiple: true,
                       label: t("decidim.proposals.proposals.edit.add_documents"),

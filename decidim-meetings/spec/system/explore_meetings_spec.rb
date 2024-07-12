@@ -108,7 +108,7 @@ describe "Explore meetings", :slow do
         end
 
         it "shows all the withdrawn meetings" do
-          expect(page).to have_css("span", text: "Withdrawn", count: 3)
+          expect(page).to have_css(".card__list-metadata div", text: "Withdrawn", count: 3)
           within ".flash.info", match: :first do
             expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
           end

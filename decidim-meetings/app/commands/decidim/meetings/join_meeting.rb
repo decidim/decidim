@@ -4,16 +4,15 @@ module Decidim
   module Meetings
     # This command is executed when the user joins a meeting.
     class JoinMeeting < Decidim::Command
+      delegate :current_user, to: :form
       # Initializes a JoinMeeting Command.
       #
       # meeting - The current instance of the meeting to be joined.
-      # user - The user joining the meeting.
-      # registration_form - A form object with params; can be a questionnaire.
-      def initialize(meeting, user, registration_form)
+      # form - A form object with params; can be a questionnaire.
+      def initialize(meeting, form)
         @meeting = meeting
-        @user = user
-        @user_group = Decidim::UserGroup.find_by(id: registration_form.user_group_id)
-        @registration_form = registration_form
+        @user_group = Decidim::UserGroup.find_by(id: form.user_group_id)
+        @form = form
       end
 
       # Creates a meeting registration if the meeting has registrations enabled
@@ -22,7 +21,7 @@ module Decidim
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
         return broadcast(:invalid) unless can_join_meeting?
-        return broadcast(:invalid_form) unless registration_form.valid?
+        return broadcast(:invalid_form) unless form.valid?
         return broadcast(:invalid) if answer_questionnaire == :invalid
 
         meeting.with_lock do
@@ -39,16 +38,16 @@ module Decidim
 
       private
 
-      attr_reader :meeting, :user, :user_group, :registration, :registration_form
+      attr_reader :meeting, :user_group, :registration, :form
 
       def accept_invitation
-        meeting.invites.find_by(user:)&.accept!
+        meeting.invites.find_by(user: current_user)&.accept!
       end
 
       def answer_questionnaire
         return unless questionnaire?
 
-        Decidim::Forms::AnswerQuestionnaire.call(registration_form, user, meeting.questionnaire) do
+        Decidim::Forms::AnswerQuestionnaire.call(form, meeting.questionnaire) do
           on(:ok) do
             return :valid
           end
@@ -62,19 +61,19 @@ module Decidim
       def create_registration
         @registration = Decidim::Meetings::Registration.create!(
           meeting:,
-          user:,
+          user: current_user,
           user_group:,
-          public_participation: registration_form.public_participation
+          public_participation: form.public_participation
         )
       end
 
       def can_join_meeting?
         meeting.registrations_enabled? && meeting.has_available_slots? &&
-          !meeting.has_registration_for?(user)
+          !meeting.has_registration_for?(current_user)
       end
 
       def send_email_confirmation
-        Decidim::Meetings::RegistrationMailer.confirmation(user, meeting, registration).deliver_later
+        Decidim::Meetings::RegistrationMailer.confirmation(current_user, meeting, registration).deliver_later
       end
 
       def send_notification_confirmation
@@ -82,7 +81,7 @@ module Decidim
           event: "decidim.events.meetings.meeting_registration_confirmed",
           event_class: Decidim::Meetings::MeetingRegistrationNotificationEvent,
           resource: @meeting,
-          affected_users: [@user],
+          affected_users: [current_user],
           extra: {
             registration_code: @registration.code
           }
@@ -113,17 +112,17 @@ module Decidim
       end
 
       def increment_score
-        Decidim::Gamification.increment_score(user, :attended_meetings)
+        Decidim::Gamification.increment_score(current_user, :attended_meetings)
       end
 
       def follow_meeting
-        Decidim::CreateFollow.call(follow_form, user)
+        Decidim::CreateFollow.call(follow_form)
       end
 
       def follow_form
         Decidim::FollowForm
           .from_params(followable_gid: meeting.to_signed_global_id.to_s)
-          .with_context(current_user: user)
+          .with_context(current_user:)
       end
 
       def occupied_slots_over?(percentage)
@@ -131,7 +130,7 @@ module Decidim
       end
 
       def questionnaire?
-        registration_form.model_name == "questionnaire"
+        form.model_name == "questionnaire"
       end
     end
   end

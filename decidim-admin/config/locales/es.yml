@@ -180,13 +180,14 @@ es:
         attachment:
           new: Nuevo archivo adjunto
         attachment_collection:
-          new: Nueva colección de archivos adjuntos
+          new: Nueva carpeta de archivos adjuntos
         browse: Explorar
         category:
           new: Nueva categoría
         export: Exportar todo
         export-selection: Exportar selección
         import: Importar
+        manage: Gestionar
         newsletter:
           new: Nuevo boletín
         participatory_space_private_user:
@@ -194,14 +195,14 @@ es:
         per_page: Por página
         permissions: Permisos
         reject: Rechazar
-        send_me_a_test_email: Enviarme un correo electrónico de prueba
+        send_me_a_test_email: Envíame un correo electrónico de prueba
         share: Compartir
         user:
           new: Nueva administradora
         verify: Verificar
       admin_terms_of_service:
         accept:
-          error: Ha habido un error al aceptar los Términos y Condiciones de administración.
+          error: Ha habido un error al aceptar los términos de servicio de administración.
           success: '¡Genial! Has aceptado los términos del servicio de administración.'
         actions:
           accept: Estoy de acuerdo con los términos
@@ -449,6 +450,7 @@ es:
           values:
             'false': Publicada
             'true': Sin publicar
+        remove_all: Eliminar todos
         scope_id_eq:
           label: Ámbito
         search_label: Buscar
@@ -569,6 +571,7 @@ es:
         appearance: Apariencia
         area_types: Tipos de área
         areas: Áreas
+        components: Componentes
         configuration: Configuración
         content: Contenido reportado
         external_domain_allowlist: Dominios externos permitidos
@@ -962,6 +965,11 @@ es:
           help: Estos tokens se utilizan para compartir públicamente este recurso no publicado a cualquier usuario. Se ocultarán cuando se publique el recurso. Haz clic en el icono de compartir el token para visitar la URL compartible.
           title: Compartir tokens
       shared:
+        adjacent_navigation:
+          next: Siguiente
+          next_title: Siguiente elemento
+          previous: Anterior
+          previous_title: Anterior elemento
         gallery:
           add_images: Añadir imágenes
           edit_images: Editar imagenes

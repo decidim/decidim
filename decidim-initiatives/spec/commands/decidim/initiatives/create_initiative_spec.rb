@@ -23,7 +23,7 @@ module Decidim
             )
         end
 
-        let(:command) { described_class.new(form, initiative.author) }
+        let(:command) { described_class.new(form) }
 
         it "broadcasts invalid" do
           expect(form).to receive(:title).at_least(:once).and_return nil
@@ -34,7 +34,7 @@ module Decidim
 
       describe "events" do
         subject do
-          described_class.new(form, author)
+          described_class.new(form)
         end
 
         it_behaves_like "fires an ActiveSupport::Notification event", "decidim.initiatives.create_initiative:before" do
@@ -53,6 +53,7 @@ module Decidim
             .from_params(form_params)
             .with_context(
               current_organization: organization,
+              current_user: author,
               initiative_type: scoped_type.type
             )
         end

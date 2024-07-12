@@ -70,6 +70,7 @@ tr:
     accessibility:
       external_link: Dış bağlantı
       logo: "%{organization} resmi logosu"
+      opens_in_new_tab: Yeni Seçmede Aç
       skip_button: Ana içeriğe geç
     account:
       delete:
@@ -161,10 +162,6 @@ tr:
         error: Bu kaynağı değiştiren bir hata oluştu.
         promote_button: '%{model_name} olarak yükselt'
         promote_confirm_text: Bu değişikliği tanıtmak istediğinizden emin misiniz?
-      compare_draft:
-        continue: Devam et
-        no_similars_found: Hiç benzer düzeltme bulunamadı.
-        title: Benzer Düzeltmeler
       created:
         error: Değişiklik taslağı oluşturulurken bir hata oluştu.
         success: Değişiklik taslağı başarı ile oluşturuldu.
@@ -211,9 +208,7 @@ tr:
       wizard_step_form:
         steps:
           '1': Değişikliğinizi oluşturun
-          '2': Değişikliğinizi karşılaştırın
-          '3': Değişikliğinizi tamamlayın
-          '4': Değişikliğinizi yayınlayın
+          '2': Değişikliğinizi yayınlayın
     anonymous_user: Anonim
     application:
       document:
@@ -383,7 +378,6 @@ tr:
           complete_profile: Profilini tamamla
           nickname_help: Takma adınız %{organization}. Yalnızca harf, rakam, "-" ve "_" içerebilir.
           sign_up: Lütfen profilinizi tamamlayın
-          subtitle: Kayıt işlemini tamamlamak için lütfen aşağıdaki formu doldurunuz.
           username_help: Gönderilerinizde görünen genel ad. Anonimliği garanti etmek amacıyla herhangi bir isim olabilir.
       registrations:
         new:
@@ -391,8 +385,6 @@ tr:
           log_in: "Giriş \nGiriş Yapın "
           newsletter: Ara sıra ilgili bilgileri içeren bir haber bülteni alın
           newsletter_title: İletişim izni
-          sign_up: kaydol
-          subtitle: Tartışmalara katılmak ve teklifleri desteklemek için kaydolun.
           tos_agreement: Kaydolarak %{link}kabul ediyorsunuz.
           tos_title: Kullanım Şartları
           username_help: Yayınlarınızda görünen genel ad. Anonimlik garantilemek amacıyla herhangi bir isim olabilir.
@@ -415,6 +407,7 @@ tr:
           hide_password: Şifrenizi Gizleyin
           show_password: Şifreyi Göster
           shown_password: Şifreniz Gösteriliyor
+        placeholder_email: selam@example.org
     doorkeeper:
       authorizations:
         new:
@@ -699,7 +692,7 @@ tr:
         default_page:
           content: "<p>%{organization}'da üst menüde gördüğünüz alanlar aracılığıyla katılabilir ve farklı konulara karar verebilirsiniz: Süreçler, Toplantılar, Girişimler, İstişareler. </p> <p> Her birinde farklı seçenekler bulacaksınız. katılmak: bireysel olarak veya diğer insanlarla birlikte teklifler yapın, tartışmalara katılın, uygulanacak projelere öncelik verin, yüz yüze toplantılara ve diğer eylemlere katılın. </p>\n"
           title: '%{organization} ne yapabilirim?'
-        title: Genel Yardım
+        title: Genel
     last_activities:
       all: Tüm aktivite türleri
       index:
@@ -742,6 +735,7 @@ tr:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
           greeting: Merhaba, %{recipient}!
           intro: "%{manager}, %{group} adına yeni bir görüşme başlattı. Görmek için buraya tıklayın:"
+          outro: Platformun tadını çıkarın!
           subject: "%{manager}, %{group} olarak yeni bir görüşme başlattı"
         comanagers_new_message:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
@@ -751,20 +745,24 @@ tr:
         new_conversation:
           greeting: Merhaba %{recipient}!
           intro: "%{sender} sizinle yeni bir sohbet başlattı. Görmek için buraya tıklayın:"
+          outro: Platformun tadını çıkarın!
           subject: "%{sender} sizinle bir konuşma başlattı"
         new_group_conversation:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
           greeting: Merhaba, %{recipient}!
           intro: "%{sender}, %{group} adına yeni bir görüşme başlattı. Görmek için buraya tıklayın:"
+          outro: Platformun tadını çıkarın!
           subject: "%{sender}, %{group} olarak yeni bir görüşme başlattı"
         new_group_message:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
           greeting: Merhaba, %{recipient}!
           intro: "%{sender}, %{group} grubuyla bir görüşmede yeni mesajlar yayınladı. Görmek için buraya tıklayın:"
+          outro: Platformun tadını çıkarın!
           subject: "%{group}, %{sender} adlı kişiden yeni mesajlar aldı"
         new_message:
           greeting: Merhaba %{recipient}!
           intro: "%{sender}, konuşmanıza yeni mesajlar gönderdi. Görmek için buraya tıklayın:"
+          outro: Platformun tadını çıkarın!
           subject: '%{sender}, size yeni mesaj gönderdi'
       conversations:
         add_conversation_users:
@@ -840,6 +838,8 @@ tr:
         subject: '%{organization_name} ile ilgili bilgileri almaya devam etmek istiyor musunuz?'
     notifications:
       no_notifications: Henüz bildirim yok.
+      show:
+        moderated: İçerik Denetlendi
     notifications_settings:
       show:
         direct_messages: Herkesten doğrudan mesaj alın
@@ -1008,11 +1008,11 @@ tr:
         log_in_before_follow: Bu İşlemi gerçekleştirmeden önce lütfen giriş yapın
       login_modal:
         please_log_in: Lütfen Giriş Yapın
-        sign_up: kaydol
       participatory_space_filters:
         filters:
           areas: alanlar
           select_an_area: Bir bölge seçin
+      progress: "Süreç\nİlerleme"
       reference:
         reference: 'Referans: %{reference}'
       represent_user_group:
@@ -1099,7 +1099,6 @@ tr:
       locked: Hesabınız kilitli.
       not_found_in_database: '%{authentication_keys} veya şifre geçersiz.'
       timeout: Oturumunuzun süresi doldu. Devam etmek için lütfen tekrar giriş yapın.
-      unauthenticated: Devam etmeden önce giriş yapmanız veya kaydolmanız gerekmektedir.
     invitations:
       edit:
         header: Hesabınızı oluşturmayı bitirin
@@ -1165,8 +1164,6 @@ tr:
       updated_not_active: Şifreniz başarıyla değiştirildi.
     registrations:
       destroyed: Hoşçakal! Hesabınız başarıyla iptal edildi. Kısa süre sonra tekrar görmeyi umuyoruz.
-      new:
-        sign_up: kaydol
       signed_up: Hoşgeldiniz! Başarıyla kaydoldunuz.
       signed_up_but_inactive: Başarıyla kaydoldunuz. Ancak, hesabınız henüz aktif olmadığından sizi oturum açamadık.
       signed_up_but_locked: Başarıyla kaydoldunuz. Ancak, hesabınız kilitlendiğinden sizi oturum açamadık.
@@ -1184,7 +1181,6 @@ tr:
         forgot_your_password: Parolanızı mı unuttunuz?
         log_in: Giriş Yapın
         log_in_with_provider: '%{provider} ile giriş yapın'
-        sign_up: kaydol
       minimum_password_length:
         one: "(En az%{count} karakter)"
         other: "(En az%{count} karakter)"
@@ -1207,7 +1203,6 @@ tr:
       invalid_time_zone: geçerli bir zaman değil
       long_words: çok uzun kelimeler içeriyor (35 karakterden fazla)
       must_start_with_caps: büyük harfle başlamalıdır
-      not_found: bulunamadı. Daha önce üye oldunuz mu?
       not_locked: kilitli değildi
       not_saved:
         one: 'İsteğiniz işlenirken bir hata oluştu:'
@@ -1223,6 +1218,8 @@ tr:
     timestamp_error_message: Üzgünüm, bu çok hızlıydı! Lütfen yeniden gönderin.
   layouts:
     decidim:
+      announcements:
+        view_less: Daha Az Göster
       data_consent:
         details:
           columns:
@@ -1235,9 +1232,9 @@ tr:
         download_open_data: Açık Veri dosyalarını indir
         log_in: Giriş Yapın
         made_with_open_source: Web sitesi <a target="_blank" href="https://github.com/decidim/decidim">ücretsiz yazılımla yapılmıştır</a>.
-        sign_up: Kaydol
+        terms_of_service: Hizmet Kullanım Koşulları
       header:
-        log_in: Giriş Yapın
+        log_in: "Giriş \nGiriş Yapın "
       impersonation_warning:
         close_session: Oturumu kapat
         description_html: Kullanıcının kimliğine bürünüyorsunuz <b>%{user_name}</b>.
@@ -1326,6 +1323,7 @@ tr:
       long_dashed: "%Y-%m-%d %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)\n%Gün-%Ay-%Yıl %Saat:%Dakika %p %Zone (GMT %:z)"
   versions:
     directions:
       left: Silme
@@ -1337,6 +1335,7 @@ tr:
       option_split: Yan yana
       option_unescaped: Yakalandı
       option_unified: Birleşik
+      toggle: Görünümü değiştir
   views:
     pagination:
       next_title: Sonraki sayfaya git

@@ -46,7 +46,7 @@ describe "rake decidim:right_to_be_forgotten", type: :task do
     end
 
     it "ignores already deleted users" do
-      user_ids = [user, deleted_user].collect(&:id)
+      user_ids = [deleted_user].collect(&:id)
       create_forgotten_users_file(user_ids)
       task.execute
       check_message_printed("[#{deleted_user.id}] User already deleted")
