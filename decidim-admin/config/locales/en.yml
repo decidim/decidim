@@ -1045,6 +1045,9 @@ en:
           title: New taxonomy
         no_parent: No parent
         no_taxonomies: No taxonomies
+        table:
+          to_next_page: "Drag over for next page"
+          to_prev_page: "Drag over for previous page"
         update:
           invalid: There was a problem updating this taxonomy.
           success: Taxonomy updated successfully.

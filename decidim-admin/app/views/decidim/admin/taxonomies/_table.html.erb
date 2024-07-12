@@ -9,42 +9,75 @@
     </tr>
     </thead>
     <tbody class="draggable-list js-connect js-list-available" data-sort-url="<%= reorder_taxonomies_path %>" role="rowgroup">
-    <% taxonomies.each do |taxonomy| %>
-      <tr class="draggable-item" data-taxonomy-id="<%= taxonomy.id %>" draggable="true" role="row">
-        <td role="cell"><%== icon("drag-move-2-fill") %></td>
-        <td class="!text-left" role="cell"><%= translated_attribute(taxonomy.name) %></td>
-        <td role="cell"><%= taxonomy.children.count %></td>
-        <td class="table-list__actions" role="cell">
-          <% if allowed_to? :update, :taxonomy, taxonomy: taxonomy %>
-            <%= icon_link_to "pencil-line", [:edit, taxonomy], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
-          <% else %>
-            <span class="action-space icon inline-block"></span>
-          <% end %>
-          <% if allowed_to? :destroy, :taxonomy, taxonomy: taxonomy %>
-            <%= icon_link_to "delete-bin-line", taxonomy, t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
-          <% else %>
-            <span class="action-space icon inline-block"></span>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
+      <% if path = path_to_prev_page(collection) %>
+        <tr class="draggable-item change-page" data-prev-page="<%= path %>" data-taxonomy-id="<%= collection.page(collection.prev_page).per(per_page).last&.id %>"><td colspan="4"><%= t(".to_prev_page") %></td></tr>
+      <% end %>
+
+      <% collection.each do |taxonomy| %>
+        <tr class="draggable-item" data-taxonomy-id="<%= taxonomy.id %>" draggable="true" role="row">
+          <td role="cell"><%== icon("drag-move-2-fill") %></td>
+          <td class="!text-left" role="cell"><%= translated_attribute(taxonomy.name) %></td>
+          <td role="cell"><%= taxonomy.children.count %></td>
+          <td class="table-list__actions" role="cell">
+            <% if allowed_to? :update, :taxonomy, taxonomy: taxonomy %>
+              <%= icon_link_to "pencil-line", [:edit, taxonomy], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
+            <% else %>
+              <span class="action-space icon inline-block"></span>
+            <% end %>
+            <% if allowed_to? :destroy, :taxonomy, taxonomy: taxonomy %>
+              <%= icon_link_to "delete-bin-line", taxonomy, t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+            <% else %>
+              <span class="action-space icon inline-block"></span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      <% if path = path_to_next_page(collection) %>
+        <tr class="draggable-item change-page" data-next-page="<%= path %>" data-taxonomy-id="<%= collection.page(collection.next_page).per(per_page).first&.id %>"><td colspan="4"><%= t(".to_next_page") %></td></tr>
+      <% end %>
     </tbody>
   </table>
 </div>
 
+<%= decidim_paginate collection %>
+
 <script>
+  const pageChangers = document.querySelectorAll(".change-page")
+  if(pageChangers) {
+    pageChangers.forEach(function (item) {
+      item.addEventListener("dragstart", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  }
+
   document.addEventListener("dragend", function (event) {
     const items = Array.prototype.slice.call(document.querySelectorAll(".draggable-item"));
     const itemsId = items.map(item => item.dataset.taxonomyId);
-    console.log("dragend", event, "items", itemsId);
+    const nextPage = document.querySelector("[data-next-page]");
+    const prevPage = document.querySelector("[data-prev-page]");
+    const token = document.querySelector('meta[name="csrf-token"]');
 
     fetch(document.querySelector(".js-list-available").dataset.sortUrl, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').getAttribute("content")
+        "X-CSRF-Token": token && token.getAttribute("content")
       },
-      body: JSON.stringify({ ids_order: itemsId })
+      body: JSON.stringify({ page: <%= collection.current_page %>, per_page: <%= per_page %>, ids_order: itemsId })
+    }).then(function(response) {
+      if(response.ok) {
+        // If moved on top of the next page, lets go to the next page
+        if(!document.querySelector(".draggable-item:last-child").hasAttribute("data-next-page") && nextPage) {
+          location.href = nextPage.dataset.nextPage;
+        }
+        // If moved on top of the previous page, lets go to the previous page
+        if(!document.querySelector(".draggable-item:first-child").hasAttribute("data-prev-page") && prevPage) {
+          console.log("goto prev", prevPage.dataset.prevPage)
+          location.href = prevPage.dataset.prevPage;
+        }
+      }
     });
   });
 </script>

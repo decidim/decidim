@@ -9,9 +9,10 @@ module Decidim
       #
       # organization - the Organization where the content blocks reside
       # order - an Array holding the order of IDs of published content blocks.
-      def initialize(organization, order)
+      def initialize(organization, order, offset = 0)
         @organization = organization
         @order = order
+        @offset = offset
       end
 
       # Executes the command. Broadcasts these events:
@@ -22,6 +23,7 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if order.blank?
+        return broadcast(:invalid) if collection.empty?
 
         reorder_steps
         broadcast(:ok)
@@ -29,7 +31,7 @@ module Decidim
 
       private
 
-      attr_reader :organization, :scope, :scoped_resource_id
+      attr_reader :organization, :offset
 
       def reorder_steps
         transaction do
@@ -47,7 +49,7 @@ module Decidim
 
       def set_new_weights
         data = order.each_with_index.inject({}) do |hash, (id, index)|
-          hash.update(id => index + 1)
+          hash.update(id => index + 1 + offset)
         end
 
         data.each do |id, weight|
@@ -63,12 +65,11 @@ module Decidim
       end
 
       def collection
-        @collection ||= Decidim::Taxonomy.where(organization:, parent_id:)
+        @collection ||= Decidim::Taxonomy.where(organization:, parent_id: first_item.parent_id)
       end
 
-      # Parent is extracted from the first item in the order
-      def parent_id
-        @parent_id ||= Decidim::Taxonomy.find(order.first).parent_id
+      def first_item
+        @first_item ||= Decidim::Taxonomy.where(organization:).find(order.first)
       end
     end
   end

@@ -7,12 +7,13 @@ module Decidim
 
       layout "decidim/admin/settings"
 
-      helper_method :taxonomies, :parent_options, :taxonomy, :root_taxonomies, :child_taxonomies
+      helper_method :taxonomies, :parent_options, :taxonomy, :child_taxonomies
 
       def index
-        @query = base_query.ransack(params[:q])
+        @query = root_taxonomies.ransack(params[:q])
         @taxonomies = @query.result
         @taxonomies = @taxonomies.search_by_name(params.dig(:q, :name_cont)) if params.dig(:q, :name_cont).present?
+        @taxonomies = paginate(@taxonomies)
       end
 
       def new
@@ -80,7 +81,7 @@ module Decidim
       def reorder
         enforce_permission_to :update, :taxonomy
 
-        ReorderTaxonomies.call(current_organization, params[:ids_order]) do
+        ReorderTaxonomies.call(current_organization, params[:ids_order], page_offset) do
           on(:ok) do
             head :ok
           end
@@ -98,7 +99,7 @@ module Decidim
       end
 
       def root_taxonomies
-        @root_taxonomies ||= Decidim::Taxonomy.where(organization: current_organization, parent_id: nil)
+        @root_taxonomies ||= base_query.where(parent_id: nil)
       end
 
       def child_taxonomies(parent_id)

@@ -147,6 +147,26 @@ describe "Admin manages taxonomies" do
     end
   end
 
+  context "when multiple pages" do
+    let!(:taxonomies) { create_list(:taxonomy, 17, organization:) }
+
+    before do
+      visit decidim_admin.taxonomies_path(page: 2)
+    end
+
+    it "displays the pagination" do
+      expect(page).to have_content(translated(taxonomies.last.name))
+      expect(page).to have_content("Drag over for previous page")
+      expect(page).to have_link("Prev")
+
+      all(".js-list-available tr").last.drag_to(all(".js-list-available tr").first)
+
+      expect(page).to have_content("Drag over for next page")
+      expect(page).to have_content(translated(taxonomies.last.name))
+      expect(page).to have_no_content(translated(taxonomies[14].name))
+    end
+  end
+
   def click_delete_taxonomy
     within "tr", text: translated(taxonomy.name) do
       accept_confirm { click_on "Delete" }

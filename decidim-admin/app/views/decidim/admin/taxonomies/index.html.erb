@@ -11,7 +11,7 @@
   <div class="my-6">
     <%= t(".description") %>
   </div>
-  <% if root_taxonomies.any? %>
+  <% if @taxonomies.any? %>
     <div class="filters__section">
       <div class="fcell search">
         <%= search_form_for(@query, url: taxonomies_path) do |form| %>
@@ -31,7 +31,7 @@
         <% end %>
       </div>
     </div>
-    <%= render partial: "table", locals: { taxonomies: root_taxonomies } %>
+    <%= render "table", collection: @taxonomies %>
   <% else %>
     <p><%= t("decidim.admin.taxonomies.no_taxonomies") %></p>
   <% end %>
