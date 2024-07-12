@@ -9,7 +9,7 @@ require "decidim/assemblies/test/factories"
 require "decidim/comments/test/factories"
 
 def generate_component_name(locales, manifest_name, skip_injection: false)
-  prepend = skip_injection ? "" : "<script>alert(\"#{manifest_name}\");</script>"
+  prepend = skip_injection ? "" : "<script>alert('#{manifest_name}');</script>"
 
   Decidim::Components::Namer.new(locales, manifest_name).i18n_name.transform_values { |v| [prepend, v].compact_blank.join(" ") }
 end
@@ -26,7 +26,7 @@ def generate_localized_word(field = nil, skip_injection: false)
     if skip_injection
       Faker::Lorem.word
     else
-      "<script>alert(\"#{field}\");</script> #{Faker::Lorem.word}"
+      "<script>alert('#{field}');</script> #{Faker::Lorem.word}"
     end
   end
 end
@@ -38,7 +38,7 @@ def generate_localized_title(field = nil, skip_injection: false)
     if skip_injection
       generate(:title)
     else
-      "<script>alert(\"#{field}\");</script> #{generate(:title)}"
+      "<script>alert('#{field}');</script> #{generate(:title)}"
     end
   end
 end
@@ -603,6 +603,12 @@ FactoryBot.define do
           create(:endorsement, resource: resource, skip_injection: evaluator.skip_injection,
                                author: build(:user, organization: resource.component.organization, skip_injection: evaluator.skip_injection))
         end
+      end
+    end
+
+    trait :moderated do
+      after(:create) do |resource, evaluator|
+        create(:moderation, reportable: resource, hidden_at: 2.days.ago, skip_injection: evaluator.skip_injection)
       end
     end
   end

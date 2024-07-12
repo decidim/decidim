@@ -10,18 +10,18 @@ shared_examples "manage assembly members examples" do
 
   context "without existing user" do
     let!(:assembly_member) { create(:assembly_member, assembly: assembly) }
+    let(:attributes) { attributes_for(:assembly_member, assembly: assembly) }
 
-    it "creates a new assembly member" do
+    it "creates a new assembly member", versioning: true do
       find(".card-title a.new").click
 
       execute_script("$('#assembly_member_designation_date').focus()")
       find(".datepicker-days .active").click
 
       within ".new_assembly_member" do
-        fill_in(
-          :assembly_member_full_name,
-          with: "Daisy O'connor"
-        )
+        fill_in(:assembly_member_full_name, with: attributes[:full_name])
+        fill_in(:assembly_member_gender, with: attributes[:gender])
+        fill_in(:assembly_member_birthplace, with: attributes[:birthplace])
       end
 
       dynamically_attach_file(:assembly_member_non_user_avatar, Decidim::Dev.asset("avatar.jpg")) do
@@ -38,8 +38,11 @@ shared_examples "manage assembly members examples" do
       expect(page).to have_current_path decidim_admin_assemblies.assembly_members_path(assembly)
 
       within "#assembly_members table" do
-        expect(page).to have_content("Daisy O'connor")
+        expect(page).to have_content(attributes[:full_name])
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("created the #{attributes[:full_name]} member")
     end
   end
 
@@ -99,6 +102,7 @@ shared_examples "manage assembly members examples" do
 
   describe "when managing other assembly members" do
     let!(:assembly_member) { create(:assembly_member, assembly: assembly) }
+    let(:attributes) { attributes_for(:assembly_member, assembly: assembly) }
 
     before do
       visit current_path
@@ -110,16 +114,15 @@ shared_examples "manage assembly members examples" do
       end
     end
 
-    it "updates an assembly member" do
+    it "updates an assembly member", versioning: true do
       within find("#assembly_members tr", text: assembly_member.full_name) do
         click_link "Edit"
       end
 
       within ".edit_assembly_member" do
-        fill_in(
-          :assembly_member_full_name,
-          with: "Alicia O'connor"
-        )
+        fill_in(:assembly_member_full_name, with: attributes[:full_name])
+        fill_in(:assembly_member_gender, with: attributes[:gender])
+        fill_in(:assembly_member_birthplace, with: attributes[:birthplace])
 
         find("*[type=submit]").click
       end
@@ -128,8 +131,11 @@ shared_examples "manage assembly members examples" do
       expect(page).to have_current_path decidim_admin_assemblies.assembly_members_path(assembly)
 
       within "#assembly_members table" do
-        expect(page).to have_content("Alicia O'connor")
+        expect(page).to have_content(attributes[:full_name])
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the #{assembly_member.full_name} member")
     end
 
     it "deletes the assembly member" do

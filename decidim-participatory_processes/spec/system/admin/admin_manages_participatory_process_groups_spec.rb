@@ -8,7 +8,7 @@ describe "Admin manages participatory process groups", type: :system do
   let!(:participatory_processes) do
     create_list(:participatory_process, 3, organization: organization)
   end
-
+  let(:attributes) { attributes_for(:participatory_process_group, organization: organization) }
   let(:image1_filename) { "city.jpeg" }
   let(:image1_path) { Decidim::Dev.asset(image1_filename) }
 
@@ -22,33 +22,16 @@ describe "Admin manages participatory process groups", type: :system do
     before { find(".card-title .new").click }
   end
 
-  it "creates a new participatory process group" do
+  it "creates a new participatory process group", versioning: true do
     find(".card-title .new").click
 
     within ".new_participatory_process_group" do
-      fill_in_i18n(
-        :participatory_process_group_title,
-        "#participatory_process_group-title-tabs",
-        en: "My group",
-        es: "Mi grupo",
-        ca: "El meu grup"
-      )
-      fill_in_i18n_editor(
-        :participatory_process_group_description,
-        "#participatory_process_group-description-tabs",
-        en: "A longer description",
-        es: "Descripción más larga",
-        ca: "Descripció més llarga"
-      )
+      fill_in_i18n(:participatory_process_group_title, "#participatory_process_group-title-tabs", **attributes[:title].except("machine_translations"))
+      fill_in_i18n(:participatory_process_group_developer_group, "#participatory_process_group-developer_group-tabs", **attributes[:developer_group].except("machine_translations"))
+      fill_in_i18n_editor(:participatory_process_group_description, "#participatory_process_group-description-tabs", **attributes[:description].except("machine_translations"))
+
       fill_in :participatory_process_group_hashtag, with: "hashtag"
       fill_in :participatory_process_group_group_url, with: "http://example.org"
-      fill_in_i18n(
-        :participatory_process_group_developer_group,
-        "#participatory_process_group-developer_group-tabs",
-        en: "X corporation",
-        es: "La corporación X",
-        ca: "La corporació X"
-      )
       select participatory_processes.first.title["en"], from: :participatory_process_group_participatory_process_ids
     end
 
@@ -59,12 +42,17 @@ describe "Admin manages participatory process groups", type: :system do
     end
 
     expect(page).to have_admin_callout("successfully")
-    expect(page).to have_field(:participatory_process_group_title_en, with: "My group")
+    expect(page).to have_field(:participatory_process_group_title_en, with: translated(attributes[:title]))
     expect(page).to have_field(:participatory_process_group_hashtag, with: "hashtag")
     expect(page).to have_field(:participatory_process_group_group_url, with: "http://example.org")
-    expect(page).to have_field(:participatory_process_group_developer_group_en, with: "X corporation")
+    expect(page).to have_field(:participatory_process_group_developer_group_en, with: translated(attributes[:developer_group]))
     expect(page).to have_select("Related processes", selected: participatory_processes.first.title["en"])
     expect(page).to have_css("img[src*='#{image1_filename}']")
+
+    expect(page).to have_admin_callout("successfully")
+
+    visit decidim_admin.root_path
+    expect(page).to have_content("created the #{translated(attributes[:title])} participatory process group")
   end
 
   context "with existing groups" do
@@ -84,29 +72,13 @@ describe "Admin manages participatory process groups", type: :system do
       end
 
       within ".edit_participatory_process_group" do
-        fill_in_i18n(
-          :participatory_process_group_title,
-          "#participatory_process_group-title-tabs",
-          en: "My old group",
-          es: "Mi grupo antiguo",
-          ca: "El meu grup antic"
-        )
-        fill_in_i18n_editor(
-          :participatory_process_group_description,
-          "#participatory_process_group-description-tabs",
-          en: "New description",
-          es: "Nueva descripción",
-          ca: "Nova descripció"
-        )
+        fill_in_i18n(:participatory_process_group_title, "#participatory_process_group-title-tabs", **attributes[:title].except("machine_translations"))
+        fill_in_i18n_editor(:participatory_process_group_description, "#participatory_process_group-description-tabs", **attributes[:description].except("machine_translations"))
+
         fill_in :participatory_process_group_hashtag, with: "new_hashtag"
         fill_in :participatory_process_group_group_url, with: "http://new-example.org"
-        fill_in_i18n(
-          :participatory_process_group_developer_group,
-          "#participatory_process_group-developer_group-tabs",
-          en: "Z corporation",
-          es: "La corporación Z",
-          ca: "La corporació Z"
-        )
+        fill_in_i18n(:participatory_process_group_developer_group, "#participatory_process_group-developer_group-tabs", **attributes[:developer_group].except("machine_translations"))
+
         select participatory_processes.last.title["en"], from: :participatory_process_group_participatory_process_ids
       end
 
@@ -117,13 +89,16 @@ describe "Admin manages participatory process groups", type: :system do
       end
 
       expect(page).to have_admin_callout("successfully")
-      expect(page).to have_field(:participatory_process_group_title_en, with: "My old group")
-      expect(page).to have_content("New description")
+      expect(page).to have_field(:participatory_process_group_title_en, with: translated(attributes[:title]))
+      expect(page).to have_content(strip_tags(translated(attributes[:description])).strip)
       expect(page).to have_field(:participatory_process_group_hashtag, with: "new_hashtag")
       expect(page).to have_field(:participatory_process_group_group_url, with: "http://new-example.org")
-      expect(page).to have_field(:participatory_process_group_developer_group_en, with: "Z corporation")
+      expect(page).to have_field(:participatory_process_group_developer_group_en, with: translated(attributes[:developer_group]))
       expect(page).to have_select("Related processes", selected: participatory_processes.last.title["en"])
       expect(page).to have_css("img[src*='#{image2_filename}']")
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the #{translated(attributes[:title])} participatory process group")
     end
 
     it "validates the group attributes" do

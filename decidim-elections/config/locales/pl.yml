@@ -372,9 +372,27 @@ pl:
             success: Mąż (osoba) zaufania %{trustee} został pomyślnie zaktualizowany
       admin_log:
         election:
+          create: "%{user_name} opublikował(a) wybory %{resource_name} w %{space_name}"
+          delete: "Użytkownik %{user_name} usunął wybory %{resource_name} w %{space_name}"
+          end_vote: "Użytkownik %{user_name} zakończył okres głosowania dla wyborów %{resource_name} w %{space_name} na tablicy Biuletynu"
           publish: "%{user_name} opublikował(a) wybory %{resource_name} w %{space_name}"
           publish_results: "%{user_name} opublikował wyniki głosowania w %{resource_name} w %{space_name} na tablicy ogłoszeń"
+          report_missing_trustee: "Użytkownik %{user_name} zgłosił %{trustee_name} jako brakującego powiernika podczas procesu ustalania wyników dla wyborów %{resource_name} w %{space_name} na tablicy Biuletynu"
+          setup: "Użytkownik %{user_name} utworzył wybory %{resource_name} w %{space_name} na tablicy Biuletynu"
+          start_key_ceremony: "Użytkownik %{user_name} rozpoczął kluczową ceremonię wyborów %{resource_name} w %{space_name} na tablicy Biuletynu"
+          start_tally: "Użytkownik %{user_name} rozpoczął proces ustalania wyniku dla wyborów %{resource_name} w %{space_name} na tablicy Biuletynu"
+          start_vote: "Użytkownik %{user_name} rozpoczął okres głosowania nad %{resource_name} w %{space_name} na tablicy Biuletynu"
           unpublish: "%{user_name} cofnął/cofnęła publikację wyborów %{resource_name} w %{space_name}"
+          update: "%{user_name} zaktualizował(a) wybory %{resource_name} w %{space_name}"
+        trustee:
+          create: "%{user_name} przypisał(a) użytkownika %{trustee_user} jako powiernika (osobę zaufania)"
+      connection:
+        failed:
+          modal:
+            close: Zamknij
+            communication_lost: Niestety, wygląda na to, że komunikacja z serwerem głosowania (Biuletynem) została utracona.<br>Może być tak, że połączenie z Internetem jest wadliwe lub że serwer docelowy jest zbyt zajęty.<br>Możesz spróbować później lub skontaktować się ze wsparciem, jeśli problem będzie dalej występował.
+            generic_error: Niestety, wystąpił nieznany błąd. Prawdopodobnie Twoja przeglądarka nie jest obsługiwana lub używasz trybu "incognito" lub "prywatnego", który nie jest obsługiwany.
+            title: Coś poszło nie tak
       election_m:
         badge_name:
           finished: Zakończone
@@ -449,6 +467,7 @@ pl:
         filters:
           active: Aktywne
           all: Wszystkie
+          date: Data
           finished: Zakończone
           search: Szukaj
           upcoming: Nadchodzące
@@ -561,13 +580,23 @@ pl:
             upload_election_keys: Prześlij klucze wyborcze
             upload_icon: Ikona wskazująca akcję pobierania
           tally_started_steps:
+            back: Powrót
             description: Wyniki tego głosowania są generowane na Tablicy danych wyborczych. Aby zakończyć ten proces niezbędne jest twoje uczestnictwo jako męża (osoby) zaufania.
             keys:
               end_tally: Zakończono proces ustalania wyniku głosowania
               tally:
                 cast: Suma oddanych głosów
                 share: Udostępnij ustalony wynik głosowania
+            list:
+              status: Status
+              task: Zadanie
+            process_warning: Po rozpoczęciu procesu nie powinieneś (nie powinnaś) opuszczać tej strony do czasu jego zakończenia. Zajmie to kilka minut, ponieważ wszyscy mężowie (osoby) zaufania powinni być podłączeni w celu jego ukończenia.
+            start: Rozpocznij
             start_icon: Ikona wskazująca przycisk startu dla tworzenia kluczy wyborczych
+            status:
+              completed: Zakończono
+              pending: Oczekujące
+              processing: Przetwarzanie
             title: Wynik głosowania dla %{election}
           update:
             error: Status wyborów nie został zaktualizowany.
@@ -600,6 +629,7 @@ pl:
               generate_legend_3: Upewnij się, że Twój komputer nie ma kopii pliku (np. sprawdź foldery Pobrane i Pulpit).
               generate_legend_4: Utwórz kolejną kopię pliku na innym urządzeniu zewnętrznym i przechowuj go w bezpiecznym miejscu.
               submit: Prześlij
+              submit_legend: Po wykonaniu wszystkich opisanych powyżej kroków zakończ proces wysyłania publicznego klucza identyfikacyjnego do serwera.
               submit_title: Prześlij publiczny klucz identyfikacyjny
               title: Klucze identyfikacyjne męża (osoby) zaufania
               upload: Prześlij swoje klucze identyfikacyjne
@@ -801,6 +831,7 @@ pl:
             timeline:
               name: Oś czasu głosowania
         index:
+          not_published: Nieopublikowany
           published: Opublikowano
         landing_page:
           content_blocks:
@@ -1017,6 +1048,12 @@ pl:
             invalid: Podczas aktualizowania głosowania wystąpił błąd
             success: Głosowanie zostało zaktualizowane
       admin_log:
+        polling_officer:
+          delete: "Użytkownik %{user_name} cofnął przypisanie użytkownika %{polling_officer_user} jako oficera do ankiet w przestrzeni %{space_name}"
+        polling_station:
+          create: "Użytkownik %{user_name} utworzył lokal wyborczy %{resource_name} w przestrzeni %{space_name}"
+          delete: "Użytkownik %{user_name} usunął lokal wyborczy %{resource_name} w przestrzeni %{space_name}"
+          update: "Użytkownik %{user_name} zaktualizował lokal wyborczy %{resource_name} w przestrzeni %{space_name}"
         voting:
           create: "%{user_name} utworzył(a) głosowanie %{resource_name}"
           publish: "%{user_name} opublikował(a) głosowanie %{resource_name}"
@@ -1027,8 +1064,11 @@ pl:
             create:
               invalid: Wystąpił błąd przy przesyłaniu listy wyborców. Spróbuj ponownie później.
               invalid_csv_header: Nagłówki CSV są brakujące lub nie są poprawne — przeczytaj uważnie instrukcję
+            creating_data:
+              info_message: "<strong>Poczekaj</strong>, przetworzono %{processed_count} z %{raw_count} wierszy z pliku %{file} (może to potrwać kilka minut)."
             delete:
               button: Usuń wszystkie dane listy wyborców
+              confirm: Usunięcie wszystkich danych spisu nie może zostać cofnięte. Czy na pewno chcesz kontynuować?
             destroy:
               error: Wystąpił błąd przy usuwaniu listy wyborców. Spróbuj ponownie później.
               success: Usunięto dane listy wyborców
@@ -1039,8 +1079,14 @@ pl:
               file_not_exist: Ten plik nie istnieje
               launch_error: Wystąpił problem z uruchomieniem eksportu kodów dostępu
               launch_success: Eksport kodów dostępu został uruchomiony. Wkrótce otrzymasz e-mail na adres %{email}
+            exporting_access_codes:
+              info_message: "<strong>Poczekaj</strong>, eksport jest przygotowywany, wkrótce otrzymasz go na %{email} (może to potrwać kilka minut)."
             freeze:
               callout: Lista wyborców została zamknięta i nie może być już zmieniania.
+              help_html: |
+                Dane spisu zostały przesłane, kody wygenerowane i wyeksportowane pomyślnie.<br>
+                <strong>Jesteś teraz gotowy(a) do rozpoczęcia wyborów.</strong><br>
+                Użyj eksportowanego pliku CSV z indywidualnymi kodami, aby rozpowszechniać go według Twojego spisu za pomocą własnych środków lub aktywować zakładkę "Czy mogę głosować", aby umożliwić każdemu pobranie tego kodu za pomocą własnych danych spisu.
             generate_access_codes:
               button: Utwórz kody dostępu do głosowania
               callout: Teraz możesz utworzyć kody dostępu. Pamiętaj, że po utworzeniu tych kodów nie będziesz mógł już zmieniać listy wyborców.
@@ -1049,6 +1095,9 @@ pl:
               info_message_warn: Sprawdź, czy nie brakuje żadnych danych, ponieważ utworzono %{data_count} rekordów, a przesłany plik %{file} miał %{raw_count} wierszy.
               launch_error: Wystąpił błąd przy uruchomieniu tworzenia kodów dostępu
               launch_success: Uruchomiono tworzenie kodów.
+              start_over: Usuń bieżący spis i zacznij ponownie z poprawnym plikiem CSV z poprawnymi wierszami.
+            generating_access_codes:
+              info_message: "<strong>Proszę czekać</strong>, kody dostępu do głosowania są generowane (może to potrwać kilka minut)..."
             new:
               file_help:
                 explanation: 'Wytyczne dotyczące pliku:'
@@ -1057,6 +1106,7 @@ pl:
               has_ballot_styles_message: Ustawiono rodzaje kart wyborczych. Upewnij się, że pole "%{ballot_style_code_header}" w CSV odpowiada żądanemu kodowi rodzaju karty wyborczej.
               info_message: "<strong>Nie ma jeszcze listy wyborców.</strong> Użyj poniższego formularza, aby utworzyć ją i zaimportować dane z pliku CSV."
               missing_ballot_styles_message: 'Nie skonfigurowano jeszcze rodzajów kart wyborczych w tym głosowaniu. Jeśli chcesz mieć pytania warunkowe (i..: przedstawiać wyborcy różne pytania w zależności od np. okręg/region zamieszkania), musisz skonfigurować <a href=%{ballot_styles_admin_path}>Rodzaje kart wyborczych</a> <strong>przed</strong> zaimportowaniem listy wyborców. Jeśli chcecie przedstawić wszystkim wyborcom te same pytania, możesz kontynuować procedurę importu listy wyborców.'
+              submit: Prześlij plik CSV
               title: Utwórz listę wyborców
             show:
               heading: Lista wyborców w przestrzeni głosowania

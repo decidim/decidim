@@ -3,12 +3,12 @@
 require "spec_helper"
 
 describe "Admin manages budgets", type: :system do
-  let(:budget) { create :budget, component: current_component }
+  let!(:budget) { create :budget, component: current_component }
   let(:manifest_name) { "budgets" }
+  let(:attributes) { attributes_for(:budget) }
 
   include_context "when managing a component as an admin"
   before do
-    budget
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit_component_admin
@@ -20,26 +20,15 @@ describe "Admin manages budgets", type: :system do
     it_behaves_like "having a rich text editor", "new_budget", "content"
   end
 
-  it "creates a new budget" do
+  it "creates a new budget", versioning: true do
     within ".card-title" do
       click_link "New Budget"
     end
 
     within ".new_budget" do
-      fill_in_i18n(
-        :budget_title,
-        "#budget-title-tabs",
-        en: "My Budget",
-        es: "Mi Presupuesto",
-        ca: "El meu Pressupost"
-      )
-      fill_in_i18n_editor(
-        :budget_description,
-        "#budget-description-tabs",
-        en: "Long description",
-        es: "Descripción más larga",
-        ca: "Descripció més llarga"
-      )
+      fill_in_i18n(:budget_title, "#budget-title-tabs", **attributes[:title].except("machine_translations"))
+      fill_in_i18n_editor(:budget_description, "#budget-description-tabs", **attributes[:description].except("machine_translations"))
+
       fill_in :budget_weight, with: 1
       fill_in :budget_total_budget, with: 100_000_00
       scope_pick select_data_picker(:budget_decidim_scope_id), scope
@@ -54,24 +43,22 @@ describe "Admin manages budgets", type: :system do
     end
 
     within "table" do
-      expect(page).to have_content("My Budget")
+      expect(page).to have_content(translated(attributes[:title]))
     end
+
+    visit decidim_admin.root_path
+    expect(page).to have_content("created the #{translated(attributes[:title])} budget")
   end
 
-  describe "updating a budget" do
+  describe "updating a budget", versioning: true do
     it "updates a budget" do
       within find("tr", text: translated(budget.title)) do
         page.find(".action-icon--edit").click
       end
 
       within ".edit_budget" do
-        fill_in_i18n(
-          :budget_title,
-          "#budget-title-tabs",
-          en: "My new title",
-          es: "Mi nuevo título",
-          ca: "El meu nou títol"
-        )
+        fill_in_i18n(:budget_title, "#budget-title-tabs", **attributes[:title].except("machine_translations"))
+        fill_in_i18n_editor(:budget_description, "#budget-description-tabs", **attributes[:description].except("machine_translations"))
 
         find("*[type=submit]").click
       end
@@ -81,8 +68,11 @@ describe "Admin manages budgets", type: :system do
       end
 
       within "table" do
-        expect(page).to have_content("My new title")
+        expect(page).to have_content(translated(attributes[:title]))
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the #{translated(attributes[:title])} budget")
     end
   end
 

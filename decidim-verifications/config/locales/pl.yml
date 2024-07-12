@@ -7,6 +7,8 @@ pl:
         offline: Offline
         offline_explanation: Instrukcje do weryfikacji offline
         online: Online
+      confirmation:
+        verification_code: Kod weryfikacyjny
       id_document_information:
         document_number: Numer dokumentu (z literą)
         document_type: Typ dokumentu
@@ -15,6 +17,8 @@ pl:
         document_type: Typ twojego dokumentu
         user: Użytkownik
         verification_attachment: Zeskanowana kopia twojego dokumentu
+      mobile_phone:
+        mobile_phone_number: Numer telefonu komórkowego
       offline_confirmation:
         email: Adres e-mail użytkownika
       postal_letter_address:
@@ -24,6 +28,12 @@ pl:
       postal_letter_postage:
         full_address: Pełny adres
         verification_code: Kod weryfikacyjny
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Nieprawidłowy plik importu, przeczytaj uważnie instrukcje i upewnij się, że plik jest kodowany w UTF-8.
   decidim:
     admin:
       menu:

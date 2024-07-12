@@ -1,0 +1,78 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+describe "Admin manages authorizations users", type: :system do
+  let!(:organization) { create(:organization, available_authorizations: available_authorizations) }
+  let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
+
+  before do
+    switch_to_host(organization.host)
+    login_as admin, scope: :user
+
+    visit decidim_admin.root_path
+    click_on "Participants"
+    within ".secondary-nav" do
+      click_on "Authorizations"
+    end
+  end
+
+  context "when multiple authorization handlers are available" do
+    let(:available_authorizations) { %w(id_documents postal_letter csv_census) }
+
+    it "displays the menu entries" do
+      within ".secondary-nav" do
+        expect(page).to have_content("Identity documents")
+        expect(page).to have_content("Code by postal letter")
+        expect(page).to have_content("Organization's census")
+      end
+    end
+
+    it "displays main view entries" do
+      within ".layout-content" do
+        expect(page).to have_content("Identity documents")
+        expect(page).to have_content("Code by postal letter")
+        expect(page).to have_content("Organization's census")
+      end
+    end
+  end
+
+  context "when single authorization handler is unavailable" do
+    let(:available_authorizations) { %w(id_documents csv_census) }
+
+    it "displays the menu entries" do
+      within ".secondary-nav" do
+        expect(page).to have_content("Identity documents")
+        expect(page).to have_content("Organization's census")
+        expect(page).to have_no_content("Code by postal letter")
+      end
+    end
+
+    it "displays main view entries" do
+      within ".layout-content" do
+        expect(page).to have_content("Identity documents")
+        expect(page).to have_content("Organization's census")
+        expect(page).to have_no_content("Code by postal letter")
+      end
+    end
+  end
+
+  context "when no authorization handler is unavailable" do
+    let(:available_authorizations) { [] }
+
+    it "displays the menu entries" do
+      within ".secondary-nav" do
+        expect(page).to have_no_content("Identity documents")
+        expect(page).to have_no_content("Code by postal letter")
+        expect(page).to have_no_content("Organization's census")
+      end
+    end
+
+    it "displays main view entries" do
+      within ".layout-content" do
+        expect(page).to have_no_content("Identity documents")
+        expect(page).to have_no_content("Code by postal letter")
+        expect(page).to have_no_content("Organization's census")
+      end
+    end
+  end
+end

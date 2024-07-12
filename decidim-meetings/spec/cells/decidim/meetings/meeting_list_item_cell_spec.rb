@@ -17,7 +17,7 @@ module Decidim::Meetings
 
     context "when title contains special html entities" do
       it "escapes them correctly" do
-        expect(subject.to_s).to include(decidim_escape_translated(meeting.title).gsub("&quot;", "\""))
+        expect(subject.to_s).to include(decidim_escape_translated(meeting.title).gsub("&#39;", "\'"))
       end
     end
   end

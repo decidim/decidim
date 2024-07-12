@@ -445,6 +445,7 @@ fi:
         new_meeting_at_html: "<span>Uusi tapaaminen osoitteessa %{link}</span>"
       layouts:
         live_event:
+          administrate: Hallinnoi
           close: sulje
           questions: Kysymykset
       mailer:

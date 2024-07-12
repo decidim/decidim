@@ -409,6 +409,12 @@ FactoryBot.define do
         proposal.attachments << create(:attachment, :with_pdf, attached_to: proposal, skip_injection: evaluator.skip_injection)
       end
     end
+
+    trait :moderated do
+      after(:create) do |proposal, evaluator|
+        create(:moderation, reportable: proposal, hidden_at: 2.days.ago, skip_injection: evaluator.skip_injection)
+      end
+    end
   end
 
   factory :proposal_vote, class: "Decidim::Proposals::ProposalVote" do
@@ -433,7 +439,13 @@ FactoryBot.define do
     transient do
       skip_injection { false }
     end
-    body { Faker::Lorem.sentences(number: 3).join("\n") }
+    body do
+      if skip_injection
+        generate(:title)
+      else
+        "<script>alert(\"proposal_note_body\");</script> #{generate(:title)}"
+      end
+    end
     proposal { build(:proposal, skip_injection: skip_injection) }
     author { build(:user, organization: proposal.organization, skip_injection: skip_injection) }
   end

@@ -33,6 +33,9 @@ shared_examples "manage participatory process private users examples" do
     within "#private_users table" do
       expect(page).to have_content(other_user.email)
     end
+
+    visit decidim_admin.root_path
+    expect(page).to have_content("invited #{other_user.name} to be a private participant")
   end
 
   describe "when import a batch of private users from csv" do

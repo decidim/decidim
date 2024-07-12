@@ -7,6 +7,7 @@ describe "Admin manages initiative components", type: :system do
   let(:user) { create(:user, :admin, :confirmed, organization: organization) }
 
   let!(:initiative) { create(:initiative, organization: organization) }
+  let!(:attributes) { attributes_for(:component, participatory_space: initiative) }
 
   before do
     switch_to_host(organization.host)
@@ -27,9 +28,7 @@ describe "Admin manages initiative components", type: :system do
         fill_in_i18n(
           :component_name,
           "#component-name-tabs",
-          en: "My component",
-          ca: "El meu component",
-          es: "Mi componente"
+          **attributes[:name].except("machine_translations")
         )
 
         within ".global-settings" do
@@ -59,12 +58,17 @@ describe "Admin manages initiative components", type: :system do
         expect(page).to have_content("successfully")
       end
 
-      expect(page).to have_content("My component")
+      expect(page).to have_content(translated(attributes[:name]))
+    end
+
+    it "has a successful admin log" do
+      visit decidim_admin.root_path
+      expect(page).to have_content("created #{translated(attributes[:name])} in #{translated(initiative.title)}")
     end
 
     context "and then edit it" do
       before do
-        within find("tr", text: "My component") do
+        within "tr", text: translated(attributes[:name]) do
           page.find(".action-icon--configure").click
         end
       end
@@ -115,9 +119,7 @@ describe "Admin manages initiative components", type: :system do
         fill_in_i18n(
           :component_name,
           "#component-name-tabs",
-          en: "My updated component",
-          ca: "El meu component actualitzat",
-          es: "Mi componente actualizado"
+          **attributes[:name].except("machine_translations")
         )
 
         within ".global-settings" do
@@ -135,9 +137,9 @@ describe "Admin manages initiative components", type: :system do
         expect(page).to have_content("successfully")
       end
 
-      expect(page).to have_content("My updated component")
+      expect(page).to have_content(translated(attributes[:name]))
 
-      within find("tr", text: "My updated component") do
+      within "tr", text: translated(attributes[:name]) do
         page.find(".action-icon--configure").click
       end
 
@@ -148,6 +150,9 @@ describe "Admin manages initiative components", type: :system do
       within ".default-step-settings" do
         expect(all("input[type=checkbox]").first).to be_checked
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated #{translated(attributes[:name])} in #{translated(initiative.title)}")
     end
   end
 

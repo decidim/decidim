@@ -77,15 +77,6 @@ shared_examples "manage moderations" do
       expect(page).to have_admin_callout("Resource successfully unreported")
     end
 
-    it "user can hide a resource" do
-      within "tr[data-id=\"#{moderation.id}\"]" do
-        click_link "Hide"
-      end
-
-      expect(page).to have_admin_callout("Resource successfully hidden")
-      expect(page).to have_no_content(moderation.reportable.reported_content_url)
-    end
-
     it "user can sort by report count" do
       moderations.each_with_index { |moderation, index| moderation.update(report_count: index + 1) }
       moderations_ordered_by_report_count_asc = moderations.sort_by(&:report_count)

@@ -1167,6 +1167,7 @@ de:
       no_notifications: Noch keine Benachrichtigungen
       show:
         missing_event: Hoppla, diese Benachrichtigung gehört zu einem Artikel, der nicht mehr verfügbar ist. Du kannst sie verwerfen.
+        moderated: Inhalt moderiert
     notifications_digest_mailer:
       header:
         daily: Tägliche Zusammenfassung

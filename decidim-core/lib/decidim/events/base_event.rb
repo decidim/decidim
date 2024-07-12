@@ -114,6 +114,10 @@ module Decidim
         Decidim::ContentProcessor.render_without_format(title, links: false).html_safe
       end
 
+      def hidden_resource?
+        resource.respond_to?(:hidden?) && resource.hidden?
+      end
+
       private
 
       def component
