@@ -351,6 +351,11 @@ en:
       conflicts:
         attempts: Attempts
         'false': 'No'
+        filters:
+          user: User
+          text: Search by current user email, name or nickname.
+        index:
+          search: Search
         managed_user_name: Managed User
         solved: Solved
         title: Verification conflicts
