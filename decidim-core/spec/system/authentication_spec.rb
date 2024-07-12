@@ -41,7 +41,7 @@ describe "Authentication" do
       end
 
       it "keeps the locale settings" do
-        click_on("Regístrate")
+        click_on("Crea una cuenta")
 
         within ".new_user" do
           fill_in :registration_user_email, with: "user@example.org"

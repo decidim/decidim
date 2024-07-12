@@ -4,7 +4,6 @@ fi-pl:
       participatory_process:
         announcement: Ilmoitus
         area_id: Alue
-        banner_image: Bannerikuva
         copy_categories: Kopioi aihepiirit
         copy_components: Kopioi komponentit
         copy_steps: Kopioi vaiheet

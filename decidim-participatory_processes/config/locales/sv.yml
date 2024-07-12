@@ -4,7 +4,6 @@ sv:
       participatory_process:
         announcement: Meddelande
         area_id: Område
-        banner_image: Bannerbild
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
         copy_steps: Kopiera steg

@@ -4,7 +4,6 @@ sk:
       participatory_process:
         announcement: Oznámenie
         area_id: Plocha
-        banner_image: Obrázok banneru
         copy_categories: Kopírovať kategórie
         copy_components: Kopírovanie komponentov
         copy_steps: Kopírovanie krokov
