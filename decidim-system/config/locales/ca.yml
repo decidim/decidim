@@ -88,6 +88,7 @@ ca:
             did_not_receive_unlock_instructions?: No has rebut les instruccions de desbloqueig?
             forgot_your_password?: Has oblidat la teva contrasenya?
             log_in: Iniciar sessió
+            sign_up: Crea un compte
       menu:
         admins: Administradores
         dashboard: Tauler d'administració
