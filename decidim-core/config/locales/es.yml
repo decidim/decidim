@@ -103,7 +103,7 @@ es:
       half_a_minute: medio minuto
       less_than_x_minutes:
         one: hace menos de un minuto
-        other: ha menos de %{count} minutos
+        other: hace menos de %{count} minutos
       less_than_x_seconds:
         one: hace menos de un segundo
         other: hace menos de %{count} segundos
@@ -588,7 +588,7 @@ es:
           username_help: Nombre público que aparece en tus aportaciones. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         create:
-          error: Hubo un problema al crear tu cuenta.
+          error: Se ha producido un error al crear tu cuenta.
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           log_in: Entra
@@ -618,7 +618,7 @@ es:
             Por favor, considera volver a marcar la casilla de selección del boletín a continuación.<br>
             Es muy importante para nosotras que puedas recibir correos electrónicos ocasionales para hacer avisos importantes, siempre puedes cambiar esto en la página de configuración de notificaciones.</p>
             <p>Si no marcas la casilla, es posible que te pierdas información relevante sobre nuevas oportunidades de participación dentro de la plataforma.<br>
-            Si aún deseas evitar recibir boletines, entendemos perfectamente tu decisión.</p>
+            Si aún así deseas evitar recibir boletines, entendemos perfectamente tu decisión.</p>
             <p>¡Gracias por leer esto!</p>
           title: Notificaciones de boletines
         omniauth_buttons:
