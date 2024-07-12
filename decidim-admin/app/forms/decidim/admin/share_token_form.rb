@@ -6,10 +6,11 @@ module Decidim
       include TranslatableAttributes
 
       attribute :token, String
+      attribute :automatic_token, Boolean, default: true
       attribute :expires_at, Decidim::Attributes::TimeWithZone
       attribute :no_expiration, Boolean, default: true
 
-      validates :token, presence: true
+      validates :token, presence: true, if: ->(form) { form.automatic_token.blank? }
       validates :expires_at, presence: true, if: ->(form) { form.no_expiration.blank? }
 
       def token

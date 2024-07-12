@@ -966,10 +966,13 @@ en:
           error: There was a problem destroying the token.
           success: Token destroyed successfully.
         form:
+          automatic: Automatic
           custom: Custom
           custom_expiration: Custom expiration
+          custom_token: Custom token
           expires_at: Expires at
           never_expire: Never
+          token: Token
         index:
           back_to_share_tokens: Back to share tokens
           new_share_token_button: New token
