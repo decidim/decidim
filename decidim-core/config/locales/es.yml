@@ -1150,7 +1150,7 @@ es:
         index:
           new_conversation: Nueva conversación
           next: Siguiente
-          no_conversations: Aún no tienes ninguna conversarción.
+          no_conversations: Aún no tienes ninguna conversación.
           title: Conversaciones
         reply_form:
           placeholder: Tu respuesta...
