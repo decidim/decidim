@@ -260,6 +260,8 @@ fr:
           success: Organisation mise à jour avec succès.
         users_registration_mode:
           disabled: L'accès n'est possible qu'avec des comptes externes
+          enabled: Autoriser les participants à se créer un compte et à se connecter
+          existing: Ne pas permettre aux participants de créer un compte, mais permettre aux participants existants de se connecter
       shared:
         notices:
           no_organization_warning_html: Vous devez créer une organisation pour démarrer. Assurez-vous de lire %{guide} avant de continuer.
