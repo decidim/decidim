@@ -475,7 +475,7 @@ es:
             message_1: Los archivos CSV, JSON y Excel (.xlsx) están soportados
             message_2: Para archivos CSV, el separador entre columnas debe ser un punto y coma (";")
       help_sections:
-        error: Hubo un problema al actualizar las secciones de ayuda.
+        error: Se ha producido un error al actualizar las secciones de ayuda.
         form:
           save: Guardar
         success: Las secciones de ayuda se han actualizado correctamente.
@@ -536,7 +536,7 @@ es:
               one: Falta la columna %{columns}.
               other: Faltan las columnas %{columns}.
         error: Se ha producido un error durante la importación.
-        example_error: Hubo un problema al crear un ejemplo para el tipo seleccionado.
+        example_error: Se ha producido un error al crear un ejemplo para el tipo seleccionado.
         new:
           accepted_mime_types:
             csv: CSV
@@ -586,7 +586,7 @@ es:
         reported_users: Participantes reportadas
         scope_types: Tipos de ámbito
         scopes: Ámbitos
-        see_site: Ver el sitio web
+        see_site: Ver sitio
         settings: Configuración
         static_page_topics: Temas
         static_pages: Páginas
@@ -700,7 +700,7 @@ es:
         report:
           reasons:
             does_not_belong: No pertenece
-            hidden_during_block: Oculto mientras se bloquea a la participante
+            hidden_during_block: Oculto al bloquear a la participante
             offensive: Ofensiva
             spam: Contenido no deseado
         reports:
@@ -777,7 +777,7 @@ es:
         show:
           preview: Previsualizar
           select_recipients_to_deliver: Selecciona los destinatarios
-          send_me_a_test_email: Enviarme un correo electrónico de prueba
+          send_me_a_test_email: Envíame un correo electrónico de prueba
           subject: Asunto
         update:
           error: Se ha producido un error al actualizar este boletín.
