@@ -17,15 +17,33 @@ pl:
       monitoring_committee_member:
         email: E-mail
         name: Imię
+      polling_officer:
+        email: E-mail
+        name: Imię
+      polling_station:
+        address: Adres
+        location: Miejsce
+        location_hints: Wskazówki dotyczące lokalizacji
+        polling_station_managers: Kierownicy
+        polling_station_president_id: Przewodniczący
+        title: Tytuł
       question:
         max_selections: Maksymalna liczba opcji do wybrania
         min_selections: Żadna z powyższych opcji
         title: Tytuł
+      trustees_participatory_space:
+        user_id: Uczestnik
       voting:
         banner_image: Banner
+        census_contact_information: Dane kontaktowe spisu
+        description: Opis
         end_time: Głosowanie kończy się
+        introductory_image: Obraz wprowadzający
+        promoted: Promowany
         scope_id: Zakres
+        show_check_census: Pokaż stronę "Sprawdź spis"
         start_time: Głosowanie rozpoczyna się
+        title: Tytuł
         voting_type: Typ głosowania
     errors:
       models:
@@ -37,6 +55,12 @@ pl:
           attributes:
             attachment:
               needs_to_be_reattached: Załącz ponownie
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: nie może zostać zmienione
+            public_key:
+              cant_be_changed: nie może zostać zmieniony
   activerecord:
     models:
       decidim/elections/answer:
@@ -952,6 +976,9 @@ pl:
             update: Aktualizuj
           form:
             select_a_voting_type: Wybierz typ głosowania
+            show_check_census_help: Czy pokazać link "Czy mogę głosować?" w menu głosowań publicznych.
+            slug: Slug
+            slug_help_html: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do tego głosowania. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
             title: Tytuł
             voting_type:
               hybrid: Hybrydowe
@@ -961,8 +988,23 @@ pl:
           new:
             create: Utwórz
             title: Nowe głosowanie
+          update:
+            invalid: Podczas aktualizowania głosowania wystąpił błąd.
+            success: Głosowanie zostało zaktualizowane.
       admin_log:
+        ballot_style:
+          create: "%{user_name} utworzył(a) styl głosowania z kodem %{ballot_style_code} w przestrzeni %{space_name}"
+          delete: "Użytkownik %{user_name} usunął styl głosowania kodem %{ballot_style_code} w przestrzeni %{space_name}"
+          update: "%{user_name} zaktualizował(a) styl głosowania kodem %{ballot_style_code} w przestrzeni %{space_name}"
+        census:
+          create: "%{user_name} stworzył spis dla przestrzeni %{space_name}"
+          delete: "Użytkownik %{user_name} usunął spis dla przestrzeni %{space_name}"
+          update: "%{user_name} zaktualizował(a) spis dla przestrzeni %{space_name}"
+        monitoring_committee_member:
+          create: "%{user_name} przypisał(a) użytkownika %{monitoring_committee_member_user} jako członka komitetu monitorującego w przestrzeni %{space_name}"
+          delete: "Użytkownik %{user_name} cofnął przypisanie użytkownika %{monitoring_committee_member_user} jako członka komitetu monitorującego w przestrzeni %{space_name}"
         polling_officer:
+          create: "Użytkownik %{user_name} przypisał użytkownika %{polling_officer_user} jako oficera wyborczego w przestrzeni %{space_name}"
           delete: "Użytkownik %{user_name} cofnął przypisanie użytkownika %{polling_officer_user} jako oficera do ankiet w przestrzeni %{space_name}"
         polling_station:
           create: "Użytkownik %{user_name} utworzył lokal wyborczy %{resource_name} w przestrzeni %{space_name}"
