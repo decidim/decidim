@@ -43,8 +43,10 @@ pl:
           destroy:
             confirm: Unieważnienie przed autoryzacjami dat nie może zostać cofnięte. Czy na pewno chcesz kontynuować?
             confirm_all: Unieważnienie wszystkich autoryzacji nie może zostać cofnięte. Czy na pewno chcesz kontynuować?
+          destroy_nok: Wystąpił błąd podczas cofania uprawnień.
           destroy_ok: Pomyślnie wycofano wszystkie autoryzacje spełniające kryteria.
           info: 'Całkowita liczba zweryfikowanych użytkowników: %{count}.'
+          no_data: Brak zweryfikowanych uczestników.
           title: Wycofanie autoryzacji
         authorization_workflows: Autoryzacje
     admin_log:
@@ -54,19 +56,43 @@ pl:
         grant_id_documents_offline_verification: "%{user_name} zweryfikował(a) %{resource_name} przy użyciu autoryzacji dokumentów tożsamości offline"
     authorization_handlers:
       admin:
+        another_dummy_authorization_handler:
+          help:
+            - Przykładowy uchwyt autoryzacji, aby deweloperzy mogli zrozumieć, jak działa prosta weryfikacja.
+            - Jest on skierowany do programistów, aby mogli zrozumieć, w jaki sposób wdrożyć własny system weryfikacji.
+            - Uzyskaj weryfikację, wprowadzając numer paszportu zaczynający się od litery "A".
+        csv_census:
+          help:
+            - Administratorzy przesyłają plik CSV z adresami e-mail zaakceptowanych uczestników.
+            - Tylko uczestnicy z adresem e-mail w tym pliku CSV mogą zostać zweryfikowani.
+        default:
+          help:
+            - Uchwyt obsługi autoryzacji nie jest zdefiniowany.
+            - Programista musi zdefiniować pomoc w kluczu tłumaczenia (i18n) "%{authorization_handler}"
+        dummy_authorization_handler:
+          help:
+            - Przykładowy uchwyt autoryzacji, aby deweloperzy mogli zrozumieć, jak działa prosta weryfikacja.
+            - Jest on skierowany do programistów, aby mogli zrozumieć, w jaki sposób wdrożyć własny system weryfikacji.
+            - Uzyskaj weryfikację, wprowadzając numer dokumentu kończący się na literę "X".
         id_documents:
           help:
             - Użytkownicy wypełniają swoje dane osobowe i przesyłają kopię swojego dokumentu.
             - Wypełniasz widoczne na przesłanym obrazie.
             - Informacje powinny pasować do tego, co użytkownik wypełnił.
-            - 
+            - Jeśli nie możesz odczytać tych informacji lub nie możesz ich zweryfikować, możesz odrzucić prośbę, a użytkownik będzie mógł to poprawić.
         postal_letter:
           help:
             - Użytkownicy proszą o kod weryfikacyjny, który zostanie wysłany na ich adres.
             - Wysyłasz list na adres z kodem weryfikacyjnym.
             - Oznaczasz list jako wysłany.
             - Po oznaczeniu listu jako wysłany użytkownik będzie mógł wprowadzić kod i uzyskać weryfikację.
+        sms:
+          help:
+            - Użytkownicy proszą o kod weryfikacyjny, który zostanie wysłany na ich telefon.
+            - Muszą wprowadzić kod, aby zostać zweryfikowanym.
+            - Jeśli nie otrzymają kodu, mogą zażądać go ponownie.
       csv_census:
+        explanation: Zostań zweryfikowany przy użyciu spisu organizacji.
         name: Spis organizacji
       direct: Bezpośredni
       help: Pomoc
