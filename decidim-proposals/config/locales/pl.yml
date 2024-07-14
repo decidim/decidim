@@ -340,7 +340,14 @@ pl:
         proposal_votes:
           conditions:
             - Przeglądaj i poświęć trochę czasu na czytanie propozycji innych osób
-            - 
+            - Zagłosuj na propozycje, które lubisz lub uznasz za interesujące
+          description: Ta odznaka jest przyznawana, gdy głosujesz na propozycje innych osób.
+          description_another: Ten użytkownik głosował na %{score} propozycji.
+          description_own: Zagłosowałeś(aś) na %{score} propozycje.
+          name: Głosy na propozycje
+          next_level_in: Zagłosuj na %{score} więcej propozycji, aby osiągnąć następny poziom!
+          unearned_another: Ten uczestnik nie głosował jeszcze na żadne propozycje.
+          unearned_own: Nie głosowałeś(aś) jeszcze na żadne propozycje.
         proposals:
           conditions:
             - Wybierz przestrzeń partycypacyjną, która Cię interesuje, z możliwością dodawania propozycji
@@ -365,6 +372,10 @@ pl:
         description: Liczba propozycji
         object: propozycje
         title: Propozycje
+      votes:
+        description: Liczba głosów na propozycje
+        object: głosów
+        title: Głosy
     participatory_spaces:
       highlighted_proposals:
         last: Ostatnie propozycje
@@ -840,8 +851,20 @@ pl:
           vote: Głosować
           votes_blocked: Głosowanie zostało wyłączone
         voting_rules:
+          can_accumulate_votes_beyond_threshold:
+            description: Każda propozycja może zgromadzić głosy poparcia ponad limit %{limit} głosów
+          minimum_votes_per_user:
+            description: Musisz rozdzielić minimum %{votes} głosów pomiędzy różne propozycje.
+            given_enough_votes: Udzieliłeś(aś) wystarczającej liczby głosów.
+            votes_remaining: Musisz wesprzeć %{remaining_votes} dodatkowych propozycji, aby Twoje głosy zostały policzone.
           proposal_limit:
             description: Możesz utworzyć maksymalnie %{limit} propozycji.
+          threshold_per_proposal:
+            description: Aby propozycje zostały zatwierdzone, muszą osiągnąć limit %{limit} głosów.
+          title: 'Głosy podlegają następującym zasadom:'
+          vote_limit:
+            description: Możesz wesprzeć maksymalnie %{limit} propozycji.
+            votes: Pozostało %{number} głosów
         wizard_aside:
           back: Wróć
           back_from_step_1: Wróć do propozycji
@@ -868,6 +891,9 @@ pl:
       versions:
         index:
           title: Wersje
+      withdraw:
+        errors:
+          has_votes: Tej propozycji nie można wycofać, ponieważ oddano już na nią głosy poparcia.
     resource_links:
       copied_from_component:
         proposal_proposal: Powiązane propozycje
