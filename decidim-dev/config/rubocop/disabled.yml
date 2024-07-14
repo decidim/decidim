@@ -66,6 +66,3 @@ Lint/SelfAssignment:
 
 Style/SendWithLiteralMethodName:
   Enabled: false
-
-Rails/WhereRange:
-  Enabled: false

@@ -35,7 +35,7 @@ module Decidim
           @query = Decidim::Proposals::ProposalVote.joins(proposal: :component)
                                                    .left_outer_joins(proposal: :category)
                                                    .where(proposal: proposal_ids)
-          @query = @query.where("decidim_proposals_proposal_votes.created_at <= ?", end_time)
+          @query = @query.where(decidim_proposals_proposal_votes: { created_at: ..end_time })
           @query = @query.group("decidim_categorizations.id",
                                 :participatory_space_type,
                                 :participatory_space_id,
@@ -44,7 +44,7 @@ module Decidim
         end
 
         def quantity
-          @quantity ||= query.where("decidim_proposals_proposal_votes.created_at >= ?", start_time).count
+          @quantity ||= query.where(decidim_proposals_proposal_votes: { created_at: start_time.. }).count
         end
       end
     end
