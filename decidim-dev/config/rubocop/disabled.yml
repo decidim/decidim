@@ -58,9 +58,6 @@ Style/MapIntoArray:
 Style/ArgumentsForwarding:
   Enabled: false
 
-Style/SuperArguments:
-  Enabled: false
-
 Lint/SelfAssignment:
   Enabled: false
 
