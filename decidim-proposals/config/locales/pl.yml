@@ -210,7 +210,9 @@ pl:
             creation_enabled: Uczestnicy mogą tworzyć propozycje
             creation_enabled_readonly: To ustawienie jest wyłączone, gdy aktywujesz funkcjonalność tekstów partycypacyjnych. Aby przesłać propozycje jako tekst partycypacyjny, kliknij przycisk "Tekst partycypacyjny" i postępuj zgodnie z instrukcjami.
             default_sort_order: Domyślne sortowanie propozycji
+            default_sort_order_help: Domyślnie oznacza, że jeśli wsparcie jest włączone, propozycje będą wyświetlane w kolejności losowej, a jeśli wsparcie jest zablokowane, zostaną posortowane według najbardziej popieranych.
             default_sort_order_options:
+              default: Domyślny
               most_commented: Najczęściej komentowane
               most_endorsed: Najbardziej popierane
               most_followed: Najczęściej obserwowane
