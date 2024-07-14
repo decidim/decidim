@@ -585,6 +585,13 @@ pl:
           create:
             invalid: 'Wystąpił błąd podczas dzielenia wybranych propozycji, ponieważ niektóre z nich:'
             success: Pomyślnie podzielono propozycje.
+        valuation_assignments:
+          create:
+            invalid: Wystąpił błąd podczas przypisywania propozycji do weryfikatora.
+            success: Przypisano propozycje do weryfikatora.
+          delete:
+            invalid: Wystąpił błąd podczas usuwania przypisania propozycji do weryfikatora.
+            success: Anulowano przypisanie weryfikatora do propozycji.
       admin_log:
         proposal:
           answer: "%{user_name} odpowiedział(a) na propozycję %{resource_name} w przestrzeni %{space_name}"
@@ -607,6 +614,7 @@ pl:
           all: Wszystko
           meetings: Spotkania
           official: Urzędnik
+          participants: Użytkownicy
           user_groups: Grupy użytkowników
         filter_state_values:
           accepted: Zaakceptowano
@@ -623,6 +631,7 @@ pl:
           publish:
             error: Wystąpił błąd podczas publikowania wspólnego szkicu.
             irreversible_action_modal:
+              body: Po opublikowaniu szkicu jako propozycji nie będzie już można jej edytować. Propozycja nie zaakceptuje nowych autorów ani współautorów.
               cancel: Anuluj
               ok: Opublikuj jako propozycję
               title: Poniższe działanie jest nieodwracalne
@@ -630,11 +639,13 @@ pl:
           withdraw:
             error: Podczas zamykania wspólnego szkicu wystąpił błąd.
             irreversible_action_modal:
+              body: Po zamknięciu szkicu nie będzie on już edytowalny. Nie będzie można dodawać nowych autorów i zmian.
               cancel: Anuluj
               ok: Wycofaj wspólny szkic
               title: Poniższe działanie jest nieodwracalne
             success: Wspólny szkic został wycofany.
         create:
+          error: Przy tworzeniu wspólnego szkicu pojawił się problem.
           success: Utworzono wspólny szkic.
         edit:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
@@ -642,6 +653,8 @@ pl:
           select_a_category: Wybierz kategorię
           send: Wyślij
           title: Edytuj wspólny szkic
+        empty: Nie ma jeszcze żadnych wspólnych wersji roboczych
+        empty_filters: Nie ma wspólnego szkicu z tymi kryteriami
         filters:
           all: Wszystko
           amendment: Poprawki
@@ -664,7 +677,10 @@ pl:
             few: "%{count} wspólne szkice"
             many: "%{count} wspólne szkice"
             other: "%{count} wspólne szkice"
+        name: Wspólne szkice
         new:
+          add_file: Dodaj plik
+          edit_file: Edytuj plik
           send: Dalej
         new_collaborative_draft_button:
           new_collaborative_draft: Nowy wspólny szkic
@@ -676,14 +692,17 @@ pl:
         requests:
           accepted_request:
             error: Nie można zaakceptować jako współtwórcy, spróbuj ponownie później.
+            success: "Użytkownik @%{user} został pomyślnie zaakceptowany jako współpracownik."
           access_requested:
             error: Twoje żądanie nie może zostać zrealizowanie, spróbuj ponownie później.
+            success: Twoja prośba o współpracę została wysłana.
           collaboration_requests:
             accept_request: Akceptuj
             reject_request: Odrzuć
             title: Prośby współpracy
           rejected_request:
             error: Nie można odrzucić, spróbuj ponownie później.
+            success: "Użytkownik @%{user} został odrzucony jako współtwórca."
         show:
           edit: Edytuj wspólny szkic
           final_proposal: ostateczna propozycja
@@ -693,6 +712,7 @@ pl:
             few: i %{count} więcej osób
             many: i %{count} więcej osób
             other: i %{count} więcej osób
+          info-message: Jest to <strong>wspólny szkic</strong> dla propozycji. Oznacza to, że możesz pomóc autorom w kształtowaniu propozycji za pomocą sekcji komentarzy lub poprawić ją bezpośrednio, prosząc o dostęp do edycji. Gdy autorzy przyznają Ci dostęp, będziesz mógł wprowadzać zmiany w tym szkicu.
           publish: Publikuj
           publish_info: Opublikuj tę wersję szkicu lub
           published_proposal: opublikowana propozycja
