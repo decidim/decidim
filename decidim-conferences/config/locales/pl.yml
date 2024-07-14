@@ -441,9 +441,11 @@ pl:
         create:
           invalid: Podczas dołączania do tej konferencji wystąpił błąd.
           success: Dołączyłeś pomyślnie do konferencji.
+          unauthorized: Musisz się zalogować przed rejestracją na konferencję.
         decline_invitation:
           invalid: Wystąpił błąd z odrzuceniem zaproszenia.
           success: Odrzuciłeś zaproszenie.
+          unauthorized: Musisz się zalogować przed odrzuceniem zaproszenia.
         destroy:
           invalid: Podczas opuszczania tej konferencji wystąpił błąd.
           success: Opuszczono konferencję.
