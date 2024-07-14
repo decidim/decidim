@@ -34,10 +34,10 @@ shared_examples "manage assemblies" do
         fill_in_i18n(:assembly_local_area, "#assembly-local_area-tabs", **attributes[:local_area].except("machine_translations"))
         fill_in_i18n(:assembly_target, "#assembly-target-tabs", **attributes[:target].except("machine_translations"))
 
-        fill_in :assembly_creation_date, with: Date.yesterday.strftime("%d/%m/%Y"), fill_options: { clear: :backspace }
-        fill_in :assembly_included_at, with: Date.current.strftime("%d/%m/%Y"), fill_options: { clear: :backspace }
-        fill_in :assembly_duration, with: Date.tomorrow.strftime("%d/%m/%Y"), fill_options: { clear: :backspace }
-        fill_in :assembly_closing_date, with: Date.tomorrow.strftime("%d/%m/%Y"), fill_options: { clear: :backspace }
+        fill_in :assembly_creation_date, with: Date.yesterday, fill_options: { clear: :backspace }
+        fill_in :assembly_included_at, with: Date.current, fill_options: { clear: :backspace }
+        fill_in :assembly_duration, with: Date.tomorrow, fill_options: { clear: :backspace }
+        fill_in :assembly_closing_date, with: Date.tomorrow, fill_options: { clear: :backspace }
         find("*[type=submit]").click
       end
 
@@ -46,9 +46,9 @@ shared_examples "manage assemblies" do
       within "[data-content]" do
         expect(page).to have_selector("input[value='#{translated(attributes[:title])}']")
         expect(page).to have_css("img[src*='#{image3_filename}']")
-        expect(page).to have_css("input[value='#{Date.yesterday.strftime("%Y-%d-%m")}']")
-        expect(page).to have_css("input[value='#{Date.current.strftime("%Y-%d-%m")}']")
-        expect(page).to have_css("input[value='#{Date.tomorrow.strftime("%Y-%d-%m")}']", count: 2)
+        expect(page).to have_css("input[value='#{Date.yesterday}']")
+        expect(page).to have_css("input[value='#{Date.current}']")
+        expect(page).to have_css("input[value='#{Date.tomorrow}']", count: 2)
       end
 
       visit decidim_admin.root_path
