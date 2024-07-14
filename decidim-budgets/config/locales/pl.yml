@@ -179,6 +179,8 @@ pl:
         show: Zobacz projekty
         vote: Głos
         voted_on: Zagłosowałeś na %{links}
+      last_activity:
+        new_vote_at_html: "<span>Nowe głosowanie w budżecie na %{link}</span>"
       limit_announcement:
         cant_vote: Nie możesz głosować na ten budżet. <a href="%{landing_path}">Spróbuj zagłosować na inny</a>.
         limit_reached: 'Masz aktywne głosy: %{links}. Aby zagłosować na ten budżet, musisz <a href="%{landing_path}">usunąć swój głos i zacząć od nowa</a>.'
@@ -267,6 +269,8 @@ pl:
           filter: Filtr
           filter_by: Filtruj według
           unfold: Rozwiń
+        index:
+          view_project: Pokaż projekt
         order_progress:
           vote: Wspieranie
         order_selected_projects:
