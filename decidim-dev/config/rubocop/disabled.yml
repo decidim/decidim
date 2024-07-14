@@ -46,8 +46,8 @@ Rubycw/Rubycw:
 Lint/SymbolConversion:
   Enabled: false
 
-Style/RedundantParentheses:
-  Enabled: false
+
+
 
 Style/MapIntoArray:
   Enabled: false
