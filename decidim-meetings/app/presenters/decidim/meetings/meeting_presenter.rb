@@ -25,7 +25,7 @@ module Decidim
       def title(links: false, html_escape: false, all_locales: false)
         return unless meeting
 
-        super meeting.title, links, html_escape, all_locales
+        super(meeting.title, links, html_escape, all_locales)
       end
 
       def description(links: false, extras: true, strip_tags: false, all_locales: false)
