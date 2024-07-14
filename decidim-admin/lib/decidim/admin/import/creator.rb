@@ -28,12 +28,8 @@ module Decidim
           end
 
           def localize_headers(header, locales)
-            @localize_headers ||= begin
-              localize_headers = []
-              locales.each do |locale|
-                localize_headers << "#{header}/#{locale}".to_sym
-              end
-              localize_headers
+            @localize_headers ||= locales.map do |locale|
+              "#{header}/#{locale}".to_sym
             end
           end
         end

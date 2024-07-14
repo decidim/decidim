@@ -49,12 +49,6 @@ Lint/SymbolConversion:
 Style/RedundantParentheses:
   Enabled: false
 
-Style/MapIntoArray:
-  Enabled: false
-
-
-
-
 Style/ArgumentsForwarding:
   Enabled: false
 
