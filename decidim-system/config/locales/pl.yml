@@ -31,6 +31,10 @@ pl:
           attributes:
             redirect_uri:
               must_be_ssl: URI przekierowania musi być URI SSL
+        organization:
+          attributes:
+            password:
+              secret_key: Musisz zdefiniować zmienną środowiskową SECRET_KEY_BASE, aby móc zapisać to pole
   decidim:
     system:
       actions:
@@ -63,6 +67,7 @@ pl:
         show:
           admins: Administratorzy
           current_organizations: Bieżące organizacje
+          system_checks: Sprawdzenie systemu
       default_pages:
         placeholders:
           content: Proszę dodać istotne treści do strony statycznej %{page} w panelu administratora.
@@ -83,6 +88,7 @@ pl:
             did_not_receive_unlock_instructions?: Nie dotarła instrukcja odblokowania?
             forgot_your_password?: Nie pamiętasz hasła?
             log_in: Zaloguj się
+            sign_up: Utwórz konto
       menu:
         admins: Administratorzy
         dashboard: Panel
@@ -254,6 +260,8 @@ pl:
           success: Organizacja została zaktualizowana.
         users_registration_mode:
           disabled: Dostęp można uzyskać tylko za pomocą kont zewnętrznych
+          enabled: Pozwól uczestnikom utworzyć konto i zalogować się
+          existing: Nie zezwalaj uczestnikom na rejestrację, ale zezwalaj obecnym uczestnikom na logowanie
       shared:
         notices:
           no_organization_warning_html: Aby rozpocząć, musisz utworzyć organizację. Przed kontynuowaniem przeczytaj %{guide}.
