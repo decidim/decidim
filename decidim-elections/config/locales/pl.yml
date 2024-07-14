@@ -61,7 +61,23 @@ pl:
               cant_be_changed: nie może zostać zmienione
             public_key:
               cant_be_changed: nie może zostać zmieniony
+        voting:
+          attributes:
+            voting_type:
+              inclusion: "%{value} nie jest prawidłowym typem głosowania"
   activerecord:
+    errors:
+      models:
+        decidim/votings/polling_officer:
+          attributes:
+            presided_polling_station:
+              president_and_manager: Oficer wyborczy już jest przewodniczącym/kierownikiem lokalu wyborczego.
+            voting:
+              different_organization: Głosowanie musi odbywać się w tej samej organizacji, do której należy użytkownik.
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: Oficer wyborczy musi być w tym samym głosowaniu co lokal wyborczy.
     models:
       decidim/elections/answer:
         one: Odpowiedź
@@ -128,6 +144,16 @@ pl:
             'true': Nie podpisano
         validated_eq:
           label: Zweryfikowano
+          values:
+            'false': Nie zweryfikowano
+            'true': Zweryfikowano
+      voting_publications:
+        create:
+          error: Wystąpił błąd podczas publikowania tego głosowania.
+          success: Głosowanie zostało opublikowane.
+        destroy:
+          error: Wystąpił błąd podczas cofania publikacji tego głosowania.
+          success: Cofnięto publikację głosowania.
     components:
       elections:
         actions:
@@ -148,6 +174,9 @@ pl:
         manage_answers: Zarządzaj odpowiedziami
         manage_questions: Zarządzaj pytaniami
         manage_steps: Zarządzaj krokami
+        new_answer: Nowa odpowiedź
+        new_election: Nowe wybory
+        new_question: Nowe pytanie
         new_trustee: Nowy mąż (osoba) zaufania
         preview: Podgląd
         publish: Opublikuj
@@ -624,7 +653,12 @@ pl:
               upload: Prześlij swoje klucze identyfikacyjne
               upload_error:
                 invalid_format: Wgrany plik nie zawiera żadnego klucza identyfikacyjnego.
+                invalid_key: Klucze identyfikacyjne w przesłanym pliku nie mogą zostać załadowane.
+                invalid_public_key: Klucze identyfikacyjne w przesłanym pliku nie pasują do zapisanego publicznego klucza identyfikacyjnego.
+              upload_legend: Serwer posiada Twoje publiczne klucze identyfikacyjne, ale Twoja przeglądarka nadal nie ma takich kluczy. Musisz zaimportować plik z kluczami identyfikacyjnymi do komputera z kopii zapasowej, którą utworzyłeś po ich wygenerowaniu.
+            not_supported_browser_description: Wygląda na to, że używasz przeglądarki internetowej, która nie może być używana do działania jako powiernik. Upewnij się, że używasz najnowszej wersji przeglądarki, lub spróbuj użyć dowolnej z najpopularniejszych przeglądarek, aby móc wykonać zadania powiernicze.
             not_supported_browser_title: Aktualizuj przeglądarkę by działać jako mąż (osoba) zaufania
+            trustee_role_description: Zostałeś(aś) powołany(a) do pełnienia funkcji męża (osoby) zaufania w niektórych głosowaniach na tej platformie.
           update:
             success: Twój publiczny klucz identyfikacyjny został zapisany.
       votes:
@@ -632,6 +666,7 @@ pl:
           audit: ( Sprawdź kartę z oddanym głosem )
           back: Rozpocznij proces głosowania ponownie
           ballot_hash: 'Numer Twojej karty do głosowania to:'
+          cast: Rozpocznij głosowanie, aby zakończyć swój głos
           description: Masz tutaj dwie opcje, albo możesz już oddać głos tak aby został poprawnie zliczony, albo możesz sprawdzić czy Twoja karta do głosowania została prawidłowo zaszyfrowania. Ze względów bezpieczeństwa sprawdzenie poprawności szyfrowania karty zepsuje ją. Oznacza to, że musisz ponownie rozpocząć od nowa proces oddawania głosu aby oddać głos.
           header: 'Karta do głosowania została zaszyfrowana. Oddaj głos, albo sprawdź poprawność szyfrowania karty'
         casting:
@@ -665,6 +700,9 @@ pl:
         header:
           ballot_decision: Oddaj głos, albo sprawdź poprawność szyfrowania Twojego głosu
           confirm: Potwierdź swój głos
+          election: Wybory
+          register: Rejestracja
+          vote_for: Głosuj na %{title}
         messages:
           invalid_token: Twoja sesja w kabinie wyborczej nie jest ważna. Spróbuj zagłosować ponownie.
           not_allowed: W tej chwili nie wolno Ci głosować w tych wyborach.
@@ -680,7 +718,9 @@ pl:
           selections: "%{selected} z %{max_selections}<br> opcji wyboru"
         onboarding_modal:
           create_account: Utwórz konto
+          description: Czy chcesz utworzyć nowe konto na platformie? Będziesz mógł (mogła) uczestniczyć w procesach i być aktywną częścią organizacji.
           no_account: Nie, dziękuję.
+          title: Pierwszy raz tutaj?
         update:
           error: Wystąpił błąd z aktualizacją stanu Twojego głosu. Zagłosuj ponownie.
         verify:
@@ -691,8 +731,10 @@ pl:
             header: Nie znaleziono głosu!
             info: Kod głosu nie został znaleziony na urnie wyborczej %{link}, spróbuj ponownie.
           form:
+            back: Powrót do platformy
             submit: Sprawdź
             vote_identifier: 'Kod identyfikacyjny:'
+            vote_identifier_help: To jest identyfikator, który został podany Tobie po oddaniu głosu (nie kod do wpisania w budce do głosowania).
           header:
             title: Zweryfikuj swój głos
           success:
@@ -936,6 +978,9 @@ pl:
           create:
             invalid: Wystąpił błąd podczas tworzenia tego urzędnika wyborczego.
             success: Urzędnik wyborczy został pomyślnie utworzony.
+          destroy:
+            invalid: Wystąpił błąd podczas usuwania oficera wyborczego.
+            success: Oficer wyborczy został usunięty.
           form:
             existing_user: Istniejący użytkownik
             non_user: Zaproś użytkownika
@@ -950,7 +995,14 @@ pl:
             title: Utwórz oficera wyborczego
           polling_officers_picker:
             choose_polling_officers: Wybierz oficerów wyborczych
+            no_polling_officers: Brak oficerów wyborczych spełniających kryteria wyszukiwania lub nie ma żadnego oficera wyborczego.
         polling_stations:
+          create:
+            invalid: Przy tworzeniu lokalu wyborczego wystąpił błąd.
+            success: Utworzono lokal wyborczy.
+          destroy:
+            invalid: Podczas usuwania lokalu wyborczego wystąpił błąd.
+            success: Usunięto lokal wyborczy.
           edit:
             title: Edytuj lokal wyborczy
             update: Zaktualizowano lokal wyborczy
@@ -959,12 +1011,16 @@ pl:
             location_help: 'Lokalizacja: wiadomość kierowana do wyborców wskazująca dokładne miejsce lokalu wyborczego'
             location_hints_help: 'Wskazówki dotyczące lokalizacji. Przykład: piętro budynku, w którym znajduje się lokal wyborczy.'
             polling_station_managers_help: 'Kierownicy lokali wyborczych: oficerowie pełniący funkcję kierowników lokali wyborczej. Upewnij się, że te osoby zostały już powołane na oficerów wyborczych i że nie zostały jeszcze przydzielone do innego lokalu wyborczego'
+            polling_station_president_help: 'Przewodniczący stacji wyborczej: urzędnik, który będzie pełnił funkcję przewodniczącego stacji wyborczej. Upewnij się, że funkcjonariusz został już utworzony w funkcjonariuszach kontrolujących głosowanie i że nie został on (ona) jeszcze przydzielony(a) do innego stanowiska wyborczego'
             select_president: Wybierz przewodniczącego lokalu wyborczego spośród oficerów wyborczych
           index:
             title: Lokale wyborcze
           new:
             create: Utwórz
             title: Utwórz lokal wyborczy
+          update:
+            invalid: Podczas aktualizowania lokalu wyborczego wystąpił błąd.
+            success: Zaktualizowano lokal wyborczy.
         titles:
           votings: Głosowania
         votings:
@@ -972,9 +1028,19 @@ pl:
             confirm_destroy: Jesteś pewny?
             destroy: Usuń
             new_voting: Nowa przestrzeń do głosowania
+          create:
+            invalid: Podczas tworzenia głosowania wystąpił błąd.
+            success: Utworzono głosowanie.
           edit:
+            add_election_component: Nie masz żadnych wyborów skonfigurowanych w tym głosowaniu. Dodaj je w sekcji Komponenty.
+            assign_missing_officers: Wciąż są lokale wyborcze bez przewodniczącego i/lub menedżerów. Proszę przydzielić ich w sekcji lokali wyborczych.
             update: Aktualizuj
           form:
+            banner_image: Obraz banera
+            census_contact_information: Dane kontaktowe spisu
+            census_contact_information_help: Te dane kontaktowe dotyczą uczestnika, który chce zgłaszać problemy z listą wyborców. Może to być adres e-mail, formularz kontaktowy na innej stronie, ankieta dla odwiedzających itp.
+            introductory_image: Obraz wprowadzający
+            promoted: Promowany
             select_a_voting_type: Wybierz typ głosowania
             show_check_census_help: Czy pokazać link "Czy mogę głosować?" w menu głosowań publicznych.
             slug: Slug
