@@ -623,6 +623,7 @@ pl:
           all: Wszystko
           meetings: Spotkania
           official: Urzędnik
+          participants: Użytkownicy
           user_groups: Grupy użytkowników
         filter_scope_values:
           all: Wszystko
@@ -662,6 +663,7 @@ pl:
             many: "%{count} wspólne szkice"
             other: "%{count} wspólne szkice"
         create:
+          error: Przy tworzeniu wspólnego szkicu pojawił się problem.
           success: Utworzono wspólny szkic.
         edit:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
@@ -686,6 +688,8 @@ pl:
           filter_by: Filtruj według
           unfold: Rozwiń
         new:
+          add_file: Dodaj plik
+          edit_file: Edytuj plik
           send: Dalej
         new_collaborative_draft_button:
           new_collaborative_draft: Nowy wspólny szkic
