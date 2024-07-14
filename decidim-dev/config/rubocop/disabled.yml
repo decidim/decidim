@@ -64,8 +64,5 @@ Style/SuperArguments:
 Lint/SelfAssignment:
   Enabled: false
 
-Style/SendWithLiteralMethodName:
-  Enabled: false
-
 Rails/WhereRange:
   Enabled: false
