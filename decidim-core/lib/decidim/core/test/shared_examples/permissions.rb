@@ -4,8 +4,8 @@ require "spec_helper"
 
 shared_examples_for "general conversation permissions" do
   let(:context) { { conversation: } }
-  let(:another_user) { create :user }
-  let(:group) { create :user_group }
+  let(:another_user) { create(:user) }
+  let(:group) { create(:user_group) }
 
   context "when the originator of the conversation is the user" do
     let!(:conversation) do
@@ -46,7 +46,7 @@ shared_examples_for "general conversation permissions" do
   context "when the interlocutor is specified in the context" do
     let(:context) { { conversation:, interlocutor: } }
     let(:originator) { interlocutor }
-    let(:interlocutor) { create :user }
+    let(:interlocutor) { create(:user) }
 
     let!(:conversation) do
       Decidim::Messaging::Conversation.start!(
@@ -113,8 +113,8 @@ end
 
 shared_examples_for "restricted conversation permissions" do
   let(:context) { { conversation: } }
-  let(:user) { create :user }
-  let(:interlocutor) { create :user, organization: user.organization }
+  let(:user) { create(:user) }
+  let(:interlocutor) { create(:user, organization: user.organization) }
   let!(:conversation) do
     Decidim::Messaging::Conversation.start(
       originator: user,
@@ -128,14 +128,14 @@ shared_examples_for "restricted conversation permissions" do
   end
 
   context "when interlocutor restricts communications" do
-    let(:interlocutor) { create :user, direct_message_types: "followed-only" }
+    let(:interlocutor) { create(:user, direct_message_types: "followed-only") }
 
     context "and does not follow the user" do
       it { is_expected.to eq false }
     end
 
     context "and follows the user" do
-      let!(:follow) { create :follow, user: interlocutor, followable: user }
+      let!(:follow) { create(:follow, user: interlocutor, followable: user) }
 
       it { is_expected.to eq true }
     end

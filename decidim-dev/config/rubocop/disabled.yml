@@ -10,8 +10,6 @@ Naming/MemoizedInstanceVariableName:
 RSpec/VerifiedDoubleReference:
   Enabled: false
 
-FactoryBot/ConsistentParenthesesStyle:
-  Enabled: false
 
 FactoryBot/ExcessiveCreateList:
   Enabled: false
