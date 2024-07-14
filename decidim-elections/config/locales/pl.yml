@@ -61,6 +61,10 @@ pl:
               cant_be_changed: nie można zmienić
             public_key:
               cant_be_changed: nie można zmienić
+        voting:
+          attributes:
+            voting_type:
+              inclusion: "%{value} nie jest prawidłowym typem głosowania"
   activerecord:
     errors:
       models:
@@ -142,6 +146,7 @@ pl:
           label: Zweryfikowano
           values:
             'false': Zweryfikowano
+            'true': Nie zweryfikowano
     components:
       elections:
         actions:
@@ -658,6 +663,7 @@ pl:
               upload_legend: Serwer posiada Twoje publiczne klucze identyfikacyjne, ale Twoja przeglądarka nadal nie ma takich kluczy. Musisz zaimportować plik z kluczami identyfikacyjnymi do komputera z kopii zapasowej, którą utworzyłeś po ich wygenerowaniu.
             not_supported_browser_description: Wygląda na to, że używasz przeglądarki internetowej, która nie może być użyta do działań męża (osoby) zaufania. Upewnij się, że używasz najnowszej wersji przeglądarki, lub spróbuj użyć dowolnej z najpopularniejszych przeglądarek, aby móc wykonać zadania męża (osoby) zaufania.
             not_supported_browser_title: Aktualizuj przeglądarkę by działać jako mąż (osoba) zaufania
+            trustee_role_description: Zostałeś(aś) powołany(a) do pełnienia funkcji męża (osoby) zaufania w niektórych głosowaniach na tej platformie.
           update:
             success: Twój publiczny klucz identyfikacyjny został zapisany.
       votes:
@@ -665,6 +671,7 @@ pl:
           audit: "( Sprawdź kartę z oddanym głosem )"
           back: Rozpocznij proces głosowania ponownie
           ballot_hash: 'Numer Twojej karty do głosowania to:'
+          cast: Rozpocznij głosowanie, aby zakończyć swój głos
           description: "Masz tutaj dwie opcje, albo możesz już oddać głos tak aby został poprawnie zliczony, albo możesz sprawdzić czy Twoja karta do głosowania została prawidłowo zaszyfrowania. Ze względów bezpieczeństwa sprawdzenie poprawności szyfrowania karty zepsuje ją. Oznacza to, że musisz ponownie rozpocząć od nowa proces oddawania głosu aby oddać głos.\n\nHere, you have the options to cast your ballot so that it's properly counted or, alternatively, you can audit that your ballot was correctly encrypted. For security reasons, auditing your ballot will spoil it. That means, to cast your vote, you will need to restart the voting process."
           header: 'Karta do głosowania została zaszyfrowana. Oddaj głos, albo sprawdź poprawność szyfrowania karty'
         casting:
@@ -720,7 +727,9 @@ pl:
         onboarding_modal:
           close: Zamknij okno
           create_account: Utwórz konto
+          description: Czy chcesz utworzyć nowe konto na platformie? Będziesz mógł (mogła) uczestniczyć w procesach i być aktywną częścią organizacji.
           no_account: Nie, dziękuję.
+          title: Pierwszy raz tutaj?
         update:
           error: Wystąpił błąd z aktualizacją stanu Twojego głosu. Zagłosuj ponownie.
         verify:
@@ -731,8 +740,10 @@ pl:
             header: Nie znaleziono głosu!
             info: Kod głosu nie został znaleziony na urnie wyborczej %{link}, spróbuj ponownie.
           form:
+            back: Powrót do platformy
             submit: Sprawdź
             vote_identifier: 'Kod identyfikacyjny:'
+            vote_identifier_help: To jest identyfikator, który został podany Tobie po oddaniu głosu (nie kod do wpisania w budce do głosowania).
           header:
             title: Zweryfikuj swój głos
           success:
@@ -1047,6 +1058,11 @@ pl:
             assign_missing_officers: Wciąż są lokale wyborcze bez przewodniczącego i/lub menedżerów. Proszę przydzielić ich w sekcji lokali wyborczych
             update: Aktualizuj
           form:
+            banner_image: Obraz banera
+            census_contact_information: Dane kontaktowe spisu
+            census_contact_information_help: Te dane kontaktowe dotyczą uczestnika, który chce zgłaszać problemy z listą wyborców. Może to być adres e-mail, formularz kontaktowy na innej stronie, ankieta dla odwiedzających itp.
+            introductory_image: Obraz wprowadzający
+            promoted: Promowany
             select_a_voting_type: Wybierz typ głosowania
             show_check_census_help: Czy pokazać link "Czy mogę głosować?" w menu głosów publicznych
             slug: Slug
