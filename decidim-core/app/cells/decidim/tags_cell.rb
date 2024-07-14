@@ -109,7 +109,7 @@ module Decidim
     end
 
     def filter_param(name)
-      candidates = ["with_any_#{name}".to_sym, "with_#{name}".to_sym]
+      candidates = [:"with_any_#{name}", :"with_#{name}"]
       return candidates.first unless controller.respond_to?(:default_filter_params, true)
 
       available_params = controller.send(:default_filter_params)
