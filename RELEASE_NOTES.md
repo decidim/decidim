@@ -60,6 +60,9 @@ We are removing some useless fields that are leftovers from the Redesign.
 For the moment we are leaving the information in your database in case that you want to save it, but in v0.30 these fields we'll be fully removed.
 
 - participatory process table: banner_image. You can read more about this change on PR [#13119](https://github.com/decidim/decidim/pull/13119).
+- assemblies table: show_statistics, . You can read more about this change on PR [#13123](https://github.com/decidim/decidim/pull/13123).
+- participatory process table: show_statistics, . You can read more about this change on PR [#13123](https://github.com/decidim/decidim/pull/13123).
+- participatory process table: show_metrics, . You can read more about this change on PR [#13123](https://github.com/decidim/decidim/pull/13123).
 
 ## 3. One time actions
 
