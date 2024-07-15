@@ -13,6 +13,7 @@ eu:
         project_ids: Barne dauden proiektuak
         proposals: Barne dauden proposamenak
         start_date: Hasiera-data
+        subresults: Azpiemaitzak
         title: Izenburua
         updated_at: Noiz eguneratua
       status:
