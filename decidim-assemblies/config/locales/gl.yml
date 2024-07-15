@@ -43,7 +43,6 @@ gl:
         scope_id: Alcance
         scopes_enabled: Ámbitos habilitados
         short_description: Descrición curta
-        show_statistics: Amosar estatísticas
         slug: URL slug
         special_features: Características especiais
         subtitle: Subtítulo

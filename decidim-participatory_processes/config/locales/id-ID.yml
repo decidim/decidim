@@ -25,7 +25,6 @@ id:
         scope_id: Cakupan
         scopes_enabled: Lingkup diaktifkan
         short_description: Deskripsi Singkat
-        show_statistics: Tampilkan statistik
         slug: Siput URL
         start_date: Mulai tanggal
         subtitle: Subtitle

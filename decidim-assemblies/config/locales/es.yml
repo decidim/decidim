@@ -50,7 +50,6 @@ es:
         scope_id: Ámbito
         scopes_enabled: Ámbitos habilitados
         short_description: Descripción breve
-        show_statistics: Mostrar estadísticas
         slug: Texto corto de URL
         special_features: Características especiales
         subtitle: Subtítulo

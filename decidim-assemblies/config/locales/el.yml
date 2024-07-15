@@ -50,7 +50,6 @@ el:
         scope_id: Πεδίο εφαρμογής
         scopes_enabled: Ενεργοποιημένα πεδία εφαρμογών
         short_description: Σύντομη περιγραφή
-        show_statistics: Εμφάνιση στατιστικών
         slug: Slug διεύθυνσης URL
         special_features: Ειδικά χαρακτηριστικά
         subtitle: Υπότιτλος
