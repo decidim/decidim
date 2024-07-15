@@ -589,7 +589,7 @@ es-PY:
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         create:
-          error: Hubo un problema al crear tu cuenta.
+          error: Se ha producido un error al crear tu cuenta.
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           log_in: Entra
@@ -811,9 +811,9 @@ es-PY:
           email_subject: Un grupo de usuarias ha actualizado su perfil
           notification_title: El grupo de usuarias %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_path}">panel de administración</a>.
       nickname_event:
-        notification_body: Hemos corregido la forma en que se utilizan los alias para que no haya duplicados, para hacerlo ya no se distingue entre mayúsculas y minúsculas.<br/>Tu alias fue creado después de otro igual, así se ha renombrado automáticamente. Puedes modificarlo desde la <a href="%{link_to_account_settings}">configuración de tu cuenta</a>.
+        notification_body: Hemos corregido la forma en que se utilizan los alias para que no haya duplicados, para hacerlo ya no se distingue entre mayúsculas y minúsculas.<br/>Tu alias fue creado después de otro igual, así que se ha renombrado automáticamente. Puedes modificarlo desde la <a href="%{link_to_account_settings}">configuración de tu cuenta</a>.
       notification_event:
-        notification_title: Se ha producido un evento a <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: Se ha producido un evento en <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: Una administradora eliminó su %{resource_type} porque ha sido reportado como %{report_reasons}.
@@ -887,7 +887,7 @@ es-PY:
         explanation: Guía para enlaces adjuntos
         help_messages:
           - Solo se aceptan formatos de URL correctos.
-          - Ten en cuenta que los enlaces deben ser públicos para que todos los participantes puedan acceder a ellos.
+          - Por favor, ten en cuenta que los enlaces deben ser públicos para que todas las participantes puedan acceder a ellos.
       errors:
         decidim/user:
           password: La contraseña es demasiado corta.
@@ -1386,7 +1386,7 @@ es-PY:
           manage_user_group_admins: Gestionar administradoras
           manage_user_group_users: Gestionar miembros
           message: Mensaje
-          resend_email_confirmation_instructions: Reenvia un correo electrónico con las instrucciones de confirmación
+          resend_email_confirmation_instructions: Reenvía un correo electrónico con las instrucciones de confirmación
         confirmation_instructions_sent: Instrucciones de confirmación enviadas por correo electrónico.
         create_user_group: Crea un grupo
         edit_profile: Editar perfil
@@ -1500,7 +1500,7 @@ es-PY:
       floating_help:
         help: Ayuda
       follow_button:
-        log_in_before_follow: Pro favor, inicia sesión antes de realizar esta acción
+        log_in_before_follow: Por favor, inicia sesión antes de realizar esta acción
       login_modal:
         please_log_in: Por favor, inicia la sesión
         sign_up: Crea una cuenta
@@ -1815,30 +1815,30 @@ es-PY:
       activity: Actividad
       custom: Personalizado
       flags: Banderas
-      foods: Alimentos y bebidas
+      foods: Comida y bebida
       frequent: Usados frecuentemente
       nature: Animales y naturaleza
       objects: Objetos
-      people: Caras y Personas
+      people: Caras y personas
       places: Viajes y lugares
       search: Resultados de búsqueda
       symbols: Símbolos
     pick: Elige un emoji…
     search: Buscar
     search_no_results_1: '¡Oh no!'
-    search_no_results_2: No se pudo encontrar ese emoticono
+    search_no_results_2: No se pudo encontrar ese emoji
     skins:
       '1': Por defecto
-      '2': Clara
-      '3': Medio clara
-      '4': Media
-      '5': Medio oscura
-      '6': Oscura
+      '2': Claro
+      '3': Medio claro
+      '4': Medio
+      '5': Medio oscuro
+      '6': Oscuro
       choose: Elige un tono de piel predeterminado
   errors:
     messages:
       allowed_file_content_types: 'solo se permiten archivos con las siguientes extensiones: %{types}'
-      already_confirmed: ya ha sido confirmado, por favor, intente iniciar sesión de nuevo
+      already_confirmed: ya ha sido confirmado, por favor, intenta iniciar sesión de nuevo
       blank: no puede estar en blanco
       cannot_be_blank: no puede estar en blanco
       confirmation: no coincide con %{attribute}

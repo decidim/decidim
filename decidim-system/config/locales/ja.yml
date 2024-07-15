@@ -88,6 +88,7 @@ ja:
             did_not_receive_unlock_instructions?: ロック解除メールを受信できませんでしたか？
             forgot_your_password?: パスワードをお忘れですか？
             log_in: ログイン
+            sign_up: アカウントを作成
       menu:
         admins: 管理者
         dashboard: ダッシュボード
@@ -257,6 +258,8 @@ ja:
           success: 組織が更新されました。
         users_registration_mode:
           disabled: 外部アカウントでのみアクセスできます
+          enabled: 参加者がアカウントを作成してログインできるようにする
+          existing: 参加者が新しくアカウントを作成することはできませんが、既存の参加者はログインできるようにします
       shared:
         notices:
           no_organization_warning_html: 開始するには組織を作成する必要があります。先に進む前に %{guide} を読んでください。
