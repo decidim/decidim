@@ -50,7 +50,6 @@ ca:
         scope_id: Àmbit
         scopes_enabled: Àmbits habilitats
         short_description: Descripció breu
-        show_statistics: Mostra estadístiques
         slug: Nom curt d'URL
         special_features: Característiques especials
         subtitle: Subtítol
