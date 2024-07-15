@@ -33,8 +33,6 @@ ro:
         scope_type_max_depth_id: Gradul de adâncime al filtrului privind domeniul
         scopes_enabled: Domenii de interes activate
         short_description: Descriere scurtă
-        show_metrics: Arată indicatori
-        show_statistics: Arată statistici
         slug: URL slug
         start_date: Data de început
         subtitle: Subtitlu
