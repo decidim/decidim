@@ -601,7 +601,12 @@ cs:
             start_time: Datum zahájení
             title: Titul
       polls:
+        answers:
+          index_admin:
+            back_to_meeting: Zpět na schůzku
         questions:
+          closed_question:
+            question_results: Výsledky
           index:
             empty_questions: Během této schůzky budou zaslány některé dotazy a vy na ně budete moci odpovědět. Zobrazí se zde.
           index_admin:
@@ -612,6 +617,8 @@ cs:
             results: Výsledky
             send: Odeslat
             sent: Odesláno
+            statuses:
+              closed: Výsledky byly odeslány (uzavřeny)
           published_question:
             max_choices_alert: Je vybráno příliš mnoho možností
             question: Otázka

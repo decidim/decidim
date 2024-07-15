@@ -157,6 +157,7 @@ fi:
           answer_questionnaire:
             already_have_an_account?: Onko sinulla jo käyttäjätili?
             are_you_new?: Oletko uusi käyttäjä?
+            sign_in_description: Kirjaudu sisään vastataksesi kyselyyn
             sign_up_description: Luo tili tähän palveluun vastataksesi kyselyyn
             title: Vastaa kyselylomakkeeseen
           current_step: Vaihe %{step}

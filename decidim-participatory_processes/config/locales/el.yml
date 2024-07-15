@@ -4,7 +4,6 @@ el:
       participatory_process:
         announcement: Ανακοίνωση
         area_id: Τομέας
-        banner_image: Εικόνα διαφημιστικού πλαισίου
         copy_categories: Αντιγραφή κατηγοριών
         copy_components: Αντιγραφή στοιχείων
         copy_steps: Αντιγραφή βημάτων

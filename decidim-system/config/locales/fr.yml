@@ -88,6 +88,7 @@ fr:
             did_not_receive_unlock_instructions?: Vous n’avez pas reçu les instructions de déverrouillage ?
             forgot_your_password?: Mot de passe oublié ?
             log_in: Se connecter
+            sign_up: Créer un compte
       menu:
         admins: Administrateurs
         dashboard: Tableau de bord
@@ -259,6 +260,8 @@ fr:
           success: Organisation mise à jour avec succès.
         users_registration_mode:
           disabled: L'accès n'est possible qu'avec des comptes externes
+          enabled: Autoriser les participants à s’inscrire et à se connecter
+          existing: Ne pas autoriser les participants à s'inscrire, mais autoriser les participants existants à se connecter
       shared:
         notices:
           no_organization_warning_html: Vous devez créer une organisation pour démarrer. Assurez-vous de lire %{guide} avant de continuer.

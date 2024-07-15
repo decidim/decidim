@@ -3,7 +3,6 @@ ru:
     attributes:
       participatory_process:
         announcement: Объявление
-        banner_image: Изображение баннера
         copy_categories: Скопировать категории
         copy_components: Копировать составляющие
         copy_steps: Копировать шаги

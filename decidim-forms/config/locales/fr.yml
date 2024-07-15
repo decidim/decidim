@@ -157,6 +157,7 @@ fr:
           answer_questionnaire:
             already_have_an_account?: Vous avez déjà un compte ?
             are_you_new?: Nouvel utilisateur ?
+            sign_in_description: Connectez-vous pour répondre à l'enquête
             sign_up_description: Créez votre compte utilisateur pour répondre à l'enquête
             title: Répondez au questionnaire
           current_step: Étape %{step}
