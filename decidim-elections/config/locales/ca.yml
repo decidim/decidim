@@ -644,7 +644,7 @@ ca:
             success: La teva clau pública d'identificació va ser guardada amb èxit.
       votes:
         ballot_decision:
-          audit: ( Auditar papereta )
+          audit: Auditar papereta
           back: Començar de nou el procés de votació
           ballot_hash: 'L''identificador de la teva papereta és:'
           cast: Dipositar la papereta per a finalitzar el teu vot
