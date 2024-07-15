@@ -43,7 +43,6 @@ nl:
         scope_id: Scope
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
-        show_statistics: Toon statistieken
         slug: URL pad
         special_features: Speciale functionaliteiten
         subtitle: Ondertiteling
