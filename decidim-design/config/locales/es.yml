@@ -148,7 +148,7 @@ es:
           headings:
             characters: Caracteres por línea
             layout: Diseño de columnas
-            size:
+            size: Tamaño
           title: Tipografía
           typefaces_description_1: Decidim utiliza Source Sans Pro como tipo de letra primario. Este tipo de letra está disponible de todas las variantes de caracteres en 310 lenguas
           typefaces_description_2: Estas tipografías están bajo la licencia Open Font

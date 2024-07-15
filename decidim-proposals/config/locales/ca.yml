@@ -485,7 +485,7 @@ ca:
             title: Editar estat
             update: Actualizar
           form:
-            preview:
+            preview: Previsualitzar
           index:
             title: Estats
           new:
@@ -700,7 +700,7 @@ ca:
             success: "S'ha rebutjat amb èxit a @%{user} com a col·laboradora."
         show:
           edit: Edita l'esborrany col·laboratiu
-          final_proposal: proposta final
+          final_proposal: Proposta final
           final_proposal_help_text: Aquest esborrany està finalitzat. Consulta la proposta final
           hidden_authors_count:
             one: i %{count} persona més
@@ -708,7 +708,7 @@ ca:
           info-message: Aquest és un <strong>esborrany col·laboratiu</strong> per a una proposta. Això significa que pots ajudar les seves autores a modelar la proposta, utilitzant la secció de comentaris a continuació, o a millorar-la demanant accés per editar-la directament. Un vegada les autores et donin accés, podràs fer canvis en aquest esborrany.
           publish: Publica
           publish_info: Publica aquesta versió de l'esborrany o
-          published_proposal: proposta publicada
+          published_proposal: Proposta publicada
           request_access: Sol·licitud d'accés
           requested_access: S'ha sol·licitat l'accés
           withdraw: retira l'esborrany

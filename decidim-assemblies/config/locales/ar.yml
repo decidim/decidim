@@ -50,7 +50,6 @@ ar:
         scope_id: نطاق
         scopes_enabled: النطاقات المُفعّلَة
         short_description: وصف قصير
-        show_statistics: عرض الإحصائيات
         slug: سبيكة العنوان الشبكي
         special_features: مميزات خاصة
         subtitle: العنوان الفرعي

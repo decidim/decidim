@@ -50,7 +50,6 @@ pt-BR:
         scope_id: Âmbito
         scopes_enabled: Escopos ativados
         short_description: Pequena descrição
-        show_statistics: Mostre estatisticas
         slug: Slug de URL
         special_features: Funcionalidades especiais
         subtitle: Subtítulo

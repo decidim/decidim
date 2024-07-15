@@ -26,8 +26,6 @@ it:
         scope_type_max_depth_id: Profondità del filtro dell'ambito
         scopes_enabled: Gli ambiti abilitati
         short_description: Descrizione breve
-        show_metrics: Mostra tutte le statistiche
-        show_statistics: Mostra statistiche
         slug: Stringa URL
         start_date: Data di inizio
         subtitle: Sottotitolo

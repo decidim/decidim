@@ -43,7 +43,6 @@
         scope_id: Tema
         scopes_enabled: Temaer aktivert
         short_description: Kort beskrivelse
-        show_statistics: Vis statistikk
         slug: URL slug
         special_features: Spesialfunksjoner
         subtitle: Undertittel
