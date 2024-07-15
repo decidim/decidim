@@ -23,7 +23,6 @@ describe "Decidim::Api::QueryType" do
           type
           thumbnail
         }
-        bannerImage
         categories{
           id
           name{
@@ -109,8 +108,6 @@ describe "Decidim::Api::QueryType" do
         shortDescription {
             translation(locale: "#{locale}")
           }
-        showMetrics
-        showStatistics
         slug
         startDate
         steps {
@@ -159,7 +156,6 @@ describe "Decidim::Api::QueryType" do
         "translation" => participatory_process.announcement[locale]
       },
       "attachments" => [],
-      "bannerImage" => participatory_process.attached_uploader(:banner_image).path.sub(Rails.public_path.to_s, ""),
       "categories" => [],
       "components" => components,
       "createdAt" => participatory_process.created_at.iso8601.to_s.gsub("Z", "+00:00"),
@@ -181,8 +177,6 @@ describe "Decidim::Api::QueryType" do
       "scope" => participatory_process.scope,
       "scopesEnabled" => participatory_process.scopes_enabled,
       "shortDescription" => { "translation" => participatory_process.short_description[locale] },
-      "showMetrics" => participatory_process.show_metrics,
-      "showStatistics" => participatory_process.show_statistics,
       "slug" => participatory_process.slug,
       "startDate" => participatory_process.start_date.to_s,
       "steps" => participatory_process.steps.to_a,

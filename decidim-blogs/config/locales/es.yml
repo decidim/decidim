@@ -50,7 +50,7 @@ es:
         highlighted_posts:
           last_published: Última publicación
           name: Publicaciones
-          see_all: Per todas las publicaciones
+          see_all: Ver todas las publicaciones
       last_activity:
         new_post: 'Nueva publicación:'
       models:

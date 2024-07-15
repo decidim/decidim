@@ -156,7 +156,6 @@ zh-TW:
           answer_questionnaire:
             already_have_an_account?: 已經有帳號了嗎？
             are_you_new?: 新用戶?
-            sign_in_description: 登入以填寫問卷
             sign_up_description: 建立參與者帳號以填寫問卷
             title: 回答表單 
           current_step: 步驟%{step}

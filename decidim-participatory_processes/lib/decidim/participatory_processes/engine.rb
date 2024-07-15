@@ -65,6 +65,7 @@ module Decidim
 
       initializer "decidim_participatory_processes.menu" do
         Decidim::ParticipatoryProcesses::Menu.register_menu!
+        Decidim::ParticipatoryProcesses::Menu.register_mobile_menu!
         Decidim::ParticipatoryProcesses::Menu.register_home_content_block_menu!
       end
 

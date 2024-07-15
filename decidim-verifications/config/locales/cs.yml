@@ -60,6 +60,10 @@ cs:
           help:
             - Administrátoři nahrávají CSV s e-maily přijatých účastníků.
             - Pouze účastníci s e-mailem v souboru CSV mohou být ověřeni.
+        default:
+          help:
+            - 
+            - Vývojář musí definovat pomoc v překladu (i18n) klíč "%{authorization_handler}"
         id_documents:
           help:
             - Uživatelé vyplňují údaje o své totožnosti a nahrávají kopii svého dokladu.

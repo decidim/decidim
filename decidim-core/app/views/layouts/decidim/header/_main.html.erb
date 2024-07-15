@@ -14,29 +14,9 @@
     <div class="main-bar__links-desktop">
       <%= render partial: "layouts/decidim/header/main_links_desktop" %>
     </div>
-
-    <div class="lg:hidden">
-      <div class="flex flex-row-reverse items-center">
-        <%# Main dropdown mobile %>
-        <button id="main-dropdown-summary-mobile" class="main-bar__links-mobile__trigger p-0"
-          data-component="dropdown"
-          data-target="dropdown-menu-main-mobile">
-          <%= icon "menu-line" %><span class="sr-only"><%= t("main_menu", scope: "layouts.decidim.header") %></span>
-          <%= icon "close-line" %>
-        </button>
-
-        <div id="dropdown-menu-main-mobile" class="main-bar__links-mobile__dropdown main-bar__links-mobile__dropdown-before" aria-hidden="true">
-          <%= render partial: "layouts/decidim/header/menu_breadcrumb_main_dropdown_mobile", locals: { id: "breadcrumb-main-dropdown-mobile" } %>
-        </div>
-
-        <%# Main mobile login %>
-        <div>
-          <%= render partial: "layouts/decidim/header/main_links_mobile_item_account" %>
-        </div>
-      </div>
-
-      <%# Overlay menus mobile %>
-      <%= render partial: "layouts/decidim/header/main_links_mobile_account" if current_user %>
+    <div class="main-bar__menu-mobile">
+      <%= render partial: "layouts/decidim/header/main_menu_mobile" %>
     </div>
+    <%= render partial: "layouts/decidim/header/main_links_mobile_account" if current_user %>
   </div>
 </div>

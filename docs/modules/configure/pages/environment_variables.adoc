@@ -353,7 +353,7 @@ Also some more refined configurations:
 |No
 
 |OMNIAUTH_FACEBOOK_APP_ID
-|App ID for enabling access through Facebook.com accounts. See xref:services:social_providers.adoc[Social Providers]. Note that defining this variable automatically renders the "login with" button.
+|App ID for enabling access through Facebook.com accounts. See xref:services:social_providers.adoc[Social Providers]. Note that defining this variable automatically renders the "log in with" button.
 |
 |*Yes*
 

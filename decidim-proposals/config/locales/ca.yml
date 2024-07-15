@@ -522,6 +522,7 @@ ca:
             publish: Publica
             publish_answers: Publica respostes
             select_component: Selecciona un component
+            select_valuators: Selecciona una o més avaluadores
             selected: seleccionat
             split: Dividir propostes
             split_button: Dividir

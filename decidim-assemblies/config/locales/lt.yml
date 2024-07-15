@@ -199,7 +199,6 @@ lt:
           components: Komponentai
           landing_page: Pagrindinis puslapis
           moderations: Moderavimai
-          private_users: Privatūs naudotojai
         assemblies_types: Asamblėjų tipai
       models:
         assemblies_types:

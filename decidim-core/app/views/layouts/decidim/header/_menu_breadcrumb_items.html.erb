@@ -1,4 +1,6 @@
 <% breadcrumb_items.each_with_index do |item, i| %>
+  <% next if item.blank? %>
+
   <% item_label = translated_attribute(item[:label]) %>
   <span>/</span>
   <% if item[:dropdown_cell].present? %>

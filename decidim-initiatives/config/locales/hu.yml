@@ -281,7 +281,6 @@ hu:
         initiatives_types:
           create:
             error: Hiba történt.
-            success: Az új kezdeményezéstípus létrehozása sikeres.
           destroy:
             success: A kezdeményezéstípus eltávolítása sikeres.
           edit:

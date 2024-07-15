@@ -178,7 +178,6 @@ gl:
           categories: Categorías
           components: Compoñentes
           moderations: Moderacións
-          private_users: Usuarios privados
         assemblies_types: Tipos de xuntanzas
       models:
         assemblies_types:

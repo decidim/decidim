@@ -163,6 +163,7 @@ csslintrc
 CSSs
 csvfile
 cta
+cuenta
 Cugat
 customise
 Customising
