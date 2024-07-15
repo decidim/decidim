@@ -50,7 +50,6 @@ tr:
         scope_id: kapsam
         scopes_enabled: Kapsamlar etkin
         short_description: Kısa Açıklama
-        show_statistics: İstatistikleri göster
         slug: URL sümüklü böcek
         special_features: Özel özellikler
         subtitle: Alt Başlık
