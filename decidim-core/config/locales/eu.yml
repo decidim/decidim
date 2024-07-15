@@ -558,6 +558,7 @@ eu:
         name: Sub heroi banner
     core:
       actions:
+        login_before_access: Mesedez, hasi saioa zure kontua erabiliz sartu baino lehen.
         unauthorized: Ez duzu baimenik ekintza hau egiteko.
       application_helper:
         filter_area_values:
@@ -574,6 +575,7 @@ eu:
           complete_profile: Osatu profila
           nickname_help: Zure ezizena %{organization}-an. Letrak, zenbakiak, '-' eta '_' soilik eduki ditzake.
           sign_up: Mesedez, osatu zure profila
+          subtitle: Mesedez, bete hurrengo formularioa kontua sortzen amaitzeko
           username_help: Zure mezuetan agertuko den izen publikoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
       registrations:
         create:
@@ -583,6 +585,8 @@ eu:
           log_in: Hasi saioa
           newsletter: Jaso nahi dut noizbehinka informazio garrantzitsua duen buletina
           newsletter_title: Harremanetarako baimena
+          sign_up: Sortu kontu bat
+          subtitle: Sortu kontu bat plataforman parte hartzeko.
           terms: zerbitzuaren baldintzak
           tos_agreement: 'Erregistratzean hau onartzen duzu: %{link}.'
           tos_title: Zerbitzuaren baldintzak
@@ -592,6 +596,7 @@ eu:
           are_you_new?: Berria zara plataforman?
           register: Sortu zure kontua
           sign_in_disabled: Kanpoko kontu batez sartu ahal zara.
+          sign_up_disabled: Kontuak sortzea desgaituta dago, sartzeko lehendik dagoen kontu bat erabil dezakezu.
         user:
           timed_out: Denbora luzeegi egon zara jarduerarik gabe, eta zure saioa automatikoki itxi da. Parte hartzen jarraitu nahi baduzu, hasi saioa berriro.
       shared:
@@ -1302,6 +1307,7 @@ eu:
           headline: '%{organization} erakundearen egungo egoera'
         sub_hero:
           register: Erregistroa
+          register_title: Sortu kontu bat
       index:
         standalone_pages: orrialdeak
         subheading: Laguntza orrietan nabigatzeko %{name}
@@ -1484,6 +1490,7 @@ eu:
         log_in_before_follow: Mesedez, hasi saioa ekintza hau egin aurretik
       login_modal:
         please_log_in: Mesedez, hasi saioa
+        sign_up: Sortu kontu bat
       mentions_modal:
         remove_recipient: Kendu %{name} hartzailea
       participatory_space_filters:
@@ -1610,6 +1617,7 @@ eu:
       locked: Zure kontua blokeatuta dago.
       not_found_in_database: '%{authentication_keys} edo pasahitza baliogabea.'
       timeout: Zure saioa iraungi da. Mesedez, hasi saioa berriro jarraitzeko.
+      unauthenticated: Saioa hasi edo kontu bat sortu behar duzu, jarraitu baino lehen.
     invitations:
       edit:
         header: Amaitu zure kontua sortzea
@@ -1695,6 +1703,8 @@ eu:
       updated_not_active: Pasahitza ondo aldatu da.
     registrations:
       destroyed: Agur! Zure kontua behar bezala bertan behera utzi da. Laster ikusiko dugu berriro.
+      new:
+        sign_up: Sortu kontu bat
       signed_up: Ongi etorri! Eginda sinatu duzu.
       signed_up_but_inactive: Eginda sinatu duzu. Hala ere, ezin izan dugu saioa hasi kontua oraindik ez baita aktibatuta.
       signed_up_but_locked: Eginda sinatu duzu. Hala ere, ezin izan dugu saioa hasi kontua blokeatuta dagoelako.
@@ -1715,6 +1725,7 @@ eu:
         forgot_your_password: Zure pasahitza ahaztu duzu?
         log_in: Hasi saioa
         log_in_with_provider: 'Hasi honekin: %{provider}'
+        sign_up: Sortu kontu bat
       minimum_password_length:
         one: "(%{count} karaktere gutxienez)"
         other: "(Gutxienez%{count} karaktere)"
@@ -1828,6 +1839,7 @@ eu:
       long_words: luzeegiak diren hitzak ditu (35 karaktere baino gehiago)
       must_start_with_caps: letra maiuskulaz hasi behar da
       nesting_too_deep: ezin da egon azpikategoria batean
+      not_found: ezin izan da aurkitu. Lehenago konturik sortu duzu?
       not_locked: ez zen blokeatuta
       not_saved:
         one: 'Errore bat egon da zure eskaera prozesatzean:'
@@ -1912,6 +1924,7 @@ eu:
         log_in: Sartu
         made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.
         resources: Baliabideak
+        sign_up: Sortu kontu bat
         terms_of_service: Zerbitzuaren baldintzak
       header:
         log_in: Hasi saioa
