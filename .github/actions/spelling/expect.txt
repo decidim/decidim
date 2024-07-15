@@ -152,6 +152,7 @@ Cprojects
 crdownload
 createcluster
 createuser
+crear
 crowdin
 crt
 cryptor
@@ -416,6 +417,7 @@ initialiser
 inodes
 inputdialog
 inputname
+Inscriu
 interf
 inviteduser
 isbn
