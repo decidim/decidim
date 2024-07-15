@@ -50,7 +50,6 @@ lt:
         scope_id: Apimtis
         scopes_enabled: Įgalintos apimtys
         short_description: Trumpas aprašymas
-        show_statistics: Rodyti statistiką
         slug: URL priedas
         special_features: Specialiosios ypatybės
         subtitle: Paantraštė
