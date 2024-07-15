@@ -33,8 +33,6 @@ eu:
         scope_type_max_depth_id: Esparruaren iragazkiaren sakonera
         scopes_enabled: Esparru gaituak
         short_description: Deskribapen laburra
-        show_metrics: Erakutsi metrikak
-        show_statistics: Erakutsi estatistikak
         slug: URL laburra
         start_date: Hasiera-data
         subtitle: Azpititulua
