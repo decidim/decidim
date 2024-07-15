@@ -25,8 +25,6 @@ gl:
         scope_id: Alcance
         scopes_enabled: Ámbitos habilitados
         short_description: Descrición curta
-        show_metrics: Amosar métricas
-        show_statistics: Amosar estatísticas
         slug: URL slug
         start_date: Data de inicio
         subtitle: Subtítulo
