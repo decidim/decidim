@@ -236,6 +236,10 @@ eu:
               most_recent: Azkenak
         exports:
           initiatives: Ekimenak
+        index:
+          initiatives_types:
+            alert_html: "<p>Gutxienez, ekimen mota bat sortu behar duzu, parte-hartzaileak ekimenak sortzen hasi ahal izateko.</p><p> %{link}</p>"
+            button: Beste ekimen mota bat
         initiatives:
           edit:
             accept: Onartu ekimena
@@ -291,6 +295,7 @@ eu:
         initiatives_types:
           create:
             error: Errore bat egon da.
+            success: Beste ekimen mota bat zuzen sortua. Ekimen mota honetarako gutxienez eremu bat definitu behar duzu, egin ahal izateko.
           destroy:
             success: Ekimen mota zuzen kendu da.
           edit:
