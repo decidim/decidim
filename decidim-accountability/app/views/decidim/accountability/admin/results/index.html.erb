@@ -9,18 +9,18 @@
 
       <%= export_dropdowns(query) %>
       <%= import_dropdown do %>
-        <%= link_to new_projects_import_path do %>
-          <% if allowed_to?(:create, :result) && parent_result.nil? %>
+        <% if allowed_to?(:create, :result) && parent_result.nil? %>
+		      <%= link_to new_projects_import_path do %>
             <li class="imports--component imports--results">
               <%= t("actions.import", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")) %>
             </li>
-            <%= link_to import_results_path do %>
-              <% if allowed_to? :create, :result %>
-                <li class="imports--component imports--results">
-                  <%= t("actions.import_csv", scope: "decidim.accountability") %>
-                </li>
-              <% end %>
-            <% end %>
+          <% end %>
+        <% end %>
+        <% if allowed_to? :create, :result %>
+        	<%= link_to import_results_path do %>
+            <li class="imports--component imports--results">
+              <%= t("actions.import_csv", scope: "decidim.accountability") %>
+            </li>
           <% end %>
         <% end %>
       <% end %>
