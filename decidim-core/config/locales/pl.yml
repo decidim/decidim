@@ -30,6 +30,7 @@ pl:
         password_confirmation: Potwierdź swoje hasło
         personal_url: Prywatny adres URL
         remove_avatar: Usuń awatar
+        tos_agreement: Warunki użytkowania
     models:
       decidim/attachment_created_event: Załącznik
       decidim/component_published_event: Aktywny komponent
@@ -150,6 +151,7 @@ pl:
       actions:
         cancel: Anuluj
       password_change:
+        alert: Aby kontynuować, musisz zmienić hasło
         notification: Użytkownicy będący administratorami muszą zmieniać swoje hasło co %{days} dni.
     admin_log:
       area:
@@ -400,6 +402,8 @@ pl:
           authorize: Autoryzuj przy pomocy "%{authorization}"
           explanation: Aby wykonać tę akcję, musisz być autoryzowanym przy pomocy "%{authorization}".
           title: Wymagana Autoryzacja
+        ok:
+          title: Zostałeś autoryzowany na tej stronie. Odśwież stronę, aby wykonać czynność
         pending:
           explanation: Aby wykonać tę akcję, musisz być autoryzowany przy pomocy "%{authorization}", ale twoja autoryzacja jest nadal w toku
           resume: Sprawdź postęp procesu autoryzacji "%{authorization}"
@@ -732,6 +736,8 @@ pl:
           email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
           email_subject: Grupa użytkowników zaktualizowała swój profil
           notification_title: Grupa użytkowników %{user_group_name} zaktualizowała swój profil, pozostawiając go niezweryfikowanym. Możesz go teraz zweryfikować w <a href="%{groups_admin_path}">panelu administratora</a>.
+      nickname_event:
+        notification_body: Skorygowaliśmy sposób, w jaki używane są pseudonimy, aby nie było duplikatów i dlatego usunęliśmy zasadę uwzględniającą wielkość liter. <br/> Twój pseudonim został utworzony po innym o tej samej nazwie, więc automatycznie zmieniliśmy jego nazwę. Możesz to zmienić z <a href="%{link_to_account_settings}">ustawień konta</a>.
       notification_event:
         notification_title: Zdarzenie miało miejsce w <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -845,6 +851,7 @@ pl:
           validating: Weryfikowanie...
           validation_error: Błąd walidacji!
       upload_help:
+        dropzone: Upuść pliki tutaj lub kliknij, aby przesłać
         explanation: Wytyczne dla %{attribute}
     gamification:
       all_badges_link: Zobacz wszystkie dostępne odznaki.
@@ -934,6 +941,7 @@ pl:
         success: Prośba o dołączenie została wysłana. Administrator sprawdzi Twoją aplikację przed zaakceptowaniem Cię do grupy.
       leave:
         error: Podczas opuszczania grupy wystąpił błąd
+        last_admin: Nie możesz usunąć siebie z tej grupy, ponieważ jesteś ostatnim administratorem. Aby opuścić grupę, należy uczynić innego członka administratorem.
         success: Opuszczono grupę.
       members:
         accept_or_reject_join_requests: 'Następujący użytkownicy zgłosili się, aby dołączyć do tej grupy. Zaakceptuj lub odrzuć ich prośby:'
@@ -1174,6 +1182,7 @@ pl:
       show:
         administrators: Administratorzy
         allow_public_contact: Każdy może wysłać mi prywatną wiadomość, nawet jeśli go nie obserwuję.
+        allow_push_notifications: Otrzymuj powiadomienia, aby dowiedzieć się, co się dzieje, gdy nie jesteś na platformie. Możesz je wyłączyć w dowolnym momencie.
         direct_messages: Przyjmuj prywatne wiadomości od każdego
         email_on_moderations: Chcę otrzymywać e-mail za każdym razem, gdy ktoś lub coś jest zgłaszane do moderacji.
         everything_followed: Dotyczące wszystkiego, co obserwuję
@@ -1189,6 +1198,7 @@ pl:
         notifications_sending_frequency: Jak często chcesz otrzymywać powiadomienia e-mail?
         own_activity: Dotyczące moich własnych działań, np. kiedy ktoś komentuje moją propozycję lub wspomina o mnie
         push_notifications: Wyskakujące powiadomienia
+        push_notifications_reminder: Aby otrzymywać powiadomienia z platformy, musisz najpierw zezwolić na to w ustawieniach przeglądarki.
         receive_notifications_about: Chcę otrzymywać powiadomienia
         update_notifications_settings: Zapisz zmiany
       update:
@@ -1196,6 +1206,7 @@ pl:
         success: Ustawienia powiadomień zostały zaktualizowane.
     offline:
       show:
+        message: Wygląda na to, że jesteś obecnie offline. Spróbuj ponownie później.
         retry: Powtórz
     open_data:
       not_available_yet: Pliki Open Data nie są jeszcze dostępne. Spróbuj ponownie za kilka minut.
@@ -1250,6 +1261,7 @@ pl:
           agreement: Wyrażam zgodę na te warunki
           legend: Zgadzam się z warunkami użytkowania
         refuse:
+          modal_body: Jeśli odmówisz, nie będziesz mógł (mogła) korzystać z platformy, możesz <a href="%{download_your_data_path}">pobrać swoje dane</a> i/lub <a href="%{delete_path}">usunąć konto</a>.
           modal_btn_continue: Zaakceptuj warunki i kontynuuj
           modal_btn_exit: Sprawdzę to później
           modal_button: Odrzuć warunki
@@ -1261,6 +1273,10 @@ pl:
           title: 'Wymagane: sprawdź aktualizacje naszych warunków korzystania z platformy'
     participatory_space_private_users:
       not_allowed: Nie możesz wyświetlać tych treści
+    passwords:
+      update:
+        error: Wystąpił problem podczas aktualizacji hasła
+        success: Hasło zostało pomyślnie zmienione
     profile:
       deleted: Usunięty użytkownik
       inaccessible_message: Ten profil jest niedostępny z powodu naruszenia Regulaminu!
@@ -1627,6 +1643,7 @@ pl:
         confirm_new_password: Potwierdź nowe hasło
         new_password: Nowe hasło
         password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
+        password_help_admin: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail, a także Twoich poprzednich haseł."
         title: Zmiana hasła
       new:
         forgot_your_password: Zapomniałeś hasła?

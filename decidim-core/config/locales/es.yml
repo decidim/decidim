@@ -97,7 +97,7 @@ es:
       half_a_minute: medio minuto
       less_than_x_minutes:
         one: hace menos de un minuto
-        other: ha menos de %{count} minutos
+        other: hace menos de %{count} minutos
       less_than_x_seconds:
         one: hace menos de un segundo
         other: hace menos de %{count} segundos
@@ -532,7 +532,7 @@ es:
           username_help: Nombre público que aparece en tus aportaciones. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         create:
-          error: Hubo un problema al crear tu cuenta.
+          error: Se ha producido un error al crear tu cuenta.
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           newsletter: Quiero recibir un boletín ocasional con información relevante
@@ -1268,7 +1268,7 @@ es:
         required_review:
           alert: Hemos actualizado nuestros Términos de Servicio, por favor revísalos.
           body: Por favor dedica un momento a revisar la actualización de nuestras Términos de Servicio. De lo contrario, no podrás usar la plataforma.
-          title: 'Requerido: Revisa las actualizaciones en nuestros términos y condiciones de uso'
+          title: 'Requerido: revisa las actualizaciones en nuestros términos y condiciones de uso'
     participatory_space_private_users:
       not_allowed: No tienes permiso para visualizar este contenido
     passwords:

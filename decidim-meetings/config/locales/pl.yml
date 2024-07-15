@@ -620,6 +620,7 @@ pl:
           index:
             empty_questions: Podczas tego spotkania niektóre pytania zostaną wysłane i będziesz mógł na nie odpowiedzieć. Będą one wyświetlane tutaj.
           index_admin:
+            admin_dashboard: Panel administracyjny
             edit: Edytuj w panelu administratora
             question: Pytanie
             received_answer: otrzymana odpowiedź
