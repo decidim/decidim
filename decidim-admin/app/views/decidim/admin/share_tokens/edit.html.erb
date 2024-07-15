@@ -5,7 +5,7 @@
   </h1>
 </div>
 <div class="item__edit-form">
-  <%= decidim_form_for(@form, html: { class: "form-defaults form edit_component_share_token" }) do |f| %>
+  <%= decidim_form_for(@form, url: component_share_token_path(id: share_token), html: { class: "form-defaults form edit_component_share_token" }) do |f| %>
     <div class="card">
       <div class="card-section">
         <%= render partial: "form", object: f %>

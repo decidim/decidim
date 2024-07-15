@@ -991,6 +991,7 @@ en:
           help: These tokens are used to publicly share this unpublished resource to any user. They will be hidden when the resource is published. Click on the token's share icon to visit the shareable URL.
           title: Share tokens
         update:
+          error: There was a problem updating this token.
           invalid: There was a problem updating the token.
           success: Token updated successfully.
       shared:

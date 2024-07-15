@@ -35,7 +35,7 @@ module Decidim
       def update
         @form = form(ShareTokenForm).from_params(params, component:)
 
-        UpdateShareToken.call(@form) do
+        UpdateShareToken.call(@form, share_token) do
           on(:ok) do
             flash[:notice] = I18n.t("share_tokens.update.success", scope: "decidim.admin")
             redirect_to share_tokens_path(component)
