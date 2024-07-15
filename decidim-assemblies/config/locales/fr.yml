@@ -50,7 +50,6 @@ fr:
         scope_id: Périmètre d'application
         scopes_enabled: Secteurs activés
         short_description: Résumé
-        show_statistics: Afficher les statistiques
         slug: Identifiant
         special_features: Particularités
         subtitle: Sous-titre
