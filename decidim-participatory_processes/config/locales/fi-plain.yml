@@ -33,8 +33,6 @@ fi-pl:
         scope_type_max_depth_id: Teema-suodattimen syvyys
         scopes_enabled: Teemat käytössä
         short_description: Lyhyt kuvaus
-        show_metrics: Näytä tilastot
-        show_statistics: Näytä tilastot
         slug: URL-tunniste
         start_date: Alkamispäivä
         subtitle: Alaotsikko
