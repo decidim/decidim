@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     attributes:
@@ -1429,7 +1430,6 @@ ar:
       links:
         back: الى الخلف
         forgot_your_password: نسيت رقمك السري؟
-        log_in: تسجيل الدخول
         log_in_with_provider: تسجيل الدخول باستخدام %{provider}
       minimum_password_length:
         zero: "(%{count} حرف كحد أدنى)"
@@ -1525,7 +1525,7 @@ ar:
             description: وصف
             name: اسم
             service: الخدمة
-            type: النوع
+            type: نوع
           items:
             _session_id:
               description: يسمح للمواقع بتذكر المستخدم داخل الموقع عندما ينتقل بين صفحات الويب.
@@ -1576,7 +1576,6 @@ ar:
         decidim_logo: شعار Decidim
         decidim_title: Decidim
         download_open_data: تحميل ملفات البيانات المفتوحة
-        log_in: تسجيل الدخول
         made_with_open_source: موقع تم إنشاؤه <a target="_blank" href="https://github.com/decidim/decidim">بالبرمجيات الحرة</a>.
         resources: الموارد
       header:
