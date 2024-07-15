@@ -586,7 +586,7 @@ es-PY:
         reported_users: Participantes reportadas
         scope_types: Tipos de ámbito
         scopes: Ámbitos
-        see_site: Ver el sitio web
+        see_site: Ver sitio
         settings: Configuración
         static_page_topics: Temas
         static_pages: Páginas
@@ -777,7 +777,7 @@ es-PY:
         show:
           preview: Previsualizar
           select_recipients_to_deliver: Selecciona los destinatarios
-          send_me_a_test_email: Enviarme un correo electrónico de prueba
+          send_me_a_test_email: Envíame un correo electrónico de prueba
           subject: Asunto
         update:
           error: Se ha producido un error al actualizar este boletín.

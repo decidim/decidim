@@ -183,7 +183,7 @@ es-MX:
           assembly_admins_title: Usuarios de la Asamblea
         new:
           create: Crear
-          title: Añadir administradora
+          title: Nueva administradora de la asamblea
         update:
           error: Ha habido un error al actualizar un usuario para esta asamblea.
           success: Usuario actualizado con éxito para esta asamblea.
@@ -327,9 +327,9 @@ es-MX:
         description:
           area_name: Área
           closing_date: Fecha de finalización
-          created_by: Creado por
+          created_by: Creada por
           creation_date: Fecha de creación
-          data: Administradora de la asamblea
+          data: Datos de la asamblea
           developer_group: Grupo promotor
           duration: Duración
           included_at: Incluido el
