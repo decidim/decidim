@@ -22,6 +22,18 @@ module Decidim
 
         super
       end
+
+      def token_for
+        context[:current_component]
+      end
+
+      def organization
+        context[:current_organization]
+      end
+
+      def user
+        context[:current_user]
+      end
     end
   end
 end
