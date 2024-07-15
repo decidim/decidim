@@ -29,8 +29,6 @@ sv:
         scope_type_max_depth_id: Djup på omfångsfilter
         scopes_enabled: Omfång aktiverade
         short_description: Kort beskrivning
-        show_metrics: Visa metrik
-        show_statistics: Visa statistik
         slug: URL-slug
         start_date: Startdatum
         subtitle: Underrubrik
