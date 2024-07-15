@@ -28,6 +28,26 @@ module Decidim
         end
       end
 
+      def edit
+        @form = form(ShareTokenForm).from_model(share_token)
+      end
+
+      def update
+        @form = form(ShareTokenForm).from_params(params, component:)
+
+        UpdateShareToken.call(@form) do
+          on(:ok) do
+            flash[:notice] = I18n.t("share_tokens.update.success", scope: "decidim.admin")
+            redirect_to share_tokens_path(component)
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("share_tokens.update.error", scope: "decidim.admin")
+            render :edit
+          end
+        end
+      end
+
       def destroy
         enforce_permission_to(:destroy, :share_token, share_token:)
 

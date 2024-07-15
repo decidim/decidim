@@ -1,0 +1,20 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t ".title", component_name: translated_attribute(component.name) %>
+  </h1>
+</div>
+<div class="item__edit-form">
+  <%= decidim_form_for(@form, html: { class: "form-defaults form edit_component_share_token" }) do |f| %>
+    <div class="card">
+      <div class="card-section">
+        <%= render partial: "form", object: f %>
+      </div>
+    </div>
+    <div class="item__edit-sticky">
+      <div class="item__edit-sticky-container">
+        <%= f.submit t(".update"), class: "button button__sm button__secondary" %>
+      </div>
+    </div>
+  <% end %>
+</div>
