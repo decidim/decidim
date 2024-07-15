@@ -456,13 +456,9 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
-### Added
+Nothing.
 
-### Changed
-
-### Fixed
-
-### Removed
+...
 
 ## Previous versions
 
