@@ -90,7 +90,7 @@ es-MX:
     admin:
       actions:
         confirm: Confirmar
-        new_conference: Añadir jornada
+        new_conference: Nueva conferencia
         new_conference_user_role: Añadir administradora
         new_media_link: Añadir enlace multimedia
         new_partner: Añadir colaboradora
