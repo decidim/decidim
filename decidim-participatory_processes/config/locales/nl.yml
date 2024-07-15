@@ -26,8 +26,6 @@ nl:
         scope_type_max_depth_id: Scope filterdiepte
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
-        show_metrics: Toon statistieken
-        show_statistics: Toon statistieken
         slug: URL pad
         start_date: Startdatum
         subtitle: Ondertitel
