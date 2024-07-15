@@ -37,8 +37,6 @@ module Decidim
         attribute :private_space, Boolean
         attribute :promoted, Boolean
         attribute :scopes_enabled, Boolean
-        attribute :show_metrics, Boolean
-        attribute :show_statistics, Boolean
         attribute :participatory_process_type_id, Integer
 
         attribute :end_date, Decidim::Attributes::LocalizedDate

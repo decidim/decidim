@@ -5,8 +5,6 @@ require "decidim/core/test/shared_examples/has_contextual_help"
 
 describe "Participatory Processes" do
   let(:organization) { create(:organization) }
-  let(:show_metrics) { true }
-  let(:show_statistics) { true }
   let(:hashtag) { true }
   let(:base_description) { { en: "Description", ca: "Descripció", es: "Descripción" } }
   let(:short_description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
@@ -17,9 +15,7 @@ describe "Participatory Processes" do
       :active,
       organization:,
       description: base_description,
-      short_description:,
-      show_metrics:,
-      show_statistics:
+      short_description:
     )
   end
 
@@ -381,8 +377,6 @@ describe "Participatory Processes" do
           end
 
           context "and the process metrics are not enabled" do
-            let(:show_metrics) { false }
-
             it "the metrics for the participatory processes are not rendered" do
               expect(page).to have_no_css("h4", text: "METRICS")
             end

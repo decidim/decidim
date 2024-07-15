@@ -32,8 +32,6 @@ module Decidim
       field :target, Decidim::Core::TranslatedFieldType, "Who participates in this participatory process.", null: true
       field :participatory_scope, Decidim::Core::TranslatedFieldType, "What is decided on this participatory process.", null: true
       field :participatory_structure, Decidim::Core::TranslatedFieldType, "How it is decided on this participatory process.", null: true
-      field :show_metrics, GraphQL::Types::Boolean, "If this participatory process should show metrics", null: true
-      field :show_statistics, GraphQL::Types::Boolean, "If this participatory process should show statistics", null: true
       field :scopes_enabled, GraphQL::Types::Boolean, "If this participatory process has scopes enabled", null: true
 
       field :announcement, Decidim::Core::TranslatedFieldType, "Highlighted announcement for this participatory process.", null: true
