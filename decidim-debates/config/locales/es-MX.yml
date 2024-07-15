@@ -52,7 +52,7 @@ es-MX:
         confirm_destroy: '¿Seguro que quieres borrar el debate?'
         destroy: Borrar
         edit: Editar
-        new: Añadir debate
+        new: Nuevo debate
         title: Acciones
       admin:
         debate_closes:
