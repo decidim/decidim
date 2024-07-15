@@ -24,7 +24,7 @@ module Decidim
       end
 
       def token_for
-        context[:current_component]
+        context[:component]
       end
 
       def organization

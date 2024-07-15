@@ -13,7 +13,7 @@ module Decidim
       end
 
       def create
-        @form = form(ShareTokenForm).from_params(params)
+        @form = form(ShareTokenForm).from_params(params, component:)
 
         CreateShareToken.call(@form) do
           on(:ok) do
