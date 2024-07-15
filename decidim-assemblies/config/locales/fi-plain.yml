@@ -50,7 +50,6 @@ fi-pl:
         scope_id: Teema
         scopes_enabled: Teemat käytössä
         short_description: Lyhyt kuvaus
-        show_statistics: Näytä tilastot
         slug: URL-tunniste
         special_features: Lisäominaisuudet
         subtitle: Alaotsikko
