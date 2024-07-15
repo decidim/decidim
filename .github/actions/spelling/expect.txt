@@ -152,6 +152,7 @@ Cprojects
 crdownload
 createcluster
 createuser
+crear
 crowdin
 crt
 cryptor
@@ -413,6 +414,7 @@ informables
 Inici
 iniciar
 initialiser
+Inscriu
 inodes
 inputdialog
 inputname
