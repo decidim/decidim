@@ -33,8 +33,6 @@ el:
         scope_type_max_depth_id: Βάθος φίλτρου πεδίου εφαρμογής
         scopes_enabled: Ενεργοποιημένα πεδία εφαρμογών
         short_description: Σύντομη περιγραφή
-        show_metrics: Εμφάνιση μετρικών
-        show_statistics: Εμφάνιση στατιστικών
         slug: Slug διεύθυνσης URL
         start_date: Ημερομηνία έναρξης
         subtitle: Υπότιτλος
