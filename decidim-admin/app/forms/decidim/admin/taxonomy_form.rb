@@ -9,13 +9,12 @@ module Decidim
       mimic :taxonomy
 
       translatable_attribute :name, String
-      attribute :organization, Decidim::Organization
-      attribute :parent_id, Integer
 
       validates :name, translatable_presence: true
-      validates :organization, presence: true
 
       alias organization current_organization
+
+      def parent_id = nil
     end
   end
 end

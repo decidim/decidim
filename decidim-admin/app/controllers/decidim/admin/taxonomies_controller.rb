@@ -106,15 +106,6 @@ module Decidim
         @taxonomy ||= base_query.find(params[:id])
       end
 
-      def parent_options(current_taxonomy = nil)
-        options = Decidim::Taxonomy.where(decidim_organization_id: current_organization.id)
-        options = options.where.not(id: current_taxonomy.id) if current_taxonomy.present?
-
-        options.map do |taxonomy|
-          [translated_attribute(taxonomy.name), taxonomy.id]
-        end
-      end
-
       def base_query
         Decidim::Taxonomy.where(organization: current_organization)
       end

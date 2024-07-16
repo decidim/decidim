@@ -45,6 +45,10 @@ module Decidim
       where("name ->> ? ILIKE ?", I18n.locale.to_s, "%#{name}%")
     }
 
+    def root_taxonomy
+      @root_taxonomy ||= root? ? self : parent.root_taxonomy
+    end
+
     def root? = parent_id.nil?
 
     private

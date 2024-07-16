@@ -1,0 +1,7 @@
+<div class="row column">
+  <%= form.translated :text_field, :name, autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :name } %>
+</div>
+<div class="row column">
+  <%= form.select :parent_id, options_for_select(parent_options, selected: form.object.parent_id), { required: true }, class: "form-control" %>
+</div>
+<% console %>

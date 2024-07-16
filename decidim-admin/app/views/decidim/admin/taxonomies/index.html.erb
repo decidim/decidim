@@ -4,7 +4,7 @@
     <h1 class="item_show__header-title" id="taxonomies-title">
       <%= t "decidim.admin.titles.taxonomies" %>
       <% if allowed_to? :create, :taxonomy %>
-        <%= link_to t("new.create", scope: "decidim.admin.taxonomies"), new_taxonomy_path, class: "button button__sm button__secondary new" %>
+        <%= link_to t(".new_taxonomy"), new_taxonomy_path, class: "button button__sm button__secondary new" %>
       <% end %>
     </h1>
   </div>
