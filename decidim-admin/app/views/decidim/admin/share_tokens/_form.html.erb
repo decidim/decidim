@@ -21,12 +21,8 @@
     </div>
     <div class="row column -mt-4">
       <div class="ml-2">
-        <div class="mr-4">
-          <%= form.radio_button :no_expiration, t("share_tokens.form.never_expire", scope: "decidim.admin"), checked: form.object.no_expiration %>
-        </div>
+        <%= form.collection_radio_buttons :no_expiration, [[false, t("share_tokens.form.never_expire", scope: "decidim.admin")], [true, t("share_tokens.form.custom", scope: "decidim.admin")]], :first, :last %>
 
-        <%= form.radio_button :no_expiration, t("share_tokens.form.custom", scope: "decidim.admin"), checked: !form.object.no_expiration %>
-        
         <div id="expires_at_field_wrapper" class="<%= form.object.no_expiration ? "hidden" : "" %> mt-4 row column">
           <%= form.datetime_field :expires_at, label: t("share_tokens.form.custom_expiration", scope: "decidim.admin") %>
         </div>
@@ -52,7 +48,7 @@
     };
 
     const toggleExpiresAtField = () => {
-      if (expiresAtRadioButtons[1].checked) {
+      if (expiresAtRadioButtons[2].checked) {
         expiresAtFieldWrapper.classList.remove("hidden");
       } else {
         expiresAtFieldWrapper.classList.add("hidden");
