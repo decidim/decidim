@@ -352,8 +352,8 @@ en:
         attempts: Attempts
         'false': 'No'
         filters:
-          user: User
           text: Search by current user email, name or nickname.
+          user: User
         index:
           search: Search
         managed_user_name: Managed User

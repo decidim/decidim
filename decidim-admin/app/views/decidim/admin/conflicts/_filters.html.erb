@@ -1,16 +1,20 @@
 <div class="filters__section">
   <div class="fcell search">
-    <%= search_form_for(query, url: url_for, html: { class: "form form-defaults" }) do |form| %>
-
+    <%= search_form_for(query, url: url_for) do |form| %>
+      <%= applied_filters_hidden_field_tags %>
       <div class="input-group">
-         <%= form.search_field(search_field_predicate, label: false, class: "input-group-field", placeholder: t(".text")) %>
-         <div class="input-group-button">
-            <button type="submit" class="text-secondary" aria-label="Buscar">
-              <svg width="1em" height="2em" role="img" aria-hidden="true" class="fill-secondary"><use href="/decidim-packs/media/images/remixicon.symbol-e643e553623ffcd49f94.svg#ri-search-line"></use></svg>
-            </button>
-          </div>
+        <%= form.search_field(
+              search_field_predicate,
+              class: "input-group-field",
+              label: false,
+              placeholder: t(".text")
+            ) %>
+        <div class="input-group-button">
+          <button type="submit" class="text-secondary" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
+            <%= icon "search-line", class: "fill-secondary w-4 h-4" %>
+          </button>
+        </div>
       </div>
     <% end %>
   </div>
 </div>
- 
