@@ -1,0 +1,24 @@
+<tr class="draggable-taxonomy" data-taxonomy-id="<%= taxonomy.id %>" role="row">
+  <td role="cell" class="w-12 js-drag-handle"><%== icon("draggable", class: "dragger") %></td>
+  <td role="cell">
+    <ul class="taxonomy">
+      <li><%= translated_attribute(taxonomy.name) %></li>
+      <li><%= taxonomy.children.count %></li>
+      <li><%= render "taxonomy_actions", taxonomy: %></li>
+    </ul>
+    <% if with_children && taxonomy.children.any? %>
+      <div class="js-sortable js-draggable-<%= taxonomy.id %>" data-draggable-handle=".js-drag-handle" data-draggable-accept-from=".js-draggable-<%= taxonomy.id %>" data-sort-url="<%= reorder_taxonomies_path %>">
+        <% taxonomy.children.each do |child| %>
+          <ul class="taxonomy" data-taxonomy-id="<%= child.id %>">
+            <li class="js-drag-handle">
+              <%== icon("draggable", class: "dragger") %>
+              <%= translated_attribute(child.name) %>
+            </li>
+            <li>&nbsp;</li>
+            <li><%= render "taxonomy_actions", taxonomy: child %></li>
+          </ul>
+        <% end %>
+      </div>
+    <% end %>
+  </td>
+</tr>

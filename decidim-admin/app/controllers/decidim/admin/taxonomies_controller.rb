@@ -7,13 +7,10 @@ module Decidim
 
       layout "decidim/admin/settings"
 
-      helper_method :taxonomies, :parent_options, :taxonomy, :child_taxonomies
+      helper_method :taxonomies, :parent_options, :taxonomy
 
       def index
         @query = root_taxonomies.ransack(params[:q])
-        @taxonomies = @query.result
-        @taxonomies = @taxonomies.search_by_name(params.dig(:q, :name_cont)) if params.dig(:q, :name_cont).present?
-        @taxonomies = paginate(@taxonomies)
       end
 
       def new
@@ -42,6 +39,7 @@ module Decidim
       def edit
         enforce_permission_to :update, :taxonomy
         @form = form(Decidim::Admin::TaxonomyForm).from_model(taxonomy)
+        @query = taxonomy.children.ransack(params[:q])
       end
 
       def update
@@ -95,19 +93,17 @@ module Decidim
       private
 
       def taxonomies
-        @taxonomies ||= Decidim::Taxonomy.where(organization: current_organization)
+        @taxonomies = @query.result
+        @taxonomies = @taxonomies.search_by_name(params.dig(:q, :name_cont)) if params.dig(:q, :name_cont).present?
+        @taxonomies = paginate(@taxonomies)
       end
 
       def root_taxonomies
         @root_taxonomies ||= base_query.where(parent_id: nil)
       end
 
-      def child_taxonomies(parent_id)
-        Decidim::Taxonomy.where(organization: current_organization, parent_id:)
-      end
-
       def taxonomy
-        @taxonomy ||= Decidim::Taxonomy.find(params[:id])
+        @taxonomy ||= base_query.find(params[:id])
       end
 
       def parent_options(current_taxonomy = nil)

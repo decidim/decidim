@@ -13,4 +13,7 @@
       </div>
     </div>
   <% end %>
+  <% if taxonomies %>
+    <%= render "table", collection: taxonomies %>
+  <% end %>
 </div>

@@ -173,6 +173,7 @@ module Decidim
         Decidim.icons.register(name: "dislike", icon: "dislike-line", description: "Dislike", category: "action", engine: :core)
         Decidim.icons.register(name: "drag-move-2-line", icon: "drag-move-2-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "drag-move-2-fill", icon: "drag-move-2-fill", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "draggable", icon: "draggable", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "login-circle-line", icon: "login-circle-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "list-check", icon: "list-check", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "add-fill", icon: "add-fill", category: "system", description: "", engine: :core)

@@ -1,3 +1,29 @@
-.table-list tr.change-page {
-  @apply bg-gray-3 italic;
+.draggable-taxonomy {
+  &.change-page {
+    @apply bg-gray-3 italic;
+  }
+
+  .dragger {
+    @apply text-2xl cursor-ns-resize;
+  }
+
+  td {
+    @apply align-top;
+  }
+
+  ul.taxonomy {
+    @apply flex;
+
+    li {
+      @apply flex-none text-center w-16 pt-2 pb-2;
+
+      &:first-child {
+        @apply flex-initial w-full text-left;
+      }
+
+      &:last-child {
+        @apply w-24 text-left;
+      }
+    }
+  }
 }

@@ -15,9 +15,6 @@
       <div class="row column">
         <%= form.hidden_field :weight, value: taxonomy.weight %>
       </div>
-      <% if taxonomy.children.any? %>
-        <%= render "table", collection: child_taxonomies(taxonomy) %>
-      <% end %>
       <div class="item__edit-sticky">
         <div class="item__edit-sticky-container">
           <%= form.submit t("edit.update", scope: "decidim.admin.taxonomies"), class: "button button__sm button__secondary" %>

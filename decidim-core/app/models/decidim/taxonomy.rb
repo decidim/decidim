@@ -45,6 +45,8 @@ module Decidim
       where("name ->> ? ILIKE ?", I18n.locale.to_s, "%#{name}%")
     }
 
+    def root? = parent_id.nil?
+
     private
 
     def set_default_weight
