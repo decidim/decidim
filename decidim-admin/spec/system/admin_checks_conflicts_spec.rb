@@ -31,27 +31,31 @@ describe "Admin checks conflicts" do
     end
   end
 
-  context "when searching by current user name" do
-    let(:conflict_user) { first_user_conflicts.first.current_user }
+  context "when searching by current user name, nickname or email" do
+    let(:user_conflict_a) { first_user_conflicts.first.current_user }
+    let(:user_conflict_b) { second_user_conflicts.first.current_user }
 
     before { visit current_path }
 
     it "can be searched by name" do
-      search_by_text(conflict_user.name)
+      search_by_text(user_conflict_a.name)
 
-      expect(page).to have_content(conflict_user.name)
+      expect(page).to have_content(user_conflict_a.name)
+      expect(page).not_to have_content(user_conflict_b.name)
     end
 
     it "can be searched by nickname" do
-      search_by_text(conflict_user.nickname)
+      search_by_text(user_conflict_a.nickname)
 
-      expect(page).to have_content(conflict_user.name)
+      expect(page).to have_content(user_conflict_a.name)
+      expect(page).not_to have_content(user_conflict_b.name)
     end
 
     it "can be searched by email" do
-      search_by_text(conflict_user.email)
+      search_by_text(user_conflict_a.email)
 
-      expect(page).to have_content(conflict_user.name)
+      expect(page).to have_content(user_conflict_a.name)
+      expect(page).not_to have_content(user_conflict_b.name)
     end
   end
 end
