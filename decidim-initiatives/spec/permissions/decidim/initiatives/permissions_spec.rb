@@ -106,8 +106,8 @@ describe Decidim::Initiatives::Permissions do
       { initiative: }
     end
 
-    context "when initiative is published" do
-      let(:initiative) { create(:initiative, :published, organization:) }
+    context "when initiative is open" do
+      let(:initiative) { create(:initiative, :open, organization:) }
 
       it { is_expected.to be true }
     end
@@ -371,13 +371,13 @@ describe Decidim::Initiatives::Permissions do
       { initiative: }
     end
 
-    context "when initiative is published" do
-      let(:initiative) { create(:initiative, :published, organization:) }
+    context "when initiative is open" do
+      let(:initiative) { create(:initiative, :open, organization:) }
 
       it { is_expected.to be false }
     end
 
-    context "when initiative is not published" do
+    context "when initiative is not open" do
       context "when user is member" do
         let(:initiative) { create(:initiative, :discarded, author: user, organization:) }
 
