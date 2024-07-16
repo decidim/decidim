@@ -23,7 +23,7 @@ module Decidim::Admin
       )
     end
 
-    let(:token) { "ZHLABC123" }
+    let(:token) { "ABC123" }
     let(:expires_at) { Time.zone.today + 10.days }
     let(:automatic_token) { false }
     let(:no_expiration) { false }
