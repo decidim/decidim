@@ -5,7 +5,7 @@ module Decidim
     class TaxonomyElementsController < Decidim::Admin::ApplicationController
       layout false
 
-      helper_method :taxonomy, :taxonomy_element, :parent_options
+      helper_method :taxonomy, :taxonomy_element, :parent_options, :selected_parent_id
 
       def new
         # TODO: permissions
@@ -14,7 +14,7 @@ module Decidim
 
       def create
         # TODO: permissions
-        c @form = form(Decidim::Admin::TaxonomyElementForm).from_params(params)
+        @form = form(Decidim::Admin::TaxonomyElementForm).from_params(params)
         CreateTaxonomy.call(@form) do
           on(:ok) do
             flash[:notice] = I18n.t("create.success", scope: "decidim.admin.taxonomies")
@@ -34,7 +34,19 @@ module Decidim
       end
 
       def update
-        # TODO
+        # TODO: permissions
+        @form = form(Decidim::Admin::TaxonomyElementForm).from_params(params)
+        UpdateTaxonomy.call(@form, taxonomy_element) do
+          on(:ok) do
+            flash[:notice] = I18n.t("update.success", scope: "decidim.admin.taxonomies")
+            redirect_to edit_taxonomy_path(taxonomy)
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("update.invalid", scope: "decidim.admin.taxonomies")
+            render action: "edit"
+          end
+        end
       end
 
       private
@@ -45,6 +57,10 @@ module Decidim
 
       def taxonomy_element
         @taxonomy_element ||= Decidim::Taxonomy.find_by(organization: current_organization, id: params[:id])
+      end
+
+      def selected_parent_id
+        @selected_parent_id ||= taxonomy_element&.parent_id || taxonomy.id
       end
 
       def parent_options

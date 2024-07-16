@@ -1033,8 +1033,10 @@ en:
           invalid: There was a problem destroying this taxonomy.
           success: Taxonomy successfully destroyed.
         edit:
+          description: These are the elements for this taxonomy that will be used to classify or filtering resources such as participatory processes or assemblies. Use drag and drop to reorder the elements.
           new_element: New element
-          title: Items in "%{taxonomy_name}"
+          no_elements: There are no elements yet for this taxonomy. Create here a list of elements that will be used to classify or filter resources such as participatory processes or assemblies. Each element can have many children elements.
+          title: Taxonomy tree for "%{taxonomy_name}"
           update: Update
         filters:
           search_placeholder: Search taxonomies

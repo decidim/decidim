@@ -7,6 +7,8 @@ module Decidim
 
       layout "decidim/admin/settings"
 
+      add_breadcrumb_item_from_menu :admin_settings_menu
+
       helper_method :taxonomies, :parent_options, :taxonomy
 
       def index

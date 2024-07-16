@@ -16,7 +16,10 @@
   <% end %>
 
   <% if taxonomies.any? %>
+    <p class="help-text mt-8"><%= t(".description") %></p>
     <%= render "table", collection: taxonomies %>
+  <% else %>
+    <p class="help-text mt-8"><%= t(".no_elements") %></p>
   <% end %>
 
   <div class="mt-8">
@@ -29,26 +32,40 @@
 <% end %>
 
 <script>
+  document.addEventListener("decidim:loaded", function() {
+    var drawer = window.Decidim.currentDialogs["element-form"];
+    var drawerButtons = document.querySelectorAll(".js-drawer-editor");
+    var container = drawer.dialog.querySelector("[data-dialog-container]");
 
-document.addEventListener("decidim:loaded", function() {
-  const drawer = window.Decidim.currentDialogs["element-form"];
-  const drawerButtons = document.querySelectorAll(".js-drawer-editor");
-  const container = drawer.dialog.querySelector("[data-dialog-container]");
+    function setDrawerContent(content) {
+      container.innerHTML = content;
+      window.initFoundation(container);
 
-  drawerButtons.forEach(function(button) {
-    button.addEventListener("click", function(evt) {
-      evt.preventDefault();
-      container.innerHTML = '<div class="spinner-container">&nbsp;</div>';
-      const href = button.getAttribute("href");
-      console.log("open drawer", evt, href);
-      fetch(href)
-        .then(response => response.text())
-        .then(html => {
-          container.innerHTML = html;
-        });
-      drawer.open();
+      var form = container.querySelector("#taxonomy-element-form");
+
+      form.addEventListener("ajax:beforeSend", function(evt) {
+        form.classList.add("spinner-container");
+      });
+
+      form.addEventListener("ajax:success", function(evt) {
+        var [data, _status, xhr] = event.detail;
+        if(xhr.responseURL.indexOf(location.pathname) > -1) {
+          location.href = xhr.responseURL;
+        } else {
+          setDrawerContent(data.body.innerHTML)
+        }
+      });
+    }
+
+    drawerButtons.forEach(function(button) {
+      button.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        container.innerHTML = '<div class="spinner-container">&nbsp;</div>';
+        fetch(button.getAttribute("href"))
+          .then(function(response) { return response.text() })
+          .then(function(html) { setDrawerContent(html) });
+        drawer.open();
+      });
     });
   });
-});
-
 </script>
