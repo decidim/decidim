@@ -2,9 +2,7 @@
   <div class="fcell search">
     <%= search_form_for(query, url: url_for, html: { class: "form form-defaults" }) do |form| %>
 
-
       <div class="input-group">
-
          <%= form.search_field(search_field_predicate, label: false, class: "input-group-field", placeholder: t(".text")) %>
          <div class="input-group-button">
             <button type="submit" class="text-secondary" aria-label="Buscar">
@@ -12,7 +10,6 @@
             </button>
           </div>
       </div>
-
     <% end %>
   </div>
 </div>
