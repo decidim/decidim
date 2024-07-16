@@ -2,6 +2,7 @@
 <div class="item_show__header">
   <h1 class="item_show__header-title">
     <%= t ".title", component_name: translated_attribute(component.name) %>
+    <a class="button button__sm button__secondary" href="<%= share_tokens_path(component) %>"><%= t("share_tokens.index.back_to_share_tokens", scope: "decidim.admin") %></a>
   </h1>
 </div>
 <div class="item__edit-form">

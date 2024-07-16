@@ -25,8 +25,8 @@
               <td></td>
               <td><%= share_token.times_used %></td>
               <td class="table-list__actions">
-                <%= icon_link_to "pencil-line", edit_component_share_token_path(id: share_token ), t("actions.edit", scope: "decidim.admin.share_tokens"), class: "action-icon--edit", target: :blank %>
-                <%= icon_link_to "file-copy-line", share_token.url, t("actions.copy_link", scope: "decidim.admin.share_tokens"), class: "action-icon--share", target: :blank %>
+                <%= icon_link_to "pencil-line", edit_component_share_token_path(id: share_token ), t("actions.edit", scope: "decidim.admin.share_tokens"), class: "action-icon--edit" %>
+                <%= icon_link_to "file-copy-line", share_token.url, t("actions.copy_link", scope: "decidim.admin.share_tokens"), class: "action-icon--share" %>
                 <%= icon_link_to "eye-line", share_token.url, t("actions.preview", scope: "decidim.admin.share_tokens"), class: "action-icon--preview", target: :blank %>
                 <%= icon_link_to "delete-bin-line", share_token_path(component, id: share_token ), t("actions.destroy", scope: "decidim.admin.share_tokens"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin.share_tokens") } %>
               </td>
