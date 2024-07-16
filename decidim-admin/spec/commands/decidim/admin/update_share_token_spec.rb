@@ -24,7 +24,7 @@ module Decidim::Admin
       )
     end
 
-    let(:token) { "SADFGHJ97765544" }
+    let(:token) { "ABCDEF97765544" }
     let(:expires_at) { Time.zone.today + 20.days }
     let(:automatic_token) { false }
     let(:no_expiration) { false }
