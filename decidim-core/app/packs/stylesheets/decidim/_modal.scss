@@ -42,4 +42,20 @@
       @apply w-full md:w-auto;
     }
   }
+
+  &[data-drawer] {
+    & > * {
+      @apply h-full translate-x-full ltr:right-0 rtl:left-0 max-h-full transition duration-500;
+    }
+
+    &[aria-hidden="false"] {
+      > * {
+        @apply translate-x-0;
+      }
+    }
+
+    [data-dialog-closable] {
+      @apply absolute top-4 right-auto left-4;
+    }
+  }
 }

@@ -182,7 +182,7 @@ const initializer = (element = document) => {
   element.querySelectorAll('[data-component="dropdown"]').forEach((component) => createDropdown(component))
 
   element.querySelectorAll("[data-dialog]").forEach((component) => createDialog(component))
-
+  
   // Initialize available remote modals (ajax-fetched contents)
   element.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
 

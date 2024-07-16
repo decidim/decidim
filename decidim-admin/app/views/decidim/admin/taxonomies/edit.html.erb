@@ -39,12 +39,12 @@
 
     function setDrawerContent(content) {
       container.innerHTML = content;
-      window.initFoundation(container);
 
       var form = container.querySelector("#taxonomy-element-form");
       if(!form) {
         return location.reload();
       }
+      window.initFoundation(container);
 
       form.addEventListener("ajax:beforeSend", function(evt) {
         form.classList.add("spinner-container");
