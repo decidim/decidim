@@ -87,7 +87,6 @@ hu:
               accepted: Elég aláírások
               created: Létrehozva
               discarded: Elvetve
-              published: Közzétéve
               rejected: Nincsen elég aláírás
               validating: Technikai érvényesítés
           type_id_eq:
@@ -312,7 +311,6 @@ hu:
         accepted: Elegendő aláírás
         created: Létrehozva
         discarded: Elvetve
-        published: Közzétéve
         rejected: Nincs elegendő aláírás
         validating: Technikai érvényesítés
       application_helper:
@@ -526,7 +524,6 @@ hu:
           accepted: Elegendő aláírás
           created: Létrehozva
           discarded: Elvetve
-          published: Közzétéve
           rejected: Nincs elegendő aláírás
           validating: Technikai érvényesítés
       states:
