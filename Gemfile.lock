@@ -117,6 +117,7 @@ PATH
       decidim (= 0.27.6)
       erb_lint (~> 0.0.35)
       factory_bot_rails (~> 4.8)
+      faker (= 2.19.0)
       i18n-tasks (~> 0.9.18)
       mdl (~> 0.5)
       nokogiri (~> 1.13)
@@ -876,7 +877,6 @@ DEPENDENCIES
   decidim-elections!
   decidim-initiatives!
   decidim-templates!
-  faker (~> 2.14)
   letter_opener_web (~> 2.0)
   listen (~> 3.1)
   parallel_tests (~> 3.7)
