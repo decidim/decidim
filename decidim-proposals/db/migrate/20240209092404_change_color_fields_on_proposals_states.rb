@@ -42,5 +42,7 @@ class ChangeColorFieldsOnProposalsStates < ActiveRecord::Migration[6.1]
     # rubocop:enable Rails/SkipsModelValidations
   end
 
-  def down; end
+  def down
+    raise ActiveRecord::IrreversibleMigration
+  end
 end
