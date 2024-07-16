@@ -1,4 +1,32 @@
+<!-- markdownlint-disable-file no-duplicate-header -->
+
 # Changelog
+
+## [0.29.0.rc2](https://github.com/decidim/decidim/tree/0.29.0.rc2)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-proposals**: Backport 'Fix proposal state migration' to v0.29 [\#13165](https://github.com/decidim/decidim/pull/13165)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+Nothing.
 
 ## [0.29.0.rc1](https://github.com/decidim/decidim/tree/0.29.0.rc1)
 
