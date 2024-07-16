@@ -1,4 +1,3 @@
 <% add_decidim_page_title(t("title", scope: "decidim.admin.conflicts")) %>
 <%= render partial: "decidim/admin/conflicts/conflicts_list", locals: { conflicts:, display_filters: true } %>
 <%= decidim_paginate conflicts %>
-
