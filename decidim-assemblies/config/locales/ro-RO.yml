@@ -50,7 +50,6 @@ ro:
         scope_id: Domeniu de interes
         scopes_enabled: Domenii activate
         short_description: Descriere scurtă
-        show_statistics: Arată statistici
         slug: URL slug
         special_features: Funcționalități speciale
         subtitle: Subtitlu

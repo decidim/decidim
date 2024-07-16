@@ -33,8 +33,6 @@ lt:
         scope_type_max_depth_id: Srities filtro gylis
         scopes_enabled: Sritys įjungtos
         short_description: Trumpas aprašymas
-        show_metrics: Rodyti metriką
-        show_statistics: Rodyti statistiką
         slug: URL priedas
         start_date: Pradžios data
         subtitle: Paantraštė

@@ -50,7 +50,6 @@ bg:
         scope_id: Обхват
         scopes_enabled: Обхватите са активирани
         short_description: Кратко описание
-        show_statistics: Покажи статистиката
         slug: Съкратен URL
         special_features: Специални функции
         subtitle: Подзаглавие

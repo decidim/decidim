@@ -50,7 +50,6 @@ de:
         scope_id: Umfang
         scopes_enabled: Bereiche aktiviert
         short_description: Kurze Beschreibung
-        show_statistics: Zeige Statistiken
         slug: URL-Block
         special_features: Besondere Merkmale
         subtitle: Untertitel

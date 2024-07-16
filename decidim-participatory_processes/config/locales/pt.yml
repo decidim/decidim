@@ -26,8 +26,6 @@ pt:
         scope_type_max_depth_id: Abrangência do filtro de âmbito
         scopes_enabled: Âmbitos ativados
         short_description: Pequena descrição
-        show_metrics: Mostrar métricas
-        show_statistics: Mostrar estatísticas
         slug: Campo de dados dinâmicos de URL
         start_date: Data de início
         subtitle: Subtítulo

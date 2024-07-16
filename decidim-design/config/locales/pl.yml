@@ -49,8 +49,23 @@ pl:
           emojis: Emotikony
           emojis_description: Działa tylko w polu tekstowym
           errors: Błędy
+          errors_description: Nie dotyczy wyboru
+          header_alert: Ta strona pochodzi ze starego widoku. Zawartość jest nieaktualna.
           help_texts: Teksty pomocy
+          html_regular_inputs: Regularne pola wejściowe HTML
+          min_max_length: Min./maks. długość
+          min_max_length_description: Działa tylko dla wejścia type='text' i obszaru tekstowego (textarea)
+          multiselect: Wielokrotny wybór
+          multiselect_description_html: Wielokrotne zaznaczenia to funkcja javascript dostępna dzięki bibliotece zewnętrznej o nazwie <a href="https://tom-select.js.org/" target="_blank" rel="noopener noreferrer">Tom Select</a>.
+          regular_inputs_description: 'Wyświetla tylko wspólne typy, pełna dostępna lista: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
           textarea_required: Wymagane pole tekstowe
+          title: Formularze
+        report:
+          title: Zgłoś
+        share:
+          title: Udostępnij
+        tab_panels:
+          title: Panele kart
         tooltips:
           demo: Wersja demonstracyjna
           demo_description: Aby ten komponent działał, uczestnik musi najechać kursorem na element.
@@ -64,6 +79,24 @@ pl:
           usage_p_3_html: 3. Blok z ciągiem znaków, na który użytkownik musi najechać kursorem, aby został wyświetlony.
       foundations:
         accessibility:
+          accessibility_labels: Etykiety dostępności
+          accessibility_labels_paragraph: Przy definiowaniu elementów zawsze upewnij się, że mają sens dla użytkowników czytnika ekranu.
+          accessibility_title: Dostępność
+          adjacent_links: Przyległe linki
+          adjacent_links_header: Przylegające linki dla tego samego zasobu
+          adjacent_links_paragraph: Jeśli ten sam zasób ma wiele sąsiadujących linków wskazujących no niego, utrudnia to takim użytkownikom spojrzenie na stronę, ponieważ mogą oni przejść przez wiele linków, aby dotrzeć do następnego zasobu.
+          color_contrast: Kontrast kolorów
+          color_contrast_paragraph: Podczas tworzenia interfejsów użytkownika lub modyfikowania kolorów, zawsze upewnij się, że nie naruszasz dostępności swoimi zmianami. Możesz użyć narzędzia do sprawdzania kontrastu kolorów, aby upewnić się, że kolory mają wystarczający kontrast względem koloru tła, na którym są wyświetlane.
+          decidim_follows_html: Decidim jest zgodny z wytycznymi <u>Web Content Accessibility Guidelines (WCAG) 2.1</u>
+          dynamic_changes_header: Dynamiczna funkcjonalność zmienia kontekst strony w sposób nieintuicyjny
+          dynamic_changes_paragraph: Zmiany w formularzu danych wejściowych nie powinny automatycznie zmieniać kontekstu strony.
+          elements_hidden: Ukryte elementy
+          elements_hidden_header: Elementy ukryte w API ułatwień dostępu
+          elements_hidden_paragraph: Aby ukryć element przed technologiami wspomagającymi, użyj w nim atrybutu aria-hidden="true".
+          heading_on: Nagłówek w ważnych sekcjach
+          here_link: tutaj
+          illogical_heading_order: Nielogiczna kolejność nagłówków
+          illogical_heading_paragraph: Każda strona powinna mieć logiczną kolejność nagłówków podczas używania elementów nagłówka <h1>, <h2>, <h3>, <h4>, <h5> i <h6>.
           important_sections_heading: Nagłówek w ważnych sekcjach
           important_sections_paragraph: Bardzo ważne jest, aby każda ważna sekcja strony miała nagłówek ułatwiający zrozumienie, jakie ważne sekcje znajdują się na stronie tylko poprzez przeglądanie jej nagłówków.
           links_and_buttons: Linki i przyciski
@@ -189,10 +222,60 @@ pl:
         image_and_description: Obraz i opis
         initiative_g: inicjatywa_g
         initiative_s: inicjatywa_s
+        initiatives: Inicjatywy
+        list: Lista
         main_colors: Kolory główne
+        meeting_l: Spotkanie L
+        meeting_s: Spotkanie S
+        meetings: Spotkania
+        meetings_html: Używane przez karty <i>Spotkań</i>
+        metadata_items: Elementy metadanych
+        metadata_text: Każdy zasób definiuje własne elementy metadanych
+        participatory_process_g: Proces partycypacyjny G
+        participatory_process_group_g: Grupy procesów partycypacyjnych G
+        participatory_process_group_s: Grupy procesów partycypacyjnych S
+        participatory_process_s: Proces partycypacyjny S
+        participatory_processes: Procesy partycypacyjne
+        plain_text: Jestem zwykłym tekstem
+        plain_text_description: Jako pierwszy argument można podać zarówno prosty tekst, jak i obiekt haszujący
+        plain_text_vs_hash: Zwykły tekst vs hash
+        post_g: Post G
+        post_l: Post L
+        post_s: Post S
+        project_l: Projekt L
+        project_s: Projekt S
+        proposal_l: Propozycja L
+        proposal_s: Propozycja S
+        proposals: Propozycje
+        report_button: Przycisk Zgłoś
+        report_usage_description: Przycisk zgłoszenia uruchamia okno modalne, aby oznaczyć bieżący zasób.
+        result_l: Wynik L
         rgba_code: Kod RGBA
+        search: Szukanie
+        send: Wyślij
+        share_button: Przycisk udostępniania
+        share_usage_description_html: Upewnij się, że część <code>decidim/shared/share_modal</code> jest obecna w DOM. Ta część jest umieszczona w układzie aplikacji.
+        sizes: Rozmiary
+        sortition_l: sortition_l
+        sortitions: Wybory przez losowanie
+        source_code: Kod źródłowy
         state: Stan
+        tab_panels_context_description: Ten komponent panelu kart gromadzi wszystkie powiązane treści lub inne zasoby głównego elementu wyświetlanego, aby zaoszczędzić przestrzeń pionową. Kliknięcie karty aktywuje utworzony panel, aby wyświetlić zawartość.
+        tab_panels_context_description_html: Głównie jest używany w <i>layout_item</i> lub <i>layout_center</i>, po głównej zawartości zasobu.
+        tab_panels_usage_description: 'Ten komponent odbiera tablicę hashów i zmienia kolejność wyjścia każdego elementu w strukturę panelu zakładek. Dostępne właściwości dla każdego panelu:'
+        tab_panels_usage_description_arguments_html: "<strong>args</strong>: <i>Array</i>. Argumenty dla poprzedniej metody"
+        tab_panels_usage_description_html: "<strong>włączone</strong>: <i>Boolean</i>. Warunkowo renderowanie karty"
+        tab_panels_usage_description_id_html: "<strong>id</strong>: <i>String</i>. Unikalne id"
+        tab_panels_usage_description_rails_html: "<strong>method</strong>: <i>Symbol</i>. Każda funkcja, którą rails rozumie"
+        tab_panels_usage_description_remixicon_html: "<strong>icon</strong>: <i>String</i>. Klucz Remixicon"
+        tab_panels_usage_description_tab_html: "<strong>text</strong>: <i>String</i>. Tytuł karty"
         tailwind: Nazwa Tailwind
+        text: Tekst
+        transparent: Przeźroczysty
+        transparent_description: 'W przypadku ciemniejszego tła:'
+        types: Typy
+        typography_texts: Typografia i teksty
+        usage: Użycie
         usage_background_1: Pomijając tło
         usage_background_2: Wybrane tło filtra paska bocznego
         usage_background_3: Domyślny kolor ikon

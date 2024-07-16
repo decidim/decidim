@@ -42,7 +42,6 @@ uk:
         scope_id: Обсяг
         scopes_enabled: Обсяги увімкнено
         short_description: Стислий опис
-        show_statistics: Показувати статистику
         slug: Скорочена веб-адреса
         special_features: Особливості
         subtitle: Підзаголовок

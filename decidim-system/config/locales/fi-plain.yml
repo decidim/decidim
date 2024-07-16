@@ -259,8 +259,6 @@ fi-pl:
           success: Organisaatio päivitetty onnistuneesti.
         users_registration_mode:
           disabled: Pääsy alustalle ainoastaan ulkoisilla tileillä
-          enabled: Salli osallistujien luoda käyttäjätilejä ja kirjautua sisään
-          existing: Älä salli osallistujien käyttäjätilien luontia, mutta salli olemassa olevien osallistujien sisäänkirjautuminen
       shared:
         notices:
           no_organization_warning_html: Sinun on luotava organisaatio päästäksesi alkuun. Muista lukea %{guide} ennen jatkamista.

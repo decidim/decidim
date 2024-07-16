@@ -157,6 +157,7 @@ ja:
           answer_questionnaire:
             already_have_an_account?: 既にアカウントをお持ちですか？
             are_you_new?: 新しいユーザーですか？
+            sign_in_description: ログインしてアンケートに答える
             sign_up_description: アンケートに答えるために参加者アカウントを作成します
             title: フォームに回答
           current_step: ステップ %{step}

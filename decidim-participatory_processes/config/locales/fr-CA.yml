@@ -33,8 +33,6 @@ fr-CA:
         scope_type_max_depth_id: Profondeur du filtre de portée
         scopes_enabled: Périmètres d'application activés
         short_description: Résumé
-        show_metrics: Afficher les métriques
-        show_statistics: Montrer les statistiques
         slug: Identifiant
         start_date: Date de début
         subtitle: Sous-titre

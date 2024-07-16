@@ -3,7 +3,6 @@ sr:
     attributes:
       participatory_process:
         scope_type_max_depth_id: Obim dubine filtera
-        show_metrics: Prikaži metriku
   decidim:
     admin:
       models:

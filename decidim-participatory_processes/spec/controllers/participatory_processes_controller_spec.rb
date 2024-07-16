@@ -148,15 +148,6 @@ module Decidim
             expect(response).to be_successful
           end
         end
-
-        context "when the process cannot show statistics" do
-          it "does not show them" do
-            active.update!(show_statistics: false)
-            get :all_metrics, params: { slug: active.slug }
-
-            expect(response).to be_not_found
-          end
-        end
       end
     end
   end

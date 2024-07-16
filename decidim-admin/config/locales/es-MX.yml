@@ -195,7 +195,7 @@ es-MX:
         per_page: Por página
         permissions: Permisos
         reject: Rechazar
-        send_me_a_test_email: Enviarme un correo electrónico de prueba
+        send_me_a_test_email: Envíame un correo electrónico de prueba
         share: Compartir
         user:
           new: Nueva administradora
@@ -288,7 +288,7 @@ es-MX:
       block_user:
         new:
           action: Bloquear cuenta y enviar justificación
-          already_reported_html: Continuando con esta acción también esconderás todos los contenidos de la participante.
+          already_reported_html: Al continuar con esta acción también ocultarás todos los contenidos de la participante.
           description: El bloqueo de una usuaria dejará su cuenta inutilizable. Puedes proporcionar en tu justificación los criterios bajo los cuales considerarías desbloquearla.
           justification: Justificación
           title: Bloquear a la usuaria %{name}
@@ -318,7 +318,7 @@ es-MX:
         create:
           error: Hubo un error al crear este componente.
           success: Componente creado con éxito.
-          success_landing_page: Componente creado con éxito. Puedes añadir un bloque de contenido para este componente en la ppágina de inicio del espacio de participación. <a href="%{landing_page_path}">Ve a la página de inicio</a> para configurarla.
+          success_landing_page: Componente creado con éxito. Puedes añadir un bloque de contenido para este componente en la página de inicio del espacio de participación. <a href="%{landing_page_path}">Ve a la página de inicio</a> para configurarla.
         destroy:
           error: Ha habido un error al eliminar este componente.
           success: Componente borrado con éxito.
@@ -355,7 +355,7 @@ es-MX:
         title: Conflictos de verificación
         transfer:
           email: Correo electrónico
-          error: Hubo un problema transfiriendo la participante actual a una participante gestionada.
+          error: Se ha producido un error transfiriendo la participante actual a una participante gestionada.
           name: Nombre
           reason: Motivo
           success: La transferencia actual se ha completado correctamente.
@@ -585,7 +585,7 @@ es-MX:
         reported_users: Participantes reportadas
         scope_types: Tipos de ámbito
         scopes: Ámbitos
-        see_site: Ver el sitio web
+        see_site: Ver sitio
         settings: Configuración
         static_page_topics: Temas
         static_pages: Páginas
@@ -776,7 +776,7 @@ es-MX:
         show:
           preview: Previsualizar
           select_recipients_to_deliver: Selecciona los destinatarios
-          send_me_a_test_email: Enviarme un correo electrónico de prueba
+          send_me_a_test_email: Envíame un correo electrónico de prueba
           subject: Asunto
         update:
           error: Se ha producido un error al actualizar este boletín.
@@ -848,10 +848,10 @@ es-MX:
             saturation: Saturación
             title: Selector de color
             update_suggested_colors: Actualizar a los colores sugeridos
-          cta_button_path_help_html: 'Puedes redirigir la dirección donde enlaza el Botón de Acción principal de la página de inicio donde desees. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El Botón de Acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
+          cta_button_path_help_html: 'Puedes redirigir la dirección donde enlaza el botón de acción principal de la página de inicio donde desees. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
           cta_button_text_help: Puedes sobrescribir el texto del botón de acción principal en la página de inicio para cada idioma disponible en tu organización. Si no está configurado, se usará el valor predeterminado. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción.
           header_snippets:
-            header_snippets_help_html: Utiliza este campo para añadir cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieren JavaScript o CSS adicionales. También, puedes usarlo para añadir meta-etiquetas extra al HTML. Ten en cuenta que esto sólo será renderizado en páginas públicas, no en la sección de administración. Si el código interactúa con APIs externas o no cumple con las pautas de seguridad de la aplicación, será necesario cambiar la Política de Seguridad del Contenido. Lea más sobre <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">en el sitio de documentación</a>.
+            header_snippets_help_html: Utiliza este campo para añadir cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieren JavaScript o CSS adicionales. También, puedes usarlo para añadir meta-etiquetas extra al HTML. Ten en cuenta que esto sólo será renderizado en páginas públicas, no en la sección de administración. Si el código interactúa con APIs externas o no cumple con las pautas de seguridad de la aplicación, será necesario cambiar la Política de Seguridad del Contenido. Lee más sobre esto <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">en el sitio de documentación</a>.
             title: Fragmentos de código HTML de cabecera
           homepage_appearance_title: Editar apariencia de página de inicio
           homepage_highlighted_content_banner_title: Banner de contenido resaltado

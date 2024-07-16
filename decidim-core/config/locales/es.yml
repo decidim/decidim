@@ -103,7 +103,7 @@ es:
       half_a_minute: medio minuto
       less_than_x_minutes:
         one: hace menos de un minuto
-        other: ha menos de %{count} minutos
+        other: hace menos de %{count} minutos
       less_than_x_seconds:
         one: hace menos de un segundo
         other: hace menos de %{count} segundos
@@ -429,7 +429,7 @@ es:
         ok:
           title: Has sido autorizada mientras estás en esta página. Por favor, vuelve a cargar la página para realizar tu acción.
         pending:
-          explanation: Para realizar esta acción, debes estar autorizada con "%{authorization}", pero tu autorización todavía está en progreso.
+          explanation: Para realizar esta acción, debes estar autorizada con "%{authorization}", pero tu autorización todavía está en curso.
           resume: Comprueba el progreso de tu autorización "%{authorization}".
           title: La autorización aún está en progreso
         unauthorized:
@@ -586,7 +586,7 @@ es:
           username_help: Nombre público que aparece en tus aportaciones. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         create:
-          error: Hubo un problema al crear tu cuenta.
+          error: Se ha producido un error al crear tu cuenta.
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           log_in: Entra
@@ -616,7 +616,7 @@ es:
             Por favor, considera volver a marcar la casilla de selección del boletín a continuación.<br>
             Es muy importante para nosotras que puedas recibir correos electrónicos ocasionales para hacer avisos importantes, siempre puedes cambiar esto en la página de configuración de notificaciones.</p>
             <p>Si no marcas la casilla, es posible que te pierdas información relevante sobre nuevas oportunidades de participación dentro de la plataforma.<br>
-            Si aún deseas evitar recibir boletines, entendemos perfectamente tu decisión.</p>
+            Si aún así deseas evitar recibir boletines, entendemos perfectamente tu decisión.</p>
             <p>¡Gracias por leer esto!</p>
           title: Notificaciones de boletines
         omniauth_buttons:
@@ -631,7 +631,7 @@ es:
       authorizations:
         new:
           authorize: Autoriza la aplicación
-          by_organization_link_html: <small class="heading-small">por %{link}</small>
+          by_organization_link_html: por %{link}
           cancel: Cancelar
           connect_your_account_html: Conecta tu cuenta iniciando sesión en %{organization}>.
           publish_content: Publique contenido para tí
@@ -641,7 +641,7 @@ es:
           this_application_will_be_able_to: 'Esta aplicación podrá:'
           this_application_will_not_be_able_to: 'Esta aplicación no podrá:'
           update_profile: Actualiza tu perfil
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> quiere usar tu cuenta"
+          wants_to_use_your_account_html: "%{application_name} quiere usar tu cuenta"
     download_your_data:
       export:
         ready: Listo
@@ -654,8 +654,8 @@ es:
         request_data: Solicita datos
     editor_images:
       create:
-        error: Error al cargar la imagen.
-        success: Imagen cargada correctamente.
+        error: Error al subir la imagen.
+        success: Imagen subida correctamente.
       drag_and_drop_help: Puedes añadir imágenes arrastrando y soltándolas o también pegándolas.
     endorsement_buttons_cell:
       already_endorsed: No me gusta
@@ -808,9 +808,9 @@ es:
           email_subject: Un grupo ha actualizado su perfil
           notification_title: El grupo %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_path}">panel de administración</a>.
       nickname_event:
-        notification_body: Hemos corregido la forma en que se utilizan los alias para que no haya duplicados, para hacerlo ya no se distingue entre mayúsculas y minúsculas.<br/>Tu alias fue creado después de otro igual, así se ha renombrado automáticamente. Puedes modificarlo desde la <a href="%{link_to_account_settings}">configuración de tu cuenta</a>.
+        notification_body: Hemos corregido la forma en que se utilizan los alias para que no haya duplicados, para hacerlo ya no se distingue entre mayúsculas y minúsculas.<br/>Tu alias fue creado después de otro igual, así que se ha renombrado automáticamente. Puedes modificarlo desde la <a href="%{link_to_account_settings}">configuración de tu cuenta</a>.
       notification_event:
-        notification_title: Se ha producido un evento a <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: Se ha producido un evento en <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: Una administradora eliminó su %{resource_type} porque ha sido reportado como %{report_reasons}.
@@ -854,7 +854,7 @@ es:
         result: Resultados
     fingerprint:
       check: Verificar huella digital
-      explanation: La siguiente cadena de texto es una representación abreviada y criptografiada de este contenido. Es útil para garantizar que el contenido no haya sido alterado, ya que una única modificación daría lugar a un valor totalmente diferente.
+      explanation: La siguiente cadena de texto es una representación abreviada y encriptada de este contenido. Es útil para garantizar que el contenido no haya sido alterado, ya que una única modificación daría lugar a un valor totalmente diferente.
       online_calculator_name: Calculadora MD5 en línea
       replicate_help: Esta huella digital se calcula utilizando un algoritmo hash SHA256. Para poder replicarlo tú mismo, puedes usar una %{online_calculator_link} y copiar y pegar los datos de origen.
       source: Origen
@@ -884,7 +884,7 @@ es:
         explanation: Guía para enlaces adjuntos
         help_messages:
           - Solo se aceptan formatos de URL correctos.
-          - Ten en cuenta que los enlaces deben ser públicos para que todos los participantes puedan acceder a ellos.
+          - Por favor, ten en cuenta que los enlaces deben ser públicos para que todas las participantes puedan acceder a ellos.
       errors:
         decidim/user:
           password: La contraseña es demasiado corta.
@@ -1150,7 +1150,7 @@ es:
         index:
           new_conversation: Nueva conversación
           next: Siguiente
-          no_conversations: Aún no tienes ninguna conversarción.
+          no_conversations: Aún no tienes ninguna conversación.
           title: Conversaciones
         reply_form:
           placeholder: Tu respuesta...
@@ -1260,7 +1260,7 @@ es:
       show:
         administrators: Administradoras
         allow_public_contact: Permitir que cualquier participante me envíe un mensaje directo, incluso si no la sigo.
-        allow_push_notifications: Mostrar notificaciones emergentes para saber qué pasa cuando no estás en la plataforma. Puedes desactivarlas en cualquier momento.
+        allow_push_notifications: Recibe notificaciones emergentes para estar al día de lo que pasa en la plataforma. Puedes desactivarlas en cualquier momento.
         direct_messages: Recibir mensajes directos de cualquiera
         email_on_moderations: Quiero recibir un correo electrónico cada vez que se reporta algo o a alguien para moderación.
         everything_followed: Todo lo que sigo
@@ -1276,7 +1276,7 @@ es:
         notifications_sending_frequency: '¿Con qué frecuencia quieres recibir el correo resumen de notificaciones?'
         own_activity: Mi propia actividad, como cuando alguien comenta en mi propuesta o me menciona
         push_notifications: Notificaciones emergentes
-        push_notifications_reminder: Para obtener notificaciones de la plataforma, primero tienes que permitirlas en la configuración de tu navegador.
+        push_notifications_reminder: Para recibir notificaciones de la plataforma, primero tienes que permitirlas en la configuración de tu navegador.
         receive_notifications_about: Quiero recibir notificaciones
         update_notifications_settings: Guardar cambios
       update:
@@ -1326,7 +1326,7 @@ es:
       participatory_space:
         metrics:
           headline: Métricas
-          link: Muestra todas las métricas
+          link: Mostrar todas
       terms_of_service:
         accept:
           error: Se ha producido un error al aceptar los términos y condiciones de uso.
@@ -1341,12 +1341,12 @@ es:
           modal_button: Rechazar los términos y condiciones de uso
           modal_title: '¿Confirmas que no aceptas los términos y condiciones de uso actualizados?'
         required_review:
-          alert: Hemos actualizado nuestros Términos y Condiciones, por favor, revísalos.
-          body: Por favor, dedica un momento a revisar la actualización de nuestros Términos y Condiciones de uso. De lo contrario, no podrás participar en la plataforma.
-          title: 'Requerido: Revisa las actualizaciones en nuestros términos y condiciones de uso'
+          alert: Hemos actualizado nuestros términos y condiciones de uso, por favor, revísalos.
+          body: Por favor, dedica un momento a revisar la actualización de nuestros términos y condiciones de uso. De lo contrario, no podrás participar en la plataforma.
+          title: 'Requerido: revisa las actualizaciones en nuestros términos y condiciones de uso'
     passwords:
       update:
-        error: Ha habido un problema al actualizar la contraseña.
+        error: Se ha producido un error al actualizar la contraseña.
         success: La contraseña se ha actualizado correctamente.
     profile:
       deleted: Participante eliminada
@@ -1383,7 +1383,7 @@ es:
           manage_user_group_admins: Gestionar administradoras
           manage_user_group_users: Gestionar miembros
           message: Mensaje
-          resend_email_confirmation_instructions: Reenvia un correo electrónico con las instrucciones de confirmación
+          resend_email_confirmation_instructions: Reenvía un correo electrónico con las instrucciones de confirmación
         confirmation_instructions_sent: Instrucciones de confirmación enviadas por correo electrónico.
         create_user_group: Crea un grupo
         edit_profile: Edita el perfil
@@ -1485,7 +1485,7 @@ es:
         title: Reportar contenido inapropiado
       flag_user_modal:
         already_reported: Este contenido ya ha sido reportado y será revisado por una administradora.
-        block: Eliminar a esta participante
+        block: Bloquear a esta participante
         close: Cerrar
         description: '¿Qué es inapropiado de la usuaria?'
         does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que creas que no pertenece a %{organization_name}.
@@ -1497,7 +1497,7 @@ es:
       floating_help:
         help: Ayuda
       follow_button:
-        log_in_before_follow: Pro favor, inicia sesión antes de realizar esta acción
+        log_in_before_follow: Por favor, inicia sesión antes de realizar esta acción
       login_modal:
         please_log_in: Por favor, inicia la sesión
         sign_up: Crea una cuenta
@@ -1731,7 +1731,7 @@ es:
       links:
         back: Volver
         didn_t_receive_confirmation_instructions: '¿No has recibido las instrucciones de confirmación?'
-        didn_t_receive_unlock_instructions: '¿No has recibido las instrucciones para desbloquear?'
+        didn_t_receive_unlock_instructions: '¿No has recibido las instrucciones de desbloqueo?'
         forgot_your_password: '¿Olvidaste tu contraseña?'
         log_in: Entra
         log_in_with_provider: Inicia sesión con %{provider}
@@ -1785,19 +1785,19 @@ es:
       control:
         blockquote: Cita
         bold: Negrita
-        bulletList: Lista desordenada
-        codeBlock: Bloque de códigos
+        bulletList: Lista en viñetas
+        codeBlock: Bloque de código
         common:
-          eraseStyles: Borrar los estilos
+          eraseStyles: Borrar estilos
         hardBreak: Salto de línea
         heading: Estilo de texto
         image: Imagen
         indent:
-          indent: Aumentar la sangria
-          outdent: Reduiir la sangria
+          indent: Aumentar la sangría
+          outdent: Reducir la sangría
         italic: Cursiva
         link: Enlace
-        orderedList: Lista ordenada
+        orderedList: Lista numerada
         underline: Subrayado
         videoEmbed: Incrustar vídeo
       textStyle:
@@ -1812,30 +1812,30 @@ es:
       activity: Actividad
       custom: Personalizado
       flags: Banderas
-      foods: Alimentos y bebidas
+      foods: Comida y bebida
       frequent: Usados frecuentemente
       nature: Animales y naturaleza
       objects: Objetos
-      people: Caras y Personas
+      people: Caras y personas
       places: Viajes y lugares
       search: Resultados de búsqueda
       symbols: Símbolos
     pick: Elige un emoji…
     search: Buscar
     search_no_results_1: '¡Oh no!'
-    search_no_results_2: No se pudo encontrar ese emoticono
+    search_no_results_2: No se pudo encontrar ese emoji
     skins:
       '1': Por defecto
-      '2': Clara
-      '3': Medio clara
-      '4': Media
-      '5': Medio oscura
-      '6': Oscura
+      '2': Claro
+      '3': Medio claro
+      '4': Medio
+      '5': Medio oscuro
+      '6': Oscuro
       choose: Elige un tono de piel predeterminado
   errors:
     messages:
       allowed_file_content_types: 'solo se permiten archivos con las siguientes extensiones: %{types}'
-      already_confirmed: ya ha sido confirmado, por favor, intente iniciar sesión de nuevo
+      already_confirmed: ya ha sido confirmado, por favor, intenta iniciar sesión de nuevo
       blank: no puede estar en blanco
       cannot_be_blank: no puede estar en blanco
       confirmation: no coincide con %{attribute}

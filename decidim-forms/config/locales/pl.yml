@@ -157,6 +157,7 @@ pl:
           answer_questionnaire:
             already_have_an_account?: Posiadasz już konto?
             are_you_new?: Nowy użytkownik?
+            sign_in_description: Zaloguj się, aby wziąć udział w ankiecie
             sign_up_description: Utwórz konto uczestnika, aby wziąć udział w ankiecie
             title: Wypełnij formularz
           current_step: Krok %{step}

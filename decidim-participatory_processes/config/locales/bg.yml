@@ -33,8 +33,6 @@ bg:
         scope_type_max_depth_id: Дълбочина на филтъра за обхвата
         scopes_enabled: Обхватите са активирани
         short_description: Кратко описание
-        show_metrics: Показване на показатели
-        show_statistics: Покажи статистиките
         slug: Съкратен URL
         start_date: Начална дата
         subtitle: Подзаглавие

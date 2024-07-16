@@ -35,7 +35,6 @@ FactoryBot.define do
     target { generate_localized_title(:assembly_target, skip_injection:) }
     participatory_scope { generate_localized_title(:assembly_participatory_scope, skip_injection:) }
     participatory_structure { generate_localized_title(:assembly_participatory_structure, skip_injection:) }
-    show_statistics { true }
     private_space { false }
     purpose_of_action { generate_localized_description(:assembly_purpose_of_action, skip_injection:) }
     composition { generate_localized_description(:assembly_composition, skip_injection:) }

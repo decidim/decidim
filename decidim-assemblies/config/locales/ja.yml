@@ -50,7 +50,6 @@ ja:
         scope_id: スコープ
         scopes_enabled: スコープは有効です
         short_description: 短い説明
-        show_statistics: 統計情報を表示
         slug: URL スラグ
         special_features: 特別な機能
         subtitle: サブタイトル
