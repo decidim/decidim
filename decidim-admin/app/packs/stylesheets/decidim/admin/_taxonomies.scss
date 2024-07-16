@@ -10,20 +10,20 @@
   td {
     @apply align-top;
   }
+}
 
-  ul.taxonomy {
-    @apply flex;
+ul.taxonomy {
+  @apply flex;
 
-    li {
-      @apply flex-none text-center w-16 pt-2 pb-2;
+  li {
+    @apply flex-none text-center w-20 pt-2 pb-2;
 
-      &:first-child {
-        @apply flex-initial w-full text-left;
-      }
+    &:first-child {
+      @apply flex-initial w-full text-left;
+    }
 
-      &:last-child {
-        @apply w-24 text-left;
-      }
+    &:last-child {
+      @apply text-left;
     }
   }
 }

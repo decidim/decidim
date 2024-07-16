@@ -72,7 +72,7 @@
 
     .form-defaults {
       h1 {
-        @apply text-2xl font-semibold text-black m-10 border-b border-gray border-b-[1px] pb-8;
+        @apply text-2xl font-semibold text-black my-10 mx-4 border-b border-gray border-b-[1px] pb-8;
 
         > .button {
           @apply text-sm float-right;
