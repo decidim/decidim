@@ -49,6 +49,10 @@ module Decidim
       @root_taxonomy ||= root? ? self : parent.root_taxonomy
     end
 
+    def parent_ids
+      @parent_ids ||= parent_id ? parent.parent_ids + [parent_id] : []
+    end
+
     def root? = parent_id.nil?
 
     private

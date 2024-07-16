@@ -42,6 +42,9 @@
       window.initFoundation(container);
 
       var form = container.querySelector("#taxonomy-element-form");
+      if(!form) {
+        return location.reload();
+      }
 
       form.addEventListener("ajax:beforeSend", function(evt) {
         form.classList.add("spinner-container");
@@ -49,6 +52,8 @@
 
       form.addEventListener("ajax:success", function(evt) {
         var [data, _status, xhr] = event.detail;
+        console.log(location.pathname, xhr.responseURL);
+
         if(xhr.responseURL.indexOf(location.pathname) > -1) {
           location.href = xhr.responseURL;
         } else {

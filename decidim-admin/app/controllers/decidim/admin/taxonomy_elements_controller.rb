@@ -6,6 +6,12 @@ module Decidim
       layout false
 
       helper_method :taxonomy, :taxonomy_element, :parent_options, :selected_parent_id
+      before_action do
+        if taxonomy_element && taxonomy_element.parent_ids.exclude?(taxonomy.id)
+          flash[:alert] = I18n.t("update.invalid", scope: "decidim.admin.taxonomies")
+          render plain: I18n.t("update.invalid", scope: "decidim.admin.taxonomies"), status: :unprocessable_entity
+        end
+      end
 
       def new
         # TODO: permissions
