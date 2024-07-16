@@ -21,7 +21,7 @@
           <% share_tokens.each do |share_token| %>
             <tr>
               <td><%= share_token.token %></td>
-              <td><%= l share_token.expires_at, format: :short if share_token.expires_at.present? %></td>
+              <td><%= share_token.expires_at.present? ? ("<span class=\"text-#{ share_token.expired? ? "warning" : ""}\">#{l(share_token.expires_at, format: :decidim_short)}</span>".html_safe) : content_tag(:em, t(".never")) %></td>
               <td></td>
               <td><%= share_token.times_used %></td>
               <td class="table-list__actions">

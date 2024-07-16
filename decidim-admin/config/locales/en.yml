@@ -981,6 +981,7 @@ en:
           token: Token
         index:
           back_to_share_tokens: Back to share tokens
+          never: Never
           new_share_token_button: New token
           title: 'Sharing tokens for component: %{component_name}'
         new:

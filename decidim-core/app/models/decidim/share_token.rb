@@ -8,7 +8,7 @@ module Decidim
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
     belongs_to :token_for, foreign_type: "token_for_type", polymorphic: true
 
-    after_initialize :generate, :set_default_expiration
+    after_initialize :generate
 
     def self.use!(token_for:, token:)
       record = find_by!(token_for:, token:)
@@ -38,10 +38,6 @@ module Decidim
         self.token = SecureRandom.hex(32)
         break if ShareToken.find_by(token:).blank?
       end
-    end
-
-    def set_default_expiration
-      self.expires_at ||= 1.day.from_now
     end
   end
 end
