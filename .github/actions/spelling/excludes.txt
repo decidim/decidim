@@ -109,3 +109,4 @@
 ^\Qdecidim-participatory_processes/app/views/decidim/participatory_processes/participatory_processes/_statistics.html.erb\E$
 ^\Qdecidim-proposals/app/views/decidim/proposals/proposals/_endorsements_card_row.html.erb\E$
 ignore$
+^\QCHANGELOG.md\E$
