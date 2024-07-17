@@ -36,6 +36,10 @@ module Decidim
         def edit
           enforce_permission_to(:update, :meeting, meeting:)
 
+          if meeting.component != current_component
+            redirect_to ::Decidim::ResourceLocatorPresenter.new(meeting).edit, notice: I18n.t("meetings.edit.redirect_notice", scope: "decidim.meetings.admin")
+          end
+
           @form = meeting_form.from_model(meeting)
         end
 

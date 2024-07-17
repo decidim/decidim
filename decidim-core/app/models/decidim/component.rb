@@ -11,6 +11,7 @@ module Decidim
     include Loggable
     include Decidim::ShareableWithToken
     include ScopableComponent
+    include TranslatableAttributes
 
     belongs_to :participatory_space, polymorphic: true
 
@@ -77,6 +78,14 @@ module Decidim
     # Public: Returns the component's name as resource title
     def resource_title
       name
+    end
+
+    def hierarchy_title
+      [
+        I18n.t("decidim.admin.menu.#{participatory_space.class.name.demodulize.underscore.pluralize}"),
+        translated_attribute(participatory_space.title),
+        translated_attribute(name)
+      ].join(" / ")
     end
 
     # Public: Returns an empty description

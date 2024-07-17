@@ -120,12 +120,19 @@ module Decidim
       end
 
       def search_collection
-        Meeting.where(component: current_component).published.not_hidden.visible_for(current_user).with_availability(
-          filter_params[:with_availability]
-        ).includes(
-          :component,
-          attachments: :file_attachment
-        )
+        Meeting
+          .where(component: current_component)
+          .published
+          .not_hidden
+          .or(MeetingLink.find_meetings(component: current_component))
+          .visible_for(current_user)
+          .with_availability(
+            filter_params[:with_availability]
+          )
+          .includes(
+            :component,
+            attachments: :file_attachment
+          )
       end
 
       def meeting_form

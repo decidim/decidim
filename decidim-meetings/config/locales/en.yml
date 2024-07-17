@@ -323,6 +323,7 @@ en:
           edit:
             title: Edit meeting
             update: Update
+            redirect_notice: You've been redirected to a different space
           form:
             address_help: 'Address: used by Geocoder to find the location'
             disclaimer: 'Disclaimer: By using an external registration system, you are aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
@@ -336,6 +337,17 @@ en:
             select_an_iframe_access_level: Please select an iframe access level
           index:
             title: Meetings
+            linked_meeting_warning_html: This meeting must be edited from <a href="%{href}">%{name}</a>
+          linked_spaces:
+            assign: Assign
+            link_a_space: Link a space
+            private_space_warning: Linked spaces won't be applied when the meeting belongs to a private non transparent space.
+            private_meeting_warning: Linked spaces won't be applied if the meeting is private and non transparent.
+            select: Select a space
+            table:
+              component: Linked spaces
+              actions: Actions
+            title: Linked spaces
           new:
             create: Create
             title: Create meeting
