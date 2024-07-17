@@ -39,7 +39,7 @@ describe "User answers the initiative" do
 
     context "when initiative is in published state" do
       before do
-        initiative.published!
+        initiative.open!
       end
 
       context "and signature dates are editable" do

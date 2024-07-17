@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Initiative" do
   let(:organization) { create(:organization) }
-  let(:state) { :published }
+  let(:state) { :open }
   let(:base_initiative) do
     create(:initiative, organization:, state:)
   end
@@ -111,9 +111,24 @@ describe "Initiative" do
 
       it_behaves_like "has attachments tabs"
 
-      it "displays comments section" do
-        expect(page).to have_css(".comments")
-        expect(page).to have_content("0 comments")
+      context "when the initiative is not published" do
+        let(:state) { :created }
+
+        before do
+          initiative.update!(published_at: nil)
+        end
+
+        it "does not display comments section" do
+          expect(page).to have_no_css(".comments")
+          expect(page).to have_no_content("0 comments")
+        end
+      end
+
+      context "when the initiative is published" do
+        it "displays comments section" do
+          expect(page).to have_css(".comments")
+          expect(page).to have_content("0 comments")
+        end
       end
 
       context "when comments are disabled" do
@@ -151,6 +166,7 @@ describe "Initiative" do
 
         context "when the user cannot send the initiative to technical validation" do
           before do
+            initiative.update!(published_at: nil)
             initiative.committee_members.destroy_all
             visit decidim_initiatives.initiative_path(initiative)
           end
@@ -161,6 +177,11 @@ describe "Initiative" do
         end
 
         context "when the user can send the initiative to technical validation" do
+          before do
+            initiative.update!(published_at: nil)
+            visit decidim_initiatives.initiative_path(initiative)
+          end
+
           it { expect(page).to have_link("Send to technical validation", href: decidim_initiatives.send_to_technical_validation_initiative_path(initiative)) }
           it { expect(page).to have_content('If everything looks ok, click on "Send to technical validation" for an administrator to review and publish your initiative') }
         end
@@ -180,8 +201,8 @@ describe "Initiative" do
         it_behaves_like "initiative does not show send to technical validation"
       end
 
-      context "when initiative state is published" do
-        let(:state) { :published }
+      context "when initiative state is open" do
+        let(:state) { :open }
 
         it_behaves_like "initiative does not show send to technical validation"
       end
