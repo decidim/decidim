@@ -1,0 +1,8 @@
+<ul class="taxonomy <%= class_name %>" data-taxonomy-id="<%= child.id %>">
+  <li class="js-drag-handle">
+    <%== icon("draggable", class: "dragger") %>
+    <%= translated_attribute(child.name) %>
+  </li>
+  <li><%= child.children.count unless grandchild %></li>
+  <li><%= render "taxonomy_actions", taxonomy: child %></li>
+</ul>

@@ -67,13 +67,15 @@ module Decidim
           expect(taxonomy.children).to include(child_taxonomy)
         end
 
-        it "cannot be deleted if it has children" do
-          expect { taxonomy.destroy }.not_to change(Decidim::Taxonomy, :count)
-          expect(taxonomy.errors[:base]).to include("Cannot delete record because dependent children exist")
+        it "can be deleted with children" do
+          expect { taxonomy.destroy }.to change(Decidim::Taxonomy, :count).by(-2)
+          expect(Decidim::Taxonomy.find_by(id: taxonomy.id)).to be_nil
         end
 
-        context "when more than two levels of children" do
-          subject(:grandchild_taxonomy) { build(:taxonomy, parent: child_taxonomy, organization:) }
+        context "when more than 3 levels of children" do
+          subject(:child_of_child_taxonomy) { build(:taxonomy, parent: grandchild_taxonomy, organization:) }
+
+          let(:grandchild_taxonomy) { create(:taxonomy, parent: child_taxonomy, organization:) }
 
           it { is_expected.to be_invalid }
         end

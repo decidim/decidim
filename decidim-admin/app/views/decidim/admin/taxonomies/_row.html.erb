@@ -9,14 +9,13 @@
     <% if with_children && taxonomy.children.any? %>
       <div class="js-sortable js-draggable-<%= taxonomy.id %>" data-draggable-handle=".js-drag-handle" data-draggable-accept-from=".js-draggable-<%= taxonomy.id %>" data-sort-url="<%= reorder_taxonomies_path %>">
         <% taxonomy.children.each do |child| %>
-          <ul class="taxonomy" data-taxonomy-id="<%= child.id %>">
-            <li class="js-drag-handle">
-              <%== icon("draggable", class: "dragger") %>
-              <%= translated_attribute(child.name) %>
-            </li>
-            <li>&nbsp;</li>
-            <li><%= render "taxonomy_actions", taxonomy: child %></li>
-          </ul>
+          <%= render partial: "decidim/admin/taxonomies/row_children", locals: { child: child, class_name: "", grandchild: false } %>
+
+          <% if child.children.any? %>
+            <% child.children.each do |grandchild| %>
+              <%= render partial: "decidim/admin/taxonomies/row_children", locals: { child: grandchild, class_name: "ml-6", grandchild: true } %>
+            <% end %>
+          <% end %>
         <% end %>
       </div>
     <% end %>

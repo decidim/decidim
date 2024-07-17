@@ -27,8 +27,8 @@ module Decidim
              class_name: "Decidim::Taxonomy",
              dependent: :destroy
 
-    has_many :taxonomy_filters, class_name: "Decidim::TaxonomyFilter", dependent: :destroy
-    has_many :taxonomizations, class_name: "Decidim::Taxonomization", dependent: :destroy
+    has_many :taxonomy_filters, class_name: "Decidim::TaxonomyFilter", dependent: :restrict_with_error
+    has_many :taxonomizations, class_name: "Decidim::Taxonomization", dependent: :restrict_with_error
 
     validates :name, presence: true
     validates :weight, numericality: { greater_than_or_equal_to: 0 }
@@ -69,7 +69,7 @@ module Decidim
     def validate_children_levels
       return unless parent_id
 
-      errors.add(:base, :invalid) if parent_ids.size > 2
+      errors.add(:base, :invalid) if parent_ids.size > 3
     end
   end
 end
