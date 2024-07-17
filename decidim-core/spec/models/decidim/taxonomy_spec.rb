@@ -4,44 +4,63 @@ require "spec_helper"
 
 module Decidim
   describe Taxonomy do
-    subject(:taxonomy) { build(:taxonomy, name: taxonomy_name, parent:, organization:) }
+    subject(:taxonomy) { build(:taxonomy, name: taxonomy_name, parent: root_taxonomy, organization:) }
 
     let(:organization) { create(:organization) }
-    let(:parent) { create(:taxonomy, organization:) }
+    let(:root_taxonomy) { create(:taxonomy, organization:) }
+    let(:taxonomy_name) { { en: "Test Taxonomy" } }
 
     context "when everything is ok" do
-      let(:taxonomy_name) { { en: "Test Taxonomy" } }
+      it { is_expected.to be_valid }
+      it { is_expected.not_to be_root }
 
-      it "is valid with valid attributes" do
-        expect(taxonomy).to be_valid
+      it "returns the root taxonomy" do
+        expect(taxonomy.root_taxonomy).to eq(root_taxonomy)
+      end
+
+      it "returns the parent ids" do
+        expect(taxonomy.parent_ids).to eq([root_taxonomy.id])
+      end
+    end
+
+    context "when root taxonomy" do
+      subject(:taxonomy) { root_taxonomy }
+
+      it { is_expected.to be_root }
+    end
+
+    context "when a child taxonomy" do
+      subject(:child) { create(:taxonomy, parent: taxonomy, organization:) }
+
+      it { is_expected.not_to be_root }
+
+      it "returns the root taxonomy" do
+        expect(child.root_taxonomy).to eq(root_taxonomy)
+      end
+
+      it "returns the parent ids" do
+        expect(child.parent_ids).to eq([root_taxonomy.id, taxonomy.id])
       end
     end
 
     context "when name is missing" do
       let(:taxonomy_name) { nil }
 
-      it "is not valid without a name" do
-        expect(taxonomy).not_to be_valid
-      end
+      it { is_expected.to be_invalid }
     end
 
     context "when organization is missing" do
-      let(:taxonomy_name) { { en: "Test Taxonomy" } }
+      before { taxonomy.organization = nil }
 
-      it "is not valid without an organization" do
-        taxonomy.organization = nil
-        expect(taxonomy).not_to be_valid
-      end
+      it { is_expected.to be_invalid }
     end
 
     context "when managing associations" do
-      let(:taxonomy_name) { { en: "Test Taxonomy" } }
-
       context "with children" do
         let!(:child_taxonomy) { create(:taxonomy, parent: taxonomy, organization:) }
 
         it "can belong to a parent taxonomy" do
-          expect(taxonomy.parent).to eq(parent)
+          expect(taxonomy.parent).to eq(root_taxonomy)
         end
 
         it "can have many children taxonomies" do
@@ -51,6 +70,12 @@ module Decidim
         it "cannot be deleted if it has children" do
           expect { taxonomy.destroy }.not_to change(Decidim::Taxonomy, :count)
           expect(taxonomy.errors[:base]).to include("Cannot delete record because dependent children exist")
+        end
+
+        context "when more than two levels of children" do
+          subject(:grandchild_taxonomy) { build(:taxonomy, parent: child_taxonomy, organization:) }
+
+          it { is_expected.to be_invalid }
         end
       end
 

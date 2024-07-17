@@ -32,6 +32,7 @@ module Decidim
 
     validates :name, presence: true
     validates :weight, numericality: { greater_than_or_equal_to: 0 }
+    validate :validate_children_levels
 
     default_scope { order(:weight) }
 
@@ -59,6 +60,12 @@ module Decidim
 
     def set_default_weight
       self.weight ||= Taxonomy.where(parent_id:).count
+    end
+
+    def validate_children_levels
+      return unless parent_id
+
+      errors.add(:base, :invalid) if parent_ids.size > 2
     end
   end
 end
