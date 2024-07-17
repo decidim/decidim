@@ -9,7 +9,14 @@
   <%= decidim_form_for(@form, url: component_share_token_path(id: share_token), html: { class: "form-defaults form edit_component_share_token" }) do |f| %>
     <div class="card">
       <div class="card-section">
-        <%= render partial: "form", object: f %>
+        <div class="form__wrapper">
+          <div class="pt-4">
+            <div class="row column">
+              <%= f.text_field :token, aria: { label: :token }, disabled: true %>
+            </div>
+            <%= render partial: "form", object: f %>
+          </div>
+        </div>
       </div>
     </div>
     <div class="item__edit-sticky">

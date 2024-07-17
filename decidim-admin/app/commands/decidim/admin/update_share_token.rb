@@ -5,7 +5,7 @@ module Decidim
     # A command with all the business logic to update a taxonomy.
     # This command is called from the controller.
     class UpdateShareToken < Decidim::Commands::UpdateResource
-      fetch_form_attributes :token, :expires_at
+      fetch_form_attributes :expires_at
     end
   end
 end

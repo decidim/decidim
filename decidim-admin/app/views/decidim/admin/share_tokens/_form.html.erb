@@ -1,32 +1,16 @@
-<div class="form__wrapper">
-  <div class="card pt-4">
-    <div class="row column">
-      <%= t("share_tokens.form.token", scope: "decidim.admin") %>
-    </div>
-    <div class="row column -mt-4">
-      <div class="ml-2">
-        <div class="mr-4">
-          <%= form.radio_button :automatic_token, t("share_tokens.form.automatic", scope: "decidim.admin"), checked: form.object.automatic_token  %>
-        </div>
-
-        <%= form.radio_button :automatic_token, t("share_tokens.form.custom", scope: "decidim.admin"), checked: !form.object.automatic_token  %>
-
-        <div id="automatic_token_field_wrapper">
-          <%= form.text_field :token, label: t("share_tokens.form.custom_token", scope: "decidim.admin"), style: "text-transform: uppercase" %>
-        </div>
+<div class="row column">
+  <%= t("share_tokens.form.expires_at", scope: "decidim.admin") %>
+</div>
+<div class="row column -mt-4">
+  <div class="ml-2">
+    <%= form.collection_radio_buttons :no_expiration, [[true, t("share_tokens.form.never_expire", scope: "decidim.admin")], [false, t("share_tokens.form.custom", scope: "decidim.admin")]], :first, :last do |b| %>
+      <div>
+        <%= b.radio_button %>
+        <%= b.label %>
       </div>
-    </div>
-    <div class="row column">
-      <%= t("share_tokens.form.expires_at", scope: "decidim.admin") %>
-    </div>
-    <div class="row column -mt-4">
-      <div class="ml-2">
-        <%= form.collection_radio_buttons :no_expiration, [[false, t("share_tokens.form.never_expire", scope: "decidim.admin")], [true, t("share_tokens.form.custom", scope: "decidim.admin")]], :first, :last %>
-
-        <div id="expires_at_field_wrapper" class="<%= form.object.no_expiration ? "hidden" : "" %> mt-4 row column">
-          <%= form.datetime_field :expires_at, label: t("share_tokens.form.custom_expiration", scope: "decidim.admin") %>
-        </div>
-      </div>
+    <% end %>
+    <div id="expires_at_field_wrapper" class="<%= form.object.no_expiration ? "hidden" : "" %> mt-4 row column">
+      <%= form.datetime_field :expires_at, label: t("share_tokens.form.custom_expiration", scope: "decidim.admin") %>
     </div>
   </div>
 </div>
@@ -38,15 +22,6 @@
     const automaticTokenFieldWrapper = document.getElementById("automatic_token_field_wrapper");
     const expiresAtFieldWrapper = document.getElementById("expires_at_field_wrapper");
 
-    const toggleTokenField = () => {
-      if (automaticTokenRadioButtons[1].checked) {
-        automaticTokenFieldWrapper.classList.remove("hidden");
-      } else {
-        automaticTokenFieldWrapper.classList.add("hidden");
-        automaticTokenFieldWrapper.querySelector("input[name='share_token[token]']").value = "";
-      }
-    };
-
     const toggleExpiresAtField = () => {
       if (expiresAtRadioButtons[2].checked) {
         expiresAtFieldWrapper.classList.remove("hidden");
@@ -56,15 +31,27 @@
       }
     };
 
-    automaticTokenRadioButtons.forEach(automaticTokenRadioButton => {
-      automaticTokenRadioButton.addEventListener("change", toggleTokenField);
-    });
-
     expiresAtRadioButtons.forEach(expiresAtRadioButton => {
       expiresAtRadioButton.addEventListener("change", toggleExpiresAtField);
     });
 
-    toggleTokenField();
     toggleExpiresAtField();
+
+    const toggleTokenField = () => {
+      if (automaticTokenRadioButtons[1].checked) {
+        automaticTokenFieldWrapper.classList.remove("hidden");
+      } else {
+        automaticTokenFieldWrapper.classList.add("hidden");
+        automaticTokenFieldWrapper.querySelector("input[name='share_token[token]']").value = "";
+      }
+    };
+
+    automaticTokenRadioButtons.forEach(automaticTokenRadioButton => {
+      automaticTokenRadioButton.addEventListener("change", toggleTokenField);
+    });
+
+    if (automaticTokenRadioButtons) {
+      toggleTokenField();
+    }
   });
 </script>

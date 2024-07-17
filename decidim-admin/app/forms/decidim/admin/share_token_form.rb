@@ -11,14 +11,17 @@ module Decidim
       attribute :no_expiration, Boolean, default: true
 
       validates :token, presence: true, if: ->(form) { form.automatic_token.blank? }
-      validates :expires_at, presence: true, if: ->(form) { form.no_expiration.blank? }
+
+      def map_model(model)
+        self.no_expiration = model.expires_at.blank?
+      end
 
       def token
         super.upcase if super.present?
       end
 
       def expires_at
-        return nil if no_expiration
+        return nil if no_expiration.present?
 
         super
       end
