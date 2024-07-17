@@ -17,10 +17,10 @@
             <div class="row column -mt-4">
               <div class="ml-2">
                 <div class="mr-4">
-                  <%= f.radio_button :automatic_token, t("share_tokens.form.automatic", scope: "decidim.admin"), checked: f.object.automatic_token  %>
+                  <%= f.radio_button :automatic_token, t("share_tokens.form.automatic", scope: "decidim.admin"), checked: f.object.automatic_token %>
                 </div>
 
-                <%= f.radio_button :automatic_token, t("share_tokens.form.custom", scope: "decidim.admin"), checked: !f.object.automatic_token  %>
+                <%= f.radio_button :automatic_token, t("share_tokens.form.custom", scope: "decidim.admin"), checked: !f.object.automatic_token %>
 
                 <div id="automatic_token_field_wrapper">
                   <%= f.text_field :token, label: t("share_tokens.form.custom_token", scope: "decidim.admin"), style: "text-transform: uppercase" %>
