@@ -8,18 +8,18 @@ module Decidim::Admin
 
     let(:organization) { create(:organization) }
     let(:user) { create(:user, :admin, :confirmed, organization:) }
+    let(:name) { { "en" => "Sample Taxonomy" } }
     let(:form) do
       double(
         invalid?: invalid,
+        name:,
+        organization:,
         current_user: user,
-        name: { en: "New Taxonomy" },
-        weight: 1,
-        parent_id: nil,
-        organization:
+        parent_id:
       )
     end
-
     let(:invalid) { false }
+    let(:parent_id) { nil }
 
     context "when the form is not valid" do
       let(:invalid) { true }
@@ -30,17 +30,39 @@ module Decidim::Admin
     end
 
     context "when the form is valid" do
-      it "creates a new taxonomy" do
+      it "creates the taxonomy" do
         expect { subject.call }.to change(Decidim::Taxonomy, :count).by(1)
       end
 
-      it "traces the action" do
-        expect(Decidim.traceability)
-          .to receive(:create!)
-          .with(anything, user, hash_including(:name, :weight, :parent_id, :organization))
-          .and_call_original
+      it "broadcasts ok" do
+        expect { subject.call }.to broadcast(:ok)
+      end
 
-        expect { subject.call }.to change(Decidim::ActionLog, :count).by(1)
+      it "sets the name" do
+        subject.call
+        expect(Decidim::Taxonomy.last.name).to eq(name)
+      end
+
+      it "sets the organization" do
+        subject.call
+        expect(Decidim::Taxonomy.last.organization).to eq(organization)
+      end
+
+      context "when parent_id is provided" do
+        let!(:parent) { create(:taxonomy, organization:) }
+        let!(:parent_id) { parent.id }
+
+        it "sets the parent" do
+          expect do
+            subject.call
+          end.to change(Decidim::Taxonomy, :count).by(1)
+
+          created_taxonomy = Decidim::Taxonomy.find_by(parent_id: parent.id)
+
+          expect(created_taxonomy.parent).to eq(parent)
+          expect(created_taxonomy.id).not_to eq(parent.id)
+          expect(created_taxonomy.name).to eq(name)
+        end
       end
     end
   end

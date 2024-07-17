@@ -14,12 +14,12 @@ module Decidim
       end
 
       def new
-        # TODO: permissions
+        enforce_permission_to :create, :taxonomy_element
         @form = form(Decidim::Admin::TaxonomyElementForm).instance
       end
 
       def create
-        # TODO: permissions
+        enforce_permission_to :create, :taxonomy_element
         @form = form(Decidim::Admin::TaxonomyElementForm).from_params(params)
         CreateTaxonomy.call(@form) do
           on(:ok) do
@@ -35,12 +35,12 @@ module Decidim
       end
 
       def edit
-        # TODO: permissions
+        enforce_permission_to :update, :taxonomy_element, taxonomy: taxonomy_element
         @form = form(Decidim::Admin::TaxonomyElementForm).from_model(taxonomy_element)
       end
 
       def update
-        # TODO: permissions
+        enforce_permission_to :update, :taxonomy_element, taxonomy: taxonomy_element
         @form = form(Decidim::Admin::TaxonomyElementForm).from_params(params)
         UpdateTaxonomy.call(@form, taxonomy_element) do
           on(:ok) do

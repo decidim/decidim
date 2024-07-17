@@ -56,6 +56,10 @@ module Decidim
 
     def root? = parent_id.nil?
 
+    def removable?
+      !children.exists? && !taxonomy_filters.exists? && !taxonomizations.exists?
+    end
+
     private
 
     def set_default_weight

@@ -63,6 +63,8 @@ module Decidim
           if permission_action.subject == :taxonomy
             permission_action.action == :destroy ? allow_destroy_taxonomy? : allow!
           end
+
+          allow! if permission_action.subject == :taxonomy_element
         end
 
         permission_action
@@ -263,11 +265,7 @@ module Decidim
 
         taxonomy = context.fetch(:taxonomy, nil)
 
-        if taxonomy && (taxonomy.children.exists? || taxonomy.taxonomy_filters.exists? || taxonomy.taxonomizations.exists?)
-          disallow!
-        else
-          allow!
-        end
+        toggle_allow(taxonomy&.removable?)
       end
     end
   end
