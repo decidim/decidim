@@ -38,14 +38,16 @@ $(() => {
     if (!$el.data("clipboard-copy") || $el.data("clipboard-copy").length < 1) {
       return;
     }
-
+    
     const $input = $($el.data("clipboard-copy"));
+    let selectedText = "";
     if ($input.length < 1 || !$input.is("input, textarea, select")) {
-      return;
+      selectedText = $el.data("clipboard-content");
+    } else {
+      selectedText = select($input[0]);
     }
 
     // Get the available text to clipboard.
-    const selectedText = select($input[0]);
     if (!selectedText || selectedText.length < 1) {
       return;
     }
@@ -83,13 +85,23 @@ $(() => {
       }
 
       if (!$el.data("clipboard-copy-label-original")) {
-        $el.data("clipboard-copy-label-original", $el.html());
+        if ($input.length > 0) {
+          $el.data("clipboard-copy-label-original", $el.html());
+        }
       }
 
-      $el.html(label);
+      if ($input.length > 0) {
+        $el.html(label);
+      } else {
+        $el.css("color", "var(--alert)");
+      }
       to = setTimeout(() => {
-        $el.html($el.data("clipboard-copy-label-original"));
-        $el.removeData("clipboard-copy-label-original");
+        if ($input.length > 0) {
+          $el.html($el.data("clipboard-copy-label-original"));
+          $el.removeData("clipboard-copy-label-original");
+        } else {
+          $el.css({ "color": "var(--secondary)", "padding-right": "0" });
+        }
         $el.removeData("clipboard-copy-label-timeout");
       }, CLIPBOARD_COPY_TIMEOUT);
       $el.data("clipboard-copy-label-timeout", to)
