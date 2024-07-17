@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Admin manages newsletter templates" do
-  let(:organization) { create(:organization) }
+  let(:organization) { create(:organization, name: { en: "Test organization" }) }
   let(:user) { create(:user, :admin, :confirmed, name: "Sarah Kerrigan", organization:) }
 
   before do
@@ -60,7 +60,7 @@ describe "Admin manages newsletter templates" do
         visit decidim_admin.preview_newsletter_template_path(template_id)
         expect(page).to have_link("notifications page", href: "#")
         expect(page).to have_link("Unsubscribe", href: "#")
-        expect(page).to have_link(organization.name, href: "#", count: 2)
+        expect(page).to have_link("Test organization", href: "#", count: 2)
       end
     end
 

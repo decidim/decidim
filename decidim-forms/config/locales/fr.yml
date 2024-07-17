@@ -21,7 +21,7 @@ fr:
               too_long: est trop long
             choices:
               missing: ne sont pas complets
-              too_many: sont trop nombreux
+              too_many: Vous pouvez choisir un maximum de %{count}.
         questionnaire:
           request_invalid: Une erreur s'est produite. Veuillez réessayer.
   decidim:

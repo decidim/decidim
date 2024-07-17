@@ -71,9 +71,6 @@ module Decidim
     has_one_attached :hero_image
     validates_upload :hero_image, uploader: Decidim::HeroImageUploader
 
-    has_one_attached :banner_image
-    validates_upload :banner_image, uploader: Decidim::BannerImageUploader
-
     scope :past, -> { where(arel_table[:end_date].lt(Date.current)) }
     scope :upcoming, -> { where(arel_table[:start_date].gt(Date.current)) }
     scope :active, -> { where(arel_table[:start_date].lteq(Date.current).and(arel_table[:end_date].gteq(Date.current).or(arel_table[:end_date].eq(nil)))) }

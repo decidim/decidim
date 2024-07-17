@@ -55,7 +55,6 @@ id:
           success: Organisasi berhasil diperbarui.
         users_registration_mode:
           disabled: Akses hanya dapat dilakukan dengan akun eksternal
-          enabled: Izinkan peserta untuk mendaftar dan masuk
       shared:
         notices:
           no_organization_warning_html: Anda harus membuat organisasi untuk memulai. Pastikan Anda membaca %{guide} sebelum melanjutkan.

@@ -360,6 +360,9 @@ fr-CA:
       document:
         download: Télécharger le fichier
       documents:
+        component_documents:
+          dummy: Documents de fonctionnalité factices
+          meetings: Documents de réunions
         documents: Documents
         related_documents: Documents à consulter
       photo:
@@ -581,7 +584,7 @@ fr-CA:
           complete_profile: Complétez votre profil
           nickname_help: Cet identifiant est public et unique sur %{organization} ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
           sign_up: Veuillez compléter votre profil
-          subtitle: Remplissez le formulaire suivant pour compléter l'inscription
+          subtitle: Veuillez compléter le formulaire suivant afin de compléter l’inscription
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       registrations:
         create:
@@ -591,8 +594,8 @@ fr-CA:
           log_in: Se connecter
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
           newsletter_title: Autorisation de contact
-          sign_up: S'inscrire
-          subtitle: Inscrivez-vous pour participer aux discussions et pour exprimer votre soutien aux propositions de votre choix.
+          sign_up: Créer un compte
+          subtitle: Créez un compte pour participer à la plateforme.
           terms: Conditions d'Utilisation
           tos_agreement: En vous inscrivant, vous acceptez %{link}.
           tos_title: Conditions d'utilisation
@@ -808,7 +811,7 @@ fr-CA:
           email_subject: Un group d'utilisateurs viens de mettre à jour son profil
           notification_title: Le groupe d'utilisateurs %{user_group_name} a mis à jour son profil, le laissant non vérifié. Vous pouvez maintenant le vérifier dans le <a href="%{groups_admin_path}">panneau d'administration</a>.
       nickname_event:
-        notification_body: Nous avons corrigé la façon dont les pseudonymes sont utilisés pour qu'il n'y ait pas de doublons, quelque soit l'utilisation de majuscules et/ou de minuscules. <br/> Votre pseudonyme a été créé après un autre qui était identique, nous l'avons donc automatiquement renommé. Vous pouvez le modifier depuis <a href="%{link_to_account_settings}">les paramètres de votre compte</a>.
+        notification_body: Nous avons corrigé la façon dont les pseudonymes sont utilisés pour qu'il n'y ait pas de doublons, et c'est pourquoi nous avons supprimé la distinction entre les majuscules et les minuscules. <br/> Votre pseudonyme a été créé après un autre qui était identique, nous l'avons donc automatiquement modifié. Vous pouvez le modifier depuis <a href="%{link_to_account_settings}">les paramètres de votre compte</a>.
       notification_event:
         notification_title: Un événement a eu lieu sur <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -875,7 +878,7 @@ fr-CA:
       create:
         button: Suivre
         error: Une erreur s'est produite lors du traitement de votre demande de suivre ce contenu.
-        participatory_space: Suivre <span>%{resource_name}</span>
+        participatory_space: Déjà abonné à <span>%{resource_name}</span>
       destroy:
         button: Ne plus suivre
         error: Une erreur s'est produite lors du traitement de votre demande de ne plus suivre ce contenu.
@@ -915,6 +918,7 @@ fr-CA:
           filename: Nom du fichier
           remove: Supprimer
           replace: Remplacer
+          save: Sauvegarder
           title: Titre
           title_required: Le titre est requis !
           uploaded: Téléchargé
@@ -1234,6 +1238,7 @@ fr-CA:
         same_language: Le contenu a été publié dans votre langue préférée (%{language}), c'est pourquoi aucune traduction automatique n'est affichée dans cet e-mail.
         translated_text: 'Traduction automatique du texte :'
     notifications:
+      action_error: Un problème est survenu lors de la mise à jour des notifications.
       no_notifications: Il n'y a pas encore de notifications.
       show:
         missing_event: Oups, cette notification est liée à un élément qui n'est plus disponible. Vous pouvez la supprimer.
@@ -1310,7 +1315,7 @@ fr-CA:
           headline: État actuel de %{organization}
         sub_hero:
           register: S'inscrire
-          register_title: Inscrivez-vous pour créer un compte
+          register_title: Créer un compte
       index:
         standalone_pages: Pages
         subheading: Naviguer à travers les pages d'aide de %{name}
@@ -1493,7 +1498,7 @@ fr-CA:
         log_in_before_follow: Veuillez vous connecter avant d’exécuter cette action
       login_modal:
         please_log_in: Veuillez vous connecter
-        sign_up: S'inscrire
+        sign_up: Créer un compte
       mentions_modal:
         remove_recipient: Supprimer le destinataire %{name}
       participatory_space_filters:
@@ -1620,7 +1625,7 @@ fr-CA:
       locked: Votre compte est bloqué.
       not_found_in_database: '%{authentication_keys} ou mot de passe invalide.'
       timeout: Votre session a expiré, veuillez vous reconnecter pour continuer.
-      unauthenticated: Vous devez vous connecter ou vous inscrire pour continuer.
+      unauthenticated: Vous devez vous connecter ou créer un compte pour continuer.
     invitations:
       edit:
         header: Terminer la création de votre compte
@@ -1707,7 +1712,7 @@ fr-CA:
     registrations:
       destroyed: Au revoir! Votre compte a été annulé avec succès. Nous espérons te revoir bientôt.
       new:
-        sign_up: S'inscrire
+        sign_up: Créer un compte
       signed_up: Bienvenue! Vous vous êtes inscrit avec succès.
       signed_up_but_inactive: Vous vous êtes inscrit avec succès. Cependant, nous ne pouvons pas vous connecter car votre compte n'est pas encore activé.
       signed_up_but_locked: Vous vous êtes inscrit avec succès. Cependant, nous ne pouvons pas vous connecter car votre compte est verrouillé.
@@ -1728,7 +1733,7 @@ fr-CA:
         forgot_your_password: Mot de passe oublié?
         log_in: Se connecter
         log_in_with_provider: Connectez-vous avec %{provider}
-        sign_up: S'inscrire
+        sign_up: Créer un compte
       minimum_password_length:
         one: "(%{count} caractère minimum)"
         other: "(%{count} caractères minimum)"
@@ -1842,7 +1847,7 @@ fr-CA:
       long_words: contient des mots trop longs (plus de 35 caractères)
       must_start_with_caps: doit commencer par une majuscule
       nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
-      not_found: introuvable. Vous êtes-vous déjà inscrit ?
+      not_found: n'a pas pu être trouvé. Avez-vous créé un compte précédemment ?
       not_locked: n'était pas verrouillé
       not_saved:
         one: 'Une erreur est survenue pendant le traitement de votre requête.'
@@ -1927,7 +1932,7 @@ fr-CA:
         log_in: Se connecter
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
         resources: Ressources
-        sign_up: S'inscrire
+        sign_up: Créer un compte
         terms_of_service: Conditions d'utilisation
       header:
         log_in: Se connecter
@@ -1944,10 +1949,6 @@ fr-CA:
         mark_as_read: Marquer comme lu
       offline_banner:
         cache_version_page: Désolé ! Votre réseau est hors ligne. Il s'agit d'une version antérieurement mise en cache de la page que vous visitez, dont le contenu n'est peut-être pas à jour.
-      shared:
-        layout_item:
-          next: Élément suivant
-          prev: Élément précédent
       social_media_links:
         facebook: "%{organization} sur Facebook"
         github: "%{organization} sur GitHub"

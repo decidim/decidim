@@ -45,6 +45,10 @@ module Decidim
       def banner_image
         object.attached_uploader(:banner_image).path
       end
+
+      def speakers
+        object.speakers.published
+      end
     end
   end
 end

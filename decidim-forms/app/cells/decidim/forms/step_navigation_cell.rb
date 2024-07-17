@@ -43,7 +43,8 @@ module Decidim
       def confirm_data
         { data: {
           confirm: t("decidim.forms.step_navigation.show.are_you_sure"),
-          disable: true
+          disable: true,
+          data: "survey-buttons"
         } }
       end
     end

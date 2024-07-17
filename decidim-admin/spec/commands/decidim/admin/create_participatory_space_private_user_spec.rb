@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin
   describe CreateParticipatorySpacePrivateUser do
-    subject { described_class.new(form, current_user, privatable_to, via_csv:) }
+    subject { described_class.new(form, privatable_to, via_csv:) }
 
     let(:via_csv) { false }
     let(:privatable_to) { create(:participatory_process) }
@@ -17,6 +17,7 @@ module Decidim::Admin
         invalid?: invalid,
         delete_current_private_participants?: delete,
         email:,
+        current_user:,
         name:
       )
     end

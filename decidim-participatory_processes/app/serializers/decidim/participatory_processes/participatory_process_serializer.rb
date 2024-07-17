@@ -28,7 +28,6 @@ module Decidim
           start_date: participatory_process.start_date,
           end_date: participatory_process.end_date,
           remote_hero_image_url: Decidim::ParticipatoryProcesses::ParticipatoryProcessPresenter.new(participatory_process).hero_image_url,
-          remote_banner_image_url: Decidim::ParticipatoryProcesses::ParticipatoryProcessPresenter.new(participatory_process).banner_image_url,
           developer_group: participatory_process.developer_group,
           local_area: participatory_process.local_area,
           meta_scope: participatory_process.meta_scope,
@@ -52,8 +51,6 @@ module Decidim
           private_space: participatory_process.private_space,
           promoted: participatory_process.promoted,
           scopes_enabled: participatory_process.scopes_enabled,
-          show_metrics: participatory_process.show_metrics,
-          show_statistics: participatory_process.show_statistics,
           participatory_process_type: {
             id: participatory_process.participatory_process_type.try(:id),
             title: participatory_process.participatory_process_type.try(:title) || empty_translatable

@@ -50,7 +50,6 @@ pt-BR:
         scope_id: Âmbito
         scopes_enabled: Escopos ativados
         short_description: Pequena descrição
-        show_statistics: Mostre estatisticas
         slug: Slug de URL
         special_features: Funcionalidades especiais
         subtitle: Subtítulo
@@ -209,7 +208,6 @@ pt-BR:
           info: Sobre essa assambleia
           landing_page: Página principal
           moderations: Moderação
-          private_users: Usuários particulares
           see_assembly: Ver assembleia
         assemblies_types: Tipos de assembleia
       models:

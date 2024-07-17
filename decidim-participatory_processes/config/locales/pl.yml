@@ -4,7 +4,6 @@ pl:
       participatory_process:
         announcement: Ogłoszenie
         area_id: Kategoria
-        banner_image: Baner
         copy_categories: Kopiuj kategorie
         copy_components: Kopiuj komponenty
         copy_steps: Skopiuj etapy
@@ -34,8 +33,6 @@ pl:
         scope_type_max_depth_id: Głębokość filtra zakresu
         scopes_enabled: Zakresy włączone
         short_description: Krótki opis
-        show_metrics: Pokaż mierniki
-        show_statistics: Pokaż statystyki
         slug: URL slug
         start_date: Data rozpoczęcia
         subtitle: Podtytuł

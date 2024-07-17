@@ -34,6 +34,26 @@ describe "Menu" do
     end
   end
 
+  context "when the device is mobile" do
+    let!(:participatory_space) { create(:participatory_process, organization:) }
+
+    before do
+      driven_by(:iphone)
+      switch_to_host(organization.host)
+      visit decidim.root_path
+    end
+
+    it "shows the mobile menu" do
+      click_on(id: "main-dropdown-summary-mobile")
+
+      within "#breadcrumb-main-dropdown-mobile" do
+        expect(page).to have_link("Home", href: "/")
+        expect(page).to have_link("Processes", href: "/processes")
+        expect(page).to have_link("Help", href: "/pages")
+      end
+    end
+  end
+
   context "when rendering a component with special characters" do
     let(:component_name) { "Collaborative Drafts & Amendments" }
     let(:participatory_space) { create(:participatory_process, organization:) }

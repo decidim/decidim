@@ -31,7 +31,6 @@ module Decidim
             reference: :string,
             scopes_enabled: :boolean,
             short_description: :i18n,
-            show_statistics: :boolean,
             slug: :default,
             subtitle: :i18n,
             target: :i18n,

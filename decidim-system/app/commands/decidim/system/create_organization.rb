@@ -76,10 +76,7 @@ module Decidim
 
       def default_colors
         {
-          alert: "#ec5840",
           primary: "#53bf40",
-          success: "#57d685",
-          warning: "#ffae00",
           tertiary: "#bf4053",
           secondary: "#4053bf"
         }

@@ -111,6 +111,15 @@ module Decidim
       end
 
       #
+      # Does this workflow manifest has an admin engine associated?
+      #
+      # Returns a boolean value.
+      #
+      def has_admin_root_path?
+        respond_to?("decidim_admin_#{name}")
+      end
+
+      #
       # Authorize user to perform an action using the authorization handler action authorizer.
       # Saves the action_authorizer object with its context for subsequent methods calls.
       #

@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe DestroyAccount do
-    let(:command) { described_class.new(user, form) }
+    let(:command) { described_class.new(form) }
     let(:user) { create(:user, :confirmed) }
     let!(:identity) { create(:identity, user:) }
     let(:valid) { true }
@@ -17,7 +17,8 @@ module Decidim
     let(:form) do
       form = double(
         delete_reason: data[:delete_reason],
-        valid?: valid
+        valid?: valid,
+        current_user: user
       )
 
       form

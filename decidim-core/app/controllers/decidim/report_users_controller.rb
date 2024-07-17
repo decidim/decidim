@@ -12,7 +12,7 @@ module Decidim
 
       @form = form(Decidim::ReportForm).from_params(params)
 
-      CreateUserReport.call(@form, reportable, current_user) do
+      CreateUserReport.call(@form, reportable) do
         on(:ok) do
           flash[:notice] = I18n.t("decidim.reports.create.success")
           if @form.block?

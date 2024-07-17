@@ -46,7 +46,7 @@ es:
           title: Seguir
         forms:
           disabled: Deshabilitado
-          emojis: Emoticonos
+          emojis: Emojis
           emojis_description: Solo funciona en áreas de texto
           errors: Errores
           errors_description: No se puede seleccionar
@@ -55,6 +55,8 @@ es:
           html_regular_inputs: Entradas HTML habituales
           min_max_length: Longitud Mín/Máx
           min_max_length_description: Solo funciona en entradas de tipo texto y área de texto
+          multiselect: Selección múltiple
+          multiselect_description_html: Les selecciones múltiples son una característica JavaScript disponibles gracias a una librería externa llamada <a href="https://tom-select.js.org/" target="_blank" rel="noopener noreferrer">"Tom Select"</ a>.
           regular_inputs_description: 'Solo muestra tipos comunes, lista completa disponible: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
           textarea_required: área de texto requerida
           title: Formularios
@@ -146,12 +148,12 @@ es:
           headings:
             characters: Caracteres por línea
             layout: Diseño de columnas
-            size:
+            size: Tamaño
           title: Tipografía
           typefaces_description_1: Decidim utiliza Source Sans Pro como tipo de letra primario. Este tipo de letra está disponible de todas las variantes de caracteres en 310 lenguas
           typefaces_description_2: Estas tipografías están bajo la licencia Open Font
       helpers:
-        accountability:
+        accountability: Seguimiento
         accountability_cards_html: Utilizado por tarjetas de proyectos de <i>Rendición de cuentas</i>. Esta tarjeta requiere que los activos del módulo se muestren correctamente, es decir, <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
         activity: Actividad
         address_description: La celda de dirección recibe un recurso y busca los atributos geolocalizables para representar un marcado específico.
@@ -177,7 +179,7 @@ es:
         card_s: Tarjeta S
         collaborative_draft_l: Borrador colaborativo L
         colors: Colores
-        compact:
+        compact: Compacto
         compact_description: Esta versión de la autoría es la manera común de identificar a la creadora del recurso.
         conference_g: Jornada G
         conference_s: Jornada S
@@ -215,7 +217,7 @@ es:
         hex_code: Código hexadecimal
         highlight: Destacado
         highlight_description: Utilizado por recursos que permiten ser destacados
-        html_tips:
+        html_tips: Consejos HTML
         icons: Iconos
         image_and_description: Imagen y Descripción
         initiative_g: Iniciativa G
@@ -275,7 +277,7 @@ es:
         typography_texts: Textos y tipografía
         usage: Uso
         usage_background_1: Fondo lateral
-        usage_background_2:
+        usage_background_2: Fondo de filtro de barra lateral seleccionado
         usage_background_3: Colo de icono predeterminado
         usage_background_4: Líneas y separadores
         usage_background_5: Fondo del pie de página

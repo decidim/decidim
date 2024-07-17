@@ -22,7 +22,6 @@ FactoryBot.define do
     description { generate_localized_description(:participatory_process_description, skip_injection:) }
     organization
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after organization
-    banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") } # Keep after organization
     published_at { Time.current }
     meta_scope { generate_localized_word(:participatory_process_meta_scope, skip_injection:) }
     developer_group { generate_localized_title(:participatory_process_developer_group, skip_injection:) }
@@ -31,8 +30,6 @@ FactoryBot.define do
     participatory_scope { generate_localized_title(:participatory_process_participatory_scope, skip_injection:) }
     participatory_structure { generate_localized_title(:participatory_process_participatory_structure, skip_injection:) }
     announcement { generate_localized_title(:participatory_process_announcement, skip_injection:) }
-    show_metrics { true }
-    show_statistics { true }
     private_space { false }
     start_date { Date.current }
     end_date { 2.months.from_now }
@@ -141,6 +138,7 @@ FactoryBot.define do
     end
     title { generate_localized_title(:participatory_process_step_title, skip_injection:) }
     description { generate_localized_description(:participatory_process_step_description, skip_injection:) }
+    cta_text { generate_localized_description(:participatory_process_step_cta_text, skip_injection:) }
     start_date { 1.month.ago }
     end_date { 2.months.from_now }
     position { nil }

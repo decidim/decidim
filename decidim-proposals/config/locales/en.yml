@@ -161,9 +161,9 @@ en:
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
             default_sort_order: Default proposal sorting
-            default_sort_order_help: Default means that if the votes are enabled, the proposals will be shown sorted by random, and if the votes are blocked, then they will be sorted by the most voted.
+            default_sort_order_help: Automatic means that if the votes are enabled, the proposals will be shown sorted by random, and if the votes are blocked, then they will be sorted by the most voted.
             default_sort_order_options:
-              default: Default
+              automatic: Automatic
               most_commented: Most commented
               most_endorsed: Most endorsed
               most_followed: Most followed
@@ -213,9 +213,9 @@ en:
             creation_enabled: Participants can create proposals
             creation_enabled_readonly: This setting is disabled when you activate the Participatory Texts functionality. To upload proposals as participatory text click on the Participatory Texts button and follow the instructions.
             default_sort_order: Default proposal sorting
-            default_sort_order_help: Default it means that if the votes are enabled, the proposals will be shown sorted by random, and if the votes are blocked, then they will be sorted by the most voted.
+            default_sort_order_help: Automatic means that if the votes are enabled, the proposals will be shown sorted by random, and if the votes are blocked, then they will be sorted by the most voted.
             default_sort_order_options:
-              default: Default
+              automatic: Automatic
               most_commented: Most commented
               most_endorsed: Most endorsed
               most_followed: Most followed
@@ -523,6 +523,7 @@ en:
             publish: Publish
             publish_answers: Publish answers
             select_component: Select a component
+            select_valuators: Select one or more valuators
             selected: selected
             split: Split proposals
             split_button: Split

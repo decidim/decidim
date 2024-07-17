@@ -377,15 +377,13 @@ it:
           complete_profile: Completa il profilo
           nickname_help: Il tuo alias in %{organization} può contenere solo lettere, numeri, '-' e '_'.
           sign_up: Completa il tuo profilo
-          subtitle: Compila il modulo per completare la registrazione
           username_help: Nome pubblico che appare suoi tuoi post. Con l'obiettivo di garantire l'anonimato, può essere qualsiasi nome.
       registrations:
         new:
           already_have_an_account?: Hai già un account?
+          log_in: Accedi
           newsletter: Ricevi una newsletter occasionale con informazioni pertinenti
           newsletter_title: Autorizzazione di contatto
-          sign_up: Registrati
-          subtitle: Registrati per partecipare alle discussioni e sostenere le proposte.
           tos_agreement: Iscrivendoti accetti i %{link} e dichiari di aver preso visione della privacy policy.
           tos_title: Termini di servizio
           username_help: Nome "pubblico" che comparirà a firma di tutti i tuoi contributi e che sarà accessibile a tutti i navigatori, anche non iscritti alla piattaforma. Ti invitiamo a utilizzare un nome di fantasia per una maggiore tutela della riservatezza.
@@ -879,7 +877,6 @@ it:
           headline: Statistiche su %{organization}
         sub_hero:
           register: Registrati
-          register_title: Registrati e crea un account
       index:
         standalone_pages: pagine
         subheading: Naviga attraverso le pagine di aiuto di %{name}
@@ -1006,8 +1003,6 @@ it:
         title: Segnala utente inappropriato
       floating_help:
         help: Aiuto
-      login_modal:
-        sign_up: Registrazione
       participatory_space_filters:
         filters:
           areas: Ambiti territoriali
@@ -1174,19 +1169,20 @@ it:
       updated_not_active: La tua password è stata cambiata con successo.
     registrations:
       destroyed: Ciao! Il tuo account è stato cancellato con successo. Speriamo di rivederti presto.
-      new:
-        sign_up: Iscriviti
       signed_up: Benvenuto! Ti sei registrato con successo.
       signed_up_but_inactive: Ti sei registrato con successo. Tuttavia, non siamo riusciti ad accedere perché il tuo account non è ancora attivo.
       signed_up_but_locked: Ti sei registrato con successo. Tuttavia, non siamo riusciti ad accedere perché il tuo account è bloccato.
       signed_up_but_unconfirmed: Un messaggio con un link di conferma è stato inviato al tuo indirizzo email. Segui il link per attivare il tuo account.
       update_needs_confirmation: Hai aggiornato correttamente il tuo account, ma dobbiamo verificare il tuo nuovo indirizzo email. Controlla la tua email e segui il link di conferma per confermare il tuo nuovo indirizzo email.
       updated: Il tuo account è stato aggiornato correttamente.
+    sessions:
+      new:
+        log_in: Accedi
     shared:
       links:
         back: Indietro
         forgot_your_password: Hai dimenticato la password?
-        sign_up: Iscriviti
+        log_in: Accedi
       minimum_password_length:
         one: "(Minimo%{count} caratteri)"
         other: "(Minimo%{count} caratteri)"
@@ -1207,7 +1203,6 @@ it:
       invalid_time_zone: non è un fuso orario valido
       long_words: contiene parole troppo lunghe (oltre 35 caratteri)
       must_start_with_caps: deve iniziare con una lettera maiuscola
-      not_found: non è stato trovato. Ti sei iscritto in precedenza?
       not_locked: non era bloccato
       not_saved:
         one: 'Si è verificato un errore durante l''elaborazione della tua richiesta:'
@@ -1237,9 +1232,10 @@ it:
         cc_by_license: Licenza Creative Commons
         decidim_logo: Logo Decidim
         download_open_data: Scarica i file Open Data
+        log_in: Accedi
         made_with_open_source: Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.
-        sign_up: Registrati
       header:
+        log_in: Accedi
         main_menu: Menù principale
         user_menu: Menù utente
       impersonation_warning:

@@ -156,6 +156,7 @@ module Decidim
 
         # Attachments
         Decidim.icons.register(name: "file-text-line", icon: "file-text-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "file-upload-line", icon: "file-upload-line", category: "documents", description: "File upload", engine: :core)
         Decidim.icons.register(name: "scales-2-line", icon: "scales-2-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "image-line", icon: "image-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "error-warning-line", icon: "error-warning-line", category: "system", description: "", engine: :core)
@@ -236,6 +237,14 @@ module Decidim
 
       initializer "decidim_core.action_mailer" do |app|
         app.config.action_mailer.deliver_later_queue_name = :mailers
+      end
+
+      initializer "decidim_core.signed_global_id", after: "global_id" do |app|
+        next if app.config.global_id.fetch(:expires_in, nil).present?
+
+        config.after_initialize do
+          SignedGlobalID.expires_in = nil
+        end
       end
 
       initializer "decidim_core.middleware" do |app|
@@ -386,6 +395,7 @@ module Decidim
 
       initializer "decidim_core.menu" do
         Decidim::Core::Menu.register_menu!
+        Decidim::Core::Menu.register_mobile_menu!
         Decidim::Core::Menu.register_user_menu!
       end
 

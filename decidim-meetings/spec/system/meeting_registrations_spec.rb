@@ -125,7 +125,7 @@ describe "Meeting registrations" do
               click_on "Català"
             end
 
-            click_on "Unir-se a la trobada"
+            click_on "Inscriu-te"
 
             within "#loginModal" do
               expect(page).to have_content("Has oblidat la teva contrasenya?")
@@ -154,6 +154,18 @@ describe "Meeting registrations" do
       context "and the user is logged in" do
         before do
           login_as user, scope: :user
+        end
+
+        context "and the meeting is happening now" do
+          before do
+            meeting.update!(start_time: 1.hour.ago, end_time: 1.hour.from_now)
+          end
+
+          it "does not show the registration button" do
+            visit_meeting
+
+            expect(page).to have_no_css(".button", text: "Register")
+          end
         end
 
         context "and they ARE NOT part of a verified user group" do

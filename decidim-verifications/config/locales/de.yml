@@ -56,10 +56,24 @@ de:
         grant_id_documents_offline_verification: "%{user_name} hat die Identitätsdokumente von %{resource_name} offline überprüft"
     authorization_handlers:
       admin:
+        another_dummy_authorization_handler:
+          help:
+            - Ein Beispiel-Autorisierungshandler, damit Entwickler verstehen können, wie eine einfache Verifizierung funktioniert.
+            - Es ist für Entwickler gedacht, damit sie verstehen können, wie sie ihr eigenes Verifizierungssystem implementieren.
+            - Lassen Sie sich verifizieren, indem Sie eine Passnummer eingeben, die mit "A" beginnt.
         csv_census:
           help:
             - Admins laden ein CSV mit den E-Mails der akzeptierten Teilnehmer hoch.
             - Nur Teilnehmer mit einer E-Mail in dieser CSV-Datei können überprüft werden.
+        default:
+          help:
+            - Die Autorisierungs-Hilfe ist nicht definiert.
+            - Ein Entwickler muss die Hilfe in der Übersetzung (i18n) Schlüssel "%{authorization_handler} " definieren
+        dummy_authorization_handler:
+          help:
+            - Ein Beispiel-Autorisierungshandler, damit Entwickler verstehen können, wie eine einfache Verifizierung funktioniert.
+            - Es ist für Entwickler gedacht, damit sie verstehen können, wie sie ihr eigenes Verifizierungssystem implementieren.
+            - Lassen Sie sich verifizieren, indem Sie eine Dokumentennummer eingeben, die mit "X" endet.
         id_documents:
           help:
             - Benutzer geben ihre Identitätsinformationen ein und laden eine Kopie ihres Dokuments hoch.
@@ -72,6 +86,11 @@ de:
             - Sie senden den Brief mit dem Bestätigungscode an seine Adresse.
             - Sie markieren den Brief als gesendet.
             - Sobald Sie den Brief als gesendet markiert haben, kann der Benutzer den Code einführen und verifiziert werden.
+        sms:
+          help:
+            - Benutzer fordern einen Bestätigungscode an, der an ihre Adresse gesendet werden soll.
+            - Sie müssen den Code angeben, um verifiziert zu werden.
+            - Wenn Sie den Code nicht erhalten haben, können Sie einen Neuen anfordern.
       csv_census:
         explanation: Lassen Sie sich anhand der Erhebung der Organisation überprüfen.
         name: Zählung der Organisation

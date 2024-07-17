@@ -15,7 +15,7 @@ module Decidim
 
         context "when everything is ok" do
           it "sends the initiative to technical validation" do
-            expect { subject.call }.to change(initiative, :state).from("published").to("validating")
+            expect { subject.call }.to change(initiative, :state).from("open").to("validating")
           end
 
           it "traces the action", versioning: true do

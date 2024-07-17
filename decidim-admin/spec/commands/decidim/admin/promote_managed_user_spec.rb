@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin
   describe PromoteManagedUser do
-    subject { described_class.new(form, user, current_user) }
+    subject { described_class.new(form, user) }
 
     let(:organization) { create(:organization) }
     let!(:current_user) { create(:user, :admin, organization:) }
