@@ -631,9 +631,22 @@ FactoryBot.define do
     name { Decidim::Faker::Localized.literal(generate(:name)) }
     organization
     parent { nil }
+    weight { 0 }
 
     trait :with_parent do
       association :parent, factory: :taxonomy
+    end
+
+    trait :with_children do
+      transient do
+        children_count { 3 }
+      end
+
+      after(:create) do |taxonomy, evaluator|
+        create_list(:taxonomy, evaluator.children_count, parent: taxonomy, organization: taxonomy.organization)
+        taxonomy.reload
+        taxonomy.update_column(:weight, taxonomy.children.count)
+      end
     end
   end
 

@@ -19,13 +19,12 @@ describe "Admin manages taxonomies" do
 
   context "when creating a new taxonomy" do
     before do
-      click_on "Create taxonomy"
+      click_on "New taxonomy"
       fill_in_i18n(
         :taxonomy_name,
         "#taxonomy-name-tabs",
         en: "New Taxonomy"
       )
-      fill_in :taxonomy_weight, with: 1
       click_on "Create taxonomy"
     end
 
@@ -40,13 +39,12 @@ describe "Admin manages taxonomies" do
 
   context "when creating a new taxonomy with invalid data" do
     before do
-      click_on "Create taxonomy"
+      click_on "New taxonomy"
       fill_in_i18n(
         :taxonomy_name,
         "#taxonomy-name-tabs",
         en: ""
       )
-      fill_in :taxonomy_weight, with: 1
       click_on "Create taxonomy"
     end
 
@@ -55,20 +53,70 @@ describe "Admin manages taxonomies" do
     end
   end
 
-  context "when creating a new taxonomy with negative weight" do
+  context "when creating a new taxonomy element" do
+    let!(:taxonomy) { create(:taxonomy, organization:) }
+
     before do
-      click_on "Create taxonomy"
+      visit decidim_admin.taxonomies_path
+      click_edit_taxonomy
+      click_on "New element"
       fill_in_i18n(
-        :taxonomy_name,
-        "#taxonomy-name-tabs",
-        en: "New Taxonomy"
+        :taxonomy_element_name,
+        "#taxonomy-element_name-tabs",
+        en: "New Taxonomy Element"
       )
-      fill_in :taxonomy_weight, with: -1
-      click_on "Create taxonomy"
+      select translated(taxonomy.name), from: "taxonomy_parent_id"
+      click_on "Create element"
+    end
+
+    it "creates a new taxonomy element" do
+      expect(page).to have_content("New Taxonomy Element")
+    end
+  end
+
+  context "when creating a new taxonomy element with invalid data" do
+    let!(:taxonomy) { create(:taxonomy, organization:) }
+
+    before do
+      visit decidim_admin.taxonomies_path
+      click_edit_taxonomy
+      click_on "New element"
+      fill_in_i18n(
+        :taxonomy_element_name,
+        "#taxonomy-element_name-tabs",
+        en: ""
+      )
+      select translated(taxonomy.name), from: "taxonomy_parent_id"
+      click_on "Create element"
     end
 
     it "displays an error message" do
-      expect(page).to have_content("must be greater than or equal to 0")
+      expect(page).to have_content("cannot be blank")
+    end
+  end
+
+  context "when creating a new taxonomy element for a parent taxonomy" do
+    let!(:taxonomy) { root_taxonomy}
+    let!(:root_taxonomy) { create(:taxonomy, organization:) }
+    let!(:parent_taxonomy) { create(:taxonomy, organization:, parent: root_taxonomy) }
+
+    before do
+      visit decidim_admin.taxonomies_path
+      click_edit_taxonomy
+      click_on "New element"
+      fill_in_i18n(
+        :taxonomy_element_name,
+        "#taxonomy-element_name-tabs",
+        en: "New Child Element"
+      )
+      select translated(parent_taxonomy.name), from: "taxonomy_parent_id"
+      click_on "Create element"
+    end
+
+    it "creates a new taxonomy element" do
+      within(".js-sortable tr", text: translated(parent_taxonomy.name)) do
+        expect(page).to have_content("New Child Element")
+      end
     end
   end
 
@@ -83,7 +131,6 @@ describe "Admin manages taxonomies" do
         "#taxonomy-name-tabs",
         en: "Edited Taxonomy"
       )
-      fill_in :taxonomy_weight, with: 2
       click_on "Update"
     end
 
@@ -114,55 +161,55 @@ describe "Admin manages taxonomies" do
   end
 
   context "when reordering root taxonomies" do
-    let!(:taxonomy1) { create(:taxonomy, name: { en: "Tax 1" }, organization:, weight: 1) }
-    let!(:taxonomy2) { create(:taxonomy, name: { en: "Tax 2" }, organization:, weight: 2) }
-    let!(:taxonomy3) { create(:taxonomy, name: { en: "Tax 3" }, organization:, weight: 3) }
+    let!(:taxonomy1) { create(:taxonomy, :with_children, children_count: 1, name: { en: "Tax 1" }, organization:) }
+    let!(:taxonomy2) { create(:taxonomy, :with_children, children_count: 2, name: { en: "Tax 2" }, organization:) }
+    let!(:taxonomy3) { create(:taxonomy, :with_children, children_count: 3, name: { en: "Tax 3" }, organization:) }
 
     before do
       visit decidim_admin.taxonomies_path
     end
 
     it "reorders the taxonomies" do
-      within first(".js-list-available tr") do
+      within first(".js-sortable tr") do
         expect(page).to have_content(translated(taxonomy1.name))
       end
-      within all(".js-list-available tr")[1] do
+      within all(".js-sortable tr")[1] do
         expect(page).to have_content(translated(taxonomy2.name))
       end
-      within all(".js-list-available tr").last do
+      within all(".js-sortable tr").last do
         expect(page).to have_content(translated(taxonomy3.name))
       end
 
-      first(".js-list-available tr").drag_to(all(".js-list-available tr").last)
-
-      within first(".js-list-available tr") do
+      first(".js-sortable tr").drag_to(all(".js-sortable tr").last)
+      sleep 2
+      within first(".js-sortable tr") do
         expect(page).to have_content(translated(taxonomy2.name))
       end
-      within all(".js-list-available tr")[1] do
-        expect(page).to have_content(translated(taxonomy1.name))
-      end
-      within all(".js-list-available tr").last do
+      within all(".js-sortable tr")[1] do
         expect(page).to have_content(translated(taxonomy3.name))
+      end
+      within all(".js-sortable tr").last do
+        expect(page).to have_content(translated(taxonomy1.name))
       end
     end
   end
 
   context "when multiple pages" do
-    let!(:taxonomies) { create_list(:taxonomy, 17, organization:) }
+    let!(:taxonomies) { create_list(:taxonomy, 31, organization:) }
 
     before do
       visit decidim_admin.taxonomies_path(page: 2)
     end
 
     it "displays the pagination" do
-      expect(page).to have_content(translated(taxonomies.last.name))
+      expect(page).to have_content(translated(taxonomies[15].name))
       expect(page).to have_content("Drag over for previous page")
       expect(page).to have_link("Prev")
 
-      all(".js-list-available tr").last.drag_to(all(".js-list-available tr").first)
+      all(".js-sortable tr").last.drag_to(all(".js-sortable tr").first)
 
       expect(page).to have_content("Drag over for next page")
-      expect(page).to have_content(translated(taxonomies.last.name))
+      expect(page).to have_content(translated(taxonomies[15].name))
       expect(page).to have_no_content(translated(taxonomies[14].name))
     end
   end

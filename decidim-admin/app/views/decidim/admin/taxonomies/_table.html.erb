@@ -20,7 +20,6 @@
       <% collection.each do |taxonomy| %>
         <%= render "row", taxonomy:, with_children: !taxonomy.root? %>
       <% end %>
-
       <% if path = path_to_next_page(collection) %>
         <tr class="draggable-taxonomy change-page" data-next-page="<%= path %>" data-taxonomy-id="<%= collection.page(collection.next_page).per(per_page).first&.id %>"><td colspan="2"><%= t(".to_next_page") %></td></tr>
       <% end %>

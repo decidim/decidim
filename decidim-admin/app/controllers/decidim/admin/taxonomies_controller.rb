@@ -39,14 +39,13 @@ module Decidim
       end
 
       def edit
-        enforce_permission_to :update, :taxonomy
+        enforce_permission_to(:update, :taxonomy, taxonomy:)
         @form = form(Decidim::Admin::TaxonomyForm).from_model(taxonomy)
         @query = taxonomy.children.ransack(params[:q])
       end
 
       def update
-        enforce_permission_to :update, :taxonomy
-
+        enforce_permission_to(:update, :taxonomy, taxonomy:)
         @form = form(Decidim::Admin::TaxonomyForm).from_params(params)
 
         UpdateTaxonomy.call(@form, taxonomy) do
@@ -63,7 +62,7 @@ module Decidim
       end
 
       def destroy
-        enforce_permission_to :destroy, :taxonomy
+        enforce_permission_to(:destroy, :taxonomy, taxonomy:)
 
         DestroyTaxonomy.call(taxonomy, current_user) do
           on(:ok) do
