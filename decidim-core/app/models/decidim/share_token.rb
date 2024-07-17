@@ -22,7 +22,7 @@ module Decidim
     end
 
     def expired?
-      expires_at.past?
+      expires_at.past? unless expires_at.nil?
     end
 
     def url
