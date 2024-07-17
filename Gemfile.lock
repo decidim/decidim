@@ -89,7 +89,6 @@ PATH
       pg (~> 1.4.0, < 2)
       pg_search (~> 2.2)
       premailer-rails (~> 1.10)
-      psych (~> 4.0)
       rack (~> 2.2, >= 2.2.8.1)
       rack-attack (~> 6.0)
       rails (~> 7.0.8)
@@ -555,8 +554,6 @@ GEM
       actionmailer (>= 3)
       net-smtp
       premailer (~> 1.7, >= 1.7.9)
-    psych (4.0.6)
-      stringio
     public_suffix (5.0.4)
     puma (6.4.2)
       nio4r (~> 2.0)
@@ -729,7 +726,6 @@ GEM
     spring-watcher-listen (2.1.0)
       listen (>= 2.7, < 4.0)
       spring (>= 4)
-    stringio (3.1.0)
     strscan (3.1.0)
     temple (0.10.3)
     terminal-table (3.0.2)
@@ -804,7 +800,7 @@ DEPENDENCIES
   web-console (~> 4.2)
 
 RUBY VERSION
-   ruby 3.2.2p53
+   ruby 3.3.4p94
 
 BUNDLED WITH
    2.4.6
