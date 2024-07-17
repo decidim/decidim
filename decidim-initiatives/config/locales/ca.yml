@@ -91,6 +91,7 @@ ca:
               accepted: Ha aconseguit les signatures
               created: Creada
               discarded: Descartada
+              open: Oberta
               rejected: No ha aconseguit les signatures
               validating: Validació tècnica
           type_id_eq:
@@ -328,6 +329,7 @@ ca:
         accepted: Ha aconseguit les signatures necessàries
         created: Creada
         discarded: Rebutjada
+        open: Oberta
         rejected: No ha aconseguit les signatures necessàries
         validating: Validació tècnica
       application_helper:
@@ -576,6 +578,7 @@ ca:
           accepted: Amb les signatures necessàries
           created: Creada
           discarded: Descartada
+          open: Obertes
           rejected: No ha aconseguit les signatures
           validating: Validació tècnica
       states:
