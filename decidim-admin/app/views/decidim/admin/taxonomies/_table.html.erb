@@ -40,6 +40,7 @@
       sortable.addEventListener("sortupdate", function (event) {
         sortable.classList.add("spinner-container");
         const itemsId = Array.from(event.target.children).map(item => item.dataset.taxonomyId);
+        const parentId = event.target.dataset.parentId || event.target.closest('[data-taxonomy-id]')?.dataset.taxonomyId || null;
         // console.log('The new ids are:', itemsId);
 
         fetch(sortable.dataset.sortUrl, {
@@ -48,7 +49,7 @@
             "Content-Type": "application/json",
             "X-CSRF-Token": token && token.getAttribute("content")
           },
-          body: JSON.stringify({ page: <%= collection.current_page %>, per_page: <%= per_page %>, ids_order: itemsId })
+          body: JSON.stringify({page: <%= collection.current_page %>, per_page: <%= per_page %>, ids_order: itemsId, parent_id: parentId})
         }).then(function(response) {
           if(response.ok) {
             // If moved on top of the next page, lets go to the next page
