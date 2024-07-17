@@ -169,27 +169,36 @@ describe "Admin manages taxonomies" do
       visit decidim_admin.taxonomies_path
     end
 
-    it "reorders the taxonomies" do
-      within first(".js-sortable tr") do
-        expect(page).to have_content(translated(taxonomy1.name))
-      end
-      within all(".js-sortable tr")[1] do
-        expect(page).to have_content(translated(taxonomy2.name))
-      end
-      within all(".js-sortable tr").last do
-        expect(page).to have_content(translated(taxonomy3.name))
+    it "reorders the taxonomies", :js do
+      expect(page).to have_css(".js-sortable")
+
+      within ".js-sortable" do
+        expect(page).to have_content("Tax 1")
+        expect(page).to have_content("Tax 2")
+        expect(page).to have_content("Tax 3")
       end
 
-      first(".js-sortable tr").drag_to(all(".js-sortable tr").last)
-      sleep 2
-      within first(".js-sortable tr") do
-        expect(page).to have_content(translated(taxonomy2.name))
+      page.execute_script(<<~JS)
+        var first = document.querySelector('.js-sortable tr:first-child');
+        var last = document.querySelector('.js-sortable tr:last-child');
+        last.parentNode.insertBefore(first, last.nextSibling);
+        var event = new Event('sortupdate', {bubbles: true});
+        document.querySelector('.js-sortable').dispatchEvent(event);
+      JS
+
+      expect(page).to have_css(".js-sortable tr", text: "Tax 2", wait: 5)
+
+      within ".js-sortable" do
+        taxonomies = all("tr").map { |row| row.text.match(/Tax \d+/)[0] }
+        expect(taxonomies).to eq(["Tax 2", "Tax 3", "Tax 1"])
       end
-      within all(".js-sortable tr")[1] do
-        expect(page).to have_content(translated(taxonomy3.name))
-      end
-      within all(".js-sortable tr").last do
-        expect(page).to have_content(translated(taxonomy1.name))
+
+      # Refresh the page to ensure the order is persisted
+      visit current_path
+
+      within ".js-sortable" do
+        taxonomies = all("tr").map { |row| row.text.match(/Tax \d+/)[0] }
+        expect(taxonomies).to eq(["Tax 2", "Tax 3", "Tax 1"])
       end
     end
   end
