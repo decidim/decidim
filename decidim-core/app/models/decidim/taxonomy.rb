@@ -25,10 +25,10 @@ module Decidim
     has_many :children,
              foreign_key: "parent_id",
              class_name: "Decidim::Taxonomy",
-             dependent: :restrict_with_error
+             dependent: :destroy
 
-    has_many :taxonomy_filters, class_name: "Decidim::TaxonomyFilter", dependent: :restrict_with_error
-    has_many :taxonomizations, class_name: "Decidim::Taxonomization", dependent: :restrict_with_error
+    has_many :taxonomy_filters, class_name: "Decidim::TaxonomyFilter", dependent: :destroy
+    has_many :taxonomizations, class_name: "Decidim::Taxonomization", dependent: :destroy
 
     validates :name, presence: true
     validates :weight, numericality: { greater_than_or_equal_to: 0 }
@@ -57,7 +57,7 @@ module Decidim
     def root? = parent_id.nil?
 
     def removable?
-      !children.exists? && !taxonomy_filters.exists? && !taxonomizations.exists?
+      true
     end
 
     private
