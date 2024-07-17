@@ -18,8 +18,10 @@ module Decidim
       end
 
       it "creates links for each format" do
-        link = subject.css("li.exports--format--csv.exports--dummies a")[0]
-        expect(link["href"]).to eq("/admin/participatory_processes/#{component.participatory_space.slug}/components/#{component.id}/exports.CSV?id=dummies")
+        csv_path = "/admin/participatory_processes/#{component.participatory_space.slug}/components/#{component.id}/exports.CSV?id=dummies"
+        link = subject.at_css("a[href='#{csv_path}'][data-method='post']")
+
+        expect(link["href"]).to eq(csv_path)
         expect(link["data-method"]).to eq("post")
       end
 
