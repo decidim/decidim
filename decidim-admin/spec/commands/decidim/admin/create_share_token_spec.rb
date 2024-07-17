@@ -15,7 +15,8 @@ module Decidim::Admin
         token:,
         expires_at:,
         automatic_token:,
-        no_expiration:
+        no_expiration:,
+        registered_only:
       ).with_context(
         current_user:,
         current_organization: organization,
@@ -27,6 +28,7 @@ module Decidim::Admin
     let(:expires_at) { Time.zone.today + 10.days }
     let(:automatic_token) { false }
     let(:no_expiration) { false }
+    let(:registered_only) { true }
     let(:form_invalid) { false }
 
     context "when the form is valid" do
@@ -36,6 +38,7 @@ module Decidim::Admin
         share_token = Decidim::ShareToken.last
         expect(share_token.token).to eq(token)
         expect(share_token.expires_at).to eq(expires_at)
+        expect(share_token.registered_only).to be(true)
         expect(share_token.organization).to eq(organization)
         expect(share_token.user).to eq(current_user)
         expect(share_token.token_for).to eq(component)

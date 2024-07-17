@@ -16,7 +16,8 @@ module Decidim::Admin
         token:,
         expires_at:,
         automatic_token:,
-        no_expiration:
+        no_expiration:,
+        registered_only:
       ).with_context(
         current_user: user,
         current_organization: organization,
@@ -28,11 +29,12 @@ module Decidim::Admin
     let(:expires_at) { Time.zone.today + 20.days }
     let(:automatic_token) { false }
     let(:no_expiration) { false }
+    let(:registered_only) { false }
 
     context "when the form is valid" do
-      it "updates the share token" do
-        expect { subject.call }.to change { share_token.reload.token }.to(token)
-                                                                      .and change { share_token.reload.expires_at }.to(expires_at)
+      it "updates the expiration date" do
+        expect { subject.call }.to change { share_token.reload.expires_at }.to(expires_at)
+                                                                           .and change { share_token.reload.registered_only }.to(registered_only)
       end
 
       it "broadcasts :ok with the resource" do
