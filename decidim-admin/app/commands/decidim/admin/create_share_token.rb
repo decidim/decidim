@@ -5,7 +5,7 @@ module Decidim
     # A command with all the business logic to create a taxonomy.
     # This command is called from the controller.
     class CreateShareToken < Decidim::Commands::CreateResource
-      fetch_form_attributes :token, :expires_at, :organization, :user, :token_for
+      fetch_form_attributes :token, :expires_at, :registered_only, :organization, :user, :token_for
 
       protected
 

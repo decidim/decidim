@@ -9,6 +9,7 @@ module Decidim
       attribute :automatic_token, Boolean, default: true
       attribute :expires_at, Decidim::Attributes::TimeWithZone
       attribute :no_expiration, Boolean, default: true
+      attribute :registered_only, Boolean, default: true
 
       validates :token, presence: true, if: ->(form) { form.automatic_token.blank? }
 

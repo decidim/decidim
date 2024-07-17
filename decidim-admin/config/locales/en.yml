@@ -977,8 +977,11 @@ en:
           custom_expiration: Custom expiration
           custom_token: Custom token
           expires_at: Expires at
+          'false': 'No'
           never_expire: Never
+          registered_only: Registered only?
           token: Token
+          'true': 'Yes'
         index:
           back_to_share_tokens: Back to share tokens
           never: Never

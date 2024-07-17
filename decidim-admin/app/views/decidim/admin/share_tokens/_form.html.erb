@@ -15,6 +15,20 @@
   </div>
 </div>
 
+<div class="row column">
+  <%= t("share_tokens.form.registered_only", scope: "decidim.admin") %>
+</div>
+<div class="row column -mt-4">
+  <div class="ml-2">
+    <%= form.collection_radio_buttons :registered_only, [[true, t("share_tokens.form.true", scope: "decidim.admin")], [false, t("share_tokens.form.false", scope: "decidim.admin")]], :first, :last do |b| %>
+      <div>
+        <%= b.radio_button %>
+        <%= b.label %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const automaticTokenRadioButtons = document.querySelectorAll("input[name='share_token[automatic_token]']");
