@@ -91,6 +91,7 @@ eu:
               accepted: Beharrezko sinadurekin
               created: Sortua
               discarded: Baztertua
+              open: Zabaldu
               rejected: Beharrezko sinadurarik gabe
               validating: Baliozkotze teknikoa
           type_id_eq:
@@ -328,6 +329,7 @@ eu:
         accepted: Beharrezko sinadurak lortu ditu
         created: Sortu
         discarded: Baztertuta
+        open: Zabaldu
         rejected: Beharrezko sinadurarik gabe
         validating: Balidazio teknikoa
       application_helper:
@@ -576,6 +578,7 @@ eu:
           accepted: Beharrezko sinadurekin
           created: Sortua
           discarded: Baztertua
+          open: Zabaldu
           rejected: Beharrezko sinadurarik gabe
           validating: Baliozkotze teknikoa
       states:
