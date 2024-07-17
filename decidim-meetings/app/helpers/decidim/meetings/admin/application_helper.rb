@@ -25,8 +25,8 @@ module Decidim
         def find_meeting_components_for_select
           spaces = current_organization.public_participatory_spaces
           meeting_components = Decidim::Component
-            .published
             .where(manifest_name: 'meetings', participatory_space_id: spaces.pluck(:id))
+            .where.not(id: current_component.id)
 
           meeting_components.map do |component|
             [component.hierarchy_title, component.id]
