@@ -22,8 +22,8 @@ module Decidim
 
         it "assigns @taxonomies" do
           get :index, params: { q: { name_cont: "Category1" } }
-          expect(assigns(:taxonomies)).to include(taxonomy1)
-          expect(assigns(:taxonomies)).not_to include(taxonomy2)
+          expect(controller.send(:taxonomies)).to include(taxonomy1)
+          expect(controller.send(:taxonomies)).not_to include(taxonomy2)
         end
 
         it "renders the index template" do
