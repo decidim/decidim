@@ -341,8 +341,8 @@ en:
           published: Published
           unpublished: Unpublished
           menu_hidden: Menu hidden
-        menu_hidden:
-          success: The component has been successfully menu hidden.
+        hide:
+          success: The component has been successfully hidden from the menu.
         new:
           add: Add component
           title: 'Add component: %{name}'

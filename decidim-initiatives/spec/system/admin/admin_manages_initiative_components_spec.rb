@@ -206,9 +206,9 @@ describe "Admin manages initiative components" do
     context "when the component is published" do
       let(:published_at) { Time.current }
 
-      it "menu hidden the component" do
+      it "hides the component from the menu" do
         within ".component-#{component.id}" do
-          click_on "Menu hidden"
+          click_on "Hide"
         end
 
         within ".component-#{component.id}" do
@@ -217,7 +217,7 @@ describe "Admin manages initiative components" do
       end
     end
 
-    context "when the component is menu hidden" do
+    context "when the component is hidden from the menu" do
       let(:published_at) { Time.current }
       let(:visible) { false }
 

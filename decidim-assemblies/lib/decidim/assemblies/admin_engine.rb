@@ -55,7 +55,7 @@ module Decidim
               put :publish
               put :unpublish
               get :share
-              put :menu_hidden
+              put :hide
             end
             resources :exports, only: :create
             resources :imports, only: [:new, :create] do

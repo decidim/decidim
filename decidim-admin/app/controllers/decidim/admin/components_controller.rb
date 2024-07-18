@@ -119,13 +119,13 @@ module Decidim
         end
       end
 
-      def menu_hidden
+      def hide
         @component = query_scope.find(params[:id])
         enforce_permission_to :publish, :component, component: @component
 
-        MenuHiddenComponent.call(@component, current_user) do
+        HideMenuComponent.call(@component, current_user) do
           on(:ok) do
-            flash[:notice] = I18n.t("components.menu_hidden.success", scope: "decidim.admin")
+            flash[:notice] = I18n.t("components.hide.success", scope: "decidim.admin")
             redirect_to action: :index
           end
         end

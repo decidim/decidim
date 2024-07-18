@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Admin
-  describe MenuHiddenComponent do
+  describe HideMenuComponent do
     subject { described_class.new(component, user) }
 
     let!(:user) { create(:user, :admin, :confirmed, organization: participatory_process.organization) }
