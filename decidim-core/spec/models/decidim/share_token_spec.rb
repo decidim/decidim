@@ -49,8 +49,8 @@ module Decidim
         expect(subject.token).to match(/^[a-zA-Z0-9]{64}$/)
       end
 
-      it "sets expires_at attribute to one day from current time" do
-        expect(subject.expires_at).to be_within(1.second).of 1.day.from_now
+      it "sets expires_at attribute to never expire" do
+        expect(subject.expires_at).to be_nil
       end
     end
 
@@ -94,7 +94,7 @@ module Decidim
     describe "#expired?" do
       context "when share_token has not expired" do
         it "returns true" do
-          expect(subject.expired?).to be false
+          expect(subject.expired?).to be_nil
         end
       end
 
