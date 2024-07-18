@@ -15,7 +15,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   if (draggables) {
     draggables.forEach((draggable) => {
-      let options = { 
+      let options = {
         "forcePlaceholderSize": true
       };
       ["items", "acceptFrom", "handle", "placeholderClass", "placeholder", "hoverClass"].forEach((option) => {

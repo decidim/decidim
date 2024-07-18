@@ -35,7 +35,6 @@ module Decidim
       end
     end
 
-    # TODO: convert this to a drawer
     def decidim_drawer(opts = {}, &)
       opts[:closable] = true unless opts.has_key?(:closable)
 
