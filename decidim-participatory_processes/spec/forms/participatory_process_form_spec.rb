@@ -40,8 +40,6 @@ module Decidim
         end
         let(:slug) { "slug" }
         let(:attachment) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
-        let(:show_metrics) { true }
-        let(:show_statistics) { true }
         let(:attributes) do
           {
             "participatory_process" => {
@@ -59,10 +57,7 @@ module Decidim
               "short_description_es" => short_description[:es],
               "short_description_ca" => short_description[:ca],
               "hero_image" => attachment,
-              "banner_image" => attachment,
-              "slug" => slug,
-              "show_metrics" => show_metrics,
-              "show_statistics" => show_statistics
+              "slug" => slug
             }
           }
         end
@@ -71,7 +66,7 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
-        context "when banner_image is too big" do
+        context "when hero_image is too big" do
           before do
             organization.settings.tap do |settings|
               settings.upload.maximum_file_size.default = 5

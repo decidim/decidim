@@ -1,5 +1,4 @@
 updateEndorsementBlock();
-
 function updateEndorsementBlock() {
   var $endorsementBlock = $('#resource-<%= resource.id %>-endorsement-block');
   var $endorsementListTrigger = $('#resource-<%= resource.id %>-endorsement-block #dropdown-trigger');
@@ -24,4 +23,6 @@ function updateEndorsementBlock() {
   } else {
     $endorsementIdentitiesButton[0].innerHTML = '<%= j(cell("decidim/endorsement_buttons", resource).button_content).strip.html_safe %>';
   }
+  document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $endorsementBlock[0] }));
+  document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $endorsementListGrid[0] }));
 }

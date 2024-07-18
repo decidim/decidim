@@ -28,7 +28,7 @@ module Decidim
       def title(links: false, all_locales: false, html_escape: false)
         return unless debate
 
-        super debate.title, links, html_escape, all_locales
+        super(debate.title, links, html_escape, all_locales)
       end
 
       def description(strip_tags: false, extras: true, links: false, all_locales: false)

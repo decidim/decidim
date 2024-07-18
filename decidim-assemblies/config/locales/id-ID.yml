@@ -43,7 +43,6 @@ id:
         scope_id: Cakupan
         scopes_enabled: Lingkup diaktifkan
         short_description: Deskripsi Singkat
-        show_statistics: Tampilkan statistik
         slug: Siput URL
         special_features: Fitur spesial
         subtitle: Subtitle
@@ -150,7 +149,6 @@ id:
           categories: Kategori
           components: Komponen
           moderations: Moderasi
-          private_users: Pengguna pribadi
       models:
         assemblies_types:
           fields:

@@ -11,7 +11,6 @@ sl:
       registrations:
         new:
           log_in: Prijava
-          sign_up: Registracija
     filters:
       linked_classes:
         meeting: Sestanki
@@ -35,9 +34,6 @@ sl:
       filters:
         state:
           all: Vsi
-    shared:
-      login_modal:
-        sign_up: Registracija
     welcome_notification:
       default_subject: Hvala, ker ste se pridružili nači organizaciji {{organization}}!
   devise:
@@ -45,8 +41,6 @@ sl:
       confirmation_instructions:
         greeting: Dobrodošel/la %{recipient}!
     registrations:
-      new:
-        sign_up: Registracija
       signed_up: Dobrodošli! Uspešno ste se vpisali.
     sessions:
       new:
@@ -54,14 +48,14 @@ sl:
     shared:
       links:
         log_in: Prijava
-        sign_up: Registracija
   layouts:
     decidim:
       edit_link:
         edit: Uredi
       footer:
         log_in: Prijava
-        sign_up: Registracija
+      header:
+        log_in: Prijava
   locale:
     name: Slovenščina
     name_with_error: Slovenščina (napaka!)

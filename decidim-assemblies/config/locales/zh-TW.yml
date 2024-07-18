@@ -50,7 +50,6 @@ zh-TW:
         scope_id: 範圍
         scopes_enabled: 啟用範圍
         short_description: 簡短說明
-        show_statistics: 顯示統計資料
         slug: URL名稱
         special_features: 特殊功能
         subtitle: 子標題
@@ -189,7 +188,6 @@ zh-TW:
           categories: 類別
           components: 元件
           moderations: 版主
-          private_users: 私人使用者
         assemblies_types: 大會類型
       models:
         assemblies_types:

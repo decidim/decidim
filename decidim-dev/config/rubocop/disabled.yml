@@ -25,7 +25,7 @@ Rails/PluckInWhere:
 RSpec/ReceiveMessages:
   Enabled: false
 
-RSpec/Rails/NegationBeValid:
+RSpecRails/NegationBeValid:
   Enabled: false
 
 RSpec/MetadataStyle:
@@ -41,4 +41,28 @@ FactoryBot/AssociationStyle:
   Enabled: false
 
 Rubycw/Rubycw:
+  Enabled: false
+
+Lint/SymbolConversion:
+  Enabled: false
+
+Style/RedundantParentheses:
+  Enabled: false
+
+Style/MapIntoArray:
+  Enabled: false
+
+
+
+
+Style/ArgumentsForwarding:
+  Enabled: false
+
+Style/SuperArguments:
+  Enabled: false
+
+Lint/SelfAssignment:
+  Enabled: false
+
+Rails/WhereRange:
   Enabled: false

@@ -42,7 +42,6 @@ ru:
         scope_id: Охват
         scopes_enabled: Охваты включены
         short_description: Краткое описание
-        show_statistics: Показывать статистику
         slug: Сокращенный веб-адрес
         special_features: Особенности
         subtitle: Подзаголовок
@@ -158,7 +157,6 @@ ru:
           categories: Категории
           components: Составляющие
           moderations: Действия по модерации
-          private_users: Частные участники
       models:
         assemblies_types:
           fields:

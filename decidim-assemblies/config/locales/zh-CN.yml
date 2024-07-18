@@ -43,7 +43,6 @@ zh-CN:
         scope_id: 范围
         scopes_enabled: 范围已启用
         short_description: 简短描述
-        show_statistics: 显示统计
         slug: URL 名称
         special_features: 特殊功能
         subtitle: 字幕
@@ -169,7 +168,6 @@ zh-CN:
           categories: 类别管理
           components: 组件
           moderations: 版面
-          private_users: 私人用户
         assemblies_types: 程序集类型
       models:
         assemblies_types:

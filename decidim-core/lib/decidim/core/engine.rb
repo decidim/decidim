@@ -240,6 +240,14 @@ module Decidim
         app.config.action_mailer.deliver_later_queue_name = :mailers
       end
 
+      initializer "decidim_core.signed_global_id", after: "global_id" do |app|
+        next if app.config.global_id.fetch(:expires_in, nil).present?
+
+        config.after_initialize do
+          SignedGlobalID.expires_in = nil
+        end
+      end
+
       initializer "decidim_core.middleware" do |app|
         if app.config.public_file_server.enabled
           headers = app.config.public_file_server.headers || {}
@@ -382,6 +390,7 @@ module Decidim
 
       initializer "decidim_core.menu" do
         Decidim::Core::Menu.register_menu!
+        Decidim::Core::Menu.register_mobile_menu!
         Decidim::Core::Menu.register_user_menu!
       end
 

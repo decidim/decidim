@@ -13,7 +13,7 @@ module Decidim
 
       @form = form(Decidim::ReportForm).from_params(params, can_hide: reportable.try(:can_be_administered_by?, current_user))
 
-      CreateReport.call(@form, reportable, current_user) do
+      CreateReport.call(@form, reportable) do
         on(:ok) do
           flash[:notice] = I18n.t("decidim.reports.create.success")
           redirect_back fallback_location: root_path

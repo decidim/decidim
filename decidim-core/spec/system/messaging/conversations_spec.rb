@@ -506,7 +506,7 @@ describe "Conversations" do
     end
 
     before do
-      Decidim::DestroyAccount.call(interlocutor, Decidim::DeleteAccountForm.from_params({}))
+      Decidim::DestroyAccount.call(Decidim::DeleteAccountForm.from_params({}).with_context(current_user: interlocutor))
       interlocutor.reload
     end
 
