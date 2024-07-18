@@ -301,10 +301,10 @@ shared_examples "manage process components" do
     context "when the component is unpublished" do
       it "shows the share tokens section" do
         within ".component-#{component.id}" do
-          click_on "Configure"
+          click_on "Share"
         end
 
-        expect(page).to have_content("Share tokens")
+        expect(page).to have_content("Sharing tokens")
       end
 
       it "publishes the component" do
