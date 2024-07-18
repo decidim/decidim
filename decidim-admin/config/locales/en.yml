@@ -330,6 +330,8 @@ en:
           default_step_settings: Default step settings
           global_settings: Global settings
           step_settings: Step settings
+        hide:
+          success: The component has been successfully hidden from the menu.
         index:
           add: Add component
           headers:
@@ -341,8 +343,6 @@ en:
           published: Published
           unpublished: Unpublished
           menu_hidden: Menu hidden
-        hide:
-          success: The component has been successfully hidden from the menu.
         new:
           add: Add component
           title: 'Add component: %{name}'
