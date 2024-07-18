@@ -21,7 +21,7 @@ header {
   }
 
   #flash-messages-container {
-    @apply mt-28 md:mt-0;
+    @apply mt-28 md:mt-0 md:px-44;
   }
 
   &.with-admin-bar {
