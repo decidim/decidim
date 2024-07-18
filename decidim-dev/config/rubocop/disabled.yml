@@ -52,9 +52,6 @@ Style/RedundantParentheses:
 Style/MapIntoArray:
   Enabled: false
 
-Style/SuperWithArgsParentheses:
-  Enabled: false
-
 Style/ArgumentsForwarding:
   Enabled: false
 
@@ -62,7 +59,4 @@ Style/SuperArguments:
   Enabled: false
 
 Lint/SelfAssignment:
-  Enabled: false
-
-Style/SendWithLiteralMethodName:
   Enabled: false
