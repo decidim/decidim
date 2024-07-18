@@ -6,13 +6,17 @@ module Decidim
       include Decidim::ComponentPathHelper
       helper_method :share_token, :share_tokens, :component
 
-      def index; end
+      def index
+        enforce_permission_to :read, :share_token
+      end
 
       def new
+        enforce_permission_to :create, :share_token
         @form = form(ShareTokenForm).instance
       end
 
       def create
+        enforce_permission_to :create, :share_token
         @form = form(ShareTokenForm).from_params(params, component:)
 
         CreateShareToken.call(@form) do
@@ -29,10 +33,12 @@ module Decidim
       end
 
       def edit
+        enforce_permission_to(:update, :share_token, share_token:)
         @form = form(ShareTokenForm).from_model(share_token)
       end
 
       def update
+        enforce_permission_to(:update, :share_token, share_token:)
         @form = form(ShareTokenForm).from_params(params, component:)
 
         UpdateShareToken.call(@form, share_token) do
