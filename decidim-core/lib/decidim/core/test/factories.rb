@@ -645,7 +645,7 @@ FactoryBot.define do
       after(:create) do |taxonomy, evaluator|
         create_list(:taxonomy, evaluator.children_count, parent: taxonomy, organization: taxonomy.organization)
         taxonomy.reload
-        taxonomy.update_column(:weight, taxonomy.children.count)
+        taxonomy.update(weight: taxonomy.children.count)
       end
     end
   end

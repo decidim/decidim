@@ -96,7 +96,7 @@ describe "Admin manages taxonomies" do
   end
 
   context "when creating a new taxonomy element for a parent taxonomy" do
-    let!(:taxonomy) { root_taxonomy}
+    let!(:taxonomy) { root_taxonomy }
     let!(:root_taxonomy) { create(:taxonomy, organization:) }
     let!(:parent_taxonomy) { create(:taxonomy, organization:, parent: root_taxonomy) }
 

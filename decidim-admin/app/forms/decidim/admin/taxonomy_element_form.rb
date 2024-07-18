@@ -8,7 +8,7 @@ module Decidim
 
       mimic :taxonomy
 
-      # we don't use "name" here to avoid colisions when using foundation tabs for multilang fields tabs
+      # we do not use "name" here to avoid collisions when using foundation tabs for multilanguage fields tabs
       translatable_attribute :element_name, String
       attribute :parent_id, Integer
 

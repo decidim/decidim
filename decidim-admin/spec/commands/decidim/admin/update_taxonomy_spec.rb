@@ -9,19 +9,18 @@ module Decidim::Admin
     let(:organization) { create(:organization) }
     let(:user) { create(:user, :admin, :confirmed, organization:) }
     let(:taxonomy) { create(:taxonomy, organization:) }
+    let(:parent) { create(:taxonomy, organization:) }
     let(:form) do
       double(
         invalid?: invalid,
         current_user: user,
         name:,
-        weight:,
-        parent_id:
+        parent_id: parent.id
       )
     end
 
     let(:name) { { en: "New name" } }
-    let(:weight) { 1 }
-    let(:parent_id) { 1 }
+    let(:parent_id) { parent.id }
     let(:invalid) { false }
 
     context "when the form is not valid" do
@@ -42,18 +41,14 @@ module Decidim::Admin
         expect(taxonomy.name["en"]).to eq("New name")
       end
 
-      it "updates the weight of the taxonomy" do
-        expect(taxonomy.weight).to eq(1)
-      end
-
       it "updates the parent_id of the taxonomy" do
-        expect(taxonomy.parent_id).to eq(1)
+        expect(taxonomy.parent_id).to eq(parent.id)
       end
 
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:update!)
-          .with(taxonomy, user, hash_including(:name, :weight, :parent_id))
+          .with(taxonomy, user, hash_including(:name, :parent_id))
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

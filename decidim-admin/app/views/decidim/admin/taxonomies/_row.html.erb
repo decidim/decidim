@@ -13,7 +13,7 @@
            data-sort-url="<%= reorder_taxonomies_path %>"
            data-parent-id="<%= taxonomy.id %>">
         <% taxonomy.children.each do |child| %>
-          <%= render partial: "decidim/admin/taxonomies/row_children", locals: { child: child, class_name: "", grandchild: false } %>
+          <%= render partial: "decidim/admin/taxonomies/row_children", locals: { child:, class_name: "", grandchild: false } %>
 
           <% if child.children.any? %>
             <div class="js-sortable js-draggable-<%= child.id %>"
