@@ -12,6 +12,7 @@ class AddWithdrawnAtFieldToProposals < ActiveRecord::Migration[6.1]
 
     CustomProposal.withdrawn.find_each do |proposal|
       proposal.withdrawn_at = proposal.updated_at
+      proposal.state = :not_answered
       proposal.save!
     end
   end
