@@ -986,6 +986,7 @@ en:
           back_to_share_tokens: Back to share tokens
           copied: Copied!
           copy_message: The text was successfully copied to clipboard.
+          empty: There are no active tokens.
           never: Never
           new_share_token_button: New token
           title: 'Sharing tokens for component: %{component_name}'
@@ -993,7 +994,6 @@ en:
           create: Create
           title: 'New sharing tokens for component: %{component_name}'
         share_tokens:
-          empty: There are no active tokens.
           help: These tokens are used to publicly share this unpublished resource to any user. They will be hidden when the resource is published. Click on the token's share icon to visit the shareable URL.
           title: Share tokens
         update:

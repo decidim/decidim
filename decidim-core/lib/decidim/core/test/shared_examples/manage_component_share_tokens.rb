@@ -2,14 +2,23 @@
 
 RSpec.shared_examples "manage component share tokens" do
   let!(:components_path) { participatory_space_components_path(participatory_space) }
+  let!(:component) { create(:component, participatory_space:) }
+
+  def visit_share_component
+    visit components_path
+    click_on "Components"
+    click_on "Share"
+  end
 
   context "when visiting the components page for the participatory space" do
+    let!(:share_token) { create(:share_token, token_for: component, organization:, user:, registered_only: true) }
+
     before do
-      visit components_path
+      visit_share_component
     end
 
     it "has a share button that opens the share url for the component" do
-      share_window = window_opened_by { click_on "Share", wait: 2 }
+      share_window = window_opened_by { click_on "Preview", wait: 2 }
 
       within_window share_window do
         expect(current_url).to include(component.share_tokens.reload.last.url)
@@ -19,15 +28,11 @@ RSpec.shared_examples "manage component share tokens" do
 
   context "when visiting the component configuration page" do
     context "when there are tokens" do
-      let!(:share_tokens) { create_list(:share_token, 3, token_for: component, organization: component.organization) }
+      let!(:share_tokens) { create_list(:share_token, 3, token_for: component, organization: component.organization, registered_only: true) }
       let!(:share_token) { share_tokens.last }
 
       before do
-        visit components_path
-
-        within "tr", text: component.name["en"] do
-          click_on "Configure"
-        end
+        visit_share_component
       end
 
       it "displays all tokens" do
@@ -40,7 +45,7 @@ RSpec.shared_examples "manage component share tokens" do
         share_tokens.each do |share_token|
           within ".share_tokens tbody" do
             expect(page).to have_content share_token.token
-            expect(page).to have_content share_token.user.name
+            expect(page).to have_content share_token.expires_at
           end
         end
       end
@@ -48,7 +53,7 @@ RSpec.shared_examples "manage component share tokens" do
       it "has a share link for each token" do
         urls = share_tokens.map(&:url).map { |url| url.split("?").first }
         within ".share_tokens tbody tr:first-child" do
-          share_window = window_opened_by { click_on "Share" }
+          share_window = window_opened_by { click_on "Preview" }
 
           within_window share_window do
             expect(urls).to include(page.current_path)
@@ -68,11 +73,7 @@ RSpec.shared_examples "manage component share tokens" do
 
     context "when there are no tokens" do
       before do
-        visit components_path
-
-        within "tr", text: component.name["en"] do
-          click_on "Configure"
-        end
+        visit_share_component
       end
 
       it "displays empty message" do
