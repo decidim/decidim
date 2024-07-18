@@ -51,14 +51,18 @@
 }
 
 .layout-item {
-  @apply container grid grid-cols-1 lg:grid-cols-12 py-4 lg:py-24 gap-12 lg:gap-x-0;
+  @apply container grid grid-cols-1 lg:grid-cols-12 py-4 lg:py-24 gap-12 lg:gap-x-0 pt-12;
 
   &__main {
-    @apply xl:col-start-2 lg:col-span-8 xl:col-span-7 relative;
+    @apply xl:col-start-2 lg:col-span-8 xl:col-span-7 relative order-2 lg:order-1;
   }
 
   &__aside {
-    @apply lg:col-start-10 xl:col-start-10 lg:col-span-3 xl:col-span-2;
+    @apply lg:col-start-10 xl:col-start-10 lg:col-span-3 xl:col-span-2 order-1 lg:order-2;
+
+    &--footer {
+      @apply order-last;
+    }
   }
 
   &__back {
@@ -80,6 +84,7 @@
       @apply w-8 h-8 text-secondary fill-current;
     }
   }
+
 }
 
 .layout-main__section + .layout-main__section,
