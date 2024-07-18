@@ -14,7 +14,7 @@ module Decidim
         destroy_resource
         broadcast(:ok)
       rescue ActiveRecord::RecordNotDestroyed
-        broadcast(:has_children)
+        broadcast(:invalid)
       end
     end
   end
