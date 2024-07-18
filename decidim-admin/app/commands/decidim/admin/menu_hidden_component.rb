@@ -17,7 +17,14 @@ module Decidim
       #
       # Broadcasts :ok if disabled visibility, :invalid otherwise.
       def call
-        component.update!(visible: false)
+        Decidim.traceability.perform_action!(
+          :menu_hidden,
+          component,
+          current_user,
+          visibility: "all"
+        ) do
+          component.update!(visible: false)
+        end
 
         broadcast(:ok)
       end

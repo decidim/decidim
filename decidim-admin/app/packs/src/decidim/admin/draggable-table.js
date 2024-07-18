@@ -1,6 +1,14 @@
-/* eslint-disable require-jsdoc */
 import createSortList from "src/decidim/admin/sort_list.component"
 
+/**
+ * Draggable table
+ *
+ * This script is used to make a table draggable.
+ * It works with two data attributes:
+ *
+ * - data-draggable-table: The table that will be draggable.
+ * - data-sort-url: The URL where the order will be sent.
+ */
 $(() => {
   createSortList("[data-draggable-table]", {
     onSortUpdate: ($children) => {

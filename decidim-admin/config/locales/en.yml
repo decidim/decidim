@@ -337,6 +337,10 @@ en:
             name: Component name
             type: Component type
             visibility: Visibility
+        visibility_label:
+          published: Published
+          unpublished: Unpublished
+          menu_hidden: Menu hidden
         menu_hidden:
           success: The component has been successfully menu hidden.
         new:
