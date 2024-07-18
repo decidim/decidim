@@ -52,8 +52,8 @@ Style/RedundantParentheses:
 Style/MapIntoArray:
   Enabled: false
 
-Style/SuperWithArgsParentheses:
-  Enabled: false
+
+
 
 Style/ArgumentsForwarding:
   Enabled: false
