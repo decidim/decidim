@@ -27,3 +27,19 @@ ul.taxonomy {
     }
   }
 }
+
+[data-dialog]#element-form {
+  @apply sm:top-[5.5rem] bottom-[4rem] top-[8.55rem];
+}
+
+#element-form-content {
+  @apply p-6 rounded-r-none py-0;
+
+  h1 {
+    @apply mt-6 mx-0;
+  }
+
+  .row {
+    @apply px-0;
+  }
+}
