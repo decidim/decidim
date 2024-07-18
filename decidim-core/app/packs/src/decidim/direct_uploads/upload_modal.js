@@ -154,20 +154,16 @@ export default class UploadModal {
     // Disabled save button when any children have data-state="error"
     this.saveButton.disabled = Array.from(files).filter(({ dataset: { state } }) => state === STATUS.ERROR).length > 0;
 
-    const dataSelectFileButton = this.emptyItems.querySelector("[data-select-file-button]");
-
     // Only allow to continue the upload when the multiple option is true (default: false)
     const continueUpload = !files.length || this.options.multiple
     this.input.disabled = !continueUpload
     if (continueUpload) {
       this.emptyItems.classList.remove("is-disabled");
-      dataSelectFileButton.removeAttribute("disabled");
+      this.emptyItems.querySelector("label").removeAttribute("disabled");
     } else {
       this.emptyItems.classList.add("is-disabled");
-      dataSelectFileButton.disabled = true;
+      this.emptyItems.querySelector("label").disabled = true;
     }
-
-    dataSelectFileButton.addEventListener("click", () => this.input.click());
   }
 
   createUploadItem(file, errors, opts = {}) {

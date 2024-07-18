@@ -89,7 +89,7 @@ en:
             did_not_receive_unlock_instructions?: Did not receive unlock instructions?
             forgot_your_password?: Forgot your password?
             log_in: Log in
-            sign_up: Sign up
+            sign_up: Create an account
       menu:
         admins: Admins
         dashboard: Dashboard
@@ -261,8 +261,8 @@ en:
           success: Organization successfully updated.
         users_registration_mode:
           disabled: Access only can be done with external accounts
-          enabled: Allow participants to register and login
-          existing: Do not allow participants to register, but allow existing participants to login
+          enabled: Allow participants to create an account and log in
+          existing: Do not allow participants to create an account, but allow existing participants to log in
       shared:
         notices:
           no_organization_warning_html: You must create an organization to get started. Make sure you read %{guide} before proceeding.

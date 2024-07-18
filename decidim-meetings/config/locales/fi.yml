@@ -146,6 +146,7 @@ fi:
         actions:
           comment: Kommentoi
           join: Liity mukaan
+          reply_poll: Vastaa mielipidetiedusteluun
         name: Tapaamiset
         settings:
           global:
@@ -362,6 +363,13 @@ fi:
           update:
             invalid: Tapaamisen mielipidetiedustelun päivittäminen epäonnistui.
             success: Tapaamisen mielipidetiedustelun päivittäminen onnistui.
+        poll:
+          form:
+            announcement_html:
+              - Kun kysymykseen vastataan tai se julkaistaan tai suljetaan, sitä ei voi enää muokata sen jälkeen.
+              - Voit lisätä kysymyksiä milloin tahansa.
+              - Tämä mielipidetiedustelu suljetaan, kun kaikkien kysymysten tulokset on julkaistu.
+              - Vieraile <a href='%{admin_link}'>mielipidetiedustelun hallinnointisivulla</a> lähettääksesi kysymyksiä ja julkaistaksesi tuloksia.
         registrations:
           edit:
             save: Tallenna
@@ -440,6 +448,7 @@ fi:
       iframe_embed_type:
         embed_in_meeting_page: Upota tapaamisen sivulle
         none: Ei mitään
+        open_in_live_event_page: Avaa tapahtumasivu
         open_in_new_tab: Avaa uudessa välilehdessä
       last_activity:
         meeting_updated: 'Tapaamista on päivitetty:'
@@ -527,6 +536,8 @@ fi:
           edit_close_meeting: Muokkaa tapaamisraporttia
           edit_meeting: Muokkaa tapaamista
           join_meeting: Ilmoittaudu tapaamiseen
+          reply_poll: Vastaa mielipidetiedusteluun
+          view_poll: Näytä mielipidetiedustelu
         meetings:
           no_meetings_warning: Yksikään tapaaminen ei vastaa hakukriteerejäsi tai yhtään tapaamista ei ole suunniteltu.
           upcoming_meetings_warning: Tällä hetkellä ei ole suuniteltuja tapaamisia, mutta täältä löydät kaikki aikaisemmat tapaamiset.
@@ -585,7 +596,19 @@ fi:
             start_time: Alkamispäivä
             title: Otsikko
       polls:
+        answers:
+          index:
+            administrate: Hallinnoi
+            title: Mielipidetiedustelu
+          index_admin:
+            back_to_meeting: Takaisin tapaamiseen
+            title: Hallinnoi mielipidetiedustelua
+            view_poll: Näytä mielipidetiedustelu
         questions:
+          closed_question:
+            announcement: Tämä kysymys on suljettu, eikä siihen voi enää vastata.
+            question: Kysymys
+            question_results: Tulokset
           index:
             empty_questions: Tämän tapaamisen aikana esitetään kysymyksiä, joihin voit vastata. Kysymykset näytetään tässä.
           index_admin:
@@ -596,6 +619,10 @@ fi:
             results: Tulokset
             send: Lähetä
             sent: Lähetetty
+            statuses:
+              closed: Tulokset lähetetty (suljettu)
+              published: Lähetetty (avoin)
+              unpublished: Odottaa lähetystä
           published_question:
             max_choices_alert: Liian monta vaihtoehtoa on valittu
             question: Kysymys

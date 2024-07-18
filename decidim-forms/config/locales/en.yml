@@ -158,7 +158,7 @@ en:
           answer_questionnaire:
             already_have_an_account?: Already have an account?
             are_you_new?: New user?
-            sign_in_description: Login to take the survey
+            sign_in_description: Log in to take the survey
             sign_up_description: Create a participant account to take the survey
             title: Answer the form
           current_step: Step %{step}

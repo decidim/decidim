@@ -134,6 +134,10 @@ pl:
           title: Nowy prelegent konferencyjny.
         publish:
           invalid: Podczas publikowania tego zespołu wystąpił błąd.
+          success: Opublikowano mówcę konferencyjnego.
+        unpublish:
+          invalid: Wystąpił problem podczas cofania publikacji tego mówcy.
+          success: Usunięto publikację mówcy konferencyjnego.
         update:
           error: Wystąpił błąd podczas aktualizacji prelegenta konferencji.
           success: Prelegent zaktualizowany pomyślnie.

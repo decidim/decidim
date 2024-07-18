@@ -377,7 +377,6 @@ nl:
           complete_profile: Volledig profiel
           nickname_help: Je alias in %{organization}. Kan alleen letters, cijfers, '-' en '_' bevatten.
           sign_up: Gelieve uw profiel te voltooien
-          subtitle: Vul onderstaand formulier in om de aanmelding te voltooien
           username_help: Publieke naam die op je berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet jouw echte naam te zijn.
       registrations:
         new:
@@ -385,8 +384,6 @@ nl:
           log_in: Aanmelden
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
           newsletter_title: Contact toestemming
-          sign_up: Registratie
-          subtitle: Meld je aan om deel te nemen aan discussies en om voorstellen te steunen.
           tos_agreement: Door het aanmelden gaat u akkoord met %{link}.
           tos_title: Servicevoorwaarden
           username_help: Publieke naam die op uw berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet uw echte naam te zijn.
@@ -880,7 +877,6 @@ nl:
           headline: Huidige stand van %{organization}
         sub_hero:
           register: Registreren
-          register_title: Meld je aan voor een account
       index:
         standalone_pages: Pages
         subheading: Navigeer door de helppagina's van %{name}
@@ -998,8 +994,6 @@ nl:
         title: Meld een probleem
       floating_help:
         help: Help
-      login_modal:
-        sign_up: Registreren
       participatory_space_filters:
         filters:
           areas: Onderwerpen
@@ -1154,8 +1148,6 @@ nl:
       updated_not_active: Je wachtwoord is met succes veranderd.
     registrations:
       destroyed: Uw account is succesvol geannuleerd. We hopen je snel weer te zien.
-      new:
-        sign_up: Aanmelden
       signed_up: Welkom! Je hebt je succesvol aangemeld.
       signed_up_but_inactive: Je hebt je succesvol aangemeld. We konden u echter niet aanmelden omdat uw account nog niet is geactiveerd.
       signed_up_but_locked: Je hebt je succesvol aangemeld. We konden u echter niet aanmelden omdat uw account is vergrendeld.
@@ -1170,7 +1162,6 @@ nl:
         back: Terug
         forgot_your_password: Uw wachtwoord vergeten?
         log_in: Aanmelden
-        sign_up: Registreren
       minimum_password_length:
         one: "(Minimaal%{count} tekens)"
         other: "(Minimaal%{count} tekens)"
@@ -1191,7 +1182,6 @@ nl:
       invalid_time_zone: is geen geldige tijdszone
       long_words: bevat woorden die te lang zijn (meer dan 35 tekens)
       must_start_with_caps: moet beginnen met een hoofdletter
-      not_found: kon niet worden gevonden. Ben je vooraf aangemeld?
       not_locked: was niet vergrendeld
       not_saved:
         one: 'Er is een fout opgetreden bij de verwerking van je aanvraag:'
@@ -1234,8 +1224,8 @@ nl:
         download_open_data: Download Open Data-bestanden
         log_in: Aanmelden
         made_with_open_source: Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.
-        sign_up: Registreren
       header:
+        log_in: Aanmelden
         main_menu: Hoofdmenu
         user_menu: Gebruikersmenu
       impersonation_warning:

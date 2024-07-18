@@ -89,7 +89,6 @@ describe "Admin manages participatory processes", versioning: true do
       end
 
       dynamically_attach_file(:participatory_process_hero_image, image1_path)
-      dynamically_attach_file(:participatory_process_banner_image, image2_path)
 
       within ".new_participatory_process" do
         find("*[type=submit]").click
@@ -128,7 +127,6 @@ describe "Admin manages participatory processes", versioning: true do
 
       expect(page).to have_admin_callout("successfully")
       expect(page).to have_css("img[src*='#{participatory_process3.attached_uploader(:hero_image).path}']")
-      expect(page).to have_css("img[src*='#{participatory_process3.attached_uploader(:banner_image).path}']")
     end
   end
 end

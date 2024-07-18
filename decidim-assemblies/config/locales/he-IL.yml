@@ -50,7 +50,6 @@ he:
         scope_id: היקף
         scopes_enabled: היקפים מאופשרים
         short_description: תיאור קצר
-        show_statistics: הצגת סטטיסטיקה
         slug: כינוי לקישור
         special_features: מאפיינים מיוחדים
   decidim:

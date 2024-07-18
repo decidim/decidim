@@ -10,6 +10,8 @@ module Decidim
 
       helper_method :results, :result, :first_class_categories, :count_calculator
 
+      before_action :set_controller_breadcrumb
+
       def show
         raise ActionController::RoutingError, "Not Found" unless result
       end
@@ -47,6 +49,24 @@ module Decidim
 
       def count_calculator(scope_id, category_id)
         Decidim::Accountability::ResultsCalculator.new(current_component, scope_id, category_id).count
+      end
+
+      def controller_breadcrumb_items
+        @controller_breadcrumb_items ||= []
+      end
+
+      def set_controller_breadcrumb
+        controller_breadcrumb_items << breadcrumb_item
+      end
+
+      def breadcrumb_item
+        return {} if result&.parent.blank?
+
+        {
+          label: translated_attribute(result.parent.title),
+          url: result_path(result.parent),
+          active: true
+        }
       end
     end
   end
