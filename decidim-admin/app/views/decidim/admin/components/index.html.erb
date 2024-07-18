@@ -37,7 +37,7 @@
         <th><%= t(".headers.actions") %></th>
       </thead>
 
-      <tbody class="draggable-table" data-sort-url="<%= reorder_components_path %>">
+      <tbody class="draggable-table" data-sort-url="<%= reorder_components_path %>" data-draggable-table>
         <%= render partial: "component", collection: @components %>
       </tbody>
     </table>

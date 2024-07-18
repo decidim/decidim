@@ -2,7 +2,7 @@
 import createSortList from "src/decidim/admin/sort_list.component"
 
 $(() => {
-  createSortList(".draggable-table", {
+  createSortList("[data-draggable-table]", {
     onSortUpdate: ($children) => {
       const children = $children.toArray();
 

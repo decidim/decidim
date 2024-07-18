@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    # This command gets called when a component is menu_hidden from the admin panel.
+    # This command gets called when a component is marked as not visible (hidden) in the menu from the admin panel.
     class MenuHiddenComponent < Decidim::Command
       # Public: Initializes the command.
       #
