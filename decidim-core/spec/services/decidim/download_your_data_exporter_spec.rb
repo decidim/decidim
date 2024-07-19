@@ -7,7 +7,11 @@ module Decidim
   describe DownloadYourDataExporter do
     subject { DownloadYourDataExporter.new(user, tmp_file_in, password) }
 
-    let(:tmp_file_in) {  Dir::Tmpname.create(["download-your-data", ".7z"]) {} }
+    let(:tmp_file_in) do
+      Dir::Tmpname.create(["download-your-data", ".7z"]) do
+        # just get an empty file name
+      end
+    end
     let(:tmp_dir_out) { Dir.mktmpdir("download_your_data_exporter_spec") }
     let(:password) { "download-your-data.7z>passwd" }
     let(:user) { create(:user) }

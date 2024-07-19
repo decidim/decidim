@@ -26,7 +26,7 @@ module Decidim
 
     def export
       tmpdir = Dir.mktmpdir("temporary-download-your-data-dir")
-      user_data, attachments = data_for(@user, @export_format)
+      user_data, _attachments = data_for(@user, @export_format)
       user_data.each do |_entity, exporter_data|
         next if exporter_data.read == "\n"
 
