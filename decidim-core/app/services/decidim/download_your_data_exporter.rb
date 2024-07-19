@@ -26,7 +26,7 @@ module Decidim
 
     def export
       tmpdir = Dir.mktmpdir("temporary-download-your-data-dir")
-      user_data, _attachments = data_for(@user, @export_format)
+      user_data, _attachments = data_for_user
       user_data.each do |_entity, exporter_data|
         next if exporter_data.read == "\n"
 
@@ -39,13 +39,15 @@ module Decidim
 
     private
 
-    def data_for(user, format)
+    attr_reader :user, :export_format
+
+    def data_for_user
       export_data = []
       export_attachments = []
 
       download_your_data_entities.each do |object|
         klass = Object.const_get(object)
-        export_data << [klass.model_name.name.parameterize.pluralize, Exporters.find_exporter(format).new(klass.user_collection(user), klass.export_serializer).export]
+        export_data << [klass.model_name.name.parameterize.pluralize, Exporters.find_exporter(export_format).new(klass.user_collection(user), klass.export_serializer).export]
         attachments = klass.download_your_data_images(user)
         export_attachments << [klass.model_name.name.parameterize.pluralize, attachments.flatten] unless attachments.nil?
       end
