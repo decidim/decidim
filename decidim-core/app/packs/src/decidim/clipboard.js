@@ -85,26 +85,32 @@ $(() => {
       }
 
       if (!$el.data("clipboard-copy-label-original")) {
-        if ($input.length > 0) {
-          $el.data("clipboard-copy-label-original", $el.html());
-        }
+        $el.data("clipboard-copy-label-original", $el.html());
       }
 
-      if ($input.length > 0) {
-        $el.html(label);
-      } else {
-        $el.css("color", "var(--alert)");
+      $el.html(label);
+      if ($input.length === 0) {
+        $el.css({
+          "color": "var(--alert)",
+          "text-decoration": "none"
+        });
       }
+
       to = setTimeout(() => {
-        if ($input.length > 0) {
-          $el.html($el.data("clipboard-copy-label-original"));
-          $el.removeData("clipboard-copy-label-original");
-        } else {
-          $el.css({ "color": "var(--secondary)", "padding-right": "0" });
+        $el.html($el.data("clipboard-copy-label-original"));
+        $el.removeData("clipboard-copy-label-original");
+
+        if ($input.length === 0) {
+          $el.css({
+            "color": "var(--secondary)",
+            "padding-right": "0"
+          });
         }
+
         $el.removeData("clipboard-copy-label-timeout");
       }, CLIPBOARD_COPY_TIMEOUT);
-      $el.data("clipboard-copy-label-timeout", to)
+
+      $el.data("clipboard-copy-label-timeout", to);
     }
 
     // Alert the screen reader what just happened (the link was copied).
