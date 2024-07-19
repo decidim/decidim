@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require "seven_zip_ruby"
-require "zip"
-require_relative "zip_stream/writer"
+require "decidim/seven_zip_wrapper"
 
 module Decidim
   # Public: Generates a 7z(seven zip) file with data files ready to be persisted
@@ -29,28 +27,19 @@ module Decidim
     end
 
     def export
-      dirname = File.dirname(@path)
-      FileUtils.mkdir_p(dirname) unless File.directory?(dirname)
-      File.open(@path, "wb") do |file|
-        SevenZipRuby::Writer.open(file, password: @password) do |szw|
-          szw.header_encryption = true
-          szw.add_data(data, ZIP_FILE_NAME)
-        end
+      tmpdir = Dir.mktmpdir("temporary-download-your-data-dir")
+      user_data, attachments = data_for(@user, @export_format)
+      user_data.each do |_entity, exporter_data|
+        next if exporter_data.read == "\n"
+
+        File.write(File.join(tmpdir, exporter_data.filename), exporter_data.read)
       end
+      # TODO: attachments
+
+      SevenZipWrapper.compress_and_encrypt(filename: @path, password: @password, input_directory: tmpdir)
     end
 
     private
-
-    def data
-      buffer = Zip::OutputStream.write_buffer do |out|
-        user_data, attachments = data_for(@user, @export_format)
-
-        add_user_data_to_zip_stream(out, user_data)
-        add_attachments_to_zip_stream(out, attachments)
-      end
-
-      buffer.string
-    end
 
     def data_for(user, format)
       export_data = []
