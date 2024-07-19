@@ -59,6 +59,16 @@ RSpec.shared_examples "manage component share tokens" do
         expect(page).to have_css("#share_token_no_expiration_true")
       end
 
+      it "allows copying the share link from the share token" do
+        within ".share_tokens tbody tr:first-child" do
+          click_on "Copy link"
+        end
+
+        expect(page).to have_css("[data-clipboard-copy-label]")
+        expect(page).to have_css("[data-clipboard-copy-message]")
+        expect(page).to have_css("[data-clipboard-content]")
+      end
+
       it "has a share link for each token" do
         urls = share_tokens.map(&:url).map { |url| url.split("?").first }
         within ".share_tokens tbody tr:first-child" do
