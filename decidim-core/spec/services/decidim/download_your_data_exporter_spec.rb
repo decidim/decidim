@@ -54,9 +54,9 @@ module Decidim
       end
     end
 
-    describe "#data_for_user" do
+    describe "#data_and_attachments_for_user" do
       it "returns an array of data for the user" do
-        user_data, = subject.send(:data_for_user)
+        user_data, = subject.send(:data_and_attachments_for_user)
 
         file_prefixes = expected_files.dup
         user_data.each do |entity, exporter_data|
@@ -77,7 +77,7 @@ module Decidim
         let!(:comment) { create(:comment, commentable:, author: user) }
 
         it "returns the comment data" do
-          user_data, = subject.send(:data_for_user)
+          user_data, = subject.send(:data_and_attachments_for_user)
 
           user_data.find { |entity, _| entity == "decidim-comments-comments" }.tap do |_, exporter_data|
             csv_comments = exporter_data.read.split("\n")

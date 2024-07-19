@@ -26,7 +26,7 @@ module Decidim
 
     def export
       tmpdir = Dir.mktmpdir("temporary-download-your-data-dir")
-      user_data, user_attachments = data_for_user
+      user_data, user_attachments = data_and_attachments_for_user
       save_user_data(tmpdir, user_data)
       save_user_attachments(tmpdir, user_attachments)
 
@@ -37,7 +37,7 @@ module Decidim
 
     attr_reader :user, :export_format
 
-    def data_for_user
+    def data_and_attachments_for_user
       export_data = []
       export_attachments = []
 
