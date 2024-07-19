@@ -36,7 +36,7 @@ sudo apt install p7zip
 
 This works for Ubuntu Linux, other operating systems would need to do other command/package.
 
-You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+You can read more about this change on PR [#13185](https://github.com/decidim/decidim/pull/13185).
 
 ## 3. One time actions
 
