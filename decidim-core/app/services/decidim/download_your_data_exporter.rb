@@ -26,13 +26,29 @@ module Decidim
 
     def export
       tmpdir = Dir.mktmpdir("temporary-download-your-data-dir")
-      user_data, _attachments = data_for_user
+      user_data, attachments = data_for_user
+
       user_data.each do |entity, exporter_data|
         next if exporter_data.read == "\n"
 
-        File.write(File.join(tmpdir, "#{entity}-#{exporter_data.filename}"), exporter_data.read)
+        file_name = File.join(tmpdir, "#{entity}-#{exporter_data.filename}")
+        File.write(file_name, exporter_data.read)
       end
-      # TODO: attachments
+
+      attachments.each do |entity, attachment_block|
+        attachment_block.each do |attachment|
+          next unless attachment.attached?
+
+          blobs = attachment.is_a?(ActiveStorage::Attached::One) ? [attachment.blob] : attachment.blobs
+          blobs.each do |blob|
+            Dir.mkdir(File.join(tmpdir, entity.parameterize))
+            file_name = File.join(tmpdir, entity.parameterize, blob.filename.to_s)
+            blob.open do |blob_file|
+              File.write(file_name, blob_file.read.force_encoding("UTF-8"))
+            end
+          end
+        end
+      end
 
       SevenZipWrapper.compress_and_encrypt(filename: @path, password: @password, input_directory: tmpdir)
     end

@@ -50,7 +50,7 @@ module Decidim
 
         open_7z_and_extract_zip(tmp_file_in)
 
-        expect(Dir.entries(tmp_dir_out).count).to eq 3
+        expect(Dir.entries(tmp_dir_out).count).to eq 4
       end
     end
 
