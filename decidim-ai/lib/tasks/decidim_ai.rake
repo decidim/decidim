@@ -4,7 +4,7 @@ namespace :decidim do
   namespace :ai do
     desc "Create reporting user"
     task create_reporting_user: :environment do
-      Decidim::Ai.create_reporting_users!
+      Decidim::Ai::SpamDetection.create_reporting_user!
     end
 
     desc "Load plugin shipped datasets"

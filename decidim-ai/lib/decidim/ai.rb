@@ -26,21 +26,6 @@ module Decidim
       @spam_detection ||= Decidim::Ai::StrategyRegistry.new
     end
 
-    def self.create_reporting_users!
-      Decidim::Organization.find_each do |organization|
-        user = organization.users.find_or_initialize_by(email: Decidim::Ai::SpamDetection.reporting_user_email)
-        next if user.persisted?
 
-        password = SecureRandom.hex(10)
-        user.password = password
-        user.password_confirmation = password
-
-        user.deleted_at = Time.current
-        user.tos_agreement = true
-        user.name = ""
-        user.skip_confirmation!
-        user.save!
-      end
-    end
   end
 end
