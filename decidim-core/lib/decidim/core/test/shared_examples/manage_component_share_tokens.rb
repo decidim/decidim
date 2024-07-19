@@ -52,7 +52,7 @@ RSpec.shared_examples "manage component share tokens" do
 
       it "has to edit a share token" do
         within ".share_tokens tbody tr:first-child" do
-          accept_confirm { click_on "Edit" }
+          click_on "Edit"
         end
 
         expect(page).to have_content("Edit sharing tokens for component")
