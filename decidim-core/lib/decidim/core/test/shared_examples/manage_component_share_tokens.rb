@@ -50,6 +50,15 @@ RSpec.shared_examples "manage component share tokens" do
         end
       end
 
+      it "has to edit a share token" do
+        within ".share_tokens tbody tr:first-child" do
+          accept_confirm { click_on "Edit" }
+        end
+
+        expect(page).to have_content("Edit sharing tokens for component")
+        expect(page).to have_css("#share_token_no_expiration_true")
+      end
+
       it "has a share link for each token" do
         urls = share_tokens.map(&:url).map { |url| url.split("?").first }
         within ".share_tokens tbody tr:first-child" do
