@@ -10,9 +10,6 @@ Naming/MemoizedInstanceVariableName:
 RSpec/VerifiedDoubleReference:
   Enabled: false
 
-FactoryBot/ConsistentParenthesesStyle:
-  Enabled: false
-
 FactoryBot/ExcessiveCreateList:
   Enabled: false
 
@@ -50,9 +47,6 @@ Style/RedundantParentheses:
   Enabled: false
 
 Style/MapIntoArray:
-  Enabled: false
-
-Style/ArgumentsForwarding:
   Enabled: false
 
 Style/SuperArguments:

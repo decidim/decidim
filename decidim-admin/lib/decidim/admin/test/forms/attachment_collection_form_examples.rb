@@ -41,7 +41,7 @@ module Decidim
           }
         }
       end
-      let(:organization) { create :organization }
+      let(:organization) { create(:organization) }
 
       context "with correct data" do
         it "is valid" do
