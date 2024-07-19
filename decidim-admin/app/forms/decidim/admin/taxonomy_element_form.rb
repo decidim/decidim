@@ -34,8 +34,6 @@ module Decidim
 
       def validate_parent_id_within_same_root_taxonomy
         return unless parent_id
-
-        parent = Decidim::Taxonomy.find_by(id: parent_id)
         return unless parent
 
         current_root_taxonomy = if parent.parent_id.nil?
@@ -45,6 +43,10 @@ module Decidim
                                 end
 
         errors.add(:parent_id, :invalid) unless parent.root_taxonomy.id == current_root_taxonomy.id
+      end
+
+      def parent
+        @parent ||= Decidim::Taxonomy.find_by(id: parent_id) if parent_id.present?
       end
     end
   end

@@ -30,6 +30,10 @@ ul.taxonomy {
 
 [data-dialog]#element-form {
   @apply sm:top-[5.5rem] bottom-[4rem] top-[8.55rem];
+
+  [data-dialog-container] > :last-child {
+    grid-column: span 1 / span 1;
+  }
 }
 
 #element-form-content {

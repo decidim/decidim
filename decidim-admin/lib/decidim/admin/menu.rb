@@ -166,7 +166,7 @@ module Decidim
           menu.add_item :taxonomies,
                         I18n.t("menu.taxonomies", scope: "decidim.admin"),
                         decidim_admin.taxonomies_path,
-                        icon_name: "list-check-2",
+                        icon_name: "price-tag-3-line",
                         position: 1.3
 
           menu.add_item :scopes,

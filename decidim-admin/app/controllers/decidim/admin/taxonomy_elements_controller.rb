@@ -71,15 +71,16 @@ module Decidim
 
       def parent_options
         @parent_options ||= begin
-          options = [[translated_attribute(taxonomy.name), taxonomy.id]]
+          options = [[I18n.t("new.none", scope: "decidim.admin.taxonomy_elements"), taxonomy.id]]
           taxonomy.children.each do |child|
-            options.append(["#{translated_attribute(taxonomy.name)} -> #{translated_attribute(child.name)}", child.id]) unless child.id == taxonomy_element&.id
+            next if child.id == taxonomy_element&.id
+
+            options << [translated_attribute(child.name).to_s, child.id]
             # add children to the list with indentation
             child.children.each do |grandchild|
-              unless grandchild.id == taxonomy_element&.id
-                options.append ["#{translated_attribute(taxonomy.name)} -> #{translated_attribute(child.name)} -> #{translated_attribute(grandchild.name)}",
-                                grandchild.id]
-              end
+              next if grandchild.id == taxonomy_element&.id
+
+              options << ["&nbsp;&nbsp;&nbsp;#{translated_attribute(grandchild.name)}".html_safe, grandchild.id]
             end
           end
           options
