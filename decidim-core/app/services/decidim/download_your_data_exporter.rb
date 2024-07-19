@@ -27,10 +27,10 @@ module Decidim
     def export
       tmpdir = Dir.mktmpdir("temporary-download-your-data-dir")
       user_data, _attachments = data_for_user
-      user_data.each do |_entity, exporter_data|
+      user_data.each do |entity, exporter_data|
         next if exporter_data.read == "\n"
 
-        File.write(File.join(tmpdir, exporter_data.filename), exporter_data.read)
+        File.write(File.join(tmpdir, "#{entity}-#{exporter_data.filename}"), exporter_data.read)
       end
       # TODO: attachments
 
