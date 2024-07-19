@@ -6,10 +6,10 @@ shared_examples_for "resource endorsed event" do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.resource_endorsed" }
-  let(:author) { create :user, organization: resource.organization }
+  let(:author) { create(:user, organization: resource.organization) }
 
   let(:extra) { { endorser_id: author.id } }
-  let(:endorsement) { create :endorsement, resource:, author: }
+  let(:endorsement) { create(:endorsement, resource:, author:) }
   let(:resource_path) { resource_locator(resource).path }
   let(:follower) { create(:user, organization: resource.organization) }
   let(:follow) { create(:follow, followable: author, user: follower) }
