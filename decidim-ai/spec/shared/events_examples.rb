@@ -3,7 +3,7 @@
 shared_examples "content submitted to spam analysis" do
   let(:organization) { create(:organization) }
   let(:participatory_space) { create(:participatory_process, organization:) }
-  let!(:system_user) { create(:user, :confirmed, email: Decidim::Ai.reporting_user_email, organization:) }
+  let!(:system_user) { create(:user, :confirmed, email: Decidim::Ai::SpamDetection.reporting_user_email, organization:) }
   let(:component) { create(:component, participatory_space:, manifest_name:) }
   let!(:author) { create(:user, :confirmed, organization:) }
   let(:queue_size) { 1 }

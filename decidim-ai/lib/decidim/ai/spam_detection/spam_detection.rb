@@ -117,6 +117,22 @@ module Decidim
           models
         end
       end
+
+      config_accessor :user_models do
+        @user_models ||= begin
+          user_models = {}
+
+          user_models["Decidim::UserGroup"] = "Decidim::Ai::SpamDetection::Resource::UserBaseEntity"
+          user_models["Decidim::User"] = "Decidim::Ai::SpamDetection::Resource::UserBaseEntity"
+          user_models
+        end
+      end
+
+      # This is the email address used by the spam engine to
+      # properly identify the user that will report users and content
+      config_accessor :reporting_user_email do
+        "reporting.user@domain.tld"
+      end
     end
   end
 end

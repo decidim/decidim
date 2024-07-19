@@ -35,14 +35,14 @@ module Decidim
 
       it "successfully creates user" do
         expect { Decidim::Ai.create_reporting_users! }.to change(Decidim::User, :count).by(1)
-        expect(Decidim::User.where(email: Decidim::Ai.reporting_user_email).count).to eq(1)
+        expect(Decidim::User.where(email: Decidim::Ai::SpamDetection.reporting_user_email).count).to eq(1)
       end
 
       it "ignores existing user" do
         Decidim::Ai.create_reporting_users!
-        expect(Decidim::User.where(email: Decidim::Ai.reporting_user_email).count).to eq(1)
+        expect(Decidim::User.where(email: Decidim::Ai::SpamDetection.reporting_user_email).count).to eq(1)
         expect { Decidim::Ai.create_reporting_users! }.not_to change(Decidim::User, :count)
-        expect(Decidim::User.where(email: Decidim::Ai.reporting_user_email).count).to eq(1)
+        expect(Decidim::User.where(email: Decidim::Ai::SpamDetection.reporting_user_email).count).to eq(1)
       end
 
       it "creates users for all organizations" do

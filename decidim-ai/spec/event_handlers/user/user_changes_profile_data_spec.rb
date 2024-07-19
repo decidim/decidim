@@ -42,7 +42,7 @@ describe "User changes own data", type: :system do
     }
   end
   let(:organization) { create(:organization) }
-  let!(:system_user) { create(:user, :confirmed, email: Decidim::Ai.reporting_user_email, organization:) }
+  let!(:system_user) { create(:user, :confirmed, email: Decidim::Ai::SpamDetection.reporting_user_email, organization:) }
 
   let(:user) { create(:user, :confirmed, about: "Some description about me, that is not going to be very easily blocked.", organization:) }
   let(:command) { Decidim::UpdateAccount.new(form) }

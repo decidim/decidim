@@ -10,19 +10,11 @@ module Decidim
 
     include ActiveSupport::Configurable
 
-    # This is the email address used by the spam engine to
-    # properly identify the user that will report users and content
-    config_accessor :reporting_user_email do
-      "reporting.user@domain.tld"
-    end
-
     config_accessor :trained_models do
-      @models = Decidim::Ai::SpamDetection.resource_models
 
       ActiveSupport::Deprecation.warn("This should be deprecated")
-      
-      @models["Decidim::UserGroup"] = "Decidim::Ai::SpamDetection::Resource::UserBaseEntity"
-      @models["Decidim::User"] = "Decidim::Ai::SpamDetection::Resource::UserBaseEntity"
+      @models = Decidim::Ai::SpamDetection.resource_models
+      @models.merge(Decidim::Ai::SpamDetection.user_models)
 
       @models
     end
@@ -37,7 +29,7 @@ module Decidim
 
     def self.create_reporting_users!
       Decidim::Organization.find_each do |organization|
-        user = organization.users.find_or_initialize_by(email: Decidim::Ai.reporting_user_email)
+        user = organization.users.find_or_initialize_by(email: Decidim::Ai::SpamDetection.reporting_user_email)
         next if user.persisted?
 
         password = SecureRandom.hex(10)
