@@ -19,24 +19,24 @@ module Decidim
     let(:expected_files) do
       # this are the prefixes for the files that could have user generated content
       %w(
-      decidim-follows-
-      decidim-identities-
-      decidim-messaging-conversations-
-      decidim-notifications-
-      decidim-participatoryspaceprivateusers-
-      decidim-reports-
-      decidim-users-
-      decidim-usergroups-
-      decidim-meetings-registrations-
-      decidim-proposals-proposals-
-      decidim-budgets-orders-
-      decidim-forms-answers-
-      decidim-debates-debates-
-      decidim-conferences-conferenceregistrations-
-      decidim-conferences-conferenceinvites-
-      decidim-comments-comments-
-      decidim-comments-commentvotes-
-    )
+        decidim-follows-
+        decidim-identities-
+        decidim-messaging-conversations-
+        decidim-notifications-
+        decidim-participatoryspaceprivateusers-
+        decidim-reports-
+        decidim-users-
+        decidim-usergroups-
+        decidim-meetings-registrations-
+        decidim-proposals-proposals-
+        decidim-budgets-orders-
+        decidim-forms-answers-
+        decidim-debates-debates-
+        decidim-conferences-conferenceregistrations-
+        decidim-conferences-conferenceinvites-
+        decidim-comments-comments-
+        decidim-comments-commentvotes-
+      )
     end
 
     describe "#export" do
@@ -56,7 +56,7 @@ module Decidim
 
     describe "#data_for_user" do
       it "returns an array of data for the user" do
-        user_data, attachments = subject.send(:data_for_user)
+        user_data, = subject.send(:data_for_user)
 
         file_prefixes = expected_files.dup
         user_data.each do |entity, exporter_data|
@@ -77,7 +77,8 @@ module Decidim
         let!(:comment) { create(:comment, commentable:, author: user) }
 
         it "returns the comment data" do
-          user_data, attachments = subject.send(:data_for_user)
+          user_data, = subject.send(:data_for_user)
+
           user_data.find { |entity, _| entity == "decidim-comments-comments" }.tap do |_, exporter_data|
             csv_comments = exporter_data.read.split("\n")
             expect(csv_comments.count).to eq 2
