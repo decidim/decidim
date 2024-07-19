@@ -56,7 +56,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     user
-    conference { create :conference, organization: user.organization, skip_injection: }
+    conference { create(:conference, organization: user.organization, skip_injection:) }
     role { "admin" }
   end
 
@@ -70,11 +70,11 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create :conference_user_role,
+      create(:conference_user_role,
              user:,
              conference: evaluator.conference,
              role: :admin,
-             skip_injection: evaluator.skip_injection
+             skip_injection: evaluator.skip_injection)
     end
   end
 
@@ -88,11 +88,11 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create :conference_user_role,
+      create(:conference_user_role,
              user:,
              conference: evaluator.conference,
              role: :moderator,
-             skip_injection: evaluator.skip_injection
+             skip_injection: evaluator.skip_injection)
     end
   end
 
@@ -106,11 +106,11 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create :conference_user_role,
+      create(:conference_user_role,
              user:,
              conference: evaluator.conference,
              role: :collaborator,
-             skip_injection: evaluator.skip_injection
+             skip_injection: evaluator.skip_injection)
     end
   end
 
@@ -124,11 +124,11 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create :conference_user_role,
+      create(:conference_user_role,
              user:,
              conference: evaluator.conference,
              role: :valuator,
-             skip_injection: evaluator.skip_injection
+             skip_injection: evaluator.skip_injection)
     end
   end
 

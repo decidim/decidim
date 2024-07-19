@@ -122,23 +122,23 @@ shared_examples "reports by user type" do
     include_examples "higher user role hides"
   end
   context "When reporting user is process admin" do
-    let!(:user) { create :process_admin, :confirmed, participatory_process: }
+    let!(:user) { create(:process_admin, :confirmed, participatory_process:) }
 
     include_examples "higher user role reports"
     include_examples "higher user role hides"
   end
   context "When reporting user is process collaborator" do
-    let!(:user) { create :process_collaborator, :confirmed, participatory_process: }
+    let!(:user) { create(:process_collaborator, :confirmed, participatory_process:) }
     include_examples "higher user role reports"
     include_examples "higher user role does not have hide"
   end
   context "When reporting user is process moderator" do
-    let!(:user) { create :process_moderator, :confirmed, participatory_process: }
+    let!(:user) { create(:process_moderator, :confirmed, participatory_process:) }
     include_examples "higher user role reports"
     include_examples "higher user role hides"
   end
   context "When reporting user is process valuator" do
-    let!(:user) { create :process_valuator, :confirmed, participatory_process: }
+    let!(:user) { create(:process_valuator, :confirmed, participatory_process:) }
     include_examples "higher user role reports"
     include_examples "higher user role does not have hide"
   end
