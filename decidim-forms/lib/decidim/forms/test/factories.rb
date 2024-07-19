@@ -149,8 +149,8 @@ FactoryBot.define do
 
     trait :with_attachments do
       after(:create) do |answer, evaluator|
-        create :attachment, :with_image, attached_to: answer, skip_injection: evaluator.skip_injection
-        create :attachment, :with_pdf, attached_to: answer, skip_injection: evaluator.skip_injection
+        create(:attachment, :with_image, attached_to: answer, skip_injection: evaluator.skip_injection)
+        create(:attachment, :with_pdf, attached_to: answer, skip_injection: evaluator.skip_injection)
       end
     end
   end
