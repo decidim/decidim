@@ -10,7 +10,7 @@ In order to install use this library, you need at least Decidim 0.25 to be insta
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "decidim-tools-ai"
+gem "decidim-ai"
 ```
 
 And then execute:
@@ -28,13 +28,13 @@ After that, add an initializer file inside your project, having the following co
 After the configuration is added, you need to run the below command, so that the reporting user is created.
 
 ```ruby
-bundle exec rake decidim:spam:data:create_reporting_user
+bundle exec rake decidim:ai:create_reporting_user
 ```
 
 If you have an existing installation, you can use the below command to train the engine with your existing data:
 
 ```ruby
-bundle exec rake decidim:spam:train:moderation
+bundle exec rake decidim:ai:load_plugin_dataset
 ```
 
 Add the queue name to `config/sidekiq.yml` file:

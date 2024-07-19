@@ -23,7 +23,7 @@ describe "User updates meeting", type: :system do
     include_examples "initiatives spam analysis" do
       let!(:initiative) do
         create(:initiative,
-               :published,
+               :open,
                organization:,
                author:,
                title: { "en" => "Some proposal that is not blocked" },

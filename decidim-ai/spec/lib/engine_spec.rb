@@ -13,7 +13,7 @@ module Decidim
     end
 
     describe ".language_detection_service" do
-      subject { Decidim::Ai.language_detection_service.constantize.new("This is a test") }
+      subject { Decidim::Ai::LanguageDetection.service.new("This is a test") }
 
       it "returns a language detection service" do
         expect(subject).to be_a(Decidim::Ai::LanguageDetection::Service)
