@@ -11,7 +11,6 @@ module Decidim
     include ActiveSupport::Configurable
 
     config_accessor :trained_models do
-
       ActiveSupport::Deprecation.warn("This should be deprecated")
       @models = Decidim::Ai::SpamDetection.resource_models
       @models.merge(Decidim::Ai::SpamDetection.user_models)

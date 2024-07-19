@@ -24,6 +24,6 @@ describe "User is being blocked by admin", type: :system do
   end
 
   it "enqueues a training job" do
-    expect { subject.call }.to have_enqueued_job(Decidim::Ai::TrainUserDataJob).on_queue("spam_analysis").with(user_to_block)
+    expect { subject.call }.to have_enqueued_job(Decidim::Ai::SpamDetection::TrainUserDataJob).on_queue("spam_analysis").with(user_to_block)
   end
 end
