@@ -49,8 +49,6 @@ module Decidim::ParticipatoryProcesses
         related_process_ids:,
         participatory_process_group:,
         participatory_process_type:,
-        show_statistics: false,
-        show_metrics: false,
         announcement: { en: "message" }
       )
     end
@@ -113,12 +111,6 @@ module Decidim::ParticipatoryProcesses
         subject.call
         expect(process.steps.count).to eq(1)
         expect(process.steps.first).to be_active
-      end
-
-      it "does not enable by default stats and metrics" do
-        subject.call
-        expect(process.show_statistics).to be(false)
-        expect(process.show_metrics).to be(false)
       end
 
       it "adds the admins as followers" do

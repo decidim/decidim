@@ -50,7 +50,6 @@ eu:
         scope_id: Esparrua
         scopes_enabled: Esparru gaituak
         short_description: Deskribapen laburra
-        show_statistics: Erakutsi estatistikak
         slug: URL laburra
         special_features: Ezaugarri bereziak
         subtitle: Azpititulua

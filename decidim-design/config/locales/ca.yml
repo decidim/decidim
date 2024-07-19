@@ -153,7 +153,7 @@ ca:
           typefaces_description_1: Decidim fa servir Source Sants Pro com a tipus de lletra primària. Aquest tipus de lletra disposa de totes les variants de caràcters en 310 llengües
           typefaces_description_2: Aquestes tipografies es troben sota la llicència Open Font
       helpers:
-        accountability:
+        accountability: Seguiment
         accountability_cards_html: Emprat per les targetes de projectes de <i>Rendició de comptes</i>. Aquesta targeta requereix que els actius del mòdul es mostrin correctament, per exemple, <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
         activity: Activitat
         address_description: La cel·la d'adreça rep un recurs i cerca els atributs geolocalitzables per representar un marcatge específic.
@@ -179,7 +179,7 @@ ca:
         card_s: Targeta S
         collaborative_draft_l: Esborrany col·laboratiu L
         colors: Colors
-        compact:
+        compact: Compacte
         compact_description: Aquesta versió de l'autoria és la forma més comuna d'identificar a la creadora del recurs.
         conference_g: Jornada G
         conference_s: Jornada S
@@ -294,7 +294,7 @@ ca:
         usage_typography_2: Text en línia
         usage_typography_3: Text sobre fons fosc
         usage_typography_4: Enllaços i botons
-        value:
+        value: Valor
         variations: Variacions
         variations_cards_description: Cada targeta es veurà diferent d'acord amb les propietats del recurs que es mostri. Pot anul·lar aquest comportament a la cel·la específica.
         variations_description: Hi ha tres versions diferents d'aquesta cel·la. Cadascuna encaixa millor en el context en què es mostra.

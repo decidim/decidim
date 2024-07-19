@@ -48,7 +48,6 @@ sv:
         scope_id: Omfång
         scopes_enabled: Omfång är aktiverade
         short_description: Kort beskrivning
-        show_statistics: Visa statistik
         slug: URL-slug
         special_features: Specialfunktioner
         subtitle: Underrubrik

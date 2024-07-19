@@ -42,7 +42,6 @@ module Decidim
         end
         let(:slug) { "slug" }
         let(:attachment) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
-        let(:show_statistics) { true }
         let(:private_space) { true }
         let(:purpose_of_action) do
           {
@@ -124,7 +123,6 @@ module Decidim
               "hero_image" => attachment,
               "banner_image" => attachment,
               "slug" => slug,
-              "show_statistics" => show_statistics,
               "private_space" => private_space,
               "purpose_of_action_en" => purpose_of_action[:en],
               "purpose_of_action_es" => purpose_of_action[:es],
@@ -306,7 +304,6 @@ module Decidim
                 scope: assembly.scope,
                 area: assembly.area,
                 errors: assembly.errors,
-                show_statistics: assembly.show_statistics,
                 participatory_processes_ids: nil,
                 purpose_of_action: assembly.purpose_of_action,
                 composition: assembly.composition,
@@ -337,7 +334,6 @@ module Decidim
           it { is_expected.not_to be_valid }
         end
 
-        # rubocop:disable RSpec/MultipleMemoizedHelpers
         context "when the parent is also a grandchild" do
           let(:assembly) { create(:assembly, organization:) }
           let(:attributes) do
@@ -367,7 +363,6 @@ module Decidim
                 scope: assembly.scope,
                 area: assembly.area,
                 errors: assembly.errors,
-                show_statistics: assembly.show_statistics,
                 participatory_processes_ids: nil,
                 purpose_of_action: assembly.purpose_of_action,
                 composition: assembly.composition,
@@ -398,7 +393,6 @@ module Decidim
 
           it { is_expected.not_to be_valid }
         end
-        # rubocop:enable RSpec/MultipleMemoizedHelpers
       end
     end
   end

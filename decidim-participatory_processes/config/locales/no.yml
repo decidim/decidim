@@ -33,8 +33,6 @@
         scope_type_max_depth_id: Temafilter
         scopes_enabled: Temaer aktivert
         short_description: Kort beskrivelse
-        show_metrics: Vis statistikk
-        show_statistics: Vis statistikk
         slug: URL navn
         start_date: Startdato
         subtitle: Undertittel

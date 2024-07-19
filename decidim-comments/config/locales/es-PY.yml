@@ -74,7 +74,7 @@ es-PY:
         edit: Editar
         edited: Editado
         hide_replies:
-          one: Ocultar la respuesta
+          one: Ocultar respuesta
           other: Ocultar %{count} respuestas
         moderated_at: Comentario moderado el %{date}
         reply: Respuesta

@@ -33,8 +33,6 @@ ca:
         scope_type_max_depth_id: Profunditat del filtre d'àmbit
         scopes_enabled: Àmbits habilitats
         short_description: Breu descripció
-        show_metrics: Mostrar mètriques
-        show_statistics: Mostra estadístiques
         slug: Nom curt d'URL
         start_date: Data d'inici
         subtitle: Subtítol

@@ -50,7 +50,6 @@ hu:
         scope_id: Hatáskör
         scopes_enabled: Hatáskörök engedélyezve
         short_description: Rövid leírás
-        show_statistics: Statisztikák megjelenítése
         slug: URL slug
         special_features: Speciális funkciók
         subtitle: Felirat

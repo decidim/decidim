@@ -43,7 +43,6 @@ it:
         scope_id: Obiettivi
         scopes_enabled: Ambiti abilitati
         short_description: Breve descrizione
-        show_statistics: Mostra statistiche
         slug: URL slug
         special_features: Caratteristiche speciali
         subtitle: Sottotitolo

@@ -33,8 +33,6 @@ hu:
         scope_type_max_depth_id: Scope szűrő mélysége
         scopes_enabled: Hatáskörök engedélyezve
         short_description: Rövid leírás
-        show_metrics: Mutatók megjelenítése
-        show_statistics: Statisztikák megjelenítése
         slug: URL slug
         start_date: Kezdő dátum
         subtitle: Felirat

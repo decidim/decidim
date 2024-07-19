@@ -49,7 +49,7 @@ describe "Organizations" do
         fill_in "Organization admin email", with: "mayor@example.org"
         check "organization_available_locales_en"
         choose "organization_default_locale_en"
-        choose "Allow participants to register and log in"
+        choose "Allow participants to create an account and log in"
         check "Example authorization (Direct)"
         click_on "Create organization & invite admin"
 
@@ -176,7 +176,7 @@ describe "Organizations" do
         fill_in_i18n :update_organization_name, "#update_organization-name-tabs", en: "Citizens Rule!"
         fill_in "Host", with: "www.example.org"
         fill_in "Secondary hosts", with: "foobar.example.org\n\rbar.example.org"
-        choose "Do not allow participants to register, but allow existing participants to log in"
+        choose "Do not allow participants to create an account, but allow existing participants to log in"
         check "Example authorization (Direct)"
 
         click_on "Show advanced settings"

@@ -139,7 +139,7 @@ shared_examples "update an initiative" do
       end
 
       describe "when not in created state" do
-        let!(:initiative) { create(:initiative, :published, signature_type: "online") }
+        let!(:initiative) { create(:initiative, signature_type: "online") }
 
         before { form.signature_type = "offline" }
 
