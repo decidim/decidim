@@ -8,8 +8,6 @@ module Decidim
   #
   # In fact, the 7z file wraps a ZIP file which finally contains the data files.
   class DownloadYourDataExporter
-    include ::Decidim::ZipStream::Writer
-
     DEFAULT_EXPORT_FORMAT = "CSV"
     ZIP_FILE_NAME = "download-your-data.zip"
 
