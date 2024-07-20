@@ -4,11 +4,11 @@ require "spec_helper"
 
 describe Decidim::Ai::SpamDetection::Importer::Database do
   around do |example|
-    resources = Decidim::Ai.trained_models
+    resources = Decidim::Ai::SpamDetection.resource_models
 
     example.run
 
-    Decidim::Ai.trained_models = resources
+    Decidim::Ai::SpamDetection.resource_models = resources
   end
 
   shared_examples "resource is being indexed" do
@@ -33,7 +33,7 @@ describe Decidim::Ai::SpamDetection::Importer::Database do
     let(:training) { 8 }
 
     before do
-      Decidim::Ai.trained_models = { "Decidim::Initiative" => "Decidim::Ai::SpamDetection::Resource::Initiative" }
+      Decidim::Ai::SpamDetection.resource_models = { "Decidim::Initiative" => "Decidim::Ai::SpamDetection::Resource::Initiative" }
     end
 
     it "successfully loads the dataset" do
@@ -53,7 +53,7 @@ describe Decidim::Ai::SpamDetection::Importer::Database do
     let(:training) { 4 }
 
     before do
-      Decidim::Ai.trained_models = { "Decidim::Comments::Comment" => "Decidim::Ai::SpamDetection::Resource::Comment" }
+      Decidim::Ai::SpamDetection.resource_models = { "Decidim::Comments::Comment" => "Decidim::Ai::SpamDetection::Resource::Comment" }
     end
 
     include_examples "resource is being indexed"
@@ -70,7 +70,7 @@ describe Decidim::Ai::SpamDetection::Importer::Database do
     end
 
     before do
-      Decidim::Ai.trained_models = { "Decidim::Meetings::Meeting" => "Decidim::Ai::SpamDetection::Resource::Meeting" }
+      Decidim::Ai::SpamDetection.resource_models = { "Decidim::Meetings::Meeting" => "Decidim::Ai::SpamDetection::Resource::Meeting" }
     end
 
     include_examples "resource is being indexed"
@@ -90,7 +90,7 @@ describe Decidim::Ai::SpamDetection::Importer::Database do
     end
 
     before do
-      Decidim::Ai.trained_models = { "Decidim::Proposals::Proposal" => "Decidim::Ai::SpamDetection::Resource::Proposal" }
+      Decidim::Ai::SpamDetection.resource_models = { "Decidim::Proposals::Proposal" => "Decidim::Ai::SpamDetection::Resource::Proposal" }
     end
 
     include_examples "resource is being indexed"
@@ -109,7 +109,7 @@ describe Decidim::Ai::SpamDetection::Importer::Database do
     end
 
     before do
-      Decidim::Ai.trained_models = { "Decidim::Proposals::CollaborativeDraft" => "Decidim::Ai::SpamDetection::Resource::CollaborativeDraft" }
+      Decidim::Ai::SpamDetection.resource_models = { "Decidim::Proposals::CollaborativeDraft" => "Decidim::Ai::SpamDetection::Resource::CollaborativeDraft" }
     end
 
     include_examples "resource is being indexed"
@@ -127,7 +127,7 @@ describe Decidim::Ai::SpamDetection::Importer::Database do
     end
 
     before do
-      Decidim::Ai.trained_models = { "Decidim::Debates::Debate" => "Decidim::Ai::SpamDetection::Resource::Debate" }
+      Decidim::Ai::SpamDetection.resource_models = { "Decidim::Debates::Debate" => "Decidim::Ai::SpamDetection::Resource::Debate" }
     end
 
     include_examples "resource is being indexed"
@@ -140,7 +140,7 @@ describe Decidim::Ai::SpamDetection::Importer::Database do
     let!(:user) { create_list(:user, tested, organization:, about: "Something about me") }
 
     before do
-      Decidim::Ai.trained_models = { "Decidim::User" => "Decidim::Ai::SpamDetection::Resource::UserBaseEntity" }
+      Decidim::Ai::SpamDetection.user_models = { "Decidim::User" => "Decidim::Ai::SpamDetection::Resource::UserBaseEntity" }
     end
 
     include_examples "resource is being indexed"
@@ -153,7 +153,7 @@ describe Decidim::Ai::SpamDetection::Importer::Database do
     let!(:user) { create_list(:user_group, tested, organization:) }
 
     before do
-      Decidim::Ai.trained_models = { "Decidim::UserGroup" => "Decidim::Ai::SpamDetection::Resource::UserBaseEntity" }
+      Decidim::Ai::SpamDetection.user_models = { "Decidim::UserGroup" => "Decidim::Ai::SpamDetection::Resource::UserBaseEntity" }
     end
 
     include_examples "resource is being indexed"

@@ -8,7 +8,7 @@ module Decidim
           def self.call
             service = Decidim::Ai.spam_detection_instance
 
-            Decidim::Ai.trained_models.values.each do |model|
+            Decidim::Ai::SpamDetection.resource_models.values.each do |model|
               model.constantize.new(service).batch_train
             end
           end
