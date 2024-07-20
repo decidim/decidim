@@ -8,7 +8,11 @@
   }
 
   td {
-    @apply align-top;
+    @apply align-middle;
+
+    &.js-drag-handle:has(+ td .js-sortable) {
+      @apply align-top;
+    }
   }
 }
 
@@ -19,11 +23,22 @@ ul.taxonomy {
     @apply flex-none text-center w-20 pt-2 pb-2;
 
     &:first-child {
-      @apply flex-initial w-full text-left;
+      @apply flex-initial text-left flex-grow;
     }
 
+    &:nth-child(2),
     &:last-child {
-      @apply text-left;
+      @apply w-36;
+    }
+  }
+
+  .table-list__actions {
+    svg {
+      @apply w-6 h-6;
+    }
+
+    span {
+      @apply mr-4;
     }
   }
 }

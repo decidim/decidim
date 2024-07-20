@@ -1,7 +1,7 @@
 <tr class="draggable-taxonomy" data-taxonomy-id="<%= taxonomy.id %>" role="row">
   <td role="cell" class="w-12 js-drag-handle"><%== icon("draggable", class: "dragger") %></td>
   <td role="cell">
-    <ul class="taxonomy">
+    <ul class="taxonomy table-list__actions">
       <li><%= translated_attribute(taxonomy.name) %></li>
       <li><%= taxonomy.children.count %></li>
       <li><%= render "taxonomy_actions", taxonomy: %></li>

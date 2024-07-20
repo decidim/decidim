@@ -1024,6 +1024,7 @@ en:
       taxonomies:
         actions: Actions
         amount: Amount
+        count: Count
         create:
           invalid: There was a problem creating this taxonomy.
           success: Taxonomy created successfully.
@@ -1031,13 +1032,14 @@ en:
           invalid: There was a problem destroying this taxonomy.
           success: Taxonomy successfully destroyed.
         edit:
+          back: Back
           description: These items in this taxonomy will be used to classify or filter resources, such as participatory processes or assemblies. Use drag and drop to reorder the list.
           new_element: New element
           no_elements: There are currently no items in this taxonomy. Create a list of items here to classify or filter resources, such as participatory spaces or components. Items can be nested up to three levels.
-          title: Taxonomy tree for "%{taxonomy_name}"
+          title: Items in "%{taxonomy_name}"
           update: Update
         filters:
-          search_placeholder: Search taxonomies
+          search_placeholder: Search
         index:
           description: A taxonomy allows admins categorizing and organizing content. For example, add a taxonomy to classify processes by geographical scope.
           new_taxonomy: New taxonomy
