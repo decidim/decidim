@@ -4,8 +4,16 @@ require "spec_helper"
 
 module Decidim
   module Ai
-    describe ".spam_detection_service" do
-      subject { Decidim::Ai.spam_detection_instance }
+    describe ".resource_classifier" do
+      subject { Decidim::Ai::SpamDetection.resource_classifier }
+
+      it "returns a spam detection service" do
+        expect(subject).to be_a(Decidim::Ai::SpamDetection::Service)
+      end
+    end
+
+    describe ".user_classifier" do
+      subject { Decidim::Ai::SpamDetection.user_classifier }
 
       it "returns a spam detection service" do
         expect(subject).to be_a(Decidim::Ai::SpamDetection::Service)
@@ -24,9 +32,15 @@ module Decidim
       end
     end
 
-    describe ".spam_detection_strategy" do
+    describe ".resource_registry" do
       it "return strategy class" do
-        expect(Decidim::Ai.spam_detection_registry).to be_a(Decidim::Ai::StrategyRegistry)
+        expect(Decidim::Ai::SpamDetection.resource_registry).to be_a(Decidim::Ai::StrategyRegistry)
+      end
+    end
+
+    describe ".user_registry" do
+      it "return strategy class" do
+        expect(Decidim::Ai::SpamDetection.user_registry).to be_a(Decidim::Ai::StrategyRegistry)
       end
     end
 

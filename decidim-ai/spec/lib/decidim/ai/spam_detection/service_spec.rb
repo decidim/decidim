@@ -3,9 +3,9 @@
 require "spec_helper"
 
 describe Decidim::Ai::SpamDetection::Service do
-  subject { described_class.new }
+  subject { described_class.new(registry:) }
 
-  let(:registry) { Decidim::Ai.spam_detection_registry }
+  let(:registry) { Decidim::Ai::SpamDetection.resource_registry }
   let(:base_strategy) { { name: :base, strategy: Decidim::Ai::SpamDetection::Strategy::Base } }
   let(:dummy_strategy) { { name: :dummy, strategy: Decidim::Ai::SpamDetection::Strategy::Base } }
 

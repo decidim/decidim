@@ -9,7 +9,7 @@ module Decidim
         protected
 
         def classifier
-          @classifier ||= Decidim::Ai.spam_detection_instance
+          @classifier ||= Decidim::Ai::SpamDetection.resource_classifier
         end
       end
     end

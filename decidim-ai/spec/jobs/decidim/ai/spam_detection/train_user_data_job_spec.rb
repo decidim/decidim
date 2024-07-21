@@ -17,10 +17,10 @@ module Decidim
         let(:algorithm) { Decidim::Ai::SpamDetection::Strategy::Bayes.new({}) }
 
         before do
-          Decidim::Ai.spam_detection_registry.clear
+          Decidim::Ai::SpamDetection.user_registry.clear
           allow(algorithm).to receive(:backend).and_return(bayes_classifier)
-          allow(Decidim::Ai.spam_detection_registry).to receive(:strategies).and_return([algorithm])
-          Decidim::Ai.spam_detection_instance.train(:ham, about)
+          allow(Decidim::Ai::SpamDetection.user_registry).to receive(:strategies).and_return([algorithm])
+          Decidim::Ai::SpamDetection.user_classifier.train(:ham, about)
         end
 
         it "adds data to spam" do

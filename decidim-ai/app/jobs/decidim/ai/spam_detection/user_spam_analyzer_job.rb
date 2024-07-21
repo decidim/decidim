@@ -13,6 +13,12 @@ module Decidim
 
           Decidim::CreateUserReport.call(form, reportable)
         end
+
+        protected
+
+        def classifier
+          @classifier ||= Decidim::Ai::SpamDetection.user_classifier
+        end
       end
     end
   end

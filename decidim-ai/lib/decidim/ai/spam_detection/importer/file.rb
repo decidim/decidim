@@ -5,9 +5,7 @@ module Decidim
     module SpamDetection
       module Importer
         class File
-          def self.call(file)
-            service = Decidim::Ai.spam_detection_instance
-
+          def self.call(file, service)
             ext = ::File.extname(file)[1..-1]
             reader_class = Decidim::Admin::Import::Readers.search_by_file_extension(ext)
 

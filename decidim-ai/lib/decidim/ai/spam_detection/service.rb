@@ -4,8 +4,8 @@ module Decidim
   module Ai
     module SpamDetection
       class Service
-        def initialize
-          @registry = Decidim::Ai.spam_detection_registry
+        def initialize(registry:)
+          @registry = registry
         end
 
         def reset

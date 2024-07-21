@@ -6,10 +6,8 @@ module Decidim
       module Importer
         class Database
           def self.call
-            service = Decidim::Ai.spam_detection_instance
-
             Decidim::Ai::SpamDetection.resource_models.values.each do |model|
-              model.constantize.new(service).batch_train
+              model.constantize.new.batch_train
             end
           end
         end

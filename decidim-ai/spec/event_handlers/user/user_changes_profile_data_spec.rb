@@ -52,17 +52,17 @@ describe "User changes own data", type: :system do
   end
 
   before do
-    Decidim::Ai.spam_detection_registry.clear
-    Decidim::Ai.spam_detection_registry.register_analyzer(name: :bayes,
-                                                          strategy: Decidim::Ai::SpamDetection::Strategy::Bayes,
-                                                          options: { adapter: :memory, params: {} })
+    Decidim::Ai::SpamDetection.user_registry.clear
+    Decidim::Ai::SpamDetection.user_registry.register_analyzer(name: :bayes,
+                                                               strategy: Decidim::Ai::SpamDetection::Strategy::Bayes,
+                                                               options: { adapter: :memory, params: {} })
 
-    Decidim::Ai.spam_detection_instance.train :ham, "I am a passionate Decidim Maintainer. It is nice to be here."
-    Decidim::Ai.spam_detection_instance.train :ham, "Yet I do not have an idea about what I am doing here."
-    Decidim::Ai.spam_detection_instance.train :ham, "Maybe You would understand better, and you would not get blocked as i did."
-    Decidim::Ai.spam_detection_instance.train :ham, "Just kidding, I needed some Ham to make an omelette."
+    Decidim::Ai::SpamDetection.user_classifier.train :ham, "I am a passionate Decidim Maintainer. It is nice to be here."
+    Decidim::Ai::SpamDetection.user_classifier.train :ham, "Yet I do not have an idea about what I am doing here."
+    Decidim::Ai::SpamDetection.user_classifier.train :ham, "Maybe You would understand better, and you would not get blocked as i did."
+    Decidim::Ai::SpamDetection.user_classifier.train :ham, "Just kidding, I needed some Ham to make an omelette."
 
-    Decidim::Ai.spam_detection_instance.train :spam, "You are the lucky winner! Claim your holiday prize."
+    Decidim::Ai::SpamDetection.user_classifier.train :spam, "You are the lucky winner! Claim your holiday prize."
   end
 
   context "when spam content is added" do

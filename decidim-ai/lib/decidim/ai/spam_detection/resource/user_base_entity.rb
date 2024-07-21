@@ -12,6 +12,10 @@ module Decidim
           def query = Decidim::UserBaseEntity
 
           def resource_hidden?(resource) = resource.class.included_modules.include?(Decidim::UserReportable) && resource.blocked?
+
+          def classifier
+            @classifier ||= Decidim::Ai::SpamDetection.user_classifier
+          end
         end
       end
     end

@@ -7,8 +7,16 @@ module Decidim
 
       paths["db/migrate"] = nil
 
-      initializer "decidim_ai.classifiers" do |_app|
-        Decidim::Ai.spam_detection_registry.register_analyzer(**Decidim::Ai::SpamDetection.resource_analyzer)
+      initializer "decidim_ai.resource_classifiers" do |_app|
+        Decidim::Ai::SpamDetection.resource_analyzers.each do |analyzer|
+          Decidim::Ai::SpamDetection.resource_registry.register_analyzer(**analyzer)
+        end
+      end
+
+      initializer "decidim_ai.user_classifiers" do |_app|
+        Decidim::Ai::SpamDetection.user_analyzers.each do |analyzer|
+          Decidim::Ai::SpamDetection.user_registry.register_analyzer(**analyzer)
+        end
       end
 
       initializer "decidim_ai.events.hide_resource" do

@@ -9,17 +9,17 @@ shared_examples "content submitted to spam analysis" do
   let(:queue_size) { 1 }
 
   before do
-    Decidim::Ai.spam_detection_registry.clear
-    Decidim::Ai.spam_detection_registry.register_analyzer(name: :bayes,
-                                                          strategy: Decidim::Ai::SpamDetection::Strategy::Bayes,
-                                                          options: { adapter: :memory, params: {} })
+    Decidim::Ai::SpamDetection.resource_registry.clear
+    Decidim::Ai::SpamDetection.resource_registry.register_analyzer(name: :bayes,
+                                                                   strategy: Decidim::Ai::SpamDetection::Strategy::Bayes,
+                                                                   options: { adapter: :memory, params: {} })
 
-    Decidim::Ai.spam_detection_instance.train :ham, "I am a passionate Decidim Maintainer. It is nice to be here."
-    Decidim::Ai.spam_detection_instance.train :ham, "Yet I do not have an idea about what I am doing here."
-    Decidim::Ai.spam_detection_instance.train :ham, "Maybe You would understand better, and you would not get blocked as i did."
-    Decidim::Ai.spam_detection_instance.train :ham, "Just kidding, I needed some Ham to make an omelette."
+    Decidim::Ai::SpamDetection.resource_classifier.train :ham, "I am a passionate Decidim Maintainer. It is nice to be here."
+    Decidim::Ai::SpamDetection.resource_classifier.train :ham, "Yet I do not have an idea about what I am doing here."
+    Decidim::Ai::SpamDetection.resource_classifier.train :ham, "Maybe You would understand better, and you would not get blocked as i did."
+    Decidim::Ai::SpamDetection.resource_classifier.train :ham, "Just kidding, I needed some Ham to make an omelette."
 
-    Decidim::Ai.spam_detection_instance.train :spam, "You are the lucky winner! Claim your holiday prize."
+    Decidim::Ai::SpamDetection.resource_classifier.train :spam, "You are the lucky winner! Claim your holiday prize."
   end
 
   it "updates the about text" do

@@ -15,6 +15,12 @@ module Decidim
             classifier.train :ham, user.about
           end
         end
+
+        protected
+
+        def classifier
+          @classifier ||= Decidim::Ai::SpamDetection.user_classifier
+        end
       end
     end
   end

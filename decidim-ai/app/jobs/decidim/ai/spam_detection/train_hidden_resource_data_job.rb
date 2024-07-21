@@ -11,7 +11,7 @@ module Decidim
 
           resource.reload
 
-          wrapped = Decidim::Ai::SpamDetection.resource_models[resource.class.name].constantize.new(classifier)
+          wrapped = Decidim::Ai::SpamDetection.resource_models[resource.class.name].constantize.new
 
           if resource.hidden?
             wrapped.fields.each do |field|
