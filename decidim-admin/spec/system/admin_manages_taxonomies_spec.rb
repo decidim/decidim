@@ -59,14 +59,13 @@ describe "Admin manages taxonomies" do
     before do
       visit decidim_admin.taxonomies_path
       click_edit_taxonomy
-      click_on "New element"
+      click_on "New item"
       fill_in_i18n(
         :taxonomy_element_name,
         "#taxonomy-element_name-tabs",
         en: "New Taxonomy Element"
       )
-      select translated(taxonomy.name), from: "taxonomy_parent_id"
-      click_on "Create element"
+      click_on "Create item"
     end
 
     it "creates a new taxonomy element" do
@@ -80,14 +79,13 @@ describe "Admin manages taxonomies" do
     before do
       visit decidim_admin.taxonomies_path
       click_edit_taxonomy
-      click_on "New element"
+      click_on "New item"
       fill_in_i18n(
         :taxonomy_element_name,
         "#taxonomy-element_name-tabs",
         en: ""
       )
-      select translated(taxonomy.name), from: "taxonomy_parent_id"
-      click_on "Create element"
+      click_on "Create item"
     end
 
     it "displays an error message" do
@@ -103,14 +101,14 @@ describe "Admin manages taxonomies" do
     before do
       visit decidim_admin.taxonomies_path
       click_edit_taxonomy
-      click_on "New element"
+      click_on "New item"
       fill_in_i18n(
         :taxonomy_element_name,
         "#taxonomy-element_name-tabs",
         en: "New Child Element"
       )
       select translated(parent_taxonomy.name), from: "taxonomy_parent_id"
-      click_on "Create element"
+      click_on "Create item"
     end
 
     it "creates a new taxonomy element" do

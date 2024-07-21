@@ -1034,7 +1034,7 @@ en:
         edit:
           back: Back
           description: These items in this taxonomy will be used to classify or filter resources, such as participatory processes or assemblies. Use drag and drop to reorder the list.
-          new_element: New element
+          new_element: New item
           no_elements: There are currently no items in this taxonomy. Create a list of items here to classify or filter resources, such as participatory spaces or components. Items can be nested up to three levels.
           title: Items in "%{taxonomy_name}"
           update: Update
@@ -1061,7 +1061,6 @@ en:
         new:
           create: Create item
           none: None
-          select_parent: Select parent
           title: New item in %{taxonomy}
       titles:
         admin_log: Admin log
