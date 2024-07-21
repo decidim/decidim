@@ -28,40 +28,18 @@ module Decidim
         autoload :Bayes, "decidim/ai/spam_detection/strategy/bayes"
       end
 
+      # This is the email address used by the spam engine to
+      # properly identify the user that will report users and content
+      config_accessor :reporting_user_email do
+        "reporting.user@domain.tld"
+      end
+
       # You can configure the spam threshold for the spam detection service.
       # The threshold is a float value between 0 and 1.
       # The default value is 0.75
       # Any value below the threshold will be considered spam.
       config_accessor :resource_score_threshold do
         0.75
-      end
-
-      # You can configure the spam threshold for the spam detection service.
-      # The threshold is a float value between 0 and 1.
-      # The default value is 0.75
-      # Any value below the threshold will be considered spam.
-      config_accessor :user_score_threshold do
-        0.75
-      end
-
-      def self.resource_registry
-        @resource_registry ||= Decidim::Ai::StrategyRegistry.new
-      end
-
-      def self.resource_classifier
-        @resource_classifier = Decidim::Ai::SpamDetection.detection_service.new(
-          registry: Decidim::Ai::SpamDetection.resource_registry
-        )
-      end
-
-      def self.user_classifier
-        @user_classifier = Decidim::Ai::SpamDetection.detection_service.new(
-          registry: Decidim::Ai::SpamDetection.user_registry
-        )
-      end
-
-      def self.user_registry
-        @user_registry ||= Decidim::Ai::StrategyRegistry.new
       end
 
       # Registered analyzers.
@@ -99,6 +77,59 @@ module Decidim
         ]
       end
 
+      # This config_accessor allows the implementers to change the class being used by the classifier,
+      # in order to change the finder method. or even define own resource visibility criteria.
+      # This is the place where new resources can be registered following the pattern
+      # Resource => Handler
+      config_accessor :resource_models do
+        @models ||= begin
+          models = {}
+          models["Decidim::Comments::Comment"] = "Decidim::Ai::SpamDetection::Resource::Comment" if Decidim.module_installed?("comments")
+          models["Decidim::Debates::Debate"] = "Decidim::Ai::SpamDetection::Resource::Debate" if Decidim.module_installed?("debates")
+          models["Decidim::Initiative"] = "Decidim::Ai::SpamDetection::Resource::Initiative" if Decidim.module_installed?("initiatives")
+          models["Decidim::Meetings::Meeting"] = "Decidim::Ai::SpamDetection::Resource::Meeting" if Decidim.module_installed?("meetings")
+          models["Decidim::Proposals::Proposal"] = "Decidim::Ai::SpamDetection::Resource::Proposal" if Decidim.module_installed?("proposals")
+          models["Decidim::Proposals::CollaborativeDraft"] = "Decidim::Ai::SpamDetection::Resource::CollaborativeDraft" if Decidim.module_installed?("proposals")
+          models
+        end
+      end
+
+      # Spam detection service class.
+      # If you want to use a different spam detection service, you can use a class service having the following contract
+      #
+      # class SpamDetection::Service
+      #   def initialize
+      #     @registry = Decidim::Ai.spam_detection_registry
+      #   end
+      #
+      #   def train(category, text)
+      #     # train the strategy
+      #   end
+      #
+      #   def classify(text)
+      #     # classify the text
+      #   end
+      #
+      #   def untrain(category, text)
+      #     # untrain the strategy
+      #   end
+      #
+      #   def classification_log
+      #     # return the classification log
+      #   end
+      # end
+      config_accessor :resource_detection_service do
+        Decidim::Ai::SpamDetection::Service
+      end
+
+      # You can configure the spam threshold for the spam detection service.
+      # The threshold is a float value between 0 and 1.
+      # The default value is 0.75
+      # Any value below the threshold will be considered spam.
+      config_accessor :user_score_threshold do
+        0.75
+      end
+
       # Registered analyzers.
       # You can register your own analyzer by adding a new entry to this array.
       # The entry must be a hash with the following keys:
@@ -134,6 +165,19 @@ module Decidim
         ]
       end
 
+      # This config_accessor allows the implementers to change the class being used by the classifier,
+      # in order to change the finder method or what a hidden user really is.
+      # The same applies for UserGroups.
+      config_accessor :user_models do
+        @user_models ||= begin
+          user_models = {}
+
+          user_models["Decidim::UserGroup"] = "Decidim::Ai::SpamDetection::Resource::UserBaseEntity"
+          user_models["Decidim::User"] = "Decidim::Ai::SpamDetection::Resource::UserBaseEntity"
+          user_models
+        end
+      end
+
       # Spam detection service class.
       # If you want to use a different spam detection service, you can use a class service having the following contract
       #
@@ -158,39 +202,40 @@ module Decidim
       #     # return the classification log
       #   end
       # end
-      config_accessor :detection_service do
+      config_accessor :user_detection_service do
         Decidim::Ai::SpamDetection::Service
       end
 
-      config_accessor :resource_models do
-        @models ||= begin
-          models = {}
-          models["Decidim::Comments::Comment"] = "Decidim::Ai::SpamDetection::Resource::Comment" if Decidim.module_installed?("comments")
-          models["Decidim::Debates::Debate"] = "Decidim::Ai::SpamDetection::Resource::Debate" if Decidim.module_installed?("debates")
-          models["Decidim::Initiative"] = "Decidim::Ai::SpamDetection::Resource::Initiative" if Decidim.module_installed?("initiatives")
-          models["Decidim::Meetings::Meeting"] = "Decidim::Ai::SpamDetection::Resource::Meeting" if Decidim.module_installed?("meetings")
-          models["Decidim::Proposals::Proposal"] = "Decidim::Ai::SpamDetection::Resource::Proposal" if Decidim.module_installed?("proposals")
-          models["Decidim::Proposals::CollaborativeDraft"] = "Decidim::Ai::SpamDetection::Resource::CollaborativeDraft" if Decidim.module_installed?("proposals")
-          models
-        end
+      # this is the generic resource classifier class. If you need to change your own class, please change the
+      # configuration of `Decidim::Ai::SpamDetection.detection_service` variable.
+      def self.resource_classifier
+        @resource_classifier = Decidim::Ai::SpamDetection.resource_detection_service.new(
+          registry: Decidim::Ai::SpamDetection.resource_registry
+        )
       end
 
-      config_accessor :user_models do
-        @user_models ||= begin
-          user_models = {}
-
-          user_models["Decidim::UserGroup"] = "Decidim::Ai::SpamDetection::Resource::UserBaseEntity"
-          user_models["Decidim::User"] = "Decidim::Ai::SpamDetection::Resource::UserBaseEntity"
-          user_models
-        end
+      # The registry instance that stores the list of strategies needed to process the resources
+      # In essence is an enumerator class that responds to `register_analyzer(**params)` and `for(name)` methods
+      def self.resource_registry
+        @resource_registry ||= Decidim::Ai::StrategyRegistry.new
       end
 
-      # This is the email address used by the spam engine to
-      # properly identify the user that will report users and content
-      config_accessor :reporting_user_email do
-        "reporting.user@domain.tld"
+      # this is the generic user classifier class. If you need to change your own class, please change the
+      # configuration of `Decidim::Ai::SpamDetection.detection_service` variable
+      def self.user_classifier
+        @user_classifier = Decidim::Ai::SpamDetection.user_detection_service.new(
+          registry: Decidim::Ai::SpamDetection.user_registry
+        )
       end
 
+      # The registry instance that stores the list of strategies needed to process the user objects
+      # In essence is an enumerator class that responds to `register_analyzer(**params)` and `for(name)` methods
+      def self.user_registry
+        @user_registry ||= Decidim::Ai::StrategyRegistry.new
+      end
+
+      # This method is being called to ensure that user with email configured in
+      # `Decidim::Ai::SpamDetection.reporting_user_email` variable exists in the database.
       def self.create_reporting_user!
         Decidim::Organization.find_each do |organization|
           user = organization.users.find_or_initialize_by(email: Decidim::Ai::SpamDetection.reporting_user_email)
