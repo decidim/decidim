@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Ai::LanguageDetection::Service do
+describe Decidim::Ai::Language::Detection do
   subject { described_class.new(text) }
 
   shared_examples "properly detects language" do |text, language|

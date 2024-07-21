@@ -4,8 +4,8 @@ require "cld"
 
 module Decidim
   module Ai
-    module LanguageDetection
-      class Service
+    module Language
+      class Detection
         def initialize(text)
           @text = text
         end

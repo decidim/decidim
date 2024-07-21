@@ -2,8 +2,8 @@
 
 module Decidim
   module Ai
-    module LanguageDetection
-      autoload :Service, "decidim/ai/language_detection/service"
+    module Language
+      autoload :Detection, "decidim/ai/language/detection"
       include ActiveSupport::Configurable
 
       # Language detection service class.
@@ -20,7 +20,7 @@ module Decidim
       #   end
       # end
       config_accessor :service do
-        Decidim::Ai::LanguageDetection::Service
+        Decidim::Ai::Language::Detection
       end
     end
   end

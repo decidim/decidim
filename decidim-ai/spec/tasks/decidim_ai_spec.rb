@@ -17,7 +17,7 @@ describe "Executing Decidim Ai tasks" do
     context "when executing task" do
       it "successfully loads the dataset" do
         instance = Decidim::Ai::SpamDetection::Service.new(registry: Decidim::Ai::SpamDetection.resource_registry)
-        allow(Decidim::Ai).to receive(:spam_detection_instance).and_return(instance)
+        allow(Decidim::Ai::SpamDetection).to receive(:resource_classifier).and_return(instance)
         expect(instance).to receive(:train).at_least(10).times
 
         Rake::Task[:"decidim:ai:load_plugin_dataset"].invoke
@@ -29,7 +29,7 @@ describe "Executing Decidim Ai tasks" do
     context "when executing task" do
       it "successfully loads the dataset" do
         instance = Decidim::Ai::SpamDetection::Service.new(registry: Decidim::Ai::SpamDetection.resource_registry)
-        allow(Decidim::Ai).to receive(:spam_detection_instance).and_return(instance)
+        allow(Decidim::Ai::SpamDetection).to receive(:resource_classifier).and_return(instance)
         expect(instance).to receive(:train).exactly(4).times
 
         Rake::Task[:"decidim:ai:load_application_dataset"].invoke("spec/support/test.csv")
@@ -41,7 +41,7 @@ describe "Executing Decidim Ai tasks" do
     context "when executing task" do
       it "calls reset on the spam detection instance" do
         instance = Decidim::Ai::SpamDetection::Service.new(registry: Decidim::Ai::SpamDetection.resource_registry)
-        allow(Decidim::Ai).to receive(:spam_detection_instance).and_return(instance)
+        allow(Decidim::Ai::SpamDetection).to receive(:resource_classifier).and_return(instance)
         expect(instance).to receive(:reset).exactly(1).time
 
         Rake::Task[:"decidim:ai:reset"].invoke

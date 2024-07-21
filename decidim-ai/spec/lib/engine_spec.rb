@@ -21,10 +21,10 @@ module Decidim
     end
 
     describe ".language_detection_service" do
-      subject { Decidim::Ai::LanguageDetection.service.new("This is a test") }
+      subject { Decidim::Ai::Language.service.new("This is a test") }
 
       it "returns a language detection service" do
-        expect(subject).to be_a(Decidim::Ai::LanguageDetection::Service)
+        expect(subject).to be_a(Decidim::Ai::Language::Detection)
       end
 
       it "returns the correct language code" do
