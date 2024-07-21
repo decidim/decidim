@@ -17,6 +17,7 @@ module Decidim
         end
 
         def train(category, text)
+          text = formatter.cleanup(text)
           return if text.blank?
 
           @registry.each do |strategy|
@@ -25,6 +26,7 @@ module Decidim
         end
 
         def classify(text)
+          text = formatter.cleanup(text)
           return if text.blank?
 
           @registry.each do |strategy|
@@ -33,6 +35,7 @@ module Decidim
         end
 
         def untrain(category, text)
+          text = formatter.cleanup(text)
           return if text.blank?
 
           @registry.each do |strategy|
@@ -50,6 +53,12 @@ module Decidim
             @classification_log << strategy.log
           end
           @classification_log.join("\n")
+        end
+
+        protected
+
+        def formatter
+          @formatter ||= Decidim::Ai::Language.formatter.new
         end
       end
     end
