@@ -10,19 +10,19 @@ module Decidim
 
       def self.find_meetings(component:)
         meetings = Meeting
-          .joins(:meeting_links)
-          .where("decidim_meetings_meeting_links.component": component)
-          .filter do |meeting|
-            space = meeting.component.participatory_space
+                   .joins(:meeting_links)
+                   .where("decidim_meetings_meeting_links.component": component)
+                   .filter do |meeting|
+          space = meeting.component.participatory_space
 
-            next true unless space.private_space?
+          next true unless space.private_space?
 
-            if space.respond_to?(:is_transparent?)
-              space.is_transparent?
-            else
-              false
-            end
+          if space.respond_to?(:is_transparent?)
+            space.is_transparent?
+          else
+            false
           end
+        end
 
         Meeting.where(id: meetings.map(&:id))
       end
