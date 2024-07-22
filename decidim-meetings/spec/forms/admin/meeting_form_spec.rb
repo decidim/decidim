@@ -56,6 +56,7 @@ module Decidim::Meetings
     let(:registrations_enabled) { true }
     let(:available_slots) { 0 }
     let(:iframe_embed_type) { "none" }
+    let(:components) { [] }
     let(:attributes) do
       {
         decidim_scope_id: scope_id,
@@ -77,7 +78,8 @@ module Decidim::Meetings
         registrations_enabled:,
         type_of_meeting:,
         online_meeting_url:,
-        iframe_embed_type:
+        iframe_embed_type:,
+        components:
       }
     end
 
