@@ -16,12 +16,25 @@ gem "decidim-dev", "0.28.0.rc1"
 ### 1.2. Run commands
 
 ```console
+sudo apt install p7zip # or the alternative installation process for your operating system. See "2.1. 7zip dependency introduction"
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
 ```
 
 ## 2. General notes
+
+### 2.1. 7zip dependency introduction
+
+We had to migrate from an unmaintained dependency and do a wrapper for the 7zip command line. This means that you need to install 7zip in your system. You can do it by running:
+
+```bash
+sudo apt install p7zip
+```
+
+This works for Ubuntu Linux, other operating systems would need to do other command/package.
+
+You can read more about this change on PR [#13185](https://github.com/decidim/decidim/pull/13185).
 
 ## 3. One time actions
 
