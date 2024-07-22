@@ -8,13 +8,13 @@ import TomSelect from "tom-select/dist/cjs/tom-select.popular";
  * setup a TomSelect for the components selector.
  */
 
-function handleRemoveButton(button) {
-  button.addEventListener("click", function(event) {
+const handleRemoveButton = (button) => {
+  button.addEventListener("click", function() {
     button.closest("tr").remove();
   });
-}
+};
 
-function handleAddButton() {
+const handleAddButton = () => {
   const select = document.querySelector("select[name='add_component_select']");
   const componentId = select.value;
   const componentTitle = select.options[select.selectedIndex].text;
@@ -39,15 +39,15 @@ function handleAddButton() {
 
   select.value = "";
   table.classList.remove("hidden");
-}
+};
 
-function setupTomSelect() {
+const setupTomSelect = () => {
   const componentsSelect = document.querySelector(
     "#add_component_select"
   );
 
   const config = {
-    plugins: ["dropdown_input"],
+    plugins: ["dropdown_input"]
   };
 
   return new TomSelect(componentsSelect, config);

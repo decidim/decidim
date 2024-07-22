@@ -93,7 +93,7 @@ $(() => {
       const enabledTransparent = $transparent.find("input[type='checkbox']").prop("checked");
 
       $transparent.find("input[type='checkbox']").attr("disabled", "disabled");
-      $warning?.toggleClass('hidden', !enabledPrivateSpace || enabledTransparent);
+      $warning?.toggleClass("hidden", !enabledPrivateSpace || enabledTransparent);
 
       if (enabledPrivateSpace) {
         $transparent.find("input[type='checkbox']").attr("disabled", !enabledPrivateSpace);
