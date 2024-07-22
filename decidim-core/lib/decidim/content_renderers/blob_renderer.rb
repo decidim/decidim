@@ -50,7 +50,6 @@ module Decidim
           else
             blob_url(blob)
           end
-          # blob = GlobalID::Locator.locate(blob_gid)
         rescue ActiveRecord::RecordNotFound => _e
           ""
         end
