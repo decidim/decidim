@@ -41,8 +41,6 @@ FactoryBot/AssociationStyle:
 Rubycw/Rubycw:
   Enabled: false
 
-Lint/SymbolConversion:
-  Enabled: false
 
 
 
