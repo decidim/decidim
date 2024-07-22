@@ -21,7 +21,7 @@ shared_context "when inviting process users" do
     expect(page).to have_content("successfully added to this participatory process")
     logout :user
     visit decidim.root_path
-    expect(page).to have_content(organization.name)
+    expect(page).to have_content(translated(organization.name))
   end
 
   def edit_user(username)
