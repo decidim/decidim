@@ -32,7 +32,7 @@ module Decidim
           }
         }
       end
-      let(:organization) { create :organization }
+      let(:organization) { create(:organization) }
 
       context "when everything is OK" do
         it { is_expected.to be_valid }
@@ -50,7 +50,7 @@ module Decidim
       end
 
       context "when the parent_id is set" do
-        let!(:category) { create :category, participatory_space: }
+        let!(:category) { create(:category, participatory_space:) }
 
         context "and it is set to a first-class category" do
           let(:parent_id) { category.id }
@@ -59,7 +59,7 @@ module Decidim
         end
 
         context "and it is set to a subcategory" do
-          let!(:subcategory) { create :subcategory, parent: category }
+          let!(:subcategory) { create(:subcategory, parent: category) }
           let(:parent_id) { subcategory.id }
 
           it { is_expected.not_to be_valid }

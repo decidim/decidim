@@ -44,7 +44,7 @@ FactoryBot.define do
     description { generate_localized_description(:result_description, skip_injection:) }
     start_date { "12/7/2017" }
     end_date { "30/9/2017" }
-    status { create :status, component:, skip_injection: }
+    status { create(:status, component:, skip_injection:) }
     progress { rand(1..100) }
   end
 

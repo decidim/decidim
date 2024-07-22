@@ -572,7 +572,7 @@ FactoryBot.define do
     valuator_role do
       space = proposal.component.participatory_space
       organization = space.organization
-      build :participatory_process_user_role, role: :valuator, skip_injection:, user: build(:user, organization:, skip_injection:)
+      build(:participatory_process_user_role, role: :valuator, skip_injection:, user: build(:user, organization:, skip_injection:))
     end
   end
 end

@@ -86,12 +86,12 @@ module Decidim
     scope_search_multi :with_any_state, [:accepted, :rejected, :answered, :open, :closed]
 
     scope :currently_signable, lambda {
-      where("signature_start_date <= ?", Date.current)
-        .where("signature_end_date >= ?", Date.current)
+      where(signature_start_date: ..Date.current)
+        .where(signature_end_date: Date.current..)
     }
     scope :currently_unsignable, lambda {
       where("signature_start_date > ?", Date.current)
-        .or(where("signature_end_date < ?", Date.current))
+        .or(where(signature_end_date: ...Date.current))
     }
 
     scope :answered, -> { where.not(answered_at: nil) }
