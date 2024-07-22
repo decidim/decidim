@@ -80,7 +80,6 @@ Gem::Specification.new do |s|
   s.add_dependency "request_store", "~> 1.5.0"
   s.add_dependency "rubyXL", "~> 3.4"
   s.add_dependency "rubyzip", "~> 2.0"
-  s.add_dependency "seven_zip_ruby", "~> 1.3"
   s.add_dependency "shakapacker", "~> 7.1.0"
   s.add_dependency "valid_email2", "~> 4.0"
   s.add_dependency "web-push", "~> 3.0"

@@ -58,7 +58,7 @@ module Decidim
       {
         :host => organization.host,
         :component_id => id,
-        "#{participatory_space.underscored_name}_slug".to_sym => participatory_space.slug
+        :"#{participatory_space.underscored_name}_slug" => participatory_space.slug
       }
     end
 

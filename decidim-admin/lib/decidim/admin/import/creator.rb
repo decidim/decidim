@@ -31,7 +31,7 @@ module Decidim
             @localize_headers ||= begin
               localize_headers = []
               locales.each do |locale|
-                localize_headers << "#{header}/#{locale}".to_sym
+                localize_headers << :"#{header}/#{locale}"
               end
               localize_headers
             end
