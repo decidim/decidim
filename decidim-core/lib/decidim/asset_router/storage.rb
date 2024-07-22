@@ -283,6 +283,7 @@ module Decidim
       #   to build the asset URL.
       def current_host_required?
         return false unless blob
+        return false unless defined?(ActiveStorage::Service::DiskService)
 
         blob.service.is_a?(ActiveStorage::Service::DiskService)
       end
