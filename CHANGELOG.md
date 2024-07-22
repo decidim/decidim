@@ -2,6 +2,36 @@
 
 # Changelog
 
+## [0.29.0.rc3](https://github.com/decidim/decidim/tree/0.29.0.rc3)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-core**, **decidim-generators**: Backport 'Implements 7zip as a CLI wrapper' to v0.29 [\#13186](https://github.com/decidim/decidim/pull/13186)
+- **decidim-proposals**: Backport 'Fix migration of withdrawn state on Proposal' to v0.29 [\#13187](https://github.com/decidim/decidim/pull/13187)
+- **decidim-dev**: Backport 'Add missing require for ParallelTests' to v0.29 [\#13188](https://github.com/decidim/decidim/pull/13188)
+- **decidim-accountability**, **decidim-admin**, **decidim-budgets**, **decidim-conferences**, **decidim-initiatives**, **decidim-meetings**, **decidim-proposals**: Backport 'Fix clickable area in dropdowns' to v0.29 [\#13189](https://github.com/decidim/decidim/pull/13189)
+- **decidim-core**: Backport 'Prevent cached signed global IDs from expiring' to v0.29 [\#13190](https://github.com/decidim/decidim/pull/13190)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+- Backport 'Fix clickable area in dropdowns' to v0.29 [\#13189](https://github.com/decidim/decidim/pull/13189)
+
+### Internal
+
+Nothing.
+
 ## [0.29.0.rc2](https://github.com/decidim/decidim/tree/0.29.0.rc2)
 
 ### Added
