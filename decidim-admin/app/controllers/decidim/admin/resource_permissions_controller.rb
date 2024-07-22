@@ -87,7 +87,7 @@ module Decidim
       end
 
       def permissions
-        @permissions ||= (resource&.permissions || {})
+        @permissions ||= resource&.permissions || {}
       end
 
       def authorizations_for(action)
