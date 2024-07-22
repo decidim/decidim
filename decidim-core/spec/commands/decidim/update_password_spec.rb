@@ -4,10 +4,10 @@ require "spec_helper"
 
 module Decidim
   describe UpdatePassword do
-    let(:command) { described_class.new(user, form) }
+    let(:command) { described_class.new(form) }
     let(:user) { create(:user, :confirmed, password_updated_at: 1.week.ago) }
     let(:password) { "updatedP4ssw0rd123456789" }
-    let(:form) { Decidim::PasswordForm.from_params(password:) }
+    let(:form) { Decidim::PasswordForm.from_params(password:).with_context(current_user: user) }
 
     context "when invalid" do
       let(:password) { "" }

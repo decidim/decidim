@@ -55,7 +55,6 @@ sk:
       actions:
         new_initiative_type: Nový typ iniciatívy
       menu:
-        components: Komponenty
         information: Informácie
         initiatives: Iniciatívy
         initiatives_types: Typy iniciatív
@@ -175,7 +174,6 @@ sk:
       admin_states:
         created: Vytvorené
         discarded: Odstránená
-        published: Publikované
       application_helper:
         filter_state_values:
           closed: Uzavreté
@@ -284,7 +282,6 @@ sk:
           other: "podpisy"
         vote_cabin:
           already_voted: Už ste podpísal
-          supports_required: "Vyžaduje sa%{total_supports} podpisov"
           verification_required: Overte svoj účet, aby ste podpísali iniciatívu
           vote: Podpísať
           votes_blocked: Podpis zakázaný

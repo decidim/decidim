@@ -4,22 +4,28 @@ pl:
       participatory_process:
         announcement: Ogłoszenie
         area_id: Kategoria
-        banner_image: Baner
         copy_categories: Kopiuj kategorie
         copy_components: Kopiuj komponenty
         copy_steps: Skopiuj etapy
         decidim_area_id: Kategoria
         description: Opis
         developer_group: Grupa inicjatorów
+        document: Dokument
         domain: Domena
         end_date: Data zakończenia
         hashtag: Hashtag
         hero_image: Obraz główny
+        import_attachments: Importuj załączniki
+        import_categories: Importuj kategorie
+        import_components: Importuj komponenty
+        import_steps: Importuj kroki
         local_area: Obszar organizacji
         meta_scope: Zakres metadanych
         participatory_process_group_id: Grupa procesów
+        participatory_process_type_id: Typ procesów
         participatory_scope: Zaproponowano
         participatory_structure: Jak decydowano
+        private_space: Proces prywatny
         promoted: Promowany
         published_at: Opublikowano
         related_process_ids: Powiązane procesy
@@ -27,8 +33,6 @@ pl:
         scope_type_max_depth_id: Głębokość filtra zakresu
         scopes_enabled: Zakresy włączone
         short_description: Krótki opis
-        show_metrics: Pokaż mierniki
-        show_statistics: Pokaż statystyki
         slug: URL slug
         start_date: Data rozpoczęcia
         subtitle: Podtytuł
@@ -56,10 +60,18 @@ pl:
         short_description: Krótki opis
         start_date: Data rozpoczęcia
         title: Tytuł
+      participatory_process_type:
+        title: Tytuł
       participatory_process_user_role:
         email: Adres e-mail
         name: Imię
         role: Rola
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              allowed_file_content_types: 'Nieprawidłowy typ dokumentu. Dozwolone są tylko pliki z następującymi rozszerzeniami: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Aktualny etap
       decidim/participatory_process_step_changed_event: Zmieniono etap
@@ -90,6 +102,7 @@ pl:
         duplicate: Duplikuj
         edit: Edytuj
         import_process: Importuj
+        moderate: Moderuj
         new_process: Nowy proces
         new_process_group: Nowa grupa procesu
         new_process_step: Nowy etap
@@ -98,12 +111,17 @@ pl:
         preview: Podgląd
         publish: Publikuj
         resend_invitation: Wyślij ponownie zaproszenie
+        see_process: Zobacz proces
         unpublish: Cofnij publikowanie
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Według grupy procesów
       menu:
         participatory_process_groups: Grupy procesu
         participatory_process_groups_submenu:
           info: Informacje
           landing_page: Strona startowa
+        participatory_process_types: Typy procesu
         participatory_processes: Procesy
         participatory_processes_submenu:
           attachment_collections: Foldery
@@ -111,6 +129,8 @@ pl:
           attachments: Załączniki
           categories: Kategorie
           components: Komponenty
+          info: O tym procesie
+          landing_page: Strona startowa
           moderations: Moderacje
           private_users: Użytkownicy prywatni
           process_admins: Użytkownicy procesu
@@ -118,6 +138,7 @@ pl:
       models:
         participatory_process:
           fields:
+            actions: Działania
             created_at: Utworzono
             private: Prywatny
             published: Opublikowany
@@ -133,6 +154,11 @@ pl:
             start_date: Data rozpoczęcia
             title: Tytuł
           name: Etap procesu partycypacyjnego
+        participatory_process_type:
+          fields:
+            created_at: Utworzono
+            title: Tytuł
+          name: Typ procesu
         participatory_process_user_role:
           fields:
             email: Adres e-mail
@@ -196,6 +222,13 @@ pl:
             last_step: Nie można usunąć ostatniego etapu procesu.
           success: Etap procesu partycypacyjnego został usunięty.
         edit:
+          cta_deprecated:
+            body_html: |-
+              Konfigurowanie CTA w fazie procesu partycypacyjnego jest przestarzałe wraz z nowym projektem.
+              Teraz odbywa się to na <b>Stronie startowej</b>, używając bloku treści <b>Bohatera i obrazu</b>.
+              Zostawiliśmy to tutaj, aby można było dokonać potrzebnych migracji CTA. Pola <i>Ścieżka CTA</i>
+              i <i>Tekst CTA</i> zostaną usunięte w następnej wersji.
+            title: Przestarzałe CTA
           title: Edytuj etap procesu partycypacyjnego
           update: Aktualizuj
         index:
@@ -467,13 +500,19 @@ pl:
               other: "%{count} nadchodzących procesów"
           date: Data
           explanations:
+            no_active: Brak aktywnych procesów.
+            no_active_nor_upcoming: Brak aktywnych lub nadchodzących procesów.
             no_active_nor_upcoming_callout: Nie ma aktualnych ani nadchodzących procesów. Oto lista poprzednich procesów.
+          filter_by: Pokaż
           names:
             active: Aktualne
             all: Wszystko
             past: Przeszłe
             upcoming: Nadchodzące
           see: Zobacz
+          type: Typ
+        show:
+          title: O tym procesie
       show:
         belongs_to_group: Ten proces należy do
         private_space: To jest prywatny proces

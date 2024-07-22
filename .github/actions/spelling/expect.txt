@@ -152,6 +152,7 @@ Cprojects
 crdownload
 createcluster
 createuser
+crear
 crowdin
 crt
 cryptor
@@ -163,6 +164,7 @@ csslintrc
 CSSs
 csvfile
 cta
+cuenta
 Cugat
 customise
 Customising
@@ -278,6 +280,7 @@ ERVz
 Esa
 espa
 estat
+Etags
 etherpad
 evanfuture
 evt
@@ -414,6 +417,7 @@ initialiser
 inodes
 inputdialog
 inputname
+Inscriu
 interf
 inviteduser
 isbn
@@ -587,9 +591,11 @@ nodoc
 nok
 nomargin
 nominatim
+noopen
 nopadding
 noresults
 normalcase
+nosniff
 notif
 notselected
 npmjs
@@ -694,6 +700,7 @@ preheader
 premailer
 Preproc
 presenceness
+previewer
 previewurl
 privatable
 Procesos
@@ -789,6 +796,7 @@ setseed
 sgid
 shakapacker
 sharedapp
+shellwords
 shortanswer
 shs
 sidekiq
@@ -883,6 +891,7 @@ timeoutable
 timeouter
 timestamped
 tiptap
+Tmpname
 TLDR
 todos
 Tomorrowland
@@ -901,6 +910,7 @@ tumblr
 turbolinks
 Twilio
 tzid
+tzip
 uber
 ucw
 ueee
@@ -949,6 +959,7 @@ usergroup
 usermenu
 Uth
 utm
+uuids
 Uusimaa
 Valero
 validable

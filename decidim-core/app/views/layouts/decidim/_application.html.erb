@@ -6,14 +6,10 @@
     <%= render partial: "layouts/decidim/head" %>
   </head>
 
-  <body class="text-black text-md form-defaults">
+  <body class="text-black text-md form-defaults<%= yield (:body_class) %>">
     <!--noindex--><!--googleoff: all-->
     <%= link_to t("skip_button", scope: "decidim.accessibility"), "#content", class: "layout-container__skip" %>
     <%= cell("decidim/data_consent", current_organization) %>
-    <%= render partial: "layouts/decidim/impersonation_warning" %>
-    <%= render partial: "layouts/decidim/omnipresent_banner" %>
-    <%= render partial: "layouts/decidim/timeout_modal" %>
-    <%= render partial: "layouts/decidim/offline_banner" %>
     <!--googleon: all--><!--/noindex-->
 
     <%= render "layouts/decidim/wrapper" do %>
@@ -22,6 +18,7 @@
       <%= yield %>
     <% end %>
 
+    <%= render partial: "layouts/decidim/timeout_modal" %>
     <%= render partial: "decidim/shared/confirm_modal" %>
     <%= render partial: "decidim/shared/login_modal" unless current_user %>
     <%= render partial: "decidim/shared/authorization_modal" %>

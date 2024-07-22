@@ -16,7 +16,6 @@ module Decidim
       helper Decidim::IconHelper
       helper Decidim::SanitizeHelper
       helper Decidim::ResourceReferenceHelper
-      helper Decidim::Conferences::PartnersHelper
 
       helper_method :collection, :promoted_conferences, :conferences, :stats
 

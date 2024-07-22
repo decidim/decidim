@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "decidim/meetings"
-
 Decidim.register_component(:proposals) do |component|
   component.engine = Decidim::Proposals::Engine
   component.admin_engine = Decidim::Proposals::AdminEngine
@@ -28,7 +26,7 @@ Decidim.register_component(:proposals) do |component|
 
   component.permissions_class_name = "Decidim::Proposals::Permissions"
 
-  POSSIBLE_SORT_ORDERS = %w(default random recent most_endorsed most_voted most_commented most_followed with_more_authors).freeze
+  POSSIBLE_SORT_ORDERS = %w(automatic random recent most_endorsed most_voted most_commented most_followed with_more_authors).freeze
 
   component.settings(:global) do |settings|
     settings.attribute :scopes_enabled, type: :boolean, default: false
@@ -40,9 +38,9 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :proposal_edit_time, type: :enum, default: "limited", choices: -> { %w(limited infinite) }
     settings.attribute :proposal_edit_before_minutes, type: :integer, default: 5, required: true
     settings.attribute :threshold_per_proposal, type: :integer, default: 0, required: true
-    settings.attribute :can_accumulate_supports_beyond_threshold, type: :boolean, default: false
+    settings.attribute :can_accumulate_votes_beyond_threshold, type: :boolean, default: false
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
-    settings.attribute :default_sort_order, type: :select, default: "default", choices: -> { POSSIBLE_SORT_ORDERS }
+    settings.attribute :default_sort_order, type: :select, default: "automatic", choices: -> { POSSIBLE_SORT_ORDERS }
     settings.attribute :official_proposals_enabled, type: :boolean, default: true
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: true
@@ -63,8 +61,6 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :new_proposal_help_text, type: :text, translated: true, editor: true
     settings.attribute :proposal_wizard_step_1_help_text, type: :text, translated: true, editor: true
     settings.attribute :proposal_wizard_step_2_help_text, type: :text, translated: true, editor: true
-    settings.attribute :proposal_wizard_step_3_help_text, type: :text, translated: true, editor: true
-    settings.attribute :proposal_wizard_step_4_help_text, type: :text, translated: true, editor: true
   end
 
   component.settings(:step) do |settings|
@@ -113,7 +109,7 @@ Decidim.register_component(:proposals) do |component|
     Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).accepted.not_hidden.count
   end
 
-  component.register_stat :supports_count, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
+  component.register_stat :votes_count, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_hidden
     Decidim::Proposals::ProposalVote.where(proposal: proposals).count
   end

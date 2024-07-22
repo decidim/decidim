@@ -12,9 +12,9 @@
   }
 
   &__message {
-    @apply text-black font-medium text-md;
+    @apply text-black font-medium text-md flex-col;
 
-    a {
+    a:not(.button) {
       @apply underline text-secondary;
 
       svg {

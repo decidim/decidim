@@ -75,12 +75,12 @@ en:
           attributes:
             base:
               not_official: Are not official
-              supported: Have received support or endorsements
+              voted: Have received votes or endorsements
         proposals_split:
           attributes:
             base:
               not_official: Are not official
-              supported: Have received support or endorsements
+              voted: Have received votes or endorsements
     models:
       decidim/proposals/admin/update_proposal_category_event: Proposal category changed
       decidim/proposals/admin/update_proposal_scope_event: Proposal scope changed
@@ -101,8 +101,8 @@ en:
         one: Note
         other: Notes
       decidim/proposals/proposal_vote:
-        one: Support
-        other: Supports
+        one: Vote
+        other: Votes
   decidim:
     admin:
       filters:
@@ -144,7 +144,7 @@ en:
           comment: Comment
           create: Create
           endorse: Endorse
-          vote: Support
+          vote: Vote
           vote_comment: Vote comment
           withdraw: Withdraw
         name: Proposals
@@ -155,23 +155,24 @@ en:
             amendments_wizard_help_text: Amendments Wizard help text
             announcement: Announcement
             attachments_allowed: Allow attachments
-            can_accumulate_supports_beyond_threshold: Can accumulate supports beyond threshold
+            attachments_allowed_help: By enabling this option, proposals will default to grid mode, and the first image will appear on the card.
+            can_accumulate_votes_beyond_threshold: Can accumulate votes beyond threshold
             collaborative_drafts_enabled: Collaborative drafts enabled
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
             default_sort_order: Default proposal sorting
-            default_sort_order_help: Default means that if the supports are enabled, the proposals will be shown sorted by random, and if the supports are blocked, then they will be sorted by the most supported.
+            default_sort_order_help: Automatic means that if the votes are enabled, the proposals will be shown sorted by random, and if the votes are blocked, then they will be sorted by the most voted.
             default_sort_order_options:
-              default: Default
+              automatic: Automatic
               most_commented: Most commented
               most_endorsed: Most endorsed
               most_followed: Most followed
-              most_voted: Most supported
+              most_voted: Most voted
               random: Random
               recent: Recent
               with_more_authors: With more authors
             geocoding_enabled: Geocoding enabled
-            minimum_votes_per_user: Minimum supports per user
+            minimum_votes_per_user: Minimum votes per user
             new_proposal_body_template: New proposal body template
             new_proposal_body_template_help: You can define prefilled text that the new Proposals will have
             new_proposal_help_text: New proposal help text
@@ -187,14 +188,12 @@ en:
             proposal_length: Maximum proposal body length
             proposal_limit: Proposal limit per participant
             proposal_wizard_step_1_help_text: Proposal wizard "Create" step help text
-            proposal_wizard_step_2_help_text: Proposal wizard "Compare" step help text
-            proposal_wizard_step_3_help_text: Proposal wizard "Complete" step help text
-            proposal_wizard_step_4_help_text: Proposal wizard "Publish" step help text
+            proposal_wizard_step_2_help_text: Proposal wizard "Publish" step help text
             resources_permissions_enabled: Actions permissions can be set for each proposal
             scope_id: Scope
             scopes_enabled: Scopes enabled
             threshold_per_proposal: Threshold per proposal
-            vote_limit: Support limit per participant
+            vote_limit: Vote limit per participant
           step:
             amendment_creation_enabled: Amendment creation enabled
             amendment_creation_enabled_help: Participant can amend proposals.
@@ -214,13 +213,13 @@ en:
             creation_enabled: Participants can create proposals
             creation_enabled_readonly: This setting is disabled when you activate the Participatory Texts functionality. To upload proposals as participatory text click on the Participatory Texts button and follow the instructions.
             default_sort_order: Default proposal sorting
-            default_sort_order_help: Default it means that if the supports are enabled, the proposals will be shown sorted by random, and if the supports are blocked, then they will be sorted by the most supported.
+            default_sort_order_help: Automatic means that if the votes are enabled, the proposals will be shown sorted by random, and if the votes are blocked, then they will be sorted by the most voted.
             default_sort_order_options:
-              default: Default
+              automatic: Automatic
               most_commented: Most commented
               most_endorsed: Most endorsed
               most_followed: Most followed
-              most_voted: Most supported
+              most_voted: Most voted
               random: Random
               recent: Recent
               with_more_authors: With more authors
@@ -230,9 +229,9 @@ en:
             publish_answers_immediately: Publish proposal answers immediately
             publish_answers_immediately_help_html: Mind that if you answer any proposal without this enabled, you will need to publish them manually by selecting them and using the action for publication. For more info on how this works, see <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposals' answers documentation page</a>.
             suggested_hashtags: Hashtags suggested to participants for new proposals
-            votes_blocked: Supports blocked
-            votes_enabled: Supports enabled
-            votes_hidden: Supports hidden (if supports are enabled, checking this will hide the number of supports)
+            votes_blocked: Votes blocked
+            votes_enabled: Votes enabled
+            votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
     events:
       proposals:
         admin:
@@ -319,10 +318,10 @@ en:
           email_subject: The %{resource_title} proposal scope has been updated
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal scope has been updated by an admin.
         voting_enabled:
-          email_intro: 'You can support proposals in %{participatory_space_title}! Start participating in this page:'
+          email_intro: 'You can vote proposals in %{participatory_space_title}! Start participating in this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
-          email_subject: Proposal support has started for %{participatory_space_title}
-          notification_title: You can now start <a href="%{resource_path}">supporting proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_subject: Proposal voting has started for %{participatory_space_title}
+          notification_title: You can now start <a href="%{resource_path}">voting proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -339,14 +338,14 @@ en:
         proposal_votes:
           conditions:
           - Browse and spend some time reading other people's proposals
-          - Give support to the proposals you like or find interesting
-          description: This badge is granted when you support other people's proposals.
-          description_another: This participant has given support to %{score} proposals.
-          description_own: You have given support to %{score} proposals.
-          name: Proposal supports
-          next_level_in: Give support to %{score} more proposals to reach the next level!
-          unearned_another: This participant has not given support to any proposals yet.
-          unearned_own: You have given support to no proposals yet.
+          - Vote to the proposals you like or find interesting
+          description: This badge is granted when you vote other people's proposals.
+          description_another: This participant has voted to %{score} proposals.
+          description_own: You have voted to %{score} proposals.
+          name: Proposal votes
+          next_level_in: Vote to %{score} more proposals to reach the next level!
+          unearned_another: This participant has not voted to any proposals yet.
+          unearned_own: You have voted to no proposals yet.
         proposals:
           conditions:
           - Choose the participation space of your interest with submission for proposals enabled
@@ -372,9 +371,9 @@ en:
         object: proposals
         title: Proposals
       votes:
-        description: Number of supports to proposals
-        object: supports
-        title: Supports
+        description: Number of votes to proposals
+        object: votes
+        title: Votes
     participatory_spaces:
       highlighted_proposals:
         last: Last proposals
@@ -524,6 +523,7 @@ en:
             publish: Publish
             publish_answers: Publish answers
             select_component: Select a component
+            select_valuators: Select one or more valuators
             selected: selected
             split: Split proposals
             split_button: Split
@@ -557,7 +557,7 @@ en:
             remove_assignment: Remove assignment
             remove_assignment_confirmation: Are you sure you want to remove the valuator from this proposal?
             valuators: Valuators
-            votes_count: Supports count
+            votes_count: Votes count
           update_category:
             invalid: 'These proposals already had the %{subject_name} category: %{proposals}.'
             select_a_category: Please select a category.
@@ -764,15 +764,8 @@ en:
           comment: Comment
       proposal_votes:
         create:
-          error: There was a problem supporting the proposal.
+          error: There was a problem voting the proposal.
       proposals:
-        compare:
-          continue: Continue
-          no_similars_found: Well done! No similar proposals found
-          title: Similar Proposals
-        complete:
-          send: Send
-          title: Complete your proposal
         dynamic_map_instructions:
           description: The coordinates will be updated when clicking on 'preview' button. However, the address does not change.
           instructions: You can move the point on the map.
@@ -789,6 +782,8 @@ en:
           discard_confirmation: Are you sure you want to discard this proposal draft?
           send: Preview
           title: Edit Proposal Draft
+        edit_form_fields:
+          marker_added: Marker added to the map.
         filters:
           activity: My activity
           all: All
@@ -801,13 +796,15 @@ en:
           search: Search
           state: Status
           type: Type
-          voted: Supported
+          voted: Voted
         index:
           click_here: See all proposals
           collaborative_drafts_list: Access collaborative drafts
           count:
             one: "%{count} proposal"
             other: "%{count} proposals"
+          grid_mode: Grid mode
+          list_mode: List mode
           new_proposal: New proposal
           see_all: See all proposals
           see_all_withdrawn: See all withdrawn proposals
@@ -820,7 +817,7 @@ en:
           most_commented: Most commented
           most_endorsed: Most endorsed
           most_followed: Most followed
-          most_voted: Most supported
+          most_voted: Most voted
           random: Random
           recent: Recent
           with_more_authors: With more authors
@@ -858,49 +855,45 @@ en:
           proposal_accepted_reason: 'This proposal has been accepted because:'
           proposal_in_evaluation_reason: This proposal is being evaluated
           proposal_rejected_reason: 'This proposal has been rejected because:'
-          withdraw_btn_hint: You can withdraw your proposal if you change your mind, as long as you have not received any support. The proposal is not deleted, it will appear in the list of withdrawn proposals.
+          withdraw_btn_hint: You can withdraw your proposal if you change your mind, as long as you have not received any vote. The proposal is not deleted, it will appear in the list of withdrawn proposals.
           withdraw_confirmation_html: Are you sure you want to withdraw this proposal?<br><br><strong>This action cannot be cancelled!</strong>
           withdraw_proposal: Withdraw proposal
         update:
           title: Update proposal
         vote_button:
-          already_voted: Already supported
-          already_voted_hover: Withdraw support
-          maximum_votes_reached: Support limit reached
-          no_votes_remaining: No supports remaining
-          vote: Support
-          votes_blocked: Supports disabled
+          already_voted: Already voted
+          already_voted_hover: Withdraw vote
+          maximum_votes_reached: Vote limit reached
+          no_votes_remaining: No votes remaining
+          vote: Vote
+          votes_blocked: Voting disabled
         votes_count:
           count:
-            one: Support
-            other: Supports
+            one: Vote
+            other: Votes
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: Each proposal can accumulate more than %{limit} supports
+          can_accumulate_votes_beyond_threshold:
+            description: Each proposal can accumulate more than %{limit} votes
           minimum_votes_per_user:
-            description: You must distribute a minimum of %{votes} supports among different proposals.
-            given_enough_votes: You have given enough supports.
-            supports_remaining: You have to support %{remaining_votes} more proposals for your supports to be taken into account.
+            description: You must distribute a minimum of %{votes} votes among different proposals.
+            given_enough_votes: You have given enough votes.
+            votes_remaining: You have to vote %{remaining_votes} more proposals for your votes to be taken into account.
           proposal_limit:
             description: You can create up to %{limit} proposals.
           threshold_per_proposal:
-            description: In order to be validated proposals need to reach %{limit} supports.
-          title: 'Supports are subject to the following rules:'
+            description: In order to be validated proposals need to reach %{limit} votes.
+          title: 'Votes are subject to the following rules:'
           vote_limit:
-            description: You can support up to %{limit} proposals.
-            votes: Remaining %{number} supports
+            description: You can vote up to %{limit} proposals.
+            votes: Remaining %{number} votes
         wizard_aside:
           back: Back
           back_from_step_1: Back to proposals
-          back_from_step_2: Back to proposals
-          back_from_step_3: Back to compare proposals
-          back_from_step_4: Back to edit draft
+          back_from_step_2: Back to edit
         wizard_steps:
           current_step: Current step
           step_1: Create your proposal
-          step_2: Compare
-          step_3: Complete
-          step_4: Publish your proposal
+          step_2: Publish your proposal
           title: Proposal creation steps
       proposals_picker:
         choose_proposals: Choose proposals
@@ -921,7 +914,7 @@ en:
           title: Versions
       withdraw:
         errors:
-          has_supports: This proposal cannot be withdrawn because it already has supports.
+          has_votes: This proposal cannot be withdrawn because it already has votes.
     resource_links:
       copied_from_component:
         proposal_proposal: Related proposals
@@ -933,4 +926,4 @@ en:
     statistics:
       proposals_accepted: Accepted Proposals
       proposals_count: Proposals
-      supports_count: Supports
+      votes_count: Votes

@@ -40,7 +40,6 @@ sl:
         scope_id: Obseg
         scopes_enabled: Omogočeni obsegi
         short_description: Kratek opis
-        show_statistics: Pokaži statistike
         special_features: Posebne funkcije
         subtitle: Podnapis
         target: Kdor je prisostoval
@@ -189,7 +188,6 @@ sl:
       show:
         assembly_type: Vrsta združbe
         duration: Trajanje
-        related_participatory_processes: Povezani participativni procesi
     help:
       participatory_spaces:
         assemblies:

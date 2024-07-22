@@ -57,10 +57,24 @@ en:
         grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents authorization"
     authorization_handlers:
       admin:
+        another_dummy_authorization_handler:
+          help:
+          - An example authorization handler so developers can understand how a simple verification works.
+          - It is aimed for developers so they can understand how to implement their own verification system.
+          - Get verified by introducing a passport number starting with "A".
         csv_census:
           help:
           - Admins upload a CSV with the emails of the accepted participants.
           - Only participants with an email in that CSV file can get verified.
+        default:
+          help:
+          - The authorization handler help is not defined.
+          - A developer needs to define the help in the translation (i18n) key "%{authorization_handler}"
+        dummy_authorization_handler:
+          help:
+          - An example authorization handler so developers can understand how a simple verification works.
+          - It is aimed for developers so they can understand how to implement their own verification system.
+          - Get verified by introducing a document number ending with "X".
         id_documents:
           help:
           - Users fill in their identity information and upload a copy of their document.
@@ -73,6 +87,11 @@ en:
           - You send the letter to their address with the verification code.
           - You mark the letter as sent.
           - Once you mark the letter as sent, the participant will be able to introduce the code and get verified.
+        sms:
+          help:
+          - Participants request a verification code to be sent to their phone.
+          - They need to introduce the code to get verified.
+          - If they do not receive the code, they can request it again.
       csv_census:
         explanation: Get verified using the organization's census.
         name: Organization's census

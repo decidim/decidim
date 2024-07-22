@@ -64,7 +64,6 @@ el:
         deleted_user: Διαγραμμένος συμμετέχων
         edit: Επεξεργασία
         edited: Επεξεργασμένο
-        hide_replies: Απόκρυψη απαντήσεων
         moderated_at: Σχόλιο διαχειρίστηκε στις %{date}
         reply: Απάντηση
         report:

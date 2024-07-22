@@ -79,7 +79,6 @@ de:
   decidim:
     admin:
       actions:
-        manage: Verwalten
         new_initiative_type: Neuer Initiativentyp
         new_initiative_type_scope: Neuer Initiativentyp
       filters:
@@ -92,7 +91,6 @@ de:
               accepted: Ausreichend Unterschriften
               created: Erstellt
               discarded: Verworfen
-              published: Veröffentlicht
               rejected: Zu wenige Unterschriften
               validating: Technische Validierung
           type_id_eq:
@@ -106,7 +104,6 @@ de:
       menu:
         attachments: Anhänge
         committee_members: Ausschussmitglieder
-        components: Komponenten
         information: Information
         initiative_type_scopes: Initiativentyp
         initiatives: Initiativen
@@ -238,6 +235,10 @@ de:
               most_recent: Neueste zuerst
         exports:
           initiatives: Initiativen
+        index:
+          initiatives_types:
+            alert_html: "<p>Sie müssen mindestens einen Initiativentyp erstellen, damit die Teilnehmenden Initiativen erstellen können.</p><p> %{link}</p>"
+            button: Neuer Initiativentyp
         initiatives:
           edit:
             accept: Initiative akzeptieren
@@ -293,7 +294,7 @@ de:
         initiatives_types:
           create:
             error: Ein Fehler ist aufgetreten.
-            success: Ein neuer Initiativentyp wurde erfolgreich erstellt.
+            success: Ein neuer Initiativentyp wurde erfolgreich erstellt. Sie müssen mindestens einen Bereich für diese Initiative festlegen, damit er genutzt werden kann.
           destroy:
             success: Der Initiativentyp wurde erfolgreich entfernt.
           edit:
@@ -327,7 +328,6 @@ de:
         accepted: Ausreichend Unterschriften
         created: Erstellt
         discarded: Verworfen
-        published: Veröffentlicht
         rejected: Ungenügend Unterschriften
         validating: Technische Validierung
       application_helper:
@@ -541,7 +541,6 @@ de:
           other: " Signaturen"
         vote_cabin:
           already_voted: Schon unterschrieben
-          supports_required: "%{total_supports} Signaturen erforderlich"
           verification_required: Bestätigen Sie Ihr Konto, um die Initiative zu unterzeichnen
           vote: Signieren
           votes_blocked: Die Anmeldung ist deaktiviert
@@ -577,7 +576,6 @@ de:
           accepted: Ausreichend Unterschriften
           created: Erstellt
           discarded: Verworfen
-          published: Veröffentlicht
           rejected: Ungenügend Unterschriften
           validating: Technische Validierung
       states:

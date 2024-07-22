@@ -2,7 +2,7 @@
 
 module FiltersHelpers
   def click_filter_item(text)
-    find("label.filter", text:).click
+    find("div.filter > label", text:).click
   end
 end
 

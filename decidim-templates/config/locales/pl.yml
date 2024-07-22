@@ -1,16 +1,36 @@
 pl:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Tytuł
+      template:
+        description: Opis
+        name: Nazwa
   decidim:
     admin:
       menu:
         templates: Szablony
       templates:
+        actions:
+          new_template: Nowy szablon
         apply:
           error: Wystąpił błąd z zastosowaniem tego szablonu.
+          success: Szablon zastosowany pomyślnie.
         copy:
           error: Wystąpił błąd podczas kopiowania tego szablonu.
+          success: Szablon został skopiowany.
         create:
           error: Wystąpił błąd podczas tworzenia tego szablonu.
+          success: Szablon został utworzony.
+        destroy:
+          success: Szablon został usunięty.
         empty: Brak szablonów.
+        fetch:
+          error: Nie można znaleźć tego szablonu. Proszę odświeżyć stronę.
+        missing_resource: "(brak zasobu)"
+        update:
+          error: Wystąpił problem z aktualizacją tego szablonu.
+          success: Szablon został zaktualizowany.
       titles:
         template_types:
           questionnaires: Szablony kwestionariusza
@@ -27,16 +47,37 @@ pl:
     templates:
       admin:
         block_user_templates:
+          edit:
+            title: Edytuj szablon wiadomości blokowania użytkownika
           form:
             save: Zapisz
           index:
+            confirm_delete: Czy na pewno chcesz usunąć ten szablon?
             title: Blokuj wiadomości użytkownika
+          new:
+            title: Nowy szablon wiadomości blokowania użytkownika
+          template_chooser:
+            select_template: Wybierz szablon odpowiedzi
         proposal_answer_templates:
+          edit:
+            title: Edytuj szablon odpowiedzi na propozycję
           form:
+            component_constraint_help: Należy zauważyć, że wymieniona zostanie tylko przestrzeń uczestnicząca posiadająca elementy składowe typu „propozycje”.
+            hint1_html: "<strong>%{organization}</strong> zostanie zastąpione nazwą organizacji"
+            hint2_html: "<strong>%{name}</strong> zostanie zastąpione przez imię autora"
+            hint3_html: "<strong>%{admin}</strong> zostanie zastąpione przez nazwę administratora (tego, który odpowiada na propozycję)"
+            hint_html: "<strong>Wskazówka:</strong> Możesz użyć tych zmiennych w dowolnym miejscu w szablonie odpowiedzi, które zostaną zastąpione podczas korzystania z szablonu"
             save: Zapisz
           index:
+            component_constraint: Dodaj ograniczenie
+            confirm_delete: Czy na pewno chcesz usunąć ten szablon?
             missing_state: Brakujący stan
             proposal_state_id: Stan wewnętrzny
+            title: Odpowiedzi na propozycję
+          new:
+            title: Nowy szablon odpowiedzi na propozycję
+          template_chooser:
+            select_template: Wybierz szablon odpowiedzi
         questionnaire_templates:
           choose:
             create_from_template: Utwórz z szablonu
@@ -46,15 +87,27 @@ pl:
             skip_template: Pomiń
           edit:
             edit: Edytuj
+            empty: Nie ma jeszcze żadnych pytań.
             questionnaire: Kwestionariusz
+            title: Edytuj szablon kwestionariusza
           form:
             title: Szablon kwestionariusza %{questionnaire_for}
           index:
             confirm_delete: Czy na pewno chcesz usunąć ten szablon?
             title: Szablony kwestionariusza
+          new:
+            title: Nowy szablon kwestionariusza
           preview:
             current_step: Krok %{step}
             of_total_steps: z %{total_steps}
             tos_agreement: Biorąc udział akceptujesz Warunki korzystania z Platformy
+      admin_log:
+        template:
+          create: "Użytkownik %{user_name} utworzył szablon kwestionariusza %{resource_name}"
+          delete: "Użytkownik %{user_name} usunął szablon kwestionariusza %{resource_name}"
+          duplicate: "Użytkownik %{user_name} zduplikował szablon kwestionariusza %{resource_name}"
+          update: "Użytkownik %{user_name} zaktualizował szablon kwestionariusza %{resource_name}"
       template_types:
+        block_user: Blokuj wiadomości użytkownika
+        proposal_answer_templates: Odpowiedzi na propozycję
         questionnaires: Kwestionariusze

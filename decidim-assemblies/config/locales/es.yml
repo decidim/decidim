@@ -50,7 +50,6 @@ es:
         scope_id: Ámbito
         scopes_enabled: Ámbitos habilitados
         short_description: Descripción breve
-        show_statistics: Mostrar estadísticas
         slug: Texto corto de URL
         special_features: Características especiales
         subtitle: Subtítulo
@@ -79,7 +78,7 @@ es:
         assembly:
           attributes:
             document:
-              allowed_file_content_types: 'Tipo de documento no válido. Sólo se permiten archivos con las siguientes extensiones: %{types}.'
+              allowed_file_content_types: 'Tipo de documento no válido. Solo se permiten archivos con las siguientes extensiones: %{types}.'
   activerecord:
     models:
       decidim/assembly:
@@ -182,7 +181,7 @@ es:
           assembly_admins_title: Administradoras de la asamblea
         new:
           create: Crear
-          title: Añadir administradora
+          title: Nueva administradora de la asamblea
         update:
           error: Se ha producido un error al actualizar una administradora para esta asamblea.
           success: Administradora actualizada correctamente para esta asamblea.
@@ -299,7 +298,7 @@ es:
             visibility: Visibilidad
         assemblies_types:
           form:
-            title: Título
+            title: Editar tipo de asamblea
         assembly_copies:
           form:
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -326,9 +325,9 @@ es:
         description:
           area_name: Área
           closing_date: Fecha de finalización
-          created_by: Creado por
+          created_by: Creada por
           creation_date: Fecha de creación
-          data: Administradora de la asamblea
+          data: Datos de la asamblea
           developer_group: Grupo promotor
           duration: Duración
           included_at: Incluido el
@@ -396,11 +395,7 @@ es:
       show:
         assembly_type: Tipo de asambleas
         duration: Duración
-        is_transparent:
-          'false': opaca
-          'true': transparente
         private_space: Esta es una asamblea privada
-        related_participatory_processes: Procesos participativos relacionados
         social_networks_title: Visita la asamblea en
     assembly_members:
       assembly_member:

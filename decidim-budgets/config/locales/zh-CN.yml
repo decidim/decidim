@@ -74,7 +74,6 @@ zh-CN:
         back_to: 返回 %{component_name}
         close_modal: 关闭模式
         continue: 继续
-        more_information: 更多信息
       budgets_list:
         cancel_order:
           more_than_one: 删除您对 %{name} 的投票并开始

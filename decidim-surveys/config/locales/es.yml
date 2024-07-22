@@ -36,12 +36,12 @@ es:
       surveys:
         survey_closed:
           email_intro: La encuesta %{resource_title} en %{participatory_space_title} se ha cerrado.
-          email_outro: Has recibido esta notificación porqué estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_outro: Has recibido esta notificación porqué estás siguiendo el espacio "%{participatory_space_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Ha terminado una encuesta en %{participatory_space_title}
           notification_title: La encuesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> ha terminado.
         survey_opened:
           email_intro: 'Ya está abierta la encuesta %{resource_title} en %{participatory_space_title}. Puedes participar desde esta página:'
-          email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{participatory_space_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Nueva encuesta en %{participatory_space_title}
           notification_title: Ya está abierta la encuesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     metrics:

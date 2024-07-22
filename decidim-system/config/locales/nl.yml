@@ -1,6 +1,10 @@
 nl:
   activemodel:
     attributes:
+      oauth_application:
+        organization_logo: Logo organisatie (vierkant)
+        organization_url: URL van de organisatie
+        redirect_uri: URI doorsturen
       organization:
         address: SMTP hostname
         from_email: E-mailadres
@@ -8,6 +12,12 @@ nl:
         password: Wachtwoord
         port: Poort
         user_name: Gebruikersnaam
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: De omleidings-URI moet een SSL-URI zijn
   decidim:
     system:
       actions:
@@ -95,7 +105,6 @@ nl:
           success: Organisatie is succesvol bijgewerkt.
         users_registration_mode:
           disabled: Enkel externe accounts hebben toegang
-          enabled: Sta gebruikers toe zich te registreren en in te loggen
       shared:
         notices:
           no_organization_warning_html: U moet een organisatie aanmaken om te beginnen. Zorg ervoor dat u %{guide} leest voordat u verder gaat.

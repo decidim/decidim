@@ -19,11 +19,9 @@ module Decidim::Surveys
         questions = []
         original_questionnaire.questions.order(:position).each do |q|
           question_attrs = q.attributes
-          answer_options = []
-          q.answer_options.each do |answer_option|
-            answer_options << answer_option.attributes
-          end
+          answer_options = q.answer_options.map(&:attributes)
           question_attrs[:answer_options] = answer_options
+          question_attrs = question_attrs.reject { |key, _value| key.ends_with?("_count") }
           questions << question_attrs
         end
         questionnaire_attrs[:questions] = questions
@@ -72,7 +70,7 @@ module Decidim::Surveys
       end
 
       def imported_question_options_should_eq_serialized(imported_answer_options, original_answer_options)
-        expect(imported_answer_options.count).to eq(original_answer_options.count)
+        expect(imported_answer_options.size).to eq(original_answer_options.size)
         imported_answer_options.zip(original_answer_options).each do |imported, original|
           expect(imported.body).to eq(original.body)
           expect(imported.free_text).to eq(original.free_text)

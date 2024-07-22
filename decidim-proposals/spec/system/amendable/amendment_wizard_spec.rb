@@ -53,68 +53,7 @@ describe "Amendment Wizard" do
       end
     end
 
-    context "and in step_2: Compare your amendment" do
-      context "with similar results" do
-        let!(:emendation) { create(:proposal, title: { en: title }, body: { en: body }, component:) }
-        let!(:amendment) { create(:amendment, amendable: proposal, emendation:) }
-
-        before do
-          within ".new_amendment" do
-            fill_in :amendment_emendation_params_title, with: title
-            fill_in :amendment_emendation_params_body, with: body
-            find("*[type=submit]").click
-          end
-        end
-
-        it "show previous and current step_2 highlighted" do
-          within "#wizard-steps" do
-            expect(page).to have_css("[aria-current]", count: 1)
-            expect(page).to have_css("[aria-current]:nth-child(2)")
-          end
-        end
-
-        it "shows similar emendations" do
-          expect(page).to have_content("Similar Emendations (1)")
-
-          expect(page).to have_css('[id^="proposals__proposal"]', text: "More sidewalks and less roads")
-          expect(page).to have_css('[id^="proposals__proposal"]', count: 1)
-
-          within "[data-alert-box].success" do
-            expect(page).to have_content("Amendment draft has been created successfully.")
-          end
-        end
-
-        it "show continue button" do
-          expect(page).to have_link("Continue")
-        end
-
-        it "does not show the back button" do
-          expect(page).to have_no_link("Back")
-        end
-      end
-
-      context "without similar results" do
-        before do
-          within ".new_amendment" do
-            fill_in :amendment_emendation_params_title, with: title
-            fill_in :amendment_emendation_params_body, with: body
-            find("*[type=submit]").click
-          end
-        end
-
-        it "redirects to step_3: Complete your amendment" do
-          expect(page).to have_content("Edit Amendment Draft")
-        end
-
-        it "shows no similar proposal found callout" do
-          within "[data-alert-box].success" do
-            expect(page).to have_content("No similar emendations found.")
-          end
-        end
-      end
-    end
-
-    context "and in step_3: Complete" do
+    context "and in step_2: Publish your amendment" do
       before do
         within ".new_amendment" do
           fill_in :amendment_emendation_params_title, with: title
@@ -123,95 +62,10 @@ describe "Amendment Wizard" do
         end
       end
 
-      it "show previous and current step_3 highlighted" do
+      it "show current step_2 highlighted" do
         within "#wizard-steps" do
           expect(page).to have_css("[aria-current]", count: 1)
-          expect(page).to have_css("[aria-current]:nth-child(3)")
-        end
-      end
-
-      it "shows the edit amendment form" do
-        expect(page).to have_content("Edit Amendment Draft")
-
-        within ".edit_amendment" do
-          fill_in :amendment_emendation_params_title, with: "#{title}Edited"
-          fill_in :amendment_emendation_params_body, with: body
-          find("*[type=submit]").click
-        end
-
-        within "[data-alert-box].success" do
-          expect(page).to have_content("Amendment draft successfully updated.")
-        end
-      end
-
-      context "when the 'Discard this draft' link is clicked" do
-        before do
-          within ".edit_amendment" do
-            click_on "Discard this draft"
-          end
-        end
-
-        it "redirects to step_1: Create your amendment" do
-          within "[data-alert-box].success" do
-            expect(page).to have_content("Amendment draft was successfully deleted.")
-          end
-
-          expect(page).to have_content("Create Amendment Draft")
-        end
-      end
-
-      context "when the back button is clicked" do
-        context "with similar results" do
-          let!(:emendation) { create(:proposal, title: { en: title }, body: { en: body }, component:) }
-          let!(:amendment) { create(:amendment, amendable: proposal, emendation:) }
-
-          before do
-            click_on "Back"
-          end
-
-          it "shows similar emendations" do
-            expect(page).to have_content("Similar Emendations (1)")
-          end
-        end
-
-        context "without similar results" do
-          before do
-            click_on "Back"
-          end
-
-          it "redirects to step_3: Complete your amendment" do
-            expect(page).to have_content("Edit Amendment Draft")
-
-            within "[data-alert-box].success" do
-              expect(page).to have_content("No similar emendations found.")
-            end
-          end
-        end
-      end
-    end
-
-    context "and in step_4: Publish your amendment" do
-      before do
-        within ".new_amendment" do
-          fill_in :amendment_emendation_params_title, with: title
-          fill_in :amendment_emendation_params_body, with: body
-          find("*[type=submit]").click
-        end
-
-        # It seems that from version 83 of chromedriver, it gets really picky
-        # Content must be inside the virtual window of test
-        # Got the idea from:
-        # https://stackoverflow.com/a/39103252
-        page.scroll_to(find(".edit_amendment"))
-        within ".edit_amendment" do
-          find("*[type=submit]").click
-        end
-      end
-
-      it "show current step_4 highlighted" do
-        within "#wizard-steps" do
-          expect(page).to have_css("[aria-current]", count: 1)
-          expect(page).to have_css("[aria-current]:nth-child(4)")
+          expect(page).to have_css("[aria-current]:nth-child(2)")
         end
       end
 
@@ -235,26 +89,6 @@ describe "Amendment Wizard" do
           within "[data-alert-box].success" do
             expect(page).to have_content("Amendment successfully published.")
           end
-        end
-      end
-
-      context "when the Modify link is clicked" do
-        before do
-          click_on "Modify"
-        end
-
-        it "redirects to step_3: Complete your amendment" do
-          expect(page).to have_content("Edit Amendment Draft")
-        end
-      end
-
-      context "when the back button is clicked" do
-        before do
-          click_on "Back"
-        end
-
-        it "redirects to step_3: Complete your amendment" do
-          expect(page).to have_content("Edit Amendment Draft")
         end
       end
     end

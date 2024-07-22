@@ -14,7 +14,6 @@ sk:
           attributes:
             choices:
               missing: nie je kompletné
-              too_many: je príliš veľa
   decidim:
     forms:
       admin:

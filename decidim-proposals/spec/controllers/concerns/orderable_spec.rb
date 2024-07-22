@@ -27,7 +27,7 @@ module Decidim
                endorsements_enabled?: endorsements_enabled,
                comments_enabled?: comments_enabled)
       end
-      let(:component_default_sort_order) { "default" }
+      let(:component_default_sort_order) { "automatic" }
       let(:step_default_sort_order) { "" }
       let(:votes_enabled) { nil }
       let(:votes_blocked) { nil }
@@ -64,7 +64,7 @@ module Decidim
 
         context "when step has default default_sort_order" do
           let(:component_default_sort_order) { "most_followed" }
-          let(:step_default_sort_order) { "default" }
+          let(:step_default_sort_order) { "automatic" }
           let(:votes_blocked) { false }
 
           it "use it instead of component's" do
@@ -91,7 +91,7 @@ module Decidim
           end
 
           describe "by default" do
-            let(:default_sort_order) { "default" }
+            let(:default_sort_order) { "automatic" }
 
             it "default_order is random" do
               expect(controller.send(:default_order)).to eq("random")

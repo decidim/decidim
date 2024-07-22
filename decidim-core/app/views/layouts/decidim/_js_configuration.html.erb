@@ -12,6 +12,9 @@ js_configs = {
     date: I18n.t("date"),
     time: I18n.t("time")
   },
+  notifications: {
+    action_error: I18n.t("decidim.notifications.action_error")
+  },
   external_domain_allowlist: [current_organization.host] + current_organization.external_domain_allowlist,
   consent_cookie_name: Decidim.consent_cookie_name,
   sign_out_path: decidim.destroy_user_session_path
@@ -27,7 +30,8 @@ character_messages = {
   }
 }
 external_link_messages = {
-  "externalLink": t("decidim.accessibility.external_link")
+  "externalLink": t("decidim.accessibility.external_link"),
+  "opensInNewTab": t("decidim.accessibility.opens_in_new_tab")
 }
 validator_messages = {
   "correctErrors": t("forms.correct_errors")

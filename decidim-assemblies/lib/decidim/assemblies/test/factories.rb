@@ -35,7 +35,6 @@ FactoryBot.define do
     target { generate_localized_title(:assembly_target, skip_injection:) }
     participatory_scope { generate_localized_title(:assembly_participatory_scope, skip_injection:) }
     participatory_structure { generate_localized_title(:assembly_participatory_structure, skip_injection:) }
-    show_statistics { true }
     private_space { false }
     purpose_of_action { generate_localized_description(:assembly_purpose_of_action, skip_injection:) }
     composition { generate_localized_description(:assembly_composition, skip_injection:) }
@@ -58,7 +57,7 @@ FactoryBot.define do
     announcement { generate_localized_title(:assembly_announcement, skip_injection:) }
 
     trait :with_type do
-      assembly_type { create :assemblies_type, organization:, skip_injection: }
+      assembly_type { create(:assemblies_type, organization:, skip_injection:) }
     end
 
     trait :promoted do
@@ -74,7 +73,7 @@ FactoryBot.define do
     end
 
     trait :with_parent do
-      parent { create :assembly, organization:, skip_injection: }
+      parent { create(:assembly, organization:, skip_injection:) }
     end
 
     trait :public do
@@ -116,7 +115,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     user
-    assembly { create :assembly, organization: user.organization, skip_injection: }
+    assembly { create(:assembly, organization: user.organization, skip_injection:) }
     role { "admin" }
   end
 
@@ -130,11 +129,11 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create :assembly_user_role,
+      create(:assembly_user_role,
              user:,
              assembly: evaluator.assembly,
              skip_injection: evaluator.skip_injection,
-             role: :admin
+             role: :admin)
     end
   end
 
@@ -148,11 +147,11 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create :assembly_user_role,
+      create(:assembly_user_role,
              user:,
              assembly: evaluator.assembly,
              role: :moderator,
-             skip_injection: evaluator.skip_injection
+             skip_injection: evaluator.skip_injection)
     end
   end
 
@@ -166,11 +165,11 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create :assembly_user_role,
+      create(:assembly_user_role,
              user:,
              assembly: evaluator.assembly,
              role: :collaborator,
-             skip_injection: evaluator.skip_injection
+             skip_injection: evaluator.skip_injection)
     end
   end
 
@@ -184,11 +183,11 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create :assembly_user_role,
+      create(:assembly_user_role,
              user:,
              assembly: evaluator.assembly,
              role: :valuator,
-             skip_injection: evaluator.skip_injection
+             skip_injection: evaluator.skip_injection)
     end
   end
 

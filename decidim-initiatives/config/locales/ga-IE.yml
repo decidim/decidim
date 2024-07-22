@@ -121,6 +121,7 @@ ga:
       initiatives:
         committee_members:
           approve: Ceadaigh
+          revoke: Cúlghairm
         filters:
           any: Ar Bith
           area: Ceantar

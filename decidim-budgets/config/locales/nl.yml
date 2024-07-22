@@ -119,7 +119,6 @@ nl:
         back_to: Terug naar %{component_name}
         close_modal: Sluit venster
         continue: Doorgaan
-        more_information: Meer informatie
       budgets_list:
         cancel_order:
           more_than_one: verwijder je stem op %{name} en begin opnieuw

@@ -79,7 +79,6 @@ fr-CA:
   decidim:
     admin:
       actions:
-        manage: Gérer
         new_initiative_type: Nouveau type d'initiative
         new_initiative_type_scope: Nouveau secteur du type de pétition
       filters:
@@ -92,7 +91,6 @@ fr-CA:
               accepted: Assez de signatures
               created: Créée
               discarded: Rejetée
-              published: Publiée
               rejected: Pas assez de signatures
               validating: Validation technique
           type_id_eq:
@@ -106,7 +104,6 @@ fr-CA:
       menu:
         attachments: Pièces jointes
         committee_members: Membres de comité
-        components: Fonctionnalités
         information: Informations
         initiative_type_scopes: Secteurs du type de pétition
         initiatives: Pétitions
@@ -293,7 +290,6 @@ fr-CA:
         initiatives_types:
           create:
             error: Une erreur est survenue.
-            success: Un nouveau type de pétition a été créé avec succès.
           destroy:
             success: Le type de pétition a été supprimé avec succès.
           edit:
@@ -327,7 +323,6 @@ fr-CA:
         accepted: Assez de signatures
         created: Créée
         discarded: Retirée
-        published: Publiée
         rejected: Pas assez de signatures
         validating: Validation technique
       application_helper:
@@ -541,7 +536,6 @@ fr-CA:
           other: " signatures"
         vote_cabin:
           already_voted: Déjà signée
-          supports_required: "%{total_supports} signatures requises"
           verification_required: Vérifiez votre compte pour signer l'initiative
           vote: Signer
           votes_blocked: Signatures désactivées
@@ -577,7 +571,6 @@ fr-CA:
           accepted: Assez de signatures
           created: Créé le
           discarded: Abandonné
-          published: Publié
           rejected: Pas assez de signatures
           validating: Validation technique
       states:

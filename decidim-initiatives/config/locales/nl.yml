@@ -66,7 +66,6 @@ nl:
       menu:
         attachments: Bijlagen
         committee_members: Commissieleden
-        components: Onderdelen
         information: Informatie
         initiatives: Initiatieven
         initiatives_types: Initiatieftypes
@@ -229,7 +228,6 @@ nl:
         accepted: Genoeg handtekeningen
         created: gemaakt
         discarded: Afgedankte
-        published: Gepubliceerd
         rejected: Niet genoeg handtekeningen
         validating: Technische validatie
       application_helper:
@@ -366,7 +364,6 @@ nl:
           other: " handtekeningen"
         vote_cabin:
           already_voted: Al getekend
-          supports_required: "%{total_supports} handtekeningen vereist"
           verification_required: Verifieer uw account om het initiatief te ondertekenen
           vote: Teken
           votes_blocked: Ondertekenen uitgeschakeld
@@ -395,7 +392,6 @@ nl:
           accepted: Genoeg handtekeningen
           created: Aangemaakt
           discarded: Verwijderd
-          published: Ingediend
           rejected: Niet genoeg handtekeningen
           validating: Technische validatie
       states:

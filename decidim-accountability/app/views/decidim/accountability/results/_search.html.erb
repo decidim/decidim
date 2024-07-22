@@ -1,5 +1,5 @@
 <%= form_tag results_path, method: :get do %>
-  <div class="filter-search">
+  <div class="filter-search filter-container">
     <label>
       <span class="sr-only"><%= t("search", scope: "decidim.accountability.results.search") %></span>
       <%= search_field_tag(
@@ -10,9 +10,9 @@
             value: "",
             title: t("search", scope: "decidim.accountability.results.search")
           ) %>
-      <button type="submit" aria-label="<%= t("search", scope: "decidim.accountability.results.search") %>">
-        <%= icon "search-line" %>
-      </button>
     </label>
+    <button type="submit" aria-label="<%= t("search", scope: "decidim.accountability.results.search") %>">
+      <%= icon "search-line" %>
+    </button>
   </div>
 <% end %>

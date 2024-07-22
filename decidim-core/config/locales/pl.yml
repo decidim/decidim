@@ -88,6 +88,7 @@ pl:
   date:
     buttons:
       close: Zamknij
+      select: Wybierz
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d.%m.%Y"
@@ -95,6 +96,10 @@ pl:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+      help:
+        date_format: 'Format: dd/mm/rrrr'
+      order: d-m-y
+      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -130,6 +135,7 @@ pl:
       external_link: Link zewnętrzny
       front_page_link: Przejdź do strony głównej
       logo: "Oficjalne logo %{organization}"
+      opens_in_new_tab: Otwiera się w nowej karcie
       skip_button: Przejdź do głównej zawartości
     account:
       blocked: To konto zostało zablokowane z powodu naruszenia regulaminu
@@ -277,10 +283,6 @@ pl:
         promote_button: '%{model_name} - promuj'
         promote_confirm_text: Czy na pewno chcesz promować tę wersję?
         promote_help_text: Możesz promować tę korektę i opublikować ją jako niezależny %{model_name}.
-      compare_draft:
-        continue: Dalej
-        no_similars_found: Nie znaleziono podobnych wersji.
-        title: Podobne wersje
       created:
         error: Wystąpił błąd podczas tworzenia projektu poprawki.
         success: Projekt poprawki został pomyślnie utworzony.
@@ -337,14 +339,16 @@ pl:
       wizard_step_form:
         steps:
           '1': Utwórz poprawkę
-          '2': Porównaj poprawkę
-          '3': Uzupełnij poprawkę
-          '4': Opublikuj poprawkę
+          '2': Opublikuj poprawkę
     anonymous_user: Anonim
     application:
       document:
         download: Pobierz plik
+        visit_link: Odwiedź link
       documents:
+        component_documents:
+          dummy: Dokumenty komponentu dummy
+          meetings: Dokumenty spotkań
         documents: Dokumenty
         related_documents: Materiały
       photo:
@@ -555,7 +559,7 @@ pl:
         name: Baner podrzędny
     core:
       actions:
-        login_before_access: Zaloguj się na swoje konto, żeby mieć dostęp.
+        login_before_access: Proszę zalogować się na swoje konto przed uzyskaniem dostępu.
         unauthorized: Nie masz uprawnień do wykonania tej czynności.
       application_helper:
         filter_area_values:
@@ -572,7 +576,7 @@ pl:
           complete_profile: Uzupełnij profil
           nickname_help: Twój pseudonim w %{organization}. Może zawierać tylko litery, cyfry, '-' i '_'.
           sign_up: Proszę uzupełnij swój profil
-          subtitle: Proszę wypełnić poniższy formularz, aby dokończyć rejestrację
+          subtitle: Proszę wypełnić poniższy formularz, aby zakończyć tworzenie konta
           username_help: Publiczne imię wyświetlane przy Twoich wpisach. W celu zagwarantowania anonimowości może być dowolna nazwa.
       registrations:
         create:
@@ -582,8 +586,8 @@ pl:
           log_in: Zaloguj się
           newsletter: Chcę otrzymywać okazjonalne newslettery z istotnymi informacjami
           newsletter_title: Zgoda na subskrybcję
-          sign_up: Zarejestruj się
-          subtitle: Zarejestruj się, aby brać udział w dyskusjach i wspierać propozycje.
+          sign_up: Utwórz konto
+          subtitle: Utwórz konto, aby wziąć udział w platformie.
           terms: warunki świadczenia usług
           tos_agreement: Rejestrując się, zgadzasz się na %{link}.
           tos_title: Warunki korzystania z Platformy
@@ -593,7 +597,7 @@ pl:
           are_you_new?: Nowy na platformie?
           register: Utwórz konto
           sign_in_disabled: Możesz uzyskać dostęp za pomocą konta zewnętrznego.
-          sign_up_disabled: Rejestracja jest wyłączona, by uzyskać dostęp, możesz użyć istniejącego konta.
+          sign_up_disabled: Tworzenie konta jest wyłączone, możesz użyć istniejącego konta, aby uzyskać dostęp.
         user:
           timed_out: Zostałeś automatycznie wylogowany z usługi z powodu zbyt długiej nieaktywności. Jeśli chcesz kontynuować korzystanie z usługi, zaloguj się ponownie.
       shared:
@@ -796,6 +800,10 @@ pl:
           email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
           email_subject: Grupa użytkowników zaktualizowała swój profil
           notification_title: Grupa użytkowników %{user_group_name} zaktualizowała swój profil, pozostawiając go niezweryfikowanym. Możesz go teraz zweryfikować w <a href="%{groups_admin_path}">panelu administratora</a>.
+      nickname_event:
+        notification_body: Skorygowaliśmy sposób, w jaki używane są pseudonimy, aby nie było duplikatów i dlatego usunęliśmy zasadę uwzględniającą wielkość liter. <br/> Twój pseudonim został utworzony po innym o tej samej nazwie, więc automatycznie zmieniliśmy jego nazwę. Możesz to zmienić z <a href="%{link_to_account_settings}">ustawień konta</a>.
+      notification_event:
+        notification_title: W <a href="%{resource_path}">%{resource_title}</a> doszło do zdarzenia.
       reports:
         resource_hidden:
           email_intro: Administrator usunął %{resource_type}, ponieważ zasób został zgłoszony jako %{report_reasons}.
@@ -859,10 +867,16 @@ pl:
       create:
         button: Obserwuj
         error: Wystąpił błąd podczas próby obserwowania tego zasobu.
+        participatory_space: Śledzenie <span>%{resource_name}</span>
       destroy:
         button: Przestań obserwować
         error: Nastąpił błąd podczas cofania obserwowania tego zasobu.
     forms:
+      attachment_link:
+        explanation: Wytyczne dotyczące linków do załącznika
+        help_messages:
+          - Akceptowane są tylko poprawne formaty URL.
+          - Pamiętaj, że linki muszą być publiczne, aby wszyscy uczestnicy mieli do nich dostęp.
       errors:
         decidim/user:
           password: Hasło jest za krótkie.
@@ -872,12 +886,14 @@ pl:
         file:
           explanation: 'Wytyczne dotyczące pliku:'
           message_1: Ma być obrazem lub dokumentem.
+          message_2: W przypadku obrazów używaj najlepiej tych o orientacji poziomej, usługa przycina obraz.
         icon:
           explanation: 'Wytyczne dla ikony:'
           message_1: Musi być obrazem kwadratowym.
           message_2: Zalecany rozmiar dla tego obrazu to 512x512.
         image:
           explanation: 'Wytyczne dotyczące obrazu:'
+          message_1: Najlepiej obraz poziomy, który nie ma żadnego tekstu.
           message_2: Obraz jest docinany automatycznie.
       file_validation:
         allowed_file_extensions: 'Dozwolone rozszerzenia plików: %{extensions}'
@@ -896,6 +912,7 @@ pl:
           filename: Nazwa pliku
           remove: Usuń
           replace: Zamień
+          save: Zapisz
           title: Tytuł
           title_required: Tytul jest obowiazkowy!
           uploaded: Przesłano
@@ -1019,7 +1036,7 @@ pl:
           content: "<p>W %{organization} możesz brać udział i decydować o różnych tematach, poprzez przestrzenie widoczne w górnym menu: Procesy, Zespoły, Inicjatywy, Konsultacje.</p> <p>W ramach każdego z nich znajdziesz różne opcje uczestnictwa: składanie propozycji - indywidualnie lub wspólnie z innymi osobami - uczestnictwo w debatach, nadawanie priorytetów projektom do realizacji, uczestnictwo w spotkaniach twarzą w twarz i inne działania.</p>\n"
           title: Co mogę zrobić w %{organization}?
         description: Przeczytaj więcej o %{organization}.
-        title: Ogólna pomoc
+        title: Ogólne
     last_activities:
       all: Wszystkie typy aktywności
       index:
@@ -1215,9 +1232,11 @@ pl:
         same_language: Treść została zamieszczona w preferowanym przez Ciebie języku (%{language}), dlatego w tej wiadomości e-mail nie wyświetlono żadnego automatycznego tłumaczenia.
         translated_text: 'Automatycznie przetłumaczony tekst:'
     notifications:
+      action_error: Wystąpił problem z aktualizacją powiadomień.
       no_notifications: Brak powiadomień.
       show:
         missing_event: Ups, to powiadomienie należy do elementu, który nie jest już dostępny. Możesz je odrzucić.
+        moderated: Zawartość moderowana
     notifications_digest_mailer:
       header:
         daily: Podsumowanie codziennych powiadomień
@@ -1258,6 +1277,7 @@ pl:
     offline:
       name: W trybie offline
       show:
+        message_1: Wygląda na to, że jesteś obecnie offline.
         message_2: Spróbuj ponownie później.
         retry: Powtórz
     open_data:
@@ -1289,7 +1309,7 @@ pl:
           headline: Aktualny stan %{organization}
         sub_hero:
           register: Zarejestruj się
-          register_title: Zarejestruj się, aby utworzyć konto
+          register_title: Utwórz konto
       index:
         standalone_pages: Strony
         subheading: '%{name} - zapoznaj się ze stronami pomocy'
@@ -1435,6 +1455,8 @@ pl:
         close_modal: Zamknij okno
         ok: OK
         title: Potwierdź
+      embed:
+        title: Wbudowana zawartość wideo
       extended_navigation_bar:
         more: Więcej
         unfold: Rozwiń
@@ -1470,7 +1492,7 @@ pl:
         log_in_before_follow: Przed wykonaniem czynności należy się zalogować
       login_modal:
         please_log_in: Zaloguj się
-        sign_up: Zarejestruj się
+        sign_up: Utwórz konto
       mentions_modal:
         remove_recipient: Usuń odbiorcę %{name}
       participatory_space_filters:
@@ -1597,7 +1619,7 @@ pl:
       locked: Twoje konto jest zablokowane.
       not_found_in_database: 'Nieprawidłowe dane: %{authentication_keys} lub hasło.'
       timeout: Twoja sesja wygasła. Aby kontynuować, zaloguj się ponownie.
-      unauthenticated: Zaloguj się lub zarejestruj, aby kontynuować.
+      unauthenticated: Musisz się zalogować lub utworzyć konto, zanim przejdziesz dalej.
     invitations:
       edit:
         header: Zakończ tworzenie konta
@@ -1670,6 +1692,9 @@ pl:
         change_my_password: Zmień moje hasło
         confirm_new_password: Potwierdź nowe hasło
         new_password: Nowe hasło
+        old_password_help: Aby potwierdzić zmiany na koncie, podaj swoje aktualne hasło.
+        password_help: "Minimalna liczba znaków: %{minimum_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
+        password_help_admin: "Minimalna liczba znaków: %{minimum_characters}; nie może być zbyt powszechne (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail, a także Twoich poprzednich haseł."
         title: Zmiana hasła
       new:
         forgot_your_password: Zapomniałeś hasła?
@@ -1682,7 +1707,7 @@ pl:
     registrations:
       destroyed: Twoje konto zostało pomyślnie zawieszone. Mamy nadzieję zobaczyć Cię ponownie wkrótce.
       new:
-        sign_up: Zarejestruj się
+        sign_up: Utwórz konto
       signed_up: Witamy! Zarejestrowałeś się pomyślnie.
       signed_up_but_inactive: Zarejestrowałeś się pomyślnie. Nie możemy Cię jednak zalogować, ponieważ Twoje konto nie zostało jeszcze aktywowane.
       signed_up_but_locked: Zarejestrowałeś się pomyślnie. Nie możemy Cię jednak zalogować, ponieważ Twoje konto jest zablokowane.
@@ -1703,7 +1728,7 @@ pl:
         forgot_your_password: Nie pamiętasz hasła?
         log_in: Zaloguj się
         log_in_with_provider: Zaloguj się z %{provider}
-        sign_up: Zarejestruj się
+        sign_up: Utwórz konto
       minimum_password_length:
         one: "(Minimum%{count} znak)"
         few: "(Minimum%{count} znaków)"
@@ -1776,19 +1801,50 @@ pl:
     upload:
       uploadedFile: Załadowany plik
   emojis:
+    add_custom: Użyj niestandardowych emoji
     button: Dodaj emotikonę
+    categories:
+      activity: Aktywność
+      custom: Niestandardowe
+      flags: Flagi
+      foods: Żywność i napoje
+      frequent: Często używane
+      nature: Zwierzęta i przyroda
+      objects: Obiekty
+      people: Buźki i osoby
+      places: Podróże i miejsca
+      search: Wyniki wyszukiwania
+      symbols: Symbole
+    pick: Wybierz emoji…
+    search: Szukaj
+    search_no_results_1: O nie!
+    search_no_results_2: Nie udało się znaleźć tego emoji
+    skins:
+      '1': Domyślna
+      '2': Jasna
+      '3': Średnio jasna
+      '4': Średnia
+      '5': Średnio ciemna
+      '6': Ciemna
+      choose: Wybierz domyślny odcień skóry
   errors:
     messages:
+      allowed_file_content_types: 'dozwolone są tylko pliki z następującymi rozszerzeniami: %{types}'
+      already_confirmed: zostało już potwierdzone, spróbuj się zalogować
       blank: nie może być puste
       cannot_be_blank: nie może być puste
+      confirmation: nie pasuje do %{attribute}
       confirmation_period_expired: musi być potwierdzone w ciągu %{period}, proszę poprosić o nowy
       content_type_allowlist_error: typ pliku jest nieprawidłowy
+      cycle_detected: rodzic zakresu nie może być jednym z jego potomków
+      empty: nie może być pusty
       expired: wygasł, proszę poprosić o nowy
       file_size_is_less_than_or_equal_to: rozmiar pliku musi być mniejszy lub równy %{count}
       invalid_time_zone: nie jest prawidłową strefą czasową
       long_words: zawiera słowa, które są zbyt długie (powyżej 35 znaków)
       must_start_with_caps: musi zaczynać się od dużej litery
-      not_found: nie został znaleziony. Czy zarejestrowałeś(-aś) się wcześniej?
+      nesting_too_deep: nie może wchodzić w skład podkategorii
+      not_found: nie może zostać znaleziony. Czy utworzyłeś(aś) wcześniej konto?
       not_locked: nie był zablokowany
       not_saved:
         one: 'Wystąpił błąd podczas przetwarzania Twojego żądania:'
@@ -1797,6 +1853,8 @@ pl:
         other: 'Podczas przetwarzania Twojego żądania wystąpiły błędy:'
       too_many_marks: używa zbyt wielu kolejnych znaków interpunkcyjnych (np.! i?)
       too_much_caps: używa zbyt dużej liczby wielkich liter (ponad 25% tekstu)
+      too_short: jest za krótkie (poniżej %{count} znaków)
+      url_format: Ten adres URL jest w niepoprawnym formacie
   forms:
     correct_errors: Wystąpiły błędy w formularzu, popraw je, aby kontynuować.
     length_validator:
@@ -1812,12 +1870,22 @@ pl:
     timestamp_error_message: Przepraszam, to było za szybkie! Proszę przesłać ponownie.
   layouts:
     decidim:
+      announcements:
+        view_less: Pokaż mniej
+        view_more: Więcej informacji
       data_consent:
         details:
           columns:
+            description: Opis
+            name: Nazwa
+            service: Usługa
             type: Typ
           items:
+            _session_id:
+              description: Pozwala witrynom na zapamiętanie użytkownika w witrynie internetowej, gdy przenoszą się między stronami internetowymi.
+              service: Ta strona internetowa
             decidim-consent:
+              description: Przechowuje informacje o ciasteczkach dozwolonych przez użytkownika na tej stronie.
               service: Ta strona internetowa
             pwaInstallPromptSeen:
               description: Zachowuje status, jeśli powiadomienie o instalacji progresywnej aplikacji internetowej (PWA) zostało już wyświetlone przez użytkownika.
@@ -1865,8 +1933,8 @@ pl:
         log_in: Zaloguj się
         made_with_open_source: Strona internetowa powstała z użyciem <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
         resources: Zasoby
-        sign_up: Zarejestruj się
-        terms_and_conditions: Warunki świadczenia usługi
+        sign_up: Utwórz konto
+        terms_of_service: Regulamin świadczenia usług
       header:
         log_in: Zaloguj się
         main_menu: Menu główne
@@ -1882,10 +1950,6 @@ pl:
         mark_as_read: Oznacz jako przeczytane
       offline_banner:
         cache_version_page: Oooops! Twoja sieć jest offline. Jest to poprzednio buforowana wersja strony, którą odwiedzasz, być może zawartość nie jest aktualna.
-      shared:
-        layout_item:
-          next: Następny element
-          prev: Poprzedni element
       social_media_links:
         facebook: "%{organization} na Facebooku"
         github: "%{organization} na GitHubie"
@@ -1964,6 +2028,10 @@ pl:
     x: X
     xing: Xing
   time:
+    buttons:
+      close: Zamknij
+      reset: Resetuj
+      select: Wybierz
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -1978,11 +2046,14 @@ pl:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      help:
+        time_format: 'Format: hh:mm'
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
       long_with_particles: "%B %d, %Y o %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Elementy usunięte

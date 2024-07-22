@@ -12,6 +12,7 @@ ca:
         project_ids: Projectes inclosos
         proposals: Propostes incloses
         start_date: Data d'inici
+        subresults: Subresultats
         title: Títol
         updated_at: Actualitzat el
       status:
@@ -234,15 +235,7 @@ ca:
           search: Cercar actuacions
         show:
           stats:
-            attendees: Assistents
             back_to_resource: Tornar al resultat
-            comments: Comentaris
-            contributions: Aportacions
-            last_edited_by: Editat per última vegada per
-            last_updated_at: Darrera actualització el
-            meetings: Trobades
-            proposals: Propostes
-            votes: Suports
         timeline:
           title: Evolució del projecte
     admin:
@@ -261,16 +254,12 @@ ca:
         name: Seguiment
         settings:
           global:
-            categories_label: Nom per a "Categories"
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
             display_progress_enabled: Mostrar el progrés
-            heading_leaf_level_results: Nom per a "Projectes"
-            heading_parent_level_results: Nom per a "Resultats"
             intro: Introducció
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
-            subcategories_label: Nom per a "Subcategories"
           step:
             comments_blocked: Comentaris bloquejats
     events:
@@ -282,7 +271,7 @@ ca:
           notification_title: La proposta <a href="%{proposal_path}">%{proposal_title}</a> s'ha inclòs al resultat <a href="%{resource_path}">%{resource_title}</a>.
         result_progress_updated:
           email_intro: 'El resultat "%{resource_title}", que inclou la proposta "%{proposal_title}", s''ha completat en un %{progress}%. Pots veure-ho des d''aquesta pàgina:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{proposal_title}", i aquesta proposta s'inclou al resultat "%{resource_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la proposta "%{proposal_title}", i aquesta s'inclou al resultat "%{resource_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una actualització sobre el progrés de %{resource_title}
           notification_title: El resultat <a href="%{resource_path}">%{resource_title}</a>, que inclou la proposta <a href="%{proposal_path}">%{proposal_title}</a>, s'ha completat en un %{progress}%.
     metrics:

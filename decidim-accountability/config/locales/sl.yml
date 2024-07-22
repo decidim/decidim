@@ -94,10 +94,6 @@ sl:
           subcategories_label: Podkategorije
         search:
           search: Išči dejanja
-        show:
-          stats:
-            last_edited_by: Nazadnje uredil(a) {0}, {1}
-            meetings: Sestanki
     components:
       accountability:
         settings:

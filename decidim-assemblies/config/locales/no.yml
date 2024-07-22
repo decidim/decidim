@@ -43,7 +43,6 @@
         scope_id: Tema
         scopes_enabled: Temaer aktivert
         short_description: Kort beskrivelse
-        show_statistics: Vis statistikk
         slug: URL slug
         special_features: Spesialfunksjoner
         subtitle: Undertittel
@@ -178,7 +177,6 @@
           categories: Kategorier
           components: Komponenter
           moderations: Moderering
-          private_users: Private brukere
         assemblies_types: Forsamlingstyper
       models:
         assemblies_types:
@@ -317,11 +315,7 @@
       show:
         assembly_type: Forsamlingstype
         duration: Varighet
-        is_transparent:
-          'false': opaque
-          'true': privat
         private_space: Dette er en privat forsamling
-        related_participatory_processes: Relaterte deltakerprosesser
     assembly_members:
       assembly_member:
         designated_on: Utpekt på

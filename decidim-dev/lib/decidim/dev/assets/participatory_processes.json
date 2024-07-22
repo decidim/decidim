@@ -91,7 +91,6 @@
     "private_space": false,
     "promoted": true,
     "scopes_enabled": true,
-    "show_statistics": true,
     "participatory_process_steps": [
       {
         "id": 1,
@@ -340,38 +339,6 @@
           "intro_en": "<p>Voluptatem praesentium maxime vitae.</p>",
           "intro_ca": "<p>Sapiente animi quo at.</p>",
           "intro_es": "<p>Illum veritatis porro nulla.</p>",
-          "categories_label": {
-            "ca": "alias",
-            "en": "aut",
-            "es": "omnis"
-          },
-          "categories_label_en": "aut",
-          "categories_label_ca": "alias",
-          "categories_label_es": "omnis",
-          "subcategories_label": {
-            "ca": "rerum",
-            "en": "reprehenderit",
-            "es": "nostrum"
-          },
-          "subcategories_label_en": "reprehenderit",
-          "subcategories_label_ca": "rerum",
-          "subcategories_label_es": "nostrum",
-          "heading_parent_level_results": {
-            "ca": "et",
-            "en": "explicabo",
-            "es": "officiis"
-          },
-          "heading_parent_level_results_en": "explicabo",
-          "heading_parent_level_results_ca": "et",
-          "heading_parent_level_results_es": "officiis",
-          "heading_leaf_level_results": {
-            "ca": "consectetur",
-            "en": "illum",
-            "es": "sunt"
-          },
-          "heading_leaf_level_results_en": "illum",
-          "heading_leaf_level_results_ca": "consectetur",
-          "heading_leaf_level_results_es": "sunt",
           "display_progress_enabled": true
         },
         "weight": 0,

@@ -172,7 +172,6 @@ Decidim::Core::Engine.routes.draw do
       post :create
     end
     member do
-      get :compare_draft
       get :edit_draft
       patch :update_draft
       delete :destroy_draft

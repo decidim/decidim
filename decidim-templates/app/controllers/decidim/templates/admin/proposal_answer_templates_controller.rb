@@ -55,7 +55,9 @@ module Decidim
         end
 
         def fetch
-          enforce_permission_to(:read, :template, template:)
+          enforce_permission_to(:read, :template, template:, proposal:)
+
+          return render json: { msg: I18n.t("templates.fetch.error", scope: "decidim.admin") }, status: :unprocessable_entity if template.blank?
 
           state = fetch_proposal_state(template)
 
@@ -138,7 +140,7 @@ module Decidim
 
         def populate_template_interpolations(proposal)
           template.description.to_h do |language, value|
-            value.gsub!("%{organization}", proposal.organization.name)
+            value.gsub!("%{organization}", translated_attribute(proposal.organization.name))
             value.gsub!("%{name}", author_name(proposal))
             value.gsub!("%{admin}", current_user.name)
 

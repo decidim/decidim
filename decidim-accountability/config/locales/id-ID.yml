@@ -117,15 +117,7 @@ id:
           search: Cari tindakan
         show:
           stats:
-            attendees: Hadirin
             back_to_resource: Kembali ke hasil
-            comments: Komentar
-            contributions: Kontribusi
-            last_edited_by: Terakhir diedit oleh
-            last_updated_at: Terakhir diperbarui pada
-            meetings: Rapat
-            proposals: Proposal
-            votes: Mendukung
         timeline:
           title: Evolusi proyek
     components:
@@ -133,13 +125,9 @@ id:
         name: Akuntabilitas
         settings:
           global:
-            categories_label: Nama untuk "Kategori"
             comments_enabled: Komentar diaktifkan
             display_progress_enabled: Kemajuan tampilan
-            heading_leaf_level_results: Nama untuk "Proyek"
-            heading_parent_level_results: Nama untuk "Hasil"
             intro: Intro
-            subcategories_label: Nama untuk "Subkategori"
           step:
             comments_blocked: Komentar diblokir
     events:

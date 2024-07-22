@@ -27,7 +27,7 @@ First, we are going to install https://github.com/rbenv/rbenv[rbenv], for managi
 [source,bash]
 ----
 sudo apt update
-sudo apt install -y build-essential curl git libssl-dev zlib1g-dev
+sudo apt install -y build-essential curl git libssl-dev zlib1g-dev p7zip
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
@@ -133,6 +133,7 @@ We should now create your database. For a first local installation, we recommend
 [source,bash]
 ----
 bin/rails db:create db:migrate
+bin/rails assets:precompile
 bin/rails db:seed
 ----
 
@@ -165,5 +166,5 @@ The seed data will not be created in production environments, if you still want 
 
 [source,bash]
 ----
-SEED=true rails db:seed
+SEED=true rails assets:precompile db:seed
 ----

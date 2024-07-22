@@ -3,11 +3,221 @@ bg:
     attributes:
       debate:
         category_id: Категория
+        closed_at: Затворено на
+        conclusions: Заключения
         decidim_category_id: Категория
         description: Описание
+        end_time: Завършва на
+        information_updates: Актуализации на информацията
+        instructions: Инструкции за участие
+        scope_id: Обхват
+        start_time: Започва в
+        title: Заглавие
+        user_group_id: Създаване на дебат като
+    models:
+      decidim/debates/close_debate_event: Дебатът е затворен
+      decidim/debates/create_debate_event: Дебат
+      decidim/debates/creation_disabled_event: Дебатите са неактивни
+      decidim/debates/creation_enabled_event: Създаването на дебати е активирано
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Дебат
+        other: Дебати
   decidim:
-    debates:
+    components:
       debates:
+        actions:
+          comment: Коментар
+          create: Създаване
+          endorse: Одобрявам
+        name: Дебати
+        settings:
+          global:
+            announcement: Обявление
+            comments_enabled: Коментарите са активирани
+            comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
+            scope_id: Обхват
+            scopes_enabled: Обхватите са активирани
+          step:
+            announcement: Обявление
+            comments_blocked: Коментарите са блокирани
+            creation_enabled: Участниците могат да създават дебати
+            endorsements_blocked: Одобренията са блокирани
+            endorsements_enabled: Одобренията са активирани
+    debates:
+      actions:
+        close: Затвори
+        confirm_destroy: Сигурни ли сте?
+        destroy: Изтрий
+        edit: Редактирай
+        new: Нов дебат
+        title: Активности
+      admin:
+        debate_closes:
+          edit:
+            close: Затвори
+            title: Затваряне на дебата
+        debates:
+          create:
+            invalid: Възникна проблем при създаването на дебата.
+            success: Дебатът беше създаден успешно.
+          destroy:
+            success: Дебатът беше изтрит успешно.
+          edit:
+            title: Редактиране на дебата
+            update: Актуализиране на дебата
+          form:
+            debate_type: Тип на дебата
+            finite: Краен (с начален и краен час)
+            open: Отворено (без начален или краен час)
+          index:
+            title: Дебати
+          new:
+            create: Създаване на дебат
+            title: Нов дебат
+          update:
+            invalid: Възникна проблем при актуализирането на този дебат.
+            success: Дебатът беше актуализиран успешно.
+        exports:
+          comments: Коментари
+      admin_log:
+        debate:
+          close: "%{user_name} затвори дебата %{resource_name} в пространството %{space_name}"
+          create: "%{user_name} създаде дебата %{resource_name} в пространството %{space_name}"
+          update: "%{user_name} актуализира дебата %{resource_name} в пространството %{space_name}"
+      debate_m:
+        commented_time_ago: Коментирано преди %{time}
+      debates:
+        close:
+          invalid: Възникна проблем при затварянето на дебата.
+          success: Дебатът беше затворен успешно.
+        close_debate_modal:
+          cancel: Отказ
+          description: Какво е обобщението или заключението на този дебат?
+          send: Затваряне на дебата
+        count:
+          debates_count:
+            one: "%{count} дебат"
+            other: "%{count} дебата"
+        create:
+          invalid: Възникна проблем при създаването на дебата.
+          success: Дебатът беше създаден успешно.
+        debates:
+          empty: Все още няма дебати.
+          empty_filters: Няма дебати с този критерий.
+        edit:
+          back: Назад
+          save: Запази промените
+          title: Редактиране на дебата
+        filters:
+          activity: Моята дейност
+          all: Всички
+          category: Категория
+          category_prompt: Изберете категория
+          commented: Коментирано
+          my_debates: Моите дебати
+          official: Официални
+          origin: Произход
+          participants: Участници
+          search: Търсене
+          state: Статус
+          state_values:
+            closed: Затворен
+            open: Отворен
+          user_group: Групи
+        form:
+          select_a_category: Моля, изберете категория
+        index:
+          new_debate: Нов дебат
+        new:
+          back: Назад
+          create: Създаване
+          title: Нов дебат
+        orders:
+          commented: Най-коментирани
+          label: Подреждане на дебатите по
+          random: Случаен ред
+          recent: Най-скорошни
+          updated: Скоро обновени
         show:
+          close_debate: Затваряне на дебата
+          debate_closed: Затворен
+          debate_conclusions_are: 'Дебатът беше затворен на %{date} със следните заключения:'
+          edit_conclusions: Редактиране на заключенията
+          edit_debate: Редактиране на дебата
           groups_count: Групи
+          open: Отворен дебат
           participants_count: Участници
+        update:
+          invalid: Възникна проблем при актуализирането на дебата.
+          success: Дебатът беше актуализиран успешно.
+      last_activity:
+        debate_updated: 'Дебатът е актуализиран:'
+        new_debate: 'Нов дебат:'
+      models:
+        debate:
+          fields:
+            end: Край
+            end_time: Крайна дата
+            official_debate: Официален дебат
+            start: Начало
+            start_time: Начална дата
+            title: Заглавие
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Здравейте
+              Нов дебат „%{resource_title}“ е създаден в пространството за участие %{participatory_space_title}, разгледайте го и допринесете:
+            email_outro: Получихте това известие, защото следвате %{participatory_space_title} пространство за участие. Можете да спрете да получавате известия, като следвате предишната връзка.
+            email_subject: Нов дебат „%{resource_title}“ на %{participatory_space_title}
+            notification_title: Дебатът <a href="%{resource_path}">%{resource_title}</a> беше създаден на <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Здравейте,
+              участниът %{author_name} %{author_nickname}, когото следвате, създаде нов дебат „%{resource_title}“. Вижте го и допринесете:
+            email_outro: Получихте това известие, защото следвате %{author_nickname}. Можете да спрете да получавате известия, като последвате предходния линк.
+            email_subject: Нов дебат „%{resource_title}“ от %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> създаде дебата <a href="%{resource_path}">%{resource_title}</a>.
+        creation_disabled:
+          email_intro: 'Създаването на дебати вече не е активно в(ъв) %{participatory_space_title}. Все още можете да участвате в отворени дебати от следната страница:'
+          email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предходния линк.
+          email_subject: Създаването на дебати е деактивирано в(ъв) %{participatory_space_title}
+          notification_title: Създаването на дебати вече е деактивирано в(ъв) <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Вече можете да създавате нови дебати в(ъв) %{participatory_space_title}! Започнете да участвате на следната страница:'
+          email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предходния линк.
+          email_subject: Дебатите вече са налице в(ъв) %{participatory_space_title}
+          notification_title: Вече можете да създавате <a href="%{resource_path}">нови дебати</a> в(ъв) <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+        debate_closed:
+          affected_user:
+            email_intro: 'Дебатът „%{resource_title}“ беше затворен. Можете да прочетете заключенията на страницата за него:'
+            email_outro: Получавате това известие, защото следвате дебата „%{resource_title}“. Можете да прекратите следването от предходната връзка.
+            email_subject: Дебатът „%{resource_title}“ беше затворен
+            notification_title: Дебатът <a href="%{resource_path}">%{resource_title}</a> беше затворен.
+          follower:
+            email_intro: 'Дебатът „%{resource_title}“ беше затворен. Можете да прочетете заключенията на неговата страница:'
+            email_outro: Получавате това известие, защото следвате дебата „%{resource_title}“. Можете да прекратите следването от предходния линк.
+            email_subject: Дебатът „%{resource_title}“ беше затворен
+            notification_title: Дебатът <a href="%{resource_path}">%{resource_title}</a> беше затворен.
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+            - Изберете отворен дебат и участвайте в него
+          description: Тази значка се предоставя, когато участвате активно в различни дебати, като оставяте коментари.
+          description_another: Този участник се е включил в %{score} дебата.
+          description_own: Участвали сте в %{score} дебата.
+          name: Дебати
+          next_level_in: Участвайте в още %{score} дебата, за да достигнете следващото ниво!
+          unearned_another: Този участник все още не е участвал в нито един дебат.
+          unearned_own: Все още не сте участвали в нито един дебат.
+    metrics:
+      debates:
+        description: Брой създадени дебати
+        object: дебати
+        title: Дебати
+    statistics:
+      debates_count: Дебати

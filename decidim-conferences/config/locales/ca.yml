@@ -126,6 +126,12 @@ ca:
         new:
           create: Crear
           title: Nova ponent de la jornada.
+        publish:
+          invalid: S'ha produït un error en publicar aquesta ponent.
+          success: Ponent de la jornada actualitzada correctament.
+        unpublish:
+          invalid: S'ha produït un error en despublicar aquesta ponent.
+          success: Ponent de la jornada despublicada correctament.
         update:
           error: S'ha produït un error en actualitzar la ponent d'aquesta jornada.
           success: Ponent de la jornada actualitzada correctament.
@@ -525,7 +531,7 @@ ca:
           notification_title: La teva inscripció a jornada <a href="%{resource_url}">%{resource_title}</a> està pendent de confirmació.
         conference_registrations_over_percentage:
           email_intro: Les places ocupades per a la jornada "%{resource_title}" superen el %{percentage}%.
-          email_outro: Has rebut aquesta notificació perquè ets administradora de l'espai participatiu de la jornada.
+          email_outro: Has rebut aquesta notificació perquè administres l'espai participatiu de la jornada.
           email_subject: Les places ocupades per a la jornada "%{resource_title}" superen el %{percentage}%
           notification_title: Les places ocupades per a la jornada <a href="%{resource_path}">%{resource_title}</a> superen el %{percentage}%.
         conference_updated:
@@ -584,7 +590,7 @@ ca:
         order_by_conferences:
           conferences:
             one: "%{count} jornada"
-            other: "%{count} jornadas"
+            other: "%{count} jornades"
       conferences_nav:
         conference_partners_menu_item: Col·laboradores
         conference_speaker_menu_item: Ponents

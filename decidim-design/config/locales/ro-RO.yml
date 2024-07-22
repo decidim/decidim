@@ -1,1 +1,45 @@
+---
 ro:
+  decidim:
+    design:
+      components:
+        accordions:
+          content_panel: Conținutul panoului
+          demo: Demo
+          github_source_html: Cod sursă pe GitHub %{github_link}
+          panel: Panou
+          title: Acordeoane
+          trigger: Declanșator
+          usage: Utilizare
+          usage_p: Un acordeon necesită cel puțin trei elemente
+          usage_p_1_html: 1. Un wrapper <code>div</code>, cu data-atributul <code>data-component="accordion"</code>, pentru toate declanșatoarele și panourile disponibile.
+          usage_p_2_html: 2. Un element de declanșare, acționabil de utilizator (ca un buton), indicând către elementul de colaps prin intermediul <code>data-controls="panel"</code>, unde <i>panel</i> este <code>id</code> al panoului.
+          usage_p_3_html: 3. Un element ascuns, al cărui <code>id</code> corespunde valorii controlului datelor la care se referă declanșatorul.
+        activities:
+          activities: Activităţi
+        address:
+          title: Adresă
+        announcement:
+          iam_an_announcement: Sunt un anunț
+          this_is_the_body: Acesta este corpul
+          this_is_the_title: Acesta este titlul
+          title: Anunț
+        author:
+          title: Autor
+        buttons:
+          title: Butoane
+        cards:
+          title: Carduri
+        forms:
+          disabled: Dezactivat
+          emojis: Emoji-uri
+          emojis_description: Funcționează doar pentru textarea
+          errors: Erori
+          help_texts: Text de ajutor
+          min_max_length: Lungime min - max
+      foundations:
+        accessibility:
+          accessibility_title: Accesibilitate
+          adjacent_links: Link-uri adiacente
+          elements_hidden: Elemente ascunse
+          elements_hidden_header: Elemente ascunse de API-ul de accesibilitate

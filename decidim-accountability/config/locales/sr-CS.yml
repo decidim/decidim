@@ -121,15 +121,7 @@ sr:
           search: Potraga za akcijama
         show:
           stats:
-            attendees: Učesnici
             back_to_resource: Vrati se na rezultat
-            comments: Komentari
-            contributions: Doprinosi
-            last_edited_by: Poslednji put izmenjeno od strane
-            last_updated_at: Poslеdnji put ažurirano
-            meetings: Sastanci
-            proposals: Predlozi
-            votes: Podržavanja
         timeline:
           title: Evolucija projekta
     components:
@@ -137,13 +129,9 @@ sr:
         name: Odgovornost
         settings:
           global:
-            categories_label: Ime za "Kategorije"
             comments_enabled: Komentari su omogućeni
             display_progress_enabled: Prikaži napredak
-            heading_leaf_level_results: Ime za "Projekte"
-            heading_parent_level_results: Ime za "Rezultate"
             intro: Uvod
-            subcategories_label: Ime za "Podkategorije"
           step:
             comments_blocked: Komentari su onemogućeni
     events:

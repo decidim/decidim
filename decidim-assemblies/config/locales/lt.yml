@@ -50,7 +50,6 @@ lt:
         scope_id: Apimtis
         scopes_enabled: Įgalintos apimtys
         short_description: Trumpas aprašymas
-        show_statistics: Rodyti statistiką
         slug: URL priedas
         special_features: Specialiosios ypatybės
         subtitle: Paantraštė
@@ -199,7 +198,6 @@ lt:
           components: Komponentai
           landing_page: Pagrindinis puslapis
           moderations: Moderavimai
-          private_users: Privatūs naudotojai
         assemblies_types: Asamblėjų tipai
       models:
         assemblies_types:
@@ -375,11 +373,7 @@ lt:
       show:
         assembly_type: Asamblėjos tipas
         duration: Trukmė
-        is_transparent:
-          'false': neskaidru
-          'true': skaidru
         private_space: Tai yra uždara asamblėja
-        related_participatory_processes: Susiję dalyvaujamieji procesai
         social_networks_title: Aplankyti asamblėją
     assembly_members:
       assembly_member:

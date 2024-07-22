@@ -21,6 +21,7 @@ it:
       timeline_entry:
         description: Descrizione
         entry_date: Data
+        title: Titolo
     models:
       decidim/accountability/proposal_linked_event: Proposta inclusa in un risultato
       decidim/accountability/result_progress_updated_event: Avanzamento dei risultati aggiornato
@@ -37,6 +38,8 @@ it:
         confirm_destroy: Sei sicuro di voler eliminare questo %{name}?
         destroy: Cancella
         edit: Modifica
+        import: Importa progetti da un'altro componenete
+        new_result: Nuovo risultato
         preview: Anteprima
         timeline_entries: Evoluzione del progetto
         title: Azioni
@@ -61,6 +64,8 @@ it:
           new:
             create: Crea un risultato
             title: Nuovo risultato
+          update:
+            success: Risultati aggiornati con successo
         shared:
           subnav:
             statuses: Stati
@@ -120,6 +125,7 @@ it:
         timeline_entry:
           fields:
             entry_date: Data
+            title: Titolo
       results:
         count:
           results_count:
@@ -138,15 +144,7 @@ it:
           search: Cerca azioni
         show:
           stats:
-            attendees: Partecipanti
             back_to_resource: Torna al risultato
-            comments: Commenti
-            contributions: Contributi
-            last_edited_by: Ultima modifica del
-            last_updated_at: Ultimo aggiornamento alle
-            meetings: Riunioni
-            proposals: Proposte
-            votes: Voti
         timeline:
           title: Evoluzione del progetto
     admin:
@@ -165,16 +163,12 @@ it:
         name: Accountability
         settings:
           global:
-            categories_label: Nome per "Categorie"
             comments_enabled: Commenti abilitati
             comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
             display_progress_enabled: Mostra avanzamento
-            heading_leaf_level_results: Nome per "Progetti"
-            heading_parent_level_results: Nome per "Risultati"
             intro: Introduzione
             scope_id: Ambito
             scopes_enabled: Ambiti abilitati
-            subcategories_label: Nome per "Sottocategorie"
           step:
             comments_blocked: Commenti bloccati
     events:

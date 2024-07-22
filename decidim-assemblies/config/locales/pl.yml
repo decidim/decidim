@@ -50,7 +50,6 @@ pl:
         scope_id: Zakres
         scopes_enabled: Zakresy dozwolone
         short_description: Krótki opis
-        show_statistics: Pokaż statystyki
         slug: URL slug
         special_features: Cechy szczególne
         subtitle: Podtytuł
@@ -215,7 +214,7 @@ pl:
           info: O tym zgromadzeniu
           landing_page: Strona startowa
           moderations: Moderacje
-          private_users: Prywatni użytkownicy
+          private_users: Uczestnicy prywatni
           see_assembly: Zobacz zgromadzenie
         assemblies_types: Typy zespołów
       models:
@@ -316,6 +315,7 @@ pl:
           form:
             existing_user: Istniejący użytkownik
             explanation: 'Wskazówka dotycząca obrazu:'
+            image_guide: Najlepiej obraz pionowy (portretowy), który nie ma żadnego tekstu.
             non_user: Brak użytkownika
             non_user_avatar_help: Powinieneś uzyskać zgodę osób przed opublikowaniem ich jako członka.
             select_a_position: Wybierz pozycję
@@ -401,11 +401,7 @@ pl:
       show:
         assembly_type: Typ zespołu
         duration: Czas trwania
-        is_transparent:
-          'false': nietransparentny
-          'true': transparentny
         private_space: To jest prywatny zespół
-        related_participatory_processes: Powiązane procesy partycypacyjne
         social_networks_title: Odwiedź zespół na
     assembly_members:
       assembly_member:

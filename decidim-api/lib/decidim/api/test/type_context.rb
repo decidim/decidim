@@ -3,6 +3,7 @@
 shared_context "with a graphql class type" do
   let!(:current_organization) { create(:organization) }
   let!(:current_user) { create(:user, organization: current_organization) }
+  let!(:current_component) { create(:component) }
   let(:model) { OpenStruct.new({}) }
   let(:type_class) { described_class }
   let(:variables) { {} }
@@ -26,7 +27,8 @@ shared_context "with a graphql class type" do
       root_value:,
       context: {
         current_organization:,
-        current_user:
+        current_user:,
+        current_component:
       },
       variables:
     )

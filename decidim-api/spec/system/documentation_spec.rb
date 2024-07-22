@@ -14,7 +14,7 @@ describe "Documentation" do
       visit decidim_api.documentation_path
 
       within "h1" do
-        expect(page).to have_content(organization.name)
+        expect(page).to have_content(translated(organization.name))
       end
       expect(page).to have_content("About the GraphQL API")
     end

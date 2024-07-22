@@ -31,10 +31,6 @@ module Decidim
     ActiveModel::Type.register(:"decidim/attributes/rich_text", Decidim::Attributes::RichText)
     ActiveModel::Type.register(:"decidim/attributes/blob", Decidim::Attributes::Blob)
 
-    # Overrides
-    # The overrides deletion can be omitted after upgrade to Rails 7.0 (delete this after upgrade)
-    ActiveModel::Type.registry.send(:registrations).delete_if { |r| r.send(:name) == :integer }
-
     ActiveModel::Type.register(:integer, Decidim::Attributes::Integer)
   end
 end

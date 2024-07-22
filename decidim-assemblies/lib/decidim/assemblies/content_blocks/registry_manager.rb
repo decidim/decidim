@@ -82,7 +82,7 @@ module Decidim
             content_block.public_name_key = "decidim.content_blocks.last_activity.name"
             content_block.settings_form_cell = "decidim/content_blocks/last_activity_settings_form"
             content_block.settings do |settings|
-              settings.attribute :max_last_activity_users, type: :integer, default: Decidim::ContentBlocks::ParticipatorySpaceLastActivityCell::DEFAULT_MAX_LAST_ACTIVITY_USERS
+              settings.attribute :max_last_activity_users, type: :integer, default: Decidim.default_max_last_activity_users
             end
           end
 

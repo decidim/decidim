@@ -27,7 +27,7 @@ module Decidim
 
       def blocked_comments_warning
         return unless comments_blocked?
-        return unless user_comments_blocked?
+        return if user_comments_blocked?
 
         render :blocked_comments_warning
       end
@@ -83,6 +83,10 @@ module Decidim
 
       def node_id
         "comments-for-#{commentable_type.demodulize}-#{model.id}"
+      end
+
+      def threads_node_id
+        "#{node_id}-threads"
       end
 
       def commentable_type

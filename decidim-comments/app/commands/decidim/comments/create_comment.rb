@@ -4,12 +4,12 @@ module Decidim
   module Comments
     # A command with all the business logic to create a new comment
     class CreateComment < Decidim::Command
+      delegate :current_user, to: :form
       # Public: Initializes the command.
       #
       # form - A form object with the params.
-      def initialize(form, author)
+      def initialize(form)
         @form = form
-        @author = author
       end
 
       # Executes the command. Broadcasts these events:
@@ -30,13 +30,13 @@ module Decidim
 
       private
 
-      attr_reader :form, :comment, :author
+      attr_reader :form, :comment
 
       def event_arguments
         {
           resource: comment,
           extra: {
-            event_author: form.current_user,
+            event_author: current_user,
             locale:
           }
         }
@@ -46,7 +46,7 @@ module Decidim
         parsed = Decidim::ContentProcessor.parse(form.body, current_organization: form.current_organization)
 
         params = {
-          author:,
+          author: current_user,
           commentable: form.commentable,
           root_commentable: root_commentable(form.commentable),
           body: { I18n.locale => parsed.rewrite },
@@ -57,7 +57,7 @@ module Decidim
 
         @comment = Decidim.traceability.create!(
           Comment,
-          author,
+          current_user,
           params,
           visibility: "public-only"
         )

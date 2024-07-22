@@ -22,18 +22,6 @@ module Decidim
 
     include ActiveSupport::Configurable
 
-    # Public Setting that defines the similarity minimum value to consider two
-    # proposals similar. Defaults to 0.25.
-    config_accessor :similarity_threshold do
-      0.25
-    end
-
-    # Public Setting that defines how many similar proposals will be shown.
-    # Defaults to 10.
-    config_accessor :similarity_limit do
-      10
-    end
-
     # Public Setting that defines how many proposals will be shown in the
     # participatory_space_highlighted_elements view hook
     config_accessor :participatory_space_highlighted_proposals_limit do

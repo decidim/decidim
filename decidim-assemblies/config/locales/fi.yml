@@ -50,7 +50,6 @@ fi:
         scope_id: Teema
         scopes_enabled: Teemat käytössä
         short_description: Lyhyt kuvaus
-        show_statistics: Näytä tilastot
         slug: URL-tunniste
         special_features: Lisäominaisuudet
         subtitle: Alaotsikko
@@ -209,7 +208,7 @@ fi:
           info: Tietoa tästä ryhmästä
           landing_page: Laskeutumissivu
           moderations: Moderoinnit
-          private_users: Yksityiset käyttäjät
+          private_users: Yksityiset osallistujat
           see_assembly: Näytä ryhmä
         assemblies_types: Ryhmien tyypit
       models:
@@ -310,6 +309,7 @@ fi:
           form:
             existing_user: Olemassa oleva käyttäjä
             explanation: 'Kuvan ohjeistus:'
+            image_guide: Käytä mieluiten vaakasuuntaista kuvaa, jossa ei ole tekstiä.
             non_user: Ei käyttäjä
             non_user_avatar_help: Sinun pitäisi hankkia henkilöiden suostumus ennen kuin julkaiset heidän jäsenyytensä.
             select_a_position: Valitse asema
@@ -395,11 +395,7 @@ fi:
       show:
         assembly_type: Ryhmän tyyppi
         duration: Kesto
-        is_transparent:
-          'false': läpinäkymätön
-          'true': läpinäkyvä
         private_space: Tämä on yksityinen ryhmä
-        related_participatory_processes: Liittyvät osallistumisprosessit
         social_networks_title: Vieraile ryhmän sivulla palvelussa
     assembly_members:
       assembly_member:

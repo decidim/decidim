@@ -1,5 +1,7 @@
 .filter {
-  @apply flex items-center gap-2 p-1.5 rounded cursor-pointer relative;
+  label {
+    @apply flex items-center gap-2 p-1.5 rounded cursor-pointer relative;
+  }
 
   &-container {
     @apply rounded border-4 border-background md:border-0;
@@ -69,7 +71,7 @@
   }
 
   &-search {
-    @apply w-full relative;
+    @apply w-full relative bg-gray;
 
     input {
       @apply w-full;

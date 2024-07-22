@@ -13,7 +13,7 @@ module Decidim
         end
 
         def presented_resource
-          AssemblyPresenter.new(resource)
+          Decidim::Assemblies::AssemblyPresenter.new(resource)
         end
 
         def type_item

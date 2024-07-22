@@ -54,7 +54,7 @@ shared_examples "comments" do
       expect(page).to have_css(".comment", minimum: 1)
 
       within("#accordion-#{single_comment.id}") do
-        expect(page).to have_content "Hide replies"
+        expect(page).to have_content "Hide reply"
       end
     end
 
@@ -70,7 +70,7 @@ shared_examples "comments" do
         expect(page).to have_css(".comment", minimum: 1)
 
         within("#accordion-#{single_comment.id}") do
-          expect(page).to have_no_content "Hide replies"
+          expect(page).to have_no_content "Hide reply"
         end
       end
     end
@@ -118,6 +118,7 @@ shared_examples "comments" do
     it "does not show form to add comments to user" do
       visit resource_path
       expect(page).to have_no_css(".add-comment form")
+      expect(page).to have_css(".comment-thread")
     end
   end
 
@@ -129,6 +130,32 @@ shared_examples "comments" do
 
     it "shows form to add comments to user" do
       expect(page).to have_css(".add-comment form")
+    end
+
+    context "when user is not authorized to comment" do
+      let(:permissions) do
+        {
+          comment: {
+            authorization_handlers: {
+              "dummy_authorization_handler" => { "options" => {} }
+            }
+          }
+        }
+      end
+
+      before do
+        organization.available_authorizations = ["dummy_authorization_handler"]
+        organization.save!
+        commentable.create_resource_permission(permissions:)
+        allow(commentable).to receive(:user_allowed_to_comment?).with(user).and_return(false)
+        allow(commentable).to receive(:user_authorized_to_comment?).with(user).and_return(true)
+      end
+
+      it "shows a message indicating that comments are restricted" do
+        visit resource_path
+        expect(page).to have_no_content("Comments are disabled at this time")
+        expect(page).to have_content("You need to be verified to comment at this moment")
+      end
     end
 
     describe "when using emojis" do
@@ -526,7 +553,7 @@ shared_examples "comments" do
         it "displays the hide button" do
           visit current_path
           within "#comment_#{thread.id}" do
-            expect(page).to have_content("Hide replies")
+            expect(page).to have_content("Hide reply")
             expect(page).to have_content(new_reply_body)
           end
         end
@@ -534,7 +561,7 @@ shared_examples "comments" do
         it "displays the show button" do
           visit current_path
           within "#comment_#{thread.id}" do
-            click_on "Hide replies"
+            click_on "Hide reply"
             expect(page).to have_content("Show reply")
             expect(page).to have_no_content(new_reply_body)
           end
@@ -546,7 +573,7 @@ shared_examples "comments" do
           it "displays the show button" do
             visit current_path
             within "#comment_#{thread.id}" do
-              click_on "Hide replies"
+              click_on "Hide 3 replies"
               expect(page).to have_content("Show 3 replies")
               expect(page).to have_no_content(new_reply_body)
             end
@@ -971,6 +998,49 @@ shared_examples "comments" do
         it { is_expected.to have_key(:commentable_id) }
         it { is_expected.to have_key(:commentable_type) }
         it { is_expected.to have_key(:root_commentable_url) }
+      end
+    end
+  end
+end
+
+shared_examples "comments blocked" do
+  context "when not authenticated" do
+    context "when comments are blocked" do
+      let(:active_step_id) { component.participatory_space.active_step.id }
+
+      before do
+        component.update!(step_settings: { active_step_id => { comments_blocked: true } })
+      end
+
+      it "shows a message indicating that comments are disabled" do
+        visit resource_path
+        expect(page).to have_content("Comments are disabled at this time")
+        expect(page).to have_no_content("You need to be verified to comment at this moment")
+      end
+    end
+  end
+
+  context "when authenticated" do
+    let!(:organization) { create(:organization) }
+    let!(:user) { create(:user, :confirmed, organization:) }
+    let!(:comments) { create_list(:comment, 3, commentable:) }
+
+    before do
+      login_as user, scope: :user
+      visit resource_path
+    end
+
+    context "when comments are blocked" do
+      let(:active_step_id) { component.participatory_space.active_step.id }
+
+      before do
+        component.update!(step_settings: { active_step_id => { comments_blocked: true } })
+      end
+
+      it "shows a message indicating that comments are disabled" do
+        visit resource_path
+        expect(page).to have_content("Comments are disabled at this time")
+        expect(page).to have_no_content("You need to be verified to comment at this moment")
       end
     end
   end

@@ -77,9 +77,8 @@ module Decidim::Conferences
       it "links meetings" do
         subject.call
 
-        conference_meetings = []
-        meetings.each do |meeting|
-          conference_meetings << meeting.becomes(Decidim::ConferenceMeeting)
+        conference_meetings = meetings.map do |meeting|
+          meeting.becomes(Decidim::ConferenceMeeting)
         end
 
         registration_type.conference_meetings = conference_meetings

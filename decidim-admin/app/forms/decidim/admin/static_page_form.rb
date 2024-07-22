@@ -11,7 +11,6 @@ module Decidim
       translatable_attribute :title, String
       translatable_attribute :content, Decidim::Attributes::RichText
       attribute :changed_notably, Boolean
-      attribute :show_in_footer, Boolean
       attribute :allow_public_access, Boolean
       attribute :weight, Integer
       attribute :topic_id, Integer

@@ -87,12 +87,6 @@ module Decidim
       view_options[:wizard_header_title]
     end
 
-    # Returns the similar resources count for the compare step.
-    def wizard_header_similar_resources_count
-      count = view_options[:wizard_header_similar_resources_count]
-      "(#{count})" if count
-    end
-
     # Returns the header see steps information, only visible for small screens.
     def wizard_header_see_steps
       content_tag(:span) do

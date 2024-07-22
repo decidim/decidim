@@ -53,6 +53,8 @@ module Decidim
   autoload :Menu, "decidim/menu"
   autoload :MenuItem, "decidim/menu_item"
   autoload :MenuRegistry, "decidim/menu_registry"
+  autoload :AdminFilter, "decidim/admin_filter"
+  autoload :AdminFiltersRegistry, "decidim/admin_filters_registry"
   autoload :ManifestRegistry, "decidim/manifest_registry"
   autoload :AssetRouter, "decidim/asset_router"
   autoload :EngineRouter, "decidim/engine_router"
@@ -198,8 +200,13 @@ module Decidim
       resource_type.constantize.find_each do |resource|
         # exclude the users that already endorsed
         users = resource.endorsements.map(&:author)
-        rand(50).times do
+        remaining_count = Decidim::User.count - users.count
+        next if remaining_count < 1
+
+        rand([50, remaining_count].min).times do
           user = (Decidim::User.all - users).sample
+          next unless user
+
           Decidim::Endorsement.create!(resource:, author: user)
           users << user
         end
@@ -554,6 +561,11 @@ module Decidim
     %w(terms-of-service)
   end
 
+  # The default max last activity users to be shown
+  config_accessor :default_max_last_activity_users do
+    6
+  end
+
   # List of additional content security policies to be appended to the default ones
   # This is useful for adding custom CSPs for external services like Here Maps, YouTube, etc.
   # Read more: https://docs.decidim.org/en/develop/configure/initializer#_content_security_policy
@@ -759,6 +771,10 @@ module Decidim
     @icons ||= Decidim::IconRegistry.new
   end
 
+  def self.admin_filter(name, &)
+    AdminFiltersRegistry.register(name.to_sym, &)
+  end
+
   # Public: Stores an instance of ViewHooks
   def self.view_hooks
     @view_hooks ||= ViewHooks.new
@@ -823,7 +839,7 @@ module Decidim
   end
 
   def self.register_assets_path(path)
-    Rails.autoloaders.main.ignore(path) if Rails.configuration.autoloader == :zeitwerk
+    Rails.autoloaders.main.ignore(path)
   end
 
   # Checks if a particular decidim gem is installed and needed by this

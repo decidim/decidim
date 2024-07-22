@@ -38,7 +38,6 @@ is-IS:
         scope_id: Umfang
         scopes_enabled: Scopes virkt
         short_description: Stutt lýsing
-        show_statistics: Sýna tölfræði
         slug: URL slug
         special_features: Sérstakir eiginleikar
         subtitle: Texti
@@ -205,11 +204,7 @@ is-IS:
       show:
         assembly_type: Samsetning gerð
         duration: Lengd
-        is_transparent:
-          'false': ógagnsæ
-          'true': gagnsæ
         private_space: Þetta er einkasamkoma
-        related_participatory_processes: Svipaðir þátttakandi ferli
     assembly_members:
       index:
         title: Meðlimir

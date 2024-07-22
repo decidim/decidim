@@ -79,7 +79,6 @@ eu:
   decidim:
     admin:
       actions:
-        manage: Kudeatu
         new_initiative_type: Beste ekimen mota bat
         new_initiative_type_scope: Beste ekimen mota bat esparruan
       filters:
@@ -92,7 +91,7 @@ eu:
               accepted: Beharrezko sinadurekin
               created: Sortua
               discarded: Baztertua
-              published: Argitaratua
+              open: Zabaldu
               rejected: Beharrezko sinadurarik gabe
               validating: Baliozkotze teknikoa
           type_id_eq:
@@ -106,7 +105,6 @@ eu:
       menu:
         attachments: Eranskinak
         committee_members: Batzorde-kideak
-        components: Osagaiak
         information: informazioa
         initiative_type_scopes: Ekimen motaren esparruak
         initiatives: Ekimenak
@@ -238,6 +236,10 @@ eu:
               most_recent: Azkenak
         exports:
           initiatives: Ekimenak
+        index:
+          initiatives_types:
+            alert_html: "<p>Gutxienez, ekimen mota bat sortu behar duzu, parte-hartzaileak ekimenak sortzen hasi ahal izateko.</p><p> %{link}</p>"
+            button: Beste ekimen mota bat
         initiatives:
           edit:
             accept: Onartu ekimena
@@ -293,7 +295,7 @@ eu:
         initiatives_types:
           create:
             error: Errore bat egon da.
-            success: Beste ekimen mota bat zuzen sortu da.
+            success: Beste ekimen mota bat zuzen sortua. Ekimen mota honetarako gutxienez eremu bat definitu behar duzu, egin ahal izateko.
           destroy:
             success: Ekimen mota zuzen kendu da.
           edit:
@@ -327,7 +329,7 @@ eu:
         accepted: Beharrezko sinadurak lortu ditu
         created: Sortu
         discarded: Baztertuta
-        published: Argitaratutako
+        open: Zabaldu
         rejected: Beharrezko sinadurarik gabe
         validating: Balidazio teknikoa
       application_helper:
@@ -541,7 +543,6 @@ eu:
           other: " sinadurak"
         vote_cabin:
           already_voted: Dagoeneko sinatuta
-          supports_required: "%{total_supports} sinadura beharrezkoa da"
           verification_required: Egiaztatu kontua ekimena sinatzeko
           vote: Saioa
           votes_blocked: Sinadura desgaituta dago
@@ -577,7 +578,7 @@ eu:
           accepted: Beharrezko sinadurekin
           created: Sortua
           discarded: Baztertua
-          published: Argitaratua
+          open: Zabaldu
           rejected: Beharrezko sinadurarik gabe
           validating: Baliozkotze teknikoa
       states:

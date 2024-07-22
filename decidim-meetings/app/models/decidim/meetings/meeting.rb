@@ -171,7 +171,7 @@ module Decidim
       end
 
       def can_be_joined_by?(user)
-        !closed? && registrations_enabled? && can_participate?(user)
+        !started? && registrations_enabled? && can_participate?(user)
       end
 
       def can_register_invitation?(user)
@@ -181,6 +181,10 @@ module Decidim
 
       def closed?
         closed_at.present?
+      end
+
+      def started?
+        start_time < Time.current
       end
 
       def past?
@@ -325,7 +329,7 @@ module Decidim
 
       # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
       def reported_searchable_content_extras
-        [normalized_author.name]
+        [author_name]
       end
 
       def has_contributions?

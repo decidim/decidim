@@ -22,7 +22,7 @@ describe "Explore results", :versioning do
 
       context "when filtering by scope" do
         it "shows an empty page with a message" do
-          within "div.filter-container" do
+          within ".filter-container:not(.filter-search)" do
             click_on translated(scope.name)
           end
 
@@ -115,13 +115,13 @@ describe "Explore results", :versioning do
 
       context "with a scope" do
         before do
-          within "div.filter-container" do
+          within ".filter-container:not(.filter-search)" do
             click_on translated(scope.name)
           end
         end
 
         it "shows current scope active" do
-          within "div.filter-container a.is-active" do
+          within ".filter-container:not(.filter-search) a.is-active" do
             expect(page).to have_content(translated(scope.name))
           end
         end
@@ -204,7 +204,7 @@ describe "Explore results", :versioning do
         end
 
         it "shows current scope active" do
-          within "div.filter-container a.is-active" do
+          within ".filter-container:not(.filter-search) a.is-active" do
             expect(page).to have_content(translated(scope.name))
           end
         end
@@ -212,7 +212,7 @@ describe "Explore results", :versioning do
         it "maintains scope filter" do
           click_on translated(category.name)
 
-          within "div.filter-container a.is-active" do
+          within ".filter-container:not(.filter-search) a.is-active" do
             expect(page).to have_content(translated(scope.name))
           end
         end
@@ -290,7 +290,7 @@ describe "Explore results", :versioning do
         end
       end
 
-      context "when a proposal has comments" do
+      context "when a result has comments" do
         let(:result) { results.first }
         let(:author) { create(:user, :confirmed, organization: component.organization) }
         let!(:comments) { create_list(:comment, 3, commentable: result) }
@@ -303,6 +303,54 @@ describe "Explore results", :versioning do
           comments.each do |comment|
             expect(page).to have_content(comment.body.values.first)
           end
+        end
+      end
+
+      context "with timeline entries" do
+        let!(:timeline_entries) { create_list(:timeline_entry, 3, result:) }
+        let(:timeline_entry) { timeline_entries.first }
+
+        before do
+          visit current_path
+        end
+
+        it "shows the tab" do
+          expect(page).to have_content("Project evolution")
+        end
+
+        it "shows the timeline entry" do
+          expect(page).to have_content(decidim_sanitize_translated(timeline_entry.title))
+          expect(page).to have_content(I18n.l(timeline_entry.entry_date, format: :decidim_short))
+          expect(page).to have_content(decidim_sanitize_translated(timeline_entry.description))
+        end
+      end
+
+      context "with subresults" do
+        let!(:subresults) { create_list(:result, 3, component:, parent: result) }
+        let(:first_subresult) { subresults.first }
+
+        before do
+          visit current_path
+        end
+
+        it "shows the tab" do
+          expect(page).to have_content("Subresults")
+        end
+
+        it "shows subresults" do
+          subresults.each do |subresult|
+            expect(page).to have_content(translated(subresult.title))
+          end
+        end
+
+        it "the result is mentioned in the subresult page" do
+          click_on translated(first_subresult.title)
+          expect(page).to have_i18n_content(result.title)
+        end
+
+        it "a banner links back to the result" do
+          click_on translated(first_subresult.title)
+          expect(page).to have_content(translated(result.title))
         end
       end
 

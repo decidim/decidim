@@ -11,6 +11,12 @@ module Decidim
           original_questionnaire.questions.each do |original_question|
             new_question = original_question.dup
             new_question.questionnaire = new_questionnaire
+            new_question.assign_attributes(
+              answer_options_count: 0,
+              matrix_rows_count: 0,
+              display_conditions_count: 0,
+              display_conditions_for_other_questions_count: 0
+            )
             new_question.save!
             copy_questionnaire_answer_options(original_question, new_question)
             copy_questionnaire_matrix_rows(original_question, new_question)

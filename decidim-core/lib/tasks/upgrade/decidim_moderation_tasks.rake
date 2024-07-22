@@ -3,7 +3,7 @@
 namespace :decidim do
   namespace :upgrade do
     namespace :moderation do
-      desc "Exclude all moderated content from search"
+      desc "Excludes all moderated content from search"
       task remove_from_search: :environment do
         query = Decidim::Moderation.hidden
 

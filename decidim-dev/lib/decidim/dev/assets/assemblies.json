@@ -58,7 +58,6 @@
       "en": "Vel qui.",
       "es": "Et molestiae."
     },
-    "show_statistics": false,
     "scopes_enabled": true,
     "private_space": false,
     "reference": "PhD-ASSE-2020-01-1",
@@ -352,38 +351,6 @@
           "intro_en": "<p>Praesentium iste sit dicta.</p>",
           "intro_ca": "<p>Odit aperiam ea reiciendis.</p>",
           "intro_es": "<p>Repudiandae magni quo sit.</p>",
-          "categories_label": {
-            "ca": "rerum",
-            "en": "dolores",
-            "es": "voluptatem"
-          },
-          "categories_label_en": "dolores",
-          "categories_label_ca": "rerum",
-          "categories_label_es": "voluptatem",
-          "subcategories_label": {
-            "ca": "totam",
-            "en": "qui",
-            "es": "iure"
-          },
-          "subcategories_label_en": "qui",
-          "subcategories_label_ca": "totam",
-          "subcategories_label_es": "iure",
-          "heading_parent_level_results": {
-            "ca": "pariatur",
-            "en": "voluptatem",
-            "es": "molestias"
-          },
-          "heading_parent_level_results_en": "voluptatem",
-          "heading_parent_level_results_ca": "pariatur",
-          "heading_parent_level_results_es": "molestias",
-          "heading_leaf_level_results": {
-            "ca": "enim",
-            "en": "nam",
-            "es": "et"
-          },
-          "heading_leaf_level_results_en": "nam",
-          "heading_leaf_level_results_ca": "enim",
-          "heading_leaf_level_results_es": "et",
           "display_progress_enabled": true
         },
         "weight": 0,
@@ -541,7 +508,7 @@
           "proposal_length": 500,
           "proposal_edit_before_minutes": 5,
           "threshold_per_proposal": 0,
-          "can_accumulate_supports_beyond_threshold": false,
+          "can_accumulate_votes_beyond_threshold": false,
           "proposal_answering_enabled": true,
           "official_proposals_enabled": true,
           "comments_enabled": true,

@@ -3,7 +3,7 @@
 require "spec_helper"
 require "decidim/proposals/test/factories"
 
-describe "rake decidim_comments:update_participatory_process_in_comments", type: :task do
+describe "rake decidim_comments:upgrade:participatory_process_in_comments", type: :task do
   let(:proposal) { create(:proposal) }
   let!(:comment) { create(:comment, participatory_space: nil, commentable: proposal) }
 

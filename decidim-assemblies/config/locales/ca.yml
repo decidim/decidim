@@ -50,7 +50,6 @@ ca:
         scope_id: Àmbit
         scopes_enabled: Àmbits habilitats
         short_description: Descripció breu
-        show_statistics: Mostra estadístiques
         slug: Nom curt d'URL
         special_features: Característiques especials
         subtitle: Subtítol
@@ -158,7 +157,7 @@ ca:
           assembly_members_title: Membres de l'assemblea
         new:
           create: Crea
-          title: Nou membre de l'assemblea
+          title: Afegir membre
         update:
           error: S'ha produït un error en actualitzar el membre d'aquesta assemblea.
           success: Membre actualitzat correctament per a aquesta assemblea.
@@ -396,11 +395,7 @@ ca:
       show:
         assembly_type: Tipus d'assemblea
         duration: Durada
-        is_transparent:
-          'false': opaca
-          'true': transparent
         private_space: Aquesta és una assemblea privada
-        related_participatory_processes: Processos participatius relacionats
         social_networks_title: Visita l'assemblea a
     assembly_members:
       assembly_member:

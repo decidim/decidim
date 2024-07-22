@@ -122,6 +122,7 @@ is-IS:
         category:
           new: Nýr flokkur
         import: Flytja inn
+        manage: Stjórna
         newsletter:
           new: Nýtt fréttabréf
         per_page: Á hveri síðu

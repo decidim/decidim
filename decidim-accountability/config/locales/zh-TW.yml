@@ -218,15 +218,7 @@ zh-TW:
           search: 搜尋操作
         show:
           stats:
-            attendees: 與會者
             back_to_resource: 返回至結果
-            comments: 評論
-            contributions: 貢獻
-            last_edited_by: 最後編輯者
-            last_updated_at: 更新時間
-            meetings: 會議
-            proposals: 提案
-            votes: 支援
         timeline:
           title: 專案評估
     admin:
@@ -245,16 +237,12 @@ zh-TW:
         name: 問責
         settings:
           global:
-            categories_label: 類別名稱
             comments_enabled: 已啟用留言
             comments_max_length: 留言字數上限 (0 表示使用預設)
             display_progress_enabled: 顯示進度
-            heading_leaf_level_results: 專案名稱
-            heading_parent_level_results: 結果名稱
             intro: 介紹
             scope_id: 範圍
             scopes_enabled: 啟用的範圍
-            subcategories_label: 子類別名稱
           step:
             comments_blocked: 留言已封鎖
     events:

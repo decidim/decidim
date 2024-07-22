@@ -411,7 +411,6 @@ lt:
           body: Susirinkimas<a href="%{meeting_path}">%{meeting_title}</a> laukia būti uždarytas. Prašau pridėkite susirinkimo ataskaitą paspausdami "Uždaryti susirinkimą".
           greetings: Sveiki, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Sveiki %{username},
-          subject: Dabar galite uždaryti susirinkimą su ataskaita %{organization_name} platformoje
       conference_venues: Konferencijos vietos
       content_blocks:
         upcoming_meetings:
@@ -428,16 +427,13 @@ lt:
       iframe_embed_type:
         embed_in_meeting_page: Integruoti į susirinkimo puslapį
         none: Nėra
-        open_in_live_event_page: Atidaryti renginio puslapyje (pasirinktinai - su apklausomis)
         open_in_new_tab: Atidaryti naujame skirtuke
       last_activity:
         meeting_updated: 'Susitikimas atnaujintas:'
         new_meeting: 'Naujas susitikimas:'
       layouts:
         live_event:
-          administrate: Administruoti
           close: uždaryti
-          questions: Klausimai
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -580,12 +576,9 @@ lt:
             title: Pavadinimas
       polls:
         questions:
-          closed_question:
-            question_results: Klausimų rezultatai
           index:
             empty_questions: Viso šio susitikimo metu bus siunčiami klausimai ir galėsite į juos atsakyti. Jie bus rodomi čia.
           index_admin:
-            admin_dashboard: Administratoriaus skydelis
             edit: Redaguoti administratoriaus skydelyje
             question: Klausimas
             received_answer: gautas atsakymas

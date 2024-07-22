@@ -4,7 +4,6 @@ es:
       participatory_process:
         announcement: Aviso
         area_id: Área
-        banner_image: Imagen de banner
         copy_categories: Copiar categorías
         copy_components: Copiar componentes
         copy_steps: Copiar las fases
@@ -34,8 +33,6 @@ es:
         scope_type_max_depth_id: Profundidad del filtro de ámbito
         scopes_enabled: Ámbitos habilitados
         short_description: Descripción breve
-        show_metrics: Mostrar métricas
-        show_statistics: Mostrar estadísticas
         slug: Texto corto de URL
         start_date: Fecha de inicio
         subtitle: Subtítulo
@@ -337,7 +334,7 @@ es:
           notification_title: Se te ha asignado el rol de %{role} en el proceso participativo <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
           email_intro: 'Ya está activa la fase %{resource_title} para %{participatory_space_title}. Puedes verla desde esta página:'
-          email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{participatory_space_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Una actualización en %{participatory_space_title}
           notification_title: Ya está activa la fase %{resource_title} para <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:

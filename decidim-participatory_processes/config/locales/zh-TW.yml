@@ -4,7 +4,6 @@ zh-TW:
       participatory_process:
         announcement: 公告
         area_id: 區域
-        banner_image: 橫幅圖片
         copy_categories: 複製類別
         copy_components: 複製組件
         copy_steps: 複製步驟
@@ -34,8 +33,6 @@ zh-TW:
         scope_type_max_depth_id: 範圍篩選深度
         scopes_enabled: 啟用範圍
         short_description: 簡短說明
-        show_metrics: 顯示度量
-        show_statistics: 顯示統計資料
         slug: URL網址
         start_date: 開始日期
         subtitle: 子標題

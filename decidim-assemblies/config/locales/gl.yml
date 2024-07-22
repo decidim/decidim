@@ -43,7 +43,6 @@ gl:
         scope_id: Alcance
         scopes_enabled: Ámbitos habilitados
         short_description: Descrición curta
-        show_statistics: Amosar estatísticas
         slug: URL slug
         special_features: Características especiais
         subtitle: Subtítulo
@@ -178,7 +177,6 @@ gl:
           categories: Categorías
           components: Compoñentes
           moderations: Moderacións
-          private_users: Usuarios privados
         assemblies_types: Tipos de xuntanzas
       models:
         assemblies_types:
@@ -320,11 +318,7 @@ gl:
       show:
         assembly_type: Tipo de montaxe
         duration: Duración
-        is_transparent:
-          'false': opaco
-          'true': transparente
         private_space: Esta é unha asemblea privada
-        related_participatory_processes: Procesos participativos relacionados
     assembly_members:
       assembly_member:
         designated_on: Designado en

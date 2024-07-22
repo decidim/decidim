@@ -19,6 +19,7 @@ hu:
         category_id: Kategória
         decidim_scope_id: Hatáskör
         has_address: Van lakcíme
+        scope_id: Hatáskör
         state: Állapot
         suggested_hashtags: Javasolt hashtagek
         title: Cím
@@ -67,7 +68,7 @@ hu:
         one: Megjegyzés
         other: Megjegyzések
       decidim/proposals/proposal_vote:
-        one: Támogatás
+        one: Szavazás
         other: Szavazások
   decidim:
     admin:
@@ -107,7 +108,7 @@ hu:
           amend: Módosítás
           create: Létrehozás
           endorse: Támogatás
-          vote: Támogatás
+          vote: Szavazás
           withdraw: Visszalépés
         name: Javaslatok
         settings:
@@ -117,15 +118,13 @@ hu:
             amendments_wizard_help_text: Módosítások Varázsló súgószöveg
             announcement: Közlemény
             attachments_allowed: Mellékletek engedélyezése
-            can_accumulate_supports_beyond_threshold: Képes átlépni a támogatás küszöb-értékét
             collaborative_drafts_enabled: Közös vázlatok engedélyezve
             comments_enabled: Megjegyzések engedélyezve
             default_sort_order: Alapértelmezett javaslat rendezés
-            default_sort_order_help: Az alapértelmezett azt jelenti, hogy ha a támogatások engedélyezettek, a javaslatok véletlenszerűség szerint rendezve fog megjelenni, és ha a támogatások blokkolva vannak, akkor a leginkább támogatottak szerint lesznek rendezve.
             default_sort_order_options:
               most_endorsed: Legtámogatottabb
             geocoding_enabled: Geokódolás engedélyezve
-            minimum_votes_per_user: Minimális támogatás felhasználónként
+            minimum_votes_per_user: Minimális szavazatok felhasználónként
             new_proposal_body_template: Új javaslat szövegtörzse
             new_proposal_body_template_help: Előre meghatározott szöveg beállítása, amelyet az új Javaslatok használnak
             new_proposal_help_text: Új javaslat súgószöveg
@@ -141,12 +140,8 @@ hu:
             proposal_length: Javaslat szöveg maximális hossza
             proposal_limit: Javaslat limit felhasználónként
             proposal_wizard_step_1_help_text: Javaslat varázsló "Létrehozás" gomb súgójának szövege
-            proposal_wizard_step_2_help_text: Javaslat varázsló "Összehasonlítás" gomb súgójának szövege
-            proposal_wizard_step_3_help_text: Javaslat varázsló "Teljesítés" gomb súgójának szövege
-            proposal_wizard_step_4_help_text: Javaslat varázsló "Közzététel" gomb súgójának szövege
             resources_permissions_enabled: Egyes javaslatokhoz műveleti engedélyeket állíthatsz be
             threshold_per_proposal: Küszöbérték javaslatonként
-            vote_limit: Támogatási limit felhasználónként
           step:
             amendment_creation_enabled: A módosítás létrehozása engedélyezett
             amendment_creation_enabled_help: A résztvevő módosíthatja a javaslatokat.
@@ -166,7 +161,6 @@ hu:
             creation_enabled: A résztvevők létrehozhatnak javaslatokat
             creation_enabled_readonly: Ez a beállítás le van tiltva, ha aktiválja a Részvételi Szövegek funkciót. A javaslatok részvételi szövegekként való feltöltéséhez kattintson a Részvételi Szövegek gombra és kövesse az utasításokat.
             default_sort_order: Alapértelmezett javaslat rendezés
-            default_sort_order_help: Az alapértelmezett azt jelenti, hogy ha a támogatások engedélyezettek, a javaslatok véletlenszerűség szerint rendezve fog megjelenni, és ha a támogatások blokkolva vannak, akkor a leginkább támogatottak szerint lesznek rendezve.
             default_sort_order_options:
               most_endorsed: Legtámogatottabb
             endorsements_blocked: Jóváhagyások letiltva
@@ -175,8 +169,8 @@ hu:
             publish_answers_immediately: Javaslati válaszok azonnali közzététele
             publish_answers_immediately_help_html: 'Ne feledje, hogy ennek engedélyezése nélkül bármely javaslatot, kiválasztva őket, a művelet használatával manuálisan kell közzétennie. További információért arról, hogyan működik ez, lásd <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposals'' answers documentation page</a>.'
             suggested_hashtags: Hashtagek javasolva a felhasználóknak új javaslatokra
-            votes_blocked: Szavazás letiltva
-            votes_enabled: Szavazás engedélyezve
+            votes_blocked: Szavazások letiltva
+            votes_enabled: Szavazások engedélyezve
             votes_hidden: Szavazatok elrejtése (ha a szavazás engedélyezett, ez elrejti a szavazatok számát)
     events:
       proposals:
@@ -243,7 +237,6 @@ hu:
         voting_enabled:
           email_intro: 'Szavazhatsz a javaslatokról itt: %{participatory_space_title}! Láss munkának ezen az oldalon:'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
-          email_subject: 'Javaslatokról való szavazás kezdődött itt: %{participatory_space_title}'
           notification_title: 'Mostantól tehetsz <a href="%{resource_path}">szavazási javaslatokat</a> ehhez: <a href="%{participatory_space_url}">%{participatory_space_title}</a>'
     gamification:
       badges:
@@ -261,14 +254,7 @@ hu:
         proposal_votes:
           conditions:
             - Böngésszen és töltsön el egy ideig mások javaslatainak olvasását
-            - Támogatja a kedvelt javaslatokat, vagy érdekesnek találja azokat
-          description: Ezt a jelvényt akkor kapja meg, ha más emberek javaslatait támogatja.
-          description_another: A felhasználó %{score} javaslatot támogatott.
-          description_own: Eddig %{score} javaslatot támogattál.
-          name: Javaslat támogatói
-          next_level_in: Támogatja a %{score} további javaslatot a következő szint eléréséhez!
-          unearned_another: A felhasználó még nem támogatott egy javaslatot sem.
-          unearned_own: Még nem támogattál egyetlen javaslatot sem.
+            - 
         proposals:
           conditions:
             - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
@@ -294,9 +280,8 @@ hu:
         object: javaslatok
         title: javaslatok
       votes:
-        description: A felhasználók által benyújtott szavazatok száma
-        object: szavazatok
-        title: Szavazatok
+        object: szavazat
+        title: szavazatok
     participatory_spaces:
       highlighted_proposals:
         last: Legutóbbi javaslatok
@@ -441,7 +426,6 @@ hu:
             remove_assignment: Hozzárendelés eltávolítsa
             remove_assignment_confirmation: Biztosan eltávolítja az értékelőt ebből a javaslatból?
             valuators: Értékelők
-            votes_count: Támogatók száma
           update_category:
             invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} kategóriája: %{proposals}.'
             select_a_proposal: Kérjük, válasszon egy javaslatot.
@@ -611,17 +595,7 @@ hu:
         buttons:
           amend: Módosítás
           comment: Megjegyzés
-      proposal_votes:
-        create:
-          error: Hiba történt a javaslatra való szavazás során.
       proposals:
-        compare:
-          continue: Folytatás
-          no_similars_found: Szép munka! Nincsen hasonló javaslat
-          title: Hasonló javaslatok
-        complete:
-          send: Küldés
-          title: Fejezd be a javaslatod
         edit:
           add_documents: Dokumentum hozzáadása
           attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
@@ -692,38 +666,22 @@ hu:
           proposal_accepted_reason: 'Ezt a javaslatot elfogadták, mert:'
           proposal_in_evaluation_reason: Javaslat értékelése folyamatban
           proposal_rejected_reason: 'Ezt a javaslatot elutasították, mert:'
-          withdraw_btn_hint: Ha meggondoltad magad, az első támogatás megszerzéséig bármikor visszavonhatod a javaslatod. A javaslat nem törlődik automatikusan, hanem a visszavont javaslatok listájára kerül.
           withdraw_proposal: Javaslat visszavonása
         vote_button:
           already_voted: Már szavazott
-          already_voted_hover: Szavazat visszavonása
           maximum_votes_reached: Szavazási határon túl
           no_votes_remaining: Nincs több szavazat
           vote: Szavazás
           votes_blocked: Szavazás letiltva
-        votes_count:
-          count:
-            one: SZAVAZAT
-            other: SZAVAZATOK
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: Az egyes javaslatok több mint %{limit} támogatást szerezhetnek
-          minimum_votes_per_user:
-            description: A különböző javaslatok között legalább %{votes} szavazatot kell elosztania.
-            supports_remaining: Meg kell szavaznod %{remaining_votes} további javaslatot hogy a szavazataid figyelembe vételre kerüljenek.
           proposal_limit:
             description: Legfeljebb %{limit} javaslatot készíthetsz.
-          title: 'A szavazásra ezen szabályok vonatkoznak:'
           vote_limit:
             description: Legfeljebb %{limit} javaslatról szavazhatsz.
-            votes: Szavazatok
         wizard_aside:
           back: Vissza
         wizard_steps:
           step_1: Hozz létre javaslatot
-          step_2: Összehasonlítás
-          step_3: Befejez
-          step_4: Javaslatod közzététele
           title: A javaslat létrehozásának lépései
       proposals_picker:
         choose_proposals: Javaslatok kiválasztása
@@ -751,3 +709,4 @@ hu:
         proposal_result: 'Az eredményekben megjelenő javaslat:'
     statistics:
       proposals_count: Javaslatok
+      votes_count: Szavazások

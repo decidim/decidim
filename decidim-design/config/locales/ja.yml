@@ -31,6 +31,52 @@ ja:
         buttons:
           description_html: 'ボタンは、 <code>ボタン</code> クラス、サイズ、色など、さまざまなCSSクラスの組み合わせで構築されます。'
           title: ボタン
+        cards:
+          title: カード
+        dialogs:
+          dialog_demo_description_html: ダイアログまたはモーダルコンポーネントは、rails helper <code>decidim_modal</code> を介して実装されます。
+          dialogs_description_html: ダイアログは <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a> という外部ライブラリにより利用できるjavascriptの機能です。
+          tips_description: '複雑なモーダルを表示し、スタイルを合わせるためには、以下のマークアップを使います:'
+          tips_description_html: <i>data-attributes</i> と <i>ids</i>に注意してください. 例えば、<code>[data-dialog-title]</code>のidは<i>dialog-title</i> で始まり、その後に <i>modal id</i>が続きます.
+          title: ダイアログ
+          usage_description: ダイアログには2つの要素が必要です
+          usage_description_2_html: 2. その要素の <code>id</code> がトリガーの参照するdata-targetの値に一致するモーダル要素。
+          usage_description_html: 1. data-attribute <code>data-dialog-open="example"</code>を持つユーザアクションの可能な要素、例えばモーダルの <code>id</code> 。
+        follow:
+          title: フォロー
+        forms:
+          disabled: 無効
+          emojis: 絵文字
+          emojis_description: テキストエリアでのみ動作します
+          errors: エラー
+          errors_description: selectには適用されません
+          header_alert: このページはレガシービューから来ています。コンテンツは古くなっています。
+          help_texts: ヘルプ テキスト
+          html_regular_inputs: HTML 通常入力
+          min_max_length: 最小/最大の長さ
+          min_max_length_description: Input type='text' と textareaでのみ動作します
+          multiselect: 複数選択
+          multiselect_description_html: 複数選択は<a href="https://tom-select.js.org/" target="_blank" rel="noopener noreferrer">Tom Select</a> と呼ばれる外部ライブラリを使って実現されているjavascriptの機能です。
+          regular_inputs_description: '共通のタイプのみを表示します。利用可能な全リストは以下の通りです: date、datetime-local、email、month、number、password、search、tel、text、time、url、week'
+          textarea_required: テキストエリアが必要です
+          title: フォーム
+        report:
+          title: レポート
+        share:
+          title: シェア
+        tab_panels:
+          title: タブパネル
+        tooltips:
+          demo: デモ
+          demo_description: このコンポーネントを動作させるには、要素にカーソルを合わせる必要があります。
+          description: ツールチップは、ユーザーがマウスをかざすとその項目についての追加情報を表示するコンポーネントです。
+          github_source_html: GitHub %{github_link} のソース コード
+          title: ツールチップ
+          usage: 使い方
+          usage_p: 'ツールチップを使うには、`with_tooltip` ヘルパーを三つの引数とともに使用する必要があります:'
+          usage_p_1_html: 1. ツールチップの値を持つ文字列。このページの例では「Hello world」です。
+          usage_p_2_html: 2. ツールチップを表示する位置を指定するシンボルを持つオプショナルなクラス。 指定可能な値は <code>:top</code>、 <code>:bottom</code>、 <code>:right</code>、または <code>:left</code> です。
+          usage_p_3_html: 3. ユーザーがマウスをかざす必要がある文字列を含むブロック。
       foundations:
         accessibility:
           accessibility_labels: アクセシビリティラベル
@@ -107,44 +153,127 @@ ja:
           typefaces_description_1: DecidimはSource Sans Proをプライマリ・フォントとして使用しています。この書体は310の言語に対応しています。
           typefaces_description_2: このフォントはOpen Font Licenseの下でライセンスされています。
       helpers:
+        accountability: アカウンタビリティ
+        accountability_cards_html: <i>Accountability プロジェクト</i> カードで使用されます。このカードを正しく表示させるにはモジュールアセットが必要です。例えば、 <code>append_stylesheet_pack_tag "decidim_accountability"</code>などとします。
         activity: アクティビティ
         address_description: アドレスセルはリソースを受け取り、geolocalizable属性を検索して特定のマークアップを出力します。
         address_description_2: コンテンツの種類によっては、アドレスがオンラインURLになる場合があります。 そのような場合、表示される情報はまったく同じですが、適合するように形作られています。
+        ally_link: a11y-dropdown-component
         argument: 引数
+        assemblies: 参加スペース
+        assembly_g: 参加スペースG
+        assembly_s: 参加スペースS
         avatar: アバター
         avatar_description: 著者が二次的な情報であり、スペースが狭い場合に使用されます。
         background: 背景とボーダー
         base: 基本
+        block_text: extra_data ブロックを使用
+        blog_cards_html: <i>ブログ</i> カードで使用
+        blogs: ブログ
+        budget_card_html: <i>予算プロジェクト</i> カードで使用されます。このカードを正しく表示させるにはモジュールアセットが必要です。例えば、 <code>append_stylesheet_pack_tag "decidim_budgets"</code>などとします
+        budgets: 予算
         callout_class: 吹き出しクラス
         callout_description: この属性は、アナウンスにステータスを適用します。デフォルトでは、セカンダリカラーを使用します。
+        card_g: カード G
+        card_l: カード L
+        card_s: カード S
+        collaborative_draft_l: 共同草案L
         colors: 色
         compact: コンパクト
         compact_description: この著者の形式はリソース作成者を指定する一般的な方法です。
+        conference_g: カンファレンスG
+        conference_s: カンファレンスS
+        conferences: カンファレンス
         context: コンテキスト
         context_description: このセルは、ユーザーに関する情報を表示します。これは、リソース/コンテンツクリエーターを識別するための視覚的なサポートです。マウスをホバーすると、さらに詳しい情報とそのプロファイルへのリンクが含まれたツールチップが表示されます。
         context_description_2: リソースの場合、このセルはメインヘッダーの下に表示されます。その他のコンテンツの場合、コンテンツ自体の隣に表示されます。
+        debate_l: ディベートL
+        debate_s: ディベートS
+        debates: ディベート
+        debates_cards_html: <i>ディベート</i> カードで使用
+        debates_cards_text: 画像ブロックに異なるテンプレートを使用する
         default: デフォルト
         default_description: 追加の引数なしで、そのユーザー自身を指定してセルを呼び出します。
         demo: デモ
         demo_text: 'このセルは LastActivity アイテムのモデルを受け取り、以下の要素を表示します。'
         demo_text_2: 最近のアクティビティページ、コンテンツブロック、ドロップダウン内で使用されます。
+        description: 説明
         disabled: 無効
+        dropdowns: ドロップダウン
+        dropdowns_demo_1_description: '次の例はデスクトップでは通知可能ではありませんが、モバイルでは:'
+        dropdowns_demo_description: ドロップダウンは、デスクトップデバイス用の大規模で読みやすいメニューを折りたたむために、アプリケーションに沿って使用されますが、モバイルデバイスにはあまりにも冗長です。
+        dropdowns_demo_description_html: 'このJavaScriptの機能は小さなCSSと命名ルールにより強化されるものです: 非表示コンテンツには、<i>dropdown-menu</i>で始まる<code>id</code>が必須です。'
+        dropdowns_description_html: ドロップダウンは %{link} と呼ばれる外部ライブラリにより利用可能な javascriptの機能です。
+        dropdowns_usage_1_description: 2. トリガーが参照するdata-target属性の値と一致する<code>id</code> を持つ非表示要素。
+        dropdowns_usage_description: 'ドロップダウンには2つの要素が必要です:'
+        dropdowns_usage_description_html: 1. data-属性 <code>data-component="dropdown" data-target="dropdown-menu-element"</code> を持つ、ユーザーのアクションを受け付ける要素。
+        dummy_description: Dummy resource description
+        dummy_title: Dummy resource title
+        follow_button: フォローボタン
+        follower_description_html: <code>decidim/shared/login_modal</code> partial が DOM に存在していることを確認してください。 このpartialは、ログイン時にアプリケーションのレイアウトに配置されます。
         form_elements: フォーム要素
+        generic_cards: 汎用カード
+        grid: グリッド
         hex_code: 16進コード
+        highlight: 強調表示
+        highlight_description: 強調表示を許可するリソースによって使用されます
+        html_tips: HTML tips
         icons: アイコン
+        image_and_description: 画像と説明
+        initiative_g: イニシアチブG
+        initiative_s: イニシアチブS
+        initiatives: イニシアチブ
+        list: リスト
         main_colors: メインカラー
+        meeting_l: ミーティングL
+        meeting_s: ミーティングS
+        meetings: ミーティング
+        meetings_html: <i>ミーティング</i> カードで使用
+        metadata_items: メタデータ項目
+        metadata_text: 各リソースは独自のメタデータ項目を定義します
+        participatory_process_g: 参加プロセス G
+        participatory_process_group_g: 参加プロセスグループG
+        participatory_process_group_s: 参加プロセスグループS
+        participatory_process_s: 参加プロセスS
+        participatory_processes: 参加プロセス
         plain_text: これはプレーンテキストです
         plain_text_description: 最初の引数として、プレーンテキストとハッシュオブジェクトの両方を指定することができます。
         plain_text_vs_hash: プレーンテキストとハッシュ
+        post_g: 投稿G
+        post_l: 投稿L
+        post_s: 投稿S
+        project_l: プロジェクト L
+        project_s: プロジェクト S
+        proposal_l: 提案 L
+        proposal_s: 提案S
+        proposals: 提案
+        report_button: 通報ボタン
+        report_usage_description: 通報ボタンをクリックすると、現在のリソースにフラグを立てるモーダルウィンドウが開きます。
+        result_l:
         rgba_code: RGBA コード
+        search: 検索
         send: 送信
+        share_button: シェアボタン
+        share_usage_description_html: <code>decidim/shared/share_modal</code> partialがDOMに存在することを確認してください。このpartialはアプリケーションレイアウトに配置されます。
         sizes: サイズ
+        sortition_l: 並べ替えL
+        sortitions: 並べ替え
         source_code: ソースコード
         state: 状態
+        tab_panels_context_description: このタブパネルコンポーネントは、縦方向のスペースを節約するために、表示されているメイン要素の関連コンテンツやその他のリソースをすべて集約します。タブをクリックすると、作成されたパネルがアクティブになり、コンテンツが表示されます。
+        tab_panels_context_description_html: 主に、リソースのメインコンテンツの後に <i>layout_item</i> または <i>layout_center</i>内で使用されます。
+        tab_panels_usage_description: 'このコンポーネントはハッシュの配列を受け取り、各アイテムの出力をタブパネル構造に再配置します。各パネルで利用可能なプロパティは以下の通りです:'
+        tab_panels_usage_description_arguments_html: "<strong>args</strong>: <i>Array</i>. 前のメソッドの引数"
+        tab_panels_usage_description_html: "<strong>enabled</strong>: <i>Boolean</i>. タブを条件付きでレンダリングする"
+        tab_panels_usage_description_id_html: "<strong>id</strong>: <i>String</i>. ユニーク id"
+        tab_panels_usage_description_rails_html: "<strong>メソッド</strong>: <i>シンボル</i>. Railsが理解する任意の関数"
+        tab_panels_usage_description_remixicon_html: "<strong>icon</strong>: <i>String</i>. Remixicon キー"
+        tab_panels_usage_description_tab_html: "<strong>text</strong>: <i>String</i>. タブ見出し"
         tailwind: Tailwindでの名称
         text: テキスト
         transparent: 透過
         transparent_description: '暗い背景の場合:'
+        types: タイプ
         typography_texts: タイポグラフィとテキスト
         usage: 使い方
         usage_background_1: asideの背景
@@ -167,6 +296,7 @@ ja:
         usage_typography_4: リンクとボタン
         value: 値
         variations: バリエーション
+        variations_cards_description: 表示されるリソースのプロパティに応じて、各カードの見た目は異なります。この振る舞いは特定のセルでオーバーライドすることができます。
         variations_description: このセルには3つの異なるバージョンがあります。それぞれが表示されているコンテキストに合わせて使い分けます。
         variations_text: 活動の種類に関して、参加型スペースに属するかどうか、著者がいるかどうかなどによって、セルは異なるコンテンツを表示したり、異なるリソースを報告することができます。
       home:

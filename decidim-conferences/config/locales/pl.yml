@@ -132,6 +132,12 @@ pl:
         new:
           create: Utwórz
           title: Nowy prelegent konferencyjny.
+        publish:
+          invalid: Podczas publikowania tego zespołu wystąpił błąd.
+          success: Opublikowano mówcę konferencyjnego.
+        unpublish:
+          invalid: Wystąpił problem podczas cofania publikacji tego mówcy.
+          success: Usunięto publikację mówcy konferencyjnego.
         update:
           error: Wystąpił błąd podczas aktualizacji prelegenta konferencji.
           success: Prelegent zaktualizowany pomyślnie.
@@ -452,6 +458,13 @@ pl:
       conference_speaker_cell:
         personal_url:
           personal_website: Osobista strona internetowa
+      conference_speakers:
+        index:
+          speakers:
+            one: Mówca
+            few: Prelegenci
+            many: Prelegenci
+            other: Mówcy
       conferences:
         partners:
           collaborators: Partnerzy

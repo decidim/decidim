@@ -4,9 +4,11 @@
   <h1 class="h1"><%= t ".title" %></h1>
 <% end %>
 
-<%= decidim_form_for(@form) do |f| %>
+<%= decidim_form_for(@form, url: organization_path(@organization)) do |f| %>
   <div class="form__wrapper">
-    <%= f.text_field :name, autofocus: true %>
+    <div>
+      <%= f.translated :text_field, :name, autofocus: true %>
+    </div>
 
     <%= f.text_field :host %>
 
@@ -35,7 +37,7 @@
   </div>
 
   <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-    <% if @organization.users.first&.invitation_pending? %>
+    <% if @organization&.users&.first&.invitation_pending? %>
       <%= link_to t(".resend_invitation"),
                   resend_invitation_organization_path(@organization),
                   method: :post,

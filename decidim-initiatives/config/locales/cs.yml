@@ -85,7 +85,6 @@ cs:
   decidim:
     admin:
       actions:
-        manage: Spravovat
         new_initiative_type: Nový typ iniciativy
         new_initiative_type_scope: Nový typ rozsahu iniciativy
       filters:
@@ -98,7 +97,6 @@ cs:
               accepted: Dostatek podpisů
               created: Vytvořeno
               discarded: Vyřazeno
-              published: Publikováno
               rejected: Nedostatek podpisů
               validating: Technické ověření
           type_id_eq:
@@ -112,7 +110,6 @@ cs:
       menu:
         attachments: Přílohy
         committee_members: Členové výboru
-        components: Komponenty
         information: Informace
         initiative_type_scopes: Typy oblasti působnosti iniciativy
         initiatives: Iniciativy
@@ -244,6 +241,9 @@ cs:
               most_recent: Nejnovější
         exports:
           initiatives: Iniciativy
+        index:
+          initiatives_types:
+            button: Nový typ iniciativy
         initiatives:
           edit:
             accept: Přijmout iniciativu
@@ -299,7 +299,7 @@ cs:
         initiatives_types:
           create:
             error: Došlo k chybě.
-            success: Nový druh iniciativy byl úspěšně vytvořen
+            success: Byl úspěšně vytvořen nový typ iniciativy. Musíte definovat alespoň jeden rozsah pro tento typ iniciativy, aby mohl být použit.
           destroy:
             success: Druh iniciativy byl úspěšně odstraněn.
           edit:
@@ -333,7 +333,6 @@ cs:
         accepted: Dostatek podpisů
         created: Vytvořeno
         discarded: Vyřazeno
-        published: Publikováno
         rejected: Nedostatek podpisů
         validating: Technická validace
       application_helper:
@@ -555,7 +554,6 @@ cs:
           other: " podpisy"
         vote_cabin:
           already_voted: Již jste podepsal
-          supports_required: "Vyžaduje %{total_supports} podpisů"
           verification_required: Ověřte svůj účet, abyste podepsali iniciativu
           vote: Podepsat
           votes_blocked: Podpis zakázán
@@ -593,7 +591,6 @@ cs:
           accepted: Dostatek podpisů
           created: Vytvořeno
           discarded: Zahozeno
-          published: Publikováno
           rejected: Nedostatek podpisů
           validating: Technické ověření
       states:

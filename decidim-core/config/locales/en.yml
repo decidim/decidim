@@ -145,6 +145,7 @@ en:
       external_link: External link
       front_page_link: Go to front page
       logo: "%{organization}'s official logo"
+      opens_in_new_tab: Opens in new tab
       skip_button: Skip to main content
     account:
       blocked: This account has been blocked due to terms of service violation
@@ -296,10 +297,6 @@ en:
         title:
           one: "%{count} amendment"
           other: "%{count} amendments"
-      compare_draft:
-        continue: Continue
-        no_similars_found: No similar emendations found.
-        title: Similar Emendations
       created:
         error: An error ocurred while creating the amendment draft.
         success: Amendment draft has been created successfully.
@@ -358,14 +355,16 @@ en:
       wizard_step_form:
         steps:
           '1': Create your amendment
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': Publish your amendment
     anonymous_user: Anonymous
     application:
       document:
         download: Download file
+        visit_link: Visit link
       documents:
+        component_documents:
+          dummy: Dummy component documents
+          meetings: Meetings documents
         documents: Documents
         related_documents: Related documents
       photo:
@@ -570,7 +569,7 @@ en:
         name: Sub hero banner
     core:
       actions:
-        login_before_access: Please, login with your account before access.
+        login_before_access: Please, log in with your account before access.
         unauthorized: You are not authorized to perform this action.
       application_helper:
         filter_area_values:
@@ -587,7 +586,7 @@ en:
           complete_profile: Complete profile
           nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
           sign_up: Please complete your profile
-          subtitle: Please fill in the following form in order to complete the sign up
+          subtitle: Please fill in the following form in order to complete the account creation
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       registrations:
         create:
@@ -597,8 +596,8 @@ en:
           log_in: Log in
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
-          sign_up: Sign up
-          subtitle: Sign up to participate in discussions and support proposals.
+          sign_up: Create an account
+          subtitle: Create an account to participate in the platform.
           terms: the terms of service
           tos_agreement: By signing up you agree to %{link}.
           tos_title: Terms of Service
@@ -608,7 +607,7 @@ en:
           are_you_new?: New to the platform?
           register: Create an account
           sign_in_disabled: You can access with an external account.
-          sign_up_disabled: Sign up is disabled, you can use an existing account to access.
+          sign_up_disabled: Account creation is disabled, you can use an existing account to access.
         user:
           timed_out: You were inactive for too long and you have been automatically logged out from the service. If you would like to continue using the service, please log in again.
       shared:
@@ -889,6 +888,11 @@ en:
         button: Stop following
         error: There was a problem unfollowing this resource.
     forms:
+      attachment_link:
+        explanation: Guidance for attachment links
+        help_messages:
+        - Only correct URL formats are accepted.
+        - Please note that the links must be public so that all participants can access them.
       errors:
         decidim/user:
           password: The password is too short.
@@ -924,6 +928,7 @@ en:
           filename: Filename
           remove: Remove
           replace: Replace
+          save: Save
           title: Title
           title_required: Title is required!
           uploaded: Uploaded
@@ -1047,7 +1052,7 @@ en:
           content: "<p>In %{organization} you can participate and decide on different topics, through the spaces you see in the top menu: Processes, Assemblies, Initiatives, Consultations.</p> <p>Within each one you will find different options to participate: make proposals - individually or with other people-, take part in debates, prioritize projects to implement, attend face-to-face meetings and other actions.</p>\n"
           title: What can I do in %{organization}?
         description: Read more about %{organization}.
-        title: General Help
+        title: General
     last_activities:
       all: All activity types
       index:
@@ -1243,9 +1248,11 @@ en:
         same_language: The content has been posted in your preferred language (%{language}), this is why no automated translation is displayed in this email.
         translated_text: 'Automatically translated text:'
     notifications:
+      action_error: There was a problem updating the notifications.
       no_notifications: No notifications yet.
       show:
         missing_event: Oops, this notification belongs to an item that is no longer available. You can discard it.
+        moderated: Content moderated
     notifications_digest_mailer:
       header:
         daily: Daily Notification Digest
@@ -1318,7 +1325,7 @@ en:
           headline: Current state of %{organization}
         sub_hero:
           register: Register
-          register_title: Sign up to create an account
+          register_title: Create an account
       index:
         standalone_pages: Pages
         subheading: Navigate through the help pages of %{name}
@@ -1450,7 +1457,7 @@ en:
           past: Past
       filters_small_view:
         filter: Filter
-        filter_and_search: Filter and Search
+        filter_and_search: Filter and search
         filter_by: Filter by
       results:
         view_all: View all (%{count})
@@ -1501,7 +1508,7 @@ en:
         log_in_before_follow: Please log in before performing this action
       login_modal:
         please_log_in: Please log in
-        sign_up: Sign up
+        sign_up: Create an account
       mentions_modal:
         remove_recipient: Remove recipient %{name}
       participatory_space_filters:
@@ -1628,7 +1635,7 @@ en:
       locked: Your account is locked.
       not_found_in_database: Invalid %{authentication_keys} or password.
       timeout: Your session expired. Please log in again to continue.
-      unauthenticated: You need to log in or sign up before continuing.
+      unauthenticated: You need to log in or create an account before continuing.
     invitations:
       edit:
         header: Finish creating your account
@@ -1716,7 +1723,7 @@ en:
     registrations:
       destroyed: Your account has been successfully cancelled. We hope to see you again soon.
       new:
-        sign_up: Sign up
+        sign_up: Create an account
       signed_up: Welcome! You have signed up successfully.
       signed_up_but_inactive: You have signed up successfully. However, we could not sign you in because your account is not yet activated.
       signed_up_but_locked: You have signed up successfully. However, we could not sign you in because your account is locked.
@@ -1737,7 +1744,7 @@ en:
         forgot_your_password: Forgot your password?
         log_in: Log in
         log_in_with_provider: Log in with %{provider}
-        sign_up: Sign up
+        sign_up: Create an account
       minimum_password_length:
         one: "(%{count} character minimum)"
         other: "(%{count} characters minimum)"
@@ -1851,7 +1858,7 @@ en:
       long_words: contains words that are too long (over 35 characters)
       must_start_with_caps: must start with a capital letter
       nesting_too_deep: cannot be inside of a subcategory
-      not_found: could not be found. Did you sign up previously?
+      not_found: could not be found. Have you created an account previously?
       not_locked: was not locked
       not_saved:
         one: 'There''s been an error processing your request:'
@@ -1936,8 +1943,8 @@ en:
         log_in: Log in
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
         resources: Resources
-        sign_up: Sign Up
-        terms_and_conditions: Terms and Conditions
+        sign_up: Create an account
+        terms_of_service: Terms of Service
       header:
         log_in: Log in
         main_menu: Main menu
@@ -1953,10 +1960,6 @@ en:
         mark_as_read: Mark as read
       offline_banner:
         cache_version_page: Oooops! Your network is offline. This is a previously cached version of the page you are visiting, perhaps the content is not up to date.
-      shared:
-        layout_item:
-          next: Next item
-          prev: Previous item
       social_media_links:
         facebook: "%{organization} at Facebook"
         github: "%{organization} at GitHub"
@@ -2060,6 +2063,7 @@ en:
       long_with_particles: "%B %d, %Y at %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Deletions

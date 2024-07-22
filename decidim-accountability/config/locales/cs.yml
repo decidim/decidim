@@ -244,15 +244,7 @@ cs:
           search: Hledat akce
         show:
           stats:
-            attendees: Účastníci
             back_to_resource: Přejít zpět na výsledek
-            comments: Komentáře
-            contributions: Příspěvky
-            last_edited_by: Naposledy upravil
-            last_updated_at: Poslední aktualizace v
-            meetings: Setkání
-            proposals: Návrhy
-            votes: Hlasy
         timeline:
           title: Vývoj projektu
     admin:
@@ -271,16 +263,12 @@ cs:
         name: Odpovědnost
         settings:
           global:
-            categories_label: Název pro "Kategorie"
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
             display_progress_enabled: Zobrazit průběh
-            heading_leaf_level_results: Název pro "Projekty"
-            heading_parent_level_results: Název pro "Výsledky"
             intro: Intro
             scope_id: Oblast působnosti
             scopes_enabled: Oblast působnosti povolena
-            subcategories_label: Název pro "Podkategorie"
           step:
             comments_blocked: Komentáře blokovány
     events:

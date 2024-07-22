@@ -7,6 +7,7 @@ bg:
         decidim_scope_id: Сфера
         description: Описание
         end_date: Крайна дата
+        meetings_ids: Включени срещи
         progress: Напредък
         project_ids: Включени проекти
         proposals: Включени предложения
@@ -21,6 +22,7 @@ bg:
       timeline_entry:
         description: Описание
         entry_date: Дата
+        title: Заглавие
     models:
       decidim/accountability/proposal_linked_event: Предложение, включено в резултата
       decidim/accountability/result_progress_updated_event: Напредъкът на резултатите е актуализиран
@@ -32,24 +34,80 @@ bg:
   decidim:
     accountability:
       actions:
+        attachment_collections: Папки
+        attachments: Прикачени файлове
         confirm_destroy: Сигурни ли сте, че искате да изтриете това %{name}?
         destroy: Изтрий
         edit: Редактирай
+        import: Импортирайте проекти от друг компонент
+        import_csv: Импортирай резултати от CSV файл
+        new_result: Нов резултат
+        new_status: Нов статус
+        new_timeline_entry: Нов запис във времевата линия
         preview: Преглед
         timeline_entries: Развитие на проекта
         title: Действия
       admin:
         exports:
+          result_comments: Коментари
           results: Резултати
         import_results:
           new:
+            download_export: Свалете експорта в CSV формат
             import: Внасяне
+            info: |
+              <p>Препоръчваме ви да следвате следните стъпки:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Създайте статусите за резултатите</a>, които искате да добавите</li>
+              <li><a href='%{link_new_result}' target='_blank'>Създайте поне един резултат ръчно</a> чрез този административен панел, преди да използвате Импортиране, за да разберете по-добре формата и това,  което ще се нуждае от попълване.</li>
+              <li>%{link_export_csv}</li>
+              <li>Направете промените локално. Можете да промените само следните колони в CSV:
+                <ul>
+                <li><b>category/id:</b> ID за категорията</li>
+                <li><b>scope/id:</b> ID за обхвата</li>
+                <li><b>parent/id:</b> ID на родителя (за свързани резултати). По избор</li>
+                <li><b>title/en:</b> Заглавие на английски език. Това ще зависи от езиковата конфигурация на вашата платформа.</li>
+                <li><b>description/en:</b> Описание на английски език. Това ще зависи от езиковата конфигурация на вашата платформа.</li>
+                <li><b>начална_дата:</b> дата, когато резултатът започва да се изпълнява (формат ГГГГ-ММ-ДД)</li>
+                <li><b>крайна_дата:</b> дата, на която резултатът приключва изпълнението (формат ГГГГ-ММ-ДД)</li>
+                <li><b>status/id:</b> ID на състоянието за този резултат</li>
+                <li><b>напредък:</b> Процент (от 0 до 100) на изпълнението</li>
+                <li><b>proposals_ids:</b> вътрешен идентификатор на свързаните предложения (разделени със запетая). Той автоматично се преобразува в <span class='attribute-name'>proposal_url</span></li>
+                </ul>
+              </li>
+              </ol>
+            title: Импортирай резултати от CSV файл
+        imports:
+          create:
+            invalid: Възникна проблем при импортирането на резултатите.
+            success: Файлът започна да се импортира. В следващите минути ще получите имейл с резултата от импортирането.
         models:
           result:
             name: Резултат
           status:
             name: Статус
+        projects_import:
+          create:
+            invalid: Възникна проблем при импортирането на проектите в резултатите, моля, следвайте внимателно инструкциите и се уверете, че сте избрали проекти за изпълнение.
+          new:
+            create: Импортиране
+            import_all_selected_projects: Импортирайте всички избрани за изпълнение проекти
+            new_items:
+              one: 1 избран проект ще бъде импортнат
+              other: "%{count} избрани проекта ще бъдат импортирани"
+            no_components: В това пространство за участие няма бюджетни компоненти, за да се импортират проектите в резултати.
+            origin_component_id: Компонент за произход
+            select_component: Избери компонент
+            success:
+              one: 1 проект е в опашката за импортиране. Ще бъдете уведомени по имейл, след приключване на импорта.
+              other: "%{count} проекта са на опашка за импортиране. Ще бъдете уведомени по имейл, след като приключите."
+            title: Импортирайте проекти от друг компонент
         results:
+          create:
+            invalid: Възникна проблем при създаването на този резултат.
+            success: Резултатът беше създаден успешно.
+          destroy:
+            success: Резултатът беше изтрит успешно.
           edit:
             title: Редактирай резултат
             update: Обнови резултат
@@ -58,10 +116,18 @@ bg:
           new:
             create: Създай резултат
             title: Нови резултати
+          update:
+            invalid: Възникна проблем при актуализирането на този резултат.
+            success: Резултатът беше актуализиран успешно.
         shared:
           subnav:
             statuses: Статуси
         statuses:
+          create:
+            invalid: Възникна проблем при създаването на този статус.
+            success: Статуса е създаден успешно.
+          destroy:
+            success: Статуса е изтрит успешно.
           edit:
             title: Редактирай на статуса
             update: Обнови на статус
@@ -70,7 +136,15 @@ bg:
           new:
             create: Създай статус
             title: Нов статус
+          update:
+            invalid: Възникна проблем при обновяването на този статус.
+            success: Статуса беше обновен успешно.
         timeline_entries:
+          create:
+            invalid: Възникна проблем при създаването на този запис.
+            success: Записът беше създаден успешно.
+          destroy:
+            success: Записът беше изтрит успешно.
           edit:
             title: Редактирай на запис
             update: Обнови на запис
@@ -79,25 +153,53 @@ bg:
           new:
             create: Създай запис
             title: Нов запис
+          update:
+            invalid: Възникна проблем при актуализирането на този запис.
+            success: Записът беше актуализиран успешно.
       admin_log:
         result:
           create: "%{user_name} създаде резултата %{resource_name} в %{space_name}"
           delete: "%{user_name} изтри резултата %{resource_name} в %{space_name}"
           update: "%{user_name} обнови резултата %{resource_name} в %{space_name}"
+        status:
+          create: "Статусът е създаден"
+          delete: "Статусът е изтрит"
+          update: "Статусът е обновен"
+        timeline_entry:
+          create: "Създаде запис във времевата линия"
+          delete: "Изтри запис от времевата линия"
+          update: "Обнови запис във времевата линия"
         value_types:
           parent_presenter:
             not_found: 'Родителя липсва в базата данни (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          results: Резултати
       import_mailer:
         import:
           errors: Грешки
+          errors_present: Възникна проблем при импортирането на резултатите.
           row_number: Редове
           subject: Успешно внасяне на резултати
           success: Успешно внасяне на резултати. Може да ги прегледате в администраторския интерфейс.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: Един резултат беше импортиран от проекти.
+            other: "%{count} резултата бяха импортирани от проекти."
+          subject: Успешен импорт на проекти
+          success: Успешно импортирани проекти в резултати към компонента %{component_name}. Можете да прегледате резултатите в административния интерфейс.
+      last_activity:
+        new_result: 'Нов резултат:'
       models:
         result:
           fields:
+            category: Категория
+            created_at: Създаден
             end_date: Крайна дата
+            id: ID
             progress: Напредък
+            scope: Обхват
             start_date: Начална дата
             status: Статус
             title: Заглавие
@@ -110,6 +212,7 @@ bg:
         timeline_entry:
           fields:
             entry_date: Дата
+            title: Заглавие
       results:
         count:
           results_count:
@@ -119,41 +222,43 @@ bg:
           all: Всички
         home:
           categories_label: Категории
+          empty: Все още няма резултати.
+          empty_filters: Няма резултати по този критерий.
           subcategories_label: Подкатегории
         home_header:
           global_status: Общо състояние на изпълнение
         nav_breadcrumb:
           global: Общо изпълнение
+        no_results: Няма проекти
         search:
           search: Търсене на действия
         show:
           stats:
-            attendees: Присъстващи
             back_to_resource: Върни се към резултата
-            comments: Коментари
-            contributions: Предложения
-            last_edited_by: Последна промяна на
-            last_updated_at: Последно обновен на
-            meetings: Срещи
-            proposals: Предложения
-            votes: Поддръжки
         timeline:
           title: Развитие на проекта
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Категория
+          scope_id_eq:
+            label: Обхват
+          status_id_eq:
+            label: Статус
     components:
       accountability:
+        actions:
+          comment: Коментар
         name: Отговорност
         settings:
           global:
-            categories_label: Име за "категории"
             comments_enabled: Коментарите са разрешени
             comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
             display_progress_enabled: Показвай развитието
-            heading_leaf_level_results: Име за "Проекти"
-            heading_parent_level_results: Име за "Резултати"
             intro: Въведение
             scope_id: Сфера
             scopes_enabled: Сферите са разрешени
-            subcategories_label: Име за "подкатегории"
           step:
             comments_blocked: Коментарите са блокирани
     events:
@@ -181,3 +286,5 @@ bg:
         result_project: Проекти, включени в резултата
       included_proposals:
         result_proposal: Предложения, включени в резултата
+    statistics:
+      results_count: Резултати

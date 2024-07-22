@@ -7,6 +7,7 @@ ru:
         body: Основной текст
         category_id: Категория
         has_address: Имеет адрес
+        scope_id: Охват
         state: Cостояние
         title: Заголовок
         user_group_id: Создать предложение в качестве
@@ -43,7 +44,7 @@ ru:
         other: Примечаний
       decidim/proposals/proposal_vote:
         one: Голос
-        few: Голоса
+        few: Голосов
         many: Голосов
         other: Голосов
   decidim:
@@ -59,7 +60,6 @@ ru:
           global:
             announcement: Объявление
             attachments_allowed: Разрешить прикрпеленные файлы
-            can_accumulate_supports_beyond_threshold: Может накапливать выражения поддержки свыше порогового значения
             comments_enabled: Комментарии включены
             geocoding_enabled: Геокодирование включено
             new_proposal_help_text: Подсказки по созданию нового предложения
@@ -69,12 +69,8 @@ ru:
             proposal_length: Предельная длина основного текста предложения
             proposal_limit: Предельное количество предложений от одного участника
             proposal_wizard_step_1_help_text: Справка мастера предложений о шаге "Создать"
-            proposal_wizard_step_2_help_text: Справка мастера предложений о шаге "Сравнить"
-            proposal_wizard_step_3_help_text: Справка мастера предложений о шаге "Завершить"
-            proposal_wizard_step_4_help_text: Справка мастера предложений о шаге "Обнародовать"
             resources_permissions_enabled: Для каждого предложения можно задать те или иные разрешения на действия
             threshold_per_proposal: Порог для каждого предложения
-            vote_limit: Предельное количество голосов для одного участника
           step:
             announcement: Объявление
             comments_blocked: Комментарии отключены
@@ -113,7 +109,6 @@ ru:
         voting_enabled:
           email_intro: 'Теперь вы можете голосовать по предложениям в %{participatory_space_title}! Начните со страницы:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
-          email_subject: В %{participatory_space_title} началось голосование по предложениям
           notification_title: Теперь в <a href="%{participatory_space_url}">%{participatory_space_title}</a> появилась возможность <a href="%{resource_path}">голосовать по предложениям</a>
     proposals:
       actions:
@@ -152,8 +147,6 @@ ru:
           new:
             create: Внести
             title: Создать предложение
-          show:
-            votes_count: Количество голосов
         proposals_imports:
           new:
             create: Позаимствовать предложения
@@ -196,16 +189,7 @@ ru:
             state: Cостояние
             title: Заголовок
             votes: Голоса
-      proposal_votes:
-        create:
-          error: При голосовании по этому предложению произошли ошибки.
       proposals:
-        compare:
-          no_similars_found: Хорошая работа! Подобных предложений не найдено
-          title: Похожие предложения
-        complete:
-          send: Отправить
-          title: Завершите свое предложение
         edit:
           attachment_legend: "(Необязательно) Добавить вложение"
           back: Вернуться
@@ -218,6 +202,7 @@ ru:
           send: Предпросмотр
           title: Редактировать черновик предложения
         filters:
+          all: Все
           category: Категория
           origin: Источник
           related_to: Связано с
@@ -249,37 +234,22 @@ ru:
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается
           proposal_rejected_reason: 'Это предложение было отклонено, поскольку:'
-          withdraw_btn_hint: Вы можете снять свое предложение, если передумаете, пока вы не получили никакой поддержки. Предложение не будет удалено, оно будет указано в списке снятых предложений.
           withdraw_proposal: Снять предложение
         vote_button:
           already_voted: Уже проголосовали
-          already_voted_hover: Отменить голос
           maximum_votes_reached: Достигнуто предельное количество голосов
           no_votes_remaining: Больше не осталось голосов
           vote: Голосовать
           votes_blocked: Голосование отключено
-        votes_count:
-          count:
-            one: ГОЛОС
-            few: ГОЛОСА
-            many: ГОЛОСОВ
-            other: ГОЛОСА
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: Каждое предложение может накапливать более %{limit} выражений поддержки
           proposal_limit:
             description: Вы можете создать до %{limit} предложений.
-          title: 'Голосование регулируется следующими правилами:'
           vote_limit:
             description: Вы можете проголосовать до %{limit} предложений.
-            votes: Голоса
         wizard_aside:
           back: Вернуться
         wizard_steps:
           step_1: Создайте свое предложение
-          step_2: Сравните
-          step_3: Завершите
-          step_4: Обнародуйте свое предложение
       publish:
         error: При попытке обнародовать это предложение произошли ошибки.
         success: Предложение успешно обнародовано.

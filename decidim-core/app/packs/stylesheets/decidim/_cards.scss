@@ -127,14 +127,14 @@
       @apply text-black text-2xl font-bold;
     }
 
-    &-time {
+    &-year {
       @apply text-black text-xs;
     }
 
     &-month,
     &-day,
-    &-time {
-      @apply inline-flex items-center justify-evenly empty:[&>span]:hidden;
+    &-year {
+      @apply inline-flex items-center justify-evenly empty:[&>div]:hidden;
     }
   }
 
@@ -143,7 +143,7 @@
   &__list-metadata {
     @apply mt-auto inline-flex flex-wrap gap-x-4 md:gap-0;
 
-    & > span {
+    & > div {
       @apply inline-flex items-center gap-1 px-0 md:px-6 border-gray-3 border-0 md:border-r first:pl-0 last:pr-0 last:border-r-0 text-sm text-gray-2;
 
       & > svg {

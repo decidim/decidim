@@ -52,7 +52,6 @@ gl:
       menu:
         attachments: Anexos
         committee_members: Membros da comisión
-        components: Compoñentes
         information: Información
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
@@ -190,7 +189,6 @@ gl:
       admin_states:
         created: Creada
         discarded: Descartou
-        published: Publicado
         validating: Validación técnica
       application_helper:
         filter_state_values:
@@ -294,7 +292,6 @@ gl:
           other: " sinaturas"
         vote_cabin:
           already_voted: Xa está asinado
-          supports_required: "Requírense as %{total_supports} firmas"
           verification_required: Verifica a túa conta para asinar a iniciativa
           vote: Iniciar sesión
           votes_blocked: A sinatura está desactivada

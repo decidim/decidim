@@ -108,7 +108,6 @@ ro:
         back_to: Înapoi la %{component_name}
         close_modal: Închide fereastra
         continue: Continuă
-        more_information: Mai multe informații
       budgets_list:
         cancel_order:
           more_than_one: șterge votul tău pentru %{name} și reia procesul

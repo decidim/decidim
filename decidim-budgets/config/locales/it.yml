@@ -83,12 +83,16 @@ it:
         back_to: Torna a %{component_name}
         close_modal: Chiudi modalità
         continue: Prosegui
-        more_information: Altre informazioni
       budgets_list:
         cancel_order:
           more_than_one: elimina il tuo voto su %{name} e ricomincia
           only_one: cancella il tuo voto e ricomincia.
         highlighted_cta: Vota su %{name}
+        orders:
+          highest_cost: Costo più alto
+          label: Ordina budget per
+          lowest_cost: Costo più basso
+          random: Ordine casuale
         progress: Chiusura voto
         show: Vedi progetti
         vote: Vota

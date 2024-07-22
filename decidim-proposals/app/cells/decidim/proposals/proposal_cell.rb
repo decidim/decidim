@@ -21,6 +21,8 @@ module Decidim
         case @options[:size]
         when :s
           "decidim/proposals/proposal_s"
+        when :g
+          "decidim/proposals/proposal_g"
         else
           "decidim/proposals/proposal_l"
         end

@@ -21,7 +21,6 @@ lb:
               too_long: ist zu lang
             choices:
               missing: sind nicht vollständig
-              too_many: sind zu viele
   decidim:
     forms:
       admin:

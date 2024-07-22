@@ -150,6 +150,7 @@ lb:
         export: Alles exportéieren
         export-selection: Export Auswiel
         import: Importieren
+        manage: Verwalten
         newsletter:
           new: Neuer Newsletter
         participatory_space_private_user:
@@ -881,3 +882,8 @@ lb:
   errors:
     messages:
       invalid_json: Ungültiger JSON
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Globale Moderationen

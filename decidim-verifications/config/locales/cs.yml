@@ -60,6 +60,10 @@ cs:
           help:
             - Administrátoři nahrávají CSV s e-maily přijatých účastníků.
             - Pouze účastníci s e-mailem v souboru CSV mohou být ověřeni.
+        default:
+          help:
+            - 
+            - Vývojář musí definovat pomoc v překladu (i18n) klíč "%{authorization_handler}"
         id_documents:
           help:
             - Uživatelé vyplňují údaje o své totožnosti a nahrávají kopii svého dokladu.
@@ -88,6 +92,7 @@ cs:
     events:
       verifications:
         verify_with_managed_user:
+          email_intro: Účastník <a href="%{resource_url}">%{resource_title}</a> se pokusil ověřit údaji jiného účastníka (<a href="%{managed_user_url}">%{managed_user_name}</a>).
           email_outro: Zkontrolujte seznam konfliktů <a href="%{conflicts_url}">ověření</a> a kontaktujte uživatele pro ověření jejich údajů a vyřešení problému.
           email_subject: Neúspěšný pokus o ověření proti jinému uživateli
     verifications:

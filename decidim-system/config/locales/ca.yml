@@ -31,6 +31,10 @@ ca:
           attributes:
             redirect_uri:
               must_be_ssl: L'URI de redirecció ha de ser una URI SSL
+        organization:
+          attributes:
+            password:
+              secret_key: Cal que defineixis la variable d'entorn SECRET_KEY_BASE per a poder guardar aquest camp
   decidim:
     system:
       actions:
@@ -63,6 +67,7 @@ ca:
         show:
           admins: Administradores
           current_organizations: Organitzacions actuals
+          system_checks: Comprovació del sistema
       default_pages:
         placeholders:
           content: Si us plau, afegeix contingut significatiu a la pàgina estàtica de %{page} dins el panell d'administració.
@@ -83,7 +88,7 @@ ca:
             did_not_receive_unlock_instructions?: No has rebut les instruccions de desbloqueig?
             forgot_your_password?: Has oblidat la teva contrasenya?
             log_in: Iniciar sessió
-            sign_up: Registra't
+            sign_up: Crea un compte
       menu:
         admins: Administradores
         dashboard: Tauler d'administració
@@ -138,6 +143,7 @@ ca:
           show: Mostra la configuració avançada
         create:
           error: S'ha produït un error en crear una nova organització.
+          error_invitation: Hi ha hagut un problema en crear una nova organització. Revisa el nom de l'administradora de l'organització.
           success_html: |
             <p>
             Organitzció creada correctament.
@@ -244,7 +250,7 @@ ca:
           fieldsets:
             sender: Remitent
           instructions:
-            from_label: 'El remitent de correu electrònic serà: "nom-de-la-teva-organitzacio <your-organization@example.org>". Deixa-ho en blanc per a usar ''l''adreça de correu'' com a etiqueta.'
+            from_label: 'El remitent de correu electrònic serà: "nom-de-la-teva-organitzacio <your-organization@example.org>". Deixa-ho en blanc per a fer servir el mateix nom que el que ja està definit al nom de l''organització.'
           placeholder:
             from_email: la-teva-organitzacio@example.org
             from_label: el-nom-de-la-vostra-organitzacio
@@ -253,8 +259,8 @@ ca:
           success: L'organització s'ha actualitzat correctament.
         users_registration_mode:
           disabled: Només es port accedir amb comptes externs
-          enabled: Permetre a les participants registrar-se i iniciar sessió
-          existing: No permetre que es registrin noves participants, però permetre a les participants existents iniciar sessió
+          enabled: Permetre a les participants crear un compte i iniciar sessió
+          existing: No permetre a les participants crear un compte, però permetre iniciar sessió a les participants existents
       shared:
         notices:
           no_organization_warning_html: Has de crear una organització per començar. Assegura't de llegir %{guide} abans de continuar.
@@ -262,6 +268,14 @@ ca:
         organizations_list:
           confirm_resend_invitation: Segur que vols reenviar la invitació?
           resend_invitation: Reenviar la invitació
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Documentació sobre Decidim
+          error: La cua d'ActiveJob no està configurada. Aquesta no és una configuració recomanable per l'entorn de producció. Llegir més a %{error_extra}.
+          success: La cua d'ActiveJob està configurada correctament.
+        secret_key:
+          error: 'La clau secreta no està definida correctament. Si us plau, guarda-la a la variable d''entorn: SECRET_KEY_BASE, i reinicia el servidor: llegir més a %{error_extra}.'
+          success: La clau secreta està configurada correctament.
       titles:
         dashboard: Tauler de control
         decidim: Decidim

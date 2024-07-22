@@ -150,6 +150,7 @@ pt:
         export: Exportar tudo
         export-selection: Exportar selecção
         import: Importar
+        manage: Gerir
         newsletter:
           new: Novo boletim informativo
         participatory_space_private_user:
@@ -883,3 +884,8 @@ pt:
   errors:
     messages:
       invalid_json: JSON inválido
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Moderações globais

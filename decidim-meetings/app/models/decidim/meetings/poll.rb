@@ -14,6 +14,14 @@ module Decidim
       delegate :organization, to: :meeting
 
       QUESTION_TYPES = %w(single_option multiple_option).freeze
+
+      def has_questions?
+        questionnaire&.questions&.exists?
+      end
+
+      def has_open_questions?
+        has_questions? && questionnaire.questions.not_closed.exists?
+      end
     end
   end
 end

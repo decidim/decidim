@@ -225,10 +225,6 @@ sv:
         error: Det gick inte att ändra resursen.
         promote_button: Gör till %{model_name}
         promote_confirm_text: Vill du stötta detta ändringsförslag?
-      compare_draft:
-        continue: Fortsätt
-        no_similars_found: Hittade inga liknande ändringsförslag.
-        title: Liknande ändringsförslag
       created:
         error: Ett fel uppstod när ändringsutkastet skulle skapas.
         success: Skapade utkast till ändringsförslag.
@@ -277,9 +273,6 @@ sv:
       wizard_step_form:
         steps:
           '1': Skapa ändringsförslag
-          '2': Jämför ändringsförslag
-          '3': Slutför ändringsförslaget
-          '4': Publicera ändringsförslaget
     anonymous_user: Anonym
     application:
       document:
@@ -479,15 +472,13 @@ sv:
           complete_profile: Komplettera profil
           nickname_help: Ditt alias i %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
           sign_up: Var god slutför din profil
-          subtitle: Slutför registreringen genom att fylla i följande formulär
           username_help: Offentligt namn som visas i dina inlägg. Du kan ange ett annat namn än ditt eget, om du vill vara anonym.
       registrations:
         new:
           already_have_an_account?: Har du redan ett konto?
+          log_in: Logga in
           newsletter: Få enstaka nyhetsbrev med relevant information
           newsletter_title: Kontakttillstånd
-          sign_up: Registrera dig
-          subtitle: Registrera dig för att delta i diskussioner och stödja förslag.
           tos_agreement: Genom att registrera dig godkänner du %{link}.
           tos_title: Användarvillkor
           username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymiteten kan det vara vilket namn som helst.
@@ -748,6 +739,7 @@ sv:
           filename: Filnamn
           remove: Ta bort
           replace: Ersätt
+          save: Spara
           title: Titel
           title_required: Titel krävs!
           uploaded: Uppladdad
@@ -825,7 +817,6 @@ sv:
         default_page:
           content: "<p>I %{organization} kan du delta och besluta om olika ämnen genom de områden som visas i toppmenyn: dialoger, grupper, initiativ och konsultationer.</p> <p>Inom varje område kan du delta på olika sätt: lämna förslag – enskilt eller med andra människor – delta i debatter, prioritera projekt att genomföra, delta i möten och andra åtgärder.</p>\n"
           title: Vad kan jag göra i %{organization}?
-        title: Allmän hjälp
     last_activities:
       all: Alla aktivitetstyper
       index:
@@ -1177,8 +1168,6 @@ sv:
         title: Rapportera olämplig användare
       floating_help:
         help: Hjälp
-      login_modal:
-        sign_up: Registrera dig
       participatory_space_filters:
         filters:
           area: Område
@@ -1350,19 +1339,20 @@ sv:
       updated_not_active: Ditt lösenord har ändrats.
     registrations:
       destroyed: Ditt konto har avregistrerats. Vi hoppas att vi ses snart igen.
-      new:
-        sign_up: Registrera
       signed_up: Välkommen! Din registrering är klar.
       signed_up_but_inactive: Din registrering är klar. Men vi kunde inte logga in dig eftersom ditt konto ännu inte är aktiverat.
       signed_up_but_locked: Din registrering är klar. Men vi kunde inte logga in dig eftersom ditt konto är låst.
       signed_up_but_unconfirmed: Ett meddelande med en bekräftelselänk har skickats till din e-postadress. Aktivera kontot genom att följa länken.
       update_needs_confirmation: Kontot har uppdaterats, men vi måste verifiera din nya e-postadress. Kontrollera din e-post och följ länken som bekräftar din nya e-postadress.
       updated: Ditt konto har uppdaterats.
+    sessions:
+      new:
+        log_in: Logga in
     shared:
       links:
         back: Tillbaka
         forgot_your_password: Glömt ditt lösenord?
-        sign_up: Registrera dig
+        log_in: Logga in
       minimum_password_length:
         one: "(minst %{count} tecken)"
         other: "(minst %{count} tecken)"
@@ -1428,7 +1418,6 @@ sv:
       invalid_time_zone: är inte en giltig tidszon
       long_words: innehåller ord som är för långa (över 35 tecken)
       must_start_with_caps: måste börja med en stor bokstav
-      not_found: kunde inte hittas. Har du registrerat dig tidigare?
       not_locked: låstes inte
       not_saved:
         one: 'Det finns ett fel i din begäran:'
@@ -1465,6 +1454,7 @@ sv:
               description: Lagrar information om de cookies som tillåts av användaren på denna webbplats.
               service: Denna webbplats
             pwaInstallPromptSeen:
+              description: Lagrar status om den progressiva webbapplikationen (PWA) installationsmeddelandet har redan setts av användaren.
               service: Denna webbplats
           types:
             cookie: Cookie
@@ -1506,10 +1496,11 @@ sv:
         decidim_logo: Decidim logotyp
         decidim_title: Decidim
         download_open_data: Hämta öppna datafiler
+        log_in: Logga in
         made_with_open_source: Webbplats skapad med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
         resources: Resurser
-        sign_up: Registrera
       header:
+        log_in: Logga in
         main_menu: Huvudmeny
         user_menu: Användarmeny
       impersonation_warning:
