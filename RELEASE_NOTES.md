@@ -27,6 +27,7 @@ gem "decidim-dev", github: "decidim/decidim"
 ### 1.3. Run these commands
 
 ```console
+sudo apt install p7zip # or the alternative installation process for your operating system. See "2.1. 7zip dependency introduction"
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
@@ -36,24 +37,24 @@ bin/rails db:migrate
 
 ## 2. General notes
 
-## 2.1. Ruby update to 3.2
+### 2.1. Ruby update to 3.2
 
 We have updated the Ruby version to 3.2.2. Upgrading to this version will require either to install this Ruby version on your host, or change the decidim docker image to use ruby:3.2.2.
 You can read more about this change on PR [#12199](https://github.com/decidim/decidim/pull/12199).
 
-## 2.2. Rails update to 7.0
+### 2.2. Rails update to 7.0
 
 We have updated the Rails version to 7.0.8.1. You do not need to do anything.
 
 You can read more about this change on PR [#12616](https://github.com/decidim/decidim/pull/12616).
 
-## 2.3. Removal of the accountability naming customization
+### 2.3. Removal of the accountability naming customization
 
 We have removed the ability to customize the labels from the Accountability component, as it was not following the recommended way of handling these text customizations. If you want to migrate your current customizations, you can read about [Text customizations in Decidim Documentation](https://docs.decidim.org/en/develop/customize/texts)
 
 You can read more about this change on PR [#12853](https://github.com/decidim/decidim/pull/12853).
 
-## 2.4 Removal of useless fields
+### 2.4 Removal of useless fields
 
 We are removing some useless fields that are leftovers from the Redesign.
 
@@ -63,6 +64,18 @@ For the moment we are leaving the information in your database in case that you 
 - assemblies table: show_statistics. You can read more about this change on PR [#13123](https://github.com/decidim/decidim/pull/13123).
 - participatory process table: show_statistics. You can read more about this change on PR [#13123](https://github.com/decidim/decidim/pull/13123).
 - participatory process table: show_metrics. You can read more about this change on PR [#13123](https://github.com/decidim/decidim/pull/13123).
+
+### 2.5. 7zip dependency introduction
+
+We had to migrate from an unmaintained dependency and do a wrapper for the 7zip command line. This means that you need to install 7zip in your system. You can do it by running:
+
+```bash
+sudo apt install p7zip
+```
+
+This works for Ubuntu Linux, other operating systems would need to do other command/package.
+
+You can read more about this change on PR [#13185](https://github.com/decidim/decidim/pull/13185).
 
 ## 3. One time actions
 

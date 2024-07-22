@@ -796,6 +796,7 @@ setseed
 sgid
 shakapacker
 sharedapp
+shellwords
 shortanswer
 shs
 sidekiq
@@ -890,6 +891,7 @@ timeoutable
 timeouter
 timestamped
 tiptap
+Tmpname
 TLDR
 todos
 Tomorrowland
@@ -908,6 +910,7 @@ tumblr
 turbolinks
 Twilio
 tzid
+tzip
 uber
 ucw
 ueee
