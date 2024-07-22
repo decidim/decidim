@@ -40,13 +40,6 @@ FactoryBot/AssociationStyle:
 Rubycw/Rubycw:
   Enabled: false
 
-
-
-
-
-Style/MapIntoArray:
-  Enabled: false
-
 Style/SuperArguments:
   Enabled: false
 
