@@ -62,7 +62,7 @@ shared_examples "manage moderations" do
 
   context "when listing moderations" do
     it "only lists moderations for the current organization" do
-      external_reportable = create :dummy_resource
+      external_reportable = create(:dummy_resource)
       external_moderation = create(:moderation, reportable: external_reportable, report_count: 1, reported_content: external_reportable.reported_searchable_content_text)
       create(:report, moderation: external_moderation)
 

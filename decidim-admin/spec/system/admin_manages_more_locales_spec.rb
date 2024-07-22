@@ -26,6 +26,7 @@ describe "Admin language selector" do
     I18n.available_locales = %w(en ca es)
     Decidim::Admin.send(:remove_const, :StaticPageForm)
     load "#{Decidim::Admin::Engine.root}/app/forms/decidim/admin/static_page_form.rb"
+    I18n.backend.reload!
   end
 
   context "with less than 5 fields" do
@@ -33,6 +34,7 @@ describe "Admin language selector" do
       locales = %w(ro fi en)
       I18n.available_locales = locales
       Decidim.available_locales = locales
+      I18n.backend.reload!
       locales
     end
 
@@ -58,6 +60,7 @@ describe "Admin language selector" do
       locales = %w(en ro es ca it fi)
       I18n.available_locales = locales
       Decidim.available_locales = locales
+      I18n.backend.reload!
       locales
     end
 

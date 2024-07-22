@@ -5,7 +5,6 @@ shared_context "when inviting process users" do
   let(:organization) { participatory_process.organization }
   let(:user) { create(:user, :admin, :confirmed, organization: participatory_process.organization) }
   let(:email) { "this_email_does_not_exist@example.org" }
-  let(:role) { "Moderator" }
 
   def invite_user
     login_as user, scope: :user
@@ -23,5 +22,15 @@ shared_context "when inviting process users" do
     logout :user
     visit decidim.root_path
     expect(page).to have_content(organization.name)
+  end
+
+  def edit_user(username)
+    login_as user, scope: :user
+
+    visit decidim_admin_participatory_processes.participatory_process_user_roles_path(participatory_process)
+
+    within "tr", text: username do
+      click_on "Edit"
+    end
   end
 end

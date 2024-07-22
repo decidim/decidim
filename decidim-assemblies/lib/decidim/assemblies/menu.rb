@@ -14,6 +14,17 @@ module Decidim
         end
       end
 
+      def self.register_mobile_menu!
+        Decidim.menu :mobile_menu do |menu|
+          menu.add_item :assemblies,
+                        I18n.t("menu.assemblies", scope: "decidim"),
+                        decidim_assemblies.assemblies_path,
+                        position: 2.2,
+                        if: OrganizationPublishedAssemblies.new(current_organization, current_user).any?,
+                        active: :inclusive
+        end
+      end
+
       def self.register_home_content_block_menu!
         Decidim.menu :home_content_block_menu do |menu|
           menu.add_item :assemblies,

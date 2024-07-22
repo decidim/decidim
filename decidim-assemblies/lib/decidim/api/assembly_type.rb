@@ -31,7 +31,6 @@ module Decidim
       field :target, Decidim::Core::TranslatedFieldType, "Who participates in this assembly", null: true
       field :participatory_scope, Decidim::Core::TranslatedFieldType, "What is decided on this assembly", null: true
       field :participatory_structure, Decidim::Core::TranslatedFieldType, "How it is decided on this assembly", null: true
-      field :show_statistics, Boolean, "If this assembly should show statistics", null: true
       field :scopes_enabled, Boolean, "If this assembly has scopes enabled", null: true
       field :private_space, Boolean, "If this assembly is a private space", null: true
       field :area, Decidim::Core::AreaApiType, "Area of this assembly", null: true

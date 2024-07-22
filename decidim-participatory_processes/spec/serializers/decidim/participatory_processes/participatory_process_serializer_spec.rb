@@ -25,7 +25,6 @@ module Decidim::ParticipatoryProcesses
         expect(serialized).to include(start_date: resource.start_date)
         expect(serialized).to include(end_date: resource.end_date)
         expect(serialized[:remote_hero_image_url]).to be_blob_url(resource.hero_image.blob)
-        expect(serialized[:remote_banner_image_url]).to be_blob_url(resource.banner_image.blob)
         expect(serialized).to include(developer_group: resource.developer_group)
         expect(serialized).to include(local_area: resource.local_area)
         expect(serialized).to include(meta_scope: resource.meta_scope)
@@ -35,8 +34,6 @@ module Decidim::ParticipatoryProcesses
         expect(serialized).to include(private_space: resource.private_space)
         expect(serialized).to include(promoted: resource.promoted)
         expect(serialized).to include(scopes_enabled: resource.scopes_enabled)
-        expect(serialized).to include(show_metrics: resource.show_metrics)
-        expect(serialized).to include(show_statistics: resource.show_statistics)
       end
 
       context "when process has area" do

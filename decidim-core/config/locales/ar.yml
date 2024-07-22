@@ -498,15 +498,12 @@ ar:
           complete_profile: الملف الشخصي الكامل
           nickname_help: الاسم المستعار الخاص بك في %{organization}. يمكن أن يحتوي فقط على أحرف وأرقام '-' و '_'.
           sign_up: يرجى استكمال ملف التعريف الخاص بك
-          subtitle: يرجى ملء النموذج التالي من أجل استكمال التسجيل
           username_help: الاسم العام الذي يظهر في مشاركاتك. بهدف ضمان عدم الكشف عن هويته ، يمكن أن يكون أي اسم.
       registrations:
         new:
           already_have_an_account?: هل لديك حساب؟
           newsletter: تلقي رسالة إخبارية من حين لآخر مع المعلومات ذات الصلة
           newsletter_title: الاتصال إذن
-          sign_up: انشئ حسابًا
-          subtitle: اشترك للمشاركة في المناقشات ودعم المقترحات.
           terms: شروط الخدمة
           tos_agreement: بالتسجيل فإنك توافق على %{link}.
           tos_title: شروط الخدمة
@@ -793,6 +790,7 @@ ar:
           filename: اسم الملف
           remove: حذف
           replace: إستبدال
+          save: حفظ
           title: العنوان
           title_required: العنوان مطلوب!
           uploaded: تم التحميل
@@ -1103,7 +1101,6 @@ ar:
           headline: الحالة الحالية لـ %{organization}
         sub_hero:
           register: تسجيل
-          register_title: قم بالتسجيل لإنشاء حساب
       index:
         standalone_pages: صفحات
         subheading: انتقل من خلال صفحات المساعدة من %{name}
@@ -1250,7 +1247,6 @@ ar:
         help: المساعدة
       login_modal:
         please_log_in: برجى تسجيل الدخول
-        sign_up: انشئ حسابًا
       mentions_modal:
         remove_recipient: إزالة المستلم %{name}
       participatory_space_filters:
@@ -1423,8 +1419,6 @@ ar:
       updated_not_active: كلمة السر الخاصة بك تم تغييرها بنجاح.
     registrations:
       destroyed: تم إلغاء حسابك بنجاح. نحن نأمل ان نراك قريبا مره اخرى.
-      new:
-        sign_up: انشئ حسابًا
       signed_up: أهلا بك! لقد اشتركت بنجاح
       signed_up_but_inactive: لقد اشتركت بنجاح ومع ذلك ، لم نتمكن من تسجيل الدخول لأن حسابك لم يتم تنشيطه بعد.
       signed_up_but_locked: لقد اشتركت بنجاح ومع ذلك ، لم نتمكن من تسجيل الدخول لأن حسابك مغلق.
@@ -1437,7 +1431,6 @@ ar:
         forgot_your_password: نسيت رقمك السري؟
         log_in: تسجيل الدخول
         log_in_with_provider: تسجيل الدخول باستخدام %{provider}
-        sign_up: انشئ حسابًا
       minimum_password_length:
         zero: "(%{count} حرف كحد أدنى)"
         one: "(%{count} حرف كحد أدنى)"
@@ -1496,7 +1489,6 @@ ar:
       invalid_time_zone: ليست بمنطقة زمنية صالحة
       long_words: يحتوي على كلمات طويلة جدًا (أكثر من 35 حرفًا)
       must_start_with_caps: يجب أن تبدأ بحرف كبير
-      not_found: تعذر العثور عليه. هل قمت بالتسجيل سابقاً؟
       not_locked: لم يكن مغلقا
       not_saved:
         zero: 'طرأت عدة أخطاء خلال معالجة طلبك:'
@@ -1587,9 +1579,7 @@ ar:
         log_in: تسجيل الدخول
         made_with_open_source: موقع تم إنشاؤه <a target="_blank" href="https://github.com/decidim/decidim">بالبرمجيات الحرة</a>.
         resources: الموارد
-        sign_up: انشئ حسابًا
       header:
-        log_in: تسجيل الدخول
         main_menu: القائمة الرئيسية
         user_menu: قائمة المستخدم
       impersonation_warning:

@@ -73,7 +73,6 @@ it:
               accepted: Numero di firme sufficiente
               created: Creato
               discarded: Rifiutato
-              published: Pubblicati
               rejected: Firme non sufficienti
               validating: Validazione tecnica
           type_id_eq:
@@ -255,7 +254,6 @@ it:
         accepted: Firme sufficienti
         created: Creato
         discarded: Discarded
-        published: Pubblicato
         rejected: Firme non sufficienti
         validating: Convalida tecnica
       application_helper:
@@ -464,7 +462,6 @@ it:
           accepted: Firme sufficienti
           created: Creata
           discarded: Scartato
-          published: Pubblicato
           rejected: Firme non sufficienti
           validating: Convalida tecnica
       states:

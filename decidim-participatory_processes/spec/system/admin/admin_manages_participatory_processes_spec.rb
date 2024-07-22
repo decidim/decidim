@@ -89,7 +89,6 @@ describe "Admin manages participatory processes", versioning: true do
       end
 
       dynamically_attach_file(:participatory_process_hero_image, image1_path)
-      dynamically_attach_file(:participatory_process_banner_image, image2_path)
 
       within ".new_participatory_process" do
         find("*[type=submit]").click
@@ -132,12 +131,6 @@ describe "Admin manages participatory processes", versioning: true do
       within %([data-active-uploads] [data-filename="#{hero_blob.filename}"]) do
         src = page.find("img")["src"]
         expect(src).to be_blob_url(hero_blob)
-      end
-
-      banner_blob = participatory_process3.banner_image.blob
-      within %([data-active-uploads] [data-filename="#{banner_blob.filename}"]) do
-        src = page.find("img")["src"]
-        expect(src).to be_blob_url(banner_blob)
       end
     end
   end

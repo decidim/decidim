@@ -86,7 +86,6 @@ ro:
               accepted: Semnături suficiente
               created: Creat
               discarded: Respins
-              published: Publicat
               rejected: Semnături insuficiente
               validating: Validarea tehnică
           type_id_eq:
@@ -289,7 +288,6 @@ ro:
         accepted: Semnături suficiente
         created: Creat
         discarded: Respins
-        published: Publicate
         rejected: Semnături insuficiente
         validating: Validarea tehnică
       application_helper:
@@ -505,7 +503,6 @@ ro:
           accepted: Semnături suficiente
           created: Creat
           discarded: Respins
-          published: Publicat
           rejected: Semnături insuficiente
           validating: Validarea tehnică
       states:

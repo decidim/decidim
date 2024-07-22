@@ -92,7 +92,7 @@ en:
               accepted: Enough signatures
               created: Created
               discarded: Discarded
-              published: Published
+              open: Open
               rejected: Not enough signatures
               validating: Technical validation
           type_id_eq:
@@ -237,6 +237,10 @@ en:
               most_recent: Most recent
         exports:
           initiatives: Initiatives
+        index:
+          initiatives_types:
+            alert_html: "<p>You must create at least one initiative type so participants can start creating initiatives.</p><p> %{link}</p>"
+            button: New initiative type
         initiatives:
           edit:
             accept: Accept initiative
@@ -292,7 +296,7 @@ en:
         initiatives_types:
           create:
             error: An error has occurred.
-            success: A new initiative type has been successfully created.
+            success: A new initiative type has been successfully created. You need to define at least one scope for this initiative type so it can be used.
           destroy:
             success: The initiative type has been successfully removed.
           edit:
@@ -326,7 +330,7 @@ en:
         accepted: Enough signatures
         created: Created
         discarded: Discarded
-        published: Published
+        open: Open
         rejected: Not enough signatures
         validating: Technical validation
       application_helper:
@@ -575,7 +579,7 @@ en:
           accepted: Enough signatures
           created: Created
           discarded: Discarded
-          published: Published
+          open: Open
           rejected: Not enough signatures
           validating: Technical validation
       states:

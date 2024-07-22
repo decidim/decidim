@@ -61,12 +61,10 @@ el:
           attributes:
             base:
               not_official: Δεν είναι επίσημο
-              supported: Έχουν λάβει υποστήριξη ή εγκρίσεις
         proposals_split:
           attributes:
             base:
               not_official: Δεν είναι επίσημο
-              supported: Έχουν λάβει υποστήριξη ή εγκρίσεις
     models:
       decidim/proposals/admin/update_proposal_category_event: Η κατηγορία πρότασης άλλαξε
       decidim/proposals/admin/update_proposal_scope_event: Το πεδίο εφαρμογής της πρότασης άλλαξε
@@ -86,9 +84,6 @@ el:
       decidim/proposals/proposal_note:
         one: Σημείωση
         other: Σημειώσεις
-      decidim/proposals/proposal_vote:
-        one: Υποστήριξη
-        other: Υποστηρίξεις
   decidim:
     admin:
       filters:
@@ -128,7 +123,6 @@ el:
           comment: Σχόλιο
           create: Δημιουργία
           endorse: Επιδοκιμασία
-          vote: Υποστήριξη
           vote_comment: Ψηφίστε το σχόλιο
           withdraw: Απόσυρση
         name: Προτάσεις
@@ -139,23 +133,18 @@ el:
             amendments_wizard_help_text: Κείμενο βοήθειας για τον Οδηγό τροποποιήσεων
             announcement: Ανακοίνωση
             attachments_allowed: Να επιτρέπονται τα συνημμένα
-            can_accumulate_supports_beyond_threshold: Μπορεί να συσσωρεύσει υποστηρίξεις πέραν του ορίου
             collaborative_drafts_enabled: Τα προσχέδια συνεργασίας ενεργοποιήθηκαν
             comments_enabled: Τα σχόλια ενεργοποιήθηκαν
             comments_max_length: Μέγιστο μέγεθος σχολίων (Αφήστε το 0 για την προκαθορισμένη τιμή)
             default_sort_order: Προεπιλεγμένη ταξινόμηση προτάσεων
-            default_sort_order_help: Προεπιλογή σημαίνει ότι αν η υποστήριξη είναι ενεργοποιημένη, οι προτάσεις θα εμφανίζονται ταξινομημένες τυχαία, και αν η υποστήριξη είναι μπλοκαρισμένη, θα ταξινομούνται με βάση την περισσότερη υποστήριξη.
             default_sort_order_options:
-              default: Προεπιλογή
               most_commented: Πιο σχολιασμένες
               most_endorsed: Με τις περισσότερες επιδοκιμασίες
               most_followed: Με τους περισσότερους ακολούθους
-              most_voted: Με τις περισσότερες υποστηρίξεις
               random: Τυχαία
               recent: Πρόσφατη
               with_more_authors: Με περισσότερους συντάκτες
             geocoding_enabled: Το Geocoding ενεργοποιήθηκε
-            minimum_votes_per_user: Ελάχιστες υποστηρίξεις ανά χρήστη
             new_proposal_body_template: Πρότυπο σώματος νέας πρότασης
             new_proposal_body_template_help: Μπορείτε να ορίσετε το προσυμπληρωμένο κείμενο που θα έχουν οι νέες Προτάσεις
             new_proposal_help_text: Κείμενο βοήθειας νέας πρότασης
@@ -175,7 +164,6 @@ el:
             scope_id: Πεδίο εφαρμογής
             scopes_enabled: Τα πεδία εφαρμογής ενεργοποιήθηκαν
             threshold_per_proposal: Όριο ανά πρόταση
-            vote_limit: Όριο υποστηρίξεων ανά συμμετέχοντα
           step:
             amendment_creation_enabled: Η δημιουργία τροποποίησης ενεργοποιήθηκε
             amendment_creation_enabled_help: Ο συμμετέχων μπορεί να τροποποιήσει προτάσεις.
@@ -195,13 +183,10 @@ el:
             creation_enabled: Οι συμμετέχοντες μπορούν να δημιουργήσουν προτάσεις
             creation_enabled_readonly: Αυτή η ρύθμιση είναι απενεργοποιημένη όταν ενεργοποιείτε τη λειτουργία Συμμετοχικών Κειμένων. Για να ανεβάσετε προτάσεις ως συμμετοχικό κείμενο κάντε κλικ στο κουμπί Συμμετοχικά Κείμενα και ακολουθήστε τις οδηγίες.
             default_sort_order: Προεπιλεγμένη ταξινόμηση προτάσεων
-            default_sort_order_help: Προεπιλογή σημαίνει ότι αν η υποστήριξη είναι ενεργοποιημένη, οι προτάσεις θα εμφανίζονται ταξινομημένες τυχαία, και αν η υποστήριξη είναι μπλοκαρισμένη, θα ταξινομούνται με βάση την περισσότερη υποστήριξη.
             default_sort_order_options:
-              default: Προεπιλογή
               most_commented: Πιο σχολιασμένες
               most_endorsed: Με τις περισσότερες επιδοκιμασίες
               most_followed: Με τους περισσότερους ακολούθους
-              most_voted: Με τις περισσότερες υποστηρίξεις
               random: Τυχαία
               recent: Πρόσφατη
               with_more_authors: Με περισσότερους συντάκτες
@@ -211,9 +196,6 @@ el:
             publish_answers_immediately: Άμεση δημοσίευση των απαντήσεων πρότασης
             publish_answers_immediately_help_html: 'Έχετε υπόψη ότι αν απαντήσετε σε οποιαδήποτε πρόταση χωρίς αυτό ενεργοποιημένο, θα πρέπει να τα δημοσιεύσετε χειροκίνητα επιλέγοντάς τα και χρησιμοποιώντας την ενέργεια για δημοσίευση. Για περισσότερες πληροφορίες σχετικά με το πώς λειτουργεί αυτό, ανατρέξτε στη σελίδα τεκμηρίωσης απαντήσεων <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank"></a>.'
             suggested_hashtags: Προτάθηκαν hashtag σε συμμετέχοντες για νέες προτάσεις
-            votes_blocked: Οι υποστηρίξεις αποκλείστηκαν
-            votes_enabled: Οι υποστηρίξεις ενεργοποιήθηκαν
-            votes_hidden: Οι υποστηρίξεις αποκρύφτηκαν (εάν είναι ενεργοποιημένες οι υποστηρίξεις, με την επιλογή αυτή θα αποκρυφτεί ο αριθμός των υποστηρίξεων)
     events:
       proposals:
         admin:
@@ -289,10 +271,7 @@ el:
           email_subject: Το πεδίο εφαρμογής της πρότασης %{resource_title} ενημερώθηκε
           notification_title: Το πεδίο εφαρμογής της πρότασης <a href="%{resource_path}">%{resource_title}</a> ενημερώθηκε από έναν διαχειριστή.
         voting_enabled:
-          email_intro: 'Μπορείτε να υποστηρίξετε προτάσεις στον χώρο συμμετοχής %{participatory_space_title}! Ξεκινήστε να συμμετέχετε σε αυτήν τη σελίδα:'
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
-          email_subject: Έχει ξεκινήσει η υποστήριξη προτάσεων για τον χώρο συμμετοχής %{participatory_space_title}
-          notification_title: Μπορείτε τώρα να ξεκινήσετε την <a href="%{resource_path}">υποστήριξη προτάσεων</a> στον χώρο συμμετοχής <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -309,14 +288,7 @@ el:
         proposal_votes:
           conditions:
             - Περιηγηθείτε και αφιερώστε λίγο χρόνο διαβάζοντας τις προτάσεις άλλων ατόμων
-            - Υποστηρίξτε τις προτάσεις που σας αρέσουν ή βρίσκετε ενδιαφέρουσες
-          description: Αυτό το έμβλημα χορηγείται όταν υποστηρίζετε τις προτάσεις άλλων ατόμων.
-          description_another: Αυτός ο συμμετέχων έχει υποστηρίξει %{score} προτάσεις.
-          description_own: Έχετε υποστηρίξει %{score} προτάσεις.
-          name: Υποστηρίξεις προτάσεων
-          next_level_in: Υποστηρίξτε %{score} ακόμη προτάσεις για να φτάσετε στο επόμενο επίπεδο!
-          unearned_another: Αυτός ο συμμετέχων δεν έχει υποστηρίξει ακόμα καμία πρόταση.
-          unearned_own: Δεν έχετε υποστηρίξει καμία πρόταση ακόμη.
+            - 
         proposals:
           conditions:
             - Επιλέξτε τον χώρο συμμετοχής που σας ενδιαφέρει με ενεργοποιημένη την υποβολή προτάσεων
@@ -341,10 +313,6 @@ el:
         description: Αριθμός προτάσεων
         object: προτάσεις
         title: Προτάσεις
-      votes:
-        description: Αριθμός υποστηρίξεων σε προτάσεις
-        object: υποστηρίξεις
-        title: Υποστηρίξεις
     participatory_spaces:
       highlighted_proposals:
         see_all: Δείτε όλες τις προτάσεις (%{count})
@@ -496,7 +464,6 @@ el:
             remove_assignment: Κατάργηση εκχώρησης
             remove_assignment_confirmation: Είστε βέβαιοι ότι θέλετε να καταργήσετε τον εκτιμητή από αυτήν την πρόταση;
             valuators: Εκτιμητές
-            votes_count: Πλήθος υποστηρίξεων
           update_category:
             invalid: 'Αυτές οι προτάσεις είχαν ήδη την κατηγορία %{subject_name}: %{proposals}.'
             select_a_category: Παρακαλώ επιλέξτε μια κατηγορία.
@@ -691,9 +658,6 @@ el:
         buttons:
           amend: Τροποποίηση
           comment: Σχόλιο
-      proposal_votes:
-        create:
-          error: Υπήρξε ένα πρόβλημα κατά την υποστήριξη της πρότασης.
       proposals:
         dynamic_map_instructions:
           description: Οι συντεταγμένες θα ενημερώνονται όταν κάνετε κλικ στο κουμπί 'προεπισκόπηση'. Ωστόσο, η διεύθυνση δεν αλλάζει.
@@ -723,7 +687,6 @@ el:
           search: Αναζήτηση
           state: Κατάσταση
           type: Τύπος
-          voted: Υποστηρίζεται
         index:
           click_here: Δείτε όλες τις προτάσεις
           collaborative_drafts_list: Πρόσβαση σε προσχέδια συνεργασίας
@@ -742,7 +705,6 @@ el:
           most_commented: Με τα περισσότερα σχόλια
           most_endorsed: Με τις περισσότερες επιδοκιμασίες
           most_followed: Με τους περισσότερους ακολούθους
-          most_voted: Με τις περισσότερες υποστηρίξεις
           random: Τυχαία
           recent: Πρόσφατα
           with_more_authors: Με περισσότερους συντάκτες
@@ -777,37 +739,13 @@ el:
           proposal_accepted_reason: 'Αυτή η πρόταση έγινε αποδεκτή επειδή:'
           proposal_in_evaluation_reason: Αυτή η πρόταση αξιολογείται
           proposal_rejected_reason: 'Αυτή η πρόταση απορρίφθηκε επειδή:'
-          withdraw_btn_hint: Μπορείτε να αποσύρετε την πρότασή σας εάν αλλάξετε γνώμη, εφόσον δεν έχετε λάβει υποστήριξη. Η πρόταση δεν διαγράφεται, θα εμφανιστεί στη λίστα των αποσυρμένων προτάσεων.
           withdraw_confirmation_html: Είστε σίγουροι ότι θέλετε να αποσύρετε αυτή την πρόταση; <br><br><strong> Αυτή η ενέργεια δεν ακυρώνεται!</strong>
           withdraw_proposal: Απόσυρση πρότασης
         update:
           title: Ενημέρωση πρότασης
-        vote_button:
-          already_voted: Υποστηρίζεται ήδη
-          already_voted_hover: Απόσυρση υποστήριξης
-          maximum_votes_reached: Το όριο υποστήριξης συμπληρώθηκε
-          no_votes_remaining: Δεν απομένουν υποστηρίξεις
-          vote: Υποστήριξη
-          votes_blocked: Οι υποστηρίξεις απενεργοποιήθηκαν
-        votes_count:
-          count:
-            one: Υποστήριξη
-            other: Υποστηρίξεις
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: Κάθε πρόταση μπορεί να συγκεντρώσει περισσότερες από %{limit} υποστηρίξεις
-          minimum_votes_per_user:
-            description: Πρέπει να κατανείμετε τουλάχιστον %{votes} υποστηρίξεις μεταξύ διαφορετικών προτάσεων.
-            given_enough_votes: Έχετε δώσει αρκετές υποστηρίξεις.
-            supports_remaining: Πρέπει να υποστηρίξετε %{remaining_votes} ακόμη προτάσεις, προκειμένου οι υποστηρίξεις σας να ληφθούν υπόψη.
           proposal_limit:
             description: Μπορείτε να δημιουργήσετε έως και %{limit} προτάσεις.
-          threshold_per_proposal:
-            description: Για να επικυρωθούν οι προτάσεις πρέπει να φτάσουν σε %{limit} υποστηρίξεις.
-          title: 'Οι υποστηρίξεις υπόκεινται στους ακόλουθους κανόνες:'
-          vote_limit:
-            description: Μπορείτε να υποστηρίξετε έως και %{limit} προτάσεις.
-            votes: Υποστηρίξεις
         wizard_aside:
           back: Πίσω
           back_from_step_1: Πίσω στις προτάσεις
@@ -832,9 +770,6 @@ el:
       versions:
         index:
           title: Εκδόσεις
-      withdraw:
-        errors:
-          has_supports: Αυτή η πρόταση δεν μπορεί να αποσυρθεί, διότι έχει ήδη υποστηρίξεις.
     resource_links:
       copied_from_component:
         proposal_proposal: Σχετικές προτάσεις
@@ -846,4 +781,4 @@ el:
     statistics:
       proposals_accepted: Προτάσεις που έγιναν δεκτές
       proposals_count: Προτάσεις
-      supports_count: Υποστηρίξεις
+      votes_count: Ψήφοι

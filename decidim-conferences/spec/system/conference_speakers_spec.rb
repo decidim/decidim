@@ -20,7 +20,7 @@ describe "Conference speakers" do
     it "the menu link is not shown" do
       visit decidim_conferences.conference_path(conference)
 
-      expect(page).to have_no_content("SPEAKERS")
+      expect(page).to have_no_content("Speakers")
     end
   end
 
@@ -85,7 +85,7 @@ describe "Conference speakers" do
         click_on "conference_title"
         click_on "Speakers"
 
-        within all(".table-list__actions").first do
+        within "tr", text: speaker2.full_name do
           expect(page).to have_link("Publish")
           click_link_or_button "Publish"
         end
@@ -117,7 +117,7 @@ describe "Conference speakers" do
         click_on "conference_title"
         click_on "Speakers"
 
-        within all(".table-list__actions").first do
+        within "tr", text: speaker1.full_name do
           expect(page).to have_link("Unpublish")
           click_link_or_button "Unpublish"
         end

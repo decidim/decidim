@@ -15,6 +15,7 @@ module Decidim
           let(:user) { create(:user, organization:) }
           let(:valuator) { create(:user, organization:) }
           let(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user: valuator, participatory_process: space) }
+          let(:valuator_roles) { [valuator_role] }
           let!(:assignment) { create(:valuation_assignment, proposal: assigned_proposal, valuator_role:) }
           let(:form) do
             instance_double(
@@ -22,7 +23,7 @@ module Decidim
               current_user: user,
               current_component:,
               current_organization: current_component.organization,
-              valuator_role:,
+              valuator_roles:,
               proposals: [assigned_proposal, unassigned_proposal],
               valid?: valid
             )

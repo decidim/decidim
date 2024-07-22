@@ -31,6 +31,10 @@ bg:
           attributes:
             redirect_uri:
               must_be_ssl: URI адресът за пренасочване трябва да бъде SSL URI
+        organization:
+          attributes:
+            password:
+              secret_key: Трябва да дефинирате променливата на средата SECRET_KEY_BASE, за да можете да запазите това поле
   decidim:
     system:
       actions:
@@ -63,6 +67,7 @@ bg:
         show:
           admins: Администратори
           current_organizations: Текущи организации
+          system_checks: Проверки на системата
       default_pages:
         placeholders:
           content: Моля, добавете важно съдържание на статичната страница %{page} в администраторското табло.
@@ -83,7 +88,6 @@ bg:
             did_not_receive_unlock_instructions?: Не сте получили инструкции за отключване?
             forgot_your_password?: Забравили сте паролата си?
             log_in: Вход
-            sign_up: Регистрация
       menu:
         admins: Администратори
         dashboard: Табло за управление
@@ -138,6 +142,7 @@ bg:
           show: Показване на разширените настройки
         create:
           error: Възникна проблем при създаването на нова организация.
+          error_invitation: Възникна проблем при създаването на нова организация. Прегледайте администраторското име на вашата организация.
           success_html: |
             <p>
                Организацията е създадена успешно.
@@ -244,6 +249,8 @@ bg:
         smtp_settings:
           fieldsets:
             sender: Подател
+          instructions:
+            from_label: 'Изпращачът на имейл ще бъде: „име-на-вашата-организация <your-organization@example.org>. Оставете празно, за да използвате същото име като дефинираното за организацията.'
           placeholder:
             from_email: your-organization@example.org
             from_label: your-organization-name
@@ -252,8 +259,6 @@ bg:
           success: Организацията беше актуализирана успешно.
         users_registration_mode:
           disabled: Достъпът е възможен само с външни профили
-          enabled: Разрешете на участниците да се регистрират и да влизат в профилите си
-          existing: Не разрешавайте на участниците да се регистрират, но разрешете на съществуващите участници да влизат в профилите си
       shared:
         notices:
           no_organization_warning_html: Трябва да създадете организация, за да започнете. Уверете се, че сте прочели %{guide}, преди да продължите.
@@ -261,6 +266,14 @@ bg:
         organizations_list:
           confirm_resend_invitation: Сигурни ли сте, че искате да изпратите отново тази покана?
           resend_invitation: Изпратете отново покана
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Документация на Civil Power
+          error: Опашката ActiveJob не е конфигурирана. Това не е препоръчителна настройка за производство. Прочетете повече на %{error_extra}.
+          success: Опашката ActiveJob е конфигурирана правилно.
+        secret_key:
+          error: 'Тайният ключ не е дефиниран правилно. Моля, запазете в променливата на средата SECRET_KEY_BASE и рестартирайте сървъра: %{error_extra}'
+          success: Тайният ключ е конфигуриран правилно.
       titles:
         dashboard: Табло за управление
         decidim: Civil Power

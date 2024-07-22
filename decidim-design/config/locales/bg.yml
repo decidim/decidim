@@ -1,1 +1,309 @@
+---
 bg:
+  decidim:
+    design:
+      components:
+        accordions:
+          content_panel: Съдържание на панела
+          demo: Демо
+          demo_description: В цялото приложение "акордеоните" се използват главно за показване/скриване на съдържание в раздели или за сгъване/разгъване на видими текстове.
+          description_accordions_html: '"Акордеоните" са функция на javascript, достъпна благодарение на външна библиотека, наречена %{link_code} a11y-accordion-component.'
+          github_source_html: Изходен код в GitHub %{github_link}
+          panel: Панел
+          title: '"Акордеони"'
+          trigger: Задействане
+          usage: Употреба
+          usage_p: '"Акордеонът" изисква поне три елемента'
+          usage_p_1_html: 1. Обвивка <code>div</code>, с атрибута на данните <code>data-component="accordion"</code>, над всички налични задействащи елементи и панели.
+          usage_p_2_html: 2. Задействащ елемент, с който потребителят може да действа (като бутон), сочещ към сгъваемия елемент чрез <code>data-controls="panel"</code>, където <i>panel</i> е <code>id </code> на панела.
+          usage_p_3_html: 3. Елемент с възможност за скриване, чийто <code>id</code> съвпада със стойността на контролите на данните, към която препраща задействащия елемент.
+        activities:
+          activities: Активности
+        address:
+          title: Адрес
+        announcement:
+          iam_an_announcement: Аз съм известие
+          this_is_the_body: Това е основното съдържание
+          this_is_the_title: Това е заглавието
+          title: Обявление
+        author:
+          title: Автор
+        buttons:
+          description_html: 'Бутоните се създават с помощта на различни комбинации от CSS класове: клас <code>button</code>, размер и цвят.'
+          title: Бутони
+        cards:
+          title: Карти
+        dialogs:
+          dialog_demo_description_html: Диалоговите прозорци или модалните компоненти се имплементират чрез помощника <code>decidim_modal</code>.
+          dialogs_description_html: Диалозите са функция на javascript, достъпна благодарение на външна библиотека, наречена <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component </a>.
+          tips_description: 'За да покажете сложен модал, съответстващ на стиловете, направете следното маркиране:'
+          tips_description_html: Обърнете внимание на <i>data-attributes</i> и <i>ids</i>. Например идентификаторът на <code>[data-dialog-title]</code> започва с <i>dialog-title</i> плюс <i>modal id</i>.
+          title: Диалогови прозорци
+          usage_description: Един диалогов прозорец изисква два елемента
+          usage_description_2_html: 2. Модален елемент, чийто <code>id</code> съвпада с целевата стойност на данните, към която препраща тригерът.
+          usage_description_html: 1. Елемент с действие от страна на потребителя с атрибут на данни <code>data-dialog-open="example"</code>, където example е <code>id</code> на модала.
+        follow:
+          title: Последване
+        forms:
+          disabled: Деактивирано
+          emojis: Емоджита
+          emojis_description: Работи само за текстово поле
+          errors: Грешки
+          errors_description: Не важи за избран
+          header_alert: Тази страница идва от наследен изглед. Съдържанието е остаряло.
+          help_texts: Помощни текстове
+          html_regular_inputs: HTML редовни входни данни
+          min_max_length: Мин/Макс дължина
+          min_max_length_description: Работи само за input type='text' и текстова област
+          multiselect: Мултиселекция
+          multiselect_description_html: Мултиселекциите са функция на javascript, достъпна благодарение на външна библиотека, наречена <a href="https://tom-select.js.org/" target="_blank" rel="noopener noreferrer">Tom Select</a>.
+          regular_inputs_description: 'Показва само общи типове, пълен наличен списък: дата, datetime-local, имейл, месец, номер, парола, търсене, телефон, текст, час, url, седмица'
+          textarea_required: задължителна текстова област
+          title: Форми
+        report:
+          title: Доклад
+        share:
+          title: Сподели
+        tab_panels:
+          title: Табове панели
+        tooltips:
+          demo: Демо
+          demo_description: За да работи този компонент, участникът трябва да задържи курсора на мишката върху елемента.
+          description: Подсказката е компонент, върху който потребителите могат да задържат курсора на мишката, за да получат допълнителна информация за него.
+          github_source_html: Изходен код в GitHub %{github_link}
+          title: Подсказка
+          usage: Употреба
+          usage_p: 'Подсказка изисква използването на помощника `with_tooltip` с три аргумента:'
+          usage_p_1_html: 1. Низ със стойността на подсказката. В примера на тази страница е "Hello world".
+          usage_p_2_html: 2. Незадължителен клас със символ за мястото, където ще се показва подсказката. Възможните стойности са <code>:top</code>, <code>:bottom</code>, <code>:right</code> или <code>:left</code>.
+          usage_p_3_html: 3. Блок с низа, който потребителят трябва да задържи, за да се покаже.
+      foundations:
+        accessibility:
+          accessibility_labels: Етикети за достъпност
+          accessibility_labels_paragraph: Когато дефинирате елементи, винаги се уверявайте, че имат смисъл за потребителите на екранни четци.
+          accessibility_title: Достъпност
+          adjacent_links: Съседни линкове
+          adjacent_links_header: Съседни връзки за един и същ ресурс
+          adjacent_links_paragraph: Ако един и същ ресурс има множество съседни линкове, сочещи към него, за такива потребители е трудно да прегледат страницата, тъй като може да се наложи да преминат през множество връзки, за да стигнат до следващия ресурс.
+          color_contrast: Цветови контраст
+          color_contrast_paragraph: Когато създавате потребителски интерфейси или променяте цветовете, винаги се уверявайте, че не нарушавате достъпността с вашите промени. Можете да използвате инструмента за проверка на цветовия контраст, за да се уверите, че вашите цветове имат достатъчен контраст спрямо цвета на фона, на който се показват.
+          decidim_follows_html: Civil Power следва <u>Указанията за достъпност на уеб съдържанието (WCAG) 2.1</u>
+          dynamic_changes_header: Динамичната функционалност променя контекста на страницата неинтуитивно
+          dynamic_changes_paragraph: Промените във формуляра не трябва автоматично да променят контекста на страницата.
+          elements_hidden: Елементите са скрити
+          elements_hidden_header: Елементи, скрити от API за достъпност
+          elements_hidden_paragraph: За да скриете елемент от помощни технологии, използвайте атрибута aria-hidden="true" върху него.
+          heading_on: Заглавие на важни раздели
+          here_link: тук
+          illogical_heading_order: Нелогичен ред на заглавията
+          illogical_heading_paragraph: Всяка страница трябва да има логичен ред на заглавията, когато се използват елементите на заглавието <h1>, <h2>, <h3>, <h4>, <h5> и <h6>.
+          important_sections_heading: Заглавие на важни раздели
+          important_sections_paragraph: Изключително важно е всеки важен раздел на страницата да има заглавие, за да можете по-лесно да разберете какви важни раздели има на страницата, просто като разглеждате заглавията.
+          links_and_buttons: Линкове и бутони
+          links_and_buttons_paragraph: Елементите (anchor) за "закотвяне" (т.е. линкове) са предназначени да свързват към различни страници или да закотвят позиции в страницата. Ако елементът трябва да, например, отворите някакъв скрит елемент на тази страница, вместо това трябва да използвате елемента <button>.
+          see_further_info_html: Вижте допълнителна информация %{link}
+          unique_h1: Уникален H1
+          unique_h1_paragraph: Всяка страница трябва да има уникално заглавие H1
+          use_aria: Използвайте ARIA
+          use_aria_header: Използвайте ARIA атрибути, където е възможно
+          use_aria_paragraph: Много елементи, които предоставят интерактивна функционалност на уебсайта, изискват ARIA атрибути върху тях, за да бъдат достъпни.
+        color:
+          color_header: Цвят
+          description_p1: Много елементи, които предоставят интерактивна функционалност на уебсайта, изискват ARIA атрибути върху тях, за да бъдат достъпни.
+          description_p2_html: Когато персонализирате цветовете си, имайте предвид %{contrast_link}. Можете да проверите контраста по ваш избор с %{checker_link} или други подобни инструменти.
+          wcag_compliant_rations: Контрастно съотношение, съвместимо с WCAG 2.1 AA
+          wcag_contrast_checker: Проверка на контраста на WebAIM
+        iconography:
+          description_iconography: Използваме икони, за да подсилим значението на действия, заглавия и др
+          description_iconography_html: 'Използваме библиотеката с отворен код Remixicon: %{iconography_link}'
+          title: Иконография
+        layout:
+          breakpoint: Точка на промяна
+          breakpoints: Точки на промяна
+          centered: Центрирано
+          code: Код
+          columns: Това е броят на колоните 10, 8 или 6.
+          description_layout_p1: За настолен компютър Civil Power използва мрежа от 12 колони с ограничен брой шаблони (конфигурации на мрежата) за различни видове съдържание. Целта е даден тип съдържание (начална страница, списък с елементи, отделен елемент) да има отличително оформление, така че потребителите да могат да разберат в какъв вид съдържание се намират само по общия вид на страницата.
+          description_layout_p2: Тези прости правила трябва да се следват, когато създавате нови модули или персонализирате съществуващи, така че сайтът на Civil Power да може да поддържа своята последователност.
+          desktop: Desktop
+          full_width: Пълна ширина
+          layout_list_1: 'Начална страница (на сайта, на пространство): пълна ширина'
+          layout_list_2: 'Списък с елементи (на интервали, на елементи в интервал и т.н.): ляво равнение'
+          layout_list_3: 'Индивидуален артикул (предложение, публикация в блог): центрирано, по избор с дясно равнение'
+          left_aside: Ляво равнение
+          mobile: Мобилно
+          not_required: Незадължително
+          properties: Свойства
+          right_aside: Дясно равнение
+          section_p_breakpoints: 'За да управляваме адаптивната максимална ширина на елементите, ние разчитаме на класа Tailwind „контейнер“ по подразбиране, който посочва следните точки на промяна:'
+          section_p_code: Когато внедрявате нови модули, имате някои помощници, които автоматично ви предоставят кода, необходим за настройка на HTML структурата. Трябва да използвате тези помощници, вместо директно да използвате div елементи с класове, така че да поддържате последователност.
+          section_p_code_html: Можете да намерите основните оформления в %{link_section_code}
+          section_p_desktop: Desktop мрежовата работна система се състои от 12 "разтегливи" колони с разстояние между колоните от 16px и ляво и дясно поле от 48px
+          section_p_mobile: Мобилната мрежова работна система се състои от 4 разтегливи колони с разстояние между колоните от 16px и ляво и дясно поле от 16px. За размери под 320px тези полета са зададени на 8px
+          section_p_tablet: Мрежовата работна система на таблета се състои от 8 разтегливи колони с разстояние между колоните от 16px и ляво и дясно поле от 24px
+          tablet: Таблет
+          title: Оформление
+        typography:
+          description: Тези насоки обобщават как да използвате типографията в Civil Power и служат като парапети за дизайнерите да проектират свободно, като имат предвид най-добрите типографски практики.
+          headings:
+            characters: Брой символи на ред
+            layout: Колони за оформление
+            size: Размер
+          title: Типография
+          typefaces_description_1: Civil Power използва Source Sans Pro като основен шрифт. Този шрифт поддържа 310 езика
+          typefaces_description_2: Тези шрифтове са лицензирани съгласно Open Font License
+      helpers:
+        accountability: Отговорност
+        accountability_cards_html: Използва се от карти <i>Проекти за отчетност</i>. Тази карта изисква активите на модула да се показват правилно, т.е. <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
+        activity: Активност
+        address_description: Клетката с адрес получава ресурс и търси геолокализируемите атрибути, за да изобрази конкретно маркиране.
+        address_description_2: В зависимост от вида на съдържанието, адресът може да бъде онлайн url. За такива случаи показаната информация е съвсем същата, но оформена така, че да пасне.
+        ally_link: a11y-dropdown-component
+        argument: Аргумент
+        assemblies: Събрания
+        assembly_g: Събрание G
+        assembly_s: Събрание S
+        avatar: Аватар
+        avatar_description: Използва се, когато има тесни пространства, където авторът е второстепенна информация.
+        background: Фон и граници
+        base: База
+        block_text: Използвайте блока extra_data
+        blog_cards_html: Използвано от <i>Блогове</i> карти
+        blogs: Блогове
+        budget_card_html: Използва се от карти <i>Бюджетни проекти</i>. Тази карта изисква активите на модула да се показват правилно, т.е. <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>
+        budgets: Бюджети
+        callout_class: Клас на допълнително описание
+        callout_description: Този атрибут прилага статус към съобщението. По подразбиране той използва вторичен цвят.
+        card_g: Карта G
+        card_l: Карта L
+        card_s: Карта S
+        collaborative_draft_l: Съвместна чернова L
+        colors: Цветове
+        compact: Компактно
+        compact_description: Тази авторска версия е обичайният начин за идентифициране на създателя на ресурса.
+        conference_g: Конференция G
+        conference_s: Конференция S
+        conferences: Конференции
+        context: Контекст
+        context_description: Тази клетка показва информация за потребителя. Това е визуална помощ за идентифициране на създателя на ресурса/съдържанието. Задържането на курсора на мишката показва подсказка с допълнителна информация и връзки към неговия профил.
+        context_description_2: За ресурси тази клетка се появява под основното заглавие. За друго съдържание се появява до самото съдържание.
+        debate_l: Дебат L
+        debate_s: Дебат S
+        debates: Дебати
+        debates_cards_html: Използва се от карти <i>Дебати</i>
+        debates_cards_text: Използвайте различен шаблон за блока с изображения
+        default: По подразбиране
+        default_description: Извикване на клетката без допълнителни аргументи, но на самия потребител.
+        demo: Демо
+        demo_text: 'Тази клетка получава модел на LastActivity елементи и показва следните елементи:'
+        demo_text_2: Използва се от страницата с последната дейност, в блок със съдържание и в падащите менюта.
+        description: Описание
+        disabled: Деактивирано
+        dropdowns: Падащи менюта
+        dropdowns_demo_1_description: 'Следният пример няма да бъде забележим на настолен компютър, но на мобилно устройство:'
+        dropdowns_demo_description: Падащите менюта се използват в приложението, за да се свият големи, лесни за четене менюта за настолни устройства, но твърде многословни за мобилни устройства.
+        dropdowns_demo_description_html: 'Тази функция на javascript е подобрена с малък css чрез именуването: скриваемото съдържание ТРЯБВА ДА ИМА <code>id</code>, започващо с <i>dropdown-menu</i>.'
+        dropdowns_description_html: Падащите менюта са функция на javascript, достъпна благодарение на външна библиотека, наречена %{link}.
+        dropdowns_usage_1_description: 2. Елемент с възможност за скриване, чийто <code>id</code> съвпада с целевата стойност на данните, към която препраща тригерът.
+        dropdowns_usage_description: 'Падащото меню изисква два елемента:'
+        dropdowns_usage_description_html: 1. Елемент с възможност за действие от страна на потребителя с атрибутите на данни <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
+        dummy_description: Упростено описание на ресурса
+        dummy_title: Упростено заглавие на ресурса
+        follow_button: Бутон за следване
+        follower_description_html: Уверете се, че частичният <code>decidim/shared/login_modal</code> присъства в DOM. Тази част се поставя в оформлението на приложението, когато потребителят е влязъл.
+        form_elements: Елементи на формата
+        generic_cards: Общи карти
+        grid: Мрежа
+        hex_code: Шестнадесетичен код (Hex code)
+        highlight: Акцентирано
+        highlight_description: Използва се от ресурси, които позволяват акцентиране
+        html_tips: HTML съвети
+        icons: Икони
+        image_and_description: Изображение и описание
+        initiative_g: инициатива_g
+        initiative_s: iинициатива_s
+        initiatives: Инициативи
+        list: Списък
+        main_colors: Основни цветове
+        meeting_l: Среща L
+        meeting_s: Среща S
+        meetings: Срещи
+        meetings_html: Използвано от <i>Срещи</i> карти
+        metadata_items: Метадата елементи
+        metadata_text: Всеки ресурс дефинира свои собствени елементи от метаданни
+        participatory_process_g: Процес за участие G
+        participatory_process_group_g: Групa на процеса за участие G
+        participatory_process_group_s: Групa на процеса за участие S
+        participatory_process_s: Процес за участие S
+        participatory_processes: Процеси за участие
+        plain_text: Аз съм просто обикновен текст
+        plain_text_description: Можете да предоставите като първи аргумент както обикновен текст, така и хеш обект
+        plain_text_vs_hash: Oобикновен текст срещу Хаш
+        post_g: Пост G
+        post_l: Пост L
+        post_s: Пост S
+        project_l: Проект L
+        project_s: Проект S
+        proposal_l: Предложение L
+        proposal_s: Предложение S
+        proposals: Предложения
+        report_button: Бутон за докладване
+        report_usage_description: Бутонът за докладване стартира модален прозорец за маркиране на текущия ресурс.
+        result_l: Резултат L
+        rgba_code: RGBA код
+        search: Търсене
+        send: Изпрати
+        share_button: Бутон за споделяне
+        share_usage_description_html: Уверете се, че частичният <code>decidim/shared/share_modal</code> присъства в DOM. Тази част се поставя в оформлението на приложението.
+        sizes: Размери
+        sortition_l: сортировка_l
+        sortitions: Сортировки
+        source_code: Изходен код
+        state: Състояние
+        tab_panels_context_description: Този компонент на панела с раздели събира цялото свързано съдържание или други ресурси на основния показан елемент, за да спести вертикално пространство. Щракването върху раздела ще активира създадения панел за показване на съдържанието.
+        tab_panels_context_description_html: Основно се използва в рамките на <i>layout_item</i> или <i>layout_center</i>, след основното съдържание на ресурса.
+        tab_panels_usage_description: 'Този компонент получава масив от хешове и пренарежда изхода на всеки елемент в структура на панел с раздели. Налични свойства за всеки панел:'
+        tab_panels_usage_description_arguments_html: "<strong>args</strong>: <i>Array</i>. Аргументи за предишния метод"
+        tab_panels_usage_description_html: "<strong>активирано</strong>: <i>Boolean</i>. Условно изобразяване на раздела"
+        tab_panels_usage_description_id_html: "<strong>id</strong>: <i>String</i>. Уникално ID"
+        tab_panels_usage_description_rails_html: "<strong>method</strong>: <i>Symbol</i>. Всяка функция, която платформата (ruby on rails) може да интерпретира"
+        tab_panels_usage_description_remixicon_html: "<strong>icon</strong>: <i>String</i>. Remixicon key"
+        tab_panels_usage_description_tab_html: "<strong>text</strong>: <i>String</i> Заглавие на раздела"
+        tailwind: Tailwind name
+        text: Текст
+        transparent: Прозрачно
+        transparent_description: 'В случай на по-тъмен фон:'
+        types: Шрифтове
+        typography_texts: Типография и текстове
+        usage: Употреба
+        usage_background_1: Заден фон
+        usage_background_2: Избран фон на филтъра на сайдбара
+        usage_background_3: Цвят на иконата по подразбиране
+        usage_background_4: Линии и разделители
+        usage_background_5: Фон на футъра
+        usage_background_6: Фон на администраторския изглед
+        usage_base_1: Главен навигационен компонент background\nNav менюта в началната страница и началната страница на пространството
+        usage_base_2: Основен цвят за линкове и бутони
+        usage_base_3: Графични орнаменти и акцент color\nCards и списък с бордър елементи при mouce over
+        usage_formelements_1: Фон по подразбиране на входните елементи
+        usage_formelements_2: Фон на състоянието на деактивирани входни елементи
+        usage_state_1: Известие за успех border\nAlert икона за известие fill\nButton фон на съобщението за успех
+        usage_state_2: Рамка на предупредителното съобщение
+        usage_state_3: Известие за предупреждение border\nAlert цвят на икона за известие
+        usage_typography_1: Заглавия и заглавия на секции
+        usage_typography_2: Вграден текст
+        usage_typography_3: Текст на тъмен фон
+        usage_typography_4: Линкове и бутони
+        value: Стойност
+        variations: Вариации
+        variations_cards_description: Всяка карта ще изглежда различно по отношение на свойствата на показания ресурс. Можете да отмените подобно поведение в конкретната клетка.
+        variations_description: Има три различни версии на тази клетка. Всяка по отделно пасва по-добре, според контекста, в който се показва.
+        variations_text: По отношение на типа дейност, клетката може да показва различно съдържание, отчитайки отделните ресурси, независимо дали принадлежат към пространство за участие или не, имат автор или не.
+      home:
+        index:
+          by_sharing_principles: Като споделяме принципите, философията и обосновката зад дизайнерските решения, ние искаме да дадем възможност на общността да допринася последователно, за да постигнем най-доброто изживяване на участниците.
+          decidim_guide: Ръководство за дизайн на всичко, свързано с Civil Power
+          different_ui_components: В същото време ние документираме различните използвани компоненти на потребителския интерфейс и модели, които трябва да бъдат използвани повторно или разширени.
+          github_source: Изходен код в GitHub
+          home_header: Ръководство за дизайн на Civil Power
+          welcome_sentence: Добре дошли в Ръководството за дизайн на Civil Power (CPG). Това ръководство е ресурсът за дизайнери и разработчици, които трябва да персонализират, разработят нови модули и интегрират нови функции.

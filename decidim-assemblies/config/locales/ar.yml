@@ -50,7 +50,6 @@ ar:
         scope_id: نطاق
         scopes_enabled: النطاقات المُفعّلَة
         short_description: وصف قصير
-        show_statistics: عرض الإحصائيات
         slug: سبيكة العنوان الشبكي
         special_features: مميزات خاصة
         subtitle: العنوان الفرعي
@@ -199,7 +198,6 @@ ar:
           categories: الفئات
           components: المكونات
           moderations: الإعتدال
-          private_users: المستخدمون الخاصون
         assemblies_types: نوع التجمّعات
       models:
         assemblies_types:

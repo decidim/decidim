@@ -33,9 +33,27 @@
   }
 }
 
-[data-target*="dropdown-menu-language-chooser"] {
+[data-target="dropdown-menu-language-chooser"] {
   & > span {
     @apply block font-semibold text-black text-xs;
+  }
+
+  > svg {
+    @apply w-5 h-6 flex-none text-xs font-normal text-black fill-current;
+  }
+
+  & > ul {
+    @apply w-6 bg-gray;
+
+    > li {
+      @apply w-6 bg-gray;
+    }
+  }
+}
+
+[data-target="dropdown-menu-language-chooser-mobile"] {
+  & > span {
+    @apply block text-black font-normal text-sm;
   }
 
   > svg {

@@ -450,6 +450,7 @@ eu:
           values:
             'false': Argitaratua
             'true': Ez da argitaratu
+        remove_all: Ezabatu denak
         scope_id_eq:
           label: Esparrua
         search_label: Bilatu
@@ -561,6 +562,7 @@ eu:
         appearance: Itxura
         area_types: Arlo motak
         areas: Arloak
+        components: Osagaiak
         configuration: Konfigurazioa
         content: Eduki salatua
         external_domain_allowlist: Baimendutako kanpoko domeinuak
@@ -951,6 +953,11 @@ eu:
           help: Identifikatzaile-ikur hauek argitaratu gabeko baliabide hori edozein erabiltzaileri publikoki partekatzeko erabiltzen dira. Errekurtsoa argitaratzean ezkutatuko dira. Egin klik identifikatzaile-ikurra partekatzeko ikonoan, URL partekagarria bisitatzeko.
           title: Partekatu identifikatzaile-ikurrak
       shared:
+        adjacent_navigation:
+          next: Hurrengoa
+          next_title: Hurrengo elementua
+          previous: Aurrekoa
+          previous_title: Aurreko elementua
         gallery:
           add_images: Gehitu irudiak
           edit_images: Editatu irudiak

@@ -146,6 +146,7 @@ es-PY:
         actions:
           comment: Comentar
           join: Unirse
+          reply_poll: Responder la consulta
         name: Encuentros
         settings:
           global:
@@ -362,6 +363,13 @@ es-PY:
           update:
             invalid: Se ha producido un error al actualizar esta encuesta.
             success: Encuesta actualizada correctamente.
+        poll:
+          form:
+            announcement_html:
+              - Cuando una pregunta recibe respuestas o está publicada/cerrada, ya no se puede editar.
+              - Puedes añadir una pregunta en cualquier momento.
+              - La consulta se cerrará cuando se hayan publicado los resultados de todas las preguntas creadas.
+              - Visita la <a href='%{admin_link}'>página de administración de encuestas</a> para enviar preguntas y publicar resultados.
         registrations:
           edit:
             save: Guardar
@@ -440,16 +448,14 @@ es-PY:
       iframe_embed_type:
         embed_in_meeting_page: Incrustar en la página del encuentro
         none: Ninguno
-        open_in_live_event_page: Abrir en la página del evento en directo (con encuestas opcionales)
+        open_in_live_event_page: Abrir en la página del evento en directo
         open_in_new_tab: Abrir en nueva pestaña
       last_activity:
         meeting_updated: 'Encuentro actualizado:'
         new_meeting: 'Nuevo encuentro:'
       layouts:
         live_event:
-          administrate: Administrar
           close: cerrar
-          questions: Preguntas
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -530,6 +536,8 @@ es-PY:
           edit_close_meeting: Editar el informe del encuentro
           edit_meeting: Editar el encuentro
           join_meeting: Unirse al encuentro
+          reply_poll: Responder consulta
+          view_poll: Ver consulta
         meetings:
           no_meetings_warning: No hay encuentros que coincidan con tu búsqueda o no hay ningún encuentro programado.
           upcoming_meetings_warning: Actualmente no hay encuentros programados, pero puedes ver los encuentros anteriores.
@@ -588,13 +596,22 @@ es-PY:
             start_time: Fecha de inicio
             title: Título
       polls:
+        answers:
+          index:
+            administrate: Administrar
+            title: Consulta
+          index_admin:
+            back_to_meeting: Volver al encuentro
+            title: Administrar consulta
+            view_poll: Ver consulta
         questions:
           closed_question:
-            question_results: Resultados de la pregunta
+            announcement: Se han cerrado las respuestas a esta pregunta.
+            question: Pregunta
+            question_results: Resultados
           index:
             empty_questions: A lo largo de este encuentro, se enviarán algunas preguntas y podrás responderlas. Se mostrarán aquí.
           index_admin:
-            admin_dashboard: Panel de administración
             edit: Editar en el panel de administración
             question: Pregunta
             received_answer: respuesta recibida
@@ -602,6 +619,10 @@ es-PY:
             results: Resultados
             send: Enviar
             sent: Enviada
+            statuses:
+              closed: Resultados enviados (cerrados)
+              published: Enviada (abierta)
+              unpublished: Pendiente de enviar
           published_question:
             max_choices_alert: Hay demasiadas opciones seleccionadas
             question: Pregunta

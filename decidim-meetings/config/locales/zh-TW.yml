@@ -407,16 +407,13 @@ zh-TW:
       iframe_embed_type:
         embed_in_meeting_page: 嵌入會議頁面
         none: 沒有
-        open_in_live_event_page: 在直播活動頁面開啟(附加投票選項)
         open_in_new_tab: 在新頁籤中開啟 URL
       last_activity:
         meeting_updated: '會議已更新:'
         new_meeting: '新會議:'
       layouts:
         live_event:
-          administrate: 管理員
           close: 關閉
-          questions: 問題
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -547,12 +544,9 @@ zh-TW:
             title: 標題
       polls:
         questions:
-          closed_question:
-            question_results: 問題結果
           index:
             empty_questions: 在本次會議期間，您將收到一些問題並且您可以回答這些問題。這些問題將會在此顯示。
           index_admin:
-            admin_dashboard: 管理員儀表板
             edit: 在管理面板中編輯
             question: 問題
             received_answer: 收到回答

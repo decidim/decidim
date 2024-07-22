@@ -24,7 +24,6 @@ module Decidim
       field :start_date, Decidim::Core::DateType, "This participatory process' start date.", null: true
       field :end_date, Decidim::Core::DateType, "This participatory process' end date.", null: true
 
-      field :banner_image, GraphQL::Types::String, "The banner image for this participatory process", null: true
       field :hero_image, GraphQL::Types::String, "The hero image for this participatory process", null: true
       field :promoted, GraphQL::Types::Boolean, "If this participatory process is promoted (therefore in the homepage)", null: true
       field :developer_group, Decidim::Core::TranslatedFieldType, "The promoter group of this participatory process.", null: true
@@ -33,8 +32,6 @@ module Decidim
       field :target, Decidim::Core::TranslatedFieldType, "Who participates in this participatory process.", null: true
       field :participatory_scope, Decidim::Core::TranslatedFieldType, "What is decided on this participatory process.", null: true
       field :participatory_structure, Decidim::Core::TranslatedFieldType, "How it is decided on this participatory process.", null: true
-      field :show_metrics, GraphQL::Types::Boolean, "If this participatory process should show metrics", null: true
-      field :show_statistics, GraphQL::Types::Boolean, "If this participatory process should show statistics", null: true
       field :scopes_enabled, GraphQL::Types::Boolean, "If this participatory process has scopes enabled", null: true
 
       field :announcement, Decidim::Core::TranslatedFieldType, "Highlighted announcement for this participatory process.", null: true
@@ -45,10 +42,6 @@ module Decidim
       field :participatory_process_group, Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupType,
             null: true,
             description: "The participatory process group in which this process belong to"
-
-      def banner_image
-        object.attached_uploader(:banner_image).url
-      end
 
       def hero_image
         object.attached_uploader(:hero_image).url

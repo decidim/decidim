@@ -4,7 +4,6 @@ pt-BR:
       participatory_process:
         announcement: Anúncio
         area_id: Área
-        banner_image: Imagem da bandeira
         copy_categories: Copiar categorias
         copy_components: Copiar componentes
         copy_steps: Copiar etapas
@@ -29,8 +28,6 @@ pt-BR:
         scope_type_max_depth_id: Profundidade de filtro de escopo
         scopes_enabled: Âmbitos ativados
         short_description: Descrição curta
-        show_metrics: Mostrar métricas
-        show_statistics: Mostrar estatísticas
         slug: Slug de URL
         start_date: Data de início
         subtitle: Subtítulo

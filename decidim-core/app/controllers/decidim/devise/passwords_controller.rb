@@ -25,8 +25,8 @@ module Decidim
         self.resource = current_user
         @send_path = apply_password_path
 
-        @form = Decidim::PasswordForm.from_params(params["user"])
-        Decidim::UpdatePassword.call(current_user, @form) do
+        @form = Decidim::PasswordForm.from_params(params["user"]).with_context(current_user:)
+        Decidim::UpdatePassword.call(@form) do
           on(:ok) do
             flash[:notice] = t("passwords.update.success", scope: "decidim")
             bypass_sign_in(current_user)

@@ -48,7 +48,6 @@ sv:
         scope_id: Omfång
         scopes_enabled: Omfång är aktiverade
         short_description: Kort beskrivning
-        show_statistics: Visa statistik
         slug: URL-slug
         special_features: Specialfunktioner
         subtitle: Underrubrik
@@ -184,7 +183,6 @@ sv:
           categories: Kategorier
           components: Komponenter
           moderations: Moderering
-          private_users: Privata användare
         assemblies_types: Typer av grupper
       models:
         assemblies_types:

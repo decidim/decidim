@@ -53,6 +53,8 @@ module Decidim
   autoload :Menu, "decidim/menu"
   autoload :MenuItem, "decidim/menu_item"
   autoload :MenuRegistry, "decidim/menu_registry"
+  autoload :AdminFilter, "decidim/admin_filter"
+  autoload :AdminFiltersRegistry, "decidim/admin_filters_registry"
   autoload :ManifestRegistry, "decidim/manifest_registry"
   autoload :AssetRouter, "decidim/asset_router"
   autoload :EngineRouter, "decidim/engine_router"
@@ -198,8 +200,13 @@ module Decidim
       resource_type.constantize.find_each do |resource|
         # exclude the users that already endorsed
         users = resource.endorsements.map(&:author)
-        rand(50).times do
+        remaining_count = Decidim::User.count - users.count
+        next if remaining_count < 1
+
+        rand([50, remaining_count].min).times do
           user = (Decidim::User.all - users).sample
+          next unless user
+
           Decidim::Endorsement.create!(resource:, author: user)
           users << user
         end
@@ -762,6 +769,10 @@ module Decidim
 
   def self.icons
     @icons ||= Decidim::IconRegistry.new
+  end
+
+  def self.admin_filter(name, &)
+    AdminFiltersRegistry.register(name.to_sym, &)
   end
 
   # Public: Stores an instance of ViewHooks
