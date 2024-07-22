@@ -29,7 +29,7 @@ module Decidim
 
           def localize_headers(header, locales)
             @localize_headers ||= locales.map do |locale|
-              "#{header}/#{locale}".to_sym
+              :"#{header}/#{locale}"
             end
           end
         end

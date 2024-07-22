@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "parallel_tests"
 require "selenium-webdriver"
 
 module Decidim

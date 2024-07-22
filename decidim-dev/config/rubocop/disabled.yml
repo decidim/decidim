@@ -10,7 +10,6 @@ Naming/MemoizedInstanceVariableName:
 RSpec/VerifiedDoubleReference:
   Enabled: false
 
-
 FactoryBot/ExcessiveCreateList:
   Enabled: false
 
@@ -41,17 +40,8 @@ FactoryBot/AssociationStyle:
 Rubycw/Rubycw:
   Enabled: false
 
-Lint/SymbolConversion:
-  Enabled: false
-
-Style/RedundantParentheses:
-  Enabled: false
-
 Style/SuperArguments:
   Enabled: false
 
 Lint/SelfAssignment:
-  Enabled: false
-
-Rails/WhereRange:
   Enabled: false

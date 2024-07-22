@@ -1,17 +1,23 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/seven_zip_wrapper"
 
 module Decidim
   describe DownloadYourDataExporter do
-    subject { DownloadYourDataExporter.new(user, tmp_file_in.path, password) }
+    subject { DownloadYourDataExporter.new(user, tmp_file_in, password) }
 
-    let(:tmp_file_in) { Tempfile.new(["download-your-data", ".7z"]) }
+    let(:tmp_file_in) do
+      Dir::Tmpname.create(["download-your-data", ".7z"]) do
+        # just get an empty file name
+      end
+    end
     let(:tmp_dir_out) { Dir.mktmpdir("download_your_data_exporter_spec") }
     let(:password) { "download-your-data.7z>passwd" }
-    let(:user) { create(:user) }
+    let(:user) { create(:user, organization:) }
+    let(:organization) { create(:organization) }
     let(:expected_files) do
-      # this are the prefixes for the files archived in the zip
+      # this are the prefixes for the files that could have user generated content
       %w(
         decidim-follows-
         decidim-identities-
@@ -30,40 +36,63 @@ module Decidim
         decidim-conferences-conferenceinvites-
         decidim-comments-comments-
         decidim-comments-commentvotes-
-        decidim-users/avatar.jpg
       )
     end
 
     describe "#export" do
       it "compresses a password protected file" do
+        expect(File.exist?(tmp_file_in)).to be false
+
         # generate 7z
         subject.export
 
-        open_7z_and_extract_zip(tmp_file_in.path)
+        expect(File.exist?(tmp_file_in)).to be true
 
-        file_prefixes = expected_files.dup
-        Zip::File.open(File.join(tmp_dir_out, DownloadYourDataExporter::ZIP_FILE_NAME)) do |zip_file|
-          zip_file.each do |entry|
-            entry_name = entry.name
-            prefix = file_prefixes.find { |start| entry_name.start_with?(start) }
-            expect(file_prefixes.delete(prefix)).to be_present
-          end
-        end
-        expect(file_prefixes).to be_empty
+        open_7z_and_extract_zip(tmp_file_in)
+
+        expect(Dir.entries(tmp_dir_out).count).to eq 4
       end
     end
 
-    #----------------------------------------------------
-    private
+    describe "#data_and_attachments_for_user" do
+      it "returns an array of data for the user" do
+        user_data, = subject.send(:data_and_attachments_for_user)
 
-    #----------------------------------------------------
+        file_prefixes = expected_files.dup
+        user_data.each do |entity, exporter_data|
+          entity_prefix = file_prefixes.find { |prefix| prefix.start_with?(entity) }
+          expect(file_prefixes.delete(entity_prefix)).to be_present
 
-    def open_7z_and_extract_zip(file_path)
-      File.open(file_path, "rb") do |file|
-        SevenZipRuby::Reader.open_file(file, password:) do |szr|
-          szr.extract(:all, tmp_dir_out)
+          # we have an empty file  for each entity except for decidim-users
+          expect(exporter_data.read).to eq("\n") unless entity == "decidim-users"
+        end
+        expect(file_prefixes).to be_empty
+      end
+
+      context "when the user has a comment" do
+        let(:participatory_space) { create(:participatory_process, organization:) }
+        let(:component) { create(:component, participatory_space:) }
+        let(:commentable) { create(:dummy_resource, component:) }
+
+        let!(:comment) { create(:comment, commentable:, author: user) }
+
+        it "returns the comment data" do
+          user_data, = subject.send(:data_and_attachments_for_user)
+
+          user_data.find { |entity, _| entity == "decidim-comments-comments" }.tap do |_, exporter_data|
+            csv_comments = exporter_data.read.split("\n")
+            expect(csv_comments.count).to eq 2
+            expect(csv_comments.first).to start_with "id;created_at;body;locale;author/id;author/name;alignment;depth;"
+            expect(csv_comments.second).to start_with "#{comment.id};"
+          end
         end
       end
+    end
+
+    private
+
+    def open_7z_and_extract_zip(file_path)
+      SevenZipWrapper.extract_and_decrypt(filename: file_path, password:, output_directory: tmp_dir_out)
     end
   end
 end
