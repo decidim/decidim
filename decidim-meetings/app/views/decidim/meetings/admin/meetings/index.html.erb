@@ -76,9 +76,9 @@
             <%= td_resource_scope_for(meeting.scope) %>
             <td class="table-list__actions">
               <% if is_linked %>
-                <%= t('.linked_meeting_warning_html', href: edit_meeting_path(meeting), name: present(meeting).space_title) %>
+                <%= t(".linked_meeting_warning_html", href: edit_meeting_path(meeting), name: present(meeting).space_title) %>
               <% else %>
-                <%= render "/decidim/meetings/admin/meetings/meeting_actions", meeting: meeting %>
+                <%= render "/decidim/meetings/admin/meetings/meeting_actions", meeting: %>
               <% end %>
             </td>
           </tr>
