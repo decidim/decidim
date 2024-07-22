@@ -9,7 +9,7 @@
   </div>
 
   <div id="panel-linked-spaces" class="px-4">
-    <% if meeting.participatory_space.private_space? %>
+    <% if form.object.participatory_space.private_space? %>
       <%= cell("decidim/announcement", t(".private_space_warning"), callout_class: "warning") %>
     <% else %>
       <%= cell("decidim/announcement", t(".private_meeting_warning"), callout_class: "warning js-private-warning hidden") %>
