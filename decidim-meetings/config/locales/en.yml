@@ -321,9 +321,9 @@ en:
                 other: The meeting cannot be destroyed because it has %{count} proposals associated to it.
             success: Meeting successfully deleted
           edit:
+            redirect_notice: You have been redirected to a different space
             title: Edit meeting
             update: Update
-            redirect_notice: You have been redirected to a different space
           form:
             address_help: 'Address: used by Geocoder to find the location'
             disclaimer: 'Disclaimer: By using an external registration system, you are aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
@@ -336,17 +336,17 @@ en:
             select_a_registration_type: Please select a registration type
             select_an_iframe_access_level: Please select an iframe access level
           index:
-            title: Meetings
             linked_meeting_warning_html: This meeting must be edited from <a href="%{href}">%{name}</a>
+            title: Meetings
           linked_spaces:
             assign: Assign
             link_a_space: Link a space
-            private_space_warning: Linked spaces will not be applied when the meeting belongs to a private non transparent space.
             private_meeting_warning: Linked spaces will not be applied if the meeting is private and non transparent.
+            private_space_warning: Linked spaces will not be applied when the meeting belongs to a private non transparent space.
             select: Select a space
             table:
-              component: Linked spaces
               actions: Actions
+              component: Linked spaces
             title: Linked spaces
           new:
             create: Create
