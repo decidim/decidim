@@ -336,7 +336,7 @@ en:
             select_a_registration_type: Please select a registration type
             select_an_iframe_access_level: Please select an iframe access level
           index:
-            linked_meeting_warning_html: This meeting must be edited from <a href="%{href}">%{name}</a>
+            linked_meeting_warning_html: This meeting must be edited from <br><a href="%{href}">%{name}</a>
             title: Meetings
           linked_spaces:
             assign: Assign
