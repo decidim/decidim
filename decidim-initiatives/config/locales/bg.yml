@@ -91,7 +91,6 @@ bg:
               accepted: Достатъчно подписи
               created: Създаден
               discarded: Отхвърлено
-              published: Публикувано
               rejected: Няма достатъчно подписи
               validating: Техническа проверка
           type_id_eq:
@@ -324,7 +323,6 @@ bg:
         accepted: Достатъчно подписи
         created: Създаден
         discarded: Отхвърлено
-        published: Публикувано
         rejected: Няма достатъчно подписи
         validating: Техническа проверка
       application_helper:
@@ -573,7 +571,6 @@ bg:
           accepted: Достатъчно подписи
           created: Създаден
           discarded: Отхвърлено
-          published: Публикувано
           rejected: Няма достатъчно подписи
           validating: Техническа проверка
       states:
