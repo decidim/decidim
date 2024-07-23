@@ -94,7 +94,7 @@ PATH
       rack-attack (~> 6.0)
       rails (~> 7.0.8)
       rails-i18n (~> 7.0)
-      ransack (~> 3.2.1)
+      ransack (~> 4.2.0)
       redis (~> 4.1)
       request_store (~> 1.5.0)
       rubyXL (~> 3.4)
@@ -614,7 +614,7 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.2.1)
-    ransack (3.2.1)
+    ransack (4.2.0)
       activerecord (>= 6.1.5)
       activesupport (>= 6.1.5)
       i18n
