@@ -78,7 +78,7 @@ module Decidim
     def thumbnail_url
       return unless photo?
 
-      attached_uploader(:file).path(variant: :thumbnail)
+      @thumbnail_url ||= attached_uploader(:file).variant_url(:thumbnail)
     end
 
     # The URL to download the a big version of the file. Only works with images.
@@ -87,7 +87,7 @@ module Decidim
     def big_url
       return unless photo?
 
-      attached_uploader(:file).path(variant: :big)
+      @big_url ||= attached_uploader(:file).variant_url(:big)
     end
 
     def set_content_type_and_size

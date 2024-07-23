@@ -71,8 +71,17 @@ shared_examples "manage assemblies" do
 
       expect(page).to have_admin_callout("successfully")
 
-      expect(page).to have_css("img[src*='#{assembly.attached_uploader(:hero_image).path}']")
-      expect(page).to have_css("img[src*='#{assembly.attached_uploader(:banner_image).path}']")
+      hero_blob = assembly.hero_image.blob
+      within %([data-active-uploads] [data-filename="#{hero_blob.filename}"]) do
+        src = page.find("img")["src"]
+        expect(src).to be_blob_url(hero_blob)
+      end
+
+      banner_blob = assembly.hero_image.blob
+      within %([data-active-uploads] [data-filename="#{banner_blob.filename}"]) do
+        src = page.find("img")["src"]
+        expect(src).to be_blob_url(banner_blob)
+      end
     end
   end
 

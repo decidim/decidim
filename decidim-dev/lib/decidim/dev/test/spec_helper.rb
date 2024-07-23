@@ -44,4 +44,11 @@ RSpec.configure do |config|
       "img-src": %w(https://via.placeholder.com)
     }
   end
+
+  config.before do
+    # Ensure that the current host is not set for any spec in order to test that
+    # the automatic current host definition is working correctly in all
+    # situations.
+    ActiveStorage::Current.url_options = {}
+  end
 end

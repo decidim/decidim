@@ -143,7 +143,9 @@ describe "Decidim::Api::QueryType" do
     end
 
     it "returns the correct response" do
-      expect(response["initiatives"].first).to eq(initiative_data)
+      data = response["participatoryProcess"]
+      expect(data).to include(participatory_process_response)
+      expect(data["heroImage"]).to be_blob_url(participatory_process.hero_image.blob)
     end
 
     it_behaves_like "implements stats type" do
