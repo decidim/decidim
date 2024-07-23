@@ -27,6 +27,7 @@ module Decidim
 
           create_proposal_note
           notify_mentioned
+          notify_not_mentioned_valuators
 
           broadcast(:ok, proposal_note)
         end
@@ -51,12 +52,18 @@ module Decidim
         end
 
         def notify_mentioned
-          affected_users = mentioned_admins_or_valuators
+          notify_creation(mentioned_admins_or_valuators, "decidim.events.proposals.admin.proposal_note_mentioned")
+        end
 
+        def notify_not_mentioned_valuators
+          notify_creation(proposal_valuators - mentioned_admins_or_valuators, "decidim.events.proposals.admin.proposal_note_created")
+        end
+
+        def notify_creation(affected_users, event)
           return if affected_users.blank?
 
           Decidim::EventsManager.publish(
-            event: "decidim.events.proposals.admin.proposal_note_mentioned",
+            event:,
             event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
             resource: proposal,
             affected_users:,

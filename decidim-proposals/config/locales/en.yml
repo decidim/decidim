@@ -235,6 +235,11 @@ en:
     events:
       proposals:
         admin:
+          proposal_note_created:
+            email_intro: '%{author_name} has created a private note in %{resource_title}. Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.'
+            email_outro: You have received this notification because you can valuate the proposal.
+            email_subject: Someone left a note on proposal %{resource_title}.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> has created a private note in <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
           proposal_note_mentioned:
             email_intro: You have been mentioned in a private note in "%{resource_title}" by "%{author_name}" "%{author_nickname}". Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.
             email_outro: You have received this notification because you have been mentioned in a private note.
