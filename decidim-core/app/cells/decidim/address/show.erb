@@ -15,4 +15,15 @@
       </div>
     </div>
   </li>
+  <% if display_start_and_end_time? %>
+    <li>
+      <div class="address__container">
+        <%= icon "time-line" %>
+        <div class="address">
+          <div class="address__location">
+            <%= start_and_end_time %>
+          </div>
+        </div>
+    </li>
+  <% end %>
 </ul>

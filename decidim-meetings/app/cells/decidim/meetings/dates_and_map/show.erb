@@ -11,18 +11,7 @@
       <span><%= l(end_time, format: "%d") if !same_day? || !same_month? %></span>
     </div>
     <div class="meeting__calendar-year">
-      <% if display_start_and_end_time? %>
-        <li>
-          <div class="address__container">
-            <div class="address">
-              <div class="address__location">
-                <%= start_and_end_time %>
-              </div>
-              <span><%= year %></span>
-            </div>
-          </div>
-        </li>
-      <% end %>
+      <span><%= year %></span>
     </div>
   </div>
 

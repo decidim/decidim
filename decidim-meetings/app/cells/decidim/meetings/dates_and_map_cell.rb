@@ -21,27 +21,7 @@ module Decidim
         l model.start_time, format: "%Y"
       end
 
-      def display_start_and_end_time?
-        model.respond_to?(:start_time) && model.respond_to?(:end_time)
-      end
-
-      def start_and_end_time
-        <<~HTML
-          #{with_tooltip(l(model.start_time, format: :tooltip)) { format_start_time }}
-          -
-          #{with_tooltip(l(model.end_time, format: :tooltip)) { format_end_time }}
-        HTML
-      end
-
       private
-
-      def format_start_time
-        l model.start_time, format: "%H:%M %p"
-      end
-
-      def format_end_time
-        l model.end_time, format: "%H:%M %p %Z"
-      end
 
       def same_month?
         start_time.month == end_time.month
