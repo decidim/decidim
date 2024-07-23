@@ -35,11 +35,7 @@ module Decidim
     end
 
     before do
-      ActiveStorage::Current.host = current_host if current_host
-    end
-
-    after do
-      ActiveStorage::Current.host = nil
+      ActiveStorage::Current.url_options = { host: current_host } if current_host
     end
 
     describe "#render" do
@@ -63,21 +59,6 @@ module Decidim
         let(:current_host) { nil }
 
         it_behaves_like "correctly rendered blob URLs"
-      end
-
-      # TODO: Remove after merging PR https://github.com/decidim/decidim/pull/12576
-      matcher :be_blob_url do |expected|
-        match do |actual|
-          parts = actual.match(%r{/rails/active_storage/(disk|blobs/redirect)/([^/]+)/([^/]+)$})
-          blob =
-            if parts[1] == "disk"
-              decoded = ActiveStorage.verifier.verified(parts[2], purpose: :blob_key)
-              ActiveStorage::Blob.find_by(key: decoded[:key]) if decoded
-            else
-              ActiveStorage::Blob.find_signed(parts[2])
-            end
-          blob == expected
-        end
       end
     end
   end

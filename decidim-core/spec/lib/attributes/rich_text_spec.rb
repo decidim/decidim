@@ -33,11 +33,7 @@ module Decidim
         end
 
         before do
-          ActiveStorage::Current.host = current_host
-        end
-
-        after do
-          ActiveStorage::Current.host = nil
+          ActiveStorage::Current.url_options = { host: current_host }
         end
 
         it "converts the blob URL to a blob reference" do
@@ -71,11 +67,7 @@ module Decidim
         end
 
         before do
-          ActiveStorage::Current.host = current_host
-        end
-
-        after do
-          ActiveStorage::Current.host = nil
+          ActiveStorage::Current.url_options = { host: current_host }
         end
 
         it "converts the blob reference to a blob URL" do
@@ -85,11 +77,7 @@ module Decidim
           image_src = doc.at("img").attr(:src)
           expect(image_src).to match(blob_regex)
 
-          # TODO: Change to be_blob_url after merging PR https://github.com/decidim/decidim/pull/12576
-          match = image_src.match(blob_regex)
-          decoded = ActiveStorage.verifier.verified(match[1], purpose: :blob_key)
-          blob = ActiveStorage::Blob.find_by(key: decoded[:key])
-          expect(blob).to eq(image_blob)
+          expect(image_src).to be_blob_url(image_blob)
         end
       end
     end
