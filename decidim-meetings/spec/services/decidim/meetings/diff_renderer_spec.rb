@@ -60,11 +60,11 @@ describe Decidim::Meetings::DiffRenderer, versioning: true do
       expect(subject[:location_hints_en][:old_value]).to eq old_values["location_hints"]["en"]
       expect(subject[:location_hints_en][:new_value]).to eq "Hints"
 
-      expect(subject[:start_time][:old_value]).to eq old_values["start_time"]
-      expect(subject[:start_time][:new_value]).to eq start_time
+      expect(subject[:start_time][:old_value]).to eq old_values["start_time"].strftime("%FT%T.%LZ")
+      expect(subject[:start_time][:new_value]).to eq start_time.strftime("%FT%T.%LZ")
 
-      expect(subject[:end_time][:old_value]).to eq old_values["end_time"]
-      expect(subject[:end_time][:new_value]).to eq end_time
+      expect(subject[:end_time][:old_value]).to eq old_values["end_time"].strftime("%FT%T.%LZ")
+      expect(subject[:end_time][:new_value]).to eq end_time.strftime("%FT%T.%LZ")
 
       expect(subject[:decidim_user_group_id]).to be_nil
 
