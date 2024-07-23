@@ -27,10 +27,8 @@ class ChangeObjectChangesOnVersions < ActiveRecord::Migration[6.1]
       version.update_columns(old_object_changes: nil, object_changes:) # rubocop:disable Rails/SkipsModelValidations
     end
 
-    PaperTrail::Version.reset_column_information    
-    remove_column :versions, :old_object_changes
-
     PaperTrail::Version.reset_column_information
+    remove_column :versions, :old_object_changes
   end
 
   def down
