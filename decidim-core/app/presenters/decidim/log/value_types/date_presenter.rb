@@ -13,7 +13,7 @@ module Decidim
         def present
           return unless value
 
-          h.l(value, format: :long)
+          h.l(Date.parse(value), format: :long)
         end
       end
     end
