@@ -544,13 +544,31 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
         tom_select("#proposals_list", option_id: proposals.first(2).map(&:id))
 
-        click_button "Close"
+        check "Is visible"
+        click_on "Close"
       end
 
       expect(page).to have_admin_callout("Meeting successfully closed")
 
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
         expect(page).to have_content("Yes")
+      end
+
+      meeting.reload
+      meeting.update(closing_report: {
+                       en: %(The meeting was great! <img src="https://www.example.org/foobar.png" />),
+                       es: "El encuentro fue genial",
+                       ca: "La trobada va ser genial"
+                     })
+
+      visit decidim_participatory_process_meetings.meeting_path(
+        participatory_process_slug: meeting.participatory_space.slug,
+        component_id: meeting.component.id,
+        id: meeting.id
+      )
+
+      within ".meeting__agenda-item__description" do
+        expect(page).to have_css("img")
       end
     end
 
