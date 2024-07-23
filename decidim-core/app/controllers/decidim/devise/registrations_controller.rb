@@ -57,7 +57,7 @@ module Decidim
 
       # Called before resource.save
       def build_resource(hash = nil)
-        super(hash)
+        super
         resource.organization = current_organization
       end
 

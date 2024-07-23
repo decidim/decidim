@@ -17,7 +17,7 @@ module Decidim
         validate :notify_missing_attachment_if_errored
 
         def map_model(model)
-          super(model)
+          super
           presenter = ProposalPresenter.new(model)
 
           self.title = presenter.title(all_locales: title.is_a?(Hash))

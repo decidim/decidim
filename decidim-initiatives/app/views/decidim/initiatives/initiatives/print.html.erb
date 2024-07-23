@@ -2,7 +2,7 @@
   <div class="pt-10">
     <div class="initiative-letterhead">
       <% if current_organization.logo.present? %>
-        <%= image_tag current_organization.attached_uploader(:logo).path(variant: :medium), title: current_organization_name %>
+        <%= image_tag current_organization.attached_uploader(:logo).variant_url(:medium), title: current_organization_name %>
       <% end %>
 
       <%= current_organization_name %>
