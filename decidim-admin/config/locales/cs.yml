@@ -447,6 +447,7 @@ cs:
           values:
             'false': Zveřejněno
             'true': Nezveřejněno
+        remove_all: Odebrat vše
         scope_id_eq:
           label: Oblast působnosti
         search_label: Hledat
@@ -575,6 +576,7 @@ cs:
         appearance: Vzhled
         area_types: Typy oblastí
         areas: Oblasti
+        components: Komponenty
         configuration: Konfigurace
         content: Nahlášený obsah
         external_domain_allowlist: Povolené externí domény
@@ -970,6 +972,11 @@ cs:
           help: Tyto tokeny se používají k veřejnému sdílení tohoto nezveřejněného zdroje každému uživateli. Budou skryty, když bude dokument publikován. Klikněte na ikonu sdílení tokenu a navštivte sdílenou URL.
           title: Sdílet tokeny
       shared:
+        adjacent_navigation:
+          next: Další
+          next_title: Další položka
+          previous: Předchozí
+          previous_title: Předchozí položka
         gallery:
           add_images: Přidat obrázky
           edit_images: Upravit obrázky

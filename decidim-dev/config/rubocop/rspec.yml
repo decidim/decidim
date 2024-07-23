@@ -1,13 +1,11 @@
-require: rubocop-rspec
+require:
+  - rubocop-rspec
+  - rubocop-rspec_rails
 
 #  RSpec:
 #    Patterns:
 #      - "(?:^|/)spec/"
 #      - "(?:^|/)test/"
-
-RSpec/FilePath:
-  CustomTransform:
-    OAuthApplicationPresenter: oauth_application_presenter
 
 RSpec/SpecFilePathFormat:
   CustomTransform:

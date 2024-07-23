@@ -111,14 +111,6 @@ module Decidim
         end
       end
 
-      describe "bannerImage" do
-        let(:query) { "{ bannerImage }" }
-
-        it "returns the banner image of the process" do
-          expect(response["bannerImage"]).to eq(model.attached_uploader(:banner_image).path)
-        end
-      end
-
       describe "heroImage" do
         let(:query) { "{ heroImage }" }
 
@@ -181,24 +173,6 @@ module Decidim
 
         it "returns all the required fields" do
           expect(response["participatoryStructure"]["translation"]).to eq(model.participatory_structure["en"])
-        end
-      end
-
-      describe "showMetrics" do
-        let(:query) { "{ showMetrics }" }
-
-        it "returns if the process has metrics available" do
-          expect(response["showMetrics"]).to be_in([true, false])
-          expect(response["showMetrics"]).to eq(model.show_metrics)
-        end
-      end
-
-      describe "showStatistics" do
-        let(:query) { "{ showStatistics }" }
-
-        it "returns if the process has stats available" do
-          expect(response["showStatistics"]).to be_in([true, false])
-          expect(response["showStatistics"]).to eq(model.show_statistics)
         end
       end
 

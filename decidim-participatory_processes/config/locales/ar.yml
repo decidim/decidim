@@ -4,7 +4,6 @@ ar:
       participatory_process:
         announcement: إعلان
         area_id: منطقة
-        banner_image: صورة بانر
         copy_categories: نسخ الفئات
         copy_components: نسخ المكونات
         copy_steps: نسخ الخطوات
@@ -26,8 +25,6 @@ ar:
         scope_id: نطاق
         scopes_enabled: النطاقات المُفعّلَة
         short_description: وصف قصير
-        show_metrics: اظهر المقاييس
-        show_statistics: عرض الإحصائيات
         slug: سبيكة العنوان الشبكي
         start_date: تاريخ البدء
         subtitle: عنوان فرعي

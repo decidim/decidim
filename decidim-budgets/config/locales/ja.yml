@@ -168,6 +168,7 @@ ja:
         back_to: '%{component_name} に戻る'
         close_modal: ウィンドウを閉じる
         continue: 続行
+        more_information: 予算に関する詳細情報
       budgets_list:
         budgets: 予算
         cancel_order:

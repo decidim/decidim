@@ -189,7 +189,6 @@ gl:
       admin_states:
         created: Creada
         discarded: Descartou
-        published: Publicado
         validating: Validación técnica
       application_helper:
         filter_state_values:

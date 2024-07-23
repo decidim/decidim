@@ -377,7 +377,6 @@ lb:
           complete_profile: Profil vervollstännegen
           nickname_help: Däin Pseudonym an %{organization}. Dierf nëmmen aus Buschtawen, Zuelen, _ an - bestoen.
           sign_up: Bitte vervollständigen Sie Ihr Profil
-          subtitle: Fëll w. e. g. folgend Formular aus, fir deng Registréierung ofzeschléissen
           username_help: Den ëffentlechen Numm gëtt an dengen Beiträg ugewisen. Fir d'Anonymat ze garantéieren, kann s'de der och en belibegen Numm eraussichen.
       registrations:
         new:
@@ -385,8 +384,6 @@ lb:
           log_in: Umelden
           newsletter: Heiansdo en Newsletter mat relevanten Informatiounen zougeschéckt kréien
           newsletter_title: Erlabnis Kontakt opzehuelen
-          sign_up: Registréieren
-          subtitle: Registréier dech fir bei Diskussiounen mat ze maachen an Virschléi ze ënnerstëtzen.
           tos_agreement: Mat der Umeldung erkläers du dech mat %{link} averstane.
           tos_title: Konditiounen vum Service
           username_help: Den ëffentlechen Numm gëtt an dengen Beiträg ugewisen. Fir d'Anonymat ze garantéieren, kann s'de der och en belibegen Numm eraussichen.
@@ -868,7 +865,6 @@ lb:
           headline: Aktuellen Stand vun %{organization}
         sub_hero:
           register: Registréieren
-          register_title: Registrieren
       index:
         standalone_pages: Säiten
         subheading: Duerch d'Hëllefs-Säiten vun %{name} navigéieren
@@ -995,8 +991,6 @@ lb:
         title: Notzer mellen den net zoulässeg ass
       floating_help:
         help: Hëllef
-      login_modal:
-        sign_up: Registréieren
       participatory_space_filters:
         filters:
           areas: Beräicher
@@ -1163,8 +1157,6 @@ lb:
       updated_not_active: Däin Passwuert ass geännert.
     registrations:
       destroyed: Däin Kont gouf zou gemaach. Mir hoffen dech geschwënn erëm ze gesinn.
-      new:
-        sign_up: Registréieren
       signed_up: Wëllkomm, du bass elo registréiert.
       signed_up_but_inactive: Du bass elo registréiert. Du kanns dech nach net aloggen, well mir hunn däin Kont nach net aktivéiert.
       signed_up_but_locked: Du bass elo registréiert. Du kanns dech nach net aloggen, well mir hunn däin Kont nach gespaart.
@@ -1179,7 +1171,6 @@ lb:
         back: Zréck
         forgot_your_password: Passwuert vergiess?
         log_in: Umelden
-        sign_up: Registréieren
       minimum_password_length:
         one: "(%{count} Minimum Zeechen)"
         other: "(%{count} Minimum Zeechen)"
@@ -1200,7 +1191,6 @@ lb:
       invalid_time_zone: keng gülteg Zäitzon
       long_words: enthält Wieder déi ze laang sinn (méi wéi 35 Zeechen)
       must_start_with_caps: muss mat engem Groussbuschtaf ufänken
-      not_found: net fonnt. Bass du schonn registréiert?
       not_locked: wo net gespaart
       not_saved:
         one: 'Bei denger Ufro ass en Feeler opgetrueden:'
@@ -1232,8 +1222,8 @@ lb:
         download_open_data: Open Data Dateien eroflueden
         log_in: Umelden
         made_with_open_source: Website mat <a target="_blank" href="https://github.com/decidim/decidim">fräi Software erstallt</a>.
-        sign_up: Registréieren
       header:
+        log_in: Umelden
         main_menu: Hauptmenü
         user_menu: Benotzer-Menü
       impersonation_warning:

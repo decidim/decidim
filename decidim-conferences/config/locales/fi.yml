@@ -126,6 +126,12 @@ fi:
         new:
           create: Luo
           title: Uusi konferenssin puhuja.
+        publish:
+          invalid: Puhujan julkaiseminen epäonnistui.
+          success: Konferenssin puhujan julkaiseminen onnistui.
+        unpublish:
+          invalid: Puhujan julkaisun lopettaminen epäonnistui.
+          success: Konferenssin puhujan julkaisu onnistui.
         update:
           error: Konferenssin puhujan päivittäminen epäonnistui.
           success: Konferenssin puhujan päivitys onnistui.

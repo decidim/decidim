@@ -10,7 +10,7 @@ module Decidim
         fetch_form_attributes :scope, :category, :title, :description, :budget_amount, :address, :latitude, :longitude
 
         def initialize(form, project)
-          super(form, project)
+          super
           @attached_to = project
         end
 

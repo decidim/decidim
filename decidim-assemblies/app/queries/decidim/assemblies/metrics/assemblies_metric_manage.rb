@@ -14,12 +14,12 @@ module Decidim
           return @query if @query
 
           @query = Decidim::Assembly.where(organization: @organization)
-          @query = @query.where("decidim_assemblies.published_at <= ?", end_time)
+          @query = @query.where(decidim_assemblies: { published_at: ..end_time })
           @query
         end
 
         def quantity
-          @quantity ||= query.where("decidim_assemblies.published_at >= ?", start_time).count
+          @quantity ||= query.where(decidim_assemblies: { published_at: start_time.. }).count
         end
       end
     end

@@ -9,7 +9,7 @@ module Decidim
 
       def metadata_badge_css_class(initiative)
         case initiative
-        when "accepted", "published"
+        when "accepted", "open"
           "success"
         when "rejected", "discarded"
           "alert"
