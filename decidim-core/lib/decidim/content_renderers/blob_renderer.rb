@@ -65,8 +65,7 @@ module Decidim
         rescue ArgumentError
           # ArgumentError is raised in case the blob's service is set to
           # ActiveStorage::Service::DiskService and
-          # `ActiveStorage::Current.url_options` is unset.
-          raise URI::InvalidURIError
+          # `ActiveStorage::Current.url_options` is not set.
         end
         raise URI::InvalidURIError if url.blank?
 
