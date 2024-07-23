@@ -70,7 +70,7 @@ module Decidim
       def reload(options = nil)
         remove_instance_variable(:@authors) if defined?(@authors)
         remove_instance_variable(:@notifiable_identities) if defined?(@notifiable_identities)
-        super(options)
+        super
       end
 
       # Returns all the authors of a coauthorable.

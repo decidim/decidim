@@ -84,7 +84,6 @@ sv:
               accepted: Tillräckligt många underskrifter
               created: Skapad
               discarded: Förkastad
-              published: Publicerad
               rejected: Inte tillräckligt många underskrifter
               validating: Teknisk validering
           type_id_eq:
@@ -265,7 +264,6 @@ sv:
         accepted: Nog med signaturer
         created: Skapad
         discarded: Förkastade
-        published: Publicerade
         rejected: Inte tillräckligt med signaturer
         validating: Teknisk validering
       application_helper:
@@ -453,7 +451,6 @@ sv:
           accepted: Nog med signaturer
           created: Skapad
           discarded: Ignorerad
-          published: Publicerad
           rejected: Inte tillräckligt med signaturer
           validating: Teknisk validering
       states:

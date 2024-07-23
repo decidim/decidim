@@ -228,7 +228,6 @@ nl:
         accepted: Genoeg handtekeningen
         created: gemaakt
         discarded: Afgedankte
-        published: Gepubliceerd
         rejected: Niet genoeg handtekeningen
         validating: Technische validatie
       application_helper:
@@ -393,7 +392,6 @@ nl:
           accepted: Genoeg handtekeningen
           created: Aangemaakt
           discarded: Verwijderd
-          published: Ingediend
           rejected: Niet genoeg handtekeningen
           validating: Technische validatie
       states:

@@ -73,7 +73,6 @@ lb:
               accepted: Ausreichend Unterschriften
               created: Erstellt
               discarded: Verworfen
-              published: Verëffentlecht
               rejected: Zu wenige Unterschriften
               validating: Technische Validierung
           type_id_eq:
@@ -211,7 +210,6 @@ lb:
         accepted: Ausreichend Unterschriften
         created: Erstellt
         discarded: Verworfen
-        published: Veröffentlicht
         rejected: Ungenügend Unterschriften
         validating: Technische Validierung
       application_helper:
@@ -367,7 +365,6 @@ lb:
           accepted: Ausreichend Unterschriften
           created: Erstellt
           discarded: Verworfen
-          published: Veröffentlicht
           rejected: Ungenügend Unterschriften
           validating: Technische Validierung
       states:

@@ -85,7 +85,7 @@ module Decidim
             [key, choices.map { |choice| choice&.body }]
           end
 
-          serialized_files_answer = files_answer.attachments.map(&:url)
+          serialized_files_blobs = files_answer.attachments.map(&:file).map(&:blob)
 
           expect(serialized).to include(
             "#{multichoice_question.position + 1}. #{translated(multichoice_question.body, locale: I18n.locale)}" => [multichoice_answer_choices.first.body, multichoice_answer_choices.last.body]
@@ -99,8 +99,8 @@ module Decidim
             "#{matrixmultiple_question.position + 1}. #{translated(matrixmultiple_question.body, locale: I18n.locale)}" => serialized_matrix_answer
           )
 
-          expect(serialized).to include(
-            "#{files_question.position + 1}. #{translated(files_question.body, locale: I18n.locale)}" => serialized_files_answer
+          expect(serialized["#{files_question.position + 1}. #{translated(files_question.body, locale: I18n.locale)}"]).to include_blob_urls(
+            *serialized_files_blobs
           )
         end
 

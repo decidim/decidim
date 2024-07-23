@@ -46,14 +46,14 @@ module Decidim
       #
       # Returns an Array of Strings.
       def available_locales
-        @available_locales ||= (current_organization || Decidim).public_send(:available_locales)
+        @available_locales ||= (current_organization || Decidim).available_locales
       end
 
       # The default locale of this organization.
       #
       # Returns a String with the default locale.
       def default_locale
-        @default_locale ||= (current_organization || Decidim).public_send(:default_locale)
+        @default_locale ||= (current_organization || Decidim).default_locale
       end
 
       # Detects the locale priority: query string, user saved, session, browser

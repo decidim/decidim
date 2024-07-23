@@ -128,7 +128,6 @@ uk:
       admin_states:
         created: Створені
         discarded: Відкинуті
-        published: Оприлюднено
         validating: Технічна перевірка
       application_helper:
         filter_state_values:

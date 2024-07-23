@@ -62,7 +62,7 @@ module Decidim
     #
     # Renders form fields for each locale.
     def translated(type, name, options = {})
-      return translated_one_locale(type, name, locales.first, options.merge(label: (options[:label] || label_for(name)))) if locales.count == 1
+      return translated_one_locale(type, name, locales.first, options.merge(label: options[:label] || label_for(name))) if locales.count == 1
 
       tabs_id = sanitize_tabs_selector(options[:tabs_id] || "#{object_name}-#{name}-tabs")
 
