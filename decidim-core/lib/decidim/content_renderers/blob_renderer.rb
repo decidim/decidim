@@ -56,12 +56,18 @@ module Decidim
       end
 
       def blob_url(blob, variation = nil)
-        url =
+        url = begin
           if variation
             blob.variant(variation).url
           else
             blob.url
           end
+        rescue ArgumentError
+          # ArgumentError is raised in case the blob's service is set to
+          # ActiveStorage::Service::DiskService and
+          # `ActiveStorage::Current.url_options` is unset.
+          raise URI::InvalidURIError
+        end
         raise URI::InvalidURIError if url.blank?
 
         url
