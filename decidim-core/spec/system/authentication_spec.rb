@@ -12,6 +12,10 @@ describe "Authentication" do
   end
 
   describe "Create an account" do
+    around do |example|
+      perform_enqueued_jobs { example.run }
+    end
+
     context "when using email and password" do
       it "creates a new User" do
         click_on("Create an account")
@@ -106,6 +110,23 @@ describe "Authentication" do
           expect_user_logged
         end
       end
+
+      it "sends a welcome notification" do
+        click_on("Create an account")
+
+        find(".login__omniauth-button.button--facebook").click
+        click_on "I agree with these terms"
+
+        within_user_menu do
+          click_on "Notifications"
+        end
+
+        within "#notifications" do
+          expect(page).to have_content("thanks for joining #{translated(organization.name)}")
+        end
+
+        expect(last_email_body).to include("thanks for joining #{translated(organization.name)}")
+      end
     end
 
     context "when using twitter" do
@@ -182,6 +203,23 @@ describe "Authentication" do
 
           expect_user_logged
         end
+
+        it "sends a welcome notification" do
+          click_on("Create an account")
+          find(".login__omniauth-button.button--x").click
+
+          click_on "I agree with these terms"
+
+          within_user_menu do
+            click_on "Notifications"
+          end
+
+          within "#notifications" do
+            expect(page).to have_content("thanks for joining #{translated(organization.name)}")
+          end
+
+          expect(last_email_body).to include("thanks for joining #{translated(organization.name)}")
+        end
       end
     end
 
@@ -217,6 +255,24 @@ describe "Authentication" do
         click_on "Log in with Google"
 
         expect_user_logged
+      end
+
+      it "sends a welcome notification" do
+        click_on("Create an account")
+
+        click_on "Log in with Google"
+
+        click_on "I agree with these terms"
+
+        within_user_menu do
+          click_on "Notifications"
+        end
+
+        within "#notifications" do
+          expect(page).to have_content("thanks for joining #{translated(organization.name)}")
+        end
+
+        expect(last_email_body).to include("thanks for joining #{translated(organization.name)}")
       end
     end
 
