@@ -42,7 +42,6 @@ module Decidim::ParticipatoryProcesses
 
     def stub_calls_to_external_files
       stub_get_request_with_format("http://localhost:3000/uploads/decidim/participatory_process/hero_image/1/city.jpeg", "image/jpeg")
-      stub_get_request_with_format("http://localhost:3000/uploads/decidim/participatory_process/banner_image/1/city2.jpeg", "image/jpeg")
     end
 
     shared_examples "import participatory_process succeeds" do

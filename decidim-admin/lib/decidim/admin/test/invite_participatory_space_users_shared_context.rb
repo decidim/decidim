@@ -18,6 +18,7 @@ shared_context "when inviting participatory space users" do
     fill_in "Email", with: email
     select role, from: "Role"
     click_on "Create"
+    expect(page).to have_content("successfully added")
     logout :user
   end
 

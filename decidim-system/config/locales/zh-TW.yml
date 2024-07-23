@@ -173,8 +173,6 @@ zh-TW:
           success: 組織已成功更新。
         users_registration_mode:
           disabled: 只能使用外部帳戶進行存取
-          enabled: 允許參與者註冊和登錄
-          existing: 不允許參與者註冊，但允許現有參與者登錄
       shared:
         notices:
           no_organization_warning_html: 你必須先建立一個組織才能開始。請確認在繼續前已閱讀 %{guide}。

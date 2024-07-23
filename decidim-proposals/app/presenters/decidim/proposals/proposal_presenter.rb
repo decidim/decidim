@@ -40,7 +40,7 @@ module Decidim
       def title(links: false, extras: true, html_escape: false, all_locales: false)
         return unless proposal
 
-        super proposal.title, links, html_escape, all_locales, extras:
+        super(proposal.title, links, html_escape, all_locales, extras:)
       end
 
       def id_and_title(links: false, extras: true, html_escape: false)

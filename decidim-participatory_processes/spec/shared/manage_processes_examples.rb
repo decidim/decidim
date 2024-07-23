@@ -110,7 +110,7 @@ shared_examples "manage processes examples" do
       fill_in_i18n(:participatory_process_participatory_scope, "#participatory_process-participatory_scope-tabs", **attributes[:participatory_scope].except("machine_translations"))
       fill_in_i18n(:participatory_process_participatory_structure, "#participatory_process-participatory_structure-tabs", **attributes[:participatory_structure].except("machine_translations"))
 
-      dynamically_attach_file(:participatory_process_banner_image, image3_path, remove_before: true)
+      dynamically_attach_file(:participatory_process_hero_image, image3_path, remove_before: true)
 
       fill_in_datepicker :participatory_process_end_date_date, with: Time.new.utc.strftime("%d/%m/%Y")
 

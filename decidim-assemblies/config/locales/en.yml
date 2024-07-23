@@ -51,7 +51,6 @@ en:
         scope_id: Scope
         scopes_enabled: Scopes enabled
         short_description: Short description
-        show_statistics: Show statistics
         slug: URL slug
         special_features: Special features
         subtitle: Subtitle

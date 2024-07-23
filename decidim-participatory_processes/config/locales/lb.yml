@@ -4,7 +4,6 @@ lb:
       participatory_process:
         announcement: Ukënnegung
         area_id: Bereich
-        banner_image: Banner-Bild
         copy_categories: Kategorien kopieren
         copy_components: Komponenten kopieren
         copy_steps: Phasen kopieren
@@ -27,8 +26,6 @@ lb:
         scope_type_max_depth_id: Umfang-Filtertiefe
         scopes_enabled: Themenbereiche aktiviert
         short_description: Kurzbeschreibung
-        show_metrics: Metriken anzeigen
-        show_statistics: Statistiken anzeigen
         slug: URL-Slug
         start_date: Ufanksdatum
         subtitle: Ënnertitel

@@ -36,7 +36,6 @@ module Decidim
             target: attributes["target"],
             participatory_scope: attributes["participatory_scope"],
             participatory_structure: attributes["participatory_structure"],
-            show_statistics: attributes["show_statistics"],
             scopes_enabled: attributes["scopes_enabled"],
             private_space: attributes["private_space"],
             reference: attributes["reference"],

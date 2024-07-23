@@ -49,7 +49,6 @@ sq:
         scope_id: Qëllimi
         scopes_enabled: Fushveprimet e aktivizuara
         short_description: Përshkrim i shkurtër
-        show_statistics: Trego statistikat
         slug: Identifikues URL-je
         special_features: Karaktersitika të veçanta
         subtitle: Nëntitull
@@ -197,7 +196,6 @@ sq:
           info: Rreth asamblesë
           landing_page: Faqja hyrëse
           moderations: Moderimet
-          private_users: Përdoruesit privatë
           see_assembly: Shiko asamblenë
         assemblies_types: Tipet e asambleve
       models:

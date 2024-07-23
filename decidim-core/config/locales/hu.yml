@@ -521,7 +521,6 @@ hu:
         name: Sub hero banner
     core:
       actions:
-        login_before_access: Kérjük, a hozzáférés előtt jelentkezzen be.
         unauthorized: Nem jogosult a művelet végrehajtására.
       application_helper:
         filter_area_values:
@@ -538,7 +537,6 @@ hu:
           complete_profile: Profil kiegészítése
           nickname_help: A beceneved itt %{organization} csak betűket, számokat '-' és '_' jeleket tartalmazhat.
           sign_up: Töltsd ki a hiányzó adatokat
-          subtitle: A regisztráció befejezéséhez töltsd ki a következő űrlapot
           username_help: Bejegyzésekben megjelenő nyilvános megnevezés. Az anonimitás megőrzése érdekében bármilyen név lehet.
       registrations:
         create:
@@ -548,8 +546,6 @@ hu:
           log_in: Bejelentkezés
           newsletter: Hírlevél fogadása a legfontosabb információkkal
           newsletter_title: Kapcsolatfelvételi engedély
-          sign_up: Regisztráció
-          subtitle: Jelentkezz be, hogy javaslatokat tudj megvitatni és támogatni.
           terms: szolgáltatási feltételek
           tos_agreement: A feliratkozással elfogadod a %{link}.
           tos_title: ÁSZF
@@ -559,7 +555,6 @@ hu:
           are_you_new?: Új vagy az oldalon?
           register: Hozz létre egy fiókot
           sign_in_disabled: Külső fiókkal férhet hozzá.
-          sign_up_disabled: A regisztráció le van tiltva, a hozzáféréshez használhat meglévő fiókot.
       shared:
         newsletter_modal:
           buttons:
@@ -831,6 +826,7 @@ hu:
           filename: Fájlnév
           remove: Eltávolítás
           replace: Csere
+          save: Mentés
           title: Cím
           title_required: A cím megadása kötelező!
           uploaded: Feltöltve
@@ -1214,7 +1210,6 @@ hu:
           headline: A %{organization} jelenlegi állapota
         sub_hero:
           register: Regisztráció
-          register_title: A fiók létrehozásához regisztráljon
       index:
         standalone_pages: Oldalak
         subheading: Navigáljon a %{name} súgó oldalán
@@ -1381,7 +1376,6 @@ hu:
         log_in_before_follow: Kérjük, a művelet végrehajtása előtt jelentkezzen be
       login_modal:
         please_log_in: Kérjük, jelentkezz be
-        sign_up: Regisztrálj
       mentions_modal:
         remove_recipient: '%{name} címzett eltávolítása'
       participatory_space_filters:
@@ -1501,7 +1495,6 @@ hu:
       locked: A fiókja zárolva van.
       not_found_in_database: Érvénytelen %{authentication_keys} vagy jelszó.
       timeout: A munkamenet lejárt. A folytatáshoz jelentkezz be újra.
-      unauthenticated: A folytatás előtt be kell jelentkeznie vagy regisztrálnia kell.
     invitations:
       edit:
         header: Profil létrehozásának befejezése
@@ -1587,8 +1580,6 @@ hu:
       updated_not_active: A jelszó sikeresen megváltozott.
     registrations:
       destroyed: Viszlát! Fiókját sikeresen töröltük. Reméljük, hamarosan újra találkozunk.
-      new:
-        sign_up: Regisztrálj
       signed_up: Üdvözöljük! Sikeresen regisztráltál.
       signed_up_but_inactive: Sikeresen regisztráltál. Azonban nem tudtunk bejelentkezni, mert fiókja még nincs aktiválva.
       signed_up_but_locked: Sikeresen regisztráltál. Azonban nem tudtunk bejelentkezni, mert fiókja zárolva van.
@@ -1609,7 +1600,6 @@ hu:
         forgot_your_password: Elfelejtette a jelszavát?
         log_in: Bejelentkezés
         log_in_with_provider: Bejelentkezés %{provider}-profillal
-        sign_up: Regisztrálj
       minimum_password_length:
         one: "(Legalább%{count} karakter)"
         other: "(Legalább%{count} karakter)"
@@ -1718,7 +1708,6 @@ hu:
       long_words: olyan szavakat tartalmaz, amelyek túl hosszúak (több mint 35 karakter)
       must_start_with_caps: nagybetűvel kell kezdenie
       nesting_too_deep: nem lehet alkategóriában belüli
-      not_found: nem található. Regisztráltál már korábban?
       not_locked: nem volt zárva
       not_saved:
         one: 'Hiba történt a kérelmed feldolgozásakor:'
@@ -1801,8 +1790,8 @@ hu:
         log_in: Bejelentkezés
         made_with_open_source: Az oldal <a target="_blank" href="https://github.com/decidim/decidim">nyílt forráskódú szoftverrel</a> készült.
         resources: Segédanyagok
-        sign_up: Regisztráció
       header:
+        log_in: Bejelentkezés
         main_menu: Főmenü
         user_menu: Felhasználói menü
       impersonation_warning:

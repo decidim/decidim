@@ -239,6 +239,14 @@ module Decidim
         app.config.action_mailer.deliver_later_queue_name = :mailers
       end
 
+      initializer "decidim_core.signed_global_id", after: "global_id" do |app|
+        next if app.config.global_id.fetch(:expires_in, nil).present?
+
+        config.after_initialize do
+          SignedGlobalID.expires_in = nil
+        end
+      end
+
       initializer "decidim_core.middleware" do |app|
         if app.config.public_file_server.enabled
           headers = app.config.public_file_server.headers || {}
@@ -373,8 +381,8 @@ module Decidim
         Decidim.stats.register :processes_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, start_at, end_at|
           processes = ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcesses.new(organization)
 
-          processes = processes.where("created_at >= ?", start_at) if start_at.present?
-          processes = processes.where("created_at <= ?", end_at) if end_at.present?
+          processes = processes.where(created_at: start_at..) if start_at.present?
+          processes = processes.where(created_at: ..end_at) if end_at.present?
           processes.count
         end
       end

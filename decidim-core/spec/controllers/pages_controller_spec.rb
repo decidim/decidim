@@ -66,7 +66,7 @@ module Decidim
             get :show, params: { id: page.slug }
 
             expect(response).to redirect_to("/users/sign_in")
-            expect(flash[:warning]).to include("Please, login with your account before access")
+            expect(flash[:warning]).to include("Please, log in with your account before access")
           end
         end
 

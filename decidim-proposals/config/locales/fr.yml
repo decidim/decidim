@@ -522,6 +522,7 @@ fr:
             publish: Publier
             publish_answers: Publier les réponses
             select_component: Sélectionnez un composant
+            select_valuators: Sélectionnez un ou plusieurs évaluateurs
             selected: choisi
             split: Fractionner la proposition
             split_button: Scinder

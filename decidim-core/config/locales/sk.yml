@@ -340,7 +340,6 @@ sk:
         new:
           complete_profile: Kompletné profil
           sign_up: Prosím, vyplňte svoj profil
-          subtitle: Pre dokončenie registrácie vyplňte prosím nasledujúci formulár
           username_help: Verejné meno, ktoré sa zobrazí vo vašich príspevkoch. S cieľom zaručiť anonymitu môže byť akékoľvek meno.
       registrations:
         new:
@@ -348,8 +347,6 @@ sk:
           log_in: Prihlásiť sa
           newsletter: Dostávajte príležitostný spravodajca s relevantnými informáciami
           newsletter_title: Povolenie kontaktu
-          sign_up: Zaregistrovať sa
-          subtitle: Registrujte sa, aby ste sa zúčastnili diskusií a návrhov podpory.
           tos_agreement: Prihlásením súhlasíte s%{link}.
           tos_title: Podmienky používania
           username_help: Verejné meno, ktoré sa zobrazí vo vašich príspevkoch. S cieľom zaručiť anonymitu to môže byť akékoľvek meno.
@@ -847,8 +844,6 @@ sk:
         title: Nahlásiť problém
       floating_help:
         help: Pomoc
-      login_modal:
-        sign_up: Prihlásiť sa
       participatory_space_filters:
         filters:
           areas: Oblasti
@@ -964,8 +959,6 @@ sk:
       updated_not_active: Vaše heslo bolo úspešne zmenené.
     registrations:
       destroyed: Zbohom! Váš účet bol úspešne zrušený. Dúfame, že vás čoskoro uvidíme.
-      new:
-        sign_up: Prihlásiť sa
       signed_up: Vitajte! Úspešne ste sa zaregistrovali.
       signed_up_but_inactive: Úspešne ste sa zaregistrovali. Nemohli sme vás však prihlásiť, pretože váš účet ešte nie je aktivovaný.
       signed_up_but_locked: Úspešne ste sa zaregistrovali. Nemohli sme vás však prihlásiť, pretože váš účet je uzamknutý.
@@ -980,7 +973,6 @@ sk:
         back: Späť
         forgot_your_password: Zabudli ste heslo?
         log_in: Prihlásiť sa
-        sign_up: Prihlásiť sa
       minimum_password_length:
         one: "(Minimálne %{count} znakov)"
         few: "(Minimálne %{count} znakov)"
@@ -1003,7 +995,6 @@ sk:
       invalid_time_zone: nie je platná časová zóna
       long_words: obsahuje slová, ktoré sú príliš dlhé (cez 35 znakov)
       must_start_with_caps: musí začínať veľkým písmenom
-      not_found: nemôže byť nájdené. Zaregistrovali ste sa predtým?
       not_locked: nebola zamknutá
       not_saved:
         one: 'Pri spracovaní vašej požiadavky došlo k chybe:'
@@ -1029,7 +1020,8 @@ sk:
         download_open_data: Stiahnite si súbory s otvorenými dátami
         log_in: Prihlásiť sa
         made_with_open_source: Webová stránka vytvorená s <a target="_blank" href="https://github.com/decidim/decidim"> slobodným softvérom </a>.
-        sign_up: Registrovať
+      header:
+        log_in: Prihlásiť sa
       impersonation_warning:
         close_session: Zatvoriť sedenie
         description_html: Spravujete účastníka <b>%{user_name} </ b>.
