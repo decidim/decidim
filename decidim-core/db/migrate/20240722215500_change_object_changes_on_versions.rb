@@ -28,6 +28,8 @@ class ChangeObjectChangesOnVersions < ActiveRecord::Migration[6.1]
     end
 
     remove_column :versions, :old_object_changes
+
+    PaperTrail::Version.reset_column_information
   end
 
   def down
