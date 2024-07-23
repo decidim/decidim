@@ -32,7 +32,7 @@ module Decidim
           end
 
           on(:invalid) do
-            set_flash_message :notice, :success, kind: @form.provider.capitalize
+            flash[:alert] = t("decidim.devise.omniauth_registrations.create.invalid")
             render :new
           end
 

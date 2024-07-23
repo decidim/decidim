@@ -19,6 +19,7 @@ module Decidim
     # Returns nothing.
     def call
       verify_oauth_signature!
+      return broadcast(:invalid) if form.invalid?
 
       begin
         if existing_identity

@@ -582,6 +582,7 @@ en:
       omniauth_registrations:
         create:
           email_already_exists: Another account is using the same email address.
+          invalid: There was an error with your account creation.
         new:
           complete_profile: Complete profile
           nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
