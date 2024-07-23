@@ -15,7 +15,17 @@ module Decidim
 
           context "when no users are mentioned" do
             it "nobody gets notified" do
-              expect(Decidim::EventsManager).not_to receive(:publish)
+              expect(Decidim::EventsManager)
+                .to receive(:publish)
+                .once
+                .ordered
+                .with(
+                  event: "decidim.events.proposals.admin.proposal_note_created",
+                  event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
+                  resource: proposal,
+                  affected_users: a_collection_containing_exactly(valuator),
+                  extra: { note_author_id: form.current_user.id }
+                )
 
               command.call
             end
@@ -24,8 +34,18 @@ module Decidim
           context "when author is the only mentioned" do
             let(:body) { body_with_mentions(current_user) }
 
-            it "nobody gets notified" do
-              expect(Decidim::EventsManager).not_to receive(:publish)
+            it "only valuators gets notified" do
+              expect(Decidim::EventsManager)
+                .to receive(:publish)
+                .once
+                .ordered
+                .with(
+                  event: "decidim.events.proposals.admin.proposal_note_created",
+                  event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
+                  resource: proposal,
+                  affected_users: a_collection_containing_exactly(valuator),
+                  extra: { note_author_id: form.current_user.id }
+                )
 
               command.call
             end
@@ -49,13 +69,37 @@ module Decidim
 
               command.call
             end
+
+            it "valuators do not receive proposal note creation notification if mentioned" do
+              expect(Decidim::EventsManager)
+                .not_to receive(:publish)
+                .with(
+                  event: "decidim.events.proposals.admin.proposal_note_created",
+                  event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
+                  resource: proposal,
+                  affected_users: a_collection_containing_exactly(valuator),
+                  extra: { note_author_id: form.current_user.id }
+                )
+
+              command.call
+            end
           end
 
           context "when not affected users are mentioned" do
             let(:body) { body_with_mentions(normal_user, other_participatory_space_admin, other_proposal_valuator) }
 
-            it "they are not notified" do
-              expect(Decidim::EventsManager).not_to receive(:publish)
+            it "only the valuators are notified" do
+              expect(Decidim::EventsManager)
+                .to receive(:publish)
+                .once
+                .ordered
+                .with(
+                  event: "decidim.events.proposals.admin.proposal_note_created",
+                  event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
+                  resource: proposal,
+                  affected_users: a_collection_containing_exactly(valuator),
+                  extra: { note_author_id: form.current_user.id }
+                )
 
               command.call
             end
