@@ -163,7 +163,6 @@ describe "Decidim::Api::QueryType" do
       "developerGroup" => { "translation" => participatory_process.developer_group[locale] },
       "endDate" => participatory_process.end_date.to_s,
       "hashtag" => "",
-      "heroImage" => participatory_process.attached_uploader(:hero_image).path.sub(Rails.public_path.to_s, ""),
       "id" => participatory_process.id.to_s,
       "linkedParticipatorySpaces" => [],
       "localArea" => { "translation" => participatory_process.local_area[locale] },
@@ -197,10 +196,14 @@ describe "Decidim::Api::QueryType" do
 
   describe "valid query" do
     it "executes successfully" do
-      expect { response }.not_to raise_error(StandardError)
+      expect { response }.not_to raise_error
     end
 
-    it { expect(response["participatoryProcess"]).to eq(participatory_process_response) }
+    it "returns the correct response" do
+      data = response["participatoryProcess"]
+      expect(data).to include(participatory_process_response)
+      expect(data["heroImage"]).to be_blob_url(participatory_process.hero_image.blob)
+    end
 
     it_behaves_like "implements stats type" do
       let(:participatory_process_query) do
