@@ -32,6 +32,8 @@ end
 
 1.step do
   port = rand(5000..6999)
+  next if port == 6379 # Reserved for Redis
+
   begin
     redis = Redis.new
     reserved_ports = (redis.get("decidim_test_capybara_reserved_ports") || "").split(",").map(&:to_i)
