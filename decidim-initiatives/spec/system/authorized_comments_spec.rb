@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Authorized comments" do
   let!(:initiative_type) { create(:initiatives_type, :online_signature_enabled, organization:) }
   let!(:scoped_type) { create(:initiatives_type_scope, type: initiative_type) }
-  let(:commentable) { create(:initiative, :published, author:, scoped_type:, organization:) }
+  let(:commentable) { create(:initiative, author:, scoped_type:, organization:) }
   let!(:author) { create(:user, :confirmed, organization:) }
   let!(:user) { create(:user, :confirmed, organization:) }
   let!(:comments) { create_list(:comment, 3, commentable:) }

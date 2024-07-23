@@ -520,6 +520,7 @@ eu:
             publish: Argitaratu
             publish_answers: Argitaratu erantzunak
             select_component: Hautatu osagaia
+            select_valuators: Hautatu ebaluatzaile bat edo gehiago
             selected: hautatutako
             split: Proposamen zatituak
             split_button: Zatitu

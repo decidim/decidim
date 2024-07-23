@@ -10,7 +10,7 @@ module Decidim::Initiatives
 
     let(:my_cell) { cell("decidim/initiatives/initiative_g", initiative, context: { show_space: }) }
     let(:cell_html) { my_cell.call }
-    let(:state) { :published }
+    let(:state) { :open }
     let(:organization) { create(:organization) }
     let!(:initiative) { create(:initiative, organization:, hashtag: "my_hashtag", state:) }
     let(:user) { create(:user, organization: initiative.organization) }

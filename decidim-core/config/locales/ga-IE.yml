@@ -101,7 +101,6 @@ ga:
       registrations:
         new:
           log_in: Logáil isteach
-          sign_up: Cláraigh
       shared:
         omniauth_buttons:
           or: Nó
@@ -186,7 +185,6 @@ ga:
           register: Cláraigh
         sub_hero:
           register: Cláraigh
-          register_title: Cláraigh le cuntas a chruthú
       index:
         standalone_pages: Leathanaigh
         title: Cabhair
@@ -246,8 +244,6 @@ ga:
         report: Tuairiscigh
       floating_help:
         help: Cabhair
-      login_modal:
-        sign_up: Cláraigh
       participatory_space_filters:
         filters:
           areas: Ceantair
@@ -273,9 +269,6 @@ ga:
     invitations:
       edit:
         submit_button: Sábháil
-    registrations:
-      new:
-        sign_up: Cláraigh
     sessions:
       new:
         log_in: Logáil isteach
@@ -283,7 +276,6 @@ ga:
       links:
         back: Ar Ais
         log_in: Logáil isteach
-        sign_up: Cláraigh
   layouts:
     decidim:
       data_consent:
@@ -294,7 +286,8 @@ ga:
         edit: Eagar
       footer:
         log_in: Logáil isteach
-        sign_up: Cláraigh
+      header:
+        log_in: Logáil isteach
       user_profile:
         account: Cuntas
         my_data: Mo chuid sonraí

@@ -383,7 +383,6 @@
           complete_profile: Fullfør profilen
           nickname_help: Ditt alias i %{organization}, kan bare inneholde bokstaver, tall, '-' og '_'.
           sign_up: Vennligs fullfør profilen din
-          subtitle: Vennligst fyll ut det følgende skjemaet for å fullføre registreringen
           username_help: Navnet du skriver her vil vises i alle innleggene dine. Du kan enten skrive både fornavn og etternavn, eller bare fore fornavnet ditt, hvis du ikke har lyst til å oppgi fullt navn.
       registrations:
         new:
@@ -391,8 +390,6 @@
           log_in: Logg inn
           newsletter: Motta et sporadisk nyhetsbrev med relevant informasjon
           newsletter_title: Kontakt tillatelse
-          sign_up: Registrer deg
-          subtitle: Registrer deg for å delta i diskusjoner og medvirkningsprosesser.
           tos_agreement: Ved å registrere deg godtar du til %{link}.
           tos_title: Vilkår for bruk
           username_help: Navnet du skriver her vil vises i alle innleggene dine. Du kan enten skrive både fornavn og etternavn, eller bare fore fornavnet ditt, hvis du ikke har lyst til å oppgi fullt navn.
@@ -891,7 +888,6 @@
           headline: Nåværende status for %{organization}
         sub_hero:
           register: Registrer deg
-          register_title: Registrer deg for å opprette en konto
       index:
         standalone_pages: Sider
         subheading: Naviger gjennom hjelpesidene til %{name}
@@ -1018,8 +1014,6 @@
         title: Rapporter upassende bruker
       floating_help:
         help: Hjelp
-      login_modal:
-        sign_up: Registrer deg
       participatory_space_filters:
         filters:
           areas: Områder
@@ -1186,8 +1180,6 @@
       updated_not_active: Passordet ditt er blitt endret.
     registrations:
       destroyed: Din konto er lukket. Vi håper å se deg igjen snart.
-      new:
-        sign_up: Registrer deg
       signed_up: Velkommen! Din registrering er fullført. Husk å bekrefte epostadressen din via mailen vi har sendt deg.
       signed_up_but_inactive: Du er registrert, men vi kan ikke logge deg på fordi kontoen ikke er aktivert ennå.
       signed_up_but_locked: Du er registrert, men vi kan ikke logge deg på fordi kontoen din er låst.
@@ -1202,7 +1194,6 @@
         back: Tilbake
         forgot_your_password: Glemt ditt passord?
         log_in: Logg inn
-        sign_up: Registrer deg
       minimum_password_length:
         one: "(%{count} karakter minimum)"
         other: "(%{count} karakterer minimum)"
@@ -1223,7 +1214,6 @@
       invalid_time_zone: er ikke en gyldig tidssone
       long_words: inneholder ord som er for lange (over 35 tegn)
       must_start_with_caps: må starte med en stor bokstav
-      not_found: kunne ikke bli funnet. Har du registrert deg tidligere?
       not_locked: var ikke låst
       not_saved:
         one: 'Det oppstod en feil under behandling av forespørselen din:'
@@ -1255,8 +1245,8 @@
         download_open_data: Last ned Åpen Data filer
         log_in: Logg inn
         made_with_open_source: Nettsted laget med <a target="_blank" href="https://github.com/decidim/decidim">fri programvare</a>.
-        sign_up: Registrer deg
       header:
+        log_in: Logg inn
         main_menu: Hovedmeny
         user_menu: Brukermeny
       impersonation_warning:

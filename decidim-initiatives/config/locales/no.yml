@@ -73,7 +73,6 @@
               accepted: Nok signaturer
               created: Opprettet
               discarded: Forkastet
-              published: Publisert
               rejected: Ikke nok signaturer
               validating: Teknisk validering
           type_id_eq:
@@ -268,7 +267,6 @@
         accepted: Nok signaturer
         created: Opprettet
         discarded: Forkastet
-        published: Publisert
         rejected: Ikke nok signaturer
         validating: Teknisk validering
       application_helper:
@@ -472,7 +470,6 @@
           accepted: Nok signaturer
           created: Opprettet
           discarded: Forkastet
-          published: Publisert
           rejected: Ikke nok signaturer
           validating: Teknisk validering
       states:

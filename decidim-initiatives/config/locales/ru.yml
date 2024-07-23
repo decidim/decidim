@@ -128,7 +128,6 @@ ru:
       admin_states:
         created: Созданные
         discarded: Отброшенные
-        published: Обнародовано
         validating: Техническая проверка
       application_helper:
         filter_state_values:

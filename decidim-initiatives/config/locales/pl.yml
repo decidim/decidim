@@ -97,7 +97,6 @@ pl:
               accepted: Wystarczająca liczba podpisów
               created: Utworzono
               discarded: Odrzucono
-              published: Opublikowano
               rejected: Niewystarczająca liczba podpisów
               validating: Walidacja techniczna
           type_id_eq:
@@ -242,6 +241,10 @@ pl:
               most_recent: Najnowsze
         exports:
           initiatives: Inicjatywy
+        index:
+          initiatives_types:
+            alert_html: "<p>Musisz utworzyć co najmniej jeden typ inicjatywy, aby uczestnicy mogli rozpocząć tworzenie inicjatyw.</p><p> %{link}</p>"
+            button: Nowy typ inicjatywy
         initiatives:
           edit:
             accept: Akceptuj inicjatywę
@@ -297,7 +300,7 @@ pl:
         initiatives_types:
           create:
             error: Wystąpił błąd.
-            success: Utworzono nowy typ inicjatywy.
+            success: Nowy typ inicjatywy został pomyślnie utworzony. Musisz zdefiniować co najmniej jeden zakres dla tego typu inicjatywy, aby można go było użyć.
           destroy:
             success: Typ inicjatywy został usunięty.
           edit:
@@ -331,7 +334,6 @@ pl:
         accepted: Wystarczająca liczba podpisów
         created: Utworzono
         discarded: Odrzucono
-        published: Opublikowano
         rejected: Niewystarczająca liczba podpisów
         validating: Weryfikacja techniczna
       application_helper:
@@ -590,7 +592,6 @@ pl:
           accepted: Wystarczająca liczba podpisów
           created: Utworzone
           discarded: Odrzucone
-          published: Opublikowane
           rejected: Niewystarczająca liczba podpisów
           validating: Walidacja techniczna
       states:

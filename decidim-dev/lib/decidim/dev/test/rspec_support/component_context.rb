@@ -22,7 +22,7 @@ end
 
 shared_context "with a component" do
   let(:manifest) { Decidim.find_component_manifest(manifest_name) }
-  let(:user) { create :user, :confirmed, organization: }
+  let(:user) { create(:user, :confirmed, organization:) }
 
   let!(:organization) { create(:organization, *organization_traits, available_authorizations: %w(dummy_authorization_handler another_dummy_authorization_handler)) }
 
@@ -38,8 +38,8 @@ shared_context "with a component" do
            participatory_space:)
   end
 
-  let!(:category) { create :category, participatory_space: }
-  let!(:scope) { create :scope, organization: }
+  let!(:category) { create(:category, participatory_space:) }
+  let!(:scope) { create(:scope, organization:) }
 
   let(:organization_traits) { [] }
 
@@ -91,10 +91,10 @@ shared_context "when managing a component as an admin" do
   let(:admin_component_organization_traits) { [] }
 
   let(:user) do
-    create :user,
+    create(:user,
            :admin,
            :confirmed,
-           organization:
+           organization:)
   end
 end
 
@@ -102,9 +102,9 @@ shared_context "when managing a component as a process admin" do
   include_context "when managing a component"
 
   let(:user) do
-    create :process_admin,
+    create(:process_admin,
            :confirmed,
            organization:,
-           participatory_process:
+           participatory_process:)
   end
 end

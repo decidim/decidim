@@ -51,7 +51,6 @@ module Decidim
         attribute :is_transparent, Boolean
         attribute :promoted, Boolean
         attribute :private_space, Boolean
-        attribute :show_statistics, Boolean
         attribute :scopes_enabled, Boolean
 
         attribute :closing_date, Decidim::Attributes::LocalizedDate

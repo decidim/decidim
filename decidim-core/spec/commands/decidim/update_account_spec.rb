@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe UpdateAccount do
-    let(:command) { described_class.new(user, form) }
+    let(:command) { described_class.new(form) }
     let(:user) { create(:user, :confirmed, password: user_password) }
     let(:user_password) { "decidim1234567890" }
     let(:data) do

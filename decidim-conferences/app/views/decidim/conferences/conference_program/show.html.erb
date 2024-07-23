@@ -1,4 +1,6 @@
-<% add_decidim_meta_tags(title: t("conference_program.index.title", scope: "decidim"), resource: meeting_component) %>
+<% add_decidim_meta_tags(
+  title: t("conference_program.index.title", scope: "decidim"),
+  resource: meeting_component) %>
 <%
 if respond_to?(:meeting_component) && meeting_component
   edit_link(

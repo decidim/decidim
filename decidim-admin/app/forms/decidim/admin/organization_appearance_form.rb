@@ -30,9 +30,6 @@ module Decidim
       attribute :primary_color, String
       attribute :secondary_color, String
       attribute :tertiary_color, String
-      attribute :success_color, String
-      attribute :warning_color, String
-      attribute :alert_color, String
 
       translatable_attribute :cta_button_text, String
       translatable_attribute :description, String

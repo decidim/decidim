@@ -49,6 +49,7 @@ module Decidim
         blob = blob_from_attached_file(resource.send(image_name))
         return blob if blob.present?
       end
+
       nil
     end
 
@@ -110,6 +111,7 @@ module Decidim
           end
         end
       end
+
       nil
     end
 

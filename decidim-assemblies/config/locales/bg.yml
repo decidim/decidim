@@ -50,7 +50,6 @@ bg:
         scope_id: Обхват
         scopes_enabled: Обхватите са активирани
         short_description: Кратко описание
-        show_statistics: Покажи статистиката
         slug: Съкратен URL
         special_features: Специални функции
         subtitle: Подзаглавие
@@ -209,7 +208,6 @@ bg:
           info: Относно това събрание
           landing_page: Целева страница
           moderations: Модерации
-          private_users: Частни потребители
           see_assembly: Вижте събранието
         assemblies_types: Типове събрания
       models:

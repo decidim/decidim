@@ -47,7 +47,6 @@ module Decidim::Assemblies
             scope: my_assembly.scope,
             area: my_assembly.area,
             errors: my_assembly.errors,
-            show_statistics: my_assembly.show_statistics,
             participatory_processes_ids: participatory_processes.map(&:id),
             purpose_of_action: my_assembly.purpose_of_action,
             composition: my_assembly.composition,

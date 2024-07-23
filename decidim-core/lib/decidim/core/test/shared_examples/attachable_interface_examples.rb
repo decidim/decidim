@@ -10,7 +10,7 @@ shared_examples_for "attachable interface" do
 
     it "includes the attachment urls" do
       attachment_urls = response["attachments"].map { |attachment| attachment["url"] }
-      expect(attachment_urls).to include(*attachments.map(&:url))
+      expect(attachment_urls).to include_blob_urls(*attachments.map(&:file).map(&:blob))
     end
   end
 end

@@ -24,7 +24,7 @@ describe "Registration" do
   context "when signing up" do
     describe "on first sight" do
       it "shows fields empty" do
-        expect(page).to have_content("Sign up to participate")
+        expect(page).to have_content("Create an account to participate")
         expect(page).to have_field("registration_user_name", with: "")
         expect(page).to have_field("registration_user_email", with: "")
         expect(page).to have_field("registration_user_password", with: "")

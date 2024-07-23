@@ -50,7 +50,6 @@ fr-CA:
         scope_id: Périmètre d'application
         scopes_enabled: Périmètres d'application activés
         short_description: Résumé
-        show_statistics: Afficher les statistiques
         slug: Identifiant
         special_features: Particularités
         subtitle: Sous-titre
@@ -209,7 +208,7 @@ fr-CA:
           info: À propos de cette assemblée
           landing_page: Page d'accueil
           moderations: Modérations
-          private_users: Utilisateurs privés
+          private_users: Participants privés
           see_assembly: Voir l'assemblée
         assemblies_types: Types d'assemblée
       models:

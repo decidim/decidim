@@ -50,7 +50,6 @@ hu:
         scope_id: Hatáskör
         scopes_enabled: Hatáskörök engedélyezve
         short_description: Rövid leírás
-        show_statistics: Statisztikák megjelenítése
         slug: URL slug
         special_features: Speciális funkciók
         subtitle: Felirat
@@ -206,7 +205,6 @@ hu:
           info: Erről a gyűlésről
           landing_page: Landing oldal
           moderations: Moderálás
-          private_users: Privát felhasználók
           see_assembly: A gyűlés megtekintése
         assemblies_types: Gyűlés típusa
       models:

@@ -44,7 +44,7 @@ describe "Locales" do
 
       visit decidim_admin.root_path
 
-      expect(page).to have_content("Cal iniciar sessió o registrar-te abans de continuar.")
+      expect(page).to have_content("Cal iniciar sessió o crear un compte abans de continuar.")
     end
 
     it "displays devise messages with the right locale when authentication fails" do
@@ -60,7 +60,7 @@ describe "Locales" do
         click_on "Entra"
       end
 
-      expect(page).to have_content("Email o la contrasenya no són vàlids.")
+      expect(page).to have_content("El Correu electrònic o la contrasenya no són vàlids.")
     end
 
     context "with a signed in user" do

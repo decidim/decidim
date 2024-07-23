@@ -91,7 +91,6 @@ es-PY:
               accepted: Con las firmas necesarias
               created: Creada
               discarded: Descartada
-              published: Publicada
               rejected: No ha conseguido las firmas necesarias
               validating: Validación técnica
           type_id_eq:
@@ -236,6 +235,10 @@ es-PY:
               most_recent: Más recientes
         exports:
           initiatives: Iniciativas
+        index:
+          initiatives_types:
+            alert_html: "<p>Tienes que crear por lo menos un tipo de iniciativa para que las participantes puedan empezar a crear sus iniciativas.</p><p>%{link}</p>"
+            button: Nuevo tipo de iniciativa
         initiatives:
           edit:
             accept: Aceptar iniciativa
@@ -291,7 +294,7 @@ es-PY:
         initiatives_types:
           create:
             error: Se ha producido un error.
-            success: Se ha creado correctamente un nuevo tipo de iniciativa.
+            success: Un nuevo tipo de iniciativa ha sido creado con éxito. Necesitas definir al menos un ámbito para este tipo de iniciativa para que se pueda utilizar.
           destroy:
             success: El tipo de iniciativa se ha eliminado correctamente.
           edit:
@@ -325,7 +328,6 @@ es-PY:
         accepted: Ha conseguido las firmas
         created: Creado
         discarded: Descartado
-        published: Publicado
         rejected: No ha conseguido las firmas necesarias
         validating: Validación técnica
       application_helper:
@@ -461,7 +463,7 @@ es-PY:
             other: y %{count} personas más
         committee_members:
           approve: Aprobar
-          confirm_approve: '¿Seguro que quieres añadir este miembro?'
+          confirm_approve: '¿Seguro que quieres añadir a este miembro?'
           confirm_revoke: '¿Seguro que quieres revocar este miembro?'
           invite_to_committee_help: Comparte este enlace para invitar a otras participantes a la comisión promotora.
           link: Enlace
@@ -574,7 +576,6 @@ es-PY:
           accepted: Con las firmas necesarias
           created: Creada
           discarded: Descartada
-          published: Publicada
           rejected: No ha conseguido las firmas
           validating: Validación técnica
       states:
