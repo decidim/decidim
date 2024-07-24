@@ -214,5 +214,11 @@ module Decidim
          promoted published_at reference scopes_enabled short_description show_metrics show_statistics slug start_date subtitle
          target title updated_at weight)
     end
+
+    def self.ransackable_associations(_auth_object = nil)
+      %w(active_step area attachment_collections attachments categories components followers follows hero_image_attachment hero_image_blob
+         organization participatory_process_group participatory_process_type participatory_space_private_users
+         participatory_space_resource_links_from participatory_space_resource_links_to scope scope_type_max_depth searchable_resources steps users versions)
+    end
   end
 end

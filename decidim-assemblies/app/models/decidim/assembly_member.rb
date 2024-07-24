@@ -35,5 +35,9 @@ module Decidim
       %w(birthday birthplace ceased_date created_at decidim_assembly_id decidim_user_id designation_date full_name gender id position
          position_other updated_at weight)
     end
+
+    def self.ransackable_associations(_auth_object = nil)
+      %w(assembly non_user_avatar_attachment non_user_avatar_blob user versions)
+    end
   end
 end

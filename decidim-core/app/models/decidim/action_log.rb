@@ -165,6 +165,11 @@ module Decidim
       base + [:with_participatory_space]
     end
 
+    def self.ransackable_attributes(_auth_object = nil)
+      %w(action created_at decidim_area_id decidim_component_id decidim_organization_id decidim_scope_id decidim_user_id extra id
+         participatory_space_id participatory_space_type resource_id resource_type updated_at version_id visibility)
+    end
+
     # Overwrites the method so that records cannot be modified.
     #
     # Returns a Boolean.
