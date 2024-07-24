@@ -308,11 +308,11 @@ en:
             close: Close
             title: Close meeting
         meetings:
-          component:
-            unlink: Unlink
           close:
             invalid: There was a problem closing this meeting.
             success: Meeting successfully closed.
+          component:
+            unlink: Unlink
           create:
             invalid: There was a problem creating this meeting.
             success: Meeting successfully created. Notice this is unpublished yet, you need to manually publish it.
