@@ -159,6 +159,18 @@ module Decidim
       Decidim::Initiatives::AdminLog::InitiativePresenter
     end
 
+    def self.ransackable_attributes(_auth_object = nil)
+      %w(answer answer_url answered_at author_name author_nickname comments_count created_at decidim_area_id decidim_author_id decidim_author_type
+         decidim_organization_id decidim_user_group_id description first_progress_notification_at follows_count hashtag id id_string offline_votes
+         online_votes published_at reference scoped_type_id search_text second_progress_notification_at signature_end_date signature_start_date
+         signature_type state supports_count title type_id updated_at)
+    end
+
+    def self.ransackable_associations(_auth_object = nil)
+      %w(area attachment_collections attachments author categories comment_threads comments committee_members components followers follows
+         organization resource_links_from resource_links_to resource_permission scope scoped_type searchable_resources user_group versions votes)
+    end
+
     def self.ransackable_scopes(_auth_object = nil)
       [:with_any_state, :with_any_type, :with_any_scope, :with_any_area]
     end

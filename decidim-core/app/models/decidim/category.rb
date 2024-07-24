@@ -47,6 +47,10 @@ module Decidim
     # Allow ransacker to search for a key in a hstore column (`name`.`en`)
     ransacker_i18n :name
 
+    def self.ransackable_attributes(_auth_object = nil)
+      %w(decidim_participatory_space_id decidim_participatory_space_type description id name parent_id weight)
+    end
+
     private
 
     # This is done since we only allow one level of subcategories.

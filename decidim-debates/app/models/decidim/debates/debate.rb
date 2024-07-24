@@ -213,6 +213,12 @@ module Decidim
         DebateSearch.new(self, params, options)
       end
 
+      def self.ransackable_attributes(_auth_object = nil)
+        %w(closed_at comments_count comments_enabled conclusions created_at decidim_author_id decidim_author_type decidim_component_id decidim_scope_id
+           decidim_user_group_id description end_time endorsements_count follows_count id image information_updates instructions last_comment_at
+           last_comment_by_id last_comment_by_type reference search_text start_time title updated_at)
+      end
+
       private
 
       def comments_blocked?

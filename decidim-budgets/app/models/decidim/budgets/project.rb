@@ -141,6 +141,16 @@ module Decidim
       def self.ransackable_scopes(_auth_object = nil)
         [:with_any_status, :with_any_scope, :with_any_category]
       end
+
+      def self.ransackable_attributes(_auth_object = nil)
+        %w(address budget_amount comments_count confirmed_orders_count created_at decidim_budgets_budget_id decidim_scope_id description follows_count
+           id id_string latitude longitude reference search_text selected selected_at title updated_at)
+      end
+
+      def self.ransackable_associations(_auth_object = nil)
+        %w(attachment_collections attachments budget categorization category comment_threads comments component followers follows line_items
+           orders resource_links_from resource_links_to resource_permission scope searchable_resources versions)
+      end
     end
   end
 end
