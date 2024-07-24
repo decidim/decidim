@@ -191,10 +191,8 @@ zh-TW:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: 有人在提案「%{resource_title}」上留了一則留言。在<a href="%{admin_proposal_info_url}">管理員面板</a>檢查它。
             email_outro: 您收到此通知，因為您可以對提案進行評估。
             email_subject: 有人在提案 %{resource_title} 上留下了一則註記。
-            notification_title: 有人在提案「<a href="%{resource_path}">%{resource_title}</a>」上留了一則留言。請至<a href="%{admin_proposal_info_path}">管理面板</a>查看。
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} 已經被接受成為 <a href="%{resource_url}">%{resource_title}</a> 協作草稿的貢獻者。'
           email_outro: 您收到此通知，是因為您是 <a href="%{resource_url}">%{resource_title}</a> 的協作者。
@@ -395,7 +393,6 @@ zh-TW:
           form:
             note: 附註
             submit: 提交
-          leave_your_note: 留下您的註記
           title: 私有注解
         proposals:
           answer:
