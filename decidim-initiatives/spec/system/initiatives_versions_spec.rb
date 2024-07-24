@@ -132,5 +132,13 @@ describe "Explore versions", versioning: true, type: :system do
         end
       end
     end
+
+    context "when the version number is malformed" do
+      it "displays the page correctly" do
+        visit %{#{current_path}'XSS<script>alert('version')<%2Fscript>}
+
+        expect(page).to have_content("VERSION NUMBER\n2 out of 2")
+      end
+    end
   end
 end
