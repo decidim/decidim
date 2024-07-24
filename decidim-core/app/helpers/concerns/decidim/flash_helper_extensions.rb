@@ -28,7 +28,7 @@ module Decidim
             next if ignored_key?(key.to_sym)
 
             alert_class = key_matching[key.to_sym]
-            concat alert_box(value.try(:html_safe), alert_class, closable)
+            concat alert_box(value, alert_class, closable)
           end
         end
       end
@@ -106,11 +106,11 @@ module Decidim
       end
 
       def message(value)
-        return content_tag(:div, value, class: "flash__message flex items-center") unless value.is_a?(Hash)
+        return content_tag(:div, value.try(:html_safe), class: "flash__message flex items-center") unless value.is_a?(Hash)
 
         content_tag(:div, class: "flash__message") do
-          concat value[:title]
-          concat content_tag(:span, value[:body], class: "flash__message-body")
+          concat value[:title].try(:html_safe)
+          concat content_tag(:span, value[:body].try(:html_safe), class: "flash__message-body")
         end
       end
     end

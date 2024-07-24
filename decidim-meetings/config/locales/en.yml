@@ -323,7 +323,7 @@ en:
                 other: The meeting cannot be destroyed because it has %{count} proposals associated to it.
             success: Meeting successfully deleted
           edit:
-            redirect_notice: You have been redirected to a different space
+            redirect_notice: This meeting is part of another space, so you have been moved to %{destiny_space_name}. <br>If you prefer, you can go back to <a href="%{original_space_url}">%{original_space_name}</a>.
             title: Edit meeting
             update: Update
           form:
