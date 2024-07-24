@@ -277,7 +277,6 @@ lv:
           form:
             note: Piezīme
             submit: Iesniegt
-          leave_your_note: Atstājiet savu piezīmi
           title: Privātas piezīmes
         proposals:
           edit:
