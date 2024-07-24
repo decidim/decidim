@@ -85,11 +85,10 @@ PATH
       omniauth-google-oauth2 (~> 1.0)
       omniauth-rails_csrf_protection (~> 1.0)
       omniauth-twitter (~> 1.4)
-      paper_trail (~> 12.0)
+      paper_trail (~> 15.1)
       pg (~> 1.4.0, < 2)
       pg_search (~> 2.2)
       premailer-rails (~> 1.10)
-      psych (~> 4.0)
       rack (~> 2.2, >= 2.2.8.1)
       rack-attack (~> 6.0)
       rails (~> 7.0.8)
@@ -548,9 +547,9 @@ GEM
       rack
     openssl (3.2.0)
     orm_adapter (0.5.0)
-    paper_trail (12.3.0)
-      activerecord (>= 5.2)
-      request_store (~> 1.1)
+    paper_trail (15.1.0)
+      activerecord (>= 6.1)
+      request_store (~> 1.4)
     parallel (1.24.0)
     parallel_tests (4.4.0)
       parallel
@@ -569,8 +568,6 @@ GEM
       actionmailer (>= 3)
       net-smtp
       premailer (~> 1.7, >= 1.7.9)
-    psych (4.0.6)
-      stringio
     public_suffix (6.0.1)
     puma (6.4.2)
       nio4r (~> 2.0)
@@ -745,7 +742,6 @@ GEM
     spring-watcher-listen (2.1.0)
       listen (>= 2.7, < 4.0)
       spring (>= 4)
-    stringio (3.1.0)
     strscan (3.1.0)
     temple (0.10.3)
     terminal-table (3.0.2)
@@ -823,7 +819,7 @@ DEPENDENCIES
   wicked_pdf (~> 2.1)
 
 RUBY VERSION
-   ruby 3.2.2p53
+   ruby 3.3.4p94
 
 BUNDLED WITH
    2.4.6
