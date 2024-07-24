@@ -9,27 +9,28 @@
   </div>
 
   <div id="panel-linked-spaces" class="px-4">
-    <% if form.object.participatory_space.private_space? %>
+    <% if form.object.private_non_transparent_space? %>
       <%= cell("decidim/announcement", t(".private_space_warning"), callout_class: "warning") %>
     <% else %>
       <%= cell("decidim/announcement", t(".private_meeting_warning"), callout_class: "warning js-private-warning hidden") %>
-    <% end %>
-    <div>
-      <label>
-        <%= t(".link_a_space") %>
-      </label>
+
       <div>
-        <select id="add_component_select" name="add_component_select" placeholder="<%= t(".select") %>" class="w-full mt-2">
-          <option value=""><%= t(".select") %></option>
-          <%= find_meeting_components_for_select.map do |option| %>
-            <option value="<%= option[1] %>"><%= option[0] %></option>
-          <% end %>
-        </select>
-        <button class="button button__sm button__secondary add-service mt-2 js-add-component mb-8" type="button">
-          <%= t(".assign") %>
-        </button>
+        <label>
+          <%= t(".link_a_space") %>
+        </label>
+        <div>
+          <select id="add_component_select" name="add_component_select" placeholder="<%= t(".select") %>" class="w-full mt-2">
+            <option value=""><%= t(".select") %></option>
+            <%= find_meeting_components_for_select.map do |option| %>
+              <option value="<%= option[1] %>"><%= option[0] %></option>
+            <% end %>
+          </select>
+          <button class="button button__sm button__secondary add-service mt-2 js-add-component mb-8" type="button">
+            <%= t(".assign") %>
+          </button>
+        </div>
       </div>
-    </div>
+    <% end %>
 
     <template id="meeting_component_template">
       <%= render "decidim/meetings/admin/meetings/component", component: nil %>

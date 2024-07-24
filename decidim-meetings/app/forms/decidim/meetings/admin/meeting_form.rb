@@ -70,7 +70,7 @@ module Decidim
 
         # linked components
         def components
-          return [] if participatory_space.private_space?
+          return [] if private_non_transparent_space?
 
           if private_meeting && !transparent
             []
@@ -81,6 +81,16 @@ module Decidim
 
         def participatory_space
           @participatory_space ||= current_component.participatory_space
+        end
+
+        def private_non_transparent_space?
+          return false unless participatory_space.private_space?
+
+          if participatory_space.respond_to?(:is_transparent?)
+            !participatory_space.is_transparent?
+          else
+            true
+          end
         end
 
         def number_of_services
