@@ -369,7 +369,6 @@ sv:
           form:
             note: Annteckning
             submit: Skicka in
-          leave_your_note: Lämna anteckningen
           title: Privata anteckningar
         proposals:
           edit:
