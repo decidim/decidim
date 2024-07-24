@@ -38,6 +38,26 @@ This works for Ubuntu Linux, other operating systems would need to do other comm
 
 You can read more about this change on PR [#13185](https://github.com/decidim/decidim/pull/13185).
 
+### 2.2. Ransack upgrade
+
+As part of Rails upgrade to version 7.1, we upgraded Ransack gem to version 4.2. Ransack has introduced a new security policy that requires mandatory whitelisting for the attributes and associations needed by search engine. If you have a regular Decidim installation, you can skip this step.
+
+If you are a plugin developer, you may need to add the following methods to your searchable models.
+
+If your plugins are extending the filters or search, you may need to override the following methods.
+
+```ruby
+def self.ransackable_attributes(_auth_object = nil)
+  []
+end
+
+def self.ransackable_associations(_auth_object = nil)
+  []
+end
+```
+
+You can read more about this change on PR [#13196](https://github.com/decidim/decidim/pull/13196).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
