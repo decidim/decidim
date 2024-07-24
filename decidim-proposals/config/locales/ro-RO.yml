@@ -356,7 +356,6 @@ ro:
           form:
             note: Notă
             submit: Trimite
-          leave_your_note: Lasă-ți nota
           title: Note private
         proposals:
           edit:
