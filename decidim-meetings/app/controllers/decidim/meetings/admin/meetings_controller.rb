@@ -38,13 +38,13 @@ module Decidim
 
           if meeting.component != current_component
             redirect_to ::Decidim::ResourceLocatorPresenter.new(meeting).edit,
-                        notice: { body: I18n.t(
+                        notice: I18n.t(
                           "meetings.edit.redirect_notice",
                           scope: "decidim.meetings.admin",
                           destiny_space_name: translated_attribute(meeting.component.participatory_space.title),
                           original_space_name: translated_attribute(current_component.participatory_space.title),
                           original_space_url: meetings_path
-                        ) }
+                        )
           end
 
           @form = meeting_form.from_model(meeting)
