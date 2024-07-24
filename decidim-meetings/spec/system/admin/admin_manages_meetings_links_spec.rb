@@ -41,9 +41,9 @@ describe "Admin manages meetings" do
         expect(page).to have_content(other_meeting.component.manifest.name)
       end
 
-      expect {
+      expect do
         click_on "Update"
-      }.to change { meeting.meeting_links.count }.by(1)
+      end.to change { meeting.meeting_links.count }.by(1)
     end
   end
 end
