@@ -406,7 +406,6 @@ ar:
           form:
             note: ملحوظة
             submit: خضع
-          leave_your_note: اترك ملاحظتك
           title: ملاحظات خاصة
         proposals:
           edit:
