@@ -87,6 +87,7 @@ $(() => {
     const $privateMeeting = $form.find("#private_meeting");
     const $transparent = $form.find("#transparent");
     const $warning = $form.find(".js-private-warning");
+    const $assign = $form.find(".js-add-component");
 
     const toggleDisabledHiddenFields = () => {
       const enabledPrivateSpace = $privateMeeting.find("input[type='checkbox']").prop("checked");
@@ -94,6 +95,7 @@ $(() => {
 
       $transparent.find("input[type='checkbox']").attr("disabled", "disabled");
       $warning?.toggleClass("hidden", !enabledPrivateSpace || enabledTransparent);
+      $assign?.attr("disabled", enabledPrivateSpace && !enabledTransparent);
 
       if (enabledPrivateSpace) {
         $transparent.find("input[type='checkbox']").attr("disabled", !enabledPrivateSpace);
