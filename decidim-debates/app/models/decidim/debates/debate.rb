@@ -219,6 +219,11 @@ module Decidim
            last_comment_by_id last_comment_by_type reference search_text start_time title updated_at)
       end
 
+      def self.ransackable_associations(_auth_object = nil)
+        %w(author categorization category comment_threads comments component endorsements followers follows last_comment_by moderation reports
+           resource_links_from resource_links_to resource_permission scope searchable_resources user_group versions)
+      end
+
       private
 
       def comments_blocked?

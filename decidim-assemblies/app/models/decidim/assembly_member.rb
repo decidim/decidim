@@ -30,5 +30,10 @@ module Decidim
     def remove_non_user_avatar
       false
     end
+
+    def self.ransackable_attributes(_auth_object = nil)
+      %w(birthday birthplace ceased_date created_at decidim_assembly_id decidim_user_id designation_date full_name gender id position
+         position_other updated_at weight)
+    end
   end
 end

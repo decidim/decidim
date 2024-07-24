@@ -206,5 +206,13 @@ module Decidim
     def self.ransackable_scopes(_auth_object = nil)
       [:with_date, :with_any_area, :with_any_scope, :with_any_type]
     end
+
+    def self.ransackable_attributes(_auth_object = nil)
+      %w(announcement banner_image created_at decidim_area_id decidim_organization_id decidim_participatory_process_group_id
+         decidim_participatory_process_type_id decidim_scope_id decidim_scope_type_id description developer_group end_date
+         follows_count hashtag hero_image id local_area meta_scope participatory_scope participatory_structure private_space
+         promoted published_at reference scopes_enabled short_description show_metrics show_statistics slug start_date subtitle
+         target title updated_at weight)
+    end
   end
 end

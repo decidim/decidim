@@ -19,5 +19,9 @@ module Decidim
     def self.log_presenter_class_for(_log)
       Decidim::ParticipatoryProcesses::AdminLog::ParticipatoryProcessUserRolePresenter
     end
+
+    def self.ransackable_attributes(_auth_object = nil)
+      %w(created_at decidim_participatory_process_id decidim_user_id email id invitation_accepted_at last_sign_in_at name nickname role updated_at)
+    end
   end
 end

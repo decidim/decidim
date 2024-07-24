@@ -20,5 +20,9 @@ module Decidim
     def self.ransackable_attributes(_auth_object = nil)
       %w(created_at decidim_user_id id report_count updated_at)
     end
+
+    def self.ransackable_associations(_auth_object = nil)
+      %w(reports user versions)
+    end
   end
 end
