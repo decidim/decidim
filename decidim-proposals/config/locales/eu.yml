@@ -232,10 +232,8 @@ eu:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: 'Norbaitek ohar bat utzi du "%{resource_title}" proposamenean. Berrikusimorain hemen: <a href="%{admin_proposal_info_url}">the admin panel</a>.'
             email_outro: Jakinarazpen hau jaso duzu proposamena ebaluatu ahal duzulako.
             email_subject: Norbaitek ohar bat utzi du %{resource_title} proposamenean.
-            notification_title: Norbaitek ohar bat utzi du <a href="%{resource_path}">%{resource_title}</a> proposamenean. Berrikusi orain honen bidez <a href="%{admin_proposal_info_path}">panel de administración</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} onartu da <a href="%{resource_url}">%{resource_title}</a> zirriborro koloboratiboan laguntzaile gisa sartzeko.'
           email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a>-ko kolaboratzailea zarelako.
@@ -471,7 +469,6 @@ eu:
           form:
             note: Oharra
             submit: Bidali
-          leave_your_note: Utzi zure oharra
           title: Ohar pribatuak
         proposal_states:
           create:
