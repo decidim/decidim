@@ -176,10 +176,8 @@ hu:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Valaki egy jegyzetet írt a(z) "%{resource_title}" javaslathoz. Ellenőrizze <a href="%{admin_proposal_info_url}">az adminisztrációs panelen</a>.
             email_outro: Azért kapta ezt az értesítést, mert értékelheti a javaslatot.
             email_subject: Valaki egy jegyzetet írt a(z) "%{resource_title}" javaslathoz.
-            notification_title: Valaki egy jegyzetet írt a(z) <a href="%{resource_path}">%{resource_title}</a> javaslathoz. Ellenőrizze <a href="%{admin_proposal_info_path}">az adminisztrációs panelen</a>.
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} jóváhagyva, mint közreműködő ebben: %{resource_title}."
           notification_title: '<a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> jóváhagyva, <strong>mint a közreműködő</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
@@ -362,7 +360,6 @@ hu:
           form:
             note: Jegyzet
             submit: Küldés
-          leave_your_note: Jegyzet elhagyása
           title: Privát jegyzetek
         proposal_states:
           create:
