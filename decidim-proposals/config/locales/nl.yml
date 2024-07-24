@@ -337,7 +337,6 @@ nl:
           form:
             note: Opmerking
             submit: Bevestigen
-          leave_your_note: Laat je opmerking achter
           title: Privé-opmerkingen
         proposals:
           edit:
