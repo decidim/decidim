@@ -238,10 +238,8 @@ pl:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Ktoś zostawił notatkę do propozycji „%{resource_title}”. Sprawdź ją w <a href="%{admin_proposal_info_url}">panelu administratora</a>.
             email_outro: Otrzymujesz to powiadomienie, ponieważ możesz weryfikować propozycję.
             email_subject: Ktoś zostawił notatkę do propozycji %{resource_title}.
-            notification_title: Ktoś zostawił notatkę do propozycji <a href="%{resource_path}">%{resource_title}</a>. Sprawdź ją w <a href="%{admin_proposal_info_path}">panelu administratora</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} otrzymał(a) dostęp jako współtwórca wspólnego szkicu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Otrzymujesz to powiadomienie, ponieważ współpracujesz przy dokumencie <a href="%{resource_path}">%{resource_title}</a>.
@@ -475,7 +473,6 @@ pl:
           form:
             note: Notatka
             submit: Zatwierdź
-          leave_your_note: Zostaw swoją notatkę
           title: Prywatne notatki
         proposal_states:
           create:
