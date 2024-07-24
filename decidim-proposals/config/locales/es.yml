@@ -235,8 +235,20 @@ es:
       proposals:
         admin:
           proposal_note_created:
+            email_intro: '%{author_name} ha creado una nota privada en %{resource_title}. Puedes verlo en el <a href="%{admin_proposal_info_url}">panel de administración</a>.'
             email_outro: Recibes esta notificación porque puedes evaluar la propuesta.
             email_subject: Alguien dejó una nota en la propuesta %{resource_title}.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creado una nota privada en <a href="%{resource_path}">%{resource_title}</a>. Puedes verla en el <a href="%{admin_proposal_info_path}">panel de administración</a>.
+          proposal_note_mentioned:
+            email_intro: '"%{author_name}" "%{author_nickname}" te ha mencionado en una nota privada en "%{resource_title}". Puedes verla en el <a href="%{admin_proposal_info_url}">panel de administración</a>.'
+            email_outro: Has recibido esta notificación porque se te ha mencionado en una nota privada.
+            email_subject: Alguien dejó una nota en la propuesta %{resource_title}.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> te ha mencionado en una nota privada en <a href="%{resource_path}">%{resource_title}</a>. Puedes verla en el <a href="%{admin_proposal_info_path}">panel de administración</a>.
+          proposal_note_replied:
+            email_intro: '%{author_name} ha respondido a tu nota privada en %{resource_title}. Puedes verlo en el <a href="%{admin_proposal_info_url}">panel de administración</a>.'
+            email_outro: Has recibido esta notificación porque eres el autor de la nota privada.
+            email_subject: "%{author_name} ha respondido a tu nota privada en %{resource_title}."
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha respondido a tu nota privada en <a href="%{resource_path}">%{resource_title}</a>. Puedes verlo en el <a href="%{admin_proposal_info_path}">panel de administración</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} ha sido aceptada para acceder como contribuidora del borrador colaborativo <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has recibido esta notificación porque eres una contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
@@ -471,6 +483,9 @@ es:
           form:
             note: Nota
             submit: Enviar
+          reply:
+            error: Se ha producido un error al crear esta respuesta en la nota privada.
+            success: La respuesta a la nota privada se ha creado con éxito.
           title: Notas privadas
         proposal_states:
           create:
