@@ -236,10 +236,20 @@ en:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Someone has left a note on the proposal "%{resource_title}". Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.
+            email_intro: '%{author_name} has created a private note in %{resource_title}. Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.'
             email_outro: You have received this notification because you can valuate the proposal.
             email_subject: Someone left a note on proposal %{resource_title}.
-            notification_title: Someone has left a note on the proposal <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> has created a private note in <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
+          proposal_note_mentioned:
+            email_intro: You have been mentioned in a private note in "%{resource_title}" by "%{author_name}" "%{author_nickname}". Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.
+            email_outro: You have received this notification because you have been mentioned in a private note.
+            email_subject: Someone mentioned you in a note on the proposal %{resource_title}.
+            notification_title: You have been mentioned in a private note in <a href="%{resource_path}">%{resource_title}</a> by <a href="%{author_path}">%{author_name} %{author_nickname}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
+          proposal_note_replied:
+            email_intro: '%{author_name} has replied your private note in %{resource_title}. Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.'
+            email_outro: You have received this notification because you are the author of the note.
+            email_subject: "%{author_name} has replied your private note in %{resource_title}."
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> has replied your private note in <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} has been accepted to access as a contributor of the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.'
           email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
@@ -474,7 +484,9 @@ en:
           form:
             note: Note
             submit: Submit
-          leave_your_note: Leave your note
+          reply:
+            error: There was a problem creating this proposal note reply.
+            success: Proposal note reply successfully created.
           title: Private notes
         proposal_states:
           create:
