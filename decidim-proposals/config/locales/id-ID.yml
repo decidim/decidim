@@ -233,7 +233,6 @@ id:
           form:
             note: Catatan
             submit: Menyerahkan
-          leave_your_note: Tinggalkan catatanmu
           title: Catatan pribadi
         proposals:
           edit:
