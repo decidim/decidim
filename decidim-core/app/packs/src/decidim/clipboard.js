@@ -21,7 +21,9 @@ import select from "select";
  *
  * Options through data attributes:
  * - `data-clipboard-copy` = The jQuery selector for the target input element
- *   where text will be copied from.
+ *   where text will be copied from. If this element does not contain any visible text (for instance is an image),
+ *   the selector indicated in here will be used to place the confirmation message.
+ * - `data-clipboard-content` = The text that will be copied if the target input element is not found.
  * - `data-clipboard-copy-label` = The label that will be shown in the button
  *   after a succesful copy.
  * - `data-clipboard-copy-message` = The text that will be announced to screen
@@ -40,6 +42,7 @@ $(() => {
     }
     
     const $input = $($el.data("clipboard-copy"));
+
     let selectedText = "";
     if ($input.length < 1 || !$input.is("input, textarea, select")) {
       selectedText = $el.data("clipboard-content");
@@ -47,6 +50,10 @@ $(() => {
       selectedText = select($input[0]);
     }
 
+    let $msgEl = $el;
+    if($msgEl.text() === "") {
+      $msgEl = $input;
+    }
     // Get the available text to clipboard.
     if (!selectedText || selectedText.length < 1) {
       return;
@@ -85,28 +92,14 @@ $(() => {
       }
 
       if (!$el.data("clipboard-copy-label-original")) {
-        $el.data("clipboard-copy-label-original", $el.html());
+        $el.data("clipboard-copy-label-original", $msgEl.html());
       }
 
-      $el.html(label);
-      if ($input.length === 0) {
-        $el.css({
-          "color": "var(--alert)",
-          "text-decoration": "none"
-        });
-      }
+      $msgEl.html(label);
 
       to = setTimeout(() => {
-        $el.html($el.data("clipboard-copy-label-original"));
+        $msgEl.html($el.data("clipboard-copy-label-original"));
         $el.removeData("clipboard-copy-label-original");
-
-        if ($input.length === 0) {
-          $el.css({
-            "color": "var(--secondary)",
-            "padding-right": "0"
-          });
-        }
-
         $el.removeData("clipboard-copy-label-timeout");
       }, CLIPBOARD_COPY_TIMEOUT);
 
