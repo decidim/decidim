@@ -315,7 +315,6 @@ gl:
           form:
             note: Nota
             submit: Enviar
-          leave_your_note: Deixe a súa nota
           title: Notas privadas
         proposals:
           edit:
