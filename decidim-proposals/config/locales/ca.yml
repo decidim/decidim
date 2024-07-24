@@ -235,8 +235,20 @@ ca:
       proposals:
         admin:
           proposal_note_created:
+            email_intro: '%{author_name} ha creat una nota privada a %{resource_title}. La pots veure al <a href="%{admin_proposal_info_url}">taulell d''administració</a>.'
             email_outro: Reps aquesta notificació perquè pots avaluar la proposta.
             email_subject: Algú ha deixat una nota a la proposta %{resource_title}.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creat una nota privada a <a href="%{resource_path}">%{resource_title}</a>. La pots veure al <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
+          proposal_note_mentioned:
+            email_intro: '"%{author_name}" "%{author_nickname}" t''ha esmentat a una nota privada a "%{resource_title}". La pots veure al <a href="%{admin_proposal_info_url}">taulell d''administració</a>.'
+            email_outro: Has rebut aquesta notificació perquè t'han esmentat a una nota privada.
+            email_subject: Algú ha deixat una nota a la proposta %{resource_title}.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> te ha esmentat a una nota privada a <a href="%{resource_path}">%{resource_title}</a>. La pots veure al <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
+          proposal_note_replied:
+            email_intro: '%{author_name} ha respost la teva nota privada a %{resource_title}. Ho pots veure al <a href="%{admin_proposal_info_url}">taulell d''administració</a>.'
+            email_outro: Has rebut aquesta notificació perquè ets l'autora de la nota privada.
+            email_subject: "%{author_name} ha respost a la teva nota privada a %{resource_title}."
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha respost a la teva nota privada a <a href="%{resource_path}">%{resource_title}</a>. Ho pots veure al <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
         collaborative_draft_access_accepted:
           email_intro: 'S''ha acceptat %{requester_name} per accedir com a contribuidora de l''esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has rebut aquesta notificació perquè vas contribuir a la proposta "<a href="%{resource_url}">%{resource_title}</a>".
@@ -471,6 +483,9 @@ ca:
           form:
             note: Nota
             submit: Enviar
+          reply:
+            error: S'ha produït un error en crear aquesta resposta a la nota privada.
+            success: La resposta a la nota privada s'ha creat amb èxit.
           title: Notes privades
         proposal_states:
           create:
