@@ -340,7 +340,6 @@ pt:
           form:
             note: Nota
             submit: Submeter
-          leave_your_note: Deixe a sua nota
           title: Notas privadas
         proposals:
           edit:
