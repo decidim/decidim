@@ -18,7 +18,7 @@ on:
 env:
   CI: "true"
   SIMPLECOV: "true"
-  RUBY_VERSION: 3.2.2
+  RUBY_VERSION: 3.3.4
   NODE_VERSION: 18.17.1
   NODE_ENV: "test"
   RAILS_ENV: development
@@ -50,7 +50,6 @@ jobs:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
-      RUBYOPT: '-W:no-deprecated'
     steps:
       - uses: actions/checkout@v4
         with:
