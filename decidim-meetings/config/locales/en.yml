@@ -308,6 +308,8 @@ en:
             close: Close
             title: Close meeting
         meetings:
+          component:
+            unlink: Unlink
           close:
             invalid: There was a problem closing this meeting.
             success: Meeting successfully closed.

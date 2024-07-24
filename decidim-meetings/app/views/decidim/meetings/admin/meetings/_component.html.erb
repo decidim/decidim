@@ -6,8 +6,10 @@
     <%= hidden_field_tag "meeting[component_ids][]", component&.id %>
   </td>
   <td>
-    <button type="button" class="js-remove-component cursor text-secondary text-md font-semibold">
-      <%= icon "unlink" %>
-    </button>
+    <%= with_tooltip(t(".unlink"), class: :top) do %>
+      <button type="button" class="js-remove-component cursor text-secondary text-md font-semibold">
+        <%= icon "unlink" %>
+      </button>
+    <% end %>
   </td>
 </tr>
