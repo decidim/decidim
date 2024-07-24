@@ -235,10 +235,8 @@ de:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Jemand hat eine Notiz zum Vorschlag "%{resource_title}" hinterlassen. Schauen Sie sie im <a href="%{admin_proposal_info_url}">Admin-Panel</a> an.
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Vorschlag bewerten können.
             email_subject: Jemand hat eine Notiz für Vorschlag %{resource_title} erstellt.
-            notification_title: Jemand hat eine Notiz für den Vorschlag <a href="%{resource_path}">%{resource_title}</a>erstellt. Sie können sie über das <a href="%{admin_proposal_info_path}">Admin-Panel</a> anzeigen.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} wurde zur Mitwirkung am kollaborativen Entwurf <a href="%{resource_url}">%{resource_title}</a> akzeptiert.'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie bei <a href="%{resource_url}">%{resource_title}</a> mitwirken.
@@ -473,7 +471,6 @@ de:
           form:
             note: Anmerkung
             submit: Absenden
-          leave_your_note: Anmerkung hinterlassen
           title: Private Notizen
         proposal_states:
           create:
