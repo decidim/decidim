@@ -328,7 +328,6 @@ it:
           form:
             note: Nota
             submit: Invia
-          leave_your_note: Lascia il tuo messaggio
           title: Note private
         proposals:
           edit:
