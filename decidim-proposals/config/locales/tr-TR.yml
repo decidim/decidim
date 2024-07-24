@@ -339,7 +339,6 @@ tr:
           form:
             note: Not
             submit: Gönder
-          leave_your_note: Notunu bırak
           title: Özel notlar
         proposal_states:
           create:
