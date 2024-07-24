@@ -337,7 +337,6 @@
           form:
             note: Merk
             submit: Send inn
-          leave_your_note: Legg igjen notatene dine
           title: Private notater
         proposals:
           edit:
