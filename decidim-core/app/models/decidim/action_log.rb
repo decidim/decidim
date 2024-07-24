@@ -170,6 +170,10 @@ module Decidim
          participatory_space_id participatory_space_type resource_id resource_type updated_at version_id visibility)
     end
 
+    def self.ransackable_associations(_auth_object = nil)
+      %w(area component organization participatory_space resource scope user version)
+    end
+
     # Overwrites the method so that records cannot be modified.
     #
     # Returns a Boolean.

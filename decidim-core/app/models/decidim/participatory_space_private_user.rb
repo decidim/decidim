@@ -30,6 +30,10 @@ module Decidim
          privatable_to_type updated_at)
     end
 
+    def self.ransackable_associations(_auth_object = nil)
+      %w(privatable_to user)
+    end
+
     def target_space_association = :privatable_to
   end
 end

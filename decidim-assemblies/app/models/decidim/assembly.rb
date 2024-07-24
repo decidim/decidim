@@ -172,6 +172,12 @@ module Decidim
          weight youtube_handler)
     end
 
+    def self.ransackable_associations(_auth_object = nil)
+      %w(area assembly_type attachment_collections attachments banner_image_attachment banner_image_blob categories children components followers
+         follows hero_image_attachment hero_image_blob members organization parent participatory_space_private_users participatory_space_resource_links_from
+         participatory_space_resource_links_to scope searchable_resources users versions)
+    end
+
     private
 
     # When an assembly changes their parent, we need to update the parents_path attribute

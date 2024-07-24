@@ -154,5 +154,11 @@ module Decidim
          hero_image id location main_logo objectives promoted published_at reference registration_terms registrations_enabled scopes_enabled
          short_description show_statistics sign_date signature signature_name slogan slug start_date title updated_at weight)
     end
+
+    def self.ransackable_associations(_auth_object = nil)
+      %w(attachment_collections attachments banner_image_attachment banner_image_blob categories components conference_invites conference_registrations
+         followers follows hero_image_attachment hero_image_blob main_logo_attachment main_logo_blob media_links organization participatory_space_resource_links_from
+         participatory_space_resource_links_to partners registration_types scope searchable_resources signature_attachment signature_blob speakers versions)
+    end
   end
 end

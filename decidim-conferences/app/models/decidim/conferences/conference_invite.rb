@@ -26,6 +26,10 @@ module Decidim
         %w(accepted_at created_at decidim_conference_id decidim_conference_registration_type_id decidim_user_id id rejected_at sent_at updated_at)
       end
 
+      def self.ransackable_associations(_auth_object = nil)
+        %w(conference registration_type user versions)
+      end
+
       def self.user_collection(user)
         where(decidim_user_id: user.id)
       end
