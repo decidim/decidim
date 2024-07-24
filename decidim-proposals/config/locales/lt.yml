@@ -206,10 +206,8 @@ lt:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Kažkas paliko pastabą dėl pasiūlymo „%{resource_title}“. Pasitikrinkite tai <a href="%{admin_proposal_info_url}">administratoriaus srityje</a>.
             email_outro: Šį pranešimą gavote dėl to, kad galite vertinti pasiūlymą.
             email_subject: Kažkas paliko pastabą dėl pasiūlymo „%{resource_title}“.
-            notification_title: Kažkas paliko pastabą dėl pasiūlymo <a href="%{resource_path}">%{resource_title}</a>. Peržiūrėkite ją <a href="%{admin_proposal_info_path}">administratoriaus srityje</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} buvo priimtas kaip <a href="%{resource_url}">%{resource_title}</a> bendradarbiavimo juodraščio bendradarbis.'
           email_outro: Šį pranešimą gavote dėl to, kad esate <a href="%{resource_path}">%{resource_title}</a> bendraautorius.
@@ -416,7 +414,6 @@ lt:
           form:
             note: Pastaba
             submit: Pateikti
-          leave_your_note: Palikite pastabą
           title: Privačios pastabos
         proposals:
           answer:
