@@ -235,10 +235,8 @@ fr-CA:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Quelqu'un a laissé une note sur la proposition "%{resource_title}". Consultez-la sur <a href="%{admin_proposal_info_url}">le panneau d'administration</a>.
             email_outro: Vous avez reçu cette notification car vous pouvez évaluer la proposition.
             email_subject: Quelqu'un a laissé une note sur la proposition %{resource_title}.
-            notification_title: Quelqu'un a laissé une note sur la proposition <a href="%{resource_path}">%{resource_title}</a>. Consultez-la sur <a href="%{admin_proposal_info_path}">le panneau d'administration</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} a été accepté en tant que contributeur du brouillon collaboratif <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_url}">%{resource_title}</a>. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
@@ -473,7 +471,6 @@ fr-CA:
           form:
             note: Remarque
             submit: Soumettre
-          leave_your_note: Laisser une remarque
           title: Notes privées
         proposal_states:
           create:
