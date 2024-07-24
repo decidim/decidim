@@ -231,10 +231,8 @@ ja:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: 誰かが提案 "%{resource_title}" にメモを残しました。 <a href="%{admin_proposal_info_url}">管理者パネル</a>で確認してください。
             email_outro: 提案を評価できるため、この通知を受け取りました。
             email_subject: 誰かが提案 %{resource_title} にメモを残しました。
-            notification_title: 誰かが提案 <a href="%{resource_path}">%{resource_title}</a> にメモを残しました。詳細は<a href="%{admin_proposal_info_path}">管理者パネル</a>で確認してください。
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} は、 <a href="%{resource_url}">%{resource_title}</a> の共同草案のコントリビューターとして承認されました。'
           email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
@@ -467,7 +465,6 @@ ja:
           form:
             note: メモ
             submit: 送信
-          leave_your_note: メモを残してください
           title: プライベートノート
         proposal_states:
           create:
