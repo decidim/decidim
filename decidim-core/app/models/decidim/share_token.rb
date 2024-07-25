@@ -12,13 +12,14 @@ module Decidim
 
     after_initialize :generate
 
-    def self.use!(token_for:, token:)
+    def self.use!(token_for:, token:, user: nil)
       record = find_by!(token_for:, token:)
-      record.use!
+      record.use!(user:)
     end
 
-    def use!
+    def use!(user: nil)
       return raise StandardError, "Share token '#{token}' for '#{token_for_type}' with id = #{token_for_id} has expired." if expired?
+      return raise StandardError, "Share token '#{token}' for '#{token_for_type}' with id = #{token_for_id} requires a registered user." if registered_only? && user.nil?
 
       update!(times_used: times_used + 1, last_used_at: Time.zone.now)
     end

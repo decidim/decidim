@@ -163,7 +163,7 @@ module Decidim
     end
 
     def user_can_preview_component?
-      return allow! if context[:share_token].present? && Decidim::ShareToken.use!(token_for: component, token: context[:share_token])
+      return allow! if context[:share_token].present? && Decidim::ShareToken.use!(token_for: component, token: context[:share_token], user:)
     rescue ActiveRecord::RecordNotFound, StandardError
       nil
     end

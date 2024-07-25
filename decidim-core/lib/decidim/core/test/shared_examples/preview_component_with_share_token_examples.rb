@@ -44,6 +44,31 @@ shared_examples_for "preview component with share_token" do
           expect(page).to have_no_current_path(main_component_path(component), ignore_query: true)
         end
       end
+
+      context "when the token requires the user to be registered" do
+        let(:share_token) { create(:share_token, token_for: component, registered_only: true) }
+
+        it "does not allow visiting component" do
+          expect(page).to have_content "You are not authorized"
+          expect(page).to have_no_current_path(main_component_path(component), ignore_query: true)
+        end
+
+        context "when a user is logged" do
+          let(:user) { create(:user, :confirmed, organization:) }
+
+          before do
+            login_as user, scope: :user
+            uri = URI(main_component_path(component))
+            uri.query = URI.encode_www_form(params.to_a)
+            visit uri
+          end
+
+          it "allows visiting component" do
+            expect(page).to have_no_content "You are not authorized"
+            expect(page).to have_current_path(main_component_path(component), ignore_query: true)
+          end
+        end
+      end
     end
   end
 end
