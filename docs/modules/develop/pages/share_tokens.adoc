@@ -12,7 +12,7 @@ The model must `include Decidim::ShareableWithToken` and implement `shareable_ur
 ----
 # Public: Public URL for your_resource with given share token as query parameter
 def shareable_url(share_token)
-  your_resource_public_path(self, share_token: share_token.token)
+  your_resource_public_url(self, share_token: share_token.token)
 end
 ----
 
@@ -33,25 +33,36 @@ allow! if Decidim::ShareToken.use!(token_for: your_resource, token: token)
 
 == Manage tokens
 
-Render the partial `decidim-admin/app/views/decidim/admin/share_tokens/_share_tokens.html.erb` inside a view, with:
+Tokens can be managed in the components view similar as other resources (with and action icon like permissions for instance). By default, assemblies, conferences and participatory spaces are configured to have share tokens.
+
+In order to implement it in other participatory spaces, you should:
+
+1. Add the `share_tokens` CRUD routes in your `admin_engine.rb` file:
 
 [source,ruby]
 ----
-locals: { share_tokens: your_share_tokens_variable }
+  resources :components do
+    ...
+    resources :share_tokens, except: [:show]
+    ...
 ----
 
-to let admins see and manage tokens for that resource.
-
-== Link to url with token
-
-Implement a `share` action (see below) in the resource controller (admin scope), redirecting to a url with a newly generated token, so you can call `share_my_resource_url`.
+2. Add the controller for the participatory space, it only requires to inherit from `Decidim::Admin::ShareTokensController`:
 
 [source,ruby]
 ----
-def share
-  @your_resource = YourResource.find(params[:id]) # or whatever
-  share_token = @your_resource.share_tokens.create!(user: current_user, organization: current_organization)
+# frozen_string_literal: true
 
-  redirect_to share_token.url
+module Decidim
+  module Assemblies
+    module Admin
+      # This controller allows sharing unpublished things.
+      # It is targeted for customizations for sharing unpublished things that lives under
+      # an assembly.
+      class ShareTokensController < Decidim::Admin::ShareTokensController
+        include Concerns::AssemblyAdmin
+      end
+    end
+  end
 end
 ----
