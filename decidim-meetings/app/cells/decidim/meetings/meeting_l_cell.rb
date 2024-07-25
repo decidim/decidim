@@ -17,7 +17,19 @@ module Decidim
         render
       end
 
+      def url_extra_params
+        if current_component == meeting.component
+          {}
+        else
+          { previous_space: "#{current_space.class}##{current_space.id}" }
+        end
+      end
+
       private
+
+      def current_space
+        @current_space ||= current_component.participatory_space
+      end
 
       def metadata_cell
         "decidim/meetings/meeting_card_metadata"

@@ -59,6 +59,8 @@ module Decidim
       def show
         raise ActionController::RoutingError, "Not Found" unless meeting
 
+        maybe_show_redirect_notice!
+
         return if meeting.current_user_can_visit_meeting?(current_user)
 
         flash[:alert] = I18n.t("meeting.not_allowed", scope: "decidim.meetings")
@@ -174,6 +176,30 @@ module Decidim
             args: ["decidim/linked_resources_for", meeting, { type: :results, link_name: "meetings_through_proposals" }]
           }
         ] + attachments_tab_panel_items(@meeting)
+      end
+
+      def maybe_show_redirect_notice!
+        return unless previous_space
+
+        flash.now[:notice] = I18n.t(
+          "meetings.show.redirect_notice",
+          scope: "decidim.meetings",
+          previous_space_url: request.referer,
+          previous_space_name: translated_attribute(previous_space.title),
+          current_space_name: translated_attribute(current_component.participatory_space.title)
+        )
+      end
+
+      def previous_space
+        return @previous_space if @previous_space
+        return unless params[:previous_space]
+
+        previous_space_class, previous_space_id = params[:previous_space].split("#")
+
+        @previous_space = previous_space_class.constantize.find_by(id: previous_space_id)
+        @previous_space
+      rescue NameError, LoadError
+        nil
       end
     end
   end

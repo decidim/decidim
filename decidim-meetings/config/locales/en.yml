@@ -323,7 +323,6 @@ en:
                 other: The meeting cannot be destroyed because it has %{count} proposals associated to it.
             success: Meeting successfully deleted
           edit:
-            redirect_notice: This meeting is part of another space, so you have been moved to %{destiny_space_name}. <br>If you prefer, you can go back to <a href="%{original_space_url}">%{original_space_name}</a>.
             title: Edit meeting
             update: Update
           form:
@@ -576,6 +575,7 @@ en:
           micro_camera_permissions_warning: When you click on the button below, you will be asked for microphone and/or camera permissions, and you will join the videoconference
           no_slots_available: No slots available
           organizations: Attending organizations
+          redirect_notice: This meeting is part of another space, so you have been moved to %{current_space_name}. <br>If you prefer, you can go back to <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_code_help_text: Your registration code
           registration_state:
             validated: VALIDATED
