@@ -15,14 +15,13 @@ class CreateDefaultProposalStates < ActiveRecord::Migration[6.1]
 
   def up
     Decidim::Component.where(manifest_name: "proposals").find_each do |component|
-
       admin_user = component.organization.admins.first
       Decidim::Proposals.create_default_states!(component, admin_user)
 
       CustomProposal.where(decidim_component_id: component.id).find_each do |proposal|
         next if proposal.old_state == "not_answered"
-      
-        proposal.update!(proposal_state: Decidim::Proposals::ProposalState.where(component: component, token: proposal.old_state).first!)
+
+        proposal.update!(proposal_state: Decidim::Proposals::ProposalState.where(component:, token: proposal.old_state).first!)
       end
     end
   end
