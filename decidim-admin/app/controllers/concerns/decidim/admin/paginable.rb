@@ -12,7 +12,7 @@ module Decidim
         include Decidim::Paginable
 
         def per_page
-          params[:per_page].present? ? params[:per_page].to_i : Decidim::Admin.per_page_range.first
+          params[:per_page].to_i || Decidim::Paginable::OPTIONS.first
         end
       end
     end
