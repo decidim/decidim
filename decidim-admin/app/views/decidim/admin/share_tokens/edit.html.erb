@@ -10,10 +10,13 @@
     <div class="card">
       <div class="card-section">
         <div class="form__wrapper">
-          <div class="pt-4">
+          <div class="card pt-4">
             <div class="row column">
-              <%= f.text_field :token, id: "share_token-token",aria: { label: :token }, disabled: true %>
-              <button type="button" class="button button__sm button__secondary" data-clipboard-copy="#share_token-token" data-clipboard-copy-label="<%= t("copied", scope: "decidim.admin.share_tokens.index") %>" data-clipboard-copy-message="<%= t("copy_message", scope: "decidim.admin.share_tokens.index") %>"><%= t("actions.copy_link", scope: "decidim.admin.share_tokens") %></button>
+              <label for="share_token-token"><%= t("token", scope: "decidim.admin.models.share_token.fields") %></label>
+              <div class="flex gap-4">
+                <%= text_field_tag :token, share_token.token, id: "share_token-token", aria: { label: t("token", scope: "decidim.admin.models.share_token.fields") }, disabled: true %>
+                <button type="button" class="button button__sm button__secondary text-nowrap" data-clipboard-copy="#share_token-token" data-clipboard-content="<%= share_token.url %>" data-clipboard-copy-label="<%= t("copied", scope: "decidim.admin.share_tokens.index") %>" data-clipboard-copy-message="<%= t("copy_message", scope: "decidim.admin.share_tokens.index") %>"><%= t("actions.copy_link", scope: "decidim.admin.share_tokens") %></button>
+              </div>
             </div>
             <%= render partial: "form", object: f %>
           </div>

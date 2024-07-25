@@ -1,47 +1,45 @@
 <div class="row column">
-  <%= t("share_tokens.form.expires_at", scope: "decidim.admin") %>
-</div>
-<div class="row column -mt-4">
-  <div class="ml-2">
-    <%= form.collection_radio_buttons :no_expiration, [[true, t("share_tokens.form.never_expire", scope: "decidim.admin")], [false, t("share_tokens.form.custom", scope: "decidim.admin")]], :first, :last do |b| %>
-      <div>
-        <%= b.radio_button %>
-        <%= b.label %>
-      </div>
-    <% end %>
-    <div id="expires_at_field_wrapper" class="<%= form.object.no_expiration ? "hidden" : "" %> mt-4 row column">
-      <%= form.datetime_field :expires_at, label: t("share_tokens.form.custom_expiration", scope: "decidim.admin") %>
+  <label><%= t("share_tokens.form.expires_at", scope: "decidim.admin") %></label>
+  <%= form.collection_radio_buttons :no_expiration, [[true, t("share_tokens.form.never_expire", scope: "decidim.admin")], [false, t("share_tokens.form.custom", scope: "decidim.admin")]], :first, :last do |b| %>
+    <div>
+      <%= b.radio_button %>
+      <%= b.label %>
     </div>
+  <% end %>
+  <div id="expires_at_field_wrapper" class="hidden mt-4 row column">
+    <%= form.datetime_field :expires_at, label: t("share_tokens.form.custom_expiration", scope: "decidim.admin") %>
   </div>
 </div>
 
 <div class="row column">
-  <%= t("share_tokens.form.registered_only", scope: "decidim.admin") %>
-</div>
-<div class="row column -mt-4">
-  <div class="ml-2">
-    <%= form.collection_radio_buttons :registered_only, [[true, t("share_tokens.form.true", scope: "decidim.admin")], [false, t("share_tokens.form.false", scope: "decidim.admin")]], :first, :last do |b| %>
-      <div>
+  <label><%= t("share_tokens.form.registered_only", scope: "decidim.admin") %></label>
+  <%= form.collection_radio_buttons :registered_only, [
+      [t("share_tokens.form.true", scope: "decidim.admin"), true],
+      [t("share_tokens.form.false", scope: "decidim.admin"), false]
+    ], :last, :first do |b| %>
+    <div>
+      <%= b.label do %>
         <%= b.radio_button %>
-        <%= b.label %>
-      </div>
-    <% end %>
-  </div>
+        <%= b.text %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const automaticTokenRadioButtons = document.querySelectorAll("input[name='share_token[automatic_token]']");
+    const expiresButton = document.querySelector("input[name='share_token[no_expiration]'][value='false']");
     const expiresAtRadioButtons = document.querySelectorAll("input[name='share_token[no_expiration]']");
-    const automaticTokenFieldWrapper = document.getElementById("automatic_token_field_wrapper");
-    const expiresAtFieldWrapper = document.getElementById("expires_at_field_wrapper");
+    const expiresAtWrapper = document.getElementById("expires_at_field_wrapper");
+    const expiresAtInput = document.querySelector("input[name='share_token[expires_at]']");
 
     const toggleExpiresAtField = () => {
-      if (expiresAtRadioButtons[2].checked) {
-        expiresAtFieldWrapper.classList.remove("hidden");
+      if (expiresButton.checked) {
+        expiresAtWrapper.classList.remove("hidden");
       } else {
-        expiresAtFieldWrapper.classList.add("hidden");
-        expiresAtFieldWrapper.querySelector("input[name='share_token[expires_at]']").value = "";
+        expiresAtWrapper.classList.add("hidden");
+        expiresAtInput.value = "";
+        expiresAtInput.removeAttribute("required");
       }
     };
 
@@ -50,22 +48,5 @@
     });
 
     toggleExpiresAtField();
-
-    const toggleTokenField = () => {
-      if (automaticTokenRadioButtons[1].checked) {
-        automaticTokenFieldWrapper.classList.remove("hidden");
-      } else {
-        automaticTokenFieldWrapper.classList.add("hidden");
-        automaticTokenFieldWrapper.querySelector("input[name='share_token[token]']").value = "";
-      }
-    };
-
-    automaticTokenRadioButtons.forEach(automaticTokenRadioButton => {
-      automaticTokenRadioButton.addEventListener("change", toggleTokenField);
-    });
-
-    if (automaticTokenRadioButtons) {
-      toggleTokenField();
-    }
   });
 </script>

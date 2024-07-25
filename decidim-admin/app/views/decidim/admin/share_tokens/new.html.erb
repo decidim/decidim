@@ -10,21 +10,22 @@
     <div class="card">
       <div class="card-section">
         <div class="form__wrapper">
-          <div class="pt-4">
+          <div class="card pt-4">
             <div class="row column">
-              <%= t("share_tokens.form.token", scope: "decidim.admin") %>
-            </div>
-            <div class="row column -mt-4">
-              <div class="ml-2">
-                <div class="mr-4">
-                  <%= f.radio_button :automatic_token, t("share_tokens.form.automatic", scope: "decidim.admin"), checked: f.object.automatic_token %>
+              <label><%= t("share_tokens.form.token", scope: "decidim.admin") %></label>
+                <%= f.collection_radio_buttons :automatic_token, [
+                  [t("share_tokens.form.automatic", scope: "decidim.admin"), true],
+                  [t("share_tokens.form.custom", scope: "decidim.admin"), false]
+                ], :last, :first do |b| %>
+                <div>
+                  <%= b.label do %>
+                    <%= b.radio_button %>
+                    <%= b.text %>
+                  <% end %>
                 </div>
-
-                <%= f.radio_button :automatic_token, t("share_tokens.form.custom", scope: "decidim.admin"), checked: !f.object.automatic_token %>
-
-                <div id="automatic_token_field_wrapper">
-                  <%= f.text_field :token, label: t("share_tokens.form.custom_token", scope: "decidim.admin"), style: "text-transform: uppercase" %>
-                </div>
+              <% end %>
+              <div id="token-field-wrapper" class="hidden">
+                <%= f.text_field :token, label: t("share_tokens.form.custom_token", scope: "decidim.admin"), style: "text-transform: uppercase" %>
               </div>
             </div>
             <%= render partial: "form", object: f %>
@@ -39,3 +40,29 @@
     </div>
   <% end %>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const automaticTokenRadioButton = document.querySelector("input[name='share_token[automatic_token]'][value='true']");
+    const automaticTokenRadioButtons = document.querySelectorAll("input[name='share_token[automatic_token]']");
+    const tokenWrapper = document.getElementById("token-field-wrapper");
+    const tokenInput = document.querySelector("input[name='share_token[token]']");
+
+    const toggleTokenField = () => {
+      if (automaticTokenRadioButton.checked) {
+        tokenWrapper.classList.add("hidden");
+        tokenInput.value = "";
+        tokenInput.removeAttribute("required");
+      } else {
+        tokenWrapper.classList.remove("hidden");
+        tokenInput.focus();
+      }
+    };
+
+    automaticTokenRadioButtons.forEach(button => {
+      button.addEventListener("change", toggleTokenField);
+    });
+
+    toggleTokenField();
+  });
+</script>

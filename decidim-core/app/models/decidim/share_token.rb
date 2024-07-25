@@ -2,11 +2,13 @@
 
 module Decidim
   class ShareToken < ApplicationRecord
-    validates :token, presence: true, uniqueness: { scope: [:decidim_organization_id, :token_for_type, :token_for_id] }
-
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
     belongs_to :token_for, foreign_type: "token_for_type", polymorphic: true
+
+    validates :token, presence: true, uniqueness: { scope: [:decidim_organization_id, :token_for_type, :token_for_id] }
+    # validates token no spaces or strange characters
+    validates :token, format: { with: /\A[a-zA-Z0-9_-]+\z/ }
 
     after_initialize :generate
 

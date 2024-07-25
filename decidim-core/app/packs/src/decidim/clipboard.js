@@ -23,7 +23,7 @@ import select from "select";
  * - `data-clipboard-copy` = The jQuery selector for the target input element
  *   where text will be copied from. If this element does not contain any visible text (for instance is an image),
  *   the selector indicated in here will be used to place the confirmation message.
- * - `data-clipboard-content` = The text that will be copied if the target input element is not found.
+ * - `data-clipboard-content` = The text that will be copied. If empty or not present, the target input element will be used.
  * - `data-clipboard-copy-label` = The label that will be shown in the button
  *   after a succesful copy.
  * - `data-clipboard-copy-message` = The text that will be announced to screen
@@ -43,10 +43,8 @@ $(() => {
     
     const $input = $($el.data("clipboard-copy"));
 
-    let selectedText = "";
-    if ($input.length < 1 || !$input.is("input, textarea, select")) {
-      selectedText = $el.data("clipboard-content");
-    } else {
+    let selectedText = $el.data("clipboard-content");
+    if (selectedText === "" && $input.length > 1 && $input.is("input, textarea, select")) {
       selectedText = select($input[0]);
     }
 

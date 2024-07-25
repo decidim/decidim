@@ -23,12 +23,16 @@ module Decidim::Admin
     end
 
     let(:token) { "ABC123" }
-    let(:automatic_token) { false }
+    let(:automatic_token) { true }
     let(:expires_at) { Time.zone.today + 3.days }
     let(:no_expiration) { false }
     let(:registered_only) { true }
 
-    it "returns registered only true" do
+    it "returns defaults" do
+      expect(form.token).to eq("ABC123")
+      expect(form.automatic_token).to be(true)
+      expect(form.expires_at).to eq(Time.zone.today + 3.days)
+      expect(form.no_expiration).to be(false)
       expect(form.registered_only).to be(true)
     end
 

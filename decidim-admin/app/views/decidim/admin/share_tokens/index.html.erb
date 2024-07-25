@@ -22,7 +22,7 @@
             <tr>
               <td id="js-token-<%= share_token.id %>"><%= share_token.token %></td>
               <td><%= share_token.expires_at.present? ? ("<span class=\"text-#{share_token.expired? ? "warning" : ""}\">#{l(share_token.expires_at, format: :decidim_short)}</span>".html_safe) : content_tag(:em, t(".never")) %></td>
-              <td><%= t("booleans.#{share_token.registered_only}") %></td>
+              <td><%= t("booleans.#{share_token.registered_only.present?}") %></td>
               <td><%= share_token.times_used %></td>
               <td class="table-list__actions">
                 <%= icon_link_to "pencil-line", edit_component_share_token_path(id: share_token ), t("actions.edit", scope: "decidim.admin.share_tokens"), class: "action-icon--edit" %>
@@ -39,3 +39,4 @@
     <p><%= t ".empty" %></p>
   <% end %>
 </div>
+<% %>
