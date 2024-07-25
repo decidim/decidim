@@ -56,18 +56,20 @@ $(() => {
     const target = `#${$(event.target).data("dialogOpen")}`;
     const redirectUrl = $(event.target).data("redirectUrl");
 
-    if (target && redirectUrl) {
-      $("<input type='hidden' />").
-        attr("id", "redirect_url").
-        attr("name", "redirect_url").
-        attr("value", redirectUrl).
-        appendTo(`${target} form`);
-
-      $(`${target} a`).attr("href", (index, href) => {
-        const querystring = jQuery.param({"redirect_url": redirectUrl});
-        return href + (href.match(/\?/) ? "&" : "?") + querystring;
-      });
+    if (!target || !redirectUrl) {
+      return;
     }
+
+    $("<input type='hidden' />").
+      attr("id", "redirect_url").
+      attr("name", "redirect_url").
+      attr("value", redirectUrl).
+      appendTo(`${target} form`);
+
+    $(`${target} a`).attr("href", (index, href) => {
+      const querystring = jQuery.param({ "redirect_url": redirectUrl });
+      return href + (href.match(/\?/) ? "&" : "?") + querystring;
+    });
   });
 
   $(document).on("closed.zf.reveal", (event) => {
