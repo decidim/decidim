@@ -53,7 +53,7 @@ $(() => {
   }
 
   $(document).on("click.zf.trigger", (event) => {
-    const target = `#${$(event.target).data("open")}`;
+    const target = `#${$(event.target).data("dialogOpen")}`;
     const redirectUrl = $(event.target).data("redirectUrl");
 
     if (target && redirectUrl) {
