@@ -459,6 +459,12 @@ pl:
           take_part: Dołącz
         index:
           promoted_assemblies: Wyróżnione zespoły
+        metadata:
+          children_item:
+            one: "%{count} zespół"
+            few: "%{count} zespoły"
+            many: "%{count} zespołów"
+            other: "%{count} zespołów"
         order_by_assemblies:
           assemblies:
             one: "%{count} zespół"
