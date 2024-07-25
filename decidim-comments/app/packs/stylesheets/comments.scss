@@ -70,7 +70,7 @@
 }
 
 .comment {
-  @apply rounded-lg border-2 border-background p-3 pl-6;
+  @apply rounded-none border-4 border-black border-background p-3 pl-6;
 
   &__header {
     @apply flex items-center gap-x-2 mb-2 -ml-10 relative;
@@ -99,7 +99,7 @@
   }
 
   &-reply {
-    @apply rounded-lg border-2 border-background ml-3 relative;
+    @apply rounded-none border-2 border-background ml-3 relative;
   }
 
   &-reply:empty {
