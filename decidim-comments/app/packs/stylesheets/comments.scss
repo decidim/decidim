@@ -70,7 +70,7 @@
 }
 
 .comment {
-  @apply rounded-none border-s-current border-2 border-background p-3 pl-6;
+  @apply rounded-none border-l-black border-2 border-background p-3 pl-6;
 
   &__header {
     @apply flex items-center gap-x-2 mb-2 -ml-10 relative;
