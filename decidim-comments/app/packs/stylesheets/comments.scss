@@ -99,7 +99,7 @@
   }
 
   &-reply {
-    @apply rounded-none border-s-current border-2 border-background ml-3 relative;
+    @apply border-2 border-background ml-3 relative;
   }
 
   &-reply:empty {
@@ -114,7 +114,7 @@
 
   &-reply &,
   & &-reply {
-    @apply border-0 pr-0 mt-4 bg-gray-5 mb-1.5;
+    @apply border-0 pr-0 mt-4 bg-gray-5 mb-0 rounded-none border-2 py-0;
   }
 
   &-thread {
