@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CreateDefaultProposalStates < ActiveRecord::Migration[6.1]
-  class Proposal < ApplicationRecord
+  class CustomProposal < ApplicationRecord
     belongs_to :proposal_state,
                class_name: "Decidim::Proposals::ProposalState",
                foreign_key: "decidim_proposals_proposal_state_id",
@@ -15,12 +15,14 @@ class CreateDefaultProposalStates < ActiveRecord::Migration[6.1]
 
   def up
     Decidim::Component.where(manifest_name: "proposals").find_each do |component|
+
       admin_user = component.organization.admins.first
+      Decidim::Proposals.create_default_states!(component, admin_user)
 
-      default_states = Decidim::Proposals.create_default_states!(component, admin_user)
-
-      Proposal.where(decidim_component_id: component.id).find_each do |proposal|
-        proposal.update!(proposal_state: default_states.dig(proposal.old_state.to_sym, :object))
+      CustomProposal.where(decidim_component_id: component.id).find_each do |proposal|
+        next if proposal.old_state == "not_answered"
+      
+        proposal.update!(proposal_state: Decidim::Proposals::ProposalState.where(component: component, token: proposal.old_state).first!)
       end
     end
   end
