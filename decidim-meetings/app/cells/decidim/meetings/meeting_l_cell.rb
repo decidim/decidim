@@ -18,11 +18,10 @@ module Decidim
       end
 
       def url_extra_params
-        if current_component == meeting.component
-          {}
-        else
-          { previous_space: "#{current_space.class}##{current_space.id}" }
-        end
+        return {} unless defined?(current_component)
+        return {} if current_component == meeting.component
+
+        { previous_space: "#{current_space.class}##{current_space.id}" }
       end
 
       private
