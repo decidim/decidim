@@ -4,10 +4,13 @@ module Decidim
   module Admin
     class ShareTokensController < Decidim::Admin::ApplicationController
       include Decidim::ComponentPathHelper
-      helper_method :share_token, :share_tokens, :component
+      include Decidim::Admin::Filterable
+
+      helper_method :share_token, :component
 
       def index
         enforce_permission_to :read, :share_token
+        @share_tokens = filtered_collection
       end
 
       def new
@@ -75,14 +78,20 @@ module Decidim
         @component ||= current_participatory_space.components.find(params[:component_id])
       end
 
-      def share_tokens
-        Decidim::ShareToken.where(
-          organization: current_organization
-        )
+      def base_query
+        collection
+      end
+
+      def collection
+        @collection ||= Decidim::ShareToken.where(organization: current_organization, token_for: component)
+      end
+
+      def filters
+        []
       end
 
       def share_token
-        @share_token ||= share_tokens.find(params[:id])
+        @share_token ||= collection.find(params[:id])
       end
     end
   end

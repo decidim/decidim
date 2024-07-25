@@ -44,20 +44,58 @@ module Decidim::Admin
         expect(form).to be_invalid
         expect(form.errors[:token]).to include("cannot be blank")
       end
+
+      context "when automatic_token is set" do
+        let(:token) { "" }
+        let(:automatic_token) { true }
+
+        it "does not validate presence of token" do
+          expect(form).to be_valid
+        end
+      end
     end
 
     context "when expires_at is nil" do
-      let!(:expires_at) { nil }
+      let(:expires_at) { nil }
 
-      it "does not expires" do
-        expect(form).to be_valid
+      it "validates presence of expires_at" do
+        expect(form).to be_invalid
+        expect(form.errors[:expires_at]).to include("cannot be blank")
+      end
+
+      context "when no_expiration is set" do
+        let(:no_expiration) { true }
+
+        it "does not expires" do
+          expect(form).to be_valid
+        end
       end
     end
 
     context "when token is custom" do
+      let(:token) { "abc 123 " }
+
       it "returns the token in uppercase" do
-        form.token = "abc123"
-        expect(form.token).to eq("ABC123")
+        expect(form.token).to eq("ABC-123")
+      end
+
+      context "and has strange characters" do
+        let(:token) { "abc 123 !@#$%^&*()_+" }
+
+        it "returns the token in uppercase" do
+          expect(form).to be_invalid
+          expect(form.errors[:token]).to include("is invalid")
+        end
+      end
+    end
+
+    context "when token exists" do
+      let(:automatic_token) { false }
+      let!(:share_token) { create(:share_token, organization:, token_for: component, token:) }
+
+      it "validates uniqueness of token" do
+        expect(form).to be_invalid
+        expect(form.errors[:token]).to include("has already been taken")
       end
     end
 

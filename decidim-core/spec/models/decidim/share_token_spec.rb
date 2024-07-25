@@ -11,12 +11,14 @@ module Decidim
 
     let(:attributes) do
       {
+        token:,
         token_for:,
         user:,
         organization:
       }
     end
 
+    let(:token) { "SOME-TOKEN" }
     let(:user) { create(:user) }
     let(:token_for) { create(:component) }
     let(:organization) { token_for.organization }
@@ -42,9 +44,48 @@ module Decidim
 
         it { is_expected.not_to be_valid }
       end
+
+      context "when token is not present" do
+        # FactoryBot does not run the after_initializer block when building if token is defined
+        let(:share_token) { build(:share_token, token_for:, organization:) }
+
+        it { is_expected.to be_valid }
+
+        it "generates a token" do
+          expect(subject.token).to be_present
+        end
+      end
+
+      context "when token is already taken" do
+        let(:token) { "taken" }
+
+        before do
+          create(:share_token, token:, token_for:, organization:)
+        end
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "when token is already taken by another component" do
+        let(:token) { "taken" }
+
+        before do
+          create(:share_token, token:, organization:)
+        end
+
+        it { is_expected.to be_valid }
+      end
+
+      context "when token has strange characters" do
+        let(:token) { "bon cop de falç" }
+
+        it { is_expected.to be_invalid }
+      end
     end
 
     describe "defaults" do
+      let(:share_token) { build(:share_token, token_for:, organization:) }
+
       it "generates an alphanumeric 64-character token string" do
         expect(subject.token).to match(/^[a-zA-Z0-9]{64}$/)
       end

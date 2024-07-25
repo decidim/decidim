@@ -49,7 +49,7 @@ $(() => {
     }
 
     let $msgEl = $el;
-    if($msgEl.text() === "") {
+    if ($msgEl.text() === "") {
       $msgEl = $input;
     }
     // Get the available text to clipboard.
@@ -116,7 +116,7 @@ $(() => {
         }
       } else {
         $msg = $('<div aria-role="alert" aria-live="assertive" aria-atomic="true" class="sr-only"></div>');
-        $el.after($msg);
+        $msgEl.append($msg);
         $el.data("clipboard-message-element", $msg);
       }
 
