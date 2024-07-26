@@ -158,7 +158,6 @@ lt:
             participatory_texts_enabled: Dalyvaujamieji tekstai aktyvuoti
             participatory_texts_enabled_readonly: Jei yra pasiūlymų, negalima sąveika su šia nuostata. Sukurkite naują „Pasiūlymų komponentą“, jei norite aktyvinti šią funkciją arba, jei norite išjungti šią funkciją, visus importuotus pasiūlymus pašalinkite iš laukelio „Bendri tekstai“ meniu.
             proposal_answering_enabled: Atsakymas į pasiūlymą aktyvintas
-            proposal_edit_before_minutes: Kol nepraeis nurodytas skaičius minučių, autoriai gali keisti pasiūlymus
             proposal_edit_time: Pasiūlymų koregavimas
             proposal_edit_time_choices:
               infinite: Lesti redaguoti pasiūlymus neribotą laiką
