@@ -170,6 +170,11 @@ ca:
               random: Aleatòriament
               recent: Recents
               with_more_authors: Amb més autores
+            edit_time: Les autores poden editar les seves propostes abans que passi aquest temps
+            edit_time_units:
+              days: Dies
+              hours: Hores
+              minutes: Minuts
             geocoding_enabled: Geocodificació habilitada
             minimum_votes_per_user: Suports mínims per usuari
             new_proposal_body_template: Plantilla pel text de nova proposta
@@ -179,11 +184,14 @@ ca:
             participatory_texts_enabled: Texts participatius habilitats
             participatory_texts_enabled_readonly: No es pot interactuar amb aquesta configuració si hi ha propostes existents. Si us plau, crea un nou 'component de propostes' si vols habilitar aquesta característica o descarta totes les propostes importades al menú "textos participatius" si vols deshabilitar-lo.
             proposal_answering_enabled: Resposta a propostes habilitada
-            proposal_edit_before_minutes: Les propostes poden ser editades per les autores abans que passin aquests minuts
             proposal_edit_time: Edició de propostes
             proposal_edit_time_choices:
               infinite: Permet l'edició de propostes durant un període infinit
               limited: Permet l'edició de propostes durant una finestra temporal específica
+            proposal_edit_time_unit_options:
+              days: Dies
+              hours: Hores
+              minutes: Minuts
             proposal_length: Longitud màxima del cos de la proposta
             proposal_limit: Límit de propostes per participant
             proposal_wizard_step_1_help_text: Text d'ajuda pel pas "Crear" de l'assistent de propostes
