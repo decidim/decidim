@@ -137,7 +137,6 @@ tr:
             participatory_texts_enabled: Katılımcı metinler etkinleştirildi
             participatory_texts_enabled_readonly: Mevcut teklifler varsa bu ayarla etkileşim kurulamaz. Bu özelliği etkinleştirmek istiyorsanız lütfen yeni bir "Teklifler bileşeni" oluşturun veya devre dışı bırakmak istiyorsanız "Katılımcı Metinler" menüsünde içe aktarılan tüm teklifleri iptal edin.
             proposal_answering_enabled: Teklif yanıtlama etkin
-            proposal_edit_before_minutes: Teklifler, bu birkaç dakika geçmeden yazarlar tarafından düzenlenebilir
             proposal_length: Maksimum teklif gövdesi uzunluğu
             proposal_limit: Katılımcı başına teklif sınırı
             proposal_wizard_step_1_help_text: Teklif sihirbazı "Oluştur" adımı yardım metni
