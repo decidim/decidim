@@ -31,7 +31,6 @@ is-IS:
             new_proposal_help_text: Ný tillaga hjálpartexta
             official_proposals_enabled: Opinberar tillögur virkar
             proposal_answering_enabled: Tillaga svarað virkt
-            proposal_edit_before_minutes: Tillögur má breyta af höfundum áður en þessi mörg mínútur fara fram
             proposal_length: Hámark umsóknar lengd líkamans
             proposal_wizard_step_1_help_text: Tillaga töframaður "Búa til" skref hjálpartexta
             threshold_per_proposal: Gildi fyrir hverja tillögu
