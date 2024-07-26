@@ -170,6 +170,11 @@ es-PY:
               random: Aleatorio
               recent: Recientes
               with_more_authors: Con más autoras
+            edit_time: Las autoras pueden editar las propuestas antes de que pase este tiempo
+            edit_time_units:
+              days: Días
+              hours: Horas
+              minutes: Minutos
             geocoding_enabled: Geocodificación habilitada
             minimum_votes_per_user: Votos mínimos por usuario
             new_proposal_body_template: Plantilla para el texto de nueva propuesta
@@ -179,11 +184,14 @@ es-PY:
             participatory_texts_enabled: Textos participativos habilitados
             participatory_texts_enabled_readonly: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
             proposal_answering_enabled: Respuesta a propuestas habilitadas
-            proposal_edit_before_minutes: Las propuestas pueden ser editadas por los autores antes de que pasen estos minutos
             proposal_edit_time: Edición de propuestas
             proposal_edit_time_choices:
               infinite: Permitir editar propuestas por una cantidad infinita de tiempo
               limited: Permitir la edición de propuestas dentro de un plazo específico
+            proposal_edit_time_unit_options:
+              days: Días
+              hours: Horas
+              minutes: Minutos
             proposal_length: Longitud máxima del cuerpo de la propuesta
             proposal_limit: Límite de propuestas por usuario
             proposal_wizard_step_1_help_text: Asistente de propuesta "Crear" paso texto de ayuda
@@ -235,8 +243,20 @@ es-PY:
       proposals:
         admin:
           proposal_note_created:
+            email_intro: '%{author_name} ha creado una nota privada en %{resource_title}. Puedes verlo en el <a href="%{admin_proposal_info_url}">panel de administración</a>.'
             email_outro: Recibes esta notificación porque puedes evaluar la propuesta.
             email_subject: Alguien dejó una nota en la propuesta %{resource_title}.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creado una nota privada en <a href="%{resource_path}">%{resource_title}</a>. Puedes verla en el <a href="%{admin_proposal_info_path}">panel de administración</a>.
+          proposal_note_mentioned:
+            email_intro: '"%{author_name}" "%{author_nickname}" te ha mencionado en una nota privada en "%{resource_title}". Puedes verla en el <a href="%{admin_proposal_info_url}">panel de administración</a>.'
+            email_outro: Has recibido esta notificación porque se te ha mencionado en una nota privada.
+            email_subject: Alguien dejó una nota en la propuesta %{resource_title}.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> te ha mencionado en una nota privada en <a href="%{resource_path}">%{resource_title}</a>. Puedes verla en el <a href="%{admin_proposal_info_path}">panel de administración</a>.
+          proposal_note_replied:
+            email_intro: '%{author_name} ha respondido a tu nota privada en %{resource_title}. Puedes verlo en el <a href="%{admin_proposal_info_url}">panel de administración</a>.'
+            email_outro: Has recibido esta notificación porque eres el autor de la nota privada.
+            email_subject: "%{author_name} ha respondido a tu nota privada en %{resource_title}."
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha respondido a tu nota privada en <a href="%{resource_path}">%{resource_title}</a>. Puedes verlo en el <a href="%{admin_proposal_info_path}">panel de administración</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} ha sido aceptada para acceder como contribuidora del borrador colaborativo <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has recibido esta notificación porque eres una contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
@@ -471,6 +491,9 @@ es-PY:
           form:
             note: Nota
             submit: Enviar
+          reply:
+            error: Se ha producido un error al crear esta respuesta en la nota privada.
+            success: La respuesta a la nota privada se ha creado con éxito.
           title: Notas privadas
         proposal_states:
           create:
