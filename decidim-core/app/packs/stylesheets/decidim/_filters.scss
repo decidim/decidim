@@ -1,6 +1,8 @@
 .filter {
+  @apply flex gap-2 p-1.5 relative;
+
   label {
-    @apply flex items-center gap-2 p-1.5 rounded cursor-pointer relative;
+    @apply flex items-center gap-2 p-1.5 rounded cursor-pointer relative w-full;
   }
 
   &-container {
