@@ -48,7 +48,7 @@ module Decidim
                           active: is_active_link?(manage_component_path(component)) ||
                                   is_active_link?(decidim_admin_conferences.edit_component_path(current_participatory_space, component)) ||
                                   is_active_link?(decidim_admin_conferences.edit_component_permissions_path(current_participatory_space, component)) ||
-                                  is_active_link?(share_tokens_path(component)) ||
+                                  is_active_link?(decidim_admin_conferences.component_share_tokens_path(current_participatory_space, component)) ||
                                   participatory_space_active_link?(component),
                           if: component.manifest.admin_engine && user_role_config.component_is_accessible?(component.manifest_name)
           end
@@ -173,6 +173,13 @@ module Decidim
                         decidim_admin_conferences.moderations_path(current_participatory_space),
                         icon_name: "flag-line",
                         if: allowed_to?(:read, :moderation, conference: current_participatory_space)
+
+          menu.add_item :conference_share_tokens,
+                        I18n.t("share_tokens", scope: "decidim.admin.menu.conferences_submenu"),
+                        decidim_admin_conferences.conference_share_tokens_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_conferences.conference_share_tokens_path(current_participatory_space)),
+                        icon_name: "share-line",
+                        if: allowed_to?(:read, :share_tokens, current_participatory_space:)
         end
       end
 

@@ -33,19 +33,6 @@ module Decidim
       EngineRouter.admin_proxy(component).root_path(locale: current_params[:locale])
     end
 
-    # Returns the defined admin root path for a given component.
-    #
-    # component - the Component we want to find the root path for.
-    #
-    # Returns a relative url.
-    def share_tokens_path(component, options = {})
-      EngineRouter.admin_proxy(component.participatory_space).component_share_tokens_path(options.merge(component_id: component))
-    end
-
-    def share_token_path(component, options = {})
-      EngineRouter.admin_proxy(component.participatory_space).component_share_token_path(options.merge(component_id: component))
-    end
-
     # Returns whether the component can be managed or not by checking if it has
     # an admin engine.
     #

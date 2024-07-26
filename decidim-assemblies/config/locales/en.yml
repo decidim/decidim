@@ -211,6 +211,7 @@ en:
           moderations: Moderations
           private_users: Private participants
           see_assembly: See assembly
+          share_tokens: Share tokens
         assemblies_types: Assemblies types
       models:
         assemblies_types:

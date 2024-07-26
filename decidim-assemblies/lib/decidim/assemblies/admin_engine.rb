@@ -53,7 +53,7 @@ module Decidim
               put :unpublish
               get :share
             end
-            resources :share_tokens, except: [:show]
+            resources :component_share_tokens, except: [:show], path: "share_tokens", as: "share_tokens"
             resources :exports, only: :create
             resources :imports, only: [:new, :create] do
               get :example, on: :collection
@@ -80,6 +80,8 @@ module Decidim
               end
             end
           end
+
+          resources :participatory_process_share_tokens, except: [:show], path: "share_tokens"
         end
 
         scope "/assemblies/:assembly_slug/components/:component_id/manage" do

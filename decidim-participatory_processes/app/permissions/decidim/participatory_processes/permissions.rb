@@ -237,6 +237,7 @@ module Decidim
           :process_step,
           :process_user_role,
           :export_space,
+          :share_tokens,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
@@ -256,6 +257,7 @@ module Decidim
           :process_step,
           :process_user_role,
           :export_space,
+          :share_tokens,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed

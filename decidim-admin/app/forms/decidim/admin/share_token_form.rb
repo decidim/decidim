@@ -32,7 +32,7 @@ module Decidim
       end
 
       def token_for
-        context[:component]
+        context[:resource]
       end
 
       def organization

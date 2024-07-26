@@ -163,6 +163,10 @@ module Decidim
       [:with_any_area, :with_any_scope, :with_any_type]
     end
 
+    def shareable_url(share_token)
+      EngineRouter.main_proxy(self).assembly_url(self, share_token: share_token.token)
+    end
+
     private
 
     # When an assembly changes their parent, we need to update the parents_path attribute

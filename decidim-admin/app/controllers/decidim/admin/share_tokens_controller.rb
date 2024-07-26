@@ -2,11 +2,12 @@
 
 module Decidim
   module Admin
+    # This is an abstrac controller allows sharing unpublished things.
+    # Final implementation must inherit from this controller and implement the `resource` method.
     class ShareTokensController < Decidim::Admin::ApplicationController
-      include Decidim::ComponentPathHelper
       include Decidim::Admin::Filterable
 
-      helper_method :share_token, :component
+      helper_method :share_token, :resource, :resource_title, :share_tokens_path
 
       def index
         enforce_permission_to :read, :share_token
@@ -20,12 +21,12 @@ module Decidim
 
       def create
         enforce_permission_to :create, :share_token
-        @form = form(ShareTokenForm).from_params(params, component:)
+        @form = form(ShareTokenForm).from_params(params, resource:)
 
         CreateShareToken.call(@form) do
           on(:ok) do
             flash[:notice] = I18n.t("share_tokens.create.success", scope: "decidim.admin")
-            redirect_to share_tokens_path(component)
+            redirect_to share_tokens_path
           end
 
           on(:invalid) do
@@ -42,12 +43,12 @@ module Decidim
 
       def update
         enforce_permission_to(:update, :share_token, share_token:)
-        @form = form(ShareTokenForm).from_params(params, component:)
+        @form = form(ShareTokenForm).from_params(params, resource:)
 
         UpdateShareToken.call(@form, share_token) do
           on(:ok) do
             flash[:notice] = I18n.t("share_tokens.update.success", scope: "decidim.admin")
-            redirect_to share_tokens_path(component)
+            redirect_to share_tokens_path
           end
 
           on(:invalid) do
@@ -69,13 +70,46 @@ module Decidim
           end
         end
 
-        redirect_back(fallback_location: root_path)
+        redirect_to share_tokens_path
       end
 
       private
 
-      def component
-        @component ||= current_participatory_space.components.find(params[:component_id])
+      # override this method in the destination controller to specify the resource associated with the shared token (ie: a component)
+      def resource
+        raise NotImplementedError
+      end
+
+      # Override also this method if resouce does not respond to a translatable name or title
+      def resource_title
+        translated_attribute(resource.try(:name) || resource.title)
+      end
+
+      # sets the prefix for the route helper methods (this may vary depending on the resource type)
+      # This setup works fine for participatory spaces and components, override if needed
+      def route_name
+        @route_name ||= "#{resource.manifest.route_name}_"
+      end
+
+      def route_proxy
+        @route_proxy ||= EngineRouter.admin_proxy(resource.try(:participatory_space) || resource)
+      end
+
+      # returns the proper path for managing a share token according to the resource
+      # this works fine for components and participatory spaces, override if needed
+      def share_tokens_path(method = :index, options = {})
+        args = resource.is_a?(Decidim::Component) ? [resource, options] : [options]
+
+        case method
+        when :index, :create
+          route_proxy.send("#{route_name}share_tokens_path", *args)
+        when :new
+          route_proxy.send("new_#{route_name}share_token_path", *args)
+        when :update, :destroy
+          route_proxy.send("#{route_name}share_token_path", *args)
+        when :edit
+          route_proxy.send("edit_#{route_name}share_token_path", *args)
+        end
       end
 
       def base_query
@@ -83,7 +117,7 @@ module Decidim
       end
 
       def collection
-        @collection ||= Decidim::ShareToken.where(organization: current_organization, token_for: component)
+        @collection ||= Decidim::ShareToken.where(organization: current_organization, token_for: resource)
       end
 
       def filters

@@ -18,7 +18,7 @@ module Decidim::Admin
       ).with_context(
         current_user:,
         current_organization: organization,
-        component:
+        resource: component
       )
     end
 

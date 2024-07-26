@@ -200,6 +200,10 @@ module Decidim
       :admin
     end
 
+    def shareable_url(share_token)
+      EngineRouter.main_proxy(self).participatory_process_url(self, share_token: share_token.token)
+    end
+
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
     ransacker_i18n :title
 

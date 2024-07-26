@@ -129,6 +129,7 @@ en:
           moderations: Moderations
           private_users: Private participants
           process_admins: Process admins
+          share_tokens: Share tokens
           steps: Phases
       models:
         participatory_process:

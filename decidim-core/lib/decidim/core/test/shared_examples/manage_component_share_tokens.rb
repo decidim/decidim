@@ -111,7 +111,7 @@ RSpec.shared_examples "manage component share tokens" do
           click_on "Edit"
         end
 
-        expect(page).to have_content("Edit sharing tokens for component")
+        expect(page).to have_content("Edit sharing tokens for: #{translated(component.name)}")
         find_by_id("share_token_no_expiration_false").click
         find_by_id("share_token_registered_only_false").click
         click_on "Update"
