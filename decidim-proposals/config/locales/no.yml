@@ -136,7 +136,6 @@
             participatory_texts_enabled: Deltakende tekster aktivert
             participatory_texts_enabled_readonly: Kan ikke samhandle med denne innstillingen hvis det finnes eksisterende forslag. Vennligst, opprett et nytt "Forslags komponent" hvis du vil aktivere denne funksjonen eller forkaste alle importerte forslag i `Deltakende tekster` -menyen hvis du vil deaktivere den.
             proposal_answering_enabled: Forslags besvaring aktivert
-            proposal_edit_before_minutes: Forslag kan redigeres av forfattere før så mange minutter går
             proposal_edit_time: Forslagsredigering
             proposal_edit_time_choices:
               infinite: Tillat å redigere forslag til en uendelig tidsperiode
