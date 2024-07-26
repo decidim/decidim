@@ -2,25 +2,25 @@
 
 module Decidim
   module Admin
-    # This is an abstrac controller allows sharing unpublished things.
+    # This is an abstract controller allows sharing unpublished things.
     # Final implementation must inherit from this controller and implement the `resource` method.
     class ShareTokensController < Decidim::Admin::ApplicationController
       include Decidim::Admin::Filterable
 
-      helper_method :share_token, :resource, :resource_title, :share_tokens_path
+      helper_method :current_token, :resource, :resource_title, :share_tokens_path
 
       def index
-        enforce_permission_to :read, :share_token
+        enforce_permission_to :read, :share_tokens
         @share_tokens = filtered_collection
       end
 
       def new
-        enforce_permission_to :create, :share_token
+        enforce_permission_to :create, :share_tokens
         @form = form(ShareTokenForm).instance
       end
 
       def create
-        enforce_permission_to :create, :share_token
+        enforce_permission_to :create, :share_tokens
         @form = form(ShareTokenForm).from_params(params, resource:)
 
         CreateShareToken.call(@form) do
@@ -37,15 +37,15 @@ module Decidim
       end
 
       def edit
-        enforce_permission_to(:update, :share_token, share_token:)
-        @form = form(ShareTokenForm).from_model(share_token)
+        enforce_permission_to(:update, :share_tokens, share_token: current_token)
+        @form = form(ShareTokenForm).from_model(current_token)
       end
 
       def update
-        enforce_permission_to(:update, :share_token, share_token:)
+        enforce_permission_to(:update, :share_tokens, share_token: current_token)
         @form = form(ShareTokenForm).from_params(params, resource:)
 
-        UpdateShareToken.call(@form, share_token) do
+        UpdateShareToken.call(@form, current_token) do
           on(:ok) do
             flash[:notice] = I18n.t("share_tokens.update.success", scope: "decidim.admin")
             redirect_to share_tokens_path
@@ -59,9 +59,9 @@ module Decidim
       end
 
       def destroy
-        enforce_permission_to(:destroy, :share_token, share_token:)
+        enforce_permission_to(:destroy, :share_tokens, share_token: current_token)
 
-        Decidim::Commands::DestroyResource.call(share_token, current_user) do
+        Decidim::Commands::DestroyResource.call(current_token, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("share_tokens.destroy.success", scope: "decidim.admin")
           end
@@ -80,7 +80,7 @@ module Decidim
         raise NotImplementedError
       end
 
-      # Override also this method if resouce does not respond to a translatable name or title
+      # Override also this method if resource does not respond to a translatable name or title
       def resource_title
         translated_attribute(resource.try(:name) || resource.title)
       end
@@ -124,8 +124,8 @@ module Decidim
         []
       end
 
-      def share_token
-        @share_token ||= collection.find(params[:id])
+      def current_token
+        @current_token ||= collection.find(params[:id])
       end
     end
   end

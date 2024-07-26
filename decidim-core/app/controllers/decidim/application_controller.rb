@@ -56,6 +56,12 @@ module Decidim
 
     skip_before_action :disable_http_caching, unless: :user_signed_in?
 
+    def store_share_token
+      session[:share_token] = params[:share_token] if params.has_key?(:share_token)
+
+      session[:share_token].presence
+    end
+
     private
 
     # This overrides Devise's method for extracting the path from the URL. We

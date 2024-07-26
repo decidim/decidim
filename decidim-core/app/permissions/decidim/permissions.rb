@@ -56,7 +56,6 @@ module Decidim
 
       return allow! if component.published?
       return allow! if user_can_preview_component?
-      return allow! if user_can_admin_component?
       return allow! if user_can_admin_component_via_space?
 
       disallow!
