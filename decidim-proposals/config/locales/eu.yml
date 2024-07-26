@@ -176,7 +176,6 @@ eu:
             participatory_texts_enabled: Testu parte-hartzaileak gaituta
             participatory_texts_enabled_readonly: Proposamenak badaude, ezin da ezarpen honekin elkarreragin. Mesedez, sor ezazu proposamen-osagai berria, ezaugarri hau aktibatu nahi baduzu edo baztertu `Testu parte hartzaileak` menuan inportatutako proposamen guztiak, desaktibatu nahi baduzu.
             proposal_answering_enabled: Proposamena erantzutea gaituta dago
-            proposal_edit_before_minutes: Proposamenak egileek editatu ahal izango dituzte minutu asko igaro aurretik
             proposal_edit_time: Proposamenen edizioa
             proposal_edit_time_choices:
               infinite: Utzi proposamenak editatzen epe mugagabe batean
