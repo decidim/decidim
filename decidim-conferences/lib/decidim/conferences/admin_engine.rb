@@ -83,7 +83,7 @@ module Decidim
             resources :reports, controller: "moderations/reports", only: [:index, :show]
           end
 
-          resources :participatory_process_share_tokens, except: [:show], path: "share_tokens"
+          resources :conference_share_tokens, except: [:show], path: "share_tokens"
         end
 
         scope "/conferences/:conference_slug/components/:component_id/manage" do

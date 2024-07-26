@@ -445,6 +445,10 @@ module Decidim
       ActionAuthorizer.new(user, "comment", self, nil).authorize.ok?
     end
 
+    def shareable_url(share_token)
+      EngineRouter.main_proxy(self).initiative_url(self, share_token: share_token.token)
+    end
+
     def self.ransack(params = {}, options = {})
       Initiatives::InitiativeSearch.new(self, params, options)
     end

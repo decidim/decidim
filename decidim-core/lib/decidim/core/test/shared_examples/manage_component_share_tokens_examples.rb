@@ -1,8 +1,13 @@
 # frozen_string_literal: true
 
 RSpec.shared_examples "manage component share tokens" do
-  let!(:components_path) { participatory_space_components_path(participatory_space) }
-  let!(:component) { create(:component, participatory_space:) }
+  let!(:components_path) { participatory_space_engine.components_path(participatory_space) }
+  let!(:component) { create(:component, participatory_space:, published_at: nil) }
+
+  before do
+    switch_to_host(organization.host)
+    login_as user, scope: :user
+  end
 
   def visit_share_component
     visit components_path
@@ -10,23 +15,22 @@ RSpec.shared_examples "manage component share tokens" do
     click_on "Share"
   end
 
-  context "when visiting the components page for the participatory space" do
+  context "when visiting the share_tokens page for the component" do
     let!(:share_token) { create(:share_token, token_for: component, organization:, user:, registered_only: true) }
 
     before do
-      visit_share_component
+      visit components_path
     end
 
-    it "has a share button that opens the share url for the component" do
-      share_window = window_opened_by { click_on "Preview", wait: 2 }
-
-      within_window share_window do
-        expect(current_url).to include(component.share_tokens.reload.last.url)
-      end
+    it "has a share button that opens the share tokens admin" do
+      click_on "Share"
+      expect(page).to have_content("Sharing tokens for: #{translated(component.name)}")
+      expect(page).to have_css("tbody tr", count: 1)
+      expect(page).to have_content(share_token.token)
     end
   end
 
-  context "when visiting the component configuration page" do
+  context "when visiting the share tokens index page" do
     context "when there are no tokens" do
       let(:last_token) { Decidim::ShareToken.last }
       before do
@@ -88,6 +92,7 @@ RSpec.shared_examples "manage component share tokens" do
       before do
         visit_share_component
       end
+
       it "displays all tokens" do
         within ".share_tokens" do
           expect(page).to have_css("tbody tr", count: 3)
@@ -147,6 +152,16 @@ RSpec.shared_examples "manage component share tokens" do
 
           within_window share_window do
             expect(urls).to include(page.current_url)
+          end
+        end
+      end
+
+      it "has a share button that opens the share url for the component" do
+        within ".share_tokens tbody tr:first-child" do
+          share_window = window_opened_by { click_on "Preview", wait: 2 }
+
+          within_window share_window do
+            expect(current_url).to include(component.share_tokens.first.url)
           end
         end
       end

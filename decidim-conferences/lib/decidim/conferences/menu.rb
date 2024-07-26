@@ -175,7 +175,7 @@ module Decidim
                         if: allowed_to?(:read, :moderation, conference: current_participatory_space)
 
           menu.add_item :conference_share_tokens,
-                        I18n.t("share_tokens", scope: "decidim.admin.menu.conferences_submenu"),
+                        I18n.t("menu.share_tokens", scope: "decidim.admin"),
                         decidim_admin_conferences.conference_share_tokens_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_conferences.conference_share_tokens_path(current_participatory_space)),
                         icon_name: "share-line",

@@ -209,8 +209,6 @@ shared_examples "manage assembly components" do
                                                 }
                                               ))
       end
-
-      it_behaves_like "manage component share tokens"
     end
 
     context "when the component is published" do

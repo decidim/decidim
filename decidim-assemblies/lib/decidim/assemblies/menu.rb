@@ -148,7 +148,7 @@ module Decidim
                         if: allowed_to?(:read, :moderation, assembly: current_participatory_space)
 
           menu.add_item :assembly_share_tokens,
-                        I18n.t("share_tokens", scope: "decidim.admin.menu.assemblies_submenu"),
+                        I18n.t("menu.share_tokens", scope: "decidim.admin"),
                         decidim_admin_assemblies.assembly_share_tokens_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_assemblies.assembly_share_tokens_path(current_participatory_space)),
                         icon_name: "share-line",

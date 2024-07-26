@@ -6,8 +6,12 @@ module Decidim
       # This controller allows sharing unpublished things.
       # It is targeted for customizations for sharing unpublished things that lives under
       # an initiative.
-      class ShareTokensController < Decidim::Admin::ShareTokensController
+      class InitiativeShareTokensController < Decidim::Admin::ShareTokensController
         include InitiativeAdmin
+
+        def resource
+          current_initiative
+        end
       end
     end
   end

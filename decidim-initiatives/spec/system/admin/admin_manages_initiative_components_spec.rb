@@ -198,8 +198,6 @@ describe "Admin manages initiative components" do
           expect(page).to have_css(".action-icon--unpublish")
         end
       end
-
-      it_behaves_like "manage component share tokens"
     end
 
     context "when the component is published" do

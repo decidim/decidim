@@ -81,7 +81,7 @@ module Decidim
             end
           end
 
-          resources :participatory_process_share_tokens, except: [:show], path: "share_tokens"
+          resources :assembly_share_tokens, except: [:show], path: "share_tokens"
         end
 
         scope "/assemblies/:assembly_slug/components/:component_id/manage" do
