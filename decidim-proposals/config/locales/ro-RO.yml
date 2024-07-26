@@ -144,7 +144,6 @@ ro:
             participatory_texts_enabled: Modulul texte participative a fost activat
             participatory_texts_enabled_readonly: Nu se poate interacționa cu această setare dacă există deja propuneri. Te rugăm, creează o nouă componenta 'Propuneri' dacă dorești să activezi această funcționalitate. Dacă vrei să o dezactivezi mergi în meniul `Texte participative`și renunță la toate propunerile importate.
             proposal_answering_enabled: Modulul de răspuns pentru propuneri a fost activat
-            proposal_edit_before_minutes: Propunerile pot fi editate de către autori până la expirarea termenului definit mai jos în minute
             proposal_edit_time: Durata editării propunerii
             proposal_edit_time_choices:
               infinite: Permite editarea propunerilor pentru o perioadă infinită de timp
