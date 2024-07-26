@@ -182,7 +182,6 @@ pl:
             participatory_texts_enabled: Włącz kolektywną legislację
             participatory_texts_enabled_readonly: Nie można korzystać z tego ustawienia, jeśli są już propozycje. Utwórz nowy komponent propozycji, jeśli chcesz włączyć tę funkcję, lub odrzuć wszystkie zaimportowane propozycje w menu „Kolektywna Legislacja”, jeśli chcesz ją wyłączyć.
             proposal_answering_enabled: Włączono odpowiadanie na propozycję
-            proposal_edit_before_minutes: Propozycje mogą być edytowane przez autorów przed upływem tylu minut
             proposal_edit_time: Edycja propozycji
             proposal_edit_time_choices:
               infinite: Zezwalaj na edycję propozycji przez nieograniczony czas
