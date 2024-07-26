@@ -76,7 +76,6 @@ id:
             official_proposals_enabled: Proposal resmi diaktifkan
             participatory_texts_enabled: Teks partisipatif diaktifkan
             proposal_answering_enabled: Pengangkatan proposal diaktifkan
-            proposal_edit_before_minutes: Proposal dapat diedit oleh penulis sebelum ini banyak menit berlalu
             proposal_length: Panjang badan proposal maksimum
             proposal_limit: Batas proposal per pengguna
             proposal_wizard_step_1_help_text: Panduan proposal "Buat" teks bantuan langkah
