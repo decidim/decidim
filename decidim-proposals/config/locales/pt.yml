@@ -141,7 +141,6 @@ pt:
             participatory_texts_enabled: Textos participativos ativados
             participatory_texts_enabled_readonly: Não é possível interagir com esta configuração caso existam propostas. Crie um novo "Componente de propostas" caso pretenda ativar esta característica ou elimine todas as propostas importadas no menu "Textos Participativos" caso pretenda desativá-la.
             proposal_answering_enabled: Respostas à proposta ativadas
-            proposal_edit_before_minutes: As propostas podem ser editadas pelos autores antes que estes minutos passem
             proposal_edit_time: Edição de proposta
             proposal_edit_time_choices:
               infinite: Permitir editar propostas por um limite de tempo indeterminado
