@@ -2,8 +2,11 @@
   <div class="item_show__header">
     <h2 class="item_show__header-title">
       <%= t(".title", component_name: translated_attribute(component.name)) %>
-      <a class="button button__sm button__secondary" href="<%= new_component_share_token_path %>"><%= icon "add-line" %><%= t("index.new_share_token_button", scope: "decidim.admin.share_tokens") %></a>
+      <a class="button button__sm button__secondary" href="<%= new_component_share_token_path %>"><%= icon "add-line" %><%= t(".new_share_token_button") %></a>
     </h2>
+  </div>
+  <div class="mb-4">
+    <p class="help-text whitespace-pre-line"><%= t(".share_tokens_help", clipboard: icon("clipboard-line", class: "inline-block mb-1")).html_safe %></p>
   </div>
   <% if @share_tokens.any? %>
     <div class="table-scroll">
@@ -36,7 +39,7 @@
       </table>
     </div>
   <% else %>
-    <p><%= t ".empty" %></p>
+    <p><%= t(".empty", new_token_link: link_to(t(".create_new_token"), new_component_share_token_path , class: "button button__text-secondary")).html_safe %></p>
   <% end %>
 </div>
 <%= decidim_paginate @share_tokens %>

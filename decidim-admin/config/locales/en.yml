@@ -983,9 +983,14 @@ en:
           back_to_share_tokens: Back to share tokens
           copied: Copied!
           copy_message: The text was successfully copied to clipboard.
-          empty: There are no active tokens.
+          create_new_token: Create your first token!
+          empty: There are no active tokens. %{new_token_link}
           never: Never
           new_share_token_button: New token
+          share_tokens_help: |
+            Share tokens are a way to allow access to an unpublished component for non-admin users.
+            Tokens can be valid for registered users only or have and expiration date if necessary.
+            To share a new token with someone, create it and then copy the link using the "%{clipboard} clipboard" action icon.
           title: 'Sharing tokens for component: %{component_name}'
         new:
           create: Create
