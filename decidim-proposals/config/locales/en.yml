@@ -171,6 +171,11 @@ en:
               random: Random
               recent: Recent
               with_more_authors: With more authors
+            edit_time: Proposals can be edited by authors before this much time passes
+            edit_time_units:
+              days: Days
+              hours: Hours
+              minutes: Minutes
             geocoding_enabled: Geocoding enabled
             minimum_votes_per_user: Minimum votes per user
             new_proposal_body_template: New proposal body template
@@ -180,11 +185,14 @@ en:
             participatory_texts_enabled: Participatory texts enabled
             participatory_texts_enabled_readonly: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
             proposal_answering_enabled: Proposal answering enabled
-            proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
             proposal_edit_time: Proposal editing
             proposal_edit_time_choices:
               infinite: Allow editing proposals for an infinite amount of time
               limited: Allow editing of proposals within a specific timeframe
+            proposal_edit_time_unit_options:
+              days: Days
+              hours: Hours
+              minutes: Minutes
             proposal_length: Maximum proposal body length
             proposal_limit: Proposal limit per participant
             proposal_wizard_step_1_help_text: Proposal wizard "Create" step help text
