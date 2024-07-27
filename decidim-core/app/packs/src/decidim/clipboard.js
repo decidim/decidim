@@ -43,8 +43,8 @@ $(() => {
     
     const $input = $($el.data("clipboard-copy"));
 
-    let selectedText = $el.data("clipboard-content");
-    if (selectedText === "" && $input.length > 1 && $input.is("input, textarea, select")) {
+    let selectedText = $el.data("clipboard-content") || "";
+    if (selectedText === "" && $input.is("input, textarea, select")) {
       selectedText = select($input[0]);
     }
 

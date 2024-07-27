@@ -982,7 +982,7 @@ en:
           'true': 'Yes'
         index:
           back_to_share_tokens: Back to share tokens
-          copied: Copied!
+          copied: Share URL Copied!
           copy_message: The text was successfully copied to clipboard.
           create_new_token: Create your first token!
           empty: There are no active tokens. %{new_token_link}

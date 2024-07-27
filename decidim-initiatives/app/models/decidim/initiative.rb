@@ -24,6 +24,7 @@ module Decidim
     include Decidim::HasResourcePermission
     include Decidim::HasArea
     include Decidim::FilterableResource
+    include Decidim::ShareableWithToken
 
     translatable_fields :title, :description, :answer
 
