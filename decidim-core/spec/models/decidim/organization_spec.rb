@@ -99,11 +99,11 @@ module Decidim
           let!(:previous_omniauth_secrets) { Rails.application.credentials[:omniauth] }
 
           before do
-            Rails.application.credentials[:omniauth] = nil
+            Rails.application.credentials.omniauth = nil
           end
 
           after do
-            Rails.application.credentials[:omniauth] = previous_omniauth_secrets
+            Rails.application.credentials.omniauth = previous_omniauth_secrets
           end
 
           it "returns no providers" do

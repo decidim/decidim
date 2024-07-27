@@ -213,7 +213,7 @@ describe "Organizations" do
 
       before do
         secrets = Rails.application.credentials
-        allow(Rails.application).to receive(:secrets).and_return(
+        allow(Rails.application).to receive(:credentials).and_return(
           secrets.merge(
             omniauth: {
               facebook: {
