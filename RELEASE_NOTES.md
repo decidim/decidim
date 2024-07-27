@@ -61,7 +61,8 @@ config/credentials/production.key
 config/credentials/production.yml.enc
 ```
 
-You will need to repeat the same process for all 3 environments :
+You will need to repeat the same process for all 3 environments:
+
 ```bash
 EDITOR=vim ./bin/rails credentials:edit --environment test
 EDITOR=vim ./bin/rails credentials:edit --environment development

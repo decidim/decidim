@@ -187,7 +187,9 @@ Decidim.configure do |config|
   config.enable_html_header_snippets = Rails.application.credentials.decidim[:enable_html_header_snippets].present?
 
   # Allow organizations admins to track newsletter links.
-  config.track_newsletter_links = Rails.application.credentials.decidim[:track_newsletter_links].present? unless Rails.application.credentials.decidim[:track_newsletter_links] == "auto"
+  unless Rails.application.credentials.decidim[:track_newsletter_links] == "auto"
+    config.track_newsletter_links = Rails.application.credentials.decidim[:track_newsletter_links].present?
+  end
 
   # Amount of time that the download your data files will be available in the server.
   config.download_your_data_expiry_time = Rails.application.credentials.decidim[:download_your_data_expiry_time].to_i.days
@@ -400,7 +402,9 @@ Decidim.configure do |config|
   end
   config.follow_http_x_forwarded_host = Rails.application.credentials.decidim[:follow_http_x_forwarded_host].present?
   config.maximum_conversation_message_length = Rails.application.credentials.decidim[:maximum_conversation_message_length].to_i
-  config.password_similarity_length = Rails.application.credentials.decidim[:password_similarity_length] if Rails.application.credentials.decidim[:password_similarity_length].present?
+  if Rails.application.credentials.decidim[:password_similarity_length].present?
+    config.password_similarity_length = Rails.application.credentials.decidim[:password_similarity_length]
+  end
   config.denied_passwords = Rails.application.credentials.decidim[:denied_passwords] if Rails.application.credentials.decidim[:denied_passwords].present?
   config.allow_open_redirects = Rails.application.credentials.decidim[:allow_open_redirects] if Rails.application.credentials.decidim[:allow_open_redirects].present?
 end
