@@ -20,7 +20,7 @@ module Decidim::Admin
       ).with_context(
         current_user:,
         current_organization: organization,
-        component:
+        resource: component
       )
     end
 
@@ -29,7 +29,6 @@ module Decidim::Admin
     let(:automatic_token) { false }
     let(:no_expiration) { false }
     let(:registered_only) { true }
-    let(:form_invalid) { false }
 
     context "when the form is valid" do
       it "creates a share token" do
@@ -51,8 +50,6 @@ module Decidim::Admin
     end
 
     context "when the form is invalid" do
-      let(:form_invalid) { true }
-
       before do
         allow(form).to receive(:invalid?).and_return(true)
       end

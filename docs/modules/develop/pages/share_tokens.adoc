@@ -31,7 +31,7 @@ return unless token.present?
 allow! if Decidim::ShareToken.use!(token_for: your_resource, token: token)
 ----
 
-Note that, if you are using a controller who is inheriting from `Decidim::ApplicationController`, you don't need to include the `:share_token` in the context when calling methods like `enforce_permission_to`, as it is already included in the `Decidim::NeedsPermissions` class through the method `store_share_token`.
+Note that, if you are using a controller who is inheriting from `Decidim::ApplicationController`, you do not need to include the `:share_token` in the context when calling methods like `enforce_permission_to`, as it is already included in the `Decidim::NeedsPermissions` class through the method `store_share_token`.
 
 == Manage tokens
 
