@@ -21,7 +21,6 @@ el:
               too_long: είναι πολύ μεγάλο
             choices:
               missing: δεν έχουν ολοκληρωθεί
-              too_many: είναι πάρα πολλά
         questionnaire:
           request_invalid: Παρουσιάστηκε σφάλμα κατά τον χειρισμό του αιτήματος. Παρακαλώ δοκιμάστε ξανά.
   decidim:
@@ -157,7 +156,6 @@ el:
           answer_questionnaire:
             already_have_an_account?: Έχετε ήδη λογαριασμό;
             are_you_new?: Νέος χρήστης;
-            sign_in_description: Συνδεθείτε για να πραγματοποιήσετε την έρευνα
             sign_up_description: Δημιουργήστε ένα λογαριασμό συμμετέχοντα για να κάνετε την έρευνα
             title: Απαντήστε στη φόρμα
           current_step: Βήμα %{step}

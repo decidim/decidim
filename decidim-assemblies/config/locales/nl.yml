@@ -43,7 +43,6 @@ nl:
         scope_id: Scope
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
-        show_statistics: Toon statistieken
         slug: URL pad
         special_features: Speciale functionaliteiten
         subtitle: Ondertiteling
@@ -178,7 +177,6 @@ nl:
           categories: Categorieën
           components: Onderdelen
           moderations: Moderaties
-          private_users: Particuliere gebruikers
         assemblies_types: Soorten groepen
       models:
         assemblies_types:

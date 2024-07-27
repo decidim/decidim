@@ -447,6 +447,7 @@ pl:
           values:
             'false': Opublikowany
             'true': Nieopublikowany
+        remove_all: Usuń wszystkie
         scope_id_eq:
           label: Zakres
         search_label: Szukaj
@@ -575,6 +576,7 @@ pl:
         appearance: Wygląd
         area_types: Typy kategorii
         areas: Kategorie
+        components: Komponenty
         configuration: Konfiguracja
         content: Zgłoszona zawartość
         external_domain_allowlist: Dozwolone domeny zewnętrzne
@@ -970,6 +972,11 @@ pl:
           help: Te tokeny są używane do publicznego udostępniania nieopublikowanego zasobu każdemu użytkownikowi. Zostaną one ukryte, gdy zasób zostanie opublikowany. Kliknij na ikonę udostępniania tokenu aby odwiedzić udostępniany adres URL.
           title: Udostępnij tokeny
       shared:
+        adjacent_navigation:
+          next: Następny
+          next_title: Następny element
+          previous: Poprzedni
+          previous_title: Poprzedni element
         gallery:
           add_images: Dodaj obrazy
           edit_images: Edytuj obrazy

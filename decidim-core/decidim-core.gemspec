@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.summary = "The core of the Decidim framework."
   s.description = "Adds core features so other engines can hook into the framework."
   s.license = "AGPL-3.0"
-  s.required_ruby_version = "~> 3.2.0"
+  s.required_ruby_version = "~> 3.3.0"
 
   s.files = Dir.chdir(__dir__) do
     `git ls-files -z`.split("\x0").select do |f|
@@ -62,15 +62,10 @@ Gem::Specification.new do |s|
   s.add_dependency "omniauth-google-oauth2", "~> 1.0"
   s.add_dependency "omniauth-rails_csrf_protection", "~> 1.0"
   s.add_dependency "omniauth-twitter", "~> 1.4"
-  s.add_dependency "paper_trail", "~> 12.0"
+  s.add_dependency "paper_trail", "~> 15.1"
   s.add_dependency "pg", "~> 1.4.0", "< 2"
   s.add_dependency "pg_search", "~> 2.2"
   s.add_dependency "premailer-rails", "~> 1.10"
-  # We need psych 4+ in order to use the `aliases: true` option,
-  # see https://stackoverflow.com/questions/71191685/visit-psych-nodes-alias-unknown-alias-default-psychbadalias
-  # Also note that we need Rails 6.1.5+,
-  # see https://gist.github.com/yahonda/2776d8d7b6ea7045359f38c10449937b
-  s.add_dependency "psych", "~> 4.0"
   s.add_dependency "rack", "~> 2.2", ">= 2.2.8.1"
   s.add_dependency "rack-attack", "~> 6.0"
   s.add_dependency "rails", "~> 7.0.8"
@@ -80,7 +75,6 @@ Gem::Specification.new do |s|
   s.add_dependency "request_store", "~> 1.5.0"
   s.add_dependency "rubyXL", "~> 3.4"
   s.add_dependency "rubyzip", "~> 2.0"
-  s.add_dependency "seven_zip_ruby", "~> 1.3"
   s.add_dependency "shakapacker", "~> 7.1.0"
   s.add_dependency "valid_email2", "~> 4.0"
   s.add_dependency "web-push", "~> 3.0"

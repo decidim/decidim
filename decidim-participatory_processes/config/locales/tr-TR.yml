@@ -4,7 +4,6 @@ tr:
       participatory_process:
         announcement: duyuru
         area_id: alan
-        banner_image: Banner resmi
         copy_categories: Kategorileri kopyala
         copy_components: Bileşenleri kopyala
         copy_steps: Adımları kopyala
@@ -27,8 +26,6 @@ tr:
         scope_type_max_depth_id: Kapsam filtre derinliği
         scopes_enabled: Kapsamlar etkin
         short_description: Kısa Açıklama
-        show_metrics: Bütün istatistikleri göster
-        show_statistics: İstatistikleri göster
         slug: URL özel bilgisi
         start_date: Başlangıç tarihi
         subtitle: Alt yazı

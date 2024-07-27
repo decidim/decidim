@@ -40,7 +40,6 @@ lv:
         scope_id: Darbības tvērums
         scopes_enabled: Darbības tvērumi ir iespējoti
         short_description: Īss apraksts
-        show_statistics: Rādīt statistiku
         slug: URL sadaļas adrese (slug)
         special_features: Īpašas funkcijas
         subtitle: Apakšvirsraksts
@@ -162,7 +161,6 @@ lv:
           categories: Kategorijas
           components: Komponenti
           moderations: Moderācijas
-          private_users: Privāti lietotāji
         assemblies_types: Asambleju veidi
       models:
         assemblies_types:

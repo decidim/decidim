@@ -1,13 +1,11 @@
-require: rubocop-rspec
+require:
+  - rubocop-rspec
+  - rubocop-rspec_rails
 
 #  RSpec:
 #    Patterns:
 #      - "(?:^|/)spec/"
 #      - "(?:^|/)test/"
-
-RSpec/FilePath:
-  CustomTransform:
-    OAuthApplicationPresenter: oauth_application_presenter
 
 RSpec/SpecFilePathFormat:
   CustomTransform:
@@ -27,6 +25,7 @@ RSpec/ContextWording:
 RSpec/DescribeClass:
   Exclude:
     - spec/gemfiles_spec.rb
+    - spec/gemspecs_spec.rb
     - spec/webpacker_spec.rb
     - spec/version_files_spec.rb
     - spec/spellcheck_spec.rb

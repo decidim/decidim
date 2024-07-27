@@ -16,7 +16,6 @@ module Decidim::ParticipatoryProcesses
     let(:related_process_ids) { [] }
     let(:weight) { 1 }
     let(:hero_image) { nil }
-    let(:banner_image) { nil }
     let(:form) do
       instance_double(
         Admin::ParticipatoryProcessForm,
@@ -28,7 +27,6 @@ module Decidim::ParticipatoryProcesses
         hashtag: "hashtag",
         meta_scope: { en: "meta scope" },
         hero_image:,
-        banner_image:,
         promoted: nil,
         developer_group: { en: "developer group" },
         local_area: { en: "local" },
@@ -51,8 +49,6 @@ module Decidim::ParticipatoryProcesses
         related_process_ids:,
         participatory_process_group:,
         participatory_process_type:,
-        show_statistics: false,
-        show_metrics: false,
         announcement: { en: "message" }
       )
     end
@@ -74,7 +70,6 @@ module Decidim::ParticipatoryProcesses
           content_type: "image/jpeg"
         )
       end
-      let(:banner_image) { hero_image }
 
       before do
         allow(Decidim::ActionLogger).to receive(:log).and_return(true)
@@ -86,7 +81,6 @@ module Decidim::ParticipatoryProcesses
 
       it "adds errors to the form" do
         expect(errors).to receive(:add).with(:hero_image, "File resolution is too large")
-        expect(errors).to receive(:add).with(:banner_image, "File resolution is too large")
         subject.call
       end
     end
@@ -117,12 +111,6 @@ module Decidim::ParticipatoryProcesses
         subject.call
         expect(process.steps.count).to eq(1)
         expect(process.steps.first).to be_active
-      end
-
-      it "does not enable by default stats and metrics" do
-        subject.call
-        expect(process.show_statistics).to be(false)
-        expect(process.show_metrics).to be(false)
       end
 
       it "adds the admins as followers" do

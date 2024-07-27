@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "uri"
+
 shared_context "when generating a new application" do
   let(:env) do |example|
     #

@@ -73,7 +73,6 @@ pt-BR:
             did_not_receive_unlock_instructions?: Não recebeu instruções de desbloqueio?
             forgot_your_password?: Esqueceu sua senha?
             log_in: Iniciar sessão
-            sign_up: Cadastrar-se
       menu:
         admins: Administradores
         dashboard: painel de controle
@@ -185,7 +184,6 @@ pt-BR:
           success: Organização atualizada com sucesso.
         users_registration_mode:
           disabled: O acesso só pode ser feito com contas externas
-          enabled: Permitir que os usuários se registrem e efetuem login
       shared:
         notices:
           no_organization_warning_html: Você deve criar uma organização para começar. Certifique-se de ler %{guide} antes de prosseguir.

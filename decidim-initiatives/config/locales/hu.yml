@@ -87,7 +87,6 @@ hu:
               accepted: Elég aláírások
               created: Létrehozva
               discarded: Elvetve
-              published: Közzétéve
               rejected: Nincsen elég aláírás
               validating: Technikai érvényesítés
           type_id_eq:
@@ -281,7 +280,6 @@ hu:
         initiatives_types:
           create:
             error: Hiba történt.
-            success: Az új kezdeményezéstípus létrehozása sikeres.
           destroy:
             success: A kezdeményezéstípus eltávolítása sikeres.
           edit:
@@ -313,7 +311,6 @@ hu:
         accepted: Elegendő aláírás
         created: Létrehozva
         discarded: Elvetve
-        published: Közzétéve
         rejected: Nincs elegendő aláírás
         validating: Technikai érvényesítés
       application_helper:
@@ -527,7 +524,6 @@ hu:
           accepted: Elegendő aláírás
           created: Létrehozva
           discarded: Elvetve
-          published: Közzétéve
           rejected: Nincs elegendő aláírás
           validating: Technikai érvényesítés
       states:

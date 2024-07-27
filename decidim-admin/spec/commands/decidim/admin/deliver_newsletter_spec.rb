@@ -39,7 +39,7 @@ module Decidim::Admin
           current_user:
         )
       end
-      let(:command) { described_class.new(newsletter, form, current_user) }
+      let(:command) { described_class.new(newsletter, form) }
 
       def user_localized_body(user)
         newsletter.template.settings.body.stringify_keys[user.locale]

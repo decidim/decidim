@@ -6,6 +6,7 @@ describe "Admin manages organization" do
   include ActionView::Helpers::SanitizeHelper
 
   let(:organization) { create(:organization) }
+  let(:attributes) { attributes_for(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
 
   before do
@@ -17,7 +18,7 @@ describe "Admin manages organization" do
     it "updates the values from the form" do
       visit decidim_admin.edit_organization_path
 
-      fill_in_i18n :organization_name, "#organization-name-tabs", en: "My super-uber organization"
+      fill_in_i18n :organization_name, "#organization-name-tabs", **attributes[:name].except("machine_translations")
 
       %w(X Facebook Instagram YouTube GitHub).each do |network|
         within "#organization_social_handlers" do
@@ -38,6 +39,9 @@ describe "Admin manages organization" do
 
       click_on "Update"
       expect(page).to have_content("updated successfully")
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the organization settings")
     end
 
     it "marks the comments_max_length as required" do
@@ -148,16 +152,19 @@ describe "Admin manages organization" do
       context "when the admin terms of service content has an image with an alt tag" do
         let(:another_organization) { create(:organization) }
         let(:image) { create(:attachment, attached_to: another_organization) }
+        let(:image_url) { image.attached_uploader(:file).url(host: organization_host) }
+        let(:organization_host) { "example.lvh.me" }
         let(:organization) do
           create(
             :organization,
+            host: organization_host,
             admin_terms_of_service_body: Decidim::Faker::Localized.localized { terms_content }
           )
         end
         let(:terms_content) do
           <<~HTML.gsub(/\n\s*/, "")
             <p>Paragraph</p>
-            <div class="editor-content-image" data-image=""><img src="#{image.url}" alt="foo bar"></div>
+            <div class="editor-content-image" data-image=""><img src="#{image_url}" alt="foo bar"></div>
           HTML
         end
         let(:terms_content_editor) do
@@ -173,7 +180,7 @@ describe "Admin manages organization" do
                   <span data-image-resizer-dimension="width" data-image-resizer-dimension-value="512"></span>
                   ×
                   <span data-image-resizer-dimension="height" data-image-resizer-dimension-value="342"></span></div>
-                <div class="editor-content-image" data-image=""><img src="#{image.url}" alt="foo bar"></div>
+                <div class="editor-content-image" data-image=""><img src="#{image_url}" alt="foo bar"></div>
               </div>
             </div>
           HTML
@@ -469,7 +476,7 @@ describe "Admin manages organization" do
         let(:parsed_content) do
           cnt = <<~HTML
             <p>testing</p>
-            <p><strong>foo</strong><br><a target="_blank" href="https://www.decidim.org/">link</a></p>
+            <p><strong>foo</strong><br><a target="_blank" href="https://www.decidim.org/"><u>link</u></a></p>
             <p><br></p>
           HTML
 

@@ -12,7 +12,7 @@ module Decidim
         let(:initiatives_type) { create(:initiatives_type, organization:) }
         let(:scope) { create(:initiatives_type_scope, type: initiatives_type) }
         let(:other_scope) { create(:initiatives_type_scope, type: initiatives_type) }
-        let(:state) { "published" }
+        let(:state) { "open" }
         let(:attachment_params) { nil }
 
         let(:initiative) { create(:initiative, organization:, state:, scoped_type: scope) }

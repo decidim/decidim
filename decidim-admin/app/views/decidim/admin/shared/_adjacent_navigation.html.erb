@@ -1,0 +1,30 @@
+<% adjacent_paths ||= {} %>
+<div class="flex justify-between mb-4">
+  <span>
+    <% if adjacent_paths["prev_item"].present? %>
+      <%= link_to(
+            adjacent_paths["prev_item"],
+            class: "button button__sm button__text-secondary",
+            title: t("previous_title", scope: "decidim.admin.shared.adjacent_navigation"),
+            rel: "prev"
+          ) do %>
+        <%= icon "arrow-left-s-line", class: "fill-current" %>
+        <%= t("previous", scope: "decidim.admin.shared.adjacent_navigation") %>
+      <% end %>
+    <% end %>
+  </span>
+
+  <span>
+    <% if adjacent_paths["next_item"].present? %>
+      <%= link_to(
+            adjacent_paths["next_item"],
+            class: "button button__sm button__text-secondary",
+            title: t("next_title", scope: "decidim.admin.shared.adjacent_navigation"),
+            rel: "next"
+          ) do %>
+          <%= t("next", scope: "decidim.admin.shared.adjacent_navigation") %>
+        <%= icon "arrow-right-s-line", class: "fill-current" %>
+      <% end %>
+    <% end %>
+  </span>
+</div>

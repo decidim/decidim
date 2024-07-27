@@ -277,9 +277,7 @@ gl:
         open_in_new_tab: Abrir ligazón nunha nova lapela
       layouts:
         live_event:
-          administrate: Administrar
           close: pechar
-          questions: Preguntas
       mailer:
         invite_join_meeting_mailer:
           invite:

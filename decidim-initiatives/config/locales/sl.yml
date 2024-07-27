@@ -13,7 +13,6 @@ sl:
             values:
               created: Ustvarjeno
               discarded: Zavrženo
-              published: Objavljeno
           type_id_eq:
             label: Tip
     initiatives:

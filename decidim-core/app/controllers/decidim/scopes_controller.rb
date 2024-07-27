@@ -20,10 +20,10 @@ module Decidim
           required:,
           title:,
           root:,
-          current: (current || root),
+          current: current || root,
           scopes: scopes&.order(name: :asc),
           parent_scopes:,
-          picker_target_id: (params[:target_element_id] || "content"),
+          picker_target_id: params[:target_element_id] || "content",
           global_value: params[:global_value],
           max_depth:,
           context:

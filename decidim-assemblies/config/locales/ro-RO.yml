@@ -50,7 +50,6 @@ ro:
         scope_id: Domeniu de interes
         scopes_enabled: Domenii activate
         short_description: Descriere scurtă
-        show_statistics: Arată statistici
         slug: URL slug
         special_features: Funcționalități speciale
         subtitle: Subtitlu
@@ -196,7 +195,6 @@ ro:
           components: Componente
           landing_page: Pagina principală
           moderations: Moderări
-          private_users: Utilizatori privați
         assemblies_types: Tipuri de grupuri de lucru
       models:
         assemblies_types:

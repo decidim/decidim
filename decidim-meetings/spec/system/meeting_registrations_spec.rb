@@ -125,7 +125,7 @@ describe "Meeting registrations" do
               click_on "Català"
             end
 
-            click_on "Unir-se a la trobada"
+            click_on "Inscriu-te"
 
             within "#loginModal" do
               expect(page).to have_content("Has oblidat la teva contrasenya?")

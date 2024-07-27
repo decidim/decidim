@@ -55,6 +55,8 @@ fi:
           html_regular_inputs: Tavanomaiset HTML-syötteet
           min_max_length: Minimi- ja maksimipituus
           min_max_length_description: Toimii ainoastaan syötteille (input), joiden tyyppi (<code>type</code>-attribuutin arvo) on <code>"text"</code>
+          multiselect: Monivalinta
+          multiselect_description_html: Monivalinnat ovat JavaScript-ominaisuus, jonka mahdollistaa ulkoinen kirjasto nimeltä <a href="https://tom-select.js.org/" target="_blank" rel="noopener noreferrer">Tom Select</a>.
           regular_inputs_description: 'Näyttää vain yleisimmät tyypit, lista tuetuista tyypeistä: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
           textarea_required: textarea required
           title: Lomakkeet

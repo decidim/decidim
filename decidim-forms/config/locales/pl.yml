@@ -21,7 +21,7 @@ pl:
               too_long: jest zbyt długie
             choices:
               missing: nie są kompletne
-              too_many: jest zbyt wiele
+              too_many: Możesz wybrać maksymalnie %{count}.
         questionnaire:
           request_invalid: Wystąpił błąd podczas obsługi żądania. Spróbuj ponownie.
   decidim:

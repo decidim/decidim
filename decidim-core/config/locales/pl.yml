@@ -344,7 +344,11 @@ pl:
     application:
       document:
         download: Pobierz plik
+        visit_link: Odwiedź link
       documents:
+        component_documents:
+          dummy: Dokumenty komponentu dummy
+          meetings: Dokumenty spotkań
         documents: Dokumenty
         related_documents: Materiały
       photo:
@@ -555,7 +559,7 @@ pl:
         name: Baner podrzędny
     core:
       actions:
-        login_before_access: Zaloguj się na swoje konto, żeby mieć dostęp.
+        login_before_access: Proszę zalogować się na swoje konto przed uzyskaniem dostępu.
         unauthorized: Nie masz uprawnień do wykonania tej czynności.
       application_helper:
         filter_area_values:
@@ -572,7 +576,7 @@ pl:
           complete_profile: Uzupełnij profil
           nickname_help: Twój pseudonim w %{organization}. Może zawierać tylko litery, cyfry, '-' i '_'.
           sign_up: Proszę uzupełnij swój profil
-          subtitle: Proszę wypełnić poniższy formularz, aby dokończyć rejestrację
+          subtitle: Proszę wypełnić poniższy formularz, aby zakończyć tworzenie konta
           username_help: Publiczne imię wyświetlane przy Twoich wpisach. W celu zagwarantowania anonimowości może być dowolna nazwa.
       registrations:
         create:
@@ -582,8 +586,8 @@ pl:
           log_in: Zaloguj się
           newsletter: Chcę otrzymywać okazjonalne newslettery z istotnymi informacjami
           newsletter_title: Zgoda na subskrybcję
-          sign_up: Zarejestruj się
-          subtitle: Zarejestruj się, aby brać udział w dyskusjach i wspierać propozycje.
+          sign_up: Utwórz konto
+          subtitle: Utwórz konto, aby wziąć udział w platformie.
           terms: warunki świadczenia usług
           tos_agreement: Rejestrując się, zgadzasz się na %{link}.
           tos_title: Warunki korzystania z Platformy
@@ -593,7 +597,7 @@ pl:
           are_you_new?: Nowy na platformie?
           register: Utwórz konto
           sign_in_disabled: Możesz uzyskać dostęp za pomocą konta zewnętrznego.
-          sign_up_disabled: Rejestracja jest wyłączona, by uzyskać dostęp, możesz użyć istniejącego konta.
+          sign_up_disabled: Tworzenie konta jest wyłączone, możesz użyć istniejącego konta, aby uzyskać dostęp.
         user:
           timed_out: Zostałeś automatycznie wylogowany z usługi z powodu zbyt długiej nieaktywności. Jeśli chcesz kontynuować korzystanie z usługi, zaloguj się ponownie.
       shared:
@@ -868,6 +872,11 @@ pl:
         button: Przestań obserwować
         error: Nastąpił błąd podczas cofania obserwowania tego zasobu.
     forms:
+      attachment_link:
+        explanation: Wytyczne dotyczące linków do załącznika
+        help_messages:
+          - Akceptowane są tylko poprawne formaty URL.
+          - Pamiętaj, że linki muszą być publiczne, aby wszyscy uczestnicy mieli do nich dostęp.
       errors:
         decidim/user:
           password: Hasło jest za krótkie.
@@ -903,6 +912,7 @@ pl:
           filename: Nazwa pliku
           remove: Usuń
           replace: Zamień
+          save: Zapisz
           title: Tytuł
           title_required: Tytul jest obowiazkowy!
           uploaded: Przesłano
@@ -1026,6 +1036,7 @@ pl:
           content: "<p>W %{organization} możesz brać udział i decydować o różnych tematach, poprzez przestrzenie widoczne w górnym menu: Procesy, Zespoły, Inicjatywy, Konsultacje.</p> <p>W ramach każdego z nich znajdziesz różne opcje uczestnictwa: składanie propozycji - indywidualnie lub wspólnie z innymi osobami - uczestnictwo w debatach, nadawanie priorytetów projektom do realizacji, uczestnictwo w spotkaniach twarzą w twarz i inne działania.</p>\n"
           title: Co mogę zrobić w %{organization}?
         description: Przeczytaj więcej o %{organization}.
+        title: Ogólne
     last_activities:
       all: Wszystkie typy aktywności
       index:
@@ -1221,9 +1232,11 @@ pl:
         same_language: Treść została zamieszczona w preferowanym przez Ciebie języku (%{language}), dlatego w tej wiadomości e-mail nie wyświetlono żadnego automatycznego tłumaczenia.
         translated_text: 'Automatycznie przetłumaczony tekst:'
     notifications:
+      action_error: Wystąpił problem z aktualizacją powiadomień.
       no_notifications: Brak powiadomień.
       show:
         missing_event: Ups, to powiadomienie należy do elementu, który nie jest już dostępny. Możesz je odrzucić.
+        moderated: Zawartość moderowana
     notifications_digest_mailer:
       header:
         daily: Podsumowanie codziennych powiadomień
@@ -1296,7 +1309,7 @@ pl:
           headline: Aktualny stan %{organization}
         sub_hero:
           register: Zarejestruj się
-          register_title: Zarejestruj się, aby utworzyć konto
+          register_title: Utwórz konto
       index:
         standalone_pages: Strony
         subheading: '%{name} - zapoznaj się ze stronami pomocy'
@@ -1428,6 +1441,7 @@ pl:
           past: Przeszły
       filters_small_view:
         filter: Filtr
+        filter_and_search: Filtruj i szukaj
         filter_by: Filtruj według
       results:
         view_all: Zobacz wszystko (%{count})
@@ -1478,7 +1492,7 @@ pl:
         log_in_before_follow: Przed wykonaniem czynności należy się zalogować
       login_modal:
         please_log_in: Zaloguj się
-        sign_up: Zarejestruj się
+        sign_up: Utwórz konto
       mentions_modal:
         remove_recipient: Usuń odbiorcę %{name}
       participatory_space_filters:
@@ -1605,7 +1619,7 @@ pl:
       locked: Twoje konto jest zablokowane.
       not_found_in_database: 'Nieprawidłowe dane: %{authentication_keys} lub hasło.'
       timeout: Twoja sesja wygasła. Aby kontynuować, zaloguj się ponownie.
-      unauthenticated: Zaloguj się lub zarejestruj, aby kontynuować.
+      unauthenticated: Musisz się zalogować lub utworzyć konto, zanim przejdziesz dalej.
     invitations:
       edit:
         header: Zakończ tworzenie konta
@@ -1693,7 +1707,7 @@ pl:
     registrations:
       destroyed: Twoje konto zostało pomyślnie zawieszone. Mamy nadzieję zobaczyć Cię ponownie wkrótce.
       new:
-        sign_up: Zarejestruj się
+        sign_up: Utwórz konto
       signed_up: Witamy! Zarejestrowałeś się pomyślnie.
       signed_up_but_inactive: Zarejestrowałeś się pomyślnie. Nie możemy Cię jednak zalogować, ponieważ Twoje konto nie zostało jeszcze aktywowane.
       signed_up_but_locked: Zarejestrowałeś się pomyślnie. Nie możemy Cię jednak zalogować, ponieważ Twoje konto jest zablokowane.
@@ -1714,7 +1728,7 @@ pl:
         forgot_your_password: Nie pamiętasz hasła?
         log_in: Zaloguj się
         log_in_with_provider: Zaloguj się z %{provider}
-        sign_up: Zarejestruj się
+        sign_up: Utwórz konto
       minimum_password_length:
         one: "(Minimum%{count} znak)"
         few: "(Minimum%{count} znaków)"
@@ -1830,7 +1844,7 @@ pl:
       long_words: zawiera słowa, które są zbyt długie (powyżej 35 znaków)
       must_start_with_caps: musi zaczynać się od dużej litery
       nesting_too_deep: nie może wchodzić w skład podkategorii
-      not_found: nie został znaleziony. Czy zarejestrowałeś(-aś) się wcześniej?
+      not_found: nie może zostać znaleziony. Czy utworzyłeś(aś) wcześniej konto?
       not_locked: nie był zablokowany
       not_saved:
         one: 'Wystąpił błąd podczas przetwarzania Twojego żądania:'
@@ -1919,7 +1933,8 @@ pl:
         log_in: Zaloguj się
         made_with_open_source: Strona internetowa powstała z użyciem <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
         resources: Zasoby
-        sign_up: Zarejestruj się
+        sign_up: Utwórz konto
+        terms_of_service: Regulamin świadczenia usług
       header:
         log_in: Zaloguj się
         main_menu: Menu główne
@@ -1935,10 +1950,6 @@ pl:
         mark_as_read: Oznacz jako przeczytane
       offline_banner:
         cache_version_page: Oooops! Twoja sieć jest offline. Jest to poprzednio buforowana wersja strony, którą odwiedzasz, być może zawartość nie jest aktualna.
-      shared:
-        layout_item:
-          next: Następny element
-          prev: Poprzedni element
       social_media_links:
         facebook: "%{organization} na Facebooku"
         github: "%{organization} na GitHubie"

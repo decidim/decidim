@@ -404,11 +404,11 @@ describe Decidim::Initiatives::Admin::Permissions do
         end
       end
 
-      it_behaves_like "checks initiative state", :publish, :validating, :published
-      it_behaves_like "checks initiative state", :unpublish, :published, :validating
-      it_behaves_like "checks initiative state", :discard, :validating, :published
+      it_behaves_like "checks initiative state", :publish, :validating, :open
+      it_behaves_like "checks initiative state", :unpublish, :open, :validating
+      it_behaves_like "checks initiative state", :discard, :validating, :open
       it_behaves_like "checks initiative state", :export_votes, :offline, :online
-      it_behaves_like "checks initiative state", :export_pdf_signatures, :published, :validating
+      it_behaves_like "checks initiative state", :export_pdf_signatures, :open, :validating
 
       context "when accepting the initiative" do
         let(:action_name) { :accept }

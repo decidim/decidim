@@ -1,10 +1,7 @@
 $(() => {
-  const $limitedTimeLabel = $("label[for='component_settings_proposal_edit_time_limited']")
-  const $limitedTimeRadioButton = $("#component_settings_proposal_edit_time_limited")
-  const $infiniteTimeRadioButton = $("#component_settings_proposal_edit_time_infinite")
-  const $editTimeContainer = $(".proposal_edit_before_minutes_container")
-
-  $editTimeContainer.detach().appendTo($limitedTimeLabel)
+  const $limitedTimeRadioButton = $("#component_settings_proposal_edit_time_limited");
+  const $infiniteTimeRadioButton = $("#component_settings_proposal_edit_time_infinite");
+  const $editTimeContainer = $(".edit_time_container");
 
   if ($infiniteTimeRadioButton.is(":checked")) {
     $editTimeContainer.hide();

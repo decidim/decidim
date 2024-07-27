@@ -3,7 +3,7 @@
 # i18n-tasks-use t('decidim.initiatives.show.badge_name.accepted')
 # i18n-tasks-use t('decidim.initiatives.show.badge_name.created')
 # i18n-tasks-use t('decidim.initiatives.show.badge_name.discarded')
-# i18n-tasks-use t('decidim.initiatives.show.badge_name.published')
+# i18n-tasks-use t('decidim.initiatives.show.badge_name.open')
 # i18n-tasks-use t('decidim.initiatives.show.badge_name.rejected')
 # i18n-tasks-use t('decidim.initiatives.show.badge_name.validating')
 #

@@ -58,6 +58,41 @@ describe "User edit meeting" do
       expect(meeting.reload.closed_at).not_to be_nil
     end
 
+    it "updates without any tags" do
+      visit_component
+
+      click_on translated(meeting.title)
+      click_on "Close meeting"
+
+      expect(page).to have_content "Close meeting"
+
+      within "form.edit_close_meeting" do
+        expect(page).to have_content "Proposals"
+
+        fill_in :close_meeting_closing_report, with: closing_report
+        fill_in :close_meeting_attendees_count, with: 10
+
+        click_on "Close meeting"
+      end
+
+      meeting.reload
+      meeting.update(closing_report: {
+                       en: %(#{closing_report} <img src="https://www.example.org/foobar.png" />),
+                       es: "El encuentro fue genial",
+                       ca: "La trobada va ser genial"
+                     })
+
+      visit current_path
+
+      expect(page).to have_content(closing_report)
+      within ".meeting__agenda-item__description" do
+        expect(page).to have_no_css("img")
+      end
+      expect(page).to have_no_content "Close meeting"
+      expect(page).to have_no_content "Organizations"
+      expect(meeting.reload.closed_at).not_to be_nil
+    end
+
     context "when updates the meeting report" do
       let!(:meeting) do
         create(:meeting,

@@ -71,7 +71,6 @@ zh-CN:
               accepted: 足够的签名
               created: 已创建
               discarded: 丢弃的
-              published: 已发布
               rejected: 签名不足
               validating: 技术验证
           type_id_eq:
@@ -237,7 +236,6 @@ zh-CN:
         accepted: 足够的签名
         created: 已创建
         discarded: 丢弃的
-        published: 已发布
         rejected: 签名不足
         validating: 技术验证
       application_helper:
@@ -376,7 +374,6 @@ zh-CN:
           accepted: 足够的签名
           created: 已创建
           discarded: 丢弃的
-          published: 已发布
           rejected: 签名不足
           validating: 技术验证
       states:

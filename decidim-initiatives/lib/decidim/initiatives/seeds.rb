@@ -64,6 +64,8 @@ module Decidim
       end
 
       def create_initiative!(state:)
+        published_at = %w(published rejected accepted).include?(state) ? 7.days.ago : nil
+
         params = {
           title: Decidim::Faker::Localized.sentence(word_count: 3),
           description: Decidim::Faker::Localized.sentence(word_count: 25),
@@ -72,7 +74,7 @@ module Decidim
           signature_type: "online",
           signature_start_date: Date.current - 7.days,
           signature_end_date: Date.current + 7.days,
-          published_at: 7.days.ago,
+          published_at:,
           author: Decidim::User.all.sample,
           organization:
         }
