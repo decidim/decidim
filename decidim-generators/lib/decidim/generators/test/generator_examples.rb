@@ -948,7 +948,7 @@ shared_examples_for "an application with storage and queue gems" do
 end
 
 def json_secrets_for(path, env)
-  JSON.parse cmd_capture(path, "bin/rails runner 'puts Rails.application.secrets.to_json'", env:)
+  JSON.parse cmd_capture(path, "bin/rails runner 'puts Rails.application.credentials.to_json'", env:)
 end
 
 def initializer_config_for(path, env, mod = "Decidim")

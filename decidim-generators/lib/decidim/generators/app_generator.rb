@@ -198,7 +198,7 @@ module Decidim
         abort("#{providers} is not supported as storage provider, please use local, s3, gcs or azure") unless (providers - %w(local s3 gcs azure)).empty?
         gsub_file "config/environments/production.rb",
                   /config.active_storage.service = :local/,
-                  "config.active_storage.service = Rails.application.secrets.dig(:storage, :provider) || :local"
+                  "config.active_storage.service = Rails.application.credentials.dig(:storage, :provider) || :local"
 
         add_production_gems do
           gem "aws-sdk-s3", require: false if providers.include?("s3")
@@ -335,8 +335,8 @@ module Decidim
                   /#{Regexp.escape("# config.available_locales = %w(en ca es)")}/,
                   "config.available_locales = %w(#{options[:locales].gsub(",", " ")})"
         gsub_file "config/initializers/decidim.rb",
-                  /#{Regexp.escape("config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]")}/,
-                  "# config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]"
+                  /#{Regexp.escape("config.available_locales = Rails.application.credentials.decidim[:available_locales].presence || [:en]")}/,
+                  "# config.available_locales = Rails.application.credentials.decidim[:available_locales].presence || [:en]"
       end
 
       def dev_performance_config

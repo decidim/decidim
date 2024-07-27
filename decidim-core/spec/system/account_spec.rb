@@ -353,7 +353,7 @@ describe "Account" do
 
     context "when VAPID keys are set" do
       before do
-        Rails.application.secrets[:vapid] = vapid_keys
+        Rails.application.credentials[:vapid] = vapid_keys
         driven_by(:pwa_chrome)
         switch_to_host(organization.host)
         login_as user, scope: :user
@@ -383,7 +383,7 @@ describe "Account" do
 
     context "when VAPID is disabled" do
       before do
-        Rails.application.secrets[:vapid] = { enabled: false }
+        Rails.application.credentials[:vapid] = { enabled: false }
         driven_by(:pwa_chrome)
         switch_to_host(organization.host)
         login_as user, scope: :user
@@ -397,7 +397,7 @@ describe "Account" do
 
     context "when VAPID keys are not set" do
       before do
-        Rails.application.secrets.delete(:vapid)
+        Rails.application.credentials.delete(:vapid)
         driven_by(:pwa_chrome)
         switch_to_host(organization.host)
         login_as user, scope: :user

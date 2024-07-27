@@ -9,13 +9,13 @@ describe Decidim::SendPushNotification do
   let(:user) { create(:user, notification_settings: { subscriptions: }) }
 
   before do
-    Rails.application.secrets[:vapid] = { enabled: true, public_key: "public_key", private_key: "private_key" }
+    Rails.application.credentials[:vapid] = { enabled: true, public_key: "public_key", private_key: "private_key" }
   end
 
   shared_examples "send a push notification" do
     context "without vapid settings config" do
       before do
-        Rails.application.secrets.delete(:vapid)
+        Rails.application.credentials.delete(:vapid)
       end
 
       describe "#perform" do
@@ -27,7 +27,7 @@ describe Decidim::SendPushNotification do
 
     context "without vapid enabled" do
       before do
-        Rails.application.secrets[:vapid] = { enabled: false }
+        Rails.application.credentials[:vapid] = { enabled: false }
       end
 
       describe "#perform" do

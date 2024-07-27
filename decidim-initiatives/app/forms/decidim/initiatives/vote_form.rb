@@ -48,7 +48,7 @@ module Decidim
           [
             initiative.id,
             document_number || signer.id,
-            Rails.application.secrets.secret_key_base
+            Rails.application.credentials.secret_key_base
           ].compact.join("-")
         )
       end

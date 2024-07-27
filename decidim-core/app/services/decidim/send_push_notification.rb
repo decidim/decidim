@@ -19,7 +19,7 @@ module Decidim
     #
     # @return [Array<Net::HTTPCreated>, nil] the result of the dispatch or nil if user or subscription are empty
     def perform(notification, title = nil)
-      return unless Rails.application.secrets.dig(:vapid, :enabled)
+      return unless Rails.application.credentials.dig(:vapid, :enabled)
       raise ArgumentError, "Need to provide a title if the notification is a PushNotificationMessage" if notification.is_a?(Decidim::PushNotificationMessage) && title.nil?
 
       user = notification.user
@@ -66,8 +66,8 @@ module Decidim
         p256dh: subscription["p256dh"],
         auth: subscription["auth"],
         vapid: {
-          public_key: Rails.application.secrets.vapid[:public_key],
-          private_key: Rails.application.secrets.vapid[:private_key]
+          public_key: Rails.application.credentials.vapid[:public_key],
+          private_key: Rails.application.credentials.vapid[:private_key]
         }
       }
     end

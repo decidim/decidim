@@ -111,7 +111,7 @@ module Decidim
       end
 
       def unsecure_hash(id)
-        Digest::MD5.hexdigest("#{id}-#{Rails.application.secrets.secret_key_base}")
+        Digest::MD5.hexdigest("#{id}-#{Rails.application.credentials.secret_key_base}")
       end
 
       def secure_hash(id)

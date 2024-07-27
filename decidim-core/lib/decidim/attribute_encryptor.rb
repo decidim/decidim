@@ -21,7 +21,7 @@ module Decidim
     def self.cryptor
       @cryptor ||= begin
         key = ActiveSupport::KeyGenerator.new("attribute").generate_key(
-          Rails.application.secrets.secret_key_base, ActiveSupport::MessageEncryptor.key_len
+          Rails.application.credentials.secret_key_base, ActiveSupport::MessageEncryptor.key_len
         )
         ActiveSupport::MessageEncryptor.new(key)
       end

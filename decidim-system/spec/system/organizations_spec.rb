@@ -73,7 +73,7 @@ describe "Organizations" do
 
       context "without the secret key defined" do
         before do
-          allow(Rails.application.secrets).to receive(:secret_key_base).and_return(nil)
+          allow(Rails.application.credentials).to receive(:secret_key_base).and_return(nil)
         end
 
         it "does not create an organization" do
@@ -192,7 +192,7 @@ describe "Organizations" do
 
       context "without the secret key defined" do
         before do
-          allow(Rails.application.secrets).to receive(:secret_key_base).and_return(nil)
+          allow(Rails.application.credentials).to receive(:secret_key_base).and_return(nil)
         end
 
         it "shows the error message" do
@@ -212,7 +212,7 @@ describe "Organizations" do
       end
 
       before do
-        secrets = Rails.application.secrets
+        secrets = Rails.application.credentials
         allow(Rails.application).to receive(:secrets).and_return(
           secrets.merge(
             omniauth: {

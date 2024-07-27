@@ -356,7 +356,7 @@ module Decidim
               Decidim.configure do |config|
                 config.maps = {
                   provider: :here,
-                  api_key: Rails.application.secrets.maps[:api_key],
+                  api_key: Rails.application.credentials.maps[:api_key],
                   static: { url: "#{Decidim.geocoder.fetch(:static_map_url)}" }
                 }
               end

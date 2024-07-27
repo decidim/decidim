@@ -26,9 +26,9 @@ An example snippet in `config/initializers/decidim.rb` may be:
 [source,ruby]
 ----
 config.etherpad = {
-  server: Rails.application.secrets.etherpad[:server],
-  api_key: Rails.application.secrets.etherpad[:api_key],
-  api_version: Rails.application.secrets.etherpad[:api_version]
+  server: Rails.application.credentials.etherpad[:server],
+  api_key: Rails.application.credentials.etherpad[:api_key],
+  api_version: Rails.application.credentials.etherpad[:api_version]
 }
 ----
 
