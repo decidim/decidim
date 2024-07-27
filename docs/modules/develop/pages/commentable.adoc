@@ -81,7 +81,7 @@ Then it must return an array of hashes, where each hash has the following keys:
 
 All these extra actions will be displayed in the dropdown menu of the comment after the default ones.
 
-For example, this is how model `Proposal` defines extra actions for comments:
+For example, this is how the `Proposal` model defines extra actions for comments:
 
 [source,ruby]
 ----
