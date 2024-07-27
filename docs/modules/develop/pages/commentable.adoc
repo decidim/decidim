@@ -71,7 +71,7 @@ Each resource can define extra actions that can be performed on comments. These 
 
 This method will receive two parameters, the comment itself and the current user that wants to interact with the comment.
 
-Then it must return an array of hashes, where each hash has the following keys:
+It must return an array of hashes, where each hash has the following keys:
 
 - `label`: The text for the link for the action.
 - `url`: The URL where the action will be performed.
