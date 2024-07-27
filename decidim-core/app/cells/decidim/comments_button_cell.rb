@@ -17,7 +17,7 @@ module Decidim
     private
 
     def comments_enabled?
-      return true if user_has_any_role?(current_user)
+      return true if user_has_any_role?(current_user, current_participatory_space)
 
       component_settings.comments_enabled? && !current_settings.try(:comments_blocked?)
     end

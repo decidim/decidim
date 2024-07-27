@@ -1075,11 +1075,20 @@ shared_examples "comments blocked" do
         it_behaves_like "can answer comments"
       end
 
-      context "when the user has an evaluator role" do
-        let!(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
-        let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process:) }
+      context "when the user has an evaluator role in the same participatory space" do
+        let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process: participatory_space) }
 
         it_behaves_like "can answer comments"
+      end
+
+      context "when the user has an evaluator role in a different participatory space" do
+        let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process: create(:participatory_process, organization:)) }
+
+        it "cannot answer" do
+          visit resource_path
+          expect(page).to have_content("Comments are currently disabled, only administrators can reply or post new ones.")
+          expect(page).to have_no_content("You need to be verified to comment at this moment")
+        end
       end
     end
   end

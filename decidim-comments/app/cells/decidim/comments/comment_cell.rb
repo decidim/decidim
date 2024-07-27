@@ -96,7 +96,7 @@ module Decidim
       end
 
       def can_reply?
-        return true if user_has_any_role?(current_user)
+        return true if current_participatory_space && user_has_any_role?(current_user, current_participatory_space)
 
         user_signed_in? && accepts_new_comments? &&
           root_commentable.user_allowed_to_comment?(current_user)
@@ -208,6 +208,10 @@ module Decidim
       # action_authorization_button expects current_component to be available
       def current_component
         root_commentable.try(:component)
+      end
+
+      def current_participatory_space
+        current_component&.participatory_space
       end
 
       def vote_button_to(path, params, &)

@@ -40,7 +40,7 @@ module Decidim
       private
 
       def can_add_comments?
-        return true if user_has_any_role?(current_user)
+        return true if current_participatory_space && user_has_any_role?(current_user, current_participatory_space)
         return if single_comment?
         return if comments_blocked?
         return if user_comments_blocked?
@@ -144,6 +144,10 @@ module Decidim
       # action_authorization_link expects current_component to be available
       def current_component
         model.try(:component)
+      end
+
+      def current_participatory_space
+        model.try(:participatory_space)
       end
 
       def blocked_comments_for_unauthorized_user_warning_link

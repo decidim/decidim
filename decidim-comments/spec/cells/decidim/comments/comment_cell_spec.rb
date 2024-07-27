@@ -191,6 +191,48 @@ module Decidim::Comments
             end
           end
         end
+
+        context "when coments are blocked" do
+          before do
+            allow(commentable).to receive(:user_allowed_to_comment?).and_return(false)
+          end
+
+          it "does not render the reply form" do
+            expect(subject).to have_no_css(".add-comment")
+          end
+
+          context "and the user is an admin" do
+            let(:current_user) { create(:user, :admin, :confirmed, organization: component.organization) }
+
+            it "renders the reply form" do
+              expect(subject).to have_css(".add-comment")
+            end
+          end
+
+          context "and the user is a user manager" do
+            let(:current_user) { create(:user, :user_manager, :confirmed, organization: component.organization) }
+
+            it "renders the reply form" do
+              expect(subject).to have_css(".add-comment")
+            end
+          end
+
+          context "and the user is a valuator in the same participatory space" do
+            let!(:valuator_role) { create(:participatory_process_user_role, user: current_user, participatory_process: component.participatory_space, role: :valuator) }
+
+            it "renders the reply form" do
+              expect(subject).to have_css(".add-comment")
+            end
+          end
+
+          context "and the user is a valuator in another participatory space" do
+            let!(:valuator_role) { create(:participatory_process_user_role, user: current_user, participatory_process: create(:participatory_process, organization: component.organization), role: :valuator) }
+
+            it "does not render the reply form" do
+              expect(subject).to have_no_css(".add-comment")
+            end
+          end
+        end
       end
     end
 

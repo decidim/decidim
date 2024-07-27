@@ -17,9 +17,9 @@ module Decidim
 
       let(:organization) { create(:organization) }
       let(:user) { create(:user, :confirmed, organization:) }
-      let(:admin_user) { create(:user, :admin, :confirmed, organization:) }
-      let(:user_manager) { create(:user, :user_manager, :confirmed, organization:) }
-      let!(:component) { create(:component, organization:) }
+      let!(:component) { create(:component, participatory_space: assembly) }
+      let(:assembly) { create(:assembly, organization:) }
+      let(:another_assembly) { create(:assembly, organization:) }
       let(:body) { "This is a new comment" }
       let(:alignment) { 1 }
       let(:user_group) { create(:user_group, :verified) }
@@ -115,6 +115,13 @@ module Decidim
         end
       end
 
+      shared_examples "does not allow commenting" do
+        it "does not allow comments" do
+          expect(subject.send(:commentable_can_have_comments)).not_to be_nil
+          expect(subject).not_to be_valid
+        end
+      end
+
       describe "#commentable_can_have_comments" do
         let(:accepts_new_comments) { true }
 
@@ -122,24 +129,35 @@ module Decidim
           allow(commentable).to receive(:accepts_new_comments?).and_return(accepts_new_comments)
         end
 
-        context "when user is admin" do
-          let(:current_user) { admin_user }
+        it_behaves_like "allows commenting"
 
-          it_behaves_like "allows commenting"
-        end
-
-        context "when user is user manager" do
-          let(:current_user) { user_manager }
-
-          it_behaves_like "allows commenting"
-        end
-
-        context "when user is a normal user" do
+        context "when no comments are accepted" do
           let!(:accepts_new_comments) { false }
 
-          it "does not allow comments" do
-            expect(subject.send(:commentable_can_have_comments)).not_to be_nil
-            expect(subject).not_to be_valid
+          it_behaves_like "does not allow commenting"
+
+          context "when user is admin" do
+            let(:user) { create(:user, :admin, :confirmed, organization:) }
+
+            it_behaves_like "allows commenting"
+          end
+
+          context "when user is user manager" do
+            let(:user) { create(:user, :user_manager, :confirmed, organization:) }
+
+            it_behaves_like "allows commenting"
+          end
+
+          context "when user is moderator in the same participatory space" do
+            let!(:moderator_role) { create(:assembly_user_role, user:, assembly:, role: :moderator) }
+
+            it_behaves_like "allows commenting"
+          end
+
+          context "when user is moderator in another participatory space" do
+            let!(:moderator_role) { create(:assembly_user_role, user:, assembly: another_assembly, role: :moderator) }
+
+            it_behaves_like "does not allow commenting"
           end
         end
       end
