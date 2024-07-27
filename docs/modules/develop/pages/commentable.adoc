@@ -2,7 +2,7 @@
 
 == Things can be commentable
 
-`Commentable` is a feature to allow participants to comment on elements. This feature is used in many places in Decidim, like proposals, meetings, participatory processes, etc.
+`Commentable` is a feature to allow participants to comment on resources. This feature is used in many places in Decidim, like proposals, meetings, debates, etc.
 
 When commenting an element the comments counter for this element is increased and a notification to all the followers of the participant is sent.
 
