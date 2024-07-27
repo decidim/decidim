@@ -42,7 +42,8 @@ module Decidim
       # Private: Check if commentable can have comments and if not adds
       # a validation error to the model
       def commentable_can_have_comments
-        return if user_has_any_role?(current_user)
+        return unless current_component && current_component.participatory_space
+        return if user_has_any_role?(current_user, current_component.participatory_space)
 
         errors.add(:commentable, :cannot_have_comments) unless commentable.accepts_new_comments?
       end
