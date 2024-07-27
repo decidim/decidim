@@ -55,7 +55,6 @@ cell("decidim/comments", resource)
 
 This will render all the comments for the given resource.
 
-
 === Comments actions
 
 Each comment has a set of actions that can be performed by the user. By default, these actions are available:
