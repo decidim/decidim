@@ -44,7 +44,7 @@ These are one time actions that need to be done after the code is updated in the
 
 ### 3.1. Migration from secrets to credentials
 
-Starting with the rails 7.1 upgrade, we have noticed that the screts will be removed starting with rails 7.2. In order to upgrade more easy to rails 7.2, we have removed the secrets from our application, converting them to credentials.
+Starting with the rails 7.1 upgrade, we have noticed that the secrets will be removed starting with rails 7.2. In order to upgrade more easy to rails 7.2, we have removed the secrets from our application, converting them to credentials.
 
 If your application is using `Rails.application.secrets` anywhere, please change your code to use `Rails.application.credentials`.
 
@@ -54,7 +54,7 @@ In case you do not want to rely on the old `config/secrets.yml` file, please fol
 EDITOR=vim ./bin/rails credentials:edit --environment production
 ```
 
-This will open a vim editor where you can add add your credentials. This will generate you 2 new files:
+This will open a vim editor where you can add your credentials. This will generate you 2 new files:
 
 ```bash
 config/credentials/production.key
