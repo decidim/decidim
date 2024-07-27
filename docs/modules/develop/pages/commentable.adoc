@@ -61,9 +61,7 @@ This will render all the comments for the given resource.
 Each comment has a set of actions that can be performed by the user. By default, these actions are available:
 
 - A user can edit and delete their own comments.
-- A user can reply to a comment.
 - A user can report a comment.
-- A user can upvote or downvote a comment.
 - A user can copy the link to a comment.
 
 These actions are available through a dropdown menu in the comment.
