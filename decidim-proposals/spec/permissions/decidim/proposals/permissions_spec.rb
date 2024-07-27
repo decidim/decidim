@@ -252,7 +252,7 @@ describe Decidim::Proposals::Permissions do
       end
 
       context "when the current user is not the author" do
-        let(:user) { create :user, :confirmed, organization: proposal.organization }
+        let(:user) { create(:user, :confirmed, organization: proposal.organization) }
 
         it { is_expected.to be false }
       end
@@ -338,7 +338,7 @@ describe Decidim::Proposals::Permissions do
       end
 
       context "when the user is not the coauthor" do
-        let(:coauthor) { create :user, :confirmed, organization: proposal.organization }
+        let(:coauthor) { create(:user, :confirmed, organization: proposal.organization) }
 
         it { is_expected.to be false }
       end
