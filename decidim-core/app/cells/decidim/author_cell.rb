@@ -54,7 +54,7 @@ module Decidim
     end
 
     def show_icons?
-      layout != :compact
+      options[:show_icons] != false && layout != :compact
     end
 
     def context_actions
@@ -159,6 +159,12 @@ module Decidim
 
     def resource_name
       @resource_name ||= from_context.class.name.demodulize.underscore
+    end
+
+    def has_tooltip?
+      return options[:tooltip] if options.has_key?(:tooltip)
+
+      model.has_tooltip?
     end
   end
 end
