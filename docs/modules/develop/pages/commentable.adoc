@@ -4,13 +4,13 @@
 
 `Commentable` is a feature to allow participants to comment on resources. This feature is used in many places in Decidim, like proposals, meetings, debates, etc.
 
-When commenting an element the comments counter for this element is increased and a notification to all the followers of the participant, the space and/or the resource is sent. 
+When commenting a resource, the comments counter is increased and a notification to all the followers of the participant, the participatory space and/or the resource is sent.
 
 Participants can comment with their own identity or with the identify of the `user_groups` they belong to.
 
 == Data model
 
-The `decidim_comments` table stores all the comments given to elements that are commentable. This is, one commentable has many comments, and each comment belongs to one commentable. Also, a comment can be a commentable itself, so comments can be nested.
+The `decidim_comments` table stores all the comments given to resources that are commentable. This is, one commentable has many comments, and each comment belongs to one commentable. Also, a comment can be a commentable itself, so comments can be nested.
 For performance, a commentable has a counter cache of comments.
 
 [source,ascii]
