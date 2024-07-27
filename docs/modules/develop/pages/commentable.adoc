@@ -67,7 +67,7 @@ These actions are available through a dropdown menu in the comment.
 
 === Resource-specific extra actions
 
-Each resource can define extra actions that can be performed on comments. These actions must be returned by the resource object through the `actions_for_comment` method. If the resource does not defined this method, or returns empty, no extra actions will be available.
+Each resource can define extra actions that can be performed on comments. These actions must be returned by the resource object through the `actions_for_comment` method. If the resource does not define this method, or returns empty, no extra actions will be available.
 
 This method will receive two parameters, the comment itself and the current user that wants to interact with the comment.
 
