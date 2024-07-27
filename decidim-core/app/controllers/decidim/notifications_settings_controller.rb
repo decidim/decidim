@@ -14,7 +14,7 @@ module Decidim
       enforce_permission_to(:update, :user, current_user:)
       @notifications_settings = form(NotificationsSettingsForm).from_params(params)
 
-      UpdateNotificationsSettings.call(current_user, @notifications_settings) do
+      UpdateNotificationsSettings.call(@notifications_settings) do
         on(:ok) do
           flash.now[:notice] = t("notifications_settings.update.success", scope: "decidim")
         end

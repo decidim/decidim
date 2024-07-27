@@ -137,7 +137,7 @@ module Decidim
                  current_user:
                )
 
-        Decidim::CreateFollow.new(form, current_user).call
+        Decidim::CreateFollow.new(form).call
       end
 
       def add_author_as_committee_member(initiative)

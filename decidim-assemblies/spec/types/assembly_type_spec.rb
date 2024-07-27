@@ -93,7 +93,7 @@ module Decidim
         let(:query) { "{ heroImage }" }
 
         it "returns the hero image field" do
-          expect(response["heroImage"]).to eq(model.attached_uploader(:hero_image).path)
+          expect(response["heroImage"]).to be_blob_url(model.hero_image.blob)
         end
       end
 
@@ -101,7 +101,7 @@ module Decidim
         let(:query) { "{ bannerImage }" }
 
         it "returns the banner image field" do
-          expect(response["bannerImage"]).to eq(model.attached_uploader(:banner_image).path)
+          expect(response["bannerImage"]).to be_blob_url(model.banner_image.blob)
         end
       end
 
@@ -158,14 +158,6 @@ module Decidim
 
         it "returns the participatoryStructure field" do
           expect(response["participatoryStructure"]["translation"]).to eq(model.participatory_structure["en"])
-        end
-      end
-
-      describe "showStatistics" do
-        let(:query) { "{ showStatistics }" }
-
-        it "returns the showStatistics field" do
-          expect(response["showStatistics"]).to eq(model.show_statistics)
         end
       end
 

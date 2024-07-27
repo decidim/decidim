@@ -56,12 +56,10 @@ ro:
           attributes:
             base:
               not_official: Nu sunt oficiale
-              supported: Au primit voturi sau susțineri
         proposals_split:
           attributes:
             base:
               not_official: Nu sunt oficiale
-              supported: Au primit voturi sau susțineri
     models:
       decidim/proposals/admin/update_proposal_category_event: Categorie de propunere modificată
       decidim/proposals/admin/update_proposal_scope_event: Domeniu de interes al propunerii modificat
@@ -84,10 +82,6 @@ ro:
         one: Notă
         few: Note
         other: Note
-      decidim/proposals/proposal_vote:
-        one: Vot
-        few: Voturi
-        other: Voturi
   decidim:
     admin:
       filters:
@@ -121,7 +115,6 @@ ro:
           comment: Comentează
           create: Creează
           endorse: Susține
-          vote: Votează
           vote_comment: Votează comentariul
           withdraw: Retrage
         name: Propuneri
@@ -132,23 +125,18 @@ ro:
             amendments_wizard_help_text: Text de ajutor pentru amendamente
             announcement: Anunţ
             attachments_allowed: Permite atașamente
-            can_accumulate_supports_beyond_threshold: Se pot acumula voturi dincolo de pragul limită
             collaborative_drafts_enabled: Ciornele colaborative au fost activate
             comments_enabled: Comentariile au fost activate
             comments_max_length: Număr maxim de caractere a comentariilor (păstrează 0 pentru valoarea implicită)
             default_sort_order: Mod implicit de sortare a propunerilor
-            default_sort_order_help: Implicit înseamnă că dacă este activată votarea, propunerile vor fi afișate aleatoriu, și dacă votarea este blocată, atunci vor fi sortate în funcție de cele mai multe voturi.
             default_sort_order_options:
-              default: Implicit
               most_commented: Cele mai comentate
               most_endorsed: Cele mai susținute
               most_followed: Cele mai urmărite
-              most_voted: Cele mai votate
               random: Aleator
               recent: Recente
               with_more_authors: Cu mai mulți autori
             geocoding_enabled: Geocodarea a fost activată
-            minimum_votes_per_user: Număr minim de voturi pe utilizator
             new_proposal_body_template: Model de conținut pentru o propunere nouă
             new_proposal_body_template_help: Poți defini textul precompletat pe care îl vor avea noile propuneri
             new_proposal_help_text: Text de ajutor pentru propunere nouă
@@ -169,7 +157,6 @@ ro:
             scope_id: Domeniu de interes
             scopes_enabled: Domeniile de interes au fost activate
             threshold_per_proposal: Prag per propunere
-            vote_limit: Limită de voturi pe participant
           step:
             amendment_creation_enabled: Crearea de amendamente a fost activată
             amendment_creation_enabled_help: Participantul poate face amendamente la propuneri.
@@ -188,13 +175,10 @@ ro:
             comments_blocked: Comentarii blocate
             creation_enabled: Participantul poate crea propuneri
             default_sort_order: Mod implicit de sortare a propunerilor
-            default_sort_order_help: Implicit înseamnă că dacă este activată votarea, propunerile vor fi afișate aleatoriu, și dacă votarea este blocată, atunci vor fi sortate în funcție de cele mai multe voturi.
             default_sort_order_options:
-              default: Implicit
               most_commented: Cele mai comentate
               most_endorsed: Cele mai susținute
               most_followed: Cele mai urmărite
-              most_voted: Cele mai votate
               random: Aleator
               recent: Recente
               with_more_authors: Cu mai mulți autori
@@ -203,9 +187,6 @@ ro:
             proposal_answering_enabled: Modulul de răspuns pentru propuneri a fost activat
             publish_answers_immediately: Publică imediat răspunsurile la propunere
             suggested_hashtags: Hashtag-uri sugerate participanţilor pentru noi propuneri
-            votes_blocked: Votare blocată
-            votes_enabled: Votare activată
-            votes_hidden: Voturi ascunse (dacă votarea este activată, bifarea acestei opțiuni va ascunde numărul de voturi primite)
     events:
       proposals:
         admin:
@@ -263,10 +244,7 @@ ro:
           email_subject: Domeniul de interes al propunerii %{resource_title} a fost actualizat
           notification_title: Domeniul de interes al propunerii <a href="%{resource_path}">%{resource_title}</a> a fost actualizat de către un administrator.
         voting_enabled:
-          email_intro: 'Poți vota propuneri pentru %{participatory_space_title}! Participă acum la această pagină:'
           email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți anula aceste notificări de la link-ul anterior.
-          email_subject: A început votarea propunerilor pentru %{participatory_space_title}
-          notification_title: Acum poți începe <a href="%{resource_path}">să votezi propuneri</a> pentru <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -283,13 +261,7 @@ ro:
         proposal_votes:
           conditions:
             - Răsfoiește paginile și petrece puțin timp citind propunerile altora
-            - Votează propunerilor care îți plac sau ți se par intersante
-          description: Această insignă este acordată atunci când votezi propunerile altora.
-          description_another: Acest participant a votat %{score} propuneri.
-          description_own: Ai votat %{score} propuneri.
-          name: Voturi pentru propuneri
-          next_level_in: Votează încă %{score} alte propuneri pentru a atinge următorul nivel!
-          unearned_own: Încă nu ai votat nicio propunere.
+            - 
         proposals:
           conditions:
             - Alege spațiul de participare unde e activă opțiunea de a trimite propuneri conform domeniului tău de interes
@@ -313,10 +285,6 @@ ro:
         description: Număr de propuneri
         object: propuneri
         title: Propuneri
-      votes:
-        description: Numărul de voturi pentru propuneri
-        object: voturi
-        title: Voturi
     participatory_spaces:
       highlighted_proposals:
         see_all: Afișează toate propunerile (%{count})
@@ -441,7 +409,6 @@ ro:
             remove_assignment: Elimină atribuirea
             remove_assignment_confirmation: Sigur dorești să elimini evaluatorul din această propunere?
             valuators: Evaluatori
-            votes_count: Număr de voturi
           update_category:
             invalid: 'Aceste propuneri aveau deja categoria %{subject_name} : %{proposals}.'
             success: 'Propuneri actualizate cu succes la categoria %{subject_name} : %{proposals}.'
@@ -610,9 +577,6 @@ ro:
         buttons:
           amend: Trimite un amendament
           comment: Comentariu
-      proposal_votes:
-        create:
-          error: A apăut o problemă în timpul votării propunerii.
       proposals:
         dynamic_map_instructions:
           description: Coordonatele vor fi actualizate când apeși pe butonul 'previzualizează'. Cu toate acestea, adresa nu se schimbă.
@@ -642,7 +606,6 @@ ro:
           search: Caută
           state: Stadiu
           type: Tip
-          voted: Votate
         index:
           click_here: Afișează toate propunerile
           collaborative_drafts_list: Accesează ciorne colaborative
@@ -661,7 +624,6 @@ ro:
           most_commented: Cele mai comentate
           most_endorsed: Cele mai susținute
           most_followed: Cele mai urmărite
-          most_voted: Cele mai votate
           random: Aleatoriu
           recent: Recente
           with_more_authors: Cu mai mulți autori
@@ -695,35 +657,13 @@ ro:
           proposal_accepted_reason: 'Această propunere a fost acceptată deoarece:'
           proposal_in_evaluation_reason: Această propunere este în curs de evaluare
           proposal_rejected_reason: 'Această propunere a fost respinsă deoarece:'
-          withdraw_btn_hint: Îți poți retrage propunerea dacă te răzgândești, cu condiția să nu fi primit niciun vot. Propunerea nu va fi eliminată, ci va apărea pe lista propunerilor retrase.
           withdraw_confirmation_html: Sigur dorești să retragi această propunere?<br><br><strong>Această acțiune nu poate fi anulată!</strong>
           withdraw_proposal: Retrage propunerea
         update:
           title: Actualizează propunerea
-        vote_button:
-          already_voted: Ai votat deja
-          already_voted_hover: Retrage votul
-          maximum_votes_reached: Ai atins limita de votare
-          no_votes_remaining: Niciun vot rămas
-          vote: Votează
-          votes_blocked: Votare dezactivată
-        votes_count:
-          count:
-            one: Vot
-            few: Voturi
-            other: Voturi
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: Fiecare propunere poate acumula mai mult de %{limit} voturi
-          minimum_votes_per_user:
-            description: Trebuie să distribui un minim de %{votes} voturi pentru propuneri diferite.
-            supports_remaining: Trebuie să votezi încă %{remaining_votes} propuneri pentru ca votul tău să fie luat în considerare.
           proposal_limit:
             description: Poți crea până la %{limit} propuneri.
-          title: 'Voturile sunt supuse următoarelor reguli:'
-          vote_limit:
-            description: Poți vota până la %{limit} propuneri.
-            votes: Voturi
         wizard_aside:
           back: Înapoi
           back_from_step_1: Înapoi la propuneri
@@ -758,4 +698,4 @@ ro:
     statistics:
       proposals_accepted: Propuneri acceptate
       proposals_count: Propuneri
-      supports_count: Voturi
+      votes_count: Voturi

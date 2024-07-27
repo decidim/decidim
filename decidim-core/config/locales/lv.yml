@@ -325,15 +325,13 @@ lv:
         new:
           complete_profile: Pabeigt profila izveidi
           sign_up: Lūdzu, pabeidziet aizpildīt savu profilu
-          subtitle: Lūdzu, aizpildiet šo anketu, lai pabeigtu reģistrēšanos
           username_help: Publiski redzamais vārds, kas parādās pie jūsu ierakstiem. Lai garantētu anonimitāti, tas var būt jebkurš vārds.
       registrations:
         new:
           already_have_an_account?: Jums jau ir konts?
+          log_in: Pieteikties
           newsletter: Saņemiet neregulāru informatīvo biļetenu ar būtisko informāciju
           newsletter_title: Atļauja sazināties
-          sign_up: Reģistrēties
-          subtitle: Reģistrēties, lai piedalītos diskusijās un atbalstītu priekšlikumus.
           tos_agreement: Reģistrējoties jūs piekrītat %{link}.
           tos_title: Pakalpojumu sniegšanas noteikumi
           username_help: Publiski redzamais vārds, kas parādās pie jūsu ierakstiem. Lai garantētu anonimitāti, tas var būt jebkurš vārds.
@@ -856,8 +854,6 @@ lv:
         spam: Satur klikšķu ēsmu (clickbait), reklāmu, krāpšanu vai skriptu robotprogrammatūru.
       floating_help:
         help: Palīdzība
-      login_modal:
-        sign_up: Reģistrēties
       participatory_space_filters:
         filters:
           areas: Jomas
@@ -995,19 +991,20 @@ lv:
       updated_not_active: Jūsu parole ir veiksmīgi nomainīta.
     registrations:
       destroyed: Jūsu konts ir veiksmīgi atcelts. Mēs ceram jūs drīz atkal redzēt.
-      new:
-        sign_up: Reģistrēties
       signed_up: Laipni lūdzam! Jūsu reģistrācija bija veiksmīga.
       signed_up_but_inactive: Jūsu reģistrācija bija veiksmīga. Tomēr mēs nevarējām jūs pierakstīt, jo jūsu konts vēl nav aktivizēts.
       signed_up_but_locked: Jūsu reģistrācija bija veiksmīga. Tomēr mēs nevarējām jūs pierakstīt, jo jūsu konts ir bloķēts.
       signed_up_but_unconfirmed: Uz jūsu e-pasta adresi ir nosūtīts ziņojums ar apstiprinājuma saiti. Lūdzu, izmantojiet saiti, lai aktivizētu savu kontu.
       update_needs_confirmation: Jūs veiksmīgi atjauninājāt kontu, taču mums ir jāpārbauda jūsu jaunā e-pasta adrese. Lūdzu, pārbaudiet savu e-pastu un izmantojiet apstiprināšanas saiti, lai apstiprinātu jauno e-pasta adresi.
       updated: Jūsu konts tika veiksmīgi atjaunināts.
+    sessions:
+      new:
+        log_in: Pieteikties
     shared:
       links:
         back: Atpakaļ
         forgot_your_password: Aizmirsāt paroli?
-        sign_up: Reģistrēties
+        log_in: Pieteikties
       minimum_password_length:
         zero: "(vismaz %{count} rakstzīmes)"
         one: "(vismaz %{count} rakstzīme)"
@@ -1029,7 +1026,6 @@ lv:
       invalid_time_zone: nav derīga laika josla
       long_words: satur vārdus, kas ir pārāk gari (vairāk nekā 35 rakstzīmes)
       must_start_with_caps: jāsākas ar lielo burtu
-      not_found: netika atrasts. Vai jūs jau iepriekš reģistrējāties?
       not_locked: netika bloķēts
       not_saved:
         zero: 'Apstrādājot jūsu pieprasījumu, radās vairākas kļūdas:'
@@ -1050,8 +1046,10 @@ lv:
         edit: Labot
       footer:
         download_open_data: Lejupielādējiet atvērto datu failus
+        log_in: Pieteikties
         made_with_open_source: Vietne, kas izveidota ar <a target="_blank" href="https://github.com/decidim/decidim"> bezmaksas programmatūru </a>.
-        sign_up: Reģistrēties
+      header:
+        log_in: Pieteikties
       impersonation_warning:
         close_session: Aizvērt sesiju
         description_html: Jūs pārvaldāt dalībnieku <b>%{user_name}</b>.

@@ -37,16 +37,12 @@ module Decidim
         attribute :private_space, Boolean
         attribute :promoted, Boolean
         attribute :scopes_enabled, Boolean
-        attribute :show_metrics, Boolean
-        attribute :show_statistics, Boolean
         attribute :participatory_process_type_id, Integer
 
         attribute :end_date, Decidim::Attributes::LocalizedDate
         attribute :start_date, Decidim::Attributes::LocalizedDate
 
-        attribute :banner_image
         attribute :hero_image
-        attribute :remove_banner_image, Boolean, default: false
         attribute :remove_hero_image, Boolean, default: false
 
         validates :area, presence: true, if: proc { |object| object.area_id.present? }
@@ -57,7 +53,6 @@ module Decidim
 
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
 
-        validates :banner_image, passthru: { to: Decidim::ParticipatoryProcess }
         validates :hero_image, passthru: { to: Decidim::ParticipatoryProcess }
 
         validates :weight, presence: true

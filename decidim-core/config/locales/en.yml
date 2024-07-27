@@ -569,7 +569,7 @@ en:
         name: Sub hero banner
     core:
       actions:
-        login_before_access: Please, login with your account before access.
+        login_before_access: Please, log in with your account before access.
         unauthorized: You are not authorized to perform this action.
       application_helper:
         filter_area_values:
@@ -586,7 +586,7 @@ en:
           complete_profile: Complete profile
           nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
           sign_up: Please complete your profile
-          subtitle: Please fill in the following form in order to complete the sign up
+          subtitle: Please fill in the following form in order to complete the account creation
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       registrations:
         create:
@@ -596,8 +596,8 @@ en:
           log_in: Log in
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
-          sign_up: Sign up
-          subtitle: Sign up to participate in discussions and support proposals.
+          sign_up: Create an account
+          subtitle: Create an account to participate in the platform.
           terms: the terms of service
           tos_agreement: By signing up you agree to %{link}.
           tos_title: Terms of Service
@@ -607,7 +607,7 @@ en:
           are_you_new?: New to the platform?
           register: Create an account
           sign_in_disabled: You can access with an external account.
-          sign_up_disabled: Sign up is disabled, you can use an existing account to access.
+          sign_up_disabled: Account creation is disabled, you can use an existing account to access.
         user:
           timed_out: You were inactive for too long and you have been automatically logged out from the service. If you would like to continue using the service, please log in again.
       shared:
@@ -928,6 +928,7 @@ en:
           filename: Filename
           remove: Remove
           replace: Replace
+          save: Save
           title: Title
           title_required: Title is required!
           uploaded: Uploaded
@@ -1268,6 +1269,7 @@ en:
         administrators: Administrators
         allow_public_contact: Allow anyone to send me a direct message, even if I do not follow them.
         allow_push_notifications: Get push notifications to find out what is going on when you are not on the platform. You can turn them off anytime.
+        assigned_to_proposal: I want to receive an email when someone assigns me a proposal to evaluate
         direct_messages: Receive direct messages from anyone
         email_on_moderations: I want to receive an email every time something or someone is reported for moderation.
         everything_followed: Everything I follow
@@ -1286,6 +1288,7 @@ en:
         push_notifications_reminder: To get notifications from the platform, you will need to allow them in your browser settings first.
         receive_notifications_about: I want to get notifications about
         update_notifications_settings: Save changes
+        valuators: Evaluators
       update:
         error: There was a problem updating your notifications settings.
         success: Your notifications settings were successfully updated.
@@ -1324,7 +1327,7 @@ en:
           headline: Current state of %{organization}
         sub_hero:
           register: Register
-          register_title: Sign up to create an account
+          register_title: Create an account
       index:
         standalone_pages: Pages
         subheading: Navigate through the help pages of %{name}
@@ -1507,7 +1510,7 @@ en:
         log_in_before_follow: Please log in before performing this action
       login_modal:
         please_log_in: Please log in
-        sign_up: Sign up
+        sign_up: Create an account
       mentions_modal:
         remove_recipient: Remove recipient %{name}
       participatory_space_filters:
@@ -1634,7 +1637,7 @@ en:
       locked: Your account is locked.
       not_found_in_database: Invalid %{authentication_keys} or password.
       timeout: Your session expired. Please log in again to continue.
-      unauthenticated: You need to log in or sign up before continuing.
+      unauthenticated: You need to log in or create an account before continuing.
     invitations:
       edit:
         header: Finish creating your account
@@ -1722,7 +1725,7 @@ en:
     registrations:
       destroyed: Your account has been successfully cancelled. We hope to see you again soon.
       new:
-        sign_up: Sign up
+        sign_up: Create an account
       signed_up: Welcome! You have signed up successfully.
       signed_up_but_inactive: You have signed up successfully. However, we could not sign you in because your account is not yet activated.
       signed_up_but_locked: You have signed up successfully. However, we could not sign you in because your account is locked.
@@ -1743,7 +1746,7 @@ en:
         forgot_your_password: Forgot your password?
         log_in: Log in
         log_in_with_provider: Log in with %{provider}
-        sign_up: Sign up
+        sign_up: Create an account
       minimum_password_length:
         one: "(%{count} character minimum)"
         other: "(%{count} characters minimum)"
@@ -1857,7 +1860,7 @@ en:
       long_words: contains words that are too long (over 35 characters)
       must_start_with_caps: must start with a capital letter
       nesting_too_deep: cannot be inside of a subcategory
-      not_found: could not be found. Did you sign up previously?
+      not_found: could not be found. Have you created an account previously?
       not_locked: was not locked
       not_saved:
         one: 'There''s been an error processing your request:'
@@ -1942,10 +1945,10 @@ en:
         log_in: Log in
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
         resources: Resources
-        sign_up: Sign Up
+        sign_up: Create an account
         terms_of_service: Terms of Service
       header:
-        log_in: Login
+        log_in: Log in
         main_menu: Main menu
         user_menu: User menu
       impersonation_warning:

@@ -29,9 +29,9 @@ shared_examples_for "a resource search with scopes" do |factory_name|
   describe "scope_id filter" do
     let(:filter_params) { { with_any_scope: scope_ids } }
 
-    let(:scope1) { create :scope, organization: component.organization }
-    let(:scope2) { create :scope, organization: component.organization }
-    let(:subscope1) { create :scope, organization: component.organization, parent: scope1 }
+    let(:scope1) { create(:scope, organization: component.organization) }
+    let(:scope2) { create(:scope, organization: component.organization) }
+    let(:subscope1) { create(:scope, organization: component.organization, parent: scope1) }
 
     let!(:resource) { create(factory_name, { component:, scope: scope1 }.merge(factory_params)) }
     let!(:resource2) { create(factory_name, { component:, scope: scope2 }.merge(factory_params)) }
@@ -134,9 +134,9 @@ shared_examples_for "a resource search with categories" do |factory_name, catego
   end
 
   describe "results" do
-    let(:category1) { create :category, participatory_space: }
-    let(:category2) { create :category, participatory_space: }
-    let(:child_category) { create :category, participatory_space:, parent: category2 }
+    let(:category1) { create(:category, participatory_space:) }
+    let(:category2) { create(:category, participatory_space:) }
+    let(:child_category) { create(:category, participatory_space:, parent: category2) }
     let!(:resource) { create(factory_name, { component: }.merge(factory_params)) }
     let!(:resource2) { create(factory_name, { component:, category: category1 }.merge(factory_params)) }
     let!(:resource3) { create(factory_name, { component:, category: category2 }.merge(factory_params)) }

@@ -450,6 +450,7 @@ fi-pl:
           values:
             'false': Julkaistu
             'true': Julkaisematon
+        remove_all: Poista kaikki
         scope_id_eq:
           label: Teema
         search_label: Hae
@@ -570,6 +571,7 @@ fi-pl:
         appearance: Ulkoasu
         area_types: Aluetyypit
         areas: Alueet
+        components: Komponentit
         configuration: Asetukset
         content: Ilmoitettu sisältö
         external_domain_allowlist: Sallitut ulkoiset verkko-osoitteet
@@ -963,6 +965,11 @@ fi-pl:
           help: Näitä tunnisteita käytetään jaettaessa tätä kohdetta muille käyttäjille. Ne piilotetaan, kun kohde julkaistaan. Klikkaa tunnisteen jakoikonia vieraillaksesi jaettavassa URL-osoitteessa.
           title: Jakotunnisteet
       shared:
+        adjacent_navigation:
+          next: Seuraava
+          next_title: Seuraava kohde
+          previous: Edellinen
+          previous_title: Edellinen kohde
         gallery:
           add_images: Lisää kuvia
           edit_images: Muokkaa kuvia

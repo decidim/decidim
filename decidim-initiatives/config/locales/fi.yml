@@ -91,7 +91,6 @@ fi:
               accepted: Tarpeeksi allekirjoituksia
               created: Luotu
               discarded: Hylätyt
-              published: Julkaistut
               rejected: Liian vähän allekirjoituksia
               validating: Teknisessä validoinnissa
           type_id_eq:
@@ -236,6 +235,10 @@ fi:
               most_recent: Uusimmat
         exports:
           initiatives: Aloitteet
+        index:
+          initiatives_types:
+            alert_html: "<p>Sinun tulee luoda vähintään yksi aloitetyyppi, jotta osallistujat voivat luoda aloitteita.</p><p>%{link}</p>"
+            button: Uusi aloitetyyppi
         initiatives:
           edit:
             accept: Hyväksy aloite
@@ -291,7 +294,7 @@ fi:
         initiatives_types:
           create:
             error: Tapahtui virhe.
-            success: Uuden aloitetyypin luonti onnistui.
+            success: Uuden aloitetyypin luonti onnistui. Sinun on määritettävä vähintään yksi teema tälle aloitetyypille, jotta sitä voi käyttää.
           destroy:
             success: Aloitetyypin poisto onnistui.
           edit:
@@ -325,7 +328,6 @@ fi:
         accepted: Tarpeeksi allekirjoituksia
         created: Luotu
         discarded: Hylätty
-        published: Julkaistu
         rejected: Liian vähän allekirjoituksia
         validating: Teknisessä tarkastuksessa
       application_helper:
@@ -574,7 +576,6 @@ fi:
           accepted: Tarpeeksi allekirjoituksia
           created: Luotu
           discarded: Hylätty
-          published: Julkaistu
           rejected: Liian vähän allekirjoituksia
           validating: Teknisessä tarkastuksessa
       states:

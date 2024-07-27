@@ -12,6 +12,7 @@ fi:
         project_ids: Liitetyt hankkeet
         proposals: Sisällytetyt ehdotukset
         start_date: Alkamispäivä
+        subresults: Alitulokset
         title: Otsikko
         updated_at: Päivitysaika
       status:

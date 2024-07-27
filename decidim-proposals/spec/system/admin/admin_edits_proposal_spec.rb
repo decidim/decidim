@@ -105,7 +105,7 @@ describe "Admin edits proposals" do
         find("input#proposal_attachment_delete_file").set(true)
         click_on("Replace")
         click_on("Remove")
-        click_on("Next")
+        click_on("Save")
         dynamically_attach_file(:proposal_attachment_file, Decidim::Dev.asset("city.jpeg"))
 
         click_on("Update")

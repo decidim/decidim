@@ -21,7 +21,6 @@ lt:
               too_long: per ilgas
             choices:
               missing: nepilnas - trūksta elementų
-              too_many: per daug
         questionnaire:
           request_invalid: Tvarkant prašymą įvyko klaida. Bandykite dar kartą.
   decidim:
@@ -157,7 +156,6 @@ lt:
           answer_questionnaire:
             already_have_an_account?: Jau turite paskyrą?
             are_you_new?: Naujas naudotojas?
-            sign_in_description: Prisijunkite norėdami dalyvauti apklausoje
             sign_up_description: Norėdami dalyvauti apklausoje, susikurkite dalyvio paskyrą
             title: Atsakyti į formos klausimus
           current_step: Žingsnis %{step}

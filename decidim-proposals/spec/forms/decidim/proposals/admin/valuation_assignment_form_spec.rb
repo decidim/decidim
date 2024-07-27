@@ -16,7 +16,7 @@ module Decidim
         let(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user: valuator, participatory_process: valuator_process) }
         let(:params) do
           {
-            id: valuator_role.try(:id),
+            valuator_role_ids: [valuator_role.try(:id)],
             proposal_ids: proposals.map(&:id)
           }
         end
@@ -32,7 +32,7 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
-        context "without a valuator role" do
+        context "without valuator roles" do
           let(:valuator_role) { nil }
 
           it { is_expected.to be_invalid }

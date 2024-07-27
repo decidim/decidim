@@ -147,11 +147,13 @@ contingut
 continuar
 contrasenya
 coopdevs
+Correu
 Cov
 Cprojects
 crdownload
 createcluster
 createuser
+crear
 crowdin
 crt
 cryptor
@@ -163,6 +165,7 @@ csslintrc
 CSSs
 csvfile
 cta
+cuenta
 Cugat
 customise
 Customising
@@ -415,6 +418,7 @@ initialiser
 inodes
 inputdialog
 inputname
+Inscriu
 interf
 inviteduser
 isbn
@@ -793,6 +797,7 @@ setseed
 sgid
 shakapacker
 sharedapp
+shellwords
 shortanswer
 shs
 sidekiq
@@ -887,6 +892,7 @@ timeoutable
 timeouter
 timestamped
 tiptap
+Tmpname
 TLDR
 todos
 Tomorrowland
@@ -905,6 +911,7 @@ tumblr
 turbolinks
 Twilio
 tzid
+tzip
 uber
 ucw
 ueee

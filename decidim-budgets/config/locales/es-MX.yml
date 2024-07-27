@@ -168,7 +168,7 @@ es-MX:
         back_to: Volver a %{component_name}
         close_modal: Cierra el modal
         continue: Continuar
-        more_information: Más información
+        more_information: Más información sobre el presupuesto
       budgets_list:
         budgets: Presupuestos
         cancel_order:
@@ -272,7 +272,7 @@ es-MX:
           projects_rule_maximum_only:
             description: Selecciona hasta %{maximum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
           vote_threshold_percent_rule:
-            description: Selecciona al menos %{minimum_budget} com los proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
+            description: Asigna al menos %{minimum_budget} a los proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
         orders:
           highest_cost: Mayor coste
           label: Ordenar proyectos por

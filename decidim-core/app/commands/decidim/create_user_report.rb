@@ -3,15 +3,15 @@
 module Decidim
   # A command with all the business logic when a user creates a report.
   class CreateUserReport < Decidim::Command
+    delegate :current_user, to: :form
+
     # Public: Initializes the command.
     #
     # form         - A form object with the params.
     # reportable   - The resource being reported
-    # current_user - The current user.
-    def initialize(form, reportable, current_user)
+    def initialize(form, reportable)
       @form = form
       @reportable = reportable
-      @current_user = current_user
     end
 
     # Executes the command. Broadcasts these events:
@@ -44,7 +44,7 @@ module Decidim
     def create_report!
       @report = UserReport.create!(
         moderation: @moderation,
-        user: @current_user,
+        user: current_user,
         reason: form.reason,
         details: form.details
       )
@@ -55,7 +55,7 @@ module Decidim
     end
 
     def send_notification_to_admins!
-      @current_user.organization.admins.each do |admin|
+      current_user.organization.admins.each do |admin|
         next unless admin.email_on_moderations
 
         Decidim::UserReportJob.perform_later(admin, report)

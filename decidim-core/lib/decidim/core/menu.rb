@@ -13,6 +13,22 @@ module Decidim
         end
       end
 
+      def self.register_mobile_menu!
+        Decidim.menu :mobile_menu do |menu|
+          menu.add_item :root,
+                        I18n.t("menu.home", scope: "decidim"),
+                        decidim.root_path,
+                        position: 1,
+                        active: :exclusive
+
+          menu.add_item :help,
+                        I18n.t("menu.help", scope: "decidim"),
+                        decidim.pages_path,
+                        position: 10,
+                        active: :exclusive
+        end
+      end
+
       def self.register_user_menu!
         Decidim.menu :user_menu do |menu|
           menu.add_item :account,

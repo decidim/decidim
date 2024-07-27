@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = "~> 3.2.0"
+  s.required_ruby_version = "~> 3.3.0"
 
   s.name = "decidim-forms"
   s.summary = "Decidim forms"
@@ -34,7 +34,10 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-core", Decidim::Forms.version
   s.add_dependency "wicked_pdf", "~> 2.1"
-  s.add_dependency "wkhtmltopdf-binary", "~> 0.12"
+  # Latest version of wkhtmltopdf-binary downloads more versions of the binary
+  # This brings problems with deployment in certain environments, as Heroku
+  # Hopefully they will fix this situation soon
+  s.add_dependency "wkhtmltopdf-binary", "= 0.12.6.6"
 
   s.add_development_dependency "decidim-admin", Decidim::Forms.version
   s.add_development_dependency "decidim-dev", Decidim::Forms.version

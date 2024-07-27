@@ -3,7 +3,6 @@ uk:
     attributes:
       participatory_process:
         announcement: Оголошення
-        banner_image: Банерне зображення
         copy_categories: Скопіювати категорії
         copy_components: Копіювати складові
         copy_steps: Скопіювати кроки
@@ -24,7 +23,6 @@ uk:
         scope_id: Обсяг
         scopes_enabled: Обсяги увімкнено
         short_description: Стислий опис
-        show_statistics: Показувати статистику
         slug: Скорочена веб-адреса
         start_date: Дата початку
         subtitle: Підзаголовок

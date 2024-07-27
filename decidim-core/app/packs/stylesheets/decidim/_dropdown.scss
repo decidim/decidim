@@ -33,9 +33,27 @@
   }
 }
 
-[data-target*="dropdown-menu-language-chooser"] {
+[data-target="dropdown-menu-language-chooser"] {
   & > span {
     @apply block font-semibold text-black text-xs;
+  }
+
+  > svg {
+    @apply w-5 h-6 flex-none text-xs font-normal text-black fill-current;
+  }
+
+  & > ul {
+    @apply w-6 bg-gray;
+
+    > li {
+      @apply w-6 bg-gray;
+    }
+  }
+}
+
+[data-target="dropdown-menu-language-chooser-mobile"] {
+  & > span {
+    @apply block text-black font-normal text-sm;
   }
 
   > svg {
@@ -54,6 +72,15 @@
 .dropdown {
   @apply absolute border-2 border-gray-3 rounded min-w-max p-4 drop-shadow-md text-left z-10;
 
+  /*
+    NOTE: the calculated value is the sum of the arrow offset position plus the half of the arrow size:
+    - offset position: 20%
+    - arrow size: 1.5rem
+  */
+  --arrow-offset: 20%;
+  --arrow-size: 1.5rem;
+  --arrow-visible-size: var(--arrow-size) * 0.5;
+
   & > * {
     @apply relative z-10 p-3.5 first:pt-1.5 last:pb-1.5;
   }
@@ -71,15 +98,6 @@
       @apply underline [&>svg]:text-secondary;
     }
   }
-
-  /*
-    NOTE: the calculated value is the sum of the arrow offset position plus the half of the arrow size:
-    - offset position: 20%
-    - arrow size: 1.5rem
-  */
-  --arrow-offset: 20%;
-  --arrow-size: 1.5rem;
-  --arrow-visible-size: var(--arrow-size) * 0.5;
 
   &__bottom {
     @apply top-full right-0 mt-3 translate-x-[calc(var(--arrow-offset)-var(--arrow-visible-size))] before:content-[''] before:absolute before:right-[var(--arrow-offset)] before:-top-2 before:w-[var(--arrow-size)] before:h-[var(--arrow-size)] before:rotate-45 before:bg-white before:rounded before:border-2 before:border-gray-3 after:content-[''] after:absolute after:left-0 after:top-0 after:w-full after:h-full after:bg-white;

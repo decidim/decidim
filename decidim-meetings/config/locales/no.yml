@@ -327,12 +327,9 @@
       iframe_embed_type:
         embed_in_meeting_page: Bygg inn på møteside
         none: Ingen
-        open_in_live_event_page: Åpne på siden for direktearrangement (med valgfri meningsmåling)
       layouts:
         live_event:
-          administrate: Administrere
           close: lukk
-          questions: Spørsmål
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -437,12 +434,9 @@
             title: Tittel
       polls:
         questions:
-          closed_question:
-            question_results: Resultat av spørsmål
           index:
             empty_questions: Gjennom dette møtet stilles noen spørsmål, og du vil kunne svare på dem. De vil bli vist her.
           index_admin:
-            admin_dashboard: Administrators dashbord
             question: Spørsmål
             received_answer: mottatt svar
             received_answers: mottatt svar
