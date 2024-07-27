@@ -192,7 +192,7 @@ module Decidim::Comments
           end
         end
 
-        context "when coments are blocked" do
+        context "when comments are blocked" do
           before do
             allow(commentable).to receive(:user_allowed_to_comment?).and_return(false)
           end
