@@ -6,7 +6,7 @@
 
 When commenting an element the comments counter for this element is increased and a notification to all the followers of the participant, the space and/or the resource is sent. 
 
-Participants can comment with their own identity or with the identify of the `user_groups` they belong to. Each commenting identity on its own will increment the comments counter by one.
+Participants can comment with their own identity or with the identify of the `user_groups` they belong to.
 
 == Data model
 
