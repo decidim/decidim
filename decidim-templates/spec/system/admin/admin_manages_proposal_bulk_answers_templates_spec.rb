@@ -3,22 +3,15 @@
 require "spec_helper"
 
 describe "Admin manages bulk proposal answer templates" do
-  let!(:other_proposals) { create_list(:proposal, 3, component:) }
-
+  
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
   let(:participatory_space) { participatory_process }
   let!(:component) { create(:proposal_component, participatory_space:) }
-
-  let(:user) do
-    create(:user,
-           :admin,
-           :confirmed,
-           organization:)
-  end
-
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
   let!(:state) { Decidim::Proposals::ProposalState.first }
   let!(:proposal) { create(:proposal, cost: nil, component:) }
+  let!(:other_proposals) { create_list(:proposal, 3, component:) }
   let!(:emendation) { create(:proposal, component:) }
   let!(:amendment) { create(:amendment, amendable: proposal, emendation:) }
   let!(:template) { create(:template, target: :proposal_answer, templatable: component, description:, field_values:) }
