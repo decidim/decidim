@@ -99,7 +99,7 @@ module Decidim
     # Renders the cell contents.
     def cell(name, model, options = {}, &)
       options = { context: { view_context: self, current_user: } }.deep_merge(options)
-      super(name, model, options, &)
+      super
     end
 
     def prevent_timeout_seconds

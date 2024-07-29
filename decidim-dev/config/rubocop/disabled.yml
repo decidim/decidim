@@ -40,8 +40,5 @@ FactoryBot/AssociationStyle:
 Rubycw/Rubycw:
   Enabled: false
 
-Style/SuperArguments:
-  Enabled: false
-
 Lint/SelfAssignment:
   Enabled: false
