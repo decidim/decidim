@@ -817,7 +817,7 @@ describe "Authentication" do
 
           find(".login__omniauth-button.button--facebook").click
 
-          expect(page).to have_content("Finish sign up")
+          expect(page).to have_content("Finish creating your account")
 
           check :registration_user_tos_agreement
           check :registration_user_newsletter
