@@ -190,6 +190,10 @@ module Decidim
         end
       end
 
+      def patch_credentials
+        run "rails decidim:patch_environments"
+      end
+
       def add_storage_provider
         template "storage.yml.erb", "config/storage.yml", force: true
 

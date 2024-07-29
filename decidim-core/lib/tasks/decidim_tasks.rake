@@ -5,6 +5,7 @@ namespace :decidim do
   task upgrade: [
     :choose_target_plugins,
     :"decidim:upgrade_app",
+    :"decidim:patch_environments",
     :"railties:install:migrations",
     :"decidim:upgrade:webpacker",
     :"decidim_api:generate_docs"
@@ -44,5 +45,20 @@ namespace :decidim do
   desc "Removes the default favicon from the application."
   task :remove_default_favicon do
     FileUtils.rm("public/favicon.ico", force: true)
+  end
+
+  task :patch_environments do
+    %w(production development test).each do |env|
+      content = Rails.root.join("config/environments/#{env}.rb").read
+
+      next if content.include?("Rails.application.credentials.deep_merge!(Rails.application.config_for(:secrets))")
+
+      content.gsub!(/Rails.application.configure do/,
+                    "# The following line ensures that your credentials do contain the variables defined in security.yml file
+Rails.application.credentials.deep_merge!(Rails.application.config_for(:secrets))
+
+Rails.application.configure do")
+      Rails.root.join("config/environments/#{env}.rb").write(content)
+    end
   end
 end
