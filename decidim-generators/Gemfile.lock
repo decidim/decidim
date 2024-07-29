@@ -815,8 +815,6 @@ DEPENDENCIES
   net-pop (~> 0.1.1)
   net-smtp (~> 0.3.1)
   puma (>= 6.3.1)
-  spring (~> 4.0)
-  spring-watcher-listen (~> 2.0)
   web-console (~> 4.2)
   wicked_pdf (~> 2.1)
 
