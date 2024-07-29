@@ -52,7 +52,7 @@ de:
         keep_authors: Behalten Sie die ursprünglichen Autoren
       valuation_assignment:
         admin_log:
-          valuator_role_id: Name des Schätzers
+          valuator_role_id: Name des Bewertenden
     errors:
       models:
         participatory_text:
@@ -128,7 +128,7 @@ de:
               validating: Technische Validierung
               withdrawn: Zurückgezogen
           valuator_role_ids_has:
-            label: Zugewiesen zu dem Schätzer
+            label: Zur Bewertung zugewiesen
           with_any_state:
             label: Beantwortet
             values:
@@ -170,6 +170,11 @@ de:
               random: Zufällig
               recent: Neueste
               with_more_authors: Mit mehr Autoren
+            edit_time: Vorschläge können vor Ablauf dieser Zeit von den Autoren bearbeitet werden
+            edit_time_units:
+              days: Tage
+              hours: Stunden
+              minutes: Minuten
             geocoding_enabled: Geocoding aktiviert
             minimum_votes_per_user: Minimal erforderliche Anzahl Stimmen eines Abstimmenden
             new_proposal_body_template: Textvorlage für neuen Vorschlag
@@ -183,6 +188,10 @@ de:
             proposal_edit_time_choices:
               infinite: Vorschläge können beliebig lang bearbeitet werden
               limited: Vorschläge können nach einem spezifischen Zeitfenster nicht mehr bearbeitet werden
+            proposal_edit_time_unit_options:
+              days: Tage
+              hours: Stunden
+              minutes: Minuten
             proposal_length: Maximale Länge des Haupttextes
             proposal_limit: Vorschlagslimit pro Benutzer
             proposal_wizard_step_1_help_text: Hilfetext "Erstellen"-Schritt im Vorschlagsassistenten
@@ -233,6 +242,11 @@ de:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_intro: Ihnen wurde der Vorschlag "%{resource_title}" zur Bewertung zugewiesen. Das bedeutet, dass von Ihnen in den nächsten Tagen eine Rückmeldung und Einschätzung erwartet wird. Jetzt <a href="%{admin_proposal_info_url}">im Admin-Panel</a> anschauen.
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Vorschlag bewerten können.
+            email_subject: Der Vorschlag %{resource_title} wurde Ihnen zur Bewertung zugewiesen.
+            notification_title: Ihnen wurde der Vorschlag <a href="%{resource_path}">%{resource_title}</a> zur Bewertung zugewiesen. Jetzt <a href="%{admin_proposal_info_path}">Admin-Panel</a> anschauen.
           proposal_note_created:
             email_intro: '%{author_name} hat eine private Notiz unter %{resource_title} erstellt. Jetzt im <a href="%{admin_proposal_info_url}">Admin-Panel</a> anzeigen.'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Vorschlag bewerten können.
@@ -523,7 +537,7 @@ de:
             select_a_meeting: Besprechung auswählen
           index:
             actions: Aktionen
-            assign_to_valuator: Zuweisen zu dem Schätzer
+            assign_to_valuator: Zuweisen zur Bewertung
             assign_to_valuator_button: Zuweisen
             cancel: Abbrechen
             change_category: Kategorie ändern
@@ -539,7 +553,7 @@ de:
             split_button: Aufteilen
             statuses: Status
             title: Vorschläge
-            unassign_from_valuator: Zuweisung an den Schätzer zurückziehen
+            unassign_from_valuator: Zuweisung zur Bewertung zurückziehen
             unassign_from_valuator_button: Zuweisung aufheben
             update: Aktualisieren
             update_scope_button: Umfang aktualisieren
@@ -551,7 +565,7 @@ de:
             select_a_proposal: Bitte wählen Sie einen Vorschlag.
           show:
             amendments_count: Anzahl der Ergänzungen
-            assigned_valuators: Zugewiesene Schätzer
+            assigned_valuators: Zugewiesene Bewertende
             body: Haupttext
             comments_count: Anzahl der Kommentare
             documents: Unterlagen
@@ -565,8 +579,8 @@ de:
             ranking: "%{ranking} von %{total}"
             related_meetings: Ähnliche Besprechungen
             remove_assignment: Zuweisung entfernen
-            remove_assignment_confirmation: Sind Sie sicher, diesen Schätzer von diesem Vorschlag zurückzuziehen?
-            valuators: Schätzer
+            remove_assignment_confirmation: Sind Sie sicher, dass Sie den BewerterIn dieses Vorschlags entfernen möchten?
+            valuators: Bewertende
             votes_count: Anzahl Stimmen
           update_category:
             invalid: 'Diese Vorschläge gehörten bereits zur Kategorie %{subject_name}: %{proposals}.'
@@ -598,11 +612,11 @@ de:
             success: Die Vorschläge wurden erfolgreich in neue aufgeteilt.
         valuation_assignments:
           create:
-            invalid: Bei der Zuweisung der Vorschläge an einen Schätzer ist ein Fehler aufgetreten.
-            success: Die Vorschläge wurden erfolgreich dem Schätzer zugewiesen.
+            invalid: Bei der Zuweisung der Vorschläge zur Bewertung ist ein Fehler aufgetreten.
+            success: Die Vorschläge wurden erfolgreich zur Bewertung zugewiesen.
           delete:
-            invalid: Beim Zurückziehen der Zuweisung der Vorschläge an einen Schätzer ist ein Fehler aufgetreten.
-            success: Die Zuweisung der Vorschläge wurden erfolgreich vom Schätzer zurückgezogen.
+            invalid: Beim Zurückziehen der Zuweisung der Vorschläge zur Bewertung ist ein Fehler aufgetreten.
+            success: Die Zuweisung zur Bewertung der Vorschläge wurde erfolgreich aufgehoben.
       admin_log:
         proposal:
           answer: "%{user_name} beantwortete den %{resource_name} Vorschlag auf den %{space_name} Feldern"
@@ -612,8 +626,8 @@ de:
         proposal_note:
           create: "%{user_name} eine private Notiz zu dem %{resource_name} Vorschlag auf dem %{space_name} Feld hinterlassen"
         valuation_assignment:
-          create: "%{user_name} hat den Vorschlag %{resource_name} einem Schätzer zugewiesen"
-          delete: "%{user_name} hat die Zuweisung vom Vorschlag %{proposal_title} von einem Schätzer zurückgezogen"
+          create: "%{user_name} hat den Vorschlag %{resource_name} zur Bewertung zugewiesen"
+          delete: "%{user_name} hat die Zuweisung zur Bewertung des Vorschlags %{proposal_title} zurückgezogen"
       answers:
         accepted: Angenommen
         evaluating: In Bewertung
@@ -759,8 +773,8 @@ de:
             scope: Umfang
             state: Status
             title: Titel
-            valuator: Schätzer
-            valuators: Schätzer
+            valuator: BewerterIn
+            valuators: Bewertende
             votes: Stimmen
         proposal_state:
           css_class: CSS-Klasse
