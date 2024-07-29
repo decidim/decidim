@@ -30,6 +30,11 @@ end
   </header>
 
   <div id="content" data-content>
+     <% if display_flash_messages.present? %>
+        <div id="flash-messages-container" class="container">
+          <%= display_flash_messages %>
+        </div>
+      <% end %>
     <%= yield %>
   </div>
 
