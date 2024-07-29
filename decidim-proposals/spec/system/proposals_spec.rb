@@ -674,6 +674,23 @@ describe "Proposals" do
       end
     end
 
+    context "when participants are filtering proposals" do
+      let!(:evaluating_proposals) { create_list(:proposal, 3, :evaluating, component:) }
+      let!(:accepted_proposals) { create_list(:proposal, 5, :accepted, component:) }
+
+      it "filters the proposals and keeps the filter when changing the view mode" do
+        visit_component
+        uncheck "Evaluating"
+
+        expect(page).to have_css("[id^='proposals__proposal']", count: 5)
+
+        find("a[href*='view_mode=grid']").click
+
+        expect(page).to have_css(".card__grid-img svg#ri-proposal-placeholder-card-g", count: 5)
+        expect(page).to have_css("[id^='proposals__proposal']", count: 5)
+      end
+    end
+
     context "when participants are viewing a list of proposals" do
       it "shows a list of proposals" do
         visit_component
