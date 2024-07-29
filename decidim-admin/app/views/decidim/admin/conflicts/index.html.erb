@@ -1,3 +1,55 @@
 <% add_decidim_page_title(t("title", scope: "decidim.admin.conflicts")) %>
-<%= render partial: "decidim/admin/conflicts/conflicts_list", locals: { conflicts:, display_filters: true } %>
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t("title", scope: "decidim.admin.conflicts") %>
+  </h1>
+</div>
+
+<div class="filters__section">
+  <div class="fcell search">
+    <%= search_form_for(query, url: url_for) do |form| %>
+      <%= applied_filters_hidden_field_tags %>
+      <div class="input-group">
+        <%= form.search_field(
+              search_field_predicate,
+              class: "input-group-field",
+              label: false,
+              placeholder: t(".text")
+            ) %>
+        <div class="input-group-button">
+          <button type="submit" class="text-secondary" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
+            <%= icon "search-line", class: "fill-secondary w-4 h-4" %>
+          </button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="card">
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th><%= t("user_name", scope: "decidim.admin.conflicts") %></th>
+          <th><%= t("managed_user_name", scope: "decidim.admin.conflicts") %></th>
+          <th><%= t("attempts", scope: "decidim.admin.conflicts") %></th>
+          <th><%= t("solved", scope: "decidim.admin.conflicts") %></th>
+          <th class="table-list__actions"><%= t("title", scope: "decidim.admin.conflicts.transfer") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% conflicts.each do |conflict| %>
+          <tr>
+            <td><%= conflict.current_user.name %></td>
+            <td><%= conflict.managed_user.name %></td>
+            <td><%= conflict.times %></td>
+            <td><%= t(conflict.solved, scope: "decidim.admin.conflicts") %></td>
+            <td><%= icon_link_to "download-line", decidim_admin.edit_conflict_path(conflict), t("title", scope: "decidim.admin.conflicts.transfer") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 <%= decidim_paginate conflicts %>
