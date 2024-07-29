@@ -589,7 +589,7 @@ en:
           subtitle: Please fill in the following form in order to complete the account creation
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
         new_tos_fields:
-          sign_up: create an account
+          sign_up: Create an account
           sign_up_title: Finish creating your account
       registrations:
         create:
