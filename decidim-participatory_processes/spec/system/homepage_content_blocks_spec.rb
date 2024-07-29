@@ -4,7 +4,6 @@ require "spec_helper"
 
 describe "Homepage processes content blocks" do
   let(:organization) { create(:organization) }
-  let(:show_statistics) { true }
   let!(:promoted_process) { create(:participatory_process, :promoted, organization:) }
   let!(:promoted_past_process) do
     create(

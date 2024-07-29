@@ -152,16 +152,19 @@ describe "Admin manages organization" do
       context "when the admin terms of service content has an image with an alt tag" do
         let(:another_organization) { create(:organization) }
         let(:image) { create(:attachment, attached_to: another_organization) }
+        let(:image_url) { image.attached_uploader(:file).url(host: organization_host) }
+        let(:organization_host) { "example.lvh.me" }
         let(:organization) do
           create(
             :organization,
+            host: organization_host,
             admin_terms_of_service_body: Decidim::Faker::Localized.localized { terms_content }
           )
         end
         let(:terms_content) do
           <<~HTML.gsub(/\n\s*/, "")
             <p>Paragraph</p>
-            <div class="editor-content-image" data-image=""><img src="#{image.url}" alt="foo bar"></div>
+            <div class="editor-content-image" data-image=""><img src="#{image_url}" alt="foo bar"></div>
           HTML
         end
         let(:terms_content_editor) do
@@ -177,7 +180,7 @@ describe "Admin manages organization" do
                   <span data-image-resizer-dimension="width" data-image-resizer-dimension-value="512"></span>
                   ×
                   <span data-image-resizer-dimension="height" data-image-resizer-dimension-value="342"></span></div>
-                <div class="editor-content-image" data-image=""><img src="#{image.url}" alt="foo bar"></div>
+                <div class="editor-content-image" data-image=""><img src="#{image_url}" alt="foo bar"></div>
               </div>
             </div>
           HTML
@@ -473,7 +476,7 @@ describe "Admin manages organization" do
         let(:parsed_content) do
           cnt = <<~HTML
             <p>testing</p>
-            <p><strong>foo</strong><br><a target="_blank" href="https://www.decidim.org/">link</a></p>
+            <p><strong>foo</strong><br><a target="_blank" href="https://www.decidim.org/"><u>link</u></a></p>
             <p><br></p>
           HTML
 

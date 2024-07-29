@@ -4,6 +4,8 @@ module Decidim
   module Amendable
     # A command with all the business logic when a user publishes an amendment draft.
     class PublishDraft < Decidim::Command
+      delegate :current_user, to: :form
+
       # Public: Initializes the command.
       #
       # form         - A form object with the params.
@@ -13,7 +15,6 @@ module Decidim
         @amendable = form.amendable
         @emendation = form.emendation
         @amender = form.amender
-        @current_user = form.current_user
       end
 
       # Executes the command. Broadcasts these events:
@@ -39,7 +40,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :amendment, :amendable, :emendation, :amender, :current_user
+      attr_reader :form, :amendment, :amendable, :emendation, :amender
 
       # To be able to diff amendments we store the original attributes being amended
       # in the first PaperTrail::Version.

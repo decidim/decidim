@@ -38,7 +38,6 @@ is-IS:
         scope_id: Umfang
         scopes_enabled: Scopes virkt
         short_description: Stutt lýsing
-        show_statistics: Sýna tölfræði
         slug: URL slug
         special_features: Sérstakir eiginleikar
         subtitle: Texti

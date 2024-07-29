@@ -97,7 +97,6 @@ cs:
               accepted: Dostatek podpisů
               created: Vytvořeno
               discarded: Vyřazeno
-              published: Publikováno
               rejected: Nedostatek podpisů
               validating: Technické ověření
           type_id_eq:
@@ -242,6 +241,9 @@ cs:
               most_recent: Nejnovější
         exports:
           initiatives: Iniciativy
+        index:
+          initiatives_types:
+            button: Nový typ iniciativy
         initiatives:
           edit:
             accept: Přijmout iniciativu
@@ -297,7 +299,7 @@ cs:
         initiatives_types:
           create:
             error: Došlo k chybě.
-            success: Nový druh iniciativy byl úspěšně vytvořen
+            success: Byl úspěšně vytvořen nový typ iniciativy. Musíte definovat alespoň jeden rozsah pro tento typ iniciativy, aby mohl být použit.
           destroy:
             success: Druh iniciativy byl úspěšně odstraněn.
           edit:
@@ -331,7 +333,6 @@ cs:
         accepted: Dostatek podpisů
         created: Vytvořeno
         discarded: Vyřazeno
-        published: Publikováno
         rejected: Nedostatek podpisů
         validating: Technická validace
       application_helper:
@@ -590,7 +591,6 @@ cs:
           accepted: Dostatek podpisů
           created: Vytvořeno
           discarded: Zahozeno
-          published: Publikováno
           rejected: Nedostatek podpisů
           validating: Technické ověření
       states:

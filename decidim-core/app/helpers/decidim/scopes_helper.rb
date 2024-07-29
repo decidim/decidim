@@ -54,10 +54,12 @@ module Decidim
     #
     # Returns nothing.
     def scopes_select_field(form, name, root: false, options: {})
+      options = options.merge(include_blank: I18n.t("decidim.scopes.prompt")) unless options.has_key?(:include_blank)
+
       form.select(
         name,
         ordered_scopes_descendants_for_select(root),
-        options.merge(include_blank: I18n.t("decidim.scopes.prompt"))
+        options
       )
     end
 

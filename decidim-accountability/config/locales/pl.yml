@@ -12,6 +12,7 @@ pl:
         project_ids: Uwzględnione projekty
         proposals: Uwzględnione propozycje
         start_date: Data rozpoczęcia
+        subresults: Podwyniki
         title: Tytuł
         updated_at: Zaktualizowano
       status:

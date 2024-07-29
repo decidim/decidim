@@ -351,7 +351,7 @@ describe "Proposals" do
       let(:proposal) { proposals.first }
 
       before do
-        Decidim::DestroyAccount.call(proposal.creator_author, Decidim::DeleteAccountForm.from_params({}))
+        Decidim::DestroyAccount.call(Decidim::DeleteAccountForm.from_params({}).with_context({ current_user: proposal.creator_author }))
       end
 
       it "the user is displayed as a deleted user" do
@@ -671,6 +671,23 @@ describe "Proposals" do
         # Revisit the component and check session storage
         visit_component
         expect(page).to have_css(".card__grid-grid")
+      end
+    end
+
+    context "when participants are filtering proposals" do
+      let!(:evaluating_proposals) { create_list(:proposal, 3, :evaluating, component:) }
+      let!(:accepted_proposals) { create_list(:proposal, 5, :accepted, component:) }
+
+      it "filters the proposals and keeps the filter when changing the view mode" do
+        visit_component
+        uncheck "Evaluating"
+
+        expect(page).to have_css("[id^='proposals__proposal']", count: 5)
+
+        find("a[href*='view_mode=grid']").click
+
+        expect(page).to have_css(".card__grid-img svg#ri-proposal-placeholder-card-g", count: 5)
+        expect(page).to have_css("[id^='proposals__proposal']", count: 5)
       end
     end
 

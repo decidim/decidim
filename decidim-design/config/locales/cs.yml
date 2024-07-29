@@ -139,6 +139,7 @@ cs:
           typefaces_description_1: Decidim používá Source Sans Pro jako primární typ. Tento typ podporuje 310 jazyků
           typefaces_description_2: Tato písma jsou licencována pod Open Font License
       helpers:
+        accountability: Odpovědnost
         activity: Aktivita
         argument: Parametr
         assemblies: Shromáždění
@@ -151,6 +152,7 @@ cs:
         block_text: Použít extra_data blok
         blogs: Blogy
         budgets: Rozpočty
+        callout_description: Tento atribut použije stav na oznámení. Ve výchozím nastavení používá sekundární barvu.
         card_g: Karta G
         card_l: Karta L
         card_s: Karta S
@@ -174,6 +176,7 @@ cs:
         disabled: Deaktivován
         dropdowns: Rozbalovací nabídky
         dropdowns_demo_1_description: 'Následující příklad nebude patrný na počítači, ale na mobilu ano:'
+        dropdowns_usage_1_description: 2. Modální prvek, jehož <code>id</code> odpovídá hodnotě data-target, ke které se spouštěč vztahuje.
         dropdowns_usage_description: 'Rozevírací nabídka vyžaduje dva prvky:'
         dropdowns_usage_description_html: 1. Uživatelsky proveditelný prvek, s atributy <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
         follow_button: Tlačítko Sledovat

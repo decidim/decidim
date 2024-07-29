@@ -200,7 +200,6 @@ ar:
       admin_states:
         created: تمّ إنشاؤه
         discarded: التخلص منها
-        published: نشرت
         validating: المصادقة الفنية
       application_helper:
         filter_state_values:

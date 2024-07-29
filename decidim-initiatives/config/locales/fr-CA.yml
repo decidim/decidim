@@ -91,7 +91,6 @@ fr-CA:
               accepted: Assez de signatures
               created: Créée
               discarded: Rejetée
-              published: Publiée
               rejected: Pas assez de signatures
               validating: Validation technique
           type_id_eq:
@@ -291,7 +290,6 @@ fr-CA:
         initiatives_types:
           create:
             error: Une erreur est survenue.
-            success: Un nouveau type de pétition a été créé avec succès.
           destroy:
             success: Le type de pétition a été supprimé avec succès.
           edit:
@@ -325,7 +323,6 @@ fr-CA:
         accepted: Assez de signatures
         created: Créée
         discarded: Retirée
-        published: Publiée
         rejected: Pas assez de signatures
         validating: Validation technique
       application_helper:
@@ -574,7 +571,6 @@ fr-CA:
           accepted: Assez de signatures
           created: Créé le
           discarded: Abandonné
-          published: Publié
           rejected: Pas assez de signatures
           validating: Validation technique
       states:

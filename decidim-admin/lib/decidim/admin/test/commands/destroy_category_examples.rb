@@ -29,7 +29,7 @@ module Decidim
         end
 
         context "when the category is not empty" do
-          let!(:subcategory) { create :subcategory, parent: category }
+          let!(:subcategory) { create(:subcategory, parent: category) }
 
           it "does not destroy the category" do
             expect do
@@ -39,7 +39,7 @@ module Decidim
         end
 
         context "when the category is a subcategory" do
-          let!(:parent_category) { create :category, participatory_space: }
+          let!(:parent_category) { create(:category, participatory_space:) }
 
           before do
             category.parent = parent_category

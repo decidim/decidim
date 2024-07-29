@@ -10,9 +10,6 @@ Naming/MemoizedInstanceVariableName:
 RSpec/VerifiedDoubleReference:
   Enabled: false
 
-FactoryBot/ConsistentParenthesesStyle:
-  Enabled: false
-
 FactoryBot/ExcessiveCreateList:
   Enabled: false
 
@@ -25,7 +22,7 @@ Rails/PluckInWhere:
 RSpec/ReceiveMessages:
   Enabled: false
 
-RSpec/Rails/NegationBeValid:
+RSpecRails/NegationBeValid:
   Enabled: false
 
 RSpec/MetadataStyle:
@@ -41,4 +38,7 @@ FactoryBot/AssociationStyle:
   Enabled: false
 
 Rubycw/Rubycw:
+  Enabled: false
+
+Lint/SelfAssignment:
   Enabled: false

@@ -11,7 +11,7 @@ module Decidim
         fetch_form_attributes :title, :subtitle, :weight, :slug, :hashtag, :description, :short_description,
                               :promoted, :scopes_enabled, :scope, :area, :parent, :announcement, :organization,
                               :private_space, :developer_group, :local_area, :target, :participatory_scope,
-                              :participatory_structure, :meta_scope, :show_statistics, :purpose_of_action,
+                              :participatory_structure, :meta_scope, :purpose_of_action,
                               :composition, :assembly_type, :creation_date, :created_by, :created_by_other,
                               :duration, :included_at, :closing_date, :closing_date_reason, :internal_organisation,
                               :is_transparent, :special_features, :twitter_handler, :facebook_handler,
@@ -38,7 +38,7 @@ module Decidim
                      current_user: admin
                    )
 
-            Decidim::CreateFollow.new(form, admin).call
+            Decidim::CreateFollow.new(form).call
           end
         end
 

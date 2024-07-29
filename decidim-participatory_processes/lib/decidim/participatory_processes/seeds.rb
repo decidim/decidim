@@ -96,7 +96,6 @@ module Decidim
           end,
           organization:,
           hero_image: ::Faker::Boolean.boolean(true_ratio: 0.5) ? hero_image : nil, # Keep after organization
-          banner_image: ::Faker::Boolean.boolean(true_ratio: 0.5) ? banner_image : nil, # Keep after organization
           promoted: true,
           published_at: 2.weeks.ago,
           meta_scope: Decidim::Faker::Localized.word,

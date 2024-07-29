@@ -516,6 +516,7 @@ ja:
             publish: 公開
             publish_answers: 回答を公開
             select_component: コンポーネントを選択
+            select_valuators: 1人以上の評価者を選択してください
             selected: 選択済み
             split: 提案を分割
             split_button: 分割

@@ -260,15 +260,12 @@ id:
         new:
           complete_profile: Profil lengkap
           sign_up: Silakan lengkapi profil Anda
-          subtitle: Silakan isi formulir berikut untuk menyelesaikan pendaftaran
           username_help: Nama publik yang muncul di pos Anda. Dengan tujuan menjamin anonimitas, dapat berupa nama apa pun.
       registrations:
         new:
           already_have_an_account?: Sudah memiliki akun?
           newsletter: Terima sesekali newsletter dengan informasi yang relevan
           newsletter_title: Izin kontak
-          sign_up: Daftar
-          subtitle: Mendaftarlah untuk berpartisipasi dalam diskusi dan dukung proposal.
           tos_agreement: Dengan mendaftar Anda menyetujui %{link}.
           tos_title: Ketentuan Layanan
           username_help: Nama publik yang muncul di pos Anda. Dengan tujuan menjamin anonimitas, dapat berupa nama apa pun.
@@ -719,8 +716,6 @@ id:
         title: Laporkan masalah
       floating_help:
         help: Membantu
-      login_modal:
-        sign_up: Daftar
       participatory_space_filters:
         filters:
           areas: Area
@@ -828,8 +823,6 @@ id:
       updated_not_active: Kata sandi Anda telah berhasil diubah.
     registrations:
       destroyed: Bye! Akun Anda telah berhasil dibatalkan. Kami berharap dapat melihat Anda lagi segera.
-      new:
-        sign_up: Daftar
       signed_up: Selamat datang! Anda telah berhasil mendaftar.
       signed_up_but_inactive: Anda telah berhasil mendaftar. Namun, kami tidak dapat masuk karena akun Anda belum diaktifkan.
       signed_up_but_locked: Anda telah berhasil mendaftar. Namun, kami tidak dapat masuk karena akun Anda terkunci.
@@ -840,7 +833,6 @@ id:
       links:
         back: Kembali
         forgot_your_password: lupa kata sandi Anda?
-        sign_up: Daftar
       minimum_password_length:
         other: "(Minimal%{count} karakter)"
     unlocks:
@@ -878,7 +870,6 @@ id:
       footer:
         download_open_data: Unduh file Open Data
         made_with_open_source: Situs web dibuat dengan <a target="_blank" href="https://github.com/decidim/decidim">perangkat lunak gratis</a>.
-        sign_up: Daftar
       impersonation_warning:
         close_session: Tutup sesi
         description_html: Anda meniru identitas pengguna <b>%{user_name}</b>.

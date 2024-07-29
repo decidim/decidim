@@ -12,6 +12,7 @@ module Decidim
         # Returns an HTML-safe String.
         def present
           return unless value
+          return h.l(Date.parse(value), format: :long) if value.is_a?(::String)
 
           h.l(value, format: :long)
         end

@@ -91,7 +91,6 @@ bg:
               accepted: Достатъчно подписи
               created: Създаден
               discarded: Отхвърлено
-              published: Публикувано
               rejected: Няма достатъчно подписи
               validating: Техническа проверка
           type_id_eq:
@@ -291,7 +290,6 @@ bg:
         initiatives_types:
           create:
             error: Възникна грешка.
-            success: Успешно е създаден нов тип инициатива.
           destroy:
             success: Типът инициатива беше премахнат успешно.
           edit:
@@ -325,7 +323,6 @@ bg:
         accepted: Достатъчно подписи
         created: Създаден
         discarded: Отхвърлено
-        published: Публикувано
         rejected: Няма достатъчно подписи
         validating: Техническа проверка
       application_helper:
@@ -574,7 +571,6 @@ bg:
           accepted: Достатъчно подписи
           created: Създаден
           discarded: Отхвърлено
-          published: Публикувано
           rejected: Няма достатъчно подписи
           validating: Техническа проверка
       states:

@@ -159,13 +159,16 @@ cs:
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
             default_sort_order: Výchozí řazení návrhu
             default_sort_order_options:
+              automatic: Automaticky
               most_commented: Nejvíce komentované
               most_endorsed: Nejvíce schvalované
               most_followed: Nejvíce sledované
+              most_voted: Nejvíce hlasovalo
               random: Náhodně
               recent: Nedávné
               with_more_authors: S více autory
             geocoding_enabled: Geokódování povoleno
+            minimum_votes_per_user: Minimální počet hlasů na uživatele
             new_proposal_body_template: Šablona těla nového návrhu
             new_proposal_body_template_help: Můžete definovat předem vyplněný text, který budou mít nové návrhy
             new_proposal_help_text: Nový text nápovědy návrhu
@@ -205,6 +208,7 @@ cs:
             creation_enabled_readonly: Toto nastavení je zakázáno, když aktivujete funkci Participativní texty. Chcete-li návrhy nahrát jako participativní text, klikněte na tlačítko Participativní texty a postupujte podle pokynů.
             default_sort_order: Výchozí řazení návrhu
             default_sort_order_options:
+              automatic: Automaticky
               most_commented: Nejvíce komentované
               most_endorsed: Nejvíce schvalované
               most_followed: Nejvíce sledované
@@ -217,6 +221,7 @@ cs:
             publish_answers_immediately: Okamžitě publikovat odpovědi návrhu
             publish_answers_immediately_help_html: 'Mějte na paměti, že pokud odpovíte na jakýkoli návrh bez tohoto povolení, budete je muset publikovat ručně jejich výběrem a použitím publikační akce. Více informací o tom, jak to funguje, naleznete na <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">stránce odpovědi návrhů</a>.'
             suggested_hashtags: Hashtagy navržené uživatelům pro nové návrhy
+            votes_blocked: Hlasy blokovány
     events:
       proposals:
         admin:
@@ -345,6 +350,9 @@ cs:
         description: Počet vytvořených návrhů
         object: návrhy
         title: Návrhy
+      votes:
+        object: hlasy
+        title: Hlasy
     participatory_spaces:
       highlighted_proposals:
         last: Poslední návrhy
@@ -780,6 +788,7 @@ cs:
             few: "%{count} návrhů"
             many: "%{count} návrhů"
             other: "%{count} návrhů"
+          list_mode: Režim seznamu
           new_proposal: Nový návrh
           see_all: Zobrazit všechny návrhy
           see_all_withdrawn: Podívejte se na všechny stažené návrhy

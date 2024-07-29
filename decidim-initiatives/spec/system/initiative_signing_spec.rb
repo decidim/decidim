@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Initiative signing" do
   let(:organization) { create(:organization, available_authorizations: authorizations) }
   let(:initiative) do
-    create(:initiative, :published, organization:)
+    create(:initiative, organization:)
   end
   let(:confirmed_user) { create(:user, :confirmed, organization:) }
   let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
@@ -21,7 +21,7 @@ describe "Initiative signing" do
   context "when the user has not signed the initiative" do
     context "when online signatures are enabled for site" do
       context "when initiative type only allows In-person signatures" do
-        let(:initiative) { create(:initiative, :published, organization:, signature_type: "offline") }
+        let(:initiative) { create(:initiative, organization:, signature_type: "offline") }
 
         it "voting disabled message is shown" do
           visit decidim_initiatives.initiative_path(initiative)
@@ -44,7 +44,7 @@ describe "Initiative signing" do
     context "when initiative type has unvotes disabled" do
       let(:initiatives_type) { create(:initiatives_type, :undo_online_signatures_disabled, organization:) }
       let(:scope) { create(:initiatives_type_scope, type: initiatives_type) }
-      let(:initiative) { create(:initiative, :published, organization:, scoped_type: scope) }
+      let(:initiative) { create(:initiative, organization:, scoped_type: scope) }
 
       it "unsigning initiative is disabled" do
         vote_initiative
@@ -130,7 +130,7 @@ describe "Initiative signing" do
 
   context "when the initiative requires user extra fields collection to be signed" do
     let(:initiative) do
-      create(:initiative, :published, :with_user_extra_fields_collection, organization:)
+      create(:initiative, :with_user_extra_fields_collection, organization:)
     end
 
     context "when the user has not signed the initiative yet and signs it" do

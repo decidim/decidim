@@ -32,7 +32,7 @@ module Decidim
       # @see FoundationRailsHelper::FormBuilder#custom_label
       def custom_label(attribute, text, options)
         text = default_label_text(object, attribute, options.delete(:i18n) || {}) if text.nil? || text == true
-        super(attribute, text, options)
+        super
       end
     end
   end
