@@ -5,7 +5,7 @@ require "decidim/core/test/shared_examples/social_share_examples"
 
 describe "Social shares" do
   let(:organization) { create(:organization) }
-  let!(:initiative) { create(:initiative, :published, description:, scoped_type: initiative_type_scope, organization:) }
+  let!(:initiative) { create(:initiative, description:, scoped_type: initiative_type_scope, organization:) }
   let!(:initiative_type) { create(:initiatives_type, banner_image:, organization:) }
   let!(:initiative_type_scope) { create(:initiatives_type_scope, type: initiative_type) }
   let!(:attachment) { create(:attachment, :with_image, attached_to: initiative, file: attachment_file) }
