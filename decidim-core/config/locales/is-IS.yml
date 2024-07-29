@@ -74,6 +74,9 @@ is:
         create: "%{user_name} búið til %{resource_name} truflanir síðu"
         delete: "%{user_name} eytt %{resource_name} truflanir síðunni"
         update: "%{user_name} uppfært %{resource_name} truflanir síðu"
+    amendments:
+      compare_draft:
+        continue: Halda áfram
     anonymous_user: Nafnlaus
     application:
       documents:
