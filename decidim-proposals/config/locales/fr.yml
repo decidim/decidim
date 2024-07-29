@@ -234,7 +234,9 @@ fr:
       proposals:
         admin:
           proposal_assigned_to_valuator:
+            email_outro: Vous avez reçu cette notification car vous pouvez évaluer la proposition.
             email_subject: Vous avez été assigné en tant qu'évaluateur à la proposition %{resource_title}.
+            notification_title: Vous avez été assigné en tant qu'évaluateur à la proposition <a href="%{resource_path}">%{resource_title}</a>. Jetez-y un œil sur <a href="%{admin_proposal_info_path}">le panneau d'administration</a>.
           proposal_note_created:
             email_outro: Vous avez reçu cette notification car vous pouvez évaluer la proposition. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Quelqu'un a laissé une note sur la proposition %{resource_title}.
