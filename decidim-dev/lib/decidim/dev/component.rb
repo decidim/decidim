@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Decidim.register_component(:dummy_2) do |component|
+Decidim.register_component(:dummy2) do |component|
   component.engine = Decidim::Dev::Engine
   component.admin_engine = Decidim::Dev::AdminEngine
 end
