@@ -26,9 +26,9 @@ module Decidim
       it "orders the components by weight and by manifest name" do
         described_class.destroy_all
 
-        component_b = create(:component, manifest_name: :b, weight: 0)
-        component_c = create(:component, manifest_name: :c, weight: 2)
-        component_a = create(:component, manifest_name: :a, weight: 0)
+        component_b = create(:component, manifest_name: :dummy_2, weight: 0)
+        component_c = create(:component, manifest_name: :dummy, weight: 2)
+        component_a = create(:component, manifest_name: :dummy, weight: 0)
 
         expect(subject).to eq [component_a, component_b, component_c]
       end
