@@ -86,10 +86,10 @@ describe "User edit meeting" do
 
       expect(page).to have_content(closing_report)
       within ".meeting__agenda-item__description" do
-        expect(page).to have_no_css("img")
+        expect(page).not_to have_css("img")
       end
-      expect(page).to have_no_content "Close meeting"
-      expect(page).to have_no_content "Organizations"
+      expect(page).not_to have_content "Close meeting"
+      expect(page).not_to have_content "Organizations"
       expect(meeting.reload.closed_at).not_to be_nil
     end
 
