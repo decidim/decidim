@@ -42,6 +42,12 @@ You can read more about this change on PR [#13185](https://github.com/decidim/de
 
 These are one time actions that need to be done after the code is updated in the production database.
 
+### 3.1. Remove spring and spring-watcher-listen from your Gemfile
+
+We have noticed that Spring gem has been upgraded to version 4, which caused issues with the application boot. To simplify the upgrade process in the future, we have decided to add `spring` and `spring-watcher-listener` as hard dependencies of `decidim-dev`.
+
+You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+
 ### 3.1. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
