@@ -3,7 +3,6 @@
 require "spec_helper"
 
 describe "Admin manages bulk proposal answer templates" do
-  
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
   let(:participatory_space) { participatory_process }
