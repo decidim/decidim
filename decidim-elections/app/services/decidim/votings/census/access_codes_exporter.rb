@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require "seven_zip_ruby"
-require "zip"
+require "decidim/seven_zip_wrapper"
 
 module Decidim
   module Votings
@@ -29,17 +28,20 @@ module Decidim
         end
 
         def export
-          dirname = File.dirname(@path)
-          FileUtils.mkdir_p(dirname) unless File.directory?(dirname)
-          File.open(@path, "wb") do |file|
-            SevenZipRuby::Writer.open(file, password:) do |szw|
-              szw.header_encryption = true
-              szw.add_data(csv_data.read, format(FILE_NAME_PATTERN, voting_name: translated_attribute(dataset.voting.title).parameterize))
-            end
-          end
+          tmpdir = Dir.mktmpdir("votings-access-code-exporter")
+          save_voting_access_code_data(tmpdir)
+          SevenZipWrapper.compress_and_encrypt(filename: @path, password: @password, input_directory: tmpdir)
         end
 
         private
+
+        def save_voting_access_code_data(tmpdir)
+          file_name = File.join(
+            tmpdir,
+            format(FILE_NAME_PATTERN, voting_name: translated_attribute(dataset.voting.title).parameterize)
+          )
+          File.write(file_name, csv_data.read)
+        end
 
         def csv_data
           Decidim::Exporters::CSV.new(dataset.data, Decidim::Votings::Census::DatumSerializer).export
