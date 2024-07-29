@@ -242,6 +242,11 @@ es-MX:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_intro: Se te ha asignado como evaluadora de la propuesta "%{resource_title}". Esto significa que se  ha confiado en ti para dar tu opinión y dar una respuesta adecuada en los próximos días. Puedes ver la propuesta en el <a href="%{admin_proposal_info_url}">panel de administración</a>.
+            email_outro: Recibes esta notificación porque puedes evaluar la propuesta.
+            email_subject: Has sido asignada como evaluadora de la propuesta "%{resource_title}".
+            notification_title: Se te ha asignado como evaluadora de la propuesta "<a href="%{resource_path}">%{resource_title}</a>". Puedes verla en el <a href="%{admin_proposal_info_path}">panel de administración</a>.
           proposal_note_created:
             email_intro: '%{author_name} ha creado una nota privada en %{resource_title}. Puedes verlo en el <a href="%{admin_proposal_info_url}">panel de administración</a>.'
             email_outro: Recibes esta notificación porque puedes evaluar la propuesta.
