@@ -42,10 +42,10 @@ module Decidim
       @caller.respond_to?(method_name, include_private)
     end
 
-    def with_events(with_transaction: false, &block)
+    def with_events(with_transaction: false, &)
       ActiveSupport::Notifications.publish("#{event_namespace}:before", **event_arguments)
 
-      with_transaction ? transaction(&block) : yield
+      with_transaction ? transaction(&) : yield
 
       ActiveSupport::Notifications.publish("#{event_namespace}:after", **event_arguments)
     end

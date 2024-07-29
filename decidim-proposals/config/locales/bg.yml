@@ -522,6 +522,7 @@ bg:
             publish: Публикувай
             publish_answers: Публикуване на отговори
             select_component: Избери компонент
+            select_valuators: Изберете един или повече оценители
             selected: избрани
             split: Разделяне на предложения
             split_button: Разделяне

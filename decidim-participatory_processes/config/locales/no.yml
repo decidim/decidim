@@ -4,7 +4,6 @@
       participatory_process:
         announcement: Kunngjøring
         area_id: Område
-        banner_image: Bannerbilde
         copy_categories: Kopier kategorier
         copy_components: Kopier komponenter
         copy_steps: Kopier trinn
@@ -34,8 +33,6 @@
         scope_type_max_depth_id: Temafilter
         scopes_enabled: Temaer aktivert
         short_description: Kort beskrivelse
-        show_metrics: Vis statistikk
-        show_statistics: Vis statistikk
         slug: URL navn
         start_date: Startdato
         subtitle: Undertittel

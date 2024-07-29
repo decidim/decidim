@@ -146,7 +146,7 @@ es-MX:
         actions:
           comment: Comentar
           join: Unirse
-          reply_poll: Responder al sondeo/consulta en directo
+          reply_poll: Responder la consulta
         name: Encuentros
         settings:
           global:
@@ -368,7 +368,7 @@ es-MX:
             announcement_html:
               - Cuando una pregunta recibe respuestas o está publicada/cerrada, ya no se puede editar.
               - Puedes añadir una pregunta en cualquier momento.
-              - El sondeo/consulta en directo se cerrará cuando se hayan publicado los resultados de todas las preguntas creadas.
+              - La consulta se cerrará cuando se hayan publicado los resultados de todas las preguntas creadas.
               - Visita la <a href='%{admin_link}'>página de administración de encuestas</a> para enviar preguntas y publicar resultados.
         registrations:
           edit:
@@ -536,8 +536,8 @@ es-MX:
           edit_close_meeting: Editar el informe del encuentro
           edit_meeting: Editar el encuentro
           join_meeting: Unirse al encuentro
-          reply_poll: Responder sondeo/consulta
-          view_poll: Ver sondeo/consulta
+          reply_poll: Responder consulta
+          view_poll: Ver consulta
         meetings:
           no_meetings_warning: No hay encuentros que coincidan con tu búsqueda o no hay ningún encuentro programado.
           upcoming_meetings_warning: Actualmente no hay encuentros programados, pero puedes ver los encuentros anteriores.
@@ -599,11 +599,11 @@ es-MX:
         answers:
           index:
             administrate: Administrar
-            title: Sondeo/Consulta en directo
+            title: Consulta
           index_admin:
             back_to_meeting: Volver al encuentro
-            title: Administrar sondeo/consulta en directo
-            view_poll: Ver sondeo/consulta
+            title: Administrar consulta
+            view_poll: Ver consulta
         questions:
           closed_question:
             announcement: Se han cerrado las respuestas a esta pregunta.

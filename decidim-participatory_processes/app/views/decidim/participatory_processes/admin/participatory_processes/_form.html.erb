@@ -86,10 +86,6 @@
         <div class="columns">
           <%= form.upload :hero_image, button_class: "button button__sm button__transparent-secondary" %>
         </div>
-
-        <div class="columns">
-          <%= form.upload :banner_image, button_class: "button button__sm button__transparent-secondary" %>
-        </div>
       </div>
     </div>
   </div>
@@ -227,14 +223,6 @@
     </div>
 
     <div id="panel-other" class="card-section">
-      <div class="row column">
-        <%= form.check_box :show_statistics %>
-      </div>
-
-      <div class="row column">
-        <%= form.check_box :show_metrics %>
-      </div>
-
       <% if @form.participatory_process_types_for_select.present? %>
         <div class="row column">
           <%= form.select(

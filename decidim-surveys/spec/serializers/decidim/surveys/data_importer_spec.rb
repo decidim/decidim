@@ -19,10 +19,7 @@ module Decidim::Surveys
         questions = []
         original_questionnaire.questions.order(:position).each do |q|
           question_attrs = q.attributes
-          answer_options = []
-          q.answer_options.each do |answer_option|
-            answer_options << answer_option.attributes
-          end
+          answer_options = q.answer_options.map(&:attributes)
           question_attrs[:answer_options] = answer_options
           question_attrs = question_attrs.reject { |key, _value| key.ends_with?("_count") }
           questions << question_attrs

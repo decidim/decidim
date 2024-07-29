@@ -74,6 +74,7 @@ module Decidim
 
       initializer "decidim_conferences.menu" do
         Decidim::Conferences::Menu.register_menu!
+        Decidim::Conferences::Menu.register_mobile_menu!
         Decidim::Conferences::Menu.register_home_content_block_menu!
       end
 

@@ -5,6 +5,8 @@ module Decidim
     module Admin
       # A command with all the business logic when an admin creates a private note proposal.
       class CreateProposalNote < Decidim::Command
+        include ProposalNotesMethods
+
         # Public: Initializes the command.
         #
         # form         - A form object with the params.
@@ -24,7 +26,8 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           create_proposal_note
-          notify_admins_and_valuators
+          notify_mentioned
+          notify_not_mentioned_valuators
 
           broadcast(:ok, proposal_note)
         end
@@ -38,7 +41,7 @@ module Decidim
             ProposalNote,
             form.current_user,
             {
-              body: form.body,
+              body: rewritten_body,
               proposal:,
               author: form.current_user
             },
@@ -48,18 +51,24 @@ module Decidim
           )
         end
 
-        def notify_admins_and_valuators
-          affected_users = Decidim::User.org_admins_except_me(form.current_user).all
-          affected_users += Decidim::Proposals::ValuationAssignment.includes(valuator_role: :user).where.not(id: form.current_user.id).where(proposal:).map(&:valuator)
+        def notify_mentioned
+          notify_creation(mentioned_admins_or_valuators, "decidim.events.proposals.admin.proposal_note_mentioned")
+        end
 
-          data = {
-            event: "decidim.events.proposals.admin.proposal_note_created",
+        def notify_not_mentioned_valuators
+          notify_creation(proposal_valuators - mentioned_admins_or_valuators, "decidim.events.proposals.admin.proposal_note_created")
+        end
+
+        def notify_creation(affected_users, event)
+          return if affected_users.blank?
+
+          Decidim::EventsManager.publish(
+            event:,
             event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
             resource: proposal,
-            affected_users:
-          }
-
-          Decidim::EventsManager.publish(**data)
+            affected_users:,
+            extra: { note_author_id: form.current_user.id }
+          )
         end
       end
     end

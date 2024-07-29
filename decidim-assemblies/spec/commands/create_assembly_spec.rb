@@ -52,7 +52,6 @@ module Decidim::Assemblies
         private_space: false,
         errors:,
         participatory_processes_ids: related_process_ids,
-        show_statistics: false,
         purpose_of_action: { en: "purpose of action" },
         composition: { en: "composition of internal working groups" },
         assembly_type:,

@@ -5,25 +5,25 @@
   "display": "<%= organization_params.pwa_display %>",
   "start_url": "<%= organization_params.start_url %>",
   "theme_color": "<%= organization_params.colors["primary"] %>",
-  "background_color": "<%= organization_params.colors["primary"] %>",
+  "background_color": "#FFFFFF",
   "icons": [
     {
-      "src": "<%= current_organization.attached_uploader(:favicon).variant_path :small %>",
+      "src": "<%= current_organization.attached_uploader(:favicon).variant_url :small %>",
       "sizes": "32x32",
       "type": "image/png"
     },
     {
-      "src": "<%= current_organization.attached_uploader(:favicon).variant_path :medium %>",
+      "src": "<%= current_organization.attached_uploader(:favicon).variant_url :medium %>",
       "sizes": "180x180",
       "type": "image/png"
     },
     {
-      "src": "<%= current_organization.attached_uploader(:favicon).variant_path :big %>",
+      "src": "<%= current_organization.attached_uploader(:favicon).variant_url :big %>",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "<%= current_organization.attached_uploader(:favicon).variant_path :huge %>",
+      "src": "<%= current_organization.attached_uploader(:favicon).variant_url :huge %>",
       "sizes": "512x512",
       "type": "image/png"
     }

@@ -6,12 +6,10 @@ require "csv"
 describe "Participatory Processes", download: true do
   let(:date) { Time.zone.today - 1.week }
   let(:organization) { create(:organization) }
-  let(:show_metrics) { true }
   let(:participatory_process) do
     create(
       :participatory_process,
-      organization:,
-      show_metrics:
+      organization:
     )
   end
 
@@ -76,8 +74,6 @@ describe "Participatory Processes", download: true do
   end
 
   context "when show metrics are disabled" do
-    let(:show_metrics) { false }
-
     before do
       switch_to_host(organization.host)
       visit decidim_participatory_processes.all_metrics_participatory_process_path(participatory_process)

@@ -43,7 +43,6 @@ pt:
         scope_id: Âmbito
         scopes_enabled: Âmbitos ativados
         short_description: Pequena descrição
-        show_statistics: Mostrar estatísticas
         slug: Campo de dados dinâmicos de URL
         special_features: Características especiais
         subtitle: Subtítulo
@@ -178,7 +177,6 @@ pt:
           categories: Categorias
           components: Componentes
           moderations: Moderação
-          private_users: Utilizadores privados
         assemblies_types: Tipos de reuniões
       models:
         assemblies_types:

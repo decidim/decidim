@@ -5,7 +5,6 @@ en:
       participatory_process:
         announcement: Announcement
         area_id: Area
-        banner_image: Banner image
         copy_categories: Copy categories
         copy_components: Copy components
         copy_steps: Copy steps
@@ -35,8 +34,6 @@ en:
         scope_type_max_depth_id: Scope filter depth
         scopes_enabled: Scopes enabled
         short_description: Short description
-        show_metrics: Show metrics
-        show_statistics: Show statistics
         slug: URL slug
         start_date: Start date
         subtitle: Subtitle

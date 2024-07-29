@@ -8,7 +8,8 @@ class CreateDecidimProposalsProposalState < ActiveRecord::Migration[6.1]
       t.string :token, null: false
       t.references :decidim_component, index: true, null: false
       t.integer :proposals_count, default: 0, null: false
-      t.string :css_class
+      t.string :bg_color, default: "#F6F8FA", null: false
+      t.string :text_color, default: "#4B5058", null: false
     end
   end
 end

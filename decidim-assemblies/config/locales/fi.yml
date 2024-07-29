@@ -50,7 +50,6 @@ fi:
         scope_id: Teema
         scopes_enabled: Teemat käytössä
         short_description: Lyhyt kuvaus
-        show_statistics: Näytä tilastot
         slug: URL-tunniste
         special_features: Lisäominaisuudet
         subtitle: Alaotsikko
@@ -209,7 +208,7 @@ fi:
           info: Tietoa tästä ryhmästä
           landing_page: Laskeutumissivu
           moderations: Moderoinnit
-          private_users: Yksityiset käyttäjät
+          private_users: Yksityiset osallistujat
           see_assembly: Näytä ryhmä
         assemblies_types: Ryhmien tyypit
       models:

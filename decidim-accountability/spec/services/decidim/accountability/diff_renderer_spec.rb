@@ -30,8 +30,8 @@ describe Decidim::Accountability::DiffRenderer, versioning: true do
     end
 
     it "has the old and new values for each field" do
-      expect(subject[:progress][:old_value]).to eq 50.0
-      expect(subject[:progress][:new_value]).to eq 25.0
+      expect(subject[:progress][:old_value]).to eq "50.0"
+      expect(subject[:progress][:new_value]).to eq "25.0"
     end
 
     it "has the type of each field" do

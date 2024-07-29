@@ -124,8 +124,8 @@ FactoryBot.define do
     description { generate_localized_description(:initiative_description, skip_injection:) }
     organization
     author { create(:user, :confirmed, organization:, skip_injection:) }
-    published_at { Time.current }
-    state { "published" }
+    state { "open" }
+    published_at { Time.current.utc }
     signature_type { "online" }
     signature_start_date { Date.current - 1.day }
     signature_end_date { Date.current + 120.days }
@@ -156,12 +156,8 @@ FactoryBot.define do
       signature_end_date { nil }
     end
 
-    trait :published do
-      state { "published" }
-    end
-
-    trait :unpublished do
-      published_at { nil }
+    trait :open do
+      state { "open" }
     end
 
     trait :accepted do
