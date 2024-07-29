@@ -19,7 +19,7 @@ module Decidim
             return hash unless hash.is_a?(Hash)
 
             hash.transform_values do |value|
-              value.is_a?(String) ? populate_string_interpolations(value, proposal) : populate_hash_interpolations(value, proposal)
+              populate_interpolations(value, proposal)
             end
           end
 
@@ -31,7 +31,7 @@ module Decidim
 
           def author_name(proposal)
             name = proposal.creator_author.try(:title) || proposal.creator_author.try(:name)
-            name.is_a?(Hash) ? translated_attribute(name) : name
+            translated_attribute(name)
           end
         end
       end
