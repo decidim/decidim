@@ -23,8 +23,8 @@ module Decidim::Assemblies
         expect(serialized).to include(weight: resource.weight)
         expect(serialized).to include(short_description: resource.short_description)
         expect(serialized).to include(description: resource.description)
-        expect(serialized).to include(remote_hero_image_url: Decidim::Assemblies::AssemblyPresenter.new(resource).hero_image_url)
-        expect(serialized).to include(remote_banner_image_url: Decidim::Assemblies::AssemblyPresenter.new(resource).banner_image_url)
+        expect(serialized[:remote_hero_image_url]).to be_blob_url(resource.hero_image.blob)
+        expect(serialized[:remote_banner_image_url]).to be_blob_url(resource.banner_image.blob)
         expect(serialized).to include(promoted: resource.promoted)
         expect(serialized).to include(developer_group: resource.developer_group)
         expect(serialized).to include(meta_scope: resource.meta_scope)
@@ -136,7 +136,7 @@ module Decidim::Assemblies
           expect(serialized_assembly_attachment).to include(title: attachment.title)
           expect(serialized_assembly_attachment).to include(weight: attachment.weight)
           expect(serialized_assembly_attachment).to include(description: attachment.description)
-          expect(serialized_assembly_attachment).to include(remote_file_url: Decidim::AttachmentPresenter.new(resource.attachments.first).attachment_file_url)
+          expect(serialized_assembly_attachment[:remote_file_url]).to be_blob_url(resource.attachments.first.file.blob)
         end
       end
     end

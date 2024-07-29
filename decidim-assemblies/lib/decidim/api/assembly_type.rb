@@ -61,11 +61,11 @@ module Decidim
       field :children, [Decidim::Assemblies::AssemblyType, { null: true }], "Children of this assembly", null: false
 
       def hero_image
-        object.attached_uploader(:hero_image).path
+        object.attached_uploader(:hero_image).url
       end
 
       def banner_image
-        object.attached_uploader(:banner_image).path
+        object.attached_uploader(:banner_image).url
       end
     end
   end
