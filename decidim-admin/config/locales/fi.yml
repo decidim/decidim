@@ -350,6 +350,8 @@ fi:
       conflicts:
         attempts: Yritykset
         'false': 'Ei'
+        index:
+          text: Etsi nykyisen käyttäjän sähköpostin, nimen tai nimimerkin perusteella.
         managed_user_name: Hallittu käyttäjä
         solved: Ratkaistu
         title: Vahvistusten ristiriidat
