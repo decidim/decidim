@@ -17,6 +17,7 @@ gem "decidim-dev", "0.28.0.rc1"
 
 ```console
 sudo apt install p7zip # or the alternative installation process for your operating system. See "2.1. 7zip dependency introduction"
+bundle remove spring spring-watcher-listen
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
@@ -106,6 +107,18 @@ Additionally, if you need, you can also customize the `admin` and `system` inter
 - `app/packs/stylesheets/decidim/system/decidim_application.scss` for system interface
 
 You can read more about this change on PR [\#12646](https://github.com/decidim/decidim/pull/12646).
+
+### 3.4. Remove spring and spring-watcher-listen from your Gemfile
+
+To simplify the upgrade process, we have decided to add `spring` and `spring-watcher-listener` as hard dependencies of `decidim-dev`.
+
+Before upgrading to this version, make sure you run in your console:
+
+```bash
+bundle remove spring spring-watcher-listen
+```
+
+You can read more about this change on PR [#13235](https://github.com/decidim/decidim/pull/13235).
 
 ## 4. Scheduled tasks
 
