@@ -46,7 +46,7 @@ namespace :decidim do
           next unless follow.followable.respond_to?(:component)
           next if follow.followable.component.present?
 
-          # We attempt to remove any of the follows that refer to spaces or components that dissapeared
+          # We attempt to remove any of the follows that refer to spaces or components that disappeared
           follow.destroy
           invalid += 1
         rescue NameError
@@ -75,7 +75,7 @@ namespace :decidim do
 
       desc "Removes any resources from search index that do not exist"
       task :searchable_resources, [] => :environment do
-        puts "=== Deleting Searcheable results\n"
+        puts "=== Deleting Searchable results\n"
         puts "==== Deleting invalid spaces \n"
         invalid = 0
         Decidim::SearchableResource.where.not(decidim_participatory_space_type: nil).find_each do |search|
