@@ -22,7 +22,7 @@ es:
       category:
         description: Descripción
         name: Nombre
-        parent_id: Superior
+        parent_id: Categoría madre
         weight: Orden de posición
       component:
         name: Nombre
@@ -109,7 +109,7 @@ es:
         code: Código
         name: Nombre
         organization: Organización
-        parent_id: Superior
+        parent_id: Ámbito padre
         scope_type: Tipo de ámbito
         scope_type_id: Tipo de ámbito
       scope_type:
