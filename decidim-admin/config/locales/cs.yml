@@ -350,6 +350,8 @@ cs:
       conflicts:
         attempts: Pokusy
         'false': 'Ne'
+        index:
+          text: Hledat podle aktuálního uživatelského e-mailu, jména nebo přezdívky.
         managed_user_name: Spravovaný uživatel
         solved: Vyřešeno
         title: Konflikty ověření
