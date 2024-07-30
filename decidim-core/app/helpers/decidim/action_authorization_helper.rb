@@ -70,6 +70,12 @@ module Decidim
         html_options = clean_authorized_to_data_open(html_options)
 
         html_options["data-dialog-open"] = "loginModal"
+
+        if resource
+          html_options["data-onboarding-model"] = resource.to_gid
+          html_options["data-onboarding-action"] = action
+        end
+
         url = "#"
       elsif action && !action_authorized_to(action, resource:, permissions_holder:).ok?
         html_options = clean_authorized_to_data_open(html_options)

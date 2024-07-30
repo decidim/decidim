@@ -1,21 +1,55 @@
-<div class="text-center py-10">
-  <h1 class="title-decorator inline-block text-left mb-12">
-    <%= t("decidim.verifications.authorizations.first_login.title") %>
-  </h1>
-  <p class="text-lg text-gray-2 text-left">
-    <%= t("decidim.verifications.authorizations.first_login.verify_with_these_options") %>
-  </p>
-</div>
+<% add_decidim_page_title(t("authorizations", scope: "layouts.decidim.user_profile")) %>
+<% content_for(:subtitle) { t("authorizations", scope: "layouts.decidim.user_profile") } %>
+<% url_params = (redirect_url.present? ? { redirect_url: } : {}) %>
 
-<div class="space-y-4">
-  <ul class="space-y-4">
-    <% unauthorized_methods.each do |unauthorized_method| %>
-      <li>
-        <%= link_to t("decidim.verifications.authorizations.first_login.actions.#{unauthorized_method.key}"),
-                    unauthorized_method.root_path,
-                    class: "button button__sm button__transparent-secondary" %>
-      </li>
+<%= append_javascript_pack_tag "decidim_verifications" %>
+<%= append_stylesheet_pack_tag "decidim_verifications" %>
+
+<%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
+  <section class="authorizations-list">
+    <div class="flash flex-col success mb-8">
+      <div class="flash__message">
+        You are almost ready to
+        <%= onboarding_manager.action %>
+        in the
+        <%= onboarding_manager.model.class.model_name.human.downcase %>
+        <%= " " %>
+        <strong>
+          <%= translated_attribute onboarding_manager.model.title %>.
+        </strong>
+      </div>
+    </div>
+
+    <%
+        subsections = []
+
+        filtered_granted_authorizations = onboarding_manager.filter_authorizations(granted_authorizations)
+        filtered_pending_authorizations = onboarding_manager.filter_authorizations(pending_authorizations)
+        filtered_unauthorized_methods = onboarding_manager.filter_authorizations(unauthorized_methods)
+
+        subsections << {
+          title: t("authorizations.index.granted_verification", scope: "decidim.verifications"),
+          items: filtered_granted_authorizations.map { |authorization| granted_authorization_display_data(authorization, redirect_url) }
+        } if filtered_granted_authorizations.any?
+
+        subsections << {
+          title: t("authorizations.index.pending_verification", scope: "decidim.verifications"),
+          items: filtered_pending_authorizations.map { |authorization| pending_authorization_display_data(authorization, redirect_url) }
+        } if filtered_pending_authorizations.any?
+
+        subsections << {
+          title: t("authorizations.index.unauthorized_methods", scope: "decidim.verifications"),
+          items: filtered_unauthorized_methods.map { |method| unauthorized_method_display_data(method, redirect_url) }
+        } if filtered_unauthorized_methods.any?
+    %>
+
+    <% subsections.each do |subsection| %>
+      <!--<div class="verification__container-title"><%= subsection[:title] %></div>-->
+      <div class="verification__container my-4">
+        <% subsection[:items].each do |locals| %>
+          <%= render partial: "item", locals: %>
+        <% end %>
+      </div>
     <% end %>
-  </ul>
-  <p class="prose prose-a:text-secondary"><%= t("decidim.verifications.authorizations.skip_verification", link: link_to(t("decidim.verifications.authorizations.start_exploring"), cta_button_path).html_safe).html_safe %>.</p>
-</div>
+  </section>
+<% end %>
