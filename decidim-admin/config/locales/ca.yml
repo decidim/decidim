@@ -22,7 +22,7 @@ ca:
       category:
         description: Descripció
         name: Nom
-        parent_id: Pare
+        parent_id: Categoria mare
         weight: Ordre de posició
       component:
         name: Nom
@@ -109,7 +109,7 @@ ca:
         code: Codi
         name: Nom
         organization: Organització
-        parent_id: Pare
+        parent_id: Àmbit pare
         scope_type: Tipus d'àmbit
         scope_type_id: Tipus d'àmbit
       scope_type:
