@@ -351,6 +351,8 @@ es-MX:
       conflicts:
         attempts: Intentos
         'false': 'No'
+        index:
+          text: Buscar por correo electrónico, nombre o alias.
         managed_user_name: Usuario gestionado
         solved: Resuelto
         title: Conflictos de verificación

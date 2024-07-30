@@ -40,7 +40,7 @@ de:
         keep_authors: Behalten Sie die ursprünglichen Autoren
       valuation_assignment:
         admin_log:
-          valuator_role_id: Name des Schätzers
+          valuator_role_id: Name des Bewertenden
     errors:
       models:
         participatory_text:
@@ -117,7 +117,7 @@ de:
               validating: Technische Validierung
               withdrawn: Zurückgezogen
           valuator_role_ids_has:
-            label: Zugewiesen zu dem Schätzer
+            label: Zur Bewertung zugewiesen
           with_any_state:
             label: Beantwortet
             values:
@@ -505,7 +505,7 @@ de:
             select_a_meeting: Besprechung auswählen
           index:
             actions: Aktionen
-            assign_to_valuator: Zuweisen zu dem Schätzer
+            assign_to_valuator: Zuweisen zur Bewertung
             assign_to_valuator_button: Zuweisen
             cancel: Abbrechen
             change_category: Kategorie ändern
@@ -519,7 +519,7 @@ de:
             split: Vorschläge aufteilen
             split_button: Aufteilen
             title: Vorschläge
-            unassign_from_valuator: Zuweisung an den Schätzer zurückziehen
+            unassign_from_valuator: Zuweisung zur Bewertung zurückziehen
             unassign_from_valuator_button: Zuweisung aufheben
             update: Aktualisieren
             update_scope_button: Umfang aktualisieren
@@ -531,7 +531,7 @@ de:
             select_a_proposal: Bitte wählen Sie einen Vorschlag.
           show:
             amendments_count: Anzahl der Ergänzungen
-            assigned_valuators: Zugewiesene Schätzer
+            assigned_valuators: Zugewiesene Bewertende
             body: Haupttext
             comments_count: Anzahl der Kommentare
             documents: Unterlagen
@@ -545,8 +545,8 @@ de:
             ranking: "%{ranking} von %{total}"
             related_meetings: Ähnliche Besprechungen
             remove_assignment: Zuweisung entfernen
-            remove_assignment_confirmation: Sind Sie sicher, diesen Schätzer von diesem Vorschlag zurückzuziehen?
-            valuators: Schätzer
+            remove_assignment_confirmation: Sind Sie sicher, dass Sie den BewerterIn dieses Vorschlags entfernen möchten?
+            valuators: Bewertende
             votes_count: Anzahl der Unterstützungen
           update_category:
             invalid: 'Diese Vorschläge gehörten bereits zur Kategorie %{subject_name}: %{proposals}.'
@@ -578,11 +578,11 @@ de:
             success: Die Vorschläge wurden erfolgreich in neue aufgeteilt.
         valuation_assignments:
           create:
-            invalid: Bei der Zuweisung der Vorschläge an einen Schätzer ist ein Fehler aufgetreten.
-            success: Die Vorschläge wurden erfolgreich dem Schätzer zugewiesen.
+            invalid: Bei der Zuweisung der Vorschläge zur Bewertung ist ein Fehler aufgetreten.
+            success: Die Vorschläge wurden erfolgreich zur Bewertung zugewiesen.
           delete:
-            invalid: Beim Zurückziehen der Zuweisung der Vorschläge an einen Schätzer ist ein Fehler aufgetreten.
-            success: Die Zuweisung der Vorschläge wurden erfolgreich vom Schätzer zurückgezogen.
+            invalid: Beim Zurückziehen der Zuweisung der Vorschläge zur Bewertung ist ein Fehler aufgetreten.
+            success: Die Zuweisung zur Bewertung der Vorschläge wurde erfolgreich aufgehoben.
       admin_log:
         proposal:
           answer: "%{user_name} beantwortete den %{resource_name} Vorschlag auf den %{space_name} Feldern"
@@ -592,8 +592,8 @@ de:
         proposal_note:
           create: "%{user_name} eine private Notiz zu dem %{resource_name} Vorschlag auf dem %{space_name} Feld hinterlassen"
         valuation_assignment:
-          create: "%{user_name} hat den Vorschlag %{resource_name} einem Schätzer zugewiesen"
-          delete: "%{user_name} hat die Zuweisung vom Vorschlag %{proposal_title} von einem Schätzer zurückgezogen"
+          create: "%{user_name} hat den Vorschlag %{resource_name} zur Bewertung zugewiesen"
+          delete: "%{user_name} hat die Zuweisung zur Bewertung des Vorschlags %{proposal_title} zurückgezogen"
       answers:
         accepted: Angenommen
         evaluating: In Bewertung
@@ -742,8 +742,8 @@ de:
             scope: Umfang
             state: Status
             title: Titel
-            valuator: Schätzer
-            valuators: Schätzer
+            valuator: BewerterIn
+            valuators: Bewertende
             votes: Stimmen
       new:
         limit_reached: Sie können keine neuen Vorschläge erstellen, da Sie das maximal mögliche Anzahl erreicht haben.

@@ -167,7 +167,7 @@ de:
             admin: Administrator
             collaborator: Mitarbeiter
             moderator: Moderator
-            valuator: Schätzer
+            valuator: Bewertende
         user:
           fields:
             invitation_accepted_at: Einladung akzeptiert am

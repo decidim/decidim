@@ -249,7 +249,7 @@ de:
             admin: Administrator
             collaborator: Mitarbeiter
             moderator: Moderator
-            valuator: Schätzer
+            valuator: Bewertende
       titles:
         assemblies: Gremien
         assemblies_types: Versammlungstypen
