@@ -2,6 +2,40 @@
 
 # Changelog
 
+## [0.29.0.rc4](https://github.com/decidim/decidim/tree/0.29.0.rc4)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-proposals**: Backport 'Show custom proposal states in grid view mode' to v0.29 [\#13222](https://github.com/decidim/decidim/pull/13222)
+- **decidim-proposals**: Backport 'Preserve filters when changing the view mode' to v0.29 [\#13223](https://github.com/decidim/decidim/pull/13223)
+- **decidim-core**: Backport 'Fix details in filters' elements' to v0.29 [\#13224](https://github.com/decidim/decidim/pull/13224)
+- **decidim-core**: Backport 'Fix fat footer disposition in large resolution' to v0.29 [\#13225](https://github.com/decidim/decidim/pull/13225)
+- **decidim-conferences**, **decidim-forms**, **decidim-generators**, **decidim-initiatives**: Backport 'Pin wkhtmltopdf-binary to v0.12.6.6' to v0.29 [\#13226](https://github.com/decidim/decidim/pull/13226)
+- **decidim-admin**, **decidim-assemblies**, **decidim-blogs**, **decidim-conferences**, **decidim-core**, **decidim-initiatives**, **decidim-participatory processes**, **decidim-system**: Backport 'Improve ActiveStorage asset linking performance' to v0.29 [\#13227](https://github.com/decidim/decidim/pull/13227)
+- **decidim-meetings**: Backport 'Allow admin tags in meeting minutes' to v0.29 [\#13231](https://github.com/decidim/decidim/pull/13231)
+- **decidim-core**: Backport 'Send welcome notifications for omniauth users' to v0.29 [\#13230](https://github.com/decidim/decidim/pull/13230)
+- **decidim-admin**: Backport 'Pagination and search on conflicts page' to v0.29 [\#13239](https://github.com/decidim/decidim/pull/13239)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+Nothing.
+
 ## [0.29.0.rc3](https://github.com/decidim/decidim/tree/0.29.0.rc3)
 
 ### Added
