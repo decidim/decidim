@@ -21,6 +21,11 @@ pl:
         scope_id: Zakres
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Budżet
+        few: Budżety
+        many: Budżetów
+        other: Budżetów
       decidim/budgets/project:
         one: Projekt
         few: Projekty
