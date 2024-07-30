@@ -101,7 +101,6 @@ lv:
             participatory_texts_enabled: Līdzdalības teksti ir iespējoti
             participatory_texts_enabled_readonly: Nevar mijiedarboties ar šo iestatījumu, ja jau ir priekšlikumi. Lūdzu, izveidojiet priekšlikumu komponentu, ja vēlaties iespējot šo funkciju, vai atmetiet visus importētos priekšlikumus izvēlnē „Līdzdalības teksti”, ja vēlaties to atspējot.
             proposal_answering_enabled: Atbilde uz priekšlikumiem ir iespējota
-            proposal_edit_before_minutes: Autori var rediģēt priekšlikumus, pirms ir pagājušas tik daudz minūtes
             proposal_length: Maksimālais priekšlikuma pamatteksta garums
             proposal_limit: Priekšlikumu skaita limits vienam dalībniekam
             proposal_wizard_step_1_help_text: Priekšlikumu vedņa „Izveidot” soļa palīdzības teksts
@@ -277,7 +276,6 @@ lv:
           form:
             note: Piezīme
             submit: Iesniegt
-          leave_your_note: Atstājiet savu piezīmi
           title: Privātas piezīmes
         proposals:
           edit:

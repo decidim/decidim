@@ -158,7 +158,6 @@ ar:
             participatory_texts_enabled: تم تمكين النصوص التشاركية
             participatory_texts_enabled_readonly: لا يمكن التفاعل مع هذا الإعداد إذا كانت هناك اقتراحات موجودة. الرجاء إنشاء "مكون مقترحات" جديد إذا كنت ترغب في تمكين هذه الميزة أو تجاهل كافة المقترحات المستوردة في قائمة "النصوص التشاركية" إذا كنت ترغب في تعطيلها.
             proposal_answering_enabled: تم تمكين الرد على الاقتراح
-            proposal_edit_before_minutes: يمكن تحرير المقترحات من قبل المؤلفين قبل مرور عدة دقائق
             proposal_edit_time: تحرير المقترح
             proposal_edit_time_choices:
               infinite: السماح بتعديل المقترحات لفترة زمنية غير محدودة
@@ -406,7 +405,6 @@ ar:
           form:
             note: ملحوظة
             submit: خضع
-          leave_your_note: اترك ملاحظتك
           title: ملاحظات خاصة
         proposals:
           edit:

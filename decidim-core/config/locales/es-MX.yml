@@ -1264,6 +1264,7 @@ es-MX:
         administrators: Administradoras
         allow_public_contact: Permitir que cualquier participante me envíe un mensaje directo, incluso si no la sigo.
         allow_push_notifications: Mostrar notificaciones emergentes para saber qué pasa cuando no estás en la plataforma. Puedes desactivarlas en cualquier momento.
+        assigned_to_proposal: Quiero recibir un correo electrónico cuando alguien me asigne una propuesta para evaluar
         direct_messages: Recibir mensajes directos de cualquiera
         email_on_moderations: Quiero recibir un correo electrónico cada vez que se reporta algo o a alguien para moderación.
         everything_followed: Todo lo que sigo
@@ -1282,6 +1283,7 @@ es-MX:
         push_notifications_reminder: Para obtener notificaciones de la plataforma, primero tienes que permitirlas en la configuración de tu navegador.
         receive_notifications_about: Quiero recibir notificaciones sobre
         update_notifications_settings: Guardar cambios
+        valuators: Evaluadoras
       update:
         error: Ha habido un error al actualizar la configuración de las notificaciones.
         success: La configuración de las notificaciones se han actualizado correctamente.
