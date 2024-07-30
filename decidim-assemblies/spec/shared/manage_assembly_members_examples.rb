@@ -151,7 +151,7 @@ shared_examples "manage assembly members examples" do
   end
 
   context "when paginating" do
-    let!(:collection_size) { 20 }
+    let!(:collection_size) { 30 }
     let!(:collection) { create_list(:assembly_member, collection_size, assembly:) }
     let!(:resource_selector) { "#assembly_members tbody tr" }
 
@@ -159,8 +159,8 @@ shared_examples "manage assembly members examples" do
       visit current_path
     end
 
-    it "lists 15 members per page by default" do
-      expect(page).to have_css(resource_selector, count: 15)
+    it "lists 25 members per page by default" do
+      expect(page).to have_css(resource_selector, count: 25)
       expect(page).to have_css("[data-pages] [data-page]", count: 2)
       click_link "Next"
       expect(page).to have_selector("[data-pages] [data-page][aria-current='page']", text: "2")

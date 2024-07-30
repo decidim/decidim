@@ -12,13 +12,14 @@ shared_examples "a paginated collection" do |options|
   end
 
   describe "Number of results per page" do
-    it "lists 15 resources per page by default" do
-      expect(page).to have_css(".table-list tbody tr", count: 15)
+    it "lists 25 resources per page by default" do
+      expect(page).to have_css(".table-list tbody tr", count: 25)
     end
 
     it "changes the number of results per page" do
       within "[data-pagination]" do
-        page.find("details", text: "15").click
+        page.find("details", text: "25").click
+        click_on "50"
         click_link "50"
       end
 
