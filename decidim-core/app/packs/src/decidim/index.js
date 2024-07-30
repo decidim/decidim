@@ -50,6 +50,7 @@ import "src/decidim/abide_form_validator_fixer"
 import "src/decidim/sw"
 import "src/decidim/sticky_header"
 import "src/decidim/attachments"
+import "src/decidim/onboarding"
 
 // local deps that require initialization
 import ConfirmDialog, { initializeConfirm } from "src/decidim/confirm"

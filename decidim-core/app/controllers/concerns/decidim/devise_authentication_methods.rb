@@ -13,7 +13,7 @@ module Decidim
           check_user_block_status(user)
         elsif user.needs_password_update?
           decidim.change_password_path
-        elsif first_login_and_not_authorized?(user) && !user.admin? && !pending_redirect?(user)
+        elsif pending_onboarding_action?(user)
           decidim_verifications.first_login_authorizations_path
         else
           super
@@ -28,8 +28,15 @@ module Decidim
         store_location_for(user, stored_location_for(user))
       end
 
-      def first_login_and_not_authorized?(user)
-        user.is_a?(User) && user.sign_in_count == 1 && current_organization.available_authorizations.any? && user.verifiable?
+      # Returns true if there's a pending onboarding action for the user.
+      # The check if skipped for admins, users that are not verifiable of
+      # organizations that have no available authorizations.
+      def pending_onboarding_action?(user)
+        return false if user.admin?
+        return false unless user.verifiable?
+        return false if current_organization.available_authorizations.empty?
+
+        OnboardingManager.new(user).pending_action?
       end
     end
   end
