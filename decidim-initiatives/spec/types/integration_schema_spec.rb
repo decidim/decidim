@@ -29,22 +29,6 @@ describe "Decidim::Api::QueryType" do
       "description" => { "translation" => initiative.description[locale] },
       "hashtag" => initiative.hashtag,
       "id" => initiative.id.to_s,
-      "initiativeType" => {
-        "bannerImage" => initiative.type.attached_uploader(:banner_image).path,
-        "collectUserExtraFields" => initiative.type.collect_user_extra_fields?,
-        "createdAt" => initiative.type.created_at.iso8601.to_s.gsub("Z", "+00:00"),
-        "description" => { "translation" => initiative.type.description[locale] },
-        "extraFieldsLegalInformation" => initiative.type.extra_fields_legal_information,
-        "id" => initiative.type.id.to_s,
-        "initiatives" => initiative.type.initiatives.map { |i| { "id" => i.id.to_s } },
-        "minimumCommitteeMembers" => initiative.type.minimum_committee_members,
-        "promotingComitteeEnabled" => initiative.type.promoting_committee_enabled,
-        "signatureType" => initiative.type.signature_type,
-        "title" => { "translation" => initiative.type.title[locale] },
-        "undoOnlineSignaturesEnabled" => initiative.type.undo_online_signatures_enabled,
-        "updatedAt" => initiative.type.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
-        "validateSmsCodeOnVotes" => initiative.type.validate_sms_code_on_votes
-      },
       "offlineVotes" => initiative.offline_votes_count,
       "onlineVotes" => initiative.online_votes_count,
       "publishedAt" => initiative.published_at.iso8601.to_s.gsub("Z", "+00:00"),
@@ -59,6 +43,24 @@ describe "Decidim::Api::QueryType" do
       "type" => initiative.class.name,
       "updatedAt" => initiative.updated_at.iso8601.to_s.gsub("Z", "+00:00")
 
+    }
+  end
+
+  let(:initiative_type_data) do
+    {
+      "collectUserExtraFields" => initiative.type.collect_user_extra_fields?,
+      "createdAt" => initiative.type.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "description" => { "translation" => initiative.type.description[locale] },
+      "extraFieldsLegalInformation" => initiative.type.extra_fields_legal_information,
+      "id" => initiative.type.id.to_s,
+      "initiatives" => initiative.type.initiatives.map { |i| { "id" => i.id.to_s } },
+      "minimumCommitteeMembers" => initiative.type.minimum_committee_members,
+      "promotingComitteeEnabled" => initiative.type.promoting_committee_enabled,
+      "signatureType" => initiative.type.signature_type,
+      "title" => { "translation" => initiative.type.title[locale] },
+      "undoOnlineSignaturesEnabled" => initiative.type.undo_online_signatures_enabled,
+      "updatedAt" => initiative.type.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "validateSmsCodeOnVotes" => initiative.type.validate_sms_code_on_votes
     }
   end
 
@@ -143,9 +145,10 @@ describe "Decidim::Api::QueryType" do
     end
 
     it "returns the correct response" do
-      data = response["participatoryProcess"]
-      expect(data).to include(participatory_process_response)
-      expect(data["heroImage"]).to be_blob_url(participatory_process.hero_image.blob)
+      data = response["initiatives"].first
+      expect(data).to include(initiative_data)
+      expect(data["initiativeType"]).to include(initiative_type_data)
+      expect(data["initiativeType"]["bannerImage"]).to be_blob_url(initiative.type.banner_image.blob)
     end
 
     it_behaves_like "implements stats type" do
@@ -163,7 +166,7 @@ describe "Decidim::Api::QueryType" do
     end
   end
 
-  describe "single assembly" do
+  describe "single initiative" do
     let(:initiatives) do
       %(
       initiative(id: #{initiative.id}){
@@ -236,7 +239,10 @@ describe "Decidim::Api::QueryType" do
     end
 
     it "returns the correct response" do
-      expect(response["initiative"]).to eq(initiative_data)
+      data = response["initiative"]
+      expect(data).to include(initiative_data)
+      expect(data["initiativeType"]).to include(initiative_type_data)
+      expect(data["initiativeType"]["bannerImage"]).to be_blob_url(initiative.type.banner_image.blob)
     end
 
     it_behaves_like "implements stats type" do

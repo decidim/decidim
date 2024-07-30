@@ -109,7 +109,7 @@ module Decidim::ParticipatoryProcesses
           expect(serialized_participatory_process_group).to include(id: resource.participatory_process_group.id)
           expect(serialized_participatory_process_group).to include(title: resource.participatory_process_group.title)
           expect(serialized_participatory_process_group).to include(description: resource.participatory_process_group.description)
-          expect(serialized_participatory_process_group).to include(remote_hero_image_url: Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupPresenter.new(resource.participatory_process_group).hero_image_url)
+          expect(serialized_participatory_process_group[:remote_hero_image_url]).to be_blob_url(resource.participatory_process_group.hero_image.blob)
         end
       end
 
@@ -180,7 +180,7 @@ module Decidim::ParticipatoryProcesses
           expect(serialized_participatory_process_attachment).to include(title: attachment.title)
           expect(serialized_participatory_process_attachment).to include(weight: attachment.weight)
           expect(serialized_participatory_process_attachment).to include(description: attachment.description)
-          expect(serialized_participatory_process_attachment).to include(remote_file_url: Decidim::AttachmentPresenter.new(resource.attachments.first).attachment_file_url)
+          expect(serialized_participatory_process_attachment[:remote_file_url]).to be_blob_url(resource.attachments.first.file.blob)
         end
       end
     end
