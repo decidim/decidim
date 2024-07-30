@@ -20,7 +20,6 @@ PATH
       decidim-sortitions (= 0.30.0.dev)
       decidim-surveys (= 0.30.0.dev)
       decidim-system (= 0.30.0.dev)
-      decidim-templates (= 0.30.0.dev)
       decidim-verifications (= 0.30.0.dev)
     decidim-accountability (0.30.0.dev)
       decidim-comments (= 0.30.0.dev)
