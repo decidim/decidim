@@ -34,7 +34,7 @@ module Decidim
       end
 
       def class_for(item)
-        (item[:class].presence || "button__transparent-secondary")
+        item[:class].presence || "button__transparent-secondary"
       end
     end
   end

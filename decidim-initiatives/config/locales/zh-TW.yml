@@ -87,7 +87,6 @@ zh-TW:
               accepted: 足夠的簽署數
               created: 已建立
               discarded: 已捨棄
-              published: 已發佈
               rejected: 不足夠的簽署數
               validating: 技術驗證
           type_id_eq:
@@ -312,7 +311,6 @@ zh-TW:
         accepted: 足夠的簽署數
         created: 已建立
         discarded: 已捨棄
-        published: 已發佈
         rejected: 不足夠的簽署數
         validating: 技術驗證
       application_helper:
@@ -534,7 +532,6 @@ zh-TW:
           accepted: 足夠的簽署數
           created: 已建立
           discarded: 已捨棄
-          published: 已發佈
           rejected: 簽署數不足
           validating: 技術驗證
       states:

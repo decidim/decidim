@@ -9,7 +9,7 @@ shared_context "with a graphql decidim component" do
 
   let(:locale) { "en" }
 
-  let(:participatory_process) { create :participatory_process, organization: current_organization }
+  let(:participatory_process) { create(:participatory_process, organization: current_organization) }
   let(:category) { create(:category, participatory_space: participatory_process) }
 
   let(:component_type) { nil }

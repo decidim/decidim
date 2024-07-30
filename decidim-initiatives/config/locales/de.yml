@@ -91,7 +91,7 @@ de:
               accepted: Ausreichend Unterschriften
               created: Erstellt
               discarded: Verworfen
-              published: Veröffentlicht
+              open: Offen
               rejected: Zu wenige Unterschriften
               validating: Technische Validierung
           type_id_eq:
@@ -329,7 +329,7 @@ de:
         accepted: Ausreichend Unterschriften
         created: Erstellt
         discarded: Verworfen
-        published: Veröffentlicht
+        open: Offen
         rejected: Ungenügend Unterschriften
         validating: Technische Validierung
       application_helper:
@@ -578,7 +578,7 @@ de:
           accepted: Ausreichend Unterschriften
           created: Erstellt
           discarded: Verworfen
-          published: Veröffentlicht
+          open: Offen
           rejected: Ungenügend Unterschriften
           validating: Technische Validierung
       states:

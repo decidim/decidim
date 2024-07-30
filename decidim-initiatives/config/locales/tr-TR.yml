@@ -74,7 +74,6 @@ tr:
               accepted: Yeterince imza
               created: Oluşturuldu
               discarded: Yok sayıldı
-              published: Yayınlandı
               rejected: Yeterince imza yok
               validating: Teknik doğrulama
           type_id_eq:
@@ -246,7 +245,6 @@ tr:
         accepted: Yeterince imza
         created: Oluşturuldu
         discarded: Yok sayıldı
-        published: Yayınlandı
         rejected: Yeterince imza yok
         validating: Teknik doğrulama
       application_helper:
@@ -438,7 +436,6 @@ tr:
           accepted: Yeterince imza
           created: Oluşturuldu
           discarded: Yok sayıldı
-          published: Yayınlandı
           rejected: Yeterince imza yok
           validating: Teknik doğrulama
       states:
