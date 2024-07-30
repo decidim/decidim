@@ -49,6 +49,6 @@ RSpec.configure do |config|
     # Ensure that the current host is not set for any spec in order to test that
     # the automatic current host definition is working correctly in all
     # situations.
-    ActiveStorage::Current.url_options = {}
+    ActiveStorage::Current.host = ""
   end
 end

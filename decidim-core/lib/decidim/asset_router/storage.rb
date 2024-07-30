@@ -133,7 +133,7 @@ module Decidim
             URI::HTTP.build(options)
           end
 
-        ActiveStorage::Current.url_options = { host: uri.to_s }
+        ActiveStorage::Current.host = uri.to_s
       end
 
       # Determines the organization for the passed record.
@@ -299,7 +299,7 @@ module Decidim
 
         # For the disk service, the URL can be only generated if the current
         # host has been set.
-        ActiveStorage::Current.url_options&.dig(:host).present?
+        ActiveStorage::Current.host.present?
       end
     end
   end
