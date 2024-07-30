@@ -58,6 +58,7 @@ describe "Identity document online review" do
 
     context "and the user logs back in" do
       before do
+        expect(page).to have_content("Verification rejected. Participant will be prompted to amend their documents")
         relogin_as user, scope: :user
         visit decidim_verifications.authorizations_path
         click_link "Identity documents"

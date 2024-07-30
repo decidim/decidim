@@ -62,7 +62,7 @@ module Decidim
           end
 
           it "includes the answer" do
-            expect(serialized).to include(answer: answer.attachments.map(&:url))
+            expect(serialized[:answer]).to include_blob_urls(*answer.attachments.map(&:file).map(&:blob))
           end
         end
 

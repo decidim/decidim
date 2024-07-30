@@ -22,7 +22,7 @@ module Decidim
       context "when image is attached" do
         it "returns an URL including the organization domain" do
           expect(subject.hero_image_url).to include(process.organization.host)
-          expect(subject.hero_image_url).to include(process.attached_uploader(:hero_image).path)
+          expect(subject.hero_image_url).to be_blob_url(process.hero_image.blob)
         end
       end
     end
@@ -41,7 +41,7 @@ module Decidim
       context "when image is attached" do
         it "returns an URL including the organization domain" do
           expect(subject.banner_image_url).to include(process.organization.host)
-          expect(subject.banner_image_url).to include(process.attached_uploader(:banner_image).path)
+          expect(subject.banner_image_url).to be_blob_url(process.banner_image.blob)
         end
       end
     end

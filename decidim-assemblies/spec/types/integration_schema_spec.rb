@@ -22,7 +22,6 @@ describe "Decidim::Api::QueryType" do
         "updatedAt" => assembly.assembly_type.updated_at.iso8601.to_s.gsub("Z", "+00:00")
       },
       "attachments" => [],
-      "bannerImage" => assembly.attached_uploader(:banner_image).path,
       "categories" => [],
       "children" => [],
       "childrenCount" => 0,
@@ -40,7 +39,6 @@ describe "Decidim::Api::QueryType" do
       "facebookHandler" => assembly.facebook_handler,
       "githubHandler" => assembly.github_handler,
       "hashtag" => assembly.hashtag,
-      "heroImage" => assembly.attached_uploader(:hero_image).path,
       "id" => assembly.id.to_s,
       "includedAt" => assembly.included_at.to_date.to_s,
       "instagramHandler" => assembly.instagram_handler,
@@ -218,7 +216,10 @@ describe "Decidim::Api::QueryType" do
     end
 
     it "returns the correct response" do
-      expect(response["assemblies"].first).to eq(assembly_data)
+      data = response["assemblies"].first
+      expect(data).to include(assembly_data)
+      expect(data["bannerImage"]).to be_blob_url(assembly.banner_image.blob)
+      expect(data["heroImage"]).to be_blob_url(assembly.hero_image.blob)
     end
 
     it_behaves_like "implements stats type" do
@@ -372,7 +373,10 @@ describe "Decidim::Api::QueryType" do
     end
 
     it "returns the correct response" do
-      expect(response["assembly"]).to eq(assembly_data)
+      data = response["assembly"]
+      expect(data).to include(assembly_data)
+      expect(data["bannerImage"]).to be_blob_url(assembly.banner_image.blob)
+      expect(data["heroImage"]).to be_blob_url(assembly.hero_image.blob)
     end
 
     it_behaves_like "implements stats type" do

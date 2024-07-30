@@ -115,7 +115,7 @@ module Decidim::Admin
             command.call
             organization.reload
 
-            expect(organization.attached_uploader(:favicon).variant_path(:small)).to be_present
+            expect(organization.attached_uploader(:favicon).variant_url(:small)).to be_present
           end
         end
       end

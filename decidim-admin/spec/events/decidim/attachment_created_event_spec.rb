@@ -14,11 +14,20 @@ describe Decidim::AttachmentCreatedEvent do
   let(:email_subject) { "An update to #{resource_title}" }
   let(:email_intro) { "A new document has been added to #{resource_title}. You can see it from this page:" }
   let(:email_outro) { "You have received this notification because you are following #{resource_title}. You can stop receiving notifications following the previous link." }
-  let(:notification_title) { "A <a href=\"#{resource_path}\">new document</a> has been added to <a href=\"#{attached_to_url}\">#{resource_title}</a>" }
+  let(:notification_title) { "new document</a> has been added to <a href=\"#{attached_to_url}\">#{resource_title}</a>" }
 
   it_behaves_like "a simple event", true
   it_behaves_like "a simple event email"
-  it_behaves_like "a simple event notification"
+
+  describe "notification_title" do
+    it "is generated correctly" do
+      expect(subject.notification_title).to end_with(notification_title)
+    end
+
+    it "is html safe" do
+      expect(subject.notification_title).not_to include("script")
+    end
+  end
 
   describe "resource_url" do
     it "is generated correctly" do

@@ -23,6 +23,7 @@ module Decidim
     include DisableRedirectionToExternalHost
     include NeedsPasswordChange
     include LinkedResourceReference
+    include ActiveStorage::SetCurrent
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper

@@ -11,10 +11,6 @@ module Decidim
 
       alias meeting model
 
-      def has_image?
-        true
-      end
-
       def extra_class
         "card__calendar-list__reset"
       end

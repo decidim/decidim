@@ -116,10 +116,10 @@ module Decidim
       subject { described_class.new(assembly_member).avatar_url }
 
       context "when user is present" do
-        let(:user) { build(:user, name: "Julia G.", nickname: "julia_g") }
+        let(:user) { create(:user, name: "Julia G.", nickname: "julia_g") }
         let(:assembly_member) { build(:assembly_member, full_name: "Full name", user:) }
 
-        it { is_expected.to eq user.attached_uploader(:avatar).path }
+        it { is_expected.to be_blob_url(user.avatar.blob) }
       end
 
       context "when no user is present" do

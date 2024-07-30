@@ -1,7 +1,7 @@
 <%= append_javascript_pack_tag "decidim_initiatives" %>
 <%= append_stylesheet_pack_tag "decidim_initiatives", media: "all" %>
 
-<% provide :meta_image_url, current_participatory_space.type.attached_uploader(:banner_image).path %>
+<% provide :meta_image_url, current_participatory_space.type.attached_uploader(:banner_image).url %>
 
 <%= render "layouts/decidim/application" do %>
   <%= render layout: "layouts/decidim/shared/layout_center" do %>

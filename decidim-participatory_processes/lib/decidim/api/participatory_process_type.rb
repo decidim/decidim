@@ -51,7 +51,7 @@ module Decidim
       end
 
       def hero_image
-        object.attached_uploader(:hero_image).path
+        object.attached_uploader(:hero_image).url
       end
     end
   end

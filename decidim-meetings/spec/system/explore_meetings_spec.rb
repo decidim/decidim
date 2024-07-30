@@ -141,7 +141,7 @@ describe "Explore meetings", :slow do
         visit_component
 
         within("#meetings__meeting_#{meeting.id}") do
-          expect(page).to have_css("span", text: 2)
+          expect(page).to have_css("[data-comments-count]", text: 2)
         end
       end
     end

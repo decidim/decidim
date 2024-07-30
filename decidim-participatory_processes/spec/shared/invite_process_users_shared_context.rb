@@ -18,7 +18,10 @@ shared_context "when inviting process users" do
     fill_in "Email", with: email
     select role, from: "Role"
     click_button "Create"
+    expect(page).to have_content("successfully added to this participatory process")
     logout :user
+    visit decidim.root_path
+    expect(page).to have_content(organization.name)
   end
 
   def edit_user(username)

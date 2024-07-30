@@ -15,14 +15,12 @@ describe "Decidim::Api::QueryType" do
     {
       "attachments" => [],
       "availableSlots" => conference.available_slots,
-      "bannerImage" => conference.attached_uploader(:banner_image).path,
       "categories" => [],
       "components" => [],
       "createdAt" => conference.created_at.iso8601.to_s.gsub("Z", "+00:00"),
       "description" => { "translation" => conference.description[locale] },
       "endDate" => conference.end_date.to_s,
       "hashtag" => conference.hashtag,
-      "heroImage" => conference.attached_uploader(:hero_image).path,
       "id" => conference.id.to_s,
       "location" => conference.location,
       "mediaLinks" => [],
@@ -129,7 +127,10 @@ describe "Decidim::Api::QueryType" do
     end
 
     it "returns the correct response" do
-      expect(response["conferences"].first).to eq(conference_data)
+      data = response["conferences"].first
+      expect(data).to include(conference_data)
+      expect(data["bannerImage"]).to be_blob_url(conference.banner_image.blob)
+      expect(data["heroImage"]).to be_blob_url(conference.hero_image.blob)
     end
 
     it_behaves_like "implements stats type" do
@@ -222,7 +223,10 @@ describe "Decidim::Api::QueryType" do
     end
 
     it "returns the correct response" do
-      expect(response["conference"]).to eq(conference_data)
+      data = response["conference"]
+      expect(data).to include(conference_data)
+      expect(data["bannerImage"]).to be_blob_url(conference.banner_image.blob)
+      expect(data["heroImage"]).to be_blob_url(conference.hero_image.blob)
     end
 
     it_behaves_like "implements stats type" do

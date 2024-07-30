@@ -44,7 +44,7 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
     end
 
     it "uses that image's big version as background" do
-      expect(subject.to_s).to include(content_block.images_container.attached_uploader(:background_image).path(variant: :big))
+      expect(subject.to_s).to include(content_block.images_container.attached_uploader(:background_image).variant_url(:big))
     end
   end
 

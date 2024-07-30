@@ -20,6 +20,7 @@ module Decidim
       include Decidim::SafeRedirect
       include NeedsSnippets
       include UserBlockedChecker
+      include ActiveStorage::SetCurrent
 
       helper Decidim::TranslationsHelper
       helper Decidim::MetaTagsHelper
