@@ -69,7 +69,7 @@ module Decidim
     end
 
     def url
-      attached_uploader(:file).path
+      attached_uploader(:file).url
     end
 
     # The URL to download the thumbnail of the file. Only works with images.

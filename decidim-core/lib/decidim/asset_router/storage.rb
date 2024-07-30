@@ -47,13 +47,13 @@ module Decidim
       def url(**options)
         case asset
         when ActiveStorage::Attached
-          ensure_current_host(asset.record, **default_options.merge(options))
-          blob_url(**default_options.merge(options))
+          ensure_current_host(asset.record, **options)
+          blob_url(**options)
         when ActiveStorage::Blob
-          blob_url(**default_options.merge(options))
+          blob_url(**options)
         else # ActiveStorage::VariantWithRecord, ActiveStorage::Variant
-          ensure_current_host(nil, **default_options.merge(options))
-          representation_url(**default_options.merge(options))
+          ensure_current_host(nil, **options)
+          representation_url(**options)
         end
       end
 
