@@ -351,6 +351,8 @@ ca:
       conflicts:
         attempts: Intents
         'false': 'No'
+        index:
+          text: Cercar per correu electrònic, nom o àlies.
         managed_user_name: Usuari gestionat
         solved: Resolt
         title: Conflictes de verificació
