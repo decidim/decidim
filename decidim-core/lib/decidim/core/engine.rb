@@ -11,7 +11,6 @@ require "acts_as_list"
 require "devise"
 require "devise-i18n"
 require "devise_invitable"
-require "foundation_rails_helper"
 require "active_link_to"
 require "rails-i18n"
 require "date_validator"
@@ -730,7 +729,9 @@ module Decidim
       end
 
       config.to_prepare do
-        FoundationRailsHelper::FlashHelper.include Decidim::FlashHelperExtensions
+        ActiveSupport.on_load(:action_view) do
+          include Decidim::FlashHelperExtensions
+        end
       end
     end
   end
