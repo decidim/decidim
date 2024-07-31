@@ -174,7 +174,7 @@ describe "Meeting registrations" do
 
             click_on "Register"
 
-            within "#meeting-registration-confirm-#{meeting.id}" do
+            within first "#meeting-registration-confirm-#{meeting.id}" do
               expect(page).to have_content "A legal text"
               expect(page).to have_content "Show my attendance publicly"
               expect(page).to have_field("public_participation", checked: false)
@@ -245,17 +245,15 @@ describe "Meeting registrations" do
             visit_meeting
 
             click_on "Register"
-            within ".meeting_aside_partial" do
-              within "#meeting-registration-confirm-#{meeting.id}" do
-                expect(page).to have_content "I represent a group"
-                expect(page).to have_content "Show my attendance publicly"
-                expect(page).to have_field("public_participation", checked: false)
-                page.find("input#public_participation").click
-                page.find("input#user_group").click
-                select user_group.name, from: :join_meeting_user_group_id
-                page.find("input#public_participation").click
-                click_on "Confirm"
-              end
+            within first "#meeting-registration-confirm-#{meeting.id}" do
+              expect(page).to have_content "I represent a group"
+              expect(page).to have_content "Show my attendance publicly"
+              expect(page).to have_field("public_participation", checked: false)
+              page.find("input#public_participation").click
+              page.find("input#user_group").click
+              select user_group.name, from: :join_meeting_user_group_id
+              page.find("input#public_participation").click
+              click_on "Confirm"
             end
 
             within_flash_messages do
