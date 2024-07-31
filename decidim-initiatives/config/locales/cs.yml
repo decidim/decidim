@@ -243,6 +243,7 @@ cs:
           initiatives: Iniciativy
         index:
           initiatives_types:
+            alert_html: "<p>Musíte vytvořit alespoň jeden typ iniciativy, aby účastníci mohli začít vytvářet iniciativy.</p><p> %{link}</p>"
             button: Nový typ iniciativy
         initiatives:
           edit:
