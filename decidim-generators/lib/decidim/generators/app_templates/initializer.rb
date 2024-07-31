@@ -2,24 +2,24 @@
 
 Decidim.configure do |config|
   # The name of the application
-  config.application_name = Rails.application.secrets.decidim[:application_name]
+  config.application_name = Decidim::Env.new("DECIDIM_APPLICATION_NAME", "My Application Name").to_json
 
   # The email that will be used as sender in all emails from Decidim
-  config.mailer_sender = Rails.application.secrets.decidim[:mailer_sender]
+  config.mailer_sender = Decidim::Env.new("DECIDIM_MAILER_SENDER", "change-me@example.org").to_s
 
   # Sets the list of available locales for the whole application.
   #
   # When an organization is created through the System area, system admins will
   # be able to choose the available languages for that organization. That list
   # of languages will be equal or a subset of the list in this file.
-  config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]
+  config.available_locales = Decidim::Env.new("DECIDIM_AVAILABLE_LOCALES", "ca,cs,de,en,es,eu,fi,fr,it,ja,nl,pl,pt,ro").to_array.to_json
   # Or block set it up manually and prevent ENV manipulation:
   # config.available_locales = %w(en ca es)
 
   # Sets the default locale for new organizations. When creating a new
   # organization from the System area, system admins will be able to overwrite
   # this value for that specific organization.
-  config.default_locale = Rails.application.secrets.decidim[:default_locale].presence || :en
+  config.default_locale = Decidim::Env.new("DECIDIM_DEFAULT_LOCALE", "en").to_s
 
   # Restrict access to the system part with an authorized ip list.
   # You can use a single ip like ("1.2.3.4"), or an ip subnet like ("1.2.3.4/24")
@@ -33,7 +33,9 @@ Decidim.configure do |config|
 
   # Whether SSL should be enabled or not.
   # if this var is not defined, it is decided automatically per-rails-environment
-  config.force_ssl = Rails.application.secrets.decidim[:force_ssl].present? unless Rails.application.secrets.decidim[:force_ssl] == "auto"
+  unless Decidim::Env.new("DECIDIM_FORCE_SSL", "auto").default_or_present_if_exists.to_s == "auto"
+    config.force_ssl = Decidim::Env.new("DECIDIM_FORCE_SSL", "auto").default_or_present_if_exists.to_s.present?
+  end
   # or set it up manually and prevent any ENV manipulation:
   # config.force_ssl = true
 
@@ -156,20 +158,20 @@ Decidim.configure do |config|
   # end
 
   # Currency unit
-  config.currency_unit = Rails.application.secrets.decidim[:currency_unit] if Rails.application.secrets.decidim[:currency_unit].present?
+  config.currency_unit = Decidim::Env.new("DECIDIM_CURRENCY_UNIT", "€").to_s
 
   # Workaround to enable SVG assets cors
-  config.cors_enabled = Rails.application.secrets.decidim[:cors_enabled].present?
+  config.cors_enabled = Decidim::Env.new("DECIDIM_CORS_ENABLED", "false").present?
 
   # Defines the quality of image uploads after processing. Image uploads are
   # processed by Decidim, this value helps reduce the size of the files.
-  config.image_uploader_quality = Rails.application.secrets.decidim[:image_uploader_quality].to_i
+  config.image_uploader_quality = Decidim::Env.new("DECIDIM_IMAGE_UPLOADER_QUALITY", "80").to_i
 
-  config.maximum_attachment_size = Rails.application.secrets.decidim[:maximum_attachment_size].to_i.megabytes
-  config.maximum_avatar_size = Rails.application.secrets.decidim[:maximum_avatar_size].to_i.megabytes
+  config.maximum_attachment_size = Decidim::Env.new("DECIDIM_MAXIMUM_ATTACHMENT_SIZE", "10").to_i.megabytes
+  config.maximum_avatar_size = Decidim::Env.new("DECIDIM_MAXIMUM_AVATAR_SIZE", "5").to_i.megabytes
 
   # The number of reports which a resource can receive before hiding it
-  config.max_reports_before_hiding = Rails.application.secrets.decidim[:max_reports_before_hiding].to_i
+  config.max_reports_before_hiding = Decidim::Env.new("DECIDIM_MAX_REPORTS_BEFORE_HIDING", "3").to_i
 
   # Custom HTML Header snippets
   #
@@ -184,22 +186,24 @@ Decidim.configure do |config|
   # that an organization's administrator injects malicious scripts to spy on or
   # take over user accounts.
   #
-  config.enable_html_header_snippets = Rails.application.secrets.decidim[:enable_html_header_snippets].present?
+  config.enable_html_header_snippets = Decidim::Env.new("DECIDIM_ENABLE_HTML_HEADER_SNIPPETS").present?
 
   # Allow organizations admins to track newsletter links.
-  config.track_newsletter_links = Rails.application.secrets.decidim[:track_newsletter_links].present? unless Rails.application.secrets.decidim[:track_newsletter_links] == "auto"
+  unless Decidim::Env.new("DECIDIM_TRACK_NEWSLETTER_LINKS", "auto").default_or_present_if_exists.to_s == "auto"
+    config.track_newsletter_links = Decidim::Env.new("DECIDIM_TRACK_NEWSLETTER_LINKS", "auto").default_or_present_if_exists.present?
+  end
 
   # Amount of time that the download your data files will be available in the server.
-  config.download_your_data_expiry_time = Rails.application.secrets.decidim[:download_your_data_expiry_time].to_i.days
+  config.download_your_data_expiry_time = Decidim::Env.new("DECIDIM_DOWNLOAD_YOUR_DATA_EXPIRY_TIME", "7").to_i.days
 
   # Max requests in a time period to prevent DoS attacks. Only applied on production.
-  config.throttling_max_requests = Rails.application.secrets.decidim[:throttling_max_requests].to_i
+  config.throttling_max_requests = Decidim::Env.new("DECIDIM_THROTTLING_MAX_REQUESTS", "100").to_i
 
   # Time window in which the throttling is applied.
-  config.throttling_period = Rails.application.secrets.decidim[:throttling_period].to_i.minutes
+  config.throttling_period = Decidim::Env.new("DECIDIM_THROTTLING_PERIOD", "1").to_i.minutes
 
   # Time window were users can access the website even if their email is not confirmed.
-  config.unconfirmed_access_for = Rails.application.secrets.decidim[:unconfirmed_access_for].to_i.days
+  config.unconfirmed_access_for = Decidim::Env.new("DECIDIM_UNCONFIRMED_ACCESS_FOR", "0").to_i.days
 
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
@@ -207,7 +211,7 @@ Decidim.configure do |config|
   # environments, but in different folders.
   #
   # If not set, it will be ignored.
-  config.base_uploads_path = Rails.application.secrets.decidim[:base_uploads_path] if Rails.application.secrets.decidim[:base_uploads_path].present?
+  config.base_uploads_path = Decidim::Env.new("DECIDIM_BASE_UPLOADS_PATH").to_json if Decidim::Env.new("DECIDIM_BASE_UPLOADS_PATH").present?
 
   # SMS gateway configuration
   #
@@ -285,11 +289,11 @@ Decidim.configure do |config|
   # Only needed if you want to have Etherpad integration with Decidim. See
   # Decidim docs at https://docs.decidim.org/en/services/etherpad/ in order to set it up.
   #
-  if Rails.application.secrets.etherpad.present? && Rails.application.secrets.etherpad[:server].present?
+  if ENV.fetch("ETHERPAD_SERVER", nil).present? && ENV.fetch("ETHERPAD_API_KEY", nil).present?
     config.etherpad = {
-      server: Rails.application.secrets.etherpad[:server],
-      api_key: Rails.application.secrets.etherpad[:api_key],
-      api_version: Rails.application.secrets.etherpad[:api_version]
+      server: ENV.fetch("ETHERPAD_SERVER", nil),
+      api_key: ENV.fetch("ETHERPAD_API_KEY", nil),
+      api_version: Decidim::Env.new("ETHERPAD_API_VERSION", "1.2.1")
     }
   end
 

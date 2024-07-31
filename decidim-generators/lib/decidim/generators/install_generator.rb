@@ -57,19 +57,19 @@ module Decidim
       def smtp_environment
         inject_into_file "config/environments/production.rb",
                          after: "config.log_formatter = ::Logger::Formatter.new" do
-          cut <<~RUBY
+          cut <<~HERE
             |
             |  config.action_mailer.smtp_settings = {
-            |    :address        => Rails.application.secrets.smtp_address,
-            |    :port           => Rails.application.secrets.smtp_port,
-            |    :authentication => Rails.application.secrets.smtp_authentication,
-            |    :user_name      => Rails.application.secrets.smtp_username,
-            |    :password       => Rails.application.secrets.smtp_password,
-            |    :domain         => Rails.application.secrets.smtp_domain,
-            |    :enable_starttls_auto => Rails.application.secrets.smtp_starttls_auto,
+            |    :address        => ENV["SMTP_ADDRESS"],
+            |    :port           => Decidim::Env.new("SMTP_PORT", 587).to_i,
+            |    :authentication => Decidim::Env.new("SMTP_AUTHENTICATION", "plain").to_s,
+            |    :user_name      => ENV["SMTP_USERNAME"],
+            |    :password       => ENV["SMTP_PASSWORD"],
+            |    :domain         => ENV["SMTP_DOMAIN"],
+            |    :enable_starttls_auto => Decidim::Env.new("SMTP_STARTTLS_AUTO").to_boolean_string,
             |    :openssl_verify_mode => 'none'
             |  }
-          RUBY
+          HERE
         end
       end
 
@@ -124,11 +124,11 @@ module Decidim
 
         inject_into_file "config/environments/development.rb",
                          after: "config.action_mailer.raise_delivery_errors = false" do
-          cut <<~RUBY
+          cut <<~HERE
             |
             |  config.action_mailer.delivery_method = :letter_opener_web
             |  config.action_mailer.default_url_options = { port: 3000 }
-          RUBY
+          HERE
         end
       end
 
