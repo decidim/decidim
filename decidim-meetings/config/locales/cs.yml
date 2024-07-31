@@ -449,6 +449,7 @@ cs:
         new_meeting: 'Nová schůze:'
       layouts:
         live_event:
+          administrate: Spravovat
           close: zavřít
           questions: Otázky
       mailer:
