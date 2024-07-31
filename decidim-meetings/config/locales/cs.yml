@@ -372,6 +372,13 @@ cs:
           update:
             invalid: Při aktualizaci této schůze došlo k chybě.
             success: Anketa ke schůzi byla úspěšně aktualizována.
+        poll:
+          form:
+            announcement_html:
+              - 
+              - Otázku můžete kdykoliv přidat.
+              - 
+              - 
         registrations:
           edit:
             save: Uložit
@@ -602,6 +609,9 @@ cs:
             title: Titul
       polls:
         answers:
+          index:
+            administrate: Spravovat
+            title: Anketa
           index_admin:
             back_to_meeting: Zpět na schůzku
         questions:
