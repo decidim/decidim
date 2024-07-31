@@ -220,7 +220,8 @@ describe "Meeting registrations" do
             visit_meeting
 
             click_on "Register"
-            within "#meeting-registration-confirm-#{meeting.id}" do
+
+            within first "#meeting-registration-confirm-#{meeting.id}" do
               expect(page).to have_content "A legal text"
               expect(page).to have_content "Show my attendance publicly"
               expect(page).to have_field("public_participation", checked: false)

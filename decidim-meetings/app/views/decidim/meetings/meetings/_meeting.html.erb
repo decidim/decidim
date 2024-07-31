@@ -4,7 +4,7 @@
 
       <%= cell "decidim/meetings/dates_and_map", meeting %>
 
-      <div class="block md:hidden">
+      <div class="meeting_aside_partial block md:hidden">
         <%= render partial: "meeting_aside" %>
       </div>
       <%= render partial: "meeting_poll_actions", locals: { mobile: true } %>
@@ -62,7 +62,7 @@
   <%= pad_iframe_for meeting %>
 
   <% content_for :aside do %>
-    <div class="meeting_aside_partial hidden md:block">
+    <div class="hidden md:block">
       <%= render partial: "meeting_aside" %>
     </div>
   <% end %>
