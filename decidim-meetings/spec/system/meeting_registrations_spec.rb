@@ -221,11 +221,13 @@ describe "Meeting registrations" do
 
             click_on "Register"
 
-            within "#meeting-registration-confirm-#{meeting.id}" do
-              expect(page).to have_content "A legal text"
-              expect(page).to have_content "Show my attendance publicly"
-              expect(page).to have_field("public_participation", checked: false)
-              click_on "Confirm"
+            within all(".meeting-aside")[1] do
+              within "#meeting-registration-confirm-#{meeting.id}" do
+                expect(page).to have_content "A legal text"
+                expect(page).to have_content "Show my attendance publicly"
+                expect(page).to have_field("public_participation", checked: false)
+                click_on "Confirm"
+              end
             end
 
             within_flash_messages do
@@ -367,8 +369,11 @@ describe "Meeting registrations" do
         visit_meeting
 
         click_on "Cancel your registration"
-        within ".meeting__cancelation-modal" do
-          click_on "Cancel your registration"
+
+        within all(".meeting-aside")[1] do
+          within ".meeting__cancelation-modal" do
+            click_on "Cancel your registration"
+          end
         end
 
         within_flash_messages do
