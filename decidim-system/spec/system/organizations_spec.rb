@@ -217,17 +217,20 @@ describe "Organizations" do
             facebook: {
               enabled: true,
               app_id: "fake-facebook-app-id",
-              app_secret: "fake-facebook-app-secret"
+              app_secret: "fake-facebook-app-secret",
+              icon: "phone"
             },
             twitter: {
               enabled: true,
               api_key: "fake-twitter-api-key",
-              api_secret: "fake-twitter-api-secret"
+              api_secret: "fake-twitter-api-secret",
+              icon: "phone"
             },
             google_oauth2: {
               enabled: true,
               client_id: "",
-              client_secret: ""
+              client_secret: "",
+              icon: "phone"
             },
             developer: {
               enabled: false,
