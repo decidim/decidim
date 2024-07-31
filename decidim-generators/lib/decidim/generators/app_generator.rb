@@ -198,7 +198,7 @@ module Decidim
         abort("#{providers} is not supported as storage provider, please use local, s3, gcs or azure") unless (providers - %w(local s3 gcs azure)).empty?
         gsub_file "config/environments/production.rb",
                   /config.active_storage.service = :local/,
-        %Q{config.active_storage.service = Decidim::Env.new("STORAGE_PROVIDER", "local").to_s}
+                  %{config.active_storage.service = Decidim::Env.new("STORAGE_PROVIDER", "local").to_s}
 
         add_production_gems do
           gem "aws-sdk-s3", require: false if providers.include?("s3")

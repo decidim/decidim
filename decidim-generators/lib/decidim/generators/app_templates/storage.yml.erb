@@ -8,33 +8,33 @@ local:
 
 s3:
   service: S3
-  access_key_id: <%%= Rails.application.secrets.dig(:storage, :s3, :access_key_id) %>
-  secret_access_key: <%%= Rails.application.secrets.dig(:storage, :s3, :secret_access_key) %>
-  bucket: <%%= Rails.application.secrets.dig(:storage, :s3, :bucket) %>
-  <%%= "region: #{Rails.application.secrets.dig(:storage, :s3, :region)}" if Rails.application.secrets.dig(:storage, :s3, :region) %>
-  <%%= "endpoint: #{Rails.application.secrets.dig(:storage, :s3, :endpoint)}" if Rails.application.secrets.dig(:storage, :s3, :endpoint) %>
+  access_key_id: <%%= ENV["AWS_ACCESS_KEY_ID"] %>
+  secret_access_key: <%%= ENV["AWS_SECRET_ACCESS_KEY"] %>
+  bucket: <%%= ENV["AWS_BUCKET"] %>
+  <%%= "region: #{ENV["AWS_REGION"]}" if ENV["AWS_REGION"] %>
+  <%%= "endpoint: #{ ENV["AWS_ENDPOINT"]}" if ENV["AWS_ENDPOINT"] %>
 
 azure:
   service: AzureStorage
-  storage_account_name: <%%= Rails.application.secrets.dig(:storage, :azure, :storage_account_name) %>
-  storage_access_key: <%%= Rails.application.secrets.dig(:storage, :azure, :storage_access_key) %>
-  container: <%%= Rails.application.secrets.dig(:storage, :azure, :container) %>
+  storage_account_name: <%%= ENV["AZURE_STORAGE_ACCOUNT_NAME"] %>
+  storage_access_key: <%%= ENV["AZURE_STORAGE_ACCESS_KEY"] %>
+  container: <%%= ENV["AZURE_CONTAINER"] %>
 
 gcs:
   service: GCS
-  project: <%%= Rails.application.secrets.dig(:storage, :gcs, :project) %>
-  bucket: <%%= Rails.application.secrets.dig(:storage, :gcs, :bucket) %>
+  project: <%%= ENV["GCS_PROJECT"] %>
+  bucket: <%%= ENV["GCS_BUCKET"] %>
   credentials:
-    type: <%%= Rails.application.secrets.dig(:storage, :gcs, :type) %>
-    project_id: <%%= Rails.application.secrets.dig(:storage, :gcs, :project_id) %>
-    private_key_id: <%%= Rails.application.secrets.dig(:storage, :gcs, :private_key_id) %>
-    private_key: <%%= Rails.application.secrets.dig(:storage, :gcs, :private_key) %>
-    client_email: <%%= Rails.application.secrets.dig(:storage, :gcs, :client_email) %>
-    client_id: <%%= Rails.application.secrets.dig(:storage, :gcs, :client_id) %>
-    auth_uri: <%%= Rails.application.secrets.dig(:storage, :gcs, :auth_uri) %>
-    token_uri: <%%= Rails.application.secrets.dig(:storage, :gcs, :token_uri) %>
-    auth_provider_x509_cert_url: <%%= Rails.application.secrets.dig(:storage, :gcs, :auth_provider_x509_cert_url) %>
-    client_x509_cert_url: <%%= Rails.application.secrets.dig(:storage, :gcs, :client_x509_cert_url) %>
+    type: <%%= Decidim::Env.new("GCS_TYPE", "service_account").to_s %>
+    project_id: <%%= Decidim::Env.new("GCS_PROJECT_ID").to_s %>
+    private_key_id: <%%= Decidim::Env.new("GCS_PRIVATE_KEY_ID").to_s %>
+    private_key: <%%= Decidim::Env.new("GCS_PRIVATE_KEY").to_s %>
+    client_email: <%%= Decidim::Env.new("GCS_CLIENT_EMAIL").to_s %>
+    client_id: <%%= Decidim::Env.new("GCS_CLIENT_ID").to_s %>
+    auth_uri: <%%= Decidim::Env.new("GCS_AUTH_URI", "https://accounts.google.com/o/oauth2/auth").to_s %>
+    token_uri:  <%%= Decidim::Env.new("GCS_TOKEN_URI", "https://accounts.google.com/o/oauth2/token").to_s %>
+    auth_provider_x509_cert_url: <%%= Decidim::Env.new("GCS_AUTH_PROVIDER_X509_CERT_URL", "https://www.googleapis.com/oauth2/v1/certs").to_s %>
+    client_x509_cert_url: <%%= Decidim::Env.new("GCS_CLIENT_X509_CERT_URL").to_s %>
 
 # mirror:
 #   service: Mirror

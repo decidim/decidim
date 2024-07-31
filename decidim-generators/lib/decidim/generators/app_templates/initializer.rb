@@ -12,7 +12,7 @@ Decidim.configure do |config|
   # When an organization is created through the System area, system admins will
   # be able to choose the available languages for that organization. That list
   # of languages will be equal or a subset of the list in this file.
-  config.available_locales = Decidim::Env.new("DECIDIM_AVAILABLE_LOCALES", "ca,cs,de,en,es,eu,fi,fr,it,ja,nl,pl,pt,ro").to_array.to_json
+  config.available_locales = Decidim::Env.new("DECIDIM_AVAILABLE_LOCALES", "ca,cs,de,en,es,eu,fi,fr,it,ja,nl,pl,pt,ro").to_array
   # Or block set it up manually and prevent ENV manipulation:
   # config.available_locales = %w(en ca es)
 
@@ -24,7 +24,7 @@ Decidim.configure do |config|
   # Restrict access to the system part with an authorized ip list.
   # You can use a single ip like ("1.2.3.4"), or an ip subnet like ("1.2.3.4/24")
   # You may specify multiple ip in an array ["1.2.3.4", "1.2.3.4/24"]
-  config.system_accesslist_ips = Rails.application.secrets.decidim[:system_accesslist_ips] if Rails.application.secrets.decidim[:system_accesslist_ips].present?
+  config.system_accesslist_ips = Decidim::Env.new("DECIDIM_SYSTEM_ACCESSLIST_IPS").to_array
 
   # Defines a list of custom content processors. They are used to parse and
   # render specific tags inside some user-provided content. Check the docs for
@@ -40,12 +40,12 @@ Decidim.configure do |config|
   # config.force_ssl = true
 
   # Enable the service worker. By default is disabled in development and enabled in the rest of environments
-  config.service_worker_enabled = Rails.application.secrets.decidim[:service_worker_enabled].present?
+  config.service_worker_enabled = Decidim::Env.new("DECIDIM_SERVICE_WORKER_ENABLED", Rails.env.exclude?("development")).present?
 
   # Sets the list of static pages' slugs that can include content blocks.
   # By default is only enabled in the terms-of-service static page to allow a summary to be added and include
   # sections with a two-pane view
-  config.page_blocks = Rails.application.secrets.decidim[:page_blocks].presence || %w(terms-of-service)
+  config.page_blocks = Decidim::Env.new("DECIDIM_PAGE_BLOCKS", "terms-of-service").to_array
 
   # Map and Geocoder configuration
   #
@@ -55,7 +55,7 @@ Decidim.configure do |config|
   # == HERE Maps ==
   # config.maps = {
   #   provider: :here,
-  #   api_key: Rails.application.secrets.maps[:api_key],
+  #   api_key: ENV["MAPS_API_KEY"],
   #   static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
   # }
   #
@@ -74,7 +74,7 @@ Decidim.configure do |config|
   #
   # config.maps = {
   #   provider: :osm,
-  #   api_key: Rails.application.secrets.maps[:api_key],
+  #   api_key: ENV["MAPS_API_KEY"],
   #   dynamic: {
   #     tile_layer: {
   #       url: "https://tiles.example.org/{z}/{x}/{y}.png?key={apiKey}&{foo}",
@@ -94,10 +94,10 @@ Decidim.configure do |config|
   # == Combination (OpenStreetMap default + HERE Maps dynamic map tiles) ==
   # config.maps = {
   #   provider: :osm,
-  #   api_key: Rails.application.secrets.maps[:api_key],
+  #   api_key: ENV["MAPS_API_KEY"],
   #   dynamic: {
   #     provider: :here,
-  #     api_key: Rails.application.secrets.maps[:here_api_key]
+  #     api_key: ENV["MAPS_DYNAMIC_API_KEY"]
   #   },
   #   static: { url: "https://staticmap.example.org/" },
   #   geocoding: { host: "nominatim.example.org", use_https: true }
@@ -116,27 +116,27 @@ Decidim.configure do |config|
   #   cache: Redis.new,
   #   cache_prefix: "..."
   # }
-  if Rails.application.secrets.maps.present? && Rails.application.secrets.maps[:static_provider].present?
-    static_provider = Rails.application.secrets.maps[:static_provider]
-    dynamic_provider = Rails.application.secrets.maps[:dynamic_provider]
-    dynamic_url = Rails.application.secrets.maps[:dynamic_url]
-    static_url = Rails.application.secrets.maps[:static_url]
+  if Decidim::Env.new("MAPS_STATIC_PROVIDER", ENV.fetch("MAPS_PROVIDER", nil)).present?
+    static_provider = Decidim::Env.new("MAPS_STATIC_PROVIDER", ENV.fetch("MAPS_PROVIDER", nil)).to_s
+    dynamic_provider = Decidim::Env.new("MAPS_DYNAMIC_PROVIDER", ENV.fetch("MAPS_PROVIDER", nil)).to_s
+    dynamic_url = ENV.fetch("MAPS_DYNAMIC_URL", nil)
+    static_url = ENV.fetch("MAPS_STATIC_URL", nil)
     static_url = "https://image.maps.ls.hereapi.com/mia/1.6/mapview" if static_provider == "here" && static_url.blank?
     config.maps = {
       provider: static_provider,
-      api_key: Rails.application.secrets.maps[:static_api_key],
+      api_key: Decidim::Env.new("MAPS_STATIC_API_KEY", ENV.fetch("MAPS_API_KEY", nil)).to_s,
       static: { url: static_url },
       dynamic: {
         provider: dynamic_provider,
-        api_key: Rails.application.secrets.maps[:dynamic_api_key]
+        api_key: Decidim::Env.new("MAPS_DYNAMIC_API_KEY", ENV.fetch("MAPS_API_KEY", nil)).to_s
       }
     }
-    config.maps[:geocoding] = { host: Rails.application.secrets.maps[:geocoding_host], use_https: true } if Rails.application.secrets.maps[:geocoding_host]
+    config.maps[:geocoding] = { host: ENV["MAPS_GEOCODING_HOST"], use_https: true } if ENV["MAPS_GEOCODING_HOST"]
     config.maps[:dynamic][:tile_layer] = {}
     config.maps[:dynamic][:tile_layer][:url] = dynamic_url if dynamic_url
-    config.maps[:dynamic][:tile_layer][:attribution] = Rails.application.secrets.maps[:attribution] if Rails.application.secrets.maps[:attribution]
-    if Rails.application.secrets.maps[:extra_vars].present?
-      vars = URI.decode_www_form(Rails.application.secrets.maps[:extra_vars])
+    config.maps[:dynamic][:tile_layer][:attribution] = ENV["MAPS_ATTRIBUTION"] if ENV["MAPS_ATTRIBUTION"]
+    if ENV["MAPS_EXTRA_VARS"].present?
+      vars = URI.decode_www_form(ENV["MAPS_EXTRA_VARS"])
       vars.each do |key, value|
         # perform a naive type conversion
         config.maps[:dynamic][:tile_layer][key] = case value
@@ -298,7 +298,7 @@ Decidim.configure do |config|
   end
 
   # Sets Decidim::Exporters::CSV's default column separator
-  config.default_csv_col_sep = Rails.application.secrets.decidim[:default_csv_col_sep] if Rails.application.secrets.decidim[:default_csv_col_sep].present?
+  config.default_csv_col_sep = Decidim::Env.new("DECIDIM_DEFAULT_CSV_COL_SEP", ";").to_json
 
   # The list of roles a user can have, not considering the space-specific roles.
   # config.user_roles = %w(admin user_manager)
@@ -346,11 +346,11 @@ Decidim.configure do |config|
   # config.machine_translation_service = "MyTranslationService"
 
   # Defines the social networking services used for social sharing
-  config.social_share_services = Rails.application.secrets.decidim[:social_share_services]
+  config.social_share_services = Decidim::Env.new("DECIDIM_SOCIAL_SHARE_SERVICES", "X, Facebook, WhatsApp, Telegram").to_array.to_json
 
   # Defines the name of the cookie used to check if the user allows Decidim to
   # set cookies.
-  config.consent_cookie_name = Rails.application.secrets.decidim[:consent_cookie_name] if Rails.application.secrets.decidim[:consent_cookie_name].present?
+  config.consent_cookie_name = Decidim::Env.new("DECIDIM_CONSENT_COOKIE_NAME", "decidim-consent").to_json
 
   # Defines data consent categories and the data stored in each category.
   # config.consent_categories = [
@@ -387,87 +387,86 @@ Decidim.configure do |config|
   config.content_security_policies_extra = {}
 
   # Admin admin password configurations
-  Rails.application.secrets.dig(:decidim, :admin_password, :strong).tap do |strong_pw|
-    # When the strong password is not configured, default to true
-    config.admin_password_strong = strong_pw.nil? ? true : strong_pw.present?
-  end
-  config.admin_password_expiration_days = Rails.application.secrets.dig(:decidim, :admin_password, :expiration_days).presence || 90
-  config.admin_password_min_length = Rails.application.secrets.dig(:decidim, :admin_password, :min_length).presence || 15
-  config.admin_password_repetition_times = Rails.application.secrets.dig(:decidim, :admin_password, :repetition_times).presence || 5
+  config.admin_password_strong = Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_STRONG", true).to_boolean_string
+
+  config.admin_password_expiration_days = Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_EXPIRATION_DAYS", 90).to_i
+  config.admin_password_min_length = Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_MIN_LENGTH", 15).to_i
+  config.admin_password_repetition_times = Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES", 5).to_i
 
   # Additional optional configurations (see decidim-core/lib/decidim/core.rb)
-  config.cache_key_separator = Rails.application.secrets.decidim[:cache_key_separator] if Rails.application.secrets.decidim[:cache_key_separator].present?
-  config.expire_session_after = Rails.application.secrets.decidim[:expire_session_after].to_i.minutes if Rails.application.secrets.decidim[:expire_session_after].present?
-  config.enable_remember_me = Rails.application.secrets.decidim[:enable_remember_me].present? unless Rails.application.secrets.decidim[:enable_remember_me] == "auto"
-  if Rails.application.secrets.decidim[:session_timeout_interval].present?
-    config.session_timeout_interval = Rails.application.secrets.decidim[:session_timeout_interval].to_i.seconds
+  config.cache_key_separator = Decidim::Env.new("DECIDIM_CACHE_KEY_SEPARATOR", "/").to_json
+  config.expire_session_after = Decidim::Env.new("DECIDIM_EXPIRE_SESSION_AFTER", "30").to_i.minutes
+  unless Decidim::Env.new("DECIDIM_ENABLE_REMEMBER_ME", "auto").default_or_present_if_exists.to_s == "auto"
+    config.enable_remember_me = Decidim::Env.new("DECIDIM_ENABLE_REMEMBER_ME", "auto").default_or_present_if_exists
   end
-  config.follow_http_x_forwarded_host = Rails.application.secrets.decidim[:follow_http_x_forwarded_host].present?
-  config.maximum_conversation_message_length = Rails.application.secrets.decidim[:maximum_conversation_message_length].to_i
-  config.password_similarity_length = Rails.application.secrets.decidim[:password_similarity_length] if Rails.application.secrets.decidim[:password_similarity_length].present?
-  config.denied_passwords = Rails.application.secrets.decidim[:denied_passwords] if Rails.application.secrets.decidim[:denied_passwords].present?
-  config.allow_open_redirects = Rails.application.secrets.decidim[:allow_open_redirects] if Rails.application.secrets.decidim[:allow_open_redirects].present?
+
+  config.session_timeout_interval = Decidim::Env.new("DECIDIM_SESSION_TIMEOUT_INTERVAL", "10").to_i.seconds
+  config.follow_http_x_forwarded_host = Decidim::Env.new("DECIDIM_FOLLOW_HTTP_X_FORWARDED_HOST").present?
+  config.maximum_conversation_message_length = Decidim::Env.new("DECIDIM_MAXIMUM_CONVERSATION_MESSAGE_LENGTH", "1000").to_i
+  config.password_similarity_length = Decidim::Env.new("DECIDIM_PASSWORD_SIMILARITY_LENGTH", 4).to_i
+  config.denied_passwords = Decidim::Env.new("DECIDIM_DENIED_PASSWORDS").to_array(separator: ", ")
+  config.allow_open_redirects = Decidim::Env.new("DECIDIM_ALLOW_OPEN_REDIRECTS").present?
 end
 
 if Decidim.module_installed? :api
   Decidim::Api.configure do |config|
-    config.schema_max_per_page = Rails.application.secrets.dig(:decidim, :api, :schema_max_per_page).presence || 50
-    config.schema_max_complexity = Rails.application.secrets.dig(:decidim, :api, :schema_max_complexity).presence || 5000
-    config.schema_max_depth = Rails.application.secrets.dig(:decidim, :api, :schema_max_depth).presence || 15
+    config.schema_max_per_page = Decidim::Env.new("API_SCHEMA_MAX_PER_PAGE", 50).to_i
+    config.schema_max_complexity = Decidim::Env.new("API_SCHEMA_MAX_COMPLEXITY", 5000).to_i
+    config.schema_max_depth = Decidim::Env.new("API_SCHEMA_MAX_DEPTH", 15).to_i
   end
 end
 
 if Decidim.module_installed? :proposals
   Decidim::Proposals.configure do |config|
-    config.participatory_space_highlighted_proposals_limit = Rails.application.secrets.dig(:decidim, :proposals, :participatory_space_highlighted_proposals_limit).presence || 4
-    config.process_group_highlighted_proposals_limit = Rails.application.secrets.dig(:decidim, :proposals, :process_group_highlighted_proposals_limit).presence || 3
+    config.participatory_space_highlighted_proposals_limit = Decidim::Env.new("PROPOSALS_PARTICIPATORY_SPACE_HIGHLIGHTED_PROPOSALS_LIMIT", 4).to_i
+    config.process_group_highlighted_proposals_limit = Decidim::Env.new("PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT", 3).to_i
   end
 end
 
 if Decidim.module_installed? :meetings
   Decidim::Meetings.configure do |config|
-    config.upcoming_meeting_notification = Rails.application.secrets.dig(:decidim, :meetings, :upcoming_meeting_notification).to_i.days
-    if Rails.application.secrets.dig(:decidim, :meetings, :embeddable_services).present?
-      config.embeddable_services = Rails.application.secrets.dig(:decidim, :meetings, :embeddable_services)
+    config.upcoming_meeting_notification = Decidim::Env.new("MEETINGS_UPCOMING_MEETING_NOTIFICATION", 2).to_i.days
+    if Decidim::Env.new("MEETINGS_EMBEDDABLE_SERVICES").to_array(separator: " ").present?
+      config.embeddable_services = Decidim::Env.new("MEETINGS_EMBEDDABLE_SERVICES").to_array(separator: " ")
     end
-    unless Rails.application.secrets.dig(:decidim, :meetings, :enable_proposal_linking) == "auto"
-      config.enable_proposal_linking = Rails.application.secrets.dig(:decidim, :meetings, :enable_proposal_linking).present?
+    unless Decidim::Env.new("MEETINGS_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists == "auto"
+      config.enable_proposal_linking = Decidim::Env.new("MEETINGS_ENABLE_PROPOSAL_LINKING", "auto").present?
     end
   end
 end
 
 if Decidim.module_installed? :budgets
   Decidim::Budgets.configure do |config|
-    unless Rails.application.secrets.dig(:decidim, :budgets, :enable_proposal_linking) == "auto"
-      config.enable_proposal_linking = Rails.application.secrets.dig(:decidim, :budgets, :enable_proposal_linking).present?
+    unless Decidim::Env.new("BUDGETS_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists.to_s == "auto"
+      config.enable_proposal_linking = Decidim::Env.new("BUDGETS_ENABLE_PROPOSAL_LINKING", "auto").present?
     end
   end
 end
 
 if Decidim.module_installed? :accountability
   Decidim::Accountability.configure do |config|
-    unless Rails.application.secrets.dig(:decidim, :accountability, :enable_proposal_linking) == "auto"
-      config.enable_proposal_linking = Rails.application.secrets.dig(:decidim, :accountability, :enable_proposal_linking).present?
+    unless Decidim::Env.new("ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists.to_s == "auto"
+      config.enable_proposal_linking = Decidim::Env.new("ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING", "auto").present?
     end
   end
 end
 
 if Decidim.module_installed? :initiatives
   Decidim::Initiatives.configure do |config|
-    unless Rails.application.secrets.dig(:decidim, :initiatives, :creation_enabled) == "auto"
-      config.creation_enabled = Rails.application.secrets.dig(:decidim, :initiatives, :creation_enabled).present?
+    unless Decidim::Env.new("INITIATIVES_CREATION_ENABLED", "auto").default_or_present_if_exists.to_s == "auto"
+      config.creation_enabled = Decidim::Env.new("INITIATIVES_CREATION_ENABLED", "auto").present?
     end
-    config.minimum_committee_members = Rails.application.secrets.dig(:decidim, :initiatives, :minimum_committee_members).presence || 2
-    config.default_signature_time_period_length = Rails.application.secrets.dig(:decidim, :initiatives, :default_signature_time_period_length).presence || 120
-    config.default_components = Rails.application.secrets.dig(:decidim, :initiatives, :default_components)
-    config.first_notification_percentage = Rails.application.secrets.dig(:decidim, :initiatives, :first_notification_percentage).presence || 33
-    config.second_notification_percentage = Rails.application.secrets.dig(:decidim, :initiatives, :second_notification_percentage).presence || 66
-    config.stats_cache_expiration_time = Rails.application.secrets.dig(:decidim, :initiatives, :stats_cache_expiration_time).to_i.minutes
-    config.max_time_in_validating_state = Rails.application.secrets.dig(:decidim, :initiatives, :max_time_in_validating_state).to_i.days
-    unless Rails.application.secrets.dig(:decidim, :initiatives, :print_enabled) == "auto"
-      config.print_enabled = Rails.application.secrets.dig(:decidim, :initiatives, :print_enabled).present?
+    config.minimum_committee_members = Decidim::Env.new("INITIATIVES_MINIMUM_COMMITTEE_MEMBERS", 2).to_i
+    config.default_signature_time_period_length = Decidim::Env.new("INITIATIVES_DEFAULT_SIGNATURE_TIME_PERIOD_LENGTH", 120).to_i
+    config.default_components = Decidim::Env.new("INITIATIVES_DEFAULT_COMPONENTS", "pages, meetings").to_array
+    config.first_notification_percentage = Decidim::Env.new("INITIATIVES_FIRST_NOTIFICATION_PERCENTAGE", 33).to_i
+    config.second_notification_percentage = Decidim::Env.new("INITIATIVES_SECOND_NOTIFICATION_PERCENTAGE", 66).to_i
+    config.stats_cache_expiration_time = Decidim::Env.new("INITIATIVES_STATS_CACHE_EXPIRATION_TIME", 5).to_i.minutes
+    config.max_time_in_validating_state = Decidim::Env.new("INITIATIVES_MAX_TIME_IN_VALIDATING_STATE", 60).to_i.days
+    unless Decidim::Env.new("INITIATIVES_PRINT_ENABLED", "auto").default_or_present_if_exists.to_s == "auto"
+      config.print_enabled = Decidim::Env.new("INITIATIVES_PRINT_ENABLED", "auto").present?
     end
-    config.do_not_require_authorization = Rails.application.secrets.dig(:decidim, :initiatives, :do_not_require_authorization).present?
+    config.do_not_require_authorization = Decidim::Env.new("INITIATIVES_DO_NOT_REQUIRE_AUTHORIZATION").present?
   end
 end
 

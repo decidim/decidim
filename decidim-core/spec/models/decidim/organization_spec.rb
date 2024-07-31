@@ -96,14 +96,14 @@ module Decidim
         end
 
         context "when providers are not enabled in secrets.yml" do
-          let!(:previous_omniauth_secrets) { Rails.application.secrets[:omniauth] }
+          let!(:previous_omniauth_secrets) { Decidim.omniauth_providers }
 
           before do
-            Rails.application.secrets[:omniauth] = nil
+            Decidim.omniauth_providers = nil
           end
 
           after do
-            Rails.application.secrets[:omniauth] = previous_omniauth_secrets
+            Decidim.omniauth_providers = previous_omniauth_secrets
           end
 
           it "returns no providers" do

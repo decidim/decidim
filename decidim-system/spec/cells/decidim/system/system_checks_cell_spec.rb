@@ -24,7 +24,7 @@ describe Decidim::System::SystemChecksCell, type: :cell do
 
   describe "secret_key_check" do
     before do
-      allow(Rails.application.secrets).to receive(:secret_key_base).and_return(secret_key)
+      allow(Rails.application).to receive(:secret_key_base).and_return(secret_key)
     end
 
     context "when the secret key is correct" do

@@ -573,6 +573,33 @@ module Decidim
     {}
   end
 
+  config_accessor :omniauth_providers do
+    {
+      developer: {
+        enabled: Rails.env.development? || Rails.env.test?,
+        icon: "phone-line"
+      },
+      facebook: {
+        enabled: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_ID").present?,
+        app_id: ENV.fetch("OMNIAUTH_FACEBOOK_APP_ID", nil),
+        app_secret: ENV.fetch("OMNIAUTH_FACEBOOK_APP_SECRET", nil),
+        icon: "facebook-fill"
+      },
+      twitter: {
+        enabled: Decidim::Env.new("OMNIAUTH_TWITTER_API_KEY").present?,
+        api_key: ENV.fetch("OMNIAUTH_TWITTER_API_KEY", nil),
+        api_secret: ENV.fetch("OMNIAUTH_TWITTER_API_SECRET", nil),
+        icon: "twitter-x-fill"
+      },
+      google_oauth2: {
+        enabled: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_ID").present?,
+        icon: "google-fill",
+        client_id: ENV.fetch("OMNIAUTH_GOOGLE_CLIENT_ID", nil),
+        client_secret: ENV.fetch("OMNIAUTH_GOOGLE_CLIENT_SECRET", nil)
+      }
+    }
+  end
+
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #

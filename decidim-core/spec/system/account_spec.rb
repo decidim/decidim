@@ -353,7 +353,9 @@ describe "Account" do
 
     context "when VAPID keys are set" do
       before do
-        Rails.application.secrets[:vapid] = vapid_keys
+        ENV["VAPID_PUBLIC_KEY"] = vapid_keys[:public_key]
+        ENV["VAPID_PRIVATE_KEY"] = vapid_keys[:private_key]
+
         driven_by(:pwa_chrome)
         switch_to_host(organization.host)
         login_as user, scope: :user
@@ -383,7 +385,7 @@ describe "Account" do
 
     context "when VAPID is disabled" do
       before do
-        Rails.application.secrets[:vapid] = { enabled: false }
+        ENV["VAPID_PUBLIC_KEY"] = ""
         driven_by(:pwa_chrome)
         switch_to_host(organization.host)
         login_as user, scope: :user
@@ -397,7 +399,7 @@ describe "Account" do
 
     context "when VAPID keys are not set" do
       before do
-        Rails.application.secrets.delete(:vapid)
+        ENV["VAPID_PUBLIC_KEY"] = nil
         driven_by(:pwa_chrome)
         switch_to_host(organization.host)
         login_as user, scope: :user

@@ -45,10 +45,6 @@ module Decidim
         RUBY
       end
 
-      def secrets
-        template "secrets.yml.erb", "config/secrets.yml", force: true
-      end
-
       def remove_layout
         remove_file "app/views/layouts/application.html.erb"
         remove_file "app/views/layouts/mailer.text.erb"

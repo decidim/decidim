@@ -73,7 +73,7 @@ describe "Organizations" do
 
       context "without the secret key defined" do
         before do
-          allow(Rails.application.secrets).to receive(:secret_key_base).and_return(nil)
+          allow(Rails.application).to receive(:secret_key_base).and_return(nil)
         end
 
         it "does not create an organization" do
@@ -192,7 +192,7 @@ describe "Organizations" do
 
       context "without the secret key defined" do
         before do
-          allow(Rails.application.secrets).to receive(:secret_key_base).and_return(nil)
+          allow(Rails.application).to receive(:secret_key_base).and_return(nil)
         end
 
         it "shows the error message" do
@@ -212,31 +212,28 @@ describe "Organizations" do
       end
 
       before do
-        secrets = Rails.application.secrets
-        allow(Rails.application).to receive(:secrets).and_return(
-          secrets.merge(
-            omniauth: {
-              facebook: {
-                enabled: true,
-                app_id: "fake-facebook-app-id",
-                app_secret: "fake-facebook-app-secret"
-              },
-              twitter: {
-                enabled: true,
-                api_key: "fake-twitter-api-key",
-                api_secret: "fake-twitter-api-secret"
-              },
-              google_oauth2: {
-                enabled: true,
-                client_id: "",
-                client_secret: ""
-              },
-              developer: {
-                enabled: false,
-                icon: "phone"
-              }
+        allow(Decidim).to receive(:omniauth_providers).and_return(
+          {
+            facebook: {
+              enabled: true,
+              app_id: "fake-facebook-app-id",
+              app_secret: "fake-facebook-app-secret"
+            },
+            twitter: {
+              enabled: true,
+              api_key: "fake-twitter-api-key",
+              api_secret: "fake-twitter-api-secret"
+            },
+            google_oauth2: {
+              enabled: true,
+              client_id: "",
+              client_secret: ""
+            },
+            developer: {
+              enabled: false,
+              icon: "phone"
             }
-          )
+          }
         )
 
         # Reload the UpdateOrganizationForm

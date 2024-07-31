@@ -19,27 +19,17 @@ docker stack deploy --compose-file docker-compose-etherpad.yml decidim-etherpad
 ----
 
 After deploying Etherpad, you should get back to Decidim's server and set the Etherpad host and API Key at
-`config/initializers/decidim.rb` and `config/secrets.yml`
+`config/initializers/decidim.rb`
 
 An example snippet in `config/initializers/decidim.rb` may be:
 
 [source,ruby]
 ----
 config.etherpad = {
-  server: Rails.application.secrets.etherpad[:server],
-  api_key: Rails.application.secrets.etherpad[:api_key],
-  api_version: Rails.application.secrets.etherpad[:api_version]
+  server: ENV["ETHERPAD_SERVER"],
+  api_key: ENV["ETHERPAD_API_KEY"],
+  api_version: Decidim::Env.new("ETHERPAD_API_VERSION", "1.2.1")
 }
-----
-
-and then in `config/secrets.yml`:
-
-[source,yaml]
-----
-  etherpad:
-    server: <%= ENV["ETHERPAD_SERVER"] %>
-    api_key: <%= ENV["ETHERPAD_API_KEY"] %>
-    api_version: <%= ENV["ETHERPAD_API_VERSION"] %>
 ----
 
 == How is Etherpad Lite integrated in Meetings?

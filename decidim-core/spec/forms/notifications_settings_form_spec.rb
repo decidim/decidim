@@ -178,7 +178,7 @@ module Decidim
     describe "#meet_push_notifications_requirements?" do
       context "when the notifications requirements are met" do
         before do
-          Rails.application.secrets[:vapid] = { enabled: true }
+          ENV["VAPID_PUBLIC_KEY"] = "FOO BAR"
         end
 
         it "returns true" do
@@ -188,7 +188,7 @@ module Decidim
 
       context "when vapid secrets are not present" do
         before do
-          Rails.application.secrets.delete(:vapid)
+          ENV["VAPID_PUBLIC_KEY"] = ""
         end
 
         it "returns false" do
@@ -198,7 +198,7 @@ module Decidim
 
       context "when the notifications requirements are not met" do
         before do
-          Rails.application.secrets[:vapid] = { enabled: false }
+          ENV["VAPID_PUBLIC_KEY"] = nil
         end
 
         it "returns false" do
