@@ -2,7 +2,7 @@
 
 Decidim.configure do |config|
   # The name of the application
-  config.application_name = Decidim::Env.new("DECIDIM_APPLICATION_NAME", "My Application Name").to_json
+  config.application_name = Decidim::Env.new("DECIDIM_APPLICATION_NAME", "My Application Name").to_s
 
   # The email that will be used as sender in all emails from Decidim
   config.mailer_sender = Decidim::Env.new("DECIDIM_MAILER_SENDER", "change-me@example.org").to_s
@@ -293,12 +293,12 @@ Decidim.configure do |config|
     config.etherpad = {
       server: ENV.fetch("ETHERPAD_SERVER", nil),
       api_key: ENV.fetch("ETHERPAD_API_KEY", nil),
-      api_version: Decidim::Env.new("ETHERPAD_API_VERSION", "1.2.1")
+      api_version: Decidim::Env.new("ETHERPAD_API_VERSION", "1.2.1").value
     }
   end
 
   # Sets Decidim::Exporters::CSV's default column separator
-  config.default_csv_col_sep = Decidim::Env.new("DECIDIM_DEFAULT_CSV_COL_SEP", ";").to_json
+  config.default_csv_col_sep = Decidim::Env.new("DECIDIM_DEFAULT_CSV_COL_SEP", ";").value
 
   # The list of roles a user can have, not considering the space-specific roles.
   # config.user_roles = %w(admin user_manager)
@@ -346,7 +346,7 @@ Decidim.configure do |config|
   # config.machine_translation_service = "MyTranslationService"
 
   # Defines the social networking services used for social sharing
-  config.social_share_services = Decidim::Env.new("DECIDIM_SOCIAL_SHARE_SERVICES", "X, Facebook, WhatsApp, Telegram").to_array.to_json
+  config.social_share_services = Decidim::Env.new("DECIDIM_SOCIAL_SHARE_SERVICES", "X, Facebook, WhatsApp, Telegram").to_array
 
   # Defines the name of the cookie used to check if the user allows Decidim to
   # set cookies.

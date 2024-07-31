@@ -195,7 +195,8 @@ module Decidim
         before do
           allow(Rails.env).to receive(:development?).and_return(false)
           allow(Rails.env).to receive(:test?).and_return(false)
-          ENV["STORAGE_CDN_HOST"] = cdn_host
+          allow(ENV).to receive(:fetch).and_call_original
+          allow(ENV).to receive(:fetch).with("STORAGE_CDN_HOST", nil).and_return(cdn_host)
         end
 
         it "returns a URL containing the CDN configurations" do
