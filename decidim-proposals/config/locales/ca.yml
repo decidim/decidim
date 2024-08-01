@@ -170,6 +170,11 @@ ca:
               random: Aleatòriament
               recent: Recents
               with_more_authors: Amb més autores
+            edit_time: Les autores poden editar les seves propostes abans que passi aquest temps
+            edit_time_units:
+              days: Dies
+              hours: Hores
+              minutes: Minuts
             geocoding_enabled: Geocodificació habilitada
             minimum_votes_per_user: Suports mínims per usuari
             new_proposal_body_template: Plantilla pel text de nova proposta
@@ -179,11 +184,14 @@ ca:
             participatory_texts_enabled: Texts participatius habilitats
             participatory_texts_enabled_readonly: No es pot interactuar amb aquesta configuració si hi ha propostes existents. Si us plau, crea un nou 'component de propostes' si vols habilitar aquesta característica o descarta totes les propostes importades al menú "textos participatius" si vols deshabilitar-lo.
             proposal_answering_enabled: Resposta a propostes habilitada
-            proposal_edit_before_minutes: Les propostes poden ser editades per les autores abans que passin aquests minuts
             proposal_edit_time: Edició de propostes
             proposal_edit_time_choices:
               infinite: Permet l'edició de propostes durant un període infinit
               limited: Permet l'edició de propostes durant una finestra temporal específica
+            proposal_edit_time_unit_options:
+              days: Dies
+              hours: Hores
+              minutes: Minuts
             proposal_length: Longitud màxima del cos de la proposta
             proposal_limit: Límit de propostes per participant
             proposal_wizard_step_1_help_text: Text d'ajuda pel pas "Crear" de l'assistent de propostes
@@ -234,11 +242,26 @@ ca:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_intro: Has estat assignada com a avaluadora de la proposta "%{resource_title}". Això vol dir que es confia en tu per donar la teva opinió i per donar una resposta adequada en els pròxims dies. Pots veure la proposta al <a href="%{admin_proposal_info_url}">taulell d'administració</a>.
+            email_outro: Reps aquesta notificació perquè pots avaluar la proposta.
+            email_subject: Has estat assignada com a avaluadora de la proposta "%{resource_title}".
+            notification_title: Has estat assignada com a avaluadora de la proposta "<a href="%{resource_path}">%{resource_title}</a>". Pots veure la proposta al <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
           proposal_note_created:
-            email_intro: Algú ha deixat una nota a la proposta "%{resource_title}". Revisa-la ara a través del <a href="%{admin_proposal_info_url}">taulell d'administració</a>.
+            email_intro: '%{author_name} ha creat una nota privada a %{resource_title}. La pots veure al <a href="%{admin_proposal_info_url}">taulell d''administració</a>.'
             email_outro: Reps aquesta notificació perquè pots avaluar la proposta.
             email_subject: Algú ha deixat una nota a la proposta %{resource_title}.
-            notification_title: Algú ha deixat una nota a la proposta <a href="%{resource_path}">%{resource_title}</a>. Revisa-la ara a través del <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creat una nota privada a <a href="%{resource_path}">%{resource_title}</a>. La pots veure al <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
+          proposal_note_mentioned:
+            email_intro: '"%{author_name}" "%{author_nickname}" t''ha esmentat a una nota privada a "%{resource_title}". La pots veure al <a href="%{admin_proposal_info_url}">taulell d''administració</a>.'
+            email_outro: Has rebut aquesta notificació perquè t'han esmentat a una nota privada.
+            email_subject: Algú ha deixat una nota a la proposta %{resource_title}.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> te ha esmentat a una nota privada a <a href="%{resource_path}">%{resource_title}</a>. La pots veure al <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
+          proposal_note_replied:
+            email_intro: '%{author_name} ha respost la teva nota privada a %{resource_title}. Ho pots veure al <a href="%{admin_proposal_info_url}">taulell d''administració</a>.'
+            email_outro: Has rebut aquesta notificació perquè ets l'autora de la nota privada.
+            email_subject: "%{author_name} ha respost a la teva nota privada a %{resource_title}."
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha respost a la teva nota privada a <a href="%{resource_path}">%{resource_title}</a>. Ho pots veure al <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
         collaborative_draft_access_accepted:
           email_intro: 'S''ha acceptat %{requester_name} per accedir com a contribuidora de l''esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has rebut aquesta notificació perquè vas contribuir a la proposta "<a href="%{resource_url}">%{resource_title}</a>".
@@ -473,7 +496,9 @@ ca:
           form:
             note: Nota
             submit: Enviar
-          leave_your_note: Deixa la teva nota
+          reply:
+            error: S'ha produït un error en crear aquesta resposta a la nota privada.
+            success: La resposta a la nota privada s'ha creat amb èxit.
           title: Notes privades
         proposal_states:
           create:

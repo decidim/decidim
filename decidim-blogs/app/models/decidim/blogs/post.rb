@@ -26,7 +26,7 @@ module Decidim
       validates :title, presence: true
 
       scope :created_at_desc, -> { order(arel_table[:created_at].desc) }
-      scope :published, -> { where("published_at <= ?", Time.current) }
+      scope :published, -> { where(published_at: ..Time.current) }
 
       searchable_fields({
                           participatory_space: { component: :participatory_space },

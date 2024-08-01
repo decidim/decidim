@@ -116,7 +116,6 @@ zh-CN:
             participatory_texts_enabled: 参与性案文已启用
             participatory_texts_enabled_readonly: 如果有现存的提议，无法与此设置进行交互。 请， 如果您想要启用此功能，或在"参与文本"菜单中放弃所有导入的提议，则创建一个新的 "建议组件"。
             proposal_answering_enabled: 建议答案已启用
-            proposal_edit_before_minutes: 建议可以由作者在这么多分钟过去之前编辑
             proposal_length: 最大建议体长度
             proposal_limit: 每个参与者的建议限制
             proposal_wizard_step_1_help_text: 建议向导“创建”步骤帮助文本
@@ -294,7 +293,6 @@ zh-CN:
           form:
             note: 说明
             submit: 提交
-          leave_your_note: 留下您的便笺
           title: 私人笔记
         proposals:
           edit:

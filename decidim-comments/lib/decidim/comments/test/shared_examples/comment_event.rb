@@ -10,7 +10,7 @@ shared_context "when it is a comment event" do
 
   let(:resource) { comment.commentable }
 
-  let(:comment) { create :comment }
+  let(:comment) { create(:comment) }
   let(:comment_author) { comment.author }
   let(:normalized_comment_author) { comment.author }
   let(:comment_author_name) { decidim_html_escape comment.author.name }

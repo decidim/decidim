@@ -16,6 +16,8 @@ gem "decidim-dev", github: "decidim/decidim"
 ### 1.2. Run these commands
 
 ```console
+sudo apt install p7zip # or the alternative installation process for your operating system. See "2.1. 7zip dependency introduction"
+bundle remove spring spring-watcher-listen
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
@@ -25,11 +27,35 @@ bin/rails db:migrate
 
 ## 2. General notes
 
+### 2.1. 7zip dependency introduction
+
+We had to migrate from an unmaintained dependency and do a wrapper for the 7zip command line. This means that you need to install 7zip in your system. You can do it by running:
+
+```bash
+sudo apt install p7zip
+```
+
+This works for Ubuntu Linux, other operating systems would need to do other command/package.
+
+You can read more about this change on PR [#13185](https://github.com/decidim/decidim/pull/13185).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
 
-### 3.1. [[TITLE OF THE ACTION]]
+### 3.1. Remove spring and spring-watcher-listen from your Gemfile
+
+To simplify the upgrade process, we have decided to add `spring` and `spring-watcher-listener` as hard dependencies of `decidim-dev`.
+
+Before upgrading to this version, make sure you run in your console:
+
+```bash
+bundle remove spring spring-watcher-listen
+```
+
+You can read more about this change on PR [#13235](https://github.com/decidim/decidim/pull/13235).
+
+### 3.2. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

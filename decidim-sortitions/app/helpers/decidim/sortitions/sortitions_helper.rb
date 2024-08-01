@@ -27,13 +27,12 @@ module Decidim
 
       # Show list of candidate proposals for a sortition. Selected sortition ids will appear with bold font.
       def sortition_proposal_candidate_ids(sortition)
-        result = []
-        sortition.candidate_proposals.each do |proposal_id|
-          result << if sortition.selected_proposals.include? proposal_id
-                      "<b>#{proposal_id}</b>"
-                    else
-                      proposal_id.to_s
-                    end
+        result = sortition.candidate_proposals.map do |proposal_id|
+          if sortition.selected_proposals.include? proposal_id
+            "<b>#{proposal_id}</b>"
+          else
+            proposal_id.to_s
+          end
         end
 
         result.join(" - ").html_safe

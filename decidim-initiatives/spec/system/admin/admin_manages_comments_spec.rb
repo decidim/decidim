@@ -22,7 +22,7 @@ describe "Admin manages comments" do
   end
 
   it_behaves_like "sorted moderations" do
-    let!(:reportables) { create_list(:comment, 17, commentable:) }
+    let!(:reportables) { create_list(:comment, 27, commentable:) }
     let!(:moderations) do
       reportables.first(reportables.length - 1).map do |reportable|
         moderation = create(:moderation, reportable:, participatory_space: commentable, report_count: 1)
