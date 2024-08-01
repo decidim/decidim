@@ -149,7 +149,7 @@ module Decidim
 
         before do
           allow(ENV).to receive(:fetch).and_call_original
-          allow(ENV).to receive(:fetch).with("DECIDIM_MAXIMUM_ATTACHMENT_SIZE", nil).and_return("#{maximum_attachment_size}")
+          allow(ENV).to receive(:fetch).with("DECIDIM_MAXIMUM_ATTACHMENT_SIZE", nil).and_return(maximum_attachment_size.to_s)
 
           # defaults method is memoized, we need to reset it to make sure it uses the stubbed values
           described_class.instance_variable_set(:@defaults, nil)
