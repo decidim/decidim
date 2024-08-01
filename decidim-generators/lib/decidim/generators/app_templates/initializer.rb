@@ -350,7 +350,7 @@ Decidim.configure do |config|
 
   # Defines the name of the cookie used to check if the user allows Decidim to
   # set cookies.
-  config.consent_cookie_name = Decidim::Env.new("DECIDIM_CONSENT_COOKIE_NAME", "decidim-consent").to_json
+  config.consent_cookie_name = Decidim::Env.new("DECIDIM_CONSENT_COOKIE_NAME", "decidim-consent").to_s
 
   # Defines data consent categories and the data stored in each category.
   # config.consent_categories = [

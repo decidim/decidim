@@ -46,7 +46,7 @@ module Decidim
     end
 
     def meet_push_notifications_requirements?
-      Decidim::Env.new("VAPID_PUBLIC_KEY").present?
+      Decidim::Env.new("VAPID_PUBLIC_KEY", nil).present?
     end
   end
 end
