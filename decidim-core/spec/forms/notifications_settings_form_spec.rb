@@ -178,7 +178,8 @@ module Decidim
     describe "#meet_push_notifications_requirements?" do
       context "when the notifications requirements are met" do
         before do
-          ENV["VAPID_PUBLIC_KEY"] = "FOO BAR"
+          allow(ENV).to receive(:fetch).and_call_original
+          allow(ENV).to receive(:fetch).with("VAPID_PUBLIC_KEY", nil).and_return("FOO BAR")
         end
 
         it "returns true" do
@@ -188,7 +189,8 @@ module Decidim
 
       context "when vapid secrets are not present" do
         before do
-          ENV["VAPID_PUBLIC_KEY"] = ""
+          allow(ENV).to receive(:fetch).and_call_original
+          allow(ENV).to receive(:fetch).with("VAPID_PUBLIC_KEY", nil).and_return("")
         end
 
         it "returns false" do
@@ -198,7 +200,8 @@ module Decidim
 
       context "when the notifications requirements are not met" do
         before do
-          ENV["VAPID_PUBLIC_KEY"] = nil
+          allow(ENV).to receive(:fetch).and_call_original
+          allow(ENV).to receive(:fetch).with("VAPID_PUBLIC_KEY", nil).and_return(nil)
         end
 
         it "returns false" do

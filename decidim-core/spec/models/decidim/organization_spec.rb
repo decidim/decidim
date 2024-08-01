@@ -89,6 +89,8 @@ module Decidim
     end
 
     describe "enabled omniauth providers" do
+      before { Decidim.omniauth_providers = omniauth_secrets }
+
       subject(:enabled_providers) { organization.enabled_omniauth_providers }
 
       context "when omniauth_settings are nil" do

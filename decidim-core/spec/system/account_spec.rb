@@ -353,8 +353,9 @@ describe "Account" do
 
     context "when VAPID keys are set" do
       before do
-        ENV["VAPID_PUBLIC_KEY"] = vapid_keys[:public_key]
-        ENV["VAPID_PRIVATE_KEY"] = vapid_keys[:private_key]
+        allow(ENV).to receive(:fetch).and_call_original
+        allow(ENV).to receive(:fetch).with("VAPID_PUBLIC_KEY", nil).and_return(vapid_keys[:public_key])
+        allow(ENV).to receive(:fetch).with("VAPID_PRIVATE_KEY", nil).and_return(vapid_keys[:private_key])
 
         driven_by(:pwa_chrome)
         switch_to_host(organization.host)
@@ -385,7 +386,8 @@ describe "Account" do
 
     context "when VAPID is disabled" do
       before do
-        ENV["VAPID_PUBLIC_KEY"] = ""
+        allow(ENV).to receive(:fetch).and_call_original
+        allow(ENV).to receive(:fetch).with("VAPID_PUBLIC_KEY", nil).and_return("")
         driven_by(:pwa_chrome)
         switch_to_host(organization.host)
         login_as user, scope: :user
@@ -399,7 +401,8 @@ describe "Account" do
 
     context "when VAPID keys are not set" do
       before do
-        ENV["VAPID_PUBLIC_KEY"] = nil
+        allow(ENV).to receive(:fetch).and_call_original
+        allow(ENV).to receive(:fetch).with("VAPID_PUBLIC_KEY", nil).and_return(nil)
         driven_by(:pwa_chrome)
         switch_to_host(organization.host)
         login_as user, scope: :user

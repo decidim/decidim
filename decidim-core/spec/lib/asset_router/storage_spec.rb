@@ -189,7 +189,8 @@ module Decidim::AssetRouter
 
       context "when the CDN host is defined" do
         before do
-          ENV["STORAGE_CDN_HOST"] = "https://cdn.example.org"
+          allow(ENV).to receive(:fetch).and_call_original
+          allow(ENV).to receive(:fetch).with("STORAGE_CDN_HOST", nil).and_return("https://cdn.example.org")
         end
 
         it "creates the route to the CDN blob" do
