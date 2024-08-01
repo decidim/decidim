@@ -54,7 +54,8 @@ shared_examples "manage resource share tokens" do
       expect(page).to have_content("cannot be blank", count: 2)
 
       fill_in "share_token_token", with: " custom token "
-      fill_in "share_token_expires_at", with: 1.day.from_now, visible: :all
+      fill_in_datepicker :share_token_expires_at_date, with: 1.day.from_now.strftime("%d/%m/%Y")
+      fill_in_timepicker :share_token_expires_at_time, with: "00:00"
       click_on "Create"
 
       expect(page).to have_content("Token created successfully")
@@ -63,7 +64,7 @@ shared_examples "manage resource share tokens" do
         expect(page).to have_content("CUSTOM-TOKEN")
       end
       within "tbody tr:last-child td:nth-child(2)" do
-        expect(page).to have_content(1.day.from_now.strftime("%d/%m/%Y %H:%M"))
+        expect(page).to have_content(1.day.from_now.strftime("%d/%m/%Y 00:00"))
       end
       within "tbody tr:last-child td:nth-child(3)" do
         expect(page).to have_content("Yes")
@@ -107,13 +108,15 @@ shared_examples "manage resource share tokens" do
       click_on "Update"
       expect(page).to have_content("cannot be blank", count: 1)
 
-      fill_in "share_token_expires_at", with: 1.day.from_now, visible: :all
+      fill_in_datepicker :share_token_expires_at_date, with: 1.day.from_now.strftime("%d/%m/%Y")
+      fill_in_timepicker :share_token_expires_at_time, with: "00:00"
+
       click_on "Update"
 
       expect(page).to have_content("Token updated successfully")
       expect(page).to have_css("tbody tr", count: 3)
       within "tbody tr:first-child td:nth-child(2)" do
-        expect(page).to have_content(1.day.from_now.strftime("%d/%m/%Y %H:%M"))
+        expect(page).to have_content(1.day.from_now.strftime("%d/%m/%Y 00:00"))
       end
       within "tbody tr:first-child td:nth-child(3)" do
         expect(page).to have_content("No")
