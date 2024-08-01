@@ -657,7 +657,7 @@ FactoryBot.define do
   end
 
   factory :taxonomization, class: "Decidim::Taxonomization" do
-    taxonomy
+    taxonomy { association(:taxonomy, :with_parent) }
     taxonomizable { association(:proposal) }
   end
 
