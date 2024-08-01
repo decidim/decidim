@@ -162,14 +162,14 @@ shared_examples "manage resource share tokens" do
   end
 
   context "when there are many pages" do
-    let!(:share_tokens) { create_list(:share_token, 16, token_for: resource, organization:) }
+    let!(:share_tokens) { create_list(:share_token, 26, token_for: resource, organization:) }
 
     before do
       visit_share_tokens_page
     end
 
     it "displays pagination" do
-      expect(page).to have_css("tbody tr", count: 15)
+      expect(page).to have_css("tbody tr", count: 25)
       within '[aria-label="Pagination"]' do
         click_on "Next"
       end
