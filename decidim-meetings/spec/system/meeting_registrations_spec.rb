@@ -356,7 +356,7 @@ describe "Meeting registrations" do
 
         click_on "Cancel your registration"
 
-        within ".meeting__cancelation-modal" do
+        within first ".meeting__cancelation-modal" do
           expect(page).to have_content("Are you sure you want to cancel your registration for this meeting?")
         end
       end
