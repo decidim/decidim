@@ -29,7 +29,7 @@ module Decidim
             additional_params[:taxonomy][key[8..]] = value if key.start_with?("element_name_")
           end
         end
-        super(params, additional_params)
+        super
       end
 
       def validate_parent_id_within_same_root_taxonomy
