@@ -53,7 +53,7 @@ describe "Admin manages taxonomies" do
     end
   end
 
-  context "when creating a new taxonomy element" do
+  context "when creating a new taxonomy item" do
     let!(:taxonomy) { create(:taxonomy, organization:) }
 
     before do
@@ -61,19 +61,19 @@ describe "Admin manages taxonomies" do
       click_edit_taxonomy
       click_on "New item"
       fill_in_i18n(
-        :taxonomy_element_name,
-        "#taxonomy-element_name-tabs",
-        en: "New Taxonomy Element"
+        :taxonomy_item_name,
+        "#taxonomy-item_name-tabs",
+        en: "New Taxonomy item"
       )
       click_on "Create item"
     end
 
-    it "creates a new taxonomy element" do
-      expect(page).to have_content("New Taxonomy Element")
+    it "creates a new taxonomy item" do
+      expect(page).to have_content("New Taxonomy item")
     end
   end
 
-  context "when creating a new taxonomy element with invalid data" do
+  context "when creating a new taxonomy item with invalid data" do
     let!(:taxonomy) { create(:taxonomy, organization:) }
 
     before do
@@ -81,8 +81,8 @@ describe "Admin manages taxonomies" do
       click_edit_taxonomy
       click_on "New item"
       fill_in_i18n(
-        :taxonomy_element_name,
-        "#taxonomy-element_name-tabs",
+        :taxonomy_item_name,
+        "#taxonomy-item_name-tabs",
         en: ""
       )
       click_on "Create item"
@@ -93,7 +93,7 @@ describe "Admin manages taxonomies" do
     end
   end
 
-  context "when creating a new taxonomy element for a parent taxonomy" do
+  context "when creating a new taxonomy item for a parent taxonomy" do
     let!(:taxonomy) { root_taxonomy }
     let!(:root_taxonomy) { create(:taxonomy, organization:) }
     let!(:parent_taxonomy) { create(:taxonomy, organization:, parent: root_taxonomy) }
@@ -103,17 +103,17 @@ describe "Admin manages taxonomies" do
       click_edit_taxonomy
       click_on "New item"
       fill_in_i18n(
-        :taxonomy_element_name,
-        "#taxonomy-element_name-tabs",
-        en: "New Child Element"
+        :taxonomy_item_name,
+        "#taxonomy-item_name-tabs",
+        en: "New Child item"
       )
       select translated(parent_taxonomy.name), from: "taxonomy_parent_id"
       click_on "Create item"
     end
 
-    it "creates a new taxonomy element" do
+    it "creates a new taxonomy item" do
       within(".js-sortable tr", text: translated(parent_taxonomy.name)) do
-        expect(page).to have_content("New Child Element")
+        expect(page).to have_content("New Child item")
       end
     end
   end

@@ -64,7 +64,7 @@ module Decidim
             permission_action.action == :destroy ? allow_destroy_taxonomy? : allow!
           end
 
-          allow! if permission_action.subject == :taxonomy_element
+          allow! if permission_action.subject == :taxonomy_item
         end
 
         permission_action

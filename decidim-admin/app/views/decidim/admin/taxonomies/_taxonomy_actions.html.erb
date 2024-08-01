@@ -1,5 +1,5 @@
 <% if allowed_to? :update, :taxonomy, taxonomy: taxonomy %>
-  <%= icon_link_to "pencil-line", taxonomy.root? ? edit_taxonomy_path(taxonomy) : edit_taxonomy_element_path(taxonomy_id: taxonomy.root_taxonomy.id, id: taxonomy.id), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit js-drawer-editor" %>
+  <%= icon_link_to "pencil-line", taxonomy.root? ? edit_taxonomy_path(taxonomy) : edit_taxonomy_item_path(taxonomy_id: taxonomy.root_taxonomy.id, id: taxonomy.id), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit js-drawer-editor" %>
 <% else %>
   <span class="action-space icon inline-block"></span>
 <% end %>

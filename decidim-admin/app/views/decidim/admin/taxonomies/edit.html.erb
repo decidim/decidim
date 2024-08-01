@@ -8,6 +8,7 @@
     <% end %>
   </h1>
 </div>
+
 <div class="item__edit-form">
   <%= decidim_form_for(@form, html: { class: "form-defaults form edit_taxonomy_" }) do |f| %>
     <%= render partial: "form", object: f %>
@@ -17,33 +18,36 @@
       </div>
     </div>
   <% end %>
+</div>
+
+<div class="item__edit-form">
+  <h2 class="item_show__header-title">
+    <%= t(".subtitle", taxonomy_name: translated_attribute(taxonomy.name)) %>
+    <%= link_to t(".new_item"), new_taxonomy_item_path(taxonomy), id: "new-item", class: "js-drawer-editor button button__sm button__secondary new" %>
+  </h2>
 
   <% if taxonomies.any? %>
     <p class="help-text mt-8"><%= t(".description") %></p>
     <%= render "table", collection: taxonomies %>
   <% else %>
-    <p class="help-text mt-8"><%= t(".no_elements") %></p>
+    <p class="mt-8"><%= t(".no_items") %></p>
   <% end %>
-
-  <div class="mt-8">
-    <%= link_to t(".new_element"), new_taxonomy_element_path(taxonomy), id: "new-element", class: "js-drawer-editor button button__sm button__transparent-secondary new" %>
-  </div>
 </div>
 
-<%= decidim_drawer id: "element-form" do %>
+<%= decidim_drawer id: "item-form" do %>
   <div data-dialog-container class="layout-content"></div>
 <% end %>
 
 <script>
   document.addEventListener("decidim:loaded", function() {
-    var drawer = window.Decidim.currentDialogs["element-form"];
+    var drawer = window.Decidim.currentDialogs["item-form"];
     var drawerButtons = document.querySelectorAll(".js-drawer-editor");
     var container = drawer.dialog.querySelector("[data-dialog-container]");
 
     function setDrawerContent(content) {
       container.innerHTML = content;
 
-      var form = container.querySelector("#taxonomy-element-form");
+      var form = container.querySelector("#taxonomy-item-form");
       if(!form) {
         return location.reload();
       }

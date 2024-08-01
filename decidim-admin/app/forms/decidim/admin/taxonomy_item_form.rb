@@ -3,30 +3,30 @@
 module Decidim
   module Admin
     # A form object to be used when creating or updating a taxonomy.
-    class TaxonomyElementForm < Decidim::Form
+    class TaxonomyItemForm < Decidim::Form
       include Decidim::TranslatableAttributes
 
       mimic :taxonomy
 
       # we do not use "name" here to avoid collisions when using foundation tabs for multilingual fields tabs
-      translatable_attribute :element_name, String
+      translatable_attribute :itemt_name, String
       attribute :parent_id, Integer
 
-      validates :element_name, translatable_presence: true
+      validates :itemt_name, translatable_presence: true
       validates :parent_id, presence: true
       validate :validate_parent_id_within_same_root_taxonomy
 
-      alias name element_name
+      alias name itemt_name
 
       def map_model(model)
-        self.element_name = model.name
+        self.itemt_name = model.name
       end
 
       def self.from_params(params, additional_params = {})
         additional_params[:taxonomy] = {}
         if params[:taxonomy]
           params[:taxonomy].each do |key, value|
-            additional_params[:taxonomy][key[8..]] = value if key.start_with?("element_name_")
+            additional_params[:taxonomy][key[8..]] = value if key.start_with?("itemt_name_")
           end
         end
         super

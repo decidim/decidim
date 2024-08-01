@@ -3,17 +3,17 @@
 require "spec_helper"
 
 module Decidim::Admin
-  describe TaxonomyElementForm do
+  describe TaxonomyItemForm do
     subject { described_class.from_params(attributes).with_context(context) }
 
     let(:organization) { create(:organization) }
-    let(:element_name) { { "en" => "Valid Element Name" } }
+    let(:item_name) { { "en" => "Valid Item Name" } }
     let(:root_taxonomy) { create(:taxonomy, organization:) }
     let(:parent) { create(:taxonomy, organization:, parent: root_taxonomy) }
     let(:parent_id) { parent.id }
     let(:attributes) do
       {
-        "element_name" => element_name,
+        "item_name" => item_name,
         "parent_id" => parent_id
       }
     end
@@ -27,8 +27,8 @@ module Decidim::Admin
       it { is_expected.to be_valid }
     end
 
-    context "when element_name is not present" do
-      let(:element_name) { { "en" => "" } }
+    context "when item_name is not present" do
+      let(:item_name) { { "en" => "" } }
 
       it { is_expected.to be_invalid }
     end
@@ -39,9 +39,9 @@ module Decidim::Admin
       it { is_expected.to be_invalid }
     end
 
-    describe "#element_name" do
-      it "returns the element_name" do
-        expect(subject.element_name).to eq(element_name)
+    describe "#item_name" do
+      it "returns the item_name" do
+        expect(subject.item_name).to eq(item_name)
       end
     end
 
@@ -54,21 +54,21 @@ module Decidim::Admin
     describe ".from_params" do
       let(:params) do
         {
-          "taxonomy" => { "element_name_en" => "Test Element" },
+          "taxonomy" => { "item_name_en" => "Test item" },
           "parent_id" => parent.id
         }
       end
 
       it "creates a form with the correct attributes" do
         form = described_class.from_params(params).with_context(context)
-        expect(form.element_name).to eq({ "en" => "Test Element" })
+        expect(form.item_name).to eq({ "en" => "Test item" })
         expect(form.parent_id).to eq(parent.id)
       end
     end
 
     describe "#name" do
-      it "returns the element_name" do
-        expect(subject.name).to eq(subject.element_name)
+      it "returns the item_name" do
+        expect(subject.name).to eq(subject.item_name)
       end
     end
   end

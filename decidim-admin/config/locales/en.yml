@@ -1035,10 +1035,11 @@ en:
           success: Taxonomy successfully destroyed.
         edit:
           back: Back
-          description: These items in this taxonomy will be used to classify or filter resources, such as participatory processes or assemblies. Use drag and drop to reorder the list.
-          new_element: New item
-          no_elements: There are currently no items in this taxonomy. Create a list of items here to classify or filter resources, such as participatory spaces or components. Items can be nested up to three levels.
-          title: Items in "%{taxonomy_name}"
+          description: The items in this taxonomy will be used to classify or filter resources, such as participatory spaces or components. Use drag and drop to reorder the list.
+          new_item: New item
+          no_items: There are currently no items in this taxonomy. Create a list of items here to classify or filter resources, such as participatory spaces or components. Items can be nested up to three levels.
+          title: Edit taxonomy "%{taxonomy_name}"
+          subtitle: Items in "%{taxonomy_name}"
           update: Update
         filters:
           search_placeholder: Search
@@ -1049,14 +1050,14 @@ en:
         new:
           create: Create taxonomy
           title: New taxonomy
-        no_taxonomies: No taxonomies
+        no_taxonomies: There are currently no taxonomies. Create a list of taxonomies here and defined items in each of them to classify or filter resources.
         table:
           to_next_page: Drag over for next page
           to_prev_page: Drag over for previous page
         update:
           invalid: There was a problem updating this taxonomy.
           success: Taxonomy updated successfully.
-      taxonomy_elements:
+      taxonomy_items:
         edit:
           title: Edit item in %{taxonomy}
           update: Update item

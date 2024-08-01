@@ -43,7 +43,7 @@ ul.taxonomy {
   }
 }
 
-[data-dialog]#element-form {
+[data-dialog]#item-form {
   @apply sm:top-[5.5rem] bottom-[4rem] top-[8.55rem];
 
   [data-dialog-container] > :last-child {
@@ -51,7 +51,7 @@ ul.taxonomy {
   }
 }
 
-#element-form-content {
+#item-form-content {
   @apply p-6 rounded-r-none py-0;
 
   h1 {
