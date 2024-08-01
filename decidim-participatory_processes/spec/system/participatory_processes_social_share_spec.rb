@@ -5,12 +5,11 @@ require "decidim/core/test/shared_examples/social_share_examples"
 
 describe "Social shares" do
   let(:organization) { create(:organization) }
-  let(:process) { create(:participatory_process, organization:, description:, short_description:, hero_image:, banner_image:) }
+  let(:process) { create(:participatory_process, organization:, description:, short_description:, hero_image:) }
   let(:content_block) { create(:content_block, organization:, manifest_name: :hero, scope_name: :homepage) }
   let!(:attachment) { create(:attachment, :with_image, attached_to: process, file: attachment_file) }
   let(:description) { { en: "Description <p><img src=\"#{description_image_path}\"></p>" } }
   let(:short_description) { { en: "Description <p><img src=\"#{short_description_image_path}\"></p>" } }
-  let(:banner_image) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
   let(:hero_image) { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
   let!(:attachment_file) { Decidim::Dev.test_file("city3.jpeg", "image/jpeg") }
   let(:description_image_path) { Rails.application.routes.url_helpers.rails_blob_path(description_image, only_path: true) }
@@ -44,19 +43,11 @@ describe "Social shares" do
   context "when no hero_image" do
     let(:hero_image) { nil }
 
-    it_behaves_like "a social share meta tag", "city.jpeg"
-  end
-
-  context "when no direct images" do
-    let(:hero_image) { nil }
-    let(:banner_image) { nil }
-
     it_behaves_like "a social share meta tag", "city3.jpeg"
   end
 
   context "when no attachments nor direct images" do
     let(:hero_image) { nil }
-    let(:banner_image) { nil }
     let(:attachment) { nil }
 
     it_behaves_like "a social share meta tag", "description_image.jpg"
@@ -70,7 +61,6 @@ describe "Social shares" do
 
   context "when no attachments, description image or direct images" do
     let(:hero_image) { nil }
-    let(:banner_image) { nil }
     let(:attachment) { nil }
     let(:description_image_path) { "" }
     let(:short_description_image_path) { "" }
@@ -80,7 +70,6 @@ describe "Social shares" do
 
   context "when nothing" do
     let(:hero_image) { nil }
-    let(:banner_image) { nil }
     let(:attachment) { nil }
     let(:description_image_path) { "" }
     let(:short_description_image_path) { "" }

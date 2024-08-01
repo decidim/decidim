@@ -120,7 +120,7 @@ module Decidim
     end
 
     def blob_from_attached_file(file)
-      return unless file&.attached?
+      return unless file.respond_to?(:attached?) && file.attached?
 
       file.blob
     end
