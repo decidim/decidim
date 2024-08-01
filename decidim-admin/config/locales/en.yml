@@ -1038,8 +1038,8 @@ en:
           description: The items in this taxonomy will be used to classify or filter resources, such as participatory spaces or components. Use drag and drop to reorder the list.
           new_item: New item
           no_items: There are currently no items in this taxonomy. Create a list of items here to classify or filter resources, such as participatory spaces or components. Items can be nested up to three levels.
-          title: Edit taxonomy "%{taxonomy_name}"
           subtitle: Items in "%{taxonomy_name}"
+          title: Edit taxonomy "%{taxonomy_name}"
           update: Update
         filters:
           search_placeholder: Search
@@ -1054,6 +1054,8 @@ en:
         table:
           to_next_page: Drag over for next page
           to_prev_page: Drag over for previous page
+        taxonomy_actions:
+          confirm_destroy: Are you sure you want to delete %{name}? This will also delete all the children items.
         update:
           invalid: There was a problem updating this taxonomy.
           success: Taxonomy updated successfully.

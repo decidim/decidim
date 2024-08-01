@@ -4,7 +4,7 @@
   <span class="action-space icon"></span>
 <% end %>
 <% if allowed_to? :destroy, :taxonomy, taxonomy: taxonomy %>
-  <%= icon_link_to "delete-bin-line", taxonomy, t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+  <%= icon_link_to "delete-bin-line", taxonomy, t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t(".confirm_destroy", name: translated_attribute(taxonomy.name)) } %>
 <% else %>
   <span class="action-space icon"></span>
 <% end %>
