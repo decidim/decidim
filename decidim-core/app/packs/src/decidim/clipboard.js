@@ -40,7 +40,7 @@ $(() => {
     if (!$el.data("clipboard-copy") || $el.data("clipboard-copy").length < 1) {
       return;
     }
-    
+
     const $input = $($el.data("clipboard-copy"));
 
     let selectedText = $el.data("clipboard-content") || "";

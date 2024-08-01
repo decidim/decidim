@@ -36,7 +36,7 @@ Note that, if you are using a controller who is inheriting from `Decidim::Applic
 == Manage tokens
 
 By default, participatory spaces like process, assemblies, conferences and initiatives are configured to have share tokens, as well as the individual components that are included in them. Participatory spaces have a "Share tokens" tab in the admin view, where you can create new tokens, see the list of existing ones, and revoke them.
-Tokens can also be managed in the components view similarly as other resources to give pre-access (with and action icon like permissions for instance). 
+Tokens can also be managed in the components view similarly as other resources to give pre-access (with and action icon like permissions for instance).
 
 Tokens generated for a participatory space are valid for all the components included in it (regardless of their publication status), and tokens generated for a component are valid for that component only.
 
