@@ -73,6 +73,15 @@ module Decidim
           get :edit, params: { id: taxonomy.id }
           expect(response).to render_template("edit")
         end
+
+        context "when editing a non-root taxonomy" do
+          let(:child_taxonomy) { create(:taxonomy, parent: taxonomy, organization:) }
+
+          it "redirects to the root" do
+            get :edit, params: { id: child_taxonomy.id }
+            expect(response).to redirect_to(edit_taxonomy_path(taxonomy))
+          end
+        end
       end
 
       describe "PATCH update" do

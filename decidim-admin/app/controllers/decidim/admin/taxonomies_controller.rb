@@ -11,6 +11,10 @@ module Decidim
 
       helper_method :taxonomies, :parent_options, :taxonomy
 
+      before_action only: :edit do
+        redirect_to edit_taxonomy_path(taxonomy.parent) unless taxonomy && taxonomy.root?
+      end
+
       def index
         @query = root_taxonomies.ransack(params[:q])
       end
@@ -26,9 +30,9 @@ module Decidim
 
         @form = form(Decidim::Admin::TaxonomyForm).from_params(params)
         CreateTaxonomy.call(@form) do
-          on(:ok) do |taxonomy|
+          on(:ok) do
             flash[:notice] = I18n.t("create.success", scope: "decidim.admin.taxonomies")
-            redirect_to taxonomies_path(taxonomy)
+            redirect_to taxonomies_path
           end
 
           on(:invalid) do
@@ -49,9 +53,9 @@ module Decidim
         @form = form(Decidim::Admin::TaxonomyForm).from_params(params)
 
         UpdateTaxonomy.call(@form, taxonomy) do
-          on(:ok) do |taxonomy|
+          on(:ok) do
             flash[:notice] = I18n.t("update.success", scope: "decidim.admin.taxonomies")
-            redirect_to taxonomies_path(taxonomy)
+            redirect_to taxonomies_path
           end
 
           on(:invalid) do
