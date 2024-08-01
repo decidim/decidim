@@ -174,7 +174,7 @@ describe "Meeting registrations" do
 
             click_on "Register"
 
-            within first "#meeting-registration-confirm-#{meeting.id}" do
+            within "#meeting-registration-confirm-#{meeting.id}" do
               expect(page).to have_content "A legal text"
               expect(page).to have_content "Show my attendance publicly"
               expect(page).to have_field("public_participation", checked: false)
@@ -221,7 +221,7 @@ describe "Meeting registrations" do
 
             click_on "Register"
 
-            within first "#meeting-registration-confirm-#{meeting.id}" do
+            within "#meeting-registration-confirm-#{meeting.id}" do
               expect(page).to have_content "A legal text"
               expect(page).to have_content "Show my attendance publicly"
               expect(page).to have_field("public_participation", checked: false)
@@ -245,7 +245,7 @@ describe "Meeting registrations" do
             visit_meeting
 
             click_on "Register"
-            within first "#meeting-registration-confirm-#{meeting.id}" do
+            within "#meeting-registration-confirm-#{meeting.id}" do
               expect(page).to have_content "I represent a group"
               expect(page).to have_content "Show my attendance publicly"
               expect(page).to have_field("public_participation", checked: false)
@@ -356,7 +356,7 @@ describe "Meeting registrations" do
 
         click_on "Cancel your registration"
 
-        within first ".meeting__cancelation-modal" do
+        within ".meeting__cancelation-modal" do
           expect(page).to have_content("Are you sure you want to cancel your registration for this meeting?")
         end
       end
