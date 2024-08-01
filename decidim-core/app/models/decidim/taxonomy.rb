@@ -20,6 +20,7 @@ module Decidim
 
     belongs_to :parent,
                class_name: "Decidim::Taxonomy",
+               counter_cache: :children_count,
                optional: true
 
     has_many :children,
@@ -27,12 +28,12 @@ module Decidim
              class_name: "Decidim::Taxonomy",
              dependent: :destroy
 
-    has_many :taxonomy_filters, class_name: "Decidim::TaxonomyFilter", dependent: :restrict_with_error
-    has_many :taxonomizations, class_name: "Decidim::Taxonomization", dependent: :restrict_with_error
+    has_many :taxonomy_filters, class_name: "Decidim::TaxonomyFilter", dependent: :destroy
+    has_many :taxonomizations, class_name: "Decidim::Taxonomization", dependent: :destroy
 
     validates :name, presence: true
     validates :weight, numericality: { greater_than_or_equal_to: 0 }
-    validate :validate_children_levels
+    validate :validate_max_children_levels
 
     default_scope { order(:weight) }
 
@@ -66,7 +67,7 @@ module Decidim
       self.weight ||= Taxonomy.where(parent_id:).count
     end
 
-    def validate_children_levels
+    def validate_max_children_levels
       return unless parent_id
 
       errors.add(:base, :invalid) if parent_ids.size > 3

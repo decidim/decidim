@@ -1,3 +1,9 @@
+.spinner-container {
+  &::before {
+    @apply absolute -mt-2 -ml-4 top-1/2 left-1/2;
+  }
+}
+
 .draggable-taxonomy {
   &.change-page {
     @apply bg-gray-3 italic;
@@ -8,10 +14,10 @@
   }
 
   td {
-    @apply align-middle;
+    @apply align-top;
 
-    &.js-drag-handle:has(+ td .js-sortable) {
-      @apply align-top;
+    &.js-drag-handle .dragger {
+      @apply mt-1;
     }
   }
 }
@@ -20,7 +26,7 @@ ul.taxonomy {
   @apply flex;
 
   li {
-    @apply flex-none text-center w-20 pt-2 pb-2;
+    @apply flex-none text-center w-20 mt-2 mb-2;
 
     &:first-child {
       @apply flex-initial text-left flex-grow;
@@ -32,13 +38,17 @@ ul.taxonomy {
     }
   }
 
-  .table-list__actions {
-    svg {
-      @apply w-6 h-6;
+  .taxonomy-list__actions {
+    span {
+      @apply ml-1;
     }
 
-    span {
-      @apply mr-4;
+    svg {
+      @apply inline-block fill-secondary w-5 h-5;
+    }
+
+    .action-space {
+      @apply w-5 h-5;
     }
   }
 }

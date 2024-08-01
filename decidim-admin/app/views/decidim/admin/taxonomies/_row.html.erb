@@ -1,10 +1,10 @@
 <tr class="draggable-taxonomy" data-taxonomy-id="<%= taxonomy.id %>" role="row">
   <td role="cell" class="w-12 js-drag-handle"><%== icon("draggable", class: "dragger") %></td>
   <td role="cell">
-    <ul class="taxonomy table-list__actions">
-      <li><%= translated_attribute(taxonomy.name) %></li>
-      <li><%= taxonomy.children.count %></li>
-      <li><%= render "taxonomy_actions", taxonomy: %></li>
+    <ul class="taxonomy">
+      <li><%= link_to translated_attribute(taxonomy.name), edit_taxonomy_path(taxonomy) %></li>
+      <li><%= taxonomy.root? ? taxonomy.children_count : taxonomy.taxonomizations_count %></li>
+      <li class="taxonomy-list__actions"><%= render "taxonomy_actions", taxonomy: %></li>
     </ul>
     <% if with_children && taxonomy.children.any? %>
       <div class="js-sortable js-draggable-<%= taxonomy.id %>"

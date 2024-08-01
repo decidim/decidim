@@ -59,15 +59,15 @@
 
       &.layout-content {
         @apply bg-white;
+
+        > .spinner-container {
+          @apply sticky h-screen;
+        }
       }
     }
 
     [data-dialog-closable] {
       @apply absolute top-0 right-auto -left-10 p-4 py-2 bg-white rounded-bl;
-    }
-
-    .spinner-container::before {
-      @apply mt-[calc(50%-2rem)];
     }
 
     .form-defaults {

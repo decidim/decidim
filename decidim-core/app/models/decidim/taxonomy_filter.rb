@@ -5,10 +5,9 @@ module Decidim
   class TaxonomyFilter < ApplicationRecord
     belongs_to :taxonomy,
                class_name: "Decidim::Taxonomy",
+               counter_cache: :filters_count,
                inverse_of: :taxonomy_filters
 
     belongs_to :filterable, polymorphic: true
-
-    validates :filterable_type, presence: true
   end
 end

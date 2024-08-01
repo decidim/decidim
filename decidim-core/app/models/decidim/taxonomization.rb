@@ -5,10 +5,9 @@ module Decidim
   class Taxonomization < ApplicationRecord
     belongs_to :taxonomy,
                class_name: "Decidim::Taxonomy",
+               counter_cache: :taxonomizations_count,
                inverse_of: :taxonomizations
 
     belongs_to :taxonomizable, polymorphic: true
-
-    validates :taxonomizable_type, presence: true
   end
 end

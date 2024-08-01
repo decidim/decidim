@@ -59,8 +59,6 @@
 
       form.addEventListener("ajax:success", function(evt) {
         var [data, _status, xhr] = event.detail;
-        console.log(location.pathname, xhr.responseURL);
-
         if(xhr.responseURL.indexOf(location.pathname) > -1) {
           location.href = xhr.responseURL;
         } else {
