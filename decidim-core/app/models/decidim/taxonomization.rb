@@ -9,5 +9,15 @@ module Decidim
                inverse_of: :taxonomizations
 
     belongs_to :taxonomizable, polymorphic: true
+
+    validate :prevent_root_taxonomization
+
+    private
+
+    def prevent_root_taxonomization
+      return unless taxonomy.root?
+
+      errors.add(:taxonomy, :invalid)
+    end
   end
 end

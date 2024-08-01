@@ -7,9 +7,9 @@ class CreateDecidimTaxonomies < ActiveRecord::Migration[7.0]
       t.integer :decidim_organization_id, null: false
       t.integer :parent_id
       t.integer :weight
-      t.integer :children_count, :integer, null: false, default: 0
-      t.integer :taxonomizations_count, :integer, null: false, default: 0
-      t.integer :filters_count, :integer, null: false, default: 0
+      t.integer :children_count, null: false, default: 0
+      t.integer :taxonomizations_count, null: false, default: 0
+      t.integer :filters_count, null: false, default: 0
       t.timestamps
     end
 
