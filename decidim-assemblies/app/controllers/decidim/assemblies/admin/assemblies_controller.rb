@@ -17,13 +17,13 @@ module Decidim
         end
 
         def new
-          enforce_permission_to :create, :assembly
+          enforce_permission_to :create, :assembly, assembly: collection.find_by(id: params[:parent_id])
           @form = form(AssemblyForm).instance
           @form.parent_id = params[:parent_id]
         end
 
         def create
-          enforce_permission_to :create, :assembly
+          enforce_permission_to :create, :assembly, assembly: collection.find_by(id: params[:assembly][:parent_id])
           @form = form(AssemblyForm).from_params(params)
 
           CreateAssembly.call(@form) do
@@ -66,7 +66,7 @@ module Decidim
         end
 
         def copy
-          enforce_permission_to :create, :assembly
+          enforce_permission_to :create, :assembly, assembly: collection.find_by(id: params[:parent_id])
         end
 
         private

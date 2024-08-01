@@ -9,12 +9,12 @@ module Decidim
         include Concerns::AssemblyAdmin
 
         def new
-          enforce_permission_to :create, :assembly
+          enforce_permission_to :create, :assembly, assembly: collection.find_by(id: params[:parent_id]) 
           @form = form(AssemblyCopyForm).from_model(current_assembly)
         end
 
         def create
-          enforce_permission_to :create, :assembly
+          enforce_permission_to :create, :assembly, assembly: collection.find_by(id: params[:assembly][:parent_id]) 
           @form = form(AssemblyCopyForm).from_params(params)
 
           CopyAssembly.call(@form, current_assembly, current_user) do
