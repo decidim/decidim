@@ -91,6 +91,7 @@ fr-CA:
               accepted: Assez de signatures
               created: Créée
               discarded: Rejetée
+              open: Ouverte
               rejected: Pas assez de signatures
               validating: Validation technique
           type_id_eq:
@@ -323,6 +324,7 @@ fr-CA:
         accepted: Assez de signatures
         created: Créée
         discarded: Retirée
+        open: Ouverte
         rejected: Pas assez de signatures
         validating: Validation technique
       application_helper:
@@ -571,6 +573,7 @@ fr-CA:
           accepted: Assez de signatures
           created: Créé le
           discarded: Abandonné
+          open: Ouverte
           rejected: Pas assez de signatures
           validating: Validation technique
       states:

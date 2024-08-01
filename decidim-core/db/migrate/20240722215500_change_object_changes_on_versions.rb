@@ -25,6 +25,8 @@ class ChangeObjectChangesOnVersions < ActiveRecord::Migration[6.1]
       end
 
       version.update_columns(old_object_changes: nil, object_changes:) # rubocop:disable Rails/SkipsModelValidations
+    rescue NameError
+      Rails.logger.info "Skipping History of #{version.item_type} with id #{version.item_id}"
     end
 
     PaperTrail::Version.reset_column_information
