@@ -350,6 +350,8 @@ de:
       conflicts:
         attempts: Versuche
         'false': 'Nein'
+        index:
+          text: Suche nach bestehender E-Mail, Name oder Spitzname des Teilnehmenden.
         managed_user_name: Verwalteter Benutzer
         solved: Gelöst
         title: Überprüfungskonflikte

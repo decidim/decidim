@@ -170,6 +170,11 @@ fi-pl:
               random: Satunnainen
               recent: Viimeisimmät
               with_more_authors: Eniten tekijöitä
+            edit_time: Ehdotuksia voi muokata tämän aikamääreen sisällä
+            edit_time_units:
+              days: Päivää
+              hours: Tuntia
+              minutes: Minuuttia
             geocoding_enabled: Geokoodaus käytössä
             minimum_votes_per_user: Vähimmäisäänimäärä käyttäjää kohden
             new_proposal_body_template: Uuden ehdotuksen leipätekstin mallipohja
@@ -179,11 +184,14 @@ fi-pl:
             participatory_texts_enabled: Ehdotusaineistot ovat käytössä
             participatory_texts_enabled_readonly: Tätä asetusta ei voi muuttaa, mikäli ehdotuksia on jo olemassa. Luo uusi "Ehdotukset-komponentti", mikäli haluat ottaa tämän ominaisuuden käyttöön tai hylkää kaikki tuodut ehdotukset "Ehdotusaineistot" -toiminnosta, mikäli haluat ottaa sen pois käytöstä.
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
-            proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän ajan sisällä (minuuttia)
             proposal_edit_time: Ehdotusten muokkaus
             proposal_edit_time_choices:
               infinite: Ehdotusten muokkaus on sallittu ilman aikarajaa
               limited: Ehdotusten muokkaus on sallittu määritetyn aikarajan sisällä niiden julkaisusta
+            proposal_edit_time_unit_options:
+              days: Päivää
+              hours: Tuntia
+              minutes: Minuuttia
             proposal_length: Ehdotuksen runkotekstin merkkien enimmäismäärä
             proposal_limit: Ehdotusten enimmäismäärä käyttäjää kohden
             proposal_wizard_step_1_help_text: Ehdotuksen luonnin "Luo" -vaiheen ohjeteksti
@@ -234,11 +242,26 @@ fi-pl:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_intro: Sinulle on annettu arvioitavaksi ehdotus "%{resource_title}". Tämä tarkoittaa, että sinut on valtuutettu antamaan palautetta ja vastaamaan ehdotukseen tulevien päivien aikana. Tarkasta ehdotus <a href="%{admin_proposal_info_url}">hallintapaneelin</a> kautta.
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska voit arvioida ehdotuksen.
+            email_subject: Sinulle on annettu arvioitavaksi ehdotus %{resource_title}.
+            notification_title: Sinulle on annettu arvioitavaksi ehdotus <a href="%{resource_path}">"%{resource_title}"</a>. Tarkasta ehdotus <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.
           proposal_note_created:
-            email_intro: Joku on jättänyt muistiinpanon ehdotukseen "%{resource_title}". Tutustu siihen <a href="%{admin_proposal_info_url}">hallintapaneelin kautta</a>.
+            email_intro: '%{author_name} on luonut yksityisen muistiinpanon kohteeseen %{resource_title}. Tarkasta muistiinpano <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.'
             email_outro: Saat tämän ilmoituksen, koska voit arvioida ehdotuksen.
             email_subject: Joku on jättänyt huomion ehdotukseen %{resource_title}.
-            notification_title: Joku on jättänyt muistiinpanon ehdotukseen <a href="%{resource_path}">%{resource_title}</a>. Tutustu siihen <a href="%{admin_proposal_info_path}">hallintapaneelin kautta</a>.
+            notification_title: <a href="%{author_path}">%{author_name}</a> on luonut yksityisen muistiinpanon kohteeseen <a href="%{resource_path}">%{resource_title}</a>. Tarkasta muistiinpano <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.
+          proposal_note_mentioned:
+            email_intro: Sinut on mainittu yksityisessä muistiinpanossa "%{resource_title}" henkilön "%{author_name}" "%{author_nickname}" toimesta. Tarkista muistiinpano <a href="%{admin_proposal_info_url}">hallintapaneelin</a> kautta.
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinut on mainittu yksityisessä muistiinpanossa.
+            email_subject: Sinut on mainittu ehdotuksen %{resource_title} muistiinpanossa.
+            notification_title: Sinut on mainittu yksityisessä muistiinpanossa <a href="%{resource_path}">%{resource_title}</a> henkilön <a href="%{author_path}">%{author_name} %{author_nickname}</a> toimesta. Tarkista se <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.
+          proposal_note_replied:
+            email_intro: '%{author_name} on vastannut yksityiseen muistiinpanoon kohteessa %{resource_title}. Tarkasta muistiinpano <a href="%{admin_proposal_info_url}">hallintapaneelin</a> kautta.'
+            email_outro: Sait tämän ilmoituksen, koska olet muistiinpanon laatija.
+            email_subject: "%{author_name} on vastannut yksityiseen muistiinpanoon kohteessa %{resource_title}."
+            notification_title: <a href="%{author_path}">%{author_name}%{author_nickname}</a> on vastannut yksityiseen muistiinpanoosi kohteessa <a href="%{resource_path}">%{resource_title}</a>. Tarkasta muistiinpano <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} on hyväksytty osallistujaksi yhteistyöluonnokseen <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistujana kohteessa <a href="%{resource_url}">%{resource_title}</a>.
@@ -472,7 +495,9 @@ fi-pl:
           form:
             note: Huomautus
             submit: Lähetä
-          leave_your_note: Jätä huomautuksesi
+          reply:
+            error: Muistiinpanon vastauksen luonti ehdotukselle epäonnistui.
+            success: Muistiinpanon vastauksen luonti ehdotukselle onnistui.
           title: Omat muistiinpanot
         proposal_states:
           create:
