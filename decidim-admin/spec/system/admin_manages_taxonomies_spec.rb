@@ -202,22 +202,22 @@ describe "Admin manages taxonomies" do
   end
 
   context "when multiple pages" do
-    let!(:taxonomies) { create_list(:taxonomy, 31, organization:) }
+    let!(:taxonomies) { create_list(:taxonomy, 51, organization:) }
 
     before do
       visit decidim_admin.taxonomies_path(page: 2)
     end
 
     it "displays the pagination" do
-      expect(page).to have_content(translated(taxonomies[15].name))
+      expect(page).to have_content(translated(taxonomies[25].name))
       expect(page).to have_content("Drag over for previous page")
       expect(page).to have_link("Prev")
 
       all(".js-sortable tr").last.drag_to(all(".js-sortable tr").first)
 
       expect(page).to have_content("Drag over for next page")
-      expect(page).to have_content(translated(taxonomies[15].name))
-      expect(page).to have_no_content(translated(taxonomies[14].name))
+      expect(page).to have_content(translated(taxonomies[25].name))
+      expect(page).to have_no_content(translated(taxonomies[24].name))
     end
   end
 
