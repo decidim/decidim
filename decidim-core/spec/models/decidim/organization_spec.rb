@@ -89,7 +89,9 @@ module Decidim
     end
 
     describe "enabled omniauth providers" do
-      before { Decidim.omniauth_providers = omniauth_secrets }
+      before do
+        allow(Decidim).to receive(:omniauth_providers).and_return(omniauth_secrets)
+      end
 
       subject(:enabled_providers) { organization.enabled_omniauth_providers }
 
@@ -104,7 +106,7 @@ module Decidim
           let!(:previous_omniauth_secrets) { Decidim.omniauth_providers }
 
           before do
-            Decidim.omniauth_providers = {}
+            allow(Decidim).to receive(:omniauth_providers).and_return({})
           end
 
           after do

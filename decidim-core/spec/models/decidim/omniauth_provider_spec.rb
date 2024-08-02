@@ -25,7 +25,9 @@ module Decidim
     end
 
     describe "available" do
-      before { Decidim.omniauth_providers = omniauth_secrets }
+      before do
+        allow(Decidim).to receive(:omniauth_providers).and_return(omniauth_secrets)
+      end
 
       subject(:available_providers) { Decidim::OmniauthProvider.available }
 

@@ -15,13 +15,26 @@ end
 describe "Registration" do
   let(:organization) { create(:organization) }
   let!(:terms_of_service_page) { Decidim::StaticPage.find_by(slug: "terms-of-service", organization:) }
+  let(:omniauth_secrets) { {} }
 
   before do
+    allow(Decidim).to receive(:omniauth_providers).and_return(omniauth_secrets)
     switch_to_host(organization.host)
     visit decidim.new_user_registration_path
   end
 
   context "when signing up" do
+    let(:omniauth_secrets) do
+      {
+        facebook: {
+          enabled: true,
+          app_id: "fake-facebook-app-id",
+          app_secret: "fake-facebook-app-secret",
+          icon: "phone"
+        }
+      }
+    end
+
     describe "on first sight" do
       it "shows fields empty" do
         expect(page).to have_content("Create an account to participate")

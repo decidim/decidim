@@ -29,7 +29,7 @@ describe "Authentication" do
   end
 
   before do
-    Decidim.omniauth_providers = omniauth_secrets
+    allow(Decidim).to receive(:omniauth_providers).and_return(omniauth_secrets)
     switch_to_host(organization.host)
     visit decidim.root_path
   end
