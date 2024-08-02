@@ -16,7 +16,7 @@ module Decidim
       @value.presence || @default
     end
 
-    delegate :to_json, to: :value
+    delegate :to_json, :to_s, to: :value
 
     def blank?
       value.blank? || FALSE_VALUES.include?(value.to_s.downcase)
@@ -30,10 +30,6 @@ module Decidim
 
     def to_boolean_string
       present?.to_s
-    end
-
-    def to_s
-      (blank? ? @default : value).to_s
     end
 
     def to_i
@@ -56,5 +52,7 @@ module Decidim
       str = blank? ? @default : value
       str.to_s.split(separator).map(&:strip)
     end
+
+    alias to_a to_array
   end
 end

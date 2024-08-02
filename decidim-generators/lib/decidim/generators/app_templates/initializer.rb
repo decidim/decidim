@@ -12,14 +12,15 @@ Decidim.configure do |config|
   # When an organization is created through the System area, system admins will
   # be able to choose the available languages for that organization. That list
   # of languages will be equal or a subset of the list in this file.
-  config.available_locales = Decidim::Env.new("DECIDIM_AVAILABLE_LOCALES", "ca,cs,de,en,es,eu,fi,fr,it,ja,nl,pl,pt,ro").to_array
+  config.available_locales = (Decidim::Env.new("DECIDIM_AVAILABLE_LOCALES").presence || [:ca, :cs, :de, :en, :es, :eu, :fi, :fr, :it, :ja, :nl, :pl, :pt, :ro]).to_a
+
   # Or block set it up manually and prevent ENV manipulation:
   # config.available_locales = %w(en ca es)
 
   # Sets the default locale for new organizations. When creating a new
   # organization from the System area, system admins will be able to overwrite
   # this value for that specific organization.
-  config.default_locale = Decidim::Env.new("DECIDIM_DEFAULT_LOCALE", "en").to_s
+  config.default_locale = (Decidim::Env.new("DECIDIM_DEFAULT_LOCALE", "en").presence || :en).to_s
 
   # Restrict access to the system part with an authorized ip list.
   # You can use a single ip like ("1.2.3.4"), or an ip subnet like ("1.2.3.4/24")
@@ -34,9 +35,8 @@ Decidim.configure do |config|
   # Whether SSL should be enabled or not.
   # if this var is not defined, it is decided automatically per-rails-environment
 
-  unless Decidim::Env.new("DECIDIM_FORCE_SSL", "auto").default_or_present_if_exists.to_s == "auto"
-    config.force_ssl = Decidim::Env.new("DECIDIM_FORCE_SSL", "auto").default_or_present_if_exists
-  end
+  # Decidim::Env.new("DECIDIM_FORCE_SSL", "auto").default_or_present_if_exists
+  config.force_ssl = Decidim::Env.new("DECIDIM_FORCE_SSL").present? unless Decidim::Env.new("DECIDIM_FORCE_SSL", "auto").default_or_present_if_exists.to_s == "auto"
   # or set it up manually and prevent any ENV manipulation:
   # config.force_ssl = true
 
@@ -159,7 +159,7 @@ Decidim.configure do |config|
   # end
 
   # Currency unit
-  config.currency_unit = Decidim::Env.new("DECIDIM_CURRENCY_UNIT", "€").to_s
+  config.currency_unit = Decidim::Env.new("DECIDIM_CURRENCY_UNIT", "€").to_s if Decidim::Env.new("DECIDIM_CURRENCY_UNIT", "€").present?
 
   # Workaround to enable SVG assets cors
   config.cors_enabled = Decidim::Env.new("DECIDIM_CORS_ENABLED", "false").present?
