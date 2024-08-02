@@ -33,8 +33,9 @@ Decidim.configure do |config|
 
   # Whether SSL should be enabled or not.
   # if this var is not defined, it is decided automatically per-rails-environment
+
   unless Decidim::Env.new("DECIDIM_FORCE_SSL", "auto").default_or_present_if_exists.to_s == "auto"
-    config.force_ssl = Decidim::Env.new("DECIDIM_FORCE_SSL", "auto").default_or_present_if_exists.to_s.present?
+    config.force_ssl = Decidim::Env.new("DECIDIM_FORCE_SSL", "auto").default_or_present_if_exists
   end
   # or set it up manually and prevent any ENV manipulation:
   # config.force_ssl = true
@@ -190,7 +191,7 @@ Decidim.configure do |config|
 
   # Allow organizations admins to track newsletter links.
   unless Decidim::Env.new("DECIDIM_TRACK_NEWSLETTER_LINKS", "auto").default_or_present_if_exists.to_s == "auto"
-    config.track_newsletter_links = Decidim::Env.new("DECIDIM_TRACK_NEWSLETTER_LINKS", "auto").default_or_present_if_exists.present?
+    config.track_newsletter_links = Decidim::Env.new("DECIDIM_FORCE_SSL", "auto").default_or_present_if_exists
   end
 
   # Amount of time that the download your data files will be available in the server.
@@ -211,7 +212,7 @@ Decidim.configure do |config|
   # environments, but in different folders.
   #
   # If not set, it will be ignored.
-  config.base_uploads_path = Decidim::Env.new("DECIDIM_BASE_UPLOADS_PATH").to_json if Decidim::Env.new("DECIDIM_BASE_UPLOADS_PATH").present?
+  config.base_uploads_path = Decidim::Env.new("DECIDIM_BASE_UPLOADS_PATH").to_s if Decidim::Env.new("DECIDIM_BASE_UPLOADS_PATH").present?
 
   # SMS gateway configuration
   #
@@ -289,16 +290,16 @@ Decidim.configure do |config|
   # Only needed if you want to have Etherpad integration with Decidim. See
   # Decidim docs at https://docs.decidim.org/en/services/etherpad/ in order to set it up.
   #
-  if ENV.fetch("ETHERPAD_SERVER", nil).present? && ENV.fetch("ETHERPAD_API_KEY", nil).present?
+  if Decidim::Env.new("ETHERPAD_SERVER").present? && Decidim::Env.new("ETHERPAD_API_KEY").present?
     config.etherpad = {
-      server: ENV.fetch("ETHERPAD_SERVER", nil),
-      api_key: ENV.fetch("ETHERPAD_API_KEY", nil),
-      api_version: Decidim::Env.new("ETHERPAD_API_VERSION", "1.2.1").value
+      server: Decidim::Env.new("ETHERPAD_SERVER").to_s,
+      api_key: Decidim::Env.new("ETHERPAD_API_KEY").to_s,
+      api_version: Decidim::Env.new("ETHERPAD_API_VERSION", "1.2.1").to_s
     }
   end
 
   # Sets Decidim::Exporters::CSV's default column separator
-  config.default_csv_col_sep = Decidim::Env.new("DECIDIM_DEFAULT_CSV_COL_SEP", ";").value
+  config.default_csv_col_sep = Decidim::Env.new("DECIDIM_DEFAULT_CSV_COL_SEP", ";").to_s
 
   # The list of roles a user can have, not considering the space-specific roles.
   # config.user_roles = %w(admin user_manager)
@@ -394,7 +395,7 @@ Decidim.configure do |config|
   config.admin_password_repetition_times = Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES", 5).to_i
 
   # Additional optional configurations (see decidim-core/lib/decidim/core.rb)
-  config.cache_key_separator = Decidim::Env.new("DECIDIM_CACHE_KEY_SEPARATOR", "/").to_json
+  config.cache_key_separator = Decidim::Env.new("DECIDIM_CACHE_KEY_SEPARATOR", "/").to_s
   config.expire_session_after = Decidim::Env.new("DECIDIM_EXPIRE_SESSION_AFTER", "30").to_i.minutes
   unless Decidim::Env.new("DECIDIM_ENABLE_REMEMBER_ME", "auto").default_or_present_if_exists.to_s == "auto"
     config.enable_remember_me = Decidim::Env.new("DECIDIM_ENABLE_REMEMBER_ME", "auto").default_or_present_if_exists
@@ -429,8 +430,8 @@ if Decidim.module_installed? :meetings
     if Decidim::Env.new("MEETINGS_EMBEDDABLE_SERVICES").to_array(separator: " ").present?
       config.embeddable_services = Decidim::Env.new("MEETINGS_EMBEDDABLE_SERVICES").to_array(separator: " ")
     end
-    unless Decidim::Env.new("MEETINGS_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists == "auto"
-      config.enable_proposal_linking = Decidim::Env.new("MEETINGS_ENABLE_PROPOSAL_LINKING", "auto").present?
+    unless Decidim::Env.new("MEETINGS_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists.to_s == "auto"
+      config.enable_proposal_linking = Decidim::Env.new("MEETINGS_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists
     end
   end
 end
@@ -438,7 +439,7 @@ end
 if Decidim.module_installed? :budgets
   Decidim::Budgets.configure do |config|
     unless Decidim::Env.new("BUDGETS_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists.to_s == "auto"
-      config.enable_proposal_linking = Decidim::Env.new("BUDGETS_ENABLE_PROPOSAL_LINKING", "auto").present?
+      config.enable_proposal_linking = Decidim::Env.new("BUDGETS_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists
     end
   end
 end
@@ -446,7 +447,7 @@ end
 if Decidim.module_installed? :accountability
   Decidim::Accountability.configure do |config|
     unless Decidim::Env.new("ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists.to_s == "auto"
-      config.enable_proposal_linking = Decidim::Env.new("ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING", "auto").present?
+      config.enable_proposal_linking = Decidim::Env.new("ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists
     end
   end
 end
@@ -454,7 +455,7 @@ end
 if Decidim.module_installed? :initiatives
   Decidim::Initiatives.configure do |config|
     unless Decidim::Env.new("INITIATIVES_CREATION_ENABLED", "auto").default_or_present_if_exists.to_s == "auto"
-      config.creation_enabled = Decidim::Env.new("INITIATIVES_CREATION_ENABLED", "auto").present?
+      config.creation_enabled = Decidim::Env.new("INITIATIVES_CREATION_ENABLED", "auto").default_or_present_if_exists
     end
     config.minimum_committee_members = Decidim::Env.new("INITIATIVES_MINIMUM_COMMITTEE_MEMBERS", 2).to_i
     config.default_signature_time_period_length = Decidim::Env.new("INITIATIVES_DEFAULT_SIGNATURE_TIME_PERIOD_LENGTH", 120).to_i
