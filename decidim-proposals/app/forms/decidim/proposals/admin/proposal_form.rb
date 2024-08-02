@@ -12,7 +12,7 @@ module Decidim
         end
         translatable_attribute :body, String
 
-        validates :title, :body, translatable_presence: true
+        validates :title, :body, translatable_presence: true, etiquette: true
 
         validate :notify_missing_attachment_if_errored
 

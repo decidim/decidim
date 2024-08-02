@@ -29,7 +29,7 @@ module Decidim
       validates :body, proposal_length: {
         minimum: 15,
         maximum: ->(record) { record.component.settings.proposal_length }
-      }
+      }, etiquette: true
       validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.scope_id.present? }

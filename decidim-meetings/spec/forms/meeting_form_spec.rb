@@ -70,6 +70,7 @@ module Decidim::Meetings
     end
 
     it_behaves_like "a scopable resource"
+    it_behaves_like "etiquette validator", fields: [:title, :description, :registration_terms]
 
     it { is_expected.to be_valid }
 

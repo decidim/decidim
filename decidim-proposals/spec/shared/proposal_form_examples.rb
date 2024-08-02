@@ -87,9 +87,9 @@ shared_examples "a proposal form" do |options|
   context "when the title is too long" do
     let(:title) do
       if options[:i18n] == false
-        "A" * 200
+        "A" + "a"* 200
       else
-        { en: "A" * 200 }
+        { en: "A" + "a"* 200 }
       end
     end
 
@@ -108,19 +108,7 @@ shared_examples "a proposal form" do |options|
     it { is_expected.to be_valid }
   end
 
-  unless options[:skip_etiquette_validation]
-    context "when the body is not etiquette-compliant" do
-      let(:body) do
-        if options[:i18n] == false
-          "A"
-        else
-          { en: "A" }
-        end
-      end
-
-      it { is_expected.to be_invalid }
-    end
-  end
+  it_behaves_like "etiquette validator", fields: [:title, :body]
 
   context "when there is no body" do
     let(:body) { nil }
@@ -420,19 +408,7 @@ shared_examples "a proposal form with meeting as author" do |options|
     it { is_expected.to be_invalid }
   end
 
-  unless options[:skip_etiquette_validation]
-    context "when the body is not etiquette-compliant" do
-      let(:body) do
-        if options[:i18n] == false
-          "A"
-        else
-          { en: "A" }
-        end
-      end
-
-      it { is_expected.to be_invalid }
-    end
-  end
+  it_behaves_like "etiquette validator", fields: [:title, :body]
 
   context "when there is no body" do
     let(:body) { nil }
