@@ -79,6 +79,8 @@ jobs:
         with:
           ruby-version: ${{ inputs.ruby_version }}
       - uses: nanasess/setup-chromedriver@v2
+        with:
+          chromedriver-version: 126.0.6478.182
       - uses: actions/cache@v4
         id: app-cache
         with:
