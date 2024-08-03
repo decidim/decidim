@@ -2,6 +2,8 @@
 en:
   activemodel:
     attributes:
+      editor_image:
+        file: File
       account:
         delete_reason: Reason to delete your account
       common:
