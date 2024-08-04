@@ -37,6 +37,7 @@ en:
         content: Content
       id: ID
       import:
+        file: File
         user_group_id: Create imports as
       newsletter:
         body: Body
