@@ -41,7 +41,7 @@ You can read more about this change on PR [#13185](https://github.com/decidim/de
 
 ### 2.2. Ransack upgrade
 
-As part of Rails upgrade to version 7.1, we upgraded Ransack gem to version 4.2. Ransack has introduced a new security policy that requires mandatory whitelisting for the attributes and associations needed by search engine. If you have a regular Decidim installation, you can skip this step.
+As part of Rails upgrade to version 7.1, we upgraded Ransack gem to version 4.2. Ransack has introduced a new security policy that requires mandatory allowlisting for the attributes and associations needed by search engine. If you have a regular Decidim installation, you can skip this step.
 
 If you are a plugin developer, you may need to add the following methods to your searchable models.
 
