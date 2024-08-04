@@ -2,6 +2,8 @@
 en:
   activemodel:
     attributes:
+      user_group:
+        avatar: Avatar
       editor_image:
         file: File
       account:
@@ -23,6 +25,7 @@ en:
       report:
         details: Additional comments
       user:
+        avatar: Avatar
         about: About
         email: Your email
         encrypted_password: Password

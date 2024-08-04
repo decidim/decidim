@@ -13,6 +13,8 @@ en:
         title: Title
         user_group_id: Create collaborative draft as
       proposal:
+        latitude: Latitude
+        longitude: Longitude
         address: Address
         answer: Answer
         answered_at: Answered at
