@@ -2,16 +2,14 @@
 en:
   activemodel:
     attributes:
-      user_group:
-        avatar: Avatar
-      editor_image:
-        file: File
       account:
         delete_reason: Reason to delete your account
       common:
         created_at: Created at
       conversation:
         body: Body
+      editor_image:
+        file: File
       group:
         about: About
         avatar: Avatar
@@ -25,8 +23,8 @@ en:
       report:
         details: Additional comments
       user:
-        avatar: Avatar
         about: About
+        avatar: Avatar
         email: Your email
         encrypted_password: Password
         locale: Locale
@@ -38,6 +36,8 @@ en:
         personal_url: Personal URL
         remove_avatar: Remove avatar
         tos_agreement: Terms of service agreement
+      user_group:
+        avatar: Avatar
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
