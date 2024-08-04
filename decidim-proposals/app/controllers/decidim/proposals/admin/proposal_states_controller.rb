@@ -11,8 +11,6 @@ module Decidim
           enforce_permission_to :read, :proposal_state
         end
 
-        def show; end
-
         def new
           enforce_permission_to :create, :proposal_state
           @form = form(Decidim::Proposals::Admin::ProposalStateForm).instance

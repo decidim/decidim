@@ -8,8 +8,6 @@ module Decidim
         helper_method :proposal
         helper ParticipatoryTextsHelper
 
-        def show; end
-
         def index
           @drafts = Proposal.where(component: current_component).drafts.order(:position)
           @preview_form = form(Admin::PreviewParticipatoryTextForm).instance
