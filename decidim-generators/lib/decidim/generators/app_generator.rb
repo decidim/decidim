@@ -120,6 +120,11 @@ module Decidim
         gsub_file "config/environments/production.rb", /config\.assets.*$/, ""
       end
 
+      def remove_before_action_check
+        gsub_file "config/environments/development.rb", "config.action_controller.raise_on_missing_callback_actions = true", "config.action_controller.raise_on_missing_callback_actions = false"
+        gsub_file "config/environments/test.rb", "config.action_controller.raise_on_missing_callback_actions = true", "config.action_controller.raise_on_missing_callback_actions = false"
+      end
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
