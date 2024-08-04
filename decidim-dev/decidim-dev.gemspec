@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = "~> 3.2.0"
+  s.required_ruby_version = "~> 3.3.0"
 
   s.name = "decidim-dev"
   s.summary = "Decidim dev tools"
@@ -68,6 +68,8 @@ Gem::Specification.new do |s|
   s.add_dependency "selenium-webdriver", "~> 4.9"
   s.add_dependency "simplecov", "~> 0.22.0"
   s.add_dependency "simplecov-cobertura", "~> 2.1.0"
+  s.add_dependency "spring", "~> 4.0"
+  s.add_dependency "spring-watcher-listen", "~> 2.0"
   s.add_dependency "w3c_rspec_validators", "~> 0.3.0"
   s.add_dependency "webmock", "~> 3.18"
   s.add_dependency "wisper-rspec", "~> 1.0"

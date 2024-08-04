@@ -9,7 +9,7 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        include Decidim::Admin::Paginable
+        include Decidim::Paginable
         include Decidim::TranslatableAttributes
 
         helper Decidim::Admin::FilterableHelper

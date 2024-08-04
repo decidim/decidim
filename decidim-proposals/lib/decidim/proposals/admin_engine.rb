@@ -24,7 +24,11 @@ module Decidim
             resource :valuation_assignment, only: [:create, :destroy]
           end
           resources :proposal_answers, only: [:edit, :update]
-          resources :proposal_notes, only: [:create]
+          resources :proposal_notes, only: [:create] do
+            member do
+              post :reply
+            end
+          end
         end
 
         resources :proposal_states

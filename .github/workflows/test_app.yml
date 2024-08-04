@@ -8,7 +8,7 @@ on:
         type: string
       ruby_version:
         description: 'Ruby Version'
-        default: "3.2.2"
+        default: "3.3.4"
         required: false
         type: string
       working-directory:
@@ -49,7 +49,6 @@ jobs:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
-      RUBYOPT: '-W:no-deprecated'
     services:
       validator:
         image: ghcr.io/validator/validator:latest
@@ -123,3 +122,4 @@ jobs:
           name: screenshots
           path: ./spec/decidim_dummy_app/tmp/screenshots
           if-no-files-found: ignore
+          overwrite: true
