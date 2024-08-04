@@ -12,6 +12,10 @@ module Decidim
         helper Decidim::Proposals::Admin::ProposalRankingsHelper
         helper Decidim::Messaging::ConversationHelper
 
+        def index; end
+
+        def show; end
+
         def edit
           enforce_permission_to(:create, :proposal_answer, proposal:)
           @form = form(Admin::ProposalAnswerForm).from_model(proposal)

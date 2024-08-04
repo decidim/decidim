@@ -4,6 +4,10 @@ module Decidim
   module Proposals
     module Admin
       class ProposalsSplitsController < Admin::ApplicationController
+        def index; end
+
+        def show; end
+
         def create
           enforce_permission_to :split, :proposals
 

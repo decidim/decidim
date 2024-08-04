@@ -4,6 +4,10 @@ module Decidim
   module Proposals
     module Admin
       class ProposalsImportsController < Admin::ApplicationController
+        def index; end
+
+        def show; end
+
         def new
           enforce_permission_to :import, :proposals
 
