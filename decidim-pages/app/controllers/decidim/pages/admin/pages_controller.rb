@@ -5,6 +5,9 @@ module Decidim
     module Admin
       # This controller allows the user to update a Page.
       class PagesController < Admin::ApplicationController
+        def index; end
+        def show; end
+
         def edit
           enforce_permission_to :update, :page
 
