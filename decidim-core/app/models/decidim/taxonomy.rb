@@ -39,13 +39,21 @@ module Decidim
 
     ransacker_i18n :name
 
+    scope :search_by_name, lambda { |name|
+      where("name ->> ? ILIKE ?", I18n.locale.to_s, "%#{name}%")
+    }
+
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::TaxonomyPresenter
+    end
+
     def self.ransackable_scopes(_auth_object = nil)
       [:search_by_name]
     end
 
-    scope :search_by_name, lambda { |name|
-      where("name ->> ? ILIKE ?", I18n.locale.to_s, "%#{name}%")
-    }
+    def translated_name
+      Decidim::TaxonomyPresenter.new(self).translated_name
+    end
 
     def root_taxonomy
       @root_taxonomy ||= root? ? self : parent.root_taxonomy

@@ -6,7 +6,7 @@
       <th scope="col" role="columnheader">
         <ul class="taxonomy">
           <li><%= t("decidim.admin.taxonomies.name") %></li>
-          <li><%= current_page?(taxonomies_path) ? t("decidim.admin.taxonomies.amount") : t("decidim.admin.taxonomies.count") %></li>
+          <li><%= taxonomy.blank? ? t("decidim.admin.taxonomies.amount") : t("decidim.admin.taxonomies.count") %></li>
           <li><%= t("decidim.admin.taxonomies.actions") %></li>
         </ul>
       </th>

@@ -108,7 +108,7 @@ module Decidim
       end
 
       def taxonomy
-        @taxonomy ||= base_query.find(params[:id])
+        @taxonomy ||= base_query.find_by(id: params[:id])
       end
 
       def base_query

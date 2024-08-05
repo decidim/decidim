@@ -8,7 +8,7 @@ module Decidim
 
     let(:organization) { create(:organization) }
     let(:root_taxonomy) { create(:taxonomy, organization:) }
-    let(:taxonomy_name) { attributes_for(:taxonomy).name }
+    let(:taxonomy_name) { attributes_for(:taxonomy)[:name] }
 
     context "when everything is ok" do
       it { is_expected.to be_valid }
@@ -170,13 +170,13 @@ module Decidim
     context "when using ransackable scopes" do
       let(:taxonomy_attributes1) { attributes_for(:taxonomy) }
       let(:taxonomy_attributes2) { attributes_for(:taxonomy) }
-      let(:taxonomy_name1) { taxonomy_attributes1.name }
-      let(:taxonomy_name2) { taxonomy_attributes2.name }
+      let(:taxonomy_name1) { taxonomy_attributes1[:name] }
+      let(:taxonomy_name2) { taxonomy_attributes2[:name] }
       let!(:taxonomy1) { create(:taxonomy, name: taxonomy_name1, organization:) }
       let!(:taxonomy2) { create(:taxonomy, name: taxonomy_name2, organization:) }
 
       it "returns taxonomies matching the name" do
-        result = described_class.search_by_name(translated(taxonomy_attributes1.name))
+        result = described_class.search_by_name(translated(taxonomy_attributes1[:name]))
         expect(result).to include(taxonomy1)
         expect(result).not_to include(taxonomy2)
       end

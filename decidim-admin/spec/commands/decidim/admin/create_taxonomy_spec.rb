@@ -8,7 +8,7 @@ module Decidim::Admin
 
     let(:organization) { create(:organization) }
     let(:user) { create(:user, :admin, :confirmed, organization:) }
-    let(:name) { { "en" => "Sample Taxonomy" } }
+    let(:name) { attributes_for(:taxonomy)[:name] }
     let(:form) do
       double(
         invalid?: invalid,

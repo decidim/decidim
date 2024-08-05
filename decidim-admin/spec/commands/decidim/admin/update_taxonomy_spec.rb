@@ -19,7 +19,7 @@ module Decidim::Admin
       )
     end
 
-    let(:name) { { en: "New name" } }
+    let(:name) { attributes_for(:taxonomy)[:name] }
     let(:parent_id) { parent.id }
     let(:invalid) { false }
 
@@ -38,7 +38,7 @@ module Decidim::Admin
       end
 
       it "updates the name of the taxonomy" do
-        expect(taxonomy.name["en"]).to eq("New name")
+        expect(taxonomy.name).to eq(name)
       end
 
       it "updates the parent_id of the taxonomy" do

@@ -10,6 +10,14 @@ module Decidim
       protected
 
       def resource_class = Decidim::Taxonomy
+
+      def extra_params
+        {
+          extra: {
+            parent_name: form.try(:parent).try(:name)
+          }
+        }
+      end
     end
   end
 end

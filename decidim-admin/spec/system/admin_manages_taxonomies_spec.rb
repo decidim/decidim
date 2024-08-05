@@ -23,7 +23,7 @@ describe "Admin manages taxonomies" do
       fill_in_i18n(
         :taxonomy_name,
         "#taxonomy-name-tabs",
-        en: "New Taxonomy"
+        **attributes[:name].except("machine_translations")
       )
       click_on "Create taxonomy"
     end
@@ -33,7 +33,7 @@ describe "Admin manages taxonomies" do
     end
 
     it "creates a new taxonomy" do
-      expect(page).to have_content("New Taxonomy")
+      expect(page).to have_content(translated(attributes[:name]))
     end
   end
 
@@ -63,13 +63,13 @@ describe "Admin manages taxonomies" do
       fill_in_i18n(
         :taxonomy_item_name,
         "#taxonomy-item_name-tabs",
-        en: "New Taxonomy item"
+        **attributes[:name].except("machine_translations")
       )
       click_on "Create item"
     end
 
     it "creates a new taxonomy item" do
-      expect(page).to have_content("New Taxonomy item")
+      expect(page).to have_content(translated(attributes[:name]))
     end
   end
 
@@ -105,7 +105,7 @@ describe "Admin manages taxonomies" do
       fill_in_i18n(
         :taxonomy_item_name,
         "#taxonomy-item_name-tabs",
-        en: "New Child item"
+        **attributes[:name].except("machine_translations")
       )
       select translated(parent_taxonomy.name), from: "taxonomy_parent_id"
       click_on "Create item"
@@ -113,7 +113,7 @@ describe "Admin manages taxonomies" do
 
     it "creates a new taxonomy item" do
       within(".js-sortable tr", text: translated(parent_taxonomy.name)) do
-        expect(page).to have_content("New Child item")
+        expect(page).to have_content(translated(attributes[:name]))
       end
     end
   end
@@ -127,7 +127,7 @@ describe "Admin manages taxonomies" do
       fill_in_i18n(
         :taxonomy_name,
         "#taxonomy-name-tabs",
-        en: "Edited Taxonomy"
+        **attributes[:name].except("machine_translations")
       )
       click_on "Update"
     end
@@ -137,7 +137,7 @@ describe "Admin manages taxonomies" do
     end
 
     it "updates the taxonomy" do
-      expect(page).to have_content("Edited Taxonomy")
+      expect(page).to have_content(translated(translated(attributes[:name])))
     end
   end
 
@@ -159,9 +159,9 @@ describe "Admin manages taxonomies" do
   end
 
   context "when reordering root taxonomies" do
-    let!(:taxonomy1) { create(:taxonomy, :with_children, children_count: 1, name: { en: "Tax 1" }, organization:) }
-    let!(:taxonomy2) { create(:taxonomy, :with_children, children_count: 2, name: { en: "Tax 2" }, organization:) }
-    let!(:taxonomy3) { create(:taxonomy, :with_children, children_count: 3, name: { en: "Tax 3" }, organization:) }
+    let!(:taxonomy1) { create(:taxonomy, :with_children, children_count: 1, organization:) }
+    let!(:taxonomy2) { create(:taxonomy, :with_children, children_count: 2, organization:) }
+    let!(:taxonomy3) { create(:taxonomy, :with_children, children_count: 3, organization:) }
 
     before do
       visit decidim_admin.taxonomies_path
@@ -171,9 +171,9 @@ describe "Admin manages taxonomies" do
       expect(page).to have_css(".js-sortable")
 
       within ".js-sortable" do
-        expect(page).to have_content("Tax 1")
-        expect(page).to have_content("Tax 2")
-        expect(page).to have_content("Tax 3")
+        expect(page).to have_content(translated(taxonomy1.name))
+        expect(page).to have_content(translated(taxonomy2.name))
+        expect(page).to have_content(translated(taxonomy3.name))
       end
 
       page.execute_script(<<~JS)
@@ -184,19 +184,27 @@ describe "Admin manages taxonomies" do
         document.querySelector('.js-sortable').dispatchEvent(event);
       JS
 
-      expect(page).to have_css(".js-sortable tr", text: "Tax 2", wait: 5)
-
-      within ".js-sortable" do
-        taxonomies = all("tr").map { |row| row.text.match(/Tax \d+/)[0] }
-        expect(taxonomies).to eq(["Tax 2", "Tax 3", "Tax 1"])
+      within ".js-sortable tr:first-child td:nth-child(2)" do
+        expect(page).to have_content(translated(taxonomy2.name))
+      end
+      within ".js-sortable tr:nth-child(2) td:nth-child(2)" do
+        expect(page).to have_content(translated(taxonomy3.name))
+      end
+      within ".js-sortable tr:last-child td:nth-child(2)" do
+        expect(page).to have_content(translated(taxonomy1.name))
       end
 
       # Refresh the page to ensure the order is persisted
       visit current_path
 
-      within ".js-sortable" do
-        taxonomies = all("tr").map { |row| row.text.match(/Tax \d+/)[0] }
-        expect(taxonomies).to eq(["Tax 2", "Tax 3", "Tax 1"])
+      within ".js-sortable tr:first-child td:nth-child(2)" do
+        expect(page).to have_content(translated(taxonomy2.name))
+      end
+      within ".js-sortable tr:nth-child(2) td:nth-child(2)" do
+        expect(page).to have_content(translated(taxonomy3.name))
+      end
+      within ".js-sortable tr:last-child td:nth-child(2)" do
+        expect(page).to have_content(translated(taxonomy1.name))
       end
     end
   end
