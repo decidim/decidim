@@ -14,27 +14,14 @@
       </p>
     </div>
   </div>
-  <% if taxonomies.any? %>
-    <div class="filters__section">
-      <div class="fcell search mt-4">
-        <%= search_form_for(@query, url: taxonomies_path) do |form| %>
-          <div class="input-group">
-            <%= form.search_field(
-                  :name_cont,
-                  class: "input-group-field bg-secondary/5",
-                  label: false,
-                  placeholder: t("filters.search_placeholder", scope: "decidim.admin.taxonomies")
-                ) %>
-            <div class="input-group-button">
-              <button type="submit" class="text-secondary" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
-                <%= icon "search-line", class: "fill-secondary w-4 h-4" %>
-              </button>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <%= render "table", collection: taxonomies %>
+  <% if collection.any? %>
+    <%= render "filters" %>
+
+    <% if @taxonomies.any? %>
+      <%= render "table", collection: @taxonomies if @taxonomies %>
+    <% else %>
+      <p><%= t(".no_items_found") %></p>
+    <% end %>
   <% else %>
     <p><%= t("decidim.admin.taxonomies.no_taxonomies") %></p>
   <% end %>

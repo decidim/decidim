@@ -21,14 +21,20 @@
 </div>
 
 <div class="item__edit-form">
-  <h2 class="item_show__header-title">
+  <h2 class="item_show__header-title mb-4">
     <%= t(".subtitle", taxonomy_name: translated_attribute(taxonomy.name)) %>
     <%= link_to t(".new_item"), new_taxonomy_item_path(taxonomy), id: "new-item", class: "js-drawer-editor button button__sm button__secondary new" %>
   </h2>
 
-  <% if taxonomies.any? %>
-    <p class="help-text mt-8"><%= t(".description") %></p>
-    <%= render "table", collection: taxonomies %>
+  <% if collection.any? %>
+    <%= render "filters" %>
+
+    <% if @taxonomies.any? %>
+      <p class="help-text mt-4"><%= t(".description") %></p>
+      <%= render "table", collection: @taxonomies %>
+    <% else %>
+      <p class="mt-8"><%= t("no_items_found", scope: "decidim.admin.taxonomies.index") %></p>
+    <% end %>
   <% else %>
     <p class="mt-8"><%= t(".no_items") %></p>
   <% end %>
