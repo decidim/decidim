@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
 module Decidim
-  module ParticipatoryProcesses
+  module Assemblies
     module Admin
       # Controller used to manage participatory process types for the current
       # organization
-      class ParticipatoryProcessFiltersController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
+      class AssemblyFiltersController < Decidim::Assemblies::Admin::ApplicationController
         include Decidim::Admin::Concerns::HasTaxonomyFilters
 
         def breadcrumb_manage_partial
-          "layouts/decidim/admin/manage_processes"
+          "layouts/decidim/admin/manage_assemblies"
         end
       end
     end

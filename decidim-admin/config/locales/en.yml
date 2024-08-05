@@ -590,6 +590,7 @@ en:
         participants: Participants
         reported_users: Reported participants
         scope_types: Scope types
+        taxonomy_filters: Taxonomy filters
         scopes: Scopes
         see_site: See site
         settings: Settings
@@ -959,6 +960,9 @@ en:
         update:
           error: There was a problem updating this scope.
           success: Scope updated successfully
+      taxonomy_filters:
+        actions:
+          new: New taxonomy filter
       share_tokens:
         actions:
           confirm_destroy: Are you sure you want to delete this token?
