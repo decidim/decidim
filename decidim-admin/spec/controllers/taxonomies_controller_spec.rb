@@ -21,13 +21,13 @@ module Decidim
         let!(:taxonomy2) { create(:taxonomy, name: { en: "Category2" }, organization:) }
 
         it "assigns @taxonomies" do
-          get :index, params: { q: { name_cont: "Category1" } }
-          expect(controller.send(:taxonomies)).to include(taxonomy1)
-          expect(controller.send(:taxonomies)).not_to include(taxonomy2)
+          get :index, params: { q: { name_or_children_name_cont: "Category1" } }
+          expect(assigns(:taxonomies)).to include(taxonomy1)
+          expect(assigns(:taxonomies)).not_to include(taxonomy2)
         end
 
         it "renders the index template" do
-          get :index, params: { q: { name_cont: "Category1" } }
+          get :index, params: { q: { name_or_children_name_cont: "Category1" } }
           expect(response).to render_template("index")
         end
       end
@@ -64,9 +64,18 @@ module Decidim
       end
 
       describe "GET edit" do
+        let!(:sub_taxonomy1) { create(:taxonomy, parent: taxonomy, name: { en: "Sub 1" }, organization:) }
+        let!(:sub_taxonomy2) { create(:taxonomy, parent: taxonomy, name: { en: "Sub 2" }, organization:) }
+
         it "assigns the requested taxonomy to @form" do
           get :edit, params: { id: taxonomy.id }
           expect(assigns(:form).attributes).to include("id" => taxonomy.id)
+        end
+
+        it "assigns @taxonomies" do
+          get :index, params: { id: taxonomy.id, q: { name_or_children_name_cont: "Sub 1" } }
+          expect(assigns(:taxonomies)).to include(sub_taxonomy1)
+          expect(assigns(:taxonomies)).not_to include(sub_taxonomy2)
         end
 
         it "renders the edit template" do
