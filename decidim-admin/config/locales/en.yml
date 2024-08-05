@@ -31,6 +31,7 @@ en:
         weight: Order position
       content_block_attachment:
         background_image: Background Image
+        main_image: Main Image
       external_domain:
         value: Value
       help_section:

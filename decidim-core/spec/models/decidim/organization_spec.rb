@@ -168,7 +168,7 @@ module Decidim
       end
 
       context "when the favicon variant has been processed" do
-        before { organization.attached_uploader(:favicon).variant(:favicon).process }
+        before { organization.attached_uploader(:favicon).variant(:favicon).processed }
 
         it "returns the variant" do
           expect(subject.favicon_ico).not_to be(subject.favicon)
@@ -190,7 +190,7 @@ module Decidim
       shared_context "with processed variant" do |variant_name|
         let(:variant) do
           variant = uploader.variant(variant_name)
-          variant.process
+          variant.processed
           variant.image.blob
         end
 
