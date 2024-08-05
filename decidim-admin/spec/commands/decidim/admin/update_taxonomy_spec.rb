@@ -19,7 +19,7 @@ module Decidim::Admin
       )
     end
 
-    let(:name) { attributes_for(:taxonomy)[:name] }
+    let(:name) { Decidim::Faker::Localized.literal("New name") }
     let(:parent_id) { parent.id }
     let(:invalid) { false }
 
@@ -38,7 +38,7 @@ module Decidim::Admin
       end
 
       it "updates the name of the taxonomy" do
-        expect(taxonomy.name).to eq(name)
+        expect(translated(taxonomy.name)).to eq("New name")
       end
 
       it "updates the parent_id of the taxonomy" do
@@ -48,7 +48,12 @@ module Decidim::Admin
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:update!)
-          .with(taxonomy, user, hash_including(:name, :parent_id))
+          .with(
+            taxonomy,
+            form.current_user,
+            hash_including(:name, :parent_id),
+            hash_including(extra: hash_including(:parent_name))
+          )
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

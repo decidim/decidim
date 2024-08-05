@@ -24,7 +24,12 @@ module Decidim::Admin
     it "traces the action", versioning: true do
       expect(Decidim.traceability)
         .to receive(:perform_action!)
-        .with(:delete, taxonomy, user)
+        .with(
+          :delete,
+          taxonomy,
+          user,
+          extra: hash_including(:parent_name)
+        )
         .and_call_original
 
       expect { subject.call }.to change(Decidim::ActionLog, :count)
