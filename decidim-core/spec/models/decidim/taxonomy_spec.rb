@@ -55,6 +55,38 @@ module Decidim
       it { is_expected.to be_invalid }
     end
 
+    describe "#weight" do
+      let!(:taxonomy1) { create(:taxonomy, organization:) }
+      let!(:taxonomy2) { create(:taxonomy, organization:) }
+
+      it "sets a default weight" do
+        expect(taxonomy1.weight).to eq(0)
+        expect(taxonomy2.weight).to eq(1)
+      end
+
+      context "when different parents" do
+        let!(:taxonomy1_child1) { create(:taxonomy, parent: taxonomy1, organization:) }
+        let!(:taxonomy1_child2) { create(:taxonomy, parent: taxonomy1, organization:) }
+        let!(:taxonomy2_child1) { create(:taxonomy, parent: taxonomy2, organization:) }
+        let!(:taxonomy2_child2) { create(:taxonomy, parent: taxonomy2, organization:) }
+
+        it "sets a default weight for children" do
+          expect(taxonomy1_child1.weight).to eq(0)
+          expect(taxonomy1_child2.weight).to eq(1)
+          expect(taxonomy2_child1.weight).to eq(0)
+          expect(taxonomy2_child2.weight).to eq(1)
+        end
+      end
+
+      context "when weight is set" do
+        subject(:taxonomy) { create(:taxonomy, weight: 5, organization:) }
+
+        it "sets the specified weight" do
+          expect(taxonomy.weight).to eq(5)
+        end
+      end
+    end
+
     context "when managing associations" do
       context "with children" do
         let!(:child_taxonomy) { create(:taxonomy, parent: taxonomy, organization:) }

@@ -9,7 +9,7 @@ module Decidim
     include Decidim::FilterableResource
     include Decidim::Traceable
 
-    after_initialize :set_default_weight
+    before_create :set_default_weight
 
     translatable_fields :name
 
@@ -32,7 +32,7 @@ module Decidim
     has_many :taxonomizations, class_name: "Decidim::Taxonomization", dependent: :destroy
 
     validates :name, presence: true
-    validates :weight, numericality: { greater_than_or_equal_to: 0 }
+    validates :weight, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true
     validate :validate_max_children_levels
 
     default_scope { order(:weight) }
@@ -64,7 +64,9 @@ module Decidim
     private
 
     def set_default_weight
-      self.weight ||= Taxonomy.where(parent_id:).count
+      return if weight.present?
+
+      self.weight = Taxonomy.where(parent_id:).count
     end
 
     def validate_max_children_levels
