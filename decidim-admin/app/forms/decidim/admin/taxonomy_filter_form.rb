@@ -23,8 +23,15 @@ module Decidim
         context[:participatory_space_manifest]
       end
 
+      def all_taxonomy_items
+        @all_taxonomy_items ||= taxonomy_items.map do |item|
+          parents = items_collection.find { |collection_item| collection_item.value == item.to_i }&.parent_ids || []
+          [item] + parents - [root_taxonomy_id]
+        end.flatten
+      end
+
       def filter_items
-        taxonomy_items.map do |item|
+        all_taxonomy_items.map do |item|
           Decidim::TaxonomyFilterItem.new(taxonomy_item_id: item)
         end
       end
