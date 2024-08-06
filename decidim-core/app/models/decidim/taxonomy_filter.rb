@@ -3,11 +3,31 @@
 module Decidim
   # Represents the association between a taxonomy and a filterable entity within the system.
   class TaxonomyFilter < ApplicationRecord
-    belongs_to :taxonomy,
+    belongs_to :root_taxonomy,
                class_name: "Decidim::Taxonomy",
                counter_cache: :filters_count,
                inverse_of: :taxonomy_filters
 
-    belongs_to :filterable, polymorphic: true
+    has_many :filter_items,
+             class_name: "Decidim::TaxonomyFilterItem",
+             inverse_of: :taxonomy_filter,
+             dependent: :destroy
+
+    validate :root_taxonomy_is_root
+    validate :space_manifest_is_registered
+
+    private
+
+    def root_taxonomy_is_root
+      return if root_taxonomy&.root?
+
+      errors.add(:root_taxonomy, :invalid)
+    end
+
+    def space_manifest_is_registered
+      return if Decidim.participatory_space_manifests.find { |manifest| manifest.name == space_manifest&.to_sym }
+
+      errors.add(:space_manifest, :invalid)
+    end
   end
 end
