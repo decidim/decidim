@@ -38,7 +38,7 @@ module Decidim
       protected
 
       def generate_token
-        self.token = ensure_unique_token(translated_attribute(title).parameterize(separator: "_"))
+        self.token = ensure_unique_token(token.presence || translated_attribute(title).parameterize(separator: "_"))
       end
 
       def ensure_unique_token(token)

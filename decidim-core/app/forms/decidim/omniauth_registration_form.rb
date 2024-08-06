@@ -21,7 +21,7 @@ module Decidim
     validates :uid, presence: true
 
     def self.create_signature(provider, uid)
-      Digest::MD5.hexdigest("#{provider}-#{uid}-#{Rails.application.secrets.secret_key_base}")
+      Digest::MD5.hexdigest("#{provider}-#{uid}-#{Rails.application.secret_key_base}")
     end
 
     def normalized_nickname

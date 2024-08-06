@@ -196,6 +196,8 @@ const initializer = (element = document) => {
   element.querySelectorAll("[data-toggle]").forEach((elem) => createToggle(elem))
 
   element.querySelectorAll(".new_report").forEach((elem) => changeReportFormBehavior(elem))
+
+  document.dispatchEvent(new CustomEvent("decidim:loaded", { detail: { element } }));
 }
 
 // If no jQuery is used the Tribute feature used in comments to autocomplete

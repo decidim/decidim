@@ -542,6 +542,8 @@ en:
             success: Status updated successfully
         proposals:
           answer:
+            bulk_answer_error: Proposals with IDs [%{proposals}] could not be answered due errors applying the template "%{template}". You can check that the answer template matches the expected format for this component by applying it individually.
+            bulk_answer_success: '%{count} proposals will be answered using the template "%{template}". Please wait a few minutes and refresh the page to see the updates.'
             invalid: There has been a problem answering this proposal.
             success: Proposal successfully answered.
           create:
@@ -558,6 +560,7 @@ en:
             select_a_meeting: Select a meeting
           index:
             actions: Actions
+            apply_answer_template: Apply answer template
             assign_to_valuator: Assign to valuator
             assign_to_valuator_button: Assign
             cancel: Cancel
@@ -565,6 +568,7 @@ en:
             change_scope: Change scope
             merge: Merge into a new one
             merge_button: Merge
+            no_templates_available: No templates available
             publish: Publish
             publish_answers: Publish answers
             select_component: Select a component
