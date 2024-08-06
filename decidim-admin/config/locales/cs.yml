@@ -466,6 +466,9 @@ cs:
             pending: Čekající
             rejected: Odmítnuto
             verified: Ověřeno
+        taxonomies:
+          taxonomy_id_eq:
+            label: Taxonomie
       forms:
         file_help:
           import:
@@ -596,6 +599,7 @@ cs:
         settings: Nastavení
         static_page_topics: Témata
         static_pages: Stránky
+        taxonomies: Taxonomie
         user_groups: Skupiny
         users: Účastníci
       metrics:
@@ -1025,6 +1029,12 @@ cs:
         update:
           error: Při aktualizaci této stránky došlo k chybě.
           success: Stránka byla úspěšně aktualizována.
+      taxonomies:
+        actions: Akce
+        amount: Množství
+        count: Spočítat
+        create:
+          invalid: Při vytváření této taxonomie došlo k chybě.
       titles:
         admin_log: Správce protokolu
         area_types: Typy oblastí
