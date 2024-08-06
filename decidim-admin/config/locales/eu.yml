@@ -1004,6 +1004,8 @@ eu:
         update:
           error: Arazo bat egon da orri hau eguneratzean.
           success: Orria zuzen eguneratua.
+      taxonomies:
+        count: Zenbaketa
       titles:
         admin_log: Administratzaile-erregistroa
         area_types: Arlo motak
