@@ -655,11 +655,6 @@ FactoryBot.define do
     end
   end
 
-  factory :taxonomy_filter, class: "Decidim::TaxonomyFilter" do
-    taxonomy
-    filterable { association(:dummy_component) }
-  end
-
   factory :taxonomization, class: "Decidim::Taxonomization" do
     taxonomy { association(:taxonomy, :with_parent) }
     taxonomizable { association(:dummy_resource) }
