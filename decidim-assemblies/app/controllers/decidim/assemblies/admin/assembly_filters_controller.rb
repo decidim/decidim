@@ -11,6 +11,10 @@ module Decidim
         def breadcrumb_manage_partial
           "layouts/decidim/admin/manage_assemblies"
         end
+
+        def participatory_space_manifest
+          :assemblies
+        end
       end
     end
   end

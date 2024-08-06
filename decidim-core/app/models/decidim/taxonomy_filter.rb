@@ -18,6 +18,10 @@ module Decidim
 
     delegate :name, to: :root_taxonomy
 
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::TaxonomyFilterPresenter
+    end
+
     private
 
     def root_taxonomy_is_root

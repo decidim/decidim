@@ -10,6 +10,15 @@ module Decidim
       protected
 
       def resource_class = Decidim::TaxonomyFilter
+
+      def extra_params
+        {
+          extra: {
+            space_manifest: form.try(:space_manifest),
+            filter_items_count: form.try(:all_taxonomy_items).try(:count)
+          }
+        }
+      end
     end
   end
 end
