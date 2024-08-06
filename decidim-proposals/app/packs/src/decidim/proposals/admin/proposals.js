@@ -13,9 +13,15 @@ $(() => {
     return $(".table-list [data-published-state=false] .js-check-all-proposal:checked").length
   }
 
+  const selectedProposalsAllowsAnswerCount = function() {
+    return $(".table-list [data-allow-answer=true] .js-check-all-proposal:checked").length
+  }
+
   const selectedProposalsCountUpdate = function() {
     const selectedProposals = selectedProposalsCount();
     const selectedProposalsNotPublishedAnswer = selectedProposalsNotPublishedAnswerCount();
+    const allowAnswerProposals = selectedProposalsAllowsAnswerCount();
+
     if (selectedProposals === 0) {
       $("#js-selected-proposals-count").text("")
       $("#js-assign-proposals-to-valuator-actions").addClass("hide");
@@ -35,6 +41,13 @@ $(() => {
       $("#js-form-publish-answers-number").text(selectedProposalsNotPublishedAnswer);
     } else {
       $('button[data-action="publish-answers"]').parent().hide();
+    }
+
+    if (allowAnswerProposals > 0) {
+      $('button[data-action="apply-answer-template"]').parent().show();
+      $("#js-form-apply-answer-template-number").text(allowAnswerProposals);
+    } else {
+      $('button[data-action="apply-answer-template"]').parent().hide();
     }
   }
 
