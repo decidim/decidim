@@ -1018,6 +1018,8 @@ de:
         update:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.
           success: Seite wurde erfolgreich aktualisiert.
+      taxonomies:
+        count: Anzahl
       titles:
         admin_log: Adminprotokoll
         area_types: Bereichstypen
