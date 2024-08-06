@@ -1018,6 +1018,8 @@ ca:
         update:
           error: S'ha produït un error en l'actualització d'aquesta pàgina.
           success: La pàgina s'ha actualitzat correctament.
+      taxonomies:
+        count: Recompte
       titles:
         admin_log: Registre d'administració
         area_types: Tipus d'àrees
