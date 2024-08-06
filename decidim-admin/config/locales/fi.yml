@@ -1018,6 +1018,8 @@ fi:
         update:
           error: Sivun päivitys epäonnistui.
           success: Sivun päivitys onnistui.
+      taxonomies:
+        count: Määrä
       titles:
         admin_log: Hallintatoimintojen lokitiedot
         area_types: Aluetyypit
