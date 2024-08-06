@@ -350,6 +350,8 @@ fi-pl:
       conflicts:
         attempts: Yritykset
         'false': 'Ei'
+        index:
+          text: Etsi nykyisen käyttäjän sähköpostin, nimen tai nimimerkin perusteella.
         managed_user_name: Hallittu käyttäjä
         solved: Ratkaistu
         title: Vahvistusten ristiriidat
@@ -1016,6 +1018,8 @@ fi-pl:
         update:
           error: Tämän sivun päivityksessä tapahtui virhe.
           success: Sivun päivitys onnistui.
+      taxonomies:
+        count: Määrä
       titles:
         admin_log: Hallintatoimintojen lokitiedot
         area_types: Aluetyypit
