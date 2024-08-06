@@ -42,7 +42,7 @@ module Decidim
       it { is_expected.not_to be_valid }
     end
 
-    context "when space manifes is not registered" do
+    context "when space manifest is not registered" do
       subject(:taxonomy_filter) { build(:taxonomy_filter, space_manifest: "dummy_manifest") }
 
       it { is_expected.not_to be_valid }

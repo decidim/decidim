@@ -104,7 +104,7 @@ module Decidim
             @root_taxonomies ||= current_organization.taxonomies.where(parent_id: nil)
           end
 
-          # Implement returing a valid (registered) participatory space manifest as a symbol (ie: :assemblies)
+          # Implement and return a valid (registered) participatory space manifest as a symbol (ie: :assemblies)
           def participatory_space_manifest
             raise NotImplementedError
           end

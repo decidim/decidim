@@ -57,7 +57,7 @@ module Decidim::Admin
         expect(subject.filter_items.map(&:taxonomy_item_id)).to contain_exactly(taxonomy_child.id, taxonomy_grandchild.id, taxonomy_item.id)
       end
 
-      context "when granchild is selected" do
+      context "when grandchild is selected" do
         let(:taxonomy_items) { [taxonomy_grandchild.id] }
 
         it { is_expected.to be_valid }
