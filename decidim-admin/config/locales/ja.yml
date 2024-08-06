@@ -1010,6 +1010,8 @@ ja:
         update:
           error: このページの更新中に問題が発生しました。
           success: ページが更新されました。
+      taxonomies:
+        count: カウント
       titles:
         admin_log: 管理者ログ
         area_types: エリア種別
