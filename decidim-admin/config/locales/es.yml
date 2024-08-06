@@ -1018,6 +1018,8 @@ es:
         update:
           error: Se ha producido un error en la actualización de ésta página.
           success: La página se ha actualizado correctamente.
+      taxonomies:
+        count: Recuento
       titles:
         admin_log: Registro de actividad de administradores
         area_types: Tipos de área
