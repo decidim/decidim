@@ -964,6 +964,8 @@ lt:
         update:
           error: Atnaujinant šį puslapį iškilo problema.
           success: Puslapis atnaujintas.
+      taxonomies:
+        count: Kiekis
       titles:
         admin_log: Administratoriaus veiklos žurnalas
         area_types: Aplinkos tipai
