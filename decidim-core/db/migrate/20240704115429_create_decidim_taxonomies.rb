@@ -18,6 +18,6 @@ class CreateDecidimTaxonomies < ActiveRecord::Migration[7.0]
       t.timestamps
     end
 
-    add_index :decidim_taxonomizations, [:taxonomizable_id, :taxonomizable_type], name: "index_taxonomizations_on_tid_and_ttype", unique: true
+    add_index :decidim_taxonomizations, [:taxonomy_id, :taxonomizable_id, :taxonomizable_type], name: "index_taxonomizations_on_id_tid_and_ttype", unique: true
   end
 end
