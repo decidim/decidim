@@ -24,6 +24,7 @@ AGPL
 Ajuntament
 Ajuntamentde
 alabs
+amd
 amendables
 AMR
 andreslucena
