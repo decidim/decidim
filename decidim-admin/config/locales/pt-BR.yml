@@ -1001,6 +1001,8 @@ pt-BR:
         update:
           error: Ocorreu um erro ao atualizar esta página.
           success: Página atualizada com sucesso.
+      taxonomies:
+        count: Contagem
       titles:
         admin_log: Log de administração
         area_types: Tipos de área
