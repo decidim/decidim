@@ -15,6 +15,11 @@ module Decidim
       validates :root_taxonomy_id, :taxonomy_items, presence: true
       validate :valid_taxonomy_items
 
+      def map_model(model)
+        self.root_taxonomy_id = model.root_taxonomy_id
+        self.taxonomy_items = model.filter_items.map(&:taxonomy_item_id)
+      end
+
       def taxonomy_items
         super.compact_blank
       end
@@ -25,9 +30,8 @@ module Decidim
 
       def all_taxonomy_items
         @all_taxonomy_items ||= taxonomy_items.map do |item|
-          parents = items_collection.find { |collection_item| collection_item.value == item.to_i }&.parent_ids || []
-          [item] + parents - [root_taxonomy_id]
-        end.flatten
+          find_item_in_tree(item)
+        end.flatten.uniq
       end
 
       def filter_items
@@ -48,6 +52,19 @@ module Decidim
 
       private
 
+      def find_item_in_tree(item, collection = items_collection)
+        el = collection.find { |i| i.value == item.to_i }
+        return [el.value] if el
+
+        collection.each do |i|
+          values = find_item_in_tree(item, i.children)
+
+          return [i.value] + values if values.present?
+        end
+
+        []
+      end
+
       def map_items_collection(taxonomy)
         taxonomy.children.map do |item|
           OpenStruct.new(
@@ -60,6 +77,8 @@ module Decidim
 
       def valid_taxonomy_items
         return if taxonomy_items.all? do |item|
+          next unless root_taxonomy
+
           root_taxonomy.all_children.map(&:id).include?(item.to_i)
         end
 

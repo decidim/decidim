@@ -18,7 +18,33 @@
     </div>
   </div>
 
-  <%= render "decidim/admin/taxonomy_filters/taxonomy_items", taxonomies: @form.root_taxonomy.children if @form.root_taxonomy %>
+  <% if @form.root_taxonomy %>
+    <div class="card-section my-4 p-4">
+      <div class="card-divider">
+        <h2 class="">
+          <%= t(".items", count: @form.root_taxonomy.all_children.flatten.count) %>
+        </h2>
+      </div>
+
+      <div class="table-scroll">
+        <%= decidim_form_for(@form, url: url_for(controller: params[:controller], action: :create), html: { class: "form-defaults form new_taxonomy_filter_" }) do |f| %>
+          <%= f.hidden_field :root_taxonomy_id %>
+          <div class="form__wrapper">
+            <div class="pt-4">
+              <%= render "decidim/admin/taxonomy_filters/check_boxes", form: f, collection: @form.items_collection %>
+            </div>
+          </div>
+
+          <div class="item__edit-sticky">
+            <div class="item__edit-sticky-container">
+              <%= f.submit t(".create"), class: "button button__sm button__secondary" %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%= render "decidim/admin/taxonomy_filters/callout" %>
+  <% end %>
 </div>
 
 <script>

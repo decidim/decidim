@@ -16,6 +16,8 @@ module Decidim
     validate :root_taxonomy_is_root
     validate :space_manifest_is_registered
 
+    delegate :name, to: :root_taxonomy
+
     private
 
     def root_taxonomy_is_root

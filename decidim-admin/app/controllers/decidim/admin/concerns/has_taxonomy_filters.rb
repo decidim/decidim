@@ -39,6 +39,42 @@ module Decidim
             end
           end
 
+          def edit
+            enforce_permission_to :update, :taxonomy_filter, taxonomy_filter: current_taxonomy_filter
+            @form = form(Decidim::Admin::TaxonomyFilterForm).from_model(current_taxonomy_filter)
+            render template: "decidim/admin/taxonomy_filters/edit"
+          end
+
+          def update
+            enforce_permission_to :update, :taxonomy_filter, taxonomy_filter: current_taxonomy_filter
+            @form = form(Decidim::Admin::TaxonomyFilterForm).from_params(params, participatory_space_manifest:)
+            @form.all_taxonomy_items
+            UpdateTaxonomyFilter.call(@form, current_taxonomy_filter) do
+              on(:ok) do
+                flash[:notice] = I18n.t("update.success", scope: "decidim.admin.taxonomy_filters")
+                redirect_to action: :index
+              end
+              on(:invalid) do
+                flash.now[:alert] = I18n.t("update.error", scope: "decidim.admin.taxonomy_filters")
+                render template: "decidim/admin/taxonomy_filters/edit"
+              end
+            end
+          end
+
+          def destroy
+            enforce_permission_to :destroy, :taxonomy_filter, taxonomy_filter: current_taxonomy_filter
+            DestroyTaxonomyFilter.call(current_taxonomy_filter, current_user) do
+              on(:ok) do
+                flash[:notice] = I18n.t("destroy.success", scope: "decidim.admin.taxonomy_filters")
+                redirect_to action: :index
+              end
+              on(:invalid) do
+                flash[:alert] = I18n.t("destroy.error", scope: "decidim.admin.taxonomy_filters")
+                redirect_to action: :index
+              end
+            end
+          end
+
           private
 
           def set_controller_breadcrumb
@@ -50,10 +86,14 @@ module Decidim
             return if params[:id].blank?
 
             controller_breadcrumb_items << {
-              label: translated_attribute(current_taxonomy_filter.title),
+              label: translated_attribute(current_taxonomy_filter.name),
               url: url_for(id: params[:id], controller: params[:controller], action: :edit),
               active: true
             }
+          end
+
+          def collection
+            @collection ||= TaxonomyFilter.where(space_manifest: participatory_space_manifest, root_taxonomy: root_taxonomies)
           end
 
           def current_taxonomy_filter

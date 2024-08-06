@@ -12,4 +12,12 @@
       </p>
     </div>
   </div>
+
+  <div class="card-section p-4">
+    <% if collection.any? %>
+      <%= render "decidim/admin/taxonomy_filters/table" %>
+    <% else %>
+      <p><%= t(".empty") %></p>
+    <% end %>
+  </div>
 </div>

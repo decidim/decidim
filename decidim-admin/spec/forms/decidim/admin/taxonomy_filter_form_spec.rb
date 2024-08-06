@@ -53,9 +53,38 @@ module Decidim::Admin
         )
       end
 
-      it "returns all the filter items" do
-        expect(subject.filter_items).to contain_exactly(taxonomy_child, taxonomy_grandchild, taxonomy_item)
+      it "returns all parent filter items" do
+        expect(subject.filter_items.map(&:taxonomy_item_id)).to contain_exactly(taxonomy_child.id, taxonomy_grandchild.id, taxonomy_item.id)
       end
+
+      context "when granchild is selected" do
+        let(:taxonomy_items) { [taxonomy_grandchild.id] }
+
+        it { is_expected.to be_valid }
+
+        it "returns all parent filter items" do
+          expect(subject.filter_items.map(&:taxonomy_item_id)).to contain_exactly(taxonomy_child.id, taxonomy_grandchild.id)
+        end
+      end
+    end
+
+    context "when the root taxonomy is not found" do
+      let(:root_taxonomy_id) { 0 }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    context "when the taxonomy items are not found" do
+      let(:taxonomy_items) { [0] }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    context "when the taxonomy items are not children of the root taxonomy" do
+      let(:another_root_taxonomy) { create(:taxonomy, organization:) }
+      let(:taxonomy_items) { [create(:taxonomy, parent: another_root_taxonomy, organization:).id] }
+
+      it { is_expected.not_to be_valid }
     end
   end
 end
