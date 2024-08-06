@@ -12,6 +12,7 @@ module Decidim
     include Decidim::Participable
     include Decidim::Publicable
     include Decidim::ScopableParticipatorySpace
+    include Decidim::Taxonomizable
     include Decidim::Followable
     include Decidim::HasReference
     include Decidim::Traceable

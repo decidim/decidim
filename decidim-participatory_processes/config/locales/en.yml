@@ -434,6 +434,7 @@ en:
             select_participatory_process_type: Select a process type
             select_process_group: Select a process group
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            taxonomies: Taxonomies
             title: General Information
             visibility: Visibility
       content_blocks:

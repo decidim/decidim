@@ -51,9 +51,16 @@
   document.addEventListener("DOMContentLoaded", function() {
     var form = document.querySelector(".new_taxonomy_filter_");
     var rootTaxonomySelect = document.querySelector("#taxonomy_filter_root_taxonomy_id");
+    var checkBoxes = document.querySelectorAll("[name='taxonomy_filter[taxonomy_items][]']");
 
+    // reload the page if the select exists
     rootTaxonomySelect.addEventListener("change", function() {
       form.submit();
+    });
+
+    // check all checkboxes on load
+    checkBoxes.forEach(function(checkbox) {
+      checkbox.checked = true;
     });
   });
 </script>
