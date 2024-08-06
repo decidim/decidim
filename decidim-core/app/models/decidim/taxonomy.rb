@@ -30,6 +30,7 @@ module Decidim
 
     has_many :taxonomy_filters, class_name: "Decidim::TaxonomyFilter", dependent: :destroy
     has_many :taxonomizations, class_name: "Decidim::Taxonomization", dependent: :destroy
+    has_many :taxonomy_filters, class_name: "Decidim::TaxonomyFilter", dependent: :destroy
 
     validates :name, presence: true
     validates :weight, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true

@@ -132,6 +132,14 @@ module Decidim
         end
       end
 
+      context "with filters" do
+        let!(:taxonomy_filter) { create(:taxonomy_filter, taxonomy:) }
+
+        it "can be deleted if it has filters" do
+          expect { taxonomy.destroy }.to change(Decidim::Taxonomy, :count).by(-1)
+        end
+      end
+
       context "when adding taxonomizations" do
         let(:taxonomization) { build(:taxonomization, taxonomy:) }
 
@@ -163,6 +171,18 @@ module Decidim
           root_taxonomy.taxonomizations << taxonomization
           expect(root_taxonomy).to be_invalid
           expect(taxonomization).to be_invalid
+        end
+      end
+
+      context "when adding taxonomy filters" do
+        let(:taxonomy_filter) { build(:taxonomy_filter, taxonomy:) }
+
+        it "can be associated with a taxonomy filter" do
+          expect(taxonomy.filters_count).to eq(0)
+          taxonomy.taxonomy_filters << taxonomy_filter
+          taxonomy.save
+          expect(taxonomy.taxonomy_filters).to include(taxonomy_filter)
+          expect(taxonomy.filters_count).to eq(1)
         end
       end
     end

@@ -665,6 +665,11 @@ FactoryBot.define do
     taxonomizable { association(:dummy_resource) }
   end
 
+  factory :taxonomy_filter, class: "Decidim::TaxonomyFilter" do
+    taxonomy
+    filterable { association(:dummy_component) }
+  end
+
   factory :coauthorship, class: "Decidim::Coauthorship" do
     transient do
       skip_injection { false }
