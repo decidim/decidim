@@ -8,7 +8,7 @@ module Decidim
 
         included do
           before_action :set_controller_breadcrumb
-          helper_method :collection, :current_taxonomy_filter, :breadcrumb_manage_partial
+          helper_method :collection, :current_taxonomy_filter, :breadcrumb_manage_partial, :root_taxonomies
           layout "decidim/admin/taxonomy_filters"
 
           # GET /admin/taxonomy_filters
@@ -17,20 +17,41 @@ module Decidim
             render template: "decidim/admin/taxonomy_filters/index"
           end
 
+          def new
+            enforce_permission_to :create, :taxonomy_filter
+            @form = form(Decidim::Admin::TaxonomyFilterForm).from_params(root_taxonomy_id: params[:root_taxonomy_id])
+            render template: "decidim/admin/taxonomy_filters/new"
+          end
+
+          def create
+            enforce_permission_to :create, :taxonomy_filter
+            @form = form(Decidim::Admin::TaxonomyFilterForm).from_params(params, participatory_space_manifest:)
+            CreateTaxonomyFilter.call(@form) do
+              on(:ok) do
+                flash[:notice] = I18n.t("create.success", scope: "decidim.admin.taxonomy_filters")
+                redirect_to action: :index
+              end
+
+              on(:invalid) do
+                flash.now[:alert] = I18n.t("create.error", scope: "decidim.admin.taxonomy_filters")
+                render template: "decidim/admin/taxonomy_filters/new"
+              end
+            end
+          end
+
           private
 
           def set_controller_breadcrumb
             controller_breadcrumb_items << {
               label: t("taxonomy_filters", scope: "decidim.admin.menu"),
-              url: url_for(params[:controller]),
+              url: url_for(controller: params[:controller]),
               active: false
             }
-
             return if params[:id].blank?
 
             controller_breadcrumb_items << {
               label: translated_attribute(current_taxonomy_filter.title),
-              url: url_for(current_taxonomy_filter, controller: params[:controller], action: :edit),
+              url: url_for(id: params[:id], controller: params[:controller], action: :edit),
               active: true
             }
           end
@@ -39,11 +60,16 @@ module Decidim
             @current_taxonomy_filter ||= collection.find(params[:id])
           end
 
-          def collection
-            @collection ||= Decidim::Taxonomy.where(organization: current_organization)
+          def root_taxonomies
+            @root_taxonomies ||= current_organization.taxonomies.where(parent_id: nil)
           end
 
-          # return a path to a partial if render that submenu
+          # Implement returing a valid (registered) participatory space manifest as a symbol (ie: :assemblies)
+          def participatory_space_manifest
+            raise NotImplementedError
+          end
+
+          # Override and return a path to a partial if you need to render the manage dropdown submenu
           def breadcrumb_manage_partial
             nil
           end

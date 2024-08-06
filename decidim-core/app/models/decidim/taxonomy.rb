@@ -72,6 +72,10 @@ module Decidim
       true
     end
 
+    def all_children
+      @all_children ||= children.flat_map { |child| [child] + child.all_children }
+    end
+
     private
 
     def set_default_weight

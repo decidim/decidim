@@ -1,0 +1,33 @@
+<% add_decidim_page_title(t(".title")) %>
+
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t(".title") %>
+    <%= link_to :back, class: "button button__transparent-secondary button__sm" do %>
+      <%= t(".back") %>
+    <% end %>
+  </h1>
+</div>
+
+<div class="card">
+  <div class="card-section p-4">
+    <div class="item__edit-form">
+      <%= decidim_form_for(@form, url: url_for(controller: params[:controller], action: :new), method: :get, html: { class: "form-defaults form new_taxonomy_filter_" }) do |f| %>
+        <%= render partial: "decidim/admin/taxonomy_filters/form", object: f %>
+      <% end %>
+    </div>
+  </div>
+
+  <%= render "decidim/admin/taxonomy_filters/taxonomy_items", taxonomies: @form.root_taxonomy.children if @form.root_taxonomy %>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var form = document.querySelector(".new_taxonomy_filter_");
+    var rootTaxonomySelect = document.querySelector("#taxonomy_filter_root_taxonomy_id");
+
+    rootTaxonomySelect.addEventListener("change", function() {
+      form.submit();
+    });
+  });
+</script>
