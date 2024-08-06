@@ -1,0 +1,70 @@
+<div class="table-scroll mt-8" role="table" aria-labelledby="taxonomies-title">
+  <table class="table-list">
+    <thead>
+    <tr role="row">
+      <th scope="col" role="columnheader" class="w-12"><span class="sr-only">Move</span></th>
+      <th scope="col" role="columnheader">
+        <ul class="taxonomy">
+          <li><%= t("decidim.admin.taxonomies.name") %></li>
+          <li><%= taxonomy.blank? ? t("decidim.admin.taxonomies.amount") : t("decidim.admin.taxonomies.count") %></li>
+          <li><%= t("decidim.admin.taxonomies.actions") %></li>
+        </ul>
+      </th>
+    </tr>
+    </thead>
+    <tbody class="js-sortable js-draggable-root" data-draggable-handle=".js-drag-handle" data-draggable-accept-from=".js-draggable-root" data-sort-url="<%= reorder_taxonomies_path %>" role="rowgroup">
+      <% if path = path_to_prev_page(collection) %>
+        <tr class="draggable-taxonomy change-page" data-prev-page="<%= path %>" data-taxonomy-id="<%= collection.page(collection.prev_page).per(per_page).last&.id %>"><td colspan="2"><%= t(".to_prev_page") %></td></tr>
+      <% end %>
+
+      <% collection.each do |taxonomy| %>
+        <%= render "row", taxonomy:, with_children: !taxonomy.root? %>
+      <% end %>
+      <% if path = path_to_next_page(collection) %>
+        <tr class="draggable-taxonomy change-page" data-next-page="<%= path %>" data-taxonomy-id="<%= collection.page(collection.next_page).per(per_page).first&.id %>"><td colspan="2"><%= t(".to_next_page") %></td></tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= decidim_paginate collection %>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const sortables = document.querySelectorAll(".js-sortable");
+    const nextPage = document.querySelector("[data-next-page]");
+    const prevPage = document.querySelector("[data-prev-page]");
+    const token = document.querySelector('meta[name="csrf-token"]');
+
+    sortables.forEach(function(sortable) {
+      sortable.addEventListener("sortupdate", function (event) {
+        sortable.classList.add("spinner-container");
+        const itemsId = Array.from(event.target.children).map(item => item.dataset.taxonomyId);
+        const parentId = event.target.dataset.parentId || event.target.closest('[data-taxonomy-id]')?.dataset.taxonomyId || null;
+        // console.log('The new ids are:', itemsId);
+
+        fetch(sortable.dataset.sortUrl, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-Token": token && token.getAttribute("content")
+          },
+          body: JSON.stringify({page: <%= collection.current_page %>, per_page: <%= per_page %>, ids_order: itemsId, parent_id: parentId})
+        }).then(function(response) {
+          if(response.ok) {
+            // If moved on top of the next page, lets go to the next page
+            if(!document.querySelector(".draggable-taxonomy:last-child").hasAttribute("data-next-page") && nextPage) {
+              location.href = nextPage.dataset.nextPage;
+            }
+            // If moved on top of the previous page, lets go to the previous page
+            else if(!document.querySelector(".draggable-taxonomy:first-child").hasAttribute("data-prev-page") && prevPage) {
+              location.href = prevPage.dataset.prevPage;
+            } else {
+              sortable.classList.remove("spinner-container");
+            }
+          }
+        });
+      });
+    });
+  });
+</script>
