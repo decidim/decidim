@@ -20,6 +20,8 @@ en:
         body: Body
       report:
         details: Additional comments
+      taxonomy:
+        name: Taxonomy name
       user:
         about: About
         email: Your email
@@ -261,6 +263,13 @@ en:
         create: "%{user_name} created the %{resource_name} static page"
         delete: "%{user_name} deleted the %{resource_name} static page"
         update: "%{user_name} updated the %{resource_name} static page"
+      taxonomy:
+        create: "%{user_name} created the %{resource_name} taxonomy"
+        create_with_parent: "%{user_name} created the %{resource_name} taxonomy inside the %{parent_taxonomy} taxonomy"
+        delete: "%{user_name} deleted the %{resource_name} taxonomy"
+        delete_with_parent: "%{user_name} deleted the %{resource_name} taxonomy inside the %{parent_taxonomy} taxonomy"
+        update: "%{user_name} updated the %{resource_name} taxonomy"
+        update_with_parent: "%{user_name} updated the %{resource_name} taxonomy inside the %{parent_taxonomy} taxonomy"
       user:
         block: "%{user_name} blocked user %{resource_name}"
         invite: "%{user_name} invited the participant %{resource_name} with role: %{role}"
@@ -1091,6 +1100,8 @@ en:
           not_found: 'The scope was not found on the database (ID: %{id})'
         scope_type_presenter:
           not_found: 'The scope type was not found on the database (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'The taxonomy was not found on the database (ID: %{id})'
     managed_users:
       expired_session: The current administration session of a participant has expired.
     map:
