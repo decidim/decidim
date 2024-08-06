@@ -250,7 +250,7 @@ module Decidim
       end
 
       def templates_available?
-        Decidim.module_installed?(:templates) && Decidim::Templates::Template.exists?(templatable: current_component)
+        Decidim.module_installed?(:templates) && defined?(Decidim::Templates::Template) && Decidim::Templates::Template.exists?(templatable: current_component)
       end
     end
   end
