@@ -1050,6 +1050,7 @@ en:
         index:
           description: A taxonomy allows admins categorizing and organizing content. For example, add a taxonomy to classify processes by geographical scope.
           new_taxonomy: New taxonomy
+          no_items_found: No taxonomies found matching the search criteria.
         name: Name
         new:
           create: Create taxonomy

@@ -9,11 +9,11 @@ module Decidim
       mimic :taxonomy
 
       # we do not use "name" here to avoid collisions when using foundation tabs for multilingual fields tabs
+      # as this is used in a modal and the name identifier is used for the root taxonomy
       translatable_attribute :item_name, String
       attribute :parent_id, Integer
 
       validates :item_name, translatable_presence: true
-      validates :parent_id, presence: true
       validate :validate_parent_id_within_same_root_taxonomy
 
       alias name item_name
@@ -33,20 +33,21 @@ module Decidim
       end
 
       def validate_parent_id_within_same_root_taxonomy
-        return unless parent_id
-        return unless parent
+        if parent
+          current_root_taxonomy = if parent.root?
+                                    parent
+                                  else
+                                    parent.root_taxonomy
+                                  end
 
-        current_root_taxonomy = if parent.parent_id.nil?
-                                  parent
-                                else
-                                  parent.root_taxonomy
-                                end
-
-        errors.add(:parent_id, :invalid) unless parent.root_taxonomy.id == current_root_taxonomy.id
+          errors.add(:parent_id, :invalid) unless parent.root_taxonomy.id == current_root_taxonomy.id
+        else
+          errors.add(:parent_id, :invalid)
+        end
       end
 
       def parent
-        @parent ||= Decidim::Taxonomy.find_by(id: parent_id) if parent_id.present?
+        @parent ||= Decidim::Taxonomy.find_by(id: parent_id)
       end
     end
   end

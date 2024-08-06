@@ -3,20 +3,20 @@
 module Decidim
   module Admin
     class TaxonomiesController < Decidim::Admin::ApplicationController
-      include Decidim::Admin::Filterable
+      include Decidim::Admin::Taxonomies::Filterable
 
       layout "decidim/admin/settings"
 
       add_breadcrumb_item_from_menu :admin_settings_menu
 
-      helper_method :taxonomies, :parent_options, :taxonomy
+      helper_method :collection, :parent_options, :taxonomy
 
       before_action only: :edit do
         redirect_to edit_taxonomy_path(taxonomy.parent) unless taxonomy && taxonomy.root?
       end
 
       def index
-        @query = root_taxonomies.ransack(params[:q])
+        @taxonomies = filtered_collection
       end
 
       def new
@@ -45,7 +45,7 @@ module Decidim
       def edit
         enforce_permission_to(:update, :taxonomy, taxonomy:)
         @form = form(Decidim::Admin::TaxonomyForm).from_model(taxonomy)
-        @query = taxonomy.children.ransack(params[:q])
+        @taxonomies = filtered_collection
       end
 
       def update
@@ -97,22 +97,16 @@ module Decidim
 
       private
 
-      def taxonomies
-        @taxonomies = @query.result
-        @taxonomies = @taxonomies.search_by_name(params.dig(:q, :name_cont)) if params.dig(:q, :name_cont).present?
-        @taxonomies = paginate(@taxonomies)
+      def collection
+        @collection ||= taxonomy ? taxonomy.children : root_taxonomies
       end
 
       def root_taxonomies
-        @root_taxonomies ||= base_query.where(parent_id: nil)
+        @root_taxonomies ||= current_organization.taxonomies.where(parent_id: nil)
       end
 
       def taxonomy
-        @taxonomy ||= base_query.find(params[:id])
-      end
-
-      def base_query
-        Decidim::Taxonomy.where(organization: current_organization)
+        @taxonomy ||= current_organization.taxonomies.find_by(id: params[:id])
       end
     end
   end

@@ -629,7 +629,11 @@ FactoryBot.define do
   end
 
   factory :taxonomy, class: "Decidim::Taxonomy" do
-    name { Decidim::Faker::Localized.literal(generate(:name)) }
+    transient do
+      skip_injection { false }
+    end
+
+    name { generate_localized_title(:taxonomy_name, skip_injection:) }
     organization
     parent { nil }
     weight { nil }
@@ -653,12 +657,12 @@ FactoryBot.define do
 
   factory :taxonomy_filter, class: "Decidim::TaxonomyFilter" do
     taxonomy
-    filterable { association(:proposal_component) }
+    filterable { association(:dummy_component) }
   end
 
   factory :taxonomization, class: "Decidim::Taxonomization" do
     taxonomy { association(:taxonomy, :with_parent) }
-    taxonomizable { association(:proposal) }
+    taxonomizable { association(:dummy_resource) }
   end
 
   factory :coauthorship, class: "Decidim::Coauthorship" do

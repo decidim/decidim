@@ -7,7 +7,7 @@ module Decidim::Admin
     subject { described_class.from_params(attributes).with_context(context) }
 
     let(:organization) { create(:organization) }
-    let(:name) { { "en" => "Valid Name" } }
+    let(:name) { attributes_for(:taxonomy)[:name] }
     let(:attributes) { { name: } }
     let(:context) do
       {
