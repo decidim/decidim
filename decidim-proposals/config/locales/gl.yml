@@ -131,7 +131,6 @@ gl:
             official_proposals_enabled: Propostas oficiais habilitadas
             participatory_texts_enabled: Permitir textos participativos
             proposal_answering_enabled: Contestando a proposta habilitada
-            proposal_edit_before_minutes: As propostas poden ser editadas por autores antes de que pase moitos minutos
             proposal_length: Lonxitude máxima do corpo da proposta
             proposal_limit: Límite de proposta por usuario
             proposal_wizard_step_1_help_text: Asistente de propostas "Crear" texto de axuda paso a paso
@@ -315,7 +314,6 @@ gl:
           form:
             note: Nota
             submit: Enviar
-          leave_your_note: Deixe a súa nota
           title: Notas privadas
         proposals:
           edit:
