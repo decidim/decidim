@@ -19,6 +19,8 @@ eu:
         body: Testua
       report:
         details: Iruzkin gehigarriak
+      taxonomy:
+        name: Taxonomiaren izena
       user:
         about: Honi buruz
         email: Zure helbide elektronikoa
