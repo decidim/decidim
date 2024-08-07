@@ -1019,6 +1019,8 @@ de:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.
           success: Seite wurde erfolgreich aktualisiert.
       taxonomies:
+        actions: Aktionen
+        amount: Anzahl
         count: Anzahl
       titles:
         admin_log: Adminprotokoll
