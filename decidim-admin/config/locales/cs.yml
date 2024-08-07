@@ -1035,6 +1035,18 @@ cs:
         count: Spočítat
         create:
           invalid: Při vytváření této taxonomie došlo k chybě.
+        edit:
+          back: Zpět
+          new_item: Nová položka
+          update: Aktualizovat
+        filters:
+          search_placeholder: Hledat
+        name: Název
+      taxonomy_items:
+        edit:
+          update: Aktualizovat položku
+        new:
+          create: Vytvořit položku
       titles:
         admin_log: Správce protokolu
         area_types: Typy oblastí
@@ -1055,6 +1067,7 @@ cs:
         scope_types: Typy oblastí působnosti
         scopes: Oblasti působnosti
         statistics: Aktivita
+        taxonomies: Taxonomie
         user_groups: Skupiny
         users: Administrátoři
       user_group:
