@@ -97,6 +97,7 @@ cs:
               accepted: Dostatek podpisů
               created: Vytvořeno
               discarded: Vyřazeno
+              open: Otevřeno
               rejected: Nedostatek podpisů
               validating: Technické ověření
           type_id_eq:
@@ -334,6 +335,7 @@ cs:
         accepted: Dostatek podpisů
         created: Vytvořeno
         discarded: Vyřazeno
+        open: Otevřeno
         rejected: Nedostatek podpisů
         validating: Technická validace
       application_helper:
@@ -592,6 +594,7 @@ cs:
           accepted: Dostatek podpisů
           created: Vytvořeno
           discarded: Zahozeno
+          open: Otevřeno
           rejected: Nedostatek podpisů
           validating: Technické ověření
       states:
