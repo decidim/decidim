@@ -1047,6 +1047,7 @@ cs:
           update: Aktualizovat položku
         new:
           create: Vytvořit položku
+          title: Nová položka v %{taxonomy}
       titles:
         admin_log: Správce protokolu
         area_types: Typy oblastí
