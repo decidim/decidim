@@ -88,7 +88,7 @@
       <% end %>
     <% end %>
   <% end %>
-  <%= cell "decidim/meetings/cancel_registration_meeting_button", meeting %>
+  <%= cell "decidim/meetings/cancel_registration_meeting_button", meeting, hide_modal: local_assigns[:hide_modal] %>
 </section>
 <% end %>
 
