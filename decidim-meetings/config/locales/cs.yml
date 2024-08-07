@@ -617,6 +617,7 @@ cs:
             back_to_meeting: Zpět na schůzku
         questions:
           closed_question:
+            question: Otázka
             question_results: Výsledky
           index:
             empty_questions: Během této schůzky budou zaslány některé dotazy a vy na ně budete moci odpovědět. Zobrazí se zde.
@@ -630,6 +631,7 @@ cs:
             sent: Odesláno
             statuses:
               closed: Výsledky byly odeslány (uzavřeny)
+              unpublished: Čeká na odeslání
           published_question:
             max_choices_alert: Je vybráno příliš mnoho možností
             question: Otázka
