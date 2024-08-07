@@ -213,6 +213,7 @@ cs:
               most_commented: Nejvíce komentované
               most_endorsed: Nejvíce schvalované
               most_followed: Nejvíce sledované
+              most_voted: Nejvíce hlasovalo
               random: Náhodně
               recent: Nedávné
               with_more_authors: S více autory
@@ -223,6 +224,7 @@ cs:
             publish_answers_immediately_help_html: 'Mějte na paměti, že pokud odpovíte na jakýkoli návrh bez tohoto povolení, budete je muset publikovat ručně jejich výběrem a použitím publikační akce. Více informací o tom, jak to funguje, naleznete na <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">stránce odpovědi návrhů</a>.'
             suggested_hashtags: Hashtagy navržené uživatelům pro nové návrhy
             votes_blocked: Hlasy blokovány
+            votes_enabled: Hlasování povoleno
     events:
       proposals:
         admin:
