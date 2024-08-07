@@ -120,6 +120,11 @@ Decidim::Admin::Engine.routes.draw do
 
     resources :conflicts, only: [:index, :edit, :update], controller: "conflicts"
 
+    resources :taxonomies, except: [:show] do
+      patch :reorder, on: :collection
+      resources :items, only: [:new, :create, :edit, :update], controller: "taxonomy_items"
+    end
+
     root to: "dashboard#show"
   end
 end
