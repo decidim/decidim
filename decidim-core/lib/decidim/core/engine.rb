@@ -178,6 +178,7 @@ module Decidim
         Decidim.icons.register(name: "list-check", icon: "list-check", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "add-fill", icon: "add-fill", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "clipboard-line", icon: "clipboard-line", category: "system", description: "", engine: :initiatives)
+        Decidim.icons.register(name: "user-forbid-line", icon: "user-forbid-line", category: "system", description: "", engine: :core)
 
         # Refactor later: Some of the icons here are duplicated, and it would be a greater refactor to remove the duplicates
         Decidim.icons.register(name: "Decidim::Amendment", icon: "git-branch-line", category: "activity", description: "Amendment", engine: :core)
