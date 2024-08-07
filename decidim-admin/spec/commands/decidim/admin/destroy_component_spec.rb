@@ -44,7 +44,7 @@ module Decidim::Admin
     end
 
     context "when the component has a reminder associated with it" do
-      let!(:reminder) { Decidim::Reminder.create!(user: current_user, component:) }
+      let!(:reminder) { create(:reminder, user: current_user, component:) }
 
       it "destroys the component" do
         expect { subject.call }.to broadcast(:ok)
