@@ -467,6 +467,9 @@ eu:
             pending: Zain
             rejected: Ukatua
             verified: Egiaztatua
+        taxonomies:
+          taxonomy_id_eq:
+            label: Taxonomia
       forms:
         file_help:
           import:
@@ -580,6 +583,7 @@ eu:
         settings: Ezarpenak
         static_page_topics: Gaiak
         static_pages: Orriak
+        taxonomies: Taxonomiak
         user_groups: Erabiltzaile-taldeak
         users: Parte-hartzaileak 
       metrics:
@@ -1005,7 +1009,23 @@ eu:
           error: Arazo bat egon da orri hau eguneratzean.
           success: Orria zuzen eguneratua.
       taxonomies:
+        actions: Ekintzak
+        amount: Kopurua
         count: Zenbaketa
+        create:
+          invalid: Arazo bat egon da kategoria hau sortzean.
+          success: Kategoria zuzen sortua.
+        destroy:
+          invalid: Arazo bat egon da osagai hau ezabatzean.
+        edit:
+          back: Atzera
+          new_item: Elementu berria
+          update: Gorde
+        filters:
+          search_placeholder: Bilatu
+        index:
+          new_taxonomy: Taxonomia berria
+        name: Izena
       titles:
         admin_log: Administratzaile-erregistroa
         area_types: Arlo motak
@@ -1026,6 +1046,7 @@ eu:
         scope_types: Esparru motak
         scopes: Esparruak
         statistics: Jarduera
+        taxonomies: Taxonomiak
         user_groups: Erabiltzaile-taldeak
         users: Administratzaileak
       user_group:
