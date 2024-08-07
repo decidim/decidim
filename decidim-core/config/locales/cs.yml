@@ -19,6 +19,8 @@ cs:
         body: Tělo zprávy
       report:
         details: Další komentáře
+      taxonomy:
+        name: Název taxonomie
       user:
         about: O nás
         email: Váš email
