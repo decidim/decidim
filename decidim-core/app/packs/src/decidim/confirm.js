@@ -5,7 +5,7 @@
  * it to gain control over the confirm events BEFORE rails-ujs is loaded.
  */
 
-import Rails from "@rails/ujs"
+const { Rails } = window;
 
 class ConfirmDialog {
   constructor(sourceElement) {
@@ -129,26 +129,31 @@ const handleDocumentEvent = (ev, matchSelectors) => {
   });
 };
 
-document.addEventListener("click", (ev) => {
-  return handleDocumentEvent(ev, [
-    Rails.linkClickSelector,
-    Rails.buttonClickSelector,
-    Rails.formInputClickSelector
-  ]);
-});
-document.addEventListener("change", (ev) => {
-  return handleDocumentEvent(ev, [Rails.inputChangeSelector]);
-});
-document.addEventListener("submit", (ev) => {
-  return handleDocumentEvent(ev, [Rails.formSubmitSelector]);
-});
-
-// This is needed for the confirm dialog to work with Foundation Abide.
-// Abide registers its own submit click listeners since Foundation 5.6.x
-// which will be handled before the document listeners above. This would
-// break the custom confirm functionality when used with Foundation Abide.
-document.addEventListener("DOMContentLoaded", function() {
-  $(Rails.formInputClickSelector).on("click.confirm", (ev) => {
-    handleConfirm(ev, getMatchingEventTarget(ev, Rails.formInputClickSelector));
+// Note that this needs to be run **before** Rails.start()
+export const initializeConfirm = () => {
+  document.addEventListener("click", (ev) => {
+    return handleDocumentEvent(ev, [
+      Rails.linkClickSelector,
+      Rails.buttonClickSelector,
+      Rails.formInputClickSelector
+    ]);
   });
-});
+  document.addEventListener("change", (ev) => {
+    return handleDocumentEvent(ev, [Rails.inputChangeSelector]);
+  });
+  document.addEventListener("submit", (ev) => {
+    return handleDocumentEvent(ev, [Rails.formSubmitSelector]);
+  });
+
+  // This is needed for the confirm dialog to work with Foundation Abide.
+  // Abide registers its own submit click listeners since Foundation 5.6.x
+  // which will be handled before the document listeners above. This would
+  // break the custom confirm functionality when used with Foundation Abide.
+  document.addEventListener("DOMContentLoaded", function() {
+    $(Rails.formInputClickSelector).on("click.confirm", (ev) => {
+      handleConfirm(ev, getMatchingEventTarget(ev, Rails.formInputClickSelector));
+    });
+  });
+};
+
+export default ConfirmDialog;
