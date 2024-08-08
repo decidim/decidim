@@ -5,7 +5,7 @@ const { Rails } = window;
 const createUnloadPreventer = () => {
   const preventUnloadConditions = [];
 
-  const confirmMessage = "Are you sure you want to continue?";
+  const confirmMessage = window.Decidim.config.get("messages.confirmUnload") || "Are you sure you want to leave this page?";
 
   const canUnload = (event) => !preventUnloadConditions.some((condition) => condition(event));
 
