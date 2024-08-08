@@ -25,9 +25,10 @@ module Decidim
         # unsaved form.
         #
         # This header is required because Chrome is phasing this event out due
-        # to some performance issues with the Bfcache feature of the browser.
-        # However, currently there are no alternative events that would allow
-        # preventing accidental page reloads, tab closing or window closing.
+        # to some performance issues with the back/forward cache feature of the
+        # browser. However, currently there are no alternative events that would
+        # allow preventing accidental page reloads, tab closing or window
+        # closing.
         #
         # For further information, see:
         # https://developer.chrome.com/docs/web-platform/deprecating-unload

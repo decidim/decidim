@@ -43,7 +43,7 @@ const createUnloadPreventer = () => {
   // not work due to the deprecation of the unload APIs in Chromium based
   // browsers and possibly in the web standards in the future.
   //
-  // Accoring to:
+  // According to:
   // https://developer.chrome.com/docs/web-platform/page-lifecycle-api#the_beforeunload_event
   //
   // > Never add a beforeunload listener unconditionally or use it as an
