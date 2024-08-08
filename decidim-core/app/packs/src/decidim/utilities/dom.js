@@ -1,4 +1,4 @@
-import ConfirmDialog from "src/decidim/confirm"
+import confirmAction from "src/decidim/confirm"
 
 const { Rails } = window;
 
@@ -75,14 +75,14 @@ const createUnloadPreventer = () => {
     ev.preventDefault();
     ev.stopPropagation();
 
-    const dialog = new ConfirmDialog($(link));
-    dialog.confirm(confirmMessage).then((answer) => {
-      const completed = Rails.fire(link, "confirm:complete", [answer]);
-      if (answer && completed) {
-        disableBeforeUnload();
-        document.removeEventListener("click", linkClickListener);
-        link.click();
+    confirmAction(confirmMessage, link).then((answer) => {
+      if (!answer) {
+        return;
       }
+
+      disableBeforeUnload();
+      document.removeEventListener("click", linkClickListener);
+      link.click();
     });
   };
 
@@ -106,14 +106,14 @@ const createUnloadPreventer = () => {
     ev.stopImmediatePropagation();
     ev.stopPropagation();
 
-    const dialog = new ConfirmDialog($(button));
-    dialog.confirm(confirmMessage).then((answer) => {
-      const completed = Rails.fire(button, "confirm:complete", [answer]);
-      if (answer && completed) {
-        disableBeforeUnload();
-        document.removeEventListener("submit", formSubmitListener);
-        source.submit();
+    confirmAction(confirmMessage, button).then((answer) => {
+      if (!answer) {
+        return;
       }
+
+      disableBeforeUnload();
+      document.removeEventListener("submit", formSubmitListener);
+      source.submit();
     });
   };
 
