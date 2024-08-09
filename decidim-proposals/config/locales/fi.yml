@@ -158,7 +158,7 @@ fi:
               random: Satunnainen
               recent: Viimeisimmät
               with_more_authors: Eniten tekijöitä
-            geocoding_enabled: Geokoodaus käytössä
+            geocoding_enabled: Karttatoiminnot käytössä
             minimum_votes_per_user: Kannatusten vähimmäismäärä käyttäjää kohden
             new_proposal_body_template: Uuden ehdotuksen leipätekstin mallipohja
             new_proposal_body_template_help: Voit määritellä esitäytetyn oletustekstin, joka uusille ehdotuksille näytetään automaattisesti
@@ -260,12 +260,12 @@ fi:
           email_subject: "%{author_name} %{author_nickname} perunut yhteistyöluonnoksen %{resource_title}."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>perunut</strong>yhteistyöluonnoksen <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
-          email_intro: 'Voit nyt luoda uusia ehdotuksia osallistumistilassa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
+          email_intro: 'Voit nyt luoda uusia ehdotuksia osallistumistilassa %{participatory_space_title}! Aloita osallistuminen sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Ehdotuksia on nyt mahdollista laatia osallistumistilassa %{participatory_space_title}
           notification_title: Voit nyt esittää <a href="%{resource_path}">uusia ehdotuksia</a> osallistumistilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         endorsing_enabled:
-          email_intro: 'Voit suositella ehdotuksia osallistumistilassa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
+          email_intro: 'Voit suositella ehdotuksia osallistumistilassa %{participatory_space_title}! Aloita osallistuminen sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esiteyn linkin kautta.
           email_subject: Ehdotusten suosittelu on alkanut kohteelle %{participatory_space_title}
           notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten suosittelun</a> osallistumistilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
@@ -570,11 +570,11 @@ fi:
         proposals_merges:
           create:
             invalid: 'Valittujen ehdotusten yhdistäminen epäonnistui, koska:'
-            success: Ehdotukset yhdistettiin onnistuneesti uudeksi ehdotukseksi.
+            success: Ehdotusten yhdistäminen uudeksi ehdotukseksi onnistui.
         proposals_splits:
           create:
             invalid: 'Valittujen ehdotusten jakaminen epäonnistui, koska:'
-            success: Ehdotukset jaettiin onnistuneesti uusiksi ehdotuksiksi.
+            success: Ehdotusten jakaminen uusiksi ehdotuksiksi onnistui.
         valuation_assignments:
           create:
             invalid: Arvioijien asettaminen ehdotuksille epäonnistui.
@@ -625,7 +625,7 @@ fi:
               cancel: Peruuta
               ok: Julkaise ehdotuksena
               title: Seuraavat toimenpiteet ovat peruuttamattomia
-            success: Yhteistyöluonnos julkaistiin onnistuneesti ehdotuksena.
+            success: Yhteistyöluonnoksen julkaisu ehdotuksena onnistui.
           withdraw:
             error: Yhteistyöluonnoksen sulkeminen epäonnistui.
             irreversible_action_modal:
@@ -679,17 +679,17 @@ fi:
           recent: Viimeisimmät
         requests:
           accepted_request:
-            error: Osallistujaa ei voitu hyväksyä, yritä myöhemmin uudelleen.
+            error: Osallistujaa ei voitu hyväksyä, yritä myöhemmin uudestaan.
             success: "Käyttäjän @%{user} hyväksyminen muokkaajaksi onnistui."
           access_requested:
-            error: Pyyntöäsi ei voitu suorittaa, yritä myöhemmin uudelleen.
+            error: Pyyntöäsi ei voitu suorittaa, yritä myöhemmin uudestaan.
             success: Osallistumispyyntösi lähetys onnistui.
           collaboration_requests:
             accept_request: Hyväksy
             reject_request: Hylkää
             title: Yhteistyöpyynnöt
           rejected_request:
-            error: Osallistujaa ei voitu hylätä, yritä myöhemmin uudelleen.
+            error: Osallistujaa ei voitu hylätä, yritä myöhemmin uudestaan.
             success: "Käyttäjän @%{user} osallistumispyynnön hylkäys onnistui."
         show:
           edit: Muokkaa yhteistyöluonnosta
