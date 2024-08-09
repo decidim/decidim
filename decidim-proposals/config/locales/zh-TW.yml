@@ -135,7 +135,6 @@ zh-TW:
               random: 隨機
               recent: 最近
               with_more_authors: 有更多作者
-            geocoding_enabled: 地理編碼已啟用
             new_proposal_body_template: 新提案正文樣板
             new_proposal_body_template_help: 您可以定義新提案預先填寫的文字
             new_proposal_help_text: 新提案幫助文本
