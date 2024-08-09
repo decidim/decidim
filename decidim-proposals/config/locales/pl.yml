@@ -783,7 +783,6 @@ pl:
           discard: Porzuć ten szkic
           discard_confirmation: Czy na pewno chcesz porzucić ten szkic propozycji?
           send: Podgląd
-          title: Edytuj szkic propozycji
         edit_form_fields:
           marker_added: Znacznik dodany do mapy.
         filters:
