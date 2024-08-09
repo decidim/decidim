@@ -176,7 +176,7 @@ en:
               days: Days
               hours: Hours
               minutes: Minutes
-            geocoding_enabled: Geocoding enabled
+            geocoding_enabled: Maps enabled
             minimum_votes_per_user: Minimum votes per user
             new_proposal_body_template: New proposal body template
             new_proposal_body_template_help: You can define prefilled text that the new Proposals will have
