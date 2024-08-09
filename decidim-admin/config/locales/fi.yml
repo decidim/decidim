@@ -298,7 +298,7 @@ fi:
           error: Aihepiirin luonti epäonnistui.
           success: Aihepiirin luonti onnistui.
         destroy:
-          error: Tämän aihepiirin poistaminen epäonnistui. Poista ensin kaikki sen ala-aihepiirit ja varmista, että mikään muu kohde ei liity tähän aihepiiriin. Kokeile sen jälkeen uudestaan.
+          error: Tämän aihepiirin poistaminen epäonnistui. Poista ensin kaikki sen ala-aihepiirit ja varmista, että mikään muu kohde ei liity tähän aihepiiriin. Kokeile sen jälkeen uudelleen.
           success: Aihepiirin poistaminen onnistui.
         edit:
           title: Muokkaa aihepiiriä
@@ -319,7 +319,7 @@ fi:
         create:
           error: Komponentin luonti epäonnistui.
           success: Komponentin luonti onnistui.
-          success_landing_page: Komponentti luotu onnistuneesti. Voit lisätä sisältölohkon tälle komponentille osallistumistilan etusivulle. Siirry <a href="%{landing_page_path}">Laskeutumissivu-osioon</a> lisätäksesi komponentin osallistumistilan etusivulle.
+          success_landing_page: Komponentin luonti onnistui. Voit lisätä sisältölohkon tälle komponentille osallistumistilan etusivulle. Siirry <a href="%{landing_page_path}">Laskeutumissivu-osioon</a> lisätäksesi komponentin osallistumistilan etusivulle.
         destroy:
           error: Komponentin tuhoaminen epäonnistui.
           success: Komponentin poisto onnistui.
@@ -731,7 +731,7 @@ fi:
       newsletters:
         create:
           error: Uutiskirjeen luonti epäonnistui.
-          success: Uutiskirje luotu onnistuneesti. Tarkasta se ennen lähetystä.
+          success: Uutiskirjeen luonti onnistui. Tarkasta se ennen lähetystä.
         deliver:
           error: Uutiskirjeen toimitus epäonnistui.
           success: Uutiskirjeen toimitus onnistui.
@@ -889,7 +889,7 @@ fi:
       participatory_space_private_users_csv_imports:
         create:
           invalid: CSV-tiedoston lukeminen epäonnistui. Tarkasta, että olet seurannut esitettyjä ohjeita.
-          success: CSV-tiedosto ladattu onnistuneesti. Lähetämme kutsusähköpostin osallistujille. Tämä voi kestää hetken.
+          success: CSV-tiedoston lataus onnistui. Lähetämme kutsusähköpostin osallistujille. Tämä voi kestää hetken.
         new:
           csv_upload:
             title: Lataa CSV-tiedosto
@@ -1044,7 +1044,7 @@ fi:
       user_group:
         csv_verify:
           invalid: CSV-tiedoston käsittely epäonnistui.
-          success: CSV-tiedosto on ladattu onnistuneesti. Vahvistamme kriteerien mukaiset käyttäjäryhmät. Tämä voi kestää hetken.
+          success: CSV-tiedoston lataus onnistui. Vahvistamme kriteerien mukaiset käyttäjäryhmät. Tämä voi kestää hetken.
         reject:
           invalid: Käyttäjäryhmän hylkäys epäonnistui.
           success: Käyttäjäryhmän hylkäys onnistui.
