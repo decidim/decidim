@@ -126,7 +126,6 @@ gl:
               random: Ao chou
               recent: Máis recentes
               with_more_authors: Con máis autores
-            geocoding_enabled: Geocoding habilitado
             new_proposal_help_text: Nova proposta de axuda de texto
             official_proposals_enabled: Propostas oficiais habilitadas
             participatory_texts_enabled: Permitir textos participativos
