@@ -6,6 +6,7 @@ module Decidim
   module DeviseAuthenticationMethods
     extend ActiveSupport::Concern
     include Decidim::UserBlockedChecker
+    include Decidim::OnboardingActionMethods
 
     included do
       def after_sign_in_path_for(user)
@@ -26,17 +27,6 @@ module Decidim
       # only way to do this without checking the session directly.
       def pending_redirect?(user)
         store_location_for(user, stored_location_for(user))
-      end
-
-      # Returns true if there's a pending onboarding action for the user.
-      # The check if skipped for admins, users that are not verifiable of
-      # organizations that have no available authorizations.
-      def pending_onboarding_action?(user)
-        return false if user.admin?
-        return false unless user.verifiable?
-        return false if current_organization.available_authorizations.empty?
-
-        OnboardingManager.new(user).pending_action?
       end
     end
   end
