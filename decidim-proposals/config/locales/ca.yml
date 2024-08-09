@@ -175,7 +175,6 @@ ca:
               days: Dies
               hours: Hores
               minutes: Minuts
-            geocoding_enabled: Geocodificació habilitada
             minimum_votes_per_user: Suports mínims per usuari
             new_proposal_body_template: Plantilla pel text de nova proposta
             new_proposal_body_template_help: Pots definir el text predefinit que hauria de tenir una nova proposta
