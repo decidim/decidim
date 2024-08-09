@@ -328,6 +328,7 @@ fi-pl:
               errors:
                 budget_voting_rule_only_one: Ainoastaan yksi äänestyssääntö voi olla kerrallaan valittuna.
                 budget_voting_rule_required: Yksi äänestyssääntö on valittava.
+            geocoding_enabled: Karttatoiminnot käytössä
             landing_page_content: Budjetoinnin aloitussivun teksti
             more_information_modal: Lisätietoikkunan teksti
             projects_per_page: Suunnitelmat sivua kohden
