@@ -469,6 +469,9 @@ fi:
             pending: Odottavat
             rejected: Hylätyt
             verified: Vahvistetut
+        taxonomies:
+          taxonomy_id_eq:
+            label: Luokittelu
       forms:
         file_help:
           import:
@@ -591,6 +594,7 @@ fi:
         settings: Asetukset
         static_page_topics: Aiheet
         static_pages: Sivut
+        taxonomies: Luokittelut
         user_groups: Käyttäjäryhmät
         users: Käyttäjät
       metrics:
@@ -1019,7 +1023,42 @@ fi:
           error: Sivun päivitys epäonnistui.
           success: Sivun päivitys onnistui.
       taxonomies:
+        actions: Toiminnot
+        amount: Määrä
         count: Määrä
+        create:
+          invalid: Luokittelun luominen epäonnistui.
+          success: Luokittelun luominen onnistui.
+        destroy:
+          invalid: Luokittelun poistaminen epäonnistui.
+          success: Luokittelun poistaminen onnistui.
+        edit:
+          back: Takaisin
+          new_item: Uusi kohde
+          subtitle: Kohteet luokittelussa "%{taxonomy_name}"
+          title: Muokkaa luokittelua "%{taxonomy_name}"
+          update: Päivitä
+        filters:
+          search_placeholder: Hae
+        index:
+          new_taxonomy: Uusi taksonomia
+        name: Nimi
+        new:
+          create: Luo taksonomia
+          title: Uusi taksonomia
+        table:
+          to_next_page: Vedä seuraavalle sivulle
+          to_prev_page: Vedä edelliselle sivulle
+        update:
+          success: Taksonomian päivittäminen onnistui.
+      taxonomy_items:
+        edit:
+          title: Muokkaa kohdetta taksonomiassa %{taxonomy}
+          update: Päivitä kohde
+        new:
+          create: Luo kohde
+          none: Ei mitään
+          title: Uusi kohde taksonomiassa %{taxonomy}
       titles:
         admin_log: Hallintatoimintojen lokitiedot
         area_types: Aluetyypit
@@ -1040,6 +1079,7 @@ fi:
         scope_types: Teematyypit
         scopes: Teemat
         statistics: Toiminta
+        taxonomies: Taksonomiat
         user_groups: Käyttäjäryhmät
         users: Hallintakäyttäjät
       user_group:
