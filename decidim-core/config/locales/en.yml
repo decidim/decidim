@@ -294,11 +294,11 @@ en:
       dismiss: Dismiss notification
     amendments:
       accepted:
-        error: An error ocurred while accepting the amendment.
+        error: There was a problem accepting the amendment.
         success: The amendment has been accepted successfully.
       amendable:
         button: Amend %{model_name}
-        error: There has been an error amending this resource.
+        error: There was a problem amending this resource.
         promote_button: Promote to %{model_name}
         promote_confirm_text: Are you sure you want to promote this emendation?
         promote_help_text: You can promote this emendation and publish it as an independent %{model_name}.
@@ -307,7 +307,7 @@ en:
           one: "%{count} amendment"
           other: "%{count} amendments"
       created:
-        error: An error ocurred while creating the amendment draft.
+        error: There was a problem creating the amendment draft.
         success: Amendment draft has been created successfully.
       destroy_draft:
         error: There was a problem deleting the amendment draft.
@@ -359,7 +359,7 @@ en:
         error: There was a problem updating the amendment draft.
         success: Amendment draft successfully updated.
       withdraw:
-        error: An error ocurred while withdrawing the amendment.
+        error: There was a problem withdrawing the amendment.
         success: The amendment has been withdrawn successfully.
       wizard_step_form:
         steps:
@@ -1437,7 +1437,7 @@ en:
         subject: A resource has been reported
     reports:
       create:
-        error: An error ocurred while creating the report. Please, try it again.
+        error: There was a problem creating the report. Please, try it again.
         success: The report has been created successfully and it will be reviewed by an admin.
     resource_endorsements:
       create:
@@ -1874,7 +1874,7 @@ en:
       not_found: could not be found. Have you created an account previously?
       not_locked: was not locked
       not_saved:
-        one: 'There''s been an error processing your request:'
+        one: 'There has been an error processing your request:'
         other: 'There were multiple errors when processing your request:'
       too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
       too_much_caps: is using too many capital letters (over 25% of the text)
