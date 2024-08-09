@@ -173,7 +173,6 @@ pl:
               random: Losowo
               recent: Ostatnie
               with_more_authors: Z większą liczbą autorów
-            geocoding_enabled: Włączono geokodowanie
             minimum_votes_per_user: Minimalna liczba głosów na użytkownika
             new_proposal_body_template: Szablon treści nowej propozycji
             new_proposal_body_template_help: Możesz zdefiniować częściowo wypełnioną treść nowej propozycji
