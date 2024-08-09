@@ -95,7 +95,7 @@ module Decidim
     def authorization_handlers
       return unless permissions
 
-      permissions["authorization_handlers"]&.keys.map(&:to_s) || []
+      permissions["authorization_handlers"]&.keys&.map(&:to_s) || []
     end
 
     # Returns the model component
