@@ -144,7 +144,6 @@ el:
               random: Τυχαία
               recent: Πρόσφατη
               with_more_authors: Με περισσότερους συντάκτες
-            geocoding_enabled: Το Geocoding ενεργοποιήθηκε
             new_proposal_body_template: Πρότυπο σώματος νέας πρότασης
             new_proposal_body_template_help: Μπορείτε να ορίσετε το προσυμπληρωμένο κείμενο που θα έχουν οι νέες Προτάσεις
             new_proposal_help_text: Κείμενο βοήθειας νέας πρότασης
