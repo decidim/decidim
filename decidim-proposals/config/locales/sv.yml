@@ -143,7 +143,6 @@ sv:
               random: Slumpmässigt
               recent: Senaste
               with_more_authors: Med fler författare
-            geocoding_enabled: Geokodning aktiverad
             new_proposal_body_template: Innehållsmall för nytt förslag
             new_proposal_body_template_help: Du kan ange den förifyllda texten för nya förslag
             new_proposal_help_text: Hjälptext om nya förslag
