@@ -869,7 +869,6 @@ tailwindcss
 tarekraafat
 taxonomizable
 taxonomization
-taxonomizations
 technopolitical
 templatable
 templateable
