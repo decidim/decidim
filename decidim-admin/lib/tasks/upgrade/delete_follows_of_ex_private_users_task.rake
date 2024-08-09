@@ -16,9 +16,9 @@ namespace :decidim do
           private_users_ids = Decidim::ParticipatorySpacePrivateUser.where(privatable_to_id: element.id, privatable_to_type: model.to_s).pluck(:decidim_user_id)
           # delete follows from non private users
           direct_follows_to_delete = Decidim::Follow.where(followable: element.id, decidim_followable_type: model.to_s)
-                                                    .reject { |follow| private_users_ids.include?(follow.decidim_user_id) }
+                                                    .where.not(decidim_user_id: private_users_ids)
           count += direct_follows_to_delete.size
-          direct_follows_to_delete.map { |follow| Decidim::Follow.delete(follow.id) }
+          direct_follows_to_delete.destroy_all
           # children of element
           element_components_ids = element.components.ids
           children_follows_to_delete = children_follows.select { |follow| element_components_ids.include?(find_object(follow).decidim_component_id) }
@@ -30,11 +30,11 @@ namespace :decidim do
       end
       children_follows = Decidim::Follow.select { |follow| find_object(follow).respond_to?(:decidim_component_id) }
       # find private non transparent assemblies
-      assemblies = Decidim::Assembly.where(private_space: true, is_transparent: false).published
+      assemblies = Decidim::Assembly.where(private_space: true, is_transparent: false)
       # delete unwanted follows
       delete_unwanted_follows(Decidim::Assembly, assemblies, children_follows)
       # find private processes
-      processes = Decidim::ParticipatoryProcess.where(private_space: true).published
+      processes = Decidim::ParticipatoryProcess.where(private_space: true)
       # delete unwanted follows
       delete_unwanted_follows(Decidim::ParticipatoryProcess, processes, children_follows)
     end
