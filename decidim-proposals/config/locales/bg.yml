@@ -170,7 +170,6 @@ bg:
               random: Произволно
               recent: Скорошни
               with_more_authors: С повече автори
-            geocoding_enabled: Координатите са разрешени
             minimum_votes_per_user: Минимален брой гласове на потребител
             new_proposal_body_template: Шаблон за основен текст на предложение
             new_proposal_body_template_help: Можете да зададете текст по подразбиране за нови предложения
