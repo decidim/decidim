@@ -171,7 +171,6 @@ cs:
               days: Dní
               hours: Hodin
               minutes: Minut
-            geocoding_enabled: Geokódování povoleno
             minimum_votes_per_user: Minimální počet hlasů na uživatele
             new_proposal_body_template: Šablona těla nového návrhu
             new_proposal_body_template_help: Můžete definovat předem vyplněný text, který budou mít nové návrhy
