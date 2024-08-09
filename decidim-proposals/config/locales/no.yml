@@ -128,7 +128,6 @@
               random: Tilfeldig
               recent: Nylig
               with_more_authors: Med flere forfattere
-            geocoding_enabled: Geokoding aktivert
             new_proposal_body_template: Nytt forslag korppsmal
             new_proposal_body_template_help: Du kan definere forhåndsutfylt tekst som de nye forslagene vil ha
             new_proposal_help_text: Ny forslag hjelpetekst
