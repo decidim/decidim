@@ -150,7 +150,6 @@ lt:
               random: Atsitiktinai
               recent: Naujausi
               with_more_authors: Turintys daugiausia autorių
-            geocoding_enabled: Geokodavimas įjungtas
             new_proposal_body_template: Naujo pasiūlymo pagrindinės dalies šablonas
             new_proposal_body_template_help: Galite nustatyti naujiuose pasiūlymuose būsimą iš anksto užpildytą tekstą
             new_proposal_help_text: Naujo pasiūlymo pagalbos tekstas
