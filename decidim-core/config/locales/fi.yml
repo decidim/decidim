@@ -19,6 +19,8 @@ fi:
         body: Viestin teksti
       report:
         details: Lisätiedot
+      taxonomy:
+        name: Taksonomian nimi
       user:
         about: Profiilikuvaus
         email: Sähköpostiosoitteesi
@@ -260,6 +262,13 @@ fi:
         create: "%{user_name} loi staattisen sivun %{resource_name}"
         delete: "%{user_name} poisti staattisen sivun %{resource_name}"
         update: "%{user_name} päivitti staattista sivua %{resource_name}"
+      taxonomy:
+        create: "%{user_name} loi taksonomian %{resource_name}"
+        create_with_parent: "%{user_name} loi kohteen %{resource_name} taksonomian %{parent_taxonomy} alle"
+        delete: "%{user_name} poisti taksonomian %{resource_name}"
+        delete_with_parent: "%{user_name} poisti kohteen %{resource_name} taksonomian %{parent_taxonomy} alta"
+        update: "%{user_name} päivitti taksonomiaa %{resource_name}"
+        update_with_parent: "%{user_name} päivitti kohdetta %{resource_name} taksonomian %{parent_taxonomy} alla"
       user:
         block: "%{user_name} esti käyttäjän %{resource_name}"
         invite: "%{user_name} kutsui käyttäjän %{resource_name} roolilla: %{role}"
@@ -1083,6 +1092,8 @@ fi:
           not_found: 'Teemaa ei löytynyt tietokannasta (ID: %{id})'
         scope_type_presenter:
           not_found: 'Teeman tyyppiä ei löytynyt tietokannasta (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'Taksonomiaa ei löytynyt tietokannasta (ID: %{id})'
     managed_users:
       expired_session: Käyttäjän hallintaistunto on vanhentunut.
     map:
