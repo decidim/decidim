@@ -128,7 +128,6 @@ it:
             default_sort_order_options:
               random: Casuale
               recent: Recenti
-            geocoding_enabled: Geocoding abilitato
             new_proposal_body_template: Nuovo modello di testo della proposta
             new_proposal_body_template_help: È possibile definire un testo precompilato che le nuove proposte avranno
             new_proposal_help_text: Nuovo testo di aiuto per la proposta
