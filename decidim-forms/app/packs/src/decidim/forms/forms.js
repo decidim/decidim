@@ -46,7 +46,6 @@ $(() => {
     });
   });
 
-  // const $form = $("form.answer-questionnaire");
   const form = document.querySelector("form.answer-questionnaire");
   if (form) {
     const safePath = form.dataset.safePath.split("?")[0];
