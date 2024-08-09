@@ -175,6 +175,7 @@ fi:
               days: Päivää
               hours: Tuntia
               minutes: Minuuttia
+            geocoding_enabled: Karttatoiminnot käytössä
             minimum_votes_per_user: Vähimmäisäänimäärä käyttäjää kohden
             new_proposal_body_template: Uuden ehdotuksen leipätekstin mallipohja
             new_proposal_body_template_help: Voit määritellä esitäytetyn oletustekstin, joka uusille ehdotuksille näytetään automaattisesti
