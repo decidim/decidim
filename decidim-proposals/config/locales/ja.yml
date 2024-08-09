@@ -166,7 +166,6 @@ ja:
               random: ランダム
               recent: 新しい順
               with_more_authors: 起案者の多い順
-            geocoding_enabled: ジオコーディングが有効
             minimum_votes_per_user: ユーザーあたりの最小投票数
             new_proposal_body_template: 新しい提案本文テンプレート
             new_proposal_body_template_help: 新しい提案に含まれる予定のテキストを定義することができます。
