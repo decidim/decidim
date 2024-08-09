@@ -655,7 +655,6 @@ ar:
           discard: تجاهل هذه المسودة
           discard_confirmation: هل أنت متأكد من أنك تريد التخلص من مسودة الاقتراح؟
           send: معاينة
-          title: تحرير مسودة الاقتراح
         filters:
           activity: نشاطي
           all: الكل
