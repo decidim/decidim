@@ -19,6 +19,8 @@ fi-pl:
         body: Viestin teksti
       report:
         details: Lisätiedot
+      taxonomy:
+        name: Luokittelun nimi
       user:
         about: Profiilikuvaus
         email: Sähköpostiosoitteesi
@@ -260,6 +262,13 @@ fi-pl:
         create: "%{user_name} loi staattisen sivun %{resource_name}"
         delete: "%{user_name} poisti staattisen sivun %{resource_name}"
         update: "%{user_name} päivitti staattista sivua %{resource_name}"
+      taxonomy:
+        create: "%{user_name} loi luokittelun %{resource_name}"
+        create_with_parent: "%{user_name} loi kohteen %{resource_name} luokittelun %{parent_taxonomy} alle"
+        delete: "%{user_name} poisti luokittelun %{resource_name}"
+        delete_with_parent: "%{user_name} poisti kohteen %{resource_name} luokittelun %{parent_taxonomy} alta"
+        update: "%{user_name} päivitti luokittelua %{resource_name}"
+        update_with_parent: "%{user_name} päivitti kohdetta %{resource_name} luokittelun %{parent_taxonomy} alla"
       user:
         block: "%{user_name} esti käyttäjän %{resource_name}"
         invite: "%{user_name} kutsui käyttäjän %{resource_name} roolilla: %{role}"
@@ -1083,6 +1092,8 @@ fi-pl:
           not_found: 'Teemaa ei löytynyt tietokannasta (ID: %{id})'
         scope_type_presenter:
           not_found: 'Teeman tyyppiä ei löytynyt tietokannasta (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'Luokittelua ei löytynyt tietokannasta (ID: %{id})'
     managed_users:
       expired_session: Eri käyttäjänä kirjautumisen istunto on vanhentunut.
     map:
@@ -1288,7 +1299,7 @@ fi-pl:
       name: Offline
       show:
         message_1: Verkkoyhteytesi näyttää olevan poissa käytöstä tällä hetkellä.
-        message_2: Yritä myöhemmin uudelleen.
+        message_2: Yritä myöhemmin uudestaan.
         retry: Yritä uudestaan
     open_data:
       not_available_yet: Avoimet datatiedostot eivät ole vielä käytettävissä, yritä uudelleen muutaman minuutin kuluttua.
@@ -1385,7 +1396,7 @@ fi-pl:
           manage_user_group_admins: Hallinnoi ylläpitäjiä
           manage_user_group_users: Hallinnoi jäseniä
           message: Viesti
-          resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudelleen
+          resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudestaan
         confirmation_instructions_sent: Sähköpostivahvistuksen ohjeet lähetetty.
         create_user_group: Luo ryhmä
         edit_profile: Muokkaa profiilia
@@ -1838,7 +1849,7 @@ fi-pl:
   errors:
     messages:
       allowed_file_content_types: 'ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'
-      already_confirmed: on jo vahvistettu, yritä kirjautua sisään uudelleen
+      already_confirmed: on jo vahvistettu, yritä kirjautua sisään uudestaan
       blank: ei voi olla tyhjä
       cannot_be_blank: ei voi olla tyhjä
       confirmation: ei täsmää kentän %{attribute} kanssa
