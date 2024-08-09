@@ -584,7 +584,6 @@ tr:
           discard: Bu taslağı sil
           discard_confirmation: Bu teklif taslağını silmek istediğinizden emin misiniz?
           send: Ön izleme
-          title: Teklif Taslağını Düzenle
         edit_form_fields:
           marker_added: haritaya İşaretçi eklendi.
         filters:
