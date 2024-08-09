@@ -1476,6 +1476,7 @@ fi:
         close_modal: Sulje ikkuna
         ok: OK
         title: Vahvista
+      confirm_unload: Sinulla on tallentamattomia muutoksia. Oletko varma, että haluat poistua tältä sivulta?
       embed:
         title: Upotettu videosisältö
       extended_navigation_bar:
