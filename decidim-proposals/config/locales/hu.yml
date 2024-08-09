@@ -123,7 +123,6 @@ hu:
             default_sort_order: Alapértelmezett javaslat rendezés
             default_sort_order_options:
               most_endorsed: Legtámogatottabb
-            geocoding_enabled: Geokódolás engedélyezve
             minimum_votes_per_user: Minimális szavazatok felhasználónként
             new_proposal_body_template: Új javaslat szövegtörzse
             new_proposal_body_template_help: Előre meghatározott szöveg beállítása, amelyet az új Javaslatok használnak
