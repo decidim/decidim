@@ -1323,6 +1323,8 @@ en:
         message_1: It looks like you are currently offline.
         message_2: Please, try again later.
         retry: Retry
+    onboarding_action_message:
+      cta_html: <a href="%{path}">You can finish the authorization process</a> in order to %{action} in the %{resource_name} <strong>%{resource_title}</strong>
     open_data:
       help:
         core:
