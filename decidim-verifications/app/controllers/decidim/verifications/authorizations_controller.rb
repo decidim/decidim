@@ -29,7 +29,7 @@ module Decidim
         return redirect_to authorizations_path unless onboarding_manager.valid?
 
         if onboarding_manager.finished_verifications?(active_authorization_methods)
-          flash[:notice] = "You have been sucessfully authorized"
+          flash[:notice] = t("authorizations.first_login.completed_verifications", scope: "decidim.verifications")
           redirect_to ResourceLocatorPresenter.new(onboarding_manager.model).url
 
           onboarding_manager.remove_pending_action!
