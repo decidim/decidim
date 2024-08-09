@@ -150,7 +150,6 @@ ar:
               random: عشوائي
               recent: الأخيرة
               with_more_authors: مع المزيد من المؤلفين
-            geocoding_enabled: تم تمكين الترميز الجغرافي
             new_proposal_body_template: نموذج جديد لمحتوى المُقتَرَح
             new_proposal_body_template_help: يمكنكم تعريف النص المعبأ مسبقاً الذي سيدرج في المقترحات الجديدة
             new_proposal_help_text: نص مساعدة اقتراح جديد
