@@ -1323,6 +1323,8 @@ en:
         message_1: It looks like you are currently offline.
         message_2: Please, try again later.
         retry: Retry
+    onboarding_action_message:
+      cta_html: <a href="%{path}">You can finish the authorization process</a> in order to %{action} in the %{resource_name} <strong>%{resource_title}</strong>
     open_data:
       index:
         description: Welcome to the %{organization_name} Open Data page. Here, you will find data files that are regularly generated from various deliberative and governance processes within %{organization_name}. These files are made available to promote transparency, accessibility, and collaboration. Below, you will find detailed information on what these files are, how to open and work with them, and a description of the content and structure of each file.
