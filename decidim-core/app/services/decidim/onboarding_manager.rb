@@ -71,6 +71,13 @@ module Decidim
       @model ||= GlobalID::Locator.locate(onboarding_model)
     end
 
+    # Returns the model name related to the action in the onboarding process.
+    #
+    # Returns a string
+    def model_name
+      @model_name ||= model.class.model_name
+    end
+
     # Filters the given authorizations that are required for the onboarding process.
     #
     # authorizations - An array of Decidim::Authorization objects
