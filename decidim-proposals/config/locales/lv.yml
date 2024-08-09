@@ -499,7 +499,6 @@ lv:
           discard: Atmest šo melnrakstu
           discard_confirmation: Vai tiešām vēlaties atmest šo grozījuma melnrakstu?
           send: Priekšskatīt
-          title: Rediģēt priekšlikuma projektu
         filters:
           activity: Mana aktivitāte
           all: Visi
