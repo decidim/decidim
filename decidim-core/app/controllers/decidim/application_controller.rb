@@ -26,6 +26,7 @@ module Decidim
     include NeedsPasswordChange
     include LinkedResourceReference
     include ActiveStorage::SetCurrent
+    include OnboardingActionMethods
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
@@ -42,6 +43,7 @@ module Decidim
     helper Decidim::TwitterSearchHelper
     helper Decidim::SocialShareButtonHelper
     helper Decidim::FiltersHelper
+    helper Decidim::OnboardingActionHelper
 
     register_permissions(::Decidim::ApplicationController,
                          ::Decidim::Admin::Permissions,
