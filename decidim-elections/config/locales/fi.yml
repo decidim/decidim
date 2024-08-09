@@ -435,7 +435,7 @@ fi:
           chained_hash: Tämän viestin ketjutettu tiiviste
           complete: Viimeistele
           creation_description:
-            complete: Vaali luotiin ja perustettiin onnistuneesti sähköiseen ääniuurnaan.
+            complete: Vaalin luonti ja perustaminen sähköiseen ääniuurnaan onnistui.
             not_created: Vaalia ei ole vielä luotu.
           creation_title: Vaali luotu
           description: Tämä on vaalin loki, josta voit tarkastaa jokaisen vaiheen tilan, esimerkiksi milloin vaali luotiin, onko ääntenlasku suoritettu ja milloin vaali suljettiin.
@@ -666,17 +666,17 @@ fi:
           feedback: Jätä meille palautetta
           header: Ääni vahvistettu
           lead: Äänesi on annettu!
-          text: 'Voit tarkastaa, että äänesi on jätetty onnistuneesti äänestyslaatikkoon seuraavalla tunnisteella: '
+          text: 'Voit tarkastaa, että äänesi jättäminen äänestyslaatikkoon onnistui seuraavalla tunnisteella: '
           verify_link: Tarkastaaksesi tämän, kopioi äänen tunniste <a href="%{link}">äänten vahvistussivulle</a>
         create:
-          error: Äänen jättämisessä tapahtui virhe. Ole hyvä ja yritä uudelleen.
+          error: Äänen jättämisessä tapahtui virhe. Ole hyvä ja yritä uudestaan.
         encrypting:
           header: Salataan ääntä...
           text: Äänesi salataan, jotta vaalisalaisuus voidaan taata.
         failed:
           header: Äänestys epäonnistui
           lead: Ääntäsi ei ole annettu!
-          text: Jokin meni pieleen, yritä uudelleen.
+          text: Jokin meni pieleen, yritä uudestaan.
           try_again: Yritä uudestaan
         header:
           ballot_decision: Jätä äänesi
@@ -1216,7 +1216,7 @@ fi:
             questions_title_voted: 'Osallistuja on jo äänestänyt verkossa ja hänellä on oikeus äänestää seuraavista kysymyksistä:'
             voted: Osallistuja on äänestänyt
           create:
-            error: Ääntä ei tallennettu. Ole hyvä ja yritä uudelleen.
+            error: Ääntä ei tallennettu. Ole hyvä ja yritä uudestaan.
           in_person_form:
             census_not_present: Tätä osallistujaa ei ole henkilötietorekisterissä.
             census_not_present_description: Osallistujan on mentävä reklamoimaan henkilötietorekisteriä hallinnoivaan toimistoon tai otettava yhteyttä tukeen.
@@ -1239,7 +1239,7 @@ fi:
             back: Takaisin äänestyspaikkoihin
             title: Odottaa fyysisessä tilaisuudessa annetun äänen tallennusta
           update:
-            error: Äänen tallennuksessa tapahtui virhe. Ole hyvä ja yritä uudelleen.
+            error: Äänen tallennuksessa tapahtui virhe. Ole hyvä ja yritä uudestaan.
             success:
               accepted: Äänen tallennus onnistui.
               rejected: Ääntä ei hyväksytty sähköisessä ääniuurnassa. Ota yhteyttä järjestelmänvalvojaan.
