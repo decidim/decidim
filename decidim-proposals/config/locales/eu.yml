@@ -167,7 +167,6 @@ eu:
               random: Ausazkoa
               recent: Azkenak
               with_more_authors: Egile gehiagorekin
-            geocoding_enabled: Geokodifikazioa gaituta dago
             minimum_votes_per_user: Gutxieneko botoak erabiltzaile bakoitzeko
             new_proposal_body_template: Plantilla proposamen berriaren testurako
             new_proposal_body_template_help: Proposamen berriek izango duten testu aurredefinitua zehaztu ahal duzu
