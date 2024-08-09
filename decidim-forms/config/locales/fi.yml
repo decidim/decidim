@@ -123,7 +123,7 @@ fi:
             up: Ylös
           update:
             invalid: Kyselylomakkeen tallentaminen epäonnistui.
-            success: Lomake tallennettu onnistuneesti.
+            success: Lomakkeen tallennus onnistui.
       admin_log:
         questionnaire:
           update: "%{user_name} päivitti kyselyä %{resource_name}"
