@@ -841,7 +841,6 @@ fi:
           discard: Hylkää tämä luonnos
           discard_confirmation: Haluatko varmasti hylätä tämän ehdotusluonnoksen?
           send: Esikatselu
-          title: Muokkaa ehdotusluonnosta
         edit_form_fields:
           marker_added: Karttamerkki lisätty.
         filters:
