@@ -133,7 +133,6 @@ pt:
               random: Aleatório
               recent: Mais recentes
               with_more_authors: Com mais autores
-            geocoding_enabled: Geocoding ativado
             new_proposal_body_template: Novo modelo de corpo de proposta
             new_proposal_body_template_help: Pode definir o texto pré-preenchido que as novas Propostas terão
             new_proposal_help_text: Novo texto de ajuda da proposta
