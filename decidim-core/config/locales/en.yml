@@ -1484,6 +1484,7 @@ en:
         close_modal: Close modal
         ok: OK
         title: Confirm
+      confirm_unload: This page contains unsaved changes. Are you sure you want to leave this page?
       embed:
         title: Embedded video content
       extended_navigation_bar:
