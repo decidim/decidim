@@ -804,7 +804,6 @@ ca:
           discard: Descarta aquest esborrany
           discard_confirmation: Segur que vols descartar l'esborrany d'aquesta proposta?
           send: Vista prèvia
-          title: Edició l'esborrany de proposta
         edit_form_fields:
           marker_added: Marcador afegit al mapa.
         filters:
