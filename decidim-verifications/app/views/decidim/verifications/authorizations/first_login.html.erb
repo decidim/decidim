@@ -7,18 +7,17 @@
 
 <%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
   <section class="authorizations-list">
-    <div class="flash flex-col success mb-8">
-      <div class="flash__message">
-        You are almost ready to
-        <%= onboarding_manager.action %>
-        in the
-        <%= onboarding_manager.model.class.model_name.human.downcase %>
-        <%= " " %>
-        <strong>
-          <%= translated_attribute onboarding_manager.model.title %>.
-        </strong>
-      </div>
-    </div>
+    <%= cell(
+          "decidim/announcement",
+          t(
+            "onboarding_message_html",
+            scope: "decidim.verifications.authorizations.first_login",
+            action: onboarding_manager.action,
+            resource_name: onboarding_manager.model_name.human.downcase,
+            resource_title: translated_attribute(onboarding_manager.model.title)
+          ),
+          callout_class: "success"
+        ) %>
 
     <%
         subsections = []
