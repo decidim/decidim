@@ -175,7 +175,6 @@ de:
               days: Tage
               hours: Stunden
               minutes: Minuten
-            geocoding_enabled: Geocoding aktiviert
             minimum_votes_per_user: Minimal erforderliche Anzahl Stimmen eines Abstimmenden
             new_proposal_body_template: Textvorlage für neuen Vorschlag
             new_proposal_body_template_help: Sie können den vorgefüllten Text der neuen Vorschläge bestimmen
