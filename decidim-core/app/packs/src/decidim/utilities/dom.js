@@ -1,11 +1,12 @@
 import confirmAction from "src/decidim/confirm"
+import { getMessages } from "src/decidim/i18n"
 
 const { Rails } = window;
 
 const createUnloadPreventer = () => {
   const preventUnloadConditions = [];
 
-  const confirmMessage = window.Decidim.config.get("messages.confirmUnload") || "Are you sure you want to leave this page?";
+  const confirmMessage = getMessages("confirmUnload") || "Are you sure you want to leave this page?";
 
   const canUnload = (event) => !preventUnloadConditions.some((condition) => condition(event));
 
