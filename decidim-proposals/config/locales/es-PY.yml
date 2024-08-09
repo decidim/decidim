@@ -175,7 +175,6 @@ es-PY:
               days: Días
               hours: Horas
               minutes: Minutos
-            geocoding_enabled: Geocodificación habilitada
             minimum_votes_per_user: Votos mínimos por usuario
             new_proposal_body_template: Plantilla para el texto de nueva propuesta
             new_proposal_body_template_help: Puede definir el texto predefinido que tendrán las nuevas propuestas
