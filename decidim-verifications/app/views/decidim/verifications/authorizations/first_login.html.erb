@@ -19,33 +19,16 @@
           callout_class: "success"
         ) %>
 
-    <%
-        subsections = []
-
-        filtered_granted_authorizations = onboarding_manager.filter_authorizations(granted_authorizations)
-        filtered_pending_authorizations = onboarding_manager.filter_authorizations(pending_authorizations)
-        filtered_unauthorized_methods = onboarding_manager.filter_authorizations(unauthorized_methods)
-
-        subsections << {
-          title: t("authorizations.index.granted_verification", scope: "decidim.verifications"),
-          items: filtered_granted_authorizations.map { |authorization| granted_authorization_display_data(authorization, redirect_url) }
-        } if filtered_granted_authorizations.any?
-
-        subsections << {
-          title: t("authorizations.index.pending_verification", scope: "decidim.verifications"),
-          items: filtered_pending_authorizations.map { |authorization| pending_authorization_display_data(authorization, redirect_url) }
-        } if filtered_pending_authorizations.any?
-
-        subsections << {
-          title: t("authorizations.index.unauthorized_methods", scope: "decidim.verifications"),
-          items: filtered_unauthorized_methods.map { |method| unauthorized_method_display_data(method, redirect_url) }
-        } if filtered_unauthorized_methods.any?
-    %>
-
-    <% subsections.each do |subsection| %>
-      <!--<div class="verification__container-title"><%= subsection[:title] %></div>-->
+    <% onboarding_sections(
+        onboarding_manager,
+        redirect_url:,
+        granted_authorizations:,
+        pending_authorizations:,
+        unauthorized_methods:
+      ).each do |section| %>
+      <div class="verification__container-title"><%= section[:title] %></div>
       <div class="verification__container my-4">
-        <% subsection[:items].each do |locals| %>
+        <% section[:items].each do |locals| %>
           <%= render partial: "item", locals: %>
         <% end %>
       </div>
