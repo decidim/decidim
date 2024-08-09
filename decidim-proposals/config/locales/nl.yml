@@ -116,7 +116,6 @@ nl:
               random: Willekeurig
               recent: Meest recent
               with_more_authors: Met meer auteurs
-            geocoding_enabled: Geolocatie ingeschakeld
             new_proposal_body_template: Nieuw voorstel lichaamssjabloon
             new_proposal_body_template_help: U kunt de door voorgevulde tekst definiëren die de nieuwe voorstellen zullen hebben
             new_proposal_help_text: Hulptekst bij de creatie van een nieuw voorstel
