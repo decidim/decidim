@@ -68,6 +68,7 @@ const createUnloadPreventer = () => {
 
     if (canUnload(ev)) {
       disableBeforeUnload();
+      document.removeEventListener("click", linkClickListener);
       return;
     }
 
@@ -95,6 +96,7 @@ const createUnloadPreventer = () => {
 
     if (canUnload(ev)) {
       disableBeforeUnload();
+      document.removeEventListener("submit", formSubmitListener);
       return;
     }
 
