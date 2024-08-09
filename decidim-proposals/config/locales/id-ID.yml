@@ -416,7 +416,6 @@ id:
           discard: Buang draf ini
           discard_confirmation: Anda yakin ingin membuang draf proposal ini?
           send: Preview
-          title: Edit Draf Proposal
         filters:
           amendment_type: Mengetik
           category: Kategori
