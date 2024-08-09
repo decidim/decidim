@@ -513,7 +513,6 @@ zh-CN:
           discard: 丢弃这个草稿
           discard_confirmation: 您确定要放弃这个建议草案吗？
           send: 预览
-          title: 编辑提案草案
         filters:
           activity: 我的活动
           all: 所有的
