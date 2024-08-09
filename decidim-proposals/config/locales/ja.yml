@@ -773,7 +773,6 @@ ja:
           discard: この下書きを破棄する
           discard_confirmation: この提案の下書きを破棄してもよろしいですか？
           send: プレビュー
-          title: 提案の草案を編集
         edit_form_fields:
           marker_added: マーカーがマップに追加されました。
         filters:
