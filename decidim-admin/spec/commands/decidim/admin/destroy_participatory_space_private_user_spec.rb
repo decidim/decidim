@@ -38,34 +38,25 @@ module Decidim::Admin
       expect(action_log.version).to be_nil
     end
 
-    context "when assembly is not transparent" do
+    context "when assembly is private and user follows assembly" do
       let(:normal_user) { create(:user, organization:) }
-      let(:assembly) { create(:assembly, :private, :opaque, :published, organization: user.organization) }
+      let(:assembly) { create(:assembly, :private, :published, organization: user.organization) }
       let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: normal_user, privatable_to: assembly) }
+      let!(:follow) { create(:follow, followable: assembly, user: normal_user) }
 
-      context "and user follows assembly" do
-        let!(:follow) { create(:follow, followable: assembly, user: normal_user) }
-
-        it "destroys the follow" do
+      context "and assembly is transparent" do
+        it "does not enqueue a job" do
+          assembly.update(is_transparent: true)
           expect(Decidim::Follow.where(user: normal_user).count).to eq(1)
-          expect do
-            subject.call
-          end.to change(Decidim::Follow, :count).by(-1)
+          expect { subject.call }.not_to have_enqueued_job(DestroyPrivateUsersFollowsJob)
         end
+      end
 
-        context "and user follows meeting belonging to assembly" do
-          let(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: assembly) }
-
-          it "destroys all follows" do
-            meeting = Decidim::Meetings::Meeting.create!(title: generate_localized_title(:meeting_title, skip_injection: false),
-                                                         description: generate_localized_description(:meeting_description, skip_injection: false),
-                                                         component: meetings_component, author: user)
-            create(:follow, followable: meeting, user: normal_user)
-            expect(Decidim::Follow.where(user: normal_user).count).to eq(2)
-            expect do
-              subject.call
-            end.to change(Decidim::Follow, :count).by(-2)
-          end
+      context "when assembly is not transparent" do
+        it "enqueues a job" do
+          assembly.update(is_transparent: false)
+          expect(Decidim::Follow.where(user: normal_user).count).to eq(1)
+          expect { subject.call }.to have_enqueued_job(DestroyPrivateUsersFollowsJob)
         end
       end
     end
@@ -78,26 +69,9 @@ module Decidim::Admin
       context "and user follows process" do
         let!(:follow) { create(:follow, followable: participatory_process, user: normal_user) }
 
-        it "destroys the follow" do
+        it "enqueues a job" do
           expect(Decidim::Follow.where(user: normal_user).count).to eq(1)
-          expect do
-            subject.call
-          end.to change(Decidim::Follow, :count).by(-1)
-        end
-
-        context "and user follows meeting belonging to process" do
-          let(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: participatory_process) }
-
-          it "destroys all follows" do
-            meeting = Decidim::Meetings::Meeting.create!(title: generate_localized_title(:meeting_title, skip_injection: false),
-                                                         description: generate_localized_description(:meeting_description, skip_injection: false),
-                                                         component: meetings_component, author: user)
-            create(:follow, followable: meeting, user: normal_user)
-            expect(Decidim::Follow.where(user: normal_user).count).to eq(2)
-            expect do
-              subject.call
-            end.to change(Decidim::Follow, :count).by(-2)
-          end
+          expect { subject.call }.to have_enqueued_job(DestroyPrivateUsersFollowsJob)
         end
       end
     end
