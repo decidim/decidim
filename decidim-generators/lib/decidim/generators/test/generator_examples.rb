@@ -121,7 +121,7 @@ shared_context "with application env vars" do
       "DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES" => "",
       "DECIDIM_ADMIN_PASSWORD_STRONG" => "",
       "DECIDIM_SERVICE_WORKER_ENABLED" => "",
-      "RAILS_LOG_LEVEL" => "nonsense",
+      "RAILS_LOG_LEVEL" => "info",
       "STORAGE_PROVIDER" => ""
     }
   end
