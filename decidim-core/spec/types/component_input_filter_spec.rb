@@ -61,11 +61,11 @@ module Decidim
         end
       end
 
-      context "when searching components with geocoding enabled" do
+      context "when searching components with maps enabled" do
         let!(:model_with_geocoding_enabled) { create(:proposal_component, :published, :with_geocoding_enabled, participatory_space: model) }
         let(:query) { "{ components(filter: { withGeolocationEnabled: true} ) { id } }" }
 
-        it "returns the component with geocoding enabled" do
+        it "returns the component with maps enabled" do
           ids = response["components"].map { |component| component["id"].to_i }
           expect(ids).to include(*model_with_geocoding_enabled.id)
         end

@@ -74,7 +74,7 @@ export default class InputCharacterCounter {
 
       // If input is a hidden for WYSIWYG editor add it at the end
       if (this.$input.parent().is(".editor")) {
-        this.$input.parent().after(this.$target);
+        this.$input.parent().append(container);
       } else {
         const wrapper = document.createElement("span")
         wrapper.className = "input-character-counter"

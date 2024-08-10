@@ -43,9 +43,9 @@ describe "Proposals" do
 
       it "has helper character counter" do
         within "form.new_proposal" do
-          editor = find(".editor")
-          page.scroll_to(editor)
-          expect(editor.sibling("[id^=characters_]:not([id$=_sr])")).to have_content("At least 15 characters", count: 1)
+          within ".editor .input-character-counter__text" do
+            expect(page).to have_content("At least 15 characters", count: 1)
+          end
         end
       end
 
