@@ -11,7 +11,6 @@ module Decidim
       def initialize(component, current_user)
         @component = component
         @current_user = current_user
-      end
 
       # Public: Executes the command.
       #
@@ -44,6 +43,7 @@ module Decidim
       end
 
       def run_before_hooks
+        Decidim::Reminder.where(component: @component).destroy_all
         @component.manifest.run_hooks(:before_destroy, @component)
       end
 

@@ -42,5 +42,18 @@ module Decidim::Admin
         expect(result_component).not_to be_persisted
       end
     end
+
+    context "when the component has a reminder associated with it" do
+      let!(:reminder) { create(:reminder, user: current_user, component:) }
+
+      it "destroys the component" do
+        expect { subject.call }.to broadcast(:ok)
+        expect(Decidim::Component.where(id: component.id)).not_to exist
+      end
+
+      it "destroys the associated reminders" do
+        expect { subject.call }.to change(Decidim::Reminder, :count).by(-1)
+      end
+    end
   end
 end
