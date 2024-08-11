@@ -843,7 +843,7 @@ en:
           discard: Discard this draft
           discard_confirmation: Are you sure you want to discard this proposal draft?
           send: Preview
-          title: Edit Proposal Draft
+          title: Edit proposal draft
         edit_form_fields:
           marker_added: Marker added to the map.
         filters:
