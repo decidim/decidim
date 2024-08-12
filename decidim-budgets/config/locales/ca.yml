@@ -328,6 +328,7 @@ ca:
               errors:
                 budget_voting_rule_only_one: Només s'ha d'activar una norma de votació.
                 budget_voting_rule_required: Es requereix una norma per a la votació.
+            geocoding_enabled: Mapes habilitats
             landing_page_content: Pàgina d'inici de pressupostos
             more_information_modal: Finestra de "Més informació"
             projects_per_page: Projectes per pàgina
