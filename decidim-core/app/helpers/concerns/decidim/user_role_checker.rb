@@ -37,12 +37,9 @@ module Decidim
 
     def conference_user_role?(user, conference = nil)
       return false unless Decidim.module_installed?(:conferences)
+      return false unless conference.is_a?(Decidim::Conference)
 
-      if conference.is_a?(Decidim::Conference)
-        Decidim::ConferenceUserRole.exists?(user:, conference:)
-      else
-        Decidim::ConferenceUserRole.exists?(user:)
-      end
+      Decidim::ConferenceUserRole.exists?(user:, conference:)
     end
   end
 end
