@@ -43,7 +43,6 @@ fi:
           destroy:
             confirm: Ennen valittua päivämäärää tehtyjen vahvistustietojen tuhoamista ei voi peruuttaa. Haluatko varmasti jatkaa?
             confirm_all: Vahvistusten tuhoamista ei voi peruuttaa. Haluatko varmasti jatkaa?
-          destroy_nok: Vahvistusten kumoaminen epäonnistui.
           destroy_ok: Kaikkien hakua vastanneiden tunnistautumisten peruuttaminen onnistui.
           info: Yhteensä %{count} vahvistettua osallistujaa.
           no_data: Ei vahvistettuja osallistujia.
@@ -157,7 +156,6 @@ fi:
         admin:
           census:
             create:
-              error: Rekisteritietojen tuonti epäonnistui.
               success: '%{count} kohteen tuonti onnistui (%{errors} virhettä).'
             destroy_all:
               success: Kaikki henkilötietorekisterin tiedot on poistettu.
