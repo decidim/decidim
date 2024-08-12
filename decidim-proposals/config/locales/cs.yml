@@ -488,10 +488,8 @@ cs:
             success: Status byl úspěšně aktualizován
         proposals:
           answer:
-            invalid: Při odpovědi na tento návrh se vyskytl problém.
             success: Návrh byl úspěšně zodpovězen.
           create:
-            invalid: Při vytváření tohoto návrhu došlo k chybě.
             success: Návrh byl úspěšně vytvořen.
           edit:
             title: Návrh aktualizace
@@ -571,18 +569,14 @@ cs:
             title: Importovat návrhy z jiné komponenty
         proposals_merges:
           create:
-            invalid: 'Při slučování vybraných návrhů došlo k chybě, protože některé z nich:'
             success: Projekty byly úspěšně sloučeny do nové.
         proposals_splits:
           create:
-            invalid: 'Vyskytl se problém s rozdělením vybraných návrhů, protože některé z nich:'
             success: Úspěšně rozdělil návrhy na nové.
         valuation_assignments:
           create:
-            invalid: Při přiřazování návrhů hodnotiteli došlo k chybě.
             success: Návrhy byly úspěšně přiřazené hodnotiteli.
           delete:
-            invalid: Došlo k chybě při odebírání návrhů od hodnotitele.
             success: Hodnotitel byl úspěšně odebrán z návrhů.
       admin_log:
         proposal:
