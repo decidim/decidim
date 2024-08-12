@@ -415,10 +415,8 @@ lt:
           title: Privačios pastabos
         proposals:
           answer:
-            invalid: Atsakant į šį pasiūlymą iškilo problema.
             success: Į pasiūlymą atsakyta.
           create:
-            invalid: Kuriant šį pasiūlymą iškilo problema.
             success: Pasiūlymas sukurtas.
           edit:
             title: Atnaujinti pasiūlymą
@@ -494,18 +492,14 @@ lt:
             select_states: Patikrinti importuoti skirtų pasiūlymų būseną
         proposals_merges:
           create:
-            invalid: 'Suliejant pasirinktus pasiūlymus iškilo problema, nes kai kurie iš jų:'
             success: Pasiūlymai sulieti į vieną naują pasiūlymą.
         proposals_splits:
           create:
-            invalid: 'Iškilo problema skaidant pasirinktus pasiūlymus, nes kai kurie iš jų:'
             success: Pasiūlymai išskaidyti į naujus.
         valuation_assignments:
           create:
-            invalid: Pavedant pasiūlymus vertintojui įvyko klaida.
             success: Pasiūlymai pavesti vertintojui.
           delete:
-            invalid: Naikinant vertintojui pavestus pasiūlymus įvyko klaida.
             success: Vertintojas sėkmingai pašalintas nuo pasiūlymų.
       admin_log:
         proposal:
