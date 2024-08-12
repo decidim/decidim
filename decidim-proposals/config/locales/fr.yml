@@ -495,10 +495,8 @@ fr:
             success: Etat mis à jour avec succès
         proposals:
           answer:
-            invalid: Il y a eu un problème lors de la réponse à cette proposition.
             success: La réponse à la proposition a publiée avec succès.
           create:
-            invalid: Il y a eu un problème lors de la création de cette proposition.
             success: Proposition créée avec succès.
           edit:
             title: Mise à jour de la proposition
@@ -578,18 +576,14 @@ fr:
             title: Importer des propositions depuis une autre fonctionnalité
         proposals_merges:
           create:
-            invalid: 'Une erreur est survenue lors de la fusion des propositions à cause de certaines d''entre elles:'
             success: A fusionné avec succès les propositions dans un nouveau.
         proposals_splits:
           create:
-            invalid: 'Une erreur est survenue lors du fractionnement des propositions sélectionnées à cause de certaines d''entre elles:'
             success: Divisé avec succès les propositions en nouvelles.
         valuation_assignments:
           create:
-            invalid: Une erreur s'est produite lors de l'affectation des propositions à un évaluateur.
             success: Propositions assignées à un évaluateur avec succès.
           delete:
-            invalid: Il y a eu une erreur lors de la désassignation des propositions d'un évaluateur.
             success: Evaluateur désaffecté aux propositions avec succès.
       admin_log:
         proposal:
