@@ -1053,11 +1053,25 @@ cs:
           description: Taxonomie umožňuje administrátorům kategorizovat a uspořádat obsah. Například přidat taxonomii pro klasifikaci procesů podle geografického rozsahu.
           new_taxonomy: Nová taxonomie
         name: Název
+        new:
+          create: Vytvořit taxonomii
+          title: Nová taxonomie
+        no_taxonomies: Momentálně nejsou žádné taxonomie. Vytvořte zde seznam taxonomií a definovaných položek v každém z nich pro klasifikaci nebo filtrování zdrojů.
+        table:
+          to_next_page: Přetáhněte na další stránku
+          to_prev_page: Přetáhněte pro předchozí stránku
+        taxonomy_actions:
+          confirm_destroy: Opravdu chcete odstranit %{name}? Tímto odstraníte také všechny podřízené položky.
+        update:
+          invalid: Při aktualizaci této taxonomie došlo k chybě.
+          success: Taxonomie byla úspěšně aktualizována.
       taxonomy_items:
         edit:
+          title: Upravit položku v %{taxonomy}
           update: Aktualizovat položku
         new:
           create: Vytvořit položku
+          none: Žádné
           title: Nová položka v %{taxonomy}
       titles:
         admin_log: Správce protokolu
