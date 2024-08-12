@@ -673,7 +673,6 @@ cs:
         transparent: Průhledný
         withdraw: Staženo
       withdraw:
-        error: Došlo k chybě při stahování schůzky.
         success: Schůzka byla úspěšně stažena.
     metrics:
       meetings:
