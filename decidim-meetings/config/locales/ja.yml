@@ -654,7 +654,6 @@ ja:
         transparent: 透明性
         withdraw: 取り消し
       withdraw:
-        error: ミーティングを取り上げる際にエラーが発生しました。
         success: ミーティングは正常に取り下げられました。
     metrics:
       meetings:
