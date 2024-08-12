@@ -543,10 +543,8 @@ es:
           answer:
             bulk_answer_error: No se ha podido responder a las propuestas con IDs [%{proposals}] debido a errores aplicando la plantilla "%{template}". Puedes comprobar que la plantilla de respuesta coincide con el formato esperado para este componente aplicándolo individualmente.
             bulk_answer_success: 'Las propuestas %{count} serán respondidas usando la plantilla "%{template}". Por favor, espera unos minutos y actualiza la página para ver las actualizaciones.'
-            invalid: Ha habido un problema al responder a esta propuesta.
             success: Propuesta respuesta con éxito.
           create:
-            invalid: Ha habido un problema al crear esta propuesta.
             success: Propuesta creada correctamente.
           edit:
             title: Actualizar propuesta
@@ -628,18 +626,14 @@ es:
             title: Importar proyectos desde otro componente
         proposals_merges:
           create:
-            invalid: 'Ha habido un problema al fusionar las propuestas seleccionadas porque algunas de ellas:'
             success: Se han convinado con éxito las propuestas en una de nueva.
         proposals_splits:
           create:
-            invalid: 'Ha habido un problema al dividir las propuestas seleccionadas porque algunas de ellas:'
             success: Las propuestas se han dividido en otras nuevas con éxito.
         valuation_assignments:
           create:
-            invalid: Se ha producido un error al asignar propuestas a una evaluadora.
             success: Propuestas asignadas correctamente a una evaluadora.
           delete:
-            invalid: Se ha producido un error al deshacer la asignación de propuestas de una evaluadora.
             success: Evaluadora desasignada correctamente.
       admin_log:
         proposal:
