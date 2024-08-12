@@ -100,7 +100,6 @@ ca:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cercar %{collection} per títol, descripció, ID o autoria.
       initiatives_settings:
         update:
-          error: S'ha produït un error.
           success: La configuració de les iniciatives s'ha actualitzat correctament.
       menu:
         attachments: Adjunts
@@ -265,7 +264,6 @@ ca:
             new: Nou
             photos: Fotografies
           update:
-            error: S'ha produït un error.
             success: La iniciativa s'ha actualitzat correctament.
         initiatives_settings:
           edit:
@@ -279,7 +277,6 @@ ca:
             title: Configuració d'iniciatives
         initiatives_type_scopes:
           create:
-            error: S'ha produït un error.
             success: S'ha creat un nou àmbit per al tipus d'iniciativa donat.
           destroy:
             success: L'àmbit s'ha eliminat correctament.
@@ -290,11 +287,9 @@ ca:
             create: Crear
             title: Crea l'àmbit del tipus d'iniciativa
           update:
-            error: S'ha produït un error.
             success: L'àmbit s'ha actualitzat correctament.
         initiatives_types:
           create:
-            error: S'ha produït un error.
             success: S'ha creat amb èxit un nou tipus d'iniciativa. Has de definir com a mínim un àmbit per aquest tipus d'iniciativa perquè es pugui fer servir.
           destroy:
             success: S'ha eliminat correctament el tipus d'iniciativa.
@@ -311,7 +306,6 @@ ca:
             create: Crear
             title: Nou tipus d'iniciativa
           update:
-            error: S'ha produït un error.
             success: El tipus d'iniciativa s'ha actualitzat correctament.
       admin_log:
         initiative:
@@ -586,7 +580,6 @@ ca:
         expired: Vençuda
       unavailable_scope: Àmbit no disponible
       update:
-        error: S'ha produït un error.
         success: La iniciativa s'ha actualitzat correctament.
     menu:
       initiatives: Iniciatives
