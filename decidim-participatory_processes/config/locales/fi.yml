@@ -175,6 +175,7 @@ fi:
           title: Kopioi osallistumisprosessi
       participatory_process_groups:
         destroy:
+          error: Osallistumistilojen ryhmän poisto epäonnistui.
           success: Osallistumisprosessien ryhmän poisto onnistui.
         edit:
           title: Muokkaa prosessiryhmää
