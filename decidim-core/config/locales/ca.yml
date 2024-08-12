@@ -293,7 +293,6 @@ ca:
       dismiss: Descartar notificació
     amendments:
       accepted:
-        error: S'ha produït un error en acceptar l'esmena.
         success: L’esmena ha estat acceptada correctament.
       amendable:
         button: Esmenar %{model_name}
@@ -306,7 +305,6 @@ ca:
           one: "%{count} esmena"
           other: "%{count} esmenes"
       created:
-        error: S'ha produït un error durant la creació de l’esmena.
         success: L'esborrany d’esmena ha estat creat amb èxit.
       destroy_draft:
         error: S'ha produït un error en suprimir l'esborrany de l'esmena.
@@ -355,7 +353,6 @@ ca:
         error: S'ha produït un error en actualitzar l'esborrany de l'esmena.
         success: Esborrany d'esmena actualitzat correctament.
       withdraw:
-        error: S'ha produït un error en retirar l'esmena.
         success: L'esmena s'ha retirat correctament.
       wizard_step_form:
         steps:
@@ -540,8 +537,8 @@ ca:
         html_content: Contingut HTML
         name: Bloc HTML
       last_activity:
-        name: Última activitat
-        title: Última activitat
+        name: Darrera activitat
+        title: Darrera activitat
         view_all: Veure-ho tot
       last_activity_settings_form:
         max_last_activity_users: Número màxim d'avatars de participants amb activitat recent a mostrar
@@ -1057,7 +1054,7 @@ ca:
     last_activities:
       all: Tots els tipus d'activitats
       index:
-        last_activity: Última activitat
+        last_activity: Darrera activitat
       name: Darreres activitats
       no_activities_warning: No hi ha res a mostrar per a aquest tipus d'activitat.
     linked_resource_from:
@@ -1429,7 +1426,6 @@ ca:
         subject: Un contingut ha estat denunciat
     reports:
       create:
-        error: S'ha produït un error en denunciar el contingut. Si us plau, torna-ho a intentar.
         success: El contingut s'ha denunciat amb èxit i serà revisat per una administradora.
     resource_endorsements:
       create:
@@ -1865,9 +1861,6 @@ ca:
       nesting_too_deep: no pot estar dins d'una subcategoria
       not_found: No s'ha pogut trobar. Has creat un compte anteriorment?
       not_locked: No estava bloquejat
-      not_saved:
-        one: 'S''ha produït un error en processar la teva sol·licitud:'
-        other: 'S''han produït múltiples errors en processar la vostra sol·licitud:'
       too_many_marks: Estàs fent servir massa signes de puntuació consecutius (p. ex. i?)
       too_much_caps: Estàs utilitzant massa lletres majúscules (més del 25% del text)
       too_short: és massa curt (menys %{count} caràcters)
