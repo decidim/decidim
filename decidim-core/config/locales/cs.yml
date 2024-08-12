@@ -291,6 +291,7 @@ cs:
       taxonomy:
         create: "%{user_name} vytvořil taxonomii %{resource_name}"
         create_with_parent: "%{user_name} vytvořil taxonomii %{resource_name} uvnitř taxonomie %{parent_taxonomy}"
+        delete: "%{user_name} odstranil %{resource_name} taxonomii"
       user:
         block: "%{user_name} zablokoval uživatele %{resource_name}"
         invite: "%{user_name} pozval uživatele %{resource_name} s rolí: %{role}"
@@ -1118,6 +1119,8 @@ cs:
           not_found: 'Oblast působnosti nebyla nalezena v databázi (ID: %{id})'
         scope_type_presenter:
           not_found: 'Typ oboru nebyl nalezen v databázi (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'Taxonomie nebyla v databázi nalezena (ID: %{id})'
     managed_users:
       expired_session: Aktuální relace správy účastníka vypršela.
     map:
