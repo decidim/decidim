@@ -293,7 +293,6 @@ fi-pl:
       dismiss: Piilota ilmoitus
     amendments:
       accepted:
-        error: Muutoksen hyväksyntä epäonnistui.
         success: Muutoksen hyväksyntä onnistui.
       amendable:
         button: Muuta %{model_name}
@@ -306,7 +305,6 @@ fi-pl:
           one: "%{count} muutos"
           other: "%{count} muutosta"
       created:
-        error: Muutosluonnoksen lisäys epäonnistui.
         success: Muutosluonnoksen lisäys onnistui.
       destroy_draft:
         error: Muutosluonnoksen poisto epäonnistui.
@@ -358,7 +356,6 @@ fi-pl:
         error: Muutosluonnoksen päivitys epäonnistui.
         success: Muutosluonnoksen päivitys onnistui.
       withdraw:
-        error: Muutoksen peruuttaminen epäonnistui.
         success: Muutos on peruutettu.
       wizard_step_form:
         steps:
@@ -1429,7 +1426,6 @@ fi-pl:
         subject: Resurssi on ilmoitettu
     reports:
       create:
-        error: Ilmoituksen luonnissa tapahtui virhe. Yritä uudestaan.
         success: Ilmoitus on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
     resource_endorsements:
       create:
@@ -1866,9 +1862,6 @@ fi-pl:
       nesting_too_deep: ei voi olla ala-aihepiirin sisällä
       not_found: ei löytynyt. Oletko luonut tilin aikaisemmin?
       not_locked: ei lukittu
-      not_saved:
-        one: 'Virhe käsiteltäessä pyyntöä:'
-        other: 'Virheitä käsiteltäessä pyyntöä:'
       too_many_marks: liian monta välimerkkiä peräkkäin (esim. ! ja ?)
       too_much_caps: liian monta isoa kirjainta (yli 25% tekstistä)
       too_short: liian lyhyt (alle %{count} merkkiä)
