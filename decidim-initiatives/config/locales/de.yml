@@ -100,7 +100,6 @@ de:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Suche in %{collection} nach Titel, Beschreibung, ID oder Autoren.
       initiatives_settings:
         update:
-          error: Es ist ein Fehler aufgetreten.
           success: Die Einstellungen für Initiativen wurden erfolgreich aktualisiert.
       menu:
         attachments: Anhänge
@@ -265,7 +264,6 @@ de:
             new: Neu
             photos: Fotos
           update:
-            error: Ein Fehler ist aufgetreten.
             success: Die Initiative wurde erfolgreich aktualisiert.
         initiatives_settings:
           edit:
@@ -279,7 +277,6 @@ de:
             title: Einstellungen für Initiativen
         initiatives_type_scopes:
           create:
-            error: Ein Fehler ist aufgetreten.
             success: Ein neues Thema wurde für den angegebenen Initiativentyp erstellt.
           destroy:
             success: Das Thema wurde erfolgreich entfernt.
@@ -290,11 +287,9 @@ de:
             create: Erstellen
             title: Initiativentypbereich erstellen
           update:
-            error: Ein Fehler ist aufgetreten.
             success: Das Thema wurde erfolgreich aktualisiert.
         initiatives_types:
           create:
-            error: Ein Fehler ist aufgetreten.
             success: Ein neuer Initiativentyp wurde erfolgreich erstellt. Sie müssen mindestens einen Bereich für diese Initiative festlegen, damit er genutzt werden kann.
           destroy:
             success: Der Initiativentyp wurde erfolgreich entfernt.
@@ -311,7 +306,6 @@ de:
             create: Erstellen
             title: Neuer Initiativentyp
           update:
-            error: Ein Fehler ist aufgetreten.
             success: Der Initiativentyp wurde erfolgreich aktualisiert.
       admin_log:
         initiative:
@@ -586,7 +580,6 @@ de:
         expired: Abgelaufen
       unavailable_scope: Nicht verfügbarer Umfang
       update:
-        error: Es ist ein Fehler aufgetreten.
         success: Die Initiative wurde erfolgreich aktualisiert.
     menu:
       initiatives: Initiativen
