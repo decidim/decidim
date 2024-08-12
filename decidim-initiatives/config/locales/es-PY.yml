@@ -100,7 +100,6 @@ es-PY:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Buscar %{collection} por título, descripción, ID o autoría.
       initiatives_settings:
         update:
-          error: Se ha producido un error.
           success: La configuración de las iniciativas se ha actualizado correctamente.
       menu:
         attachments: Adjuntos
@@ -265,7 +264,6 @@ es-PY:
             new: Nueva
             photos: Fotos
           update:
-            error: Se ha producido un error.
             success: La iniciativa se ha actualizado correctamente.
         initiatives_settings:
           edit:
@@ -279,7 +277,6 @@ es-PY:
             title: Configuración de iniciativas
         initiatives_type_scopes:
           create:
-            error: Se ha producido un error.
             success: Se ha creado un nuevo ámbito para el tipo de iniciativa dado.
           destroy:
             success: El ámbito ha sido eliminado con éxito.
@@ -290,11 +287,9 @@ es-PY:
             create: Crear
             title: Crear alcance del tipo de iniciativa
           update:
-            error: Se ha producido un error.
             success: El ámbito ha sido actualizado con éxito.
         initiatives_types:
           create:
-            error: Se ha producido un error.
             success: Un nuevo tipo de iniciativa ha sido creado con éxito. Necesitas definir al menos un ámbito para este tipo de iniciativa para que se pueda utilizar.
           destroy:
             success: El tipo de iniciativa se ha eliminado correctamente.
@@ -311,7 +306,6 @@ es-PY:
             create: Crear
             title: Nuevo tipo de iniciativa
           update:
-            error: Se ha producido un error.
             success: El tipo de iniciativa se ha actualizado correctamente.
       admin_log:
         initiative:
@@ -586,7 +580,6 @@ es-PY:
         expired: Caducado
       unavailable_scope: Alcance no disponible
       update:
-        error: Se ha producido un error.
         success: La iniciativa se ha actualizado correctamente.
     menu:
       initiatives: Iniciativas
