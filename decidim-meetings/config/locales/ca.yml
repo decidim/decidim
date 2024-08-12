@@ -663,7 +663,6 @@ ca:
         transparent: Transparent
         withdraw: Cancel·lada
       withdraw:
-        error: S'ha produït un error en retirar la trobada.
         success: La trobada s'ha retirat amb èxit.
     metrics:
       meetings:
