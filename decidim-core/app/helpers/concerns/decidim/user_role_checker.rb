@@ -30,12 +30,9 @@ module Decidim
 
     def assembly_user_role?(user, assembly = nil)
       return false unless Decidim.module_installed?(:assemblies)
+      return false unless assembly.is_a?(Decidim::Assembly)
 
-      if assembly.is_a?(Decidim::Assembly)
-        Decidim::AssemblyUserRole.exists?(user:, assembly:)
-      else
-        Decidim::AssemblyUserRole.exists?(user:)
-      end
+      Decidim::AssemblyUserRole.exists?(user:, assembly:)
     end
 
     def conference_user_role?(user, conference = nil)
