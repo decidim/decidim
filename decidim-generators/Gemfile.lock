@@ -20,7 +20,6 @@ PATH
       decidim-sortitions (= 0.29.0.rc4)
       decidim-surveys (= 0.29.0.rc4)
       decidim-system (= 0.29.0.rc4)
-      decidim-templates (= 0.29.0.rc4)
       decidim-verifications (= 0.29.0.rc4)
     decidim-accountability (0.29.0.rc4)
       decidim-comments (= 0.29.0.rc4)
@@ -186,7 +185,6 @@ PATH
     decidim-templates (0.29.0.rc4)
       decidim-core (= 0.29.0.rc4)
       decidim-forms (= 0.29.0.rc4)
-      decidim-proposals (= 0.29.0.rc4)
     decidim-verifications (0.29.0.rc4)
       decidim-core (= 0.29.0.rc4)
 
