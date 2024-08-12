@@ -262,6 +262,13 @@ de:
         create: "%{user_name} hat die statische Seite %{resource_name} erstellt"
         delete: "%{user_name} hat die statische Seite %{resource_name} gelöscht"
         update: "%{user_name} hat die statische Seite %{resource_name} aktualisiert"
+      taxonomy:
+        create: "%{user_name} hat die Taxonomie %{resource_name} erstellt"
+        create_with_parent: "%{user_name} hat die Taxonomie %{resource_name} innerhalb der Taxonomie %{parent_taxonomy} erstellt"
+        delete: "%{user_name} hat die Taxonomie %{resource_name} gelöscht"
+        delete_with_parent: "%{user_name} hat die Taxonomie %{resource_name} innerhalb der Taxonomie %{parent_taxonomy} gelöscht"
+        update: "%{user_name} hat die Taxonomie %{resource_name} aktualisiert"
+        update_with_parent: "%{user_name} hat die Taxonomie %{resource_name} innerhalb der Taxonomie %{parent_taxonomy} aktualisiert"
       user:
         block: "%{user_name} hat %{resource_name} blockiert"
         invite: "%{user_name} hat den Benutzer %{resource_name} mit der Rolle %{role} eingeladen"
@@ -1090,6 +1097,8 @@ de:
           not_found: 'Der Bereich wurde nicht in der Datenbank gefunden (ID: %{id})'
         scope_type_presenter:
           not_found: 'Der Bereichstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'Die Taxonomie wurde nicht in der Datenbank gefunden (ID: %{id})'
     managed_users:
       expired_session: Die aktuelle Identitätswechselsitzung ist abgelaufen.
     map:
@@ -1472,6 +1481,7 @@ de:
         close_modal: Fenster schließen
         ok: Ok
         title: Bestätigen
+      confirm_unload: Diese Seite enthält ungespeicherte Änderungen. Möchten Sie die Seite dennoch verlassen?
       embed:
         title: Eingebetteter Videoinhalt
       extended_navigation_bar:
