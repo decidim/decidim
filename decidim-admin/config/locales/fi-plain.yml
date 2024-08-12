@@ -202,7 +202,6 @@ fi-pl:
         verify: Vahvista
       admin_terms_of_service:
         accept:
-          error: Hallintakäyttäjän ehtojen hyväksyminen epäonnistui.
           success: Hienoa! Olet hyväksynyt hallintakäyttäjän ehdot.
         actions:
           accept: Hyväksyn ehdot
@@ -366,7 +365,6 @@ fi-pl:
         user_name: Käyttäjä
       content_blocks:
         create:
-          error: Sisältölohkon luonti epäonnistui.
           success: Sisältölohkon luonti onnistui.
         destroy:
           error: Sisältölohkon poisto epäonnistui.
@@ -789,7 +787,6 @@ fi-pl:
           success: Uutiskirje päivitetty onnistuneesti. Tarkasta se läpi ennen lähetystä.
       officializations:
         block:
-          error: Osallistujan estäminen epäonnistui.
           success: Osallistujan estäminen onnistui.
         create:
           success: Osallistujan virallistaminen onnistui.
@@ -823,7 +820,6 @@ fi-pl:
           show: Näytä
           title: Näytä osallistujan sähköpostiosoite
         unblock:
-          error: Käyttäjän eston peruuttaminen epäonnistui.
           success: Käyttäjän eston peruuttaminen onnistui.
       organization:
         edit:
