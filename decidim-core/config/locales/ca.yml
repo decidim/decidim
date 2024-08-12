@@ -505,8 +505,8 @@ ca:
         html_content: Contingut HTML
         name: Bloc HTML
       last_activity:
-        name: Última activitat
-        title: Última activitat
+        name: Darrera activitat
+        title: Darrera activitat
         view_all: Veure-ho tot
       metrics:
         name: Mètriques de l'organització
@@ -969,7 +969,7 @@ ca:
         no_activities_warning: Sense activitat
       all: Tots els tipus d'activitats
       index:
-        last_activity: Última activitat
+        last_activity: Darrera activitat
         resource_type: Tipus
     links:
       invalid_url: URL no vàlida
