@@ -97,6 +97,7 @@ zh-TW:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: 透過標題、描述、ID 或作者姓名搜尋 %{collection}
       initiatives_settings:
         update:
+          error: 出現了一個錯誤.
           success: 倡議設定已成功更新.
       menu:
         attachments: 附件
