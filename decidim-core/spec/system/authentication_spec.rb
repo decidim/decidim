@@ -129,8 +129,6 @@ describe "Authentication" do
           click_on "Create an account"
         end
 
-        click_on "I agree with these terms"
-
         within_user_menu do
           click_on "Notifications"
         end
@@ -265,8 +263,6 @@ describe "Authentication" do
             click_on "Create an account"
           end
 
-          click_on "I agree with these terms"
-
           within_user_menu do
             click_on "Notifications"
           end
@@ -329,8 +325,6 @@ describe "Authentication" do
         within "#omniauth-register-form" do
           click_on "Create an account"
         end
-
-        click_on "I agree with these terms"
 
         within_user_menu do
           click_on "Notifications"
