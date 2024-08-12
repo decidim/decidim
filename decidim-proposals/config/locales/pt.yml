@@ -403,11 +403,9 @@ pt:
             select_states: Verifique os estados das propostas a importar
         proposals_merges:
           create:
-            invalid: 'Houve um problema ao fundir as propostas seleccionadas porque algumas delas:'
             success: Fundiu corretamente as propostas em uma nova.
         proposals_splits:
           create:
-            invalid: 'Houve um problema ao dividir as propostas seleccionadas porque algumas delas:'
             success: Dividiu corretamente as propostas em novas.
       admin_log:
         proposal:
