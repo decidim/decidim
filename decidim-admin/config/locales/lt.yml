@@ -197,7 +197,6 @@ lt:
         verify: Patikrinti
       admin_terms_of_service:
         accept:
-          error: Sutinkant su administratoriaus nustatytomis naudojimosi sąlygomis įvyko klaida.
           success: Puiku! Jūs sutikote su administratoriaus naudojimosi sąlygomis.
         actions:
           accept: Aš sutinku su šiomis sąlygomis
@@ -755,7 +754,6 @@ lt:
           success: Naujienlaiškis atnaujintas. Peržiūrėkite jį prieš išsiųsdami.
       officializations:
         block:
-          error: Blokuojant dalyvį iškilo problema.
           success: Dalyvis sėkmingai užblokuotas.
         create:
           success: Dalyvis sėkmingai oficializuotas.
@@ -789,7 +787,6 @@ lt:
           show: Rodyti
           title: Rodyti dalyvio el. pašto adresą
         unblock:
-          error: Atblokuojant dalyvį iškilo problema.
           success: Dalyvis sėkmingai atblokuotas.
       organization:
         edit:
