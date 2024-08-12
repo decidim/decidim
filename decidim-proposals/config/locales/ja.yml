@@ -492,10 +492,8 @@ ja:
             success: ステータスを更新しました
         proposals:
           answer:
-            invalid: 提案に回答する際に問題が発生しました。
             success: 提案に回答しました。
           create:
-            invalid: 提案の作成中に問題が発生しました。
             success: 提案を作成しました。
           edit:
             title: 提案を更新
@@ -574,18 +572,14 @@ ja:
             title: 別のコンポーネントから提案をインポート
         proposals_merges:
           create:
-            invalid: '選択した提案をマージする際に問題が発生しました:'
             success: 提案を正常に新しいものにマージしました。
         proposals_splits:
           create:
-            invalid: '選択した提案を分割する際に問題が発生しました:'
             success: 提案を新しいものに分割しました。
         valuation_assignments:
           create:
-            invalid: 評価者に提案を割り当てる際にエラーが発生しました。
             success: 評価者に提案を割り当てました。
           delete:
-            invalid: 評価者からの提案の割り当てを解除する際にエラーが発生しました。
             success: 評価者への提案の割り当てを解除しました。
       admin_log:
         proposal:
