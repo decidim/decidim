@@ -202,7 +202,6 @@ de:
         verify: Überprüfen
       admin_terms_of_service:
         accept:
-          error: Beim Akzeptieren der Admin-Nutzungsbedingungen ist ein Fehler aufgetreten.
           success: Super! Sie haben die Admin-Nutzungsbedingungen akzeptiert.
         actions:
           accept: Ich stimme diesen Bedingungen zu
@@ -366,7 +365,6 @@ de:
         user_name: Nutzer
       content_blocks:
         create:
-          error: Beim Erstellen des Inhaltsblocks ist ein Fehler aufgetreten.
           success: Inhaltsblock erfolgreich erstellt.
         destroy:
           error: Es gab ein Problem beim Löschen dieses Inhaltsblocks.
@@ -789,7 +787,6 @@ de:
           success: Newsletter erfolgreich aktualisiert. Bitte überprüfen Sie es vor dem Senden.
       officializations:
         block:
-          error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten.
           success: Teilnehmer erfolgreich blockiert.
         create:
           success: Benutzer wurde offiziell anerkannt.
@@ -823,7 +820,6 @@ de:
           show: Anzeigen
           title: E-Mail-Adresse des Teilnehmers anzeigen
         unblock:
-          error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten.
           success: Blockierung des Teilnehmers wurde erfolgreich aufgehoben.
       organization:
         edit:
