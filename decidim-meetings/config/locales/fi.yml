@@ -663,7 +663,6 @@ fi:
         transparent: Läpinäkyvä
         withdraw: Peruutettu
       withdraw:
-        error: Tapaamisen peruuttaminen epäonnistui.
         success: Tapaaminen on peruttu.
     metrics:
       meetings:
