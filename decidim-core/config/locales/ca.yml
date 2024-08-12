@@ -19,6 +19,8 @@ ca:
         body: Cos
       report:
         details: Comentaris addicionals
+      taxonomy:
+        name: Nom de la taxonomia
       user:
         about: Quant a
         email: El teu correu electrònic
@@ -260,6 +262,13 @@ ca:
         create: "%{user_name} ha creat la pàgina estàtica %{resource_name}"
         delete: "%{user_name} ha esborrat la pàgina estàtica %{resource_name}"
         update: "%{user_name} ha actualitzat la pàgina estàtica %{resource_name}"
+      taxonomy:
+        create: "%{user_name} ha creat la taxonomia \"%{resource_name}\""
+        create_with_parent: "%{user_name} ha creat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
+        delete: "%{user_name} ha esborrat la taxonomia \"%{resource_name}\""
+        delete_with_parent: "%{user_name} ha esborrat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
+        update: "%{user_name} ha acutalitzat la taxonomia \"%{resource_name}\""
+        update_with_parent: "%{user_name} ha actualitzat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
       user:
         block: "%{user_name} ha bloquejat a la usuària %{resource_name}"
         invite: "%{user_name} ha convidat la participant %{resource_name} amb el rol: %{role}"
@@ -1083,6 +1092,8 @@ ca:
           not_found: 'L''àmbit no s''ha trobat a la base de dades (ID: %{id})'
         scope_type_presenter:
           not_found: 'El tipus d''àmbit no s''ha trobat a la base de dades (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'No s''ha trobat la taxonomia a la base de dades (ID: %{id})'
     managed_users:
       expired_session: La sessió actual d'administració d'una participant ha caducat.
     map:
