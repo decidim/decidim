@@ -107,7 +107,6 @@ sk:
             participatory_texts_enabled: Povolené participatívne texty
             participatory_texts_enabled_readonly: Ak existujú návrhy, nemožno toto nastavenie meniť. Prosíme vytvorte novú "Súčasť návrhov", ak ho chcete povoliť, alebo zahoďte všetky importované návrhy v "Participatívnych textoch" v menu, ak ho chcete zakázať.
             proposal_answering_enabled: Odpovedanie na návrh je povolené
-            proposal_edit_before_minutes: Návrhy môžu byť editované autormi až po uplynutí toľkoto minút
             proposal_length: Maximálna dĺžka návrhu
             proposal_limit: Limit návrhu na užívateľa
             proposal_wizard_step_1_help_text: Pomocný text Sprievodcu "Vytvoriť" návrh
@@ -281,7 +280,6 @@ sk:
           form:
             note: Poznámka
             submit: Predložiť
-          leave_your_note: Nechajte svoju poznámku
           title: Súkromné ​​poznámky
         proposals:
           edit:

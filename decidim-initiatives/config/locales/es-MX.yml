@@ -91,6 +91,7 @@ es-MX:
               accepted: Con las firmas necesarias
               created: Creada
               discarded: Descartada
+              open: Abierta
               rejected: No ha conseguido las firmas necesarias
               validating: Validación técnica
           type_id_eq:
@@ -328,6 +329,7 @@ es-MX:
         accepted: Ha conseguido las firmas
         created: Creado
         discarded: Descartado
+        open: Abierta
         rejected: No ha conseguido las firmas necesarias
         validating: Validación técnica
       application_helper:
@@ -576,6 +578,7 @@ es-MX:
           accepted: Con las firmas necesarias
           created: Creada
           discarded: Descartada
+          open: Abiertas
           rejected: No ha conseguido las firmas
           validating: Validación técnica
       states:

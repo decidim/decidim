@@ -1261,6 +1261,7 @@ ca:
         administrators: Administradores
         allow_public_contact: Permetre que qualsevol participant m'enviï missatges directes, encara que no la segueixi.
         allow_push_notifications: Mostrar notificacions emergents per a saber que passa mentre no estàs a la plataforma. Pots deshabilitar-les en qualsevol moment.
+        assigned_to_proposal: Vull rebre un correu electrònic quan algú m'assigni una proposta a avaluar
         direct_messages: Rebre missatges directes de qualsevol
         email_on_moderations: Vull rebre un correu electrònic cada cop que es reporti algo o a algú per moderació.
         everything_followed: Tot el que segueixo
@@ -1279,6 +1280,7 @@ ca:
         push_notifications_reminder: Per rebre notificacions de la plataforma, primer les has de permetre a la configuració del teu navegador.
         receive_notifications_about: Vull rebre notificacions
         update_notifications_settings: Guardar canvis
+        valuators: Avaluadores
       update:
         error: S'ha produït un error en actualitzar la configuració de les notificacions.
         success: La configuració de les notificacions s'ha actualitzat correctament.
