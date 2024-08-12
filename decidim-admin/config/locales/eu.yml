@@ -202,7 +202,6 @@ eu:
         verify: Egiaztatu
       admin_terms_of_service:
         accept:
-          error: Errore bat egon da zerbitzuaren administrazio-baldintzak onartzean.
           success: Ederto! Onartu dituzu zerbitzuaren administrazio-baldintzak.
         actions:
           accept: Bat nator baldintzekin
@@ -364,7 +363,6 @@ eu:
         user_name: Erabiltzailea
       content_blocks:
         create:
-          error: Errorea izan da eduki-blokea sortzean
           success: Eduki-blokea zuzen sortua.
         destroy:
           error: Arazoa izan da eduki-bloke hau ezabatzen saiatzean
@@ -778,7 +776,6 @@ eu:
           success: Buletina zuzen eguneratu da. Mesedez, berrikusi bidali baino lehen.
       officializations:
         block:
-          error: Errore bat egon da parte-hartzaile hau blokeatzean.
           success: Parte-hartzailea zuzen blokeatua.
         create:
           success: Pate-hartzailea zuzen ofizializatua.
@@ -812,7 +809,6 @@ eu:
           show: Erakutsi
           title: Erakutsi parte-hartzailearen helbide elektronikoa
         unblock:
-          error: Errore bat egon da parte-hartzailea desblokeatzean.
           success: Parte-hartzailea zuzen desblokeatua.
       organization:
         edit:
