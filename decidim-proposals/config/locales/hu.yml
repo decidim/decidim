@@ -366,10 +366,8 @@ hu:
             create: Létrehoz
         proposals:
           answer:
-            invalid: Probléma merült fel a javaslat megválaszolásakor.
             success: Javaslat megválaszolása sikeres.
           create:
-            invalid: Probléma merült fel a javaslat létrehozásakor.
             success: Javaslat létrehozása sikeres.
           edit:
             title: Frissítse a javaslatot
