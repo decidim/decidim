@@ -293,7 +293,6 @@ de:
       dismiss: Benachrichtigung schließen
     amendments:
       accepted:
-        error: Beim Akzeptieren der Änderung ist ein Fehler aufgetreten.
         success: Die Änderung wurde erfolgreich angenommen.
       amendable:
         button: '%{model_name} ändern'
@@ -306,7 +305,6 @@ de:
           one: "%{count} Anpassung"
           other: "%{count} Anpassungen"
       created:
-        error: Beim Erstellen des Änderungsvorschlags ist ein Fehler aufgetreten.
         success: Der Änderungsvorschlag wurde erfolgreich erstellt.
       destroy_draft:
         error: Es gab einen Fehler beim Löschen des Änderungsvorschlags.
@@ -358,7 +356,6 @@ de:
         error: Es gab ein Problem bei der Aktualisierung des Änderungsvorschlags.
         success: Änderungsvorschlag erfolgreich aktualisiert.
       withdraw:
-        error: Beim Zurückziehen der Änderung ist ein Fehler aufgetreten.
         success: Die Änderung wurde erfolgreich zurückgezogen.
       wizard_step_form:
         steps:
@@ -1434,7 +1431,6 @@ de:
         subject: Eine Ressource wurde gemeldet
     reports:
       create:
-        error: Beim Erstellen des Berichts ist ein Fehler aufgetreten. Bitte, versuche es noch einmal.
         success: Der Bericht wurde erfolgreich erstellt und wird von einem Administrator überprüft.
     resource_endorsements:
       create:
@@ -1871,9 +1867,6 @@ de:
       nesting_too_deep: kann nicht innerhalb einer Unterkategorie sein
       not_found: konnte nicht gefunden werden. Haben Sie bereits ein Konto erstellt?
       not_locked: war nicht gesperrt
-      not_saved:
-        one: 'Bei der Bearbeitung Ihrer Anfrage ist ein Fehler aufgetreten:'
-        other: 'Bei der Bearbeitung Ihrer Anfrage sind mehrere Fehler aufgetreten:'
       too_many_marks: benutzt zu viele aufeinanderfolgende Satzzeichen (zB! und?)
       too_much_caps: verwendet zu viele Großbuchstaben (über 25% des Textes)
       too_short: ist zu kurz (mindestens %{count} Zeichen)
