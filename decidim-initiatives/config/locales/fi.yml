@@ -100,6 +100,7 @@ fi:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Etsi kohteita %{collection} otsikon, kuvauksen, ID-numeron tai laatijan nimellä.
       initiatives_settings:
         update:
+          error: Aloitteiden asetusten päivittäminen epäonnistui.
           success: Aloitteiden asetusten päivitys onnistui.
       menu:
         attachments: Liitteet
@@ -264,6 +265,7 @@ fi:
             new: Uusi
             photos: Kuvat
           update:
+            error: Aloitteen päivittäminen epäonnistui.
             success: Aloitteen päivitys onnistui.
         initiatives_settings:
           edit:
@@ -277,6 +279,7 @@ fi:
             title: Aloitteiden asetukset
         initiatives_type_scopes:
           create:
+            error: Teeman luominen aloitteelle epäonnistui.
             success: Aloitetyypille on luotu uusi teema.
           destroy:
             success: Teeman poisto onnistui.
@@ -287,9 +290,11 @@ fi:
             create: Luo
             title: Luo aloitetyypin teema
           update:
+            error: Teeman päivittäminen epäonnistui.
             success: Teeman päivitys onnistui.
         initiatives_types:
           create:
+            error: Aloitetyypin luonti epäonnistui.
             success: Uuden aloitetyypin luonti onnistui. Sinun on määritettävä vähintään yksi teema tälle aloitetyypille, jotta sitä voi käyttää.
           destroy:
             success: Aloitetyypin poisto onnistui.
@@ -306,6 +311,7 @@ fi:
             create: Luo
             title: Uusi aloitetyyppi
           update:
+            error: Aloitetyypin päivitys epäonnistui.
             success: Aloitetyypin päivitys onnistui.
       admin_log:
         initiative:
@@ -580,6 +586,7 @@ fi:
         expired: Vanhentuneet
       unavailable_scope: Teema ei ole saatavilla
       update:
+        error: Aloitteen päivitys epäonnistui.
         success: Aloitteen päivitys onnistui.
     menu:
       initiatives: Aloitteet
