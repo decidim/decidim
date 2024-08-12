@@ -288,6 +288,9 @@ cs:
         create: "%{user_name} vytvořila %{resource_name} statickou stránku"
         delete: "%{user_name} odstranila %{resource_name} statickou stránku"
         update: "%{user_name} aktualizovala %{resource_name} statickou stránku"
+      taxonomy:
+        create: "%{user_name} vytvořil taxonomii %{resource_name}"
+        create_with_parent: "%{user_name} vytvořil taxonomii %{resource_name} uvnitř taxonomie %{parent_taxonomy}"
       user:
         block: "%{user_name} zablokoval uživatele %{resource_name}"
         invite: "%{user_name} pozval uživatele %{resource_name} s rolí: %{role}"
