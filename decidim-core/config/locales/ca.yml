@@ -1476,6 +1476,7 @@ ca:
         close_modal: Tancar el modal
         ok: D'acord
         title: Confirmar
+      confirm_unload: Aquesta pàgina conté canvis sense desar. Segur que vols abandonar aquesta pàgina?
       embed:
         title: Contingut del vídeo incrustat
       extended_navigation_bar:
