@@ -195,7 +195,6 @@ zh-TW:
         verify: 驗證
       admin_terms_of_service:
         accept:
-          error: 點選同意管理員服務條款時發生錯誤
           success: 太好了，已經同意管理員服務條款！
         actions:
           accept: 我同意這些條款
@@ -737,7 +736,6 @@ zh-TW:
           success: 通訊更新成功。請在發送前檢查一下。
       officializations:
         block:
-          error: 封鎖參與者時發生錯誤.
           success: 參與者已成功封鎖.
         create:
           success: 參與者已成功成為正式成員.
@@ -771,7 +769,6 @@ zh-TW:
           show: 顯示
           title: 顯示參與者的電子郵件地址
         unblock:
-          error: 解除參與者封鎖時出現錯誤.
           success: 參與者已成功解除封鎖.
       organization:
         edit:
