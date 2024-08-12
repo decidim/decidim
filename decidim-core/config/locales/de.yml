@@ -19,6 +19,8 @@ de:
         body: Haupttext
       report:
         details: Zusätzliche Kommentare
+      taxonomy:
+        name: Name der Taxonomie
       user:
         about: Über
         email: Ihre E-Mail
