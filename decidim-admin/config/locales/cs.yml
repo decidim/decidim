@@ -1035,12 +1035,23 @@ cs:
         count: Spočítat
         create:
           invalid: Při vytváření této taxonomie došlo k chybě.
+          success: Taxonomie byla úspěšně vytvořena.
+        destroy:
+          invalid: Při mazání této taxonomie došlo k chybě.
+          success: Taxonomie úspěšně zničena.
         edit:
           back: Zpět
+          description: Položky v této taxonomii budou použity pro klasifikaci nebo filtrování zdrojů, jako jsou participační prostory nebo komponenty. Použijte přetažení pro přeuspořádání seznamu.
           new_item: Nová položka
+          no_items: V této taxonomii momentálně nejsou žádné položky. Vytvořte seznam položek pro klasifikaci nebo filtrování zdrojů, jako jsou participační prostory nebo komponenty. Položky mohou být vnořeny až do tří úrovní.
+          subtitle: Položky v "%{taxonomy_name}"
+          title: Upravit taxonomii "%{taxonomy_name}"
           update: Aktualizovat
         filters:
           search_placeholder: Hledat
+        index:
+          description: Taxonomie umožňuje administrátorům kategorizovat a uspořádat obsah. Například přidat taxonomii pro klasifikaci procesů podle geografického rozsahu.
+          new_taxonomy: Nová taxonomie
         name: Název
       taxonomy_items:
         edit:
