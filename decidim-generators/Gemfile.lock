@@ -20,7 +20,6 @@ PATH
       decidim-sortitions (= 0.28.2)
       decidim-surveys (= 0.28.2)
       decidim-system (= 0.28.2)
-      decidim-templates (= 0.28.2)
       decidim-verifications (= 0.28.2)
     decidim-accountability (0.28.2)
       decidim-comments (= 0.28.2)
