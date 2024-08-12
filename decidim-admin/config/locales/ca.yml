@@ -469,6 +469,9 @@ ca:
             pending: Pendents
             rejected: Rebutjada
             verified: Verificades
+        taxonomies:
+          taxonomy_id_eq:
+            label: Taxonomia
       forms:
         file_help:
           import:
@@ -591,6 +594,7 @@ ca:
         settings: Configuració
         static_page_topics: Temes
         static_pages: Pàgines
+        taxonomies: Taxonomies
         user_groups: Grups
         users: Participants
       metrics:
@@ -1019,7 +1023,50 @@ ca:
           error: S'ha produït un error en l'actualització d'aquesta pàgina.
           success: La pàgina s'ha actualitzat correctament.
       taxonomies:
+        actions: Accions
+        amount: Import
         count: Recompte
+        create:
+          invalid: S'ha produït un error en crear aquesta taxonomia.
+          success: Taxonomia creada correctament.
+        destroy:
+          invalid: S'ha produït un error en eliminar aquesta taxonomia.
+          success: Taxonomia eliminada correctament.
+        edit:
+          back: Enrere
+          description: Els elements d'aquesta taxonomia es faran servir per a classificar o filtrar recursos, com ara espais de participació o components. Pots endreçar el llistat arrossegant els elements.
+          new_item: Nou element
+          no_items: Actualment no hi ha elements en aquesta taxonomia. Crea una llista d'elements per classificar o filtrar recursos, com ara espais participatius o components. Els elements es poden niar fins a tres nivells.
+          subtitle: Elements a %{taxonomy_name}"
+          title: Editar la taxonomina "%{taxonomy_name}"
+          update: Actualitzar
+        filters:
+          search_placeholder: Cercar
+        index:
+          description: Una taxonomia permet a les administradores categoritzar i organitzar-ne el contingut. Per exemple, afegir una taxonomia per classificar processos per àmbit geogràfic.
+          new_taxonomy: Nova taxonomia
+          no_items_found: No s'han trobat taxonomies que coincideixin amb els criteris de cerca.
+        name: Nom
+        new:
+          create: Crear taxonomia
+          title: Nova taxonomia
+        no_taxonomies: Actualment no hi ha taxonomies. Crea una llista de taxonomies i defineix-ne els elements per classificar o filtrar recursos.
+        table:
+          to_next_page: Passa a la pàgina següent
+          to_prev_page: Passa a la pàgina anterior
+        taxonomy_actions:
+          confirm_destroy: Segur que vols eliminar "%{name}"? També s'eliminaran tots els elements inclosos en aquesta.
+        update:
+          invalid: S'ha produït un error en actualitzar aquesta taxonomia.
+          success: Taxonomia actualitzada correctament.
+      taxonomy_items:
+        edit:
+          title: Editar element a "%{taxonomy}"
+          update: Actualitza l'element
+        new:
+          create: Crea un element
+          none: Cap
+          title: Editar element a "%{taxonomy}"
       titles:
         admin_log: Registre d'administració
         area_types: Tipus d'àrees
@@ -1040,6 +1087,7 @@ ca:
         scope_types: Tipus d'àmbit
         scopes: Àmbits
         statistics: Activitat
+        taxonomies: Taxonomies
         user_groups: Grups
         users: Administradores
       user_group:
