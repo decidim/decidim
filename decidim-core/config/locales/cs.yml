@@ -315,7 +315,6 @@ cs:
       dismiss: Odmítnout oznámení
     amendments:
       accepted:
-        error: Při přijímání změny došlo k chybě.
         success: Tento pozměňovací návrh byl úspěšně přijat.
       amendable:
         button: Změna %{model_name}
@@ -330,7 +329,6 @@ cs:
           many: "%{count} pozměňovacích návrhů"
           other: "%{count} pozměňovacích návrhů"
       created:
-        error: Při vytváření pozměňovacího návrhu došlo k chybě.
         success: Pozměňovací návrh byl úspěšně vytvořen.
       destroy_draft:
         error: Při mazání pozměňovacího návrhu došlo k potížím.
@@ -382,7 +380,6 @@ cs:
         error: Při aktualizaci pozměňovacího návrhu došlo k potížím.
         success: Pozměňovací návrh byl úspěšně aktualizován.
       withdraw:
-        error: Došlo k chybě při odebrání pozměňovacího návrhu.
         success: Pozměňovací návrh byl úspěšně stažen.
       wizard_step_form:
         steps:
@@ -1453,7 +1450,6 @@ cs:
         subject: Byl ohlášen zdroj
     reports:
       create:
-        error: Při vytváření shromáždění došlo k chybě. Zkuste to znovu.
         success: Zpráva byla úspěšně vytvořena a bude kontrolována administrátorem.
     resource_endorsements:
       create:
@@ -1890,11 +1886,6 @@ cs:
       must_start_with_caps: musí začínat velkým písmenem
       nesting_too_deep: nemůže být uvnitř podkategorie
       not_locked: nebyl uzamčen
-      not_saved:
-        one: 'Při zpracování vašeho požadavku došlo k chybě:'
-        few: 'Při zpracování vašeho požadavku došlo k několika chybám:'
-        many: 'Při zpracování vašeho požadavku došlo k mnoha chybám:'
-        other: 'Při zpracování vašeho požadavku došlo k nějakým chybám:'
       too_many_marks: používá příliš mnoho po sobě jdoucích interpunkčních znamének (např.! a?)
       too_much_caps: používá příliš mnoho velkých písmen (více než 25% textu)
       too_short: je příliš krátká (pod %{count} znaků)
