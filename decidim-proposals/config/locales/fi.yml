@@ -542,8 +542,10 @@ fi:
           answer:
             bulk_answer_error: Ehdotuksiin ID-tunnisteilla [%{proposals}] ei voitu vastata, koska vastauksen mallipohjaa "%{template}" ei voitu käyttää. Tarkasta, että vastauksen mallipohja on määritelty komponentin olettamalla tavalla vastaamalla yksittäiseen ehdotukseen mallipohjan avulla.
             bulk_answer_success: '%{count} ehdotukseen vastataan käyttäen mallipohjaa "%{template}". Odota muutamia minuutteja ja päivitä tämä sivu nähdäksesi muutokset.'
+            invalid: Ehdotukseen vastaaminen epäonnistui.
             success: Ehdotukseen vastaaminen onnistui.
           create:
+            invalid: Ehdotuksen luonti epäonnistui.
             success: Ehdotuksen luonti onnistui.
           edit:
             title: Päivitä ehdotusta
@@ -625,14 +627,18 @@ fi:
             title: Tuo ehdotuksia toisesta komponentista
         proposals_merges:
           create:
+            invalid: 'Ehdotusten yhdistäminen epäonnistui seuraavista syistä:'
             success: Ehdotusten yhdistäminen uudeksi ehdotukseksi onnistui.
         proposals_splits:
           create:
+            invalid: 'Ehdotusten jakaminen epäonnistui seuraavista syistä:'
             success: Ehdotusten jakaminen uusiksi ehdotuksiksi onnistui.
         valuation_assignments:
           create:
+            invalid: Arvioijan määritys ehdotuksille epäonnistui.
             success: Arvioijien asettaminen ehdotuksille onnistui.
           delete:
+            invalid: Arvioijan poistaminen ehdotuksilta epäonnistui.
             success: Arvioijien poistaminen ehdotuksilta onnistui.
       admin_log:
         proposal:
