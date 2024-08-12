@@ -43,7 +43,6 @@ es:
           destroy:
             confirm: La revocación de las autorizaciones anteriores a esta fecha no se puede deshacer. ¿Seguro que quieres continuar?
             confirm_all: La revocación de todas las autorizaciones no se puede deshacer. ¿Seguro que quieres continuar?
-          destroy_nok: Ha habido un problema al revocar las autorizaciones.
           destroy_ok: Todas las autorizaciones coincidentes han sido revocadas con éxito.
           info: Hay un total de %{count} participantes verificadas.
           no_data: No hay participantes verificadas.
@@ -157,7 +156,6 @@ es:
         admin:
           census:
             create:
-              error: Se ha producido un error al importar el censo.
               success: '%{count} ítems importados correctamente (%{errors} errores).'
             destroy_all:
               success: Todos los datos del censo han sido eliminados.
