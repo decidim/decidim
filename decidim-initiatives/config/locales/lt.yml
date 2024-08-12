@@ -106,6 +106,7 @@ lt:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Ieškoti %{collection} pagal pavadinimą, aprašymą, ID ar autoriaus vardą ir pavardę.
       initiatives_settings:
         update:
+          error: Įvyko klaida.
           success: Iniciatyvų nustatymai atnaujinti.
       menu:
         attachments: Priedai
