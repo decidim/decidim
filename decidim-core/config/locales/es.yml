@@ -19,6 +19,8 @@ es:
         body: Cuerpo
       report:
         details: Comentarios adicionales
+      taxonomy:
+        name: Nombre de la taxonomía
       user:
         about: Acerca de
         email: Tu correo electrónico
@@ -260,6 +262,13 @@ es:
         create: "%{user_name} creó la página estática %{resource_name}"
         delete: "%{user_name} eliminó la página estática %{resource_name}"
         update: "%{user_name} actualizó la página estática %{resource_name}"
+      taxonomy:
+        create: "%{user_name} ha creado la taxonomía \"%{resource_name}\""
+        create_with_parent: "%{user_name} ha creado \"%{resource_name}\" dentro de la taxonomía \"%{parent_taxonomy}\""
+        delete: "%{user_name} ha borrado la taxonomía \"%{resource_name}\""
+        delete_with_parent: "%{user_name} ha borrado \"%{resource_name}\" dentro de la taxonomía \"%{parent_taxonomy}\""
+        update: "%{user_name} ha actualizado la taxonomía \"%{resource_name}\""
+        update_with_parent: "%{user_name} ha actulizado \"%{resource_name}\" dentro de la taxonomía \"%{parent_taxonomy}\""
       user:
         block: "%{user_name} ha bloqueado a la usuaria %{resource_name}"
         invite: "%{user_name} invitó a la participante %{resource_name} con el rol: %{role}"
@@ -1083,6 +1092,8 @@ es:
           not_found: 'El ámbito no se encontró en la base de datos (ID: %{id})'
         scope_type_presenter:
           not_found: 'El tipo de ámbito no se encontró en la base de datos (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'No se ha encontrado la taxonomía en la base de datos (ID: %{id})'
     managed_users:
       expired_session: La sesión actual de administración de una participante ha caducado.
     map:
