@@ -420,11 +420,9 @@ ro:
             select_states: Verifică stadiul propunerilor de importat
         proposals_merges:
           create:
-            invalid: 'A apărut o problemă la combinarea propunerilor selectate, deoarece unele dintre ele:'
             success: Propunerile au fost combinate cu succes într-o propunere nouă.
         proposals_splits:
           create:
-            invalid: 'A apărut o problemă la împărțirea propunerilor selectate, deoarece unele dintre ele:'
             success: Propunerile au fost împărțite cu succes în altele noi.
       admin_log:
         proposal:
