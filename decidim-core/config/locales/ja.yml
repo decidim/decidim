@@ -271,11 +271,9 @@ ja:
       dismiss: 通知を消去
     amendments:
       accepted:
-        error: 修正を承認中にエラーが発生しました。
         success: 修正が正常に受け入れられました。
       amendable:
         button: '%{model_name} を修正'
-        error: リソースの修正中にエラーが発生しました。
         promote_button: '%{model_name} に昇格'
         promote_confirm_text: この修正を承認してもよろしいですか？
         promote_help_text: この修正を促進し、独立した%{model_name} として公開できます。
@@ -283,7 +281,6 @@ ja:
         title:
           other: "%{count} 件の修正"
       created:
-        error: 修正案の作成中にエラーが発生しました。
         success: 修正案が正常に作成されました。
       destroy_draft:
         error: 修正案を削除中に問題が発生しました。
@@ -335,7 +332,6 @@ ja:
         error: 修正案の更新中に問題が発生しました。
         success: 修正の下書きが正常に更新されました。
       withdraw:
-        error: 修正の撤回中にエラーが発生しました。
         success: 修正を撤回しました。
       wizard_step_form:
         steps:
@@ -1398,7 +1394,6 @@ ja:
         subject: リソースが報告されました
     reports:
       create:
-        error: レポートの作成中にエラーが発生しました。もう一度やり直してください。
         success: レポートは正常に作成され、管理者によってレビューされます。
     resource_endorsements:
       create:
@@ -1833,8 +1828,6 @@ ja:
       nesting_too_deep: サブカテゴリ内にすることはできません
       not_found: 見つかりませんでした。以前にアカウントを作成されましたか？
       not_locked: ロックされていません
-      not_saved:
-        other: 'リクエストの処理中に複数のエラーが発生しました:'
       too_many_marks: '連続する句読点が多すぎます (例: !, ?)'
       too_much_caps: 大文字が多すぎます(テキストの25%以上)
       too_short: は短すぎます( %{count} 文字以下)
