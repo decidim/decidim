@@ -250,7 +250,6 @@ zh-TW:
             new: 新的
             photos: 圖片
           update:
-            error: 出現了一個錯誤.
             success: 倡議已成功更新.
         initiatives_settings:
           edit:
@@ -264,7 +263,6 @@ zh-TW:
             title: 倡議設定
         initiatives_type_scopes:
           create:
-            error: 出現了一個錯誤.
             success: 已為給定的倡議類型建立新範圍.
           destroy:
             success: 範圍已成功刪除.
@@ -275,11 +273,8 @@ zh-TW:
             create: 建立
             title: 建立倡議類型範圍
           update:
-            error: 出現了一個錯誤.
             success: 範圍已成功更新.
         initiatives_types:
-          create:
-            error: 出現了一個錯誤.
           destroy:
             success: 該倡議類型已成功刪除.
           edit:
@@ -293,7 +288,6 @@ zh-TW:
             create: 建立
             title: 新的倡議類型
           update:
-            error: 出現了一個錯誤.
             success: 該倡議類型已成功更新.
       admin_log:
         initiative:
@@ -539,7 +533,6 @@ zh-TW:
         expired: 已過期
       unavailable_scope: 不可用的範圍
       update:
-        error: 出現了一個錯誤.
         success: 倡議已成功更新.
     menu:
       initiatives: 倡議
