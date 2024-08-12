@@ -400,11 +400,9 @@ nl:
             select_states: Controleer de status van de voorstellen om te importeren
         proposals_merges:
           create:
-            invalid: 'Er is een probleem opgetreden bij het samenvoegen van de geselecteerde voorstellen omdat:'
             success: De voorstellen zijn succesvol samengevoegd tot een nieuwe.
         proposals_splits:
           create:
-            invalid: 'Er is een probleem opgetreden bij het splitsen van de geselecteerde voorstellen omdat:'
             success: De voorstellen succesvol gesplitst in nieuwe.
       admin_log:
         proposal:
