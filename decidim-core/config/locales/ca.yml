@@ -590,6 +590,9 @@ ca:
           sign_up: Si us plau, completa el teu perfil
           subtitle: Si us plau, omple el següent formulari per tal de completar la creació del teu compte
           username_help: Nom públic que apareix als teus missatges. Amb l'objectiu de garantir l'anonimat, pot ser qualsevol nom.
+        new_tos_fields:
+          sign_up: Crear un compte
+          sign_up_title: Acabar de crear el teu compte
       registrations:
         create:
           error: S'ha produït un error en crear el teu compte.
