@@ -293,10 +293,11 @@ ca:
       dismiss: Descartar notificació
     amendments:
       accepted:
+        error: Hi ha hagut un problema en acceptar l'esmena.
         success: L’esmena ha estat acceptada correctament.
       amendable:
         button: Esmenar %{model_name}
-        error: S'ha produït un error en modificar aquest recurs.
+        error: Hi ha hagut un problema en esmenar aquest recurs.
         promote_button: Promocionar a %{model_name}
         promote_confirm_text: Segur que vols promoure aquesta esmena?
         promote_help_text: Pots promocionar aquesta esmena com a una %{model_name} independent.
@@ -305,6 +306,7 @@ ca:
           one: "%{count} esmena"
           other: "%{count} esmenes"
       created:
+        error: Hi ha hagut un problema en actualitzar l'esborrany de l'esmena.
         success: L'esborrany d’esmena ha estat creat amb èxit.
       destroy_draft:
         error: S'ha produït un error en suprimir l'esborrany de l'esmena.
@@ -353,6 +355,7 @@ ca:
         error: S'ha produït un error en actualitzar l'esborrany de l'esmena.
         success: Esborrany d'esmena actualitzat correctament.
       withdraw:
+        error: Hi ha hagut un problema en retirar l'esmena.
         success: L'esmena s'ha retirat correctament.
       wizard_step_form:
         steps:
@@ -1429,6 +1432,7 @@ ca:
         subject: Un contingut ha estat denunciat
     reports:
       create:
+        error: Hi ha hagut un problema en crear l'informe d'error. Si us plau, torna-ho a provar.
         success: El contingut s'ha denunciat amb èxit i serà revisat per una administradora.
     resource_endorsements:
       create:
@@ -1705,6 +1709,7 @@ ca:
         message: El teu compte s'ha bloquejat a causa d'una quantitat excessiva d'intents fallits d'inici de sessió.
         subject: Desbloqueja les instruccions
     omniauth_callbacks:
+      add_tos_errors: S'ha d'acceptar els termes i condicions d'ús per crear un compte.
       failure: No pots autenticar-te des de %{kind} perquè "%{reason}".
       success: S'ha autenticat amb èxit des del compte %{kind}.
     passwords:
@@ -1864,6 +1869,9 @@ ca:
       nesting_too_deep: no pot estar dins d'una subcategoria
       not_found: No s'ha pogut trobar. Has creat un compte anteriorment?
       not_locked: No estava bloquejat
+      not_saved:
+        one: 'S''han produït un error en processar la teva sol·licitud:'
+        other: 'S''han produït múltiples errors en processar la teva sol·licitud:'
       too_many_marks: Estàs fent servir massa signes de puntuació consecutius (p. ex. i?)
       too_much_caps: Estàs utilitzant massa lletres majúscules (més del 25% del text)
       too_short: és massa curt (menys %{count} caràcters)
