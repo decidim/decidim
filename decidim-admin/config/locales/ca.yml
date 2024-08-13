@@ -202,6 +202,7 @@ ca:
         verify: Verificar
       admin_terms_of_service:
         accept:
+          error: Hi ha hagut un problema en acceptar els Termes i Condicions d'administració.
           success: Genial! Has acceptat les condicions del servei d'administració.
         actions:
           accept: Estic d'acord amb les condicions
@@ -365,6 +366,7 @@ ca:
         user_name: Usuària
       content_blocks:
         create:
+          error: Hi ha hagut un problema creant el bloc de contingut.
           success: El bloc de contingut s'ha creat correctament.
         destroy:
           error: S'ha produït un error en intentar eliminar aquest bloc de contingut.
@@ -787,6 +789,7 @@ ca:
           success: Butlletí actualitzat correctament. Si us plau, revisa'l abans d'enviar-lo.
       officializations:
         block:
+          error: Hi ha hagut un problema en bloquejar a la participant.
           success: Participant bloquejada correctament.
         create:
           success: Participant oficialitzada correctament.
@@ -820,6 +823,7 @@ ca:
           show: Mostra
           title: Mostra l'adreça de correu electrònic de la participant
         unblock:
+          error: Hi ha hagut un problema en desbloquejar a la participant.
           success: Participant desbloquejada correctament.
       organization:
         edit:
