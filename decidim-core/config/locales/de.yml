@@ -293,6 +293,7 @@ de:
       dismiss: Benachrichtigung schließen
     amendments:
       accepted:
+        error: Beim Akzeptieren der Änderung ist ein Problem aufgetreten.
         success: Die Änderung wurde erfolgreich angenommen.
       amendable:
         button: '%{model_name} ändern'
@@ -305,6 +306,7 @@ de:
           one: "%{count} Anpassung"
           other: "%{count} Anpassungen"
       created:
+        error: Bei der Erstellen des Änderungsentwurfs ist ein Problem aufgetreten.
         success: Der Änderungsvorschlag wurde erfolgreich erstellt.
       destroy_draft:
         error: Es gab einen Fehler beim Löschen des Änderungsvorschlags.
@@ -356,6 +358,7 @@ de:
         error: Es gab ein Problem bei der Aktualisierung des Änderungsvorschlags.
         success: Änderungsvorschlag erfolgreich aktualisiert.
       withdraw:
+        error: Beim Zurückziehen der Änderung ist ein Problem aufgetreten.
         success: Die Änderung wurde erfolgreich zurückgezogen.
       wizard_step_form:
         steps:
@@ -1434,6 +1437,7 @@ de:
         subject: Eine Ressource wurde gemeldet
     reports:
       create:
+        error: Bei der Erstellung des Berichts ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
         success: Der Bericht wurde erfolgreich erstellt und wird von einem Administrator überprüft.
     resource_endorsements:
       create:
@@ -1711,6 +1715,7 @@ de:
         message: Ihr Konto wurde aufgrund einer übermäßigen Anzahl fehlgeschlagener Anmeldeversuche gesperrt.
         subject: Anweisungen zur Entsperrung
     omniauth_callbacks:
+      add_tos_errors: Die Nutzungsbedingungen müssen akzeptiert werden, um ein Konto zu erstellen.
       failure: 'Sie konnten nicht mit Ihrem %{kind}-Account angemeldet werden. Grund: "%{reason}".'
       success: Sie haben sich erfolgreich mit Ihrem %{kind}-Account angemeldet.
     passwords:
