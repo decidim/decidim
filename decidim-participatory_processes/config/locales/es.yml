@@ -175,6 +175,7 @@ es:
           title: Duplicar proceso participativo
       participatory_process_groups:
         destroy:
+          error: Se ha producido un error al eliminar el grupo de procesos participativos.
           success: Grupo de procesos participativos eliminado correctamente.
         edit:
           title: Editar grupo de procesos
