@@ -120,6 +120,7 @@ describe "Admin manages bulk proposal answer templates" do
 
   context "when templates is not installed" do
     before do
+      allow(Decidim).to receive(:module_installed?).and_call_original
       allow(Decidim).to receive(:module_installed?).with(:templates).and_return(false)
       visit current_path
       page.find(".js-check-all").set(true)
