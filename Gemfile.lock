@@ -20,7 +20,6 @@ PATH
       decidim-sortitions (= 0.30.0.dev)
       decidim-surveys (= 0.30.0.dev)
       decidim-system (= 0.30.0.dev)
-      decidim-templates (= 0.30.0.dev)
       decidim-verifications (= 0.30.0.dev)
     decidim-accountability (0.30.0.dev)
       decidim-comments (= 0.30.0.dev)
@@ -143,6 +142,8 @@ PATH
       selenium-webdriver (~> 4.9)
       simplecov (~> 0.22.0)
       simplecov-cobertura (~> 2.1.0)
+      spring (~> 4.0)
+      spring-watcher-listen (~> 2.0)
       w3c_rspec_validators (~> 0.3.0)
       webmock (~> 3.18)
       wisper-rspec (~> 1.0)
@@ -190,7 +191,6 @@ PATH
     decidim-templates (0.30.0.dev)
       decidim-core (= 0.30.0.dev)
       decidim-forms (= 0.30.0.dev)
-      decidim-proposals (= 0.30.0.dev)
     decidim-verifications (0.30.0.dev)
       decidim-core (= 0.30.0.dev)
 
@@ -810,8 +810,6 @@ DEPENDENCIES
   listen (~> 3.1)
   parallel_tests (~> 4.2)
   puma (>= 6.3.1)
-  spring (~> 4.0)
-  spring-watcher-listen (~> 2.0)
   web-console (~> 4.2)
 
 RUBY VERSION

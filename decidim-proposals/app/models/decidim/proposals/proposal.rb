@@ -500,6 +500,47 @@ module Decidim
         end
       end
 
+      def user_has_actions?(user)
+        return false if authors.include?(user)
+        return false if user&.blocked?
+        return false if user&.deleted?
+        return false unless user&.confirmed?
+
+        true
+      end
+
+      def actions_for_comment(comment, current_user)
+        return if comment.commentable != self
+        return unless authors.include?(current_user)
+        return unless user_has_actions?(comment.author)
+
+        if coauthor_invitations_for(comment.author).any?
+          [
+            {
+              label: I18n.t("decidim.proposals.actions.cancel_coauthor_invitation"),
+              url: EngineRouter.main_proxy(component).cancel_proposal_invite_coauthors_path(proposal_id: id, id: comment.author.id),
+              icon: "user-forbid-line",
+              method: :delete,
+              data: { confirm: I18n.t("decidim.proposals.actions.cancel_coauthor_invitation_confirm") }
+            }
+          ]
+        else
+          [
+            {
+              label: I18n.t("decidim.proposals.actions.mark_as_coauthor"),
+              url: EngineRouter.main_proxy(component).proposal_invite_coauthors_path(proposal_id: id, id: comment.author.id),
+              icon: "user-add-line",
+              method: :post,
+              data: { confirm: I18n.t("decidim.proposals.actions.mark_as_coauthor_confirm") }
+            }
+          ]
+        end
+      end
+
+      def coauthor_invitations_for(user)
+        Decidim::Notification.where(event_class: "Decidim::Proposals::CoauthorInvitedEvent", resource: self, user:)
+      end
+
       private
 
       def copied_from_other_component?

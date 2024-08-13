@@ -6,6 +6,7 @@ module Decidim
       class ProposalAnswerTemplatesController < Decidim::Templates::Admin::ApplicationController
         include Decidim::TranslatableAttributes
         include Decidim::Paginable
+        include Decidim::Proposals::Admin::NeedsInterpolations
 
         helper_method :availability_option_as_text, :availability_options_for_select, :available_states, :proposal_state
 
@@ -63,7 +64,7 @@ module Decidim
 
           response_object = {
             state: state&.token,
-            template: populate_template_interpolations(proposal)
+            template: populate_interpolations(template.description, proposal)
           }
 
           respond_to do |format|
@@ -136,20 +137,6 @@ module Decidim
 
         def available_states(component_id = nil)
           Decidim::Proposals::ProposalState.where(decidim_component_id: component_id)
-        end
-
-        def populate_template_interpolations(proposal)
-          template.description.to_h do |language, value|
-            value.gsub!("%{organization}", translated_attribute(proposal.organization.name))
-            value.gsub!("%{name}", author_name(proposal))
-            value.gsub!("%{admin}", current_user.name)
-
-            [language, value]
-          end
-        end
-
-        def author_name(proposal)
-          proposal.creator_author.try(:title) || proposal.creator_author.try(:name)
         end
 
         def proposal

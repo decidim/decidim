@@ -114,7 +114,7 @@ module Decidim
       # We need a valid secret key base for encrypting the SMTP password with it
       # It is also necessary for other things in Rails (like Cookies encryption)
       def validate_secret_key_base_for_encryption
-        return if Rails.application.secrets.secret_key_base&.length == 128
+        return if Rails.application.secret_key_base&.length == 128
 
         errors.add(:password, I18n.t("activemodel.errors.models.organization.attributes.password.secret_key"))
       end

@@ -664,7 +664,7 @@ en:
         transparent: Transparent
         withdraw: Withdrawn
       withdraw:
-        error: An error ocurred while withdrawing the meeting.
+        error: There was a problem withdrawing the meeting.
         success: The meeting has been withdrawn successfully.
     metrics:
       meetings:

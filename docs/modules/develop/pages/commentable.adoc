@@ -1,0 +1,127 @@
+= Commentable
+
+== Things can be commentable
+
+`Commentable` is a feature to allow participants to comment on resources. This feature is used in many places in Decidim, like proposals, meetings, debates, etc.
+
+When commenting a resource, the comments counter is increased and a notification to all the followers of the participant, the participatory space and/or the resource is sent.
+
+Participants can comment with their own identity or with the identify of the `user_groups` they belong to.
+
+== Data model
+
+The `decidim_comments` table stores all the comments given to resources that are commentable. This is, one commentable has many comments, and each comment belongs to one commentable. Also, a comment can be a commentable itself, so comments can be nested.
+For performance, a commentable has a counter cache of comments.
+
+[source,ascii]
+----
++----------------------+
+|  Decidim::Commentable |
+|   ((Proposal,...))   |                                  +-------------+
++----------------------+  0..N +-------------------+   +--+Decidim::User|
+|-has_many comments    |-------+Decidim::Comment   |   |  +-------------+
+|#counter cache column |       +-------------------+   |
+|-comments_counter     |       |-author: may be a  |<--+
++----------------------+       |         user or a |   |
+                               |         user_group|   |  +------------------+
+                               +-------------------+   +--+Decidim::UserGroup|
+                                                          +------------------+
+----
+
+Thus, each commentable must have the comments counter cache column.
+This is an example migration to add the comments counter cache column to a resource:
+
+[source,ruby]
+----
+class AddCommentableCounterCacheToMeetings < ActiveRecord::Migration[5.2]
+  def change
+    add_column :decidim_meetings_meetings, :comments_count, :integer, null: false, default: 0
+    Decidim::Meetings::Meeting.reset_column_information
+    Decidim::Meetings::Meeting.find_each(&:update_comments_count)
+  end
+end
+----
+
+== Public view
+
+=== The "Comment" cell
+
+The `Comment` cell is used to render a comment in the public view. Usually, it is used in the `Comments` cell to render a list of comments.
+
+[source,ruby]
+----
+cell("decidim/comments", resource)
+----
+
+This will render all the comments for the given resource.
+
+=== Comments actions
+
+Each comment has a set of actions that can be performed by the user. By default, these actions are available:
+
+- A user can edit and delete their own comments.
+- A user can report a comment.
+- A user can copy the link to a comment.
+
+These actions are available through a dropdown menu in the comment.
+
+=== Resource-specific extra actions
+
+Each resource can define extra actions that can be performed on comments. These actions must be returned by the resource object through the `actions_for_comment` method. If the resource does not define this method, or returns empty, no extra actions will be available.
+
+This method will receive two parameters, the comment itself and the current user that wants to interact with the comment.
+
+It must return an array of hashes, where each hash has the following keys:
+
+- `label`: The text for the link for the action.
+- `url`: The URL where the action will be performed.
+- `icon`: The icon to be displayed for the action (optional).
+- `method`: The HTTP method for the action, usually `:post` or `:delete` (optional as it defaults to `get`).
+- `data`: A hash with the data attributes for the link (optional).
+
+All these extra actions will be displayed in the dropdown menu of the comment after the default ones.
+
+For example, this is how the `Proposal` model defines extra actions for comments:
+
+[source,ruby]
+----
+def user_has_actions?(user)
+  return false if authors.include?(user)
+  return false if user&.blocked?
+  return false if user&.deleted?
+  return false unless user&.confirmed?
+
+  true
+end
+
+def actions_for_comment(comment, current_user)
+  return if comment.commentable != self
+  return unless authors.include?(current_user)
+  return unless user_has_actions?(comment.author)
+
+  if coauthor_invitations_for(comment.author).any?
+    [
+      {
+        label: I18n.t("decidim.proposals.actions.cancel_coauthor_invitation"),
+        url: EngineRouter.main_proxy(component).cancel_proposal_invite_coauthors_path(proposal_id: id, id: comment.author.id),
+        icon: "user-forbid-line",
+        method: :delete,
+        data: { confirm: I18n.t("decidim.proposals.actions.cancel_coauthor_invitation_confirm") }
+      }
+    ]
+  else
+    [
+      {
+        label: I18n.t("decidim.proposals.actions.mark_as_coauthor"),
+        url: EngineRouter.main_proxy(component).proposal_invite_coauthors_path(proposal_id: id, id: comment.author.id),
+        icon: "user-add-line",
+        method: :post,
+        data: { confirm: I18n.t("decidim.proposals.actions.mark_as_coauthor_confirm") }
+      }
+    ]
+  end
+end
+----
+
+This will render a new menu item with the text "Mark as coauthor" or "Cancel coauthor invitation" depending on the state of the comment author that will allow to add the comment's author as a co-author of the proposal.
+
