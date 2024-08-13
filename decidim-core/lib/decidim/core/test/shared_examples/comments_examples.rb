@@ -1081,14 +1081,22 @@ shared_examples "comments blocked" do
         it_behaves_like "can answer comments"
       end
 
-      context "when the user has an evaluator role in a different participatory space" do
-        let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process: create(:participatory_process, organization:)) }
+      shared_examples "evaluator role in different participatory space" do |space_type|
+        let!(:another_space_valuator_role) do
+          create(:"#{space_type}_user_role", role: :valuator, user:, "#{space_type}": create(space_type, organization:))
+        end
 
         it "cannot answer" do
           visit resource_path
           expect(page).to have_content("Comments are currently disabled, only administrators can reply or post new ones.")
           expect(page).to have_no_content("You need to be verified to comment at this moment")
         end
+      end
+
+      context "when the user has an evaluator role in a different participatory space" do
+        include_examples "evaluator role in different participatory space", :participatory_process
+        include_examples "evaluator role in different participatory space", :conference
+        include_examples "evaluator role in different participatory space", :assembly
       end
     end
   end
