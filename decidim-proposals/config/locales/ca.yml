@@ -543,8 +543,10 @@ ca:
           answer:
             bulk_answer_error: No s'ha pogut respondre a les propostes amb IDs [%{proposals}] per errors aplicant la plantilla "%{template}". Pots comprovar que la plantilla de resposta coincideix amb el format esperat per a aquest component aplicant-lo individualment.
             bulk_answer_success: 'Les propostes %{count} seran respostes fent servir la plantilla "%{template}". Si us plau, espera uns minuts i actualitza la pàgina per veure les actualitzacions.'
+            invalid: S'ha produït un error en respondre a aquesta proposta.
             success: Proposta resposta amb èxit.
           create:
+            invalid: S'ha produït un error en crear aquesta proposta.
             success: Proposta creada correctament.
           edit:
             title: Actualitza la proposta
@@ -626,14 +628,18 @@ ca:
             title: Importar projectes des d'un altre component
         proposals_merges:
           create:
+            invalid: 'S''ha produït un error en fusionar les propostes seleccionades doncs alguna d''elles:'
             success: S'han combinat amb èxit les propostes en una de nova.
         proposals_splits:
           create:
+            invalid: 'S''ha produït un error en dividir les propostes seleccionades doncs alguna d''elles:'
             success: Les propostes s'han dividit en d'altres de noves correctament.
         valuation_assignments:
           create:
+            invalid: S'ha produït un error en assignar propostes a una avaluadora.
             success: Propostes assignades correctament a una avaluadora.
           delete:
+            invalid: S'ha produït un error en desfer l'assignació de propostes d'una avaluadora.
             success: Avaluadora desassignada correctament.
       admin_log:
         proposal:
