@@ -590,6 +590,9 @@ es:
           sign_up: Por favor, completa tu perfil
           subtitle: Por favor, rellena el siguiente formulario para completar la creación de la cuenta
           username_help: Nombre público que aparece en tus aportaciones. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
+        new_tos_fields:
+          sign_up: Crear una cuenta
+          sign_up_title: Terminar de crear tu cuenta
       registrations:
         create:
           error: Se ha producido un error al crear tu cuenta.
