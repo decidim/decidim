@@ -543,8 +543,10 @@ de:
           answer:
             bulk_answer_error: Vorschläge mit IDs [%{proposals}] konnten nicht beantwortet werden, da sie die Vorlage "%{template}" anwenden. Sie können überprüfen, ob die Antwortvorlage dem erwarteten Format für diese Komponente entspricht, indem Sie sie einzeln anwenden.
             bulk_answer_success: '%{count} Vorschläge werden mit der Vorlage "%{template}" beantwortet. Bitte warten Sie ein paar Minuten und aktualisieren Sie die Seite, um die Updates zu sehen.'
+            invalid: Bei der Beantwortung dieses Vorschlags ist ein Problem aufgetreten.
             success: Der Vorschlag wurde erfolgreich beantwortet.
           create:
+            invalid: Beim Erstellen dieses Vorschlags ist ein Problem aufgetreten.
             success: Vorschlag erfolgreich erstellt.
           edit:
             title: Vorschlag aktualisieren
@@ -626,14 +628,18 @@ de:
             title: Vorschläge aus einer anderen Komponente importieren
         proposals_merges:
           create:
+            invalid: 'Beim Zusammenführen der ausgewählten Vorschläge ist ein Problem aufgetreten, weil ein paar von ihnen:'
             success: Erfolgreich die Vorschläge in eine neue zusammengeführt.
         proposals_splits:
           create:
+            invalid: 'Beim Aufteilen der ausgewählten Vorschläge ist ein Problem aufgetreten, weil ein paar von ihnen:'
             success: Die Vorschläge wurden erfolgreich in neue aufgeteilt.
         valuation_assignments:
           create:
+            invalid: Beim Zuweisen der Vorschläge zur Bewertung ist ein Problem aufgetreten.
             success: Die Vorschläge wurden erfolgreich zur Bewertung zugewiesen.
           delete:
+            invalid: Bei Aufheben der Zuweisung der Vorschläge zur Einschätzung ist ein Fehler aufgetreten.
             success: Die Zuweisung zur Bewertung der Vorschläge wurde erfolgreich aufgehoben.
       admin_log:
         proposal:
