@@ -43,6 +43,7 @@ de:
           destroy:
             confirm: Das Entziehen aller Berechtigungen vor einem Datum kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
             confirm_all: Das Entziehen aller Berechtigungen nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
+          destroy_nok: Beim Entziehen der Berechtigungen ist ein Fehler aufgetreten.
           destroy_ok: Alle übereinstimmenden Berechtigungen wurden erfolgreich entzogen.
           info: Es gibt insgesamt %{count} verifizierte Teilnehmer.
           no_data: Keine verifizierten Teilnehmer.
@@ -156,6 +157,7 @@ de:
         admin:
           census:
             create:
+              error: Beim Importieren der Erhebung ist ein Fehler aufgetreten.
               success: '%{count} Elemente erfolgreich hinzugefügt (%{errors} Fehler).'
             destroy_all:
               success: Alle Erhebungsdaten wurden gelöscht.
