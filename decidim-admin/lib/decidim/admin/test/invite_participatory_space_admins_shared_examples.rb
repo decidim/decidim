@@ -54,8 +54,6 @@ shared_examples "inviting participatory space admins" do |check_private_space: t
         find("*[type=submit]").click
       end
 
-      click_on "Review them now"
-
       expect(page).to have_current_path "/admin/admin_terms/show"
 
       visit decidim_admin.admin_terms_show_path
@@ -84,8 +82,6 @@ shared_examples "inviting participatory space admins" do |check_private_space: t
           check :invitation_user_tos_agreement
           find("*[type=submit]").click
         end
-
-        click_on "Review them now"
 
         expect(page).to have_current_path "/admin/admin_terms/show"
 
