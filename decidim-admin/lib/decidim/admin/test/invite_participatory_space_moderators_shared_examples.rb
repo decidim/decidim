@@ -20,6 +20,8 @@ shared_examples "inviting participatory space moderators" do
         find("*[type=submit]").click
       end
 
+      click_on "Review them now"
+
       expect(page).to have_current_path "/admin/admin_terms/show"
 
       visit decidim_admin.admin_terms_show_path
