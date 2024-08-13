@@ -202,6 +202,7 @@ es:
         verify: Verificar
       admin_terms_of_service:
         accept:
+          error: Se ha producido un problema al aceptar los términos de servicio de administración.
           success: '¡Genial! Has aceptado los términos del servicio de administración.'
         actions:
           accept: Estoy de acuerdo con los términos
@@ -365,6 +366,7 @@ es:
         user_name: Usuaria
       content_blocks:
         create:
+          error: Se ha producido un error creando el bloque de contenido.
           success: El bloque de contenido se ha creado correctamente.
         destroy:
           error: Se ha producido un error al intentar eliminar este bloque de contenido.
@@ -787,6 +789,7 @@ es:
           success: Boletín actualizado correctamente. Por favor revísalo antes de enviarlo.
       officializations:
         block:
+          error: Se ha producido un error al bloquear a la participante.
           success: Participante bloqueada correctamente.
         create:
           success: Participante oficializada correctamente.
@@ -820,6 +823,7 @@ es:
           show: Mostrar
           title: Mostrar dirección de correo de la participante
         unblock:
+          error: Se ha producido un error al desbloquear a la participante.
           success: Participante desbloqueada correctamente.
       organization:
         edit:
