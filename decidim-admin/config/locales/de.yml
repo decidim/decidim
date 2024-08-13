@@ -823,6 +823,7 @@ de:
           show: Anzeigen
           title: E-Mail-Adresse des Teilnehmers anzeigen
         unblock:
+          error: Bei der Entblockierung des Kontos ist ein Problem aufgetreten.
           success: Blockierung des Teilnehmers wurde erfolgreich aufgehoben.
       organization:
         edit:
