@@ -293,10 +293,11 @@ es:
       dismiss: Descartar notificación
     amendments:
       accepted:
+        error: Se ha producido un error al aceptar la enmienda.
         success: La enmienda ha sido aceptada correctamente.
       amendable:
         button: Enmendar %{model_name}
-        error: Se ha producido un error al modificar este recurso.
+        error: Se ha producido un error al enmendar este recurso.
         promote_button: Promocionar a %{model_name}
         promote_confirm_text: '¿Seguro que quieres promocionar esta enmienda?'
         promote_help_text: Puedes promocionar esta enmienda y publicarla como una %{model_name} independiente.
@@ -305,6 +306,7 @@ es:
           one: "%{count} enmienda"
           other: "%{count} enmiendas"
       created:
+        error: Se ha producido un error al actualizar el borrador de la enmienda.
         success: El borrador de enmienda se ha creado correctamente.
       destroy_draft:
         error: Hubo un problema al eliminar el borrador de enmienda.
@@ -353,6 +355,7 @@ es:
         error: Se ha producido un error al actualizar el borrador de enmienda.
         success: Borrador de enmienda actualizado correctamente.
       withdraw:
+        error: Se ha producido un error al retirar la enmienda.
         success: La enmienda se ha retirado correctamente.
       wizard_step_form:
         steps:
@@ -1429,6 +1432,7 @@ es:
         subject: Un contenido ha sido denunciado
     reports:
       create:
+        error: Se ha producido un problema al crear el informe de error. Por favor, vuelve a intentarlo.
         success: El contenido se ha denunciado con éxito y será revisado por una administradora.
     resource_endorsements:
       create:
@@ -1705,6 +1709,7 @@ es:
         message: Tu cuenta ha sido bloqueada debido a una cantidad excesiva de intentos fallidos de inicio de sesión.
         subject: Desbloquear instrucciones
     omniauth_callbacks:
+      add_tos_errors: Se tienen que aceptar los términos y condiciones de uso para crear una cuenta.
       failure: No puedes autenticarte desde %{kind} porque "%{reason}".
       success: Se ha autenticado correctamente desde la cuenta %{kind}.
     passwords:
@@ -1864,6 +1869,9 @@ es:
       nesting_too_deep: no puede estar dentro de una subcategoría
       not_found: no se pudo encontrar. ¿Has creado una cuenta anteriormente?
       not_locked: No estaba bloqueado
+      not_saved:
+        one: 'Se ha producido un error al procesar tu solicitud:'
+        other: 'Se han producido varios errores al procesar tu solicitud:'
       too_many_marks: Estás usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: Está usando demasiadas letras mayúsculas (más del 25% del texto)
       too_short: es demasiado corto (menos %{count} caracteres)
