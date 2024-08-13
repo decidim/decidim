@@ -593,6 +593,9 @@ de:
           sign_up: Bitte vervollständigen Sie Ihr Profil
           subtitle: Bitte füllen Sie das folgende Formular aus, um die Kontoerstellung abzuschließen
           username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
+        new_tos_fields:
+          sign_up: Konto erstellen
+          sign_up_title: Kontoerstellung abschließen
       registrations:
         create:
           error: Es gab ein Problem bei der Erstellung Ihres Kontos.
@@ -1867,6 +1870,9 @@ de:
       nesting_too_deep: kann nicht innerhalb einer Unterkategorie sein
       not_found: konnte nicht gefunden werden. Haben Sie bereits ein Konto erstellt?
       not_locked: war nicht gesperrt
+      not_saved:
+        one: 'Bei der Bearbeitung Ihrer Anfrage ist ein Fehler aufgetreten:'
+        other: 'Bei der Bearbeitung Ihrer Anfrage sind mehrere Fehler aufgetreten:'
       too_many_marks: benutzt zu viele aufeinanderfolgende Satzzeichen (zB! und?)
       too_much_caps: verwendet zu viele Großbuchstaben (über 25% des Textes)
       too_short: ist zu kurz (mindestens %{count} Zeichen)
