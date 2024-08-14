@@ -11,6 +11,7 @@ module Decidim::Comments
     let(:my_cell) { cell("decidim/comments/comment", comment) }
     let(:organization) { create(:organization) }
     let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:assembly) { create(:assembly, organization:) }
     let(:component) { create(:component, participatory_space: participatory_process) }
     let(:commentable) { create(:dummy_resource, component:) }
     let(:comment) { create(:comment, commentable:) }
@@ -225,8 +226,17 @@ module Decidim::Comments
             end
           end
 
-          context "and the user is a valuator in another participatory space" do
+          context "and the user is a valuator in another participatory process" do
             let!(:valuator_role) { create(:participatory_process_user_role, user: current_user, participatory_process: create(:participatory_process, organization: component.organization), role: :valuator) }
+
+            it "does not render the reply form" do
+              expect(subject).to have_no_css(".add-comment")
+            end
+          end
+
+          context "and the user is a valuator in another participatory space" do
+            let!(:component) { create(:component, participatory_space: assembly) }
+            let!(:valuator_role) { create(:assembly_user_role, user: current_user, assembly: create(:assembly, organization: component.organization), role: :valuator) }
 
             it "does not render the reply form" do
               expect(subject).to have_no_css(".add-comment")
