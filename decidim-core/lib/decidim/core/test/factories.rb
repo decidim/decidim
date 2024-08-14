@@ -628,6 +628,38 @@ FactoryBot.define do
     organization
   end
 
+  factory :taxonomy, class: "Decidim::Taxonomy" do
+    transient do
+      skip_injection { false }
+    end
+
+    name { generate_localized_title(:taxonomy_name, skip_injection:) }
+    organization
+    parent { nil }
+    weight { nil }
+
+    trait :with_parent do
+      association :parent, factory: :taxonomy
+    end
+
+    trait :with_children do
+      transient do
+        children_count { 3 }
+      end
+
+      after(:create) do |taxonomy, evaluator|
+        create_list(:taxonomy, evaluator.children_count, parent: taxonomy, organization: taxonomy.organization)
+        taxonomy.reload
+        taxonomy.update(weight: taxonomy.children.count)
+      end
+    end
+  end
+
+  factory :taxonomization, class: "Decidim::Taxonomization" do
+    taxonomy { association(:taxonomy, :with_parent) }
+    taxonomizable { association(:dummy_resource) }
+  end
+
   factory :coauthorship, class: "Decidim::Coauthorship" do
     transient do
       skip_injection { false }
@@ -736,6 +768,11 @@ FactoryBot.define do
       {
         some_extra_data: "1"
       }
+    end
+
+    trait :proposal_coauthor_invite do
+      event_name { "decidim.events.proposals.coauthor_invited" }
+      event_class { "Decidim::Proposals::CoauthorInvitedEvent" }
     end
   end
 

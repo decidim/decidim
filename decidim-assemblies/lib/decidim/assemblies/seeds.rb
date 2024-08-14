@@ -8,6 +8,11 @@ module Decidim
       def call
         create_content_block!
 
+        taxonomy = create_taxonomy!(name: "Assembly Types", parent: nil)
+        2.times do
+          create_taxonomy!(name: ::Faker::Lorem.word, parent: taxonomy)
+        end
+
         2.times do |_n|
           assembly = create_assembly!
 

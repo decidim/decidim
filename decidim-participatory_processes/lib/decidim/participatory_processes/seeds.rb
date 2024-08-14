@@ -18,6 +18,11 @@ module Decidim
           Decidim::ContentBlocksCreator.new(process_group).create_default!
         end
 
+        taxonomy = create_taxonomy!(name: "Process Types", parent: nil)
+        2.times do
+          create_taxonomy!(name: ::Faker::Lorem.word, parent: taxonomy)
+        end
+
         process_types = []
         2.times do
           process_types << create_process_type!

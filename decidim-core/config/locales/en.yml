@@ -20,6 +20,8 @@ en:
         body: Body
       report:
         details: Additional comments
+      taxonomy:
+        name: Taxonomy name
       user:
         about: About
         email: Your email
@@ -261,6 +263,13 @@ en:
         create: "%{user_name} created the %{resource_name} static page"
         delete: "%{user_name} deleted the %{resource_name} static page"
         update: "%{user_name} updated the %{resource_name} static page"
+      taxonomy:
+        create: "%{user_name} created the %{resource_name} taxonomy"
+        create_with_parent: "%{user_name} created the %{resource_name} taxonomy inside the %{parent_taxonomy} taxonomy"
+        delete: "%{user_name} deleted the %{resource_name} taxonomy"
+        delete_with_parent: "%{user_name} deleted the %{resource_name} taxonomy inside the %{parent_taxonomy} taxonomy"
+        update: "%{user_name} updated the %{resource_name} taxonomy"
+        update_with_parent: "%{user_name} updated the %{resource_name} taxonomy inside the %{parent_taxonomy} taxonomy"
       user:
         block: "%{user_name} blocked user %{resource_name}"
         invite: "%{user_name} invited the participant %{resource_name} with role: %{role}"
@@ -285,11 +294,11 @@ en:
       dismiss: Dismiss notification
     amendments:
       accepted:
-        error: An error ocurred while accepting the amendment.
+        error: There was a problem accepting the amendment.
         success: The amendment has been accepted successfully.
       amendable:
         button: Amend %{model_name}
-        error: There has been an error amending this resource.
+        error: There was a problem amending this resource.
         promote_button: Promote to %{model_name}
         promote_confirm_text: Are you sure you want to promote this emendation?
         promote_help_text: You can promote this emendation and publish it as an independent %{model_name}.
@@ -298,7 +307,7 @@ en:
           one: "%{count} amendment"
           other: "%{count} amendments"
       created:
-        error: An error ocurred while creating the amendment draft.
+        error: There was a problem creating the amendment draft.
         success: Amendment draft has been created successfully.
       destroy_draft:
         error: There was a problem deleting the amendment draft.
@@ -350,7 +359,7 @@ en:
         error: There was a problem updating the amendment draft.
         success: Amendment draft successfully updated.
       withdraw:
-        error: An error ocurred while withdrawing the amendment.
+        error: There was a problem withdrawing the amendment.
         success: The amendment has been withdrawn successfully.
       wizard_step_form:
         steps:
@@ -588,6 +597,9 @@ en:
           sign_up: Please complete your profile
           subtitle: Please fill in the following form in order to complete the account creation
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
+        new_tos_fields:
+          sign_up: Create an account
+          sign_up_title: Finish creating your account
       registrations:
         create:
           error: There was a problem creating your account.
@@ -1091,6 +1103,8 @@ en:
           not_found: 'The scope was not found on the database (ID: %{id})'
         scope_type_presenter:
           not_found: 'The scope type was not found on the database (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'The taxonomy was not found on the database (ID: %{id})'
     managed_users:
       expired_session: The current administration session of a participant has expired.
     map:
@@ -1426,7 +1440,7 @@ en:
         subject: A resource has been reported
     reports:
       create:
-        error: An error ocurred while creating the report. Please, try it again.
+        error: There was a problem creating the report. Please, try it again.
         success: The report has been created successfully and it will be reviewed by an admin.
     resource_endorsements:
       create:
@@ -1473,6 +1487,7 @@ en:
         close_modal: Close modal
         ok: OK
         title: Confirm
+      confirm_unload: This page contains unsaved changes. Are you sure you want to leave this page?
       embed:
         title: Embedded video content
       extended_navigation_bar:
@@ -1703,6 +1718,7 @@ en:
         message: Your account has been locked due to an excessive amount of unsuccessful log in attempts.
         subject: Unlock instructions
     omniauth_callbacks:
+      add_tos_errors: Terms of service must be accepted in order to create an account.
       failure: Could not authenticate you from %{kind} because "%{reason}".
       success: Successfully authenticated from %{kind} account.
     passwords:
@@ -1863,7 +1879,7 @@ en:
       not_found: could not be found. Have you created an account previously?
       not_locked: was not locked
       not_saved:
-        one: 'There''s been an error processing your request:'
+        one: 'There has been an error processing your request:'
         other: 'There were multiple errors when processing your request:'
       too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
       too_much_caps: is using too many capital letters (over 25% of the text)
