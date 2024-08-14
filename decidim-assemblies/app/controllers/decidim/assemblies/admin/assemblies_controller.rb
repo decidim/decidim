@@ -90,10 +90,10 @@ module Decidim
         def parent_assembly_id
           # Return the parent_id from Ransack parameters if it exists
           return ransack_params[:parent_id_eq] if ransack_params[:parent_id_eq].present?
-          
+
           # If the assembly parameter is present, return its parent_id
           return assembly_parent_id if params[:assembly].present?
-          
+
           # Otherwise, return the parent_id from the params hash
           return params[:parent_id]
         end
