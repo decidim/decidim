@@ -1090,6 +1090,7 @@ shared_examples "comments blocked" do
           visit resource_path
           expect(page).to have_content("Comments are currently disabled, only administrators can reply or post new ones.")
           expect(page).to have_no_content("You need to be verified to comment at this moment")
+          expect(page).to have_no_css("textarea#add-comment-Proposal-1")
         end
       end
 

@@ -158,7 +158,7 @@ module Decidim
           context "when user is moderator in another participatory space" do
             let!(:moderator_role) { create(:participatory_process_user_role, user:, participatory_process:, role: :moderator) }
 
-            it_behaves_like "allows commenting"
+            it_behaves_like "does not allow commenting"
           end
 
           context "when user is moderator in another assembly" do
