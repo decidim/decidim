@@ -19,6 +19,7 @@ module Decidim
       let(:user) { create(:user, :confirmed, organization:) }
       let!(:component) { create(:component, participatory_space: assembly) }
       let(:assembly) { create(:assembly, organization:) }
+      let(:participatory_process) { create(:participatory_process, organization:) }
       let(:another_assembly) { create(:assembly, organization:) }
       let(:body) { "This is a new comment" }
       let(:alignment) { 1 }
@@ -155,6 +156,12 @@ module Decidim
           end
 
           context "when user is moderator in another participatory space" do
+            let!(:moderator_role) { create(:participatory_process_user_role, user:, participatory_process:, role: :moderator) }
+
+            it_behaves_like "allows commenting"
+          end
+
+          context "when user is moderator in another assembly" do
             let!(:moderator_role) { create(:assembly_user_role, user:, assembly: another_assembly, role: :moderator) }
 
             it_behaves_like "does not allow commenting"
