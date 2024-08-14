@@ -73,7 +73,6 @@ pt:
               accepted: Assinaturas suficientes
               created: Criado
               discarded: Abandonado
-              published: Publicado
               rejected: Assinaturas insuficientes
               validating: Validação técnica
           type_id_eq:
@@ -255,7 +254,6 @@ pt:
         accepted: Assinaturas suficientes
         created: Criado
         discarded: Descartado
-        published: Publicado
         rejected: Assinaturas insuficientes
         validating: Validação técnica
       application_helper:
@@ -464,7 +462,6 @@ pt:
           accepted: Assinaturas suficientes
           created: Criado
           discarded: Eliminado
-          published: Publicado
           rejected: Assinaturas insuficientes
           validating: Verificação técnica
       states:

@@ -179,7 +179,6 @@ bg:
             participatory_texts_enabled: Текстовете от участници са разрешени
             participatory_texts_enabled_readonly: Тази настройка не е активна, ако има съществуващи предложения. Моля, създайте нов компонент „Предложения“, ако желаете да активирате тази функция или изчистете всички внесени предложения в менюто „Текст на участници“, ако искате да я деактивирате.
             proposal_answering_enabled: Отговора на предложение е разрешен
-            proposal_edit_before_minutes: Предложенията могат да бъдат редактирани от авторите преди да минат толкова минути
             proposal_edit_time: Редактиране на предложение
             proposal_edit_time_choices:
               infinite: Разрешаване на редактиране на предложения за безкраен период от време
@@ -235,10 +234,8 @@ bg:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Някой е направил бележка в предложението %{resource_title}. Вижте я в <a href="%{admin_proposal_info_url}">администраторския панел</a>.
             email_outro: Получихте известие, защото можете да оценяте предложението.
             email_subject: Някой е направил бележка в предложението %{resource_title}.
-            notification_title: Някой е направил бележка в предложението <a href="%{resource_path}">%{resource_title}</a>. Вижте я в <a href="%{admin_proposal_info_path}">администраторския панел</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} получи достъп като сътрудник в съвместната чернова <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Получихте известие, защото сте сътрудник в <a href="%{resource_url}">%{resource_title}</a>.
@@ -473,7 +470,6 @@ bg:
           form:
             note: Бележка
             submit: Подаване
-          leave_your_note: Оставете Вашата бележка
           title: Лични бележки
         proposal_states:
           create:

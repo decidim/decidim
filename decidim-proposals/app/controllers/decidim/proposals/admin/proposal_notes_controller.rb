@@ -7,6 +7,24 @@ module Decidim
       class ProposalNotesController < Admin::ApplicationController
         helper_method :proposal
 
+        def reply
+          enforce_permission_to(:create, :proposal_note, proposal:)
+          parent_note = proposal.notes.find(params[:id])
+          @form = form(ProposalNoteForm).from_params(params)
+
+          ReplyProposalNote.call(@form, parent_note) do
+            on(:ok) do
+              flash[:notice] = I18n.t("proposal_notes.reply.success", scope: "decidim.proposals.admin")
+              redirect_to proposal_path(id: proposal.id)
+            end
+
+            on(:invalid) do
+              flash.keep[:alert] = I18n.t("proposal_notes.reply.error", scope: "decidim.proposals.admin")
+              redirect_to proposal_path(id: proposal.id)
+            end
+          end
+        end
+
         def create
           enforce_permission_to(:create, :proposal_note, proposal:)
           @form = form(ProposalNoteForm).from_params(params)

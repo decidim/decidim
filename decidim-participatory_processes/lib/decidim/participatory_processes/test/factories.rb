@@ -82,7 +82,7 @@ FactoryBot.define do
 
     trait :with_scope do
       scopes_enabled { true }
-      scope { create :scope, organization:, skip_injection: }
+      scope { create(:scope, organization:, skip_injection:) }
     end
 
     trait :with_content_blocks do
@@ -186,10 +186,10 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create :participatory_process_user_role,
+      create(:participatory_process_user_role,
              user:,
              participatory_process: evaluator.participatory_process,
-             role: :admin, skip_injection: evaluator.skip_injection
+             role: :admin, skip_injection: evaluator.skip_injection)
     end
   end
 
@@ -203,10 +203,10 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create :participatory_process_user_role,
+      create(:participatory_process_user_role,
              user:,
              participatory_process: evaluator.participatory_process,
-             role: :collaborator, skip_injection: evaluator.skip_injection
+             role: :collaborator, skip_injection: evaluator.skip_injection)
     end
   end
 
@@ -220,10 +220,10 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create :participatory_process_user_role,
+      create(:participatory_process_user_role,
              user:,
              participatory_process: evaluator.participatory_process,
-             role: :moderator, skip_injection: evaluator.skip_injection
+             role: :moderator, skip_injection: evaluator.skip_injection)
     end
   end
 
@@ -237,10 +237,10 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create :participatory_process_user_role,
+      create(:participatory_process_user_role,
              user:,
              participatory_process: evaluator.participatory_process,
-             role: :valuator, skip_injection: evaluator.skip_injection
+             role: :valuator, skip_injection: evaluator.skip_injection)
     end
   end
 
@@ -249,7 +249,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     user
-    participatory_process { create :participatory_process, organization: user.organization, skip_injection: }
+    participatory_process { create(:participatory_process, organization: user.organization, skip_injection:) }
     role { "admin" }
   end
 end

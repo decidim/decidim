@@ -5,9 +5,9 @@ require "spec_helper"
 shared_examples "versions controller" do
   let(:base_params) do
     if resource.is_a?(Decidim::Participable)
-      { "#{resource.model_name.singular_route_key}_slug".to_sym => resource.slug }
+      { :"#{resource.model_name.singular_route_key}_slug" => resource.slug }
     else
-      { "#{resource.model_name.singular_route_key}_id".to_sym => resource.id }
+      { :"#{resource.model_name.singular_route_key}_id" => resource.id }
     end
   end
 

@@ -242,6 +242,7 @@ describe "Account" do
 
         it "updates the administrator's notifications" do
           page.find("[for='email_on_moderations']").click
+          page.find("[for='email_on_assigned_proposals']").click
           page.find("[for='user_notification_settings[close_meeting_reminder]']").click
 
           within "form.edit_user" do

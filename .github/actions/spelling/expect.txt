@@ -24,6 +24,7 @@ AGPL
 Ajuntament
 Ajuntamentde
 alabs
+amd
 amendables
 AMR
 andreslucena
@@ -147,6 +148,7 @@ contingut
 continuar
 contrasenya
 coopdevs
+Correu
 Cov
 Cprojects
 crdownload
@@ -796,6 +798,7 @@ setseed
 sgid
 shakapacker
 sharedapp
+shellwords
 shortanswer
 shs
 sidekiq
@@ -864,6 +867,8 @@ tableize
 tagsinput
 tailwindcss
 tarekraafat
+taxonomizable
+taxonomization
 technopolitical
 templatable
 templateable
@@ -890,6 +895,7 @@ timeoutable
 timeouter
 timestamped
 tiptap
+Tmpname
 TLDR
 todos
 Tomorrowland
@@ -908,6 +914,7 @@ tumblr
 turbolinks
 Twilio
 tzid
+tzip
 uber
 ucw
 ueee

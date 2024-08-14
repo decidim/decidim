@@ -65,7 +65,6 @@ uk:
             new_proposal_help_text: Підказки зі внесення нової пропозиції
             official_proposals_enabled: Службові пропозиції увімкнено
             proposal_answering_enabled: Увімкнено відповіді на пропозиції
-            proposal_edit_before_minutes: Пропозиції можуть бути відредаговані авторами до того, як пройде стільки хвилин
             proposal_length: Гранична довжина основного тексту пропозиції
             proposal_limit: Гранична кількість пропозицій від одного учасника
             proposal_wizard_step_1_help_text: Довідка майстра пропозицій щодо кроку "Створити"
@@ -131,7 +130,6 @@ uk:
           form:
             note: Примітка
             submit: Надіслати
-          leave_your_note: Залиште свою нотатку
           title: Приватні примітки
         proposals:
           form:
