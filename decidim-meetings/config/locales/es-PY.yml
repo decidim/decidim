@@ -663,6 +663,7 @@ es-PY:
         transparent: Transparente
         withdraw: Retirado
       withdraw:
+        error: Se ha producido un error al retirar el encuentro.
         success: El encuentro se ha retirado con éxito.
     metrics:
       meetings:
